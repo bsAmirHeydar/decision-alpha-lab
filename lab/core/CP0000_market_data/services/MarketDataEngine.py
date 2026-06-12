@@ -216,38 +216,80 @@ class MarketDataEngine:
             .reset_index(drop=True)
         )
 
+    def _resolve_shift(self, df, shift: int):
+
+        if shift < 0:
+            raise ValueError(
+                "Shift must be >= 0 (MQL5 style indexing)."
+            )
+
+        idx = len(df) - 1 - shift
+
+        if idx < 0:
+            raise IndexError(
+                f"Shift {shift} is out of range."
+            )
+
+        return idx
     # ==================================================
-    # Price accessors
-    # ==================================================
-
-    def iOpen(self, symbol, timeframe, index: int):
-        df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["open"]
-
-    def iClose(self, symbol, timeframe, index: int):
-        df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["close"]
-
-    def iHigh(self, symbol, timeframe, index: int):
-        df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["high"]
-
-    def iLow(self, symbol, timeframe, index: int):
-        df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["low"]
-
-    # ==================================================
-    # Extra accessors
+    # Price accessors (MQL5 style)
     # ==================================================
 
-    def iTime(self, symbol, timeframe, index: int):
+    def iOpen(self, symbol, timeframe, shift: int):
         df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["time"]
 
-    def iVolume(self, symbol, timeframe, index: int):
-        df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["tick_volume"]
+        idx = self._resolve_shift(df, shift)
 
-    def iSpread(self, symbol, timeframe, index: int):
+        return df.iloc[idx]["open"]
+
+
+    def iClose(self, symbol, timeframe, shift: int):
         df = self._get_df(symbol, timeframe)
-        return df.iloc[index]["spread"]
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["close"]
+
+
+    def iHigh(self, symbol, timeframe, shift: int):
+        df = self._get_df(symbol, timeframe)
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["high"]
+
+
+    def iLow(self, symbol, timeframe, shift: int):
+        df = self._get_df(symbol, timeframe)
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["low"]
+
+
+    # ==================================================
+    # Extra accessors (MQL5 style)
+    # ==================================================
+
+    def iTime(self, symbol, timeframe, shift: int):
+        df = self._get_df(symbol, timeframe)
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["time"]
+
+
+    def iVolume(self, symbol, timeframe, shift: int):
+        df = self._get_df(symbol, timeframe)
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["tick_volume"]
+
+
+    def iSpread(self, symbol, timeframe, shift: int):
+        df = self._get_df(symbol, timeframe)
+
+        idx = self._resolve_shift(df, shift)
+
+        return df.iloc[idx]["spread"]

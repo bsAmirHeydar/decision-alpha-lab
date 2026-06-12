@@ -5,23 +5,22 @@ from lab.core.CP0000_market_data.utils.timeframes import Timeframe
 
 SYMBOL = "GOLD"
 TIMEFRAME = Timeframe.M15
-BARS = 500
+BARS = 5000
 
 
 def print_last_5(engine, symbol, timeframe):
-    print("\nLAST 5 CANDLES:")
+    print("\nLAST 5 CANDLES (MQL5 style):")
 
-    df = engine._get_df(symbol, timeframe)
-
-    for i in range(-5, 0):
+    for shift in range(4, -1, -1):
         print({
-            "time": engine.iTime(symbol, timeframe, i),
-            "open": engine.iOpen(symbol, timeframe, i),
-            "high": engine.iHigh(symbol, timeframe, i),
-            "low": engine.iLow(symbol, timeframe, i),
-            "close": engine.iClose(symbol, timeframe, i),
-            "volume": engine.iVolume(symbol, timeframe, i),
-            "spread": engine.iSpread(symbol, timeframe, i),
+            "shift": shift,
+            "time": engine.iTime(symbol, timeframe, shift),
+            "open": engine.iOpen(symbol, timeframe, shift),
+            "high": engine.iHigh(symbol, timeframe, shift),
+            "low": engine.iLow(symbol, timeframe, shift),
+            "close": engine.iClose(symbol, timeframe, shift),
+            "volume": engine.iVolume(symbol, timeframe, shift),
+            "spread": engine.iSpread(symbol, timeframe, shift),
         })
 
 
@@ -56,5 +55,5 @@ def run_test(reset_cache=False):
 
 
 if __name__ == "__main__":
-    run_test(reset_cache=True)   # دانلود مجدد و ساخت cache
-    run_test()                   # استفاده از cache + sync
+    run_test(reset_cache=True)    # rebuild cache
+    run_test(reset_cache=False)   # cache + sync
