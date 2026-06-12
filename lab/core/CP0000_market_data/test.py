@@ -3,49 +3,58 @@ from lab.core.CP0000_market_data.services.MarketDataEngine import MarketDataEngi
 from lab.core.CP0000_market_data.utils.timeframes import Timeframe
 
 
-def run_test_normal():
-    print("\n=== NORMAL MODE TEST ===")
+SYMBOL = "GOLD"
+TIMEFRAME = Timeframe.M15
+BARS = 500
+
+
+def print_last_5(engine, symbol, timeframe):
+    print("\nLAST 5 CANDLES:")
+
+    df = engine._get_df(symbol, timeframe)
+
+    for i in range(-5, 0):
+        print({
+            "time": engine.iTime(symbol, timeframe, i),
+            "open": engine.iOpen(symbol, timeframe, i),
+            "high": engine.iHigh(symbol, timeframe, i),
+            "low": engine.iLow(symbol, timeframe, i),
+            "close": engine.iClose(symbol, timeframe, i),
+            "volume": engine.iVolume(symbol, timeframe, i),
+            "spread": engine.iSpread(symbol, timeframe, i),
+        })
+
+
+def run_test(reset_cache=False):
+    mode = "RESET CACHE" if reset_cache else "NORMAL"
+
+    print(f"\n=== {mode} TEST ===")
 
     connector = MT5Connector()
     connector.connect()
 
-    engine = MarketDataEngine(connector)
+    try:
+        engine = MarketDataEngine(connector)
 
-    df = engine.fetch(
-        symbol="GOLD",
-        timeframe=Timeframe.M15,
-        bars=500
-    )
+        df = engine.fetch(
+            symbol=SYMBOL,
+            timeframe=TIMEFRAME,
+            bars=BARS,
+            reset_cache=reset_cache,
+        )
 
-    connector.disconnect()
+        print(f"Shape: {df.shape}")
 
-    print(df.shape)
-    print("\nLAST 5 CANDLES:")
-    print(df.tail(5))
+        print_last_5(
+            engine,
+            SYMBOL,
+            TIMEFRAME,
+        )
 
-
-def run_test_reset():
-    print("\n=== RESET CACHE TEST ===")
-
-    connector = MT5Connector()
-    connector.connect()
-
-    engine = MarketDataEngine(connector)
-
-    df = engine.fetch(
-        symbol="GOLD",
-        timeframe=Timeframe.M15,
-        bars=500,
-        reset_cache=False
-    )
-
-    connector.disconnect()
-
-    print(df.shape)
-    print("\nLAST 5 CANDLES:")
-    print(df.tail(5))
+    finally:
+        connector.disconnect()
 
 
 if __name__ == "__main__":
-    run_test_normal()
-    run_test_reset()
+    run_test(reset_cache=True)   # دانلود مجدد و ساخت cache
+    run_test()                   # استفاده از cache + sync

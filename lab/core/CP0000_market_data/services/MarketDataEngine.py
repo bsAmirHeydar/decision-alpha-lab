@@ -1,5 +1,7 @@
-import pandas as pd
+# lab/core/CP0000_market_data/services/MarketDataEngine.py
+
 from datetime import datetime, timedelta
+import pandas as pd
 
 from lab.core.CP0000_market_data.cache.ParquetStore import ParquetStore
 
@@ -20,66 +22,232 @@ class MarketDataEngine:
         end=None,
         reset_cache: bool = False,
     ):
-
         cache_key = timeframe.name
 
-        # -------------------------
-        # RESET MODE
-        # -------------------------
         if reset_cache:
             self.store.delete(symbol, cache_key)
 
         cached = self.store.load(symbol, cache_key)
 
-        # -------------------------
-        # CASE 1: NO CACHE
-        # -------------------------
+        # ==========================================
+        # CASE 1: Explicit range request
+        # ==========================================
+        if start is not None and end is not None:
+
+            df_range = self.connector.fetch(
+                symbol=symbol,
+                timeframe=timeframe,
+                start=start,
+                end=end,
+                strict=False,
+            )
+
+            if df_range is None or df_range.empty:
+                return pd.DataFrame()
+
+            if cached is None:
+                final = (
+                    df_range
+                    .drop_duplicates(
+                        subset=["time"],
+                        keep="last",
+                    )
+                    .sort_values("time")
+                    .reset_index(drop=True)
+                )
+            else:
+                final = (
+                    pd.concat([cached, df_range])
+                    .drop_duplicates(
+                        subset=["time"],
+                        keep="last",
+                    )
+                    .sort_values("time")
+                    .reset_index(drop=True)
+                )
+
+            self.store.save(
+                final,
+                symbol,
+                cache_key,
+            )
+
+            return (
+                final[
+                    (final["time"] >= start)
+                    & (final["time"] <= end)
+                ]
+                .reset_index(drop=True)
+            )
+
+        # ==========================================
+        # CASE 2: No cache exists
+        # ==========================================
         if cached is None:
+
             df = self.connector.fetch(
                 symbol=symbol,
                 timeframe=timeframe,
                 bars=bars,
                 days=days,
-                start=start,
-                end=end,
             )
 
-            self.store.save(df, symbol, cache_key)
+            if df is None:
+                return pd.DataFrame()
+
+            df = (
+                df
+                .drop_duplicates(
+                    subset=["time"],
+                    keep="last",
+                )
+                .sort_values("time")
+                .reset_index(drop=True)
+            )
+
+            self.store.save(
+                df,
+                symbol,
+                cache_key,
+            )
+
             return df
 
-        # -------------------------
-        # CASE 2: CACHE EXISTS
-        # -------------------------
-        cached = cached.sort_values("time")
+        # ==========================================
+        # CASE 3: Cache exists → sync
+        # ==========================================
+        cached = (
+            cached
+            .drop_duplicates(
+                subset=["time"],
+                keep="last",
+            )
+            .sort_values("time")
+            .reset_index(drop=True)
+        )
 
         last_time = cached["time"].max()
 
-        # safe alignment (avoid MT5 overlap issues)
-        start_time = last_time + timedelta(seconds=1)
-
-        df_new = None
+        # Re-fetch the last candle because it may
+        # still be forming.
+        start_sync = last_time
 
         try:
             df_new = self.connector.fetch(
                 symbol=symbol,
                 timeframe=timeframe,
-                start=start_time,
+                start=start_sync,
                 end=datetime.now(),
+                strict=False,
             )
         except Exception:
-            return cached
+            df_new = pd.DataFrame()
 
-        if df_new is None or df_new.empty:
-            return cached
+        if df_new is not None and not df_new.empty:
 
-        # -------------------------
-        # MERGE + CLEAN
-        # -------------------------
-        final = pd.concat([cached, df_new])
+            cached = (
+                pd.concat([cached, df_new])
+                .drop_duplicates(
+                    subset=["time"],
+                    keep="last",
+                )
+                .sort_values("time")
+                .reset_index(drop=True)
+            )
 
-        final = final.drop_duplicates(subset=["time"])
-        final = final.sort_values("time").reset_index(drop=True)
+            self.store.save(
+                cached,
+                symbol,
+                cache_key,
+            )
 
-        self.store.save(final, symbol, cache_key)
+        # ==========================================
+        # Return modes
+        # ==========================================
 
-        return final
+        # Latest N bars
+        if bars is not None:
+            return (
+                cached
+                .tail(bars)
+                .reset_index(drop=True)
+            )
+
+        # Last N days
+        if days is not None:
+
+            cutoff = datetime.now() - timedelta(days=days)
+
+            return (
+                cached[
+                    cached["time"] >= cutoff
+                ]
+                .reset_index(drop=True)
+            )
+
+        # Full archive
+        return cached
+
+    # ==================================================
+    # Internal accessor
+    # ==================================================
+
+    def _get_df(self, symbol, timeframe):
+
+        cache_key = timeframe.name
+
+        df = self.store.load(
+            symbol,
+            cache_key,
+        )
+
+        if df is None:
+            raise ValueError(
+                "No cached data. Call fetch() first."
+            )
+
+        return (
+            df
+            .drop_duplicates(
+                subset=["time"],
+                keep="last",
+            )
+            .sort_values("time")
+            .reset_index(drop=True)
+        )
+
+    # ==================================================
+    # Price accessors
+    # ==================================================
+
+    def iOpen(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["open"]
+
+    def iClose(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["close"]
+
+    def iHigh(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["high"]
+
+    def iLow(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["low"]
+
+    # ==================================================
+    # Extra accessors
+    # ==================================================
+
+    def iTime(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["time"]
+
+    def iVolume(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["tick_volume"]
+
+    def iSpread(self, symbol, timeframe, index: int):
+        df = self._get_df(symbol, timeframe)
+        return df.iloc[index]["spread"]
