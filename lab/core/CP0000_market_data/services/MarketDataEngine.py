@@ -188,6 +188,9 @@ class MarketDataEngine:
         # Full archive
         return cached
 
+    def get_df(self, symbol, timeframe):
+        return self._get_df(symbol, timeframe)
+        
     # ==================================================
     # Internal accessor
     # ==================================================

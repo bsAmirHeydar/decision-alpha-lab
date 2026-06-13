@@ -10,7 +10,7 @@ from lab.core.CP0001_structural_nodes.detectors.L_Rule import (
 SYMBOL = "GOLD"
 TIMEFRAME = Timeframe.M15
 BARS = 5000
-L = 2
+L = 4
 
 
 def run_test(reset_cache=False):
@@ -44,9 +44,52 @@ def run_test(reset_cache=False):
         print(f"\nL = {L}")
         print(f"Total Nodes: {len(nodes)}")
 
-        print("\nLAST 10 NODES:")
+        # -------------------------
+        # آخرین 10 نود (جدیدترین)
+        # -------------------------
+        print("\nLAST 10 ALL NODES:")
 
-        for node in nodes[-10:]:
+        for shift in range(min(10, len(nodes))):
+            node = detector.iNode(
+                SYMBOL,
+                TIMEFRAME,
+                shift,
+            )
+
+            print(node)
+
+        # -------------------------
+        # آخرین 5 قله
+        # -------------------------
+        print("\nLAST 5 HIGH NODES:")
+
+        for shift in range(5):
+            node = detector.iHighNode(
+                SYMBOL,
+                TIMEFRAME,
+                shift,
+            )
+
+            if node is None:
+                break
+
+            print(node)
+
+        # -------------------------
+        # آخرین 5 دره
+        # -------------------------
+        print("\nLAST 5 LOW NODES:")
+
+        for shift in range(5):
+            node = detector.iLowNode(
+                SYMBOL,
+                TIMEFRAME,
+                shift,
+            )
+
+            if node is None:
+                break
+
             print(node)
 
     finally:
@@ -54,4 +97,5 @@ def run_test(reset_cache=False):
 
 
 if __name__ == "__main__":
-    run_test(reset_cache=False)
+    run_test(reset_cache=True)   # ساخت مجدد cache
+    run_test(reset_cache=False)  # تست sync و استفاده از cache
