@@ -164,11 +164,11 @@ class LRuleNodeDetector:
             current_low = lows[i]
 
             high_left_ok = (
-                current_high > left_high.max()
+                current_high >= left_high.max()
             )
 
             low_left_ok = (
-                current_low < left_low.min()
+                current_low <= left_low.min()
             )
 
             # ==========================
@@ -179,26 +179,17 @@ class LRuleNodeDetector:
                 n - i - 1,
             )
 
-            right_high = highs[
-                i + 1:i + 1 + available_right
-            ]
-
-            right_low = lows[
-                i + 1:i + 1 + available_right
-            ]
+            right_high = highs[i + 1:i + 1 + available_right]
+            right_low = lows[i + 1:i + 1 + available_right]
 
             high_right_ok = True
             low_right_ok = True
 
             if available_right > 0:
 
-                high_right_ok = (
-                    current_high > right_high.max()
-                )
-
-                low_right_ok = (
-                    current_low < right_low.min()
-                )
+                # equal is allowed → STRICT break only on violation
+                high_right_ok = current_high >= right_high.max()
+                low_right_ok = current_low <= right_low.min()
             # ==========================
             # HIGH NODE
             # ==========================
@@ -209,12 +200,9 @@ class LRuleNodeDetector:
                         "time": times[i],
                         "type": "HIGH",
                         "price": float(current_high),
-                        "confirmed": (
-                            available_right == L
-                        ),
+                        "confirmed": (available_right == L),
                     }
                 )
-
             # ==========================
             # LOW NODE
             # ==========================
@@ -225,9 +213,7 @@ class LRuleNodeDetector:
                         "time": times[i],
                         "type": "LOW",
                         "price": float(current_low),
-                        "confirmed": (
-                            available_right == L
-                        ),
+                        "confirmed": (available_right == L),
                     }
                 )
         # --------------------------------------

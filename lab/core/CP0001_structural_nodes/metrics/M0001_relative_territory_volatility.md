@@ -1,388 +1,832 @@
 # M0001 — Relative Territory Volatility (RTV)
 
+## Version
+
+Final Specification
+
 ## Status
 
-Draft
-
-Associated Hypothesis:
-
-* H0002 — Structural Node Territories and Revisitation Dynamics
+Frozen Design Document
 
 ---
 
-# Objective
+# 1. Purpose
 
-The objective of this metric is to determine whether market volatility changes systematically when price revisits previously confirmed structural nodes.
+M0001 (Relative Territory Volatility) is a structural metric designed to quantify how price behaves when revisiting the territory of a structural node.
 
-More specifically:
+The core question is:
 
-> Does market activity inside structural node territories exhibit different volatility characteristics compared to the market's immediately preceding behavior?
+> Does price exhibit a different volatility regime when it returns to the vicinity of an important structural node?
 
-This metric does not attempt to predict direction, profitability, or alpha.
-
-Its sole purpose is to determine whether revisitations of structural territories coincide with statistically distinguishable volatility regimes.
+Instead of relying on classical volatility measures such as ATR or standard deviation, M0001 evaluates volatility through logarithmic candle movements within the context of structural node territories.
 
 ---
 
-# Motivation
+# 2. Inputs
 
-A common discretionary belief is that previously established structural highs and lows remain behaviorally important when revisited.
+## 2.1 Market Data
 
-Traders often describe these regions as:
+OHLC data:
 
-* areas of decision,
-* liquidity interaction zones,
-* regions of conflict,
-* zones of increased activity.
-
-If such intuition is valid, then volatility observed during revisitations should differ from volatility observed immediately before revisitation.
-
-The present metric formalizes this intuition.
+* time
+* open
+* high
+* low
+* close
 
 ---
 
-# Scope
+## 2.2 Structural Nodes
 
-This metric applies exclusively to:
+Nodes are supplied by:
 
-* confirmed structural nodes,
-* nodes possessing a valid territory,
-* revisitation events defined under H0002.
+LRuleNodeDetector
 
-Unconfirmed nodes are excluded.
+Only nodes satisfying:
 
----
+```text
+confirmed = True
+```
 
-# Definitions
-
-## Structural Node
-
-A previously confirmed structural high or low.
-
-Examples include:
-
-* L-rule pivots,
-* fractals,
-* alternative rule-based node definitions.
-
-The extraction method is independent of this metric.
+are considered.
 
 ---
 
-## Territory
+# 3. Design Philosophy
 
-The finite region surrounding a structural node defined according to H0002.
+The entire metric is designed to behave exactly like a live market.
+
+At no point is future information allowed.
+
+Every decision must be made using only information available up to the current candle.
+
+Therefore:
+
+> Backtests and live execution follow identical logic.
+
+---
+
+# 4. Live Market Simulation
+
+The algorithm operates candle-by-candle.
+
+For each incoming candle:
+
+* Market advances by one step.
+* Every active node is evaluated.
+* Decisions rely exclusively on historical information.
+
+---
+
+# 5. Node States
+
+Each node exists in one of three states.
+
+---
+
+## TRACKING
+
+The node is active.
+
+No event is currently open.
+
+Extreme values continue to evolve.
+
+---
+
+## ACTIVE EVENT
+
+An event is currently being recorded.
+
+Volatility measurements are accumulated.
+
+---
+
+## CONSUMED
+
+The node is permanently inactive.
+
+No further processing occurs.
+
+---
+
+# 6. Node State Variables
+
+Each node maintains an independent state.
+
+Stored fields include:
+
+Identity:
+
+* node_id
+* node_time
+* node_index
+* node_price
+* node_type
+
+Tracking:
+
+* extreme
+* consumed
+* hunted
+
+Event:
+
+* in_event
+
+* revisit_id
+
+* entry_index
+
+* entry_time
+
+* exit_index
+
+* exit_time
+
+Zone:
+
+* territory_lower
+* territory_upper
+
+Metric Storage:
+
+* before_logs
+* inside_logs
+
+Frozen Event Data:
+
+* frozen_extreme
+
+---
+
+# 7. Initial Extreme
+
+For LOW nodes:
+
+```text
+extreme = node_price
+```
+
+For HIGH nodes:
+
+```text
+extreme = node_price
+```
+
+---
+
+# 8. Extreme Updating
+
+Extreme updates only while the node is in TRACKING mode.
+
+No updates occur during an active event.
+
+---
+
+## LOW Nodes
+
+If:
+
+```text
+high > extreme
+```
+
+Then:
+
+```text
+extreme = high
+```
+
+---
+
+## HIGH Nodes
+
+If:
+
+```text
+low < extreme
+```
+
+Then:
+
+```text
+extreme = low
+```
+
+---
+
+# 9. Extreme Distance
+
+Distance is defined as:
+
+```text
+distance = |extreme − node_price|
+```
+
+---
+
+# 10. Territory Construction
+
+A parameter called:
+
+```text
+zone_ratio
+```
+
+defines the territory width.
 
 Example:
 
-Low Node:
+```text
+node_price = 100
+extreme   = 150
 
-Node Price:
+distance = 50
 
-100
+zone_ratio = 0.9
+```
 
-Expansion Extreme:
+Territory width becomes:
 
-150
+```text
+distance × (1 − zone_ratio)
 
-Range:
+50 × 0.1 = 5
+```
 
-50
+---
 
-Territory Parameter:
+# 11. Territory Boundaries
 
-0.80
+Territory is symmetric around the node.
 
-Half Width:
+Definitions:
 
-50 × (1 − 0.80)
+```text
+half_width = distance × (1 − zone_ratio)
 
-= 10
+lower = node_price − half_width
+
+upper = node_price + half_width
+```
+
+Example:
+
+```text
+Zone = [95, 105]
+```
+
+---
+
+# 12. Territory Entry Detection
+
+Entry is wick-based.
+
+Price is considered inside the territory if:
+
+NOT:
+
+```text
+high < lower
+```
+
+AND NOT:
+
+```text
+low > upper
+```
+
+Equivalently:
+
+```text
+Wick intersects territory.
+```
+
+---
+
+# 13. Baseline Collection
+
+Before an event begins:
+
+Logarithmic movements are accumulated into:
+
+```text
+before_logs
+```
+
+These observations define the baseline market regime.
+
+---
+
+# 14. Logarithmic Movement
+
+For each candle:
+
+First compute:
+
+```text
+move = |high − low|
+```
+
+If:
+
+```text
+move ≤ 0
+```
+
+Then:
+
+```text
+log_move = 0
+```
+
+Otherwise:
+
+```text
+log_move = log(move)
+```
+
+---
+
+# 15. Event Initiation
+
+When price enters the territory:
+
+The following occurs:
+
+```text
+in_event = True
+
+revisit_id += 1
+
+outside_count = 0
+
+entry_time recorded
+
+inside_logs cleared
+
+frozen_extreme recorded
+```
+
+---
+
+# 16. Frozen Extreme
+
+Frozen extreme is defined as:
+
+> The extreme value observed immediately before event initiation.
+
+Once the event begins:
+
+```text
+frozen_extreme never changes.
+```
+
+It is stored in the final output.
+
+---
+
+# 17. Event Volatility Collection
+
+During an active event:
+
+Each candle contributes:
+
+```text
+inside_logs.append(log_move)
+```
+
+---
+
+# 18. Temporary Territory Exit
+
+If a candle closes outside the territory:
+
+```text
+outside_count += 1
+```
+
+If price returns inside:
+
+```text
+outside_count = 0
+```
+
+---
+
+# 19. Event Termination
+
+An event ends when:
+
+```text
+outside_count ≥ exit_gap
+```
+
+Meaning:
+
+> Price remained completely outside the territory for a specified number of consecutive candles.
+
+---
+
+# 20. Event Length
+
+Defined as:
+
+```text
+event_length = len(inside_logs)
+```
+
+---
+
+# 21. Event Baseline
+
+Suppose:
+
+```text
+N = event_length
+```
+
+Then:
+
+The last N observations from:
+
+```text
+before_logs
+```
+
+are extracted.
+
+These constitute the baseline comparison sample.
+
+---
+
+If insufficient baseline exists:
+
+The event is discarded.
+
+---
+
+# 22. Statistical Measures
+
+For inside_logs:
+
+Compute:
+
+```text
+mean_inside
+
+median_inside
+```
+
+---
+
+For baseline:
+
+Compute:
+
+```text
+mean_before
+
+median_before
+```
+
+---
+
+# 23. RTV Definition
+
+If:
+
+```text
+mean_before ≠ 0
+```
+
+Then:
+
+```text
+RTV = mean_inside / mean_before
+```
+
+Otherwise:
+
+RTV is undefined.
+
+---
+
+# 24. Consumption Modes
+
+Two consumption models exist.
+
+---
+
+## TOUCH Mode
+
+After completion of the first event:
+
+```text
+consumed = True
+```
+
+The node becomes permanently inactive.
+
+No revisits are possible.
+
+---
+
+## HUNT Mode
+
+Completion of an event does NOT automatically consume the node.
+
+The node remains active unless hunted.
+
+---
+
+# 25. Hunt Definition
+
+---
+
+## LOW Nodes
+
+If:
+
+```text
+low < node_price
+```
+
+Then:
+
+```text
+hunted = True
+```
+
+---
+
+## HIGH Nodes
+
+If:
+
+```text
+high > node_price
+```
+
+Then:
+
+```text
+hunted = True
+```
+
+---
+
+# 26. Consumption Under Hunt Mode
+
+If:
+
+```text
+hunted = True
+```
+
+Then:
+
+```text
+consumed = True
+```
+
+The node becomes inactive.
+
+---
+
+If:
+
+```text
+hunted = False
+```
+
+The node survives.
+
+---
+
+# 27. Revisit Definition
+
+Revisits are only possible under Hunt Mode.
+
+Requirements:
+
+* Previous event completed.
+* Node not consumed.
+* Price re-enters the territory.
+
+---
+
+# 28. Revisit Behaviour
+
+Each revisit forms an entirely independent event.
+
+Previous events remain preserved.
+
+Example:
+
+```text
+Node 25
+
+Event 1
+
+Event 2
+
+Event 3
+```
+
+All are stored independently.
+
+---
+
+# 29. Baseline During Revisits
+
+For every revisit:
+
+```text
+before_logs cleared
+```
+
+A completely new baseline is constructed.
+
+---
+
+# 30. Event Logs During Revisits
+
+For every revisit:
+
+```text
+inside_logs cleared
+```
+
+Only candles belonging to that revisit contribute.
+
+---
+
+# 31. Territory Persistence
+
+Territory boundaries are preserved after event completion.
+
+They are NOT removed.
+
+The previous territory is reused to detect future revisits.
+
+---
+
+# 32. Extreme Handling During Revisits
+
+After event completion:
+
+```text
+extreme = None
+```
+
+However:
+
+```text
+territory remains unchanged.
+```
+
+---
+
+When price re-enters the preserved territory:
+
+A new extreme is seeded.
+
+---
+
+## LOW Nodes
+
+The new extreme becomes:
+
+```text
+extreme = current candle high
+```
+
+---
+
+## HIGH Nodes
+
+The new extreme becomes:
+
+```text
+extreme = current candle low
+```
+
+---
+
+# 33. Extreme Evolution After Revisit Seeding
+
+Once seeded:
+
+Extreme evolves normally.
+
+LOW:
+
+```text
+if high > extreme:
+
+    extreme = high
+```
+
+HIGH:
+
+```text
+if low < extreme:
+
+    extreme = low
+```
+
+---
+
+# 34. System Characteristics
+
+The metric is:
+
+* Fully live-compatible.
+* Free of future leakage.
+* Structural-node based.
+* Revisit-aware.
+* Wick-sensitive.
+* Log-volatility driven.
+* Baseline-normalized.
+* Event-history preserving.
+* Configurable via multiple consumption models.
+
+---
+
+# 35. Final Output
+
+Each output row represents one completed event.
+
+Fields include:
+
+Identity:
+
+* node_id
+* node_time
+* node_type
+* node_price
+
+Event:
+
+* revisit_id
+* entry_time
+* exit_time
+* event_length
 
 Territory:
 
-[90, 110]
+* territory_lower
+* territory_upper
+* expansion_extreme
+
+Statistics:
+
+* mean_inside
+
+* mean_before
+
+* median_inside
+
+* median_before
+
+Metric:
+
+* RTV
+
+Consumption:
+
+* hunted
 
 ---
 
-# Revisitation Event
+# 36. RTV Interpretation
 
-A revisitation event begins when price first enters the territory.
+## RTV > 1
 
-Entry detection uses intrabar extremes.
+Volatility inside the territory exceeded normal market behaviour.
 
-For Low Nodes:
-
-Entry occurs when:
-
-Low ≤ Territory Upper Boundary
-
-For High Nodes:
-
-Entry occurs when:
-
-High ≥ Territory Lower Boundary
-
-Open and Close prices are ignored for event detection.
-
-Only High and Low values are considered.
+The revisit exhibited elevated activity.
 
 ---
 
-# Event Termination
+## RTV ≈ 1
 
-Event termination depends on the selected consumption model.
+Volatility inside the territory resembled the baseline regime.
 
----
-
-## First-Touch Consumption
-
-The event ends immediately after the first territory interaction.
-
-The node is permanently removed from future consideration.
+No meaningful behavioural change was detected.
 
 ---
 
-## Hunt Consumption
+## RTV < 1
 
-The node remains active until invalidation.
+Volatility inside the territory was lower than the surrounding market regime.
 
-Low Nodes terminate when:
-
-Low < Node Price
-
-High Nodes terminate when:
-
-High > Node Price
-
-Multiple revisitations are therefore possible.
+The revisit exhibited relative calmness.
 
 ---
 
-# Event Length
+# Conclusion
 
-Let:
-
-N
-
-denote the number of candles comprising the revisitation event.
-
-Because territory interactions naturally vary in duration:
-
-* N may equal 2,
-* N may equal 54,
-* N may equal 120.
-
-No fixed look-ahead window is imposed.
-
-The market determines the event duration.
-
----
-
-# Intrabar Volatility Measure
-
-For each candle i within the event:
-
-The intrabar logarithmic range is defined as:
-
-r_i = ln(High_i / Low_i)
-
-Properties:
-
-* scale invariant,
-* direction independent,
-* comparable across assets,
-* incorporates wick activity,
-* robust to differences in absolute price level.
-
-This quantity represents the magnitude of price exploration within the candle.
-
----
-
-# Territory Volatility
-
-The average intrabar logarithmic volatility inside the revisitation event is defined as:
-
-V_zone
-
-V_zone =
-(1 / N)
-×
-Σ r_i
-
-where the summation spans all candles belonging to the revisitation event.
-
-Explicitly:
-
-V_zone =
-(1 / N)
-×
-Σ ln(High_i / Low_i)
-
-for i = 1 to N.
-
----
-
-# Baseline Volatility
-
-To construct a self-normalized comparison:
-
-The N candles immediately preceding territory entry are selected.
-
-These candles form the baseline period.
-
-Let:
-
-V_base
-
-denote the average logarithmic intrabar volatility over this baseline.
-
-V_base =
-(1 / N)
-×
-Σ ln(High_i / Low_i)
-
-computed over the N candles prior to entry.
-
----
-
-# Relative Territory Volatility
-
-The Relative Territory Volatility ratio is defined as:
-
-RTV =
-V_zone / V_base
-
-This ratio constitutes the primary output of M0001.
-
----
-
-# Interpretation
-
-RTV ≈ 1
-
-Market behavior inside the territory is indistinguishable from immediately preceding behavior.
-
-No evidence of a volatility regime shift.
-
----
-
-RTV > 1
-
-Volatility inside the territory exceeds baseline volatility.
-
-The revisitation event coincides with intensified market activity.
-
-Examples:
-
-* aggressive reactions,
-* stop runs,
-* impulsive responses,
-* conflict-driven expansions.
-
----
-
-RTV < 1
-
-Volatility inside the territory is lower than baseline volatility.
-
-The revisitation event coincides with relative suppression of activity.
-
-Examples:
-
-* absorption,
-* hesitation,
-* equilibrium,
-* passive interaction.
-
----
-
-# Statistical Interpretation
-
-Under the null hypothesis:
-
-The distribution of RTV values observed during structural revisitations should be indistinguishable from RTV values obtained from random baselines.
-
-Formally:
-
-RTV_structural
-
-≈
-
-RTV_random
-
-Any deviations are attributed to randomness.
-
----
-
-Under the alternative hypothesis:
-
-RTV_structural
-
-≠
-
-RTV_random
-
-indicating that structural territories are associated with distinct volatility dynamics.
-
----
-
-# Random Baseline
-
-To evaluate statistical significance:
-
-Random pseudo-events should be generated.
-
-Each pseudo-event should match:
-
-* event duration N,
-* market period,
-* asset,
-* timeframe.
-
-RTV values from structural revisitations are then compared against RTV values from random revisitations.
-
-Candidate comparison methods include:
-
-* bootstrap procedures,
-* permutation testing,
-* Mann–Whitney U tests,
-* Kolmogorov–Smirnov tests.
-
-The choice of test is independent of the metric definition.
-
----
-
-# Outputs
-
-For each revisitation event, the following fields should be recorded:
-
-* node_id,
-* node_type,
-* node_price,
-* territory_entry_time,
-* territory_exit_time,
-* event_length_N,
-* V_zone,
-* V_base,
-* RTV,
-* consumption_mode.
-
-These observations collectively form the empirical dataset used to evaluate H0002.
-
----
-
-# Notes
-
-M0001 intentionally avoids:
-
-* directional assumptions,
-* profitability measures,
-* predictive claims,
-* alpha estimation.
-
-It addresses a narrower question:
-
-> Does the market exhibit different volatility behavior when interacting with previously confirmed structural territories?
-
-Only after establishing the existence of such differences should further investigation into economic usefulness be pursued.
+M0001 is a structural behavioural engine that models price revisits to important market nodes through a fully live-simulated process, eliminating future leakage while supporting dynamic territory formation, configurable node consumption, independent revisits, and normalized volatility comparisons.
