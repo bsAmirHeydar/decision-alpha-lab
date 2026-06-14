@@ -3,3 +3,19 @@
 apps/web/node_modules/
 apps/web/dist/
 apps/web/.vite/
+
+# Python generated files
+__pycache__/
+*.pyc
+
+# Frontend generated files
+node_modules/
+apps/web/node_modules/
+apps/web/dist/
+apps/web/.vite/
+apps/web/tsconfig.tsbuildinfo
+
+# Temporary UI patch artifacts
+quant_lab_*.zip
+quant_lab_*.patch
+repair_lab_os.ps1

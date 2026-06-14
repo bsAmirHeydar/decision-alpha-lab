@@ -1,51 +1,48 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import { CandlestickSeries, createChart, type IChartApi, type ISeriesApi, type Time } from 'lightweight-charts';
-import type { Candle, OverlayLayer, ReplayPayload, VisualObject } from '../../types/visualization';
-import { formatNumber } from '../../utils/format';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { createChart, type IChartApi, type ISeriesApi, type Time } from 'lightweight-charts';
+import type { Candle, OverlayLayer, VisualObject, VisualizationPayload } from '../../types/visualization';
+
+interface Props {
+  payload: VisualizationPayload;
+  currentIndex: number;
+  selectedObjectId: string | null;
+  hoveredObjectId: string | null;
+  onSelectObject: (id: string | null) => void;
+  onHoverObject: (id: string | null) => void;
+}
 
 interface OverlayRect {
   id: string;
+  selectableId: string;
   className: string;
-  label?: string | null;
-  style: CSSProperties;
   object: VisualObject;
-  hitBox: HitBox;
+  style: React.CSSProperties;
 }
 
 interface OverlayPoint {
   id: string;
+  selectableId: string;
   className: string;
-  label?: string | null;
-  style: CSSProperties;
   object: VisualObject;
-  hitBox: HitBox;
+  label: string | null;
+  style: React.CSSProperties;
 }
 
-interface HitBox {
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-}
-
-export function MarketChart({ payload, currentIndex, layers, selectedObjectId, hoveredObjectId, onSelectObject, onHoverObject }: {
-  payload: ReplayPayload;
-  currentIndex: number;
-  layers: OverlayLayer[];
-  selectedObjectId: string | null;
-  hoveredObjectId: string | null;
-  onSelectObject: (objectId: string, kind: string) => void;
-  onHoverObject: (objectId: string | null, kind?: string | null) => void;
-}) {
+export function MarketChart({ payload, currentIndex, selectedObjectId, hoveredObjectId, onSelectObject, onHoverObject }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const stageRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const seriesRef = useRef<ISeriesApi<'Candlestick'> | null>(null);
-  const initializedDatasetRef = useRef<string | null>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
-  const [viewportVersion, setViewportVersion] = useState(0);
+  const [projectionTick, setProjectionTick] = useState(0);
+  const [layerVisibility, setLayerVisibility] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(payload.overlay_layers.map((layer) => [layer.layer_id, layer.default_visible])),
+  );
 
   const visibleCandles = useMemo(() => payload.candles.slice(0, Math.max(0, currentIndex) + 1), [payload.candles, currentIndex]);
+
+  useEffect(() => {
+    setLayerVisibility(Object.fromEntries(payload.overlay_layers.map((layer) => [layer.layer_id, layer.default_visible])));
+  }, [payload]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -53,75 +50,56 @@ export function MarketChart({ payload, currentIndex, layers, selectedObjectId, h
 
     const chart = createChart(container, {
       layout: {
-        background: { color: 'transparent' },
-        textColor: '#7f8da3',
+        background: { color: '#03050a' },
+        textColor: '#6e7d94',
+        fontFamily: 'Inter, ui-sans-serif, system-ui',
       },
       grid: {
-        vertLines: { color: 'rgba(134, 150, 180, 0.08)' },
-        horzLines: { color: 'rgba(134, 150, 180, 0.08)' },
-      },
-      rightPriceScale: {
-        borderColor: 'rgba(134, 150, 180, 0.16)',
-      },
-      timeScale: {
-        borderColor: 'rgba(134, 150, 180, 0.16)',
-        timeVisible: true,
-        secondsVisible: false,
-        rightOffset: 8,
-        barSpacing: 7,
+        vertLines: { color: 'rgba(63, 78, 104, 0.12)' },
+        horzLines: { color: 'rgba(63, 78, 104, 0.12)' },
       },
       crosshair: {
         mode: 1,
+        vertLine: { color: 'rgba(97, 255, 234, 0.35)' },
+        horzLine: { color: 'rgba(97, 255, 234, 0.35)' },
       },
-      handleScroll: {
-        mouseWheel: true,
-        pressedMouseMove: true,
-        horzTouchDrag: true,
-        vertTouchDrag: true,
+      rightPriceScale: {
+        borderColor: 'rgba(140, 160, 190, 0.18)',
       },
-      handleScale: {
-        axisPressedMouseMove: true,
-        mouseWheel: true,
-        pinch: true,
+      timeScale: {
+        borderColor: 'rgba(140, 160, 190, 0.18)',
+        timeVisible: true,
+        secondsVisible: false,
       },
       width: container.clientWidth,
       height: container.clientHeight,
     });
 
-    const series = chart.addSeries(CandlestickSeries, {
-      upColor: '#4fd1a5',
-      downColor: '#f45b69',
-      wickUpColor: '#4fd1a5',
-      wickDownColor: '#f45b69',
-      borderVisible: false,
+    const series = chart.addCandlestickSeries({
+      upColor: '#38e8c6',
+      downColor: '#ff477e',
+      borderUpColor: '#70ffdf',
+      borderDownColor: '#ff6e99',
+      wickUpColor: '#9afbe8',
+      wickDownColor: '#ff8caf',
     });
 
     chartRef.current = chart;
     seriesRef.current = series;
 
-    let animationFrame = 0;
-    const requestOverlayRefresh = () => {
-      if (animationFrame) return;
-      animationFrame = window.requestAnimationFrame(() => {
-        animationFrame = 0;
-        setViewportVersion((value) => value + 1);
-      });
-    };
-
-    chart.timeScale().subscribeVisibleLogicalRangeChange(requestOverlayRefresh);
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      const rect = entries[0]?.contentRect;
-      if (!rect) return;
-      chart.applyOptions({ width: rect.width, height: rect.height });
-      setSize({ width: rect.width, height: rect.height });
-      requestOverlayRefresh();
+    const resizeObserver = new ResizeObserver(() => {
+      chart.applyOptions({ width: container.clientWidth, height: container.clientHeight });
+      setSize({ width: container.clientWidth, height: container.clientHeight });
+      setProjectionTick((value) => value + 1);
     });
     resizeObserver.observe(container);
+    setSize({ width: container.clientWidth, height: container.clientHeight });
+
+    const bump = () => setProjectionTick((value) => value + 1);
+    chart.timeScale().subscribeVisibleLogicalRangeChange(bump);
 
     return () => {
-      if (animationFrame) window.cancelAnimationFrame(animationFrame);
-      chart.timeScale().unsubscribeVisibleLogicalRangeChange(requestOverlayRefresh);
+      chart.timeScale().unsubscribeVisibleLogicalRangeChange(bump);
       resizeObserver.disconnect();
       chart.remove();
       chartRef.current = null;
@@ -131,25 +109,24 @@ export function MarketChart({ payload, currentIndex, layers, selectedObjectId, h
 
   useEffect(() => {
     const series = seriesRef.current;
-    const chart = chartRef.current;
-    if (!series || !chart) return;
+    if (!series) return;
+    series.setData(visibleCandles.map((candle) => ({
+      time: candle.time as Time,
+      open: candle.open,
+      high: candle.high,
+      low: candle.low,
+      close: candle.close,
+    })));
+    setProjectionTick((value) => value + 1);
+  }, [visibleCandles]);
 
-    series.setData(visibleCandles.map(toChartCandle));
-
-    if (initializedDatasetRef.current !== payload.dataset.dataset_id) {
-      initializedDatasetRef.current = payload.dataset.dataset_id;
-      if (visibleCandles.length > 20) {
-        chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, visibleCandles.length - 180), to: visibleCandles.length + 8 });
-      } else {
-        chart.timeScale().fitContent();
-      }
-    }
-
-    setViewportVersion((value) => value + 1);
-  }, [visibleCandles, payload.dataset.dataset_id]);
+  const activeLayers = useMemo(
+    () => payload.overlay_layers.filter((layer) => layerVisibility[layer.layer_id] !== false),
+    [payload.overlay_layers, layerVisibility],
+  );
 
   const overlays = useMemo(() => buildOverlays({
-    layers,
+    layers: activeLayers,
     candles: payload.candles,
     currentIndex,
     chart: chartRef.current,
@@ -157,56 +134,48 @@ export function MarketChart({ payload, currentIndex, layers, selectedObjectId, h
     selectedObjectId,
     hoveredObjectId,
     size,
-  }), [layers, payload.candles, currentIndex, selectedObjectId, hoveredObjectId, size, viewportVersion]);
+  }), [activeLayers, payload.candles, currentIndex, selectedObjectId, hoveredObjectId, size, projectionTick]);
 
-  const currentCandle = payload.candles[currentIndex];
-
-  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
-    const stage = stageRef.current;
-    if (!stage) return;
-    const bounds = stage.getBoundingClientRect();
-    const x = event.clientX - bounds.left;
-    const y = event.clientY - bounds.top;
-    const hit = hitTestOverlay(overlays, x, y);
-    onHoverObject(hit ? getSelectableId(hit.object) : null, hit?.object.kind ?? null);
-  }
-
-  function handlePointerLeave() {
-    onHoverObject(null, null);
-  }
-
-  function handleClick() {
-    const hovered = findOverlayBySelectableId(overlays, hoveredObjectId);
-    if (hovered) onSelectObject(getSelectableId(hovered.object), hovered.object.kind);
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const stage = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - stage.left;
+    const y = event.clientY - stage.top;
+    const hit = findHit(x, y, overlays.rects, overlays.points);
+    onHoverObject(hit?.selectableId ?? null);
   }
 
   return (
-    <div className="chart-shell">
-      <div className="chart-header-line">
-        <div>
-          <strong>{payload.dataset.symbol} · {payload.dataset.timeframe}</strong>
-          <span>{payload.dataset.source} / {payload.dataset.contract_version}</span>
-        </div>
-        {currentCandle && (
-          <div className="ohlc-strip">
-            <span>O {formatNumber(currentCandle.open)}</span>
-            <span>H {formatNumber(currentCandle.high)}</span>
-            <span>L {formatNumber(currentCandle.low)}</span>
-            <span>C {formatNumber(currentCandle.close)}</span>
-          </div>
-        )}
+    <div className="market-chart-layout">
+      <div className="chart-layer-controls">
+        {payload.overlay_layers.map((layer) => (
+          <label key={layer.layer_id}>
+            <input
+              type="checkbox"
+              checked={layerVisibility[layer.layer_id] !== false}
+              onChange={(event) => setLayerVisibility((current) => ({ ...current, [layer.layer_id]: event.target.checked }))}
+            />
+            {layer.label}
+          </label>
+        ))}
       </div>
-      <div ref={stageRef} className="chart-stage" onPointerMove={handlePointerMove} onPointerLeave={handlePointerLeave} onClick={handleClick}>
-        <div ref={containerRef} className="chart-canvas" />
-        <div className="chart-overlay" aria-hidden="true">
+
+      <div
+        className="chart-stage"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => onHoverObject(null)}
+        onClick={() => {
+          const active = hoveredObjectId;
+          if (active) onSelectObject(active);
+        }}
+      >
+        <div ref={containerRef} className="chart-container" />
+        <div className="chart-overlay" aria-hidden>
           {overlays.rects.map((rect) => (
-            <div key={rect.id} className={rect.className} style={rect.style} title={rect.label ?? rect.id}>
-              {rect.label && <span>{rect.label}</span>}
-            </div>
+            <div key={rect.id} className={rect.className} style={rect.style} />
           ))}
           {overlays.points.map((point) => (
-            <div key={point.id} className={point.className} style={point.style} title={point.label ?? point.id}>
-              {point.label && <span>{point.label}</span>}
+            <div key={point.id} className={point.className} style={point.style}>
+              {point.label ? <span>{point.label}</span> : null}
             </div>
           ))}
         </div>
@@ -226,11 +195,11 @@ function buildOverlays({ layers, candles, currentIndex, chart, series, selectedO
   size: { width: number; height: number };
 }): { rects: OverlayRect[]; points: OverlayPoint[] } {
   if (!chart || !series || !size.width || !size.height) return { rects: [], points: [] };
+
   const rects: OverlayRect[] = [];
   const points: OverlayPoint[] = [];
 
   for (const layer of layers) {
-    if (!layer.visible) continue;
     for (const object of layer.objects) {
       const selectableId = getSelectableId(object);
       const selected = selectedObjectId === selectableId || selectedObjectId === object.id;
@@ -244,6 +213,7 @@ function buildOverlays({ layers, candles, currentIndex, chart, series, selectedO
       }
     }
   }
+
   return { rects, points };
 }
 
@@ -251,56 +221,46 @@ function rectForObject(object: VisualObject, candles: Candle[], currentIndex: nu
   const startIndex = object.start_index ?? object.entry_index;
   const rawEnd = object.end_index ?? object.exit_index ?? startIndex;
   if (startIndex === null || startIndex === undefined || rawEnd === null || rawEnd === undefined) return null;
+  if (Number(startIndex) > currentIndex) return null;
 
   const endIndex = Math.min(Number(rawEnd), currentIndex);
-  const start = candles[Math.max(0, Number(startIndex))];
-  const end = candles[Math.max(0, endIndex)];
-  if (!start || !end) return null;
+  const startCandle = candles[Number(startIndex)];
+  const endCandle = candles[endIndex];
+  if (!startCandle || !endCandle) return null;
 
-  const left = chart.timeScale().timeToCoordinate(toChartTime(start.time));
-  const right = chart.timeScale().timeToCoordinate(toChartTime(end.time));
-  if (left === null || right === null) return null;
+  const x1 = chart.timeScale().timeToCoordinate(startCandle.time as Time);
+  const x2 = chart.timeScale().timeToCoordinate(endCandle.time as Time);
+  const upper = object.upper ?? object.price;
+  const lower = object.lower ?? object.price;
+  if (x1 === null || x2 === null || upper === null || upper === undefined || lower === null || lower === undefined) return null;
 
-  let top = 30;
-  let bottom = 30;
-  if (object.lower !== null && object.lower !== undefined && object.upper !== null && object.upper !== undefined) {
-    const upperY = series.priceToCoordinate(Number(object.upper));
-    const lowerY = series.priceToCoordinate(Number(object.lower));
-    if (upperY !== null && lowerY !== null) {
-      top = Math.min(upperY, lowerY);
-      bottom = Math.max(upperY, lowerY);
-    }
-  } else {
-    top = 24;
-    bottom = 9999;
-  }
+  const y1 = series.priceToCoordinate(Number(upper));
+  const y2 = series.priceToCoordinate(Number(lower));
+  if (y1 === null || y2 === null) return null;
 
-  const hitBox = {
-    left: Math.min(left, right),
-    top,
-    width: Math.max(3, Math.abs(right - left)),
-    height: Math.max(5, bottom - top),
-  };
-
+  const selectableId = getSelectableId(object);
+  const left = Math.min(x1, x2);
+  const right = Math.max(x1, x2);
+  const top = Math.min(y1, y2);
+  const bottom = Math.max(y1, y2);
   const className = [
     'overlay-rect',
     object.kind,
-    layerId.replace(/[:]/g, '-'),
+    layerId,
     selected ? 'selected' : '',
     hovered ? 'hovered' : '',
-  ].join(' ');
+  ].filter(Boolean).join(' ');
 
   return {
     id: object.id,
-    object,
+    selectableId,
     className,
-    label: object.kind === 'event_window' ? undefined : object.label,
-    hitBox,
+    object,
     style: {
-      left: hitBox.left,
-      top: hitBox.top,
-      width: hitBox.width,
-      height: hitBox.height,
+      left,
+      top,
+      width: Math.max(2, right - left + 6),
+      height: Math.max(2, bottom - top),
     },
   };
 }
@@ -310,32 +270,28 @@ function pointForObject(object: VisualObject, candles: Candle[], chart: IChartAp
   if (index === null || index === undefined) return null;
   const candle = candles[Number(index)];
   if (!candle) return null;
-  const x = chart.timeScale().timeToCoordinate(toChartTime(candle.time));
-  const y = object.price === null || object.price === undefined ? null : series.priceToCoordinate(Number(object.price));
+
+  const x = chart.timeScale().timeToCoordinate(candle.time as Time);
+  const price = object.price ?? object.upper ?? object.lower ?? candle.close;
+  const y = series.priceToCoordinate(Number(price));
   if (x === null || y === null) return null;
 
+  const selectableId = getSelectableId(object);
   const className = [
     'overlay-point',
     object.kind,
     object.shape ?? '',
-    layerId.replace(/[:]/g, '-'),
+    layerId,
     selected ? 'selected' : '',
     hovered ? 'hovered' : '',
-  ].join(' ');
-
-  const hitBox = {
-    left: x - 14,
-    top: y - 14,
-    width: object.kind === 'label' ? Math.max(66, String(object.label ?? '').length * 7 + 18) : 28,
-    height: object.kind === 'label' ? 28 : 28,
-  };
+  ].filter(Boolean).join(' ');
 
   return {
     id: object.id,
-    object,
+    selectableId,
     className,
-    label: object.label,
-    hitBox,
+    object,
+    label: object.label ?? null,
     style: {
       left: x,
       top: y,
@@ -343,52 +299,30 @@ function pointForObject(object: VisualObject, candles: Candle[], chart: IChartAp
   };
 }
 
-function hitTestOverlay(overlays: { rects: OverlayRect[]; points: OverlayPoint[] }, x: number, y: number): OverlayRect | OverlayPoint | null {
-  const pointHit = [...overlays.points].reverse().find((point) => isInside(point.hitBox, x, y));
-  if (pointHit) return pointHit;
-
-  const rectHits = overlays.rects.filter((rect) => isInside(rect.hitBox, x, y));
-  if (!rectHits.length) return null;
-
-  return rectHits.sort((a, b) => {
-    const priorityA = rectPriority(a.object.kind);
-    const priorityB = rectPriority(b.object.kind);
-    if (priorityA !== priorityB) return priorityA - priorityB;
-    return a.hitBox.width * a.hitBox.height - b.hitBox.width * b.hitBox.height;
-  })[0];
+function getSelectableId(object: VisualObject) {
+  const payload = object.payload ?? {};
+  if (typeof payload.id === 'string') return payload.id;
+  if (typeof payload.row_index === 'number') return `M0001-EVENT-${payload.row_index}`;
+  if (typeof payload.node_id === 'number') return `NODE-${payload.node_id}`;
+  if (object.id.includes('-ZONE')) return object.id.replace('-ZONE', '');
+  if (object.id.includes('-WINDOW')) return object.id.replace('-WINDOW', '');
+  if (object.id.includes('-LABEL')) return object.id.replace('-LABEL', '');
+  if (object.id.includes('-HUNT')) return object.id.replace('-HUNT', '');
+  return object.id;
 }
 
-function findOverlayBySelectableId(overlays: { rects: OverlayRect[]; points: OverlayPoint[] }, objectId: string | null): OverlayRect | OverlayPoint | null {
-  if (!objectId) return null;
-  return [...overlays.points, ...overlays.rects].find((overlay) => getSelectableId(overlay.object) === objectId || overlay.object.id === objectId) ?? null;
-}
-
-function isInside(box: HitBox, x: number, y: number): boolean {
-  return x >= box.left && x <= box.left + box.width && y >= box.top && y <= box.top + box.height;
-}
-
-function rectPriority(kind: string): number {
-  if (kind === 'zone') return 0;
-  if (kind === 'segment') return 1;
-  if (kind === 'event_window') return 2;
-  return 3;
-}
-
-function getSelectableId(object: VisualObject): string {
-  const ref = object.metadata?.selection_ref as Record<string, unknown> | undefined;
-  return String(ref?.object_id ?? object.id);
-}
-
-function toChartCandle(candle: Candle) {
-  return {
-    time: toChartTime(candle.time),
-    open: candle.open,
-    high: candle.high,
-    low: candle.low,
-    close: candle.close,
-  };
-}
-
-function toChartTime(value: string): Time {
-  return Math.floor(new Date(value).getTime() / 1000) as Time;
+function findHit(x: number, y: number, rects: OverlayRect[], points: OverlayPoint[]) {
+  for (const point of [...points].reverse()) {
+    const left = Number(point.style.left ?? 0);
+    const top = Number(point.style.top ?? 0);
+    if (Math.abs(x - left) <= 20 && Math.abs(y - top) <= 20) return point;
+  }
+  for (const rect of [...rects].reverse()) {
+    const left = Number(rect.style.left ?? 0);
+    const top = Number(rect.style.top ?? 0);
+    const width = Number(rect.style.width ?? 0);
+    const height = Number(rect.style.height ?? 0);
+    if (x >= left && x <= left + width && y >= top && y <= top + height) return rect;
+  }
+  return null;
 }

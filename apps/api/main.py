@@ -3,23 +3,30 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from apps.api.core.config import settings
-from apps.api.routers import datasets, health, m0001
+from apps.api.routers.lab import router as lab_router
+from apps.api.routers.visualizations import router as visualization_router
 
 app = FastAPI(
-    title=settings.app_name,
-    version="0.1.0",
-    description="Typed visual API for the Decision Alpha Lab research terminal.",
+    title="Decision Alpha Lab API",
+    version="0.3.0",
+    description="Research registry, document reader, run explorer, and visualization contract API.",
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://127.0.0.1:5173",
+        "http://localhost:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(health.router)
-app.include_router(datasets.router)
-app.include_router(m0001.router)
+app.include_router(lab_router)
+app.include_router(visualization_router)
+
+
+@app.get("/api/health")
+def health():
+    return {"status": "ok", "service": "decision-alpha-lab"}

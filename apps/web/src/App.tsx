@@ -1,5 +1,5 @@
-import { ReplayTerminal } from './features/replay/ReplayTerminal';
+import { LabTerminal } from './features/lab/LabTerminal';
 
-export default function App() {
-  return <ReplayTerminal />;
+export function App() {
+  return <LabTerminal />;
 }

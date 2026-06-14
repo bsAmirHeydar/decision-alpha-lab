@@ -1,31 +1,60 @@
-import type { ReplayPayload, ReplayQuery } from '../types/visualization';
+import type { CatalogResponse, LabDocumentDetail, LabOverview, ResearchEntity, ResearchRun } from '../types/lab';
+import type { VisualizationPayload } from '../types/visualization';
 
-const API_BASE = import.meta.env.VITE_QUANT_LAB_API_BASE ?? '/api';
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8000';
 
-export async function fetchReplay(query: ReplayQuery): Promise<ReplayPayload> {
-  const params = new URLSearchParams({
-    symbol: query.symbol,
-    timeframe: query.timeframe,
-    L: String(query.L),
-    zone_ratio: String(query.zone_ratio),
-    exit_gap: String(query.exit_gap),
-    consumption_mode: query.consumption_mode,
-    source: query.source,
-  });
-
-  const response = await fetch(`${API_BASE}/replay/M0001?${params.toString()}`);
+async function request<T>(path: string): Promise<T> {
+  const response = await fetch(`${API_BASE}${path}`);
   if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Replay API failed (${response.status}): ${text}`);
+    const detail = await response.text();
+    throw new Error(`${response.status} ${response.statusText}: ${detail}`);
   }
-  return response.json();
+  return response.json() as Promise<T>;
 }
 
-export async function fetchDatasets(): Promise<Array<Record<string, unknown>>> {
-  const response = await fetch(`${API_BASE}/datasets`);
-  if (!response.ok) {
-    throw new Error(`Datasets API failed (${response.status})`);
-  }
-  const payload = await response.json();
-  return payload.datasets ?? [];
+export function fetchLabOverview() {
+  return request<LabOverview>('/api/lab/overview');
+}
+
+export function fetchLabCatalog(stageId: string, query: string) {
+  const params = new URLSearchParams();
+  params.set('stage_id', stageId || 'all');
+  if (query.trim()) params.set('q', query.trim());
+  return request<CatalogResponse>(`/api/lab/catalog?${params.toString()}`);
+}
+
+export function fetchLabDocument(path: string) {
+  const params = new URLSearchParams({ path });
+  return request<LabDocumentDetail>(`/api/lab/document?${params.toString()}`);
+}
+
+export function fetchEntities(entityType = 'all', query = '') {
+  const params = new URLSearchParams();
+  params.set('entity_type', entityType);
+  if (query.trim()) params.set('q', query.trim());
+  return request<{ entities: ResearchEntity[] }>(`/api/lab/entities?${params.toString()}`).then((data) => data.entities);
+}
+
+export function fetchRuns(entityId = 'all') {
+  const params = new URLSearchParams({ entity_id: entityId });
+  return request<{ runs: ResearchRun[] }>(`/api/lab/runs?${params.toString()}`).then((data) => data.runs);
+}
+
+export function fetchM0001Visualization(options: {
+  symbol: string;
+  timeframe: string;
+  L: number;
+  zoneRatio: number;
+  exitGap: number;
+  mode: string;
+}) {
+  const params = new URLSearchParams({
+    symbol: options.symbol,
+    timeframe: options.timeframe,
+    L: String(options.L),
+    zone_ratio: String(options.zoneRatio),
+    exit_gap: String(options.exitGap),
+    consumption_mode: options.mode,
+  });
+  return request<VisualizationPayload>(`/api/visualizations/m0001?${params.toString()}`);
 }

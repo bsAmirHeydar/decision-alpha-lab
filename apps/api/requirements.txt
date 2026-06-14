@@ -1,9 +1,8 @@
 fastapi
 uvicorn[standard]
+pydantic
 pandas
 pyarrow
-numpy
-pydantic
 pytest
 httpx
 httpx2
