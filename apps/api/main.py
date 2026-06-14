@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from apps.api.routers.lab import router as lab_router
 from apps.api.routers.visualizations import router as visualization_router
+from apps.api.routers.data import router as data_router
 
 app = FastAPI(
     title="Decision Alpha Lab API",
@@ -25,6 +26,7 @@ app.add_middleware(
 
 app.include_router(lab_router)
 app.include_router(visualization_router)
+app.include_router(data_router)
 
 
 @app.get("/api/health")

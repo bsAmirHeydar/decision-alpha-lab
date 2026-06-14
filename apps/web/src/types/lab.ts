@@ -95,3 +95,6 @@ export interface CatalogResponse {
   documents: LabDocumentSummary[];
   selected_document_path: string | null;
 }
+
+
+export type LabDocumentPayload = LabDocumentDetail;

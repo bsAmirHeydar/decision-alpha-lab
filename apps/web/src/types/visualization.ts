@@ -12,6 +12,7 @@ export interface VisualObject {
   id: string;
   kind: 'zone' | 'event_window' | 'segment' | 'marker' | 'label' | string;
   object_type?: string;
+  baseline_kind?: 'actual' | 'random' | string;
   start_index?: number | null;
   end_index?: number | null;
   entry_index?: number | null;
@@ -61,4 +62,34 @@ export interface VisualizationPayload {
   stats: Record<string, unknown>;
   timeline: Array<{ id: string; time: number; index: number; label: string; object_id: string }>;
   validation_flags: Array<{ id: string; label: string; status: string }>;
+  comparison?: Record<string, unknown>;
+}
+
+
+/* Backward-compatible names for older UI components that still live under src/components. */
+export interface LegacyTableColumn {
+  key: string;
+  label: string;
+  type: string;
+}
+
+export interface TableSpec {
+  table_id: string;
+  label: string;
+  primary_key: string;
+  columns: LegacyTableColumn[];
+  rows: Array<Record<string, unknown>>;
+}
+
+export interface SelectionState {
+  objectId: string | null;
+  kind?: string | null;
+}
+
+export interface ReplayPayload extends VisualizationPayload {
+  layers?: OverlayLayer[];
+  inspector: {
+    title: string;
+    subtitle: string;
+  };
 }
