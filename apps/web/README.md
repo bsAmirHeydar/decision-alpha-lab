@@ -3,44 +3,72 @@
 ## Purpose
 
 The web app is the visual research terminal for Decision Alpha Lab.
-
-It must provide a professional replay environment where candles, structural nodes, metric events, hypotheses, experiments, validations, and execution evidence can be inspected together.
-
----
-
-## Recommended Stack
-
-- React
-- TypeScript
-- Vite
-- TanStack Query
-- Lightweight Charts
-- ECharts or Plotly for statistical panels
+It provides a professional replay environment where candles, structural nodes, metric events, hypotheses, experiments, validations, and execution evidence can be inspected together.
 
 ---
 
-## Core Screens
+## Current Implementation
+
+The first implemented screen is the **M0001 Visual Replay Terminal**.
+
+It includes:
 
 ```text
-Lab Home
-Replay
-Metrics
-Experiments
-Validation
-Monitoring
-Settings
+Top lab header and run controls
+Left research lineage tree
+Center candlestick replay chart
+Right object inspector and layer controls
+Bottom dynamic data tables
+```
+
+The frontend does not calculate research truth. It renders the `ReplayPayload` returned by the API.
+
+---
+
+## Stack
+
+```text
+React
+TypeScript
+Vite
+TanStack Query
+TradingView Lightweight Charts
+Lucide icons
 ```
 
 ---
 
-## Central Replay Layout
+## Run
+
+Start the API first from the repository root:
+
+```powershell
+py -m uvicorn apps.api.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Then start the web terminal:
+
+```powershell
+cd apps/web
+npm install
+npm run dev
+```
+
+Open:
 
 ```text
-Top navigation
-Left research lineage tree
-Center candlestick replay
-Right object inspector
-Bottom dynamic data table
+http://127.0.0.1:5173
+```
+
+The Vite dev server proxies `/api/*` requests to `http://127.0.0.1:8000`.
+
+---
+
+## Build Check
+
+```powershell
+cd apps/web
+npm run build
 ```
 
 ---
@@ -52,38 +80,12 @@ It does not create research truth.
 
 No React component may independently calculate:
 
-- structural nodes
-- event validity
-- RTV values
-- validation status
-- signal approval
+```text
+structural nodes
+event validity
+RTV values
+validation status
+signal approval
+```
 
 All of those must come from the API.
-
----
-
-## First Target
-
-The first real visual target is M0001:
-
-```text
-GOLD M15
-#US30 M15
-L=5
-zone_ratio=0.9
-exit_gap=6
-consumption_mode=hunt
-```
-
-The UI must show:
-
-```text
-candles
-confirmed L-rule nodes
-node territories
-M0001 event windows
-RTV labels
-hunt markers
-event table
-selected event inspector
-```
