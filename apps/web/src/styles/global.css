@@ -875,3 +875,213 @@ input:focus, select:focus {
   .library-grid, .mission-grid, .split-panels { grid-template-columns: 1fr; }
   body { overflow: auto; }
 }
+
+
+/* Phase 4 diagnostic and testing additions */
+.muted-line {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.compact-panel {
+  min-height: unset;
+}
+
+.metric-controls {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.fetch-status {
+  color: var(--amber);
+  font-size: 0.82rem;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.stat-card.compare {
+  border-color: rgba(255, 203, 107, 0.28);
+  background: rgba(255, 203, 107, 0.07);
+}
+
+.chart-layer-controls .random-control {
+  border-color: rgba(255, 203, 107, 0.22);
+  color: #ffd57b;
+  background: rgba(255, 203, 107, 0.055);
+}
+
+.chart-cursor-readout {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.15rem 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(77,255,229,0.18);
+  border-radius: 12px;
+  background: rgba(2, 6, 13, 0.84);
+  color: var(--text);
+  backdrop-filter: blur(8px);
+  font-size: 0.76rem;
+}
+
+.chart-cursor-readout span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.chart-cursor-price {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 0.25rem 0.45rem;
+  background: rgba(77,255,229,0.17);
+  border: 1px solid rgba(77,255,229,0.38);
+  color: #eafffb;
+  font-size: 0.72rem;
+  border-radius: 8px 0 0 8px;
+  min-width: 72px;
+  text-align: right;
+}
+
+.chart-cursor-time {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.45rem;
+  background: rgba(77,255,229,0.17);
+  border: 1px solid rgba(77,255,229,0.38);
+  color: #eafffb;
+  font-size: 0.72rem;
+  border-radius: 8px 8px 0 0;
+  white-space: nowrap;
+}
+
+.overlay-rect.random.zone {
+  background: rgba(255, 203, 107, 0.10);
+  border-color: rgba(255, 203, 107, 0.13);
+}
+
+.overlay-rect.random.event_window {
+  background: rgba(255, 138, 76, 0.105);
+  border-color: rgba(255, 203, 107, 0.13);
+}
+
+.overlay-rect.random.hovered,
+.overlay-rect.random.selected {
+  opacity: 0.72;
+  border-color: rgba(255, 203, 107, 0.82);
+  box-shadow: 0 0 0 1px rgba(255,203,107,0.28), 0 0 34px rgba(255,203,107,0.18);
+}
+
+.overlay-point.random {
+  background: var(--amber);
+  box-shadow: 0 0 18px rgba(255,203,107,0.18);
+}
+
+.overlay-point.random.label {
+  color: #ffd57b;
+  border-color: rgba(255,203,107,0.18);
+}
+
+.overlay-point.hunt {
+  width: 13px;
+  height: 13px;
+  border-radius: 4px;
+  background: var(--danger);
+  opacity: 0.92;
+  box-shadow: 0 0 24px rgba(255,71,126,0.45);
+}
+
+.overlay-point.random.hunt {
+  background: var(--amber);
+  box-shadow: 0 0 24px rgba(255,203,107,0.38);
+}
+
+.control-strip button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* Phase 7: faster chart overlays + clearer RTV badges */
+.overlay-budget-note {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.72rem;
+  padding: 0.36rem 0.65rem;
+  border: 1px solid rgba(112, 133, 170, 0.10);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.overlay-rect {
+  transition: opacity 80ms ease, border-color 80ms ease;
+  will-change: transform, opacity;
+}
+
+.overlay-point {
+  transition: opacity 80ms ease, transform 80ms ease;
+  will-change: transform, opacity;
+}
+
+.overlay-point.label.event {
+  min-width: unset;
+  min-height: unset;
+  padding: 0.26rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(3, 8, 18, 0.92);
+  border: 1px solid rgba(77, 255, 229, 0.42);
+  color: #bffdf2;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  box-shadow: 0 0 0 1px rgba(77, 255, 229, 0.08), 0 10px 24px rgba(0, 0, 0, 0.28);
+  z-index: 4;
+}
+
+.overlay-point.label.event.random {
+  border-color: rgba(255, 203, 107, 0.48);
+  color: #ffe0a3;
+  background: rgba(18, 13, 4, 0.92);
+}
+
+.overlay-point.label.rtv-strong {
+  border-color: rgba(255, 203, 107, 0.70);
+  color: #ffdd91;
+}
+
+.overlay-point.label.rtv-weak {
+  border-color: rgba(255, 71, 126, 0.56);
+  color: #ff9ab7;
+}
+
+.overlay-point.label.selected,
+.overlay-point.label.hovered {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 0 0 0 1px rgba(77, 255, 229, 0.36), 0 0 30px rgba(77, 255, 229, 0.25);
+  z-index: 7;
+}
+
+.overlay-point.marker.hunt,
+.overlay-point.cross {
+  min-width: 13px;
+  min-height: 13px;
+  opacity: 0.95;
+  background: var(--danger);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 18px rgba(255, 71, 126, 0.38);
+  z-index: 6;
+}
+
+.overlay-rect.event_window,
+.overlay-rect.zone {
+  will-change: opacity;
+}
