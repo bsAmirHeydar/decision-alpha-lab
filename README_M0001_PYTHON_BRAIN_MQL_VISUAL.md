@@ -103,3 +103,112 @@ All manual visual toggles default to `false`. Use `InpViewPreset` to activate on
 ```text
 M0001 uses a single Python research engine for both validation and live visual inspection. MT5/MQL5 is used as a market-native visualization terminal that consumes deterministic Python-generated visual contracts. This prevents research/live divergence and makes every visual audit traceable to the same tested code path.
 ```
+
+
+## MQL input bridge
+
+The MT5 Expert now exposes the Python brain parameters as inputs.  
+Changing `InpBrainL`, `InpBrainZoneRatio`, `InpBrainExitGap`, `InpBrainBars`, mode, random baseline settings or symbol/timeframe in MT5 does **not** move the brain to MQL.
+
+Instead, MQL writes those inputs into:
+
+```text
+MQL5/Files/DecisionAlphaLab/M0001/m0001_runtime_config.ini
+```
+
+The Python watcher reads that file and regenerates the visual CSV with the same Python engine used by tests and research.
+
+Run the watcher:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\run_m0001_python_brain_to_mt5.ps1 -UseMqlInputs -WaitForMqlInputs
+```
+
+This preserves the core rule:
+
+```text
+The tested code and the chart-inspected code must be the same Python code.
+```
+
+## Event bridge sync mode
+
+The latest mode synchronizes MT5 chart data with the Python brain.
+
+MQL exports chart candles on a new bar or every tick, writes a runtime request, and Python recomputes the visual contract from that exact candle stream.
+
+Run the bridge watcher:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\run_m0001_python_brain_to_mt5.ps1 -EventBridge -WaitForMqlInputs
+```
+
+Recommended non-repainting validation inputs:
+
+```text
+InpBridgeExportChartCandles = true
+InpBridgeOnEveryTick = false
+InpBridgeClosedBarsOnly = true
+```
+
+Live/tick visual inspection inputs:
+
+```text
+InpBridgeExportChartCandles = true
+InpBridgeOnEveryTick = true
+InpBridgeClosedBarsOnly = false
+```
+
+The MQL expert remains visual-only. The metric computation is still performed by the Python M0001 engine.
+
+
+## M0001 Parquet Event Bridge
+
+The event bridge now writes authoritative Python artifacts as Parquet:
+
+```text
+MQL5/Files/DecisionAlphaLab/M0001/parquet/<symbol>_<timeframe>/
+  candles.parquet
+  references.parquet
+  events.parquet
+  visual_rows.parquet
+  manifest.parquet
+```
+
+MQL5 still reads one thin CSV render adapter because native MQL5 cannot read Parquet without external DLLs.  
+The CSV is not the research artifact; it is only the drawing protocol for the visual terminal.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\run_m0001_python_brain_to_mt5.ps1 -EventBridge -WaitForMqlInputs
+```
+
+
+## Common Files Sync
+
+The bridge now defaults to MetaQuotes Common Files so MT5, Strategy Tester and Python watch the same directory.
+
+MQL input:
+
+```text
+InpUseCommonFiles = true
+```
+
+Python watcher:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\run_m0001_python_brain_to_mt5.ps1 -EventBridge -WaitForMqlInputs
+```
+
+Default shared root:
+
+```text
+%APPDATA%\MetaQuotes\Terminal\Common\Files
+```
+
+
+## Parquet type safety
+
+The bridge normalizes nullable numeric/boolean fields before writing Parquet.
+This prevents pyarrow errors when visual rows contain blank values for fields
+that are not applicable to that row type.
