@@ -331,3 +331,10 @@ When `InpWriteValidationJournal=true`, node-level audit state is written to:
 ```text
 <symbol>_M0001_node_audit_states.csv
 ```
+
+
+## Excel/JSON report layer removed
+
+M0001 no longer contains Excel/JSON report generation or project report sync code.
+The MQL layer is kept visual-first for chart validation of nodes, zones, touch,
+hunt and consumption states.
