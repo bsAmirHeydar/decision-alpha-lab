@@ -1,20 +1,24 @@
-# Frontend generated files
-apps/web/node_modules/
-apps/web/dist/
-apps/web/.vite/
-
-# Python generated files
+# Python
 __pycache__/
 *.pyc
+.pytest_cache/
 
-# Frontend generated files
+# Local UI / node artifacts removed from this architecture
 node_modules/
 apps/web/node_modules/
 apps/web/dist/
 apps/web/.vite/
 apps/web/tsconfig.tsbuildinfo
 
-# Temporary UI patch artifacts
+# Temporary generated artifacts
 quant_lab_*.zip
 quant_lab_*.patch
-repair_lab_os.ps1
+*.rej
+
+# Generated MQL visual exports can be regenerated
+mql5/Files/DecisionAlphaLab/M0001/*.csv
+
+# Caches are project-local research artifacts; commit deliberately only when needed
+# lab/cache_data/
+# lab/cache_nodes/
+# lab/cache_metrics/

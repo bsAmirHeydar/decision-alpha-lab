@@ -1,8 +1,0 @@
-fastapi
-uvicorn[standard]
-pydantic
-pandas
-pyarrow
-pytest
-httpx
-httpx2

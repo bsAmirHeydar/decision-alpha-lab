@@ -1,8 +1,0 @@
-packages:
-  - "apps/*"
-
-verifyDepsBeforeRun: false
-strictDepBuilds: false
-
-onlyBuiltDependencies:
-  - esbuild
