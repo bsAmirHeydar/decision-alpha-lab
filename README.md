@@ -242,3 +242,41 @@ InpBars = 0
 
 means use all available bars in the tester's selected date range/history. Positive
 values still act as an optional cap for performance.
+
+
+## Latest visual caps
+
+Visual caps now show latest N objects instead of oldest N objects.
+
+```text
+InpMaxNodesToDraw = 2
+```
+
+draws the latest 2 nodes. `InpBars` remains a data cap, so keep `InpBars=0` for
+full Strategy Tester history.
+
+
+## Node visibility diagnostics
+
+The M0001 summary can now show computed node count, visual draw caps, audit-state
+count, and latest computed node information.
+
+```text
+InpShowNodeVisibilityDebug = true
+```
+
+This separates data limits from visual limits and from normal L-rule confirmation
+behavior.
+
+
+## Viewport visual renderer
+
+M0001 now renders chart objects only for the current visible chart window by
+default. This keeps the full engine unbounded while avoiding MT5 chart-object
+overload.
+
+```text
+InpDrawOnlyVisibleWindow = true
+InpVisibleWindowPaddingBars = 80
+InpRedrawOnChartChange = true
+```

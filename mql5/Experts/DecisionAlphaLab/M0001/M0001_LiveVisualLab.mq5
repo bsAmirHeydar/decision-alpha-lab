@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.25"
+#property version   "1.28"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -17,7 +17,7 @@
 
 input string InpSymbol = "";                 // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
-input int InpBars = 0;                      // 0 = unbounded/all available; >0 = cap rolling/history bars
+input int InpBars = 0;                      // DATA limit: 0 = all tester/history bars; >0 = cap data/rolling stream
 input bool InpUseLiveBarStream = true;        // true = no bulk copy; append each newly closed candle
 input int InpWarmupHistoricalBars = 0;        // 0 = start from next closed candle; >0 = optional past context
 input bool InpStartFromNextClosedBar = true;  // true = do not process the already closed bar at attach time
@@ -33,6 +33,9 @@ input double InpMinRtv = 0.0;
 input int InpMaxEvents = 0;                 // 0 = unlimited computed events
 
 input string InpObjectPrefix = "DAL_MQL_M0001_";
+input bool InpDrawOnlyVisibleWindow = true;    // render only current chart viewport to avoid MT5 object overload
+input int InpVisibleWindowPaddingBars = 80;    // extra bars around viewport for smooth scroll/zoom
+input bool InpRedrawOnChartChange = true;      // redraw viewport objects when chart is scrolled/zoomed
 input bool InpPurgeTraceLines = true;          // delete trend/channel trace lines from chart on each redraw
 input bool InpPurgeMainWindowIndicators = true; // remove ZigZag/indicator traces from main chart window on init
 input bool InpShowNodes = true;
@@ -49,9 +52,10 @@ input bool InpShowInvalidatedHuntZones = false; // deprecated alias
 input bool InpShowConsumedHuntZoneHistory = true; // keep consumed zones drawn until consume candle
 input bool InpShowConsumedNodeMarkers = true;   // mark the candle where a node is consumed/hunted
 input bool InpShowSummary = true;
-input int InpMaxNodesToDraw = 0;            // 0 = draw all nodes
-input int InpMaxEventsToDraw = 0;             // 0 = draw all events
-input int InpMaxAuditStatesToDraw = 0;        // 0 = draw all audit states
+input bool InpShowNodeVisibilityDebug = true; // summary shows latest computed node and visual caps
+input int InpMaxNodesToDraw = 0;            // VISUAL limit: 0 = draw all, >0 = draw latest N nodes
+input int InpMaxEventsToDraw = 0;             // VISUAL limit: 0 = draw all, >0 = draw latest N events
+input int InpMaxAuditStatesToDraw = 0;        // VISUAL limit: 0 = draw all, >0 = draw latest N audit states
 input int InpNodeMarkerStyle = 0;            // deprecated/ignored: strict mode always uses clean arrows
 input int InpNodeArrowWidth = 2;
 input double InpNodeChevronPoints = 70.0;    // used only when InpNodeMarkerStyle = 1
@@ -96,6 +100,56 @@ void BuildConfig(DALM0001Config &config)
    config.min_rtv = InpMinRtv;
 }
 
+bool ResolveChartVisibleTimeWindow(
+   datetime &window_from,
+   datetime &window_to
+)
+{
+   if(!InpDrawOnlyVisibleWindow)
+      return false;
+
+   long first_visible = 0;
+   long visible_bars = 0;
+
+   if(!ChartGetInteger(0, CHART_FIRST_VISIBLE_BAR, 0, first_visible))
+      return false;
+
+   if(!ChartGetInteger(0, CHART_VISIBLE_BARS, 0, visible_bars))
+      return false;
+
+   if(first_visible < 0 || visible_bars <= 0)
+      return false;
+
+   int padding = InpVisibleWindowPaddingBars;
+   if(padding < 0)
+      padding = 0;
+
+   int left_shift = (int)first_visible + padding;
+   int right_shift = (int)first_visible - (int)visible_bars + 1 - padding;
+
+   if(right_shift < 0)
+      right_shift = 0;
+
+   datetime left_time = iTime(LabSymbol(), LabTimeframe(), left_shift);
+   datetime right_time = iTime(LabSymbol(), LabTimeframe(), right_shift);
+
+   if(left_time <= 0 || right_time <= 0)
+      return false;
+
+   if(left_time <= right_time)
+   {
+      window_from = left_time;
+      window_to = right_time;
+   }
+   else
+   {
+      window_from = right_time;
+      window_to = left_time;
+   }
+
+   return (window_from > 0 && window_to > 0 && window_to >= window_from);
+}
+
 void BuildVisualConfig(DALM0001VisualConfig &visual)
 {
    DAL_M0001DefaultVisualConfig(visual);
@@ -109,6 +163,7 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.show_events = InpShowEvents;
    visual.show_rtv_labels = InpShowRtvLabels;
    visual.show_hunts = InpShowHunts;
+   visual.show_node_visibility_debug = InpShowNodeVisibilityDebug;
    visual.show_expansion_extreme_lines = InpShowExpansionExtremes;
    visual.show_consumed_extreme_history = InpShowConsumedExtremeHistory;
    visual.show_live_hunt_zones = InpShowLiveHuntZones;
@@ -127,6 +182,12 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.high_node_price_text_gap_points = InpHighNodePriceTextGapPoints;
    visual.low_node_price_text_gap_points = InpLowNodePriceTextGapPoints;
    visual.node_price_text_font_size = InpNodePriceTextFontSize;
+
+   datetime visible_from = 0;
+   datetime visible_to = 0;
+   visual.use_time_window = ResolveChartVisibleTimeWindow(visible_from, visible_to);
+   visual.time_window_from = visible_from;
+   visual.time_window_to = visible_to;
 }
 
 void RunM0001FromBars(
@@ -162,7 +223,7 @@ void RunM0001FromBars(
    DAL_M0001DrawEvents(events, events_count, visual);
 
    if(InpShowSummary)
-      DAL_M0001DrawSummary(InpObjectPrefix, bars_count, nodes_count, events_count, config);
+      DAL_M0001DrawSummary(InpObjectPrefix, bars_count, nodes_count, events_count, audit_states_count, config, visual, nodes);
 
    if(InpWriteValidationJournal)
    {
@@ -291,6 +352,20 @@ void OnTick()
       g_last_bar_time = current_bar;
       RunM0001();
    }
+}
+
+void OnChartEvent(
+   const int id,
+   const long &lparam,
+   const double &dparam,
+   const string &sparam
+)
+{
+   if(!InpRedrawOnChartChange)
+      return;
+
+   if(id == CHARTEVENT_CHART_CHANGE)
+      RunM0001();
 }
 
 void OnTimer()
