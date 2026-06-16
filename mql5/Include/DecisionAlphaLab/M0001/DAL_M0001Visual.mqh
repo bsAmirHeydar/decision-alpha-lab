@@ -18,6 +18,7 @@ struct DALM0001VisualConfig
    bool show_rtv_labels;
    bool show_hunts;
    bool show_expansion_extreme_lines;
+   bool show_consumed_extreme_history;
    bool show_live_hunt_zones;
    bool show_invalidated_hunt_zones;
    bool show_consumed_hunt_zone_history;
@@ -46,6 +47,7 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
    config.show_rtv_labels = false;
    config.show_hunts = true;
    config.show_expansion_extreme_lines = false;
+   config.show_consumed_extreme_history = true;
    config.show_live_hunt_zones = false;
    config.show_invalidated_hunt_zones = false;
    config.show_consumed_hunt_zone_history = true;
@@ -245,14 +247,24 @@ color DAL_M0001AuditColor(const ENUM_DALNodeType node_type, const bool invalidat
 
 void DAL_M0001DrawExtremeLink(
    const string prefix,
-   const DALM0001NodeAuditState &state
+   const DALM0001NodeAuditState &state,
+   const bool show_consumed_history
 )
 {
+   // Active node: draw live node -> current expansion extreme link.
+   // Consumed node: keep the final historical extreme link, but do not
+   // continue updating/extending it after the consume candle.
    if(state.consumed || !state.active)
-      return;
+   {
+      if(!show_consumed_history)
+         return;
+
+      if(state.consumed_time <= 0)
+         return;
+   }
 
    string id = prefix + "EXTREME_LINK_" + IntegerToString(state.node_id);
-   color c = DAL_M0001AuditColor(state.node_type, state.invalidated);
+   color c = DAL_M0001AuditColor(state.node_type, state.consumed);
 
    DAL_DrawTrend(
       id,
@@ -352,7 +364,7 @@ void DAL_M0001DrawAuditStates(
    for(int i = 0; i < limit; i++)
    {
       if(visual.show_expansion_extreme_lines)
-         DAL_M0001DrawExtremeLink(visual.prefix, states[i]);
+         DAL_M0001DrawExtremeLink(visual.prefix, states[i], visual.show_consumed_extreme_history);
 
       if(visual.show_live_hunt_zones)
          DAL_M0001DrawLiveHuntZone(visual.prefix, states[i], visual.show_consumed_hunt_zone_history);

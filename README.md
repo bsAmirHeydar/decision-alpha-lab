@@ -218,3 +218,15 @@ InpShowConsumedHuntZoneHistory = true
 ```
 
 They do not extend beyond the consume candle.
+
+
+## Consumed extreme history
+
+Consumed M0001 nodes now keep their final node-to-extreme audit line on the chart,
+but the line stops updating after the consume candle.
+
+```text
+InpShowConsumedExtremeHistory = true
+```
+
+The underlying audit state freezes `expansion_extreme` when the node is consumed.
