@@ -46,11 +46,10 @@ bool DAL_AppendBarChronological(
    if(bars_count > 0 && bars[bars_count - 1].time == bar.time)
       return false;
 
-   int cap = max_bars;
-   if(cap <= 0)
-      cap = 500;
-
-   if(bars_count < cap)
+   // max_bars <= 0 means unbounded stream/history.
+   // This is the correct default for Strategy Tester: the test date range
+   // controls the sample, not an arbitrary candle count.
+   if(max_bars <= 0 || bars_count < max_bars)
    {
       ArrayResize(bars, bars_count + 1);
       bars[bars_count] = bar;
@@ -58,7 +57,7 @@ bool DAL_AppendBarChronological(
       return true;
    }
 
-   // Rolling stream: keep chronological order and drop the oldest bar.
+   // Optional capped rolling stream: keep chronological order and drop oldest.
    for(int i = 1; i < bars_count; i++)
       bars[i - 1] = bars[i];
 

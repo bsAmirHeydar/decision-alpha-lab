@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.24"
+#property version   "1.25"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -17,7 +17,7 @@
 
 input string InpSymbol = "";                 // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
-input int InpBars = 800;                    // max rolling stream size
+input int InpBars = 0;                      // 0 = unbounded/all available; >0 = cap rolling/history bars
 input bool InpUseLiveBarStream = true;        // true = no bulk copy; append each newly closed candle
 input int InpWarmupHistoricalBars = 0;        // 0 = start from next closed candle; >0 = optional past context
 input bool InpStartFromNextClosedBar = true;  // true = do not process the already closed bar at attach time
@@ -30,7 +30,7 @@ input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
 input bool InpConsumeOnTouch = false;
 input double InpMinRtv = 0.0;
-input int InpMaxEvents = 300;
+input int InpMaxEvents = 0;                 // 0 = unlimited computed events
 
 input string InpObjectPrefix = "DAL_MQL_M0001_";
 input bool InpPurgeTraceLines = true;          // delete trend/channel trace lines from chart on each redraw
@@ -49,9 +49,9 @@ input bool InpShowInvalidatedHuntZones = false; // deprecated alias
 input bool InpShowConsumedHuntZoneHistory = true; // keep consumed zones drawn until consume candle
 input bool InpShowConsumedNodeMarkers = true;   // mark the candle where a node is consumed/hunted
 input bool InpShowSummary = true;
-input int InpMaxNodesToDraw = 120;
-input int InpMaxEventsToDraw = 80;
-input int InpMaxAuditStatesToDraw = 80;
+input int InpMaxNodesToDraw = 0;            // 0 = draw all nodes
+input int InpMaxEventsToDraw = 0;             // 0 = draw all events
+input int InpMaxAuditStatesToDraw = 0;        // 0 = draw all audit states
 input int InpNodeMarkerStyle = 0;            // deprecated/ignored: strict mode always uses clean arrows
 input int InpNodeArrowWidth = 2;
 input double InpNodeChevronPoints = 70.0;    // used only when InpNodeMarkerStyle = 1

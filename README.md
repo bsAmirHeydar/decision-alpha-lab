@@ -230,3 +230,15 @@ InpShowConsumedExtremeHistory = true
 ```
 
 The underlying audit state freezes `expansion_extreme` when the node is consumed.
+
+
+## Unbounded backtest data
+
+M0001 no longer limits Strategy Tester runs to an arbitrary candle count.
+
+```text
+InpBars = 0
+```
+
+means use all available bars in the tester's selected date range/history. Positive
+values still act as an optional cap for performance.

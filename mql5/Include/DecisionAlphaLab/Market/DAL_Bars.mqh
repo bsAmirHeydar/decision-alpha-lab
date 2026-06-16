@@ -22,14 +22,23 @@ int DAL_LoadBarsChronological(
 {
    ArrayResize(bars, 0);
 
+   int start_pos = closed_bars_only ? 1 : 0;
    int count = requested_bars;
+
+   // requested_bars <= 0 means load all bars available to the terminal/tester
+   // for the selected symbol/timeframe/date range. No hard 500-bar fallback.
    if(count <= 0)
-      count = 500;
+   {
+      int available = Bars(symbol, timeframe);
+      count = available - start_pos;
+   }
+
+   if(count <= 0)
+      return 0;
 
    MqlRates rates[];
    ArraySetAsSeries(rates, true);
 
-   int start_pos = closed_bars_only ? 1 : 0;
    int copied = CopyRates(symbol, timeframe, start_pos, count, rates);
    if(copied <= 0)
       return 0;
