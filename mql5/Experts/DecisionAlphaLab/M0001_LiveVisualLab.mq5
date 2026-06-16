@@ -5,7 +5,7 @@
 //| of truth for backtest, validation, export and live visual output. |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "6.40"
+#property version   "6.52"
 #property description "Python-brain M0001 visual lab: MQL draws the Python visual contract only"
 
 input string InpFileName          = "DecisionAlphaLab\\M0001\\GOLD_M15_visual.csv";
@@ -28,7 +28,7 @@ input bool   InpBrainConsumeOnTouch= false;  // false = hunt mode, true = touch 
 input bool   InpBrainRandom        = false;
 input int    InpBrainRandomCount   = 0;      // 0 = same count as actual references
 input int    InpBrainRandomSeed    = 42;
-input int    InpBrainRefreshMs     = 2000;   // Python watcher cadence hint
+input int    InpBrainRefreshMs     = 100;    // Python watcher cadence hint; lower for visual tester sync
 
 // Event bridge: MQL streams chart candles to Python on each new bar or tick.
 // Python is still the brain; MQL only exports observed market data and draws results.
@@ -44,13 +44,11 @@ input bool   InpShowBridgeStatusPanel    = true;
 
 input string InpObjectPrefix      = "DAL_M0001_PY_";
 input bool   InpDeleteOldObjects  = true;
-input int    InpAutoReloadSeconds = 2;
+input int    InpAutoReloadSeconds = 0;  // legacy second timer; 0 = use millisecond timer
+input int    InpAutoReloadMilliseconds = 100; // fast pull of Python status/visual adapter
+input bool   InpRedrawOnlyOnNewPythonResult = true; // true = no delete/redraw loop unless Python produced new result
 input int    InpMaxObjects        = 2500;
-input int    InpNodeMarkerStyle = 1;          // 0 = glyph arrow, 1 = precision chevron tip
-input bool   InpAnchorNodeArrowTip = true;    // glyph mode only
-input double InpNodeChevronWingPoints = 70.0;
-input double InpNodeChevronWingBars = 0.28;
-input int    InpNodeChevronWidth = 2;
+input bool   InpAnchorNodeArrowTip = true;    // true = arrow tip is anchored exactly on Python node price
 input bool   InpRenderVisualObjects = true;   // false = delete all lab objects and draw only bridge/status labels
 input bool   InpForceFlatCustomMode = false;  // true = ignore InpViewPreset and use only manual toggles
 input bool   InpCleanAllM0001Objects = true;  // true = remove old DAL_M0001_* objects from older versions too
@@ -118,6 +116,7 @@ double g_rtv_sum = 0.0;
 int g_rtv_count = 0;
 datetime g_last_bridge_bar_time = 0;
 uint g_last_request_tick = 0;
+string g_last_draw_request_id = "";
 
 //+------------------------------------------------------------------+
 int OnInit()
@@ -130,7 +129,9 @@ int OnInit()
 
    DrawFromCsv();
 
-   if(InpAutoReloadSeconds > 0)
+   if(InpAutoReloadMilliseconds > 0)
+      EventSetMillisecondTimer(InpAutoReloadMilliseconds);
+   else if(InpAutoReloadSeconds > 0)
       EventSetTimer(InpAutoReloadSeconds);
 
    return INIT_SUCCEEDED;
@@ -153,6 +154,9 @@ void OnTick()
    {
       g_last_bridge_bar_time = current_bar_time;
       BridgePulse(InpBridgeOnEveryTick ? "tick" : "new_bar");
+      // Python is asynchronous. This will usually draw the previous finished result,
+      // while the millisecond timer will pull the new result as soon as Python publishes it.
+      DrawIfNewPythonResult();
    }
 }
 
@@ -170,6 +174,18 @@ void OnTimer()
    }
    else if(InpWritePythonConfig)
       WritePythonBrainConfig("timer_config");
+
+   DrawIfNewPythonResult();
+}
+
+void DrawIfNewPythonResult()
+{
+   if(InpRedrawOnlyOnNewPythonResult)
+   {
+      string rid = StatusValue("request_id");
+      if(rid != "" && rid == g_last_draw_request_id)
+         return;
+   }
 
    DeleteLabObjects();
    DrawFromCsv();
@@ -280,6 +296,10 @@ void DrawFromCsv()
 
    FileClose(handle);
 
+   string current_request_id = StatusValue("request_id");
+   if(current_request_id != "")
+      g_last_draw_request_id = current_request_id;
+
    if(FlagSummaryPanel())
       DrawSummaryPanel();
 
@@ -292,6 +312,7 @@ void DrawFromCsv()
          " nodes=", g_nodes_seen,
          " preset=", EffectivePreset(),
          " render=", (InpRenderVisualObjects ? "on" : "off"),
+         " request_id=", g_last_draw_request_id,
          " file=", VisualFileName(),
          " config=", InpPythonConfigFile);
 }
@@ -462,88 +483,16 @@ void UpdateStats(const string kind, const double rtv, const bool hunted)
 }
 
 //+------------------------------------------------------------------+
-double NodeMarkerGapPrice(const datetime t, const double anchorPrice)
-{
-   double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
-   if(point <= 0.0)
-      point = 0.01;
-
-   int shift = iBarShift(_Symbol, _Period, t, false);
-   double barHigh = anchorPrice;
-   double barLow = anchorPrice;
-
-   if(shift >= 0)
-   {
-      double tmpHigh = iHigh(_Symbol, _Period, shift);
-      double tmpLow  = iLow(_Symbol, _Period, shift);
-      if(tmpHigh > 0.0) barHigh = tmpHigh;
-      if(tmpLow  > 0.0) barLow  = tmpLow;
-   }
-
-   double candleRange = MathAbs(barHigh - barLow);
-   double fixedGap = InpNodeChevronWingPoints * point;
-   double rangeGap = candleRange * 0.25;
-   double gap = MathMax(fixedGap, rangeGap);
-
-   if(gap <= 0.0)
-      gap = 20.0 * point;
-
-   return gap;
-}
-
-int NodeMarkerWingSeconds()
-{
-   int seconds = PeriodSeconds(_Period);
-   if(seconds <= 0)
-      seconds = 60;
-
-   int wing = (int)MathRound((double)seconds * InpNodeChevronWingBars);
-   if(wing < 1)
-      wing = 1;
-
-   return wing;
-}
-
-void DrawTrendSegment(const string id, const datetime t1, const double p1, const datetime t2, const double p2, const color c, const string tip)
-{
-   string name = ObjName(id);
-   ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2);
-   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
-   ObjectSetInteger(0, name, OBJPROP_WIDTH, InpNodeChevronWidth);
-   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_SOLID);
-   ObjectSetInteger(0, name, OBJPROP_RAY_RIGHT, false);
-   ObjectSetInteger(0, name, OBJPROP_RAY_LEFT, false);
-   ObjectSetInteger(0, name, OBJPROP_BACK, false);
-   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
-   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
-}
-
-void DrawNodeChevron(const string id, const datetime t, const double price, const string nodeType, const string label)
-{
-   double gap = NodeMarkerGapPrice(t, price);
-   int wingSeconds = NodeMarkerWingSeconds();
-
-   datetime leftTime = t - wingSeconds;
-   datetime rightTime = t + wingSeconds;
-
-   double wingPrice = price;
-   if(nodeType == "HIGH")
-      wingPrice = price + gap;   // red V: exact tip at high, body above candle
-   else if(nodeType == "LOW")
-      wingPrice = price - gap;   // green ^: exact tip at low, body below candle
-
-   color c = NodeColor(nodeType);
-   string tip = label + " | exact_tip_price=" + DoubleToString(price, _Digits);
-
-   DrawTrendSegment(id + "_CHEV_L", t, price, leftTime, wingPrice, c, tip);
-   DrawTrendSegment(id + "_CHEV_R", t, price, rightTime, wingPrice, c, tip);
-}
-
-void DrawNodeGlyph(const string id, const datetime t, const double price, const string nodeType, const string label)
+void DrawNode(const string id, const datetime t, const double price, const string nodeType, const string label, const int nodeId)
 {
    string name = ObjName(id);
    int code = (nodeType == "LOW" ? 233 : 234);
 
+   // IMPORTANT:
+   // Python node price is the truth. We draw the object at exactly that price.
+   // For arrow glyphs, the coordinate anchor is not always the visual tip.
+   // HIGH nodes use a down arrow, so the tip is the bottom of the glyph.
+   // LOW nodes use an up arrow, so the tip is the top of the glyph.
    ObjectCreate(0, name, OBJ_ARROW, 0, t, price);
    ObjectSetInteger(0, name, OBJPROP_ARROWCODE, code);
 
@@ -557,18 +506,7 @@ void DrawNodeGlyph(const string id, const datetime t, const double price, const 
 
    ObjectSetInteger(0, name, OBJPROP_COLOR, NodeColor(nodeType));
    ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
-   ObjectSetString(0, name, OBJPROP_TOOLTIP, label + " | node_price=" + DoubleToString(price, _Digits) + " | glyph_mode=true");
-}
-
-void DrawNode(const string id, const datetime t, const double price, const string nodeType, const string label, const int nodeId)
-{
-   if(InpNodeMarkerStyle == 1)
-   {
-      DrawNodeChevron(id, t, price, nodeType, label);
-      return;
-   }
-
-   DrawNodeGlyph(id, t, price, nodeType, label);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, label + " | node_price=" + DoubleToString(price, _Digits) + " | arrow_tip_anchor=" + (InpAnchorNodeArrowTip ? "true" : "false"));
 }
 
 void DrawHLine(const string id, const double price, const color c, const string tip)
@@ -652,6 +590,31 @@ void DrawMarker(const string id, const datetime t, const double price, const int
    ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
 }
 
+string StatusValue(const string key)
+{
+   string statusFile = StatusFileName();
+   int handle = OpenTextRead(statusFile, '\n');
+   if(handle == INVALID_HANDLE)
+      return "";
+
+   string prefix = key + "=";
+   string result = "";
+   while(!FileIsEnding(handle))
+   {
+      string line = FileReadString(handle);
+      StringTrimLeft(line);
+      StringTrimRight(line);
+      if(StringFind(line, prefix) == 0)
+      {
+         result = StringSubstr(line, StringLen(prefix));
+         break;
+      }
+   }
+
+   FileClose(handle);
+   return result;
+}
+
 void DrawBridgeStatusPanel()
 {
    string statusFile = StatusFileName();
@@ -699,7 +662,9 @@ void DrawSummaryPanel()
                + "\nBridge: " + (InpBridgeExportChartCandles ? "MQL candles -> Python" : "config only")
                + " | trigger=" + (InpBridgeOnEveryTick ? "tick" : "new_bar")
                + "\nPython artifacts: Parquet | MQL adapter: CSV"
-               + "\nFile root: " + FileRootMode();
+               + "\nFile root: " + FileRootMode()
+               + "\nRedraw: " + (InpRedrawOnlyOnNewPythonResult ? "new_python_result" : "timer")
+               + " | export=" + (InpBridgeClosedBarsOnly ? "closed_past_only" : "include_current_bar");
    DrawMessage("SUMMARY", text, clrAqua, 12, 18);
 }
 
@@ -721,7 +686,7 @@ void DrawMessage(const string id, const string text, const color c, const int x,
 //+------------------------------------------------------------------+
 int OpenTextRead(const string file_name, const ushort delimiter)
 {
-   int flags = FILE_READ | FILE_TXT | FILE_ANSI;
+   int flags = FILE_READ | FILE_TXT | FILE_ANSI | FILE_SHARE_READ | FILE_SHARE_WRITE;
    if(InpUseCommonFiles)
       flags |= FILE_COMMON;
    return FileOpen(file_name, flags, delimiter);
@@ -729,7 +694,7 @@ int OpenTextRead(const string file_name, const ushort delimiter)
 
 int OpenTextWrite(const string file_name)
 {
-   int flags = FILE_WRITE | FILE_TXT | FILE_ANSI;
+   int flags = FILE_WRITE | FILE_TXT | FILE_ANSI | FILE_SHARE_READ | FILE_SHARE_WRITE;
    if(InpUseCommonFiles)
       flags |= FILE_COMMON;
    return FileOpen(file_name, flags);
@@ -737,7 +702,7 @@ int OpenTextWrite(const string file_name)
 
 int OpenCsvWrite(const string file_name, const ushort delimiter)
 {
-   int flags = FILE_WRITE | FILE_CSV | FILE_ANSI;
+   int flags = FILE_WRITE | FILE_CSV | FILE_ANSI | FILE_SHARE_READ | FILE_SHARE_WRITE;
    if(InpUseCommonFiles)
       flags |= FILE_COMMON;
    return FileOpen(file_name, flags, delimiter);
@@ -797,6 +762,7 @@ void WritePythonBrainConfig(const string reason)
    FileWrite(handle, "mql_visual_adapter=csv");
    FileWrite(handle, "chart_symbol=" + _Symbol);
    FileWrite(handle, "chart_timeframe=" + PeriodToText(_Period));
+   FileWrite(handle, "bridge_end_time=" + TimeToString(InpBridgeClosedBarsOnly ? iTime(BrainSymbol(), BrainPeriod(), 1) : iTime(BrainSymbol(), BrainPeriod(), 0), TIME_DATE | TIME_SECONDS));
    FileWrite(handle, "source=MQL_EVENT_BRIDGE");
    FileClose(handle);
 }
@@ -806,16 +772,48 @@ void WriteChartCandlesForPython(const string reason)
    string symbol = BrainSymbol();
    ENUM_TIMEFRAMES tf = BrainPeriod();
    int bars = InpBridgeBars();
-   int start_pos = InpBridgeClosedBarsOnly ? 1 : 0;
+
+   datetime end_time = 0;
+   if(InpBridgeClosedBarsOnly)
+      end_time = iTime(symbol, tf, 1);
+   else
+      end_time = iTime(symbol, tf, 0);
+
+   if(end_time <= 0)
+      end_time = TimeCurrent();
+
+   int seconds = PeriodSeconds(tf);
+   if(seconds <= 0)
+      seconds = 60;
+
+   // Critical live-safety rule:
+   // only export candles with time <= end_time. In Strategy Tester, count-based
+   // CopyRates can expose later historical bars, so we use a time-bounded query.
+   datetime start_time = end_time - (datetime)((long)seconds * (long)MathMax(bars * 10, bars + 100));
 
    MqlRates rates[];
-   int copied = CopyRates(symbol, tf, start_pos, bars, rates);
+   int copied = CopyRates(symbol, tf, start_time, end_time, rates);
    if(copied <= 0)
    {
-      Print("Decision Alpha Lab: CopyRates failed for bridge candles symbol=", symbol, " tf=", BrainTimeframe(), " error=", GetLastError());
+      Print("Decision Alpha Lab: CopyRates(time-bounded) failed for bridge candles symbol=", symbol,
+            " tf=", BrainTimeframe(), " start=", TimeToString(start_time, TIME_DATE | TIME_SECONDS),
+            " end=", TimeToString(end_time, TIME_DATE | TIME_SECONDS), " error=", GetLastError());
       return;
    }
    ArraySetAsSeries(rates, false);
+
+   int valid = 0;
+   for(int i=0; i<copied; i++)
+   {
+      if(rates[i].time <= end_time)
+         valid++;
+   }
+   if(valid <= 0)
+      return;
+
+   int first = valid - bars;
+   if(first < 0)
+      first = 0;
 
    string candlesFile = CandlesFileName();
    int handle = OpenCsvWrite(candlesFile, ',');
@@ -826,10 +824,10 @@ void WriteChartCandlesForPython(const string reason)
    }
 
    FileWrite(handle, "time", "open", "high", "low", "close", "tick_volume", "spread", "real_volume", "is_closed", "request_reason");
-   for(int i=0; i<copied; i++)
+   for(int i=first; i<valid; i++)
    {
       bool is_closed = true;
-      if(!InpBridgeClosedBarsOnly && i == copied - 1)
+      if(!InpBridgeClosedBarsOnly && rates[i].time == iTime(symbol, tf, 0))
          is_closed = false;
 
       FileWrite(

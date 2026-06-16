@@ -33,5 +33,10 @@ Now the timer does not rewrite config unless explicitly requested:
 InpBridgeTimerConfigPulse = false
 ```
 
-The Python watcher also skips recomputation when config and candle files have not
-changed.
+Normal flow:
+
+```text
+OnInit / input change -> write config
+OnTick new bar        -> export candles + write config
+Python watcher        -> recompute only when inputs/candles change
+```

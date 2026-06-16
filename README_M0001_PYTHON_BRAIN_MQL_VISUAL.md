@@ -265,3 +265,44 @@ have not changed. MQL also stops rewriting config every timer by default.
 ```text
 InpBridgeTimerConfigPulse = false
 ```
+
+
+## Live past-only bridge
+
+The bridge now exports candles by simulated time range, not by an unrestricted count window.
+This prevents future bars from entering Python during Strategy Tester visual mode.
+
+Recommended inputs:
+
+```text
+InpBridgeClosedBarsOnly = true
+InpBridgeOnEveryTick = false
+InpRedrawOnlyOnNewPythonResult = true
+InpBridgeTimerConfigPulse = false
+```
+
+MQL redraws only after Python publishes a new request id, reducing flicker and duplicate work.
+
+
+## Live past-only compile fix
+
+Version `6.51` fixes a malformed `StatusValue()` MQL helper that was accidentally
+written with escaped newline text in the previous snapshot. It also declares
+`InpBridgeTimerConfigPulse`.
+
+
+## Fast live sync
+
+Node markers are drawn on their true pivot candle.  
+The live-safety guarantee comes from the event bridge: Python only receives
+candles up to the current simulated closed bar.
+
+For faster visual tester feedback:
+
+```text
+InpBrainRefreshMs = 100
+InpAutoReloadMilliseconds = 100
+```
+
+With `L=5`, a node can appear as soon as the fifth right-side candle is included
+in the closed-bar stream.

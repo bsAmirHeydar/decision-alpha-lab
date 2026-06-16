@@ -72,12 +72,12 @@ def main() -> int:
                     announced_wait = True
                 if args.once:
                     return 2
-                time.sleep(max(0.25, float(args.interval)))
+                time.sleep(max(0.05, float(args.interval)))
                 continue
 
             input_signature = runtime_input_signature(runtime, args)
             if not args.once and input_signature == last_input_signature:
-                time.sleep(max(0.25, float(runtime.interval)))
+                time.sleep(max(0.05, float(runtime.interval)))
                 continue
             last_input_signature = input_signature
 
@@ -89,7 +89,7 @@ def main() -> int:
 
             # MQL5 cannot read Parquet natively. This CSV is only the render adapter
             # consumed by the MQL visual terminal; it is not the research artifact.
-            output_path = write_visual_csv(runtime.output_path, rows)
+            output_path = write_visual_adapter_with_retries(runtime.output_path, rows)
 
             terminal_path = None
             if runtime.terminal_output_path:
@@ -116,7 +116,7 @@ def main() -> int:
         if args.once:
             break
 
-        time.sleep(max(0.25, float(getattr(runtime, "interval", args.interval) if runtime else args.interval)))
+        time.sleep(max(0.05, float(getattr(runtime, "interval", args.interval) if runtime else args.interval)))
 
     return 0
 
@@ -456,6 +456,41 @@ def to_nullable_bool(value):
     if text in {"0", "false", "no", "n", "off"}:
         return False
     return pd.NA
+
+
+def write_visual_adapter_with_retries(path: Path, rows: list[dict], attempts: int = 20, delay: float = 0.05) -> Path:
+    """Write the thin MQL CSV adapter without failing when MT5 is reading it.
+
+    MQL5 may open the adapter file while Python is refreshing it. We write to a
+    temporary file first, then replace/copy with retries. The authoritative
+    artifacts are Parquet; this file is only the visual render adapter.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+
+    last_exc: Exception | None = None
+    for _ in range(max(1, attempts)):
+        try:
+            write_visual_csv(tmp, rows)
+            try:
+                tmp.replace(path)
+            except PermissionError:
+                # Some Windows/MQL read handles still block replace. Retry shortly.
+                raise
+            return path
+        except PermissionError as exc:
+            last_exc = exc
+            time.sleep(delay)
+
+    # Last attempt: direct write, so any remaining error is explicit in logs.
+    write_visual_csv(path, rows)
+    if tmp.exists():
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+    return path
 
 
 def write_status_file(path: Path, runtime, stats: dict, rows: list[dict], output_path: Path, terminal_path: Path | None, parquet_paths: dict[str, Path]) -> None:
