@@ -70,7 +70,7 @@ def main() -> int:
         all_refs.extend(rnd_refs)
         all_events.extend(rnd_events)
 
-    rows = build_visual_rows(all_refs, all_events)
+    rows = build_visual_rows(all_refs, all_events, candles_df=candles, config=config)
     output = Path(args.output) if args.output else default_output_path(args.symbol, args.timeframe)
     output = write_visual_csv(output, rows)
 

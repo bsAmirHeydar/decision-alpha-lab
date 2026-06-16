@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from typing import Any
 
 import pandas as pd
@@ -79,6 +79,9 @@ class RTVEvent:
     hunt_time: Any | None = None
     hunt_price: float | None = None
     baseline_kind: str = "actual"
+    before_start_index: int | None = None
+    before_end_index: int | None = None
+    inside_indices: list[int] = field(default_factory=list)
 
     def to_dict(self, include_visual_fields: bool = False) -> dict[str, Any]:
         row = asdict(self)
@@ -90,6 +93,9 @@ class RTVEvent:
                 "hunt_time",
                 "hunt_price",
                 "baseline_kind",
+                "before_start_index",
+                "before_end_index",
+                "inside_indices",
             ]:
                 row.pop(key, None)
         return row
@@ -122,6 +128,9 @@ VISUAL_COLUMNS = OUTPUT_COLUMNS + [
     "hunt_time",
     "hunt_price",
     "baseline_kind",
+    "before_start_index",
+    "before_end_index",
+    "inside_indices",
 ]
 
 

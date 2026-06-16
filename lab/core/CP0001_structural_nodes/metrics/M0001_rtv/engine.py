@@ -24,6 +24,7 @@ class _NodeRuntimeState:
     entry_index: int | None = None
     entry_time: Any | None = None
     inside_logs: list[float] = field(default_factory=list)
+    inside_indices: list[int] = field(default_factory=list)
     before_logs: list[float] = field(default_factory=list)
     event_before_logs: list[float] = field(default_factory=list)
     frozen_extreme: float | None = None
@@ -140,6 +141,7 @@ def _start_event(state: _NodeRuntimeState, i: int, time: Any, move: float) -> No
     state.entry_index = int(i)
     state.entry_time = time
     state.inside_logs = [float(move)]
+    state.inside_indices = [int(i)]
     state.event_before_logs = list(state.before_logs)
     state.frozen_extreme = state.extreme
 
@@ -185,6 +187,7 @@ def _process_active_event(
 
     if inside:
         state.inside_logs.append(float(move))
+        state.inside_indices.append(int(i))
         state.outside_count = 0
     else:
         state.outside_count += 1
@@ -240,6 +243,9 @@ def _build_event(state: _NodeRuntimeState, exit_index: int, exit_time: Any) -> R
         hunt_time=state.hunt_time,
         hunt_price=state.hunt_price,
         baseline_kind=state.ref.baseline_kind,
+        before_start_index=(int(state.entry_index) - int(n)) if state.entry_index is not None else None,
+        before_end_index=(int(state.entry_index) - 1) if state.entry_index is not None else None,
+        inside_indices=list(state.inside_indices),
     )
 
 
@@ -261,6 +267,7 @@ def _reset_after_event(state: _NodeRuntimeState) -> None:
     state.entry_index = None
     state.entry_time = None
     state.inside_logs = []
+    state.inside_indices = []
     state.event_before_logs = []
 
     if not state.consumed:

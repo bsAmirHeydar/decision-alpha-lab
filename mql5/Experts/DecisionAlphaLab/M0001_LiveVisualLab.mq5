@@ -1,148 +1,90 @@
+
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — M0001 Live Visual Lab                       |
-//| Package-based live RTV audit inside MT5 / Strategy Tester.        |
+//| Decision Alpha Lab — M0001 Python-Brain Visual Lab               |
+//| MQL is visual only. The Python M0001 engine is the single source  |
+//| of truth for backtest, validation, export and live visual output. |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "3.00"
-#property description "M0001 live visual lab with debug packages and per-event audit layers"
+#property version   "5.00"
+#property description "Python-brain M0001 visual lab: MQL draws the Python visual contract only"
 
-#include <DecisionAlphaLab/M0001_Types.mqh>
-#include <DecisionAlphaLab/M0001_Math.mqh>
-#include <DecisionAlphaLab/M0001_LRuleNodes.mqh>
-#include <DecisionAlphaLab/M0001_RTVEngine.mqh>
-#include <DecisionAlphaLab/M0001_Drawer.mqh>
+input string InpFileName          = "DecisionAlphaLab\\M0001\\GOLD_M15_visual.csv";
+input string InpObjectPrefix      = "DAL_M0001_PY_";
+input bool   InpDeleteOldObjects  = true;
+input int    InpAutoReloadSeconds = 2;
+input int    InpMaxObjects        = 2500;
 
-input string InpObjectPrefix        = "DAL_M0001_LIVE_";
-
-input int    InpL                   = 5;
-input double InpZoneRatio           = 0.90;
-input int    InpExitGap             = 6;
-input bool   InpConsumeOnTouch      = false;  // false = hunt mode; true = touch mode
-input int    InpLookbackBars        = 1200;
-input int    InpMaxBeforeLogs       = 500;
-
-input bool   InpUseClosedBarsOnly   = true;
-input bool   InpUpdateOnEveryTick   = false;
-input int    InpTimerSeconds        = 1;
-input bool   InpEngineIncludeOpenEvent = true;
-
-// Package selector:
-// 0 Custom
+// Package selector. Visual inputs below are all false by default.
+// 0 Custom manual toggles
 // 1 Structural Node Audit
 // 2 Territory Construction Audit
 // 3 Event Entry Exit Audit
 // 4 Baseline vs Inside Sample Audit
 // 5 RTV Formula Audit
 // 6 Hunt Validation Audit
-// 7 Live Open Event Audit
+// 7 Live/Open Event Audit
 // 8 Candle Classification Audit
 // 9 State Machine Audit
 // 10 Focused Event Inspector
 // 11 Multi Event Overview
 // 12 Full Research Lab
-input int    InpViewPreset          = 10;
+input int    InpViewPreset        = 0;
 
-// Focus selector:
-// 0 None/latest
-// 1 Selected Node/Revisit
-// 2 Latest closed event
-// 3 Latest open event
-// 4 Latest hunted event
-// 5 Strongest RTV event
-input int    InpFocusMode           = 2;
-input int    InpSelectedNodeId      = -1;
-input int    InpSelectedRevisitId   = -1;
+// Focus and filters
+input int    InpFocusNodeId       = -1;
+input int    InpFocusRevisitId    = -1;
+input bool   InpOnlyActual        = true;
+input bool   InpShowRandom        = false;
+input bool   InpOnlyHunted        = false;
+input bool   InpOnlyStrongRtv     = false;
+input double InpStrongRtvLevel    = 1.25;
+input double InpMinRtv            = 0.0; // 0 disables
+input double InpMaxRtv            = 0.0; // 0 disables
 
-input bool   InpFilter_OnlyOpenEvents    = false;
-input bool   InpFilter_OnlyClosedEvents  = false;
-input bool   InpFilter_OnlyHuntedEvents  = false;
-input bool   InpFilter_OnlyStrongRtv     = false;
-input double InpFilter_MinRtv            = 0.0;
-input double InpFilter_MaxRtv            = 0.0;
-input double InpStrongRtvThreshold       = 1.25;
+// Visual toggles — all false by default for clean package-by-package inspection.
+input bool   InpShowNodes                 = false;
+input bool   InpShowNodePriceLines        = false;
+input bool   InpShowActiveFromLines       = false;
+input bool   InpShowConfirmationWindows   = false;
+input bool   InpShowExpansionExtremes     = false;
+input bool   InpShowTerritories           = false;
+input bool   InpShowEventWindows          = false;
+input bool   InpShowEntryExitMarkers      = false;
+input bool   InpShowBeforeSamples         = false;
+input bool   InpShowInsideSamples         = false;
+input bool   InpShowOutsideActiveSamples  = false;
+input bool   InpShowRtvLabels             = false;
+input bool   InpShowRtvFormula            = false;
+input bool   InpShowHunts                 = false;
+input bool   InpShowEventInfo             = false;
+input bool   InpShowCandleClassification  = false;
+input bool   InpShowStateLabels           = false;
+input bool   InpShowSummaryPanel          = false;
 
-input int    InpMaxNodesToDraw      = 120;
-input int    InpMaxEventsToDraw     = 80;
-input int    InpMaxLabelsToDraw     = 80;
-input bool   InpRenderLightMode     = true;
-input bool   InpDeleteOnDeinit      = false;
+// Performance controls
+input int    InpMaxNodesToDraw            = 150;
+input int    InpMaxEventsToDraw           = 80;
+input int    InpMaxSampleCandlesToDraw    = 300;
+input bool   InpLightMode                 = true;
 
-// Custom package 1 — Structural Node Audit
-input bool   InpPkg1_ShowNodes              = true;
-input bool   InpPkg1_ShowNodeLabels         = true;
-input bool   InpPkg1_ShowNodePriceLine      = true;
-input bool   InpPkg1_ShowActiveFromLine     = true;
-input bool   InpPkg1_ShowConfirmationWindow = true;
-
-// Custom package 2 — Territory Construction Audit
-input bool   InpPkg2_ShowExpansionExtreme   = true;
-input bool   InpPkg2_ShowExpansionDistance  = true;
-input bool   InpPkg2_ShowTerritoryBounds    = true;
-input bool   InpPkg2_ShowTerritoryFill      = false;
-input bool   InpPkg2_ShowZoneRatioLabel     = true;
-
-// Custom package 3 — Event Entry Exit Audit
-input bool   InpPkg3_ShowEventWindow        = true;
-input bool   InpPkg3_ShowEntryMarker        = true;
-input bool   InpPkg3_ShowExitMarker         = true;
-input bool   InpPkg3_ShowOutsideCounter     = true;
-
-// Custom package 4 — Baseline vs Inside Sample Audit
-input bool   InpPkg4_ShowBeforeCandles        = true;
-input bool   InpPkg4_ShowInsideCandles        = true;
-input bool   InpPkg4_ShowOutsideActiveCandles = true;
-input bool   InpPkg4_ShowSampleLegend         = true;
-
-// Custom package 5 — RTV Formula Audit
-input bool   InpPkg5_ShowRtvLabel       = true;
-input bool   InpPkg5_ShowFormulaPanel   = true;
-input bool   InpPkg5_ShowMeanInside     = true;
-input bool   InpPkg5_ShowMeanBefore     = true;
-input bool   InpPkg5_ShowMedians        = true;
-input bool   InpPkg5_ShowCounts         = true;
-
-// Custom package 6 — Hunt Validation Audit
-input bool   InpPkg6_ShowHuntMarker     = true;
-input bool   InpPkg6_ShowHuntLabel      = true;
-
-// Custom package 7 — Live Open Event Audit
-input bool   InpPkg7_ShowOpenEvent      = true;
-input bool   InpPkg7_ShowLiveRtv        = true;
-input bool   InpPkg7_ShowLiveCounts     = true;
-
-// Custom package 8 — Candle Classification Audit
-input bool   InpPkg8_ShowCandleTable          = true;
-input bool   InpPkg8_ShowLogMoveValues        = true;
-input bool   InpPkg8_ShowClassificationFlags  = true;
-input int    InpPkg8_MaxCandlesInPanel        = 24;
-
-// Custom package 9 — State Machine Audit
-input bool   InpPkg9_ShowStateTimeline      = true;
-input bool   InpPkg9_ShowStateLabels        = true;
-input bool   InpPkg9_ShowTransitionMarkers  = true;
-input bool   InpPkg9_ShowCurrentState       = true;
-
-// Custom package 10 — Focused Event Inspector
-input bool   InpPkg10_ShowInspectorCard     = true;
-input bool   InpPkg10_ShowInspectorTable    = true;
-input bool   InpPkg10_AutoFocusChart        = false;
-
-// Custom package 11/12 — Overview / Research Lab
-input bool   InpPkg11_ShowSummaryPanel      = true;
-
-
-datetime g_last_bar_time = 0;
-string   g_prefix;
+int g_drawn = 0;
+int g_events_seen = 0;
+int g_nodes_seen = 0;
+int g_hunts_seen = 0;
+double g_rtv_sum = 0.0;
+int g_rtv_count = 0;
 
 //+------------------------------------------------------------------+
 int OnInit()
 {
-   g_prefix = InpObjectPrefix + DAL_Sanitize(_Symbol) + "_" + DAL_Sanitize(EnumToString(_Period)) + "_";
+   if(InpDeleteOldObjects)
+      DeleteLabObjects();
 
-   if(InpTimerSeconds > 0)
-      EventSetTimer(InpTimerSeconds);
+   DrawFromCsv();
 
-   RunLiveUpdate(true);
+   if(InpAutoReloadSeconds > 0)
+      EventSetTimer(InpAutoReloadSeconds);
+
    return INIT_SUCCEEDED;
 }
 
@@ -150,155 +92,454 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
-   if(InpDeleteOnDeinit)
-      DAL_DeleteObjects(g_prefix);
 }
 
 //+------------------------------------------------------------------+
 void OnTimer()
 {
-   RunLiveUpdate(false);
+   DeleteLabObjects();
+   DrawFromCsv();
 }
 
 //+------------------------------------------------------------------+
-void OnTick()
+void DrawFromCsv()
 {
-   if(InpUpdateOnEveryTick)
-      RunLiveUpdate(false);
-   else
-      RunOnNewBarOnly();
-}
+   g_drawn = 0;
+   g_events_seen = 0;
+   g_nodes_seen = 0;
+   g_hunts_seen = 0;
+   g_rtv_sum = 0.0;
+   g_rtv_count = 0;
 
-//+------------------------------------------------------------------+
-void RunOnNewBarOnly()
-{
-   datetime last_closed_bar_time = iTime(_Symbol, _Period, 1);
-   if(last_closed_bar_time == 0)
+   int handle = FileOpen(InpFileName, FILE_READ | FILE_TXT | FILE_ANSI, '\n');
+   if(handle == INVALID_HANDLE)
+   {
+      Print("Decision Alpha Lab: cannot open Python visual file: ", InpFileName, " error=", GetLastError());
+      DrawMessage("NO_PYTHON_FILE", "Waiting for Python visual contract:\n" + InpFileName, clrTomato, 12, 18);
       return;
+   }
 
-   if(last_closed_bar_time != g_last_bar_time)
-      RunLiveUpdate(false);
-}
+   bool header = true;
+   int nodes_drawn = 0;
+   int events_drawn = 0;
+   int samples_drawn = 0;
 
-//+------------------------------------------------------------------+
-void BuildDrawOptions(DAL_DrawOptions &opt)
-{
-   opt.view_preset = InpViewPreset;
-   opt.focus_mode = InpFocusMode;
-   opt.selected_node_id = InpSelectedNodeId;
-   opt.selected_revisit_id = InpSelectedRevisitId;
+   while(!FileIsEnding(handle) && g_drawn < InpMaxObjects)
+   {
+      string line = FileReadString(handle);
+      StringTrimLeft(line);
+      StringTrimRight(line);
+      if(line == "")
+         continue;
 
-   opt.only_selected_event = false;
-   opt.only_open_events = InpFilter_OnlyOpenEvents;
-   opt.only_closed_events = InpFilter_OnlyClosedEvents;
-   opt.only_hunted_events = InpFilter_OnlyHuntedEvents;
-   opt.only_strong_rtv = InpFilter_OnlyStrongRtv;
-   opt.min_rtv = InpFilter_MinRtv;
-   opt.max_rtv = InpFilter_MaxRtv;
-   opt.strong_rtv_threshold = InpStrongRtvThreshold;
+      if(header)
+      {
+         header = false;
+         continue;
+      }
 
-   opt.show_nodes = InpPkg1_ShowNodes;
-   opt.show_node_labels = InpPkg1_ShowNodeLabels;
-   opt.show_node_price_line = InpPkg1_ShowNodePriceLine;
-   opt.show_active_from_line = InpPkg1_ShowActiveFromLine;
-   opt.show_confirmation_window = InpPkg1_ShowConfirmationWindow;
+      string f[];
+      int n = StringSplit(line, ',', f);
+      if(n < 13)
+         continue;
 
-   opt.show_expansion_extreme = InpPkg2_ShowExpansionExtreme;
-   opt.show_expansion_distance = InpPkg2_ShowExpansionDistance;
-   opt.show_territory_bounds = InpPkg2_ShowTerritoryBounds;
-   opt.show_territory_fill = InpPkg2_ShowTerritoryFill;
-   opt.show_zone_ratio_label = InpPkg2_ShowZoneRatioLabel;
+      string kind       = Field(f, n, 0);
+      string baseline   = Field(f, n, 1);
+      string id         = Field(f, n, 2);
+      string startStr   = Field(f, n, 3);
+      string endStr     = Field(f, n, 4);
+      string anchorStr  = Field(f, n, 5);
+      double price      = ToDouble(Field(f, n, 6));
+      double lower      = ToDouble(Field(f, n, 7));
+      double upper      = ToDouble(Field(f, n, 8));
+      string label      = Field(f, n, 9);
+      string nodeType   = Field(f, n, 10);
+      double rtv        = ToDouble(Field(f, n, 11));
+      bool hunted       = ToBool(Field(f, n, 12));
+      int nodeId        = ToInt(Field(f, n, 13));
+      int revisitId     = ToInt(Field(f, n, 14));
+      int entryIndex    = ToInt(Field(f, n, 15));
+      int exitIndex     = ToInt(Field(f, n, 16));
+      int candleIndex   = ToInt(Field(f, n, 17));
+      double value1     = ToDouble(Field(f, n, 18));
+      double value2     = ToDouble(Field(f, n, 19));
+      string note       = Field(f, n, 20);
 
-   opt.show_event_window = InpPkg3_ShowEventWindow;
-   opt.show_entry_marker = InpPkg3_ShowEntryMarker;
-   opt.show_exit_marker = InpPkg3_ShowExitMarker;
-   opt.show_outside_counter = InpPkg3_ShowOutsideCounter;
+      UpdateStats(kind, rtv, hunted);
 
-   opt.show_before_candles = InpPkg4_ShowBeforeCandles;
-   opt.show_inside_candles = InpPkg4_ShowInsideCandles;
-   opt.show_outside_active_candles = InpPkg4_ShowOutsideActiveCandles;
-   opt.show_sample_legend = InpPkg4_ShowSampleLegend;
+      if(!RowPassesFilters(kind, baseline, nodeId, revisitId, rtv, hunted))
+         continue;
 
-   opt.show_rtv_label = InpPkg5_ShowRtvLabel;
-   opt.show_formula_panel = InpPkg5_ShowFormulaPanel;
-   opt.show_mean_inside = InpPkg5_ShowMeanInside;
-   opt.show_mean_before = InpPkg5_ShowMeanBefore;
-   opt.show_medians = InpPkg5_ShowMedians;
-   opt.show_counts = InpPkg5_ShowCounts;
+      if(kind == "NODE" && nodes_drawn >= InpMaxNodesToDraw)
+         continue;
+      if(IsEventKind(kind) && events_drawn >= InpMaxEventsToDraw)
+         continue;
+      if(IsSampleKind(kind) && samples_drawn >= InpMaxSampleCandlesToDraw)
+         continue;
+      if(!KindVisible(kind))
+         continue;
 
-   opt.show_hunt_marker = InpPkg6_ShowHuntMarker;
-   opt.show_hunt_label = InpPkg6_ShowHuntLabel;
+      DrawRow(kind, baseline, id, startStr, endStr, anchorStr, price, lower, upper, label, nodeType, rtv, hunted, nodeId, revisitId, entryIndex, exitIndex, candleIndex, value1, value2, note);
 
-   opt.show_open_event = InpPkg7_ShowOpenEvent;
-   opt.show_live_rtv = InpPkg7_ShowLiveRtv;
-   opt.show_live_counts = InpPkg7_ShowLiveCounts;
+      if(kind == "NODE") nodes_drawn++;
+      if(IsEventKind(kind)) events_drawn++;
+      if(IsSampleKind(kind)) samples_drawn++;
+   }
 
-   opt.show_candle_table = InpPkg8_ShowCandleTable;
-   opt.show_logmove_values = InpPkg8_ShowLogMoveValues;
-   opt.show_classification_flags = InpPkg8_ShowClassificationFlags;
-   opt.max_candles_in_panel = InpPkg8_MaxCandlesInPanel;
+   FileClose(handle);
 
-   opt.show_state_timeline = InpPkg9_ShowStateTimeline;
-   opt.show_state_labels = InpPkg9_ShowStateLabels;
-   opt.show_transition_markers = InpPkg9_ShowTransitionMarkers;
-   opt.show_current_state = InpPkg9_ShowCurrentState;
-
-   opt.show_inspector_card = InpPkg10_ShowInspectorCard;
-   opt.show_inspector_table = InpPkg10_ShowInspectorTable;
-   opt.auto_focus_chart = InpPkg10_AutoFocusChart;
-
-   opt.show_summary_panel = InpPkg11_ShowSummaryPanel;
-   opt.render_light_mode = InpRenderLightMode;
-   opt.max_nodes_to_draw = InpMaxNodesToDraw;
-   opt.max_events_to_draw = InpMaxEventsToDraw;
-   opt.max_labels_to_draw = InpMaxLabelsToDraw;
-}
-
-//+------------------------------------------------------------------+
-void RunLiveUpdate(const bool force)
-{
-   MqlRates rates[];
-   ArraySetAsSeries(rates, false);
-
-   int start_pos = InpUseClosedBarsOnly ? 1 : 0;
-   int requested = MathMax(InpLookbackBars, InpL * 4 + InpExitGap + 50);
-   int copied = CopyRates(_Symbol, _Period, start_pos, requested, rates);
-
-   if(copied <= (InpL * 2 + InpExitGap + 5))
-      return;
-
-   ArraySetAsSeries(rates, false);
-
-   datetime newest_time = rates[copied - 1].time;
-   if(!force && !InpUpdateOnEveryTick && newest_time == g_last_bar_time)
-      return;
-
-   g_last_bar_time = newest_time;
-
-   DAL_Node nodes[];
-   int node_count = DAL_BuildLRuleNodes(rates, copied, InpL, nodes);
-
-   DAL_Config cfg;
-   cfg.L = InpL;
-   cfg.zone_ratio = InpZoneRatio;
-   cfg.exit_gap = InpExitGap;
-   cfg.consume_on_touch = InpConsumeOnTouch;
-   cfg.max_before_logs = InpMaxBeforeLogs;
-
-   DAL_Event events[];
-   int event_count = DAL_ComputeRTVEvents(rates, copied, nodes, cfg, InpEngineIncludeOpenEvent, events);
-
-   DAL_DrawOptions opt;
-   BuildDrawOptions(opt);
-
-   DAL_DeleteObjects(g_prefix);
-   int drawn = DAL_DrawRecentState(g_prefix, rates, copied, nodes, events, opt);
+   if(FlagSummaryPanel())
+      DrawSummaryPanel();
 
    ChartRedraw(0);
-   Print("DAL M0001 LIVE | preset=", InpViewPreset,
-         " bars=", copied,
-         " nodes=", node_count,
-         " events=", event_count,
-         " drawn=", drawn,
-         " last=", TimeToString(newest_time, TIME_DATE | TIME_MINUTES));
+   Print("DAL M0001 PYTHON-BRAIN VISUAL | rows_drawn=", g_drawn, " events=", g_events_seen, " nodes=", g_nodes_seen, " file=", InpFileName);
+}
+
+//+------------------------------------------------------------------+
+void DrawRow(
+   const string kind,
+   const string baseline,
+   const string id,
+   const string startStr,
+   const string endStr,
+   const string anchorStr,
+   const double price,
+   const double lower,
+   const double upper,
+   const string label,
+   const string nodeType,
+   const double rtv,
+   const bool hunted,
+   const int nodeId,
+   const int revisitId,
+   const int entryIndex,
+   const int exitIndex,
+   const int candleIndex,
+   const double value1,
+   const double value2,
+   const string note
+)
+{
+   datetime startTime = ToTime(startStr);
+   datetime endTime = ToTime(endStr);
+   datetime anchorTime = ToTime(anchorStr);
+   if(anchorTime == 0 && startTime != 0)
+      anchorTime = startTime;
+
+   if(kind == "NODE")
+      DrawNode(id, anchorTime, price, nodeType, label, nodeId);
+   else if(kind == "NODE_PRICE")
+      DrawHLine(id, price, NodeColor(nodeType), "node price | " + label);
+   else if(kind == "ACTIVE_FROM")
+      DrawVLine(id, anchorTime, clrSilver, label);
+   else if(kind == "CONFIRMATION_WINDOW")
+      DrawConfirmation(id, startTime, endTime, lower, label);
+   else if(kind == "EXPANSION_EXTREME")
+      DrawHLine(id, price, clrOrange, label);
+   else if(kind == "TERRITORY")
+      DrawRect(id, startTime, endTime, upper, lower, clrDarkSlateGray, true, "territory | " + label);
+   else if(kind == "EVENT")
+      DrawRect(id, startTime, endTime, upper, lower, RtvColor(rtv), false, "event | RTV=" + DoubleToString(rtv, 4));
+   else if(kind == "RTV_LABEL")
+      DrawText(id, anchorTime, price, label, RtvColor(rtv), 8, note);
+   else if(kind == "RTV_FORMULA")
+      DrawText(id, anchorTime, price, label, clrWhite, 8, note);
+   else if(kind == "ENTRY")
+      DrawMarker(id, anchorTime, price, 233, clrLime, "ENTRY | " + note);
+   else if(kind == "EXIT")
+      DrawMarker(id, anchorTime, price, 234, clrGold, "EXIT | " + note);
+   else if(kind == "HUNT")
+      DrawMarker(id, anchorTime, price, 251, clrRed, "HUNT | " + note);
+   else if(kind == "EVENT_INFO")
+      DrawText(id, anchorTime, price, label, clrAqua, 8, note);
+   else if(kind == "BEFORE_SAMPLE")
+      DrawSample(id, anchorTime, lower, upper, clrViolet, "BEFORE log_move=" + DoubleToString(value1, 4));
+   else if(kind == "INSIDE_SAMPLE")
+      DrawSample(id, anchorTime, lower, upper, clrAqua, "INSIDE log_move=" + DoubleToString(value1, 4));
+   else if(kind == "OUTSIDE_ACTIVE")
+      DrawSample(id, anchorTime, lower, upper, clrOrange, "OUTSIDE-ACTIVE log_move=" + DoubleToString(value1, 4));
+
+   g_drawn++;
+}
+
+//+------------------------------------------------------------------+
+bool KindVisible(const string kind)
+{
+   if(kind == "NODE") return FlagNodes();
+   if(kind == "NODE_PRICE") return FlagNodePriceLines();
+   if(kind == "ACTIVE_FROM") return FlagActiveFromLines();
+   if(kind == "CONFIRMATION_WINDOW") return FlagConfirmationWindows();
+   if(kind == "EXPANSION_EXTREME") return FlagExpansionExtremes();
+   if(kind == "TERRITORY") return FlagTerritories();
+   if(kind == "EVENT") return FlagEventWindows();
+   if(kind == "ENTRY" || kind == "EXIT") return FlagEntryExitMarkers();
+   if(kind == "BEFORE_SAMPLE") return FlagBeforeSamples();
+   if(kind == "INSIDE_SAMPLE") return FlagInsideSamples();
+   if(kind == "OUTSIDE_ACTIVE") return FlagOutsideActiveSamples();
+   if(kind == "RTV_LABEL") return FlagRtvLabels();
+   if(kind == "RTV_FORMULA") return FlagRtvFormula();
+   if(kind == "HUNT") return FlagHunts();
+   if(kind == "EVENT_INFO") return FlagEventInfo();
+   return false;
+}
+
+bool FlagNodes()                { return InpShowNodes                || InpViewPreset==1 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
+bool FlagNodePriceLines()       { return InpShowNodePriceLines       || InpViewPreset==1 || InpViewPreset==2  || InpViewPreset==6  || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagActiveFromLines()      { return InpShowActiveFromLines      || InpViewPreset==1 || InpViewPreset==12; }
+bool FlagConfirmationWindows()  { return InpShowConfirmationWindows  || InpViewPreset==1 || InpViewPreset==12; }
+bool FlagExpansionExtremes()    { return InpShowExpansionExtremes    || InpViewPreset==2 || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagTerritories()          { return InpShowTerritories          || InpViewPreset==2 || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagEventWindows()         { return InpShowEventWindows         || InpViewPreset==3 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
+bool FlagEntryExitMarkers()     { return InpShowEntryExitMarkers     || InpViewPreset==3 || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagBeforeSamples()        { return InpShowBeforeSamples        || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagInsideSamples()        { return InpShowInsideSamples        || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagOutsideActiveSamples() { return InpShowOutsideActiveSamples || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==12; }
+bool FlagRtvLabels()            { return InpShowRtvLabels            || InpViewPreset==5 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
+bool FlagRtvFormula()           { return InpShowRtvFormula           || InpViewPreset==5 || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagHunts()                { return InpShowHunts                || InpViewPreset==6 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
+bool FlagEventInfo()            { return InpShowEventInfo            || InpViewPreset==5 || InpViewPreset==8  || InpViewPreset==9  || InpViewPreset==10 || InpViewPreset==12; }
+bool FlagSummaryPanel()         { return InpShowSummaryPanel         || InpViewPreset==11 || InpViewPreset==12; }
+
+//+------------------------------------------------------------------+
+bool RowPassesFilters(const string kind, const string baseline, const int nodeId, const int revisitId, const double rtv, const bool hunted)
+{
+   if(InpOnlyActual && baseline != "actual")
+      return false;
+   if(!InpShowRandom && baseline == "random")
+      return false;
+   if(InpFocusNodeId >= 0 && nodeId != InpFocusNodeId)
+      return false;
+   if(InpFocusRevisitId >= 0 && revisitId != InpFocusRevisitId)
+      return false;
+   if(InpOnlyHunted && !hunted)
+      return false;
+   if(InpOnlyStrongRtv && rtv < InpStrongRtvLevel)
+      return false;
+   if(InpMinRtv > 0.0 && rtv > 0.0 && rtv < InpMinRtv)
+      return false;
+   if(InpMaxRtv > 0.0 && rtv > InpMaxRtv)
+      return false;
+   return true;
+}
+
+bool IsEventKind(const string kind)
+{
+   return (kind == "EVENT" || kind == "TERRITORY" || kind == "RTV_LABEL" || kind == "RTV_FORMULA" || kind == "HUNT" || kind == "ENTRY" || kind == "EXIT" || kind == "EVENT_INFO");
+}
+
+bool IsSampleKind(const string kind)
+{
+   return (kind == "BEFORE_SAMPLE" || kind == "INSIDE_SAMPLE" || kind == "OUTSIDE_ACTIVE");
+}
+
+void UpdateStats(const string kind, const double rtv, const bool hunted)
+{
+   if(kind == "NODE")
+      g_nodes_seen++;
+   if(kind == "EVENT")
+      g_events_seen++;
+   if(kind == "HUNT")
+      g_hunts_seen++;
+   if(kind == "RTV_LABEL" && rtv > 0.0)
+   {
+      g_rtv_sum += rtv;
+      g_rtv_count++;
+   }
+}
+
+//+------------------------------------------------------------------+
+void DrawNode(const string id, const datetime t, const double price, const string nodeType, const string label, const int nodeId)
+{
+   string name = ObjName(id);
+   int code = (nodeType == "LOW" ? 233 : 234);
+   ObjectCreate(0, name, OBJ_ARROW, 0, t, price);
+   ObjectSetInteger(0, name, OBJPROP_ARROWCODE, code);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, NodeColor(nodeType));
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, label);
+}
+
+void DrawHLine(const string id, const double price, const color c, const string tip)
+{
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_HLINE, 0, 0, price);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_DOT);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawVLine(const string id, const datetime t, const color c, const string tip)
+{
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_VLINE, 0, t, 0);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_DOT);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawConfirmation(const string id, const datetime startTime, const datetime endTime, const double price, const string tip)
+{
+   if(startTime == 0 || endTime == 0)
+      return;
+   DrawVLine(id + "_START", startTime, clrDimGray, "confirmation starts | " + tip);
+   DrawVLine(id + "_ACTIVE", endTime, clrSilver, "active_from | " + tip);
+}
+
+void DrawRect(const string id, const datetime t1, const datetime t2, const double upper, const double lower, const color c, const bool fill, const string tip)
+{
+   if(t1 == 0 || t2 == 0 || upper == 0.0 || lower == 0.0)
+      return;
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_RECTANGLE, 0, t1, upper, t2, lower);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_STYLE, fill ? STYLE_SOLID : STYLE_DASH);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, fill ? 1 : 2);
+   ObjectSetInteger(0, name, OBJPROP_BACK, fill);
+   ObjectSetInteger(0, name, OBJPROP_FILL, fill);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawSample(const string id, const datetime t, const double low, const double high, const color c, const string tip)
+{
+   if(t == 0)
+      return;
+   datetime t2 = t + PeriodSeconds(_Period);
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_RECTANGLE, 0, t, high, t2, low);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
+   ObjectSetInteger(0, name, OBJPROP_BACK, true);
+   ObjectSetInteger(0, name, OBJPROP_FILL, false);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawText(const string id, const datetime t, const double price, const string text, const color c, const int size, const string tip)
+{
+   if(t == 0 || price == 0.0)
+      return;
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_TEXT, 0, t, price);
+   ObjectSetString(0, name, OBJPROP_TEXT, text);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, size);
+   ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawMarker(const string id, const datetime t, const double price, const int code, const color c, const string tip)
+{
+   if(t == 0 || price == 0.0)
+      return;
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_ARROW, 0, t, price);
+   ObjectSetInteger(0, name, OBJPROP_ARROWCODE, code);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, 2);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tip);
+}
+
+void DrawSummaryPanel()
+{
+   double mean_rtv = (g_rtv_count > 0 ? g_rtv_sum / g_rtv_count : 0.0);
+   string text = "Decision Alpha Lab | M0001 Python Brain"
+               + "\nMQL mode: VISUAL ONLY"
+               + "\nFile: " + InpFileName
+               + "\nNodes: " + IntegerToString(g_nodes_seen)
+               + " | Events: " + IntegerToString(g_events_seen)
+               + " | Hunts: " + IntegerToString(g_hunts_seen)
+               + "\nMean RTV: " + DoubleToString(mean_rtv, 3)
+               + "\nPreset: " + IntegerToString(InpViewPreset);
+   DrawMessage("SUMMARY", text, clrAqua, 12, 18);
+}
+
+void DrawMessage(const string id, const string text, const color c, const int x, const int y)
+{
+   string name = ObjName(id);
+   ObjectCreate(0, name, OBJ_LABEL, 0, 0, 0);
+   ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_LEFT_UPPER);
+   ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
+   ObjectSetInteger(0, name, OBJPROP_YDISTANCE, y);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, 9);
+   ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
+   ObjectSetString(0, name, OBJPROP_TEXT, text);
+}
+
+//+------------------------------------------------------------------+
+void DeleteLabObjects()
+{
+   for(int i = ObjectsTotal(0, -1, -1) - 1; i >= 0; i--)
+   {
+      string name = ObjectName(0, i, -1, -1);
+      if(StringFind(name, InpObjectPrefix) == 0)
+         ObjectDelete(0, name);
+   }
+}
+
+string ObjName(const string id)
+{
+   return InpObjectPrefix + Sanitize(_Symbol) + "_" + Sanitize(EnumToString(_Period)) + "_" + Sanitize(id);
+}
+
+string Sanitize(string value)
+{
+   StringReplace(value, "#", "IDX");
+   StringReplace(value, ".", "_");
+   StringReplace(value, "/", "_");
+   StringReplace(value, "\\", "_");
+   StringReplace(value, " ", "_");
+   StringReplace(value, ":", "_");
+   return value;
+}
+
+color NodeColor(const string nodeType)
+{
+   if(nodeType == "LOW") return clrLime;
+   if(nodeType == "HIGH") return clrTomato;
+   return clrSilver;
+}
+
+color RtvColor(const double rtv)
+{
+   if(rtv >= InpStrongRtvLevel) return clrGold;
+   if(rtv > 0.0 && rtv <= 0.90) return clrDeepPink;
+   return clrAqua;
+}
+
+string Field(string &arr[], const int n, const int index)
+{
+   if(index < 0 || index >= n)
+      return "";
+   string value = arr[index];
+   StringTrimLeft(value);
+   StringTrimRight(value);
+   return value;
+}
+
+datetime ToTime(const string value)
+{
+   if(value == "")
+      return 0;
+   return StringToTime(value);
+}
+
+double ToDouble(const string value)
+{
+   if(value == "")
+      return 0.0;
+   return StringToDouble(value);
+}
+
+int ToInt(const string value)
+{
+   if(value == "")
+      return -1;
+   return (int)StringToInteger(value);
+}
+
+bool ToBool(const string value)
+{
+   return (value == "1" || value == "true" || value == "True" || value == "yes" || value == "YES");
 }
