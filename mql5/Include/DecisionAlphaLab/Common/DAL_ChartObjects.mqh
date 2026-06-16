@@ -13,6 +13,56 @@ void DAL_DeleteByPrefix(const string prefix)
    }
 }
 
+void DAL_DeleteM0001VisualArtifacts(const string active_prefix)
+{
+   for(int i = ObjectsTotal(0, -1, -1) - 1; i >= 0; i--)
+   {
+      string name = ObjectName(0, i, -1, -1);
+
+      if(StringFind(name, active_prefix) == 0
+         || StringFind(name, "DAL_MQL_M0001_") == 0
+         || StringFind(name, "DAL_M0001_") == 0
+         || StringFind(name, "DAL_M0001_PY_") == 0
+         || StringFind(name, "DAL_M0001_LIVE_") == 0)
+      {
+         ObjectDelete(0, name);
+      }
+   }
+}
+
+bool DAL_IsTraceLineObjectType(const ENUM_OBJECT object_type)
+{
+   return (
+      object_type == OBJ_TREND
+      || object_type == OBJ_TRENDBYANGLE
+      || object_type == OBJ_CHANNEL
+      || object_type == OBJ_STDDEVCHANNEL
+      || object_type == OBJ_REGRESSION
+   );
+}
+
+void DAL_DeleteTraceLineObjects()
+{
+   for(int i = ObjectsTotal(0, -1, -1) - 1; i >= 0; i--)
+   {
+      string name = ObjectName(0, i, -1, -1);
+      ENUM_OBJECT object_type = (ENUM_OBJECT)ObjectGetInteger(0, name, OBJPROP_TYPE);
+
+      if(DAL_IsTraceLineObjectType(object_type))
+         ObjectDelete(0, name);
+   }
+}
+
+void DAL_DeleteMainWindowIndicators()
+{
+   for(int i = ChartIndicatorsTotal(0, 0) - 1; i >= 0; i--)
+   {
+      string indicator_name = ChartIndicatorName(0, 0, i);
+      if(indicator_name != "")
+         ChartIndicatorDelete(0, 0, indicator_name);
+   }
+}
+
 void DAL_DrawTextLabel(
    const string name,
    const datetime t,
@@ -27,6 +77,24 @@ void DAL_DrawTextLabel(
    ObjectSetInteger(0, name, OBJPROP_COLOR, c);
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
    ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
+}
+
+void DAL_DrawArrowMarker(
+   const string name,
+   const datetime t,
+   const double price,
+   const int arrow_code,
+   const color c,
+   const int width = 1,
+   const int anchor = ANCHOR_TOP
+)
+{
+   ObjectCreate(0, name, OBJ_ARROW, 0, t, price);
+   ObjectSetInteger(0, name, OBJPROP_ARROWCODE, arrow_code);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, width);
+   ObjectSetInteger(0, name, OBJPROP_ANCHOR, anchor);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
 }
 

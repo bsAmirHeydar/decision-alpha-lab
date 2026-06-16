@@ -18,10 +18,13 @@ struct DALM0001VisualConfig
    bool show_hunts;
    int max_nodes;
    int max_events;
+   int node_marker_style; // 0 = arrow marker, 1 = chevron marker
+   int node_arrow_width;
    double chevron_points;
    double chevron_bars;
    int chevron_width;
-   double node_price_text_gap_points;
+   double high_node_price_text_gap_points;
+   double low_node_price_text_gap_points;
    int node_price_text_font_size;
 };
 
@@ -29,7 +32,7 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
 {
    config.prefix = "DAL_MQL_M0001_";
    config.show_nodes = true;
-   config.show_node_prices = false;
+   config.show_node_prices = true;
    config.show_node_price_lines = false;
    config.show_active_from = false;
    config.show_events = false;
@@ -37,11 +40,14 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
    config.show_hunts = true;
    config.max_nodes = 120;
    config.max_events = 80;
+   config.node_marker_style = 0;
+   config.node_arrow_width = 2;
    config.chevron_points = 70.0;
    config.chevron_bars = 0.28;
    config.chevron_width = 2;
-   config.node_price_text_gap_points = 35.0;
-   config.node_price_text_font_size = 8;
+   config.high_node_price_text_gap_points = 120.0;
+   config.low_node_price_text_gap_points = 120.0;
+   config.node_price_text_font_size = 9;
 }
 
 double DAL_VisualPoint()
@@ -50,6 +56,42 @@ double DAL_VisualPoint()
    if(point <= 0.0)
       point = 0.01;
    return point;
+}
+
+double DAL_NodeLabelPrice(
+   const DALLRuleNode &node,
+   const double high_gap_points,
+   const double low_gap_points
+)
+{
+   double point = DAL_VisualPoint();
+
+   if(node.type == DAL_NODE_HIGH)
+      return node.price + high_gap_points * point;
+
+   return node.price - low_gap_points * point;
+}
+
+
+void DAL_DrawNodeArrow(
+   const string prefix,
+   const DALLRuleNode &node,
+   const int width
+)
+{
+   string id = prefix + "NODE_" + IntegerToString(node.id);
+   color c = DAL_NodeColor(node.type);
+
+   int arrow_code = 233;
+   int anchor = ANCHOR_TOP;
+
+   if(node.type == DAL_NODE_HIGH)
+   {
+      arrow_code = 234;      // down arrow
+      anchor = ANCHOR_BOTTOM;
+   }
+
+   DAL_DrawArrowMarker(id, node.time, node.price, arrow_code, c, width, anchor);
 }
 
 void DAL_DrawNodeChevron(
@@ -87,32 +129,24 @@ void DAL_DrawNodeChevron(
 void DAL_DrawNodePriceLabel(
    const string prefix,
    const DALLRuleNode &node,
-   const double chevron_points,
-   const double text_gap_points,
+   const double high_gap_points,
+   const double low_gap_points,
    const int font_size
 )
 {
-   double point = DAL_VisualPoint();
-   double chevron_gap = chevron_points * point;
-   double text_gap = text_gap_points * point;
+   double label_price = DAL_NodeLabelPrice(node, high_gap_points, low_gap_points);
 
-   double label_price = node.price;
    ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER;
    if(node.type == DAL_NODE_HIGH)
-   {
-      label_price = node.price + chevron_gap + text_gap;
       anchor = ANCHOR_LOWER;
-   }
    else
-   {
-      label_price = node.price - chevron_gap - text_gap;
       anchor = ANCHOR_UPPER;
-   }
 
    string id = prefix + "NODE_PRICE_TEXT_" + IntegerToString(node.id);
    string text = DoubleToString(node.price, _Digits);
    DAL_DrawTextLabelAnchored(id, node.time, label_price, text, DAL_NodeColor(node.type), font_size, anchor);
 }
+
 
 color DAL_RtvColor(const double rtv)
 {
@@ -141,14 +175,21 @@ void DAL_M0001DrawNodes(
 
    for(int i = 0; i < limit; i++)
    {
-      DAL_DrawNodeChevron(visual.prefix, nodes[i], timeframe, visual.chevron_points, visual.chevron_bars, visual.chevron_width);
+      // Strict clean-node mode:
+      // arrow + optional local price text only.
+      DAL_DrawNodeArrow(visual.prefix, nodes[i], visual.node_arrow_width);
 
       if(visual.show_node_prices)
-         DAL_DrawNodePriceLabel(visual.prefix, nodes[i], visual.chevron_points, visual.node_price_text_gap_points, visual.node_price_text_font_size);
+         DAL_DrawNodePriceLabel(
+            visual.prefix,
+            nodes[i],
+            visual.high_node_price_text_gap_points,
+            visual.low_node_price_text_gap_points,
+            visual.node_price_text_font_size
+         );
 
-      if(visual.show_node_price_lines)
-         DAL_DrawHLine(visual.prefix + "NODE_PRICE_LINE_" + IntegerToString(nodes[i].id), nodes[i].price, DAL_NodeColor(nodes[i].type));
-
+      // Full horizontal node-price lines are intentionally disabled.
+      // Price visibility is handled by local text labels via show_node_prices.
       if(visual.show_active_from)
          DAL_DrawVLine(visual.prefix + "ACTIVE_" + IntegerToString(nodes[i].id), nodes[i].active_from_time, clrSilver);
    }

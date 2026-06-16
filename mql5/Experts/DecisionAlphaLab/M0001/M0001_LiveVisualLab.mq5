@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
+#property version   "1.15"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -32,9 +32,11 @@ input double InpMinRtv = 0.0;
 input int InpMaxEvents = 300;
 
 input string InpObjectPrefix = "DAL_MQL_M0001_";
+input bool InpPurgeTraceLines = true;          // delete trend/channel trace lines from chart on each redraw
+input bool InpPurgeMainWindowIndicators = true; // remove ZigZag/indicator traces from main chart window on init
 input bool InpShowNodes = true;
-input bool InpShowNodePrices = false;       // true = show node price as local text label, not horizontal line
-input bool InpShowNodePriceLines = false;     // optional old behavior: horizontal full-chart price lines
+input bool InpShowNodePrices = true;        // true = show node price as local text label, not horizontal line
+input bool InpShowNodePriceLines = false;     // deprecated/ignored: M0001 no longer draws full-chart node price lines
 input bool InpShowActiveFrom = false;
 input bool InpShowEvents = false;
 input bool InpShowRtvLabels = false;
@@ -42,11 +44,14 @@ input bool InpShowHunts = true;
 input bool InpShowSummary = true;
 input int InpMaxNodesToDraw = 120;
 input int InpMaxEventsToDraw = 80;
-input double InpNodeChevronPoints = 70.0;
-input double InpNodeChevronBars = 0.28;
-input int InpNodeChevronWidth = 2;
-input double InpNodePriceTextGapPoints = 35.0;
-input int InpNodePriceTextFontSize = 8;
+input int InpNodeMarkerStyle = 0;            // deprecated/ignored: strict mode always uses clean arrows
+input int InpNodeArrowWidth = 2;
+input double InpNodeChevronPoints = 70.0;    // used only when InpNodeMarkerStyle = 1
+input double InpNodeChevronBars = 0.28;      // used only when InpNodeMarkerStyle = 1
+input int InpNodeChevronWidth = 2;           // used only when InpNodeMarkerStyle = 1
+input double InpHighNodePriceTextGapPoints = 120.0;
+input double InpLowNodePriceTextGapPoints = 120.0;
+input int InpNodePriceTextFontSize = 9;
 
 input bool InpWriteValidationJournal = false;
 input string InpJournalPrefix = "DecisionAlphaLab\\M0001\\";
@@ -89,17 +94,23 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.prefix = InpObjectPrefix;
    visual.show_nodes = InpShowNodes;
    visual.show_node_prices = InpShowNodePrices;
-   visual.show_node_price_lines = InpShowNodePriceLines;
+   // Hard-disabled: full-chart node price lines create visual noise.
+   // Use InpShowNodePrices for local text labels above/below node markers.
+   visual.show_node_price_lines = false;
    visual.show_active_from = InpShowActiveFrom;
    visual.show_events = InpShowEvents;
    visual.show_rtv_labels = InpShowRtvLabels;
    visual.show_hunts = InpShowHunts;
    visual.max_nodes = InpMaxNodesToDraw;
    visual.max_events = InpMaxEventsToDraw;
+   // Hard-disabled: chevron mode creates diagonal high/low trace lines.
+   visual.node_marker_style = 0;
+   visual.node_arrow_width = InpNodeArrowWidth;
    visual.chevron_points = InpNodeChevronPoints;
    visual.chevron_bars = InpNodeChevronBars;
    visual.chevron_width = InpNodeChevronWidth;
-   visual.node_price_text_gap_points = InpNodePriceTextGapPoints;
+   visual.high_node_price_text_gap_points = InpHighNodePriceTextGapPoints;
+   visual.low_node_price_text_gap_points = InpLowNodePriceTextGapPoints;
    visual.node_price_text_font_size = InpNodePriceTextFontSize;
 }
 
@@ -124,7 +135,10 @@ void RunM0001FromBars(
    DALM0001VisualConfig visual;
    BuildVisualConfig(visual);
 
-   DAL_DeleteByPrefix(InpObjectPrefix);
+   if(InpPurgeTraceLines)
+      DAL_DeleteTraceLineObjects();
+
+   DAL_DeleteM0001VisualArtifacts(InpObjectPrefix);
    DAL_M0001DrawNodes(nodes, nodes_count, visual, LabTimeframe());
    DAL_M0001DrawEvents(events, events_count, visual);
 
@@ -215,6 +229,9 @@ void RunM0001()
 
 int OnInit()
 {
+   if(InpPurgeMainWindowIndicators)
+      DAL_DeleteMainWindowIndicators();
+
    if(InpUseLiveBarStream)
    {
       InitializeLiveBarStream();
@@ -237,7 +254,7 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
-   DAL_DeleteByPrefix(InpObjectPrefix);
+   DAL_DeleteM0001VisualArtifacts(InpObjectPrefix);
 }
 
 void OnTick()

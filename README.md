@@ -109,3 +109,58 @@ The MQL-native runtime processes bars as a live stream by default. It does not
 bulk-copy the whole test window for active logic. On each new closed candle, it
 reads only the newly closed bar, appends it to an in-memory rolling stream, and
 updates L-rule nodes, M0001 events, and visual audit objects.
+
+
+## Clean arrow node markers
+
+M0001 MQL-native now uses clean arrow markers by default:
+
+```text
+InpNodeMarkerStyle = 0
+```
+
+This removes diagonal chevron wing lines around candles. When
+`InpShowNodePrices=true`, node prices are shown as local text labels above
+high-node arrows and below low-node arrows.
+
+
+## Node price lines hard-disabled
+
+M0001 no longer draws full-chart horizontal node price lines.  
+`InpShowNodePriceLines` is retained only for backward compatibility and is ignored.
+
+Use:
+
+```text
+InpShowNodePrices = true
+```
+
+to show local price text above high-node arrows and below low-node arrows.
+
+
+## Strict node markers
+
+M0001 node visualization is now arrow-only by default.  
+The visual layer no longer draws chevron wing trend segments or full-chart node
+price lines. Node prices are shown as local text labels when
+`InpShowNodePrices=true`.
+
+
+## Arrow anchor compile fix
+
+M0001 strict node markers use `OBJ_ARROW`. The arrow anchor helper now passes
+anchor values as integers to avoid MetaEditor enum ambiguity between arrow and
+text anchor constants.
+
+
+## M0001 hard clean visual
+
+The MQL-native visual layer can purge chart trace lines and main-window indicators
+so node inspection is arrow + local price text only.
+
+```text
+InpPurgeTraceLines = true
+InpPurgeMainWindowIndicators = true
+InpHighNodePriceTextGapPoints = 120
+InpLowNodePriceTextGapPoints = 120
+```
