@@ -14,12 +14,15 @@ struct DALM0001Event
    int entry_index;
    int exit_index;
    int consumed_index;
+   int touch_confirmed_index;
+   int event_length;
 
    datetime node_time;
    datetime active_from_time;
    datetime entry_time;
    datetime exit_time;
    datetime consumed_time;
+   datetime touch_confirmed_time;
 
    ENUM_DALNodeType node_type;
    double node_price;
@@ -30,6 +33,7 @@ struct DALM0001Event
    double mean_before;
    double mean_inside;
    double rtv;
+   bool touch_confirmed;
    bool hunted;
    bool consumed;
    ENUM_DALM0001ConsumeReason consume_reason;

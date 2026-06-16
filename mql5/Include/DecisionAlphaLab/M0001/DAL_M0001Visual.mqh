@@ -16,6 +16,8 @@ struct DALM0001VisualConfig
    bool show_active_from;
    bool show_events;
    bool show_rtv_labels;
+   bool show_revisit_labels;
+   bool show_node_state_labels;
    bool show_hunts;
    bool show_node_visibility_debug;
    bool show_expansion_extreme_lines;
@@ -49,6 +51,8 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
    config.show_active_from = false;
    config.show_events = false;
    config.show_rtv_labels = false;
+   config.show_revisit_labels = true;
+   config.show_node_state_labels = true;
    config.show_hunts = true;
    config.show_node_visibility_debug = true;
    config.show_expansion_extreme_lines = false;
@@ -262,10 +266,79 @@ void DAL_M0001DrawNodes(
    }
 }
 
+bool DAL_M0001IsActualRevisit(
+   const DALM0001Event &event,
+   const DALM0001Config &config
+)
+{
+   // TOUCH mode is one-shot, so it does not expose revisit labels.
+   if(DAL_M0001ConsumesOnTouch(config))
+      return false;
+
+   // REV#0 is the first visit. True revisit starts from REV#1.
+   return event.revisit_id > 0;
+}
+
+string DAL_M0001RevisitOnlyText(const DALM0001Event &event)
+{
+   return "REVISIT#" + IntegerToString(event.revisit_id);
+}
+
+color DAL_M0001RevisitOnlyColor(const DALM0001Event &event)
+{
+   // Color the revisit text by the structural side:
+   // LOW / valley revisits  -> blue
+   // HIGH / peak revisits   -> red
+   if(event.node_type == DAL_NODE_LOW)
+      return clrDeepSkyBlue;
+
+   return clrRed;
+}
+
+double DAL_M0001EventLabelPrice(const DALM0001Event &event)
+{
+   double gap = 60.0 * DAL_VisualPoint();
+
+   if(event.node_type == DAL_NODE_HIGH)
+      return event.territory_lower - gap;
+
+   return event.territory_upper + gap;
+}
+
+void DAL_M0001DrawRevisitLabel(
+   const string prefix,
+   const DALM0001Event &event,
+   const DALM0001Config &config
+)
+{
+   if(!DAL_M0001IsActualRevisit(event, config))
+      return;
+
+   string id = prefix + "REV_LABEL_" + IntegerToString(event.id);
+   color c = DAL_M0001RevisitOnlyColor(event);
+
+   ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER;
+   if(event.node_type == DAL_NODE_HIGH)
+      anchor = ANCHOR_UPPER;
+   else
+      anchor = ANCHOR_LOWER;
+
+   DAL_DrawTextLabelAnchored(
+      id,
+      event.entry_time,
+      DAL_M0001EventLabelPrice(event),
+      DAL_M0001RevisitOnlyText(event),
+      c,
+      8,
+      anchor
+   );
+}
+
 void DAL_M0001DrawEvents(
    const DALM0001Event &events[],
    const int count,
-   const DALM0001VisualConfig &visual
+   const DALM0001VisualConfig &visual,
+   const DALM0001Config &config
 )
 {
    int limit = count;
@@ -289,8 +362,11 @@ void DAL_M0001DrawEvents(
       if(visual.show_events)
          DAL_DrawRectangle(id + "_BOX", e.entry_time, e.territory_upper, e.exit_time, e.territory_lower, DAL_RtvColor(e.rtv), true, false);
 
+      if(visual.show_revisit_labels)
+         DAL_M0001DrawRevisitLabel(visual.prefix, e, config);
+
       if(visual.show_rtv_labels)
-         DAL_DrawTextLabel(id + "_RTV", e.entry_time, e.territory_upper, "RTV " + DoubleToString(e.rtv, 2), DAL_RtvColor(e.rtv), 8);
+         DAL_DrawTextLabel(id + "_RTV", e.exit_time, e.territory_upper, "RTV " + DoubleToString(e.rtv, 2), DAL_RtvColor(e.rtv), 8);
 
       if(visual.show_hunts && e.hunted)
          DAL_DrawTextLabel(id + "_HUNT", e.exit_time, e.node_price, "HUNT", clrRed, 8);
@@ -304,6 +380,26 @@ color DAL_M0001AuditColor(const ENUM_DALNodeType node_type, const bool invalidat
       return clrDimGray;
 
    return DAL_NodeColor(node_type);
+}
+
+color DAL_M0001RevisitedZoneColor(const DALM0001NodeAuditState &state)
+{
+   // After at least one confirmed revisit, the live zone changes color so the
+   // chart distinguishes revisited territory from fresh territory.
+   // Peak / HIGH revisited zones   -> purple
+   // Valley / LOW revisited zones  -> blue
+   if(state.consumed)
+      return DAL_M0001AuditColor(state.node_type, true);
+
+   if(state.confirmed_touch_count > 0)
+   {
+      if(state.node_type == DAL_NODE_HIGH)
+         return clrPurple;
+
+      return clrDeepSkyBlue;
+   }
+
+   return DAL_M0001AuditColor(state.node_type, false);
 }
 
 void DAL_M0001DrawExtremeLink(
@@ -349,10 +445,23 @@ void DAL_M0001DrawLiveHuntZone(
    const bool show_consumed_history
 )
 {
+   // Visual rule:
+   // The rectangle's time origin is always the structural node itself.
+   //
+   // Calculation rule remains separate:
+   // after a confirmed revisit, tracking_cycle_start_time still resets the
+   // post-visit extreme/zone calculation, but the visible rectangle continues
+   // to start from the node candle so the structural origin stays obvious.
    datetime start_time = state.node_time;
+   if(start_time <= 0)
+      start_time = state.active_from_time;
+   if(start_time <= 0)
+      start_time = state.tracking_cycle_start_time;
+
    datetime end_time = state.current_time;
 
-   // Active node: draw live zone up to current live-stream bar.
+   // Active node: draw live territory from the node-origin time to current bar.
+   // Revisit extreme reset changes the price geometry, not the time origin.
    // Consumed node: keep historical zone drawn, but terminate it at consume candle.
    if(state.consumed || !state.active)
    {
@@ -368,7 +477,7 @@ void DAL_M0001DrawLiveHuntZone(
    if(end_time <= start_time)
       return;
 
-   color c = DAL_M0001AuditColor(state.node_type, state.consumed);
+   color c = DAL_M0001RevisitedZoneColor(state);
 
    string id = prefix + "LIVE_HUNT_ZONE_" + IntegerToString(state.node_id);
    DAL_DrawRectangle(
@@ -380,6 +489,98 @@ void DAL_M0001DrawLiveHuntZone(
       c,
       true,
       false
+   );
+}
+
+string DAL_M0001NodeStateText(
+   const DALM0001NodeAuditState &state,
+   const DALM0001Config &config
+)
+{
+   bool touch_mode = DAL_M0001ConsumesOnTouch(config);
+
+   if(state.consumed)
+   {
+      if(touch_mode)
+         return "CONSUMED:" + DAL_M0001ConsumeReasonToString(state.consume_reason);
+
+      return "CONSUMED:" + DAL_M0001ConsumeReasonToString(state.consume_reason)
+         + " revs=" + IntegerToString(state.confirmed_touch_count);
+   }
+
+   if(state.pending_touch)
+   {
+      if(touch_mode)
+         return "PENDING TOUCH_EVENT out="
+            + IntegerToString(state.pending_touch_outside_count)
+            + "/" + IntegerToString(config.exit_gap);
+
+      return "PENDING REV#" + IntegerToString(state.pending_touch_revisit_id)
+         + " out=" + IntegerToString(state.pending_touch_outside_count)
+         + "/" + IntegerToString(config.exit_gap);
+   }
+
+   if(state.confirmed_touch_count > 0)
+   {
+      if(touch_mode)
+         return "ACTIVE_AFTER_TOUCH? revs="
+            + IntegerToString(state.confirmed_touch_count);
+
+      return "REVISITED LIVE revs="
+         + IntegerToString(state.confirmed_touch_count)
+         + " next=REV#" + IntegerToString(state.next_revisit_id)
+         + " age=" + IntegerToString(state.bars_since_last_touch_confirmed)
+         + " reset@" + IntegerToString(state.tracking_cycle_start_index);
+   }
+
+   if(touch_mode)
+      return "FRESH LIVE TOUCH_EVENT";
+
+   return "FRESH LIVE next=REV#0";
+}
+
+double DAL_M0001NodeStateLabelPrice(const DALM0001NodeAuditState &state)
+{
+   double gap = 180.0 * DAL_VisualPoint();
+
+   if(state.node_type == DAL_NODE_HIGH)
+      return state.node_price + gap;
+
+   return state.node_price - gap;
+}
+
+void DAL_M0001DrawNodeStateLabel(
+   const string prefix,
+   const DALM0001NodeAuditState &state,
+   const DALM0001Config &config
+)
+{
+   string id = prefix + "NODE_STATE_" + IntegerToString(state.node_id);
+
+   color c = DAL_M0001AuditColor(state.node_type, state.consumed);
+   if(state.pending_touch)
+      c = clrGold;
+   if(state.revisited_live)
+      c = clrDeepSkyBlue;
+   if(state.hunted)
+      c = clrRed;
+   if(state.consumed && state.consume_reason == DAL_M0001_CONSUMED_TOUCH)
+      c = clrSilver;
+
+   ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER;
+   if(state.node_type == DAL_NODE_HIGH)
+      anchor = ANCHOR_LOWER;
+   else
+      anchor = ANCHOR_UPPER;
+
+   DAL_DrawTextLabelAnchored(
+      id,
+      state.current_time,
+      DAL_M0001NodeStateLabelPrice(state),
+      DAL_M0001NodeStateText(state, config),
+      c,
+      7,
+      anchor
    );
 }
 
@@ -415,7 +616,8 @@ void DAL_M0001DrawConsumedMarker(
 void DAL_M0001DrawAuditStates(
    const DALM0001NodeAuditState &states[],
    const int count,
-   const DALM0001VisualConfig &visual
+   const DALM0001VisualConfig &visual,
+   const DALM0001Config &config
 )
 {
    int limit = count;
@@ -449,6 +651,12 @@ void DAL_M0001DrawAuditStates(
          && DAL_M0001TimeInVisualWindow(visual, states[i].consumed_time))
       {
          DAL_M0001DrawConsumedMarker(visual.prefix, states[i]);
+      }
+
+      if(visual.show_node_state_labels
+         && DAL_M0001TimeInVisualWindow(visual, states[i].current_time))
+      {
+         DAL_M0001DrawNodeStateLabel(visual.prefix, states[i], config);
       }
    }
 }

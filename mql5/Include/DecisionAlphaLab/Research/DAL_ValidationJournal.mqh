@@ -56,6 +56,7 @@ void DAL_WriteM0001NodeAuditStateJournal(
       "type",
       "node_time",
       "active_from_time",
+      "tracking_cycle_start_time",
       "current_time",
       "node_price",
       "expansion_extreme",
@@ -70,7 +71,12 @@ void DAL_WriteM0001NodeAuditStateJournal(
       "consumed",
       "consumed_time",
       "consume_reason",
-      "invalidated"
+      "invalidated",
+      "revisited_live",
+      "fresh_live",
+      "confirmed_touch_count",
+      "next_revisit_id",
+      "bars_since_last_touch_confirmed"
    );
 
    for(int i = 0; i < states_count; i++)
@@ -82,6 +88,7 @@ void DAL_WriteM0001NodeAuditStateJournal(
          DAL_NodeTypeToString(states[i].node_type),
          TimeToString(states[i].node_time, TIME_DATE | TIME_MINUTES),
          TimeToString(states[i].active_from_time, TIME_DATE | TIME_MINUTES),
+         TimeToString(states[i].tracking_cycle_start_time, TIME_DATE | TIME_MINUTES),
          TimeToString(states[i].current_time, TIME_DATE | TIME_MINUTES),
          DoubleToString(states[i].node_price, _Digits),
          DoubleToString(states[i].expansion_extreme, _Digits),
@@ -96,7 +103,12 @@ void DAL_WriteM0001NodeAuditStateJournal(
          DAL_BoolToString(states[i].consumed),
          states[i].consumed_time > 0 ? TimeToString(states[i].consumed_time, TIME_DATE | TIME_MINUTES) : "",
          DAL_M0001ConsumeReasonToString(states[i].consume_reason),
-         DAL_BoolToString(states[i].invalidated)
+         DAL_BoolToString(states[i].invalidated),
+         DAL_BoolToString(states[i].revisited_live),
+         DAL_BoolToString(states[i].fresh_live),
+         states[i].confirmed_touch_count,
+         states[i].next_revisit_id,
+         states[i].bars_since_last_touch_confirmed
       );
    }
 
@@ -113,19 +125,23 @@ void DAL_WriteM0001EventJournal(
    if(h == INVALID_HANDLE)
       return;
 
-   FileWrite(h, "id", "node_id", "type", "entry_time", "exit_time", "consumed_time", "consume_reason", "rtv", "hunted", "mean_before", "mean_inside");
+   FileWrite(h, "id", "node_id", "revisit_id", "type", "entry_time", "exit_time", "event_length", "touch_confirmed_time", "consumed_time", "consume_reason", "rtv", "touch_confirmed", "hunted", "mean_before", "mean_inside");
    for(int i = 0; i < events_count; i++)
    {
       FileWrite(
          h,
          events[i].id,
          events[i].node_id,
+         events[i].revisit_id,
          DAL_NodeTypeToString(events[i].node_type),
          TimeToString(events[i].entry_time, TIME_DATE | TIME_MINUTES),
          TimeToString(events[i].exit_time, TIME_DATE | TIME_MINUTES),
+         events[i].event_length,
+         events[i].touch_confirmed_time > 0 ? TimeToString(events[i].touch_confirmed_time, TIME_DATE | TIME_MINUTES) : "",
          events[i].consumed_time > 0 ? TimeToString(events[i].consumed_time, TIME_DATE | TIME_MINUTES) : "",
          DAL_M0001ConsumeReasonToString(events[i].consume_reason),
          DoubleToString(events[i].rtv, 6),
+         DAL_BoolToString(events[i].touch_confirmed),
          DAL_BoolToString(events[i].hunted),
          DoubleToString(events[i].mean_before, 6),
          DoubleToString(events[i].mean_inside, 6)

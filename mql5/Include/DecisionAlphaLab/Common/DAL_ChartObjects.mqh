@@ -176,7 +176,19 @@ void DAL_DrawRectangle(
    const bool fill = false
 )
 {
-   ObjectCreate(0, name, OBJ_RECTANGLE, 0, t1, upper, t2, lower);
+   if(ObjectFind(0, name) < 0)
+   {
+      ObjectCreate(0, name, OBJ_RECTANGLE, 0, t1, upper, t2, lower);
+   }
+   else
+   {
+      // Upsert geometry. If the rectangle already exists, ObjectCreate fails
+      // silently and old coordinates remain stale unless both anchor points are
+      // moved explicitly.
+      ObjectMove(0, name, 0, t1, upper);
+      ObjectMove(0, name, 1, t2, lower);
+   }
+
    ObjectSetInteger(0, name, OBJPROP_COLOR, c);
    ObjectSetInteger(0, name, OBJPROP_BACK, back);
    ObjectSetInteger(0, name, OBJPROP_FILL, fill);

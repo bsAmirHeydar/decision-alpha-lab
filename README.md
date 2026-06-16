@@ -1,85 +1,19 @@
 # Decision Alpha Lab
 
-A research-first quantitative trading laboratory.
+A visual-first MQL5 research lab for validating market-structure hypotheses.
 
-## Runtime Direction
+The active runtime is **MQL5-native**. M0001 is inspected directly on the MT5 chart. Excel/JSON report generation and external Python/UI bridge layers are not part of the active workflow.
 
-The active runtime is now **MQL5-native**.
-
-Python, FastAPI, React, Parquet cache pipelines, and external bridge/watch loops have been removed from the active execution path. The archived Python implementation should remain in the branch:
-
-```text
-archive/python-brain-m0001
-```
-
-Current active development should happen on:
-
-```text
-mql-native-migration
-```
-
-## Why MQL-native
-
-The project needs fast, live-safe, visually auditable iteration inside MT5 Strategy Tester and charts. A separate Python process introduced asynchronous delay, shared-file friction, CSV adapter complexity, and live-semantics ambiguity.
-
-MQL5 now owns:
-
-- market data access
-- L-rule structural node detection
-- M0001 RTV event construction
-- visual validation
-- tester behavior
-- validation journal export
-
-## MQL5 Entry Points
-
-Expert:
+## Active expert
 
 ```text
 mql5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ```
 
-Includes:
-
-```text
-mql5/Include/DecisionAlphaLab/
-```
-
-Validation export script:
-
-```text
-mql5/Scripts/DecisionAlphaLab/M0001/M0001_ExportValidationJournal.mq5
-```
-
-## Research Structure
-
-The lab workflow remains:
-
-```text
-lab/01_observation
-lab/02_hypotheses
-lab/03_experiments
-lab/04_analysis
-lab/05_validation
-lab/06_production
-lab/07_monitoring
-lab/08_archive
-```
-
-The runtime changed. The research discipline did not.
-
-## Apply Locally
-
-From the repository root:
+Apply to the local MQL5 folder:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\apply_mql_native_migration.ps1
-```
-
-To also copy files into an MT5 terminal data folder:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\apply_mql_native_migration.ps1 -TerminalDataPath "C:\Users\<YOU>\AppData\Roaming\MetaQuotes\Terminal\<TERMINAL_ID>"
 ```
 
 Then compile:
@@ -88,253 +22,252 @@ Then compile:
 MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ```
 
-## Documentation
+## Minimal Inputs
 
-- `docs/mql_native/MQL_NATIVE_ARCHITECTURE.md`
-- `docs/mql_native/M0001_MQL_NATIVE_SPEC.md`
-- `docs/mql_native/MODULE_MAP.md`
-
-
-## M0001 node price labels
-
-In the MQL-native runtime, `InpShowNodePrices` displays node prices as local text
-labels above high-node markers and below low-node markers. Full horizontal
-node-price lines are disabled by default and controlled separately by
-`InpShowNodePriceLines`.
-
-
-## Live bar stream
-
-The MQL-native runtime processes bars as a live stream by default. It does not
-bulk-copy the whole test window for active logic. On each new closed candle, it
-reads only the newly closed bar, appends it to an in-memory rolling stream, and
-updates L-rule nodes, M0001 events, and visual audit objects.
-
-
-## Clean arrow node markers
-
-M0001 MQL-native now uses clean arrow markers by default:
+The expert Inputs panel is intentionally small.
 
 ```text
-InpNodeMarkerStyle = 0
+InpSymbol
+InpTimeframe
+InpBars
+
+InpL
+InpZoneRatio
+InpExitGap
+InpConsumeMode
+
+InpShowNodes
+InpShowZones
+InpShowRevisits
+InpShowState
+InpShowExtremes
+InpShowSummary
 ```
 
-This removes diagonal chevron wing lines around candles. When
-`InpShowNodePrices=true`, node prices are shown as local text labels above
-high-node arrows and below low-node arrows.
+Everything else is now an internal default, not an input.
 
-
-## Node price lines hard-disabled
-
-M0001 no longer draws full-chart horizontal node price lines.  
-`InpShowNodePriceLines` is retained only for backward compatibility and is ignored.
-
-Use:
+## Input meaning
 
 ```text
-InpShowNodePrices = true
+InpSymbol       empty = current chart symbol
+InpTimeframe    PERIOD_CURRENT = current chart timeframe
+InpBars         0 = no cap
+
+InpL            structural node left/right confirmation window
+InpZoneRatio    territory compression ratio
+InpExitGap      candles outside frozen event zone required to confirm touch
+InpConsumeMode  HUNT mode or TOUCH mode
 ```
 
-to show local price text above high-node arrows and below low-node arrows.
-
-
-## Strict node markers
-
-M0001 node visualization is now arrow-only by default.  
-The visual layer no longer draws chevron wing trend segments or full-chart node
-price lines. Node prices are shown as local text labels when
-`InpShowNodePrices=true`.
-
-
-## Arrow anchor compile fix
-
-M0001 strict node markers use `OBJ_ARROW`. The arrow anchor helper now passes
-anchor values as integers to avoid MetaEditor enum ambiguity between arrow and
-text anchor constants.
-
-
-## M0001 hard clean visual
-
-The MQL-native visual layer can purge chart trace lines and main-window indicators
-so node inspection is arrow + local price text only.
+Visual toggles:
 
 ```text
-InpPurgeTraceLines = true
-InpPurgeMainWindowIndicators = true
-InpHighNodePriceTextGapPoints = 120
-InpLowNodePriceTextGapPoints = 120
+InpShowNodes      node arrows + local node price text
+InpShowZones      active/consumed territory zones
+InpShowRevisits   true revisit labels only: REVISIT#1, REVISIT#2, ...
+InpShowState      pending/live/consumed/hunt state labels
+InpShowExtremes   node-to-expansion-extreme audit lines
+InpShowSummary    top-left run summary
 ```
 
+## M0001 algorithm
 
-## M0001 extreme and live hunt zone audit
+### 1. Structural node detection
 
-After structural nodes are validated, M0001 now exposes an audit layer for:
+A confirmed L-rule node is created only after right-side confirmation exists.
 
 ```text
-node -> expansion extreme -> live hunt/territory zone
+HIGH node: high[i] >= left highs and high[i] >= right highs
+LOW node:  low[i]  <= left lows  and low[i]  <= right lows
+
+active_from_index = node_index + L
 ```
 
-Inputs:
+The marker is drawn on the pivot candle, but logic starts at `active_from_index`.
+
+### 2. Territory construction
+
+For a live LOW node:
 
 ```text
-InpShowExpansionExtremes = true
-InpShowLiveHuntZones = true
-InpShowInvalidatedHuntZones = false
+expansion_extreme = highest high in current tracking cycle
 ```
 
-The L-rule structural node detector is available through the stable facade:
+For a live HIGH node:
 
 ```text
-mql5/Include/DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh
+expansion_extreme = lowest low in current tracking cycle
 ```
 
-
-## Hunt zone origin from node
-
-M0001 live hunt/territory rectangles now start from the original node candle
-instead of the active-from candle. The logic still confirms nodes at
-`node_index + L`; this change only makes the visual rectangle's structural origin
-match the node itself.
-
-
-## Consumed node repair
-
-M0001 now treats consumed/hunted nodes as finished.  
-After consumption, the node no longer draws an active expansion-extreme line or
-live hunt zone. A small consumed marker can be shown with:
+Territory is built around the original node price:
 
 ```text
-InpShowConsumedNodeMarkers = true
+distance = abs(expansion_extreme - node_price)
+half_width = distance * (1 - zone_ratio)
+
+territory_lower = node_price - half_width
+territory_upper = node_price + half_width
 ```
 
+### 3. Touch event
 
-## Consumed zone history
-
-Consumed M0001 hunt zones now remain visible as historical rectangles from the
-node origin to the consume candle.
+A touch event starts when a candle intersects the current live territory:
 
 ```text
-InpShowConsumedHuntZoneHistory = true
+bar.low <= territory_upper
+bar.high >= territory_lower
 ```
 
-They do not extend beyond the consume candle.
-
-
-## Consumed extreme history
-
-Consumed M0001 nodes now keep their final node-to-extreme audit line on the chart,
-but the line stops updating after the consume candle.
+At event entry, geometry freezes:
 
 ```text
-InpShowConsumedExtremeHistory = true
+event_lower
+event_upper
+event_extreme
 ```
 
-The underlying audit state freezes `expansion_extreme` when the node is consumed.
+The frozen event zone is used until the event closes.
 
+### 4. Touch confirmation
 
-## Unbounded backtest data
-
-M0001 no longer limits Strategy Tester runs to an arbitrary candle count.
+A touch is not confirmed immediately. It becomes confirmed only when price stays outside the frozen event zone for:
 
 ```text
-InpBars = 0
+outside_count >= exit_gap
 ```
 
-means use all available bars in the tester's selected date range/history. Positive
-values still act as an optional cap for performance.
+Before confirmation, HUNT has priority.
 
+### 5. HUNT
 
-## Latest visual caps
-
-Visual caps now show latest N objects instead of oldest N objects.
+A node is hunted when its original node price breaks:
 
 ```text
-InpMaxNodesToDraw = 2
+LOW node:  bar.low  < node_price
+HIGH node: bar.high > node_price
 ```
 
-draws the latest 2 nodes. `InpBars` remains a data cap, so keep `InpBars=0` for
-full Strategy Tester history.
+If this happens during a pending touch, the event closes as HUNT and the node is consumed by HUNT.
 
+### 6. TOUCH mode
 
-## Node visibility diagnostics
-
-The M0001 summary can now show computed node count, visual draw caps, audit-state
-count, and latest computed node information.
+TOUCH mode is one-shot.
 
 ```text
-InpShowNodeVisibilityDebug = true
+first confirmed touch -> CONSUMED:TOUCH
+hunt before confirmation -> CONSUMED:HUNT
 ```
 
-This separates data limits from visual limits and from normal L-rule confirmation
-behavior.
+There are no true revisits in TOUCH mode.
 
+### 7. HUNT mode
 
-## Viewport visual renderer
-
-M0001 now renders chart objects only for the current visible chart window by
-default. This keeps the full engine unbounded while avoiding MT5 chart-object
-overload.
+HUNT mode supports true revisits.
 
 ```text
-InpDrawOnlyVisibleWindow = true
-InpVisibleWindowPaddingBars = 80
-InpRedrawOnChartChange = true
+REV#0 = first visit
+REV#1+ = true revisits
 ```
 
-
-## Two-mode node consumption
-
-M0001 supports explicit node consumption modes:
+After a confirmed visit, the node stays alive:
 
 ```text
-InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT
-InpConsumeMode = DAL_M0001_CONSUME_BY_TOUCH
+confirmed_touch_count += 1
+next_revisit_id += 1
+state = REVISITED LIVE
 ```
 
-HUNT consumes only on node-price break. TOUCH consumes on first territory-zone
-touch. The selected mode is applied in audit-state computation and event state,
-not only in visualization.
+The node is still the same node, but it now has memory that its territory was tested.
 
+### 8. Revisited-live extreme reset
 
-## Touch consumes after event completion
-
-M0001 touch mode follows the original README semantics:
+After each confirmed revisit in HUNT mode, the node keeps its identity and memory, but its expansion cycle resets:
 
 ```text
-first zone touch -> event starts
-event closes after exit_gap outside frozen event territory -> node consumed
+tracking_cycle_start = confirmation_index + 1
+next expansion_extreme is measured from tracking_cycle_start
 ```
 
-Touch no longer consumes immediately on the first touch candle. Hunt mode remains
-node-break based and can support revisits until the node is hunted.
-
-
-## Pending touch and hunt priority
-
-A first zone touch starts a pending touch event. TOUCH is confirmed only after
-`InpExitGap` consecutive candles outside the frozen event zone. If the node price
-is broken before that confirmation, the pending touch converts to `CONSUMED:HUNT`.
-
-
-## Node dual outcome state
-
-Each M0001 node now stores TOUCH and HUNT information independently of the selected
-consumption mode. The mode only decides when the node becomes inactive.
+So a revisited live node is:
 
 ```text
-TOUCH mode -> confirmed touch consumes, unless hunt happens first
-HUNT mode  -> touch is stored, but node remains active until hunt
+same node_id
+same node_price
+same revisit memory
+fresh post-visit expansion cycle
 ```
 
-When `InpWriteValidationJournal=true`, node-level audit state is written to:
+## Clean visual workflow
+
+For a clean chart:
 
 ```text
-<symbol>_M0001_node_audit_states.csv
+InpShowNodes = true
+InpShowZones = true
+InpShowRevisits = true
+InpShowState = false
+InpShowExtremes = false
+InpShowSummary = true
+```
+
+For deep state debugging:
+
+```text
+InpShowNodes = true
+InpShowZones = true
+InpShowRevisits = true
+InpShowState = true
+InpShowExtremes = true
+InpShowSummary = true
+```
+
+## Version
+
+Current expert version: `1.44`.
+
+
+## Live zone resync
+
+The active zone box now follows the current cycle extreme while the node is
+alive. Frozen pending-touch geometry is used only for exit-gap confirmation, not
+for the live zone rectangle.
+
+```text
+alive node -> territory follows current tracking_extreme
+pending event -> frozen internally for confirmation
+confirmed revisit in HUNT mode -> tracking cycle resets
+live box starts from tracking_cycle_start_time
+```
+
+The rectangle renderer also upserts coordinates so an existing zone object is
+moved instead of leaving stale coordinates behind.
+
+
+## Node-origin zones and revisit colors
+
+Live zone rectangles are now always drawn from the structural node candle:
+
+```text
+rectangle_start_time = node_time
+```
+
+This does not undo revisit extreme reset. After confirmed revisits, the price
+geometry still uses the post-visit reset cycle, but the rectangle's time origin
+stays on the original node for visual clarity.
+
+Revisit text colors:
+
+```text
+LOW / valley revisit  -> blue
+HIGH / peak revisit   -> red
 ```
 
 
-## Excel/JSON report layer removed
+## Revisited zone colors
 
-M0001 no longer contains Excel/JSON report generation or project report sync code.
-The MQL layer is kept visual-first for chart validation of nodes, zones, touch,
-hunt and consumption states.
+After at least one confirmed revisit, live hunt-zone rectangles change color:
+
+- HIGH / peak revisited zone -> purple
+- LOW / valley revisited zone -> blue
+
+Consumed historical zones still use the inactive gray style.

@@ -69,6 +69,8 @@ bool DAL_M0001FinalizeEvent(
    const double lower,
    const double upper,
    const double extreme,
+   const bool touch_confirmed,
+   const int touch_confirmed_index,
    const bool hunted,
    const bool consumed,
    const ENUM_DALM0001ConsumeReason consume_reason,
@@ -76,13 +78,15 @@ bool DAL_M0001FinalizeEvent(
    DALM0001Event &event
 )
 {
-   int inside_len = exit_index - entry_index + 1;
-   if(inside_len <= 0)
+   int event_length = exit_index - entry_index + 1;
+   if(event_length <= 0)
       return false;
 
-   int before_start = entry_index - inside_len;
-   if(before_start < 0)
-      return false;
+   // For visual/revisit audit we keep the event even when a full same-length
+   // baseline is not available. RTV becomes zero until the baseline exists.
+   int before_start = entry_index - event_length;
+   int before_length = event_length;
+   bool has_full_baseline = (before_start >= 0);
 
    event.id = event_id;
    event.node_id = node.id;
@@ -92,12 +96,15 @@ bool DAL_M0001FinalizeEvent(
    event.entry_index = entry_index;
    event.exit_index = exit_index;
    event.consumed_index = consumed_index;
+   event.touch_confirmed_index = touch_confirmed_index;
+   event.event_length = event_length;
 
    event.node_time = node.time;
    event.active_from_time = node.active_from_time;
    event.entry_time = bars[entry_index].time;
    event.exit_time = bars[exit_index].time;
    event.consumed_time = consumed_index >= 0 ? bars[consumed_index].time : 0;
+   event.touch_confirmed_time = touch_confirmed_index >= 0 ? bars[touch_confirmed_index].time : 0;
 
    event.node_type = node.type;
    event.node_price = node.price;
@@ -105,9 +112,14 @@ bool DAL_M0001FinalizeEvent(
    event.territory_lower = lower;
    event.territory_upper = upper;
 
-   event.mean_before = DAL_MeanRangeLog(log_moves, before_start, inside_len);
-   event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, inside_len);
+   event.mean_before = 0.0;
+   event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, event_length);
+
+   if(has_full_baseline)
+      event.mean_before = DAL_MeanRangeLog(log_moves, before_start, before_length);
+
    event.rtv = DAL_SafeDiv(event.mean_inside, event.mean_before, 0.0);
+   event.touch_confirmed = touch_confirmed;
    event.hunted = hunted;
    event.consumed = consumed;
    event.consume_reason = consume_reason;
@@ -146,91 +158,105 @@ int DAL_M0001ComputeEvents(
       int revisit_id = 0;
       bool consumed = false;
 
-      double extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
+      // Tracking extreme is node-level and keeps updating while the node is alive.
+      // Event geometry freezes separately at each revisit entry.
+      double tracking_extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
 
       int i = start;
       while(i < bars_count && !consumed)
       {
-         double lower = node.price;
-         double upper = node.price;
-
          bool in_event = false;
          int entry_index = -1;
          int outside_count = 0;
 
-         double event_extreme = extreme;
-         double event_lower = lower;
-         double event_upper = upper;
+         double event_extreme = tracking_extreme;
+         double event_lower = node.price;
+         double event_upper = node.price;
 
-         bool hunted = false;
-         bool event_consumed = false;
-         int event_consumed_index = -1;
-         ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
-
+         // 1) TRACKING: wait for the next zone touch or node hunt.
          for(; i < bars_count; i++)
          {
-            if(!in_event)
+            tracking_extreme = DAL_M0001UpdateExtreme(node.type, tracking_extreme, bars[i]);
+
+            double live_lower = node.price;
+            double live_upper = node.price;
+            DAL_M0001Territory(node.type, node.price, tracking_extreme, config.zone_ratio, live_lower, live_upper);
+
+            bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
+            bool hunted_now = DAL_M0001Hunted(node.type, node.price, bars[i]);
+
+            // HUNT always has priority over a still-unconfirmed touch candidate.
+            if(hunted_now)
             {
-               // Tracking phase: extreme and territory are live until the first
-               // zone touch starts a provisional event.
-               extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
-               DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, lower, upper);
+               consumed = true;
 
-               bool intersects = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, lower, upper);
-               bool hunted_now = DAL_M0001Hunted(node.type, node.price, bars[i]);
-
-               // Node break has priority. Even in TOUCH mode, if the node is
-               // broken before a touch event is confirmed, consumption is HUNT.
-               if(hunted_now)
+               if(touched_zone)
                {
-                  hunted = true;
-                  event_consumed = true;
-                  event_consumed_index = i;
-                  consume_reason = DAL_M0001_CONSUMED_HUNT;
-
-                  // If the candle also intersects the zone, keep an event row
-                  // for audit; otherwise the node simply ends as hunted.
-                  if(intersects)
+                  // A gap/break candle that also intersects the zone is kept as
+                  // a one-candle hunted revisit for visual audit.
+                  DALM0001Event event;
+                  if(DAL_M0001FinalizeEvent(
+                        bars,
+                        log_moves,
+                        node,
+                        event_id,
+                        revisit_id,
+                        i,
+                        i,
+                        live_lower,
+                        live_upper,
+                        tracking_extreme,
+                        false,
+                        -1,
+                        true,
+                        true,
+                        DAL_M0001_CONSUMED_HUNT,
+                        i,
+                        event
+                     ))
                   {
-                     in_event = true;
-                     entry_index = i;
-                     event_extreme = extreme;
-                     event_lower = lower;
-                     event_upper = upper;
+                     if(event.rtv >= config.min_rtv)
+                     {
+                        DAL_M0001AppendEvent(events, event);
+                        event_id++;
+                     }
                   }
-
-                  consumed = true;
-                  break;
                }
 
-               if(!intersects)
-                  continue;
-
-               in_event = true;
-               entry_index = i;
-               outside_count = 0;
-
-               // Freeze event geometry at the first touch/revisit candle.
-               event_extreme = extreme;
-               event_lower = lower;
-               event_upper = upper;
-
-               continue;
+               i++;
+               break;
             }
 
-            // Active event phase:
-            // In TOUCH mode this is still only a provisional touch until
-            // exit_gap confirms it. A node break before confirmation converts
-            // the pending touch into HUNT.
+            if(!touched_zone)
+               continue;
+
+            // A revisit starts. Its territory/extreme are frozen here.
+            in_event = true;
+            entry_index = i;
+            outside_count = 0;
+            event_extreme = tracking_extreme;
+            event_lower = live_lower;
+            event_upper = live_upper;
+            i++;
+            break;
+         }
+
+         if(consumed)
+            break;
+
+         if(!in_event)
+            break;
+
+         // 2) ACTIVE EVENT / PENDING TOUCH:
+         // The frozen event zone is used for exit confirmation, while the
+         // node-level tracking extreme keeps updating for future revisits.
+         for(; i < bars_count; i++)
+         {
+            tracking_extreme = DAL_M0001UpdateExtreme(node.type, tracking_extreme, bars[i]);
+
             bool hunted_now = DAL_M0001Hunted(node.type, node.price, bars[i]);
             if(hunted_now)
             {
-               hunted = true;
-               event_consumed = true;
-               event_consumed_index = i;
-               consume_reason = DAL_M0001_CONSUMED_HUNT;
-
-               int exit_index = i;
                DALM0001Event event;
                if(DAL_M0001FinalizeEvent(
                      bars,
@@ -239,14 +265,16 @@ int DAL_M0001ComputeEvents(
                      event_id,
                      revisit_id,
                      entry_index,
-                     exit_index,
+                     i,
                      event_lower,
                      event_upper,
                      event_extreme,
-                     hunted,
-                     event_consumed,
-                     consume_reason,
-                     event_consumed_index,
+                     false,
+                     -1,
+                     true,
+                     true,
+                     DAL_M0001_CONSUMED_HUNT,
+                     i,
                      event
                   ))
                {
@@ -258,32 +286,34 @@ int DAL_M0001ComputeEvents(
                }
 
                consumed = true;
-               i = exit_index + 1;
+               i++;
                break;
             }
 
-            bool intersects_frozen_zone = DAL_CandleIntersectsZone(
+            bool inside_frozen_zone = DAL_CandleIntersectsZone(
                bars[i].low,
                bars[i].high,
                event_lower,
                event_upper
             );
 
-            if(intersects_frozen_zone)
+            if(inside_frozen_zone)
                outside_count = 0;
             else
                outside_count++;
 
             if(outside_count >= config.exit_gap)
             {
-               int exit_index = i;
+               // Touch is confirmed only here.
+               bool event_consumed = false;
+               int event_consumed_index = -1;
+               ENUM_DALM0001ConsumeReason reason = DAL_M0001_CONSUMED_NONE;
 
                if(DAL_M0001ConsumesOnTouch(config))
                {
-                  // TOUCH is confirmed only after the active event closes.
                   event_consumed = true;
-                  event_consumed_index = exit_index;
-                  consume_reason = DAL_M0001_CONSUMED_TOUCH;
+                  event_consumed_index = i;
+                  reason = DAL_M0001_CONSUMED_TOUCH;
                }
 
                DALM0001Event event;
@@ -294,13 +324,15 @@ int DAL_M0001ComputeEvents(
                      event_id,
                      revisit_id,
                      entry_index,
-                     exit_index,
+                     i,
                      event_lower,
                      event_upper,
                      event_extreme,
-                     hunted,
+                     true,
+                     i,
+                     false,
                      event_consumed,
-                     consume_reason,
+                     reason,
                      event_consumed_index,
                      event
                   ))
@@ -315,52 +347,32 @@ int DAL_M0001ComputeEvents(
                revisit_id++;
 
                if(event_consumed)
+               {
                   consumed = true;
+               }
+               else
+               {
+                  // Revisited-live memory:
+                  // after a confirmed revisit in HUNT mode, the node remains alive
+                  // but its next territory cycle must start fresh after this visit.
+                  // The next revisit extreme is computed from the first bar after
+                  // the confirmed event, not from the original node candle.
+                  int next_tracking_index = i + 1;
+                  if(next_tracking_index < bars_count)
+                     tracking_extreme = DAL_M0001InitialExtreme(node.type, bars[next_tracking_index]);
+               }
 
-               i = exit_index + 1;
+               i++;
                break;
             }
          }
 
-         if(event_consumed && consumed && in_event && entry_index >= 0 && consume_reason == DAL_M0001_CONSUMED_HUNT)
-         {
-            // HUNT inside the tracking branch with a zone intersection.
-            int exit_index = event_consumed_index;
-            DALM0001Event event;
-            if(DAL_M0001FinalizeEvent(
-                  bars,
-                  log_moves,
-                  node,
-                  event_id,
-                  revisit_id,
-                  entry_index,
-                  exit_index,
-                  event_lower,
-                  event_upper,
-                  event_extreme,
-                  hunted,
-                  event_consumed,
-                  consume_reason,
-                  event_consumed_index,
-                  event
-               ))
-            {
-               if(event.rtv >= config.min_rtv)
-               {
-                  DAL_M0001AppendEvent(events, event);
-                  event_id++;
-               }
-            }
-
-            i = exit_index + 1;
-         }
-
-         // No further closed event for this node in the available live stream.
-         if(i >= bars_count)
-            break;
-
          if(config.max_events > 0 && ArraySize(events) >= config.max_events)
             return ArraySize(events);
+
+         // No closed event yet in available bars.
+         if(i >= bars_count)
+            break;
       }
    }
 
