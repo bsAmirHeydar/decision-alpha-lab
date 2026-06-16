@@ -61,6 +61,7 @@ def main() -> int:
 
     announced_wait = False
     runtime = None
+    last_input_signature = None
 
     while True:
         try:
@@ -73,6 +74,12 @@ def main() -> int:
                     return 2
                 time.sleep(max(0.25, float(args.interval)))
                 continue
+
+            input_signature = runtime_input_signature(runtime, args)
+            if not args.once and input_signature == last_input_signature:
+                time.sleep(max(0.25, float(runtime.interval)))
+                continue
+            last_input_signature = input_signature
 
             result = build_contract(runtime)
             rows = result.rows
@@ -201,6 +208,48 @@ def resolve_runtime_args(args) -> tuple[SimpleNamespace | None, str]:
         request_id=request_id,
         interval=interval,
     ), ("mql_inputs" if cfg else "cli_args")
+
+
+def runtime_input_signature(runtime, cli_args) -> tuple:
+    """Detect whether the bridge inputs actually changed.
+
+    This prevents recomputing the same chart window every timer cycle. New bars,
+    input changes, config changes, or candle-file updates create a new signature.
+    """
+    paths = [
+        getattr(runtime, "candles_path", None),
+        Path(cli_args.mql_config) if getattr(cli_args, "mql_config", None) else None,
+    ]
+
+    file_parts = []
+    for path in paths:
+        if path is None:
+            file_parts.append(None)
+            continue
+        path = Path(path)
+        if not path.exists():
+            file_parts.append((str(path), None, None))
+            continue
+        stat = path.stat()
+        file_parts.append((str(path), int(stat.st_mtime_ns), int(stat.st_size)))
+
+    return (
+        runtime.symbol,
+        runtime.timeframe,
+        runtime.bars,
+        runtime.L,
+        runtime.zone_ratio,
+        runtime.exit_gap,
+        runtime.mode,
+        bool(runtime.random),
+        runtime.random_count,
+        runtime.seed,
+        runtime.data_source,
+        str(runtime.output_path),
+        str(runtime.terminal_output_path),
+        str(runtime.artifact_dir),
+        tuple(file_parts),
+    )
 
 
 def build_contract(args) -> SimpleNamespace:

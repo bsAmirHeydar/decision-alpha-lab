@@ -244,3 +244,24 @@ Input:
 ```text
 InpAnchorNodeArrowTip = true
 ```
+
+
+## Precision chevron node markers
+
+Default node markers are now chevrons, not Wingdings arrows.  
+The chevron vertex is exactly the Python node price.
+
+```text
+InpNodeMarkerStyle = 1
+```
+
+This avoids MT5 arrow-glyph anchor ambiguity.
+
+## Bridge duplicate-compute guard
+
+The Python watcher skips recomputation when the runtime config and candle file
+have not changed. MQL also stops rewriting config every timer by default.
+
+```text
+InpBridgeTimerConfigPulse = false
+```
