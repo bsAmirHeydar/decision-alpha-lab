@@ -30,6 +30,25 @@ void DAL_DrawTextLabel(
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
 }
 
+void DAL_DrawTextLabelAnchored(
+   const string name,
+   const datetime t,
+   const double price,
+   const string text,
+   const color c,
+   const int font_size = 8,
+   const ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER
+)
+{
+   ObjectCreate(0, name, OBJ_TEXT, 0, t, price);
+   ObjectSetString(0, name, OBJPROP_TEXT, text);
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
+   ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
+   ObjectSetInteger(0, name, OBJPROP_ANCHOR, anchor);
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
+}
+
 void DAL_DrawTrend(
    const string name,
    const datetime t1,

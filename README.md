@@ -93,3 +93,11 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 - `docs/mql_native/MQL_NATIVE_ARCHITECTURE.md`
 - `docs/mql_native/M0001_MQL_NATIVE_SPEC.md`
 - `docs/mql_native/MODULE_MAP.md`
+
+
+## M0001 node price labels
+
+In the MQL-native runtime, `InpShowNodePrices` displays node prices as local text
+labels above high-node markers and below low-node markers. Full horizontal
+node-price lines are disabled by default and controlled separately by
+`InpShowNodePriceLines`.

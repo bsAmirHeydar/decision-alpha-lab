@@ -4,15 +4,8 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Types.mqh>
 #include <DecisionAlphaLab/StructuralNodes/LRule/DAL_LRuleTypes.mqh>
 
-void DAL_EnsureDefaultJournalFolders()
-{
-   FolderCreate("DecisionAlphaLab");
-   FolderCreate("DecisionAlphaLab\\M0001");
-}
-
 int DAL_OpenJournalWrite(const string file_name)
 {
-   DAL_EnsureDefaultJournalFolders();
    return FileOpen(file_name, FILE_WRITE | FILE_CSV | FILE_ANSI, ',');
 }
 

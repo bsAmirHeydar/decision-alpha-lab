@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -29,7 +29,8 @@ input int InpMaxEvents = 300;
 
 input string InpObjectPrefix = "DAL_MQL_M0001_";
 input bool InpShowNodes = true;
-input bool InpShowNodePrices = false;
+input bool InpShowNodePrices = false;       // true = show node price as local text label, not horizontal line
+input bool InpShowNodePriceLines = false;     // optional old behavior: horizontal full-chart price lines
 input bool InpShowActiveFrom = false;
 input bool InpShowEvents = false;
 input bool InpShowRtvLabels = false;
@@ -40,6 +41,8 @@ input int InpMaxEventsToDraw = 80;
 input double InpNodeChevronPoints = 70.0;
 input double InpNodeChevronBars = 0.28;
 input int InpNodeChevronWidth = 2;
+input double InpNodePriceTextGapPoints = 35.0;
+input int InpNodePriceTextFontSize = 8;
 
 input bool InpWriteValidationJournal = false;
 input string InpJournalPrefix = "DecisionAlphaLab\\M0001\\";
@@ -77,6 +80,7 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.prefix = InpObjectPrefix;
    visual.show_nodes = InpShowNodes;
    visual.show_node_prices = InpShowNodePrices;
+   visual.show_node_price_lines = InpShowNodePriceLines;
    visual.show_active_from = InpShowActiveFrom;
    visual.show_events = InpShowEvents;
    visual.show_rtv_labels = InpShowRtvLabels;
@@ -86,6 +90,8 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.chevron_points = InpNodeChevronPoints;
    visual.chevron_bars = InpNodeChevronBars;
    visual.chevron_width = InpNodeChevronWidth;
+   visual.node_price_text_gap_points = InpNodePriceTextGapPoints;
+   visual.node_price_text_font_size = InpNodePriceTextFontSize;
 }
 
 void RunM0001()
