@@ -47,7 +47,7 @@ void DAL_WriteM0001EventJournal(
    if(h == INVALID_HANDLE)
       return;
 
-   FileWrite(h, "id", "node_id", "type", "entry_time", "exit_time", "rtv", "hunted", "mean_before", "mean_inside");
+   FileWrite(h, "id", "node_id", "type", "entry_time", "exit_time", "consumed_time", "consume_reason", "rtv", "hunted", "mean_before", "mean_inside");
    for(int i = 0; i < events_count; i++)
    {
       FileWrite(
@@ -57,6 +57,8 @@ void DAL_WriteM0001EventJournal(
          DAL_NodeTypeToString(events[i].node_type),
          TimeToString(events[i].entry_time, TIME_DATE | TIME_MINUTES),
          TimeToString(events[i].exit_time, TIME_DATE | TIME_MINUTES),
+         events[i].consumed_time > 0 ? TimeToString(events[i].consumed_time, TIME_DATE | TIME_MINUTES) : "",
+         DAL_M0001ConsumeReasonToString(events[i].consume_reason),
          DoubleToString(events[i].rtv, 6),
          DAL_BoolToString(events[i].hunted),
          DoubleToString(events[i].mean_before, 6),

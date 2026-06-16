@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.28"
+#property version   "1.29"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -28,7 +28,8 @@ input int InpTimerMilliseconds = 100;
 input int InpL = 5;
 input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
-input bool InpConsumeOnTouch = false;
+input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
+input bool InpConsumeOnTouch = false;        // deprecated alias: true forces TOUCH_ZONE mode
 input double InpMinRtv = 0.0;
 input int InpMaxEvents = 0;                 // 0 = unlimited computed events
 
@@ -95,7 +96,12 @@ void BuildConfig(DALM0001Config &config)
    config.L = InpL;
    config.zone_ratio = InpZoneRatio;
    config.exit_gap = InpExitGap;
+   config.consume_mode = InpConsumeMode;
    config.consume_on_touch = InpConsumeOnTouch;
+
+   if(config.consume_on_touch)
+      config.consume_mode = DAL_M0001_CONSUME_BY_TOUCH;
+
    config.max_events = InpMaxEvents;
    config.min_rtv = InpMinRtv;
 }
@@ -242,7 +248,8 @@ void RunM0001FromBars(
       " events=", events_count,
       " L=", config.L,
       " zone=", DoubleToString(config.zone_ratio, 2),
-      " gap=", config.exit_gap
+      " gap=", config.exit_gap,
+      " consume=", DAL_M0001ConsumeModeToString(config.consume_mode)
    );
 }
 

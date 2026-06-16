@@ -280,3 +280,17 @@ InpDrawOnlyVisibleWindow = true
 InpVisibleWindowPaddingBars = 80
 InpRedrawOnChartChange = true
 ```
+
+
+## Two-mode node consumption
+
+M0001 supports explicit node consumption modes:
+
+```text
+InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT
+InpConsumeMode = DAL_M0001_CONSUME_BY_TOUCH
+```
+
+HUNT consumes only on node-price break. TOUCH consumes on first territory-zone
+touch. The selected mode is applied in audit-state computation and event state,
+not only in visualization.

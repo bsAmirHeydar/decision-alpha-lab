@@ -16,6 +16,7 @@ struct DALM0001NodeAuditState
    int extreme_index;
    int invalidated_index;
    int consumed_index;
+   ENUM_DALM0001ConsumeReason consume_reason;
 
    datetime node_time;
    datetime active_from_time;
@@ -79,6 +80,8 @@ int DAL_M0001ComputeNodeAuditStates(
       int invalidated_index = -1;
       int last_active_index = bars_count - 1;
 
+      ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
+
       for(int i = start; i < bars_count; i++)
       {
          double old_extreme = extreme;
@@ -87,15 +90,34 @@ int DAL_M0001ComputeNodeAuditStates(
          if(extreme != old_extreme)
             extreme_index = i;
 
-         if(DAL_M0001Hunted(node.type, node.price, bars[i]))
+         double live_lower = node.price;
+         double live_upper = node.price;
+         DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, live_lower, live_upper);
+
+         bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
+         bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
+
+         if(hunted_node)
          {
             consumed = true;
             invalidated = true;
             consumed_index = i;
             invalidated_index = i;
+            consume_reason = DAL_M0001_CONSUMED_HUNT;
             last_active_index = i;
             // Critical: once the node is consumed, its expansion extreme is no
             // longer a live decision variable. Stop updating this node here.
+            break;
+         }
+
+         if(DAL_M0001ConsumesOnTouch(config) && touched_zone)
+         {
+            consumed = true;
+            consumed_index = i;
+            consume_reason = DAL_M0001_CONSUMED_TOUCH;
+            last_active_index = i;
+            // Touch mode consumes the node on first territory interaction.
+            // The zone/extreme history is frozen here.
             break;
          }
       }
@@ -113,6 +135,7 @@ int DAL_M0001ComputeNodeAuditStates(
       state.extreme_index = extreme_index;
       state.invalidated_index = invalidated_index;
       state.consumed_index = consumed_index;
+      state.consume_reason = consume_reason;
 
       state.node_time = node.time;
       state.active_from_time = node.active_from_time;

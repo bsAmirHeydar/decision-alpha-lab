@@ -392,7 +392,7 @@ void DAL_M0001DrawConsumedMarker(
       return;
 
    string id = prefix + "CONSUMED_" + IntegerToString(state.node_id);
-   string text = "CONSUMED";
+   string text = "CONSUMED:" + DAL_M0001ConsumeReasonToString(state.consume_reason);
 
    double y = state.node_price;
    double gap = 80.0 * DAL_VisualPoint();
@@ -513,7 +513,8 @@ void DAL_M0001DrawSummary(
       + " audit=" + IntegerToString(audit_states_count)
       + "\nL=" + IntegerToString(config.L)
       + " zone=" + DoubleToString(config.zone_ratio, 2)
-      + " gap=" + IntegerToString(config.exit_gap);
+      + " gap=" + IntegerToString(config.exit_gap)
+      + " consume=" + DAL_M0001ConsumeModeToString(config.consume_mode);
 
    if(visual.show_node_visibility_debug)
    {

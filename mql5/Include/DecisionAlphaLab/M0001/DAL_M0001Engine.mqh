@@ -70,6 +70,9 @@ bool DAL_M0001FinalizeEvent(
    const double upper,
    const double extreme,
    const bool hunted,
+   const bool consumed,
+   const ENUM_DALM0001ConsumeReason consume_reason,
+   const int consumed_index,
    DALM0001Event &event
 )
 {
@@ -88,11 +91,13 @@ bool DAL_M0001FinalizeEvent(
    event.active_from_index = node.active_from_index;
    event.entry_index = entry_index;
    event.exit_index = exit_index;
+   event.consumed_index = consumed_index;
 
    event.node_time = node.time;
    event.active_from_time = node.active_from_time;
    event.entry_time = bars[entry_index].time;
    event.exit_time = bars[exit_index].time;
+   event.consumed_time = consumed_index >= 0 ? bars[consumed_index].time : 0;
 
    event.node_type = node.type;
    event.node_price = node.price;
@@ -104,6 +109,8 @@ bool DAL_M0001FinalizeEvent(
    event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, inside_len);
    event.rtv = DAL_SafeDiv(event.mean_inside, event.mean_before, 0.0);
    event.hunted = hunted;
+   event.consumed = consumed;
+   event.consume_reason = consume_reason;
    event.closed = true;
 
    return true;
@@ -150,6 +157,12 @@ int DAL_M0001ComputeEvents(
          int entry_index = -1;
          int outside_count = 0;
          bool hunted = false;
+         bool event_consumed = false;
+         int event_consumed_index = -1;
+         ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
+         double consume_extreme = extreme;
+         double consume_lower = lower;
+         double consume_upper = upper;
 
          for(; i < bars_count; i++)
          {
@@ -166,12 +179,43 @@ int DAL_M0001ComputeEvents(
                   entry_index = i;
                   outside_count = 0;
                   hunted = DAL_M0001Hunted(node.type, node.price, bars[i]);
+
+                  if(hunted)
+                  {
+                     event_consumed = true;
+                     event_consumed_index = i;
+                     consume_reason = DAL_M0001_CONSUMED_HUNT;
+                     consume_extreme = extreme;
+                     consume_lower = lower;
+                     consume_upper = upper;
+                  }
+                  else if(DAL_M0001ConsumesOnTouch(config))
+                  {
+                     event_consumed = true;
+                     event_consumed_index = i;
+                     consume_reason = DAL_M0001_CONSUMED_TOUCH;
+                     consume_extreme = extreme;
+                     consume_lower = lower;
+                     consume_upper = upper;
+                  }
                }
                continue;
             }
 
             if(DAL_M0001Hunted(node.type, node.price, bars[i]))
+            {
                hunted = true;
+
+               if(!event_consumed)
+               {
+                  event_consumed = true;
+                  event_consumed_index = i;
+                  consume_reason = DAL_M0001_CONSUMED_HUNT;
+                  consume_extreme = extreme;
+                  consume_lower = lower;
+                  consume_upper = upper;
+               }
+            }
 
             if(intersects)
                outside_count = 0;
@@ -182,7 +226,27 @@ int DAL_M0001ComputeEvents(
             {
                int exit_index = i;
                DALM0001Event event;
-               if(DAL_M0001FinalizeEvent(bars, log_moves, node, event_id, revisit_id, entry_index, exit_index, lower, upper, extreme, hunted, event))
+               double final_extreme = event_consumed ? consume_extreme : extreme;
+               double final_lower = event_consumed ? consume_lower : lower;
+               double final_upper = event_consumed ? consume_upper : upper;
+
+               if(DAL_M0001FinalizeEvent(
+                     bars,
+                     log_moves,
+                     node,
+                     event_id,
+                     revisit_id,
+                     entry_index,
+                     exit_index,
+                     final_lower,
+                     final_upper,
+                     final_extreme,
+                     hunted,
+                     event_consumed,
+                     consume_reason,
+                     event_consumed_index,
+                     event
+                  ))
                {
                   if(event.rtv >= config.min_rtv)
                   {
@@ -192,7 +256,7 @@ int DAL_M0001ComputeEvents(
                }
 
                revisit_id++;
-               if(config.consume_on_touch || hunted)
+               if(event_consumed)
                   consumed = true;
 
                i = exit_index + 1;
