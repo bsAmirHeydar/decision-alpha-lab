@@ -16,6 +16,11 @@ struct DALM0001NodeAuditState
    int extreme_index;
    int invalidated_index;
    int consumed_index;
+
+   int first_touch_index;
+   int touch_confirmed_index;
+   int hunt_index;
+
    ENUM_DALM0001ConsumeReason consume_reason;
 
    datetime node_time;
@@ -24,6 +29,10 @@ struct DALM0001NodeAuditState
    datetime extreme_time;
    datetime invalidated_time;
    datetime consumed_time;
+
+   datetime first_touch_time;
+   datetime touch_confirmed_time;
+   datetime hunt_time;
 
    ENUM_DALNodeType node_type;
    double node_price;
@@ -34,6 +43,10 @@ struct DALM0001NodeAuditState
    bool invalidated;
    bool consumed;
    bool active;
+
+   bool touch_started;
+   bool touch_confirmed;
+   bool hunted;
 };
 
 int DAL_M0001AppendNodeAuditState(
@@ -82,17 +95,28 @@ int DAL_M0001ComputeNodeAuditStates(
       int last_active_index = bars_count - 1;
       ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
 
-      bool touch_event_active = false;
-      int touch_outside_count = 0;
-      int touch_event_entry_index = -1;
-      double frozen_extreme = extreme;
-      int frozen_extreme_index = extreme_index;
-      double frozen_lower = node.price;
-      double frozen_upper = node.price;
+      // Node-level outcome memory.
+      // These are stored regardless of the selected consumption model.
+      bool touch_started = false;
+      bool touch_confirmed = false;
+      bool hunted = false;
+      int first_touch_index = -1;
+      int touch_confirmed_index = -1;
+      int hunt_index = -1;
+
+      bool pending_touch = false;
+      int pending_touch_outside_count = 0;
+      double pending_touch_extreme = extreme;
+      int pending_touch_extreme_index = extreme_index;
+      double pending_touch_lower = node.price;
+      double pending_touch_upper = node.price;
 
       for(int i = start; i < bars_count; i++)
       {
-         if(!touch_event_active)
+         if(consumed)
+            break;
+
+         if(!pending_touch)
          {
             double old_extreme = extreme;
             extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
@@ -107,11 +131,11 @@ int DAL_M0001ComputeNodeAuditStates(
             bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
             bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
 
-            // Node break always has priority over a touch candidate.
-            // If a candle both touches the zone and breaks the node, this is
-            // not a confirmed touch consume; it is a HUNT consume.
             if(hunted_node)
             {
+               hunted = true;
+               hunt_index = i;
+
                consumed = true;
                invalidated = true;
                consumed_index = i;
@@ -121,18 +145,22 @@ int DAL_M0001ComputeNodeAuditStates(
                break;
             }
 
-            if(DAL_M0001ConsumesOnTouch(config) && touched_zone)
+            if(touched_zone)
             {
-               // Touch is provisional first. It becomes a confirmed TOUCH
-               // consume only after exit_gap consecutive candles outside the
-               // frozen event territory. Until then, it can still become HUNT.
-               touch_event_active = true;
-               touch_event_entry_index = i;
-               touch_outside_count = 0;
-               frozen_extreme = extreme;
-               frozen_extreme_index = extreme_index;
-               frozen_lower = live_lower;
-               frozen_upper = live_upper;
+               // A touch is first only a candidate / active event.
+               // It is stored for the node in every consume mode.
+               if(!touch_started)
+               {
+                  touch_started = true;
+                  first_touch_index = i;
+               }
+
+               pending_touch = true;
+               pending_touch_outside_count = 0;
+               pending_touch_extreme = extreme;
+               pending_touch_extreme_index = extreme_index;
+               pending_touch_lower = live_lower;
+               pending_touch_upper = live_upper;
                last_active_index = i;
                continue;
             }
@@ -141,13 +169,16 @@ int DAL_M0001ComputeNodeAuditStates(
          }
 
          // Pending touch / active event.
-         // The event geometry is frozen, but a node break before confirmation
-         // converts the pending touch into HUNT.
+         // The touch is still not confirmed. If the node breaks here, this
+         // outcome is HUNT, even in touch consumption mode.
          last_active_index = i;
 
          bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
          if(hunted_node)
          {
+            hunted = true;
+            hunt_index = i;
+
             consumed = true;
             invalidated = true;
             consumed_index = i;
@@ -157,41 +188,58 @@ int DAL_M0001ComputeNodeAuditStates(
             break;
          }
 
-         bool inside_frozen_zone = DAL_CandleIntersectsZone(
+         bool inside_pending_zone = DAL_CandleIntersectsZone(
             bars[i].low,
             bars[i].high,
-            frozen_lower,
-            frozen_upper
+            pending_touch_lower,
+            pending_touch_upper
          );
 
-         if(inside_frozen_zone)
-            touch_outside_count = 0;
+         if(inside_pending_zone)
+            pending_touch_outside_count = 0;
          else
-            touch_outside_count++;
+            pending_touch_outside_count++;
 
-         if(touch_outside_count >= config.exit_gap)
+         if(pending_touch_outside_count >= config.exit_gap)
          {
-            consumed = true;
-            consumed_index = i;
-            consume_reason = DAL_M0001_CONSUMED_TOUCH;
-            last_active_index = i;
+            // Touch becomes confirmed only after exit confirmation.
+            if(!touch_confirmed)
+            {
+               touch_confirmed = true;
+               touch_confirmed_index = i;
+            }
 
-            // TOUCH is confirmed only now. Freeze final audit state at the
-            // first-event geometry, not at a later moving extreme.
-            extreme = frozen_extreme;
-            extreme_index = frozen_extreme_index;
-            break;
+            if(DAL_M0001ConsumesOnTouch(config))
+            {
+               consumed = true;
+               consumed_index = i;
+               consume_reason = DAL_M0001_CONSUMED_TOUCH;
+               last_active_index = i;
+
+               // In touch consume mode the node ends at the confirmed touch
+               // event, so final geometry is the frozen event geometry.
+               extreme = pending_touch_extreme;
+               extreme_index = pending_touch_extreme_index;
+               break;
+            }
+
+            // In hunt consume mode, touch confirmation is recorded but it does
+            // not consume the node. The node keeps being checked until HUNT.
+            pending_touch = false;
+            pending_touch_outside_count = 0;
+            continue;
          }
       }
 
       double lower = node.price;
       double upper = node.price;
-      if(touch_event_active)
+
+      if(consumed && consume_reason == DAL_M0001_CONSUMED_TOUCH)
       {
-         lower = frozen_lower;
-         upper = frozen_upper;
-         extreme = frozen_extreme;
-         extreme_index = frozen_extreme_index;
+         lower = pending_touch_lower;
+         upper = pending_touch_upper;
+         extreme = pending_touch_extreme;
+         extreme_index = pending_touch_extreme_index;
       }
       else
       {
@@ -207,6 +255,11 @@ int DAL_M0001ComputeNodeAuditStates(
       state.extreme_index = extreme_index;
       state.invalidated_index = invalidated_index;
       state.consumed_index = consumed_index;
+
+      state.first_touch_index = first_touch_index;
+      state.touch_confirmed_index = touch_confirmed_index;
+      state.hunt_index = hunt_index;
+
       state.consume_reason = consume_reason;
 
       state.node_time = node.time;
@@ -215,6 +268,10 @@ int DAL_M0001ComputeNodeAuditStates(
       state.extreme_time = bars[extreme_index].time;
       state.invalidated_time = invalidated_index >= 0 ? bars[invalidated_index].time : 0;
       state.consumed_time = consumed_index >= 0 ? bars[consumed_index].time : 0;
+
+      state.first_touch_time = first_touch_index >= 0 ? bars[first_touch_index].time : 0;
+      state.touch_confirmed_time = touch_confirmed_index >= 0 ? bars[touch_confirmed_index].time : 0;
+      state.hunt_time = hunt_index >= 0 ? bars[hunt_index].time : 0;
 
       state.node_type = node.type;
       state.node_price = node.price;
@@ -225,6 +282,10 @@ int DAL_M0001ComputeNodeAuditStates(
       state.invalidated = invalidated;
       state.consumed = consumed;
       state.active = !consumed;
+
+      state.touch_started = touch_started;
+      state.touch_confirmed = touch_confirmed;
+      state.hunted = hunted;
 
       DAL_M0001AppendNodeAuditState(states, state);
       state_id++;

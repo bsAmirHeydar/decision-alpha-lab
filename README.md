@@ -314,3 +314,20 @@ node-break based and can support revisits until the node is hunted.
 A first zone touch starts a pending touch event. TOUCH is confirmed only after
 `InpExitGap` consecutive candles outside the frozen event zone. If the node price
 is broken before that confirmation, the pending touch converts to `CONSUMED:HUNT`.
+
+
+## Node dual outcome state
+
+Each M0001 node now stores TOUCH and HUNT information independently of the selected
+consumption mode. The mode only decides when the node becomes inactive.
+
+```text
+TOUCH mode -> confirmed touch consumes, unless hunt happens first
+HUNT mode  -> touch is stored, but node remains active until hunt
+```
+
+When `InpWriteValidationJournal=true`, node-level audit state is written to:
+
+```text
+<symbol>_M0001_node_audit_states.csv
+```

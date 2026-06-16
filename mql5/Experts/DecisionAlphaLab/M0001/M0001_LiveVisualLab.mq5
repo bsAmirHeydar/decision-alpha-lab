@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.31"
+#property version   "1.32"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -234,8 +234,10 @@ void RunM0001FromBars(
    if(InpWriteValidationJournal)
    {
       string node_file = InpJournalPrefix + LabSymbol() + "_M0001_nodes.csv";
+      string audit_file = InpJournalPrefix + LabSymbol() + "_M0001_node_audit_states.csv";
       string event_file = InpJournalPrefix + LabSymbol() + "_M0001_events.csv";
       DAL_WriteM0001NodeJournal(node_file, nodes, nodes_count);
+      DAL_WriteM0001NodeAuditStateJournal(audit_file, audit_states, audit_states_count);
       DAL_WriteM0001EventJournal(event_file, events, events_count);
    }
 
