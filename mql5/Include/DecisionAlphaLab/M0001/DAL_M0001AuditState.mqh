@@ -47,6 +47,7 @@ int DAL_M0001AppendNodeAuditState(
    return size;
 }
 
+// README touch semantics: touch starts first event; consumption happens after event completion.
 int DAL_M0001ComputeNodeAuditStates(
    const DALBar &bars[],
    const int bars_count,
@@ -79,24 +80,72 @@ int DAL_M0001ComputeNodeAuditStates(
       int consumed_index = -1;
       int invalidated_index = -1;
       int last_active_index = bars_count - 1;
-
       ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
+
+      bool touch_event_active = false;
+      int touch_outside_count = 0;
+      int touch_event_entry_index = -1;
+      double frozen_extreme = extreme;
+      int frozen_extreme_index = extreme_index;
+      double frozen_lower = node.price;
+      double frozen_upper = node.price;
 
       for(int i = start; i < bars_count; i++)
       {
-         double old_extreme = extreme;
-         extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
+         if(!touch_event_active)
+         {
+            double old_extreme = extreme;
+            extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
 
-         if(extreme != old_extreme)
-            extreme_index = i;
+            if(extreme != old_extreme)
+               extreme_index = i;
 
-         double live_lower = node.price;
-         double live_upper = node.price;
-         DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, live_lower, live_upper);
+            double live_lower = node.price;
+            double live_upper = node.price;
+            DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, live_lower, live_upper);
 
-         bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
+            bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
+            bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
+
+            // Node break always has priority over a touch candidate.
+            // If a candle both touches the zone and breaks the node, this is
+            // not a confirmed touch consume; it is a HUNT consume.
+            if(hunted_node)
+            {
+               consumed = true;
+               invalidated = true;
+               consumed_index = i;
+               invalidated_index = i;
+               consume_reason = DAL_M0001_CONSUMED_HUNT;
+               last_active_index = i;
+               break;
+            }
+
+            if(DAL_M0001ConsumesOnTouch(config) && touched_zone)
+            {
+               // Touch is provisional first. It becomes a confirmed TOUCH
+               // consume only after exit_gap consecutive candles outside the
+               // frozen event territory. Until then, it can still become HUNT.
+               touch_event_active = true;
+               touch_event_entry_index = i;
+               touch_outside_count = 0;
+               frozen_extreme = extreme;
+               frozen_extreme_index = extreme_index;
+               frozen_lower = live_lower;
+               frozen_upper = live_upper;
+               last_active_index = i;
+               continue;
+            }
+
+            continue;
+         }
+
+         // Pending touch / active event.
+         // The event geometry is frozen, but a node break before confirmation
+         // converts the pending touch into HUNT.
+         last_active_index = i;
+
          bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
-
          if(hunted_node)
          {
             consumed = true;
@@ -105,26 +154,49 @@ int DAL_M0001ComputeNodeAuditStates(
             invalidated_index = i;
             consume_reason = DAL_M0001_CONSUMED_HUNT;
             last_active_index = i;
-            // Critical: once the node is consumed, its expansion extreme is no
-            // longer a live decision variable. Stop updating this node here.
             break;
          }
 
-         if(DAL_M0001ConsumesOnTouch(config) && touched_zone)
+         bool inside_frozen_zone = DAL_CandleIntersectsZone(
+            bars[i].low,
+            bars[i].high,
+            frozen_lower,
+            frozen_upper
+         );
+
+         if(inside_frozen_zone)
+            touch_outside_count = 0;
+         else
+            touch_outside_count++;
+
+         if(touch_outside_count >= config.exit_gap)
          {
             consumed = true;
             consumed_index = i;
             consume_reason = DAL_M0001_CONSUMED_TOUCH;
             last_active_index = i;
-            // Touch mode consumes the node on first territory interaction.
-            // The zone/extreme history is frozen here.
+
+            // TOUCH is confirmed only now. Freeze final audit state at the
+            // first-event geometry, not at a later moving extreme.
+            extreme = frozen_extreme;
+            extreme_index = frozen_extreme_index;
             break;
          }
       }
 
       double lower = node.price;
       double upper = node.price;
-      DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, lower, upper);
+      if(touch_event_active)
+      {
+         lower = frozen_lower;
+         upper = frozen_upper;
+         extreme = frozen_extreme;
+         extreme_index = frozen_extreme_index;
+      }
+      else
+      {
+         DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, lower, upper);
+      }
 
       DALM0001NodeAuditState state;
       state.id = state_id;
@@ -160,5 +232,6 @@ int DAL_M0001ComputeNodeAuditStates(
 
    return ArraySize(states);
 }
+
 
 #endif

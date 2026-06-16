@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.29"
+#property version   "1.31"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>

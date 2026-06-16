@@ -146,90 +146,92 @@ int DAL_M0001ComputeEvents(
       int revisit_id = 0;
       bool consumed = false;
 
+      double extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
+
       int i = start;
       while(i < bars_count && !consumed)
       {
-         double extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
          double lower = node.price;
          double upper = node.price;
 
          bool in_event = false;
          int entry_index = -1;
          int outside_count = 0;
+
+         double event_extreme = extreme;
+         double event_lower = lower;
+         double event_upper = upper;
+
          bool hunted = false;
          bool event_consumed = false;
          int event_consumed_index = -1;
          ENUM_DALM0001ConsumeReason consume_reason = DAL_M0001_CONSUMED_NONE;
-         double consume_extreme = extreme;
-         double consume_lower = lower;
-         double consume_upper = upper;
 
          for(; i < bars_count; i++)
          {
-            extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
-            DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, lower, upper);
-
-            bool intersects = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, lower, upper);
-
             if(!in_event)
             {
-               if(intersects)
+               // Tracking phase: extreme and territory are live until the first
+               // zone touch starts a provisional event.
+               extreme = DAL_M0001UpdateExtreme(node.type, extreme, bars[i]);
+               DAL_M0001Territory(node.type, node.price, extreme, config.zone_ratio, lower, upper);
+
+               bool intersects = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, lower, upper);
+               bool hunted_now = DAL_M0001Hunted(node.type, node.price, bars[i]);
+
+               // Node break has priority. Even in TOUCH mode, if the node is
+               // broken before a touch event is confirmed, consumption is HUNT.
+               if(hunted_now)
                {
-                  in_event = true;
-                  entry_index = i;
-                  outside_count = 0;
-                  hunted = DAL_M0001Hunted(node.type, node.price, bars[i]);
-
-                  if(hunted)
-                  {
-                     event_consumed = true;
-                     event_consumed_index = i;
-                     consume_reason = DAL_M0001_CONSUMED_HUNT;
-                     consume_extreme = extreme;
-                     consume_lower = lower;
-                     consume_upper = upper;
-                  }
-                  else if(DAL_M0001ConsumesOnTouch(config))
-                  {
-                     event_consumed = true;
-                     event_consumed_index = i;
-                     consume_reason = DAL_M0001_CONSUMED_TOUCH;
-                     consume_extreme = extreme;
-                     consume_lower = lower;
-                     consume_upper = upper;
-                  }
-               }
-               continue;
-            }
-
-            if(DAL_M0001Hunted(node.type, node.price, bars[i]))
-            {
-               hunted = true;
-
-               if(!event_consumed)
-               {
+                  hunted = true;
                   event_consumed = true;
                   event_consumed_index = i;
                   consume_reason = DAL_M0001_CONSUMED_HUNT;
-                  consume_extreme = extreme;
-                  consume_lower = lower;
-                  consume_upper = upper;
+
+                  // If the candle also intersects the zone, keep an event row
+                  // for audit; otherwise the node simply ends as hunted.
+                  if(intersects)
+                  {
+                     in_event = true;
+                     entry_index = i;
+                     event_extreme = extreme;
+                     event_lower = lower;
+                     event_upper = upper;
+                  }
+
+                  consumed = true;
+                  break;
                }
+
+               if(!intersects)
+                  continue;
+
+               in_event = true;
+               entry_index = i;
+               outside_count = 0;
+
+               // Freeze event geometry at the first touch/revisit candle.
+               event_extreme = extreme;
+               event_lower = lower;
+               event_upper = upper;
+
+               continue;
             }
 
-            if(intersects)
-               outside_count = 0;
-            else
-               outside_count++;
-
-            if(outside_count >= config.exit_gap)
+            // Active event phase:
+            // In TOUCH mode this is still only a provisional touch until
+            // exit_gap confirms it. A node break before confirmation converts
+            // the pending touch into HUNT.
+            bool hunted_now = DAL_M0001Hunted(node.type, node.price, bars[i]);
+            if(hunted_now)
             {
+               hunted = true;
+               event_consumed = true;
+               event_consumed_index = i;
+               consume_reason = DAL_M0001_CONSUMED_HUNT;
+
                int exit_index = i;
                DALM0001Event event;
-               double final_extreme = event_consumed ? consume_extreme : extreme;
-               double final_lower = event_consumed ? consume_lower : lower;
-               double final_upper = event_consumed ? consume_upper : upper;
-
                if(DAL_M0001FinalizeEvent(
                      bars,
                      log_moves,
@@ -238,9 +240,64 @@ int DAL_M0001ComputeEvents(
                      revisit_id,
                      entry_index,
                      exit_index,
-                     final_lower,
-                     final_upper,
-                     final_extreme,
+                     event_lower,
+                     event_upper,
+                     event_extreme,
+                     hunted,
+                     event_consumed,
+                     consume_reason,
+                     event_consumed_index,
+                     event
+                  ))
+               {
+                  if(event.rtv >= config.min_rtv)
+                  {
+                     DAL_M0001AppendEvent(events, event);
+                     event_id++;
+                  }
+               }
+
+               consumed = true;
+               i = exit_index + 1;
+               break;
+            }
+
+            bool intersects_frozen_zone = DAL_CandleIntersectsZone(
+               bars[i].low,
+               bars[i].high,
+               event_lower,
+               event_upper
+            );
+
+            if(intersects_frozen_zone)
+               outside_count = 0;
+            else
+               outside_count++;
+
+            if(outside_count >= config.exit_gap)
+            {
+               int exit_index = i;
+
+               if(DAL_M0001ConsumesOnTouch(config))
+               {
+                  // TOUCH is confirmed only after the active event closes.
+                  event_consumed = true;
+                  event_consumed_index = exit_index;
+                  consume_reason = DAL_M0001_CONSUMED_TOUCH;
+               }
+
+               DALM0001Event event;
+               if(DAL_M0001FinalizeEvent(
+                     bars,
+                     log_moves,
+                     node,
+                     event_id,
+                     revisit_id,
+                     entry_index,
+                     exit_index,
+                     event_lower,
+                     event_upper,
+                     event_extreme,
                      hunted,
                      event_consumed,
                      consume_reason,
@@ -256,12 +313,46 @@ int DAL_M0001ComputeEvents(
                }
 
                revisit_id++;
+
                if(event_consumed)
                   consumed = true;
 
                i = exit_index + 1;
                break;
             }
+         }
+
+         if(event_consumed && consumed && in_event && entry_index >= 0 && consume_reason == DAL_M0001_CONSUMED_HUNT)
+         {
+            // HUNT inside the tracking branch with a zone intersection.
+            int exit_index = event_consumed_index;
+            DALM0001Event event;
+            if(DAL_M0001FinalizeEvent(
+                  bars,
+                  log_moves,
+                  node,
+                  event_id,
+                  revisit_id,
+                  entry_index,
+                  exit_index,
+                  event_lower,
+                  event_upper,
+                  event_extreme,
+                  hunted,
+                  event_consumed,
+                  consume_reason,
+                  event_consumed_index,
+                  event
+               ))
+            {
+               if(event.rtv >= config.min_rtv)
+               {
+                  DAL_M0001AppendEvent(events, event);
+                  event_id++;
+               }
+            }
+
+            i = exit_index + 1;
          }
 
          // No further closed event for this node in the available live stream.
@@ -275,5 +366,6 @@ int DAL_M0001ComputeEvents(
 
    return ArraySize(events);
 }
+
 
 #endif

@@ -294,3 +294,23 @@ InpConsumeMode = DAL_M0001_CONSUME_BY_TOUCH
 HUNT consumes only on node-price break. TOUCH consumes on first territory-zone
 touch. The selected mode is applied in audit-state computation and event state,
 not only in visualization.
+
+
+## Touch consumes after event completion
+
+M0001 touch mode follows the original README semantics:
+
+```text
+first zone touch -> event starts
+event closes after exit_gap outside frozen event territory -> node consumed
+```
+
+Touch no longer consumes immediately on the first touch candle. Hunt mode remains
+node-break based and can support revisits until the node is hunted.
+
+
+## Pending touch and hunt priority
+
+A first zone touch starts a pending touch event. TOUCH is confirmed only after
+`InpExitGap` consecutive candles outside the frozen event zone. If the node price
+is broken before that confirmation, the pending touch converts to `CONSUMED:HUNT`.
