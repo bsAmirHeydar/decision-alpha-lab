@@ -101,3 +101,11 @@ In the MQL-native runtime, `InpShowNodePrices` displays node prices as local tex
 labels above high-node markers and below low-node markers. Full horizontal
 node-price lines are disabled by default and controlled separately by
 `InpShowNodePriceLines`.
+
+
+## Live bar stream
+
+The MQL-native runtime processes bars as a live stream by default. It does not
+bulk-copy the whole test window for active logic. On each new closed candle, it
+reads only the newly closed bar, appends it to an in-memory rolling stream, and
+updates L-rule nodes, M0001 events, and visual audit objects.

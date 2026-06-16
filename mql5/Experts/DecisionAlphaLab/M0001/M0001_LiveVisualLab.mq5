@@ -3,10 +3,11 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.01"
+#property version   "1.10"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
+#include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
 #include <DecisionAlphaLab/StructuralNodes/LRule/DAL_LRuleDetector.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
@@ -15,10 +16,13 @@
 
 input string InpSymbol = "";                 // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
-input int InpBars = 800;
-input bool InpClosedBarsOnly = true;
-input bool InpComputeOnEveryTick = false;
-input int InpTimerMilliseconds = 250;
+input int InpBars = 800;                    // max rolling stream size
+input bool InpUseLiveBarStream = true;        // true = no bulk copy; append each newly closed candle
+input int InpWarmupHistoricalBars = 0;        // 0 = start from next closed candle; >0 = optional past context
+input bool InpStartFromNextClosedBar = true;  // true = do not process the already closed bar at attach time
+input bool InpClosedBarsOnly = true;          // retained for non-stream fallback mode
+input bool InpComputeOnEveryTick = false;     // stream mode still processes only newly closed bars
+input int InpTimerMilliseconds = 100;
 
 input int InpL = 5;
 input double InpZoneRatio = 0.90;
@@ -48,6 +52,11 @@ input bool InpWriteValidationJournal = false;
 input string InpJournalPrefix = "DecisionAlphaLab\\M0001\\";
 
 datetime g_last_bar_time = 0;
+datetime g_last_closed_stream_bar_time = 0;
+bool g_live_stream_initialized = false;
+DALBar g_live_bars[];
+int g_live_bars_count = 0;
+
 
 string LabSymbol()
 {
@@ -94,10 +103,12 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.node_price_text_font_size = InpNodePriceTextFontSize;
 }
 
-void RunM0001()
+void RunM0001FromBars(
+   const DALBar &bars[],
+   const int bars_count,
+   const string source_mode
+)
 {
-   DALBar bars[];
-   int bars_count = DAL_LoadBarsChronological(LabSymbol(), LabTimeframe(), InpBars, InpClosedBarsOnly, bars);
    if(bars_count <= 0)
       return;
 
@@ -131,7 +142,8 @@ void RunM0001()
    ChartRedraw(0);
 
    Print(
-      "DAL M0001 MQL-NATIVE | bars=", bars_count,
+      "DAL M0001 MQL-NATIVE | source=", source_mode,
+      " bars=", bars_count,
       " nodes=", nodes_count,
       " events=", events_count,
       " L=", config.L,
@@ -140,9 +152,81 @@ void RunM0001()
    );
 }
 
+void InitializeLiveBarStream()
+{
+   if(g_live_stream_initialized)
+      return;
+
+   ArrayResize(g_live_bars, 0);
+   g_live_bars_count = 0;
+   g_last_closed_stream_bar_time = 0;
+
+   if(InpWarmupHistoricalBars > 0)
+   {
+      DAL_WarmupClosedBarsByShift(
+         LabSymbol(),
+         LabTimeframe(),
+         InpWarmupHistoricalBars,
+         InpBars,
+         g_live_bars,
+         g_live_bars_count
+      );
+
+      if(g_live_bars_count > 0)
+         g_last_closed_stream_bar_time = g_live_bars[g_live_bars_count - 1].time;
+   }
+   else if(InpStartFromNextClosedBar)
+   {
+      // Critical live-safe behavior:
+      // Do not copy/process history at attach time. Start only when the next bar closes.
+      g_last_closed_stream_bar_time = DAL_LastClosedBarTime(LabSymbol(), LabTimeframe());
+   }
+
+   g_live_stream_initialized = true;
+}
+
+bool UpdateLiveBarStream()
+{
+   InitializeLiveBarStream();
+
+   return DAL_AppendLatestClosedBarIfNew(
+      LabSymbol(),
+      LabTimeframe(),
+      InpBars,
+      g_live_bars,
+      g_live_bars_count,
+      g_last_closed_stream_bar_time
+   );
+}
+
+void RunM0001()
+{
+   if(InpUseLiveBarStream)
+   {
+      InitializeLiveBarStream();
+      RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream");
+      return;
+   }
+
+   DALBar bars[];
+   int bars_count = DAL_LoadBarsChronological(LabSymbol(), LabTimeframe(), InpBars, InpClosedBarsOnly, bars);
+   RunM0001FromBars(bars, bars_count, "fallback_copyrates");
+}
+
 int OnInit()
 {
-   RunM0001();
+   if(InpUseLiveBarStream)
+   {
+      InitializeLiveBarStream();
+      if(g_live_bars_count > 0)
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_init");
+      else
+         Print("DAL M0001 MQL-NATIVE | live stream initialized empty; waiting for next closed candle");
+   }
+   else
+   {
+      RunM0001();
+   }
 
    if(InpTimerMilliseconds > 0)
       EventSetMillisecondTimer(InpTimerMilliseconds);
@@ -158,6 +242,13 @@ void OnDeinit(const int reason)
 
 void OnTick()
 {
+   if(InpUseLiveBarStream)
+   {
+      if(UpdateLiveBarStream())
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_new_bar");
+      return;
+   }
+
    datetime current_bar = iTime(LabSymbol(), LabTimeframe(), 0);
    if(InpComputeOnEveryTick || current_bar != g_last_bar_time)
    {
@@ -168,6 +259,13 @@ void OnTick()
 
 void OnTimer()
 {
+   if(InpUseLiveBarStream)
+   {
+      if(UpdateLiveBarStream())
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_timer_new_bar");
+      return;
+   }
+
    if(InpComputeOnEveryTick)
       return;
 
