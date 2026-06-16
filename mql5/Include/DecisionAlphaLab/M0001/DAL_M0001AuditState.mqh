@@ -15,12 +15,14 @@ struct DALM0001NodeAuditState
    int current_index;
    int extreme_index;
    int invalidated_index;
+   int consumed_index;
 
    datetime node_time;
    datetime active_from_time;
    datetime current_time;
    datetime extreme_time;
    datetime invalidated_time;
+   datetime consumed_time;
 
    ENUM_DALNodeType node_type;
    double node_price;
@@ -29,6 +31,7 @@ struct DALM0001NodeAuditState
    double territory_upper;
 
    bool invalidated;
+   bool consumed;
    bool active;
 };
 
@@ -70,8 +73,11 @@ int DAL_M0001ComputeNodeAuditStates(
       double extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
       int extreme_index = start;
 
+      bool consumed = false;
       bool invalidated = false;
+      int consumed_index = -1;
       int invalidated_index = -1;
+      int last_active_index = bars_count - 1;
 
       for(int i = start; i < bars_count; i++)
       {
@@ -81,11 +87,16 @@ int DAL_M0001ComputeNodeAuditStates(
          if(extreme != old_extreme)
             extreme_index = i;
 
-         if(!invalidated && DAL_M0001Hunted(node.type, node.price, bars[i]))
+         if(DAL_M0001Hunted(node.type, node.price, bars[i]))
          {
+            consumed = true;
             invalidated = true;
+            consumed_index = i;
             invalidated_index = i;
-            // Keep scanning for audit extreme, but mark the live hunt zone as invalidated.
+            last_active_index = i;
+            // Critical: once the node is consumed, its expansion extreme is no
+            // longer a live decision variable. Stop updating this node here.
+            break;
          }
       }
 
@@ -98,15 +109,17 @@ int DAL_M0001ComputeNodeAuditStates(
       state.node_id = node.id;
       state.node_index = node.index;
       state.active_from_index = node.active_from_index;
-      state.current_index = bars_count - 1;
+      state.current_index = last_active_index;
       state.extreme_index = extreme_index;
       state.invalidated_index = invalidated_index;
+      state.consumed_index = consumed_index;
 
       state.node_time = node.time;
       state.active_from_time = node.active_from_time;
-      state.current_time = bars[bars_count - 1].time;
+      state.current_time = bars[last_active_index].time;
       state.extreme_time = bars[extreme_index].time;
       state.invalidated_time = invalidated_index >= 0 ? bars[invalidated_index].time : 0;
+      state.consumed_time = consumed_index >= 0 ? bars[consumed_index].time : 0;
 
       state.node_type = node.type;
       state.node_price = node.price;
@@ -115,7 +128,8 @@ int DAL_M0001ComputeNodeAuditStates(
       state.territory_upper = upper;
 
       state.invalidated = invalidated;
-      state.active = !invalidated;
+      state.consumed = consumed;
+      state.active = !consumed;
 
       DAL_M0001AppendNodeAuditState(states, state);
       state_id++;

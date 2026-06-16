@@ -20,6 +20,8 @@ struct DALM0001VisualConfig
    bool show_expansion_extreme_lines;
    bool show_live_hunt_zones;
    bool show_invalidated_hunt_zones;
+   bool show_consumed_hunt_zone_history;
+   bool show_consumed_node_markers;
    int max_nodes;
    int max_events;
    int max_audit_states;
@@ -46,6 +48,8 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
    config.show_expansion_extreme_lines = false;
    config.show_live_hunt_zones = false;
    config.show_invalidated_hunt_zones = false;
+   config.show_consumed_hunt_zone_history = true;
+   config.show_consumed_node_markers = true;
    config.max_nodes = 120;
    config.max_events = 80;
    config.max_audit_states = 80;
@@ -244,6 +248,9 @@ void DAL_M0001DrawExtremeLink(
    const DALM0001NodeAuditState &state
 )
 {
+   if(state.consumed || !state.active)
+      return;
+
    string id = prefix + "EXTREME_LINK_" + IntegerToString(state.node_id);
    color c = DAL_M0001AuditColor(state.node_type, state.invalidated);
 
@@ -266,22 +273,29 @@ void DAL_M0001DrawExtremeLink(
 void DAL_M0001DrawLiveHuntZone(
    const string prefix,
    const DALM0001NodeAuditState &state,
-   const bool show_invalidated
+   const bool show_consumed_history
 )
 {
-   if(state.invalidated && !show_invalidated)
-      return;
-
-   datetime end_time = state.current_time;
-   color c = DAL_M0001AuditColor(state.node_type, state.invalidated);
-
-   if(state.invalidated && state.invalidated_time > 0)
-      end_time = state.invalidated_time;
-
    datetime start_time = state.node_time;
+   datetime end_time = state.current_time;
+
+   // Active node: draw live zone up to current live-stream bar.
+   // Consumed node: keep historical zone drawn, but terminate it at consume candle.
+   if(state.consumed || !state.active)
+   {
+      if(!show_consumed_history)
+         return;
+
+      if(state.consumed_time <= 0)
+         return;
+
+      end_time = state.consumed_time;
+   }
 
    if(end_time <= start_time)
       return;
+
+   color c = DAL_M0001AuditColor(state.node_type, state.consumed);
 
    string id = prefix + "LIVE_HUNT_ZONE_" + IntegerToString(state.node_id);
    DAL_DrawRectangle(
@@ -294,6 +308,35 @@ void DAL_M0001DrawLiveHuntZone(
       true,
       false
    );
+}
+
+void DAL_M0001DrawConsumedMarker(
+   const string prefix,
+   const DALM0001NodeAuditState &state
+)
+{
+   if(!state.consumed || state.consumed_time <= 0)
+      return;
+
+   string id = prefix + "CONSUMED_" + IntegerToString(state.node_id);
+   string text = "CONSUMED";
+
+   double y = state.node_price;
+   double gap = 80.0 * DAL_VisualPoint();
+
+   ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER;
+   if(state.node_type == DAL_NODE_HIGH)
+   {
+      y = state.node_price - gap;
+      anchor = ANCHOR_UPPER;
+   }
+   else
+   {
+      y = state.node_price + gap;
+      anchor = ANCHOR_LOWER;
+   }
+
+   DAL_DrawTextLabelAnchored(id, state.consumed_time, y, text, clrSilver, 7, anchor);
 }
 
 void DAL_M0001DrawAuditStates(
@@ -312,7 +355,10 @@ void DAL_M0001DrawAuditStates(
          DAL_M0001DrawExtremeLink(visual.prefix, states[i]);
 
       if(visual.show_live_hunt_zones)
-         DAL_M0001DrawLiveHuntZone(visual.prefix, states[i], visual.show_invalidated_hunt_zones);
+         DAL_M0001DrawLiveHuntZone(visual.prefix, states[i], visual.show_consumed_hunt_zone_history);
+
+      if(visual.show_consumed_node_markers)
+         DAL_M0001DrawConsumedMarker(visual.prefix, states[i]);
    }
 }
 

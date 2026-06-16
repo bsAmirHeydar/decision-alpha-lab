@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.21"
+#property version   "1.23"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -42,9 +42,11 @@ input bool InpShowActiveFrom = false;
 input bool InpShowEvents = false;
 input bool InpShowRtvLabels = false;
 input bool InpShowHunts = true;
-input bool InpShowExpansionExtremes = true;     // draw node -> expansion extreme audit line
-input bool InpShowLiveHuntZones = true;         // draw active live hunt/territory rectangle until invalidated/live bar
-input bool InpShowInvalidatedHuntZones = false; // false = only zones still alive are shown
+input bool InpShowExpansionExtremes = true;     // draw node -> expansion extreme audit line for active nodes only
+input bool InpShowLiveHuntZones = true;         // draw active live hunt/territory rectangle until consumed/live bar
+input bool InpShowInvalidatedHuntZones = false; // deprecated alias
+input bool InpShowConsumedHuntZoneHistory = true; // keep consumed zones drawn until consume candle
+input bool InpShowConsumedNodeMarkers = true;   // mark the candle where a node is consumed/hunted
 input bool InpShowSummary = true;
 input int InpMaxNodesToDraw = 120;
 input int InpMaxEventsToDraw = 80;
@@ -109,6 +111,8 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.show_expansion_extreme_lines = InpShowExpansionExtremes;
    visual.show_live_hunt_zones = InpShowLiveHuntZones;
    visual.show_invalidated_hunt_zones = InpShowInvalidatedHuntZones;
+   visual.show_consumed_hunt_zone_history = InpShowConsumedHuntZoneHistory;
+   visual.show_consumed_node_markers = InpShowConsumedNodeMarkers;
    visual.max_nodes = InpMaxNodesToDraw;
    visual.max_events = InpMaxEventsToDraw;
    visual.max_audit_states = InpMaxAuditStatesToDraw;

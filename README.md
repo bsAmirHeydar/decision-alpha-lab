@@ -195,3 +195,26 @@ M0001 live hunt/territory rectangles now start from the original node candle
 instead of the active-from candle. The logic still confirms nodes at
 `node_index + L`; this change only makes the visual rectangle's structural origin
 match the node itself.
+
+
+## Consumed node repair
+
+M0001 now treats consumed/hunted nodes as finished.  
+After consumption, the node no longer draws an active expansion-extreme line or
+live hunt zone. A small consumed marker can be shown with:
+
+```text
+InpShowConsumedNodeMarkers = true
+```
+
+
+## Consumed zone history
+
+Consumed M0001 hunt zones now remain visible as historical rectangles from the
+node origin to the consume candle.
+
+```text
+InpShowConsumedHuntZoneHistory = true
+```
+
+They do not extend beyond the consume candle.
