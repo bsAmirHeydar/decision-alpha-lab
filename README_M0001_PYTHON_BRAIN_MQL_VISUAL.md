@@ -212,3 +212,35 @@ Default shared root:
 The bridge normalizes nullable numeric/boolean fields before writing Parquet.
 This prevents pyarrow errors when visual rows contain blank values for fields
 that are not applicable to that row type.
+
+
+## Visual Toggle Sync
+
+Manual layer inputs are only fully manual when `InpViewPreset=0`.  
+If a preset is selected, it intentionally turns layers on.
+
+Use these hard controls:
+
+```text
+InpRenderVisualObjects = false      # blank chart / cleanup mode
+InpForceFlatCustomMode = true       # ignore presets and use only manual toggles
+InpCleanAllM0001Objects = true      # delete old objects from previous versions
+```
+
+
+## Node arrow tip anchor
+
+Node arrows are drawn at the exact Python node price.  
+The MQL visual terminal sets the glyph anchor so the visible arrow tip, not the
+glyph center, lands on the node price.
+
+```text
+HIGH node -> down arrow + ANCHOR_BOTTOM
+LOW node  -> up arrow   + ANCHOR_TOP
+```
+
+Input:
+
+```text
+InpAnchorNodeArrowTip = true
+```

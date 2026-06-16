@@ -5,7 +5,7 @@
 //| of truth for backtest, validation, export and live visual output. |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "6.20"
+#property version   "6.32"
 #property description "Python-brain M0001 visual lab: MQL draws the Python visual contract only"
 
 input string InpFileName          = "DecisionAlphaLab\\M0001\\GOLD_M15_visual.csv";
@@ -45,9 +45,15 @@ input string InpObjectPrefix      = "DAL_M0001_PY_";
 input bool   InpDeleteOldObjects  = true;
 input int    InpAutoReloadSeconds = 2;
 input int    InpMaxObjects        = 2500;
+input bool   InpAnchorNodeArrowTip = true;    // true = arrow tip is anchored exactly on Python node price
+input bool   InpRenderVisualObjects = true;   // false = delete all lab objects and draw only bridge/status labels
+input bool   InpForceFlatCustomMode = false;  // true = ignore InpViewPreset and use only manual toggles
+input bool   InpCleanAllM0001Objects = true;  // true = remove old DAL_M0001_* objects from older versions too
 
-// Package selector. Visual inputs below are all false by default.
-// 0 Custom manual toggles
+// Package selector. IMPORTANT:
+ // If InpViewPreset != 0, the preset turns visual layers ON even when the manual toggles are false.
+ // For a completely blank/custom chart set InpViewPreset=0 or set InpForceFlatCustomMode=true.
+ // 0 Custom manual toggles
 // 1 Structural Node Audit
 // 2 Territory Construction Audit
 // 3 Event Entry Exit Audit
@@ -166,6 +172,21 @@ void OnTimer()
 //+------------------------------------------------------------------+
 void DrawFromCsv()
 {
+   if(!InpRenderVisualObjects)
+   {
+      g_drawn = 0;
+      g_events_seen = 0;
+      g_nodes_seen = 0;
+      g_hunts_seen = 0;
+      g_rtv_sum = 0.0;
+      g_rtv_count = 0;
+      if(InpShowBridgeStatusPanel)
+         DrawBridgeStatusPanel();
+      Print("DAL M0001 PYTHON-BRAIN VISUAL | render disabled by InpRenderVisualObjects=false");
+      ChartRedraw(0);
+      return;
+   }
+
    g_drawn = 0;
    g_events_seen = 0;
    g_nodes_seen = 0;
@@ -260,7 +281,13 @@ void DrawFromCsv()
       DrawBridgeStatusPanel();
 
    ChartRedraw(0);
-   Print("DAL M0001 PYTHON-BRAIN VISUAL | rows_drawn=", g_drawn, " events=", g_events_seen, " nodes=", g_nodes_seen, " file=", VisualFileName(), " config=", InpPythonConfigFile);
+   Print("DAL M0001 PYTHON-BRAIN VISUAL | rows_drawn=", g_drawn,
+         " events=", g_events_seen,
+         " nodes=", g_nodes_seen,
+         " preset=", EffectivePreset(),
+         " render=", (InpRenderVisualObjects ? "on" : "off"),
+         " file=", VisualFileName(),
+         " config=", InpPythonConfigFile);
 }
 
 //+------------------------------------------------------------------+
@@ -351,22 +378,35 @@ bool KindVisible(const string kind)
    return false;
 }
 
-bool FlagNodes()                { return InpShowNodes                || InpViewPreset==1 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
-bool FlagNodePriceLines()       { return InpShowNodePriceLines       || InpViewPreset==1 || InpViewPreset==2  || InpViewPreset==6  || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagActiveFromLines()      { return InpShowActiveFromLines      || InpViewPreset==1 || InpViewPreset==12; }
-bool FlagConfirmationWindows()  { return InpShowConfirmationWindows  || InpViewPreset==1 || InpViewPreset==12; }
-bool FlagExpansionExtremes()    { return InpShowExpansionExtremes    || InpViewPreset==2 || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagTerritories()          { return InpShowTerritories          || InpViewPreset==2 || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagEventWindows()         { return InpShowEventWindows         || InpViewPreset==3 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
-bool FlagEntryExitMarkers()     { return InpShowEntryExitMarkers     || InpViewPreset==3 || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagBeforeSamples()        { return InpShowBeforeSamples        || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagInsideSamples()        { return InpShowInsideSamples        || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagOutsideActiveSamples() { return InpShowOutsideActiveSamples || InpViewPreset==4 || InpViewPreset==8  || InpViewPreset==12; }
-bool FlagRtvLabels()            { return InpShowRtvLabels            || InpViewPreset==5 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
-bool FlagRtvFormula()           { return InpShowRtvFormula           || InpViewPreset==5 || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagHunts()                { return InpShowHunts                || InpViewPreset==6 || InpViewPreset==10 || InpViewPreset==11 || InpViewPreset==12; }
-bool FlagEventInfo()            { return InpShowEventInfo            || InpViewPreset==5 || InpViewPreset==8  || InpViewPreset==9  || InpViewPreset==10 || InpViewPreset==12; }
-bool FlagSummaryPanel()         { return InpShowSummaryPanel         || InpViewPreset==11 || InpViewPreset==12; }
+
+int EffectivePreset()
+{
+   if(InpForceFlatCustomMode)
+      return 0;
+   return InpViewPreset;
+}
+
+bool RenderSwitch()
+{
+   return InpRenderVisualObjects;
+}
+
+bool FlagNodes()                { int p=EffectivePreset(); return RenderSwitch() && (InpShowNodes                || p==1 || p==10 || p==11 || p==12); }
+bool FlagNodePriceLines()       { int p=EffectivePreset(); return RenderSwitch() && (InpShowNodePriceLines       || p==1 || p==2  || p==6  || p==10 || p==12); }
+bool FlagActiveFromLines()      { int p=EffectivePreset(); return RenderSwitch() && (InpShowActiveFromLines      || p==1 || p==12); }
+bool FlagConfirmationWindows()  { int p=EffectivePreset(); return RenderSwitch() && (InpShowConfirmationWindows  || p==1 || p==12); }
+bool FlagExpansionExtremes()    { int p=EffectivePreset(); return RenderSwitch() && (InpShowExpansionExtremes    || p==2 || p==10 || p==12); }
+bool FlagTerritories()          { int p=EffectivePreset(); return RenderSwitch() && (InpShowTerritories          || p==2 || p==10 || p==12); }
+bool FlagEventWindows()         { int p=EffectivePreset(); return RenderSwitch() && (InpShowEventWindows         || p==3 || p==10 || p==11 || p==12); }
+bool FlagEntryExitMarkers()     { int p=EffectivePreset(); return RenderSwitch() && (InpShowEntryExitMarkers     || p==3 || p==10 || p==12); }
+bool FlagBeforeSamples()        { int p=EffectivePreset(); return RenderSwitch() && (InpShowBeforeSamples        || p==4 || p==8  || p==10 || p==12); }
+bool FlagInsideSamples()        { int p=EffectivePreset(); return RenderSwitch() && (InpShowInsideSamples        || p==4 || p==8  || p==10 || p==12); }
+bool FlagOutsideActiveSamples() { int p=EffectivePreset(); return RenderSwitch() && (InpShowOutsideActiveSamples || p==4 || p==8  || p==12); }
+bool FlagRtvLabels()            { int p=EffectivePreset(); return RenderSwitch() && (InpShowRtvLabels            || p==5 || p==10 || p==11 || p==12); }
+bool FlagRtvFormula()           { int p=EffectivePreset(); return RenderSwitch() && (InpShowRtvFormula           || p==5 || p==10 || p==12); }
+bool FlagHunts()                { int p=EffectivePreset(); return RenderSwitch() && (InpShowHunts                || p==6 || p==10 || p==11 || p==12); }
+bool FlagEventInfo()            { int p=EffectivePreset(); return RenderSwitch() && (InpShowEventInfo            || p==5 || p==8  || p==9  || p==10 || p==12); }
+bool FlagSummaryPanel()         { int p=EffectivePreset(); return InpShowSummaryPanel || p==11 || p==12; }
 
 //+------------------------------------------------------------------+
 bool RowPassesFilters(const string kind, const string baseline, const int nodeId, const int revisitId, const double rtv, const bool hunted)
@@ -420,11 +460,26 @@ void DrawNode(const string id, const datetime t, const double price, const strin
 {
    string name = ObjName(id);
    int code = (nodeType == "LOW" ? 233 : 234);
+
+   // IMPORTANT:
+   // Python node price is the truth. We draw the object at exactly that price.
+   // For arrow glyphs, the coordinate anchor is not always the visual tip.
+   // HIGH nodes use a down arrow, so the tip is the bottom of the glyph.
+   // LOW nodes use an up arrow, so the tip is the top of the glyph.
    ObjectCreate(0, name, OBJ_ARROW, 0, t, price);
    ObjectSetInteger(0, name, OBJPROP_ARROWCODE, code);
+
+   if(InpAnchorNodeArrowTip)
+   {
+      if(nodeType == "HIGH")
+         ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_BOTTOM);
+      else if(nodeType == "LOW")
+         ObjectSetInteger(0, name, OBJPROP_ANCHOR, ANCHOR_TOP);
+   }
+
    ObjectSetInteger(0, name, OBJPROP_COLOR, NodeColor(nodeType));
    ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
-   ObjectSetString(0, name, OBJPROP_TOOLTIP, label);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, label + " | node_price=" + DoubleToString(price, _Digits) + " | arrow_tip_anchor=" + (InpAnchorNodeArrowTip ? "true" : "false"));
 }
 
 void DrawHLine(const string id, const double price, const color c, const string tip)
@@ -551,7 +606,7 @@ void DrawSummaryPanel()
                + " | Events: " + IntegerToString(g_events_seen)
                + " | Hunts: " + IntegerToString(g_hunts_seen)
                + "\nMean RTV: " + DoubleToString(mean_rtv, 3)
-               + "\nPreset: " + IntegerToString(InpViewPreset)
+               + "\nPreset: " + IntegerToString(EffectivePreset()) + " | render=" + (InpRenderVisualObjects ? "on" : "off")
                + "\nBridge: " + (InpBridgeExportChartCandles ? "MQL candles -> Python" : "config only")
                + " | trigger=" + (InpBridgeOnEveryTick ? "tick" : "new_bar")
                + "\nPython artifacts: Parquet | MQL adapter: CSV"
@@ -834,15 +889,37 @@ string PeriodToText(const ENUM_TIMEFRAMES tf)
 }
 
 //+------------------------------------------------------------------+
+
 void DeleteLabObjects()
 {
    for(int i = ObjectsTotal(0, -1, -1) - 1; i >= 0; i--)
    {
       string name = ObjectName(0, i, -1, -1);
-      if(StringFind(name, InpObjectPrefix) == 0)
+      if(ShouldDeleteLabObject(name))
          ObjectDelete(0, name);
    }
 }
+
+bool ShouldDeleteLabObject(const string name)
+{
+   if(StringFind(name, InpObjectPrefix) == 0)
+      return true;
+
+   if(!InpCleanAllM0001Objects)
+      return false;
+
+   // Clean objects left by older versions / prefixes so changing inputs or versions
+   // cannot leave stale lines on the chart.
+   if(StringFind(name, "DAL_M0001_") == 0)
+      return true;
+   if(StringFind(name, "DAL_M0001_LIVE_") == 0)
+      return true;
+   if(StringFind(name, "DAL_M0001_PY_") == 0)
+      return true;
+
+   return false;
+}
+
 
 string ObjName(const string id)
 {
