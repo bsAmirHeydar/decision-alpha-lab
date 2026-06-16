@@ -1,24 +1,23 @@
-# Python
+# MQL generated / terminal artifacts
+*.ex5
+*.log
+*.hst
+*.fxt
+*.opt
+
+# Retired Python / UI generated files
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
-
-# Local UI / node artifacts removed from this architecture
 node_modules/
-apps/web/node_modules/
-apps/web/dist/
-apps/web/.vite/
-apps/web/tsconfig.tsbuildinfo
+apps/
+lab/cache_data/
+lab/cache_metrics/
+lab/cache_nodes/
+*.parquet
 
-# Temporary generated artifacts
+# Temporary artifact bundles
 quant_lab_*.zip
 quant_lab_*.patch
-*.rej
-
-# Generated MQL visual exports can be regenerated
-mql5/Files/DecisionAlphaLab/M0001/*.csv
-
-# Caches are project-local research artifacts; commit deliberately only when needed
-# lab/cache_data/
-# lab/cache_nodes/
-# lab/cache_metrics/
+repair_lab_os.ps1
