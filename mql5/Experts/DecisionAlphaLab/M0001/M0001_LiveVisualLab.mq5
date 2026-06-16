@@ -3,14 +3,15 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.15"
+#property version   "1.21"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
-#include <DecisionAlphaLab/StructuralNodes/LRule/DAL_LRuleDetector.mqh>
+#include <DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
+#include <DecisionAlphaLab/M0001/DAL_M0001AuditState.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Visual.mqh>
 #include <DecisionAlphaLab/Research/DAL_ValidationJournal.mqh>
 
@@ -41,9 +42,13 @@ input bool InpShowActiveFrom = false;
 input bool InpShowEvents = false;
 input bool InpShowRtvLabels = false;
 input bool InpShowHunts = true;
+input bool InpShowExpansionExtremes = true;     // draw node -> expansion extreme audit line
+input bool InpShowLiveHuntZones = true;         // draw active live hunt/territory rectangle until invalidated/live bar
+input bool InpShowInvalidatedHuntZones = false; // false = only zones still alive are shown
 input bool InpShowSummary = true;
 input int InpMaxNodesToDraw = 120;
 input int InpMaxEventsToDraw = 80;
+input int InpMaxAuditStatesToDraw = 80;
 input int InpNodeMarkerStyle = 0;            // deprecated/ignored: strict mode always uses clean arrows
 input int InpNodeArrowWidth = 2;
 input double InpNodeChevronPoints = 70.0;    // used only when InpNodeMarkerStyle = 1
@@ -101,8 +106,12 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.show_events = InpShowEvents;
    visual.show_rtv_labels = InpShowRtvLabels;
    visual.show_hunts = InpShowHunts;
+   visual.show_expansion_extreme_lines = InpShowExpansionExtremes;
+   visual.show_live_hunt_zones = InpShowLiveHuntZones;
+   visual.show_invalidated_hunt_zones = InpShowInvalidatedHuntZones;
    visual.max_nodes = InpMaxNodesToDraw;
    visual.max_events = InpMaxEventsToDraw;
+   visual.max_audit_states = InpMaxAuditStatesToDraw;
    // Hard-disabled: chevron mode creates diagonal high/low trace lines.
    visual.node_marker_style = 0;
    visual.node_arrow_width = InpNodeArrowWidth;
@@ -127,10 +136,13 @@ void RunM0001FromBars(
    BuildConfig(config);
 
    DALLRuleNode nodes[];
-   int nodes_count = DAL_DetectLRuleNodes(bars, bars_count, config.L, nodes);
+   int nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
 
    DALM0001Event events[];
    int events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
+
+   DALM0001NodeAuditState audit_states[];
+   int audit_states_count = DAL_M0001ComputeNodeAuditStates(bars, bars_count, nodes, nodes_count, config, audit_states);
 
    DALM0001VisualConfig visual;
    BuildVisualConfig(visual);
@@ -140,6 +152,7 @@ void RunM0001FromBars(
 
    DAL_DeleteM0001VisualArtifacts(InpObjectPrefix);
    DAL_M0001DrawNodes(nodes, nodes_count, visual, LabTimeframe());
+   DAL_M0001DrawAuditStates(audit_states, audit_states_count, visual);
    DAL_M0001DrawEvents(events, events_count, visual);
 
    if(InpShowSummary)

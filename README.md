@@ -164,3 +164,34 @@ InpPurgeMainWindowIndicators = true
 InpHighNodePriceTextGapPoints = 120
 InpLowNodePriceTextGapPoints = 120
 ```
+
+
+## M0001 extreme and live hunt zone audit
+
+After structural nodes are validated, M0001 now exposes an audit layer for:
+
+```text
+node -> expansion extreme -> live hunt/territory zone
+```
+
+Inputs:
+
+```text
+InpShowExpansionExtremes = true
+InpShowLiveHuntZones = true
+InpShowInvalidatedHuntZones = false
+```
+
+The L-rule structural node detector is available through the stable facade:
+
+```text
+mql5/Include/DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh
+```
+
+
+## Hunt zone origin from node
+
+M0001 live hunt/territory rectangles now start from the original node candle
+instead of the active-from candle. The logic still confirms nodes at
+`node_index + L`; this change only makes the visual rectangle's structural origin
+match the node itself.

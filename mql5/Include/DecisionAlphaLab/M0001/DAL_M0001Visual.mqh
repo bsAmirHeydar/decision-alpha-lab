@@ -5,6 +5,7 @@
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/StructuralNodes/LRule/DAL_LRuleTypes.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Types.mqh>
+#include <DecisionAlphaLab/M0001/DAL_M0001AuditState.mqh>
 
 struct DALM0001VisualConfig
 {
@@ -16,8 +17,12 @@ struct DALM0001VisualConfig
    bool show_events;
    bool show_rtv_labels;
    bool show_hunts;
+   bool show_expansion_extreme_lines;
+   bool show_live_hunt_zones;
+   bool show_invalidated_hunt_zones;
    int max_nodes;
    int max_events;
+   int max_audit_states;
    int node_marker_style; // 0 = arrow marker, 1 = chevron marker
    int node_arrow_width;
    double chevron_points;
@@ -38,8 +43,12 @@ void DAL_M0001DefaultVisualConfig(DALM0001VisualConfig &config)
    config.show_events = false;
    config.show_rtv_labels = false;
    config.show_hunts = true;
+   config.show_expansion_extreme_lines = false;
+   config.show_live_hunt_zones = false;
+   config.show_invalidated_hunt_zones = false;
    config.max_nodes = 120;
    config.max_events = 80;
+   config.max_audit_states = 80;
    config.node_marker_style = 0;
    config.node_arrow_width = 2;
    config.chevron_points = 70.0;
@@ -218,6 +227,92 @@ void DAL_M0001DrawEvents(
 
       if(visual.show_hunts && e.hunted)
          DAL_DrawTextLabel(id + "_HUNT", e.exit_time, e.node_price, "HUNT", clrRed, 8);
+   }
+}
+
+
+color DAL_M0001AuditColor(const ENUM_DALNodeType node_type, const bool invalidated)
+{
+   if(invalidated)
+      return clrDimGray;
+
+   return DAL_NodeColor(node_type);
+}
+
+void DAL_M0001DrawExtremeLink(
+   const string prefix,
+   const DALM0001NodeAuditState &state
+)
+{
+   string id = prefix + "EXTREME_LINK_" + IntegerToString(state.node_id);
+   color c = DAL_M0001AuditColor(state.node_type, state.invalidated);
+
+   DAL_DrawTrend(
+      id,
+      state.node_time,
+      state.node_price,
+      state.extreme_time,
+      state.expansion_extreme,
+      c,
+      1,
+      STYLE_DASH
+   );
+
+   string text_id = prefix + "EXTREME_TEXT_" + IntegerToString(state.node_id);
+   string text = "EXT " + DoubleToString(state.expansion_extreme, _Digits);
+   DAL_DrawTextLabelAnchored(text_id, state.extreme_time, state.expansion_extreme, text, c, 7, ANCHOR_CENTER);
+}
+
+void DAL_M0001DrawLiveHuntZone(
+   const string prefix,
+   const DALM0001NodeAuditState &state,
+   const bool show_invalidated
+)
+{
+   if(state.invalidated && !show_invalidated)
+      return;
+
+   datetime end_time = state.current_time;
+   color c = DAL_M0001AuditColor(state.node_type, state.invalidated);
+
+   if(state.invalidated && state.invalidated_time > 0)
+      end_time = state.invalidated_time;
+
+   datetime start_time = state.node_time;
+
+   if(end_time <= start_time)
+      return;
+
+   string id = prefix + "LIVE_HUNT_ZONE_" + IntegerToString(state.node_id);
+   DAL_DrawRectangle(
+      id,
+      start_time,
+      state.territory_upper,
+      end_time,
+      state.territory_lower,
+      c,
+      true,
+      false
+   );
+}
+
+void DAL_M0001DrawAuditStates(
+   const DALM0001NodeAuditState &states[],
+   const int count,
+   const DALM0001VisualConfig &visual
+)
+{
+   int limit = count;
+   if(visual.max_audit_states > 0)
+      limit = MathMin(limit, visual.max_audit_states);
+
+   for(int i = 0; i < limit; i++)
+   {
+      if(visual.show_expansion_extreme_lines)
+         DAL_M0001DrawExtremeLink(visual.prefix, states[i]);
+
+      if(visual.show_live_hunt_zones)
+         DAL_M0001DrawLiveHuntZone(visual.prefix, states[i], visual.show_invalidated_hunt_zones);
    }
 }
 
