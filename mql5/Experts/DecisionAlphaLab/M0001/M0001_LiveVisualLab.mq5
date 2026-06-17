@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.57"
+#property version   "1.58"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -39,7 +39,6 @@ input bool InpRuntimeVisuals = false;        // false = fastest final-only resea
 #define DAL_M0001_USE_LIVE_BAR_STREAM true
 #define DAL_M0001_START_FROM_NEXT_CLOSED_BAR true
 #define DAL_M0001_CLOSED_BARS_ONLY true
-#define DAL_M0001_COMPUTE_ON_EVERY_TICK false
 #define DAL_M0001_TIMER_MS 0
 
 #define DAL_M0001_DRAW_ONLY_VISIBLE_WINDOW true
@@ -67,7 +66,7 @@ input bool InpRuntimeVisuals = false;        // false = fastest final-only resea
 #define DAL_M0001_LOW_NODE_PRICE_TEXT_GAP_POINTS 120.0
 #define DAL_M0001_NODE_PRICE_TEXT_FONT_SIZE 9
 
-datetime g_last_bar_time = 0;
+datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
 datetime g_analysis_start_time = 0;
 bool g_live_stream_initialized = false;
@@ -87,6 +86,30 @@ ENUM_TIMEFRAMES LabTimeframe()
    if(InpTimeframe == PERIOD_CURRENT)
       return (ENUM_TIMEFRAMES)_Period;
    return InpTimeframe;
+}
+
+void InitializeCandleClock()
+{
+   g_last_open_bar_time = iTime(LabSymbol(), LabTimeframe(), 0);
+}
+
+bool HasNewClosedCandle()
+{
+   datetime current_open_bar_time = iTime(LabSymbol(), LabTimeframe(), 0);
+   if(current_open_bar_time <= 0)
+      return false;
+
+   if(g_last_open_bar_time <= 0)
+   {
+      g_last_open_bar_time = current_open_bar_time;
+      return false;
+   }
+
+   if(current_open_bar_time == g_last_open_bar_time)
+      return false;
+
+   g_last_open_bar_time = current_open_bar_time;
+   return true;
 }
 
 void BuildConfig(DALM0001Config &config)
@@ -401,6 +424,8 @@ int OnInit()
    if(DAL_M0001_PURGE_MAIN_WINDOW_INDICATORS)
       DAL_DeleteMainWindowIndicators();
 
+   InitializeCandleClock();
+
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
       InitializeLiveBarStream();
@@ -437,20 +462,23 @@ void OnDeinit(const int reason)
 
 void OnTick()
 {
+   // Candle-gated runtime: MQL5 delivers OnTick(), but this EA does no
+   // research work and no CopyRates append until a new candle has opened
+   // and the previous candle is closed. This keeps the lab candle-based,
+   // not tick-based.
+   if(!HasNewClosedCandle())
+      return;
+
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
       bool appended = UpdateLiveBarStream();
       if(appended && InpRuntimeVisuals)
-         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_new_bar");
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_new_candle");
       return;
    }
 
-   datetime current_bar = iTime(LabSymbol(), LabTimeframe(), 0);
-   if(InpRuntimeVisuals && (DAL_M0001_COMPUTE_ON_EVERY_TICK || current_bar != g_last_bar_time))
-   {
-      g_last_bar_time = current_bar;
+   if(InpRuntimeVisuals)
       RunM0001();
-   }
 }
 
 void OnChartEvent(
@@ -472,21 +500,19 @@ void OnChartEvent(
 
 void OnTimer()
 {
+   // Timer is disabled by default. If it is enabled later, keep it under
+   // the same candle gate so it cannot re-run research logic intra-candle.
+   if(!HasNewClosedCandle())
+      return;
+
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
       bool appended = UpdateLiveBarStream();
       if(appended && InpRuntimeVisuals)
-         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_timer_new_bar");
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_timer_new_candle");
       return;
    }
 
-   if(DAL_M0001_COMPUTE_ON_EVERY_TICK)
-      return;
-
-   datetime current_bar = iTime(LabSymbol(), LabTimeframe(), 0);
-   if(InpRuntimeVisuals && current_bar != g_last_bar_time)
-   {
-      g_last_bar_time = current_bar;
+   if(InpRuntimeVisuals)
       RunM0001();
-   }
 }
