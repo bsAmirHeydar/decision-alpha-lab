@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.56"
+#property version   "1.57"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -32,6 +32,7 @@ input bool InpShowRTV = false;
 input bool InpShowState = true;
 input bool InpShowExtremes = false;
 input bool InpShowSummary = true;
+input bool InpRuntimeVisuals = false;        // false = fastest final-only research run
 
 // Internal defaults kept out of the Inputs panel.
 #define DAL_M0001_OBJECT_PREFIX "DAL_MQL_M0001_"
@@ -39,7 +40,7 @@ input bool InpShowSummary = true;
 #define DAL_M0001_START_FROM_NEXT_CLOSED_BAR true
 #define DAL_M0001_CLOSED_BARS_ONLY true
 #define DAL_M0001_COMPUTE_ON_EVERY_TICK false
-#define DAL_M0001_TIMER_MS 100
+#define DAL_M0001_TIMER_MS 0
 
 #define DAL_M0001_DRAW_ONLY_VISIBLE_WINDOW true
 #define DAL_M0001_VISIBLE_WINDOW_PADDING_BARS 80
@@ -86,18 +87,6 @@ ENUM_TIMEFRAMES LabTimeframe()
    if(InpTimeframe == PERIOD_CURRENT)
       return (ENUM_TIMEFRAMES)_Period;
    return InpTimeframe;
-}
-
-int DAL_M0001StreamMaxBars()
-{
-   if(InpBars <= 0)
-      return 0;
-
-   int warmup_bars = InpWarmupHistoricalBars;
-   if(warmup_bars < 0)
-      warmup_bars = 0;
-
-   return InpBars + warmup_bars;
 }
 
 void BuildConfig(DALM0001Config &config)
@@ -231,7 +220,8 @@ void DAL_M0001UpdateRuntimeComment(
       "  audit_states=", audit_states_count, "\n",
       "warmup_bars=", InpWarmupHistoricalBars,
       "  analysis_start=", start_text, "\n",
-      "final node/random logRTV report prints once on deinit"
+      "runtime_visuals=", (InpRuntimeVisuals ? "on" : "off"),
+      "  final node/random logRTV report prints once on deinit"
    );
 }
 
@@ -336,7 +326,7 @@ bool UpdateLiveBarStream()
    bool appended = DAL_AppendLatestClosedBarIfNew(
       LabSymbol(),
       LabTimeframe(),
-      DAL_M0001StreamMaxBars(),
+      InpBars,
       g_live_bars,
       g_live_bars_count,
       g_last_closed_stream_bar_time
@@ -414,11 +404,18 @@ int OnInit()
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
       InitializeLiveBarStream();
-      DAL_M0001UpdateRuntimeComment(g_live_bars_count, 0, 0, 0, "live_stream_warmup_ready");
+
+      if(InpRuntimeVisuals)
+         RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_warmup_ready");
+      else
+         DAL_M0001UpdateRuntimeComment(g_live_bars_count, 0, 0, 0, "fast_final_only_warmup_ready");
    }
    else
    {
-      RunM0001();
+      if(InpRuntimeVisuals)
+         RunM0001();
+      else
+         DAL_M0001UpdateRuntimeComment(0, 0, 0, 0, "fast_final_only_copyrates_ready");
    }
 
    if(DAL_M0001_TIMER_MS > 0)
@@ -433,20 +430,23 @@ void OnDeinit(const int reason)
 
    EventKillTimer();
    Comment("");
-   DAL_DeleteM0001VisualArtifacts(DAL_M0001_OBJECT_PREFIX);
+
+   if(InpRuntimeVisuals)
+      DAL_DeleteM0001VisualArtifacts(DAL_M0001_OBJECT_PREFIX);
 }
 
 void OnTick()
 {
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
-      if(UpdateLiveBarStream())
+      bool appended = UpdateLiveBarStream();
+      if(appended && InpRuntimeVisuals)
          RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_new_bar");
       return;
    }
 
    datetime current_bar = iTime(LabSymbol(), LabTimeframe(), 0);
-   if(DAL_M0001_COMPUTE_ON_EVERY_TICK || current_bar != g_last_bar_time)
+   if(InpRuntimeVisuals && (DAL_M0001_COMPUTE_ON_EVERY_TICK || current_bar != g_last_bar_time))
    {
       g_last_bar_time = current_bar;
       RunM0001();
@@ -460,6 +460,9 @@ void OnChartEvent(
    const string &sparam
 )
 {
+   if(!InpRuntimeVisuals)
+      return;
+
    if(!DAL_M0001_REDRAW_ON_CHART_CHANGE)
       return;
 
@@ -471,7 +474,8 @@ void OnTimer()
 {
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
    {
-      if(UpdateLiveBarStream())
+      bool appended = UpdateLiveBarStream();
+      if(appended && InpRuntimeVisuals)
          RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_timer_new_bar");
       return;
    }
@@ -480,7 +484,7 @@ void OnTimer()
       return;
 
    datetime current_bar = iTime(LabSymbol(), LabTimeframe(), 0);
-   if(current_bar != g_last_bar_time)
+   if(InpRuntimeVisuals && current_bar != g_last_bar_time)
    {
       g_last_bar_time = current_bar;
       RunM0001();

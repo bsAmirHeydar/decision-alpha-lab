@@ -385,3 +385,14 @@ M0001 now computes professional logRTV node-vs-random statistics only once at sh
 A new input, `InpWarmupHistoricalBars`, seeds the stream with pre-test closed bars so old structural nodes are reconstructed before the test period begins. Final reports filter events by `analysis_start`, the first newly appended bar after warmup, so old nodes can be touched during the test without including pre-test events in the research sample.
 
 Unused legacy MQL report/validation files were removed to keep the runtime tree cleaner.
+
+
+## Fast final-only runtime
+
+M0001 defaults to `InpRuntimeVisuals=false`, which keeps the live stream in
+memory during the run and delays all expensive node/event/statistical work until
+`OnDeinit`. This prevents full recomputation and chart redraw on every closed bar.
+
+The final Journal report still prints one NODES line and one RANDOM/COMPARE line.
+`.venv/` and `venv/` are ignored because the MQL-native branch does not require a
+local Python virtual environment.

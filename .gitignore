@@ -21,3 +21,7 @@ lab/cache_nodes/
 quant_lab_*.zip
 quant_lab_*.patch
 repair_lab_os.ps1
+
+# Local Python virtual environments
+.venv/
+venv/

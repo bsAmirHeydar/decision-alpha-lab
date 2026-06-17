@@ -300,10 +300,7 @@ int DAL_M0001CollectRandomLogRtvs(
       if(n <= 0)
          continue;
 
-      int min_entry = n;
-      if(analysis_start_index > min_entry)
-         min_entry = analysis_start_index;
-
+      int min_entry = MathMax(n, analysis_start_index);
       int max_entry = bars_count - n;
       if(max_entry < min_entry)
          continue;
