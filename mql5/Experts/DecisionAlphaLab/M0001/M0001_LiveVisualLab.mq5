@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.59"
+#property version   "1.60"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -36,6 +36,13 @@ input bool InpShowSummary = true;
 input bool InpRuntimeVisuals = false;        // true = redraw on each closed candle; false = final-only fast mode
 input bool InpDrawFinalVisuals = true;         // draw the final audited chart state once at the end
 input bool InpKeepVisualsOnDeinit = true;      // keep final chart objects after the test finishes
+
+input bool InpPrintHistogram = false;          // optional; off keeps final Journal lines compact
+input int InpRandomSamplesPerEvent = 20;       // K matched random windows per node event
+input int InpBootstrapIterations = 300;        // bootstrap CI for paired deltas; 0 = off
+input int InpPermutationIterations = 500;      // sign-flip permutation p-value; 0 = off
+input int InpValidationSplits = 5;             // chronological split-stability report
+input bool InpRunParameterRobustness = false;  // optional slow grid around current L/zone/gap
 
 // Internal defaults kept out of the Inputs panel.
 #define DAL_M0001_OBJECT_PREFIX "DAL_MQL_M0001_"
@@ -225,6 +232,25 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
 
 
 
+void BuildRtvReportConfig(DALM0001RtvReportConfig &report)
+{
+   DAL_M0001DefaultRtvReportConfig(report);
+   report.print_histogram = InpPrintHistogram;
+   report.random_samples_per_event = InpRandomSamplesPerEvent;
+   report.bootstrap_iterations = InpBootstrapIterations;
+   report.permutation_iterations = InpPermutationIterations;
+   report.validation_splits = InpValidationSplits;
+
+   if(report.random_samples_per_event < 1)
+      report.random_samples_per_event = 1;
+   if(report.bootstrap_iterations < 0)
+      report.bootstrap_iterations = 0;
+   if(report.permutation_iterations < 0)
+      report.permutation_iterations = 0;
+   if(report.validation_splits < 1)
+      report.validation_splits = 1;
+}
+
 void DAL_M0001UpdateRuntimeComment(
    const int bars_count,
    const int nodes_count,
@@ -249,7 +275,11 @@ void DAL_M0001UpdateRuntimeComment(
       "runtime_visuals=", (InpRuntimeVisuals ? "on" : "off"),
       "  final_visuals=", (InpDrawFinalVisuals ? "on" : "off"),
       "  keep_visuals=", (InpKeepVisualsOnDeinit ? "on" : "off"), "\n",
-      "final node/random logRTV report prints once on deinit"
+      "randomK=", InpRandomSamplesPerEvent,
+      "  bootstrap=", InpBootstrapIterations,
+      "  permutation=", InpPermutationIterations,
+      "  splits=", InpValidationSplits, "\n",
+      "compact final validation report prints once on deinit"
    );
 }
 
@@ -420,6 +450,165 @@ bool UpdateLiveBarStream()
 }
 
 
+
+void DAL_M0001PrintParameterRobustnessGrid(
+   const DALBar &bars[],
+   const int bars_count,
+   const string source_mode,
+   const DALM0001RtvReportConfig &report_config
+)
+{
+   if(bars_count <= 0)
+      return;
+
+   int l_values[5];
+   l_values[0] = InpL - 2;
+   l_values[1] = InpL - 1;
+   l_values[2] = InpL;
+   l_values[3] = InpL + 1;
+   l_values[4] = InpL + 2;
+
+   double zone_values[3];
+   zone_values[0] = InpZoneRatio - 0.05;
+   zone_values[1] = InpZoneRatio;
+   zone_values[2] = InpZoneRatio + 0.05;
+
+   int gap_values[3];
+   gap_values[0] = InpExitGap - 1;
+   gap_values[1] = InpExitGap;
+   gap_values[2] = InpExitGap + 1;
+
+   double dlog_values[];
+   ArrayResize(dlog_values, 0);
+
+   int combos = 0;
+   int valid = 0;
+   int positive_mean = 0;
+   int positive_median = 0;
+   int win_over_50 = 0;
+   int min_n = 0;
+   double min_dlog = 0.0;
+   double max_dlog = 0.0;
+   double total_dlog = 0.0;
+   double total_win = 0.0;
+
+   for(int li = 0; li < 5; li++)
+   {
+      int L = l_values[li];
+      if(L < 1)
+         continue;
+
+      for(int zi = 0; zi < 3; zi++)
+      {
+         double zone = zone_values[zi];
+         if(zone <= 0.0 || zone >= 0.999)
+            continue;
+
+         for(int gi = 0; gi < 3; gi++)
+         {
+            int gap = gap_values[gi];
+            if(gap < 1)
+               continue;
+
+            combos++;
+
+            DALM0001Config cfg;
+            BuildConfig(cfg);
+            cfg.L = L;
+            cfg.zone_ratio = zone;
+            cfg.exit_gap = gap;
+
+            DALLRuleNode nodes[];
+            DALM0001Event events[];
+            DALM0001NodeAuditState audit_states[];
+            int nodes_count = 0;
+            int events_count = 0;
+            int audit_states_count = 0;
+
+            DAL_M0001ComputeState(bars, bars_count, cfg, nodes, nodes_count, events, events_count, audit_states, audit_states_count);
+
+            DALM0001PairedLogRtv pairs[];
+            double node_logs[];
+            double random_logs[];
+            DALM0001IntegrityAudit audit;
+            int random_k = report_config.random_samples_per_event;
+            if(random_k > 5)
+               random_k = 5; // parameter grid is an optional robustness sweep; keep it bounded.
+            if(random_k < 1)
+               random_k = 1;
+
+            int pair_count = DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, g_analysis_start_time, random_k, pairs, node_logs, random_logs, audit);
+            if(pair_count <= 10)
+               continue;
+
+            DALM0001LogRtvStats node_stats;
+            DALM0001LogRtvStats random_stats;
+            DALM0001LogRtvComparison cmp;
+            DAL_M0001ComputeLogRtvStats(node_logs, node_stats);
+            DAL_M0001ComputeLogRtvStats(random_logs, random_stats);
+            DAL_M0001ComputeLogRtvComparison(node_logs, random_logs, node_stats, random_stats, cmp);
+
+            valid++;
+            if(min_n == 0 || pair_count < min_n)
+               min_n = pair_count;
+
+            if(valid == 1 || cmp.delta_log_mean < min_dlog)
+               min_dlog = cmp.delta_log_mean;
+            if(valid == 1 || cmp.delta_log_mean > max_dlog)
+               max_dlog = cmp.delta_log_mean;
+
+            if(cmp.delta_log_mean > 0.0)
+               positive_mean++;
+            if(cmp.delta_log_median > 0.0)
+               positive_median++;
+            if(cmp.paired_win_pct > 50.0)
+               win_over_50++;
+
+            total_dlog += cmp.delta_log_mean;
+            total_win += cmp.paired_win_pct;
+
+            int size = ArraySize(dlog_values);
+            ArrayResize(dlog_values, size + 1);
+            dlog_values[size] = cmp.delta_log_mean;
+         }
+      }
+   }
+
+   double median_dlog = 0.0;
+   if(ArraySize(dlog_values) > 0)
+   {
+      ArraySort(dlog_values);
+      median_dlog = DAL_M0001NullPercentileSorted(dlog_values, 0.50);
+   }
+
+   double mean_dlog = valid > 0 ? total_dlog / valid : 0.0;
+   double mean_win = valid > 0 ? total_win / valid : 0.0;
+   double robust_param_pct = valid > 0 ? 100.0 * positive_mean / valid : 0.0;
+   double positive_median_pct = valid > 0 ? 100.0 * positive_median / valid : 0.0;
+   double win_over_50_pct = valid > 0 ? 100.0 * win_over_50 / valid : 0.0;
+
+   Print(
+      "DAL_M0001_FINAL_PARAM_ROBUST *** symbol=", LabSymbol(),
+      "*tf=", EnumToString(LabTimeframe()),
+      "*source=", source_mode,
+      "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
+      " *** PARAM_GRID",
+      "*combos=", combos,
+      "*valid=", valid,
+      "*minN=", min_n,
+      "*robustParamPct=", DAL_M0001FmtPct(robust_param_pct),
+      "*positiveMedianPct=", DAL_M0001FmtPct(positive_median_pct),
+      "*winOver50Pct=", DAL_M0001FmtPct(win_over_50_pct),
+      "*meanDLog=", DAL_M0001Fmt4(mean_dlog),
+      "*medianDLog=", DAL_M0001Fmt4(median_dlog),
+      "*minDLog=", DAL_M0001Fmt4(min_dlog),
+      "*maxDLog=", DAL_M0001Fmt4(max_dlog),
+      "*meanWinPct=", DAL_M0001FmtPct(mean_win),
+      "*grid=Lpm2_zonepm0.05_gappm1",
+      "*gridRandomK=", DAL_M0001IntMin(report_config.random_samples_per_event, 5)
+   );
+}
+
 void DAL_M0001PrintFinalReportsFromBars(
    const DALBar &bars[],
    const int bars_count,
@@ -456,6 +645,9 @@ void DAL_M0001PrintFinalReportsFromBars(
 
    DAL_M0001UpdateRuntimeComment(bars_count, nodes_count, events_count, audit_states_count, source_mode);
 
+   DALM0001RtvReportConfig report_config;
+   BuildRtvReportConfig(report_config);
+
    DAL_M0001PrintFinalNodeRandomReports(
       events,
       events_count,
@@ -464,8 +656,12 @@ void DAL_M0001PrintFinalReportsFromBars(
       LabSymbol(),
       EnumToString(LabTimeframe()),
       source_mode,
-      g_analysis_start_time
+      g_analysis_start_time,
+      report_config
    );
+
+   if(InpRunParameterRobustness)
+      DAL_M0001PrintParameterRobustnessGrid(bars, bars_count, source_mode, report_config);
 
    if(InpDrawFinalVisuals)
       DAL_M0001DrawComputedState(bars, bars_count, nodes, nodes_count, events, events_count, audit_states, audit_states_count, config, "final_visual_state");

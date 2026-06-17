@@ -29,3 +29,9 @@ old validation-journal script
 old verbose distribution module
 Python/UI bridge runtime
 ```
+
+## v1.60 Professional Validation Metrics
+
+The M0001 MQL-native engine now includes a final-only professional validation layer: compact NODES/RANDOM reports, explicit effect-size metrics, paired validation, bootstrap confidence intervals, sign-flip permutation p-values, distribution-distance metrics, quantile/tail metrics, chronological split-stability metrics, optional parameter robustness, and an integrity audit. Histograms are optional (`InpPrintHistogram=false` by default) so Journal lines no longer truncate the core `COMPARE` metrics.
+
+See `docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md`.
