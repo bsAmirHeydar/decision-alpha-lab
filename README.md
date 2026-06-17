@@ -324,3 +324,55 @@ included in final RTV mean/median because the exit-gap closure was never complet
 RTV labels are now drawn only after the event is fully closed and `rtv_ready=true`.
 Unfinished events no longer show `RTV n/a` on the chart. The chart, mean/median,
 and text export now all use the same final-only RTV rule.
+
+
+## RTV distribution report
+
+M0001 includes a separate RTV distribution module:
+
+```text
+mql5/Include/DecisionAlphaLab/M0001/DAL_M0001RtvDistribution.mqh
+```
+
+It prints a copyable Journal report between:
+
+```text
+DAL_M0001_RTV_DISTRIBUTION_REPORT_BEGIN
+DAL_M0001_RTV_DISTRIBUTION_REPORT_END
+```
+
+The report includes mean, median, percentiles, variance, skewness, excess
+kurtosis, Jarque-Bera, KS distance, Anderson-Darling, 2σ/3σ tail ratios against
+normal expectations, robust tail ratios, and a TSV histogram.
+
+
+## LogRTV random null comparison
+
+M0001 now compares final node RTV against a matched random baseline using:
+
+```text
+logRTV = log(mean_inside / mean_before)
+```
+
+The compact Journal line is:
+
+```text
+DAL_M0001_LOGRTV_NULL *** NODES ... *** RANDOM ... *** COMPARE ...
+```
+
+The old verbose multi-line distribution report and the per-bar status print are
+disabled by default to reduce Journal noise and runtime overhead.
+
+
+## Final node/random reports
+
+The compact logRTV node-vs-random report now prints only at EA shutdown:
+
+```text
+DAL_M0001_FINAL_NODES
+DAL_M0001_FINAL_RANDOM
+```
+
+This removes runtime Journal noise. The final random line also includes the
+`COMPARE` block with delta mean/median, win percentage, paired t-stat, Cohen d,
+and KS node-vs-random.

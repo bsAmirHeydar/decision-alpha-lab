@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.51"
+#property version   "1.55"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -13,6 +13,7 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001AuditState.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Visual.mqh>
+#include <DecisionAlphaLab/M0001/DAL_M0001RtvNullComparison.mqh>
 
 input string InpSymbol = "";                 // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
@@ -55,7 +56,8 @@ input bool InpShowSummary = true;
 
 #define DAL_M0001_MAX_EVENTS 0
 #define DAL_M0001_MIN_RTV 0.0
-#define DAL_M0001_WRITE_RTV_TEXT_SUMMARY true
+#define DAL_M0001_WRITE_RTV_TEXT_SUMMARY false
+#define DAL_M0001_PRINT_RUN_STATUS false
 #define DAL_M0001_MAX_NODES_TO_DRAW 0
 #define DAL_M0001_MAX_EVENTS_TO_DRAW 0
 #define DAL_M0001_MAX_AUDIT_STATES_TO_DRAW 0
@@ -387,10 +389,12 @@ void DAL_M0001UpdateRtvCommentAndText(
    double median_rtv = DAL_M0001MedianDouble(rtvs);
 
    string file_name = DAL_M0001RtvTextFileName();
-   bool wrote = false;
 
    if(DAL_M0001_WRITE_RTV_TEXT_SUMMARY)
-      wrote = DAL_M0001WriteRtvTextSummary(events, events_count, bars_count, nodes_count, audit_states_count, ready_count, mean_rtv, median_rtv, file_name);
+   {
+      string written_path = file_name;
+      DAL_M0001WriteRtvTextSummary(events, events_count, bars_count, nodes_count, audit_states_count, ready_count, mean_rtv, median_rtv, written_path);
+   }
 
    string mean_text = ready_count > 0 ? DoubleToString(mean_rtv, 4) : "n/a";
    string median_text = ready_count > 0 ? DoubleToString(median_rtv, 4) : "n/a";
@@ -406,8 +410,7 @@ void DAL_M0001UpdateRtvCommentAndText(
       "  rtv_ready=", ready_count, "\n",
       "RTV mean=", mean_text,
       "  median=", median_text, "\n",
-      "text=", file_name,
-      "  write=", (wrote ? "ok" : "failed")
+      "logRTV node-vs-random compact result=Journal"
    );
 }
 
@@ -451,16 +454,19 @@ void RunM0001FromBars(
 
    ChartRedraw(0);
 
-   Print(
-      "DAL M0001 MQL-NATIVE | source=", source_mode,
-      " bars=", bars_count,
-      " nodes=", nodes_count,
-      " events=", events_count,
-      " L=", config.L,
-      " zone=", DoubleToString(config.zone_ratio, 2),
-      " gap=", config.exit_gap,
-      " consume=", DAL_M0001ConsumeModeToString(config.consume_mode)
-   );
+   if(DAL_M0001_PRINT_RUN_STATUS)
+   {
+      Print(
+         "DAL M0001 MQL-NATIVE | source=", source_mode,
+         " bars=", bars_count,
+         " nodes=", nodes_count,
+         " events=", events_count,
+         " L=", config.L,
+         " zone=", DoubleToString(config.zone_ratio, 2),
+         " gap=", config.exit_gap,
+         " consume=", DAL_M0001ConsumeModeToString(config.consume_mode)
+      );
+   }
 }
 
 void InitializeLiveBarStream()
@@ -510,6 +516,49 @@ bool UpdateLiveBarStream()
    );
 }
 
+
+void DAL_M0001PrintFinalReportsFromBars(
+   const DALBar &bars[],
+   const int bars_count,
+   const string source_mode
+)
+{
+   if(bars_count <= 0)
+      return;
+
+   DALM0001Config config;
+   BuildConfig(config);
+
+   DALLRuleNode nodes[];
+   int nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
+
+   DALM0001Event events[];
+   int events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
+
+   DAL_M0001PrintFinalNodeRandomReports(
+      events,
+      events_count,
+      bars,
+      bars_count,
+      LabSymbol(),
+      EnumToString(LabTimeframe()),
+      source_mode
+   );
+}
+
+void DAL_M0001PrintFinalReports()
+{
+   if(DAL_M0001_USE_LIVE_BAR_STREAM)
+   {
+      DAL_M0001PrintFinalReportsFromBars(g_live_bars, g_live_bars_count, "final_live_stream");
+      return;
+   }
+
+   DALBar bars[];
+   int bars_count = DAL_LoadBarsChronological(LabSymbol(), LabTimeframe(), InpBars, DAL_M0001_CLOSED_BARS_ONLY, bars);
+   DAL_M0001PrintFinalReportsFromBars(bars, bars_count, "final_copyrates");
+}
+
 void RunM0001()
 {
    if(DAL_M0001_USE_LIVE_BAR_STREAM)
@@ -534,7 +583,7 @@ int OnInit()
       InitializeLiveBarStream();
       if(g_live_bars_count > 0)
          RunM0001FromBars(g_live_bars, g_live_bars_count, "live_stream_init");
-      else
+      else if(DAL_M0001_PRINT_RUN_STATUS)
          Print("DAL M0001 MQL-NATIVE | live stream initialized empty; waiting for next closed candle");
    }
    else
@@ -550,6 +599,8 @@ int OnInit()
 
 void OnDeinit(const int reason)
 {
+   DAL_M0001PrintFinalReports();
+
    EventKillTimer();
    Comment("");
    DAL_DeleteM0001VisualArtifacts(DAL_M0001_OBJECT_PREFIX);
