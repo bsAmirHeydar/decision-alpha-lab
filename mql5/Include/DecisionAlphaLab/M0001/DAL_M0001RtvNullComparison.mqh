@@ -70,6 +70,43 @@ double DAL_M0001NullSafeDiv(const double numerator, const double denominator)
    return numerator / denominator;
 }
 
+int DAL_M0001FirstIndexAtOrAfter(
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime min_time
+)
+{
+   if(min_time <= 0)
+      return 0;
+
+   for(int i = 0; i < bars_count; i++)
+   {
+      if(bars[i].time >= min_time)
+         return i;
+   }
+
+   return bars_count;
+}
+
+bool DAL_M0001EventPassesAnalysisStart(
+   const DALM0001Event &event,
+   const datetime min_entry_time
+)
+{
+   if(min_entry_time <= 0)
+      return true;
+
+   return event.entry_time >= min_entry_time;
+}
+
+string DAL_M0001AnalysisStartText(const datetime min_entry_time)
+{
+   if(min_entry_time <= 0)
+      return "all";
+
+   return TimeToString(min_entry_time, TIME_DATE | TIME_MINUTES);
+}
+
 double DAL_M0001NullPercentileSorted(const double &sorted[], const double percentile)
 {
    int count = ArraySize(sorted);
@@ -160,6 +197,7 @@ void DAL_M0001NullResetStats(DALM0001LogRtvStats &stats)
 int DAL_M0001CollectNodeLogRtvs(
    const DALM0001Event &events[],
    const int events_count,
+   const datetime min_entry_time,
    double &log_values[]
 )
 {
@@ -168,6 +206,9 @@ int DAL_M0001CollectNodeLogRtvs(
    for(int i = 0; i < events_count; i++)
    {
       if(!events[i].closed)
+         continue;
+
+      if(!DAL_M0001EventPassesAnalysisStart(events[i], min_entry_time))
          continue;
 
       if(!events[i].rtv_ready)
@@ -236,14 +277,20 @@ int DAL_M0001CollectRandomLogRtvs(
    const int events_count,
    const DALBar &bars[],
    const int bars_count,
+   const datetime min_entry_time,
    double &log_values[]
 )
 {
    ArrayResize(log_values, 0);
 
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+
    for(int i = 0; i < events_count; i++)
    {
       if(!events[i].closed)
+         continue;
+
+      if(!DAL_M0001EventPassesAnalysisStart(events[i], min_entry_time))
          continue;
 
       if(!events[i].rtv_ready)
@@ -254,6 +301,9 @@ int DAL_M0001CollectRandomLogRtvs(
          continue;
 
       int min_entry = n;
+      if(analysis_start_index > min_entry)
+         min_entry = analysis_start_index;
+
       int max_entry = bars_count - n;
       if(max_entry < min_entry)
          continue;
@@ -617,14 +667,15 @@ string DAL_M0001BuildLogRtvNullComparisonLine(
    const DALBar &bars[],
    const int bars_count,
    const string symbol,
-   const string timeframe
+   const string timeframe,
+   const datetime min_entry_time
 )
 {
    double node_logs[];
    double random_logs[];
 
-   DAL_M0001CollectNodeLogRtvs(events, events_count, node_logs);
-   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, random_logs);
+   DAL_M0001CollectNodeLogRtvs(events, events_count, min_entry_time, node_logs);
+   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, min_entry_time, random_logs);
 
    DALM0001LogRtvStats node_stats;
    DALM0001LogRtvStats random_stats;
@@ -639,6 +690,7 @@ string DAL_M0001BuildLogRtvNullComparisonLine(
       + " *** symbol=" + symbol
       + "*tf=" + timeframe
       + "*events=" + IntegerToString(events_count)
+      + "*analysisStart=" + DAL_M0001AnalysisStartText(min_entry_time)
       + " *** " + DAL_M0001StatsCompactText("NODES", node_stats, node_logs)
       + " *** " + DAL_M0001StatsCompactText("RANDOM", random_stats, random_logs)
       + " *** " + DAL_M0001ComparisonCompactText(cmp);
@@ -648,14 +700,15 @@ string DAL_M0001LogRtvNullSignature(
    const DALM0001Event &events[],
    const int events_count,
    const DALBar &bars[],
-   const int bars_count
+   const int bars_count,
+   const datetime min_entry_time
 )
 {
    double node_logs[];
    double random_logs[];
 
-   DAL_M0001CollectNodeLogRtvs(events, events_count, node_logs);
-   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, random_logs);
+   DAL_M0001CollectNodeLogRtvs(events, events_count, min_entry_time, node_logs);
+   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, min_entry_time, random_logs);
 
    DALM0001LogRtvStats node_stats;
    DALM0001LogRtvStats random_stats;
@@ -677,21 +730,22 @@ void DAL_M0001PrintLogRtvNullComparisonWhenChanged(
    const DALBar &bars[],
    const int bars_count,
    const string symbol,
-   const string timeframe
+   const string timeframe,
+   const datetime min_entry_time
 )
 {
-   string signature = DAL_M0001LogRtvNullSignature(events, events_count, bars, bars_count);
+   string signature = DAL_M0001LogRtvNullSignature(events, events_count, bars, bars_count, min_entry_time);
    if(signature == DAL_M0001_NULL_LAST_SIGNATURE)
       return;
 
    double node_logs[];
-   int node_count = DAL_M0001CollectNodeLogRtvs(events, events_count, node_logs);
+   int node_count = DAL_M0001CollectNodeLogRtvs(events, events_count, min_entry_time, node_logs);
    if(node_count <= 0)
       return;
 
    DAL_M0001_NULL_LAST_SIGNATURE = signature;
 
-   Print(DAL_M0001BuildLogRtvNullComparisonLine(events, events_count, bars, bars_count, symbol, timeframe));
+   Print(DAL_M0001BuildLogRtvNullComparisonLine(events, events_count, bars, bars_count, symbol, timeframe, min_entry_time));
 }
 
 
@@ -700,7 +754,8 @@ string DAL_M0001FinalLinePrefix(
    const string symbol,
    const string timeframe,
    const string source_mode,
-   const int events_count
+   const int events_count,
+   const datetime min_entry_time
 )
 {
    return tag
@@ -708,6 +763,7 @@ string DAL_M0001FinalLinePrefix(
       + "*tf=" + timeframe
       + "*source=" + source_mode
       + "*events=" + IntegerToString(events_count)
+      + "*analysisStart=" + DAL_M0001AnalysisStartText(min_entry_time)
       + " *** ";
 }
 
@@ -718,14 +774,15 @@ void DAL_M0001PrintFinalNodeRandomReports(
    const int bars_count,
    const string symbol,
    const string timeframe,
-   const string source_mode
+   const string source_mode,
+   const datetime min_entry_time
 )
 {
    double node_logs[];
    double random_logs[];
 
-   DAL_M0001CollectNodeLogRtvs(events, events_count, node_logs);
-   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, random_logs);
+   DAL_M0001CollectNodeLogRtvs(events, events_count, min_entry_time, node_logs);
+   DAL_M0001CollectRandomLogRtvs(events, events_count, bars, bars_count, min_entry_time, random_logs);
 
    DALM0001LogRtvStats node_stats;
    DALM0001LogRtvStats random_stats;
@@ -737,12 +794,12 @@ void DAL_M0001PrintFinalNodeRandomReports(
    DAL_M0001ComputeLogRtvComparison(node_logs, random_logs, node_stats, random_stats, cmp);
 
    Print(
-      DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_NODES", symbol, timeframe, source_mode, events_count),
+      DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_NODES", symbol, timeframe, source_mode, events_count, min_entry_time),
       DAL_M0001StatsCompactText("NODES", node_stats, node_logs)
    );
 
    Print(
-      DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_RANDOM", symbol, timeframe, source_mode, events_count),
+      DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_RANDOM", symbol, timeframe, source_mode, events_count, min_entry_time),
       DAL_M0001StatsCompactText("RANDOM", random_stats, random_logs),
       " *** ",
       DAL_M0001ComparisonCompactText(cmp)

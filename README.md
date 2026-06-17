@@ -376,3 +376,12 @@ DAL_M0001_FINAL_RANDOM
 This removes runtime Journal noise. The final random line also includes the
 `COMPARE` block with delta mean/median, win percentage, paired t-stat, Cohen d,
 and KS node-vs-random.
+
+
+## Final-only research report and warmup seed
+
+M0001 now computes professional logRTV node-vs-random statistics only once at shutdown. Runtime distribution-stat calculations and file-report logic were removed from the live loop.
+
+A new input, `InpWarmupHistoricalBars`, seeds the stream with pre-test closed bars so old structural nodes are reconstructed before the test period begins. Final reports filter events by `analysis_start`, the first newly appended bar after warmup, so old nodes can be touched during the test without including pre-test events in the research sample.
+
+Unused legacy MQL report/validation files were removed to keep the runtime tree cleaner.
