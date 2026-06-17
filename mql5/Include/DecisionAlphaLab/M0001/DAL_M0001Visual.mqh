@@ -222,6 +222,22 @@ color DAL_RtvColor(const double rtv)
    return clrDeepSkyBlue;
 }
 
+string DAL_M0001RtvLabelText(const DALM0001Event &event)
+{
+   if(!event.rtv_ready || event.rtv_sample_length <= 0)
+      return "RTV n/a";
+
+   return "RTV " + DoubleToString(event.rtv, 2);
+}
+
+color DAL_M0001RtvLabelColor(const DALM0001Event &event)
+{
+   if(!event.rtv_ready || event.rtv_sample_length <= 0)
+      return clrSilver;
+
+   return DAL_RtvColor(event.rtv);
+}
+
 void DAL_M0001DrawNodes(
    const DALLRuleNode &nodes[],
    const int count,
@@ -366,7 +382,7 @@ void DAL_M0001DrawEvents(
          DAL_M0001DrawRevisitLabel(visual.prefix, e, config);
 
       if(visual.show_rtv_labels)
-         DAL_DrawTextLabel(id + "_RTV", e.exit_time, e.territory_upper, "RTV " + DoubleToString(e.rtv, 2), DAL_RtvColor(e.rtv), 8);
+         DAL_DrawTextLabel(id + "_RTV", e.exit_time, e.territory_upper, DAL_M0001RtvLabelText(e), DAL_M0001RtvLabelColor(e), 8);
 
       if(visual.show_hunts && e.hunted)
          DAL_DrawTextLabel(id + "_HUNT", e.exit_time, e.node_price, "HUNT", clrRed, 8);

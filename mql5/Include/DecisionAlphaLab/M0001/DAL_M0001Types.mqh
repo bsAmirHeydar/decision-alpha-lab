@@ -16,6 +16,9 @@ struct DALM0001Event
    int consumed_index;
    int touch_confirmed_index;
    int event_length;
+   int rtv_sample_length;
+   int rtv_before_start_index;
+   int rtv_inside_end_index;
 
    datetime node_time;
    datetime active_from_time;
@@ -33,6 +36,7 @@ struct DALM0001Event
    double mean_before;
    double mean_inside;
    double rtv;
+   bool rtv_ready;
    bool touch_confirmed;
    bool hunted;
    bool consumed;

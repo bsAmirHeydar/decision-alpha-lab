@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.47"
+#property version   "1.48"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -26,6 +26,7 @@ input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 input bool InpShowNodes = true;
 input bool InpShowZones = true;
 input bool InpShowRevisits = true;
+input bool InpShowRTV = false;
 input bool InpShowState = true;
 input bool InpShowExtremes = false;
 input bool InpShowSummary = true;
@@ -161,7 +162,7 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.show_node_price_lines = false;
    visual.show_active_from = DAL_M0001_SHOW_ACTIVE_FROM;
    visual.show_events = DAL_M0001_SHOW_EVENTS;
-   visual.show_rtv_labels = DAL_M0001_SHOW_RTV_LABELS;
+   visual.show_rtv_labels = InpShowRTV;
    visual.show_revisit_labels = InpShowRevisits;
    visual.show_node_state_labels = InpShowState;
    visual.show_hunts = InpShowState;

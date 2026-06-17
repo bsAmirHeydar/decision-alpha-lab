@@ -125,7 +125,7 @@ void DAL_WriteM0001EventJournal(
    if(h == INVALID_HANDLE)
       return;
 
-   FileWrite(h, "id", "node_id", "revisit_id", "type", "entry_time", "exit_time", "event_length", "touch_confirmed_time", "consumed_time", "consume_reason", "rtv", "touch_confirmed", "hunted", "mean_before", "mean_inside");
+   FileWrite(h, "id", "node_id", "revisit_id", "type", "entry_time", "exit_time", "event_length", "rtv_sample_length", "rtv_inside_end_index", "rtv_before_start_index", "touch_confirmed_time", "consumed_time", "consume_reason", "rtv", "rtv_ready", "touch_confirmed", "hunted", "mean_before", "mean_inside");
    for(int i = 0; i < events_count; i++)
    {
       FileWrite(
@@ -137,10 +137,14 @@ void DAL_WriteM0001EventJournal(
          TimeToString(events[i].entry_time, TIME_DATE | TIME_MINUTES),
          TimeToString(events[i].exit_time, TIME_DATE | TIME_MINUTES),
          events[i].event_length,
+         events[i].rtv_sample_length,
+         events[i].rtv_inside_end_index,
+         events[i].rtv_before_start_index,
          events[i].touch_confirmed_time > 0 ? TimeToString(events[i].touch_confirmed_time, TIME_DATE | TIME_MINUTES) : "",
          events[i].consumed_time > 0 ? TimeToString(events[i].consumed_time, TIME_DATE | TIME_MINUTES) : "",
          DAL_M0001ConsumeReasonToString(events[i].consume_reason),
          DoubleToString(events[i].rtv, 6),
+         DAL_BoolToString(events[i].rtv_ready),
          DAL_BoolToString(events[i].touch_confirmed),
          DAL_BoolToString(events[i].hunted),
          DoubleToString(events[i].mean_before, 6),

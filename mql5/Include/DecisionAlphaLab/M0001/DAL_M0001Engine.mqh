@@ -75,6 +75,7 @@ bool DAL_M0001FinalizeEvent(
    const bool consumed,
    const ENUM_DALM0001ConsumeReason consume_reason,
    const int consumed_index,
+   const int rtv_exclude_tail_count,
    DALM0001Event &event
 )
 {
@@ -82,11 +83,21 @@ bool DAL_M0001FinalizeEvent(
    if(event_length <= 0)
       return false;
 
-   // For visual/revisit audit we keep the event even when a full same-length
-   // baseline is not available. RTV becomes zero until the baseline exists.
-   int before_start = entry_index - event_length;
-   int before_length = event_length;
-   bool has_full_baseline = (before_start >= 0);
+   // RTV sample semantics:
+   // - Use abs(log(high / low)) for every candle.
+   // - Compare the event volatility to the same number of candles immediately
+   //   before entry.
+   // - If touch confirmation is produced by exit_gap outside-zone candles,
+   //   those final outside confirmation candles are excluded from RTV.
+   int excluded_tail = MathMax(0, rtv_exclude_tail_count);
+   int rtv_sample_length = event_length - excluded_tail;
+   if(rtv_sample_length < 0)
+      rtv_sample_length = 0;
+
+   int rtv_inside_end_index = entry_index + rtv_sample_length - 1;
+   int before_start = entry_index - rtv_sample_length;
+   int before_length = rtv_sample_length;
+   bool has_full_baseline = (rtv_sample_length > 0 && before_start >= 0);
 
    event.id = event_id;
    event.node_id = node.id;
@@ -98,6 +109,9 @@ bool DAL_M0001FinalizeEvent(
    event.consumed_index = consumed_index;
    event.touch_confirmed_index = touch_confirmed_index;
    event.event_length = event_length;
+   event.rtv_sample_length = rtv_sample_length;
+   event.rtv_before_start_index = before_start;
+   event.rtv_inside_end_index = rtv_inside_end_index;
 
    event.node_time = node.time;
    event.active_from_time = node.active_from_time;
@@ -113,12 +127,20 @@ bool DAL_M0001FinalizeEvent(
    event.territory_upper = upper;
 
    event.mean_before = 0.0;
-   event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, event_length);
+   event.mean_inside = 0.0;
+   event.rtv = 0.0;
+   event.rtv_ready = false;
+
+   if(rtv_sample_length > 0)
+      event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, rtv_sample_length);
 
    if(has_full_baseline)
+   {
       event.mean_before = DAL_MeanRangeLog(log_moves, before_start, before_length);
+      event.rtv = DAL_SafeDiv(event.mean_inside, event.mean_before, 0.0);
+      event.rtv_ready = (event.mean_before > 0.0);
+   }
 
-   event.rtv = DAL_SafeDiv(event.mean_inside, event.mean_before, 0.0);
    event.touch_confirmed = touch_confirmed;
    event.hunted = hunted;
    event.consumed = consumed;
@@ -212,6 +234,7 @@ int DAL_M0001ComputeEvents(
                         true,
                         DAL_M0001_CONSUMED_HUNT,
                         i,
+                        0,
                         event
                      ))
                   {
@@ -275,6 +298,7 @@ int DAL_M0001ComputeEvents(
                      true,
                      DAL_M0001_CONSUMED_HUNT,
                      i,
+                     0,
                      event
                   ))
                {
@@ -334,6 +358,7 @@ int DAL_M0001ComputeEvents(
                      event_consumed,
                      reason,
                      event_consumed_index,
+                     config.exit_gap,
                      event
                   ))
                {

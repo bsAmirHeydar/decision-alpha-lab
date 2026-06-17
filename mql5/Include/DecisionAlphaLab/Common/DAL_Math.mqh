@@ -10,10 +10,23 @@ double DAL_SafeDiv(const double numerator, const double denominator, const doubl
 
 double DAL_LogRange(const double high, const double low)
 {
-   double range = MathAbs(high - low);
-   if(range <= 0.0)
+   // Scale-free candle volatility:
+   // use absolute log high/low range rather than log(price range).
+   // This keeps RTV comparable across symbols and price scales.
+   if(high <= 0.0 || low <= 0.0)
       return 0.0;
-   return MathLog(range);
+
+   double top = MathMax(high, low);
+   double bottom = MathMin(high, low);
+
+   if(bottom <= 0.0)
+      return 0.0;
+
+   double ratio = top / bottom;
+   if(ratio <= 0.0)
+      return 0.0;
+
+   return MathAbs(MathLog(ratio));
 }
 
 double DAL_MeanRangeLog(const double &values[], const int start, const int count)

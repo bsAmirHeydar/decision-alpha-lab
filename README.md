@@ -271,3 +271,24 @@ After at least one confirmed revisit, live hunt-zone rectangles change color:
 - LOW / valley revisited zone -> blue
 
 Consumed historical zones still use the inactive gray style.
+
+
+## RTV log high/low
+
+RTV now uses scale-free candle volatility:
+
+```text
+candle_vol = abs(log(high / low))
+RTV = average(inside_event_vol) / average(before_event_vol)
+```
+
+The baseline uses the same number of candles immediately before the event entry.
+For confirmed touches, the final `exit_gap` outside-zone candles are excluded
+from the inside RTV sample because they are confirmation candles, not inside-event
+volatility.
+
+Enable labels with:
+
+```text
+InpShowRTV = true
+```
