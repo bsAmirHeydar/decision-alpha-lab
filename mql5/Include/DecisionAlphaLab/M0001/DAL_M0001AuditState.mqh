@@ -208,17 +208,20 @@ int DAL_M0001ComputeNodeAuditStates(
             break;
          }
 
-         bool inside_pending_zone = DAL_CandleIntersectsZone(
+         // Exit confirmation is strict:
+         // high/low must not intersect the frozen pending zone for exit_gap
+         // consecutive candles. Any re-touch resets the outside counter.
+         bool fully_outside_pending_zone = !DAL_CandleIntersectsZone(
             bars[i].low,
             bars[i].high,
             pending_touch_lower,
             pending_touch_upper
          );
 
-         if(inside_pending_zone)
-            pending_touch_outside_count = 0;
-         else
+         if(fully_outside_pending_zone)
             pending_touch_outside_count++;
+         else
+            pending_touch_outside_count = 0;
 
          if(pending_touch_outside_count >= config.exit_gap)
          {

@@ -292,3 +292,35 @@ Enable labels with:
 ```text
 InpShowRTV = true
 ```
+
+
+## RTV summary comment and text file
+
+M0001 now continuously shows the mean and median of all final ready RTV values in
+the chart comment.
+
+It also writes ready RTV rows to:
+
+```text
+DAL_M0001_RTV_<symbol>_<timeframe>.txt
+```
+
+The text file contains one row per `rtv_ready=true` event, including sample length,
+baseline start, inside end, mean_before, mean_inside and final RTV.
+
+
+## RTV waits for exit-gap closure
+
+RTV is now marked ready only after the frozen event zone has been exited for
+`exit_gap` consecutive candles by high/low. Any candle that intersects the zone
+resets the outside counter.
+
+HUNT-before-confirmation events remain visible for audit, but they are not
+included in final RTV mean/median because the exit-gap closure was never completed.
+
+
+## RTV final-only labels
+
+RTV labels are now drawn only after the event is fully closed and `rtv_ready=true`.
+Unfinished events no longer show `RTV n/a` on the chart. The chart, mean/median,
+and text export now all use the same final-only RTV rule.

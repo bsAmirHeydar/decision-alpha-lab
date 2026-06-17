@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.48"
+#property version   "1.51"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -55,6 +55,7 @@ input bool InpShowSummary = true;
 
 #define DAL_M0001_MAX_EVENTS 0
 #define DAL_M0001_MIN_RTV 0.0
+#define DAL_M0001_WRITE_RTV_TEXT_SUMMARY true
 #define DAL_M0001_MAX_NODES_TO_DRAW 0
 #define DAL_M0001_MAX_EVENTS_TO_DRAW 0
 #define DAL_M0001_MAX_AUDIT_STATES_TO_DRAW 0
@@ -193,6 +194,224 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    visual.time_window_to = visible_to;
 }
 
+
+string DAL_M0001SanitizeFileToken(string value)
+{
+   StringReplace(value, "\\", "_");
+   StringReplace(value, "/", "_");
+   StringReplace(value, ":", "_");
+   StringReplace(value, "*", "_");
+   StringReplace(value, "?", "_");
+   StringReplace(value, "\"", "_");
+   StringReplace(value, "<", "_");
+   StringReplace(value, ">", "_");
+   StringReplace(value, "|", "_");
+   StringReplace(value, " ", "_");
+   return value;
+}
+
+string DAL_M0001RtvTextFileName()
+{
+   string symbol = DAL_M0001SanitizeFileToken(LabSymbol());
+   string tf = DAL_M0001SanitizeFileToken(EnumToString(LabTimeframe()));
+
+   return "DAL_M0001_RTV_" + symbol + "_" + tf + ".txt";
+}
+
+int DAL_M0001CollectReadyRtvs(
+   const DALM0001Event &events[],
+   const int events_count,
+   double &rtvs[]
+)
+{
+   ArrayResize(rtvs, 0);
+
+   for(int i = 0; i < events_count; i++)
+   {
+      if(!events[i].closed)
+         continue;
+
+      if(!events[i].rtv_ready)
+         continue;
+
+      int size = ArraySize(rtvs);
+      ArrayResize(rtvs, size + 1);
+      rtvs[size] = events[i].rtv;
+   }
+
+   return ArraySize(rtvs);
+}
+
+double DAL_M0001MeanDouble(const double &values[])
+{
+   int count = ArraySize(values);
+   if(count <= 0)
+      return 0.0;
+
+   double total = 0.0;
+   for(int i = 0; i < count; i++)
+      total += values[i];
+
+   return total / count;
+}
+
+double DAL_M0001MedianDouble(const double &values[])
+{
+   int count = ArraySize(values);
+   if(count <= 0)
+      return 0.0;
+
+   double sorted[];
+   ArrayResize(sorted, count);
+
+   for(int i = 0; i < count; i++)
+      sorted[i] = values[i];
+
+   ArraySort(sorted);
+
+   int mid = count / 2;
+   if((count % 2) == 1)
+      return sorted[mid];
+
+   return (sorted[mid - 1] + sorted[mid]) / 2.0;
+}
+
+string DAL_M0001RtvSummaryLine(
+   const int ready_count,
+   const double mean_rtv,
+   const double median_rtv
+)
+{
+   if(ready_count <= 0)
+      return "RTV ready=0 mean=n/a median=n/a";
+
+   return "RTV ready=" + IntegerToString(ready_count)
+      + " mean=" + DoubleToString(mean_rtv, 4)
+      + " median=" + DoubleToString(median_rtv, 4);
+}
+
+string DAL_M0001EventRtvLine(const DALM0001Event &event)
+{
+   string type = DAL_NodeTypeToString(event.node_type);
+
+   return IntegerToString(event.id)
+      + "\t" + IntegerToString(event.node_id)
+      + "\t" + type
+      + "\t" + IntegerToString(event.revisit_id)
+      + "\t" + TimeToString(event.entry_time, TIME_DATE | TIME_MINUTES)
+      + "\t" + TimeToString(event.exit_time, TIME_DATE | TIME_MINUTES)
+      + "\t" + IntegerToString(event.event_length)
+      + "\t" + IntegerToString(event.rtv_sample_length)
+      + "\t" + IntegerToString(event.rtv_before_start_index)
+      + "\t" + IntegerToString(event.rtv_inside_end_index)
+      + "\t" + DoubleToString(event.mean_before, 8)
+      + "\t" + DoubleToString(event.mean_inside, 8)
+      + "\t" + DoubleToString(event.rtv, 8)
+      + "\t" + DAL_M0001ConsumeReasonToString(event.consume_reason)
+      + "\t" + DAL_BoolToString(event.touch_confirmed)
+      + "\t" + DAL_BoolToString(event.hunted)
+      + "\t" + DAL_BoolToString(event.consumed);
+}
+
+bool DAL_M0001WriteRtvTextSummary(
+   const DALM0001Event &events[],
+   const int events_count,
+   const int bars_count,
+   const int nodes_count,
+   const int audit_states_count,
+   const int ready_count,
+   const double mean_rtv,
+   const double median_rtv,
+   string &written_path
+)
+{
+   written_path = DAL_M0001RtvTextFileName();
+
+   int handle = FileOpen(written_path, FILE_WRITE | FILE_TXT | FILE_ANSI | FILE_COMMON);
+   if(handle == INVALID_HANDLE)
+   {
+      // Fallback to terminal-local MQL5/Files if common files are unavailable.
+      handle = FileOpen(written_path, FILE_WRITE | FILE_TXT | FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+         return false;
+   }
+
+   FileWriteString(handle, "Decision Alpha Lab — M0001 RTV Summary\r\n");
+   FileWriteString(handle, "symbol\t" + LabSymbol() + "\r\n");
+   FileWriteString(handle, "timeframe\t" + EnumToString(LabTimeframe()) + "\r\n");
+   FileWriteString(handle, "bars\t" + IntegerToString(bars_count) + "\r\n");
+   FileWriteString(handle, "nodes\t" + IntegerToString(nodes_count) + "\r\n");
+   FileWriteString(handle, "events\t" + IntegerToString(events_count) + "\r\n");
+   FileWriteString(handle, "audit_states\t" + IntegerToString(audit_states_count) + "\r\n");
+   FileWriteString(handle, "rtv_ready_count\t" + IntegerToString(ready_count) + "\r\n");
+
+   if(ready_count > 0)
+   {
+      FileWriteString(handle, "rtv_mean\t" + DoubleToString(mean_rtv, 8) + "\r\n");
+      FileWriteString(handle, "rtv_median\t" + DoubleToString(median_rtv, 8) + "\r\n");
+   }
+   else
+   {
+      FileWriteString(handle, "rtv_mean\tn/a\r\n");
+      FileWriteString(handle, "rtv_median\tn/a\r\n");
+   }
+
+   FileWriteString(handle, "\r\n");
+   FileWriteString(handle, "id\tnode_id\ttype\trevisit_id\tentry_time\texit_time\tevent_length\trtv_sample_length\trtv_before_start_index\trtv_inside_end_index\tmean_before\tmean_inside\trtv\tconsume_reason\ttouch_confirmed\thunted\tconsumed\r\n");
+
+   for(int i = 0; i < events_count; i++)
+   {
+      if(!events[i].closed || !events[i].rtv_ready)
+         continue;
+
+      FileWriteString(handle, DAL_M0001EventRtvLine(events[i]) + "\r\n");
+   }
+
+   FileClose(handle);
+   return true;
+}
+
+void DAL_M0001UpdateRtvCommentAndText(
+   const DALM0001Event &events[],
+   const int events_count,
+   const int bars_count,
+   const int nodes_count,
+   const int audit_states_count,
+   const string source_mode
+)
+{
+   double rtvs[];
+   int ready_count = DAL_M0001CollectReadyRtvs(events, events_count, rtvs);
+
+   double mean_rtv = DAL_M0001MeanDouble(rtvs);
+   double median_rtv = DAL_M0001MedianDouble(rtvs);
+
+   string file_name = DAL_M0001RtvTextFileName();
+   bool wrote = false;
+
+   if(DAL_M0001_WRITE_RTV_TEXT_SUMMARY)
+      wrote = DAL_M0001WriteRtvTextSummary(events, events_count, bars_count, nodes_count, audit_states_count, ready_count, mean_rtv, median_rtv, file_name);
+
+   string mean_text = ready_count > 0 ? DoubleToString(mean_rtv, 4) : "n/a";
+   string median_text = ready_count > 0 ? DoubleToString(median_rtv, 4) : "n/a";
+
+   Comment(
+      "Decision Alpha Lab | M0001 RTV\n",
+      "source=", source_mode,
+      "  symbol=", LabSymbol(),
+      "  tf=", EnumToString(LabTimeframe()), "\n",
+      "bars=", bars_count,
+      "  nodes=", nodes_count,
+      "  events=", events_count,
+      "  rtv_ready=", ready_count, "\n",
+      "RTV mean=", mean_text,
+      "  median=", median_text, "\n",
+      "text=", file_name,
+      "  write=", (wrote ? "ok" : "failed")
+   );
+}
+
+
 void RunM0001FromBars(
    const DALBar &bars[],
    const int bars_count,
@@ -213,6 +432,8 @@ void RunM0001FromBars(
 
    DALM0001NodeAuditState audit_states[];
    int audit_states_count = DAL_M0001ComputeNodeAuditStates(bars, bars_count, nodes, nodes_count, config, audit_states);
+
+   DAL_M0001UpdateRtvCommentAndText(events, events_count, bars_count, nodes_count, audit_states_count, source_mode);
 
    DALM0001VisualConfig visual;
    BuildVisualConfig(visual);
@@ -330,6 +551,7 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
+   Comment("");
    DAL_DeleteM0001VisualArtifacts(DAL_M0001_OBJECT_PREFIX);
 }
 

@@ -85,17 +85,21 @@ bool DAL_M0001FinalizeEvent(
 
    // RTV sample semantics:
    // - Use abs(log(high / low)) for every candle.
-   // - Compare the event volatility to the same number of candles immediately
-   //   before entry.
-   // - If touch confirmation is produced by exit_gap outside-zone candles,
-   //   those final outside confirmation candles are excluded from RTV.
+   // - RTV is valid only after touch confirmation, which requires exit_gap
+   //   consecutive candles whose high/low do not intersect the frozen zone.
+   // - Those final outside confirmation candles are excluded from RTV.
+   //
+   // HUNT-before-confirmation events stay available for visual audit, but they
+   // are not RTV-ready because the event never completed its exit-gap closure.
+   bool rtv_can_be_calculated = touch_confirmed;
+
    int excluded_tail = MathMax(0, rtv_exclude_tail_count);
-   int rtv_sample_length = event_length - excluded_tail;
+   int rtv_sample_length = rtv_can_be_calculated ? event_length - excluded_tail : 0;
    if(rtv_sample_length < 0)
       rtv_sample_length = 0;
 
-   int rtv_inside_end_index = entry_index + rtv_sample_length - 1;
-   int before_start = entry_index - rtv_sample_length;
+   int rtv_inside_end_index = rtv_sample_length > 0 ? entry_index + rtv_sample_length - 1 : -1;
+   int before_start = rtv_sample_length > 0 ? entry_index - rtv_sample_length : -1;
    int before_length = rtv_sample_length;
    bool has_full_baseline = (rtv_sample_length > 0 && before_start >= 0);
 
@@ -131,10 +135,10 @@ bool DAL_M0001FinalizeEvent(
    event.rtv = 0.0;
    event.rtv_ready = false;
 
-   if(rtv_sample_length > 0)
+   if(rtv_can_be_calculated && rtv_sample_length > 0)
       event.mean_inside = DAL_MeanRangeLog(log_moves, entry_index, rtv_sample_length);
 
-   if(has_full_baseline)
+   if(rtv_can_be_calculated && has_full_baseline)
    {
       event.mean_before = DAL_MeanRangeLog(log_moves, before_start, before_length);
       event.rtv = DAL_SafeDiv(event.mean_inside, event.mean_before, 0.0);
@@ -314,17 +318,21 @@ int DAL_M0001ComputeEvents(
                break;
             }
 
-            bool inside_frozen_zone = DAL_CandleIntersectsZone(
+            // Exit confirmation is strict:
+            // wait until high/low do not intersect the frozen event zone for
+            // exit_gap consecutive candles. Any candle whose high/low touches
+            // the zone resets the outside counter.
+            bool fully_outside_frozen_zone = !DAL_CandleIntersectsZone(
                bars[i].low,
                bars[i].high,
                event_lower,
                event_upper
             );
 
-            if(inside_frozen_zone)
-               outside_count = 0;
-            else
+            if(fully_outside_frozen_zone)
                outside_count++;
+            else
+               outside_count = 0;
 
             if(outside_count >= config.exit_gap)
             {

@@ -381,7 +381,10 @@ void DAL_M0001DrawEvents(
       if(visual.show_revisit_labels)
          DAL_M0001DrawRevisitLabel(visual.prefix, e, config);
 
-      if(visual.show_rtv_labels)
+      // RTV is a final statistic only.
+      // Do not draw "RTV n/a" for unfinished / non-ready events.
+      // A label appears only after exit-gap closure produces rtv_ready=true.
+      if(visual.show_rtv_labels && e.rtv_ready)
          DAL_DrawTextLabel(id + "_RTV", e.exit_time, e.territory_upper, DAL_M0001RtvLabelText(e), DAL_M0001RtvLabelColor(e), 8);
 
       if(visual.show_hunts && e.hunted)
