@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.60"
+#property version   "1.61"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -42,6 +42,18 @@ input int InpRandomSamplesPerEvent = 20;       // K matched random windows per n
 input int InpBootstrapIterations = 300;        // bootstrap CI for paired deltas; 0 = off
 input int InpPermutationIterations = 500;      // sign-flip permutation p-value; 0 = off
 input int InpValidationSplits = 5;             // chronological split-stability report
+input bool InpRunStressSuite = true;            // hard nulls, placebo, outlier, non-overlap, block bootstrap, horizons
+input int InpBrokerUtcOffsetHours = 0;          // broker server time = UTC + offset; used for UTC session reports
+input int InpRegimeLookbackBars = 100;          // pre-entry realized-volatility regime lookback
+input int InpHardRandomCandidates = 80;         // candidates per event for hard matched random null
+input int InpPlaceboShiftBars = 50;             // +/- shifted-entry placebo distance
+input int InpNonOverlapGapBars = 0;             // minimum gap after event end for non-overlap stress
+input int InpBlockBootstrapIterations = 300;    // block-bootstrap CI for dependent market events
+input int InpBlockBootstrapBlockPairs = 25;     // contiguous pair-block length for block bootstrap
+input int InpHorizonBars1 = 5;                  // fixed-horizon stress #1
+input int InpHorizonBars2 = 10;                 // fixed-horizon stress #2
+input int InpHorizonBars3 = 20;                 // fixed-horizon stress #3
+input int InpHorizonBars4 = 50;                 // fixed-horizon stress #4
 input bool InpRunParameterRobustness = false;  // optional slow grid around current L/zone/gap
 
 // Internal defaults kept out of the Inputs panel.
@@ -240,6 +252,18 @@ void BuildRtvReportConfig(DALM0001RtvReportConfig &report)
    report.bootstrap_iterations = InpBootstrapIterations;
    report.permutation_iterations = InpPermutationIterations;
    report.validation_splits = InpValidationSplits;
+   report.run_stress_suite = InpRunStressSuite;
+   report.broker_utc_offset_hours = InpBrokerUtcOffsetHours;
+   report.regime_lookback_bars = InpRegimeLookbackBars;
+   report.hard_random_candidates = InpHardRandomCandidates;
+   report.placebo_shift_bars = InpPlaceboShiftBars;
+   report.nonoverlap_gap_bars = InpNonOverlapGapBars;
+   report.block_bootstrap_iterations = InpBlockBootstrapIterations;
+   report.block_bootstrap_block_pairs = InpBlockBootstrapBlockPairs;
+   report.horizon_bars_1 = InpHorizonBars1;
+   report.horizon_bars_2 = InpHorizonBars2;
+   report.horizon_bars_3 = InpHorizonBars3;
+   report.horizon_bars_4 = InpHorizonBars4;
 
    if(report.random_samples_per_event < 1)
       report.random_samples_per_event = 1;
@@ -249,7 +273,20 @@ void BuildRtvReportConfig(DALM0001RtvReportConfig &report)
       report.permutation_iterations = 0;
    if(report.validation_splits < 1)
       report.validation_splits = 1;
+   if(report.regime_lookback_bars < 1)
+      report.regime_lookback_bars = 1;
+   if(report.hard_random_candidates < 1)
+      report.hard_random_candidates = 1;
+   if(report.placebo_shift_bars < 1)
+      report.placebo_shift_bars = 1;
+   if(report.nonoverlap_gap_bars < 0)
+      report.nonoverlap_gap_bars = 0;
+   if(report.block_bootstrap_iterations < 0)
+      report.block_bootstrap_iterations = 0;
+   if(report.block_bootstrap_block_pairs < 1)
+      report.block_bootstrap_block_pairs = 1;
 }
+
 
 void DAL_M0001UpdateRuntimeComment(
    const int bars_count,
@@ -279,6 +316,10 @@ void DAL_M0001UpdateRuntimeComment(
       "  bootstrap=", InpBootstrapIterations,
       "  permutation=", InpPermutationIterations,
       "  splits=", InpValidationSplits, "\n",
+      "stress=", (InpRunStressSuite ? "on" : "off"),
+      "  utcOffset=", InpBrokerUtcOffsetHours,
+      "  regimeLookback=", InpRegimeLookbackBars,
+      "  hardCandidates=", InpHardRandomCandidates, "\n",
       "compact final validation report prints once on deinit"
    );
 }
@@ -537,7 +578,7 @@ void DAL_M0001PrintParameterRobustnessGrid(
             if(random_k < 1)
                random_k = 1;
 
-            int pair_count = DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, g_analysis_start_time, random_k, pairs, node_logs, random_logs, audit);
+            int pair_count = DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, g_analysis_start_time, random_k, report_config.broker_utc_offset_hours, report_config.regime_lookback_bars, pairs, node_logs, random_logs, audit);
             if(pair_count <= 10)
                continue;
 

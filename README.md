@@ -311,3 +311,9 @@ docs/mql_native/STRUCTURAL_NODE_MODULE_LOCK.md
 The M0001 MQL-native engine now includes a final-only professional validation layer: compact NODES/RANDOM reports, explicit effect-size metrics, paired validation, bootstrap confidence intervals, sign-flip permutation p-values, distribution-distance metrics, quantile/tail metrics, chronological split-stability metrics, optional parameter robustness, and an integrity audit. Histograms are optional (`InpPrintHistogram=false` by default) so Journal lines no longer truncate the core `COMPARE` metrics.
 
 See `docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md`.
+
+## M0001 stress validation
+
+The MQL-native M0001 engine includes a final-only stress validation suite for hard matched nulls, placebo shifts, outlier removal, non-overlap events, cluster-robust diagnostics, block bootstrap, fixed-horizon stress, and negative controls. See:
+
+- `docs/mql_native/M0001_STRESS_VALIDATION_SUITE.md`

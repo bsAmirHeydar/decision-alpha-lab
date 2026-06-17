@@ -12,6 +12,19 @@ struct DALM0001RtvReportConfig
    int bootstrap_iterations;
    int permutation_iterations;
    int validation_splits;
+
+   bool run_stress_suite;
+   int broker_utc_offset_hours;
+   int regime_lookback_bars;
+   int hard_random_candidates;
+   int placebo_shift_bars;
+   int nonoverlap_gap_bars;
+   int block_bootstrap_iterations;
+   int block_bootstrap_block_pairs;
+   int horizon_bars_1;
+   int horizon_bars_2;
+   int horizon_bars_3;
+   int horizon_bars_4;
 };
 
 struct DALM0001PairedLogRtv
@@ -19,6 +32,11 @@ struct DALM0001PairedLogRtv
    int event_id;
    int sample_length;
    datetime entry_time;
+   int entry_index;
+   double pre_entry_vol;
+   int utc_hour;
+   int utc_session;
+   int trend_regime;
    double node_log;
    double random_log;
    double delta_log;
@@ -131,7 +149,20 @@ void DAL_M0001DefaultRtvReportConfig(DALM0001RtvReportConfig &config)
    config.bootstrap_iterations = 300;
    config.permutation_iterations = 500;
    config.validation_splits = 5;
+   config.run_stress_suite = true;
+   config.broker_utc_offset_hours = 0;
+   config.regime_lookback_bars = 100;
+   config.hard_random_candidates = 80;
+   config.placebo_shift_bars = 50;
+   config.nonoverlap_gap_bars = 0;
+   config.block_bootstrap_iterations = 300;
+   config.block_bootstrap_block_pairs = 25;
+   config.horizon_bars_1 = 5;
+   config.horizon_bars_2 = 10;
+   config.horizon_bars_3 = 20;
+   config.horizon_bars_4 = 50;
 }
+
 
 bool DAL_M0001NullValidNumber(const double value)
 {
@@ -393,6 +424,176 @@ double DAL_M0001MeanLogMoveWindow(
    return total / used;
 }
 
+
+int DAL_M0001NormalizeHour(const int hour)
+{
+   int h = hour % 24;
+   if(h < 0)
+      h += 24;
+   return h;
+}
+
+int DAL_M0001UtcHourFromBrokerTime(
+   const datetime broker_time,
+   const int broker_utc_offset_hours
+)
+{
+   MqlDateTime dt;
+   TimeToStruct(broker_time, dt);
+   return DAL_M0001NormalizeHour(dt.hour - broker_utc_offset_hours);
+}
+
+int DAL_M0001UtcSessionFromHour(const int utc_hour)
+{
+   int h = DAL_M0001NormalizeHour(utc_hour);
+   if(h >= 0 && h < 7)
+      return 0; // Asia / early UTC
+   if(h >= 7 && h < 13)
+      return 1; // London core
+   if(h >= 13 && h < 21)
+      return 2; // New York core
+   return 3; // late/rollover/other
+}
+
+string DAL_M0001SessionName(const int session)
+{
+   if(session == 0)
+      return "asia";
+   if(session == 1)
+      return "london";
+   if(session == 2)
+      return "ny";
+   return "other";
+}
+
+int DAL_M0001BarIndexByTime(
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime time
+)
+{
+   if(bars_count <= 0)
+      return -1;
+
+   int idx = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, time);
+   if(idx >= 0 && idx < bars_count)
+      return idx;
+
+   return -1;
+}
+
+double DAL_M0001PreEntryVol(
+   const DALBar &bars[],
+   const int bars_count,
+   const int entry_index,
+   const int lookback_bars
+)
+{
+   int lookback = lookback_bars;
+   if(lookback < 1)
+      lookback = 1;
+
+   int start = entry_index - lookback;
+   if(start < 0)
+      start = 0;
+
+   int end = entry_index - 1;
+   if(end < start || end >= bars_count)
+      return 0.0;
+
+   double sum = 0.0;
+   int used = 0;
+   for(int i = start; i <= end; i++)
+   {
+      double v = DAL_LogRange(bars[i].high, bars[i].low);
+      if(!DAL_M0001NullValidNumber(v) || v <= 0.0)
+         continue;
+      sum += v;
+      used++;
+   }
+
+   if(used <= 0)
+      return 0.0;
+   return sum / used;
+}
+
+int DAL_M0001PreEntryTrendRegime(
+   const DALBar &bars[],
+   const int bars_count,
+   const int entry_index,
+   const int lookback_bars
+)
+{
+   int lookback = lookback_bars;
+   if(lookback < 1)
+      lookback = 1;
+
+   int start = entry_index - lookback;
+   if(start < 0)
+      start = 0;
+
+   int end = entry_index - 1;
+   if(start < 0 || end <= start || end >= bars_count)
+      return 0;
+
+   if(bars[start].close <= 0.0 || bars[end].close <= 0.0)
+      return 0;
+
+   double ret = MathLog(bars[end].close / bars[start].close);
+   double pre_vol = DAL_M0001PreEntryVol(bars, bars_count, entry_index, lookback);
+   double threshold = pre_vol * MathSqrt((double)(end - start + 1));
+   if(threshold <= 0.0)
+      threshold = 0.0;
+
+   if(ret > threshold)
+      return 1;
+   if(ret < -threshold)
+      return -1;
+   return 0;
+}
+
+int DAL_M0001ClassifyTercile(
+   const double value,
+   const double low_threshold,
+   const double high_threshold
+)
+{
+   if(value <= low_threshold)
+      return 0;
+   if(value >= high_threshold)
+      return 2;
+   return 1;
+}
+
+bool DAL_M0001LogRtvAtEntryIndex(
+   const DALBar &bars[],
+   const int bars_count,
+   const int entry_index,
+   const int sample_length,
+   double &log_rtv
+)
+{
+   log_rtv = 0.0;
+   int n = sample_length;
+   if(n <= 0)
+      return false;
+
+   if(entry_index - n < 0 || entry_index + n > bars_count)
+      return false;
+
+   double mean_inside = DAL_M0001MeanLogMoveWindow(bars, bars_count, entry_index, n);
+   double mean_before = DAL_M0001MeanLogMoveWindow(bars, bars_count, entry_index - n, n);
+   if(mean_inside <= 0.0 || mean_before <= 0.0)
+      return false;
+
+   double rtv = mean_inside / mean_before;
+   if(rtv <= 0.0 || !DAL_M0001NullValidNumber(rtv))
+      return false;
+
+   log_rtv = MathLog(rtv);
+   return true;
+}
+
 double DAL_M0001RandomFractionK(
    const int event_id,
    const int sample_length,
@@ -470,6 +671,8 @@ int DAL_M0001CollectPairedLogRtvs(
    const int bars_count,
    const datetime min_entry_time,
    const int random_k,
+   const int broker_utc_offset_hours,
+   const int regime_lookback_bars,
    DALM0001PairedLogRtv &pairs[],
    double &node_logs[],
    double &random_logs[],
@@ -514,6 +717,15 @@ int DAL_M0001CollectPairedLogRtvs(
          continue;
 
       double node_log = MathLog(events[i].rtv);
+      int entry_index = DAL_M0001BarIndexByTime(bars, bars_count, events[i].entry_time);
+      if(entry_index < 0)
+         continue;
+
+      double pre_vol = DAL_M0001PreEntryVol(bars, bars_count, entry_index, regime_lookback_bars);
+      int utc_hour = DAL_M0001UtcHourFromBrokerTime(events[i].entry_time, broker_utc_offset_hours);
+      int utc_session = DAL_M0001UtcSessionFromHour(utc_hour);
+      int trend_regime = DAL_M0001PreEntryTrendRegime(bars, bars_count, entry_index, regime_lookback_bars);
+
       double random_log = 0.0;
       if(!DAL_M0001RandomLogForEvent(events[i], bars, bars_count, analysis_start_index, random_k, random_log))
          continue;
@@ -526,6 +738,11 @@ int DAL_M0001CollectPairedLogRtvs(
       pairs[size].event_id = events[i].id;
       pairs[size].sample_length = events[i].rtv_sample_length;
       pairs[size].entry_time = events[i].entry_time;
+      pairs[size].entry_index = entry_index;
+      pairs[size].pre_entry_vol = pre_vol;
+      pairs[size].utc_hour = utc_hour;
+      pairs[size].utc_session = utc_session;
+      pairs[size].trend_regime = trend_regime;
       pairs[size].node_log = node_log;
       pairs[size].random_log = random_log;
       pairs[size].delta_log = node_log - random_log;
@@ -1311,25 +1528,25 @@ string DAL_M0001RobustnessText(const DALM0001RobustnessStats &rob)
 
 string DAL_M0001SessionRegimeText(
    const DALM0001PairedLogRtv &pairs[],
-   const double &random_logs[]
+   const int broker_utc_offset_hours
 )
 {
    int count = ArraySize(pairs);
    if(count <= 0)
       return "SESSION_REGIME*empty=1";
 
-   double random_sorted[];
-   ArrayResize(random_sorted, ArraySize(random_logs));
-   for(int i = 0; i < ArraySize(random_logs); i++)
-      random_sorted[i] = random_logs[i];
-   ArraySort(random_sorted);
+   double pre_vols[];
+   ArrayResize(pre_vols, count);
+   for(int i = 0; i < count; i++)
+      pre_vols[i] = pairs[i].pre_entry_vol;
+   ArraySort(pre_vols);
 
-   double r33 = ArraySize(random_sorted) > 0 ? DAL_M0001NullPercentileSorted(random_sorted, 0.3333) : 0.0;
-   double r66 = ArraySize(random_sorted) > 0 ? DAL_M0001NullPercentileSorted(random_sorted, 0.6667) : 0.0;
+   double v33 = DAL_M0001NullPercentileSorted(pre_vols, 0.3333);
+   double v66 = DAL_M0001NullPercentileSorted(pre_vols, 0.6667);
 
-   int session_count[3];
-   int session_wins[3];
-   double session_sum[3];
+   int session_count[4];
+   int session_wins[4];
+   double session_sum[4];
    ArrayInitialize(session_count, 0);
    ArrayInitialize(session_wins, 0);
    ArrayInitialize(session_sum, 0.0);
@@ -1341,42 +1558,50 @@ string DAL_M0001SessionRegimeText(
    ArrayInitialize(regime_wins, 0);
    ArrayInitialize(regime_sum, 0.0);
 
+   int trend_count[3];
+   int trend_wins[3];
+   double trend_sum[3];
+   ArrayInitialize(trend_count, 0);
+   ArrayInitialize(trend_wins, 0);
+   ArrayInitialize(trend_sum, 0.0);
+
    for(int i = 0; i < count; i++)
    {
-      MqlDateTime dt;
-      TimeToStruct(pairs[i].entry_time, dt);
-      int hour = dt.hour;
-
-      int session = 0;
-      if(hour >= 8 && hour < 16)
-         session = 1;
-      else if(hour >= 16)
-         session = 2;
+      int session = pairs[i].utc_session;
+      if(session < 0 || session > 3)
+         session = 3;
 
       session_count[session]++;
       session_sum[session] += pairs[i].delta_log;
       if(pairs[i].delta_log > 0.0)
          session_wins[session]++;
 
-      int regime = 1;
-      if(pairs[i].random_log <= r33)
-         regime = 0;
-      else if(pairs[i].random_log >= r66)
-         regime = 2;
-
+      int regime = DAL_M0001ClassifyTercile(pairs[i].pre_entry_vol, v33, v66);
       regime_count[regime]++;
       regime_sum[regime] += pairs[i].delta_log;
       if(pairs[i].delta_log > 0.0)
          regime_wins[regime]++;
+
+      int trend = pairs[i].trend_regime + 1;
+      if(trend < 0)
+         trend = 0;
+      if(trend > 2)
+         trend = 2;
+      trend_count[trend]++;
+      trend_sum[trend] += pairs[i].delta_log;
+      if(pairs[i].delta_log > 0.0)
+         trend_wins[trend]++;
    }
 
    double asia_mean = session_count[0] > 0 ? session_sum[0] / session_count[0] : 0.0;
    double london_mean = session_count[1] > 0 ? session_sum[1] / session_count[1] : 0.0;
    double ny_mean = session_count[2] > 0 ? session_sum[2] / session_count[2] : 0.0;
+   double other_mean = session_count[3] > 0 ? session_sum[3] / session_count[3] : 0.0;
 
    double asia_win = session_count[0] > 0 ? 100.0 * session_wins[0] / session_count[0] : 0.0;
    double london_win = session_count[1] > 0 ? 100.0 * session_wins[1] / session_count[1] : 0.0;
    double ny_win = session_count[2] > 0 ? 100.0 * session_wins[2] / session_count[2] : 0.0;
+   double other_win = session_count[3] > 0 ? 100.0 * session_wins[3] / session_count[3] : 0.0;
 
    double low_mean = regime_count[0] > 0 ? regime_sum[0] / regime_count[0] : 0.0;
    double mid_mean = regime_count[1] > 0 ? regime_sum[1] / regime_count[1] : 0.0;
@@ -1386,8 +1611,17 @@ string DAL_M0001SessionRegimeText(
    double mid_win = regime_count[1] > 0 ? 100.0 * regime_wins[1] / regime_count[1] : 0.0;
    double high_win = regime_count[2] > 0 ? 100.0 * regime_wins[2] / regime_count[2] : 0.0;
 
+   double down_mean = trend_count[0] > 0 ? trend_sum[0] / trend_count[0] : 0.0;
+   double flat_mean = trend_count[1] > 0 ? trend_sum[1] / trend_count[1] : 0.0;
+   double up_mean = trend_count[2] > 0 ? trend_sum[2] / trend_count[2] : 0.0;
+
+   double down_win = trend_count[0] > 0 ? 100.0 * trend_wins[0] / trend_count[0] : 0.0;
+   double flat_win = trend_count[1] > 0 ? 100.0 * trend_wins[1] / trend_count[1] : 0.0;
+   double up_win = trend_count[2] > 0 ? 100.0 * trend_wins[2] / trend_count[2] : 0.0;
+
    return "SESSION_REGIME"
-      + "*sessionClock=brokerHour"
+      + "*sessionClock=UTC"
+      + "*brokerUtcOffset=" + IntegerToString(broker_utc_offset_hours)
       + "*asiaN=" + IntegerToString(session_count[0])
       + "*asiaDLog=" + DAL_M0001Fmt4(asia_mean)
       + "*asiaWin=" + DAL_M0001FmtPct(asia_win)
@@ -1397,7 +1631,10 @@ string DAL_M0001SessionRegimeText(
       + "*nyN=" + IntegerToString(session_count[2])
       + "*nyDLog=" + DAL_M0001Fmt4(ny_mean)
       + "*nyWin=" + DAL_M0001FmtPct(ny_win)
-      + "*regimeBy=randomLogTercile"
+      + "*otherN=" + IntegerToString(session_count[3])
+      + "*otherDLog=" + DAL_M0001Fmt4(other_mean)
+      + "*otherWin=" + DAL_M0001FmtPct(other_win)
+      + "*regimeBy=preEntryVolTercile"
       + "*lowRegN=" + IntegerToString(regime_count[0])
       + "*lowRegDLog=" + DAL_M0001Fmt4(low_mean)
       + "*lowRegWin=" + DAL_M0001FmtPct(low_win)
@@ -1406,7 +1643,17 @@ string DAL_M0001SessionRegimeText(
       + "*midRegWin=" + DAL_M0001FmtPct(mid_win)
       + "*highRegN=" + IntegerToString(regime_count[2])
       + "*highRegDLog=" + DAL_M0001Fmt4(high_mean)
-      + "*highRegWin=" + DAL_M0001FmtPct(high_win);
+      + "*highRegWin=" + DAL_M0001FmtPct(high_win)
+      + "*trendBy=preEntryCloseReturn"
+      + "*downN=" + IntegerToString(trend_count[0])
+      + "*downDLog=" + DAL_M0001Fmt4(down_mean)
+      + "*downWin=" + DAL_M0001FmtPct(down_win)
+      + "*flatN=" + IntegerToString(trend_count[1])
+      + "*flatDLog=" + DAL_M0001Fmt4(flat_mean)
+      + "*flatWin=" + DAL_M0001FmtPct(flat_win)
+      + "*upN=" + IntegerToString(trend_count[2])
+      + "*upDLog=" + DAL_M0001Fmt4(up_mean)
+      + "*upWin=" + DAL_M0001FmtPct(up_win);
 }
 
 string DAL_M0001IntegrityAuditText(
@@ -1436,6 +1683,796 @@ string DAL_M0001IntegrityAuditText(
       + "*baselineGuard=beforeEntryOnly"
       + "*exitGapGuard=excludedFromRTV";
 }
+
+
+// -----------------------------------------------------------------------------
+// M0001 final stress-validation suite
+// -----------------------------------------------------------------------------
+
+double DAL_M0001MeanOfArray(const double &values[])
+{
+   int count = ArraySize(values);
+   if(count <= 0)
+      return 0.0;
+   double sum = 0.0;
+   for(int i = 0; i < count; i++)
+      sum += values[i];
+   return sum / count;
+}
+
+double DAL_M0001WinPctOfArray(const double &values[])
+{
+   int count = ArraySize(values);
+   if(count <= 0)
+      return 0.0;
+   int wins = 0;
+   for(int i = 0; i < count; i++)
+      if(values[i] > 0.0)
+         wins++;
+   return 100.0 * wins / count;
+}
+
+double DAL_M0001TStatOfArray(const double &values[])
+{
+   int count = ArraySize(values);
+   if(count <= 1)
+      return 0.0;
+   double mean = DAL_M0001MeanOfArray(values);
+   double var = 0.0;
+   for(int i = 0; i < count; i++)
+   {
+      double d = values[i] - mean;
+      var += d * d;
+   }
+   var /= (count - 1);
+   double sd = MathSqrt(var);
+   if(sd <= 0.0)
+      return 0.0;
+   return mean / (sd / MathSqrt(count));
+}
+
+string DAL_M0001CompactDeltaSummary(
+   const string label,
+   const double &deltas[]
+)
+{
+   int count = ArraySize(deltas);
+   if(count <= 0)
+      return label + "*n=0";
+
+   double sorted[];
+   ArrayResize(sorted, count);
+   for(int i = 0; i < count; i++)
+      sorted[i] = deltas[i];
+   ArraySort(sorted);
+
+   double mean = DAL_M0001MeanOfArray(deltas);
+   double median = DAL_M0001NullPercentileSorted(sorted, 0.50);
+   double win = DAL_M0001WinPctOfArray(deltas);
+   double t = DAL_M0001TStatOfArray(deltas);
+   double p = DAL_M0001TwoSidedNormalP(t);
+
+   return label
+      + "*n=" + IntegerToString(count)
+      + "*mean=" + DAL_M0001Fmt4(mean)
+      + "*med=" + DAL_M0001Fmt4(median)
+      + "*win=" + DAL_M0001FmtPct(win)
+      + "*t=" + DAL_M0001Fmt4(t)
+      + "*pApprox=" + DAL_M0001Fmt4(p);
+}
+
+void DAL_M0001PreVolTercileThresholds(
+   const DALM0001PairedLogRtv &pairs[],
+   double &low_threshold,
+   double &high_threshold
+)
+{
+   low_threshold = 0.0;
+   high_threshold = 0.0;
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return;
+
+   double vols[];
+   ArrayResize(vols, count);
+   for(int i = 0; i < count; i++)
+      vols[i] = pairs[i].pre_entry_vol;
+   ArraySort(vols);
+   low_threshold = DAL_M0001NullPercentileSorted(vols, 0.3333);
+   high_threshold = DAL_M0001NullPercentileSorted(vols, 0.6667);
+}
+
+bool DAL_M0001HardMatchedRandomLogForPair(
+   const DALM0001PairedLogRtv &pair,
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index,
+   const DALM0001RtvReportConfig &config,
+   const double pre_vol_low,
+   const double pre_vol_high,
+   double &random_log,
+   int &accepted,
+   int &attempts
+)
+{
+   random_log = 0.0;
+   accepted = 0;
+   attempts = 0;
+
+   int n = pair.sample_length;
+   if(n <= 0)
+      return false;
+
+   int min_entry = DAL_M0001IntMax(n, analysis_start_index);
+   int max_entry = bars_count - n;
+   if(max_entry < min_entry)
+      return false;
+
+   int candidates = config.hard_random_candidates;
+   if(candidates < 1)
+      candidates = 1;
+
+   int span = max_entry - min_entry + 1;
+   double total = 0.0;
+
+   for(int pass = 0; pass < 3; pass++)
+   {
+      for(int k = 0; k < candidates; k++)
+      {
+         attempts++;
+         double frac = DAL_M0001RandomFractionK(pair.event_id + 9001 + pass * 131, n + 17, bars_count, k + pass * 1000);
+         int random_entry = min_entry + (int)MathFloor(frac * span);
+         if(random_entry < min_entry)
+            random_entry = min_entry;
+         if(random_entry > max_entry)
+            random_entry = max_entry;
+
+         int utc_hour = DAL_M0001UtcHourFromBrokerTime(bars[random_entry].time, config.broker_utc_offset_hours);
+         int session = DAL_M0001UtcSessionFromHour(utc_hour);
+         if(session != pair.utc_session)
+            continue;
+
+         double pre_vol = DAL_M0001PreEntryVol(bars, bars_count, random_entry, config.regime_lookback_bars);
+         int regime = DAL_M0001ClassifyTercile(pre_vol, pre_vol_low, pre_vol_high);
+         int pair_regime = DAL_M0001ClassifyTercile(pair.pre_entry_vol, pre_vol_low, pre_vol_high);
+         if(regime != pair_regime)
+            continue;
+
+         if(pass == 0)
+         {
+            int trend = DAL_M0001PreEntryTrendRegime(bars, bars_count, random_entry, config.regime_lookback_bars);
+            if(trend != pair.trend_regime)
+               continue;
+         }
+
+         double log_rtv = 0.0;
+         if(!DAL_M0001LogRtvAtEntryIndex(bars, bars_count, random_entry, n, log_rtv))
+            continue;
+
+         total += log_rtv;
+         accepted++;
+      }
+
+      if(accepted > 0)
+         break;
+   }
+
+   if(accepted <= 0)
+      return false;
+
+   random_log = total / accepted;
+   return true;
+}
+
+string DAL_M0001HardMatchedNullText(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index,
+   const DALM0001RtvReportConfig &config
+)
+{
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return "HARD_NULL*n=0";
+
+   double low_thr = 0.0;
+   double high_thr = 0.0;
+   DAL_M0001PreVolTercileThresholds(pairs, low_thr, high_thr);
+
+   double hard_deltas[];
+   ArrayResize(hard_deltas, 0);
+   int total_attempts = 0;
+   int total_accepts = 0;
+
+   for(int i = 0; i < count; i++)
+   {
+      double hard_log = 0.0;
+      int accepted = 0;
+      int attempts = 0;
+      if(!DAL_M0001HardMatchedRandomLogForPair(pairs[i], bars, bars_count, analysis_start_index, config, low_thr, high_thr, hard_log, accepted, attempts))
+      {
+         total_attempts += attempts;
+         continue;
+      }
+
+      total_attempts += attempts;
+      total_accepts += accepted;
+
+      int size = ArraySize(hard_deltas);
+      ArrayResize(hard_deltas, size + 1);
+      hard_deltas[size] = pairs[i].node_log - hard_log;
+   }
+
+   double accept_rate = total_attempts > 0 ? 100.0 * total_accepts / total_attempts : 0.0;
+   return DAL_M0001CompactDeltaSummary("HARD_NULL", hard_deltas)
+      + "*constraints=sameUtcSession_preVolTercile_trendFirstPass"
+      + "*preVolT1=" + DAL_M0001Fmt4(low_thr)
+      + "*preVolT2=" + DAL_M0001Fmt4(high_thr)
+      + "*candidates=" + IntegerToString(config.hard_random_candidates)
+      + "*accepted=" + IntegerToString(total_accepts)
+      + "*attempts=" + IntegerToString(total_attempts)
+      + "*acceptRate=" + DAL_M0001FmtPct(accept_rate);
+}
+
+string DAL_M0001PlaceboText(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const int shift_bars
+)
+{
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return "PLACEBO*n=0";
+
+   int shift = shift_bars;
+   if(shift < 1)
+      shift = 1;
+
+   double plus_deltas[];
+   double minus_deltas[];
+   ArrayResize(plus_deltas, 0);
+   ArrayResize(minus_deltas, 0);
+
+   for(int i = 0; i < count; i++)
+   {
+      double log_plus = 0.0;
+      if(DAL_M0001LogRtvAtEntryIndex(bars, bars_count, pairs[i].entry_index + shift, pairs[i].sample_length, log_plus))
+      {
+         int size = ArraySize(plus_deltas);
+         ArrayResize(plus_deltas, size + 1);
+         plus_deltas[size] = log_plus - pairs[i].random_log;
+      }
+
+      double log_minus = 0.0;
+      if(DAL_M0001LogRtvAtEntryIndex(bars, bars_count, pairs[i].entry_index - shift, pairs[i].sample_length, log_minus))
+      {
+         int size = ArraySize(minus_deltas);
+         ArrayResize(minus_deltas, size + 1);
+         minus_deltas[size] = log_minus - pairs[i].random_log;
+      }
+   }
+
+   return "PLACEBO"
+      + "*shiftBars=" + IntegerToString(shift)
+      + "*" + DAL_M0001CompactDeltaSummary("plus", plus_deltas)
+      + "*" + DAL_M0001CompactDeltaSummary("minus", minus_deltas);
+}
+
+string DAL_M0001OutlierStressText(const DALM0001PairedLogRtv &pairs[])
+{
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return "OUTLIER_STRESS*n=0";
+
+   double deltas[];
+   ArrayResize(deltas, count);
+   for(int i = 0; i < count; i++)
+      deltas[i] = pairs[i].delta_log;
+   ArraySort(deltas);
+
+   double full_mean = DAL_M0001MeanOfArray(deltas);
+   int cut1 = (int)MathFloor(count * 0.01);
+   int cut5 = (int)MathFloor(count * 0.05);
+
+   double trim1_sum = 0.0;
+   int trim1_n = 0;
+   double trim5_sum = 0.0;
+   int trim5_n = 0;
+   for(int i = 0; i < count; i++)
+   {
+      if(i < count - cut1)
+      {
+         trim1_sum += deltas[i];
+         trim1_n++;
+      }
+      if(i < count - cut5)
+      {
+         trim5_sum += deltas[i];
+         trim5_n++;
+      }
+   }
+
+   double trim1 = trim1_n > 0 ? trim1_sum / trim1_n : 0.0;
+   double trim5 = trim5_n > 0 ? trim5_sum / trim5_n : 0.0;
+
+   double p01 = DAL_M0001NullPercentileSorted(deltas, 0.01);
+   double p99 = DAL_M0001NullPercentileSorted(deltas, 0.99);
+   double p05 = DAL_M0001NullPercentileSorted(deltas, 0.05);
+   double p95 = DAL_M0001NullPercentileSorted(deltas, 0.95);
+
+   double winsor1_sum = 0.0;
+   double winsor5_sum = 0.0;
+   for(int i = 0; i < count; i++)
+   {
+      double w1 = deltas[i];
+      if(w1 < p01) w1 = p01;
+      if(w1 > p99) w1 = p99;
+      winsor1_sum += w1;
+
+      double w5 = deltas[i];
+      if(w5 < p05) w5 = p05;
+      if(w5 > p95) w5 = p95;
+      winsor5_sum += w5;
+   }
+
+   int groups = 10;
+   if(groups > count)
+      groups = count;
+   double group_means[];
+   ArrayResize(group_means, groups);
+   for(int g = 0; g < groups; g++)
+   {
+      int start = (int)MathFloor(g * count / (double)groups);
+      int end = (int)MathFloor((g + 1) * count / (double)groups) - 1;
+      double sum = 0.0;
+      int n = 0;
+      for(int i = start; i <= end; i++)
+      {
+         sum += deltas[i];
+         n++;
+      }
+      group_means[g] = n > 0 ? sum / n : 0.0;
+   }
+   ArraySort(group_means);
+   double mom10 = DAL_M0001NullPercentileSorted(group_means, 0.50);
+
+   return "OUTLIER_STRESS"
+      + "*n=" + IntegerToString(count)
+      + "*fullMean=" + DAL_M0001Fmt4(full_mean)
+      + "*removeTop1Mean=" + DAL_M0001Fmt4(trim1)
+      + "*removeTop5Mean=" + DAL_M0001Fmt4(trim5)
+      + "*winsor1Mean=" + DAL_M0001Fmt4(winsor1_sum / count)
+      + "*winsor5Mean=" + DAL_M0001Fmt4(winsor5_sum / count)
+      + "*medianOfMeans10=" + DAL_M0001Fmt4(mom10);
+}
+
+string DAL_M0001NonOverlapText(
+   const DALM0001PairedLogRtv &pairs[],
+   const int gap_bars
+)
+{
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return "NONOVERLAP*n=0";
+
+   int idxs[];
+   ArrayResize(idxs, count);
+   for(int i = 0; i < count; i++)
+      idxs[i] = i;
+
+   for(int i = 1; i < count; i++)
+   {
+      int key = idxs[i];
+      int j = i - 1;
+      while(j >= 0 && pairs[idxs[j]].entry_index > pairs[key].entry_index)
+      {
+         idxs[j + 1] = idxs[j];
+         j--;
+      }
+      idxs[j + 1] = key;
+   }
+
+   int gap = gap_bars;
+   if(gap < 0)
+      gap = 0;
+
+   double deltas[];
+   ArrayResize(deltas, 0);
+   int last_end = -2147483647;
+   for(int n = 0; n < count; n++)
+   {
+      int i = idxs[n];
+      int start = pairs[i].entry_index;
+      int end = start + pairs[i].sample_length - 1;
+      if(start <= last_end + gap)
+         continue;
+
+      int size = ArraySize(deltas);
+      ArrayResize(deltas, size + 1);
+      deltas[size] = pairs[i].delta_log;
+      last_end = end;
+   }
+
+   return DAL_M0001CompactDeltaSummary("NONOVERLAP", deltas)
+      + "*gapBars=" + IntegerToString(gap)
+      + "*keptPct=" + DAL_M0001FmtPct(100.0 * ArraySize(deltas) / count);
+}
+
+void DAL_M0001ClusterTStats(
+   const DALM0001PairedLogRtv &pairs[],
+   const int divisor_seconds,
+   int &cluster_count,
+   double &cluster_mean,
+   double &cluster_t,
+   double &cluster_p
+)
+{
+   cluster_count = 0;
+   cluster_mean = 0.0;
+   cluster_t = 0.0;
+   cluster_p = 1.0;
+   int count = ArraySize(pairs);
+   if(count <= 0 || divisor_seconds <= 0)
+      return;
+
+   int keys[];
+   double sums[];
+   int counts[];
+   ArrayResize(keys, 0);
+   ArrayResize(sums, 0);
+   ArrayResize(counts, 0);
+
+   for(int i = 0; i < count; i++)
+   {
+      int key = (int)(((long)pairs[i].entry_time) / divisor_seconds);
+      int pos = -1;
+      for(int j = 0; j < ArraySize(keys); j++)
+      {
+         if(keys[j] == key)
+         {
+            pos = j;
+            break;
+         }
+      }
+      if(pos < 0)
+      {
+         pos = ArraySize(keys);
+         ArrayResize(keys, pos + 1);
+         ArrayResize(sums, pos + 1);
+         ArrayResize(counts, pos + 1);
+         keys[pos] = key;
+         sums[pos] = 0.0;
+         counts[pos] = 0;
+      }
+      sums[pos] += pairs[i].delta_log;
+      counts[pos]++;
+   }
+
+   cluster_count = ArraySize(keys);
+   if(cluster_count <= 0)
+      return;
+
+   double means[];
+   ArrayResize(means, cluster_count);
+   for(int i = 0; i < cluster_count; i++)
+      means[i] = counts[i] > 0 ? sums[i] / counts[i] : 0.0;
+
+   cluster_mean = DAL_M0001MeanOfArray(means);
+   cluster_t = DAL_M0001TStatOfArray(means);
+   cluster_p = DAL_M0001TwoSidedNormalP(cluster_t);
+}
+
+string DAL_M0001ClusterRobustText(const DALM0001PairedLogRtv &pairs[])
+{
+   int day_n = 0;
+   double day_mean = 0.0;
+   double day_t = 0.0;
+   double day_p = 1.0;
+   DAL_M0001ClusterTStats(pairs, 86400, day_n, day_mean, day_t, day_p);
+
+   int week_n = 0;
+   double week_mean = 0.0;
+   double week_t = 0.0;
+   double week_p = 1.0;
+   DAL_M0001ClusterTStats(pairs, 604800, week_n, week_mean, week_t, week_p);
+
+   return "CLUSTER_ROBUST"
+      + "*dayClusters=" + IntegerToString(day_n)
+      + "*dayMean=" + DAL_M0001Fmt4(day_mean)
+      + "*dayT=" + DAL_M0001Fmt4(day_t)
+      + "*dayPapprox=" + DAL_M0001Fmt4(day_p)
+      + "*weekClusters=" + IntegerToString(week_n)
+      + "*weekMean=" + DAL_M0001Fmt4(week_mean)
+      + "*weekT=" + DAL_M0001Fmt4(week_t)
+      + "*weekPapprox=" + DAL_M0001Fmt4(week_p);
+}
+
+string DAL_M0001BlockBootstrapText(
+   const DALM0001PairedLogRtv &pairs[],
+   const int iterations,
+   const int block_pairs
+)
+{
+   int count = ArraySize(pairs);
+   int iters = iterations;
+   if(iters < 0)
+      iters = 0;
+   int block = block_pairs;
+   if(block < 1)
+      block = 1;
+
+   if(count <= 1 || iters <= 0)
+      return "BLOCK_BOOT*n=" + IntegerToString(count) + "*iters=0";
+
+   double boot[];
+   ArrayResize(boot, iters);
+
+   for(int it = 0; it < iters; it++)
+   {
+      double sum = 0.0;
+      int used = 0;
+      while(used < count)
+      {
+         double frac = DAL_M0001PseudoFraction(it, used, count + 333);
+         int start = (int)MathFloor(frac * count);
+         if(start < 0) start = 0;
+         if(start >= count) start = count - 1;
+
+         for(int b = 0; b < block && used < count; b++)
+         {
+            int idx = start + b;
+            if(idx >= count)
+               idx -= count;
+            sum += pairs[idx].delta_log;
+            used++;
+         }
+      }
+      boot[it] = sum / count;
+   }
+
+   ArraySort(boot);
+   double low = DAL_M0001NullPercentileSorted(boot, 0.025);
+   double high = DAL_M0001NullPercentileSorted(boot, 0.975);
+   double med = DAL_M0001NullPercentileSorted(boot, 0.50);
+
+   return "BLOCK_BOOT"
+      + "*n=" + IntegerToString(count)
+      + "*iters=" + IntegerToString(iters)
+      + "*blockPairs=" + IntegerToString(block)
+      + "*dMeanCI95=" + DAL_M0001Fmt4(low) + ".." + DAL_M0001Fmt4(high)
+      + "*bootMedian=" + DAL_M0001Fmt4(med);
+}
+
+bool DAL_M0001SimpleRandomLogAtHorizon(
+   const DALM0001PairedLogRtv &pair,
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index,
+   const int horizon,
+   double &log_rtv
+)
+{
+   log_rtv = 0.0;
+   if(horizon <= 0)
+      return false;
+
+   int min_entry = DAL_M0001IntMax(horizon, analysis_start_index);
+   int max_entry = bars_count - horizon;
+   if(max_entry < min_entry)
+      return false;
+
+   int span = max_entry - min_entry + 1;
+   double frac = DAL_M0001RandomFractionK(pair.event_id + 707, horizon, bars_count, horizon);
+   int random_entry = min_entry + (int)MathFloor(frac * span);
+   if(random_entry < min_entry)
+      random_entry = min_entry;
+   if(random_entry > max_entry)
+      random_entry = max_entry;
+
+   return DAL_M0001LogRtvAtEntryIndex(bars, bars_count, random_entry, horizon, log_rtv);
+}
+
+void DAL_M0001HorizonOne(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index,
+   const int horizon,
+   double &mean,
+   double &win,
+   int &n
+)
+{
+   mean = 0.0;
+   win = 0.0;
+   n = 0;
+   if(horizon <= 0)
+      return;
+
+   double deltas[];
+   ArrayResize(deltas, 0);
+   for(int i = 0; i < ArraySize(pairs); i++)
+   {
+      double node_h = 0.0;
+      if(!DAL_M0001LogRtvAtEntryIndex(bars, bars_count, pairs[i].entry_index, horizon, node_h))
+         continue;
+
+      double random_h = 0.0;
+      if(!DAL_M0001SimpleRandomLogAtHorizon(pairs[i], bars, bars_count, analysis_start_index, horizon, random_h))
+         continue;
+
+      int size = ArraySize(deltas);
+      ArrayResize(deltas, size + 1);
+      deltas[size] = node_h - random_h;
+   }
+
+   n = ArraySize(deltas);
+   mean = DAL_M0001MeanOfArray(deltas);
+   win = DAL_M0001WinPctOfArray(deltas);
+}
+
+string DAL_M0001HorizonStressText(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index,
+   const DALM0001RtvReportConfig &config
+)
+{
+   int hs[4];
+   hs[0] = config.horizon_bars_1;
+   hs[1] = config.horizon_bars_2;
+   hs[2] = config.horizon_bars_3;
+   hs[3] = config.horizon_bars_4;
+
+   string out = "HORIZON";
+   double best_mean = -DBL_MAX;
+   int best_h = 0;
+   double first_positive_mean = 0.0;
+   int first_positive_h = 0;
+
+   for(int i = 0; i < 4; i++)
+   {
+      int h = hs[i];
+      double mean = 0.0;
+      double win = 0.0;
+      int n = 0;
+      DAL_M0001HorizonOne(pairs, bars, bars_count, analysis_start_index, h, mean, win, n);
+      out += "*h" + IntegerToString(h) + "N=" + IntegerToString(n);
+      out += "*h" + IntegerToString(h) + "DLog=" + DAL_M0001Fmt4(mean);
+      out += "*h" + IntegerToString(h) + "Win=" + DAL_M0001FmtPct(win);
+
+      if(n > 0 && (best_h == 0 || mean > best_mean))
+      {
+         best_mean = mean;
+         best_h = h;
+      }
+      if(n > 0 && first_positive_h == 0 && mean > 0.0)
+      {
+         first_positive_h = h;
+         first_positive_mean = mean;
+      }
+   }
+
+   double half = best_mean * 0.5;
+   int half_life_h = 0;
+   if(best_h > 0)
+   {
+      for(int i = 0; i < 4; i++)
+      {
+         int h = hs[i];
+         double mean = 0.0;
+         double win = 0.0;
+         int n = 0;
+         DAL_M0001HorizonOne(pairs, bars, bars_count, analysis_start_index, h, mean, win, n);
+         if(n > 0 && h >= best_h && mean <= half)
+         {
+            half_life_h = h;
+            break;
+         }
+      }
+   }
+
+   out += "*peakH=" + IntegerToString(best_h);
+   out += "*peakDLog=" + DAL_M0001Fmt4(best_mean == -DBL_MAX ? 0.0 : best_mean);
+   out += "*halfLifeH=" + IntegerToString(half_life_h);
+   out += "*firstPositiveH=" + IntegerToString(first_positive_h);
+   out += "*firstPositiveDLog=" + DAL_M0001Fmt4(first_positive_mean);
+   return out;
+}
+
+string DAL_M0001NegativeControlText(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const int analysis_start_index
+)
+{
+   int count = ArraySize(pairs);
+   if(count <= 0)
+      return "NEG_CONTROL*n=0";
+
+   double deltas[];
+   ArrayResize(deltas, 0);
+
+   for(int i = 0; i < count; i++)
+   {
+      int n = pairs[i].sample_length;
+      int min_entry = DAL_M0001IntMax(n, analysis_start_index);
+      int max_entry = bars_count - n;
+      if(max_entry < min_entry)
+         continue;
+
+      int span = max_entry - min_entry + 1;
+      double f1 = DAL_M0001RandomFractionK(pairs[i].event_id + 1111, n, bars_count, 1);
+      double f2 = DAL_M0001RandomFractionK(pairs[i].event_id + 2222, n, bars_count, 2);
+      int e1 = min_entry + (int)MathFloor(f1 * span);
+      int e2 = min_entry + (int)MathFloor(f2 * span);
+      if(e1 < min_entry) e1 = min_entry;
+      if(e1 > max_entry) e1 = max_entry;
+      if(e2 < min_entry) e2 = min_entry;
+      if(e2 > max_entry) e2 = max_entry;
+
+      double l1 = 0.0;
+      double l2 = 0.0;
+      if(!DAL_M0001LogRtvAtEntryIndex(bars, bars_count, e1, n, l1))
+         continue;
+      if(!DAL_M0001LogRtvAtEntryIndex(bars, bars_count, e2, n, l2))
+         continue;
+
+      int size = ArraySize(deltas);
+      ArrayResize(deltas, size + 1);
+      deltas[size] = l1 - l2;
+   }
+
+   return DAL_M0001CompactDeltaSummary("NEG_CONTROL_RANDOM_VS_RANDOM", deltas)
+      + "*expectedMeanNearZero=1";
+}
+
+void DAL_M0001PrintStressSuiteReports(
+   const DALM0001PairedLogRtv &pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const string symbol,
+   const string timeframe,
+   const string source_mode,
+   const int events_count,
+   const datetime min_entry_time,
+   const DALM0001RtvReportConfig &report_config
+)
+{
+   if(!report_config.run_stress_suite)
+      return;
+
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_STRESS_NULLS", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001HardMatchedNullText(pairs, bars, bars_count, analysis_start_index, report_config));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_PLACEBO", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001PlaceboText(pairs, bars, bars_count, report_config.placebo_shift_bars));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_OUTLIER_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001OutlierStressText(pairs));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_NONOVERLAP", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001NonOverlapText(pairs, report_config.nonoverlap_gap_bars));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_CLUSTER_ROBUST", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001ClusterRobustText(pairs));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_BLOCK_BOOT", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001BlockBootstrapText(pairs, report_config.block_bootstrap_iterations, report_config.block_bootstrap_block_pairs));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_HORIZON", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001HorizonStressText(pairs, bars, bars_count, analysis_start_index, report_config));
+
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_NEGATIVE_CONTROL", symbol, timeframe, source_mode, events_count, min_entry_time),
+      DAL_M0001NegativeControlText(pairs, bars, bars_count, analysis_start_index));
+}
+
 
 string DAL_M0001FinalLinePrefix(
    const string tag,
@@ -1476,7 +2513,7 @@ void DAL_M0001PrintFinalNodeRandomReports(
    if(random_k <= 0)
       random_k = 1;
 
-   DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, min_entry_time, random_k, pairs, node_logs, random_logs, audit);
+   DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, min_entry_time, random_k, report_config.broker_utc_offset_hours, report_config.regime_lookback_bars, pairs, node_logs, random_logs, audit);
 
    DALM0001LogRtvStats node_stats;
    DALM0001LogRtvStats random_stats;
@@ -1494,8 +2531,10 @@ void DAL_M0001PrintFinalNodeRandomReports(
    Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_COMPARE", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001ComparisonCompactText(cmp));
    Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_QUANT_TAIL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001QuantileTailText(cmp));
    Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_ROBUST", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001RobustnessText(rob));
-   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_SESSION_REGIME", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001SessionRegimeText(pairs, random_logs));
+   Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_SESSION_REGIME", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001SessionRegimeText(pairs, report_config.broker_utc_offset_hours));
    Print(DAL_M0001FinalLinePrefix("DAL_M0001_FINAL_AUDIT", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0001IntegrityAuditText(audit, random_k, report_config.print_histogram, min_entry_time));
+
+   DAL_M0001PrintStressSuiteReports(pairs, bars, bars_count, symbol, timeframe, source_mode, events_count, min_entry_time, report_config);
 
    if(report_config.print_histogram)
    {
@@ -1517,7 +2556,7 @@ string DAL_M0001LogRtvNullSignature(
    double node_logs[];
    double random_logs[];
    DALM0001IntegrityAudit audit;
-   DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, min_entry_time, report_config.random_samples_per_event, pairs, node_logs, random_logs, audit);
+   DAL_M0001CollectPairedLogRtvs(events, events_count, bars, bars_count, min_entry_time, report_config.random_samples_per_event, report_config.broker_utc_offset_hours, report_config.regime_lookback_bars, pairs, node_logs, random_logs, audit);
 
    DALM0001LogRtvStats node_stats;
    DALM0001LogRtvStats random_stats;
