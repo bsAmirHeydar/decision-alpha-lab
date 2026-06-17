@@ -1,53 +1,80 @@
 # M0001 Fast Final-Only Runtime
 
-## Purpose
+Version: 1.59
 
-The EA no longer recomputes nodes, events, audit states, distribution statistics,
-or redraws all chart objects on every closed bar by default.
+The fast default keeps the research loop light while preserving the final chart drawings.
 
-The default research mode is now:
+## Default inputs
 
 ```text
 InpRuntimeVisuals = false
+InpDrawFinalVisuals = true
+InpKeepVisualsOnDeinit = true
 ```
 
-In this mode the EA only appends new closed bars to the in-memory live stream.
-It computes the node/random LogRTV research result once, at `OnDeinit`, after the
-backtest/expert run completes.
+## What happens during the run
 
-## Why this is faster
-
-The expensive path was:
+On each intra-candle tick:
 
 ```text
-every new bar -> detect all nodes -> recompute all events -> recompute audit states -> delete/redraw chart objects
+return
 ```
 
-That path is now disabled unless `InpRuntimeVisuals=true`.
-
-## Warmup behavior
-
-`InpWarmupHistoricalBars` still seeds older closed bars before the analysis
-period. Final reports filter node events by `analysis_start`, so warmup data can
-build historical node memory without contaminating the research sample.
-
-## Timer
-
-The millisecond timer is disabled by default:
+When a new candle opens:
 
 ```text
-DAL_M0001_TIMER_MS = 0
+append previous closed candle once
 ```
 
-The stream appends new closed bars from `OnTick`, which is sufficient for
-Strategy Tester and removes redundant timer checks.
+No heavy full-history recomputation happens during the run when `InpRuntimeVisuals=false`.
 
-## .venv
+## What happens at shutdown
 
-No `.venv` directory is required for the MQL-native branch. `.venv/` and `venv/`
-are ignored in `.gitignore`; remove local virtual environments manually if they
-exist in your working tree.
+`OnDeinit` computes the complete state once:
 
-## Version
+```text
+bars -> structural nodes -> M0001 events -> audit states
+```
 
-`M0001_LiveVisualLab.mq5` version: `1.57`.
+The same computed arrays are used for:
+
+1. final `DAL_M0001_FINAL_NODES` report,
+2. final `DAL_M0001_FINAL_RANDOM` report,
+3. final restored chart drawings.
+
+This avoids duplicate logic and prevents drift between the final report and the chart.
+
+## What is restored visually
+
+- structural node arrows,
+- local node price labels,
+- live/revisited/consumed zones,
+- true revisit labels,
+- pending/live/revisited/consumed state labels,
+- consumed markers,
+- optional event boxes through `InpShowEvents`,
+- optional final RTV labels through `InpShowRTV`,
+- optional extreme audit links through `InpShowExtremes`,
+- final summary label.
+
+Objects are kept after test finish when:
+
+```text
+InpKeepVisualsOnDeinit = true
+```
+
+## What did not change
+
+This optimization does not change the research semantics:
+
+- confirmed L-rule node definition,
+- active-from timing,
+- territory formula,
+- frozen event geometry,
+- strict exit-gap confirmation,
+- HUNT priority,
+- TOUCH/HUNT consumption,
+- revisit IDs,
+- revisited-live extreme reset,
+- RTV/logRTV sample construction,
+- matched random baseline.

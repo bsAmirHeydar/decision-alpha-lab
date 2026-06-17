@@ -3,7 +3,7 @@
 //| Python-free runtime. MQL5 is the source of truth.                |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.58"
+#property version   "1.59"
 #property description "M0001 native MQL5 structural node and RTV visual lab"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -28,11 +28,14 @@ input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 input bool InpShowNodes = true;
 input bool InpShowZones = true;
 input bool InpShowRevisits = true;
+input bool InpShowEvents = false;        // optional frozen event boxes; off for a clean chart
 input bool InpShowRTV = false;
 input bool InpShowState = true;
 input bool InpShowExtremes = false;
 input bool InpShowSummary = true;
-input bool InpRuntimeVisuals = false;        // false = fastest final-only research run
+input bool InpRuntimeVisuals = false;        // true = redraw on each closed candle; false = final-only fast mode
+input bool InpDrawFinalVisuals = true;         // draw the final audited chart state once at the end
+input bool InpKeepVisualsOnDeinit = true;      // keep final chart objects after the test finishes
 
 // Internal defaults kept out of the Inputs panel.
 #define DAL_M0001_OBJECT_PREFIX "DAL_MQL_M0001_"
@@ -188,7 +191,7 @@ void BuildVisualConfig(DALM0001VisualConfig &visual)
    // Use DAL_M0001_SHOW_NODE_PRICES for local text labels above/below node markers.
    visual.show_node_price_lines = false;
    visual.show_active_from = DAL_M0001_SHOW_ACTIVE_FROM;
-   visual.show_events = DAL_M0001_SHOW_EVENTS;
+   visual.show_events = InpShowEvents;
    visual.show_rtv_labels = InpShowRTV;
    visual.show_revisit_labels = InpShowRevisits;
    visual.show_node_state_labels = InpShowState;
@@ -244,34 +247,26 @@ void DAL_M0001UpdateRuntimeComment(
       "warmup_bars=", InpWarmupHistoricalBars,
       "  analysis_start=", start_text, "\n",
       "runtime_visuals=", (InpRuntimeVisuals ? "on" : "off"),
-      "  final node/random logRTV report prints once on deinit"
+      "  final_visuals=", (InpDrawFinalVisuals ? "on" : "off"),
+      "  keep_visuals=", (InpKeepVisualsOnDeinit ? "on" : "off"), "\n",
+      "final node/random logRTV report prints once on deinit"
    );
 }
 
 
-void RunM0001FromBars(
+void DAL_M0001DrawComputedState(
    const DALBar &bars[],
    const int bars_count,
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const DALM0001Event &events[],
+   const int events_count,
+   const DALM0001NodeAuditState &audit_states[],
+   const int audit_states_count,
+   const DALM0001Config &config,
    const string source_mode
 )
 {
-   if(bars_count <= 0)
-      return;
-
-   DALM0001Config config;
-   BuildConfig(config);
-
-   DALLRuleNode nodes[];
-   int nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
-
-   DALM0001Event events[];
-   int events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
-
-   DALM0001NodeAuditState audit_states[];
-   int audit_states_count = DAL_M0001ComputeNodeAuditStates(bars, bars_count, nodes, nodes_count, config, audit_states);
-
-   DAL_M0001UpdateRuntimeComment(bars_count, nodes_count, events_count, audit_states_count, source_mode);
-
    DALM0001VisualConfig visual;
    BuildVisualConfig(visual);
 
@@ -287,6 +282,69 @@ void RunM0001FromBars(
       DAL_M0001DrawSummary(DAL_M0001_OBJECT_PREFIX, bars_count, nodes_count, events_count, audit_states_count, config, visual, nodes);
 
    ChartRedraw(0);
+}
+
+void DAL_M0001ComputeState(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALM0001Config &config,
+   DALLRuleNode &nodes[],
+   int &nodes_count,
+   DALM0001Event &events[],
+   int &events_count,
+   DALM0001NodeAuditState &audit_states[],
+   int &audit_states_count
+)
+{
+   ArrayResize(nodes, 0);
+   ArrayResize(events, 0);
+   ArrayResize(audit_states, 0);
+
+   nodes_count = 0;
+   events_count = 0;
+   audit_states_count = 0;
+
+   if(bars_count <= 0)
+      return;
+
+   nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
+   events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
+   audit_states_count = DAL_M0001ComputeNodeAuditStates(bars, bars_count, nodes, nodes_count, config, audit_states);
+}
+
+void RunM0001FromBars(
+   const DALBar &bars[],
+   const int bars_count,
+   const string source_mode
+)
+{
+   if(bars_count <= 0)
+      return;
+
+   DALM0001Config config;
+   BuildConfig(config);
+
+   DALLRuleNode nodes[];
+   DALM0001Event events[];
+   DALM0001NodeAuditState audit_states[];
+   int nodes_count = 0;
+   int events_count = 0;
+   int audit_states_count = 0;
+
+   DAL_M0001ComputeState(
+      bars,
+      bars_count,
+      config,
+      nodes,
+      nodes_count,
+      events,
+      events_count,
+      audit_states,
+      audit_states_count
+   );
+
+   DAL_M0001UpdateRuntimeComment(bars_count, nodes_count, events_count, audit_states_count, source_mode);
+   DAL_M0001DrawComputedState(bars, bars_count, nodes, nodes_count, events, events_count, audit_states, audit_states_count, config, source_mode);
 
    if(DAL_M0001_PRINT_RUN_STATUS)
    {
@@ -375,10 +433,28 @@ void DAL_M0001PrintFinalReportsFromBars(
    BuildConfig(config);
 
    DALLRuleNode nodes[];
-   int nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
-
    DALM0001Event events[];
-   int events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
+   DALM0001NodeAuditState audit_states[];
+   int nodes_count = 0;
+   int events_count = 0;
+   int audit_states_count = 0;
+
+   // Final-only mode computes the full research state exactly once here.
+   // The same computed arrays feed both the final statistics and the restored
+   // chart drawings, so final visuals cannot drift from the final report.
+   DAL_M0001ComputeState(
+      bars,
+      bars_count,
+      config,
+      nodes,
+      nodes_count,
+      events,
+      events_count,
+      audit_states,
+      audit_states_count
+   );
+
+   DAL_M0001UpdateRuntimeComment(bars_count, nodes_count, events_count, audit_states_count, source_mode);
 
    DAL_M0001PrintFinalNodeRandomReports(
       events,
@@ -390,6 +466,9 @@ void DAL_M0001PrintFinalReportsFromBars(
       source_mode,
       g_analysis_start_time
    );
+
+   if(InpDrawFinalVisuals)
+      DAL_M0001DrawComputedState(bars, bars_count, nodes, nodes_count, events, events_count, audit_states, audit_states_count, config, "final_visual_state");
 }
 
 void DAL_M0001PrintFinalReports()
@@ -454,10 +533,12 @@ void OnDeinit(const int reason)
    DAL_M0001PrintFinalReports();
 
    EventKillTimer();
-   Comment("");
 
-   if(InpRuntimeVisuals)
+   if(!InpKeepVisualsOnDeinit)
+   {
       DAL_DeleteM0001VisualArtifacts(DAL_M0001_OBJECT_PREFIX);
+      Comment("");
+   }
 }
 
 void OnTick()

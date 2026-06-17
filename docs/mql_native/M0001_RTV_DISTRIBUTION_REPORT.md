@@ -1,80 +1,40 @@
-# M0001 RTV Distribution Report
+# M0001 RTV Distribution Report — Retired Module Note
 
-## Purpose
+This document describes the older verbose distribution-report phase from version `1.53`.
 
-This module proves whether final RTV values have a fat-tailed distribution and
-how far they are from a fitted normal distribution.
-
-The report uses only final ready events:
-
-```text
-event.closed == true
-event.rtv_ready == true
-event.rtv > 0
-```
-
-Unfinished events and `RTV n/a` values are excluded.
-
-## New module
+The active runtime no longer includes:
 
 ```text
 mql5/Include/DecisionAlphaLab/M0001/DAL_M0001RtvDistribution.mqh
 ```
 
-## Journal report
-
-The EA prints one copyable text report to the Strategy Tester Journal whenever
-the ready RTV distribution changes.
-
-Markers:
+The current active report is the compact final-only node-vs-random logRTV report:
 
 ```text
-DAL_M0001_RTV_DISTRIBUTION_REPORT_BEGIN
-...
-DAL_M0001_RTV_DISTRIBUTION_REPORT_END
+DAL_M0001_FINAL_NODES
+DAL_M0001_FINAL_RANDOM
 ```
 
-## Distribution metrics
-
-The report includes:
+The active statistical module is:
 
 ```text
-mean
-median
-min
-max
-range
-variance
-stdev
-sample_variance
-sample_stdev
-coefficient_of_variation
-p01/p05/p10/p25/p50/p75/p90/p95/p99
-IQR
-MAD
-robust_sigma_mad
-stdev_to_robust_sigma
-skewness
-excess_kurtosis
-Jarque-Bera statistic
-Kolmogorov-Smirnov distance to fitted normal
-Anderson-Darling statistic to fitted normal
-2-sigma and 3-sigma tail percentages
-tail ratios against normal expectations
-right/left tail asymmetry
-normal percentile-width tail ratios
+mql5/Include/DecisionAlphaLab/M0001/DAL_M0001RtvNullComparison.mqh
 ```
 
-## Histogram
+It still preserves the important distribution logic in compact form:
 
-The report also prints a tab-separated histogram:
+- raw RTV mean/median/percentiles,
+- logRTV mean/median,
+- positive logRTV percentage,
+- skewness,
+- excess kurtosis,
+- Jarque-Bera statistic,
+- KS distance to fitted normal,
+- tail ratios,
+- node-vs-random paired comparison.
+
+For current semantics, use:
 
 ```text
-histogram_bin    from    to    count    pct    bar
+docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md
 ```
-
-This can be copied directly into Excel or parsed in Python.
-
-## Version
-
-`M0001_LiveVisualLab.mq5` version: `1.53`.

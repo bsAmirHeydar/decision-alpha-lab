@@ -1,39 +1,61 @@
 # M0001 Candle-Gated Runtime
 
-Version: 1.58
+Version: 1.59
 
-This update keeps the research engine candle-based rather than tick-based.
+M0001 is still an Expert Advisor, so MetaTrader wakes it through `OnTick()`. The research engine itself is not tick-based.
 
-## What changed
-
-- `OnTick()` no longer runs append, node detection, event computation, audit-state computation, or chart redraw on every tick.
-- A candle clock tracks the current open candle time.
-- The EA returns immediately while the current candle is unchanged.
-- Work is triggered only when a new candle opens, which means the previous candle has closed.
-- The timer remains disabled by default, but if it is enabled in the future it uses the same candle gate.
-
-## What did not change
-
-The research semantics are unchanged:
-
-- structural-node definition
-- `active_from = node_index + L`
-- territory formula
-- touch / exit-gap confirmation
-- HUNT / TOUCH consumption semantics
-- revisit semantics
-- RTV and logRTV definition
-- random baseline comparison
-- final-only node/random reporting
-
-## Why this matters
-
-MetaTrader Expert Advisors receive `OnTick()` events, but this version uses them only as a lightweight notification source. No heavy research logic runs intra-candle.
-
-The runtime behavior is now:
+## Runtime behavior
 
 ```text
 intra-candle tick -> return immediately
-new candle opens -> append previous closed candle once
-shutdown -> compute final node/random statistics once
+new candle opens -> append the previous closed candle once
+OnDeinit -> compute full final state once
 ```
+
+The timer is disabled by default:
+
+```text
+DAL_M0001_TIMER_MS = 0
+```
+
+If a timer is enabled later, it must pass through the same candle gate.
+
+## Fast default
+
+The optimized default is:
+
+```text
+InpRuntimeVisuals = false
+InpDrawFinalVisuals = true
+InpKeepVisualsOnDeinit = true
+```
+
+This keeps runtime light while restoring final chart drawings. During the run the EA appends closed candles only. At shutdown, the same final computed state is used for both:
+
+- `DAL_M0001_FINAL_NODES` / `DAL_M0001_FINAL_RANDOM`
+- final node, zone, revisit, state, and optional RTV/event drawings
+
+## Visual replay mode
+
+For step-by-step visual debugging:
+
+```text
+InpRuntimeVisuals = true
+```
+
+This recomputes and redraws on each newly closed candle only. It never runs heavy logic on intra-candle ticks, but it is intentionally slower than final-only mode.
+
+## Semantics unchanged
+
+The candle gate does not change:
+
+- structural-node definition,
+- `active_from = node_index + L`,
+- territory formula,
+- HUNT priority,
+- exit-gap confirmation,
+- TOUCH/HUNT consumption modes,
+- revisit memory,
+- revisited-live extreme reset,
+- RTV/logRTV,
+- matched random baseline.

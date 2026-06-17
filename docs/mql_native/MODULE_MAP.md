@@ -1,15 +1,31 @@
 # MQL Module Map
 
+Version: 1.59
+
 | Module | Purpose |
 |---|---|
 | `Common/DAL_Common.mqh` | shared enums and small helpers |
-| `Common/DAL_Math.mqh` | log range, safe division, zone intersection |
-| `Common/DAL_ChartObjects.mqh` | visual object utilities |
+| `Common/DAL_Math.mqh` | log range, safe division, high/low zone intersection |
+| `Common/DAL_ChartObjects.mqh` | chart object creation, deletion, arrows, rectangles, labels |
 | `Market/DAL_Bars.mqh` | MT5 candle loading in chronological order |
-| `StructuralNodes/LRule/DAL_LRuleTypes.mqh` | L-rule node data model |
-| `StructuralNodes/LRule/DAL_LRuleDetector.mqh` | confirmed-only L-rule detector |
-| `M0001/DAL_M0001Config.mqh` | metric parameters |
-| `M0001/DAL_M0001Types.mqh` | RTV event model |
-| `M0001/DAL_M0001Engine.mqh` | M0001 event construction |
-| `M0001/DAL_M0001Visual.mqh` | chart visualization |
-| `Research/DAL_ValidationJournal.mqh` | CSV audit exports from MQL |
+| `Market/DAL_LiveBarStream.mqh` | warmup seeding and append-latest-closed-candle stream |
+| `StructuralNodes/LRule/DAL_LRuleTypes.mqh` | confirmed L-rule node data model |
+| `StructuralNodes/LRule/DAL_LRuleDetector.mqh` | left/right L-rule HIGH/LOW detector |
+| `StructuralNodes/DAL_StructuralNodeEngine.mqh` | stable facade for confirmed structural nodes |
+| `M0001/DAL_M0001Config.mqh` | M0001 parameters and consume-mode helpers |
+| `M0001/DAL_M0001Types.mqh` | final event model and RTV fields |
+| `M0001/DAL_M0001Engine.mqh` | event lifecycle, frozen event geometry, RTV/log-range samples |
+| `M0001/DAL_M0001AuditState.mqh` | per-node final visual/audit state, live/revisited/consumed state |
+| `M0001/DAL_M0001Visual.mqh` | restored final chart drawings: nodes, zones, revisits, state, optional events/RTV |
+| `M0001/DAL_M0001RtvNullComparison.mqh` | final-only node-vs-random logRTV distribution and comparison report |
+| `Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5` | EA entry point, candle gate, warmup, final reports, final visuals |
+
+Removed legacy layers are intentionally not part of the active runtime:
+
+```text
+Excel export layer
+JSON report layer
+old validation-journal script
+old verbose distribution module
+Python/UI bridge runtime
+```

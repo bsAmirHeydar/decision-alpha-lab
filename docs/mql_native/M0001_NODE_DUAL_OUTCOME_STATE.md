@@ -1,11 +1,10 @@
 # M0001 Node Dual Outcome State
 
+Version: active semantics preserved in 1.59
+
 ## Purpose
 
-Every node now stores TOUCH and HUNT information independently of the selected
-consumption model.
-
-The consumption model only decides when a node becomes inactive.
+Every node stores TOUCH and HUNT information independently of the selected consumption model. The consumption model decides when a node becomes inactive.
 
 ## Stored on each audit state
 
@@ -19,6 +18,12 @@ hunt_time
 consumed
 consumed_time
 consume_reason
+pending_touch
+pending_touch_revisit_id
+confirmed_touch_count
+next_revisit_id
+revisited_live
+fresh_live
 ```
 
 ## Logic
@@ -26,16 +31,16 @@ consume_reason
 A zone touch starts only a pending touch event:
 
 ```text
-zone touch -> touch_started=true
+zone touch -> pending_touch=true
 ```
 
-The touch is confirmed only if the event exits cleanly:
+The touch is confirmed only after strict exit-gap closure:
 
 ```text
 outside_count >= InpExitGap -> touch_confirmed=true
 ```
 
-If the node breaks before touch confirmation:
+If the node price breaks before touch confirmation:
 
 ```text
 LOW  node: bar.low  < node_price -> hunted=true
@@ -56,22 +61,12 @@ hunt before confirmation -> consumed by HUNT
 In HUNT mode:
 
 ```text
-confirmed touch -> stored only, node remains active
+confirmed touch -> stored as node memory, node remains active
 hunt -> consumed by HUNT
 ```
 
 Once a node is consumed, no further candles are scanned for that node.
 
-## Journal
+## Reporting
 
-When `InpWriteValidationJournal=true`, a new file is written:
-
-```text
-<symbol>_M0001_node_audit_states.csv
-```
-
-This file stores the node-level touch/hunt/consume state.
-
-## Version
-
-`M0001_LiveVisualLab.mq5` version: `1.32`.
+The old validation-journal CSV writer is retired. Current audit state is used for final chart drawings and final compact node-vs-random logRTV reports.
