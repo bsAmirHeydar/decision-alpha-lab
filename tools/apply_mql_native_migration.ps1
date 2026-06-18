@@ -40,4 +40,4 @@ if ($TerminalDataPath -ne "") {
     Copy-Item -Path ".\mql5\Scripts\*" -Destination (Join-Path $mqlRoot "Scripts") -Recurse -Force
 }
 
-Write-Host "Done. Compile: MQL5\Experts\DecisionAlphaLab\M0001\M0001_LiveVisualLab.mq5"
+Write-Host "Done. Compile: MQL5\Experts\DecisionAlphaLab\M0001\M0001_LiveVisualLab.mq5 or MQL5\Experts\DecisionAlphaLab\M0002\M0002_ReversalContinuationExitVolatility.mq5"

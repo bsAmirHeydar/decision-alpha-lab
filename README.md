@@ -317,3 +317,30 @@ See `docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md`.
 The MQL-native M0001 engine includes a final-only stress validation suite for hard matched nulls, placebo shifts, outlier removal, non-overlap events, cluster-robust diagnostics, block bootstrap, fixed-horizon stress, and negative controls. See:
 
 - `docs/mql_native/M0001_STRESS_VALIDATION_SUITE.md`
+
+## M0002 reversal/continuation post-exit volatility hypothesis
+
+The second active MQL-native hypothesis is separated into its own module and central Expert Advisor:
+
+```text
+MQL5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
+```
+
+M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but builds its own neutral completed-exit event sample. It does not import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
+
+```text
+LOW / valley node: close above node => REVERSAL_AFTER_EXIT; close below node => CONTINUATION_AFTER_EXIT
+HIGH / peak node: close below node => REVERSAL_AFTER_EXIT; close above node => CONTINUATION_AFTER_EXIT
+```
+
+It prints final-only branch reports once on deinit:
+
+```text
+DAL_M0002_FINAL_REVERSAL_AFTER_EXIT
+DAL_M0002_FINAL_CONTINUATION_AFTER_EXIT
+DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION
+```
+
+The goal is to test whether post-exit volatility expansion is concentrated in the reversal branch, concentrated in the continuation branch, or mixed across both branches.
+
+See `docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md`.

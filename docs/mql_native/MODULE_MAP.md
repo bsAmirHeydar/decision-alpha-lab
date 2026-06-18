@@ -1,6 +1,6 @@
 # MQL Module Map
 
-Version: 1.59
+Version: 1.64
 
 | Module | Purpose |
 |---|---|
@@ -19,6 +19,10 @@ Version: 1.59
 | `M0001/DAL_M0001Visual.mqh` | restored final chart drawings: nodes, zones, revisits, state, optional events/RTV |
 | `M0001/DAL_M0001RtvNullComparison.mqh` | final-only node-vs-random logRTV distribution and comparison report |
 | `Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5` | EA entry point, candle gate, warmup, final reports, final visuals |
+| `M0002/DAL_M0002Types.mqh` | M0002 branch outcome model: REVERSAL_AFTER_EXIT vs CONTINUATION_AFTER_EXIT |
+| `M0002/DAL_M0002Engine.mqh` | builds neutral completed-exit events without hunt/touch consumption filtering, then creates post-exit branch samples |
+| `M0002/DAL_M0002Reports.mqh` | prints branch-vs-random and REVERSAL-vs-CONTINUATION final reports |
+| `Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5` | H0002/M0002 EA entry point with candle-gated final-only reports |
 
 Removed legacy layers are intentionally not part of the active runtime:
 
@@ -35,3 +39,9 @@ Python/UI bridge runtime
 The M0001 MQL-native engine now includes a final-only professional validation layer: compact NODES/RANDOM reports, explicit effect-size metrics, paired validation, bootstrap confidence intervals, sign-flip permutation p-values, distribution-distance metrics, quantile/tail metrics, chronological split-stability metrics, optional parameter robustness, and an integrity audit. Histograms are optional (`InpPrintHistogram=false` by default) so Journal lines no longer truncate the core `COMPARE` metrics.
 
 See `docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md`.
+
+## v1.64 M0002 Neutral Reversal/Continuation Branch Lab
+
+M0002 is isolated from M0001 at the EA and include-folder level. It reuses M0001 structural-node, territory, log-range, and reporting modules, but builds its own neutral completed-exit events so H0002 is not biased by M0001 hunt/touch consumption semantics. It answers whether post-exit volatility is concentrated after reversal relative to the original node price, after continuation through the node side, or mixed across both branches.
+
+See `docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md`.
