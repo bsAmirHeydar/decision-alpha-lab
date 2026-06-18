@@ -1,14 +1,16 @@
 # M0002 — Reversal vs Continuation After Exit Volatility
 
-Version: 1.64
+Version: 1.66
 
-M0002 tests the second hypothesis in a separate MQL-native module. It reuses M0001 structural-node extraction, territory geometry, log-range math, and validation/reporting utilities, but it now builds its own neutral completed-exit events so hunt/touch consumption cannot pre-filter reversal or continuation outcomes.
+M0002 tests the second hypothesis in a separate MQL-native module. It reuses M0001 structural-node extraction, territory geometry, log-range math, random-baseline logic, and validation/reporting utilities. It has its own neutral completed-exit event builder so M0001 hunt/touch/consume semantics cannot pre-filter the branch sample.
 
 ## Central Expert Advisor
 
 ```text
 mql5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
 ```
+
+`M0002_HuntRejectExitVolatility.mq5` remains only as a deprecated compatibility filename and now runs the same reversal/continuation logic.
 
 ## Include stack
 
@@ -20,9 +22,24 @@ mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Reports.mqh
 
 ## Core hypothesis
 
-After a structural-node territory touch has completed its strict `exit_gap` window outside the frozen event zone, the next state is classified only by the completed-exit candle side relative to the original node price. The question is whether post-exit volatility expansion is concentrated more in reversal branches, continuation branches, or mixed across both.
+After a structural-node territory touch has completed its strict `exit_gap` window outside the frozen event zone, the completed event is classified only by the completed-exit candle side relative to the original node price. The question is whether the **same M0001 event-window RTV** is more concentrated in reversal outcomes, continuation outcomes, or mixed across both.
 
-This module does **not** classify by later hunt / non-hunt and it does **not** discard candidate events because the node price was crossed before exit completion. The branch is decided immediately at the completed exit window.
+This module does **not** classify by hunt / non-hunt and it does **not** discard candidate events because the node price was crossed before exit completion. The branch is decided immediately at the completed exit window.
+
+## Neutral event construction
+
+H0002 must not import M0001 finalized/hunt-consumed events as its research sample, because M0001 hunt/consume semantics can remove continuation cases before the reversal/continuation split. Instead M0002 builds neutral completed-exit events:
+
+```text
+1. Detect structural nodes with the same L-rule as M0001.
+2. Build live/frozen territories with the same M0001 territory formula.
+3. Start an event at the first candle that intersects the live territory.
+4. Freeze that event zone.
+5. Ignore hunt/touch consumption while the event is pending.
+6. Wait for exit_gap consecutive candles fully outside the frozen event zone.
+7. At the completed-exit candle, classify close vs node_price.
+8. Measure the original M0001 event-window RTV by branch.
+```
 
 ## Branch rules
 
@@ -44,35 +61,42 @@ close[outcome_index] > node_price => CONTINUATION_AFTER_EXIT
 
 If the close is exactly equal to the node price, the outcome is `UNKNOWN` and is excluded from branch measurement.
 
-## Measurement window
+## Primary measurement window
 
-The branch volatility sample starts after the classification candle:
-
-```text
-sample_start = outcome_index + 1
-```
-
-The measured branch RTV is:
+Default measurement mode:
 
 ```text
-branchRTV = mean(abs(log(high / low))) over post-outcome sample / mean(abs(log(high / low))) over pre-entry baseline
-branchLog = log(branchRTV)
+InpMeasureMode = DAL_M0002_MEASURE_EVENT_RTV
 ```
 
-The baseline is still before the original event entry:
+In this mode, M0002 does **not** measure a new fixed window after the outcome candle. It measures the exact same event-window RTV used by H0001/M0001, then splits those completed events by the reversal/continuation label:
 
 ```text
-baseline_start = entry_index - sample_length
+eventRTV = mean(abs(log(high / low))) from event entry through rtv_inside_end
+         / mean(abs(log(high / low))) over the equal-length pre-entry baseline
+
+branchLog = log(eventRTV)
 ```
 
-This preserves the same anti-lookahead principle as M0001.
+The final `exit_gap` outside-zone confirmation candles are excluded from the inside sample, exactly as in M0001. The branch label is an outcome classifier only; it must not change the measured event window.
+
+## Optional diagnostic mode
+
+Optional only:
+
+```text
+InpMeasureMode = DAL_M0002_MEASURE_POST_OUTCOME_FIXED
+```
+
+This measures a fixed future window after the outcome candle. It is useful for diagnostics, but it is not the primary H0002 metric.
 
 ## Inputs
 
 ```text
+InpMeasureMode = DAL_M0002_MEASURE_EVENT_RTV
 InpOutcomeCandleOffsetAfterExit = 0
-InpPostOutcomeSampleBars = 20
-InpUseEventLengthForSample = false
+InpPostOutcomeSampleBars = 20        # only used in POST_OUTCOME_FIXED mode
+InpUseEventLengthForSample = false   # only used in POST_OUTCOME_FIXED mode
 InpRandomSamplesPerEvent = 20
 InpBrokerUtcOffsetHours = 0
 InpRegimeLookbackBars = 100
@@ -97,28 +121,20 @@ DAL_M0002_FINAL_CONTINUATION_AFTER_EXIT_SESSION_REGIME
 DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION
 ```
 
-Positive `DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION*dLogMean` means the reversal branch is more volatile than the continuation branch. Negative means continuation is more volatile. Near zero means the volatility expansion is mixed rather than concentrated in one branch.
+Positive `DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION*dLogMean` means the M0001-native event RTV is higher in reversal outcomes. Negative means it is higher in continuation outcomes. Near zero means the volatility expansion is mixed rather than concentrated in one branch.
 
-## Logic lock
 
-M0002 keeps M0001 unchanged, but does **not** consume M0001 finalized/touch-confirmed events as its research sample. That caused selection bias because M0001 hunt/consume semantics can remove continuation candidates before branch classification.
+## v1.67 EVENT_RTV lock
 
-M0002 now builds neutral completed-exit events:
+H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed neutral exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
+
+Expected audit markers:
 
 ```text
-1. Detect structural nodes with the same L-rule as M0001.
-2. Build live/frozen territories with the same M0001 territory formula.
-3. Start an event at the first candle that intersects the live territory.
-4. Freeze that event zone.
-5. Ignore hunt/touch consumption while the event is pending.
-6. Wait for exit_gap consecutive candles fully outside the frozen event zone.
-7. At the completed-exit candle, classify close vs node_price.
-8. Measure future post-outcome volatility by branch.
+measureMode=EVENT_RTV
+sampleWindow=m0001EventRtv
+eventRtvMode=<paired_count>
+postOutcomeMode=0
 ```
 
-Only after this neutral exit-completion sample is built does M0002 run reversal/continuation statistics and random baselines.
-
-
-## Compatibility filename
-
-`M0002_HuntRejectExitVolatility.mq5` is kept as a deprecated compatibility entry point only. It now contains the same neutral exit reversal/continuation logic as `M0002_ReversalContinuationExitVolatility.mq5` so old MetaEditor tabs do not fail with removed hunt/reject input names. Prefer compiling `M0002_ReversalContinuationExitVolatility.mq5`.
+If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, or `useEventLength=0` without `measureMode=EVENT_RTV`, it is from an old build and should not be used for H0002 conclusions.

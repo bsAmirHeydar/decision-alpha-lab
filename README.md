@@ -317,6 +317,7 @@ See `docs/mql_native/M0001_PROFESSIONAL_VALIDATION_METRICS.md`.
 The MQL-native M0001 engine includes a final-only stress validation suite for hard matched nulls, placebo shifts, outlier removal, non-overlap events, cluster-robust diagnostics, block bootstrap, fixed-horizon stress, and negative controls. See:
 
 - `docs/mql_native/M0001_STRESS_VALIDATION_SUITE.md`
+- `docs/mql_native/M0001_H0001_LOGIC_REPAIR_AUDIT.md`
 
 ## M0002 reversal/continuation post-exit volatility hypothesis
 
@@ -327,7 +328,7 @@ MQL5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
 MQL5/Experts/DecisionAlphaLab/M0002/M0002_HuntRejectExitVolatility.mq5  # deprecated compatibility filename
 ```
 
-M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but builds its own neutral completed-exit event sample. It does not import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
+M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but builds its own neutral completed-exit event sample. Its default measurement mode is `EVENT_RTV`, so the reported rawMean/rawMed are the same M0001-style event RTV values, split by reversal/continuation outcome. It does not import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
 
 ```text
 LOW / valley node: close above node => REVERSAL_AFTER_EXIT; close below node => CONTINUATION_AFTER_EXIT
@@ -342,6 +343,11 @@ DAL_M0002_FINAL_CONTINUATION_AFTER_EXIT
 DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION
 ```
 
-The goal is to test whether post-exit volatility expansion is concentrated in the reversal branch, concentrated in the continuation branch, or mixed across both branches.
+The primary goal is to split the exact M0001 event-window RTV by the completed-exit node-side outcome and test whether the volatility expansion is concentrated in the reversal branch, concentrated in the continuation branch, or mixed across both branches. The optional post-outcome fixed-window mode is diagnostic only.
 
 See `docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md`.
+
+
+### M0002 v1.67 EVENT_RTV lock
+
+M0002 reversal/continuation branch reports now hard-lock measurement to the native M0001 event RTV window. Branching is only a label assigned at completed neutral exit by close vs node_price; post-outcome fixed-window measurement is not exposed in the production H0002 EA.

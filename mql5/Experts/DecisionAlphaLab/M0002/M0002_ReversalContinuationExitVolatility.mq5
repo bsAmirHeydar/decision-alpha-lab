@@ -3,8 +3,8 @@
 //| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.65"
-#property description "M0002 builds neutral completed exit events, then separates REVERSAL_AFTER_EXIT vs CONTINUATION_AFTER_EXIT"
+#property version   "1.68"
+#property description "M0002 classifies neutral completed exit events by node side and measures M0001-native event RTV by default"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -24,9 +24,10 @@ input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
 input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 
-input int InpOutcomeCandleOffsetAfterExit = 0;  // 0 = the candle that completes exit-gap; 1 = next closed candle
-input int InpPostOutcomeSampleBars = 20;        // candles measured after the outcome candle; <=0 uses M0001 event sample length
-input bool InpUseEventLengthForSample = false;  // true = sample length = original event RTV sample length
+// H0002 is now hard-locked to the native M0001 event RTV window.
+// The old post-outcome fixed-window diagnostic caused misleading branch rawMean/rawMed values
+// and is intentionally not exposed in this production research EA.
+input int InpOutcomeCandleOffsetAfterExit = 0;  // 0 = candle that completes exit-gap; 1 = next closed candle
 
 input int InpRandomSamplesPerEvent = 20;
 input int InpBootstrapIterations = 300;
@@ -105,9 +106,12 @@ void BuildM0001Config(DALM0001Config &config)
 void BuildM0002Config(DALM0002Config &config)
 {
    DAL_M0002DefaultConfig(config);
+   // Hard lock H0002 to EVENT_RTV. Branching is only a label over the completed neutral exit event;
+   // it must not change the measured volatility window.
+   config.measure_mode = DAL_M0002_MEASURE_EVENT_RTV;
    config.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
-   config.post_outcome_sample_bars = InpPostOutcomeSampleBars;
-   config.use_event_length_for_sample = InpUseEventLengthForSample;
+   config.post_outcome_sample_bars = 0;
+   config.use_event_length_for_sample = false;
    config.random_samples_per_event = InpRandomSamplesPerEvent;
    config.bootstrap_iterations = InpBootstrapIterations;
    config.permutation_iterations = InpPermutationIterations;
@@ -142,9 +146,9 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "bars=", bars_count,
       "  warmup_bars=", InpWarmupHistoricalBars,
       "  analysis_start=", start_text, "\n",
-      "outcomeCandleOffsetAfterExit=", InpOutcomeCandleOffsetAfterExit,
-      "  postOutcomeSampleBars=", InpPostOutcomeSampleBars,
-      "  useEventLength=", (InpUseEventLengthForSample ? "on" : "off"), "\n",
+      "measureMode=EVENT_RTV_LOCKED",
+      "  outcomeCandleOffsetAfterExit=", InpOutcomeCandleOffsetAfterExit, "\n",
+      "sampleWindow=M0001 event RTV; branch label does not change measured window\n",
       "branch=LOW above node => reversal, below => continuation; HIGH inverse",
       "  randomK=", InpRandomSamplesPerEvent,
       "  utcOffset=", InpBrokerUtcOffsetHours, "\n",
@@ -242,6 +246,17 @@ void PrintFinalReportsFromBars(
    BuildM0002Config(h2_config);
 
    Print(
+      "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
+      "*tf=", EnumToString(LabTimeframe()),
+      "*source=", source_mode,
+      "*build=1.68",
+      "*measureMode=EVENT_RTV_LOCKED",
+      "*sampleWindow=m0001EventRtv",
+      "*oldPostOutcomeFieldsForbidden=sampleBars_sampleStarts_afterOutcomeCandle",
+      " *** if_this_line_is_missing_you_are_running_an_old_EX5_or_wrong_file"
+   );
+
+   Print(
       "DAL_M0002_BASE_STATE *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
@@ -249,7 +264,7 @@ void PrintFinalReportsFromBars(
       "*nodes=", nodes_count,
       "*neutralExitEvents=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering"
+      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering*build=1.68*measureMode=EVENT_RTV_LOCKED*sampleWindow=m0001EventRtv"
    );
 
    DAL_M0002PrintFinalReports(

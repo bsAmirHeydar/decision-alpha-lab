@@ -2,7 +2,7 @@
 
 ## Hypothesis
 
-After a structural-node territory event completes its strict exit-gap window, future volatility may concentrate differently depending on whether price has reversed away from the original node side or continued through the original node side.
+After a structural-node territory event completes its strict exit-gap window, the completed event can be split into two node-side outcomes: reversal or continuation. The core question is whether the **same event-window RTV used in H0001** is concentrated more in reversal outcomes, continuation outcomes, or mixed across both.
 
 ## Branch definition
 
@@ -20,11 +20,24 @@ exit-completion close below node_price => REVERSAL_AFTER_EXIT
 exit-completion close above node_price => CONTINUATION_AFTER_EXIT
 ```
 
-This hypothesis is not based on a later hunt / non-hunt label. It is based only on the side of the node after the exit window completes.
+This hypothesis is not based on a later hunt / non-hunt label. It is based only on the side of the node when the exit window completes.
 
-## Main question
+## Primary measurement
 
-Is future logRTV after the completed event more concentrated in the reversal branch, more concentrated in the continuation branch, or mixed across both?
+The default M0002 metric is `EVENT_RTV`: classify each neutral completed-exit event by reversal/continuation, then measure the exact same event-window RTV semantics as M0001:
+
+```text
+mean_inside = mean log-range from entry through rtv_inside_end
+mean_before = equal-length mean log-range before entry
+RTV = mean_inside / mean_before
+logRTV = log(RTV)
+```
+
+The final `exit_gap` outside-zone confirmation candles are excluded from the inside sample, exactly like M0001.
+
+## Why M0002 has its own event builder
+
+H0002 must not use M0001 hunt/touch/consume-filtered events directly as its sample, because M0001 can remove continuation cases before the branch split. H0002 uses the same node and territory math, but builds a neutral completed-exit sample: first territory touch, frozen event zone, strict `exit_gap` outside-zone completion, then close-vs-node classification.
 
 ## Implementation
 
@@ -35,6 +48,18 @@ mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Engine.mqh
 mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Reports.mqh
 ```
 
-## Event construction rule
 
-H0002 must not use M0001 finalized/touch-confirmed events directly as its sample, because M0001 hunt/consume logic can filter out continuation cases before the reversal/continuation split. H0002 uses the same node and territory math, but builds a neutral completed-exit sample: first territory touch, frozen event zone, strict `exit_gap` outside-zone completion, then close-vs-node classification.
+## v1.67 EVENT_RTV lock
+
+H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed neutral exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
+
+Expected audit markers:
+
+```text
+measureMode=EVENT_RTV
+sampleWindow=m0001EventRtv
+eventRtvMode=<paired_count>
+postOutcomeMode=0
+```
+
+If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, or `useEventLength=0` without `measureMode=EVENT_RTV`, it is from an old build and should not be used for H0002 conclusions.

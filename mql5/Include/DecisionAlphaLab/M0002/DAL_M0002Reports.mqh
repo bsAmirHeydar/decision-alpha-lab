@@ -25,6 +25,10 @@ string DAL_M0002Prefix(
 string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &config)
 {
    return "AUDIT"
+      + "*measureMode=" + DAL_M0002MeasureModeToString(config.measure_mode)
+      + "*sampleWindow=" + (config.measure_mode == DAL_M0002_MEASURE_POST_OUTCOME_FIXED ? "postOutcome" : "m0001EventRtv")
+      + "*eventRtvMode=" + IntegerToString(audit.event_rtv_mode_count)
+      + "*postOutcomeMode=" + IntegerToString(audit.post_outcome_mode_count)
       + "*sourceEvents=" + IntegerToString(audit.source_events)
       + "*afterStart=" + IntegerToString(audit.after_start)
       + "*exitCompleted=" + IntegerToString(audit.touch_confirmed)
@@ -37,15 +41,12 @@ string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &conf
       + "*reversalPct=" + DAL_M0001FmtPct(audit.paired_count > 0 ? 100.0 * audit.reversal_count / audit.paired_count : 0.0)
       + "*continuationPct=" + DAL_M0001FmtPct(audit.paired_count > 0 ? 100.0 * audit.continuation_count / audit.paired_count : 0.0)
       + "*outcomeCandleOffsetAfterExit=" + IntegerToString(config.outcome_candle_offset_after_exit)
-      + "*sampleBars=" + IntegerToString(config.post_outcome_sample_bars)
-      + "*useEventLength=" + (config.use_event_length_for_sample ? "1" : "0")
-      + "*sampleStarts=afterOutcomeCandle"
       + "*randomK=" + IntegerToString(config.random_samples_per_event)
       + "*sessionClock=UTC"
       + "*brokerUtcOffset=" + IntegerToString(config.broker_utc_offset_hours)
       + "*regimeBy=preEntryVolTercile"
       + "*baselineGuard=beforeEventEntry"
-      + "*logic=neutralExitCompletion_nodeSide_reversalVsContinuation_noHuntFiltering";
+      + "*logic=neutralExitCompletion_nodeSide_branching_M0001EventRtvLocked_noHuntFiltering";
 }
 
 string DAL_M0002BranchDirectText(
@@ -61,6 +62,8 @@ string DAL_M0002BranchDirectText(
       + "*rawP75=" + DAL_M0001Fmt4(stats.raw_p75)
       + "*rawP90=" + DAL_M0001Fmt4(stats.raw_p90)
       + "*rawP95=" + DAL_M0001Fmt4(stats.raw_p95)
+      + "*rawCVaR90=" + DAL_M0001Fmt4(stats.raw_cvar90)
+      + "*rawCVaR95=" + DAL_M0001Fmt4(stats.raw_cvar95)
       + "*logMean=" + DAL_M0001Fmt4(stats.log_mean)
       + "*logMed=" + DAL_M0001Fmt4(stats.log_median)
       + "*logGt0Pct=" + DAL_M0001FmtPct(stats.pct_log_gt_zero)
@@ -85,15 +88,29 @@ string DAL_M0002DirectCompareText(
 {
    double dlog = reversal_stats.log_mean - continuation_stats.log_mean;
    double dmed = reversal_stats.log_median - continuation_stats.log_median;
+   double drawmean = reversal_stats.raw_mean - continuation_stats.raw_mean;
+   double drawmed = reversal_stats.raw_median - continuation_stats.raw_median;
    double dgt0 = reversal_stats.pct_log_gt_zero - continuation_stats.pct_log_gt_zero;
    double ks = DAL_M0001KsTwoSample(reversal_logs, continuation_logs);
    double cvm = DAL_M0001CvmTwoSample(reversal_logs, continuation_logs);
    double w1 = DAL_M0001WassersteinLogDistance(reversal_logs, continuation_logs);
    double cliff = DAL_M0001CliffDelta(reversal_logs, continuation_logs);
 
+   string interpretation = "balanced_or_mixed";
+   if(dlog > 0.0)
+      interpretation = "positive_means_reversal_more_volatile_than_continuation";
+   else if(dlog < 0.0)
+      interpretation = "negative_means_continuation_more_volatile_than_reversal";
+
    return "REVERSAL_VS_CONTINUATION"
       + "*reversalN=" + IntegerToString(reversal_stats.count)
       + "*continuationN=" + IntegerToString(continuation_stats.count)
+      + "*reversalRawMean=" + DAL_M0001Fmt4(reversal_stats.raw_mean)
+      + "*continuationRawMean=" + DAL_M0001Fmt4(continuation_stats.raw_mean)
+      + "*dRawMean=" + DAL_M0001Fmt4(drawmean)
+      + "*reversalRawMed=" + DAL_M0001Fmt4(reversal_stats.raw_median)
+      + "*continuationRawMed=" + DAL_M0001Fmt4(continuation_stats.raw_median)
+      + "*dRawMed=" + DAL_M0001Fmt4(drawmed)
       + "*dLogMean=" + DAL_M0001Fmt4(dlog)
       + "*geoRatio=" + DAL_M0001Fmt4(MathExp(dlog))
       + "*dLogMed=" + DAL_M0001Fmt4(dmed)
@@ -107,7 +124,7 @@ string DAL_M0002DirectCompareText(
       + "*KS=" + DAL_M0001Fmt4(ks)
       + "*CvM=" + DAL_M0001Fmt4(cvm)
       + "*W1log=" + DAL_M0001Fmt4(w1)
-      + "*interpretation=positive_means_reversal_more_volatile_than_continuation";
+      + "*interpretation=" + interpretation;
 }
 
 void DAL_M0002PrintBranchReport(

@@ -230,6 +230,8 @@ bool DAL_M0002BuildBranchSample(
       return false;
    if(!event.touch_confirmed)
       return false;
+   if(!event.rtv_ready)
+      return false;
    if(!DAL_M0001EventPassesAnalysisStart(event, min_entry_time))
       return false;
 
@@ -246,31 +248,62 @@ bool DAL_M0002BuildBranchSample(
    if(!DAL_M0002ClassifyReversalContinuation(event, bars, bars_count, exit_index, config.outcome_candle_offset_after_exit, outcome, outcome_index))
       return false;
 
-   int sample_len = config.post_outcome_sample_bars;
-   if(config.use_event_length_for_sample || sample_len <= 0)
-      sample_len = event.rtv_sample_length;
-   if(sample_len <= 0)
-      return false;
+   int sample_len = event.rtv_sample_length;
+   int sample_start = entry_index;
+   int baseline_start = event.rtv_before_start_index;
+   double before_mean = event.mean_before;
+   double after_mean = event.mean_inside;
+   double rtv = event.rtv;
+   int inside_end_index = event.rtv_inside_end_index;
+   double post_outcome_rtv = 0.0;
+   double post_outcome_log = 0.0;
 
-   int sample_start = outcome_index + 1;
-   int baseline_start = entry_index - sample_len;
-   if(baseline_start < 0)
-      return false;
+   // Primary H0002 metric:
+   // Split the exact M0001 completed-exit event RTV by the node-side outcome
+   // observed at the completed exit candle.  The outcome is a label only; it
+   // must not change the measured window. This preserves H0001 semantics:
+   // entry-window logRTV = mean(entry..inside_end) / mean(before entry), with
+   // final exit_gap candles excluded from the inside sample.
+   if(config.measure_mode == DAL_M0002_MEASURE_POST_OUTCOME_FIXED)
+   {
+      sample_len = config.post_outcome_sample_bars;
+      if(config.use_event_length_for_sample || sample_len <= 0)
+         sample_len = event.rtv_sample_length;
+      if(sample_len <= 0)
+         return false;
 
-   if(sample_start < 0 || sample_start + sample_len > bars_count)
-      return false;
+      sample_start = outcome_index + 1;
+      baseline_start = entry_index - sample_len;
+      inside_end_index = sample_start + sample_len - 1;
+      if(baseline_start < 0)
+         return false;
+      if(sample_start < 0 || sample_start + sample_len > bars_count)
+         return false;
 
-   double before_mean = DAL_M0001MeanLogMoveWindow(bars, bars_count, baseline_start, sample_len);
-   double after_mean = DAL_M0001MeanLogMoveWindow(bars, bars_count, sample_start, sample_len);
-   if(before_mean <= 0.0 || after_mean <= 0.0)
-      return false;
+      before_mean = DAL_M0001MeanLogMoveWindow(bars, bars_count, baseline_start, sample_len);
+      after_mean = DAL_M0001MeanLogMoveWindow(bars, bars_count, sample_start, sample_len);
+      if(before_mean <= 0.0 || after_mean <= 0.0)
+         return false;
 
-   double rtv = after_mean / before_mean;
-   if(rtv <= 0.0 || !DAL_M0001NullValidNumber(rtv))
-      return false;
+      rtv = after_mean / before_mean;
+      if(rtv <= 0.0 || !DAL_M0001NullValidNumber(rtv))
+         return false;
+
+      post_outcome_rtv = rtv;
+      post_outcome_log = MathLog(rtv);
+   }
+   else
+   {
+      if(sample_len <= 0 || baseline_start < 0 || inside_end_index < entry_index)
+         return false;
+      if(before_mean <= 0.0 || after_mean <= 0.0 || rtv <= 0.0)
+         return false;
+      if(!DAL_M0001NullValidNumber(rtv))
+         return false;
+   }
 
    DALM0001Event pseudo;
-   if(!DAL_M0002MakePseudoRandomEvent(sample_id, sample_len, pseudo))
+   if(!DAL_M0002MakePseudoRandomEvent(event.id, sample_len, pseudo))
       return false;
 
    double random_log = 0.0;
@@ -289,6 +322,7 @@ bool DAL_M0002BuildBranchSample(
    sample.sample_start_index = sample_start;
    sample.sample_length = sample_len;
    sample.baseline_start_index = baseline_start;
+   sample.event_rtv_inside_end_index = inside_end_index;
    sample.entry_time = event.entry_time;
    sample.exit_time = bars[exit_index].time;
    sample.outcome_time = bars[outcome_index].time;
@@ -299,6 +333,12 @@ bool DAL_M0002BuildBranchSample(
    sample.territory_upper = event.territory_upper;
    sample.pre_entry_mean = before_mean;
    sample.post_mean = after_mean;
+   sample.event_mean_inside = event.mean_inside;
+   sample.event_mean_before = event.mean_before;
+   sample.event_rtv = event.rtv;
+   sample.event_log = MathLog(event.rtv);
+   sample.post_outcome_rtv = post_outcome_rtv;
+   sample.post_outcome_log = post_outcome_log;
    sample.branch_rtv = rtv;
    sample.branch_log = MathLog(rtv);
    sample.random_log = random_log;
@@ -360,6 +400,11 @@ int DAL_M0002CollectBranchSamples(
       }
 
       DAL_M0002AppendSample(all_samples, sample);
+      if(config.measure_mode == DAL_M0002_MEASURE_POST_OUTCOME_FIXED)
+         audit.post_outcome_mode_count++;
+      else
+         audit.event_rtv_mode_count++;
+
       if(sample.outcome == DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT)
       {
          DAL_M0002AppendSample(reversal_samples, sample);

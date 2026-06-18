@@ -38,6 +38,14 @@ if ($TerminalDataPath -ne "") {
     Copy-Item -Path ".\mql5\Experts\*" -Destination (Join-Path $mqlRoot "Experts") -Recurse -Force
     Copy-Item -Path ".\mql5\Include\*" -Destination (Join-Path $mqlRoot "Include") -Recurse -Force
     Copy-Item -Path ".\mql5\Scripts\*" -Destination (Join-Path $mqlRoot "Scripts") -Recurse -Force
+
+    $m0002Ex5 = Join-Path $mqlRoot "Experts\DecisionAlphaLab\M0002\*.ex5"
+    Remove-Item -Force $m0002Ex5 -ErrorAction SilentlyContinue
+    Write-Host "Removed old M0002 EX5 files. Recompile M0002_ReversalContinuationExitVolatility.mq5 in MetaEditor."
+} else {
+    Write-Warning "No -TerminalDataPath supplied. Repository files were updated, but MT5 Data Folder was NOT updated."
+    Write-Warning "Open MT5 > File > Open Data Folder, copy that path, then rerun this script with -TerminalDataPath '<that path>'."
 }
 
 Write-Host "Done. Compile: MQL5\Experts\DecisionAlphaLab\M0001\M0001_LiveVisualLab.mq5 or MQL5\Experts\DecisionAlphaLab\M0002\M0002_ReversalContinuationExitVolatility.mq5"
+Write-Host "M0002 v1.68 runtime sanity line must print DAL_M0002_BUILD_SANITY with measureMode=EVENT_RTV_LOCKED."
