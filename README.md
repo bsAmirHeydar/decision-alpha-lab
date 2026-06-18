@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04 / M0005 1.00
+Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04 / M0005 1.02
 ```
 
 ## Runtime modes
@@ -541,9 +541,9 @@ DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA
 The key comparison is between `last_only`, `consensus_accept`, and `rejected_last`. If `consensus_accept` has higher follow/lift/intensity than `rejected_last`, consensus is functioning as a quality filter over the last-only signal.
 
 
-### M0005 v1.00 — structural directional memory
+### M0005 v1.02 — structural directional memory with realized/floating R and random-performance comparison
 
-M0005 introduces H0005, the directional-memory layer above H0004 branch-regime clustering. It keeps the core constraint that the market is not measured through fixed time windows. Reversal paths are evaluated through structural X-axis destinations: the next opposite node/zone touch before invalidation. Continuation paths are evaluated through state/Y-axis persistence: break of the last zone in the continuation direction, then hold until detected regime change.
+M0005 introduces H0005, the directional-memory layer above H0004 branch-regime clustering. It keeps the core constraint that the market is not measured through fixed time windows. Reversal paths are evaluated through structural X-axis destinations: the next opposite node/zone touch before structural stop invalidation. The default reversal stop is the original zone-edge stop to avoid future hunt-extreme lookahead; the adaptive hunt-extreme mode remains available as an input-controlled research mode. Continuation paths are evaluated through state/Y-axis persistence: break of the last zone in the continuation direction, then hold until detected regime change.
 
 The regime detector is configurable and defaults to `LAST_ONLY`, because H0004/H0005 quality results show that last-only is the most economical raw direction source, while context and consensus are better used as confidence layers. Supported regime sources:
 
@@ -567,10 +567,25 @@ DAL_M0005_FINAL_OUTCOME_CONTINUATION
 DAL_M0005_FINAL_EXCURSION_ALL
 DAL_M0005_FINAL_EXCURSION_REVERSAL
 DAL_M0005_FINAL_EXCURSION_CONTINUATION
+DAL_M0005_FINAL_STOP_RISK_ALL
+DAL_M0005_FINAL_STOP_RISK_REVERSAL
+DAL_M0005_FINAL_STOP_RISK_CONTINUATION
+DAL_M0005_FINAL_RISK_REWARD_ALL
+DAL_M0005_FINAL_RISK_REWARD_REVERSAL
+DAL_M0005_FINAL_RISK_REWARD_CONTINUATION
+DAL_M0005_FINAL_REALIZED_R_ALL
+DAL_M0005_FINAL_REALIZED_R_REVERSAL
+DAL_M0005_FINAL_REALIZED_R_CONTINUATION
+DAL_M0005_FINAL_FLOATING_R_ALL
+DAL_M0005_FINAL_FLOATING_R_REVERSAL
+DAL_M0005_FINAL_FLOATING_R_CONTINUATION
+DAL_M0005_FINAL_RANDOM_PERFORMANCE_ALL
+DAL_M0005_FINAL_RANDOM_PERFORMANCE_REVERSAL
+DAL_M0005_FINAL_RANDOM_PERFORMANCE_CONTINUATION
 DAL_M0005_FINAL_STRESS_ALL
 DAL_M0005_FINAL_STRESS_REVERSAL
 DAL_M0005_FINAL_STRESS_CONTINUATION
 DAL_M0005_FINAL_REV_CONT_COMPARE
 ```
 
-MFE/MAE semantics are explicit: excursions are measured from the structural entry origin and stop at path exit. For reversal, exit is target, invalidation, max-bars, or end-of-data. For continuation, exit is the first detected regime change, max-bars, or end-of-data.
+MFE/MAE semantics are explicit: excursions are measured from the structural entry origin and stop at path exit. For reversal, exit is target, structural stop invalidation, max-bars, or end-of-data. For continuation, exit is the first detected regime change, max-bars, or end-of-data. Additional stop-risk and R-multiple reports include optional hunt occurrence/stop expansion, stop-hit rate, base/active stop distance, hunt depth, target distance, MFE/MAE in R, net R, realized win rate, realized R:R, profit factor, expectancy R, floating R multiples, R-based first-hit order, and matched-random performance comparison on the same duration, direction, and actual R scale.

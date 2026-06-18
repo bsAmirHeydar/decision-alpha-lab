@@ -3,7 +3,7 @@
 //| Hypothesis 5: structural regimes create path/direction memory.     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.02"
 #property description "M0005 tests structural directional memory with MFE/MAE until structural/path exit"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -30,6 +30,10 @@ input int InpH5ContextLookback = 10;
 input double InpH5ContextEwmaAlpha = 0.35;
 input double InpH5ContextStrongThreshold = 0.60;
 input bool InpH5BreakUsesClose = true;
+input ENUM_DALM0005ReversalStopMode InpH5ReversalStopMode = DAL_M0005_REV_STOP_ZONE_EDGE;
+input bool InpH5ReversalStopUsesWick = true;
+input bool InpH5ReversalSameBarStopFirst = true;
+input double InpH5ReversalHuntLockZoneMultiple = 0.5;
 input int InpH5MaxPathBars = 1000;
 input int InpH5MaxPathEvents = 50;
 input double InpH5ContinuationSuccessZoneMultiple = 1.0;
@@ -37,7 +41,7 @@ input double InpH5FollowZoneMultiple1 = 0.5;
 input double InpH5FollowZoneMultiple2 = 1.0;
 input double InpH5FollowZoneMultiple3 = 1.5;
 input double InpH5FollowZoneMultiple4 = 2.0;
-input int InpH5RandomSamplesPerPath = 1;
+input int InpH5RandomSamplesPerPath = 20;
 input int InpH5StressIterations = 500;
 input int InpH5BlockSize = 50;
 
@@ -65,7 +69,7 @@ input int InpHorizonBars4 = 50;
 #define DAL_M0005_TIMER_MS 0
 #define DAL_M0005_MAX_EVENTS 0
 #define DAL_M0005_MIN_RTV 0.0
-#define DAL_M0005_BUILD "1.00"
+#define DAL_M0005_BUILD "1.02"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -177,6 +181,10 @@ void BuildM0005Config(DALM0005Config &config)
    config.context_ewma_alpha = InpH5ContextEwmaAlpha;
    config.context_strong_threshold = InpH5ContextStrongThreshold;
    config.break_uses_close = InpH5BreakUsesClose;
+   config.reversal_stop_mode = InpH5ReversalStopMode;
+   config.reversal_stop_uses_wick = InpH5ReversalStopUsesWick;
+   config.reversal_same_bar_stop_first = InpH5ReversalSameBarStopFirst;
+   config.reversal_hunt_lock_zone_multiple = InpH5ReversalHuntLockZoneMultiple;
    config.max_path_bars = InpH5MaxPathBars;
    config.max_path_events = InpH5MaxPathEvents;
    config.continuation_success_zone_multiple = InpH5ContinuationSuccessZoneMultiple;
@@ -193,6 +201,8 @@ void BuildM0005Config(DALM0005Config &config)
    if(config.context_ewma_alpha >= 1.0) config.context_ewma_alpha = 0.99;
    if(config.context_strong_threshold < 0.51) config.context_strong_threshold = 0.51;
    if(config.context_strong_threshold > 0.95) config.context_strong_threshold = 0.95;
+   if(config.reversal_hunt_lock_zone_multiple <= 0.0) config.reversal_hunt_lock_zone_multiple = 0.5;
+   if(config.reversal_hunt_lock_zone_multiple > 5.0) config.reversal_hunt_lock_zone_multiple = 5.0;
    if(config.max_path_bars < 0) config.max_path_bars = 0;
    if(config.max_path_events < 1) config.max_path_events = 1;
    if(config.continuation_success_zone_multiple <= 0.0) config.continuation_success_zone_multiple = 1.0;
@@ -221,8 +231,8 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  contextK=", InpH5ContextLookback,
       "  ewmaAlpha=", DoubleToString(InpH5ContextEwmaAlpha, 2),
       "  threshold=", DoubleToString(InpH5ContextStrongThreshold, 2), "\n",
-      "reversal: next opposite structural zone target; continuation: zone break until regime change\n",
-      "MFE/MAE stops at path exit; final report prints once on deinit"
+      "reversal: next opposite structural zone target; default stop=zone edge, adaptive hunt stop optional\n",
+      "continuation: zone break until regime change; realized/floating R and MFE/MAE stop at path exit"
    );
 }
 
@@ -323,10 +333,17 @@ void PrintFinalReportsFromBars(const DALBar &bars[], const int bars_count, const
       "*regimeSource=", DAL_M0005RegimeSourceToString(h5_config.regime_source),
       "*regimeSourceDefault=LAST_ONLY",
       "*reversalEntry=next_structural_zone_touch",
-      "*reversalExit=opposite_zone_target_or_invalidation",
+      "*reversalExit=opposite_zone_target_or_structural_stop",
       "*continuationEntry=last_zone_break_not_only_hunt",
       "*continuationExit=regime_change",
+      "*reversalStopMode=", DAL_M0005ReversalStopModeToString(h5_config.reversal_stop_mode),
+      "*reversalStopRule=input_controlled_default_zone_edge_no_future_hunt_lookahead",
+      "*reversalStopUsesWick=", DAL_BoolToString(h5_config.reversal_stop_uses_wick),
+      "*reversalSameBarStopFirst=", DAL_BoolToString(h5_config.reversal_same_bar_stop_first),
+      "*reversalHuntLockZoneMultiple=", DoubleToString(h5_config.reversal_hunt_lock_zone_multiple, 4),
       "*mfeMaeStopGuard=stop_at_path_exit",
+      "*rMetrics=realized_R_floating_R_winrate_profit_factor",
+      "*randomDesign=matched_entry_same_duration_same_direction_same_actual_R_scale",
       "*contextK=", h5_config.context_lookback,
       "*contextEwmaAlpha=", DoubleToString(h5_config.context_ewma_alpha, 4),
       "*contextStrongThreshold=", DoubleToString(h5_config.context_strong_threshold, 4),
@@ -334,6 +351,7 @@ void PrintFinalReportsFromBars(const DALBar &bars[], const int bars_count, const
       "*breakUsesClose=", DAL_BoolToString(h5_config.break_uses_close),
       "*maxPathBars=", h5_config.max_path_bars,
       "*maxPathEvents=", h5_config.max_path_events,
+      "*randomSamplesPerPath=", h5_config.random_samples_per_path,
       "*L=", InpL,
       "*zoneRatio=", DoubleToString(InpZoneRatio, 4),
       "*exitGap=", InpExitGap,
