@@ -14,6 +14,25 @@ int DAL_M0002AppendSample(DALM0002BranchSample &samples[], const DALM0002BranchS
    return size;
 }
 
+bool DAL_M0002IntSeen(const int &values[], const int value)
+{
+   for(int i = 0; i < ArraySize(values); i++)
+   {
+      if(values[i] == value)
+         return true;
+   }
+   return false;
+}
+
+void DAL_M0002AppendUniqueInt(int &values[], const int value)
+{
+   if(DAL_M0002IntSeen(values, value))
+      return;
+   int size = ArraySize(values);
+   ArrayResize(values, size + 1);
+   values[size] = value;
+}
+
 bool DAL_M0002ClassifyReversalContinuation(
    const DALM0001Event &event,
    const DALBar &bars[],
@@ -371,6 +390,8 @@ int DAL_M0002CollectBranchSamples(
 
    int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
    int sample_id = 0;
+   int unique_node_ids[];
+   ArrayResize(unique_node_ids, 0);
 
    for(int i = 0; i < events_count; i++)
    {
@@ -400,6 +421,10 @@ int DAL_M0002CollectBranchSamples(
       }
 
       DAL_M0002AppendSample(all_samples, sample);
+      DAL_M0002AppendUniqueInt(unique_node_ids, sample.node_id);
+      if(sample.revisit_id > audit.max_revisit_id)
+         audit.max_revisit_id = sample.revisit_id;
+
       if(config.measure_mode == DAL_M0002_MEASURE_POST_OUTCOME_FIXED)
          audit.post_outcome_mode_count++;
       else
@@ -424,6 +449,7 @@ int DAL_M0002CollectBranchSamples(
    }
 
    audit.paired_count = ArraySize(all_samples);
+   audit.unique_node_count = ArraySize(unique_node_ids);
    return audit.paired_count;
 }
 

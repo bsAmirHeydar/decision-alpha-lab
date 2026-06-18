@@ -3,7 +3,7 @@
 //| Deprecated filename; uses neutral reversal/continuation logic.     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.68"
+#property version   "1.69"
 #property description "Compatibility filename for M0002 neutral reversal/continuation exit analysis. Prefer M0002_ReversalContinuationExitVolatility.mq5."
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -36,6 +36,17 @@ input int InpValidationSplits = 5;
 input int InpBrokerUtcOffsetHours = 0;
 input int InpRegimeLookbackBars = 100;
 input bool InpPrintGroupSessionRegime = true;
+
+input bool InpRunH2StressSuite = true;
+input int InpHardRandomCandidates = 80;
+input int InpPlaceboShiftBars = 50;
+input int InpNonOverlapGapBars = 0;
+input int InpBlockBootstrapIterations = 300;
+input int InpBlockBootstrapBlockPairs = 25;
+input int InpHorizonBars1 = 5;
+input int InpHorizonBars2 = 10;
+input int InpHorizonBars3 = 20;
+input int InpHorizonBars4 = 50;
 
 #define DAL_M0002_USE_LIVE_BAR_STREAM true
 #define DAL_M0002_START_FROM_NEXT_CLOSED_BAR true
@@ -119,6 +130,16 @@ void BuildM0002Config(DALM0002Config &config)
    config.broker_utc_offset_hours = InpBrokerUtcOffsetHours;
    config.regime_lookback_bars = InpRegimeLookbackBars;
    config.print_group_session_regime = InpPrintGroupSessionRegime;
+   config.run_stress_suite = InpRunH2StressSuite;
+   config.hard_random_candidates = InpHardRandomCandidates;
+   config.placebo_shift_bars = InpPlaceboShiftBars;
+   config.nonoverlap_gap_bars = InpNonOverlapGapBars;
+   config.block_bootstrap_iterations = InpBlockBootstrapIterations;
+   config.block_bootstrap_block_pairs = InpBlockBootstrapBlockPairs;
+   config.horizon_bars_1 = InpHorizonBars1;
+   config.horizon_bars_2 = InpHorizonBars2;
+   config.horizon_bars_3 = InpHorizonBars3;
+   config.horizon_bars_4 = InpHorizonBars4;
 
    if(config.outcome_candle_offset_after_exit < 0)
       config.outcome_candle_offset_after_exit = 0;
@@ -132,6 +153,20 @@ void BuildM0002Config(DALM0002Config &config)
       config.validation_splits = 1;
    if(config.regime_lookback_bars < 1)
       config.regime_lookback_bars = 1;
+   if(config.hard_random_candidates < 1)
+      config.hard_random_candidates = 1;
+   if(config.placebo_shift_bars < 1)
+      config.placebo_shift_bars = 1;
+   if(config.nonoverlap_gap_bars < 0)
+      config.nonoverlap_gap_bars = 0;
+   if(config.block_bootstrap_iterations < 0)
+      config.block_bootstrap_iterations = 0;
+   if(config.block_bootstrap_block_pairs < 1)
+      config.block_bootstrap_block_pairs = 1;
+   if(config.horizon_bars_1 < 1) config.horizon_bars_1 = 1;
+   if(config.horizon_bars_2 < 1) config.horizon_bars_2 = 1;
+   if(config.horizon_bars_3 < 1) config.horizon_bars_3 = 1;
+   if(config.horizon_bars_4 < 1) config.horizon_bars_4 = 1;
 }
 
 void UpdateRuntimeComment(const int bars_count, const string source_mode)
@@ -150,6 +185,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  outcomeCandleOffsetAfterExit=", InpOutcomeCandleOffsetAfterExit, "\n",
       "sampleWindow=M0001 event RTV; branch label does not change measured window\n",
       "branch=LOW above node => reversal, below => continuation; HIGH inverse",
+      "  randomEngine=", DAL_M0001RandomEngineSignature(),
       "  randomK=", InpRandomSamplesPerEvent,
       "  utcOffset=", InpBrokerUtcOffsetHours, "\n",
       "final branch report prints once on deinit"
@@ -249,8 +285,8 @@ void PrintFinalReportsFromBars(
       "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.68",
-      "*measureMode=EVENT_RTV_LOCKED",
+      "*build=1.69",
+      "*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL",
       "*sampleWindow=m0001EventRtv",
       "*oldPostOutcomeFieldsForbidden=sampleBars_sampleStarts_afterOutcomeCandle",
       " *** if_this_line_is_missing_you_are_running_an_old_EX5_or_wrong_file"
@@ -264,7 +300,7 @@ void PrintFinalReportsFromBars(
       "*nodes=", nodes_count,
       "*neutralExitEvents=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering*build=1.68*measureMode=EVENT_RTV_LOCKED*sampleWindow=m0001EventRtv"
+      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering*build=1.69*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv"
    );
 
    DAL_M0002PrintFinalReports(

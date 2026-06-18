@@ -594,6 +594,11 @@ bool DAL_M0001LogRtvAtEntryIndex(
    return true;
 }
 
+string DAL_M0001RandomEngineSignature()
+{
+   return "hash32_v2_deterministic_uniform_entry";
+}
+
 double DAL_M0001RandomFractionK(
    const int event_id,
    const int sample_length,
@@ -601,8 +606,28 @@ double DAL_M0001RandomFractionK(
    const int k
 )
 {
-   double x = MathSin((event_id + 1) * 12.9898 + (sample_length + 3) * 78.233 + bars_count * 0.0174532925199433 + (k + 1) * 19.191919) * 43758.5453123;
-   return x - MathFloor(x);
+   // Deterministic hash RNG for reproducible research nulls.
+   // This replaces the older sine-fraction generator with a 32-bit avalanche mix.
+   // It is not used for live trading; it only creates repeatable pseudo-random
+   // entry indexes for null windows. Inputs include event id, sample length,
+   // bar count and k so multi-sample random baselines do not collapse to one point.
+   uint x = (uint)(event_id + 1);
+   x ^= (uint)((sample_length + 17) * 374761393);
+   x ^= (uint)((bars_count + 31) * 668265263);
+   x ^= (uint)((k + 101) * 2246822519);
+
+   x ^= (x >> 16);
+   x *= (uint)2246822519;
+   x ^= (x >> 13);
+   x *= (uint)3266489917;
+   x ^= (x >> 16);
+
+   double frac = ((double)x) / 4294967296.0;
+   if(frac < 0.0)
+      frac = 0.0;
+   if(frac >= 1.0)
+      frac = 0.9999999997671694;
+   return frac;
 }
 
 bool DAL_M0001RandomLogForEvent(

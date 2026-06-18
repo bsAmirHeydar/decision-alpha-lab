@@ -138,3 +138,13 @@ postOutcomeMode=0
 ```
 
 If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, or `useEventLength=0` without `measureMode=EVENT_RTV`, it is from an old build and should not be used for H0002 conclusions.
+
+## Deep audit repair notes
+
+See `docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY.md` for the v1.69 audit. The key invariants are:
+
+- no hunt/touch consumption filter before H2 classification;
+- completed exit-gap candle close versus original node price is the only branch classifier;
+- measured volatility is locked to M0001-native event RTV;
+- random nulls use deterministic hash32 v2 uniform valid-entry sampling;
+- each branch prints the full H1-style stress suite.
