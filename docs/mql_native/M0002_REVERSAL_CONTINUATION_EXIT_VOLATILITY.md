@@ -28,7 +28,7 @@ This module does **not** classify by hunt / non-hunt and it does **not** discard
 
 ## Event construction
 
-H0002 must use M0001 finalized events as its research sample. If a node is consumed by H0001/M0001, no later reversal/continuation calculation is made for that node.
+H0002 must use M0001 finalized events as its research sample. Node lifetime follows the same `InpConsumeMode` used by H0001/M0001: in `CONSUME_BY_HUNT`, a confirmed touch does **not** consume the node and the next revisit cycle is recomputed after the exit candle; in `CONSUME_BY_TOUCH`, the confirmed touch consumes the node and no later reversal/continuation sample is made from that node.
 
 ```text
 1. Detect structural nodes with the same L-rule as M0001.
@@ -37,7 +37,7 @@ H0002 must use M0001 finalized events as its research sample. If a node is consu
 4. Only touch-confirmed, RTV-ready M0001 events enter H0002.
 5. At the completed-exit candle, classify close vs node_price.
 6. Measure the original M0001 event-window RTV by branch.
-7. Once a node is consumed by M0001, H0002 produces no later events from that node.
+7. Consumption is input-driven. In `CONSUME_BY_HUNT`, a touch-confirmed exit is a valid H2 sample and the node remains alive for a recomputed next cycle until a hunt/node-break consumes it. In `CONSUME_BY_TOUCH`, the confirmed touch consumes the node and H2 produces no later samples from that node.
 ```
 
 ## Branch rules
@@ -152,4 +152,13 @@ See `docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY.md` for the v1.69 audit. The
 
 ## Logic repair v1.70 — exact H0001 consumption lifecycle
 
-M0002 no longer builds neutral repeated exit cycles. It calls `DAL_M0001ComputeEvents()` and only labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Once a node is consumed by the M0001 lifecycle, no further H0002 cycles are produced from that node.
+M0002 no longer builds its own neutral repeated exit stream. It calls `DAL_M0001ComputeEvents()` and labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Repeated touch-confirmed revisits are allowed only when M0001 itself allows them (`CONSUME_BY_HUNT`); they are not allowed after the node is actually consumed by the selected M0001 consume mode.
+
+
+Runtime audit should print `consumeMode`, `touchCycle`, and `consumptionInputRespected=1` so the selected M0001 consumption lifecycle is visible in every H0002 run.
+
+## v1.72 exit-side correction
+
+H0002 follows the repaired M0001 exit-gap rule: a completed exit can close outside either side of the frozen territory. A node break during a pending touch no longer cancels the event before exit confirmation. Instead, the event completes through the normal exit-gap rule, receives a reversal/continuation branch label at the completed exit candle, and then the consume mode controls whether the node remains alive or is consumed.
+
+This makes continuation-after-exit observable when the confirmed event exits through the break side.

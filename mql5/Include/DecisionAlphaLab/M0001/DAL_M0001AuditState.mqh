@@ -134,6 +134,8 @@ int DAL_M0001ComputeNodeAuditStates(
       int pending_touch_extreme_index = extreme_index;
       double pending_touch_lower = node.price;
       double pending_touch_upper = node.price;
+      bool pending_touch_hunted = false;
+      int pending_touch_hunt_index = -1;
 
       for(int i = start; i < bars_count; i++)
       {
@@ -157,7 +159,7 @@ int DAL_M0001ComputeNodeAuditStates(
             bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
             bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
 
-            if(hunted_node)
+            if(hunted_node && !touched_zone)
             {
                hunted = true;
                hunt_index = i;
@@ -187,25 +189,21 @@ int DAL_M0001ComputeNodeAuditStates(
                pending_touch_extreme_index = extreme_index;
                pending_touch_lower = live_lower;
                pending_touch_upper = live_upper;
+               pending_touch_hunted = hunted_node;
+               pending_touch_hunt_index = hunted_node ? i : -1;
             }
 
             continue;
          }
 
-         // Active pending revisit. It can still convert to HUNT before
-         // exit-gap confirmation.
+         // Active pending revisit. A node break during the pending touch is
+         // recorded, but it must not cancel the exit-gap workflow. The event can
+         // complete outside either side of the frozen zone.
          bool hunted_node = DAL_M0001Hunted(node.type, node.price, bars[i]);
-         if(hunted_node)
+         if(hunted_node && !pending_touch_hunted)
          {
-            hunted = true;
-            hunt_index = i;
-
-            consumed = true;
-            invalidated = true;
-            consumed_index = i;
-            invalidated_index = i;
-            consume_reason = DAL_M0001_CONSUMED_HUNT;
-            break;
+            pending_touch_hunted = true;
+            pending_touch_hunt_index = i;
          }
 
          // Exit confirmation is strict:
@@ -246,8 +244,23 @@ int DAL_M0001ComputeNodeAuditStates(
                break;
             }
 
-            // In HUNT mode, confirmed touches are stored and the node returns
-            // to TRACKING for the next revisit.
+            if(pending_touch_hunted)
+            {
+               hunted = true;
+               hunt_index = pending_touch_hunt_index >= 0 ? pending_touch_hunt_index : i;
+               consumed = true;
+               consumed_index = i;
+               consume_reason = DAL_M0001_CONSUMED_HUNT;
+
+               // HUNT consumption after a completed touch keeps the frozen
+               // event geometry visible until the confirmed exit candle.
+               tracking_extreme = pending_touch_extreme;
+               extreme_index = pending_touch_extreme_index;
+               break;
+            }
+
+            // In HUNT mode, confirmed touches that did not break the node are
+            // stored and the node returns to TRACKING for the next revisit.
             //
             // Critical revisit semantics:
             // the next revisit is a live node with memory, but its territory
@@ -265,16 +278,18 @@ int DAL_M0001ComputeNodeAuditStates(
             pending_touch_entry_index = -1;
             pending_touch_revisit_id = -1;
             pending_touch_outside_count = 0;
+            pending_touch_hunted = false;
+            pending_touch_hunt_index = -1;
          }
       }
 
       double lower = node.price;
       double upper = node.price;
 
-      if(consumed && consume_reason == DAL_M0001_CONSUMED_TOUCH)
+      if(consumed && (consume_reason == DAL_M0001_CONSUMED_TOUCH || (consume_reason == DAL_M0001_CONSUMED_HUNT && touch_confirmed)))
       {
-         // TOUCH consumption finalizes the event geometry that was frozen at
-         // entry. This is a historical final state, not a live zone.
+         // Consumption after a completed touch finalizes the event geometry that
+         // was frozen at entry. This is a historical final state, not a live zone.
          lower = pending_touch_lower;
          upper = pending_touch_upper;
          tracking_extreme = pending_touch_extreme;

@@ -61,6 +61,8 @@ struct DALM0002Config
    int horizon_bars_2;
    int horizon_bars_3;
    int horizon_bars_4;
+   ENUM_DALM0001ConsumeMode consume_mode;
+   bool consume_on_touch;
 };
 
 struct DALM0002BranchSample
@@ -148,6 +150,8 @@ void DAL_M0002DefaultConfig(DALM0002Config &config)
    config.horizon_bars_2 = 10;
    config.horizon_bars_3 = 20;
    config.horizon_bars_4 = 50;
+   config.consume_mode = DAL_M0001_CONSUME_BY_HUNT;
+   config.consume_on_touch = false;
 }
 
 void DAL_M0002ResetAudit(DALM0002Audit &audit)

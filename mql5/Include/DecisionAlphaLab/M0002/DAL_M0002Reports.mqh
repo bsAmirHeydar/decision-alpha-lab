@@ -59,7 +59,11 @@ string DAL_M0002RandomEngineAuditText(const DALM0002Audit &audit, const DALM0002
       + "*uniqueNodes=" + IntegerToString(audit.unique_node_count)
       + "*avgEventsPerNode=" + DAL_M0001Fmt4(audit.unique_node_count > 0 ? audit.paired_count / (double)audit.unique_node_count : 0.0)
       + "*maxRevisitId=" + IntegerToString(audit.max_revisit_id)
-      + "*randomWindowsNotCountedAsEvents=1*sourceEventLogic=exact_M0001_consumption_lifecycle";
+      + "*randomWindowsNotCountedAsEvents=1"
+      + "*sourceEventLogic=exact_M0001_input_consumption_lifecycle"
+      + "*consumeMode=" + DAL_M0001ConsumeModeToString(config.consume_mode)
+      + "*touchCycle=" + (config.consume_mode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
+      + "*consumptionInputRespected=1";
 }
 
 string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &config)
@@ -85,12 +89,15 @@ string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &conf
       + "*continuationPct=" + DAL_M0001FmtPct(audit.paired_count > 0 ? 100.0 * audit.continuation_count / audit.paired_count : 0.0)
       + "*outcomeCandleOffsetAfterExit=" + IntegerToString(config.outcome_candle_offset_after_exit)
       + "*randomK=" + IntegerToString(config.random_samples_per_event)
+      + "*consumeMode=" + DAL_M0001ConsumeModeToString(config.consume_mode)
+      + "*touchCycle=" + (config.consume_mode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
+      + "*consumptionInputRespected=1"
       + "*randomEngine=" + DAL_M0001RandomEngineSignature()
       + "*sessionClock=UTC"
       + "*brokerUtcOffset=" + IntegerToString(config.broker_utc_offset_hours)
       + "*regimeBy=preEntryVolTercile"
       + "*baselineGuard=beforeEventEntry"
-      + "*logic=exactM0001ConsumedLifecycle_nodeSideBranching_atExit_M0001EventRtvLocked";
+      + "*logic=exactM0001InputConsumptionLifecycle_nodeSideBranching_atExit_M0001EventRtvLocked";
 }
 
 string DAL_M0002BranchDirectText(

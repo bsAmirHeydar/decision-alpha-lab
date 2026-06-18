@@ -356,3 +356,7 @@ M0002 reversal/continuation branch reports now hard-lock measurement to the nati
 ## Logic repair v1.70
 
 H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.
+
+### M0001/M0002 v1.72 exit-gap clarification
+
+M0001 exit confirmation is side-agnostic: the `exit_gap` candles must be fully outside the frozen territory, either on the rejection side or the break side. H0002 labels the exact M0001 completed events as reversal or continuation by close-vs-node at that completed exit candle; it does not force valid exits to be reversals.

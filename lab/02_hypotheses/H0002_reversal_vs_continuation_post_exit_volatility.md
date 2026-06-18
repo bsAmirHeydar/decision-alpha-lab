@@ -37,7 +37,7 @@ The final `exit_gap` outside-zone confirmation candles are excluded from the ins
 
 ## Why M0002 uses the M0001 event builder
 
-H0002 must use the exact H0001/M0001 lifecycle as its sample. If M0001 consumes a node by hunt or by touch-mode consumption, H0002 must not recycle that node into more reversal/continuation samples. The branch split is only applied to valid M0001 touch-confirmed, RTV-ready completed-exit events.
+H0002 must use the exact H0001/M0001 lifecycle as its sample. If M0001 consumes a node by hunt, or by touch when `CONSUME_BY_TOUCH` is selected, H0002 must not recycle that node into more reversal/continuation samples. If `CONSUME_BY_HUNT` is selected, a confirmed touch does not consume the node; the next cycle is recomputed exactly as in M0001 and can produce another valid H2 sample.
 
 ## Implementation
 
@@ -68,4 +68,7 @@ If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, 
 
 ## Logic repair v1.70 — exact H0001 consumption lifecycle
 
-M0002 no longer builds neutral repeated exit cycles. It calls `DAL_M0001ComputeEvents()` and only labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Once a node is consumed by the M0001 lifecycle, no further H0002 cycles are produced from that node.
+M0002 no longer builds its own neutral repeated exit stream. It calls `DAL_M0001ComputeEvents()` and labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Repeated touch-confirmed revisits are allowed only when M0001 itself allows them (`CONSUME_BY_HUNT`); they are not allowed after the node is actually consumed by the selected M0001 consume mode.
+
+
+Runtime audit should print `consumeMode`, `touchCycle`, and `consumptionInputRespected=1` so the selected M0001 consumption lifecycle is visible in every H0002 run.

@@ -3,8 +3,8 @@
 //| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.70"
-#property description "M0002 classifies M0001-consumed event RTV by node-side reversal/continuation at completed exit"
+#property version   "1.72"
+#property description "M0002 classifies exact M0001 event RTV by node-side reversal/continuation at completed exit"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -140,6 +140,8 @@ void BuildM0002Config(DALM0002Config &config)
    config.horizon_bars_2 = InpHorizonBars2;
    config.horizon_bars_3 = InpHorizonBars3;
    config.horizon_bars_4 = InpHorizonBars4;
+   config.consume_mode = InpConsumeMode;
+   config.consume_on_touch = (InpConsumeMode == DAL_M0001_CONSUME_BY_TOUCH);
 
    if(config.outcome_candle_offset_after_exit < 0)
       config.outcome_candle_offset_after_exit = 0;
@@ -184,6 +186,8 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "measureMode=EVENT_RTV_LOCKED",
       "  outcomeCandleOffsetAfterExit=", InpOutcomeCandleOffsetAfterExit, "\n",
       "sampleWindow=M0001 event RTV; branch label does not change measured window\n",
+      "consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      "  touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_then_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"), "\n",
       "branch=LOW above node => reversal, below => continuation; HIGH inverse",
       "  randomEngine=", DAL_M0001RandomEngineSignature(),
       "  randomK=", InpRandomSamplesPerEvent,
@@ -192,7 +196,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
    );
 }
 
-void ComputeM0002M0001ConsumedEvents(
+void ComputeM0002M0001LifecycleEvents(
    const DALBar &bars[],
    const int bars_count,
    DALLRuleNode &nodes[],
@@ -215,8 +219,11 @@ void ComputeM0002M0001ConsumedEvents(
    nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
 
    // H0002 must use the exact H0001/M0001 event lifecycle.
-   // A node is not recycled after it is consumed by the M0001 lifecycle.
-   // Reversal/continuation is only a label assigned to a valid M0001
+   // The consume criterion is the same input as M0001:
+   // - CONSUME_BY_HUNT: a confirmed touch/revisit does NOT consume the node;
+   //   the node remains alive and the next territory cycle is recomputed after the exit candle.
+   // - CONSUME_BY_TOUCH: the confirmed touch consumes the node and no further cycle is built.
+   // Reversal/continuation is only a branch label assigned to each valid M0001
    // touch-confirmed completed-exit event at its exit candle.
    events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
 }
@@ -281,7 +288,7 @@ void PrintFinalReportsFromBars(
    DALM0001Event events[];
    int nodes_count = 0;
    int events_count = 0;
-   ComputeM0002M0001ConsumedEvents(bars, bars_count, nodes, nodes_count, events, events_count);
+   ComputeM0002M0001LifecycleEvents(bars, bars_count, nodes, nodes_count, events, events_count);
 
    DALM0002Config h2_config;
    BuildM0002Config(h2_config);
@@ -290,9 +297,11 @@ void PrintFinalReportsFromBars(
       "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.70",
+      "*build=1.72",
       "*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL",
       "*sampleWindow=m0001EventRtv",
+      "*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"),
       "*oldPostOutcomeFieldsForbidden=sampleBars_sampleStarts_afterOutcomeCandle",
       " *** if_this_line_is_missing_you_are_running_an_old_EX5_or_wrong_file"
    );
@@ -305,7 +314,8 @@ void PrintFinalReportsFromBars(
       "*nodes=", nodes_count,
       "*m0001Events=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_uses_exact_M0001_consumption_events_no_recycling_after_consumed*build=1.70*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv"
+      " *** logic=M0002_uses_exact_M0001_exit_gap_both_sides_input_consumption_lifecycle*build=1.72*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
    );
 
    DAL_M0002PrintFinalReports(
