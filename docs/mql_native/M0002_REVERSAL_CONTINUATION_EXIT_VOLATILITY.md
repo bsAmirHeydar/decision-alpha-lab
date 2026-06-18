@@ -117,3 +117,8 @@ M0002 now builds neutral completed-exit events:
 ```
 
 Only after this neutral exit-completion sample is built does M0002 run reversal/continuation statistics and random baselines.
+
+
+## Compatibility filename
+
+`M0002_HuntRejectExitVolatility.mq5` is kept as a deprecated compatibility entry point only. It now contains the same neutral exit reversal/continuation logic as `M0002_ReversalContinuationExitVolatility.mq5` so old MetaEditor tabs do not fail with removed hunt/reject input names. Prefer compiling `M0002_ReversalContinuationExitVolatility.mq5`.

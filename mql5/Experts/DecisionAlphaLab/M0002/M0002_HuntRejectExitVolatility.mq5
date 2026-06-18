@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — M0002 Hunt/Reject Exit Volatility Lab       |
-//| Hypothesis 2: post-exit volatility by branch outcome.            |
+//| Decision Alpha Lab — M0002 Compatibility Entry Point       |
+//| Deprecated filename; uses neutral reversal/continuation logic.     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.62"
-#property description "M0002 separates post-exit candles into hunt-after-exit vs reject-after-exit branches"
+#property version   "1.65"
+#property description "Compatibility filename for M0002 neutral reversal/continuation exit analysis. Prefer M0002_ReversalContinuationExitVolatility.mq5."
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -24,10 +24,9 @@ input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
 input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 
-input int InpOutcomeLookaheadBars = 100;        // after confirmed exit: scan this many bars for node hunt
-input int InpPostExitSampleBars = 20;           // after reject/hunt: measure this many bars; <=0 uses M0001 event sample length
+input int InpOutcomeCandleOffsetAfterExit = 0;  // 0 = the candle that completes exit-gap; 1 = next closed candle
+input int InpPostOutcomeSampleBars = 20;        // candles measured after the outcome candle; <=0 uses M0001 event sample length
 input bool InpUseEventLengthForSample = false;  // true = sample length = original event RTV sample length
-input bool InpHuntSampleStartsAfterHunt = true; // true = HUNT branch sample starts after hunt candle; false = after exit
 
 input int InpRandomSamplesPerEvent = 20;
 input int InpBootstrapIterations = 300;
@@ -106,10 +105,9 @@ void BuildM0001Config(DALM0001Config &config)
 void BuildM0002Config(DALM0002Config &config)
 {
    DAL_M0002DefaultConfig(config);
-   config.outcome_lookahead_bars = InpOutcomeLookaheadBars;
-   config.post_exit_sample_bars = InpPostExitSampleBars;
+   config.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
+   config.post_outcome_sample_bars = InpPostOutcomeSampleBars;
    config.use_event_length_for_sample = InpUseEventLengthForSample;
-   config.hunt_sample_starts_after_hunt = InpHuntSampleStartsAfterHunt;
    config.random_samples_per_event = InpRandomSamplesPerEvent;
    config.bootstrap_iterations = InpBootstrapIterations;
    config.permutation_iterations = InpPermutationIterations;
@@ -118,8 +116,8 @@ void BuildM0002Config(DALM0002Config &config)
    config.regime_lookback_bars = InpRegimeLookbackBars;
    config.print_group_session_regime = InpPrintGroupSessionRegime;
 
-   if(config.outcome_lookahead_bars < 1)
-      config.outcome_lookahead_bars = 1;
+   if(config.outcome_candle_offset_after_exit < 0)
+      config.outcome_candle_offset_after_exit = 0;
    if(config.random_samples_per_event < 1)
       config.random_samples_per_event = 1;
    if(config.bootstrap_iterations < 0)
@@ -137,24 +135,24 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
    string start_text = g_analysis_start_time > 0 ? TimeToString(g_analysis_start_time, TIME_DATE | TIME_MINUTES) : "pending";
 
    Comment(
-      "Decision Alpha Lab | M0002 Hunt/Reject Exit Volatility\n",
+      "Decision Alpha Lab | M0002 Reversal/Continuation Exit Volatility\n",
       "source=", source_mode,
       "  symbol=", LabSymbol(),
       "  tf=", EnumToString(LabTimeframe()), "\n",
       "bars=", bars_count,
       "  warmup_bars=", InpWarmupHistoricalBars,
       "  analysis_start=", start_text, "\n",
-      "outcomeLookahead=", InpOutcomeLookaheadBars,
-      "  sampleBars=", InpPostExitSampleBars,
+      "outcomeCandleOffsetAfterExit=", InpOutcomeCandleOffsetAfterExit,
+      "  postOutcomeSampleBars=", InpPostOutcomeSampleBars,
       "  useEventLength=", (InpUseEventLengthForSample ? "on" : "off"), "\n",
-      "huntSampleStartsAfterHunt=", (InpHuntSampleStartsAfterHunt ? "on" : "off"),
+      "branch=LOW above node => reversal, below => continuation; HIGH inverse",
       "  randomK=", InpRandomSamplesPerEvent,
       "  utcOffset=", InpBrokerUtcOffsetHours, "\n",
       "final branch report prints once on deinit"
    );
 }
 
-void ComputeM0001Events(
+void ComputeM0002NeutralExitEvents(
    const DALBar &bars[],
    const int bars_count,
    DALLRuleNode &nodes[],
@@ -175,7 +173,7 @@ void ComputeM0001Events(
    BuildM0001Config(config);
 
    nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
-   events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
+   events_count = DAL_M0002ComputeNeutralExitEvents(bars, bars_count, nodes, nodes_count, config, events);
 }
 
 void InitializeLiveBarStream()
@@ -238,7 +236,7 @@ void PrintFinalReportsFromBars(
    DALM0001Event events[];
    int nodes_count = 0;
    int events_count = 0;
-   ComputeM0001Events(bars, bars_count, nodes, nodes_count, events, events_count);
+   ComputeM0002NeutralExitEvents(bars, bars_count, nodes, nodes_count, events, events_count);
 
    DALM0002Config h2_config;
    BuildM0002Config(h2_config);
@@ -249,9 +247,9 @@ void PrintFinalReportsFromBars(
       "*source=", source_mode,
       "*bars=", bars_count,
       "*nodes=", nodes_count,
-      "*events=", events_count,
+      "*neutralExitEvents=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0001_events_reused_M0002_branch_analysis"
+      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering"
    );
 
    DAL_M0002PrintFinalReports(

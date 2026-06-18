@@ -3,7 +3,7 @@
 //| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.64"
+#property version   "1.65"
 #property description "M0002 builds neutral completed exit events, then separates REVERSAL_AFTER_EXIT vs CONTINUATION_AFTER_EXIT"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>

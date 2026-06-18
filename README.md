@@ -324,6 +324,7 @@ The second active MQL-native hypothesis is separated into its own module and cen
 
 ```text
 MQL5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
+MQL5/Experts/DecisionAlphaLab/M0002/M0002_HuntRejectExitVolatility.mq5  # deprecated compatibility filename
 ```
 
 M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but builds its own neutral completed-exit event sample. It does not import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
