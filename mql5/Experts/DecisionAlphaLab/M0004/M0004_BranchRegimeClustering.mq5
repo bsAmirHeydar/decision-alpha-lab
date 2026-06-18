@@ -3,8 +3,8 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.01"
-#property description "M0004 tests branch-label persistence, run clustering, transition inertia, and regime concentration using exact M0001/M0002 events"
+#property version   "1.02"
+#property description "M0004 tests last-event and contextual branch-regime persistence using exact M0001/M0002 events"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -56,6 +56,11 @@ input int InpRegimeBlockSizeFast = 25;          // small contiguous event-block 
 input int InpRegimeBlockSizeSlow = 200;         // large contiguous event-block profile
 input int InpCircularMinShiftEvents = 50;       // minimum shift for circular far-lag null
 input int InpLocalBlockShuffleSize = 50;        // block-order shuffle null preserving within-block runs
+input int InpContextLookbackFast = 5;           // short contextual branch-memory window
+input int InpContextLookbackMain = 10;          // human-eye contextual branch-memory window
+input int InpContextLookbackSlow = 20;          // slower contextual branch-memory window
+input double InpContextEwmaAlpha = 0.35;        // recency weight for human-eye EWMA context
+input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >= continuation, <= reversal
 
 #define DAL_M0004_USE_LIVE_BAR_STREAM true
 #define DAL_M0004_START_FROM_NEXT_CLOSED_BAR true
@@ -64,7 +69,7 @@ input int InpLocalBlockShuffleSize = 50;        // block-order shuffle null pres
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.01"
+#define DAL_M0004_BUILD "1.02"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -178,6 +183,11 @@ void BuildM0004Config(DALM0004Config &config)
    config.regime_block_size_slow = InpRegimeBlockSizeSlow;
    config.circular_min_shift_events = InpCircularMinShiftEvents;
    config.local_block_shuffle_size = InpLocalBlockShuffleSize;
+   config.context_k_fast = InpContextLookbackFast;
+   config.context_k_main = InpContextLookbackMain;
+   config.context_k_slow = InpContextLookbackSlow;
+   config.context_ewma_alpha = InpContextEwmaAlpha;
+   config.context_strong_threshold = InpContextStrongThreshold;
 
    if(config.stress_iterations < 0) config.stress_iterations = 0;
    if(config.block_size < 5) config.block_size = 5;
@@ -186,6 +196,13 @@ void BuildM0004Config(DALM0004Config &config)
    if(config.regime_block_size_slow < config.regime_block_size_fast) config.regime_block_size_slow = config.regime_block_size_fast;
    if(config.circular_min_shift_events < 3) config.circular_min_shift_events = 3;
    if(config.local_block_shuffle_size < 5) config.local_block_shuffle_size = 5;
+   if(config.context_k_fast < 1) config.context_k_fast = 1;
+   if(config.context_k_main < config.context_k_fast) config.context_k_main = config.context_k_fast;
+   if(config.context_k_slow < config.context_k_main) config.context_k_slow = config.context_k_main;
+   if(config.context_ewma_alpha <= 0.0) config.context_ewma_alpha = 0.35;
+   if(config.context_ewma_alpha >= 1.0) config.context_ewma_alpha = 0.99;
+   if(config.context_strong_threshold < 0.51) config.context_strong_threshold = 0.51;
+   if(config.context_strong_threshold > 0.95) config.context_strong_threshold = 0.95;
 }
 
 void UpdateRuntimeComment(const int bars_count, const string source_mode)
@@ -210,6 +227,9 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  regimeBlocks=", InpRegimeBlockSizeFast, "/", InpBranchBlockSize, "/", InpRegimeBlockSizeSlow,
       "  circularMinShift=", InpCircularMinShiftEvents,
       "  localBlockShuffle=", InpLocalBlockShuffleSize, "\n",
+      "contextK=", InpContextLookbackFast, "/", InpContextLookbackMain, "/", InpContextLookbackSlow,
+      "  ewmaAlpha=", DoubleToString(InpContextEwmaAlpha, 2),
+      "  contextThreshold=", DoubleToString(InpContextStrongThreshold, 2), "\n",
       "final branch-regime clustering report prints once on deinit"
    );
 }
@@ -323,6 +343,11 @@ void PrintFinalReportsFromBars(
       "*regimeBlockSlow=", InpRegimeBlockSizeSlow,
       "*circularMinShiftEvents=", InpCircularMinShiftEvents,
       "*localBlockShuffleSize=", InpLocalBlockShuffleSize,
+      "*contextKFast=", InpContextLookbackFast,
+      "*contextKMain=", InpContextLookbackMain,
+      "*contextKSlow=", InpContextLookbackSlow,
+      "*contextEwmaAlpha=", DoubleToString(InpContextEwmaAlpha, 4),
+      "*contextStrongThreshold=", DoubleToString(InpContextStrongThreshold, 4),
       "*L=", InpL,
       "*zoneRatio=", DoubleToString(InpZoneRatio, 4),
       "*exitGap=", InpExitGap,
@@ -350,6 +375,11 @@ void PrintFinalReportsFromBars(
       "*regimeBlockSlow=", InpRegimeBlockSizeSlow,
       "*circularMinShiftEvents=", InpCircularMinShiftEvents,
       "*localBlockShuffleSize=", InpLocalBlockShuffleSize,
+      "*contextKFast=", InpContextLookbackFast,
+      "*contextKMain=", InpContextLookbackMain,
+      "*contextKSlow=", InpContextLookbackSlow,
+      "*contextEwmaAlpha=", DoubleToString(InpContextEwmaAlpha, 4),
+      "*contextStrongThreshold=", DoubleToString(InpContextStrongThreshold, 4),
       "*inputFingerprint=L", InpL,
       "_zr", DoubleToString(InpZoneRatio, 4),
       "_eg", InpExitGap,

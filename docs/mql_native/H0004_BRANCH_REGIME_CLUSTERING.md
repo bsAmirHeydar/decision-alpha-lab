@@ -480,3 +480,132 @@ checks local block-order shuffle
 ```
 
 The current v1.01 module covers all of these points. The only known open audit item is the trend-regime bucket design: in several reports only two trend segments are populated while seg2/seg3 remain zero. This does not invalidate H0004, but it means future versions should either simplify the trend bucket to the populated states or expand the trend classifier so all intended states can occur.
+
+## v1.02 contextual branch-regime extension
+
+The first H0004 implementation measured the last-event state:
+
+```text
+P(next branch | previous branch)
+```
+
+This is necessary, but it is not the full human interpretation of a market regime. A human does not only see the last event; a human sees a local context: recent branch composition, run pressure, spacing between events, volatility regime, session, and node freshness.
+
+M0004 v1.02 keeps the original last-event/Markov reports unchanged and adds a contextual layer:
+
+```text
+P(current branch | rolling or EWMA context before the event)
+```
+
+The contextual layer is still past-only. For event `i`, the context is computed from events `< i`; the current event label is never used to build its own context.
+
+### Context modes
+
+M0004 now reports both modes:
+
+```text
+last-only mode:
+  previous branch label only
+
+rolling-context mode:
+  continuation percentage over the previous K events
+
+EWMA human-eye context:
+  recency-weighted continuation pressure over the previous K events
+```
+
+The EWMA context is intended to be closer to how a discretionary observer sees a chart: the most recent events matter most, but the eye still carries a memory of the local sequence.
+
+### Context state definition
+
+For each event, M0004 computes a past-only continuation pressure score:
+
+```text
+contextContPct in [0,1]
+```
+
+If `contextContPct >= contextStrongThreshold`, the context is continuation-dominant. If `contextContPct <= 1 - contextStrongThreshold`, the context is reversal-dominant. Otherwise it is neutral/mixed.
+
+Default inputs:
+
+```text
+InpContextLookbackFast = 5
+InpContextLookbackMain = 10
+InpContextLookbackSlow = 20
+InpContextEwmaAlpha = 0.35
+InpContextStrongThreshold = 0.60
+```
+
+### Context reports
+
+M0004 v1.02 adds:
+
+```text
+DAL_M0004_FINAL_CONTEXT_LAST_ONLY_REFERENCE
+DAL_M0004_FINAL_CONTEXT_ROLLING_FAST
+DAL_M0004_FINAL_CONTEXT_ROLLING_MAIN
+DAL_M0004_FINAL_CONTEXT_ROLLING_SLOW
+DAL_M0004_FINAL_CONTEXT_EWMA_MAIN
+DAL_M0004_FINAL_CONTEXT_BUCKETS_ROLLING_MAIN
+DAL_M0004_FINAL_CONTEXT_BUCKETS_EWMA_MAIN
+DAL_M0004_FINAL_CONTEXT_SHUFFLE_STRESS_ROLLING
+DAL_M0004_FINAL_CONTEXT_STRATIFIED_STRESS_ROLLING
+DAL_M0004_FINAL_CONTEXT_SHUFFLE_STRESS_EWMA
+DAL_M0004_FINAL_CONTEXT_STRATIFIED_STRESS_EWMA
+```
+
+Important fields:
+
+```text
+dominantFollowPct:
+  how often the current label follows the dominant prior context
+
+expectedFollowPct:
+  expected follow rate from global branch base rates
+
+dominantLiftPct:
+  context-follow excess over the base-rate expectation
+
+conflictLastFollowPct:
+  in cases where last branch and contextual majority disagree, how often the current label follows the last branch
+
+conflictContextFollowPct:
+  in those same conflict cases, how often the current label follows the wider context
+
+conflictContextMinusLastPct:
+  direct evidence for whether context beats last-only in disagreement cases
+```
+
+### Why this matters
+
+The old H0004 question was:
+
+```text
+Does the market tend to repeat the last branch?
+```
+
+The contextual question is stronger:
+
+```text
+Does the local branch environment create a regime state that can beat a last-event-only view?
+```
+
+A positive contextual result means branch-regime is not just Markov persistence; it is a local state machine.
+
+### Contextual nulls
+
+M0004 v1.02 tests contextual effects against:
+
+```text
+global label shuffle
+composite stratified shuffle
+```
+
+The composite stratified null preserves structure across:
+
+```text
+session × pre-volatility tercile × trend regime × revisit bucket
+```
+
+If contextual lift survives this null, it is unlikely to be explained only by session mix, volatility mix, trend bucket, or revisit distribution.
+
