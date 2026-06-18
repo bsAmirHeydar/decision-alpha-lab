@@ -328,7 +328,7 @@ MQL5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
 MQL5/Experts/DecisionAlphaLab/M0002/M0002_HuntRejectExitVolatility.mq5  # deprecated compatibility filename
 ```
 
-M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but builds its own neutral completed-exit event sample. Its default measurement mode is `EVENT_RTV`, so the reported rawMean/rawMed are the same M0001-style event RTV values, split by reversal/continuation outcome. It does not import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
+M0002 reuses the M0001 structural-node detector, territory math, log-range utilities, and reporting metrics, but uses the exact M0001 completed-exit event sample. Its default measurement mode is `EVENT_RTV`, so the reported rawMean/rawMed are the same M0001-style event RTV values, split by reversal/continuation outcome. It does import M0001 hunt/touch/consume-filtered events as the H0002 research sample. After `exit_gap` fully-outside candles complete, it classifies the completed-exit candle by its side of the original node price:
 
 ```text
 LOW / valley node: close above node => REVERSAL_AFTER_EXIT; close below node => CONTINUATION_AFTER_EXIT
@@ -351,3 +351,8 @@ See `docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md`.
 ### M0002 v1.67 EVENT_RTV lock
 
 M0002 reversal/continuation branch reports now hard-lock measurement to the native M0001 event RTV window. Branching is only a label assigned at completed neutral exit by close vs node_price; post-outcome fixed-window measurement is not exposed in the production H0002 EA.
+
+
+## Logic repair v1.70
+
+H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.

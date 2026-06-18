@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — M0002 Compatibility Entry Point       |
-//| Deprecated filename; uses neutral reversal/continuation logic.     |
+//| Decision Alpha Lab — M0002 Reversal/Continuation Exit Volatility |
+//| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.69"
-#property description "Compatibility filename for M0002 neutral reversal/continuation exit analysis. Prefer M0002_ReversalContinuationExitVolatility.mq5."
+#property version   "1.70"
+#property description "M0002 classifies M0001-consumed event RTV by node-side reversal/continuation at completed exit"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -117,7 +117,7 @@ void BuildM0001Config(DALM0001Config &config)
 void BuildM0002Config(DALM0002Config &config)
 {
    DAL_M0002DefaultConfig(config);
-   // Hard lock H0002 to EVENT_RTV. Branching is only a label over the completed neutral exit event;
+   // Hard lock H0002 to EVENT_RTV. Branching is only a label over the completed M0001 exit event;
    // it must not change the measured volatility window.
    config.measure_mode = DAL_M0002_MEASURE_EVENT_RTV;
    config.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
@@ -192,7 +192,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
    );
 }
 
-void ComputeM0002NeutralExitEvents(
+void ComputeM0002M0001ConsumedEvents(
    const DALBar &bars[],
    const int bars_count,
    DALLRuleNode &nodes[],
@@ -213,7 +213,12 @@ void ComputeM0002NeutralExitEvents(
    BuildM0001Config(config);
 
    nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
-   events_count = DAL_M0002ComputeNeutralExitEvents(bars, bars_count, nodes, nodes_count, config, events);
+
+   // H0002 must use the exact H0001/M0001 event lifecycle.
+   // A node is not recycled after it is consumed by the M0001 lifecycle.
+   // Reversal/continuation is only a label assigned to a valid M0001
+   // touch-confirmed completed-exit event at its exit candle.
+   events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, config, events);
 }
 
 void InitializeLiveBarStream()
@@ -276,7 +281,7 @@ void PrintFinalReportsFromBars(
    DALM0001Event events[];
    int nodes_count = 0;
    int events_count = 0;
-   ComputeM0002NeutralExitEvents(bars, bars_count, nodes, nodes_count, events, events_count);
+   ComputeM0002M0001ConsumedEvents(bars, bars_count, nodes, nodes_count, events, events_count);
 
    DALM0002Config h2_config;
    BuildM0002Config(h2_config);
@@ -285,7 +290,7 @@ void PrintFinalReportsFromBars(
       "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.69",
+      "*build=1.70",
       "*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL",
       "*sampleWindow=m0001EventRtv",
       "*oldPostOutcomeFieldsForbidden=sampleBars_sampleStarts_afterOutcomeCandle",
@@ -298,9 +303,9 @@ void PrintFinalReportsFromBars(
       "*source=", source_mode,
       "*bars=", bars_count,
       "*nodes=", nodes_count,
-      "*neutralExitEvents=", events_count,
+      "*m0001Events=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_neutral_exit_events_no_hunt_or_touch_filtering*build=1.69*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv"
+      " *** logic=M0002_uses_exact_M0001_consumption_events_no_recycling_after_consumed*build=1.70*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv"
    );
 
    DAL_M0002PrintFinalReports(

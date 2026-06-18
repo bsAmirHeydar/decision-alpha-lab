@@ -59,7 +59,7 @@ string DAL_M0002RandomEngineAuditText(const DALM0002Audit &audit, const DALM0002
       + "*uniqueNodes=" + IntegerToString(audit.unique_node_count)
       + "*avgEventsPerNode=" + DAL_M0001Fmt4(audit.unique_node_count > 0 ? audit.paired_count / (double)audit.unique_node_count : 0.0)
       + "*maxRevisitId=" + IntegerToString(audit.max_revisit_id)
-      + "*randomWindowsNotCountedAsEvents=1";
+      + "*randomWindowsNotCountedAsEvents=1*sourceEventLogic=exact_M0001_consumption_lifecycle";
 }
 
 string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &config)
@@ -71,7 +71,7 @@ string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &conf
       + "*postOutcomeMode=" + IntegerToString(audit.post_outcome_mode_count)
       + "*sourceEvents=" + IntegerToString(audit.source_events)
       + "*afterStart=" + IntegerToString(audit.after_start)
-      + "*exitCompleted=" + IntegerToString(audit.touch_confirmed)
+      + "*touchConfirmedExitCompleted=" + IntegerToString(audit.touch_confirmed)
       + "*paired=" + IntegerToString(audit.paired_count)
       + "*uniqueNodes=" + IntegerToString(audit.unique_node_count)
       + "*avgPairedEventsPerNode=" + DAL_M0001Fmt4(audit.unique_node_count > 0 ? audit.paired_count / (double)audit.unique_node_count : 0.0)
@@ -90,7 +90,7 @@ string DAL_M0002AuditText(const DALM0002Audit &audit, const DALM0002Config &conf
       + "*brokerUtcOffset=" + IntegerToString(config.broker_utc_offset_hours)
       + "*regimeBy=preEntryVolTercile"
       + "*baselineGuard=beforeEventEntry"
-      + "*logic=neutralExitCompletion_nodeSide_branching_M0001EventRtvLocked_noHuntFiltering";
+      + "*logic=exactM0001ConsumedLifecycle_nodeSideBranching_atExit_M0001EventRtvLocked";
 }
 
 string DAL_M0002BranchDirectText(

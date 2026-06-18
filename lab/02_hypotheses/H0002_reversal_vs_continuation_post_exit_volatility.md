@@ -24,7 +24,7 @@ This hypothesis is not based on a later hunt / non-hunt label. It is based only 
 
 ## Primary measurement
 
-The default M0002 metric is `EVENT_RTV`: classify each neutral completed-exit event by reversal/continuation, then measure the exact same event-window RTV semantics as M0001:
+The default M0002 metric is `EVENT_RTV`: classify each valid M0001 completed-exit event by reversal/continuation, then measure the exact same event-window RTV semantics as M0001:
 
 ```text
 mean_inside = mean log-range from entry through rtv_inside_end
@@ -35,9 +35,9 @@ logRTV = log(RTV)
 
 The final `exit_gap` outside-zone confirmation candles are excluded from the inside sample, exactly like M0001.
 
-## Why M0002 has its own event builder
+## Why M0002 uses the M0001 event builder
 
-H0002 must not use M0001 hunt/touch/consume-filtered events directly as its sample, because M0001 can remove continuation cases before the branch split. H0002 uses the same node and territory math, but builds a neutral completed-exit sample: first territory touch, frozen event zone, strict `exit_gap` outside-zone completion, then close-vs-node classification.
+H0002 must use the exact H0001/M0001 lifecycle as its sample. If M0001 consumes a node by hunt or by touch-mode consumption, H0002 must not recycle that node into more reversal/continuation samples. The branch split is only applied to valid M0001 touch-confirmed, RTV-ready completed-exit events.
 
 ## Implementation
 
@@ -51,7 +51,7 @@ mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Reports.mqh
 
 ## v1.67 EVENT_RTV lock
 
-H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed neutral exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
+H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed M0001 exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
 
 Expected audit markers:
 
@@ -63,3 +63,9 @@ postOutcomeMode=0
 ```
 
 If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, or `useEventLength=0` without `measureMode=EVENT_RTV`, it is from an old build and should not be used for H0002 conclusions.
+
+
+
+## Logic repair v1.70 — exact H0001 consumption lifecycle
+
+M0002 no longer builds neutral repeated exit cycles. It calls `DAL_M0001ComputeEvents()` and only labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Once a node is consumed by the M0001 lifecycle, no further H0002 cycles are produced from that node.

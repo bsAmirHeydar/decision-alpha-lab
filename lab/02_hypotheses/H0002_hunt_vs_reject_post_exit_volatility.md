@@ -14,4 +14,9 @@ The active implementation is:
 mql5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
 ```
 
-Reason for deprecation: the second hypothesis is not a hunt/non-hunt split. It is a neutral completed-exit branch split by the completed-exit candle close relative to the original node price, with the primary metric equal to the same M0001 event-window RTV split by branch.
+Reason for deprecation: the second hypothesis is not a hunt/non-hunt split. It is a M0001 completed-exit branch split by the completed-exit candle close relative to the original node price, with the primary metric equal to the same M0001 event-window RTV split by branch.
+
+
+## Logic repair v1.70
+
+H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.

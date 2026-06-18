@@ -2,7 +2,7 @@
 
 Version: 1.66
 
-M0002 tests the second hypothesis in a separate MQL-native module. It reuses M0001 structural-node extraction, territory geometry, log-range math, random-baseline logic, and validation/reporting utilities. It has its own neutral completed-exit event builder so M0001 hunt/touch/consume semantics cannot pre-filter the branch sample.
+M0002 tests the second hypothesis in a separate MQL-native module. It reuses M0001 structural-node extraction, territory geometry, log-range math, random-baseline logic, and validation/reporting utilities. It uses the exact M0001 completed-event lifecycle; no separate neutral event stream is built.
 
 ## Central Expert Advisor
 
@@ -26,19 +26,18 @@ After a structural-node territory touch has completed its strict `exit_gap` wind
 
 This module does **not** classify by hunt / non-hunt and it does **not** discard candidate events because the node price was crossed before exit completion. The branch is decided immediately at the completed exit window.
 
-## Neutral event construction
+## Event construction
 
-H0002 must not import M0001 finalized/hunt-consumed events as its research sample, because M0001 hunt/consume semantics can remove continuation cases before the reversal/continuation split. Instead M0002 builds neutral completed-exit events:
+H0002 must use M0001 finalized events as its research sample. If a node is consumed by H0001/M0001, no later reversal/continuation calculation is made for that node.
 
 ```text
 1. Detect structural nodes with the same L-rule as M0001.
-2. Build live/frozen territories with the same M0001 territory formula.
-3. Start an event at the first candle that intersects the live territory.
-4. Freeze that event zone.
-5. Ignore hunt/touch consumption while the event is pending.
-6. Wait for exit_gap consecutive candles fully outside the frozen event zone.
-7. At the completed-exit candle, classify close vs node_price.
-8. Measure the original M0001 event-window RTV by branch.
+2. Use DAL_M0001ComputeEvents() to build the exact H0001 event stream.
+3. Keep M0001 hunt priority, touch confirmation, exit_gap, consumption, revisit reset, warmup, and RTV semantics unchanged.
+4. Only touch-confirmed, RTV-ready M0001 events enter H0002.
+5. At the completed-exit candle, classify close vs node_price.
+6. Measure the original M0001 event-window RTV by branch.
+7. Once a node is consumed by M0001, H0002 produces no later events from that node.
 ```
 
 ## Branch rules
@@ -126,7 +125,7 @@ Positive `DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION*dLogMean` means the M0001-nat
 
 ## v1.67 EVENT_RTV lock
 
-H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed neutral exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
+H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed M0001 exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
 
 Expected audit markers:
 
@@ -143,8 +142,14 @@ If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, 
 
 See `docs/mql_native/M0002_DEEP_AUDIT_AND_STABILITY.md` for the v1.69 audit. The key invariants are:
 
-- no hunt/touch consumption filter before H2 classification;
+- exact H0001/M0001 hunt/touch consumption lifecycle before H2 classification;
 - completed exit-gap candle close versus original node price is the only branch classifier;
 - measured volatility is locked to M0001-native event RTV;
 - random nulls use deterministic hash32 v2 uniform valid-entry sampling;
 - each branch prints the full H1-style stress suite.
+
+
+
+## Logic repair v1.70 — exact H0001 consumption lifecycle
+
+M0002 no longer builds neutral repeated exit cycles. It calls `DAL_M0001ComputeEvents()` and only labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Once a node is consumed by the M0001 lifecycle, no further H0002 cycles are produced from that node.

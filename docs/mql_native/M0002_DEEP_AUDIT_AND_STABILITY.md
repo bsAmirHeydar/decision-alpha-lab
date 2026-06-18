@@ -27,13 +27,13 @@ branchLog = log(event.rtv)
 
 The branch is only a label. It does not move the volatility window.
 
-## Why neutralExitEvents can be much larger than nodes
+## Why m0001Events can be much larger than nodes
 
 `nodes` is the count of confirmed structural pivot nodes.
 
-`neutralExitEvents` is the count of completed touch -> exit-gap cycles produced from those nodes. A single node can generate many neutral cycles because M0002 intentionally does not consume the node on hunt/touch. Continuation is part of the H0002 question, so hunt filtering would bias the sample.
+`m0001Events` is the count of completed touch -> exit-gap cycles produced from those nodes. A single node can generate many M0001 cycles because M0002 previously used a neutral builder. That path is now deprecated; v1.70 uses M0001 consumption, so a consumed node is not recycled into more H0002 events.
 
-Random samples are not counted as `neutralExitEvents`. `InpRandomSamplesPerEvent` only affects the matched null baseline used for each branch sample.
+Random samples are not counted as `m0001Events`. `InpRandomSamplesPerEvent` only affects the matched null baseline used for each branch sample.
 
 The audit now prints:
 
@@ -86,3 +86,8 @@ InpRunH2StressSuite = false
 ```
 
 but the default is `true` because H0002 is a research hypothesis.
+
+
+## Logic repair v1.70
+
+H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.

@@ -13,7 +13,7 @@ enum ENUM_DALM0002Outcome
 
 enum ENUM_DALM0002MeasureMode
 {
-   // H0002 default: classify the completed neutral exit event by node side,
+   // H0002 default: classify the completed M0001 exit event by node side,
    // then measure the exact same event-window RTV semantics as M0001.
    DAL_M0002_MEASURE_EVENT_RTV = 0,
 
