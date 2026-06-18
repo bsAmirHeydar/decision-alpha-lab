@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.01
+Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04
 ```
 
 ## Runtime modes
@@ -425,7 +425,7 @@ M0004 extends the locked H0001/H0002/H0003 stack from volatility-memory into bra
 Current build target:
 
 ```text
-M0004_BranchRegimeClustering: build 1.01
+M0004_BranchRegimeClustering: build 1.04
 ```
 
 Primary report lines:
@@ -511,3 +511,31 @@ DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_EWMA
 ```
 
 This keeps the original last-only H0004 model while adding a human-eye consensus state for H0005.
+
+
+### M0004 v1.04 — consensus quality diagnostics
+
+M0004 build `1.04` adds modular signal-quality diagnostics to separate raw last-only branch persistence from the quality of last-context consensus states. The goal is to answer whether the consensus follow rate is simply the last-only effect repeated on a subset, or whether consensus selects a materially better subset of branch-regime events.
+
+New reports include:
+
+```text
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_COUNTS
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_FOLLOW
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_INTENSITY
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_BRANCH
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_COUNTS
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_INTENSITY
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_BRANCH
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_COUNTS
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_INTENSITY
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_BRANCH
+DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_ROLLING
+DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_EWMA
+DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_ROLLING
+DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA
+```
+
+The key comparison is between `last_only`, `consensus_accept`, and `rejected_last`. If `consensus_accept` has higher follow/lift/intensity than `rejected_last`, consensus is functioning as a quality filter over the last-only signal.

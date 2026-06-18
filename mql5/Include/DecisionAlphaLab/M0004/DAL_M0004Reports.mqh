@@ -1872,6 +1872,447 @@ void DAL_M0004AppendDouble(double &vals[], const double v)
    vals[n] = v;
 }
 
+
+double DAL_M0004StdDevFromArray(const double &vals[])
+{
+   int n = ArraySize(vals);
+   if(n <= 1)
+      return 0.0;
+   double mean = DAL_M0004MeanFromArray(vals);
+   double ss = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      double d = vals[i] - mean;
+      ss += d * d;
+   }
+   return MathSqrt(ss / n);
+}
+
+struct DALM0004SignalQualityStats
+{
+   string name;
+   int n;
+   int evaluated;
+   int signal_count;
+   int no_signal_count;
+   int signal_reversal_count;
+   int signal_continuation_count;
+   int current_continuation_count;
+   int follow_count;
+   int switch_count;
+   int reversal_follow_count;
+   int continuation_follow_count;
+   double coverage_pct;
+   double signal_continuation_pct;
+   double current_continuation_pct;
+   double follow_pct;
+   double switch_pct;
+   double expected_follow_pct;
+   double lift_pct;
+   double excess_follow_per_100_events;
+   double reversal_next_reversal_pct;
+   double continuation_next_continuation_pct;
+   double mean_dlog;
+   double med_dlog;
+   double p90_dlog;
+   double p95_dlog;
+   double win_dlog_pct;
+   double follow_mean_dlog;
+   double switch_mean_dlog;
+   double follow_win_dlog_pct;
+   double switch_win_dlog_pct;
+   double follow_minus_switch_dlog;
+   double signal_reversal_mean_dlog;
+   double signal_continuation_mean_dlog;
+};
+
+void DAL_M0004ResetSignalQualityStats(DALM0004SignalQualityStats &st, const string name, const int count)
+{
+   st.name = name;
+   st.n = count;
+   st.evaluated = 0;
+   st.signal_count = 0;
+   st.no_signal_count = 0;
+   st.signal_reversal_count = 0;
+   st.signal_continuation_count = 0;
+   st.current_continuation_count = 0;
+   st.follow_count = 0;
+   st.switch_count = 0;
+   st.reversal_follow_count = 0;
+   st.continuation_follow_count = 0;
+   st.coverage_pct = 0.0;
+   st.signal_continuation_pct = 0.0;
+   st.current_continuation_pct = 0.0;
+   st.follow_pct = 0.0;
+   st.switch_pct = 0.0;
+   st.expected_follow_pct = 0.0;
+   st.lift_pct = 0.0;
+   st.excess_follow_per_100_events = 0.0;
+   st.reversal_next_reversal_pct = 0.0;
+   st.continuation_next_continuation_pct = 0.0;
+   st.mean_dlog = 0.0;
+   st.med_dlog = 0.0;
+   st.p90_dlog = 0.0;
+   st.p95_dlog = 0.0;
+   st.win_dlog_pct = 0.0;
+   st.follow_mean_dlog = 0.0;
+   st.switch_mean_dlog = 0.0;
+   st.follow_win_dlog_pct = 0.0;
+   st.switch_win_dlog_pct = 0.0;
+   st.follow_minus_switch_dlog = 0.0;
+   st.signal_reversal_mean_dlog = 0.0;
+   st.signal_continuation_mean_dlog = 0.0;
+}
+
+void DAL_M0004BuildLastOnlySignals(const int &labels[], const int count, int &signals[])
+{
+   ArrayResize(signals, count);
+   for(int i = 0; i < count; i++)
+      signals[i] = (i > 0 ? labels[i - 1] : -1);
+}
+
+void DAL_M0004BuildConsensusSignalPartitions(
+   const int &labels[],
+   const int count,
+   const int lookback,
+   const double ewma_alpha,
+   const double strong_threshold,
+   const bool use_ewma,
+   int &consensus_signals[],
+   int &rejected_last_signals[],
+   int &conflict_last_signals[],
+   int &conflict_context_signals[],
+   int &neutral_last_signals[]
+)
+{
+   ArrayResize(consensus_signals, count);
+   ArrayResize(rejected_last_signals, count);
+   ArrayResize(conflict_last_signals, count);
+   ArrayResize(conflict_context_signals, count);
+   ArrayResize(neutral_last_signals, count);
+
+   for(int i = 0; i < count; i++)
+   {
+      consensus_signals[i] = -1;
+      rejected_last_signals[i] = -1;
+      conflict_last_signals[i] = -1;
+      conflict_context_signals[i] = -1;
+      neutral_last_signals[i] = -1;
+   }
+
+   for(int i = 1; i < count; i++)
+   {
+      double p = 0.0;
+      double conf = 0.0;
+      int dominant = DAL_M0004ContextDominantAt(labels, count, i, lookback, ewma_alpha, strong_threshold, use_ewma, p, conf);
+      int last_label = labels[i - 1];
+      if(dominant < 0)
+      {
+         neutral_last_signals[i] = last_label;
+         rejected_last_signals[i] = last_label;
+         continue;
+      }
+      if(dominant == last_label)
+      {
+         consensus_signals[i] = dominant;
+         continue;
+      }
+      conflict_last_signals[i] = last_label;
+      conflict_context_signals[i] = dominant;
+      rejected_last_signals[i] = last_label;
+   }
+}
+
+void DAL_M0004ComputeSignalQualityStats(
+   const string name,
+   const DALM0002BranchSample &samples[],
+   const int &labels[],
+   const int &signals[],
+   const int count,
+   DALM0004SignalQualityStats &st
+)
+{
+   DAL_M0004ResetSignalQualityStats(st, name, count);
+   if(count <= 1)
+      return;
+
+   int global_cont = 0;
+   for(int i = 0; i < count; i++)
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         global_cont++;
+   double global_cont_prob = (double)global_cont / count;
+   double global_rev_prob = 1.0 - global_cont_prob;
+
+   double expected_sum = 0.0;
+   double all_dlogs[];
+   double follow_dlogs[];
+   double switch_dlogs[];
+   double rev_signal_dlogs[];
+   double cont_signal_dlogs[];
+
+   st.evaluated = count - 1;
+   for(int i = 1; i < count; i++)
+   {
+      int signal = (i < ArraySize(signals) ? signals[i] : -1);
+      if(signal != DAL_M0004_LABEL_REVERSAL && signal != DAL_M0004_LABEL_CONTINUATION)
+      {
+         st.no_signal_count++;
+         continue;
+      }
+
+      double dlog = (i < ArraySize(samples)) ? samples[i].delta_log : 0.0;
+      st.signal_count++;
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         st.current_continuation_count++;
+      DAL_M0004AppendDouble(all_dlogs, dlog);
+
+      if(signal == DAL_M0004_LABEL_CONTINUATION)
+      {
+         st.signal_continuation_count++;
+         expected_sum += global_cont_prob;
+         DAL_M0004AppendDouble(cont_signal_dlogs, dlog);
+         if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+            st.continuation_follow_count++;
+      }
+      else
+      {
+         st.signal_reversal_count++;
+         expected_sum += global_rev_prob;
+         DAL_M0004AppendDouble(rev_signal_dlogs, dlog);
+         if(labels[i] == DAL_M0004_LABEL_REVERSAL)
+            st.reversal_follow_count++;
+      }
+
+      if(labels[i] == signal)
+      {
+         st.follow_count++;
+         DAL_M0004AppendDouble(follow_dlogs, dlog);
+      }
+      else
+      {
+         st.switch_count++;
+         DAL_M0004AppendDouble(switch_dlogs, dlog);
+      }
+   }
+
+   if(st.evaluated > 0)
+      st.coverage_pct = 100.0 * st.signal_count / st.evaluated;
+   if(st.signal_count > 0)
+   {
+      st.signal_continuation_pct = 100.0 * st.signal_continuation_count / st.signal_count;
+      st.current_continuation_pct = 100.0 * st.current_continuation_count / st.signal_count;
+      st.follow_pct = 100.0 * st.follow_count / st.signal_count;
+      st.switch_pct = 100.0 * st.switch_count / st.signal_count;
+      st.expected_follow_pct = 100.0 * expected_sum / st.signal_count;
+      st.lift_pct = st.follow_pct - st.expected_follow_pct;
+      st.excess_follow_per_100_events = (st.coverage_pct * st.lift_pct) / 100.0;
+   }
+   if(st.signal_reversal_count > 0)
+      st.reversal_next_reversal_pct = 100.0 * st.reversal_follow_count / st.signal_reversal_count;
+   if(st.signal_continuation_count > 0)
+      st.continuation_next_continuation_pct = 100.0 * st.continuation_follow_count / st.signal_continuation_count;
+
+   st.mean_dlog = DAL_M0004MeanFromArray(all_dlogs);
+   st.med_dlog = DAL_M0004QuantileFromArray(all_dlogs, 0.50);
+   st.p90_dlog = DAL_M0004QuantileFromArray(all_dlogs, 0.90);
+   st.p95_dlog = DAL_M0004QuantileFromArray(all_dlogs, 0.95);
+   st.win_dlog_pct = DAL_M0004WinPctFromArray(all_dlogs);
+   st.follow_mean_dlog = DAL_M0004MeanFromArray(follow_dlogs);
+   st.switch_mean_dlog = DAL_M0004MeanFromArray(switch_dlogs);
+   st.follow_win_dlog_pct = DAL_M0004WinPctFromArray(follow_dlogs);
+   st.switch_win_dlog_pct = DAL_M0004WinPctFromArray(switch_dlogs);
+   st.follow_minus_switch_dlog = st.follow_mean_dlog - st.switch_mean_dlog;
+   st.signal_reversal_mean_dlog = DAL_M0004MeanFromArray(rev_signal_dlogs);
+   st.signal_continuation_mean_dlog = DAL_M0004MeanFromArray(cont_signal_dlogs);
+}
+
+string DAL_M0004SignalQualityCountsText(const string tag, const string method, const DALM0004SignalQualityStats &st)
+{
+   return tag
+      + "*method=" + method
+      + "*name=" + st.name
+      + "*n=" + IntegerToString(st.n)
+      + "*evaluated=" + IntegerToString(st.evaluated)
+      + "*signalN=" + IntegerToString(st.signal_count)
+      + "*noSignalN=" + IntegerToString(st.no_signal_count)
+      + "*coveragePct=" + DAL_M0001FmtPct(st.coverage_pct)
+      + "*signalRevN=" + IntegerToString(st.signal_reversal_count)
+      + "*signalContN=" + IntegerToString(st.signal_continuation_count)
+      + "*signalContPct=" + DAL_M0001FmtPct(st.signal_continuation_pct)
+      + "*currentContPct=" + DAL_M0001FmtPct(st.current_continuation_pct);
+}
+
+string DAL_M0004SignalQualityFollowText(const string tag, const string method, const DALM0004SignalQualityStats &st)
+{
+   return tag
+      + "*method=" + method
+      + "*name=" + st.name
+      + "*signalN=" + IntegerToString(st.signal_count)
+      + "*followN=" + IntegerToString(st.follow_count)
+      + "*switchN=" + IntegerToString(st.switch_count)
+      + "*followPct=" + DAL_M0001FmtPct(st.follow_pct)
+      + "*switchPct=" + DAL_M0001FmtPct(st.switch_pct)
+      + "*expectedFollowPct=" + DAL_M0001FmtPct(st.expected_follow_pct)
+      + "*liftPct=" + DAL_M0001FmtPct(st.lift_pct)
+      + "*excessFollowPer100Events=" + DAL_M0001Fmt4(st.excess_follow_per_100_events)
+      + "*revNextRevPct=" + DAL_M0001FmtPct(st.reversal_next_reversal_pct)
+      + "*contNextContPct=" + DAL_M0001FmtPct(st.continuation_next_continuation_pct);
+}
+
+string DAL_M0004SignalQualityIntensityText(const string tag, const string method, const DALM0004SignalQualityStats &st)
+{
+   return tag
+      + "*method=" + method
+      + "*name=" + st.name
+      + "*meanDLog=" + DAL_M0001Fmt4(st.mean_dlog)
+      + "*medDLog=" + DAL_M0001Fmt4(st.med_dlog)
+      + "*p90DLog=" + DAL_M0001Fmt4(st.p90_dlog)
+      + "*p95DLog=" + DAL_M0001Fmt4(st.p95_dlog)
+      + "*winDLogPct=" + DAL_M0001FmtPct(st.win_dlog_pct)
+      + "*followMeanDLog=" + DAL_M0001Fmt4(st.follow_mean_dlog)
+      + "*switchMeanDLog=" + DAL_M0001Fmt4(st.switch_mean_dlog)
+      + "*followMinusSwitchDLog=" + DAL_M0001Fmt4(st.follow_minus_switch_dlog)
+      + "*followWinDLogPct=" + DAL_M0001FmtPct(st.follow_win_dlog_pct)
+      + "*switchWinDLogPct=" + DAL_M0001FmtPct(st.switch_win_dlog_pct);
+}
+
+string DAL_M0004SignalQualityBranchIntensityText(const string tag, const string method, const DALM0004SignalQualityStats &st)
+{
+   return tag
+      + "*method=" + method
+      + "*name=" + st.name
+      + "*signalRevN=" + IntegerToString(st.signal_reversal_count)
+      + "*signalContN=" + IntegerToString(st.signal_continuation_count)
+      + "*revNextRevPct=" + DAL_M0001FmtPct(st.reversal_next_reversal_pct)
+      + "*contNextContPct=" + DAL_M0001FmtPct(st.continuation_next_continuation_pct)
+      + "*revSignalMeanDLog=" + DAL_M0001Fmt4(st.signal_reversal_mean_dlog)
+      + "*contSignalMeanDLog=" + DAL_M0001Fmt4(st.signal_continuation_mean_dlog)
+      + "*contMinusRevSignalMeanDLog=" + DAL_M0001Fmt4(st.signal_continuation_mean_dlog - st.signal_reversal_mean_dlog);
+}
+
+string DAL_M0004SignalQualityCompareText(
+   const string tag,
+   const string method,
+   const DALM0004SignalQualityStats &last_only,
+   const DALM0004SignalQualityStats &accepted,
+   const DALM0004SignalQualityStats &rejected_last,
+   const DALM0004SignalQualityStats &conflict_last,
+   const DALM0004SignalQualityStats &neutral_last
+)
+{
+   string model = "consensus_does_not_improve_last_only_selection";
+   double accepted_vs_rejected_follow = accepted.follow_pct - rejected_last.follow_pct;
+   double accepted_vs_last_follow = accepted.follow_pct - last_only.follow_pct;
+   double accepted_vs_rejected_lift = accepted.lift_pct - rejected_last.lift_pct;
+   double accepted_vs_last_lift = accepted.lift_pct - last_only.lift_pct;
+   double accepted_vs_rejected_dlog = accepted.mean_dlog - rejected_last.mean_dlog;
+   double accepted_vs_last_dlog = accepted.mean_dlog - last_only.mean_dlog;
+   if(accepted_vs_rejected_follow > 0.0 && accepted_vs_rejected_lift > 0.0)
+      model = "consensus_filters_higher_quality_last_branch_signals";
+   if(accepted_vs_last_follow > 0.0 && accepted_vs_last_lift > 0.0 && accepted.coverage_pct > 50.0)
+      model = "consensus_improves_last_only_while_preserving_broad_coverage";
+   if(accepted_vs_rejected_follow <= 0.0 && accepted_vs_rejected_lift > 0.0)
+      model = "consensus_improves_calibration_lift_but_not_raw_follow_rate";
+
+   return tag
+      + "*method=" + method
+      + "*lastFollowPct=" + DAL_M0001FmtPct(last_only.follow_pct)
+      + "*consensusFollowPct=" + DAL_M0001FmtPct(accepted.follow_pct)
+      + "*rejectedLastFollowPct=" + DAL_M0001FmtPct(rejected_last.follow_pct)
+      + "*conflictLastFollowPct=" + DAL_M0001FmtPct(conflict_last.follow_pct)
+      + "*neutralLastFollowPct=" + DAL_M0001FmtPct(neutral_last.follow_pct)
+      + "*consensusMinusLastFollow=" + DAL_M0001FmtPct(accepted_vs_last_follow)
+      + "*consensusMinusRejectedFollow=" + DAL_M0001FmtPct(accepted_vs_rejected_follow)
+      + "*lastLiftPct=" + DAL_M0001FmtPct(last_only.lift_pct)
+      + "*consensusLiftPct=" + DAL_M0001FmtPct(accepted.lift_pct)
+      + "*rejectedLastLiftPct=" + DAL_M0001FmtPct(rejected_last.lift_pct)
+      + "*consensusMinusLastLift=" + DAL_M0001FmtPct(accepted_vs_last_lift)
+      + "*consensusMinusRejectedLift=" + DAL_M0001FmtPct(accepted_vs_rejected_lift)
+      + "*consensusCoveragePct=" + DAL_M0001FmtPct(accepted.coverage_pct)
+      + "*rejectedCoveragePct=" + DAL_M0001FmtPct(rejected_last.coverage_pct)
+      + "*consensusMinusLastMeanDLog=" + DAL_M0001Fmt4(accepted_vs_last_dlog)
+      + "*consensusMinusRejectedMeanDLog=" + DAL_M0001Fmt4(accepted_vs_rejected_dlog)
+      + "*qualityModel=" + model;
+}
+
+string DAL_M0004SignalQualityBlockProfileText(
+   const string tag,
+   const string method,
+   const int &labels[],
+   const int &signals[],
+   const int count,
+   const int block_size
+)
+{
+   if(count <= 2)
+      return tag + "*method=" + method + "*n=" + IntegerToString(count) + "*blocks=0";
+
+   int bs = block_size;
+   if(bs < 5) bs = 5;
+
+   int global_cont = 0;
+   for(int i = 0; i < count; i++)
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         global_cont++;
+   double global_cont_prob = (double)global_cont / count;
+   double global_rev_prob = 1.0 - global_cont_prob;
+
+   double follow_pcts[];
+   double lift_pcts[];
+   double coverage_pcts[];
+   int positive_lift_blocks = 0;
+   int positive_follow_blocks = 0;
+   int used_blocks = 0;
+
+   for(int start = 1; start < count; start += bs)
+   {
+      int end = start + bs;
+      if(end > count) end = count;
+      int block_total = end - start;
+      int signal_count = 0;
+      int follow_count = 0;
+      double expected_sum = 0.0;
+      for(int i = start; i < end; i++)
+      {
+         int signal = (i < ArraySize(signals) ? signals[i] : -1);
+         if(signal != DAL_M0004_LABEL_REVERSAL && signal != DAL_M0004_LABEL_CONTINUATION)
+            continue;
+         signal_count++;
+         if(labels[i] == signal)
+            follow_count++;
+         expected_sum += (signal == DAL_M0004_LABEL_CONTINUATION ? global_cont_prob : global_rev_prob);
+      }
+      if(signal_count <= 0)
+         continue;
+      double follow_pct = 100.0 * follow_count / signal_count;
+      double expected_pct = 100.0 * expected_sum / signal_count;
+      double lift_pct = follow_pct - expected_pct;
+      double coverage_pct = 100.0 * signal_count / block_total;
+      DAL_M0004AppendDouble(follow_pcts, follow_pct);
+      DAL_M0004AppendDouble(lift_pcts, lift_pct);
+      DAL_M0004AppendDouble(coverage_pcts, coverage_pct);
+      if(lift_pct > 0.0) positive_lift_blocks++;
+      if(follow_pct > expected_pct) positive_follow_blocks++;
+      used_blocks++;
+   }
+
+   return tag
+      + "*method=" + method
+      + "*n=" + IntegerToString(count)
+      + "*blockSize=" + IntegerToString(bs)
+      + "*blocks=" + IntegerToString(used_blocks)
+      + "*meanFollowPct=" + DAL_M0001FmtPct(DAL_M0004MeanFromArray(follow_pcts))
+      + "*sdFollowPct=" + DAL_M0001FmtPct(DAL_M0004StdDevFromArray(follow_pcts))
+      + "*minFollowPct=" + DAL_M0001FmtPct(DAL_M0004QuantileFromArray(follow_pcts, 0.00))
+      + "*maxFollowPct=" + DAL_M0001FmtPct(DAL_M0004QuantileFromArray(follow_pcts, 1.00))
+      + "*meanLiftPct=" + DAL_M0001FmtPct(DAL_M0004MeanFromArray(lift_pcts))
+      + "*sdLiftPct=" + DAL_M0001FmtPct(DAL_M0004StdDevFromArray(lift_pcts))
+      + "*positiveLiftBlockPct=" + DAL_M0001FmtPct(used_blocks > 0 ? 100.0 * positive_lift_blocks / used_blocks : 0.0)
+      + "*meanCoveragePct=" + DAL_M0001FmtPct(DAL_M0004MeanFromArray(coverage_pcts))
+      + "*minCoveragePct=" + DAL_M0001FmtPct(DAL_M0004QuantileFromArray(coverage_pcts, 0.00))
+      + "*maxCoveragePct=" + DAL_M0001FmtPct(DAL_M0004QuantileFromArray(coverage_pcts, 1.00));
+}
+
 struct DALM0004ConsensusStats
 {
    int n;
@@ -2398,6 +2839,54 @@ void DAL_M0004PrintFinalReports(
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_BUCKETS_EWMA_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextBucketText("CONTEXT_BUCKETS", "ewma_human_eye", labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, true));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_ROLLING_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusStatsText("CONSENSUS_CONTEXT", "rolling", all_samples, labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_EWMA_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusStatsText("CONSENSUS_CONTEXT", "ewma_human_eye", all_samples, labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true));
+   int last_signals[];
+   int consensus_roll_signals[], rejected_roll_signals[], conflict_last_roll_signals[], conflict_context_roll_signals[], neutral_last_roll_signals[];
+   int consensus_ewma_signals[], rejected_ewma_signals[], conflict_last_ewma_signals[], conflict_context_ewma_signals[], neutral_last_ewma_signals[];
+   DAL_M0004BuildLastOnlySignals(labels, count, last_signals);
+   DAL_M0004BuildConsensusSignalPartitions(labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, consensus_roll_signals, rejected_roll_signals, conflict_last_roll_signals, conflict_context_roll_signals, neutral_last_roll_signals);
+   DAL_M0004BuildConsensusSignalPartitions(labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true, consensus_ewma_signals, rejected_ewma_signals, conflict_last_ewma_signals, conflict_context_ewma_signals, neutral_last_ewma_signals);
+
+   DALM0004SignalQualityStats q_last;
+   DALM0004SignalQualityStats q_cons_roll, q_rej_roll, q_conf_last_roll, q_conf_ctx_roll, q_neutral_roll;
+   DALM0004SignalQualityStats q_cons_ewma, q_rej_ewma, q_conf_last_ewma, q_conf_ctx_ewma, q_neutral_ewma;
+   DAL_M0004ComputeSignalQualityStats("last_only", all_samples, labels, last_signals, count, q_last);
+   DAL_M0004ComputeSignalQualityStats("consensus_accept", all_samples, labels, consensus_roll_signals, count, q_cons_roll);
+   DAL_M0004ComputeSignalQualityStats("rejected_last", all_samples, labels, rejected_roll_signals, count, q_rej_roll);
+   DAL_M0004ComputeSignalQualityStats("conflict_last", all_samples, labels, conflict_last_roll_signals, count, q_conf_last_roll);
+   DAL_M0004ComputeSignalQualityStats("conflict_context", all_samples, labels, conflict_context_roll_signals, count, q_conf_ctx_roll);
+   DAL_M0004ComputeSignalQualityStats("neutral_last", all_samples, labels, neutral_last_roll_signals, count, q_neutral_roll);
+   DAL_M0004ComputeSignalQualityStats("consensus_accept", all_samples, labels, consensus_ewma_signals, count, q_cons_ewma);
+   DAL_M0004ComputeSignalQualityStats("rejected_last", all_samples, labels, rejected_ewma_signals, count, q_rej_ewma);
+   DAL_M0004ComputeSignalQualityStats("conflict_last", all_samples, labels, conflict_last_ewma_signals, count, q_conf_last_ewma);
+   DAL_M0004ComputeSignalQualityStats("conflict_context", all_samples, labels, conflict_context_ewma_signals, count, q_conf_ctx_ewma);
+   DAL_M0004ComputeSignalQualityStats("neutral_last", all_samples, labels, neutral_last_ewma_signals, count, q_neutral_ewma);
+
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_LAST_ONLY_QUALITY_COUNTS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityCountsText("SIGNAL_QUALITY_COUNTS", "last_only", q_last));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_LAST_ONLY_QUALITY_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "last_only", q_last));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_LAST_ONLY_QUALITY_INTENSITY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityIntensityText("SIGNAL_QUALITY_INTENSITY", "last_only", q_last));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_LAST_ONLY_QUALITY_BRANCH", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityBranchIntensityText("SIGNAL_QUALITY_BRANCH", "last_only", q_last));
+
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_COUNTS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityCountsText("SIGNAL_QUALITY_COUNTS", "rolling_consensus", q_cons_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "rolling_consensus", q_cons_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_INTENSITY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityIntensityText("SIGNAL_QUALITY_INTENSITY", "rolling_consensus", q_cons_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_BRANCH", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityBranchIntensityText("SIGNAL_QUALITY_BRANCH", "rolling_consensus", q_cons_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REJECTED_LAST_QUALITY_ROLLING_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "rolling_rejected_last", q_rej_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONFLICT_LAST_QUALITY_ROLLING_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "rolling_conflict_last", q_conf_last_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONFLICT_CONTEXT_QUALITY_ROLLING_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "rolling_conflict_context", q_conf_ctx_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_NEUTRAL_LAST_QUALITY_ROLLING_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "rolling_neutral_last", q_neutral_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityCompareText("SIGNAL_QUALITY_COMPARE", "rolling_consensus", q_last, q_cons_roll, q_rej_roll, q_conf_last_roll, q_neutral_roll));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityBlockProfileText("SIGNAL_QUALITY_BLOCK_PROFILE", "rolling_consensus", labels, consensus_roll_signals, count, h4_config.block_size));
+
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_COUNTS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityCountsText("SIGNAL_QUALITY_COUNTS", "ewma_consensus", q_cons_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "ewma_consensus", q_cons_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_INTENSITY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityIntensityText("SIGNAL_QUALITY_INTENSITY", "ewma_consensus", q_cons_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_BRANCH", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityBranchIntensityText("SIGNAL_QUALITY_BRANCH", "ewma_consensus", q_cons_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REJECTED_LAST_QUALITY_EWMA_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "ewma_rejected_last", q_rej_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONFLICT_LAST_QUALITY_EWMA_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "ewma_conflict_last", q_conf_last_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONFLICT_CONTEXT_QUALITY_EWMA_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "ewma_conflict_context", q_conf_ctx_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_NEUTRAL_LAST_QUALITY_EWMA_FOLLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityFollowText("SIGNAL_QUALITY_FOLLOW", "ewma_neutral_last", q_neutral_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityCompareText("SIGNAL_QUALITY_COMPARE", "ewma_consensus", q_last, q_cons_ewma, q_rej_ewma, q_conf_last_ewma, q_neutral_ewma));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SignalQualityBlockProfileText("SIGNAL_QUALITY_BLOCK_PROFILE", "ewma_consensus", labels, consensus_ewma_signals, count, h4_config.block_size));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("rolling_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, false));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("rolling_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, true));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("ewma_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true, h4_config.stress_iterations, false));

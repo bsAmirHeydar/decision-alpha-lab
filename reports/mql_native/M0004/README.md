@@ -15,3 +15,18 @@ M0004 v1.01 adds expanded regime detail and strict engineered random/null diagno
 - `FINAL_*_DETAIL_*` lines for richer session, pre-volatility, revisit, and event-spacing regime diagnostics.
 
 The strongest null is the composite stratified permutation, which preserves branch counts within `session × pre-vol tercile × trend regime × revisit bucket` before testing branch inertia.
+
+## v1.04 consensus quality diagnostics
+
+M0004-v1.04 adds modular signal-quality reports for comparing:
+
+```text
+last-only branch signal
+last-context consensus accepted signal
+last-only signals rejected by consensus
+conflict last-branch signal
+conflict context signal
+neutral last-branch signal
+```
+
+Use the `*_QUALITY_COMPARE_*` lines to determine whether consensus is merely reproducing last-only behavior or truly filtering for higher-quality branch-regime states.

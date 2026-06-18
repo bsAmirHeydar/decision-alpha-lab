@@ -177,3 +177,105 @@ session × prevol × trend × revisit
 ```
 
 A valid consensus state should show positive `consensusLiftPct` and survive both global and stratified consensus shuffle stress.
+
+## Consensus quality layer — v1.04
+
+M0004-v1.04 adds a quality-audit layer to distinguish the **quality** of consensus follow events from the raw last-only follow rate.
+
+This matters because last-only already has a high follow rate. A consensus state should therefore not only be judged by whether its follow percentage is slightly higher. It should be judged by whether it selects a better subset of last-only signals.
+
+### Core distinction
+
+```text
+last-only quality:
+  signal = previous branch
+  coverage ≈ all transition events
+
+consensus quality:
+  signal = previous branch only when previous branch agrees with context
+  coverage = accepted subset
+
+rejected-last quality:
+  signal = previous branch when consensus rejects the setup
+  used to test whether consensus is filtering lower-quality last-only signals
+```
+
+### New modular reports
+
+```text
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_COUNTS
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_FOLLOW
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_INTENSITY
+DAL_M0004_FINAL_LAST_ONLY_QUALITY_BRANCH
+
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_COUNTS
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_INTENSITY
+DAL_M0004_FINAL_CONSENSUS_QUALITY_ROLLING_BRANCH
+DAL_M0004_FINAL_REJECTED_LAST_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_CONFLICT_LAST_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_CONFLICT_CONTEXT_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_NEUTRAL_LAST_QUALITY_ROLLING_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_ROLLING
+DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_ROLLING
+
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_COUNTS
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_INTENSITY
+DAL_M0004_FINAL_CONSENSUS_QUALITY_EWMA_BRANCH
+DAL_M0004_FINAL_REJECTED_LAST_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_CONFLICT_LAST_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_CONFLICT_CONTEXT_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_NEUTRAL_LAST_QUALITY_EWMA_FOLLOW
+DAL_M0004_FINAL_CONSENSUS_QUALITY_COMPARE_EWMA
+DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA
+```
+
+### Quality dimensions
+
+```text
+coveragePct:
+  how much of the event sequence this signal accepts
+
+followPct:
+  how often the accepted signal is followed
+
+expectedFollowPct:
+  base-rate weighted expected follow rate for the same signal mix
+
+liftPct:
+  followPct - expectedFollowPct
+
+excessFollowPer100Events:
+  coveragePct × liftPct / 100
+  this is a coverage-adjusted edge proxy
+
+rejectedLastFollowPct:
+  follow rate of the last-only signals that consensus rejected
+
+consensusMinusRejectedFollow:
+  whether consensus selects better last-only setups
+
+meanDLog / p90DLog / p95DLog:
+  event-intensity quality of accepted signals
+
+followMinusSwitchDLog:
+  whether correctly followed consensus signals are more volatile than consensus failures
+```
+
+### Interpretation rule
+
+A consensus state is materially better than last-only only if it improves more than just raw follow rate.
+
+The strongest interpretation is:
+
+```text
+consensusFollowPct > lastOnlyFollowPct
+consensusLiftPct > lastOnlyLiftPct
+consensusFollowPct > rejectedLastFollowPct
+consensusMeanDLog >= rejectedLastMeanDLog
+positiveLiftBlockPct remains high
+```
+
+If consensusFollowPct is only slightly above last-only, but rejectedLastFollowPct is much lower, then consensus is still useful because it is acting as a **quality filter** rather than a new standalone predictor.
+
