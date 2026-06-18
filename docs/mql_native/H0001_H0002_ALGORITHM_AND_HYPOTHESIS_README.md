@@ -1,6 +1,6 @@
 # H0001 / H0002 Algorithm and Hypothesis README
 
-Version: 1.73
+Version: 1.75
 
 This document is the logic lock for the first two Decision Alpha Lab hypotheses. It is written as a research README, not as a strategy guide. The goal is to make every algorithmic assumption explicit enough that future reports can be audited against it.
 
@@ -370,3 +370,15 @@ H0002-C: Continuation exits carry a fatter upper-tail volatility profile.
 ```
 
 These are not yet directional entry rules. They are fact-layer hypotheses. Strategy design should come only after cross-market, cross-timeframe, multi-shift placebo, and seed-ensemble random validation.
+
+
+## Integration status with H0003/H0004
+
+H0001 and H0002 are the base layer for the later hypotheses. H0003 and H0004 do not create new node events. They only consume the exact completed M0001 events and exact M0002 branch labels.
+
+```text
+H0003 input = M0001 event RTV + M0002 branch label
+H0004 input = chronological M0002 branch-label sequence
+```
+
+Therefore, if an M0003 or M0004 report does not show `EVENT_RTV_LOCKED`, `sampleWindow=m0001EventRtv`, and `eventUniverseGuard=exact_M0001_compute_events_then_M0002_branch_collect`, it should not be treated as part of the locked research stack.

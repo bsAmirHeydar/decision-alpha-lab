@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-M0001/M0002 research runtime: 1.73
+Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.01
 ```
 
 ## Runtime modes
@@ -301,6 +301,7 @@ InpShowSummary = true
 
 ```text
 docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md
+docs/mql_native/H0001_H0004_RESEARCH_LOCK.md
 docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md
 docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md
 docs/mql_native/MODULE_MAP.md
@@ -395,6 +396,7 @@ Key docs:
 - `docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md`
 - `docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md`
 - `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`
+- `docs/mql_native/H0001_H0004_RESEARCH_LOCK.md`
 
 
 ## H0003 cluster-stress lock
@@ -405,7 +407,7 @@ Current build targets:
 
 ```text
 M0002_ReversalContinuationExitVolatility: build 1.75
-M0003_ContinuationInertiaMemory: build 1.01
+M0003_ContinuationInertiaMemory: build 1.04
 ```
 
 See:
@@ -423,7 +425,7 @@ M0004 extends the locked H0001/H0002/H0003 stack from volatility-memory into bra
 Current build target:
 
 ```text
-M0004_BranchRegimeClustering: build 1.00
+M0004_BranchRegimeClustering: build 1.01
 ```
 
 Primary report lines:
@@ -441,3 +443,34 @@ DAL_M0004_FINAL_PREVOL_REGIME
 ```
 
 See `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`.
+
+### M0004 v1.01 — expanded branch-regime diagnostics
+
+M0004 now includes a stricter H0004 branch-regime audit. In addition to transition, run, and block concentration reports, it prints detailed session/pre-vol/revisit/event-spacing regime metrics and engineered random/null checks:
+
+- stratified label permutations by session, pre-volatility, revisit bucket, and composite strata
+- circular far-shift adjacency placebo
+- block-order shuffle null preserving local block structure
+- block profiles across fast/main/slow event-block sizes
+- run-length conditioned transition probabilities
+- multi-lag branch-memory decay
+
+See `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md` for the full interpretation rules.
+
+
+## H0001-H0004 research lock
+
+The four active hypotheses are now locked as a layered market-structure volatility model:
+
+```text
+H0001: structural node territory events have higher RTV than matched random windows.
+H0002: reversal/continuation exits have different frequency, intensity, tail, and post-event memory profiles.
+H0003: continuation carries stronger volatility inertia/memory across horizons and cluster stress tests.
+H0004: reversal/continuation labels form chronological branch regimes with local transition inertia and run/block clustering.
+```
+
+The integrated audit and acceptance rules are in:
+
+```text
+docs/mql_native/H0001_H0004_RESEARCH_LOCK.md
+```

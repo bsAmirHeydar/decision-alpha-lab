@@ -53,3 +53,12 @@ H0004 is provisionally accepted on a symbol/timeframe if:
 5. run or block concentration stress is positive.
 
 A stronger version requires both branches to have positive persistence lift.
+
+
+## Current implementation status
+
+M0004 v1.01 now implements the requested H0004 scope: chronological branch-label transition matrix, run clustering, block concentration, lag decay, run-length conditioned continuation, session/pre-vol/revisit/spacing detail, and engineered strict nulls.
+
+The core null preserves observed reversal/continuation counts. Additional nulls preserve session, pre-volatility, revisit bucket, and composite strata. A circular far-lag null and block-order shuffle null diagnose whether memory is local or longer-horizon.
+
+Current interpretation: H0004 is complete as a branch-regime clustering test. It should be used as a state layer for later strategy extraction, not as a standalone directional entry rule.

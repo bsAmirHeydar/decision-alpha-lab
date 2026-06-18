@@ -11,6 +11,10 @@ struct DALM0004Config
    int stress_iterations;
    int block_size;
    int placebo_lag_events;
+   int regime_block_size_fast;
+   int regime_block_size_slow;
+   int circular_min_shift_events;
+   int local_block_shuffle_size;
 };
 
 struct DALM0004TransitionStats
@@ -820,6 +824,498 @@ string DAL_M0004PrevolSegmentText(const int &labels[], const double &prevols[], 
    return out;
 }
 
+
+int DAL_M0004FindIntIndex(const int &values[], const int count, const int value)
+{
+   for(int i = 0; i < count; i++)
+      if(values[i] == value)
+         return i;
+   return -1;
+}
+
+void DAL_M0004UniqueKeys(const int &keys[], const int count, int &unique_keys[])
+{
+   ArrayResize(unique_keys, 0);
+   for(int i = 0; i < count; i++)
+   {
+      int n = ArraySize(unique_keys);
+      if(DAL_M0004FindIntIndex(unique_keys, n, keys[i]) >= 0)
+         continue;
+      ArrayResize(unique_keys, n + 1);
+      unique_keys[n] = keys[i];
+   }
+}
+
+void DAL_M0004BuildRevisitBuckets(const int &revisit_ids[], const int count, int &buckets[])
+{
+   ArrayResize(buckets, count);
+   for(int i = 0; i < count; i++)
+   {
+      if(revisit_ids[i] <= 0) buckets[i] = 0;
+      else if(revisit_ids[i] == 1) buckets[i] = 1;
+      else if(revisit_ids[i] == 2) buckets[i] = 2;
+      else buckets[i] = 3;
+   }
+}
+
+void DAL_M0004BuildCompositeStrata(
+   const int &sessions[],
+   const int &trend_regimes[],
+   const int &prevol_regimes[],
+   const int &revisit_buckets[],
+   const int count,
+   int &strata[]
+)
+{
+   ArrayResize(strata, count);
+   for(int i = 0; i < count; i++)
+   {
+      int session = sessions[i]; if(session < 0) session = 9;
+      int trend = trend_regimes[i]; if(trend < 0) trend = 9;
+      int prevol = prevol_regimes[i]; if(prevol < 0) prevol = 9;
+      int revisit = revisit_buckets[i]; if(revisit < 0) revisit = 9;
+      strata[i] = session + 10 * prevol + 100 * trend + 1000 * revisit;
+   }
+}
+
+void DAL_M0004BuildSpacingRegimes(const DALM0002BranchSample &samples[], const int count, int &regimes[], double &t1, double &t2)
+{
+   ArrayResize(regimes, count);
+   double gaps[];
+   ArrayResize(gaps, count);
+   for(int i = 0; i < count; i++)
+   {
+      if(i == 0)
+         gaps[i] = 0.0;
+      else
+      {
+         int g = DAL_M0004SampleSortKey(samples[i]) - DAL_M0004SampleSortKey(samples[i - 1]);
+         if(g < 0) g = 0;
+         gaps[i] = (double)g;
+      }
+   }
+   if(count > 1 && gaps[0] == 0.0)
+      gaps[0] = gaps[1];
+   DAL_M0004PrevolTerciles(gaps, count, t1, t2);
+   for(int i = 0; i < count; i++)
+   {
+      if(gaps[i] <= t1) regimes[i] = 0;
+      else if(gaps[i] <= t2) regimes[i] = 1;
+      else regimes[i] = 2;
+   }
+}
+
+string DAL_M0004SingleSegmentDetailText(const string tag, const string segment_name, const int &labels[], const int &keys[], const int count, const int key)
+{
+   int sub[];
+   DAL_M0004FilterLabelsByInt(labels, keys, count, key, sub);
+   int n = ArraySize(sub);
+   DALM0004TransitionStats s;
+   DALM0004RunStats rev;
+   DALM0004RunStats cont;
+   int all_count = 0, all_max = 0;
+   double all_avg = 0.0;
+   DAL_M0004ComputeTransitionStats(sub, n, s);
+   DAL_M0004ComputeRunStats(sub, n, DAL_M0004_LABEL_REVERSAL, rev);
+   DAL_M0004ComputeRunStats(sub, n, DAL_M0004_LABEL_CONTINUATION, cont);
+   DAL_M0004ComputeAllRunStats(sub, n, all_count, all_max, all_avg);
+
+   return tag
+      + "*segment=" + segment_name
+      + "*key=" + IntegerToString(key)
+      + "*n=" + IntegerToString(n)
+      + "*revPct=" + DAL_M0001FmtPct(s.reversal_pct)
+      + "*contPct=" + DAL_M0001FmtPct(s.continuation_pct)
+      + "*samePct=" + DAL_M0001FmtPct(s.same_pct)
+      + "*iidSamePct=" + DAL_M0001FmtPct(s.iid_same_pct)
+      + "*sameLift=" + DAL_M0001FmtPct(s.same_lift)
+      + "*switchPct=" + DAL_M0001FmtPct(s.switch_pct)
+      + "*pRevAfterRev=" + DAL_M0001FmtPct(s.p_reversal_after_reversal)
+      + "*pContAfterCont=" + DAL_M0001FmtPct(s.p_continuation_after_continuation)
+      + "*revLift=" + DAL_M0001FmtPct(s.reversal_persistence_lift)
+      + "*contLift=" + DAL_M0001FmtPct(s.continuation_persistence_lift)
+      + "*lag1=" + DAL_M0001Fmt4(s.lag1_corr)
+      + "*lag2=" + DAL_M0001Fmt4(s.lag2_corr)
+      + "*markovChi2=" + DAL_M0001Fmt4(s.markov_chi2)
+      + "*mutualInfoNats=" + DAL_M0001Fmt4(s.mutual_info_nats)
+      + "*allAvgRun=" + DAL_M0001Fmt4(all_avg)
+      + "*allMaxRun=" + IntegerToString(all_max)
+      + "*revRunOverIid=" + DAL_M0001Fmt4(rev.avg_run_over_iid)
+      + "*contRunOverIid=" + DAL_M0001Fmt4(cont.avg_run_over_iid);
+}
+
+string DAL_M0004LagDecayText(const int &labels[], const int count, const int placebo_lag)
+{
+   int lags[9];
+   lags[0] = 1;
+   lags[1] = 2;
+   lags[2] = 3;
+   lags[3] = 5;
+   lags[4] = 10;
+   lags[5] = 20;
+   lags[6] = 50;
+   lags[7] = 100;
+   lags[8] = placebo_lag;
+
+   string out = "LAG_DECAY*n=" + IntegerToString(count);
+   double l1 = DAL_M0004LabelLagCorr(labels, count, 1);
+   double auc = 0.0;
+   for(int i = 0; i < 9; i++)
+   {
+      int lag = lags[i];
+      if(lag < 1) lag = 1;
+      double c = DAL_M0004LabelLagCorr(labels, count, lag);
+      out += "*lag" + IntegerToString(lag) + "Corr=" + DAL_M0001Fmt4(c);
+      if(i < 8) auc += MathMax(0.0, c);
+   }
+   out += "*positiveLagCorrAuc=" + DAL_M0001Fmt4(auc)
+      + "*lag2OverLag1=" + DAL_M0001Fmt4(DAL_M0004SafeRatio(DAL_M0004LabelLagCorr(labels, count, 2), l1))
+      + "*lag5OverLag1=" + DAL_M0001Fmt4(DAL_M0004SafeRatio(DAL_M0004LabelLagCorr(labels, count, 5), l1))
+      + "*lag20OverLag1=" + DAL_M0001Fmt4(DAL_M0004SafeRatio(DAL_M0004LabelLagCorr(labels, count, 20), l1))
+      + "*decayProfile=" + (MathAbs(DAL_M0004LabelLagCorr(labels, count, placebo_lag)) < MathAbs(l1) ? "near_memory_decays" : "far_memory_persists");
+   return out;
+}
+
+string DAL_M0004RunLengthTransitionText(const int &labels[], const int count)
+{
+   int total[5], same[5], rev_total[5], rev_same[5], cont_total[5], cont_same[5];
+   for(int i = 0; i < 5; i++)
+   {
+      total[i] = 0; same[i] = 0; rev_total[i] = 0; rev_same[i] = 0; cont_total[i] = 0; cont_same[i] = 0;
+   }
+   if(count <= 1)
+      return "RUN_LENGTH_TRANSITION*n=" + IntegerToString(count);
+
+   int prev_run_len = 1;
+   for(int i = 1; i < count; i++)
+   {
+      int bucket = prev_run_len;
+      if(bucket > 4) bucket = 4;
+      total[bucket]++;
+      if(labels[i] == labels[i - 1]) same[bucket]++;
+      if(labels[i - 1] == DAL_M0004_LABEL_REVERSAL)
+      {
+         rev_total[bucket]++;
+         if(labels[i] == labels[i - 1]) rev_same[bucket]++;
+      }
+      else
+      {
+         cont_total[bucket]++;
+         if(labels[i] == labels[i - 1]) cont_same[bucket]++;
+      }
+
+      if(labels[i] == labels[i - 1]) prev_run_len++;
+      else prev_run_len = 1;
+   }
+
+   string out = "RUN_LENGTH_TRANSITION*n=" + IntegerToString(count);
+   for(int b = 1; b <= 4; b++)
+   {
+      string name = (b < 4 ? IntegerToString(b) : "4plus");
+      out += "*run" + name + "N=" + IntegerToString(total[b])
+         + "*run" + name + "SamePct=" + DAL_M0001FmtPct(total[b] > 0 ? 100.0 * same[b] / total[b] : 0.0)
+         + "*run" + name + "RevSamePct=" + DAL_M0001FmtPct(rev_total[b] > 0 ? 100.0 * rev_same[b] / rev_total[b] : 0.0)
+         + "*run" + name + "ContSamePct=" + DAL_M0001FmtPct(cont_total[b] > 0 ? 100.0 * cont_same[b] / cont_total[b] : 0.0);
+   }
+   return out;
+}
+
+string DAL_M0004BlockRegimeProfileText(const int &labels[], const int count, const int block_size)
+{
+   if(count <= 0)
+      return "BLOCK_REGIME_PROFILE*n=0";
+   int bs = block_size;
+   if(bs < 2) bs = 2;
+   int blocks = 0;
+   double global_cont = 0.0;
+   for(int i = 0; i < count; i++) if(labels[i] == DAL_M0004_LABEL_CONTINUATION) global_cont++;
+   global_cont = 100.0 * global_cont / count;
+
+   double cont_sum = 0.0, cont_sumsq = 0.0, cont_min = 100.0, cont_max = 0.0;
+   double lift_sum = 0.0, lift_sumsq = 0.0, lift_min = 1000000.0, lift_max = -1000000.0;
+   double lag_sum = 0.0, lag_sumsq = 0.0;
+   int positive_lift = 0, positive_lag = 0, hot = 0, cold = 0;
+
+   for(int start = 0; start < count; start += bs)
+   {
+      int end = start + bs;
+      if(end > count) end = count;
+      int n = end - start;
+      if(n <= 2) continue;
+      int sub[];
+      ArrayResize(sub, n);
+      for(int j = 0; j < n; j++) sub[j] = labels[start + j];
+      DALM0004TransitionStats s;
+      DAL_M0004ComputeTransitionStats(sub, n, s);
+      double cp = s.continuation_pct;
+      cont_sum += cp; cont_sumsq += cp * cp;
+      if(cp < cont_min) cont_min = cp;
+      if(cp > cont_max) cont_max = cp;
+      lift_sum += s.same_lift; lift_sumsq += s.same_lift * s.same_lift;
+      if(s.same_lift < lift_min) lift_min = s.same_lift;
+      if(s.same_lift > lift_max) lift_max = s.same_lift;
+      lag_sum += s.lag1_corr; lag_sumsq += s.lag1_corr * s.lag1_corr;
+      if(s.same_lift > 0.0) positive_lift++;
+      if(s.lag1_corr > 0.0) positive_lag++;
+      if(cp >= global_cont + 10.0) hot++;
+      if(cp <= global_cont - 10.0) cold++;
+      blocks++;
+   }
+   double b = (double)MathMax(1, blocks);
+   double cont_mean = cont_sum / b;
+   double lift_mean = lift_sum / b;
+   double lag_mean = lag_sum / b;
+   double cont_sd = MathSqrt(MathMax(0.0, cont_sumsq / b - cont_mean * cont_mean));
+   double lift_sd = MathSqrt(MathMax(0.0, lift_sumsq / b - lift_mean * lift_mean));
+   double lag_sd = MathSqrt(MathMax(0.0, lag_sumsq / b - lag_mean * lag_mean));
+
+   return "BLOCK_REGIME_PROFILE"
+      + "*n=" + IntegerToString(count)
+      + "*blockSize=" + IntegerToString(bs)
+      + "*blocks=" + IntegerToString(blocks)
+      + "*globalContPct=" + DAL_M0001FmtPct(global_cont)
+      + "*meanContPct=" + DAL_M0001FmtPct(cont_mean)
+      + "*sdContPct=" + DAL_M0001Fmt4(cont_sd)
+      + "*minContPct=" + DAL_M0001FmtPct(cont_min)
+      + "*maxContPct=" + DAL_M0001FmtPct(cont_max)
+      + "*meanSameLift=" + DAL_M0001FmtPct(lift_mean)
+      + "*sdSameLift=" + DAL_M0001Fmt4(lift_sd)
+      + "*minSameLift=" + DAL_M0001FmtPct(lift_min)
+      + "*maxSameLift=" + DAL_M0001FmtPct(lift_max)
+      + "*meanLag1=" + DAL_M0001Fmt4(lag_mean)
+      + "*sdLag1=" + DAL_M0001Fmt4(lag_sd)
+      + "*positiveLiftBlockPct=" + DAL_M0001FmtPct(100.0 * positive_lift / b)
+      + "*positiveLagBlockPct=" + DAL_M0001FmtPct(100.0 * positive_lag / b)
+      + "*hotContinuationBlockPct=" + DAL_M0001FmtPct(100.0 * hot / b)
+      + "*coldContinuationBlockPct=" + DAL_M0001FmtPct(100.0 * cold / b);
+}
+
+void DAL_M0004StratifiedShuffleLabels(const int &labels[], const int &strata[], const int count, const int iter, const int salt, int &out[])
+{
+   ArrayResize(out, count);
+   for(int i = 0; i < count; i++) out[i] = labels[i];
+
+   int unique[];
+   DAL_M0004UniqueKeys(strata, count, unique);
+   int unique_count = ArraySize(unique);
+   for(int u = 0; u < unique_count; u++)
+   {
+      int key = unique[u];
+      int pos[];
+      ArrayResize(pos, 0);
+      for(int i = 0; i < count; i++)
+      {
+         if(strata[i] != key) continue;
+         int n = ArraySize(pos);
+         ArrayResize(pos, n + 1);
+         pos[n] = i;
+      }
+      int pn = ArraySize(pos);
+      for(int p = pn - 1; p > 0; p--)
+      {
+         double frac = DAL_M0001RandomFractionK(iter + salt, count + (int)MathAbs((double)key), p + 17, salt + u * 101);
+         int q = (int)MathFloor(frac * (p + 1));
+         if(q < 0) q = 0;
+         if(q > p) q = p;
+         int a = pos[p];
+         int b = pos[q];
+         int tmp = out[a];
+         out[a] = out[b];
+         out[b] = tmp;
+      }
+   }
+}
+
+string DAL_M0004StratifiedPermutationStressText(const string name, const int &labels[], const int &strata[], const int count, const int iterations)
+{
+   if(count <= 5 || iterations <= 0)
+      return "STRATIFIED_PERM_STRESS*name=" + name + "*n=" + IntegerToString(count) + "*iters=0";
+   DALM0004TransitionStats obs;
+   DAL_M0004ComputeTransitionStats(labels, count, obs);
+
+   int tmp[];
+   double same_sum = 0.0, same_sumsq = 0.0, lag_sum = 0.0, lag_sumsq = 0.0;
+   int same_ge = 0, lag_ge = 0;
+   for(int iter = 0; iter < iterations; iter++)
+   {
+      DAL_M0004StratifiedShuffleLabels(labels, strata, count, iter, 7701, tmp);
+      DALM0004TransitionStats s;
+      DAL_M0004ComputeTransitionStats(tmp, count, s);
+      if(s.same_lift >= obs.same_lift) same_ge++;
+      if(s.lag1_corr >= obs.lag1_corr) lag_ge++;
+      same_sum += s.same_lift; same_sumsq += s.same_lift * s.same_lift;
+      lag_sum += s.lag1_corr; lag_sumsq += s.lag1_corr * s.lag1_corr;
+   }
+   double same_mean = same_sum / iterations;
+   double lag_mean = lag_sum / iterations;
+   double same_sd = MathSqrt(MathMax(0.0, same_sumsq / iterations - same_mean * same_mean));
+   double lag_sd = MathSqrt(MathMax(0.0, lag_sumsq / iterations - lag_mean * lag_mean));
+   double same_z = same_sd > 0.0 ? (obs.same_lift - same_mean) / same_sd : 0.0;
+   double lag_z = lag_sd > 0.0 ? (obs.lag1_corr - lag_mean) / lag_sd : 0.0;
+   double same_p = (same_ge + 1.0) / (iterations + 1.0);
+   double lag_p = (lag_ge + 1.0) / (iterations + 1.0);
+   int unique[]; DAL_M0004UniqueKeys(strata, count, unique);
+
+   string verdict = "branch_inertia_not_above_stratified_null";
+   if(same_z > 2.0 && lag_z > 2.0)
+      verdict = "branch_inertia_above_stratified_engineered_null";
+
+   return "STRATIFIED_PERM_STRESS"
+      + "*name=" + name
+      + "*n=" + IntegerToString(count)
+      + "*strata=" + IntegerToString(ArraySize(unique))
+      + "*iters=" + IntegerToString(iterations)
+      + "*obsSameLiftPct=" + DAL_M0001FmtPct(obs.same_lift)
+      + "*stratMeanSameLiftPct=" + DAL_M0001FmtPct(same_mean)
+      + "*stratSdSameLiftPct=" + DAL_M0001FmtPct(same_sd)
+      + "*sameLiftZ=" + DAL_M0001Fmt4(same_z)
+      + "*sameLiftEmpP=" + DAL_M0001Fmt4(same_p)
+      + "*obsLag1Corr=" + DAL_M0001Fmt4(obs.lag1_corr)
+      + "*stratMeanLag1Corr=" + DAL_M0001Fmt4(lag_mean)
+      + "*stratSdLag1Corr=" + DAL_M0001Fmt4(lag_sd)
+      + "*lag1Z=" + DAL_M0001Fmt4(lag_z)
+      + "*lag1EmpP=" + DAL_M0001Fmt4(lag_p)
+      + "*stressVerdict=" + verdict;
+}
+
+double DAL_M0004CircularShiftCorr(const int &labels[], const int count, const int lag, const int shift)
+{
+   if(count <= lag + 2)
+      return 0.0;
+   int n = count;
+   double mx = 0.0, my = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      int j = i - lag - shift;
+      while(j < 0) j += count;
+      j = j % count;
+      mx += labels[i];
+      my += labels[j];
+   }
+   mx /= n; my /= n;
+   double cov = 0.0, vx = 0.0, vy = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      int j = i - lag - shift;
+      while(j < 0) j += count;
+      j = j % count;
+      double x = labels[i] - mx;
+      double y = labels[j] - my;
+      cov += x * y; vx += x * x; vy += y * y;
+   }
+   if(vx <= 0.0 || vy <= 0.0) return 0.0;
+   return cov / MathSqrt(vx * vy);
+}
+
+string DAL_M0004CircularShiftStressText(const int &labels[], const int count, const int iterations, const int min_shift)
+{
+   if(count <= min_shift + 10 || iterations <= 0)
+      return "CIRCULAR_SHIFT_STRESS*n=" + IntegerToString(count) + "*iters=0";
+   double obs = DAL_M0004LabelLagCorr(labels, count, 1);
+   int min_s = min_shift;
+   if(min_s < 3) min_s = 3;
+   int max_s = count - min_s - 1;
+   if(max_s <= min_s) max_s = count - 3;
+   double sum = 0.0, sumsq = 0.0;
+   int ge = 0;
+   int span = MathMax(1, max_s - min_s + 1);
+   for(int iter = 0; iter < iterations; iter++)
+   {
+      double frac = DAL_M0001RandomFractionK(iter + 8801, count, min_s, max_s);
+      int shift = min_s + (int)MathFloor(frac * span);
+      if(shift < min_s) shift = min_s;
+      if(shift > max_s) shift = max_s;
+      double c = DAL_M0004CircularShiftCorr(labels, count, 1, shift);
+      if(c >= obs) ge++;
+      sum += c; sumsq += c * c;
+   }
+   double mean = sum / iterations;
+   double sd = MathSqrt(MathMax(0.0, sumsq / iterations - mean * mean));
+   double z = sd > 0.0 ? (obs - mean) / sd : 0.0;
+   double p = (ge + 1.0) / (iterations + 1.0);
+   string verdict = z > 2.0 ? "near_lag_memory_above_circular_far_lag_null" : "near_lag_memory_not_above_circular_null";
+   return "CIRCULAR_SHIFT_STRESS"
+      + "*n=" + IntegerToString(count)
+      + "*iters=" + IntegerToString(iterations)
+      + "*minShift=" + IntegerToString(min_s)
+      + "*obsLag1Corr=" + DAL_M0001Fmt4(obs)
+      + "*shiftMeanCorr=" + DAL_M0001Fmt4(mean)
+      + "*shiftSdCorr=" + DAL_M0001Fmt4(sd)
+      + "*lag1Z=" + DAL_M0001Fmt4(z)
+      + "*lag1EmpP=" + DAL_M0001Fmt4(p)
+      + "*stressVerdict=" + verdict;
+}
+
+void DAL_M0004BlockOrderShuffleLabels(const int &labels[], const int count, const int block_size, const int iter, int &out[])
+{
+   ArrayResize(out, count);
+   int bs = block_size;
+   if(bs < 2) bs = 2;
+   int blocks = (count + bs - 1) / bs;
+   int order[];
+   DAL_M0004BuildPermutation(blocks, iter, 9901, order);
+   int idx = 0;
+   for(int bi = 0; bi < blocks; bi++)
+   {
+      int b = order[bi];
+      int start = b * bs;
+      int end = start + bs;
+      if(end > count) end = count;
+      for(int i = start; i < end && idx < count; i++)
+      {
+         out[idx] = labels[i];
+         idx++;
+      }
+   }
+}
+
+string DAL_M0004BlockOrderShuffleStressText(const int &labels[], const int count, const int block_size, const int iterations)
+{
+   if(count <= block_size * 3 || iterations <= 0)
+      return "BLOCK_ORDER_SHUFFLE_STRESS*n=" + IntegerToString(count) + "*iters=0";
+   DALM0004TransitionStats obs;
+   DAL_M0004ComputeTransitionStats(labels, count, obs);
+   int tmp[];
+   double same_sum = 0.0, same_sumsq = 0.0, lag_sum = 0.0, lag_sumsq = 0.0;
+   int same_ge = 0, lag_ge = 0;
+   for(int iter = 0; iter < iterations; iter++)
+   {
+      DAL_M0004BlockOrderShuffleLabels(labels, count, block_size, iter, tmp);
+      DALM0004TransitionStats s;
+      DAL_M0004ComputeTransitionStats(tmp, count, s);
+      if(s.same_lift >= obs.same_lift) same_ge++;
+      if(s.lag1_corr >= obs.lag1_corr) lag_ge++;
+      same_sum += s.same_lift; same_sumsq += s.same_lift * s.same_lift;
+      lag_sum += s.lag1_corr; lag_sumsq += s.lag1_corr * s.lag1_corr;
+   }
+   double same_mean = same_sum / iterations;
+   double lag_mean = lag_sum / iterations;
+   double same_sd = MathSqrt(MathMax(0.0, same_sumsq / iterations - same_mean * same_mean));
+   double lag_sd = MathSqrt(MathMax(0.0, lag_sumsq / iterations - lag_mean * lag_mean));
+   double same_z = same_sd > 0.0 ? (obs.same_lift - same_mean) / same_sd : 0.0;
+   double lag_z = lag_sd > 0.0 ? (obs.lag1_corr - lag_mean) / lag_sd : 0.0;
+   double same_p = (same_ge + 1.0) / (iterations + 1.0);
+   double lag_p = (lag_ge + 1.0) / (iterations + 1.0);
+   string verdict = "local_block_structure_explains_most_inertia";
+   if(same_z > 2.0 && lag_z > 2.0)
+      verdict = "inertia_exceeds_local_block_order_null";
+   return "BLOCK_ORDER_SHUFFLE_STRESS"
+      + "*n=" + IntegerToString(count)
+      + "*blockSize=" + IntegerToString(block_size)
+      + "*iters=" + IntegerToString(iterations)
+      + "*obsSameLiftPct=" + DAL_M0001FmtPct(obs.same_lift)
+      + "*blockNullMeanSameLiftPct=" + DAL_M0001FmtPct(same_mean)
+      + "*blockNullSdSameLiftPct=" + DAL_M0001FmtPct(same_sd)
+      + "*sameLiftZ=" + DAL_M0001Fmt4(same_z)
+      + "*sameLiftEmpP=" + DAL_M0001Fmt4(same_p)
+      + "*obsLag1Corr=" + DAL_M0001Fmt4(obs.lag1_corr)
+      + "*blockNullMeanLag1Corr=" + DAL_M0001Fmt4(lag_mean)
+      + "*blockNullSdLag1Corr=" + DAL_M0001Fmt4(lag_sd)
+      + "*lag1Z=" + DAL_M0001Fmt4(lag_z)
+      + "*lag1EmpP=" + DAL_M0001Fmt4(lag_p)
+      + "*stressVerdict=" + verdict;
+}
+
 string DAL_M0004SummaryText(const DALM0004TransitionStats &s, const DALM0004RunStats &rev, const DALM0004RunStats &cont)
 {
    string state = "mixed_or_no_branch_regime";
@@ -881,6 +1377,20 @@ void DAL_M0004PrintFinalReports(
    DAL_M0004BuildLabelArrays(all_samples, labels, sessions, trend_regimes, revisit_ids, prevols, times);
 
    int count = ArraySize(labels);
+   int prevol_regimes[];
+   double prevol_t1 = 0.0, prevol_t2 = 0.0;
+   DAL_M0004BuildPrevolRegimes(prevols, count, prevol_regimes, prevol_t1, prevol_t2);
+
+   int revisit_buckets[];
+   DAL_M0004BuildRevisitBuckets(revisit_ids, count, revisit_buckets);
+
+   int spacing_regimes[];
+   double spacing_t1 = 0.0, spacing_t2 = 0.0;
+   DAL_M0004BuildSpacingRegimes(all_samples, count, spacing_regimes, spacing_t1, spacing_t2);
+
+   int composite_strata[];
+   DAL_M0004BuildCompositeStrata(sessions, trend_regimes, prevol_regimes, revisit_buckets, count, composite_strata);
+
    DALM0004TransitionStats trans;
    DAL_M0004ComputeTransitionStats(labels, count, trans);
 
@@ -900,10 +1410,35 @@ void DAL_M0004PrintFinalReports(
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_TRANSITION_PERM_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004TransitionPermutationStressText(labels, count, h4_config.stress_iterations));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_RUN_SHUFFLE_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunShuffleStressText(labels, count, h4_config.stress_iterations));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_CONCENTRATION_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockConcentrationStressText(labels, count, h4_config.block_size, h4_config.stress_iterations));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_PROFILE_FAST", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockRegimeProfileText(labels, count, h4_config.regime_block_size_fast));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_PROFILE_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockRegimeProfileText(labels, count, h4_config.block_size));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_PROFILE_SLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockRegimeProfileText(labels, count, h4_config.regime_block_size_slow));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_FAR_LAG_PLACEBO", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004FarLagText(labels, count, h4_config.placebo_lag_events));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_LAG_DECAY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004LagDecayText(labels, count, h4_config.placebo_lag_events));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_RUN_LENGTH_TRANSITION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunLengthTransitionText(labels, count));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_STRATIFIED_PERM_SESSION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004StratifiedPermutationStressText("session", labels, sessions, count, h4_config.stress_iterations));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_STRATIFIED_PERM_PREVOL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004StratifiedPermutationStressText("prevol_tercile", labels, prevol_regimes, count, h4_config.stress_iterations));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_STRATIFIED_PERM_REVISIT", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004StratifiedPermutationStressText("revisit_bucket", labels, revisit_buckets, count, h4_config.stress_iterations));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_STRATIFIED_PERM_COMPOSITE", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004StratifiedPermutationStressText("session_prevol_trend_revisit", labels, composite_strata, count, h4_config.stress_iterations));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CIRCULAR_SHIFT_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004CircularShiftStressText(labels, count, h4_config.stress_iterations, h4_config.circular_min_shift_events));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_ORDER_SHUFFLE_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockOrderShuffleStressText(labels, count, h4_config.local_block_shuffle_size, h4_config.stress_iterations));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_SESSION_REGIME", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SegmentTransitionText("SESSION_BRANCH_INERTIA", labels, sessions, count, 0, 1, 2, 3));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_TREND_REGIME", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SegmentTransitionText("TREND_BRANCH_INERTIA", labels, trend_regimes, count, 0, 1, 2, 3));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_PREVOL_REGIME", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004PrevolSegmentText(labels, prevols, count));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SESSION_DETAIL_0", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SESSION_DETAIL", "seg0", labels, sessions, count, 0));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SESSION_DETAIL_1", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SESSION_DETAIL", "seg1", labels, sessions, count, 1));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SESSION_DETAIL_2", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SESSION_DETAIL", "seg2", labels, sessions, count, 2));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SESSION_DETAIL_3", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SESSION_DETAIL", "seg3", labels, sessions, count, 3));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_PREVOL_DETAIL_0", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("PREVOL_DETAIL", "low", labels, prevol_regimes, count, 0));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_PREVOL_DETAIL_1", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("PREVOL_DETAIL", "mid", labels, prevol_regimes, count, 1));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_PREVOL_DETAIL_2", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("PREVOL_DETAIL", "high", labels, prevol_regimes, count, 2));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REVISIT_DETAIL_0", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("REVISIT_DETAIL", "first", labels, revisit_buckets, count, 0));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REVISIT_DETAIL_1", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("REVISIT_DETAIL", "revisit1", labels, revisit_buckets, count, 1));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REVISIT_DETAIL_2", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("REVISIT_DETAIL", "revisit2", labels, revisit_buckets, count, 2));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_REVISIT_DETAIL_3PLUS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("REVISIT_DETAIL", "revisit3plus", labels, revisit_buckets, count, 3));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SPACING_DETAIL_FAST", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SPACING_DETAIL", "fast", labels, spacing_regimes, count, 0) + "*gapT1=" + DAL_M0001Fmt4(spacing_t1) + "*gapT2=" + DAL_M0001Fmt4(spacing_t2));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SPACING_DETAIL_MID", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SPACING_DETAIL", "mid", labels, spacing_regimes, count, 1) + "*gapT1=" + DAL_M0001Fmt4(spacing_t1) + "*gapT2=" + DAL_M0001Fmt4(spacing_t2));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_SPACING_DETAIL_SLOW", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SingleSegmentDetailText("SPACING_DETAIL", "slow", labels, spacing_regimes, count, 2) + "*gapT1=" + DAL_M0001Fmt4(spacing_t1) + "*gapT2=" + DAL_M0001Fmt4(spacing_t2));
 }
 
 #endif

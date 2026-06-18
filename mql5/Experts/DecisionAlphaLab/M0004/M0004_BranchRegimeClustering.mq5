@@ -3,7 +3,7 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "M0004 tests branch-label persistence, run clustering, transition inertia, and regime concentration using exact M0001/M0002 events"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -52,6 +52,10 @@ input int InpHorizonBars4 = 50;
 input int InpBranchStressIterations = 500;      // label-permutation / run-shuffle stress
 input int InpBranchBlockSize = 50;              // contiguous branch-event blocks for concentration stress
 input int InpBranchPlaceboLagEvents = 50;       // far-lag placebo correlation over branch labels
+input int InpRegimeBlockSizeFast = 25;          // small contiguous event-block profile
+input int InpRegimeBlockSizeSlow = 200;         // large contiguous event-block profile
+input int InpCircularMinShiftEvents = 50;       // minimum shift for circular far-lag null
+input int InpLocalBlockShuffleSize = 50;        // block-order shuffle null preserving within-block runs
 
 #define DAL_M0004_USE_LIVE_BAR_STREAM true
 #define DAL_M0004_START_FROM_NEXT_CLOSED_BAR true
@@ -60,7 +64,7 @@ input int InpBranchPlaceboLagEvents = 50;       // far-lag placebo correlation o
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.00"
+#define DAL_M0004_BUILD "1.01"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -170,10 +174,18 @@ void BuildM0004Config(DALM0004Config &config)
    config.stress_iterations = InpBranchStressIterations;
    config.block_size = InpBranchBlockSize;
    config.placebo_lag_events = InpBranchPlaceboLagEvents;
+   config.regime_block_size_fast = InpRegimeBlockSizeFast;
+   config.regime_block_size_slow = InpRegimeBlockSizeSlow;
+   config.circular_min_shift_events = InpCircularMinShiftEvents;
+   config.local_block_shuffle_size = InpLocalBlockShuffleSize;
 
    if(config.stress_iterations < 0) config.stress_iterations = 0;
    if(config.block_size < 5) config.block_size = 5;
    if(config.placebo_lag_events < 3) config.placebo_lag_events = 3;
+   if(config.regime_block_size_fast < 5) config.regime_block_size_fast = 5;
+   if(config.regime_block_size_slow < config.regime_block_size_fast) config.regime_block_size_slow = config.regime_block_size_fast;
+   if(config.circular_min_shift_events < 3) config.circular_min_shift_events = 3;
+   if(config.local_block_shuffle_size < 5) config.local_block_shuffle_size = 5;
 }
 
 void UpdateRuntimeComment(const int bars_count, const string source_mode)
@@ -194,7 +206,10 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_then_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"), "\n",
       "stressIters=", InpBranchStressIterations,
       "  blockSize=", InpBranchBlockSize,
-      "  placeboLagEvents=", InpBranchPlaceboLagEvents, "\n",
+      "  placeboLagEvents=", InpBranchPlaceboLagEvents,
+      "  regimeBlocks=", InpRegimeBlockSizeFast, "/", InpBranchBlockSize, "/", InpRegimeBlockSizeSlow,
+      "  circularMinShift=", InpCircularMinShiftEvents,
+      "  localBlockShuffle=", InpLocalBlockShuffleSize, "\n",
       "final branch-regime clustering report prints once on deinit"
    );
 }
@@ -304,6 +319,10 @@ void PrintFinalReportsFromBars(
       "*branchStressIters=", InpBranchStressIterations,
       "*branchBlockSize=", InpBranchBlockSize,
       "*branchPlaceboLagEvents=", InpBranchPlaceboLagEvents,
+      "*regimeBlockFast=", InpRegimeBlockSizeFast,
+      "*regimeBlockSlow=", InpRegimeBlockSizeSlow,
+      "*circularMinShiftEvents=", InpCircularMinShiftEvents,
+      "*localBlockShuffleSize=", InpLocalBlockShuffleSize,
       "*L=", InpL,
       "*zoneRatio=", DoubleToString(InpZoneRatio, 4),
       "*exitGap=", InpExitGap,
@@ -327,6 +346,10 @@ void PrintFinalReportsFromBars(
       "*branchStressIters=", InpBranchStressIterations,
       "*branchBlockSize=", InpBranchBlockSize,
       "*branchPlaceboLagEvents=", InpBranchPlaceboLagEvents,
+      "*regimeBlockFast=", InpRegimeBlockSizeFast,
+      "*regimeBlockSlow=", InpRegimeBlockSizeSlow,
+      "*circularMinShiftEvents=", InpCircularMinShiftEvents,
+      "*localBlockShuffleSize=", InpLocalBlockShuffleSize,
       "*inputFingerprint=L", InpL,
       "_zr", DoubleToString(InpZoneRatio, 4),
       "_eg", InpExitGap,

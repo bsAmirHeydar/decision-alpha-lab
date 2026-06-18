@@ -172,3 +172,24 @@ In completed node-territory events, the continuation branch is generally lower-f
 ## Important boundary
 
 H0003 still does not prove directionality. It proves branch-conditioned volatility persistence, not entry profitability. Directional alpha requires separate MFE/MAE, stop/target, spread/slippage, and execution-path tests.
+
+
+## Completeness audit
+
+H0003 matches the requested research question when all of the following are true:
+
+```text
+uses exact M0001 completed events
+uses exact M0002 branch labels
+keeps EVENT_RTV_LOCKED for event intensity
+compares reversal vs continuation event DLog
+compares P90/P95/CVaR tails
+compares post-event horizons h5/h10/h20/h50
+compares carry persistence across horizons
+checks lag/cluster memory by branch
+checks label-permutation stress for branch memory difference
+checks iid shuffle stress for within-branch serial memory
+checks contiguous block stress and high-run stress
+```
+
+This module is complete as a volatility-memory and inertia test. It is intentionally not a directional trading model. Directional alpha remains a later layer.

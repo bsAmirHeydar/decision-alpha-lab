@@ -212,3 +212,271 @@ branch volatility has memory
 ```
 
 That is a true regime model, not a single-event anomaly.
+
+## Version 1.01 — expanded regime diagnostics and engineered nulls
+
+H0004 v1.01 expands the regime layer from a simple transition/run test into a more diagnostic branch-regime audit. The goal is not just to say that labels cluster, but to locate where and how they cluster, and to make the null model strict enough to expose accidental regime leakage or counting bugs.
+
+### Added regime detail metrics
+
+M0004 now prints richer segment detail lines for session, pre-volatility, revisit bucket, and event-spacing buckets.
+
+```text
+DAL_M0004_FINAL_SESSION_DETAIL_0..3
+DAL_M0004_FINAL_PREVOL_DETAIL_0..2
+DAL_M0004_FINAL_REVISIT_DETAIL_0/1/2/3PLUS
+DAL_M0004_FINAL_SPACING_DETAIL_FAST/MID/SLOW
+```
+
+Each detail line includes:
+
+```text
+n
+revPct / contPct
+samePct / iidSamePct / sameLift
+switchPct
+P(reversal | reversal)
+P(continuation | continuation)
+reversalPersistenceLift
+continuationPersistenceLift
+lag1 / lag2
+markovChi2
+mutualInfoNats
+allAvgRun / allMaxRun
+revRunOverIid / contRunOverIid
+```
+
+This gives a much more complete view of branch regimes by context. For example, it can reveal whether continuation clustering is stronger in low pre-volatility regimes, after later revisits, or when completed events are close together in event-time.
+
+### Added block-regime profiles
+
+M0004 now prints block profiles at three granularities:
+
+```text
+DAL_M0004_FINAL_BLOCK_PROFILE_FAST
+DAL_M0004_FINAL_BLOCK_PROFILE_MAIN
+DAL_M0004_FINAL_BLOCK_PROFILE_SLOW
+```
+
+The block profile measures how branch composition and inertia vary across contiguous event blocks:
+
+```text
+globalContPct
+meanContPct / sdContPct / minContPct / maxContPct
+meanSameLift / sdSameLift / minSameLift / maxSameLift
+meanLag1 / sdLag1
+positiveLiftBlockPct
+positiveLagBlockPct
+hotContinuationBlockPct
+coldContinuationBlockPct
+```
+
+This separates a real branch-regime process from one or two isolated extreme runs. A strong H0004 should show positive lift across many blocks, not only a high maximum run.
+
+### Added run-length conditioned transitions
+
+M0004 now prints:
+
+```text
+DAL_M0004_FINAL_RUN_LENGTH_TRANSITION
+```
+
+This asks whether a branch becomes more likely to continue after it has already persisted for 1, 2, 3, or 4+ consecutive events.
+
+```text
+run1SamePct
+run2SamePct
+run3SamePct
+run4plusSamePct
+runXRevSamePct
+runXContSamePct
+```
+
+This is the start of a state-duration model. If `run4plusSamePct` is higher than `run1SamePct`, the branch regime has positive duration dependence. If it drops, the branch may mean-revert after long runs.
+
+### Added lag-decay curve
+
+M0004 now prints:
+
+```text
+DAL_M0004_FINAL_LAG_DECAY
+```
+
+It reports branch-label correlation across several lags:
+
+```text
+lag1, lag2, lag3, lag5, lag10, lag20, lag50, lag100, configured placebo lag
+```
+
+This shows whether branch memory is local, persistent, or decaying. A clean local regime should usually show high near-lag correlation and near-zero far-lag correlation.
+
+### Engineered strict null suite
+
+The old global label-permutation null remains, but v1.01 adds stricter nulls.
+
+#### 1. Stratified permutation nulls
+
+```text
+DAL_M0004_FINAL_STRATIFIED_PERM_SESSION
+DAL_M0004_FINAL_STRATIFIED_PERM_PREVOL
+DAL_M0004_FINAL_STRATIFIED_PERM_REVISIT
+DAL_M0004_FINAL_STRATIFIED_PERM_COMPOSITE
+```
+
+These shuffle labels only within matched strata, preserving branch counts inside each regime bucket. This prevents a false H0004 caused only by session mix, pre-volatility mix, revisit mix, or their combination.
+
+The composite null uses:
+
+```text
+session × pre-vol tercile × trend regime × revisit bucket
+```
+
+If branch inertia survives the composite stratified null, it is much harder to dismiss as regime-composition leakage.
+
+#### 2. Circular shift far-lag null
+
+```text
+DAL_M0004_FINAL_CIRCULAR_SHIFT_STRESS
+```
+
+This compares observed lag-1 branch correlation against correlations produced by circular far shifts of the same label sequence. It preserves the full label distribution and much of the sequence identity but breaks exact local adjacency.
+
+This is stricter than simple iid permutation for detecting whether near-neighbor label memory is real.
+
+#### 3. Block-order shuffle null
+
+```text
+DAL_M0004_FINAL_BLOCK_ORDER_SHUFFLE_STRESS
+```
+
+This shuffles contiguous blocks while preserving labels inside each block. It is diagnostic: if the observed score is not much above the block-order null, most of the regime evidence is local within-block clustering. If it remains above, the branch regime also has broader block-order structure.
+
+### Interpretation upgrade
+
+After v1.01, H0004 should be read in layers:
+
+```text
+Layer 1: global branch inertia
+Layer 2: run clustering
+Layer 3: block concentration
+Layer 4: session / pre-vol / revisit / spacing dependence
+Layer 5: survival against stratified and circular engineered nulls
+```
+
+A high-confidence H0004 result should survive at least the global permutation null, show positive block or run structure, and remain positive under at least the session and pre-vol stratified nulls. The composite null is the strongest diagnostic.
+
+
+## Current GOLD M1 v1.01 validation snapshot
+
+A GOLD M1 run with build 1.01 produced a clean H0004 confirmation. The important configuration was:
+
+```text
+symbol = GOLD
+timeframe = M1
+measureMode = EVENT_RTV_LOCKED
+branchSequence = chronological_M0002_exit_labels
+consumeMode = HUNT_NODE_BREAK
+stressSuite = H4_FULL
+```
+
+Main sample:
+
+```text
+paired = 9247
+reversal = 5588  (60.43%)
+continuation = 3659 (39.57%)
+countRatioRevToCont = 1.5272
+```
+
+Main transition result:
+
+```text
+samePct = 72.03
+iidSamePct = 52.18
+sameLiftPct = 19.86
+lag1Corr = 0.4152
+lag2Corr = 0.1803
+P(reversal | reversal) = 76.86
+P(continuation | continuation) = 64.66
+reversalPersistenceLift = 16.43
+continuationPersistenceLift = 25.09
+```
+
+Interpretation:
+
+```text
+Both branches cluster in time. Reversal has longer raw runs because it is the higher-frequency branch. Continuation has stronger persistence lift relative to its base frequency.
+```
+
+Run result:
+
+```text
+revAvgRun = 4.3184
+contAvgRun = 2.8299
+revAvgRunOverIid = 1.7088
+contAvgRunOverIid = 1.7101
+```
+
+The normalized run clustering is almost identical for both branches, which supports the model that both branches are regimes rather than one branch being merely the default state.
+
+Engineered nulls:
+
+```text
+TRANSITION_PERM_STRESS: sameLiftEmpP = 0.0020, lag1EmpP = 0.0020
+RUN_SHUFFLE_STRESS: allAvgRunEmpP = 0.0020, allMaxRunEmpP = 0.0060
+BLOCK_CONCENTRATION_STRESS: pctSdEmpP = 0.0020
+STRATIFIED_PERM_COMPOSITE: sameLiftEmpP = 0.0020, lag1EmpP = 0.0020
+CIRCULAR_SHIFT_STRESS: lag1EmpP = 0.0020
+```
+
+The composite stratified null preserves session, pre-volatility tercile, trend bucket, and revisit bucket. H0004 surviving this null means the branch inertia is not explained only by regime-composition leakage.
+
+Lag decay:
+
+```text
+lag1 = 0.4152
+lag2 = 0.1803
+lag3 = 0.0696
+lag5 = 0.0065
+lag10 = 0.0046
+lag20 = -0.0196
+lag50 = -0.0089
+lag100 = 0.0151
+```
+
+This is the desired shape for a local event-time regime: strong near memory, rapid decay, and near-zero far-lag placebo.
+
+Spacing dependence was the sharpest diagnostic:
+
+```text
+fast spacing: sameLift = 17.83, lag1 = 0.3589
+mid spacing:  sameLift = 4.24,  lag1 = 0.0894
+slow spacing: sameLift = 1.27,  lag1 = 0.0287
+```
+
+This means branch-regime memory is strongest when completed events occur close together. When event spacing is slow, branch state mostly resets. This makes event-spacing a required state variable for later models.
+
+## Completeness audit
+
+H0004 matches the requested branch-regime hypothesis when the module:
+
+```text
+uses exact M0001 events and exact M0002 branch labels
+sorts labels chronologically by outcome/exit index
+preserves reversal/continuation base counts in the main null
+reports transition matrix and same-branch lift
+reports branch-specific persistence lifts
+reports lag1/lag2 and lag-decay curve
+reports run length, max run, and run-over-iid by branch
+reports block concentration and block profiles
+reports run-length conditioned transition probabilities
+reports session, trend, pre-volatility, revisit, and event-spacing detail
+checks global label permutation
+checks run shuffle
+checks block concentration shuffle
+checks stratified permutation by session, pre-vol, revisit, and composite strata
+checks circular far-lag adjacency placebo
+checks local block-order shuffle
+```
+
+The current v1.01 module covers all of these points. The only known open audit item is the trend-regime bucket design: in several reports only two trend segments are populated while seg2/seg3 remain zero. This does not invalidate H0004, but it means future versions should either simplify the trend bucket to the populated states or expand the trend classifier so all intended states can occur.
