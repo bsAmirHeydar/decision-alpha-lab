@@ -26,3 +26,8 @@ The official evidence stack includes random comparison, bootstrap confidence int
 ## Interpretation
 
 H0001 is a market-structure volatility fact, not a trading strategy by itself. It says that completed node-territory events are volatility-producing regions relative to matched random windows. Strategy design must be a later layer built on top of this fact.
+
+
+## Horizon half-life reporting guardrail
+
+The shared horizon report now includes `halfLifeStatus` and `lastTestedH`. When `halfLifeH=0` and `halfLifeStatus=not_reached_within_tested_horizons`, the correct interpretation is that the half-life was not reached inside the tested horizon set, not that persistence decayed instantly.

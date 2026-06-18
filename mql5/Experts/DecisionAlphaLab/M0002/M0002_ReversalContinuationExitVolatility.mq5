@@ -3,7 +3,7 @@
 //| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.74"
+#property version   "1.75"
 #property description "M0002 classifies exact M0001 event RTV by node-side reversal/continuation at completed exit"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -297,7 +297,7 @@ void PrintFinalReportsFromBars(
       "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.74",
+      "*build=1.75",
       "*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL",
       "*sampleWindow=m0001EventRtv",
       "*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
@@ -314,7 +314,7 @@ void PrintFinalReportsFromBars(
       "*nodes=", nodes_count,
       "*m0001Events=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_uses_exact_M0001_exit_gap_both_sides_input_consumption_lifecycle*build=1.74*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      " *** logic=M0002_uses_exact_M0001_exit_gap_both_sides_input_consumption_lifecycle*build=1.75*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
       "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
    );
 

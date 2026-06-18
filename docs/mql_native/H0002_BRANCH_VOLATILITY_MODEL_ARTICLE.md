@@ -28,3 +28,10 @@ M0002 prints the branch model as separated non-truncated lines: `BRANCH_FREQUENC
 ## Interpretation
 
 H0002 is a branch-behavior model. It does not directly say buy or sell. It says that once a valid H0001 event has completed, the continuation-side exit is a lower-frequency but higher-intensity volatility state with stronger tail and memory characteristics.
+
+
+## Relation to H0003
+
+H0002 establishes the branch model: reversal is usually higher frequency while continuation is lower frequency but higher intensity, fatter-tailed, and more persistent after the completed event. H0003 extends this into a dedicated inertia-memory and cluster-stress test using the same M0001 event universe and M0002 branch labels.
+
+The M0002 branch model report is split into frequency, intensity, tail, memory, and summary lines to avoid MetaTrader Journal truncation.

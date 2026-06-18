@@ -392,3 +392,22 @@ Key docs:
 - `docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE.md`
 - `docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md`
 - `docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md`
+
+
+## H0003 cluster-stress lock
+
+The MQL-native research stack now includes a hardened H0003 module for continuation inertia, volatility memory, and cluster persistence. M0003 reuses the exact H0001/M0001 event lifecycle and H0002 branch labels, then adds split non-truncated reports for event inertia, tail inertia, horizon memory, carry persistence, lag/serial memory, calendar-cluster robustness, contiguous-block stress, high-volatility runs, and iid shuffle stress.
+
+Current build targets:
+
+```text
+M0002_ReversalContinuationExitVolatility: build 1.75
+M0003_ContinuationInertiaMemory: build 1.01
+```
+
+See:
+
+```text
+docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md
+docs/mql_native/M0003_CLUSTER_STRESS_LOCK.md
+```

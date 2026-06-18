@@ -3,8 +3,8 @@
 //| Hypothesis 3: continuation inertia, memory, and clustered volatility after node-zone exit.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
-#property description "M0003 tests continuation inertia, memory, and clustering using exact M0001/M0002 branch modules"
+#property version   "1.04"
+#property description "M0003 tests continuation inertia, memory, and cluster-stress using exact M0001/M0002 branch modules"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -47,6 +47,10 @@ input int InpHorizonBars1 = 5;
 input int InpHorizonBars2 = 10;
 input int InpHorizonBars3 = 20;
 input int InpHorizonBars4 = 50;
+
+input int InpClusterStressIterations = 200;  // deterministic iid-shuffle stress for lag and high-run clustering
+input int InpClusterBlockSize = 25;          // contiguous branch-event block size for cluster robustness
+input double InpHighRunPercentile = 0.75;    // high-volatility run threshold inside each branch
 
 #define DAL_M0002_USE_LIVE_BAR_STREAM true
 #define DAL_M0002_START_FROM_NEXT_CLOSED_BAR true
@@ -171,6 +175,23 @@ void BuildM0002Config(DALM0002Config &config)
    if(config.horizon_bars_4 < 1) config.horizon_bars_4 = 1;
 }
 
+
+void BuildM0003Config(DALM0003Config &config)
+{
+   config.cluster_stress_iterations = InpClusterStressIterations;
+   config.cluster_block_size = InpClusterBlockSize;
+   config.high_run_percentile = InpHighRunPercentile;
+
+   if(config.cluster_stress_iterations < 0)
+      config.cluster_stress_iterations = 0;
+   if(config.cluster_block_size < 2)
+      config.cluster_block_size = 2;
+   if(config.high_run_percentile <= 0.50)
+      config.high_run_percentile = 0.75;
+   if(config.high_run_percentile >= 0.99)
+      config.high_run_percentile = 0.99;
+}
+
 void UpdateRuntimeComment(const int bars_count, const string source_mode)
 {
    string start_text = g_analysis_start_time > 0 ? TimeToString(g_analysis_start_time, TIME_DATE | TIME_MINUTES) : "pending";
@@ -192,7 +213,10 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  randomEngine=", DAL_M0001RandomEngineSignature(),
       "  randomK=", InpRandomSamplesPerEvent,
       "  utcOffset=", InpBrokerUtcOffsetHours, "\n",
-      "final inertia/memory/cluster report prints once on deinit"
+      "clusterStressIters=", InpClusterStressIterations,
+      "  clusterBlockSize=", InpClusterBlockSize,
+      "  highRunPct=", DoubleToString(InpHighRunPercentile, 2), "\n",
+      "final split inertia/memory/cluster stress report prints once on deinit"
    );
 }
 
@@ -293,15 +317,27 @@ void PrintFinalReportsFromBars(
    DALM0002Config h2_config;
    BuildM0002Config(h2_config);
 
+   DALM0003Config h3_config;
+   BuildM0003Config(h3_config);
+
    Print(
       "DAL_M0003_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.00",
+      "*build=1.04",
       "*measureMode=EVENT_RTV_LOCKED*stressSuite=H3_FULL",
       "*sampleWindow=m0001EventRtv",
       "*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
       "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"),
+      "*clusterStressIters=", InpClusterStressIterations,
+      "*clusterBlockSize=", InpClusterBlockSize,
+      "*highRunPercentile=", DoubleToString(InpHighRunPercentile, 2),
+      "*L=", InpL,
+      "*zoneRatio=", DoubleToString(InpZoneRatio, 4),
+      "*exitGap=", InpExitGap,
+      "*warmupBars=", InpWarmupHistoricalBars,
+      "*randomK=", InpRandomSamplesPerEvent,
+      "*eventUniverseGuard=exact_M0001_compute_events_then_M0002_branch_collect",
       "*oldPostOutcomeFieldsForbidden=sampleBars_sampleStarts_afterOutcomeCandle",
       " *** if_this_line_is_missing_you_are_running_an_old_EX5_or_wrong_file"
    );
@@ -314,8 +350,16 @@ void PrintFinalReportsFromBars(
       "*nodes=", nodes_count,
       "*m0001Events=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0003_uses_exact_M0001_M0002_branch_samples_for_inertia_memory_cluster*build=1.00*measureMode=EVENT_RTV_LOCKED*stressSuite=H3_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
-      "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
+      " *** logic=M0003_uses_exact_M0001_M0002_branch_samples_for_inertia_memory_cluster*build=1.04*measureMode=EVENT_RTV_LOCKED*stressSuite=H3_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"),
+      "*clusterStressIters=", InpClusterStressIterations,
+      "*clusterBlockSize=", InpClusterBlockSize,
+      "*highRunPercentile=", DoubleToString(InpHighRunPercentile, 2),
+      "*inputFingerprint=L", InpL,
+      "_zr", DoubleToString(InpZoneRatio, 4),
+      "_eg", InpExitGap,
+      "_warm", InpWarmupHistoricalBars,
+      "_k", InpRandomSamplesPerEvent
    );
 
    DAL_M0003PrintFinalReports(
@@ -327,7 +371,8 @@ void PrintFinalReportsFromBars(
       EnumToString(LabTimeframe()),
       source_mode,
       g_analysis_start_time,
-      h2_config
+      h2_config,
+      h3_config
    );
 }
 

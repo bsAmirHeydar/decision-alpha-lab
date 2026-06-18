@@ -2400,9 +2400,18 @@ string DAL_M0001HorizonStressText(
       }
    }
 
+   int last_tested_h = hs[3];
+   string half_life_status = "not_available";
+   if(best_h > 0 && half_life_h > 0)
+      half_life_status = "reached";
+   else if(best_h > 0)
+      half_life_status = "not_reached_within_tested_horizons";
+
    out += "*peakH=" + IntegerToString(best_h);
    out += "*peakDLog=" + DAL_M0001Fmt4(best_mean == -DBL_MAX ? 0.0 : best_mean);
    out += "*halfLifeH=" + IntegerToString(half_life_h);
+   out += "*halfLifeStatus=" + half_life_status;
+   out += "*lastTestedH=" + IntegerToString(last_tested_h);
    out += "*firstPositiveH=" + IntegerToString(first_positive_h);
    out += "*firstPositiveDLog=" + DAL_M0001Fmt4(first_positive_mean);
    return out;
