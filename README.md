@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-1.59
+M0001/M0002 research runtime: 1.73
 ```
 
 ## Runtime modes
@@ -300,6 +300,7 @@ InpShowSummary = true
 ## Important docs
 
 ```text
+docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md
 docs/mql_native/M0001_FINAL_VISUALS_AND_LOGIC_LOCK.md
 docs/mql_native/M0001_CANDLE_GATED_RUNTIME.md
 docs/mql_native/MODULE_MAP.md
@@ -360,3 +361,34 @@ H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserve
 ### M0001/M0002 v1.72 exit-gap clarification
 
 M0001 exit confirmation is side-agnostic: the `exit_gap` candles must be fully outside the frozen territory, either on the rejection side or the break side. H0002 labels the exact M0001 completed events as reversal or continuation by close-vs-node at that completed exit candle; it does not force valid exits to be reversals.
+
+
+### M0002 v1.73 branch model completion
+
+H0002 now reports the branch model directly with:
+
+```text
+DAL_M0002_FINAL_BRANCH_MODEL
+```
+
+This line summarizes the observed reversal/continuation volatility model across count frequency, intensity, tail behavior, and post-event horizon memory. The working H0002 model is:
+
+```text
+reversal = higher-frequency, lower-intensity branch
+continuation = lower-frequency, higher-intensity, higher-persistence, fatter-tail branch
+```
+
+See `docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md` for the full H0001/H0002 algorithm lock and hypothesis map.
+
+
+## Current MQL-native hypothesis stack
+
+- H0001: completed structural-node territory events produce higher RTV than matched random windows.
+- H0002: continuation exits are lower-frequency but higher-intensity than reversal exits, with fatter tails and stronger post-event memory.
+- H0003: continuation exits are tested as a volatility-memory state with inertia and time clustering using the same M0001/M0002 modules.
+
+Key docs:
+
+- `docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE.md`
+- `docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md`
+- `docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md`

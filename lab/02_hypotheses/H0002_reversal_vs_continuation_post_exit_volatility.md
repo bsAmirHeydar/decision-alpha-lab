@@ -1,74 +1,126 @@
-# H0002 — Reversal vs Continuation After Exit Volatility
+# H0002 — Reversal vs Continuation Node-Exit Volatility Model
 
-## Hypothesis
+Status: active / fact-layer validation
 
-After a structural-node territory event completes its strict exit-gap window, the completed event can be split into two node-side outcomes: reversal or continuation. The core question is whether the **same event-window RTV used in H0001** is concentrated more in reversal outcomes, continuation outcomes, or mixed across both.
+## Research question
 
-## Branch definition
+Given a valid completed M0001 structural-node event, does the completed exit side create different volatility regimes?
 
-For LOW / valley nodes:
+## Event source
 
-```text
-exit-completion close above node_price => REVERSAL_AFTER_EXIT
-exit-completion close below node_price => CONTINUATION_AFTER_EXIT
-```
+H0002 uses the exact event stream created by H0001/M0001. It does not create a separate event builder.
 
-For HIGH / peak nodes:
+A valid H0002 sample must be:
 
 ```text
-exit-completion close below node_price => REVERSAL_AFTER_EXIT
-exit-completion close above node_price => CONTINUATION_AFTER_EXIT
+closed = true
+touch_confirmed = true
+rtv_ready = true
+entry_time >= analysis_start
 ```
 
-This hypothesis is not based on a later hunt / non-hunt label. It is based only on the side of the node when the exit window completes.
+The node lifecycle, hunt/touch consume behavior, revisit reset, baseline logic, warmup handling, and exit-gap logic are inherited from M0001.
 
-## Primary measurement
+## Exit logic
 
-The default M0002 metric is `EVENT_RTV`: classify each valid M0001 completed-exit event by reversal/continuation, then measure the exact same event-window RTV semantics as M0001:
+The M0001 event exit is side-agnostic. A completed exit candle can be fully above or fully below the frozen event territory.
 
 ```text
-mean_inside = mean log-range from entry through rtv_inside_end
-mean_before = equal-length mean log-range before entry
-RTV = mean_inside / mean_before
-logRTV = log(RTV)
+fully above frozen zone: bar.low  > event_upper
+fully below frozen zone: bar.high < event_lower
 ```
 
-The final `exit_gap` outside-zone confirmation candles are excluded from the inside sample, exactly like M0001.
+The touch is confirmed only after `exit_gap` consecutive fully-outside candles. Exit is not equal to reversal.
 
-## Why M0002 uses the M0001 event builder
+## Branch classifier
 
-H0002 must use the exact H0001/M0001 lifecycle as its sample. If M0001 consumes a node by hunt, or by touch when `CONSUME_BY_TOUCH` is selected, H0002 must not recycle that node into more reversal/continuation samples. If `CONSUME_BY_HUNT` is selected, a confirmed touch does not consume the node; the next cycle is recomputed exactly as in M0001 and can produce another valid H2 sample.
-
-## Implementation
+At the completed exit candle:
 
 ```text
-mql5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
-mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Types.mqh
-mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Engine.mqh
-mql5/Include/DecisionAlphaLab/M0002/DAL_M0002Reports.mqh
+LOW node:
+  close > node_price => REVERSAL_AFTER_EXIT
+  close < node_price => CONTINUATION_AFTER_EXIT
+
+HIGH node:
+  close < node_price => REVERSAL_AFTER_EXIT
+  close > node_price => CONTINUATION_AFTER_EXIT
 ```
 
+## Measurement
 
-## v1.67 EVENT_RTV lock
-
-H0002 is hard-locked to the native M0001 event RTV measurement window. Reversal/continuation is only a branch label assigned at the completed M0001 exit candle by comparing `close` with `node_price`. The branch label must not change the volatility window.
-
-Expected audit markers:
+The primary measurement is locked to the original M0001 event RTV:
 
 ```text
-measureMode=EVENT_RTV
-sampleWindow=m0001EventRtv
-eventRtvMode=<paired_count>
-postOutcomeMode=0
+branchRTV = event.rtv
+branchLog = log(event.rtv)
 ```
 
-If an output still contains `sampleStarts=afterOutcomeCandle`, `sampleBars=20`, or `useEventLength=0` without `measureMode=EVENT_RTV`, it is from an old build and should not be used for H0002 conclusions.
+The branch label must not change the sample window.
 
+## Current working model
 
+The branch model is not only a comparison of two means. It has four observed dimensions:
 
-## Logic repair v1.70 — exact H0001 consumption lifecycle
+### 1. Frequency
 
-M0002 no longer builds its own neutral repeated exit stream. It calls `DAL_M0001ComputeEvents()` and labels valid touch-confirmed, RTV-ready M0001 events as reversal or continuation at the completed exit candle. Repeated touch-confirmed revisits are allowed only when M0001 itself allows them (`CONSUME_BY_HUNT`); they are not allowed after the node is actually consumed by the selected M0001 consume mode.
+Reversal tends to be more common; continuation tends to be less common.
 
+Observed working pattern:
 
-Runtime audit should print `consumeMode`, `touchCycle`, and `consumptionInputRespected=1` so the selected M0001 consumption lifecycle is visible in every H0002 run.
+```text
+reversal:continuation ≈ 1.6:1 to 2:1
+```
+
+### 2. Intensity
+
+Continuation tends to show higher event RTV intensity:
+
+```text
+continuation logMean > reversal logMean
+continuation rawMean > reversal rawMean
+continuation vsRandomGeoRatio > reversal vsRandomGeoRatio
+```
+
+### 3. Tail
+
+Continuation tends to carry a heavier right tail:
+
+```text
+continuation P90/P95/CVaR90/CVaR95 > reversal P90/P95/CVaR90/CVaR95
+```
+
+### 4. Post-event memory
+
+Continuation tends to preserve higher post-event volatility across configured horizons:
+
+```text
+continuation h5/h10/h20/h50 DLog > reversal h5/h10/h20/h50 DLog
+```
+
+## Acceptance signature
+
+H0002 is strongly supported when the same pattern appears across markets/timeframes:
+
+```text
+frequencyModel = reversal_higher_frequency_continuation_lower_frequency
+intensityModel = continuation_higher_event_rtv_intensity
+tailModel = continuation_fatter_right_tail
+persistenceModel = continuation_higher_post_event_volatility_persistence
+```
+
+The strongest compact conclusion is:
+
+```text
+combinedModel = continuation_lower_frequency_higher_intensity_higher_persistence_fatter_tail
+```
+
+## Interpretation
+
+H0002 is not a directional entry rule. It is a volatility-regime classifier:
+
+```text
+Reversal branch: more common, lower intensity.
+Continuation branch: less common, higher intensity, stronger volatility memory, fatter tail.
+```
+
+Future strategy work may use this branch model as a quality or volatility-intensity filter, but that is separate from validating the fact layer.

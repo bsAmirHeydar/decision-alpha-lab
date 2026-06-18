@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — M0002 Reversal/Continuation Exit Volatility |
-//| Hypothesis 2: post-exit volatility by node-side outcome branch.   |
+//| Decision Alpha Lab — M0003 Continuation Inertia Memory |
+//| Hypothesis 3: continuation inertia, memory, and clustered volatility after node-zone exit.   |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.74"
-#property description "M0002 classifies exact M0001 event RTV by node-side reversal/continuation at completed exit"
+#property version   "1.00"
+#property description "M0003 tests continuation inertia, memory, and clustering using exact M0001/M0002 branch modules"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -12,7 +12,7 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001RtvNullComparison.mqh>
-#include <DecisionAlphaLab/M0002/DAL_M0002Reports.mqh>
+#include <DecisionAlphaLab/M0003/DAL_M0003Reports.mqh>
 
 input string InpSymbol = "";                   // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
@@ -24,7 +24,7 @@ input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
 input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 
-// H0002 is now hard-locked to the native M0001 event RTV window.
+// H0003 reuses the M0001 event RTV window and the M0002 branch classifier.
 // The old post-outcome fixed-window diagnostic caused misleading branch rawMean/rawMed values
 // and is intentionally not exposed in this production research EA.
 input int InpOutcomeCandleOffsetAfterExit = 0;  // 0 = candle that completes exit-gap; 1 = next closed candle
@@ -37,7 +37,7 @@ input int InpBrokerUtcOffsetHours = 0;
 input int InpRegimeLookbackBars = 100;
 input bool InpPrintGroupSessionRegime = true;
 
-input bool InpRunH2StressSuite = true;
+input bool InpRunH3StressSuite = true;
 input int InpHardRandomCandidates = 80;
 input int InpPlaceboShiftBars = 50;
 input int InpNonOverlapGapBars = 0;
@@ -117,7 +117,7 @@ void BuildM0001Config(DALM0001Config &config)
 void BuildM0002Config(DALM0002Config &config)
 {
    DAL_M0002DefaultConfig(config);
-   // Hard lock H0002 to EVENT_RTV. Branching is only a label over the completed M0001 exit event;
+   // Hard lock H0003 to EVENT_RTV. Branching is only a label over the completed M0001 exit event;
    // it must not change the measured volatility window.
    config.measure_mode = DAL_M0002_MEASURE_EVENT_RTV;
    config.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
@@ -130,7 +130,7 @@ void BuildM0002Config(DALM0002Config &config)
    config.broker_utc_offset_hours = InpBrokerUtcOffsetHours;
    config.regime_lookback_bars = InpRegimeLookbackBars;
    config.print_group_session_regime = InpPrintGroupSessionRegime;
-   config.run_stress_suite = InpRunH2StressSuite;
+   config.run_stress_suite = InpRunH3StressSuite;
    config.hard_random_candidates = InpHardRandomCandidates;
    config.placebo_shift_bars = InpPlaceboShiftBars;
    config.nonoverlap_gap_bars = InpNonOverlapGapBars;
@@ -176,7 +176,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
    string start_text = g_analysis_start_time > 0 ? TimeToString(g_analysis_start_time, TIME_DATE | TIME_MINUTES) : "pending";
 
    Comment(
-      "Decision Alpha Lab | M0002 Reversal/Continuation Exit Volatility\n",
+      "Decision Alpha Lab | M0003 Continuation Inertia Memory\n",
       "source=", source_mode,
       "  symbol=", LabSymbol(),
       "  tf=", EnumToString(LabTimeframe()), "\n",
@@ -192,7 +192,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  randomEngine=", DAL_M0001RandomEngineSignature(),
       "  randomK=", InpRandomSamplesPerEvent,
       "  utcOffset=", InpBrokerUtcOffsetHours, "\n",
-      "final branch report prints once on deinit"
+      "final inertia/memory/cluster report prints once on deinit"
    );
 }
 
@@ -218,7 +218,7 @@ void ComputeM0002M0001LifecycleEvents(
 
    nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, config.L, nodes);
 
-   // H0002 must use the exact H0001/M0001 event lifecycle.
+   // H0003 must use the exact H0001/M0001 event lifecycle through M0002 branch samples.
    // The consume criterion is the same input as M0001:
    // - CONSUME_BY_HUNT: a confirmed touch/revisit does NOT consume the node;
    //   the node remains alive and the next territory cycle is recomputed after the exit candle.
@@ -294,11 +294,11 @@ void PrintFinalReportsFromBars(
    BuildM0002Config(h2_config);
 
    Print(
-      "DAL_M0002_BUILD_SANITY *** symbol=", LabSymbol(),
+      "DAL_M0003_BUILD_SANITY *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
-      "*build=1.74",
-      "*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL",
+      "*build=1.00",
+      "*measureMode=EVENT_RTV_LOCKED*stressSuite=H3_FULL",
       "*sampleWindow=m0001EventRtv",
       "*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
       "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"),
@@ -307,18 +307,18 @@ void PrintFinalReportsFromBars(
    );
 
    Print(
-      "DAL_M0002_BASE_STATE *** symbol=", LabSymbol(),
+      "DAL_M0003_BASE_STATE *** symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
       "*source=", source_mode,
       "*bars=", bars_count,
       "*nodes=", nodes_count,
       "*m0001Events=", events_count,
       "*analysisStart=", DAL_M0001AnalysisStartText(g_analysis_start_time),
-      " *** logic=M0002_uses_exact_M0001_exit_gap_both_sides_input_consumption_lifecycle*build=1.74*measureMode=EVENT_RTV_LOCKED*stressSuite=H2_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
+      " *** logic=M0003_uses_exact_M0001_M0002_branch_samples_for_inertia_memory_cluster*build=1.00*measureMode=EVENT_RTV_LOCKED*stressSuite=H3_FULL*sampleWindow=m0001EventRtv*consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
       "*touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node")
    );
 
-   DAL_M0002PrintFinalReports(
+   DAL_M0003PrintFinalReports(
       events,
       events_count,
       bars,

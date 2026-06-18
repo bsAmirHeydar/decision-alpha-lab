@@ -162,3 +162,39 @@ Runtime audit should print `consumeMode`, `touchCycle`, and `consumptionInputRes
 H0002 follows the repaired M0001 exit-gap rule: a completed exit can close outside either side of the frozen territory. A node break during a pending touch no longer cancels the event before exit confirmation. Instead, the event completes through the normal exit-gap rule, receives a reversal/continuation branch label at the completed exit candle, and then the consume mode controls whether the node remains alive or is consumed.
 
 This makes continuation-after-exit observable when the confirmed event exits through the break side.
+
+## v1.73 branch model completion
+
+M0002 now treats H0002 as a multi-factor branch model rather than a single mean comparison. The core production report still prints the per-branch M0001-event RTV lines, but it also prints:
+
+```text
+DAL_M0002_FINAL_BRANCH_MODEL
+```
+
+The branch model summarizes four dimensions:
+
+1. **Frequency:** reversal and continuation counts, percentages, and reversal-to-continuation count ratio.
+2. **Intensity:** continuation-over-reversal ratios for event RTV raw mean, raw median, geometric mean, and geometric median.
+3. **Tail:** continuation-over-reversal P90/P95/CVaR90/CVaR95 ratios.
+4. **Post-event memory:** continuation-vs-reversal horizon deltas for the configured H1-style horizons.
+
+The current expected H0002 signature is:
+
+```text
+reversal branch     = higher frequency, lower volatility intensity
+continuation branch = lower frequency, higher volatility intensity, heavier tail, stronger post-event volatility persistence
+```
+
+The frequency relationship is not forced by the code. It is measured from valid M0001 events. In the current experiments the common pattern is approximately:
+
+```text
+reversal:continuation ≈ 1.6:1 to 2:1
+```
+
+This means continuation is less common, but it has repeatedly shown higher event RTV and stronger future horizon volatility. The report marks this state as:
+
+```text
+combinedModel=continuation_lower_frequency_higher_intensity_higher_persistence_fatter_tail
+```
+
+when all relevant components are present.

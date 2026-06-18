@@ -44,6 +44,352 @@ void DAL_M0002BuildM0001StressConfig(const DALM0002Config &config, DALM0001RtvRe
    report_config.horizon_bars_4 = config.horizon_bars_4;
 }
 
+
+
+double DAL_M0002SafeRatio(const double numerator, const double denominator)
+{
+   if(denominator == 0.0)
+      return 0.0;
+   return numerator / denominator;
+}
+
+string DAL_M0002FrequencyModelLabel(const DALM0002Audit &audit)
+{
+   if(audit.reversal_count <= 0 && audit.continuation_count <= 0)
+      return "empty";
+   if(audit.reversal_count > audit.continuation_count)
+      return "reversal_higher_frequency_continuation_lower_frequency";
+   if(audit.continuation_count > audit.reversal_count)
+      return "continuation_higher_frequency_reversal_lower_frequency";
+   return "balanced_frequency";
+}
+
+string DAL_M0002IntensityModelLabel(const DALM0001LogRtvStats &reversal_stats, const DALM0001LogRtvStats &continuation_stats)
+{
+   if(reversal_stats.count <= 0 || continuation_stats.count <= 0)
+      return "not_applicable_empty_branch";
+   if(continuation_stats.log_mean > reversal_stats.log_mean)
+      return "continuation_higher_event_rtv_intensity";
+   if(reversal_stats.log_mean > continuation_stats.log_mean)
+      return "reversal_higher_event_rtv_intensity";
+   return "balanced_event_rtv_intensity";
+}
+
+string DAL_M0002TailModelLabel(const DALM0001LogRtvStats &reversal_stats, const DALM0001LogRtvStats &continuation_stats)
+{
+   if(reversal_stats.count <= 0 || continuation_stats.count <= 0)
+      return "not_applicable_empty_branch";
+   if(continuation_stats.raw_cvar95 > reversal_stats.raw_cvar95 && continuation_stats.raw_p95 > reversal_stats.raw_p95)
+      return "continuation_fatter_right_tail";
+   if(reversal_stats.raw_cvar95 > continuation_stats.raw_cvar95 && reversal_stats.raw_p95 > continuation_stats.raw_p95)
+      return "reversal_fatter_right_tail";
+   return "mixed_tail_model";
+}
+
+string DAL_M0002BranchModelText(
+   const DALM0002Audit &audit,
+   const DALM0001LogRtvStats &reversal_stats,
+   const DALM0001LogRtvStats &continuation_stats,
+   const DALM0001PairedLogRtv &reversal_pairs[],
+   const DALM0001PairedLogRtv &continuation_pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime min_entry_time,
+   const DALM0002Config &config
+)
+{
+   int paired = audit.paired_count;
+   double reversal_pct = paired > 0 ? 100.0 * audit.reversal_count / paired : 0.0;
+   double continuation_pct = paired > 0 ? 100.0 * audit.continuation_count / paired : 0.0;
+   double rev_to_cont = DAL_M0002SafeRatio((double)audit.reversal_count, (double)audit.continuation_count);
+   double cont_to_rev = DAL_M0002SafeRatio((double)audit.continuation_count, (double)audit.reversal_count);
+
+   double cont_minus_rev_log_mean = continuation_stats.log_mean - reversal_stats.log_mean;
+   double cont_minus_rev_log_median = continuation_stats.log_median - reversal_stats.log_median;
+   double cont_over_rev_geo_mean = MathExp(cont_minus_rev_log_mean);
+   double cont_over_rev_geo_median = MathExp(cont_minus_rev_log_median);
+   double cont_over_rev_raw_mean = DAL_M0002SafeRatio(continuation_stats.raw_mean, reversal_stats.raw_mean);
+   double cont_over_rev_raw_median = DAL_M0002SafeRatio(continuation_stats.raw_median, reversal_stats.raw_median);
+   double cont_minus_rev_gt0_pct = continuation_stats.pct_log_gt_zero - reversal_stats.pct_log_gt_zero;
+
+   double cont_over_rev_p90 = DAL_M0002SafeRatio(continuation_stats.raw_p90, reversal_stats.raw_p90);
+   double cont_over_rev_p95 = DAL_M0002SafeRatio(continuation_stats.raw_p95, reversal_stats.raw_p95);
+   double cont_over_rev_cvar90 = DAL_M0002SafeRatio(continuation_stats.raw_cvar90, reversal_stats.raw_cvar90);
+   double cont_over_rev_cvar95 = DAL_M0002SafeRatio(continuation_stats.raw_cvar95, reversal_stats.raw_cvar95);
+
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+   int hs[4];
+   hs[0] = config.horizon_bars_1;
+   hs[1] = config.horizon_bars_2;
+   hs[2] = config.horizon_bars_3;
+   hs[3] = config.horizon_bars_4;
+
+   string horizon_text = "";
+   int continuation_higher_horizons = 0;
+   for(int i = 0; i < 4; i++)
+   {
+      int h = hs[i];
+      double rev_h_mean = 0.0;
+      double rev_h_win = 0.0;
+      int rev_h_n = 0;
+      double cont_h_mean = 0.0;
+      double cont_h_win = 0.0;
+      int cont_h_n = 0;
+
+      DAL_M0001HorizonOne(reversal_pairs, bars, bars_count, analysis_start_index, h, rev_h_mean, rev_h_win, rev_h_n);
+      DAL_M0001HorizonOne(continuation_pairs, bars, bars_count, analysis_start_index, h, cont_h_mean, cont_h_win, cont_h_n);
+
+      if(cont_h_n > 0 && rev_h_n > 0 && cont_h_mean > rev_h_mean)
+         continuation_higher_horizons++;
+
+      horizon_text += "*h" + IntegerToString(h) + "RevDLog=" + DAL_M0001Fmt4(rev_h_mean);
+      horizon_text += "*h" + IntegerToString(h) + "ContDLog=" + DAL_M0001Fmt4(cont_h_mean);
+      horizon_text += "*h" + IntegerToString(h) + "ContMinusRev=" + DAL_M0001Fmt4(cont_h_mean - rev_h_mean);
+      horizon_text += "*h" + IntegerToString(h) + "ContOverRevRatio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(cont_h_mean, rev_h_mean));
+   }
+
+   string persistence_model = "mixed_or_unavailable_post_event_persistence";
+   if(continuation_higher_horizons == 4)
+      persistence_model = "continuation_higher_post_event_volatility_persistence_all_horizons";
+   else if(continuation_higher_horizons >= 2)
+      persistence_model = "continuation_higher_post_event_volatility_persistence_most_horizons";
+   else if(continuation_higher_horizons == 0)
+      persistence_model = "reversal_or_mixed_post_event_persistence";
+
+   string approx_count_pattern = "not_two_to_one_reversal_majority";
+   if(audit.reversal_count > audit.continuation_count)
+      approx_count_pattern = "roughly_two_reversal_per_one_continuation";
+
+   string combined_model = "mixed_branch_model";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean)
+      combined_model = "continuation_lower_frequency_higher_intensity";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean && continuation_higher_horizons >= 2)
+      combined_model = "continuation_lower_frequency_higher_intensity_higher_persistence";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean && continuation_higher_horizons >= 2 && continuation_stats.raw_cvar95 > reversal_stats.raw_cvar95)
+      combined_model = "continuation_lower_frequency_higher_intensity_higher_persistence_fatter_tail";
+
+   return "BRANCH_MODEL"
+      + "*paired=" + IntegerToString(paired)
+      + "*reversalN=" + IntegerToString(audit.reversal_count)
+      + "*continuationN=" + IntegerToString(audit.continuation_count)
+      + "*reversalPct=" + DAL_M0001FmtPct(reversal_pct)
+      + "*continuationPct=" + DAL_M0001FmtPct(continuation_pct)
+      + "*reversalToContinuationCountRatio=" + DAL_M0001Fmt4(rev_to_cont)
+      + "*continuationToReversalCountRatio=" + DAL_M0001Fmt4(cont_to_rev)
+      + "*approxCountPattern=" + approx_count_pattern
+      + "*frequencyModel=" + DAL_M0002FrequencyModelLabel(audit)
+      + "*intensityModel=" + DAL_M0002IntensityModelLabel(reversal_stats, continuation_stats)
+      + "*contMinusRevLogMean=" + DAL_M0001Fmt4(cont_minus_rev_log_mean)
+      + "*contOverRevGeoMeanRatio=" + DAL_M0001Fmt4(cont_over_rev_geo_mean)
+      + "*contMinusRevLogMedian=" + DAL_M0001Fmt4(cont_minus_rev_log_median)
+      + "*contOverRevGeoMedianRatio=" + DAL_M0001Fmt4(cont_over_rev_geo_median)
+      + "*contOverRevRawMeanRatio=" + DAL_M0001Fmt4(cont_over_rev_raw_mean)
+      + "*contOverRevRawMedianRatio=" + DAL_M0001Fmt4(cont_over_rev_raw_median)
+      + "*contMinusRevLogGt0Pct=" + DAL_M0001FmtPct(cont_minus_rev_gt0_pct)
+      + "*tailModel=" + DAL_M0002TailModelLabel(reversal_stats, continuation_stats)
+      + "*contOverRevP90Ratio=" + DAL_M0001Fmt4(cont_over_rev_p90)
+      + "*contOverRevP95Ratio=" + DAL_M0001Fmt4(cont_over_rev_p95)
+      + "*contOverRevCVaR90Ratio=" + DAL_M0001Fmt4(cont_over_rev_cvar90)
+      + "*contOverRevCVaR95Ratio=" + DAL_M0001Fmt4(cont_over_rev_cvar95)
+      + "*persistenceModel=" + persistence_model
+      + "*continuationHigherHorizons=" + IntegerToString(continuation_higher_horizons)
+      + horizon_text
+      + "*combinedModel=" + combined_model
+      + "*meaning=branch_frequency_intensity_tail_and_post_event_memory_summary";
+}
+
+
+string DAL_M0002BranchFrequencyText(const DALM0002Audit &audit)
+{
+   int paired = audit.paired_count;
+   double reversal_pct = paired > 0 ? 100.0 * audit.reversal_count / paired : 0.0;
+   double continuation_pct = paired > 0 ? 100.0 * audit.continuation_count / paired : 0.0;
+   double rev_to_cont = DAL_M0002SafeRatio((double)audit.reversal_count, (double)audit.continuation_count);
+   double cont_to_rev = DAL_M0002SafeRatio((double)audit.continuation_count, (double)audit.reversal_count);
+
+   string approx_count_pattern = "not_two_to_one_reversal_majority";
+   if(audit.reversal_count > audit.continuation_count)
+      approx_count_pattern = "roughly_two_reversal_per_one_continuation";
+
+   return "BRANCH_FREQUENCY"
+      + "*paired=" + IntegerToString(paired)
+      + "*reversalN=" + IntegerToString(audit.reversal_count)
+      + "*continuationN=" + IntegerToString(audit.continuation_count)
+      + "*reversalPct=" + DAL_M0001FmtPct(reversal_pct)
+      + "*continuationPct=" + DAL_M0001FmtPct(continuation_pct)
+      + "*reversalToContinuationCountRatio=" + DAL_M0001Fmt4(rev_to_cont)
+      + "*continuationToReversalCountRatio=" + DAL_M0001Fmt4(cont_to_rev)
+      + "*approxCountPattern=" + approx_count_pattern
+      + "*frequencyModel=" + DAL_M0002FrequencyModelLabel(audit);
+}
+
+string DAL_M0002BranchIntensityText(const DALM0001LogRtvStats &reversal_stats, const DALM0001LogRtvStats &continuation_stats)
+{
+   double cont_minus_rev_log_mean = continuation_stats.log_mean - reversal_stats.log_mean;
+   double cont_minus_rev_log_median = continuation_stats.log_median - reversal_stats.log_median;
+   double cont_over_rev_geo_mean = MathExp(cont_minus_rev_log_mean);
+   double cont_over_rev_geo_median = MathExp(cont_minus_rev_log_median);
+   double cont_over_rev_raw_mean = DAL_M0002SafeRatio(continuation_stats.raw_mean, reversal_stats.raw_mean);
+   double cont_over_rev_raw_median = DAL_M0002SafeRatio(continuation_stats.raw_median, reversal_stats.raw_median);
+   double cont_minus_rev_gt0_pct = continuation_stats.pct_log_gt_zero - reversal_stats.pct_log_gt_zero;
+
+   return "BRANCH_INTENSITY"
+      + "*intensityModel=" + DAL_M0002IntensityModelLabel(reversal_stats, continuation_stats)
+      + "*reversalLogMean=" + DAL_M0001Fmt4(reversal_stats.log_mean)
+      + "*continuationLogMean=" + DAL_M0001Fmt4(continuation_stats.log_mean)
+      + "*contMinusRevLogMean=" + DAL_M0001Fmt4(cont_minus_rev_log_mean)
+      + "*contOverRevGeoMeanRatio=" + DAL_M0001Fmt4(cont_over_rev_geo_mean)
+      + "*reversalLogMedian=" + DAL_M0001Fmt4(reversal_stats.log_median)
+      + "*continuationLogMedian=" + DAL_M0001Fmt4(continuation_stats.log_median)
+      + "*contMinusRevLogMedian=" + DAL_M0001Fmt4(cont_minus_rev_log_median)
+      + "*contOverRevGeoMedianRatio=" + DAL_M0001Fmt4(cont_over_rev_geo_median)
+      + "*contOverRevRawMeanRatio=" + DAL_M0001Fmt4(cont_over_rev_raw_mean)
+      + "*contOverRevRawMedianRatio=" + DAL_M0001Fmt4(cont_over_rev_raw_median)
+      + "*contMinusRevLogGt0Pct=" + DAL_M0001FmtPct(cont_minus_rev_gt0_pct);
+}
+
+string DAL_M0002BranchTailText(const DALM0001LogRtvStats &reversal_stats, const DALM0001LogRtvStats &continuation_stats)
+{
+   return "BRANCH_TAIL"
+      + "*tailModel=" + DAL_M0002TailModelLabel(reversal_stats, continuation_stats)
+      + "*reversalP90=" + DAL_M0001Fmt4(reversal_stats.raw_p90)
+      + "*continuationP90=" + DAL_M0001Fmt4(continuation_stats.raw_p90)
+      + "*contOverRevP90Ratio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(continuation_stats.raw_p90, reversal_stats.raw_p90))
+      + "*reversalP95=" + DAL_M0001Fmt4(reversal_stats.raw_p95)
+      + "*continuationP95=" + DAL_M0001Fmt4(continuation_stats.raw_p95)
+      + "*contOverRevP95Ratio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(continuation_stats.raw_p95, reversal_stats.raw_p95))
+      + "*reversalCVaR90=" + DAL_M0001Fmt4(reversal_stats.raw_cvar90)
+      + "*continuationCVaR90=" + DAL_M0001Fmt4(continuation_stats.raw_cvar90)
+      + "*contOverRevCVaR90Ratio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(continuation_stats.raw_cvar90, reversal_stats.raw_cvar90))
+      + "*reversalCVaR95=" + DAL_M0001Fmt4(reversal_stats.raw_cvar95)
+      + "*continuationCVaR95=" + DAL_M0001Fmt4(continuation_stats.raw_cvar95)
+      + "*contOverRevCVaR95Ratio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(continuation_stats.raw_cvar95, reversal_stats.raw_cvar95));
+}
+
+string DAL_M0002BranchMemoryText(
+   const DALM0001PairedLogRtv &reversal_pairs[],
+   const DALM0001PairedLogRtv &continuation_pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime min_entry_time,
+   const DALM0002Config &config
+)
+{
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+   int hs[4];
+   hs[0] = config.horizon_bars_1;
+   hs[1] = config.horizon_bars_2;
+   hs[2] = config.horizon_bars_3;
+   hs[3] = config.horizon_bars_4;
+
+   string out = "BRANCH_MEMORY";
+   int continuation_higher_horizons = 0;
+   double best_cont = -DBL_MAX;
+   int best_cont_h = 0;
+   double best_rev = -DBL_MAX;
+   int best_rev_h = 0;
+
+   for(int i = 0; i < 4; i++)
+   {
+      int h = hs[i];
+      double rev_h_mean = 0.0;
+      double rev_h_win = 0.0;
+      int rev_h_n = 0;
+      double cont_h_mean = 0.0;
+      double cont_h_win = 0.0;
+      int cont_h_n = 0;
+
+      DAL_M0001HorizonOne(reversal_pairs, bars, bars_count, analysis_start_index, h, rev_h_mean, rev_h_win, rev_h_n);
+      DAL_M0001HorizonOne(continuation_pairs, bars, bars_count, analysis_start_index, h, cont_h_mean, cont_h_win, cont_h_n);
+
+      if(cont_h_n > 0 && rev_h_n > 0 && cont_h_mean > rev_h_mean)
+         continuation_higher_horizons++;
+      if(cont_h_n > 0 && (best_cont_h == 0 || cont_h_mean > best_cont))
+      {
+         best_cont = cont_h_mean;
+         best_cont_h = h;
+      }
+      if(rev_h_n > 0 && (best_rev_h == 0 || rev_h_mean > best_rev))
+      {
+         best_rev = rev_h_mean;
+         best_rev_h = h;
+      }
+
+      out += "*h" + IntegerToString(h) + "RevDLog=" + DAL_M0001Fmt4(rev_h_mean);
+      out += "*h" + IntegerToString(h) + "ContDLog=" + DAL_M0001Fmt4(cont_h_mean);
+      out += "*h" + IntegerToString(h) + "ContMinusRev=" + DAL_M0001Fmt4(cont_h_mean - rev_h_mean);
+      out += "*h" + IntegerToString(h) + "ContOverRevRatio=" + DAL_M0001Fmt4(DAL_M0002SafeRatio(cont_h_mean, rev_h_mean));
+   }
+
+   string persistence_model = "mixed_or_unavailable_post_event_persistence";
+   if(continuation_higher_horizons == 4)
+      persistence_model = "continuation_higher_post_event_volatility_persistence_all_horizons";
+   else if(continuation_higher_horizons >= 2)
+      persistence_model = "continuation_higher_post_event_volatility_persistence_most_horizons";
+   else if(continuation_higher_horizons == 0)
+      persistence_model = "reversal_or_mixed_post_event_persistence";
+
+   out += "*persistenceModel=" + persistence_model;
+   out += "*continuationHigherHorizons=" + IntegerToString(continuation_higher_horizons);
+   out += "*continuationPeakH=" + IntegerToString(best_cont_h);
+   out += "*continuationPeakDLog=" + DAL_M0001Fmt4(best_cont == -DBL_MAX ? 0.0 : best_cont);
+   out += "*reversalPeakH=" + IntegerToString(best_rev_h);
+   out += "*reversalPeakDLog=" + DAL_M0001Fmt4(best_rev == -DBL_MAX ? 0.0 : best_rev);
+   return out;
+}
+
+string DAL_M0002BranchModelSummaryText(
+   const DALM0002Audit &audit,
+   const DALM0001LogRtvStats &reversal_stats,
+   const DALM0001LogRtvStats &continuation_stats,
+   const DALM0001PairedLogRtv &reversal_pairs[],
+   const DALM0001PairedLogRtv &continuation_pairs[],
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime min_entry_time,
+   const DALM0002Config &config
+)
+{
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+   int hs[4];
+   hs[0] = config.horizon_bars_1;
+   hs[1] = config.horizon_bars_2;
+   hs[2] = config.horizon_bars_3;
+   hs[3] = config.horizon_bars_4;
+
+   int continuation_higher_horizons = 0;
+   for(int i = 0; i < 4; i++)
+   {
+      int h = hs[i];
+      double rev_h_mean = 0.0;
+      double rev_h_win = 0.0;
+      int rev_h_n = 0;
+      double cont_h_mean = 0.0;
+      double cont_h_win = 0.0;
+      int cont_h_n = 0;
+      DAL_M0001HorizonOne(reversal_pairs, bars, bars_count, analysis_start_index, h, rev_h_mean, rev_h_win, rev_h_n);
+      DAL_M0001HorizonOne(continuation_pairs, bars, bars_count, analysis_start_index, h, cont_h_mean, cont_h_win, cont_h_n);
+      if(cont_h_n > 0 && rev_h_n > 0 && cont_h_mean > rev_h_mean)
+         continuation_higher_horizons++;
+   }
+
+   string combined_model = "mixed_branch_model";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean)
+      combined_model = "continuation_lower_frequency_higher_intensity";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean && continuation_higher_horizons >= 2)
+      combined_model = "continuation_lower_frequency_higher_intensity_higher_persistence";
+   if(audit.reversal_count > audit.continuation_count && continuation_stats.log_mean > reversal_stats.log_mean && continuation_higher_horizons >= 2 && continuation_stats.raw_cvar95 > reversal_stats.raw_cvar95)
+      combined_model = "continuation_lower_frequency_higher_intensity_higher_persistence_fatter_tail";
+
+   return "BRANCH_MODEL_SUMMARY"
+      + "*combinedModel=" + combined_model
+      + "*frequencyModel=" + DAL_M0002FrequencyModelLabel(audit)
+      + "*intensityModel=" + DAL_M0002IntensityModelLabel(reversal_stats, continuation_stats)
+      + "*tailModel=" + DAL_M0002TailModelLabel(reversal_stats, continuation_stats)
+      + "*continuationHigherHorizons=" + IntegerToString(continuation_higher_horizons)
+      + "*meaning=continuation_lower_frequency_higher_intensity_tail_and_post_event_memory_when_all_flags_agree";
+}
+
 string DAL_M0002RandomEngineAuditText(const DALM0002Audit &audit, const DALM0002Config &config)
 {
    return "RANDOM_ENGINE"
@@ -299,6 +645,18 @@ void DAL_M0002PrintFinalReports(
    DAL_M0001ComputeLogRtvStats(reversal_logs, reversal_stats);
    DAL_M0001ComputeLogRtvStats(continuation_logs, continuation_stats);
 
+   DALM0001PairedLogRtv reversal_pairs[];
+   DALM0001PairedLogRtv continuation_pairs[];
+   double reversal_random_logs[];
+   double continuation_random_logs[];
+   DAL_M0002SamplesToM0001Pairs(reversal_samples, reversal_pairs, reversal_logs, reversal_random_logs);
+   DAL_M0002SamplesToM0001Pairs(continuation_samples, continuation_pairs, continuation_logs, continuation_random_logs);
+
+   Print(DAL_M0002Prefix("DAL_M0002_FINAL_BRANCH_FREQUENCY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002BranchFrequencyText(audit));
+   Print(DAL_M0002Prefix("DAL_M0002_FINAL_BRANCH_INTENSITY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002BranchIntensityText(reversal_stats, continuation_stats));
+   Print(DAL_M0002Prefix("DAL_M0002_FINAL_BRANCH_TAIL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002BranchTailText(reversal_stats, continuation_stats));
+   Print(DAL_M0002Prefix("DAL_M0002_FINAL_BRANCH_MEMORY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002BranchMemoryText(reversal_pairs, continuation_pairs, bars, bars_count, min_entry_time, config));
+   Print(DAL_M0002Prefix("DAL_M0002_FINAL_BRANCH_MODEL_SUMMARY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002BranchModelSummaryText(audit, reversal_stats, continuation_stats, reversal_pairs, continuation_pairs, bars, bars_count, min_entry_time, config));
    Print(DAL_M0002Prefix("DAL_M0002_FINAL_REVERSAL_VS_CONTINUATION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0002DirectCompareText(reversal_stats, continuation_stats, reversal_logs, continuation_logs));
 }
 
