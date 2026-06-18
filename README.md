@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04
+Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04 / M0005 1.00
 ```
 
 ## Runtime modes
@@ -539,3 +539,38 @@ DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA
 ```
 
 The key comparison is between `last_only`, `consensus_accept`, and `rejected_last`. If `consensus_accept` has higher follow/lift/intensity than `rejected_last`, consensus is functioning as a quality filter over the last-only signal.
+
+
+### M0005 v1.00 — structural directional memory
+
+M0005 introduces H0005, the directional-memory layer above H0004 branch-regime clustering. It keeps the core constraint that the market is not measured through fixed time windows. Reversal paths are evaluated through structural X-axis destinations: the next opposite node/zone touch before invalidation. Continuation paths are evaluated through state/Y-axis persistence: break of the last zone in the continuation direction, then hold until detected regime change.
+
+The regime detector is configurable and defaults to `LAST_ONLY`, because H0004/H0005 quality results show that last-only is the most economical raw direction source, while context and consensus are better used as confidence layers. Supported regime sources:
+
+- `DAL_M0005_REGIME_LAST_ONLY`
+- `DAL_M0005_REGIME_EWMA_CONTEXT`
+- `DAL_M0005_REGIME_EWMA_CONSENSUS`
+- `DAL_M0005_REGIME_LAST_WITH_CONTEXT_CONFIDENCE`
+
+Primary report lines:
+
+```text
+DAL_M0005_BUILD_SANITY
+DAL_M0005_BASE_STATE
+DAL_M0005_FINAL_AUDIT
+DAL_M0005_FINAL_COUNTS_ALL
+DAL_M0005_FINAL_COUNTS_REVERSAL
+DAL_M0005_FINAL_COUNTS_CONTINUATION
+DAL_M0005_FINAL_OUTCOME_ALL
+DAL_M0005_FINAL_OUTCOME_REVERSAL
+DAL_M0005_FINAL_OUTCOME_CONTINUATION
+DAL_M0005_FINAL_EXCURSION_ALL
+DAL_M0005_FINAL_EXCURSION_REVERSAL
+DAL_M0005_FINAL_EXCURSION_CONTINUATION
+DAL_M0005_FINAL_STRESS_ALL
+DAL_M0005_FINAL_STRESS_REVERSAL
+DAL_M0005_FINAL_STRESS_CONTINUATION
+DAL_M0005_FINAL_REV_CONT_COMPARE
+```
+
+MFE/MAE semantics are explicit: excursions are measured from the structural entry origin and stop at path exit. For reversal, exit is target, invalidation, max-bars, or end-of-data. For continuation, exit is the first detected regime change, max-bars, or end-of-data.
