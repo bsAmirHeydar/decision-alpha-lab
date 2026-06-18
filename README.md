@@ -478,7 +478,7 @@ docs/mql_native/H0001_H0004_RESEARCH_LOCK.md
 
 ## H0005 contextual branch-regime state
 
-M0004 build `1.02` keeps the original H0004 last-event branch-regime tests and adds a contextual branch-state layer. The old layer asks whether `previous branch -> next branch` has persistence. The new layer asks whether a wider past-only context, closer to how a human reads a chart, explains branch behavior better than the last event alone.
+M0004 build `1.03` keeps the original H0004 last-event branch-regime tests and adds a contextual branch-state layer. The old layer asks whether `previous branch -> next branch` has persistence. The new layer asks whether a wider past-only context, closer to how a human reads a chart, explains branch behavior better than the last event alone.
 
 New context reports include rolling and EWMA human-eye branch context, context buckets, last-only versus contextual conflict tests, and global/composite stratified context nulls:
 
@@ -496,3 +496,18 @@ DAL_M0004_FINAL_CONTEXT_STRATIFIED_STRESS_EWMA
 ```
 
 See `docs/mql_native/H0005_CONTEXTUAL_BRANCH_REGIME_STATE.md`.
+
+### H0005 consensus context update
+
+M0004 build `1.03` adds consensus diagnostics for the state where the last branch and contextual branch regime agree. The new reports are:
+
+```text
+DAL_M0004_FINAL_CONSENSUS_ROLLING_MAIN
+DAL_M0004_FINAL_CONSENSUS_EWMA_MAIN
+DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_ROLLING
+DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_ROLLING
+DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_EWMA
+DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_EWMA
+```
+
+This keeps the original last-only H0004 model while adding a human-eye consensus state for H0005.

@@ -25,3 +25,26 @@ P(current label follows wider context)
 ```
 
 If wider context wins in disagreement cases and survives engineered nulls, branch-regime is contextual, not merely last-event Markov memory.
+
+## v1.03 extension — consensus state
+
+H0005 now includes a dedicated consensus state:
+
+```text
+lastBranch == contextualDominantBranch
+```
+
+This models the practical human reading of the chart: the last local reaction and the broader recent branch context both point to the same branch. It is reported as:
+
+```text
+DAL_M0004_FINAL_CONSENSUS_EWMA_MAIN
+DAL_M0004_FINAL_CONSENSUS_ROLLING_MAIN
+```
+
+The key research question is:
+
+```text
+When lastBranch and EWMA context agree, does the market follow that branch more than expected by base rates, and are those consensus-follow events stronger in delta-log intensity?
+```
+
+Consensus is treated as a regime-confidence state, not as a replacement for the last-only transition model.

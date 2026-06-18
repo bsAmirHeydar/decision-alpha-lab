@@ -3,7 +3,7 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
+#property version   "1.03"
 #property description "M0004 tests last-event and contextual branch-regime persistence using exact M0001/M0002 events"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -69,7 +69,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.02"
+#define DAL_M0004_BUILD "1.03"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;

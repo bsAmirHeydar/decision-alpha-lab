@@ -18,7 +18,7 @@ H0005 formalizes that intuition with a past-only context vector.
 
 ## Past-only context vector
 
-For each event `i`, H0005/M0004-v1.02 can compute:
+For each event `i`, H0005/M0004-v1.03 can compute:
 
 ```text
 lastBranch
@@ -100,3 +100,80 @@ MFE/MAE feasibility
 stop/target stability
 ```
 
+
+## Consensus state — lastBranch + human-eye context
+
+The strongest practical H0005 state is not context replacing the last event. The strongest state is **agreement** between the last event and the human-eye EWMA context.
+
+```text
+lastBranch == EWMAContextDominantBranch
+```
+
+This is called `CONSENSUS_CONTEXT` in M0004-v1.03.
+
+Interpretation:
+
+```text
+lastBranch = nearest local trigger
+EWMAContext = broader local regime impression
+consensus = trigger and context point to the same branch
+conflict = trigger and context disagree
+neutral = context is not dominant enough
+```
+
+M0004-v1.03 reports this state for both rolling context and EWMA human-eye context:
+
+```text
+DAL_M0004_FINAL_CONSENSUS_ROLLING_MAIN
+DAL_M0004_FINAL_CONSENSUS_EWMA_MAIN
+```
+
+Key fields:
+
+```text
+consensusN / consensusPct
+conflictN / conflictPct
+neutralN / neutralPct
+consensusFollowPct
+expectedFollowPct
+consensusLiftPct
+consensusRevNextRevPct
+consensusContNextContPct
+consensusMeanDLog
+consensusP90DLog / consensusP95DLog
+consensusFollowMeanDLog
+consensusSwitchMeanDLog
+followMinusSwitchDLog
+```
+
+`consensusFollowPct` answers the core question:
+
+```text
+When lastBranch and context agree, how often does the next/current event follow that agreed branch?
+```
+
+`consensusLiftPct` compares that follow rate to the expected follow rate implied by base reversal/continuation frequencies.
+
+The intensity fields connect H0005 back to H0002/H0003:
+
+```text
+Do consensus states only predict branch labels,
+or do they also select stronger events / higher delta-log states?
+```
+
+M0004-v1.03 also adds engineered nulls for consensus:
+
+```text
+DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_ROLLING
+DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_ROLLING
+DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_EWMA
+DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_EWMA
+```
+
+The hard null keeps the labels but destroys their chronological order, including a composite stratified version:
+
+```text
+session × prevol × trend × revisit
+```
+
+A valid consensus state should show positive `consensusLiftPct` and survive both global and stratified consensus shuffle stress.

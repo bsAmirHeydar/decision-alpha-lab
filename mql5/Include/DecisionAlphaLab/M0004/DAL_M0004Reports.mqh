@@ -1753,6 +1753,518 @@ string DAL_M0004ContextShuffleStressText(
       + "*stressVerdict=" + verdict;
 }
 
+
+int DAL_M0004ContextDominantAt(
+   const int &labels[],
+   const int count,
+   const int index,
+   const int lookback,
+   const double ewma_alpha,
+   const double strong_threshold,
+   const bool use_ewma,
+   double &context_continuation_prob,
+   double &context_confidence
+)
+{
+   context_continuation_prob = 0.0;
+   context_confidence = 0.0;
+
+   if(index <= 0 || index >= count)
+      return -1;
+
+   int k = lookback;
+   if(k < 1) k = 1;
+
+   int start = index - k;
+   if(start < 0) start = 0;
+   int window = index - start;
+   if(window <= 0)
+      return -1;
+
+   double alpha = ewma_alpha;
+   if(alpha <= 0.0) alpha = 0.35;
+   if(alpha >= 1.0) alpha = 0.99;
+   double decay = 1.0 - alpha;
+
+   double p = 0.0;
+   if(use_ewma)
+   {
+      double w = 1.0;
+      double sumw = 0.0;
+      double score = 0.0;
+      for(int j = index - 1; j >= start; j--)
+      {
+         score += w * labels[j];
+         sumw += w;
+         w *= decay;
+      }
+      p = sumw > 0.0 ? score / sumw : 0.0;
+   }
+   else
+   {
+      int cont = 0;
+      for(int j = start; j < index; j++)
+         if(labels[j] == DAL_M0004_LABEL_CONTINUATION)
+            cont++;
+      p = (double)cont / window;
+   }
+
+   double thr = strong_threshold;
+   if(thr < 0.51) thr = 0.51;
+   if(thr > 0.95) thr = 0.95;
+
+   context_continuation_prob = p;
+   context_confidence = MathAbs(2.0 * p - 1.0);
+
+   if(p >= thr)
+      return DAL_M0004_LABEL_CONTINUATION;
+   if(p <= 1.0 - thr)
+      return DAL_M0004_LABEL_REVERSAL;
+   return -1;
+}
+
+double DAL_M0004MeanFromArray(const double &vals[])
+{
+   int n = ArraySize(vals);
+   if(n <= 0)
+      return 0.0;
+   double s = 0.0;
+   for(int i = 0; i < n; i++)
+      s += vals[i];
+   return s / n;
+}
+
+double DAL_M0004WinPctFromArray(const double &vals[])
+{
+   int n = ArraySize(vals);
+   if(n <= 0)
+      return 0.0;
+   int wins = 0;
+   for(int i = 0; i < n; i++)
+      if(vals[i] > 0.0)
+         wins++;
+   return 100.0 * wins / n;
+}
+
+double DAL_M0004QuantileFromArray(const double &src[], const double q)
+{
+   int n = ArraySize(src);
+   if(n <= 0)
+      return 0.0;
+   double vals[];
+   ArrayResize(vals, n);
+   for(int i = 0; i < n; i++)
+      vals[i] = src[i];
+   ArraySort(vals);
+   double qq = q;
+   if(qq < 0.0) qq = 0.0;
+   if(qq > 1.0) qq = 1.0;
+   int idx = (int)MathFloor((n - 1) * qq);
+   if(idx < 0) idx = 0;
+   if(idx >= n) idx = n - 1;
+   return vals[idx];
+}
+
+void DAL_M0004AppendDouble(double &vals[], const double v)
+{
+   int n = ArraySize(vals);
+   ArrayResize(vals, n + 1);
+   vals[n] = v;
+}
+
+struct DALM0004ConsensusStats
+{
+   int n;
+   int evaluated;
+   int dominant_count;
+   int neutral_count;
+   int consensus_count;
+   int conflict_count;
+   int consensus_reversal_count;
+   int consensus_continuation_count;
+   int consensus_follow_count;
+   int consensus_switch_count;
+   int consensus_reversal_follow_count;
+   int consensus_continuation_follow_count;
+   int current_continuation_count;
+   double global_continuation_pct;
+   double consensus_pct;
+   double conflict_pct;
+   double neutral_pct;
+   double consensus_signal_continuation_pct;
+   double consensus_current_continuation_pct;
+   double consensus_follow_pct;
+   double consensus_switch_pct;
+   double consensus_expected_follow_pct;
+   double consensus_lift_pct;
+   double consensus_reversal_next_reversal_pct;
+   double consensus_continuation_next_continuation_pct;
+   double consensus_mean_context_continuation_pct;
+   double consensus_mean_confidence_pct;
+   double consensus_mean_dlog;
+   double consensus_median_dlog;
+   double consensus_p90_dlog;
+   double consensus_p95_dlog;
+   double consensus_win_dlog_pct;
+   double consensus_follow_mean_dlog;
+   double consensus_switch_mean_dlog;
+   double consensus_follow_win_dlog_pct;
+   double consensus_switch_win_dlog_pct;
+   double consensus_follow_minus_switch_dlog;
+   double conflict_mean_dlog;
+   double neutral_mean_dlog;
+   double consensus_reversal_mean_dlog;
+   double consensus_continuation_mean_dlog;
+};
+
+void DAL_M0004ComputeConsensusStats(
+   const DALM0002BranchSample &samples[],
+   const int &labels[],
+   const int count,
+   const int lookback,
+   const double ewma_alpha,
+   const double strong_threshold,
+   const bool use_ewma,
+   DALM0004ConsensusStats &st
+)
+{
+   st.n = count;
+   st.evaluated = 0;
+   st.dominant_count = 0;
+   st.neutral_count = 0;
+   st.consensus_count = 0;
+   st.conflict_count = 0;
+   st.consensus_reversal_count = 0;
+   st.consensus_continuation_count = 0;
+   st.consensus_follow_count = 0;
+   st.consensus_switch_count = 0;
+   st.consensus_reversal_follow_count = 0;
+   st.consensus_continuation_follow_count = 0;
+   st.current_continuation_count = 0;
+   st.global_continuation_pct = 0.0;
+   st.consensus_pct = 0.0;
+   st.conflict_pct = 0.0;
+   st.neutral_pct = 0.0;
+   st.consensus_signal_continuation_pct = 0.0;
+   st.consensus_current_continuation_pct = 0.0;
+   st.consensus_follow_pct = 0.0;
+   st.consensus_switch_pct = 0.0;
+   st.consensus_expected_follow_pct = 0.0;
+   st.consensus_lift_pct = 0.0;
+   st.consensus_reversal_next_reversal_pct = 0.0;
+   st.consensus_continuation_next_continuation_pct = 0.0;
+   st.consensus_mean_context_continuation_pct = 0.0;
+   st.consensus_mean_confidence_pct = 0.0;
+   st.consensus_mean_dlog = 0.0;
+   st.consensus_median_dlog = 0.0;
+   st.consensus_p90_dlog = 0.0;
+   st.consensus_p95_dlog = 0.0;
+   st.consensus_win_dlog_pct = 0.0;
+   st.consensus_follow_mean_dlog = 0.0;
+   st.consensus_switch_mean_dlog = 0.0;
+   st.consensus_follow_win_dlog_pct = 0.0;
+   st.consensus_switch_win_dlog_pct = 0.0;
+   st.consensus_follow_minus_switch_dlog = 0.0;
+   st.conflict_mean_dlog = 0.0;
+   st.neutral_mean_dlog = 0.0;
+   st.consensus_reversal_mean_dlog = 0.0;
+   st.consensus_continuation_mean_dlog = 0.0;
+
+   if(count <= 1)
+      return;
+
+   int global_cont = 0;
+   for(int i = 0; i < count; i++)
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         global_cont++;
+   double global_cont_prob = (double)global_cont / count;
+   double global_rev_prob = 1.0 - global_cont_prob;
+   st.global_continuation_pct = 100.0 * global_cont_prob;
+
+   double consensus_context_p_sum = 0.0;
+   double consensus_confidence_sum = 0.0;
+   double consensus_expected_follow_sum = 0.0;
+   int consensus_current_cont = 0;
+
+   double consensus_dlogs[];
+   double conflict_dlogs[];
+   double neutral_dlogs[];
+   double consensus_follow_dlogs[];
+   double consensus_switch_dlogs[];
+   double consensus_rev_dlogs[];
+   double consensus_cont_dlogs[];
+
+   for(int i = 1; i < count; i++)
+   {
+      double p = 0.0;
+      double conf = 0.0;
+      int dominant = DAL_M0004ContextDominantAt(labels, count, i, lookback, ewma_alpha, strong_threshold, use_ewma, p, conf);
+      double dlog = (i < ArraySize(samples)) ? samples[i].delta_log : 0.0;
+
+      st.evaluated++;
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         st.current_continuation_count++;
+
+      if(dominant < 0)
+      {
+         st.neutral_count++;
+         DAL_M0004AppendDouble(neutral_dlogs, dlog);
+         continue;
+      }
+
+      st.dominant_count++;
+      int last_label = labels[i - 1];
+      if(last_label != dominant)
+      {
+         st.conflict_count++;
+         DAL_M0004AppendDouble(conflict_dlogs, dlog);
+         continue;
+      }
+
+      st.consensus_count++;
+      consensus_context_p_sum += p;
+      consensus_confidence_sum += conf;
+      DAL_M0004AppendDouble(consensus_dlogs, dlog);
+
+      if(dominant == DAL_M0004_LABEL_CONTINUATION)
+      {
+         st.consensus_continuation_count++;
+         consensus_expected_follow_sum += global_cont_prob;
+         DAL_M0004AppendDouble(consensus_cont_dlogs, dlog);
+         if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+            st.consensus_continuation_follow_count++;
+      }
+      else
+      {
+         st.consensus_reversal_count++;
+         consensus_expected_follow_sum += global_rev_prob;
+         DAL_M0004AppendDouble(consensus_rev_dlogs, dlog);
+         if(labels[i] == DAL_M0004_LABEL_REVERSAL)
+            st.consensus_reversal_follow_count++;
+      }
+
+      if(labels[i] == DAL_M0004_LABEL_CONTINUATION)
+         consensus_current_cont++;
+
+      if(labels[i] == dominant)
+      {
+         st.consensus_follow_count++;
+         DAL_M0004AppendDouble(consensus_follow_dlogs, dlog);
+      }
+      else
+      {
+         st.consensus_switch_count++;
+         DAL_M0004AppendDouble(consensus_switch_dlogs, dlog);
+      }
+   }
+
+   if(st.evaluated > 0)
+   {
+      st.consensus_pct = 100.0 * st.consensus_count / st.evaluated;
+      st.conflict_pct = 100.0 * st.conflict_count / st.evaluated;
+      st.neutral_pct = 100.0 * st.neutral_count / st.evaluated;
+   }
+   if(st.consensus_count > 0)
+   {
+      st.consensus_signal_continuation_pct = 100.0 * st.consensus_continuation_count / st.consensus_count;
+      st.consensus_current_continuation_pct = 100.0 * consensus_current_cont / st.consensus_count;
+      st.consensus_follow_pct = 100.0 * st.consensus_follow_count / st.consensus_count;
+      st.consensus_switch_pct = 100.0 * st.consensus_switch_count / st.consensus_count;
+      st.consensus_expected_follow_pct = 100.0 * consensus_expected_follow_sum / st.consensus_count;
+      st.consensus_lift_pct = st.consensus_follow_pct - st.consensus_expected_follow_pct;
+      st.consensus_mean_context_continuation_pct = 100.0 * consensus_context_p_sum / st.consensus_count;
+      st.consensus_mean_confidence_pct = 100.0 * consensus_confidence_sum / st.consensus_count;
+   }
+   if(st.consensus_reversal_count > 0)
+      st.consensus_reversal_next_reversal_pct = 100.0 * st.consensus_reversal_follow_count / st.consensus_reversal_count;
+   if(st.consensus_continuation_count > 0)
+      st.consensus_continuation_next_continuation_pct = 100.0 * st.consensus_continuation_follow_count / st.consensus_continuation_count;
+
+   st.consensus_mean_dlog = DAL_M0004MeanFromArray(consensus_dlogs);
+   st.consensus_median_dlog = DAL_M0004QuantileFromArray(consensus_dlogs, 0.50);
+   st.consensus_p90_dlog = DAL_M0004QuantileFromArray(consensus_dlogs, 0.90);
+   st.consensus_p95_dlog = DAL_M0004QuantileFromArray(consensus_dlogs, 0.95);
+   st.consensus_win_dlog_pct = DAL_M0004WinPctFromArray(consensus_dlogs);
+   st.consensus_follow_mean_dlog = DAL_M0004MeanFromArray(consensus_follow_dlogs);
+   st.consensus_switch_mean_dlog = DAL_M0004MeanFromArray(consensus_switch_dlogs);
+   st.consensus_follow_win_dlog_pct = DAL_M0004WinPctFromArray(consensus_follow_dlogs);
+   st.consensus_switch_win_dlog_pct = DAL_M0004WinPctFromArray(consensus_switch_dlogs);
+   st.consensus_follow_minus_switch_dlog = st.consensus_follow_mean_dlog - st.consensus_switch_mean_dlog;
+   st.conflict_mean_dlog = DAL_M0004MeanFromArray(conflict_dlogs);
+   st.neutral_mean_dlog = DAL_M0004MeanFromArray(neutral_dlogs);
+   st.consensus_reversal_mean_dlog = DAL_M0004MeanFromArray(consensus_rev_dlogs);
+   st.consensus_continuation_mean_dlog = DAL_M0004MeanFromArray(consensus_cont_dlogs);
+}
+
+string DAL_M0004ConsensusStatsText(
+   const string tag,
+   const string method,
+   const DALM0002BranchSample &samples[],
+   const int &labels[],
+   const int count,
+   const int lookback,
+   const double ewma_alpha,
+   const double strong_threshold,
+   const bool use_ewma
+)
+{
+   DALM0004ConsensusStats st;
+   DAL_M0004ComputeConsensusStats(samples, labels, count, lookback, ewma_alpha, strong_threshold, use_ewma, st);
+
+   string model = "consensus_not_available";
+   if(st.consensus_count > 0 && st.consensus_lift_pct > 0.0)
+      model = "last_branch_and_context_consensus_has_predictive_lift";
+   if(st.consensus_count > 0 && st.consensus_lift_pct > 0.0 && st.consensus_follow_minus_switch_dlog > 0.0)
+      model = "consensus_predicts_branch_and_following_events_are_stronger";
+
+   return tag
+      + "*method=" + method
+      + "*k=" + IntegerToString(lookback)
+      + "*alpha=" + DAL_M0001Fmt4(ewma_alpha)
+      + "*threshold=" + DAL_M0001Fmt4(strong_threshold)
+      + "*n=" + IntegerToString(count)
+      + "*evaluated=" + IntegerToString(st.evaluated)
+      + "*dominantN=" + IntegerToString(st.dominant_count)
+      + "*consensusN=" + IntegerToString(st.consensus_count)
+      + "*conflictN=" + IntegerToString(st.conflict_count)
+      + "*neutralN=" + IntegerToString(st.neutral_count)
+      + "*consensusPct=" + DAL_M0001FmtPct(st.consensus_pct)
+      + "*conflictPct=" + DAL_M0001FmtPct(st.conflict_pct)
+      + "*neutralPct=" + DAL_M0001FmtPct(st.neutral_pct)
+      + "*globalContPct=" + DAL_M0001FmtPct(st.global_continuation_pct)
+      + "*consensusSignalContPct=" + DAL_M0001FmtPct(st.consensus_signal_continuation_pct)
+      + "*consensusCurrentContPct=" + DAL_M0001FmtPct(st.consensus_current_continuation_pct)
+      + "*consensusFollowPct=" + DAL_M0001FmtPct(st.consensus_follow_pct)
+      + "*consensusSwitchPct=" + DAL_M0001FmtPct(st.consensus_switch_pct)
+      + "*expectedFollowPct=" + DAL_M0001FmtPct(st.consensus_expected_follow_pct)
+      + "*consensusLiftPct=" + DAL_M0001FmtPct(st.consensus_lift_pct)
+      + "*consensusRevN=" + IntegerToString(st.consensus_reversal_count)
+      + "*consensusContN=" + IntegerToString(st.consensus_continuation_count)
+      + "*consensusRevNextRevPct=" + DAL_M0001FmtPct(st.consensus_reversal_next_reversal_pct)
+      + "*consensusContNextContPct=" + DAL_M0001FmtPct(st.consensus_continuation_next_continuation_pct)
+      + "*consensusMeanContextContPct=" + DAL_M0001FmtPct(st.consensus_mean_context_continuation_pct)
+      + "*consensusConfidencePct=" + DAL_M0001FmtPct(st.consensus_mean_confidence_pct)
+      + "*consensusMeanDLog=" + DAL_M0001Fmt4(st.consensus_mean_dlog)
+      + "*consensusMedDLog=" + DAL_M0001Fmt4(st.consensus_median_dlog)
+      + "*consensusP90DLog=" + DAL_M0001Fmt4(st.consensus_p90_dlog)
+      + "*consensusP95DLog=" + DAL_M0001Fmt4(st.consensus_p95_dlog)
+      + "*consensusWinDLogPct=" + DAL_M0001FmtPct(st.consensus_win_dlog_pct)
+      + "*consensusFollowMeanDLog=" + DAL_M0001Fmt4(st.consensus_follow_mean_dlog)
+      + "*consensusSwitchMeanDLog=" + DAL_M0001Fmt4(st.consensus_switch_mean_dlog)
+      + "*consensusFollowWinDLogPct=" + DAL_M0001FmtPct(st.consensus_follow_win_dlog_pct)
+      + "*consensusSwitchWinDLogPct=" + DAL_M0001FmtPct(st.consensus_switch_win_dlog_pct)
+      + "*followMinusSwitchDLog=" + DAL_M0001Fmt4(st.consensus_follow_minus_switch_dlog)
+      + "*consensusRevMeanDLog=" + DAL_M0001Fmt4(st.consensus_reversal_mean_dlog)
+      + "*consensusContMeanDLog=" + DAL_M0001Fmt4(st.consensus_continuation_mean_dlog)
+      + "*conflictMeanDLog=" + DAL_M0001Fmt4(st.conflict_mean_dlog)
+      + "*neutralMeanDLog=" + DAL_M0001Fmt4(st.neutral_mean_dlog)
+      + "*consensusModel=" + model;
+}
+
+string DAL_M0004ConsensusShuffleStressText(
+   const string name,
+   const DALM0002BranchSample &samples[],
+   const int &labels[],
+   const int &strata[],
+   const int count,
+   const int lookback,
+   const double ewma_alpha,
+   const double strong_threshold,
+   const bool use_ewma,
+   const int iterations,
+   const bool stratified
+)
+{
+   if(count <= lookback + 5 || iterations <= 0)
+      return "CONSENSUS_SHUFFLE_STRESS*name=" + name + "*n=" + IntegerToString(count) + "*iters=0";
+
+   DALM0004ConsensusStats obs;
+   DAL_M0004ComputeConsensusStats(samples, labels, count, lookback, ewma_alpha, strong_threshold, use_ewma, obs);
+
+   int tmp[];
+   int perm[];
+   double lift_sum = 0.0, lift_sumsq = 0.0;
+   double follow_sum = 0.0, follow_sumsq = 0.0;
+   double consensus_pct_sum = 0.0, consensus_pct_sumsq = 0.0;
+   int lift_ge = 0, follow_ge = 0, pct_ge = 0;
+
+   for(int iter = 0; iter < iterations; iter++)
+   {
+      if(stratified)
+      {
+         DAL_M0004StratifiedShuffleLabels(labels, strata, count, iter, 12701, tmp);
+      }
+      else
+      {
+         DAL_M0004BuildPermutation(count, iter, 12601, perm);
+         ArrayResize(tmp, count);
+         for(int i = 0; i < count; i++)
+            tmp[i] = labels[perm[i]];
+      }
+
+      DALM0004ConsensusStats s;
+      DAL_M0004ComputeConsensusStats(samples, tmp, count, lookback, ewma_alpha, strong_threshold, use_ewma, s);
+      if(s.consensus_lift_pct >= obs.consensus_lift_pct) lift_ge++;
+      if(s.consensus_follow_pct >= obs.consensus_follow_pct) follow_ge++;
+      if(s.consensus_pct >= obs.consensus_pct) pct_ge++;
+      lift_sum += s.consensus_lift_pct;
+      lift_sumsq += s.consensus_lift_pct * s.consensus_lift_pct;
+      follow_sum += s.consensus_follow_pct;
+      follow_sumsq += s.consensus_follow_pct * s.consensus_follow_pct;
+      consensus_pct_sum += s.consensus_pct;
+      consensus_pct_sumsq += s.consensus_pct * s.consensus_pct;
+   }
+
+   double lift_mean = lift_sum / iterations;
+   double follow_mean = follow_sum / iterations;
+   double pct_mean = consensus_pct_sum / iterations;
+   double lift_sd = MathSqrt(MathMax(0.0, lift_sumsq / iterations - lift_mean * lift_mean));
+   double follow_sd = MathSqrt(MathMax(0.0, follow_sumsq / iterations - follow_mean * follow_mean));
+   double pct_sd = MathSqrt(MathMax(0.0, consensus_pct_sumsq / iterations - pct_mean * pct_mean));
+   double lift_z = lift_sd > 0.0 ? (obs.consensus_lift_pct - lift_mean) / lift_sd : 0.0;
+   double follow_z = follow_sd > 0.0 ? (obs.consensus_follow_pct - follow_mean) / follow_sd : 0.0;
+   double pct_z = pct_sd > 0.0 ? (obs.consensus_pct - pct_mean) / pct_sd : 0.0;
+   double lift_p = (lift_ge + 1.0) / (iterations + 1.0);
+   double follow_p = (follow_ge + 1.0) / (iterations + 1.0);
+   double pct_p = (pct_ge + 1.0) / (iterations + 1.0);
+
+   int unique[];
+   if(stratified)
+      DAL_M0004UniqueKeys(strata, count, unique);
+
+   string verdict = "consensus_state_not_above_null";
+   if(lift_z > 2.0 && follow_z > 2.0)
+      verdict = "last_context_consensus_predictive_above_engineered_null";
+   string null_name = stratified ? "stratified_composite" : "global_label_shuffle";
+   string method_name = use_ewma ? "ewma" : "rolling";
+   int strata_count = stratified ? ArraySize(unique) : 1;
+
+   return "CONSENSUS_SHUFFLE_STRESS"
+      + "*name=" + name
+      + "*null=" + null_name
+      + "*n=" + IntegerToString(count)
+      + "*strata=" + IntegerToString(strata_count)
+      + "*iters=" + IntegerToString(iterations)
+      + "*method=" + method_name
+      + "*k=" + IntegerToString(lookback)
+      + "*obsConsensusPct=" + DAL_M0001FmtPct(obs.consensus_pct)
+      + "*nullMeanConsensusPct=" + DAL_M0001FmtPct(pct_mean)
+      + "*nullSdConsensusPct=" + DAL_M0001FmtPct(pct_sd)
+      + "*consensusPctZ=" + DAL_M0001Fmt4(pct_z)
+      + "*consensusPctEmpP=" + DAL_M0001Fmt4(pct_p)
+      + "*obsConsensusFollowPct=" + DAL_M0001FmtPct(obs.consensus_follow_pct)
+      + "*nullMeanConsensusFollowPct=" + DAL_M0001FmtPct(follow_mean)
+      + "*nullSdConsensusFollowPct=" + DAL_M0001FmtPct(follow_sd)
+      + "*consensusFollowZ=" + DAL_M0001Fmt4(follow_z)
+      + "*consensusFollowEmpP=" + DAL_M0001Fmt4(follow_p)
+      + "*obsConsensusLiftPct=" + DAL_M0001FmtPct(obs.consensus_lift_pct)
+      + "*nullMeanConsensusLiftPct=" + DAL_M0001FmtPct(lift_mean)
+      + "*nullSdConsensusLiftPct=" + DAL_M0001FmtPct(lift_sd)
+      + "*consensusLiftZ=" + DAL_M0001Fmt4(lift_z)
+      + "*consensusLiftEmpP=" + DAL_M0001Fmt4(lift_p)
+      + "*stressVerdict=" + verdict;
+}
+
 string DAL_M0004SummaryText(const DALM0004TransitionStats &s, const DALM0004RunStats &rev, const DALM0004RunStats &cont)
 {
    string state = "mixed_or_no_branch_regime";
@@ -1884,6 +2396,12 @@ void DAL_M0004PrintFinalReports(
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_EWMA_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextStatsText("CONTEXT_STATE", "ewma_human_eye", labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_BUCKETS_ROLLING_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextBucketText("CONTEXT_BUCKETS", "rolling", labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, false));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_BUCKETS_EWMA_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextBucketText("CONTEXT_BUCKETS", "ewma_human_eye", labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, true));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_ROLLING_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusStatsText("CONSENSUS_CONTEXT", "rolling", all_samples, labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_EWMA_MAIN", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusStatsText("CONSENSUS_CONTEXT", "ewma_human_eye", all_samples, labels, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("rolling_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, false));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("rolling_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, true));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_SHUFFLE_STRESS_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("ewma_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true, h4_config.stress_iterations, false));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONSENSUS_STRATIFIED_STRESS_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ConsensusShuffleStressText("ewma_last_context_consensus", all_samples, labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true, h4_config.stress_iterations, true));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_SHUFFLE_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextShuffleStressText("rolling_context", labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, false));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_STRATIFIED_STRESS_ROLLING", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextShuffleStressText("rolling_context", labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, false, h4_config.stress_iterations, true));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_CONTEXT_SHUFFLE_STRESS_EWMA", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004ContextShuffleStressText("ewma_human_eye_context", labels, composite_strata, count, h4_config.context_k_main, h4_config.context_ewma_alpha, h4_config.context_strong_threshold, true, h4_config.stress_iterations, false));
