@@ -23,6 +23,10 @@ Version: 1.66
 | `M0002/DAL_M0002Engine.mqh` | uses exact M0001 completed-exit events with hunt/touch consumption preserved, classifies close-vs-node at exit completion, and creates EVENT_RTV branch samples by default |
 | `M0002/DAL_M0002Reports.mqh` | prints branch-vs-random and REVERSAL-vs-CONTINUATION final reports |
 | `Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5` | H0002/M0002 EA entry point with candle-gated final-only reports |
+| `M0003/DAL_M0003Reports.mqh` | H0003 continuation inertia/memory/cluster reports over exact M0002 branch samples |
+| `Experts/DecisionAlphaLab/M0003/M0003_ContinuationInertiaMemory.mq5` | H0003/M0003 EA entry point for volatility-memory and cluster-stress reports |
+| `M0004/DAL_M0004Reports.mqh` | H0004 branch-label regime clustering reports: transition matrix, same-branch lift, run clustering, permutation stress, block concentration stress, and segmented inertia |
+| `Experts/DecisionAlphaLab/M0004/M0004_BranchRegimeClustering.mq5` | H0004/M0004 EA entry point using exact M0001/M0002 branch labels sorted chronologically |
 
 Removed legacy layers are intentionally not part of the active runtime:
 
@@ -50,3 +54,10 @@ See `docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md`.
 ## Logic repair v1.70
 
 H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.
+
+
+## v1.00 M0004 Branch-Regime Clustering
+
+M0004 studies the chronological sequence of exact M0002 branch labels. It preserves the observed reversal/continuation counts and tests whether the label order has same-branch inertia, Markov-like transition dependence, run clustering, and block-level branch concentration beyond shuffled-label nulls.
+
+See `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`.

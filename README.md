@@ -386,12 +386,15 @@ See `docs/mql_native/H0001_H0002_ALGORITHM_AND_HYPOTHESIS_README.md` for the ful
 - H0001: completed structural-node territory events produce higher RTV than matched random windows.
 - H0002: continuation exits are lower-frequency but higher-intensity than reversal exits, with fatter tails and stronger post-event memory.
 - H0003: continuation exits are tested as a volatility-memory state with inertia and time clustering using the same M0001/M0002 modules.
+- H0004: reversal/continuation branch labels are tested as chronological regimes with transition inertia, run clustering, and block concentration above count-preserving shuffled-label nulls.
 
 Key docs:
 
 - `docs/mql_native/H0001_MARKET_STRUCTURE_VOLATILITY_ARTICLE.md`
 - `docs/mql_native/H0002_BRANCH_VOLATILITY_MODEL_ARTICLE.md`
 - `docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md`
+- `docs/mql_native/H0003_INERTIA_MEMORY_RESULTS_AND_ALGORITHM.md`
+- `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`
 
 
 ## H0003 cluster-stress lock
@@ -411,3 +414,30 @@ See:
 docs/mql_native/H0003_CONTINUATION_INERTIA_MEMORY_CLUSTERING.md
 docs/mql_native/M0003_CLUSTER_STRESS_LOCK.md
 ```
+
+
+## H0004 branch-regime clustering module
+
+M0004 extends the locked H0001/H0002/H0003 stack from volatility-memory into branch-label regime testing. It reuses exact M0001 completed events and exact M0002 reversal/continuation labels, sorts valid branch samples chronologically by exit/outcome index, and tests whether branch labels cluster beyond a count-preserving shuffled-label null.
+
+Current build target:
+
+```text
+M0004_BranchRegimeClustering: build 1.00
+```
+
+Primary report lines:
+
+```text
+DAL_M0004_FINAL_TRANSITION
+DAL_M0004_FINAL_RUNS
+DAL_M0004_FINAL_TRANSITION_PERM_STRESS
+DAL_M0004_FINAL_RUN_SHUFFLE_STRESS
+DAL_M0004_FINAL_BLOCK_CONCENTRATION_STRESS
+DAL_M0004_FINAL_FAR_LAG_PLACEBO
+DAL_M0004_FINAL_SESSION_REGIME
+DAL_M0004_FINAL_TREND_REGIME
+DAL_M0004_FINAL_PREVOL_REGIME
+```
+
+See `docs/mql_native/H0004_BRANCH_REGIME_CLUSTERING.md`.

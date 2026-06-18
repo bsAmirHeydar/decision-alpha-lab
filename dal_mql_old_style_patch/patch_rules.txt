@@ -1,7 +1,0 @@
-DAL MQL H0003 patch rules
-
-1) Patch MQL only. No Python files are touched.
-2) Search the given project folder recursively for DAL_M0003Reports.mqh.
-3) Backup each changed file into .dal_patch_backup_<timestamp>.
-4) Fix DAL_M0001RandomFractionK calls that still pass 3 arguments by appending the required 4th integer argument.
-5) Remove this patch folder after a successful run.
