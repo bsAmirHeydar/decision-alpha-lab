@@ -3,7 +3,7 @@
 //| Execution layer: exact H5 reversal R1, stable pending sync + touch catch|
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.06"
+#property version   "1.07"
 #property description "Execution module for H0005 reversal R1: stable limit orders at structural zone touch, optional market catch if price is already touching."
 
 #include <Trade/Trade.mqh>
@@ -70,7 +70,7 @@ input double InpPendingProtectStopFraction = 0.50;
 input bool InpAllowMarketCatchWhenAlreadyTouching = true;
 input bool InpMarketCatchRequiresPriceBeforeStop = true;
 
-#define DAL_E0001_BUILD "1.06"
+#define DAL_E0001_BUILD "1.07"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -95,6 +95,116 @@ ENUM_TIMEFRAMES LabTimeframe()
 bool LogErrors() { return (InpLogMode >= DAL_EXEC_LOG_ERRORS); }
 bool LogOrders() { return (InpLogMode >= DAL_EXEC_LOG_ORDERS); }
 bool LogVerbose() { return (InpLogMode >= DAL_EXEC_LOG_VERBOSE); }
+
+string E0001_ManagedCommentPrefix()
+{
+   string prefix = InpOrderCommentPrefix;
+   if(prefix == "")
+      prefix = "DALR1";
+
+   // Keep the managed identity short because many brokers truncate order comments.
+   // This local helper removes compile-time dependency on include helper versions.
+   if(StringLen(prefix) > 10)
+      prefix = StringSubstr(prefix, 0, 10);
+   return prefix;
+}
+
+bool E0001_CheckMarketGeometry(
+   const int direction,
+   const double sl,
+   const double tp,
+   string &reason
+)
+{
+   string symbol = LabSymbol();
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+
+   if(point <= 0.0 || bid <= 0.0 || ask <= 0.0)
+   {
+      reason = "invalid_market_quote";
+      return false;
+   }
+
+   if(direction > 0)
+   {
+      if(!(sl < ask && tp > ask))
+      {
+         reason = "invalid_buy_market_sl_tp_geometry";
+         return false;
+      }
+      if((ask - sl) < min_dist || (tp - ask) < min_dist)
+      {
+         reason = "buy_market_sl_tp_too_close";
+         return false;
+      }
+   }
+   else if(direction < 0)
+   {
+      if(!(sl > bid && tp < bid))
+      {
+         reason = "invalid_sell_market_sl_tp_geometry";
+         return false;
+      }
+      if((sl - bid) < min_dist || (bid - tp) < min_dist)
+      {
+         reason = "sell_market_sl_tp_too_close";
+         return false;
+      }
+   }
+   else
+   {
+      reason = "zero_direction";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+bool E0001_PlaceMarketOrder(
+   const int direction,
+   const double volume,
+   double sl,
+   double tp,
+   const string comment,
+   string &reason
+)
+{
+   string symbol = LabSymbol();
+   int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+   sl = NormalizeDouble(sl, digits);
+   tp = NormalizeDouble(tp, digits);
+
+   if(!E0001_CheckMarketGeometry(direction, sl, tp, reason))
+      return false;
+
+   if(volume <= 0.0)
+   {
+      reason = "volume_zero";
+      return false;
+   }
+
+   g_trade.SetExpertMagicNumber(InpMagicNumber);
+
+   bool ok = false;
+   if(direction > 0)
+      ok = g_trade.Buy(volume, symbol, 0.0, sl, tp, comment);
+   else
+      ok = g_trade.Sell(volume, symbol, 0.0, sl, tp, comment);
+
+   if(!ok)
+   {
+      reason = "market_send_failed_retcode_" + IntegerToString((int)g_trade.ResultRetcode()) + "_" + g_trade.ResultRetcodeDescription();
+      return false;
+   }
+
+   reason = "ok_ticket_" + IntegerToString((int)g_trade.ResultOrder());
+   return true;
+}
 
 void BuildM0001Config(DALM0001Config &config)
 {
@@ -220,7 +330,7 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
       has_last_sample,
       m1.zone_ratio,
       InpRewardR,
-      DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix),
+      E0001_ManagedCommentPrefix(),
       InpMaxZoneScanNodes,
       setups,
       reason
@@ -290,7 +400,7 @@ bool PendingIsProtectedNearMarket(const DALExecPendingOrder &pending)
 
 bool HasManagedPosition()
 {
-   string managed_prefix = DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix);
+   string managed_prefix = E0001_ManagedCommentPrefix();
    int total = PositionsTotal();
    for(int i = 0; i < total; i++)
    {
@@ -313,7 +423,7 @@ void SyncStaleManagedPendings()
    if(!InpSyncManagedPendings || !InpCancelStaleManagedPendings)
       return;
 
-   string managed_prefix = DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix);
+   string managed_prefix = E0001_ManagedCommentPrefix();
    bool managed_position_open = (InpCancelManagedPendingsAfterEntry && HasManagedPosition());
    int deleted = 0;
    for(int i = OrdersTotal() - 1; i >= 0; i--)
@@ -449,15 +559,12 @@ bool PlaceSetupMarketCatch(const DALExecReversalSetup &setup, const double marke
    if(!InpTradingEnabled)
       return false;
 
-   return DAL_ExecPlaceMarketOrder(
-      LabSymbol(),
-      InpMagicNumber,
+   return E0001_PlaceMarketOrder(
       setup.direction,
       risk.volume,
       setup.stop_price,
       tp,
       setup.comment,
-      g_trade,
       order_reason
    );
 }
@@ -619,7 +726,7 @@ int OnInit()
          "*researchEntryModel=touch_bar_close_in_M0005_report",
          "*stopModel=zone_edge",
          "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
-         "*orderCommentPrefix=", DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix),
+         "*orderCommentPrefix=", E0001_ManagedCommentPrefix(),
          "*manageEveryTick=", DAL_BoolToString(InpManageOrdersEveryTick),
          "*marketCatch=", DAL_BoolToString(InpAllowMarketCatchWhenAlreadyTouching),
          "*cancelStale=", DAL_BoolToString(InpCancelStaleManagedPendings),
