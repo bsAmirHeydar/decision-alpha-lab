@@ -592,3 +592,53 @@ MFE/MAE semantics are explicit: excursions are measured from the structural entr
 
 
 M0005 v1.03 adds `DAL_M0005_FINAL_REVERSAL_TRADE_R1` and `DAL_M0005_FINAL_REVERSAL_TRADE_R2` report lines. These are raw cost-excluded, execution-style reversal simulations with fixed +1R/+2R targets, -1R structural stop, path-exit fallback, same-bar TP/SL policy, and matched-random baselines.
+
+### Execution layer — E0001 Reversal One-to-One
+
+The execution layer is intentionally separated from hypothesis modules. Hypotheses test facts; execution modules translate a locked research rule into order placement, sizing, and operational controls.
+
+`E0001_ReversalOneToOne.mq5` is the first execution module. It uses the existing M0001/M0002 structural stack to detect the latest completed branch regime and places a pending reversal limit order only when the current raw regime source is `LAST_ONLY` reversal.
+
+Execution rule:
+
+```text
+regime = last completed M0002 branch
+if regime == reversal:
+  find newest confirmed structural node/zone after the last branch outcome
+  require the zone to be untouched and not consumed by pure hunt
+  LOW node  => BUY_LIMIT at near zone edge, SL at far lower zone edge
+  HIGH node => SELL_LIMIT at near zone edge, SL at far upper zone edge
+  TP = entry +/- InpRewardR * abs(entry - SL)
+```
+
+Operational inputs include:
+
+```text
+InpTradingEnabled=false              # dry-run by default
+InpRiskCash=100.0                    # cash risk target
+InpCommissionPerLotRoundTurn=0.0     # included in position sizing
+InpRewardR=1.0                       # 1R, 2R, or any fixed reward multiple
+InpMaxSimultaneousTrades=1
+InpAllowOppositeTrades=false
+InpAllowMinLotIfRiskTooSmall=false
+InpOrderExpirationMinutes=0
+```
+
+Risk sizing is commission-aware:
+
+```text
+volume = riskCash / (stopLossCashPerLot + commissionPerLotRoundTurn)
+```
+
+The final volume is floored to the symbol volume step so the estimated stop-loss plus round-turn commission does not exceed the requested cash risk unless the user explicitly enables minimum-lot fallback.
+
+Execution report lines:
+
+```text
+DAL_E0001_BUILD_SANITY
+DAL_E0001_DECISION
+DAL_E0001_RISK_REJECT
+DAL_E0001_ORDER_DECISION
+```
+
+This module is raw operational plumbing, not a claim of live profitability. Costs can be entered through the commission input, but spread/slippage/execution latency are still broker/live-environment risks.
