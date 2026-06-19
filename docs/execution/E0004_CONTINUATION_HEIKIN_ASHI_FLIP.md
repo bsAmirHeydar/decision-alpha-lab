@@ -54,3 +54,8 @@ The regime gate only controls new entries.
 
 The Expert reuses the same M0001/M0002 source-of-truth pipeline as the other execution adapters.
 It should be tested independently from the reversal executors.
+
+
+## Build 1.01 stop update
+
+The stop is no longer only the signal Heikin Ashi candle edge. For buys, E0004 uses the lower/farther stop from the signal HA low and the last-three-candle low. For sells, it uses the higher/farther stop from the signal HA high and the last-three-candle high, then adds the current spread to the sell stop. This makes risk sizing and the 2R target use the wider protective stop.

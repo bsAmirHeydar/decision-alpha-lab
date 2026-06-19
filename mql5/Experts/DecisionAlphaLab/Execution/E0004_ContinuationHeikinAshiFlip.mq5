@@ -3,7 +3,7 @@
 //| Continuation-direction HA color flip, fixed 1:2 by default         |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "Execution module E0004: continuation-direction Heikin Ashi color flip, fixed-R market entries."
 
 #include <Trade/Trade.mqh>
@@ -58,7 +58,7 @@ input bool InpAllowSimultaneousTrades = true;
 input int InpContinuationBreakBufferPoints = 0;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0004_BUILD "1.00"
+#define DAL_E0004_BUILD "1.01"
 string InpOrderCommentPrefix = "DALH4";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -323,6 +323,8 @@ bool E0004_ComputeHeikinAshiPair(
    int &signal_color,
    double &signal_ha_low,
    double &signal_ha_high,
+   double &recent3_stop_low,
+   double &recent3_stop_high,
    string &reason
 )
 {
@@ -330,6 +332,8 @@ bool E0004_ComputeHeikinAshiPair(
    signal_color = 0;
    signal_ha_low = 0.0;
    signal_ha_high = 0.0;
+   recent3_stop_low = 0.0;
+   recent3_stop_high = 0.0;
    reason = "not_computed";
 
    if(signal_index < 1 || signal_index >= bars_count)
@@ -363,6 +367,18 @@ bool E0004_ComputeHeikinAshiPair(
    signal_color = E0004_Sign(ha_close[signal_index] - ha_open[signal_index]);
    signal_ha_low = ha_low[signal_index];
    signal_ha_high = ha_high[signal_index];
+
+   int first_stop_index = MathMax(0, signal_index - 2);
+   recent3_stop_low = signal_ha_low;
+   recent3_stop_high = signal_ha_high;
+   for(int j = first_stop_index; j <= signal_index; j++)
+   {
+      // Use the farther stop from both the real candle and the Heikin Ashi candle.
+      // Buy stop: lowest low behind the last three candles.
+      // Sell stop: highest high behind the last three candles, spread is added later.
+      recent3_stop_low = MathMin(recent3_stop_low, MathMin(bars[j].low, ha_low[j]));
+      recent3_stop_high = MathMax(recent3_stop_high, MathMax(bars[j].high, ha_high[j]));
+   }
 
    if(prev_color == 0 || signal_color == 0)
    {
@@ -537,6 +553,8 @@ bool E0004_PlaceHeikinAshiMarket(
    const int direction,
    const double signal_ha_low,
    const double signal_ha_high,
+   const double recent3_stop_low,
+   const double recent3_stop_high,
    const datetime signal_time,
    const string direction_reason,
    string &reason
@@ -566,11 +584,22 @@ bool E0004_PlaceHeikinAshiMarket(
    }
 
    double reward = MathMax(0.1, InpRewardR);
-   double sl = (direction > 0 ? signal_ha_low : signal_ha_high);
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double spread = 0.0;
+   if(bid > 0.0 && ask > 0.0 && ask >= bid)
+      spread = ask - bid;
+
+   double sl = 0.0;
+   if(direction > 0)
+      sl = MathMin(signal_ha_low, recent3_stop_low);
+   else
+      sl = MathMax(signal_ha_high, recent3_stop_high) + spread;
+
    double risk = MathAbs(entry - sl);
    if(risk <= 0.0)
    {
-      reason = "invalid_heikin_ashi_stop_risk";
+      reason = "invalid_recent3_heikin_ashi_stop_risk";
       return false;
    }
 
@@ -624,6 +653,10 @@ bool E0004_PlaceHeikinAshiMarket(
          "*entry=", DoubleToString(entry, digits),
          "*sl=", DoubleToString(sl, digits),
          "*tp=", DoubleToString(tp, digits),
+         "*signalHaLow=", DoubleToString(signal_ha_low, digits),
+         "*signalHaHigh=", DoubleToString(signal_ha_high, digits),
+         "*recent3StopLow=", DoubleToString(recent3_stop_low, digits),
+         "*recent3StopHigh=", DoubleToString(recent3_stop_high, digits),
          "*rewardR=", DoubleToString(reward, 2),
          "*riskCash=", DoubleToString(InpRiskCash, 2),
          "*volume=", DoubleToString(risk_sizing.volume, 8),
@@ -664,8 +697,10 @@ void E0004_ProcessNewBar()
    int signal_color = 0;
    double signal_ha_low = 0.0;
    double signal_ha_high = 0.0;
+   double recent3_stop_low = 0.0;
+   double recent3_stop_high = 0.0;
    string ha_reason = "";
-   if(!E0004_ComputeHeikinAshiPair(bars, bars_count, signal_index, prev_color, signal_color, signal_ha_low, signal_ha_high, ha_reason))
+   if(!E0004_ComputeHeikinAshiPair(bars, bars_count, signal_index, prev_color, signal_color, signal_ha_low, signal_ha_high, recent3_stop_low, recent3_stop_high, ha_reason))
       return;
 
    int continuation_direction = 0;
@@ -677,7 +712,7 @@ void E0004_ProcessNewBar()
       return;
 
    string order_reason = "";
-   if(!E0004_PlaceHeikinAshiMarket(signal_color, signal_ha_low, signal_ha_high, bars[signal_index].time, direction_reason, order_reason))
+   if(!E0004_PlaceHeikinAshiMarket(signal_color, signal_ha_low, signal_ha_high, recent3_stop_low, recent3_stop_high, bars[signal_index].time, direction_reason, order_reason))
    {
       if(InpPrintOrderLogs)
          Print("DAL_E0004_SIGNAL_SKIP *** build=", DAL_E0004_BUILD,
@@ -697,7 +732,7 @@ int OnInit()
       "*tf=", EnumToString(LabTimeframe()),
       "*module=EXECUTION_H0005_CONTINUATION_HEIKIN_ASHI_FLIP",
       "*entry=HA_COLOR_FLIP_IN_CONTINUATION_DIRECTION",
-      "*stop=SIGNAL_HA_CANDLE_OPPOSITE_EDGE",
+      "*stop=FARTHEST_OF_SIGNAL_HA_AND_LAST_3_CANDLE_EXTREMES",
       "*tp=FIXED_R",
       "*rewardR=", DoubleToString(InpRewardR, 2),
       "*allowSimultaneous=", DAL_BoolToString(InpAllowSimultaneousTrades));
