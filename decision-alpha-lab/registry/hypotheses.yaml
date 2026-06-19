@@ -1,6 +1,0 @@
-
-- id: H0004
-  title: Branch regime clustering
-  status: active
-  module: M0004_BranchRegimeClustering
-  description: Tests whether chronological reversal/continuation branch labels form persistent regimes above count-preserving shuffled-label nulls.

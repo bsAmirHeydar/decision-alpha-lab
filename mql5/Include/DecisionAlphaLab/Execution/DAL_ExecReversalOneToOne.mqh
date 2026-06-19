@@ -6,6 +6,8 @@
 // reversal fixed-reward test: LAST_ONLY reversal regime -> next structural
 // zone touch -> zone-edge stop -> fixed-R take-profit. Live execution can
 // maintain directional candidate slots, e.g. 3 buy-limit and 3 sell-limit zones.
+// Comments are stable per structural zone so the live touch ledger can enforce
+// one fill per touch and re-arm only after price leaves and revisits the zone.
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0002/DAL_M0002Reports.mqh>
@@ -244,12 +246,21 @@ string DAL_ExecBuildCompactSetupComment(
    const string comment_prefix,
    const double reward_r,
    const int node_id,
-   const int last_branch_sample_id
+   const int direction
 )
 {
    string prefix = DAL_ExecManagedCommentPrefix(comment_prefix);
    string rr = "R" + IntegerToString((int)MathRound(reward_r * 10.0));
-   string c = prefix + rr + "_" + IntegerToString(node_id) + "_" + IntegerToString(last_branch_sample_id);
+   string side = "S";
+   if(direction > 0)
+      side = "B";
+
+   // Stable identity is essential for live order management:
+   // one structural zone/touch = one comment = one pending/position ledger key.
+   // Do not include the latest branch-sample id here; that id can change while
+   // the same structural zone is still the active execution candidate, which
+   // would make the engine delete/recreate orders instead of modifying them.
+   string c = prefix + rr + side + "N" + IntegerToString(node_id);
 
    // Keep full setup identity inside common broker limits so duplicate
    // detection and pending sync do not break because of server-side truncation.
@@ -316,7 +327,7 @@ bool DAL_ExecBuildReversalOneToOneSetupFromNode(
    }
 
    setup.tp_price = setup.entry_price + setup.direction * setup.stop_distance * reward_r;
-   setup.comment = DAL_ExecBuildCompactSetupComment(comment_prefix, reward_r, setup.node_id, setup.last_branch_sample_id);
+   setup.comment = DAL_ExecBuildCompactSetupComment(comment_prefix, reward_r, setup.node_id, setup.direction);
    setup.valid = true;
    setup.reason = "ok";
    return true;
@@ -585,7 +596,7 @@ bool DAL_ExecBuildReversalOneToOneSetup(
    }
 
    setup.tp_price = setup.entry_price + setup.direction * setup.stop_distance * reward_r;
-   setup.comment = DAL_ExecBuildCompactSetupComment(comment_prefix, reward_r, setup.node_id, setup.last_branch_sample_id);
+   setup.comment = DAL_ExecBuildCompactSetupComment(comment_prefix, reward_r, setup.node_id, setup.direction);
    setup.valid = true;
    setup.reason = "ok";
    return true;

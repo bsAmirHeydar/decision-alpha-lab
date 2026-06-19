@@ -1,27 +1,7 @@
-# MQL generated / terminal artifacts
-*.ex5
-*.log
-*.hst
-*.fxt
-*.opt
-
-# Retired Python / UI generated files
-__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
-node_modules/
-apps/
-lab/cache_data/
-lab/cache_metrics/
-lab/cache_nodes/
-*.parquet
-
-# Temporary artifact bundles
-quant_lab_*.zip
-quant_lab_*.patch
-repair_lab_os.ps1
-
-# Local Python virtual environments
-.venv/
-venv/
+# Local ChatGPT release artifacts; never commit these.
+dal_*_release_*.patch
+dal_*_release_*_files.zip
+h5_r1_*.patch
+h5_r1_*_files.zip
+h5_r1_*.ps1
+_backup_nested_decision_alpha_lab.zip

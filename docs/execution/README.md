@@ -121,3 +121,22 @@ and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or
 external orders. The compact comment prefix is important because broker servers
 may truncate order comments; E0001 keeps comments short so duplicate detection,
 pending sync, and touch locking remain stable.
+
+## Current locked executor
+
+- `E0001_ReversalOneToOne.mq5` build `1.10` implements H0005 reversal R1 as a six-slot touch-ledger executor.
+- Detailed contract: [`H0005_R1_SIX_SLOT_TOUCH_LEDGER.md`](H0005_R1_SIX_SLOT_TOUCH_LEDGER.md).
+
+## Repository layout invariant
+
+Execution source-of-truth lives only in the repository root paths:
+
+```text
+mql5/Experts/DecisionAlphaLab/Execution/
+mql5/Include/DecisionAlphaLab/Execution/
+docs/execution/
+lab/04_execution/
+```
+
+A nested `decision-alpha-lab/decision-alpha-lab/` copy is not part of the canonical project and must be removed after backing it up. See [`../PROJECT_LAYOUT.md`](../PROJECT_LAYOUT.md).
+

@@ -1,4 +1,0 @@
-id: EXP0003
-hypothesis: H0002_reversal_vs_continuation_post_exit_volatility
-expert: mql5/Experts/DecisionAlphaLab/M0002/M0002_ReversalContinuationExitVolatility.mq5
-mode: final-only-candle-gated

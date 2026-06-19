@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
 //| Decision Alpha Lab — E0001 H0005 Reversal R1 Executor             |
-//| Execution layer: exact H5 reversal R1, six-slot pending grid + touch ledger|
+//| Execution layer: exact H5 reversal R1, six-slot pending grid + stable touch ledger|
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.08"
-#property description "Execution module for H0005 reversal R1: maintains 3 buy-limit and 3 sell-limit candidates with per-touch one-fill memory."
+#property version   "1.10"
+#property description "Execution module for H0005 reversal R1: maintains 3 buy-limit and 3 sell-limit candidates with stable per-zone one-fill/revisit memory."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -50,7 +50,6 @@ enum ENUM_DALExecLogMode
    DAL_EXEC_LOG_VERBOSE = 3
 };
 
-input bool InpPlaceOneOrderPerSetup = true; // Exact duplicate guard: one pending/position per setup comment.
 input int InpBuyLimitSlots = 3;
 input int InpSellLimitSlots = 3;
 input bool InpRefreshSetupsOnNewBarOnly = true;
@@ -74,7 +73,7 @@ input bool InpAllowMarketCatchWhenAlreadyTouching = false; // Limit-only touch e
 input bool InpMarketCatchRequiresPriceBeforeStop = true;
 input int InpTouchRevisitResetBufferPoints = 10;
 
-#define DAL_E0001_BUILD "1.08"
+#define DAL_E0001_BUILD "1.10"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -1028,7 +1027,7 @@ int OnInit()
          "*bars=", InpBars,
          "*h5Exact=LAST_ONLY_REVERSAL_NEXT_STRUCTURAL_ZONE_TOUCH",
          "*rewardR=", DoubleToString(InpRewardR, 4),
-         "*entryModel=three_buy_limits_three_sell_limits_revisit_locked",
+         "*entryModel=three_buy_limits_three_sell_limits_stable_zone_revisit_locked",
          "*researchEntryModel=touch_bar_close_in_M0005_report",
          "*stopModel=zone_edge",
          "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
@@ -1036,6 +1035,7 @@ int OnInit()
          "*sellSlots=", InpSellLimitSlots,
          "*allowOpposite=", DAL_BoolToString(InpAllowOppositeTrades),
          "*orderCommentPrefix=", E0001_ManagedCommentPrefix(),
+         "*commentIdentity=prefix_reward_direction_node",
          "*manageEveryTick=", DAL_BoolToString(InpManageOrdersEveryTick),
          "*marketCatch=", DAL_BoolToString(InpAllowMarketCatchWhenAlreadyTouching),
          "*cancelStale=", DAL_BoolToString(InpCancelStaleManagedPendings),

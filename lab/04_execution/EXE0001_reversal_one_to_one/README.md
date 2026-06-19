@@ -99,3 +99,16 @@ Execution semantics:
 The compact `DALR1` prefix is intentional because many trade servers truncate
 comments; short comments keep duplicate detection, pending sync, and touch-lock
 memory reliable.
+
+## Build 1.10 live contract
+
+The live executor is now locked to the H0005 reversal R1 six-slot touch ledger:
+
+- three buy-limit slots and three sell-limit slots in reversal regime;
+- stable per-zone comments: `prefix + reward + side + N + node_id`;
+- one fill per touch;
+- re-arm only after price leaves the touch edge and revisits;
+- delete all managed pending limits when the latest regime is continuation/non-reversal.
+
+See `docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md`.
+
