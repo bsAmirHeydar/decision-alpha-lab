@@ -16,6 +16,32 @@ struct DALExecOrderCounts
    int sell_limit_pending;
 };
 
+struct DALExecPendingOrder
+{
+   bool found;
+   ulong ticket;
+   int direction;
+   ENUM_ORDER_TYPE order_type;
+   string comment;
+   double price;
+   double sl;
+   double tp;
+   double volume;
+};
+
+void DAL_ExecResetPendingOrder(DALExecPendingOrder &p)
+{
+   p.found = false;
+   p.ticket = 0;
+   p.direction = 0;
+   p.order_type = ORDER_TYPE_BUY_LIMIT;
+   p.comment = "";
+   p.price = 0.0;
+   p.sl = 0.0;
+   p.tp = 0.0;
+   p.volume = 0.0;
+}
+
 void DAL_ExecResetOrderCounts(DALExecOrderCounts &c)
 {
    c.positions_total = 0;
@@ -31,6 +57,172 @@ void DAL_ExecResetOrderCounts(DALExecOrderCounts &c)
 bool DAL_ExecOrderIsPendingLimit(const ENUM_ORDER_TYPE t)
 {
    return (t == ORDER_TYPE_BUY_LIMIT || t == ORDER_TYPE_SELL_LIMIT);
+}
+
+
+int DAL_ExecDirectionFromOrderType(const ENUM_ORDER_TYPE t)
+{
+   if(t == ORDER_TYPE_BUY_LIMIT)
+      return +1;
+   if(t == ORDER_TYPE_SELL_LIMIT)
+      return -1;
+   return 0;
+}
+
+bool DAL_ExecOrderCommentMatchesPrefix(const string comment, const string prefix)
+{
+   if(prefix == "")
+      return true;
+   return (StringFind(comment, prefix, 0) == 0);
+}
+
+double DAL_ExecPendingDistanceToMarket(const string symbol, const int direction, const double price)
+{
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   if(direction > 0)
+      return MathAbs(ask - price);
+   if(direction < 0)
+      return MathAbs(price - bid);
+   return 1.0e100;
+}
+
+bool DAL_ExecReadPendingOrder(const ulong ticket, DALExecPendingOrder &out)
+{
+   DAL_ExecResetPendingOrder(out);
+   if(ticket == 0 || !OrderSelect(ticket))
+      return false;
+
+   ENUM_ORDER_TYPE t = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
+   if(!DAL_ExecOrderIsPendingLimit(t))
+      return false;
+
+   out.found = true;
+   out.ticket = ticket;
+   out.order_type = t;
+   out.direction = DAL_ExecDirectionFromOrderType(t);
+   out.comment = OrderGetString(ORDER_COMMENT);
+   out.price = OrderGetDouble(ORDER_PRICE_OPEN);
+   out.sl = OrderGetDouble(ORDER_SL);
+   out.tp = OrderGetDouble(ORDER_TP);
+   out.volume = OrderGetDouble(ORDER_VOLUME_INITIAL);
+   return true;
+}
+
+bool DAL_ExecFindManagedPendingLimit(
+   const string symbol,
+   const long magic,
+   const string comment_prefix,
+   DALExecPendingOrder &out
+)
+{
+   DAL_ExecResetPendingOrder(out);
+   double best_distance = 1.0e100;
+
+   int total = OrdersTotal();
+   for(int i = 0; i < total; i++)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0 || !OrderSelect(ticket))
+         continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol)
+         continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != magic)
+         continue;
+
+      ENUM_ORDER_TYPE type = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
+      if(!DAL_ExecOrderIsPendingLimit(type))
+         continue;
+
+      string comment = OrderGetString(ORDER_COMMENT);
+      if(!DAL_ExecOrderCommentMatchesPrefix(comment, comment_prefix))
+         continue;
+
+      DALExecPendingOrder candidate;
+      if(!DAL_ExecReadPendingOrder(ticket, candidate))
+         continue;
+
+      double d = DAL_ExecPendingDistanceToMarket(symbol, candidate.direction, candidate.price);
+      if(!out.found || d < best_distance)
+      {
+         out = candidate;
+         best_distance = d;
+      }
+   }
+
+   return out.found;
+}
+
+bool DAL_ExecDeletePendingOrder(
+   const ulong ticket,
+   CTrade &trade,
+   string &reason
+)
+{
+   if(ticket == 0 || !OrderSelect(ticket))
+   {
+      reason = "pending_ticket_not_found";
+      return false;
+   }
+
+   ENUM_ORDER_TYPE type = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
+   if(!DAL_ExecOrderIsPendingLimit(type))
+   {
+      reason = "ticket_not_pending_limit";
+      return false;
+   }
+
+   if(!trade.OrderDelete(ticket))
+   {
+      reason = "delete_failed_retcode_" + IntegerToString((int)trade.ResultRetcode()) + "_" + trade.ResultRetcodeDescription();
+      return false;
+   }
+
+   reason = "ok_deleted_" + IntegerToString((int)ticket);
+   return true;
+}
+
+bool DAL_ExecDeleteManagedPendingLimitsExcept(
+   const string symbol,
+   const long magic,
+   const string comment_prefix,
+   const ulong keep_ticket,
+   CTrade &trade,
+   int &deleted_count,
+   string &reason
+)
+{
+   deleted_count = 0;
+   reason = "ok";
+
+   for(int i = OrdersTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0 || !OrderSelect(ticket))
+         continue;
+      if(ticket == keep_ticket)
+         continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol)
+         continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != magic)
+         continue;
+
+      ENUM_ORDER_TYPE type = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
+      if(!DAL_ExecOrderIsPendingLimit(type))
+         continue;
+
+      string comment = OrderGetString(ORDER_COMMENT);
+      if(!DAL_ExecOrderCommentMatchesPrefix(comment, comment_prefix))
+         continue;
+
+      string delete_reason = "";
+      if(DAL_ExecDeletePendingOrder(ticket, trade, delete_reason))
+         deleted_count++;
+      else
+         reason = delete_reason;
+   }
+
+   return (reason == "ok");
 }
 
 bool DAL_ExecOrderCommentExists(const string symbol, const long magic, const string comment)

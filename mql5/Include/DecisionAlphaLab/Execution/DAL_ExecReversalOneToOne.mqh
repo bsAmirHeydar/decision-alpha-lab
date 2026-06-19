@@ -135,6 +135,7 @@ int DAL_ExecFindNewestUntouchedNodeAfterIndex(
    const int events_count,
    const double zone_ratio,
    const int after_index,
+   const int max_nodes_scan,
    double &out_extreme,
    double &out_lower,
    double &out_upper
@@ -144,6 +145,7 @@ int DAL_ExecFindNewestUntouchedNodeAfterIndex(
    out_lower = 0.0;
    out_upper = 0.0;
 
+   int scanned = 0;
    for(int n = nodes_count - 1; n >= 0; n--)
    {
       DALLRuleNode node = nodes[n];
@@ -153,6 +155,11 @@ int DAL_ExecFindNewestUntouchedNodeAfterIndex(
          continue;
       if(node.active_from_index < 0 || node.active_from_index >= bars_count)
          continue;
+
+      scanned++;
+      if(max_nodes_scan > 0 && scanned > max_nodes_scan)
+         break;
+
       if(DAL_ExecNodeHasEvent(events, events_count, node.id))
          continue;
 
@@ -170,6 +177,50 @@ int DAL_ExecFindNewestUntouchedNodeAfterIndex(
    return -1;
 }
 
+bool DAL_ExecFindLatestBranchSampleFast(
+   const DALM0001Event &events[],
+   const int events_count,
+   const DALBar &bars[],
+   const int bars_count,
+   const datetime min_entry_time,
+   const DALM0002Config &config,
+   DALM0002BranchSample &sample,
+   int &event_index
+)
+{
+   event_index = -1;
+   int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
+
+   for(int i = events_count - 1; i >= 0; i--)
+   {
+      ENUM_DALM0002Outcome outcome = DAL_M0002_OUTCOME_UNKNOWN;
+      DALM0002BranchSample candidate;
+      bool ok = DAL_M0002BuildBranchSample(
+         events[i],
+         bars,
+         bars_count,
+         analysis_start_index,
+         min_entry_time,
+         config,
+         events[i].id,
+         candidate,
+         outcome
+      );
+
+      if(!ok)
+         continue;
+
+      if(candidate.outcome == DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT || candidate.outcome == DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT)
+      {
+         sample = candidate;
+         event_index = i;
+         return true;
+      }
+   }
+
+   return false;
+}
+
 bool DAL_ExecBuildReversalOneToOneSetup(
    const DALBar &bars[],
    const int bars_count,
@@ -177,11 +228,12 @@ bool DAL_ExecBuildReversalOneToOneSetup(
    const int nodes_count,
    const DALM0001Event &events[],
    const int events_count,
-   const DALM0002BranchSample &branch_samples[],
-   const int branch_count,
+   const DALM0002BranchSample &last_branch_sample,
+   const bool has_last_branch_sample,
    const double zone_ratio,
    const double reward_r,
    const string comment_prefix,
+   const int max_nodes_scan,
    DALExecReversalSetup &setup
 )
 {
@@ -198,9 +250,9 @@ bool DAL_ExecBuildReversalOneToOneSetup(
       setup.reason = "no_nodes";
       return false;
    }
-   if(branch_count <= 0)
+   if(!has_last_branch_sample)
    {
-      setup.reason = "no_branch_samples";
+      setup.reason = "no_last_branch";
       return false;
    }
    if(reward_r <= 0.0)
@@ -209,15 +261,8 @@ bool DAL_ExecBuildReversalOneToOneSetup(
       return false;
    }
 
-   int last_i = -1;
-   bool last_is_reversal = DAL_ExecLatestBranchIsReversal(branch_samples, branch_count, last_i);
-   if(last_i < 0)
-   {
-      setup.reason = "no_last_branch";
-      return false;
-   }
-
-   setup.last_branch_sample_id = branch_samples[last_i].id;
+   bool last_is_reversal = (last_branch_sample.outcome == DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT);
+   setup.last_branch_sample_id = last_branch_sample.id;
    setup.last_branch_label = last_is_reversal ? DAL_M0004_LABEL_REVERSAL : DAL_M0004_LABEL_CONTINUATION;
 
    if(!last_is_reversal)
@@ -235,7 +280,8 @@ bool DAL_ExecBuildReversalOneToOneSetup(
       events,
       events_count,
       zone_ratio,
-      branch_samples[last_i].outcome_index,
+      last_branch_sample.outcome_index,
+      max_nodes_scan,
       extreme,
       lower,
       upper
