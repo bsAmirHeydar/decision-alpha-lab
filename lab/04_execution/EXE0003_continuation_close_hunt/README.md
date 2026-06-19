@@ -30,12 +30,14 @@ Inputs:
 
 - `InpUseHigherTimeframeRegimeFilter` — enable/disable the higher-timeframe regime confirmation.
 - `InpHigherRegimeTimeframe` — timeframe used for the higher-timeframe M0001/M0002 regime calculation, default `PERIOD_H1`.
+- `InpUseHigherTimeframeDirectionFilter` — when false, the higher timeframe only grants/blocks continuation permission; it does not restrict buy/sell direction. When true, the signal direction must match the latest higher-timeframe close-hunt direction.
 
 Behavior:
 
 - E0001 and E0002 require the higher timeframe to be `REVERSAL` before allowing reversal entries.
 - E0003 and E0004 require the higher timeframe to be `CONTINUATION` before allowing continuation entries.
-- The higher-timeframe filter is a gate only; it does not change node construction, touch locking, TP policy, or trade management.
+- For E0003, direction filtering is optional. With `InpUseHigherTimeframeDirectionFilter=false`, HTF continuation is only a permission gate and Donchian/node signals may trade either direction. With it enabled, buy signals require bullish HTF close-hunt direction and sell signals require bearish HTF close-hunt direction.
+- The higher-timeframe filter is a gate only; it does not change node construction, touch locking, TP policy, SL policy, trailing, or trade management.
 
 
 
@@ -63,3 +65,21 @@ InpExitOnRegimeChange = false
 ```
 
 With the lower-timeframe regime filter off and regime exit off, E0003 can behave as a pure Donchian breakout + ATR trailing system: no TP, no local regime exit, and only the ATR trailing stop manages the open trade.
+
+
+## Build 1.04: max trades and HTF direction control
+
+New inputs:
+
+- `InpMaxSimultaneousTrades`: maximum number of simultaneously open E0003 managed positions. Use `-1` for unlimited. Use `1` for one position at a time.
+- `InpUseHigherTimeframeDirectionFilter`: keeps the higher-timeframe regime filter from over-constraining direction by default.
+
+Default behavior:
+
+```text
+InpUseHigherTimeframeRegimeFilter = false
+InpUseHigherTimeframeDirectionFilter = false
+InpMaxSimultaneousTrades = -1
+```
+
+If the HTF regime filter is enabled and direction filter is false, the higher timeframe only says whether continuation energy exists. It does not force the EA to buy-only or sell-only. If direction filter is true, the EA also requires the entry direction to match the latest higher-timeframe close-hunt direction.

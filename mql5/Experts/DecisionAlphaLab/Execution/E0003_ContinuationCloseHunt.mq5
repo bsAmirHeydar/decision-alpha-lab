@@ -3,7 +3,7 @@
 //| Continuation entry after close-hunted node, ATR risk, regime exit  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.03"
+#property version   "1.04"
 #property description "Execution module E0003: continuation close-hunt or Donchian breakout entries, 3ATR risk stop, ATR trailing, optional regime exit."
 
 #include <Trade/Trade.mqh>
@@ -47,6 +47,7 @@ input ENUM_E0003HumanContextSignal InpHumanContextSignal = E0003_HUMAN_CONTEXT_N
 // Optional higher-timeframe regime filter. Off by default to keep current tests unchanged.
 input bool InpUseHigherTimeframeRegimeFilter = false;
 input ENUM_TIMEFRAMES InpHigherRegimeTimeframe = PERIOD_H1;
+input bool InpUseHigherTimeframeDirectionFilter = false;
 
 // Trading session. Broker time, strict: start <= time < end.
 input bool InpUseTradingSessionFilter = true;
@@ -70,6 +71,7 @@ input int InpDonchianPeriod = 20;
 // Risk model: volume is calculated from entry to ATR stop distance.
 input long InpMagicNumber = 5003003;
 input double InpRiskCash = 100.0;
+input int InpMaxSimultaneousTrades = -1;
 input int InpAtrPeriod = 14;
 input double InpAtrMultiplier = 3.0;
 input bool InpUseAtrTrailingStop = true;
@@ -78,7 +80,7 @@ input int InpCloseHuntBufferPoints = 0;
 input int InpMaxEntriesPerBar = 3;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0003_BUILD "1.03"
+#define DAL_E0003_BUILD "1.04"
 string InpOrderCommentPrefix = "DALC3";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -87,7 +89,6 @@ bool InpUseClosedBarsOnly = true;
 bool InpTradingEnabled = true;
 bool InpAllowMinLotIfRiskTooSmall = false;
 double InpCommissionPerLotRoundTurn = 0.0;
-int InpMaxSimultaneousTrades = -1;
 bool InpAllowOppositeTrades = true;
 bool InpPrintOrderLogs = true;
 
@@ -789,11 +790,51 @@ int E0003_CloseManagedPositions(const string context)
    return closed;
 }
 
-bool E0003_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required_outcome, string &reason)
+
+int E0003_FindLatestCloseHuntDirection(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const double close_buffer,
+   string &reason
+)
 {
+   reason = "no_htf_close_hunt_direction";
+   if(bars_count < 2 || nodes_count <= 0)
+      return 0;
+
+   for(int bar_index = bars_count - 1; bar_index >= 0; bar_index--)
+   {
+      DALBar bar = bars[bar_index];
+      for(int node_index = nodes_count - 1; node_index >= 0; node_index--)
+      {
+         DALLRuleNode node = nodes[node_index];
+         if(!node.confirmed)
+            continue;
+         if(node.active_from_index < 0 || node.active_from_index >= bar_index)
+            continue;
+
+         int direction = 0;
+         if(E0003_NodeCloseHuntedOnSignal(bar, node, close_buffer, direction))
+         {
+            reason = "htfDirection=" + (direction > 0 ? "BUY" : "SELL")
+               + "*nodeId=" + IntegerToString(node.id)
+               + "*barTime=" + E0003_FormatDateTime(bar.time);
+            return direction;
+         }
+      }
+   }
+
+   return 0;
+}
+
+bool E0003_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required_outcome, const int signal_direction, string &reason)
+{
+
    if(!InpUseHigherTimeframeRegimeFilter)
    {
-      reason = "htfRegimeFilter=OFF";
+      reason = "htfRegimeFilter=OFF*htfDirectionFilter=OFF";
       return true;
    }
 
@@ -821,6 +862,13 @@ bool E0003_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required
    DALLRuleNode htf_nodes[];
    int htf_nodes_count = DAL_DetectConfirmedStructuralNodes(htf_bars, htf_bars_count, htf_m1.L, htf_nodes);
 
+   double point = SymbolInfoDouble(LabSymbol(), SYMBOL_POINT);
+   if(point <= 0.0)
+      point = 0.0;
+   double close_buffer = MathMax(0, InpCloseHuntBufferPoints) * point;
+   string htf_direction_reason = "";
+   int htf_direction = E0003_FindLatestCloseHuntDirection(htf_bars, htf_bars_count, htf_nodes, htf_nodes_count, close_buffer, htf_direction_reason);
+
    DALM0001Event htf_events[];
    int htf_events_count = DAL_M0001ComputeEvents(htf_bars, htf_bars_count, htf_nodes, htf_nodes_count, htf_m1, htf_events);
 
@@ -836,10 +884,24 @@ bool E0003_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required
       return false;
    }
 
-   bool pass = (htf_last_sample.outcome == required_outcome);
+   bool energy_pass = (htf_last_sample.outcome == required_outcome);
+   bool direction_pass = true;
+   string direction_filter_state = "OFF";
+   if(InpUseHigherTimeframeDirectionFilter)
+   {
+      direction_filter_state = "ON";
+      direction_pass = (signal_direction == 0 || htf_direction == 0 ? false : signal_direction == htf_direction);
+   }
+
+   bool pass = (energy_pass && direction_pass);
    reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf)
       + "*last=" + E0003_RegimeOutcomeToString(htf_last_sample.outcome)
       + "*required=" + E0003_RegimeOutcomeToString(required_outcome)
+      + "*energyPass=" + DAL_BoolToString(energy_pass)
+      + "*htfDirectionFilter=" + direction_filter_state
+      + "*signalDir=" + IntegerToString(signal_direction)
+      + "*htfDir=" + IntegerToString(htf_direction)
+      + "*" + htf_direction_reason
       + "*pass=" + DAL_BoolToString(pass);
    return pass;
 }
@@ -921,20 +983,6 @@ bool E0003_LoadClosedContext(
    is_continuation = local_pass;
    reason = local_reason;
 
-   if(is_continuation)
-   {
-      string htf_regime_reason = "";
-      if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, htf_regime_reason))
-      {
-         is_continuation = false;
-         reason = local_reason + "*" + htf_regime_reason;
-      }
-      else
-      {
-         reason = local_reason + "*" + htf_regime_reason;
-      }
-   }
-
    return true;
 }
 
@@ -1005,6 +1053,18 @@ void E0003_ProcessNewBar()
       string donchian_reason = "";
       if(E0003_GetDonchianBreakoutSignal(bars, bars_count, signal_index, InpDonchianPeriod, close_buffer, donchian_direction, breakout_level, donchian_reason))
       {
+         string htf_regime_reason = "";
+         if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, donchian_direction, htf_regime_reason))
+         {
+            if(InpPrintOrderLogs)
+               Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
+                  "*entryMode=DONCHIAN_BREAKOUT",
+                  "*dir=", donchian_direction,
+                  "*signalTime=", E0003_FormatDateTime(signal_bar.time),
+                  "*reason=", htf_regime_reason);
+            return;
+         }
+
          string order_reason = "";
          if(!E0003_PlaceDonchianMarket(donchian_direction, breakout_level, atr_value, signal_bar.time, order_reason) && InpPrintOrderLogs)
          {
@@ -1043,6 +1103,19 @@ void E0003_ProcessNewBar()
       if(E0003_CloseHuntedBeforeSignal(bars, bars_count, node, signal_index, close_buffer))
          continue;
 
+      string htf_regime_reason = "";
+      if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, direction, htf_regime_reason))
+      {
+         if(InpPrintOrderLogs)
+            Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
+               "*entryMode=CLOSE_HUNTED_NODE",
+               "*nodeId=", node.id,
+               "*dir=", direction,
+               "*signalTime=", E0003_FormatDateTime(signal_bar.time),
+               "*reason=", htf_regime_reason);
+         continue;
+      }
+
       string comment = E0003_NodeComment(node.id, direction);
       if(E0003_ManagedCommentExists(comment))
          continue;
@@ -1069,10 +1142,12 @@ int OnInit()
       "*tf=", EnumToString(LabTimeframe()),
       "*ltfRegimeFilter=", DAL_BoolToString(InpUseLowerTimeframeRegimeFilter),
       "*htfRegimeFilter=", DAL_BoolToString(InpUseHigherTimeframeRegimeFilter),
+      "*htfDirectionFilter=", DAL_BoolToString(InpUseHigherTimeframeDirectionFilter),
       "*htfTf=", EnumToString(InpHigherRegimeTimeframe),
       "*module=EXECUTION_H0005_CONTINUATION",
       "*entryMode=", E0003_EntryModeToString(),
       "*donchianPeriod=", InpDonchianPeriod,
+      "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
       "*riskStop=ATR_MULTIPLE",
       "*atrPeriod=", InpAtrPeriod,
       "*atrMultiplier=", DoubleToString(InpAtrMultiplier, 2),
