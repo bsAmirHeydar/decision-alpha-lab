@@ -1,99 +1,111 @@
-# EXE0001 — H0005 Reversal Fixed-R Touch Executor
+# EXE0001 — H0005 Reversal Fixed-R Executor
 
-## Purpose
+Build: `1.18`
 
-Execute the reversal side of Hypothesis 5 as directly as possible in live/Strategy Tester conditions.
+Purpose: execute the H0005 reversal branch as pending limit orders, not market chasing.
 
-This module does not invent a new strategy. It converts the research event into pending-limit execution:
+## Contract
+
+On each closed candle:
+
+1. Load bars from the configured symbol/timeframe.
+2. Exclude the current forming candle by default.
+3. Detect structural nodes through the existing L-rule/M0001 modules.
+4. Compute M0001 events and the latest completed M0002 branch sample.
+5. Resolve the effective regime:
+   - last completed branch only, or
+   - last branch combined with explicit human context input.
+6. If reversal:
+   - place/update nearest LOW-node buy limits below market;
+   - place/update nearest HIGH-node sell limits above market.
+7. If continuation/non-reversal:
+   - delete managed pending orders.
+
+## Defaults
 
 ```text
-H0005 reversal regime
-next structural node zone touch
-limit entry at first touch edge
-stop behind the zone
-fixed reward multiple, default 1R
-```
-
-## Build
-
-```text
-E0001_ReversalOneToOne.mq5 build 1.13
-```
-
-## Inputs that define the contract
-
-```text
+InpRegimeBasis = E0001_REGIME_LAST_COMPLETED_BRANCH
+InpHumanContextSignal = E0001_HUMAN_CONTEXT_NEUTRAL
+InpUseClosedBarsOnly = true
+InpBuyLimitSlots = 3
+InpSellLimitSlots = 3
 InpRewardR = 1.0
-InpBuyLimitSlots = 0
-InpSellLimitSlots = 0
-InpMaxSimultaneousTrades = -1
+InpRefreshSetupsOnNewBarOnly = true
+InpManageOrdersEveryTick = false
 InpAllowOppositeTrades = true
-InpAllowMarketCatchWhenAlreadyTouching = false
-InpCancelManagedPendingsAfterEntry = false
-InpRefreshSetupsOnNewBarOnly = false
-InpManageOrdersEveryTick = true
+InpMaxSimultaneousTrades = -1
 ```
 
-`InpBuyLimitSlots = 0` and `InpSellLimitSlots = 0` mean unlimited active touch limits. Positive values are optional safety caps.
+## Geometry
 
-## Entry and stop geometry
-
-For `zone_ratio = 0.90`, the zone is the 10% territory band around the node.
-
-### Buy limit from LOW node
+LOW node buy:
 
 ```text
 entry = zone_upper + spread
 SL    = zone_lower
-risk  = entry - SL
-TP    = entry + risk * InpRewardR
+TP    = entry + (entry - SL) * InpRewardR
 ```
 
-### Sell limit from HIGH node
+HIGH node sell:
 
 ```text
 entry = zone_lower
 SL    = zone_upper + spread
-risk  = SL - entry
-TP    = entry - risk * InpRewardR
+TP    = entry - (SL - entry) * InpRewardR
 ```
 
-## Revisit behavior
-
-The EA allows repeated trades on the same node only when they are true revisits:
+## Optional time filter
 
 ```text
-fill once for the current touch
-lock that node comment
-unlock only after price leaves the touch edge by InpTouchRevisitResetBufferPoints
-place again on the next revisit while the node remains unconsumed
+InpUseTradingSessionFilter = true
+InpTradingSessionClock = E0001_SESSION_BROKER_TIME
+InpTradingStartHour = 0
+InpTradingStartMinute = 0
+InpTradingEndHour = 23
+InpTradingEndMinute = 59
+InpDeletePendingsOutsideTradingSession = true
 ```
 
-## Consumption
+New H5 reversal setup generation and pending-order management only run inside the configured session. Outside the session, managed pending orders are force-deleted by default, independent of stale-sync protection; existing positions remain managed by their SL/TP.
 
-A simple historical touch does not retire the node. A structural hunt/consumption does. Once consumed, the node is no longer used.
 
-## Continuation regime
+## H5 comparison report
 
-If the latest regime is continuation/non-reversal, all managed pending orders are deleted. Open positions are not force-closed.
+Build 1.18 adds `DAL_E0001_H5_RESEARCH_REPORT` journal output. It is enabled by default and uses the same bars, L-rule nodes, M0001 events, and M0002 completed branch samples as execution.
 
-## Debug report
-
-Use verbose logs when validating:
+Main fields:
 
 ```text
-InpLogMode = DAL_EXEC_LOG_VERBOSE
+directionMemoryHitPct
+memoryVsRandomEdgePct
+pRevAfterRevPct
+plannedTrades
+filledTrades
+targetHits
+stopHits
+targetHitPctFilled
+expectancyRConservative
+profitFactorRConservative
 ```
 
-Expected journal tags:
+Use this beside the EA order logs to answer: did the raw H5 reversal fixed-R model produce enough 1R reversals, and did execution capture the same opportunities?
 
-```text
-DAL_E0001_BUILD_SANITY
-DAL_E0001_CACHE
-DAL_E0001_LIMIT_ORDER
-DAL_E0001_PENDING_UPDATE
-DAL_E0001_PENDING_DELETE
-DAL_E0001_TOUCH_LOCK
-DAL_E0001_TOUCH_UNLOCK
-DAL_E0001_CYCLE
-```
+
+## Build 1.20 — strict touch/revisit ledger
+
+This build keeps the H5 original-hypothesis report out of the execution EA. It only changes the execution ledger. A structural setup remains visible to the EA even when the current tick is already inside the touch zone, so the EA can lock that touch episode and avoid planting another limit until price exits the edge by `InpTouchRevisitResetBufferPoints` and later revisits it. Locked touch states are not pruned just because a node temporarily falls out of the 3+3 near-node cache, because that would allow duplicate limits inside the same touch.
+
+
+### Build 1.21 node-zone lock note
+
+The H5 executor now locks touch state by structural node (`node_id + direction`) and by the touched zone boundaries. A node does not receive a second pending limit while price remains in the same zone episode. Re-arm requires a full exit beyond the zone edge plus `InpTouchRevisitResetBufferPoints`; optional `InpAllowNodeRevisitRearm=false` disables same-node revisits entirely.
+
+
+## TP policy
+
+TP defaults to the first opposite-node touch. If `InpUseFixedRExitIfCloser=true`, the fixed-R target from `InpRewardR` may be used only when it is closer than that opposite touch. If `InpAllowOppositeTouchBelowRewardR=false`, setups whose opposite touch is below the configured R threshold are skipped.
+
+
+## Build 1.25 performance defaults
+
+Execution behavior is unchanged, but the EA is quieter and faster by default: `InpLogMode=DAL_EXEC_LOG_ERRORS`, `InpH5ReportEnabled=false`, outside-session pending purges are throttled to once per bar, and build/cycle diagnostics require order/verbose logging.

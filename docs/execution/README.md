@@ -1,92 +1,75 @@
-# Decision Alpha Lab — Execution Modules
+# Decision Alpha Lab — Execution
 
-This folder documents live execution adapters for the research hypotheses.
-
-## Canonical project layout
-
-The canonical source tree is the repository root:
+Canonical execution root:
 
 ```text
 mql5/Experts/DecisionAlphaLab/Execution/
 mql5/Include/DecisionAlphaLab/Execution/
-docs/execution/
-lab/04_execution/
 ```
 
-There must not be another nested `decision-alpha-lab/` copy inside the repository root.
+There must not be a nested `decision-alpha-lab/decision-alpha-lab` source copy.
 
-## E0001 — H0005 Reversal Fixed-R Touch Executor
+## Current execution adapter
 
-Current execution build:
+`E0001_ReversalOneToOne.mq5` implements H0005 reversal fixed-R execution.
+
+Current E0001 builds run once per closed candle, resolve the effective reversal/continuation regime from M0002 plus optional human context input, and park spread-aware pending limits on the nearest active reversal nodes:
+
+- 3 nearest buy limits from LOW nodes below market by default.
+- 3 nearest sell limits from HIGH nodes above market by default.
+- SL is behind the zone.
+- TP defaults to the first opposite-node touch; `InpRewardR` is an optional reference/cap when enabled.
+- Continuation/non-reversal deletes managed pending orders.
+- Optional time filter can block new orders outside the configured session and delete managed pending orders.
+- H5 research reporting prints directional memory and fixed-R reversal outcome metrics from the same M0001/M0002 modules so theoretical H5 behavior can be compared against real EA orders.
+
+See `H0005_R1_SIX_SLOT_TOUCH_LEDGER.md` for the exact contract.
+
+## MetaEditor include sync
+
+When compiling from MetaTrader Shared Projects, angle-bracket includes such as:
+
+```mql5
+#include <DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>
+```
+
+are commonly resolved from the terminal-level include tree:
 
 ```text
-E0001_ReversalOneToOne.mq5 build 1.13
+MQL5/Include/DecisionAlphaLab/
 ```
 
-The EA executes the Hypothesis 5 reversal leg only:
+not only from the repository folder. Use the release installer to copy the updated include files into the terminal include tree before compiling.
+
+
+## Build 1.20 — strict touch/revisit ledger
+
+This build keeps the H5 original-hypothesis report out of the execution EA. It only changes the execution ledger. A structural setup remains visible to the EA even when the current tick is already inside the touch zone, so the EA can lock that touch episode and avoid planting another limit until price exits the edge by `InpTouchRevisitResetBufferPoints` and later revisits it. Locked touch states are not pruned just because a node temporarily falls out of the 3+3 near-node cache, because that would allow duplicate limits inside the same touch.
+
+
+### Build 1.21 node-zone lock note
+
+The H5 executor now locks touch state by structural node (`node_id + direction`) and by the touched zone boundaries. A node does not receive a second pending limit while price remains in the same zone episode. Re-arm requires a full exit beyond the zone edge plus `InpTouchRevisitResetBufferPoints`; optional `InpAllowNodeRevisitRearm=false` disables same-node revisits entirely.
+
+
+## TP policy — first opposite node touch with optional R exit
+
+E0001 build 1.25 and E0002 build 1.03 use the same take-profit rule:
 
 ```text
-latest regime = REVERSAL
-entry         = pending limit at structural zone touch edge
-stop          = far side of the same zone
-reward        = InpRewardR, default 1.0
+TP = first opposite-node touch by default; optional fixed-R exit only if closer
 ```
 
-### Build 1.13 live contract
+`InpRewardR` is a reference/cap input and defaults to 1.0. By default TP is placed at the first structural opposing touch. If `InpUseFixedRExitIfCloser=true`, the fixed-R target can close earlier only when it is closer than that structural touch. If `InpAllowOppositeTouchBelowRewardR=false`, sub-R opposite-touch setups are skipped.
 
-Build 1.13 replaces the earlier fixed 3+3 slot idea with a hypothesis-pure model:
 
-```text
-InpBuyLimitSlots  = 0  => all active buy-touch limits
-InpSellLimitSlots = 0  => all active sell-touch limits
-positive value    => optional safety cap
-```
+### Build 1.24 TP correction
 
-This prevents valid H0005 touches/revisits from being skipped merely because a small fixed grid was already full.
+E0001 and E0002 now default to TP at the first opposite-node touch. `InpUseFixedRExitIfCloser` is off by default; when enabled, `InpRewardR` can only exit earlier if it is closer than the structural target. `InpAllowOppositeTouchBelowRewardR=false` skips trades whose first opposite-node touch is below the configured R reference. The node touch/revisit lock remains independent from TP selection.
 
-### Spread policy
 
-Buy from LOW node:
+### Build 1.25 performance/compile fix
 
-```text
-entry = zone_upper + spread
-SL    = zone_lower
-TP    = entry + (entry - SL) * InpRewardR
-```
+E0001 build 1.25 and E0002 build 1.03 keep the same H5 entry/TP/touch-lock contract, but use faster defaults and quieter logs. `InpLogMode` now defaults to `DAL_EXEC_LOG_ERRORS`, build-sanity and cycle diagnostics print only when order logging is enabled, and `InpH5ReportEnabled` is off by default in E0001 for execution tests. E0002 also fixes the close-confirmed market TP diagnostic compile error by returning market-entry TP details explicitly from the order helper.
 
-Sell from HIGH node:
-
-```text
-entry = zone_lower
-SL    = zone_upper + spread
-TP    = entry - (SL - entry) * InpRewardR
-```
-
-The TP is always computed from the spread-aware executable risk distance.
-
-### Pending deletion policy
-
-When regime is continuation/non-reversal:
-
-```text
-delete all managed pending orders
-keep open positions untouched
-```
-
-### Diagnostic policy
-
-Use:
-
-```text
-InpLogMode = DAL_EXEC_LOG_ORDERS
-```
-
-or for full debugging:
-
-```text
-InpLogMode = DAL_EXEC_LOG_VERBOSE
-```
-
-The journal reports cache reasons, order-send retcodes, raw zone edges, spread-adjusted entry/stop/TP, touch locks, revisit unlocks, and stale-order deletions.
-
-See `H0005_R1_SIX_SLOT_TOUCH_LEDGER.md` for the full build 1.13 execution contract.
+Outside-session pending cleanup is throttled to once per bar instead of every tick. E0002 is pure market execution, so it no longer scans/deletes managed pending orders on every closed-candle signal pass; startup and session-close guards handle leftovers.

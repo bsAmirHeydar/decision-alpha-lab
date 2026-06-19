@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — E0001 H0005 Reversal Fixed-R Executor       |
-//| Exact H5 reversal: per-candle near-node limits + touch ledger       |
+//| Decision Alpha Lab — E0002 H0005 Close-Confirmed Market Executor       |
+//| Exact H5 reversal: close-confirmed market after touch + ledger     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.24"
-#property description "Execution module for H0005 reversal fixed-R: per-candle near-node touch limits with strict trading-session gate and node-zone touch ledger."
+#property version   "1.02"
+#property description "Execution module E0002 for H0005 reversal fixed-R: close-confirmed market-after-touch execution with strict session gate and node-zone ledger."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -32,32 +32,32 @@ input int InpRegimeLookbackBars = 100;
 // Regime basis. LAST_COMPLETED_BRANCH uses the last fully measured M0002
 // reversal/continuation branch. HUMAN_CONTEXT_COMBINED lets a human/context
 // signal override or block the last branch without changing M0001/M0002 logic.
-enum ENUM_E0001RegimeBasis
+enum ENUM_E0002RegimeBasis
 {
-   E0001_REGIME_LAST_COMPLETED_BRANCH = 0,
-   E0001_REGIME_HUMAN_CONTEXT_COMBINED = 1
+   E0002_REGIME_LAST_COMPLETED_BRANCH = 0,
+   E0002_REGIME_HUMAN_CONTEXT_COMBINED = 1
 };
 
-enum ENUM_E0001HumanContextSignal
+enum ENUM_E0002HumanContextSignal
 {
-   E0001_HUMAN_CONTEXT_NEUTRAL = 0,
-   E0001_HUMAN_CONTEXT_REVERSAL = 1,
-   E0001_HUMAN_CONTEXT_CONTINUATION = 2
+   E0002_HUMAN_CONTEXT_NEUTRAL = 0,
+   E0002_HUMAN_CONTEXT_REVERSAL = 1,
+   E0002_HUMAN_CONTEXT_CONTINUATION = 2
 };
 
-input ENUM_E0001RegimeBasis InpRegimeBasis = E0001_REGIME_LAST_COMPLETED_BRANCH;
-input ENUM_E0001HumanContextSignal InpHumanContextSignal = E0001_HUMAN_CONTEXT_NEUTRAL;
+input ENUM_E0002RegimeBasis InpRegimeBasis = E0002_REGIME_LAST_COMPLETED_BRANCH;
+input ENUM_E0002HumanContextSignal InpHumanContextSignal = E0002_HUMAN_CONTEXT_NEUTRAL;
 input bool InpUseClosedBarsOnly = true;
 
-// Strict trading-session gate. When enabled, E0001 only creates, updates, or keeps managed pending orders inside the configured session.
-enum ENUM_E0001SessionClock
+// Strict trading-session gate. When enabled, E0002 only creates, updates, or keeps managed pending orders inside the configured session.
+enum ENUM_E0002SessionClock
 {
-   E0001_SESSION_BROKER_TIME = 0,
-   E0001_SESSION_GMT = 1
+   E0002_SESSION_BROKER_TIME = 0,
+   E0002_SESSION_GMT = 1
 };
 
 input bool InpUseTradingSessionFilter = true;
-input ENUM_E0001SessionClock InpTradingSessionClock = E0001_SESSION_BROKER_TIME;
+input ENUM_E0002SessionClock InpTradingSessionClock = E0002_SESSION_BROKER_TIME;
 input int InpTradingStartHour = 0;
 input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
@@ -67,15 +67,16 @@ input bool InpDeletePendingsOutsideTradingSession = true;
 // H0005 research report printed from the same M0001/M0002 modules used by execution.
 // This lets Strategy Tester compare theoretical H5 reversal memory / fixed-R results
 // against the EA's actual pending-order journal.
-input bool InpH5ReportEnabled = false; // off by default for fast execution; enable only when researching.
+input bool InpH5ReportEnabled = false;
 input int InpH5ReportEveryNClosedBars = 1; // 1 = print on every strategy refresh/new closed candle. Raise for faster long tests.
 input int InpH5ReportMaxSamples = 300;     // Latest M0002 completed branches to include. 0 = all available.
 input int InpH5ReportMaxBarsAfterEntry = 0; // 0 = simulate until data end; positive caps each fixed-R path.
 input bool InpH5ReportPrintExamples = false; // Verbose examples are intentionally off by default.
 
-// Execution policy.
+// Execution policy. E0002 is a separate Expert for close-confirmed
+// market-after-touch execution only. It does not alter or mode-switch E0001.
 input bool InpTradingEnabled = true; // Execution EA default: send orders unless explicitly disabled.
-input long InpMagicNumber = 5001001;
+input long InpMagicNumber = 5002002;
 input double InpRiskCash = 100.0;
 input double InpCommissionPerLotRoundTurn = 0.0;
 input double InpRewardR = 1.0; // R reference. TP defaults to first opposite-node touch; optional cap can exit earlier if closer.
@@ -85,7 +86,7 @@ input int InpMaxSimultaneousTrades = -1; // -1 = no cap. Pure H5 execution must 
 input bool InpAllowOppositeTrades = true;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input int InpOrderExpirationMinutes = 0;
-input string InpOrderCommentPrefix = "DALR1"; // Compact managed prefix; comments are capped before send.
+input string InpOrderCommentPrefix = "DALR2"; // Compact managed prefix; comments are capped before send.
 
 // Runtime / speed policy.
 enum ENUM_DALExecLogMode
@@ -120,7 +121,7 @@ input bool InpMarketCatchRequiresPriceBeforeStop = true;
 input int InpTouchRevisitResetBufferPoints = 10;
 input bool InpAllowNodeRevisitRearm = true; // If false, a touched node is locked forever after its first touch/fill.
 
-#define DAL_E0001_BUILD "1.25"
+#define DAL_E0002_BUILD "1.03"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -132,7 +133,7 @@ int g_h5_report_refresh_counter = 0;
 string g_last_h5_report_signature = "";
 datetime g_last_outside_session_purge_bar_time = 0;
 
-struct E0001TouchLock
+struct E0002TouchLock
 {
    string comment;
    int node_id;
@@ -144,7 +145,7 @@ struct E0001TouchLock
    bool ever_touched;
 };
 
-E0001TouchLock g_touch_locks[];
+E0002TouchLock g_touch_locks[];
 
 string LabSymbol()
 {
@@ -165,7 +166,7 @@ bool LogOrders() { return (InpLogMode >= DAL_EXEC_LOG_ORDERS); }
 bool LogVerbose() { return (InpLogMode >= DAL_EXEC_LOG_VERBOSE); }
 
 
-int E0001_ClampInt(const int value, const int lo, const int hi)
+int E0002_ClampInt(const int value, const int lo, const int hi)
 {
    if(value < lo)
       return lo;
@@ -174,29 +175,29 @@ int E0001_ClampInt(const int value, const int lo, const int hi)
    return value;
 }
 
-string E0001_TwoDigits(const int value)
+string E0002_TwoDigits(const int value)
 {
    if(value < 10)
       return "0" + IntegerToString(value);
    return IntegerToString(value);
 }
 
-string E0001_FormatSessionMinute(const int minute_of_day)
+string E0002_FormatSessionMinute(const int minute_of_day)
 {
-   int safe_minute = E0001_ClampInt(minute_of_day, 0, 1439);
+   int safe_minute = E0002_ClampInt(minute_of_day, 0, 1439);
    int hh = safe_minute / 60;
    int mm = safe_minute % 60;
-   return E0001_TwoDigits(hh) + ":" + E0001_TwoDigits(mm);
+   return E0002_TwoDigits(hh) + ":" + E0002_TwoDigits(mm);
 }
 
-string E0001_FormatDateTime(const datetime value)
+string E0002_FormatDateTime(const datetime value)
 {
    MqlDateTime dt;
    TimeToStruct(value, dt);
    return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
 }
 
-bool E0001_IsTradingSessionOpen(string &reason)
+bool E0002_IsTradingSessionOpen(string &reason)
 {
    if(!InpUseTradingSessionFilter)
    {
@@ -204,14 +205,14 @@ bool E0001_IsTradingSessionOpen(string &reason)
       return true;
    }
 
-   int start_hour = E0001_ClampInt(InpTradingStartHour, 0, 23);
-   int start_minute = E0001_ClampInt(InpTradingStartMinute, 0, 59);
-   int end_hour = E0001_ClampInt(InpTradingEndHour, 0, 23);
-   int end_minute = E0001_ClampInt(InpTradingEndMinute, 0, 59);
+   int start_hour = E0002_ClampInt(InpTradingStartHour, 0, 23);
+   int start_minute = E0002_ClampInt(InpTradingStartMinute, 0, 59);
+   int end_hour = E0002_ClampInt(InpTradingEndHour, 0, 23);
+   int end_minute = E0002_ClampInt(InpTradingEndMinute, 0, 59);
    int start = start_hour * 60 + start_minute;
    int finish = end_hour * 60 + end_minute;
 
-   datetime now_time = (InpTradingSessionClock == E0001_SESSION_GMT ? TimeGMT() : TimeCurrent());
+   datetime now_time = (InpTradingSessionClock == E0002_SESSION_GMT ? TimeGMT() : TimeCurrent());
    MqlDateTime dt;
    TimeToStruct(now_time, dt);
    int now_minute = dt.hour * 60 + dt.min;
@@ -241,16 +242,16 @@ bool E0001_IsTradingSessionOpen(string &reason)
    reason = StringFormat(
       "timeFilter=ON*clock=%s*now=%s*window=%s-%s*windowType=%s*open=%s",
       EnumToString(InpTradingSessionClock),
-      E0001_FormatDateTime(now_time),
-      E0001_FormatSessionMinute(start),
-      E0001_FormatSessionMinute(finish),
+      E0002_FormatDateTime(now_time),
+      E0002_FormatSessionMinute(start),
+      E0002_FormatSessionMinute(finish),
       window_type,
       DAL_BoolToString(open)
    );
    return open;
 }
 
-string E0001_ManagedCommentPrefix()
+string E0002_ManagedCommentPrefix()
 {
    string prefix = InpOrderCommentPrefix;
    if(prefix == "")
@@ -263,7 +264,7 @@ string E0001_ManagedCommentPrefix()
    return prefix;
 }
 
-bool E0001_CheckMarketGeometry(
+bool E0002_CheckMarketGeometry(
    const int direction,
    const double sl,
    const double tp,
@@ -319,7 +320,7 @@ bool E0001_CheckMarketGeometry(
    return true;
 }
 
-bool E0001_PlaceMarketOrder(
+bool E0002_PlaceMarketOrder(
    const int direction,
    const double volume,
    double sl,
@@ -333,7 +334,7 @@ bool E0001_PlaceMarketOrder(
    sl = NormalizeDouble(sl, digits);
    tp = NormalizeDouble(tp, digits);
 
-   if(!E0001_CheckMarketGeometry(direction, sl, tp, reason))
+   if(!E0002_CheckMarketGeometry(direction, sl, tp, reason))
       return false;
 
    if(volume <= 0.0)
@@ -360,7 +361,7 @@ bool E0001_PlaceMarketOrder(
    return true;
 }
 
-double E0001_PriceTolerance()
+double E0002_PriceTolerance()
 {
    double point = SymbolInfoDouble(LabSymbol(), SYMBOL_POINT);
    if(point <= 0.0)
@@ -368,7 +369,7 @@ double E0001_PriceTolerance()
    return point * 0.5;
 }
 
-double E0001_VolumeTolerance()
+double E0002_VolumeTolerance()
 {
    double step = SymbolInfoDouble(LabSymbol(), SYMBOL_VOLUME_STEP);
    if(step <= 0.0)
@@ -433,7 +434,7 @@ bool HasNewOpenCandle()
 }
 
 
-bool E0001_ShouldRunOutsideSessionPurge()
+bool E0002_ShouldRunOutsideSessionPurge()
 {
    datetime current_open = iTime(LabSymbol(), LabTimeframe(), 0);
    if(current_open <= 0)
@@ -452,9 +453,9 @@ void UpdateComment(const string state)
       return;
 
    Comment(
-      "DAL E0001 H5 REV R1 | build=", DAL_E0001_BUILD,
+      "DAL E0002 H5 REV R1 | build=", DAL_E0002_BUILD,
       " | state=", state,
-      " | trading=", DAL_BoolToString(InpTradingEnabled), "\n",
+      " | mode=close_confirmed_market_after_touch | trading=", DAL_BoolToString(InpTradingEnabled), "\n",
       "symbol=", LabSymbol(),
       " tf=", EnumToString(LabTimeframe()),
       " risk=", DoubleToString(InpRiskCash, 2),
@@ -476,7 +477,7 @@ void CopySetupsToCache(const DALExecReversalSetup &setups[], const string reason
    g_cache_ready = true;
 }
 
-void E0001_ClearSetupCache(const string reason)
+void E0002_ClearSetupCache(const string reason)
 {
    DALExecReversalSetup empty[];
    ArrayResize(empty, 0);
@@ -485,7 +486,7 @@ void E0001_ClearSetupCache(const string reason)
 
 
 
-string E0001_RegimeOutcomeToString(const ENUM_DALM0002Outcome outcome)
+string E0002_RegimeOutcomeToString(const ENUM_DALM0002Outcome outcome)
 {
    if(outcome == DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT)
       return "REVERSAL";
@@ -494,7 +495,7 @@ string E0001_RegimeOutcomeToString(const ENUM_DALM0002Outcome outcome)
    return "UNKNOWN";
 }
 
-bool E0001_ResolveEffectiveRegime(DALM0002BranchSample &last_sample, const bool has_last_sample, string &reason)
+bool E0002_ResolveEffectiveRegime(DALM0002BranchSample &last_sample, const bool has_last_sample, string &reason)
 {
    if(!has_last_sample)
    {
@@ -505,13 +506,13 @@ bool E0001_ResolveEffectiveRegime(DALM0002BranchSample &last_sample, const bool 
    bool last_reversal = (last_sample.outcome == DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT);
    bool last_continuation = (last_sample.outcome == DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT);
 
-   if(InpRegimeBasis == E0001_REGIME_LAST_COMPLETED_BRANCH)
+   if(InpRegimeBasis == E0002_REGIME_LAST_COMPLETED_BRANCH)
    {
-      reason = "regimeBasis=LAST_COMPLETED_BRANCH*last=" + E0001_RegimeOutcomeToString(last_sample.outcome);
+      reason = "regimeBasis=LAST_COMPLETED_BRANCH*last=" + E0002_RegimeOutcomeToString(last_sample.outcome);
       return last_reversal;
    }
 
-   if(InpHumanContextSignal == E0001_HUMAN_CONTEXT_REVERSAL)
+   if(InpHumanContextSignal == E0002_HUMAN_CONTEXT_REVERSAL)
    {
       // Human/context override is intentionally explicit. It does not rebuild
       // M0001/M0002; it only changes the execution gate while the same node and
@@ -521,19 +522,19 @@ bool E0001_ResolveEffectiveRegime(DALM0002BranchSample &last_sample, const bool 
       return true;
    }
 
-   if(InpHumanContextSignal == E0001_HUMAN_CONTEXT_CONTINUATION)
+   if(InpHumanContextSignal == E0002_HUMAN_CONTEXT_CONTINUATION)
    {
       last_sample.outcome = DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT;
       reason = "regimeBasis=HUMAN_CONTEXT_COMBINED*human=CONTINUATION*last=" + (last_reversal ? "REVERSAL" : (last_continuation ? "CONTINUATION" : "UNKNOWN"));
       return false;
    }
 
-   reason = "regimeBasis=HUMAN_CONTEXT_COMBINED*human=NEUTRAL*last=" + E0001_RegimeOutcomeToString(last_sample.outcome);
+   reason = "regimeBasis=HUMAN_CONTEXT_COMBINED*human=NEUTRAL*last=" + E0002_RegimeOutcomeToString(last_sample.outcome);
    return last_reversal;
 }
 
 
-void E0001_MaybePrintH5ResearchReport(
+void E0002_MaybePrintH5ResearchReport(
    const DALBar &bars[],
    const int bars_count,
    const DALLRuleNode &nodes[],
@@ -567,7 +568,7 @@ void E0001_MaybePrintH5ResearchReport(
       m2,
       InpZoneRatio,
       InpRewardR,
-      E0001_ManagedCommentPrefix(),
+      E0002_ManagedCommentPrefix(),
       InpUseFixedRExitIfCloser,
       InpAllowOppositeTouchBelowRewardR,
       InpBuyLimitSlots,
@@ -585,7 +586,7 @@ void E0001_MaybePrintH5ResearchReport(
    if(LogOrders() && (InpH5ReportEveryNClosedBars <= 1 || signature != g_last_h5_report_signature))
    {
       g_last_h5_report_signature = signature;
-      Print("DAL_E0001_H5_RESEARCH_REPORT *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_H5_RESEARCH_REPORT *** build=", DAL_E0002_BUILD,
          "*ok=", DAL_BoolToString(ok),
          "*trigger=", trigger,
          "*reason=", reason,
@@ -594,7 +595,7 @@ void E0001_MaybePrintH5ResearchReport(
 
    if(InpH5ReportPrintExamples && LogVerbose())
    {
-      Print("DAL_E0001_H5_RESEARCH_NOTE *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_H5_RESEARCH_NOTE *** build=", DAL_E0002_BUILD,
          "*model=LAST_COMPLETED_BRANCH_then_nearest_LOW_buys_and_HIGH_sells",
          "*entryModel=buy_zone_upper_plus_spread_sell_zone_lower",
          "*stopModel=buy_zone_lower_sell_zone_upper_plus_spread",
@@ -609,7 +610,7 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
    reason = "not_built";
 
    string session_reason = "";
-   if(!E0001_IsTradingSessionOpen(session_reason))
+   if(!E0002_IsTradingSessionOpen(session_reason))
    {
       reason = "trading_session_closed*" + session_reason;
       return false;
@@ -640,14 +641,14 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
    DALM0002Config m2;
    BuildM0002Config(m2);
 
-   E0001_MaybePrintH5ResearchReport(bars, bars_count, nodes, nodes_count, events, events_count, m2, "cache_refresh");
+   E0002_MaybePrintH5ResearchReport(bars, bars_count, nodes, nodes_count, events, events_count, m2, "cache_refresh");
 
    DALM0002BranchSample last_sample;
    int last_event_index = -1;
    bool has_last_sample = DAL_ExecFindLatestBranchSampleFast(events, events_count, bars, bars_count, 0, m2, last_sample, last_event_index);
 
    string regime_reason = "";
-   if(!E0001_ResolveEffectiveRegime(last_sample, has_last_sample, regime_reason))
+   if(!E0002_ResolveEffectiveRegime(last_sample, has_last_sample, regime_reason))
    {
       reason = regime_reason;
       return false;
@@ -665,7 +666,7 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
       has_last_sample,
       m1.zone_ratio,
       InpRewardR,
-      E0001_ManagedCommentPrefix(),
+      E0002_ManagedCommentPrefix(),
       InpUseFixedRExitIfCloser,
       InpAllowOppositeTouchBelowRewardR,
       InpBuyLimitSlots,
@@ -701,7 +702,7 @@ bool RefreshSetupCacheIfNeeded()
    CopySetupsToCache(setups, reason);
 
    if(LogVerbose())
-      Print("DAL_E0001_CACHE *** build=", DAL_E0001_BUILD, "*setups=", ArraySize(g_cached_setups), "*reason=", reason);
+      Print("DAL_E0002_CACHE *** build=", DAL_E0002_BUILD, "*setups=", ArraySize(g_cached_setups), "*reason=", reason);
 
    return true;
 }
@@ -730,7 +731,7 @@ bool FindSetupInCacheByComment(const string comment, DALExecReversalSetup &setup
    return false;
 }
 
-int E0001_FindTouchLockIndexByKey(const int node_id, const int direction, const string comment)
+int E0002_FindTouchLockIndexByKey(const int node_id, const int direction, const string comment)
 {
    // Primary identity is the structural node, not the order comment. Comments can
    // change with reward/prefix or be broker-truncated; H5 touch state belongs to
@@ -756,12 +757,12 @@ int E0001_FindTouchLockIndexByKey(const int node_id, const int direction, const 
    return -1;
 }
 
-int E0001_FindTouchLockIndex(const string comment)
+int E0002_FindTouchLockIndex(const string comment)
 {
-   return E0001_FindTouchLockIndexByKey(-1, 0, comment);
+   return E0002_FindTouchLockIndexByKey(-1, 0, comment);
 }
 
-void E0001_SetNodeTouchLock(
+void E0002_SetNodeTouchLock(
    const string comment,
    const int node_id,
    const int direction,
@@ -773,7 +774,7 @@ void E0001_SetNodeTouchLock(
    if(comment == "" && node_id < 0)
       return;
 
-   int idx = E0001_FindTouchLockIndexByKey(node_id, direction, comment);
+   int idx = E0002_FindTouchLockIndexByKey(node_id, direction, comment);
    bool was_locked = false;
    if(idx < 0)
    {
@@ -815,31 +816,31 @@ void E0001_SetNodeTouchLock(
    g_touch_locks[idx].ever_touched = true;
 }
 
-void E0001_SetTouchLockFromSetup(const DALExecReversalSetup &setup)
+void E0002_SetTouchLockFromSetup(const DALExecReversalSetup &setup)
 {
-   E0001_SetNodeTouchLock(setup.comment, setup.node_id, setup.direction, setup.entry_price, setup.zone_lower, setup.zone_upper);
+   E0002_SetNodeTouchLock(setup.comment, setup.node_id, setup.direction, setup.entry_price, setup.zone_lower, setup.zone_upper);
 }
 
 // Legacy fallback used only when a trade transaction cannot be mapped back to a
 // current setup. It still locks by comment, but normal execution locks by node.
-void E0001_SetTouchLock(const string comment, const int direction, const double entry_price)
+void E0002_SetTouchLock(const string comment, const int direction, const double entry_price)
 {
-   E0001_SetNodeTouchLock(comment, -1, direction, entry_price, entry_price, entry_price);
+   E0002_SetNodeTouchLock(comment, -1, direction, entry_price, entry_price, entry_price);
 }
 
-bool E0001_TouchLockedSetup(const DALExecReversalSetup &setup)
+bool E0002_TouchLockedSetup(const DALExecReversalSetup &setup)
 {
-   int idx = E0001_FindTouchLockIndexByKey(setup.node_id, setup.direction, setup.comment);
+   int idx = E0002_FindTouchLockIndexByKey(setup.node_id, setup.direction, setup.comment);
    return (idx >= 0 && g_touch_locks[idx].locked);
 }
 
-bool E0001_TouchLocked(const string comment)
+bool E0002_TouchLocked(const string comment)
 {
-   int idx = E0001_FindTouchLockIndex(comment);
+   int idx = E0002_FindTouchLockIndex(comment);
    return (idx >= 0 && g_touch_locks[idx].locked);
 }
 
-void E0001_UpdateTouchRevisitLocks()
+void E0002_UpdateTouchRevisitLocks()
 {
    if(!InpAllowNodeRevisitRearm)
       return;
@@ -890,7 +891,7 @@ void E0001_UpdateTouchRevisitLocks()
       {
          g_touch_locks[i].locked = false;
          if(LogVerbose())
-            Print("DAL_E0001_NODE_TOUCH_UNLOCK *** build=", DAL_E0001_BUILD,
+            Print("DAL_E0002_NODE_TOUCH_UNLOCK *** build=", DAL_E0002_BUILD,
                "*dir=buy*nodeId=", g_touch_locks[i].node_id,
                "*zoneUpper=", DoubleToString(zone_upper, _Digits),
                "*zoneLower=", DoubleToString(zone_lower, _Digits),
@@ -904,7 +905,7 @@ void E0001_UpdateTouchRevisitLocks()
       {
          g_touch_locks[i].locked = false;
          if(LogVerbose())
-            Print("DAL_E0001_NODE_TOUCH_UNLOCK *** build=", DAL_E0001_BUILD,
+            Print("DAL_E0002_NODE_TOUCH_UNLOCK *** build=", DAL_E0002_BUILD,
                "*dir=sell*nodeId=", g_touch_locks[i].node_id,
                "*zoneUpper=", DoubleToString(zone_upper, _Digits),
                "*zoneLower=", DoubleToString(zone_lower, _Digits),
@@ -914,9 +915,9 @@ void E0001_UpdateTouchRevisitLocks()
    }
 }
 
-void E0001_PruneTouchLocksToManagedPrefix()
+void E0002_PruneTouchLocksToManagedPrefix()
 {
-   string prefix = E0001_ManagedCommentPrefix();
+   string prefix = E0002_ManagedCommentPrefix();
    for(int i = ArraySize(g_touch_locks) - 1; i >= 0; i--)
    {
       // Keep locks for the current managed prefix even when the node is not in
@@ -924,7 +925,7 @@ void E0001_PruneTouchLocksToManagedPrefix()
       // near-node cache, during continuation, outside session, or while another
       // node is closer. Dropping that lock would allow a duplicate limit inside
       // the same touch. The lock is released only by a real exit from the touch
-      // zone in E0001_UpdateTouchRevisitLocks().
+      // zone in E0002_UpdateTouchRevisitLocks().
       if(DAL_ExecOrderCommentMatchesPrefix(g_touch_locks[i].comment, prefix))
          continue;
 
@@ -934,7 +935,7 @@ void E0001_PruneTouchLocksToManagedPrefix()
    }
 }
 
-bool E0001_FindPendingByComment(const string comment, DALExecPendingOrder &pending)
+bool E0002_FindPendingByComment(const string comment, DALExecPendingOrder &pending)
 {
    DAL_ExecResetPendingOrder(pending);
    for(int i = 0; i < OrdersTotal(); i++)
@@ -955,7 +956,7 @@ bool E0001_FindPendingByComment(const string comment, DALExecPendingOrder &pendi
    return false;
 }
 
-bool E0001_PositionExistsByComment(const string comment)
+bool E0002_PositionExistsByComment(const string comment)
 {
    for(int i = 0; i < PositionsTotal(); i++)
    {
@@ -972,11 +973,11 @@ bool E0001_PositionExistsByComment(const string comment)
    return false;
 }
 
-bool E0001_PendingNeedsUpdate(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup, const DALExecRiskSizing &risk, bool &volume_changed)
+bool E0002_PendingNeedsUpdate(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup, const DALExecRiskSizing &risk, bool &volume_changed)
 {
-   volume_changed = (MathAbs(pending.volume - risk.volume) > E0001_VolumeTolerance());
+   volume_changed = (MathAbs(pending.volume - risk.volume) > E0002_VolumeTolerance());
 
-   double tol = E0001_PriceTolerance();
+   double tol = E0002_PriceTolerance();
    if(MathAbs(pending.price - setup.entry_price) > tol)
       return true;
    if(MathAbs(pending.sl - setup.stop_price) > tol)
@@ -987,7 +988,7 @@ bool E0001_PendingNeedsUpdate(const DALExecPendingOrder &pending, const DALExecR
    return volume_changed;
 }
 
-bool E0001_ModifyPendingToSetup(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup, string &reason)
+bool E0002_ModifyPendingToSetup(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup, string &reason)
 {
    double entry = setup.entry_price;
    double sl = setup.stop_price;
@@ -1039,7 +1040,7 @@ bool PendingIsProtectedNearMarket(const DALExecPendingOrder &pending)
 
 bool HasManagedPosition()
 {
-   string managed_prefix = E0001_ManagedCommentPrefix();
+   string managed_prefix = E0002_ManagedCommentPrefix();
    int total = PositionsTotal();
    for(int i = 0; i < total; i++)
    {
@@ -1062,7 +1063,7 @@ void SyncStaleManagedPendings()
    if(!InpSyncManagedPendings || !InpCancelStaleManagedPendings)
       return;
 
-   string managed_prefix = E0001_ManagedCommentPrefix();
+   string managed_prefix = E0002_ManagedCommentPrefix();
    bool managed_position_open = (InpCancelManagedPendingsAfterEntry && HasManagedPosition());
    bool no_current_reversal_setups = (ArraySize(g_cached_setups) <= 0);
    int deleted = 0;
@@ -1103,27 +1104,27 @@ void SyncStaleManagedPendings()
       {
          deleted++;
          if(LogOrders())
-            Print("DAL_E0001_PENDING_DELETE *** build=", DAL_E0001_BUILD, "*ticket=", (long)ticket, "*reason=", sync_reason, "*comment=", comment);
+            Print("DAL_E0002_PENDING_DELETE *** build=", DAL_E0002_BUILD, "*ticket=", (long)ticket, "*reason=", sync_reason, "*comment=", comment);
       }
       else if(LogErrors())
       {
-         Print("DAL_E0001_PENDING_DELETE_FAIL *** build=", DAL_E0001_BUILD, "*ticket=", (long)ticket, "*reason=", delete_reason, "*comment=", comment);
+         Print("DAL_E0002_PENDING_DELETE_FAIL *** build=", DAL_E0002_BUILD, "*ticket=", (long)ticket, "*reason=", delete_reason, "*comment=", comment);
       }
    }
 
    if(no_current_reversal_setups)
-      E0001_PruneTouchLocksToManagedPrefix();
+      E0002_PruneTouchLocksToManagedPrefix();
 
    if(deleted > 0 && LogVerbose())
-      Print("DAL_E0001_PENDING_SYNC *** build=", DAL_E0001_BUILD, "*deleted=", deleted);
+      Print("DAL_E0002_PENDING_SYNC *** build=", DAL_E0002_BUILD, "*deleted=", deleted);
 }
 
-int E0001_ForceDeleteManagedPendingLimits(const string context, string &summary)
+int E0002_ForceDeleteManagedPendingLimits(const string context, string &summary)
 {
    int deleted = 0;
    int failed = 0;
    summary = "ok";
-   string managed_prefix = E0001_ManagedCommentPrefix();
+   string managed_prefix = E0002_ManagedCommentPrefix();
 
    for(int i = OrdersTotal() - 1; i >= 0; i--)
    {
@@ -1148,7 +1149,7 @@ int E0001_ForceDeleteManagedPendingLimits(const string context, string &summary)
       {
          deleted++;
          if(LogOrders())
-            Print("DAL_E0001_PENDING_FORCE_DELETE *** build=", DAL_E0001_BUILD,
+            Print("DAL_E0002_PENDING_FORCE_DELETE *** build=", DAL_E0002_BUILD,
                "*context=", context,
                "*ticket=", (long)ticket,
                "*comment=", comment,
@@ -1159,7 +1160,7 @@ int E0001_ForceDeleteManagedPendingLimits(const string context, string &summary)
          failed++;
          summary = delete_reason;
          if(LogErrors())
-            Print("DAL_E0001_PENDING_FORCE_DELETE_FAIL *** build=", DAL_E0001_BUILD,
+            Print("DAL_E0002_PENDING_FORCE_DELETE_FAIL *** build=", DAL_E0002_BUILD,
                "*context=", context,
                "*ticket=", (long)ticket,
                "*comment=", comment,
@@ -1203,12 +1204,171 @@ bool MarketIsAlreadyTouchingSetup(const DALExecReversalSetup &setup, double &mar
 }
 
 
-void E0001_LockCurrentTouchEpisode(const DALExecReversalSetup &setup, const string context, const double market_entry)
+bool E0002_LoadLastClosedCandle(double &bar_high, double &bar_low, double &bar_close, datetime &bar_time, string &reason)
 {
-   E0001_SetTouchLockFromSetup(setup);
+   string symbol = LabSymbol();
+   ENUM_TIMEFRAMES tf = LabTimeframe();
+   int shift = 1;
+   bar_time = iTime(symbol, tf, shift);
+   bar_high = iHigh(symbol, tf, shift);
+   bar_low = iLow(symbol, tf, shift);
+   bar_close = iClose(symbol, tf, shift);
+
+   if(bar_time <= 0 || bar_high <= 0.0 || bar_low <= 0.0 || bar_close <= 0.0 || bar_high < bar_low)
+   {
+      reason = "invalid_last_closed_candle";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+bool E0002_CloseConfirmedTouchSignal(
+   const DALExecReversalSetup &setup,
+   const double bar_high,
+   const double bar_low,
+   const double bar_close,
+   bool &touched,
+   bool &zone_broken,
+   string &reason
+)
+{
+   touched = false;
+   zone_broken = false;
+   reason = "not_checked";
+
+   if(!setup.valid)
+   {
+      reason = "invalid_setup";
+      return false;
+   }
+
+   if(setup.direction > 0)
+   {
+      // LOW-node buy: the structural touch starts when the closed candle trades
+      // into the upper/near edge of the zone. The zone is considered broken only
+      // if the candle closes beyond the far/lower edge. A wick through the zone
+      // is allowed; the close is the confirmation filter for execution #2.
+      touched = (bar_low <= setup.zone_upper);
+      zone_broken = (bar_close <= setup.zone_lower);
+      if(!touched)
+      {
+         reason = "buy_last_closed_bar_did_not_touch_zone";
+         return false;
+      }
+      if(zone_broken)
+      {
+         reason = "buy_zone_broken_by_close";
+         return false;
+      }
+      reason = "ok_buy_touch_close_preserved_zone";
+      return true;
+   }
+
+   if(setup.direction < 0)
+   {
+      // HIGH-node sell: touch starts when the closed candle trades into the
+      // lower/near edge. The zone is broken only if the candle closes beyond the
+      // far/upper edge.
+      touched = (bar_high >= setup.zone_lower);
+      zone_broken = (bar_close >= setup.zone_upper);
+      if(!touched)
+      {
+         reason = "sell_last_closed_bar_did_not_touch_zone";
+         return false;
+      }
+      if(zone_broken)
+      {
+         reason = "sell_zone_broken_by_close";
+         return false;
+      }
+      reason = "ok_sell_touch_close_preserved_zone";
+      return true;
+   }
+
+   reason = "zero_direction";
+   return false;
+}
+
+bool E0002_PlaceCloseConfirmedMarketOrder(
+   const DALExecReversalSetup &setup,
+   string &order_reason,
+   DALExecRiskSizing &risk,
+   double &market_entry,
+   double &market_tp,
+   double &market_fixed_r_tp,
+   double &market_opposite_touch_r,
+   string &market_tp_model
+)
+{
+   order_reason = "not_sent";
+   DAL_ExecResetRiskSizing(risk);
+   market_entry = 0.0;
+   market_tp = 0.0;
+   market_fixed_r_tp = 0.0;
+   market_opposite_touch_r = 0.0;
+   market_tp_model = "";
+
+   double bid = SymbolInfoDouble(LabSymbol(), SYMBOL_BID);
+   double ask = SymbolInfoDouble(LabSymbol(), SYMBOL_ASK);
+   if(bid <= 0.0 || ask <= 0.0)
+   {
+      order_reason = "invalid_market_quote";
+      return false;
+   }
+
+   market_entry = (setup.direction > 0 ? ask : bid);
+   double stop_distance = MathAbs(market_entry - setup.stop_price);
+   if(stop_distance <= 0.0)
+   {
+      order_reason = "close_confirmed_zero_stop_distance";
+      return false;
+   }
+
+   string tp_reject_reason = "";
+   if(!DAL_ExecResolveTpForActualEntry(setup, market_entry, InpUseFixedRExitIfCloser, InpAllowOppositeTouchBelowRewardR, market_tp, market_fixed_r_tp, market_opposite_touch_r, market_tp_model, tp_reject_reason))
+   {
+      order_reason = "close_confirmed_tp_reject_" + tp_reject_reason;
+      return false;
+   }
+
+   bool risk_ok = DAL_ExecCalculateRiskVolume(
+      LabSymbol(),
+      market_entry,
+      setup.stop_price,
+      InpRiskCash,
+      InpCommissionPerLotRoundTurn,
+      InpAllowMinLotIfRiskTooSmall,
+      risk
+   );
+   if(!risk_ok)
+   {
+      order_reason = "close_confirmed_risk_reject_" + risk.reason;
+      return false;
+   }
+
+   order_reason = "dry_run_close_confirmed_market";
+   if(!InpTradingEnabled)
+      return false;
+
+   return E0002_PlaceMarketOrder(
+      setup.direction,
+      risk.volume,
+      setup.stop_price,
+      market_tp,
+      setup.comment,
+      order_reason
+   );
+}
+
+
+void E0002_LockCurrentTouchEpisode(const DALExecReversalSetup &setup, const string context, const double market_entry)
+{
+   E0002_SetTouchLockFromSetup(setup);
    if(LogOrders())
    {
-      Print("DAL_E0001_NODE_TOUCH_EPISODE_LOCK *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_NODE_TOUCH_EPISODE_LOCK *** build=", DAL_E0002_BUILD,
          "*context=", context,
          "*dir=", setup.direction,
          "*marketEntry=", DoubleToString(market_entry, _Digits),
@@ -1294,7 +1454,7 @@ bool PlaceSetupMarketCatch(const DALExecReversalSetup &setup, const double marke
    if(!InpTradingEnabled)
       return false;
 
-   return E0001_PlaceMarketOrder(
+   return E0002_PlaceMarketOrder(
       setup.direction,
       risk.volume,
       setup.stop_price,
@@ -1304,18 +1464,211 @@ bool PlaceSetupMarketCatch(const DALExecReversalSetup &setup, const double marke
    );
 }
 
-void TryPlaceCachedSetups()
+
+void TryPlaceCloseConfirmedMarketSetups()
 {
    string session_reason = "";
-   if(!E0001_IsTradingSessionOpen(session_reason))
+   if(!E0002_IsTradingSessionOpen(session_reason))
    {
-      E0001_ClearSetupCache("trading_session_closed*" + session_reason);
+      E0002_ClearSetupCache("trading_session_closed*" + session_reason);
       string force_delete_summary = "disabled";
       int force_deleted = 0;
       if(InpDeletePendingsOutsideTradingSession)
-         force_deleted = E0001_ForceDeleteManagedPendingLimits("outside_trading_session_try_place_guard", force_delete_summary);
+         force_deleted = E0002_ForceDeleteManagedPendingLimits("outside_trading_session_close_confirmed_market_guard", force_delete_summary);
       if(LogOrders())
-         Print("DAL_E0001_TIME_FILTER *** build=", DAL_E0001_BUILD,
+         Print("DAL_E0002_TIME_FILTER *** build=", DAL_E0002_BUILD,
+            "*action=close_confirmed_market_guard_blocked",
+            "*forceDeleted=", force_deleted,
+            "*deleteSummary=", force_delete_summary,
+            "*", session_reason);
+      UpdateComment("trading_session_closed");
+      return;
+   }
+
+   E0002_UpdateTouchRevisitLocks();
+
+   // Execution #2 is pure market-after-close. Do not scan/delete pending
+   // orders every closed candle; startup/session-close guards handle leftovers.
+   string force_delete_summary = "not_scanned_fast_market_mode";
+   int force_deleted = 0;
+
+   int setup_count = ArraySize(g_cached_setups);
+   if(setup_count <= 0)
+   {
+      if(LogVerbose())
+         Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=", g_cache_reason, "*mode=h5_reversal_close_confirmed_market_cache");
+      UpdateComment("no_h5_close_confirmed_setup_" + g_cache_reason);
+      return;
+   }
+
+   double bar_high = 0.0, bar_low = 0.0, bar_close = 0.0;
+   datetime bar_time = 0;
+   string bar_reason = "";
+   if(!E0002_LoadLastClosedCandle(bar_high, bar_low, bar_close, bar_time, bar_reason))
+   {
+      if(LogErrors())
+         Print("DAL_E0002_CLOSE_CONFIRMED_SKIP *** build=", DAL_E0002_BUILD, "*reason=", bar_reason);
+      return;
+   }
+
+   int submitted = 0;
+   int skipped_existing = 0;
+   int skipped_touch_lock = 0;
+   int skipped_no_touch = 0;
+   int skipped_zone_broken = 0;
+   int skipped_blocked = 0;
+   int skipped_send = 0;
+
+   for(int i = 0; i < setup_count; i++)
+   {
+      DALExecReversalSetup setup = g_cached_setups[i];
+      if(!setup.valid)
+         continue;
+
+      if(E0002_PositionExistsByComment(setup.comment))
+      {
+         E0002_SetTouchLockFromSetup(setup);
+         skipped_existing++;
+         continue;
+      }
+
+      if(E0002_TouchLockedSetup(setup))
+      {
+         skipped_touch_lock++;
+         if(LogVerbose())
+            Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=node_touch_locked_wait_zone_exit*mode=close_confirmed_market*comment=", setup.comment);
+         continue;
+      }
+
+      bool touched = false;
+      bool zone_broken = false;
+      string signal_reason = "";
+      bool signal_ok = E0002_CloseConfirmedTouchSignal(setup, bar_high, bar_low, bar_close, touched, zone_broken, signal_reason);
+      if(!signal_ok)
+      {
+         if(zone_broken)
+         {
+            // Broken-by-close means this touch is not tradable. Lock the node for
+            // this episode so the EA does not keep trying to trade the same broken
+            // touch on repeated cache refreshes.
+            E0002_LockCurrentTouchEpisode(setup, "close_confirmed_touch_but_zone_broken", bar_close);
+            skipped_zone_broken++;
+         }
+         else
+            skipped_no_touch++;
+
+         if(LogVerbose())
+            Print("DAL_E0002_CLOSE_CONFIRMED_SKIP *** build=", DAL_E0002_BUILD,
+               "*reason=", signal_reason,
+               "*dir=", setup.direction,
+               "*barTime=", E0002_FormatDateTime(bar_time),
+               "*barHigh=", DoubleToString(bar_high, _Digits),
+               "*barLow=", DoubleToString(bar_low, _Digits),
+               "*barClose=", DoubleToString(bar_close, _Digits),
+               "*zoneLower=", DoubleToString(setup.zone_lower, _Digits),
+               "*zoneUpper=", DoubleToString(setup.zone_upper, _Digits),
+               "*comment=", setup.comment);
+         continue;
+      }
+
+      string exposure_reason = "";
+      if(!DAL_ExecCanOpenDirection(LabSymbol(), InpMagicNumber, setup.direction, InpMaxSimultaneousTrades, InpAllowOppositeTrades, exposure_reason))
+      {
+         skipped_blocked++;
+         if(LogVerbose())
+            Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=", exposure_reason, "*mode=close_confirmed_market*direction=", setup.direction, "*comment=", setup.comment);
+         if(StringFind(exposure_reason, "max_simultaneous", 0) >= 0)
+            break;
+         continue;
+      }
+
+      DALExecRiskSizing risk;
+      double market_entry = 0.0;
+      double market_tp = 0.0;
+      double market_fixed_r_tp = 0.0;
+      double market_opposite_touch_r = 0.0;
+      string market_tp_model = "";
+      string order_reason = "";
+
+      // One touch -> one market attempt. Lock before/with the send attempt so a
+      // failed broker send cannot create repeated duplicate attempts inside the
+      // same touch episode. Re-arm needs a full zone exit.
+      E0002_LockCurrentTouchEpisode(setup, "close_confirmed_market_signal", bar_close);
+      bool order_ok = E0002_PlaceCloseConfirmedMarketOrder(
+         setup,
+         order_reason,
+         risk,
+         market_entry,
+         market_tp,
+         market_fixed_r_tp,
+         market_opposite_touch_r,
+         market_tp_model
+      );
+      if(order_ok)
+         submitted++;
+      else
+         skipped_send++;
+
+      if(LogOrders() || (InpTradingEnabled && !order_ok && LogErrors()))
+      {
+         Print("DAL_E0002_CLOSE_CONFIRMED_MARKET *** build=", DAL_E0002_BUILD,
+            "*sent=", DAL_BoolToString(order_ok),
+            "*reason=", order_reason,
+            "*dir=", setup.direction,
+            "*barTime=", E0002_FormatDateTime(bar_time),
+            "*barHigh=", DoubleToString(bar_high, _Digits),
+            "*barLow=", DoubleToString(bar_low, _Digits),
+            "*barClose=", DoubleToString(bar_close, _Digits),
+            "*marketEntry=", DoubleToString(market_entry, _Digits),
+            "*sl=", DoubleToString(setup.stop_price, _Digits),
+            "*tp=", DoubleToString(market_tp, _Digits),
+            "*tpModel=", market_tp_model,
+            "*fixedRTp=", DoubleToString(market_fixed_r_tp, _Digits),
+            "*oppositeTouchTp=", DoubleToString(setup.opposite_touch_tp_price, _Digits),
+            "*oppositeTouchNode=", setup.opposite_touch_node_id,
+            "*oppositeTouchR=", DoubleToString(market_opposite_touch_r, 4),
+            "*rewardR=", DoubleToString(setup.reward_r, 4),
+            "*vol=", DoubleToString(risk.volume, 4),
+            "*zoneLower=", DoubleToString(setup.zone_lower, _Digits),
+            "*zoneUpper=", DoubleToString(setup.zone_upper, _Digits),
+            "*nodeId=", setup.node_id,
+            "*comment=", setup.comment);
+      }
+   }
+
+   if(LogOrders())
+   {
+      Print("DAL_E0002_CYCLE *** build=", DAL_E0002_BUILD,
+         "*mode=h5_reversal_close_confirmed_market_after_touch",
+         "*cacheReason=", g_cache_reason,
+         "*setups=", setup_count,
+         "*submitted=", submitted,
+         "*forceDeletedPendings=", force_deleted,
+         "*pendingDeleteSummary=", force_delete_summary,
+         "*skippedExisting=", skipped_existing,
+         "*skippedTouchLock=", skipped_touch_lock,
+         "*skippedNoTouch=", skipped_no_touch,
+         "*skippedZoneBroken=", skipped_zone_broken,
+         "*skippedBlocked=", skipped_blocked,
+         "*skippedSend=", skipped_send,
+         "*barTime=", E0002_FormatDateTime(bar_time));
+   }
+
+   UpdateComment("h5_close_confirmed_setups_" + IntegerToString(setup_count) + "_market_" + IntegerToString(submitted));
+}
+
+void TryPlaceCachedSetups()
+{
+   string session_reason = "";
+   if(!E0002_IsTradingSessionOpen(session_reason))
+   {
+      E0002_ClearSetupCache("trading_session_closed*" + session_reason);
+      string force_delete_summary = "disabled";
+      int force_deleted = 0;
+      if(InpDeletePendingsOutsideTradingSession)
+         force_deleted = E0002_ForceDeleteManagedPendingLimits("outside_trading_session_try_place_guard", force_delete_summary);
+      if(LogOrders())
+         Print("DAL_E0002_TIME_FILTER *** build=", DAL_E0002_BUILD,
             "*action=try_place_guard_blocked",
             "*forceDeleted=", force_deleted,
             "*deleteSummary=", force_delete_summary,
@@ -1324,14 +1677,14 @@ void TryPlaceCachedSetups()
       return;
    }
 
-   E0001_UpdateTouchRevisitLocks();
+   E0002_UpdateTouchRevisitLocks();
    SyncStaleManagedPendings();
 
    int setup_count = ArraySize(g_cached_setups);
    if(setup_count <= 0)
    {
       if(LogVerbose())
-         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", g_cache_reason, "*mode=h5_reversal_fixed_r_touch_cache");
+         Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=", g_cache_reason, "*mode=h5_reversal_fixed_r_touch_cache");
       UpdateComment("no_h5_r1_setup_" + g_cache_reason);
       return;
    }
@@ -1352,18 +1705,18 @@ void TryPlaceCachedSetups()
       if(!setup.valid)
          continue;
 
-      if(E0001_PositionExistsByComment(setup.comment))
+      if(E0002_PositionExistsByComment(setup.comment))
       {
-         E0001_SetTouchLockFromSetup(setup);
+         E0002_SetTouchLockFromSetup(setup);
          skipped_existing++;
          continue;
       }
 
-      if(E0001_TouchLockedSetup(setup))
+      if(E0002_TouchLockedSetup(setup))
       {
          skipped_touch_lock++;
          if(LogVerbose())
-            Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=node_touch_locked_wait_zone_exit*comment=", setup.comment);
+            Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=node_touch_locked_wait_zone_exit*comment=", setup.comment);
          continue;
       }
 
@@ -1383,15 +1736,15 @@ void TryPlaceCachedSetups()
       {
          skipped_risk++;
          if(LogErrors())
-            Print("DAL_E0001_RISK_REJECT *** build=", DAL_E0001_BUILD, "*reason=", risk.reason, "*entry=", DoubleToString(setup.entry_price, _Digits), "*stop=", DoubleToString(setup.stop_price, _Digits), "*comment=", setup.comment);
+            Print("DAL_E0002_RISK_REJECT *** build=", DAL_E0002_BUILD, "*reason=", risk.reason, "*entry=", DoubleToString(setup.entry_price, _Digits), "*stop=", DoubleToString(setup.stop_price, _Digits), "*comment=", setup.comment);
          continue;
       }
 
       DALExecPendingOrder pending;
-      if(E0001_FindPendingByComment(setup.comment, pending))
+      if(E0002_FindPendingByComment(setup.comment, pending))
       {
          bool volume_changed = false;
-         bool needs_update = E0001_PendingNeedsUpdate(pending, setup, risk, volume_changed);
+         bool needs_update = E0002_PendingNeedsUpdate(pending, setup, risk, volume_changed);
          if(!needs_update || !InpUpdateExistingManagedPendings)
          {
             skipped_existing++;
@@ -1402,7 +1755,7 @@ void TryPlaceCachedSetups()
          {
             skipped_update++;
             if(LogVerbose())
-               Print("DAL_E0001_PENDING_UPDATE_SKIP *** build=", DAL_E0001_BUILD, "*reason=protected_near_market*comment=", setup.comment);
+               Print("DAL_E0002_PENDING_UPDATE_SKIP *** build=", DAL_E0002_BUILD, "*reason=protected_near_market*comment=", setup.comment);
             continue;
          }
 
@@ -1421,7 +1774,7 @@ void TryPlaceCachedSetups()
          }
          else
          {
-            update_ok = E0001_ModifyPendingToSetup(pending, setup, update_reason);
+            update_ok = E0002_ModifyPendingToSetup(pending, setup, update_reason);
             if(update_ok)
                modified++;
          }
@@ -1429,7 +1782,7 @@ void TryPlaceCachedSetups()
          if(LogOrders() || (InpTradingEnabled && !update_ok && LogErrors()))
          {
             Print(
-               "DAL_E0001_PENDING_UPDATE *** build=", DAL_E0001_BUILD,
+               "DAL_E0002_PENDING_UPDATE *** build=", DAL_E0002_BUILD,
                "*ok=", DAL_BoolToString(update_ok),
                "*reason=", update_reason,
                "*volumeChanged=", DAL_BoolToString(volume_changed),
@@ -1459,7 +1812,7 @@ void TryPlaceCachedSetups()
       {
          skipped_blocked++;
          if(LogVerbose())
-            Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", exposure_reason, "*direction=", setup.direction, "*comment=", setup.comment);
+            Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=", exposure_reason, "*direction=", setup.direction, "*comment=", setup.comment);
          if(StringFind(exposure_reason, "max_simultaneous", 0) >= 0)
             break;
          continue;
@@ -1475,7 +1828,7 @@ void TryPlaceCachedSetups()
          // still inside the same touch. The node can arm again only after the
          // price exits the edge by InpTouchRevisitResetBufferPoints and then
          // revisits it.
-         E0001_LockCurrentTouchEpisode(setup, "market_already_inside_touch_before_new_limit", market_entry);
+         E0002_LockCurrentTouchEpisode(setup, "market_already_inside_touch_before_new_limit", market_entry);
 
          DALExecRiskSizing market_risk;
          string market_reason = "";
@@ -1488,7 +1841,7 @@ void TryPlaceCachedSetups()
          if(LogOrders() || (InpTradingEnabled && !market_ok && LogErrors()))
          {
             Print(
-               "DAL_E0001_MARKET_CATCH *** build=", DAL_E0001_BUILD,
+               "DAL_E0002_MARKET_CATCH *** build=", DAL_E0002_BUILD,
                "*sent=", DAL_BoolToString(market_ok),
                "*reason=", market_reason,
                "*touchLocked=", DAL_BoolToString(true),
@@ -1512,7 +1865,7 @@ void TryPlaceCachedSetups()
          // for the next orderable revisit.
          skipped_geometry++;
          if(LogVerbose())
-            Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", geometry_reason, "*mode=limit_not_orderable_now*dir=", setup.direction, "*entry=", DoubleToString(setup.entry_price, _Digits), "*comment=", setup.comment);
+            Print("DAL_E0002_SKIP *** build=", DAL_E0002_BUILD, "*reason=", geometry_reason, "*mode=limit_not_orderable_now*dir=", setup.direction, "*entry=", DoubleToString(setup.entry_price, _Digits), "*comment=", setup.comment);
          continue;
       }
 
@@ -1524,7 +1877,7 @@ void TryPlaceCachedSetups()
       if(LogOrders() || (InpTradingEnabled && !order_ok && LogErrors()))
       {
          Print(
-            "DAL_E0001_LIMIT_ORDER *** build=", DAL_E0001_BUILD,
+            "DAL_E0002_LIMIT_ORDER *** build=", DAL_E0002_BUILD,
             "*sent=", DAL_BoolToString(order_ok),
             "*reason=", order_reason,
             "*dir=", setup.direction,
@@ -1551,7 +1904,7 @@ void TryPlaceCachedSetups()
 
    if(LogVerbose())
    {
-      Print("DAL_E0001_CYCLE *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_CYCLE *** build=", DAL_E0002_BUILD,
          "*mode=h5_reversal_fixed_r_node_zone_ledger",
          "*setups=", setup_count,
          "*submitted=", submitted,
@@ -1569,7 +1922,7 @@ void TryPlaceCachedSetups()
    if(LogOrders() && cycle_signature != g_last_cycle_signature)
    {
       g_last_cycle_signature = cycle_signature;
-      Print("DAL_E0001_CYCLE *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_CYCLE *** build=", DAL_E0002_BUILD,
          "*mode=h5_reversal_fixed_r_node_zone_ledger",
          "*cacheReason=", g_cache_reason,
          "*setups=", setup_count,
@@ -1592,7 +1945,7 @@ int OnInit()
 {
    if(!SymbolSelect(LabSymbol(), true))
    {
-      Print("DAL_E0001_INIT_FAIL *** reason=symbol_select_failed*symbol=", LabSymbol());
+      Print("DAL_E0002_INIT_FAIL *** reason=symbol_select_failed*symbol=", LabSymbol());
       return INIT_FAILED;
    }
 
@@ -1607,21 +1960,21 @@ int OnInit()
 
    if(LogOrders())
    {
-      string session_window = E0001_FormatSessionMinute(E0001_ClampInt(InpTradingStartHour, 0, 23) * 60 + E0001_ClampInt(InpTradingStartMinute, 0, 59))
+      string session_window = E0002_FormatSessionMinute(E0002_ClampInt(InpTradingStartHour, 0, 23) * 60 + E0002_ClampInt(InpTradingStartMinute, 0, 59))
                               + "-" +
-                              E0001_FormatSessionMinute(E0001_ClampInt(InpTradingEndHour, 0, 23) * 60 + E0001_ClampInt(InpTradingEndMinute, 0, 59));
+                              E0002_FormatSessionMinute(E0002_ClampInt(InpTradingEndHour, 0, 23) * 60 + E0002_ClampInt(InpTradingEndMinute, 0, 59));
 
-      Print("DAL_E0001_BUILD_SANITY_A *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_BUILD_SANITY_A *** build=", DAL_E0002_BUILD,
          "*symbol=", LabSymbol(),
          "*tf=", EnumToString(LabTimeframe()),
-         "*module=EXECUTION_H0005_REVERSAL_PER_CANDLE_NEAR_NODE_LIMITS",
+         "*module=EXECUTION_H0005_REVERSAL_CLOSE_CONFIRMED_MARKET",
          "*bars=", InpBars,
-         "*h5Exact=PER_CANDLE_REVERSAL_NEAR_NODE_TOUCH_LIMITS",
+         "*h5Exact=CLOSE_CONFIRMED_MARKET_AFTER_TOUCH",
          "*regimeBasis=", EnumToString(InpRegimeBasis),
          "*humanContext=", EnumToString(InpHumanContextSignal),
          "*useClosedBarsOnly=", DAL_BoolToString(InpUseClosedBarsOnly));
 
-      Print("DAL_E0001_BUILD_SANITY_B *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_BUILD_SANITY_B *** build=", DAL_E0002_BUILD,
          "*timeFilter=", DAL_BoolToString(InpUseTradingSessionFilter),
          "*sessionClock=", EnumToString(InpTradingSessionClock),
          "*sessionWindow=", session_window,
@@ -1634,17 +1987,17 @@ int OnInit()
          "*useFixedRExitIfCloser=", DAL_BoolToString(InpUseFixedRExitIfCloser),
          "*allowOppositeTouchBelowRewardR=", DAL_BoolToString(InpAllowOppositeTouchBelowRewardR));
 
-      Print("DAL_E0001_BUILD_SANITY_C *** build=", DAL_E0001_BUILD,
-         "*entryModel=per_candle_nearest_low_buy_and_high_sell_touch_limits",
+      Print("DAL_E0002_BUILD_SANITY_C *** build=", DAL_E0002_BUILD,
+         "*entryModel=close_confirmed_market_after_touch",
          "*researchEntryModel=touch_bar_close_in_M0005_report",
          "*stopModel=far_zone_edge_spread_adjusted_for_sell",
          "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
          "*buySlots=", InpBuyLimitSlots, "(0=unlimited)",
          "*sellSlots=", InpSellLimitSlots, "(0=unlimited)",
          "*allowOpposite=", DAL_BoolToString(InpAllowOppositeTrades),
-         "*orderCommentPrefix=", E0001_ManagedCommentPrefix());
+         "*orderCommentPrefix=", E0002_ManagedCommentPrefix());
 
-      Print("DAL_E0001_BUILD_SANITY_D *** build=", DAL_E0001_BUILD,
+      Print("DAL_E0002_BUILD_SANITY_D *** build=", DAL_E0002_BUILD,
          "*commentIdentity=prefix_reward_direction_node",
          "*manageEveryTick=", DAL_BoolToString(InpManageOrdersEveryTick),
          "*marketCatch=", DAL_BoolToString(InpAllowMarketCatchWhenAlreadyTouching),
@@ -1653,21 +2006,21 @@ int OnInit()
          "*updatePendings=", DAL_BoolToString(InpUpdateExistingManagedPendings),
          "*touchRevisitBufferPoints=", InpTouchRevisitResetBufferPoints,
          "*allowNodeRevisitRearm=", DAL_BoolToString(InpAllowNodeRevisitRearm),
-         "*touchPolicy=node_locked_per_touch_unlock_only_after_full_zone_exit",
+         "*touchPolicy=node_locked_per_close_confirmed_touch_signal_unlock_only_after_full_zone_exit",
          "*tpPolicy=first_opposite_node_touch_optional_fixed_r_exit_sub_r_filter",
          "*logMode=", EnumToString(InpLogMode));
    }
 
    string init_session_reason = "";
-   if(!E0001_IsTradingSessionOpen(init_session_reason))
+   if(!E0002_IsTradingSessionOpen(init_session_reason))
    {
-      E0001_ClearSetupCache("trading_session_closed_on_init*" + init_session_reason);
+      E0002_ClearSetupCache("trading_session_closed_on_init*" + init_session_reason);
       string force_delete_summary = "disabled";
       int force_deleted = 0;
       if(InpDeletePendingsOutsideTradingSession)
-         force_deleted = E0001_ForceDeleteManagedPendingLimits("outside_trading_session_on_init", force_delete_summary);
+         force_deleted = E0002_ForceDeleteManagedPendingLimits("outside_trading_session_on_init", force_delete_summary);
       if(LogOrders())
-         Print("DAL_E0001_TIME_FILTER *** build=", DAL_E0001_BUILD,
+         Print("DAL_E0002_TIME_FILTER *** build=", DAL_E0002_BUILD,
             "*action=init_strict_block_all_execution_outside_session",
             "*forceDeleted=", force_deleted,
             "*deleteSummary=", force_delete_summary,
@@ -1698,12 +2051,12 @@ void OnTradeTransaction(const MqlTradeTransaction &trans, const MqlTradeRequest 
       return;
 
    string comment = HistoryDealGetString(trans.deal, DEAL_COMMENT);
-   if(!DAL_ExecOrderCommentMatchesPrefix(comment, E0001_ManagedCommentPrefix()) && trans.order > 0)
+   if(!DAL_ExecOrderCommentMatchesPrefix(comment, E0002_ManagedCommentPrefix()) && trans.order > 0)
    {
       if(HistoryOrderSelect(trans.order))
          comment = HistoryOrderGetString(trans.order, ORDER_COMMENT);
    }
-   if(!DAL_ExecOrderCommentMatchesPrefix(comment, E0001_ManagedCommentPrefix()))
+   if(!DAL_ExecOrderCommentMatchesPrefix(comment, E0002_ManagedCommentPrefix()))
       return;
 
    int direction = 0;
@@ -1720,15 +2073,15 @@ void OnTradeTransaction(const MqlTradeTransaction &trans, const MqlTradeRequest 
    {
       direction = setup.direction;
       entry_price = setup.entry_price;
-      E0001_SetTouchLockFromSetup(setup);
+      E0002_SetTouchLockFromSetup(setup);
    }
    else
    {
-      E0001_SetTouchLock(comment, direction, entry_price);
+      E0002_SetTouchLock(comment, direction, entry_price);
    }
 
    if(LogOrders())
-      Print("DAL_E0001_NODE_TOUCH_LOCK *** build=", DAL_E0001_BUILD, "*deal=", (long)trans.deal, "*dir=", direction, "*entry=", DoubleToString(entry_price, _Digits), "*setupFound=", DAL_BoolToString(setup_found), "*nodeId=", setup.node_id, "*comment=", comment);
+      Print("DAL_E0002_NODE_TOUCH_LOCK *** build=", DAL_E0002_BUILD, "*deal=", (long)trans.deal, "*dir=", direction, "*entry=", DoubleToString(entry_price, _Digits), "*setupFound=", DAL_BoolToString(setup_found), "*nodeId=", setup.node_id, "*comment=", comment);
 }
 
 void OnDeinit(const int reason)
@@ -1739,19 +2092,19 @@ void OnDeinit(const int reason)
 void OnTick()
 {
    string session_reason = "";
-   if(!E0001_IsTradingSessionOpen(session_reason))
+   if(!E0002_IsTradingSessionOpen(session_reason))
    {
-      E0001_ClearSetupCache("trading_session_closed*" + session_reason);
+      E0002_ClearSetupCache("trading_session_closed*" + session_reason);
 
       string force_delete_summary = "disabled";
       int force_deleted = 0;
       bool ran_purge = false;
       if(InpDeletePendingsOutsideTradingSession)
       {
-         if(E0001_ShouldRunOutsideSessionPurge())
+         if(E0002_ShouldRunOutsideSessionPurge())
          {
             ran_purge = true;
-            force_deleted = E0001_ForceDeleteManagedPendingLimits("outside_trading_session", force_delete_summary);
+            force_deleted = E0002_ForceDeleteManagedPendingLimits("outside_trading_session", force_delete_summary);
          }
          else
             force_delete_summary = "throttled_until_next_bar";
@@ -1761,7 +2114,7 @@ void OnTick()
       if(LogOrders() && g_last_cycle_signature != signature)
       {
          g_last_cycle_signature = signature;
-         Print("DAL_E0001_TIME_FILTER *** build=", DAL_E0001_BUILD,
+         Print("DAL_E0002_TIME_FILTER *** build=", DAL_E0002_BUILD,
             "*action=strict_block_all_execution_outside_session",
             "*deletePendings=", DAL_BoolToString(InpDeletePendingsOutsideTradingSession),
             "*purgeRun=", DAL_BoolToString(ran_purge),
@@ -1778,5 +2131,5 @@ void OnTick()
    if(!InpManageOrdersEveryTick && !refreshed)
       return;
 
-   TryPlaceCachedSetups();
+   TryPlaceCloseConfirmedMarketSetups();
 }

@@ -1,147 +1,241 @@
-# H0005 Reversal Fixed-R Touch Execution — Build 1.13
+# H0005 Reversal Structural-Target-Capped Execution — Build 1.25
 
-This document locks the live execution contract for `E0001_ReversalOneToOne.mq5` build `1.13`.
+This document is the execution contract for `E0001_ReversalOneToOne.mq5`.
 
-The executor is not a new strategy. It is a live adapter for the already-tested Hypothesis 5 reversal leg:
+## Execution cadence
 
-```text
-H0005
-regime = REVERSAL
-entry = structural zone touch limit
-stop = far side of the same zone
-reward = fixed R, default 1.0
-```
+The strategy is evaluated once per closed candle by default:
 
-## Regime gate
+- `InpRefreshSetupsOnNewBarOnly = true`
+- `InpManageOrdersEveryTick = false`
+- `InpUseClosedBarsOnly = true`
 
-The EA is allowed to maintain pending orders only when the latest M0002 branch outcome is:
+The current forming candle is excluded from structural/regime calculations so the touch zone is not mutated by the same candle that is about to trade it.
 
-```text
-DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT
-```
+## Source of truth
 
-When the latest branch becomes continuation or no reversal regime is available, all managed pending orders for the EA magic/comment prefix are deleted. Open positions are not force-closed; they remain managed by their own SL/TP.
+Execution does not invent its own market logic. It reuses the hypothesis modules:
 
-## Zone model
+- M0001 builds node territories and node consumption/hunt state.
+- M0002 builds the last completed branch outcome: reversal or continuation.
+- E0001 only translates the active H0005 reversal state into pending limit orders.
 
-For a node price `N` and live expansion extreme `E`, the M0001 zone is built exactly from the project territory function:
+## Regime input modes
 
-```text
-distance   = abs(E - N)
-half_width = distance * (1 - zone_ratio)
-zone_lower = N - half_width
-zone_upper = N + half_width
-```
+`InpRegimeBasis` has two modes:
 
-With `zone_ratio = 0.90`, the zone is the 10% band above and below the node price relative to the current expansion distance.
+1. `E0001_REGIME_LAST_COMPLETED_BRANCH`
+   - Trade only when the latest completed M0002 branch outcome is `REVERSAL_AFTER_EXIT`.
 
-## Spread-aware entry, stop, and TP
+2. `E0001_REGIME_HUMAN_CONTEXT_COMBINED`
+   - `InpHumanContextSignal = NEUTRAL`: use the latest completed M0002 branch.
+   - `InpHumanContextSignal = REVERSAL`: explicitly gate execution as reversal while still using M0001/M0002 nodes.
+   - `InpHumanContextSignal = CONTINUATION`: block reversal execution and delete managed pending orders.
 
-The executor uses pending limits only. Market catch is disabled by default.
+## Node selection
 
-### Buy from LOW node
+When the effective regime is reversal:
 
-```text
-raw touch edge = zone_upper
-entry          = zone_upper + spread
-stop           = zone_lower
-risk           = entry - stop
-tp             = entry + risk * InpRewardR
-```
+- Choose the nearest LOW-node buy limits below the market.
+- Choose the nearest HIGH-node sell limits above the market.
+- Defaults:
+  - `InpBuyLimitSlots = 3`
+  - `InpSellLimitSlots = 3`
+- Setting a slot input to `0` means unlimited for that side.
 
-The buy limit is moved up by the current spread because a buy opens on Ask. This makes the order fire when the Bid-side structural touch edge is reached, without needing a market order.
+This keeps the next few possible reversals armed so a stop on the first order does not cause the next nearby touch to be missed.
 
-### Sell from HIGH node
+## Spread-aware order geometry
+
+For a LOW node:
 
 ```text
-raw touch edge = zone_lower
-entry          = zone_lower
-stop           = zone_upper + spread
-risk           = stop - entry
-tp             = entry - risk * InpRewardR
+Buy Limit entry = zone_upper + spread
+Stop            = zone_lower
+Risk            = entry - stop
+Fixed-R cap     = entry + Risk * InpRewardR
+Opposite target = first HIGH-node touch edge in the profit path, i.e. that HIGH zone_lower
+TP              = Opposite target by default; if InpUseFixedRExitIfCloser=true and Fixed-R cap is closer, use Fixed-R cap
 ```
 
-The sell stop is moved up by the current spread because a short stop closes on Ask. TP is computed from that spread-aware risk so the realized reward multiple is not silently compressed by spread.
-
-## Number of pending limits
-
-Build 1.13 changes the meaning of directional slots:
+For a HIGH node:
 
 ```text
-InpBuyLimitSlots  = 0  => keep every active buy-touch setup
-InpSellLimitSlots = 0  => keep every active sell-touch setup
-positive value    => safety cap for that side
+Sell Limit entry = zone_lower
+Stop             = zone_upper + spread
+Risk             = stop - entry
+Fixed-R cap      = entry - Risk * InpRewardR
+Opposite target  = first LOW-node touch edge in the profit path, i.e. that LOW zone_upper
+TP               = Opposite target by default; if InpUseFixedRExitIfCloser=true and Fixed-R cap is closer, use Fixed-R cap
 ```
 
-The default is unlimited on both sides because the purpose is to execute Hypothesis 5 as purely as possible and not miss valid revisits just because a fixed 3+3 grid was already full.
+Default TP is the first valid opposite-node touch in the profit path. `InpRewardR = 1.0` is a reference/cap input: it only becomes the exit if `InpUseFixedRExitIfCloser=true` and the fixed-R target is closer than the opposite touch. If `InpAllowOppositeTouchBelowRewardR=false`, setups whose opposite touch is below the configured R threshold are rejected. If no valid opposite-node target exists, the setup is rejected rather than falling back silently to fixed R.
 
-## Touch and revisit ledger
 
-Each structural node has a stable managed comment:
+## Trading-session filter
+
+The time condition is strict. When enabled, the EA only creates, updates, or keeps managed pending limits inside the configured session:
 
 ```text
-<prefix>R<reward10><B|S>N<node_id>
+InpUseTradingSessionFilter = true
+InpTradingSessionClock = E0001_SESSION_BROKER_TIME
+InpTradingStartHour = 0
+InpTradingStartMinute = 0
+InpTradingEndHour = 23
+InpTradingEndMinute = 59
+InpDeletePendingsOutsideTradingSession = true
 ```
 
-Example:
+E0001 blocks new setup generation, order submission, order modification, and cached setup execution outside the configured session. If `InpDeletePendingsOutsideTradingSession` is true, managed pending orders are force-deleted outside the session regardless of stale-sync settings or near-market protection. Open positions are not force-closed.
 
-```text
-DALR1R10BN245
-DALR1R10SN252
-```
+Session logic supports normal intraday windows, for example `09:00 -> 17:00`, and overnight windows, for example `22:00 -> 02:00`. The start minute is inclusive and the end minute is exclusive, so `09:00 -> 17:00` means `09:00 <= time < 17:00`. Equal start/end bounds are treated as all-day trading to avoid an accidental no-trade trap.
 
-The ledger rule is:
+## Reversal exit
 
-```text
-one fill per touch
-re-arm only after price leaves the touch edge by InpTouchRevisitResetBufferPoints
-then the next return to the same node is a valid revisit
-```
+If the effective regime is not reversal, E0001 deletes all managed pending orders for its magic/prefix. Open positions are not force-closed; they are left to their own SL/TP.
 
-This allows repeated trades on true revisits while preventing duplicate orders during the same touch.
+## Consumption
 
-## Node retirement
-
-A historical touch does not retire a node. Revisits remain tradable while the node is structurally alive.
-
-A node is retired when it is structurally hunted/consumed by the M0001 live territory logic. After that, the executor no longer places orders for that node.
+A structurally hunted/consumed node is retired by the M0001 module and is no longer used. Historical touches do not retire the node by themselves, because revisits are part of the H0005 execution hypothesis.
 
 ## Diagnostics
 
-The EA logs the full reason chain. Important journal tags:
+`DAL_E0001_CYCLE`, `DAL_E0001_LIMIT_ORDER`, `DAL_E0001_PENDING_UPDATE`, and `DAL_E0001_PENDING_DELETE` journal lines report:
+
+- effective regime basis
+- setup count
+- new/modified/deleted orders
+- skipped risk/geometry/touch-lock reasons
+- raw zone edges
+- spread-adjusted entry/stop/TP
+
+
+## H0005 research report
+
+Build 1.18 prints an execution-matched H5 research report from the same M0001/M0002 modules used by live execution.
+
+Inputs:
 
 ```text
-DAL_E0001_BUILD_SANITY
-DAL_E0001_CACHE
-DAL_E0001_LIMIT_ORDER
-DAL_E0001_PENDING_UPDATE
-DAL_E0001_PENDING_DELETE
-DAL_E0001_TOUCH_LOCK
-DAL_E0001_TOUCH_UNLOCK
-DAL_E0001_CYCLE
+InpH5ReportEnabled = false
+InpH5ReportEveryNClosedBars = 1
+InpH5ReportMaxSamples = 300
+InpH5ReportMaxBarsAfterEntry = 0
+InpH5ReportPrintExamples = false
 ```
 
-The cache reason includes counts such as scanned nodes, hunted nodes, build rejects, and selected buy/sell setups. Order logs include raw zone edges, spread, executable entry, stop, TP, risk volume, and broker retcodes.
+The report line is:
 
-## Validation checklist
+```text
+DAL_E0001_H5_RESEARCH_REPORT
+```
 
-1. Compile `E0001_ReversalOneToOne.mq5` cleanly.
-2. Run Strategy Tester in visual mode with `InpLogMode = DAL_EXEC_LOG_ORDERS` or `DAL_EXEC_LOG_VERBOSE`.
-3. Confirm that in reversal regime the EA parks pending limits before touch.
-4. Confirm buy limits sit at `zone_upper + spread` and buy stops at `zone_lower`.
-5. Confirm sell limits sit at `zone_lower` and sell stops at `zone_upper + spread`.
-6. Confirm TP distance equals `spread-aware risk * InpRewardR`.
-7. Confirm continuation regime deletes all managed pending orders.
-8. Confirm a filled touch does not duplicate until price leaves and revisits.
+It reports two blocks of evidence.
+
+### Directional memory
+
+The report scans completed M0002 branch outcomes and prints:
+
+```text
+samples
+reversalSamples
+continuationSamples
+transitions
+directionMemoryHitPct
+memoryVsRandomEdgePct
+revToRev
+revToCont
+pRevAfterRevPct
+contToCont
+contToRev
+pContAfterContPct
+```
+
+This lets us see whether the market has real regime memory compared with a 50/50 random baseline.
+
+### Fixed-R reversal outcome
+
+For every completed reversal branch, the report builds the same near-node H5 setup model as the executor:
+
+```text
+3 nearest LOW-node buy limits below the closed-bar reference price
+3 nearest HIGH-node sell limits above the closed-bar reference price
+entry/SL/TP from the same spread-aware fixed-R geometry
+```
+
+Then it simulates pending-limit paths forward and prints:
+
+```text
+plannedTrades
+buyPlanned
+sellPlanned
+filledTrades
+unfilledTrades
+fillRatePct
+targetHits
+stopHits
+ambiguousSameBar
+openAfterFill
+targetHitPctFilled
+targetHitPctPlanned
+expectancyRConservative
+profitFactorRConservative
+sumRConservative
+setupRejectSamples
+simulationRejects
+```
+
+Same-bar TP+SL ambiguity is counted separately as `ambiguousSameBar` and is treated conservatively as a stop in `expectancyRConservative`, `profitFactorRConservative`, and `sumRConservative`.
+
+This report is intentionally comparable with the EA journal: `plannedTrades` is the theoretical H5 opportunity set, while `DAL_E0001_CYCLE`, `DAL_E0001_LIMIT_ORDER`, and trade history show what the execution engine actually managed to plant and fill.
 
 
-## Release 1.13 include installation note
+## Build 1.17 compile note
 
-MetaEditor resolves angle-bracket includes such as `<DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>` from the terminal-level `MQL5/Include` directory. If the EA source is updated inside `MQL5/Shared Projects/decision-alpha-lab` but the terminal include copy remains old, the compiler can report `wrong parameters count, 17 passed, but 15 requires` and missing setup fields such as `raw_entry_edge`.
+Build 1.17 splits the initialization sanity journal line into four smaller `Print()` calls. MQL5 has a practical argument-count limit for `Print`, and the build 1.16 one-line sanity report could fail compile with `wrong parameters count` on the init log call. The execution contract is unchanged.
 
-For live compilation, keep these two copies synchronized:
 
-- repository source: `decision-alpha-lab/mql5/Include/DecisionAlphaLab/...`
-- terminal include source: `MQL5/Include/DecisionAlphaLab/...`
+## Build 1.18 strict time gate note
 
-The release installer copies the updated include tree to the terminal-level include directory before compilation.
+Build 1.18 makes the session gate strict for execution. Outside the configured time window, E0001 clears its setup cache, blocks all new order submission/modification, and force-deletes all managed pending limit orders when `InpDeletePendingsOutsideTradingSession=true`. This deletion path no longer depends on stale-sync inputs and does not protect near-market pending orders outside the session.
+
+The configured session is interpreted as start-inclusive / end-exclusive: `start <= current_time < end`. Overnight windows are supported with the same rule. Equal start and end still mean all-day trading.
+
+
+## Build 1.20 — strict touch/revisit ledger
+
+This build keeps the H5 original-hypothesis report out of the execution EA. It only changes the execution ledger. A structural setup remains visible to the EA even when the current tick is already inside the touch zone, so the EA can lock that touch episode and avoid planting another limit until price exits the edge by `InpTouchRevisitResetBufferPoints` and later revisits it. Locked touch states are not pruned just because a node temporarily falls out of the 3+3 near-node cache, because that would allow duplicate limits inside the same touch.
+
+
+## Build 1.21 — node-zone touch lock
+
+This build fixes the duplicate same-node touch problem. The touch/revisit ledger is now keyed by structural `node_id + direction`, not only by the broker order comment. Once a node is touched or its limit is filled, that node-side is locked as an active touch episode. The EA will not plant or recreate another limit for the same node while price remains inside the same node zone.
+
+Unlock/re-arm now requires a full zone exit, not just a small move away from the order entry:
+
+- LOW-node buy lock re-arms only after `ask > zone_upper + InpTouchRevisitResetBufferPoints * point`.
+- HIGH-node sell lock re-arms only after `bid < zone_lower - InpTouchRevisitResetBufferPoints * point`.
+
+A move through the far side of the zone is treated as node consumption/hunt by the structural modules and is not considered a valid same-node revisit. This prevents repeated entries on the same node while the market is still in the original touch episode.
+
+`InpAllowNodeRevisitRearm=true` keeps the original H5 revisit behavior: after a full exit, a later return can receive a new limit. Setting it to `false` makes a touched node lock forever after its first touch/fill within the test run.
+
+## Build 1.24 TP policy
+
+Build 1.24 changes the TP model for E0001 to first-opposite-node touch by default:
+
+```text
+TP = first opposite-node touch by default; optional InpUseFixedRExitIfCloser can exit at InpRewardR only if it is closer
+```
+
+This keeps the target aligned with the next structural opposing touch while preserving the 1R ceiling by default. For buys from LOW nodes, the opposing touch is the lower edge of the nearest active HIGH-node zone above entry. For sells from HIGH nodes, the opposing touch is the upper edge of the nearest active LOW-node zone below entry.
+
+
+## Build 1.24 TP policy correction
+
+Build 1.24 corrects the TP priority for both E0001 and E0002. The primary target is the first opposite-node touch. `InpUseFixedRExitIfCloser=false` by default, so `InpRewardR` does not cap TP unless explicitly enabled. When enabled, fixed-R can only close earlier than the opposite touch; it never extends TP beyond that structural target. `InpAllowOppositeTouchBelowRewardR=false` rejects trades whose first opposite-node touch is below the configured R reference instead of taking a sub-R target. Node touch/consume/revisit locking remains a separate execution ledger and is not part of TP selection.
+
+
+## Build 1.25 speed pass
+
+Build 1.25 does not change the H5 structural TP policy or node-zone touch/revisit ledger. It reduces tester load by making logs error-only by default, disabling the H5 execution-matched report by default in E0001, throttling outside-session pending purges to once per bar, and moving build/cycle diagnostics behind order/verbose logging. Use `InpLogMode=DAL_EXEC_LOG_ORDERS` or `DAL_EXEC_LOG_VERBOSE` only when diagnosing a specific run.
