@@ -244,3 +244,19 @@ Build 1.25 does not change the H5 structural TP policy or node-zone touch/revisi
 ## Minimal input surface
 
 Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.
+
+## Higher-timeframe regime filter
+
+All four execution experts now support an optional higher-timeframe regime gate. The default is off, so existing tests are unchanged.
+
+Inputs:
+
+- `InpUseHigherTimeframeRegimeFilter` — enable/disable the higher-timeframe regime confirmation.
+- `InpHigherRegimeTimeframe` — timeframe used for the higher-timeframe M0001/M0002 regime calculation, default `PERIOD_H1`.
+
+Behavior:
+
+- E0001 and E0002 require the higher timeframe to be `REVERSAL` before allowing reversal entries.
+- E0003 and E0004 require the higher timeframe to be `CONTINUATION` before allowing continuation entries.
+- The higher-timeframe filter is a gate only; it does not change node construction, touch locking, TP policy, or trade management.
+

@@ -3,7 +3,7 @@
 //| Continuation entry after close-hunted node, ATR risk, regime exit  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "Execution module E0003: continuation close-hunt market entries, 3ATR risk stop, exit on regime change."
 
 #include <Trade/Trade.mqh>
@@ -44,6 +44,10 @@ enum ENUM_E0003HumanContextSignal
 input ENUM_E0003RegimeBasis InpRegimeBasis = E0003_REGIME_LAST_COMPLETED_BRANCH;
 input ENUM_E0003HumanContextSignal InpHumanContextSignal = E0003_HUMAN_CONTEXT_NEUTRAL;
 
+// Optional higher-timeframe regime filter. Off by default to keep current tests unchanged.
+input bool InpUseHigherTimeframeRegimeFilter = false;
+input ENUM_TIMEFRAMES InpHigherRegimeTimeframe = PERIOD_H1;
+
 // Trading session. Broker time, strict: start <= time < end.
 input bool InpUseTradingSessionFilter = true;
 input int InpTradingStartHour = 0;
@@ -60,7 +64,7 @@ input int InpCloseHuntBufferPoints = 0;
 input int InpMaxEntriesPerBar = 3;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0003_BUILD "1.00"
+#define DAL_E0003_BUILD "1.01"
 string InpOrderCommentPrefix = "DALC3";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -545,6 +549,62 @@ int E0003_CloseManagedPositions(const string context)
    return closed;
 }
 
+bool E0003_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required_outcome, string &reason)
+{
+   if(!InpUseHigherTimeframeRegimeFilter)
+   {
+      reason = "htfRegimeFilter=OFF";
+      return true;
+   }
+
+   ENUM_TIMEFRAMES htf = InpHigherRegimeTimeframe;
+   if(htf == PERIOD_CURRENT)
+      htf = LabTimeframe();
+
+   DALBar htf_bars[];
+   int htf_bars_count = DAL_LoadBarsChronological(LabSymbol(), htf, InpBars, true, htf_bars);
+   if(InpUseClosedBarsOnly && htf_bars_count > 1)
+   {
+      htf_bars_count--;
+      ArrayResize(htf_bars, htf_bars_count);
+   }
+
+   if(htf_bars_count <= InpL * 2 + 10)
+   {
+      reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf) + "*reason=not_enough_bars";
+      return false;
+   }
+
+   DALM0001Config htf_m1;
+   E0003_BuildM0001Config(htf_m1);
+
+   DALLRuleNode htf_nodes[];
+   int htf_nodes_count = DAL_DetectConfirmedStructuralNodes(htf_bars, htf_bars_count, htf_m1.L, htf_nodes);
+
+   DALM0001Event htf_events[];
+   int htf_events_count = DAL_M0001ComputeEvents(htf_bars, htf_bars_count, htf_nodes, htf_nodes_count, htf_m1, htf_events);
+
+   DALM0002Config htf_m2;
+   E0003_BuildM0002Config(htf_m2);
+
+   DALM0002BranchSample htf_last_sample;
+   int htf_last_event_index = -1;
+   bool htf_has_last_sample = DAL_ExecFindLatestBranchSampleFast(htf_events, htf_events_count, htf_bars, htf_bars_count, 0, htf_m2, htf_last_sample, htf_last_event_index);
+   if(!htf_has_last_sample)
+   {
+      reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf) + "*reason=no_last_branch";
+      return false;
+   }
+
+   bool pass = (htf_last_sample.outcome == required_outcome);
+   reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf)
+      + "*last=" + E0003_RegimeOutcomeToString(htf_last_sample.outcome)
+      + "*required=" + E0003_RegimeOutcomeToString(required_outcome)
+      + "*pass=" + DAL_BoolToString(pass);
+   return pass;
+}
+
+
 bool E0003_LoadClosedContext(
    DALBar &bars[],
    int &bars_count,
@@ -593,6 +653,21 @@ bool E0003_LoadClosedContext(
    string regime_reason = "";
    is_continuation = E0003_ResolveEffectiveContinuation(last_sample, has_last_sample, regime_reason);
    reason = regime_reason;
+
+   if(is_continuation)
+   {
+      string htf_regime_reason = "";
+      if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, htf_regime_reason))
+      {
+         is_continuation = false;
+         reason = regime_reason + "*" + htf_regime_reason;
+      }
+      else
+      {
+         reason = regime_reason + "*" + htf_regime_reason;
+      }
+   }
+
    return has_last_sample;
 }
 
@@ -693,6 +768,8 @@ int OnInit()
    Print("DAL_E0003_BUILD_SANITY *** build=", DAL_E0003_BUILD,
       "*symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
+      "*htfRegimeFilter=", DAL_BoolToString(InpUseHigherTimeframeRegimeFilter),
+      "*htfTf=", EnumToString(InpHigherRegimeTimeframe),
       "*module=EXECUTION_H0005_CONTINUATION_CLOSE_HUNT",
       "*entry=close_hunted_node_market_next_bar",
       "*riskStop=ATR_MULTIPLE",

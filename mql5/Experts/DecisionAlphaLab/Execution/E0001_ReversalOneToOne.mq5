@@ -3,7 +3,7 @@
 //| Exact H5 reversal: per-candle near-node limits + touch ledger       |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.26"
+#property version   "1.27"
 #property description "Execution module for H0005 reversal fixed-R: per-candle near-node touch limits with strict trading-session gate and node-zone touch ledger."
 
 #include <Trade/Trade.mqh>
@@ -43,6 +43,10 @@ enum ENUM_E0001HumanContextSignal
 
 input ENUM_E0001RegimeBasis InpRegimeBasis = E0001_REGIME_LAST_COMPLETED_BRANCH;
 input ENUM_E0001HumanContextSignal InpHumanContextSignal = E0001_HUMAN_CONTEXT_NEUTRAL;
+
+// Optional higher-timeframe regime filter. Off by default to keep current tests unchanged.
+input bool InpUseHigherTimeframeRegimeFilter = false;
+input ENUM_TIMEFRAMES InpHigherRegimeTimeframe = PERIOD_H1;
 
 // Trading session. Broker time, strict: start <= time < end.
 input bool InpUseTradingSessionFilter = true;
@@ -110,7 +114,7 @@ double InpPendingProtectStopFraction = 0.50;
 bool InpAllowMarketCatchWhenAlreadyTouching = false;
 bool InpMarketCatchRequiresPriceBeforeStop = true;
 
-#define DAL_E0001_BUILD "1.26"
+#define DAL_E0001_BUILD "1.27"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -523,6 +527,62 @@ bool E0001_ResolveEffectiveRegime(DALM0002BranchSample &last_sample, const bool 
 }
 
 
+bool E0001_PassesHigherTimeframeRegimeFilter(const ENUM_DALM0002Outcome required_outcome, string &reason)
+{
+   if(!InpUseHigherTimeframeRegimeFilter)
+   {
+      reason = "htfRegimeFilter=OFF";
+      return true;
+   }
+
+   ENUM_TIMEFRAMES htf = InpHigherRegimeTimeframe;
+   if(htf == PERIOD_CURRENT)
+      htf = LabTimeframe();
+
+   DALBar htf_bars[];
+   int htf_bars_count = DAL_LoadBarsChronological(LabSymbol(), htf, InpBars, true, htf_bars);
+   if(InpUseClosedBarsOnly && htf_bars_count > 1)
+   {
+      htf_bars_count--;
+      ArrayResize(htf_bars, htf_bars_count);
+   }
+
+   if(htf_bars_count <= InpL * 2 + 10)
+   {
+      reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf) + "*reason=not_enough_bars";
+      return false;
+   }
+
+   DALM0001Config htf_m1;
+   BuildM0001Config(htf_m1);
+
+   DALLRuleNode htf_nodes[];
+   int htf_nodes_count = DAL_DetectConfirmedStructuralNodes(htf_bars, htf_bars_count, htf_m1.L, htf_nodes);
+
+   DALM0001Event htf_events[];
+   int htf_events_count = DAL_M0001ComputeEvents(htf_bars, htf_bars_count, htf_nodes, htf_nodes_count, htf_m1, htf_events);
+
+   DALM0002Config htf_m2;
+   BuildM0002Config(htf_m2);
+
+   DALM0002BranchSample htf_last_sample;
+   int htf_last_event_index = -1;
+   bool htf_has_last_sample = DAL_ExecFindLatestBranchSampleFast(htf_events, htf_events_count, htf_bars, htf_bars_count, 0, htf_m2, htf_last_sample, htf_last_event_index);
+   if(!htf_has_last_sample)
+   {
+      reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf) + "*reason=no_last_branch";
+      return false;
+   }
+
+   bool pass = (htf_last_sample.outcome == required_outcome);
+   reason = "htfRegimeFilter=ON*tf=" + EnumToString(htf)
+      + "*last=" + E0001_RegimeOutcomeToString(htf_last_sample.outcome)
+      + "*required=" + E0001_RegimeOutcomeToString(required_outcome)
+      + "*pass=" + DAL_BoolToString(pass);
+   return pass;
+}
+
+
 void E0001_MaybePrintH5ResearchReport(
    const DALBar &bars[],
    const int bars_count,
@@ -640,6 +700,14 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
    if(!E0001_ResolveEffectiveRegime(last_sample, has_last_sample, regime_reason))
    {
       reason = regime_reason;
+      return false;
+   }
+
+
+   string htf_regime_reason = "";
+   if(!E0001_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT, htf_regime_reason))
+   {
+      reason = regime_reason + "*" + htf_regime_reason;
       return false;
    }
 
@@ -1609,6 +1677,8 @@ int OnInit()
          "*h5Exact=PER_CANDLE_REVERSAL_NEAR_NODE_TOUCH_LIMITS",
          "*regimeBasis=", EnumToString(InpRegimeBasis),
          "*humanContext=", EnumToString(InpHumanContextSignal),
+         "*htfRegimeFilter=", DAL_BoolToString(InpUseHigherTimeframeRegimeFilter),
+         "*htfTf=", EnumToString(InpHigherRegimeTimeframe),
          "*useClosedBarsOnly=", DAL_BoolToString(InpUseClosedBarsOnly));
 
       Print("DAL_E0001_BUILD_SANITY_B *** build=", DAL_E0001_BUILD,
