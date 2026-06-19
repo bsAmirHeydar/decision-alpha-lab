@@ -73,3 +73,8 @@ E0001 and E0002 now default to TP at the first opposite-node touch. `InpUseFixed
 E0001 build 1.25 and E0002 build 1.03 keep the same H5 entry/TP/touch-lock contract, but use faster defaults and quieter logs. `InpLogMode` now defaults to `DAL_EXEC_LOG_ERRORS`, build-sanity and cycle diagnostics print only when order logging is enabled, and `InpH5ReportEnabled` is off by default in E0001 for execution tests. E0002 also fixes the close-confirmed market TP diagnostic compile error by returning market-entry TP details explicitly from the order helper.
 
 Outside-session pending cleanup is throttled to once per bar instead of every tick. E0002 is pure market execution, so it no longer scans/deletes managed pending orders on every closed-candle signal pass; startup and session-close guards handle leftovers.
+
+
+## Minimal input surface
+
+Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.

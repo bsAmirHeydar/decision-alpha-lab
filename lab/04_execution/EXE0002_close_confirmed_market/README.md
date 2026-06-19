@@ -45,3 +45,8 @@ TP defaults to the first opposite-node touch. If `InpUseFixedRExitIfCloser=true`
 ## Build 1.03 performance defaults
 
 The compile issue in market TP diagnostics is fixed. E0002 defaults to error-only logging and avoids repeated pending-order scans inside the normal close-confirmed market cycle.
+
+
+## Minimal input surface
+
+Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.

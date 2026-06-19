@@ -96,3 +96,8 @@ This allows E0001 and E0002 to be tested separately without mixing managed order
 Build 1.03 fixes the close-confirmed market diagnostic compile error from undeclared `tp_model`, `fixed_r_tp`, and `opposite_touch_r` variables. Market-entry TP diagnostics are now returned by the order helper and printed only when order diagnostics are enabled or a real send fails with error logging enabled.
 
 E0002 remains a pure market-after-close Expert. It no longer scans/deletes managed pending orders on every signal pass; pending cleanup is reserved for startup/session-close guards. Default logging is `DAL_EXEC_LOG_ERRORS` for faster Strategy Tester runs.
+
+
+## Minimal input surface
+
+Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.

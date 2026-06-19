@@ -239,3 +239,8 @@ Build 1.24 corrects the TP priority for both E0001 and E0002. The primary target
 ## Build 1.25 speed pass
 
 Build 1.25 does not change the H5 structural TP policy or node-zone touch/revisit ledger. It reduces tester load by making logs error-only by default, disabling the H5 execution-matched report by default in E0001, throttling outside-session pending purges to once per bar, and moving build/cycle diagnostics behind order/verbose logging. Use `InpLogMode=DAL_EXEC_LOG_ORDERS` or `DAL_EXEC_LOG_VERBOSE` only when diagnosing a specific run.
+
+
+## Minimal input surface
+
+Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.

@@ -109,3 +109,8 @@ TP defaults to the first opposite-node touch. If `InpUseFixedRExitIfCloser=true`
 ## Build 1.25 performance defaults
 
 Execution behavior is unchanged, but the EA is quieter and faster by default: `InpLogMode=DAL_EXEC_LOG_ERRORS`, `InpH5ReportEnabled=false`, outside-session pending purges are throttled to once per bar, and build/cycle diagnostics require order/verbose logging.
+
+
+## Minimal input surface
+
+Release 1.26 / E0002 1.04 hides diagnostic and engine-maintenance knobs from the Strategy Tester input panel. Public inputs are limited to symbol/timeframe/bars, core H5 structure (`InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`), regime source, trading-session window, risk/target policy, near-node slots, and node revisit settings. Heavy reports, verbose logs, pending-maintenance flags, market-catch switches, and speed/runtime controls are fixed internally for faster and cleaner tests.

@@ -3,7 +3,7 @@
 //| Exact H5 reversal: per-candle near-node limits + touch ledger       |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.24"
+#property version   "1.26"
 #property description "Execution module for H0005 reversal fixed-R: per-candle near-node touch limits with strict trading-session gate and node-zone touch ledger."
 
 #include <Trade/Trade.mqh>
@@ -16,22 +16,18 @@
 #include <DecisionAlphaLab/Execution/DAL_ExecOrders.mqh>
 #include <DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>
 
+// Minimal public inputs. Everything else is fixed internally to keep the EA fast and testable.
 input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
 input int InpBars = 1500;
 
-// Structural research inputs reused from M0001/M0002.
+// H5 structure.
 input int InpL = 5;
 input double InpZoneRatio = 0.90;
 input int InpExitGap = 6;
 input ENUM_DALM0001ConsumeMode InpConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
-input int InpOutcomeCandleOffsetAfterExit = 0;
-input int InpBrokerUtcOffsetHours = 0;
-input int InpRegimeLookbackBars = 100;
 
-// Regime basis. LAST_COMPLETED_BRANCH uses the last fully measured M0002
-// reversal/continuation branch. HUMAN_CONTEXT_COMBINED lets a human/context
-// signal override or block the last branch without changing M0001/M0002 logic.
+// Regime source.
 enum ENUM_E0001RegimeBasis
 {
    E0001_REGIME_LAST_COMPLETED_BRANCH = 0,
@@ -47,47 +43,51 @@ enum ENUM_E0001HumanContextSignal
 
 input ENUM_E0001RegimeBasis InpRegimeBasis = E0001_REGIME_LAST_COMPLETED_BRANCH;
 input ENUM_E0001HumanContextSignal InpHumanContextSignal = E0001_HUMAN_CONTEXT_NEUTRAL;
-input bool InpUseClosedBarsOnly = true;
 
-// Strict trading-session gate. When enabled, E0001 only creates, updates, or keeps managed pending orders inside the configured session.
+// Trading session. Broker time, strict: start <= time < end.
+input bool InpUseTradingSessionFilter = true;
+input int InpTradingStartHour = 0;
+input int InpTradingStartMinute = 0;
+input int InpTradingEndHour = 23;
+input int InpTradingEndMinute = 59;
+
+// Risk / target policy.
+input long InpMagicNumber = 5001001;
+input double InpRiskCash = 100.0;
+input double InpRewardR = 1.0;
+input bool InpUseFixedRExitIfCloser = false;
+input bool InpAllowOppositeTouchBelowRewardR = true;
+
+// E0001 limit grid and node touch ledger.
+input int InpBuyLimitSlots = 3;
+input int InpSellLimitSlots = 3;
+input int InpTouchRevisitResetBufferPoints = 10;
+input bool InpAllowNodeRevisitRearm = true;
+
+// Internal fixed policy. These are intentionally not tester inputs.
+int InpOutcomeCandleOffsetAfterExit = 0;
+int InpBrokerUtcOffsetHours = 0;
+int InpRegimeLookbackBars = 100;
+bool InpUseClosedBarsOnly = true;
 enum ENUM_E0001SessionClock
 {
    E0001_SESSION_BROKER_TIME = 0,
    E0001_SESSION_GMT = 1
 };
-
-input bool InpUseTradingSessionFilter = true;
-input ENUM_E0001SessionClock InpTradingSessionClock = E0001_SESSION_BROKER_TIME;
-input int InpTradingStartHour = 0;
-input int InpTradingStartMinute = 0;
-input int InpTradingEndHour = 23;
-input int InpTradingEndMinute = 59;
-input bool InpDeletePendingsOutsideTradingSession = true;
-
-// H0005 research report printed from the same M0001/M0002 modules used by execution.
-// This lets Strategy Tester compare theoretical H5 reversal memory / fixed-R results
-// against the EA's actual pending-order journal.
-input bool InpH5ReportEnabled = false; // off by default for fast execution; enable only when researching.
-input int InpH5ReportEveryNClosedBars = 1; // 1 = print on every strategy refresh/new closed candle. Raise for faster long tests.
-input int InpH5ReportMaxSamples = 300;     // Latest M0002 completed branches to include. 0 = all available.
-input int InpH5ReportMaxBarsAfterEntry = 0; // 0 = simulate until data end; positive caps each fixed-R path.
-input bool InpH5ReportPrintExamples = false; // Verbose examples are intentionally off by default.
-
-// Execution policy.
-input bool InpTradingEnabled = true; // Execution EA default: send orders unless explicitly disabled.
-input long InpMagicNumber = 5001001;
-input double InpRiskCash = 100.0;
-input double InpCommissionPerLotRoundTurn = 0.0;
-input double InpRewardR = 1.0; // R reference. TP defaults to first opposite-node touch; optional cap can exit earlier if closer.
-input bool InpUseFixedRExitIfCloser = false; // If true, close at InpRewardR only when that R target is closer than the first opposite-node touch.
-input bool InpAllowOppositeTouchBelowRewardR = true; // If false, skip trades whose first opposite-node touch is below InpRewardR.
-input int InpMaxSimultaneousTrades = -1; // -1 = no cap. Pure H5 execution must not miss valid revisits because of a global cap.
-input bool InpAllowOppositeTrades = true;
-input bool InpAllowMinLotIfRiskTooSmall = false;
-input int InpOrderExpirationMinutes = 0;
-input string InpOrderCommentPrefix = "DALR1"; // Compact managed prefix; comments are capped before send.
-
-// Runtime / speed policy.
+ENUM_E0001SessionClock InpTradingSessionClock = E0001_SESSION_BROKER_TIME;
+bool InpDeletePendingsOutsideTradingSession = true;
+bool InpH5ReportEnabled = false;
+int InpH5ReportEveryNClosedBars = 1;
+int InpH5ReportMaxSamples = 300;
+int InpH5ReportMaxBarsAfterEntry = 0;
+bool InpH5ReportPrintExamples = false;
+bool InpTradingEnabled = true;
+double InpCommissionPerLotRoundTurn = 0.0;
+int InpMaxSimultaneousTrades = -1;
+bool InpAllowOppositeTrades = true;
+bool InpAllowMinLotIfRiskTooSmall = false;
+int InpOrderExpirationMinutes = 0;
+string InpOrderCommentPrefix = "DALR1";
 enum ENUM_DALExecLogMode
 {
    DAL_EXEC_LOG_NONE = 0,
@@ -95,32 +95,22 @@ enum ENUM_DALExecLogMode
    DAL_EXEC_LOG_ORDERS = 2,
    DAL_EXEC_LOG_VERBOSE = 3
 };
+int InpMaxZoneScanNodes = 0;
+bool InpRefreshSetupsOnNewBarOnly = true;
+bool InpManageOrdersEveryTick = false;
+bool InpUpdateChartComment = false;
+ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ERRORS;
+bool InpSyncManagedPendings = true;
+bool InpCancelStaleManagedPendings = true;
+bool InpCancelManagedPendingsAfterEntry = false;
+bool InpUpdateExistingManagedPendings = true;
+bool InpProtectPendingWhenPriceApproaches = true;
+int InpPendingProtectDistancePoints = 20;
+double InpPendingProtectStopFraction = 0.50;
+bool InpAllowMarketCatchWhenAlreadyTouching = false;
+bool InpMarketCatchRequiresPriceBeforeStop = true;
 
-input int InpBuyLimitSlots = 3;  // nearest LOW-node buy limits below market. 0 = unlimited.
-input int InpSellLimitSlots = 3; // nearest HIGH-node sell limits above market. 0 = unlimited.
-input bool InpRefreshSetupsOnNewBarOnly = true; // exact execution: rebuild strategy once per closed candle.
-input bool InpManageOrdersEveryTick = false;
-input int InpMaxZoneScanNodes = 0; // 0 = scan all active nodes; exact H0005 mode avoids arbitrary candidate pruning.
-input bool InpUpdateChartComment = false;
-input ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ERRORS; // fast default: errors only. Use ORDERS/VERBOSE for diagnostics.
-
-// Pending-order sync. This is stable-first: do not chase/replace near-fill orders.
-input bool InpSyncManagedPendings = true;
-input bool InpCancelStaleManagedPendings = true;
-input bool InpCancelManagedPendingsAfterEntry = false; // Multi-touch grid: keep other candidates alive after one fill.
-input bool InpUpdateExistingManagedPendings = true;
-input bool InpProtectPendingWhenPriceApproaches = true;
-input int InpPendingProtectDistancePoints = 20;
-input double InpPendingProtectStopFraction = 0.50;
-
-// H5 live touch catch. If price has already arrived inside the zone before a
-// limit can be parked, enter at market with the same stop model and true R TP.
-input bool InpAllowMarketCatchWhenAlreadyTouching = false; // Exact mode is limit-only; if price is already inside, do not chase with market.
-input bool InpMarketCatchRequiresPriceBeforeStop = true;
-input int InpTouchRevisitResetBufferPoints = 10;
-input bool InpAllowNodeRevisitRearm = true; // If false, a touched node is locked forever after its first touch/fill.
-
-#define DAL_E0001_BUILD "1.25"
+#define DAL_E0001_BUILD "1.26"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
