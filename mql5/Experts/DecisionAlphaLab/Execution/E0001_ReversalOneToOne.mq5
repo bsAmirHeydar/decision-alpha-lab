@@ -3,7 +3,7 @@
 //| Execution layer: raw reversal 1:R pending-limit executor.          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
+#property version   "1.04"
 #property description "Execution module for H0005 reversal regime: limit entry at structural zone touch, zone-edge stop, fixed R take-profit."
 
 #include <Trade/Trade.mqh>
@@ -34,12 +34,12 @@ input bool InpTradingEnabled = false;
 input long InpMagicNumber = 5001001;
 input double InpRiskCash = 100.0;
 input double InpCommissionPerLotRoundTurn = 0.0;
-input double InpRewardR = 1.0;
+input double InpRewardR = 1.0; // H0005 fixed-reward R1 default; change only for intentional variants.
 input int InpMaxSimultaneousTrades = 1;
 input bool InpAllowOppositeTrades = false;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input int InpOrderExpirationMinutes = 0;
-input string InpOrderCommentPrefix = "DAL_E0001_REV_1R";
+input string InpOrderCommentPrefix = "DAL_E0001_H5_REV_R1";
 
 // Runtime / speed policy.
 enum ENUM_DALExecLogMode
@@ -52,18 +52,21 @@ enum ENUM_DALExecLogMode
 
 input bool InpPlaceOneOrderPerSetup = true;
 input bool InpEvaluateOnNewBarOnly = true;
-input int InpMaxZoneScanNodes = 300;
+input int InpMaxZoneScanNodes = 0; // 0 = scan all active nodes; exact H0005 mode avoids arbitrary candidate pruning.
 input bool InpUpdateChartComment = false;
 input ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ERRORS;
 
 // Pending-order update engine.
 input bool InpUpdatePendingOrders = true;
-input bool InpReplacePendingWithCloserSetup = true;
-input bool InpCancelPendingWhenNoSetup = true;
-input bool InpCancelExtraManagedPendings = true;
+input bool InpReplacePendingWithCloserSetup = false;
+input bool InpCancelPendingWhenNoSetup = false;
+input bool InpCancelExtraManagedPendings = false;
 input int InpPendingReplaceMinImprovePoints = 2;
+input bool InpProtectPendingWhenPriceApproaches = true;
+input int InpPendingProtectDistancePoints = 20;
+input double InpPendingProtectStopFraction = 0.50;
 
-#define DAL_E0001_BUILD "1.02"
+#define DAL_E0001_BUILD "1.04"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -158,14 +161,16 @@ void UpdateComment(const string state)
    );
 }
 
-bool BuildCurrentSetup(DALExecReversalSetup &setup)
+bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
 {
+   ArrayResize(setups, 0);
+   reason = "not_built";
+
    DALBar bars[];
    int bars_count = DAL_LoadBarsChronological(LabSymbol(), LabTimeframe(), InpBars, true, bars);
    if(bars_count <= InpL * 2 + 10)
    {
-      DAL_ExecResetReversalSetup(setup);
-      setup.reason = "not_enough_bars";
+      reason = "not_enough_bars";
       return false;
    }
 
@@ -185,7 +190,8 @@ bool BuildCurrentSetup(DALExecReversalSetup &setup)
    int last_event_index = -1;
    bool has_last_sample = DAL_ExecFindLatestBranchSampleFast(events, events_count, bars, bars_count, 0, m2, last_sample, last_event_index);
 
-   return DAL_ExecBuildReversalOneToOneSetup(
+   int n = DAL_ExecCollectH5ReversalRSetups(
+      LabSymbol(),
       bars,
       bars_count,
       nodes,
@@ -198,8 +204,26 @@ bool BuildCurrentSetup(DALExecReversalSetup &setup)
       InpRewardR,
       InpOrderCommentPrefix,
       InpMaxZoneScanNodes,
-      setup
+      setups,
+      reason
    );
+
+   return (n > 0);
+}
+
+bool BuildCurrentSetup(DALExecReversalSetup &setup)
+{
+   DALExecReversalSetup setups[];
+   string reason = "";
+   bool ok = BuildCurrentSetups(setups, reason);
+   if(!ok || ArraySize(setups) <= 0)
+   {
+      DAL_ExecResetReversalSetup(setup);
+      setup.reason = reason;
+      return false;
+   }
+   setup = setups[0];
+   return true;
 }
 
 bool SetupPricesAlmostSame(const DALExecReversalSetup &setup, const DALExecPendingOrder &pending)
@@ -235,6 +259,44 @@ bool NewSetupIsCloserThanPending(const DALExecReversalSetup &setup, const DALExe
    return (new_distance + min_improve < old_distance);
 }
 
+bool PendingIsProtectedNearMarket(const DALExecPendingOrder &pending)
+{
+   if(!pending.found || !InpProtectPendingWhenPriceApproaches)
+      return false;
+
+   double point = SymbolInfoDouble(LabSymbol(), SYMBOL_POINT);
+   if(point <= 0.0)
+      point = 0.00000001;
+
+   double stop_distance = MathAbs(pending.price - pending.sl);
+   double protect_distance = MathMax(0, InpPendingProtectDistancePoints) * point;
+   if(stop_distance > 0.0 && InpPendingProtectStopFraction > 0.0)
+      protect_distance = MathMax(protect_distance, stop_distance * InpPendingProtectStopFraction);
+
+   if(protect_distance <= 0.0)
+      return false;
+
+   double market_distance = DAL_ExecPendingDistanceToMarket(LabSymbol(), pending.direction, pending.price);
+   return (market_distance <= protect_distance);
+}
+
+bool PendingMatchesLiveStrategySide(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup)
+{
+   if(!pending.found || !setup.valid)
+      return false;
+   return (pending.direction == setup.direction);
+}
+
+bool MultiplePendingSetupsAllowed()
+{
+   return (InpMaxSimultaneousTrades < 0 || InpMaxSimultaneousTrades > 1);
+}
+
+bool PendingIsSameSetupComment(const DALExecPendingOrder &pending, const DALExecReversalSetup &setup)
+{
+   return (pending.found && setup.valid && pending.comment == setup.comment);
+}
+
 bool PlaceSetupOrder(const DALExecReversalSetup &setup, const DALExecRiskSizing &risk, string &order_reason)
 {
    order_reason = "dry_run";
@@ -258,155 +320,106 @@ bool PlaceSetupOrder(const DALExecReversalSetup &setup, const DALExecRiskSizing 
 
 void TryPlaceSetup()
 {
-   string cleanup_reason = "";
-   DALExecPendingOrder pending;
-   bool has_pending = DAL_ExecFindManagedPendingLimit(
-      LabSymbol(),
-      InpMagicNumber,
-      InpOrderCommentPrefix,
-      pending
-   );
+   DALExecReversalSetup setups[];
+   string setup_reason = "";
+   bool has_setups = BuildCurrentSetups(setups, setup_reason);
 
-   if(InpCancelExtraManagedPendings && has_pending && InpTradingEnabled)
+   if(!has_setups)
    {
-      int deleted_extra = 0;
-      DAL_ExecDeleteManagedPendingLimitsExcept(
+      if(LogVerbose())
+         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", setup_reason, "*mode=h5_exact_reversal_r1");
+      UpdateComment("no_h5_r1_setup_" + setup_reason);
+      return;
+   }
+
+   int setup_count = ArraySize(setups);
+   int submitted = 0;
+   int skipped_existing = 0;
+   int skipped_blocked = 0;
+   int skipped_risk = 0;
+
+   for(int i = 0; i < setup_count; i++)
+   {
+      DALExecReversalSetup setup = setups[i];
+      if(!setup.valid)
+         continue;
+
+      if(InpPlaceOneOrderPerSetup && DAL_ExecOrderCommentExists(LabSymbol(), InpMagicNumber, setup.comment))
+      {
+         skipped_existing++;
+         continue;
+      }
+
+      string exposure_reason = "";
+      if(!DAL_ExecCanOpenDirection(LabSymbol(), InpMagicNumber, setup.direction, InpMaxSimultaneousTrades, InpAllowOppositeTrades, exposure_reason))
+      {
+         skipped_blocked++;
+         if(LogVerbose())
+            Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", exposure_reason, "*direction=", setup.direction, "*comment=", setup.comment);
+         // Since setups are sorted nearest-first, once max exposure is reached there
+         // is no reason to scan/place farther orders on this cycle.
+         if(StringFind(exposure_reason, "max_simultaneous", 0) >= 0)
+            break;
+         continue;
+      }
+
+      DALExecRiskSizing risk;
+      bool risk_ok = DAL_ExecCalculateRiskVolume(
          LabSymbol(),
-         InpMagicNumber,
-         InpOrderCommentPrefix,
-         pending.ticket,
-         g_trade,
-         deleted_extra,
-         cleanup_reason
+         setup.entry_price,
+         setup.stop_price,
+         InpRiskCash,
+         InpCommissionPerLotRoundTurn,
+         InpAllowMinLotIfRiskTooSmall,
+         risk
       );
-      if(deleted_extra > 0 && LogOrders())
-         Print("DAL_E0001_PENDING_CLEANUP *** build=", DAL_E0001_BUILD, "*deletedExtra=", deleted_extra, "*reason=", cleanup_reason);
-   }
 
-   DALExecReversalSetup setup;
-   bool setup_ok = BuildCurrentSetup(setup);
-
-   if(!setup_ok)
-   {
-      if(has_pending && InpUpdatePendingOrders && InpCancelPendingWhenNoSetup && InpTradingEnabled)
+      if(!risk_ok)
       {
-         string delete_reason = "";
-         bool deleted = DAL_ExecDeletePendingOrder(pending.ticket, g_trade, delete_reason);
-         if(LogOrders() || (LogErrors() && !deleted))
-            Print("DAL_E0001_PENDING_DELETE *** build=", DAL_E0001_BUILD, "*sent=", DAL_BoolToString(deleted), "*reason=", delete_reason, "*cause=no_valid_setup", "*ticket=", pending.ticket);
-      }
-      else if(LogVerbose())
-         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", setup.reason, "*hasPending=", DAL_BoolToString(has_pending));
-
-      UpdateComment("no_setup_" + setup.reason);
-      return;
-   }
-
-   DALExecRiskSizing risk;
-   bool risk_ok = DAL_ExecCalculateRiskVolume(
-      LabSymbol(),
-      setup.entry_price,
-      setup.stop_price,
-      InpRiskCash,
-      InpCommissionPerLotRoundTurn,
-      InpAllowMinLotIfRiskTooSmall,
-      risk
-   );
-
-   if(!risk_ok)
-   {
-      if(LogErrors())
-         Print("DAL_E0001_RISK_REJECT *** build=", DAL_E0001_BUILD, "*reason=", risk.reason, "*entry=", DoubleToString(setup.entry_price, _Digits), "*stop=", DoubleToString(setup.stop_price, _Digits));
-      UpdateComment("risk_reject_" + risk.reason);
-      return;
-   }
-
-   if(has_pending && InpUpdatePendingOrders)
-   {
-      if(SetupPricesAlmostSame(setup, pending))
-      {
-         if(LogVerbose())
-            Print("DAL_E0001_PENDING_KEEP *** build=", DAL_E0001_BUILD, "*reason=same_setup_or_prices*ticket=", pending.ticket, "*comment=", pending.comment);
-         UpdateComment("pending_current");
-         return;
+         skipped_risk++;
+         if(LogErrors())
+            Print("DAL_E0001_RISK_REJECT *** build=", DAL_E0001_BUILD, "*reason=", risk.reason, "*entry=", DoubleToString(setup.entry_price, _Digits), "*stop=", DoubleToString(setup.stop_price, _Digits), "*comment=", setup.comment);
+         continue;
       }
 
-      if(InpReplacePendingWithCloserSetup && NewSetupIsCloserThanPending(setup, pending))
+      string order_reason = "";
+      bool order_ok = PlaceSetupOrder(setup, risk, order_reason);
+      if(order_ok)
+         submitted++;
+
+      if(LogOrders() || (InpTradingEnabled && !order_ok && LogErrors()))
       {
-         string delete_reason = "";
-         bool deleted = true;
-         if(InpTradingEnabled)
-            deleted = DAL_ExecDeletePendingOrder(pending.ticket, g_trade, delete_reason);
-         else
-            delete_reason = "dry_run_delete_old_pending";
-
-         if(!deleted)
-         {
-            if(LogErrors())
-               Print("DAL_E0001_PENDING_REPLACE_FAIL *** build=", DAL_E0001_BUILD, "*stage=delete_old*reason=", delete_reason, "*ticket=", pending.ticket);
-            UpdateComment("replace_delete_failed");
-            return;
-         }
-
-         if(LogOrders())
-            Print("DAL_E0001_PENDING_REPLACE *** build=", DAL_E0001_BUILD,
-               "*oldTicket=", pending.ticket,
-               "*oldDir=", pending.direction,
-               "*newDir=", setup.direction,
-               "*oldEntry=", DoubleToString(pending.price, _Digits),
-               "*newEntry=", DoubleToString(setup.entry_price, _Digits),
-               "*oldDistance=", DoubleToString(DAL_ExecPendingDistanceToMarket(LabSymbol(), pending.direction, pending.price), _Digits),
-               "*newDistance=", DoubleToString(DAL_ExecPendingDistanceToMarket(LabSymbol(), setup.direction, setup.entry_price), _Digits),
-               "*deleteReason=", delete_reason);
-
-         has_pending = false;
-      }
-      else
-      {
-         if(LogVerbose())
-            Print("DAL_E0001_PENDING_KEEP *** build=", DAL_E0001_BUILD, "*reason=existing_is_closer_or_replace_disabled*ticket=", pending.ticket);
-         UpdateComment("pending_kept");
-         return;
+         Print(
+            "DAL_E0001_ORDER *** build=", DAL_E0001_BUILD,
+            "*mode=h5_exact_reversal_fixed_r",
+            "*sent=", DAL_BoolToString(order_ok),
+            "*reason=", order_reason,
+            "*dir=", setup.direction,
+            "*vol=", DoubleToString(risk.volume, 4),
+            "*entry=", DoubleToString(setup.entry_price, _Digits),
+            "*sl=", DoubleToString(setup.stop_price, _Digits),
+            "*tp=", DoubleToString(setup.tp_price, _Digits),
+            "*rewardR=", DoubleToString(setup.reward_r, 4),
+            "*risk=", DoubleToString(risk.estimated_total_risk_cash, 2),
+            "*nodeId=", setup.node_id,
+            "*lastBranchSampleId=", setup.last_branch_sample_id,
+            "*comment=", setup.comment
+         );
       }
    }
 
-   string exposure_reason = "";
-   if(!DAL_ExecCanOpenDirection(LabSymbol(), InpMagicNumber, setup.direction, InpMaxSimultaneousTrades, InpAllowOppositeTrades, exposure_reason))
+   if(LogVerbose())
    {
-      if(LogVerbose())
-         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", exposure_reason, "*direction=", setup.direction);
-      UpdateComment("blocked_" + exposure_reason);
-      return;
+      Print("DAL_E0001_CYCLE *** build=", DAL_E0001_BUILD,
+         "*mode=h5_exact_reversal_r1",
+         "*setups=", setup_count,
+         "*submitted=", submitted,
+         "*skippedExisting=", skipped_existing,
+         "*skippedBlocked=", skipped_blocked,
+         "*skippedRisk=", skipped_risk);
    }
 
-   if(InpPlaceOneOrderPerSetup && DAL_ExecOrderCommentExists(LabSymbol(), InpMagicNumber, setup.comment))
-   {
-      if(LogVerbose())
-         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=duplicate_setup*comment=", setup.comment);
-      UpdateComment("duplicate_setup");
-      return;
-   }
-
-   string order_reason = "";
-   bool order_ok = PlaceSetupOrder(setup, risk, order_reason);
-
-   if(LogOrders() || (InpTradingEnabled && !order_ok && LogErrors()))
-   {
-      Print(
-         "DAL_E0001_ORDER *** build=", DAL_E0001_BUILD,
-         "*sent=", DAL_BoolToString(order_ok),
-         "*reason=", order_reason,
-         "*dir=", setup.direction,
-         "*vol=", DoubleToString(risk.volume, 4),
-         "*entry=", DoubleToString(setup.entry_price, _Digits),
-         "*sl=", DoubleToString(setup.stop_price, _Digits),
-         "*tp=", DoubleToString(setup.tp_price, _Digits),
-         "*risk=", DoubleToString(risk.estimated_total_risk_cash, 2),
-         "*comment=", setup.comment
-      );
-   }
-
-   UpdateComment(InpTradingEnabled ? (order_ok ? "order_sent" : "order_rejected") : "dry_run_setup_ready");
+   UpdateComment("h5_r1_setups_" + IntegerToString(setup_count) + "_submitted_" + IntegerToString(submitted));
 }
 
 int OnInit()
@@ -426,12 +439,17 @@ int OnInit()
          "DAL_E0001_BUILD_SANITY *** build=", DAL_E0001_BUILD,
          "*symbol=", LabSymbol(),
          "*tf=", EnumToString(LabTimeframe()),
-         "*module=EXECUTION_REVERSAL_ONE_TO_ONE_FAST_UPDATE_ENGINE",
+         "*module=EXECUTION_H0005_REVERSAL_FIXED_R1_EXACT_CANDIDATES",
          "*bars=", InpBars,
          "*maxZoneScanNodes=", InpMaxZoneScanNodes,
-         "*updatePending=", DAL_BoolToString(InpUpdatePendingOrders),
-         "*replaceCloser=", DAL_BoolToString(InpReplacePendingWithCloserSetup),
-         "*replaceMinImprovePoints=", InpPendingReplaceMinImprovePoints,
+         "*h5Exact=LAST_ONLY_REVERSAL_NEXT_STRUCTURAL_ZONE_TOUCH",
+         "*rewardR=", DoubleToString(InpRewardR, 4),
+         "*entryModel=limit_at_touch_edge",
+         "*researchEntryModel=touch_bar_close_in_M0005_report",
+         "*stopModel=zone_edge",
+         "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
+         "*maxZoneScanNodes=", InpMaxZoneScanNodes,
+         "*placeOneOrderPerSetup=", DAL_BoolToString(InpPlaceOneOrderPerSetup),
          "*logMode=", EnumToString(InpLogMode)
       );
    }

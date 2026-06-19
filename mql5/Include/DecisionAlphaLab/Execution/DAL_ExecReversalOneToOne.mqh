@@ -1,13 +1,15 @@
 #ifndef __DAL_EXEC_REVERSAL_ONE_TO_ONE_MQH__
 #define __DAL_EXEC_REVERSAL_ONE_TO_ONE_MQH__
 
-// Decision Alpha Lab — E0001 reversal 1:R execution setup builder.
-// Execution is intentionally separated from hypotheses. It consumes the same
-// M0001/M0002/M0005 primitives, but only outputs a live pending-limit setup.
+// Decision Alpha Lab — E0001 reversal fixed-R execution setup builder.
+// Execution is intentionally separated from hypotheses. It mirrors the H0005
+// reversal fixed-reward test: LAST_ONLY reversal regime -> next structural
+// zone touch -> zone-edge stop -> fixed-R take-profit.
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0002/DAL_M0002Reports.mqh>
 #include <DecisionAlphaLab/M0005/DAL_M0005Reports.mqh>
+#include <DecisionAlphaLab/Execution/DAL_ExecOrders.mqh>
 
 struct DALExecReversalSetup
 {
@@ -219,6 +221,193 @@ bool DAL_ExecFindLatestBranchSampleFast(
    }
 
    return false;
+}
+
+
+bool DAL_ExecBuildReversalOneToOneSetupFromNode(
+   const DALLRuleNode &node,
+   const double extreme,
+   const double lower,
+   const double upper,
+   const DALM0002BranchSample &last_branch_sample,
+   const double reward_r,
+   const string comment_prefix,
+   DALExecReversalSetup &setup
+)
+{
+   DAL_ExecResetReversalSetup(setup);
+   setup.reward_r = reward_r;
+
+   if(reward_r <= 0.0)
+   {
+      setup.reason = "invalid_reward_r";
+      return false;
+   }
+
+   setup.last_branch_sample_id = last_branch_sample.id;
+   setup.last_branch_label = DAL_M0004_LABEL_REVERSAL;
+   setup.node_id = node.id;
+   setup.node_index = node.index;
+   setup.node_type = node.type;
+   setup.node_time = node.time;
+   setup.active_from_time = node.active_from_time;
+   setup.node_price = node.price;
+   setup.live_extreme = extreme;
+   setup.zone_lower = lower;
+   setup.zone_upper = upper;
+
+   // H0005 reversal fixed-R test uses the reversal direction, the frozen
+   // structural zone edge as entry proxy for live limits, and the far edge
+   // of the same zone as the structural stop. The research report uses the
+   // touch bar close as the measured entry; live execution cannot know that
+   // close in advance, so the limit is parked exactly at the touch edge.
+   if(node.type == DAL_NODE_LOW)
+   {
+      setup.direction = +1;
+      setup.entry_price = upper;
+      setup.stop_price = lower;
+   }
+   else
+   {
+      setup.direction = -1;
+      setup.entry_price = lower;
+      setup.stop_price = upper;
+   }
+
+   setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);
+   if(setup.stop_distance <= 0.0)
+   {
+      setup.reason = "zero_stop_distance";
+      return false;
+   }
+
+   setup.tp_price = setup.entry_price + setup.direction * setup.stop_distance * reward_r;
+   setup.comment = comment_prefix
+      + "_R" + DoubleToString(reward_r, 1)
+      + "_node" + IntegerToString(setup.node_id)
+      + "_last" + IntegerToString(setup.last_branch_sample_id);
+   setup.valid = true;
+   setup.reason = "ok";
+   return true;
+}
+
+void DAL_ExecAppendReversalSetup(DALExecReversalSetup &setups[], const DALExecReversalSetup &setup)
+{
+   int n = ArraySize(setups);
+   ArrayResize(setups, n + 1);
+   setups[n] = setup;
+}
+
+void DAL_ExecSortReversalSetupsByMarketDistance(const string symbol, DALExecReversalSetup &setups[])
+{
+   int n = ArraySize(setups);
+   for(int i = 0; i < n - 1; i++)
+   {
+      int best = i;
+      double best_d = DAL_ExecPendingDistanceToMarket(symbol, setups[i].direction, setups[i].entry_price);
+      for(int j = i + 1; j < n; j++)
+      {
+         double d = DAL_ExecPendingDistanceToMarket(symbol, setups[j].direction, setups[j].entry_price);
+         if(d < best_d)
+         {
+            best = j;
+            best_d = d;
+         }
+      }
+      if(best != i)
+      {
+         DALExecReversalSetup tmp = setups[i];
+         setups[i] = setups[best];
+         setups[best] = tmp;
+      }
+   }
+}
+
+int DAL_ExecCollectH5ReversalRSetups(
+   const string symbol,
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const DALM0001Event &events[],
+   const int events_count,
+   const DALM0002BranchSample &last_branch_sample,
+   const bool has_last_branch_sample,
+   const double zone_ratio,
+   const double reward_r,
+   const string comment_prefix,
+   const int max_nodes_scan,
+   DALExecReversalSetup &setups[],
+   string &reason
+)
+{
+   ArrayResize(setups, 0);
+   reason = "not_built";
+
+   if(bars_count <= 0)
+   {
+      reason = "no_bars";
+      return 0;
+   }
+   if(nodes_count <= 0)
+   {
+      reason = "no_nodes";
+      return 0;
+   }
+   if(!has_last_branch_sample)
+   {
+      reason = "no_last_branch";
+      return 0;
+   }
+   if(last_branch_sample.outcome != DAL_M0002_OUTCOME_REVERSAL_AFTER_EXIT)
+   {
+      reason = "last_regime_not_reversal";
+      return 0;
+   }
+   if(reward_r <= 0.0)
+   {
+      reason = "invalid_reward_r";
+      return 0;
+   }
+
+   int scanned = 0;
+   int current_index = bars_count - 1;
+   for(int n = nodes_count - 1; n >= 0; n--)
+   {
+      DALLRuleNode node = nodes[n];
+      if(!node.confirmed)
+         continue;
+      if(node.active_from_index < 0 || node.active_from_index > current_index)
+         continue;
+
+      scanned++;
+      if(max_nodes_scan > 0 && scanned > max_nodes_scan)
+         break;
+
+      if(DAL_ExecNodeHasEvent(events, events_count, node.id))
+         continue;
+
+      double extreme = 0.0, lower = 0.0, upper = 0.0;
+      bool already_touched_or_consumed = DAL_ExecNodeTouchedOrConsumedBeforeNow(bars, bars_count, node, zone_ratio, extreme, lower, upper);
+      if(already_touched_or_consumed)
+         continue;
+
+      DALExecReversalSetup setup;
+      if(!DAL_ExecBuildReversalOneToOneSetupFromNode(node, extreme, lower, upper, last_branch_sample, reward_r, comment_prefix, setup))
+         continue;
+
+      DAL_ExecAppendReversalSetup(setups, setup);
+   }
+
+   if(ArraySize(setups) <= 0)
+   {
+      reason = "no_active_h5_reversal_zone";
+      return 0;
+   }
+
+   DAL_ExecSortReversalSetupsByMarketDistance(symbol, setups);
+   reason = "ok";
+   return ArraySize(setups);
 }
 
 bool DAL_ExecBuildReversalOneToOneSetup(
