@@ -3,7 +3,7 @@
 This lab contains the third H5 execution path:
 
 - regime: continuation
-- trigger: structural node hunted by candle close
+- trigger: structural node close-hunt or Donchian 20 breakout
 - entry: market on the next bar
 - position size: cash risk to `3 × ATR` stop distance by default
 - TP: none
@@ -14,6 +14,9 @@ Recommended first test:
 ```text
 InpAtrPeriod = 14
 InpAtrMultiplier = 3.0
+InpEntryMode = E0003_ENTRY_DONCHIAN_BREAKOUT
+InpDonchianPeriod = 20
+InpUseLowerTimeframeRegimeFilter = true/false
 InpCloseHuntBufferPoints = 0
 InpMaxEntriesPerBar = 3
 InpUseTradingSessionFilter = true/false according to the test window
@@ -44,3 +47,19 @@ E0003 now supports two additional execution controls:
 - `InpExitOnRegimeChange`: when enabled, E0003 closes its managed positions when the effective regime is no longer continuation. When disabled, open positions are not closed by regime change and can be managed only by the ATR trailing stop.
 
 There is still no take-profit in E0003.
+
+
+## Build 1.03: Donchian 20 and optional lower-timeframe regime gate
+
+Recommended Donchian-only continuation breakout test:
+
+```text
+InpEntryMode = E0003_ENTRY_DONCHIAN_BREAKOUT
+InpDonchianPeriod = 20
+InpUseLowerTimeframeRegimeFilter = false
+InpUseHigherTimeframeRegimeFilter = true/false
+InpUseAtrTrailingStop = true
+InpExitOnRegimeChange = false
+```
+
+With the lower-timeframe regime filter off and regime exit off, E0003 can behave as a pure Donchian breakout + ATR trailing system: no TP, no local regime exit, and only the ATR trailing stop manages the open trade.

@@ -3,8 +3,8 @@
 //| Continuation entry after close-hunted node, ATR risk, regime exit  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
-#property description "Execution module E0003: continuation close-hunt market entries, 3ATR risk stop, ATR trailing, optional regime exit."
+#property version   "1.03"
+#property description "Execution module E0003: continuation close-hunt or Donchian breakout entries, 3ATR risk stop, ATR trailing, optional regime exit."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -55,6 +55,18 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
+// Local regime and entry trigger.
+input bool InpUseLowerTimeframeRegimeFilter = true;
+
+enum ENUM_E0003EntryMode
+{
+   E0003_ENTRY_CLOSE_HUNTED_NODE = 0,
+   E0003_ENTRY_DONCHIAN_BREAKOUT = 1
+};
+
+input ENUM_E0003EntryMode InpEntryMode = E0003_ENTRY_DONCHIAN_BREAKOUT;
+input int InpDonchianPeriod = 20;
+
 // Risk model: volume is calculated from entry to ATR stop distance.
 input long InpMagicNumber = 5003003;
 input double InpRiskCash = 100.0;
@@ -66,7 +78,7 @@ input int InpCloseHuntBufferPoints = 0;
 input int InpMaxEntriesPerBar = 3;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0003_BUILD "1.02"
+#define DAL_E0003_BUILD "1.03"
 string InpOrderCommentPrefix = "DALC3";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -164,6 +176,19 @@ string E0003_NodeComment(const int node_id, const int direction)
 {
    string side = (direction > 0 ? "B" : "S");
    return E0003_ManagedCommentPrefix() + side + "N" + IntegerToString(node_id);
+}
+
+string E0003_DonchianComment(const int direction, const datetime signal_time)
+{
+   string side = (direction > 0 ? "B" : "S");
+   return E0003_ManagedCommentPrefix() + side + "D" + IntegerToString((long)signal_time);
+}
+
+string E0003_EntryModeToString()
+{
+   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT)
+      return "DONCHIAN_BREAKOUT";
+   return "CLOSE_HUNTED_NODE";
 }
 
 bool E0003_NodeAlreadyTraded(const int node_id)
@@ -484,6 +509,61 @@ bool E0003_NodeCloseHuntedOnSignal(
    return false;
 }
 
+bool E0003_GetDonchianBreakoutSignal(
+   const DALBar &bars[],
+   const int bars_count,
+   const int signal_index,
+   const int period,
+   const double close_buffer,
+   int &direction,
+   double &breakout_level,
+   string &reason
+)
+{
+   direction = 0;
+   breakout_level = 0.0;
+   reason = "no_signal";
+
+   int lookback = MathMax(1, period);
+   if(signal_index < lookback || signal_index >= bars_count)
+   {
+      reason = "not_enough_donchian_bars";
+      return false;
+   }
+
+   int start = signal_index - lookback;
+   double upper = bars[start].high;
+   double lower = bars[start].low;
+
+   for(int i = start + 1; i < signal_index; i++)
+   {
+      if(bars[i].high > upper)
+         upper = bars[i].high;
+      if(bars[i].low < lower)
+         lower = bars[i].low;
+   }
+
+   double close_price = bars[signal_index].close;
+   if(close_price > upper + close_buffer)
+   {
+      direction = +1;
+      breakout_level = upper;
+      reason = "donchian_upper_breakout";
+      return true;
+   }
+
+   if(close_price < lower - close_buffer)
+   {
+      direction = -1;
+      breakout_level = lower;
+      reason = "donchian_lower_breakout";
+      return true;
+   }
+
+   reason = "inside_donchian_channel";
+   return false;
+}
+
 bool E0003_CheckMarketSlGeometry(const int direction, const double sl, string &reason)
 {
    string symbol = LabSymbol();
@@ -535,11 +615,14 @@ bool E0003_CheckMarketSlGeometry(const int direction, const double sl, string &r
    return false;
 }
 
-bool E0003_PlaceContinuationMarket(
-   const DALLRuleNode &node,
+bool E0003_PlaceContinuationMarketRaw(
+   const int source_id,
+   const string source_label,
+   const double source_price,
    const int direction,
    const double atr_value,
    const datetime signal_time,
+   const string comment,
    string &reason
 )
 {
@@ -587,10 +670,15 @@ bool E0003_PlaceContinuationMarket(
       return false;
    }
 
-   string comment = E0003_NodeComment(node.id, direction);
-   if(E0003_NodeAlreadyTraded(node.id) || E0003_ManagedCommentExists(comment))
+   if(comment == "" || E0003_ManagedCommentExists(comment))
    {
-      reason = "node_already_traded_or_comment_exists";
+      reason = "comment_empty_or_exists";
+      return false;
+   }
+
+   if(source_id >= 0 && E0003_NodeAlreadyTraded(source_id))
+   {
+      reason = "node_already_traded";
       return false;
    }
 
@@ -614,17 +702,19 @@ bool E0003_PlaceContinuationMarket(
       return false;
    }
 
-   E0003_MarkNodeTraded(node.id);
+   if(source_id >= 0)
+      E0003_MarkNodeTraded(source_id);
    reason = "ok_ticket_" + IntegerToString((int)g_trade.ResultOrder());
 
    if(InpPrintOrderLogs)
    {
       Print("DAL_E0003_CONTINUATION_ENTRY *** build=", DAL_E0003_BUILD,
+         "*entryMode=", E0003_EntryModeToString(),
+         "*source=", source_label,
+         "*sourceId=", source_id,
          "*dir=", direction,
-         "*nodeId=", node.id,
-         "*nodeType=", (node.type == DAL_NODE_HIGH ? "HIGH" : "LOW"),
          "*signalTime=", E0003_FormatDateTime(signal_time),
-         "*nodePrice=", DoubleToString(node.price, digits),
+         "*sourcePrice=", DoubleToString(source_price, digits),
          "*entry=", DoubleToString(entry, digits),
          "*sl=", DoubleToString(sl, digits),
          "*tp=NONE",
@@ -637,6 +727,31 @@ bool E0003_PlaceContinuationMarket(
    }
 
    return true;
+}
+
+bool E0003_PlaceContinuationMarket(
+   const DALLRuleNode &node,
+   const int direction,
+   const double atr_value,
+   const datetime signal_time,
+   string &reason
+)
+{
+   string comment = E0003_NodeComment(node.id, direction);
+   string source_label = (node.type == DAL_NODE_HIGH ? "HIGH_NODE_CLOSE_HUNT" : "LOW_NODE_CLOSE_HUNT");
+   return E0003_PlaceContinuationMarketRaw(node.id, source_label, node.price, direction, atr_value, signal_time, comment, reason);
+}
+
+bool E0003_PlaceDonchianMarket(
+   const int direction,
+   const double breakout_level,
+   const double atr_value,
+   const datetime signal_time,
+   string &reason
+)
+{
+   string comment = E0003_DonchianComment(direction, signal_time);
+   return E0003_PlaceContinuationMarketRaw(-1, "DONCHIAN_BREAKOUT", breakout_level, direction, atr_value, signal_time, comment, reason);
 }
 
 int E0003_CloseManagedPositions(const string context)
@@ -758,26 +873,53 @@ bool E0003_LoadClosedContext(
       ArrayResize(bars, bars_count);
    }
 
-   if(bars_count <= InpL * 2 + 20)
+   int min_required = 2;
+   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT)
+      min_required = MathMax(min_required, MathMax(1, InpDonchianPeriod) + 2);
+   if(InpEntryMode == E0003_ENTRY_CLOSE_HUNTED_NODE || InpUseLowerTimeframeRegimeFilter)
+      min_required = MathMax(min_required, InpL * 2 + 20);
+
+   if(bars_count <= min_required)
    {
       reason = "not_enough_bars";
       return false;
    }
 
-   DALM0001Config m1;
-   E0003_BuildM0001Config(m1);
-   nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, m1.L, nodes);
-   events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, m1, events);
+   bool need_node_engine = (InpEntryMode == E0003_ENTRY_CLOSE_HUNTED_NODE || InpUseLowerTimeframeRegimeFilter);
+   bool local_pass = true;
+   string local_reason = "ltfRegimeFilter=OFF";
 
-   DALM0002Config m2;
-   E0003_BuildM0002Config(m2);
+   if(need_node_engine)
+   {
+      DALM0001Config m1;
+      E0003_BuildM0001Config(m1);
+      nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, m1.L, nodes);
+      events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, m1, events);
+   }
+   else
+   {
+      local_reason = "ltfRegimeFilter=OFF*nodeEngine=SKIPPED_FOR_DONCHIAN";
+   }
 
-   int last_event_index = -1;
-   bool has_last_sample = DAL_ExecFindLatestBranchSampleFast(events, events_count, bars, bars_count, 0, m2, last_sample, last_event_index);
+   if(InpUseLowerTimeframeRegimeFilter)
+   {
+      DALM0002Config m2;
+      E0003_BuildM0002Config(m2);
 
-   string regime_reason = "";
-   is_continuation = E0003_ResolveEffectiveContinuation(last_sample, has_last_sample, regime_reason);
-   reason = regime_reason;
+      int last_event_index = -1;
+      bool has_last_sample = DAL_ExecFindLatestBranchSampleFast(events, events_count, bars, bars_count, 0, m2, last_sample, last_event_index);
+      if(!has_last_sample)
+      {
+         reason = "ltfRegimeFilter=ON*reason=no_last_branch";
+         return false;
+      }
+
+      local_pass = E0003_ResolveEffectiveContinuation(last_sample, has_last_sample, local_reason);
+      local_reason = "ltfRegimeFilter=ON*" + local_reason;
+   }
+
+   is_continuation = local_pass;
+   reason = local_reason;
 
    if(is_continuation)
    {
@@ -785,15 +927,15 @@ bool E0003_LoadClosedContext(
       if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, htf_regime_reason))
       {
          is_continuation = false;
-         reason = regime_reason + "*" + htf_regime_reason;
+         reason = local_reason + "*" + htf_regime_reason;
       }
       else
       {
-         reason = regime_reason + "*" + htf_regime_reason;
+         reason = local_reason + "*" + htf_regime_reason;
       }
    }
 
-   return has_last_sample;
+   return true;
 }
 
 void E0003_ProcessNewBar()
@@ -856,6 +998,26 @@ void E0003_ProcessNewBar()
       point = 0.0;
    double close_buffer = MathMax(0, InpCloseHuntBufferPoints) * point;
 
+   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT)
+   {
+      int donchian_direction = 0;
+      double breakout_level = 0.0;
+      string donchian_reason = "";
+      if(E0003_GetDonchianBreakoutSignal(bars, bars_count, signal_index, InpDonchianPeriod, close_buffer, donchian_direction, breakout_level, donchian_reason))
+      {
+         string order_reason = "";
+         if(!E0003_PlaceDonchianMarket(donchian_direction, breakout_level, atr_value, signal_bar.time, order_reason) && InpPrintOrderLogs)
+         {
+            Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
+               "*entryMode=DONCHIAN_BREAKOUT",
+               "*dir=", donchian_direction,
+               "*signalTime=", E0003_FormatDateTime(signal_bar.time),
+               "*reason=", order_reason);
+         }
+      }
+      return;
+   }
+
    int sent = 0;
    int max_entries = MathMax(1, InpMaxEntriesPerBar);
 
@@ -905,10 +1067,12 @@ int OnInit()
    Print("DAL_E0003_BUILD_SANITY *** build=", DAL_E0003_BUILD,
       "*symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
+      "*ltfRegimeFilter=", DAL_BoolToString(InpUseLowerTimeframeRegimeFilter),
       "*htfRegimeFilter=", DAL_BoolToString(InpUseHigherTimeframeRegimeFilter),
       "*htfTf=", EnumToString(InpHigherRegimeTimeframe),
-      "*module=EXECUTION_H0005_CONTINUATION_CLOSE_HUNT",
-      "*entry=close_hunted_node_market_next_bar",
+      "*module=EXECUTION_H0005_CONTINUATION",
+      "*entryMode=", E0003_EntryModeToString(),
+      "*donchianPeriod=", InpDonchianPeriod,
       "*riskStop=ATR_MULTIPLE",
       "*atrPeriod=", InpAtrPeriod,
       "*atrMultiplier=", DoubleToString(InpAtrMultiplier, 2),

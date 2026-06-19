@@ -3,19 +3,27 @@
 `E0003_ContinuationCloseHunt.mq5` is the third execution adapter for Decision Alpha Lab.
 It is separate from `E0001` and `E0002`.
 
+Build 1.03 adds an optional lower-timeframe regime gate and a Donchian breakout entry model.
+
 ## Contract
 
-When the effective regime is `CONTINUATION`:
+When the effective continuation gate passes:
 
 1. The EA waits for a **closed candle**.
-2. If that candle closes through a structural node, the node is considered close-hunted:
+2. Entry can use either:
+   - `E0003_ENTRY_CLOSE_HUNTED_NODE`: a structural node close-hunt.
+   - `E0003_ENTRY_DONCHIAN_BREAKOUT`: Donchian breakout, default period 20.
+3. Close-hunt model:
    - `HIGH` node close-hunt: `close > node.price + buffer` → buy continuation.
    - `LOW` node close-hunt: `close < node.price - buffer` → sell continuation.
-3. The EA enters at market on the next bar.
-4. There is no take-profit.
-5. A technical SL is placed at `InpAtrMultiplier × ATR`, default `3 × ATR`.
-6. Volume is sized from cash risk to the ATR stop distance.
-7. All managed E0003 positions are closed when the effective regime is no longer continuation.
+4. Donchian model:
+   - `close > highest(high, previous 20 closed candles) + buffer` → buy continuation.
+   - `close < lowest(low, previous 20 closed candles) - buffer` → sell continuation.
+5. The EA enters at market on the next bar.
+6. There is no take-profit.
+7. A technical SL is placed at `InpAtrMultiplier × ATR`, default `3 × ATR`.
+8. Volume is sized from cash risk to the ATR stop distance.
+9. Managed E0003 positions are closed when the effective continuation gate fails only if `InpExitOnRegimeChange=true`.
 
 ## Why the SL exists
 
@@ -27,6 +35,8 @@ It is not the primary exit logic.
 - `InpSymbol`, `InpTimeframe`, `InpBars`
 - `InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`
 - `InpRegimeBasis`, `InpHumanContextSignal`
+- `InpUseLowerTimeframeRegimeFilter`
+- `InpEntryMode`, `InpDonchianPeriod`
 - trading session start/end
 - `InpMagicNumber`, `InpRiskCash`
 - `InpAtrPeriod`, `InpAtrMultiplier`
@@ -71,3 +81,14 @@ E0003 now supports two additional execution controls:
 - `InpExitOnRegimeChange`: when enabled, E0003 closes its managed positions when the effective regime is no longer continuation. When disabled, open positions are not closed by regime change and can be managed only by the ATR trailing stop.
 
 There is still no take-profit in E0003.
+
+
+## Build 1.03: lower-timeframe regime gate and Donchian entry
+
+New inputs:
+
+- `InpUseLowerTimeframeRegimeFilter`: when true, E0003 requires the local timeframe M0001/M0002 regime to be `CONTINUATION` before entering. When false, the local timeframe regime gate is skipped. If the higher-timeframe regime filter is also off, Donchian entries can trade directly from price breakout conditions.
+- `InpEntryMode`: selects the trigger model. `E0003_ENTRY_DONCHIAN_BREAKOUT` is the new default; `E0003_ENTRY_CLOSE_HUNTED_NODE` keeps the original node close-hunt behavior.
+- `InpDonchianPeriod`: Donchian lookback length, default `20`. The signal candle is excluded from the channel; the EA compares the latest closed candle against the previous 20 closed candles.
+
+The existing ATR stop, ATR trailing, and optional regime-change exit remain unchanged.
