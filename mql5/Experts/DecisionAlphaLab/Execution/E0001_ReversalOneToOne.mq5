@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
-//| Decision Alpha Lab — E0001 H0005 Reversal R1 Executor             |
-//| Execution layer: exact H5 reversal R1, six-slot pending grid + stable touch ledger|
+//| Decision Alpha Lab — E0001 H0005 Reversal Fixed-R Executor       |
+//| Exact H5 reversal: spread-aware touch limits + revisit ledger    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
-#property description "Execution module for H0005 reversal R1: maintains 3 buy-limit and 3 sell-limit candidates with stable per-zone one-fill/revisit memory."
+#property version   "1.12"
+#property description "Execution module for H0005 reversal fixed-R: parks spread-aware touch limits on every active reversal node, one fill per touch, re-arm on revisit."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -30,12 +30,12 @@ input int InpBrokerUtcOffsetHours = 0;
 input int InpRegimeLookbackBars = 100;
 
 // Execution policy.
-input bool InpTradingEnabled = false;
+input bool InpTradingEnabled = true; // Execution EA default: send orders unless explicitly disabled.
 input long InpMagicNumber = 5001001;
 input double InpRiskCash = 100.0;
 input double InpCommissionPerLotRoundTurn = 0.0;
-input double InpRewardR = 1.0; // H0005 REVERSAL_TRADE_R1 default.
-input int InpMaxSimultaneousTrades = -1; // -1 = no global cap; needed for simultaneous 3 buy + 3 sell grid plus open fills.
+input double InpRewardR = 1.0; // Fixed reward multiple. Default is exact H0005 REVERSAL_TRADE_R1.
+input int InpMaxSimultaneousTrades = -1; // -1 = no cap. Pure H5 execution must not miss valid revisits because of a global cap.
 input bool InpAllowOppositeTrades = true;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input int InpOrderExpirationMinutes = 0;
@@ -50,13 +50,13 @@ enum ENUM_DALExecLogMode
    DAL_EXEC_LOG_VERBOSE = 3
 };
 
-input int InpBuyLimitSlots = 3;
-input int InpSellLimitSlots = 3;
-input bool InpRefreshSetupsOnNewBarOnly = true;
+input int InpBuyLimitSlots = 0;  // 0 = unlimited active buy-touch limits; positive value = safety cap.
+input int InpSellLimitSlots = 0; // 0 = unlimited active sell-touch limits; positive value = safety cap.
+input bool InpRefreshSetupsOnNewBarOnly = false; // false = rebuild live setup cache every tick so revisits re-arm immediately.
 input bool InpManageOrdersEveryTick = true;
 input int InpMaxZoneScanNodes = 0; // 0 = scan all active nodes; exact H0005 mode avoids arbitrary candidate pruning.
 input bool InpUpdateChartComment = false;
-input ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ERRORS;
+input ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ORDERS;
 
 // Pending-order sync. This is stable-first: do not chase/replace near-fill orders.
 input bool InpSyncManagedPendings = true;
@@ -69,16 +69,17 @@ input double InpPendingProtectStopFraction = 0.50;
 
 // H5 live touch catch. If price has already arrived inside the zone before a
 // limit can be parked, enter at market with the same stop model and true R TP.
-input bool InpAllowMarketCatchWhenAlreadyTouching = false; // Limit-only touch execution by default.
+input bool InpAllowMarketCatchWhenAlreadyTouching = false; // Exact mode is limit-only; if price is already inside, do not chase with market.
 input bool InpMarketCatchRequiresPriceBeforeStop = true;
 input int InpTouchRevisitResetBufferPoints = 10;
 
-#define DAL_E0001_BUILD "1.10"
+#define DAL_E0001_BUILD "1.13"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
 bool g_cache_ready = false;
 string g_cache_reason = "not_initialized";
+string g_last_cycle_signature = "";
 DALExecReversalSetup g_cached_setups[];
 
 struct E0001TouchLock
@@ -729,6 +730,16 @@ bool MarketIsAlreadyTouchingSetup(const DALExecReversalSetup &setup, double &mar
    return false;
 }
 
+
+bool SetupLimitOrderableNow(const DALExecReversalSetup &setup, string &reason)
+{
+   double entry = setup.entry_price;
+   double sl = setup.stop_price;
+   double tp = setup.tp_price;
+   DAL_ExecNormalizePrices(LabSymbol(), entry, sl, tp);
+   return DAL_ExecCheckLimitGeometry(LabSymbol(), setup.direction, entry, sl, tp, reason);
+}
+
 bool PlaceSetupLimitOrder(const DALExecReversalSetup &setup, const DALExecRiskSizing &risk, string &order_reason)
 {
    order_reason = "dry_run";
@@ -804,7 +815,7 @@ void TryPlaceCachedSetups()
    if(setup_count <= 0)
    {
       if(LogVerbose())
-         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", g_cache_reason, "*mode=h5_reversal_r1_six_slot_cache");
+         Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", g_cache_reason, "*mode=h5_reversal_fixed_r_touch_cache");
       UpdateComment("no_h5_r1_setup_" + g_cache_reason);
       return;
    }
@@ -817,6 +828,7 @@ void TryPlaceCachedSetups()
    int skipped_risk = 0;
    int skipped_market_catch = 0;
    int skipped_update = 0;
+   int skipped_geometry = 0;
 
    for(int i = 0; i < setup_count; i++)
    {
@@ -838,6 +850,7 @@ void TryPlaceCachedSetups()
             Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=touch_locked_wait_revisit*comment=", setup.comment);
          continue;
       }
+
 
       DALExecRiskSizing risk;
       bool risk_ok = DAL_ExecCalculateRiskVolume(
@@ -908,6 +921,9 @@ void TryPlaceCachedSetups()
                "*entry=", DoubleToString(setup.entry_price, _Digits),
                "*sl=", DoubleToString(setup.stop_price, _Digits),
                "*tp=", DoubleToString(setup.tp_price, _Digits),
+               "*rawEntryEdge=", DoubleToString(setup.raw_entry_edge, _Digits),
+               "*rawStopEdge=", DoubleToString(setup.raw_stop_edge, _Digits),
+               "*spread=", DoubleToString(setup.spread_price, _Digits),
                "*comment=", setup.comment
             );
          }
@@ -960,6 +976,19 @@ void TryPlaceCachedSetups()
          continue;
       }
 
+      string geometry_reason = "";
+      if(!SetupLimitOrderableNow(setup, geometry_reason))
+      {
+         // The setup cache is structural, not orderability-filtered. Price may
+         // cross a touch edge between cache build and order send. In exact
+         // limit-only mode we do not chase with market; we log the miss and wait
+         // for the next orderable revisit.
+         skipped_geometry++;
+         if(LogVerbose())
+            Print("DAL_E0001_SKIP *** build=", DAL_E0001_BUILD, "*reason=", geometry_reason, "*mode=limit_not_orderable_now*dir=", setup.direction, "*entry=", DoubleToString(setup.entry_price, _Digits), "*comment=", setup.comment);
+         continue;
+      }
+
       string order_reason = "";
       bool order_ok = PlaceSetupLimitOrder(setup, risk, order_reason);
       if(order_ok)
@@ -978,6 +1007,9 @@ void TryPlaceCachedSetups()
             "*tp=", DoubleToString(setup.tp_price, _Digits),
             "*rewardR=", DoubleToString(setup.reward_r, 4),
             "*risk=", DoubleToString(risk.estimated_total_risk_cash, 2),
+            "*rawEntryEdge=", DoubleToString(setup.raw_entry_edge, _Digits),
+            "*rawStopEdge=", DoubleToString(setup.raw_stop_edge, _Digits),
+            "*spread=", DoubleToString(setup.spread_price, _Digits),
             "*nodeId=", setup.node_id,
             "*lastBranchSampleId=", setup.last_branch_sample_id,
             "*comment=", setup.comment
@@ -988,7 +1020,7 @@ void TryPlaceCachedSetups()
    if(LogVerbose())
    {
       Print("DAL_E0001_CYCLE *** build=", DAL_E0001_BUILD,
-         "*mode=h5_reversal_r1_six_slot_touch_ledger",
+         "*mode=h5_reversal_fixed_r_touch_ledger",
          "*setups=", setup_count,
          "*submitted=", submitted,
          "*modified=", modified,
@@ -997,7 +1029,28 @@ void TryPlaceCachedSetups()
          "*skippedBlocked=", skipped_blocked,
          "*skippedRisk=", skipped_risk,
          "*skippedMarketCatch=", skipped_market_catch,
-         "*skippedUpdate=", skipped_update);
+         "*skippedUpdate=", skipped_update,
+         "*skippedGeometry=", skipped_geometry);
+   }
+
+   string cycle_signature = IntegerToString(setup_count) + ":" + IntegerToString(submitted) + ":" + IntegerToString(modified) + ":" + IntegerToString(skipped_existing) + ":" + IntegerToString(skipped_touch_lock) + ":" + IntegerToString(skipped_blocked) + ":" + IntegerToString(skipped_risk) + ":" + IntegerToString(skipped_market_catch) + ":" + IntegerToString(skipped_update) + ":" + IntegerToString(skipped_geometry) + ":" + g_cache_reason;
+   if(LogOrders() && cycle_signature != g_last_cycle_signature)
+   {
+      g_last_cycle_signature = cycle_signature;
+      Print("DAL_E0001_CYCLE *** build=", DAL_E0001_BUILD,
+         "*mode=h5_reversal_fixed_r_touch_ledger",
+         "*cacheReason=", g_cache_reason,
+         "*setups=", setup_count,
+         "*submitted=", submitted,
+         "*modified=", modified,
+         "*skippedExisting=", skipped_existing,
+         "*skippedTouchLock=", skipped_touch_lock,
+         "*skippedBlocked=", skipped_blocked,
+         "*skippedRisk=", skipped_risk,
+         "*skippedMarketCatch=", skipped_market_catch,
+         "*skippedUpdate=", skipped_update,
+         "*skippedGeometry=", skipped_geometry,
+         "*tradingEnabled=", DAL_BoolToString(InpTradingEnabled));
    }
 
    UpdateComment("h5_r1_setups_" + IntegerToString(setup_count) + "_new_" + IntegerToString(submitted) + "_upd_" + IntegerToString(modified));
@@ -1023,16 +1076,16 @@ int OnInit()
          "DAL_E0001_BUILD_SANITY *** build=", DAL_E0001_BUILD,
          "*symbol=", LabSymbol(),
          "*tf=", EnumToString(LabTimeframe()),
-         "*module=EXECUTION_H0005_REVERSAL_R1_SIX_SLOT_TOUCH_LEDGER",
+         "*module=EXECUTION_H0005_REVERSAL_FIXED_R_TOUCH_LEDGER",
          "*bars=", InpBars,
          "*h5Exact=LAST_ONLY_REVERSAL_NEXT_STRUCTURAL_ZONE_TOUCH",
          "*rewardR=", DoubleToString(InpRewardR, 4),
-         "*entryModel=three_buy_limits_three_sell_limits_stable_zone_revisit_locked",
+         "*entryModel=spread_adjusted_zone_touch_limits_all_active_nodes_revisit_locked",
          "*researchEntryModel=touch_bar_close_in_M0005_report",
-         "*stopModel=zone_edge",
+         "*stopModel=far_zone_edge_spread_adjusted_for_sell",
          "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
-         "*buySlots=", InpBuyLimitSlots,
-         "*sellSlots=", InpSellLimitSlots,
+         "*buySlots=", InpBuyLimitSlots, "(0=unlimited)",
+         "*sellSlots=", InpSellLimitSlots, "(0=unlimited)",
          "*allowOpposite=", DAL_BoolToString(InpAllowOppositeTrades),
          "*orderCommentPrefix=", E0001_ManagedCommentPrefix(),
          "*commentIdentity=prefix_reward_direction_node",
@@ -1042,6 +1095,7 @@ int OnInit()
          "*cancelAfterEntry=", DAL_BoolToString(InpCancelManagedPendingsAfterEntry),
          "*updatePendings=", DAL_BoolToString(InpUpdateExistingManagedPendings),
          "*touchRevisitBufferPoints=", InpTouchRevisitResetBufferPoints,
+         "*spreadPolicy=buy_entry_plus_spread_sell_stop_plus_spread_tp_from_adjusted_risk",
          "*logMode=", EnumToString(InpLogMode)
       );
    }

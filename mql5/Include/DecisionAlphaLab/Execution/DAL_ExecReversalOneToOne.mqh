@@ -4,10 +4,18 @@
 // Decision Alpha Lab — E0001 reversal fixed-R execution setup builder.
 // Execution is intentionally separated from hypotheses. It mirrors the H0005
 // reversal fixed-reward test: LAST_ONLY reversal regime -> next structural
-// zone touch -> zone-edge stop -> fixed-R take-profit. Live execution can
-// maintain directional candidate slots, e.g. 3 buy-limit and 3 sell-limit zones.
-// Comments are stable per structural zone so the live touch ledger can enforce
-// one fill per touch and re-arm only after price leaves and revisits the zone.
+// zone touch -> far zone-edge stop -> fixed-R take-profit.
+// Release 1.13 implements the live contract exactly:
+//   - keep every structurally active reversal node unless an optional cap is set;
+//   - buy limit at the first-touch upper zone edge plus current spread;
+//   - buy stop at the far/lower zone edge;
+//   - sell limit at the first-touch lower zone edge;
+//   - sell stop at the far/upper zone edge plus current spread;
+//   - TP is computed from the spread-aware execution risk so realized R is not
+//     silently compressed by spread;
+//   - do not remove/reject a structural setup from the cache merely because the
+//     market is already too close for a new pending order. Existing orders must
+//     survive the approach and get filled instead of being deleted at the touch.
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0002/DAL_M0002Reports.mqh>
@@ -35,6 +43,9 @@ struct DALExecReversalSetup
    double tp_price;
    double stop_distance;
    double reward_r;
+   double spread_price;
+   double raw_entry_edge;
+   double raw_stop_edge;
    string comment;
 };
 
@@ -59,6 +70,9 @@ void DAL_ExecResetReversalSetup(DALExecReversalSetup &s)
    s.tp_price = 0.0;
    s.stop_distance = 0.0;
    s.reward_r = 1.0;
+   s.spread_price = 0.0;
+   s.raw_entry_edge = 0.0;
+   s.raw_stop_edge = 0.0;
    s.comment = "";
 }
 
@@ -107,6 +121,51 @@ bool DAL_ExecNodeTouchedOrConsumedBeforeNow(
    }
 
    return false;
+}
+
+bool DAL_ExecBuildLiveNodeTerritory(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &node,
+   const double zone_ratio,
+   double &last_extreme,
+   double &last_lower,
+   double &last_upper,
+   bool &hunted
+)
+{
+   last_extreme = 0.0;
+   last_lower = node.price;
+   last_upper = node.price;
+   hunted = false;
+
+   if(bars_count <= 0 || node.active_from_index < 0 || node.active_from_index >= bars_count)
+      return false;
+
+   last_extreme = DAL_M0001InitialExtreme(node.type, bars[node.active_from_index]);
+   for(int i = node.active_from_index; i < bars_count; i++)
+   {
+      last_extreme = DAL_M0001UpdateExtreme(node.type, last_extreme, bars[i]);
+      DAL_M0001Territory(node.type, node.price, last_extreme, zone_ratio, last_lower, last_upper);
+
+      if(DAL_M0001Hunted(node.type, node.price, bars[i]))
+         hunted = true;
+   }
+
+   return true;
+}
+
+bool DAL_ExecSetupLimitOrderableNow(
+   const string symbol,
+   const DALExecReversalSetup &setup,
+   string &reason
+)
+{
+   double entry = setup.entry_price;
+   double sl = setup.stop_price;
+   double tp = setup.tp_price;
+   DAL_ExecNormalizePrices(symbol, entry, sl, tp);
+   return DAL_ExecCheckLimitGeometry(symbol, setup.direction, entry, sl, tp, reason);
 }
 
 bool DAL_ExecLatestBranchIsReversal(
@@ -269,7 +328,30 @@ string DAL_ExecBuildCompactSetupComment(
    return c;
 }
 
+double DAL_ExecCurrentSpreadPrice(const string symbol)
+{
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   double spread = 0.0;
+
+   if(bid > 0.0 && ask > 0.0 && ask >= bid)
+      spread = ask - bid;
+
+   if(spread <= 0.0 && point > 0.0)
+   {
+      long spread_points = SymbolInfoInteger(symbol, SYMBOL_SPREAD);
+      if(spread_points > 0)
+         spread = (double)spread_points * point;
+   }
+
+   if(spread < 0.0)
+      spread = 0.0;
+   return spread;
+}
+
 bool DAL_ExecBuildReversalOneToOneSetupFromNode(
+   const string symbol,
    const DALLRuleNode &node,
    const double extreme,
    const double lower,
@@ -301,31 +383,44 @@ bool DAL_ExecBuildReversalOneToOneSetupFromNode(
    setup.zone_lower = lower;
    setup.zone_upper = upper;
 
-   // H0005 reversal fixed-R test uses the reversal direction, the frozen
-   // structural zone edge as entry proxy for live limits, and the far edge
-   // of the same zone as the structural stop. The research report uses the
-   // touch bar close as the measured entry; live execution cannot know that
-   // close in advance, so the limit is parked exactly at the touch edge.
+   double spread = DAL_ExecCurrentSpreadPrice(symbol);
+   setup.spread_price = spread;
+
+   // Exact live H0005 reversal touch model:
+   // - A LOW node is a demand/support revisit. The first-touch edge is the
+   //   upper edge of the live zone; a buy opens on Ask, therefore the buy limit
+   //   is parked one current spread above that Bid-side structural touch edge.
+   //   The stop remains the far/lower structural edge.
+   // - A HIGH node is a supply/resistance revisit. The first-touch edge is the
+   //   lower edge of the live zone; a sell opens on Bid, so the sell limit stays
+   //   at that edge. The stop closes on Ask, therefore it is moved one current
+   //   spread above the far/upper structural edge.
    if(node.type == DAL_NODE_LOW)
    {
       setup.direction = +1;
-      setup.entry_price = upper;
+      setup.raw_entry_edge = upper;
+      setup.raw_stop_edge = lower;
+      setup.entry_price = upper + spread;
       setup.stop_price = lower;
    }
    else
    {
       setup.direction = -1;
+      setup.raw_entry_edge = lower;
+      setup.raw_stop_edge = upper;
       setup.entry_price = lower;
-      setup.stop_price = upper;
+      setup.stop_price = upper + spread;
    }
 
    setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);
    if(setup.stop_distance <= 0.0)
    {
-      setup.reason = "zero_stop_distance";
+      setup.reason = "zero_spread_adjusted_stop_distance";
       return false;
    }
 
+   // TP is based on the executable entry and the spread-aware stop distance.
+   // This keeps the requested R multiple intact after spread adjustment.
    setup.tp_price = setup.entry_price + setup.direction * setup.stop_distance * reward_r;
    setup.comment = DAL_ExecBuildCompactSetupComment(comment_prefix, reward_r, setup.node_id, setup.direction);
    setup.valid = true;
@@ -416,47 +511,75 @@ int DAL_ExecCollectH5ReversalRSetups(
 
    int buy_slots = (int)MathMax(0.0, (double)buy_limit_slots);
    int sell_slots = (int)MathMax(0.0, (double)sell_limit_slots);
-   if(buy_slots <= 0 && sell_slots <= 0)
-   {
-      reason = "no_directional_slots";
-      return 0;
-   }
+   bool buy_unlimited = (buy_slots <= 0);
+   bool sell_unlimited = (sell_slots <= 0);
 
    DALExecReversalSetup all_setups[];
    ArrayResize(all_setups, 0);
 
    int scanned = 0;
+   int skipped_unconfirmed = 0;
+   int skipped_not_active = 0;
+   int skipped_hunted = 0;
+   int skipped_build = 0;
    int current_index = bars_count - 1;
    for(int n = nodes_count - 1; n >= 0; n--)
    {
       DALLRuleNode node = nodes[n];
       if(!node.confirmed)
+      {
+         skipped_unconfirmed++;
          continue;
+      }
       if(node.active_from_index < 0 || node.active_from_index > current_index)
+      {
+         skipped_not_active++;
          continue;
+      }
 
       scanned++;
       if(max_nodes_scan > 0 && scanned > max_nodes_scan)
          break;
 
-      if(DAL_ExecNodeHasEvent(events, events_count, node.id))
-         continue;
-
       double extreme = 0.0, lower = 0.0, upper = 0.0;
-      bool already_touched_or_consumed = DAL_ExecNodeTouchedOrConsumedBeforeNow(bars, bars_count, node, zone_ratio, extreme, lower, upper);
-      if(already_touched_or_consumed)
+      bool hunted = false;
+      if(!DAL_ExecBuildLiveNodeTerritory(bars, bars_count, node, zone_ratio, extreme, lower, upper, hunted))
+      {
+         skipped_not_active++;
          continue;
+      }
+
+      // Touches are allowed to become future revisits in the live executor, so
+      // a historical M0001 touch/event must not remove the zone forever. A true
+      // hunt/structural invalidation still retires the node from the limit grid.
+      if(hunted)
+      {
+         skipped_hunted++;
+         continue;
+      }
 
       DALExecReversalSetup setup;
-      if(!DAL_ExecBuildReversalOneToOneSetupFromNode(node, extreme, lower, upper, last_branch_sample, reward_r, comment_prefix, setup))
+      if(!DAL_ExecBuildReversalOneToOneSetupFromNode(symbol, node, extreme, lower, upper, last_branch_sample, reward_r, comment_prefix, setup))
+      {
+         skipped_build++;
          continue;
+      }
 
+      // Do not filter this setup out just because a *new* limit order is not
+      // orderable at this exact tick. If an existing pending is approaching the
+      // touch, removing the setup from cache would make the sync layer delete
+      // the order right before fill. Orderability is checked only at send/modify.
       DAL_ExecAppendReversalSetup(all_setups, setup);
    }
 
    if(ArraySize(all_setups) <= 0)
    {
-      reason = "no_active_h5_reversal_zone";
+      reason = "no_active_h5_reversal_zone"
+         + "_scanned_" + IntegerToString(scanned)
+         + "_hunted_" + IntegerToString(skipped_hunted)
+         + "_inactive_" + IntegerToString(skipped_not_active)
+         + "_unconfirmed_" + IntegerToString(skipped_unconfirmed)
+         + "_buildReject_" + IntegerToString(skipped_build);
       return 0;
    }
 
@@ -468,14 +591,14 @@ int DAL_ExecCollectH5ReversalRSetups(
    {
       if(all_setups[i].direction > 0)
       {
-         if(buy_count >= buy_slots)
+         if(!buy_unlimited && buy_count >= buy_slots)
             continue;
          DAL_ExecAppendReversalSetup(setups, all_setups[i]);
          buy_count++;
       }
       else if(all_setups[i].direction < 0)
       {
-         if(sell_count >= sell_slots)
+         if(!sell_unlimited && sell_count >= sell_slots)
             continue;
          DAL_ExecAppendReversalSetup(setups, all_setups[i]);
          sell_count++;
@@ -488,7 +611,16 @@ int DAL_ExecCollectH5ReversalRSetups(
       return 0;
    }
 
-   reason = "ok_buy_" + IntegerToString(buy_count) + "_sell_" + IntegerToString(sell_count);
+   reason = "ok_buy_" + IntegerToString(buy_count)
+      + "_sell_" + IntegerToString(sell_count)
+      + "_all_" + IntegerToString(ArraySize(all_setups))
+      + "_scanned_" + IntegerToString(scanned)
+      + "_hunted_" + IntegerToString(skipped_hunted)
+      + "_inactive_" + IntegerToString(skipped_not_active)
+      + "_unconfirmed_" + IntegerToString(skipped_unconfirmed)
+      + "_buildReject_" + IntegerToString(skipped_build)
+      + "_buySlots_" + (buy_unlimited ? "ALL" : IntegerToString(buy_slots))
+      + "_sellSlots_" + (sell_unlimited ? "ALL" : IntegerToString(sell_slots));
    return ArraySize(setups);
 }
 
@@ -575,23 +707,30 @@ bool DAL_ExecBuildReversalOneToOneSetup(
    setup.zone_lower = lower;
    setup.zone_upper = upper;
 
+   double spread = DAL_ExecCurrentSpreadPrice(_Symbol);
+   setup.spread_price = spread;
+
    if(node.type == DAL_NODE_LOW)
    {
       setup.direction = +1;
-      setup.entry_price = upper; // first touch edge from above
-      setup.stop_price = lower;  // far edge / structural stop
+      setup.raw_entry_edge = upper;
+      setup.raw_stop_edge = lower;
+      setup.entry_price = upper + spread;
+      setup.stop_price = lower;
    }
    else
    {
       setup.direction = -1;
-      setup.entry_price = lower; // first touch edge from below
-      setup.stop_price = upper;  // far edge / structural stop
+      setup.raw_entry_edge = lower;
+      setup.raw_stop_edge = upper;
+      setup.entry_price = lower;
+      setup.stop_price = upper + spread;
    }
 
    setup.stop_distance = MathAbs(setup.entry_price - setup.stop_price);
    if(setup.stop_distance <= 0.0)
    {
-      setup.reason = "zero_stop_distance";
+      setup.reason = "zero_spread_adjusted_stop_distance";
       return false;
    }
 
@@ -616,6 +755,9 @@ string DAL_ExecReversalSetupToLog(const DALExecReversalSetup &s)
       + "*rewardR=" + DoubleToString(s.reward_r, 4)
       + "*zoneLower=" + DoubleToString(s.zone_lower, 8)
       + "*zoneUpper=" + DoubleToString(s.zone_upper, 8)
+      + "*rawEntryEdge=" + DoubleToString(s.raw_entry_edge, 8)
+      + "*rawStopEdge=" + DoubleToString(s.raw_stop_edge, 8)
+      + "*spread=" + DoubleToString(s.spread_price, 8)
       + "*stopDistance=" + DoubleToString(s.stop_distance, 8)
       + "*comment=" + s.comment;
 }
