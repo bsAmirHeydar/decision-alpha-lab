@@ -1,9 +1,9 @@
 //+------------------------------------------------------------------+
 //| Decision Alpha Lab — E0001 H0005 Reversal R1 Executor             |
-//| Execution layer: exact H5 reversal R1, stable pending + touch catch|
+//| Execution layer: exact H5 reversal R1, stable pending sync + touch catch|
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
+#property version   "1.06"
 #property description "Execution module for H0005 reversal R1: stable limit orders at structural zone touch, optional market catch if price is already touching."
 
 #include <Trade/Trade.mqh>
@@ -39,7 +39,7 @@ input int InpMaxSimultaneousTrades = 1;
 input bool InpAllowOppositeTrades = false;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input int InpOrderExpirationMinutes = 0;
-input string InpOrderCommentPrefix = "DALR1"; // Keep compact: broker comments may be truncated.
+input string InpOrderCommentPrefix = "DALR1"; // Compact managed prefix; comments are capped before send.
 
 // Runtime / speed policy.
 enum ENUM_DALExecLogMode
@@ -60,6 +60,7 @@ input ENUM_DALExecLogMode InpLogMode = DAL_EXEC_LOG_ERRORS;
 // Pending-order sync. This is stable-first: do not chase/replace near-fill orders.
 input bool InpSyncManagedPendings = true;
 input bool InpCancelStaleManagedPendings = true;
+input bool InpCancelManagedPendingsAfterEntry = true; // H5 path has one actual next-touch entry; cancel unused candidate orders after a fill.
 input bool InpProtectPendingWhenPriceApproaches = true;
 input int InpPendingProtectDistancePoints = 20;
 input double InpPendingProtectStopFraction = 0.50;
@@ -69,7 +70,7 @@ input double InpPendingProtectStopFraction = 0.50;
 input bool InpAllowMarketCatchWhenAlreadyTouching = true;
 input bool InpMarketCatchRequiresPriceBeforeStop = true;
 
-#define DAL_E0001_BUILD "1.05"
+#define DAL_E0001_BUILD "1.06"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -219,7 +220,7 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
       has_last_sample,
       m1.zone_ratio,
       InpRewardR,
-      InpOrderCommentPrefix,
+      DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix),
       InpMaxZoneScanNodes,
       setups,
       reason
@@ -228,7 +229,7 @@ bool BuildCurrentSetups(DALExecReversalSetup &setups[], string &reason)
    return (n > 0);
 }
 
-void RefreshSetupCacheIfNeeded()
+bool RefreshSetupCacheIfNeeded()
 {
    bool refresh = !g_cache_ready;
    if(!refresh)
@@ -240,7 +241,7 @@ void RefreshSetupCacheIfNeeded()
    }
 
    if(!refresh)
-      return;
+      return false;
 
    DALExecReversalSetup setups[];
    string reason = "";
@@ -252,6 +253,8 @@ void RefreshSetupCacheIfNeeded()
 
    if(LogVerbose())
       Print("DAL_E0001_CACHE *** build=", DAL_E0001_BUILD, "*setups=", ArraySize(g_cached_setups), "*reason=", reason);
+
+   return true;
 }
 
 bool SetupCommentInCache(const string comment)
@@ -285,11 +288,33 @@ bool PendingIsProtectedNearMarket(const DALExecPendingOrder &pending)
    return (market_distance <= protect_distance);
 }
 
+bool HasManagedPosition()
+{
+   string managed_prefix = DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix);
+   int total = PositionsTotal();
+   for(int i = 0; i < total; i++)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != LabSymbol())
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != InpMagicNumber)
+         continue;
+      if(!DAL_ExecOrderCommentMatchesPrefix(PositionGetString(POSITION_COMMENT), managed_prefix))
+         continue;
+      return true;
+   }
+   return false;
+}
+
 void SyncStaleManagedPendings()
 {
    if(!InpSyncManagedPendings || !InpCancelStaleManagedPendings)
       return;
 
+   string managed_prefix = DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix);
+   bool managed_position_open = (InpCancelManagedPendingsAfterEntry && HasManagedPosition());
    int deleted = 0;
    for(int i = OrdersTotal() - 1; i >= 0; i--)
    {
@@ -306,25 +331,26 @@ void SyncStaleManagedPendings()
          continue;
 
       string comment = OrderGetString(ORDER_COMMENT);
-      if(!DAL_ExecOrderCommentMatchesPrefix(comment, InpOrderCommentPrefix))
+      if(!DAL_ExecOrderCommentMatchesPrefix(comment, managed_prefix))
          continue;
 
-      if(SetupCommentInCache(comment))
+      if(!managed_position_open && SetupCommentInCache(comment))
          continue;
 
       DALExecPendingOrder pending;
       if(!DAL_ExecReadPendingOrder(ticket, pending))
          continue;
 
-      if(PendingIsProtectedNearMarket(pending))
+      if(!managed_position_open && PendingIsProtectedNearMarket(pending))
          continue;
 
       string delete_reason = "";
+      string sync_reason = managed_position_open ? "managed_position_open_cancel_unused_candidate" : "stale_not_in_current_h5_setup";
       if(DAL_ExecDeletePendingOrder(ticket, g_trade, delete_reason))
       {
          deleted++;
          if(LogOrders())
-            Print("DAL_E0001_PENDING_DELETE *** build=", DAL_E0001_BUILD, "*ticket=", (long)ticket, "*reason=stale_not_in_current_h5_setup*comment=", comment);
+            Print("DAL_E0001_PENDING_DELETE *** build=", DAL_E0001_BUILD, "*ticket=", (long)ticket, "*reason=", sync_reason, "*comment=", comment);
       }
       else if(LogErrors())
       {
@@ -438,6 +464,8 @@ bool PlaceSetupMarketCatch(const DALExecReversalSetup &setup, const double marke
 
 void TryPlaceCachedSetups()
 {
+   SyncStaleManagedPendings();
+
    int setup_count = ArraySize(g_cached_setups);
    if(setup_count <= 0)
    {
@@ -446,8 +474,6 @@ void TryPlaceCachedSetups()
       UpdateComment("no_h5_r1_setup_" + g_cache_reason);
       return;
    }
-
-   SyncStaleManagedPendings();
 
    int submitted = 0;
    int skipped_existing = 0;
@@ -593,10 +619,11 @@ int OnInit()
          "*researchEntryModel=touch_bar_close_in_M0005_report",
          "*stopModel=zone_edge",
          "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
-         "*orderCommentPrefix=", InpOrderCommentPrefix,
+         "*orderCommentPrefix=", DAL_ExecManagedCommentPrefix(InpOrderCommentPrefix),
          "*manageEveryTick=", DAL_BoolToString(InpManageOrdersEveryTick),
          "*marketCatch=", DAL_BoolToString(InpAllowMarketCatchWhenAlreadyTouching),
          "*cancelStale=", DAL_BoolToString(InpCancelStaleManagedPendings),
+         "*cancelAfterEntry=", DAL_BoolToString(InpCancelManagedPendingsAfterEntry),
          "*logMode=", EnumToString(InpLogMode)
       );
    }
@@ -613,9 +640,9 @@ void OnDeinit(const int reason)
 
 void OnTick()
 {
-   RefreshSetupCacheIfNeeded();
+   bool refreshed = RefreshSetupCacheIfNeeded();
 
-   if(!InpManageOrdersEveryTick && InpRefreshSetupsOnNewBarOnly && !HasNewOpenCandle())
+   if(!InpManageOrdersEveryTick && !refreshed)
       return;
 
    TryPlaceCachedSetups();

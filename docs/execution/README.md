@@ -62,7 +62,8 @@ Default runtime choices:
 
 ```text
 InpBars = 1500
-InpEvaluateOnNewBarOnly = true
+InpRefreshSetupsOnNewBarOnly = true
+InpManageOrdersEveryTick = true
 InpMaxZoneScanNodes = 0
 InpUpdateChartComment = false
 InpLogMode = DAL_EXEC_LOG_ERRORS
@@ -75,28 +76,30 @@ The EA only evaluates on a new candle by default, does not print every rejected/
 
 ## Pending behavior
 
-E0001 is stable-first and H0005-candidate based. It does not delete a valid limit order while price is approaching its entry, and it does not chase the newest/closest setup by default:
+E0001 v1.06 is stateful and H0005-candidate based. It keeps desired H5 reversal R1 orders alive, deletes stale far-away managed pendings only when they are no longer part of the current desired state, and never deletes a near-fill order while price is approaching its entry:
 
 ```text
-1. Finds the latest completed LAST_ONLY branch.
-2. If that branch is reversal, collects all active structural zones eligible to become the next M0001 touch.
-3. Sorts candidates by distance to market.
-4. Places missing pending limits until `InpMaxSimultaneousTrades` is reached.
-5. Keeps existing pending orders by setup comment, so near-fill orders are not removed.
-6. By default, does not cancel a pending order just because the next cycle temporarily has no setup.
+1. Refreshes the H0005 reversal R1 setup cache on new candles by default.
+2. Manages order state every tick so missing desired orders can be placed quickly without rebuilding full research reports every tick.
+3. If price is still away from the zone, places a stable pending limit at the touch edge.
+4. If price is already touching/inside the zone before a limit can be valid, optionally uses market-catch execution with the same zone-edge stop and true 1R take-profit from the actual fill price.
+5. Keeps existing desired pending orders by compact setup comment.
+6. Deletes only stale managed pendings that are no longer in the current H5 state and are not protected near market.
 ```
 
 Relevant inputs:
 
 ```text
-InpUpdatePendingOrders = true
-InpReplacePendingWithCloserSetup = false
-InpCancelPendingWhenNoSetup = false
-InpCancelExtraManagedPendings = false
-InpPendingReplaceMinImprovePoints = 2
+InpRefreshSetupsOnNewBarOnly = true
+InpManageOrdersEveryTick = true
+InpSyncManagedPendings = true
+InpCancelStaleManagedPendings = true
+InpCancelManagedPendingsAfterEntry = true
 InpProtectPendingWhenPriceApproaches = true
 InpPendingProtectDistancePoints = 20
 InpPendingProtectStopFraction = 0.50
+InpAllowMarketCatchWhenAlreadyTouching = true
+InpOrderCommentPrefix = DALR1
 ```
 
-The update engine only manages pending orders that match the EA symbol, magic number, and `InpOrderCommentPrefix`. It never deletes unrelated manual or external orders. If `InpMaxSimultaneousTrades` is greater than one, old valid pending setups are kept and additional valid setups may be placed until the exposure cap is reached.
+The update engine only manages orders that match the EA symbol, magic number, and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or external orders. The compact comment prefix is important because broker servers may truncate order comments; E0001 now keeps comments short so duplicate detection and stale-order sync remain stable. If `InpMaxSimultaneousTrades` is greater than one, multiple valid candidate zones may be represented by separate orders until one managed entry fills; then unused managed candidate pendings are cancelled by default because the H0005 path has one actual next-touch entry.

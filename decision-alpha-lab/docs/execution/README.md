@@ -62,7 +62,8 @@ Default runtime choices:
 
 ```text
 InpBars = 1500
-InpEvaluateOnNewBarOnly = true
+InpRefreshSetupsOnNewBarOnly = true
+InpManageOrdersEveryTick = true
 InpMaxZoneScanNodes = 0
 InpUpdateChartComment = false
 InpLogMode = DAL_EXEC_LOG_ERRORS
@@ -75,7 +76,7 @@ The EA only evaluates on a new candle by default, does not print every rejected/
 
 ## Pending behavior
 
-E0001 v1.05 is stateful and H0005-candidate based. It keeps desired H5 reversal R1 orders alive, deletes stale far-away managed pendings only when they are no longer part of the current desired state, and never deletes a near-fill order while price is approaching its entry:
+E0001 v1.06 is stateful and H0005-candidate based. It keeps desired H5 reversal R1 orders alive, deletes stale far-away managed pendings only when they are no longer part of the current desired state, and never deletes a near-fill order while price is approaching its entry:
 
 ```text
 1. Refreshes the H0005 reversal R1 setup cache on new candles by default.
@@ -93,6 +94,7 @@ InpRefreshSetupsOnNewBarOnly = true
 InpManageOrdersEveryTick = true
 InpSyncManagedPendings = true
 InpCancelStaleManagedPendings = true
+InpCancelManagedPendingsAfterEntry = true
 InpProtectPendingWhenPriceApproaches = true
 InpPendingProtectDistancePoints = 20
 InpPendingProtectStopFraction = 0.50
@@ -100,4 +102,4 @@ InpAllowMarketCatchWhenAlreadyTouching = true
 InpOrderCommentPrefix = DALR1
 ```
 
-The update engine only manages orders that match the EA symbol, magic number, and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or external orders. The compact comment prefix is important because broker servers may truncate order comments; E0001 now keeps comments short so duplicate detection and stale-order sync remain stable. If `InpMaxSimultaneousTrades` is greater than one, multiple valid candidate zones may be represented by separate orders until the exposure cap is reached.
+The update engine only manages orders that match the EA symbol, magic number, and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or external orders. The compact comment prefix is important because broker servers may truncate order comments; E0001 now keeps comments short so duplicate detection and stale-order sync remain stable. If `InpMaxSimultaneousTrades` is greater than one, multiple valid candidate zones may be represented by separate orders until one managed entry fills; then unused managed candidate pendings are cancelled by default because the H0005 path has one actual next-touch entry.

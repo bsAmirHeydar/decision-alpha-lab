@@ -469,4 +469,107 @@ bool DAL_ExecPlaceLimitOrder(
    return true;
 }
 
+
+bool DAL_ExecCheckMarketGeometry(
+   const string symbol,
+   const int direction,
+   const double sl,
+   const double tp,
+   string &reason
+)
+{
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+
+   if(point <= 0.0 || bid <= 0.0 || ask <= 0.0)
+   {
+      reason = "invalid_market_quote";
+      return false;
+   }
+
+   if(direction > 0)
+   {
+      if(!(sl < ask && tp > ask))
+      {
+         reason = "invalid_buy_market_sl_tp_geometry";
+         return false;
+      }
+      if((ask - sl) < min_dist || (tp - ask) < min_dist)
+      {
+         reason = "buy_market_sl_tp_too_close";
+         return false;
+      }
+   }
+   else if(direction < 0)
+   {
+      if(!(sl > bid && tp < bid))
+      {
+         reason = "invalid_sell_market_sl_tp_geometry";
+         return false;
+      }
+      if((sl - bid) < min_dist || (bid - tp) < min_dist)
+      {
+         reason = "sell_market_sl_tp_too_close";
+         return false;
+      }
+   }
+   else
+   {
+      reason = "zero_direction";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+bool DAL_ExecPlaceMarketOrder(
+   const string symbol,
+   const long magic,
+   const int direction,
+   const double volume,
+   double sl,
+   double tp,
+   const string comment,
+   CTrade &trade,
+   string &reason
+)
+{
+   double dummy_entry = 0.0;
+   if(direction > 0)
+      dummy_entry = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   else
+      dummy_entry = SymbolInfoDouble(symbol, SYMBOL_BID);
+   DAL_ExecNormalizePrices(symbol, dummy_entry, sl, tp);
+
+   if(!DAL_ExecCheckMarketGeometry(symbol, direction, sl, tp, reason))
+      return false;
+
+   if(volume <= 0.0)
+   {
+      reason = "volume_zero";
+      return false;
+   }
+
+   trade.SetExpertMagicNumber(magic);
+
+   bool ok = false;
+   if(direction > 0)
+      ok = trade.Buy(volume, symbol, 0.0, sl, tp, comment);
+   else
+      ok = trade.Sell(volume, symbol, 0.0, sl, tp, comment);
+
+   if(!ok)
+   {
+      reason = "market_send_failed_retcode_" + IntegerToString((int)trade.ResultRetcode()) + "_" + trade.ResultRetcodeDescription();
+      return false;
+   }
+
+   reason = "ok_ticket_" + IntegerToString((int)trade.ResultOrder());
+   return true;
+}
+
 #endif

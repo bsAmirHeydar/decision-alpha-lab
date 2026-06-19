@@ -225,6 +225,20 @@ bool DAL_ExecFindLatestBranchSampleFast(
 
 
 
+string DAL_ExecManagedCommentPrefix(const string comment_prefix)
+{
+   string prefix = comment_prefix;
+   if(prefix == "")
+      prefix = "DALR";
+
+   // Broker order comments are often capped/truncated. Keep the managed
+   // identity prefix short and use the same normalized prefix for both order
+   // creation and later pending-order synchronization.
+   if(StringLen(prefix) > 10)
+      prefix = StringSubstr(prefix, 0, 10);
+   return prefix;
+}
+
 string DAL_ExecBuildCompactSetupComment(
    const string comment_prefix,
    const double reward_r,
@@ -232,16 +246,11 @@ string DAL_ExecBuildCompactSetupComment(
    const int last_branch_sample_id
 )
 {
-   string prefix = comment_prefix;
-   if(prefix == "")
-      prefix = "DALR";
-   if(StringLen(prefix) > 10)
-      prefix = StringSubstr(prefix, 0, 10);
-
+   string prefix = DAL_ExecManagedCommentPrefix(comment_prefix);
    string rr = "R" + IntegerToString((int)MathRound(reward_r * 10.0));
    string c = prefix + rr + "_" + IntegerToString(node_id) + "_" + IntegerToString(last_branch_sample_id);
 
-   // Many brokers truncate order comments. Keep identity compact so duplicate
+   // Keep full setup identity inside common broker limits so duplicate
    // detection and pending sync do not break because of server-side truncation.
    if(StringLen(c) > 31)
       c = StringSubstr(c, 0, 31);
