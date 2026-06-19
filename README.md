@@ -25,7 +25,7 @@ MQL5/Experts/DecisionAlphaLab/M0001/M0001_LiveVisualLab.mq5
 ## Current version
 
 ```text
-Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04 / M0005 1.02
+Research runtime targets: M0002 1.75 / M0003 1.04 / M0004 1.04 / M0005 1.03
 ```
 
 ## Runtime modes
@@ -541,7 +541,7 @@ DAL_M0004_FINAL_CONSENSUS_BLOCK_QUALITY_EWMA
 The key comparison is between `last_only`, `consensus_accept`, and `rejected_last`. If `consensus_accept` has higher follow/lift/intensity than `rejected_last`, consensus is functioning as a quality filter over the last-only signal.
 
 
-### M0005 v1.02 — structural directional memory with realized/floating R and random-performance comparison
+### M0005 v1.03 — structural directional memory with fixed 1R/2R reversal trade reports
 
 M0005 introduces H0005, the directional-memory layer above H0004 branch-regime clustering. It keeps the core constraint that the market is not measured through fixed time windows. Reversal paths are evaluated through structural X-axis destinations: the next opposite node/zone touch before structural stop invalidation. The default reversal stop is the original zone-edge stop to avoid future hunt-extreme lookahead; the adaptive hunt-extreme mode remains available as an input-controlled research mode. Continuation paths are evaluated through state/Y-axis persistence: break of the last zone in the continuation direction, then hold until detected regime change.
 
@@ -589,3 +589,6 @@ DAL_M0005_FINAL_REV_CONT_COMPARE
 ```
 
 MFE/MAE semantics are explicit: excursions are measured from the structural entry origin and stop at path exit. For reversal, exit is target, structural stop invalidation, max-bars, or end-of-data. For continuation, exit is the first detected regime change, max-bars, or end-of-data. Additional stop-risk and R-multiple reports include optional hunt occurrence/stop expansion, stop-hit rate, base/active stop distance, hunt depth, target distance, MFE/MAE in R, net R, realized win rate, realized R:R, profit factor, expectancy R, floating R multiples, R-based first-hit order, and matched-random performance comparison on the same duration, direction, and actual R scale.
+
+
+M0005 v1.03 adds `DAL_M0005_FINAL_REVERSAL_TRADE_R1` and `DAL_M0005_FINAL_REVERSAL_TRADE_R2` report lines. These are raw cost-excluded, execution-style reversal simulations with fixed +1R/+2R targets, -1R structural stop, path-exit fallback, same-bar TP/SL policy, and matched-random baselines.

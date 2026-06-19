@@ -3,7 +3,7 @@
 //| Hypothesis 5: structural regimes create path/direction memory.     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
+#property version   "1.03"
 #property description "M0005 tests structural directional memory with MFE/MAE until structural/path exit"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -69,7 +69,7 @@ input int InpHorizonBars4 = 50;
 #define DAL_M0005_TIMER_MS 0
 #define DAL_M0005_MAX_EVENTS 0
 #define DAL_M0005_MIN_RTV 0.0
-#define DAL_M0005_BUILD "1.02"
+#define DAL_M0005_BUILD "1.03"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -232,7 +232,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  ewmaAlpha=", DoubleToString(InpH5ContextEwmaAlpha, 2),
       "  threshold=", DoubleToString(InpH5ContextStrongThreshold, 2), "\n",
       "reversal: next opposite structural zone target; default stop=zone edge, adaptive hunt stop optional\n",
-      "continuation: zone break until regime change; realized/floating R and MFE/MAE stop at path exit"
+      "continuation: zone break until regime change; realized/floating R, reversal fixed 1R/2R trade reports, and MFE/MAE stop at path exit"
    );
 }
 
@@ -338,11 +338,13 @@ void PrintFinalReportsFromBars(const DALBar &bars[], const int bars_count, const
       "*continuationExit=regime_change",
       "*reversalStopMode=", DAL_M0005ReversalStopModeToString(h5_config.reversal_stop_mode),
       "*reversalStopRule=input_controlled_default_zone_edge_no_future_hunt_lookahead",
+      "*reversalTradeReports=fixed_reward_1R_2R_raw_costs_excluded",
+      "*reversalTradeExit=tp_or_stop_or_path_exit",
       "*reversalStopUsesWick=", DAL_BoolToString(h5_config.reversal_stop_uses_wick),
       "*reversalSameBarStopFirst=", DAL_BoolToString(h5_config.reversal_same_bar_stop_first),
       "*reversalHuntLockZoneMultiple=", DoubleToString(h5_config.reversal_hunt_lock_zone_multiple, 4),
       "*mfeMaeStopGuard=stop_at_path_exit",
-      "*rMetrics=realized_R_floating_R_winrate_profit_factor",
+      "*rMetrics=realized_R_floating_R_fixed_reward_R1_R2_winrate_profit_factor",
       "*randomDesign=matched_entry_same_duration_same_direction_same_actual_R_scale",
       "*contextK=", h5_config.context_lookback,
       "*contextEwmaAlpha=", DoubleToString(h5_config.context_ewma_alpha, 4),

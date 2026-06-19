@@ -5,7 +5,7 @@ Run `M0005_DirectionalMemory.mq5` in MetaTrader Strategy Tester.
 Expected build sanity line:
 
 ```text
-DAL_M0005_BUILD_SANITY ... build=1.02 ... hypothesis=H0005_DIRECTIONAL_MEMORY
+DAL_M0005_BUILD_SANITY ... build=1.03 ... hypothesis=H0005_DIRECTIONAL_MEMORY
 ```
 
 Key checks:
@@ -18,3 +18,6 @@ Key checks:
 6. `DAL_M0005_FINAL_RANDOM_PERFORMANCE_*` — actual versus matched-random win rate, profit factor, expectancy R, MFE R, and floating R:R.
 7. `DAL_M0005_FINAL_STRESS_*` — direction-flip and matched-random excursion comparisons.
 8. Run multiple regime sources and compare `LAST_ONLY` vs `EWMA_CONTEXT` vs `EWMA_CONSENSUS`.
+
+
+M0005 v1.03 adds `DAL_M0005_FINAL_REVERSAL_TRADE_R1` and `DAL_M0005_FINAL_REVERSAL_TRADE_R2` report lines. These are raw cost-excluded, execution-style reversal simulations with fixed +1R/+2R targets, -1R structural stop, path-exit fallback, same-bar TP/SL policy, and matched-random baselines.

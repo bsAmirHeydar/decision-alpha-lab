@@ -131,6 +131,18 @@ struct DALM0005Path
    double random_net_r;
    bool random_follow_10;
    bool random_positive_net;
+   double trade_tp1_r;
+   double trade_tp2_r;
+   double random_trade_tp1_r;
+   double random_trade_tp2_r;
+   bool trade_tp1_hit_target;
+   bool trade_tp1_hit_stop;
+   bool trade_tp1_forced_exit;
+   bool trade_tp1_same_bar;
+   bool trade_tp2_hit_target;
+   bool trade_tp2_hit_stop;
+   bool trade_tp2_forced_exit;
+   bool trade_tp2_same_bar;
    double context_p;
    double context_confidence;
    int context_dominant;
@@ -181,6 +193,26 @@ struct DALM0005PathStats
    int random_hit_mfe_1r_n;
    int random_hit_mfe_2r_n;
    int random_hit_mfe_3r_n;
+   int tp1_win_n;
+   int tp1_loss_n;
+   int tp1_flat_n;
+   int tp1_target_n;
+   int tp1_stop_n;
+   int tp1_forced_n;
+   int tp1_samebar_n;
+   int tp2_win_n;
+   int tp2_loss_n;
+   int tp2_flat_n;
+   int tp2_target_n;
+   int tp2_stop_n;
+   int tp2_forced_n;
+   int tp2_samebar_n;
+   int random_tp1_win_n;
+   int random_tp1_loss_n;
+   int random_tp1_flat_n;
+   int random_tp2_win_n;
+   int random_tp2_loss_n;
+   int random_tp2_flat_n;
    int max_exit_n;
    int end_data_n;
    int bars_sum;
@@ -204,6 +236,22 @@ struct DALM0005PathStats
    double loss_r_abs_sum;
    double random_mfe_r_sum;
    double random_mae_r_sum;
+   double tp1_sum_r;
+   double tp1_gross_win_r;
+   double tp1_gross_loss_r;
+   double tp1_win_r_sum;
+   double tp1_loss_r_abs_sum;
+   double tp2_sum_r;
+   double tp2_gross_win_r;
+   double tp2_gross_loss_r;
+   double tp2_win_r_sum;
+   double tp2_loss_r_abs_sum;
+   double random_tp1_sum_r;
+   double random_tp1_gross_win_r;
+   double random_tp1_gross_loss_r;
+   double random_tp2_sum_r;
+   double random_tp2_gross_win_r;
+   double random_tp2_gross_loss_r;
    double random_net_zone_sum;
    double random_net_r_sum;
    double random_gross_win_r_sum;
@@ -226,6 +274,10 @@ struct DALM0005PathStats
    double random_net_r_vals[];
    double random_mfe_r_vals[];
    double random_mae_r_vals[];
+   double tp1_r_vals[];
+   double tp2_r_vals[];
+   double random_tp1_r_vals[];
+   double random_tp2_r_vals[];
 };
 
 string DAL_M0005RegimeSourceToString(const ENUM_DALM0005RegimeSource src)
@@ -316,6 +368,18 @@ void DAL_M0005ResetPath(DALM0005Path &p)
    p.random_net_r = 0.0;
    p.random_follow_10 = false;
    p.random_positive_net = false;
+   p.trade_tp1_r = 0.0;
+   p.trade_tp2_r = 0.0;
+   p.random_trade_tp1_r = 0.0;
+   p.random_trade_tp2_r = 0.0;
+   p.trade_tp1_hit_target = false;
+   p.trade_tp1_hit_stop = false;
+   p.trade_tp1_forced_exit = false;
+   p.trade_tp1_same_bar = false;
+   p.trade_tp2_hit_target = false;
+   p.trade_tp2_hit_stop = false;
+   p.trade_tp2_forced_exit = false;
+   p.trade_tp2_same_bar = false;
    p.context_p = 0.0;
    p.context_confidence = 0.0;
    p.context_dominant = -1;
@@ -761,6 +825,121 @@ void DAL_M0005ComputeRandomExcursion(
    net_zone = DAL_M0005SafeDiv(net, zone_width);
 }
 
+
+int DAL_M0005ChooseRandomStart(
+   const int bars_count,
+   const int min_start,
+   const int length,
+   const int direction,
+   const int seed_a,
+   const int seed_b
+)
+{
+   if(length <= 0 || bars_count <= length + 5)
+      return -1;
+   int low = min_start;
+   if(low < 1) low = 1;
+   int high = bars_count - length - 1;
+   if(high <= low) high = low;
+   double frac = DAL_M0001RandomFractionK(seed_a + 211, seed_b + 503, length + 809, direction > 0 ? 1 : 2);
+   int start = low + (int)MathFloor(frac * (high - low + 1));
+   if(start < low) start = low;
+   if(start > high) start = high;
+   return start;
+}
+
+void DAL_M0005ComputeFixedRewardTradeR(
+   const DALBar &bars[],
+   const int bars_count,
+   const int entry_index,
+   const int exit_index,
+   const int direction,
+   const double entry_price,
+   const double stop_distance,
+   const double target_r,
+   const bool same_bar_stop_first,
+   double &result_r,
+   bool &hit_target,
+   bool &hit_stop,
+   bool &forced_exit,
+   bool &same_bar_target_stop
+)
+{
+   result_r = 0.0;
+   hit_target = false;
+   hit_stop = false;
+   forced_exit = false;
+   same_bar_target_stop = false;
+   if(entry_index < 0 || entry_index >= bars_count || exit_index < entry_index || stop_distance <= 0.0 || target_r <= 0.0)
+      return;
+   int end = exit_index;
+   if(end >= bars_count) end = bars_count - 1;
+   double target_distance = target_r * stop_distance;
+   for(int i = entry_index; i <= end; i++)
+   {
+      double favorable = DAL_M0005FavorableMoveFromEntry(bars[i], direction, entry_price);
+      double adverse = DAL_M0005AdverseMoveFromEntry(bars[i], direction, entry_price);
+      bool touched_target = (favorable >= target_distance);
+      bool touched_stop = (adverse >= stop_distance);
+      if(touched_target && touched_stop)
+      {
+         same_bar_target_stop = true;
+         if(same_bar_stop_first)
+         {
+            hit_stop = true;
+            result_r = -1.0;
+         }
+         else
+         {
+            hit_target = true;
+            result_r = target_r;
+         }
+         return;
+      }
+      if(touched_target)
+      {
+         hit_target = true;
+         result_r = target_r;
+         return;
+      }
+      if(touched_stop)
+      {
+         hit_stop = true;
+         result_r = -1.0;
+         return;
+      }
+   }
+   forced_exit = true;
+   if(direction > 0)
+      result_r = (bars[end].close - entry_price) / stop_distance;
+   else
+      result_r = (entry_price - bars[end].close) / stop_distance;
+}
+
+void DAL_M0005ComputeRandomFixedRewardTradeR(
+   const DALBar &bars[],
+   const int bars_count,
+   const int min_start,
+   const int length,
+   const int direction,
+   const int seed_a,
+   const int seed_b,
+   const double stop_distance,
+   const double target_r,
+   const bool same_bar_stop_first,
+   double &result_r
+)
+{
+   result_r = 0.0;
+   int start = DAL_M0005ChooseRandomStart(bars_count, min_start, length, direction, seed_a, seed_b);
+   if(start < 0 || start >= bars_count)
+      return;
+   int end = start + length - 1;
+   if(end >= bars_count) end = bars_count - 1;
+   bool ht=false, hs=false, fe=false, sb=false;
+   DAL_M0005ComputeFixedRewardTradeR(bars, bars_count, start, end, direction, bars[start].close, stop_distance, target_r, same_bar_stop_first, result_r, ht, hs, fe, sb);
+}
+
 void DAL_M0005FinalizePath(
    DALM0005Path &path,
    const DALM0002BranchSample &sample,
@@ -808,6 +987,8 @@ void DAL_M0005FinalizePath(
    path.mfe_r = DAL_M0005SafeDiv(path.mfe, path.stop_distance);
    path.mae_r = DAL_M0005SafeDiv(path.mae, path.stop_distance);
    path.net_r = DAL_M0005SafeDiv(path.net_move, path.stop_distance);
+   DAL_M0005ComputeFixedRewardTradeR(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, 1.0, config.reversal_same_bar_stop_first, path.trade_tp1_r, path.trade_tp1_hit_target, path.trade_tp1_hit_stop, path.trade_tp1_forced_exit, path.trade_tp1_same_bar);
+   DAL_M0005ComputeFixedRewardTradeR(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, 2.0, config.reversal_same_bar_stop_first, path.trade_tp2_r, path.trade_tp2_hit_target, path.trade_tp2_hit_stop, path.trade_tp2_forced_exit, path.trade_tp2_same_bar);
    path.target_distance_r = DAL_M0005SafeDiv(path.target_distance_zone, path.stop_distance_zone);
    DAL_M0005ComputeFirstHitOrder(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.zone_width, path.first_mfe10_index, path.first_mae10_index, path.mfe10_before_mae10, path.mae10_before_mfe10);
    DAL_M0005ComputeFirstHitOrderByDistance(bars, bars_count, path.entry_index, path.exit_index, path.direction, path.entry_price, path.stop_distance, path.first_mfe1r_index, path.first_mae1r_index, path.mfe1r_before_mae1r, path.mae1r_before_mfe1r);
@@ -830,6 +1011,8 @@ void DAL_M0005FinalizePath(
    double random_mfe_sum = 0.0;
    double random_mae_sum = 0.0;
    double random_net_sum = 0.0;
+   double random_tp1_sum = 0.0;
+   double random_tp2_sum = 0.0;
    int random_follow_sum = 0;
    int rk = config.random_samples_per_path;
    if(rk < 1) rk = 1;
@@ -840,12 +1023,19 @@ void DAL_M0005FinalizePath(
       random_mfe_sum += rm;
       random_mae_sum += ra;
       random_net_sum += rn;
+      double rtp1 = 0.0, rtp2 = 0.0;
+      DAL_M0005ComputeRandomFixedRewardTradeR(bars, bars_count, min_random_start, path.bars_to_exit, path.direction, path.source_index + 1511 + r * 19, path.entry_index + 1777 + r * 37, path.stop_distance, 1.0, config.reversal_same_bar_stop_first, rtp1);
+      DAL_M0005ComputeRandomFixedRewardTradeR(bars, bars_count, min_random_start, path.bars_to_exit, path.direction, path.source_index + 2111 + r * 23, path.entry_index + 2777 + r * 41, path.stop_distance, 2.0, config.reversal_same_bar_stop_first, rtp2);
+      random_tp1_sum += rtp1;
+      random_tp2_sum += rtp2;
       if(rm >= config.follow_zone_mult_2)
          random_follow_sum++;
    }
    path.random_mfe_zone = random_mfe_sum / rk;
    path.random_mae_zone = random_mae_sum / rk;
    path.random_net_zone = random_net_sum / rk;
+   path.random_trade_tp1_r = random_tp1_sum / rk;
+   path.random_trade_tp2_r = random_tp2_sum / rk;
    path.random_mfe_r = DAL_M0005SafeDiv(path.random_mfe_zone, path.stop_distance_zone);
    path.random_mae_r = DAL_M0005SafeDiv(path.random_mae_zone, path.stop_distance_zone);
    path.random_net_r = DAL_M0005SafeDiv(path.random_net_zone, path.stop_distance_zone);
@@ -1201,6 +1391,26 @@ void DAL_M0005ResetStats(DALM0005PathStats &st, const string name)
    st.random_hit_mfe_1r_n = 0;
    st.random_hit_mfe_2r_n = 0;
    st.random_hit_mfe_3r_n = 0;
+   st.tp1_win_n = 0;
+   st.tp1_loss_n = 0;
+   st.tp1_flat_n = 0;
+   st.tp1_target_n = 0;
+   st.tp1_stop_n = 0;
+   st.tp1_forced_n = 0;
+   st.tp1_samebar_n = 0;
+   st.tp2_win_n = 0;
+   st.tp2_loss_n = 0;
+   st.tp2_flat_n = 0;
+   st.tp2_target_n = 0;
+   st.tp2_stop_n = 0;
+   st.tp2_forced_n = 0;
+   st.tp2_samebar_n = 0;
+   st.random_tp1_win_n = 0;
+   st.random_tp1_loss_n = 0;
+   st.random_tp1_flat_n = 0;
+   st.random_tp2_win_n = 0;
+   st.random_tp2_loss_n = 0;
+   st.random_tp2_flat_n = 0;
    st.max_exit_n = 0;
    st.end_data_n = 0;
    st.bars_sum = 0;
@@ -1224,6 +1434,22 @@ void DAL_M0005ResetStats(DALM0005PathStats &st, const string name)
    st.loss_r_abs_sum = 0.0;
    st.random_mfe_r_sum = 0.0;
    st.random_mae_r_sum = 0.0;
+   st.tp1_sum_r = 0.0;
+   st.tp1_gross_win_r = 0.0;
+   st.tp1_gross_loss_r = 0.0;
+   st.tp1_win_r_sum = 0.0;
+   st.tp1_loss_r_abs_sum = 0.0;
+   st.tp2_sum_r = 0.0;
+   st.tp2_gross_win_r = 0.0;
+   st.tp2_gross_loss_r = 0.0;
+   st.tp2_win_r_sum = 0.0;
+   st.tp2_loss_r_abs_sum = 0.0;
+   st.random_tp1_sum_r = 0.0;
+   st.random_tp1_gross_win_r = 0.0;
+   st.random_tp1_gross_loss_r = 0.0;
+   st.random_tp2_sum_r = 0.0;
+   st.random_tp2_gross_win_r = 0.0;
+   st.random_tp2_gross_loss_r = 0.0;
    st.random_net_zone_sum = 0.0;
    st.random_net_r_sum = 0.0;
    st.random_gross_win_r_sum = 0.0;
@@ -1246,6 +1472,10 @@ void DAL_M0005ResetStats(DALM0005PathStats &st, const string name)
    ArrayResize(st.random_net_r_vals, 0);
    ArrayResize(st.random_mfe_r_vals, 0);
    ArrayResize(st.random_mae_r_vals, 0);
+   ArrayResize(st.tp1_r_vals, 0);
+   ArrayResize(st.tp2_r_vals, 0);
+   ArrayResize(st.random_tp1_r_vals, 0);
+   ArrayResize(st.random_tp2_r_vals, 0);
 }
 
 void DAL_M0005StatsAdd(DALM0005PathStats &st, const DALM0005Path &p)
@@ -1287,6 +1517,18 @@ void DAL_M0005StatsAdd(DALM0005PathStats &st, const DALM0005Path &p)
    if(p.random_mfe_r >= 1.0) st.random_hit_mfe_1r_n++;
    if(p.random_mfe_r >= 2.0) st.random_hit_mfe_2r_n++;
    if(p.random_mfe_r >= 3.0) st.random_hit_mfe_3r_n++;
+   if(p.trade_tp1_r > 0.0) st.tp1_win_n++; else if(p.trade_tp1_r < 0.0) st.tp1_loss_n++; else st.tp1_flat_n++;
+   if(p.trade_tp1_hit_target) st.tp1_target_n++;
+   if(p.trade_tp1_hit_stop) st.tp1_stop_n++;
+   if(p.trade_tp1_forced_exit) st.tp1_forced_n++;
+   if(p.trade_tp1_same_bar) st.tp1_samebar_n++;
+   if(p.trade_tp2_r > 0.0) st.tp2_win_n++; else if(p.trade_tp2_r < 0.0) st.tp2_loss_n++; else st.tp2_flat_n++;
+   if(p.trade_tp2_hit_target) st.tp2_target_n++;
+   if(p.trade_tp2_hit_stop) st.tp2_stop_n++;
+   if(p.trade_tp2_forced_exit) st.tp2_forced_n++;
+   if(p.trade_tp2_same_bar) st.tp2_samebar_n++;
+   if(p.random_trade_tp1_r > 0.0) st.random_tp1_win_n++; else if(p.random_trade_tp1_r < 0.0) st.random_tp1_loss_n++; else st.random_tp1_flat_n++;
+   if(p.random_trade_tp2_r > 0.0) st.random_tp2_win_n++; else if(p.random_trade_tp2_r < 0.0) st.random_tp2_loss_n++; else st.random_tp2_flat_n++;
    if(p.exit_reason == DAL_M0005_EXIT_MAX_BARS) st.max_exit_n++;
    if(p.exit_reason == DAL_M0005_EXIT_END_OF_DATA) st.end_data_n++;
    st.bars_sum += p.bars_to_exit;
@@ -1308,6 +1550,18 @@ void DAL_M0005StatsAdd(DALM0005PathStats &st, const DALM0005Path &p)
    if(p.net_r < 0.0) { st.gross_loss_r_sum += -p.net_r; st.loss_r_abs_sum += -p.net_r; }
    st.random_mfe_r_sum += p.random_mfe_r;
    st.random_mae_r_sum += p.random_mae_r;
+   st.tp1_sum_r += p.trade_tp1_r;
+   if(p.trade_tp1_r > 0.0) { st.tp1_gross_win_r += p.trade_tp1_r; st.tp1_win_r_sum += p.trade_tp1_r; }
+   if(p.trade_tp1_r < 0.0) { st.tp1_gross_loss_r += -p.trade_tp1_r; st.tp1_loss_r_abs_sum += -p.trade_tp1_r; }
+   st.tp2_sum_r += p.trade_tp2_r;
+   if(p.trade_tp2_r > 0.0) { st.tp2_gross_win_r += p.trade_tp2_r; st.tp2_win_r_sum += p.trade_tp2_r; }
+   if(p.trade_tp2_r < 0.0) { st.tp2_gross_loss_r += -p.trade_tp2_r; st.tp2_loss_r_abs_sum += -p.trade_tp2_r; }
+   st.random_tp1_sum_r += p.random_trade_tp1_r;
+   if(p.random_trade_tp1_r > 0.0) st.random_tp1_gross_win_r += p.random_trade_tp1_r;
+   if(p.random_trade_tp1_r < 0.0) st.random_tp1_gross_loss_r += -p.random_trade_tp1_r;
+   st.random_tp2_sum_r += p.random_trade_tp2_r;
+   if(p.random_trade_tp2_r > 0.0) st.random_tp2_gross_win_r += p.random_trade_tp2_r;
+   if(p.random_trade_tp2_r < 0.0) st.random_tp2_gross_loss_r += -p.random_trade_tp2_r;
    st.random_net_zone_sum += p.random_net_zone;
    st.random_net_r_sum += p.random_net_r;
    if(p.random_net_r > 0.0) st.random_gross_win_r_sum += p.random_net_r;
@@ -1330,6 +1584,10 @@ void DAL_M0005StatsAdd(DALM0005PathStats &st, const DALM0005Path &p)
    DAL_M0004AppendDouble(st.random_net_r_vals, p.random_net_r);
    DAL_M0004AppendDouble(st.random_mfe_r_vals, p.random_mfe_r);
    DAL_M0004AppendDouble(st.random_mae_r_vals, p.random_mae_r);
+   DAL_M0004AppendDouble(st.tp1_r_vals, p.trade_tp1_r);
+   DAL_M0004AppendDouble(st.tp2_r_vals, p.trade_tp2_r);
+   DAL_M0004AppendDouble(st.random_tp1_r_vals, p.random_trade_tp1_r);
+   DAL_M0004AppendDouble(st.random_tp2_r_vals, p.random_trade_tp2_r);
 }
 
 void DAL_M0005ComputeStats(const string name, const DALM0005Path &paths[], DALM0005PathStats &st)
@@ -1561,6 +1819,84 @@ string DAL_M0005PathRandomPerformanceText(const string tag, const DALM0005Config
       + "*actualMinusRandomHit1RPct=" + DAL_M0001FmtPct(actual_hit1r - random_hit1r);
 }
 
+
+string DAL_M0005ReversalFixedRewardText(
+   const string tag,
+   const DALM0005Config &config,
+   const DALM0005PathStats &st,
+   const double reward_r,
+   const int win_n,
+   const int loss_n,
+   const int flat_n,
+   const int target_n,
+   const int stop_n,
+   const int forced_n,
+   const int samebar_n,
+   const double sum_r,
+   const double gross_win_r,
+   const double gross_loss_r,
+   const double win_r_sum,
+   const double loss_r_abs_sum,
+   const double &vals[],
+   const int random_win_n,
+   const int random_loss_n,
+   const int random_flat_n,
+   const double random_sum_r,
+   const double random_gross_win_r,
+   const double random_gross_loss_r,
+   const double &random_vals[]
+)
+{
+   double win_rate = st.valid > 0 ? 100.0 * win_n / st.valid : 0.0;
+   double loss_rate = st.valid > 0 ? 100.0 * loss_n / st.valid : 0.0;
+   double flat_rate = st.valid > 0 ? 100.0 * flat_n / st.valid : 0.0;
+   double target_rate = st.valid > 0 ? 100.0 * target_n / st.valid : 0.0;
+   double stop_rate = st.valid > 0 ? 100.0 * stop_n / st.valid : 0.0;
+   double forced_rate = st.valid > 0 ? 100.0 * forced_n / st.valid : 0.0;
+   double avg_win = win_n > 0 ? win_r_sum / win_n : 0.0;
+   double avg_loss = loss_n > 0 ? loss_r_abs_sum / loss_n : 0.0;
+   double rr = DAL_M0005SafeDiv(avg_win, avg_loss);
+   double pf = DAL_M0005SafeDiv(gross_win_r, gross_loss_r);
+   double expectancy = st.valid > 0 ? sum_r / st.valid : 0.0;
+   double be_win = (avg_win + avg_loss) > 0.0 ? 100.0 * avg_loss / (avg_win + avg_loss) : 0.0;
+   double random_win_rate = st.valid > 0 ? 100.0 * random_win_n / st.valid : 0.0;
+   double random_pf = DAL_M0005SafeDiv(random_gross_win_r, random_gross_loss_r);
+   double random_expectancy = st.valid > 0 ? random_sum_r / st.valid : 0.0;
+   return tag
+      + "*regimeSource=" + DAL_M0005RegimeSourceToString(config.regime_source)
+      + "*name=" + st.name
+      + "*tradeModel=reversal_fixed_reward_raw_costs_excluded"
+      + "*rewardR=" + DAL_M0001Fmt4(reward_r)
+      + "*sameBarPolicy=" + (config.reversal_same_bar_stop_first ? "STOP_FIRST" : "TARGET_FIRST")
+      + "*pathN=" + IntegerToString(st.valid)
+      + "*winRatePct=" + DAL_M0001FmtPct(win_rate)
+      + "*lossRatePct=" + DAL_M0001FmtPct(loss_rate)
+      + "*flatRatePct=" + DAL_M0001FmtPct(flat_rate)
+      + "*targetHitPct=" + DAL_M0001FmtPct(target_rate)
+      + "*stopHitPct=" + DAL_M0001FmtPct(stop_rate)
+      + "*forcedExitPct=" + DAL_M0001FmtPct(forced_rate)
+      + "*sameBarTargetStopPct=" + DAL_M0001FmtPct(st.valid > 0 ? 100.0 * samebar_n / st.valid : 0.0)
+      + "*avgWinR=" + DAL_M0001Fmt4(avg_win)
+      + "*avgLossR=" + DAL_M0001Fmt4(avg_loss)
+      + "*realizedRR=" + DAL_M0001Fmt4(rr)
+      + "*profitFactor=" + DAL_M0001Fmt4(pf)
+      + "*expectancyR=" + DAL_M0001Fmt4(expectancy)
+      + "*medianR=" + DAL_M0001Fmt4(DAL_M0004QuantileFromArray(vals, 0.50))
+      + "*p10R=" + DAL_M0001Fmt4(DAL_M0004QuantileFromArray(vals, 0.10))
+      + "*p90R=" + DAL_M0001Fmt4(DAL_M0004QuantileFromArray(vals, 0.90))
+      + "*breakEvenWinRatePct=" + DAL_M0001FmtPct(be_win)
+      + "*grossWinR=" + DAL_M0001Fmt4(gross_win_r)
+      + "*grossLossR=" + DAL_M0001Fmt4(gross_loss_r)
+      + "*randomDesign=matched_entry_same_duration_same_direction_same_actual_R_scale"
+      + "*randomWinRatePct=" + DAL_M0001FmtPct(random_win_rate)
+      + "*randomProfitFactor=" + DAL_M0001Fmt4(random_pf)
+      + "*randomExpectancyR=" + DAL_M0001Fmt4(random_expectancy)
+      + "*randomMedianR=" + DAL_M0001Fmt4(DAL_M0004QuantileFromArray(random_vals, 0.50))
+      + "*actualMinusRandomWinRatePct=" + DAL_M0001FmtPct(win_rate - random_win_rate)
+      + "*actualMinusRandomPF=" + DAL_M0001Fmt4(pf - random_pf)
+      + "*actualMinusRandomExpectancyR=" + DAL_M0001Fmt4(expectancy - random_expectancy);
+}
+
 string DAL_M0005PathCompareText(
    const string tag,
    const DALM0005Config &config,
@@ -1699,6 +2035,9 @@ void DAL_M0005PrintFinalReports(
    Print(DAL_M0005Prefix("DAL_M0005_FINAL_REALIZED_R_ALL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005PathRealizedRText("PATH_REALIZED_R", h5_config, all_stats));
    Print(DAL_M0005Prefix("DAL_M0005_FINAL_REALIZED_R_REVERSAL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005PathRealizedRText("PATH_REALIZED_R", h5_config, rev_stats));
    Print(DAL_M0005Prefix("DAL_M0005_FINAL_REALIZED_R_CONTINUATION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005PathRealizedRText("PATH_REALIZED_R", h5_config, cont_stats));
+
+   Print(DAL_M0005Prefix("DAL_M0005_FINAL_REVERSAL_TRADE_R1", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005ReversalFixedRewardText("REVERSAL_FIXED_REWARD_TRADE", h5_config, rev_stats, 1.0, rev_stats.tp1_win_n, rev_stats.tp1_loss_n, rev_stats.tp1_flat_n, rev_stats.tp1_target_n, rev_stats.tp1_stop_n, rev_stats.tp1_forced_n, rev_stats.tp1_samebar_n, rev_stats.tp1_sum_r, rev_stats.tp1_gross_win_r, rev_stats.tp1_gross_loss_r, rev_stats.tp1_win_r_sum, rev_stats.tp1_loss_r_abs_sum, rev_stats.tp1_r_vals, rev_stats.random_tp1_win_n, rev_stats.random_tp1_loss_n, rev_stats.random_tp1_flat_n, rev_stats.random_tp1_sum_r, rev_stats.random_tp1_gross_win_r, rev_stats.random_tp1_gross_loss_r, rev_stats.random_tp1_r_vals));
+   Print(DAL_M0005Prefix("DAL_M0005_FINAL_REVERSAL_TRADE_R2", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005ReversalFixedRewardText("REVERSAL_FIXED_REWARD_TRADE", h5_config, rev_stats, 2.0, rev_stats.tp2_win_n, rev_stats.tp2_loss_n, rev_stats.tp2_flat_n, rev_stats.tp2_target_n, rev_stats.tp2_stop_n, rev_stats.tp2_forced_n, rev_stats.tp2_samebar_n, rev_stats.tp2_sum_r, rev_stats.tp2_gross_win_r, rev_stats.tp2_gross_loss_r, rev_stats.tp2_win_r_sum, rev_stats.tp2_loss_r_abs_sum, rev_stats.tp2_r_vals, rev_stats.random_tp2_win_n, rev_stats.random_tp2_loss_n, rev_stats.random_tp2_flat_n, rev_stats.random_tp2_sum_r, rev_stats.random_tp2_gross_win_r, rev_stats.random_tp2_gross_loss_r, rev_stats.random_tp2_r_vals));
 
    Print(DAL_M0005Prefix("DAL_M0005_FINAL_FLOATING_R_ALL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005PathFloatingRText("PATH_FLOATING_R", h5_config, all_stats));
    Print(DAL_M0005Prefix("DAL_M0005_FINAL_FLOATING_R_REVERSAL", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0005PathFloatingRText("PATH_FLOATING_R", h5_config, rev_stats));
