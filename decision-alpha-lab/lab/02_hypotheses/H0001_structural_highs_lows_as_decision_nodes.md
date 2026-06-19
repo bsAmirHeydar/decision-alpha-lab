@@ -170,3 +170,26 @@ Acceptance of this hypothesis does not imply predictive certainty.
 It only implies that structural highs and lows contain information not present in arbitrary locations.
 
 The economic usefulness of such information remains a separate question requiring independent investigation.
+## Current MQL-native operational lock
+
+The active H0001 implementation is M0001. Its current operational hypothesis is narrower and more measurable than the original broad draft:
+
+```text
+Completed structural-node territory events produce materially higher relative territory volatility than matched random windows.
+```
+
+Key algorithmic constraints:
+
+```text
+1. Nodes are confirmed by the L-rule and become active only at node_index + L.
+2. Territory is built around the original node price using the current tracking extreme.
+3. A touch begins when a candle intersects the live territory.
+4. Event geometry freezes at touch entry.
+5. Exit confirmation is side-agnostic: exit_gap candles must be fully outside the frozen event zone, either above or below.
+6. The final exit_gap confirmation candles are excluded from inside RTV.
+7. RTV uses mean abs(log(high / low)) inside the event divided by an equal-length pre-entry baseline.
+8. Random nulls are equal-length and use a pre-entry baseline before the random entry.
+9. Node consumption follows the selected input mode: CONSUME_BY_HUNT or CONSUME_BY_TOUCH.
+```
+
+The current validation layer requires the main node-vs-random comparison, hard matched nulls, placebo shifts, outlier stress, non-overlap, cluster robustness, block bootstrap, horizon checks, and random-vs-random negative controls.

@@ -14,6 +14,25 @@ int DAL_M0002AppendSample(DALM0002BranchSample &samples[], const DALM0002BranchS
    return size;
 }
 
+bool DAL_M0002IntSeen(const int &values[], const int value)
+{
+   for(int i = 0; i < ArraySize(values); i++)
+   {
+      if(values[i] == value)
+         return true;
+   }
+   return false;
+}
+
+void DAL_M0002AppendUniqueInt(int &values[], const int value)
+{
+   if(DAL_M0002IntSeen(values, value))
+      return;
+   int size = ArraySize(values);
+   ArrayResize(values, size + 1);
+   values[size] = value;
+}
+
 bool DAL_M0002ClassifyReversalContinuation(
    const DALM0001Event &event,
    const DALBar &bars[],
@@ -66,151 +85,10 @@ bool DAL_M0002MakePseudoRandomEvent(
 }
 
 
-int DAL_M0002ComputeNeutralExitEvents(
-   const DALBar &bars[],
-   const int bars_count,
-   const DALLRuleNode &nodes[],
-   const int nodes_count,
-   const DALM0001Config &config,
-   DALM0001Event &events[]
-)
-{
-   ArrayResize(events, 0);
-
-   if(bars_count <= 0 || nodes_count <= 0)
-      return 0;
-
-   double log_moves[];
-   DAL_M0001BuildLogMoves(bars, bars_count, log_moves);
-
-   int event_id = 0;
-
-   for(int n = 0; n < nodes_count; n++)
-   {
-      DALLRuleNode node = nodes[n];
-      int start = node.active_from_index;
-
-      if(start < 0 || start >= bars_count)
-         continue;
-
-      int revisit_id = 0;
-      double tracking_extreme = DAL_M0001InitialExtreme(node.type, bars[start]);
-      int i = start;
-
-      while(i < bars_count)
-      {
-         bool in_event = false;
-         int entry_index = -1;
-         int outside_count = 0;
-
-         double event_extreme = tracking_extreme;
-         double event_lower = node.price;
-         double event_upper = node.price;
-
-         // H0002 neutral event builder:
-         // Wait for a territory touch exactly like M0001, but do NOT consume or
-         // discard a node/event when node_price is crossed. Continuation is one
-         // of the outcomes under test, so hunt/consume semantics must not filter
-         // the sample before reversal/continuation classification.
-         for(; i < bars_count; i++)
-         {
-            tracking_extreme = DAL_M0001UpdateExtreme(node.type, tracking_extreme, bars[i]);
-
-            double live_lower = node.price;
-            double live_upper = node.price;
-            DAL_M0001Territory(node.type, node.price, tracking_extreme, config.zone_ratio, live_lower, live_upper);
-
-            bool touched_zone = DAL_CandleIntersectsZone(bars[i].low, bars[i].high, live_lower, live_upper);
-            if(!touched_zone)
-               continue;
-
-            in_event = true;
-            entry_index = i;
-            outside_count = 0;
-            event_extreme = tracking_extreme;
-            event_lower = live_lower;
-            event_upper = live_upper;
-            i++;
-            break;
-         }
-
-         if(!in_event)
-            break;
-
-         // After entry, keep the event alive until exit_gap consecutive candles
-         // are fully outside the frozen event zone. Do not stop on hunt/cross.
-         // At the completed exit candle, M0002 later classifies close vs node_price.
-         for(; i < bars_count; i++)
-         {
-            tracking_extreme = DAL_M0001UpdateExtreme(node.type, tracking_extreme, bars[i]);
-
-            bool fully_outside_frozen_zone = !DAL_CandleIntersectsZone(
-               bars[i].low,
-               bars[i].high,
-               event_lower,
-               event_upper
-            );
-
-            if(fully_outside_frozen_zone)
-               outside_count++;
-            else
-               outside_count = 0;
-
-            if(outside_count >= config.exit_gap)
-            {
-               DALM0001Event event;
-               if(DAL_M0001FinalizeEvent(
-                     bars,
-                     log_moves,
-                     node,
-                     event_id,
-                     revisit_id,
-                     entry_index,
-                     i,
-                     event_lower,
-                     event_upper,
-                     event_extreme,
-                     true,
-                     i,
-                     false,
-                     false,
-                     DAL_M0001_CONSUMED_NONE,
-                     -1,
-                     config.exit_gap,
-                     event
-                  ))
-               {
-                  if(event.rtv >= config.min_rtv)
-                  {
-                     DAL_M0001AppendEvent(events, event);
-                     event_id++;
-                  }
-               }
-
-               revisit_id++;
-
-               // Keep node alive and restart the next territory cycle after the
-               // completed event, matching the post-revisit reset architecture but
-               // without any hunt/touch consumption branch.
-               int next_tracking_index = i + 1;
-               if(next_tracking_index < bars_count)
-                  tracking_extreme = DAL_M0001InitialExtreme(node.type, bars[next_tracking_index]);
-
-               i++;
-               break;
-            }
-         }
-
-         if(config.max_events > 0 && ArraySize(events) >= config.max_events)
-            return ArraySize(events);
-
-         if(i >= bars_count)
-            break;
-      }
-   }
-
-   return ArraySize(events);
-}
+// H0002 intentionally does not define a separate neutral event builder.
+// Production M0002 receives events from DAL_M0001ComputeEvents() so node
+// consumption, touch confirmation, hunt priority, revisit reset, warmup, and
+// RTV-window semantics remain identical to H0001.
 
 bool DAL_M0002BuildBranchSample(
    const DALM0001Event &event,
@@ -371,6 +249,8 @@ int DAL_M0002CollectBranchSamples(
 
    int analysis_start_index = DAL_M0001FirstIndexAtOrAfter(bars, bars_count, min_entry_time);
    int sample_id = 0;
+   int unique_node_ids[];
+   ArrayResize(unique_node_ids, 0);
 
    for(int i = 0; i < events_count; i++)
    {
@@ -388,18 +268,19 @@ int DAL_M0002CollectBranchSamples(
       {
          if(events[i].closed && events[i].touch_confirmed && DAL_M0001EventPassesAnalysisStart(events[i], min_entry_time))
          {
-            int sample_len = config.post_outcome_sample_bars;
-            if(config.use_event_length_for_sample || sample_len <= 0)
-               sample_len = events[i].rtv_sample_length;
-            if(events[i].entry_index - sample_len < 0)
+            if(!events[i].rtv_ready || events[i].rtv_sample_length <= 0 || events[i].rtv_before_start_index < 0)
                audit.skipped_no_baseline++;
             else
-               audit.skipped_no_future++;
+               audit.unknown_outcome++;
          }
          continue;
       }
 
       DAL_M0002AppendSample(all_samples, sample);
+      DAL_M0002AppendUniqueInt(unique_node_ids, sample.node_id);
+      if(sample.revisit_id > audit.max_revisit_id)
+         audit.max_revisit_id = sample.revisit_id;
+
       if(config.measure_mode == DAL_M0002_MEASURE_POST_OUTCOME_FIXED)
          audit.post_outcome_mode_count++;
       else
@@ -424,6 +305,7 @@ int DAL_M0002CollectBranchSamples(
    }
 
    audit.paired_count = ArraySize(all_samples);
+   audit.unique_node_count = ArraySize(unique_node_ids);
    return audit.paired_count;
 }
 

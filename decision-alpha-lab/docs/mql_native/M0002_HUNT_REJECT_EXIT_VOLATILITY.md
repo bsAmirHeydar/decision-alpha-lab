@@ -8,4 +8,9 @@ Use:
 docs/mql_native/M0002_REVERSAL_CONTINUATION_EXIT_VOLATILITY.md
 ```
 
-Current logic: build neutral completed-exit events without hunt/touch filtering, classify the completed-exit candle close relative to `node_price`, and split the original M0001 event-window RTV into `REVERSAL_AFTER_EXIT` and `CONTINUATION_AFTER_EXIT`.
+Current logic: use exact M0001 completed-exit events with hunt/touch consumption preserved, classify the completed-exit candle close relative to `node_price`, and split the original M0001 event-window RTV into `REVERSAL_AFTER_EXIT` and `CONTINUATION_AFTER_EXIT`.
+
+
+## Logic repair v1.70
+
+H0002 now uses `DAL_M0001ComputeEvents()` directly. Node consumption is preserved exactly as in H0001/M0001; no reversal/continuation calculation is created after a node has been consumed.

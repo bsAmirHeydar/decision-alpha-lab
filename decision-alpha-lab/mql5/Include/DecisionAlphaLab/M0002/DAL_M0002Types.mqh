@@ -13,7 +13,7 @@ enum ENUM_DALM0002Outcome
 
 enum ENUM_DALM0002MeasureMode
 {
-   // H0002 default: classify the completed neutral exit event by node side,
+   // H0002 default: classify the completed M0001 exit event by node side,
    // then measure the exact same event-window RTV semantics as M0001.
    DAL_M0002_MEASURE_EVENT_RTV = 0,
 
@@ -51,6 +51,18 @@ struct DALM0002Config
    int broker_utc_offset_hours;
    int regime_lookback_bars;
    bool print_group_session_regime;
+   bool run_stress_suite;
+   int hard_random_candidates;
+   int placebo_shift_bars;
+   int nonoverlap_gap_bars;
+   int block_bootstrap_iterations;
+   int block_bootstrap_block_pairs;
+   int horizon_bars_1;
+   int horizon_bars_2;
+   int horizon_bars_3;
+   int horizon_bars_4;
+   ENUM_DALM0001ConsumeMode consume_mode;
+   bool consume_on_touch;
 };
 
 struct DALM0002BranchSample
@@ -111,6 +123,8 @@ struct DALM0002Audit
    int paired_count;
    int event_rtv_mode_count;
    int post_outcome_mode_count;
+   int unique_node_count;
+   int max_revisit_id;
 };
 
 void DAL_M0002DefaultConfig(DALM0002Config &config)
@@ -126,6 +140,18 @@ void DAL_M0002DefaultConfig(DALM0002Config &config)
    config.broker_utc_offset_hours = 0;
    config.regime_lookback_bars = 100;
    config.print_group_session_regime = true;
+   config.run_stress_suite = true;
+   config.hard_random_candidates = 80;
+   config.placebo_shift_bars = 50;
+   config.nonoverlap_gap_bars = 0;
+   config.block_bootstrap_iterations = 300;
+   config.block_bootstrap_block_pairs = 25;
+   config.horizon_bars_1 = 5;
+   config.horizon_bars_2 = 10;
+   config.horizon_bars_3 = 20;
+   config.horizon_bars_4 = 50;
+   config.consume_mode = DAL_M0001_CONSUME_BY_HUNT;
+   config.consume_on_touch = false;
 }
 
 void DAL_M0002ResetAudit(DALM0002Audit &audit)
@@ -141,6 +167,8 @@ void DAL_M0002ResetAudit(DALM0002Audit &audit)
    audit.paired_count = 0;
    audit.event_rtv_mode_count = 0;
    audit.post_outcome_mode_count = 0;
+   audit.unique_node_count = 0;
+   audit.max_revisit_id = 0;
 }
 
 #endif

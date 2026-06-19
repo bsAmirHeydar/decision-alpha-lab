@@ -1,0 +1,5 @@
+id: EXP0004_mql_native_m0004
+hypothesis: H0004
+module: M0004_BranchRegimeClustering
+status: active
+objective: Test whether chronological reversal/continuation branch labels form persistent regimes above count-preserving shuffled-label nulls.
