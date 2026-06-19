@@ -3,8 +3,8 @@
 //| Continuation entry after close-hunted node, ATR risk, regime exit  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.01"
-#property description "Execution module E0003: continuation close-hunt market entries, 3ATR risk stop, exit on regime change."
+#property version   "1.02"
+#property description "Execution module E0003: continuation close-hunt market entries, 3ATR risk stop, ATR trailing, optional regime exit."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -60,11 +60,13 @@ input long InpMagicNumber = 5003003;
 input double InpRiskCash = 100.0;
 input int InpAtrPeriod = 14;
 input double InpAtrMultiplier = 3.0;
+input bool InpUseAtrTrailingStop = true;
+input bool InpExitOnRegimeChange = true;
 input int InpCloseHuntBufferPoints = 0;
 input int InpMaxEntriesPerBar = 3;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0003_BUILD "1.01"
+#define DAL_E0003_BUILD "1.02"
 string InpOrderCommentPrefix = "DALC3";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -312,6 +314,129 @@ bool E0003_GetAtrValue(double &atr_value, string &reason)
    atr_value = buffer[0];
    reason = "ok";
    return true;
+}
+
+
+bool E0003_GetLastClosedBarClose(double &closed_close, datetime &closed_time, string &reason)
+{
+   closed_close = 0.0;
+   closed_time = 0;
+   string symbol = LabSymbol();
+   ENUM_TIMEFRAMES tf = LabTimeframe();
+
+   closed_close = iClose(symbol, tf, 1);
+   closed_time = iTime(symbol, tf, 1);
+   if(closed_close <= 0.0 || closed_time <= 0)
+   {
+      reason = "last_closed_bar_not_ready";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+int E0003_ApplyAtrTrailingStops(const double atr_value, const double closed_close, const datetime closed_time, const string context)
+{
+   if(!InpUseAtrTrailingStop)
+      return 0;
+
+   string symbol = LabSymbol();
+   double multiplier = MathMax(0.1, InpAtrMultiplier);
+   double stop_distance = atr_value * multiplier;
+   if(stop_distance <= 0.0 || closed_close <= 0.0)
+      return 0;
+
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+   if(point <= 0.0 || bid <= 0.0 || ask <= 0.0)
+      return 0;
+
+   int modified = 0;
+   g_trade.SetExpertMagicNumber(InpMagicNumber);
+
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != InpMagicNumber)
+         continue;
+      string comment = PositionGetString(POSITION_COMMENT);
+      if(!DAL_ExecOrderCommentMatchesPrefix(comment, E0003_ManagedCommentPrefix()))
+         continue;
+
+      long pos_type = (long)PositionGetInteger(POSITION_TYPE);
+      double old_sl = PositionGetDouble(POSITION_SL);
+      double old_tp = PositionGetDouble(POSITION_TP);
+      double new_sl = old_sl;
+      bool should_modify = false;
+
+      if(pos_type == POSITION_TYPE_BUY)
+      {
+         double candidate = closed_close - stop_distance;
+         double max_allowed = bid - min_dist;
+         if(candidate > max_allowed)
+            candidate = max_allowed;
+         candidate = NormalizeDouble(candidate, digits);
+
+         if(candidate > 0.0 && candidate < bid && (old_sl <= 0.0 || candidate > old_sl + point * 0.5))
+         {
+            new_sl = candidate;
+            should_modify = true;
+         }
+      }
+      else if(pos_type == POSITION_TYPE_SELL)
+      {
+         double candidate = closed_close + stop_distance;
+         double min_allowed = ask + min_dist;
+         if(candidate < min_allowed)
+            candidate = min_allowed;
+         candidate = NormalizeDouble(candidate, digits);
+
+         if(candidate > ask && (old_sl <= 0.0 || candidate < old_sl - point * 0.5))
+         {
+            new_sl = candidate;
+            should_modify = true;
+         }
+      }
+
+      if(!should_modify)
+         continue;
+
+      if(g_trade.PositionModify(ticket, new_sl, old_tp))
+      {
+         modified++;
+         if(InpPrintOrderLogs)
+            Print("DAL_E0003_ATR_TRAIL *** build=", DAL_E0003_BUILD,
+               "*ticket=", (long)ticket,
+               "*time=", E0003_FormatDateTime(closed_time),
+               "*context=", context,
+               "*close=", DoubleToString(closed_close, digits),
+               "*atr=", DoubleToString(atr_value, digits),
+               "*atrMultiplier=", DoubleToString(multiplier, 2),
+               "*oldSl=", DoubleToString(old_sl, digits),
+               "*newSl=", DoubleToString(new_sl, digits),
+               "*comment=", comment);
+      }
+      else
+      {
+         Print("DAL_E0003_ATR_TRAIL_FAILED *** build=", DAL_E0003_BUILD,
+            "*ticket=", (long)ticket,
+            "*context=", context,
+            "*newSl=", DoubleToString(new_sl, digits),
+            "*retcode=", (int)g_trade.ResultRetcode(),
+            "*desc=", g_trade.ResultRetcodeDescription());
+      }
+   }
+
+   return modified;
 }
 
 bool E0003_CloseHuntedBeforeSignal(
@@ -673,6 +798,18 @@ bool E0003_LoadClosedContext(
 
 void E0003_ProcessNewBar()
 {
+   double atr_value = 0.0;
+   string atr_reason = "";
+   bool atr_ok = E0003_GetAtrValue(atr_value, atr_reason);
+
+   double closed_close = 0.0;
+   datetime closed_time = 0;
+   string closed_reason = "";
+   bool closed_ok = E0003_GetLastClosedBarClose(closed_close, closed_time, closed_reason);
+
+   if(atr_ok && closed_ok)
+      E0003_ApplyAtrTrailingStops(atr_value, closed_close, closed_time, "new_closed_bar");
+
    DALBar bars[];
    int bars_count = 0;
    DALLRuleNode nodes[];
@@ -686,13 +823,15 @@ void E0003_ProcessNewBar()
    bool context_ok = E0003_LoadClosedContext(bars, bars_count, nodes, nodes_count, events, events_count, last_sample, is_continuation, context_reason);
    if(!context_ok)
    {
-      E0003_CloseManagedPositions("context_not_ready_" + context_reason);
+      if(InpExitOnRegimeChange)
+         E0003_CloseManagedPositions("context_not_ready_" + context_reason);
       return;
    }
 
    if(!is_continuation)
    {
-      E0003_CloseManagedPositions("regime_changed_" + context_reason);
+      if(InpExitOnRegimeChange)
+         E0003_CloseManagedPositions("regime_changed_" + context_reason);
       return;
    }
 
@@ -706,9 +845,7 @@ void E0003_ProcessNewBar()
    int signal_index = bars_count - 1;
    DALBar signal_bar = bars[signal_index];
 
-   double atr_value = 0.0;
-   string atr_reason = "";
-   if(!E0003_GetAtrValue(atr_value, atr_reason))
+   if(!atr_ok)
    {
       Print("DAL_E0003_SKIP *** build=", DAL_E0003_BUILD, "*reason=", atr_reason);
       return;
@@ -775,7 +912,8 @@ int OnInit()
       "*riskStop=ATR_MULTIPLE",
       "*atrPeriod=", InpAtrPeriod,
       "*atrMultiplier=", DoubleToString(InpAtrMultiplier, 2),
-      "*exit=regime_change",
+      "*atrTrail=", DAL_BoolToString(InpUseAtrTrailingStop),
+      "*exitOnRegimeChange=", DAL_BoolToString(InpExitOnRegimeChange),
       "*tp=NONE");
 
    return INIT_SUCCEEDED;

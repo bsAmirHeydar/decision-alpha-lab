@@ -61,3 +61,13 @@ Behavior:
 - E0003 and E0004 require the higher timeframe to be `CONTINUATION` before allowing continuation entries.
 - The higher-timeframe filter is a gate only; it does not change node construction, touch locking, TP policy, or trade management.
 
+
+
+## Build 1.02: ATR trailing and optional regime exit
+
+E0003 now supports two additional execution controls:
+
+- `InpUseAtrTrailingStop`: when enabled, every new closed candle trails the SL by `InpAtrMultiplier × ATR`. Buy stops only move upward to `close - 3ATR`; sell stops only move downward to `close + 3ATR`.
+- `InpExitOnRegimeChange`: when enabled, E0003 closes its managed positions when the effective regime is no longer continuation. When disabled, open positions are not closed by regime change and can be managed only by the ATR trailing stop.
+
+There is still no take-profit in E0003.
