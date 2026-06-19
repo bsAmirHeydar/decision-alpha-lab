@@ -76,30 +76,48 @@ The EA only evaluates on a new candle by default, does not print every rejected/
 
 ## Pending behavior
 
-E0001 v1.06 is stateful and H0005-candidate based. It keeps desired H5 reversal R1 orders alive, deletes stale far-away managed pendings only when they are no longer part of the current desired state, and never deletes a near-fill order while price is approaching its entry:
+E0001 v1.08 is a six-slot reversal grid with a per-touch ledger:
 
 ```text
-1. Refreshes the H0005 reversal R1 setup cache on new candles by default.
-2. Manages order state every tick so missing desired orders can be placed quickly without rebuilding full research reports every tick.
-3. If price is still away from the zone, places a stable pending limit at the touch edge.
-4. If price is already touching/inside the zone before a limit can be valid, optionally uses market-catch execution with the same zone-edge stop and true 1R take-profit from the actual fill price.
-5. Keeps existing desired pending orders by compact setup comment.
-6. Deletes only stale managed pendings that are no longer in the current H5 state and are not protected near market.
+1. While the latest completed branch regime is REVERSAL, the EA keeps up to
+   3 buy-limit candidates and 3 sell-limit candidates alive.
+2. Buy candidates come from LOW structural-node zones; sell candidates come
+   from HIGH structural-node zones.
+3. Candidate orders are updated while the H5 state evolves. Existing pendings
+   are modified when only price/SL/TP changes; if the calculated volume changes,
+   the pending is replaced only when it is not protected near market.
+4. A setup can produce only one filled limit trade per touch. After a fill, the
+   setup comment is locked and no new pending is armed for that same touch.
+5. The lock is released only after price moves away from the touch edge by
+   `InpTouchRevisitResetBufferPoints`, so the next order belongs to a true revisit.
+6. When the latest branch regime is CONTINUATION or there is no current reversal
+   setup, all managed pendings for this EA prefix are deleted. Protection near
+   market does not block continuation-regime cleanup.
 ```
 
-Relevant inputs:
+Relevant defaults:
 
 ```text
+InpMaxSimultaneousTrades = -1
+InpAllowOppositeTrades = true
+InpBuyLimitSlots = 3
+InpSellLimitSlots = 3
 InpRefreshSetupsOnNewBarOnly = true
 InpManageOrdersEveryTick = true
 InpSyncManagedPendings = true
 InpCancelStaleManagedPendings = true
-InpCancelManagedPendingsAfterEntry = true
+InpCancelManagedPendingsAfterEntry = false
+InpUpdateExistingManagedPendings = true
 InpProtectPendingWhenPriceApproaches = true
 InpPendingProtectDistancePoints = 20
 InpPendingProtectStopFraction = 0.50
-InpAllowMarketCatchWhenAlreadyTouching = true
+InpAllowMarketCatchWhenAlreadyTouching = false
+InpTouchRevisitResetBufferPoints = 10
 InpOrderCommentPrefix = DALR1
 ```
 
-The update engine only manages orders that match the EA symbol, magic number, and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or external orders. The compact comment prefix is important because broker servers may truncate order comments; E0001 now keeps comments short so duplicate detection and stale-order sync remain stable. If `InpMaxSimultaneousTrades` is greater than one, multiple valid candidate zones may be represented by separate orders until one managed entry fills; then unused managed candidate pendings are cancelled by default because the H0005 path has one actual next-touch entry.
+The update engine only manages orders that match the EA symbol, magic number,
+and compact `InpOrderCommentPrefix`. It never deletes unrelated manual or
+external orders. The compact comment prefix is important because broker servers
+may truncate order comments; E0001 keeps comments short so duplicate detection,
+pending sync, and touch locking remain stable.

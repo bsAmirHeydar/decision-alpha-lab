@@ -4,7 +4,8 @@
 // Decision Alpha Lab — E0001 reversal fixed-R execution setup builder.
 // Execution is intentionally separated from hypotheses. It mirrors the H0005
 // reversal fixed-reward test: LAST_ONLY reversal regime -> next structural
-// zone touch -> zone-edge stop -> fixed-R take-profit.
+// zone touch -> zone-edge stop -> fixed-R take-profit. Live execution can
+// maintain directional candidate slots, e.g. 3 buy-limit and 3 sell-limit zones.
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0002/DAL_M0002Reports.mqh>
@@ -366,6 +367,8 @@ int DAL_ExecCollectH5ReversalRSetups(
    const double zone_ratio,
    const double reward_r,
    const string comment_prefix,
+   const int buy_limit_slots,
+   const int sell_limit_slots,
    const int max_nodes_scan,
    DALExecReversalSetup &setups[],
    string &reason
@@ -400,6 +403,17 @@ int DAL_ExecCollectH5ReversalRSetups(
       return 0;
    }
 
+   int buy_slots = (int)MathMax(0.0, (double)buy_limit_slots);
+   int sell_slots = (int)MathMax(0.0, (double)sell_limit_slots);
+   if(buy_slots <= 0 && sell_slots <= 0)
+   {
+      reason = "no_directional_slots";
+      return 0;
+   }
+
+   DALExecReversalSetup all_setups[];
+   ArrayResize(all_setups, 0);
+
    int scanned = 0;
    int current_index = bars_count - 1;
    for(int n = nodes_count - 1; n >= 0; n--)
@@ -426,17 +440,44 @@ int DAL_ExecCollectH5ReversalRSetups(
       if(!DAL_ExecBuildReversalOneToOneSetupFromNode(node, extreme, lower, upper, last_branch_sample, reward_r, comment_prefix, setup))
          continue;
 
-      DAL_ExecAppendReversalSetup(setups, setup);
+      DAL_ExecAppendReversalSetup(all_setups, setup);
    }
 
-   if(ArraySize(setups) <= 0)
+   if(ArraySize(all_setups) <= 0)
    {
       reason = "no_active_h5_reversal_zone";
       return 0;
    }
 
-   DAL_ExecSortReversalSetupsByMarketDistance(symbol, setups);
-   reason = "ok";
+   DAL_ExecSortReversalSetupsByMarketDistance(symbol, all_setups);
+
+   int buy_count = 0;
+   int sell_count = 0;
+   for(int i = 0; i < ArraySize(all_setups); i++)
+   {
+      if(all_setups[i].direction > 0)
+      {
+         if(buy_count >= buy_slots)
+            continue;
+         DAL_ExecAppendReversalSetup(setups, all_setups[i]);
+         buy_count++;
+      }
+      else if(all_setups[i].direction < 0)
+      {
+         if(sell_count >= sell_slots)
+            continue;
+         DAL_ExecAppendReversalSetup(setups, all_setups[i]);
+         sell_count++;
+      }
+   }
+
+   if(ArraySize(setups) <= 0)
+   {
+      reason = "no_active_h5_reversal_zone_in_directional_slots";
+      return 0;
+   }
+
+   reason = "ok_buy_" + IntegerToString(buy_count) + "_sell_" + IntegerToString(sell_count);
    return ArraySize(setups);
 }
 

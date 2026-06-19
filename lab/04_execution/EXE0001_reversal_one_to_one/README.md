@@ -60,33 +60,42 @@ This module intentionally keeps the operational loop light:
 For production-like testing, keep `InpLogMode=DAL_EXEC_LOG_ERRORS` or `DAL_EXEC_LOG_NONE`. Use `DAL_EXEC_LOG_VERBOSE` only for diagnostics.
 
 
-## Stateful H0005 candidate order behavior
+## Six-slot stateful H0005 order behavior
 
-The executor is not allowed to chase the market by deleting an order that is about to fill. It keeps the current H0005 reversal R1 setup cache and manages order state every tick.
-
-Default behavior:
+The executor maintains a reversal-grid, not a single path order:
 
 ```text
+InpMaxSimultaneousTrades = -1
+InpAllowOppositeTrades = true
+InpBuyLimitSlots = 3
+InpSellLimitSlots = 3
 InpRefreshSetupsOnNewBarOnly = true
 InpManageOrdersEveryTick = true
 InpSyncManagedPendings = true
 InpCancelStaleManagedPendings = true
-InpCancelManagedPendingsAfterEntry = true
+InpCancelManagedPendingsAfterEntry = false
+InpUpdateExistingManagedPendings = true
 InpProtectPendingWhenPriceApproaches = true
 InpPendingProtectDistancePoints = 20
 InpPendingProtectStopFraction = 0.50
-InpAllowMarketCatchWhenAlreadyTouching = true
+InpAllowMarketCatchWhenAlreadyTouching = false
+InpTouchRevisitResetBufferPoints = 10
 InpOrderCommentPrefix = DALR1
 ```
 
 Execution semantics:
 
 ```text
-1. If price is away from the H5 zone, park a limit at the touch edge.
-2. If price is already touching/inside the zone before the limit can be valid, optionally catch with a market order.
-3. Existing desired pending orders are kept by compact setup comment.
-4. Stale managed pendings are deleted only when they are no longer in the current H5 state and are not protected near market.
-5. Manual or external orders are ignored unless they share symbol, magic, and comment prefix.
+1. In reversal regime, keep up to 3 buy limits and 3 sell limits prepared.
+2. Update existing candidate pendings while the zone state changes, but do not
+   delete/replace a near-fill order just because it is close to entry.
+3. One touch can produce only one fill for the same setup comment.
+4. After a fill, the setup is locked until price moves away from the touch edge;
+   only then can a new pending be armed for a true revisit.
+5. In continuation regime, delete all managed pendings for this EA prefix until
+   reversal regime returns.
 ```
 
-The compact `DALR1` prefix is intentional because many trade servers truncate comments; short comments keep duplicate detection and pending sync reliable. If `InpMaxSimultaneousTrades` is greater than one, multiple active candidate zones can be represented by separate pending or market-catch orders until one managed entry fills; then unused managed candidate pendings are cancelled by default because the H0005 path has one actual next-touch entry.
+The compact `DALR1` prefix is intentional because many trade servers truncate
+comments; short comments keep duplicate detection, pending sync, and touch-lock
+memory reliable.
