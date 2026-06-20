@@ -1,6 +1,26 @@
+hypotheses:
+  - id: H0001
+    title: Structural highs and lows as decision nodes
+    status: active_foundation
+    document: lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md
+    live_validity_contract: structural_nodes_explicit_rules
 
-- id: H0004
-  title: Branch regime clustering
-  status: active
-  module: M0004_BranchRegimeClustering
-  description: Tests whether chronological reversal/continuation branch labels form persistent regimes above count-preserving shuffled-label nulls.
+  - id: H0002
+    title: Structural node territories and revisitation dynamics
+    status: active_foundation
+    document: lab/02_hypotheses/H0002_structural_node_revisitation.md
+    live_validity_contract: confirmed_nodes_and_revisit_lifecycle
+
+  - id: H0004
+    title: Branch regime memory
+    status: active_rebuilt
+    document: lab/02_hypotheses/H0004_branch_regime_memory_atomic.md
+    live_validity_contract: atomic_no_sample_known_time_batches
+    legacy_warning: classic_sample_sequence_is_exploratory_only
+
+  - id: H0005
+    title: Directional memory and execution
+    status: active_rebuilt
+    document: lab/02_hypotheses/H0005_directional_memory_atomic.md
+    live_validity_contract: atomic_no_sample_live_replay_with_explicit_risk
+    legacy_warning: continuation_path_r_is_not_execution_r_without_real_stop

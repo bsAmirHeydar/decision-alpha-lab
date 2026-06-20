@@ -1,0 +1,14 @@
+signals:
+  - id: SIG_REVERSAL_REACTION
+    family: reversal
+    description: Reaction from a live-visible structural zone after a known reversal regime.
+    required_entry_contract: zone_touch_or_close_confirmed_touch
+    required_risk_contract: zone_edge_or_structural_invalidation
+    status: research_candidate
+
+  - id: SIG_CONTINUATION_PATH
+    family: continuation
+    description: Path after structural break under known continuation regime.
+    required_entry_contract: close_break_intrabar_break_or_donchian_break
+    required_risk_contract: atr_structural_fixed_or_trailing_stop
+    status: research_candidate

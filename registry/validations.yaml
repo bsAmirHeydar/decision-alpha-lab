@@ -1,5 +1,14 @@
+validations:
+  - id: VAL0010
+    title: H4 atomic no-sample regime validation
+    hypothesis: H0004
+    document: lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md
+    contract: no_m0002_no_branch_samples_raw_m0001_events_only
+    status: required_for_official_h4_claims
 
-- id: VAL_M0001_MQL_NATIVE
-  experiment: EXP0002
-  status: active
-  runtime: MQL5
+  - id: VAL0011
+    title: Main atomic no-sample unification
+    hypothesis: [H0004, H0005]
+    document: lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md
+    contract: main_experts_default_to_atomic_no_sample
+    status: required_for_main_reports

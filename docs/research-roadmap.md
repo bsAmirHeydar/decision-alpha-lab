@@ -2,30 +2,62 @@
 
 ## Phase 1 — Structural Nodes
 
-Objective:
-Determine whether decision nodes can be systematically extracted from price.
+Objective: determine whether decision nodes can be systematically extracted from price.
 
-## Phase 2 — Decision Energy
+Status: active foundation.
 
-Objective:
-Develop measurable proxies for decision energy.
+---
 
-## Phase 3 — Regime Transitions
+## Phase 2 — Node Territory and Lifecycle
 
-Objective:
-Detect transitions between momentum and mean-reverting behavior.
+Objective: model structural nodes as zones with revisit, hunt, break, consumption, and termination.
 
-## Phase 4 — Alpha Validation
+Status: active foundation.
 
-Objective:
-Assess whether detected transitions possess predictive and economic value.
+---
 
-## Phase 5 — Convex Execution
+## Phase 3 — Regime Memory
 
-Objective:
-Transform validated alpha into robust execution frameworks.
+Objective: detect whether reversal and continuation states cluster in live-valid known-time sequences.
 
-## Phase 6 — Adaptive Systems
+Current standard:
 
-Objective:
-Investigate whether adaptive models can dynamically adjust to changing market conditions.
+- classic sample reports are legacy,
+- causal sample-batch reports are diagnostic,
+- atomic no-sample reports are official.
+
+---
+
+## Phase 4 — Directional Memory
+
+Objective: test whether known regime state improves the next structural decision.
+
+Current standard:
+
+- reversal and continuation must be separated,
+- entry must occur after regime is known,
+- risk must be explicit,
+- continuation path R and execution R must be separated.
+
+---
+
+## Phase 5 — Execution Families
+
+Objective: transform validated structural facts into executable EAs.
+
+Current families:
+
+- reversal reaction execution,
+- continuation path execution.
+
+---
+
+## Phase 6 — Robustness and Baselines
+
+Objective: test results against permutation, block shuffle, stratified randomization, matched random entries, regime-placebo, and instrument/timeframe changes.
+
+---
+
+## Phase 7 — Production Hardening
+
+Objective: add costs, broker constraints, slippage, spread, session filters, prop-firm constraints, monitoring, and fail-safe procedures.

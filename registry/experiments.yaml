@@ -1,5 +1,12 @@
+experiments:
+  - id: ANL004
+    title: H4 classic versus causal batch analysis
+    hypothesis: H0004
+    document: lab/04_analysis/ANL004_h4_causal_batch_vs_classic/README.md
+    finding: classic_sequence_overstated_but_did_not_fully_create_regime_memory
 
-- id: EXP0002
-  title: MQL-native M0001 Runtime
-  status: active
-  runtime: MQL5
+  - id: ANL005
+    title: H5 reversal continuation path bias review
+    hypothesis: H0005
+    document: lab/04_analysis/ANL005_h5_reversal_continuation_path_bias/README.md
+    finding: continuation_path_pf_requires_explicit_risk_retest
