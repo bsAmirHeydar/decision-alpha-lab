@@ -1,6 +1,12 @@
 #ifndef __DAL_M0004_ATOMIC_NO_SAMPLE_MQH__
 #define __DAL_M0004_ATOMIC_NO_SAMPLE_MQH__
 
+enum ENUM_DALM0004AtomicReportMode
+{
+   DAL_M0004_ATOMIC_FAST_RAW_EVENT_BATCH = 0,
+   DAL_M0004_ATOMIC_STRICT_PREFIX_REPLAY = 1
+};
+
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
@@ -8,6 +14,7 @@
 
 struct DALM0004AtomicNoSampleConfig
 {
+   ENUM_DALM0004AtomicReportMode report_mode;
    string symbol;
    ENUM_TIMEFRAMES timeframe;
    int replay_closed_bars;
@@ -28,6 +35,7 @@ struct DALM0004AtomicNoSampleConfig
 
 DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 
+#define InpAtomicReportMode g_dal_m0004_atomic_cfg.report_mode
 #define InpSymbol g_dal_m0004_atomic_cfg.symbol
 #define InpTimeframe g_dal_m0004_atomic_cfg.timeframe
 #define InpReplayClosedBars g_dal_m0004_atomic_cfg.replay_closed_bars
@@ -45,7 +53,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.00"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.01"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -440,6 +448,12 @@ void D0010_AddPureBatchLabel(const D0010Batch &batch)
    g_label_batch_counts[n] = batch.event_count;
 }
 
+string D0010_ModeText()
+{
+   if(InpAtomicReportMode == DAL_M0004_ATOMIC_STRICT_PREFIX_REPLAY) return "STRICT_PREFIX_REPLAY";
+   return "FAST_RAW_EVENT_BATCH";
+}
+
 void D0010_OpenCsv()
 {
    if(!InpWriteCsv)
@@ -799,6 +813,275 @@ void D0010_PrintBatch(const int step, const D0010Batch &batch)
       "*reason=", batch.reason);
 }
 
+
+void D0010_SortKnownTriples(int &knowns[], int &labels[], int &dirs[], const int n)
+{
+   for(int i = 1; i < n; i++)
+   {
+      int k = knowns[i];
+      int l = labels[i];
+      int d = dirs[i];
+      int j = i - 1;
+      while(j >= 0 && (knowns[j] > k || (knowns[j] == k && labels[j] > l)))
+      {
+         knowns[j + 1] = knowns[j];
+         labels[j + 1] = labels[j];
+         dirs[j + 1] = dirs[j];
+         j--;
+      }
+      knowns[j + 1] = k;
+      labels[j + 1] = l;
+      dirs[j + 1] = d;
+   }
+}
+
+bool D0010_LoadFinalReplayBars(DALBar &bars[], int &bars_count, string &reason)
+{
+   ArrayResize(bars, 0);
+   bars_count = 0;
+   reason = "not_loaded";
+
+   int total = Bars(D0010_Symbol(), D0010_Timeframe());
+   if(total <= 0)
+   {
+      reason = "no_bars";
+      return false;
+   }
+
+   int replay = MathMax(200, InpReplayClosedBars);
+   int oldest_shift = MathMin(total - 1, replay);
+   int latest_closed_shift = 1;
+   if(oldest_shift <= latest_closed_shift + 10)
+   {
+      reason = "not_enough_closed_bars";
+      return false;
+   }
+
+   return D0010_LoadPrefixBars(oldest_shift, latest_closed_shift, bars, bars_count, reason);
+}
+
+void D0010_ConsumeBatchFromCounts(
+   const int known_index,
+   const datetime known_time,
+   const int event_count,
+   const int rev,
+   const int cont,
+   const int buy,
+   const int sell
+)
+{
+   D0010Batch batch;
+   D0010_ResetBatch(batch);
+   batch.has_events = (event_count > 0);
+   batch.known_index = known_index;
+   batch.known_time = known_time;
+   batch.event_count = event_count;
+   batch.reversal_count = rev;
+   batch.continuation_count = cont;
+   batch.buy_direction_count = buy;
+   batch.sell_direction_count = sell;
+   batch.ambiguous_direction = (buy > 0 && sell > 0);
+
+   if(event_count <= 0)
+      return;
+
+   if(rev > 0 && cont > 0)
+   {
+      batch.pure = false;
+      batch.label = DAL_D0010_LABEL_UNKNOWN;
+      batch.reason = "same_known_time_mixed_reversal_continuation";
+   }
+   else if(rev > 0)
+   {
+      batch.pure = true;
+      batch.label = DAL_D0010_LABEL_REVERSAL;
+      batch.reason = "ok_pure_known_time_batch";
+   }
+   else if(cont > 0)
+   {
+      batch.pure = true;
+      batch.label = DAL_D0010_LABEL_CONTINUATION;
+      batch.reason = "ok_pure_known_time_batch";
+   }
+   else
+   {
+      batch.pure = false;
+      batch.label = DAL_D0010_LABEL_UNKNOWN;
+      batch.reason = "unknown_label";
+   }
+
+   g_sum.total_batches++;
+   g_sum.raw_events_known_now += batch.event_count;
+   if(batch.event_count > 1)
+   {
+      g_sum.same_time_batch_count++;
+      g_sum.same_time_event_count += batch.event_count;
+   }
+   if(batch.ambiguous_direction) g_sum.mixed_direction_batches++;
+
+   if(!batch.pure)
+   {
+      g_sum.ambiguous_batches++;
+      D0010_WriteCsvBatch(batch);
+      return;
+   }
+
+   g_sum.pure_batches++;
+   if(batch.label == DAL_D0010_LABEL_REVERSAL) g_sum.reversal_batches++;
+   if(batch.label == DAL_D0010_LABEL_CONTINUATION) g_sum.continuation_batches++;
+   D0010_AddPureBatchLabel(batch);
+   D0010_WriteCsvBatch(batch);
+}
+
+bool D0010_RunFastRawEventBatch()
+{
+   D0010_ResetSummary(g_sum);
+   ArrayResize(g_labels, 0);
+   ArrayResize(g_label_times, 0);
+   ArrayResize(g_label_batch_counts, 0);
+   D0010_OpenCsv();
+
+   DALBar bars[];
+   int bars_count = 0;
+   string reason = "";
+   if(!D0010_LoadFinalReplayBars(bars, bars_count, reason))
+   {
+      Print("DAL_D0010_FAILED *** build=", DAL_D0010_BUILD, "*mode=FAST_RAW_EVENT_BATCH*reason=", reason);
+      return false;
+   }
+
+   int warmup = MathMax(InpWarmupClosedBars, InpL * 2 + InpExitGap + 50);
+   if(bars_count <= warmup + 10)
+   {
+      Print("DAL_D0010_FAILED *** build=", DAL_D0010_BUILD, "*mode=FAST_RAW_EVENT_BATCH*reason=not_enough_loaded_bars*bars=", bars_count, "*warmup=", warmup);
+      return false;
+   }
+
+   Print("DAL_D0010_START *** build=", DAL_D0010_BUILD,
+      "*symbol=", D0010_Symbol(),
+      "*tf=", EnumToString(D0010_Timeframe()),
+      "*mode=FAST_RAW_EVENT_BATCH",
+      "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
+      "*compute=M0001_once_then_known_time_batch",
+      "*sequenceOrder=known_time_batch_sequence",
+      "*sameKnownTimeEventsAreSimultaneous=1",
+      "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
+      "*bars=", bars_count,
+      "*warmup=", warmup);
+
+   DALM0001Config m1;
+   D0010_BuildM0001Config(m1);
+   DALLRuleNode nodes[];
+   int nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, m1.L, nodes);
+   DALM0001Event events[];
+   int events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, m1, events);
+
+   g_sum.steps = 1;
+   g_sum.decision_steps = bars_count - warmup;
+   g_sum.raw_events_seen = events_count;
+
+   if(events_count <= 0)
+   {
+      g_sum.no_event_steps = 1;
+      Print("DAL_D0010_AUDIT *** build=", DAL_D0010_BUILD, "*mode=FAST_RAW_EVENT_BATCH*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0*rawEventsSeen=0*reason=no_events");
+      return true;
+   }
+
+   int knowns[];
+   int labels[];
+   int dirs[];
+   int n = 0;
+   for(int i = 0; i < events_count; i++)
+   {
+      int label = DAL_D0010_LABEL_UNKNOWN;
+      int dir = 0;
+      int known = -1;
+      if(!D0010_ClassifyRawEvent(events[i], bars, bars_count, label, dir, known))
+         continue;
+      if(known < warmup || known >= bars_count)
+         continue;
+      ArrayResize(knowns, n + 1);
+      ArrayResize(labels, n + 1);
+      ArrayResize(dirs, n + 1);
+      knowns[n] = known;
+      labels[n] = label;
+      dirs[n] = dir;
+      n++;
+   }
+
+   if(n <= 0)
+   {
+      g_sum.no_new_known_batch_steps = 1;
+      Print("DAL_D0010_AUDIT *** build=", DAL_D0010_BUILD, "*mode=FAST_RAW_EVENT_BATCH*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0*rawEventsSeen=", events_count, "*knownEvents=0*reason=no_known_events_after_warmup");
+      return true;
+   }
+
+   D0010_SortKnownTriples(knowns, labels, dirs, n);
+
+   int pos = 0;
+   while(pos < n)
+   {
+      int known = knowns[pos];
+      int rev = 0;
+      int cont = 0;
+      int buy = 0;
+      int sell = 0;
+      int total = 0;
+
+      while(pos < n && knowns[pos] == known)
+      {
+         if(labels[pos] == DAL_D0010_LABEL_REVERSAL) rev++;
+         if(labels[pos] == DAL_D0010_LABEL_CONTINUATION) cont++;
+         if(dirs[pos] > 0) buy++;
+         if(dirs[pos] < 0) sell++;
+         total++;
+         pos++;
+      }
+
+      D0010_ConsumeBatchFromCounts(known, bars[known].time, total, rev, cont, buy, sell);
+   }
+
+   if(g_csv != INVALID_HANDLE)
+      FileFlush(g_csv);
+
+   int label_n = ArraySize(g_labels);
+   D0010TransitionStats ts;
+   D0010_ComputeTransitionStats(g_labels, label_n, ts);
+   D0010RunStats rs;
+   D0010_ComputeRuns(g_labels, label_n, ts, rs);
+
+   Print("DAL_D0010_AUDIT *** build=", DAL_D0010_BUILD,
+      "*mode=FAST_RAW_EVENT_BATCH",
+      "*sampleCalls=0",
+      "*branchSamplesBuilt=0",
+      "*m0002Calls=0",
+      "*m0001ComputePasses=1",
+      "*prefixRebuilds=0",
+      "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
+      "*sequenceOrder=known_time_batch_sequence",
+      "*sameKnownTimeEventsAreSimultaneous=1",
+      "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
+      "*bars=", bars_count,
+      "*nodes=", nodes_count,
+      "*rawEventsSeen=", g_sum.raw_events_seen,
+      "*rawEventsKnownNow=", g_sum.raw_events_known_now,
+      "*totalBatches=", g_sum.total_batches,
+      "*pureBatches=", g_sum.pure_batches,
+      "*ambiguousBatches=", g_sum.ambiguous_batches,
+      "*ambiguousBatchPct=", DoubleToString(D0010_SafePct(g_sum.ambiguous_batches, g_sum.total_batches), 2),
+      "*sameTimeBatchCount=", g_sum.same_time_batch_count,
+      "*sameTimeBatchPct=", DoubleToString(D0010_SafePct(g_sum.same_time_batch_count, g_sum.total_batches), 2),
+      "*sameTimeEventCount=", g_sum.same_time_event_count,
+      "*mixedDirectionBatches=", g_sum.mixed_direction_batches,
+      "*reversalBatches=", g_sum.reversal_batches,
+      "*continuationBatches=", g_sum.continuation_batches);
+
+   D0010_PrintTransitionStats("DAL_D0010_ATOMIC_TRANSITION", ts);
+   D0010_PrintRunStats(rs);
+   D0010_PrintPermutationStress(g_labels, label_n, ts);
+   return true;
+}
+
 bool D0010_Run()
 {
    D0010_ResetSummary(g_sum);
@@ -943,7 +1226,9 @@ bool D0010_Run()
 bool DAL_M0004RunAtomicNoSampleReport(const DALM0004AtomicNoSampleConfig &config)
 {
    g_dal_m0004_atomic_cfg = config;
-   return D0010_Run();
+   if(g_dal_m0004_atomic_cfg.report_mode == DAL_M0004_ATOMIC_STRICT_PREFIX_REPLAY)
+      return D0010_Run();
+   return D0010_RunFastRawEventBatch();
 }
 
 void DAL_M0004CloseAtomicNoSampleReport()
@@ -955,6 +1240,7 @@ void DAL_M0004CloseAtomicNoSampleReport()
    }
 }
 
+#undef InpAtomicReportMode
 #undef InpSymbol
 #undef InpTimeframe
 #undef InpReplayClosedBars

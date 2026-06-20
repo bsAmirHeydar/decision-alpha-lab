@@ -3,8 +3,8 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.06"
-#property description "M0004 main report now uses atomic no-sample raw M0001 known-time regime batches"
+#property version   "1.08"
+#property description "M0004 main report uses fast atomic no-sample raw M0001 known-time batches by default"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -21,7 +21,12 @@ input int InpBars = 0;                          // 0 = no cap
 input int InpWarmupHistoricalBars = 5000;       // pre-test closed bars used only to seed old nodes
 input bool InpUseAtomicNoSampleMainReport = true;  // true = official H4 no-sample main report
 input bool InpPrintLegacySampleReport = false;     // off by default: old M0002 sample sequence only for comparison
-input bool InpAtomicWriteCsv = true;
+// 0 = FAST_RAW_EVENT_BATCH (official/fast), 1 = STRICT_PREFIX_REPLAY (small debug only).
+// Kept as int on purpose: MetaEditor sometimes compiles the EA before the terminal Include tree is synced,
+// and enum-typed inputs then fail with "declaration without type". The actual config still uses the enum internally.
+input int InpAtomicReportMode = 0;
+input int InpAtomicPermutationIterations = 100; // keep main report fast; set higher only for final publication
+input bool InpAtomicWriteCsv = false;
 input string InpAtomicCsvFileName = "M0004_Atomic_NoSample_Regime.csv";
 
 input int InpL = 5;
@@ -74,7 +79,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.06"
+#define DAL_M0004_BUILD "1.08"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -223,7 +228,7 @@ void UpdateRuntimeComment(const int bars_count, const string source_mode)
       "  warmup_bars=", InpWarmupHistoricalBars,
       "  analysis_start=", start_text, "\n",
       "measureMode=EVENT_RTV_LOCKED; sampleWindow=M0001 event RTV\n",
-      "branch sequence = chronological M0002 reversal/continuation labels at confirmed exit\n",
+      "branch sequence = atomic no-sample known-time batches by default\n",
       "consumeMode=", DAL_M0001ConsumeModeToString(InpConsumeMode),
       "  touchCycle=", (InpConsumeMode == DAL_M0001_CONSUME_BY_HUNT ? "touch_exit_can_close_either_side_then_recompute_if_not_hunted" : "touch_exit_can_close_either_side_consumes_node"), "\n",
       "stressIters=", InpBranchStressIterations,
@@ -314,6 +319,7 @@ bool UpdateLiveBarStream()
 void RunAtomicNoSampleM0004MainReport(const string source_mode)
 {
    DALM0004AtomicNoSampleConfig cfg;
+   cfg.report_mode = (InpAtomicReportMode == 1 ? DAL_M0004_ATOMIC_STRICT_PREFIX_REPLAY : DAL_M0004_ATOMIC_FAST_RAW_EVENT_BATCH);
    cfg.symbol = LabSymbol();
    cfg.timeframe = LabTimeframe();
    cfg.replay_closed_bars = (InpBars > 0 ? InpBars : g_live_bars_count);
@@ -326,7 +332,7 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    cfg.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
    cfg.require_event_rtv_ready = false;
    cfg.skip_ambiguous_energy_batch = true;
-   cfg.permutation_iterations = InpBranchStressIterations;
+   cfg.permutation_iterations = InpAtomicPermutationIterations;
    cfg.print_only_summary = true;
    cfg.print_every_n_batches = 100;
    cfg.write_csv = InpAtomicWriteCsv;
@@ -338,6 +344,7 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
       "*source=", source_mode,
       "*build=", DAL_M0004_BUILD,
       "*officialReport=ATOMIC_NO_SAMPLE",
+      "*atomicMode=", (cfg.report_mode == DAL_M0004_ATOMIC_STRICT_PREFIX_REPLAY ? "STRICT_PREFIX_REPLAY" : "FAST_RAW_EVENT_BATCH"),
       "*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0",
       "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
       "*sequenceOrder=known_time_batch_sequence",
@@ -345,6 +352,7 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
       "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
       "*legacySampleReportEnabled=", (InpPrintLegacySampleReport ? 1 : 0),
       "*replayClosedBars=", cfg.replay_closed_bars,
+      "*permutationIterations=", cfg.permutation_iterations,
       "*warmupClosedBars=", cfg.warmup_closed_bars,
       "*L=", cfg.L,
       "*zoneRatio=", DoubleToString(cfg.zone_ratio, 4),
