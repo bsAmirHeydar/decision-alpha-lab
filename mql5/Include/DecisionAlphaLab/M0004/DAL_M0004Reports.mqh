@@ -5,6 +5,7 @@
 
 #define DAL_M0004_LABEL_REVERSAL 0
 #define DAL_M0004_LABEL_CONTINUATION 1
+#define DAL_M0004_LABEL_AMBIGUOUS -1
 
 struct DALM0004Config
 {
@@ -2738,6 +2739,300 @@ string DAL_M0004SummaryText(const DALM0004TransitionStats &s, const DALM0004RunS
       + "*hypothesisState=" + state;
 }
 
+
+struct DALM0004CausalBatch
+{
+   int known_index;
+   datetime known_time;
+   int sample_count;
+   int reversal_count;
+   int continuation_count;
+   int label;
+   int first_sample_id;
+   int first_entry_index;
+   int last_entry_index;
+};
+
+struct DALM0004CausalBatchAudit
+{
+   int source_samples;
+   int known_batches;
+   int pure_batches;
+   int ambiguous_batches;
+   int same_bar_batch_count;
+   int same_bar_sample_count;
+   int max_batch_size;
+   int reversal_batches;
+   int continuation_batches;
+   int skipped_ambiguous_samples;
+   int classic_transitions;
+   int causal_transitions;
+   int removed_fake_transitions;
+};
+
+int DAL_M0004SampleKnownIndex(const DALM0002BranchSample &sample)
+{
+   if(sample.outcome_index >= 0)
+      return sample.outcome_index;
+   if(sample.exit_index >= 0)
+      return sample.exit_index;
+   return sample.entry_index;
+}
+
+datetime DAL_M0004SampleKnownTime(const DALM0002BranchSample &sample)
+{
+   if(sample.outcome_index >= 0 && sample.outcome_time > 0)
+      return sample.outcome_time;
+   if(sample.exit_index >= 0 && sample.exit_time > 0)
+      return sample.exit_time;
+   return sample.entry_time;
+}
+
+void DAL_M0004ResetCausalBatch(DALM0004CausalBatch &batch)
+{
+   batch.known_index = -1;
+   batch.known_time = 0;
+   batch.sample_count = 0;
+   batch.reversal_count = 0;
+   batch.continuation_count = 0;
+   batch.label = DAL_M0004_LABEL_AMBIGUOUS;
+   batch.first_sample_id = -1;
+   batch.first_entry_index = -1;
+   batch.last_entry_index = -1;
+}
+
+void DAL_M0004FinalizeCausalBatch(DALM0004CausalBatch &batch)
+{
+   if(batch.reversal_count > 0 && batch.continuation_count > 0)
+      batch.label = DAL_M0004_LABEL_AMBIGUOUS;
+   else if(batch.continuation_count > 0)
+      batch.label = DAL_M0004_LABEL_CONTINUATION;
+   else
+      batch.label = DAL_M0004_LABEL_REVERSAL;
+}
+
+int DAL_M0004AppendCausalBatch(DALM0004CausalBatch &batches[], DALM0004CausalBatch &batch)
+{
+   DAL_M0004FinalizeCausalBatch(batch);
+   int size = ArraySize(batches);
+   ArrayResize(batches, size + 1);
+   batches[size] = batch;
+   return size;
+}
+
+void DAL_M0004AccumulateSampleIntoBatch(const DALM0002BranchSample &sample, DALM0004CausalBatch &batch)
+{
+   int label = DAL_M0004LabelFromOutcome(sample.outcome);
+   batch.sample_count++;
+   if(label == DAL_M0004_LABEL_CONTINUATION)
+      batch.continuation_count++;
+   else
+      batch.reversal_count++;
+
+   if(batch.first_sample_id < 0 || sample.id < batch.first_sample_id)
+      batch.first_sample_id = sample.id;
+   if(batch.first_entry_index < 0 || sample.entry_index < batch.first_entry_index)
+      batch.first_entry_index = sample.entry_index;
+   if(batch.last_entry_index < 0 || sample.entry_index > batch.last_entry_index)
+      batch.last_entry_index = sample.entry_index;
+}
+
+void DAL_M0004BuildCausalKnownBatches(
+   const DALM0002BranchSample &samples[],
+   DALM0004CausalBatch &batches[],
+   DALM0004CausalBatchAudit &audit
+)
+{
+   ArrayResize(batches, 0);
+   audit.source_samples = ArraySize(samples);
+   audit.known_batches = 0;
+   audit.pure_batches = 0;
+   audit.ambiguous_batches = 0;
+   audit.same_bar_batch_count = 0;
+   audit.same_bar_sample_count = 0;
+   audit.max_batch_size = 0;
+   audit.reversal_batches = 0;
+   audit.continuation_batches = 0;
+   audit.skipped_ambiguous_samples = 0;
+   audit.classic_transitions = MathMax(0, audit.source_samples - 1);
+   audit.causal_transitions = 0;
+   audit.removed_fake_transitions = 0;
+
+   int n = ArraySize(samples);
+   if(n <= 0)
+      return;
+
+   DALM0004CausalBatch current;
+   DAL_M0004ResetCausalBatch(current);
+
+   for(int i = 0; i < n; i++)
+   {
+      int known_index = DAL_M0004SampleKnownIndex(samples[i]);
+      if(current.known_index < 0)
+      {
+         current.known_index = known_index;
+         current.known_time = DAL_M0004SampleKnownTime(samples[i]);
+      }
+
+      if(known_index != current.known_index)
+      {
+         DAL_M0004AppendCausalBatch(batches, current);
+         DAL_M0004ResetCausalBatch(current);
+         current.known_index = known_index;
+         current.known_time = DAL_M0004SampleKnownTime(samples[i]);
+      }
+
+      DAL_M0004AccumulateSampleIntoBatch(samples[i], current);
+   }
+
+   if(current.sample_count > 0)
+      DAL_M0004AppendCausalBatch(batches, current);
+
+   audit.known_batches = ArraySize(batches);
+   for(int b = 0; b < audit.known_batches; b++)
+   {
+      if(batches[b].sample_count > 1)
+      {
+         audit.same_bar_batch_count++;
+         audit.same_bar_sample_count += batches[b].sample_count;
+      }
+      if(batches[b].sample_count > audit.max_batch_size)
+         audit.max_batch_size = batches[b].sample_count;
+
+      if(batches[b].label == DAL_M0004_LABEL_AMBIGUOUS)
+      {
+         audit.ambiguous_batches++;
+         audit.skipped_ambiguous_samples += batches[b].sample_count;
+      }
+      else
+      {
+         audit.pure_batches++;
+         if(batches[b].label == DAL_M0004_LABEL_CONTINUATION)
+            audit.continuation_batches++;
+         else
+            audit.reversal_batches++;
+      }
+   }
+   audit.causal_transitions = MathMax(0, audit.pure_batches - 1);
+   audit.removed_fake_transitions = audit.classic_transitions - audit.causal_transitions;
+   if(audit.removed_fake_transitions < 0)
+      audit.removed_fake_transitions = 0;
+}
+
+void DAL_M0004BuildPureCausalLabels(const DALM0004CausalBatch &batches[], int &labels[])
+{
+   ArrayResize(labels, 0);
+   int n = ArraySize(batches);
+   for(int i = 0; i < n; i++)
+   {
+      if(batches[i].label == DAL_M0004_LABEL_AMBIGUOUS)
+         continue;
+      int size = ArraySize(labels);
+      ArrayResize(labels, size + 1);
+      labels[size] = batches[i].label;
+   }
+}
+
+string DAL_M0004CausalBatchAuditText(const DALM0004CausalBatchAudit &audit)
+{
+   double compression_pct = audit.source_samples > 0 ? 100.0 * (1.0 - DAL_M0004SafeRatio(audit.known_batches, audit.source_samples)) : 0.0;
+   double ambiguous_batch_pct = audit.known_batches > 0 ? 100.0 * audit.ambiguous_batches / audit.known_batches : 0.0;
+   double same_bar_batch_pct = audit.known_batches > 0 ? 100.0 * audit.same_bar_batch_count / audit.known_batches : 0.0;
+   double fake_transition_pct = audit.classic_transitions > 0 ? 100.0 * audit.removed_fake_transitions / audit.classic_transitions : 0.0;
+
+   return "CAUSAL_BATCH_AUDIT"
+      + "*classicOrder=outcome_index_then_entry_index_then_id"
+      + "*causalOrder=known_candle_batch_sequence"
+      + "*sameKnownCandleSamplesAreSimultaneous=1"
+      + "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition"
+      + "*sourceSamples=" + IntegerToString(audit.source_samples)
+      + "*knownBatches=" + IntegerToString(audit.known_batches)
+      + "*pureBatches=" + IntegerToString(audit.pure_batches)
+      + "*ambiguousBatches=" + IntegerToString(audit.ambiguous_batches)
+      + "*ambiguousBatchPct=" + DAL_M0001FmtPct(ambiguous_batch_pct)
+      + "*sameBarBatchCount=" + IntegerToString(audit.same_bar_batch_count)
+      + "*sameBarBatchPct=" + DAL_M0001FmtPct(same_bar_batch_pct)
+      + "*sameBarSampleCount=" + IntegerToString(audit.same_bar_sample_count)
+      + "*maxBatchSize=" + IntegerToString(audit.max_batch_size)
+      + "*reversalBatches=" + IntegerToString(audit.reversal_batches)
+      + "*continuationBatches=" + IntegerToString(audit.continuation_batches)
+      + "*skippedAmbiguousSamples=" + IntegerToString(audit.skipped_ambiguous_samples)
+      + "*classicTransitions=" + IntegerToString(audit.classic_transitions)
+      + "*causalTransitions=" + IntegerToString(audit.causal_transitions)
+      + "*removedFakeTransitions=" + IntegerToString(audit.removed_fake_transitions)
+      + "*removedFakeTransitionPct=" + DAL_M0001FmtPct(fake_transition_pct)
+      + "*sampleToBatchCompressionPct=" + DAL_M0001FmtPct(compression_pct);
+}
+
+string DAL_M0004CausalCompareText(const DALM0004TransitionStats &classic_stats, const DALM0004TransitionStats &causal_stats)
+{
+   string verdict = "causal_batch_close_to_classic";
+   double same_delta = causal_stats.same_pct - classic_stats.same_pct;
+   double corr_delta = causal_stats.lag1_corr - classic_stats.lag1_corr;
+   double same_lift_delta = causal_stats.same_lift - classic_stats.same_lift;
+   if(MathAbs(same_delta) >= 5.0 || MathAbs(same_lift_delta) >= 5.0 || MathAbs(corr_delta) >= 0.05)
+      verdict = "classic_sequence_materially_changed_by_causal_batching";
+
+   return "CAUSAL_VS_CLASSIC"
+      + "*classicN=" + IntegerToString(classic_stats.n)
+      + "*causalPureBatchN=" + IntegerToString(causal_stats.n)
+      + "*classicSamePct=" + DAL_M0001FmtPct(classic_stats.same_pct)
+      + "*causalSamePct=" + DAL_M0001FmtPct(causal_stats.same_pct)
+      + "*causalMinusClassicSamePct=" + DAL_M0001FmtPct(same_delta)
+      + "*classicSameLiftPct=" + DAL_M0001FmtPct(classic_stats.same_lift)
+      + "*causalSameLiftPct=" + DAL_M0001FmtPct(causal_stats.same_lift)
+      + "*causalMinusClassicSameLiftPct=" + DAL_M0001FmtPct(same_lift_delta)
+      + "*classicLag1Corr=" + DAL_M0001Fmt4(classic_stats.lag1_corr)
+      + "*causalLag1Corr=" + DAL_M0001Fmt4(causal_stats.lag1_corr)
+      + "*causalMinusClassicLag1Corr=" + DAL_M0001Fmt4(corr_delta)
+      + "*classicRevPersistenceLift=" + DAL_M0001FmtPct(classic_stats.reversal_persistence_lift)
+      + "*causalRevPersistenceLift=" + DAL_M0001FmtPct(causal_stats.reversal_persistence_lift)
+      + "*classicContPersistenceLift=" + DAL_M0001FmtPct(classic_stats.continuation_persistence_lift)
+      + "*causalContPersistenceLift=" + DAL_M0001FmtPct(causal_stats.continuation_persistence_lift)
+      + "*verdict=" + verdict;
+}
+
+void DAL_M0004PrintCausalBatchReports(
+   const DALM0002BranchSample &samples[],
+   const int &classic_labels[],
+   const DALM0004TransitionStats &classic_stats,
+   const string symbol,
+   const string timeframe,
+   const string source_mode,
+   const int events_count,
+   const datetime min_entry_time,
+   const DALM0004Config &h4_config
+)
+{
+   DALM0004CausalBatch batches[];
+   DALM0004CausalBatchAudit batch_audit;
+   DAL_M0004BuildCausalKnownBatches(samples, batches, batch_audit);
+
+   int causal_labels[];
+   DAL_M0004BuildPureCausalLabels(batches, causal_labels);
+   int causal_count = ArraySize(causal_labels);
+
+   DALM0004TransitionStats causal_trans;
+   DAL_M0004ComputeTransitionStats(causal_labels, causal_count, causal_trans);
+
+   DALM0004RunStats causal_rev_run;
+   DALM0004RunStats causal_cont_run;
+   DAL_M0004ComputeRunStats(causal_labels, causal_count, DAL_M0004_LABEL_REVERSAL, causal_rev_run);
+   DAL_M0004ComputeRunStats(causal_labels, causal_count, DAL_M0004_LABEL_CONTINUATION, causal_cont_run);
+
+   int causal_all_run_count = 0, causal_all_max_run = 0;
+   double causal_all_avg_run = 0.0;
+   DAL_M0004ComputeAllRunStats(causal_labels, causal_count, causal_all_run_count, causal_all_max_run, causal_all_avg_run);
+
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_AUDIT", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004CausalBatchAuditText(batch_audit));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_SUMMARY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SummaryText(causal_trans, causal_rev_run, causal_cont_run) + "*sequenceOrder=known_candle_batch_sequence*pureBatchOnly=1");
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_TRANSITION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004TransitionText(causal_trans) + "*sequenceOrder=known_candle_batch_sequence*pureBatchOnly=1");
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_RUNS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunStatsText(causal_rev_run, causal_cont_run, causal_all_run_count, causal_all_max_run, causal_all_avg_run) + "*sequenceOrder=known_candle_batch_sequence*pureBatchOnly=1");
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_VS_CLASSIC", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004CausalCompareText(classic_stats, causal_trans));
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_TRANSITION_PERM_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004TransitionPermutationStressText(causal_labels, causal_count, h4_config.stress_iterations) + "*sequenceOrder=known_candle_batch_sequence*pureBatchOnly=1");
+   Print(DAL_M0004Prefix("DAL_M0004_FINAL_CAUSAL_BATCH_RUN_SHUFFLE_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunShuffleStressText(causal_labels, causal_count, h4_config.stress_iterations) + "*sequenceOrder=known_candle_batch_sequence*pureBatchOnly=1");
+}
+
 void DAL_M0004PrintFinalReports(
    const DALM0001Event &events[],
    const int events_count,
@@ -2797,6 +3092,7 @@ void DAL_M0004PrintFinalReports(
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_SUMMARY", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004SummaryText(trans, rev_run, cont_run));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_TRANSITION", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004TransitionText(trans));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_RUNS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunStatsText(rev_run, cont_run, all_run_count, all_max_run, all_avg_run));
+   DAL_M0004PrintCausalBatchReports(all_samples, labels, trans, symbol, timeframe, source_mode, events_count, min_entry_time, h4_config);
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_TRANSITION_PERM_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004TransitionPermutationStressText(labels, count, h4_config.stress_iterations));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_RUN_SHUFFLE_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004RunShuffleStressText(labels, count, h4_config.stress_iterations));
    Print(DAL_M0004Prefix("DAL_M0004_FINAL_BLOCK_CONCENTRATION_STRESS", symbol, timeframe, source_mode, events_count, min_entry_time), DAL_M0004BlockConcentrationStressText(labels, count, h4_config.block_size, h4_config.stress_iterations));
