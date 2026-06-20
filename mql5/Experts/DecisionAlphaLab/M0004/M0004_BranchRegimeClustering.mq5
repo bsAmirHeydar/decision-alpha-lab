@@ -3,8 +3,8 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
-#property description "M0004 tests branch-regime quality with classic and causal known-candle batch reports"
+#property version   "1.06"
+#property description "M0004 main report now uses atomic no-sample raw M0001 known-time regime batches"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -13,11 +13,16 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001RtvNullComparison.mqh>
 #include <DecisionAlphaLab/M0004/DAL_M0004Reports.mqh>
+#include <DecisionAlphaLab/M0004/DAL_M0004AtomicNoSample.mqh>
 
 input string InpSymbol = "";                   // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
 input int InpBars = 0;                          // 0 = no cap
 input int InpWarmupHistoricalBars = 5000;       // pre-test closed bars used only to seed old nodes
+input bool InpUseAtomicNoSampleMainReport = true;  // true = official H4 no-sample main report
+input bool InpPrintLegacySampleReport = false;     // off by default: old M0002 sample sequence only for comparison
+input bool InpAtomicWriteCsv = true;
+input string InpAtomicCsvFileName = "M0004_Atomic_NoSample_Regime.csv";
 
 input int InpL = 5;
 input double InpZoneRatio = 0.90;
@@ -69,7 +74,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.05"
+#define DAL_M0004_BUILD "1.06"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -305,6 +310,52 @@ bool UpdateLiveBarStream()
    return appended;
 }
 
+
+void RunAtomicNoSampleM0004MainReport(const string source_mode)
+{
+   DALM0004AtomicNoSampleConfig cfg;
+   cfg.symbol = LabSymbol();
+   cfg.timeframe = LabTimeframe();
+   cfg.replay_closed_bars = (InpBars > 0 ? InpBars : g_live_bars_count);
+   if(cfg.replay_closed_bars < 200) cfg.replay_closed_bars = 2500;
+   cfg.warmup_closed_bars = InpWarmupHistoricalBars;
+   cfg.L = InpL;
+   cfg.zone_ratio = InpZoneRatio;
+   cfg.exit_gap = InpExitGap;
+   cfg.consume_mode = InpConsumeMode;
+   cfg.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
+   cfg.require_event_rtv_ready = false;
+   cfg.skip_ambiguous_energy_batch = true;
+   cfg.permutation_iterations = InpBranchStressIterations;
+   cfg.print_only_summary = true;
+   cfg.print_every_n_batches = 100;
+   cfg.write_csv = InpAtomicWriteCsv;
+   cfg.csv_file_name = InpAtomicCsvFileName;
+
+   Print(
+      "DAL_M0004_MAIN_ATOMIC_SANITY *** symbol=", LabSymbol(),
+      "*tf=", EnumToString(LabTimeframe()),
+      "*source=", source_mode,
+      "*build=", DAL_M0004_BUILD,
+      "*officialReport=ATOMIC_NO_SAMPLE",
+      "*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0",
+      "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
+      "*sequenceOrder=known_time_batch_sequence",
+      "*sameKnownTimeEventsAreSimultaneous=1",
+      "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
+      "*legacySampleReportEnabled=", (InpPrintLegacySampleReport ? 1 : 0),
+      "*replayClosedBars=", cfg.replay_closed_bars,
+      "*warmupClosedBars=", cfg.warmup_closed_bars,
+      "*L=", cfg.L,
+      "*zoneRatio=", DoubleToString(cfg.zone_ratio, 4),
+      "*exitGap=", cfg.exit_gap,
+      "*consumeMode=", DAL_M0001ConsumeModeToString(cfg.consume_mode)
+   );
+
+   DAL_M0004RunAtomicNoSampleReport(cfg);
+   DAL_M0004CloseAtomicNoSampleReport();
+}
+
 void PrintFinalReportsFromBars(
    const DALBar &bars[],
    const int bars_count,
@@ -313,6 +364,13 @@ void PrintFinalReportsFromBars(
 {
    if(bars_count <= 0)
       return;
+
+   if(InpUseAtomicNoSampleMainReport)
+   {
+      RunAtomicNoSampleM0004MainReport(source_mode);
+      if(!InpPrintLegacySampleReport)
+         return;
+   }
 
    DALLRuleNode nodes[];
    DALM0001Event events[];

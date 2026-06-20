@@ -3,8 +3,8 @@
 //| Hypothesis 5: structural regimes create path/direction memory.     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.03"
-#property description "M0005 tests structural directional memory with MFE/MAE until structural/path exit"
+#property version   "1.04"
+#property description "M0005 main report now uses atomic no-sample raw M0001 live replay"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -13,11 +13,16 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001RtvNullComparison.mqh>
 #include <DecisionAlphaLab/M0005/DAL_M0005Reports.mqh>
+#include <DecisionAlphaLab/M0005/DAL_M0005AtomicNoSample.mqh>
 
 input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
 input int InpBars = 0;
 input int InpWarmupHistoricalBars = 5000;
+input bool InpUseAtomicNoSampleMainReport = true;
+input bool InpPrintLegacySampleReport = false;
+input bool InpAtomicWriteCsv = true;
+input string InpAtomicCsvFileName = "M0005_Atomic_NoSample_Replay.csv";
 
 input int InpL = 5;
 input double InpZoneRatio = 0.90;
@@ -45,6 +50,24 @@ input int InpH5RandomSamplesPerPath = 20;
 input int InpH5StressIterations = 500;
 input int InpH5BlockSize = 50;
 
+input ENUM_DALD0009Family InpH5AtomicFamilies = DAL_D0009_BOTH;
+input ENUM_DALD0009ContinuationBreakMode InpH5AtomicContinuationBreak = DAL_D0009_CONT_CLOSE_BREAK;
+input ENUM_DALD0009ContinuationRiskMode InpH5AtomicContinuationRisk = DAL_D0009_CONT_RISK_ATR;
+input int InpH5AtomicReversalBuySlots = 3;
+input int InpH5AtomicReversalSellSlots = 3;
+input int InpH5AtomicContinuationBuySlots = 3;
+input int InpH5AtomicContinuationSellSlots = 3;
+input bool InpH5AtomicUseCausalDirectionFilter = false;
+input bool InpH5AtomicSkipTouchedBeforeDecision = true;
+input bool InpH5AtomicOneActivationPerNodeFamily = true;
+input int InpH5AtomicMaxBarsToWaitForEntry = 300;
+input int InpH5AtomicMaxBarsToMeasureAfterEntry = 300;
+input double InpH5AtomicRewardR = 1.0;
+input int InpH5AtomicSpreadPoints = 0;
+input bool InpH5AtomicSameBarStopFirst = true;
+input int InpH5AtomicAtrPeriod = 14;
+input double InpH5AtomicAtrMultiplier = 4.0;
+
 input int InpRandomSamplesPerEvent = 20;
 input int InpBootstrapIterations = 300;
 input int InpPermutationIterations = 500;
@@ -69,7 +92,7 @@ input int InpHorizonBars4 = 50;
 #define DAL_M0005_TIMER_MS 0
 #define DAL_M0005_MAX_EVENTS 0
 #define DAL_M0005_MIN_RTV 0.0
-#define DAL_M0005_BUILD "1.03"
+#define DAL_M0005_BUILD "1.04"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -305,10 +328,84 @@ bool UpdateLiveBarStream()
    return appended;
 }
 
+
+void RunAtomicNoSampleM0005MainReport(const string source_mode)
+{
+   DALM0005AtomicNoSampleConfig cfg;
+   cfg.symbol = LabSymbol();
+   cfg.timeframe = LabTimeframe();
+   cfg.replay_closed_bars = (InpBars > 0 ? InpBars : g_live_bars_count);
+   if(cfg.replay_closed_bars < 200) cfg.replay_closed_bars = 1500;
+   cfg.warmup_closed_bars = InpWarmupHistoricalBars;
+   cfg.L = InpL;
+   cfg.zone_ratio = InpZoneRatio;
+   cfg.exit_gap = InpExitGap;
+   cfg.consume_mode = InpConsumeMode;
+   cfg.outcome_candle_offset_after_exit = InpOutcomeCandleOffsetAfterExit;
+   cfg.require_event_rtv_ready = false;
+   cfg.skip_ambiguous_energy_batch = true;
+   cfg.use_causal_direction_filter = InpH5AtomicUseCausalDirectionFilter;
+   cfg.families_to_audit = InpH5AtomicFamilies;
+   cfg.continuation_break_mode = InpH5AtomicContinuationBreak;
+   cfg.continuation_risk_mode = InpH5AtomicContinuationRisk;
+   cfg.reversal_buy_slots = InpH5AtomicReversalBuySlots;
+   cfg.reversal_sell_slots = InpH5AtomicReversalSellSlots;
+   cfg.continuation_buy_slots = InpH5AtomicContinuationBuySlots;
+   cfg.continuation_sell_slots = InpH5AtomicContinuationSellSlots;
+   cfg.skip_touched_or_closed_nodes_before_decision = InpH5AtomicSkipTouchedBeforeDecision;
+   cfg.one_activation_per_node_family = InpH5AtomicOneActivationPerNodeFamily;
+   cfg.max_bars_to_wait_for_entry = InpH5AtomicMaxBarsToWaitForEntry;
+   cfg.max_bars_to_measure_after_entry = InpH5AtomicMaxBarsToMeasureAfterEntry;
+   cfg.reward_r = InpH5AtomicRewardR;
+   cfg.audit_spread_points = InpH5AtomicSpreadPoints;
+   cfg.same_bar_stop_first = InpH5AtomicSameBarStopFirst;
+   cfg.atr_period = InpH5AtomicAtrPeriod;
+   cfg.atr_multiplier = InpH5AtomicAtrMultiplier;
+   cfg.print_only_summary = true;
+   cfg.print_every_n_steps = 100;
+   cfg.write_csv = InpAtomicWriteCsv;
+   cfg.csv_file_name = InpAtomicCsvFileName;
+
+   Print(
+      "DAL_M0005_MAIN_ATOMIC_SANITY *** symbol=", LabSymbol(),
+      "*tf=", EnumToString(LabTimeframe()),
+      "*source=", source_mode,
+      "*build=", DAL_M0005_BUILD,
+      "*officialReport=ATOMIC_NO_SAMPLE",
+      "*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0",
+      "*contract=no_samples_raw_events_only",
+      "*sequenceOrder=known_time_batch_sequence",
+      "*sameKnownTimeEventsAreSimultaneous=1",
+      "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
+      "*continuationRisk=", EnumToString(cfg.continuation_risk_mode),
+      "*continuationBreak=", EnumToString(cfg.continuation_break_mode),
+      "*rewardR=", DoubleToString(cfg.reward_r, 4),
+      "*atrPeriod=", cfg.atr_period,
+      "*atrMultiplier=", DoubleToString(cfg.atr_multiplier, 4),
+      "*legacySampleReportEnabled=", (InpPrintLegacySampleReport ? 1 : 0),
+      "*replayClosedBars=", cfg.replay_closed_bars,
+      "*warmupClosedBars=", cfg.warmup_closed_bars,
+      "*L=", cfg.L,
+      "*zoneRatio=", DoubleToString(cfg.zone_ratio, 4),
+      "*exitGap=", cfg.exit_gap,
+      "*consumeMode=", DAL_M0001ConsumeModeToString(cfg.consume_mode)
+   );
+
+   DAL_M0005RunAtomicNoSampleReplay(cfg);
+   DAL_M0005CloseAtomicNoSampleReplay();
+}
+
 void PrintFinalReportsFromBars(const DALBar &bars[], const int bars_count, const string source_mode)
 {
    if(bars_count <= 0)
       return;
+
+   if(InpUseAtomicNoSampleMainReport)
+   {
+      RunAtomicNoSampleM0005MainReport(source_mode);
+      if(!InpPrintLegacySampleReport)
+         return;
+   }
 
    DALLRuleNode nodes[];
    DALM0001Event events[];
