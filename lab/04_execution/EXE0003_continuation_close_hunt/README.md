@@ -83,3 +83,15 @@ InpMaxSimultaneousTrades = -1
 ```
 
 If the HTF regime filter is enabled and direction filter is false, the higher timeframe only says whether continuation energy exists. It does not force the EA to buy-only or sell-only. If direction filter is true, the EA also requires the entry direction to match the latest higher-timeframe close-hunt direction.
+
+
+## Build 1.05: intrabar Donchian market trigger
+
+Donchian mode no longer waits for candle close confirmation. The Donchian channel is still calculated from the previous `InpDonchianPeriod` closed candles, but entry is triggered on the live tick:
+
+```text
+Buy  = Ask > previous Donchian upper + buffer
+Sell = Bid < previous Donchian lower - buffer
+```
+
+The EA allows at most one Donchian buy and one Donchian sell trigger per current candle, then `InpMaxSimultaneousTrades` controls whether the order can actually be opened. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, and optional regime-change exit remain unchanged.

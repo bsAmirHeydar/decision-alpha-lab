@@ -3,7 +3,7 @@
 `E0003_ContinuationCloseHunt.mq5` is the third execution adapter for Decision Alpha Lab.
 It is separate from `E0001` and `E0002`.
 
-Build 1.04 adds maximum simultaneous-trade control and an optional higher-timeframe direction filter.
+Build 1.05 changes Donchian entries from close-confirmed breakout to intrabar tick breakout.
 
 ## Contract
 
@@ -12,14 +12,15 @@ When the effective continuation gate passes:
 1. The EA waits for a **closed candle**.
 2. Entry can use either:
    - `E0003_ENTRY_CLOSE_HUNTED_NODE`: a structural node close-hunt.
-   - `E0003_ENTRY_DONCHIAN_BREAKOUT`: Donchian breakout, default period 20.
+   - `E0003_ENTRY_DONCHIAN_BREAKOUT`: intrabar Donchian breakout, default period 20.
 3. Close-hunt model:
    - `HIGH` node close-hunt: `close > node.price + buffer` → buy continuation.
    - `LOW` node close-hunt: `close < node.price - buffer` → sell continuation.
 4. Donchian model:
-   - `close > highest(high, previous 20 closed candles) + buffer` → buy continuation.
-   - `close < lowest(low, previous 20 closed candles) - buffer` → sell continuation.
-5. The EA enters at market on the next bar.
+   - The channel is built from the previous 20 **closed** candles.
+   - `Ask > highest(high, previous 20 closed candles) + buffer` → immediate buy market.
+   - `Bid < lowest(low, previous 20 closed candles) - buffer` → immediate sell market.
+5. Close-hunt node mode enters on the next bar; Donchian mode enters immediately on the breakout tick.
 6. There is no take-profit.
 7. A technical SL is placed at `InpAtrMultiplier × ATR`, default `3 × ATR`.
 8. Volume is sized from cash risk to the ATR stop distance.
@@ -91,7 +92,7 @@ New inputs:
 
 - `InpUseLowerTimeframeRegimeFilter`: when true, E0003 requires the local timeframe M0001/M0002 regime to be `CONTINUATION` before entering. When false, the local timeframe regime gate is skipped. If the higher-timeframe regime filter is also off, Donchian entries can trade directly from price breakout conditions.
 - `InpEntryMode`: selects the trigger model. `E0003_ENTRY_DONCHIAN_BREAKOUT` is the new default; `E0003_ENTRY_CLOSE_HUNTED_NODE` keeps the original node close-hunt behavior.
-- `InpDonchianPeriod`: Donchian lookback length, default `20`. The signal candle is excluded from the channel; the EA compares the latest closed candle against the previous 20 closed candles.
+- `InpDonchianPeriod`: Donchian lookback length, default `20`. The current candle is excluded from the channel. The EA builds the channel from the previous 20 closed candles, but the trigger is intrabar: the first tick whose Ask/Bid breaks the channel can send a market order immediately.
 
 The existing ATR stop, ATR trailing, and optional regime-change exit remain unchanged.
 
@@ -112,3 +113,15 @@ InpMaxSimultaneousTrades = -1
 ```
 
 If the HTF regime filter is enabled and direction filter is false, the higher timeframe only says whether continuation energy exists. It does not force the EA to buy-only or sell-only. If direction filter is true, the EA also requires the entry direction to match the latest higher-timeframe close-hunt direction.
+
+
+## Build 1.05: intrabar Donchian market trigger
+
+Donchian mode no longer waits for candle close confirmation. The Donchian channel is still calculated from the previous `InpDonchianPeriod` closed candles, but entry is triggered on the live tick:
+
+```text
+Buy  = Ask > previous Donchian upper + buffer
+Sell = Bid < previous Donchian lower - buffer
+```
+
+The EA allows at most one Donchian buy and one Donchian sell trigger per current candle, then `InpMaxSimultaneousTrades` controls whether the order can actually be opened. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, and optional regime-change exit remain unchanged.
