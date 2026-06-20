@@ -3,8 +3,8 @@
 //| Continuation entry after close-hunted node, ATR risk, regime exit  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
-#property description "Execution module E0003: continuation close-hunt or intrabar Donchian breakout entries, ATR risk stop/trailing, optional regime exit."
+#property version   "1.06"
+#property description "Execution module E0003: continuation close-hunt or Donchian breakout entries with selectable tick/closed-bar trigger, ATR risk stop/trailing, optional regime exit."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -66,6 +66,15 @@ enum ENUM_E0003EntryMode
 };
 
 input ENUM_E0003EntryMode InpEntryMode = E0003_ENTRY_DONCHIAN_BREAKOUT;
+
+// Donchian trigger policy: either immediate tick breakout or closed-candle confirmation.
+enum ENUM_E0003DonchianTriggerMode
+{
+   E0003_DONCHIAN_TRIGGER_INTRABAR_TICK = 0,
+   E0003_DONCHIAN_TRIGGER_CLOSED_BAR = 1
+};
+
+input ENUM_E0003DonchianTriggerMode InpDonchianTriggerMode = E0003_DONCHIAN_TRIGGER_INTRABAR_TICK;
 input int InpDonchianPeriod = 20;
 
 // Risk model: volume is calculated from entry to ATR stop distance.
@@ -80,7 +89,7 @@ input int InpCloseHuntBufferPoints = 0;
 input int InpMaxEntriesPerBar = 3;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0003_BUILD "1.05"
+#define DAL_E0003_BUILD "1.06"
 string InpOrderCommentPrefix = "DALC3";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -196,6 +205,13 @@ string E0003_EntryModeToString()
    if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT)
       return "DONCHIAN_BREAKOUT";
    return "CLOSE_HUNTED_NODE";
+}
+
+string E0003_DonchianTriggerModeToString()
+{
+   if(InpDonchianTriggerMode == E0003_DONCHIAN_TRIGGER_CLOSED_BAR)
+      return "CLOSED_BAR";
+   return "INTRABAR_TICK";
 }
 
 bool E0003_NodeAlreadyTraded(const int node_id)
@@ -595,6 +611,86 @@ bool E0003_GetDonchianTickBreakoutSignal(
    }
 
    reason = "inside_donchian_channel";
+   return false;
+}
+
+bool E0003_GetDonchianClosedBarBreakoutSignal(
+   const DALBar &bars[],
+   const int bars_count,
+   const int period,
+   const double breakout_buffer,
+   int &direction,
+   double &breakout_level,
+   datetime &signal_bar_time,
+   string &reason
+)
+{
+   direction = 0;
+   breakout_level = 0.0;
+   signal_bar_time = 0;
+   reason = "no_signal";
+
+   int lookback = MathMax(1, period);
+   if(bars_count <= lookback)
+   {
+      reason = "not_enough_donchian_bars";
+      return false;
+   }
+
+   int signal_index = bars_count - 1;
+   int first_index = signal_index - lookback;
+   if(first_index < 0)
+   {
+      reason = "not_enough_donchian_history";
+      return false;
+   }
+
+   const DALBar signal_bar = bars[signal_index];
+   signal_bar_time = signal_bar.time;
+   if(signal_bar.close <= 0.0 || signal_bar_time <= 0)
+   {
+      reason = "signal_bar_not_ready";
+      return false;
+   }
+
+   double upper = bars[first_index].high;
+   double lower = bars[first_index].low;
+   if(upper <= 0.0 || lower <= 0.0)
+   {
+      reason = "donchian_seed_not_ready";
+      return false;
+   }
+
+   for(int i = first_index + 1; i < signal_index; i++)
+   {
+      if(bars[i].high <= 0.0 || bars[i].low <= 0.0)
+      {
+         reason = "donchian_bar_not_ready";
+         return false;
+      }
+      if(bars[i].high > upper)
+         upper = bars[i].high;
+      if(bars[i].low < lower)
+         lower = bars[i].low;
+   }
+
+   if(signal_bar.close > upper + breakout_buffer)
+   {
+      direction = +1;
+      breakout_level = upper;
+      reason = "donchian_closed_bar_upper_breakout";
+      return true;
+   }
+
+   if(signal_bar.close < lower - breakout_buffer)
+   {
+      direction = -1;
+      breakout_level = lower;
+      reason = "donchian_closed_bar_lower_breakout";
+      return true;
+   }
+
+   reason = "signal_close_inside_donchian_channel";
    return false;
 }
 
@@ -1084,10 +1180,55 @@ void E0003_ProcessNewBar()
       point = 0.0;
    double close_buffer = MathMax(0, InpCloseHuntBufferPoints) * point;
 
-   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT)
+   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT && InpDonchianTriggerMode == E0003_DONCHIAN_TRIGGER_INTRABAR_TICK)
    {
-      // Donchian entries are intrabar tick breakouts. New-bar processing only refreshes
-      // regime/trailing context; the actual market trigger is handled in OnTick().
+      // Tick-trigger Donchian entries are handled in OnTick(). New-bar processing only
+      // refreshes regime/trailing context for that trigger policy.
+      return;
+   }
+
+   if(InpEntryMode == E0003_ENTRY_DONCHIAN_BREAKOUT && InpDonchianTriggerMode == E0003_DONCHIAN_TRIGGER_CLOSED_BAR)
+   {
+      int direction = 0;
+      double breakout_level = 0.0;
+      datetime signal_bar_time = 0;
+      string donchian_reason = "";
+      if(!E0003_GetDonchianClosedBarBreakoutSignal(bars, bars_count, InpDonchianPeriod, close_buffer, direction, breakout_level, signal_bar_time, donchian_reason))
+         return;
+
+      if(direction > 0 && g_last_donchian_buy_bar_time == signal_bar_time)
+         return;
+      if(direction < 0 && g_last_donchian_sell_bar_time == signal_bar_time)
+         return;
+
+      string htf_regime_reason = "";
+      if(!E0003_PassesHigherTimeframeRegimeFilter(DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT, direction, htf_regime_reason))
+      {
+         if(InpPrintOrderLogs)
+            Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
+               "*entryMode=DONCHIAN_BREAKOUT",
+               "*donchianTrigger=CLOSED_BAR",
+               "*dir=", direction,
+               "*signalBar=", E0003_FormatDateTime(signal_bar_time),
+               "*reason=", htf_regime_reason);
+         return;
+      }
+
+      if(direction > 0)
+         g_last_donchian_buy_bar_time = signal_bar_time;
+      else if(direction < 0)
+         g_last_donchian_sell_bar_time = signal_bar_time;
+
+      string order_reason = "";
+      if(!E0003_PlaceDonchianMarket(direction, breakout_level, atr_value, signal_bar_time, order_reason) && InpPrintOrderLogs)
+      {
+         Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
+            "*entryMode=DONCHIAN_BREAKOUT",
+            "*donchianTrigger=CLOSED_BAR",
+            "*dir=", direction,
+            "*signalBar=", E0003_FormatDateTime(signal_bar_time),
+            "*reason=", order_reason);
+      }
       return;
    }
 
@@ -1149,6 +1290,8 @@ void E0003_ProcessDonchianTick()
 {
    if(InpEntryMode != E0003_ENTRY_DONCHIAN_BREAKOUT)
       return;
+   if(InpDonchianTriggerMode != E0003_DONCHIAN_TRIGGER_INTRABAR_TICK)
+      return;
 
    string session_reason = "";
    if(!E0003_IsTradingSessionOpen(session_reason))
@@ -1192,7 +1335,7 @@ void E0003_ProcessDonchianTick()
    {
       if(InpPrintOrderLogs)
          Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
-            "*entryMode=DONCHIAN_TICK_BREAKOUT",
+            "*entryMode=DONCHIAN_BREAKOUT",
             "*dir=", direction,
             "*signalBar=", E0003_FormatDateTime(signal_bar_time),
             "*reason=", atr_reason);
@@ -1204,7 +1347,7 @@ void E0003_ProcessDonchianTick()
    {
       if(InpPrintOrderLogs)
          Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
-            "*entryMode=DONCHIAN_TICK_BREAKOUT",
+            "*entryMode=DONCHIAN_BREAKOUT",
             "*dir=", direction,
             "*signalBar=", E0003_FormatDateTime(signal_bar_time),
             "*reason=", htf_regime_reason);
@@ -1215,7 +1358,7 @@ void E0003_ProcessDonchianTick()
    if(!E0003_PlaceDonchianMarket(direction, breakout_level, atr_value, signal_bar_time, order_reason) && InpPrintOrderLogs)
    {
       Print("DAL_E0003_SIGNAL_SKIP *** build=", DAL_E0003_BUILD,
-         "*entryMode=DONCHIAN_TICK_BREAKOUT",
+         "*entryMode=DONCHIAN_BREAKOUT",
          "*dir=", direction,
          "*signalBar=", E0003_FormatDateTime(signal_bar_time),
          "*reason=", order_reason);
@@ -1236,7 +1379,7 @@ int OnInit()
       "*htfTf=", EnumToString(InpHigherRegimeTimeframe),
       "*module=EXECUTION_H0005_CONTINUATION",
       "*entryMode=", E0003_EntryModeToString(),
-      "*donchianTrigger=INTRABAR_TICK",
+      "*donchianTrigger=", E0003_DonchianTriggerModeToString(),
       "*donchianPeriod=", InpDonchianPeriod,
       "*maxSimultaneousTrades=", InpMaxSimultaneousTrades,
       "*riskStop=ATR_MULTIPLE",

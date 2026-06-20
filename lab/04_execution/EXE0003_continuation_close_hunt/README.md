@@ -95,3 +95,23 @@ Sell = Bid < previous Donchian lower - buffer
 ```
 
 The EA allows at most one Donchian buy and one Donchian sell trigger per current candle, then `InpMaxSimultaneousTrades` controls whether the order can actually be opened. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, and optional regime-change exit remain unchanged.
+
+
+## Build 1.06: selectable Donchian trigger policy
+
+New input:
+
+- `InpDonchianTriggerMode`
+
+Available values:
+
+```text
+E0003_DONCHIAN_TRIGGER_INTRABAR_TICK
+E0003_DONCHIAN_TRIGGER_CLOSED_BAR
+```
+
+`E0003_DONCHIAN_TRIGGER_INTRABAR_TICK` keeps the previous 1.05 behavior: the channel is calculated from the previous `InpDonchianPeriod` closed candles, but the EA enters immediately when the live Ask/Bid breaks the channel.
+
+`E0003_DONCHIAN_TRIGGER_CLOSED_BAR` waits for the latest fully closed candle to close outside the previous Donchian channel. The signal candle itself is excluded from the channel; the entry is sent only after that candle is closed.
+
+The default remains intrabar tick breakout to preserve the latest execution behavior. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, max simultaneous trades, and optional regime-change exit remain unchanged.

@@ -3,7 +3,7 @@
 `E0003_ContinuationCloseHunt.mq5` is the third execution adapter for Decision Alpha Lab.
 It is separate from `E0001` and `E0002`.
 
-Build 1.05 changes Donchian entries from close-confirmed breakout to intrabar tick breakout.
+Build 1.06 adds a selectable Donchian trigger policy: immediate intrabar tick breakout or closed-bar confirmation.
 
 ## Contract
 
@@ -12,15 +12,15 @@ When the effective continuation gate passes:
 1. The EA waits for a **closed candle**.
 2. Entry can use either:
    - `E0003_ENTRY_CLOSE_HUNTED_NODE`: a structural node close-hunt.
-   - `E0003_ENTRY_DONCHIAN_BREAKOUT`: intrabar Donchian breakout, default period 20.
+   - `E0003_ENTRY_DONCHIAN_BREAKOUT`: Donchian breakout, default period 20, with selectable trigger policy.
 3. Close-hunt model:
    - `HIGH` node close-hunt: `close > node.price + buffer` → buy continuation.
    - `LOW` node close-hunt: `close < node.price - buffer` → sell continuation.
 4. Donchian model:
    - The channel is built from the previous 20 **closed** candles.
-   - `Ask > highest(high, previous 20 closed candles) + buffer` → immediate buy market.
-   - `Bid < lowest(low, previous 20 closed candles) - buffer` → immediate sell market.
-5. Close-hunt node mode enters on the next bar; Donchian mode enters immediately on the breakout tick.
+   - `InpDonchianTriggerMode=E0003_DONCHIAN_TRIGGER_INTRABAR_TICK`: `Ask > upper + buffer` buys immediately; `Bid < lower - buffer` sells immediately.
+   - `InpDonchianTriggerMode=E0003_DONCHIAN_TRIGGER_CLOSED_BAR`: the latest closed candle must close beyond the channel; entry is sent on the next processing pass.
+5. Close-hunt node mode enters on the next bar. Donchian mode follows the selected trigger policy.
 6. There is no take-profit.
 7. A technical SL is placed at `InpAtrMultiplier × ATR`, default `3 × ATR`.
 8. Volume is sized from cash risk to the ATR stop distance.
@@ -37,7 +37,7 @@ It is not the primary exit logic.
 - `InpL`, `InpZoneRatio`, `InpExitGap`, `InpConsumeMode`
 - `InpRegimeBasis`, `InpHumanContextSignal`
 - `InpUseLowerTimeframeRegimeFilter`
-- `InpEntryMode`, `InpDonchianPeriod`
+- `InpEntryMode`, `InpDonchianTriggerMode`, `InpDonchianPeriod`
 - trading session start/end
 - `InpMagicNumber`, `InpRiskCash`
 - `InpAtrPeriod`, `InpAtrMultiplier`
@@ -125,3 +125,23 @@ Sell = Bid < previous Donchian lower - buffer
 ```
 
 The EA allows at most one Donchian buy and one Donchian sell trigger per current candle, then `InpMaxSimultaneousTrades` controls whether the order can actually be opened. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, and optional regime-change exit remain unchanged.
+
+
+## Build 1.06: selectable Donchian trigger policy
+
+New input:
+
+- `InpDonchianTriggerMode`
+
+Available values:
+
+```text
+E0003_DONCHIAN_TRIGGER_INTRABAR_TICK
+E0003_DONCHIAN_TRIGGER_CLOSED_BAR
+```
+
+`E0003_DONCHIAN_TRIGGER_INTRABAR_TICK` keeps the previous 1.05 behavior: the channel is calculated from the previous `InpDonchianPeriod` closed candles, but the EA enters immediately when the live Ask/Bid breaks the channel.
+
+`E0003_DONCHIAN_TRIGGER_CLOSED_BAR` waits for the latest fully closed candle to close outside the previous Donchian channel. The signal candle itself is excluded from the channel; the entry is sent only after that candle is closed.
+
+The default remains intrabar tick breakout to preserve the latest execution behavior. ATR stop, ATR trailing, lower-timeframe regime gate, higher-timeframe permission/direction gate, max simultaneous trades, and optional regime-change exit remain unchanged.
