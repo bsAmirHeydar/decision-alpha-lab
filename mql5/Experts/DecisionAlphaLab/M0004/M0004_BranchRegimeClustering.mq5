@@ -3,8 +3,8 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.08"
-#property description "M0004 main report uses fast atomic no-sample raw M0001 known-time batches by default"
+#property version   "1.09"
+#property description "M0004 fast atomic no-sample main report with extended lightweight diagnostics"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -26,6 +26,10 @@ input bool InpPrintLegacySampleReport = false;     // off by default: old M0002 
 // and enum-typed inputs then fail with "declaration without type". The actual config still uses the enum internally.
 input int InpAtomicReportMode = 0;
 input int InpAtomicPermutationIterations = 100; // keep main report fast; set higher only for final publication
+input bool InpAtomicPrintExtendedReport = true; // fast extra lag/block/run diagnostics, still no samples
+input int InpAtomicBlockSizeFast = 25;
+input int InpAtomicBlockSizeMain = 50;
+input int InpAtomicBlockSizeSlow = 200;
 input bool InpAtomicWriteCsv = false;
 input string InpAtomicCsvFileName = "M0004_Atomic_NoSample_Regime.csv";
 
@@ -79,7 +83,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.08"
+#define DAL_M0004_BUILD "1.09"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -333,6 +337,10 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    cfg.require_event_rtv_ready = false;
    cfg.skip_ambiguous_energy_batch = true;
    cfg.permutation_iterations = InpAtomicPermutationIterations;
+   cfg.print_extended_report = InpAtomicPrintExtendedReport;
+   cfg.block_size_fast = InpAtomicBlockSizeFast;
+   cfg.block_size_main = InpAtomicBlockSizeMain;
+   cfg.block_size_slow = InpAtomicBlockSizeSlow;
    cfg.print_only_summary = true;
    cfg.print_every_n_batches = 100;
    cfg.write_csv = InpAtomicWriteCsv;
@@ -353,6 +361,10 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
       "*legacySampleReportEnabled=", (InpPrintLegacySampleReport ? 1 : 0),
       "*replayClosedBars=", cfg.replay_closed_bars,
       "*permutationIterations=", cfg.permutation_iterations,
+      "*extendedReport=", (cfg.print_extended_report ? 1 : 0),
+      "*blockFast=", cfg.block_size_fast,
+      "*blockMain=", cfg.block_size_main,
+      "*blockSlow=", cfg.block_size_slow,
       "*warmupClosedBars=", cfg.warmup_closed_bars,
       "*L=", cfg.L,
       "*zoneRatio=", DoubleToString(cfg.zone_ratio, 4),

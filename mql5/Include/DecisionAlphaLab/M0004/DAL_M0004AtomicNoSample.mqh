@@ -27,6 +27,10 @@ struct DALM0004AtomicNoSampleConfig
    bool require_event_rtv_ready;
    bool skip_ambiguous_energy_batch;
    int permutation_iterations;
+   bool print_extended_report;
+   int block_size_fast;
+   int block_size_main;
+   int block_size_slow;
    bool print_only_summary;
    int print_every_n_batches;
    bool write_csv;
@@ -48,12 +52,16 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpRequireEventRtvReady g_dal_m0004_atomic_cfg.require_event_rtv_ready
 #define InpSkipAmbiguousEnergyBatch g_dal_m0004_atomic_cfg.skip_ambiguous_energy_batch
 #define InpPermutationIterations g_dal_m0004_atomic_cfg.permutation_iterations
+#define InpAtomicPrintExtendedReport g_dal_m0004_atomic_cfg.print_extended_report
+#define InpAtomicBlockSizeFast g_dal_m0004_atomic_cfg.block_size_fast
+#define InpAtomicBlockSizeMain g_dal_m0004_atomic_cfg.block_size_main
+#define InpAtomicBlockSizeSlow g_dal_m0004_atomic_cfg.block_size_slow
 #define InpPrintOnlySummary g_dal_m0004_atomic_cfg.print_only_summary
 #define InpPrintEveryNBatches g_dal_m0004_atomic_cfg.print_every_n_batches
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.01"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.02"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -736,6 +744,231 @@ void D0010_PrintRunStats(const D0010RunStats &r)
       "*contAvgRunOverIid=", DoubleToString(r.cont_avg_run_over_iid, 4));
 }
 
+
+
+double D0010_LabelValue(const int label)
+{
+   if(label == DAL_D0010_LABEL_CONTINUATION) return 1.0;
+   return 0.0;
+}
+
+double D0010_LagCorr(const int &labels[], const int n, const int lag)
+{
+   if(n <= lag || lag <= 0)
+      return 0.0;
+
+   double sx = 0.0, sy = 0.0, sxx = 0.0, syy = 0.0, sxy = 0.0;
+   int m = 0;
+   for(int i = lag; i < n; i++)
+   {
+      double x = D0010_LabelValue(labels[i - lag]);
+      double y = D0010_LabelValue(labels[i]);
+      sx += x;
+      sy += y;
+      sxx += x * x;
+      syy += y * y;
+      sxy += x * y;
+      m++;
+   }
+   double den = MathSqrt((m * sxx - sx * sx) * (m * syy - sy * sy));
+   return D0010_SafeDiv(m * sxy - sx * sy, den);
+}
+
+void D0010_PrintLagDecay(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintExtendedReport || n < 5)
+      return;
+
+   double lag1 = D0010_LagCorr(labels, n, 1);
+   double lag2 = D0010_LagCorr(labels, n, 2);
+   double lag3 = D0010_LagCorr(labels, n, 3);
+   double lag5 = D0010_LagCorr(labels, n, 5);
+   double lag10 = D0010_LagCorr(labels, n, 10);
+   double lag20 = D0010_LagCorr(labels, n, 20);
+   double lag50 = D0010_LagCorr(labels, n, 50);
+   double lag100 = D0010_LagCorr(labels, n, 100);
+
+   double pos_auc = 0.0;
+   int max_lag = MathMin(50, n - 1);
+   for(int lag = 1; lag <= max_lag; lag++)
+   {
+      double c = D0010_LagCorr(labels, n, lag);
+      if(c > 0.0) pos_auc += c;
+   }
+
+   Print("DAL_D0010_ATOMIC_LAG_DECAY",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*lag1Corr=", DoubleToString(lag1, 4),
+      "*lag2Corr=", DoubleToString(lag2, 4),
+      "*lag3Corr=", DoubleToString(lag3, 4),
+      "*lag5Corr=", DoubleToString(lag5, 4),
+      "*lag10Corr=", DoubleToString(lag10, 4),
+      "*lag20Corr=", DoubleToString(lag20, 4),
+      "*lag50Corr=", DoubleToString(lag50, 4),
+      "*lag100Corr=", DoubleToString(lag100, 4),
+      "*positiveLagCorrAucTo50=", DoubleToString(pos_auc, 4),
+      "*sequenceOrder=known_time_batch_sequence");
+}
+
+void D0010_PrintRunLengthTransition(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintExtendedReport || n < 2)
+      return;
+
+   int bucketN[4];
+   int bucketSame[4];
+   int bucketRevN[4];
+   int bucketRevSame[4];
+   int bucketContN[4];
+   int bucketContSame[4];
+   ArrayInitialize(bucketN, 0);
+   ArrayInitialize(bucketSame, 0);
+   ArrayInitialize(bucketRevN, 0);
+   ArrayInitialize(bucketRevSame, 0);
+   ArrayInitialize(bucketContN, 0);
+   ArrayInitialize(bucketContSame, 0);
+
+   int current_run = 1;
+   for(int i = 1; i < n; i++)
+   {
+      int prev = labels[i - 1];
+      int cur = labels[i];
+      int bucket = 3;
+      if(current_run <= 1) bucket = 0;
+      else if(current_run == 2) bucket = 1;
+      else if(current_run == 3) bucket = 2;
+
+      bool same = (prev == cur);
+      bucketN[bucket]++;
+      if(same) bucketSame[bucket]++;
+      if(prev == DAL_D0010_LABEL_REVERSAL)
+      {
+         bucketRevN[bucket]++;
+         if(same) bucketRevSame[bucket]++;
+      }
+      if(prev == DAL_D0010_LABEL_CONTINUATION)
+      {
+         bucketContN[bucket]++;
+         if(same) bucketContSame[bucket]++;
+      }
+
+      if(same)
+         current_run++;
+      else
+         current_run = 1;
+   }
+
+   Print("DAL_D0010_ATOMIC_RUN_LENGTH_TRANSITION",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*run1N=", bucketN[0],
+      "*run1SamePct=", DoubleToString(D0010_SafePct(bucketSame[0], bucketN[0]), 2),
+      "*run1RevSamePct=", DoubleToString(D0010_SafePct(bucketRevSame[0], bucketRevN[0]), 2),
+      "*run1ContSamePct=", DoubleToString(D0010_SafePct(bucketContSame[0], bucketContN[0]), 2),
+      "*run2N=", bucketN[1],
+      "*run2SamePct=", DoubleToString(D0010_SafePct(bucketSame[1], bucketN[1]), 2),
+      "*run2RevSamePct=", DoubleToString(D0010_SafePct(bucketRevSame[1], bucketRevN[1]), 2),
+      "*run2ContSamePct=", DoubleToString(D0010_SafePct(bucketContSame[1], bucketContN[1]), 2),
+      "*run3N=", bucketN[2],
+      "*run3SamePct=", DoubleToString(D0010_SafePct(bucketSame[2], bucketN[2]), 2),
+      "*run3RevSamePct=", DoubleToString(D0010_SafePct(bucketRevSame[2], bucketRevN[2]), 2),
+      "*run3ContSamePct=", DoubleToString(D0010_SafePct(bucketContSame[2], bucketContN[2]), 2),
+      "*run4plusN=", bucketN[3],
+      "*run4plusSamePct=", DoubleToString(D0010_SafePct(bucketSame[3], bucketN[3]), 2),
+      "*run4plusRevSamePct=", DoubleToString(D0010_SafePct(bucketRevSame[3], bucketRevN[3]), 2),
+      "*run4plusContSamePct=", DoubleToString(D0010_SafePct(bucketContSame[3], bucketContN[3]), 2));
+}
+
+void D0010_PrintBlockProfile(const int &labels[], const int n, const int block_size, const string tag)
+{
+   if(!InpAtomicPrintExtendedReport || n < 3 || block_size <= 1)
+      return;
+
+   int blocks = (n + block_size - 1) / block_size;
+   if(blocks <= 0)
+      return;
+
+   double cont_sum = 0.0, cont_sum2 = 0.0;
+   double lift_sum = 0.0, lift_sum2 = 0.0;
+   double lag_sum = 0.0, lag_sum2 = 0.0;
+   double min_cont = 1000000.0, max_cont = -1000000.0;
+   int positive_lift = 0;
+   int positive_lag = 0;
+   int hot_cont = 0;
+   int cold_cont = 0;
+
+   D0010TransitionStats global_ts;
+   D0010_ComputeTransitionStats(labels, n, global_ts);
+
+   for(int b = 0; b < blocks; b++)
+   {
+      int start = b * block_size;
+      int end = MathMin(n, start + block_size);
+      int m = end - start;
+      if(m <= 1) continue;
+
+      int local[];
+      ArrayResize(local, m);
+      for(int i = 0; i < m; i++) local[i] = labels[start + i];
+
+      D0010TransitionStats st;
+      D0010_ComputeTransitionStats(local, m, st);
+      cont_sum += st.continuation_pct;
+      cont_sum2 += st.continuation_pct * st.continuation_pct;
+      lift_sum += st.same_lift_pct;
+      lift_sum2 += st.same_lift_pct * st.same_lift_pct;
+      lag_sum += st.lag1_corr;
+      lag_sum2 += st.lag1_corr * st.lag1_corr;
+      if(st.continuation_pct < min_cont) min_cont = st.continuation_pct;
+      if(st.continuation_pct > max_cont) max_cont = st.continuation_pct;
+      if(st.same_lift_pct > 0.0) positive_lift++;
+      if(st.lag1_corr > 0.0) positive_lag++;
+      if(st.continuation_pct >= global_ts.continuation_pct + 10.0) hot_cont++;
+      if(st.continuation_pct <= global_ts.continuation_pct - 10.0) cold_cont++;
+   }
+
+   double mean_cont = D0010_SafeDiv(cont_sum, blocks);
+   double sd_cont = MathSqrt(MathMax(0.0, D0010_SafeDiv(cont_sum2, blocks) - mean_cont * mean_cont));
+   double mean_lift = D0010_SafeDiv(lift_sum, blocks);
+   double sd_lift = MathSqrt(MathMax(0.0, D0010_SafeDiv(lift_sum2, blocks) - mean_lift * mean_lift));
+   double mean_lag = D0010_SafeDiv(lag_sum, blocks);
+   double sd_lag = MathSqrt(MathMax(0.0, D0010_SafeDiv(lag_sum2, blocks) - mean_lag * mean_lag));
+
+   Print("DAL_D0010_ATOMIC_BLOCK_PROFILE_" + tag,
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*blockSize=", block_size,
+      "*blocks=", blocks,
+      "*globalContPct=", DoubleToString(global_ts.continuation_pct, 2),
+      "*meanContPct=", DoubleToString(mean_cont, 2),
+      "*sdContPct=", DoubleToString(sd_cont, 4),
+      "*minContPct=", DoubleToString(min_cont, 2),
+      "*maxContPct=", DoubleToString(max_cont, 2),
+      "*meanSameLift=", DoubleToString(mean_lift, 2),
+      "*sdSameLift=", DoubleToString(sd_lift, 4),
+      "*meanLag1=", DoubleToString(mean_lag, 4),
+      "*sdLag1=", DoubleToString(sd_lag, 4),
+      "*positiveLiftBlockPct=", DoubleToString(D0010_SafePct(positive_lift, blocks), 2),
+      "*positiveLagBlockPct=", DoubleToString(D0010_SafePct(positive_lag, blocks), 2),
+      "*hotContinuationBlockPct=", DoubleToString(D0010_SafePct(hot_cont, blocks), 2),
+      "*coldContinuationBlockPct=", DoubleToString(D0010_SafePct(cold_cont, blocks), 2));
+}
+
+void D0010_PrintExtendedReports(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintExtendedReport)
+      return;
+   D0010_PrintLagDecay(labels, n);
+   D0010_PrintRunLengthTransition(labels, n);
+   D0010_PrintBlockProfile(labels, n, MathMax(5, InpAtomicBlockSizeFast), "FAST");
+   D0010_PrintBlockProfile(labels, n, MathMax(10, InpAtomicBlockSizeMain), "MAIN");
+   D0010_PrintBlockProfile(labels, n, MathMax(20, InpAtomicBlockSizeSlow), "SLOW");
+}
+
 void D0010_PrintPermutationStress(const int &labels[], const int n, const D0010TransitionStats &obs)
 {
    int iters = MathMax(0, InpPermutationIterations);
@@ -1079,6 +1312,7 @@ bool D0010_RunFastRawEventBatch()
    D0010_PrintTransitionStats("DAL_D0010_ATOMIC_TRANSITION", ts);
    D0010_PrintRunStats(rs);
    D0010_PrintPermutationStress(g_labels, label_n, ts);
+   D0010_PrintExtendedReports(g_labels, label_n);
    return true;
 }
 
@@ -1220,6 +1454,7 @@ bool D0010_Run()
    D0010_PrintTransitionStats("DAL_D0010_ATOMIC_TRANSITION", ts);
    D0010_PrintRunStats(rs);
    D0010_PrintPermutationStress(g_labels, n, ts);
+   D0010_PrintExtendedReports(g_labels, n);
    return true;
 }
 
@@ -1253,6 +1488,10 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpRequireEventRtvReady
 #undef InpSkipAmbiguousEnergyBatch
 #undef InpPermutationIterations
+#undef InpAtomicPrintExtendedReport
+#undef InpAtomicBlockSizeFast
+#undef InpAtomicBlockSizeMain
+#undef InpAtomicBlockSizeSlow
 #undef InpPrintOnlySummary
 #undef InpPrintEveryNBatches
 #undef InpWriteCsv
