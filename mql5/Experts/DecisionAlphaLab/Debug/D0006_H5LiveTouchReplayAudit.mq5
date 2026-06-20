@@ -142,8 +142,6 @@ string D0006_RegimeOutcomeToString(const ENUM_DALM0002Outcome outcome)
       return "REVERSAL";
    if(outcome == DAL_M0002_OUTCOME_CONTINUATION_AFTER_EXIT)
       return "CONTINUATION";
-   if(outcome == DAL_M0002_OUTCOME_NONE)
-      return "NONE";
    return EnumToString(outcome);
 }
 
