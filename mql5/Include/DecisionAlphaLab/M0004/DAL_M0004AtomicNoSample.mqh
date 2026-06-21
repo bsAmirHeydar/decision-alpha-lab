@@ -30,12 +30,22 @@ struct DALM0004AtomicNoSampleConfig
    bool print_extended_report;
    bool print_deep_report;
    bool print_h6_optionality_report;
+   bool print_h6_edge_map;
+   bool h6_only_report;
+   int h6_min_bucket_n;
    bool stress_transition_permutation;
    bool stress_run_shuffle;
    bool stress_block_concentration;
    bool stress_circular_shift;
    bool stress_local_block_shuffle;
    bool stress_h6_optionality;
+   int h6_stress_mode;              // 0=off, 1=fast mean/hit null, 2=full mean+p90 null
+   int h6_edge_map_level;           // 0=off, 1=core buckets, 2=full buckets
+   int h6_entry_anchor_mode;        // 0=known close, 1=next open (more execution-realistic)
+   bool h6_report_fast_horizon;
+   bool h6_report_main_horizon;
+   bool h6_report_slow_horizon;
+   bool h6_print_compute_audit;
    bool print_human_context_report;
    bool stress_context_shuffle;
    int h6_horizon_fast;
@@ -79,12 +89,22 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpAtomicPrintExtendedReport g_dal_m0004_atomic_cfg.print_extended_report
 #define InpAtomicPrintDeepReport g_dal_m0004_atomic_cfg.print_deep_report
 #define InpAtomicPrintH6OptionalityReport g_dal_m0004_atomic_cfg.print_h6_optionality_report
+#define InpAtomicPrintH6EdgeMap g_dal_m0004_atomic_cfg.print_h6_edge_map
+#define InpAtomicH6OnlyReport g_dal_m0004_atomic_cfg.h6_only_report
+#define InpH6MinBucketN g_dal_m0004_atomic_cfg.h6_min_bucket_n
 #define InpAtomicStressTransitionPermutation g_dal_m0004_atomic_cfg.stress_transition_permutation
 #define InpAtomicStressRunShuffle g_dal_m0004_atomic_cfg.stress_run_shuffle
 #define InpAtomicStressBlockConcentration g_dal_m0004_atomic_cfg.stress_block_concentration
 #define InpAtomicStressCircularShift g_dal_m0004_atomic_cfg.stress_circular_shift
 #define InpAtomicStressLocalBlockShuffle g_dal_m0004_atomic_cfg.stress_local_block_shuffle
 #define InpAtomicStressH6Optionality g_dal_m0004_atomic_cfg.stress_h6_optionality
+#define InpH6StressMode g_dal_m0004_atomic_cfg.h6_stress_mode
+#define InpH6EdgeMapLevel g_dal_m0004_atomic_cfg.h6_edge_map_level
+#define InpH6EntryAnchorMode g_dal_m0004_atomic_cfg.h6_entry_anchor_mode
+#define InpH6ReportFastHorizon g_dal_m0004_atomic_cfg.h6_report_fast_horizon
+#define InpH6ReportMainHorizon g_dal_m0004_atomic_cfg.h6_report_main_horizon
+#define InpH6ReportSlowHorizon g_dal_m0004_atomic_cfg.h6_report_slow_horizon
+#define InpH6PrintComputeAudit g_dal_m0004_atomic_cfg.h6_print_compute_audit
 #define InpAtomicPrintHumanContextReport g_dal_m0004_atomic_cfg.print_human_context_report
 #define InpAtomicStressContextShuffle g_dal_m0004_atomic_cfg.stress_context_shuffle
 #define InpH6HorizonBarsFast g_dal_m0004_atomic_cfg.h6_horizon_fast
@@ -109,7 +129,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.04"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.06"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -1763,6 +1783,30 @@ void D0010_ComputeValueStats(const double &values[], const int &labels[], const 
    st.top10_share = D0010_SafePct(tail_sum, sum);
 }
 
+
+void D0010_H6FastMeanHitDiff(const double &values[], const int &labels[], const int n, const double hit_thr, double &mean_diff, double &hit_diff)
+{
+   double rsum = 0.0, csum = 0.0;
+   int rn = 0, cn = 0, rh = 0, ch = 0;
+   for(int i = 0; i < n; i++)
+   {
+      if(labels[i] == DAL_D0010_LABEL_REVERSAL)
+      {
+         rsum += values[i];
+         rn++;
+         if(values[i] >= hit_thr) rh++;
+      }
+      else if(labels[i] == DAL_D0010_LABEL_CONTINUATION)
+      {
+         csum += values[i];
+         cn++;
+         if(values[i] >= hit_thr) ch++;
+      }
+   }
+   mean_diff = D0010_SafeDiv(rsum, rn) - D0010_SafeDiv(csum, cn);
+   hit_diff = D0010_SafePct(rh, rn) - D0010_SafePct(ch, cn);
+}
+
 void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, const int horizon, const string tag)
 {
    if(!InpAtomicPrintH6OptionalityReport)
@@ -1782,10 +1826,11 @@ void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, c
       if(end <= k) continue;
       double atr = D0010_ATRAt(bars, bars_count, k, InpH6AtrPeriod);
       if(atr <= 0.0) continue;
-      double entry = bars[k].close;
-      double hi = bars[k + 1].high;
-      double lo = bars[k + 1].low;
-      for(int j = k + 1; j <= end; j++)
+      int start = k + 1;
+      double entry = (InpH6EntryAnchorMode == 1 ? bars[start].open : bars[k].close);
+      double hi = bars[start].high;
+      double lo = bars[start].low;
+      for(int j = start; j <= end; j++)
       {
          if(bars[j].high > hi) hi = bars[j].high;
          if(bars[j].low < lo) lo = bars[j].low;
@@ -1814,6 +1859,19 @@ void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, c
       m++;
    }
 
+   if(InpH6PrintComputeAudit)
+   {
+      string audit_line = "DAL_H0006_COMPUTE_AUDIT_" + tag
+         + " *** build=" + DAL_D0010_BUILD
+         + "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time"
+         + "*horizonBars=" + IntegerToString(horizon)
+         + "*validN=" + IntegerToString(m)
+         + "*entryAnchor=" + (InpH6EntryAnchorMode == 1 ? "NEXT_OPEN" : "KNOWN_CLOSE")
+         + "*futureWindow=start_after_known_batch"
+         + "*measurement=one_pass_cached_for_optionality_and_edge_map";
+      Print(audit_line);
+   }
+
    D0010ValueStats rev_abs, cont_abs, rev_dir, cont_dir, rev_adv, cont_adv;
    D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_abs);
    D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_abs);
@@ -1826,83 +1884,279 @@ void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, c
    if(rev_abs.p95 > cont_abs.p95 && rev_abs.hit2 > cont_abs.hit2) verdict = "reversal_tail_dominates";
    else if(cont_abs.p95 > rev_abs.p95 && cont_abs.hit2 > rev_abs.hit2) verdict = "continuation_tail_dominates";
 
-   Print("DAL_H0006_OPTIONALITY_" + tag,
-      " *** build=", DAL_D0010_BUILD,
-      "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY",
-      "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time",
-      "*horizonBars=", horizon,
-      "*atrPeriod=", MathMax(2, InpH6AtrPeriod),
-      "*tailAtr1=", DoubleToString(InpH6TailAtr1, 2),
-      "*tailAtr2=", DoubleToString(InpH6TailAtr2, 2),
-      "*tailAtr3=", DoubleToString(InpH6TailAtr3, 2),
-      "*validN=", m,
-      "*revN=", rev_abs.n,
-      "*contN=", cont_abs.n,
-      "*revAbsMeanATR=", DoubleToString(rev_abs.mean, 4),
-      "*contAbsMeanATR=", DoubleToString(cont_abs.mean, 4),
-      "*revMinusContAbsMeanATR=", DoubleToString(rev_abs.mean - cont_abs.mean, 4),
-      "*revAbsP90ATR=", DoubleToString(rev_abs.p90, 4),
-      "*contAbsP90ATR=", DoubleToString(cont_abs.p90, 4),
-      "*revAbsP95ATR=", DoubleToString(rev_abs.p95, 4),
-      "*contAbsP95ATR=", DoubleToString(cont_abs.p95, 4),
-      "*revAbsP99ATR=", DoubleToString(rev_abs.p99, 4),
-      "*contAbsP99ATR=", DoubleToString(cont_abs.p99, 4),
-      "*revHitTail1Pct=", DoubleToString(rev_abs.hit1, 2),
-      "*contHitTail1Pct=", DoubleToString(cont_abs.hit1, 2),
-      "*revHitTail2Pct=", DoubleToString(rev_abs.hit2, 2),
-      "*contHitTail2Pct=", DoubleToString(cont_abs.hit2, 2),
-      "*revHitTail3Pct=", DoubleToString(rev_abs.hit3, 2),
-      "*contHitTail3Pct=", DoubleToString(cont_abs.hit3, 2),
-      "*revTop10SharePct=", DoubleToString(rev_abs.top10_share, 2),
-      "*contTop10SharePct=", DoubleToString(cont_abs.top10_share, 2),
-      "*revDirectionalMfeMeanATR=", DoubleToString(rev_dir.mean, 4),
-      "*contDirectionalMfeMeanATR=", DoubleToString(cont_dir.mean, 4),
-      "*revAdverseMeanATR=", DoubleToString(rev_adv.mean, 4),
-      "*contAdverseMeanATR=", DoubleToString(cont_adv.mean, 4),
-      "*optionalityRatioP95=", DoubleToString(D0010_SafeDiv(rev_abs.p95, cont_abs.p95), 4),
-      "*verdict=", verdict);
+   string optionality_line = "DAL_H0006_OPTIONALITY_" + tag
+      + " *** build=" + DAL_D0010_BUILD
+      + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+      + "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time"
+      + "*horizonBars=" + IntegerToString(horizon)
+      + "*atrPeriod=" + IntegerToString((int)MathMax(2, InpH6AtrPeriod))
+      + "*tailAtr1=" + DoubleToString(InpH6TailAtr1, 2)
+      + "*tailAtr2=" + DoubleToString(InpH6TailAtr2, 2)
+      + "*tailAtr3=" + DoubleToString(InpH6TailAtr3, 2)
+      + "*validN=" + IntegerToString(m)
+      + "*revN=" + IntegerToString(rev_abs.n)
+      + "*contN=" + IntegerToString(cont_abs.n)
+      + "*revAbsMeanATR=" + DoubleToString(rev_abs.mean, 4)
+      + "*contAbsMeanATR=" + DoubleToString(cont_abs.mean, 4)
+      + "*revMinusContAbsMeanATR=" + DoubleToString(rev_abs.mean - cont_abs.mean, 4)
+      + "*revAbsP90ATR=" + DoubleToString(rev_abs.p90, 4)
+      + "*contAbsP90ATR=" + DoubleToString(cont_abs.p90, 4)
+      + "*revAbsP95ATR=" + DoubleToString(rev_abs.p95, 4)
+      + "*contAbsP95ATR=" + DoubleToString(cont_abs.p95, 4)
+      + "*revAbsP99ATR=" + DoubleToString(rev_abs.p99, 4)
+      + "*contAbsP99ATR=" + DoubleToString(cont_abs.p99, 4)
+      + "*revHitTail1Pct=" + DoubleToString(rev_abs.hit1, 2)
+      + "*contHitTail1Pct=" + DoubleToString(cont_abs.hit1, 2)
+      + "*revHitTail2Pct=" + DoubleToString(rev_abs.hit2, 2)
+      + "*contHitTail2Pct=" + DoubleToString(cont_abs.hit2, 2)
+      + "*revHitTail3Pct=" + DoubleToString(rev_abs.hit3, 2)
+      + "*contHitTail3Pct=" + DoubleToString(cont_abs.hit3, 2)
+      + "*revTop10SharePct=" + DoubleToString(rev_abs.top10_share, 2)
+      + "*contTop10SharePct=" + DoubleToString(cont_abs.top10_share, 2)
+      + "*revDirectionalMfeMeanATR=" + DoubleToString(rev_dir.mean, 4)
+      + "*contDirectionalMfeMeanATR=" + DoubleToString(cont_dir.mean, 4)
+      + "*revAdverseMeanATR=" + DoubleToString(rev_adv.mean, 4)
+      + "*contAdverseMeanATR=" + DoubleToString(cont_adv.mean, 4)
+      + "*optionalityRatioP95=" + DoubleToString(D0010_SafeDiv(rev_abs.p95, cont_abs.p95), 4)
+      + "*verdict=" + verdict;
+   Print(optionality_line);
 
-   if(InpAtomicStressH6Optionality && InpPermutationIterations > 0)
+   if(InpAtomicStressH6Optionality && InpPermutationIterations > 0 && InpH6StressMode > 0)
    {
       double obs_mean_diff = rev_abs.mean - cont_abs.mean;
+      double obs_hit2_diff = rev_abs.hit2 - cont_abs.hit2;
       double obs_p90_diff = rev_abs.p90 - cont_abs.p90;
-      double mean_sum = 0.0, mean_sum2 = 0.0, p90_sum = 0.0, p90_sum2 = 0.0;
-      int mean_ge = 0, p90_ge = 0;
+      double mean_sum = 0.0, mean_sum2 = 0.0, hit_sum = 0.0, hit_sum2 = 0.0, p90_sum = 0.0, p90_sum2 = 0.0;
+      int mean_ge = 0, hit_ge = 0, p90_ge = 0;
       int shuf[];
       for(int iter = 0; iter < InpPermutationIterations; iter++)
       {
          D0010_ShuffleLabels(valid_labels, m, iter + 6001 + horizon, shuf);
-         D0010ValueStats sr, sc;
-         D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sr);
-         D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sc);
-         double md = sr.mean - sc.mean;
-         double pd = sr.p90 - sc.p90;
+         double md = 0.0, hd = 0.0, pd = 0.0;
+         D0010_H6FastMeanHitDiff(absv, shuf, m, InpH6TailAtr2, md, hd);
+         if(InpH6StressMode >= 2)
+         {
+            D0010ValueStats sr, sc;
+            D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sr);
+            D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sc);
+            pd = sr.p90 - sc.p90;
+         }
          mean_sum += md; mean_sum2 += md * md;
+         hit_sum += hd; hit_sum2 += hd * hd;
          p90_sum += pd; p90_sum2 += pd * pd;
          if(md >= obs_mean_diff) mean_ge++;
-         if(pd >= obs_p90_diff) p90_ge++;
+         if(hd >= obs_hit2_diff) hit_ge++;
+         if(InpH6StressMode >= 2 && pd >= obs_p90_diff) p90_ge++;
       }
       double it = (double)InpPermutationIterations;
       double mean_null = D0010_SafeDiv(mean_sum, it);
+      double hit_null = D0010_SafeDiv(hit_sum, it);
       double p90_null = D0010_SafeDiv(p90_sum, it);
       double mean_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(mean_sum2, it) - mean_null * mean_null));
+      double hit_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(hit_sum2, it) - hit_null * hit_null));
       double p90_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(p90_sum2, it) - p90_null * p90_null));
-      Print("DAL_H0006_OPTIONALITY_STRESS_" + tag,
-         " *** build=", DAL_D0010_BUILD,
-         "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY",
-         "*null=label_shuffle_over_fixed_known_times_and_fixed_future_excursions",
-         "*horizonBars=", horizon,
-         "*iters=", InpPermutationIterations,
-         "*obsRevMinusContMeanAbsATR=", DoubleToString(obs_mean_diff, 4),
-         "*nullMeanDiff=", DoubleToString(mean_null, 4),
-         "*nullMeanDiffSd=", DoubleToString(mean_sd, 4),
-         "*meanDiffZ=", DoubleToString(D0010_SafeDiv(obs_mean_diff - mean_null, mean_sd), 4),
-         "*meanDiffEmpP=", DoubleToString(D0010_SafeDiv(mean_ge + 1, InpPermutationIterations + 1), 4),
-         "*obsRevMinusContP90AbsATR=", DoubleToString(obs_p90_diff, 4),
-         "*nullP90Diff=", DoubleToString(p90_null, 4),
-         "*nullP90DiffSd=", DoubleToString(p90_sd, 4),
-         "*p90DiffZ=", DoubleToString(D0010_SafeDiv(obs_p90_diff - p90_null, p90_sd), 4),
-         "*p90DiffEmpP=", DoubleToString(D0010_SafeDiv(p90_ge + 1, InpPermutationIterations + 1), 4));
+      string optionality_stress_line = "DAL_H0006_OPTIONALITY_STRESS_" + tag
+         + " *** build=" + DAL_D0010_BUILD
+         + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+         + "*null=label_shuffle_over_fixed_known_times_and_fixed_future_excursions"
+         + "*stressMode=" + IntegerToString(InpH6StressMode)
+         + "*horizonBars=" + IntegerToString(horizon)
+         + "*iters=" + IntegerToString(InpPermutationIterations)
+         + "*obsRevMinusContMeanAbsATR=" + DoubleToString(obs_mean_diff, 4)
+         + "*nullMeanDiff=" + DoubleToString(mean_null, 4)
+         + "*nullMeanDiffSd=" + DoubleToString(mean_sd, 4)
+         + "*meanDiffZ=" + DoubleToString(D0010_SafeDiv(obs_mean_diff - mean_null, mean_sd), 4)
+         + "*meanDiffEmpP=" + DoubleToString(D0010_SafeDiv(mean_ge + 1, InpPermutationIterations + 1), 4)
+         + "*obsRevMinusContHitTail2Pct=" + DoubleToString(obs_hit2_diff, 2)
+         + "*nullHitTail2Diff=" + DoubleToString(hit_null, 2)
+         + "*nullHitTail2DiffSd=" + DoubleToString(hit_sd, 2)
+         + "*hitTail2DiffZ=" + DoubleToString(D0010_SafeDiv(obs_hit2_diff - hit_null, hit_sd), 4)
+         + "*hitTail2DiffEmpP=" + DoubleToString(D0010_SafeDiv(hit_ge + 1, InpPermutationIterations + 1), 4);
+      if(InpH6StressMode >= 2)
+      {
+         optionality_stress_line += "*obsRevMinusContP90AbsATR=" + DoubleToString(obs_p90_diff, 4)
+            + "*nullP90Diff=" + DoubleToString(p90_null, 4)
+            + "*nullP90DiffSd=" + DoubleToString(p90_sd, 4)
+            + "*p90DiffZ=" + DoubleToString(D0010_SafeDiv(obs_p90_diff - p90_null, p90_sd), 4)
+            + "*p90DiffEmpP=" + DoubleToString(D0010_SafeDiv(p90_ge + 1, InpPermutationIterations + 1), 4);
+      }
+      Print(optionality_stress_line);
+   }
+}
+
+
+void D0010_ComputePlainValueStats(const double &values[], const int n, const double t1, const double t2, const double t3, D0010ValueStats &st)
+{
+   st.n = 0; st.mean = 0.0; st.median = 0.0; st.p75 = 0.0; st.p90 = 0.0; st.p95 = 0.0; st.p99 = 0.0; st.maxv = 0.0; st.hit1 = 0.0; st.hit2 = 0.0; st.hit3 = 0.0; st.top10_share = 0.0;
+   if(n <= 0) return;
+   double x[];
+   ArrayResize(x, n);
+   int h1 = 0, h2 = 0, h3 = 0;
+   double sum = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      x[i] = values[i];
+      sum += values[i];
+      if(values[i] > st.maxv) st.maxv = values[i];
+      if(values[i] >= t1) h1++;
+      if(values[i] >= t2) h2++;
+      if(values[i] >= t3) h3++;
+   }
+   st.n = n;
+   st.mean = D0010_SafeDiv(sum, n);
+   st.median = D0010_QuantileOfValues(x, n, 0.50);
+   st.p75 = D0010_QuantileOfValues(x, n, 0.75);
+   st.p90 = D0010_QuantileOfValues(x, n, 0.90);
+   st.p95 = D0010_QuantileOfValues(x, n, 0.95);
+   st.p99 = D0010_QuantileOfValues(x, n, 0.99);
+   st.hit1 = D0010_SafePct(h1, n);
+   st.hit2 = D0010_SafePct(h2, n);
+   st.hit3 = D0010_SafePct(h3, n);
+   D0010_SortDoubleArray(x, n);
+   int tail_start = (int)MathFloor(0.90 * n);
+   if(tail_start < 0) tail_start = 0;
+   if(tail_start >= n) tail_start = n - 1;
+   double tail_sum = 0.0;
+   for(int j = tail_start; j < n; j++) tail_sum += x[j];
+   st.top10_share = D0010_SafePct(tail_sum, sum);
+}
+
+void D0010_H6PrintEdgeBucket(const string tag, const string bucket, const int total_valid, D0010ValueStats &allst, D0010ValueStats &st)
+{
+   if(st.n <= 0) return;
+   double p95_lift = st.p95 - allst.p95;
+   double p99_lift = st.p99 - allst.p99;
+   double hit2_lift = st.hit2 - allst.hit2;
+   double edge_score = st.p95 * D0010_SafeDiv(st.hit2, 100.0);
+   string materiality = "neutral";
+   if(st.n < MathMax(10, InpH6MinBucketN)) materiality = "too_sparse";
+   else if(p95_lift > 0.25 && hit2_lift > 2.0) materiality = "edge_candidate";
+   else if(p95_lift > 0.75 && hit2_lift > 5.0) materiality = "strong_edge_candidate";
+   else if(p95_lift < -0.25 && hit2_lift < -2.0) materiality = "negative_or_unimportant";
+
+   string edge_bucket_line = "DAL_H0006_EDGE_BUCKET_" + tag
+      + " *** build=" + DAL_D0010_BUILD
+      + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+      + "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time"
+      + "*bucket=" + bucket
+      + "*n=" + IntegerToString(st.n)
+      + "*pctOfValid=" + DoubleToString(D0010_SafePct(st.n, total_valid), 2)
+      + "*absMeanATR=" + DoubleToString(st.mean, 4)
+      + "*absP75ATR=" + DoubleToString(st.p75, 4)
+      + "*absP90ATR=" + DoubleToString(st.p90, 4)
+      + "*absP95ATR=" + DoubleToString(st.p95, 4)
+      + "*absP99ATR=" + DoubleToString(st.p99, 4)
+      + "*hitTail1Pct=" + DoubleToString(st.hit1, 2)
+      + "*hitTail2Pct=" + DoubleToString(st.hit2, 2)
+      + "*hitTail3Pct=" + DoubleToString(st.hit3, 2)
+      + "*top10SharePct=" + DoubleToString(st.top10_share, 2)
+      + "*p95LiftVsAllATR=" + DoubleToString(p95_lift, 4)
+      + "*p99LiftVsAllATR=" + DoubleToString(p99_lift, 4)
+      + "*hitTail2LiftVsAllPct=" + DoubleToString(hit2_lift, 2)
+      + "*edgeScore=" + DoubleToString(edge_score, 4)
+      + "*materiality=" + materiality;
+   Print(edge_bucket_line);
+}
+
+void D0010_H6AppendIf(bool cond, const double value, double &arr[], int &n)
+{
+   if(!cond) return;
+   ArrayResize(arr, n + 1);
+   arr[n++] = value;
+}
+
+void D0010_H6EdgeMapForHorizon(const DALBar &bars[], const int bars_count, const int horizon, const string tag)
+{
+   if(!InpAtomicPrintH6EdgeMap)
+      return;
+   int n = ArraySize(g_labels);
+   if(n <= 0 || bars_count <= 0 || horizon <= 0)
+      return;
+
+   double allv[], rev_all[], cont_all[], rev_single[], rev_multi[], rev_big[], cont_single[], cont_multi[], cont_big[];
+   double rev_buy[], rev_sell[], cont_buy[], cont_sell[], rev_run_start[], rev_run_cont[], cont_run_start[], cont_run_cont[];
+   int alln=0, rn=0, cn=0, rsn=0, rmn=0, rbn=0, csn=0, cmn=0, cbn=0;
+   int rbuy=0, rsell=0, cbuy=0, csell=0, rstart=0, rcont=0, cstart=0, ccont=0;
+
+   for(int i = 0; i < n; i++)
+   {
+      int k = g_label_known_indices[i];
+      if(k < 1 || k + 1 >= bars_count) continue;
+      int end = MathMin(bars_count - 1, k + horizon);
+      if(end <= k) continue;
+      double atr = D0010_ATRAt(bars, bars_count, k, InpH6AtrPeriod);
+      if(atr <= 0.0) continue;
+      int start = k + 1;
+      double entry = (InpH6EntryAnchorMode == 1 ? bars[start].open : bars[k].close);
+      double hi = bars[start].high;
+      double lo = bars[start].low;
+      for(int j = start; j <= end; j++)
+      {
+         if(bars[j].high > hi) hi = bars[j].high;
+         if(bars[j].low < lo) lo = bars[j].low;
+      }
+      double absx = MathMax(MathMax(0.0, hi - entry), MathMax(0.0, entry - lo)) / atr;
+      bool is_rev = (g_labels[i] == DAL_D0010_LABEL_REVERSAL);
+      bool is_cont = (g_labels[i] == DAL_D0010_LABEL_CONTINUATION);
+      bool same_prev = (i > 0 && g_labels[i - 1] == g_labels[i]);
+      int bc = g_label_batch_counts[i];
+      int d = g_label_dirs[i];
+
+      D0010_H6AppendIf(true, absx, allv, alln);
+      D0010_H6AppendIf(is_rev, absx, rev_all, rn);
+      D0010_H6AppendIf(is_cont, absx, cont_all, cn);
+      D0010_H6AppendIf(is_rev && bc <= 1, absx, rev_single, rsn);
+      D0010_H6AppendIf(is_rev && bc > 1, absx, rev_multi, rmn);
+      D0010_H6AppendIf(is_rev && bc >= 3, absx, rev_big, rbn);
+      D0010_H6AppendIf(is_cont && bc <= 1, absx, cont_single, csn);
+      D0010_H6AppendIf(is_cont && bc > 1, absx, cont_multi, cmn);
+      D0010_H6AppendIf(is_cont && bc >= 3, absx, cont_big, cbn);
+      D0010_H6AppendIf(is_rev && d > 0, absx, rev_buy, rbuy);
+      D0010_H6AppendIf(is_rev && d < 0, absx, rev_sell, rsell);
+      D0010_H6AppendIf(is_cont && d > 0, absx, cont_buy, cbuy);
+      D0010_H6AppendIf(is_cont && d < 0, absx, cont_sell, csell);
+      D0010_H6AppendIf(is_rev && !same_prev, absx, rev_run_start, rstart);
+      D0010_H6AppendIf(is_rev && same_prev, absx, rev_run_cont, rcont);
+      D0010_H6AppendIf(is_cont && !same_prev, absx, cont_run_start, cstart);
+      D0010_H6AppendIf(is_cont && same_prev, absx, cont_run_cont, ccont);
+   }
+
+   D0010ValueStats allst, st;
+   D0010_ComputePlainValueStats(allv, alln, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, allst);
+   if(alln <= 0) return;
+
+   string edge_audit_line = "DAL_H0006_EDGE_MAP_AUDIT_" + tag
+      + " *** build=" + DAL_D0010_BUILD
+      + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+      + "*horizonBars=" + IntegerToString(horizon)
+      + "*validN=" + IntegerToString(alln)
+      + "*minBucketN=" + IntegerToString((int)MathMax(10, InpH6MinBucketN))
+      + "*tailAtr=" + DoubleToString(InpH6TailAtr1, 2) + "/" + DoubleToString(InpH6TailAtr2, 2) + "/" + DoubleToString(InpH6TailAtr3, 2)
+      + "*bucketDimensions=label_intensity_direction_run_position"
+      + "*question=which_known_time_conditions_are_edgier_optional_tail_locations";
+   Print(edge_audit_line);
+
+   D0010_ComputePlainValueStats(rev_all, rn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_ALL", alln, allst, st);
+   D0010_ComputePlainValueStats(cont_all, cn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_ALL", alln, allst, st);
+   if(InpH6EdgeMapLevel >= 1)
+   {
+      D0010_ComputePlainValueStats(rev_multi, rmn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_MULTI_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(rev_big, rbn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_BIG_3PLUS_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_multi, cmn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_MULTI_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_big, cbn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_BIG_3PLUS_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(rev_run_start, rstart, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_RUN_START", alln, allst, st);
+      D0010_ComputePlainValueStats(rev_run_cont, rcont, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_RUN_CONTINUATION", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_run_start, cstart, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_RUN_START", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_run_cont, ccont, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_RUN_CONTINUATION", alln, allst, st);
+   }
+   if(InpH6EdgeMapLevel >= 2)
+   {
+      D0010_ComputePlainValueStats(rev_single, rsn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_SINGLE_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_single, csn, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_SINGLE_EVENT", alln, allst, st);
+      D0010_ComputePlainValueStats(rev_buy, rbuy, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_BUY_DOMINANT", alln, allst, st);
+      D0010_ComputePlainValueStats(rev_sell, rsell, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "REV_SELL_DOMINANT", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_buy, cbuy, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_BUY_DOMINANT", alln, allst, st);
+      D0010_ComputePlainValueStats(cont_sell, csell, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, st); D0010_H6PrintEdgeBucket(tag, "CONT_SELL_DOMINANT", alln, allst, st);
    }
 }
 
@@ -1910,9 +2164,24 @@ void D0010_PrintH6OptionalityReports(const DALBar &bars[], const int bars_count)
 {
    if(!InpAtomicPrintH6OptionalityReport)
       return;
-   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsFast), "FAST");
-   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsMain), "MAIN");
-   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsSlow), "SLOW");
+   int hf = MathMax(1, InpH6HorizonBarsFast);
+   int hm = MathMax(1, InpH6HorizonBarsMain);
+   int hs = MathMax(1, InpH6HorizonBarsSlow);
+   if(InpH6ReportFastHorizon)
+   {
+      D0010_H6OptionalityForHorizon(bars, bars_count, hf, "FAST");
+      if(InpAtomicPrintH6EdgeMap && InpH6EdgeMapLevel > 0) D0010_H6EdgeMapForHorizon(bars, bars_count, hf, "FAST");
+   }
+   if(InpH6ReportMainHorizon)
+   {
+      D0010_H6OptionalityForHorizon(bars, bars_count, hm, "MAIN");
+      if(InpAtomicPrintH6EdgeMap && InpH6EdgeMapLevel > 0) D0010_H6EdgeMapForHorizon(bars, bars_count, hm, "MAIN");
+   }
+   if(InpH6ReportSlowHorizon)
+   {
+      D0010_H6OptionalityForHorizon(bars, bars_count, hs, "SLOW");
+      if(InpAtomicPrintH6EdgeMap && InpH6EdgeMapLevel > 0) D0010_H6EdgeMapForHorizon(bars, bars_count, hs, "SLOW");
+   }
 }
 
 void D0010_PrintHumanContextReports(const int &labels[], const int n)
@@ -2254,6 +2523,36 @@ bool D0010_RunFastRawEventBatch()
    D0010RunStats rs;
    D0010_ComputeRuns(g_labels, label_n, ts, rs);
 
+   if(InpAtomicH6OnlyReport)
+   {
+      Print("DAL_M0006_AUDIT *** build=", DAL_D0010_BUILD,
+         "*officialReport=H0006_ATOMIC_NO_SAMPLE_OPTIONALITY",
+         "*mode=FAST_RAW_EVENT_BATCH",
+         "*sampleCalls=0",
+         "*branchSamplesBuilt=0",
+         "*m0002Calls=0",
+         "*m0001ComputePasses=1",
+         "*prefixRebuilds=0",
+         "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
+         "*sequenceOrder=known_time_batch_sequence",
+         "*sameKnownTimeEventsAreSimultaneous=1",
+         "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
+         "*bars=", bars_count,
+         "*nodes=", nodes_count,
+         "*rawEventsSeen=", g_sum.raw_events_seen,
+         "*rawEventsKnownNow=", g_sum.raw_events_known_now,
+         "*totalBatches=", g_sum.total_batches,
+         "*pureBatches=", g_sum.pure_batches,
+         "*ambiguousBatches=", g_sum.ambiguous_batches,
+         "*reversalBatches=", g_sum.reversal_batches,
+         "*continuationBatches=", g_sum.continuation_batches,
+         "*horizons=", InpH6HorizonBarsFast, "/", InpH6HorizonBarsMain, "/", InpH6HorizonBarsSlow,
+         "*atrPeriod=", InpH6AtrPeriod,
+         "*edgeMap=", (InpAtomicPrintH6EdgeMap ? 1 : 0));
+      D0010_PrintH6OptionalityReports(bars, bars_count);
+      return true;
+   }
+
    Print("DAL_D0010_AUDIT *** build=", DAL_D0010_BUILD,
       "*mode=FAST_RAW_EVENT_BATCH",
       "*sampleCalls=0",
@@ -2486,6 +2785,9 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpAtomicPrintExtendedReport
 #undef InpAtomicPrintDeepReport
 #undef InpAtomicPrintH6OptionalityReport
+#undef InpAtomicPrintH6EdgeMap
+#undef InpAtomicH6OnlyReport
+#undef InpH6MinBucketN
 #undef InpAtomicStressTransitionPermutation
 #undef InpAtomicStressRunShuffle
 #undef InpAtomicStressBlockConcentration
