@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.18"
-#property description "Official H0006 upsert-only persistent boxes without per-candle delete/rebuild"
+#property version   "1.19"
+#property description "Official H0006 upsert-only boxes with explicit geometry inputs"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -22,6 +22,9 @@ input int InpH6NodeHorizonPurple = 100;
 input double InpH6NodeTouchBufferPoints = 0.0;
 input double InpH6ReactionZoneEndBufferPoints = 0.0;
 input double InpH6ReactionMinBoxHeightPoints = 0.0;
+input int InpH6BoxHeightMode = 1;                // 0=node-to-touch, 1=node-centered pct band, 2=expanded node-to-touch
+input double InpH6BoxNodePaddingPct = 10.0;      // mode 1: if touch penetration=0.90 and pct=10, box is +/-0.09 around node
+input bool InpH6UpdateExistingBoxGeometry = true; // update old/current box geometry without deleting the box
 
 input bool InpH6IncludeLiveBar = true;           // include current forming bar so levels/colors update live
 input bool InpH6PreserveExistingOnEmptyUpdate = true; // don't wipe chart when tester has not built enough bars yet
@@ -68,7 +71,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.18"
+#define DAL_M0006_NODE_BUILD "1.19"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;

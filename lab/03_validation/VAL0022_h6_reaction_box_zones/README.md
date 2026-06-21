@@ -141,3 +141,9 @@ Release 130 upsert-only visual lifecycle:
 - Each update only upserts: create missing objects, update color/geometry/tooltip on existing objects.
 - Persistent boxes remain untouched by any routine cleanup and keep stable identity.
 - Optional volatile cleanup exists only as an explicit debug mode, not the official mode.
+
+
+Release 131 compile fix:
+- Add missing expert inputs used by the geometry config:
+  `InpH6BoxHeightMode`, `InpH6BoxNodePaddingPct`, and `InpH6UpdateExistingBoxGeometry`.
+- This keeps release 130 upsert-only lifecycle while exposing the release 129 box geometry controls.
