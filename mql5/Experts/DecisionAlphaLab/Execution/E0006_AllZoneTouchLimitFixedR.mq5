@@ -3,8 +3,8 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.06"
-#property description "Execution module E0006: all M0001 zones with optional revisit-only entry qualification."
+#property version   "1.07"
+#property description "Execution module E0006: all M0001 zones with optional revisit-only entry and node-price stop anchoring."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -63,6 +63,11 @@ input double InpBuyEntrySpreadMultiplier = 1.0;    // buy limit = LOW-zone upper
 input double InpSellStopSpreadMultiplier = 1.0;    // sell SL = HIGH-zone upper edge + spread * multiplier
 input double InpSellTpSpreadMultiplier = 1.0;      // used only when InpRewardR > 0
 
+// Stop anchor.
+// false = stop behind the frozen zone edge. true = stop behind the origin node price.
+// BUY keeps entry shifted upward by spread. SELL node-price stop is shifted upward by spread.
+input bool InpUseNodePriceStop = false;
+
 // Risk and broker mechanics.
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input double InpCommissionPerLotRoundTurn = 0.0;
@@ -84,7 +89,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.06"
+#define DAL_E0006_BUILD "1.07"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -177,6 +182,11 @@ string E0006_FormatDateTime(const datetime value)
    MqlDateTime dt;
    TimeToStruct(value, dt);
    return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
+}
+
+string E0006_StopAnchorModeToString()
+{
+   return InpUseNodePriceStop ? "NODE_PRICE" : "ZONE_BACK";
 }
 
 bool E0006_IsTradingSessionOpen(string &reason)
@@ -667,9 +677,9 @@ bool E0006_BuildZoneSetup(
    if(node.type == DAL_NODE_LOW)
    {
       setup.direction = +1;
-      // Support/demand touch. Buy opens on Ask, so entry is shifted up by spread.
+      // Support/demand touch. Buy opens on Ask, so entry is shifted up by spread as requested.
       setup.entry = upper + spread * MathMax(0.0, InpBuyEntrySpreadMultiplier);
-      setup.sl = lower;
+      setup.sl = (InpUseNodePriceStop ? node.price : lower);
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
       setup.tp = (InpRewardR > 0.0 ? setup.entry + setup.risk_distance * reward_r : 0.0);
    }
@@ -677,9 +687,9 @@ bool E0006_BuildZoneSetup(
    {
       setup.direction = -1;
       // Supply/resistance touch. Sell entry stays on lower zone edge.
-      // Sell SL and TP are shifted upward by spread as requested.
+      // In node-stop mode, SELL SL is origin node price plus spread as requested.
       setup.entry = lower;
-      setup.sl = upper + spread * MathMax(0.0, InpSellStopSpreadMultiplier);
+      setup.sl = (InpUseNodePriceStop ? node.price : upper) + spread * MathMax(0.0, InpSellStopSpreadMultiplier);
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
       setup.tp = (InpRewardR > 0.0 ? setup.entry - setup.risk_distance * reward_r + spread * MathMax(0.0, InpSellTpSpreadMultiplier) : 0.0);
    }
@@ -1500,6 +1510,8 @@ void E0006_ProcessNewBar(const string run_mode)
                "*tp=", DoubleToString(setup.tp, digits),
                "*rewardR=", DoubleToString(setup.reward_r, 2),
                "*spread=", DoubleToString(setup.spread, digits),
+               "*stopAnchor=", E0006_StopAnchorModeToString(),
+               "*nodePrice=", DoubleToString(setup.node_price, digits),
                "*internalHunts=", setup.internal_hunt_count,
                "*internalHuntsRequired=", setup.internal_hunt_required,
                "*comment=", setup.comment,
@@ -1563,6 +1575,8 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*staleKept=" + IntegerToString(stale_kept)
          + "*staleFailed=" + IntegerToString(stale_failed)
          + "*rewardR=" + DoubleToString(InpRewardR, 2)
+      + "*stopAnchor=" + E0006_StopAnchorModeToString()
+         + "*stopAnchor=" + E0006_StopAnchorModeToString()
       + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)
       + "*exitOppositeInternalNodeCount=" + IntegerToString(InpExitOppositeInternalNodeCount)
          + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)

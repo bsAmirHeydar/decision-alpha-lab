@@ -182,3 +182,38 @@ HIGH origin example:
 - Only then can the HIGH origin receive a SELL LIMIT on revisit.
 
 The revisit filter still runs on new candles only, and uses the same M0001 hunt predicate and the configured internal-node L.
+
+
+Release 107 node-price stop anchor:
+
+A new stop anchor option was added:
+- `InpUseNodePriceStop = false` keeps the old zone-back stop.
+- `InpUseNodePriceStop = true` moves the stop behind the origin node price.
+
+BUY/LOW zone:
+- Entry remains `zone_upper + spread * InpBuyEntrySpreadMultiplier`.
+- Zone-back stop mode: `SL = zone_lower`.
+- Node-price stop mode: `SL = origin node price`.
+
+SELL/HIGH zone:
+- Entry remains `zone_lower`.
+- Zone-back stop mode: `SL = zone_upper + spread * InpSellStopSpreadMultiplier`.
+- Node-price stop mode: `SL = origin node price + spread * InpSellStopSpreadMultiplier`.
+
+Fixed-R TP, when enabled, is recalculated from the selected stop distance.
+With the default `InpRewardR = 0.0`, the order starts without a fixed TP and the internal opposite-node TP manager owns the exit.
+
+
+## Documentation added in Release 108
+
+For detailed reasoning behind the execution logic, see:
+
+```text
+docs/debug/E0006/README.md
+docs/debug/E0006/ENTRY_QUALIFICATION_README.md
+docs/debug/E0006/REVISIT_ONLY_README.md
+docs/debug/E0006/EXIT_AND_RISK_README.md
+docs/debug/E0006/INPUT_REFERENCE_README.md
+```
+
+These files document the current E0006 lifecycle: all-zone execution, internal same-side hunt qualification, revisit-only filtering, position caps, node-price/zone-back stop anchors, and internal opposite-node TP management.

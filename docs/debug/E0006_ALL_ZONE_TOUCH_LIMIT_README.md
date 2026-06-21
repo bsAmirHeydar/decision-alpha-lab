@@ -182,3 +182,34 @@ HIGH origin example:
 - Only then can the HIGH origin receive a SELL LIMIT on revisit.
 
 The revisit filter still runs on new candles only, and uses the same M0001 hunt predicate and the configured internal-node L.
+
+
+Release 107 node-price stop anchor:
+
+A new stop anchor option was added:
+- `InpUseNodePriceStop = false` keeps the old zone-back stop.
+- `InpUseNodePriceStop = true` moves the stop behind the origin node price.
+
+BUY/LOW zone:
+- Entry remains `zone_upper + spread * InpBuyEntrySpreadMultiplier`.
+- Zone-back stop mode: `SL = zone_lower`.
+- Node-price stop mode: `SL = origin node price`.
+
+SELL/HIGH zone:
+- Entry remains `zone_lower`.
+- Zone-back stop mode: `SL = zone_upper + spread * InpSellStopSpreadMultiplier`.
+- Node-price stop mode: `SL = origin node price + spread * InpSellStopSpreadMultiplier`.
+
+Fixed-R TP, when enabled, is recalculated from the selected stop distance.
+With the default `InpRewardR = 0.0`, the order starts without a fixed TP and the internal opposite-node TP manager owns the exit.
+
+
+## Release 108 — detailed execution documentation map
+
+Detailed E0006 documentation has been split into focused READMEs:
+
+- `docs/debug/E0006/README.md` — full structural execution architecture.
+- `docs/debug/E0006/ENTRY_QUALIFICATION_README.md` — origin/internal L split and same-side internal hunt qualification.
+- `docs/debug/E0006/REVISIT_ONLY_README.md` — first-cycle plus revisit-cycle logic.
+- `docs/debug/E0006/EXIT_AND_RISK_README.md` — entry prices, stop anchors, spread handling, risk distance, and internal opposite-node TP.
+- `docs/debug/E0006/INPUT_REFERENCE_README.md` — grouped input reference and presets.
