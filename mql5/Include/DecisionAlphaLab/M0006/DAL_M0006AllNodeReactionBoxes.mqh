@@ -45,8 +45,8 @@ struct DALM0006ReactionBoxConfig
    double touch_buffer_points;
    double zone_end_retouch_buffer_points;
    double min_visual_box_points;   // 0 = exact zone height
-   double box_node_padding_pct;     // mode 1: pct of touch penetration above/below node
-   int box_height_mode;             // 0=node_to_touch, 1=symmetric_around_node_pct, 2=node_to_touch_plus_padding
+   double box_node_padding_pct;     // official: pct of first-touch penetration used as one-sided zone thickness behind node
+   int box_height_mode;             // 0=node_to_touch, 1=one_sided_behind_node_pct, 2=node_to_touch_plus_padding
    bool update_existing_box_geometry;
 
    bool require_close_away_after_touch; // default false: draw every touched node
@@ -346,6 +346,30 @@ string DAL_M0006StableBoxKey(
    return IntegerToString((long)node.time) + "_" + IntegerToString(price_key) + "_" + side;
 }
 
+double DAL_M0006ComputeZoneBackBoundary(
+   const double node_price,
+   const double touch_extreme,
+   const ENUM_DALNodeType node_type,
+   const DALM0006ReactionBoxConfig &cfg
+)
+{
+   double point = DAL_M0006PointSafe(cfg.symbol);
+   double min_h = MathMax(0.0, cfg.min_visual_box_points) * point;
+   double penetration = MathAbs(touch_extreme - node_price);
+
+   double thickness = penetration * MathMax(0.0, cfg.box_node_padding_pct) / 100.0;
+   if(thickness < min_h)
+      thickness = min_h;
+   if(thickness <= 0.0)
+      thickness = (point > 0.0 ? point : 0.01);
+
+   // HIGH node = resistance/upper-side zone: back of zone is above node.
+   // LOW node = support/lower-side zone: back of zone is below node.
+   if(node_type == DAL_NODE_HIGH)
+      return node_price + thickness;
+   return node_price - thickness;
+}
+
 void DAL_M0006ComputeBoxVerticalBounds(
    const double node_price,
    const double touch_extreme,
@@ -370,18 +394,13 @@ void DAL_M0006ComputeBoxVerticalBounds(
 
    if(mode == 1)
    {
-      // Official zone-band mode:
-      // If touch penetration is 0.90 and pct is 10, draw 0.09 above and 0.09 below the node.
-      double pad = zone_h * MathMax(0.0, cfg.box_node_padding_pct) / 100.0;
-      if(pad < min_h)
-         pad = min_h;
-      top = node_price + pad;
-      bottom = node_price - pad;
-      if(top <= bottom)
-      {
-         top = node_price + point;
-         bottom = node_price - point;
-      }
+      // Official one-sided zone mode:
+      // The box starts at the node/touch boundary and extends only to the back of the zone.
+      // Example: first-touch penetration is 0.90 and pct is 10 -> thickness = 0.09.
+      // HIGH: [node, node + 0.09], LOW: [node - 0.09, node].
+      double zone_back = DAL_M0006ComputeZoneBackBoundary(node_price, touch_extreme, node_type, cfg);
+      top = MathMax(node_price, zone_back);
+      bottom = MathMin(node_price, zone_back);
       return;
    }
 
@@ -667,7 +686,8 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          continue;
       }
 
-      double zone_end = DAL_M0006TouchExtreme(bars[touch_index], nodes[n]);
+      double touch_extreme = DAL_M0006TouchExtreme(bars[touch_index], nodes[n]);
+      double zone_end = DAL_M0006ComputeZoneBackBoundary(nodes[n].price, touch_extreme, nodes[n].type, cfg);
       int retouch_index = DAL_M0006FindZoneEndRetouch(bars, bars_count, nodes[n], touch_index, zone_end, retouch_buffer);
       bool is_active = (retouch_index < 0);
       if(is_active) active++; else retouched++;
@@ -678,9 +698,11 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          continue;
       }
 
+      int first_counted_candle = touch_index + 1;
       int effective_end = is_active ? (bars_count - 1) : (retouch_index - 1);
-      if(effective_end < touch_index) effective_end = touch_index;
-      int age_after_touch = effective_end - touch_index;
+      int age_after_touch = 0;
+      if(effective_end >= first_counted_candle)
+         age_after_touch = effective_end - touch_index;
       int stage = DAL_M0006StageFromAge(age_after_touch, h1, h2, h3);
       if(stage >= 3) purple++;
       else if(stage == 2) green++;
@@ -706,16 +728,19 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          + " touch=" + TimeToString(bars[touch_index].time)
          + " boxRight=" + TimeToString(right_time)
          + " awayConfirm=" + (away_index > 0 ? TimeToString(bars[away_index].time) : "NONE")
-         + " retouch=" + (retouch_index > 0 ? TimeToString(bars[retouch_index].time) : "NONE")
+         + " retouchZoneBack=" + (retouch_index > 0 ? TimeToString(bars[retouch_index].time) : "NONE")
          + " state=" + touch_state
          + " active=" + IntegerToString(is_active ? 1 : 0)
+         + " firstCountedCandleAfterTouch=" + (first_counted_candle < bars_count ? TimeToString(bars[first_counted_candle].time) : "NONE_YET")
          + " candlesAfterTouchNoZoneEndRetouch=" + IntegerToString(age_after_touch)
          + " maturedForBox=" + IntegerToString(stage > 0 ? 1 : 0)
          + " boxDrawCondition=(touched && reversal_confirmed && !zone_end_retouched && age_after_touch >= selected_horizon)"
          + " nodePrice=" + DoubleToString(nodes[n].price, _Digits)
-         + " zoneStart=" + DoubleToString(nodes[n].price, _Digits)
-         + " zoneEnd=" + DoubleToString(zone_end, _Digits)
-         + " zoneTouchPenetration=" + DoubleToString(MathAbs(zone_end - nodes[n].price), _Digits)
+         + " zoneTouchBoundary=" + DoubleToString(nodes[n].price, _Digits)
+         + " firstTouchExtreme=" + DoubleToString(touch_extreme, _Digits)
+         + " zoneBackEnd=" + DoubleToString(zone_end, _Digits)
+         + " firstTouchPenetration=" + DoubleToString(MathAbs(touch_extreme - nodes[n].price), _Digits)
+         + " zoneThickness=" + DoubleToString(MathAbs(zone_end - nodes[n].price), _Digits)
          + " boxHeightMode=" + IntegerToString(cfg.box_height_mode)
          + " boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
          + " updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
@@ -790,7 +815,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
 
    ChartRedraw(0);
 
-   string line = "DAL_M0006_DIRECT_VISUAL_AUDIT *** build=1.03"
+   string line = "DAL_M0006_DIRECT_VISUAL_AUDIT *** build=1.04"
       + "*engine=direct_lrule_nodes_no_event_dependency"
       + "*update=DELETE_AND_REDRAW_VALID_SNAPSHOT"
       + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
@@ -803,6 +828,8 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*boxNamePolicy=stable_time_price_side_key"
       + "*boxHeightMode=" + IntegerToString(cfg.box_height_mode)
       + "*boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
+      + "*zoneEndPolicy=one_sided_back_of_zone_from_node_touch_boundary"
+      + "*candleCountPolicy=starts_at_candle_after_touch"
       + "*updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
       + "*boxUpdatePolicy=persistent_stable_name_color_and_optional_geometry_update"
       + "*symbol=" + cfg.symbol
@@ -847,11 +874,11 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*visualPolicy=" + (cfg.boxes_only_mode ? "ONLY_PERSISTENT_BOXES" : "BOXES_LEVELS_MARKERS")
       + "*preTouchDrawPolicy=OFF_BY_DEFAULT_NO_ZONE_BEFORE_FIRST_TOUCH"
       + "*levelPolicy=neutral_reference_starts_at_first_touch_not_node_origin"
-      + "*boxDrawRule=draw_only_when_touch_confirmed_and_zone_end_not_retouched_and_age_after_touch_reaches_input_horizon"
+      + "*boxDrawRule=draw_when_age_from_candle_after_touch_reaches_horizon_before_zone_back_end_retouch"
       + "*boxPersistence=once_created_never_deleted_by_live_update_or_volatile_cleanup"
       + "*objectLifecycle=upsert_only_no_per_candle_delete"
       + "*colorRule=highest_reached_input_horizon_after_touch_without_zone_end_retouch"
-      + "*boxVerticalRule=mode1_default_symmetric_around_node_by_pct_of_touch_penetration";
+      + "*boxVerticalRule=mode1_default_from_node_touch_boundary_to_one_sided_back_boundary_by_pct_of_first_touch_penetration";
    Print(line);
 
    return (drawn > 0 && object_failures == 0);

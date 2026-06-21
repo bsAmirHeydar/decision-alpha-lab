@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.19"
-#property description "Official H0006 upsert-only boxes with explicit geometry inputs"
+#property version   "1.20"
+#property description "Official H0006 one-sided zone boxes counted from candle after touch"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -22,8 +22,8 @@ input int InpH6NodeHorizonPurple = 100;
 input double InpH6NodeTouchBufferPoints = 0.0;
 input double InpH6ReactionZoneEndBufferPoints = 0.0;
 input double InpH6ReactionMinBoxHeightPoints = 0.0;
-input int InpH6BoxHeightMode = 1;                // 0=node-to-touch, 1=node-centered pct band, 2=expanded node-to-touch
-input double InpH6BoxNodePaddingPct = 10.0;      // mode 1: if touch penetration=0.90 and pct=10, box is +/-0.09 around node
+input int InpH6BoxHeightMode = 1;                // 0=node-to-touch, 1=one-sided behind-node pct band, 2=expanded node-to-touch
+input double InpH6BoxNodePaddingPct = 10.0;      // mode 1: touch penetration=0.90 and pct=10 -> zone thickness=0.09 behind node
 input bool InpH6UpdateExistingBoxGeometry = true; // update old/current box geometry without deleting the box
 
 input bool InpH6IncludeLiveBar = true;           // include current forming bar so levels/colors update live
@@ -71,7 +71,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.19"
+#define DAL_M0006_NODE_BUILD "1.20"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;
@@ -170,6 +170,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*boxNamePolicy=stable_time_price_side_key"
       + "*boxHeightMode=" + IntegerToString(cfg.box_height_mode)
       + "*boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
+      + "*zoneEndPolicy=one_sided_back_of_zone_from_node_touch_boundary"
+      + "*candleCountPolicy=starts_at_candle_after_touch"
       + "*updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
       + "*boxUpdatePolicy=persistent_stable_name_color_and_optional_geometry_update"
       + "*minBarsForUpdate=" + IntegerToString(cfg.min_bars_for_update)
@@ -194,8 +196,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
       + "*scope=all_raw_nodes_no_regime_filter"
       + "*box=drawn_only_after_horizon_elapsed_after_touch_and_price_zone_start_to_zone_end"
-      + "*colorRule=candles_after_touch_without_zone_end_retouch"
-      + "*boxVerticalRule=mode1_default_symmetric_around_node_by_pct_of_touch_penetration";
+      + "*colorRule=candles_after_touch_without_zone_back_end_retouch"
+      + "*boxVerticalRule=mode1_default_from_node_touch_boundary_to_one_sided_back_boundary_by_pct_of_first_touch_penetration";
    Print(sanity);
 
    DAL_M0006RunAllNodeReactionBoxes(cfg);

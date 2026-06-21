@@ -147,3 +147,12 @@ Release 131 compile fix:
 - Add missing expert inputs used by the geometry config:
   `InpH6BoxHeightMode`, `InpH6BoxNodePaddingPct`, and `InpH6UpdateExistingBoxGeometry`.
 - This keeps release 130 upsert-only lifecycle while exposing the release 129 box geometry controls.
+
+
+Release 132 official box semantics:
+- Box vertical range is one-sided: from the node/touch boundary to the back of the zone.
+- With `InpH6BoxHeightMode=1`, thickness is `first_touch_penetration * InpH6BoxNodePaddingPct / 100`.
+- Example: penetration 0.90 and pct 10 means zone thickness 0.09. For a HIGH node the box spans node to node+0.09; for a LOW node it spans node-0.09 to node.
+- Candle counting starts at the candle after touch. The touch candle itself is not counted.
+- The box appears when the requested horizon is reached before the back end of the zone is retouched.
+- Existing boxes are never deleted by live updates. Color updates continue by stage/horizon, and geometry can update in-place if enabled.
