@@ -28,13 +28,23 @@ struct DALM0004AtomicNoSampleConfig
    bool skip_ambiguous_energy_batch;
    int permutation_iterations;
    bool print_extended_report;
+   bool print_deep_report;
+   bool print_h6_optionality_report;
    bool stress_transition_permutation;
    bool stress_run_shuffle;
    bool stress_block_concentration;
    bool stress_circular_shift;
    bool stress_local_block_shuffle;
+   bool stress_h6_optionality;
    bool print_human_context_report;
    bool stress_context_shuffle;
+   int h6_horizon_fast;
+   int h6_horizon_main;
+   int h6_horizon_slow;
+   int h6_atr_period;
+   double h6_tail_atr_1;
+   double h6_tail_atr_2;
+   double h6_tail_atr_3;
    int context_k_fast;
    int context_k_main;
    int context_k_slow;
@@ -67,13 +77,23 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpSkipAmbiguousEnergyBatch g_dal_m0004_atomic_cfg.skip_ambiguous_energy_batch
 #define InpPermutationIterations g_dal_m0004_atomic_cfg.permutation_iterations
 #define InpAtomicPrintExtendedReport g_dal_m0004_atomic_cfg.print_extended_report
+#define InpAtomicPrintDeepReport g_dal_m0004_atomic_cfg.print_deep_report
+#define InpAtomicPrintH6OptionalityReport g_dal_m0004_atomic_cfg.print_h6_optionality_report
 #define InpAtomicStressTransitionPermutation g_dal_m0004_atomic_cfg.stress_transition_permutation
 #define InpAtomicStressRunShuffle g_dal_m0004_atomic_cfg.stress_run_shuffle
 #define InpAtomicStressBlockConcentration g_dal_m0004_atomic_cfg.stress_block_concentration
 #define InpAtomicStressCircularShift g_dal_m0004_atomic_cfg.stress_circular_shift
 #define InpAtomicStressLocalBlockShuffle g_dal_m0004_atomic_cfg.stress_local_block_shuffle
+#define InpAtomicStressH6Optionality g_dal_m0004_atomic_cfg.stress_h6_optionality
 #define InpAtomicPrintHumanContextReport g_dal_m0004_atomic_cfg.print_human_context_report
 #define InpAtomicStressContextShuffle g_dal_m0004_atomic_cfg.stress_context_shuffle
+#define InpH6HorizonBarsFast g_dal_m0004_atomic_cfg.h6_horizon_fast
+#define InpH6HorizonBarsMain g_dal_m0004_atomic_cfg.h6_horizon_main
+#define InpH6HorizonBarsSlow g_dal_m0004_atomic_cfg.h6_horizon_slow
+#define InpH6AtrPeriod g_dal_m0004_atomic_cfg.h6_atr_period
+#define InpH6TailAtr1 g_dal_m0004_atomic_cfg.h6_tail_atr_1
+#define InpH6TailAtr2 g_dal_m0004_atomic_cfg.h6_tail_atr_2
+#define InpH6TailAtr3 g_dal_m0004_atomic_cfg.h6_tail_atr_3
 #define InpAtomicContextKFast g_dal_m0004_atomic_cfg.context_k_fast
 #define InpAtomicContextKMain g_dal_m0004_atomic_cfg.context_k_main
 #define InpAtomicContextKSlow g_dal_m0004_atomic_cfg.context_k_slow
@@ -89,7 +109,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.03"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.04"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -184,6 +204,8 @@ D0010Summary g_sum;
 int g_labels[];
 datetime g_label_times[];
 int g_label_batch_counts[];
+int g_label_dirs[];
+int g_label_known_indices[];
 
 string D0010_Symbol()
 {
@@ -479,9 +501,18 @@ void D0010_AddPureBatchLabel(const D0010Batch &batch)
    ArrayResize(g_labels, n + 1);
    ArrayResize(g_label_times, n + 1);
    ArrayResize(g_label_batch_counts, n + 1);
+   ArrayResize(g_label_dirs, n + 1);
+   ArrayResize(g_label_known_indices, n + 1);
    g_labels[n] = batch.label;
    g_label_times[n] = batch.known_time;
    g_label_batch_counts[n] = batch.event_count;
+   if(batch.buy_direction_count > batch.sell_direction_count)
+      g_label_dirs[n] = +1;
+   else if(batch.sell_direction_count > batch.buy_direction_count)
+      g_label_dirs[n] = -1;
+   else
+      g_label_dirs[n] = 0;
+   g_label_known_indices[n] = batch.known_index;
 }
 
 string D0010_ModeText()
@@ -1423,6 +1454,467 @@ void D0010_PrintLastOnlyQuality(const int &labels[], const int n)
       "*contNextContPct=", DoubleToString(D0010_SafePct(cont_follow, cont_sig), 2));
 }
 
+
+// -----------------------------------------------------------------------------
+// Deep atomic diagnostics: information, run tails, batch intensity, and H6
+// optionality/explosive-power metrics. These reports use only pure known-time
+// batches; no M0002 samples and no same-candle internal ordering are introduced.
+// -----------------------------------------------------------------------------
+
+void D0010_SortDoubleArray(double &a[], const int n)
+{
+   for(int i = 1; i < n; i++)
+   {
+      double key = a[i];
+      int j = i - 1;
+      while(j >= 0 && a[j] > key)
+      {
+         a[j + 1] = a[j];
+         j--;
+      }
+      a[j + 1] = key;
+   }
+}
+
+double D0010_QuantileOfValues(double &src[], const int n, const double q)
+{
+   if(n <= 0) return 0.0;
+   double x[];
+   ArrayResize(x, n);
+   for(int i = 0; i < n; i++) x[i] = src[i];
+   D0010_SortDoubleArray(x, n);
+   double qq = q;
+   if(qq < 0.0) qq = 0.0;
+   if(qq > 1.0) qq = 1.0;
+   double pos = qq * (n - 1);
+   int lo = (int)MathFloor(pos);
+   int hi = (int)MathCeil(pos);
+   if(lo < 0) lo = 0;
+   if(hi >= n) hi = n - 1;
+   if(lo == hi) return x[lo];
+   double w = pos - lo;
+   return x[lo] * (1.0 - w) + x[hi] * w;
+}
+
+double D0010_Log2(const double x)
+{
+   if(x <= 0.0) return 0.0;
+   return MathLog(x) / MathLog(2.0);
+}
+
+void D0010_PrintInformationMetrics(const int &labels[], const int n, const D0010TransitionStats &ts)
+{
+   if(!InpAtomicPrintDeepReport || n < 3 || ts.transitions <= 0)
+      return;
+
+   double p_rev = D0010_SafeDiv(ts.reversal_count, n);
+   double p_cont = D0010_SafeDiv(ts.continuation_count, n);
+   double entropy = 0.0;
+   if(p_rev > 0.0) entropy -= p_rev * D0010_Log2(p_rev);
+   if(p_cont > 0.0) entropy -= p_cont * D0010_Log2(p_cont);
+
+   double tr = (double)ts.transitions;
+   int m[2][2];
+   m[0][0] = ts.rr; m[0][1] = ts.rc; m[1][0] = ts.cr; m[1][1] = ts.cc;
+   double row[2]; row[0] = (double)(ts.rr + ts.rc); row[1] = (double)(ts.cr + ts.cc);
+   double col[2]; col[0] = (double)(ts.rr + ts.cr); col[1] = (double)(ts.rc + ts.cc);
+   double mi_bits = 0.0;
+   double chi2 = 0.0;
+   for(int r = 0; r < 2; r++)
+   {
+      for(int c = 0; c < 2; c++)
+      {
+         double obs = (double)m[r][c];
+         double expv = D0010_SafeDiv(row[r] * col[c], tr);
+         if(obs > 0.0 && expv > 0.0)
+            mi_bits += D0010_SafeDiv(obs, tr) * D0010_Log2(D0010_SafeDiv(obs * tr, row[r] * col[c]));
+         if(expv > 0.0)
+            chi2 += (obs - expv) * (obs - expv) / expv;
+      }
+   }
+
+   double cond_entropy = MathMax(0.0, entropy - mi_bits);
+   double predictability_gain_pct = D0010_SafePct(mi_bits, entropy);
+   double odds_ratio = D0010_SafeDiv((double)ts.rr * (double)ts.cc, (double)ts.rc * (double)ts.cr);
+   double yule_q = D0010_SafeDiv((double)ts.rr * (double)ts.cc - (double)ts.rc * (double)ts.cr,
+                                 (double)ts.rr * (double)ts.cc + (double)ts.rc * (double)ts.cr);
+
+   Print("DAL_D0010_ATOMIC_INFORMATION",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*labelEntropyBits=", DoubleToString(entropy, 6),
+      "*conditionalEntropyBits=", DoubleToString(cond_entropy, 6),
+      "*mutualInformationBits=", DoubleToString(mi_bits, 6),
+      "*predictabilityGainPct=", DoubleToString(predictability_gain_pct, 2),
+      "*markovChi2=", DoubleToString(chi2, 4),
+      "*oddsRatio=", DoubleToString(odds_ratio, 4),
+      "*yuleQ=", DoubleToString(yule_q, 4),
+      "*pRev=", DoubleToString(ts.reversal_pct, 2),
+      "*pCont=", DoubleToString(ts.continuation_pct, 2),
+      "*interpretation=lag1_markov_information_over_known_time_batches");
+}
+
+void D0010_PrintRunDistributionMetrics(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintDeepReport || n <= 0)
+      return;
+
+   double all_runs[], rev_runs[], cont_runs[];
+   int all_n = 0, rev_n = 0, cont_n = 0;
+   int cur_label = labels[0];
+   int cur_len = 1;
+   int rev_len5_batches = 0, cont_len5_batches = 0;
+   int rev_len10_batches = 0, cont_len10_batches = 0;
+
+   for(int i = 1; i <= n; i++)
+   {
+      if(i < n && labels[i] == cur_label)
+      {
+         cur_len++;
+         continue;
+      }
+
+      ArrayResize(all_runs, all_n + 1);
+      all_runs[all_n++] = (double)cur_len;
+      if(cur_label == DAL_D0010_LABEL_REVERSAL)
+      {
+         ArrayResize(rev_runs, rev_n + 1);
+         rev_runs[rev_n++] = (double)cur_len;
+         if(cur_len >= 5) rev_len5_batches += cur_len;
+         if(cur_len >= 10) rev_len10_batches += cur_len;
+      }
+      else if(cur_label == DAL_D0010_LABEL_CONTINUATION)
+      {
+         ArrayResize(cont_runs, cont_n + 1);
+         cont_runs[cont_n++] = (double)cur_len;
+         if(cur_len >= 5) cont_len5_batches += cur_len;
+         if(cur_len >= 10) cont_len10_batches += cur_len;
+      }
+
+      if(i < n)
+      {
+         cur_label = labels[i];
+         cur_len = 1;
+      }
+   }
+
+   int rev_total = 0, cont_total = 0;
+   for(int z = 0; z < n; z++)
+   {
+      if(labels[z] == DAL_D0010_LABEL_REVERSAL) rev_total++;
+      if(labels[z] == DAL_D0010_LABEL_CONTINUATION) cont_total++;
+   }
+
+   Print("DAL_D0010_ATOMIC_RUN_DISTRIBUTION",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*allRuns=", all_n,
+      "*allP50=", DoubleToString(D0010_QuantileOfValues(all_runs, all_n, 0.50), 2),
+      "*allP75=", DoubleToString(D0010_QuantileOfValues(all_runs, all_n, 0.75), 2),
+      "*allP90=", DoubleToString(D0010_QuantileOfValues(all_runs, all_n, 0.90), 2),
+      "*allP95=", DoubleToString(D0010_QuantileOfValues(all_runs, all_n, 0.95), 2),
+      "*revRuns=", rev_n,
+      "*revP50=", DoubleToString(D0010_QuantileOfValues(rev_runs, rev_n, 0.50), 2),
+      "*revP75=", DoubleToString(D0010_QuantileOfValues(rev_runs, rev_n, 0.75), 2),
+      "*revP90=", DoubleToString(D0010_QuantileOfValues(rev_runs, rev_n, 0.90), 2),
+      "*revP95=", DoubleToString(D0010_QuantileOfValues(rev_runs, rev_n, 0.95), 2),
+      "*contRuns=", cont_n,
+      "*contP50=", DoubleToString(D0010_QuantileOfValues(cont_runs, cont_n, 0.50), 2),
+      "*contP75=", DoubleToString(D0010_QuantileOfValues(cont_runs, cont_n, 0.75), 2),
+      "*contP90=", DoubleToString(D0010_QuantileOfValues(cont_runs, cont_n, 0.90), 2),
+      "*contP95=", DoubleToString(D0010_QuantileOfValues(cont_runs, cont_n, 0.95), 2),
+      "*revBatchesInsideRun5PlusPct=", DoubleToString(D0010_SafePct(rev_len5_batches, rev_total), 2),
+      "*contBatchesInsideRun5PlusPct=", DoubleToString(D0010_SafePct(cont_len5_batches, cont_total), 2),
+      "*revBatchesInsideRun10PlusPct=", DoubleToString(D0010_SafePct(rev_len10_batches, rev_total), 2),
+      "*contBatchesInsideRun10PlusPct=", DoubleToString(D0010_SafePct(cont_len10_batches, cont_total), 2));
+}
+
+void D0010_PrintBatchIntensityMetrics(const int &labels[], const int &counts[], const int &dirs[], const int n)
+{
+   if(!InpAtomicPrintDeepReport || n <= 0)
+      return;
+   double rev_counts[], cont_counts[];
+   int rev_n = 0, cont_n = 0, rev_multi = 0, cont_multi = 0, rev_big = 0, cont_big = 0;
+   int rev_buy = 0, rev_sell = 0, cont_buy = 0, cont_sell = 0, rev_dir0 = 0, cont_dir0 = 0;
+   double rev_sum = 0.0, cont_sum = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      if(labels[i] == DAL_D0010_LABEL_REVERSAL)
+      {
+         ArrayResize(rev_counts, rev_n + 1); rev_counts[rev_n++] = (double)counts[i];
+         rev_sum += counts[i];
+         if(counts[i] > 1) rev_multi++;
+         if(counts[i] >= 3) rev_big++;
+         if(dirs[i] > 0) rev_buy++; else if(dirs[i] < 0) rev_sell++; else rev_dir0++;
+      }
+      else if(labels[i] == DAL_D0010_LABEL_CONTINUATION)
+      {
+         ArrayResize(cont_counts, cont_n + 1); cont_counts[cont_n++] = (double)counts[i];
+         cont_sum += counts[i];
+         if(counts[i] > 1) cont_multi++;
+         if(counts[i] >= 3) cont_big++;
+         if(dirs[i] > 0) cont_buy++; else if(dirs[i] < 0) cont_sell++; else cont_dir0++;
+      }
+   }
+   Print("DAL_D0010_ATOMIC_BATCH_INTENSITY",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*revN=", rev_n,
+      "*contN=", cont_n,
+      "*revMeanEventsPerBatch=", DoubleToString(D0010_SafeDiv(rev_sum, rev_n), 4),
+      "*contMeanEventsPerBatch=", DoubleToString(D0010_SafeDiv(cont_sum, cont_n), 4),
+      "*revMultiEventBatchPct=", DoubleToString(D0010_SafePct(rev_multi, rev_n), 2),
+      "*contMultiEventBatchPct=", DoubleToString(D0010_SafePct(cont_multi, cont_n), 2),
+      "*revBigBatch3PlusPct=", DoubleToString(D0010_SafePct(rev_big, rev_n), 2),
+      "*contBigBatch3PlusPct=", DoubleToString(D0010_SafePct(cont_big, cont_n), 2),
+      "*revEventCountP90=", DoubleToString(D0010_QuantileOfValues(rev_counts, rev_n, 0.90), 2),
+      "*contEventCountP90=", DoubleToString(D0010_QuantileOfValues(cont_counts, cont_n, 0.90), 2),
+      "*revBuyDirPct=", DoubleToString(D0010_SafePct(rev_buy, rev_n), 2),
+      "*revSellDirPct=", DoubleToString(D0010_SafePct(rev_sell, rev_n), 2),
+      "*contBuyDirPct=", DoubleToString(D0010_SafePct(cont_buy, cont_n), 2),
+      "*contSellDirPct=", DoubleToString(D0010_SafePct(cont_sell, cont_n), 2),
+      "*revNoDominantDirPct=", DoubleToString(D0010_SafePct(rev_dir0, rev_n), 2),
+      "*contNoDominantDirPct=", DoubleToString(D0010_SafePct(cont_dir0, cont_n), 2));
+}
+
+void D0010_PrintDeepReports(const int &labels[], const int &counts[], const int &dirs[], const int n, const D0010TransitionStats &ts)
+{
+   if(!InpAtomicPrintDeepReport)
+      return;
+   D0010_PrintInformationMetrics(labels, n, ts);
+   D0010_PrintRunDistributionMetrics(labels, n);
+   D0010_PrintBatchIntensityMetrics(labels, counts, dirs, n);
+}
+
+double D0010_ATRAt(const DALBar &bars[], const int bars_count, const int index, const int period)
+{
+   if(bars_count <= 1 || index <= 0)
+      return 0.0;
+   int p = MathMax(2, period);
+   int start = MathMax(1, index - p + 1);
+   double sum = 0.0;
+   int n = 0;
+   for(int i = start; i <= index && i < bars_count; i++)
+   {
+      double tr1 = bars[i].high - bars[i].low;
+      double tr2 = MathAbs(bars[i].high - bars[i - 1].close);
+      double tr3 = MathAbs(bars[i].low - bars[i - 1].close);
+      double tr = MathMax(tr1, MathMax(tr2, tr3));
+      sum += tr;
+      n++;
+   }
+   return D0010_SafeDiv(sum, n);
+}
+
+struct D0010ValueStats
+{
+   int n;
+   double mean;
+   double median;
+   double p75;
+   double p90;
+   double p95;
+   double p99;
+   double maxv;
+   double hit1;
+   double hit2;
+   double hit3;
+   double top10_share;
+};
+
+void D0010_ComputeValueStats(const double &values[], const int &labels[], const int n, const int wanted, const double t1, const double t2, const double t3, D0010ValueStats &st)
+{
+   st.n = 0; st.mean = 0.0; st.median = 0.0; st.p75 = 0.0; st.p90 = 0.0; st.p95 = 0.0; st.p99 = 0.0; st.maxv = 0.0; st.hit1 = 0.0; st.hit2 = 0.0; st.hit3 = 0.0; st.top10_share = 0.0;
+   double x[];
+   int m = 0, h1 = 0, h2 = 0, h3 = 0;
+   double sum = 0.0;
+   for(int i = 0; i < n; i++)
+   {
+      if(labels[i] != wanted) continue;
+      ArrayResize(x, m + 1);
+      x[m] = values[i];
+      sum += values[i];
+      if(values[i] > st.maxv) st.maxv = values[i];
+      if(values[i] >= t1) h1++;
+      if(values[i] >= t2) h2++;
+      if(values[i] >= t3) h3++;
+      m++;
+   }
+   st.n = m;
+   if(m <= 0) return;
+   st.mean = D0010_SafeDiv(sum, m);
+   st.median = D0010_QuantileOfValues(x, m, 0.50);
+   st.p75 = D0010_QuantileOfValues(x, m, 0.75);
+   st.p90 = D0010_QuantileOfValues(x, m, 0.90);
+   st.p95 = D0010_QuantileOfValues(x, m, 0.95);
+   st.p99 = D0010_QuantileOfValues(x, m, 0.99);
+   st.hit1 = D0010_SafePct(h1, m);
+   st.hit2 = D0010_SafePct(h2, m);
+   st.hit3 = D0010_SafePct(h3, m);
+   D0010_SortDoubleArray(x, m);
+   int tail_start = (int)MathFloor(0.90 * m);
+   if(tail_start < 0) tail_start = 0;
+   if(tail_start >= m) tail_start = m - 1;
+   double tail_sum = 0.0;
+   for(int j = tail_start; j < m; j++) tail_sum += x[j];
+   st.top10_share = D0010_SafePct(tail_sum, sum);
+}
+
+void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, const int horizon, const string tag)
+{
+   if(!InpAtomicPrintH6OptionalityReport)
+      return;
+   int n = ArraySize(g_labels);
+   if(n <= 0 || bars_count <= 0 || horizon <= 0)
+      return;
+
+   double absv[], dirv[], advv[];
+   int valid_labels[];
+   int m = 0;
+   for(int i = 0; i < n; i++)
+   {
+      int k = g_label_known_indices[i];
+      if(k < 1 || k + 1 >= bars_count) continue;
+      int end = MathMin(bars_count - 1, k + horizon);
+      if(end <= k) continue;
+      double atr = D0010_ATRAt(bars, bars_count, k, InpH6AtrPeriod);
+      if(atr <= 0.0) continue;
+      double entry = bars[k].close;
+      double hi = bars[k + 1].high;
+      double lo = bars[k + 1].low;
+      for(int j = k + 1; j <= end; j++)
+      {
+         if(bars[j].high > hi) hi = bars[j].high;
+         if(bars[j].low < lo) lo = bars[j].low;
+      }
+      double up = MathMax(0.0, hi - entry) / atr;
+      double dn = MathMax(0.0, entry - lo) / atr;
+      double absx = MathMax(up, dn);
+      int d = g_label_dirs[i];
+      double dirx = absx;
+      double advx = MathMin(up, dn);
+      if(d > 0)
+      {
+         dirx = up;
+         advx = dn;
+      }
+      else if(d < 0)
+      {
+         dirx = dn;
+         advx = up;
+      }
+      ArrayResize(absv, m + 1); ArrayResize(dirv, m + 1); ArrayResize(advv, m + 1); ArrayResize(valid_labels, m + 1);
+      absv[m] = absx;
+      dirv[m] = dirx;
+      advv[m] = advx;
+      valid_labels[m] = g_labels[i];
+      m++;
+   }
+
+   D0010ValueStats rev_abs, cont_abs, rev_dir, cont_dir, rev_adv, cont_adv;
+   D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_abs);
+   D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_abs);
+   D0010_ComputeValueStats(dirv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_dir);
+   D0010_ComputeValueStats(dirv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_dir);
+   D0010_ComputeValueStats(advv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_adv);
+   D0010_ComputeValueStats(advv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_adv);
+
+   string verdict = "mixed_optional_tail";
+   if(rev_abs.p95 > cont_abs.p95 && rev_abs.hit2 > cont_abs.hit2) verdict = "reversal_tail_dominates";
+   else if(cont_abs.p95 > rev_abs.p95 && cont_abs.hit2 > rev_abs.hit2) verdict = "continuation_tail_dominates";
+
+   Print("DAL_H0006_OPTIONALITY_" + tag,
+      " *** build=", DAL_D0010_BUILD,
+      "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY",
+      "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time",
+      "*horizonBars=", horizon,
+      "*atrPeriod=", MathMax(2, InpH6AtrPeriod),
+      "*tailAtr1=", DoubleToString(InpH6TailAtr1, 2),
+      "*tailAtr2=", DoubleToString(InpH6TailAtr2, 2),
+      "*tailAtr3=", DoubleToString(InpH6TailAtr3, 2),
+      "*validN=", m,
+      "*revN=", rev_abs.n,
+      "*contN=", cont_abs.n,
+      "*revAbsMeanATR=", DoubleToString(rev_abs.mean, 4),
+      "*contAbsMeanATR=", DoubleToString(cont_abs.mean, 4),
+      "*revMinusContAbsMeanATR=", DoubleToString(rev_abs.mean - cont_abs.mean, 4),
+      "*revAbsP90ATR=", DoubleToString(rev_abs.p90, 4),
+      "*contAbsP90ATR=", DoubleToString(cont_abs.p90, 4),
+      "*revAbsP95ATR=", DoubleToString(rev_abs.p95, 4),
+      "*contAbsP95ATR=", DoubleToString(cont_abs.p95, 4),
+      "*revAbsP99ATR=", DoubleToString(rev_abs.p99, 4),
+      "*contAbsP99ATR=", DoubleToString(cont_abs.p99, 4),
+      "*revHitTail1Pct=", DoubleToString(rev_abs.hit1, 2),
+      "*contHitTail1Pct=", DoubleToString(cont_abs.hit1, 2),
+      "*revHitTail2Pct=", DoubleToString(rev_abs.hit2, 2),
+      "*contHitTail2Pct=", DoubleToString(cont_abs.hit2, 2),
+      "*revHitTail3Pct=", DoubleToString(rev_abs.hit3, 2),
+      "*contHitTail3Pct=", DoubleToString(cont_abs.hit3, 2),
+      "*revTop10SharePct=", DoubleToString(rev_abs.top10_share, 2),
+      "*contTop10SharePct=", DoubleToString(cont_abs.top10_share, 2),
+      "*revDirectionalMfeMeanATR=", DoubleToString(rev_dir.mean, 4),
+      "*contDirectionalMfeMeanATR=", DoubleToString(cont_dir.mean, 4),
+      "*revAdverseMeanATR=", DoubleToString(rev_adv.mean, 4),
+      "*contAdverseMeanATR=", DoubleToString(cont_adv.mean, 4),
+      "*optionalityRatioP95=", DoubleToString(D0010_SafeDiv(rev_abs.p95, cont_abs.p95), 4),
+      "*verdict=", verdict);
+
+   if(InpAtomicStressH6Optionality && InpPermutationIterations > 0)
+   {
+      double obs_mean_diff = rev_abs.mean - cont_abs.mean;
+      double obs_p90_diff = rev_abs.p90 - cont_abs.p90;
+      double mean_sum = 0.0, mean_sum2 = 0.0, p90_sum = 0.0, p90_sum2 = 0.0;
+      int mean_ge = 0, p90_ge = 0;
+      int shuf[];
+      for(int iter = 0; iter < InpPermutationIterations; iter++)
+      {
+         D0010_ShuffleLabels(valid_labels, m, iter + 6001 + horizon, shuf);
+         D0010ValueStats sr, sc;
+         D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sr);
+         D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sc);
+         double md = sr.mean - sc.mean;
+         double pd = sr.p90 - sc.p90;
+         mean_sum += md; mean_sum2 += md * md;
+         p90_sum += pd; p90_sum2 += pd * pd;
+         if(md >= obs_mean_diff) mean_ge++;
+         if(pd >= obs_p90_diff) p90_ge++;
+      }
+      double it = (double)InpPermutationIterations;
+      double mean_null = D0010_SafeDiv(mean_sum, it);
+      double p90_null = D0010_SafeDiv(p90_sum, it);
+      double mean_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(mean_sum2, it) - mean_null * mean_null));
+      double p90_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(p90_sum2, it) - p90_null * p90_null));
+      Print("DAL_H0006_OPTIONALITY_STRESS_" + tag,
+         " *** build=", DAL_D0010_BUILD,
+         "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY",
+         "*null=label_shuffle_over_fixed_known_times_and_fixed_future_excursions",
+         "*horizonBars=", horizon,
+         "*iters=", InpPermutationIterations,
+         "*obsRevMinusContMeanAbsATR=", DoubleToString(obs_mean_diff, 4),
+         "*nullMeanDiff=", DoubleToString(mean_null, 4),
+         "*nullMeanDiffSd=", DoubleToString(mean_sd, 4),
+         "*meanDiffZ=", DoubleToString(D0010_SafeDiv(obs_mean_diff - mean_null, mean_sd), 4),
+         "*meanDiffEmpP=", DoubleToString(D0010_SafeDiv(mean_ge + 1, InpPermutationIterations + 1), 4),
+         "*obsRevMinusContP90AbsATR=", DoubleToString(obs_p90_diff, 4),
+         "*nullP90Diff=", DoubleToString(p90_null, 4),
+         "*nullP90DiffSd=", DoubleToString(p90_sd, 4),
+         "*p90DiffZ=", DoubleToString(D0010_SafeDiv(obs_p90_diff - p90_null, p90_sd), 4),
+         "*p90DiffEmpP=", DoubleToString(D0010_SafeDiv(p90_ge + 1, InpPermutationIterations + 1), 4));
+   }
+}
+
+void D0010_PrintH6OptionalityReports(const DALBar &bars[], const int bars_count)
+{
+   if(!InpAtomicPrintH6OptionalityReport)
+      return;
+   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsFast), "FAST");
+   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsMain), "MAIN");
+   D0010_H6OptionalityForHorizon(bars, bars_count, MathMax(1, InpH6HorizonBarsSlow), "SLOW");
+}
+
 void D0010_PrintHumanContextReports(const int &labels[], const int n)
 {
    if(!InpAtomicPrintHumanContextReport)
@@ -1649,6 +2141,8 @@ bool D0010_RunFastRawEventBatch()
    ArrayResize(g_labels, 0);
    ArrayResize(g_label_times, 0);
    ArrayResize(g_label_batch_counts, 0);
+   ArrayResize(g_label_dirs, 0);
+   ArrayResize(g_label_known_indices, 0);
    D0010_OpenCsv();
 
    DALBar bars[];
@@ -1775,6 +2269,8 @@ bool D0010_RunFastRawEventBatch()
       "*nodes=", nodes_count,
       "*rawEventsSeen=", g_sum.raw_events_seen,
       "*rawEventsKnownNow=", g_sum.raw_events_known_now,
+      "*eventsCompressedByBatching=", MathMax(0, g_sum.raw_events_known_now - g_sum.total_batches),
+      "*internalTransitionsPrevented=", MathMax(0, g_sum.raw_events_known_now - g_sum.total_batches),
       "*totalBatches=", g_sum.total_batches,
       "*pureBatches=", g_sum.pure_batches,
       "*ambiguousBatches=", g_sum.ambiguous_batches,
@@ -1794,7 +2290,9 @@ bool D0010_RunFastRawEventBatch()
    D0010_PrintCircularShiftStress(g_labels, label_n, ts);
    D0010_PrintLocalBlockShuffleStress(g_labels, label_n, ts);
    D0010_PrintExtendedReports(g_labels, label_n);
+   D0010_PrintDeepReports(g_labels, g_label_batch_counts, g_label_dirs, label_n, ts);
    D0010_PrintHumanContextReports(g_labels, label_n);
+   D0010_PrintH6OptionalityReports(bars, bars_count);
    return true;
 }
 
@@ -1804,6 +2302,8 @@ bool D0010_Run()
    ArrayResize(g_labels, 0);
    ArrayResize(g_label_times, 0);
    ArrayResize(g_label_batch_counts, 0);
+   ArrayResize(g_label_dirs, 0);
+   ArrayResize(g_label_known_indices, 0);
    D0010_OpenCsv();
 
    int total = Bars(D0010_Symbol(), D0010_Timeframe());
@@ -1920,6 +2420,8 @@ bool D0010_Run()
       "*loadFailures=", g_sum.load_failures,
       "*rawEventsSeen=", g_sum.raw_events_seen,
       "*rawEventsKnownNow=", g_sum.raw_events_known_now,
+      "*eventsCompressedByBatching=", MathMax(0, g_sum.raw_events_known_now - g_sum.total_batches),
+      "*internalTransitionsPrevented=", MathMax(0, g_sum.raw_events_known_now - g_sum.total_batches),
       "*totalBatches=", g_sum.total_batches,
       "*pureBatches=", g_sum.pure_batches,
       "*ambiguousBatches=", g_sum.ambiguous_batches,
@@ -1941,7 +2443,13 @@ bool D0010_Run()
    D0010_PrintCircularShiftStress(g_labels, n, ts);
    D0010_PrintLocalBlockShuffleStress(g_labels, n, ts);
    D0010_PrintExtendedReports(g_labels, n);
+   D0010_PrintDeepReports(g_labels, g_label_batch_counts, g_label_dirs, n, ts);
    D0010_PrintHumanContextReports(g_labels, n);
+   DALBar final_bars[];
+   int final_bars_count = 0;
+   string final_reason = "";
+   if(D0010_LoadFinalReplayBars(final_bars, final_bars_count, final_reason))
+      D0010_PrintH6OptionalityReports(final_bars, final_bars_count);
    return true;
 }
 
@@ -1976,13 +2484,23 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpSkipAmbiguousEnergyBatch
 #undef InpPermutationIterations
 #undef InpAtomicPrintExtendedReport
+#undef InpAtomicPrintDeepReport
+#undef InpAtomicPrintH6OptionalityReport
 #undef InpAtomicStressTransitionPermutation
 #undef InpAtomicStressRunShuffle
 #undef InpAtomicStressBlockConcentration
 #undef InpAtomicStressCircularShift
 #undef InpAtomicStressLocalBlockShuffle
+#undef InpAtomicStressH6Optionality
 #undef InpAtomicPrintHumanContextReport
 #undef InpAtomicStressContextShuffle
+#undef InpH6HorizonBarsFast
+#undef InpH6HorizonBarsMain
+#undef InpH6HorizonBarsSlow
+#undef InpH6AtrPeriod
+#undef InpH6TailAtr1
+#undef InpH6TailAtr2
+#undef InpH6TailAtr3
 #undef InpAtomicContextKFast
 #undef InpAtomicContextKMain
 #undef InpAtomicContextKSlow

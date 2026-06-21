@@ -3,7 +3,7 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
+#property version   "1.11"
 #property description "M0004 fast atomic no-sample report with stress toggles and human-context diagnostics"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -34,8 +34,18 @@ input bool InpAtomicStressCircularShift = true;
 input bool InpAtomicStressLocalBlockShuffle = true;
 
 input bool InpAtomicPrintExtendedReport = true; // fast extra lag/block/run diagnostics, still no samples
+input bool InpAtomicPrintDeepReport = true; // information, run tails, batch intensity over atomic batches
+input bool InpAtomicPrintH6OptionalityReport = true; // H6: reversal explosive optionality, not win-rate
 input bool InpAtomicPrintHumanContextReport = true; // rolling / EWMA human-eye context over known-time batches
-input bool InpAtomicStressContextShuffle = false; // reserved for heavier context shuffle diagnostics
+input bool InpAtomicStressContextShuffle = false; // heavier context shuffle diagnostics
+input bool InpAtomicStressH6Optionality = true; // shuffle-label null for H6 optionality tail metrics
+input int InpH6HorizonBarsFast = 5;
+input int InpH6HorizonBarsMain = 20;
+input int InpH6HorizonBarsSlow = 50;
+input int InpH6AtrPeriod = 14;
+input double InpH6TailAtr1 = 2.0;
+input double InpH6TailAtr2 = 4.0;
+input double InpH6TailAtr3 = 8.0;
 input int InpAtomicContextLookbackFast = 5;
 input int InpAtomicContextLookbackMain = 10;
 input int InpAtomicContextLookbackSlow = 20;
@@ -99,7 +109,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.09"
+#define DAL_M0004_BUILD "1.10"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -354,13 +364,23 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    cfg.skip_ambiguous_energy_batch = true;
    cfg.permutation_iterations = InpAtomicPermutationIterations;
    cfg.print_extended_report = InpAtomicPrintExtendedReport;
+   cfg.print_deep_report = InpAtomicPrintDeepReport;
+   cfg.print_h6_optionality_report = InpAtomicPrintH6OptionalityReport;
    cfg.stress_transition_permutation = InpAtomicStressTransitionPermutation;
    cfg.stress_run_shuffle = InpAtomicStressRunShuffle;
    cfg.stress_block_concentration = InpAtomicStressBlockConcentration;
    cfg.stress_circular_shift = InpAtomicStressCircularShift;
    cfg.stress_local_block_shuffle = InpAtomicStressLocalBlockShuffle;
+   cfg.stress_h6_optionality = InpAtomicStressH6Optionality;
    cfg.print_human_context_report = InpAtomicPrintHumanContextReport;
    cfg.stress_context_shuffle = InpAtomicStressContextShuffle;
+   cfg.h6_horizon_fast = InpH6HorizonBarsFast;
+   cfg.h6_horizon_main = InpH6HorizonBarsMain;
+   cfg.h6_horizon_slow = InpH6HorizonBarsSlow;
+   cfg.h6_atr_period = InpH6AtrPeriod;
+   cfg.h6_tail_atr_1 = InpH6TailAtr1;
+   cfg.h6_tail_atr_2 = InpH6TailAtr2;
+   cfg.h6_tail_atr_3 = InpH6TailAtr3;
    cfg.context_k_fast = InpAtomicContextLookbackFast;
    cfg.context_k_main = InpAtomicContextLookbackMain;
    cfg.context_k_slow = InpAtomicContextLookbackSlow;
@@ -377,6 +397,13 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    if(cfg.context_strong_threshold > 0.95) cfg.context_strong_threshold = 0.95;
    if(cfg.circular_min_shift_batches < 2) cfg.circular_min_shift_batches = 2;
    if(cfg.local_block_shuffle_size < 5) cfg.local_block_shuffle_size = 5;
+   if(cfg.h6_horizon_fast < 1) cfg.h6_horizon_fast = 1;
+   if(cfg.h6_horizon_main < cfg.h6_horizon_fast) cfg.h6_horizon_main = cfg.h6_horizon_fast;
+   if(cfg.h6_horizon_slow < cfg.h6_horizon_main) cfg.h6_horizon_slow = cfg.h6_horizon_main;
+   if(cfg.h6_atr_period < 2) cfg.h6_atr_period = 2;
+   if(cfg.h6_tail_atr_1 <= 0.0) cfg.h6_tail_atr_1 = 2.0;
+   if(cfg.h6_tail_atr_2 < cfg.h6_tail_atr_1) cfg.h6_tail_atr_2 = cfg.h6_tail_atr_1;
+   if(cfg.h6_tail_atr_3 < cfg.h6_tail_atr_2) cfg.h6_tail_atr_3 = cfg.h6_tail_atr_2;
    cfg.block_size_fast = InpAtomicBlockSizeFast;
    cfg.block_size_main = InpAtomicBlockSizeMain;
    cfg.block_size_slow = InpAtomicBlockSizeSlow;
@@ -406,7 +433,13 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
       "*stressCircularShift=", (cfg.stress_circular_shift ? 1 : 0),
       "*stressLocalBlockShuffle=", (cfg.stress_local_block_shuffle ? 1 : 0),
       "*extendedReport=", (cfg.print_extended_report ? 1 : 0),
+      "*deepReport=", (cfg.print_deep_report ? 1 : 0),
+      "*h6OptionalityReport=", (cfg.print_h6_optionality_report ? 1 : 0),
+      "*stressH6Optionality=", (cfg.stress_h6_optionality ? 1 : 0),
       "*humanContextReport=", (cfg.print_human_context_report ? 1 : 0),
+      "*h6Horizons=", cfg.h6_horizon_fast, "/", cfg.h6_horizon_main, "/", cfg.h6_horizon_slow,
+      "*h6AtrPeriod=", cfg.h6_atr_period,
+      "*h6TailAtr=", DoubleToString(cfg.h6_tail_atr_1, 2), "/", DoubleToString(cfg.h6_tail_atr_2, 2), "/", DoubleToString(cfg.h6_tail_atr_3, 2),
       "*contextK=", cfg.context_k_fast, "/", cfg.context_k_main, "/", cfg.context_k_slow,
       "*contextEwmaAlpha=", DoubleToString(cfg.context_ewma_alpha, 4),
       "*contextStrongThreshold=", DoubleToString(cfg.context_strong_threshold, 4),
