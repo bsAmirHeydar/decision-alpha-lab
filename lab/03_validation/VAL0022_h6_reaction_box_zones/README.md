@@ -43,3 +43,19 @@ Release 118 visibility and coordinate controls:
 - `InpH6BoxLeftAnchorMode` controls whether the box starts from the node pivot/origin candle or the known/active-from candle.
 - `InpH6BoxRightAnchorMode` controls whether the box ends at the touch candle open time or touch candle end time.
 - Audit output reports skipped consumed boxes and skipped level-filtered boxes.
+
+
+Release 119 live level and exact zone box update:
+- Node levels are now drawn and updated live on chart rebuild / tick update.
+- When `InpH6IncludeLiveBar=true`, the current forming bar is included, so the first touch, zone end, and colors can update in live conditions.
+- Box time span stays from the chosen left anchor to the first touch.
+- Box price span is the exact touched zone height: zone start (node price) to zone end (first-touch extreme).
+- Horizontal node levels are colored with the same stage color logic and extend live until the current bar while the node remains active.
+- Consumed nodes remain hidden by default unless explicitly enabled.
+
+
+Release 120 visual-tester stability fix:
+- Default update policy changed to new-bar updates instead of every tick.
+- Empty / early visual-tester snapshots no longer delete existing chart objects.
+- `InpH6PreserveExistingOnEmptyUpdate=true` preserves current drawings when the tester has not yet built enough bars or no nodes exist.
+- The audit now prints `SKIP_PRESERVE_EXISTING` when an update is intentionally skipped without wiping objects.

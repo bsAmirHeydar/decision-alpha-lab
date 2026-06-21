@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.06"
-#property description "Official H0006 direct all-node reaction box visual engine with level toggles and consumed filtering"
+#property version   "1.08"
+#property description "Official H0006 visual engine with stable new-bar updates, live levels, and exact zone boxes"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -21,9 +21,14 @@ input double InpH6NodeTouchBufferPoints = 0.0;
 input double InpH6ReactionZoneEndBufferPoints = 0.0;
 input double InpH6ReactionMinBoxHeightPoints = 0.0;
 
+input bool InpH6IncludeLiveBar = true;           // include current forming bar so levels/colors update live
+input bool InpH6PreserveExistingOnEmptyUpdate = true; // don't wipe chart when tester has not built enough bars yet
+input int InpH6MinBarsForUpdate = 0;             // 0 = automatic safe minimum from L
 input bool InpH6DrawNodeChart = true;
 input bool InpH6DrawReactionBoxes = true;
+input bool InpH6DrawNodeLevels = true;
 input int InpH6ReactionMaxChartObjects = 0;      // 0 = draw all boxes/markers
+input int InpH6LevelMaxChartObjects = 0;         // 0 = draw all node levels
 
 input bool InpH6ShowPreHBoxes = true;
 input bool InpH6ShowRedHorizonBoxes = true;
@@ -31,6 +36,7 @@ input bool InpH6ShowGreenHorizonBoxes = true;
 input bool InpH6ShowPurpleHorizonBoxes = true;
 input bool InpH6ShowConsumedBoxes = false;       // false = hide boxes whose zone end was retouched/consumed
 input bool InpH6ShowOriginTouchMarkers = true;
+input bool InpH6ShowUntouchedLevels = true;
 
 input int InpH6BoxLeftAnchorMode = 0;            // 0=node pivot/origin time, 1=known/active_from time
 input int InpH6BoxRightAnchorMode = 0;           // 0=touch candle time, 1=touch candle end time
@@ -48,11 +54,13 @@ input color InpH6ColorRed = clrRed;
 input color InpH6ColorGreen = clrLime;
 input color InpH6ColorPurple = clrPurple;
 input color InpH6ColorTouchNoAway = clrYellow;
+input color InpH6ColorUntouchedLevel = clrDeepSkyBlue;
 
-input bool InpH6UpdateOnNewBar = false;
+input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prevents tick-by-tick wipe/flicker
+input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.06"
+#define DAL_M0006_NODE_BUILD "1.08"
 
 datetime g_m6_last_bar_time = 0;
 
@@ -78,11 +86,16 @@ void RunM0006NodeSurvivalMap()
    cfg.requested_closed_bars = InpBars;
    cfg.L = MathMax(1, InpL);
 
-   cfg.draw_chart = InpH6DrawNodeChart && InpH6DrawReactionBoxes;
+   cfg.draw_chart = InpH6DrawNodeChart;
+   cfg.include_live_bar = InpH6IncludeLiveBar;
+   cfg.preserve_existing_on_empty_update = InpH6PreserveExistingOnEmptyUpdate;
+   cfg.min_bars_for_update = MathMax(0, InpH6MinBarsForUpdate);
    cfg.max_boxes = InpH6ReactionMaxChartObjects;
+   cfg.max_levels = InpH6LevelMaxChartObjects;
    cfg.draw_back = InpH6ReactionBoxBack;
    cfg.fill = InpH6ReactionBoxFill;
    cfg.line_width = MathMax(1, InpH6NodeLineWidth);
+   cfg.draw_node_levels = InpH6DrawNodeLevels;
 
    cfg.show_pre_stage = InpH6ShowPreHBoxes;
    cfg.show_red_stage = InpH6ShowRedHorizonBoxes;
@@ -90,6 +103,7 @@ void RunM0006NodeSurvivalMap()
    cfg.show_purple_stage = InpH6ShowPurpleHorizonBoxes;
    cfg.show_consumed_boxes = InpH6ShowConsumedBoxes;
    cfg.show_origin_touch_markers = InpH6ShowOriginTouchMarkers;
+   cfg.show_untouched_levels = InpH6ShowUntouchedLevels;
    cfg.box_left_anchor_mode = MathMax(0, MathMin(1, InpH6BoxLeftAnchorMode));
    cfg.box_right_anchor_mode = MathMax(0, MathMin(1, InpH6BoxRightAnchorMode));
 
@@ -110,6 +124,7 @@ void RunM0006NodeSurvivalMap()
    cfg.color_green = InpH6ColorGreen;
    cfg.color_purple = InpH6ColorPurple;
    cfg.color_touch_no_away = InpH6ColorTouchNoAway;
+   cfg.color_untouched_level = InpH6ColorUntouchedLevel;
 
    string sanity = "DAL_M0006_NODE_BUILD_SANITY *** build=" + string(DAL_M0006_NODE_BUILD)
       + "*officialReport=H0006_DIRECT_ALL_NODE_REACTION_BOX_VISUAL"
@@ -119,17 +134,25 @@ void RunM0006NodeSurvivalMap()
       + "*bars=" + IntegerToString(cfg.requested_closed_bars)
       + "*L=" + IntegerToString(cfg.L)
       + "*drawChart=" + IntegerToString(cfg.draw_chart ? 1 : 0)
-      + "*maxObjects=" + IntegerToString(cfg.max_boxes)
+      + "*includeLiveBar=" + IntegerToString(cfg.include_live_bar ? 1 : 0)
+      + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
+      + "*minBarsForUpdate=" + IntegerToString(cfg.min_bars_for_update)
+      + "*updateEveryTick=" + IntegerToString(InpH6UpdateOnEveryTick ? 1 : 0)
+      + "*updateOnNewBar=" + IntegerToString(InpH6UpdateOnNewBar ? 1 : 0)
+      + "*drawLevels=" + IntegerToString(cfg.draw_node_levels ? 1 : 0)
+      + "*maxBoxObjects=" + IntegerToString(cfg.max_boxes)
+      + "*maxLevelObjects=" + IntegerToString(cfg.max_levels)
       + "*showPre=" + IntegerToString(cfg.show_pre_stage ? 1 : 0)
       + "*showRed=" + IntegerToString(cfg.show_red_stage ? 1 : 0)
       + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
       + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
       + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
+      + "*showUntouchedLevels=" + IntegerToString(cfg.show_untouched_levels ? 1 : 0)
       + "*leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
       + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
       + "*scope=all_raw_nodes_no_regime_filter"
-      + "*box=time_node_origin_to_first_touch_price_node_to_touch_extreme"
+      + "*box=zone_price_height_from_zone_start_to_zone_end_and_time_from_left_anchor_to_first_touch"
       + "*colorRule=candles_after_touch_without_zone_end_retouch";
    Print(sanity);
 
@@ -151,6 +174,13 @@ void OnDeinit(const int reason)
 
 void OnTick()
 {
+   if(InpH6UpdateOnEveryTick)
+   {
+      g_m6_last_bar_time = iTime(M6Symbol(), M6Timeframe(), 0);
+      RunM0006NodeSurvivalMap();
+      return;
+   }
+
    if(!InpH6UpdateOnNewBar)
       return;
 

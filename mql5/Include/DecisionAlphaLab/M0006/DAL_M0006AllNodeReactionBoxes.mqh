@@ -12,11 +12,16 @@ struct DALM0006ReactionBoxConfig
    int L;
 
    bool draw_chart;
+   bool include_live_bar;
+   bool preserve_existing_on_empty_update;
+   int min_bars_for_update;
    string object_prefix;
-   int max_boxes;                 // 0 = draw all
+   int max_boxes;                 // 0 = draw all boxes/markers
+   int max_levels;                // 0 = draw all levels
    bool draw_back;
    bool fill;
    int line_width;
+   bool draw_node_levels;
 
    bool show_pre_stage;
    bool show_red_stage;
@@ -24,6 +29,7 @@ struct DALM0006ReactionBoxConfig
    bool show_purple_stage;
    bool show_consumed_boxes;
    bool show_origin_touch_markers;
+   bool show_untouched_levels;
    int box_left_anchor_mode;       // 0=node pivot/origin time, 1=known/active_from time
    int box_right_anchor_mode;      // 0=touch candle open time, 1=touch candle close time
 
@@ -44,6 +50,7 @@ struct DALM0006ReactionBoxConfig
    color color_green;
    color color_purple;
    color color_touch_no_away;
+   color color_untouched_level;
 };
 
 void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
@@ -54,11 +61,16 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.L = 5;
 
    cfg.draw_chart = true;
+   cfg.include_live_bar = true;
+   cfg.preserve_existing_on_empty_update = true;
+   cfg.min_bars_for_update = 0;
    cfg.object_prefix = "DAL_H6_BOX_";
    cfg.max_boxes = 0;
+   cfg.max_levels = 0;
    cfg.draw_back = true;
    cfg.fill = true;
    cfg.line_width = 2;
+   cfg.draw_node_levels = true;
 
    cfg.show_pre_stage = true;
    cfg.show_red_stage = true;
@@ -66,6 +78,7 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.show_purple_stage = true;
    cfg.show_consumed_boxes = false;
    cfg.show_origin_touch_markers = true;
+   cfg.show_untouched_levels = true;
    cfg.box_left_anchor_mode = 0;
    cfg.box_right_anchor_mode = 0;
 
@@ -86,6 +99,7 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.color_green = clrLime;
    cfg.color_purple = clrPurple;
    cfg.color_touch_no_away = clrYellow;
+   cfg.color_untouched_level = clrDeepSkyBlue;
 }
 
 double DAL_M0006PointSafe(const string symbol)
@@ -320,6 +334,43 @@ bool DAL_M0006CreateReactionRectangle(
    return true;
 }
 
+bool DAL_M0006CreateHorizontalLevel(
+   const string name,
+   const datetime t1,
+   const datetime t2,
+   const double price,
+   const color c,
+   const DALM0006ReactionBoxConfig &cfg,
+   const string tooltip
+)
+{
+   if(!cfg.draw_chart || !cfg.draw_node_levels)
+      return false;
+
+   datetime right_time = t2;
+   if(right_time <= t1)
+   {
+      int sec = PeriodSeconds(cfg.timeframe);
+      if(sec <= 0) sec = 60;
+      right_time = t1 + sec;
+   }
+
+   ResetLastError();
+   ObjectDelete(0, name);
+   if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, price, right_time, price))
+      return false;
+
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, MathMax(1, cfg.line_width));
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_SOLID);
+   ObjectSetInteger(0, name, OBJPROP_RAY_RIGHT, false);
+   ObjectSetInteger(0, name, OBJPROP_RAY_LEFT, false);
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
+   ObjectSetInteger(0, name, OBJPROP_BACK, cfg.draw_back ? 1 : 0);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip);
+   return true;
+}
+
 bool DAL_M0006DrawTextMarker(
    const string name,
    const datetime t,
@@ -346,15 +397,36 @@ bool DAL_M0006DrawTextMarker(
 bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
 {
    DALBar bars[];
-   int bars_count = DAL_LoadBarsChronological(cfg.symbol, cfg.timeframe, cfg.requested_closed_bars, true, bars);
+   int bars_count = DAL_LoadBarsChronological(cfg.symbol, cfg.timeframe, cfg.requested_closed_bars, !cfg.include_live_bar, bars);
    if(bars_count <= 0)
    {
-      Print("DAL_M0006_DIRECT_VISUAL_AUDIT *** error=no_bars_loaded*symbol=", cfg.symbol, "*tf=", EnumToString(cfg.timeframe));
+      Print("DAL_M0006_DIRECT_VISUAL_AUDIT *** update=SKIP_PRESERVE_EXISTING*reason=no_bars_loaded*symbol=", cfg.symbol, "*tf=", EnumToString(cfg.timeframe));
+      return false;
+   }
+
+   int min_required_bars = MathMax(cfg.min_bars_for_update, MathMax(2 * MathMax(1, cfg.L) + 3, 10));
+   if(cfg.preserve_existing_on_empty_update && bars_count < min_required_bars)
+   {
+      Print("DAL_M0006_DIRECT_VISUAL_AUDIT *** update=SKIP_PRESERVE_EXISTING*reason=not_enough_bars"
+         + string("*symbol=") + cfg.symbol
+         + "*tf=" + EnumToString(cfg.timeframe)
+         + "*bars=" + IntegerToString(bars_count)
+         + "*minRequiredBars=" + IntegerToString(min_required_bars));
       return false;
    }
 
    DALLRuleNode nodes[];
    int nodes_count = DAL_DetectLRuleNodes(bars, bars_count, MathMax(1, cfg.L), nodes);
+
+   if(cfg.preserve_existing_on_empty_update && nodes_count <= 0)
+   {
+      Print("DAL_M0006_DIRECT_VISUAL_AUDIT *** update=SKIP_PRESERVE_EXISTING*reason=no_nodes_yet"
+         + string("*symbol=") + cfg.symbol
+         + "*tf=" + EnumToString(cfg.timeframe)
+         + "*bars=" + IntegerToString(bars_count)
+         + "*L=" + IntegerToString(cfg.L));
+      return false;
+   }
 
    DAL_M0006DeleteObjectsByPrefix(cfg.object_prefix);
 
@@ -367,13 +439,17 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
    double retouch_buffer = MathMax(0.0, cfg.zone_end_retouch_buffer_points) * point;
 
    int max_boxes = (cfg.max_boxes <= 0 ? 2147483647 : cfg.max_boxes);
+   int max_levels = (cfg.max_levels <= 0 ? 2147483647 : cfg.max_levels);
    int touched = 0;
    int drawn = 0;
+   int level_drawn = 0;
    int no_touch = 0;
    int away_confirmed = 0;
    int object_failures = 0;
+   int level_failures = 0;
    int retouched = 0;
    int active = 0;
+   int untouched = 0;
    int red = 0;
    int green = 0;
    int purple = 0;
@@ -383,13 +459,44 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
    int skipped_consumed = 0;
    int skipped_level = 0;
    int skipped_touch_no_away = 0;
+   int skipped_untouched = 0;
 
-   for(int n = nodes_count - 1; n >= 0 && drawn < max_boxes; n--)
+   int sec = PeriodSeconds(cfg.timeframe);
+   if(sec <= 0) sec = 60;
+   datetime live_right_time = bars[bars_count - 1].time + sec;
+
+   for(int n = nodes_count - 1; n >= 0 && (drawn < max_boxes || level_drawn < max_levels); n--)
    {
+      datetime left_time = DAL_M0006BoxLeftTime(nodes[n], cfg);
       int touch_index = DAL_M0006FindFirstTouch(bars, bars_count, nodes[n], touch_buffer);
+      string side = (nodes[n].type == DAL_NODE_HIGH ? "HIGH" : "LOW");
+
       if(touch_index < 0)
       {
          no_touch++;
+         untouched++;
+         if(cfg.draw_node_levels && cfg.show_untouched_levels && level_drawn < max_levels)
+         {
+            string level_tip = "H6 LEVEL untouched side=" + side
+               + " nodeId=" + IntegerToString(nodes[n].id)
+               + " nodeIndex=" + IntegerToString(nodes[n].index)
+               + " activeFromIndex=" + IntegerToString(nodes[n].active_from_index)
+               + " origin=" + TimeToString(nodes[n].time)
+               + " known=" + TimeToString(nodes[n].active_from_time)
+               + " levelEnd=" + TimeToString(live_right_time)
+               + " nodePrice=" + DoubleToString(nodes[n].price, _Digits)
+               + " noRegimeFilter=1";
+            string level_name = cfg.object_prefix + "LEVEL_UNTOUCHED_" + IntegerToString(nodes[n].id) + "_" + side;
+            if(DAL_M0006CreateHorizontalLevel(level_name, left_time, live_right_time, nodes[n].price, cfg.color_untouched_level, cfg, level_tip))
+               level_drawn++;
+            else
+            {
+               level_failures++;
+               last_error = GetLastError();
+            }
+         }
+         else
+            skipped_untouched++;
          continue;
       }
 
@@ -431,12 +538,8 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       }
 
       color c = DAL_M0006ColorForBox(stage, is_active, away_ok, cfg);
-      string side = (nodes[n].type == DAL_NODE_HIGH ? "HIGH" : "LOW");
       string stage_text = DAL_M0006StageText(stage, h1, h2, h3);
       string state_text = is_active ? "ACTIVE" : "CONSUMED";
-      string name = cfg.object_prefix + "BOX_" + stage_text + "_" + state_text + "_" + IntegerToString(nodes[n].id) + "_" + side;
-
-      datetime left_time = DAL_M0006BoxLeftTime(nodes[n], cfg);
       datetime right_time = DAL_M0006BoxRightTime(bars, bars_count, touch_index, cfg);
 
       string tip = "H6 ALL-NODE BOX"
@@ -454,22 +557,38 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          + " active=" + IntegerToString(is_active ? 1 : 0)
          + " candlesAfterTouchNoZoneEndRetouch=" + IntegerToString(age_after_touch)
          + " nodePrice=" + DoubleToString(nodes[n].price, _Digits)
-         + " touchExtreme=" + DoubleToString(zone_end, _Digits)
+         + " zoneStart=" + DoubleToString(nodes[n].price, _Digits)
+         + " zoneEnd=" + DoubleToString(zone_end, _Digits)
          + " leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
          + " rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
          + " noRegimeFilter=1";
 
-      if(DAL_M0006CreateReactionRectangle(name, left_time, right_time, nodes[n].price, zone_end, nodes[n].type, c, cfg, tip))
+      if(drawn < max_boxes)
       {
-         drawn++;
-      }
-      else
-      {
-         object_failures++;
-         last_error = GetLastError();
+         string name = cfg.object_prefix + "BOX_" + stage_text + "_" + state_text + "_" + IntegerToString(nodes[n].id) + "_" + side;
+         if(DAL_M0006CreateReactionRectangle(name, left_time, right_time, nodes[n].price, zone_end, nodes[n].type, c, cfg, tip))
+            drawn++;
+         else
+         {
+            object_failures++;
+            last_error = GetLastError();
+         }
       }
 
-      // Optional origin/touch markers only after the rectangle, and only if still under object budget.
+      if(cfg.draw_node_levels && level_drawn < max_levels)
+      {
+         datetime level_end = is_active ? live_right_time : bars[retouch_index].time;
+         string level_name2 = cfg.object_prefix + "LEVEL_" + stage_text + "_" + state_text + "_" + IntegerToString(nodes[n].id) + "_" + side;
+         string level_tip2 = tip + " levelEnd=" + TimeToString(level_end);
+         if(DAL_M0006CreateHorizontalLevel(level_name2, left_time, level_end, nodes[n].price, c, cfg, level_tip2))
+            level_drawn++;
+         else
+         {
+            level_failures++;
+            last_error = GetLastError();
+         }
+      }
+
       if(cfg.show_origin_touch_markers && drawn < max_boxes)
       {
          string m1 = cfg.object_prefix + "O_" + IntegerToString(nodes[n].id) + "_" + side;
@@ -488,14 +607,20 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
 
    string line = "DAL_M0006_DIRECT_VISUAL_AUDIT *** build=1.00"
       + "*engine=direct_lrule_nodes_no_event_dependency"
+      + "*update=DELETE_AND_REDRAW_VALID_SNAPSHOT"
+      + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
       + "*symbol=" + cfg.symbol
       + "*tf=" + EnumToString(cfg.timeframe)
+      + "*includeLiveBar=" + IntegerToString(cfg.include_live_bar ? 1 : 0)
       + "*bars=" + IntegerToString(bars_count)
       + "*nodes=" + IntegerToString(nodes_count)
       + "*touched=" + IntegerToString(touched)
       + "*noTouch=" + IntegerToString(no_touch)
-      + "*drawnObjects=" + IntegerToString(drawn)
+      + "*untouched=" + IntegerToString(untouched)
+      + "*drawnBoxesMarkers=" + IntegerToString(drawn)
+      + "*drawnLevels=" + IntegerToString(level_drawn)
       + "*objectFailures=" + IntegerToString(object_failures)
+      + "*levelFailures=" + IntegerToString(level_failures)
       + "*lastObjectError=" + IntegerToString(last_error)
       + "*awayConfirmed=" + IntegerToString(away_confirmed)
       + "*activeNoZoneEndRetouch=" + IntegerToString(active)
@@ -512,10 +637,12 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
       + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
       + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
+      + "*showUntouchedLevels=" + IntegerToString(cfg.show_untouched_levels ? 1 : 0)
       + "*leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
       + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*scope=all_raw_nodes_no_regime_filter"
-      + "*box=left_anchor_to_first_touch_price_node_to_touch_extreme"
+      + "*box=zone_price_height_from_zone_start_to_zone_end_and_time_from_left_anchor_to_first_touch"
+      + "*levels=live_horizontal_node_levels_with_stage_color_updates"
       + "*colorRule=candles_after_touch_without_zone_end_retouch";
    Print(line);
 
