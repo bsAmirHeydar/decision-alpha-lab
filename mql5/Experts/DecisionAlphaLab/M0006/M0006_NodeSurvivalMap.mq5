@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.08"
-#property description "Official H0006 visual engine with stable new-bar updates, live levels, and exact zone boxes"
+#property version   "1.10"
+#property description "Official H0006 visual engine with delayed post-touch zone boxes and live levels"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -30,13 +30,14 @@ input bool InpH6DrawNodeLevels = true;
 input int InpH6ReactionMaxChartObjects = 0;      // 0 = draw all boxes/markers
 input int InpH6LevelMaxChartObjects = 0;         // 0 = draw all node levels
 
-input bool InpH6ShowPreHBoxes = true;
+input bool InpH6ShowPreHBoxes = false;
 input bool InpH6ShowRedHorizonBoxes = true;
 input bool InpH6ShowGreenHorizonBoxes = true;
 input bool InpH6ShowPurpleHorizonBoxes = true;
 input bool InpH6ShowConsumedBoxes = false;       // false = hide boxes whose zone end was retouched/consumed
 input bool InpH6ShowOriginTouchMarkers = true;
 input bool InpH6ShowUntouchedLevels = true;
+input bool InpH6DrawBoxesOnlyAfterHorizon = true; // box appears only after H1/H2/H3 candles pass after touch
 
 input int InpH6BoxLeftAnchorMode = 0;            // 0=node pivot/origin time, 1=known/active_from time
 input int InpH6BoxRightAnchorMode = 0;           // 0=touch candle time, 1=touch candle end time
@@ -60,7 +61,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.08"
+#define DAL_M0006_NODE_BUILD "1.10"
 
 datetime g_m6_last_bar_time = 0;
 
@@ -97,6 +98,7 @@ void RunM0006NodeSurvivalMap()
    cfg.line_width = MathMax(1, InpH6NodeLineWidth);
    cfg.draw_node_levels = InpH6DrawNodeLevels;
 
+   cfg.draw_boxes_only_after_horizon = InpH6DrawBoxesOnlyAfterHorizon;
    cfg.show_pre_stage = InpH6ShowPreHBoxes;
    cfg.show_red_stage = InpH6ShowRedHorizonBoxes;
    cfg.show_green_stage = InpH6ShowGreenHorizonBoxes;
@@ -142,6 +144,7 @@ void RunM0006NodeSurvivalMap()
       + "*drawLevels=" + IntegerToString(cfg.draw_node_levels ? 1 : 0)
       + "*maxBoxObjects=" + IntegerToString(cfg.max_boxes)
       + "*maxLevelObjects=" + IntegerToString(cfg.max_levels)
+      + "*drawBoxesOnlyAfterHorizon=" + IntegerToString(cfg.draw_boxes_only_after_horizon ? 1 : 0)
       + "*showPre=" + IntegerToString(cfg.show_pre_stage ? 1 : 0)
       + "*showRed=" + IntegerToString(cfg.show_red_stage ? 1 : 0)
       + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
@@ -152,7 +155,7 @@ void RunM0006NodeSurvivalMap()
       + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
       + "*scope=all_raw_nodes_no_regime_filter"
-      + "*box=zone_price_height_from_zone_start_to_zone_end_and_time_from_left_anchor_to_first_touch"
+      + "*box=drawn_only_after_horizon_elapsed_after_touch_and_price_zone_start_to_zone_end"
       + "*colorRule=candles_after_touch_without_zone_end_retouch";
    Print(sanity);
 

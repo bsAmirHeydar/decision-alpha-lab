@@ -59,3 +59,15 @@ Release 120 visual-tester stability fix:
 - Empty / early visual-tester snapshots no longer delete existing chart objects.
 - `InpH6PreserveExistingOnEmptyUpdate=true` preserves current drawings when the tester has not yet built enough bars or no nodes exist.
 - The audit now prints `SKIP_PRESERVE_EXISTING` when an update is intentionally skipped without wiping objects.
+
+
+Release 121 delayed zone-box maturity fix:
+- Live node levels may be drawn immediately, but reaction zone boxes are delayed by default.
+- `InpH6DrawBoxesOnlyAfterHorizon=true` means a colored zone box appears only after H1/H2/H3 candles have elapsed after the first touch without zone-end retouch.
+- `InpH6ShowPreHBoxes=false` by default, so pre-H1 touch boxes are not drawn.
+- Origin/touch markers are only drawn when the actual matured zone box is drawn.
+- Audit output reports `skippedBoxNotMatured` for touched zones that are not old enough yet.
+
+
+Release 122 compile fix:
+- Fix the touch marker color variable after delayed-box maturity refactor: `c` -> `box_color`.
