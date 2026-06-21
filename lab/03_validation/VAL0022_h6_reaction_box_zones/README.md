@@ -156,3 +156,69 @@ Release 132 official box semantics:
 - Candle counting starts at the candle after touch. The touch candle itself is not counted.
 - The box appears when the requested horizon is reached before the back end of the zone is retouched.
 - Existing boxes are never deleted by live updates. Color updates continue by stage/horizon, and geometry can update in-place if enabled.
+
+
+Release 133 high/low-only official policy:
+- Official H6 no longer depends on candle close.
+- Touch uses high/low only.
+- Zone-back-end retouch uses high/low only.
+- Maturity/color updates use candle count starting from the candle after touch.
+- `InpH6RequireCloseAwayAfterTouch=false` is now the official default. The close-away check is legacy/debug-only.
+
+
+Release 134 quiet + backfill maturity fix:
+- Disable heavy Journal prints by default with `InpH6PrintAudit=false`.
+- Fix historical/backfill logic: if a zone reached a horizon before a later zone-back retouch, the box is drawn and preserved.
+- Later retouch no longer prevents drawing a box that would have appeared candle-by-candle.
+- Add `docs/debug/H6_BOX_ALGORITHM_README.md` as the canonical H6 box algorithm specification.
+
+
+Release 135 M0001 event-source refactor:
+- H6 no longer computes touch, zone, revisit, or invalidation independently.
+- H6 draws boxes directly from `DAL_M0001ComputeEvents()` output.
+- Box vertical geometry is exactly `event.territory_lower` to `event.territory_upper`.
+- Touch is the official M0001 `DAL_CandleIntersectsZone` revisit entry.
+- Box color is based on `event.exit_index - event.entry_index` against H6 horizons.
+- Persistent boxes are upsert-only and never deleted by live updates.
+
+
+Release 136 fast box-only reset:
+- Replace H6 visual engine with a compact M0001-event-source visualizer.
+- Draw every confirmed M0001 event by default, including pre-horizon events, so touched/revisited events do not disappear.
+- Remove tick execution path; H6 runs only on init and new candles.
+- Remove line/marker/level/debug drawing and keep only persistent upserted rectangles.
+- Keep prints disabled by default and reduce audit to one compact optional line.
+
+
+Release 137 time-origin fix:
+- Box horizontal origin is exactly the original node candle time: `event.node_time`.
+- Box horizontal destination is exactly the first M0001 touch/revisit candle time: `event.entry_time`.
+- This includes wick/shadow-only touches because M0001 entry is based on candle range intersecting the frozen territory.
+- H6 no longer uses horizon, exit, or latest-bar time as the rectangle right edge.
+- `InpH6BoxRightMode` was removed; the time policy is fixed and official.
+
+
+Release 138 color update fix:
+- Box color age is now based on `event.rtv_sample_length - 1`.
+- This matches the official candle count: the touch candle is zero and M0001 exit-gap candles are not counted.
+- Existing box colors are monotonic by default: pre -> red -> green -> purple.
+- A persistent box never downgrades color during later live windows or partial recalculations.
+- `InpH6NeverDowngradeBoxColor=true` controls this behavior.
+
+
+Release 139 dynamic color tracking:
+- H6 box color no longer depends on `event.rtv_sample_length` or `event.exit_index`.
+- After a confirmed M0001 touch/revisit creates a box, H6 checks every closed candle after entry.
+- Color tracking stops only when the far/back side of the frozen M0001 territory is hit or the purple/highest horizon is reached.
+- HIGH node back side = `event.territory_upper`; LOW node back side = `event.territory_lower`.
+- The touch candle is zero; the first closed candle after touch is one.
+- Persistent box names no longer include `revisit_id`, so the same node/touch box updates reliably across live windows.
+- Official default is closed-candle only: `InpH6IncludeLiveBar=false`.
+
+
+Release 140 valid-zone color lifecycle:
+- Zone-back hit before the max/purple horizon invalidates the box.
+- If an orange/red/green box already existed and the zone back is hit before purple, it is deleted/hidden because the zone no longer has value.
+- If purple is reached before any zone-back hit, the box is considered completed and remains purple; later zone-back hits are not tracked.
+- Colors are visible only while the frozen M0001 territory back side has not been hit.
+- New input: `InpH6InvalidateOnZoneBackHitBeforeMax=true`.

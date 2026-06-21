@@ -129,3 +129,26 @@ The check runs once per new candle, not on every tick.
 Release 104 compile fix:
 - Replace long variadic `Print(...)` audit calls with single-string audit/sanity messages.
 - This avoids MQL5 `wrong parameters count` errors from too many Print arguments.
+
+
+Release 105 internal opposite-node TP manager:
+
+Initial fixed-R take-profit is disabled by default:
+- `InpRewardR = 0.0`
+
+Open-position exit is now managed on every new candle:
+- `InpUseInternalOppositeNodeTP = true`
+- `InpExitOppositeInternalNodeCount = 3`
+- `InpModifyPositionTPOnEveryNewBar = true`
+
+BUY position rule:
+- After a BUY position is opened from a LOW origin zone, E0006 counts valid internal HIGH nodes created after the position entry time.
+- When the N-th internal HIGH node becomes valid, E0006 places/modifies the position TP at that HIGH node price.
+
+SELL position rule:
+- After a SELL position is opened from a HIGH origin zone, E0006 counts valid internal LOW nodes created after the position entry time.
+- When the N-th internal LOW node becomes valid, E0006 places/modifies the position TP at that LOW node price.
+
+The internal nodes use `InpInternalNodeL`.
+The TP manager runs once per new candle, not on every tick.
+If `InpRewardR > 0`, pending orders still receive an initial fixed-R TP. With the default zero value, pending orders are placed with TP=0 and the internal opposite-node TP manager owns the exit.

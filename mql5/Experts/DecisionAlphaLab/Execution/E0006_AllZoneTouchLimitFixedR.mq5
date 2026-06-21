@@ -3,8 +3,8 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.04"
-#property description "Execution module E0006: all M0001 zones with internal same-side hunt qualification."
+#property version   "1.05"
+#property description "Execution module E0006: all M0001 zones with internal hunt qualification and opposite-node TP."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -34,7 +34,7 @@ input bool InpInternalHuntSameSideOnly = true;
 // Execution model: all valid live zones, no trade-count cap.
 input long InpMagicNumber = 6006006;
 input double InpRiskCash = 100.0;
-input double InpRewardR = 20.0;
+input double InpRewardR = 0.0;              // 0 = no initial fixed-R TP; use internal opposite-node TP manager
 input string InpOrderCommentPrefix = "DALE6";
 input int InpPendingExpirationMinutes = 0;        // 0 = GTC
 input int InpMaxNodesScan = 0;                    // 0 = scan all confirmed nodes
@@ -44,10 +44,17 @@ input int InpMaxBuyOpenPositionsBeforeBlock = 0;   // 0 = off; if BUY positions 
 input int InpMaxSellOpenPositionsBeforeBlock = 0;  // 0 = off; if SELL positions >= this, delete/block SELL pending
 input bool InpDeleteSidePendingWhenOpenCapHit = true; // force-delete side pending orders when open-position cap is reached
 
+// Exit model.
+// For BUY positions: count valid internal HIGH nodes after entry; TP is placed at the N-th HIGH.
+// For SELL positions: count valid internal LOW nodes after entry; TP is placed at the N-th LOW.
+input bool InpUseInternalOppositeNodeTP = true;
+input int InpExitOppositeInternalNodeCount = 3;
+input bool InpModifyPositionTPOnEveryNewBar = true;
+
 // Spread adjustments requested for the exact limit model.
 input double InpBuyEntrySpreadMultiplier = 1.0;    // buy limit = LOW-zone upper edge + spread * multiplier
 input double InpSellStopSpreadMultiplier = 1.0;    // sell SL = HIGH-zone upper edge + spread * multiplier
-input double InpSellTpSpreadMultiplier = 1.0;      // sell TP = fixed-R TP + spread * multiplier
+input double InpSellTpSpreadMultiplier = 1.0;      // used only when InpRewardR > 0
 
 // Risk and broker mechanics.
 input bool InpAllowMinLotIfRiskTooSmall = false;
@@ -70,7 +77,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.04"
+#define DAL_E0006_BUILD "1.05"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -443,7 +450,7 @@ bool E0006_BuildZoneSetup(
    }
 
    double spread = DAL_ExecCurrentSpreadPrice(symbol);
-   double reward_r = MathMax(0.01, InpRewardR);
+   double reward_r = (InpRewardR > 0.0 ? MathMax(0.01, InpRewardR) : 0.0);
 
    setup.node_id = node.id;
    setup.node_index = node.index;
@@ -467,7 +474,7 @@ bool E0006_BuildZoneSetup(
       setup.entry = upper + spread * MathMax(0.0, InpBuyEntrySpreadMultiplier);
       setup.sl = lower;
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
-      setup.tp = setup.entry + setup.risk_distance * reward_r;
+      setup.tp = (InpRewardR > 0.0 ? setup.entry + setup.risk_distance * reward_r : 0.0);
    }
    else
    {
@@ -477,7 +484,7 @@ bool E0006_BuildZoneSetup(
       setup.entry = lower;
       setup.sl = upper + spread * MathMax(0.0, InpSellStopSpreadMultiplier);
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
-      setup.tp = setup.entry - setup.risk_distance * reward_r + spread * MathMax(0.0, InpSellTpSpreadMultiplier);
+      setup.tp = (InpRewardR > 0.0 ? setup.entry - setup.risk_distance * reward_r + spread * MathMax(0.0, InpSellTpSpreadMultiplier) : 0.0);
    }
 
    if(setup.risk_distance <= 0.0)
@@ -616,6 +623,175 @@ bool E0006_PricesCloseEnough(const string symbol, const double a, const double b
    return (MathAbs(a - b) <= point * 0.5);
 }
 
+bool E0006_CheckLimitGeometryAllowOptionalTP(
+   const string symbol,
+   const int direction,
+   const double entry,
+   const double sl,
+   const double tp,
+   string &reason
+)
+{
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+
+   if(point <= 0.0 || bid <= 0.0 || ask <= 0.0)
+   {
+      reason = "invalid_market_quote";
+      return false;
+   }
+
+   if(direction > 0)
+   {
+      if(!(sl < entry))
+      {
+         reason = "invalid_buy_sl_geometry";
+         return false;
+      }
+      if(tp > 0.0 && !(tp > entry))
+      {
+         reason = "invalid_buy_tp_geometry";
+         return false;
+      }
+      if(!(entry < ask - min_dist))
+      {
+         reason = "buy_limit_not_below_ask_or_too_close";
+         return false;
+      }
+   }
+   else if(direction < 0)
+   {
+      if(!(sl > entry))
+      {
+         reason = "invalid_sell_sl_geometry";
+         return false;
+      }
+      if(tp > 0.0 && !(tp < entry))
+      {
+         reason = "invalid_sell_tp_geometry";
+         return false;
+      }
+      if(!(entry > bid + min_dist))
+      {
+         reason = "sell_limit_not_above_bid_or_too_close";
+         return false;
+      }
+   }
+   else
+   {
+      reason = "zero_direction";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+bool E0006_PlaceLimitOrderAllowOptionalTP(
+   const string symbol,
+   const long magic,
+   const int direction,
+   const double volume,
+   double entry,
+   double sl,
+   double tp,
+   const string comment,
+   const int expiration_minutes,
+   CTrade &trade,
+   string &reason
+)
+{
+   DAL_ExecNormalizePrices(symbol, entry, sl, tp);
+
+   if(!E0006_CheckLimitGeometryAllowOptionalTP(symbol, direction, entry, sl, tp, reason))
+      return false;
+
+   if(volume <= 0.0)
+   {
+      reason = "volume_zero";
+      return false;
+   }
+
+   datetime expiration = 0;
+   ENUM_ORDER_TYPE_TIME type_time = ORDER_TIME_GTC;
+   if(expiration_minutes > 0)
+   {
+      type_time = ORDER_TIME_SPECIFIED;
+      expiration = TimeCurrent() + expiration_minutes * 60;
+   }
+
+   trade.SetExpertMagicNumber(magic);
+
+   bool ok = false;
+   if(direction > 0)
+      ok = trade.BuyLimit(volume, entry, symbol, sl, tp, type_time, expiration, comment);
+   else
+      ok = trade.SellLimit(volume, entry, symbol, sl, tp, type_time, expiration, comment);
+
+   if(!ok)
+   {
+      reason = "trade_send_failed_retcode_" + IntegerToString((int)trade.ResultRetcode()) + "_" + trade.ResultRetcodeDescription();
+      return false;
+   }
+
+   reason = "ok_ticket_" + IntegerToString((int)trade.ResultOrder());
+   return true;
+}
+
+bool E0006_CheckPositionTPGeometry(
+   const string symbol,
+   const int direction,
+   const double tp,
+   string &reason
+)
+{
+   if(tp <= 0.0)
+   {
+      reason = "tp_zero";
+      return false;
+   }
+
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+
+   if(point <= 0.0 || bid <= 0.0 || ask <= 0.0)
+   {
+      reason = "invalid_market_quote";
+      return false;
+   }
+
+   if(direction > 0)
+   {
+      if(!(tp > bid + min_dist))
+      {
+         reason = "buy_tp_not_above_bid_or_too_close";
+         return false;
+      }
+   }
+   else if(direction < 0)
+   {
+      if(!(tp < ask - min_dist))
+      {
+         reason = "sell_tp_not_below_ask_or_too_close";
+         return false;
+      }
+   }
+   else
+   {
+      reason = "zero_direction";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
 bool E0006_ModifyPendingOrder(const ulong ticket, double entry, double sl, double tp, string &reason)
 {
    if(ticket == 0 || !OrderSelect(ticket))
@@ -626,6 +802,14 @@ bool E0006_ModifyPendingOrder(const ulong ticket, double entry, double sl, doubl
 
    string symbol = OrderGetString(ORDER_SYMBOL);
    DAL_ExecNormalizePrices(symbol, entry, sl, tp);
+
+   int direction = E0006_OrderDirectionFromType((ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE));
+   string geometry_reason = "";
+   if(!E0006_CheckLimitGeometryAllowOptionalTP(symbol, direction, entry, sl, tp, geometry_reason))
+   {
+      reason = "geometry_" + geometry_reason;
+      return false;
+   }
 
    datetime expiration = 0;
    ENUM_ORDER_TYPE_TIME type_time = ORDER_TIME_GTC;
@@ -664,7 +848,7 @@ bool E0006_UpsertLimitOrder(const E0006ZoneSetup &s, string &reason)
    }
 
    string geometry_reason = "";
-   if(!DAL_ExecCheckLimitGeometry(symbol, s.direction, s.entry, s.sl, s.tp, geometry_reason))
+   if(!E0006_CheckLimitGeometryAllowOptionalTP(symbol, s.direction, s.entry, s.sl, s.tp, geometry_reason))
    {
       reason = "geometry_" + geometry_reason;
       return false;
@@ -717,7 +901,7 @@ bool E0006_UpsertLimitOrder(const E0006ZoneSetup &s, string &reason)
    }
 
    string place_reason = "";
-   bool ok = DAL_ExecPlaceLimitOrder(symbol, InpMagicNumber, s.direction, risk.volume, s.entry, s.sl, s.tp, s.comment, InpPendingExpirationMinutes, g_trade, place_reason);
+   bool ok = E0006_PlaceLimitOrderAllowOptionalTP(symbol, InpMagicNumber, s.direction, risk.volume, s.entry, s.sl, s.tp, s.comment, InpPendingExpirationMinutes, g_trade, place_reason);
    reason = place_reason;
    return ok;
 }
@@ -785,6 +969,185 @@ void E0006_DeleteStalePendingOrders(const string &desired_comments[], int &delet
    }
 }
 
+bool E0006_FindNthOppositeInternalNodeAfterEntry(
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const int position_direction,
+   const datetime entry_time,
+   const double entry_price,
+   const int required_count,
+   DALLRuleNode &target_node,
+   int &found_count,
+   string &reason
+)
+{
+   found_count = 0;
+   reason = "not_found";
+
+   int required = MathMax(1, required_count);
+   ENUM_DALNodeType target_type = (position_direction > 0 ? DAL_NODE_HIGH : DAL_NODE_LOW);
+
+   for(int i = 0; i < internal_nodes_count; i++)
+   {
+      DALLRuleNode node = internal_nodes[i];
+      if(!node.confirmed)
+         continue;
+      if(node.type != target_type)
+         continue;
+
+      // "after entry" means the internal node must become valid after the position entry time.
+      if(node.active_from_time <= entry_time)
+         continue;
+
+      // TP geometry relative to the actual filled entry.
+      if(position_direction > 0 && node.price <= entry_price)
+         continue;
+      if(position_direction < 0 && node.price >= entry_price)
+         continue;
+
+      found_count++;
+      if(found_count >= required)
+      {
+         target_node = node;
+         reason = "ok";
+         return true;
+      }
+   }
+
+   reason = "opposite_internal_nodes_" + IntegerToString(found_count) + "_of_" + IntegerToString(required);
+   return false;
+}
+
+bool E0006_ModifyPositionTPByTicket(
+   const ulong ticket,
+   const double sl,
+   const double tp,
+   string &reason
+)
+{
+   g_trade.SetExpertMagicNumber(InpMagicNumber);
+   if(!g_trade.PositionModify(ticket, sl, tp))
+   {
+      reason = "position_modify_failed_retcode_" + IntegerToString((int)g_trade.ResultRetcode()) + "_" + g_trade.ResultRetcodeDescription();
+      return false;
+   }
+
+   reason = "ok_modified_" + IntegerToString((int)ticket);
+   return true;
+}
+
+void E0006_SyncOpenPositionInternalNodeTP(
+   const string symbol,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const string run_mode,
+   int &tp_checked,
+   int &tp_waiting,
+   int &tp_modified,
+   int &tp_rejected
+)
+{
+   tp_checked = 0;
+   tp_waiting = 0;
+   tp_modified = 0;
+   tp_rejected = 0;
+
+   if(!InpUseInternalOppositeNodeTP || !InpModifyPositionTPOnEveryNewBar)
+      return;
+
+   int required_count = MathMax(1, InpExitOppositeInternalNodeCount);
+   string prefix = E0006_ManagedCommentPrefix();
+
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != InpMagicNumber)
+         continue;
+
+      string comment = PositionGetString(POSITION_COMMENT);
+      if(StringFind(comment, prefix, 0) != 0)
+         continue;
+
+      ENUM_POSITION_TYPE type = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+      int direction = (type == POSITION_TYPE_BUY ? +1 : (type == POSITION_TYPE_SELL ? -1 : 0));
+      if(direction == 0)
+         continue;
+
+      tp_checked++;
+
+      datetime entry_time = (datetime)PositionGetInteger(POSITION_TIME);
+      double entry_price = PositionGetDouble(POSITION_PRICE_OPEN);
+      double sl = PositionGetDouble(POSITION_SL);
+      double old_tp = PositionGetDouble(POSITION_TP);
+
+      DALLRuleNode target;
+      int found_count = 0;
+      string find_reason = "";
+      if(!E0006_FindNthOppositeInternalNodeAfterEntry(internal_nodes, internal_nodes_count, direction, entry_time, entry_price, required_count, target, found_count, find_reason))
+      {
+         tp_waiting++;
+         continue;
+      }
+
+      double new_tp = target.price;
+      int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+      new_tp = NormalizeDouble(new_tp, digits);
+
+      if(E0006_PricesCloseEnough(symbol, old_tp, new_tp))
+         continue;
+
+      string geometry_reason = "";
+      if(!E0006_CheckPositionTPGeometry(symbol, direction, new_tp, geometry_reason))
+      {
+         tp_rejected++;
+         if(InpPrintOrderLogs)
+            Print("DAL_E0006_TP_SKIP *** build=", DAL_E0006_BUILD,
+               "*runMode=", run_mode,
+               "*ticket=", ticket,
+               "*dir=", direction,
+               "*requiredOppositeNodes=", required_count,
+               "*foundOppositeNodes=", found_count,
+               "*targetNodeId=", target.id,
+               "*targetPrice=", DoubleToString(new_tp, digits),
+               "*reason=", geometry_reason);
+         continue;
+      }
+
+      string mod_reason = "";
+      if(E0006_ModifyPositionTPByTicket(ticket, sl, new_tp, mod_reason))
+      {
+         tp_modified++;
+         if(InpPrintOrderLogs)
+            Print("DAL_E0006_TP_SET *** build=", DAL_E0006_BUILD,
+               "*runMode=", run_mode,
+               "*ticket=", ticket,
+               "*dir=", direction,
+               "*requiredOppositeNodes=", required_count,
+               "*targetNodeId=", target.id,
+               "*targetNodeTime=", E0006_FormatDateTime(target.time),
+               "*targetActiveFrom=", E0006_FormatDateTime(target.active_from_time),
+               "*tp=", DoubleToString(new_tp, digits),
+               "*reason=", mod_reason);
+      }
+      else
+      {
+         tp_rejected++;
+         if(InpPrintOrderLogs)
+            Print("DAL_E0006_TP_MODIFY_FAIL *** build=", DAL_E0006_BUILD,
+               "*runMode=", run_mode,
+               "*ticket=", ticket,
+               "*dir=", direction,
+               "*targetNodeId=", target.id,
+               "*tp=", DoubleToString(new_tp, digits),
+               "*reason=", mod_reason);
+      }
+   }
+}
+
 void E0006_ProcessNewBar(const string run_mode)
 {
    string session_reason = "";
@@ -804,6 +1167,9 @@ void E0006_ProcessNewBar(const string run_mode)
          Print("DAL_E0006_SKIP *** build=", DAL_E0006_BUILD, "*runMode=", run_mode, "*reason=", load_reason);
       return;
    }
+
+   int tp_checked = 0, tp_waiting = 0, tp_modified = 0, tp_rejected = 0;
+   E0006_SyncOpenPositionInternalNodeTP(E0006_Symbol(), internal_nodes, internal_nodes_count, run_mode, tp_checked, tp_waiting, tp_modified, tp_rejected);
 
    DALM0001Config m1;
    E0006_BuildM0001Config(m1);
@@ -989,6 +1355,14 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*staleKept=" + IntegerToString(stale_kept)
          + "*staleFailed=" + IntegerToString(stale_failed)
          + "*rewardR=" + DoubleToString(InpRewardR, 2)
+      + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)
+      + "*exitOppositeInternalNodeCount=" + IntegerToString(InpExitOppositeInternalNodeCount)
+         + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)
+         + "*exitOppositeInternalNodeCount=" + IntegerToString(MathMax(1, InpExitOppositeInternalNodeCount))
+         + "*tpChecked=" + IntegerToString(tp_checked)
+         + "*tpWaiting=" + IntegerToString(tp_waiting)
+         + "*tpModified=" + IntegerToString(tp_modified)
+         + "*tpRejected=" + IntegerToString(tp_rejected)
          + "*mode=ALL_LIVE_M0001_ZONES_WITH_INTERNAL_SAME_SIDE_HUNT_FILTER_NEW_BAR_ONLY";
       Print(audit);
    }
