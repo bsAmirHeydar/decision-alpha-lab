@@ -27,11 +27,11 @@ Release 113 visual correction:
 - Horizontal span stays from node-origin known time to first touch time; vertical span stays from node price to first touch extreme.
 
 
-Release 116 logic update:
-- Chart drawing no longer waits for H1 maturity; pre-H1 boxes are also drawn.
-- Reaction rectangles are now drawn for every touched raw node, with no regime filter.
-- A box no longer requires a later explicit away-confirm bar to be drawn.
-- Box time span: from node known-time to first touch time.
-- Box price span: from node price to the touch extreme on the touch bar.
-- Box color is based on the number of candles after the touch during which the far edge of the zone is not retouched.
-- Color stages: pre-H1 active=orange, pre-H1 closed=silver, H1=red, H2=green, H3=purple.
+Release 117 hard visual reset:
+- M0006_NodeSurvivalMap now uses a direct L-rule raw-node visual engine.
+- Drawing no longer depends on M0001 events, H4 reports, regime labels, reversal/continuation classification, or confirmation events.
+- Every touched raw node can draw a rectangle.
+- Rectangle width is exactly node origin time to first touch time.
+- Rectangle height is exactly node price to touch extreme.
+- Color is based only on candles after touch without retouching the zone end.
+- `DAL_M0006_DIRECT_VISUAL_AUDIT` reports nodes, touched, drawn objects, object failures, and last object error.
