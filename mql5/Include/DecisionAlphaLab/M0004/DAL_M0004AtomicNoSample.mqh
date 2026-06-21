@@ -46,6 +46,20 @@ struct DALM0004AtomicNoSampleConfig
    bool h6_report_main_horizon;
    bool h6_report_slow_horizon;
    bool h6_print_compute_audit;
+   bool h6_candle_stream_mode;       // true = forward candle stream measurement; no future-read loops per bucket
+   bool h6_require_full_horizon;     // true = skip observations without a complete future horizon
+   bool h6_node_survival_report;     // true = H0006 node survival / no-break map instead of optionality stats
+   bool h6_node_draw_chart;          // draw/update surviving node levels on chart
+   int h6_node_horizon_1;            // first survival maturity, default 20 candles
+   int h6_node_horizon_2;            // second survival maturity, default 50 candles
+   int h6_node_horizon_3;            // third survival maturity, default 100 candles
+   double h6_node_touch_buffer_points; // optional near-node touch buffer in points
+   double h6_node_break_buffer_points; // optional break buffer in points
+   int h6_node_max_chart_objects;    // cap chart objects for speed/clarity
+   int h6_node_line_width;
+   color h6_node_color_1;
+   color h6_node_color_2;
+   color h6_node_color_3;
    bool print_human_context_report;
    bool stress_context_shuffle;
    int h6_horizon_fast;
@@ -105,6 +119,20 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpH6ReportMainHorizon g_dal_m0004_atomic_cfg.h6_report_main_horizon
 #define InpH6ReportSlowHorizon g_dal_m0004_atomic_cfg.h6_report_slow_horizon
 #define InpH6PrintComputeAudit g_dal_m0004_atomic_cfg.h6_print_compute_audit
+#define InpH6CandleStreamMode g_dal_m0004_atomic_cfg.h6_candle_stream_mode
+#define InpH6RequireFullHorizon g_dal_m0004_atomic_cfg.h6_require_full_horizon
+#define InpH6NodeSurvivalReport g_dal_m0004_atomic_cfg.h6_node_survival_report
+#define InpH6NodeDrawChart g_dal_m0004_atomic_cfg.h6_node_draw_chart
+#define InpH6NodeHorizon1 g_dal_m0004_atomic_cfg.h6_node_horizon_1
+#define InpH6NodeHorizon2 g_dal_m0004_atomic_cfg.h6_node_horizon_2
+#define InpH6NodeHorizon3 g_dal_m0004_atomic_cfg.h6_node_horizon_3
+#define InpH6NodeTouchBufferPoints g_dal_m0004_atomic_cfg.h6_node_touch_buffer_points
+#define InpH6NodeBreakBufferPoints g_dal_m0004_atomic_cfg.h6_node_break_buffer_points
+#define InpH6NodeMaxChartObjects g_dal_m0004_atomic_cfg.h6_node_max_chart_objects
+#define InpH6NodeLineWidth g_dal_m0004_atomic_cfg.h6_node_line_width
+#define InpH6NodeColor1 g_dal_m0004_atomic_cfg.h6_node_color_1
+#define InpH6NodeColor2 g_dal_m0004_atomic_cfg.h6_node_color_2
+#define InpH6NodeColor3 g_dal_m0004_atomic_cfg.h6_node_color_3
 #define InpAtomicPrintHumanContextReport g_dal_m0004_atomic_cfg.print_human_context_report
 #define InpAtomicStressContextShuffle g_dal_m0004_atomic_cfg.stress_context_shuffle
 #define InpH6HorizonBarsFast g_dal_m0004_atomic_cfg.h6_horizon_fast
@@ -129,7 +157,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.06"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.07"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -1483,26 +1511,14 @@ void D0010_PrintLastOnlyQuality(const int &labels[], const int n)
 
 void D0010_SortDoubleArray(double &a[], const int n)
 {
-   for(int i = 1; i < n; i++)
-   {
-      double key = a[i];
-      int j = i - 1;
-      while(j >= 0 && a[j] > key)
-      {
-         a[j + 1] = a[j];
-         j--;
-      }
-      a[j + 1] = key;
-   }
+   if(n <= 1) return;
+   // MQL5 built-in sort is much faster than the old insertion sort for H6 tail stats.
+   ArraySort(a);
 }
 
-double D0010_QuantileOfValues(double &src[], const int n, const double q)
+double D0010_QuantileFromSorted(const double &x[], const int n, const double q)
 {
    if(n <= 0) return 0.0;
-   double x[];
-   ArrayResize(x, n);
-   for(int i = 0; i < n; i++) x[i] = src[i];
-   D0010_SortDoubleArray(x, n);
    double qq = q;
    if(qq < 0.0) qq = 0.0;
    if(qq > 1.0) qq = 1.0;
@@ -1514,6 +1530,16 @@ double D0010_QuantileOfValues(double &src[], const int n, const double q)
    if(lo == hi) return x[lo];
    double w = pos - lo;
    return x[lo] * (1.0 - w) + x[hi] * w;
+}
+
+double D0010_QuantileOfValues(double &src[], const int n, const double q)
+{
+   if(n <= 0) return 0.0;
+   double x[];
+   ArrayResize(x, n);
+   for(int i = 0; i < n; i++) x[i] = src[i];
+   D0010_SortDoubleArray(x, n);
+   return D0010_QuantileFromSorted(x, n, q);
 }
 
 double D0010_Log2(const double x)
@@ -1749,12 +1775,12 @@ void D0010_ComputeValueStats(const double &values[], const int &labels[], const 
 {
    st.n = 0; st.mean = 0.0; st.median = 0.0; st.p75 = 0.0; st.p90 = 0.0; st.p95 = 0.0; st.p99 = 0.0; st.maxv = 0.0; st.hit1 = 0.0; st.hit2 = 0.0; st.hit3 = 0.0; st.top10_share = 0.0;
    double x[];
+   ArrayResize(x, n);
    int m = 0, h1 = 0, h2 = 0, h3 = 0;
    double sum = 0.0;
    for(int i = 0; i < n; i++)
    {
       if(labels[i] != wanted) continue;
-      ArrayResize(x, m + 1);
       x[m] = values[i];
       sum += values[i];
       if(values[i] > st.maxv) st.maxv = values[i];
@@ -1765,16 +1791,17 @@ void D0010_ComputeValueStats(const double &values[], const int &labels[], const 
    }
    st.n = m;
    if(m <= 0) return;
+   if(m < n) ArrayResize(x, m);
    st.mean = D0010_SafeDiv(sum, m);
-   st.median = D0010_QuantileOfValues(x, m, 0.50);
-   st.p75 = D0010_QuantileOfValues(x, m, 0.75);
-   st.p90 = D0010_QuantileOfValues(x, m, 0.90);
-   st.p95 = D0010_QuantileOfValues(x, m, 0.95);
-   st.p99 = D0010_QuantileOfValues(x, m, 0.99);
+   D0010_SortDoubleArray(x, m);
+   st.median = D0010_QuantileFromSorted(x, m, 0.50);
+   st.p75 = D0010_QuantileFromSorted(x, m, 0.75);
+   st.p90 = D0010_QuantileFromSorted(x, m, 0.90);
+   st.p95 = D0010_QuantileFromSorted(x, m, 0.95);
+   st.p99 = D0010_QuantileFromSorted(x, m, 0.99);
    st.hit1 = D0010_SafePct(h1, m);
    st.hit2 = D0010_SafePct(h2, m);
    st.hit3 = D0010_SafePct(h3, m);
-   D0010_SortDoubleArray(x, m);
    int tail_start = (int)MathFloor(0.90 * m);
    if(tail_start < 0) tail_start = 0;
    if(tail_start >= m) tail_start = m - 1;
@@ -1814,6 +1841,14 @@ void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, c
    int n = ArraySize(g_labels);
    if(n <= 0 || bars_count <= 0 || horizon <= 0)
       return;
+
+   Print("DAL_H0006_PROGRESS_", tag, " *** build=", DAL_D0010_BUILD,
+      "*stage=start_horizon_measurement",
+      "*engine=CANDLE_FORWARD_STREAM",
+      "*horizonBars=", horizon,
+      "*labels=", n,
+      "*bars=", bars_count,
+      "*statsSort=single_builtin_sort_per_series");
 
    double absv[], dirv[], advv[];
    int valid_labels[];
@@ -1985,6 +2020,293 @@ void D0010_H6OptionalityForHorizon(const DALBar &bars[], const int bars_count, c
 }
 
 
+void D0010_H6CandleStreamForHorizon(const DALBar &bars[], const int bars_count, const int horizon, const string tag)
+{
+   if(!InpAtomicPrintH6OptionalityReport)
+      return;
+
+   int n = ArraySize(g_labels);
+   if(n <= 0 || bars_count <= 0 || horizon <= 0)
+      return;
+
+   Print("DAL_H0006_PROGRESS_", tag, " *** build=", DAL_D0010_BUILD,
+      "*stage=start_horizon_measurement",
+      "*engine=CANDLE_FORWARD_STREAM",
+      "*horizonBars=", horizon,
+      "*labels=", n,
+      "*bars=", bars_count,
+      "*statsSort=single_builtin_sort_per_series");
+
+   double absv[], dirv[], advv[];
+   int valid_labels[];
+   ArrayResize(absv, n);
+   ArrayResize(dirv, n);
+   ArrayResize(advv, n);
+   ArrayResize(valid_labels, n);
+
+   int active_label[], active_dir[], active_end[];
+   double active_entry[], active_atr[], active_hi[], active_lo[];
+   ArrayResize(active_label, n);
+   ArrayResize(active_dir, n);
+   ArrayResize(active_end, n);
+   ArrayResize(active_entry, n);
+   ArrayResize(active_atr, n);
+   ArrayResize(active_hi, n);
+   ArrayResize(active_lo, n);
+
+   int ptr = 0;
+   int active_n = 0;
+   int m = 0;
+   int opened = 0;
+   int closed = 0;
+   int skipped_incomplete = 0;
+   int skipped_bad_atr = 0;
+   int max_active = 0;
+
+   for(int b = 0; b < bars_count; b++)
+   {
+      while(ptr < n)
+      {
+         int k = g_label_known_indices[ptr];
+         int start = k + 1;
+         if(start > b)
+            break;
+
+         if(k < 1 || start >= bars_count)
+         {
+            skipped_incomplete++;
+            ptr++;
+            continue;
+         }
+
+         int end = k + horizon;
+         if(end >= bars_count)
+         {
+            if(InpH6RequireFullHorizon)
+            {
+               skipped_incomplete++;
+               ptr++;
+               continue;
+            }
+            end = bars_count - 1;
+         }
+         if(end < start)
+         {
+            skipped_incomplete++;
+            ptr++;
+            continue;
+         }
+
+         double atr = D0010_ATRAt(bars, bars_count, k, InpH6AtrPeriod);
+         if(atr <= 0.0)
+         {
+            skipped_bad_atr++;
+            ptr++;
+            continue;
+         }
+
+         int a = active_n;
+         active_label[a] = g_labels[ptr];
+         active_dir[a] = g_label_dirs[ptr];
+         active_end[a] = end;
+         active_entry[a] = (InpH6EntryAnchorMode == 1 ? bars[start].open : bars[k].close);
+         active_atr[a] = atr;
+         active_hi[a] = bars[start].high;
+         active_lo[a] = bars[start].low;
+         active_n++;
+         opened++;
+         ptr++;
+      }
+
+      int a = 0;
+      while(a < active_n)
+      {
+         if(bars[b].high > active_hi[a]) active_hi[a] = bars[b].high;
+         if(bars[b].low < active_lo[a]) active_lo[a] = bars[b].low;
+
+         if(b >= active_end[a])
+         {
+            double up = MathMax(0.0, active_hi[a] - active_entry[a]) / active_atr[a];
+            double dn = MathMax(0.0, active_entry[a] - active_lo[a]) / active_atr[a];
+            double absx = MathMax(up, dn);
+            int d = active_dir[a];
+            double dirx = absx;
+            double advx = MathMin(up, dn);
+            if(d > 0)
+            {
+               dirx = up;
+               advx = dn;
+            }
+            else if(d < 0)
+            {
+               dirx = dn;
+               advx = up;
+            }
+
+            if(m < n)
+            {
+               absv[m] = absx;
+               dirv[m] = dirx;
+               advv[m] = advx;
+               valid_labels[m] = active_label[a];
+               m++;
+               closed++;
+            }
+
+            active_n--;
+            if(a < active_n)
+            {
+               active_label[a] = active_label[active_n];
+               active_dir[a] = active_dir[active_n];
+               active_end[a] = active_end[active_n];
+               active_entry[a] = active_entry[active_n];
+               active_atr[a] = active_atr[active_n];
+               active_hi[a] = active_hi[active_n];
+               active_lo[a] = active_lo[active_n];
+            }
+            continue;
+         }
+         a++;
+      }
+      if(active_n > max_active)
+         max_active = active_n;
+   }
+
+   if(InpH6PrintComputeAudit)
+   {
+      string audit_line = "DAL_H0006_COMPUTE_AUDIT_" + tag
+         + " *** build=" + DAL_D0010_BUILD
+         + "*contract=atomic_no_sample_known_time_batches_forward_candle_stream"
+         + "*horizonBars=" + IntegerToString(horizon)
+         + "*validN=" + IntegerToString(m)
+         + "*opened=" + IntegerToString(opened)
+         + "*closed=" + IntegerToString(closed)
+         + "*leftOpen=" + IntegerToString(active_n)
+         + "*skippedIncomplete=" + IntegerToString(skipped_incomplete)
+         + "*skippedBadAtr=" + IntegerToString(skipped_bad_atr)
+         + "*maxActive=" + IntegerToString(max_active)
+         + "*entryAnchor=" + (InpH6EntryAnchorMode == 1 ? "NEXT_OPEN" : "KNOWN_CLOSE")
+         + "*fullHorizonOnly=" + IntegerToString(InpH6RequireFullHorizon ? 1 : 0)
+         + "*futureWindow=bar_by_bar_after_known_batch"
+         + "*measurement=candle_forward_stream_no_prefix_rebuild_no_sample";
+      Print(audit_line);
+   }
+
+   D0010ValueStats rev_abs, cont_abs, rev_dir, cont_dir, rev_adv, cont_adv;
+   D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_abs);
+   D0010_ComputeValueStats(absv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_abs);
+   D0010_ComputeValueStats(dirv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_dir);
+   D0010_ComputeValueStats(dirv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_dir);
+   D0010_ComputeValueStats(advv, valid_labels, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, rev_adv);
+   D0010_ComputeValueStats(advv, valid_labels, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, cont_adv);
+
+   string verdict = "mixed_optional_tail";
+   if(rev_abs.p95 > cont_abs.p95 && rev_abs.hit2 > cont_abs.hit2) verdict = "reversal_tail_dominates";
+   else if(cont_abs.p95 > rev_abs.p95 && cont_abs.hit2 > rev_abs.hit2) verdict = "continuation_tail_dominates";
+
+   string optionality_line = "DAL_H0006_OPTIONALITY_" + tag
+      + " *** build=" + DAL_D0010_BUILD
+      + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+      + "*engine=CANDLE_FORWARD_STREAM"
+      + "*contract=atomic_no_sample_known_time_batches_future_excursion_only_after_known_time"
+      + "*horizonBars=" + IntegerToString(horizon)
+      + "*atrPeriod=" + IntegerToString((int)MathMax(2, InpH6AtrPeriod))
+      + "*tailAtr1=" + DoubleToString(InpH6TailAtr1, 2)
+      + "*tailAtr2=" + DoubleToString(InpH6TailAtr2, 2)
+      + "*tailAtr3=" + DoubleToString(InpH6TailAtr3, 2)
+      + "*validN=" + IntegerToString(m)
+      + "*revN=" + IntegerToString(rev_abs.n)
+      + "*contN=" + IntegerToString(cont_abs.n)
+      + "*revAbsMeanATR=" + DoubleToString(rev_abs.mean, 4)
+      + "*contAbsMeanATR=" + DoubleToString(cont_abs.mean, 4)
+      + "*revMinusContAbsMeanATR=" + DoubleToString(rev_abs.mean - cont_abs.mean, 4)
+      + "*revAbsP90ATR=" + DoubleToString(rev_abs.p90, 4)
+      + "*contAbsP90ATR=" + DoubleToString(cont_abs.p90, 4)
+      + "*revAbsP95ATR=" + DoubleToString(rev_abs.p95, 4)
+      + "*contAbsP95ATR=" + DoubleToString(cont_abs.p95, 4)
+      + "*revAbsP99ATR=" + DoubleToString(rev_abs.p99, 4)
+      + "*contAbsP99ATR=" + DoubleToString(cont_abs.p99, 4)
+      + "*revHitTail1Pct=" + DoubleToString(rev_abs.hit1, 2)
+      + "*contHitTail1Pct=" + DoubleToString(cont_abs.hit1, 2)
+      + "*revHitTail2Pct=" + DoubleToString(rev_abs.hit2, 2)
+      + "*contHitTail2Pct=" + DoubleToString(cont_abs.hit2, 2)
+      + "*revHitTail3Pct=" + DoubleToString(rev_abs.hit3, 2)
+      + "*contHitTail3Pct=" + DoubleToString(cont_abs.hit3, 2)
+      + "*revTop10SharePct=" + DoubleToString(rev_abs.top10_share, 2)
+      + "*contTop10SharePct=" + DoubleToString(cont_abs.top10_share, 2)
+      + "*revDirectionalMfeMeanATR=" + DoubleToString(rev_dir.mean, 4)
+      + "*contDirectionalMfeMeanATR=" + DoubleToString(cont_dir.mean, 4)
+      + "*revAdverseMeanATR=" + DoubleToString(rev_adv.mean, 4)
+      + "*contAdverseMeanATR=" + DoubleToString(cont_adv.mean, 4)
+      + "*optionalityRatioP95=" + DoubleToString(D0010_SafeDiv(rev_abs.p95, cont_abs.p95), 4)
+      + "*verdict=" + verdict;
+   Print(optionality_line);
+
+   if(InpAtomicStressH6Optionality && InpPermutationIterations > 0 && InpH6StressMode > 0)
+   {
+      double obs_mean_diff = rev_abs.mean - cont_abs.mean;
+      double obs_hit2_diff = rev_abs.hit2 - cont_abs.hit2;
+      double obs_p90_diff = rev_abs.p90 - cont_abs.p90;
+      double mean_sum = 0.0, mean_sum2 = 0.0, hit_sum = 0.0, hit_sum2 = 0.0, p90_sum = 0.0, p90_sum2 = 0.0;
+      int mean_ge = 0, hit_ge = 0, p90_ge = 0;
+      int shuf[];
+      for(int iter = 0; iter < InpPermutationIterations; iter++)
+      {
+         D0010_ShuffleLabels(valid_labels, m, iter + 7001 + horizon, shuf);
+         double md = 0.0, hd = 0.0, pd = 0.0;
+         D0010_H6FastMeanHitDiff(absv, shuf, m, InpH6TailAtr2, md, hd);
+         if(InpH6StressMode >= 2)
+         {
+            D0010ValueStats sr, sc;
+            D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_REVERSAL, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sr);
+            D0010_ComputeValueStats(absv, shuf, m, DAL_D0010_LABEL_CONTINUATION, InpH6TailAtr1, InpH6TailAtr2, InpH6TailAtr3, sc);
+            pd = sr.p90 - sc.p90;
+         }
+         mean_sum += md; mean_sum2 += md * md;
+         hit_sum += hd; hit_sum2 += hd * hd;
+         p90_sum += pd; p90_sum2 += pd * pd;
+         if(md >= obs_mean_diff) mean_ge++;
+         if(hd >= obs_hit2_diff) hit_ge++;
+         if(InpH6StressMode >= 2 && pd >= obs_p90_diff) p90_ge++;
+      }
+      double it = (double)InpPermutationIterations;
+      double mean_null = D0010_SafeDiv(mean_sum, it);
+      double hit_null = D0010_SafeDiv(hit_sum, it);
+      double p90_null = D0010_SafeDiv(p90_sum, it);
+      double mean_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(mean_sum2, it) - mean_null * mean_null));
+      double hit_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(hit_sum2, it) - hit_null * hit_null));
+      double p90_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(p90_sum2, it) - p90_null * p90_null));
+      string optionality_stress_line = "DAL_H0006_OPTIONALITY_STRESS_" + tag
+         + " *** build=" + DAL_D0010_BUILD
+         + "*hypothesis=H0006_REVERSAL_EXPLOSIVE_OPTIONALITY"
+         + "*engine=CANDLE_FORWARD_STREAM"
+         + "*null=label_shuffle_over_fixed_known_times_and_fixed_future_excursions"
+         + "*stressMode=" + IntegerToString(InpH6StressMode)
+         + "*horizonBars=" + IntegerToString(horizon)
+         + "*iters=" + IntegerToString(InpPermutationIterations)
+         + "*obsRevMinusContMeanAbsATR=" + DoubleToString(obs_mean_diff, 4)
+         + "*nullMeanDiff=" + DoubleToString(mean_null, 4)
+         + "*nullMeanDiffSd=" + DoubleToString(mean_sd, 4)
+         + "*meanDiffZ=" + DoubleToString(D0010_SafeDiv(obs_mean_diff - mean_null, mean_sd), 4)
+         + "*meanDiffEmpP=" + DoubleToString(D0010_SafeDiv(mean_ge + 1, InpPermutationIterations + 1), 4)
+         + "*obsRevMinusContHitTail2Pct=" + DoubleToString(obs_hit2_diff, 2)
+         + "*nullHitTail2Diff=" + DoubleToString(hit_null, 2)
+         + "*nullHitTail2DiffSd=" + DoubleToString(hit_sd, 2)
+         + "*hitTail2DiffZ=" + DoubleToString(D0010_SafeDiv(obs_hit2_diff - hit_null, hit_sd), 4)
+         + "*hitTail2DiffEmpP=" + DoubleToString(D0010_SafeDiv(hit_ge + 1, InpPermutationIterations + 1), 4);
+      if(InpH6StressMode >= 2)
+      {
+         optionality_stress_line += "*obsRevMinusContP90AbsATR=" + DoubleToString(obs_p90_diff, 4)
+            + "*nullP90Diff=" + DoubleToString(p90_null, 4)
+            + "*nullP90DiffSd=" + DoubleToString(p90_sd, 4)
+            + "*p90DiffZ=" + DoubleToString(D0010_SafeDiv(obs_p90_diff - p90_null, p90_sd), 4)
+            + "*p90DiffEmpP=" + DoubleToString(D0010_SafeDiv(p90_ge + 1, InpPermutationIterations + 1), 4);
+      }
+      Print(optionality_stress_line);
+   }
+}
+
+
 void D0010_ComputePlainValueStats(const double &values[], const int n, const double t1, const double t2, const double t3, D0010ValueStats &st)
 {
    st.n = 0; st.mean = 0.0; st.median = 0.0; st.p75 = 0.0; st.p90 = 0.0; st.p95 = 0.0; st.p99 = 0.0; st.maxv = 0.0; st.hit1 = 0.0; st.hit2 = 0.0; st.hit3 = 0.0; st.top10_share = 0.0;
@@ -2004,15 +2326,15 @@ void D0010_ComputePlainValueStats(const double &values[], const int n, const dou
    }
    st.n = n;
    st.mean = D0010_SafeDiv(sum, n);
-   st.median = D0010_QuantileOfValues(x, n, 0.50);
-   st.p75 = D0010_QuantileOfValues(x, n, 0.75);
-   st.p90 = D0010_QuantileOfValues(x, n, 0.90);
-   st.p95 = D0010_QuantileOfValues(x, n, 0.95);
-   st.p99 = D0010_QuantileOfValues(x, n, 0.99);
+   D0010_SortDoubleArray(x, n);
+   st.median = D0010_QuantileFromSorted(x, n, 0.50);
+   st.p75 = D0010_QuantileFromSorted(x, n, 0.75);
+   st.p90 = D0010_QuantileFromSorted(x, n, 0.90);
+   st.p95 = D0010_QuantileFromSorted(x, n, 0.95);
+   st.p99 = D0010_QuantileFromSorted(x, n, 0.99);
    st.hit1 = D0010_SafePct(h1, n);
    st.hit2 = D0010_SafePct(h2, n);
    st.hit3 = D0010_SafePct(h3, n);
-   D0010_SortDoubleArray(x, n);
    int tail_start = (int)MathFloor(0.90 * n);
    if(tail_start < 0) tail_start = 0;
    if(tail_start >= n) tail_start = n - 1;
@@ -2160,6 +2482,344 @@ void D0010_H6EdgeMapForHorizon(const DALBar &bars[], const int bars_count, const
    }
 }
 
+
+// H0006 node survival map: node becomes a colored edge candidate if price does
+// not break the node after 20/50/100 closed candles from its known-time batch.
+struct D0010NodeSurvivalStats
+{
+   int known_nodes;
+   int high_nodes;
+   int low_nodes;
+   int matured1;
+   int matured2;
+   int matured3;
+   int survived1;
+   int survived2;
+   int survived3;
+   int broken1;
+   int broken2;
+   int broken3;
+   int touched1;
+   int touched2;
+   int touched3;
+   int detached1;
+   int detached2;
+   int detached3;
+   int active_stage1;
+   int active_stage2;
+   int active_stage3;
+   int chart_drawn;
+};
+
+void D0010_ResetNodeSurvivalStats(D0010NodeSurvivalStats &st)
+{
+   st.known_nodes = 0;
+   st.high_nodes = 0;
+   st.low_nodes = 0;
+   st.matured1 = 0;
+   st.matured2 = 0;
+   st.matured3 = 0;
+   st.survived1 = 0;
+   st.survived2 = 0;
+   st.survived3 = 0;
+   st.broken1 = 0;
+   st.broken2 = 0;
+   st.broken3 = 0;
+   st.touched1 = 0;
+   st.touched2 = 0;
+   st.touched3 = 0;
+   st.detached1 = 0;
+   st.detached2 = 0;
+   st.detached3 = 0;
+   st.active_stage1 = 0;
+   st.active_stage2 = 0;
+   st.active_stage3 = 0;
+   st.chart_drawn = 0;
+}
+
+bool D0010_H6NodeBrokenAtBar(const DALBar &bar, const double node_price, const bool high_node, const double break_buffer)
+{
+   if(high_node)
+      return (bar.high >= node_price + break_buffer);
+   return (bar.low <= node_price - break_buffer);
+}
+
+bool D0010_H6NodeTouchedAtBar(const DALBar &bar, const double node_price, const bool high_node, const double touch_buffer)
+{
+   if(high_node)
+      return (bar.high >= node_price - touch_buffer);
+   return (bar.low <= node_price + touch_buffer);
+}
+
+void D0010_H6FindNodeTouchBreak(
+   const DALBar &bars[],
+   const int bars_count,
+   const int known,
+   const double node_price,
+   const bool high_node,
+   const int scan_to,
+   const double touch_buffer,
+   const double break_buffer,
+   int &touch_index,
+   int &break_index
+)
+{
+   touch_index = -1;
+   break_index = -1;
+   int start = known + 1;
+   int end = MathMin(bars_count - 1, scan_to);
+   for(int j = start; j <= end; j++)
+   {
+      if(touch_index < 0 && D0010_H6NodeTouchedAtBar(bars[j], node_price, high_node, touch_buffer))
+         touch_index = j;
+      if(D0010_H6NodeBrokenAtBar(bars[j], node_price, high_node, break_buffer))
+      {
+         break_index = j;
+         if(touch_index < 0) touch_index = j;
+         return;
+      }
+   }
+}
+
+void D0010_H6DeleteNodeObjects(const string prefix)
+{
+   if(!InpH6NodeDrawChart)
+      return;
+   int total = ObjectsTotal(0);
+   for(int i = total - 1; i >= 0; i--)
+   {
+      string name = ObjectName(0, i);
+      if(StringFind(name, prefix) == 0)
+         ObjectDelete(0, name);
+   }
+}
+
+bool D0010_H6DrawNodeLine(
+   const string name,
+   const datetime t1,
+   const datetime t2,
+   const double price,
+   const color c,
+   const int width,
+   const string tooltip
+)
+{
+   if(!InpH6NodeDrawChart)
+      return false;
+   ObjectDelete(0, name);
+   if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, price, t2, price))
+      return false;
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, MathMax(1, width));
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_SOLID);
+   ObjectSetInteger(0, name, OBJPROP_RAY_RIGHT, true);
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
+   ObjectSetInteger(0, name, OBJPROP_BACK, false);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip);
+   return true;
+}
+
+int D0010_H6NodeStage(const int age, const int h1, const int h2, const int h3)
+{
+   if(age >= h3) return 3;
+   if(age >= h2) return 2;
+   if(age >= h1) return 1;
+   return 0;
+}
+
+color D0010_H6NodeStageColor(const int stage)
+{
+   if(stage >= 3) return InpH6NodeColor3;
+   if(stage == 2) return InpH6NodeColor2;
+   return InpH6NodeColor1;
+}
+
+void D0010_H6NodeSurvivalReport(
+   const DALM0001Event &events[],
+   const int events_count,
+   const DALBar &bars[],
+   const int bars_count,
+   const int nodes_count
+)
+{
+   if(!InpH6NodeSurvivalReport)
+      return;
+
+   D0010NodeSurvivalStats st;
+   D0010_ResetNodeSurvivalStats(st);
+
+   int h1 = MathMax(1, InpH6NodeHorizon1);
+   int h2 = MathMax(h1 + 1, InpH6NodeHorizon2);
+   int h3 = MathMax(h2 + 1, InpH6NodeHorizon3);
+   int warmup = MathMax(InpWarmupClosedBars, InpL * 2 + InpExitGap + 50);
+   int last = bars_count - 1;
+   double point = SymbolInfoDouble(D0010_Symbol(), SYMBOL_POINT);
+   if(point <= 0.0) point = _Point;
+   double touch_buffer = MathMax(0.0, InpH6NodeTouchBufferPoints) * point;
+   double break_buffer = MathMax(0.0, InpH6NodeBreakBufferPoints) * point;
+
+   for(int i = 0; i < events_count; i++)
+   {
+      int label = DAL_D0010_LABEL_UNKNOWN;
+      int dir = 0;
+      int known = -1;
+      if(!D0010_ClassifyRawEvent(events[i], bars, bars_count, label, dir, known))
+         continue;
+      if(known < warmup || known + 1 >= bars_count)
+         continue;
+
+      bool high_node = (events[i].node_type == DAL_NODE_HIGH);
+      bool low_node = (events[i].node_type == DAL_NODE_LOW);
+      if(!high_node && !low_node)
+         continue;
+
+      st.known_nodes++;
+      if(high_node) st.high_nodes++;
+      if(low_node) st.low_nodes++;
+
+      int touch_index = -1;
+      int break_index = -1;
+      D0010_H6FindNodeTouchBreak(bars, bars_count, known, events[i].node_price, high_node, known + h3, touch_buffer, break_buffer, touch_index, break_index);
+
+      if(known + h1 <= last)
+      {
+         st.matured1++;
+         if(touch_index > 0 && touch_index <= known + h1) st.touched1++;
+         if(break_index > 0 && break_index <= known + h1) st.broken1++;
+         else st.survived1++;
+         if((touch_index < 0 || touch_index > known + h1) && (break_index < 0 || break_index > known + h1)) st.detached1++;
+      }
+      if(known + h2 <= last)
+      {
+         st.matured2++;
+         if(touch_index > 0 && touch_index <= known + h2) st.touched2++;
+         if(break_index > 0 && break_index <= known + h2) st.broken2++;
+         else st.survived2++;
+         if((touch_index < 0 || touch_index > known + h2) && (break_index < 0 || break_index > known + h2)) st.detached2++;
+      }
+      if(known + h3 <= last)
+      {
+         st.matured3++;
+         if(touch_index > 0 && touch_index <= known + h3) st.touched3++;
+         if(break_index > 0 && break_index <= known + h3) st.broken3++;
+         else st.survived3++;
+         if((touch_index < 0 || touch_index > known + h3) && (break_index < 0 || break_index > known + h3)) st.detached3++;
+      }
+   }
+
+   string header = "DAL_H0006_NODE_SURVIVAL_AUDIT *** build=" + DAL_D0010_BUILD
+      + "*hypothesis=H0006_NODE_SURVIVAL_MAP"
+      + "*contract=raw_m0001_nodes_known_time_no_sample_no_same_candle_order"
+      + "*bars=" + IntegerToString(bars_count)
+      + "*nodes=" + IntegerToString(nodes_count)
+      + "*rawEvents=" + IntegerToString(events_count)
+      + "*knownNodes=" + IntegerToString(st.known_nodes)
+      + "*highNodes=" + IntegerToString(st.high_nodes)
+      + "*lowNodes=" + IntegerToString(st.low_nodes)
+      + "*horizons=" + IntegerToString(h1) + "/" + IntegerToString(h2) + "/" + IntegerToString(h3)
+      + "*colors=red/green/purple"
+      + "*meaning=if_node_not_broken_after_horizon_it_becomes_colored_edge_candidate"
+      + "*touchBufferPoints=" + DoubleToString(InpH6NodeTouchBufferPoints, 2)
+      + "*breakBufferPoints=" + DoubleToString(InpH6NodeBreakBufferPoints, 2);
+   Print(header);
+
+   string h1_line = "DAL_H0006_NODE_SURVIVAL_H" + IntegerToString(h1) + " *** build=" + DAL_D0010_BUILD
+      + "*color=RED"
+      + "*matured=" + IntegerToString(st.matured1)
+      + "*survived=" + IntegerToString(st.survived1)
+      + "*broken=" + IntegerToString(st.broken1)
+      + "*touched=" + IntegerToString(st.touched1)
+      + "*detachedNoTouchNoBreak=" + IntegerToString(st.detached1)
+      + "*survivalPct=" + DoubleToString(D0010_SafePct(st.survived1, st.matured1), 2)
+      + "*breakPct=" + DoubleToString(D0010_SafePct(st.broken1, st.matured1), 2)
+      + "*detachedPct=" + DoubleToString(D0010_SafePct(st.detached1, st.matured1), 2);
+   Print(h1_line);
+
+   string h2_line = "DAL_H0006_NODE_SURVIVAL_H" + IntegerToString(h2) + " *** build=" + DAL_D0010_BUILD
+      + "*color=GREEN"
+      + "*matured=" + IntegerToString(st.matured2)
+      + "*survived=" + IntegerToString(st.survived2)
+      + "*broken=" + IntegerToString(st.broken2)
+      + "*touched=" + IntegerToString(st.touched2)
+      + "*detachedNoTouchNoBreak=" + IntegerToString(st.detached2)
+      + "*survivalPct=" + DoubleToString(D0010_SafePct(st.survived2, st.matured2), 2)
+      + "*breakPct=" + DoubleToString(D0010_SafePct(st.broken2, st.matured2), 2)
+      + "*detachedPct=" + DoubleToString(D0010_SafePct(st.detached2, st.matured2), 2)
+      + "*conditionalSurvivalFromH" + IntegerToString(h1) + "Pct=" + DoubleToString(D0010_SafePct(st.survived2, MathMax(1, st.survived1)), 2);
+   Print(h2_line);
+
+   string h3_line = "DAL_H0006_NODE_SURVIVAL_H" + IntegerToString(h3) + " *** build=" + DAL_D0010_BUILD
+      + "*color=PURPLE"
+      + "*matured=" + IntegerToString(st.matured3)
+      + "*survived=" + IntegerToString(st.survived3)
+      + "*broken=" + IntegerToString(st.broken3)
+      + "*touched=" + IntegerToString(st.touched3)
+      + "*detachedNoTouchNoBreak=" + IntegerToString(st.detached3)
+      + "*survivalPct=" + DoubleToString(D0010_SafePct(st.survived3, st.matured3), 2)
+      + "*breakPct=" + DoubleToString(D0010_SafePct(st.broken3, st.matured3), 2)
+      + "*detachedPct=" + DoubleToString(D0010_SafePct(st.detached3, st.matured3), 2)
+      + "*conditionalSurvivalFromH" + IntegerToString(h2) + "Pct=" + DoubleToString(D0010_SafePct(st.survived3, MathMax(1, st.survived2)), 2);
+   Print(h3_line);
+
+   string prefix = "DAL_H6_NODE_";
+   D0010_H6DeleteNodeObjects(prefix);
+
+   if(InpH6NodeDrawChart)
+   {
+      int max_objects = MathMax(0, InpH6NodeMaxChartObjects);
+      int drawn = 0;
+      for(int i = events_count - 1; i >= 0 && drawn < max_objects; i--)
+      {
+         int label = DAL_D0010_LABEL_UNKNOWN;
+         int dir = 0;
+         int known = -1;
+         if(!D0010_ClassifyRawEvent(events[i], bars, bars_count, label, dir, known))
+            continue;
+         if(known < warmup || known + h1 > last)
+            continue;
+         bool high_node = (events[i].node_type == DAL_NODE_HIGH);
+         bool low_node = (events[i].node_type == DAL_NODE_LOW);
+         if(!high_node && !low_node)
+            continue;
+
+         int tix = -1;
+         int bix = -1;
+         D0010_H6FindNodeTouchBreak(bars, bars_count, known, events[i].node_price, high_node, last, touch_buffer, break_buffer, tix, bix);
+         if(bix > 0)
+            continue;
+         int age = last - known;
+         int stage = D0010_H6NodeStage(age, h1, h2, h3);
+         if(stage <= 0)
+            continue;
+         if(stage == 1) st.active_stage1++;
+         if(stage == 2) st.active_stage2++;
+         if(stage == 3) st.active_stage3++;
+         color c = D0010_H6NodeStageColor(stage);
+         string side = high_node ? "HIGH" : "LOW";
+         string stage_text = (stage == 1 ? "H" + IntegerToString(h1) : (stage == 2 ? "H" + IntegerToString(h2) : "H" + IntegerToString(h3)));
+         string name = prefix + stage_text + "_" + IntegerToString(i) + "_" + side;
+         string tip = "H6 node survival " + stage_text + " " + side + " age=" + IntegerToString(age) + " price=" + DoubleToString(events[i].node_price, _Digits);
+         if(D0010_H6DrawNodeLine(name, bars[known].time, bars[last].time, events[i].node_price, c, InpH6NodeLineWidth, tip))
+         {
+            drawn++;
+            st.chart_drawn++;
+         }
+      }
+      ChartRedraw(0);
+   }
+
+   string chart_line = "DAL_H0006_NODE_CHART_UPDATE *** build=" + DAL_D0010_BUILD
+      + "*drawChart=" + IntegerToString(InpH6NodeDrawChart ? 1 : 0)
+      + "*objectsDrawn=" + IntegerToString(st.chart_drawn)
+      + "*maxObjects=" + IntegerToString(MathMax(0, InpH6NodeMaxChartObjects))
+      + "*activeRedH" + IntegerToString(h1) + "=" + IntegerToString(st.active_stage1)
+      + "*activeGreenH" + IntegerToString(h2) + "=" + IntegerToString(st.active_stage2)
+      + "*activePurpleH" + IntegerToString(h3) + "=" + IntegerToString(st.active_stage3)
+      + "*objectPrefix=DAL_H6_NODE_"
+      + "*updatePolicy=delete_and_redraw_current_unbroken_survivors";
+   Print(chart_line);
+}
+
 void D0010_PrintH6OptionalityReports(const DALBar &bars[], const int bars_count)
 {
    if(!InpAtomicPrintH6OptionalityReport)
@@ -2167,6 +2827,18 @@ void D0010_PrintH6OptionalityReports(const DALBar &bars[], const int bars_count)
    int hf = MathMax(1, InpH6HorizonBarsFast);
    int hm = MathMax(1, InpH6HorizonBarsMain);
    int hs = MathMax(1, InpH6HorizonBarsSlow);
+
+   if(InpH6CandleStreamMode)
+   {
+      if(InpH6ReportFastHorizon)
+         D0010_H6CandleStreamForHorizon(bars, bars_count, hf, "FAST");
+      if(InpH6ReportMainHorizon)
+         D0010_H6CandleStreamForHorizon(bars, bars_count, hm, "MAIN");
+      if(InpH6ReportSlowHorizon)
+         D0010_H6CandleStreamForHorizon(bars, bars_count, hs, "SLOW");
+      return;
+   }
+
    if(InpH6ReportFastHorizon)
    {
       D0010_H6OptionalityForHorizon(bars, bars_count, hf, "FAST");
@@ -2523,32 +3195,63 @@ bool D0010_RunFastRawEventBatch()
    D0010RunStats rs;
    D0010_ComputeRuns(g_labels, label_n, ts, rs);
 
+   if(InpAtomicH6OnlyReport && InpH6NodeSurvivalReport)
+   {
+      string h6_node_audit_line = "DAL_M0006_AUDIT *** build=" + DAL_D0010_BUILD
+         + "*officialReport=H0006_NODE_SURVIVAL_MAP"
+         + "*mode=FAST_RAW_EVENT_BATCH"
+         + "*sampleCalls=0"
+         + "*branchSamplesBuilt=0"
+         + "*m0002Calls=0"
+         + "*m0001ComputePasses=1"
+         + "*prefixRebuilds=0"
+         + "*contract=no_m0002_no_branch_samples_raw_m0001_events_only"
+         + "*sequenceOrder=known_time_batch_sequence"
+         + "*sameKnownTimeEventsAreSimultaneous=1"
+         + "*bars=" + IntegerToString(bars_count)
+         + "*nodes=" + IntegerToString(nodes_count)
+         + "*rawEventsSeen=" + IntegerToString(g_sum.raw_events_seen)
+         + "*rawEventsKnownNow=" + IntegerToString(g_sum.raw_events_known_now)
+         + "*totalBatches=" + IntegerToString(g_sum.total_batches)
+         + "*pureBatches=" + IntegerToString(g_sum.pure_batches)
+         + "*ambiguousBatches=" + IntegerToString(g_sum.ambiguous_batches)
+         + "*horizons=" + IntegerToString(InpH6NodeHorizon1) + "/" + IntegerToString(InpH6NodeHorizon2) + "/" + IntegerToString(InpH6NodeHorizon3)
+         + "*chartDraw=" + IntegerToString(InpH6NodeDrawChart ? 1 : 0)
+         + "*meaning=node_survives_if_not_broken_after_horizon";
+      Print(h6_node_audit_line);
+      D0010_H6NodeSurvivalReport(events, events_count, bars, bars_count, nodes_count);
+      return true;
+   }
+
    if(InpAtomicH6OnlyReport)
    {
-      Print("DAL_M0006_AUDIT *** build=", DAL_D0010_BUILD,
-         "*officialReport=H0006_ATOMIC_NO_SAMPLE_OPTIONALITY",
-         "*mode=FAST_RAW_EVENT_BATCH",
-         "*sampleCalls=0",
-         "*branchSamplesBuilt=0",
-         "*m0002Calls=0",
-         "*m0001ComputePasses=1",
-         "*prefixRebuilds=0",
-         "*contract=no_m0002_no_branch_samples_raw_m0001_events_only",
-         "*sequenceOrder=known_time_batch_sequence",
-         "*sameKnownTimeEventsAreSimultaneous=1",
-         "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition",
-         "*bars=", bars_count,
-         "*nodes=", nodes_count,
-         "*rawEventsSeen=", g_sum.raw_events_seen,
-         "*rawEventsKnownNow=", g_sum.raw_events_known_now,
-         "*totalBatches=", g_sum.total_batches,
-         "*pureBatches=", g_sum.pure_batches,
-         "*ambiguousBatches=", g_sum.ambiguous_batches,
-         "*reversalBatches=", g_sum.reversal_batches,
-         "*continuationBatches=", g_sum.continuation_batches,
-         "*horizons=", InpH6HorizonBarsFast, "/", InpH6HorizonBarsMain, "/", InpH6HorizonBarsSlow,
-         "*atrPeriod=", InpH6AtrPeriod,
-         "*edgeMap=", (InpAtomicPrintH6EdgeMap ? 1 : 0));
+      string h6_audit_line = "DAL_M0006_AUDIT *** build=" + DAL_D0010_BUILD
+         + "*officialReport=H0006_ATOMIC_NO_SAMPLE_OPTIONALITY"
+         + "*mode=FAST_RAW_EVENT_BATCH"
+         + "*sampleCalls=0"
+         + "*branchSamplesBuilt=0"
+         + "*m0002Calls=0"
+         + "*m0001ComputePasses=1"
+         + "*prefixRebuilds=0"
+         + "*contract=no_m0002_no_branch_samples_raw_m0001_events_only"
+         + "*sequenceOrder=known_time_batch_sequence"
+         + "*sameKnownTimeEventsAreSimultaneous=1"
+         + "*mixedEnergyBatchPolicy=ambiguous_skip_from_transition"
+         + "*bars=" + IntegerToString(bars_count)
+         + "*nodes=" + IntegerToString(nodes_count)
+         + "*rawEventsSeen=" + IntegerToString(g_sum.raw_events_seen)
+         + "*rawEventsKnownNow=" + IntegerToString(g_sum.raw_events_known_now)
+         + "*totalBatches=" + IntegerToString(g_sum.total_batches)
+         + "*pureBatches=" + IntegerToString(g_sum.pure_batches)
+         + "*ambiguousBatches=" + IntegerToString(g_sum.ambiguous_batches)
+         + "*reversalBatches=" + IntegerToString(g_sum.reversal_batches)
+         + "*continuationBatches=" + IntegerToString(g_sum.continuation_batches)
+         + "*horizons=" + IntegerToString(InpH6HorizonBarsFast) + "/" + IntegerToString(InpH6HorizonBarsMain) + "/" + IntegerToString(InpH6HorizonBarsSlow)
+         + "*atrPeriod=" + IntegerToString(InpH6AtrPeriod)
+         + "*h6Engine=" + (InpH6CandleStreamMode ? "CANDLE_FORWARD_STREAM" : "BATCH_FORWARD_SCAN")
+         + "*fullHorizonOnly=" + IntegerToString(InpH6RequireFullHorizon ? 1 : 0)
+         + "*edgeMap=" + IntegerToString(InpAtomicPrintH6EdgeMap ? 1 : 0);
+      Print(h6_audit_line);
       D0010_PrintH6OptionalityReports(bars, bars_count);
       return true;
    }
@@ -2794,6 +3497,27 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpAtomicStressCircularShift
 #undef InpAtomicStressLocalBlockShuffle
 #undef InpAtomicStressH6Optionality
+#undef InpH6StressMode
+#undef InpH6EdgeMapLevel
+#undef InpH6EntryAnchorMode
+#undef InpH6ReportFastHorizon
+#undef InpH6ReportMainHorizon
+#undef InpH6ReportSlowHorizon
+#undef InpH6PrintComputeAudit
+#undef InpH6CandleStreamMode
+#undef InpH6RequireFullHorizon
+#undef InpH6NodeSurvivalReport
+#undef InpH6NodeDrawChart
+#undef InpH6NodeHorizon1
+#undef InpH6NodeHorizon2
+#undef InpH6NodeHorizon3
+#undef InpH6NodeTouchBufferPoints
+#undef InpH6NodeBreakBufferPoints
+#undef InpH6NodeMaxChartObjects
+#undef InpH6NodeLineWidth
+#undef InpH6NodeColor1
+#undef InpH6NodeColor2
+#undef InpH6NodeColor3
 #undef InpAtomicPrintHumanContextReport
 #undef InpAtomicStressContextShuffle
 #undef InpH6HorizonBarsFast

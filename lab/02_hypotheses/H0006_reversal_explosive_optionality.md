@@ -1,38 +1,15 @@
-# H0006 — Reversal Explosive Optionality
+# H0006 — Node Survival Edge Map
 
-## Claim
+The current H0006 framing is not a win-rate hypothesis. It asks whether raw structural nodes that remain unbroken after a fixed number of candles become more edge-like decision levels.
 
-Reversal regimes may not necessarily have better win rate, but they may identify more convex/option-like points: locations where future movement has fatter tails, larger absolute excursion, and stronger burst potential.
+The operational definition is:
 
-## Why this exists
+- raw M0001 node is known at candle `k`
+- from candle `k+1` forward, monitor whether price breaks the node price
+- if it is not broken after 20 candles, mark it red
+- if it is not broken after 50 candles, mark it green
+- if it is not broken after 100 candles, mark it purple
 
-H0004 proves short-term regime memory over atomic known-time batches. H0005 tries to convert regime state into direction and execution. H0006 asks a different question: which state marks more valuable optionality points?
+This converts H6 from a generic optionality report into a chart-updating node survival map.
 
-This matters because an alpha can exist even without high directional hit-rate if the selected points produce unusually large tails that can be harvested by asymmetric exits, volatility expansion, or optionality-like trade design.
-
-## Atomic contract
-
-H0006 must use the same atomic/no-sample contract:
-
-- no M0002 branch samples
-- no outcome-sorted sequence
-- no internal ordering of same-time events
-- pure known-time batches only
-- all future excursion measurement starts after the known candle
-
-## Metrics
-
-For each horizon, normalized by ATR at the known candle:
-
-- absolute optionality excursion: `max(high-entry, entry-low) / ATR`
-- directional MFE in the batch direction
-- adverse excursion
-- p90/p95/p99 absolute excursion
-- hit rate above ATR thresholds
-- top 10% tail share
-- reversal minus continuation mean and tail differences
-- label-shuffle null over fixed known times and fixed future excursions
-
-## Interpretation
-
-A positive H0006 result is not a trading strategy by itself. It means reversal-known-time batches identify stronger optionality points. Execution still requires a separate trade design such as fixed-R reversal, volatility capture, breakout-after-compression, straddle-like logic, or dynamic trailing.
+No M0002 samples are allowed. Nodes known on the same candle are simultaneous, not ordered.
