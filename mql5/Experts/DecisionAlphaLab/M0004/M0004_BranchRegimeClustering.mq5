@@ -3,8 +3,8 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.09"
-#property description "M0004 fast atomic no-sample main report with extended lightweight diagnostics"
+#property version   "1.10"
+#property description "M0004 fast atomic no-sample report with stress toggles and human-context diagnostics"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
 #include <DecisionAlphaLab/Market/DAL_LiveBarStream.mqh>
@@ -26,7 +26,23 @@ input bool InpPrintLegacySampleReport = false;     // off by default: old M0002 
 // and enum-typed inputs then fail with "declaration without type". The actual config still uses the enum internally.
 input int InpAtomicReportMode = 0;
 input int InpAtomicPermutationIterations = 100; // keep main report fast; set higher only for final publication
+
+input bool InpAtomicStressTransitionPermutation = true;
+input bool InpAtomicStressRunShuffle = true;
+input bool InpAtomicStressBlockConcentration = true;
+input bool InpAtomicStressCircularShift = true;
+input bool InpAtomicStressLocalBlockShuffle = true;
+
 input bool InpAtomicPrintExtendedReport = true; // fast extra lag/block/run diagnostics, still no samples
+input bool InpAtomicPrintHumanContextReport = true; // rolling / EWMA human-eye context over known-time batches
+input bool InpAtomicStressContextShuffle = false; // reserved for heavier context shuffle diagnostics
+input int InpAtomicContextLookbackFast = 5;
+input int InpAtomicContextLookbackMain = 10;
+input int InpAtomicContextLookbackSlow = 20;
+input double InpAtomicContextEwmaAlpha = 0.3500;
+input double InpAtomicContextStrongThreshold = 0.6000;
+input int InpAtomicCircularMinShiftBatches = 50;
+input int InpAtomicLocalBlockShuffleSize = 50;
 input int InpAtomicBlockSizeFast = 25;
 input int InpAtomicBlockSizeMain = 50;
 input int InpAtomicBlockSizeSlow = 200;
@@ -338,6 +354,29 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    cfg.skip_ambiguous_energy_batch = true;
    cfg.permutation_iterations = InpAtomicPermutationIterations;
    cfg.print_extended_report = InpAtomicPrintExtendedReport;
+   cfg.stress_transition_permutation = InpAtomicStressTransitionPermutation;
+   cfg.stress_run_shuffle = InpAtomicStressRunShuffle;
+   cfg.stress_block_concentration = InpAtomicStressBlockConcentration;
+   cfg.stress_circular_shift = InpAtomicStressCircularShift;
+   cfg.stress_local_block_shuffle = InpAtomicStressLocalBlockShuffle;
+   cfg.print_human_context_report = InpAtomicPrintHumanContextReport;
+   cfg.stress_context_shuffle = InpAtomicStressContextShuffle;
+   cfg.context_k_fast = InpAtomicContextLookbackFast;
+   cfg.context_k_main = InpAtomicContextLookbackMain;
+   cfg.context_k_slow = InpAtomicContextLookbackSlow;
+   cfg.context_ewma_alpha = InpAtomicContextEwmaAlpha;
+   cfg.context_strong_threshold = InpAtomicContextStrongThreshold;
+   cfg.circular_min_shift_batches = InpAtomicCircularMinShiftBatches;
+   cfg.local_block_shuffle_size = InpAtomicLocalBlockShuffleSize;
+   if(cfg.context_k_fast < 1) cfg.context_k_fast = 1;
+   if(cfg.context_k_main < cfg.context_k_fast) cfg.context_k_main = cfg.context_k_fast;
+   if(cfg.context_k_slow < cfg.context_k_main) cfg.context_k_slow = cfg.context_k_main;
+   if(cfg.context_ewma_alpha <= 0.0) cfg.context_ewma_alpha = 0.35;
+   if(cfg.context_ewma_alpha >= 1.0) cfg.context_ewma_alpha = 0.99;
+   if(cfg.context_strong_threshold < 0.51) cfg.context_strong_threshold = 0.51;
+   if(cfg.context_strong_threshold > 0.95) cfg.context_strong_threshold = 0.95;
+   if(cfg.circular_min_shift_batches < 2) cfg.circular_min_shift_batches = 2;
+   if(cfg.local_block_shuffle_size < 5) cfg.local_block_shuffle_size = 5;
    cfg.block_size_fast = InpAtomicBlockSizeFast;
    cfg.block_size_main = InpAtomicBlockSizeMain;
    cfg.block_size_slow = InpAtomicBlockSizeSlow;
@@ -361,7 +400,16 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
       "*legacySampleReportEnabled=", (InpPrintLegacySampleReport ? 1 : 0),
       "*replayClosedBars=", cfg.replay_closed_bars,
       "*permutationIterations=", cfg.permutation_iterations,
+      "*stressTransitionPermutation=", (cfg.stress_transition_permutation ? 1 : 0),
+      "*stressRunShuffle=", (cfg.stress_run_shuffle ? 1 : 0),
+      "*stressBlockConcentration=", (cfg.stress_block_concentration ? 1 : 0),
+      "*stressCircularShift=", (cfg.stress_circular_shift ? 1 : 0),
+      "*stressLocalBlockShuffle=", (cfg.stress_local_block_shuffle ? 1 : 0),
       "*extendedReport=", (cfg.print_extended_report ? 1 : 0),
+      "*humanContextReport=", (cfg.print_human_context_report ? 1 : 0),
+      "*contextK=", cfg.context_k_fast, "/", cfg.context_k_main, "/", cfg.context_k_slow,
+      "*contextEwmaAlpha=", DoubleToString(cfg.context_ewma_alpha, 4),
+      "*contextStrongThreshold=", DoubleToString(cfg.context_strong_threshold, 4),
       "*blockFast=", cfg.block_size_fast,
       "*blockMain=", cfg.block_size_main,
       "*blockSlow=", cfg.block_size_slow,

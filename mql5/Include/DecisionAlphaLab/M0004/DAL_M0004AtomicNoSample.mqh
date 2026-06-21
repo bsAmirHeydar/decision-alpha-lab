@@ -28,6 +28,20 @@ struct DALM0004AtomicNoSampleConfig
    bool skip_ambiguous_energy_batch;
    int permutation_iterations;
    bool print_extended_report;
+   bool stress_transition_permutation;
+   bool stress_run_shuffle;
+   bool stress_block_concentration;
+   bool stress_circular_shift;
+   bool stress_local_block_shuffle;
+   bool print_human_context_report;
+   bool stress_context_shuffle;
+   int context_k_fast;
+   int context_k_main;
+   int context_k_slow;
+   double context_ewma_alpha;
+   double context_strong_threshold;
+   int circular_min_shift_batches;
+   int local_block_shuffle_size;
    int block_size_fast;
    int block_size_main;
    int block_size_slow;
@@ -53,6 +67,20 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpSkipAmbiguousEnergyBatch g_dal_m0004_atomic_cfg.skip_ambiguous_energy_batch
 #define InpPermutationIterations g_dal_m0004_atomic_cfg.permutation_iterations
 #define InpAtomicPrintExtendedReport g_dal_m0004_atomic_cfg.print_extended_report
+#define InpAtomicStressTransitionPermutation g_dal_m0004_atomic_cfg.stress_transition_permutation
+#define InpAtomicStressRunShuffle g_dal_m0004_atomic_cfg.stress_run_shuffle
+#define InpAtomicStressBlockConcentration g_dal_m0004_atomic_cfg.stress_block_concentration
+#define InpAtomicStressCircularShift g_dal_m0004_atomic_cfg.stress_circular_shift
+#define InpAtomicStressLocalBlockShuffle g_dal_m0004_atomic_cfg.stress_local_block_shuffle
+#define InpAtomicPrintHumanContextReport g_dal_m0004_atomic_cfg.print_human_context_report
+#define InpAtomicStressContextShuffle g_dal_m0004_atomic_cfg.stress_context_shuffle
+#define InpAtomicContextKFast g_dal_m0004_atomic_cfg.context_k_fast
+#define InpAtomicContextKMain g_dal_m0004_atomic_cfg.context_k_main
+#define InpAtomicContextKSlow g_dal_m0004_atomic_cfg.context_k_slow
+#define InpAtomicContextEwmaAlpha g_dal_m0004_atomic_cfg.context_ewma_alpha
+#define InpAtomicContextStrongThreshold g_dal_m0004_atomic_cfg.context_strong_threshold
+#define InpAtomicCircularMinShiftBatches g_dal_m0004_atomic_cfg.circular_min_shift_batches
+#define InpAtomicLocalBlockShuffleSize g_dal_m0004_atomic_cfg.local_block_shuffle_size
 #define InpAtomicBlockSizeFast g_dal_m0004_atomic_cfg.block_size_fast
 #define InpAtomicBlockSizeMain g_dal_m0004_atomic_cfg.block_size_main
 #define InpAtomicBlockSizeSlow g_dal_m0004_atomic_cfg.block_size_slow
@@ -61,7 +89,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.02"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.03"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -958,6 +986,455 @@ void D0010_PrintBlockProfile(const int &labels[], const int n, const int block_s
       "*coldContinuationBlockPct=", DoubleToString(D0010_SafePct(cold_cont, blocks), 2));
 }
 
+
+void D0010_PrintRunShuffleStress(const int &labels[], const int n, const D0010RunStats &obs)
+{
+   if(!InpAtomicStressRunShuffle || n < 5 || InpPermutationIterations <= 0)
+      return;
+
+   double max_sum = 0.0, max_sum2 = 0.0;
+   double avg_sum = 0.0, avg_sum2 = 0.0;
+   double rev_avg_sum = 0.0, rev_avg_sum2 = 0.0;
+   double cont_avg_sum = 0.0, cont_avg_sum2 = 0.0;
+   int max_ge = 0, avg_ge = 0, cont_ge = 0;
+
+   int shuffled[];
+   for(int iter = 0; iter < InpPermutationIterations; iter++)
+   {
+      D0010_ShuffleLabels(labels, n, iter + 101, shuffled);
+      D0010TransitionStats ts;
+      D0010RunStats rs;
+      D0010_ComputeTransitionStats(shuffled, n, ts);
+      D0010_ComputeRuns(shuffled, n, ts, rs);
+
+      double mx = (double)rs.all_max_run;
+      double av = rs.all_avg_run;
+      double rv = rs.rev_avg_run;
+      double cv = rs.cont_avg_run;
+      max_sum += mx; max_sum2 += mx * mx;
+      avg_sum += av; avg_sum2 += av * av;
+      rev_avg_sum += rv; rev_avg_sum2 += rv * rv;
+      cont_avg_sum += cv; cont_avg_sum2 += cv * cv;
+      if(rs.all_max_run >= obs.all_max_run) max_ge++;
+      if(rs.all_avg_run >= obs.all_avg_run) avg_ge++;
+      if(rs.cont_avg_run >= obs.cont_avg_run) cont_ge++;
+   }
+
+   double it = (double)InpPermutationIterations;
+   double max_mean = D0010_SafeDiv(max_sum, it);
+   double avg_mean = D0010_SafeDiv(avg_sum, it);
+   double rev_mean = D0010_SafeDiv(rev_avg_sum, it);
+   double cont_mean = D0010_SafeDiv(cont_avg_sum, it);
+   double max_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(max_sum2, it) - max_mean * max_mean));
+   double avg_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(avg_sum2, it) - avg_mean * avg_mean));
+   double cont_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(cont_avg_sum2, it) - cont_mean * cont_mean));
+
+   Print("DAL_D0010_ATOMIC_RUN_SHUFFLE_STRESS",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*iters=", InpPermutationIterations,
+      "*obsAllMaxRun=", obs.all_max_run,
+      "*shuffleAllMaxRunMean=", DoubleToString(max_mean, 4),
+      "*shuffleAllMaxRunSd=", DoubleToString(max_sd, 4),
+      "*allMaxRunZ=", DoubleToString(D0010_SafeDiv((double)obs.all_max_run - max_mean, max_sd), 4),
+      "*allMaxRunEmpP=", DoubleToString(D0010_SafeDiv(max_ge + 1, InpPermutationIterations + 1), 4),
+      "*obsAllAvgRun=", DoubleToString(obs.all_avg_run, 4),
+      "*shuffleAllAvgRunMean=", DoubleToString(avg_mean, 4),
+      "*shuffleAllAvgRunSd=", DoubleToString(avg_sd, 4),
+      "*allAvgRunZ=", DoubleToString(D0010_SafeDiv(obs.all_avg_run - avg_mean, avg_sd), 4),
+      "*allAvgRunEmpP=", DoubleToString(D0010_SafeDiv(avg_ge + 1, InpPermutationIterations + 1), 4),
+      "*obsRevAvgRun=", DoubleToString(obs.rev_avg_run, 4),
+      "*shuffleRevAvgRunMean=", DoubleToString(rev_mean, 4),
+      "*obsContAvgRun=", DoubleToString(obs.cont_avg_run, 4),
+      "*shuffleContAvgRunMean=", DoubleToString(cont_mean, 4),
+      "*shuffleContAvgRunSd=", DoubleToString(cont_sd, 4),
+      "*contAvgRunEmpP=", DoubleToString(D0010_SafeDiv(cont_ge + 1, InpPermutationIterations + 1), 4));
+}
+
+double D0010_BlockContinuationPctSd(const int &labels[], const int n, const int block_size)
+{
+   if(n <= 0 || block_size <= 1) return 0.0;
+   int blocks = (n + block_size - 1) / block_size;
+   if(blocks <= 1) return 0.0;
+   double sum = 0.0, sum2 = 0.0;
+   for(int b = 0; b < blocks; b++)
+   {
+      int start = b * block_size;
+      int end = MathMin(n, start + block_size);
+      int cnt = 0, cont = 0;
+      for(int i = start; i < end; i++)
+      {
+         cnt++;
+         if(labels[i] == DAL_D0010_LABEL_CONTINUATION) cont++;
+      }
+      double pct = D0010_SafePct(cont, cnt);
+      sum += pct; sum2 += pct * pct;
+   }
+   double mean = D0010_SafeDiv(sum, blocks);
+   return MathSqrt(MathMax(0.0, D0010_SafeDiv(sum2, blocks) - mean * mean));
+}
+
+void D0010_PrintBlockConcentrationStress(const int &labels[], const int n)
+{
+   if(!InpAtomicStressBlockConcentration || n < 20 || InpPermutationIterations <= 0)
+      return;
+   int bs = MathMax(5, InpAtomicBlockSizeMain);
+   double obs = D0010_BlockContinuationPctSd(labels, n, bs);
+   double sum = 0.0, sum2 = 0.0;
+   int ge = 0;
+   int shuffled[];
+   for(int iter = 0; iter < InpPermutationIterations; iter++)
+   {
+      D0010_ShuffleLabels(labels, n, iter + 303, shuffled);
+      double sd = D0010_BlockContinuationPctSd(shuffled, n, bs);
+      sum += sd; sum2 += sd * sd;
+      if(sd >= obs) ge++;
+   }
+   double it = (double)InpPermutationIterations;
+   double mean = D0010_SafeDiv(sum, it);
+   double sd0 = MathSqrt(MathMax(0.0, D0010_SafeDiv(sum2, it) - mean * mean));
+   Print("DAL_D0010_ATOMIC_BLOCK_CONCENTRATION_STRESS",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*blockSize=", bs,
+      "*blocks=", ((n + bs - 1) / bs),
+      "*iters=", InpPermutationIterations,
+      "*obsContinuationPctSd=", DoubleToString(obs, 4),
+      "*shuffleMeanPctSd=", DoubleToString(mean, 4),
+      "*shuffleSdPctSd=", DoubleToString(sd0, 4),
+      "*pctSdZ=", DoubleToString(D0010_SafeDiv(obs - mean, sd0), 4),
+      "*pctSdEmpP=", DoubleToString(D0010_SafeDiv(ge + 1, InpPermutationIterations + 1), 4));
+}
+
+void D0010_PrintCircularShiftStress(const int &labels[], const int n, const D0010TransitionStats &obs)
+{
+   if(!InpAtomicStressCircularShift || n < 20 || InpPermutationIterations <= 0)
+      return;
+   int min_shift = MathMax(2, InpAtomicCircularMinShiftBatches);
+   if(min_shift >= n) min_shift = MathMax(2, n / 4);
+   double sum = 0.0, sum2 = 0.0;
+   int ge = 0;
+   for(int iter = 0; iter < InpPermutationIterations; iter++)
+   {
+      int range = MathMax(1, n - min_shift);
+      int shift = min_shift + (int)MathFloor(D0010_Rand01(iter, 17, 909) * range);
+      if(shift <= 0) shift = min_shift;
+      if(shift >= n) shift = n - 1;
+      double corr = 0.0;
+      double sx = 0.0, sy = 0.0, sxx = 0.0, syy = 0.0, sxy = 0.0;
+      for(int i = 0; i < n; i++)
+      {
+         double x = D0010_LabelValue(labels[i]);
+         double y = D0010_LabelValue(labels[(i + shift) % n]);
+         sx += x; sy += y; sxx += x * x; syy += y * y; sxy += x * y;
+      }
+      double den = MathSqrt((n * sxx - sx * sx) * (n * syy - sy * sy));
+      corr = D0010_SafeDiv(n * sxy - sx * sy, den);
+      sum += corr; sum2 += corr * corr;
+      if(corr >= obs.lag1_corr) ge++;
+   }
+   double it = (double)InpPermutationIterations;
+   double mean = D0010_SafeDiv(sum, it);
+   double sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(sum2, it) - mean * mean));
+   Print("DAL_D0010_ATOMIC_CIRCULAR_SHIFT_STRESS",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*iters=", InpPermutationIterations,
+      "*minShift=", min_shift,
+      "*obsLag1Corr=", DoubleToString(obs.lag1_corr, 4),
+      "*shiftMeanCorr=", DoubleToString(mean, 4),
+      "*shiftSdCorr=", DoubleToString(sd, 4),
+      "*lag1Z=", DoubleToString(D0010_SafeDiv(obs.lag1_corr - mean, sd), 4),
+      "*lag1EmpP=", DoubleToString(D0010_SafeDiv(ge + 1, InpPermutationIterations + 1), 4));
+}
+
+void D0010_LocalBlockShuffle(const int &src[], const int n, const int block_size, const int iter, int &dst[])
+{
+   ArrayResize(dst, n);
+   for(int i = 0; i < n; i++) dst[i] = src[i];
+   int bs = MathMax(2, block_size);
+   for(int start = 0; start < n; start += bs)
+   {
+      int end = MathMin(n, start + bs);
+      for(int j = end - 1; j > start; j--)
+      {
+         int k = start + (int)MathFloor(D0010_Rand01(iter, j, 707) * (j - start + 1));
+         if(k < start) k = start;
+         if(k > j) k = j;
+         int tmp = dst[j]; dst[j] = dst[k]; dst[k] = tmp;
+      }
+   }
+}
+
+void D0010_PrintLocalBlockShuffleStress(const int &labels[], const int n, const D0010TransitionStats &obs)
+{
+   if(!InpAtomicStressLocalBlockShuffle || n < 20 || InpPermutationIterations <= 0)
+      return;
+   int bs = MathMax(5, InpAtomicLocalBlockShuffleSize);
+   double lift_sum = 0.0, lift_sum2 = 0.0;
+   double lag_sum = 0.0, lag_sum2 = 0.0;
+   int lift_ge = 0, lag_ge = 0;
+   int shuffled[];
+   for(int iter = 0; iter < InpPermutationIterations; iter++)
+   {
+      D0010_LocalBlockShuffle(labels, n, bs, iter + 808, shuffled);
+      D0010TransitionStats ts;
+      D0010_ComputeTransitionStats(shuffled, n, ts);
+      lift_sum += ts.same_lift_pct; lift_sum2 += ts.same_lift_pct * ts.same_lift_pct;
+      lag_sum += ts.lag1_corr; lag_sum2 += ts.lag1_corr * ts.lag1_corr;
+      if(ts.same_lift_pct >= obs.same_lift_pct) lift_ge++;
+      if(ts.lag1_corr >= obs.lag1_corr) lag_ge++;
+   }
+   double it = (double)InpPermutationIterations;
+   double lift_mean = D0010_SafeDiv(lift_sum, it);
+   double lag_mean = D0010_SafeDiv(lag_sum, it);
+   double lift_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(lift_sum2, it) - lift_mean * lift_mean));
+   double lag_sd = MathSqrt(MathMax(0.0, D0010_SafeDiv(lag_sum2, it) - lag_mean * lag_mean));
+   Print("DAL_D0010_ATOMIC_LOCAL_BLOCK_SHUFFLE_STRESS",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*blockSize=", bs,
+      "*iters=", InpPermutationIterations,
+      "*obsSameLiftPct=", DoubleToString(obs.same_lift_pct, 2),
+      "*blockNullMeanSameLiftPct=", DoubleToString(lift_mean, 2),
+      "*blockNullSdSameLiftPct=", DoubleToString(lift_sd, 2),
+      "*sameLiftZ=", DoubleToString(D0010_SafeDiv(obs.same_lift_pct - lift_mean, lift_sd), 4),
+      "*sameLiftEmpP=", DoubleToString(D0010_SafeDiv(lift_ge + 1, InpPermutationIterations + 1), 4),
+      "*obsLag1Corr=", DoubleToString(obs.lag1_corr, 4),
+      "*blockNullMeanLag1Corr=", DoubleToString(lag_mean, 4),
+      "*blockNullSdLag1Corr=", DoubleToString(lag_sd, 4),
+      "*lag1Z=", DoubleToString(D0010_SafeDiv(obs.lag1_corr - lag_mean, lag_sd), 4),
+      "*lag1EmpP=", DoubleToString(D0010_SafeDiv(lag_ge + 1, InpPermutationIterations + 1), 4));
+}
+
+int D0010_RollingContextSignal(const int &labels[], const int index, const int k, const double threshold, double &cont_pct, double &confidence_pct)
+{
+   cont_pct = 0.0;
+   confidence_pct = 0.0;
+   int kk = MathMax(1, k);
+   int start = MathMax(0, index - kk);
+   int cnt = 0, cont = 0;
+   for(int i = start; i < index; i++)
+   {
+      cnt++;
+      if(labels[i] == DAL_D0010_LABEL_CONTINUATION) cont++;
+   }
+   if(cnt <= 0) return DAL_D0010_LABEL_UNKNOWN;
+   cont_pct = D0010_SafePct(cont, cnt);
+   double p = D0010_SafeDiv(cont, cnt);
+   confidence_pct = 100.0 * MathAbs(p - 0.5) * 2.0;
+   if(p >= threshold) return DAL_D0010_LABEL_CONTINUATION;
+   if(p <= 1.0 - threshold) return DAL_D0010_LABEL_REVERSAL;
+   return DAL_D0010_LABEL_UNKNOWN;
+}
+
+int D0010_EwmaContextSignal(const int &labels[], const int index, const double alpha, const double threshold, double &cont_pct, double &confidence_pct)
+{
+   cont_pct = 0.0;
+   confidence_pct = 0.0;
+   if(index <= 0) return DAL_D0010_LABEL_UNKNOWN;
+   double a = alpha;
+   if(a <= 0.0) a = 0.35;
+   if(a >= 1.0) a = 0.99;
+   double ew = D0010_LabelValue(labels[0]);
+   for(int i = 1; i < index; i++)
+      ew = a * D0010_LabelValue(labels[i]) + (1.0 - a) * ew;
+   cont_pct = 100.0 * ew;
+   confidence_pct = 100.0 * MathAbs(ew - 0.5) * 2.0;
+   if(ew >= threshold) return DAL_D0010_LABEL_CONTINUATION;
+   if(ew <= 1.0 - threshold) return DAL_D0010_LABEL_REVERSAL;
+   return DAL_D0010_LABEL_UNKNOWN;
+}
+
+
+double D0010_ContextFollowPct(const int &labels[], const int n, const int k, const bool ewma)
+{
+   if(n < 3) return 0.0;
+   int dominant = 0, follow = 0;
+   double threshold = InpAtomicContextStrongThreshold;
+   if(threshold < 0.51) threshold = 0.51;
+   if(threshold > 0.95) threshold = 0.95;
+   for(int i = 1; i < n; i++)
+   {
+      double cont_pct = 0.0, conf_pct = 0.0;
+      int sig = (ewma ? D0010_EwmaContextSignal(labels, i, InpAtomicContextEwmaAlpha, threshold, cont_pct, conf_pct)
+                      : D0010_RollingContextSignal(labels, i, k, threshold, cont_pct, conf_pct));
+      if(sig == DAL_D0010_LABEL_UNKNOWN)
+         continue;
+      dominant++;
+      if(sig == labels[i]) follow++;
+   }
+   return D0010_SafePct(follow, dominant);
+}
+
+void D0010_PrintContextShuffleStress(const int &labels[], const int n)
+{
+   if(!InpAtomicStressContextShuffle || !InpAtomicPrintHumanContextReport || n < 10 || InpPermutationIterations <= 0)
+      return;
+   int k = MathMax(1, InpAtomicContextKMain);
+   double obs_roll = D0010_ContextFollowPct(labels, n, k, false);
+   double obs_ewma = D0010_ContextFollowPct(labels, n, k, true);
+   double sum_r = 0.0, sum2_r = 0.0, sum_e = 0.0, sum2_e = 0.0;
+   int ge_r = 0, ge_e = 0;
+   int shuffled[];
+   for(int iter = 0; iter < InpPermutationIterations; iter++)
+   {
+      D0010_ShuffleLabels(labels, n, iter + 404, shuffled);
+      double r = D0010_ContextFollowPct(shuffled, n, k, false);
+      double e = D0010_ContextFollowPct(shuffled, n, k, true);
+      sum_r += r; sum2_r += r * r;
+      sum_e += e; sum2_e += e * e;
+      if(r >= obs_roll) ge_r++;
+      if(e >= obs_ewma) ge_e++;
+   }
+   double it = (double)InpPermutationIterations;
+   double mr = D0010_SafeDiv(sum_r, it);
+   double me = D0010_SafeDiv(sum_e, it);
+   double sr = MathSqrt(MathMax(0.0, D0010_SafeDiv(sum2_r, it) - mr * mr));
+   double se = MathSqrt(MathMax(0.0, D0010_SafeDiv(sum2_e, it) - me * me));
+   Print("DAL_D0010_ATOMIC_CONTEXT_SHUFFLE_STRESS",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*null=label_shuffle_over_pure_known_time_batches",
+      "*n=", n,
+      "*iters=", InpPermutationIterations,
+      "*k=", k,
+      "*alpha=", DoubleToString(InpAtomicContextEwmaAlpha, 4),
+      "*threshold=", DoubleToString(InpAtomicContextStrongThreshold, 4),
+      "*obsRollingFollowPct=", DoubleToString(obs_roll, 2),
+      "*nullRollingMeanFollowPct=", DoubleToString(mr, 2),
+      "*nullRollingSdFollowPct=", DoubleToString(sr, 2),
+      "*rollingFollowZ=", DoubleToString(D0010_SafeDiv(obs_roll - mr, sr), 4),
+      "*rollingEmpP=", DoubleToString(D0010_SafeDiv(ge_r + 1, InpPermutationIterations + 1), 4),
+      "*obsEwmaFollowPct=", DoubleToString(obs_ewma, 2),
+      "*nullEwmaMeanFollowPct=", DoubleToString(me, 2),
+      "*nullEwmaSdFollowPct=", DoubleToString(se, 2),
+      "*ewmaFollowZ=", DoubleToString(D0010_SafeDiv(obs_ewma - me, se), 4),
+      "*ewmaEmpP=", DoubleToString(D0010_SafeDiv(ge_e + 1, InpPermutationIterations + 1), 4));
+}
+
+void D0010_PrintHumanContextState(const int &labels[], const int n, const string method, const int k, const bool ewma)
+{
+   if(!InpAtomicPrintHumanContextReport || n < 3)
+      return;
+   int evaluated = 0, dominant = 0, neutral = 0, rev_ctx = 0, cont_ctx = 0;
+   int follow = 0, sw = 0, rev_follow = 0, rev_total = 0, cont_follow = 0, cont_total = 0;
+   double mean_cont = 0.0, mean_conf = 0.0;
+   double threshold = InpAtomicContextStrongThreshold;
+   if(threshold < 0.51) threshold = 0.51;
+   if(threshold > 0.95) threshold = 0.95;
+   for(int i = 1; i < n; i++)
+   {
+      double cont_pct = 0.0, conf_pct = 0.0;
+      int sig = (ewma ? D0010_EwmaContextSignal(labels, i, InpAtomicContextEwmaAlpha, threshold, cont_pct, conf_pct)
+                      : D0010_RollingContextSignal(labels, i, k, threshold, cont_pct, conf_pct));
+      evaluated++;
+      mean_cont += cont_pct;
+      mean_conf += conf_pct;
+      if(sig == DAL_D0010_LABEL_UNKNOWN)
+      {
+         neutral++;
+         continue;
+      }
+      dominant++;
+      if(sig == DAL_D0010_LABEL_REVERSAL) rev_ctx++;
+      if(sig == DAL_D0010_LABEL_CONTINUATION) cont_ctx++;
+      if(sig == labels[i])
+      {
+         follow++;
+         if(sig == DAL_D0010_LABEL_REVERSAL) rev_follow++;
+         if(sig == DAL_D0010_LABEL_CONTINUATION) cont_follow++;
+      }
+      else sw++;
+      if(sig == DAL_D0010_LABEL_REVERSAL) rev_total++;
+      if(sig == DAL_D0010_LABEL_CONTINUATION) cont_total++;
+   }
+   double global_cont_pct = D0010_SafePct(0,1);
+   int cont_count = 0;
+   for(int z = 0; z < n; z++) if(labels[z] == DAL_D0010_LABEL_CONTINUATION) cont_count++;
+   global_cont_pct = D0010_SafePct(cont_count, n);
+   double expected = 0.0;
+   if(dominant > 0)
+   {
+      double sig_cont = D0010_SafeDiv(cont_ctx, dominant);
+      double sig_rev = D0010_SafeDiv(rev_ctx, dominant);
+      double base_cont = D0010_SafeDiv(cont_count, n);
+      double base_rev = 1.0 - base_cont;
+      expected = 100.0 * (sig_cont * base_cont + sig_rev * base_rev);
+   }
+   Print("DAL_D0010_ATOMIC_HUMAN_CONTEXT_STATE",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*method=", method,
+      "*k=", k,
+      "*alpha=", DoubleToString(InpAtomicContextEwmaAlpha, 4),
+      "*threshold=", DoubleToString(threshold, 4),
+      "*n=", n,
+      "*evaluated=", evaluated,
+      "*dominantN=", dominant,
+      "*neutralN=", neutral,
+      "*revContextN=", rev_ctx,
+      "*contContextN=", cont_ctx,
+      "*globalContPct=", DoubleToString(global_cont_pct, 2),
+      "*meanContextContPct=", DoubleToString(D0010_SafeDiv(mean_cont, evaluated), 2),
+      "*meanConfidencePct=", DoubleToString(D0010_SafeDiv(mean_conf, evaluated), 2),
+      "*dominantFollowPct=", DoubleToString(D0010_SafePct(follow, dominant), 2),
+      "*dominantSwitchPct=", DoubleToString(D0010_SafePct(sw, dominant), 2),
+      "*expectedFollowPct=", DoubleToString(expected, 2),
+      "*dominantLiftPct=", DoubleToString(D0010_SafePct(follow, dominant) - expected, 2),
+      "*revContextNextRevPct=", DoubleToString(D0010_SafePct(rev_follow, rev_total), 2),
+      "*contContextNextContPct=", DoubleToString(D0010_SafePct(cont_follow, cont_total), 2));
+}
+
+void D0010_PrintLastOnlyQuality(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintHumanContextReport || n < 2)
+      return;
+   int follow = 0, sw = 0, rev_sig = 0, cont_sig = 0, rev_follow = 0, cont_follow = 0;
+   for(int i = 1; i < n; i++)
+   {
+      int sig = labels[i - 1];
+      if(sig == DAL_D0010_LABEL_REVERSAL) rev_sig++;
+      if(sig == DAL_D0010_LABEL_CONTINUATION) cont_sig++;
+      if(sig == labels[i])
+      {
+         follow++;
+         if(sig == DAL_D0010_LABEL_REVERSAL) rev_follow++;
+         if(sig == DAL_D0010_LABEL_CONTINUATION) cont_follow++;
+      }
+      else sw++;
+   }
+   Print("DAL_D0010_ATOMIC_LAST_ONLY_QUALITY",
+      " *** build=", DAL_D0010_BUILD,
+      "*contract=atomic_no_sample_raw_m0001_known_time_batches",
+      "*n=", n,
+      "*signalN=", MathMax(0, n - 1),
+      "*followN=", follow,
+      "*switchN=", sw,
+      "*followPct=", DoubleToString(D0010_SafePct(follow, n - 1), 2),
+      "*switchPct=", DoubleToString(D0010_SafePct(sw, n - 1), 2),
+      "*revSignalN=", rev_sig,
+      "*contSignalN=", cont_sig,
+      "*revNextRevPct=", DoubleToString(D0010_SafePct(rev_follow, rev_sig), 2),
+      "*contNextContPct=", DoubleToString(D0010_SafePct(cont_follow, cont_sig), 2));
+}
+
+void D0010_PrintHumanContextReports(const int &labels[], const int n)
+{
+   if(!InpAtomicPrintHumanContextReport)
+      return;
+   D0010_PrintLastOnlyQuality(labels, n);
+   D0010_PrintHumanContextState(labels, n, "rolling_fast", MathMax(1, InpAtomicContextKFast), false);
+   D0010_PrintHumanContextState(labels, n, "rolling_main", MathMax(1, InpAtomicContextKMain), false);
+   D0010_PrintHumanContextState(labels, n, "rolling_slow", MathMax(1, InpAtomicContextKSlow), false);
+   D0010_PrintHumanContextState(labels, n, "ewma_human_eye", MathMax(1, InpAtomicContextKMain), true);
+   D0010_PrintContextShuffleStress(labels, n);
+}
+
 void D0010_PrintExtendedReports(const int &labels[], const int n)
 {
    if(!InpAtomicPrintExtendedReport)
@@ -1312,7 +1789,12 @@ bool D0010_RunFastRawEventBatch()
    D0010_PrintTransitionStats("DAL_D0010_ATOMIC_TRANSITION", ts);
    D0010_PrintRunStats(rs);
    D0010_PrintPermutationStress(g_labels, label_n, ts);
+   D0010_PrintRunShuffleStress(g_labels, label_n, rs);
+   D0010_PrintBlockConcentrationStress(g_labels, label_n);
+   D0010_PrintCircularShiftStress(g_labels, label_n, ts);
+   D0010_PrintLocalBlockShuffleStress(g_labels, label_n, ts);
    D0010_PrintExtendedReports(g_labels, label_n);
+   D0010_PrintHumanContextReports(g_labels, label_n);
    return true;
 }
 
@@ -1454,7 +1936,12 @@ bool D0010_Run()
    D0010_PrintTransitionStats("DAL_D0010_ATOMIC_TRANSITION", ts);
    D0010_PrintRunStats(rs);
    D0010_PrintPermutationStress(g_labels, n, ts);
+   D0010_PrintRunShuffleStress(g_labels, n, rs);
+   D0010_PrintBlockConcentrationStress(g_labels, n);
+   D0010_PrintCircularShiftStress(g_labels, n, ts);
+   D0010_PrintLocalBlockShuffleStress(g_labels, n, ts);
    D0010_PrintExtendedReports(g_labels, n);
+   D0010_PrintHumanContextReports(g_labels, n);
    return true;
 }
 
@@ -1489,6 +1976,20 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpSkipAmbiguousEnergyBatch
 #undef InpPermutationIterations
 #undef InpAtomicPrintExtendedReport
+#undef InpAtomicStressTransitionPermutation
+#undef InpAtomicStressRunShuffle
+#undef InpAtomicStressBlockConcentration
+#undef InpAtomicStressCircularShift
+#undef InpAtomicStressLocalBlockShuffle
+#undef InpAtomicPrintHumanContextReport
+#undef InpAtomicStressContextShuffle
+#undef InpAtomicContextKFast
+#undef InpAtomicContextKMain
+#undef InpAtomicContextKSlow
+#undef InpAtomicContextEwmaAlpha
+#undef InpAtomicContextStrongThreshold
+#undef InpAtomicCircularMinShiftBatches
+#undef InpAtomicLocalBlockShuffleSize
 #undef InpAtomicBlockSizeFast
 #undef InpAtomicBlockSizeMain
 #undef InpAtomicBlockSizeSlow
