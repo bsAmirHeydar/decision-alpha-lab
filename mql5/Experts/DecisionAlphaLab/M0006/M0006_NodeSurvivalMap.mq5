@@ -3,14 +3,16 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
-#property description "Official H0006 visual engine with delayed post-touch zone boxes and live levels"
+#property version   "1.13"
+#property description "Official H0006 state machine with lightweight per-candle visual updates"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
 input string InpSymbol = "";                    // empty = chart symbol
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
-input int InpBars = 50000;                       // closed bars to scan; 0 = all available
+input int InpBars = 50000;                       // full/backfill closed bars to scan; 0 = all available
+input int InpH6LiveUpdateBars = 3000;             // lightweight live/new-bar window; 0 = use InpBars
+input int InpH6UpdateEveryNBars = 1;              // 1 = every new candle; 5 = every 5 candles
 input int InpL = 5;
 
 input int InpH6NodeHorizonRed = 20;
@@ -36,7 +38,7 @@ input bool InpH6ShowGreenHorizonBoxes = true;
 input bool InpH6ShowPurpleHorizonBoxes = true;
 input bool InpH6ShowConsumedBoxes = false;       // false = hide boxes whose zone end was retouched/consumed
 input bool InpH6ShowOriginTouchMarkers = true;
-input bool InpH6ShowUntouchedLevels = true;
+input bool InpH6ShowUntouchedLevels = false;       // official: no zones/levels before first touch
 input bool InpH6DrawBoxesOnlyAfterHorizon = true; // box appears only after H1/H2/H3 candles pass after touch
 
 input int InpH6BoxLeftAnchorMode = 0;            // 0=node pivot/origin time, 1=known/active_from time
@@ -46,7 +48,7 @@ input bool InpH6ReactionBoxFill = true;
 input bool InpH6ReactionBoxBack = true;
 input int InpH6NodeLineWidth = 2;
 
-input bool InpH6RequireCloseAwayAfterTouch = false;
+input bool InpH6RequireCloseAwayAfterTouch = true;  // official reversal confirmation: later close must move away from touched node
 input int InpH6MaxAwayScanBars = 3;
 
 input color InpH6ColorPreActive = clrOrange;
@@ -61,9 +63,10 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.10"
+#define DAL_M0006_NODE_BUILD "1.13"
 
 datetime g_m6_last_bar_time = 0;
+int g_m6_new_bar_counter = 0;
 
 string M6Symbol()
 {
@@ -77,14 +80,14 @@ ENUM_TIMEFRAMES M6Timeframe()
    return InpTimeframe;
 }
 
-void RunM0006NodeSurvivalMap()
+void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode = "manual")
 {
    DALM0006ReactionBoxConfig cfg;
    DAL_M0006DefaultReactionBoxConfig(cfg);
 
    cfg.symbol = M6Symbol();
    cfg.timeframe = M6Timeframe();
-   cfg.requested_closed_bars = InpBars;
+   cfg.requested_closed_bars = (bars_override > 0 ? bars_override : InpBars);
    cfg.L = MathMax(1, InpL);
 
    cfg.draw_chart = InpH6DrawNodeChart;
@@ -133,7 +136,11 @@ void RunM0006NodeSurvivalMap()
       + "*engine=direct_lrule_nodes_no_event_dependency"
       + "*symbol=" + cfg.symbol
       + "*tf=" + EnumToString(cfg.timeframe)
+      + "*runMode=" + run_mode
       + "*bars=" + IntegerToString(cfg.requested_closed_bars)
+      + "*fullBarsInput=" + IntegerToString(InpBars)
+      + "*liveUpdateBarsInput=" + IntegerToString(InpH6LiveUpdateBars)
+      + "*updateEveryNBars=" + IntegerToString(MathMax(1, InpH6UpdateEveryNBars))
       + "*L=" + IntegerToString(cfg.L)
       + "*drawChart=" + IntegerToString(cfg.draw_chart ? 1 : 0)
       + "*includeLiveBar=" + IntegerToString(cfg.include_live_bar ? 1 : 0)
@@ -151,6 +158,8 @@ void RunM0006NodeSurvivalMap()
       + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
       + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
       + "*showUntouchedLevels=" + IntegerToString(cfg.show_untouched_levels ? 1 : 0)
+      + "*preTouchDrawPolicy=" + (cfg.show_untouched_levels ? "DEBUG_ON" : "OFF_OFFICIAL")
+      + "*levelStartPolicy=AFTER_FIRST_TOUCH"
       + "*leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
       + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
@@ -165,8 +174,9 @@ void RunM0006NodeSurvivalMap()
 int OnInit()
 {
    g_m6_last_bar_time = iTime(M6Symbol(), M6Timeframe(), 0);
+   g_m6_new_bar_counter = 0;
    if(InpH6RunOnInit)
-      RunM0006NodeSurvivalMap();
+      RunM0006NodeSurvivalMap(InpBars, "init_backfill");
    return INIT_SUCCEEDED;
 }
 
@@ -180,7 +190,8 @@ void OnTick()
    if(InpH6UpdateOnEveryTick)
    {
       g_m6_last_bar_time = iTime(M6Symbol(), M6Timeframe(), 0);
-      RunM0006NodeSurvivalMap();
+      int live_bars_tick = (InpH6LiveUpdateBars > 0 ? InpH6LiveUpdateBars : InpBars);
+      RunM0006NodeSurvivalMap(live_bars_tick, "live_tick_window");
       return;
    }
 
@@ -192,5 +203,12 @@ void OnTick()
       return;
 
    g_m6_last_bar_time = t;
-   RunM0006NodeSurvivalMap();
+   g_m6_new_bar_counter++;
+
+   int every_n = MathMax(1, InpH6UpdateEveryNBars);
+   if((g_m6_new_bar_counter % every_n) != 0)
+      return;
+
+   int live_bars = (InpH6LiveUpdateBars > 0 ? InpH6LiveUpdateBars : InpBars);
+   RunM0006NodeSurvivalMap(live_bars, "live_new_bar_window");
 }

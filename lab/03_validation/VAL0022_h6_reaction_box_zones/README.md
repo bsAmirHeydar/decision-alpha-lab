@@ -71,3 +71,27 @@ Release 121 delayed zone-box maturity fix:
 
 Release 122 compile fix:
 - Fix the touch marker color variable after delayed-box maturity refactor: `c` -> `box_color`.
+
+
+Release 123 state-machine correction:
+- H6 visual is now documented as a candle-by-candle state machine:
+  UNTOUCHED_LEVEL -> TOUCHED -> WATCHING_AFTER_TOUCH -> MATURED_DRAW_BOX or CONSUMED.
+- Live levels are neutral references; they are no longer colored as maturity signals.
+- The colored box is the only official maturity signal.
+- A box is drawn only when the node was touched, reversal confirmation is satisfied, the zone end has not been retouched, and the post-touch candle age reaches an input horizon.
+- If the age later reaches a higher input horizon, the same node is redrawn with the higher-stage color.
+
+
+Release 124 no-pre-touch visual policy:
+- Official H6 no longer draws any zone or level before first touch by default.
+- `InpH6ShowUntouchedLevels=false` is now the official default.
+- Touched node levels start at the first-touch candle, not at the node-origin candle, so no object visually exists before the touch.
+- Untouched levels can still be enabled only as debug references.
+- Matured colored boxes still appear only after the input horizon has passed after touch without zone-end retouch.
+
+
+Release 125 performance update:
+- `OnInit` can still run a larger backfill through `InpBars`.
+- Live/visual updates now use `InpH6LiveUpdateBars` instead of rescanning the full history on every update.
+- `InpH6UpdateEveryNBars` throttles visual updates; default 1 means once per new candle.
+- The audit now prints `runMode`, `fullBarsInput`, `liveUpdateBarsInput`, and `updateEveryNBars`.
