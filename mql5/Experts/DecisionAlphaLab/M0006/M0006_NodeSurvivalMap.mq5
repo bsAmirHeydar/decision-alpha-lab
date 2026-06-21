@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.16"
-#property description "Official H0006 boxes-only persistent zones with isolated non-deletable box namespace"
+#property version   "1.18"
+#property description "Official H0006 upsert-only persistent boxes without per-candle delete/rebuild"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -26,7 +26,8 @@ input double InpH6ReactionMinBoxHeightPoints = 0.0;
 input bool InpH6IncludeLiveBar = true;           // include current forming bar so levels/colors update live
 input bool InpH6PreserveExistingOnEmptyUpdate = true; // don't wipe chart when tester has not built enough bars yet
 input bool InpH6PreserveMaturedBoxes = true;     // once a box appears, never delete it during live updates
-input bool InpH6ClearAllObjectsOnInit = true;    // clears volatile/debug objects only; never deletes persistent boxes
+input bool InpH6DeleteVolatileOnUpdate = false;  // official: no per-candle delete/rebuild, only upsert
+input bool InpH6ClearAllObjectsOnInit = true;    // clears volatile/debug objects only at init; never deletes persistent boxes
 input bool InpH6ClearPersistentBoxesOnInit = false; // manual cleanup only; keep false to never delete boxes
 input int InpH6MinBarsForUpdate = 0;             // 0 = automatic safe minimum from L
 input bool InpH6DrawNodeChart = true;
@@ -67,7 +68,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.16"
+#define DAL_M0006_NODE_BUILD "1.18"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;
@@ -98,6 +99,7 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.include_live_bar = InpH6IncludeLiveBar;
    cfg.preserve_existing_on_empty_update = InpH6PreserveExistingOnEmptyUpdate;
    cfg.preserve_matured_boxes = InpH6PreserveMaturedBoxes;
+   cfg.delete_volatile_on_update = InpH6DeleteVolatileOnUpdate;
    cfg.min_bars_for_update = MathMax(0, InpH6MinBarsForUpdate);
    cfg.max_boxes = InpH6ReactionMaxChartObjects;
    cfg.max_levels = InpH6LevelMaxChartObjects;
@@ -125,6 +127,9 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.touch_buffer_points = MathMax(0.0, InpH6NodeTouchBufferPoints);
    cfg.zone_end_retouch_buffer_points = MathMax(0.0, InpH6ReactionZoneEndBufferPoints);
    cfg.min_visual_box_points = MathMax(0.0, InpH6ReactionMinBoxHeightPoints);
+   cfg.box_height_mode = MathMax(0, MathMin(2, InpH6BoxHeightMode));
+   cfg.box_node_padding_pct = MathMax(0.0, InpH6BoxNodePaddingPct);
+   cfg.update_existing_box_geometry = InpH6UpdateExistingBoxGeometry;
 
    cfg.require_close_away_after_touch = InpH6RequireCloseAwayAfterTouch;
    cfg.max_away_scan_bars = MathMax(1, InpH6MaxAwayScanBars);
@@ -156,8 +161,14 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*clearPersistentBoxesOnInit=" + IntegerToString(InpH6ClearPersistentBoxesOnInit ? 1 : 0)
       + "*boxPrefix=DAL_H6_PERSIST_BOX_"
       + "*volatilePrefix=DAL_H6_VOL_"
+      + "*deleteVolatileOnUpdate=" + IntegerToString(cfg.delete_volatile_on_update ? 1 : 0)
+      + "*liveUpdatePolicy=UPSERT_ONLY_NO_DELETE_REBUILD"
       + "*boxDeletePolicy=NEVER_DELETE_UNLESS_MANUAL_INPUT_TRUE"
-      + "*boxUpdatePolicy=persistent_stable_name_color_only_update"
+      + "*boxNamePolicy=stable_time_price_side_key"
+      + "*boxHeightMode=" + IntegerToString(cfg.box_height_mode)
+      + "*boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
+      + "*updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
+      + "*boxUpdatePolicy=persistent_stable_name_color_and_optional_geometry_update"
       + "*minBarsForUpdate=" + IntegerToString(cfg.min_bars_for_update)
       + "*updateEveryTick=" + IntegerToString(InpH6UpdateOnEveryTick ? 1 : 0)
       + "*updateOnNewBar=" + IntegerToString(InpH6UpdateOnNewBar ? 1 : 0)
@@ -180,7 +191,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
       + "*scope=all_raw_nodes_no_regime_filter"
       + "*box=drawn_only_after_horizon_elapsed_after_touch_and_price_zone_start_to_zone_end"
-      + "*colorRule=candles_after_touch_without_zone_end_retouch";
+      + "*colorRule=candles_after_touch_without_zone_end_retouch"
+      + "*boxVerticalRule=mode1_default_symmetric_around_node_by_pct_of_touch_penetration";
    Print(sanity);
 
    DAL_M0006RunAllNodeReactionBoxes(cfg);

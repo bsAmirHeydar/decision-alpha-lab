@@ -142,3 +142,23 @@ Release 128 root persistence fix:
 - `InpH6ClearAllObjectsOnInit` now clears volatile/debug objects only.
 - Persistent boxes are deleted only when `InpH6ClearPersistentBoxesOnInit=true`.
 - Box object names are stable per node/side and update color only on higher horizons.
+
+
+Release 129 box geometry and color update correction:
+- Persistent box names are now stable by node time + node price + side, not by window-local node id.
+- This fixes color updates across live windows.
+- New box height mode input:
+  - `InpH6BoxHeightMode=1` official default: symmetric band around node by percent of first-touch penetration.
+  - Example: if touch penetration / zone is 0.90 and `InpH6BoxNodePaddingPct=10`, the box spans 0.09 above and 0.09 below the node.
+  - `0` keeps legacy node-to-touch-extreme height.
+  - `2` expands node-to-touch-extreme by the same percent.
+- Existing persistent boxes can have geometry corrected with `InpH6UpdateExistingBoxGeometry=true` without deleting/recreating them.
+- Box color still updates to the highest reached post-touch horizon without zone-end retouch.
+
+
+Release 130 upsert-only visual lifecycle:
+- Live/new-bar updates no longer delete previous objects and rebuild from scratch.
+- Official default is `InpH6DeleteVolatileOnUpdate=false`.
+- Each update only upserts: create missing objects, update color/geometry/tooltip on existing objects.
+- Persistent boxes remain untouched by any routine cleanup and keep stable identity.
+- Optional volatile cleanup exists only as an explicit debug mode, not the official mode.

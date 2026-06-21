@@ -15,6 +15,7 @@ struct DALM0006ReactionBoxConfig
    bool include_live_bar;
    bool preserve_existing_on_empty_update;
    bool preserve_matured_boxes;
+   bool delete_volatile_on_update;
    int min_bars_for_update;
    string object_prefix;           // volatile prefix: levels / markers / debug only
    string box_object_prefix;       // persistent prefix: matured boxes only; never used by volatile delete
@@ -44,6 +45,9 @@ struct DALM0006ReactionBoxConfig
    double touch_buffer_points;
    double zone_end_retouch_buffer_points;
    double min_visual_box_points;   // 0 = exact zone height
+   double box_node_padding_pct;     // mode 1: pct of touch penetration above/below node
+   int box_height_mode;             // 0=node_to_touch, 1=symmetric_around_node_pct, 2=node_to_touch_plus_padding
+   bool update_existing_box_geometry;
 
    bool require_close_away_after_touch; // default false: draw every touched node
    int max_away_scan_bars;
@@ -68,6 +72,7 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.include_live_bar = true;
    cfg.preserve_existing_on_empty_update = true;
    cfg.preserve_matured_boxes = true;
+   cfg.delete_volatile_on_update = false;
    cfg.min_bars_for_update = 0;
    cfg.object_prefix = "DAL_H6_VOL_";
    cfg.box_object_prefix = "DAL_H6_PERSIST_BOX_";
@@ -97,6 +102,9 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.touch_buffer_points = 0.0;
    cfg.zone_end_retouch_buffer_points = 0.0;
    cfg.min_visual_box_points = 0.0;
+   cfg.box_node_padding_pct = 10.0;
+   cfg.box_height_mode = 1;
+   cfg.update_existing_box_geometry = true;
 
    cfg.require_close_away_after_touch = false;
    cfg.max_away_scan_bars = 3;
@@ -325,6 +333,78 @@ datetime DAL_M0006BoxRightTime(
    return t;
 }
 
+string DAL_M0006StableBoxKey(
+   const DALLRuleNode &node,
+   const string side,
+   const DALM0006ReactionBoxConfig &cfg
+)
+{
+   double point = DAL_M0006PointSafe(cfg.symbol);
+   if(point <= 0.0)
+      point = 0.01;
+   long price_key = (long)MathRound(node.price / point);
+   return IntegerToString((long)node.time) + "_" + IntegerToString(price_key) + "_" + side;
+}
+
+void DAL_M0006ComputeBoxVerticalBounds(
+   const double node_price,
+   const double touch_extreme,
+   const ENUM_DALNodeType node_type,
+   const DALM0006ReactionBoxConfig &cfg,
+   double &top,
+   double &bottom
+)
+{
+   double p1 = node_price;
+   double p2 = touch_extreme;
+   double point = DAL_M0006PointSafe(cfg.symbol);
+   double min_h = MathMax(0.0, cfg.min_visual_box_points) * point;
+   double zone_h = MathAbs(p2 - p1);
+
+   if(zone_h < min_h)
+      zone_h = min_h;
+
+   int mode = cfg.box_height_mode;
+   if(mode < 0 || mode > 2)
+      mode = 1;
+
+   if(mode == 1)
+   {
+      // Official zone-band mode:
+      // If touch penetration is 0.90 and pct is 10, draw 0.09 above and 0.09 below the node.
+      double pad = zone_h * MathMax(0.0, cfg.box_node_padding_pct) / 100.0;
+      if(pad < min_h)
+         pad = min_h;
+      top = node_price + pad;
+      bottom = node_price - pad;
+      if(top <= bottom)
+      {
+         top = node_price + point;
+         bottom = node_price - point;
+      }
+      return;
+   }
+
+   if(mode == 2)
+   {
+      double pad2 = zone_h * MathMax(0.0, cfg.box_node_padding_pct) / 100.0;
+      top = MathMax(p1, p2) + pad2;
+      bottom = MathMin(p1, p2) - pad2;
+      return;
+   }
+
+   // Legacy exact mode: node to first-touch extreme.
+   if(MathAbs(p2 - p1) < min_h)
+   {
+      if(node_type == DAL_NODE_HIGH)
+         p2 = p1 + min_h;
+      else
+         p2 = p1 - min_h;
+   }
+   top = MathMax(p1, p2);
+   bottom = MathMin(p1, p2);
+}
+
 bool DAL_M0006CreateReactionRectangle(
    const string name,
    const datetime t1,
@@ -348,31 +428,26 @@ bool DAL_M0006CreateReactionRectangle(
       right_time = t1 + sec;
    }
 
-   double p1 = node_price;
-   double p2 = touch_extreme;
-   double point = DAL_M0006PointSafe(cfg.symbol);
-   double min_h = MathMax(0.0, cfg.min_visual_box_points) * point;
-
-   if(MathAbs(p2 - p1) < min_h)
-   {
-      if(node_type == DAL_NODE_HIGH)
-         p2 = p1 + min_h;
-      else
-         p2 = p1 - min_h;
-   }
-
-   double top = MathMax(p1, p2);
-   double bottom = MathMin(p1, p2);
+   double top = 0.0;
+   double bottom = 0.0;
+   DAL_M0006ComputeBoxVerticalBounds(node_price, touch_extreme, node_type, cfg, top, bottom);
 
    ResetLastError();
 
    if(ObjectFind(0, name) >= 0)
    {
-      // Persistent box update: do not move it and do not recreate it.
-      // Only the maturity color and metadata are updated when a higher horizon is reached.
+      // Persistent box update: keep object identity. Update color every time,
+      // and optionally fix geometry without deleting/recreating the box.
+      if(cfg.update_existing_box_geometry)
+      {
+         ObjectMove(0, name, 0, t1, top);
+         ObjectMove(0, name, 1, right_time, bottom);
+      }
       ObjectSetInteger(0, name, OBJPROP_COLOR, c);
       ObjectSetInteger(0, name, OBJPROP_WIDTH, MathMax(1, cfg.line_width));
-      ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip + " persistentBox=1 colorOnlyUpdate=1");
+      ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip
+         + " persistentBox=1 colorOnlyUpdate=1"
+         + " geometryUpdated=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0));
       return true;
    }
 
@@ -411,7 +486,15 @@ bool DAL_M0006CreateHorizontalLevel(
    }
 
    ResetLastError();
-   ObjectDelete(0, name);
+   if(ObjectFind(0, name) >= 0)
+   {
+      ObjectMove(0, name, 0, t1, price);
+      ObjectMove(0, name, 1, right_time, price);
+      ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+      ObjectSetInteger(0, name, OBJPROP_WIDTH, MathMax(1, cfg.line_width));
+      ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip + " upsertExisting=1");
+      return true;
+   }
    if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, price, right_time, price))
       return false;
 
@@ -436,7 +519,14 @@ bool DAL_M0006DrawTextMarker(
 )
 {
    ResetLastError();
-   ObjectDelete(0, name);
+   if(ObjectFind(0, name) >= 0)
+   {
+      ObjectMove(0, name, 0, t, price);
+      ObjectSetString(0, name, OBJPROP_TEXT, txt);
+      ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip + " upsertExisting=1");
+      ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+      return true;
+   }
    if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, price))
       return false;
    ObjectSetString(0, name, OBJPROP_TEXT, txt);
@@ -483,7 +573,8 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       return false;
    }
 
-   DAL_M0006DeleteVolatileObjectsByPrefix(cfg.object_prefix);
+   if(cfg.delete_volatile_on_update)
+      DAL_M0006DeleteVolatileObjectsByPrefix(cfg.object_prefix);
 
    int h1 = MathMax(1, cfg.horizon_red);
    int h2 = MathMax(h1 + 1, cfg.horizon_green);
@@ -624,6 +715,10 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          + " nodePrice=" + DoubleToString(nodes[n].price, _Digits)
          + " zoneStart=" + DoubleToString(nodes[n].price, _Digits)
          + " zoneEnd=" + DoubleToString(zone_end, _Digits)
+         + " zoneTouchPenetration=" + DoubleToString(MathAbs(zone_end - nodes[n].price), _Digits)
+         + " boxHeightMode=" + IntegerToString(cfg.box_height_mode)
+         + " boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
+         + " updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
          + " leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
          + " rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
          + " noRegimeFilter=1";
@@ -666,7 +761,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       }
       else if(drawn < max_boxes)
       {
-          string name = cfg.box_object_prefix + IntegerToString(nodes[n].id) + "_" + side;
+          string name = cfg.box_object_prefix + DAL_M0006StableBoxKey(nodes[n], side, cfg);
          if(DAL_M0006CreateReactionRectangle(name, left_time, right_time, nodes[n].price, zone_end, nodes[n].type, box_color, cfg, tip))
          {
             drawn++;
@@ -695,15 +790,21 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
 
    ChartRedraw(0);
 
-   string line = "DAL_M0006_DIRECT_VISUAL_AUDIT *** build=1.01"
+   string line = "DAL_M0006_DIRECT_VISUAL_AUDIT *** build=1.03"
       + "*engine=direct_lrule_nodes_no_event_dependency"
       + "*update=DELETE_AND_REDRAW_VALID_SNAPSHOT"
       + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
       + "*preserveMaturedBoxes=" + IntegerToString(cfg.preserve_matured_boxes ? 1 : 0)
       + "*volatilePrefix=" + cfg.object_prefix
       + "*boxPrefix=" + cfg.box_object_prefix
+      + "*deleteVolatileOnUpdate=" + IntegerToString(cfg.delete_volatile_on_update ? 1 : 0)
+      + "*liveUpdatePolicy=UPSERT_ONLY_NO_DELETE_REBUILD"
       + "*boxDeletePolicy=NEVER_DELETE_PERSISTENT_BOX_PREFIX_DURING_LIVE_OR_VOLATILE_CLEANUP"
-      + "*boxUpdatePolicy=persistent_stable_name_color_only_update"
+      + "*boxNamePolicy=stable_time_price_side_key"
+      + "*boxHeightMode=" + IntegerToString(cfg.box_height_mode)
+      + "*boxNodePaddingPct=" + DoubleToString(cfg.box_node_padding_pct, 2)
+      + "*updateExistingBoxGeometry=" + IntegerToString(cfg.update_existing_box_geometry ? 1 : 0)
+      + "*boxUpdatePolicy=persistent_stable_name_color_and_optional_geometry_update"
       + "*symbol=" + cfg.symbol
       + "*tf=" + EnumToString(cfg.timeframe)
       + "*includeLiveBar=" + IntegerToString(cfg.include_live_bar ? 1 : 0)
@@ -748,7 +849,9 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*levelPolicy=neutral_reference_starts_at_first_touch_not_node_origin"
       + "*boxDrawRule=draw_only_when_touch_confirmed_and_zone_end_not_retouched_and_age_after_touch_reaches_input_horizon"
       + "*boxPersistence=once_created_never_deleted_by_live_update_or_volatile_cleanup"
-      + "*colorRule=highest_reached_input_horizon_after_touch_without_zone_end_retouch";
+      + "*objectLifecycle=upsert_only_no_per_candle_delete"
+      + "*colorRule=highest_reached_input_horizon_after_touch_without_zone_end_retouch"
+      + "*boxVerticalRule=mode1_default_symmetric_around_node_by_pct_of_touch_penetration";
    Print(line);
 
    return (drawn > 0 && object_failures == 0);
