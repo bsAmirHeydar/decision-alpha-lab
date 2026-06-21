@@ -116,3 +116,12 @@ Release 125 performance update:
 - Live/visual updates now use `InpH6LiveUpdateBars` instead of rescanning the full history on every update.
 - `InpH6UpdateEveryNBars` throttles visual updates; default 1 means once per new candle.
 - The audit now prints `runMode`, `fullBarsInput`, `liveUpdateBarsInput`, and `updateEveryNBars`.
+
+
+Release 126 persistent box policy:
+- Matured reaction boxes use stable names: one box per node/side.
+- Live updates no longer delete matured boxes.
+- If the node reaches a higher post-touch horizon, the existing box is color-updated only.
+- Box geometry is not moved/recreated after creation.
+- Volatile live levels may still be rebuilt, but persistent boxes remain on chart.
+- `InpH6ClearAllObjectsOnInit=true` clears old objects once when the expert starts, not during live updates.

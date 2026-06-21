@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.13"
-#property description "Official H0006 state machine with lightweight per-candle visual updates"
+#property version   "1.14"
+#property description "Official H0006 persistent zone boxes with color-only maturity updates"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -25,6 +25,8 @@ input double InpH6ReactionMinBoxHeightPoints = 0.0;
 
 input bool InpH6IncludeLiveBar = true;           // include current forming bar so levels/colors update live
 input bool InpH6PreserveExistingOnEmptyUpdate = true; // don't wipe chart when tester has not built enough bars yet
+input bool InpH6PreserveMaturedBoxes = true;     // once a box appears, never delete it during live updates
+input bool InpH6ClearAllObjectsOnInit = true;    // clean old test objects once at attach/start
 input int InpH6MinBarsForUpdate = 0;             // 0 = automatic safe minimum from L
 input bool InpH6DrawNodeChart = true;
 input bool InpH6DrawReactionBoxes = true;
@@ -63,7 +65,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.13"
+#define DAL_M0006_NODE_BUILD "1.14"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;
@@ -93,6 +95,7 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.draw_chart = InpH6DrawNodeChart;
    cfg.include_live_bar = InpH6IncludeLiveBar;
    cfg.preserve_existing_on_empty_update = InpH6PreserveExistingOnEmptyUpdate;
+   cfg.preserve_matured_boxes = InpH6PreserveMaturedBoxes;
    cfg.min_bars_for_update = MathMax(0, InpH6MinBarsForUpdate);
    cfg.max_boxes = InpH6ReactionMaxChartObjects;
    cfg.max_levels = InpH6LevelMaxChartObjects;
@@ -145,6 +148,9 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*drawChart=" + IntegerToString(cfg.draw_chart ? 1 : 0)
       + "*includeLiveBar=" + IntegerToString(cfg.include_live_bar ? 1 : 0)
       + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
+      + "*preserveMaturedBoxes=" + IntegerToString(cfg.preserve_matured_boxes ? 1 : 0)
+      + "*clearAllObjectsOnInit=" + IntegerToString(InpH6ClearAllObjectsOnInit ? 1 : 0)
+      + "*boxUpdatePolicy=persistent_stable_name_color_only_update"
       + "*minBarsForUpdate=" + IntegerToString(cfg.min_bars_for_update)
       + "*updateEveryTick=" + IntegerToString(InpH6UpdateOnEveryTick ? 1 : 0)
       + "*updateOnNewBar=" + IntegerToString(InpH6UpdateOnNewBar ? 1 : 0)
@@ -175,6 +181,10 @@ int OnInit()
 {
    g_m6_last_bar_time = iTime(M6Symbol(), M6Timeframe(), 0);
    g_m6_new_bar_counter = 0;
+
+   if(InpH6ClearAllObjectsOnInit)
+      DAL_M0006DeleteObjectsByPrefix("DAL_H6_BOX_");
+
    if(InpH6RunOnInit)
       RunM0006NodeSurvivalMap(InpBars, "init_backfill");
    return INIT_SUCCEEDED;
