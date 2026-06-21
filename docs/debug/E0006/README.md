@@ -162,3 +162,8 @@ InpRevisitMinInternalHunts = 0
 ```text
 mql5/Experts/DecisionAlphaLab/Execution/E0006_AllZoneTouchLimitFixedR.mq5
 ```
+
+
+## Modular execution kernel
+
+- [E0006 modular execution kernel](MODULE_KERNEL_README.md)

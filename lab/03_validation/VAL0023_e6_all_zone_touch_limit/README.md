@@ -217,3 +217,8 @@ docs/debug/E0006/INPUT_REFERENCE_README.md
 ```
 
 These files document the current E0006 lifecycle: all-zone execution, internal same-side hunt qualification, revisit-only filtering, position caps, node-price/zone-back stop anchors, and internal opposite-node TP management.
+
+
+## Release 109 modular kernel
+
+Reusable E0006 logic is now documented in `docs/debug/E0006/MODULE_KERNEL_README.md` and implemented under `mql5/Include/DecisionAlphaLab/Execution/E0006/`. New executors should compose from `DAL_E0006Modules.mqh` instead of copying local helper functions.
