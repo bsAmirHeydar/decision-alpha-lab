@@ -3,7 +3,7 @@
 //| Hypothesis 4: reversal/continuation branch labels form regimes.    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.11"
+#property version   "1.12"
 #property description "M0004 fast atomic no-sample report with stress toggles and human-context diagnostics"
 
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -35,10 +35,10 @@ input bool InpAtomicStressLocalBlockShuffle = true;
 
 input bool InpAtomicPrintExtendedReport = true; // fast extra lag/block/run diagnostics, still no samples
 input bool InpAtomicPrintDeepReport = true; // information, run tails, batch intensity over atomic batches
-input bool InpAtomicPrintH6OptionalityReport = true; // H6: reversal explosive optionality, not win-rate
+input bool InpAtomicPrintH6OptionalityReport = false; // H6 moved to M0006; keep opt-in only
 input bool InpAtomicPrintHumanContextReport = true; // rolling / EWMA human-eye context over known-time batches
 input bool InpAtomicStressContextShuffle = false; // heavier context shuffle diagnostics
-input bool InpAtomicStressH6Optionality = true; // shuffle-label null for H6 optionality tail metrics
+input bool InpAtomicStressH6Optionality = false; // H6 moved to M0006; keep opt-in only
 input int InpH6HorizonBarsFast = 5;
 input int InpH6HorizonBarsMain = 20;
 input int InpH6HorizonBarsSlow = 50;
@@ -109,7 +109,7 @@ input double InpContextStrongThreshold = 0.60;  // dominant context threshold: >
 #define DAL_M0004_MAX_EVENTS 0
 #define DAL_M0004_MIN_RTV 0.0
 
-#define DAL_M0004_BUILD "1.10"
+#define DAL_M0004_BUILD "1.12"
 
 datetime g_last_open_bar_time = 0;
 datetime g_last_closed_stream_bar_time = 0;
@@ -366,6 +366,9 @@ void RunAtomicNoSampleM0004MainReport(const string source_mode)
    cfg.print_extended_report = InpAtomicPrintExtendedReport;
    cfg.print_deep_report = InpAtomicPrintDeepReport;
    cfg.print_h6_optionality_report = InpAtomicPrintH6OptionalityReport;
+   cfg.print_h6_edge_map = false;
+   cfg.h6_only_report = false;
+   cfg.h6_min_bucket_n = 50;
    cfg.stress_transition_permutation = InpAtomicStressTransitionPermutation;
    cfg.stress_run_shuffle = InpAtomicStressRunShuffle;
    cfg.stress_block_concentration = InpAtomicStressBlockConcentration;

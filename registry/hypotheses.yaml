@@ -1,26 +1,17 @@
 hypotheses:
-  - id: H0001
-    title: Structural highs and lows as decision nodes
-    status: active_foundation
-    document: lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md
-    live_validity_contract: structural_nodes_explicit_rules
-
-  - id: H0002
-    title: Structural node territories and revisitation dynamics
-    status: active_foundation
-    document: lab/02_hypotheses/H0002_structural_node_revisitation.md
-    live_validity_contract: confirmed_nodes_and_revisit_lifecycle
-
   - id: H0004
-    title: Branch regime memory
-    status: active_rebuilt
-    document: lab/02_hypotheses/H0004_branch_regime_memory_atomic.md
-    live_validity_contract: atomic_no_sample_known_time_batches
-    legacy_warning: classic_sample_sequence_is_exploratory_only
-
+    title: Branch Regime Memory
+    status: active_atomic_no_sample
+    official_expert: mql5/Experts/DecisionAlphaLab/M0004/M0004_BranchRegimeClustering.mq5
+    official_contract: raw_m0001_known_time_batches_no_samples
   - id: H0005
-    title: Directional memory and execution
-    status: active_rebuilt
-    document: lab/02_hypotheses/H0005_directional_memory_atomic.md
-    live_validity_contract: atomic_no_sample_live_replay_with_explicit_risk
-    legacy_warning: continuation_path_r_is_not_execution_r_without_real_stop
+    title: Directional Memory
+    status: active_atomic_no_sample
+    official_expert: mql5/Experts/DecisionAlphaLab/M0005/M0005_DirectionalMemory.mq5
+    official_contract: raw_m0001_known_time_live_replay_no_samples
+  - id: H0006
+    title: Reversal Explosive Optionality
+    status: active_standalone
+    official_expert: mql5/Experts/DecisionAlphaLab/M0006/M0006_ReversalExplosiveOptionality.mq5
+    official_contract: raw_m0001_known_time_batches_no_samples_future_excursion_after_known_time
+    purpose: Identify whether reversal states are fatter-tail optionality points rather than higher win-rate points.

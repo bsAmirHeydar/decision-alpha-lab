@@ -1,14 +1,7 @@
 validations:
-  - id: VAL0010
-    title: H4 atomic no-sample regime validation
-    hypothesis: H0004
-    document: lab/05_validation/VAL0010_h4_atomic_no_sample_regime/README.md
-    contract: no_m0002_no_branch_samples_raw_m0001_events_only
-    status: required_for_official_h4_claims
-
-  - id: VAL0011
-    title: Main atomic no-sample unification
-    hypothesis: [H0004, H0005]
-    document: lab/05_validation/VAL0011_main_atomic_no_sample_unification/README.md
-    contract: main_experts_default_to_atomic_no_sample
-    status: required_for_main_reports
+  - id: VAL0016
+    hypothesis: H0006
+    title: Standalone H6 optionality edge map
+    expert: mql5/Experts/DecisionAlphaLab/M0006/M0006_ReversalExplosiveOptionality.mq5
+    docs: lab/03_validation/VAL0016_h6_standalone_optionality/README.md
+    contract: no_m0002_no_branch_samples_raw_m0001_known_time_batches
