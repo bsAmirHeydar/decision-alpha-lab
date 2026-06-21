@@ -16,7 +16,8 @@ struct DALM0006ReactionBoxConfig
    bool preserve_existing_on_empty_update;
    bool preserve_matured_boxes;
    int min_bars_for_update;
-   string object_prefix;
+   string object_prefix;           // volatile prefix: levels / markers / debug only
+   string box_object_prefix;       // persistent prefix: matured boxes only; never used by volatile delete
    int max_boxes;                 // 0 = draw all boxes/markers
    int max_levels;                // 0 = draw all levels
    bool draw_back;
@@ -68,7 +69,8 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.preserve_existing_on_empty_update = true;
    cfg.preserve_matured_boxes = true;
    cfg.min_bars_for_update = 0;
-   cfg.object_prefix = "DAL_H6_BOX_";
+   cfg.object_prefix = "DAL_H6_VOL_";
+   cfg.box_object_prefix = "DAL_H6_PERSIST_BOX_";
    cfg.max_boxes = 0;
    cfg.max_levels = 0;
    cfg.draw_back = true;
@@ -129,25 +131,14 @@ void DAL_M0006DeleteObjectsByPrefix(const string prefix)
    }
 }
 
-void DAL_M0006DeleteVolatileObjectsByPrefix(
-   const string prefix,
-   const bool preserve_matured_boxes
-)
+void DAL_M0006DeleteVolatileObjectsByPrefix(const string volatile_prefix)
 {
    int total = ObjectsTotal(0);
-   string box_prefix = prefix + "BOX_";
    for(int i = total - 1; i >= 0; i--)
    {
       string name = ObjectName(0, i);
-      if(StringFind(name, prefix) != 0)
-         continue;
-
-      // Matured reaction boxes are persistent. Once created, they are never deleted by live updates.
-      // They are only color-updated if the same node reaches a higher horizon.
-      if(preserve_matured_boxes && StringFind(name, box_prefix) == 0)
-         continue;
-
-      ObjectDelete(0, name);
+      if(StringFind(name, volatile_prefix) == 0)
+         ObjectDelete(0, name);
    }
 }
 
@@ -492,7 +483,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       return false;
    }
 
-   DAL_M0006DeleteVolatileObjectsByPrefix(cfg.object_prefix, cfg.preserve_matured_boxes);
+   DAL_M0006DeleteVolatileObjectsByPrefix(cfg.object_prefix);
 
    int h1 = MathMax(1, cfg.horizon_red);
    int h2 = MathMax(h1 + 1, cfg.horizon_green);
@@ -675,7 +666,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       }
       else if(drawn < max_boxes)
       {
-          string name = cfg.object_prefix + "BOX_" + IntegerToString(nodes[n].id) + "_" + side;
+          string name = cfg.box_object_prefix + IntegerToString(nodes[n].id) + "_" + side;
          if(DAL_M0006CreateReactionRectangle(name, left_time, right_time, nodes[n].price, zone_end, nodes[n].type, box_color, cfg, tip))
          {
             drawn++;
@@ -709,6 +700,9 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*update=DELETE_AND_REDRAW_VALID_SNAPSHOT"
       + "*preserveExistingOnEmpty=" + IntegerToString(cfg.preserve_existing_on_empty_update ? 1 : 0)
       + "*preserveMaturedBoxes=" + IntegerToString(cfg.preserve_matured_boxes ? 1 : 0)
+      + "*volatilePrefix=" + cfg.object_prefix
+      + "*boxPrefix=" + cfg.box_object_prefix
+      + "*boxDeletePolicy=NEVER_DELETE_PERSISTENT_BOX_PREFIX_DURING_LIVE_OR_VOLATILE_CLEANUP"
       + "*boxUpdatePolicy=persistent_stable_name_color_only_update"
       + "*symbol=" + cfg.symbol
       + "*tf=" + EnumToString(cfg.timeframe)
@@ -753,7 +747,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*preTouchDrawPolicy=OFF_BY_DEFAULT_NO_ZONE_BEFORE_FIRST_TOUCH"
       + "*levelPolicy=neutral_reference_starts_at_first_touch_not_node_origin"
       + "*boxDrawRule=draw_only_when_touch_confirmed_and_zone_end_not_retouched_and_age_after_touch_reaches_input_horizon"
-      + "*boxPersistence=once_created_never_deleted_by_live_update"
+      + "*boxPersistence=once_created_never_deleted_by_live_update_or_volatile_cleanup"
       + "*colorRule=highest_reached_input_horizon_after_touch_without_zone_end_retouch";
    Print(line);
 

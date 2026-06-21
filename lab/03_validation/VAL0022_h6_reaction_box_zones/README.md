@@ -112,3 +112,12 @@ Release 127 boxes-only official mode:
 - Matured boxes remain persistent on the chart and are never deleted by live updates.
 - If a zone reaches a higher horizon, the same box remains and only its color changes.
 - `InpH6BoxesOnlyMode=true` forces `draw_node_levels=false`, `show_origin_touch_markers=false`, and `show_untouched_levels=false`.
+
+
+Release 128 root persistence fix:
+- Persistent boxes now use a separate namespace: `DAL_H6_PERSIST_BOX_`.
+- Volatile/debug objects use a separate namespace: `DAL_H6_VOL_`.
+- Live update cleanup only deletes volatile objects and cannot match persistent box names.
+- `InpH6ClearAllObjectsOnInit` now clears volatile/debug objects only.
+- Persistent boxes are deleted only when `InpH6ClearPersistentBoxesOnInit=true`.
+- Box object names are stable per node/side and update color only on higher horizons.
