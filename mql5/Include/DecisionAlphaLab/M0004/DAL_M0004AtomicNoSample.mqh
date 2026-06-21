@@ -2839,6 +2839,35 @@ int D0010_H6ReactionAchievedStage(
    return D0010_H6NodeStage(age_until_end, h1, h2, h3);
 }
 
+int D0010_H6TouchLifecycleStage(
+   const int touch_index,
+   const int retouch_index,
+   const int last,
+   const int h1,
+   const int h2,
+   const int h3,
+   int &age_until_end,
+   bool &active_box
+)
+{
+   age_until_end = 0;
+   active_box = true;
+   if(touch_index < 0)
+      return 0;
+
+   int effective_last = last;
+   if(retouch_index > 0)
+   {
+      active_box = false;
+      effective_last = retouch_index - 1;
+   }
+   if(effective_last < touch_index)
+      effective_last = touch_index;
+
+   age_until_end = effective_last - touch_index;
+   return D0010_H6NodeStage(age_until_end, h1, h2, h3);
+}
+
 color D0010_H6ReactionStageColor(const int stage, const bool active_box)
 {
    if(stage >= 3) return InpH6NodeColor3;
@@ -2932,25 +2961,25 @@ void D0010_H6NodeSurvivalReport(
          D0010_H6FindReactionBox(bars, bars_count, known, events[i].node_price, high_node, known + h3, touch_buffer, reaction_away_buffer, reaction_retouch_buffer, rx_touch, rx_confirm, rx_retouch, rx_zone_end);
          if(rx_touch > 0)
             st.reaction_touch_nodes++;
-         if(rx_confirm > 0)
+         if(rx_touch > 0)
          {
             st.reaction_confirmed_nodes++;
-            if(rx_confirm + h1 <= last)
+            if(rx_touch + h1 <= last)
             {
                st.reaction_matured1++;
-               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h1) st.reaction_retouch1++;
+               if(rx_retouch > 0 && rx_retouch <= rx_touch + h1) st.reaction_retouch1++;
                else st.reaction_survived1++;
             }
-            if(rx_confirm + h2 <= last)
+            if(rx_touch + h2 <= last)
             {
                st.reaction_matured2++;
-               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h2) st.reaction_retouch2++;
+               if(rx_retouch > 0 && rx_retouch <= rx_touch + h2) st.reaction_retouch2++;
                else st.reaction_survived2++;
             }
-            if(rx_confirm + h3 <= last)
+            if(rx_touch + h3 <= last)
             {
                st.reaction_matured3++;
-               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h3) st.reaction_retouch3++;
+               if(rx_retouch > 0 && rx_retouch <= rx_touch + h3) st.reaction_retouch3++;
                else st.reaction_survived3++;
             }
          }
@@ -3024,9 +3053,10 @@ void D0010_H6NodeSurvivalReport(
          + "*knownNodes=" + IntegerToString(st.known_nodes)
          + "*touchNodes=" + IntegerToString(st.reaction_touch_nodes)
          + "*confirmedReactionNodes=" + IntegerToString(st.reaction_confirmed_nodes)
-         + "*touchToReactionRule=first_touch_then_later_bar_moves_away_from_node"
-         + "*invalidator=zone_end_retouch_after_reaction_confirmation"
+         + "*touchToReactionRule=first_touch_of_any_raw_node_then_measure_survival_from_touch"
+         + "*invalidator=zone_end_retouch_after_touch"
          + "*box=time_from_node_origin_to_first_touch_price_from_node_level_to_touch_extreme"
+         + "*colorRule=touch_age_without_zone_end_retouch"
          + "*colors=red/green/purple_by_reaction_survival_" + IntegerToString(h1) + "/" + IntegerToString(h2) + "/" + IntegerToString(h3);
       Print(rx_audit);
 
@@ -3075,7 +3105,7 @@ void D0010_H6NodeSurvivalReport(
          int known = -1;
          if(!D0010_ClassifyRawEvent(events[i], bars, bars_count, label, dir, known))
             continue;
-         if(known < warmup || known + h1 > last)
+         if(known < warmup || known + 1 > last)
             continue;
          bool high_node = (events[i].node_type == DAL_NODE_HIGH);
          bool low_node = (events[i].node_type == DAL_NODE_LOW);
@@ -3114,11 +3144,11 @@ void D0010_H6NodeSurvivalReport(
             int rx_retouch = -1;
             double rx_zone_end = events[i].node_price;
             D0010_H6FindReactionBox(bars, bars_count, known, events[i].node_price, high_node, last, touch_buffer, reaction_away_buffer, reaction_retouch_buffer, rx_touch, rx_confirm, rx_retouch, rx_zone_end);
-            if(rx_touch > 0 && rx_confirm > 0)
+            if(rx_touch > 0)
             {
                int rx_age = 0;
                bool rx_active_box = true;
-               int rx_stage = D0010_H6ReactionAchievedStage(rx_confirm, rx_retouch, last, h1, h2, h3, rx_age, rx_active_box);
+               int rx_stage = D0010_H6TouchLifecycleStage(rx_touch, rx_retouch, last, h1, h2, h3, rx_age, rx_active_box);
 
                if(rx_active_box)
                {
@@ -3138,13 +3168,14 @@ void D0010_H6NodeSurvivalReport(
                string rx_tip = "H6 reaction box " + rx_stage_text + " " + side2
                   + " originTime=" + TimeToString(bars[known].time)
                   + " touchTime=" + TimeToString(bars[rx_touch].time)
-                  + " confirmTime=" + TimeToString(bars[rx_confirm].time)
+                  + " confirmTime=" + (rx_confirm > 0 ? TimeToString(bars[rx_confirm].time) : "NONE")
                   + " retouchTime=" + (rx_retouch > 0 ? TimeToString(bars[rx_retouch].time) : "NONE")
                   + " active=" + IntegerToString(rx_active_box ? 1 : 0)
-                  + " reverseCandlesWithoutZoneEndRetouch=" + IntegerToString(rx_age)
+                  + " candlesAfterTouchWithoutZoneEndRetouch=" + IntegerToString(rx_age)
                   + " node=" + DoubleToString(events[i].node_price, _Digits)
                   + " touchExtreme=" + DoubleToString(rx_zone_end, _Digits)
-                  + " direction=" + (high_node ? "sell_reaction" : "buy_reaction");
+                  + " direction=" + (high_node ? "sell_reaction" : "buy_reaction")
+                  + " rule=all_touched_nodes_no_regime_filter";
                if(D0010_H6DrawReactionBox(rx_name, bars[known].time, bars[rx_touch].time, events[i].node_price, rx_zone_end, high_node, rc, InpH6NodeLineWidth, rx_tip))
                {
                   st.reaction_boxes_drawn++;
@@ -3170,6 +3201,8 @@ void D0010_H6NodeSurvivalReport(
       + "*reactionActivePurpleH" + IntegerToString(h3) + "=" + IntegerToString(st.reaction_active_stage3)
       + "*drawLines=" + IntegerToString(InpH6NodeDrawLines ? 1 : 0)
       + "*drawReactionBoxes=" + IntegerToString(InpH6ReactionBoxDrawChart ? 1 : 0)
+      + "*reactionColorRule=age_from_touch_until_zone_end_retouch"
+      + "*reactionScope=all_raw_nodes_no_regime_filter"
       + "*objectPrefix=DAL_H6_NODE_"
       + "*updatePolicy=delete_and_redraw_all_reaction_boxes_active_and_closed_plus_optional_lines";
    Print(chart_line);

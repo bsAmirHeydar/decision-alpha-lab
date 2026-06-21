@@ -4,8 +4,8 @@
 //| may be sharper optionality / edge candidates on the chart.          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
-#property description "M0006 standalone no-sample node touch reaction boxes with all boxes drawn and stage colors from realized reversal life"
+#property version   "1.04"
+#property description "M0006 all-node reaction boxes: every touched raw node draws a zone box colored by candles after touch until zone-end retouch"
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 
@@ -28,7 +28,7 @@ input bool InpH6DrawReactionBoxes = true;
 input double InpH6ReactionAwayBufferPoints = 0.0;       // after touch, price must move away from node to confirm reaction
 input double InpH6ReactionZoneEndBufferPoints = 0.0;    // if later price reaches touch extreme again, box survival fails
 input double InpH6ReactionMinBoxHeightPoints = 5.0;     // visual minimum height when touch is exact
-input int InpH6ReactionMaxChartObjects = 0;    // 0 = draw all confirmed reaction boxes
+input int InpH6ReactionMaxChartObjects = 0;    // 0 = draw all touched-node reaction boxes
 input bool InpH6ReactionBoxFill = true;
 input bool InpH6ReactionBoxBack = true;
 input int InpH6NodeMaxChartObjects = 0;        // 0 = draw all survivor lines if enabled
@@ -50,7 +50,7 @@ input string InpCsvFileName = "M0006_Node_Survival_Map.csv";
 
 #include <DecisionAlphaLab/M0006/DAL_M0006NodeSurvivalMap.mqh>
 
-#define DAL_M0006_NODE_BUILD "1.02"
+#define DAL_M0006_NODE_BUILD "1.04"
 
 datetime g_m6_last_bar_time = 0;
 
@@ -173,7 +173,7 @@ void RunM0006NodeSurvivalMap()
    string sanity_line = "DAL_M0006_NODE_BUILD_SANITY *** symbol=" + M6Symbol()
       + "*tf=" + EnumToString(M6Timeframe())
       + "*build=" + DAL_M0006_NODE_BUILD
-      + "*officialReport=H0006_NODE_SURVIVAL_MAP"
+      + "*officialReport=H0006_ALL_NODE_REACTION_BOX_MAP"
       + "*sampleCalls=0*branchSamplesBuilt=0*m0002Calls=0"
       + "*contract=raw_m0001_nodes_known_time_no_sample_no_same_candle_order"
       + "*availableClosedBars=" + IntegerToString(available_closed_bars)
@@ -186,7 +186,7 @@ void RunM0006NodeSurvivalMap()
       + "*drawReactionBoxes=" + IntegerToString(cfg.h6_reaction_box_draw_chart ? 1 : 0)
       + "*maxChartObjects=" + IntegerToString(cfg.h6_node_max_chart_objects)
       + "*maxReactionBoxes=" + IntegerToString(cfg.h6_reaction_max_chart_objects)
-      + "*meaning=touch_node_then_reaction_box_survives_without_zone_end_retouch"
+      + "*meaning=draw_all_raw_node_reaction_boxes_and_color_by_candles_after_touch_without_zone_end_retouch"
       + "*L=" + IntegerToString(cfg.L)
       + "*zoneRatio=" + DoubleToString(cfg.zone_ratio, 4)
       + "*exitGap=" + IntegerToString(cfg.exit_gap)
