@@ -3,8 +3,8 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
-#property description "Execution module E0006: all M0001 zones with internal hunt qualification and opposite-node TP."
+#property version   "1.06"
+#property description "Execution module E0006: all M0001 zones with optional revisit-only entry qualification."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -30,6 +30,13 @@ input double InpZoneRatio = 0.90;
 input int InpMinInternalHuntsForZone = 3;
 input bool InpUseInternalHuntFilter = true;
 input bool InpInternalHuntSameSideOnly = true;
+
+// Revisit-only entry filter.
+// OFF = original behavior: first eligible touch can receive a limit.
+// ON  = require a qualified non-hunted first touch/cycle, then trade only the next revisit cycle.
+input bool InpOnlyTradeRevisitZones = false;
+input bool InpRevisitFirstCycleMustQualify = true;
+input int InpRevisitMinInternalHunts = 0;        // 0 = use InpMinInternalHuntsForZone
 
 // Execution model: all valid live zones, no trade-count cap.
 input long InpMagicNumber = 6006006;
@@ -77,7 +84,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.05"
+#define DAL_E0006_BUILD "1.06"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -330,6 +337,173 @@ bool E0006_InternalNodeHuntedByIndex(
    return false;
 }
 
+bool E0006_InternalNodeHuntedInRange(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &internal_node,
+   const int range_start_index,
+   const int range_end_index
+)
+{
+   if(!internal_node.confirmed)
+      return false;
+
+   int start = internal_node.active_from_index + 1;
+   if(start < 0)
+      start = internal_node.index + 1;
+   if(start < 0)
+      start = 0;
+
+   start = MathMax(start, range_start_index);
+   int end = MathMin(range_end_index, bars_count - 1);
+   if(end < start)
+      return false;
+
+   for(int i = start; i <= end; i++)
+   {
+      if(DAL_M0001Hunted(internal_node.type, internal_node.price, bars[i]))
+         return true;
+   }
+   return false;
+}
+
+int E0006_CountInternalHuntedNodesForOriginRange(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const int cycle_start_index,
+   const int cycle_end_index
+)
+{
+   int count = 0;
+
+   int start_after_origin = origin.index;
+   if(start_after_origin < 0)
+      start_after_origin = origin.active_from_index;
+
+   int start_index = MathMax(start_after_origin + 1, cycle_start_index);
+   int end_index = MathMin(cycle_end_index, bars_count - 1);
+   if(end_index < start_index)
+      return 0;
+
+   for(int k = 0; k < internal_nodes_count; k++)
+   {
+      DALLRuleNode inner = internal_nodes[k];
+      if(!inner.confirmed)
+         continue;
+      if(inner.index < start_index || inner.index > end_index)
+         continue;
+      if(!E0006_InternalNodeSameSideAllowed(origin, inner))
+         continue;
+      if(E0006_InternalNodeHuntedInRange(bars, bars_count, inner, start_index, end_index))
+         count++;
+   }
+
+   return count;
+}
+
+int E0006_RevisitRequiredInternalHunts()
+{
+   int req = MathMax(0, InpRevisitMinInternalHunts);
+   if(req <= 0)
+      req = MathMax(0, InpMinInternalHuntsForZone);
+   return req;
+}
+
+bool E0006_FindFirstNonHuntedTouchEventForNode(
+   const DALM0001Event &events[],
+   const int events_count,
+   const int node_id,
+   DALM0001Event &out_event
+)
+{
+   for(int i = 0; i < events_count; i++)
+   {
+      DALM0001Event ev = events[i];
+      if(ev.node_id != node_id)
+         continue;
+      if(!ev.touch_confirmed)
+         continue;
+      if(ev.hunted)
+         continue;
+      out_event = ev;
+      return true;
+   }
+   return false;
+}
+
+bool E0006_RevisitOnlyQualificationPassed(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const DALM0001Event &origin_events[],
+   const int origin_events_count,
+   int &first_cycle_hunts,
+   int &current_cycle_hunts,
+   int &required,
+   string &reason
+)
+{
+   first_cycle_hunts = 0;
+   current_cycle_hunts = 0;
+   required = E0006_RevisitRequiredInternalHunts();
+
+   if(!InpOnlyTradeRevisitZones)
+   {
+      reason = "revisit_filter_off";
+      return true;
+   }
+
+   if(required <= 0)
+   {
+      reason = "revisit_required_zero";
+      return true;
+   }
+
+   DALM0001Event first_touch;
+   if(!E0006_FindFirstNonHuntedTouchEventForNode(origin_events, origin_events_count, origin.id, first_touch))
+   {
+      reason = "revisit_only_no_prior_non_hunted_touch";
+      return false;
+   }
+
+   // Cycle 1: before the first official touch of this origin zone.
+   int pre_start = origin.index + 1;
+   if(pre_start < 0)
+      pre_start = origin.active_from_index;
+   int pre_end = first_touch.entry_index - 1;
+   first_cycle_hunts = E0006_CountInternalHuntedNodesForOriginRange(bars, bars_count, origin, internal_nodes, internal_nodes_count, pre_start, pre_end);
+
+   if(InpRevisitFirstCycleMustQualify && first_cycle_hunts < required)
+   {
+      reason = "revisit_first_cycle_hunts_below_required_" + IntegerToString(first_cycle_hunts) + "_of_" + IntegerToString(required);
+      return false;
+   }
+
+   // Revisit cycle: after the first non-hunted touch has closed, before the next touch.
+   // The order is allowed only after this post-touch cycle has also hunted enough same-side internal nodes.
+   int post_start = first_touch.exit_index + 1;
+   if(post_start <= 0)
+      post_start = first_touch.entry_index + 1;
+   int post_end = bars_count - 1;
+   current_cycle_hunts = E0006_CountInternalHuntedNodesForOriginRange(bars, bars_count, origin, internal_nodes, internal_nodes_count, post_start, post_end);
+
+   if(current_cycle_hunts < required)
+   {
+      reason = "revisit_current_cycle_hunts_below_required_" + IntegerToString(current_cycle_hunts) + "_of_" + IntegerToString(required);
+      return false;
+   }
+
+   reason = "revisit_only_ok_first_" + IntegerToString(first_cycle_hunts)
+      + "_current_" + IntegerToString(current_cycle_hunts)
+      + "_required_" + IntegerToString(required);
+   return true;
+}
+
 int E0006_CountInternalHuntedNodesForOrigin(
    const DALBar &bars[],
    const int bars_count,
@@ -407,6 +581,8 @@ bool E0006_BuildZoneSetup(
    const DALLRuleNode &node,
    const DALLRuleNode &internal_nodes[],
    const int internal_nodes_count,
+   const DALM0001Event &origin_events[],
+   const int origin_events_count,
    const double zone_ratio,
    E0006ZoneSetup &setup
 )
@@ -437,10 +613,23 @@ bool E0006_BuildZoneSetup(
       return false;
    }
 
+   int revisit_first_cycle_hunts = 0;
+   int revisit_current_cycle_hunts = 0;
+   int revisit_required = 0;
+   string revisit_reason = "";
+   if(!E0006_RevisitOnlyQualificationPassed(bars, bars_count, node, internal_nodes, internal_nodes_count, origin_events, origin_events_count, revisit_first_cycle_hunts, revisit_current_cycle_hunts, revisit_required, revisit_reason))
+   {
+      setup.internal_hunt_count = revisit_current_cycle_hunts;
+      setup.internal_hunt_required = revisit_required;
+      setup.internal_hunt_passed = false;
+      setup.reason = revisit_reason;
+      return false;
+   }
+
    int internal_count = 0;
    int internal_required = 0;
    string internal_reason = "";
-   if(!E0006_InternalHuntQualificationPassed(bars, bars_count, node, internal_nodes, internal_nodes_count, internal_count, internal_required, internal_reason))
+   if(!InpOnlyTradeRevisitZones && !E0006_InternalHuntQualificationPassed(bars, bars_count, node, internal_nodes, internal_nodes_count, internal_count, internal_required, internal_reason))
    {
       setup.internal_hunt_count = internal_count;
       setup.internal_hunt_required = internal_required;
@@ -463,8 +652,16 @@ bool E0006_BuildZoneSetup(
    setup.zone_upper = upper;
    setup.spread = spread;
    setup.reward_r = reward_r;
-   setup.internal_hunt_count = internal_count;
-   setup.internal_hunt_required = internal_required;
+   if(InpOnlyTradeRevisitZones)
+   {
+      setup.internal_hunt_count = revisit_current_cycle_hunts;
+      setup.internal_hunt_required = revisit_required;
+   }
+   else
+   {
+      setup.internal_hunt_count = internal_count;
+      setup.internal_hunt_required = internal_required;
+   }
    setup.internal_hunt_passed = true;
 
    if(node.type == DAL_NODE_LOW)
@@ -1174,6 +1371,9 @@ void E0006_ProcessNewBar(const string run_mode)
    DALM0001Config m1;
    E0006_BuildM0001Config(m1);
 
+   DALM0001Event origin_events[];
+   int origin_events_count = DAL_M0001ComputeEvents(bars, bars_count, nodes, nodes_count, m1, origin_events);
+
    string desired_comments[];
    ArrayResize(desired_comments, 0);
 
@@ -1217,10 +1417,11 @@ void E0006_ProcessNewBar(const string run_mode)
          break;
 
       E0006ZoneSetup setup;
-      if(!E0006_BuildZoneSetup(E0006_Symbol(), bars, bars_count, node, internal_nodes, internal_nodes_count, m1.zone_ratio, setup))
+      if(!E0006_BuildZoneSetup(E0006_Symbol(), bars, bars_count, node, internal_nodes, internal_nodes_count, origin_events, origin_events_count, m1.zone_ratio, setup))
       {
          build_reject++;
-         if(StringFind(setup.reason, "internal_hunts_below_required", 0) == 0)
+         if(StringFind(setup.reason, "internal_hunts_below_required", 0) == 0
+            || StringFind(setup.reason, "revisit_", 0) == 0)
             internal_hunt_filter_skip++;
          continue;
       }
@@ -1323,6 +1524,7 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*bars=" + IntegerToString(bars_count)
          + "*originNodes=" + IntegerToString(nodes_count)
          + "*internalNodes=" + IntegerToString(internal_nodes_count)
+         + "*originEvents=" + IntegerToString(origin_events_count)
          + "*scanned=" + IntegerToString(scanned)
          + "*built=" + IntegerToString(built)
          + "*synced=" + IntegerToString(sent_or_synced)
@@ -1344,6 +1546,12 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*useInternalHuntFilter=" + DAL_BoolToString(InpUseInternalHuntFilter)
          + "*minInternalHuntsForZone=" + IntegerToString(MathMax(0, InpMinInternalHuntsForZone))
          + "*sameSideOnly=" + DAL_BoolToString(InpInternalHuntSameSideOnly)
+      + "*onlyTradeRevisits=" + DAL_BoolToString(InpOnlyTradeRevisitZones)
+      + "*revisitFirstCycleMustQualify=" + DAL_BoolToString(InpRevisitFirstCycleMustQualify)
+      + "*revisitMinInternalHunts=" + IntegerToString(E0006_RevisitRequiredInternalHunts())
+         + "*onlyTradeRevisits=" + DAL_BoolToString(InpOnlyTradeRevisitZones)
+         + "*revisitFirstCycleMustQualify=" + DAL_BoolToString(InpRevisitFirstCycleMustQualify)
+         + "*revisitMinInternalHunts=" + IntegerToString(E0006_RevisitRequiredInternalHunts())
          + "*buySideBlockedByOpenCap=" + DAL_BoolToString(buy_side_blocked_by_open_cap)
          + "*sellSideBlockedByOpenCap=" + DAL_BoolToString(sell_side_blocked_by_open_cap)
          + "*sideBlockDeletedBuy=" + IntegerToString(side_block_deleted_buy)
@@ -1363,7 +1571,7 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*tpWaiting=" + IntegerToString(tp_waiting)
          + "*tpModified=" + IntegerToString(tp_modified)
          + "*tpRejected=" + IntegerToString(tp_rejected)
-         + "*mode=ALL_LIVE_M0001_ZONES_WITH_INTERNAL_SAME_SIDE_HUNT_FILTER_NEW_BAR_ONLY";
+         + "*mode=ALL_LIVE_M0001_ZONES_WITH_OPTIONAL_REVISIT_ONLY_FILTER_NEW_BAR_ONLY";
       Print(audit);
    }
 }

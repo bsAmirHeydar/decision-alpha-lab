@@ -152,3 +152,33 @@ SELL position rule:
 The internal nodes use `InpInternalNodeL`.
 The TP manager runs once per new candle, not on every tick.
 If `InpRewardR > 0`, pending orders still receive an initial fixed-R TP. With the default zero value, pending orders are placed with TP=0 and the internal opposite-node TP manager owns the exit.
+
+
+Release 106 optional revisit-only entry filter:
+
+New inputs:
+- `InpOnlyTradeRevisitZones = false`
+- `InpRevisitFirstCycleMustQualify = true`
+- `InpRevisitMinInternalHunts = 0` where zero reuses `InpMinInternalHuntsForZone`.
+
+When revisit-only mode is OFF, E0006 keeps the Release 105 behavior: a valid origin zone can receive a limit once the same-side internal hunt count passes the configured threshold.
+
+When revisit-only mode is ON:
+1. E0006 computes M0001 events for origin zones.
+2. A zone is not tradeable on its first touch.
+3. The origin node must have a prior M0001 touch event that was confirmed and not hunted.
+4. The first cycle before that prior touch must satisfy the internal same-side hunt threshold, when `InpRevisitFirstCycleMustQualify` is true.
+5. The post-touch/revisit cycle must also satisfy the same internal hunt threshold.
+6. Only then does E0006 place the pending limit for the next revisit.
+
+LOW origin example:
+- First cycle: internal LOW hunts before the first non-hunted LOW-zone touch must be >= N.
+- Revisit cycle: internal LOW hunts after that first touch closes must also be >= N.
+- Only then can the LOW origin receive a BUY LIMIT on revisit.
+
+HIGH origin example:
+- First cycle: internal HIGH hunts before the first non-hunted HIGH-zone touch must be >= N.
+- Revisit cycle: internal HIGH hunts after that first touch closes must also be >= N.
+- Only then can the HIGH origin receive a SELL LIMIT on revisit.
+
+The revisit filter still runs on new candles only, and uses the same M0001 hunt predicate and the configured internal-node L.
