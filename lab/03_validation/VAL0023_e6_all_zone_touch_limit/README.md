@@ -125,3 +125,7 @@ SELL/HIGH origin rule:
 - The HIGH origin zone becomes eligible for a SELL LIMIT only if the count is at least `InpMinInternalHuntsForZone`.
 
 The check runs once per new candle, not on every tick.
+
+Release 104 compile fix:
+- Replace long variadic `Print(...)` audit calls with single-string audit/sanity messages.
+- This avoids MQL5 `wrong parameters count` errors from too many Print arguments.

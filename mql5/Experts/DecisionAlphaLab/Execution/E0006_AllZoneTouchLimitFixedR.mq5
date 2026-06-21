@@ -3,7 +3,7 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.03"
+#property version   "1.04"
 #property description "Execution module E0006: all M0001 zones with internal same-side hunt qualification."
 
 #include <Trade/Trade.mqh>
@@ -70,7 +70,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.03"
+#define DAL_E0006_BUILD "1.04"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -952,42 +952,45 @@ void E0006_ProcessNewBar(const string run_mode)
 
    if(InpPrintOrderLogs)
    {
-      Print("DAL_E0006_AUDIT *** build=", DAL_E0006_BUILD,
-         "*runMode=", run_mode,
-         "*bars=", bars_count,
-         "*nodes=", nodes_count,
-         "*scanned=", scanned,
-         "*built=", built,
-         "*synced=", sent_or_synced,
-         "*skipped=", skipped,
-         "*buildReject=", build_reject,
-         "*orderReject=", order_reject,
-         "*sideCapSkip=", side_cap_skip,
-         "*buyDesired=", buy_desired,
-         "*sellDesired=", sell_desired,
-         "*maxBuyPending=", max_buy_pending,
-         "*maxSellPending=", max_sell_pending,
-         "*openBuyPositions=", open_buy_positions,
-         "*openSellPositions=", open_sell_positions,
-         "*maxBuyOpenBeforeBlock=", max_buy_open_before_block,
-         "*maxSellOpenBeforeBlock=", max_sell_open_before_block,
-          "*originL=", MathMax(1, InpOriginNodeL),
-          "*internalL=", MathMax(1, InpInternalNodeL),
-          "*useInternalHuntFilter=", DAL_BoolToString(InpUseInternalHuntFilter),
-          "*minInternalHuntsForZone=", MathMax(0, InpMinInternalHuntsForZone),
-          "*sameSideOnly=", DAL_BoolToString(InpInternalHuntSameSideOnly),
-         "*buySideBlockedByOpenCap=", DAL_BoolToString(buy_side_blocked_by_open_cap),
-         "*sellSideBlockedByOpenCap=", DAL_BoolToString(sell_side_blocked_by_open_cap),
-         "*sideBlockDeletedBuy=", side_block_deleted_buy,
-         "*sideBlockDeletedSell=", side_block_deleted_sell,
-         "*sideBlockFailedBuy=", side_block_failed_buy,
-         "*sideBlockFailedSell=", side_block_failed_sell,
-         "*desired=", ArraySize(desired_comments),
-         "*staleDeleted=", stale_deleted,
-         "*staleKept=", stale_kept,
-         "*staleFailed=", stale_failed,
-         "*rewardR=", DoubleToString(InpRewardR, 2),
-         "*mode=ALL_LIVE_M0001_ZONES_WITH_INTERNAL_SAME_SIDE_HUNT_FILTER_NEW_BAR_ONLY");
+      string audit = "DAL_E0006_AUDIT *** build=" + string(DAL_E0006_BUILD)
+         + "*runMode=" + run_mode
+         + "*bars=" + IntegerToString(bars_count)
+         + "*originNodes=" + IntegerToString(nodes_count)
+         + "*internalNodes=" + IntegerToString(internal_nodes_count)
+         + "*scanned=" + IntegerToString(scanned)
+         + "*built=" + IntegerToString(built)
+         + "*synced=" + IntegerToString(sent_or_synced)
+         + "*skipped=" + IntegerToString(skipped)
+         + "*buildReject=" + IntegerToString(build_reject)
+         + "*orderReject=" + IntegerToString(order_reject)
+         + "*sideCapSkip=" + IntegerToString(side_cap_skip)
+         + "*internalHuntFilterSkip=" + IntegerToString(internal_hunt_filter_skip)
+         + "*buyDesired=" + IntegerToString(buy_desired)
+         + "*sellDesired=" + IntegerToString(sell_desired)
+         + "*maxBuyPending=" + IntegerToString(max_buy_pending)
+         + "*maxSellPending=" + IntegerToString(max_sell_pending)
+         + "*openBuyPositions=" + IntegerToString(open_buy_positions)
+         + "*openSellPositions=" + IntegerToString(open_sell_positions)
+         + "*maxBuyOpenBeforeBlock=" + IntegerToString(max_buy_open_before_block)
+         + "*maxSellOpenBeforeBlock=" + IntegerToString(max_sell_open_before_block)
+         + "*originL=" + IntegerToString(MathMax(1, InpOriginNodeL))
+         + "*internalL=" + IntegerToString(MathMax(1, InpInternalNodeL))
+         + "*useInternalHuntFilter=" + DAL_BoolToString(InpUseInternalHuntFilter)
+         + "*minInternalHuntsForZone=" + IntegerToString(MathMax(0, InpMinInternalHuntsForZone))
+         + "*sameSideOnly=" + DAL_BoolToString(InpInternalHuntSameSideOnly)
+         + "*buySideBlockedByOpenCap=" + DAL_BoolToString(buy_side_blocked_by_open_cap)
+         + "*sellSideBlockedByOpenCap=" + DAL_BoolToString(sell_side_blocked_by_open_cap)
+         + "*sideBlockDeletedBuy=" + IntegerToString(side_block_deleted_buy)
+         + "*sideBlockDeletedSell=" + IntegerToString(side_block_deleted_sell)
+         + "*sideBlockFailedBuy=" + IntegerToString(side_block_failed_buy)
+         + "*sideBlockFailedSell=" + IntegerToString(side_block_failed_sell)
+         + "*desired=" + IntegerToString(ArraySize(desired_comments))
+         + "*staleDeleted=" + IntegerToString(stale_deleted)
+         + "*staleKept=" + IntegerToString(stale_kept)
+         + "*staleFailed=" + IntegerToString(stale_failed)
+         + "*rewardR=" + DoubleToString(InpRewardR, 2)
+         + "*mode=ALL_LIVE_M0001_ZONES_WITH_INTERNAL_SAME_SIDE_HUNT_FILTER_NEW_BAR_ONLY";
+      Print(audit);
    }
 }
 
@@ -995,24 +998,30 @@ int OnInit()
 {
    g_trade.SetExpertMagicNumber(InpMagicNumber);
 
-   Print("DAL_E0006_BUILD_SANITY *** build=", DAL_E0006_BUILD,
-      "*symbol=", E0006_Symbol(),
-      "*tf=", EnumToString(E0006_Timeframe()),
-      "*module=EXECUTION_E0006_ALL_ZONE_TOUCH_LIMIT_FIXED_R",
-      "*source=M0001_LIVE_TERRITORY",
-      "*entry=LIMIT_ON_TOUCH_EDGE",
-      "*buyEntry=LOW_ZONE_UPPER_PLUS_SPREAD",
-      "*sellEntry=HIGH_ZONE_LOWER",
-      "*sellSL=HIGH_ZONE_UPPER_PLUS_SPREAD",
-      "*sellTP=FIXED_R_TP_PLUS_SPREAD",
-      "*rewardR=", DoubleToString(InpRewardR, 2),
-      "*maxBuyPending=", InpMaxBuyPendingOrders,
-      "*maxSellPending=", InpMaxSellPendingOrders,
-      "*maxBuyOpenBeforeBlock=", InpMaxBuyOpenPositionsBeforeBlock,
-      "*maxSellOpenBeforeBlock=", InpMaxSellOpenPositionsBeforeBlock,
-      "*deleteSidePendingWhenOpenCapHit=", DAL_BoolToString(InpDeleteSidePendingWhenOpenCapHit),
-      "*openSideBlockPolicy=CHECK_EVERY_NEW_CANDLE_DELETE_PENDING_AND_BLOCK_SIDE",
-      "*newBarOnly=true");
+   string sanity = "DAL_E0006_BUILD_SANITY *** build=" + string(DAL_E0006_BUILD)
+      + "*symbol=" + E0006_Symbol()
+      + "*tf=" + EnumToString(E0006_Timeframe())
+      + "*module=EXECUTION_E0006_ALL_ZONE_TOUCH_LIMIT_FIXED_R"
+      + "*source=M0001_LIVE_TERRITORY"
+      + "*entry=LIMIT_ON_TOUCH_EDGE"
+      + "*buyEntry=LOW_ZONE_UPPER_PLUS_SPREAD"
+      + "*sellEntry=HIGH_ZONE_LOWER"
+      + "*sellSL=HIGH_ZONE_UPPER_PLUS_SPREAD"
+      + "*sellTP=FIXED_R_TP_PLUS_SPREAD"
+      + "*rewardR=" + DoubleToString(InpRewardR, 2)
+      + "*originL=" + IntegerToString(InpOriginNodeL)
+      + "*internalL=" + IntegerToString(InpInternalNodeL)
+      + "*useInternalHuntFilter=" + DAL_BoolToString(InpUseInternalHuntFilter)
+      + "*minInternalHuntsForZone=" + IntegerToString(InpMinInternalHuntsForZone)
+      + "*sameSideOnly=" + DAL_BoolToString(InpInternalHuntSameSideOnly)
+      + "*maxBuyPending=" + IntegerToString(InpMaxBuyPendingOrders)
+      + "*maxSellPending=" + IntegerToString(InpMaxSellPendingOrders)
+      + "*maxBuyOpenBeforeBlock=" + IntegerToString(InpMaxBuyOpenPositionsBeforeBlock)
+      + "*maxSellOpenBeforeBlock=" + IntegerToString(InpMaxSellOpenPositionsBeforeBlock)
+      + "*deleteSidePendingWhenOpenCapHit=" + DAL_BoolToString(InpDeleteSidePendingWhenOpenCapHit)
+      + "*openSideBlockPolicy=CHECK_EVERY_NEW_CANDLE_DELETE_PENDING_AND_BLOCK_SIDE"
+      + "*newBarOnly=true";
+   Print(sanity);
 
    if(InpRunOnInit)
       E0006_ProcessNewBar("init_backfill_sync");
