@@ -18,6 +18,15 @@ struct DALM0006ReactionBoxConfig
    bool fill;
    int line_width;
 
+   bool show_pre_stage;
+   bool show_red_stage;
+   bool show_green_stage;
+   bool show_purple_stage;
+   bool show_consumed_boxes;
+   bool show_origin_touch_markers;
+   int box_left_anchor_mode;       // 0=node pivot/origin time, 1=known/active_from time
+   int box_right_anchor_mode;      // 0=touch candle open time, 1=touch candle close time
+
    int horizon_red;
    int horizon_green;
    int horizon_purple;
@@ -50,6 +59,15 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.draw_back = true;
    cfg.fill = true;
    cfg.line_width = 2;
+
+   cfg.show_pre_stage = true;
+   cfg.show_red_stage = true;
+   cfg.show_green_stage = true;
+   cfg.show_purple_stage = true;
+   cfg.show_consumed_boxes = false;
+   cfg.show_origin_touch_markers = true;
+   cfg.box_left_anchor_mode = 0;
+   cfg.box_right_anchor_mode = 0;
 
    cfg.horizon_red = 20;
    cfg.horizon_green = 50;
@@ -216,6 +234,38 @@ string DAL_M0006StageText(const int stage, const int h1, const int h2, const int
    return "PRE_H" + IntegerToString(h1);
 }
 
+bool DAL_M0006StageVisible(const int stage, const DALM0006ReactionBoxConfig &cfg)
+{
+   if(stage >= 3) return cfg.show_purple_stage;
+   if(stage == 2) return cfg.show_green_stage;
+   if(stage == 1) return cfg.show_red_stage;
+   return cfg.show_pre_stage;
+}
+
+datetime DAL_M0006BoxLeftTime(const DALLRuleNode &node, const DALM0006ReactionBoxConfig &cfg)
+{
+   if(cfg.box_left_anchor_mode == 1)
+      return node.active_from_time;
+   return node.time;
+}
+
+datetime DAL_M0006BoxRightTime(
+   const DALBar &bars[],
+   const int bars_count,
+   const int touch_index,
+   const DALM0006ReactionBoxConfig &cfg
+)
+{
+   datetime t = bars[touch_index].time;
+   if(cfg.box_right_anchor_mode == 1)
+   {
+      int sec = PeriodSeconds(cfg.timeframe);
+      if(sec <= 0) sec = 60;
+      t += sec;
+   }
+   return t;
+}
+
 bool DAL_M0006CreateReactionRectangle(
    const string name,
    const datetime t1,
@@ -330,6 +380,10 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
    int pre = 0;
    int last_error = 0;
 
+   int skipped_consumed = 0;
+   int skipped_level = 0;
+   int skipped_touch_no_away = 0;
+
    for(int n = nodes_count - 1; n >= 0 && drawn < max_boxes; n--)
    {
       int touch_index = DAL_M0006FindFirstTouch(bars, bars_count, nodes[n], touch_buffer);
@@ -344,11 +398,22 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       int away_index = DAL_M0006FindAwayConfirm(bars, bars_count, nodes[n], touch_index, cfg.max_away_scan_bars);
       bool away_ok = (!cfg.require_close_away_after_touch || away_index > 0);
       if(away_index > 0) away_confirmed++;
+      if(!away_ok)
+      {
+         skipped_touch_no_away++;
+         continue;
+      }
 
       double zone_end = DAL_M0006TouchExtreme(bars[touch_index], nodes[n]);
       int retouch_index = DAL_M0006FindZoneEndRetouch(bars, bars_count, nodes[n], touch_index, zone_end, retouch_buffer);
       bool is_active = (retouch_index < 0);
       if(is_active) active++; else retouched++;
+
+      if(!is_active && !cfg.show_consumed_boxes)
+      {
+         skipped_consumed++;
+         continue;
+      }
 
       int effective_end = is_active ? (bars_count - 1) : (retouch_index - 1);
       if(effective_end < touch_index) effective_end = touch_index;
@@ -359,27 +424,42 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       else if(stage == 1) red++;
       else pre++;
 
+      if(!DAL_M0006StageVisible(stage, cfg))
+      {
+         skipped_level++;
+         continue;
+      }
+
       color c = DAL_M0006ColorForBox(stage, is_active, away_ok, cfg);
       string side = (nodes[n].type == DAL_NODE_HIGH ? "HIGH" : "LOW");
       string stage_text = DAL_M0006StageText(stage, h1, h2, h3);
-      string state_text = is_active ? "ACTIVE" : "CLOSED";
+      string state_text = is_active ? "ACTIVE" : "CONSUMED";
       string name = cfg.object_prefix + "BOX_" + stage_text + "_" + state_text + "_" + IntegerToString(nodes[n].id) + "_" + side;
+
+      datetime left_time = DAL_M0006BoxLeftTime(nodes[n], cfg);
+      datetime right_time = DAL_M0006BoxRightTime(bars, bars_count, touch_index, cfg);
 
       string tip = "H6 ALL-NODE BOX"
          + " side=" + side
          + " nodeId=" + IntegerToString(nodes[n].id)
+         + " nodeIndex=" + IntegerToString(nodes[n].index)
+         + " activeFromIndex=" + IntegerToString(nodes[n].active_from_index)
          + " origin=" + TimeToString(nodes[n].time)
          + " known=" + TimeToString(nodes[n].active_from_time)
+         + " boxLeft=" + TimeToString(left_time)
          + " touch=" + TimeToString(bars[touch_index].time)
+         + " boxRight=" + TimeToString(right_time)
          + " awayConfirm=" + (away_index > 0 ? TimeToString(bars[away_index].time) : "NONE")
          + " retouch=" + (retouch_index > 0 ? TimeToString(bars[retouch_index].time) : "NONE")
          + " active=" + IntegerToString(is_active ? 1 : 0)
          + " candlesAfterTouchNoZoneEndRetouch=" + IntegerToString(age_after_touch)
          + " nodePrice=" + DoubleToString(nodes[n].price, _Digits)
          + " touchExtreme=" + DoubleToString(zone_end, _Digits)
+         + " leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
+         + " rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
          + " noRegimeFilter=1";
 
-      if(DAL_M0006CreateReactionRectangle(name, nodes[n].time, bars[touch_index].time, nodes[n].price, zone_end, nodes[n].type, c, cfg, tip))
+      if(DAL_M0006CreateReactionRectangle(name, left_time, right_time, nodes[n].price, zone_end, nodes[n].type, c, cfg, tip))
       {
          drawn++;
       }
@@ -389,14 +469,14 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
          last_error = GetLastError();
       }
 
-      // Small origin/touch markers only after the rectangle, and only if still under object budget.
-      if(drawn < max_boxes)
+      // Optional origin/touch markers only after the rectangle, and only if still under object budget.
+      if(cfg.show_origin_touch_markers && drawn < max_boxes)
       {
          string m1 = cfg.object_prefix + "O_" + IntegerToString(nodes[n].id) + "_" + side;
-         if(DAL_M0006DrawTextMarker(m1, nodes[n].time, nodes[n].price, "O", clrWhite, tip + " marker=origin"))
+         if(DAL_M0006DrawTextMarker(m1, left_time, nodes[n].price, "O", clrWhite, tip + " marker=origin"))
             drawn++;
       }
-      if(drawn < max_boxes)
+      if(cfg.show_origin_touch_markers && drawn < max_boxes)
       {
          string m2 = cfg.object_prefix + "T_" + IntegerToString(nodes[n].id) + "_" + side;
          if(DAL_M0006DrawTextMarker(m2, bars[touch_index].time, zone_end, "T", c, tip + " marker=touch"))
@@ -424,8 +504,18 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*redH" + IntegerToString(h1) + "=" + IntegerToString(red)
       + "*greenH" + IntegerToString(h2) + "=" + IntegerToString(green)
       + "*purpleH" + IntegerToString(h3) + "=" + IntegerToString(purple)
+      + "*skippedConsumed=" + IntegerToString(skipped_consumed)
+      + "*skippedByLevelInput=" + IntegerToString(skipped_level)
+      + "*skippedTouchNoAway=" + IntegerToString(skipped_touch_no_away)
+      + "*showPre=" + IntegerToString(cfg.show_pre_stage ? 1 : 0)
+      + "*showRed=" + IntegerToString(cfg.show_red_stage ? 1 : 0)
+      + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
+      + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
+      + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
+      + "*leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
+      + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*scope=all_raw_nodes_no_regime_filter"
-      + "*box=time_node_origin_to_first_touch_price_node_to_touch_extreme"
+      + "*box=left_anchor_to_first_touch_price_node_to_touch_extreme"
       + "*colorRule=candles_after_touch_without_zone_end_retouch";
    Print(line);
 

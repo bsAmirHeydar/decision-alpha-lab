@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
-#property description "Official H0006 direct all-node reaction box visual engine: no event dependency, no regime filter"
+#property version   "1.06"
+#property description "Official H0006 direct all-node reaction box visual engine with level toggles and consumed filtering"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -24,6 +24,17 @@ input double InpH6ReactionMinBoxHeightPoints = 0.0;
 input bool InpH6DrawNodeChart = true;
 input bool InpH6DrawReactionBoxes = true;
 input int InpH6ReactionMaxChartObjects = 0;      // 0 = draw all boxes/markers
+
+input bool InpH6ShowPreHBoxes = true;
+input bool InpH6ShowRedHorizonBoxes = true;
+input bool InpH6ShowGreenHorizonBoxes = true;
+input bool InpH6ShowPurpleHorizonBoxes = true;
+input bool InpH6ShowConsumedBoxes = false;       // false = hide boxes whose zone end was retouched/consumed
+input bool InpH6ShowOriginTouchMarkers = true;
+
+input int InpH6BoxLeftAnchorMode = 0;            // 0=node pivot/origin time, 1=known/active_from time
+input int InpH6BoxRightAnchorMode = 0;           // 0=touch candle time, 1=touch candle end time
+
 input bool InpH6ReactionBoxFill = true;
 input bool InpH6ReactionBoxBack = true;
 input int InpH6NodeLineWidth = 2;
@@ -41,7 +52,7 @@ input color InpH6ColorTouchNoAway = clrYellow;
 input bool InpH6UpdateOnNewBar = false;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.05"
+#define DAL_M0006_NODE_BUILD "1.06"
 
 datetime g_m6_last_bar_time = 0;
 
@@ -73,6 +84,15 @@ void RunM0006NodeSurvivalMap()
    cfg.fill = InpH6ReactionBoxFill;
    cfg.line_width = MathMax(1, InpH6NodeLineWidth);
 
+   cfg.show_pre_stage = InpH6ShowPreHBoxes;
+   cfg.show_red_stage = InpH6ShowRedHorizonBoxes;
+   cfg.show_green_stage = InpH6ShowGreenHorizonBoxes;
+   cfg.show_purple_stage = InpH6ShowPurpleHorizonBoxes;
+   cfg.show_consumed_boxes = InpH6ShowConsumedBoxes;
+   cfg.show_origin_touch_markers = InpH6ShowOriginTouchMarkers;
+   cfg.box_left_anchor_mode = MathMax(0, MathMin(1, InpH6BoxLeftAnchorMode));
+   cfg.box_right_anchor_mode = MathMax(0, MathMin(1, InpH6BoxRightAnchorMode));
+
    cfg.horizon_red = MathMax(1, InpH6NodeHorizonRed);
    cfg.horizon_green = MathMax(cfg.horizon_red + 1, InpH6NodeHorizonGreen);
    cfg.horizon_purple = MathMax(cfg.horizon_green + 1, InpH6NodeHorizonPurple);
@@ -100,6 +120,13 @@ void RunM0006NodeSurvivalMap()
       + "*L=" + IntegerToString(cfg.L)
       + "*drawChart=" + IntegerToString(cfg.draw_chart ? 1 : 0)
       + "*maxObjects=" + IntegerToString(cfg.max_boxes)
+      + "*showPre=" + IntegerToString(cfg.show_pre_stage ? 1 : 0)
+      + "*showRed=" + IntegerToString(cfg.show_red_stage ? 1 : 0)
+      + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
+      + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
+      + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
+      + "*leftAnchorMode=" + IntegerToString(cfg.box_left_anchor_mode)
+      + "*rightAnchorMode=" + IntegerToString(cfg.box_right_anchor_mode)
       + "*horizons=" + IntegerToString(cfg.horizon_red) + "/" + IntegerToString(cfg.horizon_green) + "/" + IntegerToString(cfg.horizon_purple)
       + "*scope=all_raw_nodes_no_regime_filter"
       + "*box=time_node_origin_to_first_touch_price_node_to_touch_extreme"

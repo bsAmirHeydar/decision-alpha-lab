@@ -35,3 +35,11 @@ Release 117 hard visual reset:
 - Rectangle height is exactly node price to touch extreme.
 - Color is based only on candles after touch without retouching the zone end.
 - `DAL_M0006_DIRECT_VISUAL_AUDIT` reports nodes, touched, drawn objects, object failures, and last object error.
+
+
+Release 118 visibility and coordinate controls:
+- Consumed / zone-end-retouched boxes are hidden by default with `InpH6ShowConsumedBoxes=false`.
+- Separate inputs control each layer: pre-H, red, green, purple.
+- `InpH6BoxLeftAnchorMode` controls whether the box starts from the node pivot/origin candle or the known/active-from candle.
+- `InpH6BoxRightAnchorMode` controls whether the box ends at the touch candle open time or touch candle end time.
+- Audit output reports skipped consumed boxes and skipped level-filtered boxes.
