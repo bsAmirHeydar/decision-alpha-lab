@@ -101,3 +101,27 @@ InpMaxBuyOpenPositionsBeforeBlock = 2
 ```
 
 If there are already 2 open BUY positions, E0006 deletes managed BUY LIMIT orders and blocks new BUY LIMIT creation while SELL logic remains independent.
+
+
+Release 103 internal hunt qualification filter:
+
+E0006 now separates the L used for origin zones from the L used for internal game nodes.
+
+Inputs:
+- `InpOriginNodeL`: L for the structural node whose zone receives the limit order.
+- `InpInternalNodeL`: L for smaller internal nodes used only for qualification.
+- `InpUseInternalHuntFilter`: enables/disables the filter.
+- `InpMinInternalHuntsForZone`: minimum hunted internal nodes required before an origin zone becomes orderable.
+- `InpInternalHuntSameSideOnly`: when true, LOW origins count only internal LOW hunts and HIGH origins count only internal HIGH hunts.
+
+BUY/LOW origin rule:
+- After the origin LOW node is formed, detect internal LOW nodes with `InpInternalNodeL`.
+- Count how many of those internal LOW nodes are later hunted using the same M0001 hunt predicate.
+- The LOW origin zone becomes eligible for a BUY LIMIT only if the count is at least `InpMinInternalHuntsForZone`.
+
+SELL/HIGH origin rule:
+- After the origin HIGH node is formed, detect internal HIGH nodes with `InpInternalNodeL`.
+- Count how many of those internal HIGH nodes are later hunted.
+- The HIGH origin zone becomes eligible for a SELL LIMIT only if the count is at least `InpMinInternalHuntsForZone`.
+
+The check runs once per new candle, not on every tick.

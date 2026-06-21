@@ -3,8 +3,8 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
-#property description "Execution module E0006: all M0001 live zones with per-side pending caps and open-position side blocking."
+#property version   "1.03"
+#property description "Execution module E0006: all M0001 zones with internal same-side hunt qualification."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -20,9 +20,16 @@ input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpTimeframe = PERIOD_CURRENT;
 input int InpBars = 2500;
 
-// M0001 structure. E0006 does not rebuild zone logic; it uses M0001 live territory modules.
-input int InpL = 5;
+// M0001 structure. E0006 does not rebuild zone geometry; it uses M0001 live territory modules.
+input int InpOriginNodeL = 5;                    // L for origin zones where limits are placed
+input int InpInternalNodeL = 2;                  // L for smaller internal nodes used by the hunt filter
 input double InpZoneRatio = 0.90;
+
+// Internal same-side hunt qualification.
+// 0 = off. Example 3 means a LOW origin needs at least 3 later internal LOW nodes hunted before it is eligible.
+input int InpMinInternalHuntsForZone = 3;
+input bool InpUseInternalHuntFilter = true;
+input bool InpInternalHuntSameSideOnly = true;
 
 // Execution model: all valid live zones, no trade-count cap.
 input long InpMagicNumber = 6006006;
@@ -63,7 +70,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.02"
+#define DAL_E0006_BUILD "1.03"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -89,6 +96,9 @@ struct E0006ZoneSetup
    double tp;
    double reward_r;
    double risk_distance;
+   int internal_hunt_count;
+   int internal_hunt_required;
+   bool internal_hunt_passed;
    string comment;
 };
 
@@ -112,6 +122,9 @@ void E0006_ResetSetup(E0006ZoneSetup &s)
    s.tp = 0.0;
    s.reward_r = 0.0;
    s.risk_distance = 0.0;
+   s.internal_hunt_count = 0;
+   s.internal_hunt_required = 0;
+   s.internal_hunt_passed = false;
    s.comment = "";
 }
 
@@ -209,32 +222,52 @@ bool E0006_HasNewOpenCandle()
 void E0006_BuildM0001Config(DALM0001Config &config)
 {
    DAL_M0001DefaultConfig(config);
-   config.L = MathMax(1, InpL);
+   config.L = MathMax(1, InpOriginNodeL);
    config.zone_ratio = InpZoneRatio;
    config.max_events = 0;
    config.min_rtv = 0.0;
 }
 
-bool E0006_LoadContext(DALBar &bars[], int &bars_count, DALLRuleNode &nodes[], int &nodes_count, string &reason)
+bool E0006_LoadContext(
+   DALBar &bars[],
+   int &bars_count,
+   DALLRuleNode &origin_nodes[],
+   int &origin_nodes_count,
+   DALLRuleNode &internal_nodes[],
+   int &internal_nodes_count,
+   string &reason
+)
 {
    ArrayResize(bars, 0);
-   ArrayResize(nodes, 0);
+   ArrayResize(origin_nodes, 0);
+   ArrayResize(internal_nodes, 0);
    bars_count = 0;
-   nodes_count = 0;
+   origin_nodes_count = 0;
+   internal_nodes_count = 0;
    reason = "not_loaded";
 
+   int origin_L = MathMax(1, InpOriginNodeL);
+   int internal_L = MathMax(1, InpInternalNodeL);
+
    bars_count = DAL_LoadBarsChronological(E0006_Symbol(), E0006_Timeframe(), InpBars, true, bars);
-   int min_required = MathMax(20, MathMax(1, InpL) * 2 + 10);
+   int min_required = MathMax(20, MathMax(origin_L, internal_L) * 2 + 10);
    if(bars_count <= min_required)
    {
       reason = "not_enough_closed_bars";
       return false;
    }
 
-   nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, MathMax(1, InpL), nodes);
-   if(nodes_count <= 0)
+   origin_nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, origin_L, origin_nodes);
+   if(origin_nodes_count <= 0)
    {
-      reason = "no_confirmed_nodes";
+      reason = "no_confirmed_origin_nodes";
+      return false;
+   }
+
+   internal_nodes_count = DAL_DetectConfirmedStructuralNodes(bars, bars_count, internal_L, internal_nodes);
+   if(internal_nodes_count <= 0)
+   {
+      reason = "no_confirmed_internal_nodes";
       return false;
    }
 
@@ -252,11 +285,121 @@ string E0006_BuildComment(const E0006ZoneSetup &s)
    return DAL_ExecBuildCompactSetupComment(E0006_ManagedCommentPrefix(), s.reward_r, s.node_id, s.direction);
 }
 
+bool E0006_InternalNodeSameSideAllowed(
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_node
+)
+{
+   if(!InpInternalHuntSameSideOnly)
+      return true;
+   return (origin.type == internal_node.type);
+}
+
+bool E0006_InternalNodeHuntedByIndex(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &internal_node,
+   const int until_index
+)
+{
+   if(!internal_node.confirmed)
+      return false;
+
+   int start = internal_node.active_from_index + 1;
+   if(start < 0)
+      start = internal_node.index + 1;
+   if(start < 0)
+      start = 0;
+
+   int end = MathMin(until_index, bars_count - 1);
+   if(end < start)
+      return false;
+
+   for(int i = start; i <= end; i++)
+   {
+      if(DAL_M0001Hunted(internal_node.type, internal_node.price, bars[i]))
+         return true;
+   }
+   return false;
+}
+
+int E0006_CountInternalHuntedNodesForOrigin(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const int until_index
+)
+{
+   int count = 0;
+
+   int start_after_origin = origin.index;
+   if(start_after_origin < 0)
+      start_after_origin = origin.active_from_index;
+
+   for(int k = 0; k < internal_nodes_count; k++)
+   {
+      DALLRuleNode inner = internal_nodes[k];
+      if(!inner.confirmed)
+         continue;
+
+      if(inner.index <= start_after_origin)
+         continue;
+
+      if(inner.index >= until_index)
+         continue;
+
+      if(!E0006_InternalNodeSameSideAllowed(origin, inner))
+         continue;
+
+      if(E0006_InternalNodeHuntedByIndex(bars, bars_count, inner, until_index))
+         count++;
+   }
+
+   return count;
+}
+
+bool E0006_InternalHuntQualificationPassed(
+   const DALBar &bars[],
+   const int bars_count,
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   int &hunt_count,
+   int &required,
+   string &reason
+)
+{
+   hunt_count = 0;
+   required = MathMax(0, InpMinInternalHuntsForZone);
+
+   if(!InpUseInternalHuntFilter || required <= 0)
+   {
+      reason = "internal_hunt_filter_off";
+      return true;
+   }
+
+   int until_index = bars_count - 1; // closed-candle decision point; E0006 is new-bar only
+   hunt_count = E0006_CountInternalHuntedNodesForOrigin(bars, bars_count, origin, internal_nodes, internal_nodes_count, until_index);
+
+   if(hunt_count < required)
+   {
+      reason = "internal_hunts_below_required_" + IntegerToString(hunt_count) + "_of_" + IntegerToString(required);
+      return false;
+   }
+
+   reason = "internal_hunts_ok_" + IntegerToString(hunt_count) + "_of_" + IntegerToString(required);
+   return true;
+}
+
 bool E0006_BuildZoneSetup(
    const string symbol,
    const DALBar &bars[],
    const int bars_count,
    const DALLRuleNode &node,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
    const double zone_ratio,
    E0006ZoneSetup &setup
 )
@@ -287,6 +430,18 @@ bool E0006_BuildZoneSetup(
       return false;
    }
 
+   int internal_count = 0;
+   int internal_required = 0;
+   string internal_reason = "";
+   if(!E0006_InternalHuntQualificationPassed(bars, bars_count, node, internal_nodes, internal_nodes_count, internal_count, internal_required, internal_reason))
+   {
+      setup.internal_hunt_count = internal_count;
+      setup.internal_hunt_required = internal_required;
+      setup.internal_hunt_passed = false;
+      setup.reason = internal_reason;
+      return false;
+   }
+
    double spread = DAL_ExecCurrentSpreadPrice(symbol);
    double reward_r = MathMax(0.01, InpRewardR);
 
@@ -301,6 +456,9 @@ bool E0006_BuildZoneSetup(
    setup.zone_upper = upper;
    setup.spread = spread;
    setup.reward_r = reward_r;
+   setup.internal_hunt_count = internal_count;
+   setup.internal_hunt_required = internal_required;
+   setup.internal_hunt_passed = true;
 
    if(node.type == DAL_NODE_LOW)
    {
@@ -635,10 +793,12 @@ void E0006_ProcessNewBar(const string run_mode)
 
    DALBar bars[];
    DALLRuleNode nodes[];
+   DALLRuleNode internal_nodes[];
    int bars_count = 0;
    int nodes_count = 0;
+   int internal_nodes_count = 0;
    string load_reason = "";
-   if(!E0006_LoadContext(bars, bars_count, nodes, nodes_count, load_reason))
+   if(!E0006_LoadContext(bars, bars_count, nodes, nodes_count, internal_nodes, internal_nodes_count, load_reason))
    {
       if(InpPrintOrderLogs)
          Print("DAL_E0006_SKIP *** build=", DAL_E0006_BUILD, "*runMode=", run_mode, "*reason=", load_reason);
@@ -660,6 +820,7 @@ void E0006_ProcessNewBar(const string run_mode)
    int buy_desired = 0;
    int sell_desired = 0;
    int side_cap_skip = 0;
+   int internal_hunt_filter_skip = 0;
    int max_buy_pending = MathMax(0, InpMaxBuyPendingOrders);
    int max_sell_pending = MathMax(0, InpMaxSellPendingOrders);
    int max_buy_open_before_block = MathMax(0, InpMaxBuyOpenPositionsBeforeBlock);
@@ -690,9 +851,11 @@ void E0006_ProcessNewBar(const string run_mode)
          break;
 
       E0006ZoneSetup setup;
-      if(!E0006_BuildZoneSetup(E0006_Symbol(), bars, bars_count, node, m1.zone_ratio, setup))
+      if(!E0006_BuildZoneSetup(E0006_Symbol(), bars, bars_count, node, internal_nodes, internal_nodes_count, m1.zone_ratio, setup))
       {
          build_reject++;
+         if(StringFind(setup.reason, "internal_hunts_below_required", 0) == 0)
+            internal_hunt_filter_skip++;
          continue;
       }
 
@@ -719,6 +882,11 @@ void E0006_ProcessNewBar(const string run_mode)
                "*side=SELL",
                "*openSellPositions=", open_sell_positions,
                "*maxSellOpenBeforeBlock=", max_sell_open_before_block,
+          "*originL=", MathMax(1, InpOriginNodeL),
+          "*internalL=", MathMax(1, InpInternalNodeL),
+          "*useInternalHuntFilter=", DAL_BoolToString(InpUseInternalHuntFilter),
+          "*minInternalHuntsForZone=", MathMax(0, InpMinInternalHuntsForZone),
+          "*sameSideOnly=", DAL_BoolToString(InpInternalHuntSameSideOnly),
                "*deletedSellPending=", side_block_deleted_sell);
          continue;
       }
@@ -765,6 +933,8 @@ void E0006_ProcessNewBar(const string run_mode)
                "*tp=", DoubleToString(setup.tp, digits),
                "*rewardR=", DoubleToString(setup.reward_r, 2),
                "*spread=", DoubleToString(setup.spread, digits),
+               "*internalHunts=", setup.internal_hunt_count,
+               "*internalHuntsRequired=", setup.internal_hunt_required,
                "*comment=", setup.comment,
                "*reason=", order_reason);
          }
@@ -801,6 +971,11 @@ void E0006_ProcessNewBar(const string run_mode)
          "*openSellPositions=", open_sell_positions,
          "*maxBuyOpenBeforeBlock=", max_buy_open_before_block,
          "*maxSellOpenBeforeBlock=", max_sell_open_before_block,
+          "*originL=", MathMax(1, InpOriginNodeL),
+          "*internalL=", MathMax(1, InpInternalNodeL),
+          "*useInternalHuntFilter=", DAL_BoolToString(InpUseInternalHuntFilter),
+          "*minInternalHuntsForZone=", MathMax(0, InpMinInternalHuntsForZone),
+          "*sameSideOnly=", DAL_BoolToString(InpInternalHuntSameSideOnly),
          "*buySideBlockedByOpenCap=", DAL_BoolToString(buy_side_blocked_by_open_cap),
          "*sellSideBlockedByOpenCap=", DAL_BoolToString(sell_side_blocked_by_open_cap),
          "*sideBlockDeletedBuy=", side_block_deleted_buy,
@@ -812,7 +987,7 @@ void E0006_ProcessNewBar(const string run_mode)
          "*staleKept=", stale_kept,
          "*staleFailed=", stale_failed,
          "*rewardR=", DoubleToString(InpRewardR, 2),
-         "*mode=ALL_LIVE_M0001_ZONES_NO_TRADE_COUNT_LIMIT_NEW_BAR_ONLY");
+         "*mode=ALL_LIVE_M0001_ZONES_WITH_INTERNAL_SAME_SIDE_HUNT_FILTER_NEW_BAR_ONLY");
    }
 }
 
