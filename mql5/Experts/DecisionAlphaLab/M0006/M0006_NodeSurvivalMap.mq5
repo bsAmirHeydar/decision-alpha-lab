@@ -3,8 +3,8 @@
 //| Official H6 visual: draw every touched raw node as a reaction box.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.14"
-#property description "Official H0006 persistent zone boxes with color-only maturity updates"
+#property version   "1.15"
+#property description "Official H0006 boxes-only persistent reaction zones"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -30,7 +30,8 @@ input bool InpH6ClearAllObjectsOnInit = true;    // clean old test objects once 
 input int InpH6MinBarsForUpdate = 0;             // 0 = automatic safe minimum from L
 input bool InpH6DrawNodeChart = true;
 input bool InpH6DrawReactionBoxes = true;
-input bool InpH6DrawNodeLevels = true;
+input bool InpH6BoxesOnlyMode = true;           // official: only persistent boxes, no levels, no markers
+input bool InpH6DrawNodeLevels = false;
 input int InpH6ReactionMaxChartObjects = 0;      // 0 = draw all boxes/markers
 input int InpH6LevelMaxChartObjects = 0;         // 0 = draw all node levels
 
@@ -39,7 +40,7 @@ input bool InpH6ShowRedHorizonBoxes = true;
 input bool InpH6ShowGreenHorizonBoxes = true;
 input bool InpH6ShowPurpleHorizonBoxes = true;
 input bool InpH6ShowConsumedBoxes = false;       // false = hide boxes whose zone end was retouched/consumed
-input bool InpH6ShowOriginTouchMarkers = true;
+input bool InpH6ShowOriginTouchMarkers = false;
 input bool InpH6ShowUntouchedLevels = false;       // official: no zones/levels before first touch
 input bool InpH6DrawBoxesOnlyAfterHorizon = true; // box appears only after H1/H2/H3 candles pass after touch
 
@@ -65,7 +66,7 @@ input bool InpH6UpdateOnEveryTick = false;       // safer in visual tester; prev
 input bool InpH6UpdateOnNewBar = true;
 input bool InpH6RunOnInit = true;
 
-#define DAL_M0006_NODE_BUILD "1.14"
+#define DAL_M0006_NODE_BUILD "1.15"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;
@@ -102,7 +103,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.draw_back = InpH6ReactionBoxBack;
    cfg.fill = InpH6ReactionBoxFill;
    cfg.line_width = MathMax(1, InpH6NodeLineWidth);
-   cfg.draw_node_levels = InpH6DrawNodeLevels;
+   cfg.draw_node_levels = (InpH6BoxesOnlyMode ? false : InpH6DrawNodeLevels);
+   cfg.boxes_only_mode = InpH6BoxesOnlyMode;
 
    cfg.draw_boxes_only_after_horizon = InpH6DrawBoxesOnlyAfterHorizon;
    cfg.show_pre_stage = InpH6ShowPreHBoxes;
@@ -110,8 +112,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.show_green_stage = InpH6ShowGreenHorizonBoxes;
    cfg.show_purple_stage = InpH6ShowPurpleHorizonBoxes;
    cfg.show_consumed_boxes = InpH6ShowConsumedBoxes;
-   cfg.show_origin_touch_markers = InpH6ShowOriginTouchMarkers;
-   cfg.show_untouched_levels = InpH6ShowUntouchedLevels;
+   cfg.show_origin_touch_markers = (InpH6BoxesOnlyMode ? false : InpH6ShowOriginTouchMarkers);
+   cfg.show_untouched_levels = (InpH6BoxesOnlyMode ? false : InpH6ShowUntouchedLevels);
    cfg.box_left_anchor_mode = MathMax(0, MathMin(1, InpH6BoxLeftAnchorMode));
    cfg.box_right_anchor_mode = MathMax(0, MathMin(1, InpH6BoxRightAnchorMode));
 
@@ -154,6 +156,7 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*minBarsForUpdate=" + IntegerToString(cfg.min_bars_for_update)
       + "*updateEveryTick=" + IntegerToString(InpH6UpdateOnEveryTick ? 1 : 0)
       + "*updateOnNewBar=" + IntegerToString(InpH6UpdateOnNewBar ? 1 : 0)
+      + "*boxesOnlyMode=" + IntegerToString(cfg.boxes_only_mode ? 1 : 0)
       + "*drawLevels=" + IntegerToString(cfg.draw_node_levels ? 1 : 0)
       + "*maxBoxObjects=" + IntegerToString(cfg.max_boxes)
       + "*maxLevelObjects=" + IntegerToString(cfg.max_levels)
@@ -163,6 +166,7 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
       + "*showGreen=" + IntegerToString(cfg.show_green_stage ? 1 : 0)
       + "*showPurple=" + IntegerToString(cfg.show_purple_stage ? 1 : 0)
       + "*showConsumed=" + IntegerToString(cfg.show_consumed_boxes ? 1 : 0)
+      + "*markerPolicy=" + (cfg.show_origin_touch_markers ? "ON" : "OFF")
       + "*showUntouchedLevels=" + IntegerToString(cfg.show_untouched_levels ? 1 : 0)
       + "*preTouchDrawPolicy=" + (cfg.show_untouched_levels ? "DEBUG_ON" : "OFF_OFFICIAL")
       + "*levelStartPolicy=AFTER_FIRST_TOUCH"

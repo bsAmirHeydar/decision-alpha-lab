@@ -125,3 +125,11 @@ Release 126 persistent box policy:
 - Box geometry is not moved/recreated after creation.
 - Volatile live levels may still be rebuilt, but persistent boxes remain on chart.
 - `InpH6ClearAllObjectsOnInit=true` clears old objects once when the expert starts, not during live updates.
+
+
+Release 127 boxes-only official mode:
+- Official default mode is now boxes-only.
+- No text markers, circles, or horizontal levels are drawn in official mode.
+- Matured boxes remain persistent on the chart and are never deleted by live updates.
+- If a zone reaches a higher horizon, the same box remains and only its color changes.
+- `InpH6BoxesOnlyMode=true` forces `draw_node_levels=false`, `show_origin_touch_markers=false`, and `show_untouched_levels=false`.

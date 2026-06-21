@@ -23,6 +23,7 @@ struct DALM0006ReactionBoxConfig
    bool fill;
    int line_width;
    bool draw_node_levels;
+   bool boxes_only_mode;
 
    bool draw_boxes_only_after_horizon;
    bool show_pre_stage;
@@ -74,6 +75,7 @@ void DAL_M0006DefaultReactionBoxConfig(DALM0006ReactionBoxConfig &cfg)
    cfg.fill = true;
    cfg.line_width = 2;
    cfg.draw_node_levels = true;
+   cfg.boxes_only_mode = false;
 
    cfg.draw_boxes_only_after_horizon = true;
    cfg.show_pre_stage = false;
@@ -543,7 +545,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
 
          // Official policy: before the first touch there is no zone and no pre-touch visual object by default.
          // Optional untouched reference levels can still be enabled for debugging only.
-         if(cfg.draw_node_levels && cfg.show_untouched_levels && level_drawn < max_levels)
+         if((!cfg.boxes_only_mode) && cfg.draw_node_levels && cfg.show_untouched_levels && level_drawn < max_levels)
          {
             string level_tip = "H6 DEBUG UNTOUCHED LEVEL side=" + side
                + " nodeId=" + IntegerToString(nodes[n].id)
@@ -638,7 +640,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       // Draw/update the live node level independently from the reaction box.
       // The level is a neutral reference only; it is not the maturity signal.
       // The colored box is created only when the candle-by-candle post-touch survival condition becomes true.
-      if(cfg.draw_node_levels && level_drawn < max_levels)
+      if((!cfg.boxes_only_mode) && cfg.draw_node_levels && level_drawn < max_levels)
       {
          datetime level_start = bars[touch_index].time;
          datetime level_end = is_active ? live_right_time : bars[retouch_index].time;
@@ -747,6 +749,7 @@ bool DAL_M0006RunAllNodeReactionBoxes(const DALM0006ReactionBoxConfig &cfg)
       + "*box=drawn_only_after_horizon_elapsed_after_touch_and_price_zone_start_to_zone_end"
       + "*levels=live_horizontal_node_levels_update_before_box_maturity"
       + "*stateMachine=UNTOUCHED_NO_DRAW_TO_TOUCHED_LEVEL_AFTER_TOUCH_TO_WATCHING_TO_MATURED_BOX_OR_CONSUMED"
+      + "*visualPolicy=" + (cfg.boxes_only_mode ? "ONLY_PERSISTENT_BOXES" : "BOXES_LEVELS_MARKERS")
       + "*preTouchDrawPolicy=OFF_BY_DEFAULT_NO_ZONE_BEFORE_FIRST_TOUCH"
       + "*levelPolicy=neutral_reference_starts_at_first_touch_not_node_origin"
       + "*boxDrawRule=draw_only_when_touch_confirmed_and_zone_end_not_retouched_and_age_after_touch_reaches_input_horizon"
