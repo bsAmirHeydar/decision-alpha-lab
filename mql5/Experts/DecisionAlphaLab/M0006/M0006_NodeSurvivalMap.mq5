@@ -4,8 +4,8 @@
 //| may be sharper optionality / edge candidates on the chart.          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
-#property description "M0006 standalone no-sample node survival map with red/green/purple chart levels"
+#property version   "1.02"
+#property description "M0006 standalone no-sample node touch reaction boxes with all boxes drawn and stage colors from realized reversal life"
 
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 
@@ -22,7 +22,16 @@ input int InpH6NodeHorizonPurple = 100;
 input double InpH6NodeTouchBufferPoints = 0.0;   // 0 = exact node touch/break
 input double InpH6NodeBreakBufferPoints = 0.0;   // >0 requires a stronger break beyond node
 input bool InpH6DrawNodeChart = true;
-input int InpH6NodeMaxChartObjects = 250;
+input bool InpH6DrawNodeLines = false;          // old horizontal survivor lines; boxes are official H6 visual
+input bool InpH6ReactionBoxReport = true;
+input bool InpH6DrawReactionBoxes = true;
+input double InpH6ReactionAwayBufferPoints = 0.0;       // after touch, price must move away from node to confirm reaction
+input double InpH6ReactionZoneEndBufferPoints = 0.0;    // if later price reaches touch extreme again, box survival fails
+input double InpH6ReactionMinBoxHeightPoints = 5.0;     // visual minimum height when touch is exact
+input int InpH6ReactionMaxChartObjects = 0;    // 0 = draw all confirmed reaction boxes
+input bool InpH6ReactionBoxFill = true;
+input bool InpH6ReactionBoxBack = true;
+input int InpH6NodeMaxChartObjects = 0;        // 0 = draw all survivor lines if enabled
 input int InpH6NodeLineWidth = 2;
 input color InpH6NodeColorRed = clrRed;
 input color InpH6NodeColorGreen = clrLime;
@@ -41,7 +50,7 @@ input string InpCsvFileName = "M0006_Node_Survival_Map.csv";
 
 #include <DecisionAlphaLab/M0006/DAL_M0006NodeSurvivalMap.mqh>
 
-#define DAL_M0006_NODE_BUILD "1.00"
+#define DAL_M0006_NODE_BUILD "1.02"
 
 datetime g_m6_last_bar_time = 0;
 
@@ -94,6 +103,15 @@ void RunM0006NodeSurvivalMap()
    cfg.h6_only_report = true;
    cfg.h6_node_survival_report = true;
    cfg.h6_node_draw_chart = InpH6DrawNodeChart;
+   cfg.h6_node_draw_lines = InpH6DrawNodeLines;
+   cfg.h6_reaction_box_report = InpH6ReactionBoxReport;
+   cfg.h6_reaction_box_draw_chart = InpH6DrawReactionBoxes;
+   cfg.h6_reaction_away_buffer_points = MathMax(0.0, InpH6ReactionAwayBufferPoints);
+   cfg.h6_reaction_zone_end_buffer_points = MathMax(0.0, InpH6ReactionZoneEndBufferPoints);
+   cfg.h6_reaction_min_box_height_points = MathMax(0.0, InpH6ReactionMinBoxHeightPoints);
+   cfg.h6_reaction_max_chart_objects = MathMax(0, InpH6ReactionMaxChartObjects);
+   cfg.h6_reaction_box_fill = InpH6ReactionBoxFill;
+   cfg.h6_reaction_box_back = InpH6ReactionBoxBack;
    cfg.h6_node_horizon_1 = MathMax(1, InpH6NodeHorizonRed);
    cfg.h6_node_horizon_2 = MathMax(cfg.h6_node_horizon_1 + 1, InpH6NodeHorizonGreen);
    cfg.h6_node_horizon_3 = MathMax(cfg.h6_node_horizon_2 + 1, InpH6NodeHorizonPurple);
@@ -164,8 +182,11 @@ void RunM0006NodeSurvivalMap()
       + "*horizons=" + IntegerToString(cfg.h6_node_horizon_1) + "/" + IntegerToString(cfg.h6_node_horizon_2) + "/" + IntegerToString(cfg.h6_node_horizon_3)
       + "*colors=red/green/purple"
       + "*drawChart=" + IntegerToString(cfg.h6_node_draw_chart ? 1 : 0)
+      + "*drawLines=" + IntegerToString(cfg.h6_node_draw_lines ? 1 : 0)
+      + "*drawReactionBoxes=" + IntegerToString(cfg.h6_reaction_box_draw_chart ? 1 : 0)
       + "*maxChartObjects=" + IntegerToString(cfg.h6_node_max_chart_objects)
-      + "*meaning=if_node_not_broken_after_horizon_color_it_as_edge_candidate"
+      + "*maxReactionBoxes=" + IntegerToString(cfg.h6_reaction_max_chart_objects)
+      + "*meaning=touch_node_then_reaction_box_survives_without_zone_end_retouch"
       + "*L=" + IntegerToString(cfg.L)
       + "*zoneRatio=" + DoubleToString(cfg.zone_ratio, 4)
       + "*exitGap=" + IntegerToString(cfg.exit_gap)

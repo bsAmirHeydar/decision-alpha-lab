@@ -49,7 +49,16 @@ struct DALM0004AtomicNoSampleConfig
    bool h6_candle_stream_mode;       // true = forward candle stream measurement; no future-read loops per bucket
    bool h6_require_full_horizon;     // true = skip observations without a complete future horizon
    bool h6_node_survival_report;     // true = H0006 node survival / no-break map instead of optionality stats
-   bool h6_node_draw_chart;          // draw/update surviving node levels on chart
+   bool h6_node_draw_chart;          // draw/update H6 objects on chart
+   bool h6_node_draw_lines;          // draw old horizontal survivor levels (off by default in M0006)
+   bool h6_reaction_box_report;      // report touch->reaction boxes that survive without zone-end retouch
+   bool h6_reaction_box_draw_chart;  // draw touch reaction rectangles on chart
+   double h6_reaction_away_buffer_points; // min move away from node after touch to confirm reversal
+   double h6_reaction_zone_end_buffer_points; // near-zone-end retouch tolerance after reaction
+   double h6_reaction_min_box_height_points; // minimum rectangle height for visibility
+   int h6_reaction_max_chart_objects;
+   bool h6_reaction_box_fill;
+   bool h6_reaction_box_back;
    int h6_node_horizon_1;            // first survival maturity, default 20 candles
    int h6_node_horizon_2;            // second survival maturity, default 50 candles
    int h6_node_horizon_3;            // third survival maturity, default 100 candles
@@ -123,6 +132,15 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpH6RequireFullHorizon g_dal_m0004_atomic_cfg.h6_require_full_horizon
 #define InpH6NodeSurvivalReport g_dal_m0004_atomic_cfg.h6_node_survival_report
 #define InpH6NodeDrawChart g_dal_m0004_atomic_cfg.h6_node_draw_chart
+#define InpH6NodeDrawLines g_dal_m0004_atomic_cfg.h6_node_draw_lines
+#define InpH6ReactionBoxReport g_dal_m0004_atomic_cfg.h6_reaction_box_report
+#define InpH6ReactionBoxDrawChart g_dal_m0004_atomic_cfg.h6_reaction_box_draw_chart
+#define InpH6ReactionAwayBufferPoints g_dal_m0004_atomic_cfg.h6_reaction_away_buffer_points
+#define InpH6ReactionZoneEndBufferPoints g_dal_m0004_atomic_cfg.h6_reaction_zone_end_buffer_points
+#define InpH6ReactionMinBoxHeightPoints g_dal_m0004_atomic_cfg.h6_reaction_min_box_height_points
+#define InpH6ReactionMaxChartObjects g_dal_m0004_atomic_cfg.h6_reaction_max_chart_objects
+#define InpH6ReactionBoxFill g_dal_m0004_atomic_cfg.h6_reaction_box_fill
+#define InpH6ReactionBoxBack g_dal_m0004_atomic_cfg.h6_reaction_box_back
 #define InpH6NodeHorizon1 g_dal_m0004_atomic_cfg.h6_node_horizon_1
 #define InpH6NodeHorizon2 g_dal_m0004_atomic_cfg.h6_node_horizon_2
 #define InpH6NodeHorizon3 g_dal_m0004_atomic_cfg.h6_node_horizon_3
@@ -157,7 +175,7 @@ DALM0004AtomicNoSampleConfig g_dal_m0004_atomic_cfg;
 #define InpWriteCsv g_dal_m0004_atomic_cfg.write_csv
 #define InpCsvFileName g_dal_m0004_atomic_cfg.csv_file_name
 
-#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.07"
+#define DAL_D0010_BUILD "M0004_MAIN_ATOMIC_1.08"
 #define DAL_D0010_LABEL_REVERSAL 0
 #define DAL_D0010_LABEL_CONTINUATION 1
 #define DAL_D0010_LABEL_UNKNOWN -1
@@ -2509,6 +2527,21 @@ struct D0010NodeSurvivalStats
    int active_stage2;
    int active_stage3;
    int chart_drawn;
+   int reaction_touch_nodes;
+   int reaction_confirmed_nodes;
+   int reaction_matured1;
+   int reaction_matured2;
+   int reaction_matured3;
+   int reaction_survived1;
+   int reaction_survived2;
+   int reaction_survived3;
+   int reaction_retouch1;
+   int reaction_retouch2;
+   int reaction_retouch3;
+   int reaction_active_stage1;
+   int reaction_active_stage2;
+   int reaction_active_stage3;
+   int reaction_boxes_drawn;
 };
 
 void D0010_ResetNodeSurvivalStats(D0010NodeSurvivalStats &st)
@@ -2535,6 +2568,21 @@ void D0010_ResetNodeSurvivalStats(D0010NodeSurvivalStats &st)
    st.active_stage2 = 0;
    st.active_stage3 = 0;
    st.chart_drawn = 0;
+   st.reaction_touch_nodes = 0;
+   st.reaction_confirmed_nodes = 0;
+   st.reaction_matured1 = 0;
+   st.reaction_matured2 = 0;
+   st.reaction_matured3 = 0;
+   st.reaction_survived1 = 0;
+   st.reaction_survived2 = 0;
+   st.reaction_survived3 = 0;
+   st.reaction_retouch1 = 0;
+   st.reaction_retouch2 = 0;
+   st.reaction_retouch3 = 0;
+   st.reaction_active_stage1 = 0;
+   st.reaction_active_stage2 = 0;
+   st.reaction_active_stage3 = 0;
+   st.reaction_boxes_drawn = 0;
 }
 
 bool D0010_H6NodeBrokenAtBar(const DALBar &bar, const double node_price, const bool high_node, const double break_buffer)
@@ -2619,6 +2667,134 @@ bool D0010_H6DrawNodeLine(
    return true;
 }
 
+
+double D0010_H6ReactionTouchPriceAtBar(const DALBar &bar, const bool high_node)
+{
+   if(high_node)
+      return bar.high;
+   return bar.low;
+}
+
+bool D0010_H6ReactionAwayConfirmedAtBar(
+   const DALBar &bar,
+   const double node_price,
+   const bool high_node,
+   const double away_buffer
+)
+{
+   if(high_node)
+      return (bar.low <= node_price - away_buffer);
+   return (bar.high >= node_price + away_buffer);
+}
+
+bool D0010_H6ReactionZoneEndRetouchedAtBar(
+   const DALBar &bar,
+   const double zone_end_price,
+   const bool high_node,
+   const double retouch_buffer
+)
+{
+   if(high_node)
+      return (bar.high >= zone_end_price - retouch_buffer);
+   return (bar.low <= zone_end_price + retouch_buffer);
+}
+
+void D0010_H6FindReactionBox(
+   const DALBar &bars[],
+   const int bars_count,
+   const int known,
+   const double node_price,
+   const bool high_node,
+   const int scan_to,
+   const double touch_buffer,
+   const double away_buffer,
+   const double retouch_buffer,
+   int &touch_index,
+   int &confirm_index,
+   int &retouch_index,
+   double &zone_end_price
+)
+{
+   touch_index = -1;
+   confirm_index = -1;
+   retouch_index = -1;
+   zone_end_price = node_price;
+
+   int start = known + 1;
+   int end = MathMin(bars_count - 1, scan_to);
+   for(int j = start; j <= end; j++)
+   {
+      if(touch_index < 0)
+      {
+         if(D0010_H6NodeTouchedAtBar(bars[j], node_price, high_node, touch_buffer))
+         {
+            touch_index = j;
+            zone_end_price = D0010_H6ReactionTouchPriceAtBar(bars[j], high_node);
+         }
+         continue;
+      }
+
+      // Conservative OHLC rule: if a later bar both retouches the far edge
+      // and moves away, we count the zone-end retouch first to avoid hidden
+      // same-candle sequence assumptions.
+      if(D0010_H6ReactionZoneEndRetouchedAtBar(bars[j], zone_end_price, high_node, retouch_buffer))
+      {
+         retouch_index = j;
+         return;
+      }
+
+      if(confirm_index < 0 && D0010_H6ReactionAwayConfirmedAtBar(bars[j], node_price, high_node, away_buffer))
+         confirm_index = j;
+   }
+}
+
+bool D0010_H6DrawReactionBox(
+   const string name,
+   const datetime t1,
+   const datetime t2,
+   const double node_price,
+   const double zone_end_price,
+   const bool high_node,
+   const color c,
+   const int width,
+   const string tooltip
+)
+{
+   if(!InpH6NodeDrawChart || !InpH6ReactionBoxDrawChart)
+      return false;
+
+   double point = SymbolInfoDouble(D0010_Symbol(), SYMBOL_POINT);
+   if(point <= 0.0) point = _Point;
+   double min_h = MathMax(0.0, InpH6ReactionMinBoxHeightPoints) * point;
+   double p1 = node_price;
+   double p2 = zone_end_price;
+   if(MathAbs(p2 - p1) < min_h)
+   {
+      if(high_node)
+         p2 = p1 + min_h;
+      else
+         p2 = p1 - min_h;
+   }
+
+   double top = MathMax(p1, p2);
+   double bottom = MathMin(p1, p2);
+   datetime right_time = t2;
+   if(right_time <= t1)
+      right_time = t1 + PeriodSeconds(D0010_Timeframe());
+
+   ObjectDelete(0, name);
+   if(!ObjectCreate(0, name, OBJ_RECTANGLE, 0, t1, top, right_time, bottom))
+      return false;
+   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
+   ObjectSetInteger(0, name, OBJPROP_WIDTH, MathMax(1, width));
+   ObjectSetInteger(0, name, OBJPROP_STYLE, STYLE_SOLID);
+   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
+   ObjectSetInteger(0, name, OBJPROP_BACK, InpH6ReactionBoxBack ? 1 : 0);
+   ObjectSetInteger(0, name, OBJPROP_FILL, InpH6ReactionBoxFill ? 1 : 0);
+   ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip);
+   return true;
+}
+
 int D0010_H6NodeStage(const int age, const int h1, const int h2, const int h3)
 {
    if(age >= h3) return 3;
@@ -2632,6 +2808,44 @@ color D0010_H6NodeStageColor(const int stage)
    if(stage >= 3) return InpH6NodeColor3;
    if(stage == 2) return InpH6NodeColor2;
    return InpH6NodeColor1;
+}
+
+int D0010_H6ReactionAchievedStage(
+   const int confirm_index,
+   const int retouch_index,
+   const int last,
+   const int h1,
+   const int h2,
+   const int h3,
+   int &age_until_end,
+   bool &active_box
+)
+{
+   age_until_end = 0;
+   active_box = true;
+   if(confirm_index < 0)
+      return 0;
+
+   int effective_last = last;
+   if(retouch_index > 0)
+   {
+      active_box = false;
+      effective_last = retouch_index - 1;
+   }
+   if(effective_last < confirm_index)
+      effective_last = confirm_index;
+
+   age_until_end = effective_last - confirm_index;
+   return D0010_H6NodeStage(age_until_end, h1, h2, h3);
+}
+
+color D0010_H6ReactionStageColor(const int stage, const bool active_box)
+{
+   if(stage >= 3) return InpH6NodeColor3;
+   if(stage == 2) return InpH6NodeColor2;
+   if(stage == 1) return InpH6NodeColor1;
+   if(active_box) return clrOrange;
+   return clrSilver;
 }
 
 void D0010_H6NodeSurvivalReport(
@@ -2657,6 +2871,8 @@ void D0010_H6NodeSurvivalReport(
    if(point <= 0.0) point = _Point;
    double touch_buffer = MathMax(0.0, InpH6NodeTouchBufferPoints) * point;
    double break_buffer = MathMax(0.0, InpH6NodeBreakBufferPoints) * point;
+   double reaction_away_buffer = MathMax(0.0, InpH6ReactionAwayBufferPoints) * point;
+   double reaction_retouch_buffer = MathMax(0.0, InpH6ReactionZoneEndBufferPoints) * point;
 
    for(int i = 0; i < events_count; i++)
    {
@@ -2705,6 +2921,40 @@ void D0010_H6NodeSurvivalReport(
          else st.survived3++;
          if((touch_index < 0 || touch_index > known + h3) && (break_index < 0 || break_index > known + h3)) st.detached3++;
       }
+
+
+      if(InpH6ReactionBoxReport || InpH6ReactionBoxDrawChart)
+      {
+         int rx_touch = -1;
+         int rx_confirm = -1;
+         int rx_retouch = -1;
+         double rx_zone_end = events[i].node_price;
+         D0010_H6FindReactionBox(bars, bars_count, known, events[i].node_price, high_node, known + h3, touch_buffer, reaction_away_buffer, reaction_retouch_buffer, rx_touch, rx_confirm, rx_retouch, rx_zone_end);
+         if(rx_touch > 0)
+            st.reaction_touch_nodes++;
+         if(rx_confirm > 0)
+         {
+            st.reaction_confirmed_nodes++;
+            if(rx_confirm + h1 <= last)
+            {
+               st.reaction_matured1++;
+               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h1) st.reaction_retouch1++;
+               else st.reaction_survived1++;
+            }
+            if(rx_confirm + h2 <= last)
+            {
+               st.reaction_matured2++;
+               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h2) st.reaction_retouch2++;
+               else st.reaction_survived2++;
+            }
+            if(rx_confirm + h3 <= last)
+            {
+               st.reaction_matured3++;
+               if(rx_retouch > 0 && rx_retouch <= rx_confirm + h3) st.reaction_retouch3++;
+               else st.reaction_survived3++;
+            }
+         }
+      }
    }
 
    string header = "DAL_H0006_NODE_SURVIVAL_AUDIT *** build=" + DAL_D0010_BUILD
@@ -2720,7 +2970,12 @@ void D0010_H6NodeSurvivalReport(
       + "*colors=red/green/purple"
       + "*meaning=if_node_not_broken_after_horizon_it_becomes_colored_edge_candidate"
       + "*touchBufferPoints=" + DoubleToString(InpH6NodeTouchBufferPoints, 2)
-      + "*breakBufferPoints=" + DoubleToString(InpH6NodeBreakBufferPoints, 2);
+      + "*breakBufferPoints=" + DoubleToString(InpH6NodeBreakBufferPoints, 2)
+      + "*reactionBoxReport=" + IntegerToString(InpH6ReactionBoxReport ? 1 : 0)
+      + "*reactionBoxDraw=" + IntegerToString(InpH6ReactionBoxDrawChart ? 1 : 0)
+      + "*reactionAwayBufferPoints=" + DoubleToString(InpH6ReactionAwayBufferPoints, 2)
+      + "*zoneEndRetouchBufferPoints=" + DoubleToString(InpH6ReactionZoneEndBufferPoints, 2)
+      + "*reactionRule=touch_node_then_confirm_away_then_survive_without_zone_end_retouch";
    Print(header);
 
    string h1_line = "DAL_H0006_NODE_SURVIVAL_H" + IntegerToString(h1) + " *** build=" + DAL_D0010_BUILD
@@ -2761,14 +3016,59 @@ void D0010_H6NodeSurvivalReport(
       + "*conditionalSurvivalFromH" + IntegerToString(h2) + "Pct=" + DoubleToString(D0010_SafePct(st.survived3, MathMax(1, st.survived2)), 2);
    Print(h3_line);
 
+   if(InpH6ReactionBoxReport)
+   {
+      string rx_audit = "DAL_H0006_REACTION_BOX_AUDIT *** build=" + DAL_D0010_BUILD
+         + "*hypothesis=H0006_NODE_REACTION_BOX"
+         + "*contract=raw_m0001_known_time_touch_reaction_no_same_candle_sequence"
+         + "*knownNodes=" + IntegerToString(st.known_nodes)
+         + "*touchNodes=" + IntegerToString(st.reaction_touch_nodes)
+         + "*confirmedReactionNodes=" + IntegerToString(st.reaction_confirmed_nodes)
+         + "*touchToReactionRule=first_touch_then_later_bar_moves_away_from_node"
+         + "*invalidator=zone_end_retouch_after_reaction_confirmation"
+         + "*box=time_from_node_origin_to_first_touch_price_from_node_level_to_touch_extreme"
+         + "*colors=red/green/purple_by_reaction_survival_" + IntegerToString(h1) + "/" + IntegerToString(h2) + "/" + IntegerToString(h3);
+      Print(rx_audit);
+
+      string rx_h1 = "DAL_H0006_REACTION_BOX_H" + IntegerToString(h1) + " *** build=" + DAL_D0010_BUILD
+         + "*color=RED"
+         + "*matured=" + IntegerToString(st.reaction_matured1)
+         + "*survivedNoZoneEndRetouch=" + IntegerToString(st.reaction_survived1)
+         + "*zoneEndRetouched=" + IntegerToString(st.reaction_retouch1)
+         + "*survivalPct=" + DoubleToString(D0010_SafePct(st.reaction_survived1, st.reaction_matured1), 2)
+         + "*retouchPct=" + DoubleToString(D0010_SafePct(st.reaction_retouch1, st.reaction_matured1), 2);
+      Print(rx_h1);
+
+      string rx_h2 = "DAL_H0006_REACTION_BOX_H" + IntegerToString(h2) + " *** build=" + DAL_D0010_BUILD
+         + "*color=GREEN"
+         + "*matured=" + IntegerToString(st.reaction_matured2)
+         + "*survivedNoZoneEndRetouch=" + IntegerToString(st.reaction_survived2)
+         + "*zoneEndRetouched=" + IntegerToString(st.reaction_retouch2)
+         + "*survivalPct=" + DoubleToString(D0010_SafePct(st.reaction_survived2, st.reaction_matured2), 2)
+         + "*retouchPct=" + DoubleToString(D0010_SafePct(st.reaction_retouch2, st.reaction_matured2), 2)
+         + "*conditionalSurvivalFromH" + IntegerToString(h1) + "Pct=" + DoubleToString(D0010_SafePct(st.reaction_survived2, MathMax(1, st.reaction_survived1)), 2);
+      Print(rx_h2);
+
+      string rx_h3 = "DAL_H0006_REACTION_BOX_H" + IntegerToString(h3) + " *** build=" + DAL_D0010_BUILD
+         + "*color=PURPLE"
+         + "*matured=" + IntegerToString(st.reaction_matured3)
+         + "*survivedNoZoneEndRetouch=" + IntegerToString(st.reaction_survived3)
+         + "*zoneEndRetouched=" + IntegerToString(st.reaction_retouch3)
+         + "*survivalPct=" + DoubleToString(D0010_SafePct(st.reaction_survived3, st.reaction_matured3), 2)
+         + "*retouchPct=" + DoubleToString(D0010_SafePct(st.reaction_retouch3, st.reaction_matured3), 2)
+         + "*conditionalSurvivalFromH" + IntegerToString(h2) + "Pct=" + DoubleToString(D0010_SafePct(st.reaction_survived3, MathMax(1, st.reaction_survived2)), 2);
+      Print(rx_h3);
+   }
+
    string prefix = "DAL_H6_NODE_";
    D0010_H6DeleteNodeObjects(prefix);
 
    if(InpH6NodeDrawChart)
    {
-      int max_objects = MathMax(0, InpH6NodeMaxChartObjects);
+      int max_objects = (InpH6NodeMaxChartObjects <= 0 ? 2147483647 : InpH6NodeMaxChartObjects);
+      int max_reaction_objects = (InpH6ReactionMaxChartObjects <= 0 ? 2147483647 : InpH6ReactionMaxChartObjects);
       int drawn = 0;
-      for(int i = events_count - 1; i >= 0 && drawn < max_objects; i--)
+      for(int i = events_count - 1; i >= 0 && (drawn < max_objects || st.reaction_boxes_drawn < max_reaction_objects); i--)
       {
          int label = DAL_D0010_LABEL_UNKNOWN;
          int dir = 0;
@@ -2785,24 +3085,72 @@ void D0010_H6NodeSurvivalReport(
          int tix = -1;
          int bix = -1;
          D0010_H6FindNodeTouchBreak(bars, bars_count, known, events[i].node_price, high_node, last, touch_buffer, break_buffer, tix, bix);
-         if(bix > 0)
-            continue;
-         int age = last - known;
-         int stage = D0010_H6NodeStage(age, h1, h2, h3);
-         if(stage <= 0)
-            continue;
-         if(stage == 1) st.active_stage1++;
-         if(stage == 2) st.active_stage2++;
-         if(stage == 3) st.active_stage3++;
-         color c = D0010_H6NodeStageColor(stage);
-         string side = high_node ? "HIGH" : "LOW";
-         string stage_text = (stage == 1 ? "H" + IntegerToString(h1) : (stage == 2 ? "H" + IntegerToString(h2) : "H" + IntegerToString(h3)));
-         string name = prefix + stage_text + "_" + IntegerToString(i) + "_" + side;
-         string tip = "H6 node survival " + stage_text + " " + side + " age=" + IntegerToString(age) + " price=" + DoubleToString(events[i].node_price, _Digits);
-         if(D0010_H6DrawNodeLine(name, bars[known].time, bars[last].time, events[i].node_price, c, InpH6NodeLineWidth, tip))
+         if(bix <= 0)
          {
-            drawn++;
-            st.chart_drawn++;
+            int age = last - known;
+            int stage = D0010_H6NodeStage(age, h1, h2, h3);
+            if(stage > 0 && InpH6NodeDrawLines && drawn < max_objects)
+            {
+               if(stage == 1) st.active_stage1++;
+               if(stage == 2) st.active_stage2++;
+               if(stage == 3) st.active_stage3++;
+               color c = D0010_H6NodeStageColor(stage);
+               string side = high_node ? "HIGH" : "LOW";
+               string stage_text = (stage == 1 ? "H" + IntegerToString(h1) : (stage == 2 ? "H" + IntegerToString(h2) : "H" + IntegerToString(h3)));
+               string name = prefix + "LINE_" + stage_text + "_" + IntegerToString(i) + "_" + side;
+               string tip = "H6 node survivor line " + stage_text + " " + side + " age=" + IntegerToString(age) + " price=" + DoubleToString(events[i].node_price, _Digits);
+               if(D0010_H6DrawNodeLine(name, bars[known].time, bars[last].time, events[i].node_price, c, InpH6NodeLineWidth, tip))
+               {
+                  drawn++;
+                  st.chart_drawn++;
+               }
+            }
+         }
+
+         if(InpH6ReactionBoxDrawChart && st.reaction_boxes_drawn < max_reaction_objects)
+         {
+            int rx_touch = -1;
+            int rx_confirm = -1;
+            int rx_retouch = -1;
+            double rx_zone_end = events[i].node_price;
+            D0010_H6FindReactionBox(bars, bars_count, known, events[i].node_price, high_node, last, touch_buffer, reaction_away_buffer, reaction_retouch_buffer, rx_touch, rx_confirm, rx_retouch, rx_zone_end);
+            if(rx_touch > 0 && rx_confirm > 0)
+            {
+               int rx_age = 0;
+               bool rx_active_box = true;
+               int rx_stage = D0010_H6ReactionAchievedStage(rx_confirm, rx_retouch, last, h1, h2, h3, rx_age, rx_active_box);
+
+               if(rx_active_box)
+               {
+                  if(rx_stage == 1) st.reaction_active_stage1++;
+                  if(rx_stage == 2) st.reaction_active_stage2++;
+                  if(rx_stage == 3) st.reaction_active_stage3++;
+               }
+
+               color rc = D0010_H6ReactionStageColor(rx_stage, rx_active_box);
+               string side2 = high_node ? "HIGH" : "LOW";
+               string rx_stage_text = "PRE_H" + IntegerToString(h1);
+               if(rx_stage == 1) rx_stage_text = "H" + IntegerToString(h1);
+               else if(rx_stage == 2) rx_stage_text = "H" + IntegerToString(h2);
+               else if(rx_stage >= 3) rx_stage_text = "H" + IntegerToString(h3);
+               string rx_state_text = rx_active_box ? "ACTIVE" : "CLOSED";
+               string rx_name = prefix + "BOX_" + rx_stage_text + "_" + rx_state_text + "_" + IntegerToString(i) + "_" + side2;
+               string rx_tip = "H6 reaction box " + rx_stage_text + " " + side2
+                  + " originTime=" + TimeToString(bars[known].time)
+                  + " touchTime=" + TimeToString(bars[rx_touch].time)
+                  + " confirmTime=" + TimeToString(bars[rx_confirm].time)
+                  + " retouchTime=" + (rx_retouch > 0 ? TimeToString(bars[rx_retouch].time) : "NONE")
+                  + " active=" + IntegerToString(rx_active_box ? 1 : 0)
+                  + " reverseCandlesWithoutZoneEndRetouch=" + IntegerToString(rx_age)
+                  + " node=" + DoubleToString(events[i].node_price, _Digits)
+                  + " touchExtreme=" + DoubleToString(rx_zone_end, _Digits)
+                  + " direction=" + (high_node ? "sell_reaction" : "buy_reaction");
+               if(D0010_H6DrawReactionBox(rx_name, bars[known].time, bars[rx_touch].time, events[i].node_price, rx_zone_end, high_node, rc, InpH6NodeLineWidth, rx_tip))
+               {
+                  st.reaction_boxes_drawn++;
+                  st.chart_drawn++;
+               }
+            }
          }
       }
       ChartRedraw(0);
@@ -2811,12 +3159,19 @@ void D0010_H6NodeSurvivalReport(
    string chart_line = "DAL_H0006_NODE_CHART_UPDATE *** build=" + DAL_D0010_BUILD
       + "*drawChart=" + IntegerToString(InpH6NodeDrawChart ? 1 : 0)
       + "*objectsDrawn=" + IntegerToString(st.chart_drawn)
-      + "*maxObjects=" + IntegerToString(MathMax(0, InpH6NodeMaxChartObjects))
+      + "*maxObjects=" + IntegerToString(InpH6NodeMaxChartObjects <= 0 ? -1 : InpH6NodeMaxChartObjects)
       + "*activeRedH" + IntegerToString(h1) + "=" + IntegerToString(st.active_stage1)
       + "*activeGreenH" + IntegerToString(h2) + "=" + IntegerToString(st.active_stage2)
       + "*activePurpleH" + IntegerToString(h3) + "=" + IntegerToString(st.active_stage3)
+      + "*reactionBoxesDrawn=" + IntegerToString(st.reaction_boxes_drawn)
+      + "*maxReactionBoxes=" + IntegerToString(InpH6ReactionMaxChartObjects <= 0 ? -1 : InpH6ReactionMaxChartObjects)
+      + "*reactionActiveRedH" + IntegerToString(h1) + "=" + IntegerToString(st.reaction_active_stage1)
+      + "*reactionActiveGreenH" + IntegerToString(h2) + "=" + IntegerToString(st.reaction_active_stage2)
+      + "*reactionActivePurpleH" + IntegerToString(h3) + "=" + IntegerToString(st.reaction_active_stage3)
+      + "*drawLines=" + IntegerToString(InpH6NodeDrawLines ? 1 : 0)
+      + "*drawReactionBoxes=" + IntegerToString(InpH6ReactionBoxDrawChart ? 1 : 0)
       + "*objectPrefix=DAL_H6_NODE_"
-      + "*updatePolicy=delete_and_redraw_current_unbroken_survivors";
+      + "*updatePolicy=delete_and_redraw_all_reaction_boxes_active_and_closed_plus_optional_lines";
    Print(chart_line);
 }
 
@@ -3508,6 +3863,15 @@ void DAL_M0004CloseAtomicNoSampleReport()
 #undef InpH6RequireFullHorizon
 #undef InpH6NodeSurvivalReport
 #undef InpH6NodeDrawChart
+#undef InpH6NodeDrawLines
+#undef InpH6ReactionBoxReport
+#undef InpH6ReactionBoxDrawChart
+#undef InpH6ReactionAwayBufferPoints
+#undef InpH6ReactionZoneEndBufferPoints
+#undef InpH6ReactionMinBoxHeightPoints
+#undef InpH6ReactionMaxChartObjects
+#undef InpH6ReactionBoxFill
+#undef InpH6ReactionBoxBack
 #undef InpH6NodeHorizon1
 #undef InpH6NodeHorizon2
 #undef InpH6NodeHorizon3
