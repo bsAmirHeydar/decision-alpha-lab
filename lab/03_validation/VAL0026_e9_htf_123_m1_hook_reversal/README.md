@@ -161,3 +161,13 @@ Interpretation:
 hookMicroReject high + no trades      -> filter too tight
 hookMicroReject low + equity leakage  -> filter too loose
 ```
+
+## Release 107 compile fix
+
+Compile target remains:
+
+```text
+mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
+```
+
+Audit output is now split across `AUDIT_A`, `AUDIT_B`, and `AUDIT_C`.

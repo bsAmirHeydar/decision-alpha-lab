@@ -343,3 +343,18 @@ maxRiskPoints
 ```
 
 If `hookMicroReject` is high, loosen the micro filter; if equity leakage is high, tighten it.
+
+
+## Release 107 — compile fix
+
+Fixed the MQL `Print(...)` parameter-count error from release 106.
+
+The long `DAL_E0009_AUDIT` line was split into:
+
+```text
+DAL_E0009_AUDIT_A
+DAL_E0009_AUDIT_B
+DAL_E0009_AUDIT_C
+```
+
+No trading logic changed.

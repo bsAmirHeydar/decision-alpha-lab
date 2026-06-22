@@ -3,7 +3,7 @@
 //| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.06"
+#property version   "1.07"
 #property description "E0009: HTF 3-swing counter entries on M1 micro hooks with risk-size filters."
 
 #include <Trade/Trade.mqh>
@@ -59,7 +59,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.06"
+#define DAL_E0009_BUILD "1.07"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -280,7 +280,7 @@ void E0009_Process(const string run_mode)
 
    if(InpPrintLogs)
    {
-      Print("DAL_E0009_AUDIT *** build=", DAL_E0009_BUILD,
+      Print("DAL_E0009_AUDIT_A *** build=", DAL_E0009_BUILD,
          "*runMode=", run_mode,
          "*symbol=", symbol,
          "*htf=", EnumToString(InpHTFTimeframe),
@@ -291,7 +291,9 @@ void E0009_Process(const string run_mode)
          "*htfAge=", g_htf123_cache.age_bars,
          "*closedTime=", TimeToString(g_htf123_cache.closed_time),
          "*orderMode=", DAL_E0009OrderModeName(cfg.order_mode),
-         "*exitMode=", DAL_E0009ExitModeName(cfg.exit_mode),
+         "*exitMode=", DAL_E0009ExitModeName(cfg.exit_mode));
+
+      Print("DAL_E0009_AUDIT_B *** build=", DAL_E0009_BUILD,
          "*fixedR=", DoubleToString(cfg.fixed_r, 2),
          "*htfTpSwingCount=", cfg.htf_tp_swing_count,
          "*hookSeen=", diag.hook_seen,
@@ -304,7 +306,9 @@ void E0009_Process(const string run_mode)
          "*microFilter=", DAL_BoolToString(cfg.use_micro_only_filter),
          "*maxRiskToHTF=", DoubleToString(cfg.max_hook_risk_to_htf_amplitude, 4),
          "*maxRiskToM1Avg=", DoubleToString(cfg.max_hook_risk_to_m1_avg_range, 2),
-         "*maxRiskPoints=", cfg.max_hook_risk_points,
+         "*maxRiskPoints=", cfg.max_hook_risk_points);
+
+      Print("DAL_E0009_AUDIT_C *** build=", DAL_E0009_BUILD,
          "*geometryReject=", diag.geometry_reject,
          "*riskReject=", diag.risk_reject,
          "*capReject=", diag.cap_reject,
