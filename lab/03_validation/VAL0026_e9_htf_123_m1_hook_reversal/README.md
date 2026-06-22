@@ -63,3 +63,26 @@ not 125.
 ```
 
 The same applies symmetrically to falling lows.
+
+
+## Release 111 compile/input organization test
+
+Compile target:
+
+```text
+mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
+```
+
+Check that the Inputs tab shows the sections:
+
+```text
+00 | SYMBOL / EXECUTION
+01 | MACRO MODE
+02 | SETUP
+03 | ENTRY
+04 | MICRO-ONLY FILTER
+05 | EXIT
+06 | SPREAD / RISK / EXPOSURE
+```
+
+The missing `InpZoneRatio` input is now present in section 03.

@@ -3,8 +3,8 @@
 //| Macro H4 mode + M15 setup + M1 hooks + H4 monotonic exit          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
-#property description "E0009: organized multi-level monotonic swing mode, M1 hook entries, and independent exit-TF pattern TP."
+#property version   "1.11"
+#property description "E0009: organized named-input multi-level monotonic swing mode with macro/setup/entry/exit layers."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -12,70 +12,78 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 #include <DecisionAlphaLab/Execution/E0009/DAL_E0009Modules.mqh>
 
-input group "00. Symbol / Execution"
-input string InpSymbol = "";
-input bool InpTradingEnabled = true;
+input group "00. SYMBOL / EXECUTION"
+input string InpSection00 = "===== 00 | SYMBOL / EXECUTION =====";
+input string InpSymbol = "";                         // Empty = current chart symbol
+input bool InpTradingEnabled = true;                 // true = send real tester/live orders; false = plan/log only
 input long InpMagicNumber = 9009009;
 input string InpOrderCommentPrefix = "DALE9";
 input bool InpRunOnInit = true;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-input group "01. Macro Mode Level"
-input bool InpUseMacroModeFilter = true;
+input group "01. MACRO MODE LEVEL"
+input string InpSection01 = "===== 01 | MACRO MODE: H4 DEFAULT =====";
+input bool InpUseMacroModeFilter = true;             // true = macro controls allowed direction
 input ENUM_TIMEFRAMES InpMacroModeTF = PERIOD_H4;
-input int InpMacroModeNodeCount = 4;
+input int InpMacroModeNodeCount = 4;                 // falling lows => BUY only; rising highs => SELL only
 input int InpMacroModeL = 2;
 input int InpMacroModeBars = 1000;
-input int InpMacroModeMaxAgeBars = 0;
+input int InpMacroModeMaxAgeBars = 0;                // 0 = no age limit
 
-input group "02. Middle Setup Level"
+input group "02. MIDDLE SETUP LEVEL"
+input string InpSection02 = "===== 02 | SETUP: M15 DEFAULT =====";
 input ENUM_TIMEFRAMES InpSetupTF = PERIOD_M15;
-input int InpSetupNodeCount = 4;
+input int InpSetupNodeCount = 4;                     // falling lows => BUY setup; rising highs => SELL setup
 input int InpSetupL = 2;
 input int InpSetupBars = 1200;
-input int InpSetupMaxAgeBars = 0;
-input bool InpRequireSetupAgreesWithMacro = true;
+input int InpSetupMaxAgeBars = 0;                    // 0 = no age limit
+input bool InpRequireSetupAgreesWithMacro = true;    // true = macro direction and setup direction must match
 
-input group "03. M1 Entry Hooks"
+input group "03. ENTRY HOOK LEVEL"
+input string InpSection03 = "===== 03 | ENTRY: M1 HOOKS =====";
 input ENUM_TIMEFRAMES InpExecutionTF = PERIOD_M1;
 input int InpExecutionBars = 500;
 input int InpExecutionL = 2;
-input int InpM1HookMaxAgeBars = 40;
+input double InpZoneRatio = 0.90;                    // M1 hook zone ratio; compile fix: used by E0009_Config
+input int InpM1HookMaxAgeBars = 40;                  // 0 = no hook age limit
 input bool InpRequireFreshM1HookAfterSetupClose = true;
 input bool InpRejectHuntedM1Hook = false;
 input int InpMaxHookCandidatesPerBar = 3;
-input bool InpOneTradePerHookForever = true;
+input bool InpOneTradePerHookForever = true;         // one tester/session trade per exact hook key
 input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM;
 
-input group "04. Micro-Only Entry Filter"
+input group "04. MICRO-ONLY ENTRY FILTER"
+input string InpSection04 = "===== 04 | MICRO-ONLY FILTER =====";
 input bool InpUseMicroOnlyFilter = true;
-input double InpMaxHookRiskToSetupAmplitude = 0.08;
+input double InpMaxHookRiskToSetupAmplitude = 0.08;  // hook risk <= this ratio of setup amplitude
 input int InpMicroAvgRangeBars = 80;
-input double InpMaxHookRiskToM1AvgRange = 3.0;
-input int InpMaxHookRiskPoints = 0;
+input double InpMaxHookRiskToM1AvgRange = 3.0;       // hook risk <= N x recent M1 average range
+input int InpMaxHookRiskPoints = 0;                  // 0 = disabled
 
-input group "05. Exit Level"
+input group "05. EXIT LEVEL"
+input string InpSection05 = "===== 05 | EXIT: INDEPENDENT TF PATTERN =====";
 input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_TF_MONOTONIC_PATTERN;
 input ENUM_TIMEFRAMES InpExitTF = PERIOD_H4;
-input int InpExitNodeCount = 3;
+input int InpExitNodeCount = 3;                      // BUY exits on rising highs; SELL exits on falling lows
 input int InpExitL = 2;
 input int InpExitBars = 1000;
-input int InpExitMaxAgeBars = 0;
+input int InpExitMaxAgeBars = 0;                     // 0 = no age limit
 input bool InpUseCurrentExitPatternAsInitialTP = true;
-input double InpFixedR = 50.0;
+input double InpFixedR = 50.0;                       // used only if InpExitMode = FIXED_R
 
-input group "06. Spread / Risk / Exposure"
+input group "06. SPREAD / RISK / EXPOSURE"
+input string InpSection06 = "===== 06 | SPREAD / RISK / EXPOSURE =====";
 input double InpBuyEntrySpreadMultiplier = 1.0;
 input double InpSellStopSpreadMultiplier = 1.0;
 input double InpRiskCash = 100.0;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input double InpCommissionPerLotRoundTurn = 0.0;
-input int InpMaxPendingPerSide = 0;
-input int InpMaxPositionsPerSide = 0;
+input int InpMaxPendingPerSide = 0;                  // 0 = no cap
+input int InpMaxPositionsPerSide = 0;                // 0 = no cap
 input int InpUpdateEveryNExecutionBars = 1;
 
-#define DAL_E0009_BUILD "1.10"
+#define DAL_E0009_BUILD "1.11"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;

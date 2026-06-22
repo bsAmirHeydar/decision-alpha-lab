@@ -82,3 +82,32 @@ If both a high-window and a low-window exist:
 This applies to macro, setup, and exit pattern detection because they all use the same monotonic detector.
 
 So a single newest failed high/low no longer invalidates the earlier nearest valid sequence.
+
+
+## Release 111 — organized input titles and missing ZoneRatio fix
+
+Release 111 fixes the compile error:
+
+```text
+undeclared identifier 'InpZoneRatio'
+```
+
+The missing input is now under the Entry Hook section:
+
+```text
+InpZoneRatio = 0.90
+```
+
+Inputs are also grouped with visible string section titles:
+
+```text
+InpSection00 = ===== 00 | SYMBOL / EXECUTION =====
+InpSection01 = ===== 01 | MACRO MODE: H4 DEFAULT =====
+InpSection02 = ===== 02 | SETUP: M15 DEFAULT =====
+InpSection03 = ===== 03 | ENTRY: M1 HOOKS =====
+InpSection04 = ===== 04 | MICRO-ONLY FILTER =====
+InpSection05 = ===== 05 | EXIT: INDEPENDENT TF PATTERN =====
+InpSection06 = ===== 06 | SPREAD / RISK / EXPOSURE =====
+```
+
+These title strings are only visual labels and are not used by the logic.
