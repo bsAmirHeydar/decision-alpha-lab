@@ -3,7 +3,7 @@
 //| Template executor for L=2 purple/source/revisit extreme entries.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "E0007: purple/source extreme execution template with L=2 default."
 
 #include <Trade/Trade.mqh>
@@ -72,7 +72,7 @@ input bool InpRunOnInit = true;
 input int InpUpdateEveryNBars = 1;
 input bool InpPrintLogs = true;
 
-#define DAL_E0007_BUILD "1.00"
+#define DAL_E0007_BUILD "1.01"
 
 CTrade g_trade;
 datetime g_last_bar_time = 0;
@@ -120,7 +120,7 @@ void E0007_FillPolicies(
    pricing.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
    pricing.sell_stop_spread_mult = MathMax(0.0, InpSellStopSpreadMultiplier);
    pricing.fixed_reward_r = MathMax(0.0, InpFixedRewardR);
-   pricing.opposite_node_count = MathMax(1, InpOppositeNodeTPCount);
+   pricing.opposite_node_tp_count = MathMax(1, InpOppositeNodeTPCount);
 
    DAL_E0007_DefaultExposurePolicy(exposure);
    exposure.max_buy_pending = MathMax(0, InpMaxBuyPending);
@@ -207,7 +207,7 @@ void E0007_Process(const string run_mode)
 
    int tp_checked=0, tp_modified=0, tp_waiting=0, tp_rejected=0;
    if(InpTargetMode == DAL_E0007_TARGET_NTH_OPPOSITE_INTERNAL_NODE)
-      DAL_E0007SyncOppositeNodeTP(symbol, InpMagicNumber, InpOrderCommentPrefix, nodes, nodes_count, pricing.opposite_node_count,
+      DAL_E0007SyncOppositeNodeTP(symbol, InpMagicNumber, InpOrderCommentPrefix, nodes, nodes_count, pricing.opposite_node_tp_count,
                                   g_trade, tp_checked, tp_modified, tp_waiting, tp_rejected);
 
    DALE0007Candidate candidates[];

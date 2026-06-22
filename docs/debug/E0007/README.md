@@ -180,3 +180,15 @@ M0007_FractalContextReporter
 ```
 
 E0007 is the execution skeleton for testing entry modes around the source/purple behavior.
+
+
+## Release 101 compile fix
+
+Fixed the E0007 field-name mismatch:
+
+```text
+pricing.opposite_node_count      // wrong
+pricing.opposite_node_tp_count   // correct
+```
+
+No execution logic changed.

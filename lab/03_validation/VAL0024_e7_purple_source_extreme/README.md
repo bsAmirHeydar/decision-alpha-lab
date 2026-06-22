@@ -72,3 +72,13 @@ TP modified/waiting/rejected
 ```
 
 The first goal is not profit. The first goal is to see whether the executor selects the same family of zones seen in the screenshots.
+
+## Release 101 compile fix
+
+Compile target remains:
+
+```text
+mql5/Experts/DecisionAlphaLab/Execution/E0007_PurpleSourceExtremeExecutor.mq5
+```
+
+The release only fixes the `opposite_node_tp_count` field reference.
