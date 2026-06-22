@@ -33,3 +33,33 @@ DAL_E0009_AUDIT_B  hook rejection counts
 DAL_E0009_AUDIT_C  micro filter, duplicate, send counts
 DAL_E0009_AUDIT_D  exit pattern and TP sync
 ```
+
+## Release 110 nearest-live sequence test
+
+Detector behavior to verify:
+
+```text
+High sequence: 100, 110, 120, 130, 125
+```
+
+Latest 4 highs are not rising:
+
+```text
+110 < 120 < 130 but 125 breaks
+```
+
+But the nearest valid 4-high window exists:
+
+```text
+100 < 110 < 120 < 130
+```
+
+Expected:
+
+```text
+macro/setup SELL mode is still valid,
+using newest node = 130,
+not 125.
+```
+
+The same applies symmetrically to falling lows.

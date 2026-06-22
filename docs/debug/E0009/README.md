@@ -44,3 +44,41 @@ Default exit is H4 with 3 nodes. BUY TP is the newest high of 3 rising highs. SE
 
 ### 06. Spread / Risk / Exposure
 Risk cash, commission, spread multipliers, and side caps.
+
+
+## Release 110 — nearest-live monotonic sequence scan
+
+Release 109 only checked the latest `N` nodes of a type. That was too strict.
+
+Example:
+
+```text
+latest high is lower than the previous high
+but the four highs before it were rising
+```
+
+Release 109 rejected SELL macro mode.  
+Release 110 fixes this.
+
+New detector behavior:
+
+```text
+For highs:
+    collect all confirmed HIGH nodes
+    scan from live edge backwards
+    find the nearest consecutive window where:
+        High1 < High2 < High3 < High4
+
+For lows:
+    collect all confirmed LOW nodes
+    scan from live edge backwards
+    find the nearest consecutive window where:
+        Low1 > Low2 > Low3 > Low4
+
+If both a high-window and a low-window exist:
+    choose the one whose newest node is closer to live.
+```
+
+This applies to macro, setup, and exit pattern detection because they all use the same monotonic detector.
+
+So a single newest failed high/low no longer invalidates the earlier nearest valid sequence.

@@ -3,7 +3,7 @@
 //| Macro H4 mode + M15 setup + M1 hooks + H4 monotonic exit          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.09"
+#property version   "1.10"
 #property description "E0009: organized multi-level monotonic swing mode, M1 hook entries, and independent exit-TF pattern TP."
 
 #include <Trade/Trade.mqh>
@@ -75,7 +75,7 @@ input int InpMaxPendingPerSide = 0;
 input int InpMaxPositionsPerSide = 0;
 input int InpUpdateEveryNExecutionBars = 1;
 
-#define DAL_E0009_BUILD "1.09"
+#define DAL_E0009_BUILD "1.10"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;

@@ -48,18 +48,16 @@ bool DAL_E0009LoadNodes(
    return true;
 }
 
-bool DAL_E0009CollectLatestNodesOfType(
+bool DAL_E0009CollectNodesOfTypeChronological(
    const DALLRuleNode &nodes[],
    const int nodes_count,
    const ENUM_DALNodeType type,
-   const int required_count,
    DALLRuleNode &selected[]
 )
 {
    ArrayResize(selected, 0);
-   int required = MathMax(1, required_count);
 
-   for(int i = nodes_count - 1; i >= 0 && ArraySize(selected) < required; i--)
+   for(int i = 0; i < nodes_count; i++)
    {
       DALLRuleNode n = nodes[i];
       if(!n.confirmed)
@@ -69,34 +67,36 @@ bool DAL_E0009CollectLatestNodesOfType(
 
       int k = ArraySize(selected);
       ArrayResize(selected, k + 1);
-      selected[k] = n;
+      selected[k] = n; // chronological: oldest -> newest
    }
 
-   return (ArraySize(selected) >= required);
+   return (ArraySize(selected) > 0);
 }
 
-bool DAL_E0009SequenceIsMonotonic(
+bool DAL_E0009WindowIsMonotonicChronological(
    const DALLRuleNode &selected[],
-   const int count,
+   const int start_index,
+   const int required_count,
    const ENUM_DAL_E0009_HTF_123_DIRECTION direction
 )
 {
-   if(count <= 0 || ArraySize(selected) < count)
+   int required = MathMax(1, required_count);
+   if(start_index < 0 || start_index + required > ArraySize(selected))
       return false;
 
-   for(int old_i = count - 1; old_i > 0; old_i--)
+   for(int i = start_index + 1; i < start_index + required; i++)
    {
-      double older_price = selected[old_i].price;
-      double newer_price = selected[old_i - 1].price;
+      double prev_price = selected[i - 1].price;
+      double curr_price = selected[i].price;
 
       if(direction == DAL_E0009_123_HIGHER_HIGHS)
       {
-         if(!(older_price < newer_price))
+         if(!(prev_price < curr_price))
             return false;
       }
       else if(direction == DAL_E0009_123_LOWER_LOWS)
       {
-         if(!(older_price > newer_price))
+         if(!(prev_price > curr_price))
             return false;
       }
       else
@@ -106,30 +106,35 @@ bool DAL_E0009SequenceIsMonotonic(
    return true;
 }
 
-void DAL_E0009FillPatternFromSelected(
+void DAL_E0009FillPatternFromChronologicalWindow(
    const DALLRuleNode &selected[],
-   const int count,
+   const int start_index,
+   const int required_count,
    const int bars_count,
    const ENUM_TIMEFRAMES tf,
    const ENUM_DAL_E0009_HTF_123_DIRECTION direction,
    DALE0009PatternState &out
 )
 {
+   int required = MathMax(1, required_count);
+
    DAL_E0009_ResetPattern(out);
    out.valid = true;
    out.reason = "ok";
    out.tf = tf;
    out.direction = direction;
-   out.required_count = count;
-   out.p1 = selected[count - 1];
-   out.p2 = selected[count / 2];
-   out.p3 = selected[0];
+   out.required_count = required;
+
+   out.p1 = selected[start_index];
+   out.p2 = selected[start_index + (required / 2)];
+   out.p3 = selected[start_index + required - 1]; // newest node in the selected valid sequence
+
    out.closed_time = out.p3.active_from_time;
    out.age_bars = bars_count - 1 - out.p3.active_from_index;
    out.amplitude = MathAbs(out.p3.price - out.p1.price);
 }
 
-bool DAL_E0009FindLatestMonotonicPatternOfType(
+bool DAL_E0009FindNearestLiveMonotonicWindow(
    const DALLRuleNode &nodes[],
    const int nodes_count,
    const int bars_count,
@@ -149,27 +154,61 @@ bool DAL_E0009FindLatestMonotonicPatternOfType(
    ENUM_DALNodeType type = (direction == DAL_E0009_123_HIGHER_HIGHS ? DAL_NODE_HIGH : DAL_NODE_LOW);
 
    DALLRuleNode selected[];
-   if(!DAL_E0009CollectLatestNodesOfType(nodes, nodes_count, type, required, selected))
+   if(!DAL_E0009CollectNodesOfTypeChronological(nodes, nodes_count, type, selected))
+   {
+      out.reason = "no_nodes_of_type";
+      return false;
+   }
+
+   int count = ArraySize(selected);
+   if(count < required)
    {
       out.reason = "not_enough_nodes_of_type";
       return false;
    }
 
-   if(!DAL_E0009SequenceIsMonotonic(selected, required, direction))
+   // Critical release 110 behavior:
+   // Scan backwards from the live edge. Do NOT require the latest N nodes to be monotonic.
+   // If the newest high breaks the chain, the previous valid 4-high chain can still define macro mode.
+   for(int start_index = count - required; start_index >= 0; start_index--)
    {
-      out.reason = "latest_nodes_not_monotonic";
-      return false;
+      if(!DAL_E0009WindowIsMonotonicChronological(selected, start_index, required, direction))
+         continue;
+
+      DALLRuleNode newest = selected[start_index + required - 1];
+      int age = bars_count - 1 - newest.active_from_index;
+      if(max_age_bars > 0 && age > max_age_bars)
+         continue;
+
+      DAL_E0009FillPatternFromChronologicalWindow(selected, start_index, required, bars_count, tf, direction, out);
+      return true;
    }
 
-   int age = bars_count - 1 - selected[0].active_from_index;
-   if(max_age_bars > 0 && age > max_age_bars)
-   {
-      out.reason = "pattern_too_old";
-      return false;
-   }
+   out.reason = "no_nearest_live_monotonic_window";
+   return false;
+}
 
-   DAL_E0009FillPatternFromSelected(selected, required, bars_count, tf, direction, out);
-   return true;
+bool DAL_E0009FindLatestMonotonicPatternOfType(
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const int bars_count,
+   const ENUM_TIMEFRAMES tf,
+   const int required_count,
+   const int max_age_bars,
+   const ENUM_DAL_E0009_HTF_123_DIRECTION direction,
+   DALE0009PatternState &out
+)
+{
+   return DAL_E0009FindNearestLiveMonotonicWindow(
+      nodes,
+      nodes_count,
+      bars_count,
+      tf,
+      required_count,
+      max_age_bars,
+      direction,
+      out
+   );
 }
 
 bool DAL_E0009FindLatestMonotonicPatternAny(
