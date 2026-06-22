@@ -3,7 +3,7 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
+#property version   "1.11"
 #property description "Execution module E0006: all M0001 zones with revisit secondary-node entry and three stop-anchor modes."
 
 #include <Trade/Trade.mqh>
@@ -109,7 +109,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.10"
+#define DAL_E0006_BUILD "1.11"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -741,6 +741,14 @@ bool E0006_BuildZoneSetup(
        InpStopAnchorMode == E0006_STOP_REVISIT_SECONDARY_NODE));
 
    DALLRuleNode secondary_node;
+   secondary_node.id = -1;
+   secondary_node.index = -1;
+   secondary_node.active_from_index = -1;
+   secondary_node.time = 0;
+   secondary_node.active_from_time = 0;
+   secondary_node.type = node.type;
+   secondary_node.price = 0.0;
+   secondary_node.confirmed = false;
    bool has_secondary_node = false;
    double secondary_extreme = 0.0;
    double secondary_lower = 0.0;
