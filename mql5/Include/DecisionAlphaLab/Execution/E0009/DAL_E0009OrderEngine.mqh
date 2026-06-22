@@ -32,6 +32,23 @@ bool DAL_E0009PendingExistsByComment(const string symbol, const long magic, cons
    return false;
 }
 
+bool DAL_E0009PositionExistsByComment(const string symbol, const long magic, const string comment)
+{
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != magic)
+         continue;
+      if(PositionGetString(POSITION_COMMENT) == comment)
+         return true;
+   }
+   return false;
+}
+
 int DAL_E0009CountPendingByDirection(const string symbol, const long magic, const int direction, const string prefix)
 {
    int count = 0;
@@ -193,9 +210,10 @@ bool DAL_E0009SendHookOrder(
       return false;
    }
 
-   if(DAL_E0009PendingExistsByComment(symbol, magic, signal.comment))
+   if(DAL_E0009PendingExistsByComment(symbol, magic, signal.comment)
+      || DAL_E0009PositionExistsByComment(symbol, magic, signal.comment))
    {
-      reason = "existing_pending_same_hook";
+      reason = "existing_trade_same_hook";
       diag.duplicate_skip++;
       return true;
    }

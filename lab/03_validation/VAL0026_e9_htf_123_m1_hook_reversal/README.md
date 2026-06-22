@@ -104,3 +104,27 @@ mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
 ```
 
 This release only fixes the stale `one_order_per_hook` assignment and initializes local 123 detector node variables.
+
+## Release 105 root no-trade test
+
+Use the new defaults first:
+
+```text
+InpTradingEnabled = true
+InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM
+InpRejectHuntedM1Hook = false
+InpMaxPendingPerSide = 0
+InpMaxPositionsPerSide = 0
+InpHTF123MaxAgeBars = 0
+InpPrintRejectLogs = true
+```
+
+If still no trades, read the audit:
+
+```text
+no_closed_htf_123        -> HTF has no 3 rising highs / 3 falling lows
+hookSeen = 0             -> no M1 hook of the needed side exists
+hookAfterTimeReject high -> no hook after the HTF 123 close
+hookBuilt > 0 but sent=0 -> order/risk/cap/duplicate issue
+duplicateSkip high       -> same hook was already used
+```

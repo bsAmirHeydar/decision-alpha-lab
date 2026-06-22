@@ -236,3 +236,43 @@ initialized hh1/hh2/hh3 and ll1/ll2/ll3 before branch use
 ```
 
 No trading logic changed.
+
+
+## Release 105 — root no-trade default fix
+
+Release 105 changes the defaults from conservative/debug mode to execution mode.
+
+Previous defaults could still produce no real trades because:
+
+```text
+InpTradingEnabled = false
+InpOrderMode = AUTO
+InpRejectHuntedM1Hook = true
+InpMaxPendingPerSide = 1
+InpMaxPositionsPerSide = 1
+InpHTF123MaxAgeBars could not be disabled
+```
+
+New defaults:
+
+```text
+InpTradingEnabled = true
+InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM
+InpRejectHuntedM1Hook = false
+InpMaxPendingPerSide = 0
+InpMaxPositionsPerSide = 0
+InpHTF123MaxAgeBars = 0
+```
+
+This matches the simple rule better:
+
+```text
+HTF has 3 rising highs -> sell each confirmed M1 high hook once
+HTF has 3 falling lows -> buy each confirmed M1 low hook once
+```
+
+To prevent repeated market orders from the same hook, release 105 checks both pending orders and open positions by the hook comment.
+
+```text
+same hook id + same 123 id + same order kind = duplicate skipped
+```

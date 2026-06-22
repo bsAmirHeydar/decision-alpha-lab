@@ -3,8 +3,8 @@
 //| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.04"
-#property description "E0009: HTF 3-swing counter entries on multiple M1 hooks with AUTO/LIMIT/STOP/MARKET execution."
+#property version   "1.05"
+#property description "E0009: HTF 3-swing counter entries on M1 hook confirmation with duplicate-safe market defaults."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -23,14 +23,14 @@ input int InpHTFL = 2;
 input int InpM1L = 2;
 input double InpZoneRatio = 0.90;
 
-input int InpHTF123MaxAgeBars = 200;
-input int InpM1HookMaxAgeBars = 80;
+input int InpHTF123MaxAgeBars = 0;  // 0 = no HTF 123 age limit
+input int InpM1HookMaxAgeBars = 40;
 input bool InpRequireFreshM1HookAfterHTF123Close = true;
-input bool InpRejectHuntedM1Hook = true;
-input int InpMaxHookCandidatesPerBar = 6;
+input bool InpRejectHuntedM1Hook = false;
+input int InpMaxHookCandidatesPerBar = 3;
 
 input ENUM_DAL_E0009_COUNTER_MODE InpCounterMode = DAL_E0009_COUNTER_OPPOSITE_123;
-input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_AUTO;
+input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM;
 input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING;
 input double InpFixedR = 50.0;
 input int InpHTFTpSwingCount = 3;
@@ -43,16 +43,16 @@ input string InpOrderCommentPrefix = "DALE9";
 input double InpRiskCash = 100.0;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input double InpCommissionPerLotRoundTurn = 0.0;
-input int InpMaxPendingPerSide = 1;
-input int InpMaxPositionsPerSide = 1;
+input int InpMaxPendingPerSide = 0;
+input int InpMaxPositionsPerSide = 0;
 
-input bool InpTradingEnabled = false;
+input bool InpTradingEnabled = true;
 input bool InpRunOnInit = true;
 input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.04"
+#define DAL_E0009_BUILD "1.05"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -76,8 +76,8 @@ DALE0009Config E0009_Config()
    c.htf_L = MathMax(1, InpHTFL);
    c.m1_L = MathMax(1, InpM1L);
    c.zone_ratio = MathMax(0.0, MathMin(0.9999, InpZoneRatio));
-   c.htf_max_age_bars = MathMax(1, InpHTF123MaxAgeBars);
-   c.m1_max_hook_age_bars = MathMax(1, InpM1HookMaxAgeBars);
+   c.htf_max_age_bars = MathMax(0, InpHTF123MaxAgeBars);
+   c.m1_max_hook_age_bars = MathMax(0, InpM1HookMaxAgeBars);
    c.fixed_r = MathMax(0.0, InpFixedR);
    c.htf_tp_swing_count = MathMax(1, InpHTFTpSwingCount);
    c.require_fresh_m1_hook_after_htf_close = InpRequireFreshM1HookAfterHTF123Close;
