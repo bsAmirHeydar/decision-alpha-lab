@@ -48,3 +48,19 @@ HTF 123 now means:
 last 3 confirmed HIGH nodes are rising -> SELL M1 HIGH hooks
 last 3 confirmed LOW nodes are falling -> BUY M1 LOW hooks
 ```
+
+## Release 102 TP test
+
+Main exit test:
+
+```text
+InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING
+InpHTFTpSwingCount = 3
+```
+
+Expected behavior:
+
+```text
+BUY  -> TP is moved to 3rd confirmed HTF HIGH after entry
+SELL -> TP is moved to 3rd confirmed HTF LOW after entry
+```

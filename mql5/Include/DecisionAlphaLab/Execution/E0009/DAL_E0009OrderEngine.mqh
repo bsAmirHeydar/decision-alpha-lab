@@ -226,4 +226,179 @@ bool DAL_E0009SendHookLimit(
    return true;
 }
 
+bool DAL_E0009PricesCloseEnough(const string symbol, const double a, const double b)
+{
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   if(point <= 0.0)
+      point = 0.00000001;
+   return (MathAbs(a - b) <= point * 0.5);
+}
+
+bool DAL_E0009CheckPositionTPGeometry(
+   const string symbol,
+   const int direction,
+   const double tp,
+   string &reason
+)
+{
+   if(tp <= 0.0)
+   {
+      reason = "tp_zero";
+      return false;
+   }
+
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(0.0, stops_level * point);
+
+   if(direction > 0)
+   {
+      if(!(tp > bid + min_dist))
+      {
+         reason = "buy_tp_too_close";
+         return false;
+      }
+   }
+   else if(direction < 0)
+   {
+      if(!(tp < ask - min_dist))
+      {
+         reason = "sell_tp_too_close";
+         return false;
+      }
+   }
+   else
+   {
+      reason = "zero_direction";
+      return false;
+   }
+
+   reason = "ok";
+   return true;
+}
+
+bool DAL_E0009FindNthHTFOppositeSwingAfterEntry(
+   const DALLRuleNode &htf_nodes[],
+   const int htf_nodes_count,
+   const int position_direction,
+   const datetime entry_time,
+   const double entry_price,
+   const int required_count,
+   DALLRuleNode &target,
+   int &found_count
+)
+{
+   found_count = 0;
+   int required = MathMax(1, required_count);
+
+   // BUY target: confirmed HTF HIGH nodes after entry.
+   // SELL target: confirmed HTF LOW nodes after entry.
+   ENUM_DALNodeType wanted = (position_direction > 0 ? DAL_NODE_HIGH : DAL_NODE_LOW);
+
+   for(int i = 0; i < htf_nodes_count; i++)
+   {
+      DALLRuleNode n = htf_nodes[i];
+      if(!n.confirmed)
+         continue;
+      if(n.type != wanted)
+         continue;
+      if(n.active_from_time <= entry_time)
+         continue;
+
+      // Avoid placing TP on the wrong side of the entry.
+      if(position_direction > 0 && n.price <= entry_price)
+         continue;
+      if(position_direction < 0 && n.price >= entry_price)
+         continue;
+
+      found_count++;
+      if(found_count >= required)
+      {
+         target = n;
+         return true;
+      }
+   }
+
+   return false;
+}
+
+void DAL_E0009SyncHTFThirdSwingTP(
+   const string symbol,
+   const long magic,
+   const string prefix,
+   const DALLRuleNode &htf_nodes[],
+   const int htf_nodes_count,
+   const int required_swing_count,
+   CTrade &trade,
+   int &checked,
+   int &modified,
+   int &waiting,
+   int &rejected
+)
+{
+   checked = 0;
+   modified = 0;
+   waiting = 0;
+   rejected = 0;
+
+   int required = MathMax(1, required_swing_count);
+
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != magic)
+         continue;
+
+      string comment = PositionGetString(POSITION_COMMENT);
+      if(prefix != "" && StringFind(comment, prefix, 0) != 0)
+         continue;
+
+      ENUM_POSITION_TYPE pos_type = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+      int direction = (pos_type == POSITION_TYPE_BUY ? +1 : (pos_type == POSITION_TYPE_SELL ? -1 : 0));
+      if(direction == 0)
+         continue;
+
+      checked++;
+
+      datetime entry_time = (datetime)PositionGetInteger(POSITION_TIME);
+      double entry = PositionGetDouble(POSITION_PRICE_OPEN);
+      double sl = PositionGetDouble(POSITION_SL);
+      double old_tp = PositionGetDouble(POSITION_TP);
+
+      DALLRuleNode target;
+      int found = 0;
+      if(!DAL_E0009FindNthHTFOppositeSwingAfterEntry(htf_nodes, htf_nodes_count, direction, entry_time, entry, required, target, found))
+      {
+         waiting++;
+         continue;
+      }
+
+      int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+      double new_tp = NormalizeDouble(target.price, digits);
+
+      if(DAL_E0009PricesCloseEnough(symbol, old_tp, new_tp))
+         continue;
+
+      string geom = "";
+      if(!DAL_E0009CheckPositionTPGeometry(symbol, direction, new_tp, geom))
+      {
+         rejected++;
+         continue;
+      }
+
+      trade.SetExpertMagicNumber(magic);
+      if(trade.PositionModify(ticket, sl, new_tp))
+         modified++;
+      else
+         rejected++;
+   }
+}
+
+
 #endif

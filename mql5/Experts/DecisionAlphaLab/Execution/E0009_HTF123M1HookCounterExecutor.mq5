@@ -3,8 +3,8 @@
 //| Simple model: closed HTF 123 -> counter-direction M1 hook entries |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.01"
-#property description "E0009: three HTF higher highs/lower lows then counter-direction entries on M1 hooks."
+#property version   "1.02"
+#property description "E0009: HTF 3-swing counter entries with HTF third-opposite-swing TP."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -28,8 +28,9 @@ input int InpM1HookMaxAgeBars = 80;
 input bool InpRequireFreshM1HookAfterHTF123Close = true;
 
 input ENUM_DAL_E0009_COUNTER_MODE InpCounterMode = DAL_E0009_COUNTER_OPPOSITE_123;
-input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_FIXED_R;
+input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING;
 input double InpFixedR = 50.0;
+input int InpHTFTpSwingCount = 3;
 
 input double InpBuyEntrySpreadMultiplier = 1.0;
 input double InpSellStopSpreadMultiplier = 1.0;
@@ -48,7 +49,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = false;
 
-#define DAL_E0009_BUILD "1.01"
+#define DAL_E0009_BUILD "1.02"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -57,6 +58,9 @@ int g_m1_bar_counter = 0;
 
 DALE0009HTF123State g_htf123_cache;
 bool g_htf123_evaluated = false;
+
+DALLRuleNode g_htf_nodes_cache[];
+int g_htf_nodes_count_cache = 0;
 
 string E0009_Symbol()
 {
@@ -72,6 +76,7 @@ DALE0009Config E0009_Config()
    c.htf_max_age_bars = MathMax(1, InpHTF123MaxAgeBars);
    c.m1_max_hook_age_bars = MathMax(1, InpM1HookMaxAgeBars);
    c.fixed_r = MathMax(0.0, InpFixedR);
+   c.htf_tp_swing_count = MathMax(1, InpHTFTpSwingCount);
    c.require_fresh_m1_hook_after_htf_close = InpRequireFreshM1HookAfterHTF123Close;
    c.one_order_per_hook = true;
    c.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
@@ -101,11 +106,18 @@ bool E0009_UpdateHTF123Cache(const string symbol, const DALE0009Config &cfg, con
 
    if(!DAL_E0009LoadNodes(symbol, InpHTFTimeframe, MathMax(200, InpHTFBars), cfg.htf_L, htf_bars, bars_count, htf_nodes, nodes_count, reason))
    {
+      ArrayResize(g_htf_nodes_cache, 0);
+      g_htf_nodes_count_cache = 0;
       DAL_E0009_Reset123(g_htf123_cache);
       g_htf123_cache.tf = InpHTFTimeframe;
       g_htf123_cache.reason = reason;
       return false;
    }
+
+   ArrayResize(g_htf_nodes_cache, nodes_count);
+   for(int k = 0; k < nodes_count; k++)
+      g_htf_nodes_cache[k] = htf_nodes[k];
+   g_htf_nodes_count_cache = nodes_count;
 
    if(!DAL_E0009FindLatestClosed123(htf_nodes, nodes_count, bars_count, InpHTFTimeframe, cfg.htf_max_age_bars, g_htf123_cache))
       return false;
@@ -119,6 +131,14 @@ void E0009_Process(const string run_mode)
    DALE0009Config cfg = E0009_Config();
 
    bool htf_ok = E0009_UpdateHTF123Cache(symbol, cfg, run_mode == "INIT");
+
+   int tp_checked = 0, tp_modified = 0, tp_waiting = 0, tp_rejected = 0;
+   if(cfg.exit_mode == DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING && g_htf_nodes_count_cache > 0)
+      DAL_E0009SyncHTFThirdSwingTP(symbol, InpMagicNumber, InpOrderCommentPrefix,
+                                   g_htf_nodes_cache, g_htf_nodes_count_cache,
+                                   cfg.htf_tp_swing_count, g_trade,
+                                   tp_checked, tp_modified, tp_waiting, tp_rejected);
+
    if(!htf_ok || !g_htf123_cache.valid)
    {
       if(InpPrintLogs && InpPrintRejectLogs)
@@ -230,6 +250,11 @@ void E0009_Process(const string run_mode)
          "*closedTime=", TimeToString(g_htf123_cache.closed_time),
          "*exitMode=", DAL_E0009ExitModeName(cfg.exit_mode),
          "*fixedR=", DoubleToString(cfg.fixed_r, 2),
+         "*htfTpSwingCount=", cfg.htf_tp_swing_count,
+         "*tpChecked=", tp_checked,
+         "*tpModified=", tp_modified,
+         "*tpWaiting=", tp_waiting,
+         "*tpRejected=", tp_rejected,
          "*planned=", planned,
          "*sentOrPlan=", sent,
          "*rejected=", rejected);
@@ -242,6 +267,8 @@ int OnInit()
 
    DAL_E0009_Reset123(g_htf123_cache);
    g_htf123_evaluated = false;
+   ArrayResize(g_htf_nodes_cache, 0);
+   g_htf_nodes_count_cache = 0;
 
    Print("DAL_E0009_BUILD_SANITY *** build=", DAL_E0009_BUILD,
       "*module=HTF_THREE_SWINGS_M1_HOOK_COUNTER",

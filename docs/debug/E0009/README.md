@@ -120,3 +120,37 @@ Changed HTF 123 detection from alternating swing triples to the simple rule:
 ```
 
 Everything else remains candle-based and simple.
+
+
+## Release 102 — HTF third opposite swing TP
+
+Default exit changed to:
+
+```text
+InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING
+InpHTFTpSwingCount = 3
+```
+
+This uses the same higher timeframe that created the 123.
+
+### BUY exit
+
+If the trade is BUY after three falling HTF lows:
+
+```text
+after the position entry time,
+count confirmed HTF HIGH nodes
+TP = 3rd HTF HIGH
+```
+
+### SELL exit
+
+If the trade is SELL after three rising HTF highs:
+
+```text
+after the position entry time,
+count confirmed HTF LOW nodes
+TP = 3rd HTF LOW
+```
+
+TP is usually not known at order placement. The EA leaves TP empty at entry and updates the open position when the required HTF swing node becomes confirmed.

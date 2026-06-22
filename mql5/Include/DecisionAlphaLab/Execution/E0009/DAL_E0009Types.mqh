@@ -26,7 +26,8 @@ enum ENUM_DAL_E0009_EXIT_MODE
 {
    DAL_E0009_EXIT_FIXED_R = 0,
    DAL_E0009_EXIT_HTF_POINT_2 = 1,
-   DAL_E0009_EXIT_NO_TP = 2
+   DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING = 2, // after entry: BUY -> 3rd HTF HIGH, SELL -> 3rd HTF LOW
+   DAL_E0009_EXIT_NO_TP = 3
 };
 
 struct DALE0009HTF123State
@@ -74,6 +75,7 @@ struct DALE0009Config
    int htf_max_age_bars;
    int m1_max_hook_age_bars;
    double fixed_r;
+   int htf_tp_swing_count;
    bool require_fresh_m1_hook_after_htf_close;
    bool one_order_per_hook;
    double buy_entry_spread_mult;
@@ -155,6 +157,7 @@ string DAL_E0009ExitModeName(const ENUM_DAL_E0009_EXIT_MODE m)
 {
    if(m == DAL_E0009_EXIT_FIXED_R) return "FIXED_R";
    if(m == DAL_E0009_EXIT_HTF_POINT_2) return "HTF_POINT_2";
+   if(m == DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING) return "HTF_THIRD_OPPOSITE_SWING";
    if(m == DAL_E0009_EXIT_NO_TP) return "NO_TP";
    return "UNKNOWN";
 }

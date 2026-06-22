@@ -331,6 +331,15 @@ bool DAL_E0009BuildHookSignal(
       out.tp = NormalizeDouble(htf123.p2.price, digits);
       out.potential_r = MathAbs(out.tp - out.entry) / out.risk_distance;
    }
+   else if(cfg.exit_mode == DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING)
+   {
+      // Dynamic exit: TP is not known at order placement.
+      // After the position opens, TP is moved on the HTF that produced the 123:
+      // BUY  -> N-th confirmed HTF HIGH after entry.
+      // SELL -> N-th confirmed HTF LOW after entry.
+      out.tp = 0.0;
+      out.potential_r = 0.0;
+   }
    else
    {
       out.tp = 0.0;
