@@ -101,6 +101,14 @@ struct DALE0009Config
    bool reject_hunted_m1_hook;
    int max_hook_candidates_per_bar;
 
+   // Micro-only entry filter:
+   // Reject hooks whose stop/risk is too large to be considered a micro extreme.
+   bool use_micro_only_filter;
+   double max_hook_risk_to_htf_amplitude; // e.g. 0.08 = hook risk must be <= 8% of HTF 123 amplitude
+   int micro_avg_range_bars;
+   double max_hook_risk_to_m1_avg_range;  // e.g. 3.0 = hook risk must be <= 3x recent M1 average range
+   int max_hook_risk_points;              // 0 = disabled
+
    double buy_entry_spread_mult;
    double sell_stop_spread_mult;
 
@@ -121,6 +129,7 @@ struct DALE0009Diagnostics
    int hook_age_reject;
    int hook_zone_failed;
    int hook_hunted_reject;
+   int hook_micro_reject;
    int hook_built;
 
    int geometry_reject;
@@ -144,6 +153,7 @@ void DAL_E0009_ResetDiagnostics(DALE0009Diagnostics &d)
    d.hook_age_reject = 0;
    d.hook_zone_failed = 0;
    d.hook_hunted_reject = 0;
+   d.hook_micro_reject = 0;
    d.hook_built = 0;
 
    d.geometry_reject = 0;

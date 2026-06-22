@@ -254,6 +254,98 @@ ENUM_DAL_E0009_SIGNAL_ORDER_KIND DAL_E0009ResolveOrderKind(
    return DAL_E0009_KIND_NONE;
 }
 
+double DAL_E0009AverageRange(
+   const DALBar &bars[],
+   const int bars_count,
+   const int lookback
+)
+{
+   if(bars_count <= 0)
+      return 0.0;
+
+   int n = MathMax(1, lookback);
+   int start = MathMax(0, bars_count - n);
+   double sum = 0.0;
+   int count = 0;
+
+   for(int i = start; i < bars_count; i++)
+   {
+      double r = bars[i].high - bars[i].low;
+      if(r > 0.0)
+      {
+         sum += r;
+         count++;
+      }
+   }
+
+   if(count <= 0)
+      return 0.0;
+
+   return sum / (double)count;
+}
+
+bool DAL_E0009HookIsMicroEnough(
+   const string symbol,
+   const DALBar &m1_bars[],
+   const int m1_bars_count,
+   const DALE0009HTF123State &htf123,
+   const DALE0009Config &cfg,
+   const double risk_distance,
+   string &reason
+)
+{
+   reason = "ok";
+
+   if(!cfg.use_micro_only_filter)
+      return true;
+
+   if(risk_distance <= 0.0)
+   {
+      reason = "micro_zero_risk";
+      return false;
+   }
+
+   if(cfg.max_hook_risk_to_htf_amplitude > 0.0 && htf123.amplitude > 0.0)
+   {
+      double ratio = risk_distance / htf123.amplitude;
+      if(ratio > cfg.max_hook_risk_to_htf_amplitude)
+      {
+         reason = "hook_not_micro_htf_ratio_" + DoubleToString(ratio, 4);
+         return false;
+      }
+   }
+
+   if(cfg.max_hook_risk_to_m1_avg_range > 0.0 && cfg.micro_avg_range_bars > 0)
+   {
+      double avg_range = DAL_E0009AverageRange(m1_bars, m1_bars_count, cfg.micro_avg_range_bars);
+      if(avg_range > 0.0)
+      {
+         double mult = risk_distance / avg_range;
+         if(mult > cfg.max_hook_risk_to_m1_avg_range)
+         {
+            reason = "hook_not_micro_m1_range_" + DoubleToString(mult, 2);
+            return false;
+         }
+      }
+   }
+
+   if(cfg.max_hook_risk_points > 0)
+   {
+      double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+      if(point > 0.0)
+      {
+         double points = risk_distance / point;
+         if(points > (double)cfg.max_hook_risk_points)
+         {
+            reason = "hook_not_micro_points_" + DoubleToString(points, 1);
+            return false;
+         }
+      }
+   }
+
+   return true;
+}
+
 bool DAL_E0009BuildHookSignalFromNode(
    const string symbol,
    const DALBar &m1_bars[],
@@ -334,6 +426,13 @@ bool DAL_E0009BuildHookSignalFromNode(
    if(out.risk_distance <= 0.0)
    {
       out.reason = "zero_risk";
+      return false;
+   }
+
+   string micro_reason = "";
+   if(!DAL_E0009HookIsMicroEnough(symbol, m1_bars, m1_bars_count, htf123, cfg, out.risk_distance, micro_reason))
+   {
+      out.reason = micro_reason;
       return false;
    }
 
@@ -420,6 +519,8 @@ int DAL_E0009CollectHookSignals(
             diag.hook_zone_failed++;
          else if(sig.reason == "hook_already_hunted")
             diag.hook_hunted_reject++;
+         else if(StringFind(sig.reason, "hook_not_micro", 0) == 0 || StringFind(sig.reason, "micro_", 0) == 0)
+            diag.hook_micro_reject++;
          continue;
       }
 

@@ -276,3 +276,70 @@ To prevent repeated market orders from the same hook, release 105 checks both pe
 ```text
 same hook id + same 123 id + same order kind = duplicate skipped
 ```
+
+
+## Release 106 — micro-only entry filter
+
+Release 106 adds a filter so the executor only enters on genuinely small M1 hook extremes.
+
+New inputs:
+
+```text
+InpUseMicroOnlyFilter = true
+InpMaxHookRiskToHTFAmplitude = 0.08
+InpMicroAvgRangeBars = 80
+InpMaxHookRiskToM1AvgRange = 3.0
+InpMaxHookRiskPoints = 0
+```
+
+A hook is rejected if its entry-to-stop risk is too large by any enabled criterion.
+
+### Criterion 1 — relative to HTF 123 amplitude
+
+```text
+hook risk / abs(HTF p3 - HTF p1) <= InpMaxHookRiskToHTFAmplitude
+```
+
+Default:
+
+```text
+<= 0.08
+```
+
+So the M1 hook risk must be at most 8% of the HTF 123 move.
+
+### Criterion 2 — relative to recent M1 average range
+
+```text
+hook risk / avg_range(M1, InpMicroAvgRangeBars) <= InpMaxHookRiskToM1AvgRange
+```
+
+Default:
+
+```text
+<= 3.0
+```
+
+So an oversized M1 extreme is rejected even if HTF amplitude is large.
+
+### Criterion 3 — absolute points
+
+```text
+InpMaxHookRiskPoints = 0
+```
+
+`0` means disabled. Set a number like `300` if a hard maximum stop size is needed.
+
+### Diagnostics
+
+The audit line now includes:
+
+```text
+hookMicroReject
+microFilter
+maxRiskToHTF
+maxRiskToM1Avg
+maxRiskPoints
+```
+
+If `hookMicroReject` is high, loosen the micro filter; if equity leakage is high, tighten it.

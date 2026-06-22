@@ -3,8 +3,8 @@
 //| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
-#property description "E0009: HTF 3-swing counter entries on M1 hook confirmation with duplicate-safe market defaults."
+#property version   "1.06"
+#property description "E0009: HTF 3-swing counter entries on M1 micro hooks with risk-size filters."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -29,6 +29,13 @@ input bool InpRequireFreshM1HookAfterHTF123Close = true;
 input bool InpRejectHuntedM1Hook = false;
 input int InpMaxHookCandidatesPerBar = 3;
 
+// Micro-only filter: reject large M1 hook extremes.
+input bool InpUseMicroOnlyFilter = true;
+input double InpMaxHookRiskToHTFAmplitude = 0.08; // 8% of HTF 123 amplitude
+input int InpMicroAvgRangeBars = 80;
+input double InpMaxHookRiskToM1AvgRange = 3.0;    // 3x recent M1 average range
+input int InpMaxHookRiskPoints = 0;               // 0 = disabled
+
 input ENUM_DAL_E0009_COUNTER_MODE InpCounterMode = DAL_E0009_COUNTER_OPPOSITE_123;
 input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM;
 input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING;
@@ -52,7 +59,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.05"
+#define DAL_E0009_BUILD "1.06"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -83,6 +90,13 @@ DALE0009Config E0009_Config()
    c.require_fresh_m1_hook_after_htf_close = InpRequireFreshM1HookAfterHTF123Close;
    c.reject_hunted_m1_hook = InpRejectHuntedM1Hook;
    c.max_hook_candidates_per_bar = MathMax(1, InpMaxHookCandidatesPerBar);
+
+   c.use_micro_only_filter = InpUseMicroOnlyFilter;
+   c.max_hook_risk_to_htf_amplitude = MathMax(0.0, InpMaxHookRiskToHTFAmplitude);
+   c.micro_avg_range_bars = MathMax(0, InpMicroAvgRangeBars);
+   c.max_hook_risk_to_m1_avg_range = MathMax(0.0, InpMaxHookRiskToM1AvgRange);
+   c.max_hook_risk_points = MathMax(0, InpMaxHookRiskPoints);
+
    c.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
    c.sell_stop_spread_mult = MathMax(0.0, InpSellStopSpreadMultiplier);
    c.counter_mode = InpCounterMode;
@@ -207,7 +221,8 @@ void E0009_Process(const string run_mode)
                "*afterTimeReject=", diag.hook_after_time_reject,
                "*ageReject=", diag.hook_age_reject,
                "*zoneFail=", diag.hook_zone_failed,
-               "*huntedReject=", diag.hook_hunted_reject);
+               "*huntedReject=", diag.hook_hunted_reject,
+               "*microReject=", diag.hook_micro_reject);
          continue;
       }
 
@@ -284,7 +299,12 @@ void E0009_Process(const string run_mode)
          "*hookAgeReject=", diag.hook_age_reject,
          "*hookZoneFail=", diag.hook_zone_failed,
          "*hookHuntedReject=", diag.hook_hunted_reject,
+         "*hookMicroReject=", diag.hook_micro_reject,
          "*hookBuilt=", diag.hook_built,
+         "*microFilter=", DAL_BoolToString(cfg.use_micro_only_filter),
+         "*maxRiskToHTF=", DoubleToString(cfg.max_hook_risk_to_htf_amplitude, 4),
+         "*maxRiskToM1Avg=", DoubleToString(cfg.max_hook_risk_to_m1_avg_range, 2),
+         "*maxRiskPoints=", cfg.max_hook_risk_points,
          "*geometryReject=", diag.geometry_reject,
          "*riskReject=", diag.risk_reject,
          "*capReject=", diag.cap_reject,
@@ -315,6 +335,9 @@ int OnInit()
       "*counterMode=", (InpCounterMode == DAL_E0009_COUNTER_OPPOSITE_123 ? "OPPOSITE_123" : "BOTH_FOR_TEST"),
       "*orderMode=", DAL_E0009OrderModeName(InpOrderMode),
       "*exitMode=", DAL_E0009ExitModeName(InpExitMode),
+      "*microFilter=", DAL_BoolToString(InpUseMicroOnlyFilter),
+      "*maxRiskToHTF=", DoubleToString(InpMaxHookRiskToHTFAmplitude, 4),
+      "*maxRiskToM1Avg=", DoubleToString(InpMaxHookRiskToM1AvgRange, 2),
       "*tradingEnabled=", DAL_BoolToString(InpTradingEnabled));
 
    if(InpRunOnInit)

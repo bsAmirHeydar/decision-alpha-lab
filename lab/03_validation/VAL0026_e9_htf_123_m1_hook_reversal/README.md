@@ -128,3 +128,36 @@ hookAfterTimeReject high -> no hook after the HTF 123 close
 hookBuilt > 0 but sent=0 -> order/risk/cap/duplicate issue
 duplicateSkip high       -> same hook was already used
 ```
+
+## Release 106 micro filter test
+
+Start with:
+
+```text
+InpUseMicroOnlyFilter = true
+InpMaxHookRiskToHTFAmplitude = 0.08
+InpMicroAvgRangeBars = 80
+InpMaxHookRiskToM1AvgRange = 3.0
+InpMaxHookRiskPoints = 0
+```
+
+Tighter test:
+
+```text
+InpMaxHookRiskToHTFAmplitude = 0.04
+InpMaxHookRiskToM1AvgRange = 2.0
+```
+
+Looser test:
+
+```text
+InpMaxHookRiskToHTFAmplitude = 0.12
+InpMaxHookRiskToM1AvgRange = 4.0
+```
+
+Interpretation:
+
+```text
+hookMicroReject high + no trades      -> filter too tight
+hookMicroReject low + equity leakage  -> filter too loose
+```
