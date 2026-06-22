@@ -141,7 +141,7 @@ InpRewardR = 0.0
 InpUseInternalOppositeNodeTP = true
 InpExitOppositeInternalNodeCount = 3
 
-InpUseNodePriceStop = false
+InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK
 
 InpUpdateEveryNBars = 1
 InpPrintOrderLogs = false
@@ -167,3 +167,5 @@ mql5/Experts/DecisionAlphaLab/Execution/E0006_AllZoneTouchLimitFixedR.mq5
 ## Modular execution kernel
 
 - [E0006 modular execution kernel](MODULE_KERNEL_README.md)
+
+- [Revisit secondary-node entry and stop anchors](REVISIT_SECONDARY_NODE_ANCHORS_README.md)

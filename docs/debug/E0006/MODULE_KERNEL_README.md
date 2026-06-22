@@ -57,7 +57,7 @@ Example:
 DALE0006PricingPolicy pricing;
 DAL_E0006_DefaultPricingPolicy(pricing);
 pricing.reward_r = InpRewardR;
-pricing.stop_anchor = InpUseNodePriceStop ? DAL_E0006_STOP_NODE_PRICE : DAL_E0006_STOP_ZONE_BACK;
+pricing.stop_anchor = InpStopAnchorMode;
 ```
 
 ## 2. Internal hunt qualification
@@ -111,13 +111,16 @@ Supported stop modes:
 ```text
 DAL_E0006_STOP_ZONE_BACK
 DAL_E0006_STOP_NODE_PRICE
+DAL_E0006_STOP_REVISIT_SECONDARY_NODE
 ```
+
+The reusable generic pricing module rejects `DAL_E0006_STOP_REVISIT_SECONDARY_NODE` unless a revisit-secondary context has already resolved the secondary node. The production EA resolves that context before pricing.
 
 BUY rule:
 
 ```text
 entry = LOW zone upper + spread multiplier
-SL = zone lower or origin node price
+SL = zone lower, origin node price, or resolved revisit-secondary node price
 ```
 
 SELL rule:

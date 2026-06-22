@@ -82,8 +82,14 @@ bool DAL_E0006_BuildZoneOrderPlan(
    plan.active_from_time = node.active_from_time;
    plan.node_price = node.price;
    plan.live_extreme = extreme;
+   plan.origin_zone_lower = lower;
+   plan.origin_zone_upper = upper;
    plan.zone_lower = lower;
    plan.zone_upper = upper;
+   plan.entry_anchor_node_id = node.id;
+   plan.entry_anchor_node_type = node.type;
+   plan.entry_anchor_node_time = node.time;
+   plan.entry_anchor_node_price = node.price;
    plan.spread = spread;
    plan.reward_r = reward_r;
 
@@ -91,6 +97,11 @@ bool DAL_E0006_BuildZoneOrderPlan(
    {
       plan.direction = +1;
       plan.entry = upper + spread * MathMax(0.0, pricing.buy_entry_spread_mult);
+      if(pricing.stop_anchor == DAL_E0006_STOP_REVISIT_SECONDARY_NODE)
+      {
+         plan.reason = "secondary_stop_requires_revisit_context";
+         return false;
+      }
       plan.sl = (pricing.stop_anchor == DAL_E0006_STOP_NODE_PRICE ? node.price : lower);
       plan.risk_distance = MathAbs(plan.entry - plan.sl);
       plan.tp = (reward_r > 0.0 ? plan.entry + plan.risk_distance * reward_r : 0.0);
@@ -99,6 +110,11 @@ bool DAL_E0006_BuildZoneOrderPlan(
    {
       plan.direction = -1;
       plan.entry = lower;
+      if(pricing.stop_anchor == DAL_E0006_STOP_REVISIT_SECONDARY_NODE)
+      {
+         plan.reason = "secondary_stop_requires_revisit_context";
+         return false;
+      }
       double raw_stop = (pricing.stop_anchor == DAL_E0006_STOP_NODE_PRICE ? node.price : upper);
       plan.sl = raw_stop + spread * MathMax(0.0, pricing.sell_stop_spread_mult);
       plan.risk_distance = MathAbs(plan.entry - plan.sl);

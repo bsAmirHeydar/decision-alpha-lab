@@ -77,7 +77,7 @@ When `InpRewardR>0`, an initial fixed-R TP is placed on the pending order.
 ## Stop and spread handling
 
 ```text
-InpUseNodePriceStop = false
+InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK
 InpBuyEntrySpreadMultiplier = 1.0
 InpSellStopSpreadMultiplier = 1.0
 InpSellTpSpreadMultiplier = 1.0
@@ -173,3 +173,28 @@ InpMinInternalHuntsForZone = 1
 InpExitOppositeInternalNodeCount = 1
 InpPrintOrderLogs = true
 ```
+
+
+## Revisit entry and stop anchors
+
+```text
+InpRevisitEntryAnchorMode = E0006_REVISIT_ENTRY_ORIGIN_ZONE
+InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK
+```
+
+`InpRevisitEntryAnchorMode` controls where revisit orders are placed:
+
+```text
+E0006_REVISIT_ENTRY_ORIGIN_ZONE
+E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE
+```
+
+`InpStopAnchorMode` controls stop placement:
+
+```text
+E0006_STOP_ORIGIN_ZONE_BACK
+E0006_STOP_ORIGIN_NODE
+E0006_STOP_REVISIT_SECONDARY_NODE
+```
+
+The secondary-node options require `InpOnlyTradeRevisitZones = true` and a valid same-side internal node created during the first non-hunted touch cycle.

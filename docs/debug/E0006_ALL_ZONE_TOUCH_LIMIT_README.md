@@ -187,8 +187,8 @@ The revisit filter still runs on new candles only, and uses the same M0001 hunt 
 Release 107 node-price stop anchor:
 
 A new stop anchor option was added:
-- `InpUseNodePriceStop = false` keeps the old zone-back stop.
-- `InpUseNodePriceStop = true` moves the stop behind the origin node price.
+- `InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK` keeps the old zone-back stop.
+- `InpStopAnchorMode = E0006_STOP_ORIGIN_NODE` moves the stop behind the origin node price.
 
 BUY/LOW zone:
 - Entry remains `zone_upper + spread * InpBuyEntrySpreadMultiplier`.
@@ -213,3 +213,25 @@ Detailed E0006 documentation has been split into focused READMEs:
 - `docs/debug/E0006/REVISIT_ONLY_README.md` — first-cycle plus revisit-cycle logic.
 - `docs/debug/E0006/EXIT_AND_RISK_README.md` — entry prices, stop anchors, spread handling, risk distance, and internal opposite-node TP.
 - `docs/debug/E0006/INPUT_REFERENCE_README.md` — grouped input reference and presets.
+
+
+## Release 110 revisit secondary-node anchors
+
+E0006 now supports two revisit entry anchors and three stop anchor modes.
+
+Revisit entry anchors:
+
+```text
+E0006_REVISIT_ENTRY_ORIGIN_ZONE
+E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE
+```
+
+Stop anchors:
+
+```text
+E0006_STOP_ORIGIN_ZONE_BACK
+E0006_STOP_ORIGIN_NODE
+E0006_STOP_REVISIT_SECONDARY_NODE
+```
+
+The secondary-node mode uses the same-side internal node created during the first non-hunted touch cycle. For BUY this is a secondary LOW; for SELL this is a secondary HIGH. BUY entries still include spread on entry, and SELL stops always include spread on the stop side.

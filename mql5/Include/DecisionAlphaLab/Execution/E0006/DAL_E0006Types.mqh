@@ -11,7 +11,14 @@
 enum ENUM_DAL_E0006_STOP_ANCHOR
 {
    DAL_E0006_STOP_ZONE_BACK = 0,
-   DAL_E0006_STOP_NODE_PRICE = 1
+   DAL_E0006_STOP_NODE_PRICE = 1,
+   DAL_E0006_STOP_REVISIT_SECONDARY_NODE = 2
+};
+
+enum ENUM_DAL_E0006_REVISIT_ENTRY_ANCHOR
+{
+   DAL_E0006_REVISIT_ENTRY_ORIGIN_ZONE = 0,
+   DAL_E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE = 1
 };
 
 enum ENUM_DAL_E0006_ENTRY_PHASE
@@ -39,6 +46,7 @@ struct DALE0006InternalHuntPolicy
 struct DALE0006RevisitPolicy
 {
    ENUM_DAL_E0006_ENTRY_PHASE entry_phase;
+   ENUM_DAL_E0006_REVISIT_ENTRY_ANCHOR revisit_entry_anchor;
    bool first_cycle_must_qualify;
    int revisit_required_hunts;              // 0 = inherit internal hunt policy requirement
 };
@@ -73,8 +81,16 @@ struct DALE0006ZoneOrderPlan
 
    double node_price;
    double live_extreme;
+   double origin_zone_lower;
+   double origin_zone_upper;
    double zone_lower;
    double zone_upper;
+   int entry_anchor_node_id;
+   ENUM_DALNodeType entry_anchor_node_type;
+   datetime entry_anchor_node_time;
+   double entry_anchor_node_price;
+   bool uses_secondary_entry_anchor;
+   bool uses_secondary_stop_anchor;
    double spread;
 
    double entry;
@@ -116,6 +132,7 @@ void DAL_E0006_DefaultInternalHuntPolicy(DALE0006InternalHuntPolicy &p)
 void DAL_E0006_DefaultRevisitPolicy(DALE0006RevisitPolicy &p)
 {
    p.entry_phase = DAL_E0006_ENTRY_ANY_VALID_ZONE;
+   p.revisit_entry_anchor = DAL_E0006_REVISIT_ENTRY_ORIGIN_ZONE;
    p.first_cycle_must_qualify = true;
    p.revisit_required_hunts = 0;
 }
@@ -148,8 +165,16 @@ void DAL_E0006_ResetZoneOrderPlan(DALE0006ZoneOrderPlan &s)
    s.active_from_time = 0;
    s.node_price = 0.0;
    s.live_extreme = 0.0;
+   s.origin_zone_lower = 0.0;
+   s.origin_zone_upper = 0.0;
    s.zone_lower = 0.0;
    s.zone_upper = 0.0;
+   s.entry_anchor_node_id = -1;
+   s.entry_anchor_node_type = DAL_NODE_LOW;
+   s.entry_anchor_node_time = 0;
+   s.entry_anchor_node_price = 0.0;
+   s.uses_secondary_entry_anchor = false;
+   s.uses_secondary_stop_anchor = false;
    s.spread = 0.0;
    s.entry = 0.0;
    s.sl = 0.0;
@@ -172,7 +197,16 @@ string DAL_E0006_StopAnchorToString(const ENUM_DAL_E0006_STOP_ANCHOR anchor)
 {
    if(anchor == DAL_E0006_STOP_NODE_PRICE)
       return "NODE_PRICE";
+   if(anchor == DAL_E0006_STOP_REVISIT_SECONDARY_NODE)
+      return "REVISIT_SECONDARY_NODE";
    return "ZONE_BACK";
+}
+
+string DAL_E0006_RevisitEntryAnchorToString(const ENUM_DAL_E0006_REVISIT_ENTRY_ANCHOR anchor)
+{
+   if(anchor == DAL_E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE)
+      return "SECONDARY_NODE_ZONE";
+   return "ORIGIN_ZONE";
 }
 
 string DAL_E0006_EntryPhaseToString(const ENUM_DAL_E0006_ENTRY_PHASE phase)

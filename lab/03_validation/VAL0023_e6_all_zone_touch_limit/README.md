@@ -187,8 +187,8 @@ The revisit filter still runs on new candles only, and uses the same M0001 hunt 
 Release 107 node-price stop anchor:
 
 A new stop anchor option was added:
-- `InpUseNodePriceStop = false` keeps the old zone-back stop.
-- `InpUseNodePriceStop = true` moves the stop behind the origin node price.
+- `InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK` keeps the old zone-back stop.
+- `InpStopAnchorMode = E0006_STOP_ORIGIN_NODE` moves the stop behind the origin node price.
 
 BUY/LOW zone:
 - Entry remains `zone_upper + spread * InpBuyEntrySpreadMultiplier`.
@@ -222,3 +222,25 @@ These files document the current E0006 lifecycle: all-zone execution, internal s
 ## Release 109 modular kernel
 
 Reusable E0006 logic is now documented in `docs/debug/E0006/MODULE_KERNEL_README.md` and implemented under `mql5/Include/DecisionAlphaLab/Execution/E0006/`. New executors should compose from `DAL_E0006Modules.mqh` instead of copying local helper functions.
+
+
+## Release 110 revisit secondary-node anchors
+
+E0006 now supports two revisit entry anchors and three stop anchor modes.
+
+Revisit entry anchors:
+
+```text
+E0006_REVISIT_ENTRY_ORIGIN_ZONE
+E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE
+```
+
+Stop anchors:
+
+```text
+E0006_STOP_ORIGIN_ZONE_BACK
+E0006_STOP_ORIGIN_NODE
+E0006_STOP_REVISIT_SECONDARY_NODE
+```
+
+The secondary-node mode uses the same-side internal node created during the first non-hunted touch cycle. For BUY this is a secondary LOW; for SELL this is a secondary HIGH. BUY entries still include spread on entry, and SELL stops always include spread on the stop side.

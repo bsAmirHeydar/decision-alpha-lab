@@ -3,8 +3,8 @@
 //| Places one limit order per live M0001 structural zone.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.07"
-#property description "Execution module E0006: all M0001 zones with optional revisit-only entry and node-price stop anchoring."
+#property version   "1.10"
+#property description "Execution module E0006: all M0001 zones with revisit secondary-node entry and three stop-anchor modes."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -14,6 +14,23 @@
 #include <DecisionAlphaLab/Execution/DAL_ExecRisk.mqh>
 #include <DecisionAlphaLab/Execution/DAL_ExecOrders.mqh>
 #include <DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>
+
+// Revisit entry anchor: normal revisit uses the origin zone; secondary-node mode uses
+// the same-side internal node created during the first non-hunted touch cycle.
+enum ENUM_E0006RevisitEntryAnchorMode
+{
+   E0006_REVISIT_ENTRY_ORIGIN_ZONE = 0,
+   E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE = 1
+};
+
+// Stop anchor modes. The secondary-node mode is meaningful only for revisit entries
+// where a first-touch same-side internal node exists.
+enum ENUM_E0006StopAnchorMode
+{
+   E0006_STOP_ORIGIN_ZONE_BACK = 0,
+   E0006_STOP_ORIGIN_NODE = 1,
+   E0006_STOP_REVISIT_SECONDARY_NODE = 2
+};
 
 // Symbol / timeframe.
 input string InpSymbol = "";
@@ -37,6 +54,7 @@ input bool InpInternalHuntSameSideOnly = true;
 input bool InpOnlyTradeRevisitZones = false;
 input bool InpRevisitFirstCycleMustQualify = true;
 input int InpRevisitMinInternalHunts = 0;        // 0 = use InpMinInternalHuntsForZone
+input ENUM_E0006RevisitEntryAnchorMode InpRevisitEntryAnchorMode = E0006_REVISIT_ENTRY_ORIGIN_ZONE;
 
 // Execution model: all valid live zones, no trade-count cap.
 input long InpMagicNumber = 6006006;
@@ -64,9 +82,11 @@ input double InpSellStopSpreadMultiplier = 1.0;    // sell SL = HIGH-zone upper 
 input double InpSellTpSpreadMultiplier = 1.0;      // used only when InpRewardR > 0
 
 // Stop anchor.
-// false = stop behind the frozen zone edge. true = stop behind the origin node price.
-// BUY keeps entry shifted upward by spread. SELL node-price stop is shifted upward by spread.
-input bool InpUseNodePriceStop = false;
+// ORIGIN_ZONE_BACK: stop behind the origin frozen zone back edge.
+// ORIGIN_NODE: stop behind the origin node price.
+// REVISIT_SECONDARY_NODE: stop behind the same-side internal node created during first touch.
+// BUY keeps entry shifted upward by spread. SELL stops are shifted upward by spread.
+input ENUM_E0006StopAnchorMode InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK;
 
 // Risk and broker mechanics.
 input bool InpAllowMinLotIfRiskTooSmall = false;
@@ -89,7 +109,7 @@ input int InpTradingStartMinute = 0;
 input int InpTradingEndHour = 23;
 input int InpTradingEndMinute = 59;
 
-#define DAL_E0006_BUILD "1.07"
+#define DAL_E0006_BUILD "1.10"
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
@@ -107,8 +127,16 @@ struct E0006ZoneSetup
    datetime active_from_time;
    double node_price;
    double live_extreme;
+   double origin_zone_lower;
+   double origin_zone_upper;
    double zone_lower;
    double zone_upper;
+   int entry_anchor_node_id;
+   ENUM_DALNodeType entry_anchor_node_type;
+   datetime entry_anchor_node_time;
+   double entry_anchor_node_price;
+   bool uses_secondary_entry_anchor;
+   bool uses_secondary_stop_anchor;
    double spread;
    double entry;
    double sl;
@@ -133,8 +161,16 @@ void E0006_ResetSetup(E0006ZoneSetup &s)
    s.active_from_time = 0;
    s.node_price = 0.0;
    s.live_extreme = 0.0;
+   s.origin_zone_lower = 0.0;
+   s.origin_zone_upper = 0.0;
    s.zone_lower = 0.0;
    s.zone_upper = 0.0;
+   s.entry_anchor_node_id = -1;
+   s.entry_anchor_node_type = DAL_NODE_LOW;
+   s.entry_anchor_node_time = 0;
+   s.entry_anchor_node_price = 0.0;
+   s.uses_secondary_entry_anchor = false;
+   s.uses_secondary_stop_anchor = false;
    s.spread = 0.0;
    s.entry = 0.0;
    s.sl = 0.0;
@@ -186,7 +222,18 @@ string E0006_FormatDateTime(const datetime value)
 
 string E0006_StopAnchorModeToString()
 {
-   return InpUseNodePriceStop ? "NODE_PRICE" : "ZONE_BACK";
+   if(InpStopAnchorMode == E0006_STOP_ORIGIN_NODE)
+      return "ORIGIN_NODE";
+   if(InpStopAnchorMode == E0006_STOP_REVISIT_SECONDARY_NODE)
+      return "REVISIT_SECONDARY_NODE";
+   return "ORIGIN_ZONE_BACK";
+}
+
+string E0006_RevisitEntryAnchorModeToString()
+{
+   if(InpRevisitEntryAnchorMode == E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE)
+      return "SECONDARY_NODE_ZONE";
+   return "ORIGIN_ZONE";
 }
 
 bool E0006_IsTradingSessionOpen(string &reason)
@@ -444,6 +491,56 @@ bool E0006_FindFirstNonHuntedTouchEventForNode(
    return false;
 }
 
+bool E0006_FindFirstTouchSecondarySameSideNode(
+   const DALLRuleNode &origin,
+   const DALLRuleNode &internal_nodes[],
+   const int internal_nodes_count,
+   const DALM0001Event &first_touch,
+   DALLRuleNode &out_node,
+   string &reason
+)
+{
+   bool found = false;
+
+   for(int i = 0; i < internal_nodes_count; i++)
+   {
+      DALLRuleNode inner = internal_nodes[i];
+      if(!inner.confirmed)
+         continue;
+      if(inner.type != origin.type)
+         continue;
+
+      // The secondary node is the same-side internal pivot created during the
+      // first non-hunted touch cycle. Confirmation may happen after the pivot,
+      // so the pivot index defines whether it belongs to that touch cycle.
+      if(inner.index < first_touch.entry_index || inner.index > first_touch.exit_index)
+         continue;
+
+      if(!found)
+      {
+         out_node = inner;
+         found = true;
+         continue;
+      }
+
+      // If multiple same-side nodes exist inside the first touch cycle, choose
+      // the more extreme node: lower LOW for buys, higher HIGH for sells.
+      if(origin.type == DAL_NODE_LOW && inner.price < out_node.price)
+         out_node = inner;
+      else if(origin.type == DAL_NODE_HIGH && inner.price > out_node.price)
+         out_node = inner;
+   }
+
+   if(!found)
+   {
+      reason = "no_first_touch_secondary_same_side_node";
+      return false;
+   }
+
+   reason = "ok_secondary_node_" + IntegerToString(out_node.id);
+   return true;
+}
+
 bool E0006_RevisitOnlyQualificationPassed(
    const DALBar &bars[],
    const int bars_count,
@@ -636,6 +733,61 @@ bool E0006_BuildZoneSetup(
       return false;
    }
 
+   DALM0001Event first_touch_for_secondary;
+   bool has_first_touch_for_secondary = E0006_FindFirstNonHuntedTouchEventForNode(origin_events, origin_events_count, node.id, first_touch_for_secondary);
+
+   bool need_secondary_node = (InpOnlyTradeRevisitZones &&
+      (InpRevisitEntryAnchorMode == E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE ||
+       InpStopAnchorMode == E0006_STOP_REVISIT_SECONDARY_NODE));
+
+   DALLRuleNode secondary_node;
+   bool has_secondary_node = false;
+   double secondary_extreme = 0.0;
+   double secondary_lower = 0.0;
+   double secondary_upper = 0.0;
+   bool secondary_hunted = false;
+
+   if(InpStopAnchorMode == E0006_STOP_REVISIT_SECONDARY_NODE && !InpOnlyTradeRevisitZones)
+   {
+      setup.reason = "secondary_stop_requires_revisit_mode";
+      return false;
+   }
+
+   if(InpRevisitEntryAnchorMode == E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE && !InpOnlyTradeRevisitZones)
+   {
+      setup.reason = "secondary_entry_requires_revisit_mode";
+      return false;
+   }
+
+   if(need_secondary_node)
+   {
+      if(!has_first_touch_for_secondary)
+      {
+         setup.reason = "secondary_anchor_no_first_non_hunted_touch";
+         return false;
+      }
+
+      string secondary_reason = "";
+      if(!E0006_FindFirstTouchSecondarySameSideNode(node, internal_nodes, internal_nodes_count, first_touch_for_secondary, secondary_node, secondary_reason))
+      {
+         setup.reason = secondary_reason;
+         return false;
+      }
+
+      if(!DAL_ExecBuildLiveNodeTerritory(bars, bars_count, secondary_node, zone_ratio, secondary_extreme, secondary_lower, secondary_upper, secondary_hunted))
+      {
+         setup.reason = "secondary_live_territory_build_failed";
+         return false;
+      }
+      if(secondary_hunted)
+      {
+         setup.reason = "secondary_node_hunted_invalidated";
+         return false;
+      }
+
+      has_secondary_node = true;
+   }
+
    int internal_count = 0;
    int internal_required = 0;
    string internal_reason = "";
@@ -658,8 +810,34 @@ bool E0006_BuildZoneSetup(
    setup.active_from_time = node.active_from_time;
    setup.node_price = node.price;
    setup.live_extreme = extreme;
-   setup.zone_lower = lower;
-   setup.zone_upper = upper;
+   setup.origin_zone_lower = lower;
+   setup.origin_zone_upper = upper;
+
+   double entry_zone_lower = lower;
+   double entry_zone_upper = upper;
+   double entry_node_price = node.price;
+   int entry_node_id = node.id;
+   ENUM_DALNodeType entry_node_type = node.type;
+   datetime entry_node_time = node.time;
+
+   if(has_secondary_node && InpRevisitEntryAnchorMode == E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE)
+   {
+      entry_zone_lower = secondary_lower;
+      entry_zone_upper = secondary_upper;
+      entry_node_price = secondary_node.price;
+      entry_node_id = secondary_node.id;
+      entry_node_type = secondary_node.type;
+      entry_node_time = secondary_node.time;
+      setup.uses_secondary_entry_anchor = true;
+   }
+
+   setup.zone_lower = entry_zone_lower;
+   setup.zone_upper = entry_zone_upper;
+   setup.entry_anchor_node_id = entry_node_id;
+   setup.entry_anchor_node_type = entry_node_type;
+   setup.entry_anchor_node_time = entry_node_time;
+   setup.entry_anchor_node_price = entry_node_price;
+   setup.uses_secondary_stop_anchor = (InpStopAnchorMode == E0006_STOP_REVISIT_SECONDARY_NODE);
    setup.spread = spread;
    setup.reward_r = reward_r;
    if(InpOnlyTradeRevisitZones)
@@ -674,12 +852,21 @@ bool E0006_BuildZoneSetup(
    }
    setup.internal_hunt_passed = true;
 
+   double raw_stop_anchor = 0.0;
    if(node.type == DAL_NODE_LOW)
    {
       setup.direction = +1;
       // Support/demand touch. Buy opens on Ask, so entry is shifted up by spread as requested.
-      setup.entry = upper + spread * MathMax(0.0, InpBuyEntrySpreadMultiplier);
-      setup.sl = (InpUseNodePriceStop ? node.price : lower);
+      setup.entry = entry_zone_upper + spread * MathMax(0.0, InpBuyEntrySpreadMultiplier);
+
+      if(InpStopAnchorMode == E0006_STOP_ORIGIN_ZONE_BACK)
+         raw_stop_anchor = lower;
+      else if(InpStopAnchorMode == E0006_STOP_ORIGIN_NODE)
+         raw_stop_anchor = node.price;
+      else
+         raw_stop_anchor = secondary_node.price;
+
+      setup.sl = raw_stop_anchor;
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
       setup.tp = (InpRewardR > 0.0 ? setup.entry + setup.risk_distance * reward_r : 0.0);
    }
@@ -687,9 +874,17 @@ bool E0006_BuildZoneSetup(
    {
       setup.direction = -1;
       // Supply/resistance touch. Sell entry stays on lower zone edge.
-      // In node-stop mode, SELL SL is origin node price plus spread as requested.
-      setup.entry = lower;
-      setup.sl = (InpUseNodePriceStop ? node.price : upper) + spread * MathMax(0.0, InpSellStopSpreadMultiplier);
+      setup.entry = entry_zone_lower;
+
+      if(InpStopAnchorMode == E0006_STOP_ORIGIN_ZONE_BACK)
+         raw_stop_anchor = upper;
+      else if(InpStopAnchorMode == E0006_STOP_ORIGIN_NODE)
+         raw_stop_anchor = node.price;
+      else
+         raw_stop_anchor = secondary_node.price;
+
+      // All SELL stop anchors are shifted upward by spread as requested.
+      setup.sl = raw_stop_anchor + spread * MathMax(0.0, InpSellStopSpreadMultiplier);
       setup.risk_distance = MathAbs(setup.entry - setup.sl);
       setup.tp = (InpRewardR > 0.0 ? setup.entry - setup.risk_distance * reward_r + spread * MathMax(0.0, InpSellTpSpreadMultiplier) : 0.0);
    }
@@ -1510,8 +1705,13 @@ void E0006_ProcessNewBar(const string run_mode)
                "*tp=", DoubleToString(setup.tp, digits),
                "*rewardR=", DoubleToString(setup.reward_r, 2),
                "*spread=", DoubleToString(setup.spread, digits),
+               "*revisitEntryAnchor=", E0006_RevisitEntryAnchorModeToString(),
                "*stopAnchor=", E0006_StopAnchorModeToString(),
-               "*nodePrice=", DoubleToString(setup.node_price, digits),
+               "*originNodePrice=", DoubleToString(setup.node_price, digits),
+               "*entryAnchorNodeId=", setup.entry_anchor_node_id,
+               "*entryAnchorNodePrice=", DoubleToString(setup.entry_anchor_node_price, digits),
+               "*usesSecondaryEntry=", DAL_BoolToString(setup.uses_secondary_entry_anchor),
+               "*usesSecondaryStop=", DAL_BoolToString(setup.uses_secondary_stop_anchor),
                "*internalHunts=", setup.internal_hunt_count,
                "*internalHuntsRequired=", setup.internal_hunt_required,
                "*comment=", setup.comment,
@@ -1540,52 +1740,29 @@ void E0006_ProcessNewBar(const string run_mode)
          + "*scanned=" + IntegerToString(scanned)
          + "*built=" + IntegerToString(built)
          + "*synced=" + IntegerToString(sent_or_synced)
-         + "*skipped=" + IntegerToString(skipped)
          + "*buildReject=" + IntegerToString(build_reject)
          + "*orderReject=" + IntegerToString(order_reject)
          + "*sideCapSkip=" + IntegerToString(side_cap_skip)
          + "*internalHuntFilterSkip=" + IntegerToString(internal_hunt_filter_skip)
          + "*buyDesired=" + IntegerToString(buy_desired)
          + "*sellDesired=" + IntegerToString(sell_desired)
-         + "*maxBuyPending=" + IntegerToString(max_buy_pending)
-         + "*maxSellPending=" + IntegerToString(max_sell_pending)
-         + "*openBuyPositions=" + IntegerToString(open_buy_positions)
-         + "*openSellPositions=" + IntegerToString(open_sell_positions)
-         + "*maxBuyOpenBeforeBlock=" + IntegerToString(max_buy_open_before_block)
-         + "*maxSellOpenBeforeBlock=" + IntegerToString(max_sell_open_before_block)
          + "*originL=" + IntegerToString(MathMax(1, InpOriginNodeL))
          + "*internalL=" + IntegerToString(MathMax(1, InpInternalNodeL))
-         + "*useInternalHuntFilter=" + DAL_BoolToString(InpUseInternalHuntFilter)
-         + "*minInternalHuntsForZone=" + IntegerToString(MathMax(0, InpMinInternalHuntsForZone))
-         + "*sameSideOnly=" + DAL_BoolToString(InpInternalHuntSameSideOnly)
-      + "*onlyTradeRevisits=" + DAL_BoolToString(InpOnlyTradeRevisitZones)
-      + "*revisitFirstCycleMustQualify=" + DAL_BoolToString(InpRevisitFirstCycleMustQualify)
-      + "*revisitMinInternalHunts=" + IntegerToString(E0006_RevisitRequiredInternalHunts())
          + "*onlyTradeRevisits=" + DAL_BoolToString(InpOnlyTradeRevisitZones)
-         + "*revisitFirstCycleMustQualify=" + DAL_BoolToString(InpRevisitFirstCycleMustQualify)
+         + "*revisitEntryAnchor=" + E0006_RevisitEntryAnchorModeToString()
          + "*revisitMinInternalHunts=" + IntegerToString(E0006_RevisitRequiredInternalHunts())
-         + "*buySideBlockedByOpenCap=" + DAL_BoolToString(buy_side_blocked_by_open_cap)
-         + "*sellSideBlockedByOpenCap=" + DAL_BoolToString(sell_side_blocked_by_open_cap)
-         + "*sideBlockDeletedBuy=" + IntegerToString(side_block_deleted_buy)
-         + "*sideBlockDeletedSell=" + IntegerToString(side_block_deleted_sell)
-         + "*sideBlockFailedBuy=" + IntegerToString(side_block_failed_buy)
-         + "*sideBlockFailedSell=" + IntegerToString(side_block_failed_sell)
-         + "*desired=" + IntegerToString(ArraySize(desired_comments))
-         + "*staleDeleted=" + IntegerToString(stale_deleted)
-         + "*staleKept=" + IntegerToString(stale_kept)
-         + "*staleFailed=" + IntegerToString(stale_failed)
-         + "*rewardR=" + DoubleToString(InpRewardR, 2)
-      + "*stopAnchor=" + E0006_StopAnchorModeToString()
          + "*stopAnchor=" + E0006_StopAnchorModeToString()
-      + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)
-      + "*exitOppositeInternalNodeCount=" + IntegerToString(InpExitOppositeInternalNodeCount)
+         + "*rewardR=" + DoubleToString(InpRewardR, 2)
          + "*useInternalOppositeNodeTP=" + DAL_BoolToString(InpUseInternalOppositeNodeTP)
          + "*exitOppositeInternalNodeCount=" + IntegerToString(MathMax(1, InpExitOppositeInternalNodeCount))
          + "*tpChecked=" + IntegerToString(tp_checked)
          + "*tpWaiting=" + IntegerToString(tp_waiting)
          + "*tpModified=" + IntegerToString(tp_modified)
          + "*tpRejected=" + IntegerToString(tp_rejected)
-         + "*mode=ALL_LIVE_M0001_ZONES_WITH_OPTIONAL_REVISIT_ONLY_FILTER_NEW_BAR_ONLY";
+         + "*staleDeleted=" + IntegerToString(stale_deleted)
+         + "*staleKept=" + IntegerToString(stale_kept)
+         + "*staleFailed=" + IntegerToString(stale_failed)
+         + "*mode=ALL_LIVE_M0001_ZONES_WITH_REVISIT_SECONDARY_ANCHORS_NEW_BAR_ONLY";
       Print(audit);
    }
 }
@@ -1599,23 +1776,12 @@ int OnInit()
       + "*tf=" + EnumToString(E0006_Timeframe())
       + "*module=EXECUTION_E0006_ALL_ZONE_TOUCH_LIMIT_FIXED_R"
       + "*source=M0001_LIVE_TERRITORY"
-      + "*entry=LIMIT_ON_TOUCH_EDGE"
-      + "*buyEntry=LOW_ZONE_UPPER_PLUS_SPREAD"
-      + "*sellEntry=HIGH_ZONE_LOWER"
-      + "*sellSL=HIGH_ZONE_UPPER_PLUS_SPREAD"
-      + "*sellTP=FIXED_R_TP_PLUS_SPREAD"
-      + "*rewardR=" + DoubleToString(InpRewardR, 2)
       + "*originL=" + IntegerToString(InpOriginNodeL)
       + "*internalL=" + IntegerToString(InpInternalNodeL)
-      + "*useInternalHuntFilter=" + DAL_BoolToString(InpUseInternalHuntFilter)
-      + "*minInternalHuntsForZone=" + IntegerToString(InpMinInternalHuntsForZone)
-      + "*sameSideOnly=" + DAL_BoolToString(InpInternalHuntSameSideOnly)
-      + "*maxBuyPending=" + IntegerToString(InpMaxBuyPendingOrders)
-      + "*maxSellPending=" + IntegerToString(InpMaxSellPendingOrders)
-      + "*maxBuyOpenBeforeBlock=" + IntegerToString(InpMaxBuyOpenPositionsBeforeBlock)
-      + "*maxSellOpenBeforeBlock=" + IntegerToString(InpMaxSellOpenPositionsBeforeBlock)
-      + "*deleteSidePendingWhenOpenCapHit=" + DAL_BoolToString(InpDeleteSidePendingWhenOpenCapHit)
-      + "*openSideBlockPolicy=CHECK_EVERY_NEW_CANDLE_DELETE_PENDING_AND_BLOCK_SIDE"
+      + "*onlyTradeRevisits=" + DAL_BoolToString(InpOnlyTradeRevisitZones)
+      + "*revisitEntryAnchor=" + E0006_RevisitEntryAnchorModeToString()
+      + "*stopAnchor=" + E0006_StopAnchorModeToString()
+      + "*rewardR=" + DoubleToString(InpRewardR, 2)
       + "*newBarOnly=true";
    Print(sanity);
 

@@ -24,33 +24,56 @@ The SELL entry remains at the lower edge of the high/supply zone.
 
 ## Stop anchor modes
 
-Input:
+Inputs:
 
 ```text
-InpUseNodePriceStop = false
+InpRevisitEntryAnchorMode = E0006_REVISIT_ENTRY_ORIGIN_ZONE
+InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK
 ```
 
-There are two stop anchor modes.
+E0006 now has two revisit entry anchors and three stop anchors.
 
-### Zone-back stop mode
+### Revisit entry anchors
 
-This is the original mode.
+Origin-zone revisit entry:
+
+```text
+E0006_REVISIT_ENTRY_ORIGIN_ZONE
+```
+
+This keeps the order on the original M0001 zone when the node revisits.
+
+Secondary-node revisit entry:
+
+```text
+E0006_REVISIT_ENTRY_SECONDARY_NODE_ZONE
+```
+
+This is only meaningful when `InpOnlyTradeRevisitZones = true`. After the first non-hunted touch, E0006 finds the same-side internal node created inside that first touch cycle and uses that node's zone as the new entry zone.
+
+### Stop anchor 1: origin zone back
+
+```text
+InpStopAnchorMode = E0006_STOP_ORIGIN_ZONE_BACK
+```
 
 BUY / LOW origin:
 
 ```text
-SL = zone_lower
+SL = origin zone lower
 ```
 
 SELL / HIGH origin:
 
 ```text
-SL = zone_upper + spread * InpSellStopSpreadMultiplier
+SL = origin zone upper + spread * InpSellStopSpreadMultiplier
 ```
 
-### Node-price stop mode
+### Stop anchor 2: origin node
 
-This mode uses the origin node price as the stop anchor.
+```text
+InpStopAnchorMode = E0006_STOP_ORIGIN_NODE
+```
 
 BUY / LOW origin:
 
@@ -64,7 +87,25 @@ SELL / HIGH origin:
 SL = origin node price + spread * InpSellStopSpreadMultiplier
 ```
 
-The SELL stop receives the spread shift because a sell position is stopped by Ask crossing the stop. This matches the requested sell-side spread handling.
+### Stop anchor 3: revisit secondary node
+
+```text
+InpStopAnchorMode = E0006_STOP_REVISIT_SECONDARY_NODE
+```
+
+This requires revisit mode and a valid same-side secondary node from the first touch cycle.
+
+BUY:
+
+```text
+SL = secondary LOW node price
+```
+
+SELL:
+
+```text
+SL = secondary HIGH node price + spread * InpSellStopSpreadMultiplier
+```
 
 ## Risk distance
 
