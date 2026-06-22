@@ -211,6 +211,104 @@ bool DAL_E0009FindLatestMonotonicPatternOfType(
    );
 }
 
+bool DAL_E0009FindLatestOnlyMonotonicPatternOfType(
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const int bars_count,
+   const ENUM_TIMEFRAMES tf,
+   const int required_count,
+   const int max_age_bars,
+   const ENUM_DAL_E0009_HTF_123_DIRECTION direction,
+   DALE0009PatternState &out
+)
+{
+   DAL_E0009_ResetPattern(out);
+   out.tf = tf;
+   out.direction = direction;
+   out.required_count = required_count;
+
+   int required = MathMax(1, required_count);
+   ENUM_DALNodeType type = (direction == DAL_E0009_123_HIGHER_HIGHS ? DAL_NODE_HIGH : DAL_NODE_LOW);
+
+   DALLRuleNode selected[];
+   if(!DAL_E0009CollectNodesOfTypeChronological(nodes, nodes_count, type, selected))
+   {
+      out.reason = "no_nodes_of_type";
+      return false;
+   }
+
+   int count = ArraySize(selected);
+   if(count < required)
+   {
+      out.reason = "not_enough_latest_nodes_of_type";
+      return false;
+   }
+
+   // Setup-level behavior: only the latest N same-type nodes are allowed to define the setup.
+   // No backward scan here.
+   int start_index = count - required;
+   if(!DAL_E0009WindowIsMonotonicChronological(selected, start_index, required, direction))
+   {
+      out.reason = "latest_nodes_not_monotonic";
+      return false;
+   }
+
+   DALLRuleNode newest = selected[start_index + required - 1];
+   int age = bars_count - 1 - newest.active_from_index;
+   if(max_age_bars > 0 && age > max_age_bars)
+   {
+      out.reason = "latest_pattern_too_old";
+      return false;
+   }
+
+   DAL_E0009FillPatternFromChronologicalWindow(selected, start_index, required, bars_count, tf, direction, out);
+   return true;
+}
+
+bool DAL_E0009FindLatestOnlyMonotonicPatternAny(
+   const DALLRuleNode &nodes[],
+   const int nodes_count,
+   const int bars_count,
+   const ENUM_TIMEFRAMES tf,
+   const int required_count,
+   const int max_age_bars,
+   DALE0009PatternState &out
+)
+{
+   DALE0009PatternState highs;
+   DALE0009PatternState lows;
+
+   bool has_highs = DAL_E0009FindLatestOnlyMonotonicPatternOfType(nodes, nodes_count, bars_count, tf, required_count, max_age_bars,
+                                                                  DAL_E0009_123_HIGHER_HIGHS, highs);
+   bool has_lows = DAL_E0009FindLatestOnlyMonotonicPatternOfType(nodes, nodes_count, bars_count, tf, required_count, max_age_bars,
+                                                                 DAL_E0009_123_LOWER_LOWS, lows);
+
+   if(!has_highs && !has_lows)
+   {
+      DAL_E0009_ResetPattern(out);
+      out.tf = tf;
+      out.required_count = required_count;
+      out.reason = "latest_highs_and_lows_not_monotonic";
+      return false;
+   }
+
+   if(has_highs && has_lows)
+   {
+      if(highs.closed_time >= lows.closed_time)
+         out = highs;
+      else
+         out = lows;
+      return true;
+   }
+
+   if(has_highs)
+      out = highs;
+   else
+      out = lows;
+
+   return true;
+}
+
 bool DAL_E0009FindLatestMonotonicPatternAny(
    const DALLRuleNode &nodes[],
    const int nodes_count,
@@ -475,16 +573,33 @@ bool DAL_E0009BuildHookSignalFromNode(
    out.zone_upper = upper;
 
    double trigger_price = 0.0;
+   double stop_buffer = spread * MathMax(0.0, cfg.stop_behind_node_spread_mult);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   if(point <= 0.0)
+      point = 0.00000001;
+   stop_buffer = MathMax(stop_buffer, point);
 
    if(trade_direction > 0)
    {
-      trigger_price = upper + spread * MathMax(0.0, cfg.buy_entry_spread_mult);
-      out.sl = hook.price;
+      // Reversal BUY on a LOW hook:
+      // default limit entry touches the hook extreme; SL is behind the node.
+      if(cfg.order_mode == DAL_E0009_ORDER_LIMIT_REVISIT)
+         trigger_price = hook.price;
+      else
+         trigger_price = upper + spread;
+
+      out.sl = hook.price - stop_buffer;
    }
    else
    {
-      trigger_price = lower;
-      out.sl = hook.price + spread * MathMax(0.0, cfg.sell_stop_spread_mult);
+      // Reversal SELL on a HIGH hook:
+      // default limit entry touches the hook extreme; SL is behind the node.
+      if(cfg.order_mode == DAL_E0009_ORDER_LIMIT_REVISIT)
+         trigger_price = hook.price;
+      else
+         trigger_price = lower - spread;
+
+      out.sl = hook.price + stop_buffer;
    }
 
    out.order_kind = DAL_E0009ResolveOrderKind(symbol, trade_direction, trigger_price, cfg.order_mode);
@@ -563,7 +678,7 @@ int DAL_E0009CollectHookSignals(
 
    ENUM_DALNodeType wanted = (trade_direction > 0 ? DAL_NODE_LOW : DAL_NODE_HIGH);
    datetime after_time = (cfg.require_fresh_m1_hook_after_setup_close ? setup.closed_time : 0);
-   int max_count = MathMax(1, cfg.max_hook_candidates_per_bar);
+   int max_count = MathMax(0, cfg.max_hook_candidates_per_bar); // 0 = scan all eligible hooks
 
    for(int i = m1_nodes_count - 1; i >= 0; i--)
    {
@@ -604,7 +719,7 @@ int DAL_E0009CollectHookSignals(
       signals[k] = sig;
       diag.hook_built++;
 
-      if(ArraySize(signals) >= max_count)
+      if(max_count > 0 && ArraySize(signals) >= max_count)
          break;
    }
 

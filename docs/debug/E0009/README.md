@@ -1,113 +1,100 @@
-# E0009 — Multi-Level Monotonic Swing Hook Executor
+# E0009 — Reversal Macro / Latest Setup / Hook Executor
 
-Release 109 reorganizes E0009 into four independent levels.
+Release 112 aligns E0009 with the intended reversal logic.
 
-## Compact default logic
+## Layer 1 — Macro mode
 
-```text
-H4: 4 falling lows -> only BUY
-M15: 4 falling lows -> BUY setup
-M1: buy every eligible LOW hook
-H4: 3 rising highs -> BUY TP at latest high
-
-H4: 4 rising highs -> only SELL
-M15: 4 rising highs -> SELL setup
-M1: sell every eligible HIGH hook
-H4: 3 falling lows -> SELL TP at latest low
-```
-
-## Input groups
-
-### 00. Symbol / Execution
-Controls symbol, real trading switch, magic, logging, and initial run.
-
-### 01. Macro Mode Level
-`InpMacroModeTF`, `InpMacroModeNodeCount`, `InpMacroModeL`, `InpMacroModeBars`, `InpMacroModeMaxAgeBars`.
-
-Default macro mode is H4 with 4 nodes. Four falling lows allow BUY only. Four rising highs allow SELL only.
-
-### 02. Middle Setup Level
-`InpSetupTF`, `InpSetupNodeCount`, `InpSetupL`, `InpSetupBars`, `InpSetupMaxAgeBars`.
-
-Default setup is M15 with 4 nodes. It must agree with macro if `InpRequireSetupAgreesWithMacro=true`.
-
-### 03. M1 Entry Hooks
-`InpExecutionTF`, `InpExecutionL`, hook age, hook candidates, duplicate ledger, and order mode.
-
-BUY mode trades LOW hooks. SELL mode trades HIGH hooks.
-
-### 04. Micro-Only Entry Filter
-Rejects large hooks by setup amplitude, M1 average range, or fixed points.
-
-### 05. Exit Level
-Default exit is H4 with 3 nodes. BUY TP is the newest high of 3 rising highs. SELL TP is the newest low of 3 falling lows. Exit is independent from entry time.
-
-### 06. Spread / Risk / Exposure
-Risk cash, commission, spread multipliers, and side caps.
-
-
-## Release 110 — nearest-live monotonic sequence scan
-
-Release 109 only checked the latest `N` nodes of a type. That was too strict.
-
-Example:
+Default:
 
 ```text
-latest high is lower than the previous high
-but the four highs before it were rising
+InpMacroModeTF = PERIOD_H4
+InpMacroModeNodeCount = 4
+InpMacroModeMaxAgeBars = 0
 ```
 
-Release 109 rejected SELL macro mode.  
-Release 110 fixes this.
-
-New detector behavior:
+Index convention:
 
 ```text
-For highs:
-    collect all confirmed HIGH nodes
-    scan from live edge backwards
-    find the nearest consecutive window where:
-        High1 < High2 < High3 < High4
-
-For lows:
-    collect all confirmed LOW nodes
-    scan from live edge backwards
-    find the nearest consecutive window where:
-        Low1 > Low2 > Low3 > Low4
-
-If both a high-window and a low-window exist:
-    choose the one whose newest node is closer to live.
+1 = nearest confirmed same-type node to live
+4 = farthest node in the 4-node chain
 ```
 
-This applies to macro, setup, and exit pattern detection because they all use the same monotonic detector.
-
-So a single newest failed high/low no longer invalidates the earlier nearest valid sequence.
-
-
-## Release 111 — organized input titles and missing ZoneRatio fix
-
-Release 111 fixes the compile error:
+Macro scans backwards from live and finds the nearest valid same-type chain.
 
 ```text
-undeclared identifier 'InpZoneRatio'
+High1 > High2 > High3 > High4  -> macro mode SELL
+Low1  < Low2  < Low3  < Low4   -> macro mode BUY
 ```
 
-The missing input is now under the Entry Hook section:
+This is reversal logic: rising highs define a sell-reversal context; falling lows define a buy-reversal context.
+
+## Layer 2 — Middle setup
+
+Default:
 
 ```text
-InpZoneRatio = 0.90
+InpSetupTF = PERIOD_M15
+InpSetupNodeCount = 4
+InpSetupMaxAgeBars = 0
 ```
 
-Inputs are also grouped with visible string section titles:
+Setup does **not** scan older chains. It only checks the latest N highs and latest N lows.
 
 ```text
-InpSection00 = ===== 00 | SYMBOL / EXECUTION =====
-InpSection01 = ===== 01 | MACRO MODE: H4 DEFAULT =====
-InpSection02 = ===== 02 | SETUP: M15 DEFAULT =====
-InpSection03 = ===== 03 | ENTRY: M1 HOOKS =====
-InpSection04 = ===== 04 | MICRO-ONLY FILTER =====
-InpSection05 = ===== 05 | EXIT: INDEPENDENT TF PATTERN =====
-InpSection06 = ===== 06 | SPREAD / RISK / EXPOSURE =====
+latest 4 highs rising toward live  -> SELL setup
+latest 4 lows falling toward live   -> BUY setup
 ```
 
-These title strings are only visual labels and are not used by the logic.
+If `InpRequireSetupAgreesWithMacro=true`, macro and setup must point to the same trade direction.
+
+## Layer 3 — M1 hook entry
+
+Default:
+
+```text
+InpExecutionTF = PERIOD_M1
+InpRejectHuntedM1Hook = true
+InpMaxHookCandidatesPerBar = 0
+InpOrderMode = DAL_E0009_ORDER_LIMIT_REVISIT
+```
+
+`InpMaxHookCandidatesPerBar = 0` means scan all eligible hooks.
+
+Entry is a limit touch on the hook extreme:
+
+```text
+BUY  on LOW hook  -> buy limit at hook low, SL behind the low node
+SELL on HIGH hook -> sell limit at hook high, SL behind the high node
+```
+
+`InpRejectHuntedM1Hook=true` means consumed/hunted hooks are not allowed back into the game.
+
+## Layer 4 — Micro filter
+
+Default:
+
+```text
+InpUseMicroOnlyFilter = false
+```
+
+The filter is available but disabled by default.
+
+## Layer 5 — Exit
+
+Default:
+
+```text
+InpExitMode = DAL_E0009_EXIT_TF_MONOTONIC_PATTERN
+InpExitTF = PERIOD_H4
+InpExitNodeCount = 3
+InpUseCurrentExitPatternAsInitialTP = false
+```
+
+Exit does not depend on entry time or entry price.
+
+```text
+BUY  -> when exit TF has 3 rising highs, TP = newest high
+SELL -> when exit TF has 3 falling lows, TP = newest low
+```
+
+The EA continuously syncs TP for open positions when the structural exit condition exists.

@@ -109,8 +109,7 @@ struct DALE0009Config
    double fixed_r;
    int exit_node_count;
 
-   double buy_entry_spread_mult;
-   double sell_stop_spread_mult;
+   double stop_behind_node_spread_mult;
 
    ENUM_DAL_E0009_COUNTER_MODE counter_mode;
    ENUM_DAL_E0009_EXIT_MODE exit_mode;

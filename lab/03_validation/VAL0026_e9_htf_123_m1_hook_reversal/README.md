@@ -1,88 +1,45 @@
-# VAL0026 — E0009 Release 109 Multi-Level Validation
+# VAL0026 — E0009 Release 112 Validation
 
-## Default test
+## Default intended behavior
 
 ```text
-InpUseMacroModeFilter = true
-InpMacroModeTF = PERIOD_H4
-InpMacroModeNodeCount = 4
-InpSetupTF = PERIOD_M15
-InpSetupNodeCount = 4
-InpExecutionTF = PERIOD_M1
-InpExitTF = PERIOD_H4
-InpExitNodeCount = 3
+Macro: H4 nearest valid 4-node chain
+Setup: M15 latest 4 same-type nodes only
+Entry: M1 limit touch on hook extreme
+Exit: H4 structural TP, 3-node pattern
+Micro filter: off by default
+Hunted hooks: rejected by default
+Hook candidates: 0 = all eligible hooks
 ```
 
-## Key comparisons
+## Macro examples
+
+```text
+High1 > High2 > High3 > High4 -> SELL
+Low1  < Low2  < Low3  < Low4  -> BUY
+```
+
+`1` is closest to live.
+
+## Setup examples
+
+Setup only checks latest nodes:
+
+```text
+latest 4 highs rising -> SELL setup
+latest 4 lows falling -> BUY setup
+```
+
+Older valid chains are ignored at setup level.
+
+## Backtest comparison
+
+Test these separately:
 
 ```text
 InpUseMacroModeFilter = true / false
-InpMacroModeNodeCount = 3 / 4 / 5
-InpSetupNodeCount = 3 / 4 / 5
-InpExitNodeCount = 2 / 3 / 4
-InpUseMicroOnlyFilter = true / false
-InpMaxHookRiskToSetupAmplitude = 0.04 / 0.08 / 0.12
-InpMaxHookCandidatesPerBar = 1 / 3 / 6
+InpRequireSetupAgreesWithMacro = true / false
+InpMaxHookCandidatesPerBar = 0 / 1 / 3
+InpRejectHuntedM1Hook = true / false
+InpUseMicroOnlyFilter = false / true
 ```
-
-Audit lines:
-
-```text
-DAL_E0009_AUDIT_A  level modes and directions
-DAL_E0009_AUDIT_B  hook rejection counts
-DAL_E0009_AUDIT_C  micro filter, duplicate, send counts
-DAL_E0009_AUDIT_D  exit pattern and TP sync
-```
-
-## Release 110 nearest-live sequence test
-
-Detector behavior to verify:
-
-```text
-High sequence: 100, 110, 120, 130, 125
-```
-
-Latest 4 highs are not rising:
-
-```text
-110 < 120 < 130 but 125 breaks
-```
-
-But the nearest valid 4-high window exists:
-
-```text
-100 < 110 < 120 < 130
-```
-
-Expected:
-
-```text
-macro/setup SELL mode is still valid,
-using newest node = 130,
-not 125.
-```
-
-The same applies symmetrically to falling lows.
-
-
-## Release 111 compile/input organization test
-
-Compile target:
-
-```text
-mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
-```
-
-Check that the Inputs tab shows the sections:
-
-```text
-00 | SYMBOL / EXECUTION
-01 | MACRO MODE
-02 | SETUP
-03 | ENTRY
-04 | MICRO-ONLY FILTER
-05 | EXIT
-06 | SPREAD / RISK / EXPOSURE
-```
-
-The missing `InpZoneRatio` input is now present in section 03.

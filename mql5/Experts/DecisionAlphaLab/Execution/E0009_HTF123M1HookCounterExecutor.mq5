@@ -3,8 +3,8 @@
 //| Macro H4 mode + M15 setup + M1 hooks + H4 monotonic exit          |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.11"
-#property description "E0009: organized named-input multi-level monotonic swing mode with macro/setup/entry/exit layers."
+#property version   "1.12"
+#property description "E0009: reversal macro scan, latest-only setup, limit-touch hook entry, and structural exit TP."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -26,7 +26,7 @@ input group "01. MACRO MODE LEVEL"
 input string InpSection01 = "===== 01 | MACRO MODE: H4 DEFAULT =====";
 input bool InpUseMacroModeFilter = true;             // true = macro controls allowed direction
 input ENUM_TIMEFRAMES InpMacroModeTF = PERIOD_H4;
-input int InpMacroModeNodeCount = 4;                 // falling lows => BUY only; rising highs => SELL only
+input int InpMacroModeNodeCount = 4;                 // nearest valid chain: H1>H2>H3>H4 => SELL, L1<L2<L3<L4 => BUY
 input int InpMacroModeL = 2;
 input int InpMacroModeBars = 1000;
 input int InpMacroModeMaxAgeBars = 0;                // 0 = no age limit
@@ -34,7 +34,7 @@ input int InpMacroModeMaxAgeBars = 0;                // 0 = no age limit
 input group "02. MIDDLE SETUP LEVEL"
 input string InpSection02 = "===== 02 | SETUP: M15 DEFAULT =====";
 input ENUM_TIMEFRAMES InpSetupTF = PERIOD_M15;
-input int InpSetupNodeCount = 4;                     // falling lows => BUY setup; rising highs => SELL setup
+input int InpSetupNodeCount = 4;                     // latest N only: H1>...=>SELL, L1<...=>BUY
 input int InpSetupL = 2;
 input int InpSetupBars = 1200;
 input int InpSetupMaxAgeBars = 0;                    // 0 = no age limit
@@ -48,14 +48,14 @@ input int InpExecutionL = 2;
 input double InpZoneRatio = 0.90;                    // M1 hook zone ratio; compile fix: used by E0009_Config
 input int InpM1HookMaxAgeBars = 40;                  // 0 = no hook age limit
 input bool InpRequireFreshM1HookAfterSetupClose = true;
-input bool InpRejectHuntedM1Hook = false;
-input int InpMaxHookCandidatesPerBar = 3;
+input bool InpRejectHuntedM1Hook = true;
+input int InpMaxHookCandidatesPerBar = 0;              // 0 = scan all eligible hooks
 input bool InpOneTradePerHookForever = true;         // one tester/session trade per exact hook key
-input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM;
+input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_LIMIT_REVISIT; // limit touch on hook extreme
 
 input group "04. MICRO-ONLY ENTRY FILTER"
 input string InpSection04 = "===== 04 | MICRO-ONLY FILTER =====";
-input bool InpUseMicroOnlyFilter = true;
+input bool InpUseMicroOnlyFilter = false;
 input double InpMaxHookRiskToSetupAmplitude = 0.08;  // hook risk <= this ratio of setup amplitude
 input int InpMicroAvgRangeBars = 80;
 input double InpMaxHookRiskToM1AvgRange = 3.0;       // hook risk <= N x recent M1 average range
@@ -69,13 +69,12 @@ input int InpExitNodeCount = 3;                      // BUY exits on rising high
 input int InpExitL = 2;
 input int InpExitBars = 1000;
 input int InpExitMaxAgeBars = 0;                     // 0 = no age limit
-input bool InpUseCurrentExitPatternAsInitialTP = true;
+input bool InpUseCurrentExitPatternAsInitialTP = false;
 input double InpFixedR = 50.0;                       // used only if InpExitMode = FIXED_R
 
 input group "06. SPREAD / RISK / EXPOSURE"
 input string InpSection06 = "===== 06 | SPREAD / RISK / EXPOSURE =====";
-input double InpBuyEntrySpreadMultiplier = 1.0;
-input double InpSellStopSpreadMultiplier = 1.0;
+input double InpStopBehindNodeSpreadMultiplier = 1.0; // SL buffer behind M1 hook node
 input double InpRiskCash = 100.0;
 input bool InpAllowMinLotIfRiskTooSmall = false;
 input double InpCommissionPerLotRoundTurn = 0.0;
@@ -83,7 +82,7 @@ input int InpMaxPendingPerSide = 0;                  // 0 = no cap
 input int InpMaxPositionsPerSide = 0;                // 0 = no cap
 input int InpUpdateEveryNExecutionBars = 1;
 
-#define DAL_E0009_BUILD "1.11"
+#define DAL_E0009_BUILD "1.12"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -142,7 +141,7 @@ DALE0009Config E0009_Config()
    c.m1_max_hook_age_bars = MathMax(0, InpM1HookMaxAgeBars);
    c.require_fresh_m1_hook_after_setup_close = InpRequireFreshM1HookAfterSetupClose;
    c.reject_hunted_m1_hook = InpRejectHuntedM1Hook;
-   c.max_hook_candidates_per_bar = MathMax(1, InpMaxHookCandidatesPerBar);
+   c.max_hook_candidates_per_bar = MathMax(0, InpMaxHookCandidatesPerBar); // 0 = all hooks
 
    c.use_micro_only_filter = InpUseMicroOnlyFilter;
    c.max_hook_risk_to_setup_amplitude = MathMax(0.0, InpMaxHookRiskToSetupAmplitude);
@@ -153,8 +152,7 @@ DALE0009Config E0009_Config()
    c.fixed_r = MathMax(0.0, InpFixedR);
    c.exit_node_count = MathMax(1, InpExitNodeCount);
 
-   c.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
-   c.sell_stop_spread_mult = MathMax(0.0, InpSellStopSpreadMultiplier);
+   c.stop_behind_node_spread_mult = MathMax(0.0, InpStopBehindNodeSpreadMultiplier);
 
    c.counter_mode = DAL_E0009_COUNTER_OPPOSITE_123;
    c.exit_mode = InpExitMode;
@@ -170,6 +168,7 @@ bool E0009_LoadPattern(
    const int required_count,
    const int max_age_bars,
    const ENUM_DAL_E0009_HTF_123_DIRECTION required_direction,
+   const bool nearest_live_scan,
    DALE0009PatternState &state
 )
 {
@@ -189,9 +188,17 @@ bool E0009_LoadPattern(
    }
 
    if(required_direction == DAL_E0009_123_NONE)
-      return DAL_E0009FindLatestMonotonicPatternAny(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), state);
+   {
+      if(nearest_live_scan)
+         return DAL_E0009FindLatestMonotonicPatternAny(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), state);
 
-   return DAL_E0009FindLatestMonotonicPatternOfType(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), required_direction, state);
+      return DAL_E0009FindLatestOnlyMonotonicPatternAny(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), state);
+   }
+
+   if(nearest_live_scan)
+      return DAL_E0009FindLatestMonotonicPatternOfType(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), required_direction, state);
+
+   return DAL_E0009FindLatestOnlyMonotonicPatternOfType(nodes, nodes_count, bars_count, tf, MathMax(1, required_count), MathMax(0, max_age_bars), required_direction, state);
 }
 
 bool E0009_LoadExitPatterns(const string symbol)
@@ -360,7 +367,7 @@ void E0009_Process(const string run_mode)
    if(InpUseMacroModeFilter)
    {
       macro_ok = E0009_LoadPattern(symbol, InpMacroModeTF, InpMacroModeBars, InpMacroModeL, InpMacroModeNodeCount, InpMacroModeMaxAgeBars,
-                                   DAL_E0009_123_NONE, g_macro_state);
+                                   DAL_E0009_123_NONE, true, g_macro_state); // macro scans nearest valid chain from live edge
       if(macro_ok && g_macro_state.valid)
          diag.macro_ok++;
       else
@@ -373,7 +380,7 @@ void E0009_Process(const string run_mode)
    }
 
    bool setup_ok = E0009_LoadPattern(symbol, InpSetupTF, InpSetupBars, InpSetupL, InpSetupNodeCount, InpSetupMaxAgeBars,
-                                     DAL_E0009_123_NONE, g_setup_state);
+                                     DAL_E0009_123_NONE, false, g_setup_state); // setup checks only latest N highs/lows
    if(setup_ok && g_setup_state.valid)
       diag.setup_ok++;
    else
