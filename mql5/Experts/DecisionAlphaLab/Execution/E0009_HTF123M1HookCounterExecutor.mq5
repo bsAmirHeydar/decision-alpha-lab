@@ -3,7 +3,7 @@
 //| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.03"
+#property version   "1.04"
 #property description "E0009: HTF 3-swing counter entries on multiple M1 hooks with AUTO/LIMIT/STOP/MARKET execution."
 
 #include <Trade/Trade.mqh>
@@ -52,7 +52,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.03"
+#define DAL_E0009_BUILD "1.04"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -83,7 +83,6 @@ DALE0009Config E0009_Config()
    c.require_fresh_m1_hook_after_htf_close = InpRequireFreshM1HookAfterHTF123Close;
    c.reject_hunted_m1_hook = InpRejectHuntedM1Hook;
    c.max_hook_candidates_per_bar = MathMax(1, InpMaxHookCandidatesPerBar);
-   c.one_order_per_hook = true;
    c.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
    c.sell_stop_spread_mult = MathMax(0.0, InpSellStopSpreadMultiplier);
    c.counter_mode = InpCounterMode;

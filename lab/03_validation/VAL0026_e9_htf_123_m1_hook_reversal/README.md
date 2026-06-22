@@ -94,3 +94,13 @@ If `sentOrPlan` is positive but no real trades are sent:
 ```text
 InpTradingEnabled = true
 ```
+
+## Release 104 compile fix
+
+Compile target remains:
+
+```text
+mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
+```
+
+This release only fixes the stale `one_order_per_hook` assignment and initializes local 123 detector node variables.

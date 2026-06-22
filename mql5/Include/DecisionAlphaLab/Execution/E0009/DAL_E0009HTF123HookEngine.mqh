@@ -95,6 +95,12 @@ bool DAL_E0009FindLatestClosed123(
 
    DALLRuleNode hh1, hh2, hh3;
    DALLRuleNode ll1, ll2, ll3;
+   DAL_E0009_ResetNode(hh1, DAL_NODE_HIGH);
+   DAL_E0009_ResetNode(hh2, DAL_NODE_HIGH);
+   DAL_E0009_ResetNode(hh3, DAL_NODE_HIGH);
+   DAL_E0009_ResetNode(ll1, DAL_NODE_LOW);
+   DAL_E0009_ResetNode(ll2, DAL_NODE_LOW);
+   DAL_E0009_ResetNode(ll3, DAL_NODE_LOW);
 
    if(high_count >= 3)
    {

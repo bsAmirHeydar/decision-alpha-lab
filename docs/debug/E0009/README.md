@@ -224,3 +224,15 @@ duplicateSkip
 ```
 
 These counters show exactly where the EA is blocking trades.
+
+
+## Release 104 — compile fix
+
+Fixed one hard compile error and the initialization warnings from release 103:
+
+```text
+removed stale c.one_order_per_hook assignment
+initialized hh1/hh2/hh3 and ll1/ll2/ll3 before branch use
+```
+
+No trading logic changed.
