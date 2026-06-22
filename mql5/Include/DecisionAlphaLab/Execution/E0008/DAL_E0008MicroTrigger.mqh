@@ -50,7 +50,7 @@ bool DAL_E0008_FindLatestSameSideNode(
    const DALLRuleNode &nodes[],
    const int nodes_count,
    const int direction,
-   const int after_index,
+   const datetime after_time,
    const int max_age_bars,
    const int current_index,
    DALLRuleNode &node
@@ -66,7 +66,7 @@ bool DAL_E0008_FindLatestSameSideNode(
          continue;
       if(n.type != wanted)
          continue;
-      if(after_index >= 0 && n.index <= after_index)
+      if(after_time > 0 && n.active_from_time <= after_time)
          continue;
       if(max_age_bars > 0 && current_index - n.index > max_age_bars)
          continue;
@@ -83,8 +83,8 @@ bool DAL_E0008_FindSecondaryNodeInsideSource(
    const DALLRuleNode &nodes[],
    const int nodes_count,
    const int direction,
-   const int source_entry_index,
-   const int source_exit_index,
+   const datetime source_entry_time,
+   const datetime source_exit_time,
    DALLRuleNode &secondary
 )
 {
@@ -98,7 +98,9 @@ bool DAL_E0008_FindSecondaryNodeInsideSource(
          continue;
       if(n.type != wanted)
          continue;
-      if(n.index < source_entry_index || n.index > source_exit_index)
+      if(source_entry_time > 0 && n.time < source_entry_time)
+         continue;
+      if(source_exit_time > 0 && n.time > source_exit_time)
          continue;
 
       if(!found)
@@ -167,7 +169,7 @@ bool DAL_E0008_BuildMicroTrigger(
    else if(mode == DAL_E0008_ENTRY_LOCAL_SECONDARY_NODE)
    {
       DALLRuleNode secondary;
-      if(!DAL_E0008_FindSecondaryNodeInsideSource(nodes, nodes_count, local.direction, local.entry_index, local.exit_index, secondary))
+      if(!DAL_E0008_FindSecondaryNodeInsideSource(nodes, nodes_count, local.direction, local.touch_time, local.exit_time, secondary))
       {
          out.reason = "secondary_node_missing";
          return false;
@@ -197,7 +199,8 @@ bool DAL_E0008_BuildMicroTrigger(
    {
       // MICRO_NODE_REVISIT and EARLY_LADDER_STEP both use latest same-side micro node.
       DALLRuleNode micro;
-      if(!DAL_E0008_FindLatestSameSideNode(nodes, nodes_count, local.direction, local.exit_index, exec.max_micro_node_age_bars, bars_count - 1, micro))
+      datetime after_time = (local.exit_time > 0 ? local.exit_time : local.touch_time);
+      if(!DAL_E0008_FindLatestSameSideNode(nodes, nodes_count, local.direction, after_time, exec.max_micro_node_age_bars, bars_count - 1, micro))
       {
          out.reason = "micro_node_missing";
          return false;

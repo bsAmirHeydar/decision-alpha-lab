@@ -64,3 +64,25 @@ target = context destination
 
 Do not judge this by number of trades.  
 The desired outcome is a small number of very asymmetric plans.
+
+## Release 101 performance settings
+
+Recommended first run:
+
+```text
+InpExecutionTF = PERIOD_M1
+InpContextBarsPerTF = 1200
+InpLocalBars = 800
+InpExecutionBars = 400
+
+InpCacheContextMaps = true
+InpUpdateContextOnlyOnItsOwnNewBar = true
+InpPrintSkipLogs = false
+InpPrintPlanLogs = true
+InpTradingEnabled = false
+```
+
+The EA should now rebuild:
+- H1/H4/M15 context only when those timeframes print a new candle.
+- Execution map only once per M1 candle.
+- Nothing structural on every tick.

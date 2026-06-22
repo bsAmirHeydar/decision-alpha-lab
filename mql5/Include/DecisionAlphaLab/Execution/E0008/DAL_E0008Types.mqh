@@ -107,6 +107,7 @@ struct DALE0008ContextState
 
    datetime node_time;
    datetime touch_time;
+   datetime exit_time;
    int entry_index;
    int exit_index;
 
@@ -240,6 +241,7 @@ void DAL_E0008_ResetContext(DALE0008ContextState &c)
 
    c.node_time = 0;
    c.touch_time = 0;
+   c.exit_time = 0;
    c.entry_index = -1;
    c.exit_index = -1;
 

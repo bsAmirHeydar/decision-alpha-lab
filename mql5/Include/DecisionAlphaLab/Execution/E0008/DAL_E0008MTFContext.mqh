@@ -266,6 +266,7 @@ bool DAL_E0008_BuildBestContextFromMap(
 
          best.node_time = first.node_time;
          best.touch_time = first.entry_time;
+         best.exit_time = first.exit_time;
          best.entry_index = first.entry_index;
          best.exit_index = first.exit_index;
 

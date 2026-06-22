@@ -3,7 +3,7 @@
 //| Multi-timeframe source-context + micro extreme trigger template.  |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "E0008: MTF purple/source context executor for tiny-stop high-R entries."
 
 #include <Trade/Trade.mqh>
@@ -16,7 +16,7 @@
 input string InpSymbol = "";
 
 // Timeframe stack.
-input ENUM_TIMEFRAMES InpExecutionTF = PERIOD_CURRENT;
+input ENUM_TIMEFRAMES InpExecutionTF = PERIOD_M1;
 input ENUM_TIMEFRAMES InpLocalContextTF = PERIOD_M15;
 input bool InpUseContextTF1 = true;
 input ENUM_TIMEFRAMES InpContextTF1 = PERIOD_H1;
@@ -29,9 +29,16 @@ input ENUM_TIMEFRAMES InpContextTF3 = PERIOD_H4;
 input int InpContextL = 2;
 input int InpExecutionL = 2;
 input double InpZoneRatio = 0.90;
-input int InpBarsPerTF = 3500;
+input int InpBarsPerTF = 3500;          // legacy fallback only
+input int InpContextBarsPerTF = 1800;    // HTF context bars; cached by TF bar
+input int InpLocalBars = 1200;           // local context bars; cached by local TF bar
+input int InpExecutionBars = 700;        // execution TF bars; rebuilt once per execution candle
 input int InpExitGap = 6;
 input int InpMaxEvents = 2500;
+input bool InpCacheContextMaps = true;
+input bool InpUpdateContextOnlyOnItsOwnNewBar = true;
+input int InpForceContextRefreshEveryExecBars = 0; // 0 = off
+input int InpSyncTPEveryNBars = 1;
 
 // Source / purple proxy.
 // 0 = live/no-future source mode.
@@ -79,12 +86,29 @@ input bool InpTradingEnabled = false; // default plan-only until reports look ri
 input bool InpRunOnInit = true;
 input int InpUpdateEveryNBars = 1;
 input bool InpPrintLogs = true;
+input bool InpPrintSkipLogs = false;
+input bool InpPrintPlanLogs = true;
 
-#define DAL_E0008_BUILD "1.00"
+#define DAL_E0008_BUILD "1.01"
 
 CTrade g_trade;
 datetime g_last_bar_time = 0;
 int g_new_bar_counter = 0;
+
+DALE0008ContextState g_ctx1_cache;
+DALE0008ContextState g_ctx2_cache;
+DALE0008ContextState g_ctx3_cache;
+DALE0008ContextState g_local_cache;
+
+datetime g_ctx1_open_time = 0;
+datetime g_ctx2_open_time = 0;
+datetime g_ctx3_open_time = 0;
+datetime g_local_open_time = 0;
+
+bool g_ctx1_evaluated = false;
+bool g_ctx2_evaluated = false;
+bool g_ctx3_evaluated = false;
+bool g_local_evaluated = false;
 
 string E0008_Symbol()
 {
@@ -94,6 +118,24 @@ string E0008_Symbol()
 ENUM_TIMEFRAMES E0008_ExecutionTF()
 {
    return (InpExecutionTF == PERIOD_CURRENT ? (ENUM_TIMEFRAMES)_Period : InpExecutionTF);
+}
+
+int E0008_ContextBarsRequest()
+{
+   int v = (InpContextBarsPerTF > 0 ? InpContextBarsPerTF : InpBarsPerTF);
+   return MathMax(300, v);
+}
+
+int E0008_LocalBarsRequest()
+{
+   int v = (InpLocalBars > 0 ? InpLocalBars : InpBarsPerTF);
+   return MathMax(300, v);
+}
+
+int E0008_ExecutionBarsRequest()
+{
+   int v = (InpExecutionBars > 0 ? InpExecutionBars : InpBarsPerTF);
+   return MathMax(200, v);
 }
 
 void E0008_FillPolicies(
@@ -141,6 +183,7 @@ void E0008_FillPolicies(
 bool E0008_BuildContextForTF(
    const string symbol,
    const ENUM_TIMEFRAMES tf,
+   const int bars_requested,
    const DALE0008SourcePolicy &source,
    DALE0008ContextState &ctx
 )
@@ -151,7 +194,7 @@ bool E0008_BuildContextForTF(
    int bars_count = 0, nodes_count = 0, events_count = 0;
    string reason = "";
 
-   if(!DAL_E0008_LoadM0001Map(symbol, tf, InpBarsPerTF, source.L, source.zone_ratio, source.exit_gap, source.max_events,
+   if(!DAL_E0008_LoadM0001Map(symbol, tf, bars_requested, source.L, source.zone_ratio, source.exit_gap, source.max_events,
                               bars, bars_count, nodes, nodes_count, events, events_count, reason))
    {
       DAL_E0008_ResetContext(ctx);
@@ -164,6 +207,56 @@ bool E0008_BuildContextForTF(
       return false;
 
    return true;
+}
+
+bool E0008_UpdateContextCacheForTF(
+   const string symbol,
+   const ENUM_TIMEFRAMES tf,
+   const bool use_tf,
+   const int bars_requested,
+   const DALE0008SourcePolicy &source,
+   const bool force_refresh,
+   DALE0008ContextState &cache,
+   datetime &cache_open_time,
+   bool &cache_evaluated
+)
+{
+   if(!use_tf)
+   {
+      DAL_E0008_ResetContext(cache);
+      cache.tf = tf;
+      cache.reason = "disabled";
+      cache_evaluated = false;
+      cache_open_time = 0;
+      return false;
+   }
+
+   datetime open_time = iTime(symbol, tf, 0);
+   if(open_time <= 0)
+   {
+      DAL_E0008_ResetContext(cache);
+      cache.tf = tf;
+      cache.reason = "tf_open_time_unavailable";
+      cache_evaluated = true;
+      cache_open_time = 0;
+      return false;
+   }
+
+   bool must_refresh = force_refresh
+      || !InpCacheContextMaps
+      || !cache_evaluated
+      || !InpUpdateContextOnlyOnItsOwnNewBar
+      || cache_open_time != open_time;
+
+   if(must_refresh)
+   {
+      E0008_BuildContextForTF(symbol, tf, bars_requested, source, cache);
+      cache.tf = tf;
+      cache_open_time = open_time;
+      cache_evaluated = true;
+   }
+
+   return cache.valid;
 }
 
 bool E0008_BuildLocalContextAndExecutionMap(
@@ -185,7 +278,7 @@ bool E0008_BuildLocalContextAndExecutionMap(
    DALM0001Event local_events[];
    int local_bars_count = 0, local_nodes_count = 0, local_events_count = 0;
 
-   if(!DAL_E0008_LoadM0001Map(symbol, InpLocalContextTF, InpBarsPerTF, source.L, source.zone_ratio, source.exit_gap, source.max_events,
+   if(!DAL_E0008_LoadM0001Map(symbol, InpLocalContextTF, E0008_LocalBarsRequest(), source.L, source.zone_ratio, source.exit_gap, source.max_events,
                               local_bars, local_bars_count, local_nodes, local_nodes_count, local_events, local_events_count, reason))
    {
       DAL_E0008_ResetContext(local);
@@ -202,7 +295,7 @@ bool E0008_BuildLocalContextAndExecutionMap(
 
    // Execution map.
    ENUM_TIMEFRAMES exec_tf = E0008_ExecutionTF();
-   if(!DAL_E0008_LoadM0001Map(symbol, exec_tf, InpBarsPerTF, MathMax(1, InpExecutionL), source.zone_ratio, source.exit_gap, source.max_events,
+   if(!DAL_E0008_LoadM0001Map(symbol, exec_tf, E0008_ExecutionBarsRequest(), MathMax(1, InpExecutionL), source.zone_ratio, source.exit_gap, source.max_events,
                               exec_bars, exec_bars_count, exec_nodes, exec_nodes_count, exec_events, exec_events_count, reason))
       return false;
 
@@ -220,26 +313,23 @@ void E0008_Process(const string run_mode)
    E0008_FillPolicies(source, mtf, exec, exposure);
 
    DALE0008ContextState c1, c2, c3, primary, local;
-   bool ok1 = false, ok2 = false, ok3 = false;
+   bool force_context_refresh = (run_mode == "INIT")
+      || (InpForceContextRefreshEveryExecBars > 0 && (g_new_bar_counter % InpForceContextRefreshEveryExecBars) == 0);
 
-   if(InpUseContextTF1)
-      ok1 = E0008_BuildContextForTF(symbol, InpContextTF1, source, c1);
-   else
-      DAL_E0008_ResetContext(c1);
+   E0008_UpdateContextCacheForTF(symbol, InpContextTF1, InpUseContextTF1, E0008_ContextBarsRequest(), source, force_context_refresh,
+                                 g_ctx1_cache, g_ctx1_open_time, g_ctx1_evaluated);
+   E0008_UpdateContextCacheForTF(symbol, InpContextTF2, InpUseContextTF2, E0008_ContextBarsRequest(), source, force_context_refresh,
+                                 g_ctx2_cache, g_ctx2_open_time, g_ctx2_evaluated);
+   E0008_UpdateContextCacheForTF(symbol, InpContextTF3, InpUseContextTF3, E0008_ContextBarsRequest(), source, force_context_refresh,
+                                 g_ctx3_cache, g_ctx3_open_time, g_ctx3_evaluated);
 
-   if(InpUseContextTF2)
-      ok2 = E0008_BuildContextForTF(symbol, InpContextTF2, source, c2);
-   else
-      DAL_E0008_ResetContext(c2);
-
-   if(InpUseContextTF3)
-      ok3 = E0008_BuildContextForTF(symbol, InpContextTF3, source, c3);
-   else
-      DAL_E0008_ResetContext(c3);
+   c1 = g_ctx1_cache;
+   c2 = g_ctx2_cache;
+   c3 = g_ctx3_cache;
 
    if(!DAL_E0008_SelectPrimaryContext(c1, InpUseContextTF1, c2, InpUseContextTF2, c3, InpUseContextTF3, primary))
    {
-      if(InpPrintLogs)
+      if(InpPrintLogs && InpPrintSkipLogs)
          Print("DAL_E0008_SKIP *** build=", DAL_E0008_BUILD, "*runMode=", run_mode, "*reason=no_primary_context",
             "*c1=", c1.reason, "*c2=", c2.reason, "*c3=", c3.reason);
       return;
@@ -251,7 +341,7 @@ void E0008_Process(const string run_mode)
 
    if(aligned < mtf.min_aligned_contexts)
    {
-      if(InpPrintLogs)
+      if(InpPrintLogs && InpPrintSkipLogs)
          Print("DAL_E0008_SKIP *** build=", DAL_E0008_BUILD, "*runMode=", run_mode,
             "*reason=mtf_alignment_failed",
             "*primaryDir=", primary.direction,
@@ -261,18 +351,33 @@ void E0008_Process(const string run_mode)
       return;
    }
 
+   string load_reason = "";
+
+   bool local_ok = E0008_UpdateContextCacheForTF(symbol, InpLocalContextTF, true, E0008_LocalBarsRequest(), source, force_context_refresh,
+                                                g_local_cache, g_local_open_time, g_local_evaluated);
+   local = g_local_cache;
+
    DALBar exec_bars[];
    DALLRuleNode exec_nodes[];
    DALM0001Event exec_events[];
    int exec_bars_count=0, exec_nodes_count=0, exec_events_count=0;
-   string load_reason = "";
 
-   if(!E0008_BuildLocalContextAndExecutionMap(symbol, source, local, exec_bars, exec_bars_count, exec_nodes, exec_nodes_count, exec_events, exec_events_count, load_reason))
+   ENUM_TIMEFRAMES exec_tf = E0008_ExecutionTF();
+   bool exec_ok = DAL_E0008_LoadM0001Map(symbol, exec_tf, E0008_ExecutionBarsRequest(), MathMax(1, InpExecutionL),
+                                         source.zone_ratio, source.exit_gap, source.max_events,
+                                         exec_bars, exec_bars_count, exec_nodes, exec_nodes_count, exec_events, exec_events_count, load_reason);
+
+   if(!local_ok || !exec_ok)
    {
-      if(mtf.require_local_context)
+      if(mtf.require_local_context || !exec_ok)
       {
-         if(InpPrintLogs)
-            Print("DAL_E0008_SKIP *** build=", DAL_E0008_BUILD, "*runMode=", run_mode, "*reason=local_or_exec_map_failed_", load_reason);
+         if(InpPrintLogs && InpPrintSkipLogs)
+            Print("DAL_E0008_SKIP *** build=", DAL_E0008_BUILD, "*runMode=", run_mode,
+               "*reason=local_or_exec_map_failed",
+               "*localOk=", DAL_BoolToString(local_ok),
+               "*execOk=", DAL_BoolToString(exec_ok),
+               "*loadReason=", load_reason,
+               "*localReason=", local.reason);
          return;
       }
       local = primary;
@@ -280,7 +385,7 @@ void E0008_Process(const string run_mode)
 
    if(local.valid && local.direction != primary.direction)
    {
-      if(InpPrintLogs)
+      if(InpPrintLogs && InpPrintSkipLogs)
          Print("DAL_E0008_SKIP *** build=", DAL_E0008_BUILD, "*runMode=", run_mode,
             "*reason=local_context_conflict",
             "*primaryDir=", primary.direction,
@@ -290,7 +395,8 @@ void E0008_Process(const string run_mode)
 
    // Sync open-position TP only when target mode is opposite node.
    int tp_checked=0, tp_modified=0, tp_waiting=0, tp_rejected=0;
-   if(exec.target_mode == DAL_E0008_TARGET_NTH_OPPOSITE_NODE)
+   bool should_sync_tp = (InpSyncTPEveryNBars <= 1) || ((g_new_bar_counter % MathMax(1, InpSyncTPEveryNBars)) == 0);
+   if(exec.target_mode == DAL_E0008_TARGET_NTH_OPPOSITE_NODE && should_sync_tp)
       DAL_E0008SyncOppositeNodeTP(symbol, InpMagicNumber, InpOrderCommentPrefix, exec_nodes, exec_nodes_count,
                                   exec.opposite_node_tp_count, g_trade,
                                   tp_checked, tp_modified, tp_waiting, tp_rejected);
@@ -315,7 +421,7 @@ void E0008_Process(const string run_mode)
       if(!DAL_E0008_BuildMicroTrigger(symbol, exec_bars, exec_bars_count, exec_nodes, exec_nodes_count, local, exec, source, modes[m], trigger))
       {
          rejected++;
-         if(InpPrintLogs)
+         if(InpPrintLogs && InpPrintSkipLogs)
             Print("DAL_E0008_TRIGGER_REJECT *** build=", DAL_E0008_BUILD,
                "*mode=", DAL_E0008EntryModeName(modes[m]),
                "*reason=", trigger.reason);
@@ -326,7 +432,7 @@ void E0008_Process(const string run_mode)
       if(!DAL_E0008_BuildTradePlan(symbol, primary, local, trigger, exec, plan))
       {
          rejected++;
-         if(InpPrintLogs)
+         if(InpPrintLogs && InpPrintSkipLogs)
             Print("DAL_E0008_PLAN_REJECT *** build=", DAL_E0008_BUILD,
                "*mode=", DAL_E0008EntryModeName(modes[m]),
                "*reason=", plan.reason,
@@ -346,7 +452,7 @@ void E0008_Process(const string run_mode)
       if(ok)
       {
          sent++;
-         if(InpPrintLogs)
+         if(InpPrintLogs && InpPrintPlanLogs)
             Print("DAL_E0008_PLAN *** build=", DAL_E0008_BUILD,
                "*runMode=", run_mode,
                "*mode=", DAL_E0008EntryModeName(plan.entry_mode),
@@ -370,7 +476,7 @@ void E0008_Process(const string run_mode)
       else
       {
          rejected++;
-         if(InpPrintLogs)
+         if(InpPrintLogs && InpPrintSkipLogs)
             Print("DAL_E0008_SEND_REJECT *** build=", DAL_E0008_BUILD,
                "*mode=", DAL_E0008EntryModeName(plan.entry_mode),
                "*reason=", send_reason);
@@ -385,6 +491,10 @@ void E0008_Process(const string run_mode)
          "*execTF=", EnumToString(E0008_ExecutionTF()),
          "*Lctx=", source.L,
          "*Lexe=", exec.micro_L,
+         "*contextBars=", E0008_ContextBarsRequest(),
+         "*localBars=", E0008_LocalBarsRequest(),
+         "*executionBars=", E0008_ExecutionBarsRequest(),
+         "*cache=", DAL_BoolToString(InpCacheContextMaps),
          "*primaryTF=", EnumToString(primary.tf),
          "*primaryDir=", primary.direction,
          "*primaryRole=", DAL_E0008RoleName(primary.role),

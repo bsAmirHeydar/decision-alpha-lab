@@ -176,3 +176,61 @@ M0009_PurpleRoleAtlas
 ```
 
 E0008 is the testable execution shell for the current purple-source idea.
+
+
+## Release 101 — performance scheduler
+
+E0008 now runs on the execution timeframe candle only. The default execution timeframe is M1:
+
+```text
+InpExecutionTF = PERIOD_M1
+```
+
+No tick-by-tick structural rebuild is done. `OnTick()` only checks whether a new execution candle has opened.
+
+### Cached context maps
+
+Higher-timeframe context maps are cached and refreshed only when their own timeframe opens a new candle:
+
+```text
+InpCacheContextMaps = true
+InpUpdateContextOnlyOnItsOwnNewBar = true
+```
+
+This means H1 context is not rebuilt on every M1 candle. It is rebuilt on the next H1 candle, or when forced.
+
+### Separate bar budgets
+
+```text
+InpContextBarsPerTF = 1800
+InpLocalBars = 1200
+InpExecutionBars = 700
+```
+
+The execution map is the only map rebuilt every execution candle, and it uses the smallest bar budget.
+
+### Force refresh
+
+```text
+InpForceContextRefreshEveryExecBars = 0
+```
+
+`0` means off. Set this to a value like `200` if a periodic full refresh is needed.
+
+### Logging
+
+Skip/reject logs are off by default:
+
+```text
+InpPrintSkipLogs = false
+```
+
+Plan logs remain separately controllable:
+
+```text
+InpPrintPlanLogs = true
+```
+
+### Cross-timeframe index fix
+
+Micro triggers no longer compare an M1 node index with an M15/H1 context index. They now use event/node times, so the local-context source and the execution-timeframe trigger are aligned by time, not by incompatible bar indexes.
