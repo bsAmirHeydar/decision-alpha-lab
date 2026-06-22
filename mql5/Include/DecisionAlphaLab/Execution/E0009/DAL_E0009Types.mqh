@@ -8,9 +8,13 @@
 enum ENUM_DAL_E0009_HTF_123_DIRECTION
 {
    DAL_E0009_123_NONE = 0,
-   DAL_E0009_123_BULLISH = 1,  // LOW-HIGH-LOW, 3rd point is higher/equal than 1st; counter entry = SELL on M1 HIGH hooks
-   DAL_E0009_123_BEARISH = -1  // HIGH-LOW-HIGH, 3rd point is lower/equal than 1st; counter entry = BUY on M1 LOW hooks
+   DAL_E0009_123_HIGHER_HIGHS = 1, // last 3 HTF HIGH nodes are higher than each other; counter entry = SELL on M1 HIGH hooks
+   DAL_E0009_123_LOWER_LOWS = -1   // last 3 HTF LOW nodes are lower than each other; counter entry = BUY on M1 LOW hooks
 };
+
+// Backward-compatible aliases for old release-100 names.
+#define DAL_E0009_123_BULLISH DAL_E0009_123_HIGHER_HIGHS
+#define DAL_E0009_123_BEARISH DAL_E0009_123_LOWER_LOWS
 
 enum ENUM_DAL_E0009_COUNTER_MODE
 {
@@ -100,9 +104,9 @@ void DAL_E0009_Reset123(DALE0009HTF123State &s)
    s.p1.active_from_time = 0;
    s.p2.active_from_time = 0;
    s.p3.active_from_time = 0;
-   s.p1.type = DAL_NODE_LOW;
+   s.p1.type = DAL_NODE_HIGH;
    s.p2.type = DAL_NODE_HIGH;
-   s.p3.type = DAL_NODE_LOW;
+   s.p3.type = DAL_NODE_HIGH;
    s.p1.price = 0.0;
    s.p2.price = 0.0;
    s.p3.price = 0.0;
@@ -142,8 +146,8 @@ void DAL_E0009_ResetHook(DALE0009HookSignal &h)
 
 string DAL_E0009DirectionName(const ENUM_DAL_E0009_HTF_123_DIRECTION d)
 {
-   if(d == DAL_E0009_123_BULLISH) return "BULLISH_123_COUNTER_SELL";
-   if(d == DAL_E0009_123_BEARISH) return "BEARISH_123_COUNTER_BUY";
+   if(d == DAL_E0009_123_HIGHER_HIGHS) return "THREE_HIGHER_HIGHS_COUNTER_SELL";
+   if(d == DAL_E0009_123_LOWER_LOWS) return "THREE_LOWER_LOWS_COUNTER_BUY";
    return "NONE";
 }
 

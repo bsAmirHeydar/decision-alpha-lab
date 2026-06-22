@@ -3,8 +3,8 @@
 //| Simple model: closed HTF 123 -> counter-direction M1 hook entries |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
-#property description "E0009: closed HTF 123 then counter-direction entries on every M1 hook."
+#property version   "1.01"
+#property description "E0009: three HTF higher highs/lower lows then counter-direction entries on M1 hooks."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -48,7 +48,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = false;
 
-#define DAL_E0009_BUILD "1.00"
+#define DAL_E0009_BUILD "1.01"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -244,7 +244,7 @@ int OnInit()
    g_htf123_evaluated = false;
 
    Print("DAL_E0009_BUILD_SANITY *** build=", DAL_E0009_BUILD,
-      "*module=HTF_123_M1_HOOK_COUNTER",
+      "*module=HTF_THREE_SWINGS_M1_HOOK_COUNTER",
       "*htf=", EnumToString(InpHTFTimeframe),
       "*execTF=", EnumToString(InpExecutionTF),
       "*counterMode=", (InpCounterMode == DAL_E0009_COUNTER_OPPOSITE_123 ? "OPPOSITE_123" : "BOTH_FOR_TEST"),

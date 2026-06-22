@@ -16,31 +16,35 @@ No tick-by-tick processing.
 
 ## 123 definition
 
-E0009 uses the latest confirmed 3-node sequence on the higher timeframe.
+Release 101 uses the simple definition requested by the user.
 
-### Bullish 123
+### 123 سقف
 
 ```text
-LOW → HIGH → LOW
+سه سقف اخیر تایم بالا، هرکدام بالاتر از قبلی
+HIGH1 < HIGH2 < HIGH3
 ```
 
-The 3rd point is a confirmed LOW. Counter-direction trade is:
+Counter-direction trade:
 
 ```text
 SELL on every M1 HIGH hook
 ```
 
-### Bearish 123
+### 123 کف
 
 ```text
-HIGH → LOW → HIGH
+سه کف اخیر تایم بالا، هرکدام پایین‌تر از قبلی
+LOW1 > LOW2 > LOW3
 ```
 
-The 3rd point is a confirmed HIGH. Counter-direction trade is:
+Counter-direction trade:
 
 ```text
 BUY on every M1 LOW hook
 ```
+
+No alternating LOW-HIGH-LOW / HIGH-LOW-HIGH sequence is required anymore.
 
 ## M1 hook entry
 
@@ -105,3 +109,14 @@ InpExitMode = DAL_E0009_EXIT_FIXED_R
 InpFixedR = 50
 InpRequireFreshM1HookAfterHTF123Close = true
 ```
+
+## Release 101
+
+Changed HTF 123 detection from alternating swing triples to the simple rule:
+
+```text
+3 recent higher highs -> counter SELL
+3 recent lower lows   -> counter BUY
+```
+
+Everything else remains candle-based and simple.

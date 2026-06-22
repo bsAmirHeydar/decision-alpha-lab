@@ -5,7 +5,7 @@
 Test the simplified rule:
 
 ```text
-HTF 123 closed → enter counter-direction on every M1 hook
+HTF 3 higher highs / 3 lower lows closed → enter counter-direction on every M1 hook
 ```
 
 ## Test matrix
@@ -39,3 +39,12 @@ InpCounterMode = DAL_E0009_COUNTER_BOTH_FOR_TEST
 ```
 
 This ignores the counter-direction rule and prints both BUY/SELL hook plans for comparison.
+
+## Release 101 definition
+
+HTF 123 now means:
+
+```text
+last 3 confirmed HIGH nodes are rising -> SELL M1 HIGH hooks
+last 3 confirmed LOW nodes are falling -> BUY M1 LOW hooks
+```

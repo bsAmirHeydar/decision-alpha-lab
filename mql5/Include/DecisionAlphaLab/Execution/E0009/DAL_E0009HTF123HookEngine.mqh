@@ -66,40 +66,93 @@ bool DAL_E0009FindLatestClosed123(
       return false;
    }
 
-   // Scan latest triples backwards. A "closed 123" means point 3 is already a confirmed L-rule node.
-   for(int i = nodes_count - 1; i >= 2; i--)
+   DALLRuleNode highs[3];
+   DALLRuleNode lows[3];
+   int high_count = 0;
+   int low_count = 0;
+
+   // Collect the latest 3 confirmed HIGH nodes and latest 3 confirmed LOW nodes separately.
+   for(int i = nodes_count - 1; i >= 0 && (high_count < 3 || low_count < 3); i--)
    {
-      DALLRuleNode p1 = nodes[i - 2];
-      DALLRuleNode p2 = nodes[i - 1];
-      DALLRuleNode p3 = nodes[i];
-
-      if(!p1.confirmed || !p2.confirmed || !p3.confirmed)
+      DALLRuleNode n = nodes[i];
+      if(!n.confirmed)
          continue;
 
-      bool bullish = (p1.type == DAL_NODE_LOW && p2.type == DAL_NODE_HIGH && p3.type == DAL_NODE_LOW);
-      bool bearish = (p1.type == DAL_NODE_HIGH && p2.type == DAL_NODE_LOW && p3.type == DAL_NODE_HIGH);
-
-      if(!bullish && !bearish)
-         continue;
-
-      int age = bars_count - 1 - p3.active_from_index;
-      if(max_age_bars > 0 && age > max_age_bars)
-         continue;
-
-      out.valid = true;
-      out.reason = "ok";
-      out.direction = (bullish ? DAL_E0009_123_BULLISH : DAL_E0009_123_BEARISH);
-      out.p1 = p1;
-      out.p2 = p2;
-      out.p3 = p3;
-      out.closed_time = p3.active_from_time;
-      out.age_bars = age;
-      out.amplitude = MathAbs(p2.price - p1.price);
-      return true;
+      if(n.type == DAL_NODE_HIGH && high_count < 3)
+      {
+         highs[high_count] = n;
+         high_count++;
+      }
+      else if(n.type == DAL_NODE_LOW && low_count < 3)
+      {
+         lows[low_count] = n;
+         low_count++;
+      }
    }
 
-   out.reason = "no_closed_123";
-   return false;
+   bool has_higher_highs = false;
+   bool has_lower_lows = false;
+
+   DALLRuleNode hh1, hh2, hh3;
+   DALLRuleNode ll1, ll2, ll3;
+
+   if(high_count >= 3)
+   {
+      // highs[2] is oldest, highs[0] is newest.
+      hh1 = highs[2];
+      hh2 = highs[1];
+      hh3 = highs[0];
+
+      int age_hh = bars_count - 1 - hh3.active_from_index;
+      if((max_age_bars <= 0 || age_hh <= max_age_bars) && hh1.price < hh2.price && hh2.price < hh3.price)
+         has_higher_highs = true;
+   }
+
+   if(low_count >= 3)
+   {
+      // lows[2] is oldest, lows[0] is newest.
+      ll1 = lows[2];
+      ll2 = lows[1];
+      ll3 = lows[0];
+
+      int age_ll = bars_count - 1 - ll3.active_from_index;
+      if((max_age_bars <= 0 || age_ll <= max_age_bars) && ll1.price > ll2.price && ll2.price > ll3.price)
+         has_lower_lows = true;
+   }
+
+   if(!has_higher_highs && !has_lower_lows)
+   {
+      out.reason = "no_three_higher_highs_or_three_lower_lows";
+      return false;
+   }
+
+   // If both patterns exist, choose the one whose 3rd point was confirmed later.
+   bool choose_hh = has_higher_highs;
+   if(has_higher_highs && has_lower_lows)
+      choose_hh = (hh3.active_from_time >= ll3.active_from_time);
+
+   out.valid = true;
+   out.reason = "ok";
+
+   if(choose_hh)
+   {
+      out.direction = DAL_E0009_123_HIGHER_HIGHS;
+      out.p1 = hh1;
+      out.p2 = hh2;
+      out.p3 = hh3;
+   }
+   else
+   {
+      out.direction = DAL_E0009_123_LOWER_LOWS;
+      out.p1 = ll1;
+      out.p2 = ll2;
+      out.p3 = ll3;
+   }
+
+   out.closed_time = out.p3.active_from_time;
+   out.age_bars = bars_count - 1 - out.p3.active_from_index;
+   out.amplitude = MathAbs(out.p3.price - out.p1.price);
+   return true;
 }
 
 bool DAL_E0009BuildNodeZoneLive(
@@ -175,11 +228,11 @@ int DAL_E0009TradeDirectionFrom123(
       return 0;
 
    // Counter-direction:
-   // bullish 123 => look for SELL hooks
-   // bearish 123 => look for BUY hooks
-   if(state.direction == DAL_E0009_123_BULLISH)
+   // 3 higher highs => look for SELL hooks
+   // 3 lower lows   => look for BUY hooks
+   if(state.direction == DAL_E0009_123_HIGHER_HIGHS)
       return -1;
-   if(state.direction == DAL_E0009_123_BEARISH)
+   if(state.direction == DAL_E0009_123_LOWER_LOWS)
       return +1;
 
    return 0;
