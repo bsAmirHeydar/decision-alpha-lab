@@ -358,3 +358,33 @@ DAL_E0009_AUDIT_C
 ```
 
 No trading logic changed.
+
+
+## Release 108 — persistent used-hook ledger
+
+The Excel report showed the same M1 hook being traded repeatedly across consecutive minutes, for example the same `P3/H` pair reappearing after the previous market position closed.
+
+The previous duplicate check only blocked existing pending orders or open positions. Once a market position closed, the same hook became eligible again.
+
+Release 108 adds an in-memory hook ledger:
+
+```text
+InpOneTradePerHookForever = true
+```
+
+When a signal is planned/sent, its hook key is stored for the rest of the tester run/session. The same hook key is skipped even if the previous position is already closed.
+
+Audit additions:
+
+```text
+usedHookKeys
+oneTradePerHook
+```
+
+Reject log:
+
+```text
+DAL_E0009_HOOK_DUPLICATE_SKIP
+```
+
+This should reduce overtrading materially and reveal whether the edge survives when each M1 hook is used only once.

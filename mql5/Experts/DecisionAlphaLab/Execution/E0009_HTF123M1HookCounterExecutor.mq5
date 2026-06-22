@@ -3,8 +3,8 @@
 //| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.07"
-#property description "E0009: HTF 3-swing counter entries on M1 micro hooks with risk-size filters."
+#property version   "1.08"
+#property description "E0009: HTF 3-swing counter entries on unique M1 micro hooks with persistent hook ledger."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -28,6 +28,7 @@ input int InpM1HookMaxAgeBars = 40;
 input bool InpRequireFreshM1HookAfterHTF123Close = true;
 input bool InpRejectHuntedM1Hook = false;
 input int InpMaxHookCandidatesPerBar = 3;
+input bool InpOneTradePerHookForever = true; // persistent in-memory hook ledger for the whole test/session
 
 // Micro-only filter: reject large M1 hook extremes.
 input bool InpUseMicroOnlyFilter = true;
@@ -59,7 +60,7 @@ input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
 input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.07"
+#define DAL_E0009_BUILD "1.08"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -72,9 +73,40 @@ bool g_htf123_evaluated = false;
 DALLRuleNode g_htf_nodes_cache[];
 int g_htf_nodes_count_cache = 0;
 
+string g_used_hook_keys[];
+int g_used_hook_keys_count = 0;
+
 string E0009_Symbol()
 {
    return (InpSymbol == "" ? _Symbol : InpSymbol);
+}
+
+bool E0009_HookKeyUsed(const string key)
+{
+   if(key == "")
+      return false;
+
+   for(int i = 0; i < g_used_hook_keys_count; i++)
+   {
+      if(g_used_hook_keys[i] == key)
+         return true;
+   }
+
+   return false;
+}
+
+void E0009_MarkHookKeyUsed(const string key)
+{
+   if(key == "")
+      return;
+
+   if(E0009_HookKeyUsed(key))
+      return;
+
+   int n = g_used_hook_keys_count;
+   ArrayResize(g_used_hook_keys, n + 1);
+   g_used_hook_keys[n] = key;
+   g_used_hook_keys_count = n + 1;
 }
 
 DALE0009Config E0009_Config()
@@ -229,6 +261,17 @@ void E0009_Process(const string run_mode)
       for(int s = 0; s < signals_count; s++)
       {
          DALE0009HookSignal sig = signals[s];
+
+         if(InpOneTradePerHookForever && E0009_HookKeyUsed(sig.comment))
+         {
+            diag.duplicate_skip++;
+            if(InpPrintLogs && InpPrintRejectLogs)
+               Print("DAL_E0009_HOOK_DUPLICATE_SKIP *** build=", DAL_E0009_BUILD,
+                  "*reason=hook_key_already_used",
+                  "*comment=", sig.comment);
+            continue;
+         }
+
          planned++;
          diag.planned++;
 
@@ -245,6 +288,10 @@ void E0009_Process(const string run_mode)
          {
             sent++;
             diag.sent_or_plan++;
+
+            if(InpOneTradePerHookForever)
+               E0009_MarkHookKeyUsed(sig.comment);
+
             if(InpPrintLogs)
                Print("DAL_E0009_PLAN *** build=", DAL_E0009_BUILD,
                   "*runMode=", run_mode,
@@ -313,6 +360,8 @@ void E0009_Process(const string run_mode)
          "*riskReject=", diag.risk_reject,
          "*capReject=", diag.cap_reject,
          "*duplicateSkip=", diag.duplicate_skip,
+         "*usedHookKeys=", g_used_hook_keys_count,
+         "*oneTradePerHook=", DAL_BoolToString(InpOneTradePerHookForever),
          "*tpChecked=", tp_checked,
          "*tpModified=", tp_modified,
          "*tpWaiting=", tp_waiting,
@@ -331,6 +380,8 @@ int OnInit()
    g_htf123_evaluated = false;
    ArrayResize(g_htf_nodes_cache, 0);
    g_htf_nodes_count_cache = 0;
+   ArrayResize(g_used_hook_keys, 0);
+   g_used_hook_keys_count = 0;
 
    Print("DAL_E0009_BUILD_SANITY *** build=", DAL_E0009_BUILD,
       "*module=HTF_THREE_SWINGS_M1_HOOK_COUNTER",
@@ -340,6 +391,7 @@ int OnInit()
       "*orderMode=", DAL_E0009OrderModeName(InpOrderMode),
       "*exitMode=", DAL_E0009ExitModeName(InpExitMode),
       "*microFilter=", DAL_BoolToString(InpUseMicroOnlyFilter),
+      "*oneTradePerHook=", DAL_BoolToString(InpOneTradePerHookForever),
       "*maxRiskToHTF=", DoubleToString(InpMaxHookRiskToHTFAmplitude, 4),
       "*maxRiskToM1Avg=", DoubleToString(InpMaxHookRiskToM1AvgRange, 2),
       "*tradingEnabled=", DAL_BoolToString(InpTradingEnabled));

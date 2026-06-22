@@ -171,3 +171,28 @@ mql5/Experts/DecisionAlphaLab/Execution/E0009_HTF123M1HookCounterExecutor.mq5
 ```
 
 Audit output is now split across `AUDIT_A`, `AUDIT_B`, and `AUDIT_C`.
+
+## Release 108 hook ledger test
+
+Recommended comparison:
+
+### Old behavior proxy
+
+```text
+InpOneTradePerHookForever = false
+```
+
+### Corrected one-hook-one-trade behavior
+
+```text
+InpOneTradePerHookForever = true
+```
+
+Expected effects:
+
+```text
+Total Trades should drop sharply.
+duplicateSkip should rise.
+Equity leakage should drop if repeated stale hooks were the main leak.
+If profit collapses entirely, the previous result was mostly repeat exposure on the same hook.
+```
