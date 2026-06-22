@@ -1,0 +1,41 @@
+# VAL0026 — E0009 HTF 123 M1 Hook Counter Validation
+
+## Purpose
+
+Test the simplified rule:
+
+```text
+HTF 123 closed → enter counter-direction on every M1 hook
+```
+
+## Test matrix
+
+### A. Fixed 50R
+
+```text
+InpHTFTimeframe = PERIOD_M15
+InpExecutionTF = PERIOD_M1
+InpExitMode = DAL_E0009_EXIT_FIXED_R
+InpFixedR = 50
+InpTradingEnabled = false
+```
+
+### B. Fixed 100R
+
+```text
+InpFixedR = 100
+```
+
+### C. HTF point-2 target
+
+```text
+InpExitMode = DAL_E0009_EXIT_HTF_POINT_2
+```
+
+### D. Both directions for sanity only
+
+```text
+InpCounterMode = DAL_E0009_COUNTER_BOTH_FOR_TEST
+```
+
+This ignores the counter-direction rule and prints both BUY/SELL hook plans for comparison.
