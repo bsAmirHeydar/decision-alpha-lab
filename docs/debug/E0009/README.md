@@ -1,390 +1,46 @@
-# E0009 — HTF 123 → M1 Hook Counter Executor
+# E0009 — Multi-Level Monotonic Swing Hook Executor
 
-This is the intentionally simple model requested after E0008 became too complicated.
+Release 109 reorganizes E0009 into four independent levels.
 
-## Rule
-
-```text
-When a higher timeframe closes a 123,
-trade counter-direction on every M1 hook.
-```
-
-No purple atlas.  
-No second hook requirement.  
-No heavy MTF context.  
-No tick-by-tick processing.
-
-## 123 definition
-
-Release 101 uses the simple definition requested by the user.
-
-### 123 سقف
+## Compact default logic
 
 ```text
-سه سقف اخیر تایم بالا، هرکدام بالاتر از قبلی
-HIGH1 < HIGH2 < HIGH3
+H4: 4 falling lows -> only BUY
+M15: 4 falling lows -> BUY setup
+M1: buy every eligible LOW hook
+H4: 3 rising highs -> BUY TP at latest high
+
+H4: 4 rising highs -> only SELL
+M15: 4 rising highs -> SELL setup
+M1: sell every eligible HIGH hook
+H4: 3 falling lows -> SELL TP at latest low
 ```
 
-Counter-direction trade:
+## Input groups
 
-```text
-SELL on every M1 HIGH hook
-```
+### 00. Symbol / Execution
+Controls symbol, real trading switch, magic, logging, and initial run.
 
-### 123 کف
+### 01. Macro Mode Level
+`InpMacroModeTF`, `InpMacroModeNodeCount`, `InpMacroModeL`, `InpMacroModeBars`, `InpMacroModeMaxAgeBars`.
 
-```text
-سه کف اخیر تایم بالا، هرکدام پایین‌تر از قبلی
-LOW1 > LOW2 > LOW3
-```
+Default macro mode is H4 with 4 nodes. Four falling lows allow BUY only. Four rising highs allow SELL only.
 
-Counter-direction trade:
+### 02. Middle Setup Level
+`InpSetupTF`, `InpSetupNodeCount`, `InpSetupL`, `InpSetupBars`, `InpSetupMaxAgeBars`.
 
-```text
-BUY on every M1 LOW hook
-```
+Default setup is M15 with 4 nodes. It must agree with macro if `InpRequireSetupAgreesWithMacro=true`.
 
-No alternating LOW-HIGH-LOW / HIGH-LOW-HIGH sequence is required anymore.
+### 03. M1 Entry Hooks
+`InpExecutionTF`, `InpExecutionL`, hook age, hook candidates, duplicate ledger, and order mode.
 
-## M1 hook entry
+BUY mode trades LOW hooks. SELL mode trades HIGH hooks.
 
-### BUY hook
+### 04. Micro-Only Entry Filter
+Rejects large hooks by setup amplitude, M1 average range, or fixed points.
 
-```text
-latest M1 LOW node after HTF 123 close
-entry = M1 hook zone upper + spread
-SL = hook node price
-```
+### 05. Exit Level
+Default exit is H4 with 3 nodes. BUY TP is the newest high of 3 rising highs. SELL TP is the newest low of 3 falling lows. Exit is independent from entry time.
 
-### SELL hook
-
-```text
-latest M1 HIGH node after HTF 123 close
-entry = M1 hook zone lower
-SL = hook node price + spread
-```
-
-## Exit
-
-Default:
-
-```text
-InpExitMode = DAL_E0009_EXIT_FIXED_R
-InpFixedR = 50
-```
-
-Alternative:
-
-```text
-DAL_E0009_EXIT_HTF_POINT_2
-```
-
-This uses HTF 123 point 2 as TP.
-
-## Performance
-
-The EA runs only on a new execution-timeframe candle:
-
-```text
-InpExecutionTF = PERIOD_M1
-```
-
-On each new M1 candle:
-
-1. Refresh HTF 123 only if the HTF candle changed.
-2. Rebuild a small M1 node map.
-3. If a fresh hook exists, place/plan the limit order.
-
-There is no structural processing on every tick.
-
-## First tests
-
-```text
-InpTradingEnabled = false
-InpHTFTimeframe = PERIOD_M15
-InpExecutionTF = PERIOD_M1
-InpHTFL = 2
-InpM1L = 2
-InpExitMode = DAL_E0009_EXIT_FIXED_R
-InpFixedR = 50
-InpRequireFreshM1HookAfterHTF123Close = true
-```
-
-## Release 101
-
-Changed HTF 123 detection from alternating swing triples to the simple rule:
-
-```text
-3 recent higher highs -> counter SELL
-3 recent lower lows   -> counter BUY
-```
-
-Everything else remains candle-based and simple.
-
-
-## Release 102 — HTF third opposite swing TP
-
-Default exit changed to:
-
-```text
-InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING
-InpHTFTpSwingCount = 3
-```
-
-This uses the same higher timeframe that created the 123.
-
-### BUY exit
-
-If the trade is BUY after three falling HTF lows:
-
-```text
-after the position entry time,
-count confirmed HTF HIGH nodes
-TP = 3rd HTF HIGH
-```
-
-### SELL exit
-
-If the trade is SELL after three rising HTF highs:
-
-```text
-after the position entry time,
-count confirmed HTF LOW nodes
-TP = 3rd HTF LOW
-```
-
-TP is usually not known at order placement. The EA leaves TP empty at entry and updates the open position when the required HTF swing node becomes confirmed.
-
-## Release 103 — why no trades were appearing
-
-The first E0009 versions could easily show no trades because:
-
-```text
-1. InpTradingEnabled was false by default.
-2. Only the latest M1 hook was checked.
-3. Only LIMIT orders were supported.
-4. If the latest hook was hunted/invalid, every other hook was ignored.
-5. Reject reasons were mostly hidden unless reject logs were enabled.
-```
-
-Release 103 fixes the execution shell:
-
-```text
-InpOrderMode = DAL_E0009_ORDER_AUTO
-InpMaxHookCandidatesPerBar = 6
-InpPrintRejectLogs = true
-```
-
-### Order modes
-
-```text
-DAL_E0009_ORDER_LIMIT_REVISIT
-DAL_E0009_ORDER_STOP_RECLAIM
-DAL_E0009_ORDER_MARKET_ON_CONFIRM
-DAL_E0009_ORDER_AUTO
-```
-
-`AUTO` chooses:
-
-```text
-BUY:
-    trigger below Ask  -> BUY LIMIT
-    trigger above Ask  -> BUY STOP
-    trigger near Ask   -> BUY MARKET
-
-SELL:
-    trigger above Bid  -> SELL LIMIT
-    trigger below Bid  -> SELL STOP
-    trigger near Bid   -> SELL MARKET
-```
-
-### Multiple hook scan
-
-Instead of checking only the latest M1 hook, release 103 scans the latest eligible hooks:
-
-```text
-InpMaxHookCandidatesPerBar = 6
-```
-
-### Debug counters
-
-The audit line now prints:
-
-```text
-hookSeen
-hookAfterTimeReject
-hookAgeReject
-hookZoneFail
-hookHuntedReject
-hookBuilt
-geometryReject
-riskReject
-capReject
-duplicateSkip
-```
-
-These counters show exactly where the EA is blocking trades.
-
-
-## Release 104 — compile fix
-
-Fixed one hard compile error and the initialization warnings from release 103:
-
-```text
-removed stale c.one_order_per_hook assignment
-initialized hh1/hh2/hh3 and ll1/ll2/ll3 before branch use
-```
-
-No trading logic changed.
-
-
-## Release 105 — root no-trade default fix
-
-Release 105 changes the defaults from conservative/debug mode to execution mode.
-
-Previous defaults could still produce no real trades because:
-
-```text
-InpTradingEnabled = false
-InpOrderMode = AUTO
-InpRejectHuntedM1Hook = true
-InpMaxPendingPerSide = 1
-InpMaxPositionsPerSide = 1
-InpHTF123MaxAgeBars could not be disabled
-```
-
-New defaults:
-
-```text
-InpTradingEnabled = true
-InpOrderMode = DAL_E0009_ORDER_MARKET_ON_CONFIRM
-InpRejectHuntedM1Hook = false
-InpMaxPendingPerSide = 0
-InpMaxPositionsPerSide = 0
-InpHTF123MaxAgeBars = 0
-```
-
-This matches the simple rule better:
-
-```text
-HTF has 3 rising highs -> sell each confirmed M1 high hook once
-HTF has 3 falling lows -> buy each confirmed M1 low hook once
-```
-
-To prevent repeated market orders from the same hook, release 105 checks both pending orders and open positions by the hook comment.
-
-```text
-same hook id + same 123 id + same order kind = duplicate skipped
-```
-
-
-## Release 106 — micro-only entry filter
-
-Release 106 adds a filter so the executor only enters on genuinely small M1 hook extremes.
-
-New inputs:
-
-```text
-InpUseMicroOnlyFilter = true
-InpMaxHookRiskToHTFAmplitude = 0.08
-InpMicroAvgRangeBars = 80
-InpMaxHookRiskToM1AvgRange = 3.0
-InpMaxHookRiskPoints = 0
-```
-
-A hook is rejected if its entry-to-stop risk is too large by any enabled criterion.
-
-### Criterion 1 — relative to HTF 123 amplitude
-
-```text
-hook risk / abs(HTF p3 - HTF p1) <= InpMaxHookRiskToHTFAmplitude
-```
-
-Default:
-
-```text
-<= 0.08
-```
-
-So the M1 hook risk must be at most 8% of the HTF 123 move.
-
-### Criterion 2 — relative to recent M1 average range
-
-```text
-hook risk / avg_range(M1, InpMicroAvgRangeBars) <= InpMaxHookRiskToM1AvgRange
-```
-
-Default:
-
-```text
-<= 3.0
-```
-
-So an oversized M1 extreme is rejected even if HTF amplitude is large.
-
-### Criterion 3 — absolute points
-
-```text
-InpMaxHookRiskPoints = 0
-```
-
-`0` means disabled. Set a number like `300` if a hard maximum stop size is needed.
-
-### Diagnostics
-
-The audit line now includes:
-
-```text
-hookMicroReject
-microFilter
-maxRiskToHTF
-maxRiskToM1Avg
-maxRiskPoints
-```
-
-If `hookMicroReject` is high, loosen the micro filter; if equity leakage is high, tighten it.
-
-
-## Release 107 — compile fix
-
-Fixed the MQL `Print(...)` parameter-count error from release 106.
-
-The long `DAL_E0009_AUDIT` line was split into:
-
-```text
-DAL_E0009_AUDIT_A
-DAL_E0009_AUDIT_B
-DAL_E0009_AUDIT_C
-```
-
-No trading logic changed.
-
-
-## Release 108 — persistent used-hook ledger
-
-The Excel report showed the same M1 hook being traded repeatedly across consecutive minutes, for example the same `P3/H` pair reappearing after the previous market position closed.
-
-The previous duplicate check only blocked existing pending orders or open positions. Once a market position closed, the same hook became eligible again.
-
-Release 108 adds an in-memory hook ledger:
-
-```text
-InpOneTradePerHookForever = true
-```
-
-When a signal is planned/sent, its hook key is stored for the rest of the tester run/session. The same hook key is skipped even if the previous position is already closed.
-
-Audit additions:
-
-```text
-usedHookKeys
-oneTradePerHook
-```
-
-Reject log:
-
-```text
-DAL_E0009_HOOK_DUPLICATE_SKIP
-```
-
-This should reduce overtrading materially and reveal whether the edge survives when each M1 hook is used only once.
+### 06. Spread / Risk / Exposure
+Risk cash, commission, spread multipliers, and side caps.
