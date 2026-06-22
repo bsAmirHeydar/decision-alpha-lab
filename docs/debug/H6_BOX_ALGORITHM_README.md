@@ -128,3 +128,30 @@ Release 140 valid-zone color lifecycle:
 - If purple is reached before any zone-back hit, the box is considered completed and remains purple; later zone-back hits are not tracked.
 - Colors are visible only while the frozen M0001 territory back side has not been hit.
 - New input: `InpH6InvalidateOnZoneBackHitBeforeMax=true`.
+
+
+## Release 141 — selectable zone projection mode
+
+H6 can now draw and age the same M0001 event map with two visual/validity projections.
+
+### `DAL_M0006_ZONE_FULL_M0001_TERRITORY`
+
+This is the previous behavior.
+
+- Box lower/upper = frozen M0001 `territory_lower` / `territory_upper`.
+- Back-hit invalidation uses the far/back side of that full territory.
+- Existing object names are preserved.
+
+### `DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE`
+
+This is the new node-capped map requested for studying near-node reactions.
+
+- LOW node: projected box = `[node_price, territory_upper]`.
+- HIGH node: projected box = `[territory_lower, node_price]`.
+- The back/invalid side is the exact node price.
+- If high/low hits the node price, the box is invalid and is deleted/hidden before max horizon.
+- With `InpH6NodeCappedInvalidateOnTouchCandle=true`, a touch candle that already hits the node price creates no meaningful box.
+
+This mode isolates cases where price reaches the inner/90-percent zone edge but does **not** hit the node itself. In visual terms, the old territory is effectively reduced to the node-capped half that lies between the reaction edge and the exact node price.
+
+Important: when switching visual projection modes on an already-used chart, use `InpH6ClearPersistentBoxesOnInit=true` once if old boxes should be removed from the chart.

@@ -243,3 +243,14 @@ Release 140 valid-zone color lifecycle:
 - If purple is reached before any zone-back hit, the box is considered completed and remains purple; later zone-back hits are not tracked.
 - Colors are visible only while the frozen M0001 territory back side has not been hit.
 - New input: `InpH6InvalidateOnZoneBackHitBeforeMax=true`.
+
+## Release 141 — node-capped projection
+
+New inputs:
+
+```text
+InpH6ZoneProjectionMode = DAL_M0006_ZONE_FULL_M0001_TERRITORY
+InpH6NodeCappedInvalidateOnTouchCandle = true
+```
+
+Use `DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE` to study the narrower reaction region where price reaches the M0001 zone edge but does not hit the exact node price. In this mode the exact node price is treated as the box back/invalid side.

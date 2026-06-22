@@ -6,6 +6,19 @@
 #include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
 #include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
 
+enum ENUM_DALM0006ZoneProjectionMode
+{
+   DAL_M0006_ZONE_FULL_M0001_TERRITORY = 0, // existing behavior: use frozen M0001 territory lower/upper
+   DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE = 1 // visual/valid zone is the inner territory edge to exact node price
+};
+
+string DAL_M0006FastZoneProjectionModeName(const ENUM_DALM0006ZoneProjectionMode mode)
+{
+   if(mode == DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE)
+      return "NODE_CAPPED_90_TO_NODE";
+   return "FULL_M0001_TERRITORY";
+}
+
 // H6 FAST official visual contract:
 // - M0001 is the only source of truth for extreme / territory / touch / revisit / invalidation.
 // - H6 does not rebuild any market logic.
@@ -27,6 +40,9 @@ struct DALM0006FastBoxConfig
    ENUM_DALM0001ConsumeMode m0001_consume_mode;
    int m0001_max_events;
    double m0001_min_rtv;
+
+   ENUM_DALM0006ZoneProjectionMode zone_projection_mode;
+   bool node_capped_invalidate_on_touch_candle;
 
    int horizon_red;
    int horizon_green;
@@ -66,6 +82,9 @@ void DAL_M0006FastDefaultConfig(DALM0006FastBoxConfig &cfg)
    cfg.m0001_consume_mode = DAL_M0001_CONSUME_BY_HUNT;
    cfg.m0001_max_events = 0;
    cfg.m0001_min_rtv = 0.0;
+
+   cfg.zone_projection_mode = DAL_M0006_ZONE_FULL_M0001_TERRITORY;
+   cfg.node_capped_invalidate_on_touch_candle = true;
 
    cfg.horizon_red = 20;
    cfg.horizon_green = 50;
@@ -157,12 +176,62 @@ int DAL_M0006FastExistingBoxStage(const string name, const DALM0006FastBoxConfig
    return DAL_M0006FastStageFromColor(existing_color, cfg);
 }
 
+bool DAL_M0006FastProjectedZone(
+   const DALM0001Event &event,
+   const DALM0006FastBoxConfig &cfg,
+   double &lower,
+   double &upper
+)
+{
+   lower = event.territory_lower;
+   upper = event.territory_upper;
+
+   if(cfg.zone_projection_mode == DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE)
+   {
+      // New H6 projection:
+      // - The far/back side is the exact node price.
+      // - The opposite edge remains the inner M0001 territory/touch edge.
+      // LOW  node: box = [node_price, territory_upper]
+      // HIGH node: box = [territory_lower, node_price]
+      // This isolates cases that reach the territory edge but do not hit the node itself.
+      if(event.node_type == DAL_NODE_HIGH)
+      {
+         lower = event.territory_lower;
+         upper = event.node_price;
+      }
+      else
+      {
+         lower = event.node_price;
+         upper = event.territory_upper;
+      }
+   }
+
+   if(upper < lower)
+   {
+      double tmp = lower;
+      lower = upper;
+      upper = tmp;
+   }
+
+   return (upper > lower);
+}
+
 bool DAL_M0006FastZoneBackHit(
    const DALM0001Event &event,
-   const DALBar &bar
+   const DALBar &bar,
+   const DALM0006FastBoxConfig &cfg
 )
 {
    // Official color lifecycle uses only high/low.
+   if(cfg.zone_projection_mode == DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE)
+   {
+      // In node-capped mode the box dies as soon as the real node price itself is hit.
+      if(event.node_type == DAL_NODE_HIGH)
+         return (bar.high >= event.node_price);
+      return (bar.low <= event.node_price);
+   }
+
+   // Existing full-territory mode:
    // HIGH node: far/back side of the territory is the upper bound.
    // LOW node: far/back side of the territory is the lower bound.
    if(event.node_type == DAL_NODE_HIGH)
@@ -196,9 +265,13 @@ int DAL_M0006FastLiveAgeAfterTouchUntilBackHit(
    int max_age = MathMax(1, cfg.horizon_purple);
    int age = 0;
 
-   for(int i = event.entry_index + 1; i < bars_count; i++)
+   int scan_start = event.entry_index + 1;
+   if(cfg.zone_projection_mode == DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE && cfg.node_capped_invalidate_on_touch_candle)
+      scan_start = event.entry_index;
+
+   for(int i = scan_start; i < bars_count; i++)
    {
-      if(DAL_M0006FastZoneBackHit(event, bars[i]))
+      if(DAL_M0006FastZoneBackHit(event, bars[i], cfg))
       {
          back_hit_index = i;
          break;
@@ -240,7 +313,12 @@ string DAL_M0006FastBoxName(const DALM0001Event &event, const DALM0006FastBoxCon
    long price_key = (long)MathRound(event.node_price / point);
    string side = (event.node_type == DAL_NODE_HIGH ? "HIGH" : "LOW");
 
+   string mode_tag = "";
+   if(cfg.zone_projection_mode == DAL_M0006_ZONE_NODE_CAPPED_90_TO_NODE)
+      mode_tag = "NODECAP_";
+
    return cfg.box_prefix
+      + mode_tag
       + IntegerToString((long)event.node_time) + "_"
       + IntegerToString((long)event.entry_time) + "_"
       + IntegerToString(price_key) + "_"
@@ -407,6 +485,14 @@ int DAL_M0006FastDrawEventBoxes(const DALM0006FastBoxConfig &cfg)
       if(max_horizon_reached) max_horizon_count++;
       if(back_hit_index < 0 && !max_horizon_reached) active_color_watch++;
 
+      double projected_lower = event.territory_lower;
+      double projected_upper = event.territory_upper;
+      if(!DAL_M0006FastProjectedZone(event, cfg, projected_lower, projected_upper))
+      {
+         failures++;
+         continue;
+      }
+
       string name = DAL_M0006FastBoxName(event, cfg);
 
       // Official invalidation rule:
@@ -446,17 +532,21 @@ int DAL_M0006FastDrawEventBoxes(const DALM0006FastBoxConfig &cfg)
          + " colorBackHit=" + (back_hit_index >= 0 ? TimeToString(bars[back_hit_index].time) : "NONE")
          + " colorMaxHorizonReached=" + IntegerToString(max_horizon_reached ? 1 : 0)
          + " invalidatesOnBackHitBeforeMax=" + IntegerToString(cfg.invalidate_on_zone_back_hit_before_max ? 1 : 0)
+         + " zoneProjectionMode=" + DAL_M0006FastZoneProjectionModeName(cfg.zone_projection_mode)
+         + " nodeCappedTouchCandleInvalidation=" + IntegerToString(cfg.node_capped_invalidate_on_touch_candle ? 1 : 0)
          + " colorAgePolicy=dynamic_until_zone_back_hit_or_purple"
          + " rtvSampleLength=" + IntegerToString(event.rtv_sample_length)
          + " reversal=" + IntegerToString(DAL_M0006FastEventIsReversal(event, bars, bars_count) ? 1 : 0)
          + " node=" + DoubleToString(event.node_price, _Digits)
-         + " lower=" + DoubleToString(event.territory_lower, _Digits)
-         + " upper=" + DoubleToString(event.territory_upper, _Digits)
+         + " originalLower=" + DoubleToString(event.territory_lower, _Digits)
+         + " originalUpper=" + DoubleToString(event.territory_upper, _Digits)
+         + " projectedLower=" + DoubleToString(projected_lower, _Digits)
+         + " projectedUpper=" + DoubleToString(projected_upper, _Digits)
          + " extreme=" + DoubleToString(event.expansion_extreme, _Digits)
          + " consumed=" + IntegerToString(event.consumed ? 1 : 0)
          + " source=M0001";
 
-      if(DAL_M0006FastUpsertBox(name, box_left_time, box_right_time, event.territory_lower, event.territory_upper, stage, cfg, tip))
+      if(DAL_M0006FastUpsertBox(name, box_left_time, box_right_time, projected_lower, projected_upper, stage, cfg, tip))
          drawn++;
       else
          failures++;
@@ -489,6 +579,8 @@ int DAL_M0006FastDrawEventBoxes(const DALM0006FastBoxConfig &cfg)
          + "*timePolicy=NODE_TIME_TO_FIRST_TOUCH_TIME"
          + "*colorAgePolicy=DYNAMIC_CHECK_UNTIL_ZONE_BACK_HIT_OR_PURPLE"
          + "*invalidBackHitPolicy=DELETE_OR_HIDE_IF_BACK_HIT_BEFORE_PURPLE"
+         + "*zoneProjectionMode=" + DAL_M0006FastZoneProjectionModeName(cfg.zone_projection_mode)
+         + "*nodeCappedInvalidateOnTouchCandle=" + IntegerToString(cfg.node_capped_invalidate_on_touch_candle ? 1 : 0)
          + "*boxNamePolicy=NODE_TIME_ENTRY_TIME_PRICE_SIDE_NO_REVISIT_ID"
          + "*lifecycle=UPSERT_VALID_BOXES_DELETE_ONLY_INVALID_BACK_HIT_BEFORE_MAX"
          + "*tickExecution=OFF");

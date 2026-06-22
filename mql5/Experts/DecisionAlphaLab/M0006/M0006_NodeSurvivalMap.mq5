@@ -3,8 +3,8 @@
 //| Boxes only. New-bar only. M0001 is the source of truth.            |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.28"
-#property description "Fast H0006 valid-zone boxes: invalidate on zone-back hit before max horizon"
+#property version   "1.29"
+#property description "Fast H0006 valid-zone boxes with selectable full/node-capped zone projection"
 
 #include <DecisionAlphaLab/M0006/DAL_M0006AllNodeReactionBoxes.mqh>
 
@@ -16,6 +16,8 @@ input int InpH6UpdateEveryNBars = 1;              // 1 = every new candle
 input int InpL = 5;
 
 input double InpM0001ZoneRatio = 0.90;
+input ENUM_DALM0006ZoneProjectionMode InpH6ZoneProjectionMode = DAL_M0006_ZONE_FULL_M0001_TERRITORY;
+input bool InpH6NodeCappedInvalidateOnTouchCandle = true; // NODE_CAPPED: node-price hit on touch candle kills the box
 input int InpM0001ExitGap = 6;
 input ENUM_DALM0001ConsumeMode InpM0001ConsumeMode = DAL_M0001_CONSUME_BY_HUNT;
 input int InpM0001MaxEvents = 0;                 // 0 = all events
@@ -46,7 +48,7 @@ input color InpH6ColorRed = clrRed;
 input color InpH6ColorGreen = clrLime;
 input color InpH6ColorPurple = clrPurple;
 
-#define DAL_M0006_NODE_BUILD "1.28"
+#define DAL_M0006_NODE_BUILD "1.29"
 
 datetime g_m6_last_bar_time = 0;
 int g_m6_new_bar_counter = 0;
@@ -74,6 +76,8 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
    cfg.L = MathMax(1, InpL);
 
    cfg.m0001_zone_ratio = MathMax(0.0, MathMin(0.9999, InpM0001ZoneRatio));
+   cfg.zone_projection_mode = InpH6ZoneProjectionMode;
+   cfg.node_capped_invalidate_on_touch_candle = InpH6NodeCappedInvalidateOnTouchCandle;
    cfg.m0001_exit_gap = MathMax(1, InpM0001ExitGap);
    cfg.m0001_consume_mode = InpM0001ConsumeMode;
    cfg.m0001_max_events = MathMax(0, InpM0001MaxEvents);
@@ -116,7 +120,9 @@ void RunM0006NodeSurvivalMap(const int bars_override = -1, const string run_mode
          + "*colorAgePolicy=DYNAMIC_CHECK_UNTIL_ZONE_BACK_HIT_OR_PURPLE"
          + "*includeLiveBar=" + IntegerToString(InpH6IncludeLiveBar ? 1 : 0)
          + "*colorMonotonic=" + IntegerToString(InpH6NeverDowngradeBoxColor ? 1 : 0)
-         + "*invalidBackHitPolicy=" + IntegerToString(InpH6InvalidateOnZoneBackHitBeforeMax ? 1 : 0));
+         + "*invalidBackHitPolicy=" + IntegerToString(InpH6InvalidateOnZoneBackHitBeforeMax ? 1 : 0)
+         + "*zoneProjectionMode=" + DAL_M0006FastZoneProjectionModeName(cfg.zone_projection_mode)
+         + "*nodeCappedInvalidateOnTouchCandle=" + IntegerToString(InpH6NodeCappedInvalidateOnTouchCandle ? 1 : 0));
    }
 
    DAL_M0006FastDrawEventBoxes(cfg);
