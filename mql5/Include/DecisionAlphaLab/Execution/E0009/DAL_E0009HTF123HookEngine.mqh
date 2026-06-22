@@ -185,37 +185,6 @@ bool DAL_E0009BuildNodeZoneLive(
    return (upper > lower);
 }
 
-bool DAL_E0009FindLatestHookForDirection(
-   const DALLRuleNode &nodes[],
-   const int nodes_count,
-   const int trade_direction,
-   const datetime after_time,
-   const int max_hook_age_bars,
-   const int current_index,
-   DALLRuleNode &hook
-)
-{
-   ENUM_DALNodeType wanted = (trade_direction > 0 ? DAL_NODE_LOW : DAL_NODE_HIGH);
-
-   for(int i = nodes_count - 1; i >= 0; i--)
-   {
-      DALLRuleNode n = nodes[i];
-      if(!n.confirmed)
-         continue;
-      if(n.type != wanted)
-         continue;
-      if(after_time > 0 && n.active_from_time <= after_time)
-         continue;
-      if(max_hook_age_bars > 0 && current_index - n.active_from_index > max_hook_age_bars)
-         continue;
-
-      hook = n;
-      return true;
-   }
-
-   return false;
-}
-
 int DAL_E0009TradeDirectionFrom123(
    const DALE0009HTF123State &state,
    const ENUM_DAL_E0009_COUNTER_MODE mode
@@ -238,12 +207,52 @@ int DAL_E0009TradeDirectionFrom123(
    return 0;
 }
 
-bool DAL_E0009BuildHookSignal(
+ENUM_DAL_E0009_SIGNAL_ORDER_KIND DAL_E0009ResolveOrderKind(
+   const string symbol,
+   const int direction,
+   const double trigger_price,
+   const ENUM_DAL_E0009_ORDER_MODE mode
+)
+{
+   if(mode == DAL_E0009_ORDER_MARKET_ON_CONFIRM)
+      return DAL_E0009_KIND_MARKET;
+   if(mode == DAL_E0009_ORDER_LIMIT_REVISIT)
+      return DAL_E0009_KIND_LIMIT;
+   if(mode == DAL_E0009_ORDER_STOP_RECLAIM)
+      return DAL_E0009_KIND_STOP;
+
+   // AUTO:
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   int stops_level = (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   double min_dist = MathMax(point, stops_level * point);
+
+   if(direction > 0)
+   {
+      if(trigger_price < ask - min_dist)
+         return DAL_E0009_KIND_LIMIT;
+      if(trigger_price > ask + min_dist)
+         return DAL_E0009_KIND_STOP;
+      return DAL_E0009_KIND_MARKET;
+   }
+   else if(direction < 0)
+   {
+      if(trigger_price > bid + min_dist)
+         return DAL_E0009_KIND_LIMIT;
+      if(trigger_price < bid - min_dist)
+         return DAL_E0009_KIND_STOP;
+      return DAL_E0009_KIND_MARKET;
+   }
+
+   return DAL_E0009_KIND_NONE;
+}
+
+bool DAL_E0009BuildHookSignalFromNode(
    const string symbol,
    const DALBar &m1_bars[],
    const int m1_bars_count,
-   const DALLRuleNode &m1_nodes[],
-   const int m1_nodes_count,
+   const DALLRuleNode &hook,
    const DALE0009HTF123State &htf123,
    const int trade_direction,
    const DALE0009Config &cfg,
@@ -263,15 +272,6 @@ bool DAL_E0009BuildHookSignal(
       return false;
    }
 
-   DALLRuleNode hook;
-   datetime after_time = (cfg.require_fresh_m1_hook_after_htf_close ? htf123.closed_time : 0);
-   if(!DAL_E0009FindLatestHookForDirection(m1_nodes, m1_nodes_count, trade_direction, after_time,
-                                           cfg.m1_max_hook_age_bars, m1_bars_count - 1, hook))
-   {
-      out.reason = "m1_hook_missing";
-      return false;
-   }
-
    double lower = 0.0, upper = 0.0;
    bool hunted = false;
    if(!DAL_E0009BuildNodeZoneLive(m1_bars, m1_bars_count, hook, cfg.zone_ratio, lower, upper, hunted))
@@ -280,7 +280,7 @@ bool DAL_E0009BuildHookSignal(
       return false;
    }
 
-   if(hunted)
+   if(cfg.reject_hunted_m1_hook && hunted)
    {
       out.reason = "hook_already_hunted";
       return false;
@@ -288,22 +288,37 @@ bool DAL_E0009BuildHookSignal(
 
    double spread = DAL_E0009SpreadPrice(symbol);
    out.direction = trade_direction;
+   out.order_mode = cfg.order_mode;
    out.hook_node = hook;
    out.zone_lower = lower;
    out.zone_upper = upper;
 
+   double trigger_price = 0.0;
+
    if(trade_direction > 0)
    {
       // BUY on a LOW hook.
-      out.entry = upper + spread * MathMax(0.0, cfg.buy_entry_spread_mult);
+      trigger_price = upper + spread * MathMax(0.0, cfg.buy_entry_spread_mult);
       out.sl = hook.price;
    }
    else
    {
       // SELL on a HIGH hook.
-      out.entry = lower;
+      trigger_price = lower;
       out.sl = hook.price + spread * MathMax(0.0, cfg.sell_stop_spread_mult);
    }
+
+   out.order_kind = DAL_E0009ResolveOrderKind(symbol, trade_direction, trigger_price, cfg.order_mode);
+
+   if(out.order_kind == DAL_E0009_KIND_MARKET)
+   {
+      if(trade_direction > 0)
+         out.entry = SymbolInfoDouble(symbol, SYMBOL_ASK);
+      else
+         out.entry = SymbolInfoDouble(symbol, SYMBOL_BID);
+   }
+   else
+      out.entry = trigger_price;
 
    int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
    out.entry = NormalizeDouble(out.entry, digits);
@@ -331,28 +346,87 @@ bool DAL_E0009BuildHookSignal(
       out.tp = NormalizeDouble(htf123.p2.price, digits);
       out.potential_r = MathAbs(out.tp - out.entry) / out.risk_distance;
    }
-   else if(cfg.exit_mode == DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING)
-   {
-      // Dynamic exit: TP is not known at order placement.
-      // After the position opens, TP is moved on the HTF that produced the 123:
-      // BUY  -> N-th confirmed HTF HIGH after entry.
-      // SELL -> N-th confirmed HTF LOW after entry.
-      out.tp = 0.0;
-      out.potential_r = 0.0;
-   }
    else
    {
+      // Dynamic HTF swing TP or no TP at order placement.
       out.tp = 0.0;
       out.potential_r = 0.0;
    }
 
    out.comment = "DALE9_123_" + IntegerToString((int)htf123.direction)
       + "_P3_" + IntegerToString(htf123.p3.id)
-      + "_H_" + IntegerToString(hook.id);
+      + "_H_" + IntegerToString(hook.id)
+      + "_" + DAL_E0009OrderKindName(out.order_kind);
 
    out.valid = true;
    out.reason = "ok";
    return true;
+}
+
+int DAL_E0009CollectHookSignals(
+   const string symbol,
+   const DALBar &m1_bars[],
+   const int m1_bars_count,
+   const DALLRuleNode &m1_nodes[],
+   const int m1_nodes_count,
+   const DALE0009HTF123State &htf123,
+   const int trade_direction,
+   const DALE0009Config &cfg,
+   DALE0009HookSignal &signals[],
+   DALE0009Diagnostics &diag
+)
+{
+   ArrayResize(signals, 0);
+
+   if(!htf123.valid || trade_direction == 0)
+      return 0;
+
+   ENUM_DALNodeType wanted = (trade_direction > 0 ? DAL_NODE_LOW : DAL_NODE_HIGH);
+   datetime after_time = (cfg.require_fresh_m1_hook_after_htf_close ? htf123.closed_time : 0);
+   int max_count = MathMax(1, cfg.max_hook_candidates_per_bar);
+
+   for(int i = m1_nodes_count - 1; i >= 0; i--)
+   {
+      DALLRuleNode n = m1_nodes[i];
+      if(!n.confirmed)
+         continue;
+      if(n.type != wanted)
+         continue;
+
+      diag.hook_seen++;
+
+      if(after_time > 0 && n.active_from_time <= after_time)
+      {
+         diag.hook_after_time_reject++;
+         continue;
+      }
+
+      if(cfg.m1_max_hook_age_bars > 0 && (m1_bars_count - 1 - n.active_from_index) > cfg.m1_max_hook_age_bars)
+      {
+         diag.hook_age_reject++;
+         continue;
+      }
+
+      DALE0009HookSignal sig;
+      if(!DAL_E0009BuildHookSignalFromNode(symbol, m1_bars, m1_bars_count, n, htf123, trade_direction, cfg, sig))
+      {
+         if(sig.reason == "hook_zone_failed")
+            diag.hook_zone_failed++;
+         else if(sig.reason == "hook_already_hunted")
+            diag.hook_hunted_reject++;
+         continue;
+      }
+
+      int k = ArraySize(signals);
+      ArrayResize(signals, k + 1);
+      signals[k] = sig;
+      diag.hook_built++;
+
+      if(ArraySize(signals) >= max_count)
+         break;
+   }
+
+   return ArraySize(signals);
 }
 
 #endif

@@ -154,3 +154,73 @@ TP = 3rd HTF LOW
 ```
 
 TP is usually not known at order placement. The EA leaves TP empty at entry and updates the open position when the required HTF swing node becomes confirmed.
+
+## Release 103 — why no trades were appearing
+
+The first E0009 versions could easily show no trades because:
+
+```text
+1. InpTradingEnabled was false by default.
+2. Only the latest M1 hook was checked.
+3. Only LIMIT orders were supported.
+4. If the latest hook was hunted/invalid, every other hook was ignored.
+5. Reject reasons were mostly hidden unless reject logs were enabled.
+```
+
+Release 103 fixes the execution shell:
+
+```text
+InpOrderMode = DAL_E0009_ORDER_AUTO
+InpMaxHookCandidatesPerBar = 6
+InpPrintRejectLogs = true
+```
+
+### Order modes
+
+```text
+DAL_E0009_ORDER_LIMIT_REVISIT
+DAL_E0009_ORDER_STOP_RECLAIM
+DAL_E0009_ORDER_MARKET_ON_CONFIRM
+DAL_E0009_ORDER_AUTO
+```
+
+`AUTO` chooses:
+
+```text
+BUY:
+    trigger below Ask  -> BUY LIMIT
+    trigger above Ask  -> BUY STOP
+    trigger near Ask   -> BUY MARKET
+
+SELL:
+    trigger above Bid  -> SELL LIMIT
+    trigger below Bid  -> SELL STOP
+    trigger near Bid   -> SELL MARKET
+```
+
+### Multiple hook scan
+
+Instead of checking only the latest M1 hook, release 103 scans the latest eligible hooks:
+
+```text
+InpMaxHookCandidatesPerBar = 6
+```
+
+### Debug counters
+
+The audit line now prints:
+
+```text
+hookSeen
+hookAfterTimeReject
+hookAgeReject
+hookZoneFail
+hookHuntedReject
+hookBuilt
+geometryReject
+riskReject
+capReject
+duplicateSkip
+```
+
+These counters show exactly where the EA is blocking trades.

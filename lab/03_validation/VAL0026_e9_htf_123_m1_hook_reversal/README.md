@@ -64,3 +64,33 @@ Expected behavior:
 BUY  -> TP is moved to 3rd confirmed HTF HIGH after entry
 SELL -> TP is moved to 3rd confirmed HTF LOW after entry
 ```
+
+## Release 103 no-trade diagnostic test
+
+First run plan-only:
+
+```text
+InpTradingEnabled = false
+InpOrderMode = DAL_E0009_ORDER_AUTO
+InpMaxHookCandidatesPerBar = 6
+InpPrintRejectLogs = true
+InpRejectHuntedM1Hook = true
+```
+
+If `hookHuntedReject` is high, test:
+
+```text
+InpRejectHuntedM1Hook = false
+```
+
+If `geometryReject` is high, test:
+
+```text
+InpOrderMode = DAL_E0009_ORDER_AUTO
+```
+
+If `sentOrPlan` is positive but no real trades are sent:
+
+```text
+InpTradingEnabled = true
+```

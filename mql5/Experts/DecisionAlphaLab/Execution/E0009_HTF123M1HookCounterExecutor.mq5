@@ -1,10 +1,10 @@
 //+------------------------------------------------------------------+
 //| Decision Alpha Lab — E0009 HTF 123 M1 Hook Counter Executor       |
-//| Simple model: closed HTF 123 -> counter-direction M1 hook entries |
+//| Simple model: 3 HTF highs/lows -> counter entries on M1 hooks     |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
-#property description "E0009: HTF 3-swing counter entries with HTF third-opposite-swing TP."
+#property version   "1.03"
+#property description "E0009: HTF 3-swing counter entries on multiple M1 hooks with AUTO/LIMIT/STOP/MARKET execution."
 
 #include <Trade/Trade.mqh>
 #include <DecisionAlphaLab/Market/DAL_Bars.mqh>
@@ -26,8 +26,11 @@ input double InpZoneRatio = 0.90;
 input int InpHTF123MaxAgeBars = 200;
 input int InpM1HookMaxAgeBars = 80;
 input bool InpRequireFreshM1HookAfterHTF123Close = true;
+input bool InpRejectHuntedM1Hook = true;
+input int InpMaxHookCandidatesPerBar = 6;
 
 input ENUM_DAL_E0009_COUNTER_MODE InpCounterMode = DAL_E0009_COUNTER_OPPOSITE_123;
+input ENUM_DAL_E0009_ORDER_MODE InpOrderMode = DAL_E0009_ORDER_AUTO;
 input ENUM_DAL_E0009_EXIT_MODE InpExitMode = DAL_E0009_EXIT_HTF_THIRD_OPPOSITE_SWING;
 input double InpFixedR = 50.0;
 input int InpHTFTpSwingCount = 3;
@@ -47,9 +50,9 @@ input bool InpTradingEnabled = false;
 input bool InpRunOnInit = true;
 input int InpUpdateEveryNM1Bars = 1;
 input bool InpPrintLogs = true;
-input bool InpPrintRejectLogs = false;
+input bool InpPrintRejectLogs = true;
 
-#define DAL_E0009_BUILD "1.02"
+#define DAL_E0009_BUILD "1.03"
 
 CTrade g_trade;
 datetime g_last_execution_open_time = 0;
@@ -78,11 +81,14 @@ DALE0009Config E0009_Config()
    c.fixed_r = MathMax(0.0, InpFixedR);
    c.htf_tp_swing_count = MathMax(1, InpHTFTpSwingCount);
    c.require_fresh_m1_hook_after_htf_close = InpRequireFreshM1HookAfterHTF123Close;
+   c.reject_hunted_m1_hook = InpRejectHuntedM1Hook;
+   c.max_hook_candidates_per_bar = MathMax(1, InpMaxHookCandidatesPerBar);
    c.one_order_per_hook = true;
    c.buy_entry_spread_mult = MathMax(0.0, InpBuyEntrySpreadMultiplier);
    c.sell_stop_spread_mult = MathMax(0.0, InpSellStopSpreadMultiplier);
    c.counter_mode = InpCounterMode;
    c.exit_mode = InpExitMode;
+   c.order_mode = InpOrderMode;
    return c;
 }
 
@@ -129,6 +135,8 @@ void E0009_Process(const string run_mode)
 {
    string symbol = E0009_Symbol();
    DALE0009Config cfg = E0009_Config();
+   DALE0009Diagnostics diag;
+   DAL_E0009_ResetDiagnostics(diag);
 
    bool htf_ok = E0009_UpdateHTF123Cache(symbol, cfg, run_mode == "INIT");
 
@@ -141,6 +149,7 @@ void E0009_Process(const string run_mode)
 
    if(!htf_ok || !g_htf123_cache.valid)
    {
+      diag.htf_missing++;
       if(InpPrintLogs && InpPrintRejectLogs)
          Print("DAL_E0009_SKIP *** build=", DAL_E0009_BUILD,
             "*runMode=", run_mode,
@@ -148,6 +157,7 @@ void E0009_Process(const string run_mode)
             "*detail=", g_htf123_cache.reason);
       return;
    }
+   diag.htf_ok++;
 
    DALBar m1_bars[];
    DALLRuleNode m1_nodes[];
@@ -156,10 +166,12 @@ void E0009_Process(const string run_mode)
 
    if(!DAL_E0009LoadNodes(symbol, InpExecutionTF, MathMax(200, InpM1Bars), cfg.m1_L, m1_bars, m1_bars_count, m1_nodes, m1_nodes_count, reason))
    {
+      diag.m1_map_failed++;
       if(InpPrintLogs && InpPrintRejectLogs)
          Print("DAL_E0009_SKIP *** build=", DAL_E0009_BUILD, "*runMode=", run_mode, "*reason=m1_map_failed_", reason);
       return;
    }
+   diag.m1_map_ok++;
 
    int directions[2];
    int dir_count = 1;
@@ -179,60 +191,76 @@ void E0009_Process(const string run_mode)
    for(int i = 0; i < dir_count; i++)
    {
       int trade_direction = directions[i];
-      DALE0009HookSignal sig;
 
-      if(!DAL_E0009BuildHookSignal(symbol, m1_bars, m1_bars_count, m1_nodes, m1_nodes_count,
-                                   g_htf123_cache, trade_direction, cfg, sig))
+      DALE0009HookSignal signals[];
+      int signals_count = DAL_E0009CollectHookSignals(symbol, m1_bars, m1_bars_count, m1_nodes, m1_nodes_count,
+                                                       g_htf123_cache, trade_direction, cfg, signals, diag);
+
+      if(signals_count <= 0)
       {
          rejected++;
          if(InpPrintLogs && InpPrintRejectLogs)
             Print("DAL_E0009_HOOK_REJECT *** build=", DAL_E0009_BUILD,
                "*dir=", trade_direction,
-               "*reason=", sig.reason,
-               "*htf123=", DAL_E0009DirectionName(g_htf123_cache.direction));
+               "*reason=no_valid_hook_signal",
+               "*htf123=", DAL_E0009DirectionName(g_htf123_cache.direction),
+               "*seen=", diag.hook_seen,
+               "*afterTimeReject=", diag.hook_after_time_reject,
+               "*ageReject=", diag.hook_age_reject,
+               "*zoneFail=", diag.hook_zone_failed,
+               "*huntedReject=", diag.hook_hunted_reject);
          continue;
       }
 
-      planned++;
-
-      string send_reason = "plan_only";
-      bool ok = true;
-      if(InpTradingEnabled)
-         ok = DAL_E0009SendHookLimit(symbol, InpMagicNumber, InpOrderCommentPrefix,
-                                     InpRiskCash, InpCommissionPerLotRoundTurn,
-                                     InpAllowMinLotIfRiskTooSmall,
-                                     InpMaxPendingPerSide, InpMaxPositionsPerSide,
-                                     sig, g_trade, send_reason);
-
-      if(ok)
+      for(int s = 0; s < signals_count; s++)
       {
-         sent++;
-         if(InpPrintLogs)
-            Print("DAL_E0009_PLAN *** build=", DAL_E0009_BUILD,
-               "*runMode=", run_mode,
-               "*htfTF=", EnumToString(InpHTFTimeframe),
-               "*htf123=", DAL_E0009DirectionName(g_htf123_cache.direction),
-               "*p1=", DoubleToString(g_htf123_cache.p1.price, _Digits),
-               "*p2=", DoubleToString(g_htf123_cache.p2.price, _Digits),
-               "*p3=", DoubleToString(g_htf123_cache.p3.price, _Digits),
-               "*tradeDir=", sig.direction,
-               "*hookNode=", sig.hook_node.id,
-               "*hookType=", (sig.hook_node.type == DAL_NODE_LOW ? "LOW" : "HIGH"),
-               "*entry=", DoubleToString(sig.entry, _Digits),
-               "*sl=", DoubleToString(sig.sl, _Digits),
-               "*tp=", DoubleToString(sig.tp, _Digits),
-               "*risk=", DoubleToString(sig.risk_distance, _Digits),
-               "*R=", DoubleToString(sig.potential_r, 2),
-               "*comment=", sig.comment,
-               "*send=", send_reason);
-      }
-      else
-      {
-         rejected++;
-         if(InpPrintLogs && InpPrintRejectLogs)
-            Print("DAL_E0009_SEND_REJECT *** build=", DAL_E0009_BUILD,
-               "*reason=", send_reason,
-               "*comment=", sig.comment);
+         DALE0009HookSignal sig = signals[s];
+         planned++;
+         diag.planned++;
+
+         string send_reason = "plan_only";
+         bool ok = true;
+         if(InpTradingEnabled)
+            ok = DAL_E0009SendHookOrder(symbol, InpMagicNumber, InpOrderCommentPrefix,
+                                        InpRiskCash, InpCommissionPerLotRoundTurn,
+                                        InpAllowMinLotIfRiskTooSmall,
+                                        InpMaxPendingPerSide, InpMaxPositionsPerSide,
+                                        sig, g_trade, send_reason, diag);
+
+         if(ok)
+         {
+            sent++;
+            diag.sent_or_plan++;
+            if(InpPrintLogs)
+               Print("DAL_E0009_PLAN *** build=", DAL_E0009_BUILD,
+                  "*runMode=", run_mode,
+                  "*htfTF=", EnumToString(InpHTFTimeframe),
+                  "*htf123=", DAL_E0009DirectionName(g_htf123_cache.direction),
+                  "*p1=", DoubleToString(g_htf123_cache.p1.price, _Digits),
+                  "*p2=", DoubleToString(g_htf123_cache.p2.price, _Digits),
+                  "*p3=", DoubleToString(g_htf123_cache.p3.price, _Digits),
+                  "*tradeDir=", sig.direction,
+                  "*hookNode=", sig.hook_node.id,
+                  "*hookType=", (sig.hook_node.type == DAL_NODE_LOW ? "LOW" : "HIGH"),
+                  "*orderMode=", DAL_E0009OrderModeName(sig.order_mode),
+                  "*orderKind=", DAL_E0009OrderKindName(sig.order_kind),
+                  "*entry=", DoubleToString(sig.entry, _Digits),
+                  "*sl=", DoubleToString(sig.sl, _Digits),
+                  "*tp=", DoubleToString(sig.tp, _Digits),
+                  "*risk=", DoubleToString(sig.risk_distance, _Digits),
+                  "*R=", DoubleToString(sig.potential_r, 2),
+                  "*comment=", sig.comment,
+                  "*send=", send_reason);
+         }
+         else
+         {
+            rejected++;
+            if(InpPrintLogs && InpPrintRejectLogs)
+               Print("DAL_E0009_SEND_REJECT *** build=", DAL_E0009_BUILD,
+                  "*reason=", send_reason,
+                  "*comment=", sig.comment,
+                  "*orderKind=", DAL_E0009OrderKindName(sig.order_kind));
+         }
       }
    }
 
@@ -248,9 +276,20 @@ void E0009_Process(const string run_mode)
          "*htf123=", DAL_E0009DirectionName(g_htf123_cache.direction),
          "*htfAge=", g_htf123_cache.age_bars,
          "*closedTime=", TimeToString(g_htf123_cache.closed_time),
+         "*orderMode=", DAL_E0009OrderModeName(cfg.order_mode),
          "*exitMode=", DAL_E0009ExitModeName(cfg.exit_mode),
          "*fixedR=", DoubleToString(cfg.fixed_r, 2),
          "*htfTpSwingCount=", cfg.htf_tp_swing_count,
+         "*hookSeen=", diag.hook_seen,
+         "*hookAfterTimeReject=", diag.hook_after_time_reject,
+         "*hookAgeReject=", diag.hook_age_reject,
+         "*hookZoneFail=", diag.hook_zone_failed,
+         "*hookHuntedReject=", diag.hook_hunted_reject,
+         "*hookBuilt=", diag.hook_built,
+         "*geometryReject=", diag.geometry_reject,
+         "*riskReject=", diag.risk_reject,
+         "*capReject=", diag.cap_reject,
+         "*duplicateSkip=", diag.duplicate_skip,
          "*tpChecked=", tp_checked,
          "*tpModified=", tp_modified,
          "*tpWaiting=", tp_waiting,
@@ -275,6 +314,7 @@ int OnInit()
       "*htf=", EnumToString(InpHTFTimeframe),
       "*execTF=", EnumToString(InpExecutionTF),
       "*counterMode=", (InpCounterMode == DAL_E0009_COUNTER_OPPOSITE_123 ? "OPPOSITE_123" : "BOTH_FOR_TEST"),
+      "*orderMode=", DAL_E0009OrderModeName(InpOrderMode),
       "*exitMode=", DAL_E0009ExitModeName(InpExitMode),
       "*tradingEnabled=", DAL_BoolToString(InpTradingEnabled));
 

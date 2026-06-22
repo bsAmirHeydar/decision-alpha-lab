@@ -8,8 +8,10 @@
 
 int DAL_E0009DirectionFromOrderType(const ENUM_ORDER_TYPE t)
 {
-   if(t == ORDER_TYPE_BUY_LIMIT) return +1;
-   if(t == ORDER_TYPE_SELL_LIMIT) return -1;
+   if(t == ORDER_TYPE_BUY_LIMIT || t == ORDER_TYPE_BUY_STOP)
+      return +1;
+   if(t == ORDER_TYPE_SELL_LIMIT || t == ORDER_TYPE_SELL_STOP)
+      return -1;
    return 0;
 }
 
@@ -45,7 +47,7 @@ int DAL_E0009CountPendingByDirection(const string symbol, const long magic, cons
          continue;
 
       ENUM_ORDER_TYPE t = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
-      if(!DAL_ExecOrderIsPendingLimit(t))
+      if(!DAL_ExecOrderIsPendingLimit(t) && t != ORDER_TYPE_BUY_STOP && t != ORDER_TYPE_SELL_STOP)
          continue;
       if(DAL_E0009DirectionFromOrderType(t) != direction)
          continue;
@@ -89,12 +91,9 @@ int DAL_E0009CountPositionsByDirection(const string symbol, const long magic, co
    return count;
 }
 
-bool DAL_E0009CheckLimitGeometry(
+bool DAL_E0009CheckOrderGeometry(
    const string symbol,
-   const int direction,
-   const double entry,
-   const double sl,
-   const double tp,
+   const DALE0009HookSignal &signal,
    string &reason
 )
 {
@@ -110,6 +109,11 @@ bool DAL_E0009CheckLimitGeometry(
       return false;
    }
 
+   int direction = signal.direction;
+   double entry = signal.entry;
+   double sl = signal.sl;
+   double tp = signal.tp;
+
    if(direction > 0)
    {
       if(!(sl < entry))
@@ -122,9 +126,15 @@ bool DAL_E0009CheckLimitGeometry(
          reason = "bad_buy_tp";
          return false;
       }
-      if(!(entry < ask - min_dist))
+
+      if(signal.order_kind == DAL_E0009_KIND_LIMIT && !(entry < ask - min_dist))
       {
          reason = "buy_limit_not_below_ask";
+         return false;
+      }
+      if(signal.order_kind == DAL_E0009_KIND_STOP && !(entry > ask + min_dist))
+      {
+         reason = "buy_stop_not_above_ask";
          return false;
       }
    }
@@ -140,9 +150,15 @@ bool DAL_E0009CheckLimitGeometry(
          reason = "bad_sell_tp";
          return false;
       }
-      if(!(entry > bid + min_dist))
+
+      if(signal.order_kind == DAL_E0009_KIND_LIMIT && !(entry > bid + min_dist))
       {
          reason = "sell_limit_not_above_bid";
+         return false;
+      }
+      if(signal.order_kind == DAL_E0009_KIND_STOP && !(entry < bid - min_dist))
+      {
+         reason = "sell_stop_not_below_bid";
          return false;
       }
    }
@@ -156,7 +172,7 @@ bool DAL_E0009CheckLimitGeometry(
    return true;
 }
 
-bool DAL_E0009SendHookLimit(
+bool DAL_E0009SendHookOrder(
    const string symbol,
    const long magic,
    const string prefix,
@@ -167,7 +183,8 @@ bool DAL_E0009SendHookLimit(
    const int max_positions_per_side,
    const DALE0009HookSignal &signal,
    CTrade &trade,
-   string &reason
+   string &reason,
+   DALE0009Diagnostics &diag
 )
 {
    if(!signal.valid)
@@ -179,25 +196,31 @@ bool DAL_E0009SendHookLimit(
    if(DAL_E0009PendingExistsByComment(symbol, magic, signal.comment))
    {
       reason = "existing_pending_same_hook";
+      diag.duplicate_skip++;
       return true;
    }
 
-   if(max_pending_per_side > 0 && DAL_E0009CountPendingByDirection(symbol, magic, signal.direction, prefix) >= max_pending_per_side)
+   bool is_market = (signal.order_kind == DAL_E0009_KIND_MARKET);
+
+   if(!is_market && max_pending_per_side > 0 && DAL_E0009CountPendingByDirection(symbol, magic, signal.direction, prefix) >= max_pending_per_side)
    {
       reason = "pending_cap";
+      diag.cap_reject++;
       return false;
    }
 
    if(max_positions_per_side > 0 && DAL_E0009CountPositionsByDirection(symbol, magic, signal.direction, prefix) >= max_positions_per_side)
    {
       reason = "position_cap";
+      diag.cap_reject++;
       return false;
    }
 
    string geom = "";
-   if(!DAL_E0009CheckLimitGeometry(symbol, signal.direction, signal.entry, signal.sl, signal.tp, geom))
+   if(!DAL_E0009CheckOrderGeometry(symbol, signal, geom))
    {
       reason = "geometry_" + geom;
+      diag.geometry_reject++;
       return false;
    }
 
@@ -205,16 +228,34 @@ bool DAL_E0009SendHookLimit(
    if(!DAL_ExecCalculateRiskVolume(symbol, signal.entry, signal.sl, risk_cash, commission_per_lot, allow_min_lot, risk))
    {
       reason = "risk_" + risk.reason;
+      diag.risk_reject++;
       return false;
    }
 
    trade.SetExpertMagicNumber(magic);
 
    bool ok = false;
-   if(signal.direction > 0)
-      ok = trade.BuyLimit(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
-   else
-      ok = trade.SellLimit(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
+   if(signal.order_kind == DAL_E0009_KIND_MARKET)
+   {
+      if(signal.direction > 0)
+         ok = trade.Buy(risk.volume, symbol, 0.0, signal.sl, signal.tp, signal.comment);
+      else
+         ok = trade.Sell(risk.volume, symbol, 0.0, signal.sl, signal.tp, signal.comment);
+   }
+   else if(signal.order_kind == DAL_E0009_KIND_STOP)
+   {
+      if(signal.direction > 0)
+         ok = trade.BuyStop(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
+      else
+         ok = trade.SellStop(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
+   }
+   else if(signal.order_kind == DAL_E0009_KIND_LIMIT)
+   {
+      if(signal.direction > 0)
+         ok = trade.BuyLimit(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
+      else
+         ok = trade.SellLimit(risk.volume, signal.entry, symbol, signal.sl, signal.tp, ORDER_TIME_GTC, 0, signal.comment);
+   }
 
    if(!ok)
    {
@@ -222,7 +263,7 @@ bool DAL_E0009SendHookLimit(
       return false;
    }
 
-   reason = "ok_ticket_" + IntegerToString((int)trade.ResultOrder());
+   reason = "ok_ticket_" + IntegerToString((int)(is_market ? trade.ResultDeal() : trade.ResultOrder()));
    return true;
 }
 
@@ -399,6 +440,5 @@ void DAL_E0009SyncHTFThirdSwingTP(
          rejected++;
    }
 }
-
 
 #endif
