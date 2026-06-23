@@ -2,7 +2,7 @@ M0007:
   title: Adaptive F1 Flag Counting
   status: draft
   platform: mql5
-  expert: mql5/Experts/M0007_FlagCountingF1/DAL_M0007_F1_Adaptive_Draw.mq5
-  include: mql5/Include/M0007_FlagCountingF1
+  expert: mql5/Experts/M0007/M0007_FlagCountingF1.mq5
+  include: mql5/Include/M0007
   trading: false
   purpose: visual_audit

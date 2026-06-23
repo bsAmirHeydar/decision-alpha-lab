@@ -5,11 +5,11 @@
 The module is placed using the clean M-series folder convention:
 
 ```text
-mql5/Experts/M0007_FlagCountingF1/DAL_M0007_F1_Adaptive_Draw.mq5
-mql5/Include/M0007_FlagCountingF1/DAL_M0007_F1_Types.mqh
-mql5/Include/M0007_FlagCountingF1/DAL_M0007_F1_NodeDetector.mqh
-mql5/Include/M0007_FlagCountingF1/DAL_M0007_F1_Detector.mqh
-mql5/Include/M0007_FlagCountingF1/DAL_M0007_F1_Renderer.mqh
+mql5/Experts/M0007/M0007_FlagCountingF1.mq5
+mql5/Include/M0007/DAL_M0007F1Types.mqh
+mql5/Include/M0007/DAL_M0007F1NodeDetector.mqh
+mql5/Include/M0007/DAL_M0007F1Detector.mqh
+mql5/Include/M0007/DAL_M0007F1Renderer.mqh
 ```
 
 No folder repeats the project name. The project root already carries that identity.
