@@ -8,7 +8,7 @@
 
 ## MQL5 execution modules
 
-- H0007 — `mql5/Experts/DecisionAlphaLab/H0007_F1_Adaptive_Draw.mq5`
+- H0007 — `mql5/Experts/DecisionAlphaLab/DAL_M0007_H0007_F1_Adaptive_Draw.mq5`
 
 ## MQL5 documentation
 

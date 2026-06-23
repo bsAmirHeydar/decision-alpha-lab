@@ -1,116 +1,40 @@
-# H0007 — F1 Adaptive Flag Counting / Native MQL5 Implementation
+# H0007 / M0007 — F1 Adaptive Flag Counting MQL5 Implementation
 
-This is the MQL5-native implementation of the H0007 F1 grammar.
+## Correct folder structure
 
-No Python module is required.
+The implementation follows the DecisionAlphaLab MQL5 layout:
 
-## Correct project location
+```text
+mql5/Experts/DecisionAlphaLab/DAL_M0007_H0007_F1_Adaptive_Draw.mq5
+mql5/Include/DecisionAlphaLab/H0007_FlagCountingF1/H0007_F1_Types.mqh
+mql5/Include/DecisionAlphaLab/H0007_FlagCountingF1/H0007_F1_NodeDetector.mqh
+mql5/Include/DecisionAlphaLab/H0007_FlagCountingF1/H0007_F1_Detector.mqh
+mql5/Include/DecisionAlphaLab/H0007_FlagCountingF1/H0007_F1_Renderer.mqh
+```
 
-The implementation belongs under the actual project MQL5 tree:
+The EA file stays inside `mql5/Experts/DecisionAlphaLab`.
 
-`mql5/Experts/DecisionAlphaLab/`
+The reusable `.mqh` files stay inside `mql5/Include/DecisionAlphaLab/H0007_FlagCountingF1`.
 
-The main Expert Advisor is:
+## Design
 
-`mql5/Experts/DecisionAlphaLab/H0007_F1_Adaptive_Draw.mq5`
+The module is a native MQL5 visual audit implementation of H0007 F1.
 
-The include files are intentionally kept in the same folder:
+It performs:
 
-- `mql5/Experts/DecisionAlphaLab/H0007_F1_Types.mqh`
-- `mql5/Experts/DecisionAlphaLab/H0007_F1_NodeDetector.mqh`
-- `mql5/Experts/DecisionAlphaLab/H0007_F1_Detector.mqh`
-- `mql5/Experts/DecisionAlphaLab/H0007_F1_Renderer.mqh`
+- adaptive L scanning,
+- L-rule node extraction,
+- bullish and bearish F1 topology detection,
+- protected waist invalidation,
+- R12 internal trigger detection,
+- H2/L2 final confirmation detection,
+- overlap merge between candidate structures,
+- chart drawing of the complete F1 count.
 
-This matches the existing DecisionAlphaLab MQL5 layout and keeps H0007 beside the other MQL execution modules.
+## No trading execution
 
----
+This is not a trading robot.
 
-## Core grammar
+It does not call `OrderSend`, does not place pending orders, does not open positions, and does not define risk logic.
 
-### Bullish F1
-
-`H1 -> W -> H2 -> N1 -> R12 -> N2`
-
-Rules:
-
-- `H2 > H1`
-- `N2 < N1`
-- `N2 > W`
-- `R12 < H2`
-- breaking `R12` only arms the structure
-- breaking `H2` confirms F1
-- breaking `W` before confirmation invalidates F1
-
-### Bearish F1
-
-`L1 -> W -> L2 -> N1 -> R12 -> N2`
-
-Rules:
-
-- `L2 < L1`
-- `N2 > N1`
-- `N2 < W`
-- `R12 > L2`
-- breaking `R12` only arms the structure
-- breaking `L2` confirms F1
-- breaking `W` before confirmation invalidates F1
-
----
-
-## Adaptive L
-
-The detector does not use one fixed `L`.
-
-It scans from `InpLMin` to `InpLMax`, detects valid F1 structures on every local scale, merges overlapping candidates, and records:
-
-- `L_used`: the selected local scale
-- `matched_L_values`: all L values that produced overlapping versions of the same event
-
----
-
-## How to use
-
-Open and compile:
-
-`mql5/Experts/DecisionAlphaLab/H0007_F1_Adaptive_Draw.mq5`
-
-Attach the Expert Advisor to a chart.
-
-The EA draws:
-
-- H1 / L1
-- W
-- H2 / L2
-- N1
-- R12
-- N2
-- protected waist line
-- internal trigger line
-- final confirmation line
-- trigger bar
-- confirmation bar
-- invalidation bar if present
-
----
-
-## Expert behavior
-
-The EA draws once on `OnInit()`.
-
-Optional live redraw can be enabled with:
-
-`InpRedrawOnNewBar = true`
-
-No trades are sent.
-
-No orders are created.
-
-This is a visual audit EA only.
-
----
-
-## Scope
-
-This is still topology-only.
-
-It does not define entry, stop, target, position sizing, expectancy, or live trading behavior.
+Its only purpose is to make F1 mechanically countable and visually auditable before F2 is defined.
