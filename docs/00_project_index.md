@@ -1,15 +1,16 @@
 # Decision Alpha Lab — Project Index
 
-## Hypotheses
+## MQL5 modules
 
-- H0001 — Structural Highs and Lows as Decision Nodes
-- H0002 — Structural Node Territories and Revisitation Dynamics
-- H0007 — Flag Counting / F1 Start Structure
+- M0007 — Adaptive F1 Flag Counting
 
-## MQL5 execution modules
+## Layout convention
 
-- H0007 — `mql5/Experts/DecisionAlphaLab/DAL_M0007_H0007_F1_Adaptive_Draw.mq5`
+Project-name repetition inside MQL folders is avoided.
 
-## MQL5 documentation
+Correct MQL module layout:
 
-- `docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION.md`
+```text
+mql5/Experts/Mxxxx_ModuleName/
+mql5/Include/Mxxxx_ModuleName/
+```
