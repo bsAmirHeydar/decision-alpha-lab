@@ -68,7 +68,7 @@ Official status: reversal appears to be a short reaction edge; continuation appe
 
 Question: can the first flag start structure be counted mechanically from known-time structural nodes?
 
-Official status: design lock. F1 is a protected-waist grammar object. The internal roof/floor between count node 1 and node 2 is only a trigger; final F1 confirmation requires breaking the main second roof/floor. No alpha or execution claim is made yet.
+Official status: design lock. F1 is a protected-waist grammar object. The internal roof/floor between count node 1 and node 2 is only a trigger; final F1 confirmation requires breaking the main second roof/floor. The v0.2 lock additionally requires the internal trigger to remain nested inside the main second extreme: bullish `R12 < H2`, bearish `R12 > L2`. No alpha or execution claim is made yet.
 
 ---
 

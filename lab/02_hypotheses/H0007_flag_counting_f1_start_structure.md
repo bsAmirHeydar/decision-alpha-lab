@@ -2,50 +2,79 @@
 
 H0007 introduces a mechanical grammar for counting the first flag structure, **F1**, from the M0001 known-time structural node stream.
 
-The key design lock is:
-
-> F1 is not confirmed by breaking only the internal roof/floor between count node 1 and count node 2. It must also break the main second roof/floor.
-
 Canonical algorithm README:
 
 ```text
 docs/mql_native/H0007_FLAG_COUNTING_F1_START_STRUCTURE.md
 ```
 
+## Current design lock
+
+F1 is a topology-only object. It is not a trading strategy and makes no win-rate, profit-factor, R-multiple, or execution claim.
+
+The key rules are:
+
+```text
+W is the protected waist.
+N1 and N2 are the open count nodes.
+R12 is only the internal reaction level between 1 and 2.
+R12 must stay inside the main second extreme.
+Breaking R12 only arms the structure.
+Breaking H2/L2 is required for final confirmation.
+```
+
 ## Bullish summary
 
 ```text
-H0 -> W -> H2 -> N1 -> R12 -> N2 -> T12 -> CONF
+H1 -> W -> H2 -> N1 -> R12 -> N2 -> T12 -> CONF
 ```
 
-Where:
+Strict topology:
 
 ```text
-W   = protected waist, must not break
-H2  = main second roof, final confirmation level
-N1  = first internal low
-R12 = roof between N1 and N2, internal trigger only
-N2  = second internal low, lower than N1 but above W
-CONF = break of H2, not merely break of R12
+H2 > H1
+W < H1
+N1 > W
+W < N2 < N1
+N1 < R12 < H2
+T12 = break above R12
+CONF = break above H2
+W must survive until CONF
+```
+
+Meaning:
+
+```text
+R12 must be below H2.
+If R12 reaches or breaks H2 before valid N2 exists, this is not a clean F1.
 ```
 
 ## Bearish summary
 
 ```text
-L0 -> W -> L2 -> N1 -> R12 -> N2 -> T12 -> CONF
+L1 -> W -> L2 -> N1 -> R12 -> N2 -> T12 -> CONF
 ```
 
-Where:
+Strict topology:
 
 ```text
-W   = protected waist, must not break
-L2  = main second floor, final confirmation level
-N1  = first internal high
-R12 = floor between N1 and N2, internal trigger only
-N2  = second internal high, higher than N1 but below W
-CONF = break of L2, not merely break of R12
+L2 < L1
+W > L1
+N1 < W
+W > N2 > N1
+N1 > R12 > L2
+T12 = break below R12
+CONF = break below L2
+W must survive until CONF
+```
+
+Meaning:
+
+```text
+R12 must be above L2.
+If R12 reaches or breaks L2 before valid N2 exists, this is not a clean F1.
 ```
 
 ## Research status
 
-This is a structural counting hypothesis only. It makes no trading, profit-factor, win-rate, or execution claim until the detector is visually audited and compared against null models.
+This is a structural counting hypothesis only. First deliverables are visual audit, raw event export, invalidation/rejection accounting, and random/null comparison readiness.

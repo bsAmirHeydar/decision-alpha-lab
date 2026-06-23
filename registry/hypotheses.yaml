@@ -18,7 +18,7 @@ hypotheses:
 
   - id: H0007
     title: Flag Counting F1 Start Structure
-    status: design_lock
+    status: design_lock_v0_2_nested_r12
     official_expert: mql5/Experts/DecisionAlphaLab/M0007/M0007_FlagCountingF1.mq5
     official_contract: raw_m0001_known_time_node_stream_topological_flag_counting_no_trade
-    purpose: Mechanically count protected-waist F1 start structures from structural nodes before any alpha or execution claim.
+    purpose: Mechanically count protected-waist F1 start structures from structural nodes; R12 must remain nested inside H2/L2 and final confirmation requires the main second roof/floor break.

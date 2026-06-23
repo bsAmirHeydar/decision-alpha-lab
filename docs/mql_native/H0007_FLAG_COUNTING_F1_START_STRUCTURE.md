@@ -1,24 +1,59 @@
 # H0007 — Flag Counting / F1 Start Structure
 
-> Status: design lock, no execution edge claimed yet.  
-> Layer: structural grammar on top of the M0001 known-time node stream.  
-> Scope of this document: define F1 only. F2 and F3 are intentionally out of scope until F1 is mechanically stable.
+> Status: design lock, topology-only.  
+> Version: v0.2 — nested `R12` rule added and expanded.  
+> Layer: structural grammar on top of the M0001 final-only known-time node stream.  
+> Scope: define and audit **F1 only**. F2 and F3 are intentionally out of scope until F1 is mechanically stable.
 
 ---
 
-## 1. Core idea
+## 0. Why this document exists
+
+The purpose of this README is to turn the visual idea of **F1** into a mechanical object.
+
+F1 must not remain a drawing. It must become something that the code can count, draw, invalidate, confirm, export, and later compare against random baselines.
+
+This document is therefore not a trading strategy. It is a **structural counting contract**.
+
+The detector must answer one narrow question first:
+
+```text
+Can a protected-waist F1 be detected from structural nodes, in known-time order, without future leakage, and drawn on the chart exactly as intended?
+```
+
+Only after that can H0007 ask alpha questions such as forward MFE, MAE, path cleanliness, directional memory, optionality, or execution quality.
+
+---
+
+## 1. Core thesis
 
 The working thesis is:
 
-> The market can be parsed as a chain of flags, but a flag must not remain a discretionary drawing. It must become a countable structural grammar.
+```text
+The market can be parsed as a chain of flags.
+```
 
-H0007 introduces the first grammar object: **F1**.
+But this project does not accept vague chart-pattern language. A flag must be reduced to:
 
-F1 is not a trade setup yet. It is not a signal, not a win-rate claim, and not a target model. F1 is a **known-time structural event** that can be counted, drawn, audited, and later tested against random or alternative structural baselines.
+```text
+known-time nodes
+ordered structural states
+protected invalidation level
+internal count
+internal trigger
+main confirmation
+full event record
+visual audit
+random comparison later
+```
 
-The first objective is therefore simple:
+H0007 starts with the first object in that grammar:
 
-> Can we detect F1 mechanically from structural nodes without future leakage and draw the same count on the chart that a human would mark by hand?
+```text
+F1 = first/start flag structure
+```
+
+F1 is the start structure of a movement. It often appears after two hooks, or after an opposite violent move, or after a market area where the previous side is no longer dominant. These contexts may be logged later, but they are **not required filters** in the base definition.
 
 ---
 
@@ -32,65 +67,126 @@ Hook-hook-to-F1 context sketch:
 
 ![Hook hook F1 sketch](../../assets/H0007/flag-hook-hook-f1.png)
 
-These drawings are not the algorithm. They are visual references for the topology that the algorithm must reproduce.
+The drawings are visual references, not the algorithm. The algorithm is the topology and state machine below.
 
 ---
 
-## 3. Critical definition lock
+## 3. Critical corrections locked in v0.2
 
-The F1 confirmation is **not** only the break of the roof between node 1 and node 2.
+There are two critical rules that must not be lost.
+
+### 3.1 `R12` break is not final confirmation
 
 For bullish F1:
 
-1. price must break the **internal roof between 1 and 2**, and
-2. price must also break the **main second roof**.
+```text
+Break above R12 = internal trigger / armed state
+Break above H2  = final F1 confirmation
+```
 
-The internal roof break only arms or locally triggers the structure. The F1 is confirmed only after the main second roof is broken.
+For bearish F1:
 
-For bearish F1 the mirror rule applies:
+```text
+Break below R12 = internal trigger / armed state
+Break below L2  = final F1 confirmation
+```
 
-1. price must break the **internal floor between 1 and 2**, and
-2. price must also break the **main second floor**.
+So F1 is not confirmed just because the roof/floor between count node 1 and count node 2 breaks.
 
-This is the most important correction in the F1 grammar.
+### 3.2 `R12` must stay inside the main second extreme
+
+This is the new precision rule.
+
+For bullish F1:
+
+```text
+R12 must be lower than H2.
+```
+
+For bearish F1:
+
+```text
+R12 must be higher than L2.
+```
+
+This means `R12` is an **internal reaction level**, not the main second roof/floor itself.
+
+If the supposed `R12` reaches or breaks the main second extreme before a valid `N2` exists, the candidate is not a clean F1. It is direct continuation or a different structure, and the F1 candidate must be rejected or reset.
 
 ---
 
-## 4. Terminology
+## 4. Canonical naming
 
-### 4.1 Bullish names
+This README uses the following names.
 
-| Symbol | Name | Meaning |
+### 4.1 Bullish F1 names
+
+| Symbol | Name | Role |
 |---|---|---|
-| `H0` | first roof | first structural high after the initial upward movement |
-| `W` | waist | protected structural low after `H0`; this is the red line in the sketch |
-| `H2` | main second roof | structural high after `W` that breaks `H0`; this is the main F1 roof that must later be broken again |
+| `H1` | first roof | first structural high before the protected waist |
+| `W` | waist | protected structural low after `H1`; red invalidation line |
+| `H2` | main second roof | structural high after `W` that breaks `H1`; final confirmation level later |
 | `N1` | count node 1 | first internal structural low after `H2` |
-| `R12` | internal roof | structural high between `N1` and `N2` |
-| `N2` | count node 2 | second internal structural low, below `N1`, but above `W` |
+| `R12` | internal roof | structural high between `N1` and `N2`; must be below `H2` |
+| `N2` | count node 2 | second internal low, below `N1`, but above `W` |
 | `T12` | internal trigger | first break above `R12` after `N2` |
-| `CONF` | F1 confirmation | first break above `H2` after `N2` |
+| `CONF` | confirmation | first break above `H2` after the internal trigger |
 
-### 4.2 Bearish names
+### 4.2 Bearish F1 names
 
-| Symbol | Name | Meaning |
+| Symbol | Name | Role |
 |---|---|---|
-| `L0` | first floor | first structural low after the initial downward movement |
-| `W` | waist | protected structural high after `L0`; this is the bearish red line |
-| `L2` | main second floor | structural low after `W` that breaks `L0`; this is the main F1 floor that must later be broken again |
+| `L1` | first floor | first structural low before the protected waist |
+| `W` | waist | protected structural high after `L1`; red invalidation line |
+| `L2` | main second floor | structural low after `W` that breaks `L1`; final confirmation level later |
 | `N1` | count node 1 | first internal structural high after `L2` |
-| `R12` | internal floor | structural low between `N1` and `N2` |
-| `N2` | count node 2 | second internal structural high, above `N1`, but below `W` |
+| `R12` | internal floor | structural low between `N1` and `N2`; must be above `L2` |
+| `N2` | count node 2 | second internal high, above `N1`, but below `W` |
 | `T12` | internal trigger | first break below `R12` after `N2` |
-| `CONF` | F1 confirmation | first break below `L2` after `N2` |
+| `CONF` | confirmation | first break below `L2` after the internal trigger |
 
-`R12` means "reaction level between 1 and 2". In bullish mode it is a roof. In bearish mode it is a floor.
+`R12` means reaction level between count node `1` and count node `2`.
+
+In bullish mode it is a roof.  
+In bearish mode it is a floor.
 
 ---
 
-## 5. Structural source contract
+## 5. F1 is not a trade
 
-F1 must be built from the same structural-node discipline as the rest of Decision Alpha Lab.
+F1 is only a structural event.
+
+The base detector must not output:
+
+```text
+entry
+stop-loss
+take-profit
+profit factor
+win rate
+R multiple
+execution recommendation
+```
+
+The base detector outputs only:
+
+```text
+candidate states
+confirmed F1 events
+invalidations
+ambiguities
+structural measurements
+chart objects
+raw records
+```
+
+Trading logic belongs to a later module after F1 is visually and statistically audited.
+
+---
+
+## 6. Source contract: known-time nodes only
+
+F1 must be built on the same causality discipline as the rest of Decision Alpha Lab.
 
 Required source:
 
@@ -101,33 +197,33 @@ M0001 final-only structural node stream
 Required timing contract:
 
 ```text
-A pivot may be visually anchored at its pivot candle,
-but the algorithm may only use it after its known/reveal time.
+A pivot can be drawn at its pivot candle,
+but the algorithm can only use it after its reveal/known time.
 ```
 
-If a pivot uses `L`, then:
+For a pivot with scale `L`:
 
 ```text
 pivot_index = i
 known_index = i + L
 ```
 
-The chart can draw the node at `i`, but the state machine cannot react to it before `i + L`.
+The chart may anchor the label at `i`, but the state machine must not react before `i + L`.
 
-This keeps F1 compatible with the no-future standard used in H0004, H0005, and the atomic replay work.
+This is non-negotiable. F1 must not use future-known pivots.
 
 ---
 
-## 6. Scale parameter `L`
+## 7. Scale `L` contract
 
-F1 is counted on a specific node scale.
+F1 is counted per node scale.
 
 ```text
 L_min = 2
 L_max = configurable
 ```
 
-The first implementation should run separate passes for each `L`:
+The first implementation must run separate passes:
 
 ```text
 L = 2
@@ -137,157 +233,278 @@ L = 4
 L = L_max
 ```
 
-A single F1 candidate must not change `L` while it is forming.
+A single F1 candidate cannot change `L` while forming.
 
-Later, cross-scale clustering can be added:
-
-```text
-same F1 found on multiple nearby L values => stronger structural confluence
-```
-
-But the first version must stay simple:
+Base rule:
 
 ```text
-one F1 = one direction + one L + one known-time node sequence
+one F1 = one symbol + one timeframe + one direction + one L
 ```
+
+Later, cross-scale confluence can be studied:
+
+```text
+same F1 area appears across nearby L values => possible structural strength
+```
+
+But cross-L merging must not happen inside the raw detector.
 
 ---
 
-## 7. Bullish F1 definition
+## 8. Bullish F1: strict topology
 
-A bullish F1 candidate is valid only if the following sequence exists in known-time order:
+A bullish F1 candidate must form this known-time sequence:
 
 ```text
-H0 -> W -> H2 -> N1 -> R12 -> N2 -> T12 -> CONF
+H1 -> W -> H2 -> N1 -> R12 -> N2 -> T12 -> CONF
 ```
 
-The strict topology is:
+The required inequalities are:
 
 ```text
-H2 > H0
-W  < H0
-N1 > W
+H2  > H1
+W   < H1
+N1  > W
 R12 > N1
 R12 < H2
-N2 < N1
-N2 > W
+N2  < N1
+N2  > W
 T12 breaks above R12
 CONF breaks above H2
 ```
 
-The protected-waist rule is absolute in the base mode:
+The most important nested condition is:
 
 ```text
-From the moment W exists until CONF,
-no candle may break W.
+R12 < H2
 ```
 
-For the bullish wick-strict base mode:
+That condition means the roof between `1` and `2` is still inside the F1 body. It is not allowed to be the main second roof, and it is not allowed to exceed the main second roof.
+
+### 8.1 Bullish structural meaning
+
+The bullish structure says:
 
 ```text
-if Low < W_price - epsilon:
-    invalidate candidate
+1. Market creates H1.
+2. Market pulls back and creates W.
+3. Market breaks H1 and creates H2.
+4. Market pulls back and creates N1.
+5. Market reacts upward, but only internally, creating R12 below H2.
+6. Market pulls back again and creates N2 below N1 but above W.
+7. Market breaks R12, proving local recovery from the 1-2 correction.
+8. Market then breaks H2, proving the full F1 continuation/confirmation.
 ```
 
-The structure is not confirmed at `T12`. It is only armed. Final F1 confirmation occurs at `CONF`:
+### 8.2 Bullish invalidation
+
+From the moment `W` exists until final confirmation:
 
 ```text
-if High > H2_price + epsilon after N2:
-    confirm bullish F1
+W must not break.
 ```
+
+Base wick-strict rule:
+
+```text
+if bar.low < W.price - epsilon:
+    invalidate bullish candidate
+```
+
+### 8.3 Bullish internal trigger vs final confirmation
+
+After `N2`, there are two levels above price:
+
+```text
+R12 = internal roof
+H2  = main second roof
+```
+
+They have different meanings:
+
+```text
+Break R12 => the 1-2 correction is locally reclaimed.
+Break H2  => the whole F1 is confirmed.
+```
+
+Therefore:
+
+```text
+R12 break alone is not enough.
+H2 break is mandatory.
+```
+
+### 8.4 Bullish rejection cases
+
+Reject or reset the bullish candidate if:
+
+```text
+W breaks before confirmation.
+N2 does not go below N1.
+N2 breaks or touches below W in strict mode.
+R12 is not below H2.
+H2 is broken again before a valid N2 exists.
+The structure needs a different L halfway through.
+Known-time order is violated.
+```
+
+If a structural high after `N1` is `>= H2`, it cannot be accepted as `R12`. In the strict base detector, this is:
+
+```text
+continuation_without_valid_1_2_count
+```
+
+and the candidate should be rejected/reset.
 
 ---
 
-## 8. Bearish F1 definition
+## 9. Bearish F1: strict topology
 
-A bearish F1 candidate is valid only if the following sequence exists in known-time order:
+A bearish F1 candidate must form this known-time sequence:
 
 ```text
-L0 -> W -> L2 -> N1 -> R12 -> N2 -> T12 -> CONF
+L1 -> W -> L2 -> N1 -> R12 -> N2 -> T12 -> CONF
 ```
 
-The strict topology is:
+The required inequalities are:
 
 ```text
-L2 < L0
-W  > L0
-N1 < W
+L2  < L1
+W   > L1
+N1  < W
 R12 < N1
 R12 > L2
-N2 > N1
-N2 < W
+N2  > N1
+N2  < W
 T12 breaks below R12
 CONF breaks below L2
 ```
 
-The protected-waist rule is absolute in the base mode:
+The most important nested condition is:
 
 ```text
-From the moment W exists until CONF,
-no candle may break W.
+R12 > L2
 ```
 
-For the bearish wick-strict base mode:
+That condition means the floor between `1` and `2` is still inside the F1 body. It is not allowed to be the main second floor, and it is not allowed to exceed the main second floor downward.
+
+### 9.1 Bearish structural meaning
+
+The bearish structure says:
 
 ```text
-if High > W_price + epsilon:
-    invalidate candidate
+1. Market creates L1.
+2. Market pulls back upward and creates W.
+3. Market breaks L1 and creates L2.
+4. Market pulls back upward and creates N1.
+5. Market reacts downward, but only internally, creating R12 above L2.
+6. Market pulls back upward again and creates N2 above N1 but below W.
+7. Market breaks R12, proving local recovery from the 1-2 correction.
+8. Market then breaks L2, proving the full F1 continuation/confirmation.
 ```
 
-The structure is not confirmed at `T12`. It is only armed. Final F1 confirmation occurs at `CONF`:
+### 9.2 Bearish invalidation
+
+From the moment `W` exists until final confirmation:
 
 ```text
-if Low < L2_price - epsilon after N2:
-    confirm bearish F1
+W must not break.
 ```
+
+Base wick-strict rule:
+
+```text
+if bar.high > W.price + epsilon:
+    invalidate bearish candidate
+```
+
+### 9.3 Bearish internal trigger vs final confirmation
+
+After `N2`, there are two levels below price:
+
+```text
+R12 = internal floor
+L2  = main second floor
+```
+
+They have different meanings:
+
+```text
+Break R12 => the 1-2 correction is locally reclaimed.
+Break L2  => the whole F1 is confirmed.
+```
+
+Therefore:
+
+```text
+R12 break alone is not enough.
+L2 break is mandatory.
+```
+
+### 9.4 Bearish rejection cases
+
+Reject or reset the bearish candidate if:
+
+```text
+W breaks before confirmation.
+N2 does not go above N1.
+N2 breaks or touches above W in strict mode.
+R12 is not above L2.
+L2 is broken again before a valid N2 exists.
+The structure needs a different L halfway through.
+Known-time order is violated.
+```
+
+If a structural low after `N1` is `<= L2`, it cannot be accepted as `R12`. In the strict base detector, this is:
+
+```text
+continuation_without_valid_1_2_count
+```
+
+and the candidate should be rejected/reset.
 
 ---
 
-## 9. What counts as a break?
+## 10. Equality, epsilon, and strictness
 
-The base version is intentionally strict because the waist is defined as a level that must not be violated.
+The base detector should be strict, but implementation needs explicit equality rules.
 
-### 9.1 Base mode
+### 10.1 Base strict inequalities
+
+Bullish:
+
+```text
+H2.price  > H1.price + epsilon
+R12.price < H2.price - epsilon
+N2.price  < N1.price - epsilon
+N2.price  > W.price  + epsilon
+```
+
+Bearish:
+
+```text
+L2.price  < L1.price - epsilon
+R12.price > L2.price + epsilon
+N2.price  > N1.price + epsilon
+N2.price  < W.price  - epsilon
+```
+
+If equality happens within epsilon, the event should be marked as:
+
+```text
+borderline_epsilon_case
+```
+
+and excluded from the clean base sample unless a specific tolerance mode includes it.
+
+### 10.2 Base mode
 
 ```text
 break_mode = wick_strict
+epsilon = 0 by default
 ```
 
-Bullish invalidation:
-
-```text
-Low < W_price - epsilon
-```
-
-Bearish invalidation:
-
-```text
-High > W_price + epsilon
-```
-
-Bullish confirmation:
-
-```text
-High > H2_price + epsilon
-```
-
-Bearish confirmation:
-
-```text
-Low < L2_price - epsilon
-```
-
-### 9.2 Stability modes for later testing
-
-The implementation should allow these modes, but the base report must begin with wick-strict:
-
-```text
-wick_strict
-close_break
-epsilon_break
-```
-
-Suggested epsilon sensitivity grid:
+Later stability grid:
 
 ```text
 epsilon = 0
@@ -297,265 +514,449 @@ epsilon = 0.05 * ATR
 epsilon = 0.10 * ATR
 ```
 
-No result should be trusted if it only exists under one fragile epsilon setting.
+No claim is robust if it only works under one fragile epsilon setting.
 
 ---
 
-## 10. Same-candle ambiguity rule
+## 11. Break definitions
 
-In historical OHLC data, if a candle both confirms F1 and violates the waist, the intrabar order is unknown.
+### 11.1 Bullish break definitions
 
-Example bullish ambiguity:
+```text
+bull_break(level, bar):
+    return bar.high > level + epsilon
+
+bull_waist_broken(W, bar):
+    return bar.low < W.price - epsilon
+```
+
+Bullish internal trigger:
+
+```text
+bar.high > R12.price + epsilon
+```
+
+Bullish final confirmation:
+
+```text
+bar.high > H2.price + epsilon
+```
+
+### 11.2 Bearish break definitions
+
+```text
+bear_break(level, bar):
+    return bar.low < level - epsilon
+
+bear_waist_broken(W, bar):
+    return bar.high > W.price + epsilon
+```
+
+Bearish internal trigger:
+
+```text
+bar.low < R12.price - epsilon
+```
+
+Bearish final confirmation:
+
+```text
+bar.low < L2.price - epsilon
+```
+
+---
+
+## 12. Same-candle ambiguity
+
+Historical OHLC does not always reveal intrabar order.
+
+### 12.1 Waist and confirmation on the same candle
+
+Bullish ambiguity:
 
 ```text
 same candle:
-    High > H2_price
-    Low  < W_price
+    high > H2
+    low  < W
+```
+
+Bearish ambiguity:
+
+```text
+same candle:
+    low  < L2
+    high > W
 ```
 
 Default rule:
 
 ```text
-mark candidate as ambiguous_same_bar
-exclude it from the main confirmed sample
+mark ambiguous_same_bar
+exclude from clean confirmed sample
 ```
 
-Do not assume the favorable order. Do not convert it into a win. Do not use it as a clean F1.
+Do not assume the favorable path.
 
-Optional conservative mode:
+### 12.2 R12 and H2 on the same candle
+
+Bullish:
 
 ```text
-waist violation wins over confirmation
+same candle after valid N2:
+    high > R12
+    high > H2
+    low does not break W
 ```
 
-But the official research report should log ambiguous cases separately.
+This can be logged as:
+
+```text
+same_bar_T12_CONF = true
+```
+
+Because any continuous move above `H2` necessarily crossed `R12` first. But if the waist also breaks on that candle, it becomes ambiguous and should not be part of the clean sample.
+
+Bearish mirror applies.
 
 ---
 
-## 11. Candidate state machine
+## 13. Open count logic
 
-### 11.1 Bullish state machine
+F1 is not born all at once. It has count states.
+
+Bullish:
+
+```text
+After H2 and N1:
+    open_count = 1
+
+After R12 and valid N2:
+    open_count = 2
+
+After break above R12:
+    state = armed
+
+After break above H2:
+    state = confirmed_F1
+```
+
+Bearish:
+
+```text
+After L2 and N1:
+    open_count = 1
+
+After R12 and valid N2:
+    open_count = 2
+
+After break below R12:
+    state = armed
+
+After break below L2:
+    state = confirmed_F1
+```
+
+The visual chart must show open count `1` and `2` even before confirmation in debug mode.
+
+---
+
+## 14. Bullish state machine
 
 ```text
 STATE_IDLE
-    wait for structural high H0
+    wait for structural high H1
 
-STATE_HAVE_H0
-    wait for structural low W after H0
-    set W as protected waist
+STATE_HAVE_H1
+    wait for structural low W after H1
+    W becomes protected waist
+    if a higher structural high appears before W:
+        replace H1 with the newer/higher high
 
 STATE_HAVE_W
-    if W is broken -> invalidate and reset
-    wait for structural high H2 such that H2 > H0
+    if W is broken:
+        invalidate and reset
+    wait for structural high H2 such that H2 > H1
 
 STATE_HAVE_H2
-    if W is broken -> invalidate and reset
-    wait for structural low N1 after H2
+    if W is broken:
+        invalidate and reset
+    wait for structural low N1 such that N1 > W
 
 STATE_HAVE_N1
-    if W is broken -> invalidate and reset
-    wait for structural high R12 after N1
-    require R12 < H2 for a clean nested F1 count
+    if W is broken:
+        invalidate and reset
+    wait for structural high R12
+    require R12 < H2
+    if candidate high >= H2:
+        reject as continuation_without_valid_1_2_count
 
 STATE_HAVE_R12
-    if W is broken -> invalidate and reset
-    wait for structural low N2 after R12
+    if W is broken:
+        invalidate and reset
+    wait for structural low N2
     require N2 < N1 and N2 > W
 
 STATE_HAVE_N2
-    if W is broken -> invalidate and reset
+    if W is broken:
+        invalidate and reset
     wait for break above R12
-    once broken, mark T12 and move to ARMED
+    on break above R12:
+        T12 = bar
+        state = ARMED_AFTER_R12_BREAK
 
 STATE_ARMED_AFTER_R12_BREAK
-    if W is broken -> invalidate or ambiguous if same bar as CONF
+    if W is broken:
+        invalidate, unless same-candle ambiguity rules apply
     wait for break above H2
-    if H2 is broken -> CONFIRMED_F1
-```
-
-### 11.2 Bearish state machine
-
-```text
-STATE_IDLE
-    wait for structural low L0
-
-STATE_HAVE_L0
-    wait for structural high W after L0
-    set W as protected waist
-
-STATE_HAVE_W
-    if W is broken -> invalidate and reset
-    wait for structural low L2 such that L2 < L0
-
-STATE_HAVE_L2
-    if W is broken -> invalidate and reset
-    wait for structural high N1 after L2
-
-STATE_HAVE_N1
-    if W is broken -> invalidate and reset
-    wait for structural low R12 after N1
-    require R12 > L2 for a clean nested F1 count
-
-STATE_HAVE_R12
-    if W is broken -> invalidate and reset
-    wait for structural high N2 after R12
-    require N2 > N1 and N2 < W
-
-STATE_HAVE_N2
-    if W is broken -> invalidate and reset
-    wait for break below R12
-    once broken, mark T12 and move to ARMED
-
-STATE_ARMED_AFTER_R12_BREAK
-    if W is broken -> invalidate or ambiguous if same bar as CONF
-    wait for break below L2
-    if L2 is broken -> CONFIRMED_F1
+    on break above H2:
+        CONF = bar
+        emit confirmed bullish F1
 ```
 
 ---
 
-## 12. Pseudocode
-
-### 12.1 Shared helpers
+## 15. Bearish state machine
 
 ```text
-is_bull_break(level, bar):
-    return bar.high > level + epsilon
+STATE_IDLE
+    wait for structural low L1
 
-is_bear_break(level, bar):
-    return bar.low < level - epsilon
+STATE_HAVE_L1
+    wait for structural high W after L1
+    W becomes protected waist
+    if a lower structural low appears before W:
+        replace L1 with the newer/lower low
 
-is_bull_waist_broken(W, bar):
-    return bar.low < W.price - epsilon
+STATE_HAVE_W
+    if W is broken:
+        invalidate and reset
+    wait for structural low L2 such that L2 < L1
 
-is_bear_waist_broken(W, bar):
-    return bar.high > W.price + epsilon
+STATE_HAVE_L2
+    if W is broken:
+        invalidate and reset
+    wait for structural high N1 such that N1 < W
+
+STATE_HAVE_N1
+    if W is broken:
+        invalidate and reset
+    wait for structural low R12
+    require R12 > L2
+    if candidate low <= L2:
+        reject as continuation_without_valid_1_2_count
+
+STATE_HAVE_R12
+    if W is broken:
+        invalidate and reset
+    wait for structural high N2
+    require N2 > N1 and N2 < W
+
+STATE_HAVE_N2
+    if W is broken:
+        invalidate and reset
+    wait for break below R12
+    on break below R12:
+        T12 = bar
+        state = ARMED_AFTER_R12_BREAK
+
+STATE_ARMED_AFTER_R12_BREAK
+    if W is broken:
+        invalidate, unless same-candle ambiguity rules apply
+    wait for break below L2
+    on break below L2:
+        CONF = bar
+        emit confirmed bearish F1
 ```
 
-### 12.2 Bullish detector
+---
+
+## 16. Detector pseudocode
+
+### 16.1 Shared helpers
+
+```text
+is_high_node(node): node.type == HIGH
+is_low_node(node):  node.type == LOW
+
+is_known(node, current_bar): node.known_index <= current_bar.index
+```
+
+### 16.2 Bullish detector pseudocode
 
 ```text
 for each symbol, timeframe, L:
-    nodes = final_only_known_time_nodes(symbol, timeframe, L)
-    bars  = known_time_bars(symbol, timeframe)
+    nodes = M0001_final_only_nodes(symbol, timeframe, L)
+    bars  = chronological_bars(symbol, timeframe)
 
-    candidate = empty
+    bull = empty_candidate()
 
-    for each event in chronological known-time order:
+    for each bar in bars:
+        reveal all nodes whose known_index == bar.index
 
-        update candidate with newly known nodes
-        check every new closed bar for waist break, R12 break, and H2 break
+        if bull.has_waist and bull.not_confirmed:
+            check bull waist break on this bar
 
-        if state == IDLE:
-            if event is HIGH:
-                H0 = event
-                state = HAVE_H0
+        if bull.state == IDLE:
+            if revealed HIGH:
+                bull.H1 = node
+                bull.state = HAVE_H1
 
-        elif state == HAVE_H0:
-            if event is LOW after H0:
-                W = event
-                state = HAVE_W
-            elif event is HIGH higher than H0:
-                H0 = event
+        elif bull.state == HAVE_H1:
+            if revealed LOW after H1:
+                bull.W = node
+                bull.state = HAVE_W
+            elif revealed HIGH and node.price > bull.H1.price:
+                bull.H1 = node
 
-        elif state == HAVE_W:
-            if waist broken:
-                reset
-            elif event is HIGH and event.price > H0.price + epsilon:
-                H2 = event
-                state = HAVE_H2
-
-        elif state == HAVE_H2:
+        elif bull.state == HAVE_W:
             if waist broken:
                 invalidate
-            elif event is LOW and event.price > W.price + epsilon:
-                N1 = event
-                state = HAVE_N1
-            elif event is LOW and event.price <= W.price + epsilon:
-                invalidate
+            elif revealed HIGH and node.price > bull.H1.price + epsilon:
+                bull.H2 = node
+                bull.state = HAVE_H2
 
-        elif state == HAVE_N1:
+        elif bull.state == HAVE_H2:
             if waist broken:
                 invalidate
-            elif event is HIGH:
-                if event.price < H2.price - epsilon:
-                    R12 = event
-                    state = HAVE_R12
+            elif revealed LOW:
+                if node.price > bull.W.price + epsilon:
+                    bull.N1 = node
+                    bull.open_count = 1
+                    bull.state = HAVE_N1
                 else:
-                    # H2 was broken before N2 existed. This is not F1.
-                    reject_as_continuation_without_1_2
-                    reset_from_new_high(event)
+                    invalidate_waist_or_no_protection
 
-        elif state == HAVE_R12:
+        elif bull.state == HAVE_N1:
             if waist broken:
                 invalidate
-            elif event is LOW:
-                if event.price < N1.price - epsilon and event.price > W.price + epsilon:
-                    N2 = event
-                    state = HAVE_N2
-                elif event.price <= W.price + epsilon:
+            elif revealed HIGH:
+                if node.price < bull.H2.price - epsilon:
+                    bull.R12 = node
+                    bull.state = HAVE_R12
+                else:
+                    reject_continuation_without_valid_1_2_count
+                    reset_from_new_high(node)
+
+        elif bull.state == HAVE_R12:
+            if waist broken:
+                invalidate
+            elif revealed LOW:
+                if node.price < bull.N1.price - epsilon and node.price > bull.W.price + epsilon:
+                    bull.N2 = node
+                    bull.open_count = 2
+                    bull.state = HAVE_N2
+                elif node.price <= bull.W.price + epsilon:
                     invalidate
                 else:
-                    # Not a valid lower second node yet.
-                    keep_waiting_or_update_noise_rule
+                    wait_for_valid_N2_or_apply_noise_policy
 
-        elif state == HAVE_N2:
+        elif bull.state == HAVE_N2:
             if same_bar_confirms_and_breaks_waist:
                 mark_ambiguous_and_reset
             elif waist broken:
                 invalidate
-            elif bar.high > R12.price + epsilon:
-                T12 = bar
-                state = ARMED_AFTER_R12_BREAK
+            elif bar.high > bull.R12.price + epsilon:
+                bull.T12 = bar
+                bull.state = ARMED_AFTER_R12_BREAK
 
-        elif state == ARMED_AFTER_R12_BREAK:
+        elif bull.state == ARMED_AFTER_R12_BREAK:
             if same_bar_confirms_and_breaks_waist:
                 mark_ambiguous_and_reset
             elif waist broken:
                 invalidate
-            elif bar.high > H2.price + epsilon:
-                CONF = bar
-                emit bullish F1
-                reset_or_start_new_candidate_from_CONF_context
+            elif bar.high > bull.H2.price + epsilon:
+                bull.CONF = bar
+                emit_event(bull)
+                reset_or_seed_next_candidate
 ```
 
-### 12.3 Bearish detector
+### 16.3 Bearish detector pseudocode
 
 The bearish detector is the exact mirror:
 
 ```text
 HIGH <-> LOW
 >    <-> <
-waist break: High > W
-internal trigger: Low < R12
-final confirmation: Low < L2
+H1   <-> L1
+H2   <-> L2
+bull waist break: Low < W
+bear waist break: High > W
+bull R12 condition: R12 < H2
+bear R12 condition: R12 > L2
+bull trigger: High > R12
+bear trigger: Low < R12
+bull confirm: High > H2
+bear confirm: Low < L2
 ```
 
 ---
 
-## 13. Overlap and reset policy
+## 17. Overlap, reset, and multiple candidates
 
-F1 candidates can overlap. The first implementation should avoid too much intelligence and use deterministic rules.
+### 17.1 One direction, one L
 
-### 13.1 Same direction overlap
+For the first version:
 
-If a new stronger `H0` appears before `W`, update `H0`.
+```text
+keep at most one bullish candidate per L
+keep at most one bearish candidate per L
+```
 
-If `H2` is broken before `N2` exists, the candidate is not an F1. It is a direct continuation without a completed 1-2 count.
+This keeps the implementation simple and auditable.
 
-If multiple possible `R12` nodes appear between `N1` and `N2`, use the latest clean structural high before valid `N2`, unless a stricter variant is explicitly being tested.
+### 17.2 Opposite directions
 
-### 13.2 Opposite direction overlap
+Bullish and bearish candidates may coexist on the same `L` if neither one violates its own waist.
 
-Bullish and bearish candidates may exist at the same time on different `L` values.
+Do not delete a bullish candidate just because a bearish partial candidate appears, unless the bullish waist is actually broken.
 
-Within the same `L`, keep one bullish candidate and one bearish candidate independently. Do not let a bearish partial count automatically delete a bullish partial count unless it violates the bullish waist.
+### 17.3 Direct continuation before valid N2
 
-### 13.3 Deduplication
+Bullish case:
 
-Confirmed F1 events should be deduplicated only after detection.
+```text
+after H2 and N1, price makes a structural high >= H2 before valid N2
+```
 
-Suggested dedup key:
+This means the market continued before completing the 1-2 F1 count.
+
+Base classification:
+
+```text
+continuation_without_valid_1_2_count
+```
+
+Bearish mirror:
+
+```text
+after L2 and N1, price makes a structural low <= L2 before valid N2
+```
+
+### 17.4 Multiple possible R12 nodes
+
+If multiple internal highs/lows appear between `N1` and `N2`, the base detector should use the latest valid internal reaction level before the valid `N2`, as long as it remains nested:
+
+Bullish:
+
+```text
+R12 < H2
+```
+
+Bearish:
+
+```text
+R12 > L2
+```
+
+A stricter variant can use the first valid R12, but this must be explicitly marked as a variant.
+
+---
+
+## 18. Deduplication policy
+
+Raw events must not be merged too early.
+
+Suggested raw dedup key:
 
 ```text
 symbol
@@ -565,17 +966,28 @@ L
 W_time
 H2_or_L2_time
 N1_time
+R12_time
 N2_time
 CONF_time
 ```
 
-Cross-L duplicates must not be merged in the raw report. They should be reported separately first, then clustered in an optional confluence report.
+Cross-L duplicates should remain separate in the raw report.
+
+Optional later confluence clustering can group events by:
+
+```text
+nearby W price
+nearby H2/L2 price
+nearby CONF time
+same direction
+adjacent L values
+```
 
 ---
 
-## 14. Output event schema
+## 19. Event schema
 
-Every F1 event must be exported as a complete record.
+Every confirmed, invalidated, rejected, and ambiguous candidate should be exportable.
 
 ```text
 id
@@ -588,10 +1000,15 @@ source_node_engine
 node_reveal_contract
 break_mode
 epsilon_mode
+candidate_status
+invalid_reason
+reject_reason
+ambiguous_same_bar
+same_bar_T12_CONF
 
-H0_or_L0_time
-H0_or_L0_known_time
-H0_or_L0_price
+H1_or_L1_time
+H1_or_L1_known_time
+H1_or_L1_price
 
 W_time
 W_known_time
@@ -618,11 +1035,8 @@ T12_price
 CONF_time
 CONF_price
 
-candidate_status
-invalid_reason
-ambiguous_same_bar
-
-bars_H0_to_W
+open_count_at_last_state
+bars_H1_or_L1_to_W
 bars_W_to_H2_or_L2
 bars_H2_or_L2_to_N1
 bars_N1_to_R12
@@ -632,76 +1046,108 @@ bars_T12_to_CONF
 bars_W_to_CONF
 
 waist_distance
-main_roof_or_floor_distance
+main_second_extreme_distance
 n2_sweep_size
 n2_protection_distance
 n2_protection_ratio
-internal_trigger_distance
+internal_trigger_gap
+internal_trigger_gap_ratio
 confirmation_distance_from_N2
 ```
 
 ---
 
-## 15. Structural measurements
+## 20. Structural measurements
 
-### 15.1 Bullish measurements
+Measurements are logged, not filtered, in the base version.
+
+### 20.1 Bullish measurements
 
 ```text
 waist_to_H2 = H2.price - W.price
+h1_to_h2_extension = H2.price - H1.price
+n1_depth_from_H2 = H2.price - N1.price
 n2_sweep_size = N1.price - N2.price
 n2_protection_distance = N2.price - W.price
 n2_protection_ratio = (N2.price - W.price) / (H2.price - W.price)
-internal_roof_gap = H2.price - R12.price
-confirm_distance_from_N2 = H2.price - N2.price
+internal_trigger_gap = H2.price - R12.price
+internal_trigger_gap_ratio = (H2.price - R12.price) / (H2.price - W.price)
+confirmation_distance_from_N2 = H2.price - N2.price
 ```
 
-### 15.2 Bearish measurements
+### 20.2 Bearish measurements
 
 ```text
 waist_to_L2 = W.price - L2.price
+l1_to_l2_extension = L1.price - L2.price
+n1_depth_from_L2 = N1.price - L2.price
 n2_sweep_size = N2.price - N1.price
 n2_protection_distance = W.price - N2.price
 n2_protection_ratio = (W.price - N2.price) / (W.price - L2.price)
-internal_floor_gap = R12.price - L2.price
-confirm_distance_from_N2 = N2.price - L2.price
+internal_trigger_gap = R12.price - L2.price
+internal_trigger_gap_ratio = (R12.price - L2.price) / (W.price - L2.price)
+confirmation_distance_from_N2 = N2.price - L2.price
 ```
 
-These measurements are not filters in the base version. They are logged for later stability and distribution analysis.
+### 20.3 Why the `R12` gap matters
+
+The `R12` gap measures how deeply nested the internal trigger is inside the main second extreme.
+
+Bullish:
+
+```text
+internal_trigger_gap = H2 - R12
+```
+
+Bearish:
+
+```text
+internal_trigger_gap = R12 - L2
+```
+
+If the gap is zero or negative, the candidate is not a valid F1 in strict mode.
+
+A small positive gap means the internal trigger is very close to the main confirmation level. A large gap means the market still has a significant distance between local recovery and full F1 confirmation.
+
+This may become useful later, but it must not be used as a base filter yet.
 
 ---
 
-## 16. Visual rendering contract
+## 21. Visual rendering contract
 
-The chart must show the count, not only the final signal.
+The chart must show the count and the difference between internal trigger and final confirmation.
 
-### 16.1 Bullish visual objects
+### 21.1 Bullish visual objects
 
-| Object | Visual rule |
+| Object | Required visual meaning |
 |---|---|
-| `W` waist | red horizontal line from `W` to invalidation or confirmation |
-| `H2` main second roof | main F1 roof line; final confirmation level |
-| `R12` internal roof | dashed or thinner line between `N1` and `N2`; local trigger level |
-| `N1` | yellow label `1` at the first internal low |
-| `N2` | yellow label `2` at the second lower internal low |
-| `T12` | small marker when `R12` breaks |
-| `CONF` | strong F1 marker only when `H2` breaks |
-| invalidated candidate | grey/red faded objects, optional in debug mode |
+| `W` | red protected waist line |
+| `H1` | first roof marker, optional in compact mode |
+| `H2` | main second roof line; final confirmation level |
+| `R12` | internal roof line; must be visibly below `H2` |
+| `N1` | label `1` under first internal low |
+| `N2` | label `2` under second lower internal low |
+| `T12` | small marker at internal trigger break |
+| `CONF` | strong `F1` marker only at `H2` break |
+| invalid candidate | faded red/grey debug object |
 
-### 16.2 Bearish visual objects
+### 21.2 Bearish visual objects
 
-| Object | Visual rule |
+| Object | Required visual meaning |
 |---|---|
-| `W` waist | red horizontal line above price from `W` to invalidation or confirmation |
-| `L2` main second floor | main F1 floor line; final confirmation level |
-| `R12` internal floor | dashed or thinner line between `N1` and `N2`; local trigger level |
-| `N1` | label `1` at the first internal high |
-| `N2` | label `2` at the second higher internal high |
-| `T12` | small marker when `R12` breaks |
-| `CONF` | strong F1 marker only when `L2` breaks |
+| `W` | red protected waist line above price |
+| `L1` | first floor marker, optional in compact mode |
+| `L2` | main second floor line; final confirmation level |
+| `R12` | internal floor line; must be visibly above `L2` |
+| `N1` | label `1` above first internal high |
+| `N2` | label `2` above second higher internal high |
+| `T12` | small marker at internal trigger break |
+| `CONF` | strong `F1` marker only at `L2` break |
+| invalid candidate | faded red/grey debug object |
 
-### 16.3 Required chart debug text
+### 21.3 Debug label text
 
-Each confirmed F1 label should include at least:
+Each confirmed F1 label should include:
 
 ```text
 F1
@@ -709,32 +1155,43 @@ DIR=BULL/BEAR
 L=<value>
 W=<price>
 MAIN=<H2 or L2 price>
+R12=<price>
 N1=<price>
 N2=<price>
+R12_INSIDE_MAIN=true/false
 ```
 
-The visual must make it impossible to confuse `R12` break with full F1 confirmation.
+It must be visually impossible to confuse `T12` with `CONF`.
 
 ---
 
-## 17. Report contract
+## 22. Report contract
 
-The first report must answer structural questions, not profitability questions.
+The first report must be structural, not profitable.
 
-Required counts:
+Required summary counts:
 
 ```text
 candidate_count
 confirmed_count
+invalidated_count
+rejected_count
+ambiguous_same_bar_count
+same_bar_T12_CONF_count
+
 invalidated_before_N1
 invalidated_before_N2
 invalidated_after_N2_before_R12_break
 invalidated_after_R12_before_main_break
-ambiguous_same_bar_count
+
+rejected_R12_not_nested
+rejected_continuation_without_valid_1_2
+rejected_known_time_order
+
 confirmation_rate
 median_bars_W_to_CONF
 median_n2_protection_ratio
-median_internal_roof_or_floor_gap
+median_internal_trigger_gap_ratio
 ```
 
 Required segmentation:
@@ -748,67 +1205,87 @@ break_mode
 epsilon_mode
 ```
 
-Optional context tags from existing modules:
+Optional descriptive context tags:
 
 ```text
 pre_context_hook_count
+pre_context_two_hook_state
+pre_context_violent_opposite_move
 pre_context_last_regime_from_H0004_or_H0005
 nearest_unconsumed_node_distance
 nearest_zone_revisit_state
 ```
 
-These tags must not be used as filters in the first base report. They are only descriptive.
+These context tags must not be base filters.
 
 ---
 
-## 18. Later alpha questions
+## 23. Random and null models for later validation
 
-After F1 is mechanically stable, the next research layer can ask:
-
-```text
-After confirmed F1, is forward MFE larger than random?
-After confirmed F1, is MAE smaller or better contained by the waist?
-Does F1 increase directional memory?
-Does F1 identify the start of continuation paths?
-Does N2 proximity to waist predict explosive optionality?
-Does cross-L F1 confluence improve post-confirmation behavior?
-Is F1 better after two hooks?
-Is F1 better after a violent opposite move?
-```
-
-None of these are part of the base definition.
-
----
-
-## 19. Random and null models for future validation
-
-When F1 is later tested as a possible alpha object, it must be compared against nulls.
+After F1 detection is mechanically stable, it must be compared against nulls.
 
 Suggested nulls:
 
-### 19.1 Time random
+### 23.1 Time random
 
-Randomly choose known-time bars with the same symbol, timeframe, and session distribution.
+Random known-time bars with the same symbol, timeframe, and session distribution.
 
-### 19.2 Node random
+### 23.2 Node random
 
-Randomly choose structural nodes from the same `L` stream and direction class.
+Random structural nodes from the same `L` stream and same direction class.
 
-### 19.3 Matched-distance random
+### 23.3 Matched-amplitude random
 
-Match the distance from `W` to `H2/L2`, then compare forward behavior from random structural locations with similar amplitude.
+Match the distance from `W` to `H2/L2`.
 
-### 19.4 Matched-duration random
+### 23.4 Matched-duration random
 
-Match the number of bars from `W` to `CONF`, then compare post-event behavior.
+Match the number of bars from `W` to `CONF`.
 
-The first F1 implementation only needs to export enough fields to make these nulls possible later.
+### 23.5 Matched-internal-gap random
+
+Match the `R12` nested gap ratio:
+
+Bullish:
+
+```text
+(H2 - R12) / (H2 - W)
+```
+
+Bearish:
+
+```text
+(R12 - L2) / (W - L2)
+```
+
+This prevents later results from being explained only by geometry or distance effects.
 
 ---
 
-## 20. Anti-overfit rules
+## 24. Later alpha questions
 
-The base F1 detector must not include these as required filters:
+Only after visual audit and structural report stability:
+
+```text
+After confirmed F1, is forward MFE larger than matched random?
+After confirmed F1, is MAE better contained by the waist?
+Does F1 create directional memory?
+Does F1 identify start-of-continuation paths?
+Does N2 proximity to W predict explosive optionality?
+Does R12 gap predict smoother or more explosive confirmation?
+Does cross-L F1 confluence improve post-confirmation behavior?
+Is F1 stronger after two hooks?
+Is F1 stronger after a violent opposite move?
+Is F1 useful as a regime label even without direct entry logic?
+```
+
+None of these are part of the F1 base definition.
+
+---
+
+## 25. Anti-overfit rules
+
+The base F1 detector must not require:
 
 ```text
 minimum ATR move
@@ -821,64 +1298,64 @@ specific symbol behavior
 spread-dependent tuning
 profit target
 stop-loss
+indicator confirmation
+manual trendline confirmation
 ```
 
-The first version is topology only:
+The base definition is only:
 
 ```text
-node order
+known-time node order
 protected waist
-1-2 count
+main second extreme
+1-2 internal count
+R12 nested inside main second extreme
 internal trigger break
-main second roof/floor break
-known-time causality
+main second extreme break
+explicit invalidation
+explicit ambiguity handling
 ```
-
-Amplitude, volatility, session, and execution filters can be tested later, but they must not define F1.
 
 ---
 
-## 21. Relationship to previous project modules
-
-H0007 depends on existing layers but does not replace them.
+## 26. Relationship to previous modules
 
 | Existing layer | Use in H0007 |
 |---|---|
-| `CP0001_structural_nodes` | source of pivots/nodes |
-| `M0001 final-only live stream` | known-time structural stream |
-| `H0001` | philosophical basis: nodes are decision-relevant |
-| `H0002` | optional context: revisits, zones, consumed nodes |
-| `H0004` | optional context: regime memory before/after F1 |
-| `H0005` | later directional-memory comparison after F1 |
-| `H0006` | optionality comparison after reversal/explosive states |
+| `CP0001_structural_nodes` | source of structural pivots/nodes |
+| `M0001 final-only live stream` | known-time node stream |
+| `H0001` | nodes as decision-relevant locations |
+| `H0002` | optional zone/revisit context |
+| `H0004` | optional regime context |
+| `H0005` | later directional-memory comparison |
+| `H0006` | later optionality comparison |
 
 H0007 is a grammar layer:
 
 ```text
-nodes -> counted F structure -> later regime/execution tests
+nodes -> counted F structure -> visual audit -> random comparison -> later execution research
 ```
 
 ---
 
-## 22. Implementation plan
+## 27. Implementation phases
 
-### Phase 1 — README and grammar lock
+### Phase 1 — README grammar lock
 
-Deliver this document and lock the corrected F1 definition:
+Lock the F1 definition:
 
 ```text
 R12 break is not enough.
-Main second roof/floor break is required.
+R12 must stay inside H2/L2.
+Final confirmation requires H2/L2 break.
 ```
 
-### Phase 2 — detector skeleton
+### Phase 2 — MQL detector skeleton
 
-Add an MQL module that reads the M0001 final node stream and maintains bullish and bearish F1 candidate states per `L`.
-
-Suggested module name:
+Suggested module:
 
 ```text
-M0007_FlagCountingF1.mq5
+mql5/Experts/DecisionAlphaLab/M0007/M0007_FlagCountingF1.mq5
 ```
 
 Suggested hypothesis id:
@@ -889,25 +1366,30 @@ H0007_FLAG_COUNTING_F1_START_STRUCTURE
 
 ### Phase 3 — visual debug
 
-Draw candidates and confirmed F1 structures on chart:
+Draw:
 
 ```text
-waist line
-main second roof/floor line
-internal R12 line
-1/2 labels
+W line
+H2/L2 line
+R12 line
+N1 label
+N2 label
 T12 marker
 CONF marker
-invalid candidate debug mode
+invalid candidates in debug mode
 ```
 
-### Phase 4 — structural report
+### Phase 4 — raw event export
 
-Export raw event records and summary counts. No trading metrics yet.
+Export confirmed, invalidated, rejected, and ambiguous candidate records.
 
-### Phase 5 — post-confirmation behavior
+### Phase 5 — structural report
 
-Only after visual and count audit passes, evaluate forward behavior:
+Produce counts, distributions, and stability across `L`, direction, and epsilon modes.
+
+### Phase 6 — post-confirmation behavior
+
+Only after visual audit:
 
 ```text
 MFE
@@ -915,37 +1397,76 @@ MAE
 path cleanliness
 waist survival after confirmation
 directional memory vs random
+matched null comparison
 ```
 
 ---
 
-## 23. Minimal acceptance checklist
+## 28. Minimal acceptance checklist
 
-The F1 detector is acceptable only if all of these are true:
+The F1 detector is acceptable only if:
 
 ```text
-[ ] Uses known-time nodes, not future-known pivots.
-[ ] Runs from L=2 upward as separate scale passes.
+[ ] Uses known-time nodes only.
+[ ] Runs L=2 upward as separate passes.
 [ ] Does not change L inside one candidate.
-[ ] Detects bullish and bearish F1 symmetrically.
+[ ] Detects bullish and bearish symmetrically.
 [ ] Protects W until final confirmation.
-[ ] Logs internal R12 break separately.
+[ ] Counts N1 and N2 correctly.
+[ ] Requires bullish N2 < N1 and N2 > W.
+[ ] Requires bearish N2 > N1 and N2 < W.
+[ ] Requires bullish R12 < H2.
+[ ] Requires bearish R12 > L2.
+[ ] Logs R12 break separately as internal trigger.
 [ ] Confirms only after H2/L2 break.
 [ ] Handles same-candle ambiguity without favorable assumptions.
-[ ] Draws N1 and N2 correctly on chart.
-[ ] Draws the main second roof/floor distinctly from R12.
-[ ] Exports full event fields.
-[ ] Makes no profitability claim in the base report.
+[ ] Draws R12 distinctly from H2/L2.
+[ ] Exports all raw event fields.
+[ ] Makes no trading or profitability claim.
 ```
 
 ---
 
-## 24. One-sentence definition
+## 29. One-sentence definitions
 
 Bullish F1:
 
-> A bullish F1 is a protected-waist start structure where price forms a main second roof above the first roof, creates two internal lows with `N2 < N1` while preserving the waist, breaks the internal roof between 1 and 2, and finally confirms only by breaking the main second roof.
+> A bullish F1 is a protected-waist start structure where price forms `H2` above `H1`, creates two internal lows with `N2 < N1` while preserving `W`, keeps the internal roof `R12` below `H2`, breaks `R12` only as an internal trigger, and confirms only by breaking `H2`.
 
 Bearish F1:
 
-> A bearish F1 is the mirrored protected-waist start structure where price forms a main second floor below the first floor, creates two internal highs with `N2 > N1` while preserving the waist, breaks the internal floor between 1 and 2, and finally confirms only by breaking the main second floor.
+> A bearish F1 is the mirrored protected-waist start structure where price forms `L2` below `L1`, creates two internal highs with `N2 > N1` while preserving `W`, keeps the internal floor `R12` above `L2`, breaks `R12` only as an internal trigger, and confirms only by breaking `L2`.
+
+---
+
+## 30. Compact formula
+
+Bullish:
+
+```text
+H1 -> W -> H2 -> N1 -> R12 -> N2 -> T12 -> CONF
+
+H2 > H1
+W < H1
+N1 > W
+W < N2 < N1
+N1 < R12 < H2
+T12 = break(R12)
+CONF = break(H2)
+W must survive until CONF
+```
+
+Bearish:
+
+```text
+L1 -> W -> L2 -> N1 -> R12 -> N2 -> T12 -> CONF
+
+L2 < L1
+W > L1
+N1 < W
+W > N2 > N1
+N1 > R12 > L2
+T12 = break(R12)
+CONF = break(L2)
+W must survive until CONF
+```
