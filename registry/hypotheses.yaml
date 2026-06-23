@@ -15,3 +15,10 @@ hypotheses:
     official_expert: mql5/Experts/DecisionAlphaLab/M0006/M0006_ReversalExplosiveOptionality.mq5
     official_contract: raw_m0001_known_time_batches_no_samples_future_excursion_after_known_time
     purpose: Identify whether reversal states are fatter-tail optionality points rather than higher win-rate points.
+
+  - id: H0007
+    title: Flag Counting F1 Start Structure
+    status: design_lock
+    official_expert: mql5/Experts/DecisionAlphaLab/M0007/M0007_FlagCountingF1.mq5
+    official_contract: raw_m0001_known_time_node_stream_topological_flag_counting_no_trade
+    purpose: Mechanically count protected-waist F1 start structures from structural nodes before any alpha or execution claim.

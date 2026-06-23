@@ -64,6 +64,12 @@ Question: can a known regime improve the next structural decision?
 
 Official status: reversal appears to be a short reaction edge; continuation appears to produce larger paths, but old continuation PF was path-normalized and not a real trading PF. Main H5 must use atomic replay and explicit risk.
 
+### H0007 — Flag counting / F1 start structure
+
+Question: can the first flag start structure be counted mechanically from known-time structural nodes?
+
+Official status: design lock. F1 is a protected-waist grammar object. The internal roof/floor between count node 1 and node 2 is only a trigger; final F1 confirmation requires breaking the main second roof/floor. No alpha or execution claim is made yet.
+
 ---
 
 ## Most important lessons
