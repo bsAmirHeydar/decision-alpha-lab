@@ -1,24 +1,13 @@
-hypotheses:
-  - id: H0004
-    title: Branch Regime Memory
-    status: active_atomic_no_sample
-    official_expert: mql5/Experts/DecisionAlphaLab/M0004/M0004_BranchRegimeClustering.mq5
-    official_contract: raw_m0001_known_time_batches_no_samples
-  - id: H0005
-    title: Directional Memory
-    status: active_atomic_no_sample
-    official_expert: mql5/Experts/DecisionAlphaLab/M0005/M0005_DirectionalMemory.mq5
-    official_contract: raw_m0001_known_time_live_replay_no_samples
-  - id: H0006
-    title: Reversal Explosive Optionality
-    status: active_standalone
-    official_expert: mql5/Experts/DecisionAlphaLab/M0006/M0006_ReversalExplosiveOptionality.mq5
-    official_contract: raw_m0001_known_time_batches_no_samples_future_excursion_after_known_time
-    purpose: Identify whether reversal states are fatter-tail optionality points rather than higher win-rate points.
+H0001:
+  title: Structural Highs and Lows as Decision Nodes
+  status: draft
 
-  - id: H0007
-    title: Flag Counting F1 Start Structure
-    status: design_lock_v0_2_nested_r12
-    official_expert: mql5/Experts/DecisionAlphaLab/M0007/M0007_FlagCountingF1.mq5
-    official_contract: raw_m0001_known_time_node_stream_topological_flag_counting_no_trade
-    purpose: Mechanically count protected-waist F1 start structures from structural nodes; R12 must remain nested inside H2/L2 and final confirmation requires the main second roof/floor break.
+H0002:
+  title: Structural Node Territories and Revisitation Dynamics
+  status: draft
+
+H0007:
+  title: Flag Counting / F1 Start Structure
+  status: draft
+  implementation: lab/09_execution/mql5/H0007_FlagCountingF1
+  language: MQL5
