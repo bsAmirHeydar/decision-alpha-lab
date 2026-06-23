@@ -9,5 +9,5 @@ H0002:
 H0007:
   title: Flag Counting / F1 Start Structure
   status: draft
-  implementation: lab/09_execution/mql5/H0007_FlagCountingF1
-  language: MQL5
+  implementation: mql5/Experts/DecisionAlphaLab/H0007_F1_Adaptive_Draw.mq5
+  implementation_language: MQL5

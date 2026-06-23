@@ -8,4 +8,8 @@
 
 ## MQL5 execution modules
 
-- H0007_FlagCountingF1 — MQL5-native adaptive F1 detector and chart renderer
+- H0007 — `mql5/Experts/DecisionAlphaLab/H0007_F1_Adaptive_Draw.mq5`
+
+## MQL5 documentation
+
+- `docs/mql_native/H0007_F1_MQL5_IMPLEMENTATION.md`
