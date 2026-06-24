@@ -29,6 +29,15 @@
 //
 // This module only returns money risk. It never sends orders and never decides entries.
 
+// Integration rule for two-layer systems:
+// - Do not call DAL_ExecRouletteUpdate() for hypothetical/shadow trades.
+// - Do not call DAL_ExecRouletteUpdate() merely because a signal candle closed.
+// - Call DAL_ExecRouletteRiskMoney() only when a real order is about to be sized.
+// - Call DAL_ExecRouletteUpdate() only after a managed real trade is closed and the
+//   account balance has actually changed because of that real trade.
+//
+// This keeps Roulette attached to real executed trades only.
+
 struct DALExecRouletteRiskConfig
 {
    double initial_risk_percent;

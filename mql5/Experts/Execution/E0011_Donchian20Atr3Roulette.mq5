@@ -3,8 +3,8 @@
 //| Fresh Donchian breakout, 3 ATR stop, 2R target, Roulette risk    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.10"
-#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, Roulette risk, and optional hypothetical profit gate."
+#property version   "1.11"
+#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, Roulette risk, and optional hypothetical profit gate. Roulette updates only from real closed managed trades."
 
 #include <Trade/Trade.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
@@ -36,7 +36,7 @@ input bool InpHypoGatePersistState = true;
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0011_BUILD "1.10"
+#define DAL_E0011_BUILD "1.11"
 string InpOrderCommentPrefix = "E0011DON";
 
 CTrade g_trade;
@@ -535,7 +535,8 @@ int OnInit()
       "*rouletteRiskPct=", DoubleToString(InpRouletteInitialRiskPercent, 2),
       "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 4),
       "*hypoGateEnabled=", (InpHypoGateEnabled ? "true" : "false"),
-      "*hypoGateStartOpen=", (InpHypoGateStartOpen ? "true" : "false"));
+      "*hypoGateStartOpen=", (InpHypoGateStartOpen ? "true" : "false"),
+      "*rouletteUpdateMode=real_closed_managed_trades_only");
 
    return INIT_SUCCEEDED;
 }
@@ -566,7 +567,11 @@ void OnTick()
    if(!E0011_HasNewSignalCandle())
       return;
 
-   DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
+   // IMPORTANT:
+   // Roulette must be a live-trade-only risk state.
+   // It is NOT updated by hypothetical/shadow trades and it is NOT updated merely
+   // because a new signal candle appeared. It is updated in OnTradeTransaction()
+   // only after an E0011 managed real position is closed.
 
    int managed = E0011_CountManagedOpenTrades();
    if(managed >= MathMax(1, InpMaxOpenTrades))
@@ -697,6 +702,62 @@ void OnTick()
    }
 }
 
+bool E0011_IsManagedClosedHistoryDeal(const ulong deal_ticket)
+{
+   if(deal_ticket == 0)
+      return false;
+   if(!HistoryDealSelect(deal_ticket))
+      return false;
+
+   string symbol = E0011_Symbol();
+   string deal_symbol = HistoryDealGetString(deal_ticket, DEAL_SYMBOL);
+   if(deal_symbol != symbol)
+      return false;
+
+   long magic = (long)HistoryDealGetInteger(deal_ticket, DEAL_MAGIC);
+   if(magic != InpMagicNumber)
+      return false;
+
+   string direct_comment = HistoryDealGetString(deal_ticket, DEAL_COMMENT);
+   if(StringFind(direct_comment, InpOrderCommentPrefix, 0) == 0)
+      return true;
+
+   // Closing deals produced by SL/TP often have broker comments like [sl] or [tp]
+   // instead of the original position comment. Therefore we verify the whole
+   // position history and accept the closing deal only if the original entry deal
+   // belonged to this execution prefix.
+   long position_id = (long)HistoryDealGetInteger(deal_ticket, DEAL_POSITION_ID);
+   if(position_id <= 0)
+      return false;
+
+   datetime now_time = TimeCurrent();
+   if(now_time <= 0)
+      now_time = TimeLocal();
+   if(!HistorySelect(0, now_time + 86400))
+      return false;
+
+   int total = HistoryDealsTotal();
+   for(int i = 0; i < total; i++)
+   {
+      ulong d = HistoryDealGetTicket(i);
+      if(d == 0)
+         continue;
+
+      if((long)HistoryDealGetInteger(d, DEAL_POSITION_ID) != position_id)
+         continue;
+      if(HistoryDealGetString(d, DEAL_SYMBOL) != symbol)
+         continue;
+      if((long)HistoryDealGetInteger(d, DEAL_MAGIC) != InpMagicNumber)
+         continue;
+
+      string c = HistoryDealGetString(d, DEAL_COMMENT);
+      if(StringFind(c, InpOrderCommentPrefix, 0) == 0)
+         return true;
+   }
+
+   return false;
+}
+
 void OnTradeTransaction(
    const MqlTradeTransaction &trans,
    const MqlTradeRequest &request,
@@ -727,9 +788,27 @@ void OnTradeTransaction(
    if(deal_entry != DEAL_ENTRY_OUT && deal_entry != DEAL_ENTRY_INOUT && deal_entry != DEAL_ENTRY_OUT_BY)
       return;
 
+   string deal_comment = HistoryDealGetString(trans.deal, DEAL_COMMENT);
+   if(!E0011_IsManagedClosedHistoryDeal(trans.deal))
+      return;
+
    double net_profit = HistoryDealGetDouble(trans.deal, DEAL_PROFIT)
       + HistoryDealGetDouble(trans.deal, DEAL_SWAP)
       + HistoryDealGetDouble(trans.deal, DEAL_COMMISSION);
 
+   // Two-layer gate is updated from real closed managed deals only.
    DAL_ExecHypoGateOnRealClosedDeal(g_hypo_gate_cfg, g_hypo_gate_state, net_profit, trans.deal);
+
+   // Roulette is also updated from real closed managed deals only.
+   // Virtual/hypothetical trades never touch Roulette state or Roulette volume sizing.
+   DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
+
+   if(InpPrintLogs)
+   {
+      Print("DAL_E0011_REAL_CLOSED_STATE_UPDATE *** deal=", IntegerToString((int)trans.deal),
+         "*comment=", deal_comment,
+         "*netProfit=", DoubleToString(net_profit, 2),
+         "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
+         "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+   }
 }

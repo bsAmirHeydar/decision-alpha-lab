@@ -220,3 +220,30 @@ Real stream: used only while permission is open
 ```
 
 The gate does not change Donchian logic, ATR stop logic, Roulette risk, lot sizing, or order sending. It only decides whether a valid signal is allowed to reach the real execution layer.
+
+
+## Roulette Live-Only Rule
+
+Roulette is applied only to trades that are actually executed by E0011.
+
+The hypothetical layer does not change Roulette state. A shadow trade can open the gate or keep it closed, but it never changes `locked_balance`, `base_risk`, `floor_balance`, `profit_active`, or the next real lot size.
+
+Operationally:
+
+```text
+Gate closed + valid signal:
+  -> create/update hypothetical trade only
+  -> do not call Roulette risk sizing
+  -> do not update Roulette state
+
+Gate open + valid signal:
+  -> call RouletteRiskMoney()
+  -> calculate real volume
+  -> send real order
+
+Real managed trade closes:
+  -> update hypothetical gate from real P/L
+  -> update Roulette from actual account balance
+```
+
+This means Roulette follows only the real executed trade stream, not the shadow stream.
