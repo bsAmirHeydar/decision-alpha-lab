@@ -18,8 +18,12 @@
 // 6) The cycle becomes profit-active only after balance rises above locked_balance.
 // 7) While profit-active and above locked_balance, risk may expand from:
 //      current_balance - floor_balance, multiplied by save_profit_factor.
-// 8) If the cycle was profit-active and a realized balance drop occurs,
-//    reset/re-lock the cycle to the balance after that loss.
+// 8) If a profit cluster has existed and then the next realized event is a loss,
+//    the cycle is fully re-locked to the post-loss current balance:
+//      locked_balance = current_balance
+//      base_risk      = current_balance * initial_risk_percent / 100
+//      floor_balance  = locked_balance - base_risk
+//    From that point the system is exactly like a fresh start using this new balance.
 // 9) After any re-lock, losses above the new floor keep the new base_risk fixed.
 //    If the new floor is broken again, the base re-locks downward again.
 //
@@ -184,13 +188,23 @@ double DAL_ExecRouletteRiskMoney(const DALExecRouletteRiskConfig &cfg, const DAL
    double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
    double pct = MathMax(0.0, cfg.initial_risk_percent) / 100.0;
 
-   // If the protected floor has already been broken but Update() has not run yet,
-   // return the prospective downside re-locked risk for volume safety.
-   if(current_balance > 0.0 && current_balance < st.floor_balance)
+   double eps = MathMax(0.01, MathAbs(st.locked_balance) * 0.0000001);
+
+   // Defensive sizing rule: RiskMoney() must be safe even if an execution module
+   // accidentally calls it before Update().
+   // If a profit cluster was active and balance has dropped from the last observed
+   // balance, the correct next base is the post-loss current balance.
+   if(st.profit_active && current_balance > 0.0 && current_balance < st.last_balance - eps)
    {
       risk = current_balance * pct;
    }
-   else if(st.profit_active && current_balance > st.locked_balance)
+   // If the protected floor has already been broken but Update() has not run yet,
+   // return the prospective downside re-locked risk for volume safety.
+   else if(current_balance > 0.0 && current_balance < st.floor_balance - eps)
+   {
+      risk = current_balance * pct;
+   }
+   else if(st.profit_active && current_balance > st.locked_balance + eps)
    {
       double pool = current_balance - st.floor_balance;
       double raw = pool * MathMax(0.0, cfg.save_profit_factor);
@@ -214,11 +228,15 @@ void DAL_ExecRouletteUpdate(DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskS
    double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
    double eps = MathMax(0.01, MathAbs(st.locked_balance) * 0.0000001);
 
-   // Profit-then-loss reset has priority. Once the cycle was in profit,
-   // the first realized balance drop re-locks the base at the post-loss balance.
+   // Profit-cluster loss reset has priority. Once the cycle was in profit,
+   // the first realized balance drop means the old profit cluster is over.
+   // The current post-loss balance becomes the new starting balance, and the
+   // initial risk percent is recalculated from that new balance.
+   // Example: 10000 -> 14000 -> 11500 means new locked_balance=11500,
+   // new base_risk=11500*risk_percent, and the next state is a fresh cycle.
    if(st.profit_active && current_balance < st.last_balance - eps)
    {
-      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance, "profit_then_loss_relock");
+      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance, "profit_cluster_loss_relock");
       return;
    }
 

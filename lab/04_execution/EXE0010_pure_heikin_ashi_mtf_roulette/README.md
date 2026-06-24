@@ -124,7 +124,7 @@ If balance goes into profit above locked balance, risk may grow using:
 risk = max(base_risk, (current_balance - floor_balance) * save_profit_factor)
 ```
 
-If profit was active and then balance drops, the cycle re-locks to the post-loss balance.
+If a profit cluster was active and then one realized loss happens, the cycle fully re-locks to the post-loss balance. That post-loss balance becomes the new starting balance, and `base_risk` is recalculated from it exactly like the first initialization.
 
 ## Files
 

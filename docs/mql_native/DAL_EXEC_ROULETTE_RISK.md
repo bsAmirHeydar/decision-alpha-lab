@@ -144,16 +144,16 @@ risk = max(1,000, 3,000 * 0.50) = 1,500
 
 ---
 
-## Profit then loss re-lock
+## Profit cluster then loss re-lock
 
-If the cycle was profit-active and then a realized balance drop occurs, the cycle re-locks to the post-loss balance.
+If the account first creates a profit cluster and then one realized loss occurs, the old cycle ends immediately. The post-loss current balance becomes the new `locked_balance`. From that moment, the system is treated exactly like the first start of a new cycle.
 
 Rule:
 
 ```text
 if profit_active == true and current_balance < last_balance:
     locked_balance = current_balance
-    base_risk = current_balance * initial_risk_percent
+    base_risk = locked_balance * initial_risk_percent
     floor_balance = locked_balance - base_risk
     profit_active = false
     risk = base_risk
@@ -168,14 +168,16 @@ risk grows while profit-active
 then balance drops to 11,500
 ```
 
-The cycle re-locks:
+The old profit cluster is closed and the cycle re-locks:
 
 ```text
 locked_balance = 11,500
-base_risk = 1,150
-floor_balance = 10,350
+base_risk = 11,500 * 10% = 1,150
+floor_balance = 11,500 - 1,150 = 10,350
 risk = 1,150
 ```
+
+This means the next trade is not sized from the old 10,000 cycle, and it is not sized from the previous peak. It is sized exactly as if the system had just started with 11,500.
 
 ---
 
@@ -185,7 +187,7 @@ risk = 1,150
 Loss inside floor band      -> keep base_risk
 Loss below floor            -> re-lock downward at current balance
 Profit above locked balance -> profit_active = true and risk may grow
-Loss after profit           -> re-lock at post-loss balance
+Loss after profit cluster   -> re-lock at post-loss balance as a fresh start
 ```
 
 This is not martingale. Losses do not increase risk.
