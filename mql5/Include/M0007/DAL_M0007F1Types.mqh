@@ -1,3 +1,5 @@
+#ifndef __DAL_M0007_F1_TYPES_MQH__
+#define __DAL_M0007_F1_TYPES_MQH__
 #property strict
 
 enum M0007_NodeType
@@ -101,3 +103,5 @@ string M0007_AddLToCsv(string csv, const int L)
    if(M0007_StringHasL(csv, L)) return csv;
    return csv + "," + IntegerToString(L);
 }
+
+#endif

@@ -1,3 +1,5 @@
+#ifndef __DAL_M0007_F1_NODE_DETECTOR_MQH__
+#define __DAL_M0007_F1_NODE_DETECTOR_MQH__
 #property strict
 #include <M0007/DAL_M0007F1Types.mqh>
 
@@ -80,3 +82,5 @@ void M0007_CompressAlternatingNodes(const M0007_F1Node &raw[], M0007_F1Node &out
          out[m-1] = node;
    }
 }
+
+#endif

@@ -1,3 +1,5 @@
+#ifndef __DAL_M0007_F1_DETECTOR_MQH__
+#define __DAL_M0007_F1_DETECTOR_MQH__
 #property strict
 #include <M0007/DAL_M0007F1Types.mqh>
 #include <M0007/DAL_M0007F1NodeDetector.mqh>
@@ -54,12 +56,15 @@ void M0007_MergeAdaptiveEvents(const M0007_F1Event &raw[], const double overlap_
          if(cand.direction != out[k].direction) continue;
          if(M0007_EventOverlapRatio(cand, out[k]) < overlap_threshold) continue;
 
-         out[k].matched_L_values = M0007_AddLToCsv(out[k].matched_L_values, cand.L_used);
+         string merged_l = M0007_AddLToCsv(out[k].matched_L_values, cand.L_used);
          if(cand.score > out[k].score)
          {
-            string merged_l = out[k].matched_L_values;
             out[k] = cand;
             out[k].matched_L_values = M0007_AddLToCsv(merged_l, cand.L_used);
+         }
+         else
+         {
+            out[k].matched_L_values = merged_l;
          }
          merged = true;
          break;
@@ -76,10 +81,15 @@ void M0007_ResolveBullish(const MqlRates &rates[], const int total, M0007_F1Even
    e.internal_trigger_index = -1;
    e.confirm_index = -1;
    e.invalidation_index = -1;
+   e.internal_trigger_time = 0;
+   e.confirm_time = 0;
+   e.invalidation_time = 0;
+   e.internal_trigger_price = 0.0;
+   e.confirm_price = 0.0;
+   e.invalidation_price = 0.0;
 
    for(int i=e.N2.index + 1; i<total; i++)
    {
-      // Conservative same-bar ambiguity: waist violation wins before confirmation.
       if(M0007_BreakBelow(rates[i], e.W.price, mode, eps))
       {
          e.status = M0007_STATUS_INVALIDATED;
@@ -113,6 +123,12 @@ void M0007_ResolveBearish(const MqlRates &rates[], const int total, M0007_F1Even
    e.internal_trigger_index = -1;
    e.confirm_index = -1;
    e.invalidation_index = -1;
+   e.internal_trigger_time = 0;
+   e.confirm_time = 0;
+   e.invalidation_time = 0;
+   e.internal_trigger_price = 0.0;
+   e.confirm_price = 0.0;
+   e.invalidation_price = 0.0;
 
    for(int i=e.N2.index + 1; i<total; i++)
    {
@@ -178,7 +194,6 @@ void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const
       M0007_F1Node E = nodes[i+4];
       M0007_F1Node F = nodes[i+5];
 
-      // Bullish: H1 -> W -> H2 -> N1 -> R12 -> N2
       if(A.type == M0007_NODE_HIGH && B.type == M0007_NODE_LOW && C.type == M0007_NODE_HIGH &&
          D.type == M0007_NODE_LOW  && E.type == M0007_NODE_HIGH && F.type == M0007_NODE_LOW)
       {
@@ -193,7 +208,6 @@ void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const
          }
       }
 
-      // Bearish: L1 -> W -> L2 -> N1 -> R12 -> N2
       if(A.type == M0007_NODE_LOW && B.type == M0007_NODE_HIGH && C.type == M0007_NODE_LOW &&
          D.type == M0007_NODE_HIGH && E.type == M0007_NODE_LOW  && F.type == M0007_NODE_HIGH)
       {
@@ -223,3 +237,5 @@ void M0007_DetectAdaptiveF1(const MqlRates &rates[], const int total, const int 
 
    M0007_MergeAdaptiveEvents(raw_events, overlap_threshold, events);
 }
+
+#endif

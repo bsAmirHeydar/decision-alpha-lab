@@ -1,8 +1,7 @@
 #property strict
-#property version   "1.01"
-#property description "M0007 | Adaptive F1 Flag Counting visual audit EA"
+#property version   "1.02"
+#property description "M0007 | Adaptive F1 Flag Counting visual audit EA | MQL-only"
 
-#include <M0007/DAL_M0007F1Types.mqh>
 #include <M0007/DAL_M0007F1Detector.mqh>
 #include <M0007/DAL_M0007F1Renderer.mqh>
 
@@ -13,7 +12,7 @@ input M0007_BreakMode   InpBreakMode         = M0007_BREAK_WICK;
 input double            InpEpsilonPoints     = 0.0;
 input double            InpOverlapThreshold  = 0.60;
 input int               InpMaxEventsToDraw   = 20;
-input bool              InpDrawOnlyConfirmed = true;
+input bool              InpDrawOnlyConfirmed = false;   // false by default so OPEN/INVALIDATED structures are visible during audit.
 input bool              InpRedrawOnNewBar    = false;
 input bool              InpDeleteOnDeinit    = false;
 input string            InpObjectPrefix      = "DAL_M0007_F1_";
@@ -64,7 +63,7 @@ bool M0007_RunF1Detector()
    int total = ArraySize(events);
    int confirmed = 0;
    int invalidated = 0;
-   int open = 0;
+   int open_count = 0;
 
    for(int i=0; i<total; i++)
    {
@@ -73,7 +72,7 @@ bool M0007_RunF1Detector()
       else if(events[i].status == M0007_STATUS_INVALIDATED)
          invalidated++;
       else
-         open++;
+         open_count++;
    }
 
    Print("DAL M0007 F1 Adaptive EA | symbol=", _Symbol,
@@ -83,7 +82,8 @@ bool M0007_RunF1Detector()
          " total=", total,
          " confirmed=", confirmed,
          " invalidated=", invalidated,
-         " open=", open);
+         " open=", open_count,
+         " drawOnlyConfirmed=", (InpDrawOnlyConfirmed ? "true" : "false"));
 
    for(int i=MathMax(0,total-10); i<total; i++)
    {
@@ -100,7 +100,8 @@ bool M0007_RunF1Detector()
    }
 
    M0007_DeleteObjectsByPrefix(InpObjectPrefix);
-   M0007_DrawEvents(events, InpMaxEventsToDraw, InpDrawOnlyConfirmed, InpObjectPrefix);
+   int drawn = M0007_DrawEvents(events, InpMaxEventsToDraw, InpDrawOnlyConfirmed, InpObjectPrefix);
+   Print("DAL M0007 F1: drawn objects for events=", drawn);
 
    return true;
 }
