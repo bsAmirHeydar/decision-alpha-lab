@@ -3,7 +3,7 @@
 //| Closed M1 HA body flip aligned with current-forming M10 HA body |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.05"
+#property version   "1.06"
 #property description "Execution E0010: pure Heikin Ashi MTF entry with reusable Roulette risk."
 
 #include <Trade/Trade.mqh>
@@ -31,7 +31,7 @@ input bool InpAllowMinLotIfRiskTooSmall = false;
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0010_BUILD "1.05"
+#define DAL_E0010_BUILD "1.06"
 string InpOrderCommentPrefix = "E0010HA";
 
 CTrade g_trade;
@@ -455,7 +455,8 @@ bool E0010_BuildTradePlan(
       return false;
    }
 
-   reason = "ok*" + E0010_RiskSizingToLog(sizing)
+   reason = "ok*stop=" + stop_reason
+      + "*" + E0010_RiskSizingToLog(sizing)
       + "*" + DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state)
       + "*signalTime=" + E0010_FormatDateTime(signal_closed.time);
    return true;

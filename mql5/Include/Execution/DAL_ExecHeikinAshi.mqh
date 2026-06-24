@@ -206,11 +206,15 @@ bool DAL_ExecHAClosedBodyFlip(
 // Important: the stop is based on REAL lower-timeframe candle highs/lows,
 // not Heikin Ashi highs/lows and not visual colors.
 //
+// This implementation deliberately uses iLow()/iHigh() by closed-bar shift.
+// It does not infer the stop from copied arrays, HA arrays, candle colors,
+// or the current forming candle.
+//
 // BUY:
-//   SL = lowest real LOW of the last N completed lower-timeframe candles - optional buffer
+//   SL = lowest real LOW among shifts 1..N on the lower timeframe - optional buffer
 //
 // SELL:
-//   SL = highest real HIGH of the last N completed lower-timeframe candles + current spread + optional buffer
+//   SL = highest real HIGH among shifts 1..N on the lower timeframe + current spread + optional buffer
 //
 // N defaults to 3 from the EA input.
 bool DAL_ExecHARealCandleStopFromClosedBars(
@@ -243,31 +247,34 @@ bool DAL_ExecHARealCandleStopFromClosedBars(
    if(point <= 0.0)
       point = _Point;
 
+   int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
    double buffer = MathMax(0, buffer_points) * point;
-
-   MqlRates rates[];
-   int copied = CopyRates(symbol, timeframe, 0, lookback + 5, rates);
-   if(copied <= lookback)
-   {
-      reason = "not_enough_rates_for_real_candle_stop";
-      return false;
-   }
-   ArraySetAsSeries(rates, true);
 
    bool initialized = false;
    double level = 0.0;
+   string sampled = "";
 
-   // Only completed candles are used.
-   // shift 1 = last closed candle
-   // shift 2 = candle before it
-   // shift 3 = third closed candle back
+   // Exact rule: use only the real OHLC candles that are already closed.
+   // shift 1 = last closed lower-timeframe candle / signal candle
+   // shift 2 = one candle before it
+   // shift 3 = two candles before it
    for(int shift = 1; shift <= lookback; shift++)
    {
       double candidate = 0.0;
       if(direction > 0)
-         candidate = rates[shift].low;
+         candidate = iLow(symbol, timeframe, shift);
       else
-         candidate = rates[shift].high;
+         candidate = iHigh(symbol, timeframe, shift);
+
+      if(candidate <= 0.0 || !MathIsValidNumber(candidate))
+      {
+         reason = "invalid_stop_candidate_shift_" + IntegerToString(shift);
+         return false;
+      }
+
+      if(sampled != "")
+         sampled += ",";
+      sampled += "s" + IntegerToString(shift) + "=" + DoubleToString(candidate, digits);
 
       if(!initialized)
       {
@@ -301,17 +308,20 @@ bool DAL_ExecHARealCandleStopFromClosedBars(
       spread_price = MathMax(0.0, (double)spread_points * point);
    }
 
-   int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
-
+   // Buy has no spread addition by design.
+   // Sell is above the three-candle high plus current spread by design.
    if(direction > 0)
       stop_price = NormalizeDouble(level - buffer, digits);
    else
       stop_price = NormalizeDouble(level + spread_price + buffer, digits);
 
-   reason = "ok*lookback=" + IntegerToString(lookback)
+   reason = "ok*method=iLow_iHigh_closed_shifts"
+      + "*lookback=" + IntegerToString(lookback)
+      + "*samples=" + sampled
       + "*level=" + DoubleToString(level, digits)
       + "*spread=" + DoubleToString(spread_price, digits)
-      + "*buffer=" + DoubleToString(buffer, digits);
+      + "*buffer=" + DoubleToString(buffer, digits)
+      + "*stop=" + DoubleToString(stop_price, digits);
    return true;
 }
 

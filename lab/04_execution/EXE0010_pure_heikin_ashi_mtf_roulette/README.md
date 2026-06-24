@@ -81,9 +81,9 @@ StopLookbackClosedBars = 3
 
 TP is 1:2 by default.
 
-Stop is derived from the last three completed lower-timeframe real candles.
+Stop is derived directly from the last three completed lower-timeframe real candles using `iLow()` / `iHigh()` closed-bar shifts.
 
-It is not based on visual candle color and it is not based on Heikin Ashi high/low.
+It is not based on visual candle color, copied Heikin Ashi arrays, Heikin Ashi high/low, or the current forming candle.
 
 Default:
 
@@ -94,14 +94,14 @@ StopLookbackClosedBars = 3
 For buy:
 
 ```text
-SL = lowest real low of the previous 3 closed M1 candles
+SL = min(iLow(M1, 1), iLow(M1, 2), iLow(M1, 3))
 TP = entry + 2R
 ```
 
 For sell:
 
 ```text
-SL = highest real high of the previous 3 closed M1 candles + current spread
+SL = max(iHigh(M1, 1), iHigh(M1, 2), iHigh(M1, 3)) + current spread
 TP = entry - 2R
 ```
 
