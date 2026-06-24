@@ -1,75 +1,140 @@
 #property strict
 #property version   "1.00"
-#property description "EXP0012 Distributional Cluster Miner demo. Research-only. No trading."
+#property description "Decision Alpha Lab EXP0012 - Distribution Engineering Cluster Miner demo"
+#property description "Research-only. Does not send orders."
 
-#include <Research/DAL_DistributionClusterMiner.mqh>
-#include <Research/DAL_DistributionClusterFilter.mqh>
+#include <Research/DAL_DistributionExecutionAdapter.mqh>
 
-input bool   InpPrintDemoReport = true;
-input string InpDemoStrategyId  = "EXP0012_DEMO";
+input bool   InpExportCsv       = true;
+input string InpExportCsvName   = "EXP0012_distribution_cluster_miner_demo.csv";
+input int    InpSyntheticTrades = 350;
+input double InpWinThresholdR   = 3.0;
 
-DAL_DEClusterMiner       g_miner;
-DAL_DEClusterFilterConfig g_filter_cfg;
+DAL_DEClusterMiner g_miner;
 
-void AddDemoOutcome(const string key, const bool win, const double r_result)
+string BuildSyntheticFeatureKey(const int i)
 {
-   DAL_DETradeOutcome o;
-   DAL_DETradeOutcome_Reset(o);
+   string key = DAL_DEAdapter_BaseFeatureKey("DEMO_DONCHIAN_ATR", _Symbol, PERIOD_M1);
 
-   o.strategy_id  = InpDemoStrategyId;
-   o.symbol       = _Symbol;
-   o.timeframe    = PERIOD_M1;
-   o.direction    = 1;
-   o.entry_time   = TimeCurrent();
-   o.exit_time    = TimeCurrent();
-   o.entry_price  = SymbolInfoDouble(_Symbol, SYMBOL_BID);
-   o.stop_price   = o.entry_price - 100.0 * _Point;
-   o.target_price = o.entry_price + 300.0 * _Point;
-   o.r_result     = r_result;
-   o.mfe_r        = (win ? 3.0 : 0.5);
-   o.mae_r        = (win ? -0.3 : -1.0);
-   o.bars_to_exit = (win ? 8 : 5);
-   o.is_win       = win;
-   o.is_loss      = !win;
-   o.feature_key  = key;
+   // Two engineered regimes: one noisy, one cluster-friendly.
+   if((i % 11) <= 5)
+   {
+      key = DAL_DE_KeyAppend(key, "atr", "high");
+      key = DAL_DE_KeyAppend(key, "donchian_width", "high");
+      key = DAL_DE_KeyAppend(key, "htf_aligned", "true");
+      key = DAL_DE_KeyAppend(key, "path_clean", "true");
+   }
+   else
+   {
+      key = DAL_DE_KeyAppend(key, "atr", "low");
+      key = DAL_DE_KeyAppend(key, "donchian_width", "mid");
+      key = DAL_DE_KeyAppend(key, "htf_aligned", "false");
+      key = DAL_DE_KeyAppend(key, "path_clean", "false");
+   }
 
-   DAL_DEClusterMiner_AddOutcome(g_miner, o);
+   key = DAL_DEAdapter_AddDirectionFeature(key, (i % 2 == 0 ? 1 : -1));
+   return key;
+}
+
+double SyntheticR(const int i)
+{
+   // This is only a deterministic demo, not a market model.
+   // Creates visible clusters in the high/high/aligned/clean feature group.
+   bool cluster_regime = ((i % 11) <= 5);
+   if(cluster_regime)
+   {
+      int j = i % 7;
+      if(j == 0 || j == 1 || j == 2 || j == 3)
+         return 3.0;
+      if(j == 4)
+         return -1.0;
+      return 3.0;
+   }
+
+   int k = i % 6;
+   if(k == 0 || k == 4)
+      return 3.0;
+   if(k == 1 || k == 2 || k == 3)
+      return -1.0;
+   return 0.0;
 }
 
 int OnInit()
 {
-   DAL_DEClusterMiner_Init(g_miner, InpDemoStrategyId, 3, 5, 7, 10);
-   DAL_DEClusterFilterConfig_Default(g_filter_cfg);
+   DAL_DEClusterMiner_Reset(g_miner, "EXP0012_DEMO", "DEMO_DONCHIAN_ATR");
 
-   // Synthetic demonstration only. Real execution modules should emit actual
-   // closed trade outcomes from their OnTradeTransaction / tester logic.
-   string raw_key = "atr=mid|donchian=mid|htf=mixed";
-   string cluster_key = "atr=high|donchian=high|htf=aligned";
+   DAL_DEExecutionAdapterConfig cfg;
+   DAL_DEExecutionAdapterConfig_Default(cfg, "DEMO_DONCHIAN_ATR", "EXP0012_Demo");
+   cfg.symbol = _Symbol;
+   cfg.timeframe = PERIOD_M1;
+   cfg.magic = 12012;
+   cfg.win_threshold_r = InpWinThresholdR;
+   cfg.loss_threshold_r = -1.0;
+   cfg.use_decided_thresholds = true;
 
-   for(int i = 0; i < 60; i++)
+   datetime t0 = TimeCurrent() - InpSyntheticTrades * 60;
+
+   for(int i = 0; i < InpSyntheticTrades; i++)
    {
-      bool w = ((i % 3) == 0);
-      AddDemoOutcome(raw_key, w, (w ? 3.0 : -1.0));
+      string feature_key = BuildSyntheticFeatureKey(i);
+      double r = SyntheticR(i);
+      double risk_money = 100.0;
+      double net_profit = r * risk_money;
+
+      DAL_DEAdapter_RecordOutcomeFromMoney(
+         g_miner,
+         cfg,
+         feature_key,
+         DAL_DE_LAYER_LIVE,
+         (i % 2 == 0 ? 1 : -1),
+         t0 + i * 60,
+         t0 + (i + 3) * 60,
+         100.0,
+         100.0 + r,
+         99.0,
+         103.0,
+         risk_money,
+         0.10,
+         net_profit,
+         0.0,
+         0.0,
+         MathMax(0.0, r),
+         MathMin(0.0, r),
+         3,
+         (ulong)i,
+         (ulong)(100000 + i)
+      );
    }
 
-   // Clustered block: intentionally creates win-after-win behavior.
-   for(int j = 0; j < 8; j++)
-      AddDemoOutcome(cluster_key, true, 3.0);
-   AddDemoOutcome(cluster_key, false, -1.0);
+   Print(DAL_DEClusterMiner_Report(g_miner, 20));
 
-   for(int k = 0; k < 8; k++)
-      AddDemoOutcome(cluster_key, true, 3.0);
-   AddDemoOutcome(cluster_key, false, -1.0);
+   DAL_DEClusterFilterConfig fcfg;
+   DAL_DEClusterFilterConfig_Default(fcfg);
+   fcfg.min_total = 20;
+   fcfg.min_decided_total = 20;
+   fcfg.min_clusters_ge_3 = 1;
+   fcfg.min_win_rate_decided = 0.45;
+   fcfg.min_lift_vs_raw = 1.05;
+   fcfg.min_p_win_after_1w = 0.50;
 
-   if(InpPrintDemoReport)
-      DAL_DEClusterMiner_PrintReport(g_miner, 20);
+   string eligible_keys[];
+   DAL_DEClusterFilterDecision decisions[];
+   int eligible_count = DAL_DEClusterFilter_CollectEligibleKeys(g_miner, fcfg, eligible_keys, decisions);
 
-   Print(DAL_DEClusterFilter_Reason(g_miner, g_filter_cfg, cluster_key));
+   Print("EXP0012 eligible feature groups: ", eligible_count);
+   for(int e = 0; e < eligible_count; e++)
+      Print(DAL_DEClusterFilterDecision_ToLine(decisions[e]));
+
+   if(InpExportCsv)
+   {
+      bool ok = DAL_DEClusterMiner_ExportCsv(g_miner, InpExportCsvName);
+      Print("EXP0012 CSV export ", (ok ? "OK" : "FAILED"), " file=", InpExportCsvName);
+   }
 
    return INIT_SUCCEEDED;
 }
 
 void OnTick()
 {
-   // Research-only demo. No trading.
+   // Research demo only.
 }

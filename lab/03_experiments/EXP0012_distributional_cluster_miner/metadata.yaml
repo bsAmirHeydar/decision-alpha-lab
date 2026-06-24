@@ -1,7 +1,30 @@
 id: EXP0012
-hypothesis: H0008
 title: Distributional Cluster Miner
-status: draft
+hypothesis: H0008_distribution_engineering
+type: research_module
 language: MQL5
-module: mql5/Include/Research/DAL_DistributionClusterMiner.mqh
-purpose: reusable distribution-engineering module for execution outcome clustering
+status: draft
+scope:
+  - distribution_engineering
+  - conditional_sequence_extraction
+  - cluster_mining
+  - roulette_permission_layer
+outputs:
+  - raw_distribution_metrics
+  - feature_group_metrics
+  - conditional_win_after_win_metrics
+  - cluster_counts
+  - eligibility_decisions
+  - csv_report
+mql5:
+  include:
+    - mql5/Include/Research/DAL_DistributionEngineeringTypes.mqh
+    - mql5/Include/Research/DAL_DistributionClusterMiner.mqh
+    - mql5/Include/Research/DAL_DistributionClusterFilter.mqh
+    - mql5/Include/Research/DAL_DistributionExecutionAdapter.mqh
+  demo_expert:
+    - mql5/Experts/Research/EXP0012_DistributionClusterMiner_Demo.mq5
+notes:
+  - Research-only module.
+  - Does not send orders.
+  - Designed to be embedded in execution EAs after trade close.

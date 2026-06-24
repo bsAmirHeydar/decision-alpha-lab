@@ -1,93 +1,230 @@
 # EXP0012 — Distributional Cluster Miner
 
-## Purpose
+## Title
 
-EXP0012 implements the research tool required by H0008: a reusable MQL5 module that can be attached to any execution strategy to measure whether trade outcomes form exploitable clusters.
+**Distribution Engineering for Conditional Sequence Extraction**
 
-This experiment is not an execution strategy. It does not send orders. It is a measurement and filtering layer.
+This experiment turns each execution system into a distribution generator. The goal is not only to measure whether an execution has an edge. The goal is to identify the causal feature states where wins become clustered and therefore suitable for Roulette / Jackpot execution.
 
-## Core idea
+The central shift is:
 
-Every execution strategy emits completed trade outcomes. EXP0012 groups those outcomes by a causal `feature_key` and measures whether any key improves:
+```text
+from: edge hunting
+  to: distribution engineering
+```
+
+A raw strategy may have mediocre global statistics while still containing a narrow feature regime where the conditional probability of a next win after a win is much higher than the raw win rate.
+
+That is the object we want to mine.
+
+---
+
+## Module Files
+
+```text
+mql5/Include/Research/DAL_DistributionEngineeringTypes.mqh
+mql5/Include/Research/DAL_DistributionClusterMiner.mqh
+mql5/Include/Research/DAL_DistributionClusterFilter.mqh
+mql5/Include/Research/DAL_DistributionExecutionAdapter.mqh
+mql5/Experts/Research/EXP0012_DistributionClusterMiner_Demo.mq5
+```
+
+The module is MQL5-only and research-only. It never sends orders.
+
+---
+
+## What the module measures
+
+For every feature group, the miner calculates:
+
+```text
+total trades
+wins
+losses
+flats
+probe/live split
+buy/sell split
+raw win rate
+decided win rate
+mean R
+R variance / std
+min R / max R
+profit factor
+average win R
+average loss R
+payoff ratio
+MFE_R / MAE_R averages
+bars-to-exit averages
+hour distribution
+R-result distribution buckets
+current and max win streak
+current and max loss streak
+clusters >= 3 wins
+clusters >= 5 wins
+clusters >= 7 wins
+clusters >= 10 wins
+P(win | at least 1 previous win)
+P(win | at least 2 previous wins)
+P(win | at least 3 previous wins)
+loss hazard after k wins
+lift versus raw distribution
+sequence lift versus own win rate
+rank score
+```
+
+---
+
+## Core metrics
+
+### Raw win rate
+
+Global probability of a win in the unfiltered trade population.
 
 ```text
 P(W)
-P(W after W)
-P(W after WW)
-P(W after WWW)
-max streak
-cluster count
-lift over baseline
 ```
 
-The goal is to find filters that make Roulette / Jackpot execution statistically more defensible.
+### Filtered win rate
 
-## Integration contract
+Win probability inside one causal feature group.
 
-Any execution can use the module by including:
-
-```mql5
-#include <Research/DAL_DistributionClusterMiner.mqh>
+```text
+P(W | feature_key)
 ```
 
-Then create a miner:
+### Lift
 
-```mql5
-DAL_DEClusterMiner miner;
-DAL_DEClusterMiner_Init(miner, "E0011", 3, 5, 7, 10);
+How much the feature group improves win probability versus the raw distribution.
+
+```text
+Lift = P(W | feature_key) / P(W)
 ```
 
-After a trade closes, emit the result:
+### Conditional win-after-win
 
-```mql5
-DAL_DETradeOutcome outcome;
-DAL_DETradeOutcome_Reset(outcome);
+The key Roulette / Jackpot metric.
 
-outcome.strategy_id = "E0011";
-outcome.symbol = _Symbol;
-outcome.timeframe = PERIOD_M1;
-outcome.direction = 1;
-outcome.entry_time = TimeCurrent();
-outcome.exit_time = TimeCurrent();
-outcome.entry_price = entry;
-outcome.stop_price = stop;
-outcome.target_price = target;
-outcome.r_result = 3.0;
-outcome.is_win = true;
-outcome.feature_key = "atr_expansion=high|donchian_width=high|htf=aligned";
-
-DAL_DEClusterMiner_AddOutcome(miner, outcome);
+```text
+P(W_next | current_run_length >= k, feature_key)
 ```
 
-At any point, the execution can ask whether a feature key is eligible:
+A filter is not valuable for Jackpot merely because it improves win rate. It is valuable when it improves the probability of continued wins after the run has already started.
+
+### Cluster counts
+
+The module counts feature groups that produced runs of:
+
+```text
+>= 3 wins
+>= 5 wins
+>= 7 wins
+>= 10 wins
+```
+
+This is the direct sequence-mining layer.
+
+---
+
+## Integration contract for execution modules
+
+Every execution module can plug into the miner by recording a completed trade outcome after the position is closed.
+
+Minimal include:
 
 ```mql5
-bool allowed = DAL_DEClusterMiner_IsEligible(
-   miner,
-   "atr_expansion=high|donchian_width=high|htf=aligned",
-   200,   // min trades
-   0.50,  // min filtered win rate
-   0.60,  // min win-after-win probability
-   1.10,  // min lift versus raw
-   5      // min clusters of length 3
+#include <Research/DAL_DistributionExecutionAdapter.mqh>
+```
+
+Global miner:
+
+```mql5
+DAL_DEClusterMiner g_de_miner;
+```
+
+Initialize:
+
+```mql5
+DAL_DEClusterMiner_Reset(g_de_miner, "E0011_DE", "E0011_Donchian20Atr3Roulette");
+```
+
+Build a feature key before entry:
+
+```mql5
+string key = DAL_DEAdapter_BaseFeatureKey("E0011", _Symbol, PERIOD_M1);
+key = DAL_DE_KeyAppend(key, "atr", "high");
+key = DAL_DE_KeyAppend(key, "donchian_width", "high");
+key = DAL_DE_KeyAppend(key, "htf_aligned", "true");
+key = DAL_DE_KeyAppend(key, "path_clean", "true");
+key = DAL_DEAdapter_AddDirectionFeature(key, direction);
+key = DAL_DEAdapter_AddSessionFeature(key, TimeCurrent());
+```
+
+After a trade closes, record outcome:
+
+```mql5
+DAL_DEExecutionAdapterConfig cfg;
+DAL_DEExecutionAdapterConfig_Default(cfg, "E0011", "E0011_Donchian20Atr3Roulette");
+cfg.symbol = _Symbol;
+cfg.timeframe = PERIOD_M1;
+cfg.magic = InpMagic;
+cfg.win_threshold_r = 3.0;
+cfg.loss_threshold_r = -1.0;
+
+DAL_DEAdapter_RecordOutcomeFromMoney(
+   g_de_miner,
+   cfg,
+   key,
+   DAL_DE_LAYER_LIVE,
+   direction,
+   entry_time,
+   exit_time,
+   entry_price,
+   exit_price,
+   stop_price,
+   target_price,
+   risk_money,
+   volume,
+   gross_profit,
+   commission,
+   swap,
+   mfe_r,
+   mae_r,
+   bars_to_exit,
+   position_id,
+   deal_id
 );
 ```
 
-## Interpretation
-
-If a key is eligible, the execution may allow Roulette / Jackpot mode.
-If it is not eligible, the execution should remain in probe mode or use normal fixed-risk logic.
-
-## Important constraint
-
-The `feature_key` must be built using only information available before the trade is entered. No future path information may be used to decide the key.
-
-## Output
-
-The miner can print a compact report:
+Then ask whether the current feature state is eligible:
 
 ```mql5
-DAL_DEClusterMiner_PrintReport(miner);
+DAL_DEClusterFilterConfig filter_cfg;
+DAL_DEClusterFilterConfig_Default(filter_cfg);
+
+DAL_DEClusterFilterDecision decision;
+bool allowed = DAL_DEAdapter_IsFeatureEligible(g_de_miner, key, filter_cfg, decision);
 ```
 
-The report contains overall statistics and per-key statistics.
+If `allowed == true`, the execution may allow the Roulette / Jackpot layer for that feature state.
+
+---
+
+## Design principle
+
+Roulette is the convex execution layer.
+
+Distribution Engineering is the permission layer.
+
+The execution should not ask:
+
+```text
+Is the strategy globally profitable?
+```
+
+It should ask:
+
+```text
+Is this current feature state statistically associated with clustered 3R wins?
+```
+
+That is the core of EXP0012.
