@@ -3,18 +3,19 @@
 //| Continuation-direction HA color flip, fixed 1:2 by default         |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.02"
+#property version   "1.03"
 #property description "Execution module E0004: continuation-direction Heikin Ashi color flip, fixed-R market entries."
 
 #include <Trade/Trade.mqh>
-#include <Market/DAL_Bars.mqh>
-#include <StructuralNodes/DAL_StructuralNodeEngine.mqh>
-#include <M0001/DAL_M0001Config.mqh>
-#include <M0001/DAL_M0001Engine.mqh>
-#include <M0002/DAL_M0002Engine.mqh>
-#include <Execution/DAL_ExecRisk.mqh>
-#include <Execution/DAL_ExecOrders.mqh>
-#include <Execution/DAL_ExecReversalOneToOne.mqh>
+#include <DecisionAlphaLab/Market/DAL_Bars.mqh>
+#include <DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh>
+#include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
+#include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
+#include <DecisionAlphaLab/M0002/DAL_M0002Engine.mqh>
+#include <DecisionAlphaLab/Execution/DAL_ExecRisk.mqh>
+#include <Execution/DAL_ExecRouletteRisk.mqh>
+#include <DecisionAlphaLab/Execution/DAL_ExecOrders.mqh>
+#include <DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>
 
 // Minimal public inputs for the fourth H5 execution path.
 input string InpSymbol = "";
@@ -56,13 +57,28 @@ input int InpTradingEndMinute = 59;
 
 // Risk/entry policy.
 input long InpMagicNumber = 5004004;
-input double InpRiskCash = 100.0;
+
+enum ENUM_E0004RiskModel
+{
+   E0004_RISK_FIXED_CASH = 0,
+   E0004_RISK_ROULETTE = 1
+};
+
+input ENUM_E0004RiskModel InpRiskModel = E0004_RISK_ROULETTE;
+input double InpRiskCash = 100.0; // Used only when InpRiskModel = E0004_RISK_FIXED_CASH.
+input double InpRouletteInitialRiskPercent = 10.0;
+input double InpRouletteSaveProfitFactor = 0.50;
+input bool InpRoulettePersistState = true;
+input bool InpRouletteResetOnBalanceDrop = true;
+input string InpRouletteStateKey = "";
+input bool InpPrintRouletteLogs = false;
+
 input double InpRewardR = 2.0;
 input bool InpAllowSimultaneousTrades = true;
 input int InpContinuationBreakBufferPoints = 0;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0004_BUILD "1.02"
+#define DAL_E0004_BUILD "1.03"
 string InpOrderCommentPrefix = "DALH4";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
@@ -76,6 +92,7 @@ bool InpPrintOrderLogs = false;
 
 CTrade g_trade;
 datetime g_last_open_bar_time = 0;
+DALExecRouletteRiskState g_roulette;
 
 string LabSymbol()
 {
@@ -89,6 +106,70 @@ ENUM_TIMEFRAMES LabTimeframe()
    if(InpTimeframe == PERIOD_CURRENT)
       return (ENUM_TIMEFRAMES)_Period;
    return InpTimeframe;
+}
+
+string E0004_RiskModelToString()
+{
+   if(InpRiskModel == E0004_RISK_ROULETTE)
+      return "ROULETTE";
+   return "FIXED_CASH";
+}
+
+string E0004_RouletteStorageKey()
+{
+   if(InpRouletteStateKey != "")
+      return InpRouletteStateKey;
+
+   return "E0004_" + LabSymbol() + "_" + IntegerToString((int)InpMagicNumber);
+}
+
+bool E0004_ResolveRiskCash(double &risk_cash, string &reason)
+{
+   risk_cash = 0.0;
+   reason = "not_resolved";
+
+   if(InpRiskModel == E0004_RISK_FIXED_CASH)
+   {
+      risk_cash = MathMax(0.0, InpRiskCash);
+      if(risk_cash <= 0.0)
+      {
+         reason = "fixed_cash_non_positive";
+         return false;
+      }
+      reason = "fixed_cash";
+      return true;
+   }
+
+   if(!g_roulette.initialized)
+   {
+      if(!DAL_ExecRouletteInit(
+         g_roulette,
+         E0004_RouletteStorageKey(),
+         InpRouletteInitialRiskPercent,
+         InpRouletteSaveProfitFactor,
+         InpRoulettePersistState,
+         InpRouletteResetOnBalanceDrop
+      ))
+      {
+         reason = "roulette_init_" + g_roulette.reason;
+         return false;
+      }
+   }
+
+   if(!DAL_ExecRouletteRiskCash(
+      g_roulette,
+      InpRouletteInitialRiskPercent,
+      InpRouletteSaveProfitFactor,
+      risk_cash,
+      reason
+   ))
+   {
+      reason = "roulette_" + reason;
+      return false;
+   }
+
+   reason = "roulette_" + reason;
+   return true;
 }
 
 int E0004_ClampInt(const int value, const int lo, const int hi)
@@ -691,8 +772,16 @@ bool E0004_PlaceHeikinAshiMarket(
       return false;
    }
 
+   double resolved_risk_cash = 0.0;
+   string risk_model_reason = "";
+   if(!E0004_ResolveRiskCash(resolved_risk_cash, risk_model_reason))
+   {
+      reason = "risk_model_" + risk_model_reason;
+      return false;
+   }
+
    DALExecRiskSizing risk_sizing;
-   if(!DAL_ExecCalculateRiskVolume(symbol, entry, sl, InpRiskCash, InpCommissionPerLotRoundTurn, InpAllowMinLotIfRiskTooSmall, risk_sizing))
+   if(!DAL_ExecCalculateRiskVolume(symbol, entry, sl, resolved_risk_cash, InpCommissionPerLotRoundTurn, InpAllowMinLotIfRiskTooSmall, risk_sizing))
    {
       reason = "risk_" + risk_sizing.reason;
       return false;
@@ -733,13 +822,18 @@ bool E0004_PlaceHeikinAshiMarket(
          "*recent3StopLow=", DoubleToString(recent3_stop_low, digits),
          "*recent3StopHigh=", DoubleToString(recent3_stop_high, digits),
          "*rewardR=", DoubleToString(reward, 2),
-         "*riskCash=", DoubleToString(InpRiskCash, 2),
+         "*riskModel=", E0004_RiskModelToString(),
+         "*riskModelReason=", risk_model_reason,
+         "*riskCash=", DoubleToString(resolved_risk_cash, 2),
          "*volume=", DoubleToString(risk_sizing.volume, 8),
          "*simultaneous=", DAL_BoolToString(InpAllowSimultaneousTrades),
          "*directionReason=", direction_reason,
          "*comment=", comment,
          "*reason=", reason);
    }
+
+   if(InpPrintRouletteLogs && InpRiskModel == E0004_RISK_ROULETTE)
+      Print("DAL_E0004_ROULETTE_STATE *** ", DAL_ExecRouletteStateToString(g_roulette));
 
    return true;
 }
@@ -802,6 +896,25 @@ int OnInit()
 {
    g_trade.SetExpertMagicNumber(InpMagicNumber);
 
+   if(InpRiskModel == E0004_RISK_ROULETTE)
+   {
+      if(!DAL_ExecRouletteInit(
+         g_roulette,
+         E0004_RouletteStorageKey(),
+         InpRouletteInitialRiskPercent,
+         InpRouletteSaveProfitFactor,
+         InpRoulettePersistState,
+         InpRouletteResetOnBalanceDrop
+      ))
+      {
+         Print("DAL_E0004_ROULETTE_INIT_WARN *** reason=", g_roulette.reason);
+      }
+      else if(InpPrintRouletteLogs)
+      {
+         Print("DAL_E0004_ROULETTE_INIT *** ", DAL_ExecRouletteStateToString(g_roulette));
+      }
+   }
+
    Print("DAL_E0004_BUILD_SANITY *** build=", DAL_E0004_BUILD,
       "*symbol=", LabSymbol(),
       "*tf=", EnumToString(LabTimeframe()),
@@ -812,6 +925,11 @@ int OnInit()
       "*stop=FARTHEST_OF_SIGNAL_HA_AND_LAST_3_CANDLE_EXTREMES",
       "*tp=FIXED_R",
       "*rewardR=", DoubleToString(InpRewardR, 2),
+      "*riskModel=", E0004_RiskModelToString(),
+      "*fixedRiskCash=", DoubleToString(InpRiskCash, 2),
+      "*roulettePct=", DoubleToString(InpRouletteInitialRiskPercent, 2),
+      "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 2),
+      "*roulettePersist=", DAL_BoolToString(InpRoulettePersistState),
       "*allowSimultaneous=", DAL_BoolToString(InpAllowSimultaneousTrades));
 
    return INIT_SUCCEEDED;
