@@ -8,7 +8,7 @@ It does not use structural nodes, M-regime labels, or continuation/reversal clas
 
 It trades only from:
 
-- current-forming higher-timeframe Heikin Ashi direction;
+- current-forming higher-timeframe Heikin Ashi close/open body direction;
 - completed lower-timeframe Heikin Ashi close/open body direction flip;
 - Roulette risk sizing.
 
@@ -33,14 +33,26 @@ It runs the execution decision only once when a new lower-timeframe bar opens.
 
 This means the previous M1 candle has just closed, and only that completed candle is allowed to trigger.
 
+## Heikin Ashi body direction
+
+There is no dependency on chart candle color.
+
+Direction is defined only by the Heikin Ashi body:
+
+```text
+HA up body   = ha_close > ha_open
+HA down body = ha_close < ha_open
+HA doji      = ha_close == ha_open
+```
+
 ## Buy rule
 
 Buy only when:
 
 ```text
-current-forming M10 HA = HA close above HA open
-previous closed M1 HA = HA close below HA open
-last closed M1 HA = HA close above HA open
+current-forming M10 HA: ha_close > ha_open
+previous closed M1 HA: ha_close < ha_open
+last closed M1 HA: ha_close > ha_open
 max open trades allows entry
 ```
 
@@ -49,9 +61,9 @@ max open trades allows entry
 Sell only when:
 
 ```text
-current-forming M10 HA = HA close below HA open
-previous closed M1 HA = HA close above HA open
-last closed M1 HA = HA close below HA open
+current-forming M10 HA: ha_close < ha_open
+previous closed M1 HA: ha_close > ha_open
+last closed M1 HA: ha_close < ha_open
 max open trades allows entry
 ```
 
@@ -84,15 +96,35 @@ SL = max(real high, HA high)
 TP = entry - 2R
 ```
 
-## Roulette logic
+## Corrected Roulette logic
 
-Roulette keeps base risk fixed while losing below the initial floor.
+Roulette has a locked balance, a base risk, and a floor.
 
-It grows only after the account becomes profitable relative to the locked balance.
+At cycle start:
 
-After profit then loss, it resets the locked balance to the balance after loss.
+```text
+locked_balance = current_balance
+base_risk = locked_balance * risk_percent
+floor_balance = locked_balance - base_risk
+```
 
-Consecutive losses after reset keep the new base risk fixed.
+If balance drops but remains above the floor, risk stays at base risk.
+
+If balance breaks below the floor, the base used for volume calculation re-locks downward at the current balance:
+
+```text
+locked_balance = current_balance
+base_risk = current_balance * risk_percent
+floor_balance = locked_balance - base_risk
+```
+
+If balance goes into profit above locked balance, risk may grow using:
+
+```text
+risk = max(base_risk, (current_balance - floor_balance) * save_profit_factor)
+```
+
+If profit was active and then balance drops, the cycle re-locks to the post-loss balance.
 
 ## Files
 

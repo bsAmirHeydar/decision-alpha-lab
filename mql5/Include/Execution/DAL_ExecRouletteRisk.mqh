@@ -4,18 +4,24 @@
 // Decision Alpha Lab — reusable Roulette risk module.
 // Pure MQL5. No Python. No external scripts.
 //
-// Correct Roulette cycle rule:
+// Roulette cycle rule, corrected:
 // 1) At cycle start, lock the current account balance.
 // 2) Base risk is fixed as initial_risk_percent of locked_balance.
 // 3) floor_balance = locked_balance - base_risk.
-// 4) If balance falls below floor before any profit, risk does NOT shrink.
-//    It stays equal to base_risk.
-// 5) The cycle becomes profit-active only after balance rises above locked_balance.
-// 6) While profit-active and above locked_balance, risk may expand from:
-//    current_balance - floor_balance, multiplied by save_profit_factor.
-// 7) If the cycle was profit-active and a realized balance drop occurs,
-//    reset the cycle to the balance after that loss.
-// 8) After reset, consecutive losses again keep the new base_risk fixed.
+// 4) While balance is between floor_balance and locked_balance, risk remains base_risk.
+// 5) If balance breaks below floor_balance before profit, the cycle is re-locked downward:
+//      locked_balance = current_balance
+//      base_risk      = current_balance * initial_risk_percent / 100
+//      floor_balance  = locked_balance - base_risk
+//    This means the base account used for volume calculation follows the account down only
+//    after the protected floor is broken.
+// 6) The cycle becomes profit-active only after balance rises above locked_balance.
+// 7) While profit-active and above locked_balance, risk may expand from:
+//      current_balance - floor_balance, multiplied by save_profit_factor.
+// 8) If the cycle was profit-active and a realized balance drop occurs,
+//    reset/re-lock the cycle to the balance after that loss.
+// 9) After any re-lock, losses above the new floor keep the new base_risk fixed.
+//    If the new floor is broken again, the base re-locks downward again.
 //
 // This module only returns money risk. It never sends orders and never decides entries.
 
@@ -39,6 +45,7 @@ struct DALExecRouletteRiskState
    double last_balance;
    double peak_balance;
    double last_risk_cash;
+   string last_reason;
 };
 
 string DAL_ExecRouletteBoolToString(const bool v)
@@ -66,6 +73,7 @@ void DAL_ExecRouletteRiskResetState(DALExecRouletteRiskState &st)
    st.last_balance = 0.0;
    st.peak_balance = 0.0;
    st.last_risk_cash = 0.0;
+   st.last_reason = "not_initialized";
 }
 
 string DAL_ExecRoulettePrefix(const DALExecRouletteRiskConfig &cfg)
@@ -112,6 +120,7 @@ bool DAL_ExecRouletteLoad(const DALExecRouletteRiskConfig &cfg, DALExecRouletteR
    st.last_balance = GlobalVariableGet(p + "_last_balance");
    st.peak_balance = GlobalVariableGet(p + "_peak_balance");
    st.last_risk_cash = GlobalVariableGet(p + "_last_risk_cash");
+   st.last_reason = "loaded";
 
    return (st.initialized && st.locked_balance > 0.0 && st.base_risk > 0.0);
 }
@@ -119,7 +128,8 @@ bool DAL_ExecRouletteLoad(const DALExecRouletteRiskConfig &cfg, DALExecRouletteR
 void DAL_ExecRouletteStartNewCycle(
    const DALExecRouletteRiskConfig &cfg,
    DALExecRouletteRiskState &st,
-   const double balance
+   const double balance,
+   const string reason
 )
 {
    double b = MathMax(0.0, balance);
@@ -135,10 +145,12 @@ void DAL_ExecRouletteStartNewCycle(
    st.last_balance = b;
    st.peak_balance = b;
    st.last_risk_cash = st.base_risk;
+   st.last_reason = reason;
 
    if(cfg.print_logs)
    {
-      Print("DAL_ROULETTE_RESET *** cycle=", st.cycle_id,
+      Print("DAL_ROULETTE_RELOCK *** reason=", reason,
+         "*cycle=", st.cycle_id,
          "*locked=", DoubleToString(st.locked_balance, 2),
          "*baseRisk=", DoubleToString(st.base_risk, 2),
          "*floor=", DoubleToString(st.floor_balance, 2));
@@ -159,7 +171,7 @@ bool DAL_ExecRouletteInit(DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskSta
       return true;
 
    double balance = AccountInfoDouble(ACCOUNT_BALANCE);
-   DAL_ExecRouletteStartNewCycle(cfg, st, balance);
+   DAL_ExecRouletteStartNewCycle(cfg, st, balance, "initial_lock");
    return true;
 }
 
@@ -170,11 +182,15 @@ double DAL_ExecRouletteRiskMoney(const DALExecRouletteRiskConfig &cfg, const DAL
 
    double risk = st.base_risk;
    double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
+   double pct = MathMax(0.0, cfg.initial_risk_percent) / 100.0;
 
-   // No shrink rule:
-   // If current_balance is below locked_balance or even below floor_balance,
-   // risk remains fixed at base_risk unless the cycle has reset after a profitable run.
-   if(st.profit_active && current_balance > st.locked_balance)
+   // If the protected floor has already been broken but Update() has not run yet,
+   // return the prospective downside re-locked risk for volume safety.
+   if(current_balance > 0.0 && current_balance < st.floor_balance)
+   {
+      risk = current_balance * pct;
+   }
+   else if(st.profit_active && current_balance > st.locked_balance)
    {
       double pool = current_balance - st.floor_balance;
       double raw = pool * MathMax(0.0, cfg.save_profit_factor);
@@ -198,17 +214,33 @@ void DAL_ExecRouletteUpdate(DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskS
    double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
    double eps = MathMax(0.01, MathAbs(st.locked_balance) * 0.0000001);
 
-   // The only automatic reset:
-   // The cycle must already have been profit-active; then any realized balance drop
-   // resets locked_balance to the balance after the loss.
+   // Profit-then-loss reset has priority. Once the cycle was in profit,
+   // the first realized balance drop re-locks the base at the post-loss balance.
    if(st.profit_active && current_balance < st.last_balance - eps)
    {
-      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance);
+      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance, "profit_then_loss_relock");
+      return;
+   }
+
+   // Downside floor break. Before a profit-active cycle exists, ordinary loss inside
+   // [floor_balance, locked_balance] keeps the base risk fixed. But once the balance
+   // breaks below floor_balance, the base account used for volume calculation follows
+   // the account down and the cycle is re-locked at the current balance.
+   if(current_balance < st.floor_balance - eps)
+   {
+      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance, "downside_floor_break_relock");
       return;
    }
 
    if(current_balance > st.locked_balance + eps)
+   {
       st.profit_active = true;
+      st.last_reason = "profit_active_scaled";
+   }
+   else
+   {
+      st.last_reason = "base_risk_inside_floor_band";
+   }
 
    if(current_balance > st.peak_balance)
       st.peak_balance = current_balance;
@@ -224,6 +256,7 @@ string DAL_ExecRouletteStateToLog(const DALExecRouletteRiskConfig &cfg, const DA
    double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
    double risk = DAL_ExecRouletteRiskMoney(cfg, st);
    return "rouletteInitialized=" + DAL_ExecRouletteBoolToString(st.initialized)
+      + "*rouletteReason=" + st.last_reason
       + "*rouletteProfitActive=" + DAL_ExecRouletteBoolToString(st.profit_active)
       + "*rouletteCycle=" + IntegerToString(st.cycle_id)
       + "*balance=" + DoubleToString(current_balance, 2)
