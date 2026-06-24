@@ -1,0 +1,9 @@
+{
+  "start_broker": "2024-01-01 00:00:00",
+  "end_broker": "2024-02-01 00:00:00",
+  "timeframe_minutes": 1,
+  "broker_gmt_offset_hours": 2,
+  "ephe_path": "tools/astro_feature_builder/ephe",
+  "out": "astro_XAUUSD_M1_202401.csv",
+  "aspect_orb_limit": 6.0
+}

@@ -1,0 +1,18 @@
+id: EXP0013
+name: Astro Feature Store
+hypothesis: H0009
+status: draft
+language:
+  runtime: MQL5
+  feature_builder: Python
+purpose: Candle-aligned astrological feature store for Distribution Engineering.
+causality:
+  timestamp_basis: broker candle open time
+  utc_conversion: utc_time = broker_time - broker_gmt_offset_hours
+  no_future_market_data: true
+execution_effect: none
+outputs:
+  - Python-generated astro CSV
+  - MQL5 feature row lookup
+  - MQL5 visual tester panel
+  - distribution feature key adapter
