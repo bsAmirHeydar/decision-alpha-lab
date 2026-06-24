@@ -89,3 +89,15 @@ Then pass `feature_key` to EXP0012 Distribution Engineering when recording the o
 ## Notes
 
 The Python builder is intentionally outside Strategy Tester. Strategy Tester must read deterministic files, not call Python or APIs during backtest.
+
+## Excel/CSV runtime update
+
+EXP0013 now includes a full Excel/CSV workflow:
+
+- `BUILD_EXCEL_COMMANDS.md` contains copy-paste commands for generating CSV/XLSX.
+- `ASTRO_FEATURE_MEANING.md` defines each raw/derived astro feature before using it.
+- `DAL_AstroExcelCandleReader.mqh` loads the CSV mirror candle by candle in Visual Tester or live execution.
+- `DAL_AstroDerivedFeatures.mqh` converts the raw sky map into explicit Distribution Engineering keys.
+- `EXP0013_AstroExcelCandleReader_Demo.mq5` displays the sky map per candle.
+
+MQL5 reads CSV, not binary XLSX. XLSX is for human review.

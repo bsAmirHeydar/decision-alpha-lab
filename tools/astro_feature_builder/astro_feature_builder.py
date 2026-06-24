@@ -26,6 +26,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
+EXCEL_MAX_ROWS = 1048576
+
 try:
     import swisseph as swe
 except Exception as exc:  # pragma: no cover - dependency guard for user machine
@@ -439,14 +441,108 @@ def write_csv(rows: Sequence[AstroRow], out_path: str) -> None:
             writer.writerow(row_to_dict(row))
 
 
+def write_xlsx(rows: Sequence[AstroRow], out_path: str, broker_gmt_offset_hours: float, timeframe_minutes: int) -> None:
+    """Write a human-inspection Excel workbook.
+
+    MQL5 should read the CSV mirror, not the .xlsx binary file.
+    Excel has a hard worksheet row limit, so large M1 ranges should be split
+    into month/year chunks.
+    """
+    if len(rows) + 1 > EXCEL_MAX_ROWS:
+        raise ValueError(
+            f"Excel worksheet row limit exceeded: rows={len(rows)}. "
+            f"Split the date range into smaller chunks or use CSV only."
+        )
+
+    try:
+        from openpyxl import Workbook
+        from openpyxl.styles import Font, PatternFill, Alignment
+        from openpyxl.utils import get_column_letter
+    except Exception as exc:  # pragma: no cover - user machine dependency guard
+        raise RuntimeError(
+            "openpyxl is required for --out-xlsx. Run: python -m pip install openpyxl"
+        ) from exc
+
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)) or ".", exist_ok=True)
+    headers = make_headers()
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "astro_rows"
+    ws.freeze_panes = "A2"
+
+    ws.append(headers)
+    for row in rows:
+        d = row_to_dict(row)
+        ws.append([d.get(h, "") for h in headers])
+
+    header_fill = PatternFill("solid", fgColor="1F4E78")
+    header_font = Font(color="FFFFFF", bold=True)
+    for cell in ws[1]:
+        cell.fill = header_fill
+        cell.font = header_font
+        cell.alignment = Alignment(horizontal="center")
+
+    # Widths are bounded so the workbook remains usable even with many columns.
+    for idx, header in enumerate(headers, start=1):
+        width = 12
+        if header in ("broker_time", "utc_time"):
+            width = 20
+        elif header in ("feature_key", "summary"):
+            width = 45
+        elif header.endswith("_aspect") or header.endswith("_sign") or header.endswith("_bucket"):
+            width = 16
+        ws.column_dimensions[get_column_letter(idx)].width = width
+
+    ws_meta = wb.create_sheet("meta")
+    meta_rows = [
+        ["field", "value"],
+        ["rows", len(rows)],
+        ["timeframe_minutes", timeframe_minutes],
+        ["broker_gmt_offset_hours", broker_gmt_offset_hours],
+        ["time_contract", "utc_time = broker_time - broker_gmt_offset_hours"],
+        ["mql_runtime_file", "Use the CSV mirror in MQL5/Files, not this .xlsx file"],
+        ["causality", "Each row is computed for candle open time only; no future market information is used"],
+    ]
+    for r in meta_rows:
+        ws_meta.append(r)
+    ws_meta.column_dimensions["A"].width = 28
+    ws_meta.column_dimensions["B"].width = 80
+    for cell in ws_meta[1]:
+        cell.fill = header_fill
+        cell.font = header_font
+
+    ws_dict = wb.create_sheet("feature_dictionary")
+    dict_rows = [
+        ["feature_family", "raw_columns", "derived_feature", "research meaning"],
+        ["longitude", "*_lon", "sign / degree / aspect geometry", "cyclical angular location; used only as a distributional time-state"],
+        ["speed", "*_speed_lon", "retrograde / station / speed bucket", "momentum state of the planetary cycle; useful for regime bucketing"],
+        ["declination", "*_decl", "north/south/out_of_bounds/parallels", "vertical sky position; tested as a separate distributional axis"],
+        ["moon phase", "moon_phase_angle", "phase bucket / illumination proxy", "lunar cycle state; tested for volatility/path distribution shifts"],
+        ["aspects", "*_angle/*_orb/*_applying", "aspect class + orb tightness + applying", "pairwise angular relationship; no causal claim, only conditional distribution test"],
+    ]
+    for r in dict_rows:
+        ws_dict.append(r)
+    for cell in ws_dict[1]:
+        cell.fill = header_fill
+        cell.font = header_font
+    ws_dict.column_dimensions["A"].width = 20
+    ws_dict.column_dimensions["B"].width = 28
+    ws_dict.column_dimensions["C"].width = 34
+    ws_dict.column_dimensions["D"].width = 80
+
+    wb.save(out_path)
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="Build candle-aligned astro feature CSV for MQL5")
+    parser = argparse.ArgumentParser(description="Build candle-aligned astro feature CSV/XLSX for MQL5")
     parser.add_argument("--start-broker", required=True, help="Broker start time, e.g. 2024-01-01 00:00:00")
     parser.add_argument("--end-broker", required=True, help="Broker end time, exclusive")
     parser.add_argument("--timeframe-minutes", type=int, default=1, help="Candle interval in minutes")
     parser.add_argument("--broker-gmt-offset-hours", type=float, required=True, help="Broker time offset from UTC. Example UTC+2 => 2")
     parser.add_argument("--ephe-path", default="", help="Swiss Ephemeris file directory. Optional if package defaults are enough.")
-    parser.add_argument("--out", required=True, help="Output CSV path")
+    parser.add_argument("--out", default="", help="Backward-compatible output CSV path. Prefer --out-csv.")
+    parser.add_argument("--out-csv", default="", help="Output CSV path for MQL5 runtime reading")
+    parser.add_argument("--out-xlsx", default="", help="Optional Excel .xlsx path for human inspection")
     parser.add_argument("--aspect-orb-limit", type=float, default=6.0, help="Aspect orb limit used inside feature_key")
     args = parser.parse_args(argv)
 
@@ -462,8 +558,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         broker_gmt_offset_hours=args.broker_gmt_offset_hours,
         aspect_orb_limit=args.aspect_orb_limit,
     )
-    write_csv(rows, args.out)
-    print(f"Wrote {len(rows)} astro feature rows to {args.out}")
+    out_csv = args.out_csv or args.out
+    if not out_csv and not args.out_xlsx:
+        raise ValueError("Provide --out-csv and/or --out-xlsx")
+
+    if out_csv:
+        write_csv(rows, out_csv)
+        print(f"Wrote {len(rows)} astro feature CSV rows to {out_csv}")
+
+    if args.out_xlsx:
+        write_xlsx(rows, args.out_xlsx, args.broker_gmt_offset_hours, args.timeframe_minutes)
+        print(f"Wrote {len(rows)} astro feature Excel rows to {args.out_xlsx}")
+
     return 0
 
 
