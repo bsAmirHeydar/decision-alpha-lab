@@ -1,14 +1,12 @@
 //+------------------------------------------------------------------+
 //| Decision Alpha Lab — E0010 Pure Heikin Ashi MTF Roulette          |
-//| M1 closed HA flip entry aligned with current-forming M10 HA color |
+//| Closed M1 HA flip entry aligned with current-forming M10 HA color |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "Execution E0010: pure Heikin Ashi MTF entry with reusable Roulette risk."
 
 #include <Trade/Trade.mqh>
-#include <Execution/DAL_ExecRisk.mqh>
-#include <Execution/DAL_ExecOrders.mqh>
 #include <Execution/DAL_ExecHeikinAshi.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
 
@@ -27,19 +25,38 @@ input bool InpRoulettePersistState = true;
 input int InpStopLookbackClosedBars = 1;
 input int InpStopBufferPoints = 0;
 input int InpSlippagePoints = 30;
+input double InpCommissionPerLotRoundTurn = 0.0;
+input bool InpAllowMinLotIfRiskTooSmall = false;
 
 input bool InpTradingEnabled = true;
-input bool InpAllowMinLotIfRiskTooSmall = false;
-input double InpCommissionPerLotRoundTurn = 0.0;
 input bool InpPrintLogs = true;
 
-#define DAL_E0010_BUILD "1.00"
+#define DAL_E0010_BUILD "1.01"
 string InpOrderCommentPrefix = "E0010HA";
 
 CTrade g_trade;
 DALExecRouletteRiskConfig g_roulette_cfg;
 DALExecRouletteRiskState g_roulette_state;
-datetime g_last_entry_open_time = 0;
+datetime g_last_entry_bar_open_time = 0;
+
+struct E0010RiskSizing
+{
+   bool ok;
+   string reason;
+   double entry_price;
+   double stop_price;
+   double risk_cash_requested;
+   double tick_size;
+   double tick_value_loss;
+   double volume_min;
+   double volume_max;
+   double volume_step;
+   double stop_loss_cash_per_lot;
+   double total_risk_cash_per_lot;
+   double raw_volume;
+   double volume;
+   double estimated_total_risk_cash;
+};
 
 string E0010_Symbol()
 {
@@ -55,23 +72,208 @@ string E0010_FormatDateTime(const datetime value)
    return StringFormat("%04d.%02d.%02d %02d:%02d:%02d", dt.year, dt.mon, dt.day, dt.hour, dt.min, dt.sec);
 }
 
-bool E0010_HasNewEntryCandle()
+void E0010_ResetRiskSizing(E0010RiskSizing &r)
 {
-   datetime current_open = iTime(E0010_Symbol(), InpEntryTimeframe, 0);
-   if(current_open <= 0)
-      return false;
+   r.ok = false;
+   r.reason = "not_calculated";
+   r.entry_price = 0.0;
+   r.stop_price = 0.0;
+   r.risk_cash_requested = 0.0;
+   r.tick_size = 0.0;
+   r.tick_value_loss = 0.0;
+   r.volume_min = 0.0;
+   r.volume_max = 0.0;
+   r.volume_step = 0.0;
+   r.stop_loss_cash_per_lot = 0.0;
+   r.total_risk_cash_per_lot = 0.0;
+   r.raw_volume = 0.0;
+   r.volume = 0.0;
+   r.estimated_total_risk_cash = 0.0;
+}
 
-   if(g_last_entry_open_time <= 0)
+int E0010_VolumeDigitsFromStep(const double step)
+{
+   if(step <= 0.0)
+      return 2;
+   for(int d = 0; d <= 8; d++)
    {
-      g_last_entry_open_time = current_open;
+      double scaled = step * MathPow(10.0, d);
+      if(MathAbs(scaled - MathRound(scaled)) < 1e-8)
+         return d;
+   }
+   return 8;
+}
+
+double E0010_FloorToStep(const double value, const double step)
+{
+   if(step <= 0.0)
+      return value;
+   return MathFloor((value / step) + 1e-12) * step;
+}
+
+bool E0010_CalculateRiskVolume(
+   const string symbol,
+   const double entry_price,
+   const double stop_price,
+   const double risk_cash,
+   const double commission_per_lot_round_turn,
+   const bool allow_min_lot_if_risk_too_small,
+   E0010RiskSizing &out
+)
+{
+   E0010_ResetRiskSizing(out);
+   out.entry_price = entry_price;
+   out.stop_price = stop_price;
+   out.risk_cash_requested = risk_cash;
+
+   if(symbol == "")
+   {
+      out.reason = "empty_symbol";
+      return false;
+   }
+   if(risk_cash <= 0.0)
+   {
+      out.reason = "risk_cash_must_be_positive";
       return false;
    }
 
-   if(current_open == g_last_entry_open_time)
+   double stop_distance_price = MathAbs(entry_price - stop_price);
+   if(stop_distance_price <= 0.0)
+   {
+      out.reason = "zero_stop_distance";
+      return false;
+   }
+
+   out.tick_size = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_SIZE);
+   if(out.tick_size <= 0.0)
+      out.tick_size = SymbolInfoDouble(symbol, SYMBOL_POINT);
+
+   out.tick_value_loss = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_VALUE_LOSS);
+   if(out.tick_value_loss <= 0.0)
+      out.tick_value_loss = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_VALUE);
+
+   out.volume_min = SymbolInfoDouble(symbol, SYMBOL_VOLUME_MIN);
+   out.volume_max = SymbolInfoDouble(symbol, SYMBOL_VOLUME_MAX);
+   out.volume_step = SymbolInfoDouble(symbol, SYMBOL_VOLUME_STEP);
+
+   if(out.tick_size <= 0.0 || out.tick_value_loss <= 0.0)
+   {
+      out.reason = "invalid_tick_size_or_value";
+      return false;
+   }
+   if(out.volume_min <= 0.0 || out.volume_max <= 0.0 || out.volume_step <= 0.0)
+   {
+      out.reason = "invalid_volume_specs";
+      return false;
+   }
+
+   out.stop_loss_cash_per_lot = (stop_distance_price / out.tick_size) * out.tick_value_loss;
+   out.total_risk_cash_per_lot = out.stop_loss_cash_per_lot + MathMax(0.0, commission_per_lot_round_turn);
+   if(out.total_risk_cash_per_lot <= 0.0)
+   {
+      out.reason = "invalid_risk_per_lot";
+      return false;
+   }
+
+   out.raw_volume = risk_cash / out.total_risk_cash_per_lot;
+   out.volume = E0010_FloorToStep(out.raw_volume, out.volume_step);
+
+   if(out.volume > out.volume_max)
+      out.volume = out.volume_max;
+
+   if(out.volume < out.volume_min)
+   {
+      if(!allow_min_lot_if_risk_too_small)
+      {
+         out.reason = "volume_below_min_for_risk_budget";
+         return false;
+      }
+      out.volume = out.volume_min;
+   }
+
+   int digits = E0010_VolumeDigitsFromStep(out.volume_step);
+   out.volume = NormalizeDouble(out.volume, digits);
+   if(out.volume <= 0.0)
+   {
+      out.reason = "normalized_volume_zero";
+      return false;
+   }
+
+   out.estimated_total_risk_cash = out.total_risk_cash_per_lot * out.volume;
+   if(!allow_min_lot_if_risk_too_small && out.estimated_total_risk_cash - risk_cash > MathMax(0.01, risk_cash * 0.0001))
+   {
+      out.reason = "estimated_risk_exceeds_budget";
+      return false;
+   }
+
+   out.ok = true;
+   out.reason = "ok";
+   return true;
+}
+
+string E0010_RiskSizingToLog(const E0010RiskSizing &r)
+{
+   return "riskOk=" + (r.ok ? "true" : "false")
+      + "*riskReason=" + r.reason
+      + "*riskCash=" + DoubleToString(r.risk_cash_requested, 2)
+      + "*entry=" + DoubleToString(r.entry_price, 8)
+      + "*stop=" + DoubleToString(r.stop_price, 8)
+      + "*rawVolume=" + DoubleToString(r.raw_volume, 8)
+      + "*volume=" + DoubleToString(r.volume, 8)
+      + "*estimatedRisk=" + DoubleToString(r.estimated_total_risk_cash, 2);
+}
+
+bool E0010_HasNewEntryCandle()
+{
+   string symbol = E0010_Symbol();
+   datetime current_open = iTime(symbol, InpEntryTimeframe, 0);
+   if(current_open <= 0)
       return false;
 
-   g_last_entry_open_time = current_open;
+   if(g_last_entry_bar_open_time <= 0)
+   {
+      g_last_entry_bar_open_time = current_open;
+      return false;
+   }
+
+   if(current_open == g_last_entry_bar_open_time)
+      return false;
+
+   g_last_entry_bar_open_time = current_open;
    return true;
+}
+
+bool E0010_OrderCommentExists(const string symbol, const long magic, const string comment)
+{
+   int order_total = OrdersTotal();
+   for(int i = 0; i < order_total; i++)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0 || !OrderSelect(ticket))
+         continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol)
+         continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != magic)
+         continue;
+      if(OrderGetString(ORDER_COMMENT) == comment)
+         return true;
+   }
+
+   int pos_total = PositionsTotal();
+   for(int j = 0; j < pos_total; j++)
+   {
+      ulong pt = PositionGetTicket(j);
+      if(pt == 0 || !PositionSelectByTicket(pt))
+         continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol)
+         continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != magic)
+         continue;
+      if(PositionGetString(POSITION_COMMENT) == comment)
+         return true;
+   }
+
+   return false;
 }
 
 int E0010_CountManagedOpenTrades()
@@ -122,7 +324,8 @@ bool E0010_ResolveSignal(
       return false;
    }
 
-   if(htf_current.color == 0)
+   // Higher timeframe is deliberately shift 0: current-forming HA candle.
+   if(htf_current.ha_dir == 0)
    {
       reason = "htf_current_ha_doji";
       return false;
@@ -133,21 +336,24 @@ bool E0010_ResolveSignal(
    if(!DAL_ExecHAClosedColorFlip(E0010_Symbol(), InpEntryTimeframe, flip_direction, ltf_previous_closed, ltf_signal_closed, flip_reason))
    {
       reason = "ltf_flip_failed_" + flip_reason
-         + "*htfColor=" + DAL_ExecHAColorToString(htf_current.color);
+         + "*htfDir=" + DAL_ExecHADirectionToString(htf_current.ha_dir);
       return false;
    }
 
-   if(flip_direction != htf_current.color)
+   // Exact entry rule:
+   // Buy: HTF current green + LTF closed red->green flip.
+   // Sell: HTF current red + LTF closed green->red flip.
+   if(flip_direction != htf_current.ha_dir)
    {
-      reason = "direction_mismatch*htf=" + DAL_ExecHAColorToString(htf_current.color)
-         + "*ltfFlip=" + DAL_ExecHAColorToString(flip_direction);
+      reason = "direction_mismatch*htf=" + DAL_ExecHADirectionToString(htf_current.ha_dir)
+         + "*ltfFlip=" + DAL_ExecHADirectionToString(flip_direction);
       return false;
    }
 
    direction = flip_direction;
-   reason = "ok*htfCurrent=" + DAL_ExecHAColorToString(htf_current.color)
-      + "*ltfPrevClosed=" + DAL_ExecHAColorToString(ltf_previous_closed.color)
-      + "*ltfSignalClosed=" + DAL_ExecHAColorToString(ltf_signal_closed.color)
+   reason = "ok*htfCurrent=" + DAL_ExecHADirectionToString(htf_current.ha_dir)
+      + "*ltfPrevClosed=" + DAL_ExecHADirectionToString(ltf_previous_closed.ha_dir)
+      + "*ltfSignalClosed=" + DAL_ExecHADirectionToString(ltf_signal_closed.ha_dir)
       + "*signalTime=" + E0010_FormatDateTime(ltf_signal_closed.time);
    return true;
 }
@@ -159,7 +365,7 @@ bool E0010_BuildTradePlan(
    double &stop_price,
    double &take_profit,
    double &risk_money,
-   DALExecRiskSizing &sizing,
+   E0010RiskSizing &sizing,
    string &reason
 )
 {
@@ -168,7 +374,7 @@ bool E0010_BuildTradePlan(
    stop_price = 0.0;
    take_profit = 0.0;
    risk_money = 0.0;
-   DAL_ExecResetRiskSizing(sizing);
+   E0010_ResetRiskSizing(sizing);
 
    string symbol = E0010_Symbol();
    int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
@@ -227,7 +433,6 @@ bool E0010_BuildTradePlan(
    entry_price = NormalizeDouble(entry_price, digits);
    stop_price = NormalizeDouble(stop_price, digits);
 
-   DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
    risk_money = DAL_ExecRouletteRiskMoney(g_roulette_cfg, g_roulette_state);
    if(risk_money <= 0.0)
    {
@@ -235,7 +440,7 @@ bool E0010_BuildTradePlan(
       return false;
    }
 
-   if(!DAL_ExecCalculateRiskVolume(
+   if(!E0010_CalculateRiskVolume(
       symbol,
       entry_price,
       stop_price,
@@ -249,7 +454,7 @@ bool E0010_BuildTradePlan(
       return false;
    }
 
-   reason = "ok*" + DAL_ExecRiskSizingToLog(sizing)
+   reason = "ok*" + E0010_RiskSizingToLog(sizing)
       + "*" + DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state)
       + "*signalTime=" + E0010_FormatDateTime(signal_closed.time);
    return true;
@@ -295,6 +500,13 @@ bool E0010_SendMarketOrder(
 
 int OnInit()
 {
+   string symbol = E0010_Symbol();
+   if(!SymbolSelect(symbol, true))
+   {
+      Print("DAL_E0010_INIT_FAILED *** reason=symbol_select_failed*symbol=", symbol);
+      return INIT_FAILED;
+   }
+
    g_trade.SetExpertMagicNumber(InpMagicNumber);
    g_trade.SetDeviationInPoints(MathMax(0, InpSlippagePoints));
 
@@ -302,13 +514,15 @@ int OnInit()
    g_roulette_cfg.initial_risk_percent = InpRouletteInitialRiskPercent;
    g_roulette_cfg.save_profit_factor = InpRouletteSaveProfitFactor;
    g_roulette_cfg.persist_state = InpRoulettePersistState;
-   g_roulette_cfg.state_key = "E0010_" + E0010_Symbol() + "_" + IntegerToString((int)InpMagicNumber);
+   g_roulette_cfg.state_key = "E0010_" + symbol + "_" + IntegerToString((int)InpMagicNumber);
    g_roulette_cfg.print_logs = InpPrintLogs;
 
    DAL_ExecRouletteInit(g_roulette_cfg, g_roulette_state);
 
+   g_last_entry_bar_open_time = iTime(symbol, InpEntryTimeframe, 0);
+
    Print("DAL_E0010_BUILD_SANITY *** build=", DAL_E0010_BUILD,
-      "*symbol=", E0010_Symbol(),
+      "*symbol=", symbol,
       "*entryTf=", EnumToString(InpEntryTimeframe),
       "*directionTf=", EnumToString(InpDirectionTimeframe),
       "*maxOpenTrades=", InpMaxOpenTrades,
@@ -326,11 +540,6 @@ void OnDeinit(const int reason)
 
 void OnTick()
 {
-   DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
-
-   if(!E0010_HasNewEntryCandle())
-      return;
-
    string symbol = E0010_Symbol();
    if(!SymbolSelect(symbol, true))
    {
@@ -339,12 +548,22 @@ void OnTick()
       return;
    }
 
+   // Important execution clock:
+   // E0010 evaluates only once when a new lower-timeframe bar opens.
+   // That means the previous lower-timeframe candle has just closed.
+   if(!E0010_HasNewEntryCandle())
+      return;
+
+   // Roulette is also updated on the lower-timeframe close clock, not every tick.
+   DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
+
    int managed = E0010_CountManagedOpenTrades();
    if(managed >= MathMax(1, InpMaxOpenTrades))
    {
       if(InpPrintLogs)
          Print("DAL_E0010_SKIP *** reason=max_open_trades*managed=", managed,
-            "*max=", MathMax(1, InpMaxOpenTrades));
+            "*max=", MathMax(1, InpMaxOpenTrades),
+            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state));
       return;
    }
 
@@ -363,7 +582,7 @@ void OnTick()
    }
 
    string comment = E0010_BarComment(ltf_signal_closed.time, direction);
-   if(DAL_ExecOrderCommentExists(symbol, InpMagicNumber, comment))
+   if(E0010_OrderCommentExists(symbol, InpMagicNumber, comment))
    {
       if(InpPrintLogs)
          Print("DAL_E0010_SKIP *** reason=comment_already_exists*comment=", comment);
@@ -382,7 +601,7 @@ void OnTick()
    double stop_price = 0.0;
    double take_profit = 0.0;
    double risk_money = 0.0;
-   DALExecRiskSizing sizing;
+   E0010RiskSizing sizing;
    string plan_reason = "";
 
    if(!E0010_BuildTradePlan(direction, ltf_signal_closed, entry_price, stop_price, take_profit, risk_money, sizing, plan_reason))

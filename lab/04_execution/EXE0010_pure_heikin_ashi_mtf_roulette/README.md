@@ -2,168 +2,102 @@
 
 ## Purpose
 
-This execution module is a pure Heikin Ashi entry model.
+E0010 is a pure Heikin Ashi execution module.
 
-It does not use the previous structural continuation/reversal regime modules.
+It does not use structural nodes, M-regime labels, or continuation/reversal classifiers.
 
-The entry decision is based only on:
+It trades only from:
 
-- current-forming higher-timeframe Heikin Ashi color,
-- completed lower-timeframe Heikin Ashi color flip,
+- current-forming higher-timeframe Heikin Ashi direction;
+- completed lower-timeframe Heikin Ashi color flip;
 - Roulette risk sizing.
-
----
 
 ## Timeframes
 
-Default inputs:
-
-- Entry timeframe: `PERIOD_M1`
-- Direction timeframe: `PERIOD_M10`
-
-The current-forming M10 Heikin Ashi candle defines the allowed trade direction.
-
-The closed M1 Heikin Ashi flip defines the actual entry trigger.
-
----
-
-## Buy Logic
-
-A buy is allowed only when:
-
-1. Current-forming M10 Heikin Ashi candle is green.
-2. Last closed M1 Heikin Ashi candle is green.
-3. The previous closed M1 Heikin Ashi candle was red.
-4. The max-open-trade limit allows a new position.
-
-In short:
+Default:
 
 ```text
-HTF current HA = green
-M1 previous closed HA = red
-M1 last closed HA = green
-=> BUY
+Entry timeframe = PERIOD_M1
+Direction timeframe = PERIOD_M10
 ```
 
----
+The M10 candle is intentionally the **current-forming** Heikin Ashi candle.
 
-## Sell Logic
+The M1 trigger is intentionally based only on **closed** candles.
 
-A sell is allowed only when:
+## Execution clock
 
-1. Current-forming M10 Heikin Ashi candle is red.
-2. Last closed M1 Heikin Ashi candle is red.
-3. The previous closed M1 Heikin Ashi candle was green.
-4. The max-open-trade limit allows a new position.
+The EA does not evaluate entry logic on every tick.
 
-In short:
+It runs the execution decision only once when a new lower-timeframe bar opens.
+
+This means the previous M1 candle has just closed, and only that completed candle is allowed to trigger.
+
+## Buy rule
+
+Buy only when:
 
 ```text
-HTF current HA = red
-M1 previous closed HA = green
-M1 last closed HA = red
-=> SELL
+current-forming M10 HA = green
+previous closed M1 HA = red
+last closed M1 HA = green
+max open trades allows entry
 ```
 
----
+## Sell rule
 
-## Closed Trigger Rule
-
-Only completed lower-timeframe Heikin Ashi candles are allowed to trigger entries.
-
-The module does not enter from the still-forming M1 candle.
-
----
-
-## Risk Model
-
-The execution uses `DAL_ExecRouletteRisk.mqh`.
-
-Roulette risk returns money risk only.
-
-The execution module converts that money risk into lot size using the existing `DAL_ExecCalculateRiskVolume` primitive.
-
-Default Roulette inputs:
+Sell only when:
 
 ```text
-Initial Risk Percent = 10.0
-Save Profit Factor = 0.50
-Persist State = true
+current-forming M10 HA = red
+previous closed M1 HA = green
+last closed M1 HA = red
+max open trades allows entry
 ```
 
-Correct Roulette cycle behavior:
-
-- Balance is locked at cycle start.
-- Base risk is fixed from locked balance.
-- Losing below the protected floor does not reduce risk.
-- Risk remains base risk until the cycle first becomes profitable.
-- After profit, risk can expand from `current_balance - floor_balance`.
-- After profit then realized balance drop, the cycle resets to the new balance.
-- Consecutive losses after reset keep the new base risk.
-
----
-
-## Stop and Take Profit
-
-The module uses a fixed-R target.
+## Risk and target
 
 Default:
 
 ```text
+MaxOpenTrades = 1
 RewardR = 2.0
+RouletteInitialRiskPercent = 10.0
+RouletteSaveProfitFactor = 0.50
 ```
 
-Stop is derived from the recent closed lower-timeframe Heikin Ashi / real candle extreme.
+TP is 1:2 by default.
 
-Default:
-
-```text
-StopLookbackClosedBars = 1
-StopBufferPoints = 0
-```
+Stop is derived from the closed lower-timeframe signal candle using real candle and Heikin Ashi extremes.
 
 For buy:
 
 ```text
-SL = min(real low, HA low) of closed signal candle
-TP = entry + RewardR * (entry - SL)
+SL = min(real low, HA low)
+TP = entry + 2R
 ```
 
 For sell:
 
 ```text
-SL = max(real high, HA high) of closed signal candle
-TP = entry - RewardR * (SL - entry)
+SL = max(real high, HA high)
+TP = entry - 2R
 ```
 
----
+## Roulette logic
 
-## Default Trade Limit
+Roulette keeps base risk fixed while losing below the initial floor.
 
-```text
-MaxOpenTrades = 1
-```
+It grows only after the account becomes profitable relative to the locked balance.
 
-This keeps the first version clean and controlled.
+After profit then loss, it resets the locked balance to the balance after loss.
 
----
+Consecutive losses after reset keep the new base risk fixed.
 
-## MQL5 Files
+## Files
 
 ```text
 mql5/Experts/Execution/E0010_PureHeikinAshiMtfRoulette.mq5
 mql5/Include/Execution/DAL_ExecHeikinAshi.mqh
 mql5/Include/Execution/DAL_ExecRouletteRisk.mqh
 ```
-
----
-
-## Non-Goals
-
-This module does not:
-
-- use structural nodes,
-- use M0001/M0002 regime labels,
-- use Python,
-- send pending orders,
-- pyramid beyond the configured max-open-trade limit.
