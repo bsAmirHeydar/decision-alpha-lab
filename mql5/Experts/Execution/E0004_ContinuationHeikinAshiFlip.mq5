@@ -3,19 +3,19 @@
 //| Continuation-direction HA color flip, fixed 1:2 by default         |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.03"
+#property version   "1.04"
 #property description "Execution module E0004: continuation-direction Heikin Ashi color flip, fixed-R market entries."
 
 #include <Trade/Trade.mqh>
-#include <DecisionAlphaLab/Market/DAL_Bars.mqh>
-#include <DecisionAlphaLab/StructuralNodes/DAL_StructuralNodeEngine.mqh>
-#include <DecisionAlphaLab/M0001/DAL_M0001Config.mqh>
-#include <DecisionAlphaLab/M0001/DAL_M0001Engine.mqh>
-#include <DecisionAlphaLab/M0002/DAL_M0002Engine.mqh>
-#include <DecisionAlphaLab/Execution/DAL_ExecRisk.mqh>
+#include <Market/DAL_Bars.mqh>
+#include <StructuralNodes/DAL_StructuralNodeEngine.mqh>
+#include <M0001/DAL_M0001Config.mqh>
+#include <M0001/DAL_M0001Engine.mqh>
+#include <M0002/DAL_M0002Engine.mqh>
+#include <Execution/DAL_ExecRisk.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
-#include <DecisionAlphaLab/Execution/DAL_ExecOrders.mqh>
-#include <DecisionAlphaLab/Execution/DAL_ExecReversalOneToOne.mqh>
+#include <Execution/DAL_ExecOrders.mqh>
+#include <Execution/DAL_ExecReversalOneToOne.mqh>
 
 // Minimal public inputs for the fourth H5 execution path.
 input string InpSymbol = "";
@@ -78,7 +78,7 @@ input bool InpAllowSimultaneousTrades = true;
 input int InpContinuationBreakBufferPoints = 0;
 
 // Internal fixed policy. These are not tester inputs.
-#define DAL_E0004_BUILD "1.03"
+#define DAL_E0004_BUILD "1.04"
 string InpOrderCommentPrefix = "DALH4";
 int InpRegimeLookbackBars = 100;
 int InpOutcomeCandleOffsetAfterExit = 0;
