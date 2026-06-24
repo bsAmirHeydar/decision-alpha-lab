@@ -3,7 +3,7 @@
 //| Closed M1 HA body flip aligned with current-forming M10 HA body |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.04"
+#property version   "1.05"
 #property description "Execution E0010: pure Heikin Ashi MTF entry with reusable Roulette risk."
 
 #include <Trade/Trade.mqh>
@@ -22,7 +22,7 @@ input double InpRouletteInitialRiskPercent = 10.0;
 input double InpRouletteSaveProfitFactor = 0.50;
 input bool InpRoulettePersistState = true;
 
-input int InpStopLookbackClosedBars = 1;
+input int InpStopLookbackClosedBars = 3;
 input int InpStopBufferPoints = 0;
 input int InpSlippagePoints = 30;
 input double InpCommissionPerLotRoundTurn = 0.0;
@@ -31,7 +31,7 @@ input bool InpAllowMinLotIfRiskTooSmall = false;
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0010_BUILD "1.04"
+#define DAL_E0010_BUILD "1.05"
 string InpOrderCommentPrefix = "E0010HA";
 
 CTrade g_trade;
@@ -399,7 +399,7 @@ bool E0010_BuildTradePlan(
    }
 
    string stop_reason = "";
-   if(!DAL_ExecHAStopFromClosedBars(
+   if(!DAL_ExecHARealCandleStopFromClosedBars(
       symbol,
       InpEntryTimeframe,
       direction,
@@ -528,6 +528,8 @@ int OnInit()
       "*directionTf=", EnumToString(InpDirectionTimeframe),
       "*maxOpenTrades=", InpMaxOpenTrades,
       "*rewardR=", DoubleToString(InpRewardR, 2),
+      "*stopLookbackClosedBars=", InpStopLookbackClosedBars,
+      "*stopBufferPoints=", InpStopBufferPoints,
       "*rouletteRiskPct=", DoubleToString(InpRouletteInitialRiskPercent, 2),
       "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 4));
 

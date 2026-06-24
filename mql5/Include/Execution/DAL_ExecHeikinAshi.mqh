@@ -202,7 +202,18 @@ bool DAL_ExecHAClosedBodyFlip(
    return true;
 }
 
-bool DAL_ExecHAStopFromClosedBars(
+// Stop model for E0010-style pure HA execution.
+// Important: the stop is based on REAL lower-timeframe candle highs/lows,
+// not Heikin Ashi highs/lows and not visual colors.
+//
+// BUY:
+//   SL = lowest real LOW of the last N completed lower-timeframe candles - optional buffer
+//
+// SELL:
+//   SL = highest real HIGH of the last N completed lower-timeframe candles + current spread + optional buffer
+//
+// N defaults to 3 from the EA input.
+bool DAL_ExecHARealCandleStopFromClosedBars(
    const string symbol,
    const ENUM_TIMEFRAMES timeframe,
    const int direction,
@@ -215,6 +226,11 @@ bool DAL_ExecHAStopFromClosedBars(
    stop_price = 0.0;
    reason = "not_calculated";
 
+   if(symbol == "")
+   {
+      reason = "empty_symbol";
+      return false;
+   }
    if(direction == 0)
    {
       reason = "zero_direction";
@@ -222,6 +238,7 @@ bool DAL_ExecHAStopFromClosedBars(
    }
 
    int lookback = MathMax(1, closed_bars_lookback);
+
    double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
    if(point <= 0.0)
       point = _Point;
@@ -229,10 +246,10 @@ bool DAL_ExecHAStopFromClosedBars(
    double buffer = MathMax(0, buffer_points) * point;
 
    MqlRates rates[];
-   int copied = CopyRates(symbol, timeframe, 0, lookback + 50, rates);
+   int copied = CopyRates(symbol, timeframe, 0, lookback + 5, rates);
    if(copied <= lookback)
    {
-      reason = "not_enough_rates_for_stop";
+      reason = "not_enough_rates_for_real_candle_stop";
       return false;
    }
    ArraySetAsSeries(rates, true);
@@ -240,21 +257,17 @@ bool DAL_ExecHAStopFromClosedBars(
    bool initialized = false;
    double level = 0.0;
 
+   // Only completed candles are used.
+   // shift 1 = last closed candle
+   // shift 2 = candle before it
+   // shift 3 = third closed candle back
    for(int shift = 1; shift <= lookback; shift++)
    {
-      DALExecHeikinAshiBar ha;
-      string ha_reason = "";
-      if(!DAL_ExecHAComputeAtShift(symbol, timeframe, shift, 150, ha, ha_reason))
-      {
-         reason = "ha_stop_failed_" + ha_reason;
-         return false;
-      }
-
       double candidate = 0.0;
       if(direction > 0)
-         candidate = MathMin(rates[shift].low, ha.ha_low);
+         candidate = rates[shift].low;
       else
-         candidate = MathMax(rates[shift].high, ha.ha_high);
+         candidate = rates[shift].high;
 
       if(!initialized)
       {
@@ -272,18 +285,55 @@ bool DAL_ExecHAStopFromClosedBars(
 
    if(!initialized)
    {
-      reason = "stop_not_initialized";
+      reason = "real_candle_stop_not_initialized";
       return false;
    }
 
+   double ask = SymbolInfoDouble(symbol, SYMBOL_ASK);
+   double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
+   double spread_price = 0.0;
+
+   if(ask > 0.0 && bid > 0.0 && ask >= bid)
+      spread_price = ask - bid;
+   else
+   {
+      long spread_points = SymbolInfoInteger(symbol, SYMBOL_SPREAD);
+      spread_price = MathMax(0.0, (double)spread_points * point);
+   }
+
    int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
+
    if(direction > 0)
       stop_price = NormalizeDouble(level - buffer, digits);
    else
-      stop_price = NormalizeDouble(level + buffer, digits);
+      stop_price = NormalizeDouble(level + spread_price + buffer, digits);
 
-   reason = "ok";
+   reason = "ok*lookback=" + IntegerToString(lookback)
+      + "*level=" + DoubleToString(level, digits)
+      + "*spread=" + DoubleToString(spread_price, digits)
+      + "*buffer=" + DoubleToString(buffer, digits);
    return true;
 }
 
+// Backward-compatible wrapper. New code should call DAL_ExecHARealCandleStopFromClosedBars.
+bool DAL_ExecHAStopFromClosedBars(
+   const string symbol,
+   const ENUM_TIMEFRAMES timeframe,
+   const int direction,
+   const int closed_bars_lookback,
+   const int buffer_points,
+   double &stop_price,
+   string &reason
+)
+{
+   return DAL_ExecHARealCandleStopFromClosedBars(
+      symbol,
+      timeframe,
+      direction,
+      closed_bars_lookback,
+      buffer_points,
+      stop_price,
+      reason
+   );
+}
 #endif

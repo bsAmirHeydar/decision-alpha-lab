@@ -76,25 +76,36 @@ MaxOpenTrades = 1
 RewardR = 2.0
 RouletteInitialRiskPercent = 10.0
 RouletteSaveProfitFactor = 0.50
+StopLookbackClosedBars = 3
 ```
 
 TP is 1:2 by default.
 
-Stop is derived from the closed lower-timeframe signal candle using real candle and Heikin Ashi extremes.
+Stop is derived from the last three completed lower-timeframe real candles.
+
+It is not based on visual candle color and it is not based on Heikin Ashi high/low.
+
+Default:
+
+```text
+StopLookbackClosedBars = 3
+```
 
 For buy:
 
 ```text
-SL = min(real low, HA low)
+SL = lowest real low of the previous 3 closed M1 candles
 TP = entry + 2R
 ```
 
 For sell:
 
 ```text
-SL = max(real high, HA high)
+SL = highest real high of the previous 3 closed M1 candles + current spread
 TP = entry - 2R
 ```
+
+`InpStopBufferPoints` can add an optional extra buffer beyond this rule. The default buffer is zero.
 
 ## Corrected Roulette logic
 
