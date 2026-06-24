@@ -3,8 +3,8 @@
 //| Fresh Donchian breakout, 3 ATR stop, 2R target, Roulette risk    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.11"
-#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, Roulette risk, and optional hypothetical profit gate. Roulette updates only from real closed managed trades."
+#property version   "1.12"
+#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, Roulette risk, and optional micro-probe profit gate. Roulette updates only from full-size closed managed trades."
 
 #include <Trade/Trade.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
@@ -32,11 +32,12 @@ input bool InpRoulettePersistState = true;
 input bool InpHypoGateEnabled = true;
 input bool InpHypoGateStartOpen = false;
 input bool InpHypoGatePersistState = true;
+input double InpHypoGateProbeVolume = 0.01;
 
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0011_BUILD "1.11"
+#define DAL_E0011_BUILD "1.12"
 string InpOrderCommentPrefix = "E0011DON";
 
 CTrade g_trade;
@@ -307,10 +308,70 @@ int E0011_CountManagedOpenTrades()
    return count;
 }
 
-string E0011_BarComment(const datetime signal_time, const int direction)
+string E0011_BarComment(const datetime signal_time, const int direction, const bool probe_order)
 {
+   string layer = (probe_order ? "P" : "L");
    string side = (direction > 0 ? "B" : "S");
-   return InpOrderCommentPrefix + side + "T" + IntegerToString((int)signal_time);
+   return InpOrderCommentPrefix + layer + side + "T" + IntegerToString((int)signal_time);
+}
+
+bool E0011_NormalizeFixedVolume(
+   const string symbol,
+   const double requested_volume,
+   double &volume,
+   string &reason
+)
+{
+   volume = 0.0;
+   reason = "not_normalized";
+
+   if(symbol == "")
+   {
+      reason = "empty_symbol";
+      return false;
+   }
+
+   double volume_min = SymbolInfoDouble(symbol, SYMBOL_VOLUME_MIN);
+   double volume_max = SymbolInfoDouble(symbol, SYMBOL_VOLUME_MAX);
+   double volume_step = SymbolInfoDouble(symbol, SYMBOL_VOLUME_STEP);
+
+   if(volume_min <= 0.0 || volume_max <= 0.0 || volume_step <= 0.0)
+   {
+      reason = "invalid_volume_specs";
+      return false;
+   }
+
+   double v = requested_volume;
+   if(v <= 0.0)
+   {
+      reason = "requested_volume_not_positive";
+      return false;
+   }
+
+   if(v < volume_min)
+      v = volume_min;
+   if(v > volume_max)
+      v = volume_max;
+
+   v = E0011_FloorToStep(v, volume_step);
+   if(v < volume_min)
+      v = volume_min;
+
+   int digits = E0011_VolumeDigitsFromStep(volume_step);
+   volume = NormalizeDouble(v, digits);
+
+   if(volume <= 0.0)
+   {
+      reason = "normalized_volume_zero";
+      return false;
+   }
+
+   reason = "ok"
+      + "*requested=" + DoubleToString(requested_volume, 8)
+      + "*volume=" + DoubleToString(volume, 8)
+      + "*min=" + DoubleToString(volume_min, 8)
+      + "*step=" + DoubleToString(volume_step, 8);
+   return true;
 }
 
 bool E0011_BuildTradePricePlan(
@@ -536,7 +597,9 @@ int OnInit()
       "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 4),
       "*hypoGateEnabled=", (InpHypoGateEnabled ? "true" : "false"),
       "*hypoGateStartOpen=", (InpHypoGateStartOpen ? "true" : "false"),
-      "*rouletteUpdateMode=real_closed_managed_trades_only");
+      "*hypoGateProbeVolume=", DoubleToString(InpHypoGateProbeVolume, 8),
+      "*rouletteUpdateMode=full_live_closed_managed_trades_only",
+      "*gateMode=micro_probe_orders_when_blocked");
 
    return INIT_SUCCEEDED;
 }
@@ -557,21 +620,16 @@ void OnTick()
       return;
    }
 
-   // The hypothetical layer is updated on every tick so a virtual TP/SL can be
-   // resolved by price, while actual signal evaluation still runs only once per
-   // closed signal-timeframe candle.
-   DAL_ExecHypoGateUpdateVirtual(g_hypo_gate_cfg, g_hypo_gate_state, symbol);
-
    // Execution clock: evaluate once when a new signal-timeframe candle opens.
    // Therefore the signal candle is closed shift 1.
    if(!E0011_HasNewSignalCandle())
       return;
 
    // IMPORTANT:
-   // Roulette must be a live-trade-only risk state.
-   // It is NOT updated by hypothetical/shadow trades and it is NOT updated merely
+   // Roulette must be a full-size live-trade-only risk state.
+   // It is NOT touched by blocked micro-probe trades and it is NOT updated merely
    // because a new signal candle appeared. It is updated in OnTradeTransaction()
-   // only after an E0011 managed real position is closed.
+   // only after a full-size E0011 managed position is closed.
 
    int managed = E0011_CountManagedOpenTrades();
    if(managed >= MathMax(1, InpMaxOpenTrades))
@@ -608,41 +666,75 @@ void OnTick()
       return;
    }
 
-   if(!DAL_ExecHypoGateShouldTrade(g_hypo_gate_cfg, g_hypo_gate_state))
-   {
-      if(!DAL_ExecHypoGateHasActiveVirtual(g_hypo_gate_state))
-      {
-         bool opened_virtual = DAL_ExecHypoGateOpenVirtualTrade(
-            g_hypo_gate_cfg,
-            g_hypo_gate_state,
-            signal.direction,
-            entry_price,
-            stop_price,
-            take_profit,
-            signal.signal_time,
-            "blocked_signal_shadowed"
-         );
+   bool probe_order = !DAL_ExecHypoGateShouldTrade(g_hypo_gate_cfg, g_hypo_gate_state);
+   string comment = E0011_BarComment(signal.signal_time, signal.direction, probe_order);
 
-         Print("DAL_E0011_HYPO_GATE_BLOCK *** action=", (opened_virtual ? "virtual_opened" : "virtual_open_failed"),
+   if(probe_order)
+   {
+      if(E0011_OrderCommentExists(symbol, InpMagicNumber, comment))
+      {
+         if(InpPrintLogs)
+            Print("DAL_E0011_SKIP *** reason=probe_comment_already_exists*comment=", comment,
+               "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+         return;
+      }
+
+      if(!InpTradingEnabled)
+      {
+         Print("DAL_E0011_PROBE_DRY_RUN *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+            "*entry=", DoubleToString(entry_price, 8),
+            "*sl=", DoubleToString(stop_price, 8),
+            "*tp=", DoubleToString(take_profit, 8),
+            "*probeVolumeRequested=", DoubleToString(InpHypoGateProbeVolume, 8),
+            "*comment=", comment,
+            "*signal=", DAL_ExecDonchianSignalToLog(signal),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+         return;
+      }
+
+      double probe_volume = 0.0;
+      string probe_volume_reason = "";
+      if(!E0011_NormalizeFixedVolume(symbol, InpHypoGateProbeVolume, probe_volume, probe_volume_reason))
+      {
+         Print("DAL_E0011_PROBE_REJECT *** reason=", probe_volume_reason,
             "*direction=", DAL_ExecDonchianDirectionToString(signal.direction),
             "*entry=", DoubleToString(entry_price, 8),
             "*sl=", DoubleToString(stop_price, 8),
             "*tp=", DoubleToString(take_profit, 8),
-            "*pricePlan=", price_plan_reason,
-            "*signal=", DAL_ExecDonchianSignalToLog(signal),
+            "*comment=", comment,
             "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+         return;
+      }
+
+      string probe_send_reason = "";
+      if(E0011_SendMarketOrder(signal.direction, probe_volume, stop_price, take_profit, comment, probe_send_reason))
+      {
+         Print("DAL_E0011_PROBE_ORDER_SENT *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+            "*volume=", DoubleToString(probe_volume, 8),
+            "*entry=", DoubleToString(entry_price, 8),
+            "*sl=", DoubleToString(stop_price, 8),
+            "*tp=", DoubleToString(take_profit, 8),
+            "*comment=", comment,
+            "*pricePlan=", price_plan_reason,
+            "*volumePlan=", probe_volume_reason,
+            "*signal=", DAL_ExecDonchianSignalToLog(signal),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state),
+            "*send=", probe_send_reason);
       }
       else
       {
-         Print("DAL_E0011_HYPO_GATE_BLOCK *** action=waiting_existing_virtual",
-            "*direction=", DAL_ExecDonchianDirectionToString(signal.direction),
-            "*signal=", DAL_ExecDonchianSignalToLog(signal),
-            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+         Print("DAL_E0011_PROBE_ORDER_FAILED *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+            "*volume=", DoubleToString(probe_volume, 8),
+            "*sl=", DoubleToString(stop_price, 8),
+            "*tp=", DoubleToString(take_profit, 8),
+            "*comment=", comment,
+            "*pricePlan=", price_plan_reason,
+            "*volumePlan=", probe_volume_reason,
+            "*send=", probe_send_reason);
       }
       return;
    }
 
-   string comment = E0011_BarComment(signal.signal_time, signal.direction);
    if(E0011_OrderCommentExists(symbol, InpMagicNumber, comment))
    {
       if(InpPrintLogs)
@@ -702,40 +794,52 @@ void OnTick()
    }
 }
 
-bool E0011_IsManagedClosedHistoryDeal(const ulong deal_ticket)
+int E0011_CommentLayerKind(const string comment)
+{
+   if(StringFind(comment, InpOrderCommentPrefix + "P", 0) == 0)
+      return 2; // blocked micro-probe order
+   if(StringFind(comment, InpOrderCommentPrefix + "L", 0) == 0)
+      return 1; // full live Roulette-sized order
+   if(StringFind(comment, InpOrderCommentPrefix, 0) == 0)
+      return 1; // backward compatibility with older full-live comments
+   return 0;
+}
+
+int E0011_ManagedClosedHistoryDealKind(const ulong deal_ticket)
 {
    if(deal_ticket == 0)
-      return false;
+      return 0;
    if(!HistoryDealSelect(deal_ticket))
-      return false;
+      return 0;
 
    string symbol = E0011_Symbol();
    string deal_symbol = HistoryDealGetString(deal_ticket, DEAL_SYMBOL);
    if(deal_symbol != symbol)
-      return false;
+      return 0;
 
    long magic = (long)HistoryDealGetInteger(deal_ticket, DEAL_MAGIC);
    if(magic != InpMagicNumber)
-      return false;
+      return 0;
 
    string direct_comment = HistoryDealGetString(deal_ticket, DEAL_COMMENT);
-   if(StringFind(direct_comment, InpOrderCommentPrefix, 0) == 0)
-      return true;
+   int direct_kind = E0011_CommentLayerKind(direct_comment);
+   if(direct_kind > 0)
+      return direct_kind;
 
    // Closing deals produced by SL/TP often have broker comments like [sl] or [tp]
    // instead of the original position comment. Therefore we verify the whole
-   // position history and accept the closing deal only if the original entry deal
-   // belonged to this execution prefix.
+   // position history and classify the closing deal by the original entry comment.
    long position_id = (long)HistoryDealGetInteger(deal_ticket, DEAL_POSITION_ID);
    if(position_id <= 0)
-      return false;
+      return 0;
 
    datetime now_time = TimeCurrent();
    if(now_time <= 0)
       now_time = TimeLocal();
    if(!HistorySelect(0, now_time + 86400))
-      return false;
+      return 0;
 
+   int best_kind = 0;
    int total = HistoryDealsTotal();
    for(int i = 0; i < total; i++)
    {
@@ -751,11 +855,14 @@ bool E0011_IsManagedClosedHistoryDeal(const ulong deal_ticket)
          continue;
 
       string c = HistoryDealGetString(d, DEAL_COMMENT);
-      if(StringFind(c, InpOrderCommentPrefix, 0) == 0)
-         return true;
+      int kind = E0011_CommentLayerKind(c);
+      if(kind == 2)
+         return 2;
+      if(kind == 1)
+         best_kind = 1;
    }
 
-   return false;
+   return best_kind;
 }
 
 void OnTradeTransaction(
@@ -789,25 +896,43 @@ void OnTradeTransaction(
       return;
 
    string deal_comment = HistoryDealGetString(trans.deal, DEAL_COMMENT);
-   if(!E0011_IsManagedClosedHistoryDeal(trans.deal))
+   int managed_kind = E0011_ManagedClosedHistoryDealKind(trans.deal);
+   if(managed_kind <= 0)
       return;
 
    double net_profit = HistoryDealGetDouble(trans.deal, DEAL_PROFIT)
       + HistoryDealGetDouble(trans.deal, DEAL_SWAP)
       + HistoryDealGetDouble(trans.deal, DEAL_COMMISSION);
 
-   // Two-layer gate is updated from real closed managed deals only.
-   DAL_ExecHypoGateOnRealClosedDeal(g_hypo_gate_cfg, g_hypo_gate_state, net_profit, trans.deal);
+   if(managed_kind == 2)
+   {
+      // Blocked-layer micro-probe orders are real broker orders, but they are
+      // NOT part of the Roulette-sized trade stream. They only decide whether
+      // the gate opens for the NEXT full-size signal.
+      DAL_ExecHypoGateOnProbeClosedDeal(g_hypo_gate_cfg, g_hypo_gate_state, net_profit, trans.deal);
 
-   // Roulette is also updated from real closed managed deals only.
-   // Virtual/hypothetical trades never touch Roulette state or Roulette volume sizing.
+      if(InpPrintLogs)
+      {
+         Print("DAL_E0011_PROBE_CLOSED_GATE_UPDATE *** deal=", IntegerToString((int)trans.deal),
+            "*comment=", deal_comment,
+            "*netProfit=", DoubleToString(net_profit, 2),
+            "*rouletteAction=not_updated_probe_trade",
+            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+      }
+      return;
+   }
+
+   // Full live order: update both the gate and Roulette.
+   DAL_ExecHypoGateOnRealClosedDeal(g_hypo_gate_cfg, g_hypo_gate_state, net_profit, trans.deal);
    DAL_ExecRouletteUpdate(g_roulette_cfg, g_roulette_state);
 
    if(InpPrintLogs)
    {
-      Print("DAL_E0011_REAL_CLOSED_STATE_UPDATE *** deal=", IntegerToString((int)trans.deal),
+      Print("DAL_E0011_LIVE_CLOSED_STATE_UPDATE *** deal=", IntegerToString((int)trans.deal),
          "*comment=", deal_comment,
          "*netProfit=", DoubleToString(net_profit, 2),
+         "*rouletteAction=updated_full_live_trade",
          "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
          "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
    }

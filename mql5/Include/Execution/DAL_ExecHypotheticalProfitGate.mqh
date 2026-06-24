@@ -5,18 +5,20 @@
 // Pure MQL5. No Python. No external scripts.
 //
 // Purpose:
-// - Layer 1 is a hypothetical/shadow trade stream.
-// - Layer 2 is the real execution stream.
-// - When the gate is closed, valid signals are NOT traded live. The first valid
-//   signal is tracked hypothetically with the same entry, SL and TP.
-// - If the hypothetical trade wins, the gate opens and the NEXT signals are allowed live.
-// - If the hypothetical trade loses, the gate stays closed and waits for the next
-//   hypothetical trade to win.
-// - When the gate is open, real trades are allowed. A real winning trade keeps the
-//   gate open. A real losing or flat trade closes the gate again.
+// - Layer 1 is a blocked/probe stream. In E0011 this stream can be executed
+//   as micro-lot real orders, for example 0.01, so broker/tester mechanics,
+//   max-open-trade limits, SL and TP behavior all stay identical to normal trades.
+// - Layer 2 is the full live Roulette-sized execution stream.
+// - When the gate is closed, valid signals are taken only as micro-probe orders.
+// - If a micro-probe order wins, the gate opens and the NEXT signals are allowed
+//   as full live trades.
+// - If a micro-probe order loses, the gate stays closed and waits for another
+//   micro-probe win.
+// - When the gate is open, full live trades are allowed. A full winning trade
+//   keeps the gate open. A full losing or flat trade closes the gate again.
 //
 // The module does not create entries, calculate stops, size positions, or send orders.
-// It only decides whether the next signal may pass to live execution.
+// It only maintains the gate state after probe/live trade results.
 
 struct DALExecHypotheticalProfitGateConfig
 {
@@ -305,6 +307,47 @@ int DAL_ExecHypoGateUpdateVirtual(
 
    DAL_ExecHypoGateSave(cfg, st);
    return result;
+}
+
+void DAL_ExecHypoGateOnProbeClosedDeal(
+   const DALExecHypotheticalProfitGateConfig &cfg,
+   DALExecHypotheticalProfitGateState &st,
+   const double net_profit,
+   const ulong deal_ticket
+)
+{
+   if(!cfg.enabled)
+      return;
+   if(!st.initialized)
+      return;
+   if(deal_ticket != 0 && st.last_real_deal_ticket == deal_ticket)
+      return;
+
+   st.last_real_profit = net_profit;
+   st.last_real_deal_ticket = deal_ticket;
+   st.active_virtual = false;
+
+   if(net_profit > 0.0)
+   {
+      st.live_allowed = true;
+      st.last_reason = "probe_win_gate_open_next_signal";
+   }
+   else
+   {
+      st.live_allowed = false;
+      st.cycle_id++;
+      st.last_reason = "probe_loss_stay_blocked";
+   }
+
+   if(cfg.print_logs)
+   {
+      Print("DAL_HYPO_GATE_PROBE_CLOSED *** deal=", IntegerToString((int)deal_ticket),
+         "*netProfit=", DoubleToString(net_profit, 2),
+         "*liveAllowed=", DAL_ExecHypoGateBoolToString(st.live_allowed),
+         "*reason=", st.last_reason);
+   }
+
+   DAL_ExecHypoGateSave(cfg, st);
 }
 
 void DAL_ExecHypoGateOnRealClosedDeal(

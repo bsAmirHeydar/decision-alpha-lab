@@ -144,11 +144,23 @@ The expert:
 
 ---
 
-## Two-Layer Hypothetical Profit Gate
+## Two-Layer Micro-Probe Profit Gate
 
-E0011 also supports an optional two-layer execution filter.
+E0011 supports an optional two-layer execution filter.
 
-The goal is to avoid trading immediately after a losing trade until the same signal stream proves itself again with a hypothetical win.
+The goal is:
+
+```text
+first winning signal opens permission for the next full trades
+full winning trades keep permission open
+first full losing or flat trade closes permission
+while permission is closed, only micro-probe trades are taken
+first profitable micro-probe opens permission again
+```
+
+This replaces a purely virtual shadow stream with real micro-lot probe orders.
+
+The reason is practical: using micro-probe orders keeps the system compatible with real broker/tester mechanics, including `InpMaxOpenTrades = 1`. A blocked signal still creates a tiny real position, so the EA naturally waits until that probe position is closed before considering the next signal.
 
 Default inputs:
 
@@ -156,94 +168,93 @@ Default inputs:
 InpHypoGateEnabled = true
 InpHypoGateStartOpen = false
 InpHypoGatePersistState = true
+InpHypoGateProbeVolume = 0.01
 ```
 
-### Layer 1 — Hypothetical Layer
+---
 
-When the gate is closed, valid Donchian breakout signals are not sent to the broker.
+## Layer 1 — Blocked Micro-Probe Layer
 
-Instead, the first valid signal is opened as a hypothetical trade using the same execution plan:
+When the gate is closed, valid Donchian breakout signals are not ignored.
+
+They are sent as tiny probe orders, default `0.01` lot, using the exact same execution plan:
 
 ```text
 same direction
-same entry reference
+same market entry logic
 same ATR stop
 same 2R target
+same broker SL/TP mechanics
 ```
 
-This virtual trade is tracked on every tick.
-
-For a buy virtual trade:
+A probe order is identified by the comment layer marker:
 
 ```text
-win  = Bid >= virtual_take_profit
-loss = Bid <= virtual_stop
+E0011DONP...
 ```
 
-For a sell virtual trade:
+Probe result controls only the gate:
 
 ```text
-win  = Ask <= virtual_take_profit
-loss = Ask >= virtual_stop
+probe profit > 0  => open the gate for the NEXT full signal
+probe profit <= 0 => keep the gate closed
 ```
 
-If the virtual trade wins, the real execution gate opens.
+Probe trades do not update Roulette.
 
-The winning virtual trade itself is not executed retroactively. Only the next valid signals are allowed live.
+They are real orders for gating/backtest-mechanics only, not part of the Roulette-sized production stream.
 
-If the virtual trade loses, the gate stays closed and the system waits for the next valid hypothetical trade to win.
+---
 
-### Layer 2 — Real Execution Layer
+## Layer 2 — Full Live Roulette Layer
 
-When the gate is open, valid Donchian breakout signals are executed live.
+When the gate is open, valid Donchian breakout signals are executed as full live trades sized by Roulette.
 
-Real closed trade result controls the gate:
+A full live order is identified by the comment layer marker:
 
 ```text
-real trade profit > 0  => keep gate open
-real trade profit <= 0 => close gate and wait for a hypothetical win again
+E0011DONL...
 ```
 
-So the sequence is:
+Full live result controls both the gate and Roulette:
 
 ```text
-blocked -> hypothetical signal -> hypothetical win -> real signals allowed
-real win -> continue taking real signals
-real loss -> block again -> wait for hypothetical win
+full trade profit > 0  => keep gate open and update Roulette
+full trade profit <= 0 => close gate and update Roulette
 ```
 
-This means the EA has two different streams:
+After a full losing or flat trade, the EA stops taking full Roulette-sized trades.
+
+It then goes back to the micro-probe layer and waits until a probe order wins.
+
+---
+
+## Final Gate Sequence
+
+The intended sequence is:
 
 ```text
-Hypothetical stream: used only to re-open permission after loss
-Real stream: used only while permission is open
+Gate closed
+-> valid signal is executed as 0.01 probe
+-> if probe loses, keep taking only 0.01 probes
+-> if probe wins, gate opens
+-> next valid signal is full Roulette-sized
+-> if full trade wins, continue full Roulette-sized trades
+-> if full trade loses, gate closes
+-> return to 0.01 probe mode
 ```
 
-The gate does not change Donchian logic, ATR stop logic, Roulette risk, lot sizing, or order sending. It only decides whether a valid signal is allowed to reach the real execution layer.
+Important: the winning probe itself does not become a full trade retroactively. It only opens permission for the next signal.
 
+---
 
-## Roulette Live-Only Rule
+## Roulette Scope
 
-Roulette is applied only to trades that are actually executed by E0011.
-
-The hypothetical layer does not change Roulette state. A shadow trade can open the gate or keep it closed, but it never changes `locked_balance`, `base_risk`, `floor_balance`, `profit_active`, or the next real lot size.
-
-Operationally:
+Roulette applies only to full live trades.
 
 ```text
-Gate closed + valid signal:
-  -> create/update hypothetical trade only
-  -> do not call Roulette risk sizing
-  -> do not update Roulette state
-
-Gate open + valid signal:
-  -> call RouletteRiskMoney()
-  -> calculate real volume
-  -> send real order
-
-Real managed trade closes:
-  -> update hypothetical gate from real P/L
-  -> update Roulette from actual account balance
+probe 0.01 trade closed => update gate only, do not update Roulette
+full Roulette trade closed => update gate and update Roulette
 ```
 
-This means Roulette follows only the real executed trade stream, not the shadow stream.
+This keeps Roulette attached to the real production trade stream, while the micro-probe stream remains a permission filter.
