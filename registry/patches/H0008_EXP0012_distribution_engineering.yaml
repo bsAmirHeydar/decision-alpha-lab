@@ -1,0 +1,32 @@
+# Safe registry snippet for H0008 / EXP0012.
+# This file is intentionally standalone so applying the patch does not overwrite
+# the user's live registry files. Copy these entries into the canonical registry
+# after reviewing current repository state.
+
+hypothesis:
+  H0008:
+    title: Distribution Engineering for Conditional Sequence Extraction
+    status: draft
+    document: lab/02_hypotheses/H0008_distribution_engineering_sequence_clusters.md
+    article: docs/research/H0008_distribution_engineering.md
+    implementation_language: MQL5
+    implementation: mql5/Include/Research/DAL_DistributionClusterMiner.mqh
+    purpose: measure conditional outcome clusters and filter eligibility for Roulette/Jackpot execution
+
+experiment:
+  id: EXP0012
+  title: Distributional Cluster Miner
+  hypothesis: H0008
+  status: draft
+  document: lab/03_experiments/EXP0012_distributional_cluster_miner/README.md
+  metadata: lab/03_experiments/EXP0012_distributional_cluster_miner/metadata.yaml
+  module: mql5/Include/Research/DAL_DistributionClusterMiner.mqh
+
+mql_module:
+  M0012:
+    title: Distribution Engineering Cluster Miner
+    status: draft
+    platform: mql5
+    include: mql5/Include/Research
+    trading: false
+    purpose: reusable measurement/filtering module for execution outcome clustering

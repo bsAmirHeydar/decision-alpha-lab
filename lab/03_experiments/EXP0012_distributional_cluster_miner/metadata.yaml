@@ -1,0 +1,7 @@
+id: EXP0012
+hypothesis: H0008
+title: Distributional Cluster Miner
+status: draft
+language: MQL5
+module: mql5/Include/Research/DAL_DistributionClusterMiner.mqh
+purpose: reusable distribution-engineering module for execution outcome clustering
