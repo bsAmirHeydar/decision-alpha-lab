@@ -2,308 +2,227 @@
 #define __DAL_EXEC_ROULETTE_RISK_MQH__
 
 // Decision Alpha Lab — reusable Roulette risk module.
+// Pure MQL5. No Python or external scripts.
 //
-// Roulette logic:
-// 1) Lock the account balance at the start of a cycle.
-// 2) Base risk = locked_balance * initial_risk_percent / 100.
-// 3) Floor balance = locked_balance - base_risk.
-// 4) While balance is not above the locked balance, next risk is the base risk.
-// 5) Once balance is above the locked balance, riskable pool = balance - floor_balance.
-// 6) Next risk = max(base_risk, riskable_pool * save_profit_factor).
-// 7) On any realized balance drop, reset the cycle by locking the new balance.
-//
-// The module is execution-agnostic and can be reused by E0001/E0002/... modules.
+// Correct cycle rule:
+// - The locked balance is fixed at cycle start.
+// - Base risk is fixed as initial_risk_percent of locked balance.
+// - Losing movement below the protected floor does NOT reduce risk.
+// - Risk stays at base risk until the cycle first becomes profitable.
+// - After profit, risk can expand from current_balance - floor_balance.
+// - If profit was active and a realized balance drop occurs, the cycle resets
+//   to the balance after the loss. Further losses keep that new base risk.
+
+struct DALExecRouletteRiskConfig
+{
+   double initial_risk_percent;
+   double save_profit_factor;
+   bool persist_state;
+   string state_key;
+   bool print_logs;
+};
 
 struct DALExecRouletteRiskState
 {
    bool initialized;
-   bool persist_state;
-   bool reset_on_balance_drop;
-   bool last_sync_reset;
-   string key;
-   string reason;
-
-   double initial_risk_percent;
-   double save_profit_factor;
+   bool profit_active;
+   int cycle_id;
    double locked_balance;
+   double base_risk;
    double floor_balance;
-   double base_risk_cash;
    double last_balance;
-   double current_balance;
-   double current_risk_cash;
+   double peak_balance;
+   double last_risk_cash;
 };
 
-void DAL_ExecRouletteResetState(DALExecRouletteRiskState &s)
+string DAL_ExecRouletteBoolToString(const bool v)
 {
-   s.initialized = false;
-   s.persist_state = true;
-   s.reset_on_balance_drop = true;
-   s.last_sync_reset = false;
-   s.key = "";
-   s.reason = "not_initialized";
-
-   s.initial_risk_percent = 10.0;
-   s.save_profit_factor = 0.50;
-   s.locked_balance = 0.0;
-   s.floor_balance = 0.0;
-   s.base_risk_cash = 0.0;
-   s.last_balance = 0.0;
-   s.current_balance = 0.0;
-   s.current_risk_cash = 0.0;
+   return (v ? "true" : "false");
 }
 
-double DAL_ExecRouletteClamp(const double value, const double lo, const double hi)
+void DAL_ExecRouletteRiskDefaults(DALExecRouletteRiskConfig &cfg)
 {
-   if(value < lo)
-      return lo;
-   if(value > hi)
-      return hi;
-   return value;
+   cfg.initial_risk_percent = 10.0;
+   cfg.save_profit_factor = 0.50;
+   cfg.persist_state = true;
+   cfg.state_key = "default";
+   cfg.print_logs = false;
 }
 
-string DAL_ExecRouletteSanitizeKey(const string raw_key)
+void DAL_ExecRouletteRiskResetState(DALExecRouletteRiskState &st)
 {
-   string out = "";
-   int n = StringLen(raw_key);
-   for(int i = 0; i < n; i++)
-   {
-      ushort ch = StringGetCharacter(raw_key, i);
-      bool ok = ((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch == '_');
-      if(ok)
-         out += ShortToString(ch);
-      else
-         out += "_";
-   }
-
-   if(out == "")
-      out = "default";
-
-   if(StringLen(out) > 38)
-      out = StringSubstr(out, 0, 38);
-
-   return out;
+   st.initialized = false;
+   st.profit_active = false;
+   st.cycle_id = 0;
+   st.locked_balance = 0.0;
+   st.base_risk = 0.0;
+   st.floor_balance = 0.0;
+   st.last_balance = 0.0;
+   st.peak_balance = 0.0;
+   st.last_risk_cash = 0.0;
 }
 
-string DAL_ExecRouletteGVName(const string key, const string field)
+string DAL_ExecRoulettePrefix(const DALExecRouletteRiskConfig &cfg)
 {
-   return "DAL_RLT_" + DAL_ExecRouletteSanitizeKey(key) + "_" + field;
+   long login = (long)AccountInfoInteger(ACCOUNT_LOGIN);
+   string key = cfg.state_key;
+   if(key == "")
+      key = "default";
+   return "DAL_ROULETTE_" + IntegerToString((int)login) + "_" + key;
 }
 
-bool DAL_ExecRouletteGVGet(const string key, const string field, double &value)
+void DAL_ExecRouletteSave(const DALExecRouletteRiskConfig &cfg, const DALExecRouletteRiskState &st)
 {
-   string name = DAL_ExecRouletteGVName(key, field);
-   if(!GlobalVariableCheck(name))
-      return false;
-   value = GlobalVariableGet(name);
-   return true;
-}
-
-void DAL_ExecRouletteGVSet(const string key, const string field, const double value)
-{
-   string name = DAL_ExecRouletteGVName(key, field);
-   GlobalVariableSet(name, value);
-}
-
-void DAL_ExecRoulettePersist(const DALExecRouletteRiskState &s)
-{
-   if(!s.persist_state || s.key == "")
+   if(!cfg.persist_state)
       return;
 
-   DAL_ExecRouletteGVSet(s.key, "init", 1.0);
-   DAL_ExecRouletteGVSet(s.key, "lock", s.locked_balance);
-   DAL_ExecRouletteGVSet(s.key, "floor", s.floor_balance);
-   DAL_ExecRouletteGVSet(s.key, "base", s.base_risk_cash);
-   DAL_ExecRouletteGVSet(s.key, "last", s.last_balance);
-   DAL_ExecRouletteGVSet(s.key, "risk", s.current_risk_cash);
-   DAL_ExecRouletteGVSet(s.key, "pct", s.initial_risk_percent);
-   DAL_ExecRouletteGVSet(s.key, "save", s.save_profit_factor);
+   string p = DAL_ExecRoulettePrefix(cfg);
+   GlobalVariableSet(p + "_initialized", st.initialized ? 1.0 : 0.0);
+   GlobalVariableSet(p + "_profit_active", st.profit_active ? 1.0 : 0.0);
+   GlobalVariableSet(p + "_cycle_id", (double)st.cycle_id);
+   GlobalVariableSet(p + "_locked_balance", st.locked_balance);
+   GlobalVariableSet(p + "_base_risk", st.base_risk);
+   GlobalVariableSet(p + "_floor_balance", st.floor_balance);
+   GlobalVariableSet(p + "_last_balance", st.last_balance);
+   GlobalVariableSet(p + "_peak_balance", st.peak_balance);
+   GlobalVariableSet(p + "_last_risk_cash", st.last_risk_cash);
 }
 
-bool DAL_ExecRouletteLoad(DALExecRouletteRiskState &s)
+bool DAL_ExecRouletteLoad(const DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskState &st)
 {
-   if(!s.persist_state || s.key == "")
+   if(!cfg.persist_state)
       return false;
 
-   double init = 0.0;
-   if(!DAL_ExecRouletteGVGet(s.key, "init", init) || init < 0.5)
+   string p = DAL_ExecRoulettePrefix(cfg);
+   if(!GlobalVariableCheck(p + "_initialized"))
       return false;
 
-   double locked = 0.0;
-   double floor_balance = 0.0;
-   double base_risk = 0.0;
-   double last_balance = 0.0;
-   double risk_cash = 0.0;
+   st.initialized = (GlobalVariableGet(p + "_initialized") > 0.5);
+   st.profit_active = (GlobalVariableGet(p + "_profit_active") > 0.5);
+   st.cycle_id = (int)GlobalVariableGet(p + "_cycle_id");
+   st.locked_balance = GlobalVariableGet(p + "_locked_balance");
+   st.base_risk = GlobalVariableGet(p + "_base_risk");
+   st.floor_balance = GlobalVariableGet(p + "_floor_balance");
+   st.last_balance = GlobalVariableGet(p + "_last_balance");
+   st.peak_balance = GlobalVariableGet(p + "_peak_balance");
+   st.last_risk_cash = GlobalVariableGet(p + "_last_risk_cash");
 
-   if(!DAL_ExecRouletteGVGet(s.key, "lock", locked))
-      return false;
-   if(!DAL_ExecRouletteGVGet(s.key, "floor", floor_balance))
-      return false;
-   if(!DAL_ExecRouletteGVGet(s.key, "base", base_risk))
-      return false;
-   if(!DAL_ExecRouletteGVGet(s.key, "last", last_balance))
-      return false;
-   DAL_ExecRouletteGVGet(s.key, "risk", risk_cash);
-
-   if(locked <= 0.0 || base_risk <= 0.0)
-      return false;
-
-   s.initialized = true;
-   s.locked_balance = locked;
-   s.floor_balance = floor_balance;
-   s.base_risk_cash = base_risk;
-   s.last_balance = last_balance;
-   s.current_risk_cash = risk_cash;
-   s.reason = "loaded_persisted_state";
-   return true;
+   return (st.initialized && st.locked_balance > 0.0 && st.base_risk > 0.0);
 }
 
-void DAL_ExecRouletteLockCycle(
-   DALExecRouletteRiskState &s,
-   const double balance,
-   const double initial_risk_percent,
-   const double save_profit_factor,
-   const string reset_reason
+void DAL_ExecRouletteStartNewCycle(
+   const DALExecRouletteRiskConfig &cfg,
+   DALExecRouletteRiskState &st,
+   const double balance
 )
 {
-   s.initial_risk_percent = DAL_ExecRouletteClamp(initial_risk_percent, 0.01, 100.0);
-   s.save_profit_factor = DAL_ExecRouletteClamp(save_profit_factor, 0.0, 1.0);
-   s.locked_balance = MathMax(0.0, balance);
-   s.base_risk_cash = s.locked_balance * s.initial_risk_percent / 100.0;
-   s.floor_balance = s.locked_balance - s.base_risk_cash;
-   s.last_balance = s.locked_balance;
-   s.current_balance = s.locked_balance;
-   s.current_risk_cash = s.base_risk_cash;
-   s.initialized = true;
-   s.last_sync_reset = true;
-   s.reason = reset_reason;
-   DAL_ExecRoulettePersist(s);
+   double b = MathMax(0.0, balance);
+   double pct = MathMax(0.0, cfg.initial_risk_percent) / 100.0;
+
+   int next_cycle = st.cycle_id + 1;
+   st.initialized = true;
+   st.profit_active = false;
+   st.cycle_id = next_cycle;
+   st.locked_balance = b;
+   st.base_risk = b * pct;
+   st.floor_balance = st.locked_balance - st.base_risk;
+   st.last_balance = b;
+   st.peak_balance = b;
+   st.last_risk_cash = st.base_risk;
+
+   if(cfg.print_logs)
+   {
+      Print("DAL_ROULETTE_RESET *** cycle=", st.cycle_id,
+         "*locked=", DoubleToString(st.locked_balance, 2),
+         "*baseRisk=", DoubleToString(st.base_risk, 2),
+         "*floor=", DoubleToString(st.floor_balance, 2));
+   }
+
+   DAL_ExecRouletteSave(cfg, st);
 }
 
-bool DAL_ExecRouletteInit(
-   DALExecRouletteRiskState &s,
-   const string storage_key,
-   const double initial_risk_percent,
-   const double save_profit_factor,
-   const bool persist_state,
-   const bool reset_on_balance_drop
-)
+bool DAL_ExecRouletteInit(DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskState &st)
 {
-   DAL_ExecRouletteResetState(s);
-   s.key = storage_key;
-   s.persist_state = persist_state;
-   s.reset_on_balance_drop = reset_on_balance_drop;
-   s.initial_risk_percent = DAL_ExecRouletteClamp(initial_risk_percent, 0.01, 100.0);
-   s.save_profit_factor = DAL_ExecRouletteClamp(save_profit_factor, 0.0, 1.0);
+   if(cfg.initial_risk_percent < 0.0)
+      cfg.initial_risk_percent = 0.0;
+   if(cfg.save_profit_factor < 0.0)
+      cfg.save_profit_factor = 0.0;
 
-   if(DAL_ExecRouletteLoad(s))
+   DAL_ExecRouletteRiskResetState(st);
+   if(DAL_ExecRouletteLoad(cfg, st))
       return true;
 
    double balance = AccountInfoDouble(ACCOUNT_BALANCE);
-   if(balance <= 0.0)
-   {
-      s.reason = "invalid_account_balance";
-      return false;
-   }
-
-   DAL_ExecRouletteLockCycle(s, balance, s.initial_risk_percent, s.save_profit_factor, "initialized_new_cycle");
+   DAL_ExecRouletteStartNewCycle(cfg, st, balance);
    return true;
 }
 
-bool DAL_ExecRouletteSync(
-   DALExecRouletteRiskState &s,
-   const double initial_risk_percent,
-   const double save_profit_factor
-)
+double DAL_ExecRouletteRiskMoney(const DALExecRouletteRiskConfig &cfg, const DALExecRouletteRiskState &st)
 {
-   double balance = AccountInfoDouble(ACCOUNT_BALANCE);
-   if(balance <= 0.0)
+   if(!st.initialized)
+      return 0.0;
+
+   double risk = st.base_risk;
+   double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
+
+   if(st.profit_active && current_balance > st.locked_balance)
    {
-      s.reason = "invalid_account_balance";
-      return false;
+      double pool = current_balance - st.floor_balance;
+      double raw = pool * MathMax(0.0, cfg.save_profit_factor);
+      risk = MathMax(st.base_risk, raw);
    }
 
-   if(!s.initialized)
-   {
-      DAL_ExecRouletteLockCycle(s, balance, initial_risk_percent, save_profit_factor, "sync_initialized_new_cycle");
-      return true;
-   }
+   if(!MathIsValidNumber(risk) || risk < 0.0)
+      risk = st.base_risk;
 
-   s.last_sync_reset = false;
-   s.current_balance = balance;
-   s.initial_risk_percent = DAL_ExecRouletteClamp(initial_risk_percent, 0.01, 100.0);
-   s.save_profit_factor = DAL_ExecRouletteClamp(save_profit_factor, 0.0, 1.0);
-
-   double eps = MathMax(0.01, MathAbs(s.last_balance) * 1.0e-8);
-
-   if(s.reset_on_balance_drop && balance < s.last_balance - eps)
-   {
-      DAL_ExecRouletteLockCycle(s, balance, s.initial_risk_percent, s.save_profit_factor, "balance_drop_reset_cycle");
-      return true;
-   }
-
-   // Recalculate base/floor from the locked balance and the current input percentage.
-   s.base_risk_cash = s.locked_balance * s.initial_risk_percent / 100.0;
-   s.floor_balance = s.locked_balance - s.base_risk_cash;
-
-   if(balance <= s.locked_balance + eps)
-   {
-      s.current_risk_cash = s.base_risk_cash;
-      s.reason = "base_risk_until_profit";
-   }
-   else
-   {
-      double riskable_pool = MathMax(0.0, balance - s.floor_balance);
-      double profit_scaled_risk = riskable_pool * s.save_profit_factor;
-      s.current_risk_cash = MathMax(s.base_risk_cash, profit_scaled_risk);
-      s.reason = "profit_scaled_risk";
-   }
-
-   s.last_balance = balance;
-   DAL_ExecRoulettePersist(s);
-   return true;
+   return MathMax(0.0, risk);
 }
 
-bool DAL_ExecRouletteRiskCash(
-   DALExecRouletteRiskState &s,
-   const double initial_risk_percent,
-   const double save_profit_factor,
-   double &risk_cash,
-   string &reason
-)
+void DAL_ExecRouletteUpdate(DALExecRouletteRiskConfig &cfg, DALExecRouletteRiskState &st)
 {
-   risk_cash = 0.0;
-   reason = "not_calculated";
-
-   if(!DAL_ExecRouletteSync(s, initial_risk_percent, save_profit_factor))
+   if(!st.initialized)
    {
-      reason = s.reason;
-      return false;
+      DAL_ExecRouletteInit(cfg, st);
+      return;
    }
 
-   if(s.current_risk_cash <= 0.0)
+   double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
+   double eps = MathMax(0.01, MathAbs(st.locked_balance) * 0.0000001);
+
+   // The only automatic reset rule:
+   // reset after the cycle has already been in profit and balance then drops.
+   if(st.profit_active && current_balance < st.last_balance - eps)
    {
-      reason = "non_positive_roulette_risk";
-      return false;
+      DAL_ExecRouletteStartNewCycle(cfg, st, current_balance);
+      return;
    }
 
-   risk_cash = s.current_risk_cash;
-   reason = s.reason;
-   return true;
+   if(current_balance > st.locked_balance + eps)
+      st.profit_active = true;
+
+   if(current_balance > st.peak_balance)
+      st.peak_balance = current_balance;
+
+   st.last_balance = current_balance;
+   st.last_risk_cash = DAL_ExecRouletteRiskMoney(cfg, st);
+
+   DAL_ExecRouletteSave(cfg, st);
 }
 
-string DAL_ExecRouletteStateToString(const DALExecRouletteRiskState &s)
+string DAL_ExecRouletteStateToLog(const DALExecRouletteRiskConfig &cfg, const DALExecRouletteRiskState &st)
 {
-   return "key=" + s.key
-      + "*reason=" + s.reason
-      + "*locked=" + DoubleToString(s.locked_balance, 2)
-      + "*floor=" + DoubleToString(s.floor_balance, 2)
-      + "*baseRisk=" + DoubleToString(s.base_risk_cash, 2)
-      + "*balance=" + DoubleToString(s.current_balance, 2)
-      + "*lastBalance=" + DoubleToString(s.last_balance, 2)
-      + "*risk=" + DoubleToString(s.current_risk_cash, 2)
-      + "*pct=" + DoubleToString(s.initial_risk_percent, 2)
-      + "*saveFactor=" + DoubleToString(s.save_profit_factor, 2)
-      + "*reset=" + (s.last_sync_reset ? "true" : "false");
+   double current_balance = AccountInfoDouble(ACCOUNT_BALANCE);
+   double risk = DAL_ExecRouletteRiskMoney(cfg, st);
+   return "rouletteInitialized=" + DAL_ExecRouletteBoolToString(st.initialized)
+      + "*rouletteProfitActive=" + DAL_ExecRouletteBoolToString(st.profit_active)
+      + "*rouletteCycle=" + IntegerToString(st.cycle_id)
+      + "*balance=" + DoubleToString(current_balance, 2)
+      + "*locked=" + DoubleToString(st.locked_balance, 2)
+      + "*baseRisk=" + DoubleToString(st.base_risk, 2)
+      + "*floor=" + DoubleToString(st.floor_balance, 2)
+      + "*peak=" + DoubleToString(st.peak_balance, 2)
+      + "*saveFactor=" + DoubleToString(cfg.save_profit_factor, 4)
+      + "*riskMoney=" + DoubleToString(risk, 2);
 }
 
-#endif // __DAL_EXEC_ROULETTE_RISK_MQH__
+#endif
