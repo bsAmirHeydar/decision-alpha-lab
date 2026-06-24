@@ -3,12 +3,13 @@
 //| Fresh Donchian breakout, 3 ATR stop, 2R target, Roulette risk    |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.00"
-#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, and Roulette risk."
+#property version   "1.10"
+#property description "Execution E0011: Donchian 20 breakout with ATR(14)*3 stop, 2R target, Roulette risk, and optional hypothetical profit gate."
 
 #include <Trade/Trade.mqh>
 #include <Execution/DAL_ExecRouletteRisk.mqh>
 #include <Execution/DAL_ExecDonchianAtr.mqh>
+#include <Execution/DAL_ExecHypotheticalProfitGate.mqh>
 
 input string InpSymbol = "";
 input ENUM_TIMEFRAMES InpSignalTimeframe = PERIOD_M1;
@@ -28,15 +29,21 @@ input double InpRouletteInitialRiskPercent = 10.0;
 input double InpRouletteSaveProfitFactor = 0.50;
 input bool InpRoulettePersistState = true;
 
+input bool InpHypoGateEnabled = true;
+input bool InpHypoGateStartOpen = false;
+input bool InpHypoGatePersistState = true;
+
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0011_BUILD "1.00"
+#define DAL_E0011_BUILD "1.10"
 string InpOrderCommentPrefix = "E0011DON";
 
 CTrade g_trade;
 DALExecRouletteRiskConfig g_roulette_cfg;
 DALExecRouletteRiskState g_roulette_state;
+DALExecHypotheticalProfitGateConfig g_hypo_gate_cfg;
+DALExecHypotheticalProfitGateState g_hypo_gate_state;
 datetime g_last_signal_bar_open_time = 0;
 
 struct E0011RiskSizing
@@ -306,13 +313,11 @@ string E0011_BarComment(const datetime signal_time, const int direction)
    return InpOrderCommentPrefix + side + "T" + IntegerToString((int)signal_time);
 }
 
-bool E0011_BuildTradePlan(
+bool E0011_BuildTradePricePlan(
    const DALExecDonchianBreakoutSignal &signal,
    double &entry_price,
    double &stop_price,
    double &take_profit,
-   double &risk_money,
-   E0011RiskSizing &sizing,
    string &reason
 )
 {
@@ -320,8 +325,6 @@ bool E0011_BuildTradePlan(
    entry_price = 0.0;
    stop_price = 0.0;
    take_profit = 0.0;
-   risk_money = 0.0;
-   E0011_ResetRiskSizing(sizing);
 
    string symbol = E0011_Symbol();
    int digits = (int)SymbolInfoInteger(symbol, SYMBOL_DIGITS);
@@ -391,6 +394,37 @@ bool E0011_BuildTradePlan(
    stop_price = NormalizeDouble(stop_price, digits);
    take_profit = NormalizeDouble(take_profit, digits);
 
+   reason = "ok"
+      + "*atrReason=" + atr_reason
+      + "*atrStopDistance=" + DoubleToString(stop_distance, digits)
+      + "*rewardR=" + DoubleToString(reward_r, 2);
+   return true;
+}
+
+bool E0011_BuildTradePlan(
+   const DALExecDonchianBreakoutSignal &signal,
+   double &entry_price,
+   double &stop_price,
+   double &take_profit,
+   double &risk_money,
+   E0011RiskSizing &sizing,
+   string &reason
+)
+{
+   reason = "not_built";
+   entry_price = 0.0;
+   stop_price = 0.0;
+   take_profit = 0.0;
+   risk_money = 0.0;
+   E0011_ResetRiskSizing(sizing);
+
+   string price_reason = "";
+   if(!E0011_BuildTradePricePlan(signal, entry_price, stop_price, take_profit, price_reason))
+   {
+      reason = "price_plan_failed_" + price_reason;
+      return false;
+   }
+
    risk_money = DAL_ExecRouletteRiskMoney(g_roulette_cfg, g_roulette_state);
    if(risk_money <= 0.0)
    {
@@ -399,7 +433,7 @@ bool E0011_BuildTradePlan(
    }
 
    if(!E0011_CalculateRiskVolume(
-      symbol,
+      E0011_Symbol(),
       entry_price,
       stop_price,
       risk_money,
@@ -413,11 +447,10 @@ bool E0011_BuildTradePlan(
    }
 
    reason = "ok"
-      + "*atrReason=" + atr_reason
-      + "*atrStopDistance=" + DoubleToString(stop_distance, digits)
-      + "*rewardR=" + DoubleToString(reward_r, 2)
+      + "*" + price_reason
       + "*" + E0011_RiskSizingToLog(sizing)
       + "*" + DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state)
+      + "*" + DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state)
       + "*" + DAL_ExecDonchianSignalToLog(signal);
    return true;
 }
@@ -480,6 +513,15 @@ int OnInit()
    g_roulette_cfg.print_logs = InpPrintLogs;
 
    DAL_ExecRouletteInit(g_roulette_cfg, g_roulette_state);
+
+   DAL_ExecHypoGateDefaults(g_hypo_gate_cfg);
+   g_hypo_gate_cfg.enabled = InpHypoGateEnabled;
+   g_hypo_gate_cfg.start_open = InpHypoGateStartOpen;
+   g_hypo_gate_cfg.persist_state = InpHypoGatePersistState;
+   g_hypo_gate_cfg.state_key = "E0011_" + symbol + "_" + IntegerToString((int)InpMagicNumber);
+   g_hypo_gate_cfg.print_logs = InpPrintLogs;
+   DAL_ExecHypoGateInit(g_hypo_gate_cfg, g_hypo_gate_state);
+
    g_last_signal_bar_open_time = iTime(symbol, InpSignalTimeframe, 0);
 
    Print("DAL_E0011_BUILD_SANITY *** build=", DAL_E0011_BUILD,
@@ -491,7 +533,9 @@ int OnInit()
       "*rewardR=", DoubleToString(InpRewardR, 2),
       "*maxOpenTrades=", InpMaxOpenTrades,
       "*rouletteRiskPct=", DoubleToString(InpRouletteInitialRiskPercent, 2),
-      "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 4));
+      "*rouletteSaveFactor=", DoubleToString(InpRouletteSaveProfitFactor, 4),
+      "*hypoGateEnabled=", (InpHypoGateEnabled ? "true" : "false"),
+      "*hypoGateStartOpen=", (InpHypoGateStartOpen ? "true" : "false"));
 
    return INIT_SUCCEEDED;
 }
@@ -499,6 +543,7 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    DAL_ExecRouletteSave(g_roulette_cfg, g_roulette_state);
+   DAL_ExecHypoGateSave(g_hypo_gate_cfg, g_hypo_gate_state);
 }
 
 void OnTick()
@@ -510,6 +555,11 @@ void OnTick()
          Print("DAL_E0011_SKIP *** reason=symbol_select_failed*symbol=", symbol);
       return;
    }
+
+   // The hypothetical layer is updated on every tick so a virtual TP/SL can be
+   // resolved by price, while actual signal evaluation still runs only once per
+   // closed signal-timeframe candle.
+   DAL_ExecHypoGateUpdateVirtual(g_hypo_gate_cfg, g_hypo_gate_state, symbol);
 
    // Execution clock: evaluate once when a new signal-timeframe candle opens.
    // Therefore the signal candle is closed shift 1.
@@ -524,7 +574,8 @@ void OnTick()
       if(InpPrintLogs)
          Print("DAL_E0011_SKIP *** reason=max_open_trades*managed=", managed,
             "*max=", MathMax(1, InpMaxOpenTrades),
-            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state));
+            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
       return;
    }
 
@@ -534,7 +585,55 @@ void OnTick()
    {
       if(InpPrintLogs)
          Print("DAL_E0011_NO_SIGNAL *** ", signal_reason,
-            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state));
+            "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+      return;
+   }
+
+   double entry_price = 0.0;
+   double stop_price = 0.0;
+   double take_profit = 0.0;
+   string price_plan_reason = "";
+   if(!E0011_BuildTradePricePlan(signal, entry_price, stop_price, take_profit, price_plan_reason))
+   {
+      Print("DAL_E0011_PRICE_PLAN_REJECT *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+         "*signal=", DAL_ExecDonchianSignalToLog(signal),
+         "*pricePlanReason=", price_plan_reason,
+         "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+      return;
+   }
+
+   if(!DAL_ExecHypoGateShouldTrade(g_hypo_gate_cfg, g_hypo_gate_state))
+   {
+      if(!DAL_ExecHypoGateHasActiveVirtual(g_hypo_gate_state))
+      {
+         bool opened_virtual = DAL_ExecHypoGateOpenVirtualTrade(
+            g_hypo_gate_cfg,
+            g_hypo_gate_state,
+            signal.direction,
+            entry_price,
+            stop_price,
+            take_profit,
+            signal.signal_time,
+            "blocked_signal_shadowed"
+         );
+
+         Print("DAL_E0011_HYPO_GATE_BLOCK *** action=", (opened_virtual ? "virtual_opened" : "virtual_open_failed"),
+            "*direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+            "*entry=", DoubleToString(entry_price, 8),
+            "*sl=", DoubleToString(stop_price, 8),
+            "*tp=", DoubleToString(take_profit, 8),
+            "*pricePlan=", price_plan_reason,
+            "*signal=", DAL_ExecDonchianSignalToLog(signal),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+      }
+      else
+      {
+         Print("DAL_E0011_HYPO_GATE_BLOCK *** action=waiting_existing_virtual",
+            "*direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+            "*signal=", DAL_ExecDonchianSignalToLog(signal),
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
+      }
       return;
    }
 
@@ -542,21 +641,23 @@ void OnTick()
    if(E0011_OrderCommentExists(symbol, InpMagicNumber, comment))
    {
       if(InpPrintLogs)
-         Print("DAL_E0011_SKIP *** reason=comment_already_exists*comment=", comment);
+         Print("DAL_E0011_SKIP *** reason=comment_already_exists*comment=", comment,
+            "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
       return;
    }
 
    if(!InpTradingEnabled)
    {
       Print("DAL_E0011_SIGNAL_DRY_RUN *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
+         "*entry=", DoubleToString(entry_price, 8),
+         "*sl=", DoubleToString(stop_price, 8),
+         "*tp=", DoubleToString(take_profit, 8),
          "*", DAL_ExecDonchianSignalToLog(signal),
-         "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state));
+         "*", DAL_ExecRouletteStateToLog(g_roulette_cfg, g_roulette_state),
+         "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
       return;
    }
 
-   double entry_price = 0.0;
-   double stop_price = 0.0;
-   double take_profit = 0.0;
    double risk_money = 0.0;
    E0011RiskSizing sizing;
    string plan_reason = "";
@@ -565,7 +666,8 @@ void OnTick()
    {
       Print("DAL_E0011_PLAN_REJECT *** direction=", DAL_ExecDonchianDirectionToString(signal.direction),
          "*signal=", DAL_ExecDonchianSignalToLog(signal),
-         "*planReason=", plan_reason);
+         "*planReason=", plan_reason,
+         "*", DAL_ExecHypoGateStateToLog(g_hypo_gate_cfg, g_hypo_gate_state));
       return;
    }
 
@@ -593,4 +695,41 @@ void OnTick()
          "*plan=", plan_reason,
          "*send=", send_reason);
    }
+}
+
+void OnTradeTransaction(
+   const MqlTradeTransaction &trans,
+   const MqlTradeRequest &request,
+   const MqlTradeResult &result
+)
+{
+   if(trans.type != TRADE_TRANSACTION_DEAL_ADD)
+      return;
+   if(trans.deal == 0)
+      return;
+   if(!HistoryDealSelect(trans.deal))
+      return;
+
+   string symbol = E0011_Symbol();
+   string deal_symbol = HistoryDealGetString(trans.deal, DEAL_SYMBOL);
+   if(deal_symbol != symbol)
+      return;
+
+   long magic = (long)HistoryDealGetInteger(trans.deal, DEAL_MAGIC);
+   if(magic != InpMagicNumber)
+      return;
+
+   ENUM_DEAL_TYPE deal_type = (ENUM_DEAL_TYPE)HistoryDealGetInteger(trans.deal, DEAL_TYPE);
+   if(deal_type != DEAL_TYPE_BUY && deal_type != DEAL_TYPE_SELL)
+      return;
+
+   ENUM_DEAL_ENTRY deal_entry = (ENUM_DEAL_ENTRY)HistoryDealGetInteger(trans.deal, DEAL_ENTRY);
+   if(deal_entry != DEAL_ENTRY_OUT && deal_entry != DEAL_ENTRY_INOUT && deal_entry != DEAL_ENTRY_OUT_BY)
+      return;
+
+   double net_profit = HistoryDealGetDouble(trans.deal, DEAL_PROFIT)
+      + HistoryDealGetDouble(trans.deal, DEAL_SWAP)
+      + HistoryDealGetDouble(trans.deal, DEAL_COMMISSION);
+
+   DAL_ExecHypoGateOnRealClosedDeal(g_hypo_gate_cfg, g_hypo_gate_state, net_profit, trans.deal);
 }

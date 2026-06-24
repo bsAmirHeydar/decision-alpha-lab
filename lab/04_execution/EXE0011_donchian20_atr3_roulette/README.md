@@ -141,3 +141,82 @@ The expert:
 - does not trade if stop distance is invalid
 - does not trade if calculated volume would violate the risk budget unless explicitly allowed by input
 - defaults to one open managed trade
+
+---
+
+## Two-Layer Hypothetical Profit Gate
+
+E0011 also supports an optional two-layer execution filter.
+
+The goal is to avoid trading immediately after a losing trade until the same signal stream proves itself again with a hypothetical win.
+
+Default inputs:
+
+```text
+InpHypoGateEnabled = true
+InpHypoGateStartOpen = false
+InpHypoGatePersistState = true
+```
+
+### Layer 1 — Hypothetical Layer
+
+When the gate is closed, valid Donchian breakout signals are not sent to the broker.
+
+Instead, the first valid signal is opened as a hypothetical trade using the same execution plan:
+
+```text
+same direction
+same entry reference
+same ATR stop
+same 2R target
+```
+
+This virtual trade is tracked on every tick.
+
+For a buy virtual trade:
+
+```text
+win  = Bid >= virtual_take_profit
+loss = Bid <= virtual_stop
+```
+
+For a sell virtual trade:
+
+```text
+win  = Ask <= virtual_take_profit
+loss = Ask >= virtual_stop
+```
+
+If the virtual trade wins, the real execution gate opens.
+
+The winning virtual trade itself is not executed retroactively. Only the next valid signals are allowed live.
+
+If the virtual trade loses, the gate stays closed and the system waits for the next valid hypothetical trade to win.
+
+### Layer 2 — Real Execution Layer
+
+When the gate is open, valid Donchian breakout signals are executed live.
+
+Real closed trade result controls the gate:
+
+```text
+real trade profit > 0  => keep gate open
+real trade profit <= 0 => close gate and wait for a hypothetical win again
+```
+
+So the sequence is:
+
+```text
+blocked -> hypothetical signal -> hypothetical win -> real signals allowed
+real win -> continue taking real signals
+real loss -> block again -> wait for hypothetical win
+```
+
+This means the EA has two different streams:
+
+```text
+Hypothetical stream: used only to re-open permission after loss
+Real stream: used only while permission is open
+```
+
+The gate does not change Donchian logic, ATR stop logic, Roulette risk, lot sizing, or order sending. It only decides whether a valid signal is allowed to reach the real execution layer.
