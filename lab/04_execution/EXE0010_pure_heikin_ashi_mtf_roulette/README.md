@@ -9,7 +9,7 @@ It does not use structural nodes, M-regime labels, or continuation/reversal clas
 It trades only from:
 
 - current-forming higher-timeframe Heikin Ashi direction;
-- completed lower-timeframe Heikin Ashi color flip;
+- completed lower-timeframe Heikin Ashi close/open body direction flip;
 - Roulette risk sizing.
 
 ## Timeframes
@@ -38,9 +38,9 @@ This means the previous M1 candle has just closed, and only that completed candl
 Buy only when:
 
 ```text
-current-forming M10 HA = green
-previous closed M1 HA = red
-last closed M1 HA = green
+current-forming M10 HA = HA close above HA open
+previous closed M1 HA = HA close below HA open
+last closed M1 HA = HA close above HA open
 max open trades allows entry
 ```
 
@@ -49,9 +49,9 @@ max open trades allows entry
 Sell only when:
 
 ```text
-current-forming M10 HA = red
-previous closed M1 HA = green
-last closed M1 HA = red
+current-forming M10 HA = HA close below HA open
+previous closed M1 HA = HA close above HA open
+last closed M1 HA = HA close below HA open
 max open trades allows entry
 ```
 

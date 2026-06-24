@@ -1,9 +1,9 @@
 //+------------------------------------------------------------------+
 //| Decision Alpha Lab — E0010 Pure Heikin Ashi MTF Roulette          |
-//| Closed M1 HA flip entry aligned with current-forming M10 HA color |
+//| Closed M1 HA body flip aligned with current-forming M10 HA body |
 //+------------------------------------------------------------------+
 #property strict
-#property version   "1.01"
+#property version   "1.02"
 #property description "Execution E0010: pure Heikin Ashi MTF entry with reusable Roulette risk."
 
 #include <Trade/Trade.mqh>
@@ -31,7 +31,7 @@ input bool InpAllowMinLotIfRiskTooSmall = false;
 input bool InpTradingEnabled = true;
 input bool InpPrintLogs = true;
 
-#define DAL_E0010_BUILD "1.01"
+#define DAL_E0010_BUILD "1.02"
 string InpOrderCommentPrefix = "E0010HA";
 
 CTrade g_trade;
@@ -325,35 +325,36 @@ bool E0010_ResolveSignal(
    }
 
    // Higher timeframe is deliberately shift 0: current-forming HA candle.
+   // Direction is ha_close > ha_open for buy-bias and ha_close < ha_open for sell-bias.
    if(htf_current.ha_dir == 0)
    {
-      reason = "htf_current_ha_doji";
+      reason = "htf_current_ha_equal_body";
       return false;
    }
 
    int flip_direction = 0;
    string flip_reason = "";
-   if(!DAL_ExecHAClosedColorFlip(E0010_Symbol(), InpEntryTimeframe, flip_direction, ltf_previous_closed, ltf_signal_closed, flip_reason))
+   if(!DAL_ExecHAClosedBodyFlip(E0010_Symbol(), InpEntryTimeframe, flip_direction, ltf_previous_closed, ltf_signal_closed, flip_reason))
    {
       reason = "ltf_flip_failed_" + flip_reason
-         + "*htfDir=" + DAL_ExecHADirectionToString(htf_current.ha_dir);
+         + "*htfDir=" + DAL_ExecHABodyDirectionToString(htf_current.ha_dir);
       return false;
    }
 
    // Exact entry rule:
-   // Buy: HTF current green + LTF closed red->green flip.
-   // Sell: HTF current red + LTF closed green->red flip.
+   // Buy: HTF current HA close > HA open, and LTF closed body flips from close < open to close > open.
+   // Sell: HTF current HA close < HA open, and LTF closed body flips from close > open to close < open.
    if(flip_direction != htf_current.ha_dir)
    {
-      reason = "direction_mismatch*htf=" + DAL_ExecHADirectionToString(htf_current.ha_dir)
-         + "*ltfFlip=" + DAL_ExecHADirectionToString(flip_direction);
+      reason = "direction_mismatch*htf=" + DAL_ExecHABodyDirectionToString(htf_current.ha_dir)
+         + "*ltfFlip=" + DAL_ExecHABodyDirectionToString(flip_direction);
       return false;
    }
 
    direction = flip_direction;
-   reason = "ok*htfCurrent=" + DAL_ExecHADirectionToString(htf_current.ha_dir)
-      + "*ltfPrevClosed=" + DAL_ExecHADirectionToString(ltf_previous_closed.ha_dir)
-      + "*ltfSignalClosed=" + DAL_ExecHADirectionToString(ltf_signal_closed.ha_dir)
+   reason = "ok*htfCurrent=" + DAL_ExecHABodyDirectionToString(htf_current.ha_dir)
+      + "*ltfPrevClosed=" + DAL_ExecHABodyDirectionToString(ltf_previous_closed.ha_dir)
+      + "*ltfSignalClosed=" + DAL_ExecHABodyDirectionToString(ltf_signal_closed.ha_dir)
       + "*signalTime=" + E0010_FormatDateTime(ltf_signal_closed.time);
    return true;
 }

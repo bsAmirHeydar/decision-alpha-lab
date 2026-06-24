@@ -4,10 +4,11 @@
 // Decision Alpha Lab — reusable Heikin Ashi execution helpers.
 // Pure MQL5. No Python. No external scripts.
 //
-// Important naming rule:
-// MQL5 has a built-in 'color' type, therefore this module never uses
-// 'color' as a struct field or variable name. Direction is stored as:
-// +1 = green / bullish, -1 = red / bearish, 0 = doji.
+// Heikin Ashi direction is NOT read from any visual candle styling.
+// It is calculated only from the Heikin Ashi body relation:
+// +1 when ha_close > ha_open
+// -1 when ha_close < ha_open
+//  0 when ha_close == ha_open
 
 struct DALExecHeikinAshiBar
 {
@@ -23,31 +24,29 @@ struct DALExecHeikinAshiBar
    double ha_low;
    double ha_close;
 
-   int ha_dir; // +1 green, -1 red, 0 doji
+   // Body direction, derived only from ha_close vs ha_open.
+   // +1 = ha_close > ha_open
+   // -1 = ha_close < ha_open
+   //  0 = equal body / doji
+   int ha_dir;
 };
 
-int DAL_ExecHASign(const double value)
+int DAL_ExecHABodyDirection(const double ha_open, const double ha_close)
 {
-   if(value > 0.0)
+   if(ha_close > ha_open)
       return +1;
-   if(value < 0.0)
+   if(ha_close < ha_open)
       return -1;
    return 0;
 }
 
-string DAL_ExecHADirectionToString(const int ha_dir)
+string DAL_ExecHABodyDirectionToString(const int ha_dir)
 {
    if(ha_dir > 0)
-      return "GREEN";
+      return "HA_CLOSE_ABOVE_OPEN";
    if(ha_dir < 0)
-      return "RED";
-   return "DOJI";
-}
-
-// Backward-friendly alias for older logs/calls.
-string DAL_ExecHAColorToString(const int ha_dir)
-{
-   return DAL_ExecHADirectionToString(ha_dir);
+      return "HA_CLOSE_BELOW_OPEN";
+   return "HA_CLOSE_EQUALS_OPEN";
 }
 
 void DAL_ExecHAReset(DALExecHeikinAshiBar &bar)
@@ -142,13 +141,19 @@ bool DAL_ExecHAComputeAtShift(
    out.ha_high = ha_high[shift];
    out.ha_low = ha_low[shift];
    out.ha_close = ha_close[shift];
-   out.ha_dir = DAL_ExecHASign(out.ha_close - out.ha_open);
+   out.ha_dir = DAL_ExecHABodyDirection(out.ha_open, out.ha_close);
 
    reason = "ok";
    return true;
 }
 
-bool DAL_ExecHAClosedColorFlip(
+// Detects a closed lower-timeframe Heikin Ashi body flip.
+// This is purely close/open based:
+// BUY trigger:  previous_closed.ha_close < previous_closed.ha_open
+//               signal_closed.ha_close   > signal_closed.ha_open
+// SELL trigger: previous_closed.ha_close > previous_closed.ha_open
+//               signal_closed.ha_close   < signal_closed.ha_open
+bool DAL_ExecHAClosedBodyFlip(
    const string symbol,
    const ENUM_TIMEFRAMES timeframe,
    int &direction,
@@ -180,20 +185,20 @@ bool DAL_ExecHAClosedColorFlip(
 
    if(previous_closed.ha_dir == 0 || signal_closed.ha_dir == 0)
    {
-      reason = "closed_ha_doji";
+      reason = "closed_ha_equal_body";
       return false;
    }
 
    if(previous_closed.ha_dir == signal_closed.ha_dir)
    {
-      reason = "closed_ha_no_flip*prev=" + DAL_ExecHADirectionToString(previous_closed.ha_dir)
-         + "*signal=" + DAL_ExecHADirectionToString(signal_closed.ha_dir);
+      reason = "closed_ha_no_body_flip*prev=" + DAL_ExecHABodyDirectionToString(previous_closed.ha_dir)
+         + "*signal=" + DAL_ExecHABodyDirectionToString(signal_closed.ha_dir);
       return false;
    }
 
    direction = signal_closed.ha_dir;
-   reason = "closed_ha_flip*prev=" + DAL_ExecHADirectionToString(previous_closed.ha_dir)
-      + "*signal=" + DAL_ExecHADirectionToString(signal_closed.ha_dir);
+   reason = "closed_ha_body_flip*prev=" + DAL_ExecHABodyDirectionToString(previous_closed.ha_dir)
+      + "*signal=" + DAL_ExecHABodyDirectionToString(signal_closed.ha_dir);
    return true;
 }
 
