@@ -119,6 +119,7 @@ The paper families now share:
 - doctrine and schema traceability in the journal
 - research-side paper replay through `tools/astro_validation/astro_paper_family_runner.py`
 - offline validation through `tools/astro_validation/astro_signal_validator.py`
+- batch family suite validation through `tools/astro_validation/astro_family_validation_suite.py`
 
 The signal layer is now explicitly hierarchical:
 

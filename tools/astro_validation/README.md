@@ -2,6 +2,33 @@
 
 This tool audits the astro-only paper journals produced by the execution families.
 
+## Full suite
+
+For phase-8 style batch validation, run the family suite:
+
+```bash
+python tools/astro_validation/astro_family_validation_suite.py ^
+  --csv lab/03_experiments/EXP0013_astro_feature_store/sample.csv ^
+  --out-dir lab/03_experiments/EXP0013_astro_feature_store/validation_suite ^
+  --config tools/astro_feature_builder/astro_config.example.json ^
+  --families A0001 A0002 A0003 A0090
+```
+
+Suite outputs:
+
+- `journals/*.csv`: one paper journal per family
+- `reports/*.json`: one validation report per family
+- `suite_manifest.json`: end-to-end run manifest
+- `promotion_snapshot.json`: fast promotion / reject-now snapshot
+
+There is also a Common Files PowerShell helper:
+
+```powershell
+.\tools\astro_validation\run_astro_family_validation_suite_common.ps1 `
+  -CsvName "astro_live_mql.csv" `
+  -OutFolder "daily_suite"
+```
+
 ## Research runner
 
 You can now generate those journals directly from a raw astro feature CSV, without waiting for MT5 execution:

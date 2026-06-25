@@ -181,5 +181,6 @@ Now implemented in repo:
 - paper execution journal schema and journal writers
 - Python paper family runner under `tools/astro_validation/astro_paper_family_runner.py`
 - validation tooling scaffold under `tools/astro_validation`
+- batch family validation suite under `tools/astro_validation/astro_family_validation_suite.py`
 - live order shell `A0090_AstroOrderShell.mq5`
 - MetaEditor compile harness under `tools/compile_exp0013_astro_suite.ps1`
