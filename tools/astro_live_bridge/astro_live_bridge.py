@@ -93,10 +93,15 @@ def run_builder(
     body_universe: str = "major7_outer_nodes",
     orb_family: str = "major_ptolemaic_6deg",
     parallel_orb_limit: float = 1.0,
+    config_path: str = "",
 ) -> None:
     cmd = [
         sys.executable,
         str(builder),
+    ]
+    if config_path:
+        cmd += ["--config", config_path]
+    cmd += [
         "--start-broker",
         start_broker.strftime("%Y-%m-%d %H:%M:%S"),
         "--end-broker",
@@ -200,6 +205,7 @@ def build_once(args: argparse.Namespace, work_dir: Path, common_out: Path, statu
             body_universe=args.body_universe,
             orb_family=args.orb_family,
             parallel_orb_limit=args.parallel_orb_limit,
+            config_path=args.config,
         )
         rows = count_csv_rows(local_csv)
         atomic_copy(local_csv, common_out)
@@ -230,6 +236,7 @@ def build_once(args: argparse.Namespace, work_dir: Path, common_out: Path, statu
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--config", default="", help="Optional builder doctrine JSON config")
     ap.add_argument("--builder", default="tools/astro_feature_builder/astro_feature_builder.py")
     ap.add_argument("--ephe-path", default="tools/astro_feature_builder/ephe")
     ap.add_argument("--common-files", required=True, help="MetaQuotes Common\\Files path")

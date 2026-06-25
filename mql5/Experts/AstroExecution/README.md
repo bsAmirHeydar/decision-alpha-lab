@@ -10,6 +10,7 @@ This folder contains astro-only Expert Advisors for EXP0013.
 - They do not use market-structure, indicators, ATR, volume, or execution-family context.
 - They emit pure astrology entry and exit language from transit, natal activation, and doctrinal astro metrics.
 - They now read a hierarchical timing stack: macro field -> meso gate -> micro trigger -> minute window.
+- They can load doctrine-owned threshold defaults from `DAL_AstroFamilyThresholds.mqh`.
 
 ## Execution families
 

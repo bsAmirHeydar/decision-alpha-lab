@@ -2,6 +2,7 @@
 #property description "Astro-only transit trend pulse executor. No market-structure filters."
 
 #include <Research/DAL_AstroExcelCandleReader.mqh>
+#include <Research/DAL_AstroFamilyThresholds.mqh>
 #include <Research/DAL_AstroExecutionJournal.mqh>
 #include <Research/DAL_AstroPureAstrologySignals.mqh>
 
@@ -12,6 +13,7 @@ input bool            InpRequireExactBarTime  = true;
 input bool            InpUseChartComment      = true;
 input string          InpJournalFile          = "astro\\paper\\a0001_transit_trend_pulse.csv";
 input bool            InpJournalUseCommon     = true;
+input bool            InpUseDoctrineThresholds = true;
 input double          InpArmThreshold         = 58.0;
 input double          InpEnterThreshold       = 68.0;
 input double          InpReduceThreshold      = 52.0;
@@ -20,6 +22,7 @@ input double          InpExitThreshold        = 60.0;
 DAL_AstroMapStore g_store;
 datetime g_last_bar_time = 0;
 DAL_AstroExecState g_state;
+DAL_AstroThresholdProfile g_thresholds;
 
 string DAL_AstroTransitPulse_Text(const DAL_AstroMapRow &row, const DAL_AstroPureSignal &s)
 {
@@ -36,6 +39,7 @@ int OnInit()
 {
    DAL_AstroMapStore_LoadExcelCsv(g_store, InpAstroCsvFile, InpBrokerGmtOffsetHours, PeriodSeconds(InpReadTimeframe) / 60);
    DAL_AstroExecState_Reset(g_state, "A0001_transit_trend_pulse");
+   DAL_AstroThresholdProfile_Load("A0001_transit_trend_pulse", g_thresholds);
    return INIT_SUCCEEDED;
 }
 
@@ -54,7 +58,12 @@ void OnTick()
    if(!DAL_AstroPureSignal_Calc(row, s) || !s.valid)
       return;
 
-   DAL_AstroExecState_Step(g_state, row, s, InpArmThreshold, InpEnterThreshold, InpReduceThreshold, InpExitThreshold);
+   double arm_threshold = InpUseDoctrineThresholds ? g_thresholds.arm_threshold : InpArmThreshold;
+   double enter_threshold = InpUseDoctrineThresholds ? g_thresholds.enter_threshold : InpEnterThreshold;
+   double reduce_threshold = InpUseDoctrineThresholds ? g_thresholds.reduce_threshold : InpReduceThreshold;
+   double exit_threshold = InpUseDoctrineThresholds ? g_thresholds.exit_threshold : InpExitThreshold;
+
+   DAL_AstroExecState_Step(g_state, row, s, arm_threshold, enter_threshold, reduce_threshold, exit_threshold);
    DAL_AstroJournal_Append(InpJournalFile, InpJournalUseCommon, row, s, g_state);
 
    if(InpUseChartComment)

@@ -3,6 +3,7 @@
 
 #include <Trade/Trade.mqh>
 #include <Research/DAL_AstroExcelCandleReader.mqh>
+#include <Research/DAL_AstroFamilyThresholds.mqh>
 #include <Research/DAL_AstroExecutionJournal.mqh>
 #include <Research/DAL_AstroPureAstrologySignals.mqh>
 
@@ -16,6 +17,7 @@ input int             InpSlippagePoints       = 30;
 input long            InpMagic                = 900090;
 input string          InpJournalFile          = "astro\\paper\\a0090_live_shell.csv";
 input bool            InpJournalUseCommon     = true;
+input bool            InpUseDoctrineThresholds = true;
 input double          InpArmThreshold         = 58.0;
 input double          InpEnterThreshold       = 68.0;
 input double          InpReduceThreshold      = 52.0;
@@ -25,6 +27,7 @@ input bool            InpUseChartComment      = true;
 CTrade g_trade;
 DAL_AstroMapStore g_store_shell;
 DAL_AstroExecState g_state_shell;
+DAL_AstroThresholdProfile g_thresholds_shell;
 datetime g_last_bar_time_shell = 0;
 
 bool DAL_AstroShell_HasPosition(const string symbol, const long magic, int &position_type)
@@ -93,6 +96,7 @@ int OnInit()
 {
    DAL_AstroMapStore_LoadExcelCsv(g_store_shell, InpAstroCsvFile, InpBrokerGmtOffsetHours, PeriodSeconds(InpReadTimeframe) / 60);
    DAL_AstroExecState_Reset(g_state_shell, "A0090_live_shell");
+   DAL_AstroThresholdProfile_Load("A0090_live_shell", g_thresholds_shell);
    g_trade.SetExpertMagicNumber(InpMagic);
    g_trade.SetDeviationInPoints(InpSlippagePoints);
    return INIT_SUCCEEDED;
@@ -113,7 +117,11 @@ void OnTick()
    if(!DAL_AstroPureSignal_Calc(row, signal) || !signal.valid)
       return;
 
-   DAL_AstroExecState_Step(g_state_shell, row, signal, InpArmThreshold, InpEnterThreshold, InpReduceThreshold, InpExitThreshold);
+   double arm_threshold = InpUseDoctrineThresholds ? g_thresholds_shell.arm_threshold : InpArmThreshold;
+   double enter_threshold = InpUseDoctrineThresholds ? g_thresholds_shell.enter_threshold : InpEnterThreshold;
+   double reduce_threshold = InpUseDoctrineThresholds ? g_thresholds_shell.reduce_threshold : InpReduceThreshold;
+   double exit_threshold = InpUseDoctrineThresholds ? g_thresholds_shell.exit_threshold : InpExitThreshold;
+   DAL_AstroExecState_Step(g_state_shell, row, signal, arm_threshold, enter_threshold, reduce_threshold, exit_threshold);
    DAL_AstroJournal_Append(InpJournalFile, InpJournalUseCommon, row, signal, g_state_shell);
    DAL_AstroShell_Execute(g_state_shell);
 

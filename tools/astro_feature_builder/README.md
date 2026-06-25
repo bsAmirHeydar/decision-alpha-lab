@@ -85,6 +85,17 @@ The builder now stamps every row with:
 
 That makes each CSV self-describing, which is important when multiple astro doctrines are being tested side by side.
 
+## JSON config
+
+The builder can now load a doctrine/build config directly:
+
+```powershell
+python tools/astro_feature_builder/astro_feature_builder.py `
+  --config "tools/astro_feature_builder/astro_config.example.json"
+```
+
+CLI flags still win over config values, so the JSON file can hold the stable doctrine while one-off runs override dates or outputs.
+
 ## MQL5 runtime
 
 Copy the CSV file into:

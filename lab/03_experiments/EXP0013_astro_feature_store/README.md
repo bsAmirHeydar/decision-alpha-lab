@@ -133,12 +133,19 @@ These families read only the astro CSV and the pure astro signal layer. They do 
 
 Read these next:
 
+- `ASTRO_DOCTRINE_V1.md`
 - `ASTRO_FEATURE_MEANING.md`
 - `ASTRO_ONLY_EXECUTION_CONTRACT.md`
 - `ASTRO_ONLY_EXECUTION_ROADMAP.md`
 - `ASTRO_PURE_SIGNAL_ALGORITHMS.md`
 - `ASTRO_TIMING_DOCTRINE.md`
 - `ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md`
+
+Compile verification can now be driven from:
+
+- `tools/compile_exp0013_astro_suite.ps1`
+
+The current compile harness already verifies dashboard artifact generation and records expected `ex5` paths for the execution families, but the execution-family artifact transfer still needs to be closed out explicitly in MetaEditor/runtime verification.
 
 ## Important note
 

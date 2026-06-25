@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import math
 import os
 import sys
@@ -98,6 +99,31 @@ DEFAULT_BODY_UNIVERSE = "major7_outer_nodes"
 DEFAULT_ORB_FAMILY = "major_ptolemaic_6deg"
 DEFAULT_PARALLEL_ORB_LIMIT = 1.0
 DEFAULT_OOB_LIMIT = 23.44
+
+
+def load_json_config(path: str) -> Dict[str, object]:
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, dict):
+        raise ValueError(f"Config root must be an object: {path}")
+    return data
+
+
+def config_lookup(config: Dict[str, object], dotted_key: str, fallback: object = None) -> object:
+    cur: object = config
+    for part in dotted_key.split("."):
+        if not isinstance(cur, dict) or part not in cur:
+            return fallback
+        cur = cur[part]
+    return cur
+
+
+def assign_if_default(args: argparse.Namespace, name: str, default_value: object, config_value: object) -> None:
+    current = getattr(args, name)
+    if config_value is None:
+        return
+    if current == default_value or current is None or current == "":
+        setattr(args, name, config_value)
 
 
 @dataclass
@@ -1075,11 +1101,17 @@ def write_xlsx(rows: Sequence[AstroRow], out_path: str, broker_gmt_offset_hours:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    bootstrap = argparse.ArgumentParser(add_help=False)
+    bootstrap.add_argument("--config", default="", help="Optional JSON config file. CLI flags override config values.")
+    bootstrap_args, remaining = bootstrap.parse_known_args(argv)
+    config: Dict[str, object] = load_json_config(bootstrap_args.config) if bootstrap_args.config else {}
+
     parser = argparse.ArgumentParser(description="Build candle-aligned astro feature CSV/XLSX for MQL5")
-    parser.add_argument("--start-broker", required=True, help="Broker start time, e.g. 2024-01-01 00:00:00")
-    parser.add_argument("--end-broker", required=True, help="Broker end time, exclusive")
+    parser.add_argument("--config", default=bootstrap_args.config, help="Optional JSON config file. CLI flags override config values.")
+    parser.add_argument("--start-broker", default="", help="Broker start time, e.g. 2024-01-01 00:00:00")
+    parser.add_argument("--end-broker", default="", help="Broker end time, exclusive")
     parser.add_argument("--timeframe-minutes", type=int, default=1, help="Candle interval in minutes")
-    parser.add_argument("--broker-gmt-offset-hours", type=float, required=True, help="Broker time offset from UTC. Example UTC+2 => 2")
+    parser.add_argument("--broker-gmt-offset-hours", type=float, default=None, help="Broker time offset from UTC. Example UTC+2 => 2")
     parser.add_argument("--ephe-path", default="", help="Swiss Ephemeris file directory. Optional if package defaults are enough.")
     parser.add_argument("--out", default="", help="Backward-compatible output CSV path. Prefer --out-csv.")
     parser.add_argument("--out-csv", default="", help="Output CSV path for MQL5 runtime reading")
@@ -1100,7 +1132,35 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--body-universe", default=DEFAULT_BODY_UNIVERSE, help="Doctrine metadata describing the included body set.")
     parser.add_argument("--orb-family", default=DEFAULT_ORB_FAMILY, help="Doctrine metadata describing orb policy.")
     parser.add_argument("--parallel-orb-limit", type=float, default=DEFAULT_PARALLEL_ORB_LIMIT, help="Declination parallel / contra-parallel orb limit.")
-    args = parser.parse_args(argv)
+    args = parser.parse_args(remaining)
+
+    assign_if_default(args, "start_broker", "", config_lookup(config, "builder.start_broker"))
+    assign_if_default(args, "end_broker", "", config_lookup(config, "builder.end_broker"))
+    assign_if_default(args, "timeframe_minutes", 1, config_lookup(config, "builder.timeframe_minutes"))
+    assign_if_default(args, "broker_gmt_offset_hours", None, config_lookup(config, "builder.broker_gmt_offset_hours"))
+    assign_if_default(args, "ephe_path", "", config_lookup(config, "builder.ephe_path"))
+    assign_if_default(args, "out", "", config_lookup(config, "builder.out"))
+    assign_if_default(args, "out_csv", "", config_lookup(config, "builder.out_csv"))
+    assign_if_default(args, "out_xlsx", "", config_lookup(config, "builder.out_xlsx"))
+    assign_if_default(args, "aspect_orb_limit", 6.0, config_lookup(config, "doctrine.aspect_orb_limit"))
+    assign_if_default(args, "house_lat", None, config_lookup(config, "builder.house_lat"))
+    assign_if_default(args, "house_lon", None, config_lookup(config, "builder.house_lon"))
+    assign_if_default(args, "house_system", "P", config_lookup(config, "doctrine.house_system"))
+    assign_if_default(args, "natal_local_datetime", "", config_lookup(config, "builder.natal.local_datetime"))
+    assign_if_default(args, "natal_utc_offset_hours", 0.0, config_lookup(config, "builder.natal.utc_offset_hours"))
+    assign_if_default(args, "natal_lat", None, config_lookup(config, "builder.natal.lat"))
+    assign_if_default(args, "natal_lon", None, config_lookup(config, "builder.natal.lon"))
+    assign_if_default(args, "natal_house_system", "P", config_lookup(config, "builder.natal.house_system"))
+    assign_if_default(args, "natal_label", "", config_lookup(config, "builder.natal.label"))
+    assign_if_default(args, "doctrine_id", DEFAULT_DOCTRINE_ID, config_lookup(config, "doctrine.id"))
+    assign_if_default(args, "schema_version", DEFAULT_SCHEMA_VERSION, config_lookup(config, "doctrine.schema_version"))
+    assign_if_default(args, "zodiac_mode", DEFAULT_ZODIAC_MODE, config_lookup(config, "doctrine.zodiac_mode"))
+    assign_if_default(args, "body_universe", DEFAULT_BODY_UNIVERSE, config_lookup(config, "doctrine.body_universe"))
+    assign_if_default(args, "orb_family", DEFAULT_ORB_FAMILY, config_lookup(config, "doctrine.orb_family"))
+    assign_if_default(args, "parallel_orb_limit", DEFAULT_PARALLEL_ORB_LIMIT, config_lookup(config, "doctrine.parallel_orb_limit"))
+
+    if not args.start_broker or not args.end_broker or args.broker_gmt_offset_hours is None:
+        raise ValueError("Provide start/end broker times and broker GMT offset via CLI or --config")
 
     if args.ephe_path:
         swe.set_ephe_path(args.ephe_path)

@@ -1,9 +1,85 @@
 {
-  "start_broker": "2024-01-01 00:00:00",
-  "end_broker": "2024-02-01 00:00:00",
-  "timeframe_minutes": 1,
-  "broker_gmt_offset_hours": 2,
-  "ephe_path": "tools/astro_feature_builder/ephe",
-  "out": "astro_XAUUSD_M1_202401.csv",
-  "aspect_orb_limit": 6.0
+  "builder": {
+    "start_broker": "2024-01-01 00:00:00",
+    "end_broker": "2024-02-01 00:00:00",
+    "timeframe_minutes": 1,
+    "broker_gmt_offset_hours": 2,
+    "ephe_path": "tools/astro_feature_builder/ephe",
+    "out_csv": "data/astro/astro_XAUUSD_M1_202401_mql.csv",
+    "house_lat": 35.6892,
+    "house_lon": 51.389,
+    "natal": {
+      "local_datetime": "1987-08-16 14:35:00",
+      "utc_offset_hours": 3.5,
+      "lat": 35.6892,
+      "lon": 51.389,
+      "house_system": "P",
+      "label": "gold_ref"
+    }
+  },
+  "doctrine": {
+    "id": "astro_only_doctrine_v1",
+    "schema_version": "astro_feature_schema_v2",
+    "zodiac_mode": "tropical",
+    "body_universe": "major7_outer_nodes",
+    "house_system": "P",
+    "orb_family": "major_ptolemaic_6deg",
+    "aspect_orb_limit": 6.0,
+    "parallel_orb_limit": 1.0
+  },
+  "semantics": {
+    "houses": {
+      "1": "emergence_activation",
+      "2": "resource_materialization",
+      "3": "signal_movement_noise",
+      "4": "foundation_reversal_root",
+      "5": "release_risk_appetite",
+      "6": "friction_correction_service",
+      "7": "opposition_externalization",
+      "8": "compression_liquidation_hidden_pressure",
+      "9": "expansion_directional_thesis",
+      "10": "execution_visibility_peak",
+      "11": "continuation_support_network",
+      "12": "dissolution_exhaustion_invisible_drag"
+    },
+    "aspects": {
+      "conjunction": "fusion_intensification",
+      "sextile": "cooperative_release",
+      "square": "friction_forced_action",
+      "trine": "clean_flow",
+      "opposition": "polarity_externalization"
+    }
+  },
+  "threshold_profiles": {
+    "A0001_transit_trend_pulse": {
+      "profile": "baseline",
+      "arm_threshold": 58.0,
+      "enter_threshold": 66.0,
+      "reduce_threshold": 52.0,
+      "exit_threshold": 58.0
+    },
+    "A0002_natal_resonance": {
+      "profile": "natal_resonance",
+      "arm_threshold": 60.0,
+      "enter_threshold": 67.0,
+      "reduce_threshold": 54.0,
+      "exit_threshold": 59.0,
+      "natal_activation_minimum": 46.0
+    },
+    "A0003_friction_polarity": {
+      "profile": "friction_guard",
+      "arm_threshold": 57.0,
+      "enter_threshold": 65.0,
+      "reduce_threshold": 50.0,
+      "exit_threshold": 57.0,
+      "friction_minimum": 58.0
+    },
+    "A0090_live_shell": {
+      "profile": "validated_live_shell",
+      "arm_threshold": 60.0,
+      "enter_threshold": 68.0,
+      "reduce_threshold": 54.0,
+      "exit_threshold": 60.0
+    }
+  }
 }
