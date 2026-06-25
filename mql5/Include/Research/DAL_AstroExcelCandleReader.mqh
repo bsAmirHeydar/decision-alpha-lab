@@ -151,28 +151,55 @@ bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL
    return (r.broker_time > 0 && r.utc_time > 0 && r.feature_key != "");
 }
 
-bool DAL_AstroMapStore_LoadExcelCsv(
+
+string DAL_AstroCsv_BaseName(const string path)
+{
+   string out = path;
+   int last = -1;
+   int n = StringLen(path);
+   for(int i = 0; i < n; i++)
+   {
+      ushort ch = StringGetCharacter(path, i);
+      if(ch == '\\' || ch == '/')
+         last = i;
+   }
+   if(last >= 0 && last + 1 < n)
+      out = StringSubstr(path, last + 1);
+   return out;
+}
+
+bool DAL_AstroMapStore_LoadCsvCandidate(
    DAL_AstroMapStore &store,
-   const string csv_file_name,
+   const string candidate_file,
    const double broker_gmt_offset_hours,
-   const int timeframe_minutes = 1
+   const int timeframe_minutes,
+   const bool use_common_files
 )
 {
    DAL_AstroMapStore_Reset(store);
-   store.source_file = csv_file_name;
+   store.source_file = use_common_files ? ("COMMON:" + candidate_file) : candidate_file;
    store.broker_gmt_offset_hours = broker_gmt_offset_hours;
    store.timeframe_minutes = timeframe_minutes;
 
-   int h = FileOpen(csv_file_name, FILE_READ | FILE_TXT | FILE_ANSI);
+   int flags = FILE_READ | FILE_TXT | FILE_ANSI;
+   if(use_common_files)
+      flags |= FILE_COMMON;
+
+   ResetLastError();
+   int h = FileOpen(candidate_file, flags);
    if(h == INVALID_HANDLE)
    {
-      Print("DAL_AstroMapStore_LoadExcelCsv failed: file=", csv_file_name, " err=", GetLastError());
+      Print("DAL_AstroMapStore candidate failed: file=", candidate_file,
+            " common=", (use_common_files ? "true" : "false"),
+            " err=", GetLastError());
       return false;
    }
 
    if(FileIsEnding(h))
    {
       FileClose(h);
+      Print("DAL_AstroMapStore candidate empty: file=", candidate_file,
+            " common=", (use_common_files ? "true" : "false"));
       return false;
    }
 
@@ -181,10 +208,24 @@ bool DAL_AstroMapStore_LoadExcelCsv(
    if(!DAL_AstroCsv_SplitLine(header_line, headers))
    {
       FileClose(h);
+      Print("DAL_AstroMapStore bad header split: file=", candidate_file,
+            " common=", (use_common_files ? "true" : "false"));
       return false;
    }
+
    for(int i = 0; i < ArraySize(headers); i++)
       headers[i] = DAL_AstroCsv_Unquote(headers[i]);
+
+   int i_broker = DAL_AstroCsv_HeaderIndex(headers, "broker_time");
+   int i_utc    = DAL_AstroCsv_HeaderIndex(headers, "utc_time");
+   int i_key    = DAL_AstroCsv_HeaderIndex(headers, "feature_key");
+   if(i_broker < 0 || i_utc < 0 || i_key < 0)
+   {
+      FileClose(h);
+      Print("DAL_AstroMapStore missing required header: file=", candidate_file,
+            " need broker_time,utc_time,feature_key");
+      return false;
+   }
 
    int capacity = 4096;
    ArrayResize(store.rows, capacity);
@@ -217,8 +258,55 @@ bool DAL_AstroMapStore_LoadExcelCsv(
    ArrayResize(store.rows, count);
    store.row_count = count;
    store.loaded = (count > 0);
-   Print("DAL Astro Map Store loaded: rows=", count, " file=", csv_file_name);
-   return store.loaded;
+
+   if(store.loaded)
+   {
+      Print("DAL Astro Map Store loaded: rows=", count,
+            " file=", candidate_file,
+            " common=", (use_common_files ? "true" : "false"));
+      return true;
+   }
+
+   Print("DAL_AstroMapStore no valid rows: file=", candidate_file,
+         " common=", (use_common_files ? "true" : "false"));
+   return false;
+}
+
+bool DAL_AstroMapStore_LoadExcelCsv(
+   DAL_AstroMapStore &store,
+   const string csv_file_name,
+   const double broker_gmt_offset_hours,
+   const int timeframe_minutes = 1
+)
+{
+   // Runtime file resolution contract:
+   // 1. Try exactly what the input says under normal MQL5\\Files.
+   // 2. Try the basename directly under MQL5\\Files.
+   // 3. Try astro\\basename under MQL5\\Files.
+   // 4. Repeat the same three attempts under MetaQuotes Common\\Files.
+   // This makes the same code work in live charts, Visual Tester agents,
+   // root Files layout, and Files\\astro layout.
+   string base = DAL_AstroCsv_BaseName(csv_file_name);
+   string c0 = csv_file_name;
+   string c1 = base;
+   string c2 = "astro\\" + base;
+
+   if(DAL_AstroMapStore_LoadCsvCandidate(store, c0, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
+   if(c1 != c0 && DAL_AstroMapStore_LoadCsvCandidate(store, c1, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
+   if(c2 != c0 && c2 != c1 && DAL_AstroMapStore_LoadCsvCandidate(store, c2, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
+
+   if(DAL_AstroMapStore_LoadCsvCandidate(store, c0, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
+   if(c1 != c0 && DAL_AstroMapStore_LoadCsvCandidate(store, c1, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
+   if(c2 != c0 && c2 != c1 && DAL_AstroMapStore_LoadCsvCandidate(store, c2, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
+
+   DAL_AstroMapStore_Reset(store);
+   store.source_file = csv_file_name;
+   store.broker_gmt_offset_hours = broker_gmt_offset_hours;
+   store.timeframe_minutes = timeframe_minutes;
+   Print("DAL_AstroMapStore_LoadExcelCsv failed all candidates. input=", csv_file_name,
+         " basename=", base,
+         " normal roots=MQL5\\Files, common root=Terminal\\Common\\Files");
+   return false;
 }
 
 bool DAL_AstroMapStore_FindByBrokerTime(

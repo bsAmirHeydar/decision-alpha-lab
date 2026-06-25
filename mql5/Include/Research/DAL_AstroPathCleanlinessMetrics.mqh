@@ -826,6 +826,7 @@ string DAL_AstroPM_ToScreenText(const DAL_AstroMapRow &row, const DAL_AstroPathM
    t += "EXP0013 ASTRO PATH CLEANLINESS METRICS\n";
    t += "---------------------------------------\n";
    t += "Broker: " + TimeToString(row.broker_time, TIME_DATE | TIME_MINUTES) + "   UTC: " + TimeToString(row.utc_time, TIME_DATE | TIME_MINUTES) + "   JD: " + DoubleToString(row.jd_ut, 5) + "\n";
+   t += "TIME CONTRACT: lookup = chart candle broker_time; UTC already stored in CSV for validation.\n";
    t += "Moon phase: " + row.moon_phase_bucket + "  angle=" + DoubleToString(row.moon_phase_angle, 2) + "  illum_proxy=" + DoubleToString(row.moon_illumination_proxy, 3) + "\n";
    t += "Bias: element=" + m.element_bias + "  modality=" + m.modality_bias + "  regime=" + m.astro_path_regime + "\n";
    t += "\n";
@@ -934,15 +935,24 @@ void DAL_AstroPM_DrawPanel(
    if(n <= 0)
       return;
 
-   int max_lines = MathMin(n, DAL_ASTRO_PM_MAX_LINES);
-   for(int i = 0; i < max_lines; i++)
+   int drawn = 0;
+   for(int i = 0; i < n && drawn < DAL_ASTRO_PM_MAX_LINES; i++)
    {
-      color line_clr = clr;
-      if(StringFind(lines[i], "PATH THESIS") >= 0) line_clr = clrAqua;
-      if(StringFind(lines[i], "WARNING") >= 0 || StringFind(lines[i], "No causality") >= 0) line_clr = clrGold;
-      if(StringFind(lines[i], "NOT FOUND") >= 0 || StringFind(lines[i], "MISMATCH") >= 0) line_clr = clrTomato;
+      string line = lines[i];
+      string trimmed = line;
+      StringTrimLeft(trimmed);
+      StringTrimRight(trimmed);
+      if(trimmed == "")
+         continue;
 
-      DAL_AstroPM_DrawLine(chart_id, prefix + "_ASTRO_PM_LINE_" + IntegerToString(i), lines[i], x, y + i * line_height, line_clr, font_size);
+      color line_clr = clr;
+      if(StringFind(line, "PATH THESIS") >= 0) line_clr = clrAqua;
+      if(StringFind(line, "WARNING") >= 0 || StringFind(line, "No causality") >= 0) line_clr = clrGold;
+      if(StringFind(line, "NOT FOUND") >= 0 || StringFind(line, "MISMATCH") >= 0 || StringFind(line, "FAILED") >= 0) line_clr = clrTomato;
+      if(StringFind(line, "TIME CONTRACT") >= 0 || StringFind(line, "Lookup") >= 0) line_clr = clrDeepSkyBlue;
+
+      DAL_AstroPM_DrawLine(chart_id, prefix + "_ASTRO_PM_LINE_" + IntegerToString(drawn), line, x, y + drawn * line_height, line_clr, font_size);
+      drawn++;
    }
 }
 

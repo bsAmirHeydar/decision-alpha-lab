@@ -60,6 +60,25 @@ struct DAL_AstroMapStore
    double   broker_gmt_offset_hours;
    int      timeframe_minutes;
    DAL_AstroMapRow rows[];
+
+   // Runtime diagnostics. These fields make it explicit whether the failure is
+   // caused by the file path, an unreadable/empty file, a bad header, bad rows,
+   // or a timestamp lookup mismatch after a successful load.
+   string   load_stage;
+   string   load_error;
+   int      file_open_error;
+   int      header_columns;
+   string   header_line;
+   string   first_data_line;
+   int      physical_lines;
+   int      empty_lines;
+   int      split_failed_lines;
+   int      parse_failed_lines;
+   int      skipped_lines;
+   datetime first_broker_time;
+   datetime last_broker_time;
+   datetime first_utc_time;
+   datetime last_utc_time;
 };
 
 string DAL_AstroBodyName(const int index)
@@ -172,6 +191,22 @@ void DAL_AstroMapStore_Reset(DAL_AstroMapStore &s)
    s.broker_gmt_offset_hours = 0.0;
    s.timeframe_minutes = 0;
    ArrayResize(s.rows, 0);
+
+   s.load_stage = "RESET";
+   s.load_error = "";
+   s.file_open_error = 0;
+   s.header_columns = 0;
+   s.header_line = "";
+   s.first_data_line = "";
+   s.physical_lines = 0;
+   s.empty_lines = 0;
+   s.split_failed_lines = 0;
+   s.parse_failed_lines = 0;
+   s.skipped_lines = 0;
+   s.first_broker_time = 0;
+   s.last_broker_time = 0;
+   s.first_utc_time = 0;
+   s.last_utc_time = 0;
 }
 
 #endif

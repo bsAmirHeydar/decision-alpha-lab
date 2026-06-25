@@ -2,17 +2,24 @@
 #property version   "1.00"
 #property description "EXP0013 Astro Excel/CSV Candle Reader Demo"
 #property description "Loads Python-generated candle-aligned astro CSV and displays the sky map per candle."
+#property tester_file "astro_GMT3_M1_2026_to_now_mql.csv"
+#property tester_file "astro\\astro_GMT3_M1_2026_to_now_mql.csv"
 
 #include <Research/DAL_AstroExcelCandleReader.mqh>
 #include <Research/DAL_AstroDerivedFeatures.mqh>
 
-input string          InpAstroCsvFile            = "astro\\astro_XAUUSD_M1_202401_mql.csv";
-input double          InpBrokerGmtOffsetHours    = 2.0;
+input string          InpAstroCsvFile            = "astro_GMT3_M1_2026_to_now_mql.csv";
+input double          InpBrokerGmtOffsetHours    = 0.0; // optional UTC validation only; lookup never shifts time
 input ENUM_TIMEFRAMES InpReadTimeframe           = PERIOD_M1;
 input bool            InpRequireExactBarTime     = true;
 input bool            InpReadOnlyOnNewBar        = true;
-input bool            InpValidateUtcOffset       = true;
+input bool            InpValidateUtcOffset       = false;
 input bool            InpShowDerivedFeatureKey   = true;
+input bool            InpUseObjectPanel          = true;
+input bool            InpUseTerminalComment      = false;
+input bool            InpClearChartComment       = true;
+input int             InpPanelX                  = 10;
+input int             InpPanelY                  = 90;
 
 DAL_AstroMapStore g_astro_store;
 datetime g_last_bar_time = 0;
@@ -28,19 +35,28 @@ int OnInit()
 
    if(!ok)
    {
-      Print("EXP0013 failed to load astro CSV. Put the CSV in MQL5/Files/", InpAstroCsvFile);
-      return INIT_FAILED;
+      string msg = DAL_AstroMapStore_LoadDiagnosticText(g_astro_store);
+      msg += "\nEA STATUS: stayed loaded intentionally so the diagnostic is visible on screen.";
+      Print(msg);
+      if(InpUseTerminalComment)
+         Comment(msg);
+      else if(InpClearChartComment)
+         Comment("");
+      if(InpUseObjectPanel)
+         DAL_AstroMap_DrawStatus(0, "EXP0013", msg, InpPanelX, InpPanelY, clrTomato);
+      return INIT_SUCCEEDED;
    }
 
    Print("EXP0013 Astro reader initialized. rows=", g_astro_store.row_count,
          " file=", InpAstroCsvFile,
-         " broker_gmt_offset=", DoubleToString(InpBrokerGmtOffsetHours, 2));
+         " optional_utc_validation_offset=", DoubleToString(InpBrokerGmtOffsetHours, 2));
    return INIT_SUCCEEDED;
 }
 
 void OnDeinit(const int reason)
 {
-   ObjectDelete(0, "EXP0013_ASTRO_MAP_PANEL");
+   DAL_AstroDiag_DeletePanel(0, "EXP0013");
+   Comment("");
 }
 
 void OnTick()
@@ -57,11 +73,19 @@ void OnTick()
    bool found = DAL_AstroMapStore_FindForCandleOpen(g_astro_store, bar_time, row, InpRequireExactBarTime);
    if(!found)
    {
-      string status = "ASTRO MAP NOT FOUND\n";
-      status += "file=" + InpAstroCsvFile + "\n";
-      status += "bar=" + TimeToString(bar_time, TIME_DATE | TIME_MINUTES) + "\n";
-      status += "exact=" + (InpRequireExactBarTime ? "true" : "false");
-      DAL_AstroMap_DrawStatus(0, "EXP0013", status, 10, 20, clrYellow);
+      string status = DAL_AstroMapStore_LookupDiagnosticText(
+         g_astro_store,
+         bar_time,
+         InpRequireExactBarTime,
+         InpBrokerGmtOffsetHours
+      );
+      Print(status);
+      if(InpUseTerminalComment)
+         Comment(status);
+      else if(InpClearChartComment)
+         Comment("");
+      if(InpUseObjectPanel)
+         DAL_AstroMap_DrawStatus(0, "EXP0013", status, InpPanelX, InpPanelY, clrTomato);
       return;
    }
 
@@ -71,7 +95,12 @@ void OnTick()
       bad += "broker=" + TimeToString(row.broker_time, TIME_DATE | TIME_MINUTES) + "\n";
       bad += "row utc=" + TimeToString(row.utc_time, TIME_DATE | TIME_MINUTES) + "\n";
       bad += "input gmt offset=" + DoubleToString(InpBrokerGmtOffsetHours, 2);
-      DAL_AstroMap_DrawStatus(0, "EXP0013", bad, 10, 20, clrTomato);
+      if(InpUseTerminalComment)
+         Comment(bad);
+      else if(InpClearChartComment)
+         Comment("");
+      if(InpUseObjectPanel)
+         DAL_AstroMap_DrawStatus(0, "EXP0013", bad, InpPanelX, InpPanelY, clrTomato);
       return;
    }
 
@@ -84,5 +113,8 @@ void OnTick()
             " research=", research);
    }
 
-   DAL_AstroMap_DrawPanel(0, "EXP0013", row, 10, 20, clrWhite);
+   if(InpClearChartComment && !InpUseTerminalComment)
+      Comment("");
+   if(InpUseObjectPanel)
+      DAL_AstroMap_DrawPanel(0, "EXP0013", row, InpPanelX, InpPanelY, clrWhite);
 }

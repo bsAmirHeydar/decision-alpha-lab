@@ -2,6 +2,8 @@
 #property version   "1.00"
 #property description "EXP0013 Astro Path Cleanliness Metrics Demo"
 #property description "Research-only visual tester panel. No trading. Reads candle-aligned astro CSV and displays derived path-cleanliness metrics."
+#property tester_file "astro_GMT3_M1_2026_to_now_mql.csv"
+#property tester_file "astro\\astro_GMT3_M1_2026_to_now_mql.csv"
 
 #include <Research/DAL_AstroExcelCandleReader.mqh>
 #include <Research/DAL_AstroPathCleanlinessMetrics.mqh>
@@ -16,28 +18,33 @@
 //
 // Runtime data path:
 //   Put CSV here:
+//   <MetaTrader Data Folder>/MQL5/Files/your_file.csv
+// or:
 //   <MetaTrader Data Folder>/MQL5/Files/astro/your_file.csv
 //
 // Time contract:
 //   CSV broker_time must be the same time base as broker candles.
-//   UTC is validated as: utc_time = broker_time - InpBrokerGmtOffsetHours.
+//   The CSV already contains broker_time and utc_time.
+//   MQL must NOT shift the candle time again. Lookup uses broker_time exactly.
+//   InpBrokerGmtOffsetHours is optional validation only and defaults to 0/off.
 // -----------------------------------------------------------------------------
 
-input string          InpAstroCsvFile            = "astro\\astro_XAUUSD_M1_202401_mql.csv";
-input double          InpBrokerGmtOffsetHours    = 2.0;
+input string          InpAstroCsvFile            = "astro_GMT3_M1_2026_to_now_mql.csv";
+input double          InpBrokerGmtOffsetHours    = 0.0; // optional UTC validation only; lookup never shifts time
 input ENUM_TIMEFRAMES InpReadTimeframe           = PERIOD_M1;
 input bool            InpRequireExactBarTime     = true;
 input bool            InpReadOnlyOnNewBar        = true;
-input bool            InpValidateUtcOffset       = true;
+input bool            InpValidateUtcOffset       = false;
 
 input bool            InpShowRawBodies           = true;
 input bool            InpShowFeatureKeys         = true;
 input bool            InpUseObjectPanel          = true;
-input bool            InpUseTerminalComment      = true;
+input bool            InpUseTerminalComment      = false;
+input bool            InpClearChartComment       = true;
 input int             InpPanelX                  = 10;
-input int             InpPanelY                  = 20;
+input int             InpPanelY                  = 90;
 input int             InpPanelFontSize           = 8;
-input int             InpPanelLineHeight         = 14;
+input int             InpPanelLineHeight         = 16;
 input color           InpPanelColor              = clrWhite;
 input bool            InpPrintMetricsOnNewBar    = true;
 
@@ -59,17 +66,21 @@ int OnInit()
 
    if(!ok)
    {
-      string msg = "EXP0013 ASTRO PATH METRICS LOAD FAILED\n";
-      msg += "Put the CSV under MQL5/Files/" + InpAstroCsvFile + "\n";
-      msg += "Then re-run the visual tester/live chart.";
-      Comment(msg);
+      string msg = DAL_AstroMapStore_LoadDiagnosticText(g_astro_store);
+      msg += "\nEA STATUS: stayed loaded intentionally so the diagnostic is visible on screen.";
       Print(msg);
-      return INIT_FAILED;
+      if(InpUseTerminalComment)
+         Comment(msg);
+      else if(InpClearChartComment)
+         Comment("");
+      if(InpUseObjectPanel)
+         DAL_AstroPM_DrawPanel(0, "EXP0013_PATH", msg, InpPanelX, InpPanelY, clrTomato, InpPanelFontSize, InpPanelLineHeight, true);
+      return INIT_SUCCEEDED;
    }
 
    Print("EXP0013 Astro Path Metrics initialized. rows=", g_astro_store.row_count,
          " file=", InpAstroCsvFile,
-         " broker_gmt_offset=", DoubleToString(InpBrokerGmtOffsetHours, 2),
+         " optional_utc_validation_offset=", DoubleToString(InpBrokerGmtOffsetHours, 2),
          " tf_minutes=", tf_minutes);
 
    return INIT_SUCCEEDED;
@@ -98,16 +109,20 @@ void OnTick()
    bool found = DAL_AstroMapStore_FindForCandleOpen(g_astro_store, bar_time, row, InpRequireExactBarTime);
    if(!found)
    {
-      string missing = "ASTRO PATH METRICS - ROW NOT FOUND\n";
-      missing += "CSV: " + InpAstroCsvFile + "\n";
-      missing += "bar broker time: " + TimeToString(bar_time, TIME_DATE | TIME_MINUTES) + "\n";
-      missing += "Require exact: " + (InpRequireExactBarTime ? "true" : "false") + "\n";
-      missing += "Check timeframe, broker GMT offset, and CSV date range.";
+      string missing = DAL_AstroMapStore_LookupDiagnosticText(
+         g_astro_store,
+         bar_time,
+         InpRequireExactBarTime,
+         InpBrokerGmtOffsetHours
+      );
 
       if(InpUseTerminalComment)
          Comment(missing);
+      else if(InpClearChartComment)
+         Comment("");
       if(InpUseObjectPanel)
          DAL_AstroPM_DrawPanel(0, "EXP0013_PATH", missing, InpPanelX, InpPanelY, clrTomato, InpPanelFontSize, InpPanelLineHeight, true);
+      Print(missing);
       return;
    }
 
@@ -117,10 +132,12 @@ void OnTick()
       bad += "row broker: " + TimeToString(row.broker_time, TIME_DATE | TIME_MINUTES) + "\n";
       bad += "row utc:    " + TimeToString(row.utc_time, TIME_DATE | TIME_MINUTES) + "\n";
       bad += "input offset hours: " + DoubleToString(InpBrokerGmtOffsetHours, 2) + "\n";
-      bad += "Expected rule: utc = broker - offset.";
+      bad += "Optional validation only. Lookup never applies this offset. If CSV already stores UTC, leave validation disabled.";
 
       if(InpUseTerminalComment)
          Comment(bad);
+      else if(InpClearChartComment)
+         Comment("");
       if(InpUseObjectPanel)
          DAL_AstroPM_DrawPanel(0, "EXP0013_PATH", bad, InpPanelX, InpPanelY, clrTomato, InpPanelFontSize, InpPanelLineHeight, true);
       return;
@@ -135,6 +152,8 @@ void OnTick()
 
       if(InpUseTerminalComment)
          Comment(calc_bad);
+      else if(InpClearChartComment)
+         Comment("");
       if(InpUseObjectPanel)
          DAL_AstroPM_DrawPanel(0, "EXP0013_PATH", calc_bad, InpPanelX, InpPanelY, clrTomato, InpPanelFontSize, InpPanelLineHeight, true);
       return;
@@ -144,6 +163,8 @@ void OnTick()
 
    if(InpUseTerminalComment)
       Comment(panel);
+   else if(InpClearChartComment)
+      Comment("");
 
    if(InpUseObjectPanel)
       DAL_AstroPM_DrawPanel(0, "EXP0013_PATH", panel, InpPanelX, InpPanelY, InpPanelColor, InpPanelFontSize, InpPanelLineHeight, true);
