@@ -78,6 +78,9 @@ def run_builder(
     timeframe_minutes: int,
     broker_gmt_offset_hours: float,
     ephe_path: Path,
+    house_lat: float | None = None,
+    house_lon: float | None = None,
+    house_system: str = "P",
 ) -> None:
     cmd = [
         sys.executable,
@@ -95,6 +98,10 @@ def run_builder(
         "--out-csv",
         str(out_csv),
     ]
+    if house_lat is not None or house_lon is not None:
+        if house_lat is None or house_lon is None:
+            raise ValueError("Provide both --house-lat and --house-lon for live houses")
+        cmd += ["--house-lat", str(house_lat), "--house-lon", str(house_lon), "--house-system", str(house_system)]
     subprocess.run(cmd, check=True)
 
 
@@ -146,6 +153,9 @@ def build_once(args: argparse.Namespace, work_dir: Path, common_out: Path, statu
             timeframe_minutes=args.timeframe_minutes,
             broker_gmt_offset_hours=args.broker_gmt_offset_hours,
             ephe_path=Path(args.ephe_path),
+            house_lat=args.house_lat,
+            house_lon=args.house_lon,
+            house_system=args.house_system,
         )
         rows = count_csv_rows(local_csv)
         atomic_copy(local_csv, common_out)
@@ -185,6 +195,9 @@ def main() -> int:
     ap.add_argument("--timeframe-minutes", type=int, default=1)
     ap.add_argument("--history-hours", type=int, default=48)
     ap.add_argument("--future-hours", type=int, default=6)
+    ap.add_argument("--house-lat", type=float, default=None, help="Optional latitude for live house cusps")
+    ap.add_argument("--house-lon", type=float, default=None, help="Optional longitude for live house cusps")
+    ap.add_argument("--house-system", default="P", help="House system code passed to Swiss Ephemeris, default P=Placidus")
     ap.add_argument("--refresh-seconds", type=int, default=60)
     ap.add_argument("--once", action="store_true", help="Build once and exit")
     args = ap.parse_args()

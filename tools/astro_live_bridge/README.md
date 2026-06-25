@@ -63,3 +63,23 @@ The status JSON is for human/live diagnostics and includes:
 - broker start/end window
 - rows hint
 - error text if generation failed
+
+## Optional house cusps
+
+The live bridge can pass house-location inputs to the builder:
+
+```powershell
+python tools\astro_live_bridge\astro_live_bridge.py `
+  --common-files "C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\Common\Files" `
+  --output-name "astro_live_mql.csv" `
+  --broker-gmt-offset-hours 3 `
+  --timeframe-minutes 1 `
+  --history-hours 48 `
+  --future-hours 6 `
+  --refresh-seconds 60 `
+  --house-lat 40.7128 `
+  --house-lon -74.0060 `
+  --house-system P
+```
+
+If `--house-lat` and `--house-lon` are omitted, the CSV remains geocentric-only and the MQL dashboard will show houses as unavailable.

@@ -3,6 +3,8 @@
 
 #include <Research/DAL_AstroMapTypes.mqh>
 
+#define DAL_ASTRO_DIAG_MAX_LINES 120
+
 // Decision Alpha Lab - Astro Excel/CSV Candle Reader
 // IMPORTANT: MQL5 reads the Excel-compatible CSV mirror, not the binary .xlsx workbook.
 // Put the CSV under: <Terminal Data Folder>/MQL5/Files/astro/...
@@ -32,6 +34,131 @@ datetime DAL_AstroCsv_ParseTime(string value)
    value = DAL_AstroCsv_Unquote(value);
    StringReplace(value, "-", ".");
    return StringToTime(value);
+}
+
+
+string DAL_AstroCsv_NormalizeRuntimeFileName(string value)
+{
+   value = DAL_AstroCsv_Trim(value);
+   StringReplace(value, "/", "\\");
+   while(StringFind(value, "\\\\") >= 0)
+      StringReplace(value, "\\\\", "\\");
+   if(StringLen(value) >= 2 && StringSubstr(value, 0, 2) == ".\\")
+      value = StringSubstr(value, 2);
+   return value;
+}
+
+string DAL_AstroCsv_BaseFileName(string value)
+{
+   value = DAL_AstroCsv_NormalizeRuntimeFileName(value);
+   int last = -1;
+   int n = StringLen(value);
+   for(int i = 0; i < n; i++)
+   {
+      string ch = StringSubstr(value, i, 1);
+      if(ch == "\\" || ch == "/")
+         last = i;
+   }
+   if(last >= 0 && last + 1 < n)
+      return StringSubstr(value, last + 1);
+   return value;
+}
+
+bool DAL_AstroCsv_AddOpenCandidate(string &candidates[], const string candidate)
+{
+   string c = DAL_AstroCsv_NormalizeRuntimeFileName(candidate);
+   if(c == "")
+      return false;
+
+   for(int i = 0; i < ArraySize(candidates); i++)
+   {
+      if(candidates[i] == c)
+         return false;
+   }
+
+   int n = ArraySize(candidates);
+   ArrayResize(candidates, n + 1);
+   candidates[n] = c;
+   return true;
+}
+
+string DAL_AstroCsv_OpenCandidatesText(const string &candidates[])
+{
+   string out = "";
+   for(int i = 0; i < ArraySize(candidates); i++)
+   {
+      if(i > 0)
+         out += " | ";
+      out += candidates[i];
+   }
+   return out;
+}
+
+void DAL_AstroCsv_BuildOpenCandidates(const string input_file, string &candidates[])
+{
+   ArrayResize(candidates, 0);
+
+   string normalized = DAL_AstroCsv_NormalizeRuntimeFileName(input_file);
+   string base_name  = DAL_AstroCsv_BaseFileName(normalized);
+
+   // Candidate 1: exactly what user typed in the input.
+   DAL_AstroCsv_AddOpenCandidate(candidates, normalized);
+
+   // Candidate 2: root of MQL5\Files. This fixes the common case where the
+   // user put the CSV directly in Files instead of Files\astro.
+   DAL_AstroCsv_AddOpenCandidate(candidates, base_name);
+
+   // Candidate 3: canonical subfolder used by the research docs.
+   DAL_AstroCsv_AddOpenCandidate(candidates, "astro\\" + base_name);
+}
+
+int DAL_AstroCsv_FileOpenWithFallback(
+   const string input_file,
+   string &opened_file,
+   string &attempted_files,
+   int &last_error
+)
+{
+   string candidates[];
+   DAL_AstroCsv_BuildOpenCandidates(input_file, candidates);
+
+   opened_file = "";
+   attempted_files = "NORMAL_FILES{" + DAL_AstroCsv_OpenCandidatesText(candidates) + "}";
+   attempted_files += " || COMMON_FILES{" + DAL_AstroCsv_OpenCandidatesText(candidates) + "}";
+   last_error = 0;
+
+   // Pass 1: normal runtime root.
+   // Live chart: <Terminal Data Folder>\MQL5\Files
+   // Strategy Tester: <Tester Agent Data Folder>\MQL5\Files
+   for(int i = 0; i < ArraySize(candidates); i++)
+   {
+      ResetLastError();
+      int h = FileOpen(candidates[i], FILE_READ | FILE_TXT | FILE_ANSI);
+      if(h != INVALID_HANDLE)
+      {
+         opened_file = candidates[i];
+         return h;
+      }
+      last_error = GetLastError();
+   }
+
+   // Pass 2: common terminal root. This is the safest bridge for Strategy Tester
+   // because tester agents and live terminals can both access Common\Files when
+   // FILE_COMMON is used. Put the CSV under:
+   // <MetaQuotes Common Data Folder>\Files\...
+   for(int j = 0; j < ArraySize(candidates); j++)
+   {
+      ResetLastError();
+      int h = FileOpen(candidates[j], FILE_READ | FILE_TXT | FILE_ANSI | FILE_COMMON);
+      if(h != INVALID_HANDLE)
+      {
+         opened_file = "COMMON::" + candidates[j];
+         return h;
+      }
+      last_error = GetLastError();
+   }
+
+   return INVALID_HANDLE;
 }
 
 bool DAL_AstroCsv_SplitLine(const string line, string &cells[])
@@ -104,6 +231,7 @@ void DAL_AstroCsv_ReadBody(
    b.sign_index = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, body_name + "_sign_index"), -1);
    b.degree     = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, body_name + "_degree"));
    b.retro      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, body_name + "_retro"));
+   b.house      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, body_name + "_house"), -1);
 }
 
 void DAL_AstroCsv_ReadAspect(
@@ -142,6 +270,15 @@ bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL
    r.moon_phase_bucket = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "moon_phase_bucket"));
    r.moon_illumination_proxy = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "moon_illumination_proxy"));
 
+   r.houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, "houses_valid"), 0) == 1);
+   r.house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_lat"));
+   r.house_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_lon"));
+   r.house_system = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "house_system"));
+   r.asc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "asc_lon"));
+   r.mc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "mc_lon"));
+   for(int h = 0; h < 12; h++)
+      r.house_cusp[h] = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_" + IntegerToString(h + 1) + "_cusp"));
+
    for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
       DAL_AstroCsv_ReadBody(headers, cells, DAL_AstroBodyName(i), r.body[i]);
 
@@ -152,78 +289,277 @@ bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL
 }
 
 
-string DAL_AstroCsv_BaseName(const string path)
+string DAL_AstroDiag_DateTime(const datetime t)
 {
-   string out = path;
-   int last = -1;
-   int n = StringLen(path);
-   for(int i = 0; i < n; i++)
-   {
-      ushort ch = StringGetCharacter(path, i);
-      if(ch == '\\' || ch == '/')
-         last = i;
-   }
-   if(last >= 0 && last + 1 < n)
-      out = StringSubstr(path, last + 1);
-   return out;
+   if(t <= 0)
+      return "n/a";
+   return TimeToString(t, TIME_DATE | TIME_SECONDS);
 }
 
-bool DAL_AstroMapStore_LoadCsvCandidate(
+string DAL_AstroDiag_RuntimeFilePath(const string relative_file_name)
+{
+   string root = TerminalInfoString(TERMINAL_DATA_PATH);
+   if(root == "")
+      root = "<MT5 Data Folder>";
+   return root + "\\MQL5\\Files\\" + relative_file_name;
+}
+
+string DAL_AstroDiag_CommonFilePath(const string relative_file_name)
+{
+   string root = TerminalInfoString(TERMINAL_COMMONDATA_PATH);
+   if(root == "")
+      root = "<MT5 Common Data Folder>";
+   return root + "\\Files\\" + relative_file_name;
+}
+
+string DAL_AstroMapStore_LoadDiagnosticText(const DAL_AstroMapStore &store)
+{
+   string txt = "ASTRO CSV LOAD DIAGNOSTIC\n";
+   txt += "stage: " + store.load_stage + "\n";
+   txt += "file input: " + store.source_file + "\n";
+   txt += "runtime path: " + DAL_AstroDiag_RuntimeFilePath(store.source_file) + "\n";
+   txt += "common path:  " + DAL_AstroDiag_CommonFilePath(DAL_AstroCsv_BaseFileName(store.source_file)) + "\n";
+   txt += "fallback rule: normal Files first, then Common\\Files; each tries input path, root filename, and astro\\filename.\n";
+   txt += "xlsx note: MQL runtime reads .csv only. .xlsx is review-only.\n";
+   txt += "loaded: " + (store.loaded ? "true" : "false") + "\n";
+   txt += "rows parsed: " + IntegerToString(store.row_count) + "\n";
+   txt += "physical lines: " + IntegerToString(store.physical_lines) + "\n";
+   txt += "header columns: " + IntegerToString(store.header_columns) + "\n";
+   txt += "empty lines: " + IntegerToString(store.empty_lines) + "\n";
+   txt += "split failed lines: " + IntegerToString(store.split_failed_lines) + "\n";
+   txt += "parse failed rows: " + IntegerToString(store.parse_failed_lines) + "\n";
+   txt += "skipped lines: " + IntegerToString(store.skipped_lines) + "\n";
+   txt += "file open error: " + IntegerToString(store.file_open_error) + "\n";
+   if(store.load_error != "")
+      txt += "error: " + store.load_error + "\n";
+   txt += "csv range broker: " + DAL_AstroDiag_DateTime(store.first_broker_time) + " -> " + DAL_AstroDiag_DateTime(store.last_broker_time) + "\n";
+   txt += "csv range utc: " + DAL_AstroDiag_DateTime(store.first_utc_time) + " -> " + DAL_AstroDiag_DateTime(store.last_utc_time) + "\n";
+   if(store.header_line != "")
+      txt += "header: " + StringSubstr(store.header_line, 0, 220) + "\n";
+   if(store.first_data_line != "")
+      txt += "first data: " + StringSubstr(store.first_data_line, 0, 220) + "\n";
+
+   if(!store.loaded)
+   {
+      txt += "\nDIAGNOSIS:\n";
+      if(store.load_stage == "FILE_OPEN_FAILED")
+      {
+         txt += "Problem is FILE ADDRESS / runtime file access.\n";
+         txt += "In Strategy Tester, <Terminal>\\MQL5\\Files is NOT the same as the agent runtime Files folder.\n";
+         txt += "Put CSV either under <MT5 Data Folder>\\MQL5\\Files or, safer, under <Common Data Folder>\\Files.\n";
+      }
+      else if(store.load_stage == "EMPTY_FILE" || store.load_stage == "HEADER_READ_FAILED")
+      {
+         txt += "Problem is file content: file exists but is empty/unreadable.\n";
+      }
+      else if(store.load_stage == "BAD_HEADER")
+      {
+         txt += "Problem is CSV header: required columns are missing.\n";
+         txt += "Required columns: broker_time, utc_time, feature_key.\n";
+      }
+      else if(store.load_stage == "NO_VALID_ROWS")
+      {
+         txt += "Problem is inside the CSV: header exists but no rows could be parsed.\n";
+         txt += "Check date format, delimiter, and required columns.\n";
+      }
+   }
+
+   return txt;
+}
+
+bool DAL_AstroMapStore_NearestIndices(
+   const DAL_AstroMapStore &store,
+   const datetime broker_time,
+   int &before_index,
+   int &after_index
+)
+{
+   before_index = -1;
+   after_index = -1;
+   if(!store.loaded || store.row_count <= 0)
+      return false;
+
+   int lo = 0;
+   int hi = store.row_count - 1;
+   while(lo <= hi)
+   {
+      int mid = (lo + hi) / 2;
+      datetime t = store.rows[mid].broker_time;
+      if(t == broker_time)
+      {
+         before_index = mid;
+         after_index = mid;
+         return true;
+      }
+      if(t < broker_time)
+      {
+         before_index = mid;
+         lo = mid + 1;
+      }
+      else
+      {
+         after_index = mid;
+         hi = mid - 1;
+      }
+   }
+   return true;
+}
+
+string DAL_AstroMapStore_LookupDiagnosticText(
+   const DAL_AstroMapStore &store,
+   const datetime requested_broker_time,
+   const bool require_exact,
+   const double broker_gmt_offset_hours
+)
+{
+   string txt = "ASTRO CSV LOOKUP DIAGNOSTIC\n";
+   txt += "file input: " + store.source_file + "\n";
+   txt += "runtime path: " + DAL_AstroDiag_RuntimeFilePath(store.source_file) + "\n";
+   txt += "common path:  " + DAL_AstroDiag_CommonFilePath(DAL_AstroCsv_BaseFileName(store.source_file)) + "\n";
+   txt += "fallback rule: normal Files first, then Common\\Files; each tries input path, root filename, and astro\\filename.\n";
+   txt += "load stage: " + store.load_stage + "\n";
+   txt += "loaded: " + (store.loaded ? "true" : "false") + " rows=" + IntegerToString(store.row_count) + "\n";
+   txt += "requested broker time: " + DAL_AstroDiag_DateTime(requested_broker_time) + "\n";
+   int offset_seconds = (int)MathRound(broker_gmt_offset_hours * 3600.0);
+   txt += "requested utc by input offset: " + DAL_AstroDiag_DateTime(requested_broker_time - offset_seconds) + "\n";
+   txt += "input broker GMT offset: " + DoubleToString(broker_gmt_offset_hours, 2) + "\n";
+   txt += "require exact: " + (require_exact ? "true" : "false") + "\n";
+   txt += "csv broker range: " + DAL_AstroDiag_DateTime(store.first_broker_time) + " -> " + DAL_AstroDiag_DateTime(store.last_broker_time) + "\n";
+   txt += "csv utc range: " + DAL_AstroDiag_DateTime(store.first_utc_time) + " -> " + DAL_AstroDiag_DateTime(store.last_utc_time) + "\n";
+
+   if(!store.loaded)
+   {
+      txt += "\nDIAGNOSIS: not a lookup problem. CSV was not loaded. See load diagnostic above.\n";
+      return txt;
+   }
+
+   int before_i = -1;
+   int after_i = -1;
+   DAL_AstroMapStore_NearestIndices(store, requested_broker_time, before_i, after_i);
+
+   if(before_i >= 0)
+   {
+      int delta_before = (int)(requested_broker_time - store.rows[before_i].broker_time);
+      txt += "nearest before/equal: " + DAL_AstroDiag_DateTime(store.rows[before_i].broker_time)
+          + " delta_sec=" + IntegerToString(delta_before) + "\n";
+   }
+   else
+      txt += "nearest before/equal: none\n";
+
+   if(after_i >= 0)
+   {
+      int delta_after = (int)(store.rows[after_i].broker_time - requested_broker_time);
+      txt += "nearest after/equal: " + DAL_AstroDiag_DateTime(store.rows[after_i].broker_time)
+          + " delta_sec=" + IntegerToString(delta_after) + "\n";
+   }
+   else
+      txt += "nearest after/equal: none\n";
+
+   txt += "\nDIAGNOSIS:\n";
+   if(requested_broker_time < store.first_broker_time || requested_broker_time > store.last_broker_time)
+   {
+      txt += "Problem is CSV DATE RANGE. File is loaded, but requested candle is outside CSV range.\n";
+      txt += "Regenerate CSV for this tester/live date range.\n";
+   }
+   else if(require_exact)
+   {
+      txt += "Problem is TIMESTAMP EXACT MATCH. File is loaded and date is inside range, but exact candle time was not found.\n";
+      txt += "Check timeframe, broker GMT offset, seconds alignment, and broker candle open time.\n";
+      txt += "For visual debugging, set InpRequireExactBarTime=false. For final research, fix alignment and turn exact back on.\n";
+   }
+   else
+   {
+      txt += "File and range are OK. Non-exact lookup should use nearest previous row. If still missing, row array may be unsorted.\n";
+   }
+
+   return txt;
+}
+
+bool DAL_AstroMapStore_LoadExcelCsv(
    DAL_AstroMapStore &store,
-   const string candidate_file,
+   const string csv_file_name,
    const double broker_gmt_offset_hours,
-   const int timeframe_minutes,
-   const bool use_common_files
+   const int timeframe_minutes = 1
 )
 {
    DAL_AstroMapStore_Reset(store);
-   store.source_file = use_common_files ? ("COMMON:" + candidate_file) : candidate_file;
+   store.source_file = csv_file_name;
    store.broker_gmt_offset_hours = broker_gmt_offset_hours;
    store.timeframe_minutes = timeframe_minutes;
+   store.load_stage = "START";
 
-   int flags = FILE_READ | FILE_TXT | FILE_ANSI;
-   if(use_common_files)
-      flags |= FILE_COMMON;
+   string opened_file = "";
+   string attempted_files = "";
+   int open_last_error = 0;
 
-   ResetLastError();
-   int h = FileOpen(candidate_file, flags);
+   int h = DAL_AstroCsv_FileOpenWithFallback(
+      csv_file_name,
+      opened_file,
+      attempted_files,
+      open_last_error
+   );
+
    if(h == INVALID_HANDLE)
    {
-      Print("DAL_AstroMapStore candidate failed: file=", candidate_file,
-            " common=", (use_common_files ? "true" : "false"),
-            " err=", GetLastError());
+      store.file_open_error = open_last_error;
+      store.load_stage = "FILE_OPEN_FAILED";
+      store.load_error = "FileOpen failed after fallback attempts. Tried: " + attempted_files + ". This is a path/runtime access problem, not a CSV parsing problem.";
+      Print(DAL_AstroMapStore_LoadDiagnosticText(store));
       return false;
    }
+
+   // From this point onward source_file is the actual file successfully opened.
+   // This makes the on-chart diagnostic match what MQL really read.
+   store.source_file = opened_file;
+   store.load_stage = "FILE_OPEN_OK";
 
    if(FileIsEnding(h))
    {
       FileClose(h);
-      Print("DAL_AstroMapStore candidate empty: file=", candidate_file,
-            " common=", (use_common_files ? "true" : "false"));
+      store.load_stage = "EMPTY_FILE";
+      store.load_error = "FileOpen succeeded, but file is empty.";
+      Print(DAL_AstroMapStore_LoadDiagnosticText(store));
       return false;
    }
 
    string header_line = FileReadString(h);
+   store.physical_lines = 1;
+   store.header_line = header_line;
+
+   if(header_line == "")
+   {
+      FileClose(h);
+      store.load_stage = "HEADER_READ_FAILED";
+      store.load_error = "FileOpen succeeded, but header line is empty.";
+      Print(DAL_AstroMapStore_LoadDiagnosticText(store));
+      return false;
+   }
+
    string headers[];
    if(!DAL_AstroCsv_SplitLine(header_line, headers))
    {
       FileClose(h);
-      Print("DAL_AstroMapStore bad header split: file=", candidate_file,
-            " common=", (use_common_files ? "true" : "false"));
+      store.load_stage = "HEADER_SPLIT_FAILED";
+      store.load_error = "Header line could not be split as CSV.";
+      Print(DAL_AstroMapStore_LoadDiagnosticText(store));
       return false;
    }
 
    for(int i = 0; i < ArraySize(headers); i++)
       headers[i] = DAL_AstroCsv_Unquote(headers[i]);
 
-   int i_broker = DAL_AstroCsv_HeaderIndex(headers, "broker_time");
-   int i_utc    = DAL_AstroCsv_HeaderIndex(headers, "utc_time");
-   int i_key    = DAL_AstroCsv_HeaderIndex(headers, "feature_key");
-   if(i_broker < 0 || i_utc < 0 || i_key < 0)
+   store.header_columns = ArraySize(headers);
+
+   int i_broker_time = DAL_AstroCsv_HeaderIndex(headers, "broker_time");
+   int i_utc_time    = DAL_AstroCsv_HeaderIndex(headers, "utc_time");
+   int i_feature_key = DAL_AstroCsv_HeaderIndex(headers, "feature_key");
+
+   if(i_broker_time < 0 || i_utc_time < 0 || i_feature_key < 0)
    {
       FileClose(h);
-      Print("DAL_AstroMapStore missing required header: file=", candidate_file,
-            " need broker_time,utc_time,feature_key");
+      store.load_stage = "BAD_HEADER";
+      store.load_error = "Required header missing. Required: broker_time, utc_time, feature_key.";
+      Print(DAL_AstroMapStore_LoadDiagnosticText(store));
       return false;
    }
 
@@ -234,16 +570,32 @@ bool DAL_AstroMapStore_LoadCsvCandidate(
    while(!FileIsEnding(h))
    {
       string line = FileReadString(h);
+      store.physical_lines++;
+
       if(line == "")
+      {
+         store.empty_lines++;
          continue;
+      }
+
+      if(store.first_data_line == "")
+         store.first_data_line = line;
 
       string cells[];
       if(!DAL_AstroCsv_SplitLine(line, cells))
+      {
+         store.split_failed_lines++;
+         store.skipped_lines++;
          continue;
+      }
 
       DAL_AstroMapRow row;
       if(!DAL_AstroCsv_ReadMapRow(headers, cells, row))
+      {
+         store.parse_failed_lines++;
+         store.skipped_lines++;
          continue;
+      }
 
       if(count >= capacity)
       {
@@ -259,54 +611,23 @@ bool DAL_AstroMapStore_LoadCsvCandidate(
    store.row_count = count;
    store.loaded = (count > 0);
 
-   if(store.loaded)
+   if(count > 0)
    {
-      Print("DAL Astro Map Store loaded: rows=", count,
-            " file=", candidate_file,
-            " common=", (use_common_files ? "true" : "false"));
-      return true;
+      store.first_broker_time = store.rows[0].broker_time;
+      store.last_broker_time  = store.rows[count - 1].broker_time;
+      store.first_utc_time    = store.rows[0].utc_time;
+      store.last_utc_time     = store.rows[count - 1].utc_time;
+      store.load_stage = "LOAD_OK";
+      store.load_error = "";
+   }
+   else
+   {
+      store.load_stage = "NO_VALID_ROWS";
+      store.load_error = "Header was readable, but no valid astro rows were parsed.";
    }
 
-   Print("DAL_AstroMapStore no valid rows: file=", candidate_file,
-         " common=", (use_common_files ? "true" : "false"));
-   return false;
-}
-
-bool DAL_AstroMapStore_LoadExcelCsv(
-   DAL_AstroMapStore &store,
-   const string csv_file_name,
-   const double broker_gmt_offset_hours,
-   const int timeframe_minutes = 1
-)
-{
-   // Runtime file resolution contract:
-   // 1. Try exactly what the input says under normal MQL5\\Files.
-   // 2. Try the basename directly under MQL5\\Files.
-   // 3. Try astro\\basename under MQL5\\Files.
-   // 4. Repeat the same three attempts under MetaQuotes Common\\Files.
-   // This makes the same code work in live charts, Visual Tester agents,
-   // root Files layout, and Files\\astro layout.
-   string base = DAL_AstroCsv_BaseName(csv_file_name);
-   string c0 = csv_file_name;
-   string c1 = base;
-   string c2 = "astro\\" + base;
-
-   if(DAL_AstroMapStore_LoadCsvCandidate(store, c0, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
-   if(c1 != c0 && DAL_AstroMapStore_LoadCsvCandidate(store, c1, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
-   if(c2 != c0 && c2 != c1 && DAL_AstroMapStore_LoadCsvCandidate(store, c2, broker_gmt_offset_hours, timeframe_minutes, false)) return true;
-
-   if(DAL_AstroMapStore_LoadCsvCandidate(store, c0, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
-   if(c1 != c0 && DAL_AstroMapStore_LoadCsvCandidate(store, c1, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
-   if(c2 != c0 && c2 != c1 && DAL_AstroMapStore_LoadCsvCandidate(store, c2, broker_gmt_offset_hours, timeframe_minutes, true)) return true;
-
-   DAL_AstroMapStore_Reset(store);
-   store.source_file = csv_file_name;
-   store.broker_gmt_offset_hours = broker_gmt_offset_hours;
-   store.timeframe_minutes = timeframe_minutes;
-   Print("DAL_AstroMapStore_LoadExcelCsv failed all candidates. input=", csv_file_name,
-         " basename=", base,
-         " normal roots=MQL5\\Files, common root=Terminal\\Common\\Files");
-   return false;
+   Print(DAL_AstroMapStore_LoadDiagnosticText(store));
+   return store.loaded;
 }
 
 bool DAL_AstroMapStore_FindByBrokerTime(
@@ -396,26 +717,97 @@ string DAL_AstroMapRow_ToMultilineText(const DAL_AstroMapRow &r)
    return txt;
 }
 
-void DAL_AstroMap_DrawPanel(
+string DAL_AstroDiag_TruncateLine(const string line, const int max_chars = 185)
+{
+   if(max_chars <= 0)
+      return line;
+   if(StringLen(line) <= max_chars)
+      return line;
+   return StringSubstr(line, 0, max_chars - 3) + "...";
+}
+
+void DAL_AstroDiag_DeletePanel(const long chart_id, const string prefix)
+{
+   ObjectDelete(chart_id, prefix + "_ASTRO_MAP_PANEL");
+   for(int i = 0; i < DAL_ASTRO_DIAG_MAX_LINES; i++)
+      ObjectDelete(chart_id, prefix + "_ASTRO_DIAG_LINE_" + IntegerToString(i));
+}
+
+void DAL_AstroDiag_DrawLine(
    const long chart_id,
-   const string prefix,
-   const DAL_AstroMapRow &r,
-   const int x = 10,
-   const int y = 20,
-   const color text_color = clrWhite
+   const string name,
+   const string text,
+   const int x,
+   const int y,
+   const color clr,
+   const int font_size
 )
 {
-   string name = prefix + "_ASTRO_MAP_PANEL";
    if(ObjectFind(chart_id, name) < 0)
       ObjectCreate(chart_id, name, OBJ_LABEL, 0, 0, 0);
 
    ObjectSetInteger(chart_id, name, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    ObjectSetInteger(chart_id, name, OBJPROP_XDISTANCE, x);
    ObjectSetInteger(chart_id, name, OBJPROP_YDISTANCE, y);
-   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 9);
+   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, font_size);
    ObjectSetString(chart_id, name, OBJPROP_FONT, "Consolas");
-   ObjectSetInteger(chart_id, name, OBJPROP_COLOR, text_color);
-   ObjectSetString(chart_id, name, OBJPROP_TEXT, DAL_AstroMapRow_ToMultilineText(r));
+   ObjectSetInteger(chart_id, name, OBJPROP_COLOR, clr);
+   ObjectSetInteger(chart_id, name, OBJPROP_SELECTABLE, false);
+   ObjectSetInteger(chart_id, name, OBJPROP_HIDDEN, true);
+   ObjectSetString(chart_id, name, OBJPROP_TEXT, DAL_AstroDiag_TruncateLine(text));
+}
+
+void DAL_AstroDiag_DrawPanel(
+   const long chart_id,
+   const string prefix,
+   const string text,
+   const int x = 10,
+   const int y = 90,
+   const color clr = clrWhite,
+   const int font_size = 8,
+   const int line_height = 16,
+   const bool clear_old = true
+)
+{
+   if(clear_old)
+      DAL_AstroDiag_DeletePanel(chart_id, prefix);
+
+   string lines[];
+   ushort sep = StringGetCharacter("\n", 0);
+   int n = StringSplit(text, sep, lines);
+   if(n <= 0)
+      return;
+
+   int max_lines = MathMin(n, DAL_ASTRO_DIAG_MAX_LINES);
+   for(int i = 0; i < max_lines; i++)
+   {
+      color line_clr = clr;
+      if(StringFind(lines[i], "FILE_OPEN_FAILED") >= 0 || StringFind(lines[i], "CSV NOT LOADED") >= 0)
+         line_clr = clrTomato;
+      else if(StringFind(lines[i], "DIAGNOSIS") >= 0)
+         line_clr = clrGold;
+      else if(StringFind(lines[i], "runtime path") >= 0 || StringFind(lines[i], "file input") >= 0)
+         line_clr = clrAqua;
+
+      DAL_AstroDiag_DrawLine(chart_id, prefix + "_ASTRO_DIAG_LINE_" + IntegerToString(i), lines[i], x, y + i * line_height, line_clr, font_size);
+   }
+
+   if(n > max_lines)
+      DAL_AstroDiag_DrawLine(chart_id, prefix + "_ASTRO_DIAG_LINE_" + IntegerToString(max_lines), "... truncated lines=" + IntegerToString(n - max_lines), x, y + max_lines * line_height, clrGold, font_size);
+
+   ChartRedraw(chart_id);
+}
+
+void DAL_AstroMap_DrawPanel(
+   const long chart_id,
+   const string prefix,
+   const DAL_AstroMapRow &r,
+   const int x = 10,
+   const int y = 90,
+   const color text_color = clrWhite
+)
+{
+   DAL_AstroDiag_DrawPanel(chart_id, prefix, DAL_AstroMapRow_ToMultilineText(r), x, y, text_color, 8, 16, true);
 }
 
 void DAL_AstroMap_DrawStatus(
@@ -423,21 +815,11 @@ void DAL_AstroMap_DrawStatus(
    const string prefix,
    const string status,
    const int x = 10,
-   const int y = 20,
+   const int y = 90,
    const color text_color = clrYellow
 )
 {
-   string name = prefix + "_ASTRO_MAP_PANEL";
-   if(ObjectFind(chart_id, name) < 0)
-      ObjectCreate(chart_id, name, OBJ_LABEL, 0, 0, 0);
-
-   ObjectSetInteger(chart_id, name, OBJPROP_CORNER, CORNER_LEFT_UPPER);
-   ObjectSetInteger(chart_id, name, OBJPROP_XDISTANCE, x);
-   ObjectSetInteger(chart_id, name, OBJPROP_YDISTANCE, y);
-   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 9);
-   ObjectSetString(chart_id, name, OBJPROP_FONT, "Consolas");
-   ObjectSetInteger(chart_id, name, OBJPROP_COLOR, text_color);
-   ObjectSetString(chart_id, name, OBJPROP_TEXT, status);
+   DAL_AstroDiag_DrawPanel(chart_id, prefix, status, x, y, text_color, 8, 16, true);
 }
 
 #endif

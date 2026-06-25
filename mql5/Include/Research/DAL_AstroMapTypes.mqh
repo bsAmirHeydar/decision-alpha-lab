@@ -23,6 +23,7 @@ struct DAL_AstroBodyState
    int    sign_index;
    double degree;
    int    retro;
+   int    house;
 };
 
 struct DAL_AstroAspectState
@@ -47,6 +48,14 @@ struct DAL_AstroMapRow
    double   moon_phase_angle;
    string   moon_phase_bucket;
    double   moon_illumination_proxy;
+
+   bool     houses_valid;
+   double   house_lat;
+   double   house_lon;
+   string   house_system;
+   double   asc_lon;
+   double   mc_lon;
+   double   house_cusp[12];
 
    DAL_AstroBodyState   body[DAL_ASTRO_BODY_COUNT];
    DAL_AstroAspectState aspect[DAL_ASTRO_ASPECT_PAIR_COUNT];
@@ -153,6 +162,7 @@ void DAL_AstroBodyState_Reset(DAL_AstroBodyState &b, const string name)
    b.sign_index = -1;
    b.degree = 0.0;
    b.retro = 0;
+   b.house = -1;
 }
 
 void DAL_AstroAspectState_Reset(DAL_AstroAspectState &a, const string pair)
@@ -175,6 +185,15 @@ void DAL_AstroMapRow_Reset(DAL_AstroMapRow &r)
    r.moon_phase_angle = 0.0;
    r.moon_phase_bucket = "";
    r.moon_illumination_proxy = 0.0;
+
+   r.houses_valid = false;
+   r.house_lat = 0.0;
+   r.house_lon = 0.0;
+   r.house_system = "";
+   r.asc_lon = 0.0;
+   r.mc_lon = 0.0;
+   for(int h = 0; h < 12; h++)
+      r.house_cusp[h] = 0.0;
 
    for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
       DAL_AstroBodyState_Reset(r.body[i], DAL_AstroBodyName(i));

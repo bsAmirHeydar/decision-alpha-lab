@@ -93,6 +93,7 @@ class PlanetState:
     speed_dist: float = 0.0
     ra: float = 0.0
     decl: float = 0.0
+    house: int = -1
 
     @property
     def sign_index(self) -> int:
@@ -131,6 +132,13 @@ class AstroRow:
     moon_phase_angle: float = 0.0
     moon_phase_bucket: str = "unknown"
     moon_illumination_proxy: float = 0.0
+    houses_valid: bool = False
+    house_lat: float = 0.0
+    house_lon: float = 0.0
+    house_system: str = ""
+    asc_lon: float = 0.0
+    mc_lon: float = 0.0
+    house_cusps: List[float] = field(default_factory=list)
     feature_key: str = ""
     summary: str = ""
 
@@ -197,6 +205,45 @@ def moon_phase_bucket(angle: float) -> str:
             return name
     return "new"
 
+
+
+
+def longitude_in_arc(lon: float, start: float, end: float) -> bool:
+    lon = norm360(lon)
+    start = norm360(start)
+    end = norm360(end)
+    if start <= end:
+        return start <= lon < end
+    return lon >= start or lon < end
+
+
+def house_for_longitude(lon: float, cusps: Sequence[float]) -> int:
+    if len(cusps) < 12:
+        return -1
+    for i in range(12):
+        start = cusps[i]
+        end = cusps[(i + 1) % 12]
+        if longitude_in_arc(lon, start, end):
+            return i + 1
+    return -1
+
+
+def calc_houses(jd_ut: float, lat: Optional[float], lon: Optional[float], system: str) -> Tuple[bool, List[float], float, float]:
+    if lat is None or lon is None:
+        return False, [0.0] * 12, 0.0, 0.0
+    if not (-90.0 <= lat <= 90.0):
+        raise ValueError(f"house latitude out of range: {lat}")
+    if not (-180.0 <= lon <= 180.0):
+        raise ValueError(f"house longitude out of range: {lon}")
+    hsys = (system or "P").strip()[:1] or "P"
+    try:
+        cusps, ascmc = swe.houses_ex(jd_ut, lat, lon, hsys.encode("ascii"))
+    except TypeError:
+        cusps, ascmc = swe.houses_ex(jd_ut, lat, lon, hsys)
+    cusps12 = [norm360(float(x)) for x in list(cusps)[:12]]
+    asc = norm360(float(ascmc[0])) if len(ascmc) > 0 else 0.0
+    mc = norm360(float(ascmc[1])) if len(ascmc) > 1 else 0.0
+    return True, cusps12, asc, mc
 
 def calc_planet(jd_ut: float, name: str, planet_id: int, flags: int) -> PlanetState:
     xx, ret = swe.calc_ut(jd_ut, planet_id, flags)
@@ -302,6 +349,9 @@ def generate_rows(
     timeframe_minutes: int,
     broker_gmt_offset_hours: float,
     aspect_orb_limit: float,
+    house_lat: Optional[float] = None,
+    house_lon: Optional[float] = None,
+    house_system: str = "P",
 ) -> List[AstroRow]:
     if timeframe_minutes <= 0:
         raise ValueError("timeframe_minutes must be positive")
@@ -322,6 +372,18 @@ def generate_rows(
         row = AstroRow(broker_time=t_broker, utc_time=t_utc, jd_ut=jd)
         for name, pid in PLANETS:
             row.planets[name] = calc_planet(jd, name, pid, flags)
+
+        houses_valid, house_cusps, asc_lon, mc_lon = calc_houses(jd, house_lat, house_lon, house_system)
+        row.houses_valid = houses_valid
+        row.house_lat = house_lat if house_lat is not None else 0.0
+        row.house_lon = house_lon if house_lon is not None else 0.0
+        row.house_system = (house_system or "P").strip()[:1] if houses_valid else ""
+        row.house_cusps = house_cusps
+        row.asc_lon = asc_lon
+        row.mc_lon = mc_lon
+        if houses_valid:
+            for st in row.planets.values():
+                st.house = house_for_longitude(st.lon, house_cusps)
 
         for a_name, b_name in DEFAULT_ASPECT_PAIRS:
             row.aspects[f"{a_name}_{b_name}"] = calc_aspect(row.planets[a_name], row.planets[b_name])
@@ -364,7 +426,15 @@ def make_headers() -> List[str]:
         "moon_phase_angle",
         "moon_phase_bucket",
         "moon_illumination_proxy",
+        "houses_valid",
+        "house_lat",
+        "house_lon",
+        "house_system",
+        "asc_lon",
+        "mc_lon",
     ]
+    for h in range(1, 13):
+        headers.append(f"house_{h}_cusp")
     for p, _ in PLANETS:
         headers += [
             f"{p}_lon",
@@ -379,6 +449,7 @@ def make_headers() -> List[str]:
             f"{p}_sign_index",
             f"{p}_degree",
             f"{p}_retro",
+            f"{p}_house",
         ]
     for a, b in DEFAULT_ASPECT_PAIRS:
         key = f"{a}_{b}"
@@ -402,7 +473,16 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         "moon_phase_angle": f"{row.moon_phase_angle:.8f}",
         "moon_phase_bucket": row.moon_phase_bucket,
         "moon_illumination_proxy": f"{row.moon_illumination_proxy:.8f}",
+        "houses_valid": 1 if row.houses_valid else 0,
+        "house_lat": f"{row.house_lat:.8f}",
+        "house_lon": f"{row.house_lon:.8f}",
+        "house_system": row.house_system,
+        "asc_lon": f"{row.asc_lon:.8f}",
+        "mc_lon": f"{row.mc_lon:.8f}",
     }
+    cusps = row.house_cusps if row.house_cusps else [0.0] * 12
+    for h in range(1, 13):
+        d[f"house_{h}_cusp"] = f"{cusps[h - 1]:.8f}"
     for p, _ in PLANETS:
         st = row.planets[p]
         d.update({
@@ -418,6 +498,7 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{p}_sign_index": st.sign_index,
             f"{p}_degree": f"{st.degree_in_sign:.8f}",
             f"{p}_retro": st.retrograde,
+            f"{p}_house": st.house,
         })
     for a, b in DEFAULT_ASPECT_PAIRS:
         key = f"{a}_{b}"
@@ -544,10 +625,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--out-csv", default="", help="Output CSV path for MQL5 runtime reading")
     parser.add_argument("--out-xlsx", default="", help="Optional Excel .xlsx path for human inspection")
     parser.add_argument("--aspect-orb-limit", type=float, default=6.0, help="Aspect orb limit used inside feature_key")
+    parser.add_argument("--house-lat", type=float, default=None, help="Optional latitude for house cusps. If omitted, houses are disabled.")
+    parser.add_argument("--house-lon", type=float, default=None, help="Optional longitude for house cusps. If omitted, houses are disabled.")
+    parser.add_argument("--house-system", default="P", help="Swiss Ephemeris house system code. Default P=Placidus.")
     args = parser.parse_args(argv)
 
     if args.ephe_path:
         swe.set_ephe_path(args.ephe_path)
+
+    if (args.house_lat is None) != (args.house_lon is None):
+        raise ValueError("Provide both --house-lat and --house-lon, or omit both to disable houses")
 
     start = parse_datetime(args.start_broker)
     end = parse_datetime(args.end_broker)
@@ -557,6 +644,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         timeframe_minutes=args.timeframe_minutes,
         broker_gmt_offset_hours=args.broker_gmt_offset_hours,
         aspect_orb_limit=args.aspect_orb_limit,
+        house_lat=args.house_lat,
+        house_lon=args.house_lon,
+        house_system=args.house_system,
     )
     out_csv = args.out_csv or args.out
     if not out_csv and not args.out_xlsx:
