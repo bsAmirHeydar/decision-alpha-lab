@@ -180,6 +180,37 @@ int DAL_AstroCsv_HeaderIndex(const string &headers[], const string name)
    return -1;
 }
 
+// Header lookup cache: CSV schemas have hundreds of columns and thousands of rows.
+// Without this cache each field lookup scans the whole header on every row, which
+// makes natal-enabled backtests feel like they are running "on tick" even when the
+// caller is already bar-gated. The cache is reset once per loaded CSV and each
+// header name is resolved at most once.
+string g_DAL_AstroCsv_HeaderCacheNames[];
+int    g_DAL_AstroCsv_HeaderCacheIndices[];
+
+void DAL_AstroCsv_HeaderCacheReset()
+{
+   ArrayResize(g_DAL_AstroCsv_HeaderCacheNames, 0);
+   ArrayResize(g_DAL_AstroCsv_HeaderCacheIndices, 0);
+}
+
+int DAL_AstroCsv_HeaderIndexCached(const string &headers[], const string name)
+{
+   for(int i = 0; i < ArraySize(g_DAL_AstroCsv_HeaderCacheNames); i++)
+   {
+      if(g_DAL_AstroCsv_HeaderCacheNames[i] == name)
+         return g_DAL_AstroCsv_HeaderCacheIndices[i];
+   }
+
+   int idx = DAL_AstroCsv_HeaderIndex(headers, name);
+   int n = ArraySize(g_DAL_AstroCsv_HeaderCacheNames);
+   ArrayResize(g_DAL_AstroCsv_HeaderCacheNames, n + 1);
+   ArrayResize(g_DAL_AstroCsv_HeaderCacheIndices, n + 1);
+   g_DAL_AstroCsv_HeaderCacheNames[n] = name;
+   g_DAL_AstroCsv_HeaderCacheIndices[n] = idx;
+   return idx;
+}
+
 string DAL_AstroCsv_GetString(const string &cells[], const int idx, const string fallback = "")
 {
    if(idx < 0 || idx >= ArraySize(cells))
@@ -221,21 +252,21 @@ void DAL_AstroCsv_ReadBody(
 {
    b.name       = body_name;
    string key = prefix + body_name;
-   b.lon        = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_lon"));
-   b.lat        = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_lat"));
-   b.dist       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_dist"));
-   b.speed_lon  = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_speed_lon"));
-   b.speed_lat  = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_speed_lat"));
-   b.speed_dist = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_speed_dist"));
-   b.ra         = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_ra"));
-   b.decl       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_decl"));
-   b.speed_decl = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_speed_decl"));
-   b.sign       = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_sign"));
-   b.sign_index = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_sign_index"), -1);
-   b.degree     = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_degree"));
-   b.retro      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_retro"));
-   b.oob        = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_oob"));
-   b.house      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, key + "_house"), -1);
+   b.lon        = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_lon"));
+   b.lat        = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_lat"));
+   b.dist       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_dist"));
+   b.speed_lon  = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_lon"));
+   b.speed_lat  = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_lat"));
+   b.speed_dist = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_dist"));
+   b.ra         = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_ra"));
+   b.decl       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_decl"));
+   b.speed_decl = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_decl"));
+   b.sign       = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_sign"));
+   b.sign_index = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_sign_index"), -1);
+   b.degree     = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_degree"));
+   b.retro      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_retro"));
+   b.oob        = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_oob"));
+   b.house      = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_house"), -1);
 }
 
 void DAL_AstroCsv_ReadAspect(
@@ -246,10 +277,10 @@ void DAL_AstroCsv_ReadAspect(
 )
 {
    a.pair     = pair;
-   a.angle    = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_angle"));
-   a.aspect   = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_aspect"), "none");
-   a.orb      = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_orb"), 999.0);
-   a.applying = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_applying"));
+   a.angle    = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_angle"));
+   a.aspect   = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_aspect"), "none");
+   a.orb      = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_orb"), 999.0);
+   a.applying = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_applying"));
 }
 
 void DAL_AstroCsv_ReadTransitNatalAspect(
@@ -270,67 +301,67 @@ void DAL_AstroCsv_ReadDeclinationPair(
 )
 {
    a.pair = pair;
-   a.relation = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_decl_relation"), "none");
-   a.decl_delta = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_decl_delta"), 999.0);
-   a.orb = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_decl_orb"), 999.0);
-   a.applying = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, pair + "_decl_applying"));
+   a.relation = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_decl_relation"), "none");
+   a.decl_delta = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_decl_delta"), 999.0);
+   a.orb = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_decl_orb"), 999.0);
+   a.applying = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, pair + "_decl_applying"));
 }
 
 bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL_AstroMapRow &r)
 {
    DAL_AstroMapRow_Reset(r);
 
-   int i_broker_time = DAL_AstroCsv_HeaderIndex(headers, "broker_time");
-   int i_utc_time    = DAL_AstroCsv_HeaderIndex(headers, "utc_time");
-   int i_key         = DAL_AstroCsv_HeaderIndex(headers, "feature_key");
+   int i_broker_time = DAL_AstroCsv_HeaderIndexCached(headers, "broker_time");
+   int i_utc_time    = DAL_AstroCsv_HeaderIndexCached(headers, "utc_time");
+   int i_key         = DAL_AstroCsv_HeaderIndexCached(headers, "feature_key");
 
    if(i_broker_time < 0 || i_utc_time < 0 || i_key < 0)
       return false;
 
    r.broker_time = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, i_broker_time));
    r.utc_time    = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, i_utc_time));
-   r.unix_utc    = DAL_AstroCsv_GetLong(cells, DAL_AstroCsv_HeaderIndex(headers, "unix_utc"));
-   r.jd_ut       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "jd_ut"));
-   r.schema_version = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "schema_version"));
-   r.doctrine_id = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "doctrine_id"));
-   r.zodiac_mode = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "zodiac_mode"));
-   r.body_universe = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "body_universe"));
-   r.orb_family = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "orb_family"));
-   r.aspect_orb_limit = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "aspect_orb_limit"));
-   r.parallel_orb_limit = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "parallel_orb_limit"));
+   r.unix_utc    = DAL_AstroCsv_GetLong(cells, DAL_AstroCsv_HeaderIndexCached(headers, "unix_utc"));
+   r.jd_ut       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "jd_ut"));
+   r.schema_version = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "schema_version"));
+   r.doctrine_id = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "doctrine_id"));
+   r.zodiac_mode = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "zodiac_mode"));
+   r.body_universe = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "body_universe"));
+   r.orb_family = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "orb_family"));
+   r.aspect_orb_limit = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "aspect_orb_limit"));
+   r.parallel_orb_limit = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "parallel_orb_limit"));
    r.feature_key = DAL_AstroCsv_GetString(cells, i_key);
-   r.summary     = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "summary"));
+   r.summary     = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "summary"));
 
-   r.moon_phase_angle = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "moon_phase_angle"));
-   r.moon_phase_bucket = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "moon_phase_bucket"));
-   r.moon_illumination_proxy = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "moon_illumination_proxy"));
+   r.moon_phase_angle = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_phase_angle"));
+   r.moon_phase_bucket = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_phase_bucket"));
+   r.moon_illumination_proxy = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_illumination_proxy"));
 
-   r.houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, "houses_valid"), 0) == 1);
-   r.house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_lat"));
-   r.house_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_lon"));
-   r.house_system = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "house_system"));
-   r.asc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "asc_lon"));
-   r.mc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "mc_lon"));
+   r.houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, "houses_valid"), 0) == 1);
+   r.house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "house_lat"));
+   r.house_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "house_lon"));
+   r.house_system = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "house_system"));
+   r.asc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "asc_lon"));
+   r.mc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "mc_lon"));
    for(int h = 0; h < 12; h++)
-      r.house_cusp[h] = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "house_" + IntegerToString(h + 1) + "_cusp"));
+      r.house_cusp[h] = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "house_" + IntegerToString(h + 1) + "_cusp"));
 
-    r.natal_enabled = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_enabled"), 0) == 1);
-    r.natal_label = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_label"));
-    r.natal_local_time = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_local_time")));
-    r.natal_utc_time = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_utc_time")));
-    r.natal_utc_offset_hours = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_utc_offset_hours"));
-    r.natal_houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_houses_valid"), 0) == 1);
-    r.natal_house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_house_lat"));
-    r.natal_house_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_house_lon"));
-    r.natal_house_system = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_house_system"));
-    r.natal_asc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_asc_lon"));
-    r.natal_mc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_mc_lon"));
+    r.natal_enabled = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_enabled"), 0) == 1);
+    r.natal_label = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_label"));
+    r.natal_local_time = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_local_time")));
+    r.natal_utc_time = DAL_AstroCsv_ParseTime(DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_utc_time")));
+    r.natal_utc_offset_hours = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_utc_offset_hours"));
+    r.natal_houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_houses_valid"), 0) == 1);
+    r.natal_house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_house_lat"));
+    r.natal_house_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_house_lon"));
+    r.natal_house_system = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_house_system"));
+    r.natal_asc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_asc_lon"));
+    r.natal_mc_lon = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_mc_lon"));
     for(int h = 0; h < 12; h++)
-       r.natal_house_cusp[h] = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndex(headers, "natal_house_" + IntegerToString(h + 1) + "_cusp"));
+       r.natal_house_cusp[h] = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "natal_house_" + IntegerToString(h + 1) + "_cusp"));
 
-    r.astro_bias_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "astro_bias_text"));
-    r.astro_path_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "astro_path_text"));
-    r.astro_signal_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndex(headers, "astro_signal_text"));
+    r.astro_bias_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "astro_bias_text"));
+    r.astro_path_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "astro_path_text"));
+    r.astro_signal_text = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "astro_signal_text"));
 
    for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
       DAL_AstroCsv_ReadBody(headers, cells, "", DAL_AstroBodyName(i), r.body[i]);
@@ -346,7 +377,7 @@ bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL
    for(int j = 0; j < DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT; j++)
       DAL_AstroCsv_ReadDeclinationPair(headers, cells, DAL_AstroTransitNatalDeclName(j), r.transit_natal_decl[j]);
    for(int j = 0; j < DAL_ASTRO_NATAL_CORE_COUNT; j++)
-      r.transit_in_natal_house[j] = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndex(headers, DAL_AstroNatalCoreBodyName(j) + "_in_natal_house"), -1);
+      r.transit_in_natal_house[j] = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, DAL_AstroNatalCoreBodyName(j) + "_in_natal_house"), -1);
 
    return (r.broker_time > 0 && r.utc_time > 0 && r.feature_key != "");
 }
@@ -611,11 +642,12 @@ bool DAL_AstroMapStore_LoadExcelCsv(
    for(int i = 0; i < ArraySize(headers); i++)
       headers[i] = DAL_AstroCsv_Unquote(headers[i]);
 
+   DAL_AstroCsv_HeaderCacheReset();
    store.header_columns = ArraySize(headers);
 
-   int i_broker_time = DAL_AstroCsv_HeaderIndex(headers, "broker_time");
-   int i_utc_time    = DAL_AstroCsv_HeaderIndex(headers, "utc_time");
-   int i_feature_key = DAL_AstroCsv_HeaderIndex(headers, "feature_key");
+   int i_broker_time = DAL_AstroCsv_HeaderIndexCached(headers, "broker_time");
+   int i_utc_time    = DAL_AstroCsv_HeaderIndexCached(headers, "utc_time");
+   int i_feature_key = DAL_AstroCsv_HeaderIndexCached(headers, "feature_key");
 
    if(i_broker_time < 0 || i_utc_time < 0 || i_feature_key < 0)
    {
@@ -734,6 +766,35 @@ bool DAL_AstroMapStore_FindByBrokerTime(
       return true;
    }
    return false;
+}
+
+int DAL_AstroMapStore_FindIndexByBrokerTime(
+   const DAL_AstroMapStore &store,
+   const datetime broker_time,
+   const bool exact = true
+)
+{
+   if(!store.loaded || store.row_count <= 0)
+      return -1;
+
+   int lo = 0;
+   int hi = store.row_count - 1;
+   int best = -1;
+   while(lo <= hi)
+   {
+      int mid = (lo + hi) / 2;
+      datetime t = store.rows[mid].broker_time;
+      if(t == broker_time)
+         return mid;
+      if(t < broker_time)
+      {
+         best = mid;
+         lo = mid + 1;
+      }
+      else
+         hi = mid - 1;
+   }
+   return exact ? -1 : best;
 }
 
 bool DAL_AstroMapStore_FindForCandleOpen(

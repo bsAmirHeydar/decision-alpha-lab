@@ -3,8 +3,46 @@
 
 #include <Research/DAL_AstroExecutionStateMachine.mqh>
 
+string DAL_AstroJournal_Header()
+{
+   return "broker_time,utc_time,family_name,doctrine_id,schema_version,phase,action,position_direction,entry_signal,exit_signal,direction_name,regime_name,entry_score,exit_score,long_bias_score,short_bias_score,path_score,friction_score,volatility_score,natal_activation_score,macro_timing_score,meso_timing_score,micro_timing_score,minute_window_score,minute_exhaustion_score,trigger_state,macro_context,meso_context,micro_context,minute_context,feature_key,astro_trade_key,astro_language,reason,hold_bars\r\n";
+}
+
+bool DAL_AstroJournal_EnsureParentFolder(const string file_name, const bool use_common)
+{
+   int last_slash = -1;
+   string normalized = file_name;
+   StringReplace(normalized, "/", "\\");
+   for(int i = 0; i < StringLen(normalized); i++)
+   {
+      if(StringSubstr(normalized, i, 1) == "\\")
+         last_slash = i;
+   }
+   if(last_slash <= 0)
+      return true;
+
+   string folder = StringSubstr(normalized, 0, last_slash);
+   int flags = use_common ? FILE_COMMON : 0;
+   string acc = "";
+   for(int j = 0; j < StringLen(folder); j++)
+   {
+      string ch = StringSubstr(folder, j, 1);
+      if(ch == "\\")
+      {
+         if(acc != "")
+            FolderCreate(acc, flags);
+      }
+      acc += ch;
+   }
+   if(acc != "")
+      FolderCreate(acc, flags);
+   return true;
+}
+
 bool DAL_AstroJournal_EnsureHeader(const string file_name, const bool use_common)
 {
+   DAL_AstroJournal_EnsureParentFolder(file_name, use_common);
+
    ResetLastError();
    int flags = FILE_READ | FILE_TXT | FILE_ANSI;
    if(use_common)
@@ -23,7 +61,7 @@ bool DAL_AstroJournal_EnsureHeader(const string file_name, const bool use_common
    if(h == INVALID_HANDLE)
       return false;
 
-   FileWriteString(h, "broker_time,utc_time,family_name,doctrine_id,schema_version,phase,action,position_direction,entry_signal,exit_signal,direction_name,regime_name,entry_score,exit_score,long_bias_score,short_bias_score,path_score,friction_score,volatility_score,natal_activation_score,macro_timing_score,meso_timing_score,micro_timing_score,minute_window_score,minute_exhaustion_score,trigger_state,macro_context,meso_context,micro_context,minute_context,feature_key,astro_trade_key,astro_language,reason,hold_bars\r\n");
+   FileWriteString(h, DAL_AstroJournal_Header());
    FileClose(h);
    return true;
 }
@@ -37,27 +75,13 @@ string DAL_AstroJournal_Safe(string value)
    return value;
 }
 
-bool DAL_AstroJournal_Append(
-   const string file_name,
-   const bool use_common,
+string DAL_AstroJournal_Line(
    const DAL_AstroMapRow &row,
    const DAL_AstroPureSignal &signal,
    const DAL_AstroExecState &state
 )
 {
-   if(!DAL_AstroJournal_EnsureHeader(file_name, use_common))
-      return false;
-
-   int flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI;
-   if(use_common)
-      flags |= FILE_COMMON;
-   ResetLastError();
-   int h = FileOpen(file_name, flags);
-   if(h == INVALID_HANDLE)
-      return false;
-
-   FileSeek(h, 0, SEEK_END);
-   string line =
+   return
       TimeToString(row.broker_time, TIME_DATE | TIME_SECONDS) + "," +
       TimeToString(row.utc_time, TIME_DATE | TIME_SECONDS) + "," +
       DAL_AstroJournal_Safe(state.family_name) + "," +
@@ -93,7 +117,67 @@ bool DAL_AstroJournal_Append(
       DAL_AstroJournal_Safe(signal.astro_language) + "," +
       DAL_AstroJournal_Safe(state.last_reason) + "," +
       IntegerToString(state.hold_bars) + "\r\n";
-   FileWriteString(h, line);
+}
+
+bool DAL_AstroJournal_OpenReset(const string file_name, const bool use_common, int &handle)
+{
+   handle = INVALID_HANDLE;
+   DAL_AstroJournal_EnsureParentFolder(file_name, use_common);
+
+   int flags = FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(use_common)
+      flags |= FILE_COMMON;
+   ResetLastError();
+   handle = FileOpen(file_name, flags);
+   if(handle == INVALID_HANDLE)
+      return false;
+   FileWriteString(handle, DAL_AstroJournal_Header());
+   return true;
+}
+
+bool DAL_AstroJournal_WriteHandle(
+   const int handle,
+   const DAL_AstroMapRow &row,
+   const DAL_AstroPureSignal &signal,
+   const DAL_AstroExecState &state
+)
+{
+   if(handle == INVALID_HANDLE)
+      return false;
+   FileWriteString(handle, DAL_AstroJournal_Line(row, signal, state));
+   return true;
+}
+
+bool DAL_AstroJournal_ResetFile(const string file_name, const bool use_common)
+{
+   int h = INVALID_HANDLE;
+   if(!DAL_AstroJournal_OpenReset(file_name, use_common, h))
+      return false;
+   FileClose(h);
+   return true;
+}
+
+bool DAL_AstroJournal_Append(
+   const string file_name,
+   const bool use_common,
+   const DAL_AstroMapRow &row,
+   const DAL_AstroPureSignal &signal,
+   const DAL_AstroExecState &state
+)
+{
+   if(!DAL_AstroJournal_EnsureHeader(file_name, use_common))
+      return false;
+
+   int flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(use_common)
+      flags |= FILE_COMMON;
+   ResetLastError();
+   int h = FileOpen(file_name, flags);
+   if(h == INVALID_HANDLE)
+      return false;
+
+   FileSeek(h, 0, SEEK_END);
+   FileWriteString(h, DAL_AstroJournal_Line(row, signal, state));
    FileClose(h);
    return true;
 }

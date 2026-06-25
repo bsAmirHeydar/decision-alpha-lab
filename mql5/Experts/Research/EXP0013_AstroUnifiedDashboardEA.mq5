@@ -8,6 +8,7 @@
 #include <Research/DAL_AstroMapTypes.mqh>
 #include <Research/DAL_AstroExcelCandleReader.mqh>
 #include <Research/DAL_AstroPureAstrologySignals.mqh>
+#include <Research/DAL_AstroSignalWindows.mqh>
 
 enum DAL_AstroRawView
 {
@@ -24,8 +25,8 @@ enum DAL_AstroRawView
 input string           InpAstroCsvFile          = "astro_live_mql.csv";
 input double           InpBrokerGmtOffsetHours  = 0.0;
 input bool             InpRequireExactBarTime   = true;
-input int              InpReloadCsvEverySeconds = 10;
-input int              InpRefreshSeconds        = 1;
+input int              InpReloadCsvEverySeconds = 0;
+input int              InpRefreshSeconds        = 2;
 input DAL_AstroRawView InpInitialView           = ASTRO_RAW_OVERVIEW;
 input bool             InpUseTerminalComment    = false;
 input string           InpBirthDate             = "";
@@ -680,7 +681,17 @@ void DAL_DrawSignalTable(const string key, const int x, const int y, const int w
    DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "Micro", DoubleToString(s.micro_timing_score, 1), "Minute", DoubleToString(s.minute_window_score, 1), DAL_ScoreColor(s.micro_timing_score), DAL_ScoreColor(s.minute_window_score), InpColorMuted);
    DAL_Cell4(key, 6, x + 14, yy, c1, c2, c3, "Exhaust", DoubleToString(s.minute_exhaustion_score, 1), "State", s.trigger_state, DAL_ScoreColor(100.0 - s.minute_exhaustion_score), InpColorInfo, InpColorMuted);
    DAL_Cell4(key, 7, x + 14, yy, c1, c2, c3, "Volatility", DoubleToString(s.volatility_score, 1), "NatalAct", DoubleToString(s.natal_activation_score, 1), InpColorText, InpColorMid, InpColorMuted);
-   DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "SignalText", row.astro_signal_text, "Key", DAL_Short(s.astro_trade_key, 34), InpColorMuted, InpColorMuted, InpColorMuted);
+
+   DAL_AstroSignalWindow win;
+   if(DAL_AstroSW_FindWindowByBrokerTime(g_store, row.broker_time, true, win) && win.valid)
+   {
+      DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "ValidFrom", DAL_AstroSW_TimeText(win.start_broker_time), "Until", DAL_AstroSW_TimeText(win.end_exclusive_broker_time), InpColorHigh, InpColorHigh, InpColorMuted);
+      DAL_Cell4(key, 9, x + 14, yy, c1, c2, c3, "Bars", IntegerToString(win.bars), "WindowKey", DAL_Short(win.key, 38), InpColorInfo, InpColorMuted, InpColorMuted);
+      DAL_Cell4(key, 10, x + 14, yy, c1, c2, c3, "AvgEntry", DoubleToString(win.avg_entry_score, 1), "AvgNatal", DoubleToString(win.avg_natal_activation_score, 1), DAL_ScoreColor(win.avg_entry_score), DAL_ScoreColor(win.avg_natal_activation_score), InpColorMuted);
+      DAL_Cell4(key, 11, x + 14, yy, c1, c2, c3, "SignalText", row.astro_signal_text, "Key", DAL_Short(s.astro_trade_key, 34), InpColorMuted, InpColorMuted, InpColorMuted);
+   }
+   else
+      DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "Window", "n/a", "SignalText", row.astro_signal_text, InpColorLow, InpColorMuted, InpColorMuted);
 }
 
 void DAL_DrawTimingSummaryCard(const string key, const int x, const int y, const int w, const int h, const string title, const string state_text, const double score1, const string label1, const double score2, const string label2, const color accent)
@@ -770,9 +781,9 @@ void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
    DAL_DrawAspectsTable("ASP_OVR", g.col2_x, snap_y + h + InpGap, g.card_w, 248, row, 8);
 }
 
-void DAL_Render()
+void DAL_Render(const bool allow_reload = true)
 {
-   if(DAL_ShouldReload()) DAL_LoadStore();
+   if(allow_reload && DAL_ShouldReload()) DAL_LoadStore();
 
    bool exact = false;
    bool fallback = false;
@@ -833,13 +844,13 @@ void DAL_Render()
    }
    else if(g_view == ASTRO_RAW_SIGNAL)
    {
-      DAL_DrawSignalTable("SIGNALS_BIG", g.main_x, g.main_y, g.card_w, 260, row);
+      DAL_DrawSignalTable("SIGNALS_BIG", g.main_x, g.main_y, g.card_w, 340, row);
       DAL_DrawTransitNatalTable("TNATAL_SIG", g.col2_x, g.main_y, g.card_w, g.panel_h, row);
    }
    else if(g_view == ASTRO_RAW_TIMING)
    {
       DAL_DrawTimingTable("TIMING_BIG", g.main_x, g.main_y, g.card_w, g.panel_h, row);
-      DAL_DrawSignalTable("SIGNALS_TIM", g.col2_x, g.main_y, g.card_w, 320, row);
+      DAL_DrawSignalTable("SIGNALS_TIM", g.col2_x, g.main_y, g.card_w, 360, row);
    }
 
    DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
@@ -860,7 +871,7 @@ int OnInit()
    DAL_CleanupAll();
    EventSetTimer(MathMax(1, InpRefreshSeconds));
    DAL_LoadStore();
-   DAL_Render();
+   DAL_Render(false);
    return INIT_SUCCEEDED;
 }
 
@@ -872,7 +883,7 @@ void OnDeinit(const int reason)
 }
 
 void OnTick() {}
-void OnTimer() { DAL_Render(); }
+void OnTimer() { DAL_Render(true); }
 
 void OnChartEvent(const int id, const long &lparam, const double &dparam, const string &sparam)
 {
@@ -887,7 +898,7 @@ void OnChartEvent(const int id, const long &lparam, const double &dparam, const 
    else if(sparam == g_prefix + "_BTN_SIG") { g_view = ASTRO_RAW_SIGNAL; changed = true; }
    else if(sparam == g_prefix + "_BTN_TIM") { g_view = ASTRO_RAW_TIMING; changed = true; }
    else if(sparam == g_prefix + "_BTN_MIN") { g_minimized = !g_minimized; changed = true; }
-   else if(sparam == g_prefix + "_BTN_RELOAD") { DAL_LoadStore(); }
+   else if(sparam == g_prefix + "_BTN_RELOAD") { DAL_LoadStore(); changed = true; }
    if(changed) g_force_rebuild = true;
-   DAL_Render();
+   DAL_Render(false);
 }
