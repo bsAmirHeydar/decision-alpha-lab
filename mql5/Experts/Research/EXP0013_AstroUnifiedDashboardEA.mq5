@@ -1,6 +1,6 @@
 #property strict
 #property description "Decision Alpha Lab - EXP0013 Astro Unified Dashboard EA"
-#property description "Research-only visual dashboard. No orders. No iCustom. No indicator loading."
+#property description "Research-only astro dashboard. Enhanced header clarity and spacing."
 #property tester_file "astro_GMT3_M1_2026_to_now_mql.csv"
 #property tester_file "astro\\astro_GMT3_M1_2026_to_now_mql.csv"
 #property tester_file "astro_live_mql.csv"
@@ -22,66 +22,79 @@ enum DAL_AstroSection
    ASTRO_SEC_MICRO  = 1,
    ASTRO_SEC_REGIME = 2,
    ASTRO_SEC_MACRO  = 3,
-   ASTRO_SEC_RAW    = 4,
-   ASTRO_SEC_DIAG   = 5
+   ASTRO_SEC_RAW    = 4
 };
 
-input string               InpAstroCsvFile             = "astro_live_mql.csv";
-input double               InpBrokerGmtOffsetHours     = 0.0;
-input bool                 InpRequireExactBarTime      = true;
-input int                  InpReloadCsvEverySeconds    = 10;
-input int                  InpRefreshSeconds           = 1;
-input DAL_AstroDashboardView InpInitialViewMode        = ASTRO_VIEW_COCKPIT;
-input DAL_AstroSection     InpInitialFocusSection      = ASTRO_SEC_PATH;
+input string                 InpAstroCsvFile             = "astro_live_mql.csv";
+input double                 InpBrokerGmtOffsetHours     = 0.0;
+input bool                   InpRequireExactBarTime      = true;
+input int                    InpReloadCsvEverySeconds    = 10;
+input int                    InpRefreshSeconds           = 1;
+input DAL_AstroDashboardView InpInitialViewMode          = ASTRO_VIEW_COCKPIT;
+input DAL_AstroSection       InpInitialFocusSection      = ASTRO_SEC_PATH;
+input bool                   InpShowTextPanel            = true;
+input bool                   InpShowOscillator           = true;
+input bool                   InpUseTerminalComment       = false;
 
-input bool                 InpShowTextPanel            = true;
-input bool                 InpShowOscillator           = true;
-input bool                 InpUseTerminalComment       = false;
+input int                    InpBaseX                    = 10;
+input int                    InpBaseY                    = 10;
+input int                    InpFontHero                 = 19;
+input int                    InpFontTitle                = 13;
+input int                    InpFontBody                 = 10;
+input int                    InpFontSmall                = 9;
+input int                    InpHeaderHeight             = 122;
+input int                    InpGap                      = 18;
+input int                    InpCardTitleHeight          = 26;
+input int                    InpCardRowHeight            = 23;
+input int                    InpButtonW                  = 92;
+input int                    InpButtonH                  = 26;
+input int                    InpCompactHistoryBars       = 16;
+input int                    InpSparkPointSize           = 2;
 
-input int                  InpBaseX                    = 10;
-input int                  InpBaseY                    = 10;
-input int                  InpHeaderWidth              = 980;
-input int                  InpHeaderHeight             = 92;
-input int                  InpCardWidth                = 320;
-input int                  InpCardGap                  = 12;
-input int                  InpCardRowHeight            = 16;
-input int                  InpCardTitleHeight          = 20;
-input int                  InpCardValueWidth           = 52;
-input int                  InpFontSize                 = 10;
-input int                  InpButtonW                  = 84;
-input int                  InpButtonH                  = 18;
-
-input int                  InpOscHeight                = 220;
-input int                  InpOscHistoryBars           = 80;
-input int                  InpOscPointSize             = 2;
-input bool                 InpOscShowCurrentBar        = true;
-
-input color                InpColorBackground          = clrBlack;
-input color                InpColorPanel               = C'8,8,8';
-input color                InpColorCard                = C'12,12,12';
-input color                InpColorBorder              = clrDimGray;
-input color                InpColorText                = clrWhite;
-input color                InpColorMuted               = clrSilver;
-input color                InpColorGood                = clrLime;
-input color                InpColorRisk                = clrTomato;
-input color                InpColorWarn                = clrOrange;
-input color                InpColorInfo                = clrAqua;
-input color                InpColorButtonOn            = C'25,55,25';
-input color                InpColorButtonOff           = C'35,35,35';
+input color                  InpColorPanel               = C'8,8,8';
+input color                  InpColorCard                = C'12,12,12';
+input color                  InpColorBorder              = C'105,105,105';
+input color                  InpColorText                = clrWhite;
+input color                  InpColorMuted               = clrSilver;
+input color                  InpColorInfo                = clrAqua;
+input color                  InpColorLow                 = clrTomato;
+input color                  InpColorMid                 = clrGold;
+input color                  InpColorHigh                = clrLime;
+input color                  InpColorButtonOn            = C'24,74,24';
+input color                  InpColorButtonOff           = C'45,45,45';
 
 DAL_AstroMapStore g_store;
-bool      g_loaded = false;
-datetime  g_last_load_time = 0;
-string    g_prefix = "DAL_EXP0013_ASTRO_COCKPIT";
+bool     g_loaded = false;
+datetime g_last_load_time = 0;
+string   g_prefix = "DAL_EXP0013_ASTRO_V9";
+bool     g_force_rebuild = false;
 DAL_AstroDashboardView g_view_mode;
 DAL_AstroSection g_focus_section;
-bool      g_show_text;
-bool      g_show_osc;
-bool      g_show_path = true;
-bool      g_show_micro = true;
-bool      g_show_regime = true;
-bool      g_show_macro = true;
-bool      g_show_raw = true;
+bool g_show_text;
+bool g_show_osc;
+
+struct DAL_Layout
+{
+   int chart_w;
+   int chart_h;
+   int x;
+   int y;
+   int header_w;
+   int header_h;
+   int diag_w;
+   int left_w;
+   int card_w;
+   int card_h;
+   int col1_x;
+   int col2_x;
+   int diag_x;
+   int row1_y;
+   int row2_y;
+   int osc_x;
+   int osc_y;
+   int osc_w;
+   int focus_w;
+};
 
 void DAL_DeleteByPrefix(const string prefix)
 {
@@ -93,6 +106,17 @@ void DAL_DeleteByPrefix(const string prefix)
       if(StringFind(name, prefix) == 0)
          ObjectDelete(chart_id, name);
    }
+}
+
+void DAL_CleanupAllAstroObjects()
+{
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_COCKPIT");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_PRO");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V6");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V7");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V8");
 }
 
 void DAL_Rect(const string name, const int x, const int y, const int w, const int h, const color bg, const color border)
@@ -143,8 +167,8 @@ void DAL_Button(const string name, const string text, const int x, const int y, 
    ObjectSetInteger(chart_id, name, OBJPROP_YSIZE, h);
    ObjectSetString(chart_id, name, OBJPROP_TEXT, text);
    ObjectSetString(chart_id, name, OBJPROP_FONT, "Consolas");
-   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 8);
-   ObjectSetInteger(chart_id, name, OBJPROP_COLOR, active ? InpColorGood : InpColorText);
+   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 10);
+   ObjectSetInteger(chart_id, name, OBJPROP_COLOR, active ? InpColorHigh : InpColorText);
    ObjectSetInteger(chart_id, name, OBJPROP_BGCOLOR, active ? InpColorButtonOn : InpColorButtonOff);
    ObjectSetInteger(chart_id, name, OBJPROP_BORDER_COLOR, InpColorBorder);
    ObjectSetInteger(chart_id, name, OBJPROP_HIDDEN, true);
@@ -160,51 +184,48 @@ string DAL_TimeText(const datetime t)
 string DAL_Shorten(const string s, const int max_len)
 {
    int len = StringLen(s);
-   if(len <= max_len || max_len <= 7)
-      return s;
+   if(len <= max_len || max_len <= 7) return s;
    int keep = (max_len - 3) / 2;
    return StringSubstr(s, 0, keep) + "..." + StringSubstr(s, len - keep);
 }
 
 string DAL_Bucket(const double v)
 {
-   if(v < 20.0) return "very_low";
-   if(v < 40.0) return "low";
-   if(v < 60.0) return "mid";
-   if(v < 80.0) return "high";
-   return "very_high";
+   if(v < 33.34) return "low";
+   if(v < 66.67) return "mid";
+   return "high";
 }
 
-color DAL_ValueColor(const string name, const double v)
+color DAL_HeatColor(const double v)
 {
-   bool inverse = (
-      name == "Friction" || name == "Pressure" || name == "Transition" ||
-      name == "PullbackRisk" || name == "ChopRisk" || name == "M1DirtyWindow" ||
-      name == "MacroDrag" || name == "MacroPressure" || name == "MacroTransition" ||
-      name == "OuterStation" || name == "MarsSatFriction" || name == "MercuryNoise" ||
-      name == "MoonPressure" || name == "MoonDrag" || name == "MoonBoundary" ||
-      name == "MicroNoise" || name == "SaturnResistance");
-   if(inverse)
+   if(v < 33.34) return InpColorLow;
+   if(v < 66.67) return InpColorMid;
+   return InpColorHigh;
+}
+
+int DAL_MaxLabelLen(const string &names[], const int count)
+{
+   int max_len = 0;
+   for(int i = 0; i < count; i++)
    {
-      if(v >= 70.0) return InpColorRisk;
-      if(v >= 45.0) return InpColorWarn;
-      return InpColorGood;
+      int len = StringLen(names[i]);
+      if(len > max_len) max_len = len;
    }
-   if(v >= 70.0) return InpColorGood;
-   if(v >= 45.0) return InpColorInfo;
-   if(v >= 25.0) return InpColorWarn;
-   return InpColorMuted;
+   return max_len;
+}
+
+int DAL_LabelWidthPx(const int max_len)
+{
+   int px = max_len * 9 + 18;
+   if(px < 150) px = 150;
+   if(px > 250) px = 250;
+   return px;
 }
 
 bool DAL_LoadStore()
 {
    g_last_load_time = TimeCurrent();
-   g_loaded = DAL_AstroMapStore_LoadExcelCsv(
-      g_store,
-      InpAstroCsvFile,
-      InpBrokerGmtOffsetHours,
-      PeriodSeconds(_Period) / 60
-   );
+   g_loaded = DAL_AstroMapStore_LoadExcelCsv(g_store, InpAstroCsvFile, InpBrokerGmtOffsetHours, PeriodSeconds(_Period) / 60);
    if(!g_loaded)
    {
       Print("EXP0013 Astro Dashboard | CSV load failed | file=", InpAstroCsvFile);
@@ -235,13 +256,21 @@ bool DAL_FindFractalByShift(const int shift, DAL_AstroFractalMetrics &f, bool &e
       exact_match = true;
       return DAL_AstroFM_Calc(row, f) && f.valid;
    }
-
    if(DAL_AstroMapStore_FindForCandleOpen(g_store, candle_time, row, false))
    {
       fallback_match = true;
       return DAL_AstroFM_Calc(row, f) && f.valid;
    }
    return false;
+}
+
+string DAL_SectionTitle(const DAL_AstroSection s)
+{
+   if(s == ASTRO_SEC_PATH) return "PATH QUALITY";
+   if(s == ASTRO_SEC_MICRO) return "MICRO M1";
+   if(s == ASTRO_SEC_REGIME) return "REGIME ENGINE";
+   if(s == ASTRO_SEC_MACRO) return "MACRO BACKGROUND";
+   return "RAW AXES";
 }
 
 void DAL_FillPath(const DAL_AstroFractalMetrics &f, string &names[], double &vals[], int &count)
@@ -273,14 +302,14 @@ void DAL_FillMicro(const DAL_AstroFractalMetrics &f, string &names[], double &va
 void DAL_FillRegime(const DAL_AstroFractalMetrics &f, string &names[], double &vals[], int &count)
 {
    count = 8;
-   names[0] = "MarsImpulse";      vals[0] = f.mars_impulse;
-   names[1] = "MarsCleanImpulse"; vals[1] = f.mars_clean_impulse;
-   names[2] = "MarsSatFriction";  vals[2] = f.mars_saturn_friction;
-   names[3] = "MarsJupExpand";    vals[3] = f.mars_jupiter_expansion;
-   names[4] = "MercuryNoise";     vals[4] = f.mercury_noise;
-   names[5] = "VenusMarsCoh";     vals[5] = f.venus_mars_cohesion;
-   names[6] = "JupiterSupport";   vals[6] = f.jupiter_support;
-   names[7] = "SaturnResist";     vals[7] = f.saturn_resistance;
+   names[0] = "MarsImpulse";    vals[0] = f.mars_impulse;
+   names[1] = "MarsCleanImp";   vals[1] = f.mars_clean_impulse;
+   names[2] = "MarsSatFrict";   vals[2] = f.mars_saturn_friction;
+   names[3] = "MarsJupExp";     vals[3] = f.mars_jupiter_expansion;
+   names[4] = "MercuryNoise";   vals[4] = f.mercury_noise;
+   names[5] = "VenusMarsCoh";   vals[5] = f.venus_mars_cohesion;
+   names[6] = "JupiterSupport"; vals[6] = f.jupiter_support;
+   names[7] = "SaturnResist";   vals[7] = f.saturn_resistance;
 }
 
 void DAL_FillMacro(const DAL_AstroFractalMetrics &f, string &names[], double &vals[], int &count)
@@ -308,234 +337,204 @@ void DAL_FillRaw(const DAL_AstroFractalMetrics &f, string &names[], double &vals
    names[6] = "SaturnDrag";  vals[6] = f.raw_saturn_drag;
 }
 
-string DAL_SectionTitle(const DAL_AstroSection s)
-{
-   if(s == ASTRO_SEC_PATH) return "PATH QUALITY";
-   if(s == ASTRO_SEC_MICRO) return "MICRO M1";
-   if(s == ASTRO_SEC_REGIME) return "REGIME ENGINE";
-   if(s == ASTRO_SEC_MACRO) return "MACRO BACKGROUND";
-   if(s == ASTRO_SEC_RAW) return "RAW AXES";
-   return "DIAGNOSTICS";
-}
-
 void DAL_GetSectionData(const DAL_AstroSection s, const DAL_AstroFractalMetrics &f, string &names[], double &vals[], int &count)
 {
-   count = 0;
-   if(s == ASTRO_SEC_PATH)   { DAL_FillPath(f, names, vals, count); return; }
-   if(s == ASTRO_SEC_MICRO)  { DAL_FillMicro(f, names, vals, count); return; }
+   if(s == ASTRO_SEC_PATH) { DAL_FillPath(f, names, vals, count); return; }
+   if(s == ASTRO_SEC_MICRO) { DAL_FillMicro(f, names, vals, count); return; }
    if(s == ASTRO_SEC_REGIME) { DAL_FillRegime(f, names, vals, count); return; }
-   if(s == ASTRO_SEC_MACRO)  { DAL_FillMacro(f, names, vals, count); return; }
-   if(s == ASTRO_SEC_RAW)    { DAL_FillRaw(f, names, vals, count); return; }
+   if(s == ASTRO_SEC_MACRO) { DAL_FillMacro(f, names, vals, count); return; }
+   DAL_FillRaw(f, names, vals, count);
 }
 
-bool DAL_IsSectionVisible(const DAL_AstroSection s)
+void DAL_GetLayout(DAL_Layout &L)
 {
-   if(s == ASTRO_SEC_PATH) return g_show_path;
-   if(s == ASTRO_SEC_MICRO) return g_show_micro;
-   if(s == ASTRO_SEC_REGIME) return g_show_regime;
-   if(s == ASTRO_SEC_MACRO) return g_show_macro;
-   if(s == ASTRO_SEC_RAW) return g_show_raw;
-   return true;
+   L.chart_w = (int)ChartGetInteger(ChartID(), CHART_WIDTH_IN_PIXELS, 0);
+   L.chart_h = (int)ChartGetInteger(ChartID(), CHART_HEIGHT_IN_PIXELS, 0);
+   L.x = InpBaseX;
+   L.y = InpBaseY;
+   L.header_w = MathMax(980, L.chart_w - 30);
+   L.header_h = InpHeaderHeight;
+   L.diag_w = MathMax(430, L.header_w / 3);
+   L.left_w = L.header_w - L.diag_w - InpGap;
+   L.card_w = MathMax(430, (L.left_w - InpGap) / 2);
+   L.card_h = InpCardTitleHeight + 16 + 8 * InpCardRowHeight + 14;
+   L.col1_x = L.x;
+   L.col2_x = L.x + L.card_w + InpGap;
+   L.diag_x = L.x + L.left_w + InpGap;
+   L.row1_y = L.y + L.header_h + 12;
+   L.row2_y = L.row1_y + L.card_h + InpGap;
+   L.osc_x = L.x;
+   L.osc_y = L.row2_y + L.card_h + 16;
+   L.osc_w = MathMin(1020, L.left_w);
+   L.focus_w = L.left_w;
 }
 
-void DAL_SetSectionVisible(const DAL_AstroSection s, const bool v)
+void DAL_DrawHeader(const DAL_Layout &L, const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
 {
-   if(s == ASTRO_SEC_PATH) g_show_path = v;
-   else if(s == ASTRO_SEC_MICRO) g_show_micro = v;
-   else if(s == ASTRO_SEC_REGIME) g_show_regime = v;
-   else if(s == ASTRO_SEC_MACRO) g_show_macro = v;
-   else if(s == ASTRO_SEC_RAW) g_show_raw = v;
+   DAL_Rect(g_prefix + "_HDR_BG", L.x, L.y, L.header_w, L.header_h, InpColorPanel, InpColorBorder);
+   DAL_Label(g_prefix + "_HDR0", "EXP0013 ASTRO COCKPIT", L.x + 18, L.y + 10, InpColorInfo, InpFontHero);
+   DAL_Label(g_prefix + "_HDR1", _Symbol + "   |   " + EnumToString(_Period) + "   |   " + (g_view_mode == ASTRO_VIEW_COCKPIT ? "Cockpit View" : DAL_SectionTitle(g_focus_section)), L.x + 18, L.y + 42, InpColorText, InpFontBody);
+
+   string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact_match ? "EXACT ROW" : "FALLBACK ROW"));
+   color row_clr = !g_loaded ? InpColorLow : (!have_row ? InpColorLow : (exact_match ? InpColorHigh : InpColorMid));
+   DAL_Rect(g_prefix + "_HDR_BADGE", L.x + 18, L.y + 66, 140, 20, C'18,18,18', row_clr);
+   DAL_Label(g_prefix + "_HDR2", row_status, L.x + 26, L.y + 69, row_clr, InpFontBody);
+   DAL_Label(g_prefix + "_HDR3", "file: " + DAL_Shorten(InpAstroCsvFile, 38), L.x + 172, L.y + 69, InpColorText, InpFontBody);
+   string time_line = have_row ? ("Broker=" + DAL_TimeText(f.broker_time) + "   UTC=" + DAL_TimeText(f.utc_time)) : ("Chart candle=" + DAL_TimeText(iTime(_Symbol, _Period, 0)));
+   DAL_Label(g_prefix + "_HDR4", time_line, L.x + 18, L.y + 92, InpColorMuted, InpFontBody);
+
+   int bx = L.x + L.header_w - 6 * (InpButtonW + 8) - 18;
+   int by = L.y + 12;
+   DAL_Button(g_prefix + "_BTN_COCKPIT", "COCKPIT", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_COCKPIT); bx += InpButtonW + 8;
+   DAL_Button(g_prefix + "_BTN_PATH", "PATH", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_PATH); bx += InpButtonW + 8;
+   DAL_Button(g_prefix + "_BTN_MICRO", "MICRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MICRO); bx += InpButtonW + 8;
+   DAL_Button(g_prefix + "_BTN_REGIME", "REGIME", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_REGIME); bx += InpButtonW + 8;
+   DAL_Button(g_prefix + "_BTN_MACRO", "MACRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MACRO); bx += InpButtonW + 8;
+   DAL_Button(g_prefix + "_BTN_RAW", "RAW", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_RAW);
+
+   bx = L.x + L.header_w - 3 * (104 + 10) - 18;
+   by = L.y + 52;
+   DAL_Button(g_prefix + "_BTN_TEX", g_show_text ? "TEXT ON" : "TEXT OFF", bx, by, 104, InpButtonH, g_show_text); bx += 114;
+   DAL_Button(g_prefix + "_BTN_OSC", g_show_osc ? "OSC ON" : "OSC OFF", bx, by, 104, InpButtonH, g_show_osc); bx += 114;
+   DAL_Button(g_prefix + "_BTN_RELD", "RELOAD", bx, by, 104, InpButtonH, false);
 }
 
-void DAL_DrawCard(const string key, const string title, const int x, const int y, const int w, const string &names[], const double &vals[], const int count)
+void DAL_DrawMetricCard(const string key, const string title, const int x, const int y, const int w, const string &names[], const double &vals[], const int count)
 {
-   int h = InpCardTitleHeight + 8 + count * InpCardRowHeight + 8;
+   int h = InpCardTitleHeight + 16 + count * InpCardRowHeight + 14;
    DAL_Rect(g_prefix + "_CARD_BG_" + key, x, y, w, h, InpColorCard, InpColorBorder);
-   DAL_Label(g_prefix + "_CARD_TITLE_" + key, title, x + 8, y + 4, InpColorInfo, InpFontSize);
-   int bar_x = x + w - 110;
-   int bar_w = 90;
+   DAL_Label(g_prefix + "_CARD_T_" + key, title, x + 16, y + 7, InpColorInfo, InpFontTitle);
+
+   int label_x = x + 16;
+   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count));
+   int val_x   = label_x + label_w;
+   int bucket_x= val_x + 64;
+   int bar_w   = 102;
+   int bar_x   = x + w - bar_w - 20;
+   if(bucket_x > bar_x - 48) bucket_x = bar_x - 48;
    for(int i = 0; i < count; i++)
    {
-      int ry = y + InpCardTitleHeight + 6 + i * InpCardRowHeight;
-      color clr = DAL_ValueColor(names[i], vals[i]);
-      DAL_Label(g_prefix + "_CARD_L_" + key + "_" + IntegerToString(i), names[i], x + 8, ry, InpColorText, 8);
-      DAL_Label(g_prefix + "_CARD_V_" + key + "_" + IntegerToString(i), DoubleToString(vals[i], 1), x + 126, ry, clr, 8);
-      DAL_Rect(g_prefix + "_CARD_BARBG_" + key + "_" + IntegerToString(i), bar_x, ry + 2, bar_w, 10, C'25,25,25', InpColorBorder);
-      int fill_w = (int)MathRound(MathMax(0.0, MathMin(100.0, vals[i])) / 100.0 * bar_w);
-      DAL_Rect(g_prefix + "_CARD_BAR_" + key + "_" + IntegerToString(i), bar_x, ry + 2, fill_w, 10, clr, clr);
+      int ry = y + InpCardTitleHeight + 12 + i * InpCardRowHeight;
+      color clr = DAL_HeatColor(vals[i]);
+      DAL_Label(g_prefix + "_CARD_L_" + key + "_" + IntegerToString(i), names[i], label_x, ry, InpColorText, InpFontBody);
+      DAL_Label(g_prefix + "_CARD_V_" + key + "_" + IntegerToString(i), DoubleToString(vals[i], 1), val_x, ry, clr, InpFontBody);
+      DAL_Label(g_prefix + "_CARD_B_" + key + "_" + IntegerToString(i), DAL_Bucket(vals[i]), bucket_x, ry, InpColorMuted, InpFontBody);
+      DAL_Rect(g_prefix + "_CARD_BG2_" + key + "_" + IntegerToString(i), bar_x, ry + 5, bar_w, 10, C'22,22,22', InpColorBorder);
+      DAL_Rect(g_prefix + "_CARD_F_" + key + "_" + IntegerToString(i), bar_x, ry + 5, (int)MathRound(MathMax(0.0, MathMin(100.0, vals[i])) / 100.0 * bar_w), 10, clr, clr);
    }
 }
 
-void DAL_DrawDiagnostics(const int x, const int y, const int w, const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
+void DAL_DrawDiagnosticsCard(const DAL_Layout &L, const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
 {
-   int count = 7;
-   int h = InpCardTitleHeight + 8 + count * InpCardRowHeight + 8;
-   DAL_Rect(g_prefix + "_CARD_BG_DIAG", x, y, w, h, InpColorCard, InpColorBorder);
-   DAL_Label(g_prefix + "_CARD_TITLE_DIAG", "DIAGNOSTICS", x + 8, y + 4, InpColorInfo, InpFontSize);
-   int ry = y + InpCardTitleHeight + 6;
-   DAL_Label(g_prefix + "_DIAG_0", "CSV status", x + 8, ry, InpColorText, 8); DAL_Label(g_prefix + "_DIAGV_0", g_loaded ? "LOADED" : "NOT_LOADED", x + 116, ry, g_loaded ? InpColorGood : InpColorRisk, 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_1", "rows", x + 8, ry, InpColorText, 8); DAL_Label(g_prefix + "_DIAGV_1", IntegerToString(g_store.row_count), x + 116, ry, InpColorMuted, 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_2", "source", x + 8, ry, InpColorText, 8); DAL_Label(g_prefix + "_DIAGV_2", DAL_Shorten(g_store.source_file, 30), x + 116, ry, InpColorMuted, 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_3", "chart candle", x + 8, ry, InpColorText, 8); DAL_Label(g_prefix + "_DIAGV_3", DAL_TimeText(iTime(_Symbol, _Period, 0)), x + 116, ry, InpColorText, 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_4", "lookup", x + 8, ry, InpColorText, 8);
+   int x = L.diag_x;
+   int y = L.row1_y;
+   int w = L.diag_w;
+   int h = 2 * L.card_h + InpGap;
+   DAL_Rect(g_prefix + "_DIAG_BG", x, y, w, h, InpColorCard, InpColorBorder);
+   DAL_Label(g_prefix + "_DIAG_T", "DIAGNOSTICS", x + 16, y + 7, InpColorInfo, InpFontTitle);
+
+   int label_x = x + 16;
+   int val_x = x + 148;
+   int ry = y + InpCardTitleHeight + 14;
+   DAL_Label(g_prefix + "_DIAG_0", "CSV", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_0", g_loaded ? "LOADED" : "NOT LOADED", val_x, ry, g_loaded ? InpColorHigh : InpColorLow, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_1", "Rows", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_1", IntegerToString(g_store.row_count), val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_2", "Source", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_2", DAL_Shorten(g_store.source_file, 27), val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_3", "Lookup", label_x, ry, InpColorText, InpFontBody);
    string lk = have_row ? (exact_match ? "exact" : (fallback_match ? "fallback" : "unknown")) : "row_not_found";
-   DAL_Label(g_prefix + "_DIAGV_4", lk, x + 116, ry, exact_match ? InpColorGood : (fallback_match ? InpColorWarn : InpColorRisk), 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_5", "matched broker", x + 8, ry, InpColorText, 8); DAL_Label(g_prefix + "_DIAGV_5", have_row ? DAL_TimeText(f.broker_time) : "n/a", x + 116, ry, InpColorMuted, 8); ry += InpCardRowHeight;
-   DAL_Label(g_prefix + "_DIAG_6", "hint", x + 8, ry, InpColorText, 8);
-   string hint = have_row ? "dashboard ok" : "extend live window or check broker GMT";
-   DAL_Label(g_prefix + "_DIAGV_6", DAL_Shorten(hint, 32), x + 116, ry, have_row ? InpColorGood : InpColorWarn, 8);
+   DAL_Label(g_prefix + "_DIAGV_3", lk, val_x, ry, exact_match ? InpColorHigh : (fallback_match ? InpColorMid : InpColorLow), InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_4", "Chart", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_4", DAL_TimeText(iTime(_Symbol, _Period, 0)), val_x, ry, InpColorText, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_5", "Matched", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_5", have_row ? DAL_TimeText(f.broker_time) : "n/a", val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAG_6", "Hint", label_x, ry, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_DIAGV_6", have_row ? "dashboard ok" : "extend live window / check GMT", val_x, ry, have_row ? InpColorHigh : InpColorMid, InpFontBody);
 }
 
-void DAL_DrawHeader(const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
-{
-   DAL_Rect(g_prefix + "_HEADER_BG", InpBaseX, InpBaseY, InpHeaderWidth, InpHeaderHeight, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_H0", "EXP0013 ASTRO COCKPIT  |  no-trade  |  no-iCustom  |  live/python-ready", InpBaseX + 8, InpBaseY + 6, InpColorInfo, 12);
-   DAL_Label(g_prefix + "_H1", "Symbol=" + _Symbol + "   TF=" + EnumToString(_Period) + "   View=" + (g_view_mode == ASTRO_VIEW_COCKPIT ? "COCKPIT" : "FOCUS") + "   Focus=" + DAL_SectionTitle(g_focus_section), InpBaseX + 8, InpBaseY + 24, InpColorText, 10);
-   string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact_match ? "EXACT ROW" : "FALLBACK ROW"));
-   color row_clr = !g_loaded ? InpColorRisk : (!have_row ? InpColorRisk : (exact_match ? InpColorGood : InpColorWarn));
-   DAL_Label(g_prefix + "_H2", row_status + "   file=" + DAL_Shorten(InpAstroCsvFile, 38), InpBaseX + 8, InpBaseY + 42, row_clr, 10);
-   string line3 = have_row ? ("Broker=" + DAL_TimeText(f.broker_time) + "   UTC=" + DAL_TimeText(f.utc_time) + "   Thesis=" + DAL_Shorten(f.thesis, 54))
-                           : ("Chart candle=" + DAL_TimeText(iTime(_Symbol, _Period, 0)) + "   ReloadSec=" + IntegerToString(InpReloadCsvEverySeconds));
-   DAL_Label(g_prefix + "_H3", line3, InpBaseX + 8, InpBaseY + 60, have_row ? InpColorMuted : InpColorWarn, 9);
-
-   int bx = InpBaseX + 560;
-   int by = InpBaseY + 6;
-   DAL_Button(g_prefix + "_BTN_COCKPIT", "COCKPIT", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_COCKPIT); bx += InpButtonW + 4;
-   DAL_Button(g_prefix + "_BTN_PATH", "PATH", bx, by, 54, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_PATH); bx += 58;
-   DAL_Button(g_prefix + "_BTN_MICRO", "MICRO", bx, by, 54, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MICRO); bx += 58;
-   DAL_Button(g_prefix + "_BTN_REGIME", "REGIME", bx, by, 60, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_REGIME); bx += 64;
-   DAL_Button(g_prefix + "_BTN_MACRO", "MACRO", bx, by, 58, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MACRO); bx += 62;
-   DAL_Button(g_prefix + "_BTN_RAW", "RAW", bx, by, 46, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_RAW);
-
-   bx = InpBaseX + 560;
-   by = InpBaseY + 30;
-   DAL_Button(g_prefix + "_BTN_TEX", g_show_text ? "TEXT ON" : "TEXT OFF", bx, by, 70, InpButtonH, g_show_text); bx += 74;
-   DAL_Button(g_prefix + "_BTN_OSC", g_show_osc ? "OSC ON" : "OSC OFF", bx, by, 64, InpButtonH, g_show_osc); bx += 68;
-   DAL_Button(g_prefix + "_BTN_PTH", g_show_path ? "PTH" : "-PTH", bx, by, 44, InpButtonH, g_show_path); bx += 48;
-   DAL_Button(g_prefix + "_BTN_MCR", g_show_micro ? "MIC" : "-MIC", bx, by, 44, InpButtonH, g_show_micro); bx += 48;
-   DAL_Button(g_prefix + "_BTN_RGM", g_show_regime ? "REG" : "-REG", bx, by, 44, InpButtonH, g_show_regime); bx += 48;
-   DAL_Button(g_prefix + "_BTN_MCG", g_show_macro ? "MAC" : "-MAC", bx, by, 44, InpButtonH, g_show_macro); bx += 48;
-   DAL_Button(g_prefix + "_BTN_RAWT", g_show_raw ? "RAW" : "-RAW", bx, by, 44, InpButtonH, g_show_raw); bx += 48;
-   DAL_Button(g_prefix + "_BTN_RELD", "RELOAD", bx, by, 60, InpButtonH, false);
-}
-
-void DAL_DrawFocusCard(const DAL_AstroSection sec, const DAL_AstroFractalMetrics &f)
-{
-   string names[8]; double vals[8]; int count;
-   DAL_GetSectionData(sec, f, names, vals, count);
-   DAL_DrawCard(IntegerToString((int)sec), DAL_SectionTitle(sec), InpBaseX, InpBaseY + InpHeaderHeight + 10, 420, names, vals, count);
-}
-
-void DAL_DrawCockpitCards(const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
-{
-   int start_y = InpBaseY + InpHeaderHeight + 10;
-   int x1 = InpBaseX;
-   int x2 = InpBaseX + InpCardWidth + InpCardGap;
-   int x3 = InpBaseX + 2 * (InpCardWidth + InpCardGap);
-   int y1 = start_y;
-   int y2 = start_y;
-   int y3 = start_y;
-
-   string names[8]; double vals[8]; int count;
-   if(g_show_path)
-   {
-      DAL_GetSectionData(ASTRO_SEC_PATH, f, names, vals, count);
-      DAL_DrawCard("PATH", "PATH QUALITY", x1, y1, InpCardWidth, names, vals, count);
-      y1 += InpCardTitleHeight + 8 + count * InpCardRowHeight + 20;
-   }
-   if(g_show_micro)
-   {
-      DAL_GetSectionData(ASTRO_SEC_MICRO, f, names, vals, count);
-      DAL_DrawCard("MICRO", "MICRO M1", x2, y2, InpCardWidth, names, vals, count);
-      y2 += InpCardTitleHeight + 8 + count * InpCardRowHeight + 20;
-   }
-   if(g_show_regime)
-   {
-      DAL_GetSectionData(ASTRO_SEC_REGIME, f, names, vals, count);
-      DAL_DrawCard("REGIME", "REGIME ENGINE", x3, y3, InpCardWidth, names, vals, count);
-      y3 += InpCardTitleHeight + 8 + count * InpCardRowHeight + 20;
-   }
-   if(g_show_macro)
-   {
-      DAL_GetSectionData(ASTRO_SEC_MACRO, f, names, vals, count);
-      DAL_DrawCard("MACRO", "MACRO BACKGROUND", x1, y1, InpCardWidth, names, vals, count);
-      y1 += InpCardTitleHeight + 8 + count * InpCardRowHeight + 20;
-   }
-   if(g_show_raw)
-   {
-      DAL_GetSectionData(ASTRO_SEC_RAW, f, names, vals, count);
-      DAL_DrawCard("RAW", "RAW AXES", x2, y2, InpCardWidth, names, vals, count);
-      y2 += InpCardTitleHeight + 8 + count * InpCardRowHeight + 20;
-   }
-   DAL_DrawDiagnostics(x3, y3, InpCardWidth, have_row, exact_match, fallback_match, f);
-}
-
-DAL_AstroSection DAL_OscSection()
-{
-   if(g_view_mode == ASTRO_VIEW_FOCUS)
-      return g_focus_section;
-   if(g_show_path) return ASTRO_SEC_PATH;
-   if(g_show_micro) return ASTRO_SEC_MICRO;
-   if(g_show_regime) return ASTRO_SEC_REGIME;
-   if(g_show_macro) return ASTRO_SEC_MACRO;
-   return ASTRO_SEC_RAW;
-}
-
-void DAL_DrawOscillator(const DAL_AstroSection sec)
+void DAL_DrawCompactOsc(const DAL_Layout &L, const DAL_AstroSection sec)
 {
    if(!g_show_osc) return;
-   int x = InpBaseX;
-   int y = InpBaseY + InpHeaderHeight + 10;
-   if(g_view_mode == ASTRO_VIEW_COCKPIT)
-      y += 2 * (InpCardTitleHeight + 8 + 8 * InpCardRowHeight + 20);
-   else
-      y += InpCardTitleHeight + 8 + 8 * InpCardRowHeight + 30;
+
+   bool ex0, fb0;
+   DAL_AstroFractalMetrics f0;
+   if(!DAL_FindFractalByShift(0, f0, ex0, fb0)) return;
 
    string names[8]; double vals[8]; int count;
-   bool exact0, fallback0; DAL_AstroFractalMetrics f0;
-   if(!DAL_FindFractalByShift(0, f0, exact0, fallback0)) return;
    DAL_GetSectionData(sec, f0, names, vals, count);
 
-   int legend_w = 120;
-   int value_w = 46;
-   int hist_w = 860 - legend_w - value_w - 18;
-   int title_h = 22;
-   int row_h = 20;
-   int total_h = title_h + count * row_h + 10;
-   DAL_Rect(g_prefix + "_OSC_BG", x, y, 860, total_h, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_OSC_TITLE", "OSCILLATOR 0..100  |  " + DAL_SectionTitle(sec), x + 8, y + 4, InpColorInfo, 10);
-   int bars = MathMax(10, MathMin(InpOscHistoryBars, 160));
-   double step = (double)hist_w / (double)MathMax(1, bars - 1);
+   int x = L.osc_x;
+   int y = L.osc_y;
+   int w = L.osc_w;
+   int title_h = 26;
+   int row_h = 23;
+   int h = title_h + count * row_h + 14;
+   DAL_Rect(g_prefix + "_OSC_BG", x, y, w, h, InpColorPanel, InpColorBorder);
+   DAL_Label(g_prefix + "_OSC_T", "COMPACT OSCILLATOR  |  " + DAL_SectionTitle(sec), x + 16, y + 7, InpColorInfo, InpFontTitle);
+
+   int label_x = x + 16;
+   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count));
+   int val_x   = label_x + label_w;
+   int bar_x   = val_x + 54;
+   int bar_w   = 84;
+   int spark_x = bar_x + bar_w + 30;
+   int spark_w = 190;
+   int bars = MathMax(8, MathMin(InpCompactHistoryBars, 18));
+   double step = (double)spark_w / (double)MathMax(1, bars - 1);
 
    for(int r = 0; r < count; r++)
    {
       int ry = y + title_h + r * row_h;
-      DAL_Label(g_prefix + "_OSC_N_" + IntegerToString(r), names[r], x + 8, ry + 2, InpColorText, 8);
-      DAL_Label(g_prefix + "_OSC_V_" + IntegerToString(r), DoubleToString(vals[r],1), x + 88, ry + 2, DAL_ValueColor(names[r], vals[r]), 8);
-      int hist_x0 = x + legend_w;
-      DAL_Rect(g_prefix + "_OSC_LINE_" + IntegerToString(r), hist_x0, ry + row_h/2, hist_w, 1, InpColorBorder, InpColorBorder);
-      if(InpOscShowCurrentBar)
-      {
-         DAL_Rect(g_prefix + "_OSC_BARBG_" + IntegerToString(r), x + legend_w - 44, ry + 4, 34, 10, C'20,20,20', InpColorBorder);
-         DAL_Rect(g_prefix + "_OSC_BAR_" + IntegerToString(r), x + legend_w - 44, ry + 4, (int)MathRound(MathMax(0.0, MathMin(100.0, vals[r]))/100.0*34), 10, DAL_ValueColor(names[r], vals[r]), DAL_ValueColor(names[r], vals[r]));
-      }
+      color clr = DAL_HeatColor(vals[r]);
+      DAL_Label(g_prefix + "_OSC_L_" + IntegerToString(r), names[r], label_x, ry + 2, InpColorText, InpFontBody);
+      DAL_Label(g_prefix + "_OSC_V_" + IntegerToString(r), DoubleToString(vals[r], 1), val_x, ry + 2, clr, InpFontBody);
+      DAL_Rect(g_prefix + "_OSC_BARBG_" + IntegerToString(r), bar_x, ry + 6, bar_w, 10, C'22,22,22', InpColorBorder);
+      DAL_Rect(g_prefix + "_OSC_BAR_" + IntegerToString(r), bar_x, ry + 6, (int)MathRound(MathMax(0.0, MathMin(100.0, vals[r])) / 100.0 * bar_w), 10, clr, clr);
+      DAL_Rect(g_prefix + "_OSC_AXIS_" + IntegerToString(r), spark_x, ry + 12, spark_w, 1, InpColorBorder, InpColorBorder);
+
       for(int i = 0; i < bars; i++)
       {
          bool ex, fb; DAL_AstroFractalMetrics ft;
-         string hnames[8]; double hvals[8]; int hcount;
+         string hn[8]; double hv[8]; int hc;
+         string pname = g_prefix + "_OSC_P_" + IntegerToString(r) + "_" + IntegerToString(i);
          if(!DAL_FindFractalByShift(bars - 1 - i, ft, ex, fb))
-         {
-            string ptname = g_prefix + "_OSC_P_" + IntegerToString(r) + "_" + IntegerToString(i);
-            if(ObjectFind(ChartID(), ptname) >= 0) ObjectDelete(ChartID(), ptname);
             continue;
-         }
-         DAL_GetSectionData(sec, ft, hnames, hvals, hcount);
-         double v = (r < hcount ? hvals[r] : 0.0);
-         int px = hist_x0 + (int)MathRound(i * step);
-         int py = ry + row_h - 4 - (int)MathRound(MathMax(0.0, MathMin(100.0, v)) / 100.0 * (row_h - 8));
-         DAL_Rect(g_prefix + "_OSC_P_" + IntegerToString(r) + "_" + IntegerToString(i), px, py, InpOscPointSize, InpOscPointSize, DAL_ValueColor(names[r], v), DAL_ValueColor(names[r], v));
+         DAL_GetSectionData(sec, ft, hn, hv, hc);
+         double v = (r < hc ? hv[r] : 0.0);
+         int px = spark_x + (int)MathRound(i * step);
+         int py = ry + row_h - 5 - (int)MathRound(MathMax(0.0, MathMin(100.0, v)) / 100.0 * (row_h - 10));
+         DAL_Rect(pname, px, py, InpSparkPointSize, InpSparkPointSize, DAL_HeatColor(v), DAL_HeatColor(v));
       }
    }
+}
+
+void DAL_DrawCockpit(const DAL_Layout &L, const DAL_AstroFractalMetrics &f, const bool have_row, const bool exact_match, const bool fallback_match)
+{
+   string names[8]; double vals[8]; int count;
+   DAL_GetSectionData(ASTRO_SEC_PATH, f, names, vals, count);
+   DAL_DrawMetricCard("PATH", "PATH QUALITY", L.col1_x, L.row1_y, L.card_w, names, vals, count);
+   DAL_GetSectionData(ASTRO_SEC_MICRO, f, names, vals, count);
+   DAL_DrawMetricCard("MICRO", "MICRO M1", L.col2_x, L.row1_y, L.card_w, names, vals, count);
+   DAL_GetSectionData(ASTRO_SEC_MACRO, f, names, vals, count);
+   DAL_DrawMetricCard("MACRO", "MACRO BACKGROUND", L.col1_x, L.row2_y, L.card_w, names, vals, count);
+   DAL_GetSectionData(ASTRO_SEC_RAW, f, names, vals, count);
+   DAL_DrawMetricCard("RAW", "RAW AXES", L.col2_x, L.row2_y, L.card_w, names, vals, count);
+   DAL_DrawDiagnosticsCard(L, have_row, exact_match, fallback_match, f);
+}
+
+void DAL_DrawFocus(const DAL_Layout &L, const DAL_AstroFractalMetrics &f, const bool have_row, const bool exact_match, const bool fallback_match)
+{
+   string names[8]; double vals[8]; int count;
+   DAL_GetSectionData(g_focus_section, f, names, vals, count);
+   DAL_DrawMetricCard("FOCUS", DAL_SectionTitle(g_focus_section), L.col1_x, L.row1_y, L.focus_w, names, vals, count);
+   DAL_DrawDiagnosticsCard(L, have_row, exact_match, fallback_match, f);
+}
+
+DAL_AstroSection DAL_CurrentOscSection()
+{
+   if(g_view_mode == ASTRO_VIEW_FOCUS) return g_focus_section;
+   return ASTRO_SEC_PATH;
 }
 
 void DAL_Render()
@@ -547,40 +546,44 @@ void DAL_Render()
    DAL_AstroFM_Reset(f);
    if(g_loaded) have_row = DAL_FindFractalByShift(0, f, exact_match, fallback_match);
 
-   DAL_DrawHeader(have_row, exact_match, fallback_match, f);
+   if(g_force_rebuild)
+   {
+      DAL_CleanupAllAstroObjects();
+      g_force_rebuild = false;
+   }
+
+   DAL_Layout L; DAL_GetLayout(L);
+   DAL_DrawHeader(L, have_row, exact_match, fallback_match, f);
 
    if(g_show_text)
    {
-      if(g_view_mode == ASTRO_VIEW_COCKPIT)
-         DAL_DrawCockpitCards(have_row, exact_match, fallback_match, f);
-      else if(have_row)
+      if(have_row)
       {
-         DAL_DrawFocusCard(g_focus_section, f);
-         DAL_DrawDiagnostics(InpBaseX + 440, InpBaseY + InpHeaderHeight + 10, 320, have_row, exact_match, fallback_match, f);
+         if(g_view_mode == ASTRO_VIEW_COCKPIT) DAL_DrawCockpit(L, f, have_row, exact_match, fallback_match);
+         else DAL_DrawFocus(L, f, have_row, exact_match, fallback_match);
       }
-      else
-         DAL_DrawDiagnostics(InpBaseX, InpBaseY + InpHeaderHeight + 10, 420, have_row, exact_match, fallback_match, f);
+      else DAL_DrawDiagnosticsCard(L, have_row, exact_match, fallback_match, f);
    }
 
-   if(have_row)
-      DAL_DrawOscillator(DAL_OscSection());
+   if(have_row) DAL_DrawCompactOsc(L, DAL_CurrentOscSection());
 
    if(InpUseTerminalComment)
    {
       string status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact_match ? "EXACT" : "FALLBACK"));
       Comment("EXP0013 Astro Dashboard | ", status, " | ", (have_row ? f.thesis : "no row"));
    }
-
    ChartRedraw(ChartID());
 }
 
 int OnInit()
 {
-   g_prefix = "DAL_EXP0013_ASTRO_" + IntegerToString((int)ChartID());
+   g_prefix = "DAL_EXP0013_ASTRO_V9_" + IntegerToString((int)ChartID());
    g_view_mode = InpInitialViewMode;
    g_focus_section = InpInitialFocusSection;
    g_show_text = InpShowTextPanel;
    g_show_osc = InpShowOscillator;
+   DAL_CleanupAllAstroObjects();
+   g_force_rebuild = false;
    EventSetTimer(MathMax(1, InpRefreshSeconds));
    DAL_LoadStore();
    DAL_Render();
@@ -590,33 +593,38 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
-   DAL_DeleteByPrefix(g_prefix);
+   DAL_CleanupAllAstroObjects();
    if(InpUseTerminalComment) Comment("");
 }
 
 void OnTick() {}
-
-void OnTimer()
-{
-   DAL_Render();
-}
+void OnTimer() { DAL_Render(); }
 
 void OnChartEvent(const int id, const long &lparam, const double &dparam, const string &sparam)
 {
+   if(id == CHARTEVENT_CHART_CHANGE)
+   {
+      // Rebuild only when layout dimensions may have changed.
+      g_force_rebuild = true;
+      DAL_Render();
+      return;
+   }
+
    if(id != CHARTEVENT_OBJECT_CLICK) return;
-   if(sparam == g_prefix + "_BTN_COCKPIT") { g_view_mode = ASTRO_VIEW_COCKPIT; }
-   else if(sparam == g_prefix + "_BTN_PATH") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_PATH; }
-   else if(sparam == g_prefix + "_BTN_MICRO") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_MICRO; }
-   else if(sparam == g_prefix + "_BTN_REGIME") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_REGIME; }
-   else if(sparam == g_prefix + "_BTN_MACRO") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_MACRO; }
-   else if(sparam == g_prefix + "_BTN_RAW") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_RAW; }
-   else if(sparam == g_prefix + "_BTN_TEX") { g_show_text = !g_show_text; }
-   else if(sparam == g_prefix + "_BTN_OSC") { g_show_osc = !g_show_osc; }
-   else if(sparam == g_prefix + "_BTN_PTH") { g_show_path = !g_show_path; }
-   else if(sparam == g_prefix + "_BTN_MCR") { g_show_micro = !g_show_micro; }
-   else if(sparam == g_prefix + "_BTN_RGM") { g_show_regime = !g_show_regime; }
-   else if(sparam == g_prefix + "_BTN_MCG") { g_show_macro = !g_show_macro; }
-   else if(sparam == g_prefix + "_BTN_RAWT") { g_show_raw = !g_show_raw; }
+
+   bool layout_changed = false;
+   if(sparam == g_prefix + "_BTN_COCKPIT") { g_view_mode = ASTRO_VIEW_COCKPIT; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_PATH") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_PATH; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_MICRO") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_MICRO; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_REGIME") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_REGIME; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_MACRO") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_MACRO; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_RAW") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_RAW; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_TEX") { g_show_text = !g_show_text; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_OSC") { g_show_osc = !g_show_osc; layout_changed = true; }
    else if(sparam == g_prefix + "_BTN_RELD") { DAL_LoadStore(); }
+
+   if(layout_changed)
+      g_force_rebuild = true;
+
    DAL_Render();
 }
