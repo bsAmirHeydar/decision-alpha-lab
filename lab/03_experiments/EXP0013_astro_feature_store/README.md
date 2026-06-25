@@ -117,6 +117,7 @@ The paper families now share:
 - deterministic state transitions: `wait -> armed -> enter -> hold -> reduce -> exit`
 - per-family journal CSVs
 - doctrine and schema traceability in the journal
+- research-side paper replay through `tools/astro_validation/astro_paper_family_runner.py`
 - offline validation through `tools/astro_validation/astro_signal_validator.py`
 
 The signal layer is now explicitly hierarchical:

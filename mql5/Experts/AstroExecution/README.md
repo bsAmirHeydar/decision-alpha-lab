@@ -81,8 +81,9 @@ Best use:
 2. If natal logic is required, include natal inputs during CSV generation.
 3. Put the CSV where MQL5 can read it.
 4. Run `A0001`, `A0002`, or `A0003` first and inspect the paper journal CSV.
-5. Validate the journal with `tools/astro_validation/astro_signal_validator.py`.
-6. Promote a family into `A0090` only after the paper layer is stable.
+5. Or generate the same paper journal research-side with `tools/astro_validation/astro_paper_family_runner.py`.
+6. Validate the journal with `tools/astro_validation/astro_signal_validator.py`.
+7. Promote a family into `A0090` only after the paper layer is stable.
 
 ## Important note
 

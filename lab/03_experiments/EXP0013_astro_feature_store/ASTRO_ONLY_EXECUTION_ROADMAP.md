@@ -179,6 +179,7 @@ Now implemented in repo:
 - doctrine-owned family threshold layer
 - explicit astro execution state machine
 - paper execution journal schema and journal writers
+- Python paper family runner under `tools/astro_validation/astro_paper_family_runner.py`
 - validation tooling scaffold under `tools/astro_validation`
 - live order shell `A0090_AstroOrderShell.mq5`
 - MetaEditor compile harness under `tools/compile_exp0013_astro_suite.ps1`
