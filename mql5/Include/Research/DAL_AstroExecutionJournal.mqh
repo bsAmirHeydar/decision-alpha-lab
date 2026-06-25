@@ -23,7 +23,7 @@ bool DAL_AstroJournal_EnsureHeader(const string file_name, const bool use_common
    if(h == INVALID_HANDLE)
       return false;
 
-   FileWriteString(h, "broker_time,utc_time,family_name,doctrine_id,schema_version,phase,action,position_direction,entry_signal,exit_signal,direction_name,regime_name,entry_score,exit_score,long_bias_score,short_bias_score,path_score,friction_score,volatility_score,natal_activation_score,feature_key,astro_trade_key,astro_language,reason,hold_bars\r\n");
+   FileWriteString(h, "broker_time,utc_time,family_name,doctrine_id,schema_version,phase,action,position_direction,entry_signal,exit_signal,direction_name,regime_name,entry_score,exit_score,long_bias_score,short_bias_score,path_score,friction_score,volatility_score,natal_activation_score,macro_timing_score,meso_timing_score,micro_timing_score,minute_window_score,minute_exhaustion_score,trigger_state,macro_context,meso_context,micro_context,minute_context,feature_key,astro_trade_key,astro_language,reason,hold_bars\r\n");
    FileClose(h);
    return true;
 }
@@ -78,6 +78,16 @@ bool DAL_AstroJournal_Append(
       DoubleToString(signal.friction_score, 4) + "," +
       DoubleToString(signal.volatility_score, 4) + "," +
       DoubleToString(signal.natal_activation_score, 4) + "," +
+      DoubleToString(signal.macro_timing_score, 4) + "," +
+      DoubleToString(signal.meso_timing_score, 4) + "," +
+      DoubleToString(signal.micro_timing_score, 4) + "," +
+      DoubleToString(signal.minute_window_score, 4) + "," +
+      DoubleToString(signal.minute_exhaustion_score, 4) + "," +
+      signal.trigger_state + "," +
+      DAL_AstroJournal_Safe(signal.macro_context) + "," +
+      DAL_AstroJournal_Safe(signal.meso_context) + "," +
+      DAL_AstroJournal_Safe(signal.micro_context) + "," +
+      DAL_AstroJournal_Safe(signal.minute_context) + "," +
       DAL_AstroJournal_Safe(row.feature_key) + "," +
       DAL_AstroJournal_Safe(signal.astro_trade_key) + "," +
       DAL_AstroJournal_Safe(signal.astro_language) + "," +

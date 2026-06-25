@@ -1,7 +1,7 @@
 #ifndef __DAL_ASTRO_PURE_ASTROLOGY_SIGNALS_MQH__
 #define __DAL_ASTRO_PURE_ASTROLOGY_SIGNALS_MQH__
 
-#include <Research/DAL_AstroFractalPathMetrics.mqh>
+#include <Research/DAL_AstroTimingDoctrine.mqh>
 
 struct DAL_AstroPureSignal
 {
@@ -13,10 +13,20 @@ struct DAL_AstroPureSignal
    double friction_score;
    double volatility_score;
    double natal_activation_score;
+   double macro_timing_score;
+   double meso_timing_score;
+   double micro_timing_score;
+   double minute_window_score;
+   double minute_exhaustion_score;
    double entry_score;
    double exit_score;
    string regime_name;
    string direction_name;
+   string macro_context;
+   string meso_context;
+   string micro_context;
+   string minute_context;
+   string trigger_state;
    string entry_signal;
    string exit_signal;
    string astro_language;
@@ -90,10 +100,20 @@ void DAL_AstroPureSignal_Reset(DAL_AstroPureSignal &s)
    s.friction_score = 0.0;
    s.volatility_score = 0.0;
    s.natal_activation_score = 0.0;
+   s.macro_timing_score = 0.0;
+   s.meso_timing_score = 0.0;
+   s.micro_timing_score = 0.0;
+   s.minute_window_score = 0.0;
+   s.minute_exhaustion_score = 0.0;
    s.entry_score = 0.0;
    s.exit_score = 0.0;
    s.regime_name = "neutral";
    s.direction_name = "flat";
+   s.macro_context = "";
+   s.meso_context = "";
+   s.micro_context = "";
+   s.minute_context = "";
+   s.trigger_state = "standby";
    s.entry_signal = "wait";
    s.exit_signal = "hold";
    s.astro_language = "";
@@ -106,6 +126,10 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
 
    DAL_AstroFractalMetrics f;
    if(!DAL_AstroFM_Calc(row, f) || !f.valid)
+      return false;
+
+    DAL_AstroTimingState t;
+   if(!DAL_AstroTD_Calc(row, t) || !t.valid)
       return false;
 
    int mars = DAL_AstroBodyIndexByName("mars");
@@ -165,41 +189,61 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
          0.20 * DAL_AstroPS_TightTransitNatalScore(row, "t_jupiter__n_mars");
    }
 
+   s.macro_timing_score = t.macro_alignment_score;
+   s.meso_timing_score = t.meso_gate_score;
+   s.micro_timing_score = t.micro_trigger_score;
+   s.minute_window_score = t.minute_window_score;
+   s.minute_exhaustion_score = t.minute_exhaustion_score;
+   s.macro_context = t.macro_context;
+   s.meso_context = t.meso_context;
+   s.micro_context = t.micro_context;
+   s.minute_context = t.minute_context;
+   s.trigger_state = t.trigger_state;
+
    s.entry_score =
-      0.35 * MathMax(s.long_bias_score, s.short_bias_score) +
-      0.25 * s.path_score +
-      0.20 * s.volatility_score +
-      0.20 * s.natal_activation_score;
+      0.24 * MathMax(s.long_bias_score, s.short_bias_score) +
+      0.18 * s.path_score +
+      0.12 * s.volatility_score +
+      0.14 * s.natal_activation_score +
+      0.12 * s.macro_timing_score +
+      0.10 * s.meso_timing_score +
+      0.10 * s.micro_timing_score;
 
    s.exit_score =
-      0.45 * s.friction_score +
-      0.30 * f.pullback_risk +
-      0.25 * f.m1_dirty_window;
+      0.30 * s.friction_score +
+      0.22 * f.pullback_risk +
+      0.16 * f.m1_dirty_window +
+      0.16 * s.minute_exhaustion_score +
+      0.16 * (100.0 - s.minute_window_score);
 
-   if(s.long_bias_score >= s.short_bias_score + 8.0)
+   if(t.macro_direction != "flat")
+      s.direction_name = t.macro_direction;
+   else if(s.long_bias_score >= s.short_bias_score + 8.0)
       s.direction_name = "long";
    else if(s.short_bias_score >= s.long_bias_score + 8.0)
       s.direction_name = "short";
    else
       s.direction_name = "flat";
 
-   if(s.path_score >= 70.0 && s.friction_score <= 40.0)
+   if(s.path_score >= 70.0 && s.friction_score <= 40.0 && s.minute_window_score >= 60.0)
       s.regime_name = "clean";
-   else if(s.volatility_score >= 70.0)
+   else if(s.volatility_score >= 70.0 && s.micro_timing_score >= 56.0)
       s.regime_name = "volatile";
-   else if(s.friction_score >= 65.0)
+   else if(s.friction_score >= 65.0 || s.minute_exhaustion_score >= 62.0)
       s.regime_name = "frictional";
    else
       s.regime_name = "mixed";
 
-   if(s.direction_name == "long" && s.entry_score >= 68.0)
+   if(s.direction_name == "long" && s.entry_score >= 66.0 && t.trigger_state == "trigger_ready")
       s.entry_signal = "enter_long";
-   else if(s.direction_name == "short" && s.entry_score >= 68.0)
+   else if(s.direction_name == "short" && s.entry_score >= 66.0 && t.trigger_state == "trigger_ready")
       s.entry_signal = "enter_short";
+   else if(t.trigger_state == "armed")
+      s.entry_signal = "arm";
    else
       s.entry_signal = "wait";
 
-   if(s.exit_score >= 60.0)
+   if(t.trigger_state == "timing_exit" || s.exit_score >= 58.0)
       s.exit_signal = "exit_or_reduce";
    else
       s.exit_signal = "hold";
@@ -211,7 +255,11 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       "|path=" + row.astro_path_text +
       "|signal=" + row.astro_signal_text +
       "|dir=" + s.direction_name +
-      "|regime=" + s.regime_name;
+      "|regime=" + s.regime_name +
+      "|macro=" + s.macro_context +
+      "|meso=" + s.meso_context +
+      "|micro=" + s.micro_context +
+      "|minute=" + s.minute_context;
 
    s.astro_trade_key =
       "astro_trade{dir=" + s.direction_name +
@@ -232,6 +280,8 @@ string DAL_AstroPureSignal_ToText(const DAL_AstroMapRow &row, const DAL_AstroPur
    t += "LongBias=" + DoubleToString(s.long_bias_score, 1) + " ShortBias=" + DoubleToString(s.short_bias_score, 1) + "\n";
    t += "Trend=" + DoubleToString(s.trend_score, 1) + " Path=" + DoubleToString(s.path_score, 1) + " Friction=" + DoubleToString(s.friction_score, 1) + "\n";
    t += "Volatility=" + DoubleToString(s.volatility_score, 1) + " NatalActivation=" + DoubleToString(s.natal_activation_score, 1) + "\n";
+   t += "Macro=" + DoubleToString(s.macro_timing_score, 1) + " Meso=" + DoubleToString(s.meso_timing_score, 1) + " Micro=" + DoubleToString(s.micro_timing_score, 1) + "\n";
+   t += "MinuteWindow=" + DoubleToString(s.minute_window_score, 1) + " MinuteExhaustion=" + DoubleToString(s.minute_exhaustion_score, 1) + " State=" + s.trigger_state + "\n";
    t += "BiasText=" + row.astro_bias_text + "\n";
    t += "PathText=" + row.astro_path_text + "\n";
    t += "SignalText=" + row.astro_signal_text + "\n";

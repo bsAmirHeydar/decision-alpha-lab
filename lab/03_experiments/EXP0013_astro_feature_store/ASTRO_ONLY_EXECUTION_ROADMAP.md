@@ -175,6 +175,7 @@ Now implemented in repo:
 
 - doctrine id/version fields in builder, live bridge, CSV, and MQL reader
 - declination parallels / contra-parallels and OOB state
+- hierarchical timing doctrine from macro field to minute trigger
 - explicit astro execution state machine
 - paper execution journal schema and journal writers
 - validation tooling scaffold under `tools/astro_validation`

@@ -53,6 +53,11 @@ def summarize(rows: List[dict], *, entry_threshold: float, exit_threshold: float
     entry_scores = [as_float(r, "entry_score") for r in rows]
     exit_scores = [as_float(r, "exit_score") for r in rows]
     hold_bars = [as_int(r, "hold_bars") for r in rows if as_int(r, "hold_bars") > 0]
+    macro_scores = [as_float(r, "macro_timing_score") for r in rows]
+    meso_scores = [as_float(r, "meso_timing_score") for r in rows]
+    micro_scores = [as_float(r, "micro_timing_score") for r in rows]
+    minute_scores = [as_float(r, "minute_window_score") for r in rows]
+    trigger_counts = Counter(row.get("trigger_state", "") for row in rows)
 
     armed_or_enter = sum(1 for r in rows if as_float(r, "entry_score") >= entry_threshold)
     reduce_or_exit = sum(1 for r in rows if as_float(r, "exit_score") >= exit_threshold)
@@ -75,6 +80,11 @@ def summarize(rows: List[dict], *, entry_threshold: float, exit_threshold: float
         "avg_exit_score": mean(exit_scores) if exit_scores else 0.0,
         "avg_hold_bars": mean(hold_bars) if hold_bars else 0.0,
         "max_hold_bars": max(hold_bars) if hold_bars else 0,
+        "avg_macro_timing_score": mean(macro_scores) if macro_scores else 0.0,
+        "avg_meso_timing_score": mean(meso_scores) if meso_scores else 0.0,
+        "avg_micro_timing_score": mean(micro_scores) if micro_scores else 0.0,
+        "avg_minute_window_score": mean(minute_scores) if minute_scores else 0.0,
+        "trigger_counts": dict(trigger_counts),
         "entry_threshold_hits": armed_or_enter,
         "exit_threshold_hits": reduce_or_exit,
         "opposite_signal_collisions": opposite_collisions,

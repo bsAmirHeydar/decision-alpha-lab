@@ -203,11 +203,13 @@ Best for:
 - thresholds are still hand-authored and require validation
 - MetaEditor compile verification has not yet been run inside this turn
 - live order routing exists as `A0090`, but production safeguards and family promotion still require validation
+- house doctrine is still broad; some house-specific meanings can be sharpened further per family
 
 ## Next algorithmic expansions
 
 - angular weighting
 - benefic / malefic balance layer
 - sect-aware doctrine
+- family-specific house meanings and cadence maps
 - stronger natal house activation logic
 - family-specific threshold configs

@@ -93,6 +93,7 @@ python tools/astro_feature_builder/astro_feature_builder.py `
 - `METRICS`
 - `NATAL`
 - `SIGNALS`
+- `TIMING`
 
 The dashboard can display:
 
@@ -100,6 +101,7 @@ The dashboard can display:
 - natal chart metadata
 - transit-to-natal activations
 - pure astro signal language
+- hierarchical timing doctrine from macro background to minute trigger
 
 ## Astro-only execution
 
@@ -117,6 +119,14 @@ The paper families now share:
 - doctrine and schema traceability in the journal
 - offline validation through `tools/astro_validation/astro_signal_validator.py`
 
+The signal layer is now explicitly hierarchical:
+
+- macro field
+- meso gate
+- micro trigger
+- minute window
+- entry / exit language
+
 These families read only the astro CSV and the pure astro signal layer. They do not use market structure or indicators.
 
 ## Research discipline
@@ -127,6 +137,7 @@ Read these next:
 - `ASTRO_ONLY_EXECUTION_CONTRACT.md`
 - `ASTRO_ONLY_EXECUTION_ROADMAP.md`
 - `ASTRO_PURE_SIGNAL_ALGORITHMS.md`
+- `ASTRO_TIMING_DOCTRINE.md`
 - `ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md`
 
 ## Important note

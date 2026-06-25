@@ -7,6 +7,7 @@ This tool audits the astro-only paper journals produced by the execution familie
 - doctrine and schema stability
 - phase / action distribution
 - direction and regime balance
+- macro / meso / micro / minute timing averages
 - hold-duration profile
 - threshold sensitivity grid
 - shuffled baseline on the action stream
