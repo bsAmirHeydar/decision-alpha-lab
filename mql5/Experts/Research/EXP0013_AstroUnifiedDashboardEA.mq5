@@ -38,22 +38,22 @@ input bool                   InpUseTerminalComment       = false;
 
 input int                    InpBaseX                    = 10;
 input int                    InpBaseY                    = 10;
-input int                    InpFontHero                 = 19;
-input int                    InpFontTitle                = 13;
+input int                    InpFontHero                 = 13;
+input int                    InpFontTitle                = 12;
 input int                    InpFontBody                 = 10;
 input int                    InpFontSmall                = 9;
-input int                    InpHeaderHeight             = 122;
-input int                    InpGap                      = 18;
+input int                    InpHeaderHeight             = 100;
+input int                    InpGap                      = 16;
 input int                    InpCardTitleHeight          = 26;
-input int                    InpCardRowHeight            = 23;
-input int                    InpButtonW                  = 92;
-input int                    InpButtonH                  = 26;
-input int                    InpCompactHistoryBars       = 16;
+input int                    InpCardRowHeight            = 24;
+input int                    InpButtonW                  = 124;
+input int                    InpButtonH                  = 30;
+input int                    InpCompactHistoryBars       = 18;
 input int                    InpSparkPointSize           = 2;
 
-input color                  InpColorPanel               = C'8,8,8';
-input color                  InpColorCard                = C'12,12,12';
-input color                  InpColorBorder              = C'105,105,105';
+input color                  InpColorPanel               = C'7,7,7';
+input color                  InpColorCard                = C'10,10,10';
+input color                  InpColorBorder              = C'88,88,88';
 input color                  InpColorText                = clrWhite;
 input color                  InpColorMuted               = clrSilver;
 input color                  InpColorInfo                = clrAqua;
@@ -61,17 +61,18 @@ input color                  InpColorLow                 = clrTomato;
 input color                  InpColorMid                 = clrGold;
 input color                  InpColorHigh                = clrLime;
 input color                  InpColorButtonOn            = C'24,74,24';
-input color                  InpColorButtonOff           = C'45,45,45';
+input color                  InpColorButtonOff           = C'36,36,36';
 
 DAL_AstroMapStore g_store;
 bool     g_loaded = false;
 datetime g_last_load_time = 0;
-string   g_prefix = "DAL_EXP0013_ASTRO_V9";
+string   g_prefix = "DAL_EXP0013_ASTRO_V13";
 bool     g_force_rebuild = false;
 DAL_AstroDashboardView g_view_mode;
 DAL_AstroSection g_focus_section;
 bool g_show_text;
 bool g_show_osc;
+bool g_minimized = false;
 
 struct DAL_Layout
 {
@@ -117,6 +118,11 @@ void DAL_CleanupAllAstroObjects()
    DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V6");
    DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V7");
    DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V8");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V9");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V10");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V11");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V12");
+   DAL_DeleteByPrefix("DAL_EXP0013_ASTRO_V13");
 }
 
 void DAL_Rect(const string name, const int x, const int y, const int w, const int h, const color bg, const color border)
@@ -136,6 +142,11 @@ void DAL_Rect(const string name, const int x, const int y, const int w, const in
    ObjectSetInteger(chart_id, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(chart_id, name, OBJPROP_SELECTED, false);
    ObjectSetInteger(chart_id, name, OBJPROP_HIDDEN, true);
+}
+
+void DAL_LineH(const string name, const int x, const int y, const int w, const color clr)
+{
+   DAL_Rect(name, x, y, w, 1, clr, clr);
 }
 
 void DAL_Label(const string name, const string text, const int x, const int y, const color clr, const int font_size, const string font = "Consolas")
@@ -167,7 +178,7 @@ void DAL_Button(const string name, const string text, const int x, const int y, 
    ObjectSetInteger(chart_id, name, OBJPROP_YSIZE, h);
    ObjectSetString(chart_id, name, OBJPROP_TEXT, text);
    ObjectSetString(chart_id, name, OBJPROP_FONT, "Consolas");
-   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 10);
+   ObjectSetInteger(chart_id, name, OBJPROP_FONTSIZE, 8);
    ObjectSetInteger(chart_id, name, OBJPROP_COLOR, active ? InpColorHigh : InpColorText);
    ObjectSetInteger(chart_id, name, OBJPROP_BGCOLOR, active ? InpColorButtonOn : InpColorButtonOff);
    ObjectSetInteger(chart_id, name, OBJPROP_BORDER_COLOR, InpColorBorder);
@@ -216,9 +227,9 @@ int DAL_MaxLabelLen(const string &names[], const int count)
 
 int DAL_LabelWidthPx(const int max_len)
 {
-   int px = max_len * 9 + 18;
-   if(px < 150) px = 150;
-   if(px > 250) px = 250;
+   int px = max_len * 10 + 44;
+   if(px < 188) px = 188;
+   if(px > 310) px = 310;
    return px;
 }
 
@@ -353,8 +364,8 @@ void DAL_GetLayout(DAL_Layout &L)
    L.x = InpBaseX;
    L.y = InpBaseY;
    L.header_w = MathMax(980, L.chart_w - 30);
-   L.header_h = InpHeaderHeight;
-   L.diag_w = MathMax(430, L.header_w / 3);
+   L.header_h = (g_minimized ? 72 : InpHeaderHeight);
+   L.diag_w = MathMax(500, L.header_w / 3);
    L.left_w = L.header_w - L.diag_w - InpGap;
    L.card_w = MathMax(430, (L.left_w - InpGap) / 2);
    L.card_h = InpCardTitleHeight + 16 + 8 * InpCardRowHeight + 14;
@@ -365,56 +376,81 @@ void DAL_GetLayout(DAL_Layout &L)
    L.row2_y = L.row1_y + L.card_h + InpGap;
    L.osc_x = L.x;
    L.osc_y = L.row2_y + L.card_h + 16;
-   L.osc_w = MathMin(1020, L.left_w);
+   L.osc_w = MathMin(920, L.left_w);
    L.focus_w = L.left_w;
 }
 
 void DAL_DrawHeader(const DAL_Layout &L, const bool have_row, const bool exact_match, const bool fallback_match, const DAL_AstroFractalMetrics &f)
 {
    DAL_Rect(g_prefix + "_HDR_BG", L.x, L.y, L.header_w, L.header_h, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_HDR0", "EXP0013 ASTRO COCKPIT", L.x + 18, L.y + 10, InpColorInfo, InpFontHero);
-   DAL_Label(g_prefix + "_HDR1", _Symbol + "   |   " + EnumToString(_Period) + "   |   " + (g_view_mode == ASTRO_VIEW_COCKPIT ? "Cockpit View" : DAL_SectionTitle(g_focus_section)), L.x + 18, L.y + 42, InpColorText, InpFontBody);
 
+   string view_name = (g_view_mode == ASTRO_VIEW_COCKPIT ? "Cockpit" : DAL_SectionTitle(g_focus_section));
    string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact_match ? "EXACT ROW" : "FALLBACK ROW"));
    color row_clr = !g_loaded ? InpColorLow : (!have_row ? InpColorLow : (exact_match ? InpColorHigh : InpColorMid));
-   DAL_Rect(g_prefix + "_HDR_BADGE", L.x + 18, L.y + 66, 140, 20, C'18,18,18', row_clr);
-   DAL_Label(g_prefix + "_HDR2", row_status, L.x + 26, L.y + 69, row_clr, InpFontBody);
-   DAL_Label(g_prefix + "_HDR3", "file: " + DAL_Shorten(InpAstroCsvFile, 38), L.x + 172, L.y + 69, InpColorText, InpFontBody);
-   string time_line = have_row ? ("Broker=" + DAL_TimeText(f.broker_time) + "   UTC=" + DAL_TimeText(f.utc_time)) : ("Chart candle=" + DAL_TimeText(iTime(_Symbol, _Period, 0)));
-   DAL_Label(g_prefix + "_HDR4", time_line, L.x + 18, L.y + 92, InpColorMuted, InpFontBody);
 
-   int bx = L.x + L.header_w - 6 * (InpButtonW + 8) - 18;
-   int by = L.y + 12;
-   DAL_Button(g_prefix + "_BTN_COCKPIT", "COCKPIT", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_COCKPIT); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_PATH", "PATH", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_PATH); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_MICRO", "MICRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MICRO); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_REGIME", "REGIME", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_REGIME); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_MACRO", "MACRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MACRO); bx += InpButtonW + 8;
+   DAL_Label(g_prefix + "_HDR0", "EXP0013 ASTRO COCKPIT", L.x + 16, L.y + 8, InpColorInfo, InpFontHero);
+   DAL_Label(g_prefix + "_HDR0B", "Research dashboard", L.x + 16, L.y + 25, InpColorMuted, InpFontSmall);
+   DAL_LineH(g_prefix + "_HDR_RULE", L.x + 14, L.y + 38, L.header_w - 28, InpColorBorder);
+
+   int meta_y1 = L.y + 46;
+   int meta_y2 = L.y + 66;
+   DAL_Label(g_prefix + "_HDR1K1", "Symbol", L.x + 16, meta_y1, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR1V1", _Symbol, L.x + 78, meta_y1, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_HDR1K2", "TF", L.x + 170, meta_y1, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR1V2", EnumToString(_Period), L.x + 206, meta_y1, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_HDR1K3", "View", L.x + 280, meta_y1, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR1V3", view_name, L.x + 326, meta_y1, InpColorText, InpFontBody);
+
+   DAL_Label(g_prefix + "_HDR2K1", "Status", L.x + 16, meta_y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR2V1", row_status, L.x + 78, meta_y2, row_clr, InpFontBody);
+   DAL_Label(g_prefix + "_HDR2K2", "File", L.x + 280, meta_y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR2V2", DAL_Shorten(InpAstroCsvFile, 30), L.x + 318, meta_y2, InpColorMid, InpFontBody);
+
+   if(!g_minimized)
+   {
+      DAL_Label(g_prefix + "_HDR3K1", "Broker", L.x + 520, meta_y2, InpColorMuted, InpFontBody);
+      DAL_Label(g_prefix + "_HDR3V1", have_row ? DAL_TimeText(f.broker_time) : DAL_TimeText(iTime(_Symbol, _Period, 0)), L.x + 580, meta_y2, InpColorText, InpFontBody);
+      DAL_Label(g_prefix + "_HDR3K2", "UTC", L.x + 750, meta_y2, InpColorMuted, InpFontBody);
+      DAL_Label(g_prefix + "_HDR3V2", have_row ? DAL_TimeText(f.utc_time) : "n/a", L.x + 790, meta_y2, InpColorText, InpFontBody);
+   }
+
+   int nav_gap = 8;
+   int util_w = 124;
+   int util_gap = 10;
+   int bx = L.x + L.header_w - 6 * (InpButtonW + nav_gap) - 18;
+   int by = L.y + 8;
+   DAL_Button(g_prefix + "_BTN_COCKPIT", "COCKPIT", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_COCKPIT); bx += InpButtonW + nav_gap;
+   DAL_Button(g_prefix + "_BTN_PATH", "PATH", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_PATH); bx += InpButtonW + nav_gap;
+   DAL_Button(g_prefix + "_BTN_MICRO", "MICRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MICRO); bx += InpButtonW + nav_gap;
+   DAL_Button(g_prefix + "_BTN_REGIME", "REGIME", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_REGIME); bx += InpButtonW + nav_gap;
+   DAL_Button(g_prefix + "_BTN_MACRO", "MACRO", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_MACRO); bx += InpButtonW + nav_gap;
    DAL_Button(g_prefix + "_BTN_RAW", "RAW", bx, by, InpButtonW, InpButtonH, g_view_mode == ASTRO_VIEW_FOCUS && g_focus_section == ASTRO_SEC_RAW);
 
-   bx = L.x + L.header_w - 3 * (104 + 10) - 18;
-   by = L.y + 52;
-   DAL_Button(g_prefix + "_BTN_TEX", g_show_text ? "TEXT ON" : "TEXT OFF", bx, by, 104, InpButtonH, g_show_text); bx += 114;
-   DAL_Button(g_prefix + "_BTN_OSC", g_show_osc ? "OSC ON" : "OSC OFF", bx, by, 104, InpButtonH, g_show_osc); bx += 114;
-   DAL_Button(g_prefix + "_BTN_RELD", "RELOAD", bx, by, 104, InpButtonH, false);
+   bx = L.x + L.header_w - 4 * (util_w + util_gap) - 18;
+   by = L.y + 44;
+   DAL_Button(g_prefix + "_BTN_TEX", g_show_text ? "TEXT ON" : "TEXT OFF", bx, by, util_w, InpButtonH, g_show_text); bx += util_w + util_gap;
+   DAL_Button(g_prefix + "_BTN_OSC", g_show_osc ? "OSC ON" : "OSC OFF", bx, by, util_w, InpButtonH, g_show_osc); bx += util_w + util_gap;
+   DAL_Button(g_prefix + "_BTN_MIN", g_minimized ? "EXPAND" : "MINIMIZE", bx, by, util_w, InpButtonH, g_minimized); bx += util_w + util_gap;
+   DAL_Button(g_prefix + "_BTN_RELD", "RELOAD", bx, by, util_w, InpButtonH, false);
 }
 
 void DAL_DrawMetricCard(const string key, const string title, const int x, const int y, const int w, const string &names[], const double &vals[], const int count)
 {
-   int h = InpCardTitleHeight + 16 + count * InpCardRowHeight + 14;
+   int h = InpCardTitleHeight + 18 + count * InpCardRowHeight + 16;
    DAL_Rect(g_prefix + "_CARD_BG_" + key, x, y, w, h, InpColorCard, InpColorBorder);
-   DAL_Label(g_prefix + "_CARD_T_" + key, title, x + 16, y + 7, InpColorInfo, InpFontTitle);
+   DAL_Label(g_prefix + "_CARD_T_" + key, title, x + 16, y + 8, InpColorInfo, InpFontTitle);
+   DAL_LineH(g_prefix + "_CARD_RULE_" + key, x + 14, y + InpCardTitleHeight + 2, w - 28, InpColorBorder);
 
    int label_x = x + 16;
-   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count));
-   int val_x   = label_x + label_w;
-   int bucket_x= val_x + 64;
-   int bar_w   = 102;
-   int bar_x   = x + w - bar_w - 20;
-   if(bucket_x > bar_x - 48) bucket_x = bar_x - 48;
+   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count)) + 26;
+   int val_x   = label_x + label_w + 12;
+   int bucket_x= val_x + 60;
+   int bar_w   = 92;
+   int bar_x   = x + w - bar_w - 18;
+   if(bucket_x > bar_x - 62) bucket_x = bar_x - 62;
    for(int i = 0; i < count; i++)
    {
-      int ry = y + InpCardTitleHeight + 12 + i * InpCardRowHeight;
+      int ry = y + InpCardTitleHeight + 16 + i * InpCardRowHeight;
       color clr = DAL_HeatColor(vals[i]);
       DAL_Label(g_prefix + "_CARD_L_" + key + "_" + IntegerToString(i), names[i], label_x, ry, InpColorText, InpFontBody);
       DAL_Label(g_prefix + "_CARD_V_" + key + "_" + IntegerToString(i), DoubleToString(vals[i], 1), val_x, ry, clr, InpFontBody);
@@ -431,24 +467,26 @@ void DAL_DrawDiagnosticsCard(const DAL_Layout &L, const bool have_row, const boo
    int w = L.diag_w;
    int h = 2 * L.card_h + InpGap;
    DAL_Rect(g_prefix + "_DIAG_BG", x, y, w, h, InpColorCard, InpColorBorder);
-   DAL_Label(g_prefix + "_DIAG_T", "DIAGNOSTICS", x + 16, y + 7, InpColorInfo, InpFontTitle);
+   DAL_Label(g_prefix + "_DIAG_T", "DIAGNOSTICS", x + 16, y + 8, InpColorInfo, InpFontTitle);
+   DAL_LineH(g_prefix + "_DIAG_RULE", x + 14, y + InpCardTitleHeight + 2, w - 28, InpColorBorder);
 
    int label_x = x + 16;
-   int val_x = x + 148;
-   int ry = y + InpCardTitleHeight + 14;
+   int val_x = x + 120;
+   int step = 28;
+   int ry = y + InpCardTitleHeight + 18;
    DAL_Label(g_prefix + "_DIAG_0", "CSV", label_x, ry, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_DIAGV_0", g_loaded ? "LOADED" : "NOT LOADED", val_x, ry, g_loaded ? InpColorHigh : InpColorLow, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_0", g_loaded ? "LOADED" : "NOT LOADED", val_x, ry, g_loaded ? InpColorHigh : InpColorLow, InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_1", "Rows", label_x, ry, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_DIAGV_1", IntegerToString(g_store.row_count), val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_1", IntegerToString(g_store.row_count), val_x, ry, InpColorMuted, InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_2", "Source", label_x, ry, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_DIAGV_2", DAL_Shorten(g_store.source_file, 27), val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_2", DAL_Shorten(g_store.source_file, 30), val_x, ry, InpColorMuted, InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_3", "Lookup", label_x, ry, InpColorText, InpFontBody);
    string lk = have_row ? (exact_match ? "exact" : (fallback_match ? "fallback" : "unknown")) : "row_not_found";
-   DAL_Label(g_prefix + "_DIAGV_3", lk, val_x, ry, exact_match ? InpColorHigh : (fallback_match ? InpColorMid : InpColorLow), InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_3", lk, val_x, ry, exact_match ? InpColorHigh : (fallback_match ? InpColorMid : InpColorLow), InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_4", "Chart", label_x, ry, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_DIAGV_4", DAL_TimeText(iTime(_Symbol, _Period, 0)), val_x, ry, InpColorText, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_4", DAL_TimeText(iTime(_Symbol, _Period, 0)), val_x, ry, InpColorText, InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_5", "Matched", label_x, ry, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_DIAGV_5", have_row ? DAL_TimeText(f.broker_time) : "n/a", val_x, ry, InpColorMuted, InpFontBody); ry += 24;
+   DAL_Label(g_prefix + "_DIAGV_5", have_row ? DAL_TimeText(f.broker_time) : "n/a", val_x, ry, InpColorMuted, InpFontBody); ry += step;
    DAL_Label(g_prefix + "_DIAG_6", "Hint", label_x, ry, InpColorText, InpFontBody);
    DAL_Label(g_prefix + "_DIAGV_6", have_row ? "dashboard ok" : "extend live window / check GMT", val_x, ry, have_row ? InpColorHigh : InpColorMid, InpFontBody);
 }
@@ -469,43 +507,27 @@ void DAL_DrawCompactOsc(const DAL_Layout &L, const DAL_AstroSection sec)
    int w = L.osc_w;
    int title_h = 26;
    int row_h = 23;
-   int h = title_h + count * row_h + 14;
+   int h = title_h + count * row_h + 16;
    DAL_Rect(g_prefix + "_OSC_BG", x, y, w, h, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_OSC_T", "COMPACT OSCILLATOR  |  " + DAL_SectionTitle(sec), x + 16, y + 7, InpColorInfo, InpFontTitle);
+   DAL_Label(g_prefix + "_OSC_T", "COMPACT OSCILLATOR  ·  " + DAL_SectionTitle(sec), x + 16, y + 7, InpColorInfo, InpFontTitle);
+   DAL_LineH(g_prefix + "_OSC_RULE", x + 14, y + title_h - 2, w - 28, InpColorBorder);
 
    int label_x = x + 16;
-   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count));
-   int val_x   = label_x + label_w;
-   int bar_x   = val_x + 54;
-   int bar_w   = 84;
-   int spark_x = bar_x + bar_w + 30;
-   int spark_w = 190;
-   int bars = MathMax(8, MathMin(InpCompactHistoryBars, 18));
-   double step = (double)spark_w / (double)MathMax(1, bars - 1);
+   int label_w = DAL_LabelWidthPx(DAL_MaxLabelLen(names, count)) + 24;
+   int val_x   = label_x + label_w + 12;
+   int bucket_x = val_x + 56;
+   int bar_x   = bucket_x + 64;
+   int bar_w   = 120;
 
    for(int r = 0; r < count; r++)
    {
-      int ry = y + title_h + r * row_h;
+      int ry = y + title_h + 2 + r * row_h;
       color clr = DAL_HeatColor(vals[r]);
       DAL_Label(g_prefix + "_OSC_L_" + IntegerToString(r), names[r], label_x, ry + 2, InpColorText, InpFontBody);
       DAL_Label(g_prefix + "_OSC_V_" + IntegerToString(r), DoubleToString(vals[r], 1), val_x, ry + 2, clr, InpFontBody);
+      DAL_Label(g_prefix + "_OSC_B_" + IntegerToString(r), DAL_Bucket(vals[r]), bucket_x, ry + 2, InpColorMuted, InpFontBody);
       DAL_Rect(g_prefix + "_OSC_BARBG_" + IntegerToString(r), bar_x, ry + 6, bar_w, 10, C'22,22,22', InpColorBorder);
       DAL_Rect(g_prefix + "_OSC_BAR_" + IntegerToString(r), bar_x, ry + 6, (int)MathRound(MathMax(0.0, MathMin(100.0, vals[r])) / 100.0 * bar_w), 10, clr, clr);
-      DAL_Rect(g_prefix + "_OSC_AXIS_" + IntegerToString(r), spark_x, ry + 12, spark_w, 1, InpColorBorder, InpColorBorder);
-
-      for(int i = 0; i < bars; i++)
-      {
-         bool ex, fb; DAL_AstroFractalMetrics ft;
-         string hn[8]; double hv[8]; int hc;
-         string pname = g_prefix + "_OSC_P_" + IntegerToString(r) + "_" + IntegerToString(i);
-         if(!DAL_FindFractalByShift(bars - 1 - i, ft, ex, fb))
-            continue;
-         DAL_GetSectionData(sec, ft, hn, hv, hc);
-         double v = (r < hc ? hv[r] : 0.0);
-         int px = spark_x + (int)MathRound(i * step);
-         int py = ry + row_h - 5 - (int)MathRound(MathMax(0.0, MathMin(100.0, v)) / 100.0 * (row_h - 10));
-         DAL_Rect(pname, px, py, InpSparkPointSize, InpSparkPointSize, DAL_HeatColor(v), DAL_HeatColor(v));
-      }
    }
 }
 
@@ -555,6 +577,17 @@ void DAL_Render()
    DAL_Layout L; DAL_GetLayout(L);
    DAL_DrawHeader(L, have_row, exact_match, fallback_match, f);
 
+   if(g_minimized)
+   {
+      if(InpUseTerminalComment)
+      {
+         string status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact_match ? "EXACT" : "FALLBACK"));
+         Comment("EXP0013 Astro Dashboard | ", status, " | ", (have_row ? f.thesis : "no row"));
+      }
+      ChartRedraw(ChartID());
+      return;
+   }
+
    if(g_show_text)
    {
       if(have_row)
@@ -577,11 +610,12 @@ void DAL_Render()
 
 int OnInit()
 {
-   g_prefix = "DAL_EXP0013_ASTRO_V9_" + IntegerToString((int)ChartID());
+   g_prefix = "DAL_EXP0013_ASTRO_V13_" + IntegerToString((int)ChartID());
    g_view_mode = InpInitialViewMode;
    g_focus_section = InpInitialFocusSection;
    g_show_text = InpShowTextPanel;
    g_show_osc = InpShowOscillator;
+   g_minimized = false;
    DAL_CleanupAllAstroObjects();
    g_force_rebuild = false;
    EventSetTimer(MathMax(1, InpRefreshSeconds));
@@ -621,6 +655,7 @@ void OnChartEvent(const int id, const long &lparam, const double &dparam, const 
    else if(sparam == g_prefix + "_BTN_RAW") { g_view_mode = ASTRO_VIEW_FOCUS; g_focus_section = ASTRO_SEC_RAW; layout_changed = true; }
    else if(sparam == g_prefix + "_BTN_TEX") { g_show_text = !g_show_text; layout_changed = true; }
    else if(sparam == g_prefix + "_BTN_OSC") { g_show_osc = !g_show_osc; layout_changed = true; }
+   else if(sparam == g_prefix + "_BTN_MIN") { g_minimized = !g_minimized; layout_changed = true; }
    else if(sparam == g_prefix + "_BTN_RELD") { DAL_LoadStore(); }
 
    if(layout_changed)
