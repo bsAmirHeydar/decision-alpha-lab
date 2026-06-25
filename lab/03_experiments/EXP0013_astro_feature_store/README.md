@@ -1,22 +1,54 @@
-# EXP0013 — Astro Feature Store
+# EXP0013 - Astro Feature Store
 
 ## Purpose
 
-EXP0013 creates a professional bridge between Python-generated astrological ephemeris data and MQL5 execution/research modules.
+EXP0013 is the deterministic astronomy-to-MQL pipeline inside Decision Alpha Lab.
 
-The experiment lets every candle in visual tester, Strategy Tester, or live execution access the full sky-state feature row for that candle.
+It now supports both:
 
-## Components
+- transit-only raw sky state
+- natal or inception chart activation models
+
+The goal is to make every candle in tester or live execution able to read a full astro state row without calling Python or external APIs at runtime.
+
+## Main architecture
+
+```text
+Python builder
+-> deterministic CSV
+-> MQL astro map reader
+-> raw dashboard / diagnostics
+-> pure astro language
+-> astro-only execution families
+```
+
+## Current modules
 
 ```text
 tools/astro_feature_builder/astro_feature_builder.py
-mql5/Include/Research/DAL_AstroFeatureTypes.mqh
-mql5/Include/Research/DAL_AstroFeatureStore.mqh
-mql5/Include/Research/DAL_AstroDistributionAdapter.mqh
-mql5/Experts/Research/EXP0013_AstroFeatureStore_Demo.mq5
+tools/astro_live_bridge/astro_live_bridge.py
+mql5/Include/Research/DAL_AstroMapTypes.mqh
+mql5/Include/Research/DAL_AstroExcelCandleReader.mqh
+mql5/Include/Research/DAL_AstroDerivedFeatures.mqh
+mql5/Include/Research/DAL_AstroPathCleanlinessMetrics.mqh
+mql5/Include/Research/DAL_AstroFractalPathMetrics.mqh
+mql5/Include/Research/DAL_AstroPureAstrologySignals.mqh
+mql5/Experts/Research/EXP0013_AstroUnifiedDashboardEA.mq5
+mql5/Experts/AstroExecution/
 ```
 
-## Generate CSV
+## Data families now supported
+
+- transit raw bodies
+- transit houses and angles
+- transit-to-transit aspects
+- natal raw bodies
+- natal houses and angles
+- transit-to-natal aspects for Sun..Saturn
+- transit placement inside natal houses
+- pure astro language fields
+
+## Build a transit + natal CSV
 
 ```powershell
 python -m pip install -r tools/astro_feature_builder/requirements.txt
@@ -26,78 +58,65 @@ python tools/astro_feature_builder/astro_feature_builder.py `
   --end-broker "2024-02-01 00:00:00" `
   --timeframe-minutes 1 `
   --broker-gmt-offset-hours 2 `
+  --house-lat 35.6892 `
+  --house-lon 51.3890 `
+  --natal-local-datetime "1987-08-16 14:35:00" `
+  --natal-utc-offset-hours 3.5 `
+  --natal-lat 35.6892 `
+  --natal-lon 51.3890 `
+  --natal-label "gold_ref" `
   --ephe-path "tools/astro_feature_builder/ephe" `
-  --out "astro_XAUUSD_M1_202401.csv"
+  --out-csv "data/astro/astro_XAUUSD_M1_202401_mql.csv"
 ```
 
-Copy output into:
+## Runtime contract
 
-```text
-<META_TRADER_DATA_FOLDER>/MQL5/Files/astro/astro_XAUUSD_M1_202401.csv
-```
+- Python computes astro rows at candle open time.
+- CSV stores both `broker_time` and `utc_time`.
+- MQL looks up by `broker_time` exactly.
+- MQL does not apply a second GMT shift.
 
-Set:
+## Dashboard
 
-```text
-InpAstroCsvFile = astro/astro_XAUUSD_M1_202401.csv
-InpBrokerGmtOffsetHours = 2
-```
+`EXP0013_AstroUnifiedDashboardEA.mq5` now exposes:
 
-## MQL5 Runtime
+- `OVERVIEW`
+- `BODIES`
+- `ASPECTS`
+- `HOUSES`
+- `METRICS`
+- `NATAL`
+- `SIGNALS`
 
-The demo expert loads the CSV and matches rows by broker bar time:
+The dashboard can display:
 
-```mql5
-DAL_AstroFeatureStore_FindByBrokerTime(store, iTime(_Symbol, PERIOD_M1, 0), row, true);
-```
+- raw transit state
+- natal chart metadata
+- transit-to-natal activations
+- pure astro signal language
 
-It then displays the state on the visual tester chart and creates a distribution key:
+## Astro-only execution
 
-```mql5
-string dist_key = DAL_Astro_AppendToDistributionKey(execution_key, row, true);
-```
+The `mql5/Experts/AstroExecution` folder contains pure-astro execution families.
 
-## Execution Integration
+- `A0001` transit trend pulse
+- `A0002` natal resonance
+- `A0003` friction polarity
 
-In any execution:
+These families read only the astro CSV and the pure astro signal layer. They do not use market structure or indicators.
 
-```mql5
-#include <Research/DAL_AstroFeatureStore.mqh>
-#include <Research/DAL_AstroDistributionAdapter.mqh>
+## Research discipline
 
-DAL_AstroFeatureStore g_astro;
+Read these next:
 
-int OnInit()
-{
-   DAL_AstroFeatureStore_LoadCsv(g_astro, InpAstroCsvFile, InpBrokerGmtOffsetHours);
-   return INIT_SUCCEEDED;
-}
-```
+- `ASTRO_FEATURE_MEANING.md`
+- `ASTRO_ONLY_EXECUTION_CONTRACT.md`
+- `ASTRO_ONLY_EXECUTION_ROADMAP.md`
+- `ASTRO_PURE_SIGNAL_ALGORITHMS.md`
+- `ASTRO_RAW_SKY_TABBED_UI_AND_NATAL_DOCTRINE.md`
 
-On each new bar:
+## Important note
 
-```mql5
-DAL_AstroFeatureRow astro;
-if(DAL_AstroFeatureStore_FindByBrokerTime(g_astro, bar_time, astro, true))
-{
-   feature_key = DAL_Astro_AppendToDistributionKey(feature_key, astro, true);
-}
-```
+The EA birth inputs are not a substitute for CSV generation.
 
-Then pass `feature_key` to EXP0012 Distribution Engineering when recording the outcome.
-
-## Notes
-
-The Python builder is intentionally outside Strategy Tester. Strategy Tester must read deterministic files, not call Python or APIs during backtest.
-
-## Excel/CSV runtime update
-
-EXP0013 now includes a full Excel/CSV workflow:
-
-- `BUILD_EXCEL_COMMANDS.md` contains copy-paste commands for generating CSV/XLSX.
-- `ASTRO_FEATURE_MEANING.md` defines each raw/derived astro feature before using it.
-- `DAL_AstroExcelCandleReader.mqh` loads the CSV mirror candle by candle in Visual Tester or live execution.
-- `DAL_AstroDerivedFeatures.mqh` converts the raw sky map into explicit Distribution Engineering keys.
-- `EXP0013_AstroExcelCandleReader_Demo.mq5` displays the sky map per candle.
-
-MQL5 reads CSV, not binary XLSX. XLSX is for human review.
+If the natal anchor changes, regenerate the CSV with the same natal inputs. The dashboard can display and validate the anchor, but the astronomical row itself is still produced by Python.
