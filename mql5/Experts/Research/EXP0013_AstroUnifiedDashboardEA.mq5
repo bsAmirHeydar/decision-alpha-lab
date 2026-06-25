@@ -1,6 +1,6 @@
 #property strict
-#property description "Decision Alpha Lab - EXP0013 Radical Raw Astro Dashboard EA"
-#property description "Research-only raw sky dashboard. No trade, no iCustom, no interpretive scores."
+#property description "Decision Alpha Lab - EXP0013 Raw Sky Cockpit EA"
+#property description "Research-only raw sky dashboard. No trade, no iCustom, no interpretive market scores."
 #property tester_file "astro_GMT3_M1_2026_to_now_mql.csv"
 #property tester_file "astro\\astro_GMT3_M1_2026_to_now_mql.csv"
 #property tester_file "astro_live_mql.csv"
@@ -17,45 +17,44 @@ enum DAL_AstroRawView
    ASTRO_RAW_METRICS  = 4
 };
 
-input string         InpAstroCsvFile          = "astro_live_mql.csv";
-input double         InpBrokerGmtOffsetHours  = 0.0;
-input bool           InpRequireExactBarTime   = true;
-input int            InpReloadCsvEverySeconds = 10;
-input int            InpRefreshSeconds        = 1;
-input DAL_AstroRawView InpInitialView         = ASTRO_RAW_OVERVIEW;
-input bool           InpShowLowerOrbStrip     = true;
-input bool           InpUseTerminalComment    = false;
+input string           InpAstroCsvFile          = "astro_live_mql.csv";
+input double           InpBrokerGmtOffsetHours  = 0.0;
+input bool             InpRequireExactBarTime   = true;
+input int              InpReloadCsvEverySeconds = 10;
+input int              InpRefreshSeconds        = 1;
+input DAL_AstroRawView InpInitialView           = ASTRO_RAW_OVERVIEW;
+input bool             InpUseTerminalComment    = false;
 
-input int            InpBaseX                 = 10;
-input int            InpBaseY                 = 10;
-input int            InpHeaderHeight          = 104;
-input int            InpGap                   = 16;
-input int            InpButtonW               = 108;
-input int            InpButtonH               = 28;
-input int            InpFontHero              = 14;
-input int            InpFontTitle             = 12;
-input int            InpFontBody              = 9;
-input int            InpRowHeight             = 19;
+input int              InpBaseX                 = 10;
+input int              InpBaseY                 = 10;
+input int              InpHeaderHeight          = 92;
+input int              InpGap                   = 16;
+input int              InpButtonW               = 110;
+input int              InpButtonH               = 28;
+input int              InpFontHero              = 13;
+input int              InpFontTitle             = 12;
+input int              InpFontBody              = 9;
+input int              InpFontSmall             = 8;
+input int              InpRowHeight             = 20;
 
-input color          InpColorPanel            = C'7,7,7';
-input color          InpColorCard             = C'10,10,10';
-input color          InpColorBorder           = C'86,86,86';
-input color          InpColorText             = clrWhite;
-input color          InpColorMuted            = clrSilver;
-input color          InpColorInfo             = clrAqua;
-input color          InpColorLow              = clrTomato;
-input color          InpColorMid              = clrGold;
-input color          InpColorHigh             = clrLime;
-input color          InpColorButtonOn         = C'22,72,22';
-input color          InpColorButtonOff        = C'36,36,36';
+input color            InpColorPanel            = C'7,7,7';
+input color            InpColorCard             = C'10,10,10';
+input color            InpColorBorder           = C'82,82,82';
+input color            InpColorText             = clrWhite;
+input color            InpColorMuted            = clrSilver;
+input color            InpColorInfo             = clrAqua;
+input color            InpColorLow              = clrTomato;
+input color            InpColorMid              = clrGold;
+input color            InpColorHigh             = clrLime;
+input color            InpColorButtonOn         = C'22,72,22';
+input color            InpColorButtonOff        = C'36,36,36';
 
 DAL_AstroMapStore g_store;
 bool              g_loaded = false;
 datetime          g_last_load_time = 0;
-string            g_prefix = "DAL_EXP0013_RAW_ASTRO";
+string            g_prefix = "DAL_EXP0013_RAW_SKY_V14";
 DAL_AstroRawView  g_view;
 bool              g_minimized = false;
-bool              g_show_orb_strip = true;
 bool              g_force_rebuild = true;
 int               g_last_w = 0;
 int               g_last_h = 0;
@@ -68,15 +67,13 @@ struct DAL_UIGrid
    int y;
    int header_w;
    int header_h;
-   int card_w;
-   int wide_w;
-   int diag_w;
-   int col1_x;
-   int col2_x;
-   int col3_x;
-   int row1_y;
-   int row2_y;
-   int row3_y;
+   int main_x;
+   int main_y;
+   int main_w;
+   int side_x;
+   int side_y;
+   int side_w;
+   int panel_h;
 };
 
 void DAL_DelPrefix(const string prefix)
@@ -95,6 +92,7 @@ void DAL_CleanupAll()
 {
    DAL_DelPrefix("DAL_EXP0013_ASTRO");
    DAL_DelPrefix("DAL_EXP0013_RAW_ASTRO");
+   DAL_DelPrefix("DAL_EXP0013_RAW_SKY");
 }
 
 void DAL_Rect(const string name, const int x, const int y, const int w, const int h, const color bg, const color border)
@@ -114,6 +112,11 @@ void DAL_Rect(const string name, const int x, const int y, const int w, const in
    ObjectSetInteger(chart_id, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(chart_id, name, OBJPROP_SELECTED, false);
    ObjectSetInteger(chart_id, name, OBJPROP_HIDDEN, true);
+}
+
+void DAL_Line(const string name, const int x, const int y, const int w, const color clr)
+{
+   DAL_Rect(name, x, y, w, 1, clr, clr);
 }
 
 void DAL_Label(const string name, const string text, const int x, const int y, const color clr, const int font_size, const string font="Consolas")
@@ -153,11 +156,6 @@ void DAL_Button(const string name, const string text, const int x, const int y, 
    ObjectSetInteger(chart_id, name, OBJPROP_HIDDEN, true);
 }
 
-void DAL_Line(const string name, const int x, const int y, const int w, const color clr)
-{
-   DAL_Rect(name, x, y, w, 1, clr, clr);
-}
-
 string DAL_TimeText(const datetime t)
 {
    if(t <= 0) return "n/a";
@@ -189,13 +187,6 @@ string DAL_SignShort(const string sign)
    return "---";
 }
 
-string DAL_BodyShort(const string name)
-{
-   if(name == "true_node") return "true_node";
-   if(name == "mean_node") return "mean_node";
-   return name;
-}
-
 string DAL_PosText(const DAL_AstroBodyState &b)
 {
    return StringFormat("%05.2f %s", b.degree, DAL_SignShort(b.sign));
@@ -218,6 +209,13 @@ string DAL_RetroText(const DAL_AstroBodyState &b)
 string DAL_HouseText(const DAL_AstroBodyState &b)
 {
    return (b.house >= 1 && b.house <= 12 ? IntegerToString(b.house) : "-");
+}
+
+string DAL_BodyDisplay(const string name)
+{
+   if(name == "true_node") return "true_node";
+   if(name == "mean_node") return "mean_node";
+   return name;
 }
 
 string DAL_Dignity(const DAL_AstroBodyState &b)
@@ -291,11 +289,18 @@ color DAL_DignityColor(const string d)
    return InpColorMuted;
 }
 
+color DAL_OrbColor(const double orb)
+{
+   if(orb <= 1.0) return InpColorHigh;
+   if(orb <= 3.0) return InpColorMid;
+   return InpColorMuted;
+}
+
 bool DAL_LoadStore()
 {
    g_last_load_time = TimeCurrent();
    g_loaded = DAL_AstroMapStore_LoadExcelCsv(g_store, InpAstroCsvFile, InpBrokerGmtOffsetHours, PeriodSeconds(_Period) / 60);
-   Print("EXP0013 Raw Astro | CSV loaded=", g_loaded, " rows=", g_store.row_count, " source=", g_store.source_file);
+   Print("EXP0013 Raw Sky | CSV loaded=", g_loaded, " rows=", g_store.row_count, " source=", g_store.source_file);
    return g_loaded;
 }
 
@@ -332,38 +337,43 @@ void DAL_GetGrid(DAL_UIGrid &g)
    g.chart_h = (int)ChartGetInteger(ChartID(), CHART_HEIGHT_IN_PIXELS, 0);
    g.x = InpBaseX;
    g.y = InpBaseY;
-   g.header_w = MathMax(1000, g.chart_w - 30);
-   g.header_h = (g_minimized ? 74 : InpHeaderHeight);
-   g.diag_w = MathMax(470, g.header_w / 3);
-   int left_w = g.header_w - g.diag_w - InpGap;
-   g.card_w = MathMax(420, (left_w - InpGap) / 2);
-   g.wide_w = left_w;
+   g.header_w = MathMax(1040, g.chart_w - 30);
+   g.header_h = (g_minimized ? 72 : InpHeaderHeight);
+   g.side_w = MathMax(420, g.header_w / 3);
+   g.main_w = g.header_w - g.side_w - InpGap;
+   g.card_w = MathMax(420, (g.main_w - InpGap) / 2);
+   g.diag_w = g.side_w;
+   g.main_x = g.x;
+   g.main_y = g.y + g.header_h + 12;
+   g.side_x = g.x + g.main_w + InpGap;
+   g.side_y = g.main_y;
    g.col1_x = g.x;
    g.col2_x = g.x + g.card_w + InpGap;
-   g.col3_x = g.x + left_w + InpGap;
-   g.row1_y = g.y + g.header_h + 12;
-   g.row2_y = g.row1_y + 196 + InpGap;
-   g.row3_y = g.row2_y + 196 + InpGap;
+   g.col3_x = g.side_x;
+   g.row1_y = g.main_y;
+   g.row2_y = g.row1_y + 248 + InpGap;
+   g.row3_y = g.row2_y + 248 + InpGap;
+   g.panel_h = MathMax(520, g.chart_h - g.main_y - 80);
 }
 
 void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, const bool fallback, const DAL_AstroMapRow &row)
 {
    DAL_Rect(g_prefix + "_HDR_BG", g.x, g.y, g.header_w, g.header_h, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_HDR_TITLE", "EXP0013 RADICAL RAW SKY", g.x + 16, g.y + 8, InpColorInfo, InpFontHero);
-   DAL_Label(g_prefix + "_HDR_SUB", "no interpretation layer · raw positions / houses / aspects / canonical geometry", g.x + 16, g.y + 28, InpColorMuted, InpFontBody);
-   DAL_Line(g_prefix + "_HDR_RULE", g.x + 14, g.y + 44, g.header_w - 28, InpColorBorder);
+   DAL_Label(g_prefix + "_HDR_TITLE", "EXP0013 RAW SKY COCKPIT", g.x + 16, g.y + 8, InpColorInfo, InpFontHero);
+   DAL_Label(g_prefix + "_HDR_SUB", "Raw astronomical state only: bodies, signs, houses, aspects, geometry", g.x + 16, g.y + 28, InpColorMuted, InpFontSmall);
+   DAL_Line(g_prefix + "_HDR_RULE", g.x + 14, g.y + 43, g.header_w - 28, InpColorBorder);
 
    string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact ? "EXACT ROW" : "FALLBACK ROW"));
    color st_col = !g_loaded ? InpColorLow : (!have_row ? InpColorLow : (exact ? InpColorHigh : InpColorMid));
    int y2 = g.y + 52;
-   DAL_Label(g_prefix + "_HDR_META1", "Symbol", g.x + 16, y2, InpColorMuted, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META1V", _Symbol, g.x + 78, y2, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META2", "TF", g.x + 160, y2, InpColorMuted, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META2V", EnumToString(_Period), g.x + 192, y2, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META3", "Status", g.x + 280, y2, InpColorMuted, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META3V", row_status, g.x + 342, y2, st_col, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META4", "File", g.x + 500, y2, InpColorMuted, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_META4V", DAL_Short(InpAstroCsvFile, 34), g.x + 540, y2, InpColorMid, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S1", "Symbol", g.x + 16, y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S1V", _Symbol, g.x + 78, y2, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S2", "TF", g.x + 160, y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S2V", EnumToString(_Period), g.x + 192, y2, InpColorText, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S3", "Status", g.x + 280, y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S3V", row_status, g.x + 342, y2, st_col, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S4", "File", g.x + 500, y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S4V", DAL_Short(InpAstroCsvFile, 38), g.x + 540, y2, InpColorMid, InpFontBody);
 
    if(!g_minimized)
    {
@@ -380,9 +390,8 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
    DAL_Button(g_prefix + "_BTN_HOU", "HOUSES", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_HOUSES); bx += InpButtonW + 8;
    DAL_Button(g_prefix + "_BTN_MET", "METRICS", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_METRICS);
 
-   bx = g.x + g.header_w - 3 * (128 + 10) - 18;
+   bx = g.x + g.header_w - 2 * (128 + 10) - 18;
    by = g.y + 48;
-   DAL_Button(g_prefix + "_BTN_STRIP", g_show_orb_strip ? "ORB STRIP ON" : "ORB STRIP OFF", bx, by, 128, InpButtonH, g_show_orb_strip); bx += 138;
    DAL_Button(g_prefix + "_BTN_MIN", g_minimized ? "EXPAND" : "MINIMIZE", bx, by, 128, InpButtonH, g_minimized); bx += 138;
    DAL_Button(g_prefix + "_BTN_RELOAD", "RELOAD", bx, by, 128, InpButtonH, false);
 }
@@ -391,45 +400,32 @@ void DAL_Card(const string key, const string title, const int x, const int y, co
 {
    DAL_Rect(g_prefix + "_CARD_" + key, x, y, w, h, InpColorCard, InpColorBorder);
    DAL_Label(g_prefix + "_CARD_T_" + key, title, x + 14, y + 8, InpColorInfo, InpFontTitle);
-   DAL_Line(g_prefix + "_CARD_R_" + key, x + 12, y + 30, w - 24, InpColorBorder);
+   DAL_Line(g_prefix + "_CARD_R_" + key, x + 12, y + 32, w - 24, InpColorBorder);
 }
 
-void DAL_Row(const string key, const int i, const int x, const int y, const string c1, const string c2, const string c3, const string c4, const color col2=clrWhite, const color col3=clrSilver, const color col4=clrSilver)
+void DAL_Cell4(const string key, const int i, const int x, const int y, const int c1w, const int c2w, const int c3w, const string c1, const string c2, const string c3, const string c4, const color col2=clrWhite, const color col3=clrSilver, const color col4=clrSilver)
 {
    int yy = y + i * InpRowHeight;
    DAL_Label(g_prefix + "_" + key + "_A_" + IntegerToString(i), c1, x, yy, InpColorText, InpFontBody);
-   DAL_Label(g_prefix + "_" + key + "_B_" + IntegerToString(i), c2, x + 118, yy, col2, InpFontBody);
-   DAL_Label(g_prefix + "_" + key + "_C_" + IntegerToString(i), c3, x + 236, yy, col3, InpFontBody);
-   DAL_Label(g_prefix + "_" + key + "_D_" + IntegerToString(i), c4, x + 360, yy, col4, InpFontBody);
+   DAL_Label(g_prefix + "_" + key + "_B_" + IntegerToString(i), c2, x + c1w, yy, col2, InpFontBody);
+   DAL_Label(g_prefix + "_" + key + "_C_" + IntegerToString(i), c3, x + c1w + c2w, yy, col3, InpFontBody);
+   DAL_Label(g_prefix + "_" + key + "_D_" + IntegerToString(i), c4, x + c1w + c2w + c3w, yy, col4, InpFontBody);
 }
 
-void DAL_DrawBodiesCard(const string key, const string title, const int x, const int y, const int w, const DAL_AstroMapRow &row, const int start_idx, const int end_idx)
+void DAL_DrawBodiesTable(const string key, const string title, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row, const int start_idx, const int end_idx)
 {
-   int n = end_idx - start_idx + 1;
-   int h = 42 + (n + 1) * InpRowHeight + 12;
    DAL_Card(key, title, x, y, w, h);
-   int yy = y + 40;
-   DAL_Row(key, 0, x + 14, yy, "body", "position", "speed/dir", "decl/house", InpColorMuted, InpColorMuted, InpColorMuted);
-   for(int i = start_idx; i <= end_idx; i++)
+   int yy = y + 42;
+   int c1 = 118, c2 = 118, c3 = 122;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "body", "position", "speed/dir", "decl/house", InpColorMuted, InpColorMuted, InpColorMuted);
+   int r = 1;
+   for(int i = start_idx; i <= end_idx && i < DAL_ASTRO_BODY_COUNT; i++)
    {
       DAL_AstroBodyState b = row.body[i];
       string spd = StringFormat("%.4f %s", b.speed_lon, DAL_RetroText(b));
-      string dh = StringFormat("decl %.2f  H%s", b.decl, DAL_HouseText(b));
-      DAL_Row(key, i - start_idx + 1, x + 14, yy, DAL_BodyShort(b.name), DAL_PosText(b), spd, dh, InpColorMid, b.retro == 1 ? InpColorLow : InpColorText, InpColorMuted);
-   }
-}
-
-void DAL_DrawDignityCard(const string key, const int x, const int y, const int w, const DAL_AstroMapRow &row)
-{
-   int h = 42 + 8 * InpRowHeight + 12;
-   DAL_Card(key, "ESSENTIAL DIGNITY (traditional categories)", x, y, w, h);
-   int yy = y + 40;
-   DAL_Row(key, 0, x + 14, yy, "body", "sign", "dignity", "house", InpColorMuted, InpColorMuted, InpColorMuted);
-   for(int i = 0; i < 7; i++)
-   {
-      DAL_AstroBodyState b = row.body[i];
-      string d = DAL_Dignity(b);
-      DAL_Row(key, i + 1, x + 14, yy, b.name, DAL_SignShort(b.sign), d, "H" + DAL_HouseText(b), InpColorText, DAL_DignityColor(d), InpColorMuted);
+      string dh = StringFormat("%.2f  H%s", b.decl, DAL_HouseText(b));
+      DAL_Cell4(key, r, x + 14, yy, c1, c2, c3, DAL_BodyDisplay(b.name), DAL_PosText(b), spd, dh, InpColorMid, b.retro == 1 ? InpColorLow : InpColorText, InpColorMuted);
+      r++;
    }
 }
 
@@ -449,46 +445,57 @@ void DAL_OrderAspects(const DAL_AstroMapRow &row, int &order[])
    }
 }
 
-void DAL_DrawAspectsCard(const string key, const int x, const int y, const int w, const DAL_AstroMapRow &row, const int max_rows)
+void DAL_DrawAspectsTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row, const int max_rows)
 {
-   int h = 42 + (max_rows + 1) * InpRowHeight + 12;
-   DAL_Card(key, "ASPECT GEOMETRY - sorted by tightest orb", x, y, w, h);
-   int yy = y + 40;
-   DAL_Row(key, 0, x + 14, yy, "pair", "aspect", "orb/app", "angle", InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Card(key, "ASPECTS - sorted by tightest orb", x, y, w, h);
+   int yy = y + 42;
+   int c1 = 138, c2 = 108, c3 = 112;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "pair", "aspect", "orb/app", "angle", InpColorMuted, InpColorMuted, InpColorMuted);
    int order[];
    DAL_OrderAspects(row, order);
    for(int r = 0; r < max_rows && r < DAL_ASTRO_ASPECT_PAIR_COUNT; r++)
    {
       DAL_AstroAspectState a = row.aspect[order[r]];
-      color oc = a.orb <= 1.0 ? InpColorHigh : (a.orb <= 3.0 ? InpColorMid : InpColorMuted);
-      DAL_Row(key, r + 1, x + 14, yy, a.pair, a.aspect, StringFormat("%.2f %s", a.orb, a.applying == 1 ? "app" : "sep"), DoubleToString(a.angle, 2), InpColorText, oc, InpColorMuted);
+      color oc = DAL_OrbColor(a.orb);
+      DAL_Cell4(key, r + 1, x + 14, yy, c1, c2, c3, a.pair, a.aspect, StringFormat("%.2f %s", a.orb, a.applying == 1 ? "app" : "sep"), DoubleToString(a.angle, 2), InpColorText, oc, InpColorMuted);
    }
 }
 
-void DAL_DrawHousesCard(const string key, const int x, const int y, const int w, const DAL_AstroMapRow &row)
+void DAL_DrawHousesTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
 {
-   int h = 42 + 14 * InpRowHeight + 12;
    DAL_Card(key, "HOUSES / ANGLES", x, y, w, h);
-   int yy = y + 40;
+   int yy = y + 42;
    if(!row.houses_valid)
    {
       DAL_Label(g_prefix + "_" + key + "_NOH", "Houses unavailable. Rebuild CSV with --house-lat and --house-lon.", x + 14, yy, InpColorLow, InpFontBody);
       return;
    }
-   DAL_Row(key, 0, x + 14, yy, "system", row.house_system, "lat/lon", StringFormat("%.4f / %.4f", row.house_lat, row.house_lon), InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 1, x + 14, yy, "ASC", DAL_LonSignText(row.asc_lon), "MC", DAL_LonSignText(row.mc_lon), InpColorMid, InpColorMid, InpColorText);
+   int c1 = 90, c2 = 120, c3 = 90;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "system", row.house_system, "location", StringFormat("%.4f / %.4f", row.house_lat, row.house_lon), InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 1, x + 14, yy, c1, c2, c3, "ASC", DAL_LonSignText(row.asc_lon), "MC", DAL_LonSignText(row.mc_lon), InpColorMid, InpColorMid, InpColorText);
    for(int hidx = 0; hidx < 12; hidx++)
    {
-      string left = "H" + IntegerToString(hidx + 1);
-      DAL_Row(key, hidx + 2, x + 14, yy, left, DAL_LonSignText(row.house_cusp[hidx]), "", "", InpColorText, InpColorMuted, InpColorMuted);
+      DAL_Cell4(key, hidx + 2, x + 14, yy, c1, c2, c3, "H" + IntegerToString(hidx + 1), DAL_LonSignText(row.house_cusp[hidx]), "", "", InpColorText, InpColorMuted, InpColorMuted);
    }
 }
 
-void DAL_DrawMetricsCard(const string key, const int x, const int y, const int w, const DAL_AstroMapRow &row)
+void DAL_DrawDignityTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
 {
-   int h = 42 + 12 * InpRowHeight + 12;
-   DAL_Card(key, "CANONICAL RAW METRICS (no narrative scoring)", x, y, w, h);
-   int yy = y + 40;
+   DAL_Card(key, "TRADITIONAL ESSENTIAL DIGNITY", x, y, w, h);
+   int yy = y + 42;
+   int c1 = 100, c2 = 86, c3 = 128;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "body", "sign", "dignity", "house", InpColorMuted, InpColorMuted, InpColorMuted);
+   for(int i = 0; i < 7; i++)
+   {
+      DAL_AstroBodyState b = row.body[i];
+      string d = DAL_Dignity(b);
+      DAL_Cell4(key, i + 1, x + 14, yy, c1, c2, c3, b.name, DAL_SignShort(b.sign), d, "H" + DAL_HouseText(b), InpColorText, DAL_DignityColor(d), InpColorMuted);
+   }
+}
+
+void DAL_DrawMetricsTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
+{
+   DAL_Card(key, "CANONICAL RAW METRICS", x, y, w, h);
    int retro = 0, oob = 0, tight1 = 0, tight3 = 0, applying = 0;
    string retro_list = "";
    string oob_list = "";
@@ -513,63 +520,55 @@ void DAL_DrawMetricsCard(const string key, const int x, const int y, const int w
       if(row.aspect[j].orb <= 3.0) tight3++;
       if(row.aspect[j].applying == 1) applying++;
    }
-   DAL_Row(key, 0, x + 14, yy, "Moon phase", row.moon_phase_bucket, "angle", DoubleToString(row.moon_phase_angle, 2), InpColorMid, InpColorText, InpColorMuted);
-   DAL_Row(key, 1, x + 14, yy, "Illumination", DoubleToString(row.moon_illumination_proxy, 4), "", "", InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 2, x + 14, yy, "Retrograde", IntegerToString(retro), DAL_Short(retro_list, 24), "", retro > 0 ? InpColorLow : InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 3, x + 14, yy, "OOB decl", IntegerToString(oob), DAL_Short(oob_list, 24), "", oob > 0 ? InpColorLow : InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 4, x + 14, yy, "Tight <=1", IntegerToString(tight1), "aspects", "", tight1 > 0 ? InpColorHigh : InpColorMuted, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 5, x + 14, yy, "Tight <=3", IntegerToString(tight3), "aspects", "", tight3 > 0 ? InpColorMid : InpColorMuted, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 6, x + 14, yy, "Applying", IntegerToString(applying), "pairs", "", InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 7, x + 14, yy, "Houses", row.houses_valid ? "available" : "missing", row.houses_valid ? row.house_system : "", row.houses_valid ? StringFormat("%.3f, %.3f", row.house_lat, row.house_lon) : "", row.houses_valid ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 8, x + 14, yy, "Feature key", DAL_Short(row.feature_key, 36), "", "", InpColorMuted, InpColorMuted, InpColorMuted);
-}
-
-void DAL_DrawDiagnosticsCard(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
-{
-   DAL_Card(key, "DIAGNOSTICS", x, y, w, h);
-   int yy = y + 40;
-   DAL_Row(key, 0, x + 14, yy, "CSV", g_loaded ? "LOADED" : "NOT LOADED", "rows", IntegerToString(g_store.row_count), g_loaded ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 1, x + 14, yy, "Source", DAL_Short(g_store.source_file, 28), "", "", InpColorMuted, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 2, x + 14, yy, "Lookup", have_row ? (exact ? "exact" : (fallback ? "fallback" : "unknown")) : "not found", "", "", exact ? InpColorHigh : (fallback ? InpColorMid : InpColorLow), InpColorMuted, InpColorMuted);
-   DAL_Row(key, 3, x + 14, yy, "Chart", DAL_TimeText(iTime(_Symbol, _Period, 0)), "matched", have_row ? DAL_TimeText(row.broker_time) : "n/a", InpColorText, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 4, x + 14, yy, "Time rule", "chart open", "= csv broker_time", "", InpColorMuted, InpColorMuted, InpColorMuted);
-   DAL_Row(key, 5, x + 14, yy, "Claim", "raw sky only", "no causal UI", "", InpColorMid, InpColorMuted, InpColorMuted);
-}
-
-void DAL_DrawOrbStrip(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
-{
-   if(!g_show_orb_strip) return;
-   int x = g.x;
-   int y = g.row3_y;
-   int w = g.wide_w;
-   int h = 42 + 8 * InpRowHeight + 12;
-   DAL_Card("ORBSTRIP", "ORB TIGHTNESS STRIP - mathematical geometry only", x, y, w, h);
-   int order[];
-   DAL_OrderAspects(row, order);
    int yy = y + 42;
-   for(int r = 0; r < 8 && r < DAL_ASTRO_ASPECT_PAIR_COUNT; r++)
-   {
-      DAL_AstroAspectState a = row.aspect[order[r]];
-      double tight = MathMax(0.0, MathMin(100.0, (1.0 - MathMin(a.orb, 6.0) / 6.0) * 100.0));
-      color c = tight >= 80.0 ? InpColorHigh : (tight >= 50.0 ? InpColorMid : InpColorLow);
-      int ry = yy + r * InpRowHeight;
-      DAL_Label(g_prefix + "_ORB_A_" + IntegerToString(r), a.pair, x + 14, ry, InpColorText, InpFontBody);
-      DAL_Label(g_prefix + "_ORB_B_" + IntegerToString(r), a.aspect, x + 150, ry, InpColorText, InpFontBody);
-      DAL_Label(g_prefix + "_ORB_C_" + IntegerToString(r), StringFormat("orb %.2f %s", a.orb, a.applying == 1 ? "app" : "sep"), x + 260, ry, c, InpFontBody);
-      DAL_Rect(g_prefix + "_ORB_BG_" + IntegerToString(r), x + 430, ry + 5, 160, 10, C'22,22,22', InpColorBorder);
-      DAL_Rect(g_prefix + "_ORB_F_" + IntegerToString(r), x + 430, ry + 5, (int)MathRound(tight / 100.0 * 160.0), 10, c, c);
-   }
+   int c1 = 134, c2 = 120, c3 = 116;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "Moon phase", row.moon_phase_bucket, "angle", DoubleToString(row.moon_phase_angle, 2), InpColorMid, InpColorText, InpColorMuted);
+   DAL_Cell4(key, 1, x + 14, yy, c1, c2, c3, "Illumination", DoubleToString(row.moon_illumination_proxy, 4), "", "", InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 2, x + 14, yy, c1, c2, c3, "Retrograde", IntegerToString(retro), DAL_Short(retro_list, 28), "", retro > 0 ? InpColorLow : InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 3, x + 14, yy, c1, c2, c3, "OOB decl", IntegerToString(oob), DAL_Short(oob_list, 28), "", oob > 0 ? InpColorLow : InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 4, x + 14, yy, c1, c2, c3, "Tight <=1", IntegerToString(tight1), "aspects", "", tight1 > 0 ? InpColorHigh : InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "Tight <=3", IntegerToString(tight3), "aspects", "", tight3 > 0 ? InpColorMid : InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 6, x + 14, yy, c1, c2, c3, "Applying", IntegerToString(applying), "pairs", "", InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 7, x + 14, yy, c1, c2, c3, "Houses", row.houses_valid ? "available" : "missing", row.houses_valid ? row.house_system : "", row.houses_valid ? StringFormat("%.3f, %.3f", row.house_lat, row.house_lon) : "", row.houses_valid ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
 }
 
-void DAL_DrawOverview(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
+void DAL_DrawDiagnostics(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
 {
-   DAL_DrawBodiesCard("CORE", "CORE BODIES", g.col1_x, g.row1_y, g.card_w, row, 0, 6);
-   DAL_DrawBodiesCard("OUTER", "OUTER / NODES", g.col2_x, g.row1_y, g.card_w, row, 7, 11);
-   DAL_DrawAspectsCard("ASPECTS", g.col3_x, g.row1_y, g.diag_w, row, 8);
-   DAL_DrawHousesCard("HOUSES", g.col1_x, g.row2_y, g.card_w, row);
-   DAL_DrawMetricsCard("METRICS", g.col2_x, g.row2_y, g.card_w, row);
-   DAL_DrawDiagnosticsCard("DIAG", g.col3_x, g.row2_y, g.diag_w, 196, row, have_row, exact, fallback);
-   DAL_DrawOrbStrip(g, row);
+   int h = MathMax(240, g.panel_h);
+   DAL_Card("DIAG", "DIAGNOSTICS", g.side_x, g.side_y, g.side_w, h);
+   int yy = g.side_y + 42;
+   int c1 = 112, c2 = 146, c3 = 90;
+   DAL_Cell4("DIAG", 0, g.side_x + 14, yy, c1, c2, c3, "CSV", g_loaded ? "LOADED" : "NOT LOADED", "rows", IntegerToString(g_store.row_count), g_loaded ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 1, g.side_x + 14, yy, c1, c2, c3, "Source", DAL_Short(g_store.source_file, 34), "", "", InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 2, g.side_x + 14, yy, c1, c2, c3, "Lookup", have_row ? (exact ? "exact" : (fallback ? "fallback" : "unknown")) : "not found", "", "", exact ? InpColorHigh : (fallback ? InpColorMid : InpColorLow), InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 3, g.side_x + 14, yy, c1, c2, c3, "Chart", DAL_TimeText(iTime(_Symbol, _Period, 0)), "matched", have_row ? DAL_TimeText(row.broker_time) : "n/a", InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 4, g.side_x + 14, yy, c1, c2, c3, "Time rule", "chart open", "= csv broker_time", "", InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 5, g.side_x + 14, yy, c1, c2, c3, "Claim", "raw sky only", "no causal UI", "", InpColorMid, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 6, g.side_x + 14, yy, c1, c2, c3, "Natal", "not active", "see doctrine", "", InpColorMid, InpColorMuted, InpColorMuted);
+}
+
+void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
+{
+   int h = 248;
+   DAL_Card("SNAP", "SKY SNAPSHOT", g.main_x, g.main_y, g.main_w, h);
+   int yy = g.main_y + 42;
+   int c1 = 104, c2 = 130, c3 = 130;
+   DAL_Cell4("SNAP", 0, g.main_x + 14, yy, c1, c2, c3, "Sun", DAL_PosText(row.body[0]), "Moon", DAL_PosText(row.body[1]), InpColorMid, InpColorMid, InpColorText);
+   DAL_Cell4("SNAP", 1, g.main_x + 14, yy, c1, c2, c3, "Mercury", DAL_PosText(row.body[2]), "Venus", DAL_PosText(row.body[3]), InpColorText, InpColorText, InpColorText);
+   DAL_Cell4("SNAP", 2, g.main_x + 14, yy, c1, c2, c3, "Mars", DAL_PosText(row.body[4]), "Jupiter", DAL_PosText(row.body[5]), InpColorText, InpColorText, InpColorText);
+   DAL_Cell4("SNAP", 3, g.main_x + 14, yy, c1, c2, c3, "Saturn", DAL_PosText(row.body[6]), "Phase", row.moon_phase_bucket, InpColorText, InpColorMid, InpColorMuted);
+   if(row.houses_valid)
+   {
+      DAL_Cell4("SNAP", 4, g.main_x + 14, yy, c1, c2, c3, "ASC", DAL_LonSignText(row.asc_lon), "MC", DAL_LonSignText(row.mc_lon), InpColorMid, InpColorMid, InpColorText);
+      DAL_Cell4("SNAP", 5, g.main_x + 14, yy, c1, c2, c3, "House sys", row.house_system, "Loc", StringFormat("%.2f / %.2f", row.house_lat, row.house_lon), InpColorText, InpColorMuted, InpColorMuted);
+   }
+   else
+   {
+      DAL_Cell4("SNAP", 4, g.main_x + 14, yy, c1, c2, c3, "Houses", "missing", "", "", InpColorLow, InpColorMuted, InpColorMuted);
+      DAL_Cell4("SNAP", 5, g.main_x + 14, yy, c1, c2, c3, "Fix", "run builder", "with lat/lon", "", InpColorMid, InpColorMuted, InpColorMuted);
+   }
+   DAL_DrawMetricsTable("MET_OVR", g.main_x, g.main_y + h + InpGap, g.card_w, 248, row);
+   DAL_DrawAspectsTable("ASP_OVR", g.col2_x, g.main_y + h + InpGap, g.card_w, 248, row, 8);
 }
 
 void DAL_Render()
@@ -607,31 +606,29 @@ void DAL_Render()
 
    if(!have_row)
    {
-      DAL_DrawDiagnosticsCard("DIAG_ONLY", g.col1_x, g.row1_y, g.diag_w, 196, row, have_row, exact, fallback);
+      DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
       ChartRedraw(ChartID());
       return;
    }
 
    if(g_view == ASTRO_RAW_OVERVIEW)
-      DAL_DrawOverview(g, row, have_row, exact, fallback);
+      DAL_DrawSkySnapshot(g, row);
    else if(g_view == ASTRO_RAW_BODIES)
-   {
-      DAL_DrawBodiesCard("ALLB1", "ALL BODIES 1/2", g.col1_x, g.row1_y, g.card_w, row, 0, 6);
-      DAL_DrawBodiesCard("ALLB2", "ALL BODIES 2/2", g.col2_x, g.row1_y, g.card_w, row, 7, 11);
-      DAL_DrawDignityCard("DIGNITY", g.col1_x, g.row2_y, g.wide_w, row);
-   }
+      DAL_DrawBodiesTable("BODIES_ALL", "ALL BODIES", g.main_x, g.main_y, g.main_w, g.panel_h, row, 0, 11);
    else if(g_view == ASTRO_RAW_ASPECTS)
-      DAL_DrawAspectsCard("ALLASP", g.col1_x, g.row1_y, g.wide_w, row, 15);
+      DAL_DrawAspectsTable("ASPECTS_ALL", g.main_x, g.main_y, g.main_w, g.panel_h, row, 15);
    else if(g_view == ASTRO_RAW_HOUSES)
    {
-      DAL_DrawHousesCard("HOUSES_BIG", g.col1_x, g.row1_y, g.card_w, row);
-      DAL_DrawBodiesCard("HOUSE_BODIES", "BODY HOUSE PLACEMENT", g.col2_x, g.row1_y, g.card_w, row, 0, 11);
+      DAL_DrawHousesTable("HOUSES_BIG", g.main_x, g.main_y, g.card_w, g.panel_h, row);
+      DAL_DrawBodiesTable("HOUSE_BODIES", "BODY HOUSE PLACEMENT", g.col2_x, g.main_y, g.card_w, g.panel_h, row, 0, 11);
    }
    else if(g_view == ASTRO_RAW_METRICS)
    {
-      DAL_DrawMetricsCard("METRICS_BIG", g.col1_x, g.row1_y, g.card_w, row);
-      DAL_DrawDignityCard("DIGNITY_BIG", g.col2_x, g.row1_y, g.card_w, row);
+      DAL_DrawMetricsTable("METRICS_BIG", g.main_x, g.main_y, g.card_w, 280, row);
+      DAL_DrawDignityTable("DIGNITY_BIG", g.col2_x, g.main_y, g.card_w, 240, row);
    }
+
+   DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
 
    if(InpUseTerminalComment)
       Comment("EXP0013 raw sky | ", exact ? "exact" : (fallback ? "fallback" : "no row"), " | ", row.summary);
@@ -641,9 +638,8 @@ void DAL_Render()
 
 int OnInit()
 {
-   g_prefix = "DAL_EXP0013_RAW_ASTRO_" + IntegerToString((int)ChartID());
+   g_prefix = "DAL_EXP0013_RAW_SKY_V14_" + IntegerToString((int)ChartID());
    g_view = InpInitialView;
-   g_show_orb_strip = InpShowLowerOrbStrip;
    g_last_w = 0;
    g_last_h = 0;
    g_force_rebuild = true;
@@ -673,7 +669,6 @@ void OnChartEvent(const int id, const long &lparam, const double &dparam, const 
    else if(sparam == g_prefix + "_BTN_ASP") { g_view = ASTRO_RAW_ASPECTS; changed = true; }
    else if(sparam == g_prefix + "_BTN_HOU") { g_view = ASTRO_RAW_HOUSES; changed = true; }
    else if(sparam == g_prefix + "_BTN_MET") { g_view = ASTRO_RAW_METRICS; changed = true; }
-   else if(sparam == g_prefix + "_BTN_STRIP") { g_show_orb_strip = !g_show_orb_strip; changed = true; }
    else if(sparam == g_prefix + "_BTN_MIN") { g_minimized = !g_minimized; changed = true; }
    else if(sparam == g_prefix + "_BTN_RELOAD") { DAL_LoadStore(); }
    if(changed) g_force_rebuild = true;
