@@ -83,3 +83,30 @@ python tools\astro_live_bridge\astro_live_bridge.py `
 ```
 
 If `--house-lat` and `--house-lon` are omitted, the CSV remains geocentric-only and the MQL dashboard will show houses as unavailable.
+
+## Optional natal or inception chart
+
+The live bridge can also build a rolling CSV that embeds a fixed natal or inception chart:
+
+```powershell
+python tools\astro_live_bridge\astro_live_bridge.py `
+  --common-files "C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\Common\Files" `
+  --output-name "astro_live_mql.csv" `
+  --broker-gmt-offset-hours 3 `
+  --timeframe-minutes 1 `
+  --history-hours 48 `
+  --future-hours 6 `
+  --refresh-seconds 60 `
+  --natal-local-datetime "1987-08-16 14:35:00" `
+  --natal-utc-offset-hours 3.5 `
+  --natal-lat 35.6892 `
+  --natal-lon 51.3890 `
+  --natal-label "gold_ref"
+```
+
+When natal inputs are present, the rolling CSV contains:
+
+- natal body state
+- natal houses and angles
+- transit-to-natal activations
+- pure astro language fields

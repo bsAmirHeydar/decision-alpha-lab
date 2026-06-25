@@ -81,6 +81,12 @@ def run_builder(
     house_lat: float | None = None,
     house_lon: float | None = None,
     house_system: str = "P",
+    natal_local_datetime: str = "",
+    natal_utc_offset_hours: float = 0.0,
+    natal_lat: float | None = None,
+    natal_lon: float | None = None,
+    natal_house_system: str = "P",
+    natal_label: str = "",
 ) -> None:
     cmd = [
         sys.executable,
@@ -102,6 +108,14 @@ def run_builder(
         if house_lat is None or house_lon is None:
             raise ValueError("Provide both --house-lat and --house-lon for live houses")
         cmd += ["--house-lat", str(house_lat), "--house-lon", str(house_lon), "--house-system", str(house_system)]
+    if natal_local_datetime:
+        cmd += ["--natal-local-datetime", natal_local_datetime, "--natal-utc-offset-hours", str(natal_utc_offset_hours)]
+        if natal_lat is not None or natal_lon is not None:
+            if natal_lat is None or natal_lon is None:
+                raise ValueError("Provide both --natal-lat and --natal-lon for natal houses")
+            cmd += ["--natal-lat", str(natal_lat), "--natal-lon", str(natal_lon), "--natal-house-system", str(natal_house_system)]
+        if natal_label:
+            cmd += ["--natal-label", natal_label]
     subprocess.run(cmd, check=True)
 
 
@@ -156,6 +170,12 @@ def build_once(args: argparse.Namespace, work_dir: Path, common_out: Path, statu
             house_lat=args.house_lat,
             house_lon=args.house_lon,
             house_system=args.house_system,
+            natal_local_datetime=args.natal_local_datetime,
+            natal_utc_offset_hours=args.natal_utc_offset_hours,
+            natal_lat=args.natal_lat,
+            natal_lon=args.natal_lon,
+            natal_house_system=args.natal_house_system,
+            natal_label=args.natal_label,
         )
         rows = count_csv_rows(local_csv)
         atomic_copy(local_csv, common_out)
@@ -198,6 +218,12 @@ def main() -> int:
     ap.add_argument("--house-lat", type=float, default=None, help="Optional latitude for live house cusps")
     ap.add_argument("--house-lon", type=float, default=None, help="Optional longitude for live house cusps")
     ap.add_argument("--house-system", default="P", help="House system code passed to Swiss Ephemeris, default P=Placidus")
+    ap.add_argument("--natal-local-datetime", default="", help="Optional natal/inception local datetime")
+    ap.add_argument("--natal-utc-offset-hours", type=float, default=0.0, help="UTC offset used for natal local datetime")
+    ap.add_argument("--natal-lat", type=float, default=None, help="Optional natal latitude")
+    ap.add_argument("--natal-lon", type=float, default=None, help="Optional natal longitude")
+    ap.add_argument("--natal-house-system", default="P", help="Natal house system code")
+    ap.add_argument("--natal-label", default="", help="Optional natal chart label")
     ap.add_argument("--refresh-seconds", type=int, default=60)
     ap.add_argument("--once", action="store_true", help="Build once and exit")
     args = ap.parse_args()

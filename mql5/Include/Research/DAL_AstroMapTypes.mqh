@@ -7,6 +7,8 @@
 
 #define DAL_ASTRO_BODY_COUNT        12
 #define DAL_ASTRO_ASPECT_PAIR_COUNT 15
+#define DAL_ASTRO_NATAL_CORE_COUNT  7
+#define DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT 49
 
 struct DAL_AstroBodyState
 {
@@ -57,8 +59,28 @@ struct DAL_AstroMapRow
    double   mc_lon;
    double   house_cusp[12];
 
+   bool     natal_enabled;
+   string   natal_label;
+   datetime natal_local_time;
+   datetime natal_utc_time;
+   double   natal_utc_offset_hours;
+   bool     natal_houses_valid;
+   double   natal_house_lat;
+   double   natal_house_lon;
+   string   natal_house_system;
+   double   natal_asc_lon;
+   double   natal_mc_lon;
+   double   natal_house_cusp[12];
+
+   string   astro_bias_text;
+   string   astro_path_text;
+   string   astro_signal_text;
+
    DAL_AstroBodyState   body[DAL_ASTRO_BODY_COUNT];
    DAL_AstroAspectState aspect[DAL_ASTRO_ASPECT_PAIR_COUNT];
+   DAL_AstroBodyState   natal_body[DAL_ASTRO_BODY_COUNT];
+   DAL_AstroAspectState transit_natal_aspect[DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT];
+   int                  transit_in_natal_house[DAL_ASTRO_NATAL_CORE_COUNT];
 };
 
 struct DAL_AstroMapStore
@@ -147,6 +169,25 @@ int DAL_AstroAspectIndexByName(const string pair)
    return -1;
 }
 
+string DAL_AstroNatalCoreBodyName(const int index)
+{
+   if(index == 0) return "sun";
+   if(index == 1) return "moon";
+   if(index == 2) return "mercury";
+   if(index == 3) return "venus";
+   if(index == 4) return "mars";
+   if(index == 5) return "jupiter";
+   if(index == 6) return "saturn";
+   return "unknown";
+}
+
+string DAL_AstroTransitNatalAspectName(const int index)
+{
+   int block = index / DAL_ASTRO_NATAL_CORE_COUNT;
+   int offset = index % DAL_ASTRO_NATAL_CORE_COUNT;
+   return "t_" + DAL_AstroNatalCoreBodyName(block) + "__n_" + DAL_AstroNatalCoreBodyName(offset);
+}
+
 void DAL_AstroBodyState_Reset(DAL_AstroBodyState &b, const string name)
 {
    b.name = name;
@@ -195,11 +236,35 @@ void DAL_AstroMapRow_Reset(DAL_AstroMapRow &r)
    for(int h = 0; h < 12; h++)
       r.house_cusp[h] = 0.0;
 
+   r.natal_enabled = false;
+   r.natal_label = "";
+   r.natal_local_time = 0;
+   r.natal_utc_time = 0;
+   r.natal_utc_offset_hours = 0.0;
+   r.natal_houses_valid = false;
+   r.natal_house_lat = 0.0;
+   r.natal_house_lon = 0.0;
+   r.natal_house_system = "";
+   r.natal_asc_lon = 0.0;
+   r.natal_mc_lon = 0.0;
+   for(int nh = 0; nh < 12; nh++)
+      r.natal_house_cusp[nh] = 0.0;
+
+   r.astro_bias_text = "";
+   r.astro_path_text = "";
+   r.astro_signal_text = "";
+
    for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
       DAL_AstroBodyState_Reset(r.body[i], DAL_AstroBodyName(i));
+   for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
+      DAL_AstroBodyState_Reset(r.natal_body[i], DAL_AstroBodyName(i));
 
    for(int j = 0; j < DAL_ASTRO_ASPECT_PAIR_COUNT; j++)
       DAL_AstroAspectState_Reset(r.aspect[j], DAL_AstroAspectPairName(j));
+   for(int j = 0; j < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; j++)
+      DAL_AstroAspectState_Reset(r.transit_natal_aspect[j], DAL_AstroTransitNatalAspectName(j));
+   for(int j = 0; j < DAL_ASTRO_NATAL_CORE_COUNT; j++)
+      r.transit_in_natal_house[j] = -1;
 }
 
 void DAL_AstroMapStore_Reset(DAL_AstroMapStore &s)

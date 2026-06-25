@@ -55,6 +55,16 @@ PLANETS: List[Tuple[str, int]] = [
     ("mean_node", swe.MEAN_NODE),
 ]
 
+CORE_BODIES: List[str] = [
+    "sun",
+    "moon",
+    "mercury",
+    "venus",
+    "mars",
+    "jupiter",
+    "saturn",
+]
+
 ASPECTS: List[Tuple[str, float]] = [
     ("conjunction", 0.0),
     ("sextile", 60.0),
@@ -139,8 +149,26 @@ class AstroRow:
     asc_lon: float = 0.0
     mc_lon: float = 0.0
     house_cusps: List[float] = field(default_factory=list)
+    natal_enabled: bool = False
+    natal_label: str = ""
+    natal_local_time: Optional[datetime] = None
+    natal_utc_time: Optional[datetime] = None
+    natal_utc_offset_hours: float = 0.0
+    natal_houses_valid: bool = False
+    natal_house_lat: float = 0.0
+    natal_house_lon: float = 0.0
+    natal_house_system: str = ""
+    natal_asc_lon: float = 0.0
+    natal_mc_lon: float = 0.0
+    natal_house_cusps: List[float] = field(default_factory=list)
+    natal_planets: Dict[str, PlanetState] = field(default_factory=dict)
+    transit_natal_aspects: Dict[str, AspectState] = field(default_factory=dict)
+    transit_in_natal_houses: Dict[str, int] = field(default_factory=dict)
     feature_key: str = ""
     summary: str = ""
+    astro_bias_text: str = ""
+    astro_path_text: str = ""
+    astro_signal_text: str = ""
 
 
 def parse_datetime(s: str) -> datetime:
@@ -281,6 +309,12 @@ def calc_aspect(a: PlanetState, b: PlanetState, delta_days: float = 1.0 / 1440.0
     return AspectState(pair, angle_now, nearest_name, nearest_degree, orb_now, applying)
 
 
+def calc_named_aspect(a_name: str, a: PlanetState, b_name: str, b: PlanetState, delta_days: float = 1.0 / 1440.0) -> AspectState:
+    asp = calc_aspect(a, b, delta_days)
+    asp.pair = f"t_{a_name}__n_{b_name}"
+    return asp
+
+
 def quantile(values: Sequence[float], q: float) -> float:
     if not values:
         return 0.0
@@ -299,6 +333,114 @@ def bucket3(x: float, q1: float, q2: float) -> str:
     if x <= q2:
         return "mid"
     return "high"
+
+
+def compute_chart(
+    jd_ut: float,
+    *,
+    house_lat: Optional[float],
+    house_lon: Optional[float],
+    house_system: str,
+) -> Tuple[Dict[str, PlanetState], bool, List[float], float, float]:
+    flags = swe.FLG_SWIEPH | swe.FLG_SPEED
+    planets: Dict[str, PlanetState] = {}
+    for name, pid in PLANETS:
+        planets[name] = calc_planet(jd_ut, name, pid, flags)
+
+    houses_valid, house_cusps, asc_lon, mc_lon = calc_houses(jd_ut, house_lat, house_lon, house_system)
+    if houses_valid:
+        for st in planets.values():
+            st.house = house_for_longitude(st.lon, house_cusps)
+
+    return planets, houses_valid, house_cusps, asc_lon, mc_lon
+
+
+def astro_language_bias(row: AstroRow) -> str:
+    fire = 0
+    air = 0
+    earth = 0
+    water = 0
+    cardinal = 0
+    fixed = 0
+    mutable = 0
+    for name in CORE_BODIES:
+        sign = row.planets[name].sign_name
+        if sign in ("aries", "leo", "sagittarius"):
+            fire += 1
+        elif sign in ("gemini", "libra", "aquarius"):
+            air += 1
+        elif sign in ("taurus", "virgo", "capricorn"):
+            earth += 1
+        else:
+            water += 1
+
+        if sign in ("aries", "cancer", "libra", "capricorn"):
+            cardinal += 1
+        elif sign in ("taurus", "leo", "scorpio", "aquarius"):
+            fixed += 1
+        else:
+            mutable += 1
+
+    impulse = fire + air
+    compression = earth + water
+    if impulse >= compression + 2 and cardinal >= max(fixed, mutable):
+        return "impulsive_cardinal_bias"
+    if earth >= 3 and fixed >= max(cardinal, mutable):
+        return "fixed_earth_bias"
+    if water >= 3:
+        return "water_reactive_bias"
+    if air >= 3:
+        return "air_distributive_bias"
+    return "mixed_bias"
+
+
+def astro_language_path(row: AstroRow) -> str:
+    ms = row.aspects.get("mars_saturn")
+    sm = row.aspects.get("sun_moon")
+    js = row.aspects.get("jupiter_saturn")
+    pressure = 0
+    flow = 0
+    transition = 0
+
+    for asp in (ms, sm, js):
+        if asp is None or asp.orb > 6.0:
+            continue
+        if asp.nearest_name in ("square", "opposition"):
+            pressure += 2
+        elif asp.nearest_name == "conjunction":
+            pressure += 1
+        elif asp.nearest_name in ("trine", "sextile"):
+            flow += 2
+        if asp.applying == 1 and asp.orb <= 2.0:
+            transition += 1
+
+    moon_deg = row.planets["moon"].degree_in_sign
+    if moon_deg <= 1.0 or moon_deg >= 29.0:
+        transition += 2
+    if abs(row.planets["mercury"].speed_lon) <= 0.08 or abs(row.planets["mars"].speed_lon) <= 0.025:
+        transition += 2
+
+    if pressure >= flow + 2:
+        return "frictional_path"
+    if flow >= pressure + 2 and transition <= 1:
+        return "clean_flow_path"
+    if transition >= 3:
+        return "threshold_transition_path"
+    return "mixed_path"
+
+
+def astro_language_signal(row: AstroRow) -> str:
+    bias = astro_language_bias(row)
+    path = astro_language_path(row)
+    moon_phase = row.moon_phase_bucket
+
+    if bias in ("impulsive_cardinal_bias", "air_distributive_bias") and path in ("clean_flow_path", "mixed_path") and "waxing" in moon_phase:
+        return "astro_long_permission"
+    if bias in ("fixed_earth_bias", "water_reactive_bias") and path == "frictional_path" and ("waning" in moon_phase or moon_phase == "full"):
+        return "astro_short_permission"
+    if path == "threshold_transition_path":
+        return "astro_wait_transition"
+    return "astro_neutral_permission"
 
 
 def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_limit: float) -> str:
@@ -321,6 +463,22 @@ def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_l
         else:
             parts.append(f"{pair_key}_asp=none")
 
+    if row.natal_enabled:
+        parts.append(f"natal_label={row.natal_label or 'natal'}")
+        for pair_key in ("t_sun__n_sun", "t_moon__n_moon", "t_mars__n_saturn", "t_jupiter__n_mars"):
+            asp = row.transit_natal_aspects.get(pair_key)
+            if asp is None:
+                continue
+            if asp.orb <= aspect_orb_limit:
+                parts.append(f"{pair_key}_asp={asp.nearest_name}")
+                parts.append(f"{pair_key}_app={asp.applying}")
+            else:
+                parts.append(f"{pair_key}_asp=none")
+
+    parts.append(f"astro_bias={row.astro_bias_text or astro_language_bias(row)}")
+    parts.append(f"astro_path={row.astro_path_text or astro_language_path(row)}")
+    parts.append(f"astro_signal={row.astro_signal_text or astro_language_signal(row)}")
+
     return "|".join(parts)
 
 
@@ -339,7 +497,10 @@ def build_summary(row: AstroRow) -> str:
         f"moon={moon.sign_name}:{moon.degree_in_sign:.2f};"
         f"mars={mars.sign_name}:{mars.degree_in_sign:.2f};"
         f"saturn={saturn.sign_name}:{saturn.degree_in_sign:.2f};"
-        f"mars_saturn={ms_text}"
+        f"mars_saturn={ms_text};"
+        f"bias={row.astro_bias_text or astro_language_bias(row)};"
+        f"path={row.astro_path_text or astro_language_path(row)};"
+        f"signal={row.astro_signal_text or astro_language_signal(row)}"
     )
 
 
@@ -352,16 +513,38 @@ def generate_rows(
     house_lat: Optional[float] = None,
     house_lon: Optional[float] = None,
     house_system: str = "P",
+    natal_local_dt: Optional[datetime] = None,
+    natal_utc_offset_hours: float = 0.0,
+    natal_lat: Optional[float] = None,
+    natal_lon: Optional[float] = None,
+    natal_house_system: str = "P",
+    natal_label: str = "",
 ) -> List[AstroRow]:
     if timeframe_minutes <= 0:
         raise ValueError("timeframe_minutes must be positive")
     if end_broker <= start_broker:
         raise ValueError("end_broker must be after start_broker")
 
-    flags = swe.FLG_SWIEPH | swe.FLG_SPEED
     offset = timedelta(hours=broker_gmt_offset_hours)
     step = timedelta(minutes=timeframe_minutes)
     rows: List[AstroRow] = []
+    natal_planets: Dict[str, PlanetState] = {}
+    natal_houses_valid = False
+    natal_house_cusps: List[float] = [0.0] * 12
+    natal_asc_lon = 0.0
+    natal_mc_lon = 0.0
+    natal_utc_time: Optional[datetime] = None
+    natal_enabled = natal_local_dt is not None
+
+    if natal_enabled:
+        natal_utc_time = natal_local_dt - timedelta(hours=natal_utc_offset_hours)
+        natal_jd = utc_to_jd_ut(natal_utc_time)
+        natal_planets, natal_houses_valid, natal_house_cusps, natal_asc_lon, natal_mc_lon = compute_chart(
+            natal_jd,
+            house_lat=natal_lat,
+            house_lon=natal_lon,
+            house_system=natal_house_system,
+        )
 
     t_broker = start_broker
     while t_broker < end_broker:
@@ -370,10 +553,12 @@ def generate_rows(
         jd = utc_to_jd_ut(t_utc)
 
         row = AstroRow(broker_time=t_broker, utc_time=t_utc, jd_ut=jd)
-        for name, pid in PLANETS:
-            row.planets[name] = calc_planet(jd, name, pid, flags)
-
-        houses_valid, house_cusps, asc_lon, mc_lon = calc_houses(jd, house_lat, house_lon, house_system)
+        row.planets, houses_valid, house_cusps, asc_lon, mc_lon = compute_chart(
+            jd,
+            house_lat=house_lat,
+            house_lon=house_lon,
+            house_system=house_system,
+        )
         row.houses_valid = houses_valid
         row.house_lat = house_lat if house_lat is not None else 0.0
         row.house_lon = house_lon if house_lon is not None else 0.0
@@ -381,9 +566,6 @@ def generate_rows(
         row.house_cusps = house_cusps
         row.asc_lon = asc_lon
         row.mc_lon = mc_lon
-        if houses_valid:
-            for st in row.planets.values():
-                st.house = house_for_longitude(st.lon, house_cusps)
 
         for a_name, b_name in DEFAULT_ASPECT_PAIRS:
             row.aspects[f"{a_name}_{b_name}"] = calc_aspect(row.planets[a_name], row.planets[b_name])
@@ -391,6 +573,39 @@ def generate_rows(
         row.moon_phase_angle = norm360(row.planets["moon"].lon - row.planets["sun"].lon)
         row.moon_phase_bucket = moon_phase_bucket(row.moon_phase_angle)
         row.moon_illumination_proxy = (1.0 - math.cos(math.radians(row.moon_phase_angle))) / 2.0
+
+        if natal_enabled:
+            row.natal_enabled = True
+            row.natal_label = natal_label or "natal"
+            row.natal_local_time = natal_local_dt
+            row.natal_utc_time = natal_utc_time
+            row.natal_utc_offset_hours = natal_utc_offset_hours
+            row.natal_houses_valid = natal_houses_valid
+            row.natal_house_lat = natal_lat if natal_lat is not None else 0.0
+            row.natal_house_lon = natal_lon if natal_lon is not None else 0.0
+            row.natal_house_system = natal_house_system if natal_houses_valid else ""
+            row.natal_asc_lon = natal_asc_lon
+            row.natal_mc_lon = natal_mc_lon
+            row.natal_house_cusps = list(natal_house_cusps)
+            row.natal_planets = {name: PlanetState(**vars(st)) for name, st in natal_planets.items()}
+
+            for t_name in CORE_BODIES:
+                if natal_houses_valid:
+                    row.transit_in_natal_houses[t_name] = house_for_longitude(row.planets[t_name].lon, natal_house_cusps)
+                else:
+                    row.transit_in_natal_houses[t_name] = -1
+                for n_name in CORE_BODIES:
+                    key = f"t_{t_name}__n_{n_name}"
+                    row.transit_natal_aspects[key] = calc_named_aspect(
+                        t_name,
+                        row.planets[t_name],
+                        n_name,
+                        row.natal_planets[n_name],
+                    )
+
+        row.astro_bias_text = astro_language_bias(row)
+        row.astro_path_text = astro_language_path(row)
+        row.astro_signal_text = astro_language_signal(row)
         rows.append(row)
         t_broker += step
 
@@ -432,9 +647,25 @@ def make_headers() -> List[str]:
         "house_system",
         "asc_lon",
         "mc_lon",
+        "natal_enabled",
+        "natal_label",
+        "natal_local_time",
+        "natal_utc_time",
+        "natal_utc_offset_hours",
+        "natal_houses_valid",
+        "natal_house_lat",
+        "natal_house_lon",
+        "natal_house_system",
+        "natal_asc_lon",
+        "natal_mc_lon",
+        "astro_bias_text",
+        "astro_path_text",
+        "astro_signal_text",
     ]
     for h in range(1, 13):
         headers.append(f"house_{h}_cusp")
+    for h in range(1, 13):
+        headers.append(f"natal_house_{h}_cusp")
     for p, _ in PLANETS:
         headers += [
             f"{p}_lon",
@@ -451,6 +682,22 @@ def make_headers() -> List[str]:
             f"{p}_retro",
             f"{p}_house",
         ]
+    for p, _ in PLANETS:
+        headers += [
+            f"natal_{p}_lon",
+            f"natal_{p}_lat",
+            f"natal_{p}_dist",
+            f"natal_{p}_speed_lon",
+            f"natal_{p}_speed_lat",
+            f"natal_{p}_speed_dist",
+            f"natal_{p}_ra",
+            f"natal_{p}_decl",
+            f"natal_{p}_sign",
+            f"natal_{p}_sign_index",
+            f"natal_{p}_degree",
+            f"natal_{p}_retro",
+            f"natal_{p}_house",
+        ]
     for a, b in DEFAULT_ASPECT_PAIRS:
         key = f"{a}_{b}"
         headers += [
@@ -459,6 +706,16 @@ def make_headers() -> List[str]:
             f"{key}_orb",
             f"{key}_applying",
         ]
+    for t_name in CORE_BODIES:
+        headers.append(f"{t_name}_in_natal_house")
+        for n_name in CORE_BODIES:
+            key = f"t_{t_name}__n_{n_name}"
+            headers += [
+                f"{key}_angle",
+                f"{key}_aspect",
+                f"{key}_orb",
+                f"{key}_applying",
+            ]
     return headers
 
 
@@ -479,10 +736,27 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         "house_system": row.house_system,
         "asc_lon": f"{row.asc_lon:.8f}",
         "mc_lon": f"{row.mc_lon:.8f}",
+        "natal_enabled": 1 if row.natal_enabled else 0,
+        "natal_label": row.natal_label,
+        "natal_local_time": fmt_dt(row.natal_local_time) if row.natal_local_time else "",
+        "natal_utc_time": fmt_dt(row.natal_utc_time) if row.natal_utc_time else "",
+        "natal_utc_offset_hours": f"{row.natal_utc_offset_hours:.4f}",
+        "natal_houses_valid": 1 if row.natal_houses_valid else 0,
+        "natal_house_lat": f"{row.natal_house_lat:.8f}",
+        "natal_house_lon": f"{row.natal_house_lon:.8f}",
+        "natal_house_system": row.natal_house_system,
+        "natal_asc_lon": f"{row.natal_asc_lon:.8f}",
+        "natal_mc_lon": f"{row.natal_mc_lon:.8f}",
+        "astro_bias_text": row.astro_bias_text,
+        "astro_path_text": row.astro_path_text,
+        "astro_signal_text": row.astro_signal_text,
     }
     cusps = row.house_cusps if row.house_cusps else [0.0] * 12
     for h in range(1, 13):
         d[f"house_{h}_cusp"] = f"{cusps[h - 1]:.8f}"
+    natal_cusps = row.natal_house_cusps if row.natal_house_cusps else [0.0] * 12
+    for h in range(1, 13):
+        d[f"natal_house_{h}_cusp"] = f"{natal_cusps[h - 1]:.8f}"
     for p, _ in PLANETS:
         st = row.planets[p]
         d.update({
@@ -500,6 +774,25 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{p}_retro": st.retrograde,
             f"{p}_house": st.house,
         })
+    for p, _ in PLANETS:
+        st = row.natal_planets.get(p)
+        if st is None or not row.natal_enabled:
+            st = PlanetState(name=p)
+        d.update({
+            f"natal_{p}_lon": f"{st.lon:.8f}",
+            f"natal_{p}_lat": f"{st.lat:.8f}",
+            f"natal_{p}_dist": f"{st.dist:.10f}",
+            f"natal_{p}_speed_lon": f"{st.speed_lon:.10f}",
+            f"natal_{p}_speed_lat": f"{st.speed_lat:.10f}",
+            f"natal_{p}_speed_dist": f"{st.speed_dist:.10f}",
+            f"natal_{p}_ra": f"{st.ra:.8f}",
+            f"natal_{p}_decl": f"{st.decl:.8f}",
+            f"natal_{p}_sign": st.sign_name if row.natal_enabled else "",
+            f"natal_{p}_sign_index": st.sign_index if row.natal_enabled else -1,
+            f"natal_{p}_degree": f"{st.degree_in_sign:.8f}" if row.natal_enabled else "",
+            f"natal_{p}_retro": st.retrograde if row.natal_enabled else 0,
+            f"natal_{p}_house": st.house if row.natal_enabled else -1,
+        })
     for a, b in DEFAULT_ASPECT_PAIRS:
         key = f"{a}_{b}"
         asp = row.aspects[key]
@@ -509,6 +802,19 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{key}_orb": f"{asp.orb:.8f}",
             f"{key}_applying": asp.applying,
         })
+    for t_name in CORE_BODIES:
+        d[f"{t_name}_in_natal_house"] = row.transit_in_natal_houses.get(t_name, -1)
+        for n_name in CORE_BODIES:
+            key = f"t_{t_name}__n_{n_name}"
+            asp = row.transit_natal_aspects.get(key)
+            if asp is None:
+                asp = AspectState(key, 0.0, "none", -1.0, 999.0, 0)
+            d.update({
+                f"{key}_angle": f"{asp.angle:.8f}",
+                f"{key}_aspect": asp.nearest_name,
+                f"{key}_orb": f"{asp.orb:.8f}",
+                f"{key}_applying": asp.applying,
+            })
     return d
 
 
@@ -628,6 +934,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--house-lat", type=float, default=None, help="Optional latitude for house cusps. If omitted, houses are disabled.")
     parser.add_argument("--house-lon", type=float, default=None, help="Optional longitude for house cusps. If omitted, houses are disabled.")
     parser.add_argument("--house-system", default="P", help="Swiss Ephemeris house system code. Default P=Placidus.")
+    parser.add_argument("--natal-local-datetime", default="", help="Optional natal/inception local datetime, e.g. 1987-08-16 14:35:00")
+    parser.add_argument("--natal-utc-offset-hours", type=float, default=0.0, help="UTC offset used to convert natal local time to UTC.")
+    parser.add_argument("--natal-lat", type=float, default=None, help="Optional natal latitude.")
+    parser.add_argument("--natal-lon", type=float, default=None, help="Optional natal longitude.")
+    parser.add_argument("--natal-house-system", default="P", help="Natal house system code. Default P=Placidus.")
+    parser.add_argument("--natal-label", default="", help="Optional natal chart label written into the CSV.")
     args = parser.parse_args(argv)
 
     if args.ephe_path:
@@ -635,6 +947,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     if (args.house_lat is None) != (args.house_lon is None):
         raise ValueError("Provide both --house-lat and --house-lon, or omit both to disable houses")
+    natal_dt = parse_datetime(args.natal_local_datetime) if args.natal_local_datetime else None
+    if natal_dt is not None and ((args.natal_lat is None) != (args.natal_lon is None)):
+        raise ValueError("Provide both --natal-lat and --natal-lon, or omit both for a houseless natal chart")
 
     start = parse_datetime(args.start_broker)
     end = parse_datetime(args.end_broker)
@@ -647,6 +962,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         house_lat=args.house_lat,
         house_lon=args.house_lon,
         house_system=args.house_system,
+        natal_local_dt=natal_dt,
+        natal_utc_offset_hours=args.natal_utc_offset_hours,
+        natal_lat=args.natal_lat,
+        natal_lon=args.natal_lon,
+        natal_house_system=args.natal_house_system,
+        natal_label=args.natal_label,
     )
     out_csv = args.out_csv or args.out
     if not out_csv and not args.out_xlsx:

@@ -7,6 +7,7 @@
 
 #include <Research/DAL_AstroMapTypes.mqh>
 #include <Research/DAL_AstroExcelCandleReader.mqh>
+#include <Research/DAL_AstroPureAstrologySignals.mqh>
 
 enum DAL_AstroRawView
 {
@@ -14,7 +15,9 @@ enum DAL_AstroRawView
    ASTRO_RAW_BODIES   = 1,
    ASTRO_RAW_ASPECTS  = 2,
    ASTRO_RAW_HOUSES   = 3,
-   ASTRO_RAW_METRICS  = 4
+   ASTRO_RAW_METRICS  = 4,
+   ASTRO_RAW_NATAL    = 5,
+   ASTRO_RAW_SIGNAL   = 6
 };
 
 input string           InpAstroCsvFile          = "astro_live_mql.csv";
@@ -24,6 +27,13 @@ input int              InpReloadCsvEverySeconds = 10;
 input int              InpRefreshSeconds        = 1;
 input DAL_AstroRawView InpInitialView           = ASTRO_RAW_OVERVIEW;
 input bool             InpUseTerminalComment    = false;
+input string           InpBirthDate             = "";
+input int              InpBirthHour             = 0;
+input int              InpBirthMinute           = 0;
+input double           InpBirthUtcOffsetHours   = 0.0;
+input double           InpBirthLat              = 0.0;
+input double           InpBirthLon              = 0.0;
+input string           InpBirthLabel            = "";
 
 input int              InpBaseX                 = 10;
 input int              InpBaseY                 = 10;
@@ -223,6 +233,14 @@ string DAL_HouseText(const DAL_AstroBodyState &b)
    return (b.house >= 1 && b.house <= 12 ? IntegerToString(b.house) : "-");
 }
 
+string DAL_TransitNatalHouseText(const DAL_AstroMapRow &row, const int idx)
+{
+   if(idx < 0 || idx >= DAL_ASTRO_NATAL_CORE_COUNT)
+      return "-";
+   int h = row.transit_in_natal_house[idx];
+   return (h >= 1 && h <= 12 ? IntegerToString(h) : "-");
+}
+
 string DAL_BodyDisplay(const string name)
 {
    if(name == "true_node") return "true_node";
@@ -308,6 +326,13 @@ color DAL_OrbColor(const double orb)
    return InpColorMuted;
 }
 
+string DAL_BirthInputText()
+{
+   if(InpBirthDate == "")
+      return "not_set";
+   return InpBirthDate + " " + IntegerToString(InpBirthHour) + ":" + IntegerToString(InpBirthMinute);
+}
+
 bool DAL_LoadStore()
 {
    g_last_load_time = TimeCurrent();
@@ -372,7 +397,7 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
 {
    DAL_Rect(g_prefix + "_HDR_BG", g.x, g.y, g.header_w, g.header_h, InpColorPanel, InpColorBorder);
    DAL_Label(g_prefix + "_HDR_TITLE", "EXP0013 RAW SKY COCKPIT", g.x + 16, g.y + 8, InpColorInfo, InpFontHero);
-   DAL_Label(g_prefix + "_HDR_SUB", "Raw astronomical state only: bodies, signs, houses, aspects, geometry", g.x + 16, g.y + 28, InpColorMuted, InpFontSmall);
+   DAL_Label(g_prefix + "_HDR_SUB", "Transit, natal, activations, doctrine metrics, and pure astro signal language", g.x + 16, g.y + 28, InpColorMuted, InpFontSmall);
    DAL_Line(g_prefix + "_HDR_RULE", g.x + 14, g.y + 43, g.header_w - 28, InpColorBorder);
 
    string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact ? "EXACT ROW" : "FALLBACK ROW"));
@@ -385,7 +410,9 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
    DAL_Label(g_prefix + "_HDR_S3", "Status", g.x + 280, y2, InpColorMuted, InpFontBody);
    DAL_Label(g_prefix + "_HDR_S3V", row_status, g.x + 342, y2, st_col, InpFontBody);
    DAL_Label(g_prefix + "_HDR_S4", "File", g.x + 500, y2, InpColorMuted, InpFontBody);
-   DAL_Label(g_prefix + "_HDR_S4V", DAL_Short(InpAstroCsvFile, 38), g.x + 540, y2, InpColorMid, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S4V", DAL_Short(InpAstroCsvFile, 28), g.x + 540, y2, InpColorMid, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S5", "Natal", g.x + 800, y2, InpColorMuted, InpFontBody);
+   DAL_Label(g_prefix + "_HDR_S5V", have_row && row.natal_enabled ? DAL_Short(row.natal_label, 20) : DAL_Short(InpBirthLabel, 20), g.x + 848, y2, have_row && row.natal_enabled ? InpColorHigh : InpColorMid, InpFontBody);
 
    if(!g_minimized)
    {
@@ -394,13 +421,16 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
       DAL_Label(g_prefix + "_HDR_TIME", tline, g.x + 16, g.y + 74, InpColorMuted, InpFontBody);
    }
 
-   int bx = g.x + g.header_w - 5 * (InpButtonW + 8) - 18;
+   int btn_w = 92;
+   int bx = g.x + g.header_w - 7 * (btn_w + 8) - 18;
    int by = g.y + 10;
-   DAL_Button(g_prefix + "_BTN_OVR", "OVERVIEW", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_OVERVIEW); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_BODY", "BODIES", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_BODIES); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_ASP", "ASPECTS", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_ASPECTS); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_HOU", "HOUSES", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_HOUSES); bx += InpButtonW + 8;
-   DAL_Button(g_prefix + "_BTN_MET", "METRICS", bx, by, InpButtonW, InpButtonH, g_view == ASTRO_RAW_METRICS);
+   DAL_Button(g_prefix + "_BTN_OVR", "OVERVIEW", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_OVERVIEW); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_BODY", "BODIES", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_BODIES); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_ASP", "ASPECTS", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_ASPECTS); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_HOU", "HOUSES", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_HOUSES); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_MET", "METRICS", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_METRICS); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_NAT", "NATAL", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_NATAL); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_SIG", "SIGNALS", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_SIGNAL);
 
    bx = g.x + g.header_w - 2 * (128 + 10) - 18;
    by = g.y + 48;
@@ -544,6 +574,92 @@ void DAL_DrawMetricsTable(const string key, const int x, const int y, const int 
    DAL_Cell4(key, 7, x + 14, yy, c1, c2, c3, "Houses", row.houses_valid ? "available" : "missing", row.houses_valid ? row.house_system : "", row.houses_valid ? StringFormat("%.3f, %.3f", row.house_lat, row.house_lon) : "", row.houses_valid ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
 }
 
+void DAL_DrawNatalTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
+{
+   DAL_Card(key, "NATAL / INCEPTION CHART", x, y, w, h);
+   int yy = y + 42;
+   if(!row.natal_enabled)
+   {
+      DAL_Label(g_prefix + "_" + key + "_NONE", "Natal chart is not embedded in this CSV. Build the file with natal inputs.", x + 14, yy, InpColorLow, InpFontBody);
+      DAL_Label(g_prefix + "_" + key + "_CFG", "EA birth input: " + DAL_BirthInputText(), x + 14, yy + 20, InpColorMuted, InpFontBody);
+      return;
+   }
+
+   int c1 = 110, c2 = 120, c3 = 120;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "label", row.natal_label, "local", DAL_TimeText(row.natal_local_time), InpColorHigh, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 1, x + 14, yy, c1, c2, c3, "utc", DAL_TimeText(row.natal_utc_time), "offset", DoubleToString(row.natal_utc_offset_hours, 2), InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 2, x + 14, yy, c1, c2, c3, "loc", StringFormat("%.4f / %.4f", row.natal_house_lat, row.natal_house_lon), "ASC", DAL_LonSignText(row.natal_asc_lon), InpColorText, InpColorMid, InpColorMuted);
+   DAL_Cell4(key, 3, x + 14, yy, c1, c2, c3, "MC", DAL_LonSignText(row.natal_mc_lon), "HouseSys", row.natal_house_system, InpColorMid, InpColorText, InpColorMuted);
+   DAL_Cell4(key, 4, x + 14, yy, c1, c2, c3, "EA input", DAL_BirthInputText(), "label", InpBirthLabel, InpColorMuted, InpColorMuted, InpColorMuted);
+
+   int r = 6;
+   DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "body", "natal position", "decl/house", "dir", InpColorMuted, InpColorMuted, InpColorMuted);
+   for(int i = 0; i < DAL_ASTRO_BODY_COUNT; i++)
+   {
+      DAL_AstroBodyState b = row.natal_body[i];
+      string dh = StringFormat("%.2f  H%s", b.decl, DAL_HouseText(b));
+      DAL_Cell4(key, r, x + 14, yy, c1, c2, c3, DAL_BodyDisplay(b.name), DAL_PosText(b), dh, DAL_RetroText(b), InpColorMid, InpColorMuted, b.retro == 1 ? InpColorLow : InpColorText);
+      r++;
+      if(r >= 15)
+         break;
+   }
+}
+
+void DAL_DrawTransitNatalTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
+{
+   DAL_Card(key, "TRANSIT TO NATAL ACTIVATIONS", x, y, w, h);
+   int yy = y + 42;
+   if(!row.natal_enabled)
+   {
+      DAL_Label(g_prefix + "_" + key + "_NONE", "Transit-to-natal activations are unavailable because natal data is missing.", x + 14, yy, InpColorLow, InpFontBody);
+      return;
+   }
+
+   int c1 = 142, c2 = 110, c3 = 104;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "pair", "aspect", "orb/app", "natal house", InpColorMuted, InpColorMuted, InpColorMuted);
+   int order[];
+   ArrayResize(order, DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT);
+   for(int i = 0; i < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; i++) order[i] = i;
+   for(int a = 0; a < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT - 1; a++)
+   {
+      for(int b = a + 1; b < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; b++)
+      {
+         if(row.transit_natal_aspect[order[b]].orb < row.transit_natal_aspect[order[a]].orb)
+         {
+            int tmp = order[a]; order[a] = order[b]; order[b] = tmp;
+         }
+      }
+   }
+
+   for(int r = 0; r < 12 && r < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; r++)
+   {
+      DAL_AstroAspectState a = row.transit_natal_aspect[order[r]];
+      int transit_idx = order[r] / DAL_ASTRO_NATAL_CORE_COUNT;
+      DAL_Cell4(key, r + 1, x + 14, yy, c1, c2, c3, a.pair, a.aspect, StringFormat("%.2f %s", a.orb, a.applying == 1 ? "app" : "sep"), "H" + DAL_TransitNatalHouseText(row, transit_idx), InpColorText, DAL_OrbColor(a.orb), InpColorMuted);
+   }
+}
+
+void DAL_DrawSignalTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
+{
+   DAL_Card(key, "PURE ASTRO SIGNAL LANGUAGE", x, y, w, h);
+   int yy = y + 42;
+   DAL_AstroPureSignal s;
+   if(!DAL_AstroPureSignal_Calc(row, s) || !s.valid)
+   {
+      DAL_Label(g_prefix + "_" + key + "_FAIL", "Signal stack could not be derived from the current row.", x + 14, yy, InpColorLow, InpFontBody);
+      return;
+   }
+
+   int c1 = 118, c2 = 120, c3 = 120;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "Direction", s.direction_name, "Regime", s.regime_name, InpColorHigh, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 1, x + 14, yy, c1, c2, c3, "Entry", s.entry_signal, "Exit", s.exit_signal, InpColorText, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 2, x + 14, yy, c1, c2, c3, "LongBias", DoubleToString(s.long_bias_score, 1), "ShortBias", DoubleToString(s.short_bias_score, 1), InpColorMid, InpColorMid, InpColorMuted);
+   DAL_Cell4(key, 3, x + 14, yy, c1, c2, c3, "Path", DoubleToString(s.path_score, 1), "Friction", DoubleToString(s.friction_score, 1), InpColorText, InpColorLow, InpColorMuted);
+   DAL_Cell4(key, 4, x + 14, yy, c1, c2, c3, "Volatility", DoubleToString(s.volatility_score, 1), "NatalAct", DoubleToString(s.natal_activation_score, 1), InpColorText, InpColorMid, InpColorMuted);
+   DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "BiasText", row.astro_bias_text, "PathText", row.astro_path_text, InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4(key, 6, x + 14, yy, c1, c2, c3, "SignalText", row.astro_signal_text, "Key", DAL_Short(s.astro_trade_key, 34), InpColorMuted, InpColorMuted, InpColorMuted);
+}
+
 void DAL_DrawDiagnostics(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
 {
    int h = MathMax(240, g.panel_h);
@@ -639,6 +755,16 @@ void DAL_Render()
       DAL_DrawMetricsTable("METRICS_BIG", g.main_x, g.main_y, g.card_w, 280, row);
       DAL_DrawDignityTable("DIGNITY_BIG", g.col2_x, g.main_y, g.card_w, 240, row);
    }
+   else if(g_view == ASTRO_RAW_NATAL)
+   {
+      DAL_DrawNatalTable("NATAL_BIG", g.main_x, g.main_y, g.card_w, g.panel_h, row);
+      DAL_DrawTransitNatalTable("TNATAL_BIG", g.col2_x, g.main_y, g.card_w, g.panel_h, row);
+   }
+   else if(g_view == ASTRO_RAW_SIGNAL)
+   {
+      DAL_DrawSignalTable("SIGNALS_BIG", g.main_x, g.main_y, g.card_w, 260, row);
+      DAL_DrawTransitNatalTable("TNATAL_SIG", g.col2_x, g.main_y, g.card_w, g.panel_h, row);
+   }
 
    DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
 
@@ -681,6 +807,8 @@ void OnChartEvent(const int id, const long &lparam, const double &dparam, const 
    else if(sparam == g_prefix + "_BTN_ASP") { g_view = ASTRO_RAW_ASPECTS; changed = true; }
    else if(sparam == g_prefix + "_BTN_HOU") { g_view = ASTRO_RAW_HOUSES; changed = true; }
    else if(sparam == g_prefix + "_BTN_MET") { g_view = ASTRO_RAW_METRICS; changed = true; }
+   else if(sparam == g_prefix + "_BTN_NAT") { g_view = ASTRO_RAW_NATAL; changed = true; }
+   else if(sparam == g_prefix + "_BTN_SIG") { g_view = ASTRO_RAW_SIGNAL; changed = true; }
    else if(sparam == g_prefix + "_BTN_MIN") { g_minimized = !g_minimized; changed = true; }
    else if(sparam == g_prefix + "_BTN_RELOAD") { DAL_LoadStore(); }
    if(changed) g_force_rebuild = true;

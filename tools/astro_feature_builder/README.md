@@ -26,6 +26,13 @@ python tools/astro_feature_builder/astro_feature_builder.py `
   --end-broker "2024-02-01 00:00:00" `
   --timeframe-minutes 1 `
   --broker-gmt-offset-hours 2 `
+  --house-lat 35.6892 `
+  --house-lon 51.3890 `
+  --natal-local-datetime "1987-08-16 14:35:00" `
+  --natal-utc-offset-hours 3.5 `
+  --natal-lat 35.6892 `
+  --natal-lon 51.3890 `
+  --natal-label "gold_ref" `
   --ephe-path "tools/astro_feature_builder/ephe" `
   --out-csv "data/astro/astro_XAUUSD_M1_202401_mql.csv" `
   --out-xlsx "data/astro/astro_XAUUSD_M1_202401_review.xlsx"
@@ -38,6 +45,27 @@ utc_time = broker_time - broker_gmt_offset_hours
 ```
 
 Every row is computed at candle open time. This keeps the data causal for Strategy Tester and live execution.
+
+## Natal / inception support
+
+The builder can optionally embed a fixed natal or inception chart into every row:
+
+```text
+--natal-local-datetime
+--natal-utc-offset-hours
+--natal-lat
+--natal-lon
+--natal-house-system
+--natal-label
+```
+
+When natal inputs are present, the CSV also contains:
+
+- natal body positions and houses
+- natal ASC / MC / cusps
+- transit-to-natal aspects for Sun..Saturn
+- current transit body placement inside natal houses
+- pure astro language fields such as `astro_bias_text`, `astro_path_text`, `astro_signal_text`
 
 ## MQL5 runtime
 
