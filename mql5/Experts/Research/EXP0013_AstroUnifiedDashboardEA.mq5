@@ -74,6 +74,18 @@ struct DAL_UIGrid
    int side_y;
    int side_w;
    int panel_h;
+
+   // Derived layout fields used by tab renderers.
+   // These were accidentally left out of the V14 struct even though DAL_GetGrid()
+   // and the panel drawing functions populate/read them.
+   int card_w;
+   int diag_w;
+   int col1_x;
+   int col2_x;
+   int col3_x;
+   int row1_y;
+   int row2_y;
+   int row3_y;
 };
 
 void DAL_DelPrefix(const string prefix)
