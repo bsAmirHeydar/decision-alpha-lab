@@ -177,6 +177,7 @@ Now implemented in repo:
 - declination parallels / contra-parallels and OOB state
 - hierarchical timing doctrine from macro field to minute trigger
 - doctrine-owned family threshold layer
+- sect-aware doctrine context with benefic / malefic and house lift / drag
 - explicit astro execution state machine
 - paper execution journal schema and journal writers
 - Python paper family runner under `tools/astro_validation/astro_paper_family_runner.py`

@@ -1,6 +1,7 @@
 #ifndef __DAL_ASTRO_PURE_ASTROLOGY_SIGNALS_MQH__
 #define __DAL_ASTRO_PURE_ASTROLOGY_SIGNALS_MQH__
 
+#include <Research/DAL_AstroDoctrineContext.mqh>
 #include <Research/DAL_AstroTimingDoctrine.mqh>
 
 struct DAL_AstroPureSignal
@@ -18,14 +19,21 @@ struct DAL_AstroPureSignal
    double micro_timing_score;
    double minute_window_score;
    double minute_exhaustion_score;
+   double benefic_support_score;
+   double malefic_pressure_score;
+   double angular_power_score;
+   double house_lift_score;
+   double house_drag_score;
    double entry_score;
    double exit_score;
    string regime_name;
    string direction_name;
+   string sect_name;
    string macro_context;
    string meso_context;
    string micro_context;
    string minute_context;
+   string doctrine_context;
    string trigger_state;
    string entry_signal;
    string exit_signal;
@@ -105,14 +113,21 @@ void DAL_AstroPureSignal_Reset(DAL_AstroPureSignal &s)
    s.micro_timing_score = 0.0;
    s.minute_window_score = 0.0;
    s.minute_exhaustion_score = 0.0;
+   s.benefic_support_score = 0.0;
+   s.malefic_pressure_score = 0.0;
+   s.angular_power_score = 0.0;
+   s.house_lift_score = 0.0;
+   s.house_drag_score = 0.0;
    s.entry_score = 0.0;
    s.exit_score = 0.0;
    s.regime_name = "neutral";
    s.direction_name = "flat";
+   s.sect_name = "day";
    s.macro_context = "";
    s.meso_context = "";
    s.micro_context = "";
    s.minute_context = "";
+   s.doctrine_context = "";
    s.trigger_state = "standby";
    s.entry_signal = "wait";
    s.exit_signal = "hold";
@@ -128,8 +143,12 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
    if(!DAL_AstroFM_Calc(row, f) || !f.valid)
       return false;
 
-    DAL_AstroTimingState t;
+   DAL_AstroTimingState t;
    if(!DAL_AstroTD_Calc(row, t) || !t.valid)
+      return false;
+
+   DAL_AstroDoctrineContext d;
+   if(!DAL_AstroDC_Calc(row, d) || !d.valid)
       return false;
 
    int mars = DAL_AstroBodyIndexByName("mars");
@@ -157,6 +176,17 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.10 * (100.0 - f.jupiter_support) +
       0.10 * (moon_element == "water" ? 80.0 : 45.0);
 
+   s.benefic_support_score = d.benefic_support_score;
+   s.malefic_pressure_score = d.malefic_pressure_score;
+   s.angular_power_score = d.angular_power_score;
+   s.house_lift_score = d.house_lift_score;
+   s.house_drag_score = d.house_drag_score;
+   s.sect_name = d.sect_name;
+   s.doctrine_context = d.context_key;
+
+   s.long_bias_score += 0.12 * d.benefic_support_score + 0.10 * d.house_lift_score + 0.06 * d.angular_power_score;
+   s.short_bias_score += 0.14 * d.malefic_pressure_score + 0.10 * d.house_drag_score + 0.04 * (100.0 - d.benefic_support_score);
+
    if(row.body[mars].oob == 1)
       s.long_bias_score += 4.0;
    if(row.body[saturn].oob == 1)
@@ -164,7 +194,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
 
    s.trend_score = MathMin(100.0, MathAbs(s.long_bias_score - s.short_bias_score));
    s.path_score = f.clean_path;
-   s.friction_score = f.chop_risk;
+   s.friction_score = MathMin(100.0, f.chop_risk + 0.18 * d.malefic_pressure_score + 0.08 * d.house_drag_score);
    s.volatility_score = (f.breakout_followthrough + f.raw_pressure + f.raw_transition) / 3.0;
 
    for(int d = 0; d < DAL_ASTRO_DECL_PAIR_COUNT; d++)
@@ -176,6 +206,9 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       if(row.decl_pair[d].pair == "sun_moon")
          s.volatility_score += 0.15 * DAL_AstroPS_DeclinationScore(row.decl_pair[d], row.parallel_orb_limit);
    }
+   s.path_score = MathMin(100.0, s.path_score);
+   s.friction_score = MathMin(100.0, s.friction_score);
+   s.volatility_score = MathMin(100.0, s.volatility_score);
 
    if(row.natal_enabled)
    {
@@ -202,19 +235,23 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
 
    s.entry_score =
       0.24 * MathMax(s.long_bias_score, s.short_bias_score) +
+      0.08 * s.benefic_support_score +
       0.18 * s.path_score +
       0.12 * s.volatility_score +
       0.14 * s.natal_activation_score +
       0.12 * s.macro_timing_score +
       0.10 * s.meso_timing_score +
-      0.10 * s.micro_timing_score;
+      0.10 * s.micro_timing_score +
+      0.08 * s.house_lift_score;
 
    s.exit_score =
       0.30 * s.friction_score +
+      0.10 * s.malefic_pressure_score +
       0.22 * f.pullback_risk +
       0.16 * f.m1_dirty_window +
       0.16 * s.minute_exhaustion_score +
-      0.16 * (100.0 - s.minute_window_score);
+      0.06 * s.house_drag_score +
+      0.08 * (100.0 - s.minute_window_score);
 
    if(t.macro_direction != "flat")
       s.direction_name = t.macro_direction;
@@ -254,8 +291,10 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       "|bias=" + row.astro_bias_text +
       "|path=" + row.astro_path_text +
       "|signal=" + row.astro_signal_text +
+      "|sect=" + s.sect_name +
       "|dir=" + s.direction_name +
       "|regime=" + s.regime_name +
+      "|ctx=" + s.doctrine_context +
       "|macro=" + s.macro_context +
       "|meso=" + s.meso_context +
       "|micro=" + s.micro_context +
@@ -280,6 +319,8 @@ string DAL_AstroPureSignal_ToText(const DAL_AstroMapRow &row, const DAL_AstroPur
    t += "LongBias=" + DoubleToString(s.long_bias_score, 1) + " ShortBias=" + DoubleToString(s.short_bias_score, 1) + "\n";
    t += "Trend=" + DoubleToString(s.trend_score, 1) + " Path=" + DoubleToString(s.path_score, 1) + " Friction=" + DoubleToString(s.friction_score, 1) + "\n";
    t += "Volatility=" + DoubleToString(s.volatility_score, 1) + " NatalActivation=" + DoubleToString(s.natal_activation_score, 1) + "\n";
+   t += "Sect=" + s.sect_name + " Benefic=" + DoubleToString(s.benefic_support_score, 1) + " Malefic=" + DoubleToString(s.malefic_pressure_score, 1) + "\n";
+   t += "Angular=" + DoubleToString(s.angular_power_score, 1) + " HouseLift=" + DoubleToString(s.house_lift_score, 1) + " HouseDrag=" + DoubleToString(s.house_drag_score, 1) + "\n";
    t += "Macro=" + DoubleToString(s.macro_timing_score, 1) + " Meso=" + DoubleToString(s.meso_timing_score, 1) + " Micro=" + DoubleToString(s.micro_timing_score, 1) + "\n";
    t += "MinuteWindow=" + DoubleToString(s.minute_window_score, 1) + " MinuteExhaustion=" + DoubleToString(s.minute_exhaustion_score, 1) + " State=" + s.trigger_state + "\n";
    t += "BiasText=" + row.astro_bias_text + "\n";

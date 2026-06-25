@@ -117,8 +117,14 @@ class PureSignal:
     micro_timing_score: float
     minute_window_score: float
     minute_exhaustion_score: float
+    benefic_support_score: float
+    malefic_pressure_score: float
+    angular_power_score: float
+    house_lift_score: float
+    house_drag_score: float
     direction_name: str
     regime_name: str
+    sect_name: str
     trigger_state: str
     entry_signal: str
     exit_signal: str
@@ -126,6 +132,7 @@ class PureSignal:
     meso_context: str
     micro_context: str
     minute_context: str
+    doctrine_context: str
     astro_trade_key: str
     astro_language: str
 
@@ -250,6 +257,127 @@ def house_angularity(house: int) -> float:
     return HOUSE_ANGULARITY.get(house, 0.0)
 
 
+def house_lift(house: int) -> float:
+    if house == 10:
+        return 100.0
+    if house in {1, 11}:
+        return 92.0
+    if house in {5, 9}:
+        return 78.0
+    if house in {2, 7}:
+        return 62.0
+    if house in {3, 4}:
+        return 46.0
+    if house in {6, 8}:
+        return 26.0
+    if house == 12:
+        return 18.0
+    return 40.0
+
+
+def house_drag(house: int) -> float:
+    if house == 12:
+        return 100.0
+    if house in {8, 6}:
+        return 84.0
+    if house == 4:
+        return 70.0
+    if house == 3:
+        return 52.0
+    if house in {7, 2}:
+        return 40.0
+    if house in {9, 5}:
+        return 28.0
+    if house in {11, 1}:
+        return 18.0
+    if house == 10:
+        return 12.0
+    return 40.0
+
+
+def dignity_score(body: str, sign: str) -> float:
+    if body == "sun":
+        if sign == "leo":
+            return 95.0
+        if sign == "aries":
+            return 86.0
+        if sign == "aquarius":
+            return 18.0
+        if sign == "libra":
+            return 10.0
+    if body == "moon":
+        if sign == "cancer":
+            return 95.0
+        if sign == "taurus":
+            return 86.0
+        if sign == "capricorn":
+            return 18.0
+        if sign == "scorpio":
+            return 10.0
+    if body == "mercury":
+        if sign in {"gemini", "virgo"}:
+            return 92.0
+        if sign == "pisces":
+            return 10.0
+        if sign in {"sagittarius", "pisces"}:
+            return 18.0
+    if body == "venus":
+        if sign in {"taurus", "libra"}:
+            return 92.0
+        if sign == "pisces":
+            return 96.0
+        if sign in {"scorpio", "aries"}:
+            return 18.0
+        if sign == "virgo":
+            return 10.0
+    if body == "mars":
+        if sign in {"aries", "scorpio"}:
+            return 92.0
+        if sign == "capricorn":
+            return 96.0
+        if sign in {"libra", "taurus"}:
+            return 18.0
+        if sign == "cancer":
+            return 10.0
+    if body == "jupiter":
+        if sign in {"sagittarius", "pisces"}:
+            return 92.0
+        if sign == "cancer":
+            return 96.0
+        if sign in {"gemini", "virgo"}:
+            return 18.0
+        if sign == "capricorn":
+            return 10.0
+    if body == "saturn":
+        if sign in {"capricorn", "aquarius"}:
+            return 92.0
+        if sign == "libra":
+            return 96.0
+        if sign in {"cancer", "leo"}:
+            return 18.0
+        if sign == "aries":
+            return 10.0
+    return 50.0
+
+
+def sect_favorability(body: str, diurnal: bool) -> float:
+    if body == "sun":
+        return 96.0 if diurnal else 34.0
+    if body == "moon":
+        return 38.0 if diurnal else 96.0
+    if body == "jupiter":
+        return 92.0 if diurnal else 60.0
+    if body == "venus":
+        return 62.0 if diurnal else 92.0
+    if body == "saturn":
+        return 78.0 if diurnal else 28.0
+    if body == "mars":
+        return 28.0 if diurnal else 76.0
+    if body == "mercury":
+        return 64.0
+    return 50.0
+
+
 def speed_intensity(speed_lon: float, normal_speed: float) -> float:
     if normal_speed <= 0.0:
         return 0.0
@@ -347,6 +475,58 @@ def compute_signal(row: dict) -> PureSignal:
     structural_bias = clamp(macro_expansion - 0.35 * macro_compression + 30.0)
 
     mars_sign = row.get("mars_sign", "")
+    sun_house = as_int(row, "sun_house", -1)
+    moon_house = as_int(row, "moon_house", -1)
+    mercury_house = as_int(row, "mercury_house", -1)
+    venus_house = as_int(row, "venus_house", -1)
+    mars_house = as_int(row, "mars_house", -1)
+    jupiter_house = as_int(row, "jupiter_house", -1)
+    saturn_house = as_int(row, "saturn_house", -1)
+    diurnal_sect = 7 <= sun_house <= 12
+    sect_name = "day" if diurnal_sect else "night"
+
+    benefic_support_score = clamp(avg(
+        0.42 * dignity_score("venus", row.get("venus_sign", "")) + 0.28 * house_lift(venus_house) + 0.20 * sect_favorability("venus", diurnal_sect) + 0.10 * (30.0 if as_int(row, "venus_retro", 0) == 1 else 72.0),
+        0.42 * dignity_score("jupiter", row.get("jupiter_sign", "")) + 0.28 * house_lift(jupiter_house) + 0.20 * sect_favorability("jupiter", diurnal_sect) + 0.10 * (38.0 if as_int(row, "jupiter_retro", 0) == 1 else 70.0),
+    ))
+    malefic_pressure_score = clamp(avg(
+        0.44 * dignity_score("mars", row.get("mars_sign", "")) + 0.22 * house_drag(mars_house) + 0.22 * (100.0 - sect_favorability("mars", diurnal_sect)) + 0.12 * (56.0 if as_int(row, "mars_retro", 0) == 1 else 72.0),
+        0.44 * dignity_score("saturn", row.get("saturn_sign", "")) + 0.22 * house_drag(saturn_house) + 0.22 * (100.0 - sect_favorability("saturn", diurnal_sect)) + 0.12 * (46.0 if as_int(row, "saturn_retro", 0) == 1 else 68.0),
+    ))
+    angular_power_score = clamp(
+        0.22 * house_angularity(sun_house) +
+        0.18 * house_angularity(moon_house) +
+        0.15 * house_angularity(venus_house) +
+        0.15 * house_angularity(mars_house) +
+        0.15 * house_angularity(jupiter_house) +
+        0.15 * house_angularity(saturn_house)
+    )
+    house_lift_score = clamp(
+        0.25 * house_lift(sun_house) +
+        0.15 * house_lift(moon_house) +
+        0.10 * house_lift(mercury_house) +
+        0.10 * house_lift(venus_house) +
+        0.15 * house_lift(mars_house) +
+        0.15 * house_lift(jupiter_house) +
+        0.10 * house_lift(saturn_house)
+    )
+    house_drag_score = clamp(
+        0.20 * house_drag(sun_house) +
+        0.18 * house_drag(moon_house) +
+        0.10 * house_drag(venus_house) +
+        0.16 * house_drag(mars_house) +
+        0.12 * house_drag(jupiter_house) +
+        0.24 * house_drag(saturn_house)
+    )
+    doctrine_context = (
+        f"sect={sect_name}"
+        f"|benefic={bucket5(benefic_support_score)}"
+        f"|malefic={bucket5(malefic_pressure_score)}"
+        f"|angular={bucket5(angular_power_score)}"
+        f"|lift={bucket5(house_lift_score)}"
+        f"|drag={bucket5(house_drag_score)}"
+    )
+
     mars_speed = speed_intensity(as_float(row, "mars_speed_lon"), 0.55)
     moon_speed = speed_intensity(as_float(row, "moon_speed_lon"), 13.2)
     mars_direct_bonus = 0.0 if as_int(row, "mars_retro", 0) == 1 else 20.0
@@ -424,14 +604,20 @@ def compute_signal(row: dict) -> PureSignal:
         0.22 * jupiter_support +
         0.18 * moon_flow +
         0.18 * (100.0 if sign_element(mars_sign) == "fire" else 75.0 if sign_element(mars_sign) == "air" else 40.0 if sign_element(mars_sign) == "earth" else 50.0) +
-        0.10 * (95.0 if sign_modality(mars_sign) == "cardinal" else 65.0 if sign_modality(mars_sign) == "fixed" else 55.0)
+        0.10 * (95.0 if sign_modality(mars_sign) == "cardinal" else 65.0 if sign_modality(mars_sign) == "fixed" else 55.0) +
+        0.12 * benefic_support_score +
+        0.10 * house_lift_score +
+        0.06 * angular_power_score
     )
     short_bias_score = clamp(
         0.35 * saturn_resistance +
         0.25 * mars_saturn_friction +
         0.20 * moon_pressure +
         0.10 * (100.0 - jupiter_support) +
-        0.10 * (80.0 if sign_element(row.get("moon_sign", "")) == "water" else 45.0)
+        0.10 * (80.0 if sign_element(row.get("moon_sign", "")) == "water" else 45.0) +
+        0.14 * malefic_pressure_score +
+        0.10 * house_drag_score +
+        0.04 * (100.0 - benefic_support_score)
     )
     if as_int(row, "mars_oob", 0) == 1:
         long_bias_score = clamp(long_bias_score + 4.0)
@@ -479,24 +665,29 @@ def compute_signal(row: dict) -> PureSignal:
         elif short_bias_score >= long_bias_score + 8.0:
             direction_name = "short"
 
-    volatility_score = avg(breakout_followthrough, macro_pressure, macro_transition)
-    regime_name = "clean" if clean_path >= 70.0 and chop_risk <= 40.0 and minute_window_score >= 60.0 else "volatile" if volatility_score >= 70.0 and micro_trigger_score >= 56.0 else "frictional" if chop_risk >= 65.0 or minute_exhaustion_score >= 62.0 else "mixed"
+    friction_score = clamp(chop_risk + 0.18 * malefic_pressure_score + 0.08 * house_drag_score)
+    volatility_score = clamp(avg(breakout_followthrough, macro_pressure, macro_transition))
+    regime_name = "clean" if clean_path >= 70.0 and friction_score <= 40.0 and minute_window_score >= 60.0 else "volatile" if volatility_score >= 70.0 and micro_trigger_score >= 56.0 else "frictional" if friction_score >= 65.0 or minute_exhaustion_score >= 62.0 else "mixed"
 
     entry_score = clamp(
         0.24 * max(long_bias_score, short_bias_score) +
+        0.08 * benefic_support_score +
         0.18 * clean_path +
         0.12 * volatility_score +
         0.14 * natal_activation_score +
         0.12 * macro_alignment_score +
         0.10 * meso_gate_score +
-        0.10 * micro_trigger_score
+        0.10 * micro_trigger_score +
+        0.08 * house_lift_score
     )
     exit_score = clamp(
-        0.30 * chop_risk +
+        0.30 * friction_score +
+        0.10 * malefic_pressure_score +
         0.22 * pullback_risk +
         0.16 * m1_dirty_window +
         0.16 * minute_exhaustion_score +
-        0.16 * (100.0 - minute_window_score)
+        0.08 * (100.0 - minute_window_score) +
+        0.06 * house_drag_score
     )
 
     entry_signal = "wait"
@@ -518,8 +709,10 @@ def compute_signal(row: dict) -> PureSignal:
         f"|bias={row.get('astro_bias_text','')}"
         f"|path={row.get('astro_path_text','')}"
         f"|signal={row.get('astro_signal_text','')}"
+        f"|sect={sect_name}"
         f"|dir={direction_name}"
         f"|regime={regime_name}"
+        f"|ctx={doctrine_context}"
         f"|macro={macro_context}"
         f"|meso={meso_context}"
         f"|micro={micro_context}"
@@ -535,7 +728,7 @@ def compute_signal(row: dict) -> PureSignal:
         long_bias_score=long_bias_score,
         short_bias_score=short_bias_score,
         path_score=clean_path,
-        friction_score=chop_risk,
+        friction_score=friction_score,
         volatility_score=volatility_score,
         natal_activation_score=natal_activation_score,
         macro_timing_score=macro_alignment_score,
@@ -543,8 +736,14 @@ def compute_signal(row: dict) -> PureSignal:
         micro_timing_score=micro_trigger_score,
         minute_window_score=minute_window_score,
         minute_exhaustion_score=minute_exhaustion_score,
+        benefic_support_score=benefic_support_score,
+        malefic_pressure_score=malefic_pressure_score,
+        angular_power_score=angular_power_score,
+        house_lift_score=house_lift_score,
+        house_drag_score=house_drag_score,
         direction_name=direction_name,
         regime_name=regime_name,
+        sect_name=sect_name,
         trigger_state=trigger_state,
         entry_signal=entry_signal,
         exit_signal=exit_signal,
@@ -552,6 +751,7 @@ def compute_signal(row: dict) -> PureSignal:
         meso_context=meso_context,
         micro_context=micro_context,
         minute_context=minute_context,
+        doctrine_context=doctrine_context,
         astro_trade_key=astro_trade_key,
         astro_language=astro_language,
     )

@@ -102,6 +102,7 @@ The dashboard can display:
 - transit-to-natal activations
 - pure astro signal language
 - hierarchical timing doctrine from macro background to minute trigger
+- sect-aware doctrine context, benefic support, malefic pressure, and house lift / drag
 
 ## Astro-only execution
 

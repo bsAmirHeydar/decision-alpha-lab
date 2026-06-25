@@ -681,17 +681,20 @@ void DAL_DrawSignalTable(const string key, const int x, const int y, const int w
    DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "Micro", DoubleToString(s.micro_timing_score, 1), "Minute", DoubleToString(s.minute_window_score, 1), DAL_ScoreColor(s.micro_timing_score), DAL_ScoreColor(s.minute_window_score), InpColorMuted);
    DAL_Cell4(key, 6, x + 14, yy, c1, c2, c3, "Exhaust", DoubleToString(s.minute_exhaustion_score, 1), "State", s.trigger_state, DAL_ScoreColor(100.0 - s.minute_exhaustion_score), InpColorInfo, InpColorMuted);
    DAL_Cell4(key, 7, x + 14, yy, c1, c2, c3, "Volatility", DoubleToString(s.volatility_score, 1), "NatalAct", DoubleToString(s.natal_activation_score, 1), InpColorText, InpColorMid, InpColorMuted);
+   DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "Sect", s.sect_name, "Benefic", DoubleToString(s.benefic_support_score, 1), InpColorInfo, DAL_ScoreColor(s.benefic_support_score), InpColorMuted);
+   DAL_Cell4(key, 9, x + 14, yy, c1, c2, c3, "Malefic", DoubleToString(s.malefic_pressure_score, 1), "Lift", DoubleToString(s.house_lift_score, 1), DAL_ScoreColor(100.0 - s.malefic_pressure_score), DAL_ScoreColor(s.house_lift_score), InpColorMuted);
+   DAL_Cell4(key, 10, x + 14, yy, c1, c2, c3, "Angular", DoubleToString(s.angular_power_score, 1), "Drag", DoubleToString(s.house_drag_score, 1), DAL_ScoreColor(s.angular_power_score), DAL_ScoreColor(100.0 - s.house_drag_score), InpColorMuted);
 
    DAL_AstroSignalWindow win;
    if(DAL_AstroSW_FindWindowByBrokerTime(g_store, row.broker_time, true, win) && win.valid)
    {
-      DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "ValidFrom", DAL_AstroSW_TimeText(win.start_broker_time), "Until", DAL_AstroSW_TimeText(win.end_exclusive_broker_time), InpColorHigh, InpColorHigh, InpColorMuted);
-      DAL_Cell4(key, 9, x + 14, yy, c1, c2, c3, "Bars", IntegerToString(win.bars), "WindowKey", DAL_Short(win.key, 38), InpColorInfo, InpColorMuted, InpColorMuted);
-      DAL_Cell4(key, 10, x + 14, yy, c1, c2, c3, "AvgEntry", DoubleToString(win.avg_entry_score, 1), "AvgNatal", DoubleToString(win.avg_natal_activation_score, 1), DAL_ScoreColor(win.avg_entry_score), DAL_ScoreColor(win.avg_natal_activation_score), InpColorMuted);
-      DAL_Cell4(key, 11, x + 14, yy, c1, c2, c3, "SignalText", row.astro_signal_text, "Key", DAL_Short(s.astro_trade_key, 34), InpColorMuted, InpColorMuted, InpColorMuted);
+      DAL_Cell4(key, 11, x + 14, yy, c1, c2, c3, "ValidFrom", DAL_AstroSW_TimeText(win.start_broker_time), "Until", DAL_AstroSW_TimeText(win.end_exclusive_broker_time), InpColorHigh, InpColorHigh, InpColorMuted);
+      DAL_Cell4(key, 12, x + 14, yy, c1, c2, c3, "Bars", IntegerToString(win.bars), "WindowKey", DAL_Short(win.key, 38), InpColorInfo, InpColorMuted, InpColorMuted);
+      DAL_Cell4(key, 13, x + 14, yy, c1, c2, c3, "AvgEntry", DoubleToString(win.avg_entry_score, 1), "AvgNatal", DoubleToString(win.avg_natal_activation_score, 1), DAL_ScoreColor(win.avg_entry_score), DAL_ScoreColor(win.avg_natal_activation_score), InpColorMuted);
+      DAL_Cell4(key, 14, x + 14, yy, c1, c2, c3, "Ctx", DAL_Short(s.doctrine_context, 38), "Key", DAL_Short(s.astro_trade_key, 34), InpColorMuted, InpColorMuted, InpColorMuted);
    }
    else
-      DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "Window", "n/a", "SignalText", row.astro_signal_text, InpColorLow, InpColorMuted, InpColorMuted);
+      DAL_Cell4(key, 11, x + 14, yy, c1, c2, c3, "Window", "n/a", "Ctx", DAL_Short(s.doctrine_context, 38), InpColorLow, InpColorMuted, InpColorMuted);
 }
 
 void DAL_DrawTimingSummaryCard(const string key, const int x, const int y, const int w, const int h, const string title, const string state_text, const double score1, const string label1, const double score2, const string label2, const color accent)
@@ -777,6 +780,8 @@ void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
    }
    if(have_signal)
       DAL_Cell4("SNAP", 6, g.main_x + 14, yy, c1, c2, c3, "Entry", s.entry_signal, "Exit", s.exit_signal, InpColorInfo, InpColorMuted, InpColorMuted);
+   if(have_signal)
+      DAL_Cell4("SNAP", 7, g.main_x + 14, yy, c1, c2, c3, "Sect", s.sect_name, "Benefic", DoubleToString(s.benefic_support_score, 1), InpColorInfo, DAL_ScoreColor(s.benefic_support_score), InpColorMuted);
    DAL_DrawMetricsTable("MET_OVR", g.main_x, snap_y + h + InpGap, g.card_w, 248, row);
    DAL_DrawAspectsTable("ASP_OVR", g.col2_x, snap_y + h + InpGap, g.card_w, 248, row, 8);
 }

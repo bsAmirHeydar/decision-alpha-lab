@@ -42,6 +42,12 @@ The signal layer reads:
 - `exit_signal`
 - `astro_language`
 - `astro_trade_key`
+- `sect_name`
+- `benefic_support_score`
+- `malefic_pressure_score`
+- `angular_power_score`
+- `house_lift_score`
+- `house_drag_score`
 
 ## Long bias
 
@@ -114,6 +120,62 @@ Each one is scored by orb tightness and applying emphasis.
 
 Interpretation:
 This is the first resonance layer, not a full natal doctrine yet.
+
+## Sect-aware doctrine
+
+The signal layer now classifies each row as:
+
+- `day` sect when the Sun is above the horizon
+- `night` sect when the Sun is below the horizon
+
+This sect state is then used to rebalance the doctrine:
+
+- Sun / Jupiter / Saturn are weighted more constructively in day sect
+- Moon / Venus / Mars are weighted more constructively in night sect
+
+Interpretation:
+This does not predict price. It sharpens which planetary voices are considered more native to the current sky condition.
+
+## Benefic / malefic balance
+
+The doctrine now carries two explicit pressure channels:
+
+- `benefic_support_score`
+- `malefic_pressure_score`
+
+`benefic_support_score` currently reads:
+
+- Venus dignity
+- Jupiter dignity
+- their house lift
+- their sect favorability
+
+`malefic_pressure_score` currently reads:
+
+- Mars dignity
+- Saturn dignity
+- their drag-heavy house placement
+- inverse sect favorability
+
+Interpretation:
+This gives the signal engine a direct blessing/pressure layer in astrological language instead of burying everything inside path or timing scores.
+
+## House doctrine layer
+
+The signal layer now adds a distinct house-context surface:
+
+- `angular_power_score`
+- `house_lift_score`
+- `house_drag_score`
+
+Current doctrine:
+
+- houses `10 / 1 / 11 / 9 / 5` are treated as more elevating or releasing
+- houses `12 / 8 / 6 / 4` are treated as more compressive or obstructive
+- angular houses still carry the highest raw power
+
+Interpretation:
+This sharpens the older broad angularity model by separating power from directionality and from drag.
 
 ## Entry score
 
@@ -203,13 +265,10 @@ Best for:
 - thresholds are still hand-authored and require validation
 - MetaEditor compile verification has not yet been run inside this turn
 - live order routing exists as `A0090`, but production safeguards and family promotion still require validation
-- house doctrine is still broad; some house-specific meanings can be sharpened further per family
+- house doctrine is now active, but family-specific house meanings can still be sharpened further
 
 ## Next algorithmic expansions
 
-- angular weighting
-- benefic / malefic balance layer
-- sect-aware doctrine
 - family-specific house meanings and cadence maps
 - stronger natal house activation logic
 - family-specific threshold configs
