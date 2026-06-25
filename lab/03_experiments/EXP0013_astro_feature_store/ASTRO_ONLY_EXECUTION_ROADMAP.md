@@ -168,7 +168,14 @@ Already present:
 
 Still required:
 
-- doctrine id/version fields
 - compile verification in MetaEditor
-- paper execution journal schema
-- family-by-family validation reports
+- family-by-family validation reports from real journal runs
+
+Now implemented in repo:
+
+- doctrine id/version fields in builder, live bridge, CSV, and MQL reader
+- declination parallels / contra-parallels and OOB state
+- explicit astro execution state machine
+- paper execution journal schema and journal writers
+- validation tooling scaffold under `tools/astro_validation`
+- live order shell `A0090_AstroOrderShell.mq5`

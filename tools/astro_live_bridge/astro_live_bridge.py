@@ -3,7 +3,7 @@
 Decision Alpha Lab - EXP0013 Astro Live Bridge V2
 
 Python computes rolling astro rows and writes them atomically into
-MetaQuotes Common\Files for the MQL5 dashboard EA.
+MetaQuotes Common\\Files for the MQL5 dashboard EA.
 
 The bridge deliberately uses files instead of WebRequest or sockets:
 - stable in live MT5
@@ -87,6 +87,12 @@ def run_builder(
     natal_lon: float | None = None,
     natal_house_system: str = "P",
     natal_label: str = "",
+    doctrine_id: str = "astro_only_doctrine_v1",
+    schema_version: str = "astro_feature_schema_v2",
+    zodiac_mode: str = "tropical",
+    body_universe: str = "major7_outer_nodes",
+    orb_family: str = "major_ptolemaic_6deg",
+    parallel_orb_limit: float = 1.0,
 ) -> None:
     cmd = [
         sys.executable,
@@ -103,6 +109,18 @@ def run_builder(
         str(ephe_path),
         "--out-csv",
         str(out_csv),
+        "--doctrine-id",
+        doctrine_id,
+        "--schema-version",
+        schema_version,
+        "--zodiac-mode",
+        zodiac_mode,
+        "--body-universe",
+        body_universe,
+        "--orb-family",
+        orb_family,
+        "--parallel-orb-limit",
+        str(parallel_orb_limit),
     ]
     if house_lat is not None or house_lon is not None:
         if house_lat is None or house_lon is None:
@@ -176,6 +194,12 @@ def build_once(args: argparse.Namespace, work_dir: Path, common_out: Path, statu
             natal_lon=args.natal_lon,
             natal_house_system=args.natal_house_system,
             natal_label=args.natal_label,
+            doctrine_id=args.doctrine_id,
+            schema_version=args.schema_version,
+            zodiac_mode=args.zodiac_mode,
+            body_universe=args.body_universe,
+            orb_family=args.orb_family,
+            parallel_orb_limit=args.parallel_orb_limit,
         )
         rows = count_csv_rows(local_csv)
         atomic_copy(local_csv, common_out)
@@ -224,6 +248,12 @@ def main() -> int:
     ap.add_argument("--natal-lon", type=float, default=None, help="Optional natal longitude")
     ap.add_argument("--natal-house-system", default="P", help="Natal house system code")
     ap.add_argument("--natal-label", default="", help="Optional natal chart label")
+    ap.add_argument("--doctrine-id", default="astro_only_doctrine_v1")
+    ap.add_argument("--schema-version", default="astro_feature_schema_v2")
+    ap.add_argument("--zodiac-mode", default="tropical")
+    ap.add_argument("--body-universe", default="major7_outer_nodes")
+    ap.add_argument("--orb-family", default="major_ptolemaic_6deg")
+    ap.add_argument("--parallel-orb-limit", type=float, default=1.0)
     ap.add_argument("--refresh-seconds", type=int, default=60)
     ap.add_argument("--once", action="store_true", help="Build once and exit")
     args = ap.parse_args()

@@ -56,6 +56,30 @@ double DAL_AstroPS_TightTransitNatalScore(const DAL_AstroMapRow &row, const stri
    return 0.0;
 }
 
+double DAL_AstroPS_DeclinationScore(const DAL_AstroDeclinationState &d, const double orb_limit)
+{
+   if(d.relation != "parallel" && d.relation != "contra_parallel")
+      return 0.0;
+   if(orb_limit <= 0.0 || d.orb > orb_limit)
+      return 0.0;
+   double tightness = 100.0 * (1.0 - d.orb / orb_limit);
+   if(d.applying == 1)
+      tightness *= 1.05;
+   if(d.relation == "contra_parallel")
+      tightness *= 0.95;
+   return MathMin(100.0, tightness);
+}
+
+double DAL_AstroPS_FindTransitNatalDeclScore(const DAL_AstroMapRow &row, const string pair_name)
+{
+   for(int i = 0; i < DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT; i++)
+   {
+      if(row.transit_natal_decl[i].pair == pair_name)
+         return DAL_AstroPS_DeclinationScore(row.transit_natal_decl[i], row.parallel_orb_limit);
+   }
+   return 0.0;
+}
+
 void DAL_AstroPureSignal_Reset(DAL_AstroPureSignal &s)
 {
    s.valid = false;
@@ -109,17 +133,35 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.10 * (100.0 - f.jupiter_support) +
       0.10 * (moon_element == "water" ? 80.0 : 45.0);
 
+   if(row.body[mars].oob == 1)
+      s.long_bias_score += 4.0;
+   if(row.body[saturn].oob == 1)
+      s.short_bias_score += 4.0;
+
    s.trend_score = MathMin(100.0, MathAbs(s.long_bias_score - s.short_bias_score));
    s.path_score = f.clean_path;
    s.friction_score = f.chop_risk;
    s.volatility_score = (f.breakout_followthrough + f.raw_pressure + f.raw_transition) / 3.0;
 
+   for(int d = 0; d < DAL_ASTRO_DECL_PAIR_COUNT; d++)
+   {
+      if(row.decl_pair[d].pair == "mars_saturn")
+         s.friction_score += 0.25 * DAL_AstroPS_DeclinationScore(row.decl_pair[d], row.parallel_orb_limit);
+      if(row.decl_pair[d].pair == "jupiter_saturn")
+         s.path_score += 0.20 * DAL_AstroPS_DeclinationScore(row.decl_pair[d], row.parallel_orb_limit);
+      if(row.decl_pair[d].pair == "sun_moon")
+         s.volatility_score += 0.15 * DAL_AstroPS_DeclinationScore(row.decl_pair[d], row.parallel_orb_limit);
+   }
+
    if(row.natal_enabled)
    {
       s.natal_activation_score =
          0.35 * DAL_AstroPS_TightTransitNatalScore(row, "t_sun__n_sun") +
+         0.10 * DAL_AstroPS_FindTransitNatalDeclScore(row, "t_sun__n_sun") +
          0.25 * DAL_AstroPS_TightTransitNatalScore(row, "t_moon__n_moon") +
+         0.10 * DAL_AstroPS_FindTransitNatalDeclScore(row, "t_moon__n_moon") +
          0.20 * DAL_AstroPS_TightTransitNatalScore(row, "t_mars__n_saturn") +
+         0.10 * DAL_AstroPS_FindTransitNatalDeclScore(row, "t_mars__n_saturn") +
          0.20 * DAL_AstroPS_TightTransitNatalScore(row, "t_jupiter__n_mars");
    }
 
@@ -163,7 +205,9 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       s.exit_signal = "hold";
 
    s.astro_language =
-      "bias=" + row.astro_bias_text +
+      "doctrine=" + row.doctrine_id +
+      "|schema=" + row.schema_version +
+      "|bias=" + row.astro_bias_text +
       "|path=" + row.astro_path_text +
       "|signal=" + row.astro_signal_text +
       "|dir=" + s.direction_name +

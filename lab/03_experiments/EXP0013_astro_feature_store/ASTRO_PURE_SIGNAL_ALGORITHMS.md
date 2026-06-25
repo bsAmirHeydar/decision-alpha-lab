@@ -198,15 +198,14 @@ Best for:
 
 ## Current limitations
 
-- doctrine id is not yet embedded in the row
 - body universe is still conservative
 - natal activation pairs are still a starter set
 - thresholds are still hand-authored and require validation
-- these EAs are not yet full broker-order EAs
+- MetaEditor compile verification has not yet been run inside this turn
+- live order routing exists as `A0090`, but production safeguards and family promotion still require validation
 
 ## Next algorithmic expansions
 
-- parallels / contra-parallels
 - angular weighting
 - benefic / malefic balance layer
 - sect-aware doctrine

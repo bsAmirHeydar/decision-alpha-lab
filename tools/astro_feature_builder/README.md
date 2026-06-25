@@ -64,8 +64,26 @@ When natal inputs are present, the CSV also contains:
 - natal body positions and houses
 - natal ASC / MC / cusps
 - transit-to-natal aspects for Sun..Saturn
+- transit-to-transit and transit-to-natal declination parallels / contra-parallels
+- declination speed and out-of-bounds flags
 - current transit body placement inside natal houses
 - pure astro language fields such as `astro_bias_text`, `astro_path_text`, `astro_signal_text`
+- doctrine metadata such as `schema_version`, `doctrine_id`, `zodiac_mode`, `orb_family`
+
+## Doctrine metadata
+
+The builder now stamps every row with:
+
+```text
+--doctrine-id
+--schema-version
+--zodiac-mode
+--body-universe
+--orb-family
+--parallel-orb-limit
+```
+
+That makes each CSV self-describing, which is important when multiple astro doctrines are being tested side by side.
 
 ## MQL5 runtime
 

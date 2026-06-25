@@ -9,6 +9,8 @@
 #define DAL_ASTRO_ASPECT_PAIR_COUNT 15
 #define DAL_ASTRO_NATAL_CORE_COUNT  7
 #define DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT 49
+#define DAL_ASTRO_DECL_PAIR_COUNT   15
+#define DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT 49
 
 struct DAL_AstroBodyState
 {
@@ -21,10 +23,12 @@ struct DAL_AstroBodyState
    double speed_dist;
    double ra;
    double decl;
+   double speed_decl;
    string sign;
    int    sign_index;
    double degree;
    int    retro;
+   int    oob;
    int    house;
 };
 
@@ -37,12 +41,28 @@ struct DAL_AstroAspectState
    int    applying;
 };
 
+struct DAL_AstroDeclinationState
+{
+   string pair;
+   string relation;
+   double decl_delta;
+   double orb;
+   int    applying;
+};
+
 struct DAL_AstroMapRow
 {
    datetime broker_time;
    datetime utc_time;
    long     unix_utc;
    double   jd_ut;
+   string   schema_version;
+   string   doctrine_id;
+   string   zodiac_mode;
+   string   body_universe;
+   string   orb_family;
+   double   aspect_orb_limit;
+   double   parallel_orb_limit;
 
    string   feature_key;
    string   summary;
@@ -78,8 +98,10 @@ struct DAL_AstroMapRow
 
    DAL_AstroBodyState   body[DAL_ASTRO_BODY_COUNT];
    DAL_AstroAspectState aspect[DAL_ASTRO_ASPECT_PAIR_COUNT];
+   DAL_AstroDeclinationState decl_pair[DAL_ASTRO_DECL_PAIR_COUNT];
    DAL_AstroBodyState   natal_body[DAL_ASTRO_BODY_COUNT];
    DAL_AstroAspectState transit_natal_aspect[DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT];
+   DAL_AstroDeclinationState transit_natal_decl[DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT];
    int                  transit_in_natal_house[DAL_ASTRO_NATAL_CORE_COUNT];
 };
 
@@ -188,6 +210,16 @@ string DAL_AstroTransitNatalAspectName(const int index)
    return "t_" + DAL_AstroNatalCoreBodyName(block) + "__n_" + DAL_AstroNatalCoreBodyName(offset);
 }
 
+string DAL_AstroDeclPairName(const int index)
+{
+   return DAL_AstroAspectPairName(index);
+}
+
+string DAL_AstroTransitNatalDeclName(const int index)
+{
+   return DAL_AstroTransitNatalAspectName(index);
+}
+
 void DAL_AstroBodyState_Reset(DAL_AstroBodyState &b, const string name)
 {
    b.name = name;
@@ -199,10 +231,12 @@ void DAL_AstroBodyState_Reset(DAL_AstroBodyState &b, const string name)
    b.speed_dist = 0.0;
    b.ra = 0.0;
    b.decl = 0.0;
+   b.speed_decl = 0.0;
    b.sign = "";
    b.sign_index = -1;
    b.degree = 0.0;
    b.retro = 0;
+   b.oob = 0;
    b.house = -1;
 }
 
@@ -215,12 +249,28 @@ void DAL_AstroAspectState_Reset(DAL_AstroAspectState &a, const string pair)
    a.applying = 0;
 }
 
+void DAL_AstroDeclinationState_Reset(DAL_AstroDeclinationState &a, const string pair)
+{
+   a.pair = pair;
+   a.relation = "none";
+   a.decl_delta = 999.0;
+   a.orb = 999.0;
+   a.applying = 0;
+}
+
 void DAL_AstroMapRow_Reset(DAL_AstroMapRow &r)
 {
    r.broker_time = 0;
    r.utc_time = 0;
    r.unix_utc = 0;
    r.jd_ut = 0.0;
+   r.schema_version = "";
+   r.doctrine_id = "";
+   r.zodiac_mode = "";
+   r.body_universe = "";
+   r.orb_family = "";
+   r.aspect_orb_limit = 0.0;
+   r.parallel_orb_limit = 0.0;
    r.feature_key = "";
    r.summary = "";
    r.moon_phase_angle = 0.0;
@@ -261,8 +311,12 @@ void DAL_AstroMapRow_Reset(DAL_AstroMapRow &r)
 
    for(int j = 0; j < DAL_ASTRO_ASPECT_PAIR_COUNT; j++)
       DAL_AstroAspectState_Reset(r.aspect[j], DAL_AstroAspectPairName(j));
+   for(int j = 0; j < DAL_ASTRO_DECL_PAIR_COUNT; j++)
+      DAL_AstroDeclinationState_Reset(r.decl_pair[j], DAL_AstroDeclPairName(j));
    for(int j = 0; j < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; j++)
       DAL_AstroAspectState_Reset(r.transit_natal_aspect[j], DAL_AstroTransitNatalAspectName(j));
+   for(int j = 0; j < DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT; j++)
+      DAL_AstroDeclinationState_Reset(r.transit_natal_decl[j], DAL_AstroTransitNatalDeclName(j));
    for(int j = 0; j < DAL_ASTRO_NATAL_CORE_COUNT; j++)
       r.transit_in_natal_house[j] = -1;
 }

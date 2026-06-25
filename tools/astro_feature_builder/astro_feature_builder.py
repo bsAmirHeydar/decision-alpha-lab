@@ -91,6 +91,14 @@ DEFAULT_ASPECT_PAIRS = [
     ("jupiter", "saturn"),
 ]
 
+DEFAULT_DOCTRINE_ID = "astro_only_doctrine_v1"
+DEFAULT_SCHEMA_VERSION = "astro_feature_schema_v2"
+DEFAULT_ZODIAC_MODE = "tropical"
+DEFAULT_BODY_UNIVERSE = "major7_outer_nodes"
+DEFAULT_ORB_FAMILY = "major_ptolemaic_6deg"
+DEFAULT_PARALLEL_ORB_LIMIT = 1.0
+DEFAULT_OOB_LIMIT = 23.44
+
 
 @dataclass
 class PlanetState:
@@ -103,6 +111,7 @@ class PlanetState:
     speed_dist: float = 0.0
     ra: float = 0.0
     decl: float = 0.0
+    speed_decl: float = 0.0
     house: int = -1
 
     @property
@@ -121,6 +130,10 @@ class PlanetState:
     def retrograde(self) -> int:
         return 1 if self.speed_lon < 0.0 else 0
 
+    @property
+    def out_of_bounds(self) -> int:
+        return 1 if abs(self.decl) > DEFAULT_OOB_LIMIT else 0
+
 
 @dataclass
 class AspectState:
@@ -133,12 +146,29 @@ class AspectState:
 
 
 @dataclass
+class DeclinationAspectState:
+    pair: str
+    relation: str
+    decl_delta: float
+    orb: float
+    applying: int
+
+
+@dataclass
 class AstroRow:
     broker_time: datetime
     utc_time: datetime
     jd_ut: float
+    schema_version: str = DEFAULT_SCHEMA_VERSION
+    doctrine_id: str = DEFAULT_DOCTRINE_ID
+    zodiac_mode: str = DEFAULT_ZODIAC_MODE
+    body_universe: str = DEFAULT_BODY_UNIVERSE
+    orb_family: str = DEFAULT_ORB_FAMILY
+    parallel_orb_limit: float = DEFAULT_PARALLEL_ORB_LIMIT
+    aspect_orb_limit: float = 6.0
     planets: Dict[str, PlanetState] = field(default_factory=dict)
     aspects: Dict[str, AspectState] = field(default_factory=dict)
+    declination_pairs: Dict[str, DeclinationAspectState] = field(default_factory=dict)
     moon_phase_angle: float = 0.0
     moon_phase_bucket: str = "unknown"
     moon_illumination_proxy: float = 0.0
@@ -163,6 +193,7 @@ class AstroRow:
     natal_house_cusps: List[float] = field(default_factory=list)
     natal_planets: Dict[str, PlanetState] = field(default_factory=dict)
     transit_natal_aspects: Dict[str, AspectState] = field(default_factory=dict)
+    transit_natal_declination_pairs: Dict[str, DeclinationAspectState] = field(default_factory=dict)
     transit_in_natal_houses: Dict[str, int] = field(default_factory=dict)
     feature_key: str = ""
     summary: str = ""
@@ -281,6 +312,8 @@ def calc_planet(jd_ut: float, name: str, planet_id: int, flags: int) -> PlanetSt
     eq_flags = flags | swe.FLG_EQUATORIAL
     eq, _ = swe.calc_ut(jd_ut, planet_id, eq_flags)
     ra, decl = eq[0], eq[1]
+    eq_next, _ = swe.calc_ut(jd_ut + (1.0 / 1440.0), planet_id, eq_flags)
+    speed_decl = (eq_next[1] - decl) * 1440.0
 
     return PlanetState(
         name=name,
@@ -292,6 +325,7 @@ def calc_planet(jd_ut: float, name: str, planet_id: int, flags: int) -> PlanetSt
         speed_dist=speed_dist,
         ra=ra,
         decl=decl,
+        speed_decl=speed_decl,
     )
 
 
@@ -313,6 +347,28 @@ def calc_named_aspect(a_name: str, a: PlanetState, b_name: str, b: PlanetState, 
     asp = calc_aspect(a, b, delta_days)
     asp.pair = f"t_{a_name}__n_{b_name}"
     return asp
+
+
+def calc_declination_pair(
+    pair: str,
+    a_decl: float,
+    a_speed_decl: float,
+    b_decl: float,
+    b_speed_decl: float,
+    delta_days: float = 1.0 / 1440.0,
+) -> DeclinationAspectState:
+    parallel_delta = abs(a_decl - b_decl)
+    contra_delta = abs(a_decl + b_decl)
+    if parallel_delta <= contra_delta:
+        relation = "parallel"
+        decl_delta = parallel_delta
+        next_delta = abs((a_decl + a_speed_decl * delta_days) - (b_decl + b_speed_decl * delta_days))
+    else:
+        relation = "contra_parallel"
+        decl_delta = contra_delta
+        next_delta = abs((a_decl + a_speed_decl * delta_days) + (b_decl + b_speed_decl * delta_days))
+    applying = 1 if next_delta < decl_delta else 0
+    return DeclinationAspectState(pair=pair, relation=relation, decl_delta=decl_delta, orb=decl_delta, applying=applying)
 
 
 def quantile(values: Sequence[float], q: float) -> float:
@@ -445,6 +501,10 @@ def astro_language_signal(row: AstroRow) -> str:
 
 def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_limit: float) -> str:
     parts: List[str] = []
+    parts.append(f"schema={row.schema_version}")
+    parts.append(f"doctrine={row.doctrine_id}")
+    parts.append(f"zodiac={row.zodiac_mode}")
+    parts.append(f"orb_family={row.orb_family}")
     parts.append(f"moon_phase={row.moon_phase_bucket}")
 
     for p in ("sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn"):
@@ -452,6 +512,7 @@ def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_l
         parts.append(f"{p}_sign={st.sign_name}")
         parts.append(f"{p}_retro={st.retrograde}")
         parts.append(f"{p}_speed={speed_buckets.get(p, 'na')}")
+        parts.append(f"{p}_oob={st.out_of_bounds}")
 
     for pair_key in ("sun_moon", "mars_saturn", "venus_mars", "jupiter_saturn"):
         asp = row.aspects.get(pair_key)
@@ -462,6 +523,9 @@ def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_l
             parts.append(f"{pair_key}_app={asp.applying}")
         else:
             parts.append(f"{pair_key}_asp=none")
+        decl = row.declination_pairs.get(pair_key)
+        if decl is not None and decl.orb <= row.parallel_orb_limit:
+            parts.append(f"{pair_key}_decl={decl.relation}")
 
     if row.natal_enabled:
         parts.append(f"natal_label={row.natal_label or 'natal'}")
@@ -474,6 +538,9 @@ def build_feature_key(row: AstroRow, speed_buckets: Dict[str, str], aspect_orb_l
                 parts.append(f"{pair_key}_app={asp.applying}")
             else:
                 parts.append(f"{pair_key}_asp=none")
+            decl = row.transit_natal_declination_pairs.get(pair_key)
+            if decl is not None and decl.orb <= row.parallel_orb_limit:
+                parts.append(f"{pair_key}_decl={decl.relation}")
 
     parts.append(f"astro_bias={row.astro_bias_text or astro_language_bias(row)}")
     parts.append(f"astro_path={row.astro_path_text or astro_language_path(row)}")
@@ -498,6 +565,8 @@ def build_summary(row: AstroRow) -> str:
         f"mars={mars.sign_name}:{mars.degree_in_sign:.2f};"
         f"saturn={saturn.sign_name}:{saturn.degree_in_sign:.2f};"
         f"mars_saturn={ms_text};"
+        f"schema={row.schema_version};"
+        f"doctrine={row.doctrine_id};"
         f"bias={row.astro_bias_text or astro_language_bias(row)};"
         f"path={row.astro_path_text or astro_language_path(row)};"
         f"signal={row.astro_signal_text or astro_language_signal(row)}"
@@ -519,6 +588,12 @@ def generate_rows(
     natal_lon: Optional[float] = None,
     natal_house_system: str = "P",
     natal_label: str = "",
+    doctrine_id: str = DEFAULT_DOCTRINE_ID,
+    schema_version: str = DEFAULT_SCHEMA_VERSION,
+    zodiac_mode: str = DEFAULT_ZODIAC_MODE,
+    body_universe: str = DEFAULT_BODY_UNIVERSE,
+    orb_family: str = DEFAULT_ORB_FAMILY,
+    parallel_orb_limit: float = DEFAULT_PARALLEL_ORB_LIMIT,
 ) -> List[AstroRow]:
     if timeframe_minutes <= 0:
         raise ValueError("timeframe_minutes must be positive")
@@ -552,7 +627,18 @@ def generate_rows(
         t_utc = t_utc.replace(tzinfo=None)
         jd = utc_to_jd_ut(t_utc)
 
-        row = AstroRow(broker_time=t_broker, utc_time=t_utc, jd_ut=jd)
+        row = AstroRow(
+            broker_time=t_broker,
+            utc_time=t_utc,
+            jd_ut=jd,
+            schema_version=schema_version,
+            doctrine_id=doctrine_id,
+            zodiac_mode=zodiac_mode,
+            body_universe=body_universe,
+            orb_family=orb_family,
+            parallel_orb_limit=parallel_orb_limit,
+            aspect_orb_limit=aspect_orb_limit,
+        )
         row.planets, houses_valid, house_cusps, asc_lon, mc_lon = compute_chart(
             jd,
             house_lat=house_lat,
@@ -569,6 +655,13 @@ def generate_rows(
 
         for a_name, b_name in DEFAULT_ASPECT_PAIRS:
             row.aspects[f"{a_name}_{b_name}"] = calc_aspect(row.planets[a_name], row.planets[b_name])
+            row.declination_pairs[f"{a_name}_{b_name}"] = calc_declination_pair(
+                f"{a_name}_{b_name}",
+                row.planets[a_name].decl,
+                row.planets[a_name].speed_decl,
+                row.planets[b_name].decl,
+                row.planets[b_name].speed_decl,
+            )
 
         row.moon_phase_angle = norm360(row.planets["moon"].lon - row.planets["sun"].lon)
         row.moon_phase_bucket = moon_phase_bucket(row.moon_phase_angle)
@@ -601,6 +694,13 @@ def generate_rows(
                         row.planets[t_name],
                         n_name,
                         row.natal_planets[n_name],
+                    )
+                    row.transit_natal_declination_pairs[key] = calc_declination_pair(
+                        key,
+                        row.planets[t_name].decl,
+                        row.planets[t_name].speed_decl,
+                        row.natal_planets[n_name].decl,
+                        row.natal_planets[n_name].speed_decl,
                     )
 
         row.astro_bias_text = astro_language_bias(row)
@@ -636,6 +736,13 @@ def make_headers() -> List[str]:
         "utc_time",
         "unix_utc",
         "jd_ut",
+        "schema_version",
+        "doctrine_id",
+        "zodiac_mode",
+        "body_universe",
+        "orb_family",
+        "aspect_orb_limit",
+        "parallel_orb_limit",
         "feature_key",
         "summary",
         "moon_phase_angle",
@@ -676,6 +783,8 @@ def make_headers() -> List[str]:
             f"{p}_speed_dist",
             f"{p}_ra",
             f"{p}_decl",
+            f"{p}_speed_decl",
+            f"{p}_oob",
             f"{p}_sign",
             f"{p}_sign_index",
             f"{p}_degree",
@@ -692,6 +801,8 @@ def make_headers() -> List[str]:
             f"natal_{p}_speed_dist",
             f"natal_{p}_ra",
             f"natal_{p}_decl",
+            f"natal_{p}_speed_decl",
+            f"natal_{p}_oob",
             f"natal_{p}_sign",
             f"natal_{p}_sign_index",
             f"natal_{p}_degree",
@@ -705,6 +816,10 @@ def make_headers() -> List[str]:
             f"{key}_aspect",
             f"{key}_orb",
             f"{key}_applying",
+            f"{key}_decl_relation",
+            f"{key}_decl_delta",
+            f"{key}_decl_orb",
+            f"{key}_decl_applying",
         ]
     for t_name in CORE_BODIES:
         headers.append(f"{t_name}_in_natal_house")
@@ -715,6 +830,10 @@ def make_headers() -> List[str]:
                 f"{key}_aspect",
                 f"{key}_orb",
                 f"{key}_applying",
+                f"{key}_decl_relation",
+                f"{key}_decl_delta",
+                f"{key}_decl_orb",
+                f"{key}_decl_applying",
             ]
     return headers
 
@@ -725,6 +844,13 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         "utc_time": fmt_dt(row.utc_time),
         "unix_utc": int(row.utc_time.replace(tzinfo=timezone.utc).timestamp()),
         "jd_ut": f"{row.jd_ut:.9f}",
+        "schema_version": row.schema_version,
+        "doctrine_id": row.doctrine_id,
+        "zodiac_mode": row.zodiac_mode,
+        "body_universe": row.body_universe,
+        "orb_family": row.orb_family,
+        "aspect_orb_limit": f"{row.aspect_orb_limit:.4f}",
+        "parallel_orb_limit": f"{row.parallel_orb_limit:.4f}",
         "feature_key": row.feature_key,
         "summary": row.summary,
         "moon_phase_angle": f"{row.moon_phase_angle:.8f}",
@@ -768,6 +894,8 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{p}_speed_dist": f"{st.speed_dist:.10f}",
             f"{p}_ra": f"{st.ra:.8f}",
             f"{p}_decl": f"{st.decl:.8f}",
+            f"{p}_speed_decl": f"{st.speed_decl:.10f}",
+            f"{p}_oob": st.out_of_bounds,
             f"{p}_sign": st.sign_name,
             f"{p}_sign_index": st.sign_index,
             f"{p}_degree": f"{st.degree_in_sign:.8f}",
@@ -787,6 +915,8 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"natal_{p}_speed_dist": f"{st.speed_dist:.10f}",
             f"natal_{p}_ra": f"{st.ra:.8f}",
             f"natal_{p}_decl": f"{st.decl:.8f}",
+            f"natal_{p}_speed_decl": f"{st.speed_decl:.10f}",
+            f"natal_{p}_oob": st.out_of_bounds if row.natal_enabled else 0,
             f"natal_{p}_sign": st.sign_name if row.natal_enabled else "",
             f"natal_{p}_sign_index": st.sign_index if row.natal_enabled else -1,
             f"natal_{p}_degree": f"{st.degree_in_sign:.8f}" if row.natal_enabled else "",
@@ -802,6 +932,15 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{key}_orb": f"{asp.orb:.8f}",
             f"{key}_applying": asp.applying,
         })
+        decl = row.declination_pairs.get(key)
+        if decl is None:
+            decl = DeclinationAspectState(key, "none", 999.0, 999.0, 0)
+        d.update({
+            f"{key}_decl_relation": decl.relation,
+            f"{key}_decl_delta": f"{decl.decl_delta:.8f}",
+            f"{key}_decl_orb": f"{decl.orb:.8f}",
+            f"{key}_decl_applying": decl.applying,
+        })
     for t_name in CORE_BODIES:
         d[f"{t_name}_in_natal_house"] = row.transit_in_natal_houses.get(t_name, -1)
         for n_name in CORE_BODIES:
@@ -814,6 +953,15 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
                 f"{key}_aspect": asp.nearest_name,
                 f"{key}_orb": f"{asp.orb:.8f}",
                 f"{key}_applying": asp.applying,
+            })
+            decl = row.transit_natal_declination_pairs.get(key)
+            if decl is None:
+                decl = DeclinationAspectState(key, "none", 999.0, 999.0, 0)
+            d.update({
+                f"{key}_decl_relation": decl.relation,
+                f"{key}_decl_delta": f"{decl.decl_delta:.8f}",
+                f"{key}_decl_orb": f"{decl.orb:.8f}",
+                f"{key}_decl_applying": decl.applying,
             })
     return d
 
@@ -884,6 +1032,12 @@ def write_xlsx(rows: Sequence[AstroRow], out_path: str, broker_gmt_offset_hours:
     meta_rows = [
         ["field", "value"],
         ["rows", len(rows)],
+        ["schema_version", rows[0].schema_version if rows else DEFAULT_SCHEMA_VERSION],
+        ["doctrine_id", rows[0].doctrine_id if rows else DEFAULT_DOCTRINE_ID],
+        ["zodiac_mode", rows[0].zodiac_mode if rows else DEFAULT_ZODIAC_MODE],
+        ["body_universe", rows[0].body_universe if rows else DEFAULT_BODY_UNIVERSE],
+        ["orb_family", rows[0].orb_family if rows else DEFAULT_ORB_FAMILY],
+        ["parallel_orb_limit", rows[0].parallel_orb_limit if rows else DEFAULT_PARALLEL_ORB_LIMIT],
         ["timeframe_minutes", timeframe_minutes],
         ["broker_gmt_offset_hours", broker_gmt_offset_hours],
         ["time_contract", "utc_time = broker_time - broker_gmt_offset_hours"],
@@ -940,6 +1094,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--natal-lon", type=float, default=None, help="Optional natal longitude.")
     parser.add_argument("--natal-house-system", default="P", help="Natal house system code. Default P=Placidus.")
     parser.add_argument("--natal-label", default="", help="Optional natal chart label written into the CSV.")
+    parser.add_argument("--doctrine-id", default=DEFAULT_DOCTRINE_ID, help="Doctrine identifier embedded into every row.")
+    parser.add_argument("--schema-version", default=DEFAULT_SCHEMA_VERSION, help="Schema version embedded into every row.")
+    parser.add_argument("--zodiac-mode", default=DEFAULT_ZODIAC_MODE, help="Doctrine metadata only. Current builder computes tropical positions.")
+    parser.add_argument("--body-universe", default=DEFAULT_BODY_UNIVERSE, help="Doctrine metadata describing the included body set.")
+    parser.add_argument("--orb-family", default=DEFAULT_ORB_FAMILY, help="Doctrine metadata describing orb policy.")
+    parser.add_argument("--parallel-orb-limit", type=float, default=DEFAULT_PARALLEL_ORB_LIMIT, help="Declination parallel / contra-parallel orb limit.")
     args = parser.parse_args(argv)
 
     if args.ephe_path:
@@ -968,6 +1128,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         natal_lon=args.natal_lon,
         natal_house_system=args.natal_house_system,
         natal_label=args.natal_label,
+        doctrine_id=args.doctrine_id,
+        schema_version=args.schema_version,
+        zodiac_mode=args.zodiac_mode,
+        body_universe=args.body_universe,
+        orb_family=args.orb_family,
+        parallel_orb_limit=args.parallel_orb_limit,
     )
     out_csv = args.out_csv or args.out
     if not out_csv and not args.out_xlsx:

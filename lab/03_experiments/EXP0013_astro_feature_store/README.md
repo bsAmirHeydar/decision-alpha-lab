@@ -42,11 +42,15 @@ mql5/Experts/AstroExecution/
 - transit raw bodies
 - transit houses and angles
 - transit-to-transit aspects
+- transit declination speed and out-of-bounds state
+- transit-to-transit parallels and contra-parallels
 - natal raw bodies
 - natal houses and angles
 - transit-to-natal aspects for Sun..Saturn
+- transit-to-natal parallels and contra-parallels for Sun..Saturn
 - transit placement inside natal houses
 - pure astro language fields
+- doctrine and schema metadata embedded into every row
 
 ## Build a transit + natal CSV
 
@@ -65,6 +69,8 @@ python tools/astro_feature_builder/astro_feature_builder.py `
   --natal-lat 35.6892 `
   --natal-lon 51.3890 `
   --natal-label "gold_ref" `
+  --doctrine-id "astro_only_doctrine_v1" `
+  --schema-version "astro_feature_schema_v2" `
   --ephe-path "tools/astro_feature_builder/ephe" `
   --out-csv "data/astro/astro_XAUUSD_M1_202401_mql.csv"
 ```
@@ -102,6 +108,14 @@ The `mql5/Experts/AstroExecution` folder contains pure-astro execution families.
 - `A0001` transit trend pulse
 - `A0002` natal resonance
 - `A0003` friction polarity
+- `A0090` live order shell
+
+The paper families now share:
+
+- deterministic state transitions: `wait -> armed -> enter -> hold -> reduce -> exit`
+- per-family journal CSVs
+- doctrine and schema traceability in the journal
+- offline validation through `tools/astro_validation/astro_signal_validator.py`
 
 These families read only the astro CSV and the pure astro signal layer. They do not use market structure or indicators.
 
