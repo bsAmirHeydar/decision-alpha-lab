@@ -21,6 +21,8 @@ It draws everything with chart objects:
 - current fractal astro state
 - pseudo-oscillator 0..100 dot map
 - preset views for macro, regime, micro, and M1 path quality
+- a manual-analysis board for discretionary reading
+- all 12 tracked bodies: Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, True Node, Mean Node
 
 It does not call `iCustom`.
 It does not load an indicator.
@@ -140,6 +142,16 @@ M1DirtyWindow
 
 Market gives direction.  
 Astro gives path-quality context.
+
+The unified dashboard is now also meant for manual reading. The right-side manual board condenses:
+
+- macro bias
+- path cleanliness vs friction
+- nodal / eclipse event field
+- timing trigger state
+- grouped planetary positions and cues
+
+Use it as a reading cockpit, not only as a raw CSV monitor.
 
 Correct question:
 

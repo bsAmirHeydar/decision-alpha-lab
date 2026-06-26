@@ -315,6 +315,18 @@ string DAL_Dignity(const DAL_AstroBodyState &b)
    return "n/a";
 }
 
+string DAL_BodyCue(const DAL_AstroBodyState &b)
+{
+   string cue = DAL_Short(b.triplicity_role, 6);
+   if(cue == "")
+      cue = DAL_Short(DAL_Dignity(b), 6);
+   if(b.retro == 1)
+      cue += "/R";
+   if(b.oob == 1)
+      cue += "/OOB";
+   return cue;
+}
+
 color DAL_DignityColor(const string d)
 {
    if(d == "domicile" || d == "exalt") return InpColorHigh;
@@ -781,8 +793,8 @@ void DAL_DrawFinalDoctrineTable(const string key, const int x, const int y, cons
 
 void DAL_DrawDiagnostics(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
 {
-   int h = MathMax(240, g.panel_h);
-   DAL_Card("DIAG", "DIAGNOSTICS", g.side_x, g.side_y, g.side_w, h);
+   int h = 232;
+   DAL_Card("DIAG", "WORKSPACE / DIAGNOSTICS", g.side_x, g.side_y, g.side_w, h);
    int yy = g.side_y + 42;
    int c1 = 112, c2 = 146, c3 = 90;
    DAL_Cell4("DIAG", 0, g.side_x + 14, yy, c1, c2, c3, "CSV", g_loaded ? "LOADED" : "NOT LOADED", "rows", IntegerToString(g_store.row_count), g_loaded ? InpColorHigh : InpColorLow, InpColorMuted, InpColorMuted);
@@ -792,6 +804,46 @@ void DAL_DrawDiagnostics(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const 
    DAL_Cell4("DIAG", 4, g.side_x + 14, yy, c1, c2, c3, "Time rule", "chart open", "= csv broker_time", "", InpColorMuted, InpColorMuted, InpColorMuted);
    DAL_Cell4("DIAG", 5, g.side_x + 14, yy, c1, c2, c3, "Doctrine", have_row ? DAL_Short(row.doctrine_id, 20) : "n/a", "Schema", have_row ? row.schema_version : "n/a", InpColorMid, InpColorMuted, InpColorMuted);
    DAL_Cell4("DIAG", 6, g.side_x + 14, yy, c1, c2, c3, "Natal", have_row && row.natal_enabled ? row.natal_label : "not active", "Mode", have_row ? row.zodiac_mode : "n/a", have_row && row.natal_enabled ? InpColorHigh : InpColorMid, InpColorMuted, InpColorMuted);
+   DAL_Cell4("DIAG", 7, g.side_x + 14, yy, c1, c2, c3, "Bodies", "12 / 12", "Nodes", "true + mean", InpColorHigh, InpColorInfo, InpColorMuted);
+}
+
+void DAL_DrawManualAnalysisCard(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
+{
+   int y = g.side_y + 232 + InpGap;
+   int h = MathMax(300, g.panel_h - 232 - InpGap);
+   DAL_Card("MANUAL", "MANUAL ANALYSIS BOARD", g.side_x, y, g.side_w, h);
+
+   DAL_AstroPureSignal s;
+   DAL_AstroTimingState t;
+   bool have_signal = DAL_AstroPureSignal_Calc(row, s) && s.valid;
+   bool have_timing = DAL_AstroTD_Calc(row, t) && t.valid;
+
+   int yy = y + 42;
+   int c1 = 112, c2 = 144, c3 = 96;
+
+   string bias_read = have_signal ? (s.long_bias_score >= s.short_bias_score ? "expansion bias" : "compression bias") : "n/a";
+   string path_read = have_signal ? (s.path_score >= 65.0 ? "clean path" : (s.friction_score >= 60.0 ? "drag path" : "mixed path")) : "n/a";
+   string event_read = row.nodal_state + " / " + row.eclipse_family_phase;
+   string timing_read = have_timing ? t.trigger_state : "n/a";
+
+   DAL_Cell4("MANUAL", 0, g.side_x + 14, yy, c1, c2, c3, "Macro bias", bias_read, "Path", path_read, InpColorInfo, InpColorText, InpColorMuted);
+   DAL_Cell4("MANUAL", 1, g.side_x + 14, yy, c1, c2, c3, "Event field", event_read, "Timing", timing_read, DAL_ScoreColor(100.0 - row.nodal_pressure_score), InpColorMid, InpColorMuted);
+   DAL_Cell4("MANUAL", 2, g.side_x + 14, yy, c1, c2, c3, "Quarter", row.solar_quarter_name, "Reception", IntegerToString(row.mutual_reception_count), InpColorText, row.mutual_reception_count > 0 ? InpColorHigh : InpColorMuted, InpColorMuted);
+   DAL_Cell4("MANUAL", 3, g.side_x + 14, yy, c1, c2, c3, "Sun / Moon", DAL_PosText(row.body[0]), DAL_PosText(row.body[1]), InpColorMid, InpColorMid, InpColorMuted);
+   DAL_Cell4("MANUAL", 4, g.side_x + 14, yy, c1, c2, c3, "Merc / Ven", DAL_PosText(row.body[2]), DAL_PosText(row.body[3]), InpColorText, InpColorText, InpColorMuted);
+   DAL_Cell4("MANUAL", 5, g.side_x + 14, yy, c1, c2, c3, "Mars / Jup", DAL_PosText(row.body[4]), DAL_PosText(row.body[5]), InpColorText, InpColorText, InpColorMuted);
+   DAL_Cell4("MANUAL", 6, g.side_x + 14, yy, c1, c2, c3, "Sat / Ura", DAL_PosText(row.body[6]), DAL_PosText(row.body[7]), InpColorText, InpColorText, InpColorMuted);
+   DAL_Cell4("MANUAL", 7, g.side_x + 14, yy, c1, c2, c3, "Nep / Plu", DAL_PosText(row.body[8]), DAL_PosText(row.body[9]), InpColorText, InpColorText, InpColorMuted);
+   DAL_Cell4("MANUAL", 8, g.side_x + 14, yy, c1, c2, c3, "True / Mean", DAL_PosText(row.body[10]), DAL_PosText(row.body[11]), InpColorInfo, InpColorInfo, InpColorMuted);
+   DAL_Cell4("MANUAL", 9, g.side_x + 14, yy, c1, c2, c3, "Mars cue", DAL_BodyCue(row.body[4]), "Saturn cue", DAL_BodyCue(row.body[6]), InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4("MANUAL", 10, g.side_x + 14, yy, c1, c2, c3, "Jupiter cue", DAL_BodyCue(row.body[5]), "Venus cue", DAL_BodyCue(row.body[3]), InpColorMuted, InpColorMuted, InpColorMuted);
+   DAL_Cell4("MANUAL", 11, g.side_x + 14, yy, c1, c2, c3, "Outer field", DAL_BodyCue(row.body[7]) + " / " + DAL_BodyCue(row.body[8]), "Pluto", DAL_BodyCue(row.body[9]), InpColorMuted, InpColorMuted, InpColorMuted);
+   if(have_signal)
+      DAL_Cell4("MANUAL", 12, g.side_x + 14, yy, c1, c2, c3, "Manual read", s.direction_name + " / " + s.regime_name, "Entry", s.entry_signal, InpColorHigh, InpColorInfo, InpColorMuted);
+   if(have_signal)
+      DAL_Cell4("MANUAL", 13, g.side_x + 14, yy, c1, c2, c3, "Support", DoubleToString(s.benefic_support_score, 1), "Pressure", DoubleToString(s.malefic_pressure_score, 1), DAL_ScoreColor(s.benefic_support_score), DAL_ScoreColor(100.0 - s.malefic_pressure_score), InpColorMuted);
+   if(have_signal)
+      DAL_Cell4("MANUAL", 14, g.side_x + 14, yy, c1, c2, c3, "Path / Fric", DoubleToString(s.path_score, 1), DoubleToString(s.friction_score, 1), DAL_ScoreColor(s.path_score), DAL_ScoreColor(100.0 - s.friction_score), InpColorMuted);
 }
 
 void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
@@ -809,7 +861,7 @@ void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
    DAL_DrawTimingSummaryCard("SUM_MICRO", g.main_x + 2 * (mini_w + half_gap), g.main_y, mini_w, summary_h, "MICRO TRIGGER", have_timing ? DAL_AstroFM_Bucket(t.micro_trigger_score) : "n/a", have_timing ? t.micro_trigger_score : 0.0, "trigger", have_timing ? t.micro_release_score : 0.0, "release", InpColorHigh);
    DAL_DrawTimingSummaryCard("SUM_MIN", g.main_x + 3 * (mini_w + half_gap), g.main_y, mini_w, summary_h, "MINUTE WINDOW", have_timing ? t.trigger_state : "n/a", have_timing ? t.minute_window_score : 0.0, "window", have_timing ? t.minute_exhaustion_score : 0.0, "exhaust", InpColorText);
 
-   int h = 248;
+   int h = 292;
    int snap_y = g.main_y + summary_h + InpGap;
    DAL_Card("SNAP", "SKY SNAPSHOT", g.main_x, snap_y, g.main_w, h);
    int yy = snap_y + 42;
@@ -818,27 +870,29 @@ void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
    DAL_Cell4("SNAP", 1, g.main_x + 14, yy, c1, c2, c3, "Mercury", DAL_PosText(row.body[2]), "Venus", DAL_PosText(row.body[3]), InpColorText, InpColorText, InpColorText);
    DAL_Cell4("SNAP", 2, g.main_x + 14, yy, c1, c2, c3, "Mars", DAL_PosText(row.body[4]), "Jupiter", DAL_PosText(row.body[5]), InpColorText, InpColorText, InpColorText);
    DAL_Cell4("SNAP", 3, g.main_x + 14, yy, c1, c2, c3, "Saturn", DAL_PosText(row.body[6]), "Phase", row.moon_phase_bucket, InpColorText, InpColorMid, InpColorMuted);
-   DAL_Cell4("SNAP", 4, g.main_x + 14, yy, c1, c2, c3, "Quarter", row.solar_quarter_name, "Eclipse", row.eclipse_family_phase, InpColorInfo, InpColorMuted, InpColorMuted);
-   DAL_Cell4("SNAP", 5, g.main_x + 14, yy, c1, c2, c3, "Node", row.nodal_state, "Reception", IntegerToString(row.mutual_reception_count), InpColorInfo, row.mutual_reception_count > 0 ? InpColorHigh : InpColorMuted, InpColorMuted);
+   DAL_Cell4("SNAP", 4, g.main_x + 14, yy, c1, c2, c3, "Uranus", DAL_PosText(row.body[7]), "Neptune", DAL_PosText(row.body[8]), InpColorText, InpColorText, InpColorText);
+   DAL_Cell4("SNAP", 5, g.main_x + 14, yy, c1, c2, c3, "Pluto", DAL_PosText(row.body[9]), "TrueNode", DAL_PosText(row.body[10]), InpColorText, InpColorInfo, InpColorMuted);
+   DAL_Cell4("SNAP", 6, g.main_x + 14, yy, c1, c2, c3, "MeanNode", DAL_PosText(row.body[11]), "Quarter", row.solar_quarter_name, InpColorInfo, InpColorInfo, InpColorMuted);
+   DAL_Cell4("SNAP", 7, g.main_x + 14, yy, c1, c2, c3, "Eclipse", row.eclipse_family_phase, "Reception", IntegerToString(row.mutual_reception_count), InpColorMuted, row.mutual_reception_count > 0 ? InpColorHigh : InpColorMuted, InpColorMuted);
    if(row.houses_valid)
    {
-      DAL_Cell4("SNAP", 6, g.main_x + 14, yy, c1, c2, c3, "ASC", DAL_LonSignText(row.asc_lon), "MC", DAL_LonSignText(row.mc_lon), InpColorMid, InpColorMid, InpColorText);
-      DAL_Cell4("SNAP", 7, g.main_x + 14, yy, c1, c2, c3, "House sys", row.house_system, "Loc", StringFormat("%.2f / %.2f", row.house_lat, row.house_lon), InpColorText, InpColorMuted, InpColorMuted);
+      DAL_Cell4("SNAP", 8, g.main_x + 14, yy, c1, c2, c3, "ASC", DAL_LonSignText(row.asc_lon), "MC", DAL_LonSignText(row.mc_lon), InpColorMid, InpColorMid, InpColorText);
+      DAL_Cell4("SNAP", 9, g.main_x + 14, yy, c1, c2, c3, "House sys", row.house_system, "Loc", StringFormat("%.2f / %.2f", row.house_lat, row.house_lon), InpColorText, InpColorMuted, InpColorMuted);
    }
    else
    {
-      DAL_Cell4("SNAP", 6, g.main_x + 14, yy, c1, c2, c3, "Houses", "missing", "", "", InpColorLow, InpColorMuted, InpColorMuted);
-      DAL_Cell4("SNAP", 7, g.main_x + 14, yy, c1, c2, c3, "Fix", "run builder", "with lat/lon", "", InpColorMid, InpColorMuted, InpColorMuted);
+      DAL_Cell4("SNAP", 8, g.main_x + 14, yy, c1, c2, c3, "Houses", "missing", "", "", InpColorLow, InpColorMuted, InpColorMuted);
+      DAL_Cell4("SNAP", 9, g.main_x + 14, yy, c1, c2, c3, "Fix", "run builder", "with lat/lon", "", InpColorMid, InpColorMuted, InpColorMuted);
    }
    if(have_signal)
-      DAL_Cell4("SNAP", 8, g.main_x + 14, yy, c1, c2, c3, "Entry", s.entry_signal, "Exit", s.exit_signal, InpColorInfo, InpColorMuted, InpColorMuted);
+      DAL_Cell4("SNAP", 10, g.main_x + 14, yy, c1, c2, c3, "Entry", s.entry_signal, "Exit", s.exit_signal, InpColorInfo, InpColorMuted, InpColorMuted);
    if(have_signal)
-      DAL_Cell4("SNAP", 9, g.main_x + 14, yy, c1, c2, c3, "Sect", s.sect_name, "Benefic", DoubleToString(s.benefic_support_score, 1), InpColorInfo, DAL_ScoreColor(s.benefic_support_score), InpColorMuted);
+      DAL_Cell4("SNAP", 11, g.main_x + 14, yy, c1, c2, c3, "Sect", s.sect_name, "Benefic", DoubleToString(s.benefic_support_score, 1), InpColorInfo, DAL_ScoreColor(s.benefic_support_score), InpColorMuted);
    if(have_signal)
    {
       DAL_AstroFinalVerdict v;
       if(DAL_AstroFinalVerdict_Calc(row, s, v) && v.valid)
-         DAL_Cell4("SNAP", 10, g.main_x + 14, yy, c1, c2, c3, "Final", v.final_decision, "Purity", v.purity_state, v.purity_state == "pure_entry" ? InpColorHigh : (v.purity_state == "probe" ? InpColorMid : InpColorLow), InpColorMuted, InpColorMuted);
+         DAL_Cell4("SNAP", 12, g.main_x + 14, yy, c1, c2, c3, "Final", v.final_decision, "Purity", v.purity_state, v.purity_state == "pure_entry" ? InpColorHigh : (v.purity_state == "probe" ? InpColorMid : InpColorLow), InpColorMuted, InpColorMuted);
    }
    DAL_DrawMetricsTable("MET_OVR", g.main_x, snap_y + h + InpGap, g.card_w, 320, row);
    DAL_DrawAspectsTable("ASP_OVR", g.col2_x, snap_y + h + InpGap, g.card_w, 320, row, 8);
@@ -922,6 +976,8 @@ void DAL_Render(const bool allow_reload = true)
    }
 
    DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
+   if(have_row)
+      DAL_DrawManualAnalysisCard(g, row);
 
    if(InpUseTerminalComment)
       Comment("EXP0013 raw sky | ", exact ? "exact" : (fallback ? "fallback" : "no row"), " | ", row.summary);
