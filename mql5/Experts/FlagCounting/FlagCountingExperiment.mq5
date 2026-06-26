@@ -33,10 +33,20 @@ input string InpObjectPrefix = "DAL_FC_";
 input bool InpCleanObjectsOnInit = true;
 input bool InpRedrawOnNewBar = true;
 
+// Legacy level/status colors. Used only when InpColorByDirection=false.
 input color InpF1PendingColor = clrDeepSkyBlue;
 input color InpF1ConfirmedColor = clrLime;
 input color InpF2PendingColor = clrGold;
 input color InpF2ConfirmedColor = clrTomato;
+
+// Default contract: colors represent direction first, not F-level/status.
+// This prevents bearish F1/F2 bodies from appearing green/blue.
+input bool  InpColorByDirection = true;
+input color InpBullishPendingColor = clrDeepSkyBlue;
+input color InpBullishConfirmedColor = clrLime;
+input color InpBearishPendingColor = clrOrangeRed;
+input color InpBearishConfirmedColor = clrTomato;
+
 input int InpLineWidth = 2;
 input int InpCurveSegments = 10;
 input bool InpShowFlagLabel = true;
@@ -156,6 +166,11 @@ bool FC_RunExperiment()
                             InpF1ConfirmedColor,
                             InpF2PendingColor,
                             InpF2ConfirmedColor,
+                            InpColorByDirection,
+                            InpBullishPendingColor,
+                            InpBullishConfirmedColor,
+                            InpBearishPendingColor,
+                            InpBearishConfirmedColor,
                             InpLineWidth,
                             InpCurveSegments,
                             InpShowFlagLabel,

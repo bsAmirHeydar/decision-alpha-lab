@@ -112,8 +112,25 @@ color FC_EventRenderColor(const FC_FlagEvent &e,
                           const color f1_pending,
                           const color f1_confirmed,
                           const color f2_pending,
-                          const color f2_confirmed)
+                          const color f2_confirmed,
+                          const bool color_by_direction,
+                          const color bullish_pending,
+                          const color bullish_confirmed,
+                          const color bearish_pending,
+                          const color bearish_confirmed)
 {
+   // Default visual contract is direction-first:
+   // bullish chains must look bullish; bearish chains must look bearish.
+   // Level/status remain visible in tiny labels and logs, not by confusing direction colors.
+   if(color_by_direction)
+   {
+      if(e.direction == FC_DIR_BULLISH)
+         return (e.status == FC_STATUS_CONFIRMED ? bullish_confirmed : bullish_pending);
+      if(e.direction == FC_DIR_BEARISH)
+         return (e.status == FC_STATUS_CONFIRMED ? bearish_confirmed : bearish_pending);
+   }
+
+   // Legacy fallback: color by level/status only.
    if(e.level == FC_LEVEL_F2)
       return e.status == FC_STATUS_CONFIRMED ? f2_confirmed : f2_pending;
    return e.status == FC_STATUS_CONFIRMED ? f1_confirmed : f1_pending;
@@ -205,6 +222,11 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
                  const color f1_confirmed,
                  const color f2_pending,
                  const color f2_confirmed,
+                 const bool color_by_direction,
+                 const color bullish_pending,
+                 const color bullish_confirmed,
+                 const color bearish_pending,
+                 const color bearish_confirmed,
                  const int line_width,
                  const int curve_segments,
                  const bool show_flag_label,
@@ -225,7 +247,16 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
       if(events[i].direction == FC_DIR_BULLISH && !draw_bullish) continue;
       if(events[i].direction == FC_DIR_BEARISH && !draw_bearish) continue;
 
-      color clr = FC_EventRenderColor(events[i], f1_pending, f1_confirmed, f2_pending, f2_confirmed);
+      color clr = FC_EventRenderColor(events[i],
+                                      f1_pending,
+                                      f1_confirmed,
+                                      f2_pending,
+                                      f2_confirmed,
+                                      color_by_direction,
+                                      bullish_pending,
+                                      bullish_confirmed,
+                                      bearish_pending,
+                                      bearish_confirmed);
       string p = prefix + FC_LevelToString(events[i].level) + "_" + IntegerToString(drawn) + "_";
       FC_DrawFlagBody(events[i], p, clr, line_width, curve_segments);
       FC_DrawFlagLabels(events[i], p, clr, show_flag_label, show_internal_labels, flag_font, internal_font);

@@ -190,3 +190,13 @@ So the waist cannot move behind the start of the leg. F2 uses the same body geom
 The visual expert includes `InpDrawBullish` and `InpDrawBearish` so the chart can be inspected one side at a time. This is useful because F-counting is a chain grammar, not a pile of unrelated bullish and bearish patterns.
 
 The F1/F2 label is anchored at Leg2 only. Confirmation/rebreak remains in calculation and logging, but the renderer does not move the label to the later confirmation node.
+
+## Direction-first color contract
+
+By default, chart colors represent direction, not F-level/status:
+
+- bullish flags use `InpBullishPendingColor` / `InpBullishConfirmedColor`.
+- bearish flags use `InpBearishPendingColor` / `InpBearishConfirmedColor`.
+- F1/F2 and status are still available from tiny labels and logs.
+
+Set `InpColorByDirection=false` only for legacy level/status coloring. The default is `true` because bearish structures must not appear green or blue just because they are F1 pending/confirmed events.
