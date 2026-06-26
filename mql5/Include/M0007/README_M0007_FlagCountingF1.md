@@ -226,16 +226,12 @@ The renderer was restored to the stable safe-draw model:
 
 This keeps the latest detector logic intact while restoring the chart output to a reliable drawing path.
 
-
 ## Current renderer path contract
 
-The F1 path is drawn as a complete visible sequence:
+The visible F1 drawing is intentionally split into three visual parts:
 
-- Start -> Leg1 straight line
-- Leg1 -> Waist smooth curve
-- Waist -> Leg2 smooth curve
-- Leg2 -> internal 1 straight extension when available
-- internal 1 -> internal 2 straight extension when available
-- internal 2 -> final confirmation rebreak extension when the structure is confirmed
+- Part 1: Start -> Leg1 as a straight line
+- Part 2: Leg1 -> Waist -> Leg2 as a smooth flag body
+- Part 3: Leg2 -> open internal 1/2 area -> final Leg2 rebreak as a rounded swing
 
-This is intended to keep the full pattern visible instead of stopping the visual path at Leg2.
+That third part is the orange-style shape you asked for: it leaves the Leg2 extreme, rounds into the open 1/2 zone, and then rises or falls back into the final Leg2 rebreak when confirmation exists.

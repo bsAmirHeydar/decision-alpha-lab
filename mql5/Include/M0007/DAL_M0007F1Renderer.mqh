@@ -117,6 +117,43 @@ void M0007_DrawBezierCurve(const string prefix,
    }
 }
 
+void M0007_DrawSwingArc(const string prefix,
+                        const datetime t0,
+                        const double p0,
+                        const datetime tv,
+                        const double pv,
+                        const datetime t1,
+                        const double p1,
+                        const color clr,
+                        const int width,
+                        const bool bullish,
+                        const int segments)
+{
+   // Part 1: start extreme -> valley/crest.
+   int dt0 = (int)(tv - t0);
+   if(dt0 <= 0) dt0 = PeriodSeconds(_Period) * 4;
+   double h0 = MathAbs(p0 - pv);
+   if(h0 <= 0.0) h0 = 60.0 * _Point;
+
+   datetime a1t = t0 + (datetime)MathMax(1, (int)(dt0 * 0.22));
+   datetime a2t = tv - (datetime)MathMax(1, (int)(dt0 * 0.18));
+   double a1p = bullish ? (p0 - 0.18 * h0) : (p0 + 0.18 * h0);
+   double a2p = bullish ? (pv + 0.14 * h0) : (pv - 0.14 * h0);
+   M0007_DrawBezierCurve(prefix + "D", t0, p0, a1t, a1p, a2t, a2p, tv, pv, clr, width, segments);
+
+   // Part 2: valley/crest -> rebreak target.
+   int dt1 = (int)(t1 - tv);
+   if(dt1 <= 0) dt1 = PeriodSeconds(_Period) * 4;
+   double h1 = MathAbs(p1 - pv);
+   if(h1 <= 0.0) h1 = 60.0 * _Point;
+
+   datetime b1t = tv + (datetime)MathMax(1, (int)(dt1 * 0.28));
+   datetime b2t = t1 - (datetime)MathMax(1, (int)(dt1 * 0.20));
+   double b1p = bullish ? (pv + 0.16 * h1) : (pv - 0.16 * h1);
+   double b2p = bullish ? (p1 - 0.24 * h1) : (p1 + 0.24 * h1);
+   M0007_DrawBezierCurve(prefix + "U", tv, pv, b1t, b1p, b2t, b2p, t1, p1, clr, width, segments);
+}
+
 color M0007_EventRenderColor(const M0007_F1Event &e,
                              const color bullish_pending_color,
                              const color bearish_pending_color,
@@ -134,47 +171,60 @@ void M0007_DrawF1Path(const M0007_F1Event &e, const string p, const color clr)
    int sec = PeriodSeconds(_Period);
    if(sec <= 0) sec = 60;
 
-   // Start -> Leg1 straight.
+   // Segment 1: true start -> top/bottom of leg 1.
    M0007_DrawTrendRaw(p + "L0", e.Start.time, e.Start.price, e.H1.time, e.H1.price, clr, 2, STYLE_SOLID);
 
-   // Leg1 -> Waist smooth curve.
+   // Segment 2: leg 1 -> waist -> leg 2. Two smooth pieces so the path reaches the leg extreme cleanly.
    int dt_hw = (int)(e.W.time - e.H1.time);
    if(dt_hw <= 0) dt_hw = sec * 4;
    double h_left = MathAbs(e.H1.price - e.W.price);
    if(h_left <= 0.0) h_left = 60.0 * _Point;
-   datetime c1t = e.H1.time + (datetime)MathMax(1, (int)(dt_hw * 0.33));
-   datetime c2t = e.W.time  - (datetime)MathMax(1, (int)(dt_hw * 0.20));
-   double c1p = bullish ? e.H1.price - 0.42 * h_left : e.H1.price + 0.42 * h_left;
-   double c2p = bullish ? e.W.price  + 0.10 * h_left : e.W.price  - 0.10 * h_left;
+   datetime c1t = e.H1.time + (datetime)MathMax(1, (int)(dt_hw * 0.34));
+   datetime c2t = e.W.time  - (datetime)MathMax(1, (int)(dt_hw * 0.18));
+   double c1p = bullish ? e.H1.price - 0.40 * h_left : e.H1.price + 0.40 * h_left;
+   double c2p = bullish ? e.W.price  + 0.12 * h_left : e.W.price  - 0.12 * h_left;
    M0007_DrawBezierCurve(p + "A", e.H1.time, e.H1.price, c1t, c1p, c2t, c2p, e.W.time, e.W.price, clr, 2, 10);
 
-   // Waist -> Leg2 smooth curve.
    int dt_wh = (int)(e.H2.time - e.W.time);
    if(dt_wh <= 0) dt_wh = sec * 4;
    double h_right = MathAbs(e.H2.price - e.W.price);
    if(h_right <= 0.0) h_right = 60.0 * _Point;
-   datetime c3t = e.W.time  + (datetime)MathMax(1, (int)(dt_wh * 0.28));
-   datetime c4t = e.H2.time - (datetime)MathMax(1, (int)(dt_wh * 0.24));
-   double c3p = bullish ? e.W.price  + 0.10 * h_right : e.W.price  - 0.10 * h_right;
-   double c4p = bullish ? e.H2.price - 0.32 * h_right : e.H2.price + 0.32 * h_right;
+   datetime c3t = e.W.time  + (datetime)MathMax(1, (int)(dt_wh * 0.26));
+   datetime c4t = e.H2.time - (datetime)MathMax(1, (int)(dt_wh * 0.16));
+   double c3p = bullish ? e.W.price  + 0.12 * h_right : e.W.price  - 0.12 * h_right;
+   double c4p = bullish ? e.H2.price - 0.14 * h_right : e.H2.price + 0.14 * h_right;
    M0007_DrawBezierCurve(p + "B", e.W.time, e.W.price, c3t, c3p, c4t, c4p, e.H2.time, e.H2.price, clr, 2, 10);
 
-   // Extend the visible path after Leg2 into internal 1/2 and final confirmation when available.
-   if(e.has_internal_1 && e.N1.index >= 0)
-      M0007_DrawTrendRaw(p + "L1", e.H2.time, e.H2.price, e.N1.time, e.N1.price, clr, 2, STYLE_SOLID);
-   if(e.has_internal_1 && e.has_internal_2 && e.N1.index >= 0 && e.N2.index >= 0)
-      M0007_DrawTrendRaw(p + "L2", e.N1.time, e.N1.price, e.N2.time, e.N2.price, clr, 2, STYLE_SOLID);
-
-   datetime end_t = 0; double end_p = 0.0;
-   if(e.status == M0007_STATUS_CONFIRMED && e.confirm_index >= 0)
+   // Segment 3: from end of leg 2 into the open 1/2 area and then back into the leg2 rebreak.
+   if(e.has_internal_2 && e.N2.index >= 0)
    {
-      end_t = e.confirm_time; end_p = e.confirm_price;
-      if(e.has_internal_2 && e.N2.index >= 0)
-         M0007_DrawTrendRaw(p + "L3", e.N2.time, e.N2.price, end_t, end_p, clr, 2, STYLE_SOLID);
+      datetime end_t = e.N2.time;
+      double end_p = e.N2.price;
+      if(e.status == M0007_STATUS_CONFIRMED && e.confirm_index >= 0)
+      {
+         end_t = e.confirm_time;
+         end_p = e.confirm_price;
+      }
       else if(e.has_internal_1 && e.N1.index >= 0)
-         M0007_DrawTrendRaw(p + "L3", e.N1.time, e.N1.price, end_t, end_p, clr, 2, STYLE_SOLID);
-      else
-         M0007_DrawTrendRaw(p + "L3", e.H2.time, e.H2.price, end_t, end_p, clr, 2, STYLE_SOLID);
+      {
+         // still open: draw down/up swing into the open internal area and stop at N2.
+         end_t = e.N2.time;
+         end_p = e.N2.price;
+      }
+      M0007_DrawSwingArc(p + "C", e.H2.time, e.H2.price, e.N2.time, e.N2.price, end_t, end_p, clr, 2, bullish, 10);
+   }
+   else if(e.has_internal_1 && e.N1.index >= 0)
+   {
+      // Partial open path until internal 1 exists.
+      int dt = (int)(e.N1.time - e.H2.time);
+      if(dt <= 0) dt = sec * 3;
+      double hh = MathAbs(e.H2.price - e.N1.price);
+      if(hh <= 0.0) hh = 50.0 * _Point;
+      datetime d1t = e.H2.time + (datetime)MathMax(1, (int)(dt * 0.30));
+      datetime d2t = e.N1.time - (datetime)MathMax(1, (int)(dt * 0.18));
+      double d1p = bullish ? e.H2.price - 0.24 * hh : e.H2.price + 0.24 * hh;
+      double d2p = bullish ? e.N1.price + 0.14 * hh : e.N1.price - 0.14 * hh;
+      M0007_DrawBezierCurve(p + "C", e.H2.time, e.H2.price, d1t, d1p, d2t, d2p, e.N1.time, e.N1.price, clr, 2, 10);
    }
 }
 
