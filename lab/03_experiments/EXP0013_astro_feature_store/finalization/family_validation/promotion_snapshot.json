@@ -1,0 +1,82 @@
+[
+  {
+    "family": "A0001",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2500.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0002",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2500.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0003",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 0.0,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0004",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2500.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0005",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2439.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0006",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2500.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0007",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 0.0,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  },
+  {
+    "family": "A0090",
+    "decision": "candidate_for_review",
+    "reasons": [],
+    "rows": 5736,
+    "entry_threshold_hits": 1644,
+    "avg_hold_bars": 2500.5,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_minute_window_score": 63.199296269177125
+  }
+]

@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "rows": 5736,
+    "phase_counts": {
+      "armed": 735,
+      "enter": 1,
+      "hold": 5000
+    },
+    "action_counts": {
+      "armed": 1,
+      "wait": 734,
+      "enter": 1,
+      "hold": 5000
+    },
+    "direction_counts": {
+      "long": 5736
+    },
+    "regime_counts": {
+      "mixed": 5521,
+      "clean": 215
+    },
+    "doctrine_counts": {
+      "astro_only_doctrine_v1_nasdaq100": 5736
+    },
+    "schema_counts": {
+      "astro_feature_schema_v2": 5736
+    },
+    "doctrine_stability": true,
+    "schema_stability": true,
+    "avg_entry_score": 66.4702204846583,
+    "avg_exit_score": 18.21627728382148,
+    "avg_hold_bars": 2500.5,
+    "max_hold_bars": 5000,
+    "avg_macro_timing_score": 78.42272920153417,
+    "avg_meso_timing_score": 59.49714757670851,
+    "avg_micro_timing_score": 56.90561342398884,
+    "avg_minute_window_score": 63.199296269177125,
+    "trigger_counts": {
+      "armed": 4010,
+      "standby": 814,
+      "trigger_ready": 912
+    },
+    "entry_threshold_hits": 1644,
+    "exit_threshold_hits": 0,
+    "opposite_signal_collisions": 0
+  },
+  "threshold_grid": [
+    {
+      "entry_threshold": 58.0,
+      "exit_threshold": 48.0,
+      "entry_hits": 5736,
+      "exit_hits": 0,
+      "hit_balance": 5736
+    },
+    {
+      "entry_threshold": 58.0,
+      "exit_threshold": 54.0,
+      "entry_hits": 5736,
+      "exit_hits": 0,
+      "hit_balance": 5736
+    },
+    {
+      "entry_threshold": 58.0,
+      "exit_threshold": 60.0,
+      "entry_hits": 5736,
+      "exit_hits": 0,
+      "hit_balance": 5736
+    },
+    {
+      "entry_threshold": 58.0,
+      "exit_threshold": 66.0,
+      "entry_hits": 5736,
+      "exit_hits": 0,
+      "hit_balance": 5736
+    },
+    {
+      "entry_threshold": 62.0,
+      "exit_threshold": 48.0,
+      "entry_hits": 5429,
+      "exit_hits": 0,
+      "hit_balance": 5429
+    },
+    {
+      "entry_threshold": 62.0,
+      "exit_threshold": 54.0,
+      "entry_hits": 5429,
+      "exit_hits": 0,
+      "hit_balance": 5429
+    },
+    {
+      "entry_threshold": 62.0,
+      "exit_threshold": 60.0,
+      "entry_hits": 5429,
+      "exit_hits": 0,
+      "hit_balance": 5429
+    },
+    {
+      "entry_threshold": 62.0,
+      "exit_threshold": 66.0,
+      "entry_hits": 5429,
+      "exit_hits": 0,
+      "hit_balance": 5429
+    },
+    {
+      "entry_threshold": 68.0,
+      "exit_threshold": 48.0,
+      "entry_hits": 1644,
+      "exit_hits": 0,
+      "hit_balance": 1644
+    },
+    {
+      "entry_threshold": 68.0,
+      "exit_threshold": 54.0,
+      "entry_hits": 1644,
+      "exit_hits": 0,
+      "hit_balance": 1644
+    },
+    {
+      "entry_threshold": 68.0,
+      "exit_threshold": 60.0,
+      "entry_hits": 1644,
+      "exit_hits": 0,
+      "hit_balance": 1644
+    },
+    {
+      "entry_threshold": 68.0,
+      "exit_threshold": 66.0,
+      "entry_hits": 1644,
+      "exit_hits": 0,
+      "hit_balance": 1644
+    },
+    {
+      "entry_threshold": 74.0,
+      "exit_threshold": 48.0,
+      "entry_hits": 80,
+      "exit_hits": 0,
+      "hit_balance": 80
+    },
+    {
+      "entry_threshold": 74.0,
+      "exit_threshold": 54.0,
+      "entry_hits": 80,
+      "exit_hits": 0,
+      "hit_balance": 80
+    },
+    {
+      "entry_threshold": 74.0,
+      "exit_threshold": 60.0,
+      "entry_hits": 80,
+      "exit_hits": 0,
+      "hit_balance": 80
+    },
+    {
+      "entry_threshold": 74.0,
+      "exit_threshold": 66.0,
+      "entry_hits": 80,
+      "exit_hits": 0,
+      "hit_balance": 80
+    }
+  ],
+  "shuffled_baseline": {
+    "rounds": 200,
+    "seed": 13,
+    "avg_shuffled_enter_flat_collisions": 0,
+    "avg_shuffled_action_entropy": 0.5566147153730754,
+    "avg_hold_bars_reference": 2179.654811715481
+  },
+  "families": {
+    "A0090_live_shell": {
+      "rows": 5736,
+      "actions": {
+        "armed": 1,
+        "wait": 734,
+        "enter": 1,
+        "hold": 5000
+      }
+    }
+  }
+}
