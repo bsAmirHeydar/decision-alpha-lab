@@ -4,7 +4,7 @@
 #include "DAL_FlagCountingTypes.mqh"
 #include "DAL_FlagCountingNodeDetector.mqh"
 
-void FC_AppendEvent(FC_FlagEvent &events[], FC_FlagEvent &event)
+void FC_AppendEvent(FC_FlagEvent &events[], const FC_FlagEvent &event)
 {
    int n = ArraySize(events);
    ArrayResize(events, n + 1);
@@ -25,9 +25,6 @@ bool FC_IsBullishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node 
    if(waist.kind  != FC_NODE_LOW)  return false;
    if(leg2.kind   != FC_NODE_HIGH) return false;
 
-   // Bullish body geometry:
-   // origin low -> leg1 high -> waist low -> leg2 high.
-   // Waist must remain in front of the origin/start of leg and below leg1.
    if(!(leg1.price  > origin.price + eps)) return false;
    if(!(waist.price > origin.price + eps)) return false;
    if(!(waist.price < leg1.price  - eps)) return false;
@@ -43,9 +40,6 @@ bool FC_IsBearishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node 
    if(waist.kind  != FC_NODE_HIGH) return false;
    if(leg2.kind   != FC_NODE_LOW)  return false;
 
-   // Bearish body geometry is the mirror:
-   // origin high -> leg1 low -> waist high -> leg2 low.
-   // Waist must remain in front of the origin/start of leg and above leg1.
    if(!(leg1.price  < origin.price - eps)) return false;
    if(!(waist.price < origin.price - eps)) return false;
    if(!(waist.price > leg1.price  + eps)) return false;
@@ -68,15 +62,6 @@ bool FC_NodeBreaksWaist(const int direction, const FC_Node &node, const double w
       return node.kind == FC_NODE_LOW && node.price <= waist_price + eps;
    if(direction == FC_DIR_BEARISH)
       return node.kind == FC_NODE_HIGH && node.price >= waist_price - eps;
-   return false;
-}
-
-bool FC_NodeBreaksOrigin(const int direction, const FC_Node &node, const double origin_price, const double eps)
-{
-   if(direction == FC_DIR_BULLISH)
-      return node.kind == FC_NODE_LOW && node.price <= origin_price + eps;
-   if(direction == FC_DIR_BEARISH)
-      return node.kind == FC_NODE_HIGH && node.price >= origin_price - eps;
    return false;
 }
 
@@ -174,8 +159,8 @@ bool FC_FindBranchAfterLeg2UntilBoundary(const FC_Node &nodes[],
       if(FC_NodeBreaksInvalidation(direction, node, invalidation_price, eps))
          return false;
 
-      // F1 visual/counting branch belongs before the confirming Leg2 rebreak.
-      // F2 can still form its branch after a Leg2 extension, so it does not use this stop.
+      // F1: branch 1/2 belongs before the confirming Leg2 rebreak.
+      // F2/F3: branch can be found after a Leg2 extension until origin invalidates.
       if(stop_at_first_leg2_break && FC_NodeBreaksLeg2(direction, node, leg2_price, eps))
          return false;
 
@@ -208,19 +193,17 @@ bool FC_FindBranchAfterLeg2UntilBoundary(const FC_Node &nodes[],
    return false;
 }
 
-void FC_ApplyBranchAndConfirmationV2(const FC_Node &nodes[],
-                                     const int leg2_pos,
-                                     const bool is_f2,
-                                     const bool allow_waist_break_branch,
-                                     const double eps,
-                                     FC_FlagEvent &event)
+void FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
+                                   const int leg2_pos,
+                                   const bool continuation_level,
+                                   const bool allow_waist_break_branch,
+                                   const double eps,
+                                   FC_FlagEvent &event)
 {
-   // Core contract from the research note:
-   // - A flag is confirmed when price rebreaks the Leg2 extreme.
-   // - It must not invalidate first.
-   // - F1 invalidation boundary is the F1 waist.
-   // - F2 invalidation boundary is the F2 origin/start of leg.
-   double invalidation_price = (is_f2 ? event.origin.price : event.waist.price);
+   // Confirmation contract:
+   // every F confirms by rebreaking Leg2 before invalidation.
+   // F1 invalidates at waist. F2/F3 invalidates at origin/start-of-leg.
+   double invalidation_price = (continuation_level ? event.origin.price : event.waist.price);
 
    FC_Node confirm_node, invalid_node;
    bool confirmed = FC_FindFirstLeg2BreakBeforeInvalidation(nodes,
@@ -250,9 +233,7 @@ void FC_ApplyBranchAndConfirmationV2(const FC_Node &nodes[],
       event.status = FC_STATUS_OPEN;
    }
 
-   // Branch 1/2 is counting/audit/labels, not the confirmation gate.
-   // F1: internal 1/2 is searched before the first confirming Leg2 rebreak.
-   // F2: internal 1/2 can be found even after an early Leg2 extension, until F2 origin invalidates.
+   // Branch 1/2 is counting/audit/labels, not a hard validity gate.
    FC_Node n1, n2;
    int branch_type = FC_BRANCH_NONE;
    bool branch_found = FC_FindBranchAfterLeg2UntilBoundary(nodes,
@@ -260,8 +241,8 @@ void FC_ApplyBranchAndConfirmationV2(const FC_Node &nodes[],
                                                            event.direction,
                                                            event.waist.price,
                                                            invalidation_price,
-                                                           is_f2 && allow_waist_break_branch,
-                                                           !is_f2,
+                                                           continuation_level && allow_waist_break_branch,
+                                                           !continuation_level,
                                                            event.leg2.price,
                                                            eps,
                                                            n1,
@@ -293,12 +274,12 @@ bool FC_SameCore(const FC_FlagEvent &a, const FC_FlagEvent &b)
            a.leg2.index == b.leg2.index);
 }
 
-bool FC_F1PromotedToF2(const FC_FlagEvent &f1, const FC_FlagEvent &f2_events[])
+bool FC_CoreExistsIn(const FC_FlagEvent &e, const FC_FlagEvent &events[])
 {
-   int n = ArraySize(f2_events);
+   int n = ArraySize(events);
    for(int i=0; i<n; i++)
    {
-      if(FC_SameCore(f1, f2_events[i]))
+      if(FC_SameCore(e, events[i]))
          return true;
    }
    return false;
@@ -308,8 +289,6 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
                               const int start_pos,
                               const bool scan_bullish,
                               const bool scan_bearish,
-                              const bool require_branch12,
-                              const bool require_leg2_rebreak,
                               const double eps,
                               FC_FlagEvent &event)
 {
@@ -331,39 +310,29 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
 
    event.level = FC_LEVEL_F1;
    event.direction = direction;
-   event.status = FC_STATUS_OPEN;
    event.origin = origin;
    event.leg1 = leg1;
    event.waist = waist;
    event.leg2 = leg2;
    event.body_size = FC_FlagBodySize(event);
 
-   FC_ApplyBranchAndConfirmationV2(nodes,
-                                   start_pos+3,
-                                   false,
-                                   false,
-                                   eps,
-                                   event);
-
-   // These inputs are kept for compatibility but no longer delete valid bodies.
-   // Confirmation is controlled only by Leg2 rebreak before invalidation.
+   FC_ApplyBranchAndConfirmation(nodes, start_pos+3, false, false, eps, event);
    return true;
 }
 
-bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
-                            const FC_FlagEvent &parent,
-                            const int parent_array_index,
-                            const bool require_parent_confirmed,
-                            const bool require_f2_at_least_parent_size,
-                            const double f2_min_parent_size_ratio,
-                            const bool allow_waist_break_branch,
-                            const bool require_branch12,
-                            const bool require_leg2_rebreak,
-                            const double eps,
-                            FC_FlagEvent &event)
+bool FC_BuildContinuationFromParent(const FC_Node &nodes[],
+                                    const FC_FlagEvent &parent,
+                                    const int parent_array_index,
+                                    const int child_level,
+                                    const bool require_parent_confirmed,
+                                    const bool require_child_at_least_parent_size,
+                                    const double child_min_parent_size_ratio,
+                                    const bool allow_waist_break_branch,
+                                    const double eps,
+                                    FC_FlagEvent &event)
 {
    FC_InitFlagEvent(event);
-   if(parent.level != FC_LEVEL_F1) return false;
+   if(parent.level <= FC_LEVEL_NONE) return false;
    if(!parent.has_n2) return false;
    if(require_parent_confirmed && parent.status != FC_STATUS_CONFIRMED) return false;
 
@@ -387,60 +356,54 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
    if(parent_body_size <= 0.0)
       parent_body_size = FC_FlagBodySize(parent);
 
-   double f2_body_size = FC_BodySizeFromNodes(origin, leg2);
-   double min_required_size = parent_body_size * MathMax(0.0, f2_min_parent_size_ratio);
+   double child_body_size = FC_BodySizeFromNodes(origin, leg2);
+   double min_required_size = parent_body_size * MathMax(0.0, child_min_parent_size_ratio);
 
-   if(require_f2_at_least_parent_size && parent_body_size > eps)
+   if(require_child_at_least_parent_size && parent_body_size > eps)
    {
-      if(f2_body_size + eps < min_required_size)
+      if(child_body_size + eps < min_required_size)
          return false;
    }
 
-   event.level = FC_LEVEL_F2;
+   event.level = child_level;
    event.direction = parent.direction;
    event.status = FC_STATUS_OPEN;
    event.parent_event_index = parent_array_index;
    event.parent_origin_index = parent.origin.index;
+   event.parent_level = parent.level;
    event.origin = origin;
    event.leg1 = leg1;
    event.waist = waist;
    event.leg2 = leg2;
-   event.body_size = f2_body_size;
+   event.body_size = child_body_size;
    event.parent_body_size = parent_body_size;
-   event.parent_size_ratio = (parent_body_size > 0.0 ? f2_body_size / parent_body_size : 0.0);
+   event.parent_size_ratio = (parent_body_size > 0.0 ? child_body_size / parent_body_size : 0.0);
 
-   FC_ApplyBranchAndConfirmationV2(nodes,
-                                   start_pos+3,
-                                   true,
-                                   allow_waist_break_branch,
-                                   eps,
-                                   event);
-
+   FC_ApplyBranchAndConfirmation(nodes, start_pos+3, true, allow_waist_break_branch, eps, event);
    return true;
 }
 
 int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool scan_f1,
                             const bool scan_f2,
+                            const bool scan_f3,
                             const bool scan_bullish,
                             const bool scan_bearish,
-                            const bool suppress_f1_bodies_promoted_to_f2,
-                            const bool require_f1_branch12,
-                            const bool require_f1_leg2_rebreak,
-                            const bool require_parent_f1_confirmed_for_f2,
-                            const bool require_f2_at_least_parent_size,
-                            const double f2_min_parent_size_ratio,
-                            const bool allow_f2_waist_break_branch,
-                            const bool require_f2_branch12,
-                            const bool require_f2_leg2_rebreak,
+                            const bool suppress_promoted_lower_level_bodies,
+                            const bool require_parent_confirmed_for_next_f,
+                            const bool require_child_at_least_parent_size,
+                            const double child_min_parent_size_ratio,
+                            const bool allow_child_waist_break_branch,
                             const double eps,
                             FC_FlagEvent &events[])
 {
    ArrayResize(events, 0);
    FC_FlagEvent f1_events[];
    FC_FlagEvent f2_events[];
+   FC_FlagEvent f3_events[];
    ArrayResize(f1_events, 0);
    ArrayResize(f2_events, 0);
+   ArrayResize(f3_events, 0);
 
    int n = ArraySize(nodes);
    if(n < 4) return 0;
@@ -450,17 +413,8 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
       for(int p=0; p<=n-4; p++)
       {
          FC_FlagEvent e;
-         if(FC_BuildF1FromNodeWindow(nodes,
-                                     p,
-                                     scan_bullish,
-                                     scan_bearish,
-                                     require_f1_branch12,
-                                     require_f1_leg2_rebreak,
-                                     eps,
-                                     e))
-         {
+         if(FC_BuildF1FromNodeWindow(nodes, p, scan_bullish, scan_bearish, eps, e))
             FC_AppendEvent(f1_events, e);
-         }
       }
    }
 
@@ -470,20 +424,37 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
       for(int i=0; i<f1n; i++)
       {
          FC_FlagEvent e2;
-         if(FC_BuildF2FromParentF1(nodes,
-                                   f1_events[i],
-                                   i,
-                                   require_parent_f1_confirmed_for_f2,
-                                   require_f2_at_least_parent_size,
-                                   f2_min_parent_size_ratio,
-                                   allow_f2_waist_break_branch,
-                                   require_f2_branch12,
-                                   require_f2_leg2_rebreak,
-                                   eps,
-                                   e2))
-         {
+         if(FC_BuildContinuationFromParent(nodes,
+                                           f1_events[i],
+                                           i,
+                                           FC_LEVEL_F2,
+                                           require_parent_confirmed_for_next_f,
+                                           require_child_at_least_parent_size,
+                                           child_min_parent_size_ratio,
+                                           allow_child_waist_break_branch,
+                                           eps,
+                                           e2))
             FC_AppendEvent(f2_events, e2);
-         }
+      }
+   }
+
+   if(scan_f3)
+   {
+      int f2n = ArraySize(f2_events);
+      for(int j=0; j<f2n; j++)
+      {
+         FC_FlagEvent e3;
+         if(FC_BuildContinuationFromParent(nodes,
+                                           f2_events[j],
+                                           j,
+                                           FC_LEVEL_F3,
+                                           require_parent_confirmed_for_next_f,
+                                           require_child_at_least_parent_size,
+                                           child_min_parent_size_ratio,
+                                           allow_child_waist_break_branch,
+                                           eps,
+                                           e3))
+            FC_AppendEvent(f3_events, e3);
       }
    }
 
@@ -492,7 +463,7 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
       int f1_total = ArraySize(f1_events);
       for(int k=0; k<f1_total; k++)
       {
-         if(suppress_f1_bodies_promoted_to_f2 && FC_F1PromotedToF2(f1_events[k], f2_events))
+         if(suppress_promoted_lower_level_bodies && (FC_CoreExistsIn(f1_events[k], f2_events) || FC_CoreExistsIn(f1_events[k], f3_events)))
             continue;
          FC_AppendEvent(events, f1_events[k]);
       }
@@ -502,7 +473,18 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
    {
       int f2_total = ArraySize(f2_events);
       for(int k=0; k<f2_total; k++)
+      {
+         if(suppress_promoted_lower_level_bodies && FC_CoreExistsIn(f2_events[k], f3_events))
+            continue;
          FC_AppendEvent(events, f2_events[k]);
+      }
+   }
+
+   if(scan_f3)
+   {
+      int f3_total = ArraySize(f3_events);
+      for(int k=0; k<f3_total; k++)
+         FC_AppendEvent(events, f3_events[k]);
    }
 
    return ArraySize(events);
@@ -513,17 +495,14 @@ int FC_DetectFlags(const MqlRates &rates[],
                    const int swing_L,
                    const bool scan_f1,
                    const bool scan_f2,
+                   const bool scan_f3,
                    const bool scan_bullish,
                    const bool scan_bearish,
-                   const bool suppress_f1_bodies_promoted_to_f2,
-                   const bool require_f1_branch12,
-                   const bool require_f1_leg2_rebreak,
-                   const bool require_parent_f1_confirmed_for_f2,
-                   const bool require_f2_at_least_parent_size,
-                   const double f2_min_parent_size_ratio,
-                   const bool allow_f2_waist_break_branch,
-                   const bool require_f2_branch12,
-                   const bool require_f2_leg2_rebreak,
+                   const bool suppress_promoted_lower_level_bodies,
+                   const bool require_parent_confirmed_for_next_f,
+                   const bool require_child_at_least_parent_size,
+                   const double child_min_parent_size_ratio,
+                   const bool allow_child_waist_break_branch,
                    const double eps,
                    FC_Node &nodes[],
                    FC_FlagEvent &events[])
@@ -532,17 +511,14 @@ int FC_DetectFlags(const MqlRates &rates[],
    return FC_DetectFlagsFromNodes(nodes,
                                   scan_f1,
                                   scan_f2,
+                                  scan_f3,
                                   scan_bullish,
                                   scan_bearish,
-                                  suppress_f1_bodies_promoted_to_f2,
-                                  require_f1_branch12,
-                                  require_f1_leg2_rebreak,
-                                  require_parent_f1_confirmed_for_f2,
-                                  require_f2_at_least_parent_size,
-                                  f2_min_parent_size_ratio,
-                                  allow_f2_waist_break_branch,
-                                  require_f2_branch12,
-                                  require_f2_leg2_rebreak,
+                                  suppress_promoted_lower_level_bodies,
+                                  require_parent_confirmed_for_next_f,
+                                  require_child_at_least_parent_size,
+                                  child_min_parent_size_ratio,
+                                  allow_child_waist_break_branch,
                                   eps,
                                   events);
 }

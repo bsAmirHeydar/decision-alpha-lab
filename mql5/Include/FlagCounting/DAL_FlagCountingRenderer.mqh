@@ -113,6 +113,8 @@ color FC_EventRenderColor(const FC_FlagEvent &e,
                           const color f1_confirmed,
                           const color f2_pending,
                           const color f2_confirmed,
+                          const color f3_pending,
+                          const color f3_confirmed,
                           const bool color_by_direction,
                           const color bullish_pending,
                           const color bullish_confirmed,
@@ -131,6 +133,8 @@ color FC_EventRenderColor(const FC_FlagEvent &e,
    }
 
    // Legacy fallback: color by level/status only.
+   if(e.level == FC_LEVEL_F3)
+      return e.status == FC_STATUS_CONFIRMED ? f3_confirmed : f3_pending;
    if(e.level == FC_LEVEL_F2)
       return e.status == FC_STATUS_CONFIRMED ? f2_confirmed : f2_pending;
    return e.status == FC_STATUS_CONFIRMED ? f1_confirmed : f1_pending;
@@ -214,6 +218,7 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
                  const int max_events,
                  const bool draw_f1,
                  const bool draw_f2,
+                 const bool draw_f3,
                  const bool draw_bullish,
                  const bool draw_bearish,
                  const bool draw_only_confirmed,
@@ -222,6 +227,8 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
                  const color f1_confirmed,
                  const color f2_pending,
                  const color f2_confirmed,
+                 const color f3_pending,
+                 const color f3_confirmed,
                  const bool color_by_direction,
                  const color bullish_pending,
                  const color bullish_confirmed,
@@ -244,6 +251,7 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
       if(draw_only_confirmed && events[i].status != FC_STATUS_CONFIRMED) continue;
       if(events[i].level == FC_LEVEL_F1 && !draw_f1) continue;
       if(events[i].level == FC_LEVEL_F2 && !draw_f2) continue;
+      if(events[i].level == FC_LEVEL_F3 && !draw_f3) continue;
       if(events[i].direction == FC_DIR_BULLISH && !draw_bullish) continue;
       if(events[i].direction == FC_DIR_BEARISH && !draw_bearish) continue;
 
@@ -252,6 +260,8 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
                                       f1_confirmed,
                                       f2_pending,
                                       f2_confirmed,
+                                      f3_pending,
+                                      f3_confirmed,
                                       color_by_direction,
                                       bullish_pending,
                                       bullish_confirmed,

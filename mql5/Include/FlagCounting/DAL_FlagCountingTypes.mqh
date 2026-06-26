@@ -20,7 +20,8 @@ enum FC_FlagLevel
 {
    FC_LEVEL_NONE = 0,
    FC_LEVEL_F1   = 1,
-   FC_LEVEL_F2   = 2
+   FC_LEVEL_F2   = 2,
+   FC_LEVEL_F3   = 3
 };
 
 enum FC_FlagStatus
@@ -54,6 +55,7 @@ struct FC_FlagEvent
 
    int parent_event_index;
    int parent_origin_index;
+   int parent_level;
 
    FC_Node origin;
    FC_Node leg1;
@@ -69,8 +71,6 @@ struct FC_FlagEvent
    datetime confirm_time;
    double   confirm_price;
 
-   // F2 can break the Leg2 extreme before its branch 1/2 is fully formed.
-   // F1 is not allowed to do this. These fields audit that F2-only case.
    int      pre_branch_leg2_break_index;
    datetime pre_branch_leg2_break_time;
    double   pre_branch_leg2_break_price;
@@ -79,8 +79,6 @@ struct FC_FlagEvent
    datetime invalid_time;
    double   invalid_price;
 
-   // Body-size audit fields. Size is measured vertically from flag origin to Leg2.
-   // For F2 this is compared against the parent F1 body size by the detector.
    double   body_size;
    double   parent_body_size;
    double   parent_size_ratio;
@@ -113,6 +111,7 @@ void FC_InitFlagEvent(FC_FlagEvent &e)
 
    e.parent_event_index = -1;
    e.parent_origin_index = -1;
+   e.parent_level = FC_LEVEL_NONE;
 
    FC_InitNode(e.origin);
    FC_InitNode(e.leg1);
@@ -166,6 +165,8 @@ string FC_LevelToString(const int level)
 {
    if(level == FC_LEVEL_F1) return "F1";
    if(level == FC_LEVEL_F2) return "F2";
+   if(level == FC_LEVEL_F3) return "F3";
+   if(level > 0) return "F" + IntegerToString(level);
    return "F?";
 }
 
@@ -178,7 +179,6 @@ bool FC_IsBearish(const FC_FlagEvent &e)
 {
    return e.direction == FC_DIR_BEARISH;
 }
-
 
 double FC_BodySizeFromNodes(const FC_Node &origin, const FC_Node &leg2)
 {

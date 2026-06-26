@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.00"
-#property description "Unified modular flag-counting experiment: F1 and F2 in one reusable module."
+#property version   "1.10"
+#property description "Unified modular flag-counting experiment: F1/F2/F3 chained counting in one reusable module."
 
 #include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
 #include "../../Include/FlagCounting/DAL_FlagCountingRenderer.mqh"
@@ -11,28 +11,29 @@ input int  InpBreakEpsilonPoints = 5;
 
 input bool InpScanF1 = true;
 input bool InpScanF2 = true;
+input bool InpScanF3 = true;
 input bool InpScanBullish = true;
 input bool InpScanBearish = true;
 
-// Counting hierarchy contract:
-// when a body is promoted from root F1 to child F2, do not draw/count the same body as F1 too.
-input bool InpSuppressF1BodiesPromotedToF2 = true;
+// Chained counting contract:
+// F1 is the root. After a confirmed F1, the next same-direction child is F2.
+// After a confirmed F2, the next same-direction child is F3.
+// A body promoted to a higher F-level is not also drawn as its lower/root label.
+input bool InpSuppressPromotedLowerLevelBodies = true;
+input bool InpRequireParentConfirmedForNextF = true;
 
-input bool InpRequireF1Internal12 = false; // audit label only; no longer gates F1 validity
-input bool InpRequireF1Leg2RebreakForConfirm = true; // confirmation is Leg2 rebreak before F1 waist invalidation
-input bool InpRequireParentF1ConfirmedForF2 = true;
-input bool InpRequireF2AtLeastParentSize = true;
-input double InpF2MinParentSizeRatio = 1.0;
-input bool InpAllowF2WaistBreakBranch = true;
-input bool InpRequireF2Branch12 = false; // audit label only; no longer gates F2 validity
-input bool InpRequireF2Leg2RebreakForConfirm = true; // confirmation is Leg2 rebreak before F2 origin invalidation
+// Continuation-level symmetry. Applies to F2 and F3 against their direct parent.
+input bool   InpRequireChildAtLeastParentSize = true;
+input double InpChildMinParentSizeRatio = 1.0;
+input bool   InpAllowChildWaistBreakBranch = true;
 
 input bool InpDrawF1 = true;
 input bool InpDrawF2 = true;
+input bool InpDrawF3 = true;
 input bool InpDrawBullish = true;
 input bool InpDrawBearish = true;
 input bool InpDrawOnlyConfirmed = false;
-input int  InpMaxEventsToDraw = 160;
+input int  InpMaxEventsToDraw = 180;
 input string InpObjectPrefix = "DAL_FC_";
 input bool InpCleanObjectsOnInit = true;
 input bool InpRedrawOnNewBar = true;
@@ -42,9 +43,10 @@ input color InpF1PendingColor = clrDeepSkyBlue;
 input color InpF1ConfirmedColor = clrLime;
 input color InpF2PendingColor = clrGold;
 input color InpF2ConfirmedColor = clrTomato;
+input color InpF3PendingColor = clrViolet;
+input color InpF3ConfirmedColor = clrMagenta;
 
-// Default contract: colors represent direction first, not F-level/status.
-// This prevents bearish F1/F2 bodies from appearing green/blue.
+// Default contract: colors represent direction first.
 input bool  InpColorByDirection = true;
 input color InpBullishPendingColor = clrDeepSkyBlue;
 input color InpBullishConfirmedColor = clrLime;
@@ -60,7 +62,7 @@ input int InpInternalFontSize = 7;
 
 input bool InpPrintSummary = true;
 input bool InpPrintLastEvents = true;
-input int  InpPrintLastN = 8;
+input int  InpPrintLastN = 10;
 
 datetime g_last_bar_time = 0;
 
@@ -68,6 +70,7 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
 {
    Print("FC_EVENT#", ordinal,
          " level=", FC_LevelToString(e.level),
+         " parentLevel=", FC_LevelToString(e.parent_level),
          " dir=", FC_DirectionToString(e.direction),
          " status=", FC_StatusToString(e.status),
          " branch=", FC_BranchToString(e.branch_type),
@@ -78,7 +81,7 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
          " n1=", (e.has_n1 ? TimeToString(e.n1.time) : "NA"), "@", (e.has_n1 ? DoubleToString(e.n1.price, _Digits) : "NA"),
          " n2=", (e.has_n2 ? TimeToString(e.n2.time) : "NA"), "@", (e.has_n2 ? DoubleToString(e.n2.price, _Digits) : "NA"),
          " confirm=", (e.confirm_index >= 0 ? TimeToString(e.confirm_time) : "NA"), "@", (e.confirm_index >= 0 ? DoubleToString(e.confirm_price, _Digits) : "NA"),
-         " preBranchLeg2Break=", (e.pre_branch_leg2_break_index >= 0 ? TimeToString(e.pre_branch_leg2_break_time) : "NA"), "@", (e.pre_branch_leg2_break_index >= 0 ? DoubleToString(e.pre_branch_leg2_break_price, _Digits) : "NA"),
+         " invalid=", (e.invalid_index >= 0 ? TimeToString(e.invalid_time) : "NA"), "@", (e.invalid_index >= 0 ? DoubleToString(e.invalid_price, _Digits) : "NA"),
          " size=", DoubleToString(e.body_size, _Digits),
          " parentSize=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_body_size, _Digits) : "NA"),
          " sizeRatio=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_size_ratio, 3) : "NA"));
@@ -87,11 +90,12 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
 void FC_PrintSummary(const FC_FlagEvent &events[], const int nodes_count, const int drawn)
 {
    int total = ArraySize(events);
-   int f1=0, f2=0, bull=0, bear=0, conf=0, open=0, branch_i12=0, branch_wb=0;
+   int f1=0, f2=0, f3=0, bull=0, bear=0, conf=0, open=0, branch_i12=0, branch_wb=0;
    for(int i=0; i<total; i++)
    {
       if(events[i].level == FC_LEVEL_F1) f1++;
       if(events[i].level == FC_LEVEL_F2) f2++;
+      if(events[i].level == FC_LEVEL_F3) f3++;
       if(events[i].direction == FC_DIR_BULLISH) bull++;
       if(events[i].direction == FC_DIR_BEARISH) bear++;
       if(events[i].status == FC_STATUS_CONFIRMED) conf++;
@@ -107,6 +111,7 @@ void FC_PrintSummary(const FC_FlagEvent &events[], const int nodes_count, const 
          " events=", total,
          " f1=", f1,
          " f2=", f2,
+         " f3=", f3,
          " bull=", bull,
          " bear=", bear,
          " confirmed=", conf,
@@ -145,17 +150,14 @@ bool FC_RunExperiment()
                                      InpSwingL,
                                      InpScanF1,
                                      InpScanF2,
+                                     InpScanF3,
                                      InpScanBullish,
                                      InpScanBearish,
-                                     InpSuppressF1BodiesPromotedToF2,
-                                     InpRequireF1Internal12,
-                                     InpRequireF1Leg2RebreakForConfirm,
-                                     InpRequireParentF1ConfirmedForF2,
-                                     InpRequireF2AtLeastParentSize,
-                                     InpF2MinParentSizeRatio,
-                                     InpAllowF2WaistBreakBranch,
-                                     InpRequireF2Branch12,
-                                     InpRequireF2Leg2RebreakForConfirm,
+                                     InpSuppressPromotedLowerLevelBodies,
+                                     InpRequireParentConfirmedForNextF,
+                                     InpRequireChildAtLeastParentSize,
+                                     InpChildMinParentSizeRatio,
+                                     InpAllowChildWaistBreakBranch,
                                      eps,
                                      nodes,
                                      events);
@@ -164,6 +166,7 @@ bool FC_RunExperiment()
                             InpMaxEventsToDraw,
                             InpDrawF1,
                             InpDrawF2,
+                            InpDrawF3,
                             InpDrawBullish,
                             InpDrawBearish,
                             InpDrawOnlyConfirmed,
@@ -172,6 +175,8 @@ bool FC_RunExperiment()
                             InpF1ConfirmedColor,
                             InpF2PendingColor,
                             InpF2ConfirmedColor,
+                            InpF3PendingColor,
+                            InpF3ConfirmedColor,
                             InpColorByDirection,
                             InpBullishPendingColor,
                             InpBullishConfirmedColor,
@@ -201,12 +206,7 @@ int OnInit()
 
 void OnDeinit(const int reason)
 {
-   // Always remove every object drawn by this experiment on detach/recompile/timeframe change.
-   // This keeps chart updates clean even when InpCleanObjectsOnInit is disabled.
    FC_DeleteObjectsByPrefix(InpObjectPrefix);
-
-   // Also clean the default project prefix in case the user changed InpObjectPrefix
-   // after a previous run and the old layer is still on the chart.
    if(InpObjectPrefix != "DAL_FC_")
       FC_DeleteObjectsByPrefix("DAL_FC_");
 }
