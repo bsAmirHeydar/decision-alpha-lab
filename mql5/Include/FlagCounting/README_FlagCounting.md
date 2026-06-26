@@ -195,3 +195,14 @@ Contract:
 - The renderer receives only accepted chain events, not all possible overlapping F candidates.
 
 This is a structural correction: market movement is partitioned into unused/ND regions and accepted F-counting chains instead of drawing every local candidate.
+
+## State-machine repair v2
+
+The flag-counting engine is no longer allowed to treat every four-node window as an independent F1 on the same flow. The next continuation level now keeps the parent origin contract but searches flexibly for the child body:
+
+- F2/F3 origin is fixed at the parent internal 2.
+- The child Leg1/Waist/Leg2 body may appear within `InpContinuationCoreSearchMaxNodes` nodes after that origin.
+- A child continuation is rejected immediately if its own origin/start is invalidated before a valid body appears.
+- After a confirmed chain, `InpAvoidSameDirectionF1Restarts` prevents immediate same-direction F1 restarts on the same flow; that unresolved region is treated as ND/hook/transition until an opposite root direction appears or the scan ends.
+
+This is a practical partition step toward the intended market grammar: `ND -> F1 -> F2 -> F3 -> ND -> ...`, instead of loose overlapping pattern overlays.
