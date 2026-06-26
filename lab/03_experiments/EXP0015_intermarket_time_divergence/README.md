@@ -56,3 +56,27 @@ CME/vendor/legal data feed -> tools/cme_bridge -> Common/Files/dal/cme/*.csv -> 
 
 The MQL5 expert can read the same normalized CSV files repeatedly in timer mode.
 This keeps raw data-feed authentication and WebSocket/reconnect logic outside MQL5.
+
+## CME bridge guide
+
+The complete English setup guide for live, historical, delayed fallback, and five-minute historical polling is here:
+
+```text
+tools/cme_bridge/README.md
+```
+
+Most useful commands:
+
+```bash
+# Licensed CME historical download through Databento
+python tools/cme_bridge/dal_cme_live_prices.py databento_historical --start 2026-01-01 --end 2026-06-26
+
+# Licensed CME live stream through Databento
+python tools/cme_bridge/dal_cme_live_prices.py databento_live
+
+# Near-live closed-bar historical polling every 5 minutes
+python tools/cme_bridge/dal_cme_live_prices.py databento_historical_poll --interval-seconds 300 --overlap-minutes 10 --bootstrap-minutes 180 --end-delay-seconds 90
+
+# Development fallback without CME credentials
+python tools/cme_bridge/dal_cme_live_prices.py yahoo_delayed
+```

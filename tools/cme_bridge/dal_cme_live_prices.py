@@ -29,10 +29,15 @@ def run(cmd: list[str]) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="DAL CME live prices bridge launcher")
-    parser.add_argument("provider", choices=["databento_historical", "databento_live", "yahoo_delayed"])
+    parser.add_argument("provider", choices=["databento_historical", "databento_historical_poll", "databento_live", "yahoo_delayed"])
     parser.add_argument("--config")
     parser.add_argument("--start")
     parser.add_argument("--end")
+    parser.add_argument("--interval-seconds", type=int, default=300)
+    parser.add_argument("--overlap-minutes", type=int, default=10)
+    parser.add_argument("--bootstrap-minutes", type=int, default=180)
+    parser.add_argument("--end-delay-seconds", type=int, default=90)
+    parser.add_argument("--once", action="store_true")
     args = parser.parse_args()
 
     py = sys.executable
@@ -41,6 +46,12 @@ def main() -> None:
         if not args.start or not args.end:
             raise SystemExit("databento_historical requires --start and --end")
         raise SystemExit(run([py, "tools/cme_bridge/providers/databento_provider.py", "--mode", "historical", "--config", config, "--start", args.start, "--end", args.end]))
+    if args.provider == "databento_historical_poll":
+        config = args.config or "tools/cme_bridge/configs/databento_es_nq.example.json"
+        cmd = [py, "tools/cme_bridge/dal_cme_historical_poller.py", "--config", config, "--interval-seconds", str(args.interval_seconds), "--overlap-minutes", str(args.overlap_minutes), "--bootstrap-minutes", str(args.bootstrap_minutes), "--end-delay-seconds", str(args.end_delay_seconds)]
+        if args.once:
+            cmd.append("--once")
+        raise SystemExit(run(cmd))
     if args.provider == "databento_live":
         config = args.config or "tools/cme_bridge/configs/databento_es_nq.example.json"
         cmd = [py, "tools/cme_bridge/providers/databento_provider.py", "--mode", "live", "--config", config]

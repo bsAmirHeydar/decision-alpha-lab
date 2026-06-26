@@ -1,31 +1,35 @@
 # EXP0015 CME Live Provider Patch
 
-This patch makes the EXP0015 data bridge able to pull CME-price bars in practice.
+This patch adds a CME-compatible provider layer for EXP0015.
 
-## Provider modes
-
-- `databento_historical`: licensed CME/Globex historical bars through Databento.
-- `databento_live`: licensed CME/Globex live 1-minute OHLCV stream through Databento.
-- `yahoo_delayed`: delayed ES/NQ futures fallback for quick testing without CME credentials.
-
-## Boundary
-
-MQL5 remains source-agnostic. Providers write:
+## Implemented provider modes
 
 ```text
-data/cme/bars/ES_M1.csv
-data/cme/bars/NQ_M1.csv
+databento_historical
+  One-shot historical download for offline research.
+
+databento_live
+  Persistent live Databento stream for licensed CME/Globex data.
+
+databento_historical_poll
+  Near-live incremental historical polling. Default cadence: 300 seconds.
+
+yahoo_delayed
+  Delayed development fallback without CME credentials.
 ```
 
-The existing `dal_cme_bridge.py --mode live_csv_tail` copies those files into MT5 Common Files:
+## Historical polling
 
-```text
-Common/Files/dal/cme/ES_M1.csv
-Common/Files/dal/cme/NQ_M1.csv
+The historical poller is intended for closed-bar monitoring and operational simplicity. It does not request the entire history repeatedly. It reads the latest stored bar, requests a small overlapping range, merges by timestamp, and atomically rewrites the canonical DAL CSV files.
+
+Default command:
+
+```powershell
+python .\tools\cme_bridge\dal_cme_live_prices.py databento_historical_poll `
+  --interval-seconds 300 `
+  --overlap-minutes 10 `
+  --bootstrap-minutes 180 `
+  --end-delay-seconds 90
 ```
 
-EXP0015 reads them through `IMD_DS_EXTERNAL_CSV` in both backtest and live monitor modes.
-
-## Licensing
-
-True real-time CME requires licensed market-data access. The code is a connector; it does not include credentials or entitlements.
+See `tools/cme_bridge/README.md` for the full operational guide.

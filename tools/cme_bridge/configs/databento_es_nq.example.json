@@ -8,5 +8,9 @@
   "symbols": {
     "ES": "ES.c.0",
     "NQ": "NQ.c.0"
-  }
+  },
+  "historical_poll_seconds": 300,
+  "historical_overlap_minutes": 10,
+  "historical_bootstrap_minutes": 180,
+  "historical_end_delay_seconds": 90
 }
