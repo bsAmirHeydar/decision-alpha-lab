@@ -102,7 +102,7 @@ python tools/astro_validation/astro_final_entry_report.py ^
   --out-xlsx lab/03_experiments/EXP0013_astro_feature_store/reports/astro_final_entry_report.xlsx ^
   --config tools/astro_feature_builder/astro_config.example.json ^
   --families A0001 A0002 A0003 A0004 A0005 A0006 A0007 ^
-  --profile pure_strict ^
+  --profile pure_strict_tuned ^
   --also-csv
 ```
 
@@ -131,7 +131,7 @@ There is also a Common Files helper:
 .\tools\astro_validation\build_final_entry_report_common.ps1 `
   -CsvName "astro_live_mql.csv" `
   -OutName "astro_final_entry_report.xlsx" `
-  -Profile "pure_strict" `
+  -Profile "pure_strict_tuned" `
   -AlsoCsv
 ```
 

@@ -164,6 +164,8 @@ The default final-entry workflow is now `pure_strict`, which excludes the live s
 
 The current tuned candidate inside the repo is `pure_strict_tuned`.
 
+The unified dashboard now includes a `FINAL` tab for the row-level final pure-astro verdict.
+
 The repo now also includes a finalization suite and a purity calibrator so a real astro CSV can be pushed through family validation, final-entry consensus, and threshold recommendations without Strategy Tester.
 
 ## Important note

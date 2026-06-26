@@ -3,7 +3,7 @@ param(
   [string]$OutName = "astro_final_entry_report.xlsx",
   [string]$ConfigPath = ".\\tools\\astro_feature_builder\\astro_config.example.json",
   [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007"),
-  [string]$Profile = "pure_strict",
+  [string]$Profile = "pure_strict_tuned",
   [switch]$AlsoCsv
 )
 

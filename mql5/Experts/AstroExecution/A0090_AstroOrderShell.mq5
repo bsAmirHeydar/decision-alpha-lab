@@ -6,6 +6,7 @@
 #include <Research/DAL_AstroFamilyThresholds.mqh>
 #include <Research/DAL_AstroExecutionJournal.mqh>
 #include <Research/DAL_AstroPureAstrologySignals.mqh>
+#include <Research/DAL_AstroFinalDoctrine.mqh>
 #include <Research/DAL_AstroSignalWindows.mqh>
 
 input string          InpAstroCsvFile         = "astro_live_mql.csv";
@@ -114,28 +115,18 @@ bool A0090_ProcessRow(const DAL_AstroMapRow &row, const bool verbose)
    DAL_AstroPureSignal gated = signal;
    if(InpStrictPureMode)
    {
+      DAL_AstroFinalVerdict verdict;
+      DAL_AstroFinalVerdict_Calc(row, signal, verdict);
       bool timing_ready =
          (signal.macro_timing_score >= InpMinMacroTiming &&
           signal.meso_timing_score >= InpMinMesoTiming &&
           signal.micro_timing_score >= InpMinMicroTiming &&
           signal.minute_window_score >= InpMinMinuteWindow &&
           signal.minute_exhaustion_score <= InpMaxMinuteExhaustion);
-
       bool doctrine_ready = true;
       if(InpRequireDoctrineDominance)
-      {
-         bool long_doctrine =
-            (signal.direction_name == "long" &&
-             signal.benefic_support_score >= signal.malefic_pressure_score + 4.0 &&
-             signal.house_lift_score >= signal.house_drag_score + 2.0);
-         bool short_doctrine =
-            (signal.direction_name == "short" &&
-             signal.malefic_pressure_score >= signal.benefic_support_score + 4.0 &&
-             signal.house_drag_score >= signal.house_lift_score + 2.0);
-         doctrine_ready = (long_doctrine || short_doctrine);
-      }
-
-      if(!(timing_ready && doctrine_ready))
+         doctrine_ready = (verdict.purity_state == "pure_entry" || verdict.purity_state == "probe");
+      if(!(timing_ready && doctrine_ready && (verdict.final_decision == "enter_long" || verdict.final_decision == "enter_short")))
          gated.entry_signal = "wait";
    }
 

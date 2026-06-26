@@ -8,6 +8,7 @@
 #include <Research/DAL_AstroMapTypes.mqh>
 #include <Research/DAL_AstroExcelCandleReader.mqh>
 #include <Research/DAL_AstroPureAstrologySignals.mqh>
+#include <Research/DAL_AstroFinalDoctrine.mqh>
 #include <Research/DAL_AstroSignalWindows.mqh>
 
 enum DAL_AstroRawView
@@ -19,7 +20,8 @@ enum DAL_AstroRawView
    ASTRO_RAW_METRICS  = 4,
    ASTRO_RAW_NATAL    = 5,
    ASTRO_RAW_SIGNAL   = 6,
-   ASTRO_RAW_TIMING   = 7
+   ASTRO_RAW_TIMING   = 7,
+   ASTRO_RAW_FINAL    = 8
 };
 
 input string           InpAstroCsvFile          = "astro_live_mql.csv";
@@ -411,8 +413,8 @@ void DAL_GetGrid(DAL_UIGrid &g)
 void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, const bool fallback, const DAL_AstroMapRow &row)
 {
    DAL_Rect(g_prefix + "_HDR_BG", g.x, g.y, g.header_w, g.header_h, InpColorPanel, InpColorBorder);
-   DAL_Label(g_prefix + "_HDR_TITLE", "EXP0013 ASTRO TIMING COCKPIT", g.x + 16, g.y + 8, InpColorInfo, InpFontHero);
-   DAL_Label(g_prefix + "_HDR_SUB", "Macro field, meso gates, micro triggers, minute windows, natal activations, and pure astro execution language", g.x + 16, g.y + 28, InpColorMuted, InpFontSmall);
+   DAL_Label(g_prefix + "_HDR_TITLE", "EXP0013 ASTRO EXECUTION COCKPIT", g.x + 16, g.y + 8, InpColorInfo, InpFontHero);
+   DAL_Label(g_prefix + "_HDR_SUB", "Raw sky state, natal activations, timing doctrine, and final pure-astro entry language in one cockpit", g.x + 16, g.y + 28, InpColorMuted, InpFontSmall);
    DAL_Line(g_prefix + "_HDR_RULE", g.x + 14, g.y + 43, g.header_w - 28, InpColorBorder);
 
    string row_status = !g_loaded ? "CSV NOT LOADED" : (!have_row ? "ROW NOT FOUND" : (exact ? "EXACT ROW" : "FALLBACK ROW"));
@@ -436,8 +438,8 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
       DAL_Label(g_prefix + "_HDR_TIME", tline, g.x + 16, g.y + 74, InpColorMuted, InpFontBody);
    }
 
-   int btn_w = 82;
-   int bx = g.x + g.header_w - 8 * (btn_w + 8) - 18;
+   int btn_w = 76;
+   int bx = g.x + g.header_w - 9 * (btn_w + 8) - 18;
    int by = g.y + 10;
    DAL_Button(g_prefix + "_BTN_OVR", "OVERVIEW", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_OVERVIEW); bx += btn_w + 8;
    DAL_Button(g_prefix + "_BTN_BODY", "BODIES", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_BODIES); bx += btn_w + 8;
@@ -446,7 +448,8 @@ void DAL_DrawHeader(const DAL_UIGrid &g, const bool have_row, const bool exact, 
    DAL_Button(g_prefix + "_BTN_MET", "METRICS", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_METRICS); bx += btn_w + 8;
    DAL_Button(g_prefix + "_BTN_NAT", "NATAL", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_NATAL); bx += btn_w + 8;
    DAL_Button(g_prefix + "_BTN_SIG", "SIGNALS", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_SIGNAL); bx += btn_w + 8;
-   DAL_Button(g_prefix + "_BTN_TIM", "TIMING", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_TIMING);
+   DAL_Button(g_prefix + "_BTN_TIM", "TIMING", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_TIMING); bx += btn_w + 8;
+   DAL_Button(g_prefix + "_BTN_FIN", "FINAL", bx, by, btn_w, InpButtonH, g_view == ASTRO_RAW_FINAL);
 
    bx = g.x + g.header_w - 2 * (128 + 10) - 18;
    by = g.y + 48;
@@ -729,6 +732,43 @@ void DAL_DrawTimingTable(const string key, const int x, const int y, const int w
    DAL_Cell4(key, 9, x + 14, yy, c1, c2, c3, "MinuteCtx", DAL_Short(t.minute_context, 42), "", "", InpColorMuted, InpColorMuted, InpColorMuted);
 }
 
+void DAL_DrawFinalDoctrineTable(const string key, const int x, const int y, const int w, const int h, const DAL_AstroMapRow &row)
+{
+   DAL_Card(key, "FINAL PURE ASTRO DOCTRINE", x, y, w, h);
+   int yy = y + 42;
+   DAL_AstroPureSignal s;
+   if(!DAL_AstroPureSignal_Calc(row, s) || !s.valid)
+   {
+      DAL_Label(g_prefix + "_" + key + "_FAIL", "Final doctrine could not be derived from the current row.", x + 14, yy, InpColorLow, InpFontBody);
+      return;
+   }
+
+   DAL_AstroFinalVerdict v;
+   if(!DAL_AstroFinalVerdict_Calc(row, s, v) || !v.valid)
+   {
+      DAL_Label(g_prefix + "_" + key + "_FAIL2", "Final verdict stack is unavailable.", x + 14, yy, InpColorLow, InpFontBody);
+      return;
+   }
+
+   color verdict_col = InpColorLow;
+   if(v.purity_state == "pure_entry") verdict_col = InpColorHigh;
+   else if(v.purity_state == "probe") verdict_col = InpColorMid;
+   else if(v.purity_state == "exit") verdict_col = InpColorInfo;
+
+   int c1 = 132, c2 = 122, c3 = 120;
+   DAL_Cell4(key, 0, x + 14, yy, c1, c2, c3, "Profile", v.profile_name, "Decision", v.final_decision, InpColorInfo, verdict_col, InpColorMuted);
+   DAL_Cell4(key, 1, x + 14, yy, c1, c2, c3, "Purity", v.purity_state, "Direction", v.direction_name, verdict_col, InpColorText, InpColorMuted);
+   DAL_Cell4(key, 2, x + 14, yy, c1, c2, c3, "Readiness", DoubleToString(v.readiness_score, 1), "Guard", DoubleToString(v.exhaustion_guard, 1), DAL_ScoreColor(v.readiness_score), DAL_ScoreColor(v.exhaustion_guard), InpColorMuted);
+   DAL_Cell4(key, 3, x + 14, yy, c1, c2, c3, "EntryScore", DoubleToString(s.entry_score, 1), "ExitScore", DoubleToString(s.exit_score, 1), DAL_ScoreColor(s.entry_score), DAL_ScoreColor(100.0 - s.exit_score), InpColorMuted);
+   DAL_Cell4(key, 4, x + 14, yy, c1, c2, c3, "Macro", DoubleToString(s.macro_timing_score, 1), "Meso", DoubleToString(s.meso_timing_score, 1), DAL_ScoreColor(s.macro_timing_score), DAL_ScoreColor(s.meso_timing_score), InpColorMuted);
+   DAL_Cell4(key, 5, x + 14, yy, c1, c2, c3, "Micro", DoubleToString(s.micro_timing_score, 1), "Minute", DoubleToString(s.minute_window_score, 1), DAL_ScoreColor(s.micro_timing_score), DAL_ScoreColor(s.minute_window_score), InpColorMuted);
+   DAL_Cell4(key, 6, x + 14, yy, c1, c2, c3, "Exhaust", DoubleToString(s.minute_exhaustion_score, 1), "State", s.trigger_state, DAL_ScoreColor(100.0 - s.minute_exhaustion_score), InpColorText, InpColorMuted);
+   DAL_Cell4(key, 7, x + 14, yy, c1, c2, c3, "Benefic", DoubleToString(s.benefic_support_score, 1), "Malefic", DoubleToString(s.malefic_pressure_score, 1), DAL_ScoreColor(s.benefic_support_score), DAL_ScoreColor(100.0 - s.malefic_pressure_score), InpColorMuted);
+   DAL_Cell4(key, 8, x + 14, yy, c1, c2, c3, "Lift", DoubleToString(s.house_lift_score, 1), "Drag", DoubleToString(s.house_drag_score, 1), DAL_ScoreColor(s.house_lift_score), DAL_ScoreColor(100.0 - s.house_drag_score), InpColorMuted);
+   DAL_Cell4(key, 9, x + 14, yy, c1, c2, c3, "Angular", DoubleToString(s.angular_power_score, 1), "Veto", DAL_Short(v.veto_reason == "" ? "none" : v.veto_reason, 34), DAL_ScoreColor(s.angular_power_score), v.veto_reason == "" ? InpColorHigh : InpColorLow, InpColorMuted);
+   DAL_Cell4(key, 10, x + 14, yy, c1, c2, c3, "Context", DAL_Short(s.doctrine_context, 40), "TradeKey", DAL_Short(s.astro_trade_key, 30), InpColorMuted, InpColorMuted, InpColorMuted);
+}
+
 void DAL_DrawDiagnostics(const DAL_UIGrid &g, const DAL_AstroMapRow &row, const bool have_row, const bool exact, const bool fallback)
 {
    int h = MathMax(240, g.panel_h);
@@ -782,6 +822,12 @@ void DAL_DrawSkySnapshot(const DAL_UIGrid &g, const DAL_AstroMapRow &row)
       DAL_Cell4("SNAP", 6, g.main_x + 14, yy, c1, c2, c3, "Entry", s.entry_signal, "Exit", s.exit_signal, InpColorInfo, InpColorMuted, InpColorMuted);
    if(have_signal)
       DAL_Cell4("SNAP", 7, g.main_x + 14, yy, c1, c2, c3, "Sect", s.sect_name, "Benefic", DoubleToString(s.benefic_support_score, 1), InpColorInfo, DAL_ScoreColor(s.benefic_support_score), InpColorMuted);
+   if(have_signal)
+   {
+      DAL_AstroFinalVerdict v;
+      if(DAL_AstroFinalVerdict_Calc(row, s, v) && v.valid)
+         DAL_Cell4("SNAP", 8, g.main_x + 14, yy, c1, c2, c3, "Final", v.final_decision, "Purity", v.purity_state, v.purity_state == "pure_entry" ? InpColorHigh : (v.purity_state == "probe" ? InpColorMid : InpColorLow), InpColorMuted, InpColorMuted);
+   }
    DAL_DrawMetricsTable("MET_OVR", g.main_x, snap_y + h + InpGap, g.card_w, 248, row);
    DAL_DrawAspectsTable("ASP_OVR", g.col2_x, snap_y + h + InpGap, g.card_w, 248, row, 8);
 }
@@ -857,6 +903,11 @@ void DAL_Render(const bool allow_reload = true)
       DAL_DrawTimingTable("TIMING_BIG", g.main_x, g.main_y, g.card_w, g.panel_h, row);
       DAL_DrawSignalTable("SIGNALS_TIM", g.col2_x, g.main_y, g.card_w, 360, row);
    }
+   else if(g_view == ASTRO_RAW_FINAL)
+   {
+      DAL_DrawFinalDoctrineTable("FINAL_BIG", g.main_x, g.main_y, g.card_w, g.panel_h, row);
+      DAL_DrawTimingTable("FINAL_TIMING", g.col2_x, g.main_y, g.card_w, g.panel_h, row);
+   }
 
    DAL_DrawDiagnostics(g, row, have_row, exact, fallback);
 
@@ -902,6 +953,7 @@ void OnChartEvent(const int id, const long &lparam, const double &dparam, const 
    else if(sparam == g_prefix + "_BTN_NAT") { g_view = ASTRO_RAW_NATAL; changed = true; }
    else if(sparam == g_prefix + "_BTN_SIG") { g_view = ASTRO_RAW_SIGNAL; changed = true; }
    else if(sparam == g_prefix + "_BTN_TIM") { g_view = ASTRO_RAW_TIMING; changed = true; }
+   else if(sparam == g_prefix + "_BTN_FIN") { g_view = ASTRO_RAW_FINAL; changed = true; }
    else if(sparam == g_prefix + "_BTN_MIN") { g_minimized = !g_minimized; changed = true; }
    else if(sparam == g_prefix + "_BTN_RELOAD") { DAL_LoadStore(); changed = true; }
    if(changed) g_force_rebuild = true;
