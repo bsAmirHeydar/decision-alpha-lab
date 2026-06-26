@@ -138,9 +138,10 @@ bool DAL_AstroTD_Calc(const DAL_AstroMapRow &row, DAL_AstroTimingState &t)
    t.macro_bias_score = DAL_AstroTD_Clamp(MathAbs(macro_long - macro_short));
    t.macro_alignment_score = DAL_AstroTD_Clamp(0.34 * (100.0 - f.macro_transition) + 0.24 * f.structural_bias + 0.22 * MathMax(mars_ang, sun_ang) + 0.20 * MathMax(jupiter_ang, saturn_ang));
    t.macro_alignment_score = DAL_AstroTD_Clamp(
-      0.88 * t.macro_alignment_score +
+      0.80 * t.macro_alignment_score +
       0.08 * row.solar_quarter_score +
-      0.04 * (100.0 - row.eclipse_proximity_score)
+      0.04 * (100.0 - row.eclipse_proximity_score) +
+      0.08 * (100.0 - row.nodal_pressure_score)
    );
 
    if(macro_long >= macro_short + 6.0)
@@ -186,8 +187,9 @@ bool DAL_AstroTD_Calc(const DAL_AstroMapRow &row, DAL_AstroTimingState &t)
       0.08 * (100.0 - f.m1_dirty_window)
    );
    t.minute_window_score = DAL_AstroTD_Clamp(
-      0.90 * t.minute_window_score +
-      0.10 * row.solar_quarter_score
+      0.84 * t.minute_window_score +
+      0.10 * row.solar_quarter_score +
+      0.06 * (100.0 - row.nodal_pressure_score)
    );
    t.minute_exhaustion_score = DAL_AstroTD_Clamp(
       0.26 * f.m1_dirty_window +
@@ -197,8 +199,9 @@ bool DAL_AstroTD_Calc(const DAL_AstroMapRow &row, DAL_AstroTimingState &t)
       0.16 * mercury_station
    );
    t.minute_exhaustion_score = DAL_AstroTD_Clamp(
-      0.86 * t.minute_exhaustion_score +
-      0.14 * row.eclipse_proximity_score
+      0.78 * t.minute_exhaustion_score +
+      0.14 * row.eclipse_proximity_score +
+      0.08 * row.nodal_pressure_score
    );
 
    t.macro_context = "macro:" + t.macro_direction +
@@ -221,7 +224,8 @@ bool DAL_AstroTD_Calc(const DAL_AstroMapRow &row, DAL_AstroTimingState &t)
       "|m1clean=" + DAL_AstroFM_Bucket(f.m1_clean_window) +
       "|m1dirty=" + DAL_AstroFM_Bucket(f.m1_dirty_window) +
       "|quarter=" + DAL_AstroFM_Bucket(row.solar_quarter_score) +
-      "|eclipse=" + DAL_AstroFM_Bucket(row.eclipse_proximity_score);
+      "|eclipse=" + DAL_AstroFM_Bucket(row.eclipse_proximity_score) +
+      "|node=" + DAL_AstroFM_Bucket(row.nodal_pressure_score);
 
    t.trigger_state = "standby";
    if(t.macro_direction != "flat" && t.macro_alignment_score >= 58.0 && t.meso_gate_score >= 54.0)

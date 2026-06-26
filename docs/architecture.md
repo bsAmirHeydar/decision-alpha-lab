@@ -76,3 +76,17 @@ A result should not be promoted to strategy status before level 3 or 4.
 ## Design principle
 
 Research logic may begin in Python or debug MQL5, but accepted live-valid contracts must be implemented in shared modules and used by the main Experts.
+
+---
+
+## Astro stack
+
+The astro research branch follows the same layered rule:
+
+1. Python generates the canonical raw astro map.
+2. MQL5 loads the raw map through shared CSV readers.
+3. Shared doctrine modules derive classical/traditional structure such as sect, dignity, triplicity, decan, solar condition, reception, rulership chain, nodal pressure, and eclipse state.
+4. Timing/doctrine/signal modules convert that raw sky state into macro, meso, micro, and minute astro execution language.
+5. Dashboard and execution Experts consume the same shared doctrine objects so UI and execution remain aligned.
+
+The intent is that no astro signal should come from ad hoc UI logic or isolated script math. Raw map, doctrine layer, timing layer, and signal layer must stay traceable end to end.

@@ -70,7 +70,7 @@ python tools/astro_feature_builder/astro_feature_builder.py `
   --natal-lon 51.3890 `
   --natal-label "gold_ref" `
   --doctrine-id "astro_only_doctrine_v1" `
-  --schema-version "astro_feature_schema_v2" `
+  --schema-version "astro_feature_schema_v4" `
   --ephe-path "tools/astro_feature_builder/ephe" `
   --out-csv "data/astro/astro_XAUUSD_M1_202401_mql.csv"
 ```

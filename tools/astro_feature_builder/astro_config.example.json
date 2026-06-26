@@ -19,7 +19,7 @@
   },
   "doctrine": {
     "id": "astro_only_doctrine_v1",
-    "schema_version": "astro_feature_schema_v3",
+    "schema_version": "astro_feature_schema_v4",
     "zodiac_mode": "tropical",
     "body_universe": "major7_outer_nodes",
     "house_system": "P",

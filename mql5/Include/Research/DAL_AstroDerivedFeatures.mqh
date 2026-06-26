@@ -116,6 +116,8 @@ string DAL_AstroDF_AppendBodyCore(string key, const DAL_AstroMapRow &row, const 
    key = DAL_AstroDF_KeyAppend(key, body_name + "_speed_state", speed_state);
    key = DAL_AstroDF_KeyAppend(key, body_name + "_dignity", b.dignity_state != "" ? b.dignity_state : "unknown");
    key = DAL_AstroDF_KeyAppend(key, body_name + "_dispositor", b.dispositor != "" ? b.dispositor : "unknown");
+   key = DAL_AstroDF_KeyAppend(key, body_name + "_triplicity", b.triplicity_role != "" ? b.triplicity_role : "unknown");
+   key = DAL_AstroDF_KeyAppend(key, body_name + "_solar", b.solar_condition != "" ? b.solar_condition : "unknown");
    key = DAL_AstroDF_KeyAppend(key, body_name + "_decl_zone", DAL_AstroDF_DeclinationZone(b));
    return key;
 }
@@ -147,6 +149,8 @@ string DAL_AstroDF_BuildResearchKey(const DAL_AstroMapRow &row)
    key = DAL_AstroDF_KeyAppend(key, "moon_phase", row.moon_phase_bucket);
    key = DAL_AstroDF_KeyAppend(key, "moon_phase_half", row.moon_phase_half != "" ? row.moon_phase_half : DAL_AstroDF_PhaseHalf(row.moon_phase_bucket));
    key = DAL_AstroDF_KeyAppend(key, "solar_quarter", row.solar_quarter_name);
+   key = DAL_AstroDF_KeyAppend(key, "sect", row.sect_name);
+   key = DAL_AstroDF_KeyAppend(key, "nodal_state", row.nodal_state);
    key = DAL_AstroDF_KeyAppend(key, "eclipse_state", row.eclipse_state);
    key = DAL_AstroDF_KeyAppend(key, "node_axis", row.node_axis_sign);
    key = DAL_AstroDF_KeyAppend(key, "mutual_reception", IntegerToString(row.mutual_reception_count));
@@ -178,6 +182,7 @@ string DAL_AstroDF_BuildCompactExecutionKey(const DAL_AstroMapRow &row)
 
    key = DAL_AstroDF_KeyAppend(key, "moon_phase_half", DAL_AstroDF_PhaseHalf(row.moon_phase_bucket));
    key = DAL_AstroDF_KeyAppend(key, "solar_quarter", row.solar_quarter_name);
+   key = DAL_AstroDF_KeyAppend(key, "nodal_state", row.nodal_state);
    key = DAL_AstroDF_KeyAppend(key, "eclipse_state", row.eclipse_state);
    key = DAL_AstroDF_KeyAppend(key, "mutual_reception", IntegerToString(row.mutual_reception_count));
    key = DAL_AstroDF_KeyAppend(key, "moon_element", DAL_AstroDF_SignElement(row.body[moon].sign));

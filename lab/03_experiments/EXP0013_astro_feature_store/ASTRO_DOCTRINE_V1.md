@@ -10,7 +10,7 @@ This document freezes the first formal doctrine snapshot for the EXP0013 astro-o
 - aspect family: `major_ptolemaic_6deg`
 - parallel orb limit: `1.0`
 - doctrine id: `astro_only_doctrine_v1`
-- schema version: `astro_feature_schema_v2`
+- schema version: `astro_feature_schema_v4`
 
 ## House semantics
 

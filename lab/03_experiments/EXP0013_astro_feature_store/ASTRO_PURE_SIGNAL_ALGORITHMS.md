@@ -58,6 +58,8 @@ The current long bias is a weighted combination of:
 - Moon flow
 - Mars element impulse
 - Mars modality drive
+- Mars condition quality
+- Jupiter condition quality
 
 Interpretation:
 This is the expansion / drive side of the doctrine.
@@ -71,6 +73,8 @@ The current short bias is a weighted combination of:
 - Moon pressure
 - inverse Jupiter support
 - Moon water-reactive emphasis
+- Saturn condition quality
+- inverse Moon condition stability
 
 Interpretation:
 This is the compression / resistance side of the doctrine.
@@ -180,6 +184,32 @@ The raw doctrine now also exports:
 Interpretation:
 This is an internal coherence layer. It does not force direction by itself, but it tells the doctrine whether the active sign-rulership structure is more self-supporting or more scattered.
 
+## Traditional condition layer
+
+The signal layer now directly uses a body-condition score built from:
+
+- essential dignity
+- triplicity role / score
+- solar condition (`cazimi`, `combust`, `under_beams`, `free`)
+- decan affinity
+- station intensity
+- ingress intensity
+- retrograde state
+
+Interpretation:
+This prevents the newer traditional fields from staying dashboard-only. They now contribute to directional emphasis and entry quality.
+
+## Node / eclipse pressure layer
+
+The signal engine now treats the nodal and eclipse surface as explicit doctrine pressure:
+
+- `nodal_state` and `nodal_pressure_score` increase friction, compression, and event intensity
+- `eclipse_family_phase` and eclipse proximity increase volatility and exit pressure
+- hot-node plus eclipse-peak combinations can force an `event_peak` regime
+
+Interpretation:
+This is an event-field layer. It is not market volatility; it is astrological concentration and release pressure.
+
 ## House doctrine layer
 
 The signal layer now adds a distinct house-context surface:
@@ -205,6 +235,10 @@ This sharpens the older broad angularity model by separating power from directio
 - path score
 - volatility score
 - natal activation score
+- macro / meso / micro timing
+- house lift
+- reception / rulership chain support
+- solar quarter emphasis
 
 Interpretation:
 An entry is promoted only when direction, path, and activation are aligned strongly enough.
@@ -216,6 +250,10 @@ An entry is promoted only when direction, path, and activation are aligned stron
 - friction score
 - pullback risk
 - dirty-window score
+- minute exhaustion
+- house drag
+- nodal pressure
+- eclipse pressure
 
 Interpretation:
 This is the current hazard stack. It says the sky has become less supportive for holding.

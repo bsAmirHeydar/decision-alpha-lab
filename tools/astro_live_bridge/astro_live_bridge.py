@@ -88,7 +88,7 @@ def run_builder(
     natal_house_system: str = "P",
     natal_label: str = "",
     doctrine_id: str = "astro_only_doctrine_v1",
-    schema_version: str = "astro_feature_schema_v2",
+    schema_version: str = "astro_feature_schema_v4",
     zodiac_mode: str = "tropical",
     body_universe: str = "major7_outer_nodes",
     orb_family: str = "major_ptolemaic_6deg",
@@ -256,7 +256,7 @@ def main() -> int:
     ap.add_argument("--natal-house-system", default="P", help="Natal house system code")
     ap.add_argument("--natal-label", default="", help="Optional natal chart label")
     ap.add_argument("--doctrine-id", default="astro_only_doctrine_v1")
-    ap.add_argument("--schema-version", default="astro_feature_schema_v2")
+    ap.add_argument("--schema-version", default="astro_feature_schema_v4")
     ap.add_argument("--zodiac-mode", default="tropical")
     ap.add_argument("--body-universe", default="major7_outer_nodes")
     ap.add_argument("--orb-family", default="major_ptolemaic_6deg")

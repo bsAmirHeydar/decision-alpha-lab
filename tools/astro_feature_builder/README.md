@@ -75,10 +75,12 @@ The current schema also exports doctrine-ready raw layers that were previously o
 - `*_speed_state`, `*_station_intensity`, `*_ingress_intensity`
 - `*_dignity_state`, `*_dignity_score`, `*_dispositor`
 - `mutual_reception_count`, `mutual_reception_pairs`, `rulership_chain_score`
+- `*_triplicity_role`, `*_triplicity_score`, `*_decan_ruler`
+- `*_solar_condition`, `*_solar_separation`
 - `moon_phase_half`
 - `solar_quarter_name`, `solar_quarter_score`
-- `node_axis_sign`
-- `eclipse_proximity_score`, `eclipse_state`
+- `sect_name`, `node_axis_sign`, `nodal_pressure_score`, `nodal_state`
+- `eclipse_proximity_score`, `eclipse_state`, `eclipse_family_phase`
 
 These fields stay fully causal because they are derived only from the candle-open sky state.
 
@@ -100,7 +102,7 @@ That makes each CSV self-describing, which is important when multiple astro doct
 Current default schema:
 
 ```text
-astro_feature_schema_v3
+astro_feature_schema_v4
 ```
 
 ## JSON config

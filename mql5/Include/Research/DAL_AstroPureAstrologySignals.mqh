@@ -58,6 +58,57 @@ double DAL_AstroPS_ModalityDrive(const string modality)
    return 50.0;
 }
 
+double DAL_AstroPS_DecanAffinity(const DAL_AstroBodyState &b)
+{
+   if(b.decan_ruler == "" || b.decan_ruler == "unknown")
+      return 50.0;
+   if(b.decan_ruler == b.name)
+      return 92.0;
+   if((b.name == "venus" || b.name == "jupiter") && (b.decan_ruler == "venus" || b.decan_ruler == "jupiter"))
+      return 72.0;
+   if((b.name == "mars" || b.name == "saturn") && (b.decan_ruler == "mars" || b.decan_ruler == "saturn"))
+      return 68.0;
+   return 42.0;
+}
+
+double DAL_AstroPS_BodyConditionScore(const DAL_AstroBodyState &b)
+{
+   double station_support = b.station_intensity > 0.0 ? (100.0 - 0.45 * b.station_intensity) : 72.0;
+   double ingress_support = b.ingress_intensity > 0.0 ? (55.0 + 0.25 * b.ingress_intensity) : 62.0;
+   double retro_support = b.retro == 1 ? 44.0 : 72.0;
+   double condition =
+      0.34 * DAL_AstroDC_DignityScore(b) +
+      0.18 * DAL_AstroDC_TriplicityScore(b) +
+      0.18 * DAL_AstroDC_SolarConditionScore(b) +
+      0.14 * DAL_AstroPS_DecanAffinity(b) +
+      0.08 * station_support +
+      0.04 * ingress_support +
+      0.04 * retro_support;
+   return MathMin(100.0, MathMax(0.0, condition));
+}
+
+double DAL_AstroPS_NodeImpulse(const DAL_AstroMapRow &row)
+{
+   if(row.nodal_state == "hot")
+      return 92.0;
+   if(row.nodal_state == "active")
+      return 68.0;
+   return 28.0;
+}
+
+double DAL_AstroPS_EclipseImpulse(const DAL_AstroMapRow &row)
+{
+   if(row.eclipse_family_phase == "peak")
+      return 96.0;
+   if(row.eclipse_family_phase == "pre")
+      return 76.0;
+   if(row.eclipse_family_phase == "release")
+      return 64.0;
+   if(row.eclipse_state == "watch")
+      return 46.0;
+   return 18.0;
+}
+
 double DAL_AstroPS_TightTransitNatalScore(const DAL_AstroMapRow &row, const string pair_name)
 {
    for(int i = 0; i < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; i++)
@@ -217,20 +268,31 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
    string mars_element = DAL_AstroDF_SignElement(row.body[mars].sign);
    string moon_element = DAL_AstroDF_SignElement(row.body[moon].sign);
    string mars_modality = DAL_AstroDF_SignModality(row.body[mars].sign);
+   double mars_condition = DAL_AstroPS_BodyConditionScore(row.body[mars]);
+   double jupiter_condition = DAL_AstroPS_BodyConditionScore(row.body[jupiter]);
+   double saturn_condition = DAL_AstroPS_BodyConditionScore(row.body[saturn]);
+   double moon_condition = DAL_AstroPS_BodyConditionScore(row.body[moon]);
+   double node_impulse = DAL_AstroPS_NodeImpulse(row);
+   double eclipse_impulse = DAL_AstroPS_EclipseImpulse(row);
+   bool sect_day = (d.sect_name == "day");
 
    s.long_bias_score =
-      0.32 * f.mars_impulse +
+      0.24 * f.mars_impulse +
       0.22 * f.jupiter_support +
-      0.18 * f.moon_flow +
-      0.18 * DAL_AstroPS_ElementImpulse(mars_element) +
-      0.10 * DAL_AstroPS_ModalityDrive(mars_modality);
+      0.14 * f.moon_flow +
+      0.12 * DAL_AstroPS_ElementImpulse(mars_element) +
+      0.08 * DAL_AstroPS_ModalityDrive(mars_modality) +
+      0.10 * mars_condition +
+      0.10 * jupiter_condition;
 
    s.short_bias_score =
-      0.35 * f.saturn_resistance +
-      0.25 * f.mars_saturn_friction +
-      0.20 * f.moon_pressure +
+      0.28 * f.saturn_resistance +
+      0.22 * f.mars_saturn_friction +
+      0.16 * f.moon_pressure +
       0.10 * (100.0 - f.jupiter_support) +
-      0.10 * (moon_element == "water" ? 80.0 : 45.0);
+      0.08 * (moon_element == "water" ? 80.0 : 45.0) +
+      0.10 * saturn_condition +
+      0.06 * (100.0 - moon_condition);
 
    s.benefic_support_score = d.benefic_support_score;
    s.malefic_pressure_score = d.malefic_pressure_score;
@@ -244,17 +306,30 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
    s.short_bias_score += 0.14 * d.malefic_pressure_score + 0.10 * d.house_drag_score + 0.04 * (100.0 - d.benefic_support_score);
    s.long_bias_score += 0.06 * d.rulership_chain_score + 0.04 * d.reception_score;
    s.short_bias_score += 0.05 * d.rulership_chain_score + 0.03 * d.reception_score;
+   s.long_bias_score += sect_day ? 4.0 : 1.5;
+   s.short_bias_score += sect_day ? 1.5 : 4.0;
+   s.long_bias_score += 0.05 * row.solar_quarter_score;
+   s.short_bias_score += 0.04 * node_impulse;
 
    if(row.body[mars].oob == 1)
       s.long_bias_score += 4.0;
    if(row.body[saturn].oob == 1)
       s.short_bias_score += 4.0;
 
+   if(row.nodal_state == "hot")
+   {
+      s.long_bias_score += 0.03 * eclipse_impulse;
+      s.short_bias_score += 0.04 * eclipse_impulse;
+   }
+
    s.trend_score = MathMin(100.0, MathAbs(s.long_bias_score - s.short_bias_score));
    s.path_score = f.clean_path;
    s.friction_score = MathMin(100.0, f.chop_risk + 0.18 * d.malefic_pressure_score + 0.08 * d.house_drag_score);
    s.volatility_score = (f.breakout_followthrough + f.raw_pressure + f.raw_transition) / 3.0;
    s.volatility_score = MathMin(100.0, 0.86 * s.volatility_score + 0.14 * row.eclipse_proximity_score);
+   s.path_score = MathMin(100.0, 0.90 * s.path_score + 0.10 * d.rulership_chain_score);
+   s.friction_score = MathMin(100.0, 0.88 * s.friction_score + 0.12 * node_impulse);
+   s.volatility_score = MathMin(100.0, 0.82 * s.volatility_score + 0.10 * eclipse_impulse + 0.08 * node_impulse);
 
    for(int d = 0; d < DAL_ASTRO_DECL_PAIR_COUNT; d++)
    {
@@ -304,7 +379,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.10 * s.meso_timing_score +
       0.10 * s.micro_timing_score +
       0.08 * s.house_lift_score;
-   s.entry_score = MathMin(100.0, 0.94 * s.entry_score + 0.06 * row.solar_quarter_score);
+   s.entry_score = MathMin(100.0, 0.88 * s.entry_score + 0.06 * row.solar_quarter_score + 0.03 * d.reception_score + 0.03 * d.rulership_chain_score);
 
    s.exit_score =
       0.30 * s.friction_score +
@@ -314,7 +389,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.16 * s.minute_exhaustion_score +
       0.06 * s.house_drag_score +
       0.08 * (100.0 - s.minute_window_score);
-   s.exit_score = MathMin(100.0, 0.90 * s.exit_score + 0.10 * row.eclipse_proximity_score);
+   s.exit_score = MathMin(100.0, 0.82 * s.exit_score + 0.10 * row.eclipse_proximity_score + 0.04 * node_impulse + 0.04 * eclipse_impulse);
 
    if(t.macro_direction != "flat")
       s.direction_name = t.macro_direction;
@@ -329,6 +404,8 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       s.regime_name = "clean";
    else if(s.volatility_score >= 70.0 && s.micro_timing_score >= 56.0)
       s.regime_name = "volatile";
+   else if(row.nodal_state == "hot" || row.eclipse_family_phase == "peak")
+      s.regime_name = "event_peak";
    else if(s.friction_score >= 65.0 || s.minute_exhaustion_score >= 62.0)
       s.regime_name = "frictional";
    else
@@ -383,6 +460,7 @@ string DAL_AstroPureSignal_ToText(const DAL_AstroMapRow &row, const DAL_AstroPur
    t += "Trend=" + DoubleToString(s.trend_score, 1) + " Path=" + DoubleToString(s.path_score, 1) + " Friction=" + DoubleToString(s.friction_score, 1) + "\n";
    t += "Volatility=" + DoubleToString(s.volatility_score, 1) + " NatalActivation=" + DoubleToString(s.natal_activation_score, 1) + "\n";
    t += "Sect=" + s.sect_name + " Benefic=" + DoubleToString(s.benefic_support_score, 1) + " Malefic=" + DoubleToString(s.malefic_pressure_score, 1) + "\n";
+   t += "Quarter=" + row.solar_quarter_name + " Node=" + row.nodal_state + " Eclipse=" + row.eclipse_family_phase + "\n";
    t += "Angular=" + DoubleToString(s.angular_power_score, 1) + " HouseLift=" + DoubleToString(s.house_lift_score, 1) + " HouseDrag=" + DoubleToString(s.house_drag_score, 1) + "\n";
    t += "Macro=" + DoubleToString(s.macro_timing_score, 1) + " Meso=" + DoubleToString(s.meso_timing_score, 1) + " Micro=" + DoubleToString(s.micro_timing_score, 1) + "\n";
    t += "MinuteWindow=" + DoubleToString(s.minute_window_score, 1) + " MinuteExhaustion=" + DoubleToString(s.minute_exhaustion_score, 1) + " State=" + s.trigger_state + "\n";

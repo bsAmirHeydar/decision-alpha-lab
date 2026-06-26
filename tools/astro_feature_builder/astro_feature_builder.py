@@ -93,7 +93,7 @@ DEFAULT_ASPECT_PAIRS = [
 ]
 
 DEFAULT_DOCTRINE_ID = "astro_only_doctrine_v1"
-DEFAULT_SCHEMA_VERSION = "astro_feature_schema_v3"
+DEFAULT_SCHEMA_VERSION = "astro_feature_schema_v4"
 DEFAULT_ZODIAC_MODE = "tropical"
 DEFAULT_BODY_UNIVERSE = "major7_outer_nodes"
 DEFAULT_ORB_FAMILY = "major_ptolemaic_6deg"
@@ -113,6 +113,28 @@ RULERSHIP = {
     "capricorn": "saturn",
     "aquarius": "saturn",
     "pisces": "jupiter",
+}
+
+TRIPLICITY_RULERS = {
+    "fire": ("sun", "jupiter", "saturn"),
+    "earth": ("venus", "moon", "mars"),
+    "air": ("saturn", "mercury", "jupiter"),
+    "water": ("venus", "mars", "moon"),
+}
+
+TRADITIONAL_DECAN_RULERS = {
+    "aries": ("mars", "sun", "venus"),
+    "taurus": ("mercury", "moon", "saturn"),
+    "gemini": ("jupiter", "mars", "sun"),
+    "cancer": ("venus", "mercury", "moon"),
+    "leo": ("saturn", "jupiter", "mars"),
+    "virgo": ("sun", "venus", "mercury"),
+    "libra": ("moon", "saturn", "jupiter"),
+    "scorpio": ("mars", "sun", "venus"),
+    "sagittarius": ("mercury", "moon", "saturn"),
+    "capricorn": ("jupiter", "mars", "sun"),
+    "aquarius": ("venus", "mercury", "moon"),
+    "pisces": ("saturn", "jupiter", "mars"),
 }
 
 
@@ -244,11 +266,15 @@ class AstroRow:
     moon_phase_bucket: str = "unknown"
     moon_phase_half: str = "unknown"
     moon_illumination_proxy: float = 0.0
+    sect_name: str = "unknown"
     solar_quarter_name: str = "unknown"
     solar_quarter_score: float = 0.0
     node_axis_sign: str = ""
+    nodal_pressure_score: float = 0.0
+    nodal_state: str = "quiet"
     eclipse_proximity_score: float = 0.0
     eclipse_state: str = "none"
+    eclipse_family_phase: str = "none"
     mutual_reception_count: int = 0
     mutual_reception_pairs: str = ""
     rulership_chain_score: float = 0.0
@@ -488,6 +514,81 @@ def sign_dispositor(sign_name: str) -> str:
     return RULERSHIP.get(sign_name, "unknown")
 
 
+def sign_element(sign_name: str) -> str:
+    if sign_name in ("aries", "leo", "sagittarius"):
+        return "fire"
+    if sign_name in ("taurus", "virgo", "capricorn"):
+        return "earth"
+    if sign_name in ("gemini", "libra", "aquarius"):
+        return "air"
+    if sign_name in ("cancer", "scorpio", "pisces"):
+        return "water"
+    return "unknown"
+
+
+def triplicity_role(body_name: str, sign_name: str, sect_name: str) -> str:
+    element = sign_element(sign_name)
+    if element not in TRIPLICITY_RULERS:
+        return "none"
+    day_ruler, night_ruler, participating = TRIPLICITY_RULERS[element]
+    if body_name == participating:
+        return "participating"
+    if sect_name == "day" and body_name == day_ruler:
+        return "sect_ruler"
+    if sect_name == "night" and body_name == night_ruler:
+        return "sect_ruler"
+    if body_name == day_ruler or body_name == night_ruler:
+        return "co_ruler"
+    return "none"
+
+
+def triplicity_score(body_name: str, sign_name: str, sect_name: str) -> float:
+    role = triplicity_role(body_name, sign_name, sect_name)
+    if role == "sect_ruler":
+        return 92.0
+    if role == "participating":
+        return 72.0
+    if role == "co_ruler":
+        return 58.0
+    return 18.0
+
+
+def traditional_decan_ruler(sign_name: str, degree_in_sign: float) -> str:
+    rulers = TRADITIONAL_DECAN_RULERS.get(sign_name)
+    if not rulers:
+        return "unknown"
+    idx = 0 if degree_in_sign < 10.0 else (1 if degree_in_sign < 20.0 else 2)
+    return rulers[idx]
+
+
+def solar_condition(body_name: str, separation_from_sun: float) -> str:
+    if body_name in ("sun", "moon", "true_node", "mean_node"):
+        return "n/a"
+    if separation_from_sun <= 0.283:
+        return "cazimi"
+    if separation_from_sun <= 8.0:
+        return "combust"
+    if separation_from_sun <= 17.0:
+        return "under_beams"
+    return "free"
+
+
+def nodal_pressure_score(moon_lon: float, sun_lon: float, true_node_lon: float) -> float:
+    moon_gap = angular_distance_180(moon_lon, true_node_lon)
+    sun_gap = angular_distance_180(sun_lon, true_node_lon)
+    moon_score = max(0.0, 100.0 * (1.0 - min(moon_gap, 30.0) / 30.0))
+    sun_score = max(0.0, 100.0 * (1.0 - min(sun_gap, 30.0) / 30.0))
+    return max(0.0, min(100.0, 0.6 * moon_score + 0.4 * sun_score))
+
+
+def nodal_state(score: float) -> str:
+    if score >= 70.0:
+        return "hot"
+    if score >= 40.0:
+        return "active"
+    return "quiet"
+
+
 def solar_quarter_name(sun_lon: float) -> str:
     idx = int(math.floor(norm360(sun_lon) / 90.0)) % 4
     return ("aries_gate", "cancer_gate", "libra_gate", "capricorn_gate")[idx]
@@ -533,6 +634,16 @@ def eclipse_state(score: float) -> str:
     if score >= 35.0:
         return "watch"
     return "none"
+
+
+def eclipse_family_phase(eclipse_score: float, moon_phase_half_name: str) -> str:
+    if eclipse_score < 35.0:
+        return "none"
+    if eclipse_score >= 70.0:
+        return "peak"
+    if moon_phase_half_name in ("waxing", "new"):
+        return "pre"
+    return "release"
 
 
 def mutual_reception_pairs(planets: Dict[str, PlanetState], body_names: Sequence[str]) -> List[str]:
@@ -979,15 +1090,19 @@ def generate_rows(
         row.moon_phase_bucket = moon_phase_bucket(row.moon_phase_angle)
         row.moon_phase_half = moon_phase_half(row.moon_phase_bucket)
         row.moon_illumination_proxy = (1.0 - math.cos(math.radians(row.moon_phase_angle))) / 2.0
+        row.sect_name = "day" if (row.houses_valid and row.planets["sun"].house >= 7 and row.planets["sun"].house <= 12) else ("night" if row.houses_valid else "unknown")
         row.solar_quarter_name = solar_quarter_name(row.planets["sun"].lon)
         row.solar_quarter_score = solar_quarter_score(row.planets["sun"].lon)
         row.node_axis_sign = row.planets["true_node"].sign_name
+        row.nodal_pressure_score = nodal_pressure_score(row.planets["moon"].lon, row.planets["sun"].lon, row.planets["true_node"].lon)
+        row.nodal_state = nodal_state(row.nodal_pressure_score)
         row.eclipse_proximity_score = eclipse_proximity_score(
             row.planets["moon"].lon,
             row.planets["sun"].lon,
             row.planets["true_node"].lon,
         )
         row.eclipse_state = eclipse_state(row.eclipse_proximity_score)
+        row.eclipse_family_phase = eclipse_family_phase(row.eclipse_proximity_score, row.moon_phase_half)
         mr_pairs = mutual_reception_pairs(row.planets, CORE_BODIES)
         row.mutual_reception_count = len(mr_pairs)
         row.mutual_reception_pairs = ";".join(mr_pairs)
@@ -1075,11 +1190,15 @@ def make_headers() -> List[str]:
         "moon_phase_bucket",
         "moon_phase_half",
         "moon_illumination_proxy",
+        "sect_name",
         "solar_quarter_name",
         "solar_quarter_score",
         "node_axis_sign",
+        "nodal_pressure_score",
+        "nodal_state",
         "eclipse_proximity_score",
         "eclipse_state",
+        "eclipse_family_phase",
         "mutual_reception_count",
         "mutual_reception_pairs",
         "rulership_chain_score",
@@ -1126,6 +1245,11 @@ def make_headers() -> List[str]:
             f"{p}_dignity_state",
             f"{p}_dignity_score",
             f"{p}_dispositor",
+            f"{p}_triplicity_role",
+            f"{p}_triplicity_score",
+            f"{p}_decan_ruler",
+            f"{p}_solar_condition",
+            f"{p}_solar_separation",
             f"{p}_sign",
             f"{p}_sign_index",
             f"{p}_degree",
@@ -1150,6 +1274,11 @@ def make_headers() -> List[str]:
             f"natal_{p}_dignity_state",
             f"natal_{p}_dignity_score",
             f"natal_{p}_dispositor",
+            f"natal_{p}_triplicity_role",
+            f"natal_{p}_triplicity_score",
+            f"natal_{p}_decan_ruler",
+            f"natal_{p}_solar_condition",
+            f"natal_{p}_solar_separation",
             f"natal_{p}_sign",
             f"natal_{p}_sign_index",
             f"natal_{p}_degree",
@@ -1204,11 +1333,15 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         "moon_phase_bucket": row.moon_phase_bucket,
         "moon_phase_half": row.moon_phase_half,
         "moon_illumination_proxy": f"{row.moon_illumination_proxy:.8f}",
+        "sect_name": row.sect_name,
         "solar_quarter_name": row.solar_quarter_name,
         "solar_quarter_score": f"{row.solar_quarter_score:.8f}",
         "node_axis_sign": row.node_axis_sign,
+        "nodal_pressure_score": f"{row.nodal_pressure_score:.8f}",
+        "nodal_state": row.nodal_state,
         "eclipse_proximity_score": f"{row.eclipse_proximity_score:.8f}",
         "eclipse_state": row.eclipse_state,
+        "eclipse_family_phase": row.eclipse_family_phase,
         "mutual_reception_count": row.mutual_reception_count,
         "mutual_reception_pairs": row.mutual_reception_pairs,
         "rulership_chain_score": f"{row.rulership_chain_score:.8f}",
@@ -1241,6 +1374,7 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         d[f"natal_house_{h}_cusp"] = f"{natal_cusps[h - 1]:.8f}"
     for p, _ in PLANETS:
         st = row.planets[p]
+        solar_sep = angular_distance_180(st.lon, row.planets["sun"].lon)
         d.update({
             f"{p}_lon": f"{st.lon:.8f}",
             f"{p}_lat": f"{st.lat:.8f}",
@@ -1258,16 +1392,26 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{p}_dignity_state": st.dignity_state,
             f"{p}_dignity_score": f"{st.dignity_score:.8f}",
             f"{p}_dispositor": st.dispositor,
+            f"{p}_triplicity_role": triplicity_role(p, st.sign_name, row.sect_name),
+            f"{p}_triplicity_score": f"{triplicity_score(p, st.sign_name, row.sect_name):.8f}",
+            f"{p}_decan_ruler": traditional_decan_ruler(st.sign_name, st.degree_in_sign),
+            f"{p}_solar_condition": solar_condition(p, solar_sep),
+            f"{p}_solar_separation": f"{solar_sep:.8f}",
             f"{p}_sign": st.sign_name,
             f"{p}_sign_index": st.sign_index,
             f"{p}_degree": f"{st.degree_in_sign:.8f}",
             f"{p}_retro": st.retrograde,
             f"{p}_house": st.house,
         })
+    natal_sect = "unknown"
+    if row.natal_enabled and "sun" in row.natal_planets and row.natal_houses_valid:
+        natal_sun_house = row.natal_planets["sun"].house
+        natal_sect = "day" if 7 <= natal_sun_house <= 12 else "night"
     for p, _ in PLANETS:
         st = row.natal_planets.get(p)
         if st is None or not row.natal_enabled:
             st = PlanetState(name=p)
+        natal_solar_sep = angular_distance_180(st.lon, row.natal_planets.get("sun", PlanetState(name="sun")).lon) if row.natal_enabled else 0.0
         d.update({
             f"natal_{p}_lon": f"{st.lon:.8f}",
             f"natal_{p}_lat": f"{st.lat:.8f}",
@@ -1285,6 +1429,11 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"natal_{p}_dignity_state": st.dignity_state if row.natal_enabled else "",
             f"natal_{p}_dignity_score": f"{st.dignity_score:.8f}" if row.natal_enabled else "",
             f"natal_{p}_dispositor": st.dispositor if row.natal_enabled else "",
+            f"natal_{p}_triplicity_role": triplicity_role(p, st.sign_name, natal_sect) if row.natal_enabled else "",
+            f"natal_{p}_triplicity_score": f"{triplicity_score(p, st.sign_name, natal_sect):.8f}" if row.natal_enabled else "",
+            f"natal_{p}_decan_ruler": traditional_decan_ruler(st.sign_name, st.degree_in_sign) if row.natal_enabled else "",
+            f"natal_{p}_solar_condition": solar_condition(p, natal_solar_sep) if row.natal_enabled else "",
+            f"natal_{p}_solar_separation": f"{natal_solar_sep:.8f}" if row.natal_enabled else "",
             f"natal_{p}_sign": st.sign_name if row.natal_enabled else "",
             f"natal_{p}_sign_index": st.sign_index if row.natal_enabled else -1,
             f"natal_{p}_degree": f"{st.degree_in_sign:.8f}" if row.natal_enabled else "",

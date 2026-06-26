@@ -149,6 +149,22 @@ double DAL_AstroDC_SectFavorability(const DAL_AstroBodyState &b, const bool diur
    return 50.0;
 }
 
+double DAL_AstroDC_TriplicityScore(const DAL_AstroBodyState &b)
+{
+   if(b.triplicity_score > 0.0)
+      return b.triplicity_score;
+   return 18.0;
+}
+
+double DAL_AstroDC_SolarConditionScore(const DAL_AstroBodyState &b)
+{
+   if(b.solar_condition == "cazimi") return 98.0;
+   if(b.solar_condition == "free" || b.solar_condition == "n/a") return 72.0;
+   if(b.solar_condition == "under_beams") return 42.0;
+   if(b.solar_condition == "combust") return 15.0;
+   return 50.0;
+}
+
 bool DAL_AstroDC_Calc(const DAL_AstroMapRow &row, DAL_AstroDoctrineContext &d)
 {
    DAL_AstroDC_Reset(d);
@@ -174,12 +190,12 @@ bool DAL_AstroDC_Calc(const DAL_AstroMapRow &row, DAL_AstroDoctrineContext &d)
    d.diurnal_sect = (sun.house >= 7 && sun.house <= 12);
    d.sect_name = d.diurnal_sect ? "day" : "night";
 
-   double venus_help = 0.42 * DAL_AstroDC_DignityScore(venus) + 0.28 * DAL_AstroDC_HouseLift(venus.house) + 0.20 * DAL_AstroDC_SectFavorability(venus, d.diurnal_sect) + 0.10 * (venus.retro == 1 ? 30.0 : 72.0);
-   double jupiter_help = 0.42 * DAL_AstroDC_DignityScore(jupiter) + 0.28 * DAL_AstroDC_HouseLift(jupiter.house) + 0.20 * DAL_AstroDC_SectFavorability(jupiter, d.diurnal_sect) + 0.10 * (jupiter.retro == 1 ? 38.0 : 70.0);
+   double venus_help = 0.34 * DAL_AstroDC_DignityScore(venus) + 0.22 * DAL_AstroDC_HouseLift(venus.house) + 0.14 * DAL_AstroDC_SectFavorability(venus, d.diurnal_sect) + 0.10 * DAL_AstroDC_TriplicityScore(venus) + 0.10 * DAL_AstroDC_SolarConditionScore(venus) + 0.10 * (venus.retro == 1 ? 30.0 : 72.0);
+   double jupiter_help = 0.34 * DAL_AstroDC_DignityScore(jupiter) + 0.22 * DAL_AstroDC_HouseLift(jupiter.house) + 0.14 * DAL_AstroDC_SectFavorability(jupiter, d.diurnal_sect) + 0.10 * DAL_AstroDC_TriplicityScore(jupiter) + 0.10 * DAL_AstroDC_SolarConditionScore(jupiter) + 0.10 * (jupiter.retro == 1 ? 38.0 : 70.0);
    d.benefic_support_score = DAL_AstroPM_Clamp((venus_help + jupiter_help) / 2.0);
 
-   double mars_push = 0.44 * DAL_AstroDC_DignityScore(mars) + 0.22 * DAL_AstroDC_HouseDrag(mars.house) + 0.22 * (100.0 - DAL_AstroDC_SectFavorability(mars, d.diurnal_sect)) + 0.12 * (mars.retro == 1 ? 56.0 : 72.0);
-   double saturn_push = 0.44 * DAL_AstroDC_DignityScore(saturn) + 0.22 * DAL_AstroDC_HouseDrag(saturn.house) + 0.22 * (100.0 - DAL_AstroDC_SectFavorability(saturn, d.diurnal_sect)) + 0.12 * (saturn.retro == 1 ? 46.0 : 68.0);
+   double mars_push = 0.36 * DAL_AstroDC_DignityScore(mars) + 0.20 * DAL_AstroDC_HouseDrag(mars.house) + 0.18 * (100.0 - DAL_AstroDC_SectFavorability(mars, d.diurnal_sect)) + 0.10 * DAL_AstroDC_TriplicityScore(mars) + 0.08 * (100.0 - DAL_AstroDC_SolarConditionScore(mars)) + 0.08 * row.nodal_pressure_score + 0.12 * (mars.retro == 1 ? 56.0 : 72.0);
+   double saturn_push = 0.36 * DAL_AstroDC_DignityScore(saturn) + 0.20 * DAL_AstroDC_HouseDrag(saturn.house) + 0.18 * (100.0 - DAL_AstroDC_SectFavorability(saturn, d.diurnal_sect)) + 0.10 * DAL_AstroDC_TriplicityScore(saturn) + 0.08 * (100.0 - DAL_AstroDC_SolarConditionScore(saturn)) + 0.08 * row.nodal_pressure_score + 0.12 * (saturn.retro == 1 ? 46.0 : 68.0);
    d.malefic_pressure_score = DAL_AstroPM_Clamp((mars_push + saturn_push) / 2.0);
 
    d.angular_power_score = DAL_AstroPM_Clamp(

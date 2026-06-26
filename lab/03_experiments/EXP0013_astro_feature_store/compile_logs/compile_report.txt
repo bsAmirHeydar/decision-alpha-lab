@@ -1,6 +1,6 @@
 EXP0013 Astro Suite Compile Report
 MetaEditor: C:\Program Files\Meta\1\MetaEditor64.exe
-Generated: 2026-06-26 13:49:41
+Generated: 2026-06-26 14:17:02
 
 FILE: C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\4769098028DB821E4654DC6D5C533078\MQL5\Shared Projects\decision-alpha-lab\mql5\Experts\Research\EXP0013_AstroUnifiedDashboardEA.mq5
 EXIT: 0
