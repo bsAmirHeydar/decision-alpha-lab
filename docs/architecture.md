@@ -90,3 +90,16 @@ The astro research branch follows the same layered rule:
 5. Dashboard and execution Experts consume the same shared doctrine objects so UI and execution remain aligned.
 
 The intent is that no astro signal should come from ad hoc UI logic or isolated script math. Raw map, doctrine layer, timing layer, and signal layer must stay traceable end to end.
+
+### Astro ML hardening
+
+The astro machine-learning layer is research-first and skeptical by design:
+
+1. Dataset audit is a gate for professional runs, not only a report.
+2. Feature selection excludes future/outcome/label columns before training.
+3. Evaluation must compare against a majority/time baseline.
+4. Walk-forward uses a real embargo gap between train and test windows.
+5. Model reports include worst-fold edge, negative-edge fold count, and probability-quality diagnostics.
+6. Antifragile memory promotes only hardened principles; temporal survival alone is insufficient if contradiction or condition creep is detected.
+
+No learned astro rule should become an execution filter until it has passed chronological OOS, walk-forward stability, and the final fragility audit.

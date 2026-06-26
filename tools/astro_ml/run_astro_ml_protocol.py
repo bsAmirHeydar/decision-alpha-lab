@@ -98,6 +98,8 @@ def main() -> int:
     ap.add_argument("--trap-trigger-pct", type=float, default=0.0015)
     ap.add_argument("--clean-min-mfe-pct", type=float, default=0.0015)
     ap.add_argument("--clean-max-mae-pct", type=float, default=0.0008)
+    ap.add_argument("--allow-audit-warnings", action="store_true", help="Do not fail the protocol on critical dataset-audit gates.")
+    ap.add_argument("--audit-min-rows", type=int, default=0, help="Override minimum dataset rows for the audit gate.")
     args = ap.parse_args()
 
     common = Path(args.common_files)
@@ -150,7 +152,10 @@ def main() -> int:
     manifest["dataset_xlsx"] = str(xlsx_abs)
 
     # 2) Audit dataset
-    audit_out = run_cmd([
+    audit_min_rows = args.audit_min_rows
+    if audit_min_rows <= 0:
+        audit_min_rows = 10000 if args.preset == "professional" else 1000
+    audit_cmd = [
         sys.executable, str(THIS / "astro_ml_audit_dataset.py"),
         "--dataset-csv", str(dataset_path),
         "--asset", args.asset,
@@ -158,8 +163,15 @@ def main() -> int:
         "--common-files", str(common),
         "--out-xlsx", str(proto_dir / "dataset_audit.xlsx"),
         "--out-json", str(proto_dir / "dataset_audit.json"),
-    ])
+        "--min-rows", str(audit_min_rows),
+    ]
+    if args.preset == "professional" and not args.allow_audit_warnings:
+        audit_cmd.append("--fail-on-critical")
+    audit_out = run_cmd(audit_cmd)
     manifest["dataset_audit_xlsx"] = grab(audit_out, "ASTRO_ML_AUDIT_XLSX")
+    manifest["dataset_audit_json"] = str(proto_dir / "dataset_audit.json")
+    manifest["audit_min_rows"] = audit_min_rows
+    manifest["audit_fail_on_critical"] = bool(args.preset == "professional" and not args.allow_audit_warnings)
 
     df = read_csv_flexible(dataset_path, max_rows=10)
     available = set(df.columns)

@@ -20,6 +20,7 @@ from astro_ml_core import (
     class_probability_frame,
     ensure_dir,
     evaluate_predictions,
+    evaluate_probability_quality,
     generate_simple_lessons,
     infer_feature_columns,
     memory_paths,
@@ -92,6 +93,19 @@ def main() -> int:
     pred = pipe.predict(X_test)
     metrics = evaluate_predictions(y_test, pred)
     proba = class_probability_frame(pipe, X_test)
+    metrics.update(evaluate_probability_quality(y_test, proba))
+
+    majority = y_train.mode().iloc[0] if not y_train.mode().empty else str(y_train.iloc[0])
+    baseline_pred = [majority] * len(y_test)
+    baseline_metrics = evaluate_predictions(y_test, baseline_pred)
+    metrics["majority_baseline_label"] = str(majority)
+    metrics["baseline_accuracy"] = baseline_metrics.get("accuracy")
+    metrics["baseline_balanced_accuracy"] = baseline_metrics.get("balanced_accuracy")
+    metrics["baseline_f1_macro"] = baseline_metrics.get("f1_macro")
+    if metrics.get("balanced_accuracy") is not None and baseline_metrics.get("balanced_accuracy") is not None:
+        metrics["edge_over_baseline_balanced_accuracy"] = float(metrics["balanced_accuracy"] - baseline_metrics["balanced_accuracy"])
+    else:
+        metrics["edge_over_baseline_balanced_accuracy"] = None
 
     importance = aggregate_feature_importance(pipe, numeric, categorical)
     pred_df = test_df[[c for c in ["broker_time", "utc_time", "open", "high", "low", "close", args.target] if c in test_df.columns]].copy()
@@ -151,13 +165,17 @@ def main() -> int:
         "accuracy": metrics.get("accuracy"),
         "balanced_accuracy": metrics.get("balanced_accuracy"),
         "f1_macro": metrics.get("f1_macro"),
+        "baseline_balanced_accuracy": metrics.get("baseline_balanced_accuracy"),
+        "edge_over_baseline_balanced_accuracy": metrics.get("edge_over_baseline_balanced_accuracy"),
+        "brier_macro": metrics.get("brier_macro"),
+        "log_loss": metrics.get("log_loss"),
         "run_dir": str(paths["run"]),
     })
 
     print(f"ASTRO_ML_RUN_ID={run_id}")
     print(f"ASTRO_ML_RUN_DIR={paths['run']}")
     print(f"ASTRO_ML_MODEL={model_path}")
-    print(f"ACCURACY={metrics.get('accuracy')} BALANCED_ACCURACY={metrics.get('balanced_accuracy')} F1_MACRO={metrics.get('f1_macro')}")
+    print(f"ACCURACY={metrics.get('accuracy')} BALANCED_ACCURACY={metrics.get('balanced_accuracy')} BASELINE_BALANCED_ACCURACY={metrics.get('baseline_balanced_accuracy')} EDGE_BALANCED_ACCURACY={metrics.get('edge_over_baseline_balanced_accuracy')} F1_MACRO={metrics.get('f1_macro')} BRIER_MACRO={metrics.get('brier_macro')}")
     return 0
 
 

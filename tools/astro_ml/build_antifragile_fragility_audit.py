@@ -430,6 +430,18 @@ def build_hardened_principles(principles: pd.DataFrame, temporal: pd.DataFrame, 
     merged = p.merge(temporal[key_cols + ["temporal_verdict", "fragility_reason", "survival_rate", "median_lift", "worst_lift", "lift_iqr", "temporal_score"]], on=key_cols, how="left")
     merged["hardened_verdict"] = np.where(merged["temporal_verdict"].eq("hardened"), "hardened", "rejected_by_fragility_audit")
     merged["hardening_reason"] = np.where(merged["hardened_verdict"].eq("hardened"), "survived_temporal_fragility_audit", merged["fragility_reason"].fillna("not_stressed"))
+    if not contradictions.empty:
+        merged["horizon"] = merged["target"].astype(str).str.extract(r"_(\d+)$", expand=False).fillna("")
+        contradiction_keys = set(str(x) for x in contradictions.get("key", pd.Series(dtype=str)).astype(str).tolist())
+        for i, r in merged.iterrows():
+            key = str((r.get("concept_family", ""), r.get("state", ""), r.get("horizon", "")))
+            if key in contradiction_keys:
+                merged.at[i, "hardened_verdict"] = "rejected_by_fragility_audit"
+                merged.at[i, "hardening_reason"] = "contradictory_interpretation"
+    if not creep.empty and "target" in creep.columns:
+        creep_targets = set(str(x) for x in creep["target"].dropna().astype(str).tolist())
+        merged.loc[merged["target"].astype(str).isin(creep_targets), "hardened_verdict"] = "rejected_by_fragility_audit"
+        merged.loc[merged["target"].astype(str).isin(creep_targets), "hardening_reason"] = "condition_creep_target"
     return merged.sort_values(["hardened_verdict", "temporal_score"], ascending=[True, False])
 
 
@@ -594,6 +606,7 @@ def main() -> int:
         "targets": targets,
         "hardened_principles_count": hardened_count,
         "fragility_flags_count": int(len(flags_df)),
+        "production_gate": "pass" if hardened_count > 0 and len(flags_df) == 0 else "research_only",
         "thinking_patch": "use_hardened_principles_only; treat all fragile patterns as research leads; prefer concept families with temporal survival and low perturbation sensitivity",
         "hardened_principles": hardened[hardened["hardened_verdict"].eq("hardened")].head(100).to_dict("records") if hardened_count else [],
         "fragility_flags": flags_df.head(300).to_dict("records") if not flags_df.empty else [],

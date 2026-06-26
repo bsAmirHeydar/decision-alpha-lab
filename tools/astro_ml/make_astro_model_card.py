@@ -46,6 +46,7 @@ def main() -> int:
         "intended_use": "Research only. Use as an interpretable astro-state learner, not as a standalone trading system.",
         "leakage_policy": "Features must be known at candle t; outcome/forward columns must not enter the feature set.",
         "validation_policy": "Chronological split and walk-forward testing must be preferred over random split.",
+        "acceptance_policy": "Candidate status requires positive balanced-accuracy edge over baseline, controlled probability quality, and later walk-forward/fragility survival.",
     }
 
     out_md = Path(args.out_md) if args.out_md else run_dir / "MODEL_CARD.md"
@@ -77,15 +78,29 @@ def main() -> int:
     lines.append("A model is accepted only if it beats the majority/time baseline out-of-sample and does not rely on leakage-like columns.\n")
     lines.append("## Operational status\n")
     bal = metrics.get("balanced_accuracy", 0) or 0
+    edge = metrics.get("edge_over_baseline_balanced_accuracy", 0) or 0
+    brier = metrics.get("brier_macro", None)
     try:
         bal_f = float(bal)
     except Exception:
         bal_f = 0.0
-    if bal_f >= 0.55:
+    try:
+        edge_f = float(edge)
+    except Exception:
+        edge_f = 0.0
+    try:
+        brier_f = float(brier) if brier is not None else 999.0
+    except Exception:
+        brier_f = 999.0
+    if bal_f >= 0.55 and edge_f >= 0.015 and brier_f <= 0.35:
         status = "candidate_for_more_oos_testing"
+    elif edge_f > 0.0:
+        status = "weak_candidate_requires_walk_forward_and_calibration"
     else:
         status = "research_only_not_accepted"
     lines.append(f"Status: `{status}`\n")
+    lines.append(f"Balanced edge over baseline: `{edge_f}`")
+    lines.append(f"Brier macro: `{brier}`\n")
 
     out_md.write_text("\n".join(lines), encoding="utf-8")
     save_json(out_json, card)

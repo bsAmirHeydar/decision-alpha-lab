@@ -24,6 +24,16 @@ from astro_ml_core import (
     save_json,
 )
 
+TF_MINUTES = {
+    "M1": 1, "M2": 2, "M3": 3, "M4": 4, "M5": 5, "M6": 6, "M10": 10, "M12": 12,
+    "M15": 15, "M20": 20, "M30": 30, "H1": 60, "H2": 120, "H3": 180, "H4": 240,
+    "H6": 360, "H8": 480, "H12": 720, "D1": 1440,
+}
+
+
+def timeframe_minutes(tf: str) -> int:
+    return TF_MINUTES.get(tf.upper(), 1)
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Run chronological walk-forward validation for Astro Meta Learner.")
@@ -70,6 +80,7 @@ def main() -> int:
     train_delta = pd.Timedelta(days=args.train_days)
     test_delta = pd.Timedelta(days=args.test_days)
     step_delta = pd.Timedelta(days=args.step_days)
+    embargo_delta = pd.Timedelta(minutes=args.embargo_bars * timeframe_minutes(args.timeframe))
 
     fold_rows = []
     all_pred = []
@@ -79,7 +90,7 @@ def main() -> int:
     while True:
         train_start = cur_train_start
         train_end = train_start + train_delta
-        test_start = train_end + pd.Timedelta(minutes=0)
+        test_start = train_end + embargo_delta
         test_end = test_start + test_delta
         if test_start >= end:
             break
@@ -92,9 +103,6 @@ def main() -> int:
         if len(train_idx) == 0 or len(test_idx) == 0:
             cur_train_start += step_delta
             continue
-        if args.embargo_bars > 0:
-            max_train_idx = train_idx.max() - args.embargo_bars
-            train_idx = train_idx[train_idx <= max_train_idx]
         train_df = df.iloc[train_idx].dropna(subset=[args.target]).copy()
         test_df = df.iloc[test_idx].dropna(subset=[args.target]).copy()
         if len(train_df) < 200 or len(test_df) < 20 or train_df[args.target].nunique() < 2:
@@ -115,6 +123,8 @@ def main() -> int:
             "train_end": train_end,
             "test_start": test_start,
             "test_end": test_end,
+            "embargo_bars": args.embargo_bars,
+            "embargo_minutes": args.embargo_bars * timeframe_minutes(args.timeframe),
             "train_rows": len(train_df),
             "test_rows": len(test_df),
             "majority_baseline": majority,
@@ -125,6 +135,10 @@ def main() -> int:
             "baseline_balanced_accuracy": baseline.get("balanced_accuracy"),
             "baseline_f1_macro": baseline.get("f1_macro"),
         }
+        if fold_row["balanced_accuracy"] is not None and fold_row["baseline_balanced_accuracy"] is not None:
+            fold_row["edge_balanced_accuracy"] = float(fold_row["balanced_accuracy"] - fold_row["baseline_balanced_accuracy"])
+        else:
+            fold_row["edge_balanced_accuracy"] = None
         fold_rows.append(fold_row)
 
         proba = class_probability_frame(pipe, test_df[numeric + categorical])
@@ -163,6 +177,13 @@ def main() -> int:
         "mean_balanced_accuracy": float(folds["balanced_accuracy"].mean()) if not folds.empty else None,
         "mean_f1_macro": float(folds["f1_macro"].mean()) if not folds.empty else None,
         "mean_baseline_accuracy": float(folds["baseline_accuracy"].mean()) if not folds.empty else None,
+        "mean_baseline_balanced_accuracy": float(folds["baseline_balanced_accuracy"].mean()) if not folds.empty else None,
+        "mean_edge_balanced_accuracy": float(folds["edge_balanced_accuracy"].mean()) if not folds.empty and "edge_balanced_accuracy" in folds else None,
+        "worst_edge_balanced_accuracy": float(folds["edge_balanced_accuracy"].min()) if not folds.empty and "edge_balanced_accuracy" in folds else None,
+        "std_edge_balanced_accuracy": float(folds["edge_balanced_accuracy"].std()) if not folds.empty and "edge_balanced_accuracy" in folds else None,
+        "negative_edge_folds": int((folds["edge_balanced_accuracy"] < 0.0).sum()) if not folds.empty and "edge_balanced_accuracy" in folds else 0,
+        "embargo_bars": args.embargo_bars,
+        "embargo_minutes": args.embargo_bars * timeframe_minutes(args.timeframe),
         "numeric_features": numeric,
         "categorical_features": categorical,
         "dropped_columns": dropped,
@@ -178,7 +199,7 @@ def main() -> int:
         "Predictions": preds.head(5000),
     })
     print(f"ASTRO_ML_WALKFORWARD_DIR={out_dir}")
-    print(f"FOLDS={len(folds)} MEAN_BALANCED_ACC={report['mean_balanced_accuracy']} BASELINE={report['mean_baseline_accuracy']}")
+    print(f"FOLDS={len(folds)} MEAN_BALANCED_ACC={report['mean_balanced_accuracy']} BASELINE_BALANCED={report['mean_baseline_balanced_accuracy']} MEAN_EDGE={report['mean_edge_balanced_accuracy']} WORST_EDGE={report['worst_edge_balanced_accuracy']}")
     return 0
 
 

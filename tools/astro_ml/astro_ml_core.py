@@ -38,7 +38,7 @@ try:
     from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier, GradientBoostingClassifier
     from sklearn.impute import SimpleImputer
     from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import accuracy_score, balanced_accuracy_score, classification_report, confusion_matrix, f1_score
+    from sklearn.metrics import accuracy_score, balanced_accuracy_score, brier_score_loss, classification_report, confusion_matrix, f1_score, log_loss
     from sklearn.model_selection import TimeSeriesSplit
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -371,6 +371,48 @@ def evaluate_predictions(y_true: Sequence[Any], y_pred: Sequence[Any], labels: O
         "classification_report": classification_report(y_true, y_pred, labels=labels, output_dict=True, zero_division=0) if y_true else {},
     }
     return metrics
+
+
+def evaluate_probability_quality(y_true: Sequence[Any], proba: pd.DataFrame, prefix: str = "proba") -> Dict[str, Any]:
+    y_true = [str(x) for x in y_true]
+    if not y_true or proba.empty:
+        return {"probability_rows": 0}
+
+    classes: List[str] = []
+    arrays: List[np.ndarray] = []
+    for c in proba.columns:
+        if not str(c).startswith(prefix + "_"):
+            continue
+        cls = str(c).replace(prefix + "_", "", 1)
+        classes.append(cls)
+        arrays.append(pd.to_numeric(proba[c], errors="coerce").fillna(0.0).to_numpy(dtype=float))
+    if not classes or not arrays:
+        return {"probability_rows": 0}
+
+    p = np.vstack(arrays).T
+    row_sum = p.sum(axis=1)
+    row_sum[row_sum <= 0.0] = 1.0
+    p = p / row_sum.reshape(-1, 1)
+
+    out: Dict[str, Any] = {
+        "probability_rows": int(len(y_true)),
+        "probability_classes": classes,
+        "mean_max_probability": float(np.max(p, axis=1).mean()),
+    }
+    try:
+        out["log_loss"] = float(log_loss(y_true, p, labels=classes))
+    except Exception:
+        out["log_loss"] = None
+
+    brier_parts = []
+    for i, cls in enumerate(classes):
+        actual = np.asarray([1 if y == cls else 0 for y in y_true], dtype=float)
+        try:
+            brier_parts.append(float(brier_score_loss(actual, p[:, i])))
+        except Exception:
+            pass
+    out["brier_macro"] = float(np.mean(brier_parts)) if brier_parts else None
+    return out
 
 
 def get_transformed_feature_names(pipe: Pipeline, numeric_features: List[str], categorical_features: List[str]) -> List[str]:

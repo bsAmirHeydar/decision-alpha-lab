@@ -9,7 +9,7 @@ from typing import Dict, List
 import numpy as np
 import pandas as pd
 
-from astro_ml_core import DEFAULT_COMMON_FILES, ensure_dir, read_csv_flexible, save_excel, save_json
+from astro_ml_core import DEFAULT_COMMON_FILES, FeatureConfig, ensure_dir, infer_feature_columns, read_csv_flexible, save_excel, save_json
 
 
 def resolve_common_path(path_text: str, common: Path) -> Path:
@@ -40,6 +40,10 @@ def main() -> int:
     ap.add_argument("--common-files", default=str(DEFAULT_COMMON_FILES))
     ap.add_argument("--out-xlsx", default="")
     ap.add_argument("--out-json", default="")
+    ap.add_argument("--fail-on-critical", action="store_true", help="Exit non-zero when critical data-quality gates fail.")
+    ap.add_argument("--min-rows", type=int, default=1000)
+    ap.add_argument("--max-target-majority-pct", type=float, default=0.985)
+    ap.add_argument("--max-feature-missing-pct", type=float, default=0.50)
     args = ap.parse_args()
 
     common = Path(args.common_files)
@@ -111,8 +115,37 @@ def main() -> int:
     labels = pd.DataFrame(label_rows)
 
     leaks = leakage_candidates(df)
+    numeric_features, categorical_features, dropped_features = infer_feature_columns(df, FeatureConfig())
+    usable_features = set(numeric_features + categorical_features)
+    leakage_in_features = leaks[leaks["column"].isin(usable_features)].copy() if not leaks.empty else pd.DataFrame()
     constant_cols = [c for c in df.columns if df[c].nunique(dropna=False) <= 1]
     constants = pd.DataFrame({"column": constant_cols})
+
+    critical_rows = []
+    warning_rows = []
+    if len(df) < args.min_rows:
+        critical_rows.append({"gate": "min_rows", "value": len(df), "limit": args.min_rows, "reason": "dataset_too_small_for_stable_learning"})
+    if time_col is None:
+        critical_rows.append({"gate": "time_column", "value": "missing", "limit": "required", "reason": "chronological_validation_requires_time"})
+    if not gap_summary.empty:
+        gap_spikes = int(gap_summary.loc[gap_summary["metric"].eq("gaps_gt_5x_median"), "value"].iloc[0])
+        if gap_spikes > max(10, int(len(df) * 0.002)):
+            warning_rows.append({"gate": "time_gaps", "value": gap_spikes, "limit": max(10, int(len(df) * 0.002)), "reason": "many_large_time_gaps"})
+    if not leakage_in_features.empty:
+        critical_rows.append({"gate": "leakage_feature_names", "value": len(leakage_in_features), "limit": 0, "reason": "outcome_like_columns_entered_feature_set"})
+
+    if not labels.empty:
+        maj = labels.groupby("target", as_index=False)["majority_baseline_for_target"].max()
+        for _, r in maj.iterrows():
+            if float(r["majority_baseline_for_target"]) >= args.max_target_majority_pct:
+                critical_rows.append({"gate": "target_majority_pct", "target": r["target"], "value": float(r["majority_baseline_for_target"]), "limit": args.max_target_majority_pct, "reason": "target_too_imbalanced_to_trust"})
+    high_missing_features = missing[(missing["column"].isin(usable_features)) & (missing["missing_pct"] > args.max_feature_missing_pct)]
+    if not high_missing_features.empty:
+        warning_rows.append({"gate": "feature_missing_pct", "value": int(len(high_missing_features)), "limit": args.max_feature_missing_pct, "reason": "usable_features_have_high_missingness"})
+
+    gate_summary = pd.DataFrame(critical_rows + warning_rows)
+    critical_count = len(critical_rows)
+    warning_count = len(warning_rows)
 
     report_dir = common / "astro_ml" / "reports" / args.asset / args.timeframe
     ensure_dir(report_dir)
@@ -129,7 +162,9 @@ def main() -> int:
         "MissingAndUnique": missing.head(5000),
         "TimeGaps": gap_summary,
         "LeakageNameCandidates": leaks,
+        "LeakageInUsableFeatures": leakage_in_features,
         "ConstantColumns": constants,
+        "QualityGates": gate_summary,
     })
     save_json(out_json, {
         "asset": args.asset,
@@ -139,12 +174,22 @@ def main() -> int:
         "columns": int(len(df.columns)),
         "targets": target_cols(df),
         "leakage_name_candidates": leaks.to_dict(orient="records"),
+        "leakage_in_usable_features": leakage_in_features.to_dict(orient="records") if not leakage_in_features.empty else [],
         "constant_columns": constant_cols[:500],
+        "usable_numeric_features": len(numeric_features),
+        "usable_categorical_features": len(categorical_features),
+        "dropped_features": len(dropped_features),
+        "critical_gate_failures": critical_rows,
+        "warning_gate_flags": warning_rows,
+        "critical_count": critical_count,
+        "warning_count": warning_count,
     })
 
     print(f"ASTRO_ML_AUDIT_XLSX={out_xlsx}")
     print(f"ASTRO_ML_AUDIT_JSON={out_json}")
-    print(f"ROWS={len(df)} TARGETS={len(target_cols(df))} LEAKAGE_NAME_CANDIDATES={len(leaks)}")
+    print(f"ROWS={len(df)} TARGETS={len(target_cols(df))} LEAKAGE_NAME_CANDIDATES={len(leaks)} CRITICAL_GATES={critical_count} WARNING_GATES={warning_count}")
+    if args.fail_on_critical and critical_count > 0:
+        raise SystemExit(2)
     return 0
 
 

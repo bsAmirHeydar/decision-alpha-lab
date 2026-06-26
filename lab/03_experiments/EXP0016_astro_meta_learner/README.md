@@ -198,6 +198,8 @@ The protocol executes the full research chain:
 10. **Build antifragile memory.** It abstracts features into principles and rejects unstable patterns.
 11. **Write reports and manifests.** It records exactly where each input came from and what was produced.
 
+Professional preset now treats the dataset audit as a hard gate by default. A professional run can stop before training if the dataset is too small, lacks a usable time column, has leakage-like columns inside the usable feature set, or has targets that are too imbalanced to trust. Use sanity mode for small plumbing checks.
+
 ---
 
 ## 6. Self-healing data protocol
@@ -288,6 +290,8 @@ A few days of data can test the pipeline, but it cannot prove edge. For serious 
 ```
 
 Walk-forward validation is the most important evidence source. It asks whether a learned astro principle survives after the training period ends.
+
+The walk-forward layer now reports mean edge, worst-fold edge, edge standard deviation, and negative-edge fold count against the majority baseline. The embargo is applied as a real time gap between the training window and the test window.
 
 ---
 
@@ -420,6 +424,8 @@ A model or principle should not be trusted unless it satisfies most of the follo
 6. Its important features map to meaningful concept families.
 7. It remains useful across multiple periods or regimes.
 8. It provides a useful behavior label: direction, clean path, spike, trap, or no-trade filter.
+9. It has acceptable probability quality, including Brier/log-loss diagnostics when probability output is available.
+10. It survives the final hardening gate without contradiction or condition-creep rejection.
 
 ---
 
@@ -435,6 +441,9 @@ Use the following decision table:
 | Spike model beats baseline OOS | Astro may identify volatility windows. | Use for hunt/spike timing, not direction. |
 | Only train metrics are good | Likely overfit. | Reject or reduce complexity. |
 | No target beats baseline | Current astro feature form has no proven edge. | Change labels, horizon, asset, or feature design. |
+| Mean edge is positive but worst-fold edge is negative | Model may be regime-fragile. | Keep as research only. |
+| Probability metrics are poor | Model may be overconfident. | Calibrate or reject before production. |
+| A principle passes temporal stress but fails contradiction/creep audit | The interpretation is not clean enough. | Reject as hardened knowledge. |
 
 ---
 

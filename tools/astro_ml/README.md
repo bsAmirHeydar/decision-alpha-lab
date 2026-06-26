@@ -125,6 +125,8 @@ This command does the following:
 9. Builds the antifragile learning layer.
 10. Writes reports, manifests, and reusable memory files under `Common\Files\astro_ml`.
 
+In `professional` preset the dataset audit is a gate, not just a report. Critical data-quality failures stop the protocol before training unless `--allow-audit-warnings` is explicitly used.
+
 ---
 
 ## 4. Force a full rebuild
@@ -172,6 +174,8 @@ Use this for serious research, not for a small sanity check:
 
 The walk-forward test is the most important part. It forces the learner to make predictions on later data that was not part of the training window.
 
+Walk-forward reports now include mean balanced edge, worst-fold edge, edge standard deviation, and negative-edge fold count versus the majority baseline. Embargo bars are converted into a real time gap between train and test windows.
+
 ---
 
 ## 6. Neural challenger mode
@@ -194,6 +198,8 @@ The neural model is intentionally not treated as an oracle. It is a challenger. 
 ```
 
 The default philosophy remains principle-first and reductionist: a simple stable rule is preferred over a complex fragile model.
+
+Model cards now include baseline edge and probability-quality diagnostics. A model with apparent accuracy but poor edge or poor Brier/log-loss quality remains research-only.
 
 ---
 
