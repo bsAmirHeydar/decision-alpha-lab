@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.04"
-#property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
+#property version   "1.03"
+#property description "M0007 | Adaptive F1 Flag Counting visual audit EA | MQL-only"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
 #include <M0007/DAL_M0007F1Renderer.mqh>
@@ -11,11 +11,9 @@ input int               InpLMax              = 8;
 input M0007_BreakMode   InpBreakMode         = M0007_BREAK_WICK;
 input double            InpEpsilonPoints     = 0.0;
 input double            InpOverlapThreshold  = 0.60;
-input int               InpMaxEventsToDraw   = 12;
-input bool              InpDrawOnlyConfirmed = true;
-input bool              InpShowTextLabels    = true;
-input bool              InpShowBadge         = true;
-input bool              InpRedrawOnNewBar    = true;
+input int               InpMaxEventsToDraw   = 20;
+input bool              InpDrawOnlyConfirmed = false;   // false by default so OPEN/INVALIDATED structures are visible during audit.
+input bool              InpRedrawOnNewBar    = false;
 input bool              InpDeleteOnDeinit    = false;
 input string            InpObjectPrefix      = "DAL_M0007_F1_";
 
@@ -77,7 +75,7 @@ bool M0007_RunF1Detector()
          open_count++;
    }
 
-   Print("DAL M0007 F1 4-node EA | symbol=", _Symbol,
+   Print("DAL M0007 F1 Adaptive EA | minimal overlay | symbol=", _Symbol,
          " tf=", EnumToString(_Period),
          " bars=", copied,
          " L=", InpLMin, "..", InpLMax,
@@ -85,7 +83,7 @@ bool M0007_RunF1Detector()
          " confirmed=", confirmed,
          " invalidated=", invalidated,
          " open=", open_count,
-         " topology=Start-Leg1-Correction-Leg2");
+         " drawOnlyConfirmed=", (InpDrawOnlyConfirmed ? "true" : "false"));
 
    for(int i=MathMax(0,total-10); i<total; i++)
    {
@@ -94,20 +92,16 @@ bool M0007_RunF1Detector()
             " status=", M0007_StatusToString(events[i].status),
             " L_used=", events[i].L_used,
             " matched_L=", events[i].matched_L_values,
-            " Start=", TimeToString(events[i].Start.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].Start.price, _Digits),
-            " Leg1=", TimeToString(events[i].H1.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].H1.price, _Digits),
-            " Correction=", TimeToString(events[i].W.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].W.price, _Digits),
-            " Leg2=", TimeToString(events[i].H2.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].H2.price, _Digits));
+            " H1/L1=", TimeToString(events[i].H1.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].H1.price, _Digits),
+            " W=", DoubleToString(events[i].W.price, _Digits),
+            " H2/L2=", DoubleToString(events[i].H2.price, _Digits),
+            " R12=", DoubleToString(events[i].R12.price, _Digits),
+            " N2=", DoubleToString(events[i].N2.price, _Digits));
    }
 
    M0007_DeleteObjectsByPrefix(InpObjectPrefix);
-   int drawn = M0007_DrawEvents(events,
-                                InpMaxEventsToDraw,
-                                InpDrawOnlyConfirmed,
-                                InpObjectPrefix,
-                                InpShowTextLabels,
-                                InpShowBadge);
-   Print("DAL M0007 F1: drawn clean schematics=", drawn);
+   int drawn = M0007_DrawEvents(events, InpMaxEventsToDraw, InpDrawOnlyConfirmed, InpObjectPrefix);
+   Print("DAL M0007 F1: drawn objects for events=", drawn);
 
    return true;
 }
