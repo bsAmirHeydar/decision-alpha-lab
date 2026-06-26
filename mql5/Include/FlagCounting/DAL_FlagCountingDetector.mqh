@@ -882,6 +882,75 @@ int FC_DetectParallelSequencesFromNodes(const FC_Node &nodes[],
    return ArraySize(events);
 }
 
+
+// -----------------------------------------------------------------------------
+// Visibility fallback layer
+// -----------------------------------------------------------------------------
+// This fallback exists to keep the experiment observable while the stricter
+// fractal/parallel chain engine is being tuned. It is only used when a scale
+// returns zero accepted strict sequence events. It does not replace the chain
+// engine; it creates live root F1 bodies from local consecutive node geometry so
+// the chart never goes blank and debugging can continue visually.
+
+int FC_DetectLooseRootVisibilityFallbackFromNodes(const FC_Node &nodes[],
+                                                  const int scale_L,
+                                                  const bool scan_f1,
+                                                  const bool scan_bullish,
+                                                  const bool scan_bearish,
+                                                  const int max_root_sequences_per_scale,
+                                                  const double eps,
+                                                  FC_FlagEvent &events[])
+{
+   ArrayResize(events, 0);
+   if(!scan_f1) return 0;
+
+   int n = ArraySize(nodes);
+   if(n < 4) return 0;
+
+   int chain_counter = 0;
+   for(int p=0; p<=n-4; p++)
+   {
+      if(max_root_sequences_per_scale > 0 && chain_counter >= max_root_sequences_per_scale)
+         break;
+
+      int direction = FC_DIR_NONE;
+      if(scan_bullish && nodes[p].kind == FC_NODE_LOW)
+         direction = FC_DIR_BULLISH;
+      else if(scan_bearish && nodes[p].kind == FC_NODE_HIGH)
+         direction = FC_DIR_BEARISH;
+      if(direction == FC_DIR_NONE)
+         continue;
+
+      if(!FC_CoreMatchesDirection(direction, nodes[p], nodes[p+1], nodes[p+2], nodes[p+3], eps))
+         continue;
+
+      FC_FlagEvent event;
+      FC_FillCoreEvent(event,
+                       FC_LEVEL_F1,
+                       direction,
+                       nodes[p],
+                       nodes[p+1],
+                       nodes[p+2],
+                       nodes[p+3],
+                       -1,
+                       -1,
+                       FC_LEVEL_NONE,
+                       chain_counter + 1,
+                       1,
+                       0.0);
+
+      // Keep fallback events live/open. Historical confirmation/invalidation is
+      // deliberately not used here because this layer is a visual diagnostic when
+      // the strict engine returned zero accepted sequences.
+      event.status = FC_STATUS_OPEN;
+      event.scale_L = scale_L;
+      FC_AppendEvent(events, event);
+      chain_counter++;
+   }
+
+   return ArraySize(events);
+}
+
 int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool scan_f1,
                             const bool scan_f2,
@@ -1069,6 +1138,22 @@ int FC_DetectFlags(const MqlRates &rates[],
                                           max_root_sequences_per_scale,
                                           eps,
                                           scale_events);
+
+      // Fail-visible behavior: if the strict chain engine returns no events for a
+      // given scale, draw local live F1 bodies from consecutive-node geometry. This
+      // prevents blank charts and shows whether node geometry is available at all.
+      // Once strict sequence rules are tuned enough, this fallback should rarely fire.
+      if(ArraySize(scale_events) <= 0)
+      {
+         FC_DetectLooseRootVisibilityFallbackFromNodes(scale_nodes,
+                                                       L,
+                                                       scan_f1,
+                                                       scan_bullish,
+                                                       scan_bearish,
+                                                       max_root_sequences_per_scale,
+                                                       eps,
+                                                       scale_events);
+      }
 
       int offset = FC_MaxChainId(events);
       int ec = ArraySize(scale_events);

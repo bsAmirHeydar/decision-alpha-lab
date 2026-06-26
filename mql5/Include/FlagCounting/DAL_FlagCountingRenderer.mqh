@@ -273,6 +273,37 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
       drawn++;
    }
 
+   // If events exist but user inputs hide them all, draw one diagnostic sample so
+   // the chart does not look broken. This catches cached inputs such as
+   // DrawOnlyConfirmed=true while all current events are still live/open.
+   if(drawn <= 0 && total > 0 && max_events > 0)
+   {
+      for(int j=total-1; j>=0; j--)
+      {
+         if(events[j].status == FC_STATUS_INVALIDATED) continue;
+         color clr = FC_EventRenderColor(events[j],
+                                         f1_pending,
+                                         f1_confirmed,
+                                         f2_pending,
+                                         f2_confirmed,
+                                         f3_pending,
+                                         f3_confirmed,
+                                         color_by_direction,
+                                         bullish_pending,
+                                         bullish_confirmed,
+                                         bearish_pending,
+                                         bearish_confirmed);
+         string p = prefix + "DIAG_" + FC_LevelToString(events[j].level) + "_0_";
+         FC_DrawFlagBody(events[j], p, clr, line_width, curve_segments);
+         FC_DrawFlagLabels(events[j], p, clr, show_flag_label, show_internal_labels, flag_font, internal_font);
+         drawn = 1;
+         Print("FC renderer: filters hid all events; drew one diagnostic event. level=", FC_LevelToString(events[j].level),
+               " dir=", FC_DirectionToString(events[j].direction),
+               " status=", FC_StatusToString(events[j].status));
+         break;
+      }
+   }
+
    ChartRedraw(0);
    return drawn;
 }

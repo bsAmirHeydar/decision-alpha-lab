@@ -109,3 +109,16 @@ scaleL, chain, step, level, direction, status, branch, sizeRatio
 ```
 
 When the chart looks wrong, first isolate one scale and one direction, then inspect `chain` and `step` ordering.
+
+## Visibility safety contract
+
+The fractal multi-sequence detector is strict, but the research chart must never go silently blank. If a scale returns zero accepted strict sequences, the engine now activates a visibility fallback for that scale:
+
+- it scans consecutive node geometry for live root F1 bodies,
+- marks those bodies as open diagnostic F1 events,
+- keeps them drawable so the researcher can see that nodes and geometry exist,
+- and leaves full F2/F3 continuation logic untouched for strict accepted sequences.
+
+The renderer also draws one diagnostic event if events exist but chart inputs hide all of them, for example when `DrawOnlyConfirmed=true` while all events are still open. This prevents confusing blank charts during iterative tuning.
+
+This fallback is not the final ND/F partition engine. It is a fail-visible research layer until ND/hook segmentation and conflict resolution are fully implemented.
