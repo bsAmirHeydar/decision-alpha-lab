@@ -62,21 +62,37 @@ def parse_dt(s: str) -> datetime:
     raise ValueError(f"Could not parse datetime: {s}")
 
 
-def covers(path: Path, start: datetime, end: datetime) -> Tuple[bool, str]:
+def schema_rank(schema_version: str) -> int:
+    text = str(schema_version).strip().lower()
+    if "_v" in text:
+        try:
+            return int(text.rsplit("_v", 1)[1])
+        except Exception:
+            return 0
+    return 0
+
+
+def covers(path: Path, start: datetime, end: datetime, min_schema_rank: int = 4) -> Tuple[bool, str]:
     try:
         df = read_csv_flexible(path)
         if df.empty:
             return False, "empty"
         df, tc = normalize_time_column(df)
+        schema_text = ""
+        if "schema_version" in df.columns and len(df) > 0:
+            schema_text = str(df["schema_version"].iloc[0])
+            rank = schema_rank(schema_text)
+            if rank < min_schema_rank:
+               return False, f"schema_too_old={schema_text}"
         first = pd.to_datetime(df[tc].iloc[0]).to_pydatetime()
         last = pd.to_datetime(df[tc].iloc[-1]).to_pydatetime()
         ok = first <= start and last >= end
-        return ok, f"first={first} last={last} rows={len(df)}"
+        return ok, f"first={first} last={last} rows={len(df)} schema={schema_text}"
     except Exception as exc:
         return False, f"read_error={exc}"
 
 
-def find_archive(common: Path, asset: str, timeframe: str, start: datetime, end: datetime, preferred: str = "") -> Optional[Path]:
+def find_archive(common: Path, asset: str, timeframe: str, start: datetime, end: datetime, preferred: str = "", min_schema_rank: int = 4) -> Optional[Path]:
     candidates = []
     if preferred:
         p = Path(preferred)
@@ -104,7 +120,7 @@ def find_archive(common: Path, asset: str, timeframe: str, start: datetime, end:
         if str(p).lower() not in seen:
             unique.append(p); seen.add(str(p).lower())
     for p in sorted(unique, key=lambda x: x.stat().st_mtime if x.exists() else 0, reverse=True):
-        ok, msg = covers(p, start, end)
+        ok, msg = covers(p, start, end, min_schema_rank=min_schema_rank)
         if ok:
             print(f"ASTRO_ARCHIVE_HIT={p}")
             print(f"ASTRO_ARCHIVE_INFO={msg}")
@@ -131,6 +147,7 @@ def main() -> int:
     ap.add_argument("--natal-lon", type=float, default=None)
     ap.add_argument("--house-lat", type=float, default=None)
     ap.add_argument("--house-lon", type=float, default=None)
+    ap.add_argument("--min-schema-rank", type=int, default=4, help="Minimum acceptable astro schema rank when reusing archives.")
     args = ap.parse_args()
 
     common = Path(args.common_files)
@@ -142,7 +159,7 @@ def main() -> int:
     end = parse_dt(args.to_dt)
 
     if not args.force_build:
-        hit = find_archive(common, asset, timeframe, start, end, args.preferred_csv)
+        hit = find_archive(common, asset, timeframe, start, end, args.preferred_csv, min_schema_rank=args.min_schema_rank)
         if hit is not None:
             print(f"ASTRO_FEATURE_CSV={hit}")
             print("ASTRO_FEATURE_SOURCE=archive")

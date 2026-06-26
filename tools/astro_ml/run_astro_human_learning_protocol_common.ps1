@@ -51,6 +51,8 @@ param(
   [double]$FragilityMaxConceptDependencyDrop = 0.12,
   [int]$FragilityMaxRulesPerTarget = 12,
   [int]$FragilityMaxRulesPerConceptTarget = 4,
+  [switch]$AllowAuditWarnings,
+  [int]$AuditMinRows = 0,
   [switch]$OpenAfter
 )
 $ErrorActionPreference = "Stop"
@@ -89,6 +91,8 @@ if ($SkipAntifragile) { $ArgsList += "--skip-antifragile" }
 if ($AntifragileTargets -ne "") { $ArgsList += @("--antifragile-targets", $AntifragileTargets) }
 if ($EnableNeuralChallenger) { $ArgsList += "--enable-neural-challenger" }
 if ($SkipFragilityAudit) { $ArgsList += "--skip-fragility-audit" }
+if ($AllowAuditWarnings) { $ArgsList += "--allow-audit-warnings" }
+if ($AuditMinRows -gt 0) { $ArgsList += @("--audit-min-rows", $AuditMinRows) }
 
 $out = python @ArgsList | Tee-Object -Variable lines
 $dirLine = ($lines | Select-String -Pattern "^HUMAN_LEARNING_PROTOCOL_DIR=" | Select-Object -First 1).ToString()

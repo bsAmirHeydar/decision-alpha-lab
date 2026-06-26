@@ -264,6 +264,8 @@ def main() -> int:
     ap.add_argument("--fragility-max-concept-dependency-drop", type=float, default=0.12)
     ap.add_argument("--fragility-max-rules-per-target", type=int, default=12)
     ap.add_argument("--fragility-max-rules-per-concept-target", type=int, default=4)
+    ap.add_argument("--allow-audit-warnings", action="store_true", help="Allow professional protocol to continue even when critical dataset-audit gates fail.")
+    ap.add_argument("--audit-min-rows", type=int, default=0, help="Override minimum-row audit gate passed into the core protocol.")
     args = ap.parse_args()
 
     common = Path(args.common_files)
@@ -340,6 +342,10 @@ def main() -> int:
         "--preset", args.preset,
         "--horizons", args.horizons,
     ]
+    if args.allow_audit_warnings:
+        proto_cmd += ["--allow-audit-warnings"]
+    if args.audit_min_rows > 0:
+        proto_cmd += ["--audit-min-rows", str(args.audit_min_rows)]
     if args.run_walk_forward:
         proto_cmd += ["--run-walk-forward", "--train-days", str(args.train_days), "--test-days", str(args.test_days), "--step-days", str(args.step_days), "--embargo-bars", str(args.embargo_bars)]
     proto_stdout = run_cmd(proto_cmd)
