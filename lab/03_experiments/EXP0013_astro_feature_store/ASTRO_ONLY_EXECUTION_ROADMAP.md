@@ -83,10 +83,10 @@ Families now in repo:
 - `A0003` friction polarity
 - `A0004` sect benefic pressure
 - `A0005` moon timing window
+- `A0006` angular activation
 
 Candidate next families:
 
-- angular activation family
 - station transition family
 
 Deliverable:
@@ -183,5 +183,6 @@ Now implemented in repo:
 - Python paper family runner under `tools/astro_validation/astro_paper_family_runner.py`
 - validation tooling scaffold under `tools/astro_validation`
 - batch family validation suite under `tools/astro_validation/astro_family_validation_suite.py`
+- multi-family entry / exit Excel exporter under `tools/astro_validation/astro_family_entry_exit_excel_suite.py`
 - live order shell `A0090_AstroOrderShell.mq5`
 - MetaEditor compile harness under `tools/compile_exp0013_astro_suite.ps1`

@@ -106,6 +106,22 @@ FAMILY_DEFAULTS = {
         "house_edge_minimum": 8.0,
         "moon_release_minimum": 60.0,
         "minute_window_minimum": 64.0,
+        "angular_activation_minimum": 64.0,
+    },
+    "A0006": {
+        "family_name": "A0006_angular_activation",
+        "arm_threshold": 59.0,
+        "enter_threshold": 67.0,
+        "reduce_threshold": 53.0,
+        "exit_threshold": 59.0,
+        "natal_activation_minimum": 40.0,
+        "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
+        "moon_release_minimum": 58.0,
+        "minute_window_minimum": 62.0,
+        "angular_activation_minimum": 68.0,
     },
     "A0090": {
         "family_name": "A0090_live_shell",
@@ -120,6 +136,7 @@ FAMILY_DEFAULTS = {
         "house_edge_minimum": 8.0,
         "moon_release_minimum": 58.0,
         "minute_window_minimum": 62.0,
+        "angular_activation_minimum": 64.0,
     },
 }
 
@@ -129,6 +146,7 @@ THRESHOLD_PROFILE_KEYS = {
     "A0003": "A0003",
     "A0004": "A0004",
     "A0005": "A0005",
+    "A0006": "A0006",
     "A0090": "A0090",
 }
 
@@ -147,6 +165,7 @@ class ThresholdProfile:
     house_edge_minimum: float
     moon_release_minimum: float
     minute_window_minimum: float
+    angular_activation_minimum: float
 
 
 @dataclass
@@ -853,6 +872,22 @@ def apply_family_gates(family: str, signal: PureSignal, row: dict, thresholds: T
                 gated.entry_signal = "wait"
         else:
             gated.entry_signal = "wait"
+    elif family == "A0006":
+        angular_ready = (
+            gated.angular_power_score >= thresholds.angular_activation_minimum
+            and gated.minute_window_score >= thresholds.minute_window_minimum
+        )
+        lift_ready = gated.house_lift_score >= gated.house_drag_score + 6.0
+        drag_ready = gated.house_drag_score >= gated.house_lift_score + 6.0
+        if angular_ready:
+            if gated.direction_name == "long" and lift_ready:
+                pass
+            elif gated.direction_name == "short" and drag_ready:
+                pass
+            else:
+                gated.entry_signal = "wait"
+        else:
+            gated.entry_signal = "wait"
     return gated
 
 
@@ -948,7 +983,15 @@ def load_config(path: str) -> Dict[str, object]:
 
 
 def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> ThresholdProfile:
-    base = dict(FAMILY_DEFAULTS[family])
+    base = {
+        "benefic_support_minimum": 0.0,
+        "malefic_pressure_minimum": 0.0,
+        "house_edge_minimum": 0.0,
+        "moon_release_minimum": 0.0,
+        "minute_window_minimum": 0.0,
+        "angular_activation_minimum": 0.0,
+    }
+    base.update(FAMILY_DEFAULTS[family])
     if config:
         profiles = config.get("threshold_profiles", {})
         if isinstance(profiles, dict):
@@ -966,6 +1009,7 @@ def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> Thre
                     "house_edge_minimum",
                     "moon_release_minimum",
                     "minute_window_minimum",
+                    "angular_activation_minimum",
                 ):
                     if key in extra:
                         base[key] = float(extra[key])

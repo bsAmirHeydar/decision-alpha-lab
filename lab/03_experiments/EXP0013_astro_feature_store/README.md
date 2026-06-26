@@ -113,6 +113,7 @@ The `mql5/Experts/AstroExecution` folder contains pure-astro execution families.
 - `A0003` friction polarity
 - `A0004` sect benefic pressure
 - `A0005` moon timing window
+- `A0006` angular activation
 - `A0090` live order shell
 
 The paper families now share:
@@ -123,6 +124,7 @@ The paper families now share:
 - research-side paper replay through `tools/astro_validation/astro_paper_family_runner.py`
 - offline validation through `tools/astro_validation/astro_signal_validator.py`
 - batch family suite validation through `tools/astro_validation/astro_family_validation_suite.py`
+- offline entry / exit workbook generation through `tools/astro_validation/astro_family_entry_exit_excel_suite.py`
 
 The signal layer is now explicitly hierarchical:
 
@@ -151,6 +153,8 @@ Compile verification can now be driven from:
 - `tools/compile_exp0013_astro_suite.ps1`
 
 The current compile harness already verifies dashboard artifact generation and records expected `ex5` paths for the execution families, but the execution-family artifact transfer still needs to be closed out explicitly in MetaEditor/runtime verification.
+
+You can already inspect family entry and exit windows without Strategy Tester by exporting a workbook from the raw astro CSV through `tools/astro_validation/astro_family_entry_exit_excel_suite.py`.
 
 ## Important note
 

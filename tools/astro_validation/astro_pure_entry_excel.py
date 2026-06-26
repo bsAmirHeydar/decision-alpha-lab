@@ -62,6 +62,12 @@ PURE_DEFAULTS = {
     "exit_threshold": 58.0,
     "natal_activation_minimum": 0.0,
     "friction_minimum": 0.0,
+    "benefic_support_minimum": 0.0,
+    "malefic_pressure_minimum": 0.0,
+    "house_edge_minimum": 0.0,
+    "moon_release_minimum": 0.0,
+    "minute_window_minimum": 0.0,
+    "angular_activation_minimum": 0.0,
 }
 
 

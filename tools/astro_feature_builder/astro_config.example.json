@@ -93,6 +93,15 @@
       "moon_release_minimum": 60.0,
       "minute_window_minimum": 64.0
     },
+    "A0006_angular_activation": {
+      "profile": "angular_activation",
+      "arm_threshold": 59.0,
+      "enter_threshold": 67.0,
+      "reduce_threshold": 53.0,
+      "exit_threshold": 59.0,
+      "angular_activation_minimum": 68.0,
+      "minute_window_minimum": 62.0
+    },
     "A0090_live_shell": {
       "profile": "validated_live_shell",
       "arm_threshold": 60.0,

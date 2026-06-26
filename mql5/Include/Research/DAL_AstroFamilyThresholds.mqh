@@ -16,6 +16,7 @@ struct DAL_AstroThresholdProfile
    double house_edge_minimum;
    double moon_release_minimum;
    double minute_window_minimum;
+   double angular_activation_minimum;
 };
 
 void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string family_name)
@@ -33,6 +34,7 @@ void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string 
    p.house_edge_minimum = 8.0;
    p.moon_release_minimum = 58.0;
    p.minute_window_minimum = 62.0;
+   p.angular_activation_minimum = 64.0;
 }
 
 void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThresholdProfile &p)
@@ -93,6 +95,18 @@ void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThreshold
       p.exit_threshold = 58.0;
       p.moon_release_minimum = 60.0;
       p.minute_window_minimum = 64.0;
+      return;
+   }
+
+   if(family_name == "A0006_angular_activation")
+   {
+      p.profile_name = "angular_activation";
+      p.arm_threshold = 59.0;
+      p.enter_threshold = 67.0;
+      p.reduce_threshold = 53.0;
+      p.exit_threshold = 59.0;
+      p.angular_activation_minimum = 68.0;
+      p.minute_window_minimum = 62.0;
       return;
    }
 
