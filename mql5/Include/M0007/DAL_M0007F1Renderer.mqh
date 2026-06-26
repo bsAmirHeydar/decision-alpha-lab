@@ -8,6 +8,8 @@
 // - Core detection owns the true Start/H1/W/H2 anchors.
 // - The renderer must never invent a synthetic origin.
 // - Chart output is intentionally minimal: F1 + internal 1/2 after leg 2.
+// - Pending structures are drawn in pending colors; confirmed structures are recolored to final colors.
+// - Invalid/deleted structures are skipped so redraw removes them from the chart.
 
 void M0007_DeleteObjectsByPrefix(const string prefix)
 {
@@ -191,10 +193,26 @@ void M0007_DrawMinimalLabels(const M0007_F1Event &e, const string prefix, const 
    }
 }
 
+
+color M0007_EventRenderColor(const M0007_F1Event &e)
+{
+   if(e.status == M0007_STATUS_CONFIRMED)
+      return (e.direction == M0007_DIR_BULLISH ? clrLime : clrTomato);
+
+   // Pending/unconfirmed structures are intentionally visible while they are forming.
+   // They turn into the final direction color only after the post-internal-1/2 leg2 rebreak.
+   if(e.direction == M0007_DIR_BULLISH)
+      return clrDeepSkyBlue;
+   if(e.direction == M0007_DIR_BEARISH)
+      return clrOrange;
+
+   return clrSilver;
+}
+
 void M0007_DrawEvent(const M0007_F1Event &e, const string prefix, const int event_number, const bool show_internal_counts, const bool show_f1_label)
 {
    string p = prefix + IntegerToString(event_number) + "_";
-   color schematic_clr = (e.direction == M0007_DIR_BULLISH ? clrLime : clrTomato);
+   color schematic_clr = M0007_EventRenderColor(e);
 
    M0007_DrawCoreF1Path(e, p, schematic_clr);
    M0007_DrawMinimalLabels(e, p, schematic_clr, show_internal_counts, show_f1_label);
@@ -212,6 +230,10 @@ int M0007_DrawEvents(const M0007_F1Event &events[],
 
    for(int i=total-1; i>=0 && drawn<max_events; i--)
    {
+      // Deleted/invalidated structures must disappear on the next redraw.
+      if(events[i].status == M0007_STATUS_INVALIDATED)
+         continue;
+
       if(draw_only_confirmed && events[i].status != M0007_STATUS_CONFIRMED)
          continue;
       M0007_DrawEvent(events[i], prefix, drawn, show_internal_counts, show_f1_label);

@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.06"
+#property version   "1.07"
 #property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
@@ -14,8 +14,8 @@ input double            InpOverlapThreshold  = 0.60;
 input bool              InpRequireLeg2BreakForConfirm = true;
 input bool              InpRequireInternal12ForF1     = true;
 input bool              InpProtectWaistDuringInternal12 = true;
-input int               InpMaxEventsToDraw   = 12;
-input bool              InpDrawOnlyConfirmed = true;
+input int               InpMaxEventsToDraw   = 200;
+input bool              InpDrawOnlyConfirmed = false;
 input bool              InpShowInternal12    = true;
 input bool              InpShowF1Label       = true;
 input bool              InpRedrawOnNewBar    = true;
@@ -95,6 +95,7 @@ bool M0007_RunF1Detector()
          " requireInternal12=", (InpRequireInternal12ForF1 ? "true" : "false"),
          " protectWaist12=", (InpProtectWaistDuringInternal12 ? "true" : "false"),
          " confirmAfter=Internal12ThenLeg2Rebreak",
+         " drawAllNonDeleted=", (!InpDrawOnlyConfirmed ? "true" : "false"),
          " topology=Start-Leg1-Correction-Leg2");
 
    for(int i=MathMax(0,total-10); i<total; i++)

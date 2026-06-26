@@ -163,3 +163,16 @@ InpRequireLeg2BreakForConfirm = true;
 InpRequireInternal12ForF1 = true;
 InpProtectWaistDuringInternal12 = true;
 ```
+
+
+## Live forming / confirmed rendering contract
+
+The default renderer now keeps all non-deleted F1 structures visible on the chart.
+
+- Pending bullish F1 structures are drawn in a pending bullish color.
+- Pending bearish F1 structures are drawn in a pending bearish color.
+- Confirmed bullish F1 structures are recolored to the final bullish color.
+- Confirmed bearish F1 structures are recolored to the final bearish color.
+- Invalidated or deleted structures are not drawn on the next refresh.
+
+Confirmation is strict: after Start, Leg 1, Correction/Waist, Leg 2, and internal 1/2, price must move again in the original direction and re-break the Leg 2 extreme. Until that post-1/2 rebreak happens, the F1 and its internal 1/2 labels remain pending. The internal 1/2 sequence is valid only while it stays before the waist; if the waist is broken first, the structure is invalidated and removed on redraw.

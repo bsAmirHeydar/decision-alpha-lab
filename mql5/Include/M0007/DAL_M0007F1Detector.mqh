@@ -171,6 +171,20 @@ void M0007_MarkConfirmedAtLeg2(M0007_F1Event &e)
    e.confirm_price = e.H2.price;
 }
 
+
+void M0007_MarkInvalidatedAtWaistBreak(M0007_F1Event &e, const int idx, const datetime t, const double price)
+{
+   e.status = M0007_STATUS_INVALIDATED;
+
+   e.waist_break_index = idx;
+   e.waist_break_time  = t;
+   e.waist_break_price = price;
+
+   e.invalidation_index = idx;
+   e.invalidation_time  = t;
+   e.invalidation_price = price;
+}
+
 void M0007_MarkConfirmedAtLeg2Break(M0007_F1Event &e, const int idx, const datetime t, const double price)
 {
    M0007_MarkCompletedAtLeg2(e);
@@ -524,9 +538,7 @@ void M0007_ScanOneL(const MqlRates &rates[],
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
             else if(wb_idx >= 0)
             {
-               ev.waist_break_index = wb_idx;
-               ev.waist_break_time = wb_time;
-               ev.waist_break_price = wb_price;
+               M0007_MarkInvalidatedAtWaistBreak(ev, wb_idx, wb_time, wb_price);
             }
          }
          else
@@ -569,9 +581,7 @@ void M0007_ScanOneL(const MqlRates &rates[],
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
             else if(wb_idx >= 0)
             {
-               ev.waist_break_index = wb_idx;
-               ev.waist_break_time = wb_time;
-               ev.waist_break_price = wb_price;
+               M0007_MarkInvalidatedAtWaistBreak(ev, wb_idx, wb_time, wb_price);
             }
          }
          else
