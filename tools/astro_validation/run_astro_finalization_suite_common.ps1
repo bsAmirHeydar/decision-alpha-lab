@@ -1,24 +1,22 @@
 param(
   [string]$CsvName = "astro_live_mql.csv",
-  [string]$OutName = "astro_final_entry_report.xlsx",
+  [string]$OutFolder = "astro_finalization",
   [string]$ConfigPath = ".\\tools\\astro_feature_builder\\astro_config.example.json",
-  [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007"),
-  [string]$Profile = "pure_strict",
-  [switch]$AlsoCsv
+  [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007")
 )
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $Common = Join-Path $env:APPDATA "MetaQuotes\Terminal\Common\Files"
 $CsvPath = Join-Path $Common $CsvName
-$OutPath = Join-Path $Common ("astro\\" + $OutName)
+$OutDir = Join-Path $Common ("astro\" + $OutFolder)
 
 Set-Location $ProjectRoot
 
 $argsList = @(
-  ".\tools\astro_validation\astro_final_entry_report.py",
+  ".\tools\astro_validation\astro_finalization_suite.py",
   "--csv", $CsvPath,
-  "--out-xlsx", $OutPath
+  "--out-dir", $OutDir
 )
 
 if($ConfigPath) {
@@ -30,13 +28,5 @@ if($Families -and $Families.Count -gt 0) {
   $argsList += $Families
 }
 
-if($Profile) {
-  $argsList += @("--profile", $Profile)
-}
-
-if($AlsoCsv) {
-  $argsList += "--also-csv"
-}
-
 python @argsList
-Write-Host "Final entry report written to $OutPath" -ForegroundColor Green
+Write-Host "Astro finalization suite written to $OutDir" -ForegroundColor Green

@@ -129,6 +129,39 @@ There is also a Common Files helper:
   -AlsoCsv
 ```
 
+## Finalization suite
+
+For a full end-to-end astro finalization pass on one real CSV:
+
+```bash
+python tools/astro_validation/astro_finalization_suite.py ^
+  --csv data/astro/astro_NAS100_M1_20260622_to_now_nasdaq100_natal_mql.csv ^
+  --out-dir lab/03_experiments/EXP0013_astro_feature_store/finalization ^
+  --config tools/astro_feature_builder/astro_config.example.json
+```
+
+Suite outputs:
+
+- `family_validation/`: family journals, reports, promotion snapshot
+- `finalization_manifest.json`: final cross-profile summary
+
+If you only want purity calibration recommendations:
+
+```bash
+python tools/astro_validation/astro_purity_calibrator.py ^
+  --csv data/astro/astro_NAS100_M1_20260622_to_now_nasdaq100_natal_mql.csv ^
+  --out-json lab/03_experiments/EXP0013_astro_feature_store/finalization/purity_calibration.json ^
+  --config tools/astro_feature_builder/astro_config.example.json
+```
+
+There is also a Common Files helper:
+
+```powershell
+.\tools\astro_validation\run_astro_finalization_suite_common.ps1 `
+  -CsvName "astro_live_mql.csv" `
+  -OutFolder "astro_finalization"
+```
+
 ## What it checks
 
 - doctrine and schema stability

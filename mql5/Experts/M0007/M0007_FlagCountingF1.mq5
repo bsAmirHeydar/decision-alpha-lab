@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.02"
-#property description "M0007 | Adaptive F1 Flag Counting visual audit EA | MQL-only"
+#property version   "1.04"
+#property description "M0007 | Adaptive F1 Flag Counting visual audit EA with clean F1 schematic-only overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
 #include <M0007/DAL_M0007F1Renderer.mqh>
@@ -13,7 +13,10 @@ input double            InpEpsilonPoints     = 0.0;
 input double            InpOverlapThreshold  = 0.60;
 input int               InpMaxEventsToDraw   = 20;
 input bool              InpDrawOnlyConfirmed = false;   // false by default so OPEN/INVALIDATED structures are visible during audit.
-input bool              InpRedrawOnNewBar    = false;
+input bool              InpShowTextLabels    = true;    // Start, Leg 1, Correction, Pullback/Correction, Leg 2
+input bool              InpShowBadge         = true;    // BULLISH F1 / BEARISH F1 only; no audit levels
+input bool              InpShowStatusPanel   = false;   // keep false for a clean chart
+input bool              InpRedrawOnNewBar    = true;    // update schematic while the chart/tester advances by new bar
 input bool              InpDeleteOnDeinit    = false;
 input string            InpObjectPrefix      = "DAL_M0007_F1_";
 
@@ -100,7 +103,13 @@ bool M0007_RunF1Detector()
    }
 
    M0007_DeleteObjectsByPrefix(InpObjectPrefix);
-   int drawn = M0007_DrawEvents(events, InpMaxEventsToDraw, InpDrawOnlyConfirmed, InpObjectPrefix);
+   int drawn = M0007_DrawEvents(events,
+                                  InpMaxEventsToDraw,
+                                  InpDrawOnlyConfirmed,
+                                  InpObjectPrefix,
+                                  InpShowTextLabels,
+                                  InpShowBadge,
+                                  InpShowStatusPanel);
    Print("DAL M0007 F1: drawn objects for events=", drawn);
 
    return true;

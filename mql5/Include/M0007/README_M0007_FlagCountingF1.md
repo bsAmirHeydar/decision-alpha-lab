@@ -34,17 +34,44 @@ The Expert Advisor imports the module like this:
 
 M0007 is visual/audit-only. It counts and draws F1 structures. It does not place orders.
 
-## Visual schematic overlay
+## v1.04 clean schematic-only renderer
 
-The renderer now draws a clean F1 schematic on top of each detected event:
+The renderer now draws only the requested clean F1 grammar on the chart:
 
-- one straight leg into `H1/L1`,
-- one curve-like multi-segment shape from `H1/L1` through the waist region into `H2/L2`,
-- one bold `F1` label near the second main extreme.
+```text
+Start -> straight Leg 1 -> end of Leg 1
+end of Leg 1 -> smooth curved correction through W -> end of Leg 2
+```
 
-This schematic is intentionally visual and conceptual. It does not replace the mechanical F1 count. The detector still uses the full topology:
+Removed from the default chart output:
 
-- bullish: `H1 -> W -> H2 -> N1 -> R12 -> N2`
-- bearish: `L1 -> W -> L2 -> N1 -> R12 -> N2`
+```text
+Previous High / Previous Low horizontal guide lines
+protected waist horizontal line
+R12 horizontal line
+H2/L2 confirmation horizontal line
+internal trigger vertical line
+confirmation vertical line
+invalidation vertical line
+compact H1/W/H2/N1/R12/N2 audit labels
+status panel text
+```
 
-The schematic only makes the F1 shape readable on chart, matching the hand-drawn flag-counting concept.
+The visual layer is intentionally clean and conceptual. It does not change the detector state. The detector still uses the full topology:
+
+```text
+bullish: H1 -> W -> H2 -> N1 -> R12 -> N2
+bearish: L1 -> W -> L2 -> N1 -> R12 -> N2
+```
+
+## Display inputs
+
+`M0007_FlagCountingF1.mq5` exposes these visual inputs:
+
+```text
+InpShowTextLabels  = true   // Start, Leg 1, Correction, Pullback / Correction, Leg 2
+InpShowBadge       = true   // BULLISH F1 / BEARISH F1
+InpShowStatusPanel = false  // keep false for clean chart output
+```
+
+`InpRedrawOnNewBar` remains enabled by default so the visual audit updates during replay/testing without running the detector on every tick. It redraws only when a new bar appears.

@@ -162,6 +162,8 @@ You can also generate a final astro-only consensus entry report from the same ra
 
 The default final-entry workflow is now `pure_strict`, which excludes the live shell from the consensus set and records veto reasons for every blocked bar.
 
+The repo now also includes a finalization suite and a purity calibrator so a real astro CSV can be pushed through family validation, final-entry consensus, and threshold recommendations without Strategy Tester.
+
 ## Important note
 
 The EA birth inputs are not a substitute for CSV generation.
