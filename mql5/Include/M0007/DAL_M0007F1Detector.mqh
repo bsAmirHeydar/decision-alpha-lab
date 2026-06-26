@@ -16,6 +16,71 @@ bool M0007_BreakBelow(const MqlRates &bar, const double level, const M0007_Break
    return (bar.low <= level - eps);
 }
 
+
+bool M0007_WaistBrokenByBar(const MqlRates &bar,
+                            const M0007_F1Direction direction,
+                            const double waist_level,
+                            const double eps,
+                            double &break_price)
+{
+   break_price = 0.0;
+   if(direction == M0007_DIR_BULLISH)
+   {
+      if(bar.low <= waist_level - eps)
+      {
+         break_price = bar.low;
+         return true;
+      }
+      return false;
+   }
+
+   if(direction == M0007_DIR_BEARISH)
+   {
+      if(bar.high >= waist_level + eps)
+      {
+         break_price = bar.high;
+         return true;
+      }
+      return false;
+   }
+
+   return false;
+}
+
+bool M0007_FindWaistBreakInBars(const MqlRates &rates[],
+                                const int total,
+                                const int from_index,
+                                const int to_index,
+                                const M0007_F1Direction direction,
+                                const double waist_level,
+                                const double eps,
+                                int &break_index,
+                                datetime &break_time,
+                                double &break_price)
+{
+   break_index = -1;
+   break_time = 0;
+   break_price = 0.0;
+
+   int a = MathMax(0, from_index);
+   int b = MathMin(total - 1, to_index);
+   if(a > b) return false;
+
+   for(int k=a; k<=b; k++)
+   {
+      double p;
+      if(M0007_WaistBrokenByBar(rates[k], direction, waist_level, eps, p))
+      {
+         break_index = k;
+         break_time = rates[k].time;
+         break_price = p;
+         return true;
+      }
+   }
+
+   return false;
+}
+
 void M0007_AddEvent(M0007_F1Event &events[], const M0007_F1Event &event)
 {
    int n = ArraySize(events);
@@ -120,24 +185,44 @@ void M0007_MarkConfirmedAtLeg2Break(M0007_F1Event &e, const int idx, const datet
    e.confirm_price = price;
 }
 
-bool M0007_FindLeg2BreakAfter(const MqlRates &rates[],
-                              const int total,
-                              const int from_index,
-                              const M0007_F1Direction direction,
-                              const double leg2_level,
-                              const M0007_BreakMode mode,
-                              const double eps,
-                              int &break_index,
-                              datetime &break_time,
-                              double &break_price)
+bool M0007_FindLeg2RebreakAfterInternal12(const MqlRates &rates[],
+                                          const int total,
+                                          const int from_index,
+                                          const M0007_F1Direction direction,
+                                          const double leg2_level,
+                                          const double waist_level,
+                                          const M0007_BreakMode mode,
+                                          const double eps,
+                                          const bool protect_waist,
+                                          int &break_index,
+                                          datetime &break_time,
+                                          double &break_price,
+                                          int &waist_break_index,
+                                          datetime &waist_break_time,
+                                          double &waist_break_price)
 {
    break_index = -1;
    break_time = 0;
    break_price = 0.0;
+   waist_break_index = -1;
+   waist_break_time = 0;
+   waist_break_price = 0.0;
 
    int start = MathMax(0, from_index);
    for(int k=start; k<total; k++)
    {
+      if(protect_waist)
+      {
+         double wb;
+         if(M0007_WaistBrokenByBar(rates[k], direction, waist_level, eps, wb))
+         {
+            waist_break_index = k;
+            waist_break_time = rates[k].time;
+            waist_break_price = wb;
+            return false;
+         }
+      }
+
       if(direction == M0007_DIR_BULLISH && M0007_BreakAbove(rates[k], leg2_level, mode, eps))
       {
          break_index = k;
@@ -177,6 +262,7 @@ void M0007_BuildCommonEventFields(M0007_F1Event &e, const int L)
    double internal_bonus = 0.0;
    if(e.has_internal_1) internal_bonus += 10.0;
    if(e.has_internal_2) internal_bonus += 25.0;
+   if(e.internal_12_valid) internal_bonus += 15.0;
 
    double confirmation_bonus = 0.0;
    if(e.status == M0007_STATUS_CONFIRMED) confirmation_bonus = 50.0;
@@ -250,10 +336,14 @@ bool M0007_IsBearishF1FourNode(const MqlRates &rates[],
    return true;
 }
 
-void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
+void M0007_FindPostLeg2InternalCounts(const MqlRates &rates[],
+                                      const int total,
+                                      const M0007_F1Node &nodes[],
                                       const int n,
                                       const int start_node_pos,
                                       const M0007_F1Direction direction,
+                                      const double waist_level,
+                                      const bool protect_waist,
                                       const double eps,
                                       M0007_F1Event &e)
 {
@@ -262,16 +352,49 @@ void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
    M0007_ResetF1Node(e.N2);
    e.has_internal_1 = false;
    e.has_internal_2 = false;
+   e.internal_12_valid = false;
+   e.waist_break_index = -1;
+   e.waist_break_time = 0;
+   e.waist_break_price = 0.0;
+
+   int scan_from_bar = e.H2.index + 1;
 
    if(direction == M0007_DIR_BULLISH)
    {
-      // After a bullish F1 completes at H2, the internal 1/2 count is two descending lows.
-      // 1 = first LOW after H2
-      // 2 = later LOW below 1
+      // After a bullish F1 completes at H2, internal 1/2 is two descending lows.
+      // Those internal lows must stay above the flag waist W. If they break W,
+      // this is not a valid F1 continuation setup.
       for(int j=start_node_pos; j<n; j++)
       {
+         if(nodes[j].index < scan_from_bar)
+            continue;
+
+         if(protect_waist)
+         {
+            int wb_idx;
+            datetime wb_time;
+            double wb_price;
+            if(M0007_FindWaistBreakInBars(rates, total, scan_from_bar, nodes[j].index, direction, waist_level, eps, wb_idx, wb_time, wb_price))
+            {
+               e.waist_break_index = wb_idx;
+               e.waist_break_time = wb_time;
+               e.waist_break_price = wb_price;
+               return;
+            }
+         }
+
+         scan_from_bar = nodes[j].index + 1;
+
          if(nodes[j].type != M0007_NODE_LOW)
             continue;
+
+         if(nodes[j].price <= waist_level - eps)
+         {
+            e.waist_break_index = nodes[j].index;
+            e.waist_break_time = nodes[j].time;
+            e.waist_break_price = nodes[j].price;
+            return;
+         }
 
          if(!e.has_internal_1)
          {
@@ -284,6 +407,7 @@ void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
          {
             e.N2 = nodes[j];
             e.has_internal_2 = true;
+            e.internal_12_valid = true;
             return;
          }
       }
@@ -292,14 +416,39 @@ void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
 
    if(direction == M0007_DIR_BEARISH)
    {
-      // Mirror of bullish:
-      // after a bearish F1 completes at L2, internal 1/2 is two ascending highs.
-      // 1 = first HIGH after L2
-      // 2 = later HIGH above 1
+      // Mirror: after a bearish F1 completes at L2, internal 1/2 is two ascending highs.
+      // Those internal highs must stay below the flag waist W.
       for(int j=start_node_pos; j<n; j++)
       {
+         if(nodes[j].index < scan_from_bar)
+            continue;
+
+         if(protect_waist)
+         {
+            int wb_idx;
+            datetime wb_time;
+            double wb_price;
+            if(M0007_FindWaistBreakInBars(rates, total, scan_from_bar, nodes[j].index, direction, waist_level, eps, wb_idx, wb_time, wb_price))
+            {
+               e.waist_break_index = wb_idx;
+               e.waist_break_time = wb_time;
+               e.waist_break_price = wb_price;
+               return;
+            }
+         }
+
+         scan_from_bar = nodes[j].index + 1;
+
          if(nodes[j].type != M0007_NODE_HIGH)
             continue;
+
+         if(nodes[j].price >= waist_level + eps)
+         {
+            e.waist_break_index = nodes[j].index;
+            e.waist_break_time = nodes[j].time;
+            e.waist_break_price = nodes[j].price;
+            return;
+         }
 
          if(!e.has_internal_1)
          {
@@ -312,6 +461,7 @@ void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
          {
             e.N2 = nodes[j];
             e.has_internal_2 = true;
+            e.internal_12_valid = true;
             return;
          }
       }
@@ -325,6 +475,7 @@ void M0007_ScanOneL(const MqlRates &rates[],
                     const double eps,
                     const bool require_leg2_break_for_confirm,
                     const bool require_internal_12_for_f1,
+                    const bool protect_waist_during_internal_12,
                     M0007_F1Event &raw_events[])
 {
    M0007_F1Node raw_nodes[];
@@ -352,9 +503,12 @@ void M0007_ScanOneL(const MqlRates &rates[],
          ev.W  = C;
          ev.H2 = D;
          M0007_MarkCompletedAtLeg2(ev);
-         M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
+         M0007_FindPostLeg2InternalCounts(rates, total, nodes, n, i+4, ev.direction, ev.W.price, protect_waist_during_internal_12, eps, ev);
 
-         if(require_internal_12_for_f1 && !ev.has_internal_2)
+         if(protect_waist_during_internal_12 && ev.waist_break_index >= 0)
+            continue;
+
+         if(require_internal_12_for_f1 && !ev.internal_12_valid)
             continue;
 
          if(require_leg2_break_for_confirm)
@@ -362,8 +516,18 @@ void M0007_ScanOneL(const MqlRates &rates[],
             int br_idx;
             datetime br_time;
             double br_price;
-            if(M0007_FindLeg2BreakAfter(rates, total, D.index + 1, ev.direction, D.price, mode, eps, br_idx, br_time, br_price))
+            int wb_idx;
+            datetime wb_time;
+            double wb_price;
+            int from_idx = (ev.has_internal_2 ? ev.N2.index + 1 : D.index + 1);
+            if(M0007_FindLeg2RebreakAfterInternal12(rates, total, from_idx, ev.direction, D.price, ev.W.price, mode, eps, protect_waist_during_internal_12, br_idx, br_time, br_price, wb_idx, wb_time, wb_price))
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
+            else if(wb_idx >= 0)
+            {
+               ev.waist_break_index = wb_idx;
+               ev.waist_break_time = wb_time;
+               ev.waist_break_price = wb_price;
+            }
          }
          else
          {
@@ -384,9 +548,12 @@ void M0007_ScanOneL(const MqlRates &rates[],
          ev.W  = C;
          ev.H2 = D;
          M0007_MarkCompletedAtLeg2(ev);
-         M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
+         M0007_FindPostLeg2InternalCounts(rates, total, nodes, n, i+4, ev.direction, ev.W.price, protect_waist_during_internal_12, eps, ev);
 
-         if(require_internal_12_for_f1 && !ev.has_internal_2)
+         if(protect_waist_during_internal_12 && ev.waist_break_index >= 0)
+            continue;
+
+         if(require_internal_12_for_f1 && !ev.internal_12_valid)
             continue;
 
          if(require_leg2_break_for_confirm)
@@ -394,8 +561,18 @@ void M0007_ScanOneL(const MqlRates &rates[],
             int br_idx;
             datetime br_time;
             double br_price;
-            if(M0007_FindLeg2BreakAfter(rates, total, D.index + 1, ev.direction, D.price, mode, eps, br_idx, br_time, br_price))
+            int wb_idx;
+            datetime wb_time;
+            double wb_price;
+            int from_idx = (ev.has_internal_2 ? ev.N2.index + 1 : D.index + 1);
+            if(M0007_FindLeg2RebreakAfterInternal12(rates, total, from_idx, ev.direction, D.price, ev.W.price, mode, eps, protect_waist_during_internal_12, br_idx, br_time, br_price, wb_idx, wb_time, wb_price))
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
+            else if(wb_idx >= 0)
+            {
+               ev.waist_break_index = wb_idx;
+               ev.waist_break_time = wb_time;
+               ev.waist_break_price = wb_price;
+            }
          }
          else
          {
@@ -417,6 +594,7 @@ void M0007_DetectAdaptiveF1(const MqlRates &rates[],
                             const double overlap_threshold,
                             const bool require_leg2_break_for_confirm,
                             const bool require_internal_12_for_f1,
+                            const bool protect_waist_during_internal_12,
                             M0007_F1Event &events[])
 {
    M0007_F1Event raw_events[];
@@ -426,7 +604,7 @@ void M0007_DetectAdaptiveF1(const MqlRates &rates[],
    int fromL = MathMax(2, L_min);
    int toL = MathMax(fromL, L_max);
    for(int L=fromL; L<=toL; L++)
-      M0007_ScanOneL(rates, total, L, mode, eps, require_leg2_break_for_confirm, require_internal_12_for_f1, raw_events);
+      M0007_ScanOneL(rates, total, L, mode, eps, require_leg2_break_for_confirm, require_internal_12_for_f1, protect_waist_during_internal_12, raw_events);
 
    M0007_MergeAdaptiveEvents(raw_events, overlap_threshold, events);
 }

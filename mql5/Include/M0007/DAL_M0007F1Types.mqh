@@ -78,6 +78,12 @@ struct M0007_F1Event
 
    bool has_internal_1;
    bool has_internal_2;
+   bool internal_12_valid;
+
+   // If the post-leg2 internal 1/2 breaks the flag waist/correction level, the F1 is not valid.
+   int      waist_break_index;
+   datetime waist_break_time;
+   double   waist_break_price;
 
    int      internal_trigger_index;
    datetime internal_trigger_time;
@@ -132,6 +138,11 @@ void M0007_InitF1Event(M0007_F1Event &e)
 
    e.has_internal_1 = false;
    e.has_internal_2 = false;
+   e.internal_12_valid = false;
+
+   e.waist_break_index = -1;
+   e.waist_break_time = 0;
+   e.waist_break_price = 0.0;
 
    e.internal_trigger_index = -1;
    e.internal_trigger_time = 0;

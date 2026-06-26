@@ -141,3 +141,25 @@ Current default F1 confirmation is intentionally stricter:
 
 The chart labels `1` and `2` remain internal post-leg-2 counts, not Leg-1/Leg-2 labels.
 Bullish F1 counts two descending lows after Leg 2. Bearish F1 counts two ascending highs after Leg 2.
+
+## Strict confirmation after internal 1/2
+
+The current strict F1 contract is:
+
+1. Build the four-node F1 skeleton: `Start -> Leg1 -> Correction/Waist -> Leg2`.
+2. Build the post-leg2 internal count:
+   - bullish: internal `1` and `2` are two descending lows after Leg2,
+   - bearish: internal `1` and `2` are two ascending highs after Leg2.
+3. The internal `1` and `2` must not break the flag waist/correction level:
+   - bullish internals must remain above `W`,
+   - bearish internals must remain below `W`.
+4. Only after valid internal `1/2`, price must move again in the original F1 direction and re-break the Leg2 extreme.
+5. F1 is confirmed only at that post-internal re-break.
+
+Default inputs enforce this strict behavior:
+
+```mql5
+InpRequireLeg2BreakForConfirm = true;
+InpRequireInternal12ForF1 = true;
+InpProtectWaistDuringInternal12 = true;
+```
