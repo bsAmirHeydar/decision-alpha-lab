@@ -228,10 +228,10 @@ This keeps the latest detector logic intact while restoring the chart output to 
 
 ## Current renderer path contract
 
-The visible F1 drawing is intentionally split into three visual parts:
+The renderer draws only the visible F1 body:
 
-- Part 1: Start -> Leg1 as a straight line
-- Part 2: Leg1 -> Waist -> Leg2 as a smooth flag body
-- Part 3: Leg2 -> open internal 1/2 area -> final Leg2 rebreak as a rounded swing
+- `Start -> Leg1` as one straight line.
+- `Leg1 -> Waist -> Leg2` as the smooth curved correction/continuation path.
+- `F1`, `1`, and `2` as text labels.
 
-That third part is the orange-style shape you asked for: it leaves the Leg2 extreme, rounds into the open 1/2 zone, and then rises or falls back into the final Leg2 rebreak when confirmation exists.
+Internal `1` and `2` remain fully part of the detector and confirmation logic, but visually they are numbers only. The renderer does not draw any line or arc from `Leg2` into `1`, `2`, or the final confirmation rebreak.
