@@ -127,3 +127,17 @@ BULLISH F1 / BEARISH F1 text
 horizontal/vertical audit guide lines
 status panel
 ```
+
+
+## Confirmation contract update
+
+Current default F1 confirmation is intentionally stricter:
+
+- `InpRequireLeg2BreakForConfirm = true` by default.
+  The four-node structure can exist after `Start -> Leg 1 -> Correction -> Leg 2`, but it is not confirmed until price breaks the Leg-2 extreme after `H2/L2`.
+
+- `InpRequireInternal12ForF1 = true` by default.
+  The detector only keeps F1 candidates that have the post-leg-2 internal `1` and `2` count.
+
+The chart labels `1` and `2` remain internal post-leg-2 counts, not Leg-1/Leg-2 labels.
+Bullish F1 counts two descending lows after Leg 2. Bearish F1 counts two ascending highs after Leg 2.

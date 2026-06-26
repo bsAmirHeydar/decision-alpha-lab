@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.04"
+#property version   "1.05"
 #property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
@@ -11,6 +11,8 @@ input int               InpLMax              = 8;
 input M0007_BreakMode   InpBreakMode         = M0007_BREAK_WICK;
 input double            InpEpsilonPoints     = 0.0;
 input double            InpOverlapThreshold  = 0.60;
+input bool              InpRequireLeg2BreakForConfirm = true;
+input bool              InpRequireInternal12ForF1     = true;
 input int               InpMaxEventsToDraw   = 12;
 input bool              InpDrawOnlyConfirmed = true;
 input bool              InpShowInternal12    = true;
@@ -59,6 +61,8 @@ bool M0007_RunF1Detector()
       InpBreakMode,
       eps,
       InpOverlapThreshold,
+      InpRequireLeg2BreakForConfirm,
+      InpRequireInternal12ForF1,
       events
    );
 
@@ -85,6 +89,8 @@ bool M0007_RunF1Detector()
          " confirmed=", confirmed,
          " invalidated=", invalidated,
          " open=", open_count,
+         " requireLeg2Break=", (InpRequireLeg2BreakForConfirm ? "true" : "false"),
+         " requireInternal12=", (InpRequireInternal12ForF1 ? "true" : "false"),
          " topology=Start-Leg1-Correction-Leg2");
 
    for(int i=MathMax(0,total-10); i<total; i++)
@@ -99,7 +105,8 @@ bool M0007_RunF1Detector()
             " Correction=", TimeToString(events[i].W.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].W.price, _Digits),
             " Leg2=", TimeToString(events[i].H2.time, TIME_DATE|TIME_MINUTES), "@", DoubleToString(events[i].H2.price, _Digits),
             " Internal1=", (events[i].has_internal_1 ? TimeToString(events[i].N1.time, TIME_DATE|TIME_MINUTES)+"@"+DoubleToString(events[i].N1.price, _Digits) : "NA"),
-            " Internal2=", (events[i].has_internal_2 ? TimeToString(events[i].N2.time, TIME_DATE|TIME_MINUTES)+"@"+DoubleToString(events[i].N2.price, _Digits) : "NA"));
+            " Internal2=", (events[i].has_internal_2 ? TimeToString(events[i].N2.time, TIME_DATE|TIME_MINUTES)+"@"+DoubleToString(events[i].N2.price, _Digits) : "NA"),
+            " Leg2Break=", (events[i].leg2_break_index >= 0 ? TimeToString(events[i].leg2_break_time, TIME_DATE|TIME_MINUTES)+"@"+DoubleToString(events[i].leg2_break_price, _Digits) : "NA"));
    }
 
    M0007_DeleteObjectsByPrefix(InpObjectPrefix);

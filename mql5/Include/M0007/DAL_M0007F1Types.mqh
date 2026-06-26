@@ -83,6 +83,13 @@ struct M0007_F1Event
    datetime internal_trigger_time;
    double   internal_trigger_price;
 
+   // Leg-2 break confirmation.
+   // A four-node F1 candidate is not fully confirmed until price breaks the leg-2 extreme
+   // after H2/L2, unless the caller explicitly disables that rule.
+   int      leg2_break_index;
+   datetime leg2_break_time;
+   double   leg2_break_price;
+
    int      confirm_index;
    datetime confirm_time;
    double   confirm_price;
@@ -129,6 +136,10 @@ void M0007_InitF1Event(M0007_F1Event &e)
    e.internal_trigger_index = -1;
    e.internal_trigger_time = 0;
    e.internal_trigger_price = 0.0;
+
+   e.leg2_break_index = -1;
+   e.leg2_break_time = 0;
+   e.leg2_break_price = 0.0;
 
    e.confirm_index = -1;
    e.confirm_time = 0;

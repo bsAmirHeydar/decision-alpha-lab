@@ -79,22 +79,83 @@ void M0007_MergeAdaptiveEvents(const M0007_F1Event &raw[], const double overlap_
    }
 }
 
-void M0007_MarkConfirmedAtLeg2(M0007_F1Event &e)
+void M0007_MarkCompletedAtLeg2(M0007_F1Event &e)
 {
-   e.status = M0007_STATUS_CONFIRMED;
-
-   // F1 completion is H2/L2. Internal 1/2 counting happens only after this point.
+   // H2/L2 is structural completion, not final confirmation when leg-2-break confirmation is enabled.
    e.internal_trigger_index = e.H2.index;
    e.internal_trigger_time  = e.H2.time;
    e.internal_trigger_price = e.H2.price;
 
-   e.confirm_index = e.H2.index;
-   e.confirm_time  = e.H2.time;
-   e.confirm_price = e.H2.price;
-
    e.invalidation_index = -1;
    e.invalidation_time  = 0;
    e.invalidation_price = 0.0;
+}
+
+void M0007_MarkConfirmedAtLeg2(M0007_F1Event &e)
+{
+   // Backward-compatible mode: consider F1 confirmed as soon as H2/L2 exists.
+   M0007_MarkCompletedAtLeg2(e);
+   e.status = M0007_STATUS_CONFIRMED;
+
+   e.leg2_break_index = e.H2.index;
+   e.leg2_break_time  = e.H2.time;
+   e.leg2_break_price = e.H2.price;
+
+   e.confirm_index = e.H2.index;
+   e.confirm_time  = e.H2.time;
+   e.confirm_price = e.H2.price;
+}
+
+void M0007_MarkConfirmedAtLeg2Break(M0007_F1Event &e, const int idx, const datetime t, const double price)
+{
+   M0007_MarkCompletedAtLeg2(e);
+   e.status = M0007_STATUS_CONFIRMED;
+
+   e.leg2_break_index = idx;
+   e.leg2_break_time  = t;
+   e.leg2_break_price = price;
+
+   e.confirm_index = idx;
+   e.confirm_time  = t;
+   e.confirm_price = price;
+}
+
+bool M0007_FindLeg2BreakAfter(const MqlRates &rates[],
+                              const int total,
+                              const int from_index,
+                              const M0007_F1Direction direction,
+                              const double leg2_level,
+                              const M0007_BreakMode mode,
+                              const double eps,
+                              int &break_index,
+                              datetime &break_time,
+                              double &break_price)
+{
+   break_index = -1;
+   break_time = 0;
+   break_price = 0.0;
+
+   int start = MathMax(0, from_index);
+   for(int k=start; k<total; k++)
+   {
+      if(direction == M0007_DIR_BULLISH && M0007_BreakAbove(rates[k], leg2_level, mode, eps))
+      {
+         break_index = k;
+         break_time = rates[k].time;
+         break_price = (mode == M0007_BREAK_CLOSE ? rates[k].close : rates[k].high);
+         return true;
+      }
+
+      if(direction == M0007_DIR_BEARISH && M0007_BreakBelow(rates[k], leg2_level, mode, eps))
+      {
+         break_index = k;
+         break_time = rates[k].time;
+         break_price = (mode == M0007_BREAK_CLOSE ? rates[k].close : rates[k].low);
+         return true;
+      }
+   }
+
+   return false;
 }
 
 void M0007_BuildCommonEventFields(M0007_F1Event &e, const int L)
@@ -117,11 +178,15 @@ void M0007_BuildCommonEventFields(M0007_F1Event &e, const int L)
    if(e.has_internal_1) internal_bonus += 10.0;
    if(e.has_internal_2) internal_bonus += 25.0;
 
+   double confirmation_bonus = 0.0;
+   if(e.status == M0007_STATUS_CONFIRMED) confirmation_bonus = 50.0;
+
    e.score = ((double)L * 1000000.0) +
              leg2_size * 1000.0 +
              break_size * 10000.0 +
              correction_quality * 100.0 +
-             internal_bonus;
+             internal_bonus +
+             confirmation_bonus;
 
    e.signature = M0007_DirectionToString(e.direction) + "|F1_4NODE_REAL_ORIGIN|" +
                  IntegerToString(e.Start.index) + "|" +
@@ -258,6 +323,8 @@ void M0007_ScanOneL(const MqlRates &rates[],
                     const int L,
                     const M0007_BreakMode mode,
                     const double eps,
+                    const bool require_leg2_break_for_confirm,
+                    const bool require_internal_12_for_f1,
                     M0007_F1Event &raw_events[])
 {
    M0007_F1Node raw_nodes[];
@@ -284,8 +351,25 @@ void M0007_ScanOneL(const MqlRates &rates[],
          ev.H1 = B;
          ev.W  = C;
          ev.H2 = D;
-         M0007_MarkConfirmedAtLeg2(ev);
+         M0007_MarkCompletedAtLeg2(ev);
          M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
+
+         if(require_internal_12_for_f1 && !ev.has_internal_2)
+            continue;
+
+         if(require_leg2_break_for_confirm)
+         {
+            int br_idx;
+            datetime br_time;
+            double br_price;
+            if(M0007_FindLeg2BreakAfter(rates, total, D.index + 1, ev.direction, D.price, mode, eps, br_idx, br_time, br_price))
+               M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
+         }
+         else
+         {
+            M0007_MarkConfirmedAtLeg2(ev);
+         }
+
          M0007_BuildCommonEventFields(ev, L);
          M0007_AddEvent(raw_events, ev);
       }
@@ -299,8 +383,25 @@ void M0007_ScanOneL(const MqlRates &rates[],
          ev.H1 = B;
          ev.W  = C;
          ev.H2 = D;
-         M0007_MarkConfirmedAtLeg2(ev);
+         M0007_MarkCompletedAtLeg2(ev);
          M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
+
+         if(require_internal_12_for_f1 && !ev.has_internal_2)
+            continue;
+
+         if(require_leg2_break_for_confirm)
+         {
+            int br_idx;
+            datetime br_time;
+            double br_price;
+            if(M0007_FindLeg2BreakAfter(rates, total, D.index + 1, ev.direction, D.price, mode, eps, br_idx, br_time, br_price))
+               M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
+         }
+         else
+         {
+            M0007_MarkConfirmedAtLeg2(ev);
+         }
+
          M0007_BuildCommonEventFields(ev, L);
          M0007_AddEvent(raw_events, ev);
       }
@@ -314,6 +415,8 @@ void M0007_DetectAdaptiveF1(const MqlRates &rates[],
                             const M0007_BreakMode mode,
                             const double eps,
                             const double overlap_threshold,
+                            const bool require_leg2_break_for_confirm,
+                            const bool require_internal_12_for_f1,
                             M0007_F1Event &events[])
 {
    M0007_F1Event raw_events[];
@@ -323,7 +426,7 @@ void M0007_DetectAdaptiveF1(const MqlRates &rates[],
    int fromL = MathMax(2, L_min);
    int toL = MathMax(fromL, L_max);
    for(int L=fromL; L<=toL; L++)
-      M0007_ScanOneL(rates, total, L, mode, eps, raw_events);
+      M0007_ScanOneL(rates, total, L, mode, eps, require_leg2_break_for_confirm, require_internal_12_for_f1, raw_events);
 
    M0007_MergeAdaptiveEvents(raw_events, overlap_threshold, events);
 }
