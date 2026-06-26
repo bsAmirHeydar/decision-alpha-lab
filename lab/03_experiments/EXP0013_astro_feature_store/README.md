@@ -160,6 +160,8 @@ You can already inspect family entry and exit windows without Strategy Tester by
 
 You can also generate a final astro-only consensus entry report from the same raw CSV through `tools/astro_validation/astro_final_entry_report.py`.
 
+The default final-entry workflow is now `pure_strict`, which excludes the live shell from the consensus set and records veto reasons for every blocked bar.
+
 ## Important note
 
 The EA birth inputs are not a substitute for CSV generation.

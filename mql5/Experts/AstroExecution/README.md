@@ -139,6 +139,7 @@ Idea:
 - read the same pure astro signal layer
 - convert the astro state machine into optional broker actions
 - preserve the same paper journal and doctrine trail while routing orders
+- strict pure mode now gates live entries behind macro/meso/micro/minute timing plus doctrine dominance checks by default
 
 Best use:
 

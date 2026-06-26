@@ -101,7 +101,8 @@ python tools/astro_validation/astro_final_entry_report.py ^
   --csv lab/03_experiments/EXP0013_astro_feature_store/sample.csv ^
   --out-xlsx lab/03_experiments/EXP0013_astro_feature_store/reports/astro_final_entry_report.xlsx ^
   --config tools/astro_feature_builder/astro_config.example.json ^
-  --families A0001 A0002 A0003 A0004 A0005 A0006 A0007 A0090 ^
+  --families A0001 A0002 A0003 A0004 A0005 A0006 A0007 ^
+  --profile pure_strict ^
   --also-csv
 ```
 
@@ -112,12 +113,19 @@ Report outputs:
 - `BarConsensus`
 - `FinalEntryWindows`
 
+The strict profile keeps the final signal more astro-pure:
+
+- default family set excludes `A0090`
+- veto reasons are written per bar
+- minute exhaustion, macro/meso/micro timing weakness, and direction conflict can all block an entry
+
 There is also a Common Files helper:
 
 ```powershell
 .\tools\astro_validation\build_final_entry_report_common.ps1 `
   -CsvName "astro_live_mql.csv" `
   -OutName "astro_final_entry_report.xlsx" `
+  -Profile "pure_strict" `
   -AlsoCsv
 ```
 

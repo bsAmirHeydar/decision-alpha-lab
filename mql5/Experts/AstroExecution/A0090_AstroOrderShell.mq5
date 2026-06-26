@@ -23,6 +23,13 @@ input double          InpArmThreshold         = 58.0;
 input double          InpEnterThreshold       = 68.0;
 input double          InpReduceThreshold      = 52.0;
 input double          InpExitThreshold        = 60.0;
+input bool            InpStrictPureMode       = true;
+input double          InpMinMacroTiming       = 60.0;
+input double          InpMinMesoTiming        = 56.0;
+input double          InpMinMicroTiming       = 56.0;
+input double          InpMinMinuteWindow      = 61.0;
+input double          InpMaxMinuteExhaustion  = 55.0;
+input bool            InpRequireDoctrineDominance = true;
 input bool            InpUseChartComment      = true;
 input bool            InpBatchBacktestOnInit   = false;
 input bool            InpStopAfterBatch        = true;
@@ -104,15 +111,43 @@ bool A0090_ProcessRow(const DAL_AstroMapRow &row, const bool verbose)
    if(!DAL_AstroPureSignal_Calc(row, signal) || !signal.valid)
       return false;
 
+   DAL_AstroPureSignal gated = signal;
+   if(InpStrictPureMode)
+   {
+      bool timing_ready =
+         (signal.macro_timing_score >= InpMinMacroTiming &&
+          signal.meso_timing_score >= InpMinMesoTiming &&
+          signal.micro_timing_score >= InpMinMicroTiming &&
+          signal.minute_window_score >= InpMinMinuteWindow &&
+          signal.minute_exhaustion_score <= InpMaxMinuteExhaustion);
+
+      bool doctrine_ready = true;
+      if(InpRequireDoctrineDominance)
+      {
+         bool long_doctrine =
+            (signal.direction_name == "long" &&
+             signal.benefic_support_score >= signal.malefic_pressure_score + 4.0 &&
+             signal.house_lift_score >= signal.house_drag_score + 2.0);
+         bool short_doctrine =
+            (signal.direction_name == "short" &&
+             signal.malefic_pressure_score >= signal.benefic_support_score + 4.0 &&
+             signal.house_drag_score >= signal.house_lift_score + 2.0);
+         doctrine_ready = (long_doctrine || short_doctrine);
+      }
+
+      if(!(timing_ready && doctrine_ready))
+         gated.entry_signal = "wait";
+   }
+
    double arm_threshold    = InpUseDoctrineThresholds ? g_thresholds_shell.arm_threshold    : InpArmThreshold;
    double enter_threshold  = InpUseDoctrineThresholds ? g_thresholds_shell.enter_threshold  : InpEnterThreshold;
    double reduce_threshold = InpUseDoctrineThresholds ? g_thresholds_shell.reduce_threshold : InpReduceThreshold;
    double exit_threshold   = InpUseDoctrineThresholds ? g_thresholds_shell.exit_threshold   : InpExitThreshold;
-   DAL_AstroExecState_Step(g_state_shell, row, signal, arm_threshold, enter_threshold, reduce_threshold, exit_threshold);
+   DAL_AstroExecState_Step(g_state_shell, row, gated, arm_threshold, enter_threshold, reduce_threshold, exit_threshold);
    if(g_batch_journal_handle_shell != INVALID_HANDLE)
-      DAL_AstroJournal_WriteHandle(g_batch_journal_handle_shell, row, signal, g_state_shell);
+      DAL_AstroJournal_WriteHandle(g_batch_journal_handle_shell, row, gated, g_state_shell);
    else
-      DAL_AstroJournal_Append(InpJournalFile, InpJournalUseCommon, row, signal, g_state_shell);
+      DAL_AstroJournal_Append(InpJournalFile, InpJournalUseCommon, row, gated, g_state_shell);
 
    if(verbose)
    {
@@ -121,7 +156,8 @@ bool A0090_ProcessRow(const DAL_AstroMapRow &row, const bool verbose)
       {
          string txt = "A0090 ASTRO LIVE SHELL\n";
          txt += "orders=" + (InpEnableLiveOrders ? "enabled" : "disabled") + "\n";
-         txt += DAL_AstroPureSignal_ToText(row, signal) + "\n";
+         txt += "strict_pure=" + (InpStrictPureMode ? "on" : "off") + "\n";
+         txt += DAL_AstroPureSignal_ToText(row, gated) + "\n";
          txt += DAL_AstroExecState_ToText(g_state_shell);
          Comment(txt);
       }

@@ -6,13 +6,13 @@ This is an offline decision surface:
 - raw deterministic astro CSV in
 - family gates applied per bar
 - weighted consensus across families
+- explicit purity vetoes
 - final entry / exit windows out
 """
 
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -23,11 +23,11 @@ except ImportError as exc:  # pragma: no cover
     raise SystemExit("openpyxl is required. Install it with: python -m pip install openpyxl") from exc
 
 from astro_paper_family_runner import FAMILY_DEFAULTS, load_config  # type: ignore
-from astro_pure_entry_excel import add_sheet, compute_records, iter_rows, parse_time, resolve_report_thresholds, write_csv  # type: ignore
+from astro_pure_entry_excel import add_sheet, compute_records, iter_rows, resolve_report_thresholds, write_csv  # type: ignore
 
 
-DEFAULT_FAMILIES = ["A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007", "A0090"]
-FAMILY_WEIGHTS = {
+DEFAULT_FAMILIES = ["A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007"]
+BASE_FAMILY_WEIGHTS = {
     "A0001": 1.00,
     "A0002": 1.00,
     "A0003": 0.95,
@@ -37,8 +37,47 @@ FAMILY_WEIGHTS = {
     "A0007": 1.10,
     "A0090": 1.20,
 }
+PURITY_PROFILES: Dict[str, Dict[str, float]] = {
+    "pure_strict": {
+        "min_families": 3,
+        "min_weight": 3.15,
+        "min_consensus_strength": 62.0,
+        "min_entry_score": 66.0,
+        "min_minute_window": 61.0,
+        "max_minute_exhaustion": 55.0,
+        "max_direction_conflict_weight": 1.20,
+        "min_macro_timing": 60.0,
+        "min_meso_timing": 56.0,
+        "min_micro_timing": 56.0,
+    },
+    "pure_balanced": {
+        "min_families": 3,
+        "min_weight": 3.00,
+        "min_consensus_strength": 56.0,
+        "min_entry_score": 64.0,
+        "min_minute_window": 58.0,
+        "max_minute_exhaustion": 58.0,
+        "max_direction_conflict_weight": 1.35,
+        "min_macro_timing": 57.0,
+        "min_meso_timing": 53.0,
+        "min_micro_timing": 53.0,
+    },
+    "pure_probe": {
+        "min_families": 2,
+        "min_weight": 2.00,
+        "min_consensus_strength": 48.0,
+        "min_entry_score": 60.0,
+        "min_minute_window": 55.0,
+        "max_minute_exhaustion": 61.0,
+        "max_direction_conflict_weight": 1.60,
+        "min_macro_timing": 53.0,
+        "min_meso_timing": 50.0,
+        "min_micro_timing": 50.0,
+    },
+}
 
 SUMMARY_HEADERS = ["key", "value"]
+FAMILY_HEADERS = ["family", "family_name", "bars", "entry_votes", "weight"]
 BAR_HEADERS = [
     "broker_time",
     "utc_time",
@@ -51,6 +90,8 @@ BAR_HEADERS = [
     "winning_weight",
     "agreement_ratio",
     "consensus_strength",
+    "purity_state",
+    "veto_reason",
     "entry_score_avg",
     "macro_timing_avg",
     "meso_timing_avg",
@@ -70,6 +111,7 @@ WINDOW_HEADERS = [
     "valid_from_broker",
     "valid_until_broker",
     "bars",
+    "purity_state",
     "entry_score_avg",
     "macro_timing_avg",
     "meso_timing_avg",
@@ -89,15 +131,28 @@ def avg(values: List[float]) -> float:
     return sum(values) / len(values) if values else 0.0
 
 
-def decision_for_bar(
+def resolve_family_weights(profile_name: str) -> Dict[str, float]:
+    weights = dict(BASE_FAMILY_WEIGHTS)
+    if profile_name == "pure_strict":
+        weights["A0004"] = 1.18
+        weights["A0005"] = 1.12
+        weights["A0006"] = 1.18
+        weights["A0007"] = 1.18
+        weights["A0003"] = 0.90
+        weights["A0090"] = 1.00
+    elif profile_name == "pure_probe":
+        weights["A0001"] = 1.05
+        weights["A0002"] = 1.05
+        weights["A0003"] = 1.00
+    return weights
+
+
+def decide_bar(
     row: dict,
     family_records: Dict[str, List[dict]],
     index: int,
-    min_families: int,
-    min_weight: float,
-    min_consensus_strength: float,
-    min_entry_score: float,
-    min_minute_window: float,
+    profile: Dict[str, float],
+    family_weights: Dict[str, float],
 ) -> dict:
     long_votes = 0
     short_votes = 0
@@ -112,28 +167,31 @@ def decision_for_bar(
         signal = record["signal"]
         if signal.entry_signal == "enter_long":
             long_votes += 1
-            long_weight += FAMILY_WEIGHTS.get(family, 1.0)
+            long_weight += family_weights.get(family, 1.0)
             long_signals.append({"family": family, "signal": signal})
             active_families.append(family)
         elif signal.entry_signal == "enter_short":
             short_votes += 1
-            short_weight += FAMILY_WEIGHTS.get(family, 1.0)
+            short_weight += family_weights.get(family, 1.0)
             short_signals.append({"family": family, "signal": signal})
             active_families.append(family)
 
-    total_weight = sum(FAMILY_WEIGHTS.get(f, 1.0) for f in family_records.keys())
+    total_weight = sum(family_weights.get(f, 1.0) for f in family_records.keys())
     direction = "flat"
     decision = "wait"
     winners: List[dict] = []
     winning_weight = 0.0
+    losing_weight = 0.0
     if long_weight > short_weight:
         direction = "long"
         winners = long_signals
         winning_weight = long_weight
+        losing_weight = short_weight
     elif short_weight > long_weight:
         direction = "short"
         winners = short_signals
         winning_weight = short_weight
+        losing_weight = long_weight
 
     weighted_entry = [item["signal"].entry_score for item in winners]
     weighted_macro = [item["signal"].macro_timing_score for item in winners]
@@ -153,24 +211,46 @@ def decision_for_bar(
     directional_total = long_weight + short_weight
     consensus_strength = (100.0 * abs(long_weight - short_weight) / directional_total) if directional_total > 0 else 0.0
 
+    purity_state = "blocked"
+    veto_reasons: List[str] = []
     winning_count = len(winners)
-    if direction != "flat":
-        if (
-            winning_count >= min_families
-            and winning_weight >= min_weight
-            and consensus_strength >= min_consensus_strength
-            and entry_score_avg >= min_entry_score
-            and minute_avg >= min_minute_window
-            and exhaust_avg <= 58.0
-        ):
+
+    if direction == "flat":
+        veto_reasons.append("no_direction")
+    else:
+        if winning_count < int(profile["min_families"]):
+            veto_reasons.append("low_family_count")
+        if winning_weight < float(profile["min_weight"]):
+            veto_reasons.append("low_weight")
+        if consensus_strength < float(profile["min_consensus_strength"]):
+            veto_reasons.append("weak_consensus")
+        if entry_score_avg < float(profile["min_entry_score"]):
+            veto_reasons.append("entry_score_low")
+        if minute_avg < float(profile["min_minute_window"]):
+            veto_reasons.append("minute_window_low")
+        if exhaust_avg > float(profile["max_minute_exhaustion"]):
+            veto_reasons.append("minute_exhaustion_high")
+        if macro_avg < float(profile["min_macro_timing"]):
+            veto_reasons.append("macro_timing_low")
+        if meso_avg < float(profile["min_meso_timing"]):
+            veto_reasons.append("meso_timing_low")
+        if micro_avg < float(profile["min_micro_timing"]):
+            veto_reasons.append("micro_timing_low")
+        if losing_weight > float(profile["max_direction_conflict_weight"]):
+            veto_reasons.append("direction_conflict")
+
+        if not veto_reasons:
             decision = f"enter_{direction}"
+            purity_state = "pure_entry"
         elif (
-            winning_count >= max(2, min_families - 1)
-            and winning_weight >= max(1.5, min_weight - 1.0)
-            and entry_score_avg >= min_entry_score - 6.0
-            and minute_avg >= min_minute_window - 4.0
+            winning_count >= max(2, int(profile["min_families"]) - 1)
+            and winning_weight >= max(1.5, float(profile["min_weight"]) - 1.0)
+            and entry_score_avg >= float(profile["min_entry_score"]) - 6.0
+            and minute_avg >= float(profile["min_minute_window"]) - 4.0
+            and macro_avg >= float(profile["min_macro_timing"]) - 4.0
         ):
             decision = f"armed_{direction}"
+            purity_state = "probe"
 
     supporting = ",".join(item["family"] for item in winners)
     sample_signal = winners[0]["signal"] if winners else None
@@ -186,6 +266,8 @@ def decision_for_bar(
         "winning_weight": round(winning_weight, 4),
         "agreement_ratio": round(agreement_ratio, 4),
         "consensus_strength": round(consensus_strength, 4),
+        "purity_state": purity_state,
+        "veto_reason": ",".join(veto_reasons),
         "entry_score_avg": round(entry_score_avg, 4),
         "macro_timing_avg": round(macro_avg, 4),
         "meso_timing_avg": round(meso_avg, 4),
@@ -227,6 +309,7 @@ def build_final_windows(bar_rows: List[dict]) -> List[dict]:
                 "valid_from_broker": slice_rows[0]["broker_time"],
                 "valid_until_broker": slice_rows[-1]["broker_time"],
                 "bars": len(slice_rows),
+                "purity_state": slice_rows[0]["purity_state"],
                 "entry_score_avg": round(avg([float(r["entry_score_avg"]) for r in slice_rows]), 4),
                 "macro_timing_avg": round(avg([float(r["macro_timing_avg"]) for r in slice_rows]), 4),
                 "meso_timing_avg": round(avg([float(r["meso_timing_avg"]) for r in slice_rows]), 4),
@@ -263,11 +346,13 @@ def main() -> int:
     parser.add_argument("--out-xlsx", required=True)
     parser.add_argument("--config", default="")
     parser.add_argument("--families", nargs="+", default=DEFAULT_FAMILIES, choices=sorted(FAMILY_DEFAULTS.keys()))
-    parser.add_argument("--min-families", type=int, default=3)
-    parser.add_argument("--min-weight", type=float, default=3.1)
-    parser.add_argument("--min-consensus-strength", type=float, default=60.0)
-    parser.add_argument("--min-entry-score", type=float, default=66.0)
-    parser.add_argument("--min-minute-window", type=float, default=60.0)
+    parser.add_argument("--profile", choices=sorted(PURITY_PROFILES.keys()), default="pure_strict")
+    parser.add_argument("--min-families", type=int, default=None)
+    parser.add_argument("--min-weight", type=float, default=None)
+    parser.add_argument("--min-consensus-strength", type=float, default=None)
+    parser.add_argument("--min-entry-score", type=float, default=None)
+    parser.add_argument("--min-minute-window", type=float, default=None)
+    parser.add_argument("--max-minute-exhaustion", type=float, default=None)
     parser.add_argument("--also-csv", action="store_true")
     args = parser.parse_args()
 
@@ -276,6 +361,21 @@ def main() -> int:
     if not csv_path.exists():
         raise SystemExit(f"Input CSV not found: {csv_path}")
 
+    profile = dict(PURITY_PROFILES[args.profile])
+    if args.min_families is not None:
+        profile["min_families"] = float(args.min_families)
+    if args.min_weight is not None:
+        profile["min_weight"] = args.min_weight
+    if args.min_consensus_strength is not None:
+        profile["min_consensus_strength"] = args.min_consensus_strength
+    if args.min_entry_score is not None:
+        profile["min_entry_score"] = args.min_entry_score
+    if args.min_minute_window is not None:
+        profile["min_minute_window"] = args.min_minute_window
+    if args.max_minute_exhaustion is not None:
+        profile["max_minute_exhaustion"] = args.max_minute_exhaustion
+
+    family_weights = resolve_family_weights(args.profile)
     config: Optional[Dict[str, object]] = load_config(args.config) if args.config else None
     rows = list(iter_rows(csv_path))
     family_records: Dict[str, List[dict]] = {}
@@ -290,39 +390,31 @@ def main() -> int:
                 "family_name": thresholds.family_name,
                 "bars": len(records),
                 "entry_votes": sum(1 for r in records if r["signal"].entry_signal in {"enter_long", "enter_short"}),
-                "weight": FAMILY_WEIGHTS.get(family, 1.0),
+                "weight": family_weights.get(family, 1.0),
             }
         )
 
-    bar_rows = [
-        decision_for_bar(
-            row,
-            family_records,
-            index,
-            args.min_families,
-            args.min_weight,
-            args.min_consensus_strength,
-            args.min_entry_score,
-            args.min_minute_window,
-        )
-        for index, row in enumerate(rows)
-    ]
+    bar_rows = [decide_bar(row, family_records, index, profile, family_weights) for index, row in enumerate(rows)]
     final_windows = build_final_windows(bar_rows)
     summary_rows = [
         {"key": "input_csv", "value": str(csv_path)},
         {"key": "output_xlsx", "value": str(out_xlsx)},
         {"key": "families", "value": ", ".join(args.families)},
+        {"key": "profile", "value": args.profile},
+        {"key": "profile_json", "value": json.dumps(profile, ensure_ascii=False)},
         {"key": "rows_scanned", "value": len(rows)},
         {"key": "final_entry_windows", "value": len(final_windows)},
         {"key": "enter_long_bars", "value": sum(1 for row in bar_rows if row["decision"] == "enter_long")},
         {"key": "enter_short_bars", "value": sum(1 for row in bar_rows if row["decision"] == "enter_short")},
         {"key": "armed_long_bars", "value": sum(1 for row in bar_rows if row["decision"] == "armed_long")},
         {"key": "armed_short_bars", "value": sum(1 for row in bar_rows if row["decision"] == "armed_short")},
+        {"key": "pure_entry_bars", "value": sum(1 for row in bar_rows if row["purity_state"] == "pure_entry")},
+        {"key": "blocked_bars", "value": sum(1 for row in bar_rows if row["purity_state"] == "blocked")},
     ]
 
     sheets = [
         ("FinalSummary", SUMMARY_HEADERS, summary_rows),
-        ("FamilyWeights", ["family", "family_name", "bars", "entry_votes", "weight"], family_summary),
+        ("FamilyWeights", FAMILY_HEADERS, family_summary),
         ("BarConsensus", BAR_HEADERS, bar_rows),
         ("FinalEntryWindows", WINDOW_HEADERS, final_windows),
     ]
@@ -339,10 +431,12 @@ def main() -> int:
                 "input_csv": str(csv_path),
                 "output_xlsx": str(out_xlsx),
                 "families": args.families,
+                "profile": args.profile,
                 "rows_scanned": len(rows),
                 "final_entry_windows": len(final_windows),
                 "enter_long_bars": sum(1 for row in bar_rows if row["decision"] == "enter_long"),
                 "enter_short_bars": sum(1 for row in bar_rows if row["decision"] == "enter_short"),
+                "pure_entry_bars": sum(1 for row in bar_rows if row["purity_state"] == "pure_entry"),
             },
             ensure_ascii=False,
             indent=2,
