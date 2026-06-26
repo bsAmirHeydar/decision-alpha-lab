@@ -40,7 +40,7 @@ input int InpCurveSegments = 10;
 input bool InpShowFlagLabel = true;
 input bool InpShowInternal12Labels = true;
 input int InpFlagFontSize = 7;
-input int InpInternalFontSize = 12;
+input int InpInternalFontSize = 7;
 
 input bool InpPrintSummary = true;
 input bool InpPrintLastEvents = true;
@@ -172,8 +172,14 @@ int OnInit()
 
 void OnDeinit(const int reason)
 {
-   if(InpCleanObjectsOnInit)
-      FC_DeleteObjectsByPrefix(InpObjectPrefix);
+   // Always remove every object drawn by this experiment on detach/recompile/timeframe change.
+   // This keeps chart updates clean even when InpCleanObjectsOnInit is disabled.
+   FC_DeleteObjectsByPrefix(InpObjectPrefix);
+
+   // Also clean the default project prefix in case the user changed InpObjectPrefix
+   // after a previous run and the old layer is still on the chart.
+   if(InpObjectPrefix != "DAL_FC_")
+      FC_DeleteObjectsByPrefix("DAL_FC_");
 }
 
 void OnTick()

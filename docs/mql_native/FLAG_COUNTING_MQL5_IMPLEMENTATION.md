@@ -81,3 +81,13 @@ InpF2MinParentSizeRatio = 1.0
 ## Renderer label size contract
 
 The unified renderer keeps `F1/F2` text small by default (`InpFlagFontSize = 7`) and places it close to the body endpoint so the curved flag body is not visually blocked. Internal `1/2` labels are not reduced by this change.
+
+## Visual cleanup and tiny labels
+
+Current chart contract:
+
+- `F1` and `F2` level labels are tiny by default.
+- Internal `1` and `2` labels are also tiny by default.
+- The default `InpInternalFontSize` is `7`.
+- The experiment always removes objects with `InpObjectPrefix` during `OnDeinit`, independent of `InpCleanObjectsOnInit`.
+- If the prefix was changed, `OnDeinit` also removes the default `DAL_FC_` layer to avoid stale chart drawings after recompiles or updates.

@@ -165,3 +165,13 @@ InpInternalFontSize = 12
 ```
 
 The renderer also keeps the `F1/F2` label close to the Leg2/confirmation anchor. Internal `1` and `2` labels remain larger because they are structural count markers.
+
+## Visual cleanup and tiny labels
+
+Current chart contract:
+
+- `F1` and `F2` level labels are tiny by default.
+- Internal `1` and `2` labels are also tiny by default.
+- The default `InpInternalFontSize` is `7`.
+- The experiment always removes objects with `InpObjectPrefix` during `OnDeinit`, independent of `InpCleanObjectsOnInit`.
+- If the prefix was changed, `OnDeinit` also removes the default `DAL_FC_` layer to avoid stale chart drawings after recompiles or updates.

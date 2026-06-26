@@ -180,7 +180,8 @@ void FC_DrawFlagLabels(const FC_FlagEvent &e,
       FC_DrawTextRaw(prefix + "F", anchor_t, p, label, clr, flag_font, bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER);
    }
 
-   // Internal 1/2 are numeric labels only. No post-leg2 lines are drawn.
+   // Internal 1/2 are numeric labels only. They are intentionally kept tiny.
+   // No post-leg2 lines are drawn.
    if(show_internal_labels && e.has_n1 && e.n1.index >= 0)
    {
       double off = MathMax(0.08 * h, 15.0 * _Point);
