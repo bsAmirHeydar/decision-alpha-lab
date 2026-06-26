@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.09"
-#property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
+#property version   "1.11"
+#property description "M0007 | Correct 4-node F1 flag counter with safe clean schematic overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
 #include <M0007/DAL_M0007F1Renderer.mqh>
@@ -132,7 +132,7 @@ bool M0007_RunF1Detector()
                                 InpBearishPendingColor,
                                 InpBullishConfirmedColor,
                                 InpBearishConfirmedColor);
-   Print("DAL M0007 F1: drawn clean schematics=", drawn);
+   Print("DAL M0007 F1: safe redraw schematics=", drawn);
 
    return true;
 }

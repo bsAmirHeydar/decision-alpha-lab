@@ -204,3 +204,24 @@ invalidated/deleted -> only that event's objects are removed
 The renderer now writes chart text through an update-in-place helper.  It verifies that `OBJPROP_TEXT` was committed successfully; if not, it deletes the half-created object instead of leaving the terminal default `Text` label on chart.
 
 `InpCleanBrokenDefaultTextLabels` is enabled by default to remove legacy default `Text` objects left by earlier broken builds.  Normal redraws remain incremental and event-key based.
+
+
+## Renderer repair — compact object names
+
+The renderer now uses compact stable object keys instead of full timestamp chains in the chart object name.
+This prevents MetaTrader from creating broken default `Text` labels when object names become too long.
+`InpCleanObjectsOnInit=true` and `InpCleanBrokenDefaultTextLabels=true` should be kept enabled for one attach cycle to clean legacy broken objects from previous builds.
+
+
+## Renderer rollback / safe draw contract
+
+The renderer was restored to the stable safe-draw model:
+
+- clear the M0007 object layer on each recalculation,
+- redraw all current non-invalidated F1 events from the detector,
+- use short event-number based object names,
+- avoid long stable event keys,
+- avoid text commit verification that can leave MT5 default `Text` labels,
+- keep the minimal visual grammar: `F1`, internal `1`, internal `2`, and the F1 path.
+
+This keeps the latest detector logic intact while restoring the chart output to a reliable drawing path.
