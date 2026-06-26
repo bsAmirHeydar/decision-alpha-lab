@@ -119,6 +119,12 @@ The strict profile keeps the final signal more astro-pure:
 - veto reasons are written per bar
 - minute exhaustion, macro/meso/micro timing weakness, and direction conflict can all block an entry
 
+There is now also a repo preset:
+
+- `pure_strict_tuned`
+- same strict structure
+- tuned from the current NAS100 finalization pass with `min_micro_timing = 54`
+
 There is also a Common Files helper:
 
 ```powershell

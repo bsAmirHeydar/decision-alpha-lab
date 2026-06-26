@@ -50,6 +50,18 @@ PURITY_PROFILES: Dict[str, Dict[str, float]] = {
         "min_meso_timing": 56.0,
         "min_micro_timing": 56.0,
     },
+    "pure_strict_tuned": {
+        "min_families": 3,
+        "min_weight": 3.15,
+        "min_consensus_strength": 62.0,
+        "min_entry_score": 66.0,
+        "min_minute_window": 61.0,
+        "max_minute_exhaustion": 55.0,
+        "max_direction_conflict_weight": 1.2,
+        "min_macro_timing": 60.0,
+        "min_meso_timing": 56.0,
+        "min_micro_timing": 54.0,
+    },
     "pure_balanced": {
         "min_families": 3,
         "min_weight": 3.00,
@@ -134,6 +146,13 @@ def avg(values: List[float]) -> float:
 def resolve_family_weights(profile_name: str) -> Dict[str, float]:
     weights = dict(BASE_FAMILY_WEIGHTS)
     if profile_name == "pure_strict":
+        weights["A0004"] = 1.18
+        weights["A0005"] = 1.12
+        weights["A0006"] = 1.18
+        weights["A0007"] = 1.18
+        weights["A0003"] = 0.90
+        weights["A0090"] = 1.00
+    elif profile_name == "pure_strict_tuned":
         weights["A0004"] = 1.18
         weights["A0005"] = 1.12
         weights["A0006"] = 1.18
