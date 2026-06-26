@@ -18,14 +18,14 @@ input bool InpScanBearish = true;
 // when a body is promoted from root F1 to child F2, do not draw/count the same body as F1 too.
 input bool InpSuppressF1BodiesPromotedToF2 = true;
 
-input bool InpRequireF1Internal12 = true;
-input bool InpRequireF1Leg2RebreakForConfirm = true;
+input bool InpRequireF1Internal12 = false; // audit label only; no longer gates F1 validity
+input bool InpRequireF1Leg2RebreakForConfirm = true; // confirmation is Leg2 rebreak before F1 waist invalidation
 input bool InpRequireParentF1ConfirmedForF2 = true;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
 input bool InpAllowF2WaistBreakBranch = true;
-input bool InpRequireF2Branch12 = true;
-input bool InpRequireF2Leg2RebreakForConfirm = true;
+input bool InpRequireF2Branch12 = false; // audit label only; no longer gates F2 validity
+input bool InpRequireF2Leg2RebreakForConfirm = true; // confirmation is Leg2 rebreak before F2 origin invalidation
 
 input bool InpDrawF1 = true;
 input bool InpDrawF2 = true;

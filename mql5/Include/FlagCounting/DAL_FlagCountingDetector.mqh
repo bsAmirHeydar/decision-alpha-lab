@@ -25,11 +25,9 @@ bool FC_IsBullishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node 
    if(waist.kind  != FC_NODE_LOW)  return false;
    if(leg2.kind   != FC_NODE_HIGH) return false;
 
-   // Bullish flag geometry:
-   // - Leg1 must move away from the origin.
-   // - Waist/correction must stay in front of the origin, not behind the start of the leg.
-   // - Waist must also stay below Leg1, otherwise it is not a correction waist.
-   // - Leg2 must break Leg1.
+   // Bullish body geometry:
+   // origin low -> leg1 high -> waist low -> leg2 high.
+   // Waist must remain in front of the origin/start of leg and below leg1.
    if(!(leg1.price  > origin.price + eps)) return false;
    if(!(waist.price > origin.price + eps)) return false;
    if(!(waist.price < leg1.price  - eps)) return false;
@@ -45,11 +43,9 @@ bool FC_IsBearishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node 
    if(waist.kind  != FC_NODE_HIGH) return false;
    if(leg2.kind   != FC_NODE_LOW)  return false;
 
-   // Bearish flag geometry is the exact mirror of bullish:
-   // - Leg1 must move down away from the origin.
-   // - Waist/correction must stay below the origin, not behind/above the start of the leg.
-   // - Waist must also stay above Leg1, otherwise it is not a correction waist.
-   // - Leg2 must break Leg1.
+   // Bearish body geometry is the mirror:
+   // origin high -> leg1 low -> waist high -> leg2 low.
+   // Waist must remain in front of the origin/start of leg and above leg1.
    if(!(leg1.price  < origin.price - eps)) return false;
    if(!(waist.price < origin.price - eps)) return false;
    if(!(waist.price > leg1.price  + eps)) return false;
@@ -72,6 +68,24 @@ bool FC_NodeBreaksWaist(const int direction, const FC_Node &node, const double w
       return node.kind == FC_NODE_LOW && node.price <= waist_price + eps;
    if(direction == FC_DIR_BEARISH)
       return node.kind == FC_NODE_HIGH && node.price >= waist_price - eps;
+   return false;
+}
+
+bool FC_NodeBreaksOrigin(const int direction, const FC_Node &node, const double origin_price, const double eps)
+{
+   if(direction == FC_DIR_BULLISH)
+      return node.kind == FC_NODE_LOW && node.price <= origin_price + eps;
+   if(direction == FC_DIR_BEARISH)
+      return node.kind == FC_NODE_HIGH && node.price >= origin_price - eps;
+   return false;
+}
+
+bool FC_NodeBreaksInvalidation(const int direction, const FC_Node &node, const double invalidation_price, const double eps)
+{
+   if(direction == FC_DIR_BULLISH)
+      return node.kind == FC_NODE_LOW && node.price <= invalidation_price + eps;
+   if(direction == FC_DIR_BEARISH)
+      return node.kind == FC_NODE_HIGH && node.price >= invalidation_price - eps;
    return false;
 }
 
@@ -101,22 +115,51 @@ bool FC_Internal2ValidAgainstInternal1(const int direction, const FC_Node &n1, c
    return false;
 }
 
-bool FC_FindBranchAfterLeg2(const FC_Node &nodes[],
-                            const int leg2_pos,
-                            const int direction,
-                            const double waist_price,
-                            const double leg2_price,
-                            const bool allow_waist_break_branch,
-                            const bool allow_leg2_break_before_branch,
-                            const double eps,
-                            FC_Node &n1,
-                            FC_Node &n2,
-                            int &branch_type,
-                            FC_Node &pre_branch_leg2_break)
+bool FC_FindFirstLeg2BreakBeforeInvalidation(const FC_Node &nodes[],
+                                             const int leg2_pos,
+                                             const int direction,
+                                             const double leg2_price,
+                                             const double invalidation_price,
+                                             const double eps,
+                                             FC_Node &confirm_node,
+                                             FC_Node &invalid_node)
+{
+   FC_InitNode(confirm_node);
+   FC_InitNode(invalid_node);
+
+   int n = ArraySize(nodes);
+   for(int p=leg2_pos+1; p<n; p++)
+   {
+      FC_Node node = nodes[p];
+      if(FC_NodeBreaksInvalidation(direction, node, invalidation_price, eps))
+      {
+         invalid_node = node;
+         return false;
+      }
+      if(FC_NodeBreaksLeg2(direction, node, leg2_price, eps))
+      {
+         confirm_node = node;
+         return true;
+      }
+   }
+   return false;
+}
+
+bool FC_FindBranchAfterLeg2UntilBoundary(const FC_Node &nodes[],
+                                         const int leg2_pos,
+                                         const int direction,
+                                         const double waist_price,
+                                         const double invalidation_price,
+                                         const bool allow_waist_break_branch,
+                                         const bool stop_at_first_leg2_break,
+                                         const double leg2_price,
+                                         const double eps,
+                                         FC_Node &n1,
+                                         FC_Node &n2,
+                                         int &branch_type)
 {
    FC_InitNode(n1);
    FC_InitNode(n2);
-   FC_InitNode(pre_branch_leg2_break);
    branch_type = FC_BRANCH_NONE;
 
    bool have_internal_1 = false;
@@ -128,18 +171,13 @@ bool FC_FindBranchAfterLeg2(const FC_Node &nodes[],
    {
       FC_Node node = nodes[p];
 
-      // Critical sequencing rule:
-      // F1: internal 1/2 must be formed BEFORE the Leg2 extreme is rebroken.
-      // F2: this pre-branch Leg2 break is allowed; F2 can extend through Leg2 first,
-      //     then return into its 1/2 branch or the waist-break branch.
-      if(FC_NodeBreaksLeg2(direction, node, leg2_price, eps))
-      {
-         if(!allow_leg2_break_before_branch)
-            return false;
-         if(pre_branch_leg2_break.index < 0)
-            pre_branch_leg2_break = node;
-         continue;
-      }
+      if(FC_NodeBreaksInvalidation(direction, node, invalidation_price, eps))
+         return false;
+
+      // F1 visual/counting branch belongs before the confirming Leg2 rebreak.
+      // F2 can still form its branch after a Leg2 extension, so it does not use this stop.
+      if(stop_at_first_leg2_break && FC_NodeBreaksLeg2(direction, node, leg2_price, eps))
+         return false;
 
       if(allow_waist_break_branch && FC_NodeBreaksWaist(direction, node, waist_price, eps))
       {
@@ -170,89 +208,29 @@ bool FC_FindBranchAfterLeg2(const FC_Node &nodes[],
    return false;
 }
 
-bool FC_FindLeg2RebreakAfterBranch(const FC_Node &nodes[],
-                                   const int n2_bar_index,
-                                   const int direction,
-                                   const double leg2_price,
-                                   const double eps,
-                                   FC_Node &confirm_node)
+void FC_ApplyBranchAndConfirmationV2(const FC_Node &nodes[],
+                                     const int leg2_pos,
+                                     const bool is_f2,
+                                     const bool allow_waist_break_branch,
+                                     const double eps,
+                                     FC_FlagEvent &event)
 {
-   FC_InitNode(confirm_node);
-   int start_pos = FC_FindNodePositionByIndex(nodes, n2_bar_index);
-   if(start_pos < 0) return false;
+   // Core contract from the research note:
+   // - A flag is confirmed when price rebreaks the Leg2 extreme.
+   // - It must not invalidate first.
+   // - F1 invalidation boundary is the F1 waist.
+   // - F2 invalidation boundary is the F2 origin/start of leg.
+   double invalidation_price = (is_f2 ? event.origin.price : event.waist.price);
 
-   int n = ArraySize(nodes);
-   for(int p=start_pos+1; p<n; p++)
-   {
-      if(FC_NodeBreaksLeg2(direction, nodes[p], leg2_price, eps))
-      {
-         confirm_node = nodes[p];
-         return true;
-      }
-   }
-   return false;
-}
-
-bool FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
-                                   const int leg2_pos,
-                                   const bool allow_waist_break_branch,
-                                   const bool allow_leg2_break_before_branch,
-                                   const bool pre_branch_leg2_break_can_confirm,
-                                   const bool require_branch12,
-                                   const bool require_leg2_rebreak,
-                                   const double eps,
-                                   FC_FlagEvent &event)
-{
-   FC_Node n1, n2, pre_branch_leg2_break;
-   int branch_type = FC_BRANCH_NONE;
-   bool branch_found = FC_FindBranchAfterLeg2(nodes,
-                                             leg2_pos,
-                                             event.direction,
-                                             event.waist.price,
-                                             event.leg2.price,
-                                             allow_waist_break_branch,
-                                             allow_leg2_break_before_branch,
-                                             eps,
-                                             n1,
-                                             n2,
-                                             branch_type,
-                                             pre_branch_leg2_break);
-
-   if(!branch_found)
-   {
-      if(require_branch12)
-         event.status = FC_STATUS_OPEN;
-      return (!require_branch12);
-   }
-
-   if(branch_type == FC_BRANCH_WAIST_BREAK)
-   {
-      n1.index = event.waist.index;
-      n1.time  = event.waist.time;
-      n1.price = event.waist.price;
-      n1.kind  = event.waist.kind;
-   }
-
-   event.n1 = n1;
-   event.n2 = n2;
-   event.has_n1 = true;
-   event.has_n2 = true;
-   event.branch_type = branch_type;
-
-   if(pre_branch_leg2_break.index >= 0)
-   {
-      event.pre_branch_leg2_break_index = pre_branch_leg2_break.index;
-      event.pre_branch_leg2_break_time = pre_branch_leg2_break.time;
-      event.pre_branch_leg2_break_price = pre_branch_leg2_break.price;
-   }
-
-   FC_Node confirm_node;
-   bool confirmed = FC_FindLeg2RebreakAfterBranch(nodes,
-                                                  event.n2.index,
-                                                  event.direction,
-                                                  event.leg2.price,
-                                                  eps,
-                                                  confirm_node);
+   FC_Node confirm_node, invalid_node;
+   bool confirmed = FC_FindFirstLeg2BreakBeforeInvalidation(nodes,
+                                                            leg2_pos,
+                                                            event.direction,
+                                                            event.leg2.price,
+                                                            invalidation_price,
+                                                            eps,
+                                                            confirm_node,
+                                                            invalid_node);
    if(confirmed)
    {
       event.status = FC_STATUS_CONFIRMED;
@@ -260,21 +238,50 @@ bool FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
       event.confirm_time = confirm_node.time;
       event.confirm_price = confirm_node.price;
    }
-   else if(pre_branch_leg2_break_can_confirm && pre_branch_leg2_break.index >= 0)
+   else if(invalid_node.index >= 0)
    {
-      // F2-only rule: a Leg2 break may occur before F2 forms its final branch 2.
-      // Once branch 2 is formed, that pre-branch Leg2 break is accepted as the
-      // F2 confirmation break for audit/status purposes.
-      event.status = FC_STATUS_CONFIRMED;
-      event.confirm_index = pre_branch_leg2_break.index;
-      event.confirm_time = pre_branch_leg2_break.time;
-      event.confirm_price = pre_branch_leg2_break.price;
+      event.status = FC_STATUS_INVALIDATED;
+      event.invalid_index = invalid_node.index;
+      event.invalid_time = invalid_node.time;
+      event.invalid_price = invalid_node.price;
    }
-   else if(require_leg2_rebreak)
+   else
    {
       event.status = FC_STATUS_OPEN;
    }
-   return true;
+
+   // Branch 1/2 is counting/audit/labels, not the confirmation gate.
+   // F1: internal 1/2 is searched before the first confirming Leg2 rebreak.
+   // F2: internal 1/2 can be found even after an early Leg2 extension, until F2 origin invalidates.
+   FC_Node n1, n2;
+   int branch_type = FC_BRANCH_NONE;
+   bool branch_found = FC_FindBranchAfterLeg2UntilBoundary(nodes,
+                                                           leg2_pos,
+                                                           event.direction,
+                                                           event.waist.price,
+                                                           invalidation_price,
+                                                           is_f2 && allow_waist_break_branch,
+                                                           !is_f2,
+                                                           event.leg2.price,
+                                                           eps,
+                                                           n1,
+                                                           n2,
+                                                           branch_type);
+   if(branch_found)
+   {
+      if(branch_type == FC_BRANCH_WAIST_BREAK)
+      {
+         n1.index = event.waist.index;
+         n1.time  = event.waist.time;
+         n1.price = event.waist.price;
+         n1.kind  = event.waist.kind;
+      }
+      event.n1 = n1;
+      event.n2 = n2;
+      event.has_n1 = true;
+      event.has_n2 = true;
+      event.branch_type = branch_type;
+   }
 }
 
 bool FC_SameCore(const FC_FlagEvent &a, const FC_FlagEvent &b)
@@ -331,16 +338,15 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
    event.leg2 = leg2;
    event.body_size = FC_FlagBodySize(event);
 
-   if(!FC_ApplyBranchAndConfirmation(nodes,
-                                      start_pos+3,
-                                      false,
-                                      false,
-                                      false,
-                                      require_branch12,
-                                      require_leg2_rebreak,
-                                      eps,
-                                      event))
-      return false;
+   FC_ApplyBranchAndConfirmationV2(nodes,
+                                   start_pos+3,
+                                   false,
+                                   false,
+                                   eps,
+                                   event);
+
+   // These inputs are kept for compatibility but no longer delete valid bodies.
+   // Confirmation is controlled only by Leg2 rebreak before invalidation.
    return true;
 }
 
@@ -384,10 +390,6 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
    double f2_body_size = FC_BodySizeFromNodes(origin, leg2);
    double min_required_size = parent_body_size * MathMax(0.0, f2_min_parent_size_ratio);
 
-   // F2 symmetry/scale contract:
-   // F2 is a continuation count after F1, so its body must not be smaller than
-   // the parent F1 body when the filter is enabled. Both are measured from
-   // origin/start-of-leg to Leg2 final point, using vertical price distance.
    if(require_f2_at_least_parent_size && parent_body_size > eps)
    {
       if(f2_body_size + eps < min_required_size)
@@ -407,16 +409,13 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
    event.parent_body_size = parent_body_size;
    event.parent_size_ratio = (parent_body_size > 0.0 ? f2_body_size / parent_body_size : 0.0);
 
-   if(!FC_ApplyBranchAndConfirmation(nodes,
-                                      start_pos+3,
-                                      allow_waist_break_branch,
-                                      true,
-                                      true,
-                                      require_branch12,
-                                      require_leg2_rebreak,
-                                      eps,
-                                      event))
-      return false;
+   FC_ApplyBranchAndConfirmationV2(nodes,
+                                   start_pos+3,
+                                   true,
+                                   allow_waist_break_branch,
+                                   eps,
+                                   event);
+
    return true;
 }
 

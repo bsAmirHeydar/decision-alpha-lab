@@ -130,3 +130,15 @@ Default input:
 ```text
 InpSuppressF1BodiesPromotedToF2 = true
 ```
+
+## Confirmation and invalidation contract
+
+The detector now uses the simplified core contract:
+
+- A flag is confirmed when price rebreaks the Leg2 extreme after the body exists.
+- The rebreak is valid only if the flag has not invalidated first.
+- F1 invalidation boundary is the F1 waist.
+- F2 invalidation boundary is the F2 origin/start of leg.
+- Internal `1` and `2` are counting/audit labels. They are not allowed to delete an otherwise valid body and they are not the confirmation gate.
+- For F1, internal labels are searched before the confirming Leg2 rebreak.
+- For F2, internal/waist-break labels may appear even after an early Leg2 extension, until the F2 origin invalidates.
