@@ -25,9 +25,13 @@ void M0007_AddEvent(M0007_F1Event &events[], const M0007_F1Event &event)
 
 int M0007_EventEndIndex(const M0007_F1Event &e)
 {
-   if(e.confirm_index >= 0) return e.confirm_index;
-   if(e.invalidation_index >= 0) return e.invalidation_index;
-   return e.H2.index;
+   int end_idx = e.H2.index;
+   if(e.has_internal_2) end_idx = MathMax(end_idx, e.N2.index);
+   else if(e.has_internal_1) end_idx = MathMax(end_idx, e.N1.index);
+
+   if(e.confirm_index >= 0) end_idx = MathMax(end_idx, e.confirm_index);
+   if(e.invalidation_index >= 0) end_idx = MathMax(end_idx, e.invalidation_index);
+   return end_idx;
 }
 
 double M0007_EventOverlapRatio(const M0007_F1Event &a, const M0007_F1Event &b)
@@ -79,6 +83,7 @@ void M0007_MarkConfirmedAtLeg2(M0007_F1Event &e)
 {
    e.status = M0007_STATUS_CONFIRMED;
 
+   // F1 completion is H2/L2. Internal 1/2 counting happens only after this point.
    e.internal_trigger_index = e.H2.index;
    e.internal_trigger_time  = e.H2.time;
    e.internal_trigger_price = e.H2.price;
@@ -108,38 +113,46 @@ void M0007_BuildCommonEventFields(M0007_F1Event &e, const int L)
    if(leg1_size > 0.0)
       correction_quality = MathMax(0.0, 1.0 - (corr_size / leg1_size));
 
+   double internal_bonus = 0.0;
+   if(e.has_internal_1) internal_bonus += 10.0;
+   if(e.has_internal_2) internal_bonus += 25.0;
+
    e.score = ((double)L * 1000000.0) +
              leg2_size * 1000.0 +
              break_size * 10000.0 +
-             correction_quality * 100.0;
+             correction_quality * 100.0 +
+             internal_bonus;
 
-   e.signature = M0007_DirectionToString(e.direction) + "|F1_4NODE|" +
+   e.signature = M0007_DirectionToString(e.direction) + "|F1_4NODE_REAL_ORIGIN|" +
                  IntegerToString(e.Start.index) + "|" +
                  IntegerToString(e.H1.index) + "|" +
                  IntegerToString(e.W.index) + "|" +
                  IntegerToString(e.H2.index);
+
+   if(e.has_internal_1)
+      e.signature += "|I1=" + IntegerToString(e.N1.index);
+   if(e.has_internal_2)
+      e.signature += "|I2=" + IntegerToString(e.N2.index);
 }
 
-void M0007_SetLegacySlots(M0007_F1Event &e)
-{
-   // Legacy slots are populated with semantic equivalents so older logging code remains safe.
-   e.N1  = e.W;
-   e.R12 = e.H2;
-   e.N2  = e.H2;
-}
-
-bool M0007_IsBullishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, const M0007_F1Node &B, const M0007_F1Node &C, const M0007_F1Node &D, const M0007_BreakMode mode, const double eps)
+bool M0007_IsBullishF1FourNode(const MqlRates &rates[],
+                               const M0007_F1Node &A,
+                               const M0007_F1Node &B,
+                               const M0007_F1Node &C,
+                               const M0007_F1Node &D,
+                               const M0007_BreakMode mode,
+                               const double eps)
 {
    if(A.type != M0007_NODE_LOW)  return false;
    if(B.type != M0007_NODE_HIGH) return false;
    if(C.type != M0007_NODE_LOW)  return false;
    if(D.type != M0007_NODE_HIGH) return false;
 
-   // Real F1 origin logic: the start is the low before Leg 1, not a synthetic point.
+   // Real origin: A is the actual low before the first impulse. It is never a synthetic visual point.
    if(B.price <= A.price) return false;
    if(C.price >= B.price) return false;
-   if(C.price <= A.price) return false;      // correction must stay above the origin low.
-   if(D.price <= B.price + eps) return false; // Leg 2 must break/sweep the Leg 1 high.
+   if(C.price <= A.price) return false;       // correction must not violate the origin low.
+   if(D.price <= B.price + eps) return false; // leg 2 must sweep/break leg 1.
 
    if(!M0007_BreakAbove(rates[D.index], B.price, mode, eps))
       return false;
@@ -147,18 +160,24 @@ bool M0007_IsBullishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, c
    return true;
 }
 
-bool M0007_IsBearishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, const M0007_F1Node &B, const M0007_F1Node &C, const M0007_F1Node &D, const M0007_BreakMode mode, const double eps)
+bool M0007_IsBearishF1FourNode(const MqlRates &rates[],
+                               const M0007_F1Node &A,
+                               const M0007_F1Node &B,
+                               const M0007_F1Node &C,
+                               const M0007_F1Node &D,
+                               const M0007_BreakMode mode,
+                               const double eps)
 {
    if(A.type != M0007_NODE_HIGH) return false;
    if(B.type != M0007_NODE_LOW)  return false;
    if(C.type != M0007_NODE_HIGH) return false;
    if(D.type != M0007_NODE_LOW)  return false;
 
-   // Real F1 origin logic: the start is the high before Leg 1, not a synthetic point.
+   // Real origin: A is the actual high before the first bearish impulse.
    if(B.price >= A.price) return false;
    if(C.price <= B.price) return false;
-   if(C.price >= A.price) return false;      // correction must stay below the origin high.
-   if(D.price >= B.price - eps) return false; // Leg 2 must break/sweep the Leg 1 low.
+   if(C.price >= A.price) return false;       // correction must not violate the origin high.
+   if(D.price >= B.price - eps) return false; // leg 2 must sweep/break leg 1.
 
    if(!M0007_BreakBelow(rates[D.index], B.price, mode, eps))
       return false;
@@ -166,7 +185,80 @@ bool M0007_IsBearishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, c
    return true;
 }
 
-void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const M0007_BreakMode mode, const double eps, M0007_F1Event &raw_events[])
+void M0007_FindPostLeg2InternalCounts(const M0007_F1Node &nodes[],
+                                      const int n,
+                                      const int start_node_pos,
+                                      const M0007_F1Direction direction,
+                                      const double eps,
+                                      M0007_F1Event &e)
+{
+   M0007_ResetF1Node(e.N1);
+   M0007_ResetF1Node(e.R12);
+   M0007_ResetF1Node(e.N2);
+   e.has_internal_1 = false;
+   e.has_internal_2 = false;
+
+   if(direction == M0007_DIR_BULLISH)
+   {
+      // After a bullish F1 completes at H2, the internal 1/2 count is two descending lows.
+      // 1 = first LOW after H2
+      // 2 = later LOW below 1
+      for(int j=start_node_pos; j<n; j++)
+      {
+         if(nodes[j].type != M0007_NODE_LOW)
+            continue;
+
+         if(!e.has_internal_1)
+         {
+            e.N1 = nodes[j];
+            e.has_internal_1 = true;
+            continue;
+         }
+
+         if(nodes[j].price < e.N1.price - eps)
+         {
+            e.N2 = nodes[j];
+            e.has_internal_2 = true;
+            return;
+         }
+      }
+      return;
+   }
+
+   if(direction == M0007_DIR_BEARISH)
+   {
+      // Mirror of bullish:
+      // after a bearish F1 completes at L2, internal 1/2 is two ascending highs.
+      // 1 = first HIGH after L2
+      // 2 = later HIGH above 1
+      for(int j=start_node_pos; j<n; j++)
+      {
+         if(nodes[j].type != M0007_NODE_HIGH)
+            continue;
+
+         if(!e.has_internal_1)
+         {
+            e.N1 = nodes[j];
+            e.has_internal_1 = true;
+            continue;
+         }
+
+         if(nodes[j].price > e.N1.price + eps)
+         {
+            e.N2 = nodes[j];
+            e.has_internal_2 = true;
+            return;
+         }
+      }
+   }
+}
+
+void M0007_ScanOneL(const MqlRates &rates[],
+                    const int total,
+                    const int L,
+                    const M0007_BreakMode mode,
+                    const double eps,
+                    M0007_F1Event &raw_events[])
 {
    M0007_F1Node raw_nodes[];
    M0007_F1Node nodes[];
@@ -178,21 +270,22 @@ void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const
 
    for(int i=0; i<=n-4; i++)
    {
-      M0007_F1Node A = nodes[i];     // true origin / start
-      M0007_F1Node B = nodes[i+1];   // end of Leg 1
+      M0007_F1Node A = nodes[i];     // stored true origin / start
+      M0007_F1Node B = nodes[i+1];   // end of leg 1
       M0007_F1Node C = nodes[i+2];   // correction
-      M0007_F1Node D = nodes[i+3];   // end of Leg 2
+      M0007_F1Node D = nodes[i+3];   // end of leg 2
 
       if(M0007_IsBullishF1FourNode(rates, A, B, C, D, mode, eps))
       {
          M0007_F1Event ev;
+         M0007_InitF1Event(ev);
          ev.direction = M0007_DIR_BULLISH;
          ev.Start = A;
          ev.H1 = B;
          ev.W  = C;
          ev.H2 = D;
-         M0007_SetLegacySlots(ev);
          M0007_MarkConfirmedAtLeg2(ev);
+         M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
          M0007_BuildCommonEventFields(ev, L);
          M0007_AddEvent(raw_events, ev);
       }
@@ -200,20 +293,28 @@ void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const
       if(M0007_IsBearishF1FourNode(rates, A, B, C, D, mode, eps))
       {
          M0007_F1Event ev;
+         M0007_InitF1Event(ev);
          ev.direction = M0007_DIR_BEARISH;
          ev.Start = A;
          ev.H1 = B;
          ev.W  = C;
          ev.H2 = D;
-         M0007_SetLegacySlots(ev);
          M0007_MarkConfirmedAtLeg2(ev);
+         M0007_FindPostLeg2InternalCounts(nodes, n, i+4, ev.direction, eps, ev);
          M0007_BuildCommonEventFields(ev, L);
          M0007_AddEvent(raw_events, ev);
       }
    }
 }
 
-void M0007_DetectAdaptiveF1(const MqlRates &rates[], const int total, const int L_min, const int L_max, const M0007_BreakMode mode, const double eps, const double overlap_threshold, M0007_F1Event &events[])
+void M0007_DetectAdaptiveF1(const MqlRates &rates[],
+                            const int total,
+                            const int L_min,
+                            const int L_max,
+                            const M0007_BreakMode mode,
+                            const double eps,
+                            const double overlap_threshold,
+                            M0007_F1Event &events[])
 {
    M0007_F1Event raw_events[];
    ArrayResize(raw_events, 0);

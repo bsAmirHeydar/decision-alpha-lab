@@ -3,6 +3,12 @@
 #property strict
 #include <M0007/DAL_M0007F1Types.mqh>
 
+// M0007 renderer contract:
+// - Presentation layer only.
+// - Core detection owns the true Start/H1/W/H2 anchors.
+// - The renderer must never invent a synthetic origin.
+// - Chart output is intentionally minimal: F1 + internal 1/2 after leg 2.
+
 void M0007_DeleteObjectsByPrefix(const string prefix)
 {
    for(int i=ObjectsTotal(0, -1, -1)-1; i>=0; i--)
@@ -52,7 +58,7 @@ bool M0007_DrawTextRaw(const string name,
                        const string text,
                        const color clr,
                        const int font_size,
-                       const ENUM_ANCHOR_POINT anchor = ANCHOR_LEFT_LOWER)
+                       const ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER)
 {
    ObjectDelete(0, name);
    ResetLastError();
@@ -72,102 +78,134 @@ bool M0007_DrawTextRaw(const string name,
    return true;
 }
 
-void M0007_DrawNodeLabel(const string name, const M0007_F1Node &node, const string text, const color clr, const int font_size = 9)
+double M0007_CubicBezierValue(const double p0,
+                              const double p1,
+                              const double p2,
+                              const double p3,
+                              const double u)
 {
-   M0007_DrawTextRaw(name, node.time, node.price, text, clr, font_size, ANCHOR_CENTER);
+   double v = 1.0 - u;
+   return v*v*v*p0 + 3.0*v*v*u*p1 + 3.0*v*u*u*p2 + u*u*u*p3;
 }
 
-void M0007_DrawF1Schematic(const M0007_F1Event &e, const string prefix, const color clr)
+void M0007_DrawBezierCurve(const string name,
+                           const datetime t0,
+                           const double p0,
+                           const datetime c1t,
+                           const double c1p,
+                           const datetime c2t,
+                           const double c2p,
+                           const datetime t3,
+                           const double p3,
+                           const color clr,
+                           const int width,
+                           const int segments)
 {
+   int n = MathMax(3, segments);
+   datetime prev_t = t0;
+   double   prev_p = p0;
+
+   for(int i=1; i<=n; i++)
+   {
+      double u = (double)i / (double)n;
+      datetime next_t = (datetime)MathRound(M0007_CubicBezierValue((double)((long)t0),
+                                                                     (double)((long)c1t),
+                                                                     (double)((long)c2t),
+                                                                     (double)((long)t3),
+                                                                     u));
+      double next_p = M0007_CubicBezierValue(p0, c1p, c2p, p3, u);
+      M0007_DrawTrendRaw(name + "_" + IntegerToString(i), prev_t, prev_p, next_t, next_p, clr, width, STYLE_SOLID);
+      prev_t = next_t;
+      prev_p = next_p;
+   }
+}
+
+void M0007_DrawCoreF1Path(const M0007_F1Event &e, const string prefix, const color clr)
+{
+   bool bullish = (e.direction == M0007_DIR_BULLISH);
    int sec = PeriodSeconds(_Period);
    if(sec <= 0) sec = 60;
 
-   bool bullish = (e.direction == M0007_DIR_BULLISH);
+   // The origin is the stored mechanical Start node. Never synthesize it in the renderer.
+   M0007_DrawTrendRaw(prefix + "LEG1_START_TO_H1", e.Start.time, e.Start.price, e.H1.time, e.H1.price, clr, 2, STYLE_SOLID);
+
+   int dt_hw = (int)(e.W.time - e.H1.time);
+   int dt_wh = (int)(e.H2.time - e.W.time);
+   if(dt_hw <= 0) dt_hw = sec * 4;
+   if(dt_wh <= 0) dt_wh = sec * 4;
+
    double h_left  = MathAbs(e.H1.price - e.W.price);
    double h_right = MathAbs(e.H2.price - e.W.price);
    double h = MathMax(h_left, h_right);
    if(h <= 0.0) h = 100.0 * _Point;
 
-   int dt_hw = (int)(e.W.time - e.H1.time);
-   int dt_wh = (int)(e.H2.time - e.W.time);
-   if(dt_hw <= 0) dt_hw = sec * 6;
-   if(dt_wh <= 0) dt_wh = sec * 8;
+   datetime c1t = e.H1.time + (datetime)MathMax(1, (int)(dt_hw * 0.42));
+   datetime c2t = e.W.time  - (datetime)MathMax(1, (int)(dt_hw * 0.20));
+   double c1p = bullish ? e.H1.price - 0.42 * h_left : e.H1.price + 0.42 * h_left;
+   double c2p = bullish ? e.W.price  + 0.12 * h_left : e.W.price  - 0.12 * h_left;
 
-   datetime start_t = e.H1.time - (datetime)MathMax(sec * 4, (int)(dt_hw * 0.90));
-   double start_p = (bullish ? e.H1.price - 1.35 * h : e.H1.price + 1.35 * h);
+   M0007_DrawBezierCurve(prefix + "CURVE_H1_TO_W", e.H1.time, e.H1.price, c1t, c1p, c2t, c2p, e.W.time, e.W.price, clr, 2, 5);
 
-   // Straight first leg.
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_LEG", start_t, start_p, e.H1.time, e.H1.price, clr, 3, STYLE_SOLID);
+   datetime c3t = e.W.time  + (datetime)MathMax(1, (int)(dt_wh * 0.30));
+   datetime c4t = e.H2.time - (datetime)MathMax(1, (int)(dt_wh * 0.22));
+   double c3p = bullish ? e.W.price  + 0.10 * h_right : e.W.price  - 0.10 * h_right;
+   double c4p = bullish ? e.H2.price - 0.35 * h_right : e.H2.price + 0.35 * h_right;
 
-   // Smooth multi-segment correction + leg-2 path.
-   datetime t0 = e.H1.time;
-   datetime t1 = e.H1.time + (datetime)(dt_hw * 0.32);
-   datetime t2 = e.H1.time + (datetime)(dt_hw * 0.70);
-   datetime t3 = e.W.time;
-   datetime t4 = e.W.time  + (datetime)(dt_wh * 0.30);
-   datetime t5 = e.W.time  + (datetime)(dt_wh * 0.64);
-   datetime t6 = e.H2.time;
+   M0007_DrawBezierCurve(prefix + "CURVE_W_TO_H2", e.W.time, e.W.price, c3t, c3p, c4t, c4p, e.H2.time, e.H2.price, clr, 2, 5);
+}
 
-   double p0 = e.H1.price;
-   double p1, p2, p3, p4, p5, p6;
+void M0007_DrawMinimalLabels(const M0007_F1Event &e, const string prefix, const color clr, const bool show_internal_counts, const bool show_f1_label)
+{
+   bool bullish = (e.direction == M0007_DIR_BULLISH);
+   int sec = PeriodSeconds(_Period);
+   if(sec <= 0) sec = 60;
 
-   if(bullish)
+   double h = MathMax(MathAbs(e.H1.price - e.W.price), MathAbs(e.H2.price - e.W.price));
+   if(h <= 0.0) h = 100.0 * _Point;
+
+   double f1_offset = MathMax(0.22 * h, 35.0 * _Point);
+   datetime f1_t = e.H2.time + (datetime)(sec * 2);
+   double f1_p = bullish ? MathMax(e.H1.price, e.H2.price) + f1_offset
+                         : MathMin(e.H1.price, e.H2.price) - f1_offset;
+
+   if(show_f1_label)
+      M0007_DrawTextRaw(prefix + "F1_LABEL", f1_t, f1_p, "F1", clr, 16,
+                        bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER);
+
+   // User contract:
+   // 1/2 are internal counts created AFTER leg 2.
+   // Bullish: two descending lows after H2.
+   // Bearish: two ascending highs after H2.
+   if(show_internal_counts && e.has_internal_1 && e.N1.index >= 0)
    {
-      p1 = e.H1.price - 0.50 * h_left;
-      p2 = e.W.price  + 0.10 * h_left;
-      p3 = e.W.price;
-      p4 = e.W.price  + 0.12 * h_right;
-      p5 = e.W.price  + 0.52 * h_right;
-      p6 = e.H2.price;
+      double p1 = bullish ? e.N1.price - MathMax(0.08 * h, 15.0 * _Point)
+                          : e.N1.price + MathMax(0.08 * h, 15.0 * _Point);
+      M0007_DrawTextRaw(prefix + "INTERNAL_1", e.N1.time, p1, "1", clr, 12, ANCHOR_CENTER);
    }
-   else
+
+   if(show_internal_counts && e.has_internal_2 && e.N2.index >= 0)
    {
-      p1 = e.H1.price + 0.50 * h_left;
-      p2 = e.W.price  - 0.10 * h_left;
-      p3 = e.W.price;
-      p4 = e.W.price  - 0.12 * h_right;
-      p5 = e.W.price  - 0.52 * h_right;
-      p6 = e.H2.price;
-   }
-
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_01", t0, p0, t1, p1, clr, 3, STYLE_SOLID);
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_02", t1, p1, t2, p2, clr, 3, STYLE_SOLID);
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_03", t2, p2, t3, p3, clr, 3, STYLE_SOLID);
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_04", t3, p3, t4, p4, clr, 3, STYLE_SOLID);
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_05", t4, p4, t5, p5, clr, 3, STYLE_SOLID);
-   M0007_DrawTrendRaw(prefix + "SCHEMATIC_CURVE_06", t5, p5, t6, p6, clr, 3, STYLE_SOLID);
-
-   // Minimal label set: only F1.
-   double text_offset = MathMax(0.24 * h, 35.0 * _Point);
-   datetime label_t = e.H2.time + (datetime)(sec * 2);
-   double label_p = bullish ? MathMax(e.H1.price, e.H2.price) + text_offset
-                            : MathMin(e.H1.price, e.H2.price) - text_offset;
-
-   M0007_DrawTextRaw(prefix + "F1_LABEL", label_t, label_p, "F1", clr, 16,
-                     bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER);
-
-   // Show 1 and 2 only after the full F1 structure is completed and confirmed.
-   if(e.status == M0007_STATUS_CONFIRMED)
-   {
-      double num_offset = MathMax(0.10 * h, 18.0 * _Point);
-      double p_leg1 = bullish ? e.H1.price + num_offset : e.H1.price - num_offset;
-      double p_leg2 = bullish ? e.H2.price + num_offset : e.H2.price - num_offset;
-      M0007_DrawTextRaw(prefix + "NUM_1", e.H1.time, p_leg1, "1", clr, 12,
-                        bullish ? ANCHOR_CENTER : ANCHOR_CENTER);
-      M0007_DrawTextRaw(prefix + "NUM_2", e.H2.time, p_leg2, "2", clr, 12,
-                        bullish ? ANCHOR_CENTER : ANCHOR_CENTER);
+      double p2 = bullish ? e.N2.price - MathMax(0.08 * h, 15.0 * _Point)
+                          : e.N2.price + MathMax(0.08 * h, 15.0 * _Point);
+      M0007_DrawTextRaw(prefix + "INTERNAL_2", e.N2.time, p2, "2", clr, 12, ANCHOR_CENTER);
    }
 }
 
-void M0007_DrawEvent(const M0007_F1Event &e, const string prefix, const int event_number)
+void M0007_DrawEvent(const M0007_F1Event &e, const string prefix, const int event_number, const bool show_internal_counts, const bool show_f1_label)
 {
    string p = prefix + IntegerToString(event_number) + "_";
    color schematic_clr = (e.direction == M0007_DIR_BULLISH ? clrLime : clrTomato);
 
-   M0007_DrawF1Schematic(e, p, schematic_clr);
+   M0007_DrawCoreF1Path(e, p, schematic_clr);
+   M0007_DrawMinimalLabels(e, p, schematic_clr, show_internal_counts, show_f1_label);
 }
 
-int M0007_DrawEvents(const M0007_F1Event &events[], const int max_events, const bool draw_only_confirmed, const string prefix)
+int M0007_DrawEvents(const M0007_F1Event &events[],
+                     const int max_events,
+                     const bool draw_only_confirmed,
+                     const string prefix,
+                     const bool show_internal_counts,
+                     const bool show_f1_label)
 {
    int drawn = 0;
    int total = ArraySize(events);
@@ -176,7 +214,7 @@ int M0007_DrawEvents(const M0007_F1Event &events[], const int max_events, const 
    {
       if(draw_only_confirmed && events[i].status != M0007_STATUS_CONFIRMED)
          continue;
-      M0007_DrawEvent(events[i], prefix, drawn);
+      M0007_DrawEvent(events[i], prefix, drawn, show_internal_counts, show_f1_label);
       drawn++;
    }
 

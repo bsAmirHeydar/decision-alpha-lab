@@ -1,63 +1,129 @@
 # M0007 — F1 Flag Counting MQL5 Module
 
-This folder contains the reusable MQL5 include files for the M0007 adaptive F1 counter.
+M0007 counts and draws F1 flag structures on chart for visual/audit research.
 
-## Folder rule
+## Correct F1 topology
 
-The project root already identifies the lab, so the MQL folders only use the M-series module name.
+The detector now uses the actual four-node F1 origin logic.
 
-Correct locations:
+Bullish F1:
 
 ```text
-mql5/Experts/M0007/
-mql5/Include/M0007/
+Start LOW -> Leg 1 HIGH -> Correction LOW -> Leg 2 HIGH
 ```
+
+A bullish F1 is accepted only when:
+
+```text
+Leg 1 high > Start low
+Correction low is below Leg 1 high
+Correction low remains above Start low
+Leg 2 high breaks/sweeps Leg 1 high
+```
+
+Bearish F1:
+
+```text
+Start HIGH -> Leg 1 LOW -> Correction HIGH -> Leg 2 LOW
+```
+
+A bearish F1 is accepted only when:
+
+```text
+Leg 1 low < Start high
+Correction high is above Leg 1 low
+Correction high remains below Start high
+Leg 2 low breaks/sweeps Leg 1 low
+```
+
+This fixes the earlier schematic problem where the chart origin was synthetic or taken from the wrong side of the structure.
+
+## Visual contract
+
+The renderer draws only the clean F1 grammar:
+
+```text
+Start -> straight Leg 1 -> end of Leg 1
+end of Leg 1 -> smooth curved correction -> end of Leg 2
+```
+
+No horizontal guide levels, no vertical audit lines, and no internal N/R labels are drawn by default.
 
 ## Files
 
-- `DAL_M0007F1Types.mqh`
-- `DAL_M0007F1NodeDetector.mqh`
-- `DAL_M0007F1Detector.mqh`
-- `DAL_M0007F1Renderer.mqh`
+```text
+mql5/Experts/M0007/M0007_FlagCountingF1.mq5
+mql5/Include/M0007/DAL_M0007F1Types.mqh
+mql5/Include/M0007/DAL_M0007F1NodeDetector.mqh
+mql5/Include/M0007/DAL_M0007F1Detector.mqh
+mql5/Include/M0007/DAL_M0007F1Renderer.mqh
+```
 
-## Include contract
+## Inputs
 
-The Expert Advisor imports the module like this:
+Important inputs:
 
-```mql5
-#include <M0007/DAL_M0007F1Types.mqh>
-#include <M0007/DAL_M0007F1Detector.mqh>
-#include <M0007/DAL_M0007F1Renderer.mqh>
+```text
+InpLMin / InpLMax          adaptive L-node range
+InpBreakMode              wick break or close break for Leg 2 confirmation
+InpEpsilonPoints          extra sweep/break distance
+InpMaxEventsToDraw        number of latest F1 schematics to draw
+InpShowTextLabels         show/hide Start, Leg 1, Correction, Pullback, Leg 2 labels
+InpShowBadge              show/hide BULLISH F1 / BEARISH F1 badge
+InpRedrawOnNewBar         redraw only on new bar, not every tick
 ```
 
 ## Scope
 
-M0007 is visual/audit-only. It counts and draws F1 structures. It does not place orders.
-
-## Visual schematic overlay
-
-The renderer now draws a clean F1 schematic on top of each detected event:
-
-- one straight leg into `H1/L1`,
-- one curve-like multi-segment shape from `H1/L1` through the waist region into `H2/L2`,
-- one bold `F1` label near the second main extreme.
-
-This schematic is intentionally visual and conceptual. It does not replace the mechanical F1 count. The detector still uses the full topology:
-
-- bullish: `H1 -> W -> H2 -> N1 -> R12 -> N2`
-- bearish: `L1 -> W -> L2 -> N1 -> R12 -> N2`
-
-The schematic only makes the F1 shape readable on chart, matching the hand-drawn flag-counting concept.
+M0007 is visual/audit-only. It does not place orders.
 
 
-## Current minimal overlay contract
+## 2026-06 fix — real origin plus post-leg-2 internal 1/2
 
-The default chart output is intentionally minimal:
+The renderer must not invent the origin. `Start` is now a first-class detector node and is stored in every `M0007_F1Event`.
 
-- the F1 path itself,
-- one neutral `F1` label,
-- `1` at the end of leg 1,
-- `2` at the end of leg 2.
+Current core:
 
-All other textual chart labels and audit guide lines are suppressed in the default renderer.
-The numeric labels `1` and `2` appear only after the full F1 structure is completed and confirmed.
+```text
+Bullish F1:
+Start LOW -> Leg1 HIGH -> Correction LOW -> Leg2 HIGH
+
+Bearish F1:
+Start HIGH -> Leg1 LOW -> Correction HIGH -> Leg2 LOW
+```
+
+The chart numbers are **not** leg labels.
+
+Current numeric count:
+
+```text
+Bullish after Leg2:
+1 = first internal low after H2
+2 = later internal low below 1
+
+Bearish after Leg2:
+1 = first internal high after L2
+2 = later internal high above 1
+```
+
+Default overlay:
+
+```text
+F1 path
+F1
+internal 1
+internal 2
+```
+
+Removed from the default overlay:
+
+```text
+Start text
+Leg 1 text
+Correction text
+Pullback / Correction text
+Leg 2 text
+BULLISH F1 / BEARISH F1 text
+horizontal/vertical audit guide lines
+status panel
+```

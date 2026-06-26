@@ -47,19 +47,37 @@ struct M0007_F1Event
    string matched_L_values;
    double score;
 
-   // Correct F1 core topology:
-   // Bullish: Start LOW -> H1 high = end of leg 1 -> W low = correction -> H2 high = end of leg 2 / prior-high break.
-   // Bearish: Start HIGH -> H1 low  = end of leg 1 -> W high = correction -> H2 low  = end of leg 2 / prior-low break.
+   // Core F1 topology. These four nodes are the mechanical truth.
+   //
+   // Bullish:
+   //   Start LOW  -> H1 HIGH = end of leg 1 -> W LOW  = correction -> H2 HIGH = end of leg 2 / sweep of H1.
+   //
+   // Bearish:
+   //   Start HIGH -> H1 LOW  = end of leg 1 -> W HIGH = correction -> H2 LOW  = end of leg 2 / sweep of H1.
+   //
+   // Start is not visual/synthetic. It is stored by the detector and must be used by the renderer.
    M0007_F1Node Start;
    M0007_F1Node H1;
    M0007_F1Node W;
    M0007_F1Node H2;
 
-   // Legacy slots are kept only for compatibility with older logs/reports.
-   // They are no longer part of the F1 definition.
+   // Internal count after leg 2.
+   //
+   // Bullish F1:
+   //   N1 = first internal LOW after H2
+   //   N2 = later internal LOW below N1
+   //
+   // Bearish F1:
+   //   N1 = first internal HIGH after H2
+   //   N2 = later internal HIGH above N1
+   //
+   // These are the chart labels "1" and "2". They are NOT leg-1/leg-2 labels.
    M0007_F1Node N1;
-   M0007_F1Node R12;
+   M0007_F1Node R12; // optional compatibility slot; not part of the current visual count.
    M0007_F1Node N2;
+
+   bool has_internal_1;
+   bool has_internal_2;
 
    int      internal_trigger_index;
    datetime internal_trigger_time;
@@ -78,6 +96,53 @@ struct M0007_F1Event
    int    bars_to_confirm;
    string signature;
 };
+
+void M0007_ResetF1Node(M0007_F1Node &n)
+{
+   n.index = -1;
+   n.time  = 0;
+   n.price = 0.0;
+   n.type  = M0007_NODE_NONE;
+   n.L     = 0;
+}
+
+void M0007_InitF1Event(M0007_F1Event &e)
+{
+   e.direction = M0007_DIR_NONE;
+   e.status = M0007_STATUS_OPEN;
+
+   e.L_used = 0;
+   e.matched_L_values = "";
+   e.score = 0.0;
+
+   M0007_ResetF1Node(e.Start);
+   M0007_ResetF1Node(e.H1);
+   M0007_ResetF1Node(e.W);
+   M0007_ResetF1Node(e.H2);
+   M0007_ResetF1Node(e.N1);
+   M0007_ResetF1Node(e.R12);
+   M0007_ResetF1Node(e.N2);
+
+   e.has_internal_1 = false;
+   e.has_internal_2 = false;
+
+   e.internal_trigger_index = -1;
+   e.internal_trigger_time = 0;
+   e.internal_trigger_price = 0.0;
+
+   e.confirm_index = -1;
+   e.confirm_time = 0;
+   e.confirm_price = 0.0;
+
+   e.invalidation_index = -1;
+   e.invalidation_time = 0;
+   e.invalidation_price = 0.0;
+
+   e.bars_structure = 0;
+   e.bars_to_trigger = -1;
+   e.bars_to_confirm = -1;
+   e.signature = "";
+}
 
 string M0007_DirectionToString(M0007_F1Direction d)
 {
