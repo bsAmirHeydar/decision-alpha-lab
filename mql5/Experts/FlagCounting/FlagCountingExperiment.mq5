@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.22"
-#property description "Unified flag-counting mandatory F-chain state machine."
+#property version   "1.23"
+#property description "Unified flag-counting mandatory F-chain state machine with live root visibility repair."
 
 #include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
 #include "../../Include/FlagCounting/DAL_FlagCountingRenderer.mqh"

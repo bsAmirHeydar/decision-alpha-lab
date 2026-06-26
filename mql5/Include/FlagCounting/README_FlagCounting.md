@@ -234,3 +234,7 @@ InpChildMinParentSizeRatio = 1.0
 ```
 
 - A confirmed F1 without internal 2 is not accepted as a chain root, because it cannot hand off to F2.
+
+## Live root visibility repair
+
+A valid F1 must not be hidden merely because its internal `2` is not yet available for F2 continuation. In live counting this means the F1 owns the current segment and the next level is pending. Confirmed or open F1 roots remain drawable; F2/F3 are added only when their continuation origin and body become available.

@@ -505,11 +505,11 @@ bool FC_BuildCoreFromFixedOrigin(const FC_Node &nodes[],
             if(candidate.status == FC_STATUS_INVALIDATED)
                continue;
 
-            // F1 is a root only if it can hand off to F2 after confirmation.
-            // Therefore a confirmed F1 without internal 2 is skipped; otherwise
-            // the state machine would be forced to stop or restart as another F1.
-            if(level == FC_LEVEL_F1 && candidate.status == FC_STATUS_CONFIRMED && !candidate.has_n2)
-               continue;
+            // Do NOT discard a valid F1 only because its continuation origin
+            // is not available yet. In live/partition mode that means the F1 is
+            // still the owner of this market segment and the next level is pending.
+            // The previous build skipped confirmed F1 events without internal 2;
+            // this could make the whole chart draw nothing.
 
             if(FC_BetterCoreCandidate(candidate, best, have_best))
             {
