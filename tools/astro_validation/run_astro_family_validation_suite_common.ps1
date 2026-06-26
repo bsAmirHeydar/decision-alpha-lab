@@ -2,7 +2,7 @@ param(
   [string]$CsvName = "astro_live_mql.csv",
   [string]$OutFolder = "astro_suite_validation",
   [string]$ConfigPath = ".\\tools\\astro_feature_builder\\astro_config.example.json",
-  [string[]]$Families = @("A0001", "A0002", "A0003", "A0090")
+  [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0090")
 )
 
 $ErrorActionPreference = "Stop"

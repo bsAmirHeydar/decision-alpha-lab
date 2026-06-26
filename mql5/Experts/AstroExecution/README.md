@@ -61,6 +61,23 @@ Best use:
 
 - dirty-path or pressure-dominated doctrine variants
 
+### A0004 - Sect Benefic Pressure
+
+File:
+`A0004_AstroSectBeneficPressureExecutor.mq5`
+
+Idea:
+
+- read the sect-aware doctrine layer directly
+- require either benefic release with house lift dominance or malefic pressure with house drag dominance
+- only promote entries when sect/doctrine pressure and the existing directional signal agree
+
+Best use:
+
+- sect-driven doctrine
+- benefic vs malefic pressure studies
+- house-lift / house-drag timing variants
+
 ### A0090 - Live Order Shell
 
 File:
@@ -81,7 +98,7 @@ Best use:
 1. Build a deterministic CSV with `tools/astro_feature_builder/astro_feature_builder.py`.
 2. If natal logic is required, include natal inputs during CSV generation.
 3. Put the CSV where MQL5 can read it.
-4. Run `A0001`, `A0002`, or `A0003` first and inspect the paper journal CSV.
+4. Run `A0001`, `A0002`, `A0003`, or `A0004` first and inspect the paper journal CSV.
 5. Or generate the same paper journal research-side with `tools/astro_validation/astro_paper_family_runner.py`.
 6. Batch the journals and validation reports with `tools/astro_validation/astro_family_validation_suite.py`.
 7. Validate any single journal with `tools/astro_validation/astro_signal_validator.py`.
@@ -89,6 +106,6 @@ Best use:
 
 ## Important note
 
-`A0001`, `A0002`, and `A0003` are still paper-first executors.
+`A0001`, `A0002`, `A0003`, and `A0004` are still paper-first executors.
 
 `A0090` includes broker routing, but it is disabled by default through `InpEnableLiveOrders=false` so the astro-only layer can still be audited before real execution is promoted.

@@ -51,6 +51,9 @@ FAMILY_DEFAULTS = {
         "exit_threshold": 58.0,
         "natal_activation_minimum": 40.0,
         "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
     },
     "A0002": {
         "family_name": "A0002_natal_resonance",
@@ -60,6 +63,9 @@ FAMILY_DEFAULTS = {
         "exit_threshold": 59.0,
         "natal_activation_minimum": 46.0,
         "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
     },
     "A0003": {
         "family_name": "A0003_friction_polarity",
@@ -69,6 +75,21 @@ FAMILY_DEFAULTS = {
         "exit_threshold": 57.0,
         "natal_activation_minimum": 40.0,
         "friction_minimum": 58.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
+    },
+    "A0004": {
+        "family_name": "A0004_sect_benefic_pressure",
+        "arm_threshold": 59.0,
+        "enter_threshold": 67.0,
+        "reduce_threshold": 53.0,
+        "exit_threshold": 59.0,
+        "natal_activation_minimum": 40.0,
+        "friction_minimum": 60.0,
+        "benefic_support_minimum": 64.0,
+        "malefic_pressure_minimum": 62.0,
+        "house_edge_minimum": 10.0,
     },
     "A0090": {
         "family_name": "A0090_live_shell",
@@ -78,6 +99,9 @@ FAMILY_DEFAULTS = {
         "exit_threshold": 60.0,
         "natal_activation_minimum": 40.0,
         "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
     },
 }
 
@@ -85,6 +109,7 @@ THRESHOLD_PROFILE_KEYS = {
     "A0001": "A0001",
     "A0002": "A0002",
     "A0003": "A0003",
+    "A0004": "A0004",
     "A0090": "A0090",
 }
 
@@ -98,6 +123,9 @@ class ThresholdProfile:
     exit_threshold: float
     natal_activation_minimum: float
     friction_minimum: float
+    benefic_support_minimum: float
+    malefic_pressure_minimum: float
+    house_edge_minimum: float
 
 
 @dataclass
@@ -765,6 +793,27 @@ def apply_family_gates(family: str, signal: PureSignal, row: dict, thresholds: T
     elif family == "A0003":
         if gated.friction_score < thresholds.friction_minimum:
             gated.entry_signal = "wait"
+    elif family == "A0004":
+        support_edge = gated.benefic_support_score - gated.malefic_pressure_score
+        house_edge = gated.house_lift_score - gated.house_drag_score
+        benefic_ok = (
+            gated.benefic_support_score >= thresholds.benefic_support_minimum
+            and support_edge >= thresholds.house_edge_minimum
+            and house_edge >= thresholds.house_edge_minimum
+        )
+        malefic_ok = (
+            gated.malefic_pressure_score >= thresholds.malefic_pressure_minimum
+            and (-support_edge) >= thresholds.house_edge_minimum
+            and (-house_edge) >= thresholds.house_edge_minimum
+        )
+        if benefic_ok:
+            if gated.direction_name != "long":
+                gated.entry_signal = "wait"
+        elif malefic_ok:
+            if gated.direction_name != "short":
+                gated.entry_signal = "wait"
+        else:
+            gated.entry_signal = "wait"
     return gated
 
 
@@ -866,7 +915,17 @@ def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> Thre
         if isinstance(profiles, dict):
             extra = profiles.get(THRESHOLD_PROFILE_KEYS[family], {})
             if isinstance(extra, dict):
-                for key in ("arm_threshold", "enter_threshold", "reduce_threshold", "exit_threshold", "natal_activation_minimum", "friction_minimum"):
+                for key in (
+                    "arm_threshold",
+                    "enter_threshold",
+                    "reduce_threshold",
+                    "exit_threshold",
+                    "natal_activation_minimum",
+                    "friction_minimum",
+                    "benefic_support_minimum",
+                    "malefic_pressure_minimum",
+                    "house_edge_minimum",
+                ):
                     if key in extra:
                         base[key] = float(extra[key])
     return ThresholdProfile(**base)

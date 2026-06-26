@@ -21,7 +21,7 @@ from astro_paper_family_runner import FAMILY_DEFAULTS, load_config, run_family  
 from astro_signal_validator import family_groups, load_rows, shuffled_baseline, summarize, threshold_grid  # type: ignore
 
 
-DEFAULT_FAMILIES = ["A0001", "A0002", "A0003", "A0090"]
+DEFAULT_FAMILIES = ["A0001", "A0002", "A0003", "A0004", "A0090"]
 
 
 def validate_journal(

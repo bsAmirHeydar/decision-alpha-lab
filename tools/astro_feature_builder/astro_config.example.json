@@ -74,6 +74,16 @@
       "exit_threshold": 57.0,
       "friction_minimum": 58.0
     },
+    "A0004_sect_benefic_pressure": {
+      "profile": "sect_benefic_pressure",
+      "arm_threshold": 59.0,
+      "enter_threshold": 67.0,
+      "reduce_threshold": 53.0,
+      "exit_threshold": 59.0,
+      "benefic_support_minimum": 64.0,
+      "malefic_pressure_minimum": 62.0,
+      "house_edge_minimum": 10.0
+    },
     "A0090_live_shell": {
       "profile": "validated_live_shell",
       "arm_threshold": 60.0,

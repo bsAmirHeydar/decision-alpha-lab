@@ -81,13 +81,13 @@ Families now in repo:
 - `A0001` transit trend pulse
 - `A0002` natal resonance
 - `A0003` friction polarity
+- `A0004` sect benefic pressure
 
 Candidate next families:
 
 - moon timing window
 - angular activation family
 - station transition family
-- benefic/malefic pressure family
 
 Deliverable:
 one README plus one config surface per family.
