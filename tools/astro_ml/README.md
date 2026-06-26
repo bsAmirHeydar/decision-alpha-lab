@@ -216,6 +216,10 @@ Model cards now include baseline edge and probability-quality diagnostics. A mod
 | `explain_astro_model.py` | Produces feature importance and rule-level explanations. |
 | `build_cognitive_astro_memory.py` | Creates case memory, concept memory, and skeptical rules. |
 | `build_antifragile_astro_learning.py` | Compresses features into broad concepts and tests stable principles. |
+| `build_antifragile_fragility_audit.py` | Hardens accepted principles against temporal, perturbation, dependency, contradiction, and condition-creep fragility. |
+| `query_astro_memory.py` | Queries persistent memory, lessons, and decision-memory production gates. |
+| `predict_with_astro_memory.py` | Applies a saved model and annotates each prediction with target-aware gate and hardened-principle support/conflict. |
+| `export_astro_knowledge_pack.py` | Exports model memory, model cards, decision memories, and hardened principles into a portable pack. |
 | `run_astro_human_learning_protocol.py` | One-command orchestrator for self-healing data, training, memory, and antifragile learning. |
 
 Every `.py` script has a matching `_common.ps1` wrapper for the Windows/MetaTrader workflow.
@@ -250,6 +254,7 @@ ANTIFRAGILE_LEARNING_REPORT.md
 protocol_report.xlsx
 antifragile_learning_report.xlsx
 antifragile_mind.json
+antifragile_decision_memory.json
 ```
 
 ---
@@ -266,6 +271,7 @@ A useful astro signal may appear as:
 - spike risk,
 - bull-trap risk,
 - bear-trap risk,
+- hardened support for one outcome with low conflict,
 - no-trade/no-edge regime.
 
 The most useful result is not always a trade direction. Sometimes the best learned knowledge is:
@@ -279,6 +285,13 @@ or:
 ```text
 This condition does not create clean trend, but it raises spike/hunt probability.
 ```
+
+When using `predict_with_astro_memory.py`, the extra trust fields matter:
+
+- `production_gate` tells you whether the latest target-aware hardening layer passed.
+- `hardened_support_count` tells you how many hardened principles support the predicted label on that row.
+- `hardened_conflict_count` shows whether hardened principles disagree with the prediction.
+- `trust_tier` compresses that state into `research`, `candidate`, or `hardened_candidate`.
 
 ---
 
