@@ -105,15 +105,18 @@ bool FC_FindBranchAfterLeg2(const FC_Node &nodes[],
                             const int leg2_pos,
                             const int direction,
                             const double waist_price,
+                            const double leg2_price,
                             const bool allow_waist_break_branch,
-                            const bool prefer_earliest_branch,
+                            const bool allow_leg2_break_before_branch,
                             const double eps,
                             FC_Node &n1,
                             FC_Node &n2,
-                            int &branch_type)
+                            int &branch_type,
+                            FC_Node &pre_branch_leg2_break)
 {
    FC_InitNode(n1);
    FC_InitNode(n2);
+   FC_InitNode(pre_branch_leg2_break);
    branch_type = FC_BRANCH_NONE;
 
    bool have_internal_1 = false;
@@ -124,6 +127,19 @@ bool FC_FindBranchAfterLeg2(const FC_Node &nodes[],
    for(int p=leg2_pos+1; p<n; p++)
    {
       FC_Node node = nodes[p];
+
+      // Critical sequencing rule:
+      // F1: internal 1/2 must be formed BEFORE the Leg2 extreme is rebroken.
+      // F2: this pre-branch Leg2 break is allowed; F2 can extend through Leg2 first,
+      //     then return into its 1/2 branch or the waist-break branch.
+      if(FC_NodeBreaksLeg2(direction, node, leg2_price, eps))
+      {
+         if(!allow_leg2_break_before_branch)
+            return false;
+         if(pre_branch_leg2_break.index < 0)
+            pre_branch_leg2_break = node;
+         continue;
+      }
 
       if(allow_waist_break_branch && FC_NodeBreaksWaist(direction, node, waist_price, eps))
       {
@@ -177,32 +193,36 @@ bool FC_FindLeg2RebreakAfterBranch(const FC_Node &nodes[],
    return false;
 }
 
-void FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
+bool FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
                                    const int leg2_pos,
                                    const bool allow_waist_break_branch,
+                                   const bool allow_leg2_break_before_branch,
+                                   const bool pre_branch_leg2_break_can_confirm,
                                    const bool require_branch12,
                                    const bool require_leg2_rebreak,
                                    const double eps,
                                    FC_FlagEvent &event)
 {
-   FC_Node n1, n2;
+   FC_Node n1, n2, pre_branch_leg2_break;
    int branch_type = FC_BRANCH_NONE;
    bool branch_found = FC_FindBranchAfterLeg2(nodes,
                                              leg2_pos,
                                              event.direction,
                                              event.waist.price,
+                                             event.leg2.price,
                                              allow_waist_break_branch,
-                                             true,
+                                             allow_leg2_break_before_branch,
                                              eps,
                                              n1,
                                              n2,
-                                             branch_type);
+                                             branch_type,
+                                             pre_branch_leg2_break);
 
    if(!branch_found)
    {
       if(require_branch12)
          event.status = FC_STATUS_OPEN;
-      return;
+      return (!require_branch12);
    }
 
    if(branch_type == FC_BRANCH_WAIST_BREAK)
@@ -219,6 +239,13 @@ void FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
    event.has_n2 = true;
    event.branch_type = branch_type;
 
+   if(pre_branch_leg2_break.index >= 0)
+   {
+      event.pre_branch_leg2_break_index = pre_branch_leg2_break.index;
+      event.pre_branch_leg2_break_time = pre_branch_leg2_break.time;
+      event.pre_branch_leg2_break_price = pre_branch_leg2_break.price;
+   }
+
    FC_Node confirm_node;
    bool confirmed = FC_FindLeg2RebreakAfterBranch(nodes,
                                                   event.n2.index,
@@ -233,10 +260,41 @@ void FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
       event.confirm_time = confirm_node.time;
       event.confirm_price = confirm_node.price;
    }
+   else if(pre_branch_leg2_break_can_confirm && pre_branch_leg2_break.index >= 0)
+   {
+      // F2-only rule: a Leg2 break may occur before F2 forms its final branch 2.
+      // Once branch 2 is formed, that pre-branch Leg2 break is accepted as the
+      // F2 confirmation break for audit/status purposes.
+      event.status = FC_STATUS_CONFIRMED;
+      event.confirm_index = pre_branch_leg2_break.index;
+      event.confirm_time = pre_branch_leg2_break.time;
+      event.confirm_price = pre_branch_leg2_break.price;
+   }
    else if(require_leg2_rebreak)
    {
       event.status = FC_STATUS_OPEN;
    }
+   return true;
+}
+
+bool FC_SameCore(const FC_FlagEvent &a, const FC_FlagEvent &b)
+{
+   return (a.direction == b.direction &&
+           a.origin.index == b.origin.index &&
+           a.leg1.index == b.leg1.index &&
+           a.waist.index == b.waist.index &&
+           a.leg2.index == b.leg2.index);
+}
+
+bool FC_F1PromotedToF2(const FC_FlagEvent &f1, const FC_FlagEvent &f2_events[])
+{
+   int n = ArraySize(f2_events);
+   for(int i=0; i<n; i++)
+   {
+      if(FC_SameCore(f1, f2_events[i]))
+         return true;
+   }
+   return false;
 }
 
 bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
@@ -273,13 +331,16 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
    event.leg2 = leg2;
    event.body_size = FC_FlagBodySize(event);
 
-   FC_ApplyBranchAndConfirmation(nodes,
-                                  start_pos+3,
-                                  false,
-                                  require_branch12,
-                                  require_leg2_rebreak,
-                                  eps,
-                                  event);
+   if(!FC_ApplyBranchAndConfirmation(nodes,
+                                      start_pos+3,
+                                      false,
+                                      false,
+                                      false,
+                                      require_branch12,
+                                      require_leg2_rebreak,
+                                      eps,
+                                      event))
+      return false;
    return true;
 }
 
@@ -346,13 +407,16 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
    event.parent_body_size = parent_body_size;
    event.parent_size_ratio = (parent_body_size > 0.0 ? f2_body_size / parent_body_size : 0.0);
 
-   FC_ApplyBranchAndConfirmation(nodes,
-                                  start_pos+3,
-                                  allow_waist_break_branch,
-                                  require_branch12,
-                                  require_leg2_rebreak,
-                                  eps,
-                                  event);
+   if(!FC_ApplyBranchAndConfirmation(nodes,
+                                      start_pos+3,
+                                      allow_waist_break_branch,
+                                      true,
+                                      true,
+                                      require_branch12,
+                                      require_leg2_rebreak,
+                                      eps,
+                                      event))
+      return false;
    return true;
 }
 
@@ -361,6 +425,7 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool scan_f2,
                             const bool scan_bullish,
                             const bool scan_bearish,
+                            const bool suppress_f1_bodies_promoted_to_f2,
                             const bool require_f1_branch12,
                             const bool require_f1_leg2_rebreak,
                             const bool require_parent_f1_confirmed_for_f2,
@@ -374,7 +439,9 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
 {
    ArrayResize(events, 0);
    FC_FlagEvent f1_events[];
+   FC_FlagEvent f2_events[];
    ArrayResize(f1_events, 0);
+   ArrayResize(f2_events, 0);
 
    int n = ArraySize(nodes);
    if(n < 4) return 0;
@@ -394,7 +461,6 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                                      e))
          {
             FC_AppendEvent(f1_events, e);
-            FC_AppendEvent(events, e);
          }
       }
    }
@@ -417,9 +483,27 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                                    eps,
                                    e2))
          {
-            FC_AppendEvent(events, e2);
+            FC_AppendEvent(f2_events, e2);
          }
       }
+   }
+
+   if(scan_f1)
+   {
+      int f1_total = ArraySize(f1_events);
+      for(int k=0; k<f1_total; k++)
+      {
+         if(suppress_f1_bodies_promoted_to_f2 && FC_F1PromotedToF2(f1_events[k], f2_events))
+            continue;
+         FC_AppendEvent(events, f1_events[k]);
+      }
+   }
+
+   if(scan_f2)
+   {
+      int f2_total = ArraySize(f2_events);
+      for(int k=0; k<f2_total; k++)
+         FC_AppendEvent(events, f2_events[k]);
    }
 
    return ArraySize(events);
@@ -432,6 +516,7 @@ int FC_DetectFlags(const MqlRates &rates[],
                    const bool scan_f2,
                    const bool scan_bullish,
                    const bool scan_bearish,
+                   const bool suppress_f1_bodies_promoted_to_f2,
                    const bool require_f1_branch12,
                    const bool require_f1_leg2_rebreak,
                    const bool require_parent_f1_confirmed_for_f2,
@@ -450,6 +535,7 @@ int FC_DetectFlags(const MqlRates &rates[],
                                   scan_f2,
                                   scan_bullish,
                                   scan_bearish,
+                                  suppress_f1_bodies_promoted_to_f2,
                                   require_f1_branch12,
                                   require_f1_leg2_rebreak,
                                   require_parent_f1_confirmed_for_f2,

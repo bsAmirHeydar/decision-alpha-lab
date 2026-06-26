@@ -14,6 +14,10 @@ input bool InpScanF2 = true;
 input bool InpScanBullish = true;
 input bool InpScanBearish = true;
 
+// Counting hierarchy contract:
+// when a body is promoted from root F1 to child F2, do not draw/count the same body as F1 too.
+input bool InpSuppressF1BodiesPromotedToF2 = true;
+
 input bool InpRequireF1Internal12 = true;
 input bool InpRequireF1Leg2RebreakForConfirm = true;
 input bool InpRequireParentF1ConfirmedForF2 = true;
@@ -74,6 +78,7 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
          " n1=", (e.has_n1 ? TimeToString(e.n1.time) : "NA"), "@", (e.has_n1 ? DoubleToString(e.n1.price, _Digits) : "NA"),
          " n2=", (e.has_n2 ? TimeToString(e.n2.time) : "NA"), "@", (e.has_n2 ? DoubleToString(e.n2.price, _Digits) : "NA"),
          " confirm=", (e.confirm_index >= 0 ? TimeToString(e.confirm_time) : "NA"), "@", (e.confirm_index >= 0 ? DoubleToString(e.confirm_price, _Digits) : "NA"),
+         " preBranchLeg2Break=", (e.pre_branch_leg2_break_index >= 0 ? TimeToString(e.pre_branch_leg2_break_time) : "NA"), "@", (e.pre_branch_leg2_break_index >= 0 ? DoubleToString(e.pre_branch_leg2_break_price, _Digits) : "NA"),
          " size=", DoubleToString(e.body_size, _Digits),
          " parentSize=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_body_size, _Digits) : "NA"),
          " sizeRatio=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_size_ratio, 3) : "NA"));
@@ -142,6 +147,7 @@ bool FC_RunExperiment()
                                      InpScanF2,
                                      InpScanBullish,
                                      InpScanBearish,
+                                     InpSuppressF1BodiesPromotedToF2,
                                      InpRequireF1Internal12,
                                      InpRequireF1Leg2RebreakForConfirm,
                                      InpRequireParentF1ConfirmedForF2,

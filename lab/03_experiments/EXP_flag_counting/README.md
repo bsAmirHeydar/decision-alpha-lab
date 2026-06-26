@@ -122,3 +122,17 @@ By default, chart colors represent direction, not F-level/status:
 - F1/F2 and status are still available from tiny labels and logs.
 
 Set `InpColorByDirection=false` only for legacy level/status coloring. The default is `true` because bearish structures must not appear green or blue just because they are F1 pending/confirmed events.
+
+## Sequencing repair: F1 versus F2
+
+The detector now separates root F1 counting from child F2 counting more strictly.
+
+- F1 internal `1` and `2` must appear before the F1 Leg2 extreme is rebroken. If the Leg2 extreme is rebroken before the branch `1/2` is formed, that candidate is not accepted as F1.
+- F2 is different: after F2 Leg2, price is allowed to extend through/rebreak the F2 Leg2 extreme first and only then come back to form `2`, either through the normal internal branch or through the F2 waist-break branch.
+- When a body is promoted into F2 from a parent F1 internal `2`, the same body is suppressed from the root F1 display by default. This prevents one structure from being shown simultaneously as both F1 and F2.
+
+Default input:
+
+```text
+InpSuppressF1BodiesPromotedToF2 = true
+```

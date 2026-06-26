@@ -69,6 +69,12 @@ struct FC_FlagEvent
    datetime confirm_time;
    double   confirm_price;
 
+   // F2 can break the Leg2 extreme before its branch 1/2 is fully formed.
+   // F1 is not allowed to do this. These fields audit that F2-only case.
+   int      pre_branch_leg2_break_index;
+   datetime pre_branch_leg2_break_time;
+   double   pre_branch_leg2_break_price;
+
    int      invalid_index;
    datetime invalid_time;
    double   invalid_price;
@@ -121,6 +127,10 @@ void FC_InitFlagEvent(FC_FlagEvent &e)
    e.confirm_index = -1;
    e.confirm_time = 0;
    e.confirm_price = 0.0;
+
+   e.pre_branch_leg2_break_index = -1;
+   e.pre_branch_leg2_break_time = 0;
+   e.pre_branch_leg2_break_price = 0.0;
 
    e.invalid_index = -1;
    e.invalid_time = 0;
