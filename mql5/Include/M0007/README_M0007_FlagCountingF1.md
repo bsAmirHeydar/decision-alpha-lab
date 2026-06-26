@@ -225,3 +225,17 @@ The renderer was restored to the stable safe-draw model:
 - keep the minimal visual grammar: `F1`, internal `1`, internal `2`, and the F1 path.
 
 This keeps the latest detector logic intact while restoring the chart output to a reliable drawing path.
+
+
+## Current renderer path contract
+
+The F1 path is drawn as a complete visible sequence:
+
+- Start -> Leg1 straight line
+- Leg1 -> Waist smooth curve
+- Waist -> Leg2 smooth curve
+- Leg2 -> internal 1 straight extension when available
+- internal 1 -> internal 2 straight extension when available
+- internal 2 -> final confirmation rebreak extension when the structure is confirmed
+
+This is intended to keep the full pattern visible instead of stopping the visual path at Leg2.
