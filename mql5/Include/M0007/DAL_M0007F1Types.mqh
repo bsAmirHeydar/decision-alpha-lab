@@ -47,9 +47,16 @@ struct M0007_F1Event
    string matched_L_values;
    double score;
 
+   // Correct F1 core topology:
+   // Bullish: Start LOW -> H1 high = end of leg 1 -> W low = correction -> H2 high = end of leg 2 / prior-high break.
+   // Bearish: Start HIGH -> H1 low  = end of leg 1 -> W high = correction -> H2 low  = end of leg 2 / prior-low break.
+   M0007_F1Node Start;
    M0007_F1Node H1;
    M0007_F1Node W;
    M0007_F1Node H2;
+
+   // Legacy slots are kept only for compatibility with older logs/reports.
+   // They are no longer part of the F1 definition.
    M0007_F1Node N1;
    M0007_F1Node R12;
    M0007_F1Node N2;

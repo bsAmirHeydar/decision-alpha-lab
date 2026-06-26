@@ -27,14 +27,14 @@ int M0007_EventEndIndex(const M0007_F1Event &e)
 {
    if(e.confirm_index >= 0) return e.confirm_index;
    if(e.invalidation_index >= 0) return e.invalidation_index;
-   return e.N2.index;
+   return e.H2.index;
 }
 
 double M0007_EventOverlapRatio(const M0007_F1Event &a, const M0007_F1Event &b)
 {
-   int a0 = a.H1.index;
+   int a0 = a.Start.index;
    int a1 = M0007_EventEndIndex(a);
-   int b0 = b.H1.index;
+   int b0 = b.Start.index;
    int b1 = M0007_EventEndIndex(b);
    int inter = MathMax(0, MathMin(a1, b1) - MathMax(a0, b0));
    int uni   = MathMax(a1, b1) - MathMin(a0, b0);
@@ -75,104 +75,95 @@ void M0007_MergeAdaptiveEvents(const M0007_F1Event &raw[], const double overlap_
    }
 }
 
-void M0007_ResolveBullish(const MqlRates &rates[], const int total, M0007_F1Event &e, const M0007_BreakMode mode, const double eps)
+void M0007_MarkConfirmedAtLeg2(M0007_F1Event &e)
 {
-   e.status = M0007_STATUS_OPEN;
-   e.internal_trigger_index = -1;
-   e.confirm_index = -1;
+   e.status = M0007_STATUS_CONFIRMED;
+
+   e.internal_trigger_index = e.H2.index;
+   e.internal_trigger_time  = e.H2.time;
+   e.internal_trigger_price = e.H2.price;
+
+   e.confirm_index = e.H2.index;
+   e.confirm_time  = e.H2.time;
+   e.confirm_price = e.H2.price;
+
    e.invalidation_index = -1;
-   e.internal_trigger_time = 0;
-   e.confirm_time = 0;
-   e.invalidation_time = 0;
-   e.internal_trigger_price = 0.0;
-   e.confirm_price = 0.0;
+   e.invalidation_time  = 0;
    e.invalidation_price = 0.0;
-
-   for(int i=e.N2.index + 1; i<total; i++)
-   {
-      if(M0007_BreakBelow(rates[i], e.W.price, mode, eps))
-      {
-         e.status = M0007_STATUS_INVALIDATED;
-         e.invalidation_index = i;
-         e.invalidation_time = rates[i].time;
-         e.invalidation_price = rates[i].low;
-         return;
-      }
-
-      if(e.internal_trigger_index < 0 && M0007_BreakAbove(rates[i], e.R12.price, mode, eps))
-      {
-         e.internal_trigger_index = i;
-         e.internal_trigger_time = rates[i].time;
-         e.internal_trigger_price = rates[i].high;
-      }
-
-      if(e.internal_trigger_index >= 0 && M0007_BreakAbove(rates[i], e.H2.price, mode, eps))
-      {
-         e.status = M0007_STATUS_CONFIRMED;
-         e.confirm_index = i;
-         e.confirm_time = rates[i].time;
-         e.confirm_price = rates[i].high;
-         return;
-      }
-   }
-}
-
-void M0007_ResolveBearish(const MqlRates &rates[], const int total, M0007_F1Event &e, const M0007_BreakMode mode, const double eps)
-{
-   e.status = M0007_STATUS_OPEN;
-   e.internal_trigger_index = -1;
-   e.confirm_index = -1;
-   e.invalidation_index = -1;
-   e.internal_trigger_time = 0;
-   e.confirm_time = 0;
-   e.invalidation_time = 0;
-   e.internal_trigger_price = 0.0;
-   e.confirm_price = 0.0;
-   e.invalidation_price = 0.0;
-
-   for(int i=e.N2.index + 1; i<total; i++)
-   {
-      if(M0007_BreakAbove(rates[i], e.W.price, mode, eps))
-      {
-         e.status = M0007_STATUS_INVALIDATED;
-         e.invalidation_index = i;
-         e.invalidation_time = rates[i].time;
-         e.invalidation_price = rates[i].high;
-         return;
-      }
-
-      if(e.internal_trigger_index < 0 && M0007_BreakBelow(rates[i], e.R12.price, mode, eps))
-      {
-         e.internal_trigger_index = i;
-         e.internal_trigger_time = rates[i].time;
-         e.internal_trigger_price = rates[i].low;
-      }
-
-      if(e.internal_trigger_index >= 0 && M0007_BreakBelow(rates[i], e.H2.price, mode, eps))
-      {
-         e.status = M0007_STATUS_CONFIRMED;
-         e.confirm_index = i;
-         e.confirm_time = rates[i].time;
-         e.confirm_price = rates[i].low;
-         return;
-      }
-   }
 }
 
 void M0007_BuildCommonEventFields(M0007_F1Event &e, const int L)
 {
    e.L_used = L;
    e.matched_L_values = IntegerToString(L);
-   e.bars_structure = e.N2.index - e.H1.index;
-   e.bars_to_trigger = (e.internal_trigger_index >= 0 ? e.internal_trigger_index - e.N2.index : -1);
-   e.bars_to_confirm = (e.confirm_index >= 0 ? e.confirm_index - e.N2.index : -1);
-   double structural_height = MathAbs(e.H2.price - e.W.price);
-   double count_depth = MathAbs(e.N1.price - e.N2.price);
-   e.score = ((double)L * 1000000.0) + structural_height * 1000.0 + count_depth;
-   e.signature = M0007_DirectionToString(e.direction) + "|" +
-                 IntegerToString(e.H1.index) + "|" + IntegerToString(e.W.index) + "|" +
-                 IntegerToString(e.H2.index) + "|" + IntegerToString(e.N1.index) + "|" +
-                 IntegerToString(e.R12.index) + "|" + IntegerToString(e.N2.index);
+   e.bars_structure = e.H2.index - e.Start.index;
+   e.bars_to_trigger = (e.internal_trigger_index >= 0 ? e.internal_trigger_index - e.W.index : -1);
+   e.bars_to_confirm = (e.confirm_index >= 0 ? e.confirm_index - e.Start.index : -1);
+
+   double leg1_size = MathAbs(e.H1.price - e.Start.price);
+   double corr_size = MathAbs(e.H1.price - e.W.price);
+   double leg2_size = MathAbs(e.H2.price - e.W.price);
+   double break_size = MathAbs(e.H2.price - e.H1.price);
+   double correction_quality = 0.0;
+   if(leg1_size > 0.0)
+      correction_quality = MathMax(0.0, 1.0 - (corr_size / leg1_size));
+
+   e.score = ((double)L * 1000000.0) +
+             leg2_size * 1000.0 +
+             break_size * 10000.0 +
+             correction_quality * 100.0;
+
+   e.signature = M0007_DirectionToString(e.direction) + "|F1_4NODE|" +
+                 IntegerToString(e.Start.index) + "|" +
+                 IntegerToString(e.H1.index) + "|" +
+                 IntegerToString(e.W.index) + "|" +
+                 IntegerToString(e.H2.index);
+}
+
+void M0007_SetLegacySlots(M0007_F1Event &e)
+{
+   // Legacy slots are populated with semantic equivalents so older logging code remains safe.
+   e.N1  = e.W;
+   e.R12 = e.H2;
+   e.N2  = e.H2;
+}
+
+bool M0007_IsBullishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, const M0007_F1Node &B, const M0007_F1Node &C, const M0007_F1Node &D, const M0007_BreakMode mode, const double eps)
+{
+   if(A.type != M0007_NODE_LOW)  return false;
+   if(B.type != M0007_NODE_HIGH) return false;
+   if(C.type != M0007_NODE_LOW)  return false;
+   if(D.type != M0007_NODE_HIGH) return false;
+
+   // Real F1 origin logic: the start is the low before Leg 1, not a synthetic point.
+   if(B.price <= A.price) return false;
+   if(C.price >= B.price) return false;
+   if(C.price <= A.price) return false;      // correction must stay above the origin low.
+   if(D.price <= B.price + eps) return false; // Leg 2 must break/sweep the Leg 1 high.
+
+   if(!M0007_BreakAbove(rates[D.index], B.price, mode, eps))
+      return false;
+
+   return true;
+}
+
+bool M0007_IsBearishF1FourNode(const MqlRates &rates[], const M0007_F1Node &A, const M0007_F1Node &B, const M0007_F1Node &C, const M0007_F1Node &D, const M0007_BreakMode mode, const double eps)
+{
+   if(A.type != M0007_NODE_HIGH) return false;
+   if(B.type != M0007_NODE_LOW)  return false;
+   if(C.type != M0007_NODE_HIGH) return false;
+   if(D.type != M0007_NODE_LOW)  return false;
+
+   // Real F1 origin logic: the start is the high before Leg 1, not a synthetic point.
+   if(B.price >= A.price) return false;
+   if(C.price <= B.price) return false;
+   if(C.price >= A.price) return false;      // correction must stay below the origin high.
+   if(D.price >= B.price - eps) return false; // Leg 2 must break/sweep the Leg 1 low.
+
+   if(!M0007_BreakBelow(rates[D.index], B.price, mode, eps))
+      return false;
+
+   return true;
 }
 
 void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const M0007_BreakMode mode, const double eps, M0007_F1Event &raw_events[])
@@ -183,43 +174,41 @@ void M0007_ScanOneL(const MqlRates &rates[], const int total, const int L, const
    M0007_CompressAlternatingNodes(raw_nodes, nodes);
 
    int n = ArraySize(nodes);
-   if(n < 6) return;
+   if(n < 4) return;
 
-   for(int i=0; i<=n-6; i++)
+   for(int i=0; i<=n-4; i++)
    {
-      M0007_F1Node A = nodes[i];
-      M0007_F1Node B = nodes[i+1];
-      M0007_F1Node C = nodes[i+2];
-      M0007_F1Node D = nodes[i+3];
-      M0007_F1Node E = nodes[i+4];
-      M0007_F1Node F = nodes[i+5];
+      M0007_F1Node A = nodes[i];     // true origin / start
+      M0007_F1Node B = nodes[i+1];   // end of Leg 1
+      M0007_F1Node C = nodes[i+2];   // correction
+      M0007_F1Node D = nodes[i+3];   // end of Leg 2
 
-      if(A.type == M0007_NODE_HIGH && B.type == M0007_NODE_LOW && C.type == M0007_NODE_HIGH &&
-         D.type == M0007_NODE_LOW  && E.type == M0007_NODE_HIGH && F.type == M0007_NODE_LOW)
+      if(M0007_IsBullishF1FourNode(rates, A, B, C, D, mode, eps))
       {
-         if(C.price > A.price && F.price < D.price && F.price > B.price && E.price < C.price)
-         {
-            M0007_F1Event ev;
-            ev.direction = M0007_DIR_BULLISH;
-            ev.H1 = A; ev.W = B; ev.H2 = C; ev.N1 = D; ev.R12 = E; ev.N2 = F;
-            M0007_ResolveBullish(rates, total, ev, mode, eps);
-            M0007_BuildCommonEventFields(ev, L);
-            M0007_AddEvent(raw_events, ev);
-         }
+         M0007_F1Event ev;
+         ev.direction = M0007_DIR_BULLISH;
+         ev.Start = A;
+         ev.H1 = B;
+         ev.W  = C;
+         ev.H2 = D;
+         M0007_SetLegacySlots(ev);
+         M0007_MarkConfirmedAtLeg2(ev);
+         M0007_BuildCommonEventFields(ev, L);
+         M0007_AddEvent(raw_events, ev);
       }
 
-      if(A.type == M0007_NODE_LOW && B.type == M0007_NODE_HIGH && C.type == M0007_NODE_LOW &&
-         D.type == M0007_NODE_HIGH && E.type == M0007_NODE_LOW  && F.type == M0007_NODE_HIGH)
+      if(M0007_IsBearishF1FourNode(rates, A, B, C, D, mode, eps))
       {
-         if(C.price < A.price && F.price > D.price && F.price < B.price && E.price > C.price)
-         {
-            M0007_F1Event ev;
-            ev.direction = M0007_DIR_BEARISH;
-            ev.H1 = A; ev.W = B; ev.H2 = C; ev.N1 = D; ev.R12 = E; ev.N2 = F;
-            M0007_ResolveBearish(rates, total, ev, mode, eps);
-            M0007_BuildCommonEventFields(ev, L);
-            M0007_AddEvent(raw_events, ev);
-         }
+         M0007_F1Event ev;
+         ev.direction = M0007_DIR_BEARISH;
+         ev.Start = A;
+         ev.H1 = B;
+         ev.W  = C;
+         ev.H2 = D;
+         M0007_SetLegacySlots(ev);
+         M0007_MarkConfirmedAtLeg2(ev);
+         M0007_BuildCommonEventFields(ev, L);
+         M0007_AddEvent(raw_events, ev);
       }
    }
 }

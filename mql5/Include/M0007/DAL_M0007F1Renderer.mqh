@@ -4,10 +4,9 @@
 #include <M0007/DAL_M0007F1Types.mqh>
 
 // M0007 renderer contract:
-// - Draws only the clean F1 schematic on the real chart.
-// - No horizontal audit levels, no trigger/confirm vertical lines, and no internal node clutter by default.
-// - Visual layer is schematic/audit-only and never changes the detector state.
-// - Main schematic = one straight Leg 1 + one smooth curve from Leg 1 through correction into Leg 2.
+// - Draw only the clean F1 grammar requested by the research note.
+// - No horizontal guide levels, no vertical audit lines, no internal N/R labels by default.
+// - The drawing follows the real detector anchors: Start -> Leg 1 -> Correction -> Leg 2.
 
 void M0007_DeleteObjectsByPrefix(const string prefix)
 {
@@ -78,39 +77,6 @@ bool M0007_DrawTextRaw(const string name,
    return true;
 }
 
-void M0007_DrawHLine(const string name, const double price, const color clr, const ENUM_LINE_STYLE style, const string text)
-{
-   ObjectDelete(0, name);
-   if(!ObjectCreate(0, name, OBJ_HLINE, 0, 0, price))
-      return;
-   ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
-   ObjectSetInteger(0, name, OBJPROP_STYLE, style);
-   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
-   ObjectSetString(0, name, OBJPROP_TEXT, text);
-   M0007_SetCommonObjectProps(name);
-}
-
-void M0007_DrawVLine(const string name, const datetime t, const color clr, const ENUM_LINE_STYLE style, const string text)
-{
-   ObjectDelete(0, name);
-   if(!ObjectCreate(0, name, OBJ_VLINE, 0, t, 0))
-      return;
-   ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
-   ObjectSetInteger(0, name, OBJPROP_STYLE, style);
-   ObjectSetInteger(0, name, OBJPROP_WIDTH, 1);
-   ObjectSetString(0, name, OBJPROP_TEXT, text);
-   M0007_SetCommonObjectProps(name);
-}
-
-void M0007_DrawNodeLabel(const string name, const M0007_F1Node &node, const string text, const color clr, const int font_size = 9)
-{
-   M0007_DrawTextRaw(name, node.time, node.price, text, clr, font_size, ANCHOR_LEFT_LOWER);
-}
-
-// -----------------------------------------------------------------------------
-// Clean schematic primitives
-// -----------------------------------------------------------------------------
-
 double M0007_CubicBezierValue(const double p0,
                               const double p1,
                               const double p2,
@@ -158,58 +124,29 @@ void M0007_DrawBezierCurve(const string name,
    }
 }
 
-void M0007_DrawNodeDot(const string name, const datetime t, const double price, const color clr, const int font_size = 14)
+void M0007_DrawNodeDot(const string name, const datetime t, const double price, const color clr, const int font_size = 13)
 {
-   // A text dot is more stable across brokers than OBJ_BITMAP and keeps the patch self-contained.
    M0007_DrawTextRaw(name, t, price, "●", clr, font_size, ANCHOR_CENTER);
 }
 
-void M0007_DrawLocalLevel(const string name,
-                          const datetime left_t,
-                          const datetime right_t,
-                          const double price,
-                          const string label,
-                          const color clr)
-{
-   M0007_DrawTrendRaw(name + "_LINE", left_t, price, right_t, price, clr, 1, STYLE_DASH);
-   M0007_DrawTextRaw(name + "_TXT", left_t, price, label, clr, 9, ANCHOR_LEFT_LOWER);
-}
-
 void M0007_DrawF1Schematic(const M0007_F1Event &e,
-                            const string prefix,
-                            const color clr,
-                            const bool show_text_labels = true,
-                            const bool show_badge = true)
+                           const string prefix,
+                           const color clr,
+                           const bool show_text_labels,
+                           const bool show_badge)
 {
-   int sec = PeriodSeconds(_Period);
-   if(sec <= 0) sec = 60;
-
    bool bullish = (e.direction == M0007_DIR_BULLISH);
 
-   // Mechanical F1 anchors:
-   // H1/L1 = end of the first leg.
-   // W     = correction / protected waist.
-   // H2/L2 = end of the second main leg.
-   double h_left  = MathAbs(e.H1.price - e.W.price);
-   double h_right = MathAbs(e.H2.price - e.W.price);
-   double h = MathMax(h_left, h_right);
+   double leg1_size = MathAbs(e.H1.price - e.Start.price);
+   double corr_size = MathAbs(e.H1.price - e.W.price);
+   double leg2_size = MathAbs(e.H2.price - e.W.price);
+   double h = MathMax(MathMax(leg1_size, corr_size), leg2_size);
    if(h <= 0.0) h = MathMax(100.0 * _Point, MathAbs(e.H1.price) * 0.001);
 
-   int dt_hw = (int)((long)e.W.time  - (long)e.H1.time);
-   int dt_wh = (int)((long)e.H2.time - (long)e.W.time);
-   if(dt_hw <= 0) dt_hw = sec * 6;
-   if(dt_wh <= 0) dt_wh = sec * 8;
+   // One straight line = true origin to end of Leg 1.
+   M0007_DrawTrendRaw(prefix + "LEG1_STRAIGHT", e.Start.time, e.Start.price, e.H1.time, e.H1.price, clr, 3, STYLE_SOLID);
 
-   // Synthetic visual start for Leg 1. The detector does not need this point;
-   // it is only for showing the clean F1 grammar exactly like the reference sketch.
-   datetime start_t = e.H1.time - (datetime)MathMax(sec * 4, (int)(dt_hw * 0.90));
-   double start_p = bullish ? e.H1.price - 1.35 * h : e.H1.price + 1.35 * h;
-
-   // One straight line = Leg 1.
-   M0007_DrawTrendRaw(prefix + "LEG1_STRAIGHT", start_t, start_p, e.H1.time, e.H1.price, clr, 3, STYLE_SOLID);
-
-   // One clean curve = correction into Leg 2.
-   // This is drawn as two cubic Bezier curves that pass through W, so the correction is visually exact.
+   // One clean curved path = end of Leg 1 -> correction -> end of Leg 2.
    datetime c1a_t = M0007_TimeAt(e.H1.time, e.W.time, 0.35);
    datetime c2a_t = M0007_TimeAt(e.H1.time, e.W.time, 0.70);
    datetime c1b_t = M0007_TimeAt(e.W.time, e.H2.time, 0.30);
@@ -218,127 +155,89 @@ void M0007_DrawF1Schematic(const M0007_F1Event &e,
    double c1a_p, c2a_p, c1b_p, c2b_p;
    if(bullish)
    {
-      c1a_p = e.H1.price - 0.10 * h_left;
-      c2a_p = e.W.price  + 0.08 * h_left;
-      c1b_p = e.W.price  + 0.06 * h_right;
-      c2b_p = e.H2.price - 0.10 * h_right;
+      c1a_p = e.H1.price - 0.10 * corr_size;
+      c2a_p = e.W.price  + 0.08 * corr_size;
+      c1b_p = e.W.price  + 0.06 * leg2_size;
+      c2b_p = e.H2.price - 0.10 * leg2_size;
    }
    else
    {
-      c1a_p = e.H1.price + 0.10 * h_left;
-      c2a_p = e.W.price  - 0.08 * h_left;
-      c1b_p = e.W.price  - 0.06 * h_right;
-      c2b_p = e.H2.price + 0.10 * h_right;
+      c1a_p = e.H1.price + 0.10 * corr_size;
+      c2a_p = e.W.price  - 0.08 * corr_size;
+      c1b_p = e.W.price  - 0.06 * leg2_size;
+      c2b_p = e.H2.price + 0.10 * leg2_size;
    }
 
    M0007_DrawBezierCurve(prefix + "CURVE_A", e.H1.time, e.H1.price, c1a_t, c1a_p, c2a_t, c2a_p, e.W.time, e.W.price, clr, 3, 10);
    M0007_DrawBezierCurve(prefix + "CURVE_B", e.W.time, e.W.price, c1b_t, c1b_p, c2b_t, c2b_p, e.H2.time, e.H2.price, clr, 3, 10);
 
-   // Main visual nodes.
-   M0007_DrawNodeDot(prefix + "DOT_START", start_t, start_p, clr, 13);
-   M0007_DrawNodeDot(prefix + "DOT_LEG1",  e.H1.time, e.H1.price, clr, 13);
-   M0007_DrawNodeDot(prefix + "DOT_CORR",  e.W.time,  e.W.price,  clr, 13);
-   M0007_DrawNodeDot(prefix + "DOT_LEG2",  e.H2.time, e.H2.price, clr, 13);
-
-   double text_gap = MathMax(0.17 * h, 40.0 * _Point);
-   double small_gap = MathMax(0.10 * h, 25.0 * _Point);
+   M0007_DrawNodeDot(prefix + "DOT_START", e.Start.time, e.Start.price, clr, 13);
+   M0007_DrawNodeDot(prefix + "DOT_LEG1",  e.H1.time,   e.H1.price,   clr, 13);
+   M0007_DrawNodeDot(prefix + "DOT_CORR",  e.W.time,    e.W.price,    clr, 13);
+   M0007_DrawNodeDot(prefix + "DOT_LEG2",  e.H2.time,   e.H2.price,   clr, 13);
 
    if(show_text_labels)
    {
-      // Labels matching the reference drawing.
-      M0007_DrawTextRaw(prefix + "TXT_START", start_t, bullish ? start_p - small_gap : start_p + small_gap,
-                        "Start", clr, 9, bullish ? ANCHOR_LEFT_UPPER : ANCHOR_LEFT_LOWER);
+      double text_gap = MathMax(0.12 * h, 35.0 * _Point);
+      double small_gap = MathMax(0.08 * h, 20.0 * _Point);
 
-      datetime leg1_label_t = M0007_TimeAt(start_t, e.H1.time, 0.42);
-      double leg1_label_p = (start_p + e.H1.price) * 0.5;
+      M0007_DrawTextRaw(prefix + "TXT_START", e.Start.time,
+                        bullish ? e.Start.price - small_gap : e.Start.price + small_gap,
+                        "Start", clr, 9,
+                        bullish ? ANCHOR_LEFT_UPPER : ANCHOR_LEFT_LOWER);
+
+      datetime leg1_label_t = M0007_TimeAt(e.Start.time, e.H1.time, 0.45);
+      double leg1_label_p = (e.Start.price + e.H1.price) * 0.5;
       M0007_DrawTextRaw(prefix + "TXT_LEG1", leg1_label_t,
                         bullish ? leg1_label_p + text_gap : leg1_label_p - text_gap,
                         "Leg 1", clr, 10, ANCHOR_CENTER);
 
-      datetime correction_label_t = M0007_TimeAt(e.H1.time, e.H2.time, 0.48);
-      double correction_label_p = bullish ? e.W.price + 0.70 * h : e.W.price - 0.70 * h;
+      datetime correction_label_t = M0007_TimeAt(e.H1.time, e.H2.time, 0.45);
+      double correction_label_p = bullish ? e.W.price + 0.45 * h : e.W.price - 0.45 * h;
       M0007_DrawTextRaw(prefix + "TXT_CORRECTION", correction_label_t, correction_label_p,
-                        "Correction", clr, 10, bullish ? ANCHOR_CENTER : ANCHOR_CENTER);
+                        "Correction", clr, 10, ANCHOR_CENTER);
 
       M0007_DrawTextRaw(prefix + "TXT_PULLBACK", e.W.time,
                         bullish ? e.W.price - text_gap : e.W.price + text_gap,
-                        "Pullback / Correction", clr, 8,
-                        bullish ? ANCHOR_CENTER : ANCHOR_CENTER);
+                        "Pullback / Correction", clr, 8, ANCHOR_CENTER);
 
-      datetime leg2_label_t = M0007_TimeAt(e.W.time, e.H2.time, 0.74);
+      datetime leg2_label_t = M0007_TimeAt(e.W.time, e.H2.time, 0.70);
       double leg2_label_p = (e.W.price + e.H2.price) * 0.5;
       M0007_DrawTextRaw(prefix + "TXT_LEG2", leg2_label_t,
                         bullish ? leg2_label_p + text_gap : leg2_label_p - text_gap,
                         "Leg 2", clr, 10, ANCHOR_CENTER);
-
    }
 
    if(show_badge)
    {
       string badge = bullish ? "BULLISH F1" : "BEARISH F1";
-      datetime badge_t = M0007_TimeAt(start_t, e.H2.time, 0.50);
-      double badge_p = bullish ? MathMax(e.H1.price, e.H2.price) + 0.52 * h
-                               : MathMin(e.H1.price, e.H2.price) - 0.52 * h;
-      M0007_DrawTextRaw(prefix + "TXT_BADGE", badge_t, badge_p, badge, clr, 13, ANCHOR_CENTER);
+      datetime badge_t = M0007_TimeAt(e.Start.time, e.H2.time, 0.58);
+      double badge_p = bullish ? MathMax(e.H1.price, e.H2.price) + 0.35 * h
+                               : MathMin(e.H1.price, e.H2.price) - 0.35 * h;
+      M0007_DrawTextRaw(prefix + "TXT_BADGE", badge_t, badge_p, badge, clr, 12, ANCHOR_CENTER);
    }
 }
 
-void M0007_DrawStatusPanel(const string prefix,
-                           const int total,
-                           const int confirmed,
-                           const int invalidated,
-                           const int open_count,
-                           const bool draw_only_confirmed,
-                           const int drawn)
-{
-   string txt = "M0007 F1 | total=" + IntegerToString(total) +
-                " confirmed=" + IntegerToString(confirmed) +
-                " invalidated=" + IntegerToString(invalidated) +
-                " open=" + IntegerToString(open_count) +
-                " drawn=" + IntegerToString(drawn) +
-                " filterConfirmed=" + (draw_only_confirmed ? "true" : "false");
-
-   datetime t = iTime(_Symbol, _Period, 0);
-   double p = SymbolInfoDouble(_Symbol, SYMBOL_BID);
-   if(p <= 0.0) p = iClose(_Symbol, _Period, 0);
-   M0007_DrawTextRaw(prefix + "STATUS_PANEL", t, p, txt, clrSilver, 9, ANCHOR_RIGHT_UPPER);
-}
-
 void M0007_DrawEvent(const M0007_F1Event &e,
-                       const string prefix,
-                       const int event_number,
-                       const bool show_text_labels = true,
-                       const bool show_badge = true)
+                     const string prefix,
+                     const int event_number,
+                     const bool show_text_labels,
+                     const bool show_badge)
 {
    string p = prefix + IntegerToString(event_number) + "_";
    color schematic_clr = (e.direction == M0007_DIR_BULLISH ? clrLimeGreen : clrTomato);
-
-   // Clean requested schematic only:
-   // Start -> straight Leg 1 -> smooth correction curve -> Leg 2.
-   // No horizontal levels, no internal H1/W/H2/R12/N labels, no vertical trigger bars.
    M0007_DrawF1Schematic(e, p, schematic_clr, show_text_labels, show_badge);
 }
 
 int M0007_DrawEvents(const M0007_F1Event &events[],
-                       const int max_events,
-                       const bool draw_only_confirmed,
-                       const string prefix,
-                       const bool show_text_labels = true,
-                       const bool show_badge = true,
-                       const bool show_status_panel = false)
+                     const int max_events,
+                     const bool draw_only_confirmed,
+                     const string prefix,
+                     const bool show_text_labels,
+                     const bool show_badge)
 {
    int drawn = 0;
    int total = ArraySize(events);
-   int confirmed = 0;
-   int invalidated = 0;
-   int open_count = 0;
-
-   for(int k=0; k<total; k++)
-   {
-      if(events[k].status == M0007_STATUS_CONFIRMED) confirmed++;
-      else if(events[k].status == M0007_STATUS_INVALIDATED) invalidated++;
-      else open_count++;
-   }
 
    for(int i=total-1; i>=0 && drawn<max_events; i--)
    {
@@ -348,8 +247,6 @@ int M0007_DrawEvents(const M0007_F1Event &events[],
       drawn++;
    }
 
-   if(show_status_panel)
-      M0007_DrawStatusPanel(prefix, total, confirmed, invalidated, open_count, draw_only_confirmed, drawn);
    ChartRedraw(0);
    return drawn;
 }

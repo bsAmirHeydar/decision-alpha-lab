@@ -1,77 +1,78 @@
 # M0007 — F1 Flag Counting MQL5 Module
 
-This folder contains the reusable MQL5 include files for the M0007 adaptive F1 counter.
+M0007 counts and draws F1 flag structures on chart for visual/audit research.
 
-## Folder rule
+## Correct F1 topology
 
-The project root already identifies the lab, so the MQL folders only use the M-series module name.
+The detector now uses the actual four-node F1 origin logic.
 
-Correct locations:
+Bullish F1:
 
 ```text
-mql5/Experts/M0007/
-mql5/Include/M0007/
+Start LOW -> Leg 1 HIGH -> Correction LOW -> Leg 2 HIGH
 ```
+
+A bullish F1 is accepted only when:
+
+```text
+Leg 1 high > Start low
+Correction low is below Leg 1 high
+Correction low remains above Start low
+Leg 2 high breaks/sweeps Leg 1 high
+```
+
+Bearish F1:
+
+```text
+Start HIGH -> Leg 1 LOW -> Correction HIGH -> Leg 2 LOW
+```
+
+A bearish F1 is accepted only when:
+
+```text
+Leg 1 low < Start high
+Correction high is above Leg 1 low
+Correction high remains below Start high
+Leg 2 low breaks/sweeps Leg 1 low
+```
+
+This fixes the earlier schematic problem where the chart origin was synthetic or taken from the wrong side of the structure.
+
+## Visual contract
+
+The renderer draws only the clean F1 grammar:
+
+```text
+Start -> straight Leg 1 -> end of Leg 1
+end of Leg 1 -> smooth curved correction -> end of Leg 2
+```
+
+No horizontal guide levels, no vertical audit lines, and no internal N/R labels are drawn by default.
 
 ## Files
 
-- `DAL_M0007F1Types.mqh`
-- `DAL_M0007F1NodeDetector.mqh`
-- `DAL_M0007F1Detector.mqh`
-- `DAL_M0007F1Renderer.mqh`
+```text
+mql5/Experts/M0007/M0007_FlagCountingF1.mq5
+mql5/Include/M0007/DAL_M0007F1Types.mqh
+mql5/Include/M0007/DAL_M0007F1NodeDetector.mqh
+mql5/Include/M0007/DAL_M0007F1Detector.mqh
+mql5/Include/M0007/DAL_M0007F1Renderer.mqh
+```
 
-## Include contract
+## Inputs
 
-The Expert Advisor imports the module like this:
+Important inputs:
 
-```mql5
-#include <M0007/DAL_M0007F1Types.mqh>
-#include <M0007/DAL_M0007F1Detector.mqh>
-#include <M0007/DAL_M0007F1Renderer.mqh>
+```text
+InpLMin / InpLMax          adaptive L-node range
+InpBreakMode              wick break or close break for Leg 2 confirmation
+InpEpsilonPoints          extra sweep/break distance
+InpMaxEventsToDraw        number of latest F1 schematics to draw
+InpShowTextLabels         show/hide Start, Leg 1, Correction, Pullback, Leg 2 labels
+InpShowBadge              show/hide BULLISH F1 / BEARISH F1 badge
+InpRedrawOnNewBar         redraw only on new bar, not every tick
 ```
 
 ## Scope
 
-M0007 is visual/audit-only. It counts and draws F1 structures. It does not place orders.
-
-## v1.04 clean schematic-only renderer
-
-The renderer now draws only the requested clean F1 grammar on the chart:
-
-```text
-Start -> straight Leg 1 -> end of Leg 1
-end of Leg 1 -> smooth curved correction through W -> end of Leg 2
-```
-
-Removed from the default chart output:
-
-```text
-Previous High / Previous Low horizontal guide lines
-protected waist horizontal line
-R12 horizontal line
-H2/L2 confirmation horizontal line
-internal trigger vertical line
-confirmation vertical line
-invalidation vertical line
-compact H1/W/H2/N1/R12/N2 audit labels
-status panel text
-```
-
-The visual layer is intentionally clean and conceptual. It does not change the detector state. The detector still uses the full topology:
-
-```text
-bullish: H1 -> W -> H2 -> N1 -> R12 -> N2
-bearish: L1 -> W -> L2 -> N1 -> R12 -> N2
-```
-
-## Display inputs
-
-`M0007_FlagCountingF1.mq5` exposes these visual inputs:
-
-```text
-InpShowTextLabels  = true   // Start, Leg 1, Correction, Pullback / Correction, Leg 2
-InpShowBadge       = true   // BULLISH F1 / BEARISH F1
-InpShowStatusPanel = false  // keep false for clean chart output
-```
-
-`InpRedrawOnNewBar` remains enabled by default so the visual audit updates during replay/testing without running the detector on every tick. It redraws only when a new bar appears.
+M0007 is visual/audit-only. It does not place orders.
