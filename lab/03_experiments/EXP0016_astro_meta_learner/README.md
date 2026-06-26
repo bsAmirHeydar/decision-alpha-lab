@@ -751,3 +751,343 @@ trap؟
 ```
 
 بعد از فهمیدن، می‌توانیم دانش را به اکسپرت‌های اجرایی منتقل کنیم.
+
+---
+
+# V2: Human-Learning Protocol
+
+این نسخه برای همان چیزی ساخته شده که در پروژه می‌خواهیم: مدل فقط یک classifier عددی نباشد؛ مثل یک پژوهشگر انسانی، شرایط را ببیند، تجربه ذخیره کند، الگوهای ضعیف را رد کند، و فقط دانشی را قبول کند که در تست زمانی هم دوام آورده باشد.
+
+## هدف V2
+
+قرارداد V2 این است:
+
+```text
+1. قیمت را خودش از MT5 بگیرد.
+2. دیتای آسترو را اگر موجود بود از آرشیو بردارد.
+3. اگر موجود نبود، خودش با natal درست بسازد.
+4. دیتاست causal بسازد: feature در t، outcome بعد از t.
+5. مدل‌های قابل تفسیر train کند.
+6. cognitive memory بسازد.
+7. هر rule را با شک و ضد-overfit بررسی کند.
+8. فقط الگوهایی را قبول کند که support و OOS lift و stability داشته باشند.
+```
+
+## ساده‌ترین دستور کامل
+
+از روت پروژه:
+
+```powershell
+cd "C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\4769098028DB821E4654DC6D5C533078\MQL5\Shared Projects\decision-alpha-lab"
+
+python -m pip install -r .\tools\astro_ml\requirements.txt
+
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2026-06-22 00:00" `
+  -To "2026-06-27 23:59" `
+  -Preset sanity `
+  -Horizons "30,60,120" `
+  -OpenAfter
+```
+
+این دستور خودش این کارها را انجام می‌دهد:
+
+```text
+MT5 -> price CSV
+Archive/Builder -> astro CSV
+Astro + Price -> ML dataset
+Dataset -> audit
+Dataset -> train model suite
+Dataset -> cognitive memory
+Memory -> skeptical rules + case memory + concept memory
+```
+
+## دستور حرفه‌ای چندماهه/چندساله
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2022-01-01 00:00" `
+  -To "2026-06-27 23:59" `
+  -Preset professional `
+  -Horizons "30,60,120" `
+  -RunWalkForward `
+  -TrainDays 120 `
+  -TestDays 20 `
+  -StepDays 20 `
+  -EmbargoBars 120 `
+  -CognitiveMinSupport 300 `
+  -CognitiveMinLift 1.10 `
+  -CognitiveMaxGap 0.15 `
+  -OpenAfter
+```
+
+برای دیتای چندروزه، `CognitiveMinSupport` را کوچک بگذار. برای دیتای چندساله، بزرگ‌تر بگذار تا مدل الگوهای تصادفی را قبول نکند.
+
+## اگر نمی‌خواهی از MT5 قیمت بگیرد
+
+اگر price csv را قبلاً داری:
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2026-06-22 00:00" `
+  -To "2026-06-27 23:59" `
+  -PriceCsv "astro_ml_prices_NAS100_M1_20260622_to_now.csv" `
+  -SkipMt5Fetch `
+  -Preset sanity `
+  -OpenAfter
+```
+
+## اگر می‌خواهی حتماً Astro را از صفر بسازد
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2026-06-22 00:00" `
+  -To "2026-06-27 23:59" `
+  -ForceBuildAstro `
+  -BrokerGmtOffsetHours 3 `
+  -Preset sanity `
+  -OpenAfter
+```
+
+برای NAS100، natal پیش‌فرض این است:
+
+```text
+1985-01-31 09:30 New York
+label = nasdaq100_index_1985_ny_open
+lat/lon = New York
+UTC offset = -5
+```
+
+## خروجی‌ها کجا می‌روند؟
+
+### پروتکل اصلی
+
+```text
+Common\Files\astro_ml\human_learning_protocols\NAS100\M1\<RUN_ID>\
+```
+
+داخلش:
+
+```text
+HUMAN_LEARNING_REPORT.md
+human_learning_manifest.json
+```
+
+### پروتکل ML کلاسیک
+
+```text
+Common\Files\astro_ml\protocol_runs\NAS100\M1\<RUN_ID>\
+```
+
+داخلش:
+
+```text
+PROTOCOL_REPORT.md
+protocol_report.xlsx
+protocol_manifest.json
+```
+
+### مموری مدل‌ها
+
+```text
+Common\Files\astro_ml\memory\NAS100\M1\runs\<RUN_ID>\
+```
+
+داخلش:
+
+```text
+model.joblib
+metrics.json
+feature_importance.csv
+model_card.md
+test_predictions.csv
+knowledge_base.json
+```
+
+### مموری شناختی/انسانی
+
+```text
+Common\Files\astro_ml\cognitive_memory\NAS100\M1\<RUN_ID>\
+```
+
+داخلش:
+
+```text
+COGNITIVE_MEMORY_REPORT.md
+cognitive_memory_report.xlsx
+skeptical_rules.csv
+case_memory.csv
+concept_memory.json
+concept_memory.jsonl
+```
+
+## cognitive memory دقیقاً چیست؟
+
+این بخش تلاش می‌کند مثل یک انسان حرفه‌ای یاد بگیرد، نه مثل یک مدل خام.
+
+### 1. concept families
+
+فیچرها را به خانواده‌های مفهومی تبدیل می‌کند:
+
+```text
+saturn_pressure
+mars_impulse
+jupiter_expansion
+venus_value
+moon_timing
+mercury_information
+pluto_pressure
+natal_activation
+path_quality
+macro_context
+timing
+```
+
+### 2. context signature
+
+برای هر کندل یک امضای زمینه‌ای می‌سازد، مثل:
+
+```text
+saturn_pressure=high | jupiter_expansion=low | moon_timing=mid | path_quality=very_low
+```
+
+این باعث می‌شود مدل فقط عدد خام نبیند؛ حالت/زمینه ببیند.
+
+### 3. skeptical rules
+
+برای هر target مثل `label_direction_60` یا `label_bull_trap_60`، هزاران قانون احتمالی می‌سازد؛ اما هیچ‌کدام را سریع قبول نمی‌کند.
+
+یک قانون فقط وقتی accepted می‌شود که:
+
+```text
+train support کافی داشته باشد
+OOS/test support کافی داشته باشد
+train lift مثبت باشد
+test lift هم مثبت بماند
+train/test gap زیاد نباشد
+```
+
+اگر این شرط‌ها را نداشته باشد، می‌رود در rejected و دلیل ردش هم نوشته می‌شود:
+
+```text
+low_train_support
+low_test_support
+weak_train_lift
+no_oos_lift
+unstable_train_test_gap
+```
+
+این دقیقاً ضد overfit است.
+
+### 4. case memory
+
+نمونه‌های واقعی را ذخیره می‌کند:
+
+```text
+time
+cognitive_signature
+outcomes
+top astro features
+```
+
+بعداً می‌توانیم مرحله بعدی را بسازیم که بگوید:
+
+```text
+وضعیت امروز شبیه ۴۷ کیس تاریخی است.
+در ۶۲٪ آن‌ها DOWN شده.
+در ۷۰٪ آن‌ها bull trap رخ داده.
+```
+
+## چطور گزارش را بخوانی؟
+
+اول این فایل را باز کن:
+
+```text
+COGNITIVE_MEMORY_REPORT.md
+```
+
+اگر نوشته:
+
+```text
+No accepted rules yet
+```
+
+این شکست نیست. یعنی سیستم حاضر نشده با دیتای کم، الگوی الکی قبول کند.
+
+اگر accepted rule داشت، در `skeptical_rules.csv` این ستون‌ها مهم‌اند:
+
+```text
+condition
+target
+label
+train_support
+test_support
+train_lift
+test_lift
+stability_gap
+skepticism_status
+rejection_reasons
+```
+
+قانون خوب این است:
+
+```text
+skepticism_status = accepted
+test_lift > 1.10
+test_support کافی
+stability_gap پایین
+```
+
+## چرا این شبیه یادگیری انسان است؟
+
+چون سه لایه دارد:
+
+```text
+1. تجربه خام: case_memory
+2. مفهوم‌سازی: concept families + context signatures
+3. شک و داوری: skeptical_rules با OOS evidence
+```
+
+یعنی هر چیزی که دیده را باور نمی‌کند. اول می‌پرسد:
+
+```text
+آیا این الگو نمونه کافی دارد؟
+آیا فقط در train بوده یا در آینده هم مانده؟
+آیا gap زیاد است؟
+آیا بهتر از baseline است؟
+```
+
+## مسیر بعدی برای چند لول حرفه‌ای‌تر
+
+V2 پایه انسانی/شناختی است. بعد از اینکه روی دیتای واقعی اجرا شد، مرحله بعد می‌تواند این‌ها باشد:
+
+```text
+1. Similar-case retrieval
+2. calibrated ensemble
+3. event-based astro learner
+4. sequence learner
+5. transformer/temporal CNN فقط بعد از اثبات edge کلاسیک
+6. rule-to-MQL exporter
+7. live cognitive astro dashboard
+```
+
+اصل مهم:
+
+```text
+اول باید ثابت شود یک target مثل trap یا clean_path در OOS بهتر از baseline است.
+بعد deep learning ارزش دارد.
+```
+
+اگر از اول برویم deep، فقط overfit قشنگ‌تر می‌سازیم.
