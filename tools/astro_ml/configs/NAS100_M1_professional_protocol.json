@@ -1,0 +1,33 @@
+{
+  "asset": "NAS100",
+  "timeframe": "M1",
+  "preset": "professional",
+  "horizons": [30, 60, 120],
+  "targets": [
+    "label_direction_30",
+    "label_direction_60",
+    "label_direction_120",
+    "label_clean_long_60",
+    "label_clean_short_60",
+    "label_spike_60",
+    "label_bull_trap_60",
+    "label_bear_trap_60"
+  ],
+  "model_type": "extra_trees",
+  "test_fraction": 0.25,
+  "n_estimators": 700,
+  "max_depth": 10,
+  "walk_forward": {
+    "train_days": 120,
+    "test_days": 20,
+    "step_days": 20,
+    "embargo_bars": 120
+  },
+  "label_thresholds": {
+    "direction_threshold_pct": 0.001,
+    "spike_threshold_pct": 0.003,
+    "trap_trigger_pct": 0.0015,
+    "clean_min_mfe_pct": 0.0015,
+    "clean_max_mae_pct": 0.0008
+  }
+}
