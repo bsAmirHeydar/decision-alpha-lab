@@ -1,0 +1,11 @@
+{
+  "output_dir": "data/cme/bars",
+  "interval": "1m",
+  "period": "1d",
+  "poll_seconds": 15,
+  "max_rows": 2000,
+  "symbols": {
+    "ES": "ES=F",
+    "NQ": "NQ=F"
+  }
+}

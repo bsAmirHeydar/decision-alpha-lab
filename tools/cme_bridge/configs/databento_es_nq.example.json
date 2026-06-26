@@ -1,0 +1,12 @@
+{
+  "dataset": "GLBX.MDP3",
+  "schema": "ohlcv-1m",
+  "stype_in": "continuous",
+  "output_dir": "data/cme/bars",
+  "max_rows": 5000,
+  "poll_status_seconds": 10,
+  "symbols": {
+    "ES": "ES.c.0",
+    "NQ": "NQ.c.0"
+  }
+}

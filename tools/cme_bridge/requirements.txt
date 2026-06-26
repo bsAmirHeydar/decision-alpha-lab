@@ -1,0 +1,3 @@
+databento>=0.48.0
+pandas>=1.5.3
+yfinance>=0.2.40
