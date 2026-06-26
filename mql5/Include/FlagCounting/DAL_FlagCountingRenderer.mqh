@@ -173,7 +173,9 @@ void FC_DrawFlagLabels(const FC_FlagEvent &e,
          anchor_t = e.confirm_time;
          anchor_p = e.confirm_price;
       }
-      double off = MathMax(0.18 * h, 30.0 * _Point);
+      // F-level labels are intentionally tiny and close to the end of the body
+      // so the geometry stays visually dominant on dense charts.
+      double off = MathMax(0.07 * h, 10.0 * _Point);
       double p = bullish ? anchor_p + off : anchor_p - off;
       FC_DrawTextRaw(prefix + "F", anchor_t, p, label, clr, flag_font, bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER);
    }

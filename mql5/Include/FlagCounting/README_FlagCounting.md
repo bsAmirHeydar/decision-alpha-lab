@@ -153,3 +153,15 @@ InpRequireF2AtLeastParentSize = true
 InpF2MinParentSizeRatio = 1.0
 ```
 
+## Visual label sizing
+
+`F1` and `F2` level labels are intentionally small by default so the body geometry remains readable on dense charts.
+
+Default:
+
+```text
+InpFlagFontSize = 7
+InpInternalFontSize = 12
+```
+
+The renderer also keeps the `F1/F2` label close to the Leg2/confirmation anchor. Internal `1` and `2` labels remain larger because they are structural count markers.

@@ -39,7 +39,7 @@ input int InpLineWidth = 2;
 input int InpCurveSegments = 10;
 input bool InpShowFlagLabel = true;
 input bool InpShowInternal12Labels = true;
-input int InpFlagFontSize = 16;
+input int InpFlagFontSize = 7;
 input int InpInternalFontSize = 12;
 
 input bool InpPrintSummary = true;

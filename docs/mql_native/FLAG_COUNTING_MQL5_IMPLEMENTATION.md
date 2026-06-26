@@ -78,3 +78,6 @@ InpRequireF2AtLeastParentSize = true
 InpF2MinParentSizeRatio = 1.0
 ```
 
+## Renderer label size contract
+
+The unified renderer keeps `F1/F2` text small by default (`InpFlagFontSize = 7`) and places it close to the body endpoint so the curved flag body is not visually blocked. Internal `1/2` labels are not reduced by this change.

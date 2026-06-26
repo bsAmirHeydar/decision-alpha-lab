@@ -84,3 +84,6 @@ InpRequireF2AtLeastParentSize = true
 InpF2MinParentSizeRatio = 1.0
 ```
 
+### Label sizing note
+
+The visual experiment uses tiny `F1/F2` labels by default to reduce chart clutter. The count labels `1` and `2` remain more visible because they mark internal count nodes.
