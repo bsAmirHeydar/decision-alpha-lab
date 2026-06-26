@@ -24,6 +24,12 @@ struct DAL_AstroBodyState
    double ra;
    double decl;
    double speed_decl;
+   string speed_state;
+   double station_intensity;
+   double ingress_intensity;
+   string dignity_state;
+   double dignity_score;
+   string dispositor;
    string sign;
    int    sign_index;
    double degree;
@@ -69,7 +75,16 @@ struct DAL_AstroMapRow
 
    double   moon_phase_angle;
    string   moon_phase_bucket;
+   string   moon_phase_half;
    double   moon_illumination_proxy;
+   string   solar_quarter_name;
+   double   solar_quarter_score;
+   string   node_axis_sign;
+   double   eclipse_proximity_score;
+   string   eclipse_state;
+   int      mutual_reception_count;
+   string   mutual_reception_pairs;
+   double   rulership_chain_score;
 
    bool     houses_valid;
    double   house_lat;
@@ -232,6 +247,12 @@ void DAL_AstroBodyState_Reset(DAL_AstroBodyState &b, const string name)
    b.ra = 0.0;
    b.decl = 0.0;
    b.speed_decl = 0.0;
+   b.speed_state = "";
+   b.station_intensity = 0.0;
+   b.ingress_intensity = 0.0;
+   b.dignity_state = "";
+   b.dignity_score = 0.0;
+   b.dispositor = "";
    b.sign = "";
    b.sign_index = -1;
    b.degree = 0.0;
@@ -275,7 +296,16 @@ void DAL_AstroMapRow_Reset(DAL_AstroMapRow &r)
    r.summary = "";
    r.moon_phase_angle = 0.0;
    r.moon_phase_bucket = "";
+   r.moon_phase_half = "";
    r.moon_illumination_proxy = 0.0;
+   r.solar_quarter_name = "";
+   r.solar_quarter_score = 0.0;
+   r.node_axis_sign = "";
+   r.eclipse_proximity_score = 0.0;
+   r.eclipse_state = "";
+   r.mutual_reception_count = 0;
+   r.mutual_reception_pairs = "";
+   r.rulership_chain_score = 0.0;
 
    r.houses_valid = false;
    r.house_lat = 0.0;

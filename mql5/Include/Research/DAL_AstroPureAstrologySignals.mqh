@@ -98,6 +98,62 @@ double DAL_AstroPS_FindTransitNatalDeclScore(const DAL_AstroMapRow &row, const s
    return 0.0;
 }
 
+double DAL_AstroPS_NatalHouseWeight(const int house)
+{
+   if(house == 10 || house == 1) return 100.0;
+   if(house == 11 || house == 5 || house == 9) return 82.0;
+   if(house == 7 || house == 2) return 66.0;
+   if(house == 4 || house == 8) return 48.0;
+   if(house == 3) return 40.0;
+   if(house == 6 || house == 12) return 28.0;
+   return 34.0;
+}
+
+double DAL_AstroPS_ExpandedNatalActivation(const DAL_AstroMapRow &row)
+{
+   if(!row.natal_enabled)
+      return 0.0;
+
+   double score = 0.0;
+   double aspect_total = 0.0;
+   int aspect_count = 0;
+   for(int j = 0; j < DAL_ASTRO_TRANSIT_NATAL_ASPECT_COUNT; j++)
+   {
+      DAL_AstroAspectState a = row.transit_natal_aspect[j];
+      if(a.aspect == "none" || a.orb > row.aspect_orb_limit)
+         continue;
+      double tight = 100.0 * (1.0 - a.orb / MathMax(0.0001, row.aspect_orb_limit));
+      if(a.applying == 1)
+         tight *= 1.05;
+      aspect_total += MathMin(100.0, tight);
+      aspect_count++;
+   }
+   if(aspect_count > 0)
+      score += 0.46 * (aspect_total / aspect_count);
+
+   double decl_total = 0.0;
+   int decl_count = 0;
+   for(int k = 0; k < DAL_ASTRO_TRANSIT_NATAL_DECL_COUNT; k++)
+   {
+      double decl_score = DAL_AstroPS_DeclinationScore(row.transit_natal_decl[k], row.parallel_orb_limit);
+      if(decl_score <= 0.0)
+         continue;
+      decl_total += decl_score;
+      decl_count++;
+   }
+   if(decl_count > 0)
+      score += 0.14 * (decl_total / decl_count);
+
+   double house_total = 0.0;
+   for(int i = 0; i < DAL_ASTRO_NATAL_CORE_COUNT; i++)
+      house_total += DAL_AstroPS_NatalHouseWeight(row.transit_in_natal_house[i]);
+   score += 0.24 * (house_total / (double)DAL_ASTRO_NATAL_CORE_COUNT);
+
+   score += 0.10 * row.rulership_chain_score;
+   score += 0.06 * MathMin(100.0, 18.0 * row.mutual_reception_count);
+   return MathMin(100.0, score);
+}
+
 void DAL_AstroPureSignal_Reset(DAL_AstroPureSignal &s)
 {
    s.valid = false;
@@ -186,6 +242,8 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
 
    s.long_bias_score += 0.12 * d.benefic_support_score + 0.10 * d.house_lift_score + 0.06 * d.angular_power_score;
    s.short_bias_score += 0.14 * d.malefic_pressure_score + 0.10 * d.house_drag_score + 0.04 * (100.0 - d.benefic_support_score);
+   s.long_bias_score += 0.06 * d.rulership_chain_score + 0.04 * d.reception_score;
+   s.short_bias_score += 0.05 * d.rulership_chain_score + 0.03 * d.reception_score;
 
    if(row.body[mars].oob == 1)
       s.long_bias_score += 4.0;
@@ -196,6 +254,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
    s.path_score = f.clean_path;
    s.friction_score = MathMin(100.0, f.chop_risk + 0.18 * d.malefic_pressure_score + 0.08 * d.house_drag_score);
    s.volatility_score = (f.breakout_followthrough + f.raw_pressure + f.raw_transition) / 3.0;
+   s.volatility_score = MathMin(100.0, 0.86 * s.volatility_score + 0.14 * row.eclipse_proximity_score);
 
    for(int d = 0; d < DAL_ASTRO_DECL_PAIR_COUNT; d++)
    {
@@ -212,7 +271,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
 
    if(row.natal_enabled)
    {
-      s.natal_activation_score =
+      double starter_set =
          0.35 * DAL_AstroPS_TightTransitNatalScore(row, "t_sun__n_sun") +
          0.10 * DAL_AstroPS_FindTransitNatalDeclScore(row, "t_sun__n_sun") +
          0.25 * DAL_AstroPS_TightTransitNatalScore(row, "t_moon__n_moon") +
@@ -220,6 +279,8 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
          0.20 * DAL_AstroPS_TightTransitNatalScore(row, "t_mars__n_saturn") +
          0.10 * DAL_AstroPS_FindTransitNatalDeclScore(row, "t_mars__n_saturn") +
          0.20 * DAL_AstroPS_TightTransitNatalScore(row, "t_jupiter__n_mars");
+      double expanded_natal = DAL_AstroPS_ExpandedNatalActivation(row);
+      s.natal_activation_score = MathMin(100.0, 0.42 * starter_set + 0.58 * expanded_natal);
    }
 
    s.macro_timing_score = t.macro_alignment_score;
@@ -243,6 +304,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.10 * s.meso_timing_score +
       0.10 * s.micro_timing_score +
       0.08 * s.house_lift_score;
+   s.entry_score = MathMin(100.0, 0.94 * s.entry_score + 0.06 * row.solar_quarter_score);
 
    s.exit_score =
       0.30 * s.friction_score +
@@ -252,6 +314,7 @@ bool DAL_AstroPureSignal_Calc(const DAL_AstroMapRow &row, DAL_AstroPureSignal &s
       0.16 * s.minute_exhaustion_score +
       0.06 * s.house_drag_score +
       0.08 * (100.0 - s.minute_window_score);
+   s.exit_score = MathMin(100.0, 0.90 * s.exit_score + 0.10 * row.eclipse_proximity_score);
 
    if(t.macro_direction != "flat")
       s.direction_name = t.macro_direction;

@@ -70,6 +70,18 @@ When natal inputs are present, the CSV also contains:
 - pure astro language fields such as `astro_bias_text`, `astro_path_text`, `astro_signal_text`
 - doctrine metadata such as `schema_version`, `doctrine_id`, `zodiac_mode`, `orb_family`
 
+The current schema also exports doctrine-ready raw layers that were previously only implicit:
+
+- `*_speed_state`, `*_station_intensity`, `*_ingress_intensity`
+- `*_dignity_state`, `*_dignity_score`, `*_dispositor`
+- `mutual_reception_count`, `mutual_reception_pairs`, `rulership_chain_score`
+- `moon_phase_half`
+- `solar_quarter_name`, `solar_quarter_score`
+- `node_axis_sign`
+- `eclipse_proximity_score`, `eclipse_state`
+
+These fields stay fully causal because they are derived only from the candle-open sky state.
+
 ## Doctrine metadata
 
 The builder now stamps every row with:
@@ -84,6 +96,12 @@ The builder now stamps every row with:
 ```
 
 That makes each CSV self-describing, which is important when multiple astro doctrines are being tested side by side.
+
+Current default schema:
+
+```text
+astro_feature_schema_v3
+```
 
 ## JSON config
 

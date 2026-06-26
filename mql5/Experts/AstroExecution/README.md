@@ -12,6 +12,7 @@ This folder contains astro-only Expert Advisors for EXP0013.
 - They now read a hierarchical timing stack: macro field -> meso gate -> micro trigger -> minute window.
 - They can load doctrine-owned threshold defaults from `DAL_AstroFamilyThresholds.mqh`.
 - The pure signal layer now includes sect-aware doctrine context plus benefic / malefic and house lift / drag scores.
+- The raw map now also exposes explicit dignity, dispositor, reception/chain, station-intensity, ingress-intensity, solar-quarter, and eclipse-proximity fields for stricter doctrine work.
 
 ## Execution families
 

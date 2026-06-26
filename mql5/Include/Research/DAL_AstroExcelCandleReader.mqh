@@ -261,6 +261,12 @@ void DAL_AstroCsv_ReadBody(
    b.ra         = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_ra"));
    b.decl       = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_decl"));
    b.speed_decl = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_decl"));
+   b.speed_state = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_speed_state"));
+   b.station_intensity = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_station_intensity"));
+   b.ingress_intensity = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_ingress_intensity"));
+   b.dignity_state = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_dignity_state"));
+   b.dignity_score = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_dignity_score"), 50.0);
+   b.dispositor = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_dispositor"));
    b.sign       = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_sign"));
    b.sign_index = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_sign_index"), -1);
    b.degree     = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, key + "_degree"));
@@ -334,7 +340,16 @@ bool DAL_AstroCsv_ReadMapRow(const string &headers[], const string &cells[], DAL
 
    r.moon_phase_angle = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_phase_angle"));
    r.moon_phase_bucket = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_phase_bucket"));
+   r.moon_phase_half = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_phase_half"));
    r.moon_illumination_proxy = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "moon_illumination_proxy"));
+   r.solar_quarter_name = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "solar_quarter_name"));
+   r.solar_quarter_score = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "solar_quarter_score"));
+   r.node_axis_sign = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "node_axis_sign"));
+   r.eclipse_proximity_score = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "eclipse_proximity_score"));
+   r.eclipse_state = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "eclipse_state"));
+   r.mutual_reception_count = DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, "mutual_reception_count"));
+   r.mutual_reception_pairs = DAL_AstroCsv_GetString(cells, DAL_AstroCsv_HeaderIndexCached(headers, "mutual_reception_pairs"));
+   r.rulership_chain_score = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "rulership_chain_score"));
 
    r.houses_valid = (DAL_AstroCsv_GetInt(cells, DAL_AstroCsv_HeaderIndexCached(headers, "houses_valid"), 0) == 1);
    r.house_lat = DAL_AstroCsv_GetDouble(cells, DAL_AstroCsv_HeaderIndexCached(headers, "house_lat"));

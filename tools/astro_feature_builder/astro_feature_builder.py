@@ -93,12 +93,27 @@ DEFAULT_ASPECT_PAIRS = [
 ]
 
 DEFAULT_DOCTRINE_ID = "astro_only_doctrine_v1"
-DEFAULT_SCHEMA_VERSION = "astro_feature_schema_v2"
+DEFAULT_SCHEMA_VERSION = "astro_feature_schema_v3"
 DEFAULT_ZODIAC_MODE = "tropical"
 DEFAULT_BODY_UNIVERSE = "major7_outer_nodes"
 DEFAULT_ORB_FAMILY = "major_ptolemaic_6deg"
 DEFAULT_PARALLEL_ORB_LIMIT = 1.0
 DEFAULT_OOB_LIMIT = 23.44
+
+RULERSHIP = {
+    "aries": "mars",
+    "taurus": "venus",
+    "gemini": "mercury",
+    "cancer": "moon",
+    "leo": "sun",
+    "virgo": "mercury",
+    "libra": "venus",
+    "scorpio": "mars",
+    "sagittarius": "jupiter",
+    "capricorn": "saturn",
+    "aquarius": "saturn",
+    "pisces": "jupiter",
+}
 
 
 def load_json_config(path: str) -> Dict[str, object]:
@@ -160,6 +175,36 @@ class PlanetState:
     def out_of_bounds(self) -> int:
         return 1 if abs(self.decl) > DEFAULT_OOB_LIMIT else 0
 
+    @property
+    def speed_state(self) -> str:
+        eps = station_epsilon(self.name)
+        abs_speed = abs(self.speed_lon)
+        if eps > 0.0 and abs_speed <= eps:
+            return "station"
+        if self.retrograde == 1:
+            return "retro"
+        return "direct"
+
+    @property
+    def station_intensity(self) -> float:
+        return station_intensity(self.name, self.speed_lon)
+
+    @property
+    def ingress_intensity(self) -> float:
+        return ingress_intensity(self.degree_in_sign)
+
+    @property
+    def dignity_state(self) -> str:
+        return dignity_state(self.name, self.sign_name)
+
+    @property
+    def dignity_score(self) -> float:
+        return dignity_score(self.name, self.sign_name)
+
+    @property
+    def dispositor(self) -> str:
+        return sign_dispositor(self.sign_name)
+
 
 @dataclass
 class AspectState:
@@ -197,7 +242,16 @@ class AstroRow:
     declination_pairs: Dict[str, DeclinationAspectState] = field(default_factory=dict)
     moon_phase_angle: float = 0.0
     moon_phase_bucket: str = "unknown"
+    moon_phase_half: str = "unknown"
     moon_illumination_proxy: float = 0.0
+    solar_quarter_name: str = "unknown"
+    solar_quarter_score: float = 0.0
+    node_axis_sign: str = ""
+    eclipse_proximity_score: float = 0.0
+    eclipse_state: str = "none"
+    mutual_reception_count: int = 0
+    mutual_reception_pairs: str = ""
+    rulership_chain_score: float = 0.0
     houses_valid: bool = False
     house_lat: float = 0.0
     house_lon: float = 0.0
@@ -289,6 +343,238 @@ def moon_phase_bucket(angle: float) -> str:
         if angle < bound:
             return name
     return "new"
+
+
+def moon_phase_half(bucket: str) -> str:
+    if "waxing" in bucket or bucket == "first_quarter":
+        return "waxing"
+    if "waning" in bucket or bucket == "last_quarter":
+        return "waning"
+    if bucket == "new":
+        return "new"
+    if bucket == "full":
+        return "full"
+    return "unknown"
+
+
+def station_epsilon(body_name: str) -> float:
+    if body_name == "mercury":
+        return 0.08
+    if body_name == "venus":
+        return 0.04
+    if body_name == "mars":
+        return 0.025
+    if body_name == "jupiter":
+        return 0.010
+    if body_name == "saturn":
+        return 0.006
+    if body_name == "uranus":
+        return 0.003
+    if body_name == "neptune":
+        return 0.002
+    if body_name == "pluto":
+        return 0.002
+    return 0.0
+
+
+def station_intensity(body_name: str, speed_lon: float) -> float:
+    eps = station_epsilon(body_name)
+    if eps <= 0.0:
+        return 0.0
+    v = abs(speed_lon)
+    if v <= eps:
+        return 100.0
+    if v <= eps * 2.0:
+        return 70.0
+    if v <= eps * 4.0:
+        return 35.0
+    return 0.0
+
+
+def ingress_intensity(degree_in_sign: float) -> float:
+    near = min(degree_in_sign, 30.0 - degree_in_sign)
+    if near <= 0.25:
+        return 100.0
+    if near <= 0.50:
+        return 80.0
+    if near <= 1.0:
+        return 60.0
+    if near <= 2.0:
+        return 30.0
+    return 0.0
+
+
+def dignity_state(body_name: str, sign_name: str) -> str:
+    if body_name == "sun":
+        if sign_name == "leo":
+            return "domicile"
+        if sign_name == "aries":
+            return "exaltation"
+        if sign_name == "aquarius":
+            return "detriment"
+        if sign_name == "libra":
+            return "fall"
+    if body_name == "moon":
+        if sign_name == "cancer":
+            return "domicile"
+        if sign_name == "taurus":
+            return "exaltation"
+        if sign_name == "capricorn":
+            return "detriment"
+        if sign_name == "scorpio":
+            return "fall"
+    if body_name == "mercury":
+        if sign_name in ("gemini", "virgo"):
+            return "domicile"
+        if sign_name == "virgo":
+            return "exaltation"
+        if sign_name in ("sagittarius", "pisces"):
+            return "detriment"
+        if sign_name == "pisces":
+            return "fall"
+    if body_name == "venus":
+        if sign_name in ("taurus", "libra"):
+            return "domicile"
+        if sign_name == "pisces":
+            return "exaltation"
+        if sign_name in ("scorpio", "aries"):
+            return "detriment"
+        if sign_name == "virgo":
+            return "fall"
+    if body_name == "mars":
+        if sign_name in ("aries", "scorpio"):
+            return "domicile"
+        if sign_name == "capricorn":
+            return "exaltation"
+        if sign_name in ("libra", "taurus"):
+            return "detriment"
+        if sign_name == "cancer":
+            return "fall"
+    if body_name == "jupiter":
+        if sign_name in ("sagittarius", "pisces"):
+            return "domicile"
+        if sign_name == "cancer":
+            return "exaltation"
+        if sign_name in ("gemini", "virgo"):
+            return "detriment"
+        if sign_name == "capricorn":
+            return "fall"
+    if body_name == "saturn":
+        if sign_name in ("capricorn", "aquarius"):
+            return "domicile"
+        if sign_name == "libra":
+            return "exaltation"
+        if sign_name in ("cancer", "leo"):
+            return "detriment"
+        if sign_name == "aries":
+            return "fall"
+    return "peregrine"
+
+
+def dignity_score(body_name: str, sign_name: str) -> float:
+    state = dignity_state(body_name, sign_name)
+    if state == "domicile":
+        return 92.0
+    if state == "exaltation":
+        return 96.0
+    if state == "detriment":
+        return 18.0
+    if state == "fall":
+        return 10.0
+    return 50.0
+
+
+def sign_dispositor(sign_name: str) -> str:
+    return RULERSHIP.get(sign_name, "unknown")
+
+
+def solar_quarter_name(sun_lon: float) -> str:
+    idx = int(math.floor(norm360(sun_lon) / 90.0)) % 4
+    return ("aries_gate", "cancer_gate", "libra_gate", "capricorn_gate")[idx]
+
+
+def solar_quarter_score(sun_lon: float) -> float:
+    within_quarter = norm360(sun_lon) % 90.0
+    near = min(within_quarter, 90.0 - within_quarter)
+    if near <= 0.25:
+        return 100.0
+    if near <= 0.50:
+        return 85.0
+    if near <= 1.0:
+        return 65.0
+    if near <= 2.0:
+        return 40.0
+    if near <= 4.0:
+        return 20.0
+    return 0.0
+
+
+def eclipse_proximity_score(moon_lon: float, sun_lon: float, node_lon: float) -> float:
+    lunation_gap = angular_distance_180(moon_lon, sun_lon)
+    new_prox = abs(lunation_gap - 0.0)
+    full_prox = abs(lunation_gap - 180.0)
+    lunation_near = min(new_prox, full_prox)
+    if lunation_near <= 4.0:
+        lunation_score = max(0.0, 100.0 * (1.0 - lunation_near / 4.0))
+    else:
+        lunation_score = 0.0
+
+    moon_node_gap = angular_distance_180(moon_lon, node_lon)
+    node_score = 0.0
+    if moon_node_gap <= 18.0:
+        node_score = max(0.0, 100.0 * (1.0 - moon_node_gap / 18.0))
+
+    return max(0.0, min(100.0, 0.55 * lunation_score + 0.45 * node_score))
+
+
+def eclipse_state(score: float) -> str:
+    if score >= 70.0:
+        return "active"
+    if score >= 35.0:
+        return "watch"
+    return "none"
+
+
+def mutual_reception_pairs(planets: Dict[str, PlanetState], body_names: Sequence[str]) -> List[str]:
+    pairs: List[str] = []
+    for i, a_name in enumerate(body_names):
+        a = planets[a_name]
+        for b_name in body_names[i + 1:]:
+            b = planets[b_name]
+            if a.dispositor == b_name and b.dispositor == a_name:
+                pairs.append(f"{a_name}_{b_name}")
+    return pairs
+
+
+def rulership_chain_score(planets: Dict[str, PlanetState], body_names: Sequence[str]) -> float:
+    def chain_strength(body_name: str) -> float:
+        current = body_name
+        visited: List[str] = []
+        strength = 0.0
+        for depth in range(6):
+            if current not in planets:
+                break
+            st = planets[current]
+            strength += max(0.0, st.dignity_score - 10.0) * (1.0 / (depth + 1))
+            nxt = st.dispositor
+            if nxt == "unknown" or nxt == "":
+                break
+            if nxt == body_name:
+                strength += 35.0
+                break
+            if nxt in visited:
+                strength += 18.0
+                break
+            visited.append(current)
+            current = nxt
+        return strength
+
+    if not body_names:
+        return 0.0
+    total = 0.0
+    for body_name in body_names:
+        total += chain_strength(body_name)
+    return max(0.0, min(100.0, total / len(body_names)))
 
 
 
@@ -691,7 +977,21 @@ def generate_rows(
 
         row.moon_phase_angle = norm360(row.planets["moon"].lon - row.planets["sun"].lon)
         row.moon_phase_bucket = moon_phase_bucket(row.moon_phase_angle)
+        row.moon_phase_half = moon_phase_half(row.moon_phase_bucket)
         row.moon_illumination_proxy = (1.0 - math.cos(math.radians(row.moon_phase_angle))) / 2.0
+        row.solar_quarter_name = solar_quarter_name(row.planets["sun"].lon)
+        row.solar_quarter_score = solar_quarter_score(row.planets["sun"].lon)
+        row.node_axis_sign = row.planets["true_node"].sign_name
+        row.eclipse_proximity_score = eclipse_proximity_score(
+            row.planets["moon"].lon,
+            row.planets["sun"].lon,
+            row.planets["true_node"].lon,
+        )
+        row.eclipse_state = eclipse_state(row.eclipse_proximity_score)
+        mr_pairs = mutual_reception_pairs(row.planets, CORE_BODIES)
+        row.mutual_reception_count = len(mr_pairs)
+        row.mutual_reception_pairs = ";".join(mr_pairs)
+        row.rulership_chain_score = rulership_chain_score(row.planets, CORE_BODIES)
 
         if natal_enabled:
             row.natal_enabled = True
@@ -773,7 +1073,16 @@ def make_headers() -> List[str]:
         "summary",
         "moon_phase_angle",
         "moon_phase_bucket",
+        "moon_phase_half",
         "moon_illumination_proxy",
+        "solar_quarter_name",
+        "solar_quarter_score",
+        "node_axis_sign",
+        "eclipse_proximity_score",
+        "eclipse_state",
+        "mutual_reception_count",
+        "mutual_reception_pairs",
+        "rulership_chain_score",
         "houses_valid",
         "house_lat",
         "house_lon",
@@ -811,6 +1120,12 @@ def make_headers() -> List[str]:
             f"{p}_decl",
             f"{p}_speed_decl",
             f"{p}_oob",
+            f"{p}_speed_state",
+            f"{p}_station_intensity",
+            f"{p}_ingress_intensity",
+            f"{p}_dignity_state",
+            f"{p}_dignity_score",
+            f"{p}_dispositor",
             f"{p}_sign",
             f"{p}_sign_index",
             f"{p}_degree",
@@ -829,6 +1144,12 @@ def make_headers() -> List[str]:
             f"natal_{p}_decl",
             f"natal_{p}_speed_decl",
             f"natal_{p}_oob",
+            f"natal_{p}_speed_state",
+            f"natal_{p}_station_intensity",
+            f"natal_{p}_ingress_intensity",
+            f"natal_{p}_dignity_state",
+            f"natal_{p}_dignity_score",
+            f"natal_{p}_dispositor",
             f"natal_{p}_sign",
             f"natal_{p}_sign_index",
             f"natal_{p}_degree",
@@ -881,7 +1202,16 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
         "summary": row.summary,
         "moon_phase_angle": f"{row.moon_phase_angle:.8f}",
         "moon_phase_bucket": row.moon_phase_bucket,
+        "moon_phase_half": row.moon_phase_half,
         "moon_illumination_proxy": f"{row.moon_illumination_proxy:.8f}",
+        "solar_quarter_name": row.solar_quarter_name,
+        "solar_quarter_score": f"{row.solar_quarter_score:.8f}",
+        "node_axis_sign": row.node_axis_sign,
+        "eclipse_proximity_score": f"{row.eclipse_proximity_score:.8f}",
+        "eclipse_state": row.eclipse_state,
+        "mutual_reception_count": row.mutual_reception_count,
+        "mutual_reception_pairs": row.mutual_reception_pairs,
+        "rulership_chain_score": f"{row.rulership_chain_score:.8f}",
         "houses_valid": 1 if row.houses_valid else 0,
         "house_lat": f"{row.house_lat:.8f}",
         "house_lon": f"{row.house_lon:.8f}",
@@ -922,6 +1252,12 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"{p}_decl": f"{st.decl:.8f}",
             f"{p}_speed_decl": f"{st.speed_decl:.10f}",
             f"{p}_oob": st.out_of_bounds,
+            f"{p}_speed_state": st.speed_state,
+            f"{p}_station_intensity": f"{st.station_intensity:.8f}",
+            f"{p}_ingress_intensity": f"{st.ingress_intensity:.8f}",
+            f"{p}_dignity_state": st.dignity_state,
+            f"{p}_dignity_score": f"{st.dignity_score:.8f}",
+            f"{p}_dispositor": st.dispositor,
             f"{p}_sign": st.sign_name,
             f"{p}_sign_index": st.sign_index,
             f"{p}_degree": f"{st.degree_in_sign:.8f}",
@@ -943,6 +1279,12 @@ def row_to_dict(row: AstroRow) -> Dict[str, object]:
             f"natal_{p}_decl": f"{st.decl:.8f}",
             f"natal_{p}_speed_decl": f"{st.speed_decl:.10f}",
             f"natal_{p}_oob": st.out_of_bounds if row.natal_enabled else 0,
+            f"natal_{p}_speed_state": st.speed_state if row.natal_enabled else "",
+            f"natal_{p}_station_intensity": f"{st.station_intensity:.8f}" if row.natal_enabled else "",
+            f"natal_{p}_ingress_intensity": f"{st.ingress_intensity:.8f}" if row.natal_enabled else "",
+            f"natal_{p}_dignity_state": st.dignity_state if row.natal_enabled else "",
+            f"natal_{p}_dignity_score": f"{st.dignity_score:.8f}" if row.natal_enabled else "",
+            f"natal_{p}_dispositor": st.dispositor if row.natal_enabled else "",
             f"natal_{p}_sign": st.sign_name if row.natal_enabled else "",
             f"natal_{p}_sign_index": st.sign_index if row.natal_enabled else -1,
             f"natal_{p}_degree": f"{st.degree_in_sign:.8f}" if row.natal_enabled else "",
@@ -1083,8 +1425,13 @@ def write_xlsx(rows: Sequence[AstroRow], out_path: str, broker_gmt_offset_hours:
         ["feature_family", "raw_columns", "derived_feature", "research meaning"],
         ["longitude", "*_lon", "sign / degree / aspect geometry", "cyclical angular location; used only as a distributional time-state"],
         ["speed", "*_speed_lon", "retrograde / station / speed bucket", "momentum state of the planetary cycle; useful for regime bucketing"],
+        ["dignity", "*_dignity_state/*_dignity_score", "essential dignity surface", "raw astrological condition of the body inside the sign; exported explicitly for doctrine and validation"],
+        ["dispositor", "*_dispositor", "sign ruler / dispositor", "basic rulership chain surface for future reception and chain doctrine"],
+        ["reception/chains", "mutual_reception_* / rulership_chain_score", "reception and chain coherence", "raw doctrine surface for mutual reception and dispositor-chain support"],
         ["declination", "*_decl", "north/south/out_of_bounds/parallels", "vertical sky position; tested as a separate distributional axis"],
         ["moon phase", "moon_phase_angle", "phase bucket / illumination proxy", "lunar cycle state; tested for volatility/path distribution shifts"],
+        ["quarter gates", "solar_quarter_*", "cardinal solar gate timing", "seasonal quarter timing surface often emphasized in financial-astrology work"],
+        ["eclipse proximity", "eclipse_*", "lunation + nodal activation", "explicit eclipse-pressure field for transition and timing doctrine"],
         ["aspects", "*_angle/*_orb/*_applying", "aspect class + orb tightness + applying", "pairwise angular relationship; no causal claim, only conditional distribution test"],
     ]
     for r in dict_rows:

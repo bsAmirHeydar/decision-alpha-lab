@@ -125,6 +125,16 @@ There is now also a repo preset:
 - same strict structure
 - tuned from the current NAS100 finalization pass with `min_micro_timing = 54`
 
+The validation stack now also has access to richer doctrine-state columns in the raw CSV, including:
+
+- explicit dignity and dispositorship fields
+- explicit reception / rulership-chain fields
+- explicit station / ingress intensity fields
+- explicit solar-quarter timing fields
+- explicit eclipse-proximity fields
+
+That makes future family audits easier to stratify without introducing market-side contamination.
+
 There is also a Common Files helper:
 
 ```powershell

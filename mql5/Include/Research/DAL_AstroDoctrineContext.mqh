@@ -15,6 +15,8 @@ struct DAL_AstroDoctrineContext
    double angular_power_score;
    double house_lift_score;
    double house_drag_score;
+   double rulership_chain_score;
+   double reception_score;
    string context_key;
 };
 
@@ -28,6 +30,8 @@ void DAL_AstroDC_Reset(DAL_AstroDoctrineContext &d)
    d.angular_power_score = 0.0;
    d.house_lift_score = 0.0;
    d.house_drag_score = 0.0;
+   d.rulership_chain_score = 0.0;
+   d.reception_score = 0.0;
    d.context_key = "";
 }
 
@@ -67,6 +71,9 @@ double DAL_AstroDC_HouseDrag(const int house)
 
 double DAL_AstroDC_DignityScore(const DAL_AstroBodyState &b)
 {
+   if(b.dignity_score > 0.0)
+      return b.dignity_score;
+
    string sign = b.sign;
    string name = b.name;
 
@@ -202,6 +209,8 @@ bool DAL_AstroDC_Calc(const DAL_AstroMapRow &row, DAL_AstroDoctrineContext &d)
       0.12 * DAL_AstroDC_HouseDrag(jupiter.house) +
       0.24 * DAL_AstroDC_HouseDrag(saturn.house)
    );
+   d.rulership_chain_score = row.rulership_chain_score;
+   d.reception_score = DAL_AstroPM_Clamp(18.0 * row.mutual_reception_count);
 
    d.context_key =
       "sect=" + d.sect_name +
@@ -209,7 +218,9 @@ bool DAL_AstroDC_Calc(const DAL_AstroMapRow &row, DAL_AstroDoctrineContext &d)
       "|malefic=" + DAL_AstroPM_Bucket5(d.malefic_pressure_score) +
       "|angular=" + DAL_AstroPM_Bucket5(d.angular_power_score) +
       "|lift=" + DAL_AstroPM_Bucket5(d.house_lift_score) +
-      "|drag=" + DAL_AstroPM_Bucket5(d.house_drag_score);
+      "|drag=" + DAL_AstroPM_Bucket5(d.house_drag_score) +
+      "|chain=" + DAL_AstroPM_Bucket5(d.rulership_chain_score) +
+      "|reception=" + DAL_AstroPM_Bucket5(d.reception_score);
 
    d.valid = true;
    return true;

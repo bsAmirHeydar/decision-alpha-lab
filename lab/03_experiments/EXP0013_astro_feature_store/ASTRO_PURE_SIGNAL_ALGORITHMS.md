@@ -109,17 +109,25 @@ This is the astro-native pressure/activation field, not market volatility.
 
 ## Natal activation score
 
-When natal data exists, the signal layer reads a small set of transit-to-natal activations:
+When natal data exists, the signal layer combines:
+
+- the original starter set of high-value transit-to-natal activations
+- a broader transit-to-natal aspect surface
+- transit declination activation to natal bodies
+- transit placement inside natal houses
+- reception / rulership-chain support
+
+The original starter set still includes:
 
 - `t_sun__n_sun`
 - `t_moon__n_moon`
 - `t_mars__n_saturn`
 - `t_jupiter__n_mars`
 
-Each one is scored by orb tightness and applying emphasis.
+Each one is scored by orb tightness and applying emphasis, then blended with the broader natal/reference-chart surface.
 
 Interpretation:
-This is the first resonance layer, not a full natal doctrine yet.
+This is no longer just a minimal starter-set gate, but it is still not a full classical natal doctrine.
 
 ## Sect-aware doctrine
 
@@ -149,6 +157,7 @@ The doctrine now carries two explicit pressure channels:
 - Jupiter dignity
 - their house lift
 - their sect favorability
+- reception / chain coherence as a supporting layer
 
 `malefic_pressure_score` currently reads:
 
@@ -159,6 +168,17 @@ The doctrine now carries two explicit pressure channels:
 
 Interpretation:
 This gives the signal engine a direct blessing/pressure layer in astrological language instead of burying everything inside path or timing scores.
+
+## Reception / chain layer
+
+The raw doctrine now also exports:
+
+- `mutual_reception_count`
+- `mutual_reception_pairs`
+- `rulership_chain_score`
+
+Interpretation:
+This is an internal coherence layer. It does not force direction by itself, but it tells the doctrine whether the active sign-rulership structure is more self-supporting or more scattered.
 
 ## House doctrine layer
 
@@ -261,14 +281,14 @@ Best for:
 ## Current limitations
 
 - body universe is still conservative
-- natal activation pairs are still a starter set
+- deeper classical natal doctrine is still incomplete
 - thresholds are still hand-authored and require validation
-- MetaEditor compile verification has not yet been run inside this turn
 - live order routing exists as `A0090`, but production safeguards and family promotion still require validation
 - house doctrine is now active, but family-specific house meanings can still be sharpened further
+- mutual reception semantics are now present, but not yet fully specialized by family
 
 ## Next algorithmic expansions
 
 - family-specific house meanings and cadence maps
-- stronger natal house activation logic
+- richer reception / rulership-chain semantics
 - family-specific threshold configs

@@ -92,6 +92,8 @@ string DAL_AstroDF_DeclinationZone(const DAL_AstroBodyState &b)
 
 string DAL_AstroDF_PhaseHalf(const string moon_phase_bucket)
 {
+   if(moon_phase_bucket == "")
+      return "unknown";
    if(StringFind(moon_phase_bucket, "waxing") >= 0 || moon_phase_bucket == "first_quarter") return "waxing";
    if(StringFind(moon_phase_bucket, "waning") >= 0 || moon_phase_bucket == "last_quarter") return "waning";
    if(moon_phase_bucket == "new") return "new";
@@ -110,7 +112,10 @@ string DAL_AstroDF_AppendBodyCore(string key, const DAL_AstroMapRow &row, const 
    key = DAL_AstroDF_KeyAppend(key, body_name + "_element", DAL_AstroDF_SignElement(b.sign));
    key = DAL_AstroDF_KeyAppend(key, body_name + "_modality", DAL_AstroDF_SignModality(b.sign));
    key = DAL_AstroDF_KeyAppend(key, body_name + "_degree_zone", DAL_AstroDF_DegreeZone(b.degree));
-   key = DAL_AstroDF_KeyAppend(key, body_name + "_speed_state", DAL_AstroDF_SpeedState(b));
+   string speed_state = (b.speed_state != "" ? b.speed_state : DAL_AstroDF_SpeedState(b));
+   key = DAL_AstroDF_KeyAppend(key, body_name + "_speed_state", speed_state);
+   key = DAL_AstroDF_KeyAppend(key, body_name + "_dignity", b.dignity_state != "" ? b.dignity_state : "unknown");
+   key = DAL_AstroDF_KeyAppend(key, body_name + "_dispositor", b.dispositor != "" ? b.dispositor : "unknown");
    key = DAL_AstroDF_KeyAppend(key, body_name + "_decl_zone", DAL_AstroDF_DeclinationZone(b));
    return key;
 }
@@ -140,7 +145,11 @@ string DAL_AstroDF_BuildResearchKey(const DAL_AstroMapRow &row)
    string key = "";
 
    key = DAL_AstroDF_KeyAppend(key, "moon_phase", row.moon_phase_bucket);
-   key = DAL_AstroDF_KeyAppend(key, "moon_phase_half", DAL_AstroDF_PhaseHalf(row.moon_phase_bucket));
+   key = DAL_AstroDF_KeyAppend(key, "moon_phase_half", row.moon_phase_half != "" ? row.moon_phase_half : DAL_AstroDF_PhaseHalf(row.moon_phase_bucket));
+   key = DAL_AstroDF_KeyAppend(key, "solar_quarter", row.solar_quarter_name);
+   key = DAL_AstroDF_KeyAppend(key, "eclipse_state", row.eclipse_state);
+   key = DAL_AstroDF_KeyAppend(key, "node_axis", row.node_axis_sign);
+   key = DAL_AstroDF_KeyAppend(key, "mutual_reception", IntegerToString(row.mutual_reception_count));
 
    key = DAL_AstroDF_AppendBodyCore(key, row, "sun");
    key = DAL_AstroDF_AppendBodyCore(key, row, "moon");
@@ -168,6 +177,9 @@ string DAL_AstroDF_BuildCompactExecutionKey(const DAL_AstroMapRow &row)
    int moon = DAL_AstroBodyIndexByName("moon");
 
    key = DAL_AstroDF_KeyAppend(key, "moon_phase_half", DAL_AstroDF_PhaseHalf(row.moon_phase_bucket));
+   key = DAL_AstroDF_KeyAppend(key, "solar_quarter", row.solar_quarter_name);
+   key = DAL_AstroDF_KeyAppend(key, "eclipse_state", row.eclipse_state);
+   key = DAL_AstroDF_KeyAppend(key, "mutual_reception", IntegerToString(row.mutual_reception_count));
    key = DAL_AstroDF_KeyAppend(key, "moon_element", DAL_AstroDF_SignElement(row.body[moon].sign));
    key = DAL_AstroDF_KeyAppend(key, "mars_speed_state", DAL_AstroDF_SpeedState(row.body[mars]));
    key = DAL_AstroDF_KeyAppend(key, "saturn_speed_state", DAL_AstroDF_SpeedState(row.body[saturn]));
