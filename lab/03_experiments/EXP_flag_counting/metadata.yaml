@@ -1,0 +1,14 @@
+id: EXP_flag_counting
+title: Unified F-counting structural experiment
+status: active
+language: mql5
+entrypoint: mql5/Experts/FlagCounting/FlagCountingExperiment.mq5
+modules:
+  - mql5/Include/FlagCounting/DAL_FlagCountingTypes.mqh
+  - mql5/Include/FlagCounting/DAL_FlagCountingNodeDetector.mqh
+  - mql5/Include/FlagCounting/DAL_FlagCountingDetector.mqh
+  - mql5/Include/FlagCounting/DAL_FlagCountingRenderer.mqh
+notes:
+  - F1 and F2 are handled as one reusable grammar.
+  - F2 starts from parent F1 internal 2.
+  - Renderer is body-only; internal 1/2 are labels only.
