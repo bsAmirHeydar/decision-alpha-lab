@@ -1,12 +1,19 @@
 #property strict
-#property version   "1.23"
-#property description "Unified flag-counting mandatory F-chain state machine with live root visibility repair."
+#property version   "1.30"
+#property description "Unified fractal multi-scale flag-counting experiment with parallel sequences."
 
 #include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
 #include "../../Include/FlagCounting/DAL_FlagCountingRenderer.mqh"
 
 input int  InpBarsToScan = 6000;
 input int  InpSwingL = 3;
+input bool InpUseMultiScale = true;
+input int  InpSwingL2 = 5;
+input int  InpSwingL3 = 8;
+input int  InpSwingL4 = 13;
+input int  InpSwingL5 = 21;
+input int  InpSwingL6 = 0;       // 0 = disabled
+input int  InpMaxRootSequencesPerScale = 0; // 0 = unlimited
 input int  InpBreakEpsilonPoints = 5;
 
 input bool InpScanF1 = true;
@@ -15,11 +22,9 @@ input bool InpScanF3 = true;
 input bool InpScanBullish = true;
 input bool InpScanBearish = true;
 
-// Chained counting contract:
-// The detector now returns accepted forward chains only, not every overlapping candidate.
-// F1 is the root. After a confirmed F1, the next same-direction child is F2.
-// After a confirmed F2, the next same-direction child is F3.
-// Kept for backward input compatibility; the chain engine already suppresses overlaps.
+// Fractal parallel sequence contract:
+// Each valid F1 opens its own live sequence. F2/F3 are children of that sequence.
+// Multiple sequences can exist in parallel across different swing scales.
 input bool InpSuppressPromotedLowerLevelBodies = true;
 input bool InpRequireParentConfirmedForNextF = true;
 
@@ -74,6 +79,7 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
 {
    Print("FC_EVENT#", ordinal,
          " level=", FC_LevelToString(e.level),
+         " scaleL=", e.scale_L,
          " chain=", e.chain_id,
          " step=", e.chain_step,
          " parentLevel=", FC_LevelToString(e.parent_level),
@@ -154,6 +160,13 @@ bool FC_RunExperiment()
    int total_events = FC_DetectFlags(rates,
                                      copied,
                                      InpSwingL,
+                                     InpUseMultiScale,
+                                     InpSwingL2,
+                                     InpSwingL3,
+                                     InpSwingL4,
+                                     InpSwingL5,
+                                     InpSwingL6,
+                                     InpMaxRootSequencesPerScale,
                                      InpScanF1,
                                      InpScanF2,
                                      InpScanF3,

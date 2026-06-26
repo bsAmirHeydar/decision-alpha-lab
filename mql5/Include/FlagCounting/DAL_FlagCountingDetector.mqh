@@ -721,6 +721,167 @@ void FC_AppendIfRequested(FC_FlagEvent &events[],
       FC_AppendEvent(events, event);
 }
 
+
+
+// -----------------------------------------------------------------------------
+// Parallel / fractal sequence layer
+// -----------------------------------------------------------------------------
+// The earlier detector accepted one global chain. The user contract is fractal:
+// every valid F1 opens its own sequence and waits for F2, while other sequences
+// can exist in parallel on the same or other swing scales.
+
+void FC_AppendNodes(FC_Node &dst[], const FC_Node &src[])
+{
+   int n0 = ArraySize(dst);
+   int n1 = ArraySize(src);
+   ArrayResize(dst, n0 + n1);
+   for(int i=0; i<n1; i++)
+      dst[n0+i] = src[i];
+}
+
+int FC_MaxChainId(const FC_FlagEvent &events[])
+{
+   int m = 0;
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+      if(events[i].chain_id > m) m = events[i].chain_id;
+   return m;
+}
+
+void FC_AppendEventWithScaleAndOffset(FC_FlagEvent &events[],
+                                      const FC_FlagEvent &src,
+                                      const int scale_L,
+                                      const int chain_offset)
+{
+   FC_FlagEvent e = src;
+   e.scale_L = scale_L;
+   if(e.chain_id > 0)
+      e.chain_id += chain_offset;
+   FC_AppendEvent(events, e);
+}
+
+bool FC_ScaleAlreadyListed(const int &scales[], const int count, const int value)
+{
+   for(int i=0; i<count; i++)
+      if(scales[i] == value) return true;
+   return false;
+}
+
+int FC_AddScaleIfValid(int &scales[], int count, const int value)
+{
+   if(value <= 0) return count;
+   if(FC_ScaleAlreadyListed(scales, count, value)) return count;
+   scales[count] = value;
+   return count + 1;
+}
+
+int FC_DetectParallelSequencesFromNodes(const FC_Node &nodes[],
+                                        const int scale_L,
+                                        const bool scan_f1,
+                                        const bool scan_f2,
+                                        const bool scan_f3,
+                                        const bool scan_bullish,
+                                        const bool scan_bearish,
+                                        const bool suppress_promoted_lower_level_bodies,
+                                        const bool require_parent_confirmed_for_next_f,
+                                        const bool require_child_at_least_parent_size,
+                                        const double child_min_parent_size_ratio,
+                                        const bool allow_child_waist_break_branch,
+                                        const int root_core_search_max_nodes,
+                                        const int continuation_core_search_max_nodes,
+                                        const bool force_continuation_after_confirmed_parent,
+                                        const int max_root_sequences_per_scale,
+                                        const double eps,
+                                        FC_FlagEvent &events[])
+{
+   ArrayResize(events, 0);
+   int n = ArraySize(nodes);
+   if(n < 4) return 0;
+
+   int max_level = FC_MaxRequestedLevel(scan_f1, scan_f2, scan_f3);
+   if(max_level == FC_LEVEL_NONE) return 0;
+
+   int chain_counter = 0;
+
+   // This is intentionally NOT a single cursor partition. Each root candidate can
+   // create its own live sequence. Continuations remain children of that root.
+   for(int p=0; p<=n-4; p++)
+   {
+      if(max_root_sequences_per_scale > 0 && chain_counter >= max_root_sequences_per_scale)
+         break;
+
+      FC_FlagEvent root;
+      int root_leg2_pos = -1;
+      if(!FC_BuildRootF1FromOriginSearch(nodes,
+                                         p,
+                                         scan_bullish,
+                                         scan_bearish,
+                                         root_core_search_max_nodes,
+                                         eps,
+                                         root,
+                                         root_leg2_pos))
+         continue;
+
+      if(root.status == FC_STATUS_INVALIDATED)
+         continue;
+
+      chain_counter++;
+      root.chain_id = chain_counter;
+      root.chain_step = 1;
+      root.scale_L = scale_L;
+
+      FC_FlagEvent chain_events[];
+      ArrayResize(chain_events, 0);
+      FC_AppendEvent(chain_events, root);
+
+      FC_FlagEvent parent = root;
+      int parent_local_index = 0;
+
+      for(int level=FC_LEVEL_F2; level<=max_level; level++)
+      {
+         // After F1/F2, the next level is mandatory conceptually, but it can be
+         // live/unavailable for a long time. If it cannot be constructed yet, we
+         // keep the parent sequence visible and simply stop this sequence here.
+         if(require_parent_confirmed_for_next_f && parent.status != FC_STATUS_CONFIRMED)
+            break;
+
+         if(!parent.has_n2)
+            break;
+
+         FC_FlagEvent child;
+         if(!FC_BuildContinuationFromParent(nodes,
+                                            parent,
+                                            parent_local_index,
+                                            level,
+                                            require_parent_confirmed_for_next_f,
+                                            require_child_at_least_parent_size,
+                                            child_min_parent_size_ratio,
+                                            allow_child_waist_break_branch,
+                                            continuation_core_search_max_nodes,
+                                            eps,
+                                            child))
+            break;
+
+         if(child.status == FC_STATUS_INVALIDATED)
+            break;
+
+         child.chain_id = chain_counter;
+         child.chain_step = parent.chain_step + 1;
+         child.scale_L = scale_L;
+         FC_AppendEvent(chain_events, child);
+
+         parent = child;
+         parent_local_index = ArraySize(chain_events) - 1;
+      }
+
+      int c = ArraySize(chain_events);
+      for(int k=0; k<c; k++)
+         FC_AppendIfRequested(events, chain_events[k], scan_f1, scan_f2, scan_f3);
+   }
+
+   return ArraySize(events);
+}
+
 int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool scan_f1,
                             const bool scan_f2,
@@ -841,6 +1002,13 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
 int FC_DetectFlags(const MqlRates &rates[],
                    const int total,
                    const int swing_L,
+                   const bool use_multi_scale,
+                   const int swing_L2,
+                   const int swing_L3,
+                   const int swing_L4,
+                   const int swing_L5,
+                   const int swing_L6,
+                   const int max_root_sequences_per_scale,
                    const bool scan_f1,
                    const bool scan_f2,
                    const bool scan_f3,
@@ -858,23 +1026,57 @@ int FC_DetectFlags(const MqlRates &rates[],
                    FC_Node &nodes[],
                    FC_FlagEvent &events[])
 {
-   FC_BuildNodes(rates, total, swing_L, nodes);
-   return FC_DetectFlagsFromNodes(nodes,
-                                  scan_f1,
-                                  scan_f2,
-                                  scan_f3,
-                                  scan_bullish,
-                                  scan_bearish,
-                                  suppress_promoted_lower_level_bodies,
-                                  require_parent_confirmed_for_next_f,
-                                  require_child_at_least_parent_size,
-                                  child_min_parent_size_ratio,
-                                  allow_child_waist_break_branch,
-                                  root_core_search_max_nodes,
-                                  continuation_core_search_max_nodes,
-                                  force_continuation_after_confirmed_parent,
-                                  eps,
-                                  events);
+   ArrayResize(nodes, 0);
+   ArrayResize(events, 0);
+
+   int scales[6];
+   int scale_count = 0;
+   scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L);
+   if(use_multi_scale)
+   {
+      scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L2);
+      scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L3);
+      scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L4);
+      scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L5);
+      scale_count = FC_AddScaleIfValid(scales, scale_count, swing_L6);
+   }
+
+   if(scale_count <= 0) return 0;
+
+   for(int si=0; si<scale_count; si++)
+   {
+      int L = scales[si];
+      FC_Node scale_nodes[];
+      FC_BuildNodes(rates, total, L, scale_nodes);
+      FC_AppendNodes(nodes, scale_nodes);
+
+      FC_FlagEvent scale_events[];
+      FC_DetectParallelSequencesFromNodes(scale_nodes,
+                                          L,
+                                          scan_f1,
+                                          scan_f2,
+                                          scan_f3,
+                                          scan_bullish,
+                                          scan_bearish,
+                                          suppress_promoted_lower_level_bodies,
+                                          require_parent_confirmed_for_next_f,
+                                          require_child_at_least_parent_size,
+                                          child_min_parent_size_ratio,
+                                          allow_child_waist_break_branch,
+                                          root_core_search_max_nodes,
+                                          continuation_core_search_max_nodes,
+                                          force_continuation_after_confirmed_parent,
+                                          max_root_sequences_per_scale,
+                                          eps,
+                                          scale_events);
+
+      int offset = FC_MaxChainId(events);
+      int ec = ArraySize(scale_events);
+      for(int i=0; i<ec; i++)
+         FC_AppendEventWithScaleAndOffset(events, scale_events[i], L, offset);
+   }
+
+   return ArraySize(events);
 }
 
 #endif

@@ -1,6 +1,6 @@
 # DAL Flag Counting Module
 
-This module makes flag counting one reusable experiment and one counting grammar instead of separate numbered modules.
+This module is the unified flag-counting experiment. It is not a loose pattern scanner. The intended model is a fractal, multi-sequence counting grammar over market nodes.
 
 ## Files
 
@@ -14,19 +14,49 @@ mql5/Experts/FlagCounting/FlagCountingExperiment.mq5
 
 The expert uses local relative includes, so it does not require copying files into the terminal-level `MQL5/Include` folder.
 
-## Counting grammar
+## Core idea
 
-The detector now treats flags as a chained count:
+Flag counting is a counting language, not isolated pattern detection.
 
 ```text
-F1 -> F2 -> F3
+ND / Hook phase -> F1 -> F2 -> F3 -> ...
 ```
 
-A root `F1` is detected from market nodes. A continuation `F2` starts from the parent F1 internal `2`. A continuation `F3` starts from the parent F2 internal `2`.
+Several sequences can exist in parallel because the structure is fractal. A small-scale sequence and a larger-scale sequence may both be valid at the same time. The detector therefore supports multiple swing scales and multiple active sequences.
 
-The same body should not be shown as root F1 and child F2 at the same time. When a body is promoted to a higher F-level, the lower-level duplicate is suppressed by default.
+## Node and scale model
 
-## F1 logic
+The node engine builds alternating swing highs/lows from one or more swing scales.
+
+Useful scale inputs:
+
+```text
+InpUseMultiScale = true
+InpSwingL = 3
+InpSwingL2 = 5
+InpSwingL3 = 8
+InpSwingL4 = 13
+InpSwingL5 = 21
+InpSwingL6 = 0
+```
+
+`scaleL` is stored and printed for every event so a drawn F can be traced back to the scale that generated it.
+
+## Sequence model
+
+Each accepted F1 opens a sequence. That sequence waits for F2. When F2 is confirmed, the same sequence waits for F3.
+
+```text
+sequence A, scale 3: F1 -> waiting F2 -> F2 -> waiting F3
+sequence B, scale 8: F1 -> waiting F2
+sequence C, scale 13: ND / hook context -> F1
+```
+
+This means the chart should not depend on one global state machine. A blocked or live continuation in one sequence must not prevent other sequences from existing.
+
+## F1 contract
+
+F1 is the root body.
 
 Bullish F1:
 
@@ -40,38 +70,53 @@ Bearish F1:
 origin high -> leg1 low -> waist high -> leg2 low breaking leg1
 ```
 
-F1 confirmation/invalidation:
+F1 geometry guard:
 
 ```text
-confirmed = rebreak Leg2 before invalidation
-invalidated = break F1 waist before rebreak
+bullish: origin < waist < leg1, and leg2 > leg1
+bearish: origin > waist > leg1, and leg2 < leg1
 ```
 
-## F2 logic
+The waist/correction cannot fall behind the start of the leg.
 
-F2 is a continuation count from the parent F1:
+F1 confirmation and invalidation:
+
+```text
+confirmed = own Leg2 rebreak before invalidation
+invalidated = own waist break before Leg2 rebreak
+```
+
+After F1 is accepted, the continuation of that sequence is F2. Another F1 may still exist in another scale or another sequence, but the same sequence does not reinterpret its continuation as another F1.
+
+## F2 contract
+
+F2 is a continuation count from the parent F1.
 
 ```text
 F2 origin = parent F1 internal 2
 ```
 
-F2 direction is inherited from the parent F1. F2 body shape is the same as F1 body shape, but its invalidation is different:
+F2 direction is inherited from the parent sequence. F2 can extend for a long time. It remains live/pending until confirmed or invalidated.
+
+F2 confirmation and invalidation:
 
 ```text
-confirmed = rebreak F2 Leg2 before invalidation
-invalidated = break F2 origin/start-of-leg before rebreak
+confirmed = own Leg2 rebreak before invalidation
+invalidated = own origin/start break before Leg2 rebreak
 ```
 
-F2 can break its own waist without invalidating. In that case the waist-break branch is allowed:
+Important difference from F1: F2 may break its own waist without invalidation. A waist-break branch is allowed:
 
 ```text
 1 = F2 waist
 2 = node that breaks F2 waist
 ```
 
-## F3 logic
+F2 can also extend beyond its Leg2 and later return to form its branch/labels. This does not invalidate the F2 as long as its origin is not broken.
 
-F3 is the next continuation count:
+## F3 contract
+
+F3 is the next continuation count.
 
 ```text
 F3 origin = parent F2 internal 2
@@ -80,32 +125,26 @@ F3 origin = parent F2 internal 2
 F3 uses the continuation-level contract, like F2:
 
 ```text
-confirmed = rebreak F3 Leg2 before invalidation
-invalidated = break F3 origin/start-of-leg before rebreak
+confirmed = own Leg2 rebreak before invalidation
+invalidated = own origin/start break before Leg2 rebreak
 ```
 
-The current experiment stops at F3 for readability, but the code is structured so more continuation levels can be added by reusing the same child-builder.
+F3 may also use the continuation waist-break branch. The current experiment stops at F3 for chart readability, but the grammar is written so higher levels can be added later.
 
-## Geometry guard
+## Internal 1/2 labels
 
-A valid flag body must keep its waist/correction inside the leg range.
+Internal `1` and `2` are part of the counting audit and child-origin logic. They are drawn as tiny labels only; no post-Leg2 path is drawn.
 
-- Bullish: `origin low < waist low < leg1 high`, and `leg2 high > leg1 high`.
-- Bearish: `origin high > waist high > leg1 low`, and `leg2 low < leg1 low`.
+For F1, the internal branch is expected before the confirming Leg2 rebreak.
 
-So the waist cannot move behind the start of the leg.
+For F2/F3, the branch may form after extension beyond Leg2, until origin invalidation.
 
 ## Size symmetry
 
-Continuation levels are checked against their direct parent by default:
+Continuation levels are checked against their direct parent by default.
 
 ```text
 child_size >= parent_size * InpChildMinParentSizeRatio
-```
-
-Size is measured from origin/start-of-leg to Leg2:
-
-```text
 flag_size = abs(Leg2.price - Origin.price)
 ```
 
@@ -115,6 +154,46 @@ Default:
 InpRequireChildAtLeastParentSize = true
 InpChildMinParentSizeRatio = 1.0
 ```
+
+So a child F should be at least the body size of its parent unless the input is disabled.
+
+## Mandatory continuation
+
+The logical continuation contract is:
+
+```text
+F1 confirmed -> search/wait for F2 from F1 internal 2
+F2 confirmed -> search/wait for F3 from F2 internal 2
+```
+
+The child may be delayed and very large. `InpContinuationCoreSearchMaxNodes = 0` means child search is not capped by a small node window; it searches until invalidation or end of available data.
+
+## Fractal multi-sequence behavior
+
+The latest engine layer allows every valid F1 root to open its own sequence. This is necessary because the structure is fractal and can appear across several scales.
+
+Controls:
+
+```text
+InpUseMultiScale
+InpSwingL / InpSwingL2 / InpSwingL3 / InpSwingL4 / InpSwingL5 / InpSwingL6
+InpMaxRootSequencesPerScale
+```
+
+`InpMaxRootSequencesPerScale = 0` means no per-scale root cap.
+
+## ND / Hook context
+
+ND is the hook/cycle-close context that is not hunted. It does not need a strict 90% return. Conceptually, every market segment should eventually be classified as either ND/hook context or F-counting movement.
+
+Current implementation status:
+
+```text
+implemented: F1/F2/F3 multi-scale sequence registry
+not fully implemented yet: explicit ND segment renderer/partitioner
+```
+
+ND remains the next layer: it should decide when a sequence ends and when a new root context is allowed.
 
 ## Renderer contract
 
@@ -127,114 +206,78 @@ F1/F2/F3 label = tiny text
 1 and 2 = tiny numeric labels only
 ```
 
-It does not draw any line from Leg2 to `1`, `2`, or the final rebreak.
+It does not draw a line from Leg2 to `1`, `2`, or the final rebreak.
+
+Direction-first colors are enabled by default:
+
+```text
+bullish pending/confirmed = bullish colors
+bearish pending/confirmed = bearish colors
+```
+
+F-level and status are read from tiny labels and logs.
 
 ## Main expert inputs
 
 ```text
+InpUseMultiScale
+InpSwingL
+InpSwingL2
+InpSwingL3
+InpSwingL4
+InpSwingL5
+InpSwingL6
+InpMaxRootSequencesPerScale
 InpScanF1
 InpScanF2
 InpScanF3
-InpSuppressPromotedLowerLevelBodies
-InpRequireParentConfirmedForNextF
-InpRequireChildAtLeastParentSize
-InpChildMinParentSizeRatio
-InpAllowChildWaistBreakBranch
 InpDrawF1
 InpDrawF2
 InpDrawF3
 InpDrawBullish
 InpDrawBearish
+InpDrawOnlyConfirmed
+InpContinuationCoreSearchMaxNodes
+InpRequireParentConfirmedForNextF
+InpRequireChildAtLeastParentSize
+InpChildMinParentSizeRatio
+InpAllowChildWaistBreakBranch
 InpColorByDirection
 ```
 
-## Direction-first color contract
-
-By default, chart colors represent direction, not F-level/status:
-
-- bullish flags use `InpBullishPendingColor` / `InpBullishConfirmedColor`.
-- bearish flags use `InpBearishPendingColor` / `InpBearishConfirmedColor`.
-- F1/F2/F3 and status remain visible from tiny labels and logs.
-
-## ND / hook context
-
-The current patch does not try to fully formalize ND yet. The intended grammar is:
+## Recommended live research settings
 
 ```text
-ND / hook closes a cycle -> F counting starts from the new movement
-```
-
-ND is the non-hunted hook / cycle-close context. The next implementation step is to add ND segments as calculation context so the market path can be partitioned into ND phases and F-counting phases rather than drawing isolated flags.
-
-## Reuse pattern
-
-Any future experiment can include only the detector:
-
-```cpp
-#include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
-```
-
-Then call `FC_DetectFlags(...)` and use `FC_FlagEvent` arrays without the renderer.
-
-## 2026-06 chain-engine repair
-
-The detector is no longer a loose sliding-window pattern scanner. It is now a greedy forward chain counter.
-
-Contract:
-
-- F1 is the only root level.
-- After an accepted/confirmed F1, the continuation of that same movement is F2, not another overlapping F1.
-- After an accepted/confirmed F2, the continuation is F3.
-- F2 origin is parent F1 internal 2.
-- F3 origin is parent F2 internal 2.
-- Confirmation for every F-level is a rebreak of that F's own Leg2 before invalidation.
-- F1 invalidation boundary is its waist.
-- F2/F3 invalidation boundary is their own origin/start-of-leg.
-- F1 internal 1/2 is searched before the confirming Leg2 rebreak.
-- F2/F3 internal 1/2 may appear after a Leg2 extension/rebreak, until origin invalidation.
-- The renderer receives only accepted chain events, not all possible overlapping F candidates.
-
-This is a structural correction: market movement is partitioned into unused/ND regions and accepted F-counting chains instead of drawing every local candidate.
-
-## State-machine repair v2
-
-The flag-counting engine is no longer allowed to treat every four-node window as an independent F1 on the same flow. The next continuation level now keeps the parent origin contract but searches flexibly for the child body:
-
-- F2/F3 origin is fixed at the parent internal 2.
-- The child Leg1/Waist/Leg2 body may appear within `InpContinuationCoreSearchMaxNodes` nodes after that origin.
-- A child continuation is rejected immediately if its own origin/start is invalidated before a valid body appears.
-- After a confirmed parent, `InpForceContinuationAfterConfirmedParent` keeps the state machine waiting for the mandatory next F-level instead of restarting the same flow as another F1.
-
-This is a practical partition step toward the intended market grammar: `ND -> F1 -> F2 -> F3 -> ND -> ...`, instead of loose overlapping pattern overlays.
-
-## Mandatory continuation state machine v3
-
-The flag-counting experiment is no longer allowed to reinterpret the same flow as repeated F1 bodies. The active contract is:
-
-- F1 is the only root level.
-- After a confirmed F1, the engine must search F2 from the parent F1 internal 2.
-- After a confirmed F2, the engine must search F3 from the parent F2 internal 2.
-- F2/F3 may extend for many nodes and remain live/pending until their own Leg2 is rebroken.
-- `InpContinuationCoreSearchMaxNodes = 0` means continuation search is not capped by a small local window; it searches until origin invalidation or the end of the available node stream.
-- `InpForceContinuationAfterConfirmedParent = true` prevents the detector from falling back to another same-flow F1 when the mandatory child level is not yet resolved.
-- F1 can repair an early waist candidate by selecting a later valid waist/core before confirmation. This prevents premature fragmentation into many F1 labels.
-- F1 invalidation boundary is its selected waist.
-- F2 and F3 invalidation boundary is their own origin/start-of-leg.
-- Confirmation for every F level remains: rebreak of the event's own Leg2 before its invalidation boundary.
-
-Recommended live settings:
-
-```text
-InpRootCoreSearchMaxNodes = 80
+InpUseMultiScale = true
+InpSwingL = 3
+InpSwingL2 = 5
+InpSwingL3 = 8
+InpSwingL4 = 13
+InpSwingL5 = 21
+InpSwingL6 = 0
+InpMaxRootSequencesPerScale = 0
 InpContinuationCoreSearchMaxNodes = 0
-InpForceContinuationAfterConfirmedParent = true
 InpRequireParentConfirmedForNextF = true
 InpRequireChildAtLeastParentSize = true
 InpChildMinParentSizeRatio = 1.0
+InpDrawOnlyConfirmed = false
 ```
 
-- A confirmed F1 without internal 2 is not accepted as a chain root, because it cannot hand off to F2.
+## Debug log fields
 
-## Live root visibility repair
+`FC_EVENT` should include:
 
-A valid F1 must not be hidden merely because its internal `2` is not yet available for F2 continuation. In live counting this means the F1 owns the current segment and the next level is pending. Confirmed or open F1 roots remain drawable; F2/F3 are added only when their continuation origin and body become available.
+```text
+level=
+direction=
+status=
+branch=
+scaleL=
+chain=
+step=
+size=
+parentSize=
+sizeRatio=
+```
+
+Use `scaleL`, `chain`, and `step` to determine whether a visual issue comes from scale selection, sequence ownership, or F-level continuation.

@@ -59,6 +59,7 @@ struct FC_FlagEvent
 
    int chain_id;
    int chain_step;
+   int scale_L;
 
    FC_Node origin;
    FC_Node leg1;
@@ -118,6 +119,7 @@ void FC_InitFlagEvent(FC_FlagEvent &e)
 
    e.chain_id = -1;
    e.chain_step = 0;
+   e.scale_L = 0;
 
    FC_InitNode(e.origin);
    FC_InitNode(e.leg1);
