@@ -111,6 +111,22 @@ double M0007_EventOverlapRatio(const M0007_F1Event &a, const M0007_F1Event &b)
    return ((double)inter / (double)uni);
 }
 
+bool M0007_SameCoreF1(const M0007_F1Event &a, const M0007_F1Event &b)
+{
+   return (a.direction == b.direction &&
+           a.Start.time == b.Start.time &&
+           a.H1.time == b.H1.time &&
+           a.W.time == b.W.time &&
+           a.H2.time == b.H2.time);
+}
+
+int M0007_StatusRank(const M0007_F1Status s)
+{
+   if(s == M0007_STATUS_INVALIDATED) return 30; // invalidated must win so stale live objects can be deleted.
+   if(s == M0007_STATUS_CONFIRMED)   return 20;
+   return 10;
+}
+
 void M0007_MergeAdaptiveEvents(const M0007_F1Event &raw[], const double overlap_threshold, M0007_F1Event &out[])
 {
    ArrayResize(out, 0);
@@ -123,9 +139,32 @@ void M0007_MergeAdaptiveEvents(const M0007_F1Event &raw[], const double overlap_
       for(int k=0; k<ArraySize(out); k++)
       {
          if(cand.direction != out[k].direction) continue;
-         if(M0007_EventOverlapRatio(cand, out[k]) < overlap_threshold) continue;
+
+         bool same_core = M0007_SameCoreF1(cand, out[k]);
+         if(!same_core && M0007_EventOverlapRatio(cand, out[k]) < overlap_threshold)
+            continue;
 
          string merged_l = M0007_AddLToCsv(out[k].matched_L_values, cand.L_used);
+
+         // Same mechanical F1 must keep a single object identity on chart.
+         // Invalidated wins over stale OPEN/CONFIRMED variants so that the renderer can delete it.
+         if(same_core)
+         {
+            int cr = M0007_StatusRank(cand.status);
+            int orr = M0007_StatusRank(out[k].status);
+            if(cr > orr || (cr == orr && cand.score > out[k].score))
+            {
+               out[k] = cand;
+               out[k].matched_L_values = M0007_AddLToCsv(merged_l, cand.L_used);
+            }
+            else
+            {
+               out[k].matched_L_values = merged_l;
+            }
+            merged = true;
+            break;
+         }
+
          if(cand.score > out[k].score)
          {
             out[k] = cand;
@@ -519,13 +558,19 @@ void M0007_ScanOneL(const MqlRates &rates[],
          M0007_MarkCompletedAtLeg2(ev);
          M0007_FindPostLeg2InternalCounts(rates, total, nodes, n, i+4, ev.direction, ev.W.price, protect_waist_during_internal_12, eps, ev);
 
+         // If the waist is broken after Leg2, this exact F1 object must be returned as INVALIDATED
+         // so the renderer can delete any stale pending drawing with the same stable key.
          if(protect_waist_during_internal_12 && ev.waist_break_index >= 0)
+         {
+            M0007_MarkInvalidatedAtWaistBreak(ev, ev.waist_break_index, ev.waist_break_time, ev.waist_break_price);
+            M0007_BuildCommonEventFields(ev, L);
+            M0007_AddEvent(raw_events, ev);
             continue;
+         }
 
-         if(require_internal_12_for_f1 && !ev.internal_12_valid)
-            continue;
+         bool can_attempt_final_confirm = (!require_internal_12_for_f1 || ev.internal_12_valid);
 
-         if(require_leg2_break_for_confirm)
+         if(require_leg2_break_for_confirm && can_attempt_final_confirm)
          {
             int br_idx;
             datetime br_time;
@@ -533,15 +578,13 @@ void M0007_ScanOneL(const MqlRates &rates[],
             int wb_idx;
             datetime wb_time;
             double wb_price;
-            int from_idx = (ev.has_internal_2 ? ev.N2.index + 1 : D.index + 1);
+            int from_idx = (ev.internal_12_valid ? ev.N2.index + 1 : D.index + 1);
             if(M0007_FindLeg2RebreakAfterInternal12(rates, total, from_idx, ev.direction, D.price, ev.W.price, mode, eps, protect_waist_during_internal_12, br_idx, br_time, br_price, wb_idx, wb_time, wb_price))
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
             else if(wb_idx >= 0)
-            {
                M0007_MarkInvalidatedAtWaistBreak(ev, wb_idx, wb_time, wb_price);
-            }
          }
-         else
+         else if(!require_leg2_break_for_confirm && can_attempt_final_confirm)
          {
             M0007_MarkConfirmedAtLeg2(ev);
          }
@@ -562,13 +605,19 @@ void M0007_ScanOneL(const MqlRates &rates[],
          M0007_MarkCompletedAtLeg2(ev);
          M0007_FindPostLeg2InternalCounts(rates, total, nodes, n, i+4, ev.direction, ev.W.price, protect_waist_during_internal_12, eps, ev);
 
+         // If the waist is broken after Leg2, this exact F1 object must be returned as INVALIDATED
+         // so the renderer can delete any stale pending drawing with the same stable key.
          if(protect_waist_during_internal_12 && ev.waist_break_index >= 0)
+         {
+            M0007_MarkInvalidatedAtWaistBreak(ev, ev.waist_break_index, ev.waist_break_time, ev.waist_break_price);
+            M0007_BuildCommonEventFields(ev, L);
+            M0007_AddEvent(raw_events, ev);
             continue;
+         }
 
-         if(require_internal_12_for_f1 && !ev.internal_12_valid)
-            continue;
+         bool can_attempt_final_confirm = (!require_internal_12_for_f1 || ev.internal_12_valid);
 
-         if(require_leg2_break_for_confirm)
+         if(require_leg2_break_for_confirm && can_attempt_final_confirm)
          {
             int br_idx;
             datetime br_time;
@@ -576,15 +625,13 @@ void M0007_ScanOneL(const MqlRates &rates[],
             int wb_idx;
             datetime wb_time;
             double wb_price;
-            int from_idx = (ev.has_internal_2 ? ev.N2.index + 1 : D.index + 1);
+            int from_idx = (ev.internal_12_valid ? ev.N2.index + 1 : D.index + 1);
             if(M0007_FindLeg2RebreakAfterInternal12(rates, total, from_idx, ev.direction, D.price, ev.W.price, mode, eps, protect_waist_during_internal_12, br_idx, br_time, br_price, wb_idx, wb_time, wb_price))
                M0007_MarkConfirmedAtLeg2Break(ev, br_idx, br_time, br_price);
             else if(wb_idx >= 0)
-            {
                M0007_MarkInvalidatedAtWaistBreak(ev, wb_idx, wb_time, wb_price);
-            }
          }
-         else
+         else if(!require_leg2_break_for_confirm && can_attempt_final_confirm)
          {
             M0007_MarkConfirmedAtLeg2(ev);
          }

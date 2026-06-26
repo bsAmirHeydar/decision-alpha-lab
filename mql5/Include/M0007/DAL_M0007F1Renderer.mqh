@@ -194,25 +194,56 @@ void M0007_DrawMinimalLabels(const M0007_F1Event &e, const string prefix, const 
 }
 
 
-color M0007_EventRenderColor(const M0007_F1Event &e)
+
+string M0007_TimeObjectKey(const datetime t)
+{
+   return IntegerToString((long)t);
+}
+
+string M0007_EventStableObjectPrefix(const string root_prefix, const M0007_F1Event &e)
+{
+   string d = (e.direction == M0007_DIR_BULLISH ? "B" : (e.direction == M0007_DIR_BEARISH ? "S" : "N"));
+   return root_prefix + "EV_" + d + "_" +
+          M0007_TimeObjectKey(e.Start.time) + "_" +
+          M0007_TimeObjectKey(e.H1.time) + "_" +
+          M0007_TimeObjectKey(e.W.time) + "_" +
+          M0007_TimeObjectKey(e.H2.time) + "_";
+}
+
+color M0007_EventRenderColor(const M0007_F1Event &e,
+                            const color bullish_pending_color,
+                            const color bearish_pending_color,
+                            const color bullish_confirmed_color,
+                            const color bearish_confirmed_color)
 {
    if(e.status == M0007_STATUS_CONFIRMED)
-      return (e.direction == M0007_DIR_BULLISH ? clrLime : clrTomato);
+      return (e.direction == M0007_DIR_BULLISH ? bullish_confirmed_color : bearish_confirmed_color);
 
    // Pending/unconfirmed structures are intentionally visible while they are forming.
-   // They turn into the final direction color only after the post-internal-1/2 leg2 rebreak.
+   // They must be visibly different from confirmed structures.
    if(e.direction == M0007_DIR_BULLISH)
-      return clrDeepSkyBlue;
+      return bullish_pending_color;
    if(e.direction == M0007_DIR_BEARISH)
-      return clrOrange;
+      return bearish_pending_color;
 
    return clrSilver;
 }
 
-void M0007_DrawEvent(const M0007_F1Event &e, const string prefix, const int event_number, const bool show_internal_counts, const bool show_f1_label)
+void M0007_DrawEvent(const M0007_F1Event &e,
+                    const string prefix,
+                    const bool show_internal_counts,
+                    const bool show_f1_label,
+                    const color bullish_pending_color,
+                    const color bearish_pending_color,
+                    const color bullish_confirmed_color,
+                    const color bearish_confirmed_color)
 {
-   string p = prefix + IntegerToString(event_number) + "_";
-   color schematic_clr = M0007_EventRenderColor(e);
+   string p = M0007_EventStableObjectPrefix(prefix, e);
+   color schematic_clr = M0007_EventRenderColor(e,
+                                                bullish_pending_color,
+                                                bearish_pending_color,
+                                                bullish_confirmed_color,
+                                                bearish_confirmed_color);
 
    M0007_DrawCoreF1Path(e, p, schematic_clr);
    M0007_DrawMinimalLabels(e, p, schematic_clr, show_internal_counts, show_f1_label);
@@ -223,25 +254,43 @@ int M0007_DrawEvents(const M0007_F1Event &events[],
                      const bool draw_only_confirmed,
                      const string prefix,
                      const bool show_internal_counts,
-                     const bool show_f1_label)
+                     const bool show_f1_label,
+                     const color bullish_pending_color,
+                     const color bearish_pending_color,
+                     const color bullish_confirmed_color,
+                     const color bearish_confirmed_color)
 {
    int drawn = 0;
    int total = ArraySize(events);
 
    for(int i=total-1; i>=0 && drawn<max_events; i--)
    {
-      // Deleted/invalidated structures must disappear on the next redraw.
+      string event_prefix = M0007_EventStableObjectPrefix(prefix, events[i]);
+
+      // Deleted/invalidated structures must disappear, but without clearing the entire chart layer.
       if(events[i].status == M0007_STATUS_INVALIDATED)
+      {
+         M0007_DeleteObjectsByPrefix(event_prefix);
          continue;
+      }
 
       if(draw_only_confirmed && events[i].status != M0007_STATUS_CONFIRMED)
          continue;
-      M0007_DrawEvent(events[i], prefix, drawn, show_internal_counts, show_f1_label);
+
+      M0007_DrawEvent(events[i],
+                      prefix,
+                      show_internal_counts,
+                      show_f1_label,
+                      bullish_pending_color,
+                      bearish_pending_color,
+                      bullish_confirmed_color,
+                      bearish_confirmed_color);
       drawn++;
    }
 
    ChartRedraw(0);
    return drawn;
 }
+
 
 #endif

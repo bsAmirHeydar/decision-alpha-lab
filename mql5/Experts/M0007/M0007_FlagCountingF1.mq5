@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.07"
+#property version   "1.08"
 #property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
@@ -18,7 +18,12 @@ input int               InpMaxEventsToDraw   = 200;
 input bool              InpDrawOnlyConfirmed = false;
 input bool              InpShowInternal12    = true;
 input bool              InpShowF1Label       = true;
+input color             InpBullishPendingColor   = clrDeepSkyBlue;
+input color             InpBearishPendingColor   = clrGold;
+input color             InpBullishConfirmedColor = clrLime;
+input color             InpBearishConfirmedColor = clrTomato;
 input bool              InpRedrawOnNewBar    = true;
+input bool              InpCleanObjectsOnInit = true;
 input bool              InpDeleteOnDeinit    = false;
 input string            InpObjectPrefix      = "DAL_M0007_F1_";
 
@@ -116,13 +121,16 @@ bool M0007_RunF1Detector()
             " Leg2RebreakAfter12=", (events[i].leg2_break_index >= 0 ? TimeToString(events[i].leg2_break_time, TIME_DATE|TIME_MINUTES)+"@"+DoubleToString(events[i].leg2_break_price, _Digits) : "NA"));
    }
 
-   M0007_DeleteObjectsByPrefix(InpObjectPrefix);
    int drawn = M0007_DrawEvents(events,
                                 InpMaxEventsToDraw,
                                 InpDrawOnlyConfirmed,
                                 InpObjectPrefix,
                                 InpShowInternal12,
-                                InpShowF1Label);
+                                InpShowF1Label,
+                                InpBullishPendingColor,
+                                InpBearishPendingColor,
+                                InpBullishConfirmedColor,
+                                InpBearishConfirmedColor);
    Print("DAL M0007 F1: drawn clean schematics=", drawn);
 
    return true;
@@ -143,6 +151,8 @@ int OnInit()
    }
 
    g_last_bar_time = iTime(_Symbol, _Period, 0);
+   if(InpCleanObjectsOnInit)
+      M0007_DeleteObjectsByPrefix(InpObjectPrefix);
    M0007_RunF1Detector();
    return INIT_SUCCEEDED;
 }

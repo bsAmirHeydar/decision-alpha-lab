@@ -176,3 +176,24 @@ The default renderer now keeps all non-deleted F1 structures visible on the char
 - Invalidated or deleted structures are not drawn on the next refresh.
 
 Confirmation is strict: after Start, Leg 1, Correction/Waist, Leg 2, and internal 1/2, price must move again in the original direction and re-break the Leg 2 extreme. Until that post-1/2 rebreak happens, the F1 and its internal 1/2 labels remain pending. The internal 1/2 sequence is valid only while it stays before the waist; if the waist is broken first, the structure is invalidated and removed on redraw.
+
+
+## Incremental chart object contract
+
+The EA no longer clears the whole M0007 overlay on every recalculation.  Each F1 candidate has a stable object key based on:
+
+```text
+direction + Start.time + Leg1.time + Correction.time + Leg2.time
+```
+
+That means a pending structure is updated/recolored in place when its own state changes:
+
+```text
+pending bullish  -> InpBullishPendingColor
+pending bearish  -> InpBearishPendingColor
+confirmed bullish -> InpBullishConfirmedColor
+confirmed bearish -> InpBearishConfirmedColor
+invalidated/deleted -> only that event's objects are removed
+```
+
+`InpCleanObjectsOnInit` is enabled by default only to clear old legacy index-based objects when the EA is attached.  After that, redraws are event-key based and do not wipe previous valid drawings.
