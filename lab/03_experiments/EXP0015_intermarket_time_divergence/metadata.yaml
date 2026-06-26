@@ -1,9 +1,12 @@
 id: EXP0015
 name: intermarket_time_divergence
-status: draft
-family: intermarket_divergence
-symbols_default:
-  - US500
-  - NAS100
-primary_timeframe_default: PERIOD_M5
-created_for: "Time-first high/low divergence research between S&P and Nasdaq"
+status: active
+scope:
+  - candle divergence
+  - session divergence
+  - external CME-compatible data bridge
+  - batch backtest
+  - live CSV monitor
+primary_outputs:
+  - imd001_divergence_events.csv
+  - imd001_summary.csv

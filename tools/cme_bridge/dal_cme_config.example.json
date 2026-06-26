@@ -1,0 +1,11 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "source_dir": "data/cme/bars",
+  "mt5_common_dir": "C:/Users/ABN/AppData/Roaming/MetaQuotes/Terminal/Common",
+  "poll_seconds": 1.0,
+  "symbols": {
+    "ES": "ES_M1.csv",
+    "NQ": "NQ_M1.csv"
+  }
+}

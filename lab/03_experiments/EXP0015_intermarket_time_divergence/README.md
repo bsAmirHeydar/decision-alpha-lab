@@ -1,160 +1,58 @@
-# EXP0015 — Intermarket Time Divergence
+# EXP0015 Intermarket Candle + Session Divergence
 
-## Core hypothesis
+This experiment detects two-symbol divergence with both candle-based and
+session-based reference levels.
 
-Time is the primary axis. A divergence is only meaningful when two correlated markets are compared on the same explicit time step.
+## Current level families
 
-The first target pair is S&P vs Nasdaq, usually `US500` and `NAS100` in MT5 broker naming. The module is symbol-agnostic and can compare any two markets.
+- `previous_candle`
+- `rolling`
+- `current_session`
+- `previous_session`
 
-## What is a divergence here?
+## Trigger modes
 
-A divergence event is recorded when, at a scheduled comparison step:
+- `wick_touch`
+- `close_break`
+- `hunt_reject_close`
 
-```text
-origin market breaks/touches/hunts its selected high/low reference
-AND
-destination market does not break/touch/hunt its selected high/low reference
-within the allowed lag window
+## Backtest from normalized CSV
+
+Required CSV schema:
+
+```csv
+time,open,high,low,close,volume
+2026-06-25 13:30:00,6120.25,6122.00,6118.75,6121.50,15230
 ```
 
-High divergence:
+Run:
 
-```text
-Origin takes a high, destination fails to take a high.
-Suggested directional context: SELL / bearish divergence.
+```bash
+python lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py \
+  --a data/cme/bars/ES_M1.csv \
+  --b data/cme/bars/NQ_M1.csv \
+  --symbol-a ES \
+  --symbol-b NQ \
+  --level-family current_session \
+  --destination-lag-bars 2 \
+  --signal-valid-bars 12
 ```
 
-Low divergence:
+Outputs:
 
 ```text
-Origin takes a low, destination fails to take a low.
-Suggested directional context: BUY / bullish divergence.
+out/imd001_divergence_events.csv
+out/imd001_summary.csv
+out/imd001_summary.json
 ```
 
-## Three axes of the experiment
+## Live bridge path
 
-### 1. Origin high/low probe
-
-The origin probe is the current evaluation bar. It can be closed-bar only or include the live bar, controlled by:
+The live path is intentionally decoupled:
 
 ```text
-InpOriginBarMode
+CME/vendor/legal data feed -> tools/cme_bridge -> Common/Files/dal/cme/*.csv -> MQL5 IMD001 live monitor
 ```
 
-Trigger logic is controlled by:
-
-```text
-InpTriggerMode = WICK_TOUCH / CLOSE_BREAK / HUNT_REJECT_CLOSE
-```
-
-### 2. Destination/reference high/low
-
-Both origin and destination references are configurable independently:
-
-```text
-InpOriginLevelSource
-InpDestinationLevelSource
-```
-
-Supported references:
-
-```text
-PREVIOUS_CANDLE
-ROLLING_LOOKBACK
-L_NODE
-CURRENT_SESSION
-PREVIOUS_SESSION
-CURRENT_DAY
-PREVIOUS_DAY
-```
-
-The `L_NODE` option uses the existing DAL structural node engine:
-
-```text
-mql5/Include/StructuralNodes/DAL_StructuralNodeEngine.mqh
-```
-
-### 3. Time step schedule
-
-Comparisons are made only on explicit steps:
-
-```text
-InpStepEveryBars
-InpStepOffsetBars
-InpDestinationLagBars
-InpSignalValidBars
-```
-
-`InpDestinationLagBars` allows the second market to confirm within a few bars. If it confirms inside that lag window, no divergence is recorded. If it does not, the divergence becomes valid after the lag window.
-
-## Session highs/lows
-
-Session levels are supported directly. Defaults are broker-time New York cash-session assumptions for GMT+3 summer brokers:
-
-```text
-InpSessionStartHour   = 16
-InpSessionStartMinute = 30
-InpSessionEndHour     = 23
-InpSessionEndMinute   = 0
-```
-
-Adjust these for your broker and DST rules.
-
-## Expert
-
-```text
-mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5
-```
-
-The expert is batch/bar-based. `OnTick()` is empty.
-
-## Output
-
-Default Common Files output:
-
-```text
-Common\Files\imd\EXP0015\imd001_divergence_events.csv
-Common\Files\imd\EXP0015\imd001_summary.csv
-```
-
-Optional full step audit:
-
-```text
-Common\Files\imd\EXP0015\imd001_evaluated_steps.csv
-```
-
-## Event columns
-
-Important columns:
-
-```text
-evaluation_time
-valid_from_time
-valid_until_time
-valid_until_exclusive_time
-window_end_reason
-divergence_side
-suggested_bias
-origin_symbol
-destination_symbol
-origin_ref_price
-destination_ref_price
-origin_high / origin_low
-destination_high / destination_low
-origin_break_points
-destination_break_points
-divergence_gap_points
-normalized_gap_ratio
-```
-
-## Current intended use
-
-This experiment does not enter trades. It creates a clean, auditable divergence event dataset. Later experiments can test:
-
-```text
-- Does high divergence predict reversal / downside path?
-- Does low divergence predict reversal / upside path?
-- Which reference type is strongest: candle, rolling, node, session, or day?
-- Which step size and lag window is most stable?
-- Does the leading market matter: NAS100 leading SPX, or SPX leading NAS100?
-```
+The MQL5 expert can read the same normalized CSV files repeatedly in timer mode.
+This keeps raw data-feed authentication and WebSocket/reconnect logic outside MQL5.
