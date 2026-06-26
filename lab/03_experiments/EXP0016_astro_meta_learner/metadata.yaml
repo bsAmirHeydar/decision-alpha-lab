@@ -1,0 +1,16 @@
+id: EXP0016_astro_meta_learner
+title: Astro Meta Learner
+status: active
+family: astro_ml
+created_for: learned_astrological_interpretation_from_mechanical_features
+primary_tools:
+  - tools/astro_ml/build_astro_ml_dataset.py
+  - tools/astro_ml/train_astro_meta_learner.py
+  - tools/astro_ml/evaluate_walk_forward.py
+  - tools/astro_ml/explain_astro_model.py
+  - tools/astro_ml/predict_with_astro_memory.py
+  - tools/astro_ml/query_astro_memory.py
+  - mql5/Scripts/AstroML/ExportRatesForAstroML.mq5
+validation_mode: chronological_walk_forward
+memory_store: Common/Files/astro_ml/memory/<ASSET>/<TIMEFRAME>
+leakage_policy: features_at_t_outcomes_after_t_only
