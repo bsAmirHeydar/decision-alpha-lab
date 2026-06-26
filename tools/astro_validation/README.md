@@ -11,7 +11,7 @@ python tools/astro_validation/astro_family_validation_suite.py ^
   --csv lab/03_experiments/EXP0013_astro_feature_store/sample.csv ^
   --out-dir lab/03_experiments/EXP0013_astro_feature_store/validation_suite ^
   --config tools/astro_feature_builder/astro_config.example.json ^
-  --families A0001 A0002 A0003 A0004 A0090
+  --families A0001 A0002 A0003 A0004 A0005 A0090
 ```
 
 Suite outputs:
@@ -47,6 +47,7 @@ Supported families:
 - `A0002` natal resonance
 - `A0003` friction polarity
 - `A0004` sect benefic pressure
+- `A0005` moon timing window
 - `A0090` live shell doctrine profile in paper form
 
 The runner stays astro-only:

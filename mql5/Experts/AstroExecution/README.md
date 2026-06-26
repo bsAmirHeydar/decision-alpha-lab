@@ -78,6 +78,23 @@ Best use:
 - benefic vs malefic pressure studies
 - house-lift / house-drag timing variants
 
+### A0005 - Moon Timing Window
+
+File:
+`A0005_AstroMoonTimingWindowExecutor.mq5`
+
+Idea:
+
+- read the lunar phase bucket plus micro/minute release scores
+- only allow entries when lunar phase and minute release are synchronized
+- use waxing release for long-side timing and waning/full pressure for short-side timing
+
+Best use:
+
+- lunar timing studies
+- minute-window release testing
+- fast trigger filtering on top of the existing directional doctrine
+
 ### A0090 - Live Order Shell
 
 File:
@@ -98,7 +115,7 @@ Best use:
 1. Build a deterministic CSV with `tools/astro_feature_builder/astro_feature_builder.py`.
 2. If natal logic is required, include natal inputs during CSV generation.
 3. Put the CSV where MQL5 can read it.
-4. Run `A0001`, `A0002`, `A0003`, or `A0004` first and inspect the paper journal CSV.
+4. Run `A0001`, `A0002`, `A0003`, `A0004`, or `A0005` first and inspect the paper journal CSV.
 5. Or generate the same paper journal research-side with `tools/astro_validation/astro_paper_family_runner.py`.
 6. Batch the journals and validation reports with `tools/astro_validation/astro_family_validation_suite.py`.
 7. Validate any single journal with `tools/astro_validation/astro_signal_validator.py`.
@@ -106,6 +123,6 @@ Best use:
 
 ## Important note
 
-`A0001`, `A0002`, `A0003`, and `A0004` are still paper-first executors.
+`A0001`, `A0002`, `A0003`, `A0004`, and `A0005` are still paper-first executors.
 
 `A0090` includes broker routing, but it is disabled by default through `InpEnableLiveOrders=false` so the astro-only layer can still be audited before real execution is promoted.

@@ -112,6 +112,7 @@ The `mql5/Experts/AstroExecution` folder contains pure-astro execution families.
 - `A0002` natal resonance
 - `A0003` friction polarity
 - `A0004` sect benefic pressure
+- `A0005` moon timing window
 - `A0090` live order shell
 
 The paper families now share:

@@ -90,6 +90,22 @@ FAMILY_DEFAULTS = {
         "benefic_support_minimum": 64.0,
         "malefic_pressure_minimum": 62.0,
         "house_edge_minimum": 10.0,
+        "moon_release_minimum": 58.0,
+        "minute_window_minimum": 62.0,
+    },
+    "A0005": {
+        "family_name": "A0005_moon_timing_window",
+        "arm_threshold": 58.0,
+        "enter_threshold": 66.0,
+        "reduce_threshold": 52.0,
+        "exit_threshold": 58.0,
+        "natal_activation_minimum": 40.0,
+        "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
+        "moon_release_minimum": 60.0,
+        "minute_window_minimum": 64.0,
     },
     "A0090": {
         "family_name": "A0090_live_shell",
@@ -102,6 +118,8 @@ FAMILY_DEFAULTS = {
         "benefic_support_minimum": 62.0,
         "malefic_pressure_minimum": 60.0,
         "house_edge_minimum": 8.0,
+        "moon_release_minimum": 58.0,
+        "minute_window_minimum": 62.0,
     },
 }
 
@@ -110,6 +128,7 @@ THRESHOLD_PROFILE_KEYS = {
     "A0002": "A0002",
     "A0003": "A0003",
     "A0004": "A0004",
+    "A0005": "A0005",
     "A0090": "A0090",
 }
 
@@ -126,6 +145,8 @@ class ThresholdProfile:
     benefic_support_minimum: float
     malefic_pressure_minimum: float
     house_edge_minimum: float
+    moon_release_minimum: float
+    minute_window_minimum: float
 
 
 @dataclass
@@ -814,6 +835,24 @@ def apply_family_gates(family: str, signal: PureSignal, row: dict, thresholds: T
                 gated.entry_signal = "wait"
         else:
             gated.entry_signal = "wait"
+    elif family == "A0005":
+        moon_phase = row.get("moon_phase_bucket", "") or ""
+        waxing_permission = ("waxing" in moon_phase) or moon_phase == "first_quarter"
+        waning_permission = ("waning" in moon_phase) or moon_phase in {"last_quarter", "full"}
+        release_ready = (
+            gated.micro_timing_score >= thresholds.moon_release_minimum
+            and gated.minute_window_score >= thresholds.minute_window_minimum
+            and gated.trigger_state == "trigger_ready"
+        )
+        if release_ready:
+            if gated.direction_name == "long" and waxing_permission:
+                pass
+            elif gated.direction_name == "short" and waning_permission:
+                pass
+            else:
+                gated.entry_signal = "wait"
+        else:
+            gated.entry_signal = "wait"
     return gated
 
 
@@ -925,6 +964,8 @@ def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> Thre
                     "benefic_support_minimum",
                     "malefic_pressure_minimum",
                     "house_edge_minimum",
+                    "moon_release_minimum",
+                    "minute_window_minimum",
                 ):
                     if key in extra:
                         base[key] = float(extra[key])

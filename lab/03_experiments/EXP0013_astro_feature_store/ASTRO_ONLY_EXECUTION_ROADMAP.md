@@ -82,10 +82,10 @@ Families now in repo:
 - `A0002` natal resonance
 - `A0003` friction polarity
 - `A0004` sect benefic pressure
+- `A0005` moon timing window
 
 Candidate next families:
 
-- moon timing window
 - angular activation family
 - station transition family
 

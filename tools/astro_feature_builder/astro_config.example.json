@@ -84,6 +84,15 @@
       "malefic_pressure_minimum": 62.0,
       "house_edge_minimum": 10.0
     },
+    "A0005_moon_timing_window": {
+      "profile": "moon_timing_window",
+      "arm_threshold": 58.0,
+      "enter_threshold": 66.0,
+      "reduce_threshold": 52.0,
+      "exit_threshold": 58.0,
+      "moon_release_minimum": 60.0,
+      "minute_window_minimum": 64.0
+    },
     "A0090_live_shell": {
       "profile": "validated_live_shell",
       "arm_threshold": 60.0,

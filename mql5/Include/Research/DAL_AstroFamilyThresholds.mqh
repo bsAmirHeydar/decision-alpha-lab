@@ -14,6 +14,8 @@ struct DAL_AstroThresholdProfile
    double benefic_support_minimum;
    double malefic_pressure_minimum;
    double house_edge_minimum;
+   double moon_release_minimum;
+   double minute_window_minimum;
 };
 
 void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string family_name)
@@ -29,6 +31,8 @@ void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string 
    p.benefic_support_minimum = 62.0;
    p.malefic_pressure_minimum = 60.0;
    p.house_edge_minimum = 8.0;
+   p.moon_release_minimum = 58.0;
+   p.minute_window_minimum = 62.0;
 }
 
 void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThresholdProfile &p)
@@ -77,6 +81,18 @@ void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThreshold
       p.benefic_support_minimum = 64.0;
       p.malefic_pressure_minimum = 62.0;
       p.house_edge_minimum = 10.0;
+      return;
+   }
+
+   if(family_name == "A0005_moon_timing_window")
+   {
+      p.profile_name = "moon_timing_window";
+      p.arm_threshold = 58.0;
+      p.enter_threshold = 66.0;
+      p.reduce_threshold = 52.0;
+      p.exit_threshold = 58.0;
+      p.moon_release_minimum = 60.0;
+      p.minute_window_minimum = 64.0;
       return;
    }
 

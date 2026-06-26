@@ -90,6 +90,7 @@ try {
         "mql5\Experts\AstroExecution\A0002_AstroNatalResonanceExecutor.mq5",
         "mql5\Experts\AstroExecution\A0003_AstroFrictionPolarityExecutor.mq5",
         "mql5\Experts\AstroExecution\A0004_AstroSectBeneficPressureExecutor.mq5",
+        "mql5\Experts\AstroExecution\A0005_AstroMoonTimingWindowExecutor.mq5",
         "mql5\Experts\AstroExecution\A0090_AstroOrderShell.mq5"
     )
 
