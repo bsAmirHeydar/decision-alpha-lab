@@ -91,3 +91,18 @@ Current chart contract:
 - The default `InpInternalFontSize` is `7`.
 - The experiment always removes objects with `InpObjectPrefix` during `OnDeinit`, independent of `InpCleanObjectsOnInit`.
 - If the prefix was changed, `OnDeinit` also removes the default `DAL_FC_` layer to avoid stale chart drawings after recompiles or updates.
+
+## Geometry guard: waist cannot fall behind origin
+
+A valid flag body must keep its waist/correction inside the leg range. This fixes the most common false bearish drawings.
+
+- Bullish: `origin low < waist low < leg1 high`, and `leg2 high > leg1 high`.
+- Bearish: `origin high > waist high > leg1 low`, and `leg2 low < leg1 low`.
+
+So the waist cannot move behind the start of the leg. F2 uses the same body geometry guard after it starts from the parent flag internal 2.
+
+## Direction draw filters
+
+The visual expert includes `InpDrawBullish` and `InpDrawBearish` so the chart can be inspected one side at a time. This is useful because F-counting is a chain grammar, not a pile of unrelated bullish and bearish patterns.
+
+The F1/F2 label is anchored at Leg2 only. Confirmation/rebreak remains in calculation and logging, but the renderer does not move the label to the later confirmation node.

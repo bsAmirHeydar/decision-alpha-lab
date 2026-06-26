@@ -11,23 +11,49 @@ void FC_AppendEvent(FC_FlagEvent &events[], FC_FlagEvent &event)
    events[n] = event;
 }
 
+bool FC_CoreTimeOrdered(const FC_Node &origin, const FC_Node &leg1, const FC_Node &waist, const FC_Node &leg2)
+{
+   if(origin.index < 0 || leg1.index < 0 || waist.index < 0 || leg2.index < 0) return false;
+   return (origin.index < leg1.index && leg1.index < waist.index && waist.index < leg2.index);
+}
+
 bool FC_IsBullishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node &waist, const FC_Node &leg2, const double eps)
 {
+   if(!FC_CoreTimeOrdered(origin, leg1, waist, leg2)) return false;
    if(origin.kind != FC_NODE_LOW)  return false;
    if(leg1.kind   != FC_NODE_HIGH) return false;
    if(waist.kind  != FC_NODE_LOW)  return false;
    if(leg2.kind   != FC_NODE_HIGH) return false;
-   if(!(leg2.price > leg1.price + eps)) return false;
+
+   // Bullish flag geometry:
+   // - Leg1 must move away from the origin.
+   // - Waist/correction must stay in front of the origin, not behind the start of the leg.
+   // - Waist must also stay below Leg1, otherwise it is not a correction waist.
+   // - Leg2 must break Leg1.
+   if(!(leg1.price  > origin.price + eps)) return false;
+   if(!(waist.price > origin.price + eps)) return false;
+   if(!(waist.price < leg1.price  - eps)) return false;
+   if(!(leg2.price  > leg1.price  + eps)) return false;
    return true;
 }
 
 bool FC_IsBearishCore(const FC_Node &origin, const FC_Node &leg1, const FC_Node &waist, const FC_Node &leg2, const double eps)
 {
+   if(!FC_CoreTimeOrdered(origin, leg1, waist, leg2)) return false;
    if(origin.kind != FC_NODE_HIGH) return false;
    if(leg1.kind   != FC_NODE_LOW)  return false;
    if(waist.kind  != FC_NODE_HIGH) return false;
    if(leg2.kind   != FC_NODE_LOW)  return false;
-   if(!(leg2.price < leg1.price - eps)) return false;
+
+   // Bearish flag geometry is the exact mirror of bullish:
+   // - Leg1 must move down away from the origin.
+   // - Waist/correction must stay below the origin, not behind/above the start of the leg.
+   // - Waist must also stay above Leg1, otherwise it is not a correction waist.
+   // - Leg2 must break Leg1.
+   if(!(leg1.price  < origin.price - eps)) return false;
+   if(!(waist.price < origin.price - eps)) return false;
+   if(!(waist.price > leg1.price  + eps)) return false;
+   if(!(leg2.price  < leg1.price  - eps)) return false;
    return true;
 }
 

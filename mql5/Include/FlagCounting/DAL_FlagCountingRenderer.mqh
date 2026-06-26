@@ -166,13 +166,10 @@ void FC_DrawFlagLabels(const FC_FlagEvent &e,
    if(show_flag_label)
    {
       string label = FC_LevelToString(e.level);
+      // Body-only visual contract: the F-level label belongs to Leg2, not to the
+      // later confirmation/rebreak point. Confirmation remains a calculation field.
       datetime anchor_t = e.leg2.time;
       double anchor_p = e.leg2.price;
-      if(e.status == FC_STATUS_CONFIRMED && e.confirm_index >= 0)
-      {
-         anchor_t = e.confirm_time;
-         anchor_p = e.confirm_price;
-      }
       // F-level labels are intentionally tiny and close to the end of the body
       // so the geometry stays visually dominant on dense charts.
       double off = MathMax(0.07 * h, 10.0 * _Point);
@@ -200,6 +197,8 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
                  const int max_events,
                  const bool draw_f1,
                  const bool draw_f2,
+                 const bool draw_bullish,
+                 const bool draw_bearish,
                  const bool draw_only_confirmed,
                  const string prefix,
                  const color f1_pending,
@@ -223,6 +222,8 @@ int FC_DrawFlags(const FC_FlagEvent &events[],
       if(draw_only_confirmed && events[i].status != FC_STATUS_CONFIRMED) continue;
       if(events[i].level == FC_LEVEL_F1 && !draw_f1) continue;
       if(events[i].level == FC_LEVEL_F2 && !draw_f2) continue;
+      if(events[i].direction == FC_DIR_BULLISH && !draw_bullish) continue;
+      if(events[i].direction == FC_DIR_BEARISH && !draw_bearish) continue;
 
       color clr = FC_EventRenderColor(events[i], f1_pending, f1_confirmed, f2_pending, f2_confirmed);
       string p = prefix + FC_LevelToString(events[i].level) + "_" + IntegerToString(drawn) + "_";

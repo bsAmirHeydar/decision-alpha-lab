@@ -25,6 +25,8 @@ input bool InpRequireF2Leg2RebreakForConfirm = true;
 
 input bool InpDrawF1 = true;
 input bool InpDrawF2 = true;
+input bool InpDrawBullish = true;
+input bool InpDrawBearish = true;
 input bool InpDrawOnlyConfirmed = false;
 input int  InpMaxEventsToDraw = 160;
 input string InpObjectPrefix = "DAL_FC_";
@@ -70,11 +72,13 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
 void FC_PrintSummary(const FC_FlagEvent &events[], const int nodes_count, const int drawn)
 {
    int total = ArraySize(events);
-   int f1=0, f2=0, conf=0, open=0, branch_i12=0, branch_wb=0;
+   int f1=0, f2=0, bull=0, bear=0, conf=0, open=0, branch_i12=0, branch_wb=0;
    for(int i=0; i<total; i++)
    {
       if(events[i].level == FC_LEVEL_F1) f1++;
       if(events[i].level == FC_LEVEL_F2) f2++;
+      if(events[i].direction == FC_DIR_BULLISH) bull++;
+      if(events[i].direction == FC_DIR_BEARISH) bear++;
       if(events[i].status == FC_STATUS_CONFIRMED) conf++;
       if(events[i].status == FC_STATUS_OPEN) open++;
       if(events[i].branch_type == FC_BRANCH_INTERNAL12) branch_i12++;
@@ -88,6 +92,8 @@ void FC_PrintSummary(const FC_FlagEvent &events[], const int nodes_count, const 
          " events=", total,
          " f1=", f1,
          " f2=", f2,
+         " bull=", bull,
+         " bear=", bear,
          " confirmed=", conf,
          " open=", open,
          " internal12=", branch_i12,
@@ -142,6 +148,8 @@ bool FC_RunExperiment()
                             InpMaxEventsToDraw,
                             InpDrawF1,
                             InpDrawF2,
+                            InpDrawBullish,
+                            InpDrawBearish,
                             InpDrawOnlyConfirmed,
                             InpObjectPrefix,
                             InpF1PendingColor,
