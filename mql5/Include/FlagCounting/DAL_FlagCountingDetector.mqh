@@ -325,6 +325,208 @@ void FC_ApplyBranchAndConfirmation(const FC_Node &nodes[],
    }
 }
 
+
+bool FC_HasInvalidationBetween(const FC_Node &nodes[],
+                               const int from_pos,
+                               const int to_pos,
+                               const int direction,
+                               const double invalidation_price,
+                               const double eps)
+{
+   int n = ArraySize(nodes);
+   int a = from_pos;
+   if(a < 0) a = 0;
+   int b = to_pos;
+   if(b > n - 1) b = n - 1;
+   for(int p=a; p<=b; p++)
+   {
+      if(FC_NodeBreaksInvalidation(direction, nodes[p], invalidation_price, eps))
+         return true;
+   }
+   return false;
+}
+
+bool FC_CoreMatchesDirection(const int direction,
+                             const FC_Node &origin,
+                             const FC_Node &leg1,
+                             const FC_Node &waist,
+                             const FC_Node &leg2,
+                             const double eps)
+{
+   if(direction == FC_DIR_BULLISH)
+      return FC_IsBullishCore(origin, leg1, waist, leg2, eps);
+   if(direction == FC_DIR_BEARISH)
+      return FC_IsBearishCore(origin, leg1, waist, leg2, eps);
+   return false;
+}
+
+void FC_FillCoreEvent(FC_FlagEvent &event,
+                      const int level,
+                      const int direction,
+                      const FC_Node &origin,
+                      const FC_Node &leg1,
+                      const FC_Node &waist,
+                      const FC_Node &leg2,
+                      const int parent_event_index,
+                      const int parent_origin_index,
+                      const int parent_level,
+                      const int chain_id,
+                      const int chain_step,
+                      const double parent_body_size)
+{
+   FC_InitFlagEvent(event);
+   event.level = level;
+   event.direction = direction;
+   event.status = FC_STATUS_OPEN;
+   event.parent_event_index = parent_event_index;
+   event.parent_origin_index = parent_origin_index;
+   event.parent_level = parent_level;
+   event.chain_id = chain_id;
+   event.chain_step = chain_step;
+   event.origin = origin;
+   event.leg1 = leg1;
+   event.waist = waist;
+   event.leg2 = leg2;
+   event.body_size = FC_BodySizeFromNodes(origin, leg2);
+   event.parent_body_size = parent_body_size;
+   event.parent_size_ratio = (parent_body_size > 0.0 ? event.body_size / parent_body_size : 0.0);
+}
+
+bool FC_BetterCoreCandidate(const FC_FlagEvent &candidate, const FC_FlagEvent &best, const bool have_best)
+{
+   if(!have_best) return true;
+   if(candidate.status == FC_STATUS_CONFIRMED && best.status != FC_STATUS_CONFIRMED) return true;
+   if(candidate.status != FC_STATUS_CONFIRMED && best.status == FC_STATUS_CONFIRMED) return false;
+
+   // While an F is live, its body is allowed to extend. Prefer the larger/further
+   // body when neither candidate is clearly superior by status.
+   if(candidate.body_size > best.body_size) return true;
+   if(candidate.body_size < best.body_size) return false;
+   return (candidate.leg2.index > best.leg2.index);
+}
+
+bool FC_BuildCoreFromFixedOrigin(const FC_Node &nodes[],
+                                 const int origin_pos,
+                                 const int direction,
+                                 const int level,
+                                 const bool continuation_level,
+                                 const bool allow_waist_break_branch,
+                                 const bool require_at_least_parent_size,
+                                 const double min_parent_size_ratio,
+                                 const double parent_body_size,
+                                 const int max_core_search_nodes,
+                                 const int parent_event_index,
+                                 const int parent_origin_index,
+                                 const int parent_level,
+                                 const int chain_id,
+                                 const int chain_step,
+                                 const double eps,
+                                 FC_FlagEvent &event,
+                                 int &core_leg2_pos)
+{
+   FC_InitFlagEvent(event);
+   core_leg2_pos = -1;
+
+   int total_nodes = ArraySize(nodes);
+   if(origin_pos < 0 || origin_pos + 3 >= total_nodes) return false;
+
+   FC_Node origin = nodes[origin_pos];
+   double invalidation_price = (continuation_level ? origin.price : 0.0);
+
+   int last_pos = total_nodes - 1;
+   if(max_core_search_nodes > 0)
+   {
+      int requested_last_pos = origin_pos + max_core_search_nodes;
+      if(requested_last_pos < last_pos)
+         last_pos = requested_last_pos;
+   }
+   if(origin_pos + 3 > last_pos) return false;
+
+   FC_FlagEvent best;
+   FC_InitFlagEvent(best);
+   int best_l2_pos = -1;
+   bool have_best = false;
+
+   for(int leg1_pos=origin_pos+1; leg1_pos<=last_pos-2; leg1_pos++)
+   {
+      if(continuation_level && FC_NodeBreaksInvalidation(direction, nodes[leg1_pos], invalidation_price, eps))
+         break;
+
+      for(int waist_pos=leg1_pos+1; waist_pos<=last_pos-1; waist_pos++)
+      {
+         if(continuation_level && FC_HasInvalidationBetween(nodes, leg1_pos, waist_pos, direction, invalidation_price, eps))
+            break;
+
+         for(int leg2_pos=waist_pos+1; leg2_pos<=last_pos; leg2_pos++)
+         {
+            if(continuation_level && FC_HasInvalidationBetween(nodes, waist_pos, leg2_pos, direction, invalidation_price, eps))
+               break;
+
+            FC_Node leg1 = nodes[leg1_pos];
+            FC_Node waist = nodes[waist_pos];
+            FC_Node leg2 = nodes[leg2_pos];
+
+            if(!FC_CoreMatchesDirection(direction, origin, leg1, waist, leg2, eps))
+               continue;
+
+            FC_FlagEvent candidate;
+            FC_FillCoreEvent(candidate,
+                             level,
+                             direction,
+                             origin,
+                             leg1,
+                             waist,
+                             leg2,
+                             parent_event_index,
+                             parent_origin_index,
+                             parent_level,
+                             chain_id,
+                             chain_step,
+                             parent_body_size);
+
+            if(require_at_least_parent_size && parent_body_size > eps)
+            {
+               double min_required_size = parent_body_size * MathMax(0.0, min_parent_size_ratio);
+               if(candidate.body_size + eps < min_required_size)
+                  continue;
+            }
+
+            FC_ApplyBranchAndConfirmation(nodes,
+                                          leg2_pos,
+                                          continuation_level,
+                                          allow_waist_break_branch,
+                                          eps,
+                                          candidate);
+
+            // Root F1 can repair an early waist choice by selecting a later waist.
+            // Therefore invalidated F1 core candidates are skipped, not used to end
+            // the whole root search. Continuations only die on origin invalidation,
+            // already checked above.
+            if(candidate.status == FC_STATUS_INVALIDATED)
+               continue;
+
+            // F1 is a root only if it can hand off to F2 after confirmation.
+            // Therefore a confirmed F1 without internal 2 is skipped; otherwise
+            // the state machine would be forced to stop or restart as another F1.
+            if(level == FC_LEVEL_F1 && candidate.status == FC_STATUS_CONFIRMED && !candidate.has_n2)
+               continue;
+
+            if(FC_BetterCoreCandidate(candidate, best, have_best))
+            {
+               best = candidate;
+               best_l2_pos = leg2_pos;
+               have_best = true;
+            }
+         }
+      }
+   }
+
+   if(!have_best) return false;
+   event = best;
+   core_leg2_pos = best_l2_pos;
+   return true;
+}
+
 bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
                               const int start_pos,
                               const bool scan_bullish,
@@ -337,28 +539,76 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
    if(start_pos + 3 >= n) return false;
 
    FC_Node origin = nodes[start_pos];
-   FC_Node leg1   = nodes[start_pos+1];
-   FC_Node waist  = nodes[start_pos+2];
-   FC_Node leg2   = nodes[start_pos+3];
-
    int direction = FC_DIR_NONE;
-   if(scan_bullish && FC_IsBullishCore(origin, leg1, waist, leg2, eps))
+   if(scan_bullish && origin.kind == FC_NODE_LOW)
       direction = FC_DIR_BULLISH;
-   else if(scan_bearish && FC_IsBearishCore(origin, leg1, waist, leg2, eps))
+   else if(scan_bearish && origin.kind == FC_NODE_HIGH)
       direction = FC_DIR_BEARISH;
-
    if(direction == FC_DIR_NONE) return false;
 
-   event.level = FC_LEVEL_F1;
-   event.direction = direction;
-   event.origin = origin;
-   event.leg1 = leg1;
-   event.waist = waist;
-   event.leg2 = leg2;
-   event.body_size = FC_FlagBodySize(event);
+   int core_pos = -1;
+   // Backward compatible wrapper: use a small local search rather than exactly
+   // start,start+1,start+2,start+3. This lets F1 repair its waist before confirm.
+   return FC_BuildCoreFromFixedOrigin(nodes,
+                                      start_pos,
+                                      direction,
+                                      FC_LEVEL_F1,
+                                      false,
+                                      false,
+                                      false,
+                                      1.0,
+                                      0.0,
+                                      24,
+                                      -1,
+                                      -1,
+                                      FC_LEVEL_NONE,
+                                      -1,
+                                      1,
+                                      eps,
+                                      event,
+                                      core_pos);
+}
 
-   FC_ApplyBranchAndConfirmation(nodes, start_pos+3, false, false, eps, event);
-   return true;
+bool FC_BuildRootF1FromOriginSearch(const FC_Node &nodes[],
+                                    const int origin_pos,
+                                    const bool scan_bullish,
+                                    const bool scan_bearish,
+                                    const int root_core_search_max_nodes,
+                                    const double eps,
+                                    FC_FlagEvent &event,
+                                    int &root_leg2_pos)
+{
+   FC_InitFlagEvent(event);
+   root_leg2_pos = -1;
+   int n = ArraySize(nodes);
+   if(origin_pos + 3 >= n) return false;
+
+   FC_Node origin = nodes[origin_pos];
+   int direction = FC_DIR_NONE;
+   if(scan_bullish && origin.kind == FC_NODE_LOW)
+      direction = FC_DIR_BULLISH;
+   else if(scan_bearish && origin.kind == FC_NODE_HIGH)
+      direction = FC_DIR_BEARISH;
+   if(direction == FC_DIR_NONE) return false;
+
+   return FC_BuildCoreFromFixedOrigin(nodes,
+                                      origin_pos,
+                                      direction,
+                                      FC_LEVEL_F1,
+                                      false,
+                                      false,
+                                      false,
+                                      1.0,
+                                      0.0,
+                                      root_core_search_max_nodes,
+                                      -1,
+                                      -1,
+                                      FC_LEVEL_NONE,
+                                      -1,
+                                      1,
+                                      eps,
+                                      event,
+                                      root_leg2_pos);
 }
 
 bool FC_BuildContinuationFromParent(const FC_Node &nodes[],
@@ -382,73 +632,30 @@ bool FC_BuildContinuationFromParent(const FC_Node &nodes[],
    int start_pos = FC_FindNodePositionByIndex(nodes, parent.n2.index);
    if(start_pos < 0) return false;
 
-   int total_nodes = ArraySize(nodes);
-   if(start_pos + 3 >= total_nodes) return false;
-
-   FC_Node origin = nodes[start_pos];
-   double invalidation_price = origin.price;
-
    double parent_body_size = parent.body_size;
    if(parent_body_size <= 0.0)
       parent_body_size = FC_FlagBodySize(parent);
 
-   int max_scan = MathMax(3, continuation_core_search_max_nodes);
-   int last_leg1_pos = total_nodes - 3;
-   int requested_last_leg1_pos = start_pos + max_scan;
-   if(requested_last_leg1_pos < last_leg1_pos)
-      last_leg1_pos = requested_last_leg1_pos;
-
-   // Continuation is not a new loose F1. Its origin is fixed at parent internal 2.
-   // However, the next valid Leg1/Waist/Leg2 body may be a few nodes later because
-   // the compressed node stream can contain small hooks before the real child body.
-   for(int leg1_pos=start_pos+1; leg1_pos<=last_leg1_pos; leg1_pos++)
-   {
-      // If the child origin is invalidated before a valid child body appears, the
-      // continuation attempt is dead. This is the F2/F3 invalidation contract.
-      if(FC_NodeBreaksInvalidation(parent.direction, nodes[leg1_pos], invalidation_price, eps))
-         return false;
-
-      FC_Node leg1  = nodes[leg1_pos];
-      FC_Node waist = nodes[leg1_pos+1];
-      FC_Node leg2  = nodes[leg1_pos+2];
-
-      bool core_ok = false;
-      if(parent.direction == FC_DIR_BULLISH)
-         core_ok = FC_IsBullishCore(origin, leg1, waist, leg2, eps);
-      else if(parent.direction == FC_DIR_BEARISH)
-         core_ok = FC_IsBearishCore(origin, leg1, waist, leg2, eps);
-      if(!core_ok)
-         continue;
-
-      double child_body_size = FC_BodySizeFromNodes(origin, leg2);
-      double min_required_size = parent_body_size * MathMax(0.0, child_min_parent_size_ratio);
-      if(require_child_at_least_parent_size && parent_body_size > eps)
-      {
-         if(child_body_size + eps < min_required_size)
-            continue;
-      }
-
-      event.level = child_level;
-      event.direction = parent.direction;
-      event.status = FC_STATUS_OPEN;
-      event.parent_event_index = parent_array_index;
-      event.parent_origin_index = parent.origin.index;
-      event.parent_level = parent.level;
-      event.chain_id = parent.chain_id;
-      event.chain_step = parent.chain_step + 1;
-      event.origin = origin;
-      event.leg1 = leg1;
-      event.waist = waist;
-      event.leg2 = leg2;
-      event.body_size = child_body_size;
-      event.parent_body_size = parent_body_size;
-      event.parent_size_ratio = (parent_body_size > 0.0 ? child_body_size / parent_body_size : 0.0);
-
-      FC_ApplyBranchAndConfirmation(nodes, leg1_pos+2, true, allow_waist_break_branch, eps, event);
-      return true;
-   }
-
-   return false;
+   int core_pos = -1;
+   bool ok = FC_BuildCoreFromFixedOrigin(nodes,
+                                         start_pos,
+                                         parent.direction,
+                                         child_level,
+                                         true,
+                                         allow_waist_break_branch,
+                                         require_child_at_least_parent_size,
+                                         child_min_parent_size_ratio,
+                                         parent_body_size,
+                                         continuation_core_search_max_nodes,
+                                         parent_array_index,
+                                         parent.origin.index,
+                                         parent.level,
+                                         parent.chain_id,
+                                         parent.chain_step + 1,
+                                         eps,
+                                         event,
+                                         core_pos);
+   return ok;
 }
 
 int FC_FindNextOppositeRootPosition(const FC_Node &nodes[],
@@ -456,13 +663,15 @@ int FC_FindNextOppositeRootPosition(const FC_Node &nodes[],
                                     const int blocked_direction,
                                     const bool scan_bullish,
                                     const bool scan_bearish,
+                                    const int root_core_search_max_nodes,
                                     const double eps)
 {
    int n = ArraySize(nodes);
    for(int p=cursor_pos; p<=n-4; p++)
    {
       FC_FlagEvent candidate;
-      if(!FC_BuildF1FromNodeWindow(nodes, p, scan_bullish, scan_bearish, eps, candidate))
+      int l2_pos = -1;
+      if(!FC_BuildRootF1FromOriginSearch(nodes, p, scan_bullish, scan_bearish, root_core_search_max_nodes, eps, candidate, l2_pos))
          continue;
       if(candidate.status == FC_STATUS_INVALIDATED)
          continue;
@@ -476,6 +685,7 @@ bool FC_FindNextAcceptedRootF1(const FC_Node &nodes[],
                                const int cursor_pos,
                                const bool scan_bullish,
                                const bool scan_bearish,
+                               const int root_core_search_max_nodes,
                                const double eps,
                                FC_FlagEvent &event,
                                int &root_pos)
@@ -487,10 +697,10 @@ bool FC_FindNextAcceptedRootF1(const FC_Node &nodes[],
    for(int p=cursor_pos; p<=n-4; p++)
    {
       FC_FlagEvent candidate;
-      if(!FC_BuildF1FromNodeWindow(nodes, p, scan_bullish, scan_bearish, eps, candidate))
+      int l2_pos = -1;
+      if(!FC_BuildRootF1FromOriginSearch(nodes, p, scan_bullish, scan_bearish, root_core_search_max_nodes, eps, candidate, l2_pos))
          continue;
 
-      // Invalid root bodies are failed attempts inside an ND/hook phase, not accepted flags.
       if(candidate.status == FC_STATUS_INVALIDATED)
          continue;
 
@@ -522,8 +732,9 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool require_child_at_least_parent_size,
                             const double child_min_parent_size_ratio,
                             const bool allow_child_waist_break_branch,
+                            const int root_core_search_max_nodes,
                             const int continuation_core_search_max_nodes,
-                            const bool avoid_same_direction_f1_restarts,
+                            const bool force_continuation_after_confirmed_parent,
                             const double eps,
                             FC_FlagEvent &events[])
 {
@@ -537,13 +748,11 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
    int cursor = 0;
    int chain_id = 0;
 
-   // Greedy market partition: do not draw all possible overlapping candidates.
-   // Pick the next accepted root, then walk its F1->F2->F3 continuation chain.
    while(cursor <= n - 4)
    {
       FC_FlagEvent root;
       int root_pos = -1;
-      if(!FC_FindNextAcceptedRootF1(nodes, cursor, scan_bullish, scan_bearish, eps, root, root_pos))
+      if(!FC_FindNextAcceptedRootF1(nodes, cursor, scan_bullish, scan_bearish, root_core_search_max_nodes, eps, root, root_pos))
          break;
 
       chain_id++;
@@ -560,13 +769,22 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
 
       FC_FlagEvent parent = root;
       int parent_array_index = 0;
+      bool unresolved_mandatory_continuation = false;
 
       for(int level=FC_LEVEL_F2; level<=max_level; level++)
       {
          if(parent.status != FC_STATUS_CONFIRMED)
             break;
+
+         // The user's grammar is mandatory: after F1 we search F2; after F2 we
+         // search F3. The only way this does not happen is that the parent has no
+         // usable internal 2, or the child origin is invalidated before a child body
+         // appears. In both cases we do NOT restart the same flow as another F1.
          if(!parent.has_n2)
+         {
+            unresolved_mandatory_continuation = force_continuation_after_confirmed_parent;
             break;
+         }
 
          FC_FlagEvent child;
          if(!FC_BuildContinuationFromParent(nodes,
@@ -580,10 +798,16 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                                             continuation_core_search_max_nodes,
                                             eps,
                                             child))
+         {
+            unresolved_mandatory_continuation = force_continuation_after_confirmed_parent;
             break;
+         }
 
          if(child.status == FC_STATUS_INVALIDATED)
+         {
+            unresolved_mandatory_continuation = force_continuation_after_confirmed_parent;
             break;
+         }
 
          FC_AppendEvent(chain_events, child);
          int child_terminal = FC_EventTerminalNodePosition(nodes, child);
@@ -598,31 +822,16 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
       for(int i=0; i<chain_count; i++)
          FC_AppendIfRequested(events, chain_events[i], scan_f1, scan_f2, scan_f3);
 
-      // Accepted chain consumes the movement up to its terminal node.
-      // This is the key fix: after an F1, the same flow continues as F2/F3,
-      // not as a new overlapping F1 candidate.
+      // If the live/current chain is open, or a mandatory F2/F3 continuation is
+      // unresolved, do not allow the same flow to be reinterpreted as a new F1.
+      // This is the core partition rule: an active chain owns the future until it
+      // confirms into the next F-level or invalidates into a reset/ND phase.
+      if(parent.status == FC_STATUS_OPEN || unresolved_mandatory_continuation)
+         break;
+
       int next_cursor = terminal_pos + 1;
       if(next_cursor <= cursor)
          next_cursor = cursor + 1;
-
-      // Partition rule: after a confirmed chain, do not immediately restart
-      // another same-direction F1 on the same flow. If no child continuation was
-      // accepted, that region is treated as the unresolved ND/hook/transition
-      // phase until the opposite root direction appears or the scan ends.
-      if(avoid_same_direction_f1_restarts && root.status == FC_STATUS_CONFIRMED)
-      {
-         int reset_pos = FC_FindNextOppositeRootPosition(nodes,
-                                                         next_cursor,
-                                                         root.direction,
-                                                         scan_bullish,
-                                                         scan_bearish,
-                                                         eps);
-         if(reset_pos >= 0)
-            next_cursor = reset_pos;
-         else
-            break;
-      }
-
       cursor = next_cursor;
    }
 
@@ -642,8 +851,9 @@ int FC_DetectFlags(const MqlRates &rates[],
                    const bool require_child_at_least_parent_size,
                    const double child_min_parent_size_ratio,
                    const bool allow_child_waist_break_branch,
+                   const int root_core_search_max_nodes,
                    const int continuation_core_search_max_nodes,
-                   const bool avoid_same_direction_f1_restarts,
+                   const bool force_continuation_after_confirmed_parent,
                    const double eps,
                    FC_Node &nodes[],
                    FC_FlagEvent &events[])
@@ -660,8 +870,9 @@ int FC_DetectFlags(const MqlRates &rates[],
                                   require_child_at_least_parent_size,
                                   child_min_parent_size_ratio,
                                   allow_child_waist_break_branch,
+                                  root_core_search_max_nodes,
                                   continuation_core_search_max_nodes,
-                                  avoid_same_direction_f1_restarts,
+                                  force_continuation_after_confirmed_parent,
                                   eps,
                                   events);
 }

@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.21"
-#property description "Unified flag-counting state machine with flexible F2/F3 continuation search."
+#property version   "1.22"
+#property description "Unified flag-counting mandatory F-chain state machine."
 
 #include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
 #include "../../Include/FlagCounting/DAL_FlagCountingRenderer.mqh"
@@ -27,8 +27,9 @@ input bool InpRequireParentConfirmedForNextF = true;
 input bool   InpRequireChildAtLeastParentSize = true;
 input double InpChildMinParentSizeRatio = 1.0;
 input bool   InpAllowChildWaistBreakBranch = true;
-input int    InpContinuationCoreSearchMaxNodes = 12;
-input bool   InpAvoidSameDirectionF1Restarts = true;
+input int    InpRootCoreSearchMaxNodes = 80;
+input int    InpContinuationCoreSearchMaxNodes = 0;   // 0 = search until invalidation/end
+input bool   InpForceContinuationAfterConfirmedParent = true;
 
 input bool InpDrawF1 = true;
 input bool InpDrawF2 = true;
@@ -163,8 +164,9 @@ bool FC_RunExperiment()
                                      InpRequireChildAtLeastParentSize,
                                      InpChildMinParentSizeRatio,
                                      InpAllowChildWaistBreakBranch,
+                                     InpRootCoreSearchMaxNodes,
                                      InpContinuationCoreSearchMaxNodes,
-                                     InpAvoidSameDirectionF1Restarts,
+                                     InpForceContinuationAfterConfirmedParent,
                                      eps,
                                      nodes,
                                      events);

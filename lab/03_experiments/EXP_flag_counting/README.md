@@ -44,6 +44,34 @@ The flag-counting engine is no longer allowed to treat every four-node window as
 - F2/F3 origin is fixed at the parent internal 2.
 - The child Leg1/Waist/Leg2 body may appear within `InpContinuationCoreSearchMaxNodes` nodes after that origin.
 - A child continuation is rejected immediately if its own origin/start is invalidated before a valid body appears.
-- After a confirmed chain, `InpAvoidSameDirectionF1Restarts` prevents immediate same-direction F1 restarts on the same flow; that unresolved region is treated as ND/hook/transition until an opposite root direction appears or the scan ends.
+- After a confirmed parent, `InpForceContinuationAfterConfirmedParent` keeps the state machine waiting for the mandatory next F-level instead of restarting the same flow as another F1.
 
 This is a practical partition step toward the intended market grammar: `ND -> F1 -> F2 -> F3 -> ND -> ...`, instead of loose overlapping pattern overlays.
+
+## Mandatory continuation state machine v3
+
+The flag-counting experiment is no longer allowed to reinterpret the same flow as repeated F1 bodies. The active contract is:
+
+- F1 is the only root level.
+- After a confirmed F1, the engine must search F2 from the parent F1 internal 2.
+- After a confirmed F2, the engine must search F3 from the parent F2 internal 2.
+- F2/F3 may extend for many nodes and remain live/pending until their own Leg2 is rebroken.
+- `InpContinuationCoreSearchMaxNodes = 0` means continuation search is not capped by a small local window; it searches until origin invalidation or the end of the available node stream.
+- `InpForceContinuationAfterConfirmedParent = true` prevents the detector from falling back to another same-flow F1 when the mandatory child level is not yet resolved.
+- F1 can repair an early waist candidate by selecting a later valid waist/core before confirmation. This prevents premature fragmentation into many F1 labels.
+- F1 invalidation boundary is its selected waist.
+- F2 and F3 invalidation boundary is their own origin/start-of-leg.
+- Confirmation for every F level remains: rebreak of the event's own Leg2 before its invalidation boundary.
+
+Recommended live settings:
+
+```text
+InpRootCoreSearchMaxNodes = 80
+InpContinuationCoreSearchMaxNodes = 0
+InpForceContinuationAfterConfirmedParent = true
+InpRequireParentConfirmedForNextF = true
+InpRequireChildAtLeastParentSize = true
+InpChildMinParentSizeRatio = 1.0
+```
+
+- A confirmed F1 without internal 2 is not accepted as a chain root, because it cannot hand off to F2.
