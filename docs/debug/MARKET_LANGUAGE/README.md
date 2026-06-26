@@ -1,524 +1,359 @@
-# DAL Market Language — Hook, Rally, Flag, Nodes, 123 Flags, and Open 1/2s
+# DAL Market Language — Nodes, Cycles, Hooks, Rallies, Flags, 123 Flags, and Open 1/2s
 
-> Version: draft 0.1  
+> Version: draft 0.2  
 > Scope: discretionary-to-algorithmic vocabulary for Decision Alpha Lab  
-> Purpose: convert the manual multi-timeframe reading style into a precise, reusable language before turning it into code.
+> Purpose: convert the manual multi-timeframe market-reading language into precise structural concepts before turning them into code.
 
 ---
 
-## 1. چرا این لغتنامه لازم است
+## 1. Why this glossary exists
 
-در پروژه تا الان پایه‌ی ساختاری اصلی ما **نود** بوده است. نود یعنی سقف یا کف معتبر که با منطق L-rule ساخته و تایید می‌شود. اما سبک خواندن دستی بازار فقط با «سقف و کف» تمام نمی‌شود. چیزی که در چشم دستی دیده می‌شود، یک زبان زنده‌تر است: برگشت‌های عمیق، قلاب‌ها، فلگ‌ها، شکار نودهای داخلی، شمارش ۱/۲/۳، مقصدهای باز، و رالی‌هایی که بعد از یک فریب ساختاری شروع می‌شوند.
+Decision Alpha Lab uses structural market concepts that started as discretionary visual language and are gradually being converted into code. The core structural atom is the **node**: a validated high or low created by an L-rule. However, the human reading style is richer than isolated highs and lows.
 
-هدف این README این است که قبل از کدنویسی، زبان مشترک پروژه را دقیق کنیم. هر واژه باید آن‌قدر شفاف باشد که بعداً بتوانیم آن را به ماژول تبدیل کنیم، نه اینکه هر بار در هر اگزکیوت دوباره از صفر تعریفش کنیم.
+The manual language includes:
 
-مفاهیم اصلی:
+- deep returns,
+- hooks,
+- rallies,
+- flags,
+- node hunts,
+- internal 1/2/3 counts,
+- open destinations,
+- fractal nesting,
+- rally continuation after structural deception.
 
-- Node / نود
-- Cycle / سایکل
-- Hook / هوک
-- Rally / رالی
-- Flag / فلگ
-- 123 Flag / فلگ ۱۲۳
-- Open 1 and Open 2 / یک و دوهای باز
-- Fractal Nesting / تو در تو بودن فرکتالی
-
-این سند هنوز الگوریتم نهایی نیست؛ **قرارداد زبانی** است. بعد از این می‌توانیم هر مفهوم را به صورت ماژول جدا بنویسیم.
-
----
-
-## 2. Node — نود
-
-نود اتم اولیه‌ی زبان ماست.
-
-در زبان کد، نود همان سقف یا کف تاییدشده است:
-
-- `LOW node`: کف معتبر.
-- `HIGH node`: سقف معتبر.
-- هر نود این ویژگی‌ها را دارد:
-  - قیمت،
-  - زمان،
-  - ایندکس،
-  - L،
-  - زمان فعال شدن،
-  - نوع: HIGH یا LOW.
-
-نود به تنهایی ایده‌ی معامله نیست. نود فقط شیء ساختاری است. ایده از چیزی می‌آید که **بعد از نود** اتفاق می‌افتد:
-
-- قیمت از نود دور می‌شود؟
-- برمی‌گردد؟
-- ناحیه‌ی نود را لمس می‌کند؟
-- نودهای داخلی را هانت می‌کند؟
-- نود اصلی را می‌زند و برمی‌گردد؟
-- رالی می‌سازد؟
-- شمارش ۱/۲/۳ را کامل می‌کند؟
-
-پس نود مثل حرف است. هوک، فلگ، رالی و ۱۲۳ جمله‌اند.
+This README defines the vocabulary before implementation. Every term should be explicit enough to become a future module. This document is not the final algorithm. It is the shared language contract.
 
 ---
 
-## 3. Cycle — سایکل
+## 2. Node
 
-سایکل یعنی زندگی یک نود از لحظه‌ی ساخته شدن تا لحظه‌ی واکنش، مرگ، یا تبدیل شدن به ساختار بزرگ‌تر.
+A node is the atomic structural object.
 
-برای یک LOW:
+In code terms, a node is a validated high or low:
+
+- `LOW node`: a confirmed structural low.
+- `HIGH node`: a confirmed structural high.
+
+A node should store at least:
+
+- price,
+- time,
+- bar index,
+- L value,
+- activation or confirmation time,
+- type: `HIGH` or `LOW`.
+
+A node is not a trade idea by itself. The trade idea comes from what happens after the node:
+
+- Does price move away from it?
+- Does price return to it?
+- Does price touch its zone?
+- Does price hunt internal nodes?
+- Does price break the node and reclaim it?
+- Does price create a rally after the hunt?
+- Does the internal 1/2/3 structure complete?
+
+A node is a letter. Hooks, flags, rallies, and 123 structures are sentences.
+
+---
+
+## 3. Cycle
+
+A cycle is the life of a node from formation to reaction, death, or transformation into a larger structure.
+
+For a low node:
 
 ```text
-LOW ساخته می‌شود
-→ قیمت از LOW دور می‌شود
-→ بعداً به سمت LOW یا زون آن برمی‌گردد
-→ یا LOW می‌میرد، یا لمس می‌شود و برمی‌گردد، یا فلگ/هانت می‌سازد، یا وارد ساختار بزرگ‌تر می‌شود
+LOW is created
+-> price moves away from the LOW
+-> price later returns toward the LOW or its zone
+-> the LOW is either killed, touched and rejected, converted into a flag, or absorbed into a larger structure
 ```
 
-برای یک HIGH:
+For a high node:
 
 ```text
-HIGH ساخته می‌شود
-→ قیمت از HIGH دور می‌شود
-→ بعداً به سمت HIGH یا زون آن برمی‌گردد
-→ یا HIGH می‌میرد، یا لمس می‌شود و برمی‌گردد، یا فلگ/هانت می‌سازد، یا وارد ساختار بزرگ‌تر می‌شود
+HIGH is created
+-> price moves away from the HIGH
+-> price later returns toward the HIGH or its zone
+-> the HIGH is either killed, touched and rejected, converted into a flag, or absorbed into a larger structure
 ```
 
-سایکل فقط مسیر رفت نیست؛ مسیر برگشت هم بخشی از آن است. سایکل وقتی معنی پیدا می‌کند که بدانیم برگشت به origin چه رفتاری دارد.
+A cycle is not only the initial move away from origin. The return path is part of the cycle. The cycle becomes meaningful when we know how price behaves when it returns to origin.
 
 ---
 
-## 4. Hook — هوک
+## 4. Hook
 
-هوک یعنی سایکلی که عمیق برمی‌گردد، نزدیک مرگ خودش می‌شود، اما همان‌جا برمی‌گردد.
+A hook is a cycle that returns deeply toward its origin, approaches structural death, but then rejects and turns.
 
-تصویر ذهنی:
+Mental image:
 
 ```text
-origin node → حرکت دورشونده → برگشت عمیق نزدیک origin → برگشت/رالی
+origin node -> move away -> deep return near origin -> rejection / rally
 ```
 
-تعریف دستی:
+Manual definition:
 
-> هوک وقتی است که سایکل حدود ۹۰ درصد مسیر خودش را برمی‌گردد و بعد می‌چرخد.
+> A hook occurs when a cycle retraces roughly most of its path toward origin and then turns instead of dying.
 
-یعنی بازار تقریباً کل حرکت را پس می‌دهد، به جایی می‌رسد که بیشتر آدم‌ها فکر می‌کنند سایکل تمام شده، اما همان‌جا به جای مردن، برمی‌گردد.
+The exact percentage should not be hard-coded too early. It can later become a parameter, but the concept is qualitative: the market comes close enough to origin that the cycle looks nearly dead.
 
-### هوک صعودی
+### Bullish hook
 
 ```text
 LOW origin
-→ حرکت به بالا
-→ برگشت عمیق به سمت LOW / زون LOW
-→ ریجکشن
-→ رالی به بالا
+-> upward movement
+-> deep return toward the LOW / LOW zone
+-> rejection
+-> rally upward
 ```
 
-### هوک نزولی
+### Bearish hook
 
 ```text
 HIGH origin
-→ حرکت به پایین
-→ برگشت عمیق به سمت HIGH / زون HIGH
-→ ریجکشن
-→ رالی به پایین
+-> downward movement
+-> deep return toward the HIGH / HIGH zone
+-> rejection
+-> rally downward
 ```
 
-### هوک، منطقه‌ی نزدیک مرگ است
+### Hook as a near-death zone
 
-هوک با پولبک ساده فرق دارد. پولبک معمولاً کم‌عمق‌تر است. هوک در جایی اتفاق می‌افتد که سایکل از نظر ذهنی دارد می‌میرد.
+A hook is not a simple shallow pullback. A shallow return is usually only a pullback. A hook occurs near the boundary between survival and invalidation.
 
-برای LOW cycle:
+For a low cycle:
 
-- برگشت کم‌عمق فقط پولبک است.
-- شکستن کامل LOW و ادامه دادن، مرگ سایکل است.
-- برگشت نزدیک LOW و بعد چرخش، هوک است.
+- shallow return = ordinary pullback,
+- full break and continuation below the low = cycle death,
+- deep return near the low followed by rejection = hook.
 
-پس هوک مرز بین شکست و ادامه است.
+The hook is the border between failure and continuation.
 
 ---
 
-## 5. Rally — رالی
+## 5. Rally
 
-رالی حرکت شارپ و یک‌طرفه‌ای است که بعد از حل شدن هوک یا فلگ شروع می‌شود.
+A rally is a sharp directional movement that begins after a hook, flag, or deception phase resolves.
 
-اینجا رالی فقط به معنی حرکت صعودی نیست. رالی یعنی impulse جهت‌دار بعد از فاز فریب/برگشت/تکمیل.
+In this vocabulary, rally does not only mean upward price movement. It means a directional impulse after the market exits negotiation, uncertainty, hunt, or trap.
 
-### رالی صعودی
-
-```text
-هوک نزدیک LOW
-→ ریجکشن
-→ حرکت سریع به بالا
-```
-
-### رالی نزولی
+### Bullish rally
 
 ```text
-هوک نزدیک HIGH
-→ ریجکشن
-→ حرکت سریع به پایین
+hook near LOW
+-> rejection
+-> fast upward movement
 ```
 
-رالی همان لحظه‌ای است که بازار از حالت مذاکره، شک، برگشت، شکار و فریب خارج می‌شود و جهت را می‌گیرد.
+### Bearish rally
 
-قبل از رالی معمولاً این‌ها دیده می‌شود:
+```text
+hook near HIGH
+-> rejection
+-> fast downward movement
+```
 
-- ریویزیت،
-- هانت داخلی،
-- ۱/۲ باز،
-- فلگ،
-- امید اشتباه،
-- شکار نهایی.
+Before a rally, the market often shows:
 
-بعد از رالی، حرکت تمیزتر و یک‌طرفه‌تر می‌شود.
+- revisit,
+- internal hunt,
+- open 1/2,
+- flag,
+- false hope,
+- final liquidity sweep.
+
+After a rally begins, the path is often cleaner and more one-directional.
 
 ---
 
-## 6. Flag — فلگ
+## 6. Flag
 
-فلگ ساختار فریب است.
+A flag is a structure of deception.
 
-تعریف اصلی:
+Core idea:
 
-> بازار اول یک نود می‌سازد، بعد همه را امیدوار می‌کند که قرار است یک طرف برود، بعد همان نود را می‌زند یا هانت می‌کند، همه در جهت اشتباه سوار می‌شوند، بعد حرکت اصلی از همان‌جا در جهت مخالف شروع می‌شود.
+> The market creates a node, gives hope in one direction, then hunts or breaks the same structural area, traps the wrong side, and begins the real move from there.
 
-### فلگ صعودی روی LOW
-
-```text
-LOW ساخته می‌شود
-→ بازار کمی بالا می‌رود و امید صعود می‌دهد
-→ برمی‌گردد و LOW را می‌زند / هانت می‌کند
-→ فروشنده‌ها فعال می‌شوند
-→ بازار برمی‌گردد و رالی اصلی به بالا شروع می‌شود
-```
-
-### فلگ نزولی روی HIGH
+### Bullish flag around a LOW
 
 ```text
-HIGH ساخته می‌شود
-→ بازار کمی پایین می‌رود و امید نزول می‌دهد
-→ برمی‌گردد و HIGH را می‌زند / هانت می‌کند
-→ خریدارها فعال می‌شوند
-→ بازار برمی‌گردد و رالی اصلی به پایین شروع می‌شود
+LOW is created
+-> price moves up and creates bullish hope
+-> price returns and hunts/breaks the LOW
+-> sellers become active
+-> price reclaims and begins the true upward rally
 ```
 
-### فلگ با invalidation ساده فرق دارد
-
-این نکته خیلی مهم است.
-
-در بعضی ماژول‌های اولیه، hunt یعنی invalidation. اما در این زبان، hunt دو حالت دارد:
+### Bearish flag around a HIGH
 
 ```text
-hunt + continuation through node = مرگ واقعی نود
-hunt + reclaim/rejection = فلگ / trap
+HIGH is created
+-> price moves down and creates bearish hope
+-> price returns and hunts/breaks the HIGH
+-> buyers become active
+-> price rejects and begins the true downward rally
 ```
 
-پس hunt همیشه مرگ نیست. گاهی سوخت رالی است.
+### Flag is not the same as invalidation
+
+A hunt has two possible meanings:
+
+```text
+hunt + continuation through the node = true node death
+hunt + reclaim/rejection = flag / trap
+```
+
+Therefore a hunt is not always death. Sometimes it is the fuel for the rally.
 
 ---
 
-## 7. 123 Flag — فلگ ۱۲۳
+## 7. 123 Flag
 
-فلگ ۱۲۳ یعنی شمارش داخلی قبل از فلگ و رالی.
+A 123 flag is an internal counting structure before the flag resolves into a rally.
 
-مشاهده‌ی دستی:
+The purpose of the count is to avoid treating every noisy pullback as a full flag. The 1/2/3 structure gives the market time to build internal deception and then resolve it.
 
-> داخل یک هوک، بازار معمولاً ۱/۲/۳ می‌زند، بعد فلگ می‌زند، بعد روی اکستریم و نزدیک مرگ سایکل برمی‌گردد و رالی را شروع می‌کند.
-
-شکل عمومی:
+A generic bullish 123 flag may look like:
 
 ```text
-origin node
-→ internal node 1
-→ internal node 2
-→ internal node 3
-→ flag / hunt
-→ reversal near cycle death
-→ rally
+LOW origin
+-> first upward hope
+-> internal 1
+-> internal 2
+-> final sweep/hunt
+-> reclaim
+-> rally upward
 ```
 
-این شمارش مهم است چون بازار معمولاً با اولین واکنش رالی اصلی را شروع نمی‌کند. ساختار باید mature شود. ۱ شاید زود باشد. ۲ معمولاً هنوز باز است. ۳ اغلب حس تکمیل می‌دهد.
+A generic bearish 123 flag may look like:
+
+```text
+HIGH origin
+-> first downward hope
+-> internal 1
+-> internal 2
+-> final sweep/hunt
+-> rejection
+-> rally downward
+```
+
+The exact mechanical implementation depends on the detector being built. The language rule is that a 123 flag contains an internal sequence, not just one immediate sweep.
 
 ---
 
-## 8. Open 1 and Open 2 — یک و دوهای باز
+## 8. Open 1 and Open 2
 
-یک و دوهای باز یعنی شمارش‌های ناتمام.
+Open 1 and Open 2 are unresolved internal destinations or counts that remain active after part of a structure is formed.
 
-قانون دستی:
+They are important because they show that the structure is not fully closed. The market may still need to visit, test, or resolve those internal points before the larger move completes.
 
-> بازار حریص است که ۱ و ۲های باز را با ۳ کامل کند.
+In visual tools, open 1 and open 2 may be displayed as numeric labels only, without drawing extra path lines, if the purpose is to keep the chart clean.
 
-### Open 1
-
-```text
-۱ ساخته شده
-۲ هنوز کامل نیست
-۳ هنوز کامل نیست
-```
-
-### Open 2
+Example visual contract:
 
 ```text
-۱ ساخته شده
-۲ ساخته شده
-۳ هنوز کامل نیست
-```
-
-Open 2 مهم‌تر است چون بازار معمولاً می‌خواهد سوم را کامل کند. پس ۳ فقط یک عدد نیست؛ مقصد بالقوه است.
-
-کاربردها:
-
-- تارگت رالی،
-- محل خستگی حرکت،
-- مقصد ساختاری،
-- جایی که هوک بعدی می‌تواند شروع شود،
-- جایی که تایم‌فریم بالاتر و پایین‌تر به هم قفل می‌شوند.
-
----
-
-## 9. Fractal Nesting — تو در تو بودن فرکتالی
-
-همه‌ی این مفاهیم فرکتالی‌اند.
-
-رالی در M5 می‌تواند فقط یک leg از هوک H1 باشد. هوک در M1 می‌تواند جزئی از فلگ M15 باشد. ۱۲۳ در تایم پایین می‌تواند جزئیات داخلی یک برگشت در تایم بالا باشد.
-
-شکل کلی:
-
-```text
-large hook
-    contains smaller flags
-        contains smaller nodes
-            contains smaller 123 sequences
-                contains smaller open 1/2 targets
-```
-
-پس بازار یک توالی خطی ساده نیست. ساختارهای کوچک داخل ساختارهای بزرگ‌تر معنا می‌گیرند.
-
----
-
-## 10. رابطه‌ی مفاهیم
-
-```text
-Node → Cycle
-Cycle → Hook
-Hook → Rally
-Hook → Flag
-Flag → Trap
-123 Flag → Maturity
-Open 1/2 → Destination
-Fractal Nesting → Context
-```
-
-نود سایکل را شروع می‌کند. سایکل اگر عمیق برگردد و نمیرد، هوک می‌شود. هوک اگر حل شود، رالی می‌سازد. نزدیک مرگ هوک ممکن است فلگ و trap ساخته شود. ۱۲۳ بلوغ ساختار را نشان می‌دهد. ۱ و ۲های باز مقصدهای ناتمام‌اند. همه‌ی این‌ها در تایم‌فریم‌های مختلف تو در تو هستند.
-
----
-
-## 11. مثال صعودی
-
-```text
-1. LOW node ساخته می‌شود.
-2. بازار از LOW دور می‌شود.
-3. نودهای داخلی ساخته می‌شوند.
-4. بازار عمیق به سمت LOW برمی‌گردد.
-5. LOWهای داخلی ممکن است hunt شوند.
-6. ناحیه LOW لمس یا کمی hunt می‌شود.
-7. فروشنده‌ها فکر می‌کنند LOW مرده است.
-8. بازار reclaim می‌کند.
-9. رالی صعودی شروع می‌شود.
-10. مقصد رالی می‌تواند ۱/۲های باز بالاتر باشد.
-```
-
-در این مثال:
-
-- برگشت عمیق = هوک.
-- شکستن/هانت LOW = فلگ.
-- حرکت سریع بعدی = رالی.
-- نودهای داخلی = ۱۲۳.
-- شمارش‌های ناقص بالاتر = مقصد.
-
----
-
-## 12. مثال نزولی
-
-```text
-1. HIGH node ساخته می‌شود.
-2. بازار از HIGH دور می‌شود.
-3. نودهای داخلی ساخته می‌شوند.
-4. بازار عمیق به سمت HIGH برمی‌گردد.
-5. HIGHهای داخلی ممکن است hunt شوند.
-6. ناحیه HIGH لمس یا کمی hunt می‌شود.
-7. خریدارها فکر می‌کنند HIGH مرده و breakout رخ داده است.
-8. بازار reject می‌کند.
-9. رالی نزولی شروع می‌شود.
-10. مقصد رالی می‌تواند ۱/۲های باز پایین‌تر باشد.
+Core F1 body is drawn.
+Internal 1 and 2 are displayed only as numbers.
+No extra line is drawn from leg2 to 1/2 unless the specific experiment requires it.
 ```
 
 ---
 
-## 13. چیزهایی که باید بعداً قابل اندازه‌گیری شوند
+## 9. Fractal nesting
 
-### برای نود
+The same vocabulary can exist at multiple scales:
 
-- نوع: HIGH / LOW
-- L
-- قیمت
-- زمان
-- active_from
-- زون / territory
-- touch / revisit
-- hunt / reclaim
+```text
+small node inside large hook
+small flag inside larger rally
+M1 open 1/2 inside M10 flag
+M10 flag inside H1 cycle
+```
 
-### برای هوک
+Fractal nesting does not mean every timeframe is identical. It means the same structural grammar can appear inside larger structures.
 
-- origin node
-- extreme دورشونده
-- درصد برگشت
-- لمس زون
-- فاصله تا مرگ سایکل
-- rejection بعد از برگشت
-- سن سایکل
-- آیا origin hunt شده یا فقط touch شده؟
+A future implementation should explicitly record:
 
-### برای رالی
-
-- جهت بعد از هوک
-- سرعت
-- range
-- کندل‌های یک‌طرفه
-- مسیر تمیز یا پر از برگشت
-- رسیدن به open 1/2ها
-
-### برای فلگ
-
-- origin node
-- hope leg
-- hunt leg
-- reclaim/rejection
-- trap side
-- رالی بعد از trap
-- زمان بین hunt و reclaim
-
-### برای ۱۲۳
-
-- نودهای داخلی بعد از origin
-- ترتیب شمارش
-- تکمیل ۱/۲/۳
-- نزدیکی ۳ به اکستریم/مرگ سایکل
-- وقوع فلگ بعد از ۳
-
-### برای open 1/2
-
-- شمارش ناقص
-- قیمت مقصد احتمالی
-- فاصله از قیمت فعلی
-- هم‌راستایی با تایم‌فریم بالاتر
-- قرار گرفتن داخل hook/rally بزرگ‌تر
+- parent structure,
+- child structure,
+- timeframe or L-scale,
+- whether the child confirms or contradicts the parent.
 
 ---
 
-## 14. برداشت الگوریتمی اولیه
+## 10. Engineering rules
 
-این بخش کد نهایی نیست؛ نقشه‌ی ماژول‌هاست.
+When converting this language into code, the following rules should be respected:
 
-### Module 1 — Node Stream
-
-```text
-input: bars, L
-output: confirmed HIGH/LOW nodes
-```
-
-### Module 2 — Cycle Builder
-
-برای هر origin node:
-
-```text
-origin
-move-away extreme
-return depth
-touch/revisit
-hunt
-reclaim
-death
-```
-
-### Module 3 — Hook Detector
-
-```text
-return_depth >= threshold
-and cycle does not die
-and rejection/rally begins
-```
-
-### Module 4 — Flag Detector
-
-```text
-node → hope leg → node hunt → reclaim/reversal
-```
-
-### Module 5 — 123 Counter
-
-```text
-internal node 1
-internal node 2
-internal node 3
-completion state
-```
-
-### Module 6 — Open Count Map
-
-```text
-open_1
-open_2
-missing_3_target
-```
-
-### Module 7 — Fractal Mapper
-
-```text
-lower timeframe hook inside higher timeframe rally
-lower timeframe flag inside higher timeframe hook
-```
+1. Keep origin nodes explicit. Do not let renderers invent origins.
+2. Separate detection from rendering.
+3. Store every important point with time, price, index, and type.
+4. Keep incomplete and confirmed structures separate.
+5. Treat hunts as ambiguous until reclaim/continuation decides their meaning.
+6. Avoid hard-coding discretionary language too early.
+7. Prefer audit columns over hidden logic.
+8. Build minimal visual contracts first, then add complexity only when necessary.
 
 ---
 
-## 15. قانون فلسفی مرکزی
+## 11. Relationship to M0007 F1
 
-بازار فقط از قیمت به قیمت حرکت نمی‌کند. بازار در حال تکمیل تعهدهای ساختاری ناتمام است:
+M0007 F1 is one concrete implementation of a flag-counting structure.
 
-- سایکل‌های ناتمام،
-- ۱/۲های باز،
-- نودهای لمس‌نشده،
-- فلگ‌های نیمه‌کاره،
-- هوک‌های نزدیک مرگ،
-- رالی‌هایی که مقصد ساختاری دارند.
+The current visual contract for M0007 is:
 
-این زبان کمک می‌کند چیزی را که در چشم دستی دیده می‌شود، تبدیل کنیم به قرارداد قابل کدنویسی.
+```text
+Start -> Leg1 = straight line
+Leg1 -> correction / waist -> Leg2 = curved body
+F1 label = shown
+internal 1 and 2 = numeric labels only
+no visual lines from Leg2 to 1/2
+```
 
----
+The calculation contract remains richer than the visual contract:
 
-## 16. خلاصه‌ی لغتنامه
+```text
+true Start is stored
+Leg2 is formed
+internal 1 and 2 are formed after Leg2
+internal 1/2 must not break the waist
+final rebreak of Leg2 confirms the F1
+pending and confirmed states have different colors
+```
 
-| Term | معنی |
-|---|---|
-| Node | سقف/کف معتبر با L-rule |
-| Cycle | زندگی یک نود بعد از ساخته شدن |
-| Hook | برگشت عمیق سایکل نزدیک origin و چرخش |
-| Rally | حرکت شارپ یک‌طرفه بعد از حل شدن هوک/فلگ |
-| Flag | فریب: امید، هانت نود، trap، حرکت اصلی |
-| 123 Flag | شمارش داخلی ۱/۲/۳ قبل از فلگ/رالی |
-| Open 1 | شمارش یک‌تایی ناتمام |
-| Open 2 | شمارش دوتایی ناتمام که بازار معمولاً می‌خواهد با ۳ کامل کند |
-| Fractal Nesting | تو در تو بودن همین ساختارها در تایم‌فریم‌های مختلف |
+This separation is important: the chart should remain readable, while the detector still keeps all structural logic.
 
 ---
 
-## 17. سوال‌های تحقیقاتی بعدی
+## 12. Future modules
 
-قبل از کدنویسی نهایی باید این‌ها را قفل کنیم:
+This glossary can later become the base for separate modules:
 
-1. هوک دقیقاً با ۹۰ درصد تعریف شود یا input باشد؟
-2. فلگ باید حتماً node hunt داشته باشد یا zone sweep کافی است؟
-3. ۱۲۳ با same-side nodes شمرده شود یا alternating nodes؟
-4. Open 1/2 فقط وقتی مقصد هستند که با تایم‌فریم بالاتر align باشند؟
-5. رالی باید با speed/range/body کیفیت‌سنجی شود یا فقط displacement کافی است؟
-6. وقتی hunt رخ می‌دهد، چه چیزی تعیین می‌کند hunt مرگ است یا flag fuel؟
-7. آیا هر rally باید open count target داشته باشد یا بعضی rallyها صرفاً regime-expansion هستند؟
+```text
+NodeCycleTracker
+HookDetector
+FlagDetector
+Open12Tracker
+RallyDetector
+FractalNestMapper
+StructureLanguageRenderer
+```
 
-این README نسخه‌ی اول زبان مشترک است. مرحله‌ی بعد، طراحی ماژول‌های الگوریتمی برای همین واژه‌هاست.
+Each module should start with a README-level contract before code is written.
+
+---
+
+## 13. Summary
+
+This vocabulary is intended to turn manual market reading into code without destroying the original structural intuition.
+
+The language is:
+
+```text
+Node -> Cycle -> Hook / Flag -> Open 1/2 -> Rally -> Fractal nesting
+```
+
+The engineering goal is to make every term testable, auditable, and eventually executable.

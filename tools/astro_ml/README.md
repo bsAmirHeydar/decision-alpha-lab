@@ -1,164 +1,104 @@
 # Astro ML Tools
 
-راهنمای کامل استفاده در این فایل است:
+This directory contains the operational tooling for EXP0016, the Astro Meta Learner and Antifragile Astro Learning protocol in Decision Alpha Lab.
+
+The purpose of these tools is not to hard-code astrological trading rules. The purpose is to turn mechanical astro features into causal learning datasets, attach them to real market outcomes, train skeptical models, test them chronologically, store reusable memory, and extract principles that survive out-of-sample pressure.
+
+The full experiment manual is here:
 
 ```text
 lab/03_experiments/EXP0016_astro_meta_learner/README.md
 ```
 
-ساده‌ترین دستور عملیاتی:
-
-```powershell
-.\tools\astro_ml\run_astro_ml_protocol_common.ps1 `
-  -AstroCsvName "astro_NAS100_M1_20260622_to_now_nasdaq100_natal_mql.csv" `
-  -PriceCsvName "astro_ml_prices_NAS100_M1_20260622_to_now.csv" `
-  -Asset NAS100 `
-  -Timeframe M1 `
-  -Preset sanity `
-  -OpenAfter
-```
-
----
-
-# Human-Learning One-Command Protocol
-
-Use this when you want the system to do the whole research loop itself:
-
-```powershell
-.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
-  -Asset NAS100 `
-  -Symbol NAS100 `
-  -Timeframe M1 `
-  -From "2026-06-22 00:00" `
-  -To "2026-06-27 23:59" `
-  -Preset sanity `
-  -Horizons "30,60,120" `
-  -OpenAfter
-```
-
-This does:
-
-1. Fetch MT5 candles with `fetch_mt5_rates.py`.
-2. Resolve/build astro features with `resolve_astro_feature_store.py`.
-3. Build causal dataset with future outcomes.
-4. Run the professional ML protocol.
-5. Build skeptical cognitive memory with `build_cognitive_astro_memory.py`.
-
-For multi-year research use `-Preset professional -RunWalkForward` and higher cognitive support thresholds.
-
-
-## Self-Healing Data Protocol
-
-From this version onward, the human-learning runner is data-self-healing. You do **not** need to manually prepare Excel/CSV price files before running it.
-
-You only provide:
-
-```powershell
--Asset NAS100
--Symbol NAS100
--Timeframe M1
--From "2026-06-22 00:00"
--To "2026-06-27 23:59"
-```
-
-The runner then does the following in order:
-
-1. Checks whether a usable price CSV already exists in `Common\Files` or `Common\Files\astro_ml\prices\<SYMBOL>\<TF>`.
-2. If price data is missing or unusable, it fetches candles directly from the local MetaTrader 5 terminal through the Python `MetaTrader5` package.
-3. Checks whether a usable astro feature CSV already exists in `Common\Files`, `astro_archive`, or `astro/features`.
-4. If astro data is missing or does not cover the requested range, it calls the project astro feature builder and creates a deterministic astro CSV using the asset natal defaults.
-5. Builds the causal ML dataset.
-6. Audits the dataset.
-7. Trains the configured models.
-8. Builds skeptical cognitive memory and rejects weak/unstable patterns.
-
-### One-command NAS100 example
-
-```powershell
-cd "C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\4769098028DB821E4654DC6D5C533078\MQL5\Shared Projects\decision-alpha-lab"
-
-.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
-  -Asset NAS100 `
-  -Symbol NAS100 `
-  -Timeframe M1 `
-  -From "2026-06-22 00:00" `
-  -To "2026-06-27 23:59" `
-  -Preset sanity `
-  -Horizons "30,60,120" `
-  -OpenAfter
-```
-
-### Force refresh everything
-
-Use this when you want to ignore old files and rebuild the whole input layer:
-
-```powershell
-.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
-  -Asset NAS100 `
-  -Symbol NAS100 `
-  -Timeframe M1 `
-  -From "2026-06-22 00:00" `
-  -To "2026-06-27 23:59" `
-  -Preset sanity `
-  -ForceFetchPrice `
-  -ForceBuildAstro `
-  -OpenAfter
-```
-
-### Custom natal override
-
-If the default natal anchor is not desired, pass natal values directly:
-
-```powershell
-.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
-  -Asset NAS100 `
-  -Symbol NAS100 `
-  -Timeframe M1 `
-  -From "2026-06-22 00:00" `
-  -To "2026-06-27 23:59" `
-  -NatalLabel "nasdaq100_index_1985_ny_open" `
-  -NatalLocalDatetime "1985-01-31 09:30:00" `
-  -NatalUtcOffsetHours "-5" `
-  -NatalLat "40.7128" `
-  -NatalLon "-74.0060" `
-  -ForceBuildAstro `
-  -OpenAfter
-```
-
-### Output proof
-
-Every run prints and stores:
-
-```text
-RESOLVED_PRICE_CSV=...
-RESOLVED_ASTRO_CSV=...
-HUMAN_LEARNING_PROTOCOL_DIR=...
-```
-
-The manifest also records whether data came from archive, MT5 fetch, or deterministic astro build.
-
-
-## Antifragile Learning Layer
-
-The Human Learning V2 protocol now includes an antifragile layer by default. This layer does not try to add more and more fragile conditions. It compresses mechanical astro columns into broad concept families, tests simple principles first, compares them with chronological out-of-sample evidence, and stores only stable principles as reusable knowledge.
-
-Main doctrine file:
+The antifragile learning doctrine is here:
 
 ```text
 lab/03_experiments/EXP0016_astro_meta_learner/ANTIFRAGILE_LEARNING_DOCTRINE.md
 ```
 
-Standalone command:
+---
 
-```powershell
-.\tools\astro_ml\build_antifragile_astro_learning_common.ps1 `
-  -DatasetCsv "astro_ml\reports\NAS100\M1\astro_ml_dataset_NAS100_M1_20260622_to_now.csv" `
-  -Asset NAS100 `
-  -Timeframe M1 `
-  -OpenAfter
+## 1. What this toolkit does
+
+The toolkit automates this pipeline:
+
+```text
+Symbol + timeframe + date range
+        |
+        v
+Self-healing data resolver
+        |
+        +-- price candles from local MetaTrader 5 if missing
+        +-- astro feature CSV from archive or deterministic builder if missing
+        |
+        v
+Causal dataset builder
+        |
+        +-- future returns
+        +-- MFE / MAE
+        +-- clean path labels
+        +-- spike labels
+        +-- bull-trap and bear-trap labels
+        |
+        v
+Dataset audit
+        |
+        +-- missing values
+        +-- time gaps
+        +-- label distributions
+        +-- leakage-name checks
+        +-- constant columns
+        |
+        v
+Model training and evaluation
+        |
+        +-- chronological train/test
+        +-- walk-forward evaluation
+        +-- baseline comparison
+        +-- feature importance
+        |
+        v
+Human-learning memory
+        |
+        +-- case memory
+        +-- concept memory
+        +-- skeptical rule memory
+        |
+        v
+Antifragile learning layer
+        |
+        +-- broad concept abstraction
+        +-- simple principles first
+        +-- complexity penalty
+        +-- optional neural challenger
+        +-- accepted and rejected principles
 ```
 
-Human-learning protocol command with antifragile learning enabled by default:
+---
+
+## 2. Installation
+
+Run once from the project root:
+
+```powershell
+cd "C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\4769098028DB821E4654DC6D5C533078\MQL5\Shared Projects\decision-alpha-lab"
+
+python -m pip install -r .\tools\astro_ml\requirements.txt
+```
+
+If your environment does not install optional packages automatically, install the common stack manually:
+
+```powershell
+python -m pip install pandas numpy scikit-learn joblib openpyxl MetaTrader5
+```
+
+`MetaTrader5` is only required for direct candle fetching from the local MT5 terminal. If you already have price CSVs, the rest of the pipeline can run without direct MT5 fetching.
+
+---
+
+## 3. Recommended one-command workflow
+
+Use the human-learning protocol. It is self-healing: it checks whether the required price and astro files already exist, and if they do not, it attempts to create them.
 
 ```powershell
 .\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
@@ -167,13 +107,51 @@ Human-learning protocol command with antifragile learning enabled by default:
   -Timeframe M1 `
   -From "2026-06-22 00:00" `
   -To "2026-06-27 23:59" `
-  -Preset professional `
+  -Preset sanity `
   -Horizons "30,60,120" `
-  -RunWalkForward `
   -OpenAfter
 ```
 
-Optional neural challenger:
+This command does the following:
+
+1. Looks for an existing price CSV.
+2. If no valid price CSV is found, fetches candles from the local MT5 terminal.
+3. Looks for an existing astro feature CSV.
+4. If no valid astro CSV is found, builds one using the project astro feature builder and the configured natal defaults.
+5. Builds a causal ML dataset.
+6. Runs dataset audit.
+7. Trains the configured models.
+8. Builds cognitive memory.
+9. Builds the antifragile learning layer.
+10. Writes reports, manifests, and reusable memory files under `Common\Files\astro_ml`.
+
+---
+
+## 4. Force a full rebuild
+
+Use this when you want to ignore cached files and rebuild everything from scratch:
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2026-06-22 00:00" `
+  -To "2026-06-27 23:59" `
+  -Preset sanity `
+  -Horizons "30,60,120" `
+  -ForceFetchPrice `
+  -ForceBuildAstro `
+  -OpenAfter
+```
+
+Use `-ForceFetchPrice` when MT5 has better candles than the existing archive. Use `-ForceBuildAstro` when you changed natal assumptions, astro builder settings, or the feature schema.
+
+---
+
+## 5. Professional multi-year protocol
+
+Use this for serious research, not for a small sanity check:
 
 ```powershell
 .\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
@@ -184,22 +162,130 @@ Optional neural challenger:
   -To "2026-06-27 23:59" `
   -Preset professional `
   -Horizons "30,60,120" `
+  -RunWalkForward `
+  -TrainDays 120 `
+  -TestDays 20 `
+  -StepDays 20 `
+  -EmbargoBars 120 `
+  -OpenAfter
+```
+
+The walk-forward test is the most important part. It forces the learner to make predictions on later data that was not part of the training window.
+
+---
+
+## 6. Neural challenger mode
+
+The neural model is intentionally not treated as an oracle. It is a challenger. It must beat simpler models out-of-sample after complexity penalties. If it only looks good in training, it is rejected.
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2022-01-01 00:00" `
+  -To "2026-06-27 23:59" `
+  -Preset professional `
+  -Horizons "30,60,120" `
+  -RunWalkForward `
   -EnableNeuralChallenger `
   -NeuralMinRows 8000 `
   -OpenAfter
 ```
 
-The neural model is only a challenger. It is not accepted as knowledge unless it survives the same out-of-sample and gap controls as the simpler models.
+The default philosophy remains principle-first and reductionist: a simple stable rule is preferred over a complex fragile model.
 
-Antifragile outputs:
+---
+
+## 7. Main tool files
+
+| File | Purpose |
+|---|---|
+| `fetch_mt5_rates.py` | Fetches OHLC candles from the local MetaTrader 5 terminal. |
+| `resolve_astro_feature_store.py` | Finds an existing astro feature CSV or builds one through the project astro builder. |
+| `build_astro_ml_dataset.py` | Joins astro features with price outcomes and creates causal labels. |
+| `astro_ml_audit_dataset.py` | Audits the generated dataset before training. |
+| `train_astro_meta_learner.py` | Trains interpretable supervised models with chronological splits. |
+| `evaluate_walk_forward.py` | Runs walk-forward validation with embargo support. |
+| `explain_astro_model.py` | Produces feature importance and rule-level explanations. |
+| `build_cognitive_astro_memory.py` | Creates case memory, concept memory, and skeptical rules. |
+| `build_antifragile_astro_learning.py` | Compresses features into broad concepts and tests stable principles. |
+| `run_astro_human_learning_protocol.py` | One-command orchestrator for self-healing data, training, memory, and antifragile learning. |
+
+Every `.py` script has a matching `_common.ps1` wrapper for the Windows/MetaTrader workflow.
+
+---
+
+## 8. Output directories
+
+All operational outputs are written under MetaTrader Common Files:
 
 ```text
-Common\Files\astro_ml\antifragile_memory\<ASSET>\<TIMEFRAME>\<RUN_ID>\
-  ANTIFRAGILE_LEARNING_REPORT.md
-  antifragile_learning_report.xlsx
-  antifragile_mind.json
-  antifragile_model_gate.csv
-  antifragile_principles.csv
-  stable_concepts.csv
-  feature_to_concept_map.csv
+C:\Users\ABN\AppData\Roaming\MetaQuotes\Terminal\Common\Files\astro_ml\
 ```
+
+Important subdirectories:
+
+```text
+astro_ml\prices\<SYMBOL>\<TIMEFRAME>\
+astro_ml\reports\<ASSET>\<TIMEFRAME>\
+astro_ml\memory\<ASSET>\<TIMEFRAME>\
+astro_ml\cognitive_memory\<ASSET>\<TIMEFRAME>\
+astro_ml\antifragile_memory\<ASSET>\<TIMEFRAME>\
+astro_ml\human_learning_protocols\<ASSET>\<TIMEFRAME>\
+```
+
+The most important reports are:
+
+```text
+HUMAN_LEARNING_REPORT.md
+COGNITIVE_MEMORY_REPORT.md
+ANTIFRAGILE_LEARNING_REPORT.md
+protocol_report.xlsx
+antifragile_learning_report.xlsx
+antifragile_mind.json
+```
+
+---
+
+## 9. How to read the results
+
+Do not ask only whether the model predicts `UP` or `DOWN`. The system is multi-outcome by design.
+
+A useful astro signal may appear as:
+
+- direction edge,
+- clean long path,
+- clean short path,
+- spike risk,
+- bull-trap risk,
+- bear-trap risk,
+- no-trade/no-edge regime.
+
+The most useful result is not always a trade direction. Sometimes the best learned knowledge is:
+
+```text
+This astro condition does not predict direction, but it reliably warns that long continuation is fragile.
+```
+
+or:
+
+```text
+This condition does not create clean trend, but it raises spike/hunt probability.
+```
+
+---
+
+## 10. Acceptance standard
+
+A learned pattern is not accepted because it is beautiful in training. It is accepted only when it survives:
+
+1. enough support,
+2. chronological out-of-sample test,
+3. baseline comparison,
+4. train/test stability,
+5. complexity penalty,
+6. concept-level interpretability.
+
+Rejected patterns are valuable. They are stored so that the system remembers what not to believe.
+
