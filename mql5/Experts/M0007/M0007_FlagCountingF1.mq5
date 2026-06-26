@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.08"
+#property version   "1.09"
 #property description "M0007 | Correct 4-node F1 flag counter with real origin and clean schematic overlay"
 
 #include <M0007/DAL_M0007F1Detector.mqh>
@@ -24,6 +24,7 @@ input color             InpBullishConfirmedColor = clrLime;
 input color             InpBearishConfirmedColor = clrTomato;
 input bool              InpRedrawOnNewBar    = true;
 input bool              InpCleanObjectsOnInit = true;
+input bool              InpCleanBrokenDefaultTextLabels = true;
 input bool              InpDeleteOnDeinit    = false;
 input string            InpObjectPrefix      = "DAL_M0007_F1_";
 
@@ -153,6 +154,10 @@ int OnInit()
    g_last_bar_time = iTime(_Symbol, _Period, 0);
    if(InpCleanObjectsOnInit)
       M0007_DeleteObjectsByPrefix(InpObjectPrefix);
+
+   if(InpCleanBrokenDefaultTextLabels)
+      M0007_DeleteBrokenDefaultTextObjects();
+
    M0007_RunF1Detector();
    return INIT_SUCCEEDED;
 }

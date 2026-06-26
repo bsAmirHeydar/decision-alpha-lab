@@ -197,3 +197,10 @@ invalidated/deleted -> only that event's objects are removed
 ```
 
 `InpCleanObjectsOnInit` is enabled by default only to clear old legacy index-based objects when the EA is attached.  After that, redraws are event-key based and do not wipe previous valid drawings.
+
+
+## Renderer hotfix: no default `Text` labels
+
+The renderer now writes chart text through an update-in-place helper.  It verifies that `OBJPROP_TEXT` was committed successfully; if not, it deletes the half-created object instead of leaving the terminal default `Text` label on chart.
+
+`InpCleanBrokenDefaultTextLabels` is enabled by default to remove legacy default `Text` objects left by earlier broken builds.  Normal redraws remain incremental and event-key based.

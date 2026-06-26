@@ -27,6 +27,23 @@ void M0007_SetCommonObjectProps(const string name)
    ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
 }
 
+void M0007_DeleteBrokenDefaultTextObjects()
+{
+   // Cleans legacy objects accidentally left by older renderer builds where OBJ_TEXT
+   // was created but OBJPROP_TEXT was not committed, leaving the platform default "Text" on chart.
+   for(int i=ObjectsTotal(0, -1, -1)-1; i>=0; i--)
+   {
+      string name = ObjectName(0, i, -1, -1);
+      long type = ObjectGetInteger(0, name, OBJPROP_TYPE);
+      if(type != OBJ_TEXT)
+         continue;
+
+      string displayed = ObjectGetString(0, name, OBJPROP_TEXT);
+      if(displayed == "Text")
+         ObjectDelete(0, name);
+   }
+}
+
 bool M0007_DrawTrendRaw(const string name,
                         const datetime t1,
                         const double p1,
@@ -36,12 +53,30 @@ bool M0007_DrawTrendRaw(const string name,
                         const int width,
                         const ENUM_LINE_STYLE style)
 {
-   ObjectDelete(0, name);
-   ResetLastError();
-   if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2))
+   bool need_create = (ObjectFind(0, name) < 0);
+   if(!need_create)
    {
-      Print("M0007 renderer: ObjectCreate failed for ", name, " err=", GetLastError());
-      return false;
+      long type = ObjectGetInteger(0, name, OBJPROP_TYPE);
+      if(type != OBJ_TREND)
+      {
+         ObjectDelete(0, name);
+         need_create = true;
+      }
+   }
+
+   ResetLastError();
+   if(need_create)
+   {
+      if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2))
+      {
+         Print("M0007 renderer: ObjectCreate failed for ", name, " err=", GetLastError());
+         return false;
+      }
+   }
+   else
+   {
+      ObjectMove(0, name, 0, t1, p1);
+      ObjectMove(0, name, 1, t2, p2);
    }
 
    ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
@@ -57,26 +92,63 @@ bool M0007_DrawTrendRaw(const string name,
 bool M0007_DrawTextRaw(const string name,
                        const datetime t,
                        const double price,
-                       const string text,
+                       const string value,
                        const color clr,
                        const int font_size,
                        const ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER)
 {
-   ObjectDelete(0, name);
-   ResetLastError();
-   if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, price))
+   // Use an update-in-place text writer.  Older builds deleted/created text objects
+   // repeatedly and some terminals could leave a default "Text" object behind.
+   // This function never leaves a half-created text object on chart.
+   if(value == "")
    {
-      Print("M0007 renderer: text ObjectCreate failed for ", name, " err=", GetLastError());
+      ObjectDelete(0, name);
+      return true;
+   }
+
+   bool need_create = (ObjectFind(0, name) < 0);
+   if(!need_create)
+   {
+      long type = ObjectGetInteger(0, name, OBJPROP_TYPE);
+      if(type != OBJ_TEXT)
+      {
+         ObjectDelete(0, name);
+         need_create = true;
+      }
+   }
+
+   ResetLastError();
+   if(need_create)
+   {
+      if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, price))
+      {
+         Print("M0007 renderer: text ObjectCreate failed for ", name, " err=", GetLastError());
+         return false;
+      }
+   }
+   else
+   {
+      ObjectMove(0, name, 0, t, price);
+   }
+
+   bool ok = true;
+   ok = ObjectSetString(0, name, OBJPROP_TEXT, value) && ok;
+   ok = ObjectSetString(0, name, OBJPROP_FONT, "Arial Bold") && ok;
+   ok = ObjectSetInteger(0, name, OBJPROP_COLOR, clr) && ok;
+   ok = ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size) && ok;
+   ok = ObjectSetInteger(0, name, OBJPROP_ANCHOR, anchor) && ok;
+   ok = ObjectSetInteger(0, name, OBJPROP_BACK, false) && ok;
+   M0007_SetCommonObjectProps(name);
+
+   string check = ObjectGetString(0, name, OBJPROP_TEXT);
+   if(!ok || check != value)
+   {
+      Print("M0007 renderer: failed to commit text for ", name,
+            " wanted=", value, " got=", check, " err=", GetLastError());
+      ObjectDelete(0, name);
       return false;
    }
 
-   ObjectSetString(0, name, OBJPROP_TEXT, text);
-   ObjectSetString(0, name, OBJPROP_FONT, "Arial Bold");
-   ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
-   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
-   ObjectSetInteger(0, name, OBJPROP_ANCHOR, anchor);
-   ObjectSetInteger(0, name, OBJPROP_BACK, false);
-   M0007_SetCommonObjectProps(name);
    return true;
 }
 
