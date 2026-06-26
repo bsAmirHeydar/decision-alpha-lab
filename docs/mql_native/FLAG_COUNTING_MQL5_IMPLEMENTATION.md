@@ -52,3 +52,23 @@ F-level label
 ```
 
 No post-Leg2 lines are drawn.
+
+## 2026-06 chain-engine repair
+
+The detector is no longer a loose sliding-window pattern scanner. It is now a greedy forward chain counter.
+
+Contract:
+
+- F1 is the only root level.
+- After an accepted/confirmed F1, the continuation of that same movement is F2, not another overlapping F1.
+- After an accepted/confirmed F2, the continuation is F3.
+- F2 origin is parent F1 internal 2.
+- F3 origin is parent F2 internal 2.
+- Confirmation for every F-level is a rebreak of that F's own Leg2 before invalidation.
+- F1 invalidation boundary is its waist.
+- F2/F3 invalidation boundary is their own origin/start-of-leg.
+- F1 internal 1/2 is searched before the confirming Leg2 rebreak.
+- F2/F3 internal 1/2 may appear after a Leg2 extension/rebreak, until origin invalidation.
+- The renderer receives only accepted chain events, not all possible overlapping F candidates.
+
+This is a structural correction: market movement is partitioned into unused/ND regions and accepted F-counting chains instead of drawing every local candidate.

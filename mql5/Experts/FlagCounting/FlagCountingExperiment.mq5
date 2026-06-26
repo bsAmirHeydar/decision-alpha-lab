@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.10"
-#property description "Unified modular flag-counting experiment: F1/F2/F3 chained counting in one reusable module."
+#property version   "1.20"
+#property description "Unified flag-counting chain engine: accepted F1 -> F2 -> F3 movement partition."
 
 #include "../../Include/FlagCounting/DAL_FlagCountingDetector.mqh"
 #include "../../Include/FlagCounting/DAL_FlagCountingRenderer.mqh"
@@ -16,9 +16,10 @@ input bool InpScanBullish = true;
 input bool InpScanBearish = true;
 
 // Chained counting contract:
+// The detector now returns accepted forward chains only, not every overlapping candidate.
 // F1 is the root. After a confirmed F1, the next same-direction child is F2.
 // After a confirmed F2, the next same-direction child is F3.
-// A body promoted to a higher F-level is not also drawn as its lower/root label.
+// Kept for backward input compatibility; the chain engine already suppresses overlaps.
 input bool InpSuppressPromotedLowerLevelBodies = true;
 input bool InpRequireParentConfirmedForNextF = true;
 
@@ -70,6 +71,8 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
 {
    Print("FC_EVENT#", ordinal,
          " level=", FC_LevelToString(e.level),
+         " chain=", e.chain_id,
+         " step=", e.chain_step,
          " parentLevel=", FC_LevelToString(e.parent_level),
          " dir=", FC_DirectionToString(e.direction),
          " status=", FC_StatusToString(e.status),

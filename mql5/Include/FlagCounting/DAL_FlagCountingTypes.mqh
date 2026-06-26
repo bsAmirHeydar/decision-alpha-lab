@@ -57,6 +57,9 @@ struct FC_FlagEvent
    int parent_origin_index;
    int parent_level;
 
+   int chain_id;
+   int chain_step;
+
    FC_Node origin;
    FC_Node leg1;
    FC_Node waist;
@@ -112,6 +115,9 @@ void FC_InitFlagEvent(FC_FlagEvent &e)
    e.parent_event_index = -1;
    e.parent_origin_index = -1;
    e.parent_level = FC_LEVEL_NONE;
+
+   e.chain_id = -1;
+   e.chain_step = 0;
 
    FC_InitNode(e.origin);
    FC_InitNode(e.leg1);
