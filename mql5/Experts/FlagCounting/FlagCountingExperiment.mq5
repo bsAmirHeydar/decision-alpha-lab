@@ -17,6 +17,8 @@ input bool InpScanBearish = true;
 input bool InpRequireF1Internal12 = true;
 input bool InpRequireF1Leg2RebreakForConfirm = true;
 input bool InpRequireParentF1ConfirmedForF2 = true;
+input bool InpRequireF2AtLeastParentSize = true;
+input double InpF2MinParentSizeRatio = 1.0;
 input bool InpAllowF2WaistBreakBranch = true;
 input bool InpRequireF2Branch12 = true;
 input bool InpRequireF2Leg2RebreakForConfirm = true;
@@ -59,7 +61,10 @@ void FC_PrintEvent(const FC_FlagEvent &e, const int ordinal)
          " leg2=", TimeToString(e.leg2.time), "@", DoubleToString(e.leg2.price, _Digits),
          " n1=", (e.has_n1 ? TimeToString(e.n1.time) : "NA"), "@", (e.has_n1 ? DoubleToString(e.n1.price, _Digits) : "NA"),
          " n2=", (e.has_n2 ? TimeToString(e.n2.time) : "NA"), "@", (e.has_n2 ? DoubleToString(e.n2.price, _Digits) : "NA"),
-         " confirm=", (e.confirm_index >= 0 ? TimeToString(e.confirm_time) : "NA"), "@", (e.confirm_index >= 0 ? DoubleToString(e.confirm_price, _Digits) : "NA"));
+         " confirm=", (e.confirm_index >= 0 ? TimeToString(e.confirm_time) : "NA"), "@", (e.confirm_index >= 0 ? DoubleToString(e.confirm_price, _Digits) : "NA"),
+         " size=", DoubleToString(e.body_size, _Digits),
+         " parentSize=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_body_size, _Digits) : "NA"),
+         " sizeRatio=", (e.parent_body_size > 0.0 ? DoubleToString(e.parent_size_ratio, 3) : "NA"));
 }
 
 void FC_PrintSummary(const FC_FlagEvent &events[], const int nodes_count, const int drawn)
@@ -124,6 +129,8 @@ bool FC_RunExperiment()
                                      InpRequireF1Internal12,
                                      InpRequireF1Leg2RebreakForConfirm,
                                      InpRequireParentF1ConfirmedForF2,
+                                     InpRequireF2AtLeastParentSize,
+                                     InpF2MinParentSizeRatio,
                                      InpAllowF2WaistBreakBranch,
                                      InpRequireF2Branch12,
                                      InpRequireF2Leg2RebreakForConfirm,

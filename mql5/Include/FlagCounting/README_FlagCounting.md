@@ -131,3 +131,25 @@ FC_Node nodes[];
 FC_FlagEvent events[];
 int n = FC_DetectFlags(rates, total, L, true, true, true, true, true, true, true, true, true, true, eps, nodes, events);
 ```
+
+## F2 symmetry / size filter
+
+F2 now has an explicit parent-size symmetry filter. The body size of a flag is measured as the vertical price distance from its origin/start-of-leg to its Leg2 final point:
+
+```text
+flag_size = abs(Leg2.price - Origin.price)
+```
+
+For every F2 candidate:
+
+```text
+F2_size >= Parent_F1_size * InpF2MinParentSizeRatio
+```
+
+The default ratio is `1.0`, so F2 must be at least as large as its parent F1. This keeps F2 as a real continuation count, not a small noisy nested flag. The filter is controlled by:
+
+```text
+InpRequireF2AtLeastParentSize = true
+InpF2MinParentSizeRatio = 1.0
+```
+

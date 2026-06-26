@@ -72,6 +72,12 @@ struct FC_FlagEvent
    int      invalid_index;
    datetime invalid_time;
    double   invalid_price;
+
+   // Body-size audit fields. Size is measured vertically from flag origin to Leg2.
+   // For F2 this is compared against the parent F1 body size by the detector.
+   double   body_size;
+   double   parent_body_size;
+   double   parent_size_ratio;
 };
 
 void FC_InitNode(FC_Node &n)
@@ -119,6 +125,10 @@ void FC_InitFlagEvent(FC_FlagEvent &e)
    e.invalid_index = -1;
    e.invalid_time = 0;
    e.invalid_price = 0.0;
+
+   e.body_size = 0.0;
+   e.parent_body_size = 0.0;
+   e.parent_size_ratio = 0.0;
 }
 
 string FC_DirectionToString(const int direction)
@@ -157,6 +167,18 @@ bool FC_IsBullish(const FC_FlagEvent &e)
 bool FC_IsBearish(const FC_FlagEvent &e)
 {
    return e.direction == FC_DIR_BEARISH;
+}
+
+
+double FC_BodySizeFromNodes(const FC_Node &origin, const FC_Node &leg2)
+{
+   if(origin.index < 0 || leg2.index < 0) return 0.0;
+   return MathAbs(leg2.price - origin.price);
+}
+
+double FC_FlagBodySize(const FC_FlagEvent &e)
+{
+   return FC_BodySizeFromNodes(e.origin, e.leg2);
 }
 
 #endif

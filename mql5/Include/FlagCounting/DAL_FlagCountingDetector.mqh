@@ -245,6 +245,7 @@ bool FC_BuildF1FromNodeWindow(const FC_Node &nodes[],
    event.leg1 = leg1;
    event.waist = waist;
    event.leg2 = leg2;
+   event.body_size = FC_FlagBodySize(event);
 
    FC_ApplyBranchAndConfirmation(nodes,
                                   start_pos+3,
@@ -260,6 +261,8 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
                             const FC_FlagEvent &parent,
                             const int parent_array_index,
                             const bool require_parent_confirmed,
+                            const bool require_f2_at_least_parent_size,
+                            const double f2_min_parent_size_ratio,
                             const bool allow_waist_break_branch,
                             const bool require_branch12,
                             const bool require_leg2_rebreak,
@@ -287,6 +290,23 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
       core_ok = FC_IsBearishCore(origin, leg1, waist, leg2, eps);
    if(!core_ok) return false;
 
+   double parent_body_size = parent.body_size;
+   if(parent_body_size <= 0.0)
+      parent_body_size = FC_FlagBodySize(parent);
+
+   double f2_body_size = FC_BodySizeFromNodes(origin, leg2);
+   double min_required_size = parent_body_size * MathMax(0.0, f2_min_parent_size_ratio);
+
+   // F2 symmetry/scale contract:
+   // F2 is a continuation count after F1, so its body must not be smaller than
+   // the parent F1 body when the filter is enabled. Both are measured from
+   // origin/start-of-leg to Leg2 final point, using vertical price distance.
+   if(require_f2_at_least_parent_size && parent_body_size > eps)
+   {
+      if(f2_body_size + eps < min_required_size)
+         return false;
+   }
+
    event.level = FC_LEVEL_F2;
    event.direction = parent.direction;
    event.status = FC_STATUS_OPEN;
@@ -296,6 +316,9 @@ bool FC_BuildF2FromParentF1(const FC_Node &nodes[],
    event.leg1 = leg1;
    event.waist = waist;
    event.leg2 = leg2;
+   event.body_size = f2_body_size;
+   event.parent_body_size = parent_body_size;
+   event.parent_size_ratio = (parent_body_size > 0.0 ? f2_body_size / parent_body_size : 0.0);
 
    FC_ApplyBranchAndConfirmation(nodes,
                                   start_pos+3,
@@ -315,6 +338,8 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                             const bool require_f1_branch12,
                             const bool require_f1_leg2_rebreak,
                             const bool require_parent_f1_confirmed_for_f2,
+                            const bool require_f2_at_least_parent_size,
+                            const double f2_min_parent_size_ratio,
                             const bool allow_f2_waist_break_branch,
                             const bool require_f2_branch12,
                             const bool require_f2_leg2_rebreak,
@@ -358,6 +383,8 @@ int FC_DetectFlagsFromNodes(const FC_Node &nodes[],
                                    f1_events[i],
                                    i,
                                    require_parent_f1_confirmed_for_f2,
+                                   require_f2_at_least_parent_size,
+                                   f2_min_parent_size_ratio,
                                    allow_f2_waist_break_branch,
                                    require_f2_branch12,
                                    require_f2_leg2_rebreak,
@@ -382,6 +409,8 @@ int FC_DetectFlags(const MqlRates &rates[],
                    const bool require_f1_branch12,
                    const bool require_f1_leg2_rebreak,
                    const bool require_parent_f1_confirmed_for_f2,
+                   const bool require_f2_at_least_parent_size,
+                   const double f2_min_parent_size_ratio,
                    const bool allow_f2_waist_break_branch,
                    const bool require_f2_branch12,
                    const bool require_f2_leg2_rebreak,
@@ -398,6 +427,8 @@ int FC_DetectFlags(const MqlRates &rates[],
                                   require_f1_branch12,
                                   require_f1_leg2_rebreak,
                                   require_parent_f1_confirmed_for_f2,
+                                  require_f2_at_least_parent_size,
+                                  f2_min_parent_size_ratio,
                                   allow_f2_waist_break_branch,
                                   require_f2_branch12,
                                   require_f2_leg2_rebreak,
