@@ -123,6 +123,22 @@ FAMILY_DEFAULTS = {
         "minute_window_minimum": 62.0,
         "angular_activation_minimum": 68.0,
     },
+    "A0007": {
+        "family_name": "A0007_station_transition",
+        "arm_threshold": 59.0,
+        "enter_threshold": 67.0,
+        "reduce_threshold": 53.0,
+        "exit_threshold": 59.0,
+        "natal_activation_minimum": 40.0,
+        "friction_minimum": 60.0,
+        "benefic_support_minimum": 62.0,
+        "malefic_pressure_minimum": 60.0,
+        "house_edge_minimum": 8.0,
+        "moon_release_minimum": 58.0,
+        "minute_window_minimum": 60.0,
+        "angular_activation_minimum": 64.0,
+        "transition_minimum": 66.0,
+    },
     "A0090": {
         "family_name": "A0090_live_shell",
         "arm_threshold": 60.0,
@@ -137,6 +153,7 @@ FAMILY_DEFAULTS = {
         "moon_release_minimum": 58.0,
         "minute_window_minimum": 62.0,
         "angular_activation_minimum": 64.0,
+        "transition_minimum": 62.0,
     },
 }
 
@@ -147,6 +164,7 @@ THRESHOLD_PROFILE_KEYS = {
     "A0004": "A0004",
     "A0005": "A0005",
     "A0006": "A0006",
+    "A0007": "A0007",
     "A0090": "A0090",
 }
 
@@ -166,6 +184,7 @@ class ThresholdProfile:
     moon_release_minimum: float
     minute_window_minimum: float
     angular_activation_minimum: float
+    transition_minimum: float
 
 
 @dataclass
@@ -888,6 +907,50 @@ def apply_family_gates(family: str, signal: PureSignal, row: dict, thresholds: T
                 gated.entry_signal = "wait"
         else:
             gated.entry_signal = "wait"
+    elif family == "A0007":
+        moon_deg = as_float(row, "moon_degree")
+        jupiter_deg = as_float(row, "jupiter_degree")
+        saturn_deg = as_float(row, "saturn_degree")
+        uranus_deg = as_float(row, "uranus_degree")
+        outer_station = avg(
+            station_risk("uranus", as_float(row, "uranus_speed_lon")),
+            station_risk("neptune", as_float(row, "neptune_speed_lon")),
+            station_risk("pluto", as_float(row, "pluto_speed_lon")),
+        )
+        ingress_cluster = avg(
+            ingress_intensity(jupiter_deg),
+            ingress_intensity(saturn_deg),
+            ingress_intensity(uranus_deg),
+            ingress_intensity(moon_deg),
+        )
+        transition_field = avg(
+            outer_station,
+            ingress_cluster,
+            gated.volatility_score,
+            100.0 - gated.macro_timing_score,
+        )
+        transition_ready = (
+            transition_field >= thresholds.transition_minimum
+            and gated.minute_window_score >= thresholds.minute_window_minimum
+            and gated.minute_exhaustion_score <= 58.0
+        )
+        long_ready = (
+            gated.direction_name == "long"
+            and gated.benefic_support_score >= gated.malefic_pressure_score + 4.0
+            and gated.house_lift_score >= gated.house_drag_score
+        )
+        short_ready = (
+            gated.direction_name == "short"
+            and gated.malefic_pressure_score >= gated.benefic_support_score + 4.0
+            and gated.house_drag_score >= gated.house_lift_score
+        )
+        if transition_ready:
+            if long_ready or short_ready:
+                pass
+            else:
+                gated.entry_signal = "wait"
+        else:
+            gated.entry_signal = "wait"
     return gated
 
 
@@ -990,6 +1053,7 @@ def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> Thre
         "moon_release_minimum": 0.0,
         "minute_window_minimum": 0.0,
         "angular_activation_minimum": 0.0,
+        "transition_minimum": 0.0,
     }
     base.update(FAMILY_DEFAULTS[family])
     if config:
@@ -1010,6 +1074,7 @@ def resolve_thresholds(family: str, config: Optional[Dict[str, object]]) -> Thre
                     "moon_release_minimum",
                     "minute_window_minimum",
                     "angular_activation_minimum",
+                    "transition_minimum",
                 ):
                     if key in extra:
                         base[key] = float(extra[key])

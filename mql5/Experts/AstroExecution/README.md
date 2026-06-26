@@ -112,6 +112,23 @@ Best use:
 - macro-to-micro compression around angles and houses
 - filtering directional doctrine into sharper entry windows
 
+### A0007 - Station Transition
+
+File:
+`A0007_AstroStationTransitionExecutor.mq5`
+
+Idea:
+
+- read station pressure and ingress clustering as a transition field
+- only allow entries when transition intensity is high enough, minute timing is still usable, and exhaustion is not already dominant
+- confirm long entries with benefic/lift dominance and short entries with malefic/drag dominance
+
+Best use:
+
+- station and ingress transition studies
+- reversal / phase-shift timing audits
+- high-change regime entry filtering
+
 ### A0090 - Live Order Shell
 
 File:
@@ -132,15 +149,16 @@ Best use:
 1. Build a deterministic CSV with `tools/astro_feature_builder/astro_feature_builder.py`.
 2. If natal logic is required, include natal inputs during CSV generation.
 3. Put the CSV where MQL5 can read it.
-4. Run `A0001`, `A0002`, `A0003`, `A0004`, `A0005`, or `A0006` first and inspect the paper journal CSV.
+4. Run `A0001`, `A0002`, `A0003`, `A0004`, `A0005`, `A0006`, or `A0007` first and inspect the paper journal CSV.
 5. Or generate the same paper journal research-side with `tools/astro_validation/astro_paper_family_runner.py`.
 6. Batch the journals and validation reports with `tools/astro_validation/astro_family_validation_suite.py`.
 7. Export multi-family entry / exit workbooks without Strategy Tester through `tools/astro_validation/astro_family_entry_exit_excel_suite.py`.
-8. Validate any single journal with `tools/astro_validation/astro_signal_validator.py`.
-9. Promote a family into `A0090` only after the paper layer is stable.
+8. Build a final consensus entry workbook through `tools/astro_validation/astro_final_entry_report.py`.
+9. Validate any single journal with `tools/astro_validation/astro_signal_validator.py`.
+10. Promote a family into `A0090` only after the paper layer is stable.
 
 ## Important note
 
-`A0001`, `A0002`, `A0003`, `A0004`, `A0005`, and `A0006` are still paper-first executors.
+`A0001`, `A0002`, `A0003`, `A0004`, `A0005`, `A0006`, and `A0007` are still paper-first executors.
 
 `A0090` includes broker routing, but it is disabled by default through `InpEnableLiveOrders=false` so the astro-only layer can still be audited before real execution is promoted.

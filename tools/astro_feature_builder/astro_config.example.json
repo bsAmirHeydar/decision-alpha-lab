@@ -102,6 +102,15 @@
       "angular_activation_minimum": 68.0,
       "minute_window_minimum": 62.0
     },
+    "A0007_station_transition": {
+      "profile": "station_transition",
+      "arm_threshold": 59.0,
+      "enter_threshold": 67.0,
+      "reduce_threshold": 53.0,
+      "exit_threshold": 59.0,
+      "transition_minimum": 66.0,
+      "minute_window_minimum": 60.0
+    },
     "A0090_live_shell": {
       "profile": "validated_live_shell",
       "arm_threshold": 60.0,

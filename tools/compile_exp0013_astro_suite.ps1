@@ -92,6 +92,7 @@ try {
         "mql5\Experts\AstroExecution\A0004_AstroSectBeneficPressureExecutor.mq5",
         "mql5\Experts\AstroExecution\A0005_AstroMoonTimingWindowExecutor.mq5",
         "mql5\Experts\AstroExecution\A0006_AstroAngularActivationExecutor.mq5",
+        "mql5\Experts\AstroExecution\A0007_AstroStationTransitionExecutor.mq5",
         "mql5\Experts\AstroExecution\A0090_AstroOrderShell.mq5"
     )
 

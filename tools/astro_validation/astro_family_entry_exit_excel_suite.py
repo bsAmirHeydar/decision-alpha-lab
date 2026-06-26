@@ -33,7 +33,7 @@ from astro_pure_entry_excel import (  # type: ignore
 )
 
 
-DEFAULT_FAMILIES = ["PURE", "A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0090"]
+DEFAULT_FAMILIES = ["PURE", "A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007", "A0090"]
 
 
 def write_xlsx(path: Path, sheets: List[tuple[str, List[str], List[dict]]]) -> None:

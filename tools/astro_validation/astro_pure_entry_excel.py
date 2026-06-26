@@ -68,6 +68,7 @@ PURE_DEFAULTS = {
     "moon_release_minimum": 0.0,
     "minute_window_minimum": 0.0,
     "angular_activation_minimum": 0.0,
+    "transition_minimum": 0.0,
 }
 
 

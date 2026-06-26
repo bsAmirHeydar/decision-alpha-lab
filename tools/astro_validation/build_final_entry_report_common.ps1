@@ -1,23 +1,23 @@
 param(
   [string]$CsvName = "astro_live_mql.csv",
-  [string]$OutFolder = "astro_suite_validation",
+  [string]$OutName = "astro_final_entry_report.xlsx",
   [string]$ConfigPath = ".\\tools\\astro_feature_builder\\astro_config.example.json",
-  [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007", "A0090")
+  [string[]]$Families = @("A0001", "A0002", "A0003", "A0004", "A0005", "A0006", "A0007", "A0090"),
+  [switch]$AlsoCsv
 )
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $Common = Join-Path $env:APPDATA "MetaQuotes\Terminal\Common\Files"
 $CsvPath = Join-Path $Common $CsvName
-$OutDir = Join-Path $Common ("astro\validation\" + $OutFolder)
+$OutPath = Join-Path $Common ("astro\\" + $OutName)
 
-New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 Set-Location $ProjectRoot
 
 $argsList = @(
-  ".\tools\astro_validation\astro_family_validation_suite.py",
+  ".\tools\astro_validation\astro_final_entry_report.py",
   "--csv", $CsvPath,
-  "--out-dir", $OutDir
+  "--out-xlsx", $OutPath
 )
 
 if($ConfigPath) {
@@ -29,5 +29,9 @@ if($Families -and $Families.Count -gt 0) {
   $argsList += $Families
 }
 
+if($AlsoCsv) {
+  $argsList += "--also-csv"
+}
+
 python @argsList
-Write-Host "Suite validation outputs written to $OutDir" -ForegroundColor Green
+Write-Host "Final entry report written to $OutPath" -ForegroundColor Green

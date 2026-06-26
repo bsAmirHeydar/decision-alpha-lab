@@ -11,7 +11,7 @@ python tools/astro_validation/astro_family_validation_suite.py ^
   --csv lab/03_experiments/EXP0013_astro_feature_store/sample.csv ^
   --out-dir lab/03_experiments/EXP0013_astro_feature_store/validation_suite ^
   --config tools/astro_feature_builder/astro_config.example.json ^
-  --families A0001 A0002 A0003 A0004 A0005 A0006 A0090
+  --families A0001 A0002 A0003 A0004 A0005 A0006 A0007 A0090
 ```
 
 Suite outputs:
@@ -49,6 +49,7 @@ Supported families:
 - `A0004` sect benefic pressure
 - `A0005` moon timing window
 - `A0006` angular activation
+- `A0007` station transition
 - `A0090` live shell doctrine profile in paper form
 
 The runner stays astro-only:
@@ -88,6 +89,35 @@ There is also a Common Files helper:
 .\tools\astro_validation\build_family_entry_exit_excel_common.ps1 `
   -CsvName "astro_live_mql.csv" `
   -OutName "astro_family_entries.xlsx" `
+  -AlsoCsv
+```
+
+## Final entry report
+
+You can also compress all family votes into one final astro-only decision workbook:
+
+```bash
+python tools/astro_validation/astro_final_entry_report.py ^
+  --csv lab/03_experiments/EXP0013_astro_feature_store/sample.csv ^
+  --out-xlsx lab/03_experiments/EXP0013_astro_feature_store/reports/astro_final_entry_report.xlsx ^
+  --config tools/astro_feature_builder/astro_config.example.json ^
+  --families A0001 A0002 A0003 A0004 A0005 A0006 A0007 A0090 ^
+  --also-csv
+```
+
+Report outputs:
+
+- `FinalSummary`
+- `FamilyWeights`
+- `BarConsensus`
+- `FinalEntryWindows`
+
+There is also a Common Files helper:
+
+```powershell
+.\tools\astro_validation\build_final_entry_report_common.ps1 `
+  -CsvName "astro_live_mql.csv" `
+  -OutName "astro_final_entry_report.xlsx" `
   -AlsoCsv
 ```
 

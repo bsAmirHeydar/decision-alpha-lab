@@ -17,6 +17,7 @@ struct DAL_AstroThresholdProfile
    double moon_release_minimum;
    double minute_window_minimum;
    double angular_activation_minimum;
+   double transition_minimum;
 };
 
 void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string family_name)
@@ -35,6 +36,7 @@ void DAL_AstroThresholdProfile_Reset(DAL_AstroThresholdProfile &p, const string 
    p.moon_release_minimum = 58.0;
    p.minute_window_minimum = 62.0;
    p.angular_activation_minimum = 64.0;
+   p.transition_minimum = 62.0;
 }
 
 void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThresholdProfile &p)
@@ -107,6 +109,18 @@ void DAL_AstroThresholdProfile_Load(const string family_name, DAL_AstroThreshold
       p.exit_threshold = 59.0;
       p.angular_activation_minimum = 68.0;
       p.minute_window_minimum = 62.0;
+      return;
+   }
+
+   if(family_name == "A0007_station_transition")
+   {
+      p.profile_name = "station_transition";
+      p.arm_threshold = 59.0;
+      p.enter_threshold = 67.0;
+      p.reduce_threshold = 53.0;
+      p.exit_threshold = 59.0;
+      p.minute_window_minimum = 60.0;
+      p.transition_minimum = 66.0;
       return;
    }
 
