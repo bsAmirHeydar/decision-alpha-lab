@@ -289,3 +289,49 @@ A learned pattern is not accepted because it is beautiful in training. It is acc
 
 Rejected patterns are valuable. They are stored so that the system remembers what not to believe.
 
+
+## Antifragile Fragility Audit
+
+The Astro ML toolkit includes a final audit layer that hardens the learner's beliefs.
+
+Run it directly:
+
+```powershell
+.\tools\astro_ml\build_antifragile_fragility_audit_common.ps1 `
+  -DatasetCsv "astro_ml\reports\NAS100\M1\astro_ml_dataset_NAS100_M1_2022_to_2026.csv" `
+  -Asset NAS100 `
+  -Timeframe M1 `
+  -OpenAfter
+```
+
+Or let the self-healing human-learning protocol run it automatically:
+
+```powershell
+.\tools\astro_ml\run_astro_human_learning_protocol_common.ps1 `
+  -Asset NAS100 `
+  -Symbol NAS100 `
+  -Timeframe M1 `
+  -From "2022-01-01 00:00" `
+  -To "2026-06-27 23:59" `
+  -Preset professional `
+  -RunWalkForward `
+  -OpenAfter
+```
+
+The audit is designed to catch model-thinking fragilities:
+
+- single-split luck;
+- condition creep;
+- fragile sample support;
+- noisy neural confidence;
+- overdependence on one concept family;
+- contradiction between multiple labels;
+- perturbation sensitivity.
+
+The most important file is:
+
+```text
+hardened_principles.csv
+```
+
+Only this file should be considered a candidate for conversion into production filters or MQL rules.

@@ -521,3 +521,77 @@ This feature family does not produce a stable edge.
 
 That is valuable. It prevents the project from building fragile rules on top of noise.
 
+
+## Final Fragility Audit and Hardening Layer
+
+The human-learning protocol now runs an additional hardening layer after the antifragile learner. This layer audits the learner's own thinking failures instead of training yet another model.
+
+It tests:
+
+- temporal fold survival of accepted principles;
+- sensitivity to small numeric perturbations;
+- sensitivity to random feature dropout;
+- dependence on a single concept family;
+- contradictions across direction/path/trap targets;
+- condition creep and rule proliferation.
+
+The output is stored under:
+
+```text
+Common\Files\astro_ml\antifragile_fragility_audits\<ASSET>\<TIMEFRAME>\<RUN_ID>\
+```
+
+Important files:
+
+```text
+FRAGILITY_AUDIT_REPORT.md
+fragility_audit_report.xlsx
+hardened_principles.csv
+fragility_flags.csv
+temporal_principle_stress.csv
+perturbation_stress.csv
+concept_dependency_stress.csv
+antifragile_decision_memory.json
+```
+
+### Operational Meaning
+
+The system now distinguishes between three levels of knowledge:
+
+| Level | Meaning | Can be used in production logic? |
+| --- | --- | --- |
+| Pattern | Interesting in one sample | No |
+| Candidate principle | Passed the first antifragile gate | Not yet |
+| Hardened principle | Survived time folds, perturbation, dependency, contradiction, and simplicity gates | Yes, as a filter or research-backed principle |
+
+### Standalone Fragility Audit Command
+
+If a dataset and antifragile memory already exist, run:
+
+```powershell
+.\tools\astro_ml\build_antifragile_fragility_audit_common.ps1 `
+  -DatasetCsv "astro_ml\reports\NAS100\M1\astro_ml_dataset_NAS100_M1_2022_to_2026.csv" `
+  -Asset NAS100 `
+  -Timeframe M1 `
+  -OpenAfter
+```
+
+### Strict Mode
+
+For a stricter antifragile audit:
+
+```powershell
+.\tools\astro_ml\build_antifragile_fragility_audit_common.ps1 `
+  -DatasetCsv "astro_ml\reports\NAS100\M1\astro_ml_dataset_NAS100_M1_2022_to_2026.csv" `
+  -Asset NAS100 `
+  -Timeframe M1 `
+  -Folds 10 `
+  -MinSurvivalRate 0.70 `
+  -MinMedianLift 1.08 `
+  -MinWorstLift 1.00 `
+  -MaxPerturbDrop 0.035 `
+  -MaxRulesPerTarget 8 `
+  -OpenAfter
+```
+
+This makes the learner more skeptical. It will accept fewer principles, but the surviving principles should be more robust.

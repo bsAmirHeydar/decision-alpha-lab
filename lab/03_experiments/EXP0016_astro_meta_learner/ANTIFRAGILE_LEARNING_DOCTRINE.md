@@ -194,3 +194,39 @@ Only after OOS durability should any output become an execution filter.
 The best astro learner is not the one that finds the most patterns.
 
 The best astro learner is the one that rejects the most false patterns while preserving a small number of durable principles.
+
+## The Learner's Known Cognitive Fragilities
+
+The antifragile layer assumes that the learner is always vulnerable to several predictable thinking failures:
+
+1. **Single-split luck** — a pattern can survive one train/test split only because the chosen boundary was favorable.
+2. **Condition creep** — adding more rules can make the system look smarter while actually making it more brittle.
+3. **Concept monoculture** — a model can depend on one broad concept family and collapse when that family changes regime.
+4. **Numeric perturbation sensitivity** — a model that changes its decision under tiny feature noise is not robust enough to become knowledge.
+5. **Contradictory interpretation** — the same concept/state can appear to support both UP and DOWN, or clean long and clean short, if the learner is not forced to reconcile hypotheses.
+6. **Support illusion** — a high lift from a tiny sample is not knowledge; it is a research lead.
+7. **Neural overconfidence** — a neural challenger can discover useful nonlinear structure, but it can also memorize noise. It is never accepted unless it survives the same OOS and fragility gates as simpler models.
+
+## The Hardening Rule
+
+The learner now has three knowledge levels:
+
+- **Pattern**: something statistically interesting inside one run.
+- **Candidate principle**: a pattern that survived the first antifragile gate.
+- **Hardened principle**: a candidate principle that also survived temporal fold stress, perturbation stress, dependency stress, contradiction audit, and condition-creep audit.
+
+Only hardened principles are allowed to move toward production logic, MQL filters, or reusable trading doctrine.
+
+## How Antifragility Enters the Logic
+
+The system does not become antifragile by adding more conditions. It becomes antifragile by reducing false knowledge:
+
+- It collapses many mechanical features into broad concept families.
+- It tests whether each principle survives across multiple chronological folds.
+- It perturbs feature values and checks whether model decisions remain stable.
+- It removes one concept family at a time to detect monoculture dependency.
+- It flags contradictions between targets and horizons.
+- It penalizes rule proliferation.
+- It exports hardened principles separately from fragile research leads.
+
+The goal is not to maximize in-sample accuracy. The goal is to produce fewer beliefs, but beliefs that survive damage.

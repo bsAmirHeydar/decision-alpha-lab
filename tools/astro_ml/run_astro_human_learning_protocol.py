@@ -250,6 +250,20 @@ def main() -> int:
     ap.add_argument("--antifragile-max-gap", type=float, default=0.14)
     ap.add_argument("--enable-neural-challenger", action="store_true", help="Allow a small neural net as a challenger. It is never accepted without OOS survival.")
     ap.add_argument("--neural-min-rows", type=int, default=8000)
+    ap.add_argument("--skip-fragility-audit", action="store_true", help="Skip the final antifragile fragility audit/hardening layer.")
+    ap.add_argument("--fragility-folds", type=int, default=6)
+    ap.add_argument("--fragility-min-fold-support", type=int, default=25)
+    ap.add_argument("--fragility-min-survival-rate", type=float, default=0.60)
+    ap.add_argument("--fragility-min-median-lift", type=float, default=1.05)
+    ap.add_argument("--fragility-min-worst-lift", type=float, default=0.95)
+    ap.add_argument("--fragility-max-lift-iqr", type=float, default=0.65)
+    ap.add_argument("--fragility-perturb-repeats", type=int, default=24)
+    ap.add_argument("--fragility-noise-scale", type=float, default=0.035)
+    ap.add_argument("--fragility-dropout-rate", type=float, default=0.10)
+    ap.add_argument("--fragility-max-perturb-drop", type=float, default=0.055)
+    ap.add_argument("--fragility-max-concept-dependency-drop", type=float, default=0.12)
+    ap.add_argument("--fragility-max-rules-per-target", type=int, default=12)
+    ap.add_argument("--fragility-max-rules-per-concept-target", type=int, default=4)
     args = ap.parse_args()
 
     common = Path(args.common_files)
@@ -385,10 +399,53 @@ def main() -> int:
             "accepted_principles": grab(anti_stdout, "ANTIFRAGILE_ACCEPTED_PRINCIPLES"),
             "mind": grab(anti_stdout, "ANTIFRAGILE_MIND"),
         })
-    elif args.skip_antifragile:
-        manifest["steps"].append({"step": "antifragile_learning", "status": "skipped_by_user"})
     else:
-        manifest["steps"].append({"step": "antifragile_learning", "status": "skipped_no_dataset"})
+        anti_dir = ""
+        if args.skip_antifragile:
+            manifest["steps"].append({"step": "antifragile_learning", "status": "skipped_by_user"})
+        else:
+            manifest["steps"].append({"step": "antifragile_learning", "status": "skipped_no_dataset"})
+
+    # 6) Final fragility audit / hardening layer.
+    # This audits the learner's thinking: temporal survival, perturbation
+    # sensitivity, concept monoculture risk, contradictions, and condition creep.
+    if dataset_csv and not args.skip_fragility_audit and not args.skip_antifragile:
+        frag_cmd = [
+            sys.executable, str(THIS / "build_antifragile_fragility_audit.py"),
+            "--dataset-csv", dataset_csv,
+            "--asset", asset,
+            "--timeframe", timeframe,
+            "--common-files", str(common),
+            "--folds", str(args.fragility_folds),
+            "--min-fold-support", str(args.fragility_min_fold_support),
+            "--min-survival-rate", str(args.fragility_min_survival_rate),
+            "--min-median-lift", str(args.fragility_min_median_lift),
+            "--min-worst-lift", str(args.fragility_min_worst_lift),
+            "--max-lift-iqr", str(args.fragility_max_lift_iqr),
+            "--perturb-repeats", str(args.fragility_perturb_repeats),
+            "--perturb-noise-scale", str(args.fragility_noise_scale),
+            "--perturb-dropout-rate", str(args.fragility_dropout_rate),
+            "--max-perturb-drop", str(args.fragility_max_perturb_drop),
+            "--max-concept-dependency-drop", str(args.fragility_max_concept_dependency_drop),
+            "--max-rules-per-target", str(args.fragility_max_rules_per_target),
+            "--max-rules-per-concept-target", str(args.fragility_max_rules_per_concept_target),
+        ]
+        if anti_dir:
+            frag_cmd += ["--antifragile-dir", anti_dir]
+        if args.antifragile_targets:
+            frag_cmd += ["--targets", args.antifragile_targets]
+        frag_stdout = run_cmd(frag_cmd)
+        manifest["steps"].append({
+            "step": "fragility_audit",
+            "fragility_audit_dir": grab(frag_stdout, "FRAGILITY_AUDIT_DIR"),
+            "decision_memory": grab(frag_stdout, "FRAGILITY_DECISION_MEMORY"),
+            "hardened_principles": grab(frag_stdout, "HARDENED_PRINCIPLES"),
+            "fragility_flags": grab(frag_stdout, "FRAGILITY_FLAGS"),
+        })
+    elif args.skip_fragility_audit:
+        manifest["steps"].append({"step": "fragility_audit", "status": "skipped_by_user"})
+    else:
+        manifest["steps"].append({"step": "fragility_audit", "status": "skipped_no_dataset_or_antifragile"})
 
     save_json(out_root / "human_learning_manifest.json", manifest)
     md = [f"# Astro Human Learning Protocol - {asset} {timeframe}\n"]
