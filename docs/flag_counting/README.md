@@ -1,32 +1,13 @@
 # Flag Counting Documentation
 
-This folder contains the authoritative design documents for the Flag Counting engine.
+This directory contains the design and implementation documents for the flag-counting research module.
 
-## Documents
+Key documents:
 
-- `FLAG_COUNTING_CONCEPT_SPEC_V3.md` — full conceptual contract.
-- `FLAG_COUNTING_ALGORITHM_BLUEPRINT.md` — implementation-level algorithms and data models.
-- `FLAG_COUNTING_GLOSSARY.md` — definitions of all terms used by the engine.
+- `FLAG_COUNTING_CONCEPT_SPEC_V3.md` — authoritative conceptual grammar.
+- `FLAG_COUNTING_ALGORITHM_BLUEPRINT.md` — algorithm and data model blueprint.
+- `FLAG_COUNTING_GLOSSARY.md` — terminology.
+- `FLAG_COUNTING_VISUALIZATION_SPEC.md` — chart rendering and display contract.
+- `FLAG_COUNTING_VNEXT_IMPLEMENTATION.md` — implementation notes for FlagCountingVNext.
 
-## Current implementation policy
-
-Do not keep patching the old loose scanner as the final engine. The final implementation must be derived from the v3 specification:
-
-- fractal multi-scale node streams
-- parallel sequences
-- F1/F2/F3 parent-child grammar
-- ND/Hook partitioning
-- queryable state API
-- audit/replay support
-- clean body-only renderer
-
-## Minimum production target
-
-The final engine must be able to answer from code:
-
-- Are we in ND or F phase?
-- Which F-level is active?
-- What is the current direction?
-- What scale and sequence own the current movement?
-- What is the invalidation boundary?
-- What is the next expected event?
+The visualization spec defines how multi-scale, multi-sequence F-counting structures should be displayed without turning the chart into raw candidate spaghetti.
