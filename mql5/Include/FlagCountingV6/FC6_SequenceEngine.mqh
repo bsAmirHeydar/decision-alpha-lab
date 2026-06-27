@@ -74,7 +74,7 @@ bool FC6_IsAllowedF1PhaseBoundary(const FC6_Node &origin,
    for(int i=0; i<n; i++)
       if(phase_hooks[i].is_nd && phase_hooks[i].direction == direction)
          nd_count++;
-   if(nd_count <= 0) return cfg.allow_f1_fail_open_when_no_hook; // strict by default; optional audit fail-open only
+   if(nd_count <= 0) return cfg.allow_f1_fail_open_when_no_hook; // soft semantic fallback: keep the chart inspectable until Hook/ND coverage is strong enough
    for(int i=0; i<n; i++)
       if(FC6_NodeMatchesHookOriginBoundary(origin, direction, phase_hooks[i], eps))
          return true;
@@ -301,10 +301,11 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
       }
       else if(boundary_count <= 0)
       {
-         // Strict semantic mode: no readable ND/Hook boundary means no root F1.
-         // The old fail-open mode is still available for audits, but it is no
-         // longer the default because it created mid-move F1 roots and the chart
-         // looked correct visually while the sequence origin was semantically wrong.
+         // Soft semantic fallback: if the Hook/ND engine has not produced any
+         // readable boundary for this scale/direction, do not hard-block the
+         // whole visual engine.  The previous strict default produced an empty
+         // chart.  Fallback roots are still marked by reason so audit can tell
+         // they were not hook-gated roots.
          if(cfg.allow_f1_fail_open_when_no_hook)
             FC6_CollectFallbackOriginPositions(nodes, node_count, direction, origin_positions);
       }

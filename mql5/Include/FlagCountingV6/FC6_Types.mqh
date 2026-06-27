@@ -441,9 +441,9 @@ void FC6_DefaultConfig(FC6_Config &cfg)
    cfg.show_invalidated_in_audit = true;
    cfg.keep_confirmed_f1_f2_after_boundary_hit = false;
    cfg.require_f1_phase_boundary = true;
-   cfg.allow_f1_fail_open_when_no_hook = false;
+   cfg.allow_f1_fail_open_when_no_hook = true;
    cfg.enforce_single_chain_per_direction_scale = true;
-   cfg.enforce_single_chain_per_direction_global = true;
+   cfg.enforce_single_chain_per_direction_global = false;
    cfg.merge_visual_duplicate_bodies = true;
    cfg.min_L = 2;
    cfg.max_L = 21;

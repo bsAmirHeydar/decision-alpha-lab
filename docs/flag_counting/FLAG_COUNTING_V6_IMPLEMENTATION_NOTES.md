@@ -227,3 +227,24 @@ merges display duplicates; it does not invent or mutate logical structures.
 The default semantic view is now stricter about root F1 creation. A root F1 is not allowed to be created from arbitrary two-leg windows when no readable ND/Hook phase boundary is available. The old fail-open scan remains available through `InpAllowF1FailOpenWhenNoHook=true`, but it is intended for audit/debug only because it can create mid-move roots.
 
 The sequence post-processor also has an optional global same-direction ownership gate (`InpEnforceSingleChainPerDirectionGlobal=true` by default). If a direction already has an active root chain, a later same-direction root is pruned unless an opposite F3 appears between the two roots. This implements the documented phase rule more strongly than the earlier per-scale-only pruning.
+
+
+### Visibility recovery note
+
+The previous strict phase gate (`InpAllowF1FailOpenWhenNoHook=false` together with global same-direction pruning) could legitimately produce an empty chart whenever the Hook/ND boundary extractor did not emit readable phase boundaries for the active symbol/timeframe. That was not acceptable for research inspection.
+
+The V6 default is now a **soft semantic gate**:
+
+- `InpRequireF1PhaseBoundary = true` still prefers ND/Hook phase-boundary roots.
+- `InpAllowF1FailOpenWhenNoHook = true` allows fallback roots only when no readable Hook/ND boundary exists for that scale/direction.
+- `InpEnforceSingleChainPerDirectionGlobal = false` keeps cross-scale visibility while the phase-boundary engine is still being audited.
+- per-scale ownership pruning remains enabled through `InpEnforceSingleChainPerDirectionScale = true`.
+
+For strict experiments, turn on the hard gate manually:
+
+```text
+InpAllowF1FailOpenWhenNoHook = false
+InpEnforceSingleChainPerDirectionGlobal = true
+```
+
+If that strict mode returns an empty chart, the issue is not the renderer; it means the Hook/ND phase-boundary extractor is not emitting enough semantic boundaries for that market segment.

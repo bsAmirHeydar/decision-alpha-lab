@@ -27,9 +27,9 @@ input bool InpScanHooks = true;
 input bool InpShowInvalidatedInAudit = false;
 input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
 input bool InpRequireF1PhaseBoundary = true;
-input bool InpAllowF1FailOpenWhenNoHook = false;
+input bool InpAllowF1FailOpenWhenNoHook = true;
 input bool InpEnforceSingleChainPerDirectionScale = true;
-input bool InpEnforceSingleChainPerDirectionGlobal = true;
+input bool InpEnforceSingleChainPerDirectionGlobal = false;
 input bool InpMergeVisualDuplicateBodies = true;
 
 input int    InpMaxEvents = 3000;
