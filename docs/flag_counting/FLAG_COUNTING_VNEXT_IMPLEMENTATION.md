@@ -91,6 +91,13 @@ The experiment exposes multiple swing scales and all draw filters. Detailed logs
 The next layer is ND/Hook partitioning:
 
 - detect ND phases where no valid F can form at the current scale,
-- adapt L so ND closes in three or four nodes,
-- close an ND when the following F1 confirms,
+- adapt L so ND can be represented in three or four high/low nodes,
+- mark an ND phase as resolved when the following F1 confirms,
 - expose queryable state: in ND or in F, which F level, where inside the sequence.
+
+
+## Origin identity and semantic F1 root contract
+
+The renderer must not make a raw two-leg swing body look like a completed flag. A root F1 is now semantic only after its own internal `1/2` exists; by default it must also confirm by rebreaking its Leg2. This prevents orphan body lines that start from arbitrary mid-move nodes.
+
+Each rendered F body keeps a traceable identity through `F#/L#/Q#` labels and an `O` origin label, so the chart shows which flag/scale/sequence owns each body and where its first leg starts. ND remains high/low-node based and close-agnostic.

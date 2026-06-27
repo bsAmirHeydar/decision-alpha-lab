@@ -26,6 +26,8 @@ input int  InpNDMinNodes = 3;
 input int  InpNDMaxNodes = 4;
 input double InpNDMinExtremeRatio = 0.50; // high/low swing-node extreme ratio; close-agnostic
 input bool InpRequireParentConfirmedForNextF = true;
+input bool InpRequireF1Internal12ForRoot = true;
+input bool InpRequireF1ConfirmedForRoot = true;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
 
@@ -45,6 +47,8 @@ input bool InpDrawBullish = true;
 input bool InpDrawBearish = true;
 input bool InpDrawOnlyConfirmed = false;
 input bool InpShowLevelLabels = true;
+input bool InpShowDetailedLevelLabels = true;
+input bool InpShowOriginLabels = true;
 input bool InpShowInternal12Labels = true;
 input int  InpBaseLevelFontSize = 7;
 input int  InpBaseInternalFontSize = 7;
@@ -113,6 +117,8 @@ void FCN_RunExperiment()
    cfg.nd_min_nodes = InpNDMinNodes;
    cfg.nd_max_nodes = InpNDMaxNodes;
    cfg.nd_min_extreme_ratio = InpNDMinExtremeRatio;
+   cfg.require_f1_internal12_for_root = InpRequireF1Internal12ForRoot;
+   cfg.require_f1_confirmed_for_root = InpRequireF1ConfirmedForRoot;
    cfg.max_events = InpMaxEvents;
    cfg.max_roots_per_scale = InpMaxRootSequencesPerScale;
    cfg.verbose_logs = InpVerboseAuditLogs;
@@ -141,6 +147,8 @@ void FCN_RunExperiment()
                               InpBearishF3TerminalColor,
                               InpNDColor,
                               InpUseSequenceColorShades,
+                              InpShowDetailedLevelLabels,
+                              InpShowOriginLabels,
                               InpFixedLineWidth);
 
    Print("FCN_SUMMARY symbol=", _Symbol,

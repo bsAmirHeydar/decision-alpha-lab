@@ -110,3 +110,10 @@ ND / Hook detection is close-agnostic. It does not care whether a candle closed 
 - `InpNDMinExtremeRatio = 0.50` means the last swing node is at least in the relevant half of the high-low range of that ND window;
 - candle open, candle close, candle body, and candle color are not part of the ND definition.
 
+
+
+## Origin identity and semantic F1 root contract
+
+The renderer must not make a raw two-leg swing body look like a completed flag. A root F1 is now semantic only after its own internal `1/2` exists; by default it must also confirm by rebreaking its Leg2. This prevents orphan body lines that start from arbitrary mid-move nodes.
+
+Each rendered F body keeps a traceable identity through `F#/L#/Q#` labels and an `O` origin label, so the chart shows which flag/scale/sequence owns each body and where its first leg starts. ND remains high/low-node based and close-agnostic.

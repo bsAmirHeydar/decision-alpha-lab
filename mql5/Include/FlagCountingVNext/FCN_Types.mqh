@@ -96,6 +96,8 @@ struct FCN_Config
    int nd_min_nodes;
    int nd_max_nodes;
    double nd_min_extreme_ratio;
+   bool require_f1_internal12_for_root;
+   bool require_f1_confirmed_for_root;
    int max_events;
    int max_roots_per_scale;
    bool verbose_logs;
