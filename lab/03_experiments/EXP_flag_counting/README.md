@@ -66,8 +66,10 @@ ND / Hook detection is close-agnostic. It does not care whether a candle closed 
 
 
 
-## Origin identity and semantic F1 root contract
+## Origin identity and live-root display contract
 
-The renderer must not make a raw two-leg swing body look like a completed flag. A root F1 is now semantic only after its own internal `1/2` exists; by default it must also confirm by rebreaking its Leg2. This prevents orphan body lines that start from arbitrary mid-move nodes.
+The renderer must show coherent live roots by default. A root F1 body does not need to be hidden until internal `1/2` and confirmation; otherwise the chart becomes artificially empty and the research view loses the developing structures. Strict root filters remain optional audit inputs, but their defaults are off.
+
+Orphan control comes from origin identity: if a candidate touches or crosses its own Origin / start of leg, that candidate is invalid and must not be drawn or extended. If it is a child, only the child dies; the parent remains alive unless its own invalidation is hit.
 
 Each rendered F body keeps a traceable identity through `F#/L#/Q#` labels and an `O` origin label, so the chart shows which flag/scale/sequence owns each body and where its first leg starts. ND remains high/low-node based and close-agnostic.

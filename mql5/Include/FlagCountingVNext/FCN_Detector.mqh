@@ -464,10 +464,10 @@ bool FCN_F1PassesRootSemanticContract(const FCN_Event &f1,
 {
    reject_reason = "";
 
-   // A raw two-leg body is not enough to become a rendered/chainable F1 root.
-   // This is the key guard against orphan lines that start from arbitrary mid-move nodes.
-   // F1 becomes semantic only after its own internal 1/2 exists; optionally it must also
-   // confirm by rebreaking Leg2 after internal 1/2.
+   // Root display is intentionally soft by default: a coherent high/low body may be
+   // rendered while it is still live, so the chart does not go empty. Strict root
+   // filters are optional inputs for audit/debug only. Orphan lines are controlled
+   // by origin-invalidation, not by hiding every unconfirmed live body.
    if(f1.status == FCN_STATUS_INVALID)
    {
       reject_reason = "invalid";

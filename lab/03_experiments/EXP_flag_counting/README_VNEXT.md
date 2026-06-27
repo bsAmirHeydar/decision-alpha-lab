@@ -19,8 +19,13 @@ Compile target:
 
 `mql5/Experts/FlagCounting/FlagCountingVNextExperiment.mq5`
 
-## Child origin invalidation and parent continuity
 
-A developing child F has its own independent Origin: F2 starts from the parent F1 internal-2 node, and F3 starts from the parent F2 internal-2 node. If the child touches or crosses its own Origin before it completes a coherent body/continuation, only that child candidate is invalidated and removed from rendering. The parent remains alive unless the parent’s own invalidation level is hit.
+## Current root visibility correction
 
-This rule is semantic, not only visual: an event whose own leg start has been consumed must not remain as an orphan line on the chart, and later movement must not be attached back to that dead child origin.
+The visual experiment now keeps live coherent F1 roots visible by default. The previous strict defaults made the chart too empty because they required every root to already have internal `1/2` and confirmation before rendering. Those checks are still available as optional inputs, but the default research view is:
+
+- `InpRequireF1Internal12ForRoot = false`
+- `InpRequireF1ConfirmedForRoot = false`
+- `InpRequireParentConfirmedForNextF = false`
+
+Origin identity is still strict: if a child/candidate touches its own start of leg, only that child dies; the parent remains alive unless its own invalidation is hit.

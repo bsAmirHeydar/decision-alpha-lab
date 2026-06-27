@@ -25,9 +25,9 @@ input int  InpMaxNDPerScale = 250;
 input int  InpNDMinNodes = 3;
 input int  InpNDMaxNodes = 4;
 input double InpNDMinExtremeRatio = 0.50; // high/low swing-node extreme ratio; close-agnostic
-input bool InpRequireParentConfirmedForNextF = true;
-input bool InpRequireF1Internal12ForRoot = true;
-input bool InpRequireF1ConfirmedForRoot = true;
+input bool InpRequireParentConfirmedForNextF = false;
+input bool InpRequireF1Internal12ForRoot = false;
+input bool InpRequireF1ConfirmedForRoot = false;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
 
