@@ -92,3 +92,24 @@ A visualization is acceptable when:
 - bullish and bearish structures are visually distinct,
 - live and confirmed states are visually distinct,
 - the user can identify the scale hierarchy without opening logs.
+
+## Clean-All Visualization Update
+
+The renderer should not hide accepted sequences by default. Instead, it makes every visible sequence easier to read:
+
+- All F body lines use the same thin width by default (`InpFixedLineWidth = 1`).
+- Larger scales no longer become visually heavier by line width; scale remains available through labels, logs, and sequence identity.
+- Each sequence receives a subtle shade variation inside its own direction/status color family (`InpUseSequenceColorShades = true`).
+- Bullish, bearish, live, confirmed, F3 terminal, and ND color families remain distinct, but individual sequence shades help separate overlapping paths.
+- ND / Hook phases are text-only labels (`ND`) and do not draw additional body lines. This keeps the chart informative without adding line noise.
+- The visual objective is to show all accepted/provisional structures while preventing scale thickness and repeated labels from overwhelming the price chart.
+
+Relevant inputs:
+
+- `InpScanND`
+- `InpDrawND`
+- `InpMaxNDPerScale`
+- `InpUseSequenceColorShades`
+- `InpFixedLineWidth`
+- `InpNDColor`
+

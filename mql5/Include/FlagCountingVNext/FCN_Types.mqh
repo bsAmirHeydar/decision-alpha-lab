@@ -89,6 +89,8 @@ struct FCN_Config
    bool require_parent_confirmed;
    bool require_f2_parent_size;
    double f2_min_parent_size_ratio;
+   bool scan_nd;
+   int max_nd_per_scale;
    int max_events;
    int max_roots_per_scale;
    bool verbose_logs;

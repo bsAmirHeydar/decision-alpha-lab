@@ -3,6 +3,12 @@
 #property strict
 #include "FCN_Types.mqh"
 
+// FlagCountingVNext clean-all renderer
+// - Every accepted/provisional event can be visible.
+// - All body lines are thin and uniform by default.
+// - Sequences inside the same color family receive subtle shade variations.
+// - ND / Hook phases are text-only labels so they explain unowned movement without adding line noise.
+
 void FCN_DeleteObjectsByPrefix(const string prefix)
 {
    for(int i=ObjectsTotal(0, -1, -1)-1; i>=0; i--)
@@ -20,6 +26,49 @@ void FCN_SetCommonObjectProps(const string name)
    ObjectSetInteger(0, name, OBJPROP_BACK, false);
 }
 
+int FCN_Clamp255(const int v)
+{
+   if(v < 0) return 0;
+   if(v > 255) return 255;
+   return v;
+}
+
+color FCN_RGB(const int r, const int g, const int b)
+{
+   int rr = FCN_Clamp255(r);
+   int gg = FCN_Clamp255(g);
+   int bb = FCN_Clamp255(b);
+   return (color)(rr | (gg << 8) | (bb << 16));
+}
+
+int FCN_Red(const color c)   { return ((int)c) & 0xFF; }
+int FCN_Green(const color c) { return (((int)c) >> 8) & 0xFF; }
+int FCN_Blue(const color c)  { return (((int)c) >> 16) & 0xFF; }
+
+color FCN_BlendColor(const color a, const color b, const double t)
+{
+   double x = MathMax(0.0, MathMin(1.0, t));
+   int r = (int)MathRound((1.0 - x) * FCN_Red(a)   + x * FCN_Red(b));
+   int g = (int)MathRound((1.0 - x) * FCN_Green(a) + x * FCN_Green(b));
+   int bl = (int)MathRound((1.0 - x) * FCN_Blue(a) + x * FCN_Blue(b));
+   return FCN_RGB(r, g, bl);
+}
+
+color FCN_SequenceShade(const color base, const int sequence_id)
+{
+   // Same color family, slightly different brightness/saturation per sequence.
+   int bucket = MathAbs(sequence_id) % 9; // 0..8
+   if(bucket == 4)
+      return base;
+   if(bucket < 4)
+   {
+      double t = 0.08 + 0.055 * (double)(4 - bucket);
+      return FCN_BlendColor(base, clrBlack, t);
+   }
+   double t = 0.07 + 0.045 * (double)(bucket - 4);
+   return FCN_BlendColor(base, clrWhite, t);
+}
+
 bool FCN_DrawTrendRaw(const string name,
                       const datetime t1,
                       const double p1,
@@ -29,7 +78,9 @@ bool FCN_DrawTrendRaw(const string name,
                       const int width,
                       const ENUM_LINE_STYLE style)
 {
-   if(t1 <= 0 || t2 <= 0) return false;
+   if(t1 <= 0 || t2 <= 0)
+      return false;
+
    ObjectDelete(0, name);
    ResetLastError();
    if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2))
@@ -37,6 +88,7 @@ bool FCN_DrawTrendRaw(const string name,
       Print("FCN renderer trend create failed name=", name, " err=", GetLastError());
       return false;
    }
+
    ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
    ObjectSetInteger(0, name, OBJPROP_WIDTH, width);
    ObjectSetInteger(0, name, OBJPROP_STYLE, style);
@@ -54,7 +106,9 @@ bool FCN_DrawTextRaw(const string name,
                      const int font_size,
                      const ENUM_ANCHOR_POINT anchor = ANCHOR_CENTER)
 {
-   if(t <= 0 || value == "") return false;
+   if(t <= 0 || value == "")
+      return false;
+
    ObjectDelete(0, name);
    ResetLastError();
    if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, price))
@@ -62,6 +116,7 @@ bool FCN_DrawTextRaw(const string name,
       Print("FCN renderer text create failed name=", name, " value=", value, " err=", GetLastError());
       return false;
    }
+
    ObjectSetString(0, name, OBJPROP_TEXT, value);
    ObjectSetString(0, name, OBJPROP_FONT, "Arial Bold");
    ObjectSetInteger(0, name, OBJPROP_COLOR, clr);
@@ -93,10 +148,15 @@ void FCN_DrawBezierCurve(const string prefix,
    int n = MathMax(6, segments);
    datetime prev_t = t0;
    double prev_p = p0;
+
    for(int i=1; i<=n; i++)
    {
       double u = (double)i / (double)n;
-      datetime next_t = (datetime)MathRound(FCN_Bezier((double)((long)t0), (double)((long)c1t), (double)((long)c2t), (double)((long)t3), u));
+      datetime next_t = (datetime)MathRound(FCN_Bezier((double)((long)t0),
+                                                       (double)((long)c1t),
+                                                       (double)((long)c2t),
+                                                       (double)((long)t3),
+                                                       u));
       double next_p = FCN_Bezier(p0, c1p, c2p, p3, u);
       FCN_DrawTrendRaw(prefix + IntegerToString(i), prev_t, prev_p, next_t, next_p, clr, width, STYLE_SOLID);
       prev_t = next_t;
@@ -104,20 +164,69 @@ void FCN_DrawBezierCurve(const string prefix,
    }
 }
 
-int FCN_ScaleRankWidth(const int scale_L)
+int FCN_StatusPriority(const int status)
 {
-   if(scale_L >= 21) return 4;
-   if(scale_L >= 13) return 3;
-   if(scale_L >= 8)  return 2;
-   return 1;
+   if(status == FCN_STATUS_TERMINAL)  return 3;
+   if(status == FCN_STATUS_CONFIRMED) return 2;
+   if(status == FCN_STATUS_LIVE)      return 1;
+   return 0;
 }
 
-int FCN_ScaleRankFont(const int scale_L, const int base_font)
+bool FCN_IsHigherDisplayPriority(const FCN_Event &a, const FCN_Event &b)
 {
-   if(scale_L >= 21) return base_font + 3;
-   if(scale_L >= 13) return base_font + 2;
-   if(scale_L >= 8)  return base_font + 1;
-   return base_font;
+   if(a.scale_L != b.scale_L)
+      return a.scale_L > b.scale_L;
+   if(a.level != b.level)
+      return a.level > b.level;
+
+   int sa = FCN_StatusPriority(a.status);
+   int sb = FCN_StatusPriority(b.status);
+   if(sa != sb)
+      return sa > sb;
+
+   if(a.size != b.size)
+      return a.size > b.size;
+
+   return a.event_id < b.event_id;
+}
+
+double FCN_EventBodyHeight(const FCN_Event &e)
+{
+   double h1 = MathAbs(e.leg1.price - e.waist.price);
+   double h2 = MathAbs(e.leg2.price - e.waist.price);
+   double h3 = MathAbs(e.leg2.price - e.origin.price);
+   double h = MathMax(MathMax(h1, h2), h3);
+   if(h <= 0.0)
+      h = 80.0 * _Point;
+   return h;
+}
+
+bool FCN_LabelAnchorsOverlap(const FCN_Event &a, const FCN_Event &b)
+{
+   if(a.direction != b.direction)
+      return false;
+
+   int sec = PeriodSeconds(_Period);
+   if(sec <= 0) sec = 60;
+
+   long dt = (long)MathAbs((double)((long)a.leg2.time - (long)b.leg2.time));
+   long max_dt = (long)(sec * MathMax(MathMax(a.scale_L, b.scale_L), 8) * 3);
+   if(dt > max_dt)
+      return false;
+
+   double ha = FCN_EventBodyHeight(a);
+   double hb = FCN_EventBodyHeight(b);
+   double tol = MathMax(MathMax(ha, hb) * 0.42, 80.0 * _Point);
+   return MathAbs(a.leg2.price - b.leg2.price) <= tol;
+}
+
+bool FCN_SameEventIdentity(const FCN_Event &a, const FCN_Event &b)
+{
+   return a.event_id == b.event_id
+       && a.sequence_id == b.sequence_id
+       && a.scale_L == b.scale_L
+       && a.level == b.level
+       && a.leg2.time == b.leg2.time;
 }
 
 color FCN_EventColor(const FCN_Event &e,
@@ -126,17 +235,26 @@ color FCN_EventColor(const FCN_Event &e,
                      const color bear_live,
                      const color bear_confirmed,
                      const color bull_f3_terminal,
-                     const color bear_f3_terminal)
+                     const color bear_f3_terminal,
+                     const color nd_color,
+                     const bool use_sequence_shades)
 {
-   if(e.level == FCN_LEVEL_F3 && e.status == FCN_STATUS_TERMINAL)
-      return (e.direction == FCN_DIR_BULLISH ? bull_f3_terminal : bear_f3_terminal);
+   if(e.level == FCN_LEVEL_ND)
+      return use_sequence_shades ? FCN_SequenceShade(nd_color, e.sequence_id) : nd_color;
 
-   bool confirmed = (e.status == FCN_STATUS_CONFIRMED || e.status == FCN_STATUS_TERMINAL);
-   if(e.direction == FCN_DIR_BULLISH)
-      return confirmed ? bull_confirmed : bull_live;
-   if(e.direction == FCN_DIR_BEARISH)
-      return confirmed ? bear_confirmed : bear_live;
-   return clrSilver;
+   color base = clrSilver;
+   if(e.level == FCN_LEVEL_F3 && e.status == FCN_STATUS_TERMINAL)
+      base = (e.direction == FCN_DIR_BULLISH ? bull_f3_terminal : bear_f3_terminal);
+   else
+   {
+      bool confirmed = (e.status == FCN_STATUS_CONFIRMED || e.status == FCN_STATUS_TERMINAL);
+      if(e.direction == FCN_DIR_BULLISH)
+         base = confirmed ? bull_confirmed : bull_live;
+      else if(e.direction == FCN_DIR_BEARISH)
+         base = confirmed ? bear_confirmed : bear_live;
+   }
+
+   return use_sequence_shades ? FCN_SequenceShade(base, e.sequence_id) : base;
 }
 
 void FCN_DrawFBody(const FCN_Event &e,
@@ -148,10 +266,8 @@ void FCN_DrawFBody(const FCN_Event &e,
    int sec = PeriodSeconds(_Period);
    if(sec <= 0) sec = 60;
 
-   // Leg1 is a straight trend line.
    FCN_DrawTrendRaw(p + "L0", e.origin.time, e.origin.price, e.leg1.time, e.leg1.price, clr, width, STYLE_SOLID);
 
-   // Body curve: one clean belly from Leg1 to Leg2, touching the Waist node.
    int dt1 = (int)(e.waist.time - e.leg1.time);
    if(dt1 <= 0) dt1 = sec * 4;
    double h1 = MathAbs(e.leg1.price - e.waist.price);
@@ -173,56 +289,92 @@ void FCN_DrawFBody(const FCN_Event &e,
    FCN_DrawBezierCurve(p + "B", e.waist.time, e.waist.price, c3t, c3p, c4t, c4p, e.leg2.time, e.leg2.price, clr, width, 10);
 }
 
+bool FCN_EventPassesDrawFilters(const FCN_Event &e,
+                                const bool draw_f1,
+                                const bool draw_f2,
+                                const bool draw_f3,
+                                const bool draw_nd,
+                                const bool draw_bullish,
+                                const bool draw_bearish,
+                                const bool draw_only_confirmed)
+{
+   if(e.level == FCN_LEVEL_ND && !draw_nd) return false;
+   if(e.level == FCN_LEVEL_F1 && !draw_f1) return false;
+   if(e.level == FCN_LEVEL_F2 && !draw_f2) return false;
+   if(e.level == FCN_LEVEL_F3 && !draw_f3) return false;
+   if(e.direction == FCN_DIR_BULLISH && !draw_bullish) return false;
+   if(e.direction == FCN_DIR_BEARISH && !draw_bearish) return false;
+   if(draw_only_confirmed && e.level != FCN_LEVEL_ND && e.status != FCN_STATUS_CONFIRMED && e.status != FCN_STATUS_TERMINAL) return false;
+   return true;
+}
+
+int FCN_LevelLabelStackSlot(const FCN_Event &events[],
+                            const int total,
+                            const FCN_Event &e,
+                            const bool draw_f1,
+                            const bool draw_f2,
+                            const bool draw_f3,
+                            const bool draw_nd,
+                            const bool draw_bullish,
+                            const bool draw_bearish,
+                            const bool draw_only_confirmed)
+{
+   int slot = 0;
+   for(int j=0; j<total; j++)
+   {
+      FCN_Event o = events[j];
+      if(o.status == FCN_STATUS_INVALID)
+         continue;
+      if(!FCN_EventPassesDrawFilters(o, draw_f1, draw_f2, draw_f3, draw_nd, draw_bullish, draw_bearish, draw_only_confirmed))
+         continue;
+      if(FCN_SameEventIdentity(o, e))
+         continue;
+      if(!FCN_LabelAnchorsOverlap(o, e))
+         continue;
+      if(FCN_IsHigherDisplayPriority(o, e))
+         slot++;
+   }
+   return slot;
+}
+
 void FCN_DrawEventLabels(const FCN_Event &e,
                          const string p,
                          const color clr,
                          const int level_font,
                          const int internal_font,
+                         const int level_stack_slot,
                          const bool show_level_label,
                          const bool show_internal_labels)
 {
    bool bullish = e.direction == FCN_DIR_BULLISH;
-   double h = MathMax(MathAbs(e.leg1.price - e.waist.price), MathAbs(e.leg2.price - e.waist.price));
-   if(h <= 0.0) h = 50.0 * _Point;
+   double h = FCN_EventBodyHeight(e);
 
    if(show_level_label)
    {
-      double off = MathMax(0.06 * h, 8.0 * _Point);
+      double base_off = MathMax(0.045 * h, 8.0 * _Point);
+      double step_off = MathMax(0.080 * h, 14.0 * _Point);
+      double off = base_off + (double)level_stack_slot * step_off;
       double label_price = bullish ? e.leg2.price + off : e.leg2.price - off;
-      FCN_DrawTextRaw(p + "F", e.leg2.time, label_price, FCN_LevelToString(e.level), clr, level_font,
-                      bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER);
+      ENUM_ANCHOR_POINT anchor = bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER;
+      FCN_DrawTextRaw(p + "F", e.leg2.time, label_price, FCN_LevelToString(e.level), clr, level_font, anchor);
    }
+
+   if(e.level == FCN_LEVEL_ND)
+      return;
 
    if(show_internal_labels && e.has_internal1)
    {
-      double off1 = MathMax(0.05 * h, 8.0 * _Point);
+      double off1 = MathMax(0.060 * h, 10.0 * _Point);
       double price1 = bullish ? e.internal1.price - off1 : e.internal1.price + off1;
       FCN_DrawTextRaw(p + "I1", e.internal1.time, price1, "1", clr, internal_font, ANCHOR_CENTER);
    }
 
    if(show_internal_labels && e.has_internal2)
    {
-      double off2 = MathMax(0.05 * h, 8.0 * _Point);
+      double off2 = MathMax(0.090 * h, 14.0 * _Point);
       double price2 = bullish ? e.internal2.price - off2 : e.internal2.price + off2;
       FCN_DrawTextRaw(p + "I2", e.internal2.time, price2, "2", clr, internal_font, ANCHOR_CENTER);
    }
-}
-
-bool FCN_EventPassesDrawFilters(const FCN_Event &e,
-                                const bool draw_f1,
-                                const bool draw_f2,
-                                const bool draw_f3,
-                                const bool draw_bullish,
-                                const bool draw_bearish,
-                                const bool draw_only_confirmed)
-{
-   if(e.level == FCN_LEVEL_F1 && !draw_f1) return false;
-   if(e.level == FCN_LEVEL_F2 && !draw_f2) return false;
-   if(e.level == FCN_LEVEL_F3 && !draw_f3) return false;
-   if(e.direction == FCN_DIR_BULLISH && !draw_bullish) return false;
-   if(e.direction == FCN_DIR_BEARISH && !draw_bearish) return false;
-   if(draw_only_confirmed && e.status != FCN_STATUS_CONFIRMED && e.status != FCN_STATUS_TERMINAL) return false;
-   return true;
 }
 
 int FCN_DrawEvents(const FCN_Event &events[],
@@ -231,6 +383,7 @@ int FCN_DrawEvents(const FCN_Event &events[],
                    const bool draw_f1,
                    const bool draw_f2,
                    const bool draw_f3,
+                   const bool draw_nd,
                    const bool draw_bullish,
                    const bool draw_bearish,
                    const bool draw_only_confirmed,
@@ -243,27 +396,49 @@ int FCN_DrawEvents(const FCN_Event &events[],
                    const color bear_live,
                    const color bear_confirmed,
                    const color bull_f3_terminal,
-                   const color bear_f3_terminal)
+                   const color bear_f3_terminal,
+                   const color nd_color,
+                   const bool use_sequence_shades,
+                   const int fixed_line_width)
 {
    FCN_DeleteObjectsByPrefix(prefix);
    int total = ArraySize(events);
    int drawn = 0;
+   int width = MathMax(1, fixed_line_width);
 
+   // Pass 1: body geometry only. ND is text-only and does not add line noise.
    for(int i=total-1; i>=0 && drawn<max_events_to_draw; i--)
    {
       FCN_Event e = events[i];
-      if(e.status == FCN_STATUS_INVALID) continue;
-      if(!FCN_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_bullish, draw_bearish, draw_only_confirmed))
+      if(e.status == FCN_STATUS_INVALID)
+         continue;
+      if(!FCN_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_nd, draw_bullish, draw_bearish, draw_only_confirmed))
          continue;
 
       string p = prefix + IntegerToString(drawn) + "_S" + IntegerToString(e.scale_L) + "_Q" + IntegerToString(e.sequence_id) + "_";
-      color clr = FCN_EventColor(e, bull_live, bull_confirmed, bear_live, bear_confirmed, bull_f3_terminal, bear_f3_terminal);
-      int width = FCN_ScaleRankWidth(e.scale_L);
-      int level_font = FCN_ScaleRankFont(e.scale_L, base_level_font);
-      int internal_font = FCN_ScaleRankFont(e.scale_L, base_internal_font);
-      FCN_DrawFBody(e, p, clr, width);
-      FCN_DrawEventLabels(e, p, clr, level_font, internal_font, show_level_label, show_internal_labels);
+      color clr = FCN_EventColor(e, bull_live, bull_confirmed, bear_live, bear_confirmed, bull_f3_terminal, bear_f3_terminal, nd_color, use_sequence_shades);
+      if(e.level != FCN_LEVEL_ND)
+         FCN_DrawFBody(e, p, clr, width);
       drawn++;
+   }
+
+   // Pass 2: labels. All sequences remain visible, but sequence shades help distinguish them.
+   int label_count = 0;
+   for(int k=total-1; k>=0 && label_count<max_events_to_draw; k--)
+   {
+      FCN_Event e = events[k];
+      if(e.status == FCN_STATUS_INVALID)
+         continue;
+      if(!FCN_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_nd, draw_bullish, draw_bearish, draw_only_confirmed))
+         continue;
+
+      string p = prefix + IntegerToString(label_count) + "_S" + IntegerToString(e.scale_L) + "_Q" + IntegerToString(e.sequence_id) + "_";
+      color clr = FCN_EventColor(e, bull_live, bull_confirmed, bear_live, bear_confirmed, bull_f3_terminal, bear_f3_terminal, nd_color, use_sequence_shades);
+      int level_font = base_level_font;
+      int internal_font = base_internal_font;
+      int slot = FCN_LevelLabelStackSlot(events, total, e, draw_f1, draw_f2, draw_f3, draw_nd, draw_bullish, draw_bearish, draw_only_confirmed);
+      FCN_DrawEventLabels(e, p, clr, level_font, internal_font, slot, show_level_label, show_internal_labels);
+      label_count++;
    }
 
    ChartRedraw(0);

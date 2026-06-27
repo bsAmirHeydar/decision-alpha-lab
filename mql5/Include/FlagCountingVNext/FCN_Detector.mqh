@@ -463,6 +463,85 @@ bool FCN_CreateChildFromParent(const FCN_Node &nodes[],
    return child.status != FCN_STATUS_INVALID;
 }
 
+
+
+bool FCN_NodePositionCoveredByScaleEvents(const FCN_Event &events[],
+                                          const int from_event,
+                                          const int to_event_exclusive,
+                                          const int scale_L,
+                                          const int node_index)
+{
+   for(int i=from_event; i<to_event_exclusive; i++)
+   {
+      if(events[i].scale_L != scale_L)
+         continue;
+      if(events[i].level == FCN_LEVEL_ND)
+         continue;
+      if(events[i].status == FCN_STATUS_INVALID)
+         continue;
+      int a = MathMin(events[i].origin.index, events[i].leg2.index);
+      int b = MathMax(events[i].origin.index, events[i].leg2.index);
+      if(node_index >= a && node_index <= b)
+         return true;
+   }
+   return false;
+}
+
+void FCN_AppendProvisionalNDGapsForScale(const FCN_Node &nodes[],
+                                         const int scale_L,
+                                         const int first_scale_event,
+                                         FCN_Event &events[],
+                                         int &next_sequence_id,
+                                         const int max_nd_per_scale)
+{
+   int n = ArraySize(nodes);
+   if(n < 3)
+      return;
+
+   int current_event_count = ArraySize(events);
+   int nd_count = 0;
+   int i = 0;
+   while(i < n)
+   {
+      if(FCN_NodePositionCoveredByScaleEvents(events, first_scale_event, current_event_count, scale_L, nodes[i].index))
+      {
+         i++;
+         continue;
+      }
+
+      int start = i;
+      while(i < n && !FCN_NodePositionCoveredByScaleEvents(events, first_scale_event, current_event_count, scale_L, nodes[i].index))
+         i++;
+      int end = i - 1;
+      int len = end - start + 1;
+
+      // ND / Hook is a provisional unowned cycle of at least 3 nodes in this scale.
+      if(len >= 3)
+      {
+         if(max_nd_per_scale > 0 && nd_count >= max_nd_per_scale)
+            return;
+
+         FCN_Event nd;
+         FCN_ResetEvent(nd);
+         nd.level = FCN_LEVEL_ND;
+         nd.scale_L = scale_L;
+         nd.sequence_id = next_sequence_id++;
+         nd.chain_step = 0;
+         nd.parent_event_id = -1;
+         nd.origin = nodes[start];
+         nd.leg1 = nodes[MathMin(start + 1, end)];
+         nd.waist = nodes[MathMin(start + 2, end)];
+         nd.leg2 = nodes[end];
+         nd.direction = (nd.leg2.price >= nd.origin.price ? FCN_DIR_BULLISH : FCN_DIR_BEARISH);
+         nd.status = FCN_STATUS_LIVE;
+         nd.size = FCN_BodySize(nd.origin, nd.leg2);
+         nd.reason = "provisional_nd_unowned_node_run";
+         FCN_AppendEvent(events, nd);
+         nd_count++;
+      }
+   }
+}
+
 void FCN_PrintEvent(const FCN_Event &e)
 {
    Print("FC_EVENT",
@@ -492,6 +571,7 @@ void FCN_BuildSequencesForScale(const FCN_Node &nodes[],
 {
    int n = ArraySize(nodes);
    int roots = 0;
+   int first_scale_event = ArraySize(events);
    for(int p=0; p<n-3; p++)
    {
       if(cfg.max_events > 0 && ArraySize(events) >= cfg.max_events) return;
@@ -542,6 +622,9 @@ void FCN_BuildSequencesForScale(const FCN_Node &nodes[],
          }
       }
    }
+
+   if(cfg.scan_nd)
+      FCN_AppendProvisionalNDGapsForScale(nodes, scale_L, first_scale_event, events, next_sequence_id, cfg.max_nd_per_scale);
 }
 
 bool FCN_ScaleAlreadyListed(const int &scales[], const int count, const int value)

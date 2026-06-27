@@ -19,6 +19,8 @@ input int  InpSwingL6 = 21;
 input bool InpScanF1 = true;
 input bool InpScanF2 = true;
 input bool InpScanF3 = true;
+input bool InpScanND = true;
+input int  InpMaxNDPerScale = 80;
 input bool InpRequireParentConfirmedForNextF = true;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
@@ -34,6 +36,7 @@ input int  InpMaxEventsToDraw = 350;
 input bool InpDrawF1 = true;
 input bool InpDrawF2 = true;
 input bool InpDrawF3 = true;
+input bool InpDrawND = true;
 input bool InpDrawBullish = true;
 input bool InpDrawBearish = true;
 input bool InpDrawOnlyConfirmed = false;
@@ -41,6 +44,8 @@ input bool InpShowLevelLabels = true;
 input bool InpShowInternal12Labels = true;
 input int  InpBaseLevelFontSize = 7;
 input int  InpBaseInternalFontSize = 7;
+input bool InpUseSequenceColorShades = true;
+input int  InpFixedLineWidth = 1;
 
 input color InpBullishLiveColor = clrDeepSkyBlue;
 input color InpBullishConfirmedColor = clrLime;
@@ -48,6 +53,7 @@ input color InpBearishLiveColor = clrOrange;
 input color InpBearishConfirmedColor = clrTomato;
 input color InpBullishF3TerminalColor = clrAqua;
 input color InpBearishF3TerminalColor = clrMagenta;
+input color InpNDColor = clrSilver;
 
 static datetime g_last_bar_time = 0;
 
@@ -97,6 +103,8 @@ void FCN_RunExperiment()
    cfg.require_parent_confirmed = InpRequireParentConfirmedForNextF;
    cfg.require_f2_parent_size = InpRequireF2AtLeastParentSize;
    cfg.f2_min_parent_size_ratio = InpF2MinParentSizeRatio;
+   cfg.scan_nd = InpScanND;
+   cfg.max_nd_per_scale = InpMaxNDPerScale;
    cfg.max_events = InpMaxEvents;
    cfg.max_roots_per_scale = InpMaxRootSequencesPerScale;
    cfg.verbose_logs = InpVerboseAuditLogs;
@@ -109,6 +117,7 @@ void FCN_RunExperiment()
                               InpDrawF1,
                               InpDrawF2,
                               InpDrawF3,
+                              InpDrawND,
                               InpDrawBullish,
                               InpDrawBearish,
                               InpDrawOnlyConfirmed,
@@ -121,7 +130,10 @@ void FCN_RunExperiment()
                               InpBearishLiveColor,
                               InpBearishConfirmedColor,
                               InpBullishF3TerminalColor,
-                              InpBearishF3TerminalColor);
+                              InpBearishF3TerminalColor,
+                              InpNDColor,
+                              InpUseSequenceColorShades,
+                              InpFixedLineWidth);
 
    Print("FCN_SUMMARY symbol=", _Symbol,
          " tf=", EnumToString(_Period),
