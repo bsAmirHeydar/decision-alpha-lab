@@ -75,10 +75,13 @@ bool FCN_NodeInvalidatesF1Waist(const FCN_Node &node, const FCN_Node &waist, con
 
 bool FCN_NodeInvalidatesOrigin(const FCN_Node &node, const FCN_Node &origin, const int direction)
 {
+   // Origin is the start of this F body. If a later opposite swing touches or
+   // crosses that start point, this child/root candidate has lost its identity.
+   // The parent sequence is not killed here; only this candidate is invalid.
    if(direction == FCN_DIR_BULLISH)
-      return node.kind == FCN_NODE_LOW && node.price < origin.price;
+      return node.kind == FCN_NODE_LOW && node.price <= origin.price;
    if(direction == FCN_DIR_BEARISH)
-      return node.kind == FCN_NODE_HIGH && node.price > origin.price;
+      return node.kind == FCN_NODE_HIGH && node.price >= origin.price;
    return false;
 }
 
@@ -138,6 +141,13 @@ bool FCN_FindCoreBodyFromOrigin(const FCN_Node &nodes[],
       for(int k=i+1; k<=end; k++)
       {
          FCN_Node node = nodes[k];
+
+         // Identity guard: once the start of this leg/body is touched, this
+         // candidate is dead. Do not keep scanning forward and later draw a
+         // body from an origin that has already been consumed. This is the
+         // main guard against orphan mid-move blue/green lines.
+         if(FCN_NodeInvalidatesOrigin(node, origin, direction))
+            return false;
 
          if(FCN_IsCorrectionNode(node, direction) && FCN_WaistInsideLegRange(origin, leg1, node, direction))
          {

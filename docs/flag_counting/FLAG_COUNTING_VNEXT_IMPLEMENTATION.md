@@ -101,3 +101,9 @@ The next layer is ND/Hook partitioning:
 The renderer must not make a raw two-leg swing body look like a completed flag. A root F1 is now semantic only after its own internal `1/2` exists; by default it must also confirm by rebreaking its Leg2. This prevents orphan body lines that start from arbitrary mid-move nodes.
 
 Each rendered F body keeps a traceable identity through `F#/L#/Q#` labels and an `O` origin label, so the chart shows which flag/scale/sequence owns each body and where its first leg starts. ND remains high/low-node based and close-agnostic.
+
+## Child origin invalidation and parent continuity
+
+A developing child F has its own independent Origin: F2 starts from the parent F1 internal-2 node, and F3 starts from the parent F2 internal-2 node. If the child touches or crosses its own Origin before it completes a coherent body/continuation, only that child candidate is invalidated and removed from rendering. The parent remains alive unless the parent’s own invalidation level is hit.
+
+This rule is semantic, not only visual: an event whose own leg start has been consumed must not remain as an orphan line on the chart, and later movement must not be attached back to that dead child origin.
