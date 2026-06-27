@@ -167,6 +167,8 @@ struct FC6_Config
    bool   show_invalidated_in_audit;
    bool   keep_confirmed_f1_f2_after_boundary_hit;
    bool   require_f1_phase_boundary;
+   bool   enforce_single_chain_per_direction_scale;
+   bool   merge_visual_duplicate_bodies;
 
    int    min_L;
    int    max_L;
@@ -437,6 +439,8 @@ void FC6_DefaultConfig(FC6_Config &cfg)
    cfg.show_invalidated_in_audit = true;
    cfg.keep_confirmed_f1_f2_after_boundary_hit = false;
    cfg.require_f1_phase_boundary = true;
+   cfg.enforce_single_chain_per_direction_scale = true;
+   cfg.merge_visual_duplicate_bodies = true;
    cfg.min_L = 2;
    cfg.max_L = 21;
    cfg.max_events = 3000;

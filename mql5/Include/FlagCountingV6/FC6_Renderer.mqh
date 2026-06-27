@@ -244,7 +244,7 @@ double FC6_LabelOffset(const FC6_FlagEvent &e, const int lane, const double poin
    if(e.has_leg1 && e.has_waist) h = MathAbs(e.leg1.price - e.waist.price);
    if(e.has_leg2 && e.has_waist) h = MathMax(h, MathAbs(e.leg2.price - e.waist.price));
    if(h <= 0.0) h = 80.0 * _Point;
-   return MathMax(10.0 * _Point, h * point_mult) + (double)lane * MathMax(12.0 * _Point, h * 0.055);
+   return MathMax(14.0 * _Point, h * point_mult) + (double)lane * MathMax(22.0 * _Point, h * 0.085);
 }
 
 void FC6_DrawEventLabels(const FC6_FlagEvent &e,
@@ -325,6 +325,51 @@ void FC6_DrawHookArc(const FC6_HookBranch &h,
    FC6_DrawText(prefix + "_HOOK_LBL", h.resolve_node.time_anchor, p, label, clr, font_size);
 }
 
+
+
+bool FC6_EventHasEarlierVisualEquivalent(const FC6_FlagEvent &events[],
+                                         const int count,
+                                         const int idx,
+                                         const double eps)
+{
+   if(idx < 0 || idx >= count) return false;
+   FC6_FlagEvent e = events[idx];
+   if(!e.has_origin || !e.has_leg1) return false;
+   for(int j=0; j<idx; j++)
+   {
+      if(events[j].level != e.level) continue;
+      if(events[j].direction != e.direction) continue;
+      if(events[j].status != e.status) continue;
+      if(!events[j].has_origin || !events[j].has_leg1) continue;
+      if(FC6_SameBodyIdentity(events[j], e, eps))
+         return true;
+   }
+   return false;
+}
+
+bool FC6_EventIsWeakerVisualDuplicate(const FC6_FlagEvent &events[],
+                                      const int count,
+                                      const int idx,
+                                      const double eps)
+{
+   if(idx < 0 || idx >= count) return false;
+   FC6_FlagEvent e = events[idx];
+   if(!e.has_origin || !e.has_leg1) return false;
+   int pi = FC6_StatusPriorityForMain(e.status);
+   for(int j=0; j<count; j++)
+   {
+      if(j == idx) continue;
+      if(events[j].level != e.level) continue;
+      if(events[j].direction != e.direction) continue;
+      if(!events[j].has_origin || !events[j].has_leg1) continue;
+      if(!FC6_SameBodyIdentity(events[j], e, eps)) continue;
+      int pj = FC6_StatusPriorityForMain(events[j].status);
+      if(pj > pi) return true;
+      if(pj == pi && j < idx) return true;
+   }
+   return false;
+}
+
 bool FC6_EventPassesDrawFilters(const FC6_FlagEvent &e,
                                 const bool draw_f1,
                                 const bool draw_f2,
@@ -366,6 +411,7 @@ int FC6_DrawAll(const FC6_FlagEvent &events[],
                 const bool draw_invalid,
                 const bool draw_raw_seeds,
                 const bool draw_lifecycle_history,
+                const bool skip_visual_duplicates,
                 const bool draw_hooks,
                 const bool detailed_labels,
                 const bool show_parent_ids,
@@ -396,6 +442,8 @@ int FC6_DrawAll(const FC6_FlagEvent &events[],
       if(!FC6_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_bull, draw_bear, draw_candidates, draw_confirmed, draw_locked, draw_invalid, draw_raw_seeds))
          continue;
       if(!draw_lifecycle_history && FC6_EventIsLifecycleSuperseded(events, n, i))
+         continue;
+      if(skip_visual_duplicates && FC6_EventIsWeakerVisualDuplicate(events, n, i, _Point * 0.25))
          continue;
       color clr = FC6_EventColor(e, bull_candidate, bull_confirmed, bear_candidate, bear_confirmed, f3_locked_color, use_shades);
       string p = prefix + "E" + IntegerToString(e.event_id) + "_" + FC6_LevelToString(e.level) + "_L" + IntegerToString(e.scale_L);

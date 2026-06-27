@@ -77,3 +77,24 @@ InpVerboseAuditLogs = true
 Use debug mode only when validating internal transitions.  For normal visual
 inspection, keep raw seeds and lifecycle history off so each chain displays its
 current meaningful state.
+
+## Recommended troubleshooting view
+
+For the normal semantic chart:
+
+```text
+InpRequireF1PhaseBoundary = true
+InpEnforceSingleChainPerDirectionScale = true
+InpMergeVisualDuplicateBodies = true
+InpDrawRawSeeds = false
+InpDrawLifecycleHistory = false
+InpShowParentIds = true
+```
+
+For full audit inspection, temporarily enable:
+
+```text
+InpDrawRawSeeds = true
+InpDrawLifecycleHistory = true
+InpVerboseAuditLogs = true
+```

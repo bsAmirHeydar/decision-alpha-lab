@@ -114,6 +114,88 @@ int FC6_BuildPhaseHooksForScale(const FC6_Node &nodes[],
    return ArraySize(hooks);
 }
 
+
+bool FC6_IntArrayContains(const int &arr[], const int value)
+{
+   for(int i=0; i<ArraySize(arr); i++)
+      if(arr[i] == value) return true;
+   return false;
+}
+
+void FC6_AddUniqueInt(int &arr[], const int value)
+{
+   if(value < 0) return;
+   if(FC6_IntArrayContains(arr, value)) return;
+   int sz = ArraySize(arr);
+   ArrayResize(arr, sz + 1);
+   arr[sz] = value;
+}
+
+void FC6_SortIntByNodeAnchor(const FC6_Node &nodes[], int &positions[])
+{
+   for(int i=1; i<ArraySize(positions); i++)
+   {
+      int key = positions[i];
+      int j = i - 1;
+      while(j >= 0 && nodes[positions[j]].index_anchor > nodes[key].index_anchor)
+      {
+         positions[j + 1] = positions[j];
+         j--;
+      }
+      positions[j + 1] = key;
+   }
+}
+
+int FC6_FindNodePosByIdentity(const FC6_Node &nodes[],
+                              const int node_count,
+                              const FC6_Node &needle,
+                              const double eps)
+{
+   if(!FC6_NodeValid(needle)) return -1;
+   for(int i=0; i<node_count; i++)
+      if(FC6_SameNodeIdentity(nodes[i], needle, eps))
+         return i;
+   return -1;
+}
+
+int FC6_CollectF1BoundaryOriginPositions(const FC6_Node &nodes[],
+                                         const int node_count,
+                                         const int direction,
+                                         const FC6_HookBranch &phase_hooks[],
+                                         const double eps,
+                                         int &positions[])
+{
+   ArrayResize(positions, 0);
+   for(int h=0; h<ArraySize(phase_hooks); h++)
+   {
+      if(!phase_hooks[h].is_nd) continue;
+      if(phase_hooks[h].direction != direction) continue;
+
+      // Canonical contract: bullish F1 after a positive hook starts from the
+      // lowest hook node; bearish F1 after a negative hook starts from the
+      // highest hook node.  That is the hook adverse extreme, not an arbitrary
+      // middle node and not every node of the branch.
+      int pos = FC6_FindNodePosByIdentity(nodes, node_count, phase_hooks[h].extreme_node, eps);
+      if(pos >= 0 && FC6_IsValidOriginForDirection(nodes[pos], direction))
+         FC6_AddUniqueInt(positions, pos);
+   }
+   FC6_SortIntByNodeAnchor(nodes, positions);
+   return ArraySize(positions);
+}
+
+int FC6_CollectFallbackOriginPositions(const FC6_Node &nodes[],
+                                       const int node_count,
+                                       const int direction,
+                                       int &positions[])
+{
+   ArrayResize(positions, 0);
+   for(int i=0; i<node_count; i++)
+      if(FC6_IsValidOriginForDirection(nodes[i], direction))
+         FC6_AddUniqueInt(positions, i);
+   FC6_SortIntByNodeAnchor(nodes, positions);
+   return ArraySize(positions);
+}
+
 void FC6_AppendHooks(FC6_HookBranch &dst[], const FC6_HookBranch &src[], const int max_hooks)
 {
    for(int i=0; i<ArraySize(src); i++)
@@ -204,13 +286,30 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
    int roots_bull = 0;
    int roots_bear = 0;
 
-   for(int i=0; i<node_count; i++)
+   for(int d_i=0; d_i<2; d_i++)
    {
-      for(int d_i=0; d_i<2; d_i++)
+      int direction = (d_i == 0 ? FC6_DIR_BULLISH : FC6_DIR_BEARISH);
+      int origin_positions[];
+      int boundary_count = 0;
+
+      if(cfg.require_f1_phase_boundary)
+         boundary_count = FC6_CollectF1BoundaryOriginPositions(nodes, node_count, direction, phase_hooks, eps, origin_positions);
+
+      if(!cfg.require_f1_phase_boundary || boundary_count <= 0)
       {
-         int direction = (d_i == 0 ? FC6_DIR_BULLISH : FC6_DIR_BEARISH);
+         // Fail-open is intentionally explicit. It prevents an empty chart when
+         // no readable hook exists yet, but it is no longer mixed with hook mode.
+         // Once hook boundaries exist, F1 roots are created only from those
+         // semantic phase boundaries.
+         FC6_CollectFallbackOriginPositions(nodes, node_count, direction, origin_positions);
+      }
+
+      for(int op=0; op<ArraySize(origin_positions); op++)
+      {
+         int i = origin_positions[op];
+         if(i < 0 || i >= node_count) continue;
          if(!FC6_IsValidOriginForDirection(nodes[i], direction)) continue;
-         if(!FC6_IsAllowedF1PhaseBoundary(nodes[i], direction, cfg, phase_hooks, eps)) continue;
+
          if(cfg.max_roots_per_scale_direction > 0)
          {
             if(direction == FC6_DIR_BULLISH && roots_bull >= cfg.max_roots_per_scale_direction) continue;
@@ -234,10 +333,9 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
          f1.sequence_id = ArraySize(events) + 1;
          f1.parent_event_id = -1;
          f1.chain_index = 1;
+         f1.reason = (boundary_count > 0 ? "f1_root_from_hook_phase_boundary" : "f1_root_fail_open_no_hook_boundary");
          FC6_EvaluateF1PostFlag(nodes, node_count, f1, eps);
 
-         // F1 is shown after body has been hit. Rejected/invalidation can remain
-         // in audit if requested, but main renderer filters them.
          int eid = FC6_AddUniqueEvent(events, f1, eps);
          if(eid >= 0)
          {
@@ -245,8 +343,6 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
             if(direction == FC6_DIR_BULLISH) roots_bull++; else roots_bear++;
          }
 
-         // Hook/ND after the F1 body, regardless of F1 confirmation, because the
-         // hook is a first-class phase object. It is rendered as a gray arc.
          if(cfg.scan_hooks && f1.has_leg2)
          {
             FC6_Node ctx[];
@@ -442,6 +538,130 @@ void FC6_BuildChildrenPass(const FC6_Node &nodes[],
       FC6_BuildChildF3ForF2(nodes, node_count, cfg, events[i], events, hooks);
 }
 
+
+
+bool FC6_StatusIsTerminalF3(const int status)
+{
+   return (status == FC6_STATUS_COMPLETED || status == FC6_STATUS_LOCKED || status == FC6_STATUS_CONFIRMED);
+}
+
+bool FC6_IsRootF1Event(const FC6_FlagEvent &e)
+{
+   return (e.level == FC6_LEVEL_F1 && e.chain_index == 1 && e.parent_event_id < 0 && e.has_origin);
+}
+
+bool FC6_HasOppositeF3Between(const FC6_FlagEvent &events[],
+                              const int count,
+                              const int scale_L,
+                              const int direction,
+                              const int from_index_anchor,
+                              const int to_index_anchor)
+{
+   for(int i=0; i<count; i++)
+   {
+      if(events[i].level != FC6_LEVEL_F3) continue;
+      if(events[i].scale_L != scale_L) continue;
+      if(events[i].direction == direction) continue;
+      if(!FC6_StatusIsTerminalF3(events[i].status)) continue;
+      if(!events[i].has_confirm) continue;
+      int ci = events[i].confirm.index_anchor;
+      if(ci > from_index_anchor && ci < to_index_anchor)
+         return true;
+   }
+   return false;
+}
+
+bool FC6_SequenceIdMarked(const int &ids[], const int sequence_id)
+{
+   for(int i=0; i<ArraySize(ids); i++)
+      if(ids[i] == sequence_id) return true;
+   return false;
+}
+
+void FC6_MarkSequenceId(int &ids[], const int sequence_id)
+{
+   if(sequence_id < 0) return;
+   if(FC6_SequenceIdMarked(ids, sequence_id)) return;
+   int sz = ArraySize(ids);
+   ArrayResize(ids, sz + 1);
+   ids[sz] = sequence_id;
+}
+
+int FC6_PruneSameDirectionRestartsBeforeOppositeF3(FC6_FlagEvent &events[], const FC6_Config &cfg)
+{
+   if(!cfg.enforce_single_chain_per_direction_scale) return 0;
+   int n = ArraySize(events);
+   int remove_seq[];
+   ArrayResize(remove_seq, 0);
+
+   for(int i=0; i<n; i++)
+   {
+      if(!FC6_IsRootF1Event(events[i])) continue;
+      int prev = -1;
+      for(int j=0; j<n; j++)
+      {
+         if(i == j) continue;
+         if(!FC6_IsRootF1Event(events[j])) continue;
+         if(events[j].scale_L != events[i].scale_L) continue;
+         if(events[j].direction != events[i].direction) continue;
+         if(events[j].origin.index_anchor >= events[i].origin.index_anchor) continue;
+         if(FC6_SequenceIdMarked(remove_seq, events[j].sequence_id)) continue;
+         if(prev < 0 || events[j].origin.index_anchor > events[prev].origin.index_anchor)
+            prev = j;
+      }
+      if(prev < 0) continue;
+      if(!FC6_HasOppositeF3Between(events, n, events[i].scale_L, events[i].direction, events[prev].origin.index_anchor, events[i].origin.index_anchor))
+         FC6_MarkSequenceId(remove_seq, events[i].sequence_id);
+   }
+
+   if(ArraySize(remove_seq) <= 0) return 0;
+
+   FC6_FlagEvent kept[];
+   ArrayResize(kept, 0);
+   for(int i=0; i<n; i++)
+   {
+      if(FC6_SequenceIdMarked(remove_seq, events[i].sequence_id)) continue;
+      FC6_AddEvent(kept, events[i]);
+   }
+   int removed = n - ArraySize(kept);
+   ArrayResize(events, ArraySize(kept));
+   for(int k=0; k<ArraySize(kept); k++) events[k] = kept[k];
+   FC6_FinalizeEventIds(events);
+   return removed;
+}
+
+void FC6_RebuildParentEventIds(FC6_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(events[i].chain_index <= 1)
+      {
+         events[i].parent_event_id = -1;
+         continue;
+      }
+      int want_chain = events[i].chain_index - 1;
+      int best = -1;
+      for(int j=0; j<n; j++)
+      {
+         if(events[j].sequence_id != events[i].sequence_id) continue;
+         if(events[j].chain_index != want_chain) continue;
+         if(events[j].direction != events[i].direction) continue;
+         if(best < 0 || events[j].origin.index_anchor <= events[i].origin.index_anchor)
+            best = j;
+      }
+      events[i].parent_event_id = (best >= 0 ? events[best].event_id : -1);
+   }
+}
+
+void FC6_PostProcessSemanticEvents(FC6_FlagEvent &events[], const FC6_Config &cfg)
+{
+   FC6_LockCompletedF3s(events);
+   FC6_PruneSameDirectionRestartsBeforeOppositeF3(events, cfg);
+   FC6_FinalizeEventIds(events);
+   FC6_RebuildParentEventIds(events);
+}
+
 void FC6_RemoveInvalidatedForMainIfNeeded(FC6_FlagEvent &events[], const FC6_Config &cfg)
 {
    if(cfg.show_invalidated_in_audit) return;
@@ -545,9 +765,16 @@ int FC6_DetectAllScales(const MqlRates &rates[],
          ArrayResize(hooks, cfg.max_hooks);
    }
 
+   // Cross-scale semantic post-processing must happen after every scale has
+   // contributed its candidate structures.  This is where future opposite F1s
+   // can lock completed F3s and where same-direction restarts are removed until
+   // an opposite F3 actually resets the phase.
+   FC6_PostProcessSemanticEvents(events, cfg);
    FC6_SortEventsChronological(events);
+   FC6_RebuildParentEventIds(events);
    FC6_FinalizeHookIds(hooks);
    FC6_RemoveInvalidatedForMainIfNeeded(events, cfg);
+   FC6_RebuildParentEventIds(events);
 
    result.events_total = ArraySize(events);
    result.hooks_total = ArraySize(hooks);

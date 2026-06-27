@@ -27,6 +27,8 @@ input bool InpScanHooks = true;
 input bool InpShowInvalidatedInAudit = false;
 input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
 input bool InpRequireF1PhaseBoundary = true;
+input bool InpEnforceSingleChainPerDirectionScale = true;
+input bool InpMergeVisualDuplicateBodies = true;
 
 input int    InpMaxEvents = 3000;
 input int    InpMaxHooks = 3000;
@@ -99,6 +101,8 @@ void FC6_LoadConfig(FC6_Config &cfg)
    cfg.show_invalidated_in_audit = InpShowInvalidatedInAudit;
    cfg.keep_confirmed_f1_f2_after_boundary_hit = InpKeepConfirmedF1F2AfterBoundaryHit;
    cfg.require_f1_phase_boundary = InpRequireF1PhaseBoundary;
+   cfg.enforce_single_chain_per_direction_scale = InpEnforceSingleChainPerDirectionScale;
+   cfg.merge_visual_duplicate_bodies = InpMergeVisualDuplicateBodies;
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
    cfg.max_roots_per_scale_direction = InpMaxRootsPerScaleDirection;
@@ -164,6 +168,7 @@ void FC6_Run()
                            InpDrawInvalidated,
                            InpDrawRawSeeds,
                            InpDrawLifecycleHistory,
+                           InpMergeVisualDuplicateBodies,
                            InpDrawHooks,
                            InpDetailedLabels,
                            InpShowParentIds,

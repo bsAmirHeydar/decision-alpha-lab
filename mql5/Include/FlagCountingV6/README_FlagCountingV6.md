@@ -47,3 +47,17 @@ V6.1 fixes the first visual-audit issues:
 - superseded lifecycle labels are hidden from the main chart by default;
 - parent ids can be shown in labels to audit ownership;
 - label stacking now uses a time/price cluster lane instead of `event_id % 8`.
+
+## Semantic ownership repair defaults
+
+The V6 default view is now stricter about sequence ownership:
+
+- `InpRequireF1PhaseBoundary = true`
+- `InpEnforceSingleChainPerDirectionScale = true`
+- `InpMergeVisualDuplicateBodies = true`
+- `InpDrawRawSeeds = false`
+- `InpDrawLifecycleHistory = false`
+
+This means a chart should show semantically owned structures rather than every
+internal attempt.  Turn off the enforcement inputs only when auditing the raw
+state machine.

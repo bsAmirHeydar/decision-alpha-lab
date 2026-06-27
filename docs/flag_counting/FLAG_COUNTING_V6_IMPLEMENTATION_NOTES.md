@@ -174,3 +174,49 @@ F3 candidates.
 The engine still keeps events available for verbose audit.  The renderer suppresses
 superseded lifecycle states by default so the main chart shows the current logical
 state rather than every transition label.
+
+## V6 Semantic Repair: main-view ownership and restart gating
+
+The main chart must never become a raw lifecycle dump.  The detector may still
+create audit-level attempts, transitions, and candidates, but the default render
+view should only expose semantically meaningful structures.  The repair layer
+adds the following constraints:
+
+1. **Root F1 phase-boundary origin selection**
+   - When readable ND/Hook boundaries exist, F1 roots are built only from the
+     hook adverse extreme for that direction.
+   - Bullish F1 roots therefore come from the lowest LOW of the positive hook.
+   - Bearish F1 roots come from the highest HIGH of the negative hook.
+   - The old fail-open all-origin scan remains only for cases where no readable
+     hook boundary exists at all, so the chart does not become empty while a
+     phase is still developing.
+
+2. **Single active same-direction chain per scale until opposite F3**
+   - Within the same L scale and direction, a new independent F1 root is not
+     allowed to start merely because another two-leg body appears.
+   - A same-direction restart becomes visible only after an opposite F3 has
+     completed or locked between the previous same-direction root and the new
+     root.
+   - This implements the contract that a direction does not keep restarting F1
+     while the higher sequence is still working.
+
+3. **Parent id rebuild after sorting and pruning**
+   - Event ids are display/audit ids and can change after chronological sorting.
+   - Parent ids are rebuilt after semantic pruning so labels such as `P123`
+     point to the visible parent event id rather than a stale insertion id.
+
+4. **Visual duplicate suppression**
+   - Exact same body geometry with the same level, direction, and status is
+     rendered once in the default view.
+   - This prevents stacked duplicate labels when multiple scales converge to the
+     exact same Origin/Leg1/Waist/Leg2 identity.
+   - The underlying audit can still retain the separate scale discoveries.
+
+5. **Cluster label spacing**
+   - Label lanes now use stronger vertical spacing so large label clusters remain
+     readable when many valid events occur in the same price/time area.
+
+These rules are deliberately applied after all scales are scanned.  F3 locks and
+same-direction restart pruning need a cross-scale, full-history view of the
+current run.  The renderer still remains non-authoritative: it only hides or
+merges display duplicates; it does not invent or mutate logical structures.
