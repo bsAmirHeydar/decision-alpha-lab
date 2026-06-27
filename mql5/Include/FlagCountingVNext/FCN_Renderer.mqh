@@ -254,6 +254,18 @@ bool FCN_SameEventIdentity(const FCN_Event &a, const FCN_Event &b)
        && a.leg2.time == b.leg2.time;
 }
 
+
+string FCN_EventDisplayLabel(const FCN_Event &e, const bool detailed)
+{
+   string base = FCN_LevelToString(e.level);
+   if(!detailed)
+      return base;
+
+   // Compact but traceable identity: level / scale / sequence.
+   // This answers "which flag is this?" without changing the detection result.
+   return base + "/L" + IntegerToString(e.scale_L) + "/Q" + IntegerToString(e.sequence_id);
+}
+
 color FCN_EventColor(const FCN_Event &e,
                      const color bull_live,
                      const color bull_confirmed,
@@ -369,7 +381,9 @@ void FCN_DrawEventLabels(const FCN_Event &e,
                          const int internal_font,
                          const int level_stack_slot,
                          const bool show_level_label,
-                         const bool show_internal_labels)
+                         const bool show_internal_labels,
+                         const bool show_detailed_level_labels,
+                         const bool show_origin_labels)
 {
    double chart_range = FCN_ChartPriceRange();
    double base_off = MathMax(chart_range * 0.012, 10.0 * _Point);
@@ -384,7 +398,15 @@ void FCN_DrawEventLabels(const FCN_Event &e,
       double off = base_off + (double)level_stack_slot * step_off;
       double label_price = above ? e.leg2.price + off : e.leg2.price - off;
       ENUM_ANCHOR_POINT anchor = above ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER;
-      FCN_DrawTextRaw(p + "F", e.leg2.time, label_price, FCN_LevelToString(e.level), clr, level_font, anchor);
+      FCN_DrawTextRaw(p + "F", e.leg2.time, label_price, FCN_EventDisplayLabel(e, show_detailed_level_labels), clr, level_font, anchor);
+   }
+
+   if(e.level != FCN_LEVEL_ND && show_origin_labels)
+   {
+      bool origin_above = (e.origin.kind == FCN_NODE_HIGH);
+      double ooff = MathMax(chart_range * 0.008, 7.0 * _Point);
+      double origin_price = origin_above ? e.origin.price + ooff : e.origin.price - ooff;
+      FCN_DrawTextRaw(p + "O", e.origin.time, origin_price, "O", clr, internal_font, origin_above ? ANCHOR_LOWER : ANCHOR_UPPER);
    }
 
    if(e.level == FCN_LEVEL_ND)
@@ -430,6 +452,8 @@ int FCN_DrawEvents(const FCN_Event &events[],
                    const color bear_f3_terminal,
                    const color nd_color,
                    const bool use_sequence_shades,
+                   const bool show_detailed_level_labels,
+                   const bool show_origin_labels,
                    const int fixed_line_width)
 {
    FCN_DeleteObjectsByPrefix(prefix);
@@ -468,7 +492,7 @@ int FCN_DrawEvents(const FCN_Event &events[],
       int level_font = base_level_font;
       int internal_font = base_internal_font;
       int slot = FCN_LevelLabelStackSlot(events, total, e, draw_f1, draw_f2, draw_f3, draw_nd, draw_bullish, draw_bearish, draw_only_confirmed);
-      FCN_DrawEventLabels(e, p, clr, level_font, internal_font, slot, show_level_label, show_internal_labels);
+      FCN_DrawEventLabels(e, p, clr, level_font, internal_font, slot, show_level_label, show_internal_labels, show_detailed_level_labels, show_origin_labels);
       label_count++;
    }
 

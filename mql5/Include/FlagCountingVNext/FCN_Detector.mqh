@@ -447,6 +447,38 @@ void FCN_AnalyzeEventByLevel(const FCN_Node &nodes[], FCN_Event &e)
       FCN_FinalizeF3Terminal(e);
 }
 
+
+bool FCN_F1PassesRootSemanticContract(const FCN_Event &f1,
+                                      const FCN_Config &cfg,
+                                      string &reject_reason)
+{
+   reject_reason = "";
+
+   // A raw two-leg body is not enough to become a rendered/chainable F1 root.
+   // This is the key guard against orphan lines that start from arbitrary mid-move nodes.
+   // F1 becomes semantic only after its own internal 1/2 exists; optionally it must also
+   // confirm by rebreaking Leg2 after internal 1/2.
+   if(f1.status == FCN_STATUS_INVALID)
+   {
+      reject_reason = "invalid";
+      return false;
+   }
+
+   if(cfg.require_f1_internal12_for_root && (!f1.has_internal1 || !f1.has_internal2))
+   {
+      reject_reason = "root_f1_rejected_no_internal12";
+      return false;
+   }
+
+   if(cfg.require_f1_confirmed_for_root && f1.status != FCN_STATUS_CONFIRMED)
+   {
+      reject_reason = "root_f1_rejected_not_confirmed";
+      return false;
+   }
+
+   return true;
+}
+
 bool FCN_SizeSymmetryPass(const FCN_Event &child, const FCN_Event &parent, const FCN_Config &cfg)
 {
    if(child.level != FCN_LEVEL_F2) return true;
@@ -762,8 +794,18 @@ void FCN_BuildSequencesForScale(const FCN_Node &nodes[],
          if(!FCN_FindCoreBodyFromOrigin(nodes, p, direction, FCN_LEVEL_F1, scale_L, 0, f1))
             continue;
          FCN_AnalyzeEventByLevel(nodes, f1);
-         if(f1.status == FCN_STATUS_INVALID)
+
+         string root_reject_reason = "";
+         if(!FCN_F1PassesRootSemanticContract(f1, cfg, root_reject_reason))
+         {
+            if(cfg.verbose_logs)
+               Print("FC_SKIP_ROOT scaleL=", scale_L,
+                     " dir=", FCN_DirectionToString(direction),
+                     " origin=", TimeToString(nodes[p].time), "@", DoubleToString(nodes[p].price, _Digits),
+                     " reason=", root_reject_reason);
             continue;
+         }
+
          if(FCN_EventAlreadyExists(events, f1))
             continue;
 
