@@ -8,6 +8,8 @@
 // - All body lines are thin and uniform by default.
 // - Sequences inside the same color family receive subtle shade variations.
 // - ND / Hook phases are text-only labels so they explain unowned movement without adding line noise.
+// - Labels use deterministic peak/valley stacking: above peaks and below valleys.
+// - Body curves use dense arc-like Bezier segmentation for a smooth half-circle visual.
 
 void FCN_DeleteObjectsByPrefix(const string prefix)
 {
@@ -145,7 +147,7 @@ void FCN_DrawBezierCurve(const string prefix,
                          const int width,
                          const int segments)
 {
-   int n = MathMax(6, segments);
+   int n = MathMax(18, segments);
    datetime prev_t = t0;
    double prev_p = p0;
 
@@ -201,22 +203,45 @@ double FCN_EventBodyHeight(const FCN_Event &e)
    return h;
 }
 
+double FCN_ChartPriceRange()
+{
+   double pmax = 0.0;
+   double pmin = 0.0;
+   if(ChartGetDouble(0, CHART_PRICE_MAX, 0, pmax) && ChartGetDouble(0, CHART_PRICE_MIN, 0, pmin))
+   {
+      double r = MathAbs(pmax - pmin);
+      if(r > 0.0)
+         return r;
+   }
+   return 1000.0 * _Point;
+}
+
+bool FCN_LabelAboveStructure(const FCN_Event &e)
+{
+   if(e.leg2.kind == FCN_NODE_HIGH)
+      return true;
+   if(e.leg2.kind == FCN_NODE_LOW)
+      return false;
+   return e.direction == FCN_DIR_BULLISH;
+}
+
 bool FCN_LabelAnchorsOverlap(const FCN_Event &a, const FCN_Event &b)
 {
-   if(a.direction != b.direction)
+   // Labels are stacked by visual side, not by direction.
+   // Peak-side labels go above peaks; valley-side labels go below valleys.
+   if(FCN_LabelAboveStructure(a) != FCN_LabelAboveStructure(b))
       return false;
 
    int sec = PeriodSeconds(_Period);
    if(sec <= 0) sec = 60;
 
    long dt = (long)MathAbs((double)((long)a.leg2.time - (long)b.leg2.time));
-   long max_dt = (long)(sec * MathMax(MathMax(a.scale_L, b.scale_L), 8) * 3);
+   long max_dt = (long)(sec * MathMax(MathMax(a.scale_L, b.scale_L), 8) * 4);
    if(dt > max_dt)
       return false;
 
-   double ha = FCN_EventBodyHeight(a);
-   double hb = FCN_EventBodyHeight(b);
-   double tol = MathMax(MathMax(ha, hb) * 0.42, 80.0 * _Point);
+   double chart_range = FCN_ChartPriceRange();
+   double tol = MathMax(chart_range * 0.035, 80.0 * _Point);
    return MathAbs(a.leg2.price - b.leg2.price) <= tol;
 }
 
@@ -276,7 +301,7 @@ void FCN_DrawFBody(const FCN_Event &e,
    datetime c2t = e.waist.time - (datetime)MathMax(1, (int)(dt1 * 0.16));
    double c1p = bullish ? e.leg1.price - 0.36 * h1 : e.leg1.price + 0.36 * h1;
    double c2p = bullish ? e.waist.price + 0.08 * h1 : e.waist.price - 0.08 * h1;
-   FCN_DrawBezierCurve(p + "A", e.leg1.time, e.leg1.price, c1t, c1p, c2t, c2p, e.waist.time, e.waist.price, clr, width, 10);
+   FCN_DrawBezierCurve(p + "A", e.leg1.time, e.leg1.price, c1t, c1p, c2t, c2p, e.waist.time, e.waist.price, clr, width, 28);
 
    int dt2 = (int)(e.leg2.time - e.waist.time);
    if(dt2 <= 0) dt2 = sec * 4;
@@ -286,7 +311,7 @@ void FCN_DrawFBody(const FCN_Event &e,
    datetime c4t = e.leg2.time - (datetime)MathMax(1, (int)(dt2 * 0.18));
    double c3p = bullish ? e.waist.price + 0.08 * h2 : e.waist.price - 0.08 * h2;
    double c4p = bullish ? e.leg2.price - 0.16 * h2 : e.leg2.price + 0.16 * h2;
-   FCN_DrawBezierCurve(p + "B", e.waist.time, e.waist.price, c3t, c3p, c4t, c4p, e.leg2.time, e.leg2.price, clr, width, 10);
+   FCN_DrawBezierCurve(p + "B", e.waist.time, e.waist.price, c3t, c3p, c4t, c4p, e.leg2.time, e.leg2.price, clr, width, 28);
 }
 
 bool FCN_EventPassesDrawFilters(const FCN_Event &e,
@@ -346,34 +371,40 @@ void FCN_DrawEventLabels(const FCN_Event &e,
                          const bool show_level_label,
                          const bool show_internal_labels)
 {
-   bool bullish = e.direction == FCN_DIR_BULLISH;
-   double h = FCN_EventBodyHeight(e);
+   double chart_range = FCN_ChartPriceRange();
+   double base_off = MathMax(chart_range * 0.012, 10.0 * _Point);
+   double step_off = MathMax(chart_range * 0.020, 18.0 * _Point);
+
+   // Peak labels are above peaks; valley labels are below valleys.
+   // The closest label is the highest-priority one: larger scale, higher F-level, stronger status.
+   bool above = FCN_LabelAboveStructure(e);
 
    if(show_level_label)
    {
-      double base_off = MathMax(0.045 * h, 8.0 * _Point);
-      double step_off = MathMax(0.080 * h, 14.0 * _Point);
       double off = base_off + (double)level_stack_slot * step_off;
-      double label_price = bullish ? e.leg2.price + off : e.leg2.price - off;
-      ENUM_ANCHOR_POINT anchor = bullish ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER;
+      double label_price = above ? e.leg2.price + off : e.leg2.price - off;
+      ENUM_ANCHOR_POINT anchor = above ? ANCHOR_LEFT_LOWER : ANCHOR_LEFT_UPPER;
       FCN_DrawTextRaw(p + "F", e.leg2.time, label_price, FCN_LevelToString(e.level), clr, level_font, anchor);
    }
 
    if(e.level == FCN_LEVEL_ND)
       return;
 
+   double internal_base = MathMax(chart_range * 0.010, 8.0 * _Point);
+   double internal_step = MathMax(chart_range * 0.013, 10.0 * _Point);
+
    if(show_internal_labels && e.has_internal1)
    {
-      double off1 = MathMax(0.060 * h, 10.0 * _Point);
-      double price1 = bullish ? e.internal1.price - off1 : e.internal1.price + off1;
-      FCN_DrawTextRaw(p + "I1", e.internal1.time, price1, "1", clr, internal_font, ANCHOR_CENTER);
+      bool i1_above = (e.internal1.kind == FCN_NODE_HIGH);
+      double price1 = i1_above ? e.internal1.price + internal_base : e.internal1.price - internal_base;
+      FCN_DrawTextRaw(p + "I1", e.internal1.time, price1, "1", clr, internal_font, i1_above ? ANCHOR_LOWER : ANCHOR_UPPER);
    }
 
    if(show_internal_labels && e.has_internal2)
    {
-      double off2 = MathMax(0.090 * h, 14.0 * _Point);
-      double price2 = bullish ? e.internal2.price - off2 : e.internal2.price + off2;
-      FCN_DrawTextRaw(p + "I2", e.internal2.time, price2, "2", clr, internal_font, ANCHOR_CENTER);
+      bool i2_above = (e.internal2.kind == FCN_NODE_HIGH);
+      double price2 = i2_above ? e.internal2.price + internal_base + internal_step : e.internal2.price - internal_base - internal_step;
+      FCN_DrawTextRaw(p + "I2", e.internal2.time, price2, "2", clr, internal_font, i2_above ? ANCHOR_LOWER : ANCHOR_UPPER);
    }
 }
 

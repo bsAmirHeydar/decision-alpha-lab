@@ -88,7 +88,7 @@ Relevant inputs:
 
 ## ND / Hook Detection Contract
 
-The VNext implementation now detects ND / Hook phases as first-class text-only events, not only as gaps left after F rendering. For each active scale, the detector scans consecutive compressed node windows of 3 or 4 nodes and accepts a provisional ND when the window closes at least 50% toward its active extreme. This follows the documented rule that an ND does not need a 90% return; a minimum 50% extreme-close is enough for research visibility.
+The VNext implementation now detects ND / Hook phases as first-class text-only events, not only as gaps left after F rendering. For each active scale, the detector scans consecutive compressed node windows of 3 or 4 nodes and accepts a provisional ND when the final high/low node reaches at least 50% toward the active extreme of that node window. This follows the documented rule that an ND does not need a 90% return; a minimum 50% high/low extreme ratio is enough for research visibility.
 
 Important inputs:
 
@@ -103,10 +103,10 @@ ND is rendered as text only (`ND`) so it explains the partition without adding m
 
 ### ND high/low-only contract
 
-ND / Hook detection never uses candle close. The whole flag-counting grammar currently treats the market through swing highs and swing lows only. ND windows are therefore evaluated from compressed high/low nodes:
+ND / Hook detection is close-agnostic. It does not care whether a candle closed beyond a level or not. The whole flag-counting grammar currently treats the market through swing highs and swing lows only. ND windows are therefore evaluated from compressed high/low nodes:
 
 - valid ND windows use 3 or 4 alternating high/low nodes;
 - the final ND node must reach the configured side of the window by at least `InpNDMinExtremeRatio`;
 - `InpNDMinExtremeRatio = 0.50` means the last swing node is at least in the relevant half of the high-low range of that ND window;
-- candle close, body close, bar close, and candle color are ignored.
+- candle open, candle close, candle body, and candle color are not part of the ND definition.
 

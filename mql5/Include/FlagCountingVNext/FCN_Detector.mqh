@@ -91,6 +91,17 @@ bool FCN_NodeBreaksLeg2(const FCN_Node &node, const FCN_Node &leg2, const int di
    return false;
 }
 
+bool FCN_IsMoreExtremeCorrection(const FCN_Node &candidate, const FCN_Node &current, const int direction)
+{
+   if(!FCN_IsValidNode(current))
+      return true;
+   if(direction == FCN_DIR_BULLISH)
+      return candidate.kind == FCN_NODE_LOW && candidate.price < current.price;
+   if(direction == FCN_DIR_BEARISH)
+      return candidate.kind == FCN_NODE_HIGH && candidate.price > current.price;
+   return false;
+}
+
 bool FCN_FindCoreBodyFromOrigin(const FCN_Node &nodes[],
                                 const int origin_pos,
                                 const int direction,
@@ -116,30 +127,46 @@ bool FCN_FindCoreBodyFromOrigin(const FCN_Node &nodes[],
       if(!FCN_IsOppositeNodeForLeg1(nodes[i], direction)) continue;
       FCN_Node leg1 = nodes[i];
 
-      for(int j=i+1; j<=end-1; j++)
+      // Critical geometry contract:
+      // After Leg1, the correction control point must be the true correction extreme
+      // before Leg2 breaks Leg1. In bullish structures this is the lowest valid LOW;
+      // in bearish structures this is the highest valid HIGH. We do not freeze the
+      // first correction node, because that draws the body through the wrong waist.
+      FCN_Node best_waist;
+      FCN_ResetNode(best_waist);
+
+      for(int k=i+1; k<=end; k++)
       {
-         if(!FCN_IsCorrectionNode(nodes[j], direction)) continue;
-         FCN_Node waist = nodes[j];
-         if(!FCN_WaistInsideLegRange(origin, leg1, waist, direction)) continue;
+         FCN_Node node = nodes[k];
 
-         for(int k=j+1; k<=end; k++)
+         if(FCN_IsCorrectionNode(node, direction) && FCN_WaistInsideLegRange(origin, leg1, node, direction))
          {
-            if(!FCN_IsOppositeNodeForLeg1(nodes[k], direction)) continue;
-            FCN_Node leg2 = nodes[k];
-            if(!FCN_Leg2BreaksLeg1(leg1, leg2, direction)) continue;
-
-            event.level = level;
-            event.direction = direction;
-            event.scale_L = scale_L;
-            event.origin = origin;
-            event.leg1 = leg1;
-            event.waist = waist;
-            event.leg2 = leg2;
-            event.status = FCN_STATUS_LIVE;
-            event.size = FCN_BodySize(origin, leg2);
-            event.reason = "core_body";
-            return true;
+            if(FCN_IsMoreExtremeCorrection(node, best_waist, direction))
+               best_waist = node;
+            continue;
          }
+
+         if(!FCN_IsValidNode(best_waist))
+            continue;
+
+         if(!FCN_IsOppositeNodeForLeg1(node, direction))
+            continue;
+
+         FCN_Node leg2 = node;
+         if(!FCN_Leg2BreaksLeg1(leg1, leg2, direction))
+            continue;
+
+         event.level = level;
+         event.direction = direction;
+         event.scale_L = scale_L;
+         event.origin = origin;
+         event.leg1 = leg1;
+         event.waist = best_waist;
+         event.leg2 = leg2;
+         event.status = FCN_STATUS_LIVE;
+         event.size = FCN_BodySize(origin, leg2);
+         event.reason = "core_body_true_correction_extreme";
+         return true;
       }
    }
 
@@ -507,7 +534,7 @@ double FCN_NDExtremeRatio(const FCN_Node &nodes[], const int start, const int en
 
    // IMPORTANT CONTRACT:
    // ND / Hook logic is based only on swing-node highs and lows.
-   // Candle close is intentionally ignored everywhere in ND detection.
+   // Candle open/close are not part of ND detection; the logic is close-agnostic.
    // The ratio means how far the final swing node reaches into the relevant
    // extreme side of the whole ND window.
    if(nodes[end].kind == FCN_NODE_HIGH)
