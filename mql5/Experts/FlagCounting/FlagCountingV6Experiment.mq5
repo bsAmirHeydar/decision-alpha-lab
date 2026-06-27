@@ -26,6 +26,7 @@ input bool InpScanF3 = true;
 input bool InpScanHooks = true;
 input bool InpShowInvalidatedInAudit = false;
 input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
+input bool InpRequireF1PhaseBoundary = true;
 
 input int    InpMaxEvents = 3000;
 input int    InpMaxHooks = 3000;
@@ -52,14 +53,19 @@ input bool   InpDrawCandidates = true;
 input bool   InpDrawConfirmed = true;
 input bool   InpDrawLocked = true;
 input bool   InpDrawInvalidated = false;
+input bool   InpDrawRawSeeds = false;
+input bool   InpDrawLifecycleHistory = false;
 input bool   InpDrawHooks = true;
 input bool   InpDetailedLabels = true;
+input bool   InpShowParentIds = true;
 input bool   InpShowOriginLabels = true;
 input bool   InpShowInternalLabels = true;
 input bool   InpUseSequenceColorShades = true;
 input int    InpFixedLineWidth = 1;
 input int    InpCurveSegments = 32;
 input int    InpLabelFontSize = 7;
+input int    InpLabelTimeClusterBars = 4;
+input double InpLabelPriceClusterPoints = 160.0;
 
 input color InpBullishCandidateColor = clrDeepSkyBlue;
 input color InpBullishConfirmedColor = clrLime;
@@ -92,6 +98,7 @@ void FC6_LoadConfig(FC6_Config &cfg)
    cfg.scan_hooks = InpScanHooks;
    cfg.show_invalidated_in_audit = InpShowInvalidatedInAudit;
    cfg.keep_confirmed_f1_f2_after_boundary_hit = InpKeepConfirmedF1F2AfterBoundaryHit;
+   cfg.require_f1_phase_boundary = InpRequireF1PhaseBoundary;
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
    cfg.max_roots_per_scale_direction = InpMaxRootsPerScaleDirection;
@@ -155,14 +162,19 @@ void FC6_Run()
                            InpDrawConfirmed,
                            InpDrawLocked,
                            InpDrawInvalidated,
+                           InpDrawRawSeeds,
+                           InpDrawLifecycleHistory,
                            InpDrawHooks,
                            InpDetailedLabels,
+                           InpShowParentIds,
                            InpShowOriginLabels,
                            InpShowInternalLabels,
                            InpUseSequenceColorShades,
                            InpFixedLineWidth,
                            InpCurveSegments,
                            InpLabelFontSize,
+                           InpLabelTimeClusterBars,
+                           InpLabelPriceClusterPoints,
                            InpBullishCandidateColor,
                            InpBullishConfirmedColor,
                            InpBearishCandidateColor,

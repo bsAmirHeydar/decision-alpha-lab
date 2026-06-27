@@ -166,6 +166,7 @@ struct FC6_Config
    bool   scan_hooks;
    bool   show_invalidated_in_audit;
    bool   keep_confirmed_f1_f2_after_boundary_hit;
+   bool   require_f1_phase_boundary;
 
    int    min_L;
    int    max_L;
@@ -435,6 +436,7 @@ void FC6_DefaultConfig(FC6_Config &cfg)
    cfg.scan_hooks = true;
    cfg.show_invalidated_in_audit = true;
    cfg.keep_confirmed_f1_f2_after_boundary_hit = false;
+   cfg.require_f1_phase_boundary = true;
    cfg.min_L = 2;
    cfg.max_L = 21;
    cfg.max_events = 3000;

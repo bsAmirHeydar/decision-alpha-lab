@@ -55,6 +55,74 @@ color FC6_EventColor(const FC6_FlagEvent &e,
    return FC6_ShadeColor(base, e.sequence_id + e.event_id + e.scale_L, shade);
 }
 
+int FC6_StatusPriorityForMain(const int status)
+{
+   if(status == FC6_STATUS_LOCKED) return 70;
+   if(status == FC6_STATUS_COMPLETED) return 60;
+   if(status == FC6_STATUS_CONFIRMED) return 50;
+   if(status == FC6_STATUS_QUALIFIED) return 40;
+   if(status == FC6_STATUS_POST_FLAG) return 30;
+   if(status == FC6_STATUS_LIVE_BODY) return 20;
+   if(status == FC6_STATUS_RAW_SEED) return 10;
+   if(status == FC6_STATUS_INVALIDATED) return 0;
+   return 0;
+}
+
+bool FC6_EventIsLifecycleSuperseded(const FC6_FlagEvent &events[], const int count, const int idx)
+{
+   if(idx < 0 || idx >= count) return false;
+   FC6_FlagEvent e = events[idx];
+   for(int j=0; j<count; j++)
+   {
+      if(j == idx) continue;
+      if(events[j].sequence_id != e.sequence_id) continue;
+      if(events[j].level != e.level) continue;
+      if(events[j].direction != e.direction) continue;
+      int pj = FC6_StatusPriorityForMain(events[j].status);
+      int pi = FC6_StatusPriorityForMain(e.status);
+      if(pj > pi) return true;
+      if(pj == pi && events[j].event_id < e.event_id) return true; // older equivalent state is closer to price
+   }
+   return false;
+}
+
+int FC6_EventLabelAnchorIndex(const FC6_FlagEvent &e)
+{
+   if(e.has_leg2) return e.leg2.index_anchor;
+   if(e.has_leg1) return e.leg1.index_anchor;
+   if(e.has_origin) return e.origin.index_anchor;
+   return -1;
+}
+
+double FC6_EventLabelAnchorPrice(const FC6_FlagEvent &e)
+{
+   if(e.has_leg2) return e.leg2.price;
+   if(e.has_leg1) return e.leg1.price;
+   if(e.has_origin) return e.origin.price;
+   return 0.0;
+}
+
+int FC6_ClusterLaneForEvent(const FC6_FlagEvent &events[],
+                            const int current_index,
+                            const int time_cluster_bars,
+                            const double price_cluster_points)
+{
+   int lane = 0;
+   int anchor = FC6_EventLabelAnchorIndex(events[current_index]);
+   double price = FC6_EventLabelAnchorPrice(events[current_index]);
+   double price_eps = MathMax(1.0, price_cluster_points) * _Point;
+   for(int j=0; j<current_index; j++)
+   {
+      if(events[j].direction != events[current_index].direction) continue;
+      int a2 = FC6_EventLabelAnchorIndex(events[j]);
+      if(anchor < 0 || a2 < 0) continue;
+      if(MathAbs(anchor - a2) > time_cluster_bars) continue;
+      if(MathAbs(FC6_EventLabelAnchorPrice(events[j]) - price) > price_eps) continue;
+      lane++;
+   }
+   return MathMin(lane, 32);
+}
+
 bool FC6_DrawTrend(const string name,
                    const datetime t1,
                    const double p1,
@@ -160,11 +228,14 @@ void FC6_DrawProbableLeg(const FC6_FlagEvent &e,
       FC6_DrawTrend(prefix + "_SEED_W", e.leg1.time_anchor, e.leg1.price, e.waist.time_anchor, e.waist.price, clr, width, STYLE_DOT);
 }
 
-string FC6_EventLabelText(const FC6_FlagEvent &e, const bool detailed)
+string FC6_EventLabelText(const FC6_FlagEvent &e, const bool detailed, const bool show_parent)
 {
    string base = FC6_LevelToString(e.level);
    if(!detailed) return base;
-   return base + " L" + IntegerToString(e.scale_L) + " Q" + IntegerToString(e.sequence_id) + " " + FC6_StatusToString(e.status);
+   string text = base + " L" + IntegerToString(e.scale_L) + " Q" + IntegerToString(e.sequence_id);
+   if(show_parent && e.parent_event_id >= 0) text += " P" + IntegerToString(e.parent_event_id);
+   text += " " + FC6_StatusToString(e.status);
+   return text;
 }
 
 double FC6_LabelOffset(const FC6_FlagEvent &e, const int lane, const double point_mult)
@@ -182,20 +253,21 @@ void FC6_DrawEventLabels(const FC6_FlagEvent &e,
                          const bool show_origin,
                          const bool show_internal,
                          const bool detailed,
-                         const int font_size)
+                         const bool show_parent,
+                         const int font_size,
+                         const int lane)
 {
-   int lane = MathMax(0, e.event_id % 8); // deterministic; older events have lower ids, therefore closer lanes.
    if(e.has_leg2)
    {
       double off = FC6_LabelOffset(e, lane, 0.04);
       double p = e.direction == FC6_DIR_BULLISH ? e.leg2.price + off : e.leg2.price - off;
-      FC6_DrawText(prefix + "_LBL", e.leg2.time_anchor, p, FC6_EventLabelText(e, detailed), clr, font_size);
+      FC6_DrawText(prefix + "_LBL", e.leg2.time_anchor, p, FC6_EventLabelText(e, detailed, show_parent), clr, font_size);
    }
    else if(e.has_leg1)
    {
       double off = FC6_LabelOffset(e, lane, 0.04);
       double p = e.direction == FC6_DIR_BULLISH ? e.leg1.price + off : e.leg1.price - off;
-      FC6_DrawText(prefix + "_LBL", e.leg1.time_anchor, p, FC6_EventLabelText(e, detailed), clr, font_size);
+      FC6_DrawText(prefix + "_LBL", e.leg1.time_anchor, p, FC6_EventLabelText(e, detailed, show_parent), clr, font_size);
    }
 
    if(show_origin && e.has_origin)
@@ -262,7 +334,8 @@ bool FC6_EventPassesDrawFilters(const FC6_FlagEvent &e,
                                 const bool draw_candidates,
                                 const bool draw_confirmed,
                                 const bool draw_locked,
-                                const bool draw_invalid)
+                                const bool draw_invalid,
+                                const bool draw_raw_seeds)
 {
    if(e.level == FC6_LEVEL_F1 && !draw_f1) return false;
    if(e.level == FC6_LEVEL_F2 && !draw_f2) return false;
@@ -270,6 +343,7 @@ bool FC6_EventPassesDrawFilters(const FC6_FlagEvent &e,
    if(e.direction == FC6_DIR_BULLISH && !draw_bull) return false;
    if(e.direction == FC6_DIR_BEARISH && !draw_bear) return false;
    if(e.status == FC6_STATUS_INVALIDATED && !draw_invalid) return false;
+   if(e.status == FC6_STATUS_RAW_SEED && !draw_raw_seeds) return false;
    if(e.status == FC6_STATUS_LOCKED && !draw_locked) return false;
    if((e.status == FC6_STATUS_CONFIRMED || e.status == FC6_STATUS_COMPLETED) && !draw_confirmed) return false;
    if((e.status == FC6_STATUS_RAW_SEED || e.status == FC6_STATUS_LIVE_BODY || e.status == FC6_STATUS_POST_FLAG || e.status == FC6_STATUS_QUALIFIED) && !draw_candidates) return false;
@@ -290,14 +364,19 @@ int FC6_DrawAll(const FC6_FlagEvent &events[],
                 const bool draw_confirmed,
                 const bool draw_locked,
                 const bool draw_invalid,
+                const bool draw_raw_seeds,
+                const bool draw_lifecycle_history,
                 const bool draw_hooks,
                 const bool detailed_labels,
+                const bool show_parent_ids,
                 const bool show_origin,
                 const bool show_internal,
                 const bool use_shades,
                 const int line_width,
                 const int curve_segments,
                 const int label_font,
+                const int label_time_cluster_bars,
+                const double label_price_cluster_points,
                 const color bull_candidate,
                 const color bull_confirmed,
                 const color bear_candidate,
@@ -314,7 +393,9 @@ int FC6_DrawAll(const FC6_FlagEvent &events[],
    for(int i=start; i<n; i++)
    {
       FC6_FlagEvent e = events[i];
-      if(!FC6_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_bull, draw_bear, draw_candidates, draw_confirmed, draw_locked, draw_invalid))
+      if(!FC6_EventPassesDrawFilters(e, draw_f1, draw_f2, draw_f3, draw_bull, draw_bear, draw_candidates, draw_confirmed, draw_locked, draw_invalid, draw_raw_seeds))
+         continue;
+      if(!draw_lifecycle_history && FC6_EventIsLifecycleSuperseded(events, n, i))
          continue;
       color clr = FC6_EventColor(e, bull_candidate, bull_confirmed, bear_candidate, bear_confirmed, f3_locked_color, use_shades);
       string p = prefix + "E" + IntegerToString(e.event_id) + "_" + FC6_LevelToString(e.level) + "_L" + IntegerToString(e.scale_L);
@@ -322,7 +403,9 @@ int FC6_DrawAll(const FC6_FlagEvent &events[],
          FC6_DrawSmoothFlagBody(e, p, clr, MathMax(1, line_width), MathMax(16, curve_segments));
       else
          FC6_DrawProbableLeg(e, p, clr, MathMax(1, line_width));
-      FC6_DrawEventLabels(e, p, clr, show_origin, show_internal, detailed_labels, label_font);
+      int cluster_bars = (label_time_cluster_bars < 0 ? 0 : label_time_cluster_bars);
+      int lane = FC6_ClusterLaneForEvent(events, i, cluster_bars, label_price_cluster_points);
+      FC6_DrawEventLabels(e, p, clr, show_origin, show_internal, detailed_labels, show_parent_ids, label_font, lane);
       drawn++;
    }
 

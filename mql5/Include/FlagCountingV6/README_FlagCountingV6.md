@@ -35,3 +35,15 @@ This is a new, modular implementation aligned with the V5 engineering documentat
 ## Caveat
 
 This is a large first implementation pass of the full contract. It is intentionally modular so each rule can be audited and refined without patching unrelated renderer logic.
+
+## V6.1 repair notes
+
+V6.1 fixes the first visual-audit issues:
+
+- root F1 starts are gated by ND/Hook phase boundaries by default;
+- F2 and F3 backfilled origins are bounded to the parent post-flag correction;
+- F3 lock triggers must be future opposite confirmed F1s;
+- raw seeds are hidden from the main chart by default;
+- superseded lifecycle labels are hidden from the main chart by default;
+- parent ids can be shown in labels to audit ownership;
+- label stacking now uses a time/price cluster lane instead of `event_id % 8`.

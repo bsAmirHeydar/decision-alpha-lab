@@ -106,3 +106,71 @@ Renderer rules:
 ## Compile caveat
 
 This patch was generated outside MetaEditor. The zip was built and tested, but a real MetaEditor compile must still be run locally. If MetaEditor reports a compile error, fix only the specific file and line; do not rewrite the logic again.
+
+## V6.1 semantic visibility and ownership repair
+
+The screenshot audit after the first V6 pass showed that the engine was drawing a
+raw audit dump instead of a semantic chart view.  V6.1 therefore separates three
+concerns more strictly:
+
+1. **Logic state**: sequence events emitted by the engine.
+2. **Audit state**: raw seeds, intermediate transitions, and full verbose logs.
+3. **Main chart state**: only the semantically useful current state of each chain.
+
+### Main chart is no longer an audit dump
+
+The renderer now has explicit controls for:
+
+```text
+InpDrawRawSeeds = false
+InpDrawLifecycleHistory = false
+InpShowParentIds = true
+InpLabelTimeClusterBars = 4
+InpLabelPriceClusterPoints = 160
+```
+
+With these defaults, raw seed attempts stay out of the main chart.  If a sequence
+has progressed from `post_flag` to `confirmed` or from `completed` to `locked`,
+the older lifecycle state is suppressed in the main chart unless
+`InpDrawLifecycleHistory=true` is enabled.
+
+### F1 phase-boundary gate
+
+Root F1 creation is now gated by phase boundaries.  The engine no longer treats
+every arbitrary two-leg window as a root F1 by default.  A root F1 must be anchored
+to a readable ND/Hook boundary for the same direction when such a boundary exists
+for the scale.  The input is:
+
+```text
+InpRequireF1PhaseBoundary = true
+```
+
+The gate is fail-open only when no readable ND/Hook boundary exists for that
+scale/direction.  This avoids empty charts while still preventing the worst
+mid-move sliding-window F1 starts.
+
+### Backfill context is bounded by parent confirmation
+
+F2/F3 backfill must come from the actual post-flag correction that confirmed the
+parent, not from any future correction on the chart.  V6.1 changes the deepest
+adverse correction search to:
+
+```text
+F2 origin search: after F1 Leg2 and before F1 confirmation
+F3 origin search: after F2 Leg2 and before F2 confirmation
+```
+
+This fixes a major ownership bug where child origins could be pulled from a much
+later move and then drawn as if they belonged to the parent chain.
+
+### F3 locking is future-context only
+
+An F3 can only be locked by an opposite confirmed F1 whose origin and confirmation
+occur after the F3 completion node.  Historical opposite F1s no longer lock later
+F3 candidates.
+
+### Lifecycle suppression is renderer-side only
+
+The engine still keeps events available for verbose audit.  The renderer suppresses
+superseded lifecycle states by default so the main chart shows the current logical
+state rather than every transition label.

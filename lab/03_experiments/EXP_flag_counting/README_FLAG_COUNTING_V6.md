@@ -49,3 +49,31 @@ or
 InpMaxEventsToDraw = 300
 InpMaxHooksToDraw = 300
 ```
+
+## V6.1 recommended clean semantic view
+
+After the first visual audit, the default view was changed so the chart does not
+show raw audit transitions as if they were final structures.
+
+Recommended default inputs:
+
+```text
+InpRequireF1PhaseBoundary = true
+InpDrawRawSeeds = false
+InpDrawLifecycleHistory = false
+InpShowParentIds = true
+InpLabelTimeClusterBars = 4
+InpLabelPriceClusterPoints = 160
+```
+
+For full audit/debug mode, enable:
+
+```text
+InpDrawRawSeeds = true
+InpDrawLifecycleHistory = true
+InpVerboseAuditLogs = true
+```
+
+Use debug mode only when validating internal transitions.  For normal visual
+inspection, keep raw seeds and lifecycle history off so each chain displays its
+current meaningful state.

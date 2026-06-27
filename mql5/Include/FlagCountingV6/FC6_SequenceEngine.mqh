@@ -42,6 +42,88 @@ int FC6_AddUniqueEvent(FC6_FlagEvent &events[], FC6_FlagEvent &e, const double e
    return FC6_AddEvent(events, e);
 }
 
+// -----------------------------------------------------------------------------
+// Phase boundary helpers
+// -----------------------------------------------------------------------------
+// The V6 contract does not allow root F1 to be created from arbitrary mid-move
+// two-leg windows.  A root F1 must be anchored to a phase boundary: currently an
+// ND/Hook adverse extreme for the same direction.  Opposite-F endpoints can be
+// added as another boundary source later without changing the event model.
+
+bool FC6_NodeMatchesHookOriginBoundary(const FC6_Node &origin,
+                                       const int direction,
+                                       const FC6_HookBranch &h,
+                                       const double eps)
+{
+   if(!h.is_nd) return false;
+   if(h.direction != direction) return false;
+   if(FC6_NodeValid(h.extreme_node) && FC6_SameNodeIdentity(origin, h.extreme_node, eps)) return true;
+   if(FC6_NodeValid(h.start_node)   && FC6_SameNodeIdentity(origin, h.start_node, eps)) return true;
+   return false;
+}
+
+bool FC6_IsAllowedF1PhaseBoundary(const FC6_Node &origin,
+                                  const int direction,
+                                  const FC6_Config &cfg,
+                                  const FC6_HookBranch &phase_hooks[],
+                                  const double eps)
+{
+   if(!cfg.require_f1_phase_boundary) return true;
+   int n = ArraySize(phase_hooks);
+   int nd_count = 0;
+   for(int i=0; i<n; i++)
+      if(phase_hooks[i].is_nd && phase_hooks[i].direction == direction)
+         nd_count++;
+   if(nd_count <= 0) return true; // fail open when no readable ND boundary exists for this direction/scale
+   for(int i=0; i<n; i++)
+      if(FC6_NodeMatchesHookOriginBoundary(origin, direction, phase_hooks[i], eps))
+         return true;
+   return false;
+}
+
+int FC6_BuildPhaseHooksForScale(const FC6_Node &nodes[],
+                                const int node_count,
+                                const FC6_Config &cfg,
+                                const int scale_L,
+                                FC6_HookBranch &hooks[])
+{
+   ArrayResize(hooks, 0);
+   if(!cfg.scan_hooks) return 0;
+   double eps = cfg.boundary_epsilon_points * _Point;
+   for(int d_i=0; d_i<2; d_i++)
+   {
+      int direction = (d_i == 0 ? FC6_DIR_BULLISH : FC6_DIR_BEARISH);
+      FC6_HookBranch hh[];
+      FC6_BuildBackwardHookBranches(nodes,
+                                    node_count,
+                                    direction,
+                                    scale_L,
+                                    -1,
+                                    eps,
+                                    cfg.nd_min_retrace_ratio,
+                                    cfg.nd_allow_below_half_cycle,
+                                    hh);
+      for(int h=0; h<ArraySize(hh); h++)
+      {
+         int sz = ArraySize(hooks);
+         ArrayResize(hooks, sz + 1);
+         hooks[sz] = hh[h];
+      }
+   }
+   FC6_FinalizeHookIds(hooks);
+   return ArraySize(hooks);
+}
+
+void FC6_AppendHooks(FC6_HookBranch &dst[], const FC6_HookBranch &src[], const int max_hooks)
+{
+   for(int i=0; i<ArraySize(src); i++)
+   {
+      if(max_hooks > 0 && ArraySize(dst) >= max_hooks) break;
+      FC6_HookBranch h = src[i];
+      FC6_AddHook(dst, h);
+   }
+}
+
 int FC6_FindDeepestAdversePosInRange(const FC6_Node &nodes[],
                                      const int count,
                                      const int direction,
@@ -78,8 +160,13 @@ int FC6_FindFirstConfirmedOppositeF1After(const FC6_FlagEvent &events[],
       if(events[i].level != FC6_LEVEL_F1) continue;
       if(events[i].direction == f3.direction) continue;
       if(events[i].status != FC6_STATUS_CONFIRMED) continue;
-      if(events[i].has_confirm && f3.has_confirm && events[i].confirm.index_anchor <= f3.confirm.index_anchor) continue;
       if(!events[i].has_confirm) continue;
+      if(!f3.has_confirm) continue;
+      // The lock trigger must be a future opposite F1, not an unrelated historical
+      // confirmation.  Both its origin and confirmation must occur after F3 has
+      // completed.
+      if(events[i].origin.index_anchor <= f3.confirm.index_anchor) continue;
+      if(events[i].confirm.index_anchor <= f3.confirm.index_anchor) continue;
       if(best < 0 || events[i].confirm.time_anchor < events[best].confirm.time_anchor)
          best = i;
    }
@@ -108,6 +195,7 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
                              const int node_count,
                              const FC6_Config &cfg,
                              const int scale_L,
+                             const FC6_HookBranch &phase_hooks[],
                              FC6_FlagEvent &events[],
                              FC6_HookBranch &hooks[])
 {
@@ -122,6 +210,7 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
       {
          int direction = (d_i == 0 ? FC6_DIR_BULLISH : FC6_DIR_BEARISH);
          if(!FC6_IsValidOriginForDirection(nodes[i], direction)) continue;
+         if(!FC6_IsAllowedF1PhaseBoundary(nodes[i], direction, cfg, phase_hooks, eps)) continue;
          if(cfg.max_roots_per_scale_direction > 0)
          {
             if(direction == FC6_DIR_BULLISH && roots_bull >= cfg.max_roots_per_scale_direction) continue;
@@ -207,7 +296,7 @@ void FC6_BuildChildF2ForF1(const FC6_Node &nodes[],
                                                      node_count,
                                                      f1.direction,
                                                      f1.leg2.index_anchor,
-                                                     -1);
+                                                     f1.confirm.index_anchor);
    if(origin_pos < 0) return;
 
    FC6_FlagEvent f2;
@@ -281,7 +370,7 @@ void FC6_BuildChildF3ForF2(const FC6_Node &nodes[],
                                                      node_count,
                                                      f2.direction,
                                                      f2.leg2.index_anchor,
-                                                     -1);
+                                                     f2.confirm.index_anchor);
    if(origin_pos < 0) return;
 
    FC6_FlagEvent f3;
@@ -408,8 +497,13 @@ int FC6_DetectForScale(const MqlRates &rates[],
    if(node_count <= 4) return 0;
 
    int before = ArraySize(events);
+
+   FC6_HookBranch phase_hooks[];
+   FC6_BuildPhaseHooksForScale(nodes, node_count, cfg, scale_L, phase_hooks);
+   FC6_AppendHooks(hooks, phase_hooks, cfg.max_hooks);
+
    if(cfg.scan_f1)
-      FC6_BuildF1RootsForScale(nodes, node_count, cfg, scale_L, events, hooks);
+      FC6_BuildF1RootsForScale(nodes, node_count, cfg, scale_L, phase_hooks, events, hooks);
 
    FC6_FinalizeEventIds(events);
    // Two passes catch F2s added from F1 and F3s added from F2.
@@ -424,7 +518,7 @@ int FC6_DetectForScale(const MqlRates &rates[],
 
 int FC6_DetectAllScales(const MqlRates &rates[],
                         const int bar_count,
-                        const int scales[],
+                        const int &scales[],
                         const int scale_count,
                         const FC6_Config &cfg,
                         FC6_FlagEvent &events[],
