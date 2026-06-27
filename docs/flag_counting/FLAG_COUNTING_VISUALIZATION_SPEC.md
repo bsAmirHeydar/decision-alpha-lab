@@ -1,115 +1,59 @@
 # Flag Counting Visualization Specification
 
-This document defines how Flag Counting structures must be rendered on chart. It is a display contract, separate from the detector logic.
+This document defines the clean-all chart visualization for `FlagCountingVNext`.
 
-## 1. Purpose
+## Core display contract
 
-The chart must be readable even when many scales and sequences are active at the same time. Rendering must not turn the chart into a pile of overlapping text and crossing labels.
+The renderer must allow all accepted F and ND sequences to remain visible, but it must avoid turning the chart into unreadable noise.
 
-The renderer must therefore use:
+The default visual contract is:
 
-- scale-aware priority,
-- F-level-aware priority,
-- stacked labels,
-- body-only path drawing,
-- direction/status colors,
-- larger lines and labels for larger scales.
+- all body lines use the same thin width;
+- different sequences use shade variations inside the same direction/status color family;
+- peak labels are placed above peaks;
+- valley labels are placed below valleys;
+- labels are stacked deterministically when several F/ND labels belong to the same visual cluster;
+- the closest label to price is the dominant one: larger scale first, then higher F level, then stronger status;
+- ND/Hook phases are text-only labels and do not draw additional body lines;
+- F bodies are drawn as `Origin -> Leg1` straight line plus a smooth arc-like curve from `Leg1 -> Waist -> Leg2`.
 
-## 2. Body-only drawing
+## Label stacking
 
-Each F body is drawn as:
-
-1. `Origin -> Leg1`: straight trend line.
-2. `Leg1 -> Waist -> Leg2`: one smooth curve whose belly is tangent to the Waist node.
-
-The renderer must not draw post-Leg2 continuation lines to internal `1`, internal `2`, confirmation, or invalidation. Internal `1/2` are rendered as numbers only.
-
-## 3. Display priority
-
-When multiple labels collide, the dominant label must be closest to the price structure.
+Labels must not be placed with arbitrary offsets. They are assigned stack slots by priority.
 
 Priority order:
 
-1. Larger `scaleL` first.
-2. Higher F-level first: `F3 > F2 > F1`.
-3. Stronger status first: `terminal > confirmed > live`.
-4. Larger body size first.
+1. larger `scaleL`
+2. higher F level: `F3 > F2 > F1 > ND`
+3. stronger status: `terminal > confirmed > live`
+4. larger body size
+5. older/stable event id
 
-## 4. Label stacking rule
+For peak-side anchors, labels are stacked upward above the peak. For valley-side anchors, labels are stacked downward below the valley.
 
-For bullish F bodies, `Leg2` is a peak. The `F1/F2/F3` label is placed above the peak.
+## ND labels
 
-- Slot 0 is closest to price.
-- Higher-priority labels receive slot 0.
-- Lower-priority labels are stacked above slot 0.
+ND labels use the same stack system as F labels. ND must remain text-only by default to avoid adding extra line noise.
 
-For bearish F bodies, `Leg2` is a valley. The `F1/F2/F3` label is placed below the valley.
+## Curves
 
-- Slot 0 is closest to price.
-- Higher-priority labels receive slot 0.
-- Lower-priority labels are stacked below slot 0.
+The body curve must not look like a broken zig-zag. The renderer uses dense Bezier sampling so the curve looks like a continuous arc. The curve must touch the main correction/waist region visually and terminate cleanly at Leg2.
 
-This matches the visual rule:
+## Line widths
 
-- In valleys, the highest text in the stack is the strongest / largest-scale / highest-F label.
-- In peaks, the lowest text in the stack is the strongest / largest-scale / highest-F label.
+All sequence body lines should be thin by default. Scale must not thicken lines in clean-all mode.
 
-## 5. Scale-aware sizing
+## ND / Hook Detection Contract
 
-Larger scales must be more visible.
+The VNext implementation now detects ND / Hook phases as first-class text-only events, not only as gaps left after F rendering. For each active scale, the detector scans consecutive compressed node windows of 3 or 4 nodes and accepts a provisional ND when the window closes at least 50% toward its active extreme. This follows the documented rule that an ND does not need a 90% return; a minimum 50% extreme-close is enough for research visibility.
 
-Recommended defaults:
+Important inputs:
 
-- `L < 5`: width 1, base font.
-- `L >= 5`: width 2, font +1.
-- `L >= 8`: width 3, font +2.
-- `L >= 13`: width 4, font +3.
-- `L >= 21`: width 5, font +4.
+- `InpScanND`: enables ND detection.
+- `InpDetectAllND`: when true, scan all valid 3/4-node ND windows in each scale; when false, only unowned gaps are marked as ND.
+- `InpMaxNDPerScale`: caps ND labels per scale for visual control.
+- `InpNDMinNodes`: default 3.
+- `InpNDMaxNodes`: default 4.
+- `InpNDMinExtremeCloseRatio`: default 0.50.
 
-## 6. Color contract
-
-The renderer uses four main colors:
-
-- bullish live,
-- bullish confirmed,
-- bearish live,
-- bearish confirmed.
-
-F3 terminal movement may optionally have a special color for bullish and bearish terminal states.
-
-## 7. Layering
-
-Bodies must be drawn first. Labels must be drawn second. This keeps labels readable on top of body curves.
-
-## 8. Acceptance criteria
-
-A visualization is acceptable when:
-
-- the chart shows F bodies without post-Leg2 path clutter,
-- labels are not piled on the same point,
-- larger scale labels stay closer to the structure,
-- higher F-level labels stay closer to the structure when scale is equal,
-- bullish and bearish structures are visually distinct,
-- live and confirmed states are visually distinct,
-- the user can identify the scale hierarchy without opening logs.
-
-## Clean-All Visualization Update
-
-The renderer should not hide accepted sequences by default. Instead, it makes every visible sequence easier to read:
-
-- All F body lines use the same thin width by default (`InpFixedLineWidth = 1`).
-- Larger scales no longer become visually heavier by line width; scale remains available through labels, logs, and sequence identity.
-- Each sequence receives a subtle shade variation inside its own direction/status color family (`InpUseSequenceColorShades = true`).
-- Bullish, bearish, live, confirmed, F3 terminal, and ND color families remain distinct, but individual sequence shades help separate overlapping paths.
-- ND / Hook phases are text-only labels (`ND`) and do not draw additional body lines. This keeps the chart informative without adding line noise.
-- The visual objective is to show all accepted/provisional structures while preventing scale thickness and repeated labels from overwhelming the price chart.
-
-Relevant inputs:
-
-- `InpScanND`
-- `InpDrawND`
-- `InpMaxNDPerScale`
-- `InpUseSequenceColorShades`
-- `InpFixedLineWidth`
-- `InpNDColor`
-
+ND is rendered as text only (`ND`) so it explains the partition without adding more body lines to the chart. Peak-side ND labels are placed above peaks and valley-side ND labels are placed below valleys using the same stacking system as F labels.

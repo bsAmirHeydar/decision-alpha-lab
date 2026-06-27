@@ -40,3 +40,17 @@ Relevant inputs:
 - `InpFixedLineWidth`
 - `InpNDColor`
 
+## ND / Hook Detection Contract
+
+The VNext implementation now detects ND / Hook phases as first-class text-only events, not only as gaps left after F rendering. For each active scale, the detector scans consecutive compressed node windows of 3 or 4 nodes and accepts a provisional ND when the window closes at least 50% toward its active extreme. This follows the documented rule that an ND does not need a 90% return; a minimum 50% extreme-close is enough for research visibility.
+
+Important inputs:
+
+- `InpScanND`: enables ND detection.
+- `InpDetectAllND`: when true, scan all valid 3/4-node ND windows in each scale; when false, only unowned gaps are marked as ND.
+- `InpMaxNDPerScale`: caps ND labels per scale for visual control.
+- `InpNDMinNodes`: default 3.
+- `InpNDMaxNodes`: default 4.
+- `InpNDMinExtremeCloseRatio`: default 0.50.
+
+ND is rendered as text only (`ND`) so it explains the partition without adding more body lines to the chart. Peak-side ND labels are placed above peaks and valley-side ND labels are placed below valleys using the same stacking system as F labels.

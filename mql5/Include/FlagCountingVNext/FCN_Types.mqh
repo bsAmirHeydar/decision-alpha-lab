@@ -78,6 +78,7 @@ struct FCN_Event
    double size;
    double parent_size;
    double size_ratio;
+   double nd_close_ratio;
    string reason;
 };
 
@@ -90,7 +91,11 @@ struct FCN_Config
    bool require_f2_parent_size;
    double f2_min_parent_size_ratio;
    bool scan_nd;
+   bool detect_all_nd;
    int max_nd_per_scale;
+   int nd_min_nodes;
+   int nd_max_nodes;
+   double nd_min_close_ratio;
    int max_events;
    int max_roots_per_scale;
    bool verbose_logs;
@@ -174,6 +179,7 @@ void FCN_ResetEvent(FCN_Event &e)
    e.size = 0.0;
    e.parent_size = 0.0;
    e.size_ratio = 0.0;
+   e.nd_close_ratio = 0.0;
    e.reason = "";
 }
 

@@ -465,6 +465,7 @@ bool FCN_CreateChildFromParent(const FCN_Node &nodes[],
 
 
 
+
 bool FCN_NodePositionCoveredByScaleEvents(const FCN_Event &events[],
                                           const int from_event,
                                           const int to_event_exclusive,
@@ -487,12 +488,149 @@ bool FCN_NodePositionCoveredByScaleEvents(const FCN_Event &events[],
    return false;
 }
 
+double FCN_NDCloseRatio(const FCN_Node &nodes[], const int start, const int end)
+{
+   if(start < 0 || end < start || end >= ArraySize(nodes))
+      return 0.0;
+
+   double hi = nodes[start].price;
+   double lo = nodes[start].price;
+   for(int i=start; i<=end; i++)
+   {
+      if(nodes[i].price > hi) hi = nodes[i].price;
+      if(nodes[i].price < lo) lo = nodes[i].price;
+   }
+
+   double range = hi - lo;
+   if(range <= 0.0)
+      return 0.0;
+
+   // ND / Hook closure does not require a 90% return. The documented minimum is 50%.
+   // If the run ends upward, close strength means the last node sits in the upper half of the run.
+   // If the run ends downward, close strength means the last node sits in the lower half of the run.
+   if(nodes[end].price >= nodes[start].price)
+      return (nodes[end].price - lo) / range;
+   return (hi - nodes[end].price) / range;
+}
+
+bool FCN_NDWindowPassesGeometry(const FCN_Node &nodes[],
+                                const int start,
+                                const int end,
+                                const double min_close_ratio,
+                                double &close_ratio)
+{
+   int n = ArraySize(nodes);
+   if(start < 0 || end >= n || end <= start)
+      return false;
+
+   int len = end - start + 1;
+   if(len < 3)
+      return false;
+
+   // Require actual alternating movement. This is already true after node compression,
+   // but this guard keeps the ND contract explicit.
+   for(int i=start+1; i<=end; i++)
+      if(nodes[i].kind == nodes[i-1].kind)
+         return false;
+
+   close_ratio = FCN_NDCloseRatio(nodes, start, end);
+   return close_ratio >= min_close_ratio;
+}
+
+bool FCN_NDAlreadyExists(const FCN_Event &events[],
+                         const int scale_L,
+                         const int start_node_index,
+                         const int end_node_index)
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(events[i].level != FCN_LEVEL_ND) continue;
+      if(events[i].scale_L != scale_L) continue;
+      if(events[i].origin.index == start_node_index && events[i].leg2.index == end_node_index)
+         return true;
+   }
+   return false;
+}
+
+void FCN_FillNDEventFromWindow(const FCN_Node &nodes[],
+                               const int start,
+                               const int end,
+                               const int scale_L,
+                               const int sequence_id,
+                               const double close_ratio,
+                               FCN_Event &nd)
+{
+   FCN_ResetEvent(nd);
+   nd.level = FCN_LEVEL_ND;
+   nd.scale_L = scale_L;
+   nd.sequence_id = sequence_id;
+   nd.chain_step = 0;
+   nd.parent_event_id = -1;
+   nd.origin = nodes[start];
+   nd.leg1 = nodes[MathMin(start + 1, end)];
+   nd.waist = nodes[MathMin(start + 2, end)];
+   nd.leg2 = nodes[end];
+   nd.direction = (nd.leg2.price >= nd.origin.price ? FCN_DIR_BULLISH : FCN_DIR_BEARISH);
+   nd.status = FCN_STATUS_LIVE;
+   nd.size = FCN_BodySize(nd.origin, nd.leg2);
+   nd.nd_close_ratio = close_ratio;
+   nd.reason = "nd_hook_all_windows_3_4_nodes";
+}
+
+void FCN_AppendAllNDCyclesForScale(const FCN_Node &nodes[],
+                                   const int scale_L,
+                                   FCN_Event &events[],
+                                   int &next_sequence_id,
+                                   const int max_nd_per_scale,
+                                   const int min_nodes,
+                                   const int max_nodes,
+                                   const double min_close_ratio)
+{
+   int n = ArraySize(nodes);
+   if(n < 3)
+      return;
+
+   int lo_nodes = MathMax(3, min_nodes);
+   int hi_nodes = MathMax(lo_nodes, max_nodes);
+   hi_nodes = MathMin(hi_nodes, 4); // documented ND/Hook target is 3 or 4 nodes per scale.
+
+   int nd_count = 0;
+   for(int start=0; start<n; start++)
+   {
+      for(int len=lo_nodes; len<=hi_nodes; len++)
+      {
+         int end = start + len - 1;
+         if(end >= n)
+            continue;
+
+         if(max_nd_per_scale > 0 && nd_count >= max_nd_per_scale)
+            return;
+
+         double close_ratio = 0.0;
+         if(!FCN_NDWindowPassesGeometry(nodes, start, end, min_close_ratio, close_ratio))
+            continue;
+
+         if(FCN_NDAlreadyExists(events, scale_L, nodes[start].index, nodes[end].index))
+            continue;
+
+         FCN_Event nd;
+         FCN_FillNDEventFromWindow(nodes, start, end, scale_L, next_sequence_id++, close_ratio, nd);
+         FCN_AppendEvent(events, nd);
+         nd_count++;
+      }
+   }
+}
+
 void FCN_AppendProvisionalNDGapsForScale(const FCN_Node &nodes[],
                                          const int scale_L,
                                          const int first_scale_event,
                                          FCN_Event &events[],
                                          int &next_sequence_id,
-                                         const int max_nd_per_scale)
+                                         const int max_nd_per_scale,
+                                         const int min_nodes,
+                                         const int max_nodes,
+                                         const double min_close_ratio)
 {
    int n = ArraySize(nodes);
    if(n < 3)
@@ -513,31 +651,32 @@ void FCN_AppendProvisionalNDGapsForScale(const FCN_Node &nodes[],
       while(i < n && !FCN_NodePositionCoveredByScaleEvents(events, first_scale_event, current_event_count, scale_L, nodes[i].index))
          i++;
       int end = i - 1;
-      int len = end - start + 1;
+      int run_len = end - start + 1;
 
-      // ND / Hook is a provisional unowned cycle of at least 3 nodes in this scale.
-      if(len >= 3)
+      if(run_len >= MathMax(3, min_nodes))
       {
-         if(max_nd_per_scale > 0 && nd_count >= max_nd_per_scale)
-            return;
+         int hi_nodes = MathMin(MathMin(max_nodes, 4), run_len);
+         int lo_nodes = MathMin(MathMax(3, min_nodes), hi_nodes);
+         for(int len=lo_nodes; len<=hi_nodes; len++)
+         {
+            if(max_nd_per_scale > 0 && nd_count >= max_nd_per_scale)
+               return;
+            int wend = start + len - 1;
+            if(wend > end)
+               continue;
 
-         FCN_Event nd;
-         FCN_ResetEvent(nd);
-         nd.level = FCN_LEVEL_ND;
-         nd.scale_L = scale_L;
-         nd.sequence_id = next_sequence_id++;
-         nd.chain_step = 0;
-         nd.parent_event_id = -1;
-         nd.origin = nodes[start];
-         nd.leg1 = nodes[MathMin(start + 1, end)];
-         nd.waist = nodes[MathMin(start + 2, end)];
-         nd.leg2 = nodes[end];
-         nd.direction = (nd.leg2.price >= nd.origin.price ? FCN_DIR_BULLISH : FCN_DIR_BEARISH);
-         nd.status = FCN_STATUS_LIVE;
-         nd.size = FCN_BodySize(nd.origin, nd.leg2);
-         nd.reason = "provisional_nd_unowned_node_run";
-         FCN_AppendEvent(events, nd);
-         nd_count++;
+            double close_ratio = 0.0;
+            if(!FCN_NDWindowPassesGeometry(nodes, start, wend, min_close_ratio, close_ratio))
+               continue;
+            if(FCN_NDAlreadyExists(events, scale_L, nodes[start].index, nodes[wend].index))
+               continue;
+
+            FCN_Event nd;
+            FCN_FillNDEventFromWindow(nodes, start, wend, scale_L, next_sequence_id++, close_ratio, nd);
+            nd.reason = "nd_hook_unowned_gap";
+            FCN_AppendEvent(events, nd);
+            nd_count++;
+         }
       }
    }
 }
@@ -560,6 +699,7 @@ void FCN_PrintEvent(const FCN_Event &e)
          " i2=", (e.has_internal2 ? TimeToString(e.internal2.time) : "none"),
          " size=", DoubleToString(e.size, _Digits),
          " parentSize=", DoubleToString(e.parent_size, _Digits),
+         " ndClose=", DoubleToString(e.nd_close_ratio, 3),
          " reason=", e.reason);
 }
 
@@ -624,7 +764,27 @@ void FCN_BuildSequencesForScale(const FCN_Node &nodes[],
    }
 
    if(cfg.scan_nd)
-      FCN_AppendProvisionalNDGapsForScale(nodes, scale_L, first_scale_event, events, next_sequence_id, cfg.max_nd_per_scale);
+   {
+      if(cfg.detect_all_nd)
+         FCN_AppendAllNDCyclesForScale(nodes,
+                                       scale_L,
+                                       events,
+                                       next_sequence_id,
+                                       cfg.max_nd_per_scale,
+                                       cfg.nd_min_nodes,
+                                       cfg.nd_max_nodes,
+                                       cfg.nd_min_close_ratio);
+      else
+         FCN_AppendProvisionalNDGapsForScale(nodes,
+                                             scale_L,
+                                             first_scale_event,
+                                             events,
+                                             next_sequence_id,
+                                             cfg.max_nd_per_scale,
+                                             cfg.nd_min_nodes,
+                                             cfg.nd_max_nodes,
+                                             cfg.nd_min_close_ratio);
+   }
 }
 
 bool FCN_ScaleAlreadyListed(const int &scales[], const int count, const int value)

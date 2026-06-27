@@ -20,7 +20,11 @@ input bool InpScanF1 = true;
 input bool InpScanF2 = true;
 input bool InpScanF3 = true;
 input bool InpScanND = true;
-input int  InpMaxNDPerScale = 80;
+input bool InpDetectAllND = true;
+input int  InpMaxNDPerScale = 250;
+input int  InpNDMinNodes = 3;
+input int  InpNDMaxNodes = 4;
+input double InpNDMinExtremeCloseRatio = 0.50;
 input bool InpRequireParentConfirmedForNextF = true;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
@@ -104,7 +108,11 @@ void FCN_RunExperiment()
    cfg.require_f2_parent_size = InpRequireF2AtLeastParentSize;
    cfg.f2_min_parent_size_ratio = InpF2MinParentSizeRatio;
    cfg.scan_nd = InpScanND;
+   cfg.detect_all_nd = InpDetectAllND;
    cfg.max_nd_per_scale = InpMaxNDPerScale;
+   cfg.nd_min_nodes = InpNDMinNodes;
+   cfg.nd_max_nodes = InpNDMaxNodes;
+   cfg.nd_min_close_ratio = InpNDMinExtremeCloseRatio;
    cfg.max_events = InpMaxEvents;
    cfg.max_roots_per_scale = InpMaxRootSequencesPerScale;
    cfg.verbose_logs = InpVerboseAuditLogs;
@@ -141,6 +149,8 @@ void FCN_RunExperiment()
          " scales=", scale_count,
          " events=", detected,
          " drawn=", drawn,
+         " scanND=", (InpScanND ? "true" : "false"),
+         " detectAllND=", (InpDetectAllND ? "true" : "false"),
          " drawOnlyConfirmed=", (InpDrawOnlyConfirmed ? "true" : "false"));
 }
 
