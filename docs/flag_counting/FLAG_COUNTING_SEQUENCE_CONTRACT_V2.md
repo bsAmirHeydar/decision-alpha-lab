@@ -1,1444 +1,1249 @@
 # Flag Counting Sequence Contract V2
 
-این سند نسخه‌ی قفل‌شده‌ی منطقی برای «اف‌شماری / Flag Counting» است. هدفش این است که قبل از هر تغییر کد، قرارداد دقیق تشخیص، زنجیره‌سازی، اینولیدیشن، ND/Hook، ادغام نودها، و نمایش روی چارت روشن باشد.
-
-این سند جایگزین ذهنیت قبلیِ «هر پنجره‌ی ۴ نودی = یک F» می‌شود. در این نسخه، Fها باید در قالب **زنجیره‌ی ترتیبی** دیده شوند: `F1 -> F2 -> F3`. هر F یک بدنه‌ی دو لگ دارد، اما تفاوت F1/F2/F3 در رفتار بعد از بدنه و قواعد invalidation/confirmation است.
-
----
-
-## 0. اصل مرکزی
-
-منطق اف‌شماری فقط با هندسه‌ی `High / Low` کار می‌کند.
-
-یعنی:
-
-- `open` مهم نیست.
-- `close` مهم نیست.
-- `body` کندل مهم نیست.
-- رنگ کندل مهم نیست.
-- wick/body distinction مهم نیست.
-- close بالای سطح یا پایین سطح، مفهوم مستقل در این منطق ندارد.
-
-تعبیر دقیق:
-
-```text
-The engine is high-low-node based and open/close agnostic.
-```
-
-این به معنی «close ممنوع است» نیست؛ یعنی close اصلاً وارد تعریف نمی‌شود. اگر یک حرکت با close هم سطحی را رد کند یا فقط با high/low رد کند، برای این مدل تفاوتی ندارد. معیار فقط nodeهای `High` و `Low` است.
+Status: **conceptual and implementation contract**  
+Scope: Flag Counting VNext detector, renderer, audit reports, and future execution modules.  
+Language: English-only technical specification.  
+Primary principle: **the market is interpreted as a sequence of high/low-node geometries, not candle bodies.**
 
 ---
 
-## 1. واژگان پایه
+## 1. Purpose
 
-### 1.1 Node
+This document defines the exact engineering contract for the Flag Counting model used in Decision Alpha Lab.
 
-هر نقطه‌ی معنی‌دار high یا low در یک scale:
-
-```text
-Node = { type: HIGH|LOW, time, price, raw_index, scale_L }
-```
-
-### 1.2 Raw Node
-
-همه‌ی high/lowها نگه داشته می‌شوند. هیچ high/low خامی از حافظه‌ی مدل حذف نمی‌شود.
-
-### 1.3 Projected / Compressed Node
-
-در هر context، مدل می‌تواند با scale بزرگ‌تر به نودها نگاه کند. یعنی همه‌ی raw high/lowها در حافظه هستند، اما برای شمارش یک ساختار، آن‌ها را با `L` بزرگ‌تر فشرده می‌کنیم تا sequence خوانا شود.
-
-اصل مهم:
+The purpose of this model is not to label arbitrary four-point shapes. The purpose is to maintain a coherent sequence model of market structure:
 
 ```text
-Raw nodes are preserved.
-Counting view is scale-compressed.
+F1 -> F2 -> F3 -> sequence termination
 ```
 
-### 1.4 Flag
+Each `F` is a two-leg flag body. The difference between `F1`, `F2`, and `F3` is **not** the basic two-leg geometry itself. The difference is what must happen **after** the two-leg flag body.
 
-فلگ یعنی مجموعه‌ی دو لگ:
-
-```text
-Flag Body = Leg1 + Leg2
-```
-
-هر F، چه F1 چه F2 چه F3، از نظر بدنه‌ی اصلی یک فلگ دو لگه است.
-
-### 1.5 Bullish Flag Body
-
-در حالت صعودی:
-
-```text
-Origin Low -> Leg1 High -> Waist Low -> Leg2 High
-```
-
-قانون هندسی بدنه:
-
-- Origin باید low باشد.
-- Leg1 باید high باشد.
-- Waist باید low اصلاحی بعد از Leg1 باشد.
-- Leg2 باید high بعد از Waist باشد.
-- اصلاح بعد از Leg1 نباید origin / ابتدای لگ را بزند.
-
-### 1.6 Bearish Flag Body
-
-در حالت نزولی:
-
-```text
-Origin High -> Leg1 Low -> Waist High -> Leg2 Low
-```
-
-قانون هندسی بدنه:
-
-- Origin باید high باشد.
-- Leg1 باید low باشد.
-- Waist باید high اصلاحی بعد از Leg1 باشد.
-- Leg2 باید low بعد از Waist باشد.
-- اصلاح بعد از Leg1 نباید origin / ابتدای لگ را بزند.
+This document exists because the previous implementation drifted into a sliding-window pattern scanner. That is not the intended model. The correct model is a chained, scale-aware, high/low-only sequence detector.
 
 ---
 
-## 2. اصل نگهداری همه‌ی High/Lowها و ادغام context-aware
+## 2. Non-negotiable invariants
 
-مدل نباید high/lowهای خام را پاک کند. اما هنگام شمارش، اگر تعداد نودهای یک بخش زیاد شد، باید با scale بزرگ‌تر نگاه کند.
+These are hard rules. Any detector implementation that violates them is wrong.
 
-### 2.1 قاعده‌ی عمومی فشرده‌سازی
+### 2.1 High/low-only logic
 
-در همه‌جا:
+The model uses only swing high and swing low nodes.
+
+Allowed inputs for geometry:
 
 ```text
-اگر تعداد نودهای قابل شمارش بیشتر از 4 شد:
-    L را بزرگ‌تر کن
-    دوباره همان بازه را project کن
-    تا جایی ادامه بده که تعداد nodeهای خوانا <= 4 شود
+high
+low
+swing high node
+swing low node
+node index
+node time
+node price
+node type: HIGH or LOW
 ```
 
-### 2.2 چرا این مهم است؟
-
-چون در منطق ما هیچ‌جا ساختار بیشتر از چهار نود برای یک واحد شمارشی نداریم. اگر در raw data بیشتر از چهار نود دیده می‌شود، یعنی باید با scale بزرگ‌تر نگاه کنیم، نه اینکه همه را به‌عنوان ساختار جدا جدا بشماریم.
-
-### 2.3 Raw Preservation Invariant
+Ignored inputs for structure detection:
 
 ```text
-Invariant:
-هیچ raw high/low از حافظه حذف نمی‌شود.
-فقط view شمارشی آن‌ها در scaleهای مختلف تغییر می‌کند.
+open
+close
+candle body
+candle color
+whether a candle closed above or below a level
+```
+
+The logic is **close-agnostic**, not close-forbidden. If a candle closes somewhere, that fact simply has no structural meaning in this model.
+
+### 2.2 All raw high/low nodes are preserved
+
+The engine should not destroy raw high/low information. Raw nodes remain available for audit, debugging, compression, and scale transformation.
+
+However, the detector may view those raw nodes through a larger `L` so that a local structure becomes readable as a compressed high/low chain.
+
+The correct approach is:
+
+```text
+preserve raw nodes
+compress/adapt nodes per scale/context
+count flags on the compressed view
+```
+
+Not:
+
+```text
+delete nodes permanently
+force every local node into one fixed scale
+```
+
+### 2.3 Flags are sequential
+
+Within a single sequence and scale context, flags do not restart from `F1` after every small shape.
+
+Correct:
+
+```text
+F1 found -> search for F2
+F2 found -> search for F3
+F3 found -> lock the sequence
+```
+
+Incorrect:
+
+```text
+F1 found -> next flag is another F1
+F1 found -> next flag is another unrelated F1 in the same sequence
+```
+
+### 2.4 Rejected structures are not drawn on the main chart
+
+The main chart should show:
+
+```text
+candidate/live structures
+confirmed structures
+terminal structures
+ND/Hook labels
+```
+
+The main chart should not show:
+
+```text
+rejected candidates
+invalidated structures
+orphan bodies
+dead origins
+```
+
+Rejected items belong in audit logs, not on the main chart.
+
+### 2.5 Candidates are visible
+
+The research view must show candidate/live structures. Do not hide them simply because they are not confirmed yet.
+
+Candidate structures must be visually distinguishable from confirmed structures.
+
+---
+
+## 3. Terminology
+
+### 3.1 Node
+
+A node is a swing point derived from high/low geometry.
+
+```text
+HIGH node: a local high selected by the node engine
+LOW node : a local low selected by the node engine
+```
+
+Nodes may be raw or compressed.
+
+### 3.2 Raw node
+
+A raw node is the smallest available high/low structure detected by the configured node engine.
+
+Raw nodes are never conceptually discarded. They can be hidden in rendering, but they remain part of the audit source.
+
+### 3.3 Compressed node
+
+A compressed node is a node selected after increasing the effective `L` or scale so that the local structure can be represented with at most four readable nodes.
+
+Compression is contextual. The same raw region may be compressed differently depending on whether we are evaluating F1, F2, F3, ND, or a larger scale.
+
+### 3.4 Flag body
+
+A flag body is a two-leg structure:
+
+```text
+Origin -> Leg1 -> Waist -> Leg2
+```
+
+For bullish flags:
+
+```text
+Origin = LOW
+Leg1   = highest HIGH before correction
+Waist  = lowest LOW correction after Leg1 and before Leg2
+Leg2   = HIGH that breaks/extends the Leg1 high
+```
+
+For bearish flags:
+
+```text
+Origin = HIGH
+Leg1   = lowest LOW before correction
+Waist  = highest HIGH correction after Leg1 and before Leg2
+Leg2   = LOW that breaks/extends the Leg1 low
+```
+
+### 3.5 Waist
+
+The waist is the internal correction extreme inside the flag body.
+
+For bullish flags:
+
+```text
+waist = lowest correction low after Leg1 and before Leg2
+```
+
+For bearish flags:
+
+```text
+waist = highest correction high after Leg1 and before Leg2
+```
+
+The waist must be updated while the correction is still developing.
+
+### 3.6 Internal 1/2
+
+Internal `1` and `2` are nodes formed in the correction after the two-leg flag body is formed.
+
+For bullish structures:
+
+```text
+After Leg2, the correction must form at least two same-side correction nodes.
+Node 2 must be lower than Node 1.
+A counter-node/high exists between 1 and 2.
+```
+
+In simplified bullish notation:
+
+```text
+Leg2 high
+-> correction low = 1
+-> intervening high
+-> deeper correction low = 2
+```
+
+For bearish structures:
+
+```text
+After Leg2, the correction must form at least two same-side correction nodes.
+Node 2 must be higher than Node 1.
+A counter-node/low exists between 1 and 2.
+```
+
+In simplified bearish notation:
+
+```text
+Leg2 low
+-> correction high = 1
+-> intervening low
+-> higher correction high = 2
+```
+
+If more than two correction nodes appear, the node count must still be compressed so that the readable structure has no more than four nodes.
+
+### 3.7 ND / Hook
+
+ND, also called Hook, is a non-flag cyclic or hook phase.
+
+ND is detected when the local high/low node structure has three or four readable nodes after applying adaptive `L` compression.
+
+Two nodes are not ND.
+
+More than four nodes are not directly accepted; `L` must be increased until the structure becomes four nodes or fewer.
+
+---
+
+## 4. Direction model
+
+Every flag has a direction.
+
+### 4.1 Bullish flag
+
+A bullish flag has this high/low skeleton:
+
+```text
+LOW  -> HIGH -> LOW  -> HIGH
+O       L1      W       L2
+```
+
+Requirements:
+
+```text
+Leg1 high is above Origin low
+Waist low is above Origin low for F1 validity
+Leg2 high breaks or extends Leg1 high
+```
+
+### 4.2 Bearish flag
+
+A bearish flag has this high/low skeleton:
+
+```text
+HIGH -> LOW  -> HIGH -> LOW
+O       L1      W       L2
+```
+
+Requirements:
+
+```text
+Leg1 low is below Origin high
+Waist high is below Origin high for F1 validity
+Leg2 low breaks or extends Leg1 low
 ```
 
 ---
 
-## 3. شروع زنجیره
+## 5. Flag body construction
 
-### 3.1 Fها پشت سر هم هستند
+### 5.1 Origin selection
 
-در یک زنجیره‌ی هم‌اسکیل:
-
-```text
-F1 -> F2 -> F3
-```
-
-بعد از F1، ساختار بعدی F2 است، نه F1 جدید.
-بعد از F2، ساختار بعدی F3 است، نه F1 جدید.
-
-### 3.2 Same-scale Chain
-
-هر زنجیره در یک context/scale دیده می‌شود. ساختارهای داخل همان scale باید زنجیره‌ای باشند:
+An F1 origin must come from one of two contexts:
 
 ```text
-same chain, same scale-context, ordered F-levels
+1. after an ND/Hook phase
+2. from the terminal/end context of an opposite-direction F sequence
 ```
 
-### 3.3 شروع F1
+An F1 must not start randomly in the middle of an already running move.
 
-F1 فقط از این دو جا می‌تواند شروع شود:
-
-1. بعد از ND / Hook
-2. از انتهای F مخالف
-
-پس F1 نباید از وسط یک موج بی‌هویت شروع شود.
-
-### 3.4 Origin F1
-
-در صعودی:
+For bullish F1:
 
 ```text
-F1 Origin = یک Low واقعی بعد از ND یا انتهای F مخالف
+origin should be a valid LOW after ND or after an opposite bearish sequence endpoint
 ```
 
-در نزولی:
+For bearish F1:
 
 ```text
-F1 Origin = یک High واقعی بعد از ND یا انتهای F مخالف
+origin should be a valid HIGH after ND or after an opposite bullish sequence endpoint
 ```
 
-اگر origin زده شود، آن origin دیگر اعتبار ندارد و candidate مربوط به آن حذف می‌شود. بعداً با همان origin نباید همان F دوباره زنده شود.
+### 5.2 Leg1 selection
+
+Leg1 is not the first minor high/low after origin. Leg1 is the real extreme before the corrective phase.
+
+For bullish flags:
+
+```text
+Leg1 = highest HIGH before the correction that forms the waist
+```
+
+For bearish flags:
+
+```text
+Leg1 = lowest LOW before the correction that forms the waist
+```
+
+If multiple same-side raw nodes appear before the correction, they are not independent Leg1 points. They are candidates for the same Leg1, and the most extreme one is selected.
+
+### 5.3 Waist selection
+
+Waist must be continuously updated while correction develops.
+
+For bullish flags:
+
+```text
+If a lower correction low appears before Leg2 confirms, update waist to that lower low.
+```
+
+For bearish flags:
+
+```text
+If a higher correction high appears before Leg2 confirms, update waist to that higher high.
+```
+
+The detector must not freeze the first correction point as the waist if a deeper valid correction appears later.
+
+### 5.4 Leg2 selection and extension
+
+Leg2 is the node that breaks or extends the Leg1 extreme.
+
+For bullish flags:
+
+```text
+Leg2 = HIGH that breaks above Leg1 high
+```
+
+For bearish flags:
+
+```text
+Leg2 = LOW that breaks below Leg1 low
+```
+
+If the flag body has been struck but the required post-flag internal 1/2 has not appeared, and price continues beyond Leg2, the new extreme remains part of the same flag body.
+
+This is critical.
+
+For bullish F1:
+
+```text
+O -> L1 -> W -> L2a
+no valid 1/2 correction yet
+price makes L2b above L2a
+=> ignore L2a as final body end
+=> L2b becomes the current Leg2
+```
+
+For bearish F1:
+
+```text
+O -> L1 -> W -> L2a
+no valid 1/2 correction yet
+price makes L2b below L2a
+=> ignore L2a as final body end
+=> L2b becomes the current Leg2
+```
+
+This prevents fake flags from being created from unfinished post-body corrections.
 
 ---
 
-## 4. تعریف Leg1
+## 6. F1 contract
 
-### 4.1 Bullish Leg1
+### 6.1 F1 identity
 
-در صعودی، انتهای Leg1 باید بالاترین high قبل از شروع اصلاح باشد.
+F1 is the first flag in a sequence.
 
-نه اولین high کوچک.
-نه یک high میانی.
-نه high خامی که هنوز موج را کامل نکرده.
+F1 may start only:
 
 ```text
-Bullish Leg1 = highest high before the valid correction begins
+after ND/Hook
+or after the end context of an opposite-direction F sequence
 ```
 
-### 4.2 Bearish Leg1
+### 6.2 F1 flag-body invalidation
 
-در نزولی، انتهای Leg1 باید پایین‌ترین low قبل از شروع اصلاح باشد.
+For F1, the invalidation of the flag body is the waist.
+
+For bullish F1:
 
 ```text
-Bearish Leg1 = lowest low before the valid correction begins
+If price hits/breaks below the F1 waist before F1 confirmation, the F1 candidate is invalidated.
 ```
 
-### 4.3 Extension قبل از اصلاح
-
-اگر در جهت لگ چند high/low هم‌جهت بیاید، Leg1 باید تا extreme واقعی آپدیت شود.
-
-مثال صعودی:
+For bearish F1:
 
 ```text
-Low -> High1 -> High2 -> High3 -> Low correction
-Leg1 = High3
+If price hits/breaks above the F1 waist before F1 confirmation, the F1 candidate is invalidated.
 ```
 
-مثال نزولی:
+Important distinction:
 
 ```text
-High -> Low1 -> Low2 -> Low3 -> High correction
-Leg1 = Low3
+F1 invalidation = waist
+F2 invalidation = beginning of Leg1 / origin
+F3 completion = two-leg flag body
+```
+
+### 6.3 F1 internal 1/2 requirement
+
+After the F1 flag body forms, F1 must produce internal 1/2 before it can be confirmed.
+
+For bullish F1:
+
+```text
+After Leg2, correction forms 1 and 2.
+2 must be below 1.
+There must be an intervening high between 1 and 2.
+That intervening high must NOT be above the F1 Leg2 / flag endpoint.
+```
+
+For bearish F1:
+
+```text
+After Leg2, correction forms 1 and 2.
+2 must be above 1.
+There must be an intervening low between 1 and 2.
+That intervening low must NOT be below the F1 Leg2 / flag endpoint.
+```
+
+### 6.4 F1 confirmation
+
+F1 is confirmed when:
+
+```text
+1. F1 flag body exists
+2. internal 1/2 or a compressed higher-node correction exists before F1 waist invalidation
+3. price returns and hits/breaks the F1 flag endpoint using high/low geometry
+```
+
+For bullish F1:
+
+```text
+confirmation = high/low node action that returns above/beyond the F1 Leg2 endpoint after valid internal 1/2
+```
+
+For bearish F1:
+
+```text
+confirmation = high/low node action that returns below/beyond the F1 Leg2 endpoint after valid internal 1/2
+```
+
+### 6.5 F1 when no internal 1/2 appears
+
+If F1 flag body forms but the market does not produce internal 1/2 and instead continues beyond Leg2:
+
+```text
+the move remains part of the same F1 Leg2 extension
+previous Leg2 endpoint is replaced by the new more extreme endpoint
+F1 is not confirmed yet
+F2 must not start yet
+```
+
+### 6.6 F1 with more than two correction nodes
+
+If the correction after F1 Leg2 produces more than two nodes:
+
+```text
+increase effective L until the correction compresses to four or fewer readable nodes
+```
+
+If the compressed structure has three or four nodes:
+
+```text
+label that region as ND/Hook
+also label the internal sequence numbers if applicable
+```
+
+Two nodes are not ND.
+
+---
+
+## 7. F2 contract
+
+### 7.1 F2 starts after confirmed F1
+
+F2 must not start before F1 is confirmed.
+
+Correct:
+
+```text
+F1 candidate -> not confirmed -> do not create F2 yet
+F1 confirmed -> search for F2
+```
+
+### 7.2 F2 origin
+
+F2 begins from the end of the correction after the F1 two-leg flag body.
+
+More precisely:
+
+```text
+F2 origin = the endpoint of the F1 post-flag correction sequence that produced 1/2 or more
+```
+
+This is not necessarily the first correction node. It is the terminal/deeper correction node after the F1 body that establishes the valid post-F1 correction context.
+
+For bullish F1 leading to bullish F2:
+
+```text
+F2 origin is the lower/deeper correction endpoint after F1 Leg2, i.e. the point corresponding to F1 internal 2 or the compressed terminal correction node.
+```
+
+For bearish F1 leading to bearish F2:
+
+```text
+F2 origin is the higher/deeper correction endpoint after F1 Leg2, i.e. the point corresponding to F1 internal 2 or the compressed terminal correction node.
+```
+
+### 7.3 F2 flag body
+
+F2 itself is still a two-leg flag body:
+
+```text
+Origin -> Leg1 -> Waist -> Leg2
+```
+
+The flag-body geometry is the same as any flag. The difference is in the post-flag rules.
+
+### 7.4 F2 invalidation
+
+For F2, the invalidation is the beginning of Leg1 / origin, not the waist.
+
+For bullish F2:
+
+```text
+If price hits/breaks below the F2 origin, F2 is invalidated.
+```
+
+For bearish F2:
+
+```text
+If price hits/breaks above the F2 origin, F2 is invalidated.
+```
+
+When F2 invalidates:
+
+```text
+F2 disappears
+F1 parent remains alive if F1 itself is still valid
+The system continues searching for F2 from the F1 context
+The sequence does not abandon F2 search while F1 remains alive
+```
+
+### 7.5 F2 waist-break branch
+
+Unlike F1, F2 may break its own waist without being invalidated, as long as it does not hit its own origin.
+
+If F2 breaks its waist but not its origin, that creates a waist-break branch.
+
+The branch is interpreted as:
+
+```text
+internal 1 = F2 waist
+internal 2 = node that breaks F2 waist
+```
+
+This branch is still part of F2 context.
+
+### 7.6 F2 confirmation
+
+F2 is confirmed when:
+
+```text
+1. F2 flag body exists
+2. F2 creates internal 1/2 or more after its flag body
+3. F2 may break its waist during this process, but must not break its origin
+4. price returns and breaks the F2 flag endpoint using high/low geometry
+```
+
+### 7.7 F2 size requirement
+
+F2 must be at least the size of F1.
+
+Size is defined as the flag body displacement from the beginning of Leg1 to the end of Leg2.
+
+For bullish flags:
+
+```text
+size = abs(Leg2 high - Origin low)
+```
+
+For bearish flags:
+
+```text
+size = abs(Origin high - Leg2 low)
+```
+
+The implementation should expose this as a rule:
+
+```text
+F2.size >= F1.size
+```
+
+A future input may allow this threshold to be relaxed or scaled.
+
+---
+
+## 8. F3 contract
+
+### 8.1 F3 starts after F2
+
+F3 is searched only after F2 exists in the sequence.
+
+Correct sequence:
+
+```text
+F1 confirmed -> F2 search
+F2 valid/confirmed context -> F3 search
+```
+
+### 8.2 F3 flag body is enough
+
+F3 does not need the same post-flag correction logic as F1 and F2.
+
+For F3:
+
+```text
+The two-leg flag body is enough to classify it as F3.
+```
+
+### 8.3 F3 completion
+
+When F3 completes its flag body:
+
+```text
+The sequence is considered complete.
+The sequence becomes locked.
+The sequence should no longer be deleted from the chart even if the entire movement reverses later.
+```
+
+### 8.4 F3 extension
+
+After F3 completes, the rest of the same-direction movement is considered F3 extension.
+
+For bullish F3:
+
+```text
+Any further bullish extension before the smallest opposite F1 is treated as part of F3 extension.
+```
+
+For bearish F3:
+
+```text
+Any further bearish extension before the smallest opposite F1 is treated as part of F3 extension.
+```
+
+### 8.5 Sequence termination after F3
+
+After F3 completes:
+
+```text
+No F4 is created.
+The sequence is locked.
+The next major structural process begins only after the smallest opposite F1 appears.
+```
+
+The exact engineering definition of `smallest opposite F1` remains an open item and must be formalized before production execution logic.
+
+---
+
+## 9. ND / Hook contract
+
+### 9.1 ND is high/low-node based
+
+ND uses only high/low nodes.
+
+It does not use:
+
+```text
+close
+open
+body
+candle color
+close beyond level
+```
+
+### 9.2 ND node count
+
+ND is recognized when the compressed node sequence has:
+
+```text
+3 nodes
+or 4 nodes
+```
+
+Two nodes are not ND.
+
+More than four nodes must be compressed by increasing `L` until the region becomes readable as four or fewer nodes.
+
+### 9.3 Adaptive L for ND
+
+For ND detection:
+
+```text
+initial L for the source/root node = 2
+L for the origin/source is not increased
+increase L for the local structure until node count <= 4
+```
+
+If after compression the node count is:
+
+```text
+3 or 4 => ND / Hook
+2      => not ND
+> 4    => keep increasing L or mark unresolved in audit
+```
+
+### 9.4 ND 50% cycle rule
+
+By default, ND is accepted only when it passes the 50% cycle rule.
+
+The cycle is measured with high/low geometry from:
+
+```text
+start node -> extreme reached by the cycle -> current/terminal cycle point
+```
+
+The rule is:
+
+```text
+The terminal node must have moved at least 50% of the start-to-extreme range.
+```
+
+This is not based on close.
+
+It is based only on high/low node range.
+
+### 9.5 Input for accepting below-50 ND
+
+The implementation must support an input that allows below-50% ND to be accepted for research.
+
+Default:
+
+```text
+accept_below_50_percent_nd = false
+```
+
+Research option:
+
+```text
+accept_below_50_percent_nd = true
+```
+
+### 9.6 ND overlap with F
+
+ND may be detected inside or overlapping a flag.
+
+Both may be displayed if both exist.
+
+ND should remain text-only by default to avoid chart noise.
+
+### 9.7 ND rendering
+
+ND should be drawn as a text label:
+
+```text
+ND
+```
+
+It should participate in the same label stacking system as F labels.
+
+It should not draw additional body lines by default.
+
+---
+
+## 10. Node compression and scale logic
+
+### 10.1 All highs/lows are kept
+
+The system preserves all high/low nodes.
+
+### 10.2 Compression is contextual
+
+The system may merge or compress nodes when a local structure has too many nodes for the current interpretation.
+
+The compression objective is:
+
+```text
+Represent the region with at most four readable nodes.
+```
+
+### 10.3 Same-side node compression
+
+If several same-side nodes appear consecutively in a compressed context:
+
+For bullish upward impulse:
+
+```text
+multiple highs before correction -> keep the highest high as Leg1
+```
+
+For bearish downward impulse:
+
+```text
+multiple lows before correction -> keep the lowest low as Leg1
+```
+
+For correction:
+
+```text
+bullish correction lows -> keep the lowest low as waist/control point
+bearish correction highs -> keep the highest high as waist/control point
+```
+
+### 10.4 Compression must not hide raw audit data
+
+Compression is a view, not data destruction.
+
+The detector should be able to report:
+
+```text
+raw node ids used
+compressed node ids selected
+L used for compression
+reason for compression
 ```
 
 ---
 
-## 5. Waist / Correction Extreme
+## 11. Sequence model
 
-### 5.1 تعریف Waist
+### 11.1 Sequence identity
 
-Waist یعنی extreme واقعی اصلاح بعد از Leg1 و قبل از Leg2.
-
-در صعودی:
+A sequence is a chain:
 
 ```text
-Waist = پایین‌ترین Low اصلاح بعد از Leg1 تا قبل از break/extend شدن Leg1
+Sequence(direction, scale_context): F1 -> F2 -> F3
 ```
 
-در نزولی:
+### 11.2 Sequence progression
+
+Valid progression:
 
 ```text
-Waist = بالاترین High اصلاح بعد از Leg1 تا قبل از break/extend شدن Leg1
+No sequence
+-> ND or opposite-end context
+-> F1 candidate
+-> F1 confirmed
+-> F2 candidate
+-> F2 confirmed/valid
+-> F3 candidate
+-> F3 complete
+-> sequence locked
 ```
 
-### 5.2 Waist باید مدام آپدیت شود
+### 11.3 No restart inside same sequence
 
-در صعودی:
+After F1, the next same-sequence flag is F2.
 
-```text
-Leg1 high
-correction low 1
-correction low 2 deeper
-correction low 3 deepest
-then break Leg1
-Waist = low 3
-```
+After F2, the next same-sequence flag is F3.
 
-در نزولی:
+The detector must not reclassify the next flag after F1 as another F1 inside the same chain.
 
-```text
-Leg1 low
-correction high 1
-correction high 2 higher
-correction high 3 highest
-then break Leg1 downward
-Waist = high 3
-```
+### 11.4 Parent-child continuity
 
-### 5.3 اگر اصلاح origin را بزند
+If a child fails, the parent remains alive if its own invalidation has not been hit.
 
-در صعودی:
+For example:
 
 ```text
-Origin Low -> Leg1 High -> correction breaks Origin Low
-```
-
-نتیجه:
-
-```text
-candidate deleted
-origin loses value
-view must move to bigger scale if needed
-```
-
-در نزولی برعکس.
-
----
-
-## 6. Leg2 و extension
-
-### 6.1 Leg2
-
-Leg2 حرکت بعد از Waist است که دوباره در جهت فلگ حرکت می‌کند.
-
-در صعودی:
-
-```text
-Leg2 = high after Waist, preferably breaking/continuing beyond Leg1
-```
-
-در نزولی:
-
-```text
-Leg2 = low after Waist, preferably breaking/continuing beyond Leg1
-```
-
-### 6.2 اگر بعد از تشکیل فلگ، 1/2 نیاید و انتهای فلگ رد شود
-
-این یکی از مهم‌ترین قواعد است.
-
-در F1:
-
-اگر بدنه‌ی فلگ ساخته شد، اما هنوز post-flag internal `1/2` نداده و بازار دوباره انتهای فلگ را رد کرد، آن حرکت جدید هنوز بخشی از همان فلگ اصلی و extension لگ دوم است.
-
-در صعودی:
-
-```text
-Origin Low -> Leg1 High -> Waist Low -> Leg2 High
-no internal 1/2 yet
-price makes new high beyond Leg2
-=> new high becomes extended Leg2
-=> previous Leg2 high is ignored for final body
-```
-
-در نزولی برعکس.
-
-### 6.3 این قاعده برای F2 هم هست
-
-در F2 هم اگر بعد از فلگ هنوز post-flag `1/2` نیامده و حرکت در جهت فلگ ادامه داد، continuation به‌عنوان extension همان Leg2 حساب می‌شود.
-
-### 6.4 F3
-
-F3 بعد از بدنه‌ی دو لگ کامل می‌شود. بعد از F3 دیگر post-flag correction برای اعتبار F3 لازم نیست.
-
----
-
-## 7. Internal 1/2 بعد از فلگ
-
-### 7.1 محل ساخت internal 1/2
-
-`1` و `2` در اصلاح بعد از Leg2 ساخته می‌شوند؛ یعنی بعد از اینکه فلگ دو لگه ساخته شد.
-
-### 7.2 Bullish internal 1/2
-
-بعد از یک bullish flag:
-
-```text
-Leg2 High
-internal 1 = Low after Leg2
-middle node = High between 1 and 2
-internal 2 = Lower Low after middle node
-```
-
-شرط:
-
-```text
-internal 2 باید زیر internal 1 باشد
-```
-
-یعنی در صعودی:
-
-```text
-2 < 1
-```
-
-ساختار:
-
-```text
-Low(1) -> High(middle) -> Lower Low(2)
-```
-
-### 7.3 Bearish internal 1/2
-
-بعد از یک bearish flag:
-
-```text
-Leg2 Low
-internal 1 = High after Leg2
-middle node = Low between 1 and 2
-internal 2 = Higher High after middle node
-```
-
-شرط:
-
-```text
-internal 2 باید بالای internal 1 باشد
-```
-
-یعنی در نزولی:
-
-```text
-2 > 1
-```
-
-ساختار:
-
-```text
-High(1) -> Low(middle) -> Higher High(2)
-```
-
-### 7.4 شرط خاص F1
-
-در F1، middle node بین `1` و `2` نباید انتهای فلگ F1 را بشکند.
-
-در bullish F1:
-
-```text
-middle high نباید بالاتر از Leg2 high / flag end باشد
-```
-
-در bearish F1:
-
-```text
-middle low نباید پایین‌تر از Leg2 low / flag end باشد
-```
-
-اگر middle node این حد را بشکند، آن 1/2 برای F1 معتبر نیست؛ بلکه باید به‌عنوان extension یا context بزرگ‌تر بررسی شود.
-
-### 7.5 شرط F2
-
-در F2، middle node بین `1` و `2` می‌تواند انتهای فلگ / Leg2 را رد کند.
-
-در bullish F2:
-
-```text
-middle high می‌تواند بالاتر از Leg2 high برود
-```
-
-در bearish F2:
-
-```text
-middle low می‌تواند پایین‌تر از Leg2 low برود
-```
-
-### 7.6 F3 post-flag 1/2 ندارد
-
-برای F3، اصلاح بعد از فلگ برای اعتبار خودش اهمیتی ندارد.
-
----
-
-## 8. F1 Contract
-
-### 8.1 بدنه‌ی F1
-
-F1 یک فلگ دو لگه است:
-
-Bullish:
-
-```text
-Origin Low -> Leg1 High -> Waist Low -> Leg2 High
-```
-
-Bearish:
-
-```text
-Origin High -> Leg1 Low -> Waist High -> Leg2 Low
-```
-
-### 8.2 Invalidation F1
-
-در F1، کمر فلگ / Waist نقش invalidation بعد از تشکیل فلگ را دارد.
-
-Bullish F1:
-
-```text
-اگر بعد از تشکیل بدنه و قبل از confirmation، قیمت Waist Low را بزند، F1 invalid می‌شود.
-```
-
-Bearish F1:
-
-```text
-اگر بعد از تشکیل بدنه و قبل از confirmation، قیمت Waist High را بزند، F1 invalid می‌شود.
-```
-
-### 8.3 قبل از کامل شدن فلگ
-
-اگر اصلاح بعد از Leg1، ابتدای Leg1 / Origin را بزند، candidate حذف می‌شود و باید با دید بزرگ‌تر بررسی شود.
-
-### 8.4 F1 Candidate
-
-F1 candidate باید دیده شود، حتی اگر هنوز confirmed نشده است.
-
-نمایش باید status داشته باشد:
-
-```text
-F1 candidate / live
 F1 confirmed
-F1 invalidated only in audit, not main chart
+F2 candidate starts
+F2 origin is hit
+=> F2 is invalidated and removed
+=> F1 remains alive
+=> continue searching for F2 in the F1 context
 ```
 
-### 8.5 F1 Confirmation
+This is not a total sequence reset.
 
-F1 وقتی تأیید می‌شود که:
+### 11.5 Dead origins
 
-1. بدنه‌ی دو لگه داشته باشد.
-2. بعد از Leg2، حداقل `1/2` معتبر بدهد.
-3. این `1/2` قبل از زدن Waist رخ دهد.
-4. بعد از `1/2`، دوباره انتهای فلگ را با high/low بزند یا بشکند.
+If a candidate hits its invalidation origin, that origin is dead for that candidate.
 
-Bullish confirmation:
+It should not be reused to resurrect the same failed candidate.
 
-```text
-F1 body completed
-post-flag 1/2 completed before Waist hit
-then High breaks/reaches Leg2 high / extended flag end
-=> F1 confirmed
-```
-
-Bearish confirmation:
-
-```text
-F1 body completed
-post-flag 1/2 completed before Waist hit
-then Low breaks/reaches Leg2 low / extended flag end
-=> F1 confirmed
-```
-
-### 8.6 اگر 1/2 نیاید و انتهای فلگ رد شود
-
-تا وقتی `1/2` نیامده، هر continuation در جهت فلگ، extension لگ دوم است.
-
-```text
-No 1/2 yet => no confirmation yet => continuation extends Leg2
-```
-
-### 8.7 اگر بیشتر از 2 نود بعد از فلگ آمد
-
-اگر بعد از فلگ، نودهای اصلاحی بیشتر شد، باید با منطق compression آن‌ها را تا حداکثر 4 نود ببینیم.
-
-اگر بعد از compression تعداد نودها 3 یا 4 شد، آنجا ND/Hook هم label می‌گیرد.
-
-دو نود به‌تنهایی ND نیست.
+However, the parent context may still generate a new child candidate later from a valid continuation point.
 
 ---
 
-## 9. F2 Contract
+## 12. Invalidation model
 
-### 9.1 F2 فقط بعد از confirmation F1 ساخته می‌شود
+### 12.1 F1 invalidation
 
-F2 نباید روی F1 خام ساخته شود.
+F1 invalidation is the waist.
 
-```text
-F2 spawn allowed only after F1 confirmed
-```
-
-### 9.2 F2 Origin
-
-F2 از انتهای اصلاح بعد از فلگ F1 شروع می‌شود؛ یعنی از جایی که بعد از دو لگ F1، post-flag correction داده و `1/2` یا بیشتر ساخته شده است.
-
-در عمل:
+For bullish F1:
 
 ```text
-F2 Origin = effective end of F1 post-flag correction
+hit/break below waist => F1 invalid
 ```
 
-اگر post-flag correction فقط `1/2` ساده باشد، این همان internal 2 است.
-اگر بیشتر از 2 نود باشد، بعد از compression، effective correction end همان نقطه‌ای است که زنجیره آن را به‌عنوان مبدا F2 می‌پذیرد.
-
-### 9.3 F2 Body
-
-F2 هم یک فلگ دو لگه است.
-
-Bullish F2:
+For bearish F1:
 
 ```text
-F2 Origin Low -> Leg1 High -> Waist Low -> Leg2 High
+hit/break above waist => F1 invalid
 ```
 
-Bearish F2:
+### 12.2 F2 invalidation
+
+F2 invalidation is the beginning of its first leg / origin.
+
+For bullish F2:
 
 ```text
-F2 Origin High -> Leg1 Low -> Waist High -> Leg2 Low
+hit/break below F2 origin => F2 invalid
 ```
 
-### 9.4 F2 Invalidation
-
-در F2، invalidation اصلی ابتدای لگ اول / Origin است، نه Waist.
-
-Bullish F2:
+For bearish F2:
 
 ```text
-اگر F2 Origin Low زده شود، F2 invalid می‌شود.
+hit/break above F2 origin => F2 invalid
 ```
 
-Bearish F2:
+If F2 invalidates, F1 remains alive if F1 itself has not invalidated.
+
+### 12.3 F3 completion instead of invalidation
+
+F3 is not governed by the same post-flag invalidation logic.
+
+When F3 completes its two-leg body:
 
 ```text
-اگر F2 Origin High زده شود، F2 invalid می‌شود.
+F3 is complete
+sequence is locked
+later reversal does not delete the completed F3
 ```
-
-### 9.5 اگر F2 Origin زده شد
-
-اگر F2 ابتدای خودش را زد:
-
-- F2 دیگر معتبر نیست.
-- اما هنوز داخل context F1 حساب می‌شود.
-- F1 parent اگر invalid نشده، زنده است.
-- موتور همچنان دنبال F2 جدید برای همان F1 می‌گردد.
-
-```text
-F2 origin hit => remove F2 candidate, keep F1 alive, continue searching F2 while F1 alive
-```
-
-### 9.6 F2 Waist Break Branch
-
-در F2، اگر Waist شکسته شود ولی Origin شکسته نشود، این invalid نیست. این می‌تواند branch مخصوص F2 باشد.
-
-در این حالت:
-
-```text
-1 = F2 Waist
-2 = node that breaks F2 Waist
-```
-
-یعنی F2 اجازه دارد کمر فلگ خودش را بزند، به شرط اینکه ابتدای لگ خودش را نزند.
-
-### 9.7 F2 Confirmation
-
-F2 وقتی تأیید می‌شود که:
-
-1. بدنه‌ی فلگ داشته باشد.
-2. `1/2` یا بیشتر بعد از فلگ بسازد.
-3. می‌تواند Waist را بزند، ولی Origin را نباید بزند.
-4. بعد دوباره انتهای فلگ / Leg2 را با high/low بشکند یا بزند.
-
-### 9.8 شرط اندازه F2 نسبت به F1
-
-اندازه‌ی فلگ:
-
-```text
-Flag size = abs(Leg2.price - Origin.price)
-```
-
-شرط F2:
-
-```text
-F2 flag size >= F1 flag size
-```
-
-این شرط بر اساس فاصله‌ی ابتدای لگ اول تا انتهای لگ دوم است.
 
 ---
 
-## 10. F3 Contract
-
-### 10.1 F3 فقط بعد از F2 زنده/معتبر ساخته می‌شود
-
-تا وقتی F2 زنده است، موتور دنبال F3 می‌گردد.
-
-### 10.2 F3 Origin
-
-F3 از انتهای اصلاح بعد از F2 شروع می‌شود؛ یعنی از effective correction end بعد از F2.
-
-### 10.3 F3 Body Enough
-
-برای F3، بدنه‌ی دو لگه کافی است.
-
-```text
-F3 = completed flag body
-```
-
-F3 نیازی به post-flag `1/2` ندارد.
-
-### 10.4 F3 Same-scale Requirement
-
-F3 باید با F1 و F2 در یک context scale قابل قبول باشد.
-
-این بخش هنوز تصمیم اجرایی دقیق لازم دارد، چون «هم‌اسکیل بودن» باید به یک معیار عددی تبدیل شود.
-
-Open decision:
-
-```text
-Same-scale F1/F2/F3 = ?
-```
-
-گزینه‌های ممکن برای تعریف مهندسی:
-
-1. همان `scale_L` دقیق.
-2. scale_L در یک band قابل قبول، مثلاً ±1 step.
-3. similarity بر اساس flag size ratio.
-4. ترکیب scale_L و flag size.
-
-تا قبل از قفل شدن این تصمیم، پیاده‌سازی باید این قسمت را input-driven نگه دارد.
-
-### 10.5 F3 Lock
-
-وقتی F3 تکمیل شد:
-
-- کل حرکت بعدی در همان جهت می‌تواند extension F3 حساب شود.
-- ساختار sequence بسته و قفل می‌شود.
-- حتی اگر بازار کل حرکت را برگردد، F3 از چارت حذف نمی‌شود.
-- چون F3 «کار خودش را کرده است».
-
-```text
-F3 complete => sequence locked
-locked sequence never deleted from main historical display
-```
-
-### 10.6 پایان sequence بعد از F3
-
-بعد از F3، با تشکیل ریزترین F1 مخالف، extent نهایی F3 تا همانجایی که رسیده قفل می‌شود و sequence پایان می‌یابد.
-
-Open engineering detail:
-
-```text
-smallest opposite F1 = which scale? minimum raw scale? selected minor scale? adaptive smallest stable F1?
-```
-
-این بخش باید بعداً به input/algorithm دقیق تبدیل شود.
-
----
-
-## 11. ND / Hook Contract
-
-### 11.1 ND چیست؟
-
-ND / Hook یک فاز یا چرخه‌ی نودی است، نه الزاماً یک فلگ.
-
-ND زمانی مهم است که نودها به شکلی 3 یا 4 نودی در یک cycle قابل خواندن باشند، مخصوصاً وقتی ساختار F در آن context هنوز شکل نگرفته یا نودها بیش از حد ریز و شلوغ شده‌اند.
-
-### 11.2 ND بر اساس High/Low است
-
-ND هم فقط با high/low nodeها تعریف می‌شود.
-
-```text
-ND is high-low-node based and close-agnostic.
-```
-
-### 11.3 قانون تعداد نود ND
-
-ND بعد از compression باید 3 یا 4 نود داشته باشد.
-
-```text
-2 nodes => not ND
-3 nodes => ND candidate
-4 nodes => ND candidate
->4 nodes => increase L until <=4
-```
-
-### 11.4 اگر raw nodes بیشتر از 4 شد
-
-اگر در یک بازه‌ی ND تعداد nodeها بیشتر از 4 شد:
-
-```text
-increase L
-reproject nodes
-repeat until node_count <= 4
-```
-
-### 11.5 L مبدا در ND
-
-در ND، L نود مبدا به صورت پایه 2 در نظر گرفته می‌شود و خود مبدا را با افزایش L حذف/جابجا نمی‌کنیم. افزایش L برای readable کردن ادامه‌ی cycle انجام می‌شود.
-
-Open engineering detail:
-
-```text
-Origin node L is pinned at 2.
-Projection of subsequent nodes adapts upward until the visible ND cycle has <=4 nodes.
-```
-
-این باید در کد به شکل واضح جدا از compression عمومی پیاده شود.
-
-### 11.6 شرط 50 درصد cycle
-
-ND پیش‌فرض باید فقط وقتی قبول شود که cycle حداقل 50% بازه‌ی خودش را طی کرده باشد.
-
-تعریف بازه:
-
-```text
-cycle_start = first ND node price
-cycle_extreme = furthest price reached inside ND cycle
-range = abs(cycle_extreme - cycle_start)
-```
-
-شرط پیش‌فرض:
-
-```text
-movement >= 0.50 * range_basis
-```
-
-چون close نداریم، این شرط هم فقط با high/low nodeها سنجیده می‌شود.
-
-### 11.7 زیر 50 درصد
-
-باید input داشته باشیم که زیر 50% را هم قبول کند.
-
-پیشنهاد input:
-
-```text
-InpNDRequireMinCycleRatio = true
-InpNDMinCycleRatio = 0.50
-```
-
-اگر خاموش شود:
-
-```text
-3/4-node ND structure is accepted even below 50%
-```
-
-### 11.8 ND داخل F هم نمایش داده می‌شود
-
-اگر ND و F overlap داشته باشند، هر دو نمایش داده می‌شوند.
-
-```text
-F body can exist
-ND label can also exist
-```
-
-ND برای جلوگیری از شلوغی فقط text-only است، مگر اینکه debug mode بخواهد shape هم بکشد.
-
-### 11.9 ND در F1/F2 extension context
-
-وقتی بعد از فلگ، تعداد اصلاحی/چرخه‌ای بیشتر از 2 شد و بعد از compression به 3 یا 4 رسید، آن ناحیه ND هم حساب می‌شود و باید label بگیرد.
-
----
-
-## 12. Sequence Engine
-
-### 12.1 زنجیره‌ی اصلی
-
-هر sequence این lifecycle را دارد:
-
-```text
-WAIT_F1
-F1_LIVE
-F1_CONFIRMED
-SEARCH_F2
-F2_LIVE
-F2_CONFIRMED
-SEARCH_F3
-F3_LIVE
-F3_LOCKED
-DONE
-```
-
-### 12.2 F-level reset ممنوع در همان chain
-
-در یک chain:
-
-```text
-After F1 => next F is F2
-After F2 => next F is F3
-After F3 => chain locks/done
-```
-
-پس نباید بعد از F1 دوباره F1 جدید در همان chain ساخته شود.
-
-### 12.3 F1 جدید کجا مجاز است؟
-
-F1 جدید فقط برای chain جدید مجاز است:
-
-- بعد از ND مستقل
-- بعد از انتهای F مخالف
-- بعد از پایان sequence قبلی و شروع context مخالف/جدید
-
-### 12.4 Parent/Child
-
-F1 parent برای F2 است.
-F2 parent برای F3 است.
-
-اگر child invalid شود، parent زنده می‌ماند مگر invalidation خودش خورده باشد.
-
-```text
-child invalidation does not kill parent
-```
-
-### 12.5 ادامه‌ی جست‌وجو بعد از child invalidation
-
-اگر F2 invalid شد ولی F1 هنوز زنده/confirmed است، موتور همان F1 را ادامه می‌دهد و همچنان دنبال F2 می‌گردد.
-
-اگر F3 invalid/candidate-fail شد ولی F2 هنوز زنده/confirmed است، موتور همان F2 را ادامه می‌دهد و همچنان دنبال F3 می‌گردد.
-
----
-
-## 13. Candidate / Confirmed / Locked / Rejected
+## 13. Candidate, confirmed, terminal, rejected
 
 ### 13.1 Candidate
 
-ساختاری که هنوز confirmation کامل ندارد، اما برای research view باید دیده شود.
+A candidate is a structure currently being evaluated.
+
+Candidate structures must be visible in research view.
 
 ### 13.2 Confirmed
 
-ساختاری که قرارداد تایید خودش را پاس کرده.
+Confirmed means the structure met its post-flag confirmation requirement.
 
-### 13.3 Locked
+For F1 and F2, confirmation requires post-flag internal 1/2 logic and then break of the flag endpoint.
 
-فقط sequenceهایی که F3 complete کرده‌اند locked می‌شوند. Lockedها نباید از historical display پاک شوند.
+### 13.3 Terminal
 
-### 13.4 Rejected / Invalidated
+Terminal means F3 has completed and the sequence is locked.
 
-Rejectedها روی چارت اصلی نمایش داده نمی‌شوند.
+### 13.4 Rejected
 
-آن‌ها فقط در audit/log/report می‌آیند.
+Rejected means invalidated or structurally failed.
 
-```text
-Main chart = live + confirmed + locked + ND
-Audit = includes rejected/invalidated
-```
+Rejected structures should not be shown on the main chart.
+
+They should be logged in audit output.
 
 ---
 
-## 14. Duplicate Rules
+## 14. Duplicate sequence handling
 
-اگر دو sequence همه‌ی مشخصات هندسی و هویتی‌شان دقیقاً یکسان باشد، نباید دو بار نمایش داده شوند.
+If two sequences have exactly the same structural identity, they should not be duplicated.
 
-مشخصات identity:
+Structural identity includes:
 
 ```text
-symbol
-timeframe
-scale_context
-sequence direction
+direction
 F level
 origin node
 leg1 node
 waist node
 leg2 node
-internal nodes if applicable
-parent id if applicable
-status
+internal 1/2 nodes if applicable
+scale context
+parent sequence identity
 ```
 
-اگر همه چیز عین هم بود:
+If every relevant field is exactly the same:
 
 ```text
-merge into one display object
+render one sequence
+optionally include multiple scale labels in the text
 ```
 
-اگر حتی یک تفاوت کوچک وجود داشت:
+If even one meaningful structural field differs:
 
 ```text
-keep as separate sequence
+treat them as different sequences
 ```
 
 ---
 
-## 15. Rendering Contract
+## 15. Rendering contract
 
-### 15.1 همه دیده شوند
+### 15.1 Show all valid visible structures
 
-نمایش پیش‌فرض باید همه‌ی موارد زنده/confirmed/locked/ND را نشان دهد.
+The user wants to see all non-rejected structures.
 
-نه فقط dominant.
-نه فقط selected scale.
-
-### 15.2 Rejectedها دیده نشوند
-
-Rejected/invalidated روی چارت اصلی نمانند.
-
-### 15.3 line width
-
-همه‌ی خطوط نازک و هم‌سایز باشند.
+Visible structures:
 
 ```text
-Fixed line width = 1 by default
+candidate/live F structures
+confirmed F structures
+terminal F3 sequences
+ND/Hook labels
 ```
 
-scale بزرگ‌تر نباید خط ضخیم‌تر بگیرد، چون چارت را شلوغ می‌کند.
-
-### 15.4 Sequence shade
-
-برای اینکه sequenceها از هم قابل تفکیک باشند، هر sequence باید shade کمی متفاوت از همان خانواده رنگ بگیرد.
-
-مثلاً:
+Hidden from main chart:
 
 ```text
-Bullish candidate = blue/cyan family, shades by sequence id
-Bullish confirmed = green family, shades by sequence id
-Bearish candidate = orange/red family, shades by sequence id
-Bearish confirmed = red family, shades by sequence id
-ND = neutral/silver family
-F3 locked = distinct but still thin
+rejected structures
+invalidated candidates
+orphan bodies
+unowned dead lines
 ```
 
-### 15.5 Label detail
+### 15.2 Uniform line width
 
-فعلاً label باید گزینه C باشد:
+All flag body lines should have the same thin width by default.
+
+The renderer should not make higher scales thick by default.
+
+Default:
+
+```text
+line_width = 1
+```
+
+### 15.3 Sequence color shades
+
+Different sequences should use slightly different shades within the same color family.
+
+Meaning should remain stable:
+
+```text
+bullish candidate  -> bullish candidate family
+bullish confirmed  -> bullish confirmed family
+bearish candidate  -> bearish candidate family
+bearish confirmed  -> bearish confirmed family
+F3 terminal        -> terminal family
+ND                 -> ND family
+```
+
+The shade differentiates sequence identity, not semantic class.
+
+### 15.4 Label content
+
+The preferred label mode is detailed option C:
 
 ```text
 F1 L8 Q23
 F2 L8 Q23
 F3 L8 Q23
-ND L8 Q23
+ND L8
 ```
 
-یعنی:
-
-- F level
-- scale L
-- sequence id / chain id
-
-### 15.6 Origin label
-
-فعلاً origin با `O` کوچک نشان داده شود.
-
-Input پیشنهادی:
+Where:
 
 ```text
-InpShowOriginLabels = true
+F1/F2/F3 = flag level
+L8       = scale or compression L
+Q23      = sequence id
 ```
 
-### 15.7 Label placement
+### 15.5 Origin label
 
-قله‌ها:
+The renderer should show origin labels by default for debugging.
+
+Origin label:
 
 ```text
-labels above peak
+O
 ```
 
-دره‌ها:
+This can be disabled later with input:
 
 ```text
-labels below valley
+show_origin_labels = false
 ```
 
-### 15.8 Stack order
+### 15.6 Label placement
 
-اگر چند label در یک ناحیه جمع شدند، نزدیک‌ترین label به قیمت باید قدیمی‌ترین باشد.
+For peaks/high points:
 
-ترتیب از نزدیک به دور:
+```text
+place text above the peak
+```
 
-1. older sequence first
-2. larger scale if same age/context
-3. higher F level if still tied
-4. confirmed before candidate if still tied
-5. ND after F labels unless same identity requires otherwise
+For valleys/low points:
 
-### 15.9 Curve contract
+```text
+place text below the valley
+```
 
-بدنه‌ی F باید این‌طور رسم شود:
+### 15.7 Label stacking order
+
+When multiple labels cluster in the same time/price region, stack them deterministically.
+
+Nearest to price should be:
+
+```text
+older sequence first
+then larger scale / L context
+then higher F level: F3 > F2 > F1 > ND
+then confirmed before candidate
+```
+
+The user explicitly selected:
+
+```text
+older sequence closer to price
+```
+
+### 15.8 Curve rendering
+
+Flag body rendering:
 
 ```text
 Origin -> Leg1 = straight line
-Leg1 -> Leg2 = smooth curve through Waist
+Leg1 -> Leg2  = smooth curve passing through Waist
 ```
 
-Curve فقط باید از waist / انتهای اصلاح عبور کند. لازم نیست مسیر کندل‌ها را مو به مو دنبال کند.
+The curve is schematic. It does not need to follow every candle.
 
-مهم این است که:
-
-- شکسته و چند trendline خشن نباشد.
-- از Waist واقعی رد شود.
-- visually مشخص کند این یک بدنه‌ی دو لگه است.
-
-### 15.10 ND Rendering
-
-ND فعلاً text-only است.
+It must pass through:
 
 ```text
-ND L8 Q23
+Leg1 endpoint
+true waist/correction extreme
+Leg2 endpoint
 ```
 
-اگر با F overlap دارد، هر دو نمایش داده می‌شوند، اما ND خط اضافه نمی‌کشد.
+The curve should not be drawn as a few visibly broken trendlines. It should be rendered with enough segments to look smooth.
 
 ---
 
-## 16. Algorithmic Modules
+## 16. Open engineering items
 
-### 16.1 Node Engine
+These items are not fully locked yet and should be finalized before production execution.
 
-مسئولیت‌ها:
+### 16.1 Same-scale requirement for F1/F2/F3
 
-- استخراج raw high/low nodes
-- نگهداری همه‌ی raw nodes
-- ساخت projection بر اساس scale L
-- فشرده‌سازی alternating view
-- حفظ identity mapping از projected node به raw nodes
+The user stated that F3 must be in the same scale as its F1 and F2.
 
-نباید:
+A general same-scale rule must be defined.
 
-- close/open را وارد کند.
-- raw nodes را حذف کند.
-- با window خام هر 4 node را F فرض کند.
+Possible definitions:
 
-### 16.2 Scale Compression Engine
+```text
+A. same exact L
+B. same compressed node family
+C. same volatility-normalized body scale
+D. same parent sequence scale context
+```
 
-مسئولیت‌ها:
+This requires a separate decision.
 
-- گرفتن یک بازه‌ی nodeها
-- افزایش L تا وقتی node_count <= 4 شود
-- برای ND، pin کردن origin L=2 طبق قرارداد
-- خروجی دادن projected readable sequence
+### 16.2 Smallest opposite F1 after F3
 
-### 16.3 Flag Body Detector
+After F3 completes, the whole same-direction move is treated as F3 extension until the smallest opposite F1 appears.
 
-مسئولیت‌ها:
+The exact definition of smallest opposite F1 must be formalized.
 
-- پیدا کردن Origin, Leg1, Waist, Leg2
-- آپدیت Leg1 تا extreme واقعی قبل از correction
-- آپدیت Waist تا deepest/highest correction extreme
-- extension دادن Leg2 اگر post-flag 1/2 هنوز نیامده
-- رعایت invalidation پیش از تکمیل body
+Possible definitions:
 
-### 16.4 Post-Flag Internal Detector
+```text
+A. smallest configured L that produces a valid opposite F1
+B. first opposite F1 candidate after F3 completion
+C. first confirmed opposite F1 after F3 completion
+D. first opposite F1 that breaks the F3 extension control point
+```
 
-مسئولیت‌ها:
+### 16.3 ND below 50%
 
-- تشخیص internal 1/2 بعد از Leg2
-- رعایت قاعده‌ی F1 middle-node not breaking flag end
-- اجازه دادن به F2 middle-node برای عبور از flag end
-- compression کردن نودهای بیشتر از 4
-- تولید ND label اگر 3/4 node cycle شکل گرفت
+The default is ND above 50% cycle threshold.
 
-### 16.5 Sequence Engine
+A research input should allow below-50 ND.
 
-مسئولیت‌ها:
+The exact labeling for below-50 ND may be:
 
-- مدیریت lifecycle F1->F2->F3
-- جلوگیری از reset اشتباه F-level در همان chain
-- نگه داشتن parent هنگام invalid شدن child
-- شروع F2 فقط بعد از confirmation F1
-- جست‌وجوی F2 تا وقتی F1 زنده است
-- جست‌وجوی F3 تا وقتی F2 زنده است
-- قفل کردن sequence بعد از F3
+```text
+ND?
+ND<50
+weak ND
+```
 
-### 16.6 ND / Hook Detector
-
-مسئولیت‌ها:
-
-- اسکن 3/4-node cycles بعد از compression
-- اعمال 50% cycle threshold در حالت پیش‌فرض
-- اجازه‌ی input برای قبول زیر 50%
-- نمایش ND حتی داخل Fها
-- text-only rendering by default
-
-### 16.7 Identity / Dedup Engine
-
-مسئولیت‌ها:
-
-- ساخت key برای هر event/sequence
-- merge کردن فقط وقتی همه‌ی مشخصات دقیقاً یکی است
-- جدا نگه داشتن حتی با تفاوت کوچک
-
-### 16.8 Renderer
-
-مسئولیت‌ها:
-
-- نمایش همه‌ی live/confirmed/locked/ND
-- عدم نمایش rejectedها
-- خطوط نازک ثابت
-- shade متفاوت برای sequenceها
-- label کامل F/L/Q
-- O label برای origin
-- stack مرتب و deterministic
-- curve نرم از Leg1 به Leg2 از طریق Waist
+This is not yet locked.
 
 ---
 
-## 17. Pseudocode سطح بالا
+## 17. Implementation warning
 
-### 17.1 Main scan
+Do not implement this as a simple sliding-window detector.
 
-```pseudo
-raw_nodes = NodeEngine.extract_high_low_nodes(rates)
-all_scales = ScaleEngine.build_views(raw_nodes)
-
-for each scale_view:
-    detect_nd_hooks(scale_view)
-    update_or_start_sequences(scale_view)
-```
-
-### 17.2 Sequence update
-
-```pseudo
-for each sequence in active_sequences:
-    if sequence.state == WAIT_F1:
-        try_start_f1_after_nd_or_opposite_f_end()
-
-    if sequence.state == F1_LIVE:
-        update_f1_body_and_post_flag()
-        if f1_waist_hit_after_body_before_confirmation:
-            invalidate_f1()
-        if f1_confirmed:
-            sequence.state = SEARCH_F2
-
-    if sequence.state == SEARCH_F2:
-        try_start_f2_from_f1_effective_post_flag_correction_end()
-
-    if sequence.state == F2_LIVE:
-        update_f2_body_and_post_flag()
-        if f2_origin_hit:
-            remove_f2_keep_f1_searching()
-        if f2_confirmed:
-            sequence.state = SEARCH_F3
-
-    if sequence.state == SEARCH_F3:
-        try_start_f3_from_f2_effective_post_flag_correction_end()
-
-    if sequence.state == F3_LIVE:
-        if f3_body_completed:
-            lock_f3_sequence()
-```
-
-### 17.3 Body detection
-
-```pseudo
-function detect_flag_body(origin, direction):
-    leg1 = find_directional_extreme_before_first_valid_correction(origin, direction)
-    waist = find_deepest_opposite_correction_extreme(leg1, direction)
-
-    if correction_hits_origin_before_leg2:
-        return invalid_candidate
-
-    leg2 = find_directional_move_after_waist(direction)
-
-    while no_internal_12_after_leg2 and price_extends_beyond_leg2:
-        leg2 = extended_extreme
-
-    return body(origin, leg1, waist, leg2)
-```
-
-### 17.4 Internal 1/2 bullish
-
-```pseudo
-function detect_bullish_internal_12_after_leg2(leg2):
-    one = first_low_after_leg2
-    middle = high_after_one
-    two = lower_low_after_middle
-
-    require two.price < one.price
-
-    if current_f_level == F1:
-        require middle.price <= leg2.price
-
-    return one, middle, two
-```
-
-### 17.5 Internal 1/2 bearish
-
-```pseudo
-function detect_bearish_internal_12_after_leg2(leg2):
-    one = first_high_after_leg2
-    middle = low_after_one
-    two = higher_high_after_middle
-
-    require two.price > one.price
-
-    if current_f_level == F1:
-        require middle.price >= leg2.price
-
-    return one, middle, two
-```
-
-### 17.6 F1 confirmation
-
-```pseudo
-if f_level == F1:
-    body_completed
-    internal_12_completed_before_waist_hit
-    flag_end_rehit_or_break_by_high_low
-    => confirmed
-```
-
-### 17.7 F2 confirmation
-
-```pseudo
-if f_level == F2:
-    body_completed
-    internal_12_completed_or_more
-    origin_not_hit
-    flag_end_rehit_or_break_by_high_low
-    => confirmed
-```
-
-### 17.8 F3 lock
-
-```pseudo
-if f_level == F3 and body_completed:
-    state = F3_LOCKED
-    keep_extending_f3_until_smallest_opposite_f1
-    never delete locked sequence
-```
-
----
-
-## 18. خطاهایی که کد نباید تکرار کند
-
-### 18.1 هر 4 نود یک F نیست
-
-غلط:
+Wrong implementation style:
 
 ```text
-L-H-L-H window => F
+for every 4 alternating nodes:
+    draw F1
 ```
 
-درست:
+Correct implementation style:
 
 ```text
-F باید در sequence context باشد و origin/leg1/waist/leg2 معتبر داشته باشد.
+maintain sequence state
+preserve raw nodes
+compress contextually
+construct F1 only from valid F1 origins
+confirm F1 before F2 search
+continue F2 search while F1 remains alive
+construct F3 after F2
+lock sequence after F3
+render only non-rejected structures
 ```
 
-### 18.2 شروع از وسط موج غلط است
-
-هر خطی که origin واقعی ندارد نباید روی چارت بیاید.
-
-### 18.3 اگر ابتدای لگ خورد، candidate مرده است
-
-برای candidate همان F:
-
-```text
-origin hit => candidate deleted
-```
-
-اما parent زنده می‌ماند اگر invalidation خودش نخورده باشد.
-
-### 18.4 F2 بعد از F1 دوباره F1 نیست
-
-غلط:
-
-```text
-F1 confirmed -> new F1
-```
-
-درست:
-
-```text
-F1 confirmed -> search F2
-```
-
-### 18.5 F3 نباید پاک شود
-
-وقتی F3 قفل شد، با برگشت بعدی حذف نمی‌شود.
-
-### 18.6 Waist اشتباه ممنوع
-
-در صعودی، waist باید lowest low correction باشد.
-در نزولی، waist باید highest high correction باشد.
-
-### 18.7 خطوط شکسته‌ی curve ممنوع
-
-curve نباید با چند trendline شکسته‌ی خشن نمایش داده شود. باید smooth باشد و از Waist رد شود.
-
----
-
-## 19. Inputs پیشنهادی
-
-```text
-InpShowAllLiveSequences = true
-InpShowRejectedOnMainChart = false
-InpShowOriginLabels = true
-InpDetailedLabels = true
-InpFixedLineWidth = 1
-InpUseSequenceColorShades = true
-
-InpNDRequireMinCycleRatio = true
-InpNDMinCycleRatio = 0.50
-InpNDAcceptBelowMinRatio = false
-InpDrawNDText = true
-InpDrawNDLines = false
-
-InpRequireF1ConfirmedBeforeF2 = true
-InpRequireF2ConfirmedBeforeF3 = true
-InpLockF3AfterBody = true
-InpKeepLockedF3OnChart = true
-
-InpSameScaleMode = SCALE_L_EXACT_OR_OPEN_DECISION
-InpSameScaleTolerance = 0
-```
-
----
-
-## 20. Open decisions باقی‌مانده
-
-این‌ها هنوز باید قبل از نسخه‌ی نهایی کد قفل شوند:
-
-### OD1. تعریف عددی هم‌اسکیل بودن F1/F2/F3
-
-کاربر گفت F3 باید هم‌اسکیل F1 و F2 باشد، اما معیار عددی باید تعیین شود.
-
-گزینه‌های قابل بررسی:
-
-```text
-A) same exact scale_L
-B) scale_L within tolerance
-C) flag size ratio band
-D) hybrid scale_L + flag size ratio
-```
-
-### OD2. کوچک‌ترین F1 مخالف بعد از F3
-
-بعد از F3، حرکت همان جهت ادامه‌ی F3 حساب می‌شود تا ریزترین F1 مخالف ظاهر شود. باید تعریف شود «ریزترین» یعنی چه.
-
-گزینه‌ها:
-
-```text
-A) minimum available L
-B) smallest stable confirmed opposite F1
-C) smallest candidate opposite F1
-D) user-selected minor scale
-```
-
-### OD3. ND pinned origin L=2 implementation
-
-اصل قطعی است، ولی شکل اجرایی دقیق باید در کد مشخص شود:
-
-```text
-origin L pinned at 2, subsequent nodes compressed adaptively
-```
-
-### OD4. F2 effective correction end when more than 2 post-F1 nodes exist
-
-اگر بعد از F1 بیش از 2 نود post-flag correction باشد، F2 از effective correction end شروع می‌شود. باید فرمول دقیق انتخاب این end در حالت 3/4-node ND نهایی شود.
-
-پیشنهاد اولیه:
-
-```text
-Bullish chain: F2 origin = last effective low/correction node after F1 post-flag compression
-Bearish chain: F2 origin = last effective high/correction node after F1 post-flag compression
-```
-
----
-
-## 21. Acceptance Criteria برای پیاده‌سازی بعدی
-
-کد درست است اگر:
-
-1. هیچ F از وسط موج بی‌هویت شروع نشود.
-2. هر خط روی چارت label داشته باشد که بگوید F چند، scale چند، sequence چند.
-3. Origin هر F با O قابل دیدن باشد.
-4. F بعد از F1 در همان chain حتماً F2 باشد، نه F1 جدید.
-5. F بعد از F2 حتماً F3 باشد، نه F1 جدید.
-6. F1 بدون confirmation می‌تواند candidate باشد و دیده شود.
-7. F2 فقط بعد از F1 confirmed ساخته شود.
-8. F3 فقط بعد از F2 ساخته شود.
-9. F3 بعد از تکمیل body قفل شود و پاک نشود.
-10. NDهای 3/4-node دیده شوند.
-11. NDهای زیر 50% فقط اگر input اجازه دهد قبول شوند.
-12. هیچ منطق open/close در detector نباشد.
-13. Waist در bullish lowest correction low باشد.
-14. Waist در bearish highest correction high باشد.
-15. خطوط نازک باشند.
-16. Labels stack شوند و rejectedها روی چارت اصلی دیده نشوند.
-
----
-
-## 22. خلاصه نهایی
-
-اف‌شماری یک pattern scanner خام نیست. یک sequence engine است.
-
-موتور باید:
-
-- همه‌ی high/lowها را نگه دارد.
-- با scale بزرگ‌تر آن‌ها را فشرده کند.
-- از ND یا انتهای F مخالف، F1 بسازد.
-- بعد از F1 confirmed دنبال F2 بگردد.
-- بعد از F2 دنبال F3 بگردد.
-- F3 را بعد از body قفل کند.
-- candidateها را نمایش دهد، rejectedها را نه.
-- هیچ چیز را با close/open تعریف نکند.
-- هر رسم را به identity واقعی خودش وصل کند.
-
+The previous chart errors came from treating raw local alternating windows as independent flags. This contract explicitly forbids that behavior.
