@@ -61,3 +61,10 @@ The V6 default view is now stricter about sequence ownership:
 This means a chart should show semantically owned structures rather than every
 internal attempt.  Turn off the enforcement inputs only when auditing the raw
 state machine.
+
+
+## V6.2 semantic-origin repair
+
+The default semantic view is now stricter about root F1 creation. A root F1 is not allowed to be created from arbitrary two-leg windows when no readable ND/Hook phase boundary is available. The old fail-open scan remains available through `InpAllowF1FailOpenWhenNoHook=true`, but it is intended for audit/debug only because it can create mid-move roots.
+
+The sequence post-processor also has an optional global same-direction ownership gate (`InpEnforceSingleChainPerDirectionGlobal=true` by default). If a direction already has an active root chain, a later same-direction root is pruned unless an opposite F3 appears between the two roots. This implements the documented phase rule more strongly than the earlier per-scale-only pruning.

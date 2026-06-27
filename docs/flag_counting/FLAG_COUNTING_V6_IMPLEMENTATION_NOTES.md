@@ -220,3 +220,10 @@ These rules are deliberately applied after all scales are scanned.  F3 locks and
 same-direction restart pruning need a cross-scale, full-history view of the
 current run.  The renderer still remains non-authoritative: it only hides or
 merges display duplicates; it does not invent or mutate logical structures.
+
+
+## V6.2 semantic-origin repair
+
+The default semantic view is now stricter about root F1 creation. A root F1 is not allowed to be created from arbitrary two-leg windows when no readable ND/Hook phase boundary is available. The old fail-open scan remains available through `InpAllowF1FailOpenWhenNoHook=true`, but it is intended for audit/debug only because it can create mid-move roots.
+
+The sequence post-processor also has an optional global same-direction ownership gate (`InpEnforceSingleChainPerDirectionGlobal=true` by default). If a direction already has an active root chain, a later same-direction root is pruned unless an opposite F3 appears between the two roots. This implements the documented phase rule more strongly than the earlier per-scale-only pruning.

@@ -74,7 +74,7 @@ bool FC6_IsAllowedF1PhaseBoundary(const FC6_Node &origin,
    for(int i=0; i<n; i++)
       if(phase_hooks[i].is_nd && phase_hooks[i].direction == direction)
          nd_count++;
-   if(nd_count <= 0) return true; // fail open when no readable ND boundary exists for this direction/scale
+   if(nd_count <= 0) return cfg.allow_f1_fail_open_when_no_hook; // strict by default; optional audit fail-open only
    for(int i=0; i<n; i++)
       if(FC6_NodeMatchesHookOriginBoundary(origin, direction, phase_hooks[i], eps))
          return true;
@@ -295,13 +295,18 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
       if(cfg.require_f1_phase_boundary)
          boundary_count = FC6_CollectF1BoundaryOriginPositions(nodes, node_count, direction, phase_hooks, eps, origin_positions);
 
-      if(!cfg.require_f1_phase_boundary || boundary_count <= 0)
+      if(!cfg.require_f1_phase_boundary)
       {
-         // Fail-open is intentionally explicit. It prevents an empty chart when
-         // no readable hook exists yet, but it is no longer mixed with hook mode.
-         // Once hook boundaries exist, F1 roots are created only from those
-         // semantic phase boundaries.
          FC6_CollectFallbackOriginPositions(nodes, node_count, direction, origin_positions);
+      }
+      else if(boundary_count <= 0)
+      {
+         // Strict semantic mode: no readable ND/Hook boundary means no root F1.
+         // The old fail-open mode is still available for audits, but it is no
+         // longer the default because it created mid-move F1 roots and the chart
+         // looked correct visually while the sequence origin was semantically wrong.
+         if(cfg.allow_f1_fail_open_when_no_hook)
+            FC6_CollectFallbackOriginPositions(nodes, node_count, direction, origin_positions);
       }
 
       for(int op=0; op<ArraySize(origin_positions); op++)
@@ -333,7 +338,7 @@ int FC6_BuildF1RootsForScale(const FC6_Node &nodes[],
          f1.sequence_id = ArraySize(events) + 1;
          f1.parent_event_id = -1;
          f1.chain_index = 1;
-         f1.reason = (boundary_count > 0 ? "f1_root_from_hook_phase_boundary" : "f1_root_fail_open_no_hook_boundary");
+         f1.reason = (boundary_count > 0 ? "f1_root_from_hook_phase_boundary" : "f1_root_fail_open_no_hook_boundary_audit_mode");
          FC6_EvaluateF1PostFlag(nodes, node_count, f1, eps);
 
          int eid = FC6_AddUniqueEvent(events, f1, eps);
@@ -571,6 +576,26 @@ bool FC6_HasOppositeF3Between(const FC6_FlagEvent &events[],
    return false;
 }
 
+
+bool FC6_HasOppositeF3BetweenAnyScale(const FC6_FlagEvent &events[],
+                                      const int count,
+                                      const int direction,
+                                      const int from_index_anchor,
+                                      const int to_index_anchor)
+{
+   for(int i=0; i<count; i++)
+   {
+      if(events[i].level != FC6_LEVEL_F3) continue;
+      if(events[i].direction == direction) continue;
+      if(!FC6_StatusIsTerminalF3(events[i].status)) continue;
+      if(!events[i].has_confirm) continue;
+      int ci = events[i].confirm.index_anchor;
+      if(ci > from_index_anchor && ci < to_index_anchor)
+         return true;
+   }
+   return false;
+}
+
 bool FC6_SequenceIdMarked(const int &ids[], const int sequence_id)
 {
    for(int i=0; i<ArraySize(ids); i++)
@@ -630,6 +655,54 @@ int FC6_PruneSameDirectionRestartsBeforeOppositeF3(FC6_FlagEvent &events[], cons
    return removed;
 }
 
+
+int FC6_PruneSameDirectionRestartsBeforeOppositeF3Global(FC6_FlagEvent &events[], const FC6_Config &cfg)
+{
+   if(!cfg.enforce_single_chain_per_direction_global) return 0;
+   int n = ArraySize(events);
+   int remove_seq[];
+   ArrayResize(remove_seq, 0);
+
+   for(int i=0; i<n; i++)
+   {
+      if(!FC6_IsRootF1Event(events[i])) continue;
+      int prev = -1;
+      for(int j=0; j<n; j++)
+      {
+         if(i == j) continue;
+         if(!FC6_IsRootF1Event(events[j])) continue;
+         if(events[j].direction != events[i].direction) continue;
+         if(events[j].origin.index_anchor >= events[i].origin.index_anchor) continue;
+         if(FC6_SequenceIdMarked(remove_seq, events[j].sequence_id)) continue;
+
+         // Choose the latest earlier same-direction root, regardless of scale.
+         // This enforces the user's phase rule: while a direction already has
+         // an active F1/F2 chain, another same-direction root is not allowed
+         // until an opposite F3 has appeared between the two phase roots.
+         if(prev < 0 || events[j].origin.index_anchor > events[prev].origin.index_anchor)
+            prev = j;
+      }
+      if(prev < 0) continue;
+      if(!FC6_HasOppositeF3BetweenAnyScale(events, n, events[i].direction, events[prev].origin.index_anchor, events[i].origin.index_anchor))
+         FC6_MarkSequenceId(remove_seq, events[i].sequence_id);
+   }
+
+   if(ArraySize(remove_seq) <= 0) return 0;
+
+   FC6_FlagEvent kept[];
+   ArrayResize(kept, 0);
+   for(int i=0; i<n; i++)
+   {
+      if(FC6_SequenceIdMarked(remove_seq, events[i].sequence_id)) continue;
+      FC6_AddEvent(kept, events[i]);
+   }
+   int removed = n - ArraySize(kept);
+   ArrayResize(events, ArraySize(kept));
+   for(int k=0; k<ArraySize(kept); k++) events[k] = kept[k];
+   FC6_FinalizeEventIds(events);
+   return removed;
+}
+
 void FC6_RebuildParentEventIds(FC6_FlagEvent &events[])
 {
    int n = ArraySize(events);
@@ -658,6 +731,7 @@ void FC6_PostProcessSemanticEvents(FC6_FlagEvent &events[], const FC6_Config &cf
 {
    FC6_LockCompletedF3s(events);
    FC6_PruneSameDirectionRestartsBeforeOppositeF3(events, cfg);
+   FC6_PruneSameDirectionRestartsBeforeOppositeF3Global(events, cfg);
    FC6_FinalizeEventIds(events);
    FC6_RebuildParentEventIds(events);
 }
