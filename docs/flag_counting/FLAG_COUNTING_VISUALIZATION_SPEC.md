@@ -54,6 +54,16 @@ Important inputs:
 - `InpMaxNDPerScale`: caps ND labels per scale for visual control.
 - `InpNDMinNodes`: default 3.
 - `InpNDMaxNodes`: default 4.
-- `InpNDMinExtremeCloseRatio`: default 0.50.
+- `InpNDMinExtremeRatio`: default 0.50.
 
 ND is rendered as text only (`ND`) so it explains the partition without adding more body lines to the chart. Peak-side ND labels are placed above peaks and valley-side ND labels are placed below valleys using the same stacking system as F labels.
+
+### ND high/low-only contract
+
+ND / Hook detection never uses candle close. The whole flag-counting grammar currently treats the market through swing highs and swing lows only. ND windows are therefore evaluated from compressed high/low nodes:
+
+- valid ND windows use 3 or 4 alternating high/low nodes;
+- the final ND node must reach the configured side of the window by at least `InpNDMinExtremeRatio`;
+- `InpNDMinExtremeRatio = 0.50` means the last swing node is at least in the relevant half of the high-low range of that ND window;
+- candle close, body close, bar close, and candle color are ignored.
+

@@ -24,7 +24,7 @@ input bool InpDetectAllND = true;
 input int  InpMaxNDPerScale = 250;
 input int  InpNDMinNodes = 3;
 input int  InpNDMaxNodes = 4;
-input double InpNDMinExtremeCloseRatio = 0.50;
+input double InpNDMinExtremeRatio = 0.50; // high/low swing-node extreme ratio; candle close is ignored
 input bool InpRequireParentConfirmedForNextF = true;
 input bool InpRequireF2AtLeastParentSize = true;
 input double InpF2MinParentSizeRatio = 1.0;
@@ -112,7 +112,7 @@ void FCN_RunExperiment()
    cfg.max_nd_per_scale = InpMaxNDPerScale;
    cfg.nd_min_nodes = InpNDMinNodes;
    cfg.nd_max_nodes = InpNDMaxNodes;
-   cfg.nd_min_close_ratio = InpNDMinExtremeCloseRatio;
+   cfg.nd_min_extreme_ratio = InpNDMinExtremeRatio;
    cfg.max_events = InpMaxEvents;
    cfg.max_roots_per_scale = InpMaxRootSequencesPerScale;
    cfg.verbose_logs = InpVerboseAuditLogs;
