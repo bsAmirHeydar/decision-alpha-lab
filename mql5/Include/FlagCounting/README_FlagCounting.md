@@ -1,22 +1,38 @@
-# FlagCounting MQL5 Include Layer
+# MQL5 Flag Counting Module
 
-The active concept contract lives in:
+This include layer is intended to become the reusable MQL5 implementation of the Flag Counting engine.
 
-`docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2.md`
+## Authoritative design
 
-Do not treat this module as a simple flag-pattern scanner. The intended module is a fractal multi-scale, multi-sequence state engine.
+Read these documents first:
 
-Core contract:
+- `docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md`
+- `docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md`
+- `docs/flag_counting/FLAG_COUNTING_GLOSSARY.md`
 
-- F1 is the root count.
-- F2 is mandatory after F1 unless F1 invalidates or must be recounted.
-- F3 is mandatory after F2 and has special terminal behavior.
-- F1 invalidates at its Waist.
-- F2 invalidates at its Origin.
-- F3 completes after its two-leg body and may not require Leg2 rebreak.
-- F2 must be at least as large as F1.
-- F3 does not require parent-size symmetry.
-- ND / Hook is part of the market partition.
-- Rendering is body-only by default.
+## Module target
 
-Implementation should expose queryable state to code, not just chart objects.
+The MQL module should not be a loose F-pattern scanner. It should expose a reusable state engine:
+
+- Build multi-scale nodes.
+- Maintain parallel sequences.
+- Spawn F2 from parent F1 Internal 2.
+- Spawn F3 from parent F2 Internal 2.
+- Track ND/Hook phases.
+- Return queryable current state.
+- Render clean body-only drawings.
+- Emit detailed logs only when debug is enabled.
+
+## Rendering contract
+
+Default rendering:
+
+- Origin -> Leg1: straight line.
+- Leg1 -> Waist -> Leg2: one smooth curve.
+- F label and 1/2 numeric labels only.
+- Direction and status define four colors.
+- Larger scales use thicker lines and slightly larger labels.
+
+## Implementation warning
+
+The old implementation attempts produced blank charts or overdrawn charts because they mixed candidate scanning with sequence state. The next implementation must be sequence-first.

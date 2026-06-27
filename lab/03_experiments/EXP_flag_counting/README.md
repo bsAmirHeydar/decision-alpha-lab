@@ -1,19 +1,48 @@
-# EXP_flag_counting
+# EXP Flag Counting
 
-This experiment is paused as a coding experiment until the Flag Counting concept contract is fully implemented as a clean engine.
+This experiment studies the Flag Counting grammar as a market-state engine.
 
-Authoritative concept document:
+The experiment is no longer defined as a simple pattern scanner. It must evolve into a fractal multi-scale, multi-sequence state machine.
 
-- `docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V2.md`
+## Reference documents
 
-The current direction is:
+- `docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md`
+- `docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md`
+- `docs/flag_counting/FLAG_COUNTING_GLOSSARY.md`
 
-- not a loose pattern scanner
-- fractal multi-scale node streams
-- parallel sequences
-- F1 -> F2 -> F3 parent/child counting
-- ND / Hook market partitioning
-- code-queryable market state
-- clean body-only chart rendering
+## Research objective
 
-The next implementation should be a new modular engine, not another patch on the old overlapping scanner.
+Build an engine that can classify each relevant movement region as:
+
+- ND / Hook phase
+- F1 root phase
+- F2 continuation phase
+- F3 terminal phase
+
+and expose this state to strategy code and visual audit tools.
+
+## Visual contract
+
+Draw only clean accepted bodies:
+
+- Origin -> Leg1 as a straight line.
+- Leg1 -> Waist -> Leg2 as a smooth curve tangent to Waist.
+- F1/F2/F3 label.
+- Internal 1/2 numeric labels.
+
+Debug layers may exist, but the default chart should not dump every rejected candidate.
+
+## Engineering target
+
+The experiment should produce a reusable module, not just one expert:
+
+- node engine
+- ND/Hook engine
+- F body builder
+- internal count engine
+- continuation engine
+- sequence registry
+- conflict resolver
+- state query API
+- renderer
+- audit logger
