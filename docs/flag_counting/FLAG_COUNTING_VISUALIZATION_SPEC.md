@@ -1,203 +1,94 @@
 # Flag Counting Visualization Specification
 
-Version: v1  
-Scope: visual rendering contract for the FlagCountingVNext experiment.
+This document defines how Flag Counting structures must be rendered on chart. It is a display contract, separate from the detector logic.
 
-This document defines how F-counting structures must be displayed on a MetaTrader chart. The goal is to keep the chart readable while preserving the fractal, multi-scale, multi-sequence nature of the model.
+## 1. Purpose
 
-## 1. Rendering Principles
+The chart must be readable even when many scales and sequences are active at the same time. Rendering must not turn the chart into a pile of overlapping text and crossing labels.
 
-The renderer must not behave like a raw candidate dump. It must show accepted or diagnostic flag-counting structures in a way that preserves hierarchy and avoids visual confusion.
+The renderer must therefore use:
 
-Core principles:
+- scale-aware priority,
+- F-level-aware priority,
+- stacked labels,
+- body-only path drawing,
+- direction/status colors,
+- larger lines and labels for larger scales.
 
-1. Higher scale has higher visual priority.
-2. Larger scale structures must look visually stronger.
-3. F-level labels must not overlap; they must be vertically stacked.
-4. The chart must stay body-only by default.
-5. Internal `1` and `2` are labels only, not connected with extra lines.
-6. Direction and status must both be visible.
-7. Debug overlays must be optional and off by default.
+## 2. Body-only drawing
 
-## 2. Body-only Rendering Contract
+Each F body is drawn as:
 
-Each F body is rendered as:
+1. `Origin -> Leg1`: straight trend line.
+2. `Leg1 -> Waist -> Leg2`: one smooth curve whose belly is tangent to the Waist node.
 
-- `Origin -> Leg1`: one straight trend line.
-- `Leg1 -> Waist -> Leg2`: one smooth curve, made of several short trend segments.
-- `F1`, `F2`, or `F3`: small level label near Leg2.
-- `1` and `2`: small numeric labels only, placed on their own nodes.
+The renderer must not draw post-Leg2 continuation lines to internal `1`, internal `2`, confirmation, or invalidation. Internal `1/2` are rendered as numbers only.
 
-The renderer must not draw post-Leg2 lines by default:
+## 3. Display priority
 
-- no `Leg2 -> internal 1` line,
-- no `internal 1 -> internal 2` line,
-- no `internal 2 -> confirm` line.
+When multiple labels collide, the dominant label must be closest to the price structure.
 
-Those relationships belong to calculation and audit. They may be shown only in an explicit debug mode.
+Priority order:
 
-## 3. Scale Priority
+1. Larger `scaleL` first.
+2. Higher F-level first: `F3 > F2 > F1`.
+3. Stronger status first: `terminal > confirmed > live`.
+4. Larger body size first.
 
-When multiple structures overlap, the renderer must sort them by scale before drawing.
+## 4. Label stacking rule
 
-Recommended order:
+For bullish F bodies, `Leg2` is a peak. The `F1/F2/F3` label is placed above the peak.
 
-1. Draw smaller scale first.
-2. Draw larger scale later, so larger scale appears on top.
-3. Label placement should reserve more spacing for larger scales.
+- Slot 0 is closest to price.
+- Higher-priority labels receive slot 0.
+- Lower-priority labels are stacked above slot 0.
 
-This gives higher scale structures visual dominance without deleting lower scale structures.
+For bearish F bodies, `Leg2` is a valley. The `F1/F2/F3` label is placed below the valley.
 
-## 4. Scale-aware Line Width
+- Slot 0 is closest to price.
+- Higher-priority labels receive slot 0.
+- Lower-priority labels are stacked below slot 0.
 
-Line width must be derived from scale rank, not from arbitrary F-level.
+This matches the visual rule:
 
-Recommended mapping:
+- In valleys, the highest text in the stack is the strongest / largest-scale / highest-F label.
+- In peaks, the lowest text in the stack is the strongest / largest-scale / highest-F label.
 
-- Smallest active scale: width 1
-- Middle scale: width 2
-- Large scale: width 3
-- Very large scale: width 4
+## 5. Scale-aware sizing
 
-The exact mapping can be parameterized, but larger scale should never be visually weaker than smaller scale.
+Larger scales must be more visible.
 
-## 5. Scale-aware Font Size
+Recommended defaults:
 
-F-level labels and internal labels should be tiny by default, but scale-aware.
+- `L < 5`: width 1, base font.
+- `L >= 5`: width 2, font +1.
+- `L >= 8`: width 3, font +2.
+- `L >= 13`: width 4, font +3.
+- `L >= 21`: width 5, font +4.
 
-Recommended mapping:
+## 6. Color contract
 
-- Small scale F label: 6 to 7
-- Middle scale F label: 8 to 9
-- Large scale F label: 10 to 11
-- Internal `1/2`: same or slightly smaller than the F-level label for that scale
+The renderer uses four main colors:
 
-The purpose is to make the visual hierarchy readable without turning the chart into text noise.
+- bullish live,
+- bullish confirmed,
+- bearish live,
+- bearish confirmed.
 
-## 6. Label Stacking
+F3 terminal movement may optionally have a special color for bullish and bearish terminal states.
 
-F-level labels must not be placed directly on top of each other.
+## 7. Layering
 
-The renderer should compute a label lane for each visible event near its Leg2 or current body endpoint.
+Bodies must be drawn first. Labels must be drawn second. This keeps labels readable on top of body curves.
 
-Recommended algorithm:
+## 8. Acceptance criteria
 
-1. Start from the natural label anchor near Leg2.
-2. Look for existing labels in the same time/price neighborhood.
-3. If overlap is detected, move the new label one lane up for bullish structures or one lane down for bearish structures.
-4. Repeat until the label does not overlap an already reserved lane.
-5. Larger scale labels reserve wider lanes.
+A visualization is acceptable when:
 
-This creates vertical stacking instead of unreadable label collisions.
-
-## 7. Direction and Status Colors
-
-The visualization must communicate two independent concepts:
-
-- direction: bullish or bearish,
-- state: live/pending or confirmed.
-
-This requires four colors.
-
-Recommended default:
-
-- Bullish live: cyan or bright blue
-- Bullish confirmed: lime or green
-- Bearish live: orange
-- Bearish confirmed: red or tomato
-
-F-level must be shown through the label text (`F1`, `F2`, `F3`), not through the main color. Color should primarily mean direction and state.
-
-## 8. F3 Terminal Rendering
-
-F3 is special. Once F3 completes its two-leg body, the sequence is considered structurally complete. The post-F3 movement is terminal behavior and may reverse or continue in a special way.
-
-Rendering rule:
-
-- F3 body should still use body-only rendering.
-- Post-F3 movement should not be connected by default.
-- If shown, post-F3 terminal behavior must use a distinct optional debug color/style.
-
-## 9. Multi-scale Display Modes
-
-The renderer should support these display modes:
-
-1. Selected scale only.
-2. All scales.
-3. Dominant sequences only.
-4. Debug all accepted sequences.
-
-Default for research can be all scales, but with max draw limits and scale-aware label/line weights.
-
-## 10. Conflict Resolver Display
-
-When multiple sequences are almost identical, the renderer should avoid drawing duplicates.
-
-Two structures may be considered visual duplicates when:
-
-- they have the same direction,
-- same F-level,
-- same or near-identical Origin, Leg1, Waist, and Leg2 time range,
-- same scale or nearly adjacent scale,
-- similar price body.
-
-If duplicates exist, prefer:
-
-1. higher scale,
-2. confirmed over live,
-3. higher F-level,
-4. cleaner geometry,
-5. larger body if the above are equal.
-
-## 11. Debug Visibility
-
-The default chart must be clean. Debug mode can optionally show:
-
-- rejected candidates,
-- invalidation lines,
-- confirmation points,
-- parent-child links,
-- sequence IDs,
-- scale IDs,
-- ND/Hook segments.
-
-All debug overlays must be off by default.
-
-## 12. Suggested Renderer Inputs
-
-Recommended inputs:
-
-- `InpDrawF1`
-- `InpDrawF2`
-- `InpDrawF3`
-- `InpDrawOnlyConfirmed`
-- `InpDrawBullish`
-- `InpDrawBearish`
-- `InpDrawAllScales`
-- `InpSelectedScaleL`
-- `InpMaxEventsToDraw`
-- `InpUseScaleAwareWidth`
-- `InpUseScaleAwareFont`
-- `InpStackLabels`
-- `InpShowInternal12Labels`
-- `InpShowDebugLinks`
-- `InpShowND`
-
-## 13. Acceptance Criteria
-
-A visualization pass is acceptable only if:
-
-1. The chart never shows all raw candidates as spaghetti.
-2. Higher scale structures are visually stronger than lower scale structures.
-3. F labels do not overlap heavily.
-4. Internal `1` and `2` are readable but not dominant.
-5. Bullish and bearish structures are distinguishable by color.
-6. Live and confirmed structures are distinguishable by color or style.
-7. F1/F2/F3 labels show the F-level without requiring different F-level colors.
-8. The body is clean: straight first leg and curved Leg1-Waist-Leg2 body.
-9. Debug lines are hidden unless explicitly requested.
-10. The renderer can be used to inspect multi-scale parallel sequences without destroying chart readability.
-
-## 14. Implementation Note
-
-This document is a visualization contract. It does not change the F-counting grammar. The renderer must consume accepted events from the detector and apply visual prioritization, stacking, and scale-aware styling.
+- the chart shows F bodies without post-Leg2 path clutter,
+- labels are not piled on the same point,
+- larger scale labels stay closer to the structure,
+- higher F-level labels stay closer to the structure when scale is equal,
+- bullish and bearish structures are visually distinct,
+- live and confirmed states are visually distinct,
+- the user can identify the scale hierarchy without opening logs.
