@@ -55,7 +55,7 @@ bool STC_BuildCandidateFromRaw(STC_Config &cfg,
    candidate.selected_reference_w_serial = raw.reference_w_serial;
    candidate.selected_reference_rank = raw.reference_rank;
    candidate.status = "candidate_not_selected_yet";
-   candidate.rule_note = "level06_SMT_candidate_from_raw_exactly_one_hunt; reference selection uses largest provisional stop distance on clean traded symbol at check close";
+   candidate.rule_note = "level06_SMT_candidate_from_raw_exactly_one_hunt_used_by_level07_signal_registry; reference selection uses largest provisional stop distance on clean traded symbol at check close";
 
    if(side == STC_SIDE_HIGH)
    {

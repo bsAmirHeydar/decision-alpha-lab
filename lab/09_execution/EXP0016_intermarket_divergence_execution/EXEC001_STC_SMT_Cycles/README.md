@@ -77,3 +77,8 @@ STC SMT Cycles detects, confirms, and executes SMT divergence between two config
 ## Current engineering level: Level 06
 
 The current code level converts raw exactly-one-symbol high/low hunts into audit-only SMT candidate rows. High-side SMT becomes SELL on the clean symbol; low-side SMT becomes BUY on the clean symbol. If buy-side and sell-side SMT appear in the same check candle, the whole check candle is forgotten. It still does not confirm, consume, simulate trades, draw objects, or send live orders.
+
+
+## Level 07 — Confirmation and Signal Registry
+
+Level 07 adds `DAL_STC_Signals.mqh` and the `stc_level07_signal_registry.csv` output. It converts closed-check Level 06 SMT candidates into consumed audit-only signal rows. Entry OFF, missed entry moments, final check candles, invalid stop distance, incomplete pair data, and same-check buy/sell ambiguity are all represented explicitly. No paper trades and no real orders are created in this level.

@@ -38,7 +38,10 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*maxHuntCatchupPerPulse=" + IntegerToString(cfg.max_hunt_catchup_per_pulse)
       + "*smtCandidateAudit=" + STC_BoolText(cfg.write_smt_candidate_audit)
       + "*maxSmtBackfillOnInit=" + IntegerToString(cfg.max_smt_backfill_on_init)
-      + "*maxSmtCatchupPerPulse=" + IntegerToString(cfg.max_smt_catchup_per_pulse);
+      + "*maxSmtCatchupPerPulse=" + IntegerToString(cfg.max_smt_catchup_per_pulse)
+      + "*signalRegistryAudit=" + STC_BoolText(cfg.write_signal_registry_audit)
+      + "*maxSignalBackfillOnInit=" + IntegerToString(cfg.max_signal_backfill_on_init)
+      + "*maxSignalCatchupPerPulse=" + IntegerToString(cfg.max_signal_catchup_per_pulse);
 }
 
 string STC_LockedRulesOneLine()
@@ -74,14 +77,14 @@ string STC_LockedRulesOneLine()
       + "*finalCheck=audited_but_no_entry"
       + "*wLevels=closed_90m_levels_from_symbol_M1_per_symbol*W1_level_built_but_no_signal*W2_refs=W1*W3_refs=W2_W1*W4_refs=W3_W2_W1"
       + "*rawHunts=touch_only_equality_valid*referenceMatrix=previous_W_only_same_M*W1_no_reference*W2_ref_W1*W3_ref_W2_then_W1*W4_ref_W3_then_W2_then_W1"
-      + "*huntLayer=raw_audit_only*SMTLevel=convert_exactly_one_hunts_to_candidates*highCandidate=sell_clean_symbol*lowCandidate=buy_clean_symbol*sameCheckBuySell=forget_no_trade_no_consume*referenceSelection=largest_stop_distance_on_clean_symbol_using_check_close_proxy*autoTrade=disabled_in_level06";
+      + "*huntLayer=raw_audit_only*SMTLevel=convert_exactly_one_hunts_to_candidates*highCandidate=sell_clean_symbol*lowCandidate=buy_clean_symbol*sameCheckBuySell=forget_no_trade_consumed_no_carry*referenceSelection=largest_stop_distance_on_clean_symbol_using_check_close_proxy*signalRegistry=confirm_closed_check_candidates_consume_audit_only*entryOff=confirmed_signal_consumed_no_late_entry*missedEntry=never_enter_late*orderAttempt=disabled_in_level07*paperTrades=disabled_in_level07*autoTrade=disabled_in_level07";
 }
 
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL06_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL06_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL07_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL07_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif

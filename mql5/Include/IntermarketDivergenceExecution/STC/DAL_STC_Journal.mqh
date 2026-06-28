@@ -290,4 +290,37 @@ bool STC_AppendSMTCandidateAuditCsv(STC_Config &cfg, STC_RuntimeState &state, ST
    return true;
 }
 
+bool STC_AppendSignalRegistryCsv(STC_Config &cfg, STC_RuntimeState &state, STC_SignalAudit &audit)
+{
+   bool exists = FileIsExist(state.signal_registry_file_common, FILE_COMMON);
+   int h = FileOpen(state.signal_registry_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append signal registry CSV ", state.signal_registry_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "check_index", "check_minutes", "check_start_ny", "check_end_ny", "check_start_server", "check_end_server",
+         "m_cycle", "current_w", "detection_allowed_for_signal", "entry_allowed_at_close", "final_check_of_m", "check_pair_data_complete",
+         "signal_status", "signal_id", "source_candidate_id", "is_confirmed_signal", "signal_consumed", "entry_stc_enabled_at_confirmation", "entry_missed_or_late", "order_attempted", "trade_counter_incremented",
+         "smt_side", "direction", "hunted_symbol", "clean_symbol", "trade_symbol",
+         "selected_reference_w", "selected_reference_w_serial", "selected_reference_rank", "selected_reference_price", "trade_symbol_check_close", "provisional_stop_distance",
+         "legal_reference_count", "high_raw_candidate_count", "low_raw_candidate_count", "selected_same_direction_count", "simultaneous_buy_sell_forget", "status", "rule_note");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.check_index, audit.check_minutes, STC_TimeText(audit.check_start_ny), STC_TimeText(audit.check_end_ny), STC_TimeText(audit.check_start_server), STC_TimeText(audit.check_end_server),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_BoolText(audit.detection_allowed_for_signal), STC_BoolText(audit.entry_allowed_at_close), STC_BoolText(audit.final_check_of_m), STC_BoolText(audit.check_pair_data_complete),
+      STC_SignalStatusText(audit.signal_status), audit.signal_id, audit.source_candidate_id, STC_BoolText(audit.is_confirmed_signal), STC_BoolText(audit.signal_consumed), STC_BoolText(audit.entry_stc_enabled_at_confirmation), STC_BoolText(audit.entry_missed_or_late), STC_BoolText(audit.order_attempted), STC_BoolText(audit.trade_counter_incremented),
+      STC_SideText(audit.smt_side), STC_DirectionText(audit.direction), audit.hunted_symbol, audit.clean_symbol, audit.trade_symbol,
+      STC_WCycleText(audit.selected_reference_w_cycle), audit.selected_reference_w_serial, audit.selected_reference_rank, DoubleToString(audit.selected_reference_price, 8), DoubleToString(audit.trade_symbol_check_close, 8), DoubleToString(audit.provisional_stop_distance, 8),
+      audit.legal_reference_count, audit.high_raw_candidate_count, audit.low_raw_candidate_count, audit.selected_same_direction_count, STC_BoolText(audit.simultaneous_buy_sell_forget), audit.status, audit.rule_note);
+   FileClose(h);
+   return true;
+}
+
 #endif

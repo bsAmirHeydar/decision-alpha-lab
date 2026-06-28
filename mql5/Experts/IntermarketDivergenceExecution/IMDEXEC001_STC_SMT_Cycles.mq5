@@ -1,13 +1,13 @@
 #property strict
-#property version   "1.50"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 06 SMT candidate engine"
-#property description "Level 06 converts raw exactly-one hunts into audit-only SMT candidates. No confirmation. No orders."
+#property version   "1.60"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 07 confirmation and signal registry"
+#property description "Level 07 confirms closed-check SMT candidates into audit-only consumed signals. No paper trades. No orders."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 06 Runtime"
+input group "DAL / STC Level 07 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL06";
+input string InpRunId = "EXEC001_STC_LEVEL07";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -25,6 +25,9 @@ input int InpMaxHuntCatchupPerPulse = 48;
 input bool InpWriteSMTCandidateAudit = true;
 input int InpMaxSMTBackfillOnInit = 24;
 input int InpMaxSMTCatchupPerPulse = 48;
+input bool InpWriteSignalRegistryAudit = true;
+input int InpMaxSignalBackfillOnInit = 24;
+input int InpMaxSignalCatchupPerPulse = 48;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -102,6 +105,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.write_smt_candidate_audit = InpWriteSMTCandidateAudit;
    cfg.max_smt_backfill_on_init = InpMaxSMTBackfillOnInit;
    cfg.max_smt_catchup_per_pulse = InpMaxSMTCatchupPerPulse;
+   cfg.write_signal_registry_audit = InpWriteSignalRegistryAudit;
+   cfg.max_signal_backfill_on_init = InpMaxSignalBackfillOnInit;
+   cfg.max_signal_catchup_per_pulse = InpMaxSignalCatchupPerPulse;
 }
 
 int OnInit()
@@ -126,8 +132,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 06 remains timer-driven for audit and does not inspect ticks for signal decisions.
-   // Later levels will add confirmation, signal registry, paper execution, drawing, and auto-trading.
+   // Level 07 remains timer-driven for closed-check confirmation audit and does not inspect ticks for entries.
+   // Later levels will add paper execution, drawing, partial/hard-close management, and auto-trading.
 }
 
 void OnDeinit(const int reason)

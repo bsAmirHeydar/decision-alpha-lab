@@ -26,3 +26,5 @@ Key detailed documents:
 - `27_level_06_smt_candidate_engine.md`
 
 The next engineering stage is Level 07: confirmation, signal registry, and no-late-entry consumption logic.
+
+- [Level 07 STC SMT Confirmation and Signal Registry](LEVEL_07_STC_SMT_CONFIRMATION_SIGNAL_REGISTRY.md)
