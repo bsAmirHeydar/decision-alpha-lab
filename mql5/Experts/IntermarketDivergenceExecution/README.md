@@ -1,0 +1,20 @@
+# Intermarket Divergence Execution Experts
+
+This folder contains execution-oriented experts for intermarket divergence strategies.
+
+## IMDEXEC001_STC_SMT_Cycles.mq5
+
+`IMDEXEC001_STC_SMT_Cycles.mq5` is the STC SMT Cycles execution expert.
+
+Current level:
+
+- Level 01 skeleton
+- Inputs and validation
+- Common Files journals
+- Timer runtime
+- Duplicate instance lock
+- No SMT detection
+- No paper simulation
+- No live orders
+
+Compile this expert first before moving to the time/cycle engine level.
