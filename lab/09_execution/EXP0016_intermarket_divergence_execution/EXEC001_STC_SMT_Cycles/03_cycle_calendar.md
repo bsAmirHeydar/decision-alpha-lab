@@ -28,7 +28,7 @@ M3 runs from 09:30 to 15:30.
 
 09:00 -> 09:30 is a no-entry and no-detection gap.
 
-During these gaps, position management remains active only for already-open trades, especially final TP processing.
+During these gaps, no new detection and no new entry occur. Position management remains active for already-open trades. If SL or TP is reached during a gap, the open position is managed normally.
 
 No new STC entries are allowed in gaps.
 
@@ -115,3 +115,20 @@ At M1 end, the time is for M1 partial processing.
 At M2 end, the time is for M2 partial processing.
 
 At M3 end, the time is for daily hard close and reset.
+
+## Check-candle anchoring
+
+All internally aggregated check candles are anchored from the STC trading-day start at 20:00 New York.
+
+Examples:
+
+- 10-minute check candles: 20:00, 20:10, 20:20, ...
+- 3-minute check candles: 20:00, 20:03, 20:06, ...
+
+If a check candle closes at or after the end of the active M, that candle cannot produce a new entry.
+
+## Missed management events
+
+If a scheduled partial close or hard close is missed because the EA was offline, the missed management event must be processed at the first later opportunity.
+
+M3 hard close takes priority over any M3 partial close.

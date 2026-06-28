@@ -12,12 +12,13 @@ Status:
 
 - Source SRS extracted: complete.
 - Owner clarification pass 1: complete.
+- Owner clarification pass 2: complete.
 - Normalized executable spec: updated.
 - M/W calendar: updated.
 - SMT divergence rules: updated.
 - Execution and risk rules: updated.
 - Test plan: updated.
-- Remaining questions: reduced to implementation-level details.
+- Remaining questions: strategy-level questions resolved; implementation can proceed in research mode.
 
 ## Strategy summary
 
@@ -50,3 +51,22 @@ Final Reward is an R-multiple. Final Reward = 10 means 10R TP.
 - `07_test_plan.md` - Deterministic test scenarios.
 - `08_open_questions.md` - Remaining questions after clarification pass 1.
 - `09_owner_decisions_pass_1.md` - Locked decisions provided by the strategy owner.
+
+
+## Locked decisions from clarification pass 2
+
+The second owner clarification pass locks the remaining execution details:
+
+- equality counts as touch;
+- check candles are anchored from 20:00 New York;
+- no entry is allowed from the final check candle of any M;
+- if multiple references are valid, the selected reference is the one producing the largest stop distance on the clean/traded symbol;
+- simultaneous buy and sell in the same check candle is forgotten for execution;
+- Entry OFF and offline-at-entry-time signals are recorded but never entered later;
+- order failure consumes the signal but does not increase the M trade counter;
+- hedging scope is per M only;
+- each M can open at most three trades across both symbols combined;
+- volume above broker maximum may be split into multiple broker-valid orders;
+- ambiguous SL/TP in the same backtest candle remains explicitly ambiguous;
+- only the EA's own magic-number positions are managed;
+- one executable instance per strategy-symbol pair is allowed.

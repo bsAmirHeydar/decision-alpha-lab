@@ -26,11 +26,11 @@ Hunt is touch-only.
 
 No candle close beyond the reference is required.
 
-No tolerance is applied.
+No tolerance is applied. Equality still counts as touch.
 
-High hunt occurs when the active price high touches the selected reference W high.
+High hunt occurs when the active price high is greater than or equal to the selected reference W high.
 
-Low hunt occurs when the active price low touches the selected reference W low.
+Low hunt occurs when the active price low is less than or equal to the selected reference W low.
 
 ## High-side divergence
 
@@ -128,3 +128,9 @@ No new entry is allowed:
 - after 15:30 New York;
 - when required symbol data is missing;
 - when the market is closed.
+
+## Reference selection
+
+If multiple eligible previous W references are valid for the same side and clean/traded symbol, the selected reference is the one that creates the largest stop distance for the clean/traded symbol.
+
+Multiple eligible references in the same check candle resolve into one signal per side/trade-symbol after reference selection. They must not create duplicate trades by themselves.

@@ -8,7 +8,7 @@ Family: Intermarket divergence execution
 
 Strategy code: EXEC001_STC_SMT_CYCLES
 
-Source: STC Expert Advisor SRS v1.0 plus owner clarification pass 1.
+Source: STC Expert Advisor SRS v1.0 plus owner clarification passes 1 and 2.
 
 ## Purpose
 
@@ -248,3 +248,55 @@ If required data is missing or the market is closed, no trade is opened.
 Spread and commission should be recorded and included in net reports.
 
 The strategy does not use spread as an entry filter.
+
+
+## Clarification pass 2 locked behavior
+
+The following strategy behaviors are locked:
+
+### Touch
+
+Equality counts as a hunt.
+
+- High hunt: active high is greater than or equal to the selected reference high.
+- Low hunt: active low is less than or equal to the selected reference low.
+
+### Check-candle anchoring
+
+Check candles are internally aggregated and anchored from the STC trading-day start at 20:00 New York.
+
+The chart timeframe is irrelevant.
+
+### Entry timing
+
+Research/backtest entry is at the open of the next check candle after confirmation.
+
+Live entry is a market order immediately after confirmation close.
+
+If the EA is offline at the intended entry time, the trade is not entered later.
+
+### Final check candle
+
+A check candle closing at or after the current M end cannot generate a new entry.
+
+### Reference selection
+
+If multiple eligible W references exist, select the reference producing the largest stop distance for the clean/traded symbol.
+
+### Signal consumption
+
+If Entry STC is OFF at the intended entry time, the signal is recorded for audit and cannot be entered later.
+
+If an order attempt fails, the signal is consumed and is not retried on later candles.
+
+### M-level scope
+
+Hedging state and direction lock apply only inside each M.
+
+Different M cycles in the same STC day can contain opposite directions.
+
+### Position and instance ownership
+
+The strategy manages only positions created by its own magic number.
+
+The implementation must prevent duplicate executable instances for the same strategy-symbol pair.

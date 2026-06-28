@@ -14,15 +14,15 @@ Strategy inputs from the SRS and clarification pass:
 - Candle Check: 1m, 3m, 5m, 10m, 15m, 30m.
 - Contract Size, default 10.
 - Broker UTC Offset, user-defined.
-- Optional spread and commission inputs for reporting.
+- Spread/commission reporting inputs or broker-derived cost fields.
 
 ## Entry trigger
 
 Entry occurs immediately after the check candle closes and the divergence is still valid.
 
-For research/backtest, the preferred entry price is the next-bar open after the check-candle close.
+For research/backtest, the entry price is the open of the next check candle after the confirmation candle closes.
 
-For live trading, entry is a market order after check-candle close.
+For live trading, entry is a market order immediately after check-candle close.
 
 Each signal opens at most one trade.
 
@@ -164,3 +164,47 @@ If the EA restarts during the current trading day, it may rebuild state from cur
 It may also inspect account positions to recover active STC-managed positions.
 
 Previous-day signals, W levels, divergence states, and counters must not influence new decisions.
+
+## Clarification pass 2 execution locks
+
+### Offline at entry time
+
+If the EA is offline or unable to enter at the exact intended entry time, the signal is not entered later.
+
+### Entry OFF
+
+If STC Entry is OFF at the intended entry time, the signal is recorded for audit but no trade is opened and no delayed entry is allowed.
+
+### Order failure
+
+If an order attempt fails and no position is opened, the signal is consumed for trading. The M trade counter is not increased.
+
+### Volume handling
+
+The strategy has no theoretical max-volume cap.
+
+Live execution must respect broker min/max/step constraints.
+
+If requested volume is above broker maximum, the EA may split the requested volume into multiple broker-valid orders.
+
+If requested volume is below broker minimum, the trade is skipped unless a future explicit input enables minimum-volume execution.
+
+### Position ownership
+
+Only positions created with the strategy magic number are managed.
+
+Manual trades and other strategy trades are ignored.
+
+### Costs
+
+TP and SL placement are calculated without transaction costs.
+
+Spread, commission, and slippage are used for reporting/net-performance analysis. Spread and commission should be read from broker data when available.
+
+### Ambiguous SL/TP
+
+If the same backtest candle touches both SL and TP and no lower-timeframe sequence is available, the result is recorded as AMBIGUOUS rather than forced to SL-first or TP-first.
+
+### Hard close retry
+
+If 15:30 New York hard close fails or is missed, the EA retries every few seconds until all strategy-owned positions are closed.

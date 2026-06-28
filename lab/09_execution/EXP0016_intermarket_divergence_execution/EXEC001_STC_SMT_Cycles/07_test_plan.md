@@ -110,3 +110,54 @@ The test plan verifies that the STC SMT Cycles strategy matches the locked SRS a
 1. Missing required symbol data -> no trade.
 2. Closed market -> no trade.
 3. No synthetic candle construction if source bars are missing.
+
+## Clarification pass 2 test cases
+
+Add the following deterministic test cases before implementation is accepted:
+
+1. Equality touch:
+   - high exactly equals reference high -> high hunt true.
+   - low exactly equals reference low -> low hunt true.
+
+2. Check-candle anchor:
+   - 10m candles align from 20:00 NY.
+   - 3m candles align from 20:00 NY.
+
+3. Final M candle:
+   - a signal confirmed at 02:00, 09:00, or 15:30 produces no new entry.
+
+4. Multiple references:
+   - W4 has W1/W2/W3 candidates; selected reference is the one producing the largest stop distance for the clean symbol.
+
+5. Simultaneous buy/sell:
+   - buy and sell confirmed in same check candle -> no trade and no delayed entry.
+
+6. Entry OFF:
+   - signal confirms while Entry OFF -> audit only, no later entry.
+
+7. Offline at entry:
+   - EA misses intended entry time -> no late entry.
+
+8. Order failure:
+   - signal confirms, order fails -> signal consumed, trade counter unchanged.
+
+9. Hedging per M:
+   - M1 direction lock does not affect M2 direction lock.
+
+10. Missed partial:
+    - EA offline at M1 W4 end -> partial executes at first later opportunity.
+
+11. Missed hard close:
+    - EA offline at 15:30 -> hard close executes at first later opportunity and retries until closed.
+
+12. Missing data:
+    - either symbol missing data -> no trade, audit reason recorded.
+
+13. Duplicate EA instance:
+    - second instance on same pair cannot execute trades.
+
+14. Magic number:
+    - EA ignores manual positions and other-strategy positions.
+
+15. Ambiguous SL/TP:
+    - one backtest candle hits both SL and TP -> AMBIGUOUS result.

@@ -181,3 +181,20 @@ This prevents duplicate entries and supports deterministic audit.
 - independent strategy ON/OFF;
 - shared risk and position accounting;
 - conflict management between related strategies.
+
+## Clarification pass 2 implementation requirements
+
+The implementation must include:
+
+- internal check-candle aggregation anchored at 20:00 New York;
+- no-entry logic for any check candle closing at or after active M end;
+- equality-based touch operators with no tolerance;
+- reference selection by largest stop distance on the clean/traded symbol;
+- persistent daily journal/state reconstruction;
+- magic-number-only position management;
+- global instance lock by strategy id and symbol pair;
+- missed partial processing at first later opportunity;
+- missed hard-close processing at first later opportunity with retry every few seconds;
+- ambiguous SL/TP outcome category;
+- broker-volume splitting for above-max requested volume where practical;
+- chart drawing for cycle regions, reference levels, hunt markers, confirmations, entry/SL/TP, partials, and reset markers.
