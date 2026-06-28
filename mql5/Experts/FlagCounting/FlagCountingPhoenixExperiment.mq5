@@ -37,6 +37,7 @@ input bool InpEnforceSingleChainPerDirectionGlobal = false;
 input bool InpAbsorbPreInternalExtensions = true;
 input bool InpHideSupersededParentStates = true;
 input bool InpCompactHookRendering = true;
+input bool InpStrictMainChartOwnership = true;
 
 // ------------------------------ Rules ---------------------------------------
 input int    InpMaxEvents = 6000;
@@ -69,6 +70,7 @@ input bool   InpDrawHooks = true;
 input bool   InpDrawOnlyFlagSeedHooks = true;
 input bool   InpShowHookCountLabels = false;
 input bool   InpDetailedLabels = false;
+input bool   InpForceCleanMainChartLabels = true;
 input bool   InpShowParentIds = false;
 input bool   InpShowOriginLabels = false;
 input bool   InpShowInternalLabels = false;
@@ -116,6 +118,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.absorb_pre_internal_extensions = InpAbsorbPreInternalExtensions;
    cfg.hide_superseded_parent_states = InpHideSupersededParentStates;
    cfg.compact_hook_rendering = InpCompactHookRendering;
+   cfg.strict_main_chart_ownership = InpStrictMainChartOwnership;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -184,11 +187,11 @@ void FP_Run()
                           InpDrawInvalidated,
                           InpDrawHooks,
                           InpDrawOnlyFlagSeedHooks,
-                          InpShowHookCountLabels,
+                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowHookCountLabels),
                           InpDetailedLabels,
-                          InpShowParentIds,
-                          InpShowOriginLabels,
-                          InpShowInternalLabels,
+                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowParentIds),
+                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowOriginLabels),
+                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowInternalLabels),
                           InpUseSequenceColorShades,
                           InpFixedLineWidth,
                           InpCurveSegments,

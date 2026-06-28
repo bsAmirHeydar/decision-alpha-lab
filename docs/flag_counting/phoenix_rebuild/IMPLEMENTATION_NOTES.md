@@ -153,3 +153,13 @@ Changes:
 - add `InpShowHookCountLabels` for explicit branch-count auditing.
 
 The result should preserve colored flag visibility while keeping Hook/ND as gray contextual arcs only.
+
+## Phoenix Sequence Ownership Repair V4
+
+- Added strict main-chart ownership so the chart no longer behaves as a raw F1 root enumeration layer.
+- Added `InpStrictMainChartOwnership`, enabled by default.
+- Later same-direction F1 roots are hidden inside an already-owned directional phase unless an opposite completed/locked F3 resets the phase.
+- Competing roots inside one phase are scored by semantic maturity: F3 progress, F2 progress, F1 confirmation, phase-boundary quality, and local L readability.
+- Losing roots have their whole sequence hidden so orphan F2/F3 children are not left on the chart.
+- Added `InpForceCleanMainChartLabels`, enabled by default, so audit labels cannot leak into the main chart unless detailed-label mode is explicitly enabled.
+- Kept Hook/ND as context and phase-boundary input, not as the primary visible chart layer.

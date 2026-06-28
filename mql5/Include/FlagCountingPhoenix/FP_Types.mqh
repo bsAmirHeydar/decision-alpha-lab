@@ -203,6 +203,7 @@ struct FP_Config
    bool   absorb_pre_internal_extensions;
    bool   hide_superseded_parent_states;
    bool   compact_hook_rendering;
+   bool   strict_main_chart_ownership;
 
    int    max_events;
    int    max_hooks;
@@ -356,6 +357,7 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.absorb_pre_internal_extensions = true;
    cfg.hide_superseded_parent_states = true;
    cfg.compact_hook_rendering = true;
+   cfg.strict_main_chart_ownership = true;
 
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;

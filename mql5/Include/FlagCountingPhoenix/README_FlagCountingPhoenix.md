@@ -129,3 +129,9 @@ Default chart inputs now prioritize readable flag structures:
 - Hook arcs draw only when they seed a visible F1.
 
 Turn the audit inputs back on when branch extraction or parent identity needs inspection.
+
+### V4 strict main-chart ownership
+
+The main chart is now treated as a sequence-state view.  Hook/ND can create phase-boundary candidates, but it cannot make every local same-direction Hook become a new visible F1 chain.  With `InpStrictMainChartOwnership=true`, only one same-direction F1 root owns a phase until an opposite completed/locked F3 resets that phase.  Competing roots are scored by chain maturity and local readability; the losing sequence is hidden together with its descendants.
+
+Audit labels are also separated from the main chart by `InpForceCleanMainChartLabels=true`.  Turn on `InpDetailedLabels` to inspect origin, parent, internal, and Hook branch count labels.

@@ -773,6 +773,119 @@ void FP_HideOrphanDescendants(FP_FlagEvent &events[])
    }
 }
 
+
+
+// ------------------------- Strict sequence ownership ------------------------
+// Contract intent: the main chart is a sequence state view, not a sliding-window
+// dump.  Within one directional phase, after a visible F1 root exists, later
+// same-direction F1 roots are not allowed to become new main-chart chains unless
+// an opposite completed/locked F3 has reset the phase.  This keeps Hook/ND as a
+// context layer and prevents every local Hook from spawning a new colored F1.
+
+int FP_ChainMaturityScore(const FP_FlagEvent &events[], const int n, const FP_FlagEvent &root)
+{
+   int score = FP_EventStatusRank(root);
+   if(root.from_phase_boundary) score += 60;
+   if(!root.from_fail_open) score += 20;
+
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].sequence_id != root.sequence_id) continue;
+      if(events[i].chain_index <= root.chain_index) continue;
+
+      if(events[i].level == FP_LEVEL_F2)
+      {
+         score += 120 + FP_EventStatusRank(events[i]);
+         if(events[i].status == FP_STATUS_CONFIRMED) score += 120;
+      }
+      else if(events[i].level == FP_LEVEL_F3)
+      {
+         score += 320 + FP_EventStatusRank(events[i]);
+         if(events[i].status == FP_STATUS_COMPLETED || events[i].status == FP_STATUS_LOCKED) score += 220;
+      }
+   }
+
+   // Prefer readable/local lower-L roots when semantic maturity is otherwise
+   // similar.  A high-L umbrella should not dominate the main M1 chart merely
+   // because it starts earlier.
+   score -= MathMax(0, root.scale_L) * 3;
+   return score;
+}
+
+bool FP_HasOppositeF3ResetBetweenRoots(const FP_FlagEvent &events[],
+                                       const int n,
+                                       const int direction,
+                                       const int from_anchor,
+                                       const int to_anchor)
+{
+   if(to_anchor <= from_anchor) return false;
+   for(int i=0; i<n; i++)
+   {
+      if(events[i].direction == direction) continue;
+      if(events[i].level != FP_LEVEL_F3) continue;
+      if(!FP_IsF3CompletedOrLocked(events[i])) continue;
+      int t = (events[i].has_extension ? events[i].extension_end.index_anchor : events[i].leg2.index_anchor);
+      if(t > from_anchor && t < to_anchor) return true;
+   }
+   return false;
+}
+
+void FP_PruneStrictMainChartOwnership(FP_FlagEvent &events[], const FP_Config &cfg)
+{
+   if(!cfg.strict_main_chart_ownership) return;
+   int n = ArraySize(events);
+
+   for(int d=0; d<2; d++)
+   {
+      int direction = (d == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
+      int keeper = -1;
+
+      for(int i=0; i<n; i++)
+      {
+         if(!events[i].visible_main) continue;
+         if(events[i].level != FP_LEVEL_F1) continue;
+         if(events[i].chain_index != 1) continue;
+         if(events[i].direction != direction) continue;
+
+         if(keeper < 0 || !events[keeper].visible_main)
+         {
+            keeper = i;
+            continue;
+         }
+
+         bool reset = FP_HasOppositeF3ResetBetweenRoots(events,
+                                                        n,
+                                                        direction,
+                                                        events[keeper].origin.index_anchor,
+                                                        events[i].origin.index_anchor);
+         if(reset)
+         {
+            keeper = i;
+            continue;
+         }
+
+         int score_keep = FP_ChainMaturityScore(events, n, events[keeper]);
+         int score_i = FP_ChainMaturityScore(events, n, events[i]);
+
+         // If the later root is materially more mature, keep it and hide the
+         // older chain.  Otherwise hide the later mid-move restart.  The margin
+         // prevents tiny L-score differences from thrashing ownership.
+         if(score_i > score_keep + 25)
+         {
+            int dead_seq = events[keeper].sequence_id;
+            FP_HideSequenceById(events, dead_seq, ";hidden_by_strict_main_ownership_replaced_by_Q" + IntegerToString(events[i].event_id));
+            keeper = i;
+         }
+         else
+         {
+            int dead_seq = events[i].sequence_id;
+            FP_HideSequenceById(events, dead_seq, ";hidden_mid_move_same_direction_f1_owned_by_Q" + IntegerToString(events[keeper].event_id));
+         }
+      }
+   }
+}
+
 void FP_MergeVisualBodyDuplicates(FP_FlagEvent &events[])
 {
    int n = ArraySize(events);
@@ -851,6 +964,7 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_LockF3WithFirstOppositeF1(events);
    FP_PruneSameDirectionRestarts(events, cfg);
    FP_HideSupersededParentStates(events, cfg);
+   FP_PruneStrictMainChartOwnership(events, cfg);
    FP_PruneDuplicateRootSequences(events);
    FP_MergeVisualBodyDuplicates(events);
    FP_MergeExactVisualDuplicates(events);
