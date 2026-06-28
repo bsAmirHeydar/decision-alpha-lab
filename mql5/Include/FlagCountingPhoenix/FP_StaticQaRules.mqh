@@ -274,7 +274,7 @@ void FP_StaticQaAddDependencyChecks(FP_StaticQaReport &report,
                        "export_enabled=" + FP_StaticQaBool(export_cfg.enabled) + "/release_attempted=" + FP_StaticQaBool(release_report.attempted),
                        "export_does_not_bypass_release_gate", "export_pipeline_alignment");
    FP_StaticQaAddCheck(report, rows, "dependency", "RENDER_ENABLED_ALIGNMENT", (qa_cfg.allow_disabled_render ? "warn" : "error"),
-                       (!render_cfg.draw_f1 && !render_cfg.draw_f2 && !render_cfg.draw_f3 && !render_cfg.draw_hooks || release_report.attempted),
+                       (((!render_cfg.draw_f1) && (!render_cfg.draw_f2) && (!render_cfg.draw_f3) && (!render_cfg.draw_hooks)) || release_report.attempted),
                        "render_enabled=" + FP_StaticQaBool(render_cfg.draw_f1 || render_cfg.draw_f2 || render_cfg.draw_f3 || render_cfg.draw_hooks) + "/release_attempted=" + FP_StaticQaBool(release_report.attempted),
                        "render_does_not_bypass_release_gate", "render_pipeline_alignment");
    FP_StaticQaAddCheck(report, rows, "dependency", "VALIDATION_ENABLED_ALIGNMENT", (qa_cfg.allow_disabled_validation ? "warn" : "error"),
