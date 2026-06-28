@@ -190,6 +190,8 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.real_hard_close_finalizer_deviation_points > 10000) cfg.real_hard_close_finalizer_deviation_points = 10000;
    if(cfg.real_hard_close_finalizer_max_attempts_per_position < 1) cfg.real_hard_close_finalizer_max_attempts_per_position = 1;
    if(cfg.real_hard_close_finalizer_max_attempts_per_position > 10000) cfg.real_hard_close_finalizer_max_attempts_per_position = 10000;
+   if(cfg.validation_run_seconds < 1) cfg.validation_run_seconds = 1;
+   if(cfg.validation_run_seconds > 86400) cfg.validation_run_seconds = 86400;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

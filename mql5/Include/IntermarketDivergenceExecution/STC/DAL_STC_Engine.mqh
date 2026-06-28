@@ -2,7 +2,7 @@
 #define __DAL_STC_ENGINE_MQH__
 #property strict
 
-#include <IntermarketDivergenceExecution/STC/DAL_STC_RealHardClose.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_Validation.mqh>
 
 class CSTC_Engine
 {
@@ -43,7 +43,7 @@ public:
       {
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = "engine was not configured";
-         Print("STC LEVEL18 init failed: ", m_state.init_error);
+         Print("STC LEVEL19 init failed: ", m_state.init_error);
          return false;
       }
 
@@ -54,44 +54,46 @@ public:
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = validation_error;
          m_state.init_warning = validation_warning;
-         Print("STC LEVEL18 config validation failed: ", validation_error, " warning=", validation_warning);
+         Print("STC LEVEL19 config validation failed: ", validation_error, " warning=", validation_warning);
          return false;
       }
       m_state.init_warning = validation_warning;
       m_state.output_root_common = m_cfg.output_root_common;
-      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_build_sanity.csv");
-      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_runtime_events.csv");
-      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_time_audit.csv");
-      m_state.check_candle_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_check_candles.csv");
-      m_state.w_level_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_w_levels.csv");
-      m_state.hunt_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_reference_hunts.csv");
-      m_state.smt_candidate_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_smt_candidates.csv");
-      m_state.signal_registry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_signal_registry.csv");
-      m_state.paper_entry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_paper_entries.csv");
-      m_state.paper_outcome_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_paper_outcomes.csv");
-      m_state.partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_partial_actions.csv");
-      m_state.hard_close_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_hard_close_actions.csv");
-      m_state.persistence_snapshot_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_persistence_snapshot.csv");
-      m_state.persistence_recovery_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_persistence_recovery.csv");
-      m_state.drawing_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_drawing_audit.csv");
-      m_state.alert_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_paper_live_alerts.csv");
-      m_state.broker_position_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_broker_positions.csv");
-      m_state.broker_action_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_broker_actions.csv");
-      m_state.auto_entry_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_auto_entries.csv");
-      m_state.real_partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_real_partial_actions.csv");
-      m_state.real_hard_close_finalizer_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level18_real_hard_close_finalizer.csv");
+      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_build_sanity.csv");
+      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_runtime_events.csv");
+      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_time_audit.csv");
+      m_state.check_candle_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_check_candles.csv");
+      m_state.w_level_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_w_levels.csv");
+      m_state.hunt_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_reference_hunts.csv");
+      m_state.smt_candidate_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_smt_candidates.csv");
+      m_state.signal_registry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_signal_registry.csv");
+      m_state.paper_entry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_paper_entries.csv");
+      m_state.paper_outcome_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_paper_outcomes.csv");
+      m_state.partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_partial_actions.csv");
+      m_state.hard_close_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_hard_close_actions.csv");
+      m_state.persistence_snapshot_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_persistence_snapshot.csv");
+      m_state.persistence_recovery_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_persistence_recovery.csv");
+      m_state.drawing_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_drawing_audit.csv");
+      m_state.alert_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_paper_live_alerts.csv");
+      m_state.broker_position_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_broker_positions.csv");
+      m_state.broker_action_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_broker_actions.csv");
+      m_state.auto_entry_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_auto_entries.csv");
+      m_state.real_partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_real_partial_actions.csv");
+      m_state.real_hard_close_finalizer_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_real_hard_close_finalizer.csv");
+      m_state.validation_summary_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_validation_summary.csv");
+      m_state.validation_matrix_file_common = STC_JoinPath(m_state.output_root_common, "stc_level19_validation_matrix.csv");
 
       if(!STC_EnsureCommonFolderTree(m_state.output_root_common))
       {
          m_state.init_status = STC_INIT_FOLDER_ERROR;
          m_state.init_error = "failed to create common output folder: " + m_state.output_root_common;
-         Print("STC LEVEL18 folder setup failed: ", m_state.init_error);
+         Print("STC LEVEL19 folder setup failed: ", m_state.init_error);
          return false;
       }
 
       if(!STC_AcquireInstanceLock(m_cfg, m_state))
       {
-         Print("STC LEVEL18 instance lock failed: ", m_state.init_error);
+         Print("STC LEVEL19 instance lock failed: ", m_state.init_error);
          return false;
       }
 
@@ -106,7 +108,7 @@ public:
 
       STC_PrintConfig(m_cfg);
       STC_WriteBuildSanityCsv(m_cfg, m_state, m_sanity);
-      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level18 real hard close finalizer initialized; real auto-entry, real partial, and real hard close finalizer remain disabled by default");
+      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level19 real hard close finalizer initialized; validation pack initialized; real auto-entry, real partial, and real hard close finalizer remain disabled by default");
       if(m_cfg.write_time_audit)
       {
          m_state.last_time_audit_server_time = TimeCurrent();
@@ -132,11 +134,13 @@ public:
       STC_ProcessAutoEntryRouter(m_cfg, m_state, m_time, true);
       STC_ProcessRealPartialManager(m_cfg, m_state, m_time, true);
       STC_ProcessRealHardCloseFinalizer(m_cfg, m_state, m_time, true);
+      if(m_cfg.validation_run_on_init)
+         STC_ProcessValidationPack(m_cfg, m_state, m_time, "init_after_full_pipeline", true);
 
       if(m_state.init_warning != "")
-         Print("STC LEVEL18 validation warning: ", m_state.init_warning);
+         Print("STC LEVEL19 validation warning: ", m_state.init_warning);
 
-      Print("STC LEVEL18 initialized. sanity_file=", m_state.sanity_file_common,
+      Print("STC LEVEL19 initialized. sanity_file=", m_state.sanity_file_common,
             " events_file=", m_state.runtime_events_file_common,
             " time_audit_file=", m_state.time_audit_file_common,
             " check_candles_file=", m_state.check_candle_audit_file_common,
@@ -156,8 +160,10 @@ public:
             " broker_actions=", m_state.broker_action_audit_file_common,
             " auto_entries=", m_state.auto_entry_audit_file_common,
             " real_partials=", m_state.real_partial_audit_file_common,
-            " real_hard_close_finalizer=", m_state.real_hard_close_finalizer_audit_file_common);
-      Print("STC LEVEL18 initial time *** ", STC_TimeSnapshotOneLine(m_time));
+            " real_hard_close_finalizer=", m_state.real_hard_close_finalizer_audit_file_common,
+            " validation_summary=", m_state.validation_summary_file_common,
+            " validation_matrix=", m_state.validation_matrix_file_common);
+      Print("STC LEVEL19 initial time *** ", STC_TimeSnapshotOneLine(m_time));
       return true;
    }
 
@@ -192,6 +198,7 @@ public:
       STC_ProcessAutoEntryRouter(m_cfg, m_state, m_time, false);
       STC_ProcessRealPartialManager(m_cfg, m_state, m_time, false);
       STC_ProcessRealHardCloseFinalizer(m_cfg, m_state, m_time, false);
+      STC_ProcessValidationPack(m_cfg, m_state, m_time, "pulse", false);
       STC_MaybeWritePersistenceSnapshot(m_cfg, m_state, m_time, "pulse_after_recovery_pipeline", false);
       STC_DrawAuditLayer(m_cfg, m_state, m_time, false);
 
@@ -200,11 +207,12 @@ public:
          if(m_state.last_heartbeat_server_time <= 0 || server_time - m_state.last_heartbeat_server_time >= m_cfg.heartbeat_seconds)
          {
             m_state.last_heartbeat_server_time = server_time;
-            string details = "heartbeat; level18 paper live alerts; " + STC_TimeSnapshotOneLine(m_time) + "; auditedCheckCandles=" + IntegerToString((int)m_state.check_candles_audited) + "; auditedWLevels=" + IntegerToString((int)m_state.w_levels_audited) + "; auditedHuntRows=" + IntegerToString((int)m_state.hunt_rows_audited) + "; auditedSmtCandidateRows=" + IntegerToString((int)m_state.smt_candidate_rows_audited) + "; auditedSignalRows=" + IntegerToString((int)m_state.signal_rows_audited) + "; auditedPaperRows=" + IntegerToString((int)m_state.paper_entry_rows_audited) + "; auditedOutcomeRows=" + IntegerToString((int)m_state.paper_outcome_rows_audited) + "; auditedPartialRows=" + IntegerToString((int)m_state.partial_rows_audited) + "; auditedHardCloseRows=" + IntegerToString((int)m_state.hard_close_rows_audited) + "; persistenceRestored=" + STC_BoolText(m_state.persistence_restored) + "; persistenceStatus=" + m_state.persistence_restore_status + "; drawingRefreshes=" + IntegerToString((int)m_state.drawing_refresh_count) + "; drawingObjects=" + IntegerToString((int)m_state.drawing_objects_created) + "; alertRows=" + IntegerToString((int)m_state.alert_rows_audited) + "; alertBaseline=" + m_state.alert_baseline_status + "; brokerManagedPositions=" + IntegerToString(m_state.broker_managed_positions_last_scan) + "; brokerForeignPairPositions=" + IntegerToString(m_state.broker_foreign_pair_positions_last_scan) + "; brokerPositionRows=" + IntegerToString((int)m_state.broker_position_rows_audited) + "; brokerActionRows=" + IntegerToString((int)m_state.broker_action_rows_audited) + "; brokerHardCloseStatus=" + m_state.broker_hard_close_status + "; autoEntryRows=" + IntegerToString((int)m_state.auto_entry_rows_audited) + "; autoEntryStatus=" + m_state.auto_entry_status + "; realAutoEntryEnabled=" + STC_BoolText(m_cfg.enable_real_auto_entry)
+            string details = "heartbeat; level19 paper live alerts; " + STC_TimeSnapshotOneLine(m_time) + "; auditedCheckCandles=" + IntegerToString((int)m_state.check_candles_audited) + "; auditedWLevels=" + IntegerToString((int)m_state.w_levels_audited) + "; auditedHuntRows=" + IntegerToString((int)m_state.hunt_rows_audited) + "; auditedSmtCandidateRows=" + IntegerToString((int)m_state.smt_candidate_rows_audited) + "; auditedSignalRows=" + IntegerToString((int)m_state.signal_rows_audited) + "; auditedPaperRows=" + IntegerToString((int)m_state.paper_entry_rows_audited) + "; auditedOutcomeRows=" + IntegerToString((int)m_state.paper_outcome_rows_audited) + "; auditedPartialRows=" + IntegerToString((int)m_state.partial_rows_audited) + "; auditedHardCloseRows=" + IntegerToString((int)m_state.hard_close_rows_audited) + "; persistenceRestored=" + STC_BoolText(m_state.persistence_restored) + "; persistenceStatus=" + m_state.persistence_restore_status + "; drawingRefreshes=" + IntegerToString((int)m_state.drawing_refresh_count) + "; drawingObjects=" + IntegerToString((int)m_state.drawing_objects_created) + "; alertRows=" + IntegerToString((int)m_state.alert_rows_audited) + "; alertBaseline=" + m_state.alert_baseline_status + "; brokerManagedPositions=" + IntegerToString(m_state.broker_managed_positions_last_scan) + "; brokerForeignPairPositions=" + IntegerToString(m_state.broker_foreign_pair_positions_last_scan) + "; brokerPositionRows=" + IntegerToString((int)m_state.broker_position_rows_audited) + "; brokerActionRows=" + IntegerToString((int)m_state.broker_action_rows_audited) + "; brokerHardCloseStatus=" + m_state.broker_hard_close_status + "; autoEntryRows=" + IntegerToString((int)m_state.auto_entry_rows_audited) + "; autoEntryStatus=" + m_state.auto_entry_status + "; realAutoEntryEnabled=" + STC_BoolText(m_cfg.enable_real_auto_entry)
                + "; realPartialRows=" + IntegerToString((int)m_state.real_partial_rows_audited) + "; realPartialStatus=" + m_state.real_partial_status + "; realPartialEnabled=" + STC_BoolText(m_cfg.enable_real_partial_close)
-                  + "; realHardCloseFinalizerRows=" + IntegerToString((int)m_state.real_hard_close_finalizer_rows_audited) + "; realHardCloseFinalizerStatus=" + m_state.real_hard_close_finalizer_status + "; realHardClosePositionsRemaining=" + IntegerToString(m_state.real_hard_close_finalizer_positions_remaining_last_scan) + "; realHardCloseFinalizerEnabled=" + STC_BoolText(m_cfg.enable_real_hard_close_finalizer);
+                  + "; realHardCloseFinalizerRows=" + IntegerToString((int)m_state.real_hard_close_finalizer_rows_audited) + "; realHardCloseFinalizerStatus=" + m_state.real_hard_close_finalizer_status + "; realHardClosePositionsRemaining=" + IntegerToString(m_state.real_hard_close_finalizer_positions_remaining_last_scan) + "; realHardCloseFinalizerEnabled=" + STC_BoolText(m_cfg.enable_real_hard_close_finalizer)
+               + "; validationRuns=" + IntegerToString((int)m_state.validation_runs) + "; validationStatus=" + m_state.validation_status + "; validationFailures=" + IntegerToString((int)m_state.validation_failures);
             STC_AppendRuntimeEventCsv(m_cfg, m_state, "HEARTBEAT", details);
-            Print("STC LEVEL18 heartbeat pulse=", m_state.pulse_count,
+            Print("STC LEVEL19 heartbeat pulse=", m_state.pulse_count,
                   " mode=", STC_RuntimeModeText(m_cfg.runtime_mode),
                   " symbols=", m_cfg.symbol1, "/", m_cfg.symbol2,
                   " ", STC_TimeSnapshotOneLine(m_time));
@@ -217,11 +225,12 @@ public:
       if(m_state.initialized)
       {
          STC_ProcessBrokerPositionManager(m_cfg, m_state, m_time, true);
+         STC_ProcessValidationPack(m_cfg, m_state, m_time, "deinit", true);
          STC_MaybeWritePersistenceSnapshot(m_cfg, m_state, m_time, "deinit", true);
          if(m_cfg.enable_drawing && m_cfg.drawing_clear_on_deinit)
             STC_DeleteDrawingObjects(m_cfg);
          STC_AppendRuntimeEventCsv(m_cfg, m_state, "DEINIT", "reason=" + IntegerToString(reason) + "; last_time=" + STC_TimeSnapshotOneLine(m_time));
-         Print("STC LEVEL18 deinit reason=", reason, " pulses=", m_state.pulse_count);
+         Print("STC LEVEL19 deinit reason=", reason, " pulses=", m_state.pulse_count);
       }
       STC_ReleaseInstanceLock(m_cfg, m_state);
       m_state.initialized = false;

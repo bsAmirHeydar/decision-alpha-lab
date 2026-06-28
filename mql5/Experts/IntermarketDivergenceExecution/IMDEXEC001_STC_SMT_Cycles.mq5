@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.13"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 18 real hard close finalizer"
-#property description "Level 18 adds a magic-only 15:30 New York real hard close finalizer while keeping it disabled by default."
+#property version   "2.14"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 19 validation pack"
+#property description "Level 19 adds an audit-only validation pack and self-test reports while keeping all real transports gated."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 18 Runtime"
+input group "DAL / STC Level 19 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL18";
+input string InpRunId = "EXEC001_STC_LEVEL19";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -123,6 +123,15 @@ input bool InpAllowRealHardCloseFinalizerInPaperLive = false;
 input bool InpRealHardCloseFinalizerRequiresBrokerManager = true;
 input bool InpRealHardCloseAlertUnclosedPositions = true;
 
+
+input group "STC Level 19 Validation Pack"
+input bool InpEnableValidationPack = true;
+input bool InpWriteValidationReports = true;
+input bool InpValidationRunOnInit = true;
+input bool InpValidationRunOnPulse = false;
+input int InpValidationRunSeconds = 300;
+input bool InpValidationStrictMode = false;
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -219,6 +228,12 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.allow_real_hard_close_finalizer_in_paper_live = InpAllowRealHardCloseFinalizerInPaperLive;
    cfg.real_hard_close_finalizer_requires_broker_manager = InpRealHardCloseFinalizerRequiresBrokerManager;
    cfg.real_hard_close_alert_unclosed_positions = InpRealHardCloseAlertUnclosedPositions;
+   cfg.enable_validation_pack = InpEnableValidationPack;
+   cfg.write_validation_reports = InpWriteValidationReports;
+   cfg.validation_run_on_init = InpValidationRunOnInit;
+   cfg.validation_run_on_pulse = InpValidationRunOnPulse;
+   cfg.validation_run_seconds = InpValidationRunSeconds;
+   cfg.validation_strict_mode = InpValidationStrictMode;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -282,7 +297,7 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 18 remains timer-driven. Real auto-entry, real partial close, and the real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
+   // Level 19 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)

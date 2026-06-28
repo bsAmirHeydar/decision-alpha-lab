@@ -79,6 +79,12 @@ struct STC_Config
    bool allow_real_hard_close_finalizer_in_paper_live;
    bool real_hard_close_finalizer_requires_broker_manager;
    bool real_hard_close_alert_unclosed_positions;
+   bool enable_validation_pack;
+   bool write_validation_reports;
+   bool validation_run_on_init;
+   bool validation_run_on_pulse;
+   int validation_run_seconds;
+   bool validation_strict_mode;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -207,6 +213,14 @@ struct STC_RuntimeState
    int real_hard_close_finalizer_positions_remaining_last_scan;
    string real_partial_status;
    string real_hard_close_finalizer_status;
+   string validation_summary_file_common;
+   string validation_matrix_file_common;
+   datetime last_validation_server_time;
+   long validation_runs;
+   long validation_checks;
+   long validation_failures;
+   string validation_status;
+   string validation_last_reason;
    string last_auto_entry_stc_day_id;
    int last_auto_entry_check_index;
    long auto_entry_rows_audited;
@@ -1335,6 +1349,12 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.allow_real_hard_close_finalizer_in_paper_live = false;
    cfg.real_hard_close_finalizer_requires_broker_manager = true;
    cfg.real_hard_close_alert_unclosed_positions = true;
+   cfg.enable_validation_pack = true;
+   cfg.write_validation_reports = true;
+   cfg.validation_run_on_init = true;
+   cfg.validation_run_on_pulse = false;
+   cfg.validation_run_seconds = 300;
+   cfg.validation_strict_mode = false;
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -1439,6 +1459,14 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.real_hard_close_finalizer_positions_remaining_last_scan = 0;
    state.real_partial_status = "NOT_PROCESSED";
    state.real_hard_close_finalizer_status = "NOT_PROCESSED";
+   state.validation_summary_file_common = "";
+   state.validation_matrix_file_common = "";
+   state.last_validation_server_time = 0;
+   state.validation_runs = 0;
+   state.validation_checks = 0;
+   state.validation_failures = 0;
+   state.validation_status = "NOT_RUN";
+   state.validation_last_reason = "";
    state.last_auto_entry_stc_day_id = "";
    state.last_auto_entry_check_index = -1;
    state.auto_entry_rows_audited = 0;
@@ -1504,10 +1532,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_18_REAL_HARD_CLOSE_FINALIZER";
-   sanity.build_version = "2.13";
-   sanity.build_scope = "level01 skeleton through level18 real hard close finalizer";
-   sanity.locked_contract = "Finalize 15:30 New York real hard close for all remaining Symbol1/Symbol2 positions with this magic number using retry auditing, attempt caps, and remaining-position verification";
+   sanity.module_level = "LEVEL_19_VALIDATION_PACK";
+   sanity.build_version = "2.14";
+   sanity.build_scope = "level01 skeleton through level19 validation pack";
+   sanity.locked_contract = "Add audit-only self-test validation reports for time cycles, reference matrix, hunt semantics, safety gates, output paths, and runtime integrity before trusting live execution";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
