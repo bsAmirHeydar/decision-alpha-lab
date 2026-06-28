@@ -70,6 +70,15 @@ struct STC_Config
    int real_partial_deviation_points;
    bool allow_real_partial_in_paper_live;
    bool real_partial_requires_broker_manager;
+   bool enable_real_hard_close_finalizer;
+   bool write_real_hard_close_finalizer_audit;
+   int real_hard_close_finalizer_scan_seconds;
+   int real_hard_close_finalizer_retry_seconds;
+   int real_hard_close_finalizer_deviation_points;
+   int real_hard_close_finalizer_max_attempts_per_position;
+   bool allow_real_hard_close_finalizer_in_paper_live;
+   bool real_hard_close_finalizer_requires_broker_manager;
+   bool real_hard_close_alert_unclosed_positions;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -189,9 +198,15 @@ struct STC_RuntimeState
    string broker_hard_close_status;
    string auto_entry_audit_file_common;
    string real_partial_audit_file_common;
+   string real_hard_close_finalizer_audit_file_common;
    datetime last_real_partial_scan_server_time;
+   datetime last_real_hard_close_finalizer_scan_server_time;
+   datetime last_real_hard_close_finalizer_attempt_server_time;
    long real_partial_rows_audited;
+   long real_hard_close_finalizer_rows_audited;
+   int real_hard_close_finalizer_positions_remaining_last_scan;
    string real_partial_status;
+   string real_hard_close_finalizer_status;
    string last_auto_entry_stc_day_id;
    int last_auto_entry_check_index;
    long auto_entry_rows_audited;
@@ -1168,10 +1183,87 @@ struct STC_TimeSnapshot
    bool check_entry_allowed_at_close;
 };
 
+
+struct STC_RealHardCloseFinalizerAudit
+{
+   string stc_day_id;
+   datetime server_time;
+   datetime ny_time;
+   ulong ticket;
+   long position_identifier;
+   string symbol;
+   long magic;
+   string position_type;
+   datetime open_time;
+   datetime open_ny;
+   double volume;
+   double price_open;
+   double price_current;
+   double stop_loss;
+   double take_profit;
+   double floating_profit;
+   bool symbol_is_pair_member;
+   bool magic_matches;
+   bool managed_by_stc;
+   bool hard_close_due;
+   bool transport_allowed;
+   bool action_allowed;
+   bool action_attempted;
+   bool action_succeeded;
+   int attempt_count_before;
+   int attempt_count_after;
+   int max_attempts;
+   int close_deviation_points;
+   int trade_result_retcode;
+   string trade_result_comment;
+   bool position_remaining_after_attempt;
+   int managed_positions_remaining_after_scan;
+   string status;
+   string rule_note;
+};
+
+void STC_ResetRealHardCloseFinalizerAudit(STC_RealHardCloseFinalizerAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.server_time = 0;
+   audit.ny_time = 0;
+   audit.ticket = 0;
+   audit.position_identifier = 0;
+   audit.symbol = "";
+   audit.magic = 0;
+   audit.position_type = "";
+   audit.open_time = 0;
+   audit.open_ny = 0;
+   audit.volume = 0.0;
+   audit.price_open = 0.0;
+   audit.price_current = 0.0;
+   audit.stop_loss = 0.0;
+   audit.take_profit = 0.0;
+   audit.floating_profit = 0.0;
+   audit.symbol_is_pair_member = false;
+   audit.magic_matches = false;
+   audit.managed_by_stc = false;
+   audit.hard_close_due = false;
+   audit.transport_allowed = false;
+   audit.action_allowed = false;
+   audit.action_attempted = false;
+   audit.action_succeeded = false;
+   audit.attempt_count_before = 0;
+   audit.attempt_count_after = 0;
+   audit.max_attempts = 0;
+   audit.close_deviation_points = 0;
+   audit.trade_result_retcode = 0;
+   audit.trade_result_comment = "";
+   audit.position_remaining_after_attempt = false;
+   audit.managed_positions_remaining_after_scan = 0;
+   audit.status = "not_built";
+   audit.rule_note = "";
+}
+
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL17";
+   cfg.run_id = "EXEC001_STC_LEVEL18";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -1234,6 +1326,15 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.real_partial_deviation_points = 30;
    cfg.allow_real_partial_in_paper_live = false;
    cfg.real_partial_requires_broker_manager = true;
+   cfg.enable_real_hard_close_finalizer = false;
+   cfg.write_real_hard_close_finalizer_audit = true;
+   cfg.real_hard_close_finalizer_scan_seconds = 5;
+   cfg.real_hard_close_finalizer_retry_seconds = 5;
+   cfg.real_hard_close_finalizer_deviation_points = 30;
+   cfg.real_hard_close_finalizer_max_attempts_per_position = 200;
+   cfg.allow_real_hard_close_finalizer_in_paper_live = false;
+   cfg.real_hard_close_finalizer_requires_broker_manager = true;
+   cfg.real_hard_close_alert_unclosed_positions = true;
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -1329,9 +1430,15 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.broker_hard_close_status = "NOT_DUE";
    state.auto_entry_audit_file_common = "";
    state.real_partial_audit_file_common = "";
+   state.real_hard_close_finalizer_audit_file_common = "";
    state.last_real_partial_scan_server_time = 0;
+   state.last_real_hard_close_finalizer_scan_server_time = 0;
+   state.last_real_hard_close_finalizer_attempt_server_time = 0;
    state.real_partial_rows_audited = 0;
+   state.real_hard_close_finalizer_rows_audited = 0;
+   state.real_hard_close_finalizer_positions_remaining_last_scan = 0;
    state.real_partial_status = "NOT_PROCESSED";
+   state.real_hard_close_finalizer_status = "NOT_PROCESSED";
    state.last_auto_entry_stc_day_id = "";
    state.last_auto_entry_check_index = -1;
    state.auto_entry_rows_audited = 0;
@@ -1397,10 +1504,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_17_REAL_PARTIAL_CLOSE_MANAGER";
-   sanity.build_version = "2.12";
-   sanity.build_scope = "level01 skeleton through level17 magic-only real partial close manager";
-   sanity.locked_contract = "Close about 50 percent of eligible magic-number real positions at W4/M end for M1 and M2 only, rounded upward to broker step, with marker-based duplicate prevention and hard-close priority";
+   sanity.module_level = "LEVEL_18_REAL_HARD_CLOSE_FINALIZER";
+   sanity.build_version = "2.13";
+   sanity.build_scope = "level01 skeleton through level18 real hard close finalizer";
+   sanity.locked_contract = "Finalize 15:30 New York real hard close for all remaining Symbol1/Symbol2 positions with this magic number using retry auditing, attempt caps, and remaining-position verification";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

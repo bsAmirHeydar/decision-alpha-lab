@@ -182,6 +182,14 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.real_partial_scan_seconds > 3600) cfg.real_partial_scan_seconds = 3600;
    if(cfg.real_partial_deviation_points < 0) cfg.real_partial_deviation_points = 0;
    if(cfg.real_partial_deviation_points > 10000) cfg.real_partial_deviation_points = 10000;
+   if(cfg.real_hard_close_finalizer_scan_seconds < 1) cfg.real_hard_close_finalizer_scan_seconds = 1;
+   if(cfg.real_hard_close_finalizer_scan_seconds > 3600) cfg.real_hard_close_finalizer_scan_seconds = 3600;
+   if(cfg.real_hard_close_finalizer_retry_seconds < 1) cfg.real_hard_close_finalizer_retry_seconds = 1;
+   if(cfg.real_hard_close_finalizer_retry_seconds > 3600) cfg.real_hard_close_finalizer_retry_seconds = 3600;
+   if(cfg.real_hard_close_finalizer_deviation_points < 0) cfg.real_hard_close_finalizer_deviation_points = 0;
+   if(cfg.real_hard_close_finalizer_deviation_points > 10000) cfg.real_hard_close_finalizer_deviation_points = 10000;
+   if(cfg.real_hard_close_finalizer_max_attempts_per_position < 1) cfg.real_hard_close_finalizer_max_attempts_per_position = 1;
+   if(cfg.real_hard_close_finalizer_max_attempts_per_position > 10000) cfg.real_hard_close_finalizer_max_attempts_per_position = 10000;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

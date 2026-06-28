@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.12"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 17 real partial close manager"
-#property description "Level 17 adds magic-only real partial close at W4 end while keeping it disabled by default."
+#property version   "2.13"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 18 real hard close finalizer"
+#property description "Level 18 adds a magic-only 15:30 New York real hard close finalizer while keeping it disabled by default."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 17 Runtime"
+input group "DAL / STC Level 18 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL17";
+input string InpRunId = "EXEC001_STC_LEVEL18";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -112,6 +112,17 @@ input int InpRealPartialDeviationPoints = 30;
 input bool InpAllowRealPartialInPaperLive = false;
 input bool InpRealPartialRequiresBrokerManager = true;
 
+input group "STC Level 18 Real Hard Close Finalizer"
+input bool InpEnableRealHardCloseFinalizer = false;
+input bool InpWriteRealHardCloseFinalizerAudit = true;
+input int InpRealHardCloseFinalizerScanSeconds = 5;
+input int InpRealHardCloseFinalizerRetrySeconds = 5;
+input int InpRealHardCloseFinalizerDeviationPoints = 30;
+input int InpRealHardCloseFinalizerMaxAttemptsPerPosition = 200;
+input bool InpAllowRealHardCloseFinalizerInPaperLive = false;
+input bool InpRealHardCloseFinalizerRequiresBrokerManager = true;
+input bool InpRealHardCloseAlertUnclosedPositions = true;
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -199,6 +210,15 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.real_partial_deviation_points = InpRealPartialDeviationPoints;
    cfg.allow_real_partial_in_paper_live = InpAllowRealPartialInPaperLive;
    cfg.real_partial_requires_broker_manager = InpRealPartialRequiresBrokerManager;
+   cfg.enable_real_hard_close_finalizer = InpEnableRealHardCloseFinalizer;
+   cfg.write_real_hard_close_finalizer_audit = InpWriteRealHardCloseFinalizerAudit;
+   cfg.real_hard_close_finalizer_scan_seconds = InpRealHardCloseFinalizerScanSeconds;
+   cfg.real_hard_close_finalizer_retry_seconds = InpRealHardCloseFinalizerRetrySeconds;
+   cfg.real_hard_close_finalizer_deviation_points = InpRealHardCloseFinalizerDeviationPoints;
+   cfg.real_hard_close_finalizer_max_attempts_per_position = InpRealHardCloseFinalizerMaxAttemptsPerPosition;
+   cfg.allow_real_hard_close_finalizer_in_paper_live = InpAllowRealHardCloseFinalizerInPaperLive;
+   cfg.real_hard_close_finalizer_requires_broker_manager = InpRealHardCloseFinalizerRequiresBrokerManager;
+   cfg.real_hard_close_alert_unclosed_positions = InpRealHardCloseAlertUnclosedPositions;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -262,7 +282,7 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 17 remains timer-driven. Real auto-entry and real partial close are gated by explicit safety inputs and AUTO_TRADE mode.
+   // Level 18 remains timer-driven. Real auto-entry, real partial close, and the real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)
