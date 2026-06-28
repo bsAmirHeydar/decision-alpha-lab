@@ -1,142 +1,159 @@
-# Phoenix Flag Counting Implementation Ladder V1
+# Phoenix Level 17 — Ambiguity Resolution / Final Decision Lock
 
-This document is part of the implementation ladder for the Phoenix Flag Counting engine.
+## Status
 
-# Level 17 — Resolved Decision Record
+Implemented in Phoenix Level 17.
 
-## Purpose
+Runtime modules:
 
-This file used to list open ambiguities before further code. Those ambiguities are now resolved by:
+```text
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh
+```
+
+EA support:
+
+```text
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+```
+
+The old purpose of this document was to list unresolved questions before code.
+That is now closed. Level 17 turns those decisions into a runtime decision
+registry and emits `FP_LEVEL17` after Level 16 acceptance and before
+`FP_SUMMARY`.
+
+## Source of truth
+
+The canonical source remains:
 
 ```text
 docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
 ```
 
-This file remains as a quick implementation-facing decision index. If this file and the current canon ever conflict, the current canon wins.
+Level 17 does not replace the canon. It audits whether the active EA inputs and
+runtime reports are aligned with the canon decisions.
 
----
-
-## A. Phase reset rules — resolved
-
-Default:
+## Runtime position
 
 ```text
-PHASE_RESET_OPPOSITE_F3_LOCK_ONLY
+Level 14 profile pre-apply
+-> Level 15 preflight
+-> Level 01 timebase
+-> Levels 02-11 detection/canonicalization
+-> Level 11.5 export
+-> Level 12 renderer
+-> Level 13 validation
+-> Level 14 release gate
+-> Level 15 postflight
+-> Level 16 acceptance matrix
+-> Level 17 ambiguity / decision lock
+-> FP_SUMMARY
 ```
 
-Implementation meaning:
+## Level 17 decisions checked
 
-- A new same-direction F1 phase is not allowed merely because a child failed.
-- A broken F2/F3 child does not reset parent ownership.
-- A large opposite Hook/ND does not reset same-direction phase by default.
-- Completed F3 is locked by first confirmed opposite F1.
+Level 17 checks the following decision families:
 
-Optional future diagnostic variants may exist only as named inputs:
+1. Canon source is `FLAG_COUNTING_CURRENT_CANON.md`.
+2. `identity_generation_pass` is `phoenix_level17`.
+3. Closed-bar timebase remains default.
+4. Confirmed F bodies do not consume live pending nodes by default.
+5. F1 remains phase-boundary gated.
+6. Fail-open remains diagnostic-only.
+7. Pre-internal favorable breaks are absorbed as Leg2 extension, not confirmation.
+8. F2 main chart requires size qualification by default.
+9. OR-rejected F3 candidates are hidden by default.
+10. Main-chart Hook/ND requires seeded visible F1 by default.
+11. Unseeded Hook display is debug-only.
+12. Strict main-chart ownership is enabled.
+13. Canonical invariants are strict before renderer/export trust.
+14. Renderer strict visibility is enabled.
+15. Renderer object names use canonical identity.
+16. Export/validation/release/acceptance/interface report alignment is checked.
+17. Release-like profiles must not carry blocking failures when strict decision lock is requested.
+
+## EA inputs
+
+```mql5
+InpAmbiguityEnabled = true
+InpAmbiguityMode = FP_AMBIGUITY_MODE_OBSERVE
+InpAmbiguityStrict = false
+InpAmbiguityWriteCsv = false
+InpAmbiguityOverwriteLatest = true
+InpAmbiguityFolder = "FlagCountingPhoenix"
+InpAmbiguityRunTag = ""
+InpAmbiguityCaseId = "manual"
+```
+
+Strict decision inputs:
+
+```mql5
+InpAmbiguityRequireDecisionLock = true
+InpAmbiguityRequireNoReleaseBlockers = false
+InpAmbiguityRequireCanonicalSource = true
+InpAmbiguityRequireClosedBarDefault = true
+InpAmbiguityRequireConfirmedFBodies = true
+InpAmbiguityRequireStrictRendererVisibility = true
+InpAmbiguityRequireCanonicalObjectNames = true
+InpAmbiguityRequireSeededHookMainChart = true
+InpAmbiguityRequireExportBeforeRenderer = true
+InpAmbiguityRequireValidationBeforeRelease = true
+InpAmbiguityRequireAcceptanceBeforeSummary = true
+InpAmbiguityRequireInterfacePassAlignment = false
+```
+
+Diagnostic variant inputs:
+
+```mql5
+InpAmbiguityAllowFailOpenDiagnostic = true
+InpAmbiguityAllowCandidateDisplayDiagnostic = true
+InpAmbiguityAllowORRejectedF3Diagnostic = false
+InpAmbiguityAllowDebugUnseededHooks = false
+```
+
+## Optional CSV
+
+When `InpAmbiguityWriteCsv=true`, Level 17 writes:
 
 ```text
-PHASE_RESET_OPPOSITE_CONFIRMED_F1
-PHASE_RESET_OPPOSITE_HOOK_OR_F1
+MQL5/Files/FlagCountingPhoenix/latest_ambiguity.csv
 ```
 
----
-
-## B. F1 root preference — resolved
-
-Winner order:
-
-1. lifecycle quality;
-2. confirmed/qualified over developing;
-3. Hook/phase-boundary root over fail-open;
-4. fuller child chain over isolated root;
-5. lower-L local over high-L umbrella when semantic quality is equal;
-6. earlier stable origin when semantic quality is equal;
-7. deterministic `event_id` tie-breaker.
-
-Losers remain audit-visible with hidden reason.
-
----
-
-## C. F2 size handling — resolved
-
-Default:
+CSV rows contain:
 
 ```text
-F2 candidate may exist in audit.
-Main-chart F2 requires size-qualified status unless candidate display is enabled.
-F3 authorization requires confirmed and size-qualified F2.
+run_id, case_id, mode, decision_id, category, severity, status, actual, expected, canon_source, reason
 ```
 
-If F2 extends into qualification, update the same candidate path; do not emit a duplicate unless identity truly changes.
+## Non-authority rule
 
----
-
-## D. Hook/ND display — resolved
-
-Default:
+Level 17 is read-only. It must not:
 
 ```text
-Main chart: Hook/ND only when connected to canonical visible ownership or when Hook debug is enabled.
-Audit: all Hook/ND branches and branch numbers.
+create events
+create hooks
+mutate identity
+repair parent links
+change visible_main
+change hidden_reason
+change lifecycle/ownership/canonical state
+alter renderer/export/validation/release/acceptance/interface decisions
 ```
 
-Hook/ND is context, not a hard gate that may starve all F structures.
+It only reports whether the final runtime configuration and reports match the
+resolved decision record.
 
----
+## Acceptance
 
-## E. Main-chart density — resolved
-
-Default profile:
+A Level 17 run is accepted when:
 
 ```text
-CLEAN_LOCAL
+FP_LEVEL17 ok=true
+ambiguity_fail=0 in FP_SUMMARY
+ambiguity_conflicts=0 in FP_SUMMARY
 ```
 
-Allowed display profiles:
-
-```text
-CLEAN_LOCAL
-BALANCED
-STRUCTURAL_AUDIT
-```
-
-Renderer settings must not change logical event emission.
-
----
-
-## F. Live pending nodes — resolved
-
-Default:
-
-```text
-Pending nodes may support Hook live inspection.
-Confirmed F bodies require confirmed nodes.
-Pending-node F bodies are diagnostic-only and must be tagged.
-```
-
----
-
-## G. Backfill windows — resolved
-
-Default strict window:
-
-```text
-F2 origin: deepest adverse correction after F1 Leg2 and before F1 confirmation.
-F3 origin: deepest adverse correction after F2 Leg2 and before F2 confirmation.
-```
-
-Extended windows are diagnostic variants only.
-
----
-
-## Required answers before next major code patch
-
-All previous minimum questions are now answered:
-
-1. Same-direction ownership reset = strict opposite F3 lock default.
-2. Main chart = canonical-clean; developing/diagnostic objects in audit unless explicitly enabled.
-3. High-L umbrella = audit-visible unless it is the canonical owner; lower-L wins on equal semantic quality.
-4. Pending live nodes = Hook/ND live inspection only by default; F bodies require confirmed nodes.
-
-## Implementation note
-
-Future code may add inputs for variants, but the default must remain the resolved canon behavior and every variant must be auditable.
+Warnings may exist in observe/debug profiles when they represent explicitly
+allowed diagnostics.

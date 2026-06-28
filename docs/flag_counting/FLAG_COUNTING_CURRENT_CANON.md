@@ -996,7 +996,7 @@ Level 15 emits `FP_LEVEL15_PRE` and `FP_LEVEL15`. Optional CSV output writes `la
 The active identity generation pass is now:
 
 ```text
-phoenix_level16
+phoenix_level17
 ```
 
 Level 15 may only report interface status and add interface counters to `FP_DetectResult`; it may not mutate events, hooks, identities, ownership, canonical state, renderer objects, export files, validation decisions, or release gate semantics.
@@ -1034,7 +1034,7 @@ Level 14 profile pre-apply
 The active identity generation pass is now:
 
 ```text
-phoenix_level16
+phoenix_level17
 ```
 
 Level 16 emits `FP_LEVEL16`. Optional CSV output writes:
@@ -1044,3 +1044,25 @@ MQL5/Files/FlagCountingPhoenix/latest_acceptance.csv
 ```
 
 Acceptance modes are `observe`, `baseline`, `regression`, and `release`. Baseline mode may warn with actual counts that must be copied into validation/acceptance case files; it must not invent expected values. Regression and release modes only pass when configured hard gates pass.
+
+## Level 17 runtime decision lock
+
+The ambiguity list is no longer an open design document. Phoenix Level 17 turns
+it into a runtime decision registry backed by:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh
+```
+
+The active identity pass is:
+
+```text
+phoenix_level17
+```
+
+Level 17 is read-only and runs after Level 16 acceptance. It audits decision
+alignment and does not mutate structure, renderer state, export state,
+validation state, release state, acceptance state, or interface reports.

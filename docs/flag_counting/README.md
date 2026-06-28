@@ -108,3 +108,10 @@ Phoenix now includes `FP_InterfaceTypes.mqh`, `FP_InterfaceRules.mqh`, `FP_Inter
 ## Level 16 acceptance matrix
 
 Phoenix now includes `FP_AcceptanceTypes.mqh`, `FP_AcceptanceRules.mqh`, `FP_AcceptanceAudit.mqh`, and `FP_AcceptanceEngine.mqh`. Level 16 runs after Level 15 postflight and before `FP_SUMMARY`, emits `FP_LEVEL16`, and can optionally write `latest_acceptance.csv`. It is a read-only runbook gate: it aggregates timebase, node, hook, body, internal-count, F1/F2/F3 lifecycle, ownership, canonicalization, export, renderer, validation, release, and interface health into one acceptance matrix.
+
+## Level 17 decision lock
+
+Phoenix Level 17 closes the old ambiguity list. It runs a read-only runtime
+check after the acceptance matrix and verifies that current inputs/reports match
+`FLAG_COUNTING_CURRENT_CANON.md`. It emits `FP_LEVEL17` and can write
+`latest_ambiguity.csv`.

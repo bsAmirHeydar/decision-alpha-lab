@@ -132,3 +132,9 @@ Level 15 now owns implementation-backed module interface contracts through `FP_I
 ## Level 16 patch status
 
 Level 16 now owns the runtime acceptance matrix through `FP_Acceptance*` modules. It aggregates Level 01-15 reports, emits `FP_LEVEL16`, can write `latest_acceptance.csv`, and remains read-only.
+
+## Level 17 implemented
+
+The former ambiguity file is now a runtime decision-lock layer. Phoenix ships
+`FP_Ambiguity*` modules, `FP_LEVEL17` logging, optional `latest_ambiguity.csv`,
+and final `FP_SUMMARY` ambiguity counters.

@@ -147,18 +147,18 @@ void FP_InterfaceAddEnumChecks(FP_InterfaceReport &report, string &rows[])
                         (FP_MAX_INTERNAL_NODES == 4),
                         FP_InterfaceInt(FP_MAX_INTERNAL_NODES), "4", "internal_count_contract");
    FP_InterfaceAddCheck(report, rows, "CONST_INTERFACE_VERSION", "enum", "error",
-                        (FP_INTERFACE_CONTRACT_VERSION == "16.00"),
-                        FP_INTERFACE_CONTRACT_VERSION, "16.00", "interface_contract_version");
+                        (FP_INTERFACE_CONTRACT_VERSION == "17.00"),
+                        FP_INTERFACE_CONTRACT_VERSION, "17.00", "interface_contract_version");
 }
 
 void FP_InterfaceAddFacadeChecks(FP_InterfaceReport &report, string &rows[], const FP_Config &engine_cfg)
 {
    FP_InterfaceAddCheck(report, rows, "FACADE_PUBLIC_COUNT", "facade", "error",
-                        (FP_INTERFACE_PUBLIC_FACADE_COUNT >= 16),
-                        FP_InterfaceInt(FP_INTERFACE_PUBLIC_FACADE_COUNT), ">=16", "public_facade_registry_count");
+                        (FP_INTERFACE_PUBLIC_FACADE_COUNT >= 17),
+                        FP_InterfaceInt(FP_INTERFACE_PUBLIC_FACADE_COUNT), ">=17", "public_facade_registry_count");
    FP_InterfaceAddCheck(report, rows, "FACADE_IDENTITY_PASS", "facade", "error",
-                        (engine_cfg.identity_generation_pass == "phoenix_level16"),
-                        engine_cfg.identity_generation_pass, "phoenix_level16", "identity_generation_pass_must_match_level16");
+                        (engine_cfg.identity_generation_pass == "phoenix_level17"),
+                        engine_cfg.identity_generation_pass, "phoenix_level17", "identity_generation_pass_must_match_level17");
    FP_InterfaceAddCheck(report, rows, "FACADE_CONTEXT_SYMBOL", "facade", "error",
                         FP_InterfaceNonEmpty(engine_cfg.context_symbol),
                         engine_cfg.context_symbol, "non_empty", "engine_context_symbol_required");

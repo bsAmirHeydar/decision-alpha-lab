@@ -14,10 +14,10 @@
 // state.
 // ============================================================================
 
-#define FP_INTERFACE_CONTRACT_VERSION "16.00"
+#define FP_INTERFACE_CONTRACT_VERSION "17.00"
 #define FP_INTERFACE_MIN_LEVEL        1
-#define FP_INTERFACE_MAX_LEVEL        16
-#define FP_INTERFACE_PUBLIC_FACADE_COUNT 16
+#define FP_INTERFACE_MAX_LEVEL        17
+#define FP_INTERFACE_PUBLIC_FACADE_COUNT 17
 
 struct FP_InterfaceConfig
 {

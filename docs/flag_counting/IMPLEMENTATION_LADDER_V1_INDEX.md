@@ -68,3 +68,10 @@ Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAu
 ## Level 16 patch status
 
 Level 16 now owns the implementation-backed acceptance matrix through `FP_Acceptance*` modules. It runs after interface postflight and before final summary. It is read-only and may only report acceptance health.
+
+## Level 17 ambiguity / final decision lock implemented
+
+`17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md` is now backed by Phoenix
+`FP_AmbiguityTypes`, `FP_AmbiguityRules`, `FP_AmbiguityAudit`, and
+`FP_AmbiguityEngine`. The layer runs after Level 16 acceptance and before
+`FP_SUMMARY`, emits `FP_LEVEL17`, and can write `latest_ambiguity.csv`.

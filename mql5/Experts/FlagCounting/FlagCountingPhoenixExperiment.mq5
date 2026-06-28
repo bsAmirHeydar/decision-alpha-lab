@@ -1,5 +1,5 @@
 #property strict
-#property version   "16.00"
+#property version   "17.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -9,6 +9,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_ReleaseEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -236,6 +237,35 @@ input bool   InpPrintAcceptanceSanity = true;
 input bool   InpPrintAcceptanceSamples = false;
 input int    InpAcceptanceSampleLimit = 8;
 
+// ------------------------------ Ambiguity / decision lock -------------------
+input bool   InpAmbiguityEnabled = true;
+input FP_AmbiguityMode InpAmbiguityMode = FP_AMBIGUITY_MODE_OBSERVE;
+input bool   InpAmbiguityStrict = false;
+input bool   InpAmbiguityWriteCsv = false;
+input bool   InpAmbiguityOverwriteLatest = true;
+input string InpAmbiguityFolder = "FlagCountingPhoenix";
+input string InpAmbiguityRunTag = "";
+input string InpAmbiguityCaseId = "manual";
+input bool   InpAmbiguityRequireDecisionLock = true;
+input bool   InpAmbiguityRequireNoReleaseBlockers = false;
+input bool   InpAmbiguityRequireCanonicalSource = true;
+input bool   InpAmbiguityRequireClosedBarDefault = true;
+input bool   InpAmbiguityRequireConfirmedFBodies = true;
+input bool   InpAmbiguityRequireStrictRendererVisibility = true;
+input bool   InpAmbiguityRequireCanonicalObjectNames = true;
+input bool   InpAmbiguityRequireSeededHookMainChart = true;
+input bool   InpAmbiguityRequireExportBeforeRenderer = true;
+input bool   InpAmbiguityRequireValidationBeforeRelease = true;
+input bool   InpAmbiguityRequireAcceptanceBeforeSummary = true;
+input bool   InpAmbiguityRequireInterfacePassAlignment = false;
+input bool   InpAmbiguityAllowFailOpenDiagnostic = true;
+input bool   InpAmbiguityAllowCandidateDisplayDiagnostic = true;
+input bool   InpAmbiguityAllowORRejectedF3Diagnostic = false;
+input bool   InpAmbiguityAllowDebugUnseededHooks = false;
+input bool   InpPrintAmbiguitySanity = true;
+input bool   InpPrintAmbiguitySamples = false;
+input int    InpAmbiguitySampleLimit = 8;
+
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
 input bool   InpCleanObjectsOnInit = true;
@@ -354,7 +384,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level16";
+   cfg.identity_generation_pass = "phoenix_level17";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -390,6 +420,8 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_interface_post" + FP_BoolName(InpInterfacePostflightEnabled) +
                               "_acceptance" + FP_BoolName(InpAcceptanceEnabled) +
                               "_acceptance_mode" + FP_AcceptanceModeName(InpAcceptanceMode) +
+                              "_ambiguity" + FP_BoolName(InpAmbiguityEnabled) +
+                              "_ambiguity_mode" + FP_AmbiguityModeName(InpAmbiguityMode) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -586,6 +618,38 @@ void FP_LoadAcceptanceConfig(FP_AcceptanceConfig &cfg)
    cfg.sample_limit = InpAcceptanceSampleLimit;
 }
 
+void FP_LoadAmbiguityConfig(FP_AmbiguityConfig &cfg)
+{
+   FP_DefaultAmbiguityConfig(cfg);
+   cfg.enabled = InpAmbiguityEnabled;
+   cfg.mode = InpAmbiguityMode;
+   cfg.strict = InpAmbiguityStrict;
+   cfg.write_csv = InpAmbiguityWriteCsv;
+   cfg.overwrite_latest = InpAmbiguityOverwriteLatest;
+   cfg.folder = InpAmbiguityFolder;
+   cfg.run_tag = InpAmbiguityRunTag;
+   cfg.case_id = InpAmbiguityCaseId;
+   cfg.require_decision_lock = InpAmbiguityRequireDecisionLock;
+   cfg.require_no_release_blockers = InpAmbiguityRequireNoReleaseBlockers;
+   cfg.require_canonical_source = InpAmbiguityRequireCanonicalSource;
+   cfg.require_closed_bar_default = InpAmbiguityRequireClosedBarDefault;
+   cfg.require_confirmed_f_bodies = InpAmbiguityRequireConfirmedFBodies;
+   cfg.require_strict_renderer_visibility = InpAmbiguityRequireStrictRendererVisibility;
+   cfg.require_canonical_object_names = InpAmbiguityRequireCanonicalObjectNames;
+   cfg.require_seeded_hook_main_chart = InpAmbiguityRequireSeededHookMainChart;
+   cfg.require_export_before_renderer = InpAmbiguityRequireExportBeforeRenderer;
+   cfg.require_validation_before_release = InpAmbiguityRequireValidationBeforeRelease;
+   cfg.require_acceptance_before_summary = InpAmbiguityRequireAcceptanceBeforeSummary;
+   cfg.require_interface_pass_alignment = InpAmbiguityRequireInterfacePassAlignment;
+   cfg.allow_fail_open_diagnostic = InpAmbiguityAllowFailOpenDiagnostic;
+   cfg.allow_candidate_display_diagnostic = InpAmbiguityAllowCandidateDisplayDiagnostic;
+   cfg.allow_or_rejected_f3_diagnostic = InpAmbiguityAllowORRejectedF3Diagnostic;
+   cfg.allow_debug_unseeded_hooks = InpAmbiguityAllowDebugUnseededHooks;
+   cfg.print_sanity = InpPrintAmbiguitySanity;
+   cfg.print_samples = InpPrintAmbiguitySamples;
+   cfg.sample_limit = InpAmbiguitySampleLimit;
+}
+
 void FP_Run()
 {
    MqlRates rates[];
@@ -623,6 +687,9 @@ void FP_Run()
 
    FP_AcceptanceConfig acceptance_cfg;
    FP_LoadAcceptanceConfig(acceptance_cfg);
+
+   FP_AmbiguityConfig ambiguity_cfg;
+   FP_LoadAmbiguityConfig(ambiguity_cfg);
 
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
@@ -756,6 +823,18 @@ void FP_Run()
          FP_PrintAcceptanceSamples("FP_LEVEL16", acceptance_report, acceptance_rows, acceptance_cfg.sample_limit);
    }
 
+   FP_AmbiguityReport ambiguity_report;
+   FP_ResetAmbiguityReport(ambiguity_report);
+   string ambiguity_rows[];
+   if(ambiguity_cfg.enabled)
+   {
+      FP_RunAmbiguityWithReport(_Symbol, _Period, ambiguity_cfg, timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, interface_cfg, acceptance_cfg, result, export_report, render_report, validation_report, release_report, interface_pre_report, interface_post_report, acceptance_report, ambiguity_report, ambiguity_rows);
+      FP_AmbiguityApplyReportToResult(ambiguity_report, result);
+      if(ambiguity_cfg.print_sanity)
+         FP_PrintAmbiguityReport("FP_LEVEL17", ambiguity_report);
+      if(ambiguity_cfg.print_samples)
+         FP_PrintAmbiguitySamples("FP_LEVEL17", ambiguity_report, ambiguity_rows, ambiguity_cfg.sample_limit);
+   }
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)

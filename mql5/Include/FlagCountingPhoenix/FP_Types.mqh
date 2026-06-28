@@ -723,6 +723,20 @@ struct FP_DetectResult
    int acceptance_matrix_errors_total;
    int acceptance_invariant_errors_total;
 
+   int ambiguity_attempted_total;
+   int ambiguity_ok_total;
+   int ambiguity_checks_total;
+   int ambiguity_pass_total;
+   int ambiguity_fail_total;
+   int ambiguity_warn_total;
+   int ambiguity_skipped_total;
+   int ambiguity_file_errors_total;
+   int ambiguity_decisions_locked_total;
+   int ambiguity_decisions_unlocked_total;
+   int ambiguity_diagnostic_variants_total;
+   int ambiguity_release_blockers_total;
+   int ambiguity_conflicts_total;
+
    int invalid_total;
 };
 
@@ -1043,7 +1057,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level16";
+   cfg.identity_generation_pass = "phoenix_level17";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -1246,6 +1260,20 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.acceptance_dependency_errors_total = 0;
    r.acceptance_matrix_errors_total = 0;
    r.acceptance_invariant_errors_total = 0;
+
+   r.ambiguity_attempted_total = 0;
+   r.ambiguity_ok_total = 0;
+   r.ambiguity_checks_total = 0;
+   r.ambiguity_pass_total = 0;
+   r.ambiguity_fail_total = 0;
+   r.ambiguity_warn_total = 0;
+   r.ambiguity_skipped_total = 0;
+   r.ambiguity_file_errors_total = 0;
+   r.ambiguity_decisions_locked_total = 0;
+   r.ambiguity_decisions_unlocked_total = 0;
+   r.ambiguity_diagnostic_variants_total = 0;
+   r.ambiguity_release_blockers_total = 0;
+   r.ambiguity_conflicts_total = 0;
 
    r.invalid_total = 0;
 }

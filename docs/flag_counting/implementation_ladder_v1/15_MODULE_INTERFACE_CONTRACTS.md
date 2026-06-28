@@ -1220,7 +1220,7 @@ FP_LEVEL15_PRE prints with attempted=true when preflight is enabled
 FP_LEVEL15 prints with attempted=true when postflight is enabled
 FP_SUMMARY includes interface counters
 CSV can be enabled without changing renderer or event output
-identity_generation_pass is phoenix_level16
+identity_generation_pass is phoenix_level17
 preflight failure does not silently mutate structure
 postflight failure does not silently mutate structure
 ```
@@ -1228,4 +1228,4 @@ postflight failure does not silently mutate structure
 
 ## Level 16 integration note
 
-After Level 16, the interface preflight accepts `identity_generation_pass=phoenix_level16` and `FP_INTERFACE_CONTRACT_VERSION=16.00` because Level 16 adds the acceptance facade without changing lower-level market semantics.
+After Level 16, the interface preflight accepts `identity_generation_pass=phoenix_level17` and `FP_INTERFACE_CONTRACT_VERSION=17.00` because Level 16 adds the acceptance facade without changing lower-level market semantics.

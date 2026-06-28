@@ -683,3 +683,19 @@ Phoenix now includes `FP_InterfaceTypes.mqh`, `FP_InterfaceRules.mqh`, `FP_Inter
 ## Level 16 acceptance matrix
 
 Phoenix now includes `FP_AcceptanceTypes.mqh`, `FP_AcceptanceRules.mqh`, `FP_AcceptanceAudit.mqh`, and `FP_AcceptanceEngine.mqh`. Level 16 runs after Level 15 postflight and before `FP_SUMMARY`, emits `FP_LEVEL16`, and can optionally write `latest_acceptance.csv`. It is a read-only runbook gate: it aggregates timebase, node, hook, body, internal-count, F1/F2/F3 lifecycle, ownership, canonicalization, export, renderer, validation, release, and interface health into one acceptance matrix.
+
+## Level 17 ambiguity / decision lock
+
+Level 17 adds the final read-only decision-lock layer:
+
+- `FP_AmbiguityTypes.mqh`
+- `FP_AmbiguityRules.mqh`
+- `FP_AmbiguityAudit.mqh`
+- `FP_AmbiguityEngine.mqh`
+
+The active EA now uses `identity_generation_pass=phoenix_level17`, prints
+`FP_LEVEL17`, and can write `latest_ambiguity.csv`. This layer verifies that
+closed-bar timebase, confirmed-node F bodies, phase-gated F1, fail-open
+diagnostic behavior, F2/F3 display policy, seeded Hook display, strict renderer
+visibility, canonical object names, and release-like profile gates remain aligned
+with `FLAG_COUNTING_CURRENT_CANON.md`.
