@@ -73,7 +73,7 @@ input bool   InpShowInternalLabels = true;
 input bool   InpUseSequenceColorShades = true;
 input int    InpFixedLineWidth = 1;
 input int    InpCurveSegments = 32;
-input int    InpLabelFontSize = 7;
+input int    InpLabelFontSize = 8;
 
 input color InpBullishCandidateColor = clrDeepSkyBlue;
 input color InpBullishConfirmedColor = clrLime;

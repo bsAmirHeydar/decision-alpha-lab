@@ -57,3 +57,8 @@ Changes:
 - branch length above 4 is rejected at the current L so a higher-L compressed view must represent it;
 - hook labels now expose the counted branch length using `ND Lx #n`;
 - renderer label placement now uses a deterministic cluster stacker instead of event-id modulo lanes.
+
+## Readable stacked labels patch
+
+The Phoenix renderer now uses viewport-aware label spacing and deterministic time-price clusters for all main labels, origin labels, internal 1/2/3/4 labels, and Hook/ND labels. Nearby labels are assigned to the same vertical column and stacked with fixed price-space lanes so chart text remains readable instead of overlapping. Peaks stack above price; valleys stack below price. Older labels keep the closest lane and newer labels are pushed farther away from the same local structure.
+

@@ -76,7 +76,7 @@ bool FP_DrawText(const string name, const datetime t, const double p, const stri
    if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, p)) return false;
    ObjectSetString(0, name, OBJPROP_TEXT, text);
    ObjectSetInteger(0, name, OBJPROP_COLOR, c);
-   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
+   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, MathMax(7, font_size));
    ObjectSetString(0, name, OBJPROP_FONT, "Arial");
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_SELECTED, false);
@@ -100,9 +100,23 @@ string FP_EventLabel(const FP_FlagEvent &e, const bool detailed, const bool show
 
 double FP_LabelStepPrice()
 {
-   double step = 24.0 * _Point;
-   if(_Digits == 3 || _Digits == 5) step = 240.0 * _Point;
-   return step;
+   // Chart-readable vertical step.  A point-only offset is too small on
+   // indices, gold, and zoomed M1 charts; text becomes unreadable.  This
+   // function combines a symbol-safe point floor with a viewport-relative
+   // step so labels form clear vertical columns under/above each other.
+   double point_floor = 80.0 * _Point;
+   if(_Digits == 3 || _Digits == 5) point_floor = 800.0 * _Point;
+
+   double pmax = 0.0;
+   double pmin = 0.0;
+   bool got_max = ChartGetDouble(0, CHART_PRICE_MAX, 0, pmax);
+   bool got_min = ChartGetDouble(0, CHART_PRICE_MIN, 0, pmin);
+   if(got_max && got_min && pmax > pmin)
+   {
+      double viewport_step = (pmax - pmin) * 0.018;
+      return MathMax(point_floor, viewport_step);
+   }
+   return point_floor;
 }
 
 double FP_LabelOffsetPrice(const int lane, const int direction, const bool is_peak)
@@ -111,32 +125,89 @@ double FP_LabelOffsetPrice(const int lane, const int direction, const bool is_pe
    return sign * (double)(lane + 1) * FP_LabelStepPrice();
 }
 
-int FP_RegisterLabelLane(int &indices[], double &prices[], bool &peaks[],
-                         const int index_anchor, const double price, const bool is_peak)
+struct FP_LabelStackCluster
 {
-   // Deterministic cluster stacking: older labels are registered first and stay
-   // closer to price; later labels in the same time/price/peak cluster move one
-   // lane farther away.  This keeps chart text vertically readable instead of
-   // using event-id modulo lanes.
-   int lane = 0;
-   int time_cluster_bars = 6;
-   double price_cluster = FP_LabelStepPrice() * 4.0;
-   int n = ArraySize(indices);
+   int index_anchor;
+   datetime time_anchor;
+   double price_anchor;
+   bool is_peak;
+   int used_lanes;
+};
+
+int FP_LabelTimeClusterBars()
+{
+   // Wider than the old 6-bar cluster so nearby labels use one readable
+   // vertical column rather than many overlapping columns.
+   return 18;
+}
+
+double FP_LabelPriceClusterDistance()
+{
+   return FP_LabelStepPrice() * 6.0;
+}
+
+int FP_RegisterLabelCluster(FP_LabelStackCluster &clusters[],
+                            const int index_anchor,
+                            const datetime time_anchor,
+                            const double price,
+                            const bool is_peak,
+                            datetime &out_time_anchor,
+                            double &out_price_anchor)
+{
+   int n = ArraySize(clusters);
+   int best = -1;
+   int best_dt = 1000000000;
+   double price_cluster = FP_LabelPriceClusterDistance();
+   int time_cluster_bars = FP_LabelTimeClusterBars();
+
    for(int i=0; i<n; i++)
    {
-      if(peaks[i] != is_peak) continue;
-      if(MathAbs(indices[i] - index_anchor) > time_cluster_bars) continue;
-      if(MathAbs(prices[i] - price) > price_cluster) continue;
-      lane++;
+      if(clusters[i].is_peak != is_peak) continue;
+      int dt = MathAbs(clusters[i].index_anchor - index_anchor);
+      if(dt > time_cluster_bars) continue;
+      if(MathAbs(clusters[i].price_anchor - price) > price_cluster) continue;
+      if(dt < best_dt)
+      {
+         best = i;
+         best_dt = dt;
+      }
    }
 
-   ArrayResize(indices, n + 1);
-   ArrayResize(prices, n + 1);
-   ArrayResize(peaks, n + 1);
-   indices[n] = index_anchor;
-   prices[n] = price;
-   peaks[n] = is_peak;
-   return lane;
+   if(best >= 0)
+   {
+      int lane = clusters[best].used_lanes;
+      clusters[best].used_lanes = clusters[best].used_lanes + 1;
+      out_time_anchor = clusters[best].time_anchor;
+      out_price_anchor = clusters[best].price_anchor;
+      return lane;
+   }
+
+   ArrayResize(clusters, n + 1);
+   clusters[n].index_anchor = index_anchor;
+   clusters[n].time_anchor = time_anchor;
+   clusters[n].price_anchor = price;
+   clusters[n].is_peak = is_peak;
+   clusters[n].used_lanes = 1;
+   out_time_anchor = time_anchor;
+   out_price_anchor = price;
+   return 0;
+}
+
+bool FP_DrawStackedText(const string name,
+                        const int index_anchor,
+                        const datetime time_anchor,
+                        const double price,
+                        const bool is_peak,
+                        const string text,
+                        const color c,
+                        const int font_size,
+                        FP_LabelStackCluster &clusters[])
+{
+   datetime column_time = time_anchor;
+   double column_price = price;
+   int lane = FP_RegisterLabelCluster(clusters, index_anchor, time_anchor, price, is_peak, column_time, column_price);
+   double label_price = column_price + FP_LabelOffsetPrice(lane, 0, is_peak);
+   return FP_DrawText(name, column_time, label_price, text, c, font_size);
 }
 
 void FP_DrawFlagBody(const FP_FlagEvent &e,
@@ -184,11 +255,10 @@ void FP_DrawProbableLeg(const FP_FlagEvent &e, const string prefix, const color 
    FP_DrawTrend(base, e.origin.time_anchor, e.origin.price, e.leg1.time_anchor, e.leg1.price, c, width, STYLE_DASH);
 }
 
-void FP_DrawInternalLabels(const FP_FlagEvent &e, const string prefix, const color c, const int font_size)
+void FP_DrawInternalLabels(const FP_FlagEvent &e, const string prefix, const color c, const int font_size,
+                           FP_LabelStackCluster &label_clusters[])
 {
    string base = prefix + "EV_" + IntegerToString(e.event_id) + "_I_";
-   double step = 18.0 * _Point;
-   if(_Digits == 3 || _Digits == 5) step = 180.0 * _Point;
 
    FP_Node nums[4];
    nums[0] = e.internal_pack.n1;
@@ -198,26 +268,37 @@ void FP_DrawInternalLabels(const FP_FlagEvent &e, const string prefix, const col
    for(int i=0; i<4; i++)
    {
       if(nums[i].id < 0) continue;
-      double p = nums[i].price;
-      if(nums[i].kind == FP_NODE_HIGH) p += step;
-      else if(nums[i].kind == FP_NODE_LOW) p -= step;
-      FP_DrawText(base + IntegerToString(i+1), nums[i].time_anchor, p, IntegerToString(i+1), c, font_size);
+      bool is_peak = (nums[i].kind == FP_NODE_HIGH);
+      FP_DrawStackedText(base + IntegerToString(i+1),
+                         nums[i].index_anchor,
+                         nums[i].time_anchor,
+                         nums[i].price,
+                         is_peak,
+                         IntegerToString(i+1),
+                         c,
+                         font_size,
+                         label_clusters);
    }
 }
 
-void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color c, const int font_size)
+void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color c, const int font_size,
+                        FP_LabelStackCluster &label_clusters[])
 {
    if(!e.has_origin) return;
-   double p = e.origin.price;
-   double step = 18.0 * _Point;
-   if(_Digits == 3 || _Digits == 5) step = 180.0 * _Point;
-   if(e.origin.kind == FP_NODE_LOW) p -= step;
-   if(e.origin.kind == FP_NODE_HIGH) p += step;
-   FP_DrawText(prefix + "EV_" + IntegerToString(e.event_id) + "_O", e.origin.time_anchor, p, "O", c, font_size);
+   bool is_peak = (e.origin.kind == FP_NODE_HIGH);
+   FP_DrawStackedText(prefix + "EV_" + IntegerToString(e.event_id) + "_O",
+                      e.origin.index_anchor,
+                      e.origin.time_anchor,
+                      e.origin.price,
+                      is_peak,
+                      "O",
+                      c,
+                      font_size,
+                      label_clusters);
 }
 
 void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size,
-                       int &label_indices[], double &label_prices[], bool &label_peaks[])
+                       FP_LabelStackCluster &label_clusters[])
 {
    if(!h.is_nd) return;
    string base = prefix + "HK_" + IntegerToString(h.branch_id) + "_";
@@ -242,10 +323,16 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
       prev_p = p;
    }
    bool is_peak = (h.resolve_node.kind == FP_NODE_HIGH);
-   int lane = FP_RegisterLabelLane(label_indices, label_prices, label_peaks, h.resolve_node.index_anchor, h.resolve_node.price, is_peak);
-   double label_price = h.resolve_node.price + FP_LabelOffsetPrice(lane, h.direction, is_peak);
    string label = "ND L" + IntegerToString(h.scale_L) + " #" + IntegerToString(h.node_count);
-   FP_DrawText(base + "label", h.resolve_node.time_anchor, label_price, label, c, font_size);
+   FP_DrawStackedText(base + "label",
+                      h.resolve_node.index_anchor,
+                      h.resolve_node.time_anchor,
+                      h.resolve_node.price,
+                      is_peak,
+                      label,
+                      c,
+                      font_size,
+                      label_clusters);
 
    // Show counted branch numbers on same-side nodes so the hook sequence can be
    // audited visually.
@@ -258,8 +345,15 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
    {
       if(nums[i].id < 0) continue;
       bool np = (nums[i].kind == FP_NODE_HIGH);
-      double pp = nums[i].price + FP_LabelOffsetPrice(0, h.direction, np);
-      FP_DrawText(base + "N" + IntegerToString(i+1), nums[i].time_anchor, pp, IntegerToString(i+1), c, MathMax(6, font_size-1));
+      FP_DrawStackedText(base + "N" + IntegerToString(i+1),
+                         nums[i].index_anchor,
+                         nums[i].time_anchor,
+                         nums[i].price,
+                         np,
+                         IntegerToString(i+1),
+                         c,
+                         MathMax(6, font_size-1),
+                         label_clusters);
    }
 }
 
@@ -320,19 +414,15 @@ int FP_DrawAll(const FP_FlagEvent &events[],
    FP_DeleteObjectsByPrefix(prefix);
    int drawn = 0;
    int hook_drawn = 0;
-   int label_indices[];
-   double label_prices[];
-   bool label_peaks[];
-   ArrayResize(label_indices, 0);
-   ArrayResize(label_prices, 0);
-   ArrayResize(label_peaks, 0);
+   FP_LabelStackCluster label_clusters[];
+   ArrayResize(label_clusters, 0);
 
    if(draw_hooks)
    {
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
-         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_indices, label_prices, label_peaks);
+         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_clusters);
          hook_drawn++;
       }
    }
@@ -353,12 +443,18 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       if(anchor.id >= 0)
       {
          bool is_peak = (anchor.kind == FP_NODE_HIGH);
-         int lane = FP_RegisterLabelLane(label_indices, label_prices, label_peaks, anchor.index_anchor, anchor.price, is_peak);
-         double p = anchor.price + FP_LabelOffsetPrice(lane, e.direction, is_peak);
-         FP_DrawText(prefix + "EV_" + IntegerToString(e.event_id) + "_LBL", anchor.time_anchor, p, FP_EventLabel(e, detailed_labels, show_parent_ids), c, label_font_size);
+         FP_DrawStackedText(prefix + "EV_" + IntegerToString(e.event_id) + "_LBL",
+                            anchor.index_anchor,
+                            anchor.time_anchor,
+                            anchor.price,
+                            is_peak,
+                            FP_EventLabel(e, detailed_labels, show_parent_ids),
+                            c,
+                            label_font_size,
+                            label_clusters);
       }
-      if(show_origin_labels) FP_DrawOriginLabel(e, prefix, c, label_font_size);
-      if(show_internal_labels) FP_DrawInternalLabels(e, prefix, c, MathMax(6, label_font_size - 1));
+      if(show_origin_labels) FP_DrawOriginLabel(e, prefix, c, label_font_size, label_clusters);
+      if(show_internal_labels) FP_DrawInternalLabels(e, prefix, c, MathMax(6, label_font_size - 1), label_clusters);
       drawn++;
    }
    ChartRedraw(0);

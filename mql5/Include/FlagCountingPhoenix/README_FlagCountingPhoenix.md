@@ -86,3 +86,8 @@ The Hook engine now follows the branch-sequence contract:
 - Runs with more than four counted same-side nodes are skipped at the current L and are expected to appear in a higher-L compressed view.
 - Opposite-side nodes remain available for cycle extreme detection and gray arc rendering, but they are not counted as internal hook numbers.
 - Chart labels now use cluster-based stacking so dense text appears in deterministic lanes instead of overlapping randomly.
+
+## Readable stacked labels patch
+
+The Phoenix renderer now uses viewport-aware label spacing and deterministic time-price clusters for all main labels, origin labels, internal 1/2/3/4 labels, and Hook/ND labels. Nearby labels are assigned to the same vertical column and stacked with fixed price-space lanes so chart text remains readable instead of overlapping. Peaks stack above price; valleys stack below price. Older labels keep the closest lane and newer labels are pushed farther away from the same local structure.
+
