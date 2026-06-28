@@ -32,8 +32,11 @@ input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
 // inspection. Set fail-open false only after Hook/ND coverage is verified.
 input bool InpRequireF1PhaseBoundary = true;
 input bool InpAllowF1FailOpenWhenNoHook = true;
-input bool InpEnforceSingleChainPerDirectionScale = false;
-input bool InpEnforceSingleChainPerDirectionGlobal = false;
+input bool InpEnforceSingleChainPerDirectionScale = true;
+input bool InpEnforceSingleChainPerDirectionGlobal = true;
+input bool InpAbsorbPreInternalExtensions = true;
+input bool InpHideSupersededParentStates = true;
+input bool InpCompactHookRendering = true;
 
 // ------------------------------ Rules ---------------------------------------
 input int    InpMaxEvents = 6000;
@@ -108,6 +111,9 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.allow_f1_fail_open_when_no_hook = InpAllowF1FailOpenWhenNoHook;
    cfg.enforce_single_chain_per_direction_scale = InpEnforceSingleChainPerDirectionScale;
    cfg.enforce_single_chain_per_direction_global = InpEnforceSingleChainPerDirectionGlobal;
+   cfg.absorb_pre_internal_extensions = InpAbsorbPreInternalExtensions;
+   cfg.hide_superseded_parent_states = InpHideSupersededParentStates;
+   cfg.compact_hook_rendering = InpCompactHookRendering;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;

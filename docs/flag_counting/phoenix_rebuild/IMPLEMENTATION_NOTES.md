@@ -32,3 +32,11 @@ This is deliberate. It keeps the chart inspectable while Hook/ND coverage is bei
 The current HookEngine builds readable 3/4-node alternating branches at each L. It is explicitly isolated so the branch algorithm can be upgraded without touching the sequence engine.
 
 The current InternalCountEngine keeps one strict adverse-side branch per event. It is also isolated so multi-branch 1/2 counting can be expanded in one module without rewriting F1/F2/F3 orchestration.
+
+## Semantic cleanup notes
+
+The Phoenix cleanup pass fixes the main remaining failure mode observed on chart review: the engine was still over-producing F1 structures inside directional continuation. The core rule is now explicit in code: if a completed flag end is crossed again before a valid post-flag internal 1/2 exists, that cross is absorbed as a Leg2 extension of the same flag body. It is not confirmation and it is not a new root F1.
+
+The semantic chart view now also prefers phase-owned structures over fail-open structures. Fail-open remains enabled by default for inspection so the chart does not become empty while Hook/ND coverage is being audited, but fail-open roots are hidden when a real hook/ND phase root already owns the same region.
+
+Hook rendering has also been compacted. The hook engine may still audit multiple theoretical branches, but the main render keeps the strongest branch per resolve node. This preserves ND visibility while reducing the raw sliding-window look.

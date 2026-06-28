@@ -190,6 +190,9 @@ struct FP_Config
    bool   allow_f1_fail_open_when_no_hook;
    bool   enforce_single_chain_per_direction_scale;
    bool   enforce_single_chain_per_direction_global;
+   bool   absorb_pre_internal_extensions;
+   bool   hide_superseded_parent_states;
+   bool   compact_hook_rendering;
 
    int    max_events;
    int    max_hooks;
@@ -337,7 +340,10 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.require_f1_phase_boundary = true;
    cfg.allow_f1_fail_open_when_no_hook = true;
    cfg.enforce_single_chain_per_direction_scale = true;
-   cfg.enforce_single_chain_per_direction_global = false;
+   cfg.enforce_single_chain_per_direction_global = true;
+   cfg.absorb_pre_internal_extensions = true;
+   cfg.hide_superseded_parent_states = true;
+   cfg.compact_hook_rendering = true;
 
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;

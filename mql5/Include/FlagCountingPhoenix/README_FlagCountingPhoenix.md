@@ -53,3 +53,23 @@ InpAllowF1FailOpenWhenNoHook = false
 InpEnforceSingleChainPerDirectionScale = true
 InpEnforceSingleChainPerDirectionGlobal = true
 ```
+
+## Phoenix semantic cleanup patch
+
+This patch tightens the Phoenix engine without returning to the failed hard-gate behavior.
+The main fixes are:
+
+- pre-internal favorable breaks are absorbed into the current Leg2 instead of creating a new F1;
+- same-direction restarts are guarded by default both per scale and globally, while fail-open remains available so the chart does not go empty;
+- fail-open F1 roots are hidden when they are inside a readable hook-owned phase root;
+- hook rendering is compacted by keeping the best 3/4-node branch per resolve node;
+- superseded non-confirmed parent states are hidden when a visible child already represents the active chain state;
+- parent labels are rebuilt after sorting and pruning so visual ownership remains auditable.
+
+New inputs:
+
+- `InpAbsorbPreInternalExtensions`
+- `InpHideSupersededParentStates`
+- `InpCompactHookRendering`
+
+Recommended semantic-view defaults keep all three enabled.

@@ -78,6 +78,10 @@ void FP_ApplyPostFlagState(FP_FlagEvent &event,
                            const int node_count,
                            const FP_Config &cfg)
 {
+   bool absorbed = FP_AbsorbPreInternalExtensions(event, nodes, node_count, cfg);
+   if(absorbed)
+      event.reason = event.reason + ";extension_absorption_pass_complete";
+
    FP_InternalPack pack;
    int confirm_pos = -1;
    int invalid_pos = -1;
@@ -372,6 +376,98 @@ void FP_DetectScale(const MqlRates &rates[],
    }
 }
 
+void FP_HideSupersededParentStates(FP_FlagEvent &events[], const FP_Config &cfg)
+{
+   if(!cfg.hide_superseded_parent_states) return;
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].level != FP_LEVEL_F1 && events[i].level != FP_LEVEL_F2) continue;
+      if(events[i].status == FP_STATUS_CONFIRMED || events[i].status == FP_STATUS_LOCKED || events[i].status == FP_STATUS_COMPLETED) continue;
+
+      bool has_visible_child = false;
+      for(int j=0; j<n; j++)
+      {
+         if(!events[j].visible_main) continue;
+         if(events[j].parent_sequence_id == events[i].sequence_id && events[j].chain_index == events[i].chain_index + 1)
+         {
+            has_visible_child = true;
+            break;
+         }
+      }
+      if(has_visible_child)
+      {
+         events[i].visible_main = false;
+         events[i].reason = events[i].reason + ";hidden_superseded_parent_state_with_visible_child";
+      }
+   }
+}
+
+void FP_RebuildParentIdsAfterSort(FP_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(events[i].chain_index <= 1) continue;
+      int parent_chain = events[i].chain_index - 1;
+      int best = -1;
+      for(int j=0; j<n; j++)
+      {
+         if(events[j].sequence_id != events[i].sequence_id) continue;
+         if(events[j].chain_index != parent_chain) continue;
+         if(events[j].origin.index_anchor > events[i].origin.index_anchor) continue;
+         if(best < 0 || events[j].origin.index_anchor > events[best].origin.index_anchor) best = j;
+      }
+      if(best >= 0)
+      {
+         events[i].parent_event_id = events[best].event_id;
+         events[i].parent_sequence_id = events[best].sequence_id;
+      }
+   }
+}
+
+void FP_PruneFailOpenRootsWhenPhaseRootsExist(FP_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].level != FP_LEVEL_F1) continue;
+      if(!events[i].from_fail_open) continue;
+
+      bool phase_root_same_zone = false;
+      for(int j=0; j<n; j++)
+      {
+         if(i == j) continue;
+         if(!events[j].visible_main) continue;
+         if(events[j].level != FP_LEVEL_F1) continue;
+         if(events[j].direction != events[i].direction) continue;
+         if(events[j].scale_L != events[i].scale_L) continue;
+         if(!events[j].from_phase_boundary) continue;
+         // If a phase-root body starts before this fail-open origin and extends beyond it,
+         // the fail-open root is only an audit fallback inside an owned phase.
+         if(events[j].origin.index_anchor <= events[i].origin.index_anchor && events[j].leg2.index_anchor >= events[i].origin.index_anchor)
+         {
+            phase_root_same_zone = true;
+            break;
+         }
+      }
+      if(phase_root_same_zone)
+      {
+         int dead_seq = events[i].sequence_id;
+         for(int k=0; k<n; k++)
+         {
+            if(events[k].sequence_id == dead_seq)
+            {
+               events[k].visible_main = false;
+               events[k].reason = events[k].reason + ";hidden_fail_open_inside_phase_owned_region";
+            }
+         }
+      }
+   }
+}
+
 void FP_SortEventsByTime(FP_FlagEvent &events[])
 {
    int n = ArraySize(events);
@@ -528,10 +624,13 @@ int FP_DetectAllScales(const MqlRates &rates[],
 
    FP_SortEventsByTime(events);
    FP_FinalizeEventIds(events);
+   FP_PruneFailOpenRootsWhenPhaseRootsExist(events);
    FP_LockF3WithFirstOppositeF1(events);
    FP_PruneSameDirectionRestarts(events, cfg);
+   FP_HideSupersededParentStates(events, cfg);
    FP_MergeExactVisualDuplicates(events);
    FP_FinalizeEventIds(events);
+   FP_RebuildParentIdsAfterSort(events);
    FP_RecountResult(events, hooks, result);
    return ArraySize(events);
 }

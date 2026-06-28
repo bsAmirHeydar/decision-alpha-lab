@@ -221,6 +221,107 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
    return (pack.count > 0);
 }
 
+// Finds the first flag-end break that happens before a valid internal 1/2 exists.
+// This is the formal "Leg2 extension before internal count" rule: a favorable
+// break before a completed 1/2 is not confirmation and must be folded back into
+// the current flag body as a new Leg2 endpoint.
+bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
+                                      const int node_count,
+                                      const FP_FlagEvent &flag,
+                                      const FP_Config &cfg,
+                                      int &extension_pos)
+{
+   extension_pos = -1;
+   if(flag.pos_leg2 < 0) return false;
+
+   double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
+   int adverse_kind = FP_AdverseKindForDirection(flag.direction);
+   int last_adverse_pos = -1;
+   int count = 0;
+   FP_InternalPack pack;
+   FP_ResetInternalPack(pack);
+
+   for(int i=flag.pos_leg2 + 1; i<node_count; i++)
+   {
+      FP_Node n = nodes[i];
+
+      if(flag.level == FP_LEVEL_F1)
+      {
+         if(FP_NodeBreaksBoundary(n, flag.direction, flag.waist.price, eps)) return false;
+      }
+      else if(flag.level == FP_LEVEL_F2)
+      {
+         if(FP_NodeBreaksBoundary(n, flag.direction, flag.origin.price, eps)) return false;
+      }
+      else if(flag.level == FP_LEVEL_F3)
+      {
+         return false;
+      }
+
+      if(FP_NodeBreaksFlagEnd(n, flag.direction, flag.leg2.price, eps))
+      {
+         if(count < 2)
+         {
+            extension_pos = i;
+            return true;
+         }
+         return false;
+      }
+
+      if(n.kind != adverse_kind) continue;
+      if(count >= FP_MAX_INTERNAL_NODES) continue;
+      int next_num = count + 1;
+      if(next_num > 1 && !FP_InternalNodeIsMoreAdverseThanPrevious(pack, next_num, n, flag.direction, eps)) continue;
+      if(next_num > 1 && last_adverse_pos >= 0)
+      {
+         FP_Node mid;
+         bool has_mid = FP_FindBestMiddleBetween(nodes, last_adverse_pos, i, flag.direction, eps, mid);
+         if(!has_mid) continue;
+         if(flag.level == FP_LEVEL_F1 && next_num == 2)
+         {
+            if(!FP_F1MiddleNodeAllowed(mid, flag, eps)) continue;
+         }
+      }
+      FP_SetInternalNode(pack, next_num, n);
+      count = next_num;
+      last_adverse_pos = i;
+      if(count >= 2) return false;
+   }
+   return false;
+}
+
+void FP_SetEventLeg2(FP_FlagEvent &event, const FP_Node &new_leg2, const int new_pos)
+{
+   event.leg2 = new_leg2;
+   event.has_leg2 = true;
+   event.pos_leg2 = new_pos;
+   event.flag_size = FP_FlagSize(event.origin, event.leg2);
+   event.reason = event.reason + ";absorbed_pre_internal_leg2_extension_to_node_" + IntegerToString(new_leg2.id);
+}
+
+bool FP_AbsorbPreInternalExtensions(FP_FlagEvent &event,
+                                    const FP_Node &nodes[],
+                                    const int node_count,
+                                    const FP_Config &cfg)
+{
+   if(!cfg.absorb_pre_internal_extensions) return false;
+   if(event.level == FP_LEVEL_F3) return false;
+   if(!event.has_leg2) return false;
+
+   bool changed = false;
+   int guard = 0;
+   while(guard < 64)
+   {
+      guard++;
+      int extension_pos = -1;
+      if(!FP_FindPreInternalExtensionBreak(nodes, node_count, event, cfg, extension_pos)) break;
+      if(extension_pos <= event.pos_leg2 || extension_pos >= node_count) break;
+      FP_SetEventLeg2(event, nodes[extension_pos], extension_pos);
+      changed = true;
+   }
+   return changed;
+}
+
 void FP_CopyInternalPackToEvent(FP_FlagEvent &e, const FP_InternalPack &pack)
 {
    e.internal_pack = pack;

@@ -146,6 +146,27 @@ bool FP_BuildHookFromWindow(const FP_Node &nodes[],
    return h.is_nd;
 }
 
+int FP_FindHookWithSameResolve(const FP_HookBranch &hooks[], const int hook_count, const FP_HookBranch &candidate)
+{
+   for(int i=0; i<hook_count; i++)
+   {
+      if(hooks[i].scale_L != candidate.scale_L) continue;
+      if(hooks[i].direction != candidate.direction) continue;
+      if(hooks[i].resolve_node.id != candidate.resolve_node.id) continue;
+      if(hooks[i].resolve_node.index_anchor != candidate.resolve_node.index_anchor) continue;
+      return i;
+   }
+   return -1;
+}
+
+bool FP_HookCandidateBetterForResolve(const FP_HookBranch &candidate, const FP_HookBranch &existing)
+{
+   // Prefer the richer 4-node branch; if node_count ties, prefer stronger retracement.
+   if(candidate.node_count > existing.node_count) return true;
+   if(candidate.node_count < existing.node_count) return false;
+   return (candidate.retrace_ratio > existing.retrace_ratio);
+}
+
 // Builds hook/ND branches at the current L view.
 // If a denser branch would exceed 4 nodes, the caller should let higher L views
 // also run; the multi-scale engine naturally gives the higher-L compressed view.
@@ -168,9 +189,22 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
             {
                if(!FP_HookIdentityExists(hooks, ArraySize(hooks), h))
                {
-                  FP_AddHook(hooks, h);
-                  next_branch_id++;
-                  if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks) return ArraySize(hooks);
+                  int same_resolve = (cfg.compact_hook_rendering ? FP_FindHookWithSameResolve(hooks, ArraySize(hooks), h) : -1);
+                  if(same_resolve >= 0)
+                  {
+                     if(FP_HookCandidateBetterForResolve(h, hooks[same_resolve]))
+                     {
+                        h.branch_id = hooks[same_resolve].branch_id;
+                        h.reason = h.reason + ";replaced_weaker_same_resolve_hook";
+                        hooks[same_resolve] = h;
+                     }
+                  }
+                  else
+                  {
+                     FP_AddHook(hooks, h);
+                     next_branch_id++;
+                     if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks) return ArraySize(hooks);
+                  }
                }
             }
          }
