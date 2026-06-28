@@ -71,3 +71,8 @@ STC SMT Cycles detects, confirms, and executes SMT divergence between two config
 31. Missed partial and missed hard close must be recovered at the first opportunity.
 32. The EA manages only its own magic-number positions.
 33. Duplicate EA instances for the same strategy and symbol pair must be blocked.
+
+
+## Current engineering level: Level 04
+
+The current code level builds and audits closed 90-minute W levels for both symbols. It still does not produce SMT signals or trades.

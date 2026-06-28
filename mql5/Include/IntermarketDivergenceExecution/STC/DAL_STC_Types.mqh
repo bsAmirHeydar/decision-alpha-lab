@@ -38,6 +38,9 @@ struct STC_Config
    bool write_check_candle_audit;
    int max_check_backfill_on_init;
    int max_check_catchup_per_pulse;
+   bool write_w_level_audit;
+   int max_w_level_backfill_on_init;
+   int max_w_level_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -58,9 +61,13 @@ struct STC_RuntimeState
    string runtime_events_file_common;
    string time_audit_file_common;
    string check_candle_audit_file_common;
+   string w_level_audit_file_common;
    string last_check_audit_stc_day_id;
    int last_check_audit_index;
    long check_candles_audited;
+   string last_w_level_audit_stc_day_id;
+   int last_w_level_audit_serial;
+   long w_levels_audited;
    string lock_name;
 };
 
@@ -114,6 +121,29 @@ struct STC_CheckCandleAudit
    STC_SymbolCheckAggregate symbol1;
    STC_SymbolCheckAggregate symbol2;
    bool pair_data_complete;
+};
+
+struct STC_WLevelAudit
+{
+   string stc_day_id;
+   int w_serial;
+   STC_MCycle m_cycle;
+   STC_WCycle w_cycle;
+   int w_start_elapsed_minutes;
+   int w_end_elapsed_minutes;
+   datetime w_start_ny;
+   datetime w_end_ny;
+   datetime w_start_server;
+   datetime w_end_server;
+   bool w_closed;
+   bool w1_no_signal;
+   bool future_reference_candidate;
+   bool pair_data_complete;
+   string signal_reference_set_for_this_w;
+   string future_reference_role;
+   string status;
+   STC_SymbolCheckAggregate symbol1;
+   STC_SymbolCheckAggregate symbol2;
 };
 
 struct STC_TimeSnapshot
@@ -170,7 +200,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL03";
+   cfg.run_id = "EXEC001_STC_LEVEL04";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -201,6 +231,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_check_candle_audit = true;
    cfg.max_check_backfill_on_init = 12;
    cfg.max_check_catchup_per_pulse = 32;
+   cfg.write_w_level_audit = true;
+   cfg.max_w_level_backfill_on_init = 12;
+   cfg.max_w_level_catchup_per_pulse = 12;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -221,19 +254,23 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.runtime_events_file_common = "";
    state.time_audit_file_common = "";
    state.check_candle_audit_file_common = "";
+   state.w_level_audit_file_common = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
+   state.last_w_level_audit_stc_day_id = "";
+   state.last_w_level_audit_serial = -1;
+   state.w_levels_audited = 0;
    state.lock_name = "";
 }
 
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_03_CHECK_CANDLE_AGGREGATOR";
-   sanity.build_version = "1.20";
-   sanity.build_scope = "level01 skeleton plus level02 time engine plus M1-based check-candle aggregation, pair data completeness, and check-candle audit CSV";
-   sanity.locked_contract = "No W reference levels, no SMT detection, no signals, no paper trades, no orders in level 03";
+   sanity.module_level = "LEVEL_04_W_LEVEL_BUILDER";
+   sanity.build_version = "1.30";
+   sanity.build_scope = "level01 skeleton plus level02 time engine plus level03 check-candle aggregation plus M1-based W high/low construction and W level audit CSV";
+   sanity.locked_contract = "Build closed 90-minute W levels for each symbol independently; no SMT detection, no confirmation, no signals, no paper trades, no orders in level 04";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
@@ -324,6 +361,30 @@ void STC_ResetCheckCandleAudit(STC_CheckCandleAudit &audit)
    STC_ResetSymbolCheckAggregate(audit.symbol1);
    STC_ResetSymbolCheckAggregate(audit.symbol2);
    audit.pair_data_complete = false;
+}
+
+
+void STC_ResetWLevelAudit(STC_WLevelAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.w_serial = -1;
+   audit.m_cycle = STC_M_NONE;
+   audit.w_cycle = STC_W_NONE;
+   audit.w_start_elapsed_minutes = -1;
+   audit.w_end_elapsed_minutes = -1;
+   audit.w_start_ny = 0;
+   audit.w_end_ny = 0;
+   audit.w_start_server = 0;
+   audit.w_end_server = 0;
+   audit.w_closed = false;
+   audit.w1_no_signal = false;
+   audit.future_reference_candidate = false;
+   audit.pair_data_complete = false;
+   audit.signal_reference_set_for_this_w = "NONE";
+   audit.future_reference_role = "not_built";
+   audit.status = "not_built";
+   STC_ResetSymbolCheckAggregate(audit.symbol1);
+   STC_ResetSymbolCheckAggregate(audit.symbol2);
 }
 
 #endif

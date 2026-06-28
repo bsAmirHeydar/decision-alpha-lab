@@ -56,6 +56,10 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "check_candle_audit_file_common", state.check_candle_audit_file_common);
    FileWrite(h, "max_check_backfill_on_init", cfg.max_check_backfill_on_init);
    FileWrite(h, "max_check_catchup_per_pulse", cfg.max_check_catchup_per_pulse);
+   FileWrite(h, "w_level_audit_enabled", STC_BoolText(cfg.write_w_level_audit));
+   FileWrite(h, "w_level_audit_file_common", state.w_level_audit_file_common);
+   FileWrite(h, "max_w_level_backfill_on_init", cfg.max_w_level_backfill_on_init);
+   FileWrite(h, "max_w_level_catchup_per_pulse", cfg.max_w_level_catchup_per_pulse);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);
@@ -173,6 +177,38 @@ bool STC_AppendCheckCandleAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC
       audit.check_index, audit.check_minutes, STC_TimeText(audit.check_start_ny), STC_TimeText(audit.check_end_ny), STC_TimeText(audit.check_start_server), STC_TimeText(audit.check_end_server),
       audit.check_start_elapsed_minutes, audit.check_end_elapsed_minutes, STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.w_cycle),
       STC_BoolText(audit.start_inside_active_m), STC_BoolText(audit.close_inside_m), STC_BoolText(audit.final_check_of_m), STC_BoolText(audit.entry_allowed_at_close), STC_BoolText(audit.detection_allowed_for_signal), STC_BoolText(audit.pair_data_complete), audit.skip_reason,
+      audit.symbol1.symbol, STC_BoolText(audit.symbol1.selected), STC_BoolText(audit.symbol1.complete), audit.symbol1.expected_m1_bars, audit.symbol1.actual_m1_bars, STC_TimeText(audit.symbol1.first_m1_server_time), STC_TimeText(audit.symbol1.last_m1_server_time),
+      DoubleToString(audit.symbol1.open, 8), DoubleToString(audit.symbol1.high, 8), DoubleToString(audit.symbol1.low, 8), DoubleToString(audit.symbol1.close, 8), audit.symbol1.tick_volume, audit.symbol1.real_volume, audit.symbol1.spread_max, audit.symbol1.status,
+      audit.symbol2.symbol, STC_BoolText(audit.symbol2.selected), STC_BoolText(audit.symbol2.complete), audit.symbol2.expected_m1_bars, audit.symbol2.actual_m1_bars, STC_TimeText(audit.symbol2.first_m1_server_time), STC_TimeText(audit.symbol2.last_m1_server_time),
+      DoubleToString(audit.symbol2.open, 8), DoubleToString(audit.symbol2.high, 8), DoubleToString(audit.symbol2.low, 8), DoubleToString(audit.symbol2.close, 8), audit.symbol2.tick_volume, audit.symbol2.real_volume, audit.symbol2.spread_max, audit.symbol2.status);
+   FileClose(h);
+   return true;
+}
+
+
+bool STC_AppendWLevelAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_WLevelAudit &audit)
+{
+   bool exists = FileIsExist(state.w_level_audit_file_common, FILE_COMMON);
+   int h = FileOpen(state.w_level_audit_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append W level audit CSV ", state.w_level_audit_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "w_serial", "m_cycle", "w_cycle", "w_start_ny", "w_end_ny", "w_start_server", "w_end_server", "w_start_elapsed", "w_end_elapsed",
+         "w_closed", "w1_no_signal", "future_reference_candidate", "pair_data_complete", "signal_reference_set_for_this_w", "future_reference_role", "status",
+         "s1_symbol", "s1_selected", "s1_complete", "s1_expected_m1", "s1_actual_m1", "s1_first_m1_server", "s1_last_m1_server", "s1_open", "s1_high", "s1_low", "s1_close", "s1_tick_volume", "s1_real_volume", "s1_spread_max", "s1_status",
+         "s2_symbol", "s2_selected", "s2_complete", "s2_expected_m1", "s2_actual_m1", "s2_first_m1_server", "s2_last_m1_server", "s2_open", "s2_high", "s2_low", "s2_close", "s2_tick_volume", "s2_real_volume", "s2_spread_max", "s2_status");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.w_serial, STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.w_cycle), STC_TimeText(audit.w_start_ny), STC_TimeText(audit.w_end_ny), STC_TimeText(audit.w_start_server), STC_TimeText(audit.w_end_server), audit.w_start_elapsed_minutes, audit.w_end_elapsed_minutes,
+      STC_BoolText(audit.w_closed), STC_BoolText(audit.w1_no_signal), STC_BoolText(audit.future_reference_candidate), STC_BoolText(audit.pair_data_complete), audit.signal_reference_set_for_this_w, audit.future_reference_role, audit.status,
       audit.symbol1.symbol, STC_BoolText(audit.symbol1.selected), STC_BoolText(audit.symbol1.complete), audit.symbol1.expected_m1_bars, audit.symbol1.actual_m1_bars, STC_TimeText(audit.symbol1.first_m1_server_time), STC_TimeText(audit.symbol1.last_m1_server_time),
       DoubleToString(audit.symbol1.open, 8), DoubleToString(audit.symbol1.high, 8), DoubleToString(audit.symbol1.low, 8), DoubleToString(audit.symbol1.close, 8), audit.symbol1.tick_volume, audit.symbol1.real_volume, audit.symbol1.spread_max, audit.symbol1.status,
       audit.symbol2.symbol, STC_BoolText(audit.symbol2.selected), STC_BoolText(audit.symbol2.complete), audit.symbol2.expected_m1_bars, audit.symbol2.actual_m1_bars, STC_TimeText(audit.symbol2.first_m1_server_time), STC_TimeText(audit.symbol2.last_m1_server_time),

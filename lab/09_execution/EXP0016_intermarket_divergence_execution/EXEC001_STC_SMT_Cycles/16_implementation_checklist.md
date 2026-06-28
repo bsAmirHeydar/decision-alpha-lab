@@ -161,3 +161,8 @@ Level 02 implements the STC Time Engine: server-to-UTC-to-New-York conversion, a
 ## Level 03 implementation note
 
 Level 03 implements the check-candle aggregation layer. It builds closed check candles from M1 data for Symbol1 and Symbol2, aligned from 20:00 New York. It audits pair completeness and writes `stc_level03_check_candles.csv`. It still does not build W reference levels, detect SMT, create signals, simulate trades, draw objects, or send orders.
+
+
+## Level 04 implementation note
+
+Level 04 now implements the closed W-level audit layer. It creates a deterministic 90-minute W high/low record for each symbol independently and writes `stc_level04_w_levels.csv`. SMT detection remains deferred to the next implementation level.

@@ -29,7 +29,10 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*timeAuditSeconds=" + IntegerToString(cfg.time_audit_seconds)
       + "*checkCandleAudit=" + STC_BoolText(cfg.write_check_candle_audit)
       + "*maxCheckBackfillOnInit=" + IntegerToString(cfg.max_check_backfill_on_init)
-      + "*maxCheckCatchupPerPulse=" + IntegerToString(cfg.max_check_catchup_per_pulse);
+      + "*maxCheckCatchupPerPulse=" + IntegerToString(cfg.max_check_catchup_per_pulse)
+      + "*wLevelAudit=" + STC_BoolText(cfg.write_w_level_audit)
+      + "*maxWLevelBackfillOnInit=" + IntegerToString(cfg.max_w_level_backfill_on_init)
+      + "*maxWLevelCatchupPerPulse=" + IntegerToString(cfg.max_w_level_catchup_per_pulse);
 }
 
 string STC_LockedRulesOneLine()
@@ -63,14 +66,14 @@ string STC_LockedRulesOneLine()
       + "*pairCompleteness=both_symbols_required"
       + "*gapCheckCandles=no_data_extraction"
       + "*finalCheck=audited_but_no_entry"
-      + "*autoTrade=disabled_in_level03";
+      + "*wLevels=closed_90m_levels_from_symbol_M1_per_symbol*W1_level_built_but_no_signal*W2_refs=W1*W3_refs=W2_W1*W4_refs=W3_W2_W1*autoTrade=disabled_in_level04";
 }
 
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL03_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL03_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL04_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL04_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif
