@@ -1,16 +1,18 @@
 #property strict
-#property version   "1.00"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 01 skeleton"
-#property description "Level 01 creates the modular execution shell only: inputs, validation, journal, timer, lock. No signals. No orders."
+#property version   "1.10"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 02 time engine"
+#property description "Level 02 adds broker/UTC/New-York time conversion, DST, STC day, M/W cycles, gaps, check-candle anchoring. No signals. No orders."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 01 Runtime"
+input group "DAL / STC Level 02 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL01";
+input string InpRunId = "EXEC001_STC_LEVEL02";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
+input bool InpWriteTimeAudit = true;
+input int InpTimeAuditSeconds = 60;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -74,6 +76,8 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.use_broker_costs_for_reporting = InpUseBrokerCostsForReporting;
    cfg.fallback_spread_points = InpFallbackSpreadPoints;
    cfg.fallback_commission_per_lot = InpFallbackCommissionPerLot;
+   cfg.write_time_audit = InpWriteTimeAudit;
+   cfg.time_audit_seconds = InpTimeAuditSeconds;
 }
 
 int OnInit()
@@ -98,8 +102,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 01 is intentionally timer-driven and does not inspect ticks.
-   // Later levels will add STC day/cycle logic, check-candle aggregation, SMT, paper execution, and auto-trading.
+   // Level 02 remains timer-driven and does not inspect ticks for signal decisions.
+   // Later levels will add W level construction, check-candle aggregation, SMT, paper execution, drawing, and auto-trading.
 }
 
 void OnDeinit(const int reason)

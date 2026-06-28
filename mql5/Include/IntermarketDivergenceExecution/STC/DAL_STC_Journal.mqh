@@ -45,10 +45,13 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "drawing_enabled", STC_BoolText(cfg.enable_drawing));
    FileWrite(h, "heartbeat_enabled", STC_BoolText(cfg.write_heartbeat));
    FileWrite(h, "heartbeat_seconds", cfg.heartbeat_seconds);
+   FileWrite(h, "time_audit_enabled", STC_BoolText(cfg.write_time_audit));
+   FileWrite(h, "time_audit_seconds", cfg.time_audit_seconds);
    FileWrite(h, "hard_close_retry_seconds", cfg.hard_close_retry_seconds);
    FileWrite(h, "use_broker_costs_for_reporting", STC_BoolText(cfg.use_broker_costs_for_reporting));
    FileWrite(h, "fallback_spread_points", DoubleToString(cfg.fallback_spread_points, 6));
    FileWrite(h, "fallback_commission_per_lot", DoubleToString(cfg.fallback_commission_per_lot, 6));
+   FileWrite(h, "time_audit_file_common", state.time_audit_file_common);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);
@@ -80,6 +83,63 @@ bool STC_AppendRuntimeEventCsv(STC_Config &cfg, STC_RuntimeState &state, const s
              state.pulse_count,
              event_type,
              details);
+   FileClose(h);
+   return true;
+}
+
+bool STC_AppendTimeAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapshot &snap)
+{
+   bool exists = FileIsExist(state.time_audit_file_common, FILE_COMMON);
+   int h = FileOpen(state.time_audit_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append time audit CSV ", state.time_audit_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_time", "utc_time", "ny_time", "ny_dst", "broker_utc_offset_seconds", "ny_utc_offset_seconds",
+         "stc_day_id", "stc_day_start_ny", "stc_day_end_ny", "elapsed_minutes_from_2000",
+         "phase", "phase_reason", "inside_stc_day", "detection_allowed", "entry_allowed_now", "hard_close_due",
+         "m_cycle", "w_cycle", "m_start_ny", "m_end_ny", "w_start_ny", "w_end_ny",
+         "check_minutes", "check_index", "check_start_ny", "check_end_ny", "check_start_elapsed", "check_end_elapsed",
+         "check_inside_active_m", "check_close_inside_m", "final_check_of_m", "check_entry_allowed_at_close");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(snap.server_time),
+      STC_TimeText(snap.utc_time),
+      STC_TimeText(snap.ny_time),
+      STC_BoolText(snap.ny_dst),
+      snap.broker_utc_offset_seconds,
+      snap.ny_utc_offset_seconds,
+      snap.stc_day_id,
+      STC_TimeText(snap.stc_day_start_ny),
+      STC_TimeText(snap.stc_day_end_ny),
+      snap.elapsed_minutes_from_2000,
+      STC_TimePhaseText(snap.phase),
+      snap.phase_reason,
+      STC_BoolText(snap.inside_stc_day),
+      STC_BoolText(snap.detection_allowed),
+      STC_BoolText(snap.entry_allowed_now),
+      STC_BoolText(snap.hard_close_due),
+      STC_MCycleText(snap.m_cycle),
+      STC_WCycleText(snap.w_cycle),
+      STC_TimeText(snap.m_start_ny),
+      STC_TimeText(snap.m_end_ny),
+      STC_TimeText(snap.w_start_ny),
+      STC_TimeText(snap.w_end_ny),
+      snap.check_minutes,
+      snap.check_index,
+      STC_TimeText(snap.check_start_ny),
+      STC_TimeText(snap.check_end_ny),
+      snap.check_start_elapsed_minutes,
+      snap.check_end_elapsed_minutes,
+      STC_BoolText(snap.check_inside_active_m),
+      STC_BoolText(snap.check_close_inside_m),
+      STC_BoolText(snap.final_check_of_m),
+      STC_BoolText(snap.check_entry_allowed_at_close));
    FileClose(h);
    return true;
 }

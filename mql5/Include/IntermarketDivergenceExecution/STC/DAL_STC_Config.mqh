@@ -2,8 +2,7 @@
 #define __DAL_STC_CONFIG_MQH__
 #property strict
 
-#include <IntermarketDivergenceExecution/STC/DAL_STC_Types.mqh>
-#include <IntermarketDivergenceExecution/STC/DAL_STC_Utils.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_Time.mqh>
 
 string STC_ConfigOneLine(STC_Config &cfg)
 {
@@ -25,7 +24,9 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*outputRootCommon=" + cfg.output_root_common
       + "*instanceLock=" + STC_BoolText(cfg.use_instance_lock)
       + "*drawing=" + STC_BoolText(cfg.enable_drawing)
-      + "*costsForReporting=" + STC_BoolText(cfg.use_broker_costs_for_reporting);
+      + "*costsForReporting=" + STC_BoolText(cfg.use_broker_costs_for_reporting)
+      + "*timeAudit=" + STC_BoolText(cfg.write_time_audit)
+      + "*timeAuditSeconds=" + IntegerToString(cfg.time_audit_seconds);
 }
 
 string STC_LockedRulesOneLine()
@@ -33,11 +34,14 @@ string STC_LockedRulesOneLine()
    return "touchEquality=true"
       + "*huntTolerance=none"
       + "*dayTimezone=America/New_York"
+      + "*nyDst=automatic_US_rules"
       + "*tradingDay=20:00_to_15:30_NY"
       + "*M1=20:00_02:00"
       + "*M2=03:00_09:00"
       + "*M3=09:30_15:30"
-      + "*gaps=no_entry_no_detection"
+      + "*gaps=no_entry_no_detection_but_positions_managed"
+      + "*checkCandles=anchored_from_20:00_NY"
+      + "*lastCheckOfM=no_entry"
       + "*W1=no_signal"
       + "*W2refs=W1"
       + "*W3refs=W2_W1"
@@ -46,20 +50,19 @@ string STC_LockedRulesOneLine()
       + "*highSMT=sell_clean_symbol"
       + "*lowSMT=buy_clean_symbol"
       + "*entryBacktest=next_check_open"
-      + "*lastCheckOfM=no_entry"
       + "*referenceSelector=largest_stop_on_clean_symbol"
       + "*simultaneousBuySell=forget_no_trade"
       + "*entryOff=audit_only_no_late_entry"
       + "*orderFail=signal_consumed_counter_unchanged"
       + "*maxTrades=3_per_M_across_pair"
-      + "*hardClose=15:30_NY_magic_only"
-      + "*autoTrade=disabled_in_level01";
+      + "*hardClose=15:30_NY_magic_only_retry"
+      + "*autoTrade=disabled_in_level02";
 }
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL01_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL01_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL02_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL02_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif

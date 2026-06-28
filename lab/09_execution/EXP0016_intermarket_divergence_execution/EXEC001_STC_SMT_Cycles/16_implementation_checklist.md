@@ -152,3 +152,8 @@ Before live trading:
 - Restart tests pass.
 - Duplicate instance tests pass.
 - Hard close tests pass.
+
+
+## Level 02 implementation note
+
+Level 02 implements the STC Time Engine: server-to-UTC-to-New-York conversion, automatic New York DST, STC trading-day id, M/W cycle classification, no-entry gaps, hard-close zone flags, check-candle anchoring from 20:00 New York, and final-check-candle no-entry flags. It remains a no-signal and no-order level.

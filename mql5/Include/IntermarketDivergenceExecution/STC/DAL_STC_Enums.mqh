@@ -42,6 +42,31 @@ enum STC_InitStatus
    STC_INIT_INSTANCE_LOCK_ERROR = 4
 };
 
+enum STC_MCycle
+{
+   STC_M_NONE = 0,
+   STC_M1     = 1,
+   STC_M2     = 2,
+   STC_M3     = 3
+};
+
+enum STC_WCycle
+{
+   STC_W_NONE = 0,
+   STC_W1     = 1,
+   STC_W2     = 2,
+   STC_W3     = 3,
+   STC_W4     = 4
+};
+
+enum STC_TimePhase
+{
+   STC_PHASE_PRE_DAY_OR_POST_CLOSE = 0,
+   STC_PHASE_ACTIVE_M              = 1,
+   STC_PHASE_M_GAP                 = 2,
+   STC_PHASE_HARD_CLOSE_ZONE       = 3
+};
+
 string STC_RuntimeModeText(const STC_RuntimeMode mode)
 {
    if(mode == STC_MODE_RESEARCH_BACKTEST) return "RESEARCH_BACKTEST";
@@ -73,6 +98,31 @@ string STC_SideText(const STC_Side side)
    if(side == STC_SIDE_HIGH) return "HIGH";
    if(side == STC_SIDE_LOW)  return "LOW";
    return "NONE";
+}
+
+string STC_MCycleText(const STC_MCycle cycle)
+{
+   if(cycle == STC_M1) return "M1";
+   if(cycle == STC_M2) return "M2";
+   if(cycle == STC_M3) return "M3";
+   return "NONE";
+}
+
+string STC_WCycleText(const STC_WCycle cycle)
+{
+   if(cycle == STC_W1) return "W1";
+   if(cycle == STC_W2) return "W2";
+   if(cycle == STC_W3) return "W3";
+   if(cycle == STC_W4) return "W4";
+   return "NONE";
+}
+
+string STC_TimePhaseText(const STC_TimePhase phase)
+{
+   if(phase == STC_PHASE_ACTIVE_M) return "ACTIVE_M";
+   if(phase == STC_PHASE_M_GAP) return "M_GAP_NO_ENTRY_NO_DETECTION";
+   if(phase == STC_PHASE_HARD_CLOSE_ZONE) return "HARD_CLOSE_ZONE";
+   return "PRE_DAY_OR_POST_CLOSE";
 }
 
 #endif
