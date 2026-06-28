@@ -1,9 +1,10 @@
 #property strict
-#property version   "2.16"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 21 drawing audit hardening"
-#property description "Level 21 hardens visual audit drawing, fixes the hard-close spread cast warning, and keeps all strategy and transport logic unchanged."
+#property version   "2.17"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 22 offline license gate"
+#property description "Level 22 adds a fail-closed offline license layer and keeps all strategy, signal, risk, and transport logic unchanged."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
 
 input group "DAL / STC Level 21 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
@@ -56,6 +57,15 @@ input bool InpEntrySTC = true;
 input bool InpPartial = true;
 input bool InpHedging = false;
 input bool InpEnableDrawing = true;
+
+input group "STC Cycle Model Runtime Profile"
+input string InpCycleModelProfile = "";
+input string InpCycleOperatorMemo = "";
+input long InpCycleReferenceSeed = 0;
+input long InpCycleDivergenceSeed = 0;
+input long InpCycleExecutionSeed = 0;
+input long InpCycleReleaseSeed = 0;
+input int InpCycleCacheDepthMinutes = 15;
 
 input group "STC Level 13 Drawing"
 input bool InpWriteDrawingAudit = true;
@@ -151,6 +161,73 @@ input int InpInstanceLockStaleSeconds = 120;
 input int InpHardCloseRetrySeconds = 5;
 
 CSTC_Engine g_stc_engine;
+
+STC_OfflineLicenseConfig g_stc_license_cfg;
+STC_OfflineLicenseReport g_stc_license_report;
+bool g_stc_license_ok = false;
+datetime g_stc_license_next_check = 0;
+
+void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
+{
+   STC_DefaultOfflineLicenseConfig(cfg);
+   cfg.enabled = true;
+   cfg.fail_closed = true;
+   cfg.bind_account = true;
+   cfg.bind_server = true;
+   cfg.require_password = true;
+   cfg.require_hidden_gates = true;
+   cfg.require_expiry = true;
+   cfg.product_id = STC_LICENSE_PRODUCT_ID;
+   cfg.build_id = "exec001_stc_level22";
+   cfg.token = InpCycleModelProfile;
+   cfg.passphrase = InpCycleOperatorMemo;
+   cfg.gate_a = InpCycleReferenceSeed;
+   cfg.gate_b = InpCycleDivergenceSeed;
+   cfg.gate_c = InpCycleExecutionSeed;
+   cfg.gate_d = InpCycleReleaseSeed;
+   cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
+   if(cfg.check_interval_seconds < 60)
+      cfg.check_interval_seconds = 60;
+   cfg.print_sanity = true;
+   cfg.print_samples = false;
+}
+
+bool STC_EnsureOfflineLicense(const bool force_check=false)
+{
+   datetime now = TimeCurrent();
+   if(now <= 0)
+      now = TimeTradeServer();
+   if(!force_check && g_stc_license_ok && g_stc_license_next_check > 0 && now > 0 && now < g_stc_license_next_check)
+      return true;
+
+   STC_LoadOfflineLicenseConfig(g_stc_license_cfg);
+   g_stc_license_ok = STC_CheckOfflineLicenseWithReport(g_stc_license_cfg, g_stc_license_report);
+   if(g_stc_license_cfg.print_sanity || !g_stc_license_ok)
+      STC_PrintOfflineLicenseReport("STC_LICENSE", g_stc_license_report);
+   if(g_stc_license_cfg.print_samples && g_stc_license_ok)
+      STC_PrintOfflineLicenseSamples("STC_LICENSE", g_stc_license_report);
+
+   datetime checked = g_stc_license_report.checked_at;
+   if(checked <= 0)
+      checked = now;
+   if(checked > 0)
+   {
+      int recheck_sec = g_stc_license_cfg.check_interval_seconds;
+      if(recheck_sec < 60)
+         recheck_sec = 60;
+      g_stc_license_next_check = checked + recheck_sec;
+   }
+   else
+   {
+      g_stc_license_next_check = 0;
+   }
+
+   if(!g_stc_license_ok)
+      Comment("STC SMT Cycles runtime inactive. Contact issuer.");
+   else
+      Comment("");
+   return g_stc_license_ok;
+}
 
 void STC_LoadInputsIntoConfig(STC_Config &cfg)
 {
@@ -277,6 +354,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
 
 int OnInit()
 {
+   if(!STC_EnsureOfflineLicense(true))
+      return INIT_FAILED;
+
    STC_Config cfg;
    STC_LoadInputsIntoConfig(cfg);
    g_stc_engine.Configure(cfg);
@@ -292,12 +372,14 @@ int OnInit()
 
 void OnTimer()
 {
+   if(!STC_EnsureOfflineLicense(false))
+      return;
    g_stc_engine.Pulse(TimeCurrent());
 }
 
 void OnTick()
 {
-   // Level 21 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
+   // Level 22 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)

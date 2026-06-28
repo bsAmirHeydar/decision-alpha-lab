@@ -1,11 +1,12 @@
 #property strict
-#property version   "1.01"
-#property description "EXP0015 legacy SPX/NDX time-divergence wrapper. Use IMD001_CandleSessionDivergence for the canonical CME/live-ready engine."
+#property version   "1.02"
+#property description "EXP0015 legacy SPX/NDX time-divergence wrapper with offline license gate. Use IMD001_CandleSessionDivergence for the canonical CME/live-ready engine."
 
 #include <IntermarketDivergence/DAL_IMDTypes.mqh>
 #include <IntermarketDivergence/DAL_IMDSeries.mqh>
 #include <IntermarketDivergence/DAL_IMDEngine.mqh>
 #include <IntermarketDivergence/DAL_IMDJournal.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
 
 input string              InpSymbolA                         = "US500";
 input string              InpSymbolB                         = "NAS100";
@@ -45,11 +46,88 @@ input string              InpOutputSummaryCommon             = "imd\\EXP0015\\im
 input bool                InpRunOnceOnInit                   = true;
 input bool                InpRemoveAfterBatch                = true;
 
+input group "STC Cycle Model Runtime Profile"
+input string InpCycleModelProfile = "";
+input string InpCycleOperatorMemo = "";
+input long InpCycleReferenceSeed = 0;
+input long InpCycleDivergenceSeed = 0;
+input long InpCycleExecutionSeed = 0;
+input long InpCycleReleaseSeed = 0;
+input int InpCycleCacheDepthMinutes = 15;
+
 IMD_Bar g_imd001_a_raw[];
 IMD_Bar g_imd001_b_raw[];
 IMD_Bar g_imd001_a[];
 IMD_Bar g_imd001_b[];
 IMD_Event g_imd001_events[];
+
+
+STC_OfflineLicenseConfig g_stc_license_cfg;
+STC_OfflineLicenseReport g_stc_license_report;
+bool g_stc_license_ok = false;
+datetime g_stc_license_next_check = 0;
+
+void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
+{
+   STC_DefaultOfflineLicenseConfig(cfg);
+   cfg.enabled = true;
+   cfg.fail_closed = true;
+   cfg.bind_account = true;
+   cfg.bind_server = true;
+   cfg.require_password = true;
+   cfg.require_hidden_gates = true;
+   cfg.require_expiry = true;
+   cfg.product_id = STC_LICENSE_PRODUCT_ID;
+   cfg.build_id = "exp0015_imd_research_licensed";
+   cfg.token = InpCycleModelProfile;
+   cfg.passphrase = InpCycleOperatorMemo;
+   cfg.gate_a = InpCycleReferenceSeed;
+   cfg.gate_b = InpCycleDivergenceSeed;
+   cfg.gate_c = InpCycleExecutionSeed;
+   cfg.gate_d = InpCycleReleaseSeed;
+   cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
+   if(cfg.check_interval_seconds < 60)
+      cfg.check_interval_seconds = 60;
+   cfg.print_sanity = true;
+   cfg.print_samples = false;
+}
+
+bool STC_EnsureOfflineLicense(const bool force_check=false)
+{
+   datetime now = TimeCurrent();
+   if(now <= 0)
+      now = TimeTradeServer();
+   if(!force_check && g_stc_license_ok && g_stc_license_next_check > 0 && now > 0 && now < g_stc_license_next_check)
+      return true;
+
+   STC_LoadOfflineLicenseConfig(g_stc_license_cfg);
+   g_stc_license_ok = STC_CheckOfflineLicenseWithReport(g_stc_license_cfg, g_stc_license_report);
+   if(g_stc_license_cfg.print_sanity || !g_stc_license_ok)
+      STC_PrintOfflineLicenseReport("STC_LICENSE", g_stc_license_report);
+   if(g_stc_license_cfg.print_samples && g_stc_license_ok)
+      STC_PrintOfflineLicenseSamples("STC_LICENSE", g_stc_license_report);
+
+   datetime checked = g_stc_license_report.checked_at;
+   if(checked <= 0)
+      checked = now;
+   if(checked > 0)
+   {
+      int recheck_sec = g_stc_license_cfg.check_interval_seconds;
+      if(recheck_sec < 60)
+         recheck_sec = 60;
+      g_stc_license_next_check = checked + recheck_sec;
+   }
+   else
+   {
+      g_stc_license_next_check = 0;
+   }
+
+   if(!g_stc_license_ok)
+      Comment("Intermarket Divergence runtime inactive. Contact issuer.");
+   else
+      Comment("");
+   return g_stc_license_ok;
+}
 
 int IMD001_SessionMinute(const int h, const int m)
 {
@@ -167,6 +245,9 @@ bool IMD001_RunBatch()
 
 int OnInit()
 {
+   if(!STC_EnsureOfflineLicense(true))
+      return INIT_FAILED;
+
    if(InpRunOnceOnInit)
    {
       IMD001_RunBatch();
