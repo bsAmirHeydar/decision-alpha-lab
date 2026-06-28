@@ -1534,8 +1534,8 @@ void STC_ResetBuildSanity(STC_BuildSanity &sanity)
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
    sanity.module_level = "LEVEL_19_VALIDATION_PACK";
    sanity.build_version = "2.14";
-   sanity.build_scope = "level01 skeleton through level19 validation pack";
-   sanity.locked_contract = "Add audit-only self-test validation reports for time cycles, reference matrix, hunt semantics, safety gates, output paths, and runtime integrity before trusting live execution";
+   sanity.build_scope = "level01 skeleton through level21 drawing audit hardening";
+   sanity.locked_contract = "Add hardened audit-only chart visualization for time zones, check candles, W levels, raw hunts, SMT plans, SL/TP, partial and outcome markers while preserving all trading logic";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

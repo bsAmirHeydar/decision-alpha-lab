@@ -73,7 +73,7 @@ void STC_FinalizeHardClosePnL(STC_Config &cfg, STC_HardCloseAudit &audit)
    else
       money_per_price_unit = cfg.contract_size;
 
-   double spread_points = SymbolInfoInteger(audit.trade_symbol, SYMBOL_SPREAD);
+   double spread_points = (double)SymbolInfoInteger(audit.trade_symbol, SYMBOL_SPREAD);
    double spread_cost = 0.0;
    if(point > 0.0 && money_per_price_unit > 0.0)
       spread_cost = spread_points * point * audit.hard_close_volume * money_per_price_unit;

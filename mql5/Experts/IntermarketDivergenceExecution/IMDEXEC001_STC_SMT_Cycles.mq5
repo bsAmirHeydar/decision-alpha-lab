@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.14"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 19 validation pack"
-#property description "Level 19 adds an audit-only validation pack and self-test reports while keeping all real transports gated."
+#property version   "2.16"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 21 drawing audit hardening"
+#property description "Level 21 hardens visual audit drawing, fixes the hard-close spread cast warning, and keeps all strategy and transport logic unchanged."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 19 Runtime"
+input group "DAL / STC Level 21 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL19";
+input string InpRunId = "EXEC001_STC_LEVEL21";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -124,7 +124,7 @@ input bool InpRealHardCloseFinalizerRequiresBrokerManager = true;
 input bool InpRealHardCloseAlertUnclosedPositions = true;
 
 
-input group "STC Level 19 Validation Pack"
+input group "STC Level 21 Validation Pack"
 input bool InpEnableValidationPack = true;
 input bool InpWriteValidationReports = true;
 input bool InpValidationRunOnInit = true;
@@ -297,7 +297,7 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 19 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
+   // Level 21 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)

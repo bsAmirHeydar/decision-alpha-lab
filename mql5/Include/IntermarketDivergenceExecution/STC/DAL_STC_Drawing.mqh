@@ -112,7 +112,7 @@ void STC_DrawVLine(STC_Config &cfg, const string id, const datetime t, const col
 
 void STC_DrawText(STC_Config &cfg, const string id, const datetime t, const double price, const string text, const color clr, const int font_size)
 {
-   if(t <= 0 || price <= 0.0) return;
+   if(t <= 0 || price <= 0.0 || text == "") return;
    string name = STC_DrawName(cfg, id);
    if(ObjectFind(0, name) < 0)
       ObjectCreate(0, name, OBJ_TEXT, 0, t, price);
@@ -157,6 +157,53 @@ color STC_DrawSignalColor(const STC_Direction dir)
    return clrSilver;
 }
 
+bool STC_DrawActiveCheckPrices(STC_Config &cfg,
+                               STC_CheckCandleAudit &check,
+                               double &open_price,
+                               double &high_price,
+                               double &low_price,
+                               double &close_price)
+{
+   if(!STC_DrawingActiveSymbolSupported(cfg)) return false;
+   if(_Symbol == cfg.symbol1)
+   {
+      open_price = check.symbol1.open;
+      high_price = check.symbol1.high;
+      low_price = check.symbol1.low;
+      close_price = check.symbol1.close;
+      return (high_price > 0.0 && low_price > 0.0);
+   }
+   if(_Symbol == cfg.symbol2)
+   {
+      open_price = check.symbol2.open;
+      high_price = check.symbol2.high;
+      low_price = check.symbol2.low;
+      close_price = check.symbol2.close;
+      return (high_price > 0.0 && low_price > 0.0);
+   }
+   return false;
+}
+
+void STC_DrawNoEntryZone(STC_Config &cfg,
+                         STC_TimeSnapshot &snap,
+                         const string id,
+                         const int start_elapsed_minutes,
+                         const int end_elapsed_minutes,
+                         const string label,
+                         const color clr,
+                         const double top,
+                         const double bottom,
+                         int &created)
+{
+   datetime st_ny = (datetime)((long)snap.stc_day_start_ny + start_elapsed_minutes * 60);
+   datetime en_ny = (datetime)((long)snap.stc_day_start_ny + end_elapsed_minutes * 60);
+   datetime st = STC_NewYorkToServerUsingSnapshot(cfg, snap, st_ny);
+   datetime en = STC_NewYorkToServerUsingSnapshot(cfg, snap, en_ny);
+   STC_DrawRect(cfg, id, st, top, en, bottom, clr, true, true);
+   STC_DrawText(cfg, id + "_TXT", st, bottom, label, clrGray, 7);
+   created += 2;
+}
+
 void STC_DrawZones(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
 {
    if(snap.stc_day_start_ny <= 0) return;
@@ -176,9 +223,13 @@ void STC_DrawZones(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
       datetime st = STC_NewYorkToServerUsingSnapshot(cfg, snap, st_ny);
       datetime en = STC_NewYorkToServerUsingSnapshot(cfg, snap, en_ny);
       STC_DrawRect(cfg, "ZONE_" + STC_MCycleText(m), st, top, en, bottom, STC_DrawMColor(m), true, true);
-      STC_DrawText(cfg, "TXT_" + STC_MCycleText(m), st, top, STC_MCycleText(m), clrDimGray, 8);
+      STC_DrawText(cfg, "TXT_" + STC_MCycleText(m), st, top, STC_MCycleText(m) + " ACTIVE", clrDimGray, 8);
       created += 2;
    }
+
+   STC_DrawNoEntryZone(cfg, snap, "GAP_0200_0300", 360, 420, "GAP no detect/entry", clrWhiteSmoke, top, bottom, created);
+   STC_DrawNoEntryZone(cfg, snap, "GAP_0900_0930", 780, 810, "GAP no detect/entry", clrWhiteSmoke, top, bottom, created);
+   STC_DrawNoEntryZone(cfg, snap, "POST_1530_2000", 1170, 1440, "POST 15:30 manage/closed", clrWhiteSmoke, top, bottom, created);
 
    for(int serial = 0; serial < 12; serial++)
    {
@@ -192,15 +243,17 @@ void STC_DrawZones(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
       datetime st = STC_NewYorkToServerUsingSnapshot(cfg, snap, st_ny);
       datetime en = STC_NewYorkToServerUsingSnapshot(cfg, snap, en_ny);
       STC_DrawVLine(cfg, "W_START_" + IntegerToString(serial), st, clrSilver, STYLE_DOT);
-      STC_DrawText(cfg, "W_TXT_" + IntegerToString(serial), st, bottom, STC_MCycleText(m) + "/" + STC_WCycleText(w), clrGray, 7);
+      string wtxt = STC_MCycleText(m) + "/" + STC_WCycleText(w);
+      if(w == STC_W1) wtxt = wtxt + " no-signal";
+      STC_DrawText(cfg, "W_TXT_" + IntegerToString(serial), st, bottom, wtxt, clrGray, 7);
       if(serial == 11) STC_DrawVLine(cfg, "W_END_LAST", en, clrSilver, STYLE_DOT);
       created += 2;
    }
 
-   datetime hard_ny = (datetime)((long)snap.stc_day_start_ny + 1170 * 60);
+   datetime hard_ny = (datetime)((long)snap.stc_day_start_ny + STC_DAY_ACTIVE_MINUTES * 60);
    datetime hard_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, hard_ny);
    STC_DrawVLine(cfg, "HARD_CLOSE_1530", hard_server, clrRed, STYLE_DASH);
-   STC_DrawText(cfg, "HARD_CLOSE_1530_TXT", hard_server, top, "15:30 HARD CLOSE", clrRed, 8);
+   STC_DrawText(cfg, "HARD_CLOSE_1530_TXT", hard_server, top, "15:30 NY HARD CLOSE", clrRed, 8);
    created += 2;
 }
 
@@ -211,9 +264,56 @@ void STC_DrawCurrentCheck(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
    STC_ChartPriceRange(pmin, pmax);
    datetime check_start_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, snap.check_start_ny);
    datetime check_end_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, snap.check_end_ny);
-   STC_DrawRect(cfg, "CURRENT_CHECK", check_start_server, pmax, check_end_server, pmin, clrGold, false, false);
-   STC_DrawText(cfg, "CURRENT_CHECK_TXT", check_start_server, pmax, "CHK " + IntegerToString(snap.check_index) + " " + STC_MCycleText(snap.m_cycle) + "/" + STC_WCycleText(snap.w_cycle), clrGold, 8);
+   color c = snap.check_entry_allowed_at_close ? clrGold : clrTomato;
+   STC_DrawRect(cfg, "CURRENT_CHECK", check_start_server, pmax, check_end_server, pmin, c, false, false);
+   string txt = "CHK " + IntegerToString(snap.check_index) + " " + STC_MCycleText(snap.m_cycle) + "/" + STC_WCycleText(snap.w_cycle);
+   if(snap.final_check_of_m) txt = txt + " FINAL-NO-ENTRY";
+   if(snap.phase == STC_PHASE_M_GAP) txt = txt + " GAP";
+   if(snap.hard_close_due) txt = txt + " HARD-CLOSE-DUE";
+   STC_DrawText(cfg, "CURRENT_CHECK_TXT", check_start_server, pmax, txt, c, 8);
    created += 2;
+}
+
+void STC_DrawCheckHistory(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
+{
+   if(!STC_DrawingActiveSymbolSupported(cfg)) return;
+   int closed_index = STC_LastClosedCheckIndex(snap);
+   if(closed_index < 0) return;
+   int lookback = cfg.drawing_history_checks;
+   if(lookback < 1) lookback = 1;
+   if(lookback > 120) lookback = 120;
+   int start_index = closed_index - lookback + 1;
+   if(start_index < 0) start_index = 0;
+
+   for(int idx = start_index; idx <= closed_index; idx++)
+   {
+      STC_CheckCandleAudit check;
+      STC_BuildCheckCandleAudit(cfg, snap, idx, check);
+      if(!check.start_inside_active_m || !check.pair_data_complete) continue;
+      double o, h, l, cprice;
+      if(!STC_DrawActiveCheckPrices(cfg, check, o, h, l, cprice)) continue;
+      color c = clrSilver;
+      if(check.final_check_of_m) c = clrTomato;
+      else if(check.w_cycle == STC_W1) c = clrGray;
+      else if(check.detection_allowed_for_signal) c = clrDimGray;
+      string id = "CHKBOX_" + IntegerToString(idx) + "_" + _Symbol;
+      STC_DrawRect(cfg, id, check.check_start_server, h, check.check_end_server, l, c, false, false);
+      created++;
+
+      int w_start_elapsed = STC_WLevel_StartElapsed(check.m_cycle, check.w_cycle);
+      if(check.check_start_elapsed_minutes == w_start_elapsed)
+      {
+         string note = STC_MCycleText(check.m_cycle) + "/" + STC_WCycleText(check.w_cycle);
+         if(check.w_cycle == STC_W1) note = note + " W1 no signal";
+         STC_DrawText(cfg, id + "_WTXT", check.check_start_server, h, note, c, 7);
+         created++;
+      }
+      if(check.final_check_of_m)
+      {
+         STC_DrawText(cfg, id + "_FINAL", check.check_end_server, h, "FINAL no entry", clrTomato, 7);
+         created++;
+      }
+   }
 }
 
 void STC_DrawWLevelSegments(STC_Config &cfg, STC_TimeSnapshot &snap, int &created)
@@ -245,31 +345,111 @@ void STC_DrawWLevelSegments(STC_Config &cfg, STC_TimeSnapshot &snap, int &create
    }
 }
 
+void STC_DrawingPrepareReplayState(STC_RuntimeState &state)
+{
+   state.paper_trade_count_m1 = 0;
+   state.paper_trade_count_m2 = 0;
+   state.paper_trade_count_m3 = 0;
+   state.paper_direction_lock_m1 = STC_DIR_NONE;
+   state.paper_direction_lock_m2 = STC_DIR_NONE;
+   state.paper_direction_lock_m3 = STC_DIR_NONE;
+   state.started_server_time = 0;
+}
+
+void STC_DrawOutcomeForPaper(STC_Config &cfg,
+                             STC_TimeSnapshot &snap,
+                             STC_PaperEntryAudit &paper,
+                             const int closed_index,
+                             const string base,
+                             int &created)
+{
+   if(!paper.is_paper_entry) return;
+   STC_PaperOutcomeAudit outcome;
+   STC_SimulateOutcomeFromPaper(cfg, snap, paper, closed_index, outcome);
+   if(outcome.outcome_status == STC_OUTCOME_TP_HIT || outcome.outcome_status == STC_OUTCOME_SL_HIT || outcome.outcome_status == STC_OUTCOME_AMBIGUOUS_SL_TP_SAME_CHECK)
+   {
+      datetime exit_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, outcome.exit_check_end_ny);
+      double y = outcome.exit_price;
+      string label = "";
+      color c = clrSilver;
+      if(outcome.outcome_status == STC_OUTCOME_TP_HIT)
+      {
+         label = "TP hit";
+         c = clrLimeGreen;
+      }
+      else if(outcome.outcome_status == STC_OUTCOME_SL_HIT)
+      {
+         label = "SL hit";
+         c = clrRed;
+      }
+      else
+      {
+         label = "AMBIG SL+TP";
+         c = clrMagenta;
+         y = paper.entry_price;
+      }
+      STC_DrawVLine(cfg, base + "_OUTCOME_V", exit_server, c, STYLE_DASHDOT);
+      STC_DrawText(cfg, base + "_OUTCOME_TXT", exit_server, y, label, c, 8);
+      created += 2;
+   }
+   else if(outcome.outcome_status == STC_OUTCOME_OPEN_UNRESOLVED)
+   {
+      datetime t = snap.server_time;
+      if(t <= paper.entry_check_start_server) t = paper.entry_check_end_server;
+      STC_DrawText(cfg, base + "_OPEN_TXT", t, paper.entry_price, "OPEN unresolved", clrSilver, 7);
+      created++;
+   }
+}
+
 void STC_DrawPaperEntryFromCandidate(STC_Config &cfg,
-                                     STC_RuntimeState &state,
+                                     STC_RuntimeState &replay_state,
                                      STC_TimeSnapshot &snap,
                                      STC_SMTCandidateAudit &candidate,
+                                     const int closed_index,
                                      int &created)
 {
    if(!candidate.is_trade_candidate) return;
    if(candidate.trade_symbol != _Symbol) return;
 
-   STC_RuntimeState tmp_state = state;
    STC_SignalAudit signal;
-   STC_FinalizeSignalFromCandidate(cfg, tmp_state, candidate, signal);
+   STC_FinalizeSignalFromCandidate(cfg, replay_state, candidate, signal);
    STC_PaperEntryAudit paper;
-   STC_FillPaperFromSignal(cfg, tmp_state, snap, signal, paper);
-   if(!paper.is_paper_entry) return;
+   STC_FillPaperFromSignal(cfg, replay_state, snap, signal, paper);
 
-   color c = STC_DrawSignalColor(paper.direction);
-   string base = "PAPER_" + IntegerToString(paper.check_index) + "_" + STC_DirectionText(paper.direction) + "_" + paper.trade_symbol;
-   string txt = STC_DirectionText(paper.direction) + " " + paper.trade_symbol + " " + STC_WCycleText(paper.selected_reference_w_cycle);
+   color c = STC_DrawSignalColor(candidate.direction);
+   string base = "PAPER_" + IntegerToString(candidate.check_index) + "_" + STC_DirectionText(candidate.direction) + "_" + candidate.trade_symbol;
+   string sig_txt = "SMT " + STC_DirectionText(candidate.direction) + " clean=" + candidate.clean_symbol + " hunted=" + candidate.hunted_symbol + " ref=" + STC_WCycleText(candidate.selected_reference_w_cycle);
+   STC_DrawText(cfg, base + "_SIGNAL", candidate.check_end_server, candidate.selected_reference_price, sig_txt, c, 8);
+   STC_DrawVLine(cfg, base + "_CONFIRM", candidate.check_end_server, c, STYLE_DOT);
+   created += 2;
+
+   STC_WLevelAudit ref_w;
+   STC_BuildWLevelAudit(cfg, snap, candidate.selected_reference_w_serial, ref_w);
+   if(ref_w.w_start_server > 0 && ref_w.w_end_server > 0)
+   {
+      STC_DrawTrend(cfg, base + "_SELECTED_REF", ref_w.w_start_server, candidate.selected_reference_price, candidate.check_end_server, candidate.selected_reference_price, c, 2, STYLE_DASHDOT);
+      created++;
+   }
+
+   if(!paper.is_paper_entry)
+   {
+      STC_DrawText(cfg, base + "_REJECTED", candidate.check_end_server, candidate.selected_reference_price, "PLAN REJECTED: " + paper.status, clrOrange, 7);
+      created++;
+      return;
+   }
+
+   datetime line_end = snap.server_time;
+   if(line_end <= paper.entry_check_start_server)
+      line_end = paper.entry_check_end_server;
+
+   string txt = STC_DirectionText(paper.direction) + " ENTRY " + paper.trade_symbol + " R=" + DoubleToString(cfg.final_reward_r, 1);
    STC_DrawText(cfg, base + "_ENTRY", paper.entry_check_start_server, paper.entry_price, txt, c, 9);
-   STC_DrawTrend(cfg, base + "_SL", paper.entry_check_start_server, paper.stop_price, snap.server_time, paper.stop_price, clrRed, 1, STYLE_DASH);
-   STC_DrawTrend(cfg, base + "_TP", paper.entry_check_start_server, paper.take_profit_price, snap.server_time, paper.take_profit_price, clrLimeGreen, 1, STYLE_DASH);
-   STC_DrawTrend(cfg, base + "_ENTRY_LINE", paper.entry_check_start_server, paper.entry_price, snap.server_time, paper.entry_price, c, 1, STYLE_DOT);
-   STC_DrawText(cfg, base + "_SLTXT", paper.entry_check_start_server, paper.stop_price, "SL", clrRed, 7);
+   STC_DrawTrend(cfg, base + "_SL", paper.entry_check_start_server, paper.stop_price, line_end, paper.stop_price, clrRed, 1, STYLE_DASH);
+   STC_DrawTrend(cfg, base + "_TP", paper.entry_check_start_server, paper.take_profit_price, line_end, paper.take_profit_price, clrLimeGreen, 1, STYLE_DASH);
+   STC_DrawTrend(cfg, base + "_ENTRY_LINE", paper.entry_check_start_server, paper.entry_price, line_end, paper.entry_price, c, 1, STYLE_DOT);
+   STC_DrawText(cfg, base + "_SLTXT", paper.entry_check_start_server, paper.stop_price, "SL selected W ref", clrRed, 7);
    STC_DrawText(cfg, base + "_TPTXT", paper.entry_check_start_server, paper.take_profit_price, "TP " + DoubleToString(cfg.final_reward_r, 1) + "R", clrLimeGreen, 7);
+   created += 6;
 
    if(cfg.partial_enabled && paper.m_cycle != STC_M3)
    {
@@ -278,10 +458,53 @@ void STC_DrawPaperEntryFromCandidate(STC_Config &cfg,
       {
          datetime partial_ny = (datetime)((long)snap.stc_day_start_ny + partial_elapsed * 60);
          datetime partial_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, partial_ny);
-         STC_DrawText(cfg, base + "_PARTIAL", partial_server, paper.entry_price, "P50", clrDarkOrange, 8);
+         STC_DrawVLine(cfg, base + "_PARTIAL_V", partial_server, clrDarkOrange, STYLE_DOT);
+         STC_DrawText(cfg, base + "_PARTIAL", partial_server, paper.entry_price, "W4 partial 50%", clrDarkOrange, 8);
+         created += 2;
       }
    }
-   created += 7;
+   else if(paper.m_cycle == STC_M3)
+   {
+      STC_DrawText(cfg, base + "_NO_M3_PARTIAL", paper.entry_check_start_server, paper.entry_price, "M3: no partial; 15:30 HC", clrDarkOrange, 7);
+      created++;
+   }
+
+   datetime hard_ny = (datetime)((long)snap.stc_day_start_ny + STC_DAY_ACTIVE_MINUTES * 60);
+   datetime hard_server = STC_NewYorkToServerUsingSnapshot(cfg, snap, hard_ny);
+   STC_DrawText(cfg, base + "_HC_MARK", hard_server, paper.entry_price, "HC if open", clrRed, 7);
+   created++;
+
+   STC_DrawOutcomeForPaper(cfg, snap, paper, closed_index, base, created);
+}
+
+void STC_DrawRawHuntMarker(STC_Config &cfg,
+                           STC_ReferenceHuntAudit &raw,
+                           const bool high_side,
+                           const bool active_hunted,
+                           const bool exactly_one,
+                           const bool active_is_clean,
+                           const bool both_hunted,
+                           const double ref_price,
+                           int &created)
+{
+   if(ref_price <= 0.0) return;
+   string side_txt = high_side ? "H" : "L";
+   color c = high_side ? clrTomato : clrLimeGreen;
+   string id = "HUNT_" + IntegerToString(raw.check_index) + "_R" + IntegerToString(raw.reference_rank) + "_" + side_txt + "_" + _Symbol;
+   string txt = "";
+   if(both_hunted)
+      txt = "BOTH " + side_txt + " no SMT";
+   else if(active_hunted)
+      txt = side_txt + " HUNT ref=" + STC_WCycleText(raw.reference_w_cycle) + " " + (high_side ? STC_HuntPatternText(raw.high_hunt_pattern) : STC_HuntPatternText(raw.low_hunt_pattern));
+   else if(active_is_clean)
+      txt = "CLEAN " + (high_side ? "SELL" : "BUY") + " ref=" + STC_WCycleText(raw.reference_w_cycle);
+   else if(exactly_one)
+      txt = "OTHER hunted; " + _Symbol + " clean?";
+
+   if(txt == "") return;
+   STC_DrawTrend(cfg, id + "_REF", raw.check_start_server, ref_price, raw.check_end_server, ref_price, c, 1, STYLE_DOT);
+   STC_DrawText(cfg, id + "_TXT", raw.check_end_server, ref_price, txt, c, 7);
+   created += 2;
 }
 
 void STC_DrawRecentSMT(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapshot &snap, int &created)
@@ -294,6 +517,10 @@ void STC_DrawRecentSMT(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsho
    if(lookback > 500) lookback = 500;
    int start_index = closed_index - lookback + 1;
    if(start_index < 0) start_index = 0;
+
+   STC_RuntimeState replay_state = state;
+   STC_DrawingPrepareReplayState(replay_state);
+   bool use_s1 = STC_DrawingUseSymbol1(cfg);
 
    for(int idx = start_index; idx <= closed_index; idx++)
    {
@@ -316,6 +543,20 @@ void STC_DrawRecentSMT(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsho
       {
          STC_ReferenceHuntAudit raw;
          STC_BuildReferenceHuntAudit(cfg, snap, idx, rank, raw);
+         if(!raw.pair_data_complete) continue;
+
+         bool active_high_hunt = use_s1 ? raw.s1_high_hunt : raw.s2_high_hunt;
+         bool active_low_hunt = use_s1 ? raw.s1_low_hunt : raw.s2_low_hunt;
+         double active_ref_high = use_s1 ? raw.s1_reference_high : raw.s2_reference_high;
+         double active_ref_low = use_s1 ? raw.s1_reference_low : raw.s2_reference_low;
+         bool active_clean_high = (raw.high_exactly_one_hunted && raw.high_clean_symbol == _Symbol);
+         bool active_clean_low = (raw.low_exactly_one_hunted && raw.low_clean_symbol == _Symbol);
+         bool both_high = (raw.high_hunt_pattern == STC_HUNT_BOTH);
+         bool both_low = (raw.low_hunt_pattern == STC_HUNT_BOTH);
+
+         STC_DrawRawHuntMarker(cfg, raw, true, active_high_hunt, raw.high_exactly_one_hunted, active_clean_high, both_high, active_ref_high, created);
+         STC_DrawRawHuntMarker(cfg, raw, false, active_low_hunt, raw.low_exactly_one_hunted, active_clean_low, both_low, active_ref_low, created);
+
          if(raw.high_exactly_one_hunted)
          {
             high_count++;
@@ -341,19 +582,20 @@ void STC_DrawRecentSMT(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsho
       if(high_count > 0 && low_count > 0)
       {
          double pmin, pmax; STC_ChartPriceRange(pmin, pmax);
-         STC_DrawText(cfg, "AMBIG_" + IntegerToString(idx), check_audit.check_end_server, pmax - (pmax - pmin) * 0.15, "AMBIG BUY+SELL FORGOT", clrMagenta, 8);
-         created++;
+         STC_DrawVLine(cfg, "AMBIG_V_" + IntegerToString(idx), check_audit.check_end_server, clrMagenta, STYLE_DASHDOT);
+         STC_DrawText(cfg, "AMBIG_" + IntegerToString(idx), check_audit.check_end_server, pmax - (pmax - pmin) * 0.15, "BUY+SELL same check: FORGET", clrMagenta, 8);
+         created += 2;
          continue;
       }
       if(high_count > 0)
       {
-         if(has_sell_s1) STC_DrawPaperEntryFromCandidate(cfg, state, snap, best_sell_s1, created);
-         if(has_sell_s2) STC_DrawPaperEntryFromCandidate(cfg, state, snap, best_sell_s2, created);
+         if(has_sell_s1) STC_DrawPaperEntryFromCandidate(cfg, replay_state, snap, best_sell_s1, closed_index, created);
+         if(has_sell_s2) STC_DrawPaperEntryFromCandidate(cfg, replay_state, snap, best_sell_s2, closed_index, created);
       }
       else if(low_count > 0)
       {
-         if(has_buy_s1) STC_DrawPaperEntryFromCandidate(cfg, state, snap, best_buy_s1, created);
-         if(has_buy_s2) STC_DrawPaperEntryFromCandidate(cfg, state, snap, best_buy_s2, created);
+         if(has_buy_s1) STC_DrawPaperEntryFromCandidate(cfg, replay_state, snap, best_buy_s1, closed_index, created);
+         if(has_buy_s2) STC_DrawPaperEntryFromCandidate(cfg, replay_state, snap, best_buy_s2, closed_index, created);
       }
    }
 }
@@ -389,12 +631,13 @@ void STC_DrawAuditLayer(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsh
    STC_DeleteDrawingObjects(cfg);
 
    int created = 0;
-   string chart_note = "level15_audit_drawing_no_strategy_decisions_no_orders";
+   string chart_note = "level21_visual_audit_only_no_strategy_decisions_no_orders; replay_scratch_state_does_not_mutate_runtime";
    STC_DrawZones(cfg, snap, created);
    STC_DrawCurrentCheck(cfg, snap, created);
 
    if(STC_DrawingActiveSymbolSupported(cfg))
    {
+      STC_DrawCheckHistory(cfg, snap, created);
       STC_DrawWLevelSegments(cfg, snap, created);
       STC_DrawRecentSMT(cfg, state, snap, created);
    }
@@ -403,17 +646,19 @@ void STC_DrawAuditLayer(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsh
       chart_note = chart_note + "; chart_symbol_not_symbol1_or_symbol2_price_layers_suppressed";
    }
 
-   string dashboard = "DAL STC LEVEL15 | " + cfg.symbol1 + "/" + cfg.symbol2
+   string dashboard = "DAL STC LEVEL21 | " + cfg.symbol1 + "/" + cfg.symbol2
       + " | chart=" + _Symbol
       + " | NY=" + STC_TimeText(snap.ny_time)
       + " | day=" + snap.stc_day_id
       + " | " + STC_MCycleText(snap.m_cycle) + "/" + STC_WCycleText(snap.w_cycle)
       + " | CHK=" + IntegerToString(snap.check_index)
-      + " | no real orders";
+      + " | mode=" + STC_RuntimeModeText(cfg.runtime_mode);
    STC_DrawLabel(cfg, "DASHBOARD", 8, 18, dashboard, STC_DrawingActiveSymbolSupported(cfg) ? clrWhite : clrOrange);
+   string sub = "visual: M/W zones + gaps + check boxes + W H/L + raw hunts + SMT plan + SL/TP + partial + outcome | real transports are input-gated";
+   STC_DrawLabel(cfg, "DASHBOARD_RULES", 8, 36, sub, clrSilver);
    if(!STC_DrawingActiveSymbolSupported(cfg))
-      STC_DrawLabel(cfg, "DASHBOARD_WARN", 8, 36, "Chart symbol is not Symbol1/Symbol2: price-specific W/SMT drawings suppressed.", clrOrange);
-   created++;
+      STC_DrawLabel(cfg, "DASHBOARD_WARN", 8, 54, "Chart symbol is not Symbol1/Symbol2: price-specific W/SMT drawings suppressed.", clrOrange);
+   created += STC_DrawingActiveSymbolSupported(cfg) ? 2 : 3;
 
    state.drawing_objects_created = created;
    state.drawing_refresh_count++;
