@@ -40,6 +40,9 @@ input int  InpHookSampleLimit = 6;
 input bool InpPrintBodySanity = true;
 input bool InpPrintBodySamples = false;
 input int  InpBodySampleLimit = 6;
+input bool InpPrintInternalSanity = true;
+input bool InpPrintInternalSamples = false;
+input int  InpInternalSampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -150,6 +153,9 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.print_body_sanity = InpPrintBodySanity;
    cfg.print_body_samples = InpPrintBodySamples;
    cfg.body_sample_limit = InpBodySampleLimit;
+   cfg.print_internal_sanity = InpPrintInternalSanity;
+   cfg.print_internal_samples = InpPrintInternalSamples;
+   cfg.internal_sample_limit = InpInternalSampleLimit;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -159,13 +165,14 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level04";
+   cfg.identity_generation_pass = "phoenix_level06";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
                               "_hook" + FP_BoolName(InpScanHooks) +
                               "_hookseed" + FP_BoolName(InpHookMainRequiresVisibleF1) +
                               "_body" + FP_BoolName(InpPrintBodySanity) +
+                              "_internal" + FP_BoolName(InpPrintInternalSanity) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

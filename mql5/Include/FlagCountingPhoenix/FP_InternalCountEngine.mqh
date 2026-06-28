@@ -2,134 +2,86 @@
 #define __FP_INTERNAL_COUNT_ENGINE_MQH__
 #property strict
 
-#include "FP_FlagBodyEngine.mqh"
+#include "FP_InternalCountAudit.mqh"
 
 // ============================================================================
-// Phoenix Internal Count / Post-Flag Correction Engine
+// Phoenix Level 06 - Internal Count Engine
 // ----------------------------------------------------------------------------
-// Counts internal adverse-side nodes after a completed flag body.
-// Bullish: adverse nodes are LOWs. Bearish: adverse nodes are HIGHs.
-// 1/2 must exist before F1 confirmation. In F1, the middle opposite node between
-// 1 and 2 must not break the flag end. For 3/4 the restriction no longer applies
-// once a valid 1/2 branch exists.
+// Builds the post-body adverse internal pack.  It is the bridge between a
+// completed flag body and later lifecycle confirmation, but it does not own
+// F1/F2/F3 sequence creation, visibility pruning, renderer labels, or F3 lock.
 // ============================================================================
 
-int FP_AdverseKindForDirection(const int direction)
+void FP_FinalizeInternalPackIdentity(const FP_FlagEvent &flag,
+                                     FP_InternalPack &pack,
+                                     const string status,
+                                     const string reason)
 {
-   return FP_OriginKindForDirection(direction);
+   pack.status = status;
+   if(pack.reason == "") pack.reason = reason;
+   else if(reason != "") pack.reason = pack.reason + ";" + reason;
+   pack.has_valid12 = pack.valid12;
+   pack.branch_id_text = FP_BuildInternalBranchIdText(flag, pack);
+   pack.internal_pack_id = FP_BuildInternalPackId(flag, pack);
 }
 
-int FP_FavorableKindForDirection(const int direction)
+void FP_MarkValid12(FP_InternalPack &pack, const FP_Node &n, const int pos)
 {
-   return FP_OppositeKind(FP_OriginKindForDirection(direction));
+   pack.valid12 = true;
+   pack.has_valid12 = true;
+   pack.first_valid12_node = n;
+   pack.first_valid12_pos = pos;
 }
 
-void FP_SetInternalNode(FP_InternalPack &p, const int num, const FP_Node &n)
-{
-   if(num == 1) p.n1 = n;
-   else if(num == 2) p.n2 = n;
-   else if(num == 3) p.n3 = n;
-   else if(num == 4) p.n4 = n;
-}
-
-void FP_SetInternalMid(FP_InternalPack &p, const int before_num, const FP_Node &n)
-{
-   if(before_num == 1) { p.mid12 = n; p.has_mid12 = true; }
-   else if(before_num == 2) { p.mid23 = n; p.has_mid23 = true; }
-   else if(before_num == 3) { p.mid34 = n; p.has_mid34 = true; }
-}
-
-bool FP_InternalNodeIsMoreAdverseThanPrevious(const FP_InternalPack &p, const int next_num, const FP_Node &candidate, const int direction, const double eps)
-{
-   if(next_num <= 1) return true;
-   FP_Node prev;
-   FP_ResetNode(prev);
-   if(next_num == 2) prev = p.n1;
-   else if(next_num == 3) prev = p.n2;
-   else if(next_num == 4) prev = p.n3;
-   if(prev.id < 0) return true;
-   return FP_IsMoreAdverse(direction, candidate.price, prev.price, eps);
-}
-
-bool FP_FindBestMiddleBetween(const FP_Node &nodes[],
-                              const int from_pos,
-                              const int to_pos,
-                              const int direction,
-                              const double eps,
-                              FP_Node &mid)
-{
-   FP_ResetNode(mid);
-   int fav_kind = FP_FavorableKindForDirection(direction);
-   bool has = false;
-   for(int i=from_pos+1; i<to_pos; i++)
-   {
-      if(nodes[i].kind != fav_kind) continue;
-      if(!has)
-      {
-         mid = nodes[i];
-         has = true;
-      }
-      else if(FP_IsMoreFavorable(direction, nodes[i].price, mid.price, eps))
-      {
-         mid = nodes[i];
-      }
-   }
-   return has;
-}
-
-// Finds the deepest adverse correction after a flag body before confirmation.
-// Used for F2/F3 origin backfill.
-bool FP_FindDeepestAdverseNode(const FP_Node &nodes[],
-                               const int node_count,
-                               const int from_pos,
-                               const int to_pos_inclusive,
-                               const int direction,
-                               const double epsilon_points,
-                               int &best_pos,
-                               FP_Node &best_node)
-{
-   best_pos = -1;
-   FP_ResetNode(best_node);
-   double eps = FP_EpsilonPrice(epsilon_points);
-   int adverse_kind = FP_AdverseKindForDirection(direction);
-   int to_pos = MathMin(node_count - 1, to_pos_inclusive);
-   for(int i=MathMax(0, from_pos); i<=to_pos; i++)
-   {
-      if(nodes[i].kind != adverse_kind) continue;
-      if(best_pos < 0 || FP_IsMoreAdverse(direction, nodes[i].price, best_node.price, eps))
-      {
-         best_pos = i;
-         best_node = nodes[i];
-      }
-   }
-   return (best_pos >= 0);
-}
-
-bool FP_F1MiddleNodeAllowed(const FP_Node &mid, const FP_FlagEvent &flag, const double eps)
-{
-   if(mid.id < 0) return false;
-   // Bullish F1: middle HIGH between 1/2 must not break Leg2.
-   // Bearish F1: middle LOW between 1/2 must not break Leg2.
-   return !FP_NodeBreaksFlagEnd(mid, flag.direction, flag.leg2.price, eps);
-}
-
-// This function does not mutate the flag body. It returns the post-flag count,
-// confirmation/invalid position and the internal pack. If a pre-1/2 extension
-// occurs, the caller can rebuild the body from a later Leg2 in a stricter pass.
-bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
-                                  const int node_count,
-                                  const FP_FlagEvent &flag,
-                                  const FP_Config &cfg,
-                                  FP_InternalPack &pack,
-                                  int &confirm_pos,
-                                  int &invalid_pos,
-                                  int &last_scanned_pos)
+// This function does not mutate the flag body. It returns post-flag count,
+// confirmation/invalid position and the internal pack.  If a pre-1/2 extension
+// occurs, the report stores it and the caller may absorb it into Leg2 before
+// rebuilding the pack.
+bool FP_BuildPostFlagInternalPackWithReport(const FP_Node &nodes[],
+                                            const int node_count,
+                                            const FP_FlagEvent &flag,
+                                            const FP_Config &cfg,
+                                            FP_InternalPack &pack,
+                                            int &confirm_pos,
+                                            int &invalid_pos,
+                                            int &last_scanned_pos,
+                                            FP_InternalCountBuildReport &report)
 {
    FP_ResetInternalPack(pack);
    confirm_pos = -1;
    invalid_pos = -1;
    last_scanned_pos = flag.pos_leg2;
-   if(flag.pos_leg2 < 0) return false;
+
+   report.bodies_seen++;
+   if(flag.level == FP_LEVEL_F1) report.f1_bodies++;
+   else if(flag.level == FP_LEVEL_F2) report.f2_bodies++;
+   else if(flag.level == FP_LEVEL_F3) report.f3_bodies++;
+   report.packs_attempted++;
+
+   pack.branch_id = report.packs_attempted - 1;
+   pack.scan_start_pos = (flag.pos_leg2 >= 0 ? flag.pos_leg2 + 1 : -1);
+   pack.scan_end_pos = flag.pos_leg2;
+   pack.confirm_pos = -1;
+   pack.invalid_pos = -1;
+
+   if(flag.pos_leg2 < 0)
+   {
+      FP_FinalizeInternalPackIdentity(flag, pack, "invalid_input", "missing_leg2");
+      FP_CountInternalPackInReport(pack, report);
+      return false;
+   }
+
+   if(flag.level == FP_LEVEL_F3)
+   {
+      // F3 completion is body-level/lifecycle-level in the current Phoenix
+      // contract.  Internal scanning is not required to make F3 complete.
+      report.f3_body_completed_without_pack++;
+      last_scanned_pos = flag.pos_leg2;
+      pack.scan_end_pos = flag.pos_leg2;
+      FP_FinalizeInternalPackIdentity(flag, pack, "f3_body_only", "f3_does_not_require_post_body_internal_pack");
+      FP_CountInternalPackInReport(pack, report);
+      return true;
+   }
 
    double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
    int adverse_kind = FP_AdverseKindForDirection(flag.direction);
@@ -140,32 +92,16 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
    for(int i=flag.pos_leg2 + 1; i<node_count; i++)
    {
       last_scanned_pos = i;
+      pack.scan_end_pos = i;
       FP_Node n = nodes[i];
 
-      // Invalidation boundary differs by level.
-      // F1 invalidates at waist before confirmation.
-      // F2 invalidates at origin; waist-break can become branch.
-      // F3 ignores post-flag correction for completion.
-      if(flag.level == FP_LEVEL_F1)
+      if(FP_InternalInvalidationBreaks(flag, n, eps))
       {
-         if(FP_NodeBreaksBoundary(n, flag.direction, flag.waist.price, eps))
-         {
-            invalid_pos = i;
-            return (pack.count > 0);
-         }
-      }
-      else if(flag.level == FP_LEVEL_F2)
-      {
-         if(FP_NodeBreaksBoundary(n, flag.direction, flag.origin.price, eps))
-         {
-            invalid_pos = i;
-            return (pack.count > 0);
-         }
-      }
-      else if(flag.level == FP_LEVEL_F3)
-      {
-         // F3 is complete by the body itself. No post-flag invalidation here.
-         return true;
+         invalid_pos = i;
+         pack.invalid_pos = i;
+         FP_FinalizeInternalPackIdentity(flag, pack, "invalidated", "strict_" + FP_InternalInvalidationBoundaryName(flag.level) + "_break_before_confirmation");
+         FP_CountInternalPackInReport(pack, report);
+         return (pack.count > 0);
       }
 
       if(FP_NodeBreaksFlagEnd(n, flag.direction, flag.leg2.price, eps))
@@ -173,10 +109,21 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
          if(have_valid12)
          {
             confirm_pos = i;
+            pack.confirm_pos = i;
+            FP_FinalizeInternalPackIdentity(flag, pack, "confirmation_ready", "favorable_break_after_valid12");
+            FP_CountInternalPackInReport(pack, report);
             return true;
          }
-         // Before valid 1/2 this is body extension in the contract. Keep scanning
-         // but do not confirm. The engine can later rebuild with extended Leg2.
+
+         // Before valid 1/2 this is body extension in the contract, not
+         // confirmation.  Keep evidence in the pack; a stricter caller can
+         // absorb the extension and rebuild from the new Leg2 endpoint.
+         if(!pack.has_pre_internal_leg2_extension)
+         {
+            pack.pre_internal_leg2_extension_node = n;
+            pack.has_pre_internal_leg2_extension = true;
+            pack.pre_internal_leg2_extension_pos = i;
+         }
          continue;
       }
 
@@ -186,8 +133,7 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
       int next_num = pack.count + 1;
       if(next_num > 1 && !FP_InternalNodeIsMoreAdverseThanPrevious(pack, next_num, n, flag.direction, eps))
       {
-         // Branch-local counting: if this adverse node is not deeper than previous,
-         // it may belong to another hook branch. This pack keeps the strict branch.
+         report.non_deeper_rejected++;
          continue;
       }
 
@@ -195,11 +141,24 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
       {
          FP_Node mid;
          bool has_mid = FP_FindBestMiddleBetween(nodes, last_adverse_pos, i, flag.direction, eps, mid);
-         if(!has_mid) continue;
+         if(!has_mid)
+         {
+            report.missing_middle_rejected++;
+            continue;
+         }
+
          if(flag.level == FP_LEVEL_F1 && next_num == 2)
          {
-            if(!FP_F1MiddleNodeAllowed(mid, flag, eps)) continue;
+            pack.middle_opposite_node = mid;
+            pack.has_middle_opposite_node = true;
+            pack.middle_opposite_breaks_leg2 = FP_NodeBreaksFlagEnd(mid, flag.direction, flag.leg2.price, eps);
+            if(!FP_F1MiddleNodeAllowed(mid, flag, eps))
+            {
+               report.f1_middle_rejected++;
+               continue;
+            }
          }
+
          FP_SetInternalMid(pack, next_num - 1, mid);
       }
 
@@ -207,9 +166,9 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
       pack.count = next_num;
       last_adverse_pos = i;
 
-      if(pack.count >= 2)
+      if(pack.count >= 2 && !have_valid12)
       {
-         pack.valid12 = true;
+         FP_MarkValid12(pack, n, i);
          have_valid12 = true;
       }
       if(pack.count == 3 || pack.count == 4)
@@ -218,26 +177,46 @@ bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
       }
    }
 
+   string status = (pack.count <= 0 ? "post_flag_no_count" : (pack.valid12 ? "valid12_waiting_confirm" : "developing_internal"));
+   FP_FinalizeInternalPackIdentity(flag, pack, status, "scan_ended_without_confirmation");
+   FP_CountInternalPackInReport(pack, report);
    return (pack.count > 0);
 }
 
-// Finds the first flag-end break that happens before a valid internal 1/2 exists.
-// This is the formal "Leg2 extension before internal count" rule: a favorable
-// break before a completed 1/2 is not confirmation and must be folded back into
-// the current flag body as a new Leg2 endpoint.
-bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
-                                      const int node_count,
-                                      const FP_FlagEvent &flag,
-                                      const FP_Config &cfg,
-                                      int &extension_pos)
+bool FP_BuildPostFlagInternalPack(const FP_Node &nodes[],
+                                  const int node_count,
+                                  const FP_FlagEvent &flag,
+                                  const FP_Config &cfg,
+                                  FP_InternalPack &pack,
+                                  int &confirm_pos,
+                                  int &invalid_pos,
+                                  int &last_scanned_pos)
+{
+   FP_InternalCountBuildReport report;
+   FP_ResetInternalCountBuildReport(report);
+   FP_SeedInternalCountBuildReport(report, flag.scale_L, node_count);
+   return FP_BuildPostFlagInternalPackWithReport(nodes, node_count, flag, cfg, pack, confirm_pos, invalid_pos, last_scanned_pos, report);
+}
+
+// Finds the first flag-end break that happens before a valid internal 1/2
+// exists.  This formalizes the extension rule: a favorable break before valid
+// 1/2 is not confirmation and must be folded back into current body as Leg2.
+bool FP_FindPreInternalExtensionBreakWithReport(const FP_Node &nodes[],
+                                                const int node_count,
+                                                const FP_FlagEvent &flag,
+                                                const FP_Config &cfg,
+                                                int &extension_pos,
+                                                FP_InternalCountBuildReport &report)
 {
    extension_pos = -1;
    if(flag.pos_leg2 < 0) return false;
+   if(flag.level == FP_LEVEL_F3) return false;
 
    double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
    int adverse_kind = FP_AdverseKindForDirection(flag.direction);
    int last_adverse_pos = -1;
    int count = 0;
+
    FP_InternalPack pack;
    FP_ResetInternalPack(pack);
 
@@ -245,24 +224,14 @@ bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
    {
       FP_Node n = nodes[i];
 
-      if(flag.level == FP_LEVEL_F1)
-      {
-         if(FP_NodeBreaksBoundary(n, flag.direction, flag.waist.price, eps)) return false;
-      }
-      else if(flag.level == FP_LEVEL_F2)
-      {
-         if(FP_NodeBreaksBoundary(n, flag.direction, flag.origin.price, eps)) return false;
-      }
-      else if(flag.level == FP_LEVEL_F3)
-      {
-         return false;
-      }
+      if(FP_InternalInvalidationBreaks(flag, n, eps)) return false;
 
       if(FP_NodeBreaksFlagEnd(n, flag.direction, flag.leg2.price, eps))
       {
          if(count < 2)
          {
             extension_pos = i;
+            report.pre_internal_extensions_seen++;
             return true;
          }
          return false;
@@ -270,6 +239,7 @@ bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
 
       if(n.kind != adverse_kind) continue;
       if(count >= FP_MAX_INTERNAL_NODES) continue;
+
       int next_num = count + 1;
       if(next_num > 1 && !FP_InternalNodeIsMoreAdverseThanPrevious(pack, next_num, n, flag.direction, eps)) continue;
       if(next_num > 1 && last_adverse_pos >= 0)
@@ -282,12 +252,25 @@ bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
             if(!FP_F1MiddleNodeAllowed(mid, flag, eps)) continue;
          }
       }
+
       FP_SetInternalNode(pack, next_num, n);
       count = next_num;
       last_adverse_pos = i;
       if(count >= 2) return false;
    }
    return false;
+}
+
+bool FP_FindPreInternalExtensionBreak(const FP_Node &nodes[],
+                                      const int node_count,
+                                      const FP_FlagEvent &flag,
+                                      const FP_Config &cfg,
+                                      int &extension_pos)
+{
+   FP_InternalCountBuildReport report;
+   FP_ResetInternalCountBuildReport(report);
+   FP_SeedInternalCountBuildReport(report, flag.scale_L, node_count);
+   return FP_FindPreInternalExtensionBreakWithReport(nodes, node_count, flag, cfg, extension_pos, report);
 }
 
 void FP_SetEventLeg2(FP_FlagEvent &event, const FP_Node &new_leg2, const int new_pos)
@@ -302,10 +285,11 @@ void FP_SetEventLeg2(FP_FlagEvent &event, const FP_Node &new_leg2, const int new
    event.reason = event.reason + ";absorbed_pre_internal_leg2_extension_to_node_" + IntegerToString(new_leg2.id);
 }
 
-bool FP_AbsorbPreInternalExtensions(FP_FlagEvent &event,
-                                    const FP_Node &nodes[],
-                                    const int node_count,
-                                    const FP_Config &cfg)
+bool FP_AbsorbPreInternalExtensionsWithReport(FP_FlagEvent &event,
+                                              const FP_Node &nodes[],
+                                              const int node_count,
+                                              const FP_Config &cfg,
+                                              FP_InternalCountBuildReport &report)
 {
    if(!cfg.absorb_pre_internal_extensions) return false;
    if(event.level == FP_LEVEL_F3) return false;
@@ -317,12 +301,25 @@ bool FP_AbsorbPreInternalExtensions(FP_FlagEvent &event,
    {
       guard++;
       int extension_pos = -1;
-      if(!FP_FindPreInternalExtensionBreak(nodes, node_count, event, cfg, extension_pos)) break;
+      if(!FP_FindPreInternalExtensionBreakWithReport(nodes, node_count, event, cfg, extension_pos, report)) break;
       if(extension_pos <= event.pos_leg2 || extension_pos >= node_count) break;
       FP_SetEventLeg2(event, nodes[extension_pos], extension_pos);
+      report.pre_internal_extensions_absorbed++;
+      report.max_extension_count = MathMax(report.max_extension_count, event.leg2_extension_count);
       changed = true;
    }
    return changed;
+}
+
+bool FP_AbsorbPreInternalExtensions(FP_FlagEvent &event,
+                                    const FP_Node &nodes[],
+                                    const int node_count,
+                                    const FP_Config &cfg)
+{
+   FP_InternalCountBuildReport report;
+   FP_ResetInternalCountBuildReport(report);
+   FP_SeedInternalCountBuildReport(report, event.scale_L, node_count);
+   return FP_AbsorbPreInternalExtensionsWithReport(event, nodes, node_count, cfg, report);
 }
 
 void FP_CopyInternalPackToEvent(FP_FlagEvent &e, const FP_InternalPack &pack)

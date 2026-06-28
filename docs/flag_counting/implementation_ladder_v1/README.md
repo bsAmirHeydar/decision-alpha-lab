@@ -57,6 +57,8 @@ mql5/Include/FlagCountingPhoenix/FP_HookEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_FlagBodyRules.mqh
 mql5/Include/FlagCountingPhoenix/FP_FlagBodyAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_FlagBodyEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_InternalCountRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_InternalCountAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_InternalCountEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh

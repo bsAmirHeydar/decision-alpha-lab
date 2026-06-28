@@ -359,13 +359,13 @@ Must not confirm F1 or authorize F2/F3. It may emit probable child body stages f
 
 ---
 
-## FP_InternalCountEngine.mqh
+## FP_InternalCountRules.mqh / FP_InternalCountAudit.mqh / FP_InternalCountEngine.mqh
 
 Input:
 
 ```text
 FP_FlagEvent body_event
-FP_Node nodes[]
+FP_Node canonical_nodes[]
 FP_Config config
 ```
 
@@ -373,17 +373,43 @@ Output:
 
 ```text
 FP_InternalPack internal_pack
+FP_InternalCountBuildReport report
 ```
 
 Owns:
 
-- post-Leg2 internal 1/2/3/4 scanning;
-- normal internal branch;
-- waist-break branch representation where applicable;
-- `valid12` and ND-related internal-pack fields;
-- confirmation support data.
+- post-Leg2 adverse internal 1/2/3/4 scanning;
+- strict adverse branch progression;
+- best opposite middle-node selection between adverse nodes;
+- F1-specific middle-node rejection before valid 1/2;
+- pre-internal Leg2 extension evidence and absorption helper;
+- `valid12`, first valid 1/2 position, confirm support position, invalid support position;
+- `FP_LEVEL06` report and optional internal samples.
 
-Must not create F2/F3 or decide sequence ownership.
+Required active fields:
+
+```text
+internal_pack_id
+branch_id
+branch_id_text
+count
+valid12
+has_valid12
+first_valid12_pos
+first_valid12_node
+middle_opposite_node
+middle_opposite_breaks_leg2
+pre_internal_leg2_extension_node
+pre_internal_leg2_extension_pos
+confirm_pos
+invalid_pos
+scan_start_pos
+scan_end_pos
+status
+reason
+```
+
+Must not create F1/F2/F3, authorize F2/F3 parents, decide sequence ownership, or draw internal labels.
 
 ---
 

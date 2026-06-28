@@ -188,15 +188,26 @@ Acceptance:
 Files:
 
 ```text
+FP_InternalCountRules.mqh
+FP_InternalCountAudit.mqh
 FP_InternalCountEngine.mqh
+FP_Types.mqh # Level 06 internal-pack fields/counters/config only
+FP_SequenceEngine.mqh # Level 06 report wiring only
+FP_Audit.mqh # FP_SUMMARY / FP_EVENT internal fields only
+FlagCountingPhoenixExperiment.mq5 # Level 06 inputs only
 ```
 
 Acceptance:
 
-- valid 1/2 detected;
-- branches preserved;
-- pre-internal extension not confirmation;
-- internal pack fields are complete enough for F1/F2/F3 lifecycle.
+- valid 1/2 detected and recorded through `valid12`, `has_valid12`, `first_valid12_pos`, and `first_valid12_node`;
+- pre-internal Leg2 extension is recorded and never confirmation;
+- extension absorption increments `leg2_extension_count` when enabled;
+- F1 middle-node rule rejects invalid 1/2 branches and increments `f1_mid_rejected`;
+- F2 invalidation uses strict Origin break, not Waist break;
+- F3 can be body-only complete without requiring post-body internal count;
+- `internal_pack_id` and `branch_id_text` are deterministic;
+- `FP_LEVEL06` reports count distribution, valid12, confirmation-ready state, invalidations, extensions, and branch rejections;
+- renderer is not involved.
 
 ### Step 07 — Build F1 only
 

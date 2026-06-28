@@ -444,6 +444,63 @@ body_reason
 
 These fields are body-layer evidence. Higher lifecycle layers may update lifecycle `status`, but they must not rewrite body construction history.
 
+### Level 06 — Internal Count frozen contract
+
+Active modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_InternalCountRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_InternalCountAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_InternalCountEngine.mqh
+```
+
+Level 06 owns only post-body internal-count evidence. It does not create F1/F2/F3, does not authorize parent/child lifecycle transitions, and does not draw internal labels.
+
+Directional rule:
+
+```text
+Bullish body => count adverse LOW nodes after Leg2
+Bearish body => count adverse HIGH nodes after Leg2
+```
+
+Thresholds:
+
+```text
+0 => body exists, no post-flag count
+1 => developing internal
+2 => valid internal 1/2 exists
+3/4 => extended internal branch evidence
+```
+
+A favorable strict break beyond Leg2 before valid internal 1/2 is extension, never confirmation. With extension absorption enabled, that break updates Leg2 and increments `leg2_extension_count`.
+
+F1 keeps the stricter middle-node rule: the best opposite-side middle node between internal 1 and 2 must not break Leg2 before valid 1/2 is formed.
+
+Each `FP_InternalPack` now carries:
+
+```text
+internal_pack_id
+branch_id
+branch_id_text
+count
+valid12
+has_valid12
+first_valid12_pos
+first_valid12_node
+middle_opposite_node
+middle_opposite_breaks_leg2
+pre_internal_leg2_extension_node
+pre_internal_leg2_extension_pos
+confirm_pos
+invalid_pos
+scan_start_pos
+scan_end_pos
+status
+reason
+```
+
+`FP_LEVEL06` reports internal pack attempts, count distribution, valid12, confirmation-ready state, invalidations, pre-internal extensions, F1 middle-node rejections, non-deeper branch rejections, and F3 body-only completions.
+
 ---
 
 ## 5. Interface decision

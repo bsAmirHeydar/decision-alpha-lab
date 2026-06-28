@@ -141,6 +141,29 @@ struct FP_InternalPack
    bool     valid12;
    bool     is_nd;
    double   retrace_ratio;
+
+   // Level 06 internal-count identity and audit fields.  The pack is a
+   // lifecycle-support object, not a renderer object.  It proves why a body is
+   // post-flag, confirmation-ready, confirmed, or invalidated.
+   string   internal_pack_id;
+   int      branch_id;
+   string   branch_id_text;
+   int      scan_start_pos;
+   int      scan_end_pos;
+   int      first_valid12_pos;
+   bool     has_valid12;
+   FP_Node  first_valid12_node;
+   FP_Node  middle_opposite_node;
+   bool     has_middle_opposite_node;
+   bool     middle_opposite_breaks_leg2;
+   FP_Node  pre_internal_leg2_extension_node;
+   bool     has_pre_internal_leg2_extension;
+   int      pre_internal_leg2_extension_pos;
+   int      confirm_pos;
+   int      invalid_pos;
+   int      last_counted_pos;
+   string   status;
+   string   reason;
 };
 
 struct FP_HookBranch
@@ -299,6 +322,10 @@ struct FP_Config
    bool   print_body_samples;
    int    body_sample_limit;
 
+   bool   print_internal_sanity;
+   bool   print_internal_samples;
+   int    internal_sample_limit;
+
    int    max_events;
    int    max_hooks;
    int    max_roots_per_scale_direction;
@@ -349,6 +376,17 @@ struct FP_DetectResult
    int body_leg1_extensions_total;
    int body_waist_deepenings_total;
    int body_leg2_equal_touches_total;
+   int internal_packs_total;
+   int internal_valid12_total;
+   int internal_confirm_ready_total;
+   int internal_invalidated_total;
+   int internal_pre_extensions_total;
+   int internal_f1_middle_rejected_total;
+   int internal_count0_total;
+   int internal_count1_total;
+   int internal_count2_total;
+   int internal_count3_total;
+   int internal_count4_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -406,6 +444,25 @@ void FP_ResetInternalPack(FP_InternalPack &p)
    p.valid12 = false;
    p.is_nd = false;
    p.retrace_ratio = 0.0;
+   p.internal_pack_id = "";
+   p.branch_id = -1;
+   p.branch_id_text = "";
+   p.scan_start_pos = -1;
+   p.scan_end_pos = -1;
+   p.first_valid12_pos = -1;
+   p.has_valid12 = false;
+   FP_ResetNode(p.first_valid12_node);
+   FP_ResetNode(p.middle_opposite_node);
+   p.has_middle_opposite_node = false;
+   p.middle_opposite_breaks_leg2 = false;
+   FP_ResetNode(p.pre_internal_leg2_extension_node);
+   p.has_pre_internal_leg2_extension = false;
+   p.pre_internal_leg2_extension_pos = -1;
+   p.confirm_pos = -1;
+   p.invalid_pos = -1;
+   p.last_counted_pos = -1;
+   p.status = "none";
+   p.reason = "";
 }
 
 void FP_ResetHook(FP_HookBranch &h)
@@ -544,6 +601,10 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.print_body_samples = false;
    cfg.body_sample_limit = 6;
 
+   cfg.print_internal_sanity = true;
+   cfg.print_internal_samples = false;
+   cfg.internal_sample_limit = 6;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -562,7 +623,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level04";
+   cfg.identity_generation_pass = "phoenix_level06";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -593,6 +654,17 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.body_leg1_extensions_total = 0;
    r.body_waist_deepenings_total = 0;
    r.body_leg2_equal_touches_total = 0;
+   r.internal_packs_total = 0;
+   r.internal_valid12_total = 0;
+   r.internal_confirm_ready_total = 0;
+   r.internal_invalidated_total = 0;
+   r.internal_pre_extensions_total = 0;
+   r.internal_f1_middle_rejected_total = 0;
+   r.internal_count0_total = 0;
+   r.internal_count1_total = 0;
+   r.internal_count2_total = 0;
+   r.internal_count3_total = 0;
+   r.internal_count4_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;

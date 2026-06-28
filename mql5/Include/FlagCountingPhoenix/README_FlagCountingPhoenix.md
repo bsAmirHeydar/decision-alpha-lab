@@ -50,7 +50,9 @@ Structural / sequence engines:
 - `FP_FlagBodyRules.mqh`: Level 05 pure O/A/W/B strict-break predicates.
 - `FP_FlagBodyAudit.mqh`: Level 05 body build report and body samples.
 - `FP_FlagBodyEngine.mqh`: Level 05 two-leg body facade.
-- `FP_InternalCountEngine.mqh`: internal 1/2/3/4 and post-flag correction scanning.
+- `FP_InternalCountRules.mqh`: Level 06 pure adverse/favorable, middle-node, branch-id, and boundary predicates.
+- `FP_InternalCountAudit.mqh`: Level 06 internal-pack report, counters, and optional samples.
+- `FP_InternalCountEngine.mqh`: Level 06 facade for internal 1/2/3/4 and pre-confirmation extension absorption.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
@@ -225,6 +227,32 @@ InpAllowF1FailOpenWhenNoHook = false
 InpEnforceSingleChainPerDirectionScale = true
 InpEnforceSingleChainPerDirectionGlobal = true
 ```
+
+
+## Level 06 internal count
+
+Phoenix now treats post-body internal counting as its own audited layer before lifecycle ownership.  `FP_InternalCountRules.mqh` owns pure predicates, `FP_InternalCountAudit.mqh` owns `FP_LEVEL06`, and `FP_InternalCountEngine.mqh` owns the facade used by the sequence engine.
+
+The internal contract is:
+
+```text
+0 adverse nodes => body exists but no post-flag count
+1 adverse node  => developing internal
+2 adverse nodes => valid 1/2 and confirmation-ready once Leg2 breaks again
+3/4 adverse nodes => extended internal / ND-like branch state
+```
+
+Before a valid internal 1/2 exists, a favorable break beyond Leg2 is recorded as `pre_internal_leg2_extension_node` and, when absorption is enabled, folded back into the body as the new Leg2.  It is never confirmation.  F1 also keeps the stricter middle-opposite rule: the best middle node between internal 1 and 2 must not break Leg2 before the valid 1/2 is formed.
+
+New controls:
+
+```text
+InpPrintInternalSanity = true
+InpPrintInternalSamples = false
+InpInternalSampleLimit = 6
+```
+
+Main-chart labels remain renderer-owned.  Level 06 only provides `internal_pack_id`, branch evidence, valid12 state, confirmation/invalid positions, and extension evidence for later lifecycle layers.
 
 ## Phoenix semantic cleanup patch
 
