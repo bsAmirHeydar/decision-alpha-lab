@@ -1,203 +1,166 @@
-# 05 - Execution and Risk Rules
+# 05 - Execution, Risk, TP, Partial, and Reset
 
-## 1. Entry toggle
+## Inputs
 
-`Entry STC` controls new entries only.
+Strategy inputs from the SRS and clarification pass:
 
-If `Entry STC = OFF`:
+- Symbol1, default SPXUSD.
+- Symbol2, default NDXUSD.
+- Entry STC, default ON.
+- Partial, default ON.
+- Hedging, default OFF.
+- Final Reward, default 10.
+- Risk Percent, user-defined.
+- Candle Check: 1m, 3m, 5m, 10m, 15m, 30m.
+- Contract Size, default 10.
+- Broker UTC Offset, user-defined.
+- Optional spread and commission inputs for reporting.
 
-- do not create new STC entries;
-- continue managing already-open STC positions.
+## Entry trigger
 
-## 2. Entry timing
+Entry occurs immediately after the check candle closes and the divergence is still valid.
 
-After a raw SMT divergence appears:
+For research/backtest, the preferred entry price is the next-bar open after the check-candle close.
 
-1. Wait for the configured check candle to close.
-2. If divergence is still valid at close, enter immediately.
-3. If not valid, do nothing.
+For live trading, entry is a market order after check-candle close.
 
-## 3. Trade symbol
+Each signal opens at most one trade.
 
-Trade the symbol that did not hunt.
+If STC Entry is OFF, events may still be recorded, but no new trade is opened.
 
-| Hunted | Not hunted | Entry symbol |
-| --- | --- | --- |
-| SPX | NDX | NDX |
-| NDX | SPX | SPX |
+## Trade symbol
 
-Generalized:
+The trade is placed on the symbol that did not hunt.
 
-```text
-entry_symbol = clean_symbol
-```
+High-side divergence creates a sell trade on the clean symbol.
 
-## 4. Direction
+Low-side divergence creates a buy trade on the clean symbol.
 
-| Divergence | Hunted level | Entry |
-| --- | --- | --- |
-| Bullish SMT | reference W low | BUY clean symbol |
-| Bearish SMT | reference W high | SELL clean symbol |
+No alternate symbol is used if the clean symbol is unavailable. If required data is missing or the market is closed, no trade is opened.
 
-## 5. Per-M trade limit
+Spread is not used as an entry filter.
 
-Each M cycle allows at most 3 trades.
+## M trade limit
 
-```text
-max_trades_per_m = 3
-```
+Each M allows at most three opened positions across both configured symbols combined.
 
-## 6. Hedging OFF
+The counter increases only after a position is successfully opened.
 
-If hedging is disabled:
+## Hedging OFF
 
-- the first trade inside an M locks that M direction;
-- later trades inside that M must be same direction;
-- opposite-direction trades are skipped.
+When hedging is OFF, the first opened trade in an M locks the M direction.
 
-Example:
+If first trade is buy, only buy trades are allowed until that M ends.
 
-```text
-M2 first trade = BUY
-M2 later SELL divergence confirms
-SELL is skipped because M2 direction is locked to BUY
-```
+If first trade is sell, only sell trades are allowed until that M ends.
 
-## 7. Hedging ON
+Direction lock does not depend on symbol.
 
-If hedging is enabled:
+## Hedging ON
 
-- BUY and SELL are both allowed;
-- the 3-trade limit per M still applies.
+When hedging is ON, buy and sell trades can both occur in the same M, subject to the max three trades per M.
 
-## 8. Simultaneous buy and sell
+However, if buy and sell are confirmed in the same check candle, no trade is opened.
 
-If a buy SMT and sell SMT confirm at the same time:
+## Stop-loss
 
-```text
-No trade.
-```
+For buy trades, SL is placed exactly at the selected reference W low of the trade symbol.
 
-## 9. Stop-loss
-
-Stop-loss is placed exactly at the selected reference W level.
-
-### BUY
-
-```text
-SL = referenced W low
-```
-
-### SELL
-
-```text
-SL = referenced W high
-```
+For sell trades, SL is placed exactly at the selected reference W high of the trade symbol.
 
 No buffer is added.
 
-If multiple references exist:
+If Symbol1 hunts and Symbol2 is traded, the stop is based on Symbol2's selected reference W.
 
-```text
-Use the closest W by time.
-```
+## Reference selection for SL
 
-## 10. Take-profit
+Default mode:
 
-Every trade receives a TP.
+- closest eligible reference W by time.
 
-The source says TP is calculated from `Final Reward`.
+Optional research mode:
 
-Implementation candidate:
+- eligible reference producing smallest stop distance.
 
-```text
-risk_distance = abs(entry_price - stop_loss)
-target_distance = risk_distance * FinalReward
-take_profit = entry_price + target_distance for BUY
-take_profit = entry_price - target_distance for SELL
-```
+Reports must state which mode was used.
 
-This must be confirmed because the source does not spell out the exact TP formula beyond `Final Reward`.
+## Take-profit
 
-## 11. Position sizing
+Final Reward is an R multiple.
 
-Source inputs:
+Final Reward = 10 means TP = 10R.
 
-```text
-Risk Percent
-Equity
-Contract Size
-```
+Buy TP:
 
-Implementation candidate:
+- entry + FinalReward * risk_distance.
 
-```text
-risk_cash = equity * (risk_percent / 100)
-stop_distance_points = abs(entry_price - stop_loss)
-volume = risk_cash / (stop_distance_points * contract_size)
-```
+Sell TP:
 
-The source SRS says no volume cap is applied, even if the result becomes very large.
+- entry - FinalReward * risk_distance.
 
-## 12. Partial close
+TP is not modified after the trade opens.
 
-If Partial is OFF:
+## Position sizing
 
-```text
-No partial close.
-```
+Risk money:
 
-If Partial is ON:
+- equity * risk_percent / 100.
 
-- At the end of W4 for each M, inspect trades opened in that M.
-- If a trade has not reached TP, close approximately 50% of volume.
-- If volume is 1.01, close 0.51.
-- If volume is 0.01, close the full trade.
-- Each trade is partially closed at most once.
+Use broker tick value if available.
 
-## 13. End of day
+If tick value is unavailable, use Contract Size input.
 
-At New York 15:30:
+The strategy does not impose its own theoretical volume cap.
 
-- close all open positions without exception;
-- reset strategy state.
+Live execution must still respect broker min volume, max volume, and volume step.
 
-## 14. Recommended journal fields
+If broker normalization changes the live volume, the report should record both theoretical volume and executed volume.
 
-For every trade or skipped signal, log:
+## Costs
 
-```text
-run_id
-stc_day_id
-m_id
-w_id
-reference_w_id
-symbol_1
-symbol_2
-hunted_symbol
-clean_symbol
-entry_symbol
-side
-reference_level
-entry_price
-stop_loss
-take_profit
-risk_percent
-equity_snapshot
-contract_size
-calculated_volume
-m_trade_count_before
-m_trade_count_after
-hedging_enabled
-m_direction_lock
-entry_stc_enabled
-partial_enabled
-status
-skip_reason
-created_at_ny
-confirmed_at_ny
-entered_at_ny
-closed_at_ny
-close_reason
-```
+Spread and commission should be recorded.
 
+Reports should support both raw and net performance.
+
+The strategy does not skip trades due to spread.
+
+## Partial close
+
+If Partial is OFF, no partial-close operation occurs.
+
+If Partial is ON, at the end of W4 of each M, the EA checks trades opened in that M.
+
+If a trade has not reached TP, close approximately 50% of the position.
+
+Partial close applies even if the trade is in loss.
+
+Partial volume is rounded upward to the broker volume step.
+
+Example:
+
+- volume 1.01 -> close 0.51 if step is 0.01.
+- volume 0.01 -> close the full trade if no smaller valid partial exists.
+
+Each trade can be partially closed only once.
+
+A trade opened in M1 cannot be partially closed again in M2.
+
+At the end of M3, partial close is effectively irrelevant because daily hard close occurs at 15:30.
+
+## Daily hard close
+
+At 15:30 New York, all open positions managed by STC are closed without exception.
+
+After closing positions, all state is reset.
+
+After 15:30 New York, no position from that STC trading day should remain open.
+
+If the EA restarts after 15:30 and detects old STC-managed positions, it should close them for safety.
+
+## Restart behavior
+
+If the EA restarts during the current trading day, it may rebuild state from current-day data only.
+
+It may also inspect account positions to recover active STC-managed positions.
+
+Previous-day signals, W levels, divergence states, and counters must not influence new decisions.

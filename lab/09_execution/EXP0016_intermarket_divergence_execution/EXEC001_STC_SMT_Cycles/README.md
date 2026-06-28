@@ -1,57 +1,52 @@
 # EXEC001 - STC SMT Cycles
 
-## Purpose
+This folder documents the STC SMT Cycles execution strategy extracted from the provided STC Expert Advisor SRS and the subsequent owner clarifications.
 
-This folder documents the STC Expert Advisor strategy from the provided SRS PDF as a layered, implementation-ready English specification.
+The strategy belongs to the intermarket divergence execution family. It is not a generic SMT detector; it is a specific cycle-based execution model using two symbols, New York time, M cycles, W cycles, touch-only SMT divergence, check-candle confirmation, risk-based sizing, final reward TP, optional partial close, and daily hard reset.
 
-The source describes an Expert Advisor that trades an SMT divergence strategy between two indices. It is chart-symbol independent, uses only `Symbol1` and `Symbol2` inputs for analysis and trade management, uses New York time, and resets all strategy state at the end of the STC trading day.
+## Current implementation status
 
-## Current status
+This folder is documentation-first. It is intended to lock the strategy contract before writing MQL5 code.
 
-| Layer | Status |
-| --- | --- |
-| Source PDF read-through | Done |
-| English extraction | Done |
-| Normalized strategy spec | Done |
-| Cycle model | Done with explicit ambiguity notes |
-| SMT divergence model | Done with explicit ambiguity notes |
-| Execution/risk model | Done |
-| MQL5 implementation architecture | Proposed |
-| Test plan | Proposed |
-| Code implementation | Not started |
+Status:
 
-## Read these files in order
+- Source SRS extracted: complete.
+- Owner clarification pass 1: complete.
+- Normalized executable spec: updated.
+- M/W calendar: updated.
+- SMT divergence rules: updated.
+- Execution and risk rules: updated.
+- Test plan: updated.
+- Remaining questions: reduced to implementation-level details.
 
-1. [`01_source_srs_extraction.md`](./01_source_srs_extraction.md)
-2. [`02_normalized_strategy_spec.md`](./02_normalized_strategy_spec.md)
-3. [`03_cycle_calendar.md`](./03_cycle_calendar.md)
-4. [`04_smt_divergence_rules.md`](./04_smt_divergence_rules.md)
-5. [`05_execution_and_risk.md`](./05_execution_and_risk.md)
-6. [`06_mql5_architecture_plan.md`](./06_mql5_architecture_plan.md)
-7. [`07_test_plan.md`](./07_test_plan.md)
-8. [`08_open_questions.md`](./08_open_questions.md)
+## Strategy summary
 
-## Core summary
+The EA analyzes exactly two configured symbols. The chart symbol is irrelevant. The two configured symbols are also the only symbols whose trades are managed by the strategy.
 
-The EA should:
+The STC trading day is defined in New York time. It begins at 20:00 New York and ends at 15:30 New York on the following calendar day. At 15:30 New York, all open trades are closed and all day state is reset.
 
-- Run once on any chart, independent of the chart symbol and chart timeframe.
-- Analyze and trade only two configured symbols.
-- Use New York time for all strategy windows.
-- Manage DST automatically, while the user supplies only the broker UTC offset.
-- Treat one STC trading day as New York 20:00 to New York 15:30 next day.
-- Close all open trades and reset all state at 15:30 New York.
-- Detect SMT divergence when only one of the two symbols hunts a prior W high or low within the same M cycle.
-- Treat a hunt as touch only; candle close is not required for the hunt itself.
-- Wait for the selected check candle to close before entry.
-- Enter immediately after the check candle close if the divergence still exists.
-- Prevent repeated entries from the same divergence.
-- Limit entries to 3 trades per M cycle.
-- Support optional hedging and optional partial close.
-- Set stop-loss exactly on the referenced W high/low, with no buffer.
-- Calculate size from risk percent, equity, and contract size.
-- Set take-profit from final reward and never modify it after entry.
+The strategy divides the trading day into three parent M cycles. Each M contains four W cycles. W1 never produces a signal because there is no previous W inside the same M. W2 can compare only against W1. W3 can compare only against W1 and W2. W4 can compare only against W1, W2, and W3. A W never compares with itself.
 
-## Implementation warning
+A valid SMT divergence occurs when exactly one of the two symbols hunts the high or low of an eligible previous W reference in the same M, while the other symbol does not hunt its corresponding same-structure W reference. Hunt is touch-only. No candle close beyond the level is required.
 
-The PDF contains one important ambiguity in the W comparison matrix. The text says the current W is never compared with itself and is compared only with previous W cycles in the same M. However, the printed rule matrix includes pairings that can be read more than one way. The implementation should not start until the rule direction is confirmed in [`08_open_questions.md`](./08_open_questions.md).
+The EA waits until the active check candle closes. If the divergence still exists at the check-candle close, the trade is entered immediately. If the clean symbol has also hunted the corresponding level before the check candle closes, the divergence is invalid and no trade is entered.
+
+The trade is placed on the clean symbol, meaning the symbol that did not hunt. If Symbol1 hunts and Symbol2 does not, trade Symbol2. If Symbol2 hunts and Symbol1 does not, trade Symbol1.
+
+High-side SMT divergence is a sell setup. Low-side SMT divergence is a buy setup.
+
+Stop loss is placed on the high or low of the selected reference W of the trade symbol. No buffer is used. If multiple references are eligible, the selected reference is the closest eligible W by time, or the eligible reference producing the smaller stop distance if that option is enabled for testing.
+
+Final Reward is an R-multiple. Final Reward = 10 means 10R TP.
+
+## Document map
+
+- `01_source_srs_extraction.md` - English extraction of the source PDF.
+- `02_normalized_strategy_spec.md` - Executable strategy contract.
+- `03_cycle_calendar.md` - New York trading day, M cycles, W cycles, gaps, and reset policy.
+- `04_smt_divergence_rules.md` - Hunt, divergence, reference selection, confirmation, invalidation, and anti-duplicate rules.
+- `05_execution_and_risk.md` - Entry, SL, TP, sizing, hedging, partial close, daily close, costs, and broker behavior.
+- `06_mql5_architecture_plan.md` - Planned modular MQL5 structure.
+- `07_test_plan.md` - Deterministic test scenarios.
+- `08_open_questions.md` - Remaining questions after clarification pass 1.
+- `09_owner_decisions_pass_1.md` - Locked decisions provided by the strategy owner.

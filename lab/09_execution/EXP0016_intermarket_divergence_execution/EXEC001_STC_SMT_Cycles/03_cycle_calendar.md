@@ -1,117 +1,117 @@
 # 03 - STC Cycle Calendar
 
-## 1. Canonical time zone
+## Timezone
 
-All cycle times are New York times.
+All strategy times are expressed in New York time.
 
-```text
-America/New_York
-```
+The implementation must handle New York DST correctly.
 
-The EA must handle DST automatically.
+For broker-based MQL5 execution, the user provides broker UTC offset. For CME/CSV/Python tooling, UTC timestamps should be converted to New York for cycle assignment.
 
-## 2. STC day
+## STC trading day
 
-```text
-20:00 New York -> 15:30 New York next day
-```
+The STC trading day starts at 20:00 New York and ends at 15:30 New York on the following calendar day.
 
-The source SRS is explicit that the strategy uses only the current trading day and resets at 15:30.
+No previous-day state is used after daily reset.
 
-## 3. M cycles
+## M cycle layout
 
-| M | Start NY | End NY | Duration | Notes |
-| --- | --- | --- | --- | --- |
-| M1 | 20:00 | 02:00 | 6h | crosses midnight |
-| M2 | 03:00 | 09:00 | 6h | after 1h gap |
-| M3 | 09:30 | 15:30 | 6h | ends at STC day reset |
+M1 runs from 20:00 to 02:00.
 
-## 4. Gaps
+M2 runs from 03:00 to 09:00.
 
-The PDF does not define behavior for:
+M3 runs from 09:30 to 15:30.
 
-| Gap | NY time |
-| --- | --- |
-| Gap 1 | 02:00 -> 03:00 |
-| Gap 2 | 09:00 -> 09:30 |
+## Gap rules
 
-Recommended implementation until clarified:
+02:00 -> 03:00 is a no-entry and no-detection gap.
 
-- No new divergence detection inside gaps.
-- Open trades continue to be managed.
-- If a check candle closes inside a gap, it should be handled only if its pending divergence was created in the previous active W and the confirmation candle was already scheduled before the gap.
+09:00 -> 09:30 is a no-entry and no-detection gap.
 
-This must be confirmed before production code.
+During these gaps, position management remains active only for already-open trades, especially final TP processing.
 
-## 5. W cycles
+No new STC entries are allowed in gaps.
 
-### M1
+## M1 W cycles
 
-| W | Start NY | End NY |
-| --- | --- | --- |
-| W1 | 20:00 | 21:30 |
-| W2 | 21:30 | 23:00 |
-| W3 | 23:00 | 00:30 |
-| W4 | 00:30 | 02:00 |
+W1: 20:00 -> 21:30
 
-### M2
+W2: 21:30 -> 23:00
 
-| W | Start NY | End NY |
-| --- | --- | --- |
-| W1 | 03:00 | 04:30 |
-| W2 | 04:30 | 06:00 |
-| W3 | 06:00 | 07:30 |
-| W4 | 07:30 | 09:00 |
+W3: 23:00 -> 00:30
 
-### M3
+W4: 00:30 -> 02:00
 
-| W | Start NY | End NY |
-| --- | --- | --- |
-| W1 | 09:30 | 11:00 |
-| W2 | 11:00 | 12:30 |
-| W3 | 12:30 | 14:00 |
-| W4 | 14:00 | 15:30 |
+Partial check for M1 occurs at 02:00.
 
-## 6. W level construction
+## M2 W cycles
 
-For each symbol and every W:
+W1: 03:00 -> 04:30
 
-```text
-W High = maximum high inside W interval
-W Low  = minimum low inside W interval
-```
+W2: 04:30 -> 06:00
 
-Recommended interval policy:
+W3: 06:00 -> 07:30
 
-```text
-start inclusive, end exclusive
-```
+W4: 07:30 -> 09:00
 
-Example:
+Partial check for M2 occurs at 09:00.
 
-```text
-M3.W1 includes bars with NY open time >= 09:30 and < 11:00.
-M3.W2 includes bars with NY open time >= 11:00 and < 12:30.
-```
+## M3 W cycles
 
-## 7. Check-candle interaction
+W1: 09:30 -> 11:00
 
-`Candle Check` defines how long the EA waits after raw divergence formation before validating entry.
+W2: 11:00 -> 12:30
 
-Allowed check durations:
+W3: 12:30 -> 14:00
 
-```text
-1m, 3m, 5m, 10m, 15m, 30m
-```
+W4: 14:00 -> 15:30
 
-At the check candle close, the divergence is either confirmed or canceled.
+M3 end occurs at 15:30. Daily hard close overrides practical partial-close usefulness at that time.
 
-## 8. End of W4 behavior
+## W candle definition
 
-At the end of W4 for each M:
+Each W is a synthetic 90-minute candle.
 
-- perform partial-close checks for trades opened in that M;
-- preserve M-local counters until the M fully ends;
-- then close the M cycle state.
+For each symbol and W:
 
-At the end of M3.W4, this also coincides with the end-of-day reset at 15:30.
+- W open time is fixed by the calendar.
+- W close time is fixed by the calendar.
+- W high is the maximum high inside the W interval.
+- W low is the minimum low inside the W interval.
+
+The data timeframe used to derive W highs and lows is implementation-dependent, as long as the resulting W high/low is accurate.
+
+## Eligibility by W
+
+W1 has no eligible reference W and does not generate signals.
+
+W2 eligible references:
+
+- W1
+
+W3 eligible references:
+
+- W2
+- W1
+
+W4 eligible references:
+
+- W3
+- W2
+- W1
+
+Current W is never eligible as its own reference.
+
+No reference can come from a different M.
+
+No reference can come from a previous trading day.
+
+## Last-check-candle rule
+
+The last check candle that would close exactly at an M end is not allowed to create a new entry.
+
+At M1 end, the time is for M1 partial processing.
+
+At M2 end, the time is for M2 partial processing.
+
+At M3 end, the time is for daily hard close and reset.

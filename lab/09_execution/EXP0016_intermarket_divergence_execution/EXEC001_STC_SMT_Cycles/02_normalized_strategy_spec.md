@@ -1,231 +1,250 @@
 # 02 - Normalized Strategy Specification
 
-This file translates the source SRS into an implementation-oriented strategy contract.
+## Strategy identity
 
-## 1. Scope
+Name: STC SMT Cycles
 
-`EXEC001_STC_SMT_Cycles` is an intermarket SMT divergence execution strategy.
+Family: Intermarket divergence execution
 
-It is not a general divergence scanner. It is a time-cycle strategy with fixed New York M/W cycles and strict trade-management rules.
+Strategy code: EXEC001_STC_SMT_CYCLES
 
-## 2. Symbols
+Source: STC Expert Advisor SRS v1.0 plus owner clarification pass 1.
 
-| Role | Meaning | Default |
-| --- | --- | --- |
-| Symbol1 | First analysis/trading symbol | `SPXUSD` |
-| Symbol2 | Second analysis/trading symbol | `NDXUSD` |
+## Purpose
 
-The EA should not care which chart symbol it is attached to.
+The strategy trades SMT divergence between two configured index symbols using only the current STC trading day.
 
-## 3. Trading day contract
+The EA may be attached to any chart, but the chart symbol must not influence decisions. The two configured symbols are the only symbols analyzed and managed.
 
-A strategy day is defined as:
+## Canonical trading day
 
-```text
-New York 20:00 -> New York 15:30 next day
-```
+Timezone: New York.
 
-At New York 15:30 the EA must:
+Trading day start: 20:00 New York.
 
-1. Close all open positions controlled by the STC strategy.
-2. Reset all counters.
-3. Reset all M-cycle direction locks.
-4. Delete all divergence records.
-5. Reset all partial-close flags.
-6. Reset all entry-consumed flags.
+Trading day end: 15:30 New York on the following calendar day.
 
-No previous-day strategy state is allowed to survive the reset.
+At 15:30 New York:
 
-## 4. Time basis
+- all strategy-managed positions are closed;
+- all M counters are reset;
+- all divergence records are cleared;
+- all partial-close state is cleared;
+- all entry-consumption state is cleared;
+- previous-day information is no longer available for decision-making.
 
-The canonical strategy time zone is:
+The EA may rebuild current-day state after restart using only current-day data.
 
-```text
-America/New_York
-```
+## M cycles
 
-Implementation layers:
+M1: 20:00 -> 02:00 New York.
 
-- Python/backtest layer: use timezone-aware timestamps with automatic DST.
-- MQL5 layer: use broker-time input offset plus a New York conversion helper.
-- CME/CSV layer: prefer UTC timestamps converted into New York time internally.
+Gap: 02:00 -> 03:00 New York. No new entry and no new detection is required.
 
-## 5. Cycle hierarchy
+M2: 03:00 -> 09:00 New York.
 
-```text
-STC Day
-  M1
-    W1
-    W2
-    W3
-    W4
-  M2
-    W1
-    W2
-    W3
-    W4
-  M3
-    W1
-    W2
-    W3
-    W4
-```
+Gap: 09:00 -> 09:30 New York. No new entry and no new detection is required.
 
-Every divergence belongs to exactly one M cycle and one active W cycle.
+M3: 09:30 -> 15:30 New York.
 
-## 6. Reference levels
+## W cycles
 
-For each symbol and each W cycle, calculate:
+Each M has four W cycles. Each W is a synthetic 90-minute candle.
 
-```text
-W High
-W Low
-W Start Time
-W End Time
-W ID
-M ID
-STC Day ID
-```
+M1:
 
-Only W levels inside the current STC day should be used.
+- W1: 20:00 -> 21:30
+- W2: 21:30 -> 23:00
+- W3: 23:00 -> 00:30
+- W4: 00:30 -> 02:00
 
-## 7. Divergence side
+M2:
 
-### Bullish SMT divergence
+- W1: 03:00 -> 04:30
+- W2: 04:30 -> 06:00
+- W3: 06:00 -> 07:30
+- W4: 07:30 -> 09:00
 
-A bullish SMT divergence exists when:
+M3:
 
-- exactly one symbol touches or breaks a prior reference W low inside the same M cycle;
-- the other symbol does not touch or break its corresponding reference W low;
-- the condition remains valid until check-candle close.
+- W1: 09:30 -> 11:00
+- W2: 11:00 -> 12:30
+- W3: 12:30 -> 14:00
+- W4: 14:00 -> 15:30
 
-The trade direction is BUY on the symbol that did not hunt.
+## W high/low construction
 
-### Bearish SMT divergence
+The W high and W low are the high and low of the synthetic 90-minute W candle.
 
-A bearish SMT divergence exists when:
+The construction timeframe is not strategically meaningful as long as the final W high and low are correct.
 
-- exactly one symbol touches or breaks a prior reference W high inside the same M cycle;
-- the other symbol does not touch or break its corresponding reference W high;
-- the condition remains valid until check-candle close.
+The implementation may aggregate W values from M1 or another available data source.
 
-The trade direction is SELL on the symbol that did not hunt.
+## Reference matrix
 
-## 8. Hunt definition
+Current W never compares with itself.
 
-Hunt is touch-only:
+W1 never generates signals.
 
-```text
-Bullish hunt: bar low <= reference W low
-Bearish hunt: bar high >= reference W high
-```
+W2 compares only with W1.
 
-No candle close confirmation is needed for the hunt itself.
+W3 compares only with W2 and W1.
 
-## 9. Confirmation
+W4 compares only with W3, W2, and W1.
 
-A raw divergence is not traded immediately. It enters a pending state.
+All references must be inside the same M.
 
-The EA waits for the configured check candle to close:
+## SMT divergence definition
 
-```text
-1m / 3m / 5m / 10m / 15m / 30m
-```
+A valid SMT divergence occurs when exactly one symbol hunts a previous eligible W high or W low while the other symbol does not hunt its corresponding same-structure W level.
 
-At the check-candle close:
+The comparison is structural. Each symbol has its own W levels.
 
-- If exactly one symbol still has hunted and the other has not, the divergence is confirmed and entered.
-- If both symbols have hunted, the divergence is no longer valid.
-- If neither symbol has hunted, no divergence exists.
-- If both buy and sell divergences confirm at the same time, no trade is entered.
+High-side divergence:
 
-## 10. One trade per divergence
+- one symbol touches an eligible previous W high;
+- the other symbol does not touch its corresponding eligible previous W high;
+- setup direction is sell;
+- trade is placed on the clean symbol.
 
-Every divergence needs a stable ID such as:
+Low-side divergence:
 
-```text
-stc_day + m_id + current_w_id + reference_w_id + side + hunted_symbol + clean_symbol
-```
+- one symbol touches an eligible previous W low;
+- the other symbol does not touch its corresponding eligible previous W low;
+- setup direction is buy;
+- trade is placed on the clean symbol.
 
-Once that ID has been traded, it must not trigger again.
+## Hunt rule
 
-## 11. M-cycle trade limit
+Hunt is touch-only.
 
-Each M cycle can have at most 3 trades.
+No candle close beyond the level is required.
 
-When hedging is OFF:
+No tolerance is used.
 
-- the first trade in the M cycle locks the M direction;
-- all later trades in that M must match the locked direction;
-- opposite-direction trades are skipped.
+High hunt: current high touches the reference high.
 
-When hedging is ON:
+Low hunt: current low touches the reference low.
 
-- both BUY and SELL are allowed;
-- the 3-trades-per-M limit still applies.
+## Check-candle confirmation
 
-## 12. Symbol selection
+The strategy waits for the active check candle to close after raw divergence appears.
 
-Trade the clean/non-hunting symbol.
+If the divergence still exists at that check-candle close, entry occurs immediately.
 
-Examples:
+If the clean symbol has also hunted the corresponding reference before the check candle closes, the divergence is invalid and no trade is opened.
 
-| Hunted symbol | Clean symbol | Trade symbol |
-| --- | --- | --- |
-| SPX | NDX | NDX |
-| NDX | SPX | SPX |
+The same active check candle is sufficient. The strategy does not require a full new check candle after formation.
 
-## 13. Stop-loss and take-profit
+Allowed check-candle sizes:
 
-Stop-loss:
+- 1m
+- 3m
+- 5m
+- 10m
+- 15m
+- 30m
 
-- BUY: stop on referenced W low.
-- SELL: stop on referenced W high.
-- No buffer.
-- If multiple reference W cycles are eligible, use the closest one by time.
+The EA should aggregate check candles internally so non-native periods such as 3m and 10m remain supported.
 
-Take-profit:
+## Last-check-candle rule
 
-- All trades must have TP.
-- TP is calculated from Final Reward.
-- TP is not modified after opening.
+The final check candle of an M is not used for new entries.
 
-## 14. Position size
+The end of W4 is reserved for partial close, and at 15:30 New York it is reserved for daily hard close.
 
-Position size uses:
+If confirmation would occur only after the M has ended, the signal is cancelled.
 
-```text
-Risk Percent
-Equity
-Contract Size
-Stop distance
-```
+## One-entry-per-divergence
 
-The SRS explicitly says no max-volume limitation is applied, even if calculated volume is very large.
+Each divergence can open at most one trade.
 
-Implementation may include a separate safety switch later, but the source strategy contract has no cap.
+If the same divergence remains valid in later check candles, no additional entries are opened.
 
-## 15. Partial close
+## Simultaneous signal rule
 
-At the end of W4 for each M cycle:
+If buy and sell signals are confirmed in the same check candle, no trade is opened.
 
-- inspect trades opened in that M;
-- if Partial is ON and trade has not hit TP;
-- close approximately 50%;
-- mark the trade as partial-closed;
-- never partial-close that trade again.
+If buy and sell signals occur in separate check candles and hedging is ON, both directions are allowed subject to the max-trade limit.
 
-## 16. End-of-day close
+## Max trades per M
 
-At New York 15:30:
+Each M can open at most three trades total across both symbols.
 
-- close all open STC trades without exception;
-- then reset all state.
+The counter increases only after a position is actually opened.
 
-## 17. Entry STC switch
+## Hedging
 
-If `Entry STC = OFF`:
+If hedging is OFF, the first opened trade in an M locks the allowed direction for that M.
 
-- no new STC signals are generated;
-- already-open trades continue to be managed.
+The lock is direction-based and not symbol-based.
 
+If hedging is ON, both buy and sell trades are allowed, but the max three trades per M still applies.
+
+Even with hedging ON, simultaneous buy and sell confirmation in the same check candle produces no trade.
+
+## Stop-loss
+
+SL is placed exactly on the selected reference W high or low of the trade symbol.
+
+No buffer is added.
+
+For buy trades, SL uses the selected reference W low of the trade symbol.
+
+For sell trades, SL uses the selected reference W high of the trade symbol.
+
+When multiple eligible reference W levels are involved, the default reference selection is the closest eligible W by time. An optional research mode may choose the eligible reference that produces the smallest stop distance.
+
+## Take-profit
+
+All trades have TP.
+
+TP is based on Final Reward as an R multiple.
+
+Final Reward = 10 means 10R.
+
+## Position sizing
+
+Position size is calculated from Equity and Risk Percent.
+
+If broker tick value is available, use broker tick value.
+
+If tick value is not available, use Contract Size input.
+
+The strategy does not apply its own theoretical max-volume cap, but live execution must respect broker min/max/step constraints.
+
+## Partial close
+
+If Partial is OFF, no partial close is performed.
+
+If Partial is ON, at the end of W4 of each M, trades opened in that same M are checked.
+
+If a trade has not reached TP, approximately 50% of the volume is closed.
+
+Partial volume is rounded upward to broker volume step.
+
+If the trade volume is 0.01 and a valid smaller partial is not possible, the full position is closed.
+
+Each trade can be partially closed only once.
+
+Trades opened in M1 are not partially closed again in M2.
+
+At M3 end, partial is practically superseded by the daily hard close.
+
+## STC Entry OFF
+
+When STC Entry is OFF:
+
+- no new trades are opened;
+- signals and events may still be recorded for audit;
+- management of already-open positions continues.
+
+## Missing data
+
+If required data is missing or the market is closed, no trade is opened.
+
+## Costs
+
+Spread and commission should be recorded and included in net reports.
+
+The strategy does not use spread as an entry filter.

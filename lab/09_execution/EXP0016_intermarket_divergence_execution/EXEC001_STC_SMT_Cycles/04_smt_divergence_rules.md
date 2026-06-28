@@ -1,168 +1,130 @@
 # 04 - SMT Divergence Rules
 
-## 1. Domain
+## Core principle
 
-Divergence is defined only between two configured symbols:
+SMT divergence is defined structurally between two symbols.
 
-```text
-Symbol1
-Symbol2
-```
+Each symbol has its own W highs and lows. The strategy does not compare the absolute price level of Symbol1 with the absolute price level of Symbol2.
 
-The strategy does not use broad market context, chart symbol, chart timeframe, or previous-day retained state.
+Instead, it compares whether each symbol has hunted the corresponding W reference of its own structure.
 
-## 2. Reference W levels
+## Eligible references
 
-A reference W level is:
+Only previous W cycles inside the same M are eligible.
 
-```text
-Reference W High
-Reference W Low
-```
+W1 produces no signal.
 
-from an eligible W cycle inside the same M cycle.
+W2 can only use W1.
 
-## 3. Hunt rule
+W3 can use W2 or W1.
 
-A hunt is touch-only.
+W4 can use W3, W2, or W1.
 
-### Low hunt
+## Hunt definition
 
-```text
-bar.low <= reference_w_low
-```
+Hunt is touch-only.
 
-### High hunt
+No candle close beyond the reference is required.
 
-```text
-bar.high >= reference_w_high
-```
+No tolerance is applied.
 
-No candle close is required.
+High hunt occurs when the active price high touches the selected reference W high.
 
-## 4. Raw bullish SMT divergence
+Low hunt occurs when the active price low touches the selected reference W low.
 
-A raw bullish SMT divergence forms when:
+## High-side divergence
 
-1. One symbol hunts an eligible reference W low.
-2. The other symbol does not hunt the corresponding eligible reference W low.
-3. The hunted and clean symbols belong to the same two-symbol pair.
-4. The active W is not being compared with itself.
-5. The reference W is inside the same M cycle.
+A high-side SMT divergence exists when:
 
-Trade direction after confirmation:
+- exactly one symbol hunts an eligible previous W high;
+- the other symbol does not hunt its corresponding previous W high;
+- both references belong to the same W index inside the same M structure;
+- the divergence remains valid until the check-candle close.
 
-```text
-BUY clean_symbol
-```
+Trade direction: sell.
 
-## 5. Raw bearish SMT divergence
+Trade symbol: the symbol that did not hunt.
 
-A raw bearish SMT divergence forms when:
+## Low-side divergence
 
-1. One symbol hunts an eligible reference W high.
-2. The other symbol does not hunt the corresponding eligible reference W high.
-3. The hunted and clean symbols belong to the same two-symbol pair.
-4. The active W is not being compared with itself.
-5. The reference W is inside the same M cycle.
+A low-side SMT divergence exists when:
 
-Trade direction after confirmation:
+- exactly one symbol hunts an eligible previous W low;
+- the other symbol does not hunt its corresponding previous W low;
+- both references belong to the same W index inside the same M structure;
+- the divergence remains valid until the check-candle close.
 
-```text
-SELL clean_symbol
-```
+Trade direction: buy.
 
-## 6. Confirmation rule
+Trade symbol: the symbol that did not hunt.
 
-After raw divergence formation:
+## Confirmation
 
-1. Create a pending divergence record.
-2. Wait for the selected check candle to close.
-3. At close, recompute whether the divergence is still true.
-4. If it is still true, enter immediately.
-5. If it is not true, cancel the pending divergence.
+Raw divergence can form intrabar.
 
-## 7. Divergence disappearance
+The strategy waits until the active configured check candle closes.
 
-A divergence disappears when the clean symbol also hunts the same-side corresponding reference level before check-candle close.
+At check-candle close:
+
+- if only one symbol has hunted, the divergence is confirmed;
+- if both symbols have hunted, the divergence is invalid;
+- if neither symbol has hunted, there is no divergence.
+
+The same active check candle is sufficient. A full additional check candle is not required.
+
+## Clean-symbol invalidation
+
+If the initially clean symbol hunts the corresponding reference before check-candle close, the divergence is invalid and no trade is opened.
+
+If the clean symbol hunts after the trade has already been opened, the old divergence does not produce a new entry. The open position is managed through normal SL/TP/partial/daily-close rules.
+
+## Duplicate prevention
+
+Each divergence can be traded only once.
+
+Suggested divergence ID components:
+
+- trading day;
+- M id;
+- current W id;
+- reference W id;
+- side: high or low;
+- hunted symbol;
+- clean/traded symbol;
+- check-candle close time.
+
+If the same divergence remains true on later check candles, no new entry is allowed.
+
+## Multiple eligible references
+
+When multiple eligible references are hunted, the default selected reference is the closest eligible W by time.
 
 Example:
 
-```text
-SPX hunts reference low.
-NDX has not hunted reference low.
-Raw bullish divergence exists.
-Before check candle closes, NDX also touches its reference low.
-Divergence is canceled.
-No entry.
-```
+If W4 is current and W3, W2, and W1 references are all touched, W3 is selected by default because it is closest.
 
-## 8. Simultaneous opposite divergences
+The purpose is to keep the stop-loss smaller.
 
-If buy and sell divergences are confirmed at the same time:
+Optional research mode:
 
-```text
-No trade.
-```
+- choose the eligible reference that produces the smallest stop distance on the trade symbol.
 
-This is a hard skip condition in the source SRS.
+This optional mode must be explicitly labelled in reports because it is not the strict default.
 
-## 9. One trade per divergence
+## Simultaneous buy and sell
 
-A confirmed divergence can only generate one entry.
+If buy-side and sell-side divergences are both confirmed in the same check candle, no trade is opened.
 
-If the same divergence condition remains valid after the first entry:
+The event should be recorded as ambiguous/no-trade.
 
-```text
-No re-entry.
-```
+If buy and sell signals occur on separate check candles and hedging is enabled, both may be traded subject to max-trade-per-M limits.
 
-## 10. W comparison matrix - literal source
+## No-entry moments
 
-The source SRS prints this matrix:
+No new entry is allowed:
 
-```text
-W2 <- W1
-W1 or W3 <- W2
-W1 or W2 or W4 <- W3
-```
-
-The same rule applies for M1, M2, and M3.
-
-## 11. W comparison matrix - implementation ambiguity
-
-The source also says:
-
-```text
-The current W is never compared with itself.
-Only previous W cycles of the same M are compared.
-```
-
-This creates an ambiguity because the printed matrix can be read in more than one direction.
-
-### Conservative implementation candidate
-
-If "previous W only" is treated as the dominant rule:
-
-| Current W | Eligible reference W |
-| --- | --- |
-| W1 | none |
-| W2 | W1 |
-| W3 | W1, W2 |
-| W4 | W1, W2, W3 |
-
-### Literal-matrix implementation candidate
-
-If the printed arrows are treated literally, the exact direction must be defined by the strategy owner before coding.
-
-## 12. Required decision before code
-
-The implementation must not lock the W comparison engine until the exact reference matrix is confirmed.
-
-Recommended input design:
-
-```text
-InpReferenceMatrixMode = PREVIOUS_ONLY / SRS_LITERAL / CUSTOM
-```
-
-This allows testing both interpretations without rewriting the engine.
+- during M gaps;
+- on the last check candle of an M;
+- after 15:30 New York;
+- when required symbol data is missing;
+- when the market is closed.

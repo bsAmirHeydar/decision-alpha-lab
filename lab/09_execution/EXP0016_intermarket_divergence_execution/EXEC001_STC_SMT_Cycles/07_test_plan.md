@@ -1,229 +1,112 @@
-# 07 - STC SMT Cycles Test Plan
-
-## 1. Test philosophy
-
-Do not trust aggregate backtest metrics until every rule has deterministic scenario tests.
-
-The first test target is not profitability. It is logic correctness.
-
-## 2. Time and cycle tests
-
-### T001 - STC day boundary
-
-Expected:
-
-- New STC day starts at New York 20:00.
-- End-of-day reset fires exactly at New York 15:30.
-
-### T002 - M cycle detection
-
-Expected active cycles:
-
-| NY time | Expected |
-| --- | --- |
-| 20:30 | M1.W1 |
-| 22:00 | M1.W2 |
-| 23:30 | M1.W3 |
-| 01:00 | M1.W4 |
-| 03:30 | M2.W1 |
-| 08:00 | M2.W4 |
-| 10:00 | M3.W1 |
-| 15:00 | M3.W4 |
-
-### T003 - Gap handling
-
-Times:
-
-- 02:30.
-- 09:15.
-
-Expected behavior must match final spec decision.
-
-## 3. W level tests
-
-### T010 - W high/low construction
-
-Given known bars inside each W:
-
-- W high equals maximum high.
-- W low equals minimum low.
-- End time is exclusive.
-
-### T011 - No previous-day leakage
-
-After 15:30 reset:
-
-- no W levels from the previous STC day remain usable.
-
-## 4. SMT divergence tests
-
-### T020 - Bullish SMT: Symbol1 hunts low only
-
-Scenario:
-
-- Symbol1 touches reference W low.
-- Symbol2 does not touch reference W low.
-
-Expected:
-
-- bullish pending divergence;
-- hunted symbol = Symbol1;
-- clean symbol = Symbol2;
-- intended trade = BUY Symbol2.
-
-### T021 - Bullish SMT: Symbol2 hunts low only
-
-Expected:
-
-- intended trade = BUY Symbol1.
-
-### T022 - Bearish SMT: Symbol1 hunts high only
-
-Expected:
-
-- intended trade = SELL Symbol2.
-
-### T023 - Bearish SMT: Symbol2 hunts high only
-
-Expected:
-
-- intended trade = SELL Symbol1.
-
-### T024 - Both symbols hunt same side before check close
-
-Expected:
-
-- pending divergence cancels;
-- no entry.
-
-### T025 - Neither symbol hunts
-
-Expected:
-
-- no divergence.
-
-### T026 - Buy and sell divergence confirm simultaneously
-
-Expected:
-
-- no trade.
-
-## 5. Confirmation tests
-
-### T030 - Divergence still valid at check close
-
-Expected:
-
-- entry intent created immediately after check candle close.
-
-### T031 - Divergence disappears before check close
-
-Expected:
-
-- no entry.
-
-### T032 - Same divergence persists across later candles
-
-Expected:
-
-- only one entry.
-
-## 6. M trade-limit tests
-
-### T040 - Max 3 trades per M
-
-Expected:
-
-- trades 1, 2, 3 are allowed if rules pass;
-- trade 4 is skipped.
-
-### T041 - Hedging OFF direction lock
-
-Expected:
-
-- first M trade locks direction;
-- opposite direction skipped;
-- same direction allowed until max 3.
-
-### T042 - Hedging ON
-
-Expected:
-
-- buy and sell both allowed;
-- still max 3 per M.
-
-## 7. Risk tests
-
-### T050 - Stop-loss reference
-
-Expected:
-
-- BUY SL = selected reference W low.
-- SELL SL = selected reference W high.
-- no buffer.
-
-### T051 - Closest W reference
-
-If multiple references eligible:
-
-- choose closest by time.
-
-### T052 - Position sizing
-
-Expected:
-
-- volume follows risk percent, equity, contract size, and stop distance.
-- no hard volume cap.
-
-### T053 - Take-profit
-
-Expected:
-
-- TP calculated from Final Reward.
-- TP not modified after entry.
-
-## 8. Partial and reset tests
-
-### T060 - Partial OFF
-
-Expected:
-
-- no partial close.
-
-### T061 - Partial ON, not hit TP by W4 end
-
-Expected:
-
-- approximately 50% closed.
-- trade marked partial-done.
-
-### T062 - Volume 1.01
-
-Expected:
-
-- close 0.51.
-
-### T063 - Volume 0.01
-
-Expected:
-
-- close full trade.
-
-### T064 - End-of-day 15:30
-
-Expected:
-
-- all open trades closed;
-- all state reset.
-
-## 9. Regression tests before live
-
-Before live trading is enabled:
-
-- Run scenario tests.
-- Run at least one full week on historical data with audit logs.
-- Manually inspect every divergence/trade for one day.
-- Verify no repeated entries for the same divergence.
-- Verify no state leakage across 15:30 reset.
-- Verify DST transition days.
-
+# 07 - Test Plan
+
+## Goal
+
+The test plan verifies that the STC SMT Cycles strategy matches the locked SRS and owner clarifications before live execution is implemented.
+
+## Time and cycle tests
+
+1. Verify New York DST conversion.
+2. Verify trading day assignment from 20:00 to 15:30.
+3. Verify M1: 20:00 -> 02:00.
+4. Verify no new entry during 02:00 -> 03:00 gap.
+5. Verify M2: 03:00 -> 09:00.
+6. Verify no new entry during 09:00 -> 09:30 gap.
+7. Verify M3: 09:30 -> 15:30.
+8. Verify hard close at 15:30.
+9. Verify W boundaries for all M cycles.
+10. Verify W high/low aggregation from lower timeframe candles.
+
+## Reference matrix tests
+
+1. W1 produces no signal.
+2. W2 can use only W1.
+3. W3 can use W2 and W1.
+4. W4 can use W3, W2, and W1.
+5. Current W is never used as its own reference.
+6. References from previous M are not allowed.
+7. References from previous trading day are not allowed.
+
+## Hunt tests
+
+1. High touch by Symbol1 only creates raw high-side divergence.
+2. High touch by Symbol2 only creates raw high-side divergence.
+3. Low touch by Symbol1 only creates raw low-side divergence.
+4. Low touch by Symbol2 only creates raw low-side divergence.
+5. Both symbols touching the same side before check close invalidates divergence.
+6. No tolerance is applied.
+7. No close beyond level is required.
+
+## Confirmation tests
+
+1. Raw divergence mid-check-candle confirms at same check-candle close if still valid.
+2. Raw divergence invalidates if clean symbol hunts before check close.
+3. Confirmation after M end is cancelled.
+4. Last check candle of M cannot create a new entry.
+5. Same divergence does not re-enter on later check candles.
+
+## Direction and trade-symbol tests
+
+1. Symbol1 high hunt and Symbol2 clean -> sell Symbol2.
+2. Symbol2 high hunt and Symbol1 clean -> sell Symbol1.
+3. Symbol1 low hunt and Symbol2 clean -> buy Symbol2.
+4. Symbol2 low hunt and Symbol1 clean -> buy Symbol1.
+
+## Simultaneous signal tests
+
+1. Buy and sell confirmed in same check candle -> no trade.
+2. Buy then sell in separate check candles with hedging OFF -> second trade blocked if direction differs.
+3. Buy then sell in separate check candles with hedging ON -> both allowed subject to max trade count.
+
+## Max trade tests
+
+1. Max three trades per M across both symbols.
+2. Counter increments only after successful position open.
+3. Failed order does not increment counter.
+4. Counter resets at the next M.
+5. Counter resets at daily reset.
+
+## Stop-loss tests
+
+1. Buy SL uses selected reference W low of trade symbol.
+2. Sell SL uses selected reference W high of trade symbol.
+3. No buffer is added.
+4. Closest-by-time reference mode chooses W3 over W2/W1 when current W is W4 and all are eligible.
+5. Optional smallest-stop mode chooses the smallest valid stop distance.
+
+## TP and risk tests
+
+1. Final Reward = 10 creates 10R TP.
+2. Volume uses risk percent and equity.
+3. Tick value is used if available.
+4. Contract Size input is used if tick value is unavailable.
+5. Theoretical volume is not capped by strategy logic.
+6. Live volume respects broker min/max/step.
+7. Raw and net results are both recorded when costs are enabled.
+
+## Partial tests
+
+1. M1 trades are checked at 02:00.
+2. M2 trades are checked at 09:00.
+3. M3 trades are closed at 15:30 by daily hard close.
+4. Partial is applied even if trade is in loss.
+5. Volume 1.01 with 0.01 step closes 0.51.
+6. Volume 0.01 closes fully.
+7. Each trade is partially closed at most once.
+8. M1 trade is not partially closed again in M2.
+
+## Daily reset tests
+
+1. All open STC positions close at 15:30.
+2. All counters reset.
+3. All divergence records clear.
+4. All partial states clear.
+5. Previous-day data does not affect next trading day.
+6. EA restart inside current day can rebuild from current-day data.
+7. EA restart after 15:30 closes old managed positions if any remain.
+
+## Missing data and holidays
+
+1. Missing required symbol data -> no trade.
+2. Closed market -> no trade.
+3. No synthetic candle construction if source bars are missing.

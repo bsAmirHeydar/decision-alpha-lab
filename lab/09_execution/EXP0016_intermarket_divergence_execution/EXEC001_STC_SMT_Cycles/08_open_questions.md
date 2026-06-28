@@ -1,143 +1,140 @@
-# 08 - Open Questions Before Implementation
+# 08 - Remaining Open Questions Before Implementation
 
-This strategy should not be coded until these decisions are locked.
+Most core strategy ambiguities have been resolved by the owner. The remaining questions are implementation-level and reporting-level.
 
-## Critical questions
+## Q1 - Exact touch operator
 
-### Q1 - W comparison matrix direction
+Owner decision: no tolerance.
 
-The source says current W is compared only with previous W cycles in the same M, but the printed matrix can be interpreted ambiguously:
+Remaining implementation detail:
 
-```text
-W2 <- W1
-W1 or W3 <- W2
-W1 or W2 or W4 <- W3
-```
+Should exact equality count as touch?
 
-Decision needed:
+Recommended implementation:
 
-- Use previous-only matrix?
-- Use literal SRS matrix?
-- Add input mode and test both?
+- High hunt: high >= reference_high.
+- Low hunt: low <= reference_low.
 
-Recommended:
+This is still no tolerance; it only defines equality behavior.
 
-```text
-InpReferenceMatrixMode = PREVIOUS_ONLY / SRS_LITERAL / CUSTOM
-```
+## Q2 - Backtest entry price wording
 
-### Q2 - Gap behavior
+Owner approved next-bar open after check-candle close as good.
 
-What should the EA do during:
+Implementation should document the exact convention:
 
-```text
-02:00 -> 03:00
-09:00 -> 09:30
-```
+- research/backtest: next check-bar open after confirmation;
+- live: market order immediately after confirmation close.
 
-Options:
+Confirm whether this should be fixed or remain an input.
 
-1. No detection, only manage positions.
-2. Allow pending confirmations only.
-3. Treat gaps as dead zones and cancel pending divergences.
+## Q3 - SL/TP intrabar ambiguity in coarse backtests
 
-### Q3 - Check candle alignment
+Owner accepted using the same check candle path for backtest at this stage.
 
-If raw divergence appears in the middle of a check candle, should the EA wait for:
+Remaining detail:
 
-1. the currently forming check candle to close;
-2. the next full check candle to close?
+If a single backtest candle touches both SL and TP, should the report assume:
+
+- conservative SL-first;
+- TP-first;
+- ambiguous/excluded?
 
 Recommended:
 
-- Wait for the currently active check-candle close if the divergence forms before that close.
+- conservative SL-first unless lower timeframe path is available.
 
-### Q4 - TP formula
+## Q4 - Multiple reference selection mode
 
-The SRS says TP uses Final Reward, but does not explicitly define formula.
+Owner approved closest reference by time and also allowed smallest-stop reference as an option.
 
-Recommended candidate:
+Remaining detail:
 
-```text
-TP = entry +/- FinalReward * abs(entry - SL)
-```
-
-Confirm whether `Final Reward = 10` means `10R`.
-
-### Q5 - Position size formula
-
-Recommended candidate:
-
-```text
-volume = (equity * risk_percent / 100) / (stop_distance_points * contract_size)
-```
-
-Confirm whether this matches the author's intended contract-size usage.
-
-### Q6 - Execution price
-
-Entry is "immediate after check candle close".
-
-Implementation options:
-
-1. market order on the next tick after close;
-2. open price of the next bar in backtest;
-3. close price of confirmation candle in research reports.
+Which should be the default production mode?
 
 Recommended:
 
-- Live: market order after check candle close.
-- Backtest: next bar open, with optional slippage.
+- Default: closest-by-time, strict SRS/owner rule.
+- Research input: smallest-stop.
 
-### Q7 - Touch equality
+## Q5 - Event recording when simultaneous buy/sell occurs
 
-For hunt, should equality count?
+Owner decision: do not trade.
 
-Recommended:
+Remaining detail:
 
-```text
-Low hunt: low <= level
-High hunt: high >= level
-```
-
-### Q8 - Multiple reference W hits in same event
-
-If one symbol hunts several eligible W levels at the same time, source says closest W by time is selected for stop-loss.
-
-Confirm whether the divergence ID should use:
-
-- only closest W;
-- all hunted W references but choose closest W for SL.
-
-### Q9 - Partial close rounding
-
-The source gives examples:
-
-```text
-1.01 -> close 0.51
-0.01 -> close full
-```
-
-Need general rounding policy for broker volume step.
-
-### Q10 - Live-order safety
-
-The SRS allows extremely large calculated volume with no cap.
-
-For real live trading, should we add an optional safety kill-switch outside the strategy contract?
+Should the ambiguous event be marked consumed or can it be reconsidered on a later check candle if only one side remains?
 
 Recommended:
 
-```text
-InpMaxLiveVolumeSafety = 0 means disabled
-```
+- record ambiguous no-trade event;
+- do not open trade;
+- do not consume the underlying one-sided divergence permanently unless it remains ambiguous at its own confirmation close.
 
-Keep disabled by default if strict SRS behavior is required.
+## Q6 - Live broker volume behavior
 
-## Non-blocking enhancements
+Owner decision: no strategy max-volume cap, but respect broker min/max.
 
-- Optional audit chart drawing.
-- Optional report-only mode.
-- Optional custom symbol mapping for CME ES/NQ to broker SPX/NDX execution.
-- Optional CSV bridge support from `EXP0015` data-source layer.
+Remaining detail:
 
+If calculated volume exceeds broker max, should live execution:
+
+- clamp to broker max and trade;
+- reject/skip the trade;
+- split into multiple orders?
+
+Recommended first implementation:
+
+- clamp to broker max only if explicitly enabled;
+- otherwise skip and journal `BROKER_VOLUME_LIMIT`.
+
+## Q7 - Entry OFF audit depth
+
+Owner decision: scan and record, but do not trade.
+
+Remaining detail:
+
+Should Entry OFF record only confirmed signals or also raw/intrabar divergence states?
+
+Recommended:
+
+- record confirmed signals and skipped trade reason `ENTRY_OFF`.
+
+## Q8 - Symbol mapping for CME vs broker execution
+
+Owner decision: logic applies equally to SPX/NDX, ES/NQ, NAS100 equivalents.
+
+Remaining detail:
+
+For this specific STC EA, should Symbol1/Symbol2 be both data and execution symbols, or should we support separate data symbols and execution symbols?
+
+Recommended first implementation:
+
+- Symbol1/Symbol2 are both data and execution symbols.
+- Add a later optional `DataSymbol -> ExecutionSymbol` mapping layer for CME-driven CFD execution.
+
+## Q9 - Cost model details
+
+Owner decision: add spread and commission.
+
+Remaining detail:
+
+Use fixed inputs, broker-reported spread, or both?
+
+Recommended:
+
+- report gross results;
+- report net results using input spread points, slippage points, and commission per lot/contract.
+
+## Q10 - Early close calendar
+
+Owner decision: if data is missing or market is closed, do not trade.
+
+Remaining detail:
+
+Do we need an explicit holiday/early-close calendar in v1?
+
+Recommended:
+
+- v1: data-driven no-trade when bars are missing.
+- v2: explicit calendar module.

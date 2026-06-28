@@ -1,167 +1,183 @@
 # 06 - MQL5 Architecture Plan
 
-## 1. Goal
+## Design goal
 
-Build the STC SMT Cycles strategy as an execution module without hard-coding it into the generic intermarket divergence detector.
+The STC SMT Cycles implementation should be modular enough to support later related divergence/cycle strategies without hardcoding all logic into one EA.
 
-## 2. Proposed MQL5 folder layout
+This document describes the planned MQL5 architecture for EXEC001 only, while keeping common components reusable.
 
-```text
-mql5/Experts/IntermarketDivergenceExecution/
-  IMDEXEC001_STC_SMT_Cycles.mq5
+## Proposed folder structure
 
-mql5/Include/IntermarketDivergenceExecution/STC/
-  DAL_STC_Types.mqh
-  DAL_STC_Time.mqh
-  DAL_STC_Cycles.mqh
-  DAL_STC_Levels.mqh
-  DAL_STC_SMTDetector.mqh
-  DAL_STC_Confirmation.mqh
-  DAL_STC_Risk.mqh
-  DAL_STC_PositionManager.mqh
-  DAL_STC_Journal.mqh
-```
+Expert:
 
-## 3. Shared dependency candidates
+- `mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5`
 
-The module should reuse, not duplicate:
+Includes:
 
-```text
-IntermarketDivergence series loading
-external CSV/CME bridge inputs
-timeframe-independent bar access
-journal/file helpers
-position sizing helpers when generalized
-```
+- `mql5/Include/IntermarketDivergenceExecution/Core/`
+- `mql5/Include/IntermarketDivergenceExecution/STC/`
 
-## 4. Main EA inputs
+Strategy documentation:
 
-```mql5
-input string InpSymbol1 = "SPXUSD";
-input string InpSymbol2 = "NDXUSD";
-input bool   InpEntrySTC = true;
-input bool   InpPartial = true;
-input bool   InpHedging = false;
-input double InpFinalReward = 10.0;
-input double InpRiskPercent = 0.5;
-input int    InpCandleCheckMinutes = 5;
-input double InpContractSize = 10.0;
-input int    InpBrokerUtcOffsetHours = 0;
-input int    InpTimerSeconds = 5;
-```
+- `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/`
 
-Additional implementation-safety inputs:
+## Core modules
 
-```mql5
-input bool   InpReportOnly = true;
-input bool   InpAllowLiveTrading = false;
-input int    InpMagicNumber = 16001;
-input string InpOutputFolder = "imd/EXP0016/STC";
-input ENUM_STC_REFERENCE_MATRIX_MODE InpReferenceMatrixMode = STC_REF_PREVIOUS_ONLY;
-```
-
-## 5. Time module
+### Time module
 
 Responsibilities:
 
-- Convert broker time to UTC.
-- Convert UTC to New York time.
-- Handle DST.
-- Return current STC day ID.
-- Return active M/W cycle.
-- Detect 15:30 reset event.
-- Detect W4-end partial checkpoints.
+- convert broker/server time to UTC;
+- convert UTC to New York time;
+- handle New York DST;
+- assign bars/ticks to STC trading day;
+- detect M cycle, W cycle, gaps, partial times, and daily close.
 
-## 6. Cycle module
+### Synthetic candle module
 
 Responsibilities:
 
-- Define M and W schedules.
-- Build W high/low for each symbol.
-- Track current W and prior W levels.
-- Enforce same-M reference rules.
-- Keep no prior-day levels after reset.
+- build W synthetic 90-minute candles;
+- build check candles from lower timeframe data;
+- support non-standard check periods: 3m and 10m;
+- maintain per-symbol high/low state.
 
-## 7. SMT detector module
-
-Responsibilities:
-
-- Evaluate reference W high/low hunts.
-- Create pending SMT records.
-- Prevent duplicate divergence IDs.
-- Resolve hunted symbol and clean symbol.
-- Resolve side: BUY/SELL.
-- Detect simultaneous buy/sell conflict.
-
-## 8. Confirmation module
+### Cycle state module
 
 Responsibilities:
 
-- Schedule check-candle close time.
-- Revalidate divergence at check close.
-- Confirm or cancel pending divergence.
-- Create entry intent.
+- maintain current trading day state;
+- maintain M counters;
+- maintain W high/low records;
+- clear state at daily reset;
+- rebuild same-day state after restart.
 
-## 9. Execution module
-
-Responsibilities:
-
-- Enforce `Entry STC`.
-- Enforce max 3 trades per M.
-- Enforce hedging/direction-lock rules.
-- Select entry symbol.
-- Calculate SL/TP/volume.
-- Either journal paper trade or send order.
-
-## 10. Position manager
+### SMT divergence module
 
 Responsibilities:
 
-- Manage partial close at W4 end.
-- Close all at STC end-of-day 15:30.
-- Keep managing existing positions even when `Entry STC` is OFF.
-- Track each trade's M, W, divergence ID, and partial status.
+- evaluate eligible W references;
+- detect touch-only hunts;
+- confirm divergence at check-candle close;
+- detect invalidation by clean-symbol hunt;
+- prevent duplicate entry for the same divergence;
+- handle simultaneous buy/sell no-trade rule.
 
-## 11. Journal module
+### Reference selection module
 
-Output files:
+Responsibilities:
 
-```text
-stc_signals.csv
-stc_trades.csv
-stc_daily_reset.csv
-stc_cycle_audit.csv
-stc_pending_divergences.csv
-```
+- choose closest eligible W by time;
+- optionally choose smallest-stop reference in research mode;
+- return the selected trade-symbol stop anchor.
 
-## 12. Runtime model
+### Entry gate module
 
-The EA should be chart independent:
+Responsibilities:
 
-- Use `OnTimer` for cycle and confirmation checks.
-- Use selected lower timeframe data internally, independent of chart timeframe.
-- Optionally refresh on `OnTick`, but never depend on chart ticks alone.
+- enforce STC Entry ON/OFF;
+- enforce no-entry gaps;
+- enforce final-check-candle rule;
+- enforce max three trades per M;
+- enforce hedging direction lock;
+- enforce simultaneous signal no-trade.
 
-## 13. Build stages
+### Risk module
 
-### Stage A - Document-only
+Responsibilities:
 
-Done in this patch.
+- calculate SL and TP;
+- calculate risk money;
+- use tick value if available;
+- fall back to Contract Size input;
+- normalize volume to broker min/max/step for live;
+- record theoretical vs executed volume.
 
-### Stage B - Research/paper EA
+### Position management module
 
-- No live order sending.
-- Full signal audit.
-- Paper trade journal.
+Responsibilities:
 
-### Stage C - Backtest-compatible executor
+- place market orders;
+- track STC-managed positions by magic/comment;
+- handle TP/SL via broker orders where possible;
+- perform W4 partial close;
+- hard-close all positions at 15:30 New York;
+- recover active positions after restart.
 
-- MQL5 tester-safe simulation.
-- Intrabar assumptions explicit.
+### Journal module
 
-### Stage D - Live executor
+Responsibilities:
 
-- Real orders only when explicitly enabled.
-- Magic-number isolation.
-- Safety checks around symbol specs.
+- write confirmed signals;
+- write skipped signals with reason;
+- write opened trades;
+- write partial closes;
+- write final close/reset events;
+- write raw and net PnL fields.
 
+## Suggested strategy inputs
+
+- `InpSymbol1`
+- `InpSymbol2`
+- `InpEnableSTCEntry`
+- `InpEnablePartial`
+- `InpEnableHedging`
+- `InpFinalRewardR`
+- `InpRiskPercent`
+- `InpCheckCandleMinutes`
+- `InpContractSize`
+- `InpBrokerUtcOffsetHours`
+- `InpReferenceSelectionMode`
+- `InpSpreadPointsForReport`
+- `InpSlippagePointsForReport`
+- `InpCommissionPerLotForReport`
+- `InpMagicNumber`
+- `InpReportPrefix`
+
+## Reference selection enum
+
+- `STC_REF_CLOSEST_BY_TIME`
+- `STC_REF_SMALLEST_STOP_DISTANCE`
+
+Default should be closest by time.
+
+## Event IDs
+
+The divergence event ID should include:
+
+- strategy code;
+- trading day;
+- M id;
+- current W id;
+- reference W id;
+- side;
+- hunted symbol;
+- trade symbol;
+- check close time.
+
+This prevents duplicate entries and supports deterministic audit.
+
+## Execution phases
+
+### Phase 1 - Research/paper engine
+
+- no live auto order;
+- signal and trade simulation;
+- CSV reports;
+- deterministic tests.
+
+### Phase 2 - Live management engine
+
+- live signal detection;
+- market orders;
+- position sizing;
+- partial close;
+- hard close;
+- restart recovery.
+
+### Phase 3 - Multi-strategy router
+
+- shared core modules;
+- independent strategy ON/OFF;
+- shared risk and position accounting;
+- conflict management between related strategies.
