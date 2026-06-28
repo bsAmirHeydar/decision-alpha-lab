@@ -66,9 +66,9 @@ F2 may break its Waist. This creates a special branch, not invalidation, as long
 
 F3 is the terminal flag.
 
-F3 is authorized after F2 confirms, and its origin is backfilled from the correction after F2 body.
+F3 is authorized after F2 confirms, and its origin is backfilled from the correction after F2 body. F2 is not considered finished until its flag end is re-hit/confirmed, so F3 Leg1 is the F2 confirmation node, not an earlier favorable node inside the unfinished F2 hit process.
 
-F3 does not need internal 1/2 after itself. Its job is different: it completes the chain.
+F3 does not need internal 1/2 after itself. Its job is different: it completes the chain. Still, it must have a complete F3 body before the OR qualification can make it terminal.
 
 F3 must still satisfy a same-scale/size relation to F2 by OR condition:
 

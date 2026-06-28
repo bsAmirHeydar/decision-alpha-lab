@@ -140,14 +140,15 @@ and price passes F2 Leg2 again:
 Only after F2 confirmed.
 
 ```text
-F3 origin = deepest adverse correction in post-F2 context
+F3 origin = deepest adverse correction between final F2 Leg2 and F2 confirmation
+F3 Leg1   = F2 confirmation node
 ```
 
 ### Build F3
 
-Use FlagBodyBuilder from F3 origin.
+Backfill Origin into the F2 correction window, force Leg1 to the F2 confirmation node, then use normal FlagBodyBuilder rules for Waist and Leg2 after F2 confirmation.
 
-F3 seed/leg development may be shown.
+F3 seed/leg development may be shown, but incomplete bodies cannot be terminal.
 
 ### F3 Qualification
 

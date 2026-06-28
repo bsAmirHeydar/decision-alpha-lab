@@ -462,7 +462,7 @@ InpF3ShowORRejectedCandidates = false
 InpF3ShowLiveBodyCandidates = true
 ```
 
-F3 completes through OR qualification:
+F3 completes through OR qualification only after its own body is complete:
 
 ```text
 F3.flag_size >= InpF3MinParentSizeRatio * F2.flag_size
@@ -470,7 +470,7 @@ OR
 F3.leg1_L >= ceil(InpF3Leg1LMinRatio * F2.leg1_L)
 ```
 
-F3 does not need a post-body internal 1/2 in Level 09. Once completed, it can lock on the first opposite confirmed F1 after F3 completion. `FP_LEVEL09` reports construction and OR qualification; `FP_LEVEL09_LOCK` reports cross-sequence lock scans.
+F2 is not finished until its own flag end is re-hit/confirmed. F3 therefore backfills its Origin from the deepest correction between final F2 Leg2 and F2 confirmation, but forces F3 Leg1 to the F2 confirmation node. Favorable nodes before F2 confirmation do not become F3 Leg1. F3 does not need a post-body internal 1/2 in Level 09. Once completed, it can lock on the first opposite confirmed F1 after F3 completion. `FP_LEVEL09` reports construction and OR qualification; `FP_LEVEL09_LOCK` reports cross-sequence lock scans.
 
 
 ## Level 10 sequence ownership and phase reset

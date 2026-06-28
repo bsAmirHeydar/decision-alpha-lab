@@ -49,7 +49,7 @@ F2 candidate, post-flag F2, invalidated F2, undersized F2, and hidden fail-open 
 
 ## Origin backfill
 
-F3 origin is the deepest adverse node after F2 Leg2 and before F2 confirmation.
+F3 origin is the deepest adverse node after final F2 Leg2 and before F2 confirmation.
 
 ```text
 search window = (F2.Leg2, F2.confirm)
@@ -57,18 +57,26 @@ bullish F3 origin = deepest LOW in that window
 bearish F3 origin = highest HIGH in that window
 ```
 
-Nodes after F2 confirmation are not valid F3 origins.
+Nodes after F2 confirmation are not valid F3 origins. F2 is not finished until its own flag-end is re-hit/confirmed. Therefore F3 is allowed to backfill its Origin into the parent correction window, but F3 Leg1 is forced to the F2 confirmation node. Any favorable node between the F3 origin and F2 confirmation still belongs to the unfinished F2 hit process and cannot become F3 Leg1.
 
 ## Terminal body
 
-F3 uses the same body engine as F1/F2:
+F3 uses the same body shape as F1/F2:
 
 ```text
 bullish: LOW -> HIGH -> LOW -> HIGH
 bearish: HIGH -> LOW -> HIGH -> LOW
 ```
 
-Level 09 does not require post-F3 internal 1/2. F3 is terminal after a valid body and OR qualification.
+But F3 uses an F3-specific body start rule:
+
+```text
+Origin = deepest adverse correction between F2.Leg2 and F2.confirm
+Leg1   = F2.confirm, forced
+Waist/Leg2 = normal body rules after F2.confirm
+```
+
+Level 09 does not require post-F3 internal 1/2. F3 is terminal only after a complete body and OR qualification. A live/probable F3 with no complete Waist/Leg2 can be audited, but it cannot complete or lock through the L-ratio gate alone.
 
 ## OR qualification
 
@@ -136,6 +144,8 @@ FP_LEVEL09_LOCK
 
 - F3 never appears from F2 unless Level 08 authorizes F3.
 - F3 origin is backfilled only inside the strict post-F2/pre-confirmation window.
+- F3 Leg1 is forced to F2 confirmation; F3 cannot use a pre-confirmation favorable node as Leg1.
+- F3 OR qualification requires a complete F3 body; live/probable F3 candidates cannot complete or lock by L ratio alone.
 - F3 completes by size OR L, not both.
 - OR-rejected F3 cannot lock.
 - Completed F3 locks on the first opposite confirmed F1 after completion.

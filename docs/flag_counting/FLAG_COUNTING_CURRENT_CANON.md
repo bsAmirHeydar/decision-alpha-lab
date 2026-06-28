@@ -692,9 +692,9 @@ parent.f2_size_gate_passed == true
 parent.f2_can_spawn_f3 == true
 ```
 
-F3 origin is the deepest adverse node in the strict backfill window after F2 Leg2 and before F2 confirmation. Nodes after F2 confirmation are not eligible F3 origins in Level 09.
+F3 origin is the deepest adverse node in the strict backfill window after final F2 Leg2 and before F2 confirmation. Nodes after F2 confirmation are not eligible F3 origins in Level 09. F2 is not finished until its own flag end is re-hit/confirmed; therefore F3 may not choose a Leg1 before the F2 confirmation node. The F3 body is backfilled to the correction origin, but its Leg1 is forced to the F2 confirmation node, then normal Waist/Leg2 body construction resumes.
 
-F3 is terminal. It uses the same `Origin -> Leg1 -> Waist -> Leg2` body as F1/F2, but it does not require a post-body internal 1/2. Completion is controlled by the OR contract:
+F3 is terminal only after a complete `Origin -> Leg1 -> Waist -> Leg2` body. It does not require a post-body internal 1/2, but the OR completion gate is not allowed to complete or lock a live/probable F3 that has no Waist/Leg2 yet. Completion is controlled by the OR contract after the body is complete:
 
 ```text
 F3.flag_size >= cfg.f3_min_parent_size_ratio * F2.flag_size
@@ -702,7 +702,7 @@ OR
 F3.leg1_L >= ceil(cfg.f3_leg1_L_min_ratio * F2.leg1_L)
 ```
 
-An OR-rejected F3 candidate may be audited, but it must not set `f3_terminal_complete=true` and must not lock. The main chart hides OR-rejected F3 candidates by default through `InpF3ShowORRejectedCandidates=false`.
+A live/probable F3 body candidate and an OR-rejected complete F3 candidate may be audited, but neither may set `f3_terminal_complete=true` and neither may lock. The main chart hides OR-rejected F3 candidates by default through `InpF3ShowORRejectedCandidates=false`; live-body display remains a renderer/debug option only.
 
 Completed F3 locks only on the first opposite confirmed F1 after F3 completion. Lock evidence is carried by:
 

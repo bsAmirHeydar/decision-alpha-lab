@@ -22,10 +22,17 @@ bool FP_FindF3OriginFromParentWithReport(const FP_Node &nodes[],
 {
    origin_pos = -1;
    FP_ResetNode(origin);
-   int to_pos = MathMax(f2.pos_leg2, f2.pos_confirm - 1);
+   if(!f2.has_confirm || f2.pos_confirm <= f2.pos_leg2 + 1)
+   {
+      FP_RecordF3OriginScan(f3_report, false);
+      return false;
+   }
+
+   int from_pos = f2.pos_leg2 + 1;
+   int to_pos = f2.pos_confirm - 1;
    bool found = FP_FindDeepestAdverseNode(nodes,
                                           node_count,
-                                          f2.pos_leg2 + 1,
+                                          from_pos,
                                           to_pos,
                                           f2.direction,
                                           cfg.boundary_epsilon_points,
@@ -33,6 +40,211 @@ bool FP_FindF3OriginFromParentWithReport(const FP_Node &nodes[],
                                           origin);
    FP_RecordF3OriginScan(f3_report, found);
    return found;
+}
+
+
+bool FP_FindF3BodyFromOriginAfterParentConfirmWithReport(const FP_Node &nodes[],
+                                                        const int node_count,
+                                                        const int origin_pos,
+                                                        const FP_FlagEvent &f2,
+                                                        const int sequence_id,
+                                                        const int parent_event_id,
+                                                        const FP_Config &cfg,
+                                                        FP_FlagEvent &event,
+                                                        FP_FlagBodyBuildReport &report)
+{
+   FP_ResetFlagEvent(event);
+   FP_SeedFlagBodyBuildReport(report, (origin_pos >= 0 && origin_pos < node_count ? nodes[origin_pos].L : 0), node_count, f2.direction, FP_LEVEL_F3);
+   report.body_attempts++;
+
+   if(origin_pos < 0 || origin_pos >= node_count)
+   {
+      report.invalid_origin_pos++;
+      report.body_invalid++;
+      FP_Node dummy; FP_ResetNode(dummy);
+      FP_FlagBodyReportReason(report, dummy, "f3_invalid_origin_pos", -1);
+      return false;
+   }
+
+   if(!f2.has_confirm || f2.pos_confirm <= f2.pos_leg2 || f2.pos_confirm <= origin_pos || f2.pos_confirm >= node_count)
+   {
+      report.no_leg1++;
+      report.body_invalid++;
+      FP_Node dummy; FP_ResetNode(dummy);
+      FP_FlagBodyReportReason(report, dummy, "f3_parent_f2_not_confirmed_before_body_start", f2.pos_confirm);
+      return false;
+   }
+
+   double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
+   FP_Node origin = nodes[origin_pos];
+   FP_InitializeBodyEvent(event, origin, origin_pos, f2.direction, FP_LEVEL_F3, sequence_id, parent_event_id);
+
+   if(!FP_NodeIsOriginKind(origin, f2.direction))
+   {
+      report.origin_kind_mismatch++;
+      report.body_invalid++;
+      FP_FinalizeBodyIdentity(event, FP_BODY_INVALID, "f3_origin_kind_mismatch");
+      FP_FlagBodyReportReason(report, origin, "f3_origin_kind_mismatch", origin_pos);
+      return false;
+   }
+
+   FP_Node leg1 = f2.confirm;
+   int pos_leg1 = f2.pos_confirm;
+   if(!FP_NodeIsLegKind(leg1, f2.direction))
+   {
+      report.no_leg1++;
+      report.body_invalid++;
+      FP_FinalizeBodyIdentity(event, FP_BODY_INVALID, "f3_parent_confirm_not_leg_kind");
+      FP_FlagBodyReportReason(report, origin, "f3_parent_confirm_not_leg_kind", pos_leg1);
+      return false;
+   }
+
+   // F3-specific contract:
+   // F2 is not complete until its own flag-end has been re-hit/confirmed.
+   // Therefore the first leg of F3 is forced to the F2 confirmation node.
+   // Any favorable node between the F3 origin and the F2 confirmation belongs
+   // to the still-unfinished F2 correction/hit process and must not become F3
+   // Leg1.  After that forced Leg1, normal body rules resume.
+   report.leg1_candidates++;
+   FP_SetBodyLeg1(event, leg1, pos_leg1);
+
+   int state = 1; // 1 seek Waist while Leg1 can extend, 2 seek Leg2 while Waist can deepen.
+   FP_Node waist; FP_ResetNode(waist);
+   int pos_waist = -1;
+
+   for(int i=pos_leg1 + 1; i<node_count; i++)
+   {
+      event.body_scan_end_pos = i;
+      FP_Node n = nodes[i];
+
+      if(FP_BodyOriginInvalidatedByNode(n, origin, f2.direction, eps))
+      {
+         report.origin_break_invalidations++;
+         report.body_invalid++;
+         event.invalid = n;
+         event.has_invalid = true;
+         event.pos_invalid = i;
+         event.origin_hit_status = -1;
+         event.status = FP_STATUS_INVALIDATED;
+         event.visible_main = false;
+         FP_FinalizeBodyIdentity(event, FP_BODY_INVALID, "f3_origin_broken_after_parent_confirm_before_body_complete");
+         FP_FlagBodyReportReason(report, origin, "f3_origin_broken_after_parent_confirm_before_body_complete", i);
+         return false;
+      }
+
+      if(state == 1)
+      {
+         if(FP_NodeIsLegKind(n, f2.direction))
+         {
+            if(FP_IsMoreFavorable(f2.direction, n.price, leg1.price, eps))
+            {
+               report.leg1_extensions++;
+               leg1 = n;
+               pos_leg1 = i;
+               FP_SetBodyLeg1(event, leg1, pos_leg1);
+            }
+            else if(FP_LegEqualsLeg1(n, leg1, eps))
+            {
+               report.leg2_equal_touches++;
+            }
+            continue;
+         }
+
+         if(FP_NodeIsOriginKind(n, f2.direction))
+         {
+            if(!FP_WaistStaysInsideOrigin(n, origin, f2.direction, eps))
+            {
+               report.origin_break_invalidations++;
+               report.body_invalid++;
+               event.invalid = n;
+               event.has_invalid = true;
+               event.pos_invalid = i;
+               event.origin_hit_status = -1;
+               event.status = FP_STATUS_INVALIDATED;
+               event.visible_main = false;
+               FP_FinalizeBodyIdentity(event, FP_BODY_INVALID, "f3_waist_broke_origin_before_leg2");
+               FP_FlagBodyReportReason(report, origin, "f3_waist_broke_origin_before_leg2", i);
+               return false;
+            }
+            report.waist_candidates++;
+            if(FP_WaistEqualsOrigin(n, origin, eps)) report.waist_equal_origin_touches++;
+            waist = n;
+            pos_waist = i;
+            FP_SetBodyWaist(event, waist, pos_waist);
+            state = 2;
+            continue;
+         }
+      }
+
+      if(state == 2)
+      {
+         if(FP_NodeIsOriginKind(n, f2.direction))
+         {
+            if(!FP_WaistStaysInsideOrigin(n, origin, f2.direction, eps))
+            {
+               report.origin_break_invalidations++;
+               report.body_invalid++;
+               event.invalid = n;
+               event.has_invalid = true;
+               event.pos_invalid = i;
+               event.origin_hit_status = -1;
+               event.status = FP_STATUS_INVALIDATED;
+               event.visible_main = false;
+               FP_FinalizeBodyIdentity(event, FP_BODY_INVALID, "f3_waist_broke_origin_before_leg2");
+               FP_FlagBodyReportReason(report, origin, "f3_waist_broke_origin_before_leg2", i);
+               return false;
+            }
+            if(FP_WaistEqualsOrigin(n, origin, eps)) report.waist_equal_origin_touches++;
+            if(FP_IsMoreAdverse(f2.direction, n.price, waist.price, eps))
+            {
+               report.waist_deepenings++;
+               waist = n;
+               pos_waist = i;
+               FP_SetBodyWaist(event, waist, pos_waist);
+            }
+            continue;
+         }
+
+         if(FP_NodeIsLegKind(n, f2.direction))
+         {
+            if(FP_LegEqualsLeg1(n, leg1, eps))
+            {
+               report.leg2_equal_touches++;
+               continue;
+            }
+            if(FP_LegBreaksLeg1(n, leg1, f2.direction, eps))
+            {
+               report.leg2_strict_breaks++;
+               report.body_complete++;
+               FP_SetBodyLeg2(event, n, i);
+               event.reason = "f3_two_leg_body_after_parent_f2_confirm";
+               FP_FlagBodyReportReason(report, origin, "f3_two_leg_body_after_parent_f2_confirm", i);
+               return true;
+            }
+         }
+      }
+   }
+
+   if(state == 1)
+   {
+      report.no_waist++;
+      report.body_live_leg++;
+      report.probable_child_legs++;
+      event.render_kind = FP_RENDER_PROBABLE;
+      event.reason = "f3_probable_child_leg_after_parent_confirm_no_waist";
+      FP_FinalizeBodyIdentity(event, FP_BODY_LIVE_LEG, "f3_probable_child_leg_after_parent_confirm_no_waist");
+      FP_FlagBodyReportReason(report, origin, "f3_probable_child_leg_after_parent_confirm_no_waist", event.body_scan_end_pos);
+      return true;
+   }
+
+   report.no_leg2++;
+   report.body_live_correction++;
+   report.probable_child_legs++;
+   event.render_kind = FP_RENDER_PROBABLE;
+   event.reason = "f3_probable_child_correction_after_parent_confirm_no_leg2";
+   FP_FinalizeBodyIdentity(event, FP_BODY_LIVE_CORRECTION, "f3_probable_child_correction_after_parent_confirm_no_leg2");
+   FP_FlagBodyReportReason(report, origin, "f3_probable_child_correction_after_parent_confirm_no_leg2", event.body_scan_end_pos);
+   return true;
 }
 
 void FP_ApplyF3TerminalLifecycleWithReport(FP_FlagEvent &f3,
@@ -45,14 +257,27 @@ void FP_ApplyF3TerminalLifecycleWithReport(FP_FlagEvent &f3,
    f3.size_ratio = (f2.flag_size > 0.0 ? f3.flag_size / f2.flag_size : 0.0);
    f3.f3_parent_size_ratio = f3.size_ratio;
    f3.f3_parent_leg1_L_ratio = ((double)MathMax(0, f3.leg1_L) / (double)MathMax(1, f2.leg1_L));
-   f3.f3_size_gate_passed = FP_F3SizeGatePasses(f3, f2, cfg);
-   f3.f3_leg1_L_gate_passed = FP_F3Leg1LGatePasses(f3, f2, cfg);
-   f3.f3_or_gate_passed = (f3.f3_size_gate_passed || f3.f3_leg1_L_gate_passed);
+   bool body_complete = (f3.has_origin && f3.has_leg1 && f3.has_waist && f3.has_leg2 &&
+                         (f3.body_status == FP_BODY_COMPLETE || f3.body_status == FP_BODY_EXTENDED));
+   f3.f3_size_gate_passed = (body_complete ? FP_F3SizeGatePasses(f3, f2, cfg) : false);
+   f3.f3_leg1_L_gate_passed = (body_complete ? FP_F3Leg1LGatePasses(f3, f2, cfg) : false);
+   f3.f3_or_gate_passed = (body_complete && (f3.f3_size_gate_passed || f3.f3_leg1_L_gate_passed));
    f3.f3_terminal_complete = false;
    f3.f3_lock_ready = false;
    f3.f3_locked = false;
    f3.f3_lock_event_id = -1;
    f3.f3_lock_reason = "";
+
+   if(!body_complete)
+   {
+      f3.status = (f3.has_waist ? FP_STATUS_LIVE_BODY : FP_STATUS_LIVE_LEG);
+      f3.render_kind = FP_RENDER_PROBABLE;
+      f3.visible_main = cfg.f3_show_live_body_candidates;
+      if(!f3.visible_main) f3.hidden_reason = "hidden_f3_body_not_complete";
+      FP_SetF3LifecycleState(f3, FP_F3_LC_BODY_MISSING, "body_waiting_after_parent_f2_confirm");
+      FP_RecordF3LifecycleOutcome(f3, f3_report);
+      return;
+   }
 
    if(f3.f3_or_gate_passed)
    {
@@ -95,16 +320,15 @@ bool FP_BuildF3LifecycleFromF2WithReport(const FP_Node &nodes[],
    if(!FP_FindF3OriginFromParentWithReport(nodes, node_count, f2, cfg, origin_pos, origin, f3_report))
       return false;
 
-   bool body_ok = FP_FindFlagBodyFromOriginWithReport(nodes,
-                                                      node_count,
-                                                      origin_pos,
-                                                      f2.direction,
-                                                      FP_LEVEL_F3,
-                                                      sequence_id,
-                                                      parent_event_id,
-                                                      cfg.boundary_epsilon_points,
-                                                      f3,
-                                                      body_report);
+   bool body_ok = FP_FindF3BodyFromOriginAfterParentConfirmWithReport(nodes,
+                                                                  node_count,
+                                                                  origin_pos,
+                                                                  f2,
+                                                                  sequence_id,
+                                                                  parent_event_id,
+                                                                  cfg,
+                                                                  f3,
+                                                                  body_report);
    if(!body_ok)
    {
       FP_RecordF3BodyMissing(f3_report);
@@ -118,6 +342,7 @@ bool FP_BuildF3LifecycleFromF2WithReport(const FP_Node &nodes[],
    f3.f3_origin_found = true;
    f3.f3_origin_scan_start_pos = f2.pos_leg2 + 1;
    f3.f3_lifecycle_scan_end_pos = f3.body_scan_end_pos;
+   f3.reason = f3.reason + ";f3_origin_backfilled_between_f2_leg2_and_f2_confirm;f3_leg1_forced_to_f2_confirm";
    f3.from_phase_boundary = f2.from_phase_boundary;
    f3.from_fail_open = f2.from_fail_open;
 
