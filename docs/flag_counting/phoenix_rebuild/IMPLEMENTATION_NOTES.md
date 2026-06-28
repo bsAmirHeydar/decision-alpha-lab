@@ -136,3 +136,28 @@ This keeps Hook/ND available for phase context while preventing the main chart f
 `InpEnforceSingleChainPerDirectionGlobal` now defaults to `false` because the global guard can hide every later F1 on long H1/H4 histories when no opposite completed F3 exists inside the scan window. The per-scale guard remains enabled by default for local sequence hygiene.
 
 Global pruning is still available as an explicit research input, but it is no longer allowed to make the main chart look like Hook-only output by default.
+
+## 2026-06-28 - Root contract repair V2: restore F visibility and contain Hook rendering
+
+The previous Hook cycle repair exposed a root architectural failure: the Hook/ND layer was allowed to starve the F1/F2/F3 flag-body layer. The main chart became dominated by gray Hook/ND arcs and many colored flag bodies disappeared.
+
+This repair changes the ownership order:
+
+1. Hook-derived roots are still attempted first.
+2. Raw-origin fail-open F1 roots are also attempted when fail-open is enabled.
+3. Exact visual duplicates are rejected before insertion.
+4. Later pruning may hide fallback roots only when they are truly redundant inside a visible phase.
+
+This keeps the documented two-leg flag body visible while Hook/ND semantics continue to evolve.
+
+Default research-chart settings were adjusted:
+
+- `InpEnforceSingleChainPerDirectionScale=false`
+- `InpEnforceSingleChainPerDirectionGlobal=false`
+- `InpMaxHooksToDraw=120`
+- `InpDrawOnlyFlagSeedHooks=true`
+- `InpShowHookCountLabels=false`
+
+The renderer now compacts Hook arcs across scales by visible F1 seed. When several Hook branches resolve to the same visible F1 origin, only the best branch is drawn on the main chart. The engine still retains the full Hook list for audit.
+
+Visual duplicate filtering now ignores node id and L when comparing main-chart geometry. If two F bodies have the same direction, level, candle anchors, and prices, only one is drawn even if separate L-scales rediscovered the same structure.

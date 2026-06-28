@@ -167,7 +167,7 @@ bool FP_EventBodyDuplicateExists(const FP_FlagEvent &events[], const int event_c
    for(int i=0; i<event_count; i++)
    {
       if(!events[i].visible_main) continue;
-      if(FP_SameBodyIdentity(events[i], candidate)) return true;
+      if(FP_SameBodyVisualIdentity(events[i], candidate)) return true;
    }
    return false;
 }
@@ -405,21 +405,25 @@ void FP_DetectScale(const MqlRates &rates[],
       FP_CollectHookOrigins(hooks, hook_count, direction, eps, phase_origins);
 
       int roots_used = 0;
-      int added_from_phase = FP_TryBuildFlagChainsFromOrigins(nodes,
-                                                              node_count,
-                                                              phase_origins,
-                                                              direction,
-                                                              true,
-                                                              false,
-                                                              cfg,
-                                                              events,
-                                                              roots_used);
+      FP_TryBuildFlagChainsFromOrigins(nodes,
+                                       node_count,
+                                       phase_origins,
+                                       direction,
+                                       true,
+                                       false,
+                                       cfg,
+                                       events,
+                                       roots_used);
 
-      // Critical fail-safe: Hook/ND is a phase-boundary filter, not a reason to
-      // make all F structures disappear. If Hook origins exist but none of them
-      // can build a visible F1 body, fall back to raw origin inspection. This
-      // preserves chart readability while Hook semantics are being researched.
-      if(added_from_phase <= 0 && cfg.allow_f1_fail_open_when_no_hook)
+      // Root-level repair: Hook/ND is a semantic phase-boundary layer, but it
+      // must never starve the two-leg flag-body detector.  The main chart is a
+      // research surface: every raw origin that forms a valid body must still be
+      // allowed to appear as a fail-open F1 unless the user explicitly disables
+      // fail-open.  Exact visual duplicates are rejected before insertion, and
+      // later pruning can hide fallback roots that truly sit inside an owned
+      // phase.  This preserves the documented F1 body contract while Hook
+      // coverage is being refined.
+      if(cfg.allow_f1_fail_open_when_no_hook)
       {
          FP_Node fallback_origins[];
          FP_CollectRawOriginNodesForDirection(nodes, node_count, direction, fallback_origins);
@@ -640,11 +644,24 @@ void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
       for(int j=i+1; j<n; j++)
       {
          if(!events[j].visible_main) continue;
-         if(FP_SameBodyIdentity(events[i], events[j]))
+         if(FP_SameBodyVisualIdentity(events[i], events[j]))
          {
-            // Keep the older event close to price and hide exact duplicate geometry.
+            // Keep the older event close to price and hide the duplicate geometry.
+            // If the duplicate is a root or parent state, hide its descendants as
+            // well so the chart does not show orphan F2/F3 children without their
+            // visible F1/F2 parent.
+            int dead_seq = events[j].sequence_id;
+            int dead_chain = events[j].chain_index;
             events[j].visible_main = false;
             events[j].reason = events[j].reason + ";hidden_exact_visual_duplicate_of_Q" + IntegerToString(events[i].event_id);
+            for(int k=0; k<n; k++)
+            {
+               if(k == j) continue;
+               if(events[k].sequence_id != dead_seq) continue;
+               if(events[k].chain_index <= dead_chain) continue;
+               events[k].visible_main = false;
+               events[k].reason = events[k].reason + ";hidden_descendant_of_visual_duplicate_Q" + IntegerToString(events[j].event_id);
+            }
          }
       }
    }

@@ -32,7 +32,7 @@ input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
 // inspection. Set fail-open false only after Hook/ND coverage is verified.
 input bool InpRequireF1PhaseBoundary = true;
 input bool InpAllowF1FailOpenWhenNoHook = true;
-input bool InpEnforceSingleChainPerDirectionScale = true;
+input bool InpEnforceSingleChainPerDirectionScale = false;
 input bool InpEnforceSingleChainPerDirectionGlobal = false;
 input bool InpAbsorbPreInternalExtensions = true;
 input bool InpHideSupersededParentStates = true;
@@ -55,7 +55,7 @@ input string InpObjectPrefix = "DAL_FCP_";
 input bool   InpCleanObjectsOnInit = true;
 input bool   InpCleanObjectsOnDeinit = true;
 input int    InpMaxEventsToDraw = 1200;
-input int    InpMaxHooksToDraw = 400;
+input int    InpMaxHooksToDraw = 120;
 input bool   InpDrawF1 = true;
 input bool   InpDrawF2 = true;
 input bool   InpDrawF3 = true;
@@ -67,6 +67,7 @@ input bool   InpDrawLocked = true;
 input bool   InpDrawInvalidated = false;
 input bool   InpDrawHooks = true;
 input bool   InpDrawOnlyFlagSeedHooks = true;
+input bool   InpShowHookCountLabels = false;
 input bool   InpDetailedLabels = true;
 input bool   InpShowParentIds = true;
 input bool   InpShowOriginLabels = true;
@@ -183,6 +184,7 @@ void FP_Run()
                           InpDrawInvalidated,
                           InpDrawHooks,
                           InpDrawOnlyFlagSeedHooks,
+                          InpShowHookCountLabels,
                           InpDetailedLabels,
                           InpShowParentIds,
                           InpShowOriginLabels,
