@@ -285,7 +285,7 @@ int FP_AddHookIfAccepted(FP_HookBranch &hooks[], FP_HookBranch &h, const FP_Conf
 }
 
 int FP_FindHookBoundarySideIndex(const FP_Node &nodes[],
-                                 const int side_positions[],
+                                 const int &side_positions[],
                                  const int active_side_index,
                                  const int direction,
                                  const double eps)
@@ -301,7 +301,7 @@ int FP_FindHookBoundarySideIndex(const FP_Node &nodes[],
 }
 
 int FP_ExtractHookBranchLength(const FP_Node &nodes[],
-                               const int side_positions[],
+                               const int &side_positions[],
                                const int span_start,
                                const int right,
                                const int direction,
