@@ -632,12 +632,16 @@ bool FP_EnsureOfflineLicense(const bool force_check=false)
    if(checked <= 0)
       checked = now;
    if(checked > 0)
+   {
       int recheck_sec = g_fp_license_cfg.check_interval_seconds;
       if(recheck_sec < 60)
          recheck_sec = 60;
       g_fp_license_next_check = checked + recheck_sec;
+   }
    else
+   {
       g_fp_license_next_check = 0;
+   }
 
    if(!g_fp_license_ok)
       Comment("FlagCounting Phoenix runtime inactive. Contact issuer.");
