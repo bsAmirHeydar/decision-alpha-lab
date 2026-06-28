@@ -53,6 +53,9 @@ Structural / sequence engines:
 - `FP_InternalCountRules.mqh`: Level 06 pure adverse/favorable, middle-node, branch-id, and boundary predicates.
 - `FP_InternalCountAudit.mqh`: Level 06 internal-pack report, counters, and optional samples.
 - `FP_InternalCountEngine.mqh`: Level 06 facade for internal 1/2/3/4 and pre-confirmation extension absorption.
+- `FP_F1LifecycleRules.mqh`: Level 07 pure F1 phase-gate, lifecycle-id, visibility, and F2-authorization predicates.
+- `FP_F1LifecycleAudit.mqh`: Level 07 F1 lifecycle report and optional samples.
+- `FP_F1LifecycleEngine.mqh`: Level 07 facade that converts body/internal evidence into candidate/post-flag/confirmed/invalidated F1 roots.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
@@ -253,6 +256,51 @@ InpInternalSampleLimit = 6
 ```
 
 Main-chart labels remain renderer-owned.  Level 06 only provides `internal_pack_id`, branch evidence, valid12 state, confirmation/invalid positions, and extension evidence for later lifecycle layers.
+
+
+## Level 07 F1 lifecycle
+
+Phoenix now promotes F1 roots through a dedicated lifecycle layer instead of letting `FP_SequenceEngine` infer F1 status directly from body/internal helper calls.  The active modules are:
+
+```text
+FP_F1LifecycleRules.mqh
+FP_F1LifecycleAudit.mqh
+FP_F1LifecycleEngine.mqh
+```
+
+Level 07 consumes Level 05 body evidence and Level 06 internal-count evidence. It owns these F1 facts:
+
+```text
+lifecycle_id
+lifecycle_status
+lifecycle_phase_gate_passed
+lifecycle_body_complete
+lifecycle_internal_ready
+lifecycle_can_spawn_f2
+lifecycle_reason
+```
+
+Default F1 lifecycle controls:
+
+```text
+InpPrintF1Sanity = true
+InpPrintF1Samples = false
+InpF1SampleLimit = 6
+InpF1ShowPostFlagCandidates = true
+InpF1ShowLiveBodyCandidates = true
+```
+
+`FP_LEVEL07` reports root attempts, phase-boundary versus fail-open attempts, phase-gate rejections, body-missing roots, candidate/post-flag/confirmed/invalidated F1s, extension absorption, visible/hidden lifecycle counts, duplicate rejection, emitted roots, and F2-ready parents.
+
+F2 may now only spawn from a Level 07 F1 with:
+
+```text
+status = confirmed
+has_confirm = true
+lifecycle_can_spawn_f2 = true
+```
+
+This prevents body-only or post-flag F1 structures from silently authorizing F2/F3.
 
 ## Phoenix semantic cleanup patch
 

@@ -209,21 +209,30 @@ Acceptance:
 - `FP_LEVEL06` reports count distribution, valid12, confirmation-ready state, invalidations, extensions, and branch rejections;
 - renderer is not involved.
 
-### Step 07 — Build F1 only
+### Step 07 — Build F1 lifecycle only
 
 Files:
 
 ```text
-FP_SequenceEngine.mqh
+FP_F1LifecycleRules.mqh
+FP_F1LifecycleAudit.mqh
+FP_F1LifecycleEngine.mqh
+FP_Types.mqh # lifecycle fields/counters/config only
+FP_SequenceEngine.mqh # F1 orchestration and report wiring only
+FP_Audit.mqh # FP_SUMMARY / FP_EVENT lifecycle fields only
+FlagCountingPhoenixExperiment.mq5 # Level 07 inputs only
 ```
 
 Acceptance:
 
-- F1 body/live/post-flag status;
-- F1 confirmed only through valid internal 1/2 and Leg2 re-break;
-- F1 invalidated by Waist strict break;
-- fail-open tagged;
-- no F2/F3 yet;
+- F1 lifecycle is built by the Level 07 facade, not inferred by renderer or generic sequence code;
+- F1 carries `lifecycle_id`, `lifecycle_status`, phase-gate, body-ready, internal-ready, F2-ready, scan range, and lifecycle reason;
+- F1 confirms only through valid internal 1/2 and a later strict Leg2 re-break;
+- Leg2 break before internal 1/2 is extension and never confirmation;
+- F1 invalidates only by strict Waist break before confirmation;
+- fail-open roots are tagged and reported separately from Hook/phase-boundary roots;
+- F2 can only be attempted when `lifecycle_can_spawn_f2=true`;
+- `FP_LEVEL07` reports attempts, phase/fail-open roots, gate pass/reject, body missing/complete, candidate/post-flag/confirmed/invalidated/extended counts, F2-ready parents, duplicate rejections, and emitted roots;
 - `FC-GC-004` baselined or marked as blocking before freeze.
 
 ### Step 08 — Build F2 only

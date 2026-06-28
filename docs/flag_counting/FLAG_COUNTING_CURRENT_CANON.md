@@ -503,6 +503,64 @@ reason
 
 ---
 
+
+### Level 07 — F1 Lifecycle frozen contract
+
+Active modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_F1LifecycleRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_F1LifecycleAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_F1LifecycleEngine.mqh
+```
+
+Level 07 is the first layer allowed to turn body/internal evidence into an F1 lifecycle state. Level 05 owns body facts. Level 06 owns internal-count evidence. Level 07 owns F1 candidate/post-flag/confirmed/invalidated state and F2 authorization.
+
+Required F1 lifecycle fields on `FP_FlagEvent`:
+
+```text
+lifecycle_id
+lifecycle_status
+lifecycle_stage_level
+lifecycle_phase_gate_passed
+lifecycle_body_complete
+lifecycle_internal_ready
+lifecycle_can_spawn_f2
+lifecycle_scan_start_pos
+lifecycle_scan_end_pos
+lifecycle_reason
+```
+
+F1 root authorization:
+
+- Hook/ND phase-boundary roots pass the phase gate.
+- Fail-open raw roots may pass only when fail-open is enabled and must remain tagged.
+- Non-phase, non-fail-open roots are rejected when `require_f1_phase_boundary=true`.
+
+F1 confirmation requires:
+
+1. complete two-leg Level 05 body;
+2. valid Level 06 internal 1/2;
+3. later strict favorable Leg2 re-break;
+4. no strict Waist break before confirmation.
+
+A favorable Leg2 break before valid internal 1/2 is extension only and must not confirm F1. With absorption enabled, it updates the current Leg2 and increments `leg2_extension_count`.
+
+F1 invalidates before confirmation only at strict Waist break. Equality is not invalidation.
+
+F2 authorization is locked to Level 07:
+
+```text
+level == F1
+status == confirmed
+has_confirm == true
+lifecycle_can_spawn_f2 == true
+```
+
+`FP_LEVEL07` is the current audit form. It must report root attempts, phase/fail-open attempts, gate pass/reject, body missing/complete, candidate/post-flag/confirmed/invalidated/extended states, visibility, hidden counts, F2-ready parents, duplicate rejection, emitted roots, and max extension count.
+
+---
+
 ## 5. Interface decision
 
 Current Phoenix uses these active shared structs:

@@ -2,7 +2,7 @@
 #define __FP_SEQUENCE_ENGINE_MQH__
 #property strict
 
-#include "FP_InternalCountEngine.mqh"
+#include "FP_F1LifecycleEngine.mqh"
 #include "FP_IdentityAudit.mqh"
 
 // ============================================================================
@@ -64,7 +64,7 @@ void FP_UpdateEventCounters(const FP_FlagEvent &e, FP_DetectResult &r)
 
 bool FP_IsF1Confirmed(const FP_FlagEvent &e)
 {
-   return (e.level == FP_LEVEL_F1 && e.status == FP_STATUS_CONFIRMED && e.has_confirm);
+   return FP_F1StatusCanSpawnF2(e);
 }
 
 bool FP_IsF2Confirmed(const FP_FlagEvent &e)
@@ -206,14 +206,21 @@ bool FP_BuildF1FromOrigin(const FP_Node &nodes[],
                           FP_FlagBodyBuildReport &body_report,
                           FP_InternalCountBuildReport &internal_report)
 {
-   if(!FP_FindFlagBodyFromOriginWithReport(nodes, node_count, origin_pos, direction, FP_LEVEL_F1, sequence_id, -1, cfg.boundary_epsilon_points, f1, body_report))
-      return false;
-   f1.from_phase_boundary = from_phase_boundary;
-   f1.from_fail_open = from_fail_open;
-   if(!from_phase_boundary && cfg.require_f1_phase_boundary && !from_fail_open) return false;
-   FP_ApplyPostFlagState(f1, nodes, node_count, cfg, body_report, internal_report);
-   f1.chain_index = 1;
-   return FP_EventIsVisibleMain(f1, cfg);
+   FP_F1LifecycleBuildReport f1_report;
+   FP_ResetF1LifecycleBuildReport(f1_report);
+   FP_SeedF1LifecycleBuildReport(f1_report, (origin_pos >= 0 && origin_pos < node_count ? nodes[origin_pos].L : 0), node_count);
+   return FP_BuildF1LifecycleFromOriginWithReport(nodes,
+                                                  node_count,
+                                                  origin_pos,
+                                                  direction,
+                                                  sequence_id,
+                                                  from_phase_boundary,
+                                                  from_fail_open,
+                                                  cfg,
+                                                  f1,
+                                                  body_report,
+                                                  internal_report,
+                                                  f1_report);
 }
 
 bool FP_BuildF2FromF1(const FP_Node &nodes[],
@@ -352,7 +359,8 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
                                      FP_FlagEvent &events[],
                                      int &roots_used,
                                      FP_FlagBodyBuildReport &body_report,
-                                     FP_InternalCountBuildReport &internal_report)
+                                     FP_InternalCountBuildReport &internal_report,
+                                     FP_F1LifecycleBuildReport &f1_report)
 {
    int added_roots = 0;
    for(int oi=0; oi<ArraySize(origins); oi++)
@@ -363,13 +371,18 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
 
       int seq_id = FP_NextSequenceId(events);
       FP_FlagEvent f1;
-      if(!FP_BuildF1FromOrigin(nodes, node_count, origin_pos, direction, seq_id, from_phase_boundary, from_fail_open, cfg, f1, body_report, internal_report)) continue;
-      if(FP_EventBodyDuplicateExists(events, ArraySize(events), f1)) continue;
+      if(!FP_BuildF1LifecycleFromOriginWithReport(nodes, node_count, origin_pos, direction, seq_id, from_phase_boundary, from_fail_open, cfg, f1, body_report, internal_report, f1_report)) continue;
+      if(FP_EventBodyDuplicateExists(events, ArraySize(events), f1))
+      {
+         FP_RecordF1DuplicateRejected(f1_report);
+         continue;
+      }
 
       int f1_id = FP_AddSemanticEvent(events, f1, cfg);
       if(f1_id < 0) return added_roots;
       roots_used++;
       added_roots++;
+      FP_RecordF1EmittedRoot(f1_report);
 
       if(cfg.scan_f2 && FP_IsF1Confirmed(f1))
       {
@@ -468,6 +481,10 @@ void FP_DetectScale(const MqlRates &rates[],
    FP_ResetInternalCountBuildReport(internal_report);
    FP_SeedInternalCountBuildReport(internal_report, scale_L, node_count);
 
+   FP_F1LifecycleBuildReport f1_report;
+   FP_ResetF1LifecycleBuildReport(f1_report);
+   FP_SeedF1LifecycleBuildReport(f1_report, scale_L, node_count);
+
    for(int d_index=0; d_index<2; d_index++)
    {
       int direction = (d_index == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
@@ -487,7 +504,8 @@ void FP_DetectScale(const MqlRates &rates[],
                                                               events,
                                                               roots_used,
                                                               body_report,
-                                                              internal_report);
+                                                              internal_report,
+                                                              f1_report);
 
       // Critical fail-safe: Hook/ND is context, not a hard visibility gate.
       // Build Hook-derived roots first, then let raw-origin fail-open inspect the
@@ -508,7 +526,8 @@ void FP_DetectScale(const MqlRates &rates[],
                                           events,
                                           roots_used,
                                           body_report,
-                                          internal_report);
+                                          internal_report,
+                                          f1_report);
       }
    }
 
@@ -530,6 +549,23 @@ void FP_DetectScale(const MqlRates &rates[],
    result.internal_count2_total += internal_report.count2;
    result.internal_count3_total += internal_report.count3;
    result.internal_count4_total += internal_report.count4;
+   result.f1_lifecycle_attempts_total += f1_report.origin_attempts;
+   result.f1_lifecycle_phase_attempts_total += f1_report.phase_origin_attempts;
+   result.f1_lifecycle_failopen_attempts_total += f1_report.fail_open_origin_attempts;
+   result.f1_lifecycle_gate_pass_total += f1_report.phase_gate_passed;
+   result.f1_lifecycle_gate_reject_total += f1_report.phase_gate_rejected;
+   result.f1_lifecycle_body_missing_total += f1_report.body_missing;
+   result.f1_lifecycle_body_complete_total += f1_report.body_complete;
+   result.f1_lifecycle_candidate_total += f1_report.lifecycle_candidate;
+   result.f1_lifecycle_post_flag_total += f1_report.lifecycle_post_flag;
+   result.f1_lifecycle_confirmed_total += f1_report.lifecycle_confirmed;
+   result.f1_lifecycle_invalidated_total += f1_report.lifecycle_invalidated;
+   result.f1_lifecycle_extended_total += f1_report.lifecycle_extended;
+   result.f1_lifecycle_visible_total += f1_report.lifecycle_visible;
+   result.f1_lifecycle_hidden_total += f1_report.lifecycle_hidden;
+   result.f1_lifecycle_f2_ready_total += f1_report.f2_ready;
+   result.f1_lifecycle_duplicate_rejected_total += f1_report.duplicate_rejected;
+   result.f1_lifecycle_emitted_roots_total += f1_report.emitted_roots;
 
    if(cfg.print_body_sanity)
       FP_PrintFlagBodyBuildReport("FP_LEVEL05", body_report);
@@ -539,6 +575,10 @@ void FP_DetectScale(const MqlRates &rates[],
       FP_PrintInternalCountBuildReport("FP_LEVEL06", internal_report);
    if(cfg.print_internal_samples)
       FP_PrintInternalPackSamples("FP_LEVEL06", events, ArraySize(events), cfg.internal_sample_limit);
+   if(cfg.print_f1_sanity)
+      FP_PrintF1LifecycleBuildReport("FP_LEVEL07", f1_report);
+   if(cfg.print_f1_samples)
+      FP_PrintF1LifecycleSamples("FP_LEVEL07", events, ArraySize(events), cfg.f1_sample_limit);
 }
 
 void FP_HideSupersededParentStates(FP_FlagEvent &events[], const FP_Config &cfg)
@@ -1060,6 +1100,23 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int internal_count2_prev = result.internal_count2_total;
    int internal_count3_prev = result.internal_count3_total;
    int internal_count4_prev = result.internal_count4_total;
+   int f1_attempts_prev = result.f1_lifecycle_attempts_total;
+   int f1_phase_attempts_prev = result.f1_lifecycle_phase_attempts_total;
+   int f1_failopen_attempts_prev = result.f1_lifecycle_failopen_attempts_total;
+   int f1_gate_pass_prev = result.f1_lifecycle_gate_pass_total;
+   int f1_gate_reject_prev = result.f1_lifecycle_gate_reject_total;
+   int f1_body_missing_prev = result.f1_lifecycle_body_missing_total;
+   int f1_body_complete_prev = result.f1_lifecycle_body_complete_total;
+   int f1_candidate_prev = result.f1_lifecycle_candidate_total;
+   int f1_post_flag_prev = result.f1_lifecycle_post_flag_total;
+   int f1_confirmed_prev = result.f1_lifecycle_confirmed_total;
+   int f1_invalidated_prev = result.f1_lifecycle_invalidated_total;
+   int f1_extended_prev = result.f1_lifecycle_extended_total;
+   int f1_visible_prev = result.f1_lifecycle_visible_total;
+   int f1_hidden_prev = result.f1_lifecycle_hidden_total;
+   int f1_f2_ready_prev = result.f1_lifecycle_f2_ready_total;
+   int f1_duplicate_rejected_prev = result.f1_lifecycle_duplicate_rejected_total;
+   int f1_emitted_roots_prev = result.f1_lifecycle_emitted_roots_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -1090,6 +1147,23 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.internal_count2_total = internal_count2_prev;
    result.internal_count3_total = internal_count3_prev;
    result.internal_count4_total = internal_count4_prev;
+   result.f1_lifecycle_attempts_total = f1_attempts_prev;
+   result.f1_lifecycle_phase_attempts_total = f1_phase_attempts_prev;
+   result.f1_lifecycle_failopen_attempts_total = f1_failopen_attempts_prev;
+   result.f1_lifecycle_gate_pass_total = f1_gate_pass_prev;
+   result.f1_lifecycle_gate_reject_total = f1_gate_reject_prev;
+   result.f1_lifecycle_body_missing_total = f1_body_missing_prev;
+   result.f1_lifecycle_body_complete_total = f1_body_complete_prev;
+   result.f1_lifecycle_candidate_total = f1_candidate_prev;
+   result.f1_lifecycle_post_flag_total = f1_post_flag_prev;
+   result.f1_lifecycle_confirmed_total = f1_confirmed_prev;
+   result.f1_lifecycle_invalidated_total = f1_invalidated_prev;
+   result.f1_lifecycle_extended_total = f1_extended_prev;
+   result.f1_lifecycle_visible_total = f1_visible_prev;
+   result.f1_lifecycle_hidden_total = f1_hidden_prev;
+   result.f1_lifecycle_f2_ready_total = f1_f2_ready_prev;
+   result.f1_lifecycle_duplicate_rejected_total = f1_duplicate_rejected_prev;
+   result.f1_lifecycle_emitted_roots_total = f1_emitted_roots_prev;
    result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);

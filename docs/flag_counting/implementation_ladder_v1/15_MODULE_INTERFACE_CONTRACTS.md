@@ -413,6 +413,55 @@ Must not create F1/F2/F3, authorize F2/F3 parents, decide sequence ownership, or
 
 ---
 
+
+## FP_F1LifecycleRules.mqh / FP_F1LifecycleAudit.mqh / FP_F1LifecycleEngine.mqh
+
+Input:
+
+```text
+FP_Node canonical_nodes[]
+FP_FlagEvent body_event from Level 05
+FP_InternalPack / Level 06 internal evidence
+FP_Config config
+```
+
+Output:
+
+```text
+FP_FlagEvent level=F1 with lifecycle fields
+FP_F1LifecycleBuildReport report
+```
+
+Owns:
+
+- F1 phase-gate pass/reject;
+- fail-open tagging at the lifecycle layer;
+- F1 candidate/post-flag/confirmed/invalidated semantic state;
+- F1-only Waist invalidation before confirmation;
+- F1 confirmation after valid internal 1/2 and later Leg2 strict re-break;
+- F1 pre-internal Leg2 extension absorption as lifecycle evidence;
+- `lifecycle_can_spawn_f2` authorization;
+- `FP_LEVEL07` report and optional lifecycle samples.
+
+Required active fields:
+
+```text
+lifecycle_id
+lifecycle_status
+lifecycle_stage_level
+lifecycle_phase_gate_passed
+lifecycle_body_complete
+lifecycle_internal_ready
+lifecycle_can_spawn_f2
+lifecycle_scan_start_pos
+lifecycle_scan_end_pos
+lifecycle_reason
+```
+
+Must not build F2/F3, decide phase ownership across competing sequences, perform duplicate canonicalization, or draw renderer objects.
+
+---
+
 ## FP_SequenceEngine.mqh
 
 Input:
@@ -434,7 +483,7 @@ FP_DetectResult summary
 
 Owns:
 
-- F1 lifecycle;
+- wiring Level 07 F1 lifecycle output into parent/child sequence construction;
 - F2 lifecycle;
 - F3 lifecycle;
 - parent-child links;

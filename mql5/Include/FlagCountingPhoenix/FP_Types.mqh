@@ -85,6 +85,21 @@ enum FP_BodyStatus
    FP_BODY_INVALID         = 6
 };
 
+// Level 07 F1 lifecycle state.  This is the semantic state of an F1 root after
+// Level 05 body evidence and Level 06 internal-count evidence have been merged.
+enum FP_F1LifecycleStatus
+{
+   FP_F1_LC_NONE           = 0,
+   FP_F1_LC_PHASE_REJECTED = 1,
+   FP_F1_LC_BODY_MISSING   = 2,
+   FP_F1_LC_CANDIDATE      = 3,
+   FP_F1_LC_POST_FLAG      = 4,
+   FP_F1_LC_CONFIRMED      = 5,
+   FP_F1_LC_INVALIDATED    = 6,
+   FP_F1_LC_EXTENDED       = 7,
+   FP_F1_LC_HIDDEN         = 8
+};
+
 // ------------------------------- Data model --------------------------------
 
 struct FP_Node
@@ -242,6 +257,20 @@ struct FP_FlagEvent
    int      body_scan_end_pos;
    string   body_reason;
 
+   // Level 07 F1 lifecycle evidence.  F1 lifecycle is the only source allowed
+   // to decide whether an F1 can spawn F2.  Body/internal layers provide facts;
+   // this layer owns candidate/confirmed/invalidated/root visibility state.
+   string   lifecycle_id;
+   int      lifecycle_status;
+   int      lifecycle_stage_level;
+   bool     lifecycle_phase_gate_passed;
+   bool     lifecycle_body_complete;
+   bool     lifecycle_internal_ready;
+   bool     lifecycle_can_spawn_f2;
+   int      lifecycle_scan_start_pos;
+   int      lifecycle_scan_end_pos;
+   string   lifecycle_reason;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -326,6 +355,12 @@ struct FP_Config
    bool   print_internal_samples;
    int    internal_sample_limit;
 
+   bool   print_f1_sanity;
+   bool   print_f1_samples;
+   int    f1_sample_limit;
+   bool   f1_show_post_flag_candidates;
+   bool   f1_show_live_body_candidates;
+
    int    max_events;
    int    max_hooks;
    int    max_roots_per_scale_direction;
@@ -387,6 +422,23 @@ struct FP_DetectResult
    int internal_count2_total;
    int internal_count3_total;
    int internal_count4_total;
+   int f1_lifecycle_attempts_total;
+   int f1_lifecycle_phase_attempts_total;
+   int f1_lifecycle_failopen_attempts_total;
+   int f1_lifecycle_gate_pass_total;
+   int f1_lifecycle_gate_reject_total;
+   int f1_lifecycle_body_missing_total;
+   int f1_lifecycle_body_complete_total;
+   int f1_lifecycle_candidate_total;
+   int f1_lifecycle_post_flag_total;
+   int f1_lifecycle_confirmed_total;
+   int f1_lifecycle_invalidated_total;
+   int f1_lifecycle_extended_total;
+   int f1_lifecycle_visible_total;
+   int f1_lifecycle_hidden_total;
+   int f1_lifecycle_f2_ready_total;
+   int f1_lifecycle_duplicate_rejected_total;
+   int f1_lifecycle_emitted_roots_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -525,6 +577,17 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.body_scan_end_pos = -1;
    e.body_reason = "";
 
+   e.lifecycle_id = "";
+   e.lifecycle_status = FP_F1_LC_NONE;
+   e.lifecycle_stage_level = FP_LEVEL_NONE;
+   e.lifecycle_phase_gate_passed = false;
+   e.lifecycle_body_complete = false;
+   e.lifecycle_internal_ready = false;
+   e.lifecycle_can_spawn_f2 = false;
+   e.lifecycle_scan_start_pos = -1;
+   e.lifecycle_scan_end_pos = -1;
+   e.lifecycle_reason = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -605,6 +668,12 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.print_internal_samples = false;
    cfg.internal_sample_limit = 6;
 
+   cfg.print_f1_sanity = true;
+   cfg.print_f1_samples = false;
+   cfg.f1_sample_limit = 6;
+   cfg.f1_show_post_flag_candidates = true;
+   cfg.f1_show_live_body_candidates = true;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -623,7 +692,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level06";
+   cfg.identity_generation_pass = "phoenix_level07";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -665,6 +734,23 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.internal_count2_total = 0;
    r.internal_count3_total = 0;
    r.internal_count4_total = 0;
+   r.f1_lifecycle_attempts_total = 0;
+   r.f1_lifecycle_phase_attempts_total = 0;
+   r.f1_lifecycle_failopen_attempts_total = 0;
+   r.f1_lifecycle_gate_pass_total = 0;
+   r.f1_lifecycle_gate_reject_total = 0;
+   r.f1_lifecycle_body_missing_total = 0;
+   r.f1_lifecycle_body_complete_total = 0;
+   r.f1_lifecycle_candidate_total = 0;
+   r.f1_lifecycle_post_flag_total = 0;
+   r.f1_lifecycle_confirmed_total = 0;
+   r.f1_lifecycle_invalidated_total = 0;
+   r.f1_lifecycle_extended_total = 0;
+   r.f1_lifecycle_visible_total = 0;
+   r.f1_lifecycle_hidden_total = 0;
+   r.f1_lifecycle_f2_ready_total = 0;
+   r.f1_lifecycle_duplicate_rejected_total = 0;
+   r.f1_lifecycle_emitted_roots_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;
@@ -721,6 +807,20 @@ string FP_BodyStatusName(const int status)
    if(status == FP_BODY_COMPLETE)        return "body_complete";
    if(status == FP_BODY_EXTENDED)        return "body_extended";
    if(status == FP_BODY_INVALID)         return "invalid";
+   return "none";
+}
+
+
+string FP_F1LifecycleStatusName(const int status)
+{
+   if(status == FP_F1_LC_PHASE_REJECTED) return "phase_rejected";
+   if(status == FP_F1_LC_BODY_MISSING)   return "body_missing";
+   if(status == FP_F1_LC_CANDIDATE)      return "candidate";
+   if(status == FP_F1_LC_POST_FLAG)      return "post_flag";
+   if(status == FP_F1_LC_CONFIRMED)      return "confirmed";
+   if(status == FP_F1_LC_INVALIDATED)    return "invalidated";
+   if(status == FP_F1_LC_EXTENDED)       return "extended";
+   if(status == FP_F1_LC_HIDDEN)         return "hidden";
    return "none";
 }
 

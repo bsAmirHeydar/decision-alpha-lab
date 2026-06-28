@@ -43,6 +43,9 @@ input int  InpBodySampleLimit = 6;
 input bool InpPrintInternalSanity = true;
 input bool InpPrintInternalSamples = false;
 input int  InpInternalSampleLimit = 6;
+input bool InpPrintF1Sanity = true;
+input bool InpPrintF1Samples = false;
+input int  InpF1SampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -64,6 +67,8 @@ input bool InpCompactHookRendering = true;
 input bool InpStrictMainChartOwnership = true;
 input bool InpHookMainRequiresVisibleF1 = true;
 input bool InpHookKeepUnseededVisibleForDebug = false;
+input bool InpF1ShowPostFlagCandidates = true;
+input bool InpF1ShowLiveBodyCandidates = true;
 
 // ------------------------------ Rules ---------------------------------------
 input int    InpMaxEvents = 6000;
@@ -156,6 +161,11 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.print_internal_sanity = InpPrintInternalSanity;
    cfg.print_internal_samples = InpPrintInternalSamples;
    cfg.internal_sample_limit = InpInternalSampleLimit;
+   cfg.print_f1_sanity = InpPrintF1Sanity;
+   cfg.print_f1_samples = InpPrintF1Samples;
+   cfg.f1_sample_limit = InpF1SampleLimit;
+   cfg.f1_show_post_flag_candidates = InpF1ShowPostFlagCandidates;
+   cfg.f1_show_live_body_candidates = InpF1ShowLiveBodyCandidates;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -165,7 +175,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level06";
+   cfg.identity_generation_pass = "phoenix_level07";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -173,6 +183,9 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_hookseed" + FP_BoolName(InpHookMainRequiresVisibleF1) +
                               "_body" + FP_BoolName(InpPrintBodySanity) +
                               "_internal" + FP_BoolName(InpPrintInternalSanity) +
+                              "_f1" + FP_BoolName(InpPrintF1Sanity) +
+                              "_f1post" + FP_BoolName(InpF1ShowPostFlagCandidates) +
+                              "_f1live" + FP_BoolName(InpF1ShowLiveBodyCandidates) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

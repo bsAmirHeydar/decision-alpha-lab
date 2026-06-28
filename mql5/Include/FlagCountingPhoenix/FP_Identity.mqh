@@ -185,6 +185,7 @@ string FP_EventStructuralId(const FP_FlagEvent &e)
           "|dir=" + FP_DirectionKey(e.direction) +
           "|L=" + IntegerToString(e.scale_L) +
           "|chain=" + IntegerToString(e.chain_index) +
+          "|lc=" + FP_F1LifecycleStatusName(e.lifecycle_status) +
           "|" + FP_BodyNodeStructuralKey(e);
 }
 
@@ -193,6 +194,7 @@ string FP_EventVisualId(const FP_FlagEvent &e)
    return "EVV:lv=" + FP_LevelKey(e.level) +
           "|dir=" + FP_DirectionKey(e.direction) +
           "|chain=" + IntegerToString(e.chain_index) +
+          "|lc=" + FP_F1LifecycleStatusName(e.lifecycle_status) +
           "|" + FP_BodyNodeVisualKey(e);
 }
 
@@ -200,6 +202,7 @@ string FP_EventAuditId(const FP_FlagEvent &e, const FP_Config &cfg)
 {
    return "A:event|pass=" + FP_IdSafe(cfg.identity_generation_pass) +
           "|src=" + FP_EventSourceMode(e) +
+          "|lc=" + FP_F1LifecycleStatusName(e.lifecycle_status) +
           "|cfg=" + FP_IdSafe(cfg.identity_config_hash) +
           "|" + e.structural_id;
 }
