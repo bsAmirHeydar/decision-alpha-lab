@@ -175,7 +175,7 @@ void FP_DefaultRenderConfig(FP_RenderConfig &cfg)
    cfg.draw_locked = true;
    cfg.draw_invalidated = false;
    cfg.draw_hooks = true;
-   cfg.draw_only_flag_seed_hooks = true;
+   cfg.draw_only_flag_seed_hooks = false;
    cfg.show_hook_count_labels = false;
    cfg.detailed_labels = false;
    cfg.show_parent_ids = false;

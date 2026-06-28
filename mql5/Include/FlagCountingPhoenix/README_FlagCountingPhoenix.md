@@ -706,3 +706,10 @@ with `FLAG_COUNTING_CURRENT_CANON.md`.
 Phoenix now includes `FP_StaticQaTypes.mqh`, `FP_StaticQaRules.mqh`, `FP_StaticQaAudit.mqh`, and `FP_StaticQaEngine.mqh`. Level 18 runs after Level 17 decision lock and before `FP_SUMMARY`, emits `FP_LEVEL18`, and can optionally write `latest_static_qa.csv`.
 
 This layer is read-only. It checks final runtime contracts, identity pass, interface contract version, partition consistency, counter sanity, report alignment, and I/O error state. Source-side checks that MQL cannot do internally are handled by `tools/flag_counting/static_qa.py`.
+
+
+## Debug lock: F2/F3 child-start chronology
+
+Default research display is full-state: all Hook/ND contexts and all emitted F lifecycle states may be shown. Clean/canonical-only display belongs to release/render profiles.
+
+F2 and F3 follow the child-start rule: only Origin is backfilled into the parent correction window; Leg1 is forced to the parent confirmation hit; Waist and Leg2 must occur after that parent confirmation. For F3, the Origin is the bullish lowest low or bearish highest high after final F2 Leg2 and before F2 confirmation. F2 confirmation is the strict high/low hit of F2 Leg2; close is not required. F3 still needs its own Waist and Leg2, but no post-F3 internal count is required.

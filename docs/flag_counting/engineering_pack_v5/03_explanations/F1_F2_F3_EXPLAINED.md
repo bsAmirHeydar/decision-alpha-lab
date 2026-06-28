@@ -91,3 +91,10 @@ That opposite F1 both locks the old F3 and begins a new opposite sequence.
 F3 has done its job once completed/locked. Even if the market later reverses through the old structure, the historical fact remains.
 
 Therefore locked F3 must not be deleted from the chart unless explicitly hidden by input.
+
+
+## Debug lock — child-start rule after parent confirmation
+
+For child flags F2 and F3, only the child Origin is allowed to be backfilled into the unfinished parent correction/hit window. The child Leg1 is the parent confirmation hit itself. Child Waist and Leg2 are built only after that parent confirmation.
+
+For F3 specifically: after F2 has its two-leg body, Phoenix watches the correction until the F2 flag end is hit. In a bullish chain, the lowest price in that window is F3 Origin; in a bearish chain, the highest price is F3 Origin. When F2 Leg2 is strictly broken by high/low, even by wick/shadow, F2 is confirmed and that hit becomes F3 Leg1. Only after that does F3 search for Waist and Leg2. F3 needs its own Leg2, but after its body is complete it does not require post-F3 internal count.

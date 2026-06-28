@@ -454,6 +454,7 @@ struct FP_Config
    bool   hide_superseded_parent_states;
    bool   compact_hook_rendering;
    bool   strict_main_chart_ownership;
+   bool   ownership_allow_visual_soft_reset;
 
    bool   print_ownership_sanity;
    bool   print_ownership_samples;
@@ -1011,6 +1012,7 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.hide_superseded_parent_states = true;
    cfg.compact_hook_rendering = true;
    cfg.strict_main_chart_ownership = true;
+   cfg.ownership_allow_visual_soft_reset = true;
 
    cfg.print_ownership_sanity = true;
    cfg.print_ownership_samples = false;
@@ -1027,8 +1029,8 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.print_hook_sanity = true;
    cfg.print_hook_samples = false;
    cfg.hook_sample_limit = 6;
-   cfg.hook_main_requires_visible_f1 = true;
-   cfg.hook_keep_unseeded_visible_for_debug = false;
+   cfg.hook_main_requires_visible_f1 = false;
+   cfg.hook_keep_unseeded_visible_for_debug = true;
 
    cfg.print_body_sanity = true;
    cfg.print_body_samples = false;
@@ -1047,14 +1049,14 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.print_f2_sanity = true;
    cfg.print_f2_samples = false;
    cfg.f2_sample_limit = 6;
-   cfg.f2_show_size_rejected_candidates = false;
+   cfg.f2_show_size_rejected_candidates = true;
    cfg.f2_show_post_flag_candidates = true;
    cfg.f2_show_live_body_candidates = true;
 
    cfg.print_f3_sanity = true;
    cfg.print_f3_samples = false;
    cfg.f3_sample_limit = 6;
-   cfg.f3_show_or_rejected_candidates = false;
+   cfg.f3_show_or_rejected_candidates = true;
    cfg.f3_show_live_body_candidates = true;
 
    cfg.max_events = 6000;

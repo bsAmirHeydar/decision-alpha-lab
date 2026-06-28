@@ -209,6 +209,7 @@ void FP_Level10ResolveDirectionalPhases(FP_FlagEvent &events[], const int n, con
       }
 
       int reset_index = -1;
+      string reset_reason = "";
       bool reset = FP_Level10HasOppositeF3ResetBetweenRoots(events,
                                                             n,
                                                             direction,
@@ -217,16 +218,32 @@ void FP_Level10ResolveDirectionalPhases(FP_FlagEvent &events[], const int n, con
                                                             reset_index);
       if(reset)
       {
+         reset_reason = "reset_by_opposite_terminal_f3_Q" + IntegerToString(events[reset_index].event_id);
+      }
+      else if(cfg.ownership_allow_visual_soft_reset)
+      {
+         reset = FP_Level10HasOppositeSoftResetBetweenRoots(events,
+                                                            n,
+                                                            direction,
+                                                            events[keeper].origin.index_anchor,
+                                                            events[i].origin.index_anchor,
+                                                            reset_index);
+         if(reset)
+            reset_reason = "visual_soft_reset_by_opposite_confirmed_F" + IntegerToString(events[reset_index].level) + "_Q" + IntegerToString(events[reset_index].event_id);
+      }
+
+      if(reset)
+      {
          report.resets++;
          events[keeper].chain_state = FP_CHAIN_RESET_ALLOWED;
          events[keeper].next_expected_f_level = FP_LEVEL_F1;
-         events[keeper].phase_reset_reason = "reset_by_opposite_terminal_f3_Q" + IntegerToString(events[reset_index].event_id);
+         events[keeper].phase_reset_reason = reset_reason;
          keeper = i;
          report.phases_seen++;
          report.owner_roots++;
          int st = FP_Level10ChainStateForSequence(events, n, events[i].sequence_id);
          FP_Level10AnnotateSequence(events, n, i, st);
-         events[i].phase_reset_reason = "new_phase_after_reset_Q" + IntegerToString(events[reset_index].event_id);
+         events[i].phase_reset_reason = "new_phase_after_" + reset_reason;
          continue;
       }
 

@@ -49,7 +49,7 @@ F2 candidate, post-flag F2, invalidated F2, undersized F2, and hidden fail-open 
 
 ## Origin backfill
 
-F3 origin is the deepest adverse node after final F2 Leg2 and before F2 confirmation.
+F3 origin is the deepest adverse node after final F2 Leg2 and before the F2 confirmation hit.
 
 ```text
 search window = (F2.Leg2, F2.confirm)
@@ -57,7 +57,7 @@ bullish F3 origin = deepest LOW in that window
 bearish F3 origin = highest HIGH in that window
 ```
 
-Nodes after F2 confirmation are not valid F3 origins. F2 is not finished until its own flag-end is re-hit/confirmed. Therefore F3 is allowed to backfill its Origin into the parent correction window, but F3 Leg1 is forced to the F2 confirmation node. Any favorable node between the F3 origin and F2 confirmation still belongs to the unfinished F2 hit process and cannot become F3 Leg1.
+Nodes after F2 confirmation are not valid F3 origins. F2 is not finished until its own flag-end is re-hit/confirmed. The F2 confirmation hit is a strict high/low break of F2 Leg2; close is not required. Therefore F3 is allowed to backfill only its Origin into the parent correction window. F3 Leg1 is forced to the F2 confirmation node. Any favorable node between the F3 origin and F2 confirmation still belongs to the unfinished F2 hit process and cannot become F3 Leg1.
 
 ## Terminal body
 
@@ -92,11 +92,11 @@ or:
 F3.leg1_L >= ceil(InpF3Leg1LMinRatio * F2.leg1_L)
 ```
 
-Both are not required. If neither passes, F3 remains an OR-rejected candidate for audit. It cannot lock.
+Both are not required. If neither passes, F3 remains an OR-rejected candidate. In the default full-state research view it may still be drawn, but it cannot complete, lock, reset, or authorize anything.
 
 ## Lock
 
-A completed F3 locks on the first opposite confirmed F1 that starts and confirms after F3 completion.
+A completed F3 locks on the first opposite confirmed F1 seen after F3 completion. The opposite F1 does not need to be the owner of a clean chart phase; it must be a real confirmed F1 event in the canonical event stream.
 
 Lock evidence:
 

@@ -75,13 +75,13 @@ The window is strict. Nodes after F1 confirmation do not become the F2 origin in
 
 ## Body dependency
 
-F2 body construction is delegated to Level 05:
+F2 uses the same body shape as Level 05, but it has a child-start rule:
 
 ```text
 Origin -> Leg1 -> Waist -> Leg2
 ```
 
-Level 08 does not invent body points. It only consumes the body and records whether the body exists.
+Only `Origin` is backfilled into the parent correction window. `Leg1` is forced to the parent F1 confirmation hit. `Waist` and `Leg2` must be built after that parent confirmation. This prevents F1 and F2 from collapsing inside the same unfinished parent-hit cluster.
 
 ## Size gate
 
@@ -100,9 +100,9 @@ InpF2MinParentSizeRatio = 1.0
 If F2 is below the size gate:
 
 - it is counted in audit;
+- it may be displayed in the default full-state research view;
 - it does not authorize F3;
-- it is hidden from the main chart by default;
-- it can be shown for debug with `InpF2ShowSizeRejectedCandidates=true`.
+- clean profiles may hide it with `InpF2ShowSizeRejectedCandidates=false`.
 
 If pre-internal extension absorption increases Leg2 before the internal count is valid, the same F2 candidate is updated and size is recomputed. A duplicate F2 must not be emitted just because Leg2 extended.
 
@@ -117,6 +117,8 @@ valid internal 1/2 after F2 Leg2
 + later strict favorable re-break of F2 Leg2
 + no strict F2 Origin break before confirmation
 ```
+
+The confirmation hit is high/low based. A candle body close is not required; a wick/shadow strict break of the F2 flag end is enough when it appears in the canonical node stream.
 
 F2 does not use the special F1 middle-node restriction. That rule belongs only to F1.
 
@@ -204,7 +206,7 @@ InpF2SampleLimit = 6
 Main-chart candidate controls:
 
 ```text
-InpF2ShowSizeRejectedCandidates = false
+InpF2ShowSizeRejectedCandidates = true
 InpF2ShowPostFlagCandidates = true
 InpF2ShowLiveBodyCandidates = true
 ```
@@ -217,7 +219,7 @@ No F2 may be emitted from candidate, post-flag, body-only, invalidated, hidden, 
 
 ### Test 02 — Backfill window
 
-F2 origin must be the deepest adverse node between F1 Leg2 and F1 confirmation.
+F2 origin must be the deepest adverse node between final F1 Leg2 and F1 confirmation. F2 Leg1 must be the F1 confirmation node, and F2 Waist/Leg2 must occur after F1 confirmation.
 
 ### Test 03 — Size gate
 

@@ -164,22 +164,22 @@ void FP_AmbiguityAddDefaultPolicyChecks(FP_AmbiguityReport &report,
                            FP_AmbiguityBool(engine_cfg.absorb_pre_internal_extensions), "true",
                            "pre_internal_favorable_break_extends_leg2_not_confirm");
    FP_AmbiguityAddDecision(report, rows, "D06_F2_SIZE_GATE", "decision", "error",
-                           (engine_cfg.f2_min_parent_size_ratio >= 1.0 && !engine_cfg.f2_show_size_rejected_candidates),
+                           (engine_cfg.f2_min_parent_size_ratio >= 1.0),
                            DoubleToString(engine_cfg.f2_min_parent_size_ratio, 4) + "/show_rejected=" + FP_AmbiguityBool(engine_cfg.f2_show_size_rejected_candidates),
-                           ">=1.0/show_rejected=false",
-                           "F2_main_chart_requires_size_qualified_by_default");
+                           ">=1.0/show_all_F_states_allowed",
+                           "F2_size_gate_still_controls_F3_authorization_but_size_rejected_F2_can_be_displayed_by_default");
    FP_AmbiguityAddDecision(report, rows, "D07_F3_OR_DIAGNOSTIC", "diagnostic", (cfg.allow_or_rejected_f3_diagnostic ? "warn" : "error"),
                            (cfg.allow_or_rejected_f3_diagnostic || !engine_cfg.f3_show_or_rejected_candidates),
-                           FP_AmbiguityBool(engine_cfg.f3_show_or_rejected_candidates), "false_by_default",
-                           "OR_rejected_F3_candidates_are_audit_only_by_default");
+                           FP_AmbiguityBool(engine_cfg.f3_show_or_rejected_candidates), "visible_by_default_as_F_state",
+                           "OR_rejected_F3_candidates_may_be_displayed_by_default_but_do_not_lock_or_reset");
    FP_AmbiguityAddDecision(report, rows, "D08_HOOK_MAIN_SEEDED", "decision", (cfg.require_seeded_hook_main_chart ? "error" : "warn"),
                            (!cfg.require_seeded_hook_main_chart || engine_cfg.hook_main_requires_visible_f1),
-                           FP_AmbiguityBool(engine_cfg.hook_main_requires_visible_f1), "true",
-                           "main_chart_hook_requires_seeded_visible_F1_by_default");
+                           FP_AmbiguityBool(engine_cfg.hook_main_requires_visible_f1), "false_for_show_all_hooks_default",
+                           "default_chart_shows_all_hooks_seeded_or_unseeded;clean_profile_can_require_seeded_hooks");
    FP_AmbiguityAddDecision(report, rows, "D09_UNSEEDED_HOOK_DEBUG", "diagnostic", (cfg.allow_debug_unseeded_hooks ? "warn" : "error"),
                            (cfg.allow_debug_unseeded_hooks || !engine_cfg.hook_keep_unseeded_visible_for_debug),
-                           FP_AmbiguityBool(engine_cfg.hook_keep_unseeded_visible_for_debug), "false_by_default",
-                           "unseeded_hooks_are_debug_only");
+                           FP_AmbiguityBool(engine_cfg.hook_keep_unseeded_visible_for_debug), "true_for_show_all_hooks_default",
+                           "unseeded_hooks_are_visible_by_default_for_full_state_review;clean_profile_can_hide_them");
    FP_AmbiguityAddDecision(report, rows, "D10_STRICT_OWNERSHIP", "decision", "error",
                            engine_cfg.strict_main_chart_ownership,
                            FP_AmbiguityBool(engine_cfg.strict_main_chart_ownership), "true",

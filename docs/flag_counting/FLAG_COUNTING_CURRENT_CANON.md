@@ -69,27 +69,14 @@ These rules cannot be relaxed by renderer settings or tactical patches:
 
 ### 4.1 Phase reset
 
-Default phase reset is strict:
+Default phase handling is hybrid:
 
-```text
-PHASE_RESET_OPPOSITE_F3_LOCK_ONLY
-```
+- hard/theoretical reset still requires opposite completed/locked F3 evidence;
+- visual/working reset may start a new visible phase after an opposite confirmed F1 or confirmed F2 appears;
+- the reset reason must state whether it is `reset_by_opposite_terminal_f3` or `visual_soft_reset_by_opposite_confirmed_F1/F2`;
+- same-direction F1 ownership is not reset by a failed same-direction F2/F3 child.
 
-Meaning:
-
-- Same-direction F1 ownership is not reset by a failed F2/F3 child.
-- Same-direction F1 ownership is not reset merely because a new same-direction body appears.
-- A completed F3 becomes locked only when a first confirmed opposite F1 appears.
-- Broader reset modes may exist only as named diagnostic inputs, never as silent defaults.
-
-Allowed future variants:
-
-```text
-PHASE_RESET_OPPOSITE_CONFIRMED_F1
-PHASE_RESET_OPPOSITE_HOOK_OR_F1
-```
-
-If added, they must be logged in audit and cannot change the meaning of the strict default.
+This keeps the strict terminal theory intact while allowing the current chart state to show an active opposite structure before the full opposite F3 has completed.
 
 ### 4.2 F1 root preference
 
@@ -119,15 +106,14 @@ Default:
 
 ### 4.4 Main-chart visibility
 
-Default main chart is **canonical clean**:
+Default main chart is **full-state diagnostic**:
 
-- Show canonical visible F1/F2/F3 structures only.
-- F1 may be visible once it has a valid body and has not violated its lifecycle boundary, but it must be tagged as developing until confirmation.
-- F2 main visibility requires authorized parent context and size qualification, unless candidate display is explicitly enabled.
-- F3 main visibility requires authorized parent context and OR qualification or terminal/completed state, unless candidate display is explicitly enabled.
-- Developing, undersized, duplicate, failed, and diagnostic structures remain in audit.
+- Show all F1/F2/F3 lifecycle states emitted by the engine, including live body, post-flag, size-rejected, and OR-rejected states.
+- Show all Hook/ND contexts by default, seeded or unseeded.
+- Clean/canonical-only output is a named release/render profile, not the default research view.
+- Display does not change semantic authorization: undersized F2 cannot spawn F3, OR-rejected F3 cannot lock, and hidden ownership/canonical objects still obey engine rules.
 
-Optional display profiles may expose more detail, but they must not change emitted logical events:
+Optional clean profiles may hide detail, but they must not change emitted logical events:
 
 ```text
 CLEAN_LOCAL
@@ -156,8 +142,9 @@ Default:
 
 Default strict window:
 
-- F2 origin is backfilled from the deepest adverse correction after F1 Leg2 and before F1 confirmation.
-- F3 origin is backfilled from the deepest adverse correction after F2 Leg2 and before F2 confirmation.
+- F2 origin is backfilled from the deepest adverse correction after final F1 Leg2 and before F1 confirmation; F2 Leg1 is forced to the F1 confirmation hit.
+- F3 origin is backfilled from the deepest adverse correction after final F2 Leg2 and before F2 confirmation; F3 Leg1 is forced to the F2 confirmation hit.
+- Waist and Leg2 for the child flag may only be built after the parent confirmation hit.
 
 Extended post-confirmation backfill may exist only behind a named diagnostic input and must be visible in audit.
 
@@ -166,7 +153,7 @@ Extended post-confirmation backfill may exist only behind a named diagnostic inp
 Default:
 
 - F2 candidate may exist in audit before size qualification.
-- Main-chart F2 requires size qualification unless candidate display is enabled.
+- F2 size qualification controls F3 authorization, not default visibility. Size-rejected F2 may be displayed in the default full-state research view, but it must not set `f2_can_spawn_f3=true`.
 - F3 authorization requires confirmed and size-qualified F2.
 - If F2 later extends and reaches required size, update the same candidate/Leg2 extension path; do not emit a duplicate child unless identity truly changes.
 
@@ -184,7 +171,7 @@ Default:
 Default:
 
 - Hook/ND is a first-class context layer.
-- Main chart shows Hook/ND only when connected to visible canonical ownership or when Hook debug display is enabled.
+- Default research chart shows all Hook/ND contexts, seeded or unseeded. Clean profiles may restrict Hook/ND to seeded visible F1 contexts.
 - Branch numbers belong in audit by default.
 - Hook/ND must not starve all F structures.
 
@@ -636,7 +623,7 @@ parent.has_confirm == true
 parent.lifecycle_can_spawn_f2 == true
 ```
 
-F2 origin is the deepest adverse node in the strict backfill window after F1 Leg2 and before F1 confirmation. Nodes after F1 confirmation are not eligible F2 origins in Level 08.
+F2 origin is the deepest adverse node in the strict backfill window after final F1 Leg2 and before F1 confirmation. Nodes after F1 confirmation are not eligible F2 origins. F1 is not finished for child spawning until its own flag end is re-hit/confirmed. Therefore F2 may backfill only its Origin into the parent correction window; F2 Leg1 is forced to the F1 confirmation node, then Waist/Leg2 construction starts after that confirmation.
 
 F2 size qualification is explicit:
 
@@ -644,7 +631,7 @@ F2 size qualification is explicit:
 f2_size_gate_passed = F2.flag_size >= cfg.f2_min_parent_size_ratio * F1.flag_size
 ```
 
-An undersized F2 may be counted for audit, but it must not set `f2_can_spawn_f3=true`. The main chart hides size-rejected F2 candidates by default through `InpF2ShowSizeRejectedCandidates=false`.
+An undersized F2 may be counted and displayed in the default full-state research view, but it must not set `f2_can_spawn_f3=true`. Clean profiles may hide size-rejected F2 candidates.
 
 F2 confirmation requires Level 06 evidence:
 
@@ -702,7 +689,7 @@ OR
 F3.leg1_L >= ceil(cfg.f3_leg1_L_min_ratio * F2.leg1_L)
 ```
 
-A live/probable F3 body candidate and an OR-rejected complete F3 candidate may be audited, but neither may set `f3_terminal_complete=true` and neither may lock. The main chart hides OR-rejected F3 candidates by default through `InpF3ShowORRejectedCandidates=false`; live-body display remains a renderer/debug option only.
+A live/probable F3 body candidate and an OR-rejected complete F3 candidate may be displayed in the default full-state research view, but neither may set `f3_terminal_complete=true` and neither may lock. Clean profiles may hide OR-rejected/live F3 candidates.
 
 Completed F3 locks only on the first opposite confirmed F1 after F3 completion. Lock evidence is carried by:
 

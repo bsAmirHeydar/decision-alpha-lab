@@ -171,6 +171,37 @@ bool FP_Level10HasOppositeF3ResetBetweenRoots(const FP_FlagEvent &events[],
    return false;
 }
 
+
+bool FP_Level10IsOppositeSoftResetCandidate(const FP_FlagEvent &e)
+{
+   if(e.level == FP_LEVEL_F1) return FP_Level10IsConfirmedF1(e);
+   if(e.level == FP_LEVEL_F2) return FP_Level10IsConfirmedF2(e);
+   return false;
+}
+
+bool FP_Level10HasOppositeSoftResetBetweenRoots(const FP_FlagEvent &events[],
+                                                const int n,
+                                                const int direction,
+                                                const int from_anchor,
+                                                const int to_anchor,
+                                                int &reset_event_index)
+{
+   reset_event_index = -1;
+   if(to_anchor <= from_anchor) return false;
+   for(int i=0; i<n; i++)
+   {
+      if(events[i].direction == direction) continue;
+      if(!FP_Level10IsOppositeSoftResetCandidate(events[i])) continue;
+      int t = FP_Level10EventEndAnchor(events[i]);
+      if(t > from_anchor && t < to_anchor)
+      {
+         if(reset_event_index < 0 || t < FP_Level10EventEndAnchor(events[reset_event_index]))
+            reset_event_index = i;
+      }
+   }
+   return (reset_event_index >= 0);
+}
+
 bool FP_Level10PhaseRootCoversFailOpenRoot(const FP_FlagEvent &phase_root, const FP_FlagEvent &fail_root)
 {
    if(!phase_root.visible_main) return false;
