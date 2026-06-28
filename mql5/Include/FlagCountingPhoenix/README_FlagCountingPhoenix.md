@@ -115,15 +115,17 @@ The main chart now defaults to drawing only Hooks that seed a visible F1 through
 
 `InpEnforceSingleChainPerDirectionGlobal` defaults to false. Per-scale restart hygiene remains available, but global pruning is no longer allowed to hide all later flags on long chart windows.
 
-## Root contract repair V2 - F visibility is primary
+## Main-chart contract repair V3
 
-Phoenix now treats Hook/ND as a context layer rather than a hard gate that can erase valid two-leg flag bodies. Hook-derived roots are attempted, but raw-origin fail-open roots are also built when fail-open is enabled. Main-chart duplicate filtering then removes exact visual duplicates.
+Phoenix now treats Hook/ND as a context layer, not as a hard gate that can erase flags. Hook roots are still preferred, but fail-open raw roots are inspected as a recovery layer and duplicate visual bodies are hidden later.
 
-Default rendering now keeps gray Hook/ND context contained:
+Default chart inputs now prioritize readable flag structures:
 
-- same-direction chain pruning is disabled by default;
-- Hook arcs are limited to the best Hook per visible F1 seed;
-- Hook counted-node labels are hidden unless `InpShowHookCountLabels=true`;
-- visually identical F bodies across L-scales are merged on the main chart.
+- same-direction pruning defaults off;
+- Hook count labels default off;
+- internal count labels default off;
+- origin labels default off;
+- detailed O/A/W/B labels default off;
+- Hook arcs draw only when they seed a visible F1.
 
-This restores colored F1/F2/F3 visibility while preserving Hook/ND branch audit capability.
+Turn the audit inputs back on when branch extraction or parent identity needs inspection.

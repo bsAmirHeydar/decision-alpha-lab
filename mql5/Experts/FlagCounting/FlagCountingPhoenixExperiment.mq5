@@ -1,5 +1,5 @@
 #property strict
-#property version   "7.00"
+#property version   "7.10"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -68,10 +68,10 @@ input bool   InpDrawInvalidated = false;
 input bool   InpDrawHooks = true;
 input bool   InpDrawOnlyFlagSeedHooks = true;
 input bool   InpShowHookCountLabels = false;
-input bool   InpDetailedLabels = true;
-input bool   InpShowParentIds = true;
-input bool   InpShowOriginLabels = true;
-input bool   InpShowInternalLabels = true;
+input bool   InpDetailedLabels = false;
+input bool   InpShowParentIds = false;
+input bool   InpShowOriginLabels = false;
+input bool   InpShowInternalLabels = false;
 input bool   InpUseSequenceColorShades = true;
 input int    InpFixedLineWidth = 1;
 input int    InpCurveSegments = 32;

@@ -363,12 +363,7 @@ void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color 
                       label_clusters);
 }
 
-void FP_DrawHookBranch(const FP_HookBranch &h,
-                       const string prefix,
-                       const color c,
-                       const int width,
-                       const int curve_segments,
-                       const int font_size,
+void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size,
                        const bool show_hook_count_labels,
                        FP_LabelStackCluster &label_clusters[],
                        const MqlRates &rates[],
@@ -396,9 +391,9 @@ void FP_DrawHookBranch(const FP_HookBranch &h,
                       font_size,
                       label_clusters);
 
-   // Counted branch numbers are useful in audit mode, but they are too dense
-   // for the main chart.  Keep them behind an explicit renderer switch so gray
-   // Hook context cannot bury the colored F structures.
+   // Counted branch numbers are audit information.  They stay hidden in the
+   // default main-chart view so Hook/ND context does not become a gray number
+   // dump.  Enable the explicit input when checking branch extraction.
    if(show_hook_count_labels)
    {
       FP_Node nums[4];
@@ -443,63 +438,6 @@ bool FP_HookSeedsVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[])
       return true;
    }
    return false;
-}
-
-FP_Node FP_HookVisualOrigin(const FP_HookBranch &h)
-{
-   double eps = FP_EpsilonPrice(0.0);
-   return FP_HookOriginNode(h, eps);
-}
-
-bool FP_SameHookVisualOrigin(const FP_HookBranch &a, const FP_HookBranch &b)
-{
-   FP_Node ao = FP_HookVisualOrigin(a);
-   FP_Node bo = FP_HookVisualOrigin(b);
-   if(ao.id < 0 || bo.id < 0) return false;
-   if(a.direction != b.direction) return false;
-   if(ao.kind != bo.kind) return false;
-   if(ao.index_anchor != bo.index_anchor) return false;
-   return FP_AlmostEqual(ao.price, bo.price, FP_EpsilonPrice(0.0));
-}
-
-bool FP_HookBetterForMainChart(const FP_HookBranch &candidate, const FP_HookBranch &existing)
-{
-   // Main-chart compaction is visual only.  Prefer the most informative branch
-   // for the same visible F1 seed: 4-node over 3-node, then a cleaner mid-scale
-   // branch, then stronger retracement, then older cycle coverage.
-   if(candidate.node_count > existing.node_count) return true;
-   if(candidate.node_count < existing.node_count) return false;
-
-   int c_l = candidate.scale_L;
-   int e_l = existing.scale_L;
-   int c_mid_distance = (int)MathAbs(c_l - 8);
-   int e_mid_distance = (int)MathAbs(e_l - 8);
-   if(c_mid_distance < e_mid_distance) return true;
-   if(c_mid_distance > e_mid_distance) return false;
-
-   if(candidate.retrace_ratio > existing.retrace_ratio) return true;
-   if(candidate.retrace_ratio < existing.retrace_ratio) return false;
-
-   int cidx = (candidate.has_cycle_start ? candidate.cycle_start_node.index_anchor : candidate.start_node.index_anchor);
-   int eidx = (existing.has_cycle_start ? existing.cycle_start_node.index_anchor : existing.start_node.index_anchor);
-   return (cidx < eidx);
-}
-
-bool FP_HookIsBestVisibleSeedForMainChart(const FP_HookBranch &hooks[],
-                                          const int hook_index,
-                                          const FP_FlagEvent &events[])
-{
-   if(hook_index < 0 || hook_index >= ArraySize(hooks)) return false;
-   if(!FP_HookSeedsVisibleF1(hooks[hook_index], events)) return false;
-
-   for(int i=0; i<ArraySize(hooks); i++)
-   {
-      if(i == hook_index) continue;
-      if(!FP_HookSeedsVisibleF1(hooks[i], events)) continue;
-      if(!FP_SameHookVisualOrigin(hooks[i], hooks[hook_index])) continue;
-      if(FP_HookBetterForMainChart(hooks[i], hooks[hook_index])) return false;
-   }
-   return true;
 }
 
 bool FP_ShouldDrawEvent(const FP_FlagEvent &e,
@@ -571,7 +509,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
-         if(draw_only_flag_seed_hooks && !FP_HookIsBestVisibleSeedForMainChart(hooks, h, events)) continue;
+         if(draw_only_flag_seed_hooks && !FP_HookSeedsVisibleF1(hooks[h], events)) continue;
          FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), show_hook_count_labels, label_clusters, rates, rates_total);
          hook_drawn++;
       }

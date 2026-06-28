@@ -528,16 +528,6 @@ bool FP_SameNodeIdentity(const FP_Node &a, const FP_Node &b)
    return (a.id == b.id && a.L == b.L && a.kind == b.kind && a.index_anchor == b.index_anchor && a.price == b.price);
 }
 
-bool FP_SameNodeVisualIdentity(const FP_Node &a, const FP_Node &b)
-{
-   // Main-chart geometry identity intentionally ignores node id and L.  The same
-   // plateau can be rediscovered at several L-scales, but if it anchors to the
-   // same candle, side, and price, it is the same visible point.
-   if(a.kind != b.kind) return false;
-   if(a.index_anchor != b.index_anchor) return false;
-   return FP_AlmostEqual(a.price, b.price, FP_EpsilonPrice(0.0));
-}
-
 bool FP_SameBodyIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
 {
    if(a.level != b.level) return false;
@@ -546,19 +536,6 @@ bool FP_SameBodyIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
    if(!FP_SameNodeIdentity(a.leg1, b.leg1)) return false;
    if(!FP_SameNodeIdentity(a.waist, b.waist)) return false;
    if(!FP_SameNodeIdentity(a.leg2, b.leg2)) return false;
-   return true;
-}
-
-bool FP_SameBodyVisualIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
-{
-   if(a.level != b.level) return false;
-   if(a.direction != b.direction) return false;
-   if(!a.has_origin || !a.has_leg1 || !a.has_waist || !a.has_leg2) return false;
-   if(!b.has_origin || !b.has_leg1 || !b.has_waist || !b.has_leg2) return false;
-   if(!FP_SameNodeVisualIdentity(a.origin, b.origin)) return false;
-   if(!FP_SameNodeVisualIdentity(a.leg1, b.leg1)) return false;
-   if(!FP_SameNodeVisualIdentity(a.waist, b.waist)) return false;
-   if(!FP_SameNodeVisualIdentity(a.leg2, b.leg2)) return false;
    return true;
 }
 

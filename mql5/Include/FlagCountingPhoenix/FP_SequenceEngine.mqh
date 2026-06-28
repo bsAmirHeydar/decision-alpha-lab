@@ -167,7 +167,7 @@ bool FP_EventBodyDuplicateExists(const FP_FlagEvent &events[], const int event_c
    for(int i=0; i<event_count; i++)
    {
       if(!events[i].visible_main) continue;
-      if(FP_SameBodyVisualIdentity(events[i], candidate)) return true;
+      if(FP_SameBodyIdentity(events[i], candidate)) return true;
    }
    return false;
 }
@@ -226,14 +226,18 @@ bool FP_BuildF2FromF1(const FP_Node &nodes[],
    f2.parent_event_id = parent_event_id;
    f2.parent_flag_size = f1.flag_size;
    f2.parent_leg1_L = f1.leg1_L;
-   FP_QualifyF2(f2, f1, cfg);
+   bool size_ok = FP_QualifyF2(f2, f1, cfg);
    FP_ApplyPostFlagState(f2, nodes, node_count, cfg);
 
-   // If it confirmed, keep confirmed. If it was invalidated and audit disabled, hide.
-   if(f2.status != FP_STATUS_INVALIDATED && f2.flag_size < cfg.f2_min_parent_size_ratio * f1.flag_size)
+   // Contract: F2 is a real sequence stage only after it is at least the F1
+   // flag size.  A smaller body is an audit candidate, not a main-chart F2 and
+   // must never become an F3 parent.  This prevents premature F2/F3 clutter.
+   if(!size_ok && f2.status != FP_STATUS_INVALIDATED)
    {
-      // Candidate continues; do not reject.
-      if(f2.status == FP_STATUS_CONFIRMED) f2.status = FP_STATUS_QUALIFIED;
+      f2.status = FP_STATUS_LIVE_BODY;
+      f2.visible_main = false;
+      f2.reason = f2.reason + ";hidden_f2_size_below_parent_contract";
+      return false;
    }
    return FP_EventIsVisibleMain(f2, cfg);
 }
@@ -405,24 +409,21 @@ void FP_DetectScale(const MqlRates &rates[],
       FP_CollectHookOrigins(hooks, hook_count, direction, eps, phase_origins);
 
       int roots_used = 0;
-      FP_TryBuildFlagChainsFromOrigins(nodes,
-                                       node_count,
-                                       phase_origins,
-                                       direction,
-                                       true,
-                                       false,
-                                       cfg,
-                                       events,
-                                       roots_used);
+      int added_from_phase = FP_TryBuildFlagChainsFromOrigins(nodes,
+                                                              node_count,
+                                                              phase_origins,
+                                                              direction,
+                                                              true,
+                                                              false,
+                                                              cfg,
+                                                              events,
+                                                              roots_used);
 
-      // Root-level repair: Hook/ND is a semantic phase-boundary layer, but it
-      // must never starve the two-leg flag-body detector.  The main chart is a
-      // research surface: every raw origin that forms a valid body must still be
-      // allowed to appear as a fail-open F1 unless the user explicitly disables
-      // fail-open.  Exact visual duplicates are rejected before insertion, and
-      // later pruning can hide fallback roots that truly sit inside an owned
-      // phase.  This preserves the documented F1 body contract while Hook
-      // coverage is being refined.
+      // Critical fail-safe: Hook/ND is context, not a hard visibility gate.
+      // Build Hook-derived roots first, then let raw-origin fail-open inspect the
+      // same scale/direction as a recovery layer.  Visual duplicate pruning below
+      // keeps main-chart output canonical while preventing Hook mistakes from
+      // erasing valid F bodies.
       if(cfg.allow_f1_fail_open_when_no_hook)
       {
          FP_Node fallback_origins[];
@@ -635,6 +636,164 @@ void FP_LockF3WithFirstOppositeF1(FP_FlagEvent &events[])
    }
 }
 
+
+// ------------------------- Main-chart canonicalization ----------------------
+
+int FP_EventStatusRank(const FP_FlagEvent &e)
+{
+   if(e.status == FP_STATUS_LOCKED) return 80;
+   if(e.status == FP_STATUS_COMPLETED) return 70;
+   if(e.status == FP_STATUS_CONFIRMED) return 60;
+   if(e.status == FP_STATUS_QUALIFIED) return 50;
+   if(e.status == FP_STATUS_POST_FLAG) return 40;
+   if(e.status == FP_STATUS_LIVE_BODY) return 30;
+   if(e.status == FP_STATUS_LIVE_LEG) return 20;
+   if(e.status == FP_STATUS_SEED) return 10;
+   return 0;
+}
+
+bool FP_EventHasVisibleChild(const FP_FlagEvent &events[], const int n, const FP_FlagEvent &root)
+{
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].sequence_id != root.sequence_id) continue;
+      if(events[i].chain_index > root.chain_index) return true;
+   }
+   return false;
+}
+
+int FP_MainChartRootScore(const FP_FlagEvent &events[], const int n, const FP_FlagEvent &e)
+{
+   int score = 0;
+   if(e.from_phase_boundary) score += 200;
+   if(!e.from_fail_open) score += 40;
+   score += FP_EventStatusRank(e);
+   if(FP_EventHasVisibleChild(events, n, e)) score += 25;
+   // On equal semantic quality, prefer the local/lower-L representation so a
+   // high-L umbrella does not dominate the main M1 chart.
+   score -= MathMax(0, e.scale_L);
+   return score;
+}
+
+bool FP_NodeVisualClose(const FP_Node &a, const FP_Node &b, const int bar_tol, const double price_tol)
+{
+   if(a.kind != b.kind) return false;
+   if(a.index_anchor < 0 || b.index_anchor < 0) return false;
+   if(MathAbs(a.index_anchor - b.index_anchor) > bar_tol) return false;
+   if(MathAbs(a.price - b.price) > price_tol) return false;
+   return true;
+}
+
+bool FP_EventBodiesVisuallyEquivalent(const FP_FlagEvent &a, const FP_FlagEvent &b)
+{
+   if(a.level != b.level) return false;
+   if(a.direction != b.direction) return false;
+   if(!a.has_origin || !a.has_leg1 || !b.has_origin || !b.has_leg1) return false;
+
+   int tol = MathMax(2, MathMin(MathMax(1, a.scale_L), MathMax(1, b.scale_L)) / 2);
+   double ptol = MathMax(_Point * 2.0, MathAbs(a.flag_size + b.flag_size) * 0.0005);
+
+   if(!FP_NodeVisualClose(a.origin, b.origin, tol, ptol)) return false;
+   if(!FP_NodeVisualClose(a.leg1, b.leg1, tol, ptol)) return false;
+
+   if(a.has_waist != b.has_waist) return false;
+   if(a.has_leg2 != b.has_leg2) return false;
+   if(a.has_waist && !FP_NodeVisualClose(a.waist, b.waist, tol, ptol)) return false;
+   if(a.has_leg2 && !FP_NodeVisualClose(a.leg2, b.leg2, tol, ptol)) return false;
+   return true;
+}
+
+void FP_HideSequenceById(FP_FlagEvent &events[], const int sequence_id, const string reason)
+{
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(events[i].sequence_id != sequence_id) continue;
+      events[i].visible_main = false;
+      events[i].reason = events[i].reason + reason;
+   }
+}
+
+void FP_PruneDuplicateRootSequences(FP_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].level != FP_LEVEL_F1) continue;
+      if(events[i].chain_index != 1) continue;
+
+      for(int j=i+1; j<n; j++)
+      {
+         if(!events[j].visible_main) continue;
+         if(events[j].level != FP_LEVEL_F1) continue;
+         if(events[j].chain_index != 1) continue;
+         if(!FP_EventBodiesVisuallyEquivalent(events[i], events[j])) continue;
+
+         int score_i = FP_MainChartRootScore(events, n, events[i]);
+         int score_j = FP_MainChartRootScore(events, n, events[j]);
+         int dead = (score_j > score_i ? i : j);
+         int keep = (dead == i ? j : i);
+         string why = ";hidden_duplicate_root_sequence_kept_Q" + IntegerToString(events[keep].event_id);
+         FP_HideSequenceById(events, events[dead].sequence_id, why);
+         if(dead == i) break;
+      }
+   }
+}
+
+void FP_HideOrphanDescendants(FP_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   bool changed = true;
+   while(changed)
+   {
+      changed = false;
+      for(int i=0; i<n; i++)
+      {
+         if(!events[i].visible_main) continue;
+         if(events[i].chain_index <= 1) continue;
+         bool parent_visible = false;
+         for(int j=0; j<n; j++)
+         {
+            if(!events[j].visible_main) continue;
+            if(events[j].sequence_id != events[i].sequence_id) continue;
+            if(events[j].chain_index == events[i].chain_index - 1)
+            {
+               parent_visible = true;
+               break;
+            }
+         }
+         if(!parent_visible)
+         {
+            events[i].visible_main = false;
+            events[i].reason = events[i].reason + ";hidden_orphan_descendant_no_visible_parent";
+            changed = true;
+         }
+      }
+   }
+}
+
+void FP_MergeVisualBodyDuplicates(FP_FlagEvent &events[])
+{
+   int n = ArraySize(events);
+   for(int i=0; i<n; i++)
+   {
+      if(!events[i].visible_main) continue;
+      for(int j=i+1; j<n; j++)
+      {
+         if(!events[j].visible_main) continue;
+         if(!FP_EventBodiesVisuallyEquivalent(events[i], events[j])) continue;
+         int score_i = FP_EventStatusRank(events[i]) - events[i].scale_L;
+         int score_j = FP_EventStatusRank(events[j]) - events[j].scale_L;
+         int dead = (score_j > score_i ? i : j);
+         int keep = (dead == i ? j : i);
+         events[dead].visible_main = false;
+         events[dead].reason = events[dead].reason + ";hidden_visual_body_duplicate_of_Q" + IntegerToString(events[keep].event_id);
+         if(dead == i) break;
+      }
+   }
+}
+
 void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
 {
    int n = ArraySize(events);
@@ -644,24 +803,11 @@ void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
       for(int j=i+1; j<n; j++)
       {
          if(!events[j].visible_main) continue;
-         if(FP_SameBodyVisualIdentity(events[i], events[j]))
+         if(FP_SameBodyIdentity(events[i], events[j]))
          {
-            // Keep the older event close to price and hide the duplicate geometry.
-            // If the duplicate is a root or parent state, hide its descendants as
-            // well so the chart does not show orphan F2/F3 children without their
-            // visible F1/F2 parent.
-            int dead_seq = events[j].sequence_id;
-            int dead_chain = events[j].chain_index;
+            // Keep the older event close to price and hide exact duplicate geometry.
             events[j].visible_main = false;
             events[j].reason = events[j].reason + ";hidden_exact_visual_duplicate_of_Q" + IntegerToString(events[i].event_id);
-            for(int k=0; k<n; k++)
-            {
-               if(k == j) continue;
-               if(events[k].sequence_id != dead_seq) continue;
-               if(events[k].chain_index <= dead_chain) continue;
-               events[k].visible_main = false;
-               events[k].reason = events[k].reason + ";hidden_descendant_of_visual_duplicate_Q" + IntegerToString(events[j].event_id);
-            }
          }
       }
    }
@@ -705,7 +851,10 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_LockF3WithFirstOppositeF1(events);
    FP_PruneSameDirectionRestarts(events, cfg);
    FP_HideSupersededParentStates(events, cfg);
+   FP_PruneDuplicateRootSequences(events);
+   FP_MergeVisualBodyDuplicates(events);
    FP_MergeExactVisualDuplicates(events);
+   FP_HideOrphanDescendants(events);
    FP_FinalizeEventIds(events);
    FP_RebuildParentIdsAfterSort(events);
    FP_RecountResult(events, hooks, result);
