@@ -147,7 +147,7 @@ void FP_ReleaseApplyProfile(FP_TimebaseConfig &timebase_cfg,
       export_cfg.print_sanity = true;
       export_cfg.print_samples = true;
       FP_ReleaseForceNoRenderer(render_cfg, report, "audit_export_renderer_suppressed");
-      r.export_forced = 1;
+      report.export_forced = 1;
    }
    else if(release_cfg.profile == FP_RELEASE_PROFILE_VALIDATION)
    {
@@ -159,7 +159,7 @@ void FP_ReleaseApplyProfile(FP_TimebaseConfig &timebase_cfg,
       validation_cfg.require_render_ok = true;
       validation_cfg.require_no_render_errors = true;
       validation_cfg.require_no_canonical_failures = true;
-      r.export_forced = 1;
+      report.export_forced = 1;
       report.validation_forced = 1;
       FP_ReleaseRecordOverride(report, "validation_profile_export_validation_gate");
    }
@@ -176,7 +176,7 @@ void FP_ReleaseApplyProfile(FP_TimebaseConfig &timebase_cfg,
       validation_cfg.require_render_ok = false;
       validation_cfg.require_no_render_errors = false;
       FP_ReleaseForceNoRenderer(render_cfg, report, "render_off_profile");
-      r.export_forced = 1;
+      report.export_forced = 1;
    }
    else if(release_cfg.profile == FP_RELEASE_PROFILE_SAFE_ROLLBACK)
    {
