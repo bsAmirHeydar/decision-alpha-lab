@@ -112,17 +112,24 @@ Acceptance:
 Files:
 
 ```text
+FP_Identity.mqh
+FP_IdentityAudit.mqh
 FP_Types.mqh
+FP_NodeCanonicalizer.mqh
+FP_SequenceEngine.mqh
 FP_Audit.mqh
+FlagCountingPhoenixExperiment.mq5 # wiring only
 ```
 
 Acceptance:
 
-- structural id;
-- visual id derivation or deterministic object naming contract;
-- phase/sequence id;
-- chain id;
-- visible/hidden reason.
+- nodes have deterministic structural and visual ids after extraction, sorting, and canonical compression;
+- Hook/ND branches have structural, visual, phase, audit, source, rank, and visibility fields;
+- F events have structural, visual, phase, chain, audit, source, rank, visibility, and hidden-reason fields;
+- identity is assigned before ownership/canonical pruning and normalized again after pruning;
+- same visual geometry may merge only inside the same phase;
+- hidden events always have non-empty `hidden_reason`;
+- `FP_LEVEL03` reports identity sanity before renderer output is trusted.
 
 ### Step 04 — Build Hook/ND audit only
 

@@ -31,6 +31,9 @@ input bool InpIncludePendingNodes = false;
 input bool InpPrintNodeSanity = true;
 input bool InpPrintNodeSamples = false;
 input int  InpNodeSampleLimit = 6;
+input bool InpPrintIdentitySanity = true;
+input bool InpPrintIdentitySamples = false;
+input int  InpIdentitySampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -138,6 +141,17 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.print_node_sanity = InpPrintNodeSanity;
    cfg.print_node_samples = InpPrintNodeSamples;
    cfg.node_sample_limit = InpNodeSampleLimit;
+   cfg.context_symbol = _Symbol;
+   cfg.context_timeframe = EnumToString(_Period);
+   cfg.identity_generation_pass = "phoenix_level03";
+   cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
+                              "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
+                              "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
+                              "_hook" + FP_BoolName(InpScanHooks) +
+                              "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
+   cfg.print_identity_sanity = InpPrintIdentitySanity;
+   cfg.print_identity_samples = InpPrintIdentitySamples;
+   cfg.identity_sample_limit = InpIdentitySampleLimit;
    cfg.boundary_epsilon_points = InpBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2MinParentSizeRatio;
    cfg.f3_min_parent_size_ratio = InpF3MinParentSizeRatio;

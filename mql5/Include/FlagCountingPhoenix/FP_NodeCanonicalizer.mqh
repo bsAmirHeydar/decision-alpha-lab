@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_NodeClearance.mqh"
+#include "FP_Identity.mqh"
 
 // ============================================================================
 // FlagCounting Phoenix - Level 02 / Node Canonicalization
@@ -39,6 +40,7 @@ void FP_BuildNodeFromPlateau(const MqlRates &rates[],
    n.source = (confirmed ? FP_NODE_SOURCE_CONFIRMED_HISTORY : FP_NODE_SOURCE_LIVE_CANDIDATE);
    n.plateau_start_index = start;
    n.plateau_end_index = end;
+   FP_AssignNodeIdentity(n, "level02_extract");
 }
 
 void FP_SortNodes(FP_Node &nodes[])
@@ -60,7 +62,11 @@ void FP_SortNodes(FP_Node &nodes[])
          nodes[best] = tmp;
       }
    }
-   for(int k=0; k<n; k++) nodes[k].id = k;
+   for(int k=0; k<n; k++)
+   {
+      nodes[k].id = k;
+      FP_AssignNodeIdentity(nodes[k], "level02_sorted");
+   }
 }
 
 bool FP_NodeIsMoreExtreme(const FP_Node &candidate, const FP_Node &current)
@@ -166,7 +172,11 @@ int FP_CompressAlternatingExtremeWithReport(const FP_Node &nodes[],
       FP_UpdateNodeCompressReportAfterNode(report, current);
    }
 
-   for(int k=0; k<ArraySize(out_nodes); k++) out_nodes[k].id = k;
+   for(int k=0; k<ArraySize(out_nodes); k++)
+   {
+      out_nodes[k].id = k;
+      FP_AssignNodeIdentity(out_nodes[k], "level02_canonical");
+   }
    report.compressed_count = ArraySize(out_nodes);
    report.ok = true;
    report.status = "ok";

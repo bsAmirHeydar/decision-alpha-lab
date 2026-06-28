@@ -42,6 +42,8 @@ Structural / sequence engines:
 - `FP_NodeScaleList.mqh`: deterministic multi-L list construction.
 - `FP_NodeAudit.mqh`: standalone Level 02 node report and sample logs.
 - `FP_NodeEngine.mqh`: Level 02 facade used by Hook/F layers.
+- `FP_Identity.mqh`: Level 03 deterministic structural/visual/phase/chain/audit identity kernel.
+- `FP_IdentityAudit.mqh`: Level 03 identity sanity report and optional samples.
 - `FP_HookEngine.mqh`: branch-based ND/hook detection.
 - `FP_FlagBodyEngine.mqh`: two-leg flag body construction.
 - `FP_InternalCountEngine.mqh`: internal 1/2/3/4 and post-flag correction scanning.
@@ -110,6 +112,29 @@ plateau_end_index
 ```
 
 Equality remains non-breaking and non-confirming: it does not reject a candidate as a break, but it also does not count toward L clearance.
+
+
+## Level 03 identity layer
+
+Phoenix now assigns identity before renderer and ownership decisions are trusted. The identity kernel separates exact replay identity from visual chart identity:
+
+```text
+structural_id = exact L-aware replay identity
+visual_id     = chart-geometry identity across L variants
+phase_id      = ownership window
+chain_id      = F1 -> F2 -> F3 sequence
+audit_id      = source/config/pass trace
+```
+
+Default identity audit inputs:
+
+```text
+InpPrintIdentitySanity = true
+InpPrintIdentitySamples = false
+InpIdentitySampleLimit = 6
+```
+
+`FP_LEVEL03` reports whether every emitted event and Hook/ND context has identity and whether hidden events carry a non-empty `hidden_reason`. Visual duplicate pruning is now phase-safe: same geometry may merge only when `phase_id` also matches.
 
 ## Expert
 

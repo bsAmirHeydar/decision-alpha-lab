@@ -94,6 +94,20 @@ struct FP_Node
    int       source;
    int       plateau_start_index;
    int       plateau_end_index;
+
+   // Level 03 identity fields. These are deterministic strings, not renderer
+   // object names. Later layers may hide or rank objects but must not invent
+   // node identity.
+   string    structural_id;
+   string    visual_id;
+   string    phase_id;
+   string    chain_id;
+   string    audit_id;
+   string    source_mode;
+   bool      visible_main;
+   bool      is_fail_open;
+   int       canonical_rank_score;
+   string    hidden_reason;
 };
 
 struct FP_InternalPack
@@ -140,6 +154,20 @@ struct FP_HookBranch
    FP_Node  n4;
    double   retrace_ratio;
    bool     is_nd;
+
+   // Level 03 identity fields for Hook/ND context objects.
+   string   structural_id;
+   string   visual_id;
+   string   phase_id;
+   string   chain_id;
+   string   audit_id;
+   int      source_L;
+   string   source_mode;
+   bool     visible_main;
+   bool     is_fail_open;
+   int      canonical_rank_score;
+   string   hidden_reason;
+
    string   reason;
 };
 
@@ -191,6 +219,19 @@ struct FP_FlagEvent
 
    bool     from_phase_boundary;
    bool     from_fail_open;
+
+   // Level 03 identity fields.
+   string   structural_id;
+   string   visual_id;
+   string   phase_id;
+   string   chain_id;
+   string   audit_id;
+   int      source_L;
+   string   source_mode;
+   bool     is_fail_open;
+   int      canonical_rank_score;
+   string   hidden_reason;
+
    bool     visible_main;
    string   reason;
 };
@@ -230,6 +271,15 @@ struct FP_Config
    double nd_min_retrace_ratio;
    bool   nd_allow_below_half_cycle;
 
+   // Level 03 identity/audit context.
+   string context_symbol;
+   string context_timeframe;
+   string identity_generation_pass;
+   string identity_config_hash;
+   bool   print_identity_sanity;
+   bool   print_identity_samples;
+   int    identity_sample_limit;
+
    bool   verbose_logs;
 };
 
@@ -242,6 +292,8 @@ struct FP_DetectResult
    int hooks_total;
    int events_total;
    int visible_events_total;
+   int hidden_events_total;
+   int identity_assigned_events;
    int f1_total;
    int f2_total;
    int f3_total;
@@ -269,6 +321,16 @@ void FP_ResetNode(FP_Node &n)
    n.source = 0;
    n.plateau_start_index = -1;
    n.plateau_end_index = -1;
+   n.structural_id = "";
+   n.visual_id = "";
+   n.phase_id = "";
+   n.chain_id = "";
+   n.audit_id = "";
+   n.source_mode = "";
+   n.visible_main = true;
+   n.is_fail_open = false;
+   n.canonical_rank_score = 0;
+   n.hidden_reason = "";
 }
 
 void FP_ResetInternalPack(FP_InternalPack &p)
@@ -307,6 +369,17 @@ void FP_ResetHook(FP_HookBranch &h)
    FP_ResetNode(h.n4);
    h.retrace_ratio = 0.0;
    h.is_nd = false;
+   h.structural_id = "";
+   h.visual_id = "";
+   h.phase_id = "";
+   h.chain_id = "";
+   h.audit_id = "";
+   h.source_L = 0;
+   h.source_mode = "";
+   h.visible_main = true;
+   h.is_fail_open = false;
+   h.canonical_rank_score = 0;
+   h.hidden_reason = "";
    h.reason = "";
 }
 
@@ -357,6 +430,16 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
 
    e.from_phase_boundary = false;
    e.from_fail_open = false;
+   e.structural_id = "";
+   e.visual_id = "";
+   e.phase_id = "";
+   e.chain_id = "";
+   e.audit_id = "";
+   e.source_L = 0;
+   e.source_mode = "";
+   e.is_fail_open = false;
+   e.canonical_rank_score = 0;
+   e.hidden_reason = "";
    e.visible_main = true;
    e.reason = "";
 }
@@ -396,6 +479,14 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.nd_min_retrace_ratio = 0.50;
    cfg.nd_allow_below_half_cycle = false;
 
+   cfg.context_symbol = "";
+   cfg.context_timeframe = "";
+   cfg.identity_generation_pass = "phoenix_level03";
+   cfg.identity_config_hash = "default";
+   cfg.print_identity_sanity = true;
+   cfg.print_identity_samples = false;
+   cfg.identity_sample_limit = 6;
+
    cfg.verbose_logs = false;
 }
 
@@ -408,6 +499,8 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.hooks_total = 0;
    r.events_total = 0;
    r.visible_events_total = 0;
+   r.hidden_events_total = 0;
+   r.identity_assigned_events = 0;
    r.f1_total = 0;
    r.f2_total = 0;
    r.f3_total = 0;
@@ -555,7 +648,14 @@ int FP_AddEvent(FP_FlagEvent &arr[], const FP_FlagEvent &e)
 
 bool FP_SameNodeIdentity(const FP_Node &a, const FP_Node &b)
 {
+   if(a.structural_id != "" && b.structural_id != "") return (a.structural_id == b.structural_id);
    return (a.id == b.id && a.L == b.L && a.kind == b.kind && a.index_anchor == b.index_anchor && a.price == b.price);
+}
+
+bool FP_SameNodeVisualIdentity(const FP_Node &a, const FP_Node &b)
+{
+   if(a.visual_id != "" && b.visual_id != "") return (a.visual_id == b.visual_id);
+   return (a.kind == b.kind && a.index_anchor == b.index_anchor && a.price == b.price);
 }
 
 bool FP_SameBodyIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
@@ -566,6 +666,17 @@ bool FP_SameBodyIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
    if(!FP_SameNodeIdentity(a.leg1, b.leg1)) return false;
    if(!FP_SameNodeIdentity(a.waist, b.waist)) return false;
    if(!FP_SameNodeIdentity(a.leg2, b.leg2)) return false;
+   return true;
+}
+
+bool FP_SameBodyVisualIdentity(const FP_FlagEvent &a, const FP_FlagEvent &b)
+{
+   if(a.level != b.level) return false;
+   if(a.direction != b.direction) return false;
+   if(!FP_SameNodeVisualIdentity(a.origin, b.origin)) return false;
+   if(!FP_SameNodeVisualIdentity(a.leg1, b.leg1)) return false;
+   if(!FP_SameNodeVisualIdentity(a.waist, b.waist)) return false;
+   if(!FP_SameNodeVisualIdentity(a.leg2, b.leg2)) return false;
    return true;
 }
 

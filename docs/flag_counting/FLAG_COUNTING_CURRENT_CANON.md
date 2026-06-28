@@ -277,6 +277,60 @@ InpNodeSampleLimit = 6
 
 ---
 
+
+## 4.14 Level 03 identity layer
+
+Phoenix uses a dedicated identity kernel before Hook/F lifecycle output is trusted:
+
+```text
+FP_Identity.mqh
+FP_IdentityAudit.mqh
+```
+
+Level 03 assigns deterministic identity to nodes, Hook/ND contexts, and F events. Identity is not a renderer object name and must not depend on chart drawing.
+
+Required identity fields are:
+
+```text
+structural_id
+visual_id
+phase_id
+chain_id
+audit_id
+source_L / L
+source_mode
+is_fail_open
+canonical_rank_score
+visible_main
+hidden_reason
+```
+
+Node structural identity is exact and L-aware:
+
+```text
+side + L + anchor_index + normalized_price + plateau_span
+```
+
+Node visual identity is chart-geometry identity:
+
+```text
+side + anchor_index + normalized_price
+```
+
+Event structural identity uses exact O/A/W/B structural node ids. Event visual identity uses O/A/W/B visual node ids and may collapse same-geometry variants only when phase ownership also matches. Same visual geometry in different `phase_id` must not be merged automatically.
+
+Default Level 03 audit inputs:
+
+```text
+InpPrintIdentitySanity = true
+InpPrintIdentitySamples = false
+InpIdentitySampleLimit = 6
+```
+
+`FP_LEVEL03` is the current identity sanity log. It must show that every event/hook has assigned identity and every hidden event has a hidden reason before renderer output is trusted.
+
+---
+
 ## 5. Interface decision
 
 Current Phoenix uses these active shared structs:

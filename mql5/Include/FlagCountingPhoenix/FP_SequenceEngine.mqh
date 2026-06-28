@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_InternalCountEngine.mqh"
+#include "FP_IdentityAudit.mqh"
 
 // ============================================================================
 // Phoenix Sequence Engine
@@ -36,6 +37,7 @@ int FP_AddSemanticEvent(FP_FlagEvent &events[], FP_FlagEvent &e, const FP_Config
 {
    if(cfg.max_events > 0 && ArraySize(events) >= cfg.max_events) return -1;
    e.event_id = ArraySize(events);
+   FP_AssignEventIdentity(e, cfg);
    FP_AddEvent(events, e);
    return e.event_id;
 }
@@ -52,6 +54,8 @@ void FP_UpdateEventCounters(const FP_FlagEvent &e, FP_DetectResult &r)
 {
    r.events_total++;
    if(e.visible_main) r.visible_events_total++;
+   else r.hidden_events_total++;
+   if(e.structural_id != "" && e.visual_id != "" && e.phase_id != "" && e.chain_id != "" && e.audit_id != "") r.identity_assigned_events++;
    if(e.level == FP_LEVEL_F1) r.f1_total++;
    if(e.level == FP_LEVEL_F2) r.f2_total++;
    if(e.level == FP_LEVEL_F3) r.f3_total++;
@@ -419,6 +423,7 @@ void FP_DetectScale(const MqlRates &rates[],
    for(int h=0; h<hook_count; h++)
    {
       hooks[h].branch_id = ArraySize(all_hooks);
+      FP_AssignHookIdentity(hooks[h], cfg);
       FP_AddHook(all_hooks, hooks[h]);
       result.hooks_total++;
       if(hooks[h].is_nd) result.nd_total++;
@@ -715,7 +720,9 @@ bool FP_EventBodiesVisuallyEquivalent(const FP_FlagEvent &a, const FP_FlagEvent 
 {
    if(a.level != b.level) return false;
    if(a.direction != b.direction) return false;
+   if(!FP_SamePhaseForMerge(a, b)) return false;
    if(!a.has_origin || !a.has_leg1 || !b.has_origin || !b.has_leg1) return false;
+   if(a.visual_id != "" && b.visual_id != "" && a.visual_id == b.visual_id) return true;
 
    int tol = MathMax(2, MathMin(MathMax(1, a.scale_L), MathMax(1, b.scale_L)) / 2);
    double ptol = MathMax(_Point * 2.0, MathAbs(a.flag_size + b.flag_size) * 0.0005);
@@ -735,8 +742,7 @@ void FP_HideSequenceById(FP_FlagEvent &events[], const int sequence_id, const st
    for(int i=0; i<ArraySize(events); i++)
    {
       if(events[i].sequence_id != sequence_id) continue;
-      events[i].visible_main = false;
-      events[i].reason = events[i].reason + reason;
+      FP_SetHiddenReason(events[i], reason);
    }
 }
 
@@ -755,6 +761,7 @@ void FP_PruneDuplicateRootSequences(FP_FlagEvent &events[])
          if(events[j].level != FP_LEVEL_F1) continue;
          if(events[j].chain_index != 1) continue;
          if(!FP_EventBodiesVisuallyEquivalent(events[i], events[j])) continue;
+         if(!FP_SamePhaseForMerge(events[i], events[j])) continue;
 
          int score_i = FP_MainChartRootScore(events, n, events[i]);
          int score_j = FP_MainChartRootScore(events, n, events[j]);
@@ -922,6 +929,7 @@ void FP_MergeVisualBodyDuplicates(FP_FlagEvent &events[])
       {
          if(!events[j].visible_main) continue;
          if(!FP_EventBodiesVisuallyEquivalent(events[i], events[j])) continue;
+         if(!FP_SamePhaseForMerge(events[i], events[j])) continue;
          int score_i = FP_EventStatusRank(events[i]) - events[i].scale_L;
          int score_j = FP_EventStatusRank(events[j]) - events[j].scale_L;
          int dead = (score_j > score_i ? i : j);
@@ -942,7 +950,7 @@ void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
       for(int j=i+1; j<n; j++)
       {
          if(!events[j].visible_main) continue;
-         if(FP_SameBodyIdentity(events[i], events[j]))
+         if(FP_SameBodyIdentity(events[i], events[j]) && FP_SamePhaseForMerge(events[i], events[j]))
          {
             // Keep the older event close to price and hide exact duplicate geometry.
             events[j].visible_main = false;
@@ -954,11 +962,17 @@ void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
 
 void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_DetectResult &result)
 {
+   int raw_nodes_prev = result.raw_nodes_total;
    int nodes_prev = result.nodes_total;
+   int confirmed_nodes_prev = result.confirmed_nodes_total;
+   int pending_nodes_prev = result.pending_nodes_total;
    int hooks_prev = result.hooks_total;
    int nd_prev = result.nd_total;
    FP_ResetDetectResult(result);
+   result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
+   result.confirmed_nodes_total = confirmed_nodes_prev;
+   result.pending_nodes_total = pending_nodes_prev;
    result.hooks_total = hooks_prev;
    result.nd_total = nd_prev;
    for(int i=0; i<ArraySize(events); i++)
@@ -986,6 +1000,8 @@ int FP_DetectAllScales(const MqlRates &rates[],
 
    FP_SortEventsByTime(events);
    FP_FinalizeEventIds(events);
+   FP_AssignEventIdentities(events, cfg);
+   FP_AssignHookIdentities(hooks, cfg);
    FP_PruneFailOpenRootsWhenPhaseRootsExist(events);
    FP_LockF3WithFirstOppositeF1(events);
    FP_PruneSameDirectionRestarts(events, cfg);
@@ -997,6 +1013,11 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_HideOrphanDescendants(events);
    FP_FinalizeEventIds(events);
    FP_RebuildParentIdsAfterSort(events);
+   FP_NormalizeHiddenReasons(events);
+   FP_AssignEventIdentities(events, cfg);
+   FP_AssignHookIdentities(hooks, cfg);
+   if(cfg.print_identity_sanity)
+      FP_PrintIdentitySummary("FP_LEVEL03", events, hooks, cfg);
    FP_RecountResult(events, hooks, result);
    return ArraySize(events);
 }

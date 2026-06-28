@@ -51,6 +51,14 @@ FP_NodeSource
 FP_NodeClearanceStatus
 ```
 
+Level 03 identity modules additionally own:
+
+```text
+FP_IdentityReport
+FP_Identity.mqh helper functions
+FP_IdentityAudit.mqh sanity logs
+```
+
 These are the active interface objects.
 
 The older names below are not active mandatory structs:
@@ -149,6 +157,61 @@ Owns:
 Must not call `CopyRates`. Must not emit Hook, ND, F1, F2, F3, sequence, visibility, or renderer objects.
 
 ---
+
+## Level 03 identity modules
+
+Public identity kernel:
+
+```text
+FP_Identity.mqh
+```
+
+Audit facade:
+
+```text
+FP_IdentityAudit.mqh
+```
+
+Input:
+
+```text
+FP_Node
+FP_HookBranch
+FP_FlagEvent
+FP_Config context_symbol/context_timeframe/identity_config_hash
+```
+
+Output fields on emitted objects:
+
+```text
+structural_id
+visual_id
+phase_id
+chain_id
+audit_id
+source_L or L
+source_mode
+is_fail_open
+canonical_rank_score
+visible_main
+hidden_reason
+```
+
+Owns:
+
+- deterministic node structural and visual ids;
+- deterministic Hook/ND structural, visual, phase, and audit ids;
+- deterministic F-event structural, visual, phase, chain, and audit ids;
+- phase-safe visual merge predicates;
+- hidden-reason normalization;
+- `FP_LEVEL03` identity sanity report.
+
+Must not:
+
+- draw chart objects;
+- create Hook/F events;
+- decide final lifecycle state;
+- use renderer object names as semantic ids.
 
 ## FP_HookEngine.mqh
 
@@ -394,8 +457,8 @@ Copy rates
 
 Before a layer is frozen:
 
-- Every output object has identity.
-- Every hidden object has reason.
+- Every output object has `structural_id`, `visual_id`, `phase_id`, `chain_id` where applicable, and `audit_id`.
+- Every hidden object has `hidden_reason`.
 - Every parent-child link is explicit.
 - Raw events and visible events are distinguishable.
 - Every module can be tested without renderer.
