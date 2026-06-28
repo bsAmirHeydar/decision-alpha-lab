@@ -673,6 +673,15 @@ struct FP_DetectResult
    int render_duplicate_names_total;
    int render_fallback_curves_total;
 
+   int validation_attempted_total;
+   int validation_ok_total;
+   int validation_checks_total;
+   int validation_pass_total;
+   int validation_fail_total;
+   int validation_warn_total;
+   int validation_skipped_total;
+   int validation_file_errors_total;
+
    int invalid_total;
 };
 
@@ -1146,6 +1155,15 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.render_hook_filtered_total = 0;
    r.render_duplicate_names_total = 0;
    r.render_fallback_curves_total = 0;
+
+   r.validation_attempted_total = 0;
+   r.validation_ok_total = 0;
+   r.validation_checks_total = 0;
+   r.validation_pass_total = 0;
+   r.validation_fail_total = 0;
+   r.validation_warn_total = 0;
+   r.validation_skipped_total = 0;
+   r.validation_file_errors_total = 0;
 
    r.invalid_total = 0;
 }

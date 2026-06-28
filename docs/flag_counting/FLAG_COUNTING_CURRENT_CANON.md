@@ -943,3 +943,30 @@ InpPrintRenderSanity = true
 ```
 
 `FP_LEVEL12` is the renderer sanity line. `FP_SUMMARY` must include render counters so chart-object problems are visible without trusting the chart visually.
+
+## Level 13 validation is active
+
+Phoenix Level 13 is now the official validation harness for the canonical stream.
+
+Active modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_ValidationTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationEngine.mqh
+```
+
+Execution order:
+
+```text
+Level 11 canonicalization
+-> Level 11.5 export/report
+-> Level 12 renderer
+-> Level 13 validation
+-> FP_SUMMARY
+```
+
+Level 13 is read-only. It may only inspect the final canonical event/hook stream and aggregate counters. It must not change renderer output, export output, identity, hidden reasons, lifecycle status, ownership, or canonicalization.
+
+Expected counts must come from MT5 baselines. Documentation must not invent them. New cases start with `InpValidationBaselineMode=true`; accepted cases then copy actual counts into the expected min/max inputs.

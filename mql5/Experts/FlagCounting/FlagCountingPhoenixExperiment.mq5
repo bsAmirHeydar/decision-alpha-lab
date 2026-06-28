@@ -1,10 +1,11 @@
 #property strict
-#property version   "12.00"
+#property version   "13.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_Timebase.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ExportEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_ValidationEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -65,6 +66,9 @@ input int  InpExportSampleLimit = 5;
 input bool InpPrintRenderSanity = true;
 input bool InpPrintRenderSamples = false;
 input int  InpRenderSampleLimit = 8;
+input bool InpPrintValidationSanity = true;
+input bool InpPrintValidationSamples = false;
+input int  InpValidationSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -122,6 +126,47 @@ input bool   InpExportManifestCsv = true;
 input bool   InpExportOverwriteLatest = true;
 input int    InpExportMaxEvents = 0;
 input int    InpExportMaxHooks = 0;
+
+// ------------------------------ Validation ----------------------------------
+input bool   InpValidationEnabled = false;
+input string InpValidationCaseId = "manual";
+input string InpValidationSuiteTag = "phoenix_level13";
+input string InpValidationFolder = "FlagCountingPhoenix";
+input bool   InpValidationWriteCsv = true;
+input bool   InpValidationOverwriteLatest = true;
+input bool   InpValidationStrict = true;
+input bool   InpValidationBaselineMode = true;
+input bool   InpValidationRequireExportOk = false;
+input bool   InpValidationRequireRenderOk = true;
+input bool   InpValidationRequireNoCanonicalFailures = true;
+input bool   InpValidationRequireNoRenderErrors = true;
+input bool   InpValidationRequireNoExportErrors = false;
+input int    InpValidationExpectedMinBars = -1;
+input int    InpValidationExpectedMaxBars = -1;
+input int    InpValidationExpectedMinScales = -1;
+input int    InpValidationExpectedMaxScales = -1;
+input int    InpValidationExpectedMinRawNodes = -1;
+input int    InpValidationExpectedMaxRawNodes = -1;
+input int    InpValidationExpectedMinCanonicalNodes = -1;
+input int    InpValidationExpectedMaxCanonicalNodes = -1;
+input int    InpValidationExpectedMinHooks = -1;
+input int    InpValidationExpectedMaxHooks = -1;
+input int    InpValidationExpectedMinND = -1;
+input int    InpValidationExpectedMaxND = -1;
+input int    InpValidationExpectedMinEvents = -1;
+input int    InpValidationExpectedMaxEvents = -1;
+input int    InpValidationExpectedMinVisibleEvents = -1;
+input int    InpValidationExpectedMaxVisibleEvents = -1;
+input int    InpValidationExpectedMinHiddenEvents = -1;
+input int    InpValidationExpectedMaxHiddenEvents = -1;
+input int    InpValidationExpectedMinF1 = -1;
+input int    InpValidationExpectedMaxF1 = -1;
+input int    InpValidationExpectedMinF2 = -1;
+input int    InpValidationExpectedMaxF2 = -1;
+input int    InpValidationExpectedMinF3 = -1;
+input int    InpValidationExpectedMaxF3 = -1;
+input int    InpValidationExpectedMinLockedF3 = -1;
+input int    InpValidationExpectedMaxLockedF3 = -1;
 
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
@@ -241,7 +286,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level12";
+   cfg.identity_generation_pass = "phoenix_level13";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -270,6 +315,8 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_render" + FP_BoolName(InpPrintRenderSanity) +
                               "_rendercanon" + FP_BoolName(InpRenderUseCanonicalObjectNames) +
                               "_renderstrict" + FP_BoolName(InpRenderStrictVisibility) +
+                              "_validation" + FP_BoolName(InpValidationEnabled) +
+                              "_validationcase" + InpValidationCaseId +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -341,6 +388,55 @@ void FP_LoadRenderConfig(FP_RenderConfig &cfg)
    cfg.print_sanity = InpPrintRenderSanity;
    cfg.print_samples = InpPrintRenderSamples;
    cfg.sample_limit = InpRenderSampleLimit;
+}
+
+
+void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
+{
+   FP_DefaultValidationConfig(cfg);
+   cfg.enabled = InpValidationEnabled;
+   cfg.case_id = InpValidationCaseId;
+   cfg.suite_tag = InpValidationSuiteTag;
+   cfg.folder = InpValidationFolder;
+   cfg.write_csv = InpValidationWriteCsv;
+   cfg.overwrite_latest = InpValidationOverwriteLatest;
+   cfg.strict = InpValidationStrict;
+   cfg.baseline_mode = InpValidationBaselineMode;
+   cfg.require_export_ok = InpValidationRequireExportOk;
+   cfg.require_render_ok = InpValidationRequireRenderOk;
+   cfg.require_no_canonical_failures = InpValidationRequireNoCanonicalFailures;
+   cfg.require_no_render_errors = InpValidationRequireNoRenderErrors;
+   cfg.require_no_export_errors = InpValidationRequireNoExportErrors;
+   cfg.print_sanity = InpPrintValidationSanity;
+   cfg.print_samples = InpPrintValidationSamples;
+   cfg.sample_limit = InpValidationSampleLimit;
+
+   cfg.expected_min_bars = InpValidationExpectedMinBars;
+   cfg.expected_max_bars = InpValidationExpectedMaxBars;
+   cfg.expected_min_scales = InpValidationExpectedMinScales;
+   cfg.expected_max_scales = InpValidationExpectedMaxScales;
+   cfg.expected_min_raw_nodes = InpValidationExpectedMinRawNodes;
+   cfg.expected_max_raw_nodes = InpValidationExpectedMaxRawNodes;
+   cfg.expected_min_canonical_nodes = InpValidationExpectedMinCanonicalNodes;
+   cfg.expected_max_canonical_nodes = InpValidationExpectedMaxCanonicalNodes;
+   cfg.expected_min_hooks = InpValidationExpectedMinHooks;
+   cfg.expected_max_hooks = InpValidationExpectedMaxHooks;
+   cfg.expected_min_nd = InpValidationExpectedMinND;
+   cfg.expected_max_nd = InpValidationExpectedMaxND;
+   cfg.expected_min_events = InpValidationExpectedMinEvents;
+   cfg.expected_max_events = InpValidationExpectedMaxEvents;
+   cfg.expected_min_visible_events = InpValidationExpectedMinVisibleEvents;
+   cfg.expected_max_visible_events = InpValidationExpectedMaxVisibleEvents;
+   cfg.expected_min_hidden_events = InpValidationExpectedMinHiddenEvents;
+   cfg.expected_max_hidden_events = InpValidationExpectedMaxHiddenEvents;
+   cfg.expected_min_f1 = InpValidationExpectedMinF1;
+   cfg.expected_max_f1 = InpValidationExpectedMaxF1;
+   cfg.expected_min_f2 = InpValidationExpectedMinF2;
+   cfg.expected_max_f2 = InpValidationExpectedMaxF2;
+   cfg.expected_min_f3 = InpValidationExpectedMinF3;
+   cfg.expected_max_f3 = InpValidationExpectedMaxF3;
+   cfg.expected_min_locked_f3 = InpValidationExpectedMinLockedF3;
+   cfg.expected_max_locked_f3 = InpValidationExpectedMaxLockedF3;
 }
 
 void FP_Run()
@@ -429,6 +525,20 @@ void FP_Run()
       FP_PrintRenderReport("FP_LEVEL12", render_report);
    if(render_cfg.print_samples)
       FP_PrintRenderSamples("FP_LEVEL12", render_report);
+
+   FP_ValidationConfig validation_cfg;
+   FP_LoadValidationConfig(validation_cfg);
+   FP_ValidationReport validation_report;
+   string validation_rows[];
+   if(validation_cfg.enabled)
+   {
+      FP_RunValidationWithReport(_Symbol, _Period, copied, scale_count, validation_cfg, events, hooks, result, validation_report, validation_rows);
+      FP_ValidationApplyReportToResult(validation_report, result);
+      if(validation_cfg.print_sanity)
+         FP_PrintValidationReport("FP_LEVEL13", validation_report);
+      if(validation_cfg.print_samples)
+         FP_PrintValidationSamples("FP_LEVEL13", validation_report, validation_rows, validation_cfg.sample_limit);
+   }
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)

@@ -84,3 +84,13 @@ This export serializes the Level 11 canonical stream. It does not create, hide, 
 ## Level 12 renderer
 
 Renderer now uses `FP_RenderTypes`, `FP_RenderRules`, `FP_RenderAudit`, and `FP_Renderer`. It draws after Level 11.5 export, uses canonical object names by default, emits `FP_LEVEL12`, and does not mutate logical events or hooks.
+
+## Phoenix Level 13 validation
+
+Level 13 is implemented as a read-only validation harness. Enable it in MT5 with:
+
+```text
+InpValidationEnabled = true
+```
+
+Baseline mode is the default and writes `latest_validation.csv` with actual counts and `baseline_required` warnings for unset expected ranges. Regression mode is created by filling the expected min/max inputs for the pinned validation case.

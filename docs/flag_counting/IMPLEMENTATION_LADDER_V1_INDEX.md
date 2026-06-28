@@ -50,3 +50,7 @@ Recommended reading order:
 ## Level 12 implemented
 
 `12_LEVEL_12_RENDERER_AND_LABEL_LAYOUT.md` is now backed by Phoenix `FP_RenderTypes`, `FP_RenderRules`, `FP_RenderAudit`, and `FP_Renderer`. Renderer emits `FP_LEVEL12`, uses canonical object names by default, and remains a read-only consumer of the canonical stream.
+
+## Level 13 implemented
+
+`13_LEVEL_13_VALIDATION_MATRIX.md` is now backed by Phoenix `FP_ValidationTypes`, `FP_ValidationRules`, `FP_ValidationAudit`, and `FP_ValidationEngine`. The harness emits `FP_LEVEL13`, optional `latest_validation.csv`, and validation counters in `FP_SUMMARY`.

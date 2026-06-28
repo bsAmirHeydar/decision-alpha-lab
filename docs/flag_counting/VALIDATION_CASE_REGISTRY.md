@@ -184,3 +184,31 @@ Hook branch >4 requiring higher L range
 ```
 
 The exact `from_time`, `to_time`, and expected counts must come from the user's MT5 data, not from documentation guesses.
+
+---
+
+## Level 13 implementation-backed workflow
+
+The validation registry is now backed by Phoenix Level 13 modules. A baseline run should enable:
+
+```text
+InpValidationEnabled = true
+InpValidationBaselineMode = true
+InpValidationCaseId = "FC-GC-XXX_short_name"
+InpExportAuditFiles = true
+InpExportRunTag = "FC-GC-XXX_short_name"
+```
+
+The EA writes:
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_validation.csv
+MQL5/Files/FlagCountingPhoenix/latest_events.csv
+MQL5/Files/FlagCountingPhoenix/latest_hooks.csv
+MQL5/Files/FlagCountingPhoenix/latest_summary.csv
+MQL5/Files/FlagCountingPhoenix/latest_manifest.csv
+```
+
+After accepting a baseline, copy actual counts from `FP_LEVEL13` or `latest_validation.csv` into the expected min/max inputs for regression. Exact baselines use equal min/max values.
+
+Unset expected inputs must remain `baseline_required`; do not turn them into guessed numbers.

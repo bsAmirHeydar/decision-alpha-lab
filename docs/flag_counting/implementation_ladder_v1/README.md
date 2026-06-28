@@ -109,3 +109,7 @@ Level 11.5 now owns read-only raw audit export through `FP_Export*` modules. Exp
 ## Level 12 patch status
 
 Level 12 now owns read-only chart rendering through `FP_Render*` modules. Renderer runs after export, emits `FP_LEVEL12`, uses canonical object names by default, and remains non-authoritative.
+
+## Level 13 patch status
+
+Level 13 now owns validation through `FP_Validation*` modules. Validation runs after renderer, emits `FP_LEVEL13`, writes optional `latest_validation.csv`, and can operate in baseline mode or regression mode.

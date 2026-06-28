@@ -629,3 +629,31 @@ Audit labels are also separated from the main chart by `InpForceCleanMainChartLa
 ## Level 12 renderer
 
 Renderer now uses `FP_RenderTypes`, `FP_RenderRules`, `FP_RenderAudit`, and `FP_Renderer`. It draws after Level 11.5 export, uses canonical object names by default, emits `FP_LEVEL12`, and does not mutate logical events or hooks.
+
+## Level 13 validation suite
+
+Phoenix now has a read-only validation harness backed by:
+
+```text
+FP_ValidationTypes.mqh
+FP_ValidationRules.mqh
+FP_ValidationAudit.mqh
+FP_ValidationEngine.mqh
+```
+
+Validation runs after Level 11.5 export and Level 12 renderer. It does not mutate events, hooks, visibility, identity, ownership, canonical state, export output, or chart objects.
+
+Default validation is disabled:
+
+```text
+InpValidationEnabled = false
+```
+
+When enabled, baseline mode writes unset expected ranges as warnings so the user can create broker-specific baselines without inventing counts:
+
+```text
+InpValidationBaselineMode = true
+MQL5/Files/FlagCountingPhoenix/latest_validation.csv
+```
+
+Regression mode is created by filling the expected min/max inputs. Exact expectations use the same min and max. The terminal sanity line is `FP_LEVEL13`, and `FP_SUMMARY` includes validation pass/fail/warn counters.

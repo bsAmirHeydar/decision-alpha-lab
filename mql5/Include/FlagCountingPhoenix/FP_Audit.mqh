@@ -153,6 +153,14 @@ void FP_PrintSummary(const string symbol,
    msg += " render_hook_filtered=" + IntegerToString(result.render_hook_filtered_total);
    msg += " render_duplicate_names=" + IntegerToString(result.render_duplicate_names_total);
    msg += " render_fallback_curves=" + IntegerToString(result.render_fallback_curves_total);
+   msg += " validation_attempted=" + IntegerToString(result.validation_attempted_total);
+   msg += " validation_ok=" + IntegerToString(result.validation_ok_total);
+   msg += " validation_checks=" + IntegerToString(result.validation_checks_total);
+   msg += " validation_pass=" + IntegerToString(result.validation_pass_total);
+   msg += " validation_fail=" + IntegerToString(result.validation_fail_total);
+   msg += " validation_warn=" + IntegerToString(result.validation_warn_total);
+   msg += " validation_skipped=" + IntegerToString(result.validation_skipped_total);
+   msg += " validation_file_errors=" + IntegerToString(result.validation_file_errors_total);
    msg += " invalid=" + IntegerToString(result.invalid_total);
    msg += " drawn=" + IntegerToString(drawn);
    Print(msg);

@@ -2,167 +2,181 @@
 
 This document is part of the implementation ladder for the Phoenix Flag Counting engine.
 
-Global non-negotiables:
-
-- All structural decisions use candle `high` and `low` only.
-- `open`, `close`, candle body, candle color, volume, and indicators are not structural inputs.
-- Equality is not a break. A level is broken only by a strict pass beyond it.
-- The renderer is non-authoritative. It may only draw logical objects emitted by engines.
-- Main-chart rendering and audit rendering are separate products.
-- Every layer must expose enough audit fields to prove why an object exists.
-- A higher layer may never silently repair a lower-layer defect.
-
-# Level 13 — Validation Matrix
+# Level 13 — Validation Suite / Acceptance Matrix
 
 ## Purpose
 
-This layer prevents repeated regression. Phoenix must be validated by deterministic data and audit baselines, not by only reacting to screenshots.
+Level 13 turns Phoenix from a visually inspected overlay into a repeatable validation target.
 
-The active validation registry is:
+It runs after:
+
+```text
+Level 11 canonicalization
+-> Level 11.5 raw audit export/report
+-> Level 12 renderer
+-> Level 13 validation harness
+```
+
+The validation layer is read-only. It must never mutate events, hooks, visibility, identity, ownership, canonical state, export files from Level 11.5, or chart objects from Level 12.
+
+## Active modules
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_ValidationTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationEngine.mqh
+```
+
+The EA wiring lives in:
+
+```text
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+```
+
+## Validation modes
+
+### Baseline mode
+
+Default when validation is enabled:
+
+```text
+InpValidationBaselineMode = true
+```
+
+Unset expected ranges are reported as `WARN baseline_required` and the actual values are written to `latest_validation.csv`. This is how a new broker/range creates its first baseline.
+
+### Regression mode
+
+After accepting a baseline, fill the expected min/max inputs. For exact expected values, set min and max to the same number.
+
+Example:
+
+```text
+InpValidationExpectedMinVisibleEvents = 14
+InpValidationExpectedMaxVisibleEvents = 14
+```
+
+If a patch intentionally changes a count, update the case report and explain why.
+
+## EA controls
+
+```text
+InpValidationEnabled = false
+InpValidationCaseId = "manual"
+InpValidationSuiteTag = "phoenix_level13"
+InpValidationFolder = "FlagCountingPhoenix"
+InpValidationWriteCsv = true
+InpValidationOverwriteLatest = true
+InpValidationStrict = true
+InpValidationBaselineMode = true
+InpValidationRequireExportOk = false
+InpValidationRequireRenderOk = true
+InpValidationRequireNoCanonicalFailures = true
+InpValidationRequireNoRenderErrors = true
+InpValidationRequireNoExportErrors = false
+```
+
+Expected range inputs exist for:
+
+```text
+bars
+scales
+raw_nodes
+canonical_nodes
+hooks
+nd
+events
+visible_events
+hidden_events
+f1
+f2
+f3
+locked_f3
+```
+
+A value of `-1` means unbounded.
+
+## Output
+
+When enabled, Level 13 writes:
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_validation.csv
+```
+
+unless `InpValidationOverwriteLatest=false`, in which case the case id is used in the file name.
+
+The terminal sanity log is:
+
+```text
+FP_LEVEL13
+```
+
+`FP_SUMMARY` also includes:
+
+```text
+validation_attempted
+validation_ok
+validation_checks
+validation_pass
+validation_fail
+validation_warn
+validation_skipped
+validation_file_errors
+```
+
+## Built-in invariant checks
+
+Level 13 always checks:
+
+```text
+visible + hidden == event count
+hidden events have hidden_reason
+visible events do not carry stale hidden_reason
+visible F2/F3 children have visible parents
+visible canonical_id is unique
+canonical invariant failures are zero when required
+renderer errors are zero when required
+export errors are zero when required
+```
+
+Expected-count checks are added only when the corresponding range input is set.
+
+## Validation case registry
+
+The active registry is:
 
 ```text
 docs/flag_counting/VALIDATION_CASE_REGISTRY.md
 ```
 
-## Baseline rule
-
-Do not invent expected counts. A validation case is either:
+Artifacts should be stored under:
 
 ```text
-baseline_required
-baselined
+lab/03_experiments/EXP_flag_counting/validation_cases/
 ```
 
-The first accepted run on a pinned broker/range creates the baseline. Later patches compare against it and explain every intentional delta.
-
-## Test families
-
-### Family A — Node tests
-
-- plateau high emits one node;
-- plateau low emits one node;
-- equality is not break;
-- L increase reduces or merges nodes predictably;
-- pending nodes are tagged separately.
-
-Mandatory case: `FC-GC-001`.
-
-### Family B — Hook/ND tests
-
-- 2-node branch is not ND;
-- 3-node branch can be ND if retracement passes;
-- 4-node branch can be ND if retracement passes;
-- 5-node branch rejects current L or requires higher L;
-- broken cycle start invalidates Hook;
-- Hook does not starve F visibility.
-
-Mandatory case: `FC-GC-002`.
-
-### Family C — Flag body tests
-
-- bullish two-leg body;
-- bearish two-leg body;
-- Waist equal to Origin is not invalidation;
-- Leg2 equal to Leg1 is not break;
-- pre-internal Leg2 extension is absorbed.
-
-Mandatory case: `FC-GC-003`.
-
-### Family D — F lifecycle tests
-
-- F1 confirms only after valid internal 1/2 and Leg2 re-break;
-- F2 only after confirmed F1;
-- F2 undersized cannot authorize F3;
-- F3 only after confirmed qualified F2;
-- F3 OR completion;
-- opposite F1 locks completed F3.
-
-Mandatory cases: `FC-GC-004`, `FC-GC-005`, `FC-GC-006`.
-
-### Family E — Sequence ownership tests
-
-- one phase does not display repeated same-direction F1;
-- child candidate death does not kill parent;
-- hidden root hides descendants;
-- phase reset is explicit and auditable.
-
-Mandatory case: `FC-GC-007`.
-
-### Family F — Canonicalization/audit/export tests
-
-- same geometry across L gives one main visible object;
-- audit preserves hidden duplicates;
-- high-L umbrella loses to local lower-L structure when semantic quality is equal;
-- hidden reason is never empty;
-- renderer can be disabled while audit still emits raw/visible objects.
-
-Mandatory cases: `FC-GC-007`, `FC-GC-010`.
-
-### Family G — Renderer tests
-
-- clean chart does not show audit labels;
-- audit mode does not change logical output;
-- index-based curves survive time gaps;
-- stale objects are removed.
-
-Mandatory cases: `FC-GC-008`, `FC-GC-009`.
-
-## Golden chart ranges
-
-Maintain fixed regression chart ranges through the validation registry:
+## Mandatory case families
 
 ```text
-FC-GC-001 through FC-GC-010
+FC-GC-001 node plateau/equality
+FC-GC-002 Hook/ND branch size
+FC-GC-003 flag body strict break
+FC-GC-004 F1 internal confirmation
+FC-GC-005 F2 backfill/size
+FC-GC-006 F3 OR completion/lock
+FC-GC-007 sequence ownership/canonical hiding
+FC-GC-008 renderer independence
+FC-GC-009 gap/index curve stability
+FC-GC-010 full Phoenix smoke range
 ```
-
-Each case stores:
-
-```text
-symbol
-timeframe
-from_time
-to_time
-expected node count by L
-expected Hook count by L
-expected raw/visible event counts
-expected visible F1/F2/F3 count
-expected locked F3 count
-known screenshot
-audit export file
-```
-
-## Acceptance report format
-
-Every patch must add a mini report:
-
-```text
-Patch name:
-Canon file used:
-Highest touched layer:
-Files touched:
-Compile result:
-Baseline cases used:
-Node tests:
-Hook tests:
-Flag body tests:
-Lifecycle tests:
-Ownership tests:
-Audit/export tests:
-Renderer tests:
-Visual smoke result:
-Known limitations:
-```
-
-## Stop conditions
-
-Stop coding and return to documents/tests when:
-
-- a patch touches more than two semantic layers;
-- an upper layer needs to compensate for lower-layer uncertainty;
-- a screenshot shows a new failure mode unrelated to the patch layer;
-- compile passes but audit cannot explain visibility;
-- expected counts are being guessed instead of baselined.
 
 ## Freeze condition
 
-Validation layer is frozen when every mandatory case has a pinned broker/range, audit export, screenshot, and expected count baseline.
+Level 13 is frozen when:
+
+- `FP_LEVEL13 ok=true` on all baselined mandatory cases;
+- every frozen level has at least one positive and one negative case;
+- validation CSV, events CSV, hooks CSV, summary CSV, manifest CSV, screenshot, and case report are archived;
+- expected counts are baselined from MT5 data, not guessed from documentation.

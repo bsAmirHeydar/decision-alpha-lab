@@ -459,3 +459,24 @@ Freeze condition:
 ```text
 A validation range can be inspected from CSV files without reading chart objects.
 ```
+
+## Level 13 implementation status
+
+Level 13 is now backed by:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_ValidationTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_ValidationEngine.mqh
+```
+
+Acceptance additions:
+
+- `FP_LEVEL13` appears when `InpValidationEnabled=true`;
+- `latest_validation.csv` is written when `InpValidationWriteCsv=true`;
+- baseline mode reports unset expected ranges as warnings, not invented counts;
+- regression mode fails strict validation when expected ranges are violated;
+- hidden-reason, visible-parent, visible-canonical-id, canonical, render, and export invariants are checked;
+- `FP_SUMMARY` includes validation counters;
+- validation runs after renderer and does not mutate events, hooks, export files, or chart objects.

@@ -1020,3 +1020,58 @@ FP_DetectAllScales
 -> FP_DrawAllWithReport
 -> FP_PrintSummary
 ```
+
+## Level 13 validation modules
+
+Public facade:
+
+```text
+FP_ValidationEngine.mqh
+```
+
+Owned submodules:
+
+```text
+FP_ValidationTypes.mqh
+FP_ValidationRules.mqh
+FP_ValidationAudit.mqh
+```
+
+Input:
+
+```text
+final Level 11 FP_FlagEvent events[]
+final Hook/ND FP_HookBranch hooks[]
+FP_DetectResult after Level 11.5 export and Level 12 renderer counters
+FP_ValidationConfig expected ranges and required invariant switches
+```
+
+Output:
+
+```text
+FP_ValidationReport
+optional validation CSV under MQL5/Files/FlagCountingPhoenix/
+FP_LEVEL13 sanity log
+validation counters folded into FP_DetectResult / FP_SUMMARY
+```
+
+Owns:
+
+- validation config and expected min/max ranges;
+- baseline-required warnings for unset expectations;
+- regression PASS/FAIL/WARN rows;
+- event partition invariants;
+- hidden-reason invariants;
+- visible parent-chain invariants;
+- visible canonical-id duplicate checks;
+- export/render/canonical cleanliness requirements;
+- validation report CSV generation.
+
+Must not:
+
+- create or mutate F events;
+- create or mutate Hook/ND branches;
+- repair hidden reasons or parent links;
+- draw or delete chart objects;
+- alter Level 11.5 export files;
+- invent expected counts from documentation.
