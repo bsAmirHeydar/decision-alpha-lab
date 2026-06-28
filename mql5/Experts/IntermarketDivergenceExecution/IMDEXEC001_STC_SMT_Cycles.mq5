@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.11"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 16 real auto-entry router"
-#property description "Level 16 adds gated real auto-entry from confirmed STC paper plans while keeping safety switches off by default."
+#property version   "2.12"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 17 real partial close manager"
+#property description "Level 17 adds magic-only real partial close at W4 end while keeping it disabled by default."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 16 Runtime"
+input group "DAL / STC Level 17 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL16";
+input string InpRunId = "EXEC001_STC_LEVEL17";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -103,6 +103,15 @@ input bool InpAllowAutoEntryInPaperLive = false;
 input bool InpAutoEntryRequiresBrokerManager = true;
 input string InpAutoEntryOrderCommentPrefix = "DAL_STC_EXEC001";
 
+
+input group "STC Level 17 Real Partial Close Manager"
+input bool InpEnableRealPartialClose = false;
+input bool InpWriteRealPartialAudit = true;
+input int InpRealPartialScanSeconds = 10;
+input int InpRealPartialDeviationPoints = 30;
+input bool InpAllowRealPartialInPaperLive = false;
+input bool InpRealPartialRequiresBrokerManager = true;
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -184,6 +193,12 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.allow_auto_entry_in_paper_live = InpAllowAutoEntryInPaperLive;
    cfg.auto_entry_requires_broker_manager = InpAutoEntryRequiresBrokerManager;
    cfg.auto_entry_order_comment_prefix = InpAutoEntryOrderCommentPrefix;
+   cfg.enable_real_partial_close = InpEnableRealPartialClose;
+   cfg.write_real_partial_audit = InpWriteRealPartialAudit;
+   cfg.real_partial_scan_seconds = InpRealPartialScanSeconds;
+   cfg.real_partial_deviation_points = InpRealPartialDeviationPoints;
+   cfg.allow_real_partial_in_paper_live = InpAllowRealPartialInPaperLive;
+   cfg.real_partial_requires_broker_manager = InpRealPartialRequiresBrokerManager;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -247,7 +262,7 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 16 remains timer-driven. Real auto-entry is gated by explicit safety inputs and AUTO_TRADE mode.
+   // Level 17 remains timer-driven. Real auto-entry and real partial close are gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)

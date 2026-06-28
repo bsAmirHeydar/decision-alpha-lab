@@ -178,6 +178,10 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.max_auto_split_orders < 1) cfg.max_auto_split_orders = 1;
    if(cfg.max_auto_split_orders > 100) cfg.max_auto_split_orders = 100;
    if(cfg.auto_entry_order_comment_prefix == "") cfg.auto_entry_order_comment_prefix = "DAL_STC_EXEC001";
+   if(cfg.real_partial_scan_seconds < 1) cfg.real_partial_scan_seconds = 1;
+   if(cfg.real_partial_scan_seconds > 3600) cfg.real_partial_scan_seconds = 3600;
+   if(cfg.real_partial_deviation_points < 0) cfg.real_partial_deviation_points = 0;
+   if(cfg.real_partial_deviation_points > 10000) cfg.real_partial_deviation_points = 10000;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

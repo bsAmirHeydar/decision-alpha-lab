@@ -64,6 +64,12 @@ struct STC_Config
    bool allow_auto_entry_in_paper_live;
    bool auto_entry_requires_broker_manager;
    string auto_entry_order_comment_prefix;
+   bool enable_real_partial_close;
+   bool write_real_partial_audit;
+   int real_partial_scan_seconds;
+   int real_partial_deviation_points;
+   bool allow_real_partial_in_paper_live;
+   bool real_partial_requires_broker_manager;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -182,6 +188,10 @@ struct STC_RuntimeState
    string broker_position_scan_status;
    string broker_hard_close_status;
    string auto_entry_audit_file_common;
+   string real_partial_audit_file_common;
+   datetime last_real_partial_scan_server_time;
+   long real_partial_rows_audited;
+   string real_partial_status;
    string last_auto_entry_stc_day_id;
    int last_auto_entry_check_index;
    long auto_entry_rows_audited;
@@ -1033,6 +1043,80 @@ void STC_ResetAutoEntryAudit(STC_AutoEntryAudit &audit)
    audit.rule_note = "";
 }
 
+struct STC_RealPartialAudit
+{
+   string stc_day_id;
+   datetime server_time;
+   datetime ny_time;
+   ulong ticket;
+   long position_identifier;
+   string symbol;
+   long magic;
+   string position_type;
+   datetime open_time;
+   datetime open_ny;
+   STC_MCycle open_m_cycle;
+   STC_WCycle open_w_cycle;
+   bool partial_due;
+   datetime partial_due_ny;
+   datetime partial_due_server;
+   bool m3_partial_disabled;
+   bool already_marked_done;
+   bool transport_allowed;
+   bool partial_enabled;
+   bool hard_close_due;
+   double original_volume;
+   double broker_min_volume;
+   double broker_max_volume;
+   double broker_volume_step;
+   double close_volume;
+   double remaining_volume_estimate;
+   bool action_allowed;
+   bool action_attempted;
+   bool action_succeeded;
+   int trade_result_retcode;
+   string trade_result_comment;
+   string status;
+   string rule_note;
+};
+
+void STC_ResetRealPartialAudit(STC_RealPartialAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.server_time = 0;
+   audit.ny_time = 0;
+   audit.ticket = 0;
+   audit.position_identifier = 0;
+   audit.symbol = "";
+   audit.magic = 0;
+   audit.position_type = "";
+   audit.open_time = 0;
+   audit.open_ny = 0;
+   audit.open_m_cycle = STC_M_NONE;
+   audit.open_w_cycle = STC_W_NONE;
+   audit.partial_due = false;
+   audit.partial_due_ny = 0;
+   audit.partial_due_server = 0;
+   audit.m3_partial_disabled = false;
+   audit.already_marked_done = false;
+   audit.transport_allowed = false;
+   audit.partial_enabled = false;
+   audit.hard_close_due = false;
+   audit.original_volume = 0.0;
+   audit.broker_min_volume = 0.0;
+   audit.broker_max_volume = 0.0;
+   audit.broker_volume_step = 0.0;
+   audit.close_volume = 0.0;
+   audit.remaining_volume_estimate = 0.0;
+   audit.action_allowed = false;
+   audit.action_attempted = false;
+   audit.action_succeeded = false;
+   audit.trade_result_retcode = 0;
+   audit.trade_result_comment = "";
+   audit.status = "not_built";
+   audit.rule_note = "";
+}
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -1087,7 +1171,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL16";
+   cfg.run_id = "EXEC001_STC_LEVEL17";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -1144,6 +1228,12 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.allow_auto_entry_in_paper_live = false;
    cfg.auto_entry_requires_broker_manager = true;
    cfg.auto_entry_order_comment_prefix = "DAL_STC_EXEC001";
+   cfg.enable_real_partial_close = false;
+   cfg.write_real_partial_audit = true;
+   cfg.real_partial_scan_seconds = 10;
+   cfg.real_partial_deviation_points = 30;
+   cfg.allow_real_partial_in_paper_live = false;
+   cfg.real_partial_requires_broker_manager = true;
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -1238,6 +1328,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.broker_position_scan_status = "NOT_SCANNED";
    state.broker_hard_close_status = "NOT_DUE";
    state.auto_entry_audit_file_common = "";
+   state.real_partial_audit_file_common = "";
+   state.last_real_partial_scan_server_time = 0;
+   state.real_partial_rows_audited = 0;
+   state.real_partial_status = "NOT_PROCESSED";
    state.last_auto_entry_stc_day_id = "";
    state.last_auto_entry_check_index = -1;
    state.auto_entry_rows_audited = 0;
@@ -1303,10 +1397,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_16_REAL_AUTO_ENTRY_ROUTER";
-   sanity.build_version = "2.11";
-   sanity.build_scope = "level01 skeleton through level16 gated real auto-entry router";
-   sanity.locked_contract = "Convert confirmed STC paper entry plans into real broker orders only when AUTO_TRADE and explicit auto-entry safety inputs are enabled; keep magic-only management and full audit trail";
+   sanity.module_level = "LEVEL_17_REAL_PARTIAL_CLOSE_MANAGER";
+   sanity.build_version = "2.12";
+   sanity.build_scope = "level01 skeleton through level17 magic-only real partial close manager";
+   sanity.locked_contract = "Close about 50 percent of eligible magic-number real positions at W4/M end for M1 and M2 only, rounded upward to broker step, with marker-based duplicate prevention and hard-close priority";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
