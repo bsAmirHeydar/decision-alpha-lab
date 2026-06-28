@@ -1,13 +1,13 @@
 #property strict
 #property version   "2.00"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 11 hard close simulator and 15:30 EOD accounting"
-#property description "Level 11 adds paper hard-close accounting at 15:30 New York while keeping real orders disabled."
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 12 persistence and restart recovery"
+#property description "Level 12 restores current-day cursors, paper counters and locks after restart while keeping real orders disabled."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 11 Runtime"
+input group "DAL / STC Level 12 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL11";
+input string InpRunId = "EXEC001_STC_LEVEL12";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -41,6 +41,9 @@ input int InpMaxPartialCatchupPerPulse = 24;
 input bool InpWriteHardCloseAudit = true;
 input int InpMaxHardCloseBackfillOnInit = 24;
 input int InpMaxHardCloseCatchupPerPulse = 24;
+input bool InpRestorePersistenceOnInit = true;
+input bool InpWritePersistenceSnapshot = true;
+input int InpPersistenceSnapshotSeconds = 30;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -134,6 +137,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.write_hard_close_audit = InpWriteHardCloseAudit;
    cfg.max_hard_close_backfill_on_init = InpMaxHardCloseBackfillOnInit;
    cfg.max_hard_close_catchup_per_pulse = InpMaxHardCloseCatchupPerPulse;
+   cfg.restore_persistence_on_init = InpRestorePersistenceOnInit;
+   cfg.write_persistence_snapshot = InpWritePersistenceSnapshot;
+   cfg.persistence_snapshot_seconds = InpPersistenceSnapshotSeconds;
 }
 
 int OnInit()
@@ -158,8 +164,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 11 remains timer-driven and simulates paper hard-close accounting only.
-   // Later levels will add drawing, persistence recovery, and auto-trading.
+   // Level 12 remains timer-driven and restores paper/audit state after restart.
+   // Later levels will add drawing and auto-trading.
 }
 
 void OnDeinit(const int reason)

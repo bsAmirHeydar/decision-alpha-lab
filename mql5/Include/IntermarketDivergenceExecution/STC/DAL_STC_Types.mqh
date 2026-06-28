@@ -63,6 +63,9 @@ struct STC_Config
    bool write_hard_close_audit;
    int max_hard_close_backfill_on_init;
    int max_hard_close_catchup_per_pulse;
+   bool restore_persistence_on_init;
+   bool write_persistence_snapshot;
+   int persistence_snapshot_seconds;
 };
 
 struct STC_RuntimeState
@@ -115,6 +118,12 @@ struct STC_RuntimeState
    int last_partial_audit_check_index;
    long partial_rows_audited;
    string hard_close_audit_file_common;
+   string persistence_snapshot_file_common;
+   string persistence_recovery_audit_file_common;
+   datetime last_persistence_snapshot_server_time;
+   bool persistence_restored;
+   string persistence_restore_status;
+   string persistence_restore_note;
    string last_hard_close_audit_stc_day_id;
    int last_hard_close_audit_check_index;
    long hard_close_rows_audited;
@@ -818,7 +827,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL11";
+   cfg.run_id = "EXEC001_STC_LEVEL12";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -874,6 +883,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_hard_close_audit = true;
    cfg.max_hard_close_backfill_on_init = 24;
    cfg.max_hard_close_catchup_per_pulse = 24;
+   cfg.restore_persistence_on_init = true;
+   cfg.write_persistence_snapshot = true;
+   cfg.persistence_snapshot_seconds = 30;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -902,6 +914,12 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.paper_outcome_file_common = "";
    state.partial_audit_file_common = "";
    state.hard_close_audit_file_common = "";
+   state.persistence_snapshot_file_common = "";
+   state.persistence_recovery_audit_file_common = "";
+   state.last_persistence_snapshot_server_time = 0;
+   state.persistence_restored = false;
+   state.persistence_restore_status = "NOT_ATTEMPTED";
+   state.persistence_restore_note = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
@@ -953,10 +971,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_11_HARD_CLOSE_SIMULATOR";
+   sanity.module_level = "LEVEL_12_PERSISTENCE_RESTART_RECOVERY";
    sanity.build_version = "2.00";
-   sanity.build_scope = "level01 skeleton through level11 hard close simulator and 15:30 end-of-day accounting";
-   sanity.locked_contract = "Simulate 15:30 New York hard-close accounting for open paper trades after SL/TP and partial logic; no real orders yet";
+   sanity.build_scope = "level01 skeleton through level12 persistence and restart recovery for paper execution state";
+   sanity.locked_contract = "Persist and restore current STC-day cursors, counters, direction locks, and recovery audit state to avoid duplicate paper entries, partials, and hard closes after restart; no real orders yet";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
