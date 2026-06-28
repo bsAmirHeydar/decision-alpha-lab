@@ -1,72 +1,73 @@
-# EXEC001 - STC SMT Cycles
+# EXEC001 STC SMT Cycles
 
-This folder documents the STC SMT Cycles execution strategy extracted from the provided STC Expert Advisor SRS and the subsequent owner clarifications.
+This folder contains the locked specification and implementation blueprint for the **STC SMT Cycles** strategy.
 
-The strategy belongs to the intermarket divergence execution family. It is not a generic SMT detector; it is a specific cycle-based execution model using two symbols, New York time, M cycles, W cycles, touch-only SMT divergence, check-candle confirmation, risk-based sizing, final reward TP, optional partial close, and daily hard reset.
+The strategy is an execution model for two-index SMT divergence. It trades only the two configured symbols, it is independent of the chart symbol, and it must not use information from outside the current STC trading day for signal decisions.
 
-## Current implementation status
+The documents in this folder are intentionally layered. The goal is to make the strategy reusable, auditable, and implementable without hiding logic inside one large EA file.
 
-This folder is documentation-first. It is intended to lock the strategy contract before writing MQL5 code.
+## Current status
 
-Status:
+Status: **Locked specification, ready for research/paper engine implementation**.
 
-- Source SRS extracted: complete.
-- Owner clarification pass 1: complete.
-- Owner clarification pass 2: complete.
-- Normalized executable spec: updated.
-- M/W calendar: updated.
-- SMT divergence rules: updated.
-- Execution and risk rules: updated.
-- Test plan: updated.
-- Remaining questions: strategy-level questions resolved; implementation can proceed in research mode.
-
-## Strategy summary
-
-The EA analyzes exactly two configured symbols. The chart symbol is irrelevant. The two configured symbols are also the only symbols whose trades are managed by the strategy.
-
-The STC trading day is defined in New York time. It begins at 20:00 New York and ends at 15:30 New York on the following calendar day. At 15:30 New York, all open trades are closed and all day state is reset.
-
-The strategy divides the trading day into three parent M cycles. Each M contains four W cycles. W1 never produces a signal because there is no previous W inside the same M. W2 can compare only against W1. W3 can compare only against W1 and W2. W4 can compare only against W1, W2, and W3. A W never compares with itself.
-
-A valid SMT divergence occurs when exactly one of the two symbols hunts the high or low of an eligible previous W reference in the same M, while the other symbol does not hunt its corresponding same-structure W reference. Hunt is touch-only. No candle close beyond the level is required.
-
-The EA waits until the active check candle closes. If the divergence still exists at the check-candle close, the trade is entered immediately. If the clean symbol has also hunted the corresponding level before the check candle closes, the divergence is invalid and no trade is entered.
-
-The trade is placed on the clean symbol, meaning the symbol that did not hunt. If Symbol1 hunts and Symbol2 does not, trade Symbol2. If Symbol2 hunts and Symbol1 does not, trade Symbol1.
-
-High-side SMT divergence is a sell setup. Low-side SMT divergence is a buy setup.
-
-Stop loss is placed on the high or low of the selected reference W of the trade symbol. No buffer is used. If multiple references are eligible, the selected reference is the closest eligible W by time, or the eligible reference producing the smaller stop distance if that option is enabled for testing.
-
-Final Reward is an R-multiple. Final Reward = 10 means 10R TP.
+The strategy rules have been normalized from the source SRS and then refined through owner clarification passes. The remaining implementation work is no longer conceptual; it is engineering: build the cycle engine, SMT detector, confirmation scheduler, trade simulator, live/paper executor, journals, and drawings exactly according to the locked rules.
 
 ## Document map
 
-- `01_source_srs_extraction.md` - English extraction of the source PDF.
-- `02_normalized_strategy_spec.md` - Executable strategy contract.
-- `03_cycle_calendar.md` - New York trading day, M cycles, W cycles, gaps, and reset policy.
-- `04_smt_divergence_rules.md` - Hunt, divergence, reference selection, confirmation, invalidation, and anti-duplicate rules.
-- `05_execution_and_risk.md` - Entry, SL, TP, sizing, hedging, partial close, daily close, costs, and broker behavior.
-- `06_mql5_architecture_plan.md` - Planned modular MQL5 structure.
-- `07_test_plan.md` - Deterministic test scenarios.
-- `08_open_questions.md` - Remaining questions after clarification pass 1.
-- `09_owner_decisions_pass_1.md` - Locked decisions provided by the strategy owner.
+- `00_strategy_document_map.md` explains how to read the documentation set.
+- `01_source_srs_extraction.md` keeps the source SRS extraction and protects traceability.
+- `02_normalized_strategy_spec.md` is the main human-readable strategy specification.
+- `03_cycle_calendar.md` defines the STC trading day, M cycles, W cycles, gaps, and check-candle anchoring.
+- `04_smt_divergence_rules.md` defines W reference selection, hunt detection, SMT divergence, confirmation, ambiguity handling, and signal identity.
+- `05_execution_and_risk.md` defines entry, stop, target, risk sizing, volume, broker limits, hedging, partial close, hard close, fees, and outcomes.
+- `06_mql5_architecture_plan.md` defines the modular MQL5 architecture.
+- `07_test_plan.md` defines deterministic test cases before live use.
+- `08_open_questions.md` should remain nearly empty; it now contains only optional future knobs, not core unresolved rules.
+- `09_owner_decisions_pass_1.md` records the first owner clarification pass.
+- `10_owner_decisions_pass_2.md` records the second owner clarification pass.
+- `11_algorithm_layers.md` breaks the entire strategy into independent algorithms.
+- `12_state_machines.md` defines the strategy state machines.
+- `13_data_model_and_journals.md` defines records, keys, CSV outputs, and persistence.
+- `14_backtest_live_runtime.md` defines the backtest runtime and live/paper runtime.
+- `15_visualization_contract.md` defines chart drawings and audit overlays.
+- `16_implementation_checklist.md` converts the spec into build phases.
 
+## Locked one-line strategy definition
 
-## Locked decisions from clarification pass 2
+STC SMT Cycles detects, confirms, and executes SMT divergence between two configured index symbols inside the current STC trading day. The system compares each symbol against its own W-cycle reference levels. If exactly one symbol hunts a valid previous W high or low and the divergence remains valid at the close of the configured check candle, the strategy trades the clean non-hunted symbol, with the stop placed on the selected reference W of the traded symbol and the target computed as a Final Reward R-multiple.
 
-The second owner clarification pass locks the remaining execution details:
+## Core locked rules
 
-- equality counts as touch;
-- check candles are anchored from 20:00 New York;
-- no entry is allowed from the final check candle of any M;
-- if multiple references are valid, the selected reference is the one producing the largest stop distance on the clean/traded symbol;
-- simultaneous buy and sell in the same check candle is forgotten for execution;
-- Entry OFF and offline-at-entry-time signals are recorded but never entered later;
-- order failure consumes the signal but does not increase the M trade counter;
-- hedging scope is per M only;
-- each M can open at most three trades across both symbols combined;
-- volume above broker maximum may be split into multiple broker-valid orders;
-- ambiguous SL/TP in the same backtest candle remains explicitly ambiguous;
-- only the EA's own magic-number positions are managed;
-- one executable instance per strategy-symbol pair is allowed.
+1. Time is New York time.
+2. The STC trading day starts at 20:00 New York and ends at 15:30 New York on the following calendar day.
+3. At 15:30 New York all STC positions are hard-closed and state is reset.
+4. M gaps are no-detection and no-entry zones.
+5. Open positions are still managed during gaps.
+6. M1 is 20:00-02:00, M2 is 03:00-09:00, and M3 is 09:30-15:30.
+7. Each M has four W cycles.
+8. W1 never creates signals.
+9. W2 can compare only against W1.
+10. W3 can compare only against W2 and W1.
+11. W4 can compare only against W3, W2, and W1.
+12. A W never compares against itself.
+13. Each symbol has its own W high and W low.
+14. The comparison is structural, not shared-price.
+15. Hunt is touch-only.
+16. Equality counts as touch: high >= reference high and low <= reference low.
+17. No tolerance is used.
+18. High-side SMT is a sell setup.
+19. Low-side SMT is a buy setup.
+20. The trade is opened on the clean symbol that did not hunt.
+21. If buy and sell confirm in the same check candle, the event is discarded and no trade is allowed.
+22. If multiple valid references exist, the selected reference is the one that creates the largest stop distance on the clean traded symbol.
+23. Final Reward is an R-multiple. Final Reward 10 means 10R.
+24. TP is calculated without transaction costs.
+25. Spread and commission are used for reporting and net analysis.
+26. Maximum three opened trades are allowed per M across both symbols.
+27. Hedging OFF locks direction only inside the current M.
+28. Opposite direction trades are allowed in later M cycles even when Hedging is OFF.
+29. Partial close happens at the end of W4 for M1 and M2.
+30. M3 partial is disabled because the hard close at 15:30 has priority.
+31. Missed partial and missed hard close must be recovered at the first opportunity.
+32. The EA manages only its own magic-number positions.
+33. Duplicate EA instances for the same strategy and symbol pair must be blocked.

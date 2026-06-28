@@ -1,210 +1,225 @@
-# 05 - Execution, Risk, TP, Partial, and Reset
+# 05 - Execution, Risk, Position Management, and Outcomes
 
-## Inputs
+## 1. Entry model
 
-Strategy inputs from the SRS and clarification pass:
+Backtest:
 
-- Symbol1, default SPXUSD.
-- Symbol2, default NDXUSD.
-- Entry STC, default ON.
-- Partial, default ON.
-- Hedging, default OFF.
-- Final Reward, default 10.
-- Risk Percent, user-defined.
-- Candle Check: 1m, 3m, 5m, 10m, 15m, 30m.
-- Contract Size, default 10.
-- Broker UTC Offset, user-defined.
-- Spread/commission reporting inputs or broker-derived cost fields.
+- The strategy confirms at the close of a check candle.
+- Entry price is the open of the next check candle.
+- If there is no next check candle inside the same M, no entry is allowed.
 
-## Entry trigger
+Live/paper:
 
-Entry occurs immediately after the check candle closes and the divergence is still valid.
+- Entry is a market order immediately after the confirmation check candle closes.
+- If the EA is offline at the exact entry time, no delayed entry is allowed.
 
-For research/backtest, the entry price is the open of the next check candle after the confirmation candle closes.
+## 2. Entry STC switch
 
-For live trading, entry is a market order immediately after check-candle close.
+If Entry STC is ON, confirmed signals may execute.
 
-Each signal opens at most one trade.
+If Entry STC is OFF:
 
-If STC Entry is OFF, events may still be recorded, but no new trade is opened.
+- The signal is audited.
+- No trade is opened.
+- The signal is consumed for trading.
+- The strategy must not enter later if Entry STC is turned ON.
+- Existing positions continue to be managed.
 
-## Trade symbol
+## 3. Trade symbol
 
-The trade is placed on the symbol that did not hunt.
+The trade is always opened on the clean symbol that did not hunt.
 
-High-side divergence creates a sell trade on the clean symbol.
+The strategy uses `Symbol1` and `Symbol2` as both signal symbols and execution symbols.
 
-Low-side divergence creates a buy trade on the clean symbol.
+## 4. Stop loss
 
-No alternate symbol is used if the clean symbol is unavailable. If required data is missing or the market is closed, no trade is opened.
+Buy trade:
 
-Spread is not used as an entry filter.
+- Stop loss is the selected reference W low of the trade symbol.
 
-## M trade limit
+Sell trade:
 
-Each M allows at most three opened positions across both configured symbols combined.
+- Stop loss is the selected reference W high of the trade symbol.
 
-The counter increases only after a position is successfully opened.
+No buffer is applied.
 
-## Hedging OFF
+## 5. Target
 
-When hedging is OFF, the first opened trade in an M locks the M direction.
+Final Reward is an R-multiple.
 
-If first trade is buy, only buy trades are allowed until that M ends.
-
-If first trade is sell, only sell trades are allowed until that M ends.
-
-Direction lock does not depend on symbol.
-
-## Hedging ON
-
-When hedging is ON, buy and sell trades can both occur in the same M, subject to the max three trades per M.
-
-However, if buy and sell are confirmed in the same check candle, no trade is opened.
-
-## Stop-loss
-
-For buy trades, SL is placed exactly at the selected reference W low of the trade symbol.
-
-For sell trades, SL is placed exactly at the selected reference W high of the trade symbol.
-
-No buffer is added.
-
-If Symbol1 hunts and Symbol2 is traded, the stop is based on Symbol2's selected reference W.
-
-## Reference selection for SL
-
-Default mode:
-
-- closest eligible reference W by time.
-
-Optional research mode:
-
-- eligible reference producing smallest stop distance.
-
-Reports must state which mode was used.
-
-## Take-profit
-
-Final Reward is an R multiple.
-
-Final Reward = 10 means TP = 10R.
+If Final Reward = 10, TP = 10R.
 
 Buy TP:
 
-- entry + FinalReward * risk_distance.
+- Entry + FinalReward * abs(Entry - SL).
 
 Sell TP:
 
-- entry - FinalReward * risk_distance.
+- Entry - FinalReward * abs(Entry - SL).
 
-TP is not modified after the trade opens.
+Transaction costs do not change the TP level.
 
-## Position sizing
+## 6. Risk sizing
 
 Risk money:
 
-- equity * risk_percent / 100.
+- Equity * RiskPercent / 100.
 
-Use broker tick value if available.
+If broker tick value and tick size are available, the engine should use them.
 
-If tick value is unavailable, use Contract Size input.
+If tick value is unavailable, use the shared Contract Size input. The default fallback Contract Size is 10.
 
-The strategy does not impose its own theoretical volume cap.
+The fallback formula is:
 
-Live execution must still respect broker min volume, max volume, and volume step.
+- Volume = RiskMoney / (StopDistancePoints * ContractSize).
 
-If broker normalization changes the live volume, the report should record both theoretical volume and executed volume.
+The system should report all intermediate values:
 
-## Costs
+- Equity.
+- Risk percent.
+- Risk money.
+- Entry.
+- SL.
+- Stop distance points.
+- Tick value source.
+- Contract size fallback.
+- Calculated theoretical volume.
+- Broker-normalized volume.
 
-Spread and commission should be recorded.
+## 7. Broker volume limits
 
-Reports should support both raw and net performance.
+The strategy has no internal maximum volume limit.
 
-The strategy does not skip trades due to spread.
+However, live trading must respect broker min, max, and step constraints.
 
-## Partial close
+If calculated volume is greater than broker max, the executor may split the order into multiple broker-valid orders until the target volume is reached or broker constraints prevent more orders.
 
-If Partial is OFF, no partial-close operation occurs.
+If calculated volume is below broker minimum, the trade should be skipped rather than increasing risk by forcing minimum volume. This skip must be logged as `VOLUME_BELOW_BROKER_MIN`.
 
-If Partial is ON, at the end of W4 of each M, the EA checks trades opened in that M.
+## 8. Order failure
 
-If a trade has not reached TP, close approximately 50% of the position.
+If order send fails:
 
-Partial close applies even if the trade is in loss.
+- The signal is consumed.
+- No delayed entry is allowed.
+- The M trade counter is not incremented.
+- The failure reason is written to the trade journal.
 
-Partial volume is rounded upward to the broker volume step.
+## 9. Trade counter
 
-Example:
+Each M allows at most three opened trades total across both symbols.
 
-- volume 1.01 -> close 0.51 if step is 0.01.
-- volume 0.01 -> close the full trade if no smaller valid partial exists.
+The counter increments only after a position is successfully opened.
+
+The counter does not decrement after stop, TP, partial, or manual closure.
+
+## 10. Hedging OFF
+
+When Hedging is OFF, the first successfully opened trade inside an M locks that M direction.
+
+The direction lock is not symbol-specific.
+
+If the first trade in M is buy, only buy trades are allowed until the end of that M.
+
+If the first trade in M is sell, only sell trades are allowed until the end of that M.
+
+At the next M, direction lock resets. Opposite direction trades are allowed in later M cycles even during the same STC trading day.
+
+## 11. Hedging ON
+
+When Hedging is ON, both buy and sell trades may occur inside the same M, subject to the maximum three trades per M rule.
+
+If buy and sell confirm in the same check candle, no trade is opened even when Hedging is ON.
+
+## 12. Partial close
+
+Partial close applies only if Partial is ON.
+
+Partial is evaluated at the end of W4 for M1 and M2.
+
+M3 partial is disabled because the 15:30 hard close has priority.
+
+At partial time, all positions opened in that same M are checked.
+
+If a position has not reached TP and has not already been partially closed, close approximately 50% of volume.
+
+Rounding rule:
+
+- Partial volume is rounded upward to broker volume step.
+- If volume is 1.01 and step is 0.01, partial close volume is 0.51.
+- If volume is 0.01, the whole position is closed.
+
+Partial occurs even if the position is in loss.
+
+If partial was missed due to EA downtime, it must be performed later at the first opportunity, regardless of whether the system has moved into a later M, as long as the position is still open and has not already been partially closed.
 
 Each trade can be partially closed only once.
 
-A trade opened in M1 cannot be partially closed again in M2.
+## 13. Hard close
 
-At the end of M3, partial close is effectively irrelevant because daily hard close occurs at 15:30.
+At 15:30 New York, every open STC position must be closed.
 
-## Daily hard close
+Hard close overrides partial.
 
-At 15:30 New York, all open positions managed by STC are closed without exception.
+If hard close is missed because the EA was offline or order close failed, the EA enters hard-close recovery and retries every configured number of seconds until all magic-number STC positions are closed.
 
-After closing positions, all state is reset.
+Hard close applies even if Entry STC is OFF.
 
-After 15:30 New York, no position from that STC trading day should remain open.
+Hard close applies only to positions with this strategy's magic number.
 
-If the EA restarts after 15:30 and detects old STC-managed positions, it should close them for safety.
+## 14. Gaps and position management
 
-## Restart behavior
+During gaps, no new signal or entry can occur.
 
-If the EA restarts during the current trading day, it may rebuild state from current-day data only.
+Open positions continue to be managed. If SL or TP is hit during a gap, the result is valid.
 
-It may also inspect account positions to recover active STC-managed positions.
+The backtest engine must include gap candles for outcome if a position is open.
 
-Previous-day signals, W levels, divergence states, and counters must not influence new decisions.
+## 15. Stop and TP outcome with check candles
 
-## Clarification pass 2 execution locks
+Backtest outcome is evaluated using the configured check-candle timeframe.
 
-### Offline at entry time
+If the same check candle after entry touches both SL and TP, the outcome is marked `AMBIGUOUS` rather than guessing the path.
 
-If the EA is offline or unable to enter at the exact intended entry time, the signal is not entered later.
+Ambiguous outcomes are not forced into win or loss. Reports must keep them separate.
 
-### Entry OFF
+## 16. Transaction costs
 
-If STC Entry is OFF at the intended entry time, the signal is recorded for audit but no trade is opened and no delayed entry is allowed.
+Spread, commission, and slippage are not used to change entry, SL, or TP levels in the canonical strategy logic.
 
-### Order failure
+They are used for reporting net performance.
 
-If an order attempt fails and no position is opened, the signal is consumed for trading. The M trade counter is not increased.
+Preferred source:
 
-### Volume handling
+- Read spread and commission from broker/data when available.
+- If unavailable, use report inputs.
 
-The strategy has no theoretical max-volume cap.
+Reports must include both gross and net fields.
 
-Live execution must respect broker min/max/step constraints.
+## 17. Position ownership
 
-If requested volume is above broker maximum, the EA may split the requested volume into multiple broker-valid orders.
+The EA manages only positions with its own magic number.
 
-If requested volume is below broker minimum, the trade is skipped unless a future explicit input enables minimum-volume execution.
+Manual trades and positions from other strategies are ignored unless a future explicit setting changes this behavior.
 
-### Position ownership
+## 18. Runtime modes
 
-Only positions created with the strategy magic number are managed.
+Research mode:
 
-Manual trades and other strategy trades are ignored.
+- No real orders.
+- Full signal, trade simulation, outcome, drawing, and CSV reports.
 
-### Costs
+Paper mode:
 
-TP and SL placement are calculated without transaction costs.
+- Live data.
+- No real orders.
+- Signals are recorded as if executable.
 
-Spread, commission, and slippage are used for reporting/net-performance analysis. Spread and commission should be read from broker data when available.
+Auto-trade mode:
 
-### Ambiguous SL/TP
+- Live data.
+- Real orders.
+- Broker constraints enforced.
+- Hard-close recovery always enabled.
 
-If the same backtest candle touches both SL and TP and no lower-timeframe sequence is available, the result is recorded as AMBIGUOUS rather than forced to SL-first or TP-first.
-
-### Hard close retry
-
-If 15:30 New York hard close fails or is missed, the EA retries every few seconds until all strategy-owned positions are closed.
+The first implementation should prioritize Research and Paper before Auto-trade.

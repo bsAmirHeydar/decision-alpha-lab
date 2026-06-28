@@ -1,163 +1,239 @@
 # 07 - Test Plan
 
-## Goal
+## 1. Purpose
 
-The test plan verifies that the STC SMT Cycles strategy matches the locked SRS and owner clarifications before live execution is implemented.
+The test plan ensures the STC SMT Cycles implementation follows the locked specification before any live trading.
 
-## Time and cycle tests
+Every test should be deterministic and should write expected vs actual values to a report.
 
-1. Verify New York DST conversion.
-2. Verify trading day assignment from 20:00 to 15:30.
-3. Verify M1: 20:00 -> 02:00.
-4. Verify no new entry during 02:00 -> 03:00 gap.
-5. Verify M2: 03:00 -> 09:00.
-6. Verify no new entry during 09:00 -> 09:30 gap.
-7. Verify M3: 09:30 -> 15:30.
-8. Verify hard close at 15:30.
-9. Verify W boundaries for all M cycles.
-10. Verify W high/low aggregation from lower timeframe candles.
+## 2. Time and cycle tests
 
-## Reference matrix tests
+Test M assignment:
 
-1. W1 produces no signal.
-2. W2 can use only W1.
-3. W3 can use W2 and W1.
-4. W4 can use W3, W2, and W1.
-5. Current W is never used as its own reference.
-6. References from previous M are not allowed.
-7. References from previous trading day are not allowed.
+- 20:00 is M1.
+- 01:59 is M1.
+- 02:00 is gap.
+- 02:59 is gap.
+- 03:00 is M2.
+- 08:59 is M2.
+- 09:00 is gap.
+- 09:29 is gap.
+- 09:30 is M3.
+- 15:29 is M3.
+- 15:30 is hard close/reset.
 
-## Hunt tests
+Test W assignment for every W in M1, M2, and M3.
 
-1. High touch by Symbol1 only creates raw high-side divergence.
-2. High touch by Symbol2 only creates raw high-side divergence.
-3. Low touch by Symbol1 only creates raw low-side divergence.
-4. Low touch by Symbol2 only creates raw low-side divergence.
-5. Both symbols touching the same side before check close invalidates divergence.
-6. No tolerance is applied.
-7. No close beyond level is required.
+Test DST transition dates using New York time.
 
-## Confirmation tests
+## 3. Check candle anchoring tests
 
-1. Raw divergence mid-check-candle confirms at same check-candle close if still valid.
-2. Raw divergence invalidates if clean symbol hunts before check close.
-3. Confirmation after M end is cancelled.
-4. Last check candle of M cannot create a new entry.
-5. Same divergence does not re-enter on later check candles.
+For each check timeframe, verify aggregation starts at 20:00 New York.
 
-## Direction and trade-symbol tests
+Examples:
 
-1. Symbol1 high hunt and Symbol2 clean -> sell Symbol2.
-2. Symbol2 high hunt and Symbol1 clean -> sell Symbol1.
-3. Symbol1 low hunt and Symbol2 clean -> buy Symbol2.
-4. Symbol2 low hunt and Symbol1 clean -> buy Symbol1.
+- 10m: 20:00-20:10.
+- 10m: 21:20-21:30.
+- 15m: 20:00-20:15.
+- 3m: 20:00-20:03.
 
-## Simultaneous signal tests
+Verify that final check candles ending at M boundaries cannot enter.
 
-1. Buy and sell confirmed in same check candle -> no trade.
-2. Buy then sell in separate check candles with hedging OFF -> second trade blocked if direction differs.
-3. Buy then sell in separate check candles with hedging ON -> both allowed subject to max trade count.
+## 4. W level tests
 
-## Max trade tests
+Build synthetic M1 data and verify W high/low:
 
-1. Max three trades per M across both symbols.
-2. Counter increments only after successful position open.
-3. Failed order does not increment counter.
-4. Counter resets at the next M.
-5. Counter resets at daily reset.
+- W high equals maximum high inside the W.
+- W low equals minimum low inside the W.
+- W completeness fails if either symbol is missing required data.
+- W1 produces no signals.
 
-## Stop-loss tests
+## 5. Reference matrix tests
 
-1. Buy SL uses selected reference W low of trade symbol.
-2. Sell SL uses selected reference W high of trade symbol.
-3. No buffer is added.
-4. Closest-by-time reference mode chooses W3 over W2/W1 when current W is W4 and all are eligible.
-5. Optional smallest-stop mode chooses the smallest valid stop distance.
+In W2, verify only W1 is eligible.
 
-## TP and risk tests
+In W3, verify W2 and W1 are eligible.
 
-1. Final Reward = 10 creates 10R TP.
-2. Volume uses risk percent and equity.
-3. Tick value is used if available.
-4. Contract Size input is used if tick value is unavailable.
-5. Theoretical volume is not capped by strategy logic.
-6. Live volume respects broker min/max/step.
-7. Raw and net results are both recorded when costs are enabled.
+In W4, verify W3, W2, and W1 are eligible.
 
-## Partial tests
+Verify no current W self-reference.
 
-1. M1 trades are checked at 02:00.
-2. M2 trades are checked at 09:00.
-3. M3 trades are closed at 15:30 by daily hard close.
-4. Partial is applied even if trade is in loss.
-5. Volume 1.01 with 0.01 step closes 0.51.
-6. Volume 0.01 closes fully.
-7. Each trade is partially closed at most once.
-8. M1 trade is not partially closed again in M2.
+Verify no cross-M reference.
 
-## Daily reset tests
+Verify no previous STC day reference.
 
-1. All open STC positions close at 15:30.
-2. All counters reset.
-3. All divergence records clear.
-4. All partial states clear.
-5. Previous-day data does not affect next trading day.
-6. EA restart inside current day can rebuild from current-day data.
-7. EA restart after 15:30 closes old managed positions if any remain.
+## 6. Hunt tests
 
-## Missing data and holidays
+High hunt:
 
-1. Missing required symbol data -> no trade.
-2. Closed market -> no trade.
-3. No synthetic candle construction if source bars are missing.
+- high above reference high => hunt.
+- high equal to reference high => hunt.
+- high below reference high => no hunt.
 
-## Clarification pass 2 test cases
+Low hunt:
 
-Add the following deterministic test cases before implementation is accepted:
+- low below reference low => hunt.
+- low equal to reference low => hunt.
+- low above reference low => no hunt.
 
-1. Equality touch:
-   - high exactly equals reference high -> high hunt true.
-   - low exactly equals reference low -> low hunt true.
+Verify no tolerance is applied.
 
-2. Check-candle anchor:
-   - 10m candles align from 20:00 NY.
-   - 3m candles align from 20:00 NY.
+## 7. SMT divergence tests
 
-3. Final M candle:
-   - a signal confirmed at 02:00, 09:00, or 15:30 produces no new entry.
+Case A: Symbol1 hunts high, Symbol2 does not.
 
-4. Multiple references:
-   - W4 has W1/W2/W3 candidates; selected reference is the one producing the largest stop distance for the clean symbol.
+- Expected: sell setup on Symbol2.
 
-5. Simultaneous buy/sell:
-   - buy and sell confirmed in same check candle -> no trade and no delayed entry.
+Case B: Symbol2 hunts high, Symbol1 does not.
 
-6. Entry OFF:
-   - signal confirms while Entry OFF -> audit only, no later entry.
+- Expected: sell setup on Symbol1.
 
-7. Offline at entry:
-   - EA misses intended entry time -> no late entry.
+Case C: Symbol1 hunts low, Symbol2 does not.
 
-8. Order failure:
-   - signal confirms, order fails -> signal consumed, trade counter unchanged.
+- Expected: buy setup on Symbol2.
 
-9. Hedging per M:
-   - M1 direction lock does not affect M2 direction lock.
+Case D: Symbol2 hunts low, Symbol1 does not.
 
-10. Missed partial:
-    - EA offline at M1 W4 end -> partial executes at first later opportunity.
+- Expected: buy setup on Symbol1.
 
-11. Missed hard close:
-    - EA offline at 15:30 -> hard close executes at first later opportunity and retries until closed.
+Case E: both hunt.
 
-12. Missing data:
-    - either symbol missing data -> no trade, audit reason recorded.
+- Expected: no SMT.
 
-13. Duplicate EA instance:
-    - second instance on same pair cannot execute trades.
+Case F: neither hunts.
 
-14. Magic number:
-    - EA ignores manual positions and other-strategy positions.
+- Expected: no SMT.
 
-15. Ambiguous SL/TP:
-    - one backtest candle hits both SL and TP -> AMBIGUOUS result.
+## 8. Confirmation tests
+
+Candidate forms inside a check candle and remains valid at close.
+
+- Expected: confirmed.
+
+Candidate forms but clean symbol hunts before close.
+
+- Expected: invalidated, no entry.
+
+Candidate confirms on final check candle ending at M boundary.
+
+- Expected: expired, no entry.
+
+Candidate confirms while Entry STC is OFF.
+
+- Expected: audit-only, consumed, no delayed entry.
+
+EA offline at exact entry time and restarted later.
+
+- Expected: no delayed entry.
+
+## 9. Reference selection tests
+
+Create multiple valid references for the same side and clean symbol.
+
+Verify selected reference is the one producing largest stop distance on the clean traded symbol.
+
+Verify SL uses the selected reference of the traded symbol, not the hunted symbol.
+
+## 10. Ambiguity tests
+
+Buy and sell confirm in the same check candle.
+
+- Expected: no trade, event discarded, no retry.
+
+Same-direction multiple signals confirm.
+
+- Expected: deterministic selection, max three trades per M, no duplicate same-symbol same-side trade in same check candle.
+
+Same check candle after entry hits both SL and TP.
+
+- Expected: trade outcome `AMBIGUOUS`.
+
+## 11. Risk tests
+
+Verify Final Reward 10 creates 10R TP.
+
+Verify tick value is used when available.
+
+Verify Contract Size fallback is used when tick value is unavailable.
+
+Verify calculated theoretical volume.
+
+Verify volume splitting when calculated volume is above broker maximum.
+
+Verify skip when calculated volume is below broker minimum.
+
+## 12. Hedging tests
+
+Hedging OFF:
+
+- First M trade buy locks M direction to buy.
+- Sell signals inside same M are rejected.
+- Next M can open sell.
+
+Hedging ON:
+
+- Buy and sell may occur in same M if not in same check candle.
+- Max three trades per M still applies.
+- Same-check-candle buy/sell ambiguity still creates no trade.
+
+## 13. Partial tests
+
+M1 trade remains open at 02:00.
+
+- Expected: partial closes approximately 50%, rounded up.
+
+M2 trade remains open at 09:00.
+
+- Expected: partial closes approximately 50%, rounded up.
+
+M3 trade remains open at 15:30.
+
+- Expected: hard close, no partial.
+
+Missed partial due to EA downtime.
+
+- Expected: partial executes after restart if position still open and not previously partialed.
+
+## 14. Hard close tests
+
+At 15:30 New York, all magic-number STC positions close.
+
+If close fails, retry every configured seconds.
+
+If EA restarts after 15:30 with an old magic-number position still open, close at first opportunity.
+
+Manual or other-magic positions are ignored.
+
+## 15. Restart tests
+
+Restart inside same STC day.
+
+- Rebuild cycle state from current-day candles.
+- Load consumed-signal journal.
+- Detect open magic-number positions.
+- Do not duplicate prior entries.
+- Do delayed partial if due.
+- Do delayed hard close if due.
+- Do not enter missed signals.
+
+## 16. Duplicate instance tests
+
+Attach EA twice for same strategy ID and symbol pair.
+
+- Expected: second instance blocked or passive.
+
+Attach EA to a different symbol chart but same Symbol1/Symbol2 inputs.
+
+- Expected: duplicate lock still applies.
+
+## 17. Reporting tests
+
+Verify creation of:
+
+- Cycle audit file.
+- Divergence audit file.
+- Trade journal.
+- Position management journal.
+- Runtime summary.
+
+Verify all rejected/no-trade reasons are explicitly reported.

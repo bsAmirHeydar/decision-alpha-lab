@@ -1,20 +1,35 @@
-# 03 - STC Cycle Calendar
+# 03 - Cycle Calendar and Time Model
 
-## Timezone
+## 1. Time authority
 
-All strategy times are expressed in New York time.
+All strategy times are defined in New York time.
 
-The implementation must handle New York DST correctly.
+The implementation must support New York DST. Broker time must be converted into New York time through a broker-to-UTC offset and a New-York DST conversion layer.
 
-For broker-based MQL5 execution, the user provides broker UTC offset. For CME/CSV/Python tooling, UTC timestamps should be converted to New York for cycle assignment.
+For external CME or CSV data, the preferred storage time is UTC. The strategy layer converts UTC to New York time for cycle assignment.
 
-## STC trading day
+## 2. STC trading day
 
-The STC trading day starts at 20:00 New York and ends at 15:30 New York on the following calendar day.
+The STC trading day starts at 20:00 New York and ends at 15:30 New York the following calendar day.
 
-No previous-day state is used after daily reset.
+The trading-day label is the date of the 15:30 hard close. For example, the STC day that starts Monday 20:00 and ends Tuesday 15:30 is Tuesday's STC trading day.
 
-## M cycle layout
+No strategy decision may use candles before the start of the current STC trading day.
+
+## 3. Daily reset
+
+At 15:30 New York:
+
+1. All open STC positions must be hard-closed.
+2. All active divergences are cleared.
+3. All cycle states are reset.
+4. All trade counters are reset.
+5. All partial state flags are reset for the next day.
+6. No position may remain open after the close process is complete.
+
+If hard close is missed because the EA is offline, the first restart after 15:30 must enter hard-close recovery mode.
+
+## 4. M cycles
 
 M1 runs from 20:00 to 02:00.
 
@@ -22,113 +37,105 @@ M2 runs from 03:00 to 09:00.
 
 M3 runs from 09:30 to 15:30.
 
-## Gap rules
+M cycles do not overlap. Direction lock, trade count, W references, and divergence scope are local to each M.
 
-02:00 -> 03:00 is a no-entry and no-detection gap.
+## 5. No-entry gaps
 
-09:00 -> 09:30 is a no-entry and no-detection gap.
+Gap 1: 02:00 to 03:00.
 
-During these gaps, no new detection and no new entry occur. Position management remains active for already-open trades. If SL or TP is reached during a gap, the open position is managed normally.
+Gap 2: 09:00 to 09:30.
 
-No new STC entries are allowed in gaps.
+During gaps, the signal engine does not detect new SMT divergence and the entry engine does not enter. The position-management engine remains active.
 
-## M1 W cycles
+The system may still need data in gaps for position outcomes. If TP or SL is hit during a gap, the trade outcome is recorded. If a delayed hard close or delayed partial is required, management actions are allowed.
 
-W1: 20:00 -> 21:30
+## 6. W cycles
 
-W2: 21:30 -> 23:00
+Every M contains four W cycles, each 90 minutes long.
 
-W3: 23:00 -> 00:30
+M1:
 
-W4: 00:30 -> 02:00
+| W | Start | End |
+|---|---:|---:|
+| W1 | 20:00 | 21:30 |
+| W2 | 21:30 | 23:00 |
+| W3 | 23:00 | 00:30 |
+| W4 | 00:30 | 02:00 |
 
-Partial check for M1 occurs at 02:00.
+M2:
 
-## M2 W cycles
+| W | Start | End |
+|---|---:|---:|
+| W1 | 03:00 | 04:30 |
+| W2 | 04:30 | 06:00 |
+| W3 | 06:00 | 07:30 |
+| W4 | 07:30 | 09:00 |
 
-W1: 03:00 -> 04:30
+M3:
 
-W2: 04:30 -> 06:00
+| W | Start | End |
+|---|---:|---:|
+| W1 | 09:30 | 11:00 |
+| W2 | 11:00 | 12:30 |
+| W3 | 12:30 | 14:00 |
+| W4 | 14:00 | 15:30 |
 
-W3: 06:00 -> 07:30
+## 7. W high and low construction
 
-W4: 07:30 -> 09:00
+A W is treated as a synthetic 90-minute candle.
 
-Partial check for M2 occurs at 09:00.
+The high of a W is the maximum high inside the W interval.
 
-## M3 W cycles
+The low of a W is the minimum low inside the W interval.
 
-W1: 09:30 -> 11:00
+The final W high and W low should not depend on the timeframe used, as long as the data fully covers the W interval. Therefore the implementation may build W levels from M1, aggregated check candles, or available lower timeframe data.
 
-W2: 11:00 -> 12:30
+If data for either symbol is incomplete, the W is marked incomplete and no SMT signal can depend on it.
 
-W3: 12:30 -> 14:00
+## 8. Check candle anchoring
 
-W4: 14:00 -> 15:30
+All check candles are anchored from the STC trading-day start, 20:00 New York.
 
-M3 end occurs at 15:30. Daily hard close overrides practical partial-close usefulness at that time.
+For example, with a 10-minute check candle:
 
-## W candle definition
+- 20:00-20:10.
+- 20:10-20:20.
+- 20:20-20:30.
 
-Each W is a synthetic 90-minute candle.
+The same anchoring applies to 1m, 3m, 5m, 15m, and 30m.
 
-For each symbol and W:
+This rule avoids broker-chart timeframe dependency.
 
-- W open time is fixed by the calendar.
-- W close time is fixed by the calendar.
-- W high is the maximum high inside the W interval.
-- W low is the minimum low inside the W interval.
+## 9. Last check candle rule
 
-The data timeframe used to derive W highs and lows is implementation-dependent, as long as the resulting W high/low is accurate.
+The last check candle of each M is not allowed to produce an entry.
 
-## Eligibility by W
-
-W1 has no eligible reference W and does not generate signals.
-
-W2 eligible references:
-
-- W1
-
-W3 eligible references:
-
-- W2
-- W1
-
-W4 eligible references:
-
-- W3
-- W2
-- W1
-
-Current W is never eligible as its own reference.
-
-No reference can come from a different M.
-
-No reference can come from a previous trading day.
-
-## Last-check-candle rule
-
-The last check candle that would close exactly at an M end is not allowed to create a new entry.
-
-At M1 end, the time is for M1 partial processing.
-
-At M2 end, the time is for M2 partial processing.
-
-At M3 end, the time is for daily hard close and reset.
-
-## Check-candle anchoring
-
-All internally aggregated check candles are anchored from the STC trading-day start at 20:00 New York.
+If confirmation close time is equal to or later than the M end time, the signal expires.
 
 Examples:
 
-- 10-minute check candles: 20:00, 20:10, 20:20, ...
-- 3-minute check candles: 20:00, 20:03, 20:06, ...
+- In M1, a check candle that closes at 02:00 cannot enter.
+- In M2, a check candle that closes at 09:00 cannot enter.
+- In M3, a check candle that closes at 15:30 cannot enter because hard close dominates.
 
-If a check candle closes at or after the end of the active M, that candle cannot produce a new entry.
+## 10. Cycle assignment algorithm
 
-## Missed management events
+For each bar timestamp:
 
-If a scheduled partial close or hard close is missed because the EA was offline, the missed management event must be processed at the first later opportunity.
+1. Convert timestamp to New York time.
+2. Determine current STC trading day.
+3. If time is before 20:00 and after 15:30 for the active STC day, it belongs to no active signal window.
+4. Assign the bar to M1, M2, M3, or gap.
+5. If inside an M, assign the bar to W1, W2, W3, or W4.
+6. Assign the bar to the active check candle bucket anchored from 20:00.
+7. Mark whether the current check candle is final for its M.
 
-M3 hard close takes priority over any M3 partial close.
+## 11. Data completeness algorithm
+
+For each symbol and each W/check-candle interval:
+
+1. Count expected bars for the data granularity.
+2. Count actual bars.
+3. If either symbol is missing required data, mark the interval incomplete.
+4. If the interval is incomplete, no signal may be generated from it.
+5. Incomplete intervals are still written to audit output with reason `DATA_INCOMPLETE`.

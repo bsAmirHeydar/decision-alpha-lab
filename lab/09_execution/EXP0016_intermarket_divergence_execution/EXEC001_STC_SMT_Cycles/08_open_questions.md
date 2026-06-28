@@ -1,38 +1,37 @@
-# 08 - Remaining Open Questions Before Implementation
+# 08 - Open Questions
 
-The strategy-level questions from the SRS have been resolved by owner clarification passes 1 and 2.
+The core strategy is locked. The items below are not blockers for the research/paper implementation. They are optional engineering or research extensions.
 
-This file now tracks only non-blocking engineering decisions that can be implemented as defaults or inputs without changing the strategy logic.
+## Optional future knobs
 
-## Resolved strategy decisions
+1. Whether to expose reference selection as a research input. Canonical default is largest stop distance on the clean traded symbol.
+2. Whether to use lower-timeframe path reconstruction for ambiguous SL/TP candles. Canonical default is to mark them `AMBIGUOUS`.
+3. Whether to support separate data symbols and execution symbols. Canonical STC uses Symbol1 and Symbol2 as both data and execution symbols.
+4. Whether to support broker-specific commission models beyond simple net reporting.
+5. Whether to export drawings as screenshots or only render them on chart.
+6. Whether to add a calendar for holidays and early closes. Canonical default is no trade when data is missing or incomplete.
+7. Whether to add auto-trade mode after research and paper modes are validated.
 
-- Equality counts as touch.
-- No tolerance is applied.
-- Check candles are anchored from 20:00 New York.
-- No entry is allowed from a check candle closing at or after active M end.
-- Multiple references resolve to the one producing the largest stop distance for the clean/traded symbol.
-- Simultaneous buy and sell in the same check candle are forgotten for execution.
-- Entry OFF signals are audit-only and cannot be entered later.
-- Offline-at-entry signals are not entered later.
-- Failed order attempts consume the signal but do not increase the M trade counter.
-- Hedging/direction lock applies only within each M.
-- Each M can open at most three trades across both symbols combined.
-- Volume above broker max may be split into multiple broker-valid orders.
-- Contract Size is a shared fallback input.
-- TP is calculated without costs; costs are reporting/net-analysis fields.
-- SL/TP same-candle ambiguity is reported as AMBIGUOUS.
-- Both symbols must have complete enough data.
-- Restart reconstruction uses current-day candles, persistent state, and strategy-owned positions.
-- Duplicate executable instances must be blocked.
-- Symbol1 and Symbol2 are both data and execution symbols in this STC version.
-- EA manages only its own magic-number positions.
+## No longer open
 
-## Non-blocking engineering items
+These are locked and should not be reopened during implementation unless the strategy version changes:
 
-These can be implemented with documented defaults:
-
-1. Exact required data-coverage threshold for a W/check window.
-2. CSV schemas for cycle audit, divergence audit, trade journal, and state audit.
-3. Exact chart object styling for drawing.
-4. Exact retry interval default for hard-close retry.
-5. Exact behavior when requested live volume cannot be fully split because of broker constraints.
+- Touch equality.
+- No tolerance.
+- W reference matrix.
+- W1 no signal.
+- New York time.
+- Check candle anchoring from 20:00.
+- No entry in M gaps.
+- No entry on final check candle of M.
+- Trade clean symbol.
+- SL uses clean traded symbol reference W.
+- Reference selection by largest stop.
+- Final Reward as R-multiple.
+- Hard close at 15:30.
+- Partial at W4 end for M1/M2 only.
+- M3 partial disabled.
+- Entry OFF audit-only/no delayed entry.
+- Offline at entry time means no delayed entry.
+- Magic-number-only position management.
+- Duplicate instance prevention.

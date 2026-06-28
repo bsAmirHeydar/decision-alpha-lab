@@ -1,136 +1,192 @@
-# 04 - SMT Divergence Rules
+# 04 - SMT Divergence Rules and Algorithms
 
-## Core principle
+## 1. Scope
 
-SMT divergence is defined structurally between two symbols.
+SMT divergence is defined only between Symbol1 and Symbol2.
 
-Each symbol has its own W highs and lows. The strategy does not compare the absolute price level of Symbol1 with the absolute price level of Symbol2.
+The strategy compares each symbol against its own W-cycle reference levels. It never compares one symbol's absolute price level to the other symbol's absolute price level.
 
-Instead, it compares whether each symbol has hunted the corresponding W reference of its own structure.
+## 2. Reference eligibility
 
-## Eligible references
+Inside each M:
 
-Only previous W cycles inside the same M are eligible.
+- W1 has no eligible references and cannot signal.
+- W2 references W1.
+- W3 references W2 and W1.
+- W4 references W3, W2, and W1.
 
-W1 produces no signal.
+The current W never references itself.
 
-W2 can only use W1.
+No W may reference a W from another M.
 
-W3 can use W2 or W1.
+No W may reference a W from a previous STC trading day.
 
-W4 can use W3, W2, or W1.
+## 3. Reference records
 
-## Hunt definition
+For each symbol, each completed W produces:
 
-Hunt is touch-only.
+- W ID.
+- Symbol.
+- M ID.
+- Start time.
+- End time.
+- High.
+- Low.
+- Data completeness status.
 
-No candle close beyond the reference is required.
+The reference levels used by the current W are the completed previous W records inside the same M.
 
-No tolerance is applied. Equality still counts as touch.
+## 4. Hunt definition
 
-High hunt occurs when the active price high is greater than or equal to the selected reference W high.
+High hunt occurs when the active check candle high is greater than or equal to the selected symbol's reference W high.
 
-Low hunt occurs when the active price low is less than or equal to the selected reference W low.
+Low hunt occurs when the active check candle low is less than or equal to the selected symbol's reference W low.
 
-## High-side divergence
+Equality counts as touch.
 
-A high-side SMT divergence exists when:
+No tolerance is used.
 
-- exactly one symbol hunts an eligible previous W high;
-- the other symbol does not hunt its corresponding previous W high;
-- both references belong to the same W index inside the same M structure;
-- the divergence remains valid until the check-candle close.
+No close condition is required.
 
-Trade direction: sell.
+## 5. Candidate detection
 
-Trade symbol: the symbol that did not hunt.
+At every active check-candle update inside a non-final check candle:
 
-## Low-side divergence
+1. Determine current M and W.
+2. If current W is W1, stop; no signal is possible.
+3. Load eligible references for current W.
+4. For each reference candidate and side, evaluate Symbol1 hunt status and Symbol2 hunt status.
+5. If both symbols hunted, no SMT exists for that reference.
+6. If neither symbol hunted, no SMT exists for that reference.
+7. If exactly one symbol hunted, create an SMT candidate.
 
-A low-side SMT divergence exists when:
+## 6. Side mapping
 
-- exactly one symbol hunts an eligible previous W low;
-- the other symbol does not hunt its corresponding previous W low;
-- both references belong to the same W index inside the same M structure;
-- the divergence remains valid until the check-candle close.
+High reference hunted by exactly one symbol:
 
-Trade direction: buy.
+- Setup side: SELL.
+- Hunted symbol: the symbol that touched its own reference high.
+- Clean symbol: the symbol that did not touch its own reference high.
+- Trade symbol: clean symbol.
+- Stop reference: selected reference high of trade symbol.
 
-Trade symbol: the symbol that did not hunt.
+Low reference hunted by exactly one symbol:
 
-## Confirmation
+- Setup side: BUY.
+- Hunted symbol: the symbol that touched its own reference low.
+- Clean symbol: the symbol that did not touch its own reference low.
+- Trade symbol: clean symbol.
+- Stop reference: selected reference low of trade symbol.
 
-Raw divergence can form intrabar.
+## 7. Multiple reference resolution
 
-The strategy waits until the active configured check candle closes.
+If multiple eligible references create valid SMT candidates for the same clean symbol and side, the strategy selects the reference that produces the largest stop distance on the clean traded symbol.
 
-At check-candle close:
+For buy:
 
-- if only one symbol has hunted, the divergence is confirmed;
-- if both symbols have hunted, the divergence is invalid;
-- if neither symbol has hunted, there is no divergence.
+- Stop distance = entry price candidate - reference low of clean symbol.
 
-The same active check candle is sufficient. A full additional check candle is not required.
+For sell:
 
-## Clean-symbol invalidation
+- Stop distance = reference high of clean symbol - entry price candidate.
 
-If the initially clean symbol hunts the corresponding reference before check-candle close, the divergence is invalid and no trade is opened.
+Because the final entry price is known only after confirmation, the selection engine must use the best available confirmation-time or projected entry price. In backtest, the exact next-check-candle open is available after confirmation. In live, selection uses the market price immediately after confirmation.
 
-If the clean symbol hunts after the trade has already been opened, the old divergence does not produce a new entry. The open position is managed through normal SL/TP/partial/daily-close rules.
+The selected reference becomes the signal reference. Other references are audit-only for that event.
 
-## Duplicate prevention
+## 8. Confirmation rule
 
-Each divergence can be traded only once.
+A candidate is not tradable immediately when it first forms.
 
-Suggested divergence ID components:
+The engine waits until the active check candle closes.
 
-- trading day;
-- M id;
-- current W id;
-- reference W id;
-- side: high or low;
-- hunted symbol;
-- clean/traded symbol;
-- check-candle close time.
+At close, it re-evaluates the candidate:
 
-If the same divergence remains true on later check candles, no new entry is allowed.
+- The hunted symbol must still have hunted.
+- The clean symbol must still not have hunted.
+- The current check candle must not be the final check candle of the M.
+- Data for both symbols must be complete.
+- The M trade limit must not be exhausted.
+- Direction lock must allow the side if Hedging is OFF.
+- Entry STC must be ON for live execution, or the signal is audit-only.
 
-## Multiple eligible references
+If all checks pass, the signal is confirmed.
 
-When multiple eligible references are hunted, the default selected reference is the closest eligible W by time.
+## 9. Candidate invalidation before confirmation
 
-Example:
+A candidate becomes invalid if before confirmation close:
 
-If W4 is current and W3, W2, and W1 references are all touched, W3 is selected by default because it is closest.
+- The clean symbol also hunts the corresponding reference.
+- Data becomes incomplete.
+- Time moves into a gap or beyond the M end.
+- Buy and sell ambiguity appears in the same check candle.
 
-The purpose is to keep the stop-loss smaller.
+Invalidated candidates are logged for audit.
 
-Optional research mode:
+## 10. Simultaneous buy and sell
 
-- choose the eligible reference that produces the smallest stop distance on the trade symbol.
+If a buy signal and a sell signal confirm inside the same check candle, the engine discards the entire check-candle trade decision.
 
-This optional mode must be explicitly labelled in reports because it is not the strict default.
+No trade is opened.
 
-## Simultaneous buy and sell
+The event is logged as `AMBIGUOUS_BUY_SELL_DISCARDED`.
 
-If buy-side and sell-side divergences are both confirmed in the same check candle, no trade is opened.
+The discarded event is not eligible for delayed entry or retry.
 
-The event should be recorded as ambiguous/no-trade.
+## 11. Same-direction multiple signals
 
-If buy and sell signals occur on separate check candles and hedging is enabled, both may be traded subject to max-trade-per-M limits.
+If multiple same-direction unique signals confirm in the same check candle, the engine may open multiple trades until the maximum three trades per M is reached.
 
-## No-entry moments
+However, for the same clean symbol and same side inside the same check candle, only one trade is allowed. The reference-selection rule chooses the largest-stop reference.
 
-No new entry is allowed:
+A deterministic ordering must be used when more eligible trades exist than remaining M capacity. Recommended ordering:
 
-- during M gaps;
-- on the last check candle of an M;
-- after 15:30 New York;
-- when required symbol data is missing;
-- when the market is closed.
+1. Largest stop-distance reference first.
+2. Earliest formation time second.
+3. Symbol1 before Symbol2 as final tie-breaker.
 
-## Reference selection
+## 12. Signal identity
 
-If multiple eligible previous W references are valid for the same side and clean/traded symbol, the selected reference is the one that creates the largest stop distance for the clean/traded symbol.
+A signal identity should include:
 
-Multiple eligible references in the same check candle resolve into one signal per side/trade-symbol after reference selection. They must not create duplicate trades by themselves.
+- STC trading-day ID.
+- Strategy ID.
+- M ID.
+- Current W ID.
+- Check-candle close time.
+- Side.
+- Hunted symbol.
+- Clean/trade symbol.
+- Selected reference W ID.
+- Reference side high/low.
+
+This identity prevents duplicate entries after restart.
+
+## 13. Consumed signals
+
+A signal is consumed when:
+
+- It successfully opens a position.
+- Entry STC is OFF at confirmation time.
+- The EA was offline at the exact entry time and the opportunity is reconstructed later.
+- Order send fails.
+- It is rejected by direction lock.
+- It is discarded because buy and sell confirmed in the same check candle.
+
+Consumed signals must not be entered later.
+
+## 14. Algorithm: detect and confirm SMT
+
+1. On every completed check candle, determine cycle context.
+2. If outside M or inside gap, skip detection.
+3. If check candle is final for the M, skip entry and mark final-window candidates as expired.
+4. Build current W and eligible previous W references.
+5. Skip if current W is W1.
+6. Evaluate high and low hunts for both symbols against all eligible references.
+7. Build candidate list for exactly-one-symbol-hunted cases.
+8. Resolve multiple references by largest stop distance on the clean traded symbol.
+9. Remove ambiguous buy/sell same-check-candle events.
+10. Apply Entry ON/OFF, trade counter, direction lock, data completeness, and duplicate-signal filters.
+11. Confirm tradable signals.
+12. Send to execution simulator/live executor.
+13. Write all accepted and rejected candidates to audit logs.

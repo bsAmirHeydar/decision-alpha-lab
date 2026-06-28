@@ -1,200 +1,207 @@
 # 06 - MQL5 Architecture Plan
 
-## Design goal
+## 1. Design goal
 
-The STC SMT Cycles implementation should be modular enough to support later related divergence/cycle strategies without hardcoding all logic into one EA.
+The implementation must be modular. The STC strategy should not be a single large EA with hidden state. It should be built from reusable modules that can later support other SMT/cycle-divergence strategies.
 
-This document describes the planned MQL5 architecture for EXEC001 only, while keeping common components reusable.
+## 2. Proposed folder structure
 
-## Proposed folder structure
-
-Expert:
+MQL5 experts:
 
 - `mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5`
 
-Includes:
+MQL5 include modules:
 
 - `mql5/Include/IntermarketDivergenceExecution/Core/`
 - `mql5/Include/IntermarketDivergenceExecution/STC/`
 
-Strategy documentation:
+STC modules:
 
-- `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/`
+- `DAL_STC_Types.mqh`
+- `DAL_STC_Time.mqh`
+- `DAL_STC_Cycles.mqh`
+- `DAL_STC_CheckCandles.mqh`
+- `DAL_STC_WLevels.mqh`
+- `DAL_STC_SMTDetector.mqh`
+- `DAL_STC_Confirmation.mqh`
+- `DAL_STC_ReferenceSelector.mqh`
+- `DAL_STC_Risk.mqh`
+- `DAL_STC_PositionManager.mqh`
+- `DAL_STC_StateJournal.mqh`
+- `DAL_STC_TradeJournal.mqh`
+- `DAL_STC_Renderer.mqh`
+- `DAL_STC_InstanceLock.mqh`
 
-## Core modules
+## 3. Core modules
 
-### Time module
+Shared core modules should include:
 
-Responsibilities:
+- Broker symbol info reader.
+- Tick value and volume step utilities.
+- Position lookup by magic number.
+- CSV writer.
+- Time conversion utility.
+- Atomic file writer.
+- Chart object prefix cleaner.
+- Common drawing helpers.
 
-- convert broker/server time to UTC;
-- convert UTC to New York time;
-- handle New York DST;
-- assign bars/ticks to STC trading day;
-- detect M cycle, W cycle, gaps, partial times, and daily close.
+## 4. STC EA responsibilities
 
-### Synthetic candle module
+The EA should:
 
-Responsibilities:
+1. Load inputs.
+2. Acquire duplicate-instance lock.
+3. Initialize time/cycle configuration.
+4. Load current-day data for Symbol1 and Symbol2.
+5. Reconstruct state from current-day candles, journals, and magic-number positions.
+6. Run the scheduler on new check-candle closes.
+7. Detect SMT candidates.
+8. Confirm signals.
+9. Route signals to research, paper, or auto-trade execution mode.
+10. Manage positions, partials, SL/TP outcomes, and hard close.
+11. Write audit and trade journals.
+12. Draw chart overlays.
 
-- build W synthetic 90-minute candles;
-- build check candles from lower timeframe data;
-- support non-standard check periods: 3m and 10m;
-- maintain per-symbol high/low state.
+## 5. Scheduler algorithm
 
-### Cycle state module
+OnTimer or OnTick should call a scheduler. The scheduler must not depend on chart timeframe.
 
-Responsibilities:
+Scheduler steps:
 
-- maintain current trading day state;
-- maintain M counters;
-- maintain W high/low records;
-- clear state at daily reset;
-- rebuild same-day state after restart.
+1. Get current server time.
+2. Convert to UTC and New York time.
+3. Determine STC day and cycle context.
+4. If new check candle closed, run signal logic.
+5. Always run position management.
+6. Always run hard-close recovery if needed.
+7. Always run delayed partial recovery if needed.
+8. Update drawings.
 
-### SMT divergence module
+## 6. Time engine
 
-Responsibilities:
+The time engine must expose:
 
-- evaluate eligible W references;
-- detect touch-only hunts;
-- confirm divergence at check-candle close;
-- detect invalidation by clean-symbol hunt;
-- prevent duplicate entry for the same divergence;
-- handle simultaneous buy/sell no-trade rule.
+- `GetStcTradingDayId()`
+- `GetMContext()`
+- `GetWContext()`
+- `IsGap()`
+- `IsFinalCheckCandleOfM()`
+- `GetNextCheckCandleOpen()`
+- `IsHardCloseDue()`
+- `ConvertServerToNewYork()`
 
-### Reference selection module
+## 7. Cycle engine
 
-Responsibilities:
+The cycle engine builds:
 
-- choose closest eligible W by time;
-- optionally choose smallest-stop reference in research mode;
-- return the selected trade-symbol stop anchor.
+- M cycle records.
+- W cycle records.
+- W high/low per symbol.
+- Completeness flags.
+- Eligible reference lists.
 
-### Entry gate module
+The engine must reject W references if either symbol has incomplete data.
 
-Responsibilities:
+## 8. Check candle engine
 
-- enforce STC Entry ON/OFF;
-- enforce no-entry gaps;
-- enforce final-check-candle rule;
-- enforce max three trades per M;
-- enforce hedging direction lock;
-- enforce simultaneous signal no-trade.
+The check-candle engine aggregates candles anchored from 20:00 New York.
 
-### Risk module
+It must support 1m, 3m, 5m, 10m, 15m, and 30m check candles.
 
-Responsibilities:
+It must expose the completed check candle for both symbols at the same close time.
 
-- calculate SL and TP;
-- calculate risk money;
-- use tick value if available;
-- fall back to Contract Size input;
-- normalize volume to broker min/max/step for live;
-- record theoretical vs executed volume.
+If either symbol is missing the check candle, the signal engine must skip and log `DATA_INCOMPLETE`.
 
-### Position management module
+## 9. SMT detector
 
-Responsibilities:
+The detector receives:
 
-- place market orders;
-- track STC-managed positions by magic/comment;
-- handle TP/SL via broker orders where possible;
-- perform W4 partial close;
-- hard-close all positions at 15:30 New York;
-- recover active positions after restart.
+- Current M/W context.
+- Completed check candle for Symbol1.
+- Completed check candle for Symbol2.
+- Eligible references for Symbol1 and Symbol2.
 
-### Journal module
+It returns candidate objects with:
 
-Responsibilities:
+- Side.
+- Hunted symbol.
+- Clean symbol.
+- Candidate references.
+- Selected reference.
+- Formation/check close time.
+- Rejection reason if rejected.
 
-- write confirmed signals;
-- write skipped signals with reason;
-- write opened trades;
-- write partial closes;
-- write final close/reset events;
-- write raw and net PnL fields.
+## 10. Confirmation and filter pipeline
 
-## Suggested strategy inputs
+The confirmation pipeline applies filters in this order:
 
-- `InpSymbol1`
-- `InpSymbol2`
-- `InpEnableSTCEntry`
-- `InpEnablePartial`
-- `InpEnableHedging`
-- `InpFinalRewardR`
-- `InpRiskPercent`
-- `InpCheckCandleMinutes`
-- `InpContractSize`
-- `InpBrokerUtcOffsetHours`
-- `InpReferenceSelectionMode`
-- `InpSpreadPointsForReport`
-- `InpSlippagePointsForReport`
-- `InpCommissionPerLotForReport`
-- `InpMagicNumber`
-- `InpReportPrefix`
+1. In active M, not gap.
+2. Current W is not W1.
+3. Check candle is not final for M.
+4. Data complete for both symbols.
+5. Exactly one symbol hunted.
+6. Buy/sell ambiguity filter.
+7. Reference selection by largest stop.
+8. Duplicate signal filter.
+9. Entry STC filter.
+10. M trade counter filter.
+11. Hedging direction lock filter.
+12. Runtime mode routing.
 
-## Reference selection enum
+## 11. Risk module
 
-- `STC_REF_CLOSEST_BY_TIME`
-- `STC_REF_SMALLEST_STOP_DISTANCE`
+The risk module computes:
 
-Default should be closest by time.
+- Entry price.
+- SL.
+- TP.
+- R distance.
+- Theoretical volume.
+- Broker-normalized volume.
+- Order split plan if volume exceeds broker maximum.
+- Skip reason if volume below broker minimum.
 
-## Event IDs
+## 12. Position manager
 
-The divergence event ID should include:
+The position manager handles:
 
-- strategy code;
-- trading day;
-- M id;
-- current W id;
-- reference W id;
-- side;
-- hunted symbol;
-- trade symbol;
-- check close time.
+- Open STC positions by magic number.
+- SL/TP outcome in research mode.
+- Real broker order monitoring in live mode.
+- Partial close at W4 end for M1 and M2.
+- Delayed partial recovery.
+- Hard close at 15:30.
+- Hard-close retry.
 
-This prevents duplicate entries and supports deterministic audit.
+## 13. Persistence
 
-## Execution phases
+The EA must write daily state files so restart does not create duplicate trades.
 
-### Phase 1 - Research/paper engine
+Minimum files:
 
-- no live auto order;
-- signal and trade simulation;
-- CSV reports;
-- deterministic tests.
+- Consumed signal journal.
+- Candidate/divergence audit.
+- Trade journal.
+- Position management journal.
+- Runtime state snapshot.
 
-### Phase 2 - Live management engine
+The journal must be keyed by STC trading day.
 
-- live signal detection;
-- market orders;
-- position sizing;
-- partial close;
-- hard close;
-- restart recovery.
+## 14. Drawing layer
 
-### Phase 3 - Multi-strategy router
+The renderer must be optional but should be enabled by default in research/paper mode.
 
-- shared core modules;
-- independent strategy ON/OFF;
-- shared risk and position accounting;
-- conflict management between related strategies.
+Drawing must use a strategy-specific object prefix and must be safe to clean without affecting other chart objects.
 
-## Clarification pass 2 implementation requirements
+Drawing must not alter strategy state.
 
-The implementation must include:
+## 15. Duplicate instance lock
 
-- internal check-candle aggregation anchored at 20:00 New York;
-- no-entry logic for any check candle closing at or after active M end;
-- equality-based touch operators with no tolerance;
-- reference selection by largest stop distance on the clean/traded symbol;
-- persistent daily journal/state reconstruction;
-- magic-number-only position management;
-- global instance lock by strategy id and symbol pair;
-- missed partial processing at first later opportunity;
-- missed hard-close processing at first later opportunity with retry every few seconds;
-- ambiguous SL/TP outcome category;
-- broker-volume splitting for above-max requested volume where practical;
-- chart drawing for cycle regions, reference levels, hunt markers, confirmations, entry/SL/TP, partials, and reset markers.
+A lock key should include:
+
+- Strategy ID.
+- Symbol1.
+- Symbol2.
+- Magic number.
+
+If another active instance holds the lock, the EA should refuse to run or enter passive display-only mode.

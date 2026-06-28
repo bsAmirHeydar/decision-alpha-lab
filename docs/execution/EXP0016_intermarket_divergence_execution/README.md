@@ -1,16 +1,24 @@
-# EXP0016 - Intermarket Divergence Execution Documentation
+# EXP0016 Intermarket Divergence Execution Documentation
 
-The canonical strategy-specific documents are stored under:
+This documentation index points to the execution documentation inside the lab folder.
 
-`lab/09_execution/EXP0016_intermarket_divergence_execution/`
+Main strategy:
 
-Current strategy:
+- `lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/`
 
-- EXEC001_STC_SMT_Cycles
+EXEC001 STC SMT Cycles is now documented as a layered executable specification:
 
-This documentation set is English-only by project decision.
+- Strategy map.
+- Normalized spec.
+- Cycle calendar.
+- SMT algorithm.
+- Execution and risk.
+- MQL5 architecture.
+- Test plan.
+- State machines.
+- Journals.
+- Backtest/live runtime.
+- Visualization contract.
+- Implementation checklist.
 
-
-## EXEC001 clarification pass 2
-
-The EXEC001 STC SMT Cycles strategy now has a second locked owner decision pass covering touch equality, check-candle anchoring, final-M-candle no-entry, largest-stop reference selection, Entry OFF behavior, offline entry behavior, order failure, M-scoped hedging, volume handling, magic-number ownership, instance locking, restart persistence, and ambiguous SL/TP reporting.
+The next engineering stage is the research/paper engine.
