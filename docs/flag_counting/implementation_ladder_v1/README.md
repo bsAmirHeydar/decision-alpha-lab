@@ -69,6 +69,9 @@ mql5/Include/FlagCountingPhoenix/FP_F2LifecycleEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_F3LifecycleRules.mqh
 mql5/Include/FlagCountingPhoenix/FP_F3LifecycleAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_F3LifecycleEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_ExportTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_ExportRows.mqh
+mql5/Include/FlagCountingPhoenix/FP_ExportEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
 mql5/Include/FlagCountingPhoenix/FP_Audit.mqh
@@ -93,3 +96,8 @@ Any patch that touches a higher level must declare which lower-level invariants 
 ## Level 10 patch status
 
 Level 10 now owns semantic sequence ownership through `FP_Ownership*` modules. `FP_SequenceEngine` only orchestrates ownership after Level 09 lock evidence and before visual duplicate pruning.
+
+
+## Level 11.5 patch status
+
+Level 11.5 now owns read-only raw audit export through `FP_Export*` modules. Export runs after Level 11 canonicalization and before renderer drawing.

@@ -841,3 +841,79 @@ ownership result
 `FP_LEVEL11` is the canonicalization audit form. It must report visible-before/after, hidden-before/after, repaired IDs, repaired parent links, repaired hidden reasons, duplicate groups, duplicates hidden, orphan hides, malformed-body hides, invalid hides, invariant failures, post-canonical duplicate conflicts, and rank range.
 
 If `canonical_strict_invariants=true`, any `FP_LEVEL11 status=failed` means the renderer output is diagnostic only and must not be treated as canonical research evidence until the invariant failure is fixed.
+
+---
+
+## Level 11.5 implementation freeze — raw audit export / report engine
+
+Level 11.5 is the first file-based audit/report layer. It sits after Level 11 canonicalization and before Level 12 renderer/layout:
+
+```text
+Level 11 canonical stream
+-> Level 11.5 raw audit export/report
+-> Level 12 renderer
+```
+
+The active authority is:
+
+```text
+FP_ExportTypes.mqh
+FP_ExportRows.mqh
+FP_ExportEngine.mqh
+```
+
+`FlagCountingPhoenixExperiment.mq5` owns only input wiring and the call site. The export layer is read-only and may not mutate events, hooks, identity, visibility, parent links, hidden reasons, chart objects, or renderer state.
+
+Default export is disabled:
+
+```text
+InpExportAuditFiles = false
+```
+
+When enabled, Phoenix writes CSV files under:
+
+```text
+MQL5/Files/FlagCountingPhoenix/
+```
+
+Default file mode writes deterministic latest files:
+
+```text
+latest_events.csv
+latest_hooks.csv
+latest_summary.csv
+latest_manifest.csv
+```
+
+If `InpExportOverwriteLatest=false`, file names include the run id. `InpExportRunTag` may force a stable run id for validation packs.
+
+Required Level 11.5 output groups:
+
+```text
+events.csv      # full canonical event stream, visible and hidden unless visible-only is enabled
+hooks.csv       # full Hook/ND stream, visible and hidden unless visible-only is enabled
+summary.csv     # one-row aggregate counter snapshot
+manifest.csv    # run metadata, input hash, generated file paths, row counts
+FP_LEVEL11_5    # terminal sanity log for export status
+```
+
+Export must preserve hidden structures by default. `InpExportVisibleOnly=true` is a convenience filter only; it must never change engine output.
+
+Every exported event row must include identity, lifecycle, ownership, canonicalization, hidden reason, node geometry, and body/internal evidence. This makes the CSV a research object, not just a renderer dump.
+
+`FP_SUMMARY` now includes export counters:
+
+```text
+export_attempted
+export_ok
+export_files
+export_errors
+export_events
+export_events_visible
+export_events_hidden
+export_hooks
+export_hooks_visible
+export_hooks_hidden
+```
+
+Level 11.5 is frozen when renderer can be disabled and the same canonical event/hook stream can still be inspected from the exported files.

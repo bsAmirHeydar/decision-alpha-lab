@@ -649,6 +649,18 @@ struct FP_DetectResult
    int hook_branch_len5plus_total;
    int hook_retrace_rejected_total;
    int hooks_seed_visible_f1_total;
+
+   int export_attempted_total;
+   int export_ok_total;
+   int export_files_written_total;
+   int export_file_errors_total;
+   int export_events_written_total;
+   int export_visible_events_written_total;
+   int export_hidden_events_written_total;
+   int export_hooks_written_total;
+   int export_visible_hooks_written_total;
+   int export_hidden_hooks_written_total;
+
    int invalid_total;
 };
 
@@ -1099,6 +1111,18 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.hook_branch_len5plus_total = 0;
    r.hook_retrace_rejected_total = 0;
    r.hooks_seed_visible_f1_total = 0;
+
+   r.export_attempted_total = 0;
+   r.export_ok_total = 0;
+   r.export_files_written_total = 0;
+   r.export_file_errors_total = 0;
+   r.export_events_written_total = 0;
+   r.export_visible_events_written_total = 0;
+   r.export_hidden_events_written_total = 0;
+   r.export_hooks_written_total = 0;
+   r.export_visible_hooks_written_total = 0;
+   r.export_hidden_hooks_written_total = 0;
+
    r.invalid_total = 0;
 }
 

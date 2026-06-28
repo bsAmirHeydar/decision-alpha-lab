@@ -1,149 +1,224 @@
-# Phoenix Flag Counting Implementation Ladder V1
-
-This document is part of the implementation ladder for the Phoenix Flag Counting engine.
-
-# Level 11.5 — Raw Audit Export and Report Engine
+# Level 11.5 — Raw Audit Export / Report Engine
 
 ## Purpose
 
-Level 11.5 makes the engine auditable before the renderer becomes the primary inspection tool. Phoenix must be able to explain its structural decisions as data.
+Level 11.5 makes the Phoenix engine auditable as data before Level 12 renderer/layout work. The chart is useful, but it is not proof. The export layer serializes the final Level 11 canonical stream into stable CSV files so hidden structures, losing candidates, parent links, lifecycle states, and canonical decisions can be inspected outside MetaTrader.
 
-This level sits after semantic canonicalization and before renderer/layout work:
+Pipeline position:
 
 ```text
 Level 11 canonicalization
 -> Level 11.5 raw audit export/report
--> Level 12 renderer
+-> Level 12 renderer and labels
 ```
 
-## Owned files
+## Active files
 
 ```text
-mql5/Include/FlagCountingPhoenix/FP_Audit.mqh
-mql5/Include/FlagCountingPhoenix/FP_Types.mqh       # only if audit fields are missing
-mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5 # only for input/output wiring
+mql5/Include/FlagCountingPhoenix/FP_ExportTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_ExportRows.mqh
+mql5/Include/FlagCountingPhoenix/FP_ExportEngine.mqh
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+mql5/Include/FlagCountingPhoenix/FP_Types.mqh       # export counters only
+mql5/Include/FlagCountingPhoenix/FP_Audit.mqh       # summary counters only
+```
+
+## Authority boundary
+
+Level 11.5 is read-only.
+
+It may:
+
+```text
+serialize events
+serialize hooks
+serialize summary counters
+serialize manifest metadata
+print FP_LEVEL11_5 sanity/sample logs
+```
+
+It may not:
+
+```text
+create events
+hide events
+repair events
+repair hooks
+assign identity
+change parent links
+change chart object visibility
+change renderer output
+change sequence ownership
 ```
 
 ## Inputs
 
 ```text
-FP_Node nodes[]
-FP_HookBranch hooks[]
-FP_FlagEvent raw_events[]
-FP_FlagEvent visible_events[]
-FP_DetectResult summary
-FP_Config config
+canonical FP_FlagEvent events[] after Level 11
+canonical FP_HookBranch hooks[] after final Hook seed pass
+FP_DetectResult result
+FP_Config engine_cfg
+FP_ExportConfig export_cfg
+symbol / timeframe / bars / scale_count
 ```
 
-## Required output groups
-
-At minimum, audit/report output must expose:
+## Inputs added to EA
 
 ```text
-raw_nodes
-scaled_nodes
-hook_branches
-raw_events
-visible_events
-hidden_events
-hidden_reason
-sequence_transitions
-canonical_winners
-candidate_count
-qualified_count
-confirmed_count
-invalidated_count
-completed_count
-locked_count
+InpExportAuditFiles = false
+InpExportFolder = "FlagCountingPhoenix"
+InpExportRunTag = ""
+InpExportVisibleOnly = false
+InpExportEventsCsv = true
+InpExportHooksCsv = true
+InpExportSummaryCsv = true
+InpExportManifestCsv = true
+InpExportOverwriteLatest = true
+InpExportMaxEvents = 0
+InpExportMaxHooks = 0
+InpPrintExportSanity = true
+InpPrintExportSamples = false
+InpExportSampleLimit = 5
 ```
 
-## Required fields per event
+## Output path
+
+Default output folder:
 
 ```text
-event_id
-sequence_id
-parent_event_id
-parent_sequence_id
-chain_index
+MQL5/Files/FlagCountingPhoenix/
+```
+
+Default overwrite mode:
+
+```text
+latest_events.csv
+latest_hooks.csv
+latest_summary.csv
+latest_manifest.csv
+```
+
+Validation mode may set:
+
+```text
+InpExportOverwriteLatest = false
+InpExportRunTag = "GOLD_M1_2026_01_01_2026_06_28_level11_5"
+```
+
+## Event CSV contract
+
+`events.csv` exports both visible and hidden events by default. Each row includes:
+
+```text
+run metadata
+canonical id
+structural id
+visual id
+phase id
+chain id
+audit id
+sequence and parent ids
+level / direction / status
+visibility and hidden_reason
+source mode / fail-open / phase-boundary tags
+body id / body status / body reason
+internal pack id / count / valid12 / reason
+F1 lifecycle status and F2 authorization
+F2 lifecycle status, size gate, F3 authorization
+F3 lifecycle status, OR gate, lock evidence
+ownership state and phase owner
+canonical state, rank, conflict group, invariant flags
+Origin / Leg1 / Waist / Leg2 / Confirm / Invalid / ExtensionEnd node columns
+final reason
+```
+
+This is intentionally wide. The goal is debugability, not compactness.
+
+## Hook CSV contract
+
+`hooks.csv` exports both visible and hidden Hook/ND contexts by default. Each row includes:
+
+```text
+branch id
 scale_L
 direction
-level
 status
-branch_kind
-render_kind
-origin_id / origin_time / origin_price
-leg1_id / leg1_time / leg1_price
-waist_id / waist_time / waist_price
-leg2_id / leg2_time / leg2_price
-confirm_id / confirm_time / confirm_price
-invalid_id / invalid_time / invalid_price
-flag_size
-parent_flag_size
-size_ratio
-leg1_L
-parent_leg1_L
-from_phase_boundary
-from_fail_open
-visible_main
+node count
+side kind
+is_nd / nd_qualified
+seeds_visible_f1
+visible_main / hidden_reason
+retrace ratio
+max branch length
+cycle-start broken flag
+identity fields
+start / cycle_start / extreme / resolve / n1 / n2 / n3 / n4 node columns
 reason
 ```
 
-## Required fields per Hook/ND branch
+## Summary CSV contract
+
+`summary.csv` is a one-row aggregate view with core counters:
 
 ```text
-branch_id
-scale_L
-direction
-status
-node_count
-start_node
-cycle_start_node
-extreme_node
-resolve_node
-n1/n2/n3/n4
-retrace_ratio
-is_nd
-reason
+raw nodes
+canonical nodes
+hooks
+NDs
+events
+visible / hidden events
+F1/F2/F3 totals
+confirmed F1/F2
+completed / locked F3
+canonical invariant failures
+post-canonical duplicate conflicts
+parent missing after canonicalization
+export counters
 ```
 
-## Output forms
+## Manifest CSV contract
 
-Target final output:
+`manifest.csv` is key/value metadata:
 
 ```text
-CSV and/or JSON files under MQL5 Files/FlagCountingPhoenix/
+run_id
+export_time
+symbol
+timeframe
+bars
+scale_count
+identity_generation_pass
+identity_config_hash
+visible_only
+events_file
+hooks_file
+summary_file
+events_written
+hooks_written
+files_written_before_manifest
+file_errors_before_manifest
 ```
 
-Temporary acceptable output while export is being built:
+## Sanity log
+
+When enabled, terminal output includes:
 
 ```text
-structured PrintFormat logs with stable field names
+FP_LEVEL11_5 attempted=... ok=... run_id=... files=... errors=... events_written=... hooks_written=...
 ```
 
-Temporary logs must use the same field names intended for CSV/JSON so that later export does not change the audit contract.
-
-## Non-authority rule
-
-Audit/export may not mutate event state, visibility, parent-child links, node identity, or renderer output. It only serializes decisions already made by lower layers.
+`FP_SUMMARY` also includes export counters so export failures are visible in the normal run summary.
 
 ## Acceptance tests
 
-- Running with audit enabled emits raw event count and visible event count separately.
-- Every hidden event has a non-empty `reason`.
-- Every visible event has `visible_main=true`.
-- A duplicate loser remains in raw events and is absent from visible events.
-- A fail-open event is explicitly tagged.
-- Renderer can be disabled while audit/export still works.
-- Re-running the same range produces identical event order and IDs.
-
-## Failure symptoms
-
-- The only way to inspect a decision is by looking at the chart.
-- Hidden structures disappear without a reason.
-- Renderer settings change raw event counts.
-- Audit logs use prose-only messages that cannot be parsed later.
-- A child event exists without parent identity.
+- With `InpExportAuditFiles=false`, no files are written and engine behavior is unchanged.
+- With export enabled, `events.csv`, `hooks.csv`, `summary.csv`, and `manifest.csv` are created under `MQL5/Files/FlagCountingPhoenix/`.
+- `events.csv` contains hidden events unless `InpExportVisibleOnly=true`.
+- Every hidden exported event carries `hidden_reason`.
+- Renderer settings do not change exported event count.
+- Re-running the same range with the same inputs and `InpExportRunTag` produces stable event order and IDs.
+- The renderer can be disabled while Level 11.5 still exports the logical stream.
 
 ## Freeze criteria
 
-Level 11.5 is frozen when a deterministic audit/report exists for at least one validation range and the renderer can be disabled without losing logical output.
+Level 11.5 is frozen when a validation range can be inspected entirely from exported CSV files without looking at chart objects.

@@ -1,9 +1,10 @@
 #property strict
-#property version   "11.00"
+#property version   "11.50"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_Timebase.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_ExportEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -58,6 +59,9 @@ input int  InpOwnershipSampleLimit = 8;
 input bool InpPrintCanonicalSanity = true;
 input bool InpPrintCanonicalSamples = false;
 input int  InpCanonicalSampleLimit = 8;
+input bool InpPrintExportSanity = true;
+input bool InpPrintExportSamples = false;
+input int  InpExportSampleLimit = 5;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -102,6 +106,19 @@ input double InpF3Leg1LMinRatio = 0.80;
 input double InpNDMinRetraceRatio = 0.50;
 input bool   InpNDAllowBelowHalfCycle = false;
 input bool   InpVerboseAuditLogs = false;
+
+// ------------------------------ Raw audit export ----------------------------
+input bool   InpExportAuditFiles = false;
+input string InpExportFolder = "FlagCountingPhoenix";
+input string InpExportRunTag = "";
+input bool   InpExportVisibleOnly = false;
+input bool   InpExportEventsCsv = true;
+input bool   InpExportHooksCsv = true;
+input bool   InpExportSummaryCsv = true;
+input bool   InpExportManifestCsv = true;
+input bool   InpExportOverwriteLatest = true;
+input int    InpExportMaxEvents = 0;
+input int    InpExportMaxHooks = 0;
 
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
@@ -217,7 +234,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level11";
+   cfg.identity_generation_pass = "phoenix_level11_5";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -241,6 +258,8 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_canon" + FP_BoolName(InpPrintCanonicalSanity) +
                               "_canonstrict" + FP_BoolName(InpCanonicalStrictInvariants) +
                               "_canonorph" + FP_BoolName(InpCanonicalHideUnresolvedOrphans) +
+                              "_export" + FP_BoolName(InpExportAuditFiles) +
+                              "_exportvisible" + FP_BoolName(InpExportVisibleOnly) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -252,6 +271,25 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.nd_min_retrace_ratio = InpNDMinRetraceRatio;
    cfg.nd_allow_below_half_cycle = InpNDAllowBelowHalfCycle;
    cfg.verbose_logs = InpVerboseAuditLogs;
+}
+
+void FP_LoadExportConfig(FP_ExportConfig &cfg)
+{
+   FP_DefaultExportConfig(cfg);
+   cfg.enabled = InpExportAuditFiles;
+   cfg.export_events_csv = InpExportEventsCsv;
+   cfg.export_hooks_csv = InpExportHooksCsv;
+   cfg.export_summary_csv = InpExportSummaryCsv;
+   cfg.export_manifest_csv = InpExportManifestCsv;
+   cfg.visible_only = InpExportVisibleOnly;
+   cfg.overwrite_latest = InpExportOverwriteLatest;
+   cfg.folder = InpExportFolder;
+   cfg.run_tag = InpExportRunTag;
+   cfg.max_events = InpExportMaxEvents;
+   cfg.max_hooks = InpExportMaxHooks;
+   cfg.print_sanity = InpPrintExportSanity;
+   cfg.print_samples = InpPrintExportSamples;
+   cfg.sample_limit = InpExportSampleLimit;
 }
 
 void FP_Run()
@@ -317,6 +355,19 @@ void FP_Run()
    FP_HookBranch hooks[];
    FP_DetectResult result;
    FP_DetectAllScales(rates, copied, scales, scale_count, cfg, events, hooks, result);
+
+   FP_ExportConfig export_cfg;
+   FP_LoadExportConfig(export_cfg);
+   FP_ExportReport export_report;
+   if(export_cfg.enabled)
+   {
+      FP_ExportAuditWithReport(_Symbol, _Period, copied, scale_count, cfg, export_cfg, events, hooks, result, export_report);
+      FP_ExportApplyReportToResult(export_report, result);
+      if(export_cfg.print_sanity)
+         FP_PrintExportReport("FP_LEVEL11_5", export_report);
+      if(export_cfg.print_samples)
+         FP_PrintExportSamples("FP_LEVEL11_5", export_report, events, hooks, export_cfg.sample_limit);
+   }
 
    int drawn = FP_DrawAll(events,
                           hooks,

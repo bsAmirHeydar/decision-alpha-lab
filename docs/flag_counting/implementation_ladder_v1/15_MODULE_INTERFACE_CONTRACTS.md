@@ -843,3 +843,86 @@ Must not:
 - change F1/F2/F3 lifecycle status except by hidden/canonical state annotation;
 - decide phase ownership already owned by Level 10;
 - draw chart objects.
+
+---
+
+## Level 11.5 Export interface contract
+
+### `FP_ExportTypes.mqh`
+
+Owns:
+
+```text
+FP_ExportConfig
+FP_ExportReport
+FP_DefaultExportConfig
+FP_ResetExportReport
+```
+
+`FP_ExportConfig` is independent from `FP_Config` because export is a product/output concern, not a structural-decision concern.
+
+### `FP_ExportRows.mqh`
+
+Owns stable CSV field names and row construction:
+
+```text
+FP_ExportEventsHeader
+FP_ExportEventRow
+FP_ExportHooksHeader
+FP_ExportHookRow
+FP_ExportSummaryHeader
+FP_ExportSummaryRow
+```
+
+This module may read all Level 11 canonical fields but may not change them.
+
+### `FP_ExportEngine.mqh`
+
+Public facade:
+
+```text
+bool FP_ExportAuditWithReport(
+   const string symbol,
+   const ENUM_TIMEFRAMES period,
+   const int bars,
+   const int scale_count,
+   const FP_Config &engine_cfg,
+   const FP_ExportConfig &export_cfg,
+   const FP_FlagEvent &events[],
+   const FP_HookBranch &hooks[],
+   const FP_DetectResult &result,
+   FP_ExportReport &report
+)
+```
+
+Side effects are limited to files under `MQL5/Files/<export_folder>/` and terminal sanity/sample logs. It must not mutate event arrays, hook arrays, renderer state, or chart objects.
+
+### EA wiring
+
+`FlagCountingPhoenixExperiment.mq5` owns:
+
+```text
+InpExportAuditFiles
+InpExportFolder
+InpExportRunTag
+InpExportVisibleOnly
+InpExportEventsCsv
+InpExportHooksCsv
+InpExportSummaryCsv
+InpExportManifestCsv
+InpExportOverwriteLatest
+InpExportMaxEvents
+InpExportMaxHooks
+InpPrintExportSanity
+InpPrintExportSamples
+InpExportSampleLimit
+```
+
+The call order must remain:
+
+```text
+FP_DetectAllScales
+-> FP_ExportAuditWithReport
+-> FP_DrawAll
+-> FP_PrintSummary
+```

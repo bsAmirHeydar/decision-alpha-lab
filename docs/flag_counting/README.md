@@ -60,3 +60,22 @@ ND/Hook -> F1 -> F2 -> F3 -> Extension/Lock
 ```
 
 It is not a sliding-window pattern scanner, and the renderer is never allowed to invent or repair structure logic.
+
+## Phoenix Level 11.5 raw audit export
+
+Phoenix now includes a read-only raw audit export layer before renderer trust. Enable it from `FlagCountingPhoenixExperiment.mq5` with:
+
+```text
+InpExportAuditFiles = true
+```
+
+Default output goes to:
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_events.csv
+MQL5/Files/FlagCountingPhoenix/latest_hooks.csv
+MQL5/Files/FlagCountingPhoenix/latest_summary.csv
+MQL5/Files/FlagCountingPhoenix/latest_manifest.csv
+```
+
+This export serializes the Level 11 canonical stream. It does not create, hide, repair, or draw structures.

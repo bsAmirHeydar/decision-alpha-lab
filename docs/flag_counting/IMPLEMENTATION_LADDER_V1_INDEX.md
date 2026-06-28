@@ -40,3 +40,7 @@ Recommended reading order:
 16. `15_MODULE_INTERFACE_CONTRACTS.md`
 17. `16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md`
 18. `17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md`
+
+## Level 11.5 implemented
+
+`11_5_LEVEL_11_5_RAW_AUDIT_EXPORT.md` is now backed by Phoenix `FP_ExportTypes`, `FP_ExportRows`, and `FP_ExportEngine`. The layer exports canonical events, hooks, summary, and manifest CSV before renderer trust.

@@ -132,6 +132,16 @@ void FP_PrintSummary(const string symbol,
    msg += " f1=" + IntegerToString(result.f1_total);
    msg += " f2=" + IntegerToString(result.f2_total);
    msg += " f3=" + IntegerToString(result.f3_total);
+   msg += " export_attempted=" + IntegerToString(result.export_attempted_total);
+   msg += " export_ok=" + IntegerToString(result.export_ok_total);
+   msg += " export_files=" + IntegerToString(result.export_files_written_total);
+   msg += " export_errors=" + IntegerToString(result.export_file_errors_total);
+   msg += " export_events=" + IntegerToString(result.export_events_written_total);
+   msg += " export_events_visible=" + IntegerToString(result.export_visible_events_written_total);
+   msg += " export_events_hidden=" + IntegerToString(result.export_hidden_events_written_total);
+   msg += " export_hooks=" + IntegerToString(result.export_hooks_written_total);
+   msg += " export_hooks_visible=" + IntegerToString(result.export_visible_hooks_written_total);
+   msg += " export_hooks_hidden=" + IntegerToString(result.export_hidden_hooks_written_total);
    msg += " invalid=" + IntegerToString(result.invalid_total);
    msg += " drawn=" + IntegerToString(drawn);
    Print(msg);

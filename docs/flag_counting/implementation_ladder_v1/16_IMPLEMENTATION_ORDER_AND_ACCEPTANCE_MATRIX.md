@@ -426,3 +426,29 @@ Phoenix is implementation-complete when:
 - Hook/ND coverage can be toggled without starving flags;
 - renderer toggles do not change logical output;
 - validation cases `FC-GC-001` through `FC-GC-010` are baselined.
+
+---
+
+## Level 11.5 acceptance — raw audit export / report engine
+
+Status: implemented in Phoenix Level 11.5.
+
+Required checks:
+
+```text
+[ ] InpExportAuditFiles=false writes no files and does not change event/hook counts.
+[ ] InpExportAuditFiles=true writes events/hooks/summary/manifest CSV under MQL5/Files/FlagCountingPhoenix/.
+[ ] events.csv includes hidden events by default.
+[ ] hidden exported events have non-empty hidden_reason.
+[ ] InpExportVisibleOnly=true filters output rows only; engine event count is unchanged.
+[ ] Renderer can be disabled while CSV export still works.
+[ ] FP_LEVEL11_5 prints attempted/ok/files/errors/events/hooks status.
+[ ] FP_SUMMARY includes export counters.
+[ ] InpExportRunTag creates a deterministic run id for validation ranges.
+```
+
+Freeze condition:
+
+```text
+A validation range can be inspected from CSV files without reading chart objects.
+```

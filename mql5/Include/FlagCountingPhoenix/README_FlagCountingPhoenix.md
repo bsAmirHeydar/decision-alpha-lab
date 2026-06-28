@@ -70,6 +70,9 @@ Structural / sequence engines:
 - `FP_CanonicalRules.mqh`: Level 11 pure final-stream invariant and duplicate rules.
 - `FP_CanonicalAudit.mqh`: Level 11 FP_LEVEL11 report and canonical samples.
 - `FP_Canonicalizer.mqh`: Level 11 final pre-render canonicalization facade.
+- `FP_ExportTypes.mqh`: Level 11.5 raw audit export config/report types.
+- `FP_ExportRows.mqh`: Level 11.5 CSV header and row serialization helpers.
+- `FP_ExportEngine.mqh`: Level 11.5 file export facade for events, hooks, summary, and manifest CSV.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration, ownership, and canonicalization wiring.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
@@ -214,6 +217,41 @@ InpBodySampleLimit = 6
 `FP_LEVEL05` reports body attempts, completed bodies, invalid origins, origin-break invalidations, Leg1 extensions, Waist deepenings, equal-Origin touches, equal-Leg1 touches, strict Leg2 breaks, and pre-internal Leg2 extension absorption.
 
 Level 05 emits body-stage facts only. It does not confirm F1, qualify F2/F3, reset phases, or decide ownership. Every `FP_FlagEvent` now carries `body_id`, `body_status`, `leg2_extension_count`, `body_scan_start_pos`, `body_scan_end_pos`, and `body_reason` so post-body lifecycle layers can be audited against the exact body they received.
+
+
+## Level 11.5 Raw audit export
+
+Phoenix now has a file-based export/report layer before renderer trust. Default export is disabled:
+
+```text
+InpExportAuditFiles = false
+```
+
+When enabled, Level 11.5 writes CSV files under `MQL5/Files/FlagCountingPhoenix/`:
+
+```text
+latest_events.csv
+latest_hooks.csv
+latest_summary.csv
+latest_manifest.csv
+```
+
+The export layer is read-only. It serializes the Level 11 canonical stream and never mutates visibility, parent links, hidden reasons, identity, renderer objects, or sequence ownership.
+
+Default export inputs:
+
+```text
+InpExportFolder = "FlagCountingPhoenix"
+InpExportVisibleOnly = false
+InpExportEventsCsv = true
+InpExportHooksCsv = true
+InpExportSummaryCsv = true
+InpExportManifestCsv = true
+InpExportOverwriteLatest = true
+InpPrintExportSanity = true
+```
+
+The terminal sanity line is `FP_LEVEL11_5`. `FP_SUMMARY` also includes export counters.
 
 ## Expert
 
