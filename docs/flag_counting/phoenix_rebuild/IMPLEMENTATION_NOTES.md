@@ -89,3 +89,50 @@ The renderer uses `cycle_start_node` only for the gray Hook/ND arc. It does not 
 Hook rendering is also compacted across scales at the same resolve node. If L2, L3, L5, and L8 all resolve at the same structural node, the main chart keeps the strongest branch instead of drawing every gray duplicate. The engine still scans all scales; this is a main-chart readability rule.
 
 Gray Hook/ND arcs are drawn in the background so they cannot visually overwrite colored F1/F2/F3 structures.
+
+## 2026-06-28 - Root repair: bounded Hook contexts and flag visibility recovery
+
+This repair corrects two root causes that made the chart degenerate into mostly gray ND/Hook rendering with few or no visible flag bodies.
+
+### 1. Hook / ND is now rebuilt from bounded contexts
+
+The previous Hook branch implementation still behaved too much like a global same-side run. It could emit many gray Hook arcs across long spans without respecting the documented Hook container boundary. The repaired engine now follows the Hook / ND branch documents directly:
+
+- For a low-side Hook, the active node is a LOW and the engine walks backward to the nearest older LOW that is strictly lower than the active LOW.
+- For a high-side Hook, the active node is a HIGH and the engine walks backward to the nearest older HIGH that is strictly higher than the active HIGH.
+- That older same-side node is the Hook floor/ceiling and is stored as `cycle_start_node`.
+- The Hook floor/ceiling is not counted as branch number `1`.
+- Internal branch extraction happens only inside the bounded span between the floor/ceiling and the active node.
+- Branches are discovered right-to-left and then labeled old-to-new.
+- A one-node or two-node branch is not ND.
+- A three-node or four-node branch can become ND if retracement qualifies.
+- If any branch inside the bounded Hook context exceeds four counted nodes, the entire context is skipped at this L. A higher-L view must represent the compressed structure.
+
+This aligns the code with `HOOK_ND_BRANCH_SEQUENCE_CONTRACT_V1.md` and `HOOK_ND_BRANCH_ALGORITHM_V1.md`.
+
+### 2. Hook visual start and F1 semantic start are separated
+
+A Hook branch now has two distinct starts:
+
+- `cycle_start_node`: the true floor/ceiling of the full Hook cycle, used for the gray arc and retracement measurement.
+- `start_node`: the first counted branch node, used only for branch numbering and audit.
+
+The F1 root implied by a Hook is the Hook close / `resolve_node`, not the old cycle boundary and not an arbitrary interior node. This prevents Hook visual-cycle repair from moving F1 phase ownership to the wrong point.
+
+### 3. Flags no longer disappear when Hook filtering fails
+
+Hook/ND is a phase-boundary filter, not a license to erase the entire F sequence layer. The sequence engine now tries Hook-derived F1 origins first. If those Hook origins produce zero visible F1 roots, it falls back to raw origin inspection with `from_fail_open=true` while keeping the event reason auditable.
+
+This fail-safe is intentionally enabled through the existing `InpAllowF1FailOpenWhenNoHook` input. It also applies when Hooks exist but none of their phase origins can build a valid visible F1 body.
+
+### 4. Gray Hook rendering is curated by default
+
+The renderer now supports `InpDrawOnlyFlagSeedHooks`, enabled by default. When enabled, the main chart draws only Hook/ND arcs whose resolve node actually seeds a visible F1 at the same scale and direction.
+
+This keeps Hook/ND available for phase context while preventing the main chart from turning into a gray audit dump. Turning the input off restores full Hook rendering for diagnostic work.
+
+### 5. Global same-direction pruning is disabled by default
+
+`InpEnforceSingleChainPerDirectionGlobal` now defaults to `false` because the global guard can hide every later F1 on long H1/H4 histories when no opposite completed F3 exists inside the scan window. The per-scale guard remains enabled by default for local sequence hygiene.
+
+Global pruning is still available as an explicit research input, but it is no longer allowed to make the main chart look like Hook-only output by default.

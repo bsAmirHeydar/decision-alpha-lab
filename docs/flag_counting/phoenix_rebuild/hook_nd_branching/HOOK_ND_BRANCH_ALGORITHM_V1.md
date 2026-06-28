@@ -418,3 +418,9 @@ Implementation consequences:
 6. A same-side run with more than 4 counted nodes is not emitted at that L. It must be represented by a higher-L compressed node view.
 7. The renderer displays the branch numbers on the counted same-side nodes and renders the ND label as `ND Lx #n`, where `n` is the counted-node count.
 8. Main chart labels are registered through a time/price cluster stacker so older labels stay closer to price and newer labels are pushed into deterministic lanes.
+
+## 16. Implementation repair note
+
+The Phoenix implementation now follows this bounded-context algorithm directly. The old failure mode was treating same-side runs as global structures. That could emit many ND arcs while starving the F engine of usable phase origins. The repaired implementation evaluates every active same-side node as a potential bounded Hook context, finds the nearest strict floor/ceiling boundary, extracts branches only inside that span, rejects over-four-node contexts at the current L, and uses the Hook resolve node as the F1 phase boundary.
+
+Main-chart Hook rendering is also curated by default: only Hook branches whose resolve node seeds a visible F1 are drawn, while full Hook rendering remains available through the experiment input layer.

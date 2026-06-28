@@ -413,6 +413,28 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
    }
 }
 
+
+bool FP_HookSeedsVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[])
+{
+   double eps = FP_EpsilonPrice(0.0);
+   FP_Node origin = FP_HookOriginNode(h, eps);
+   if(origin.id < 0) return false;
+
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].level != FP_LEVEL_F1) continue;
+      if(events[i].direction != h.direction) continue;
+      if(events[i].scale_L != h.scale_L) continue;
+      if(!events[i].has_origin) continue;
+      if(events[i].origin.kind != origin.kind) continue;
+      if(events[i].origin.index_anchor != origin.index_anchor) continue;
+      if(!FP_AlmostEqual(events[i].origin.price, origin.price, eps)) continue;
+      return true;
+   }
+   return false;
+}
+
 bool FP_ShouldDrawEvent(const FP_FlagEvent &e,
                         const bool draw_f1,
                         const bool draw_f2,
@@ -454,6 +476,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
                const bool draw_locked,
                const bool draw_invalidated,
                const bool draw_hooks,
+               const bool draw_only_flag_seed_hooks,
                const bool detailed_labels,
                const bool show_parent_ids,
                const bool show_origin_labels,
@@ -480,6 +503,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
+         if(draw_only_flag_seed_hooks && !FP_HookSeedsVisibleF1(hooks[h], events)) continue;
          FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_clusters, rates, rates_total);
          hook_drawn++;
       }

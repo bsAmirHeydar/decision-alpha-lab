@@ -5,24 +5,28 @@
 #include "FP_NodeEngine.mqh"
 
 // ============================================================================
-// Phoenix Hook / ND Engine - branch sequence implementation
+// Phoenix Hook / ND Engine - contract-aligned branch implementation
 // ----------------------------------------------------------------------------
-// Contract implemented here:
-// - Hook / ND is NOT a blind 3/4 alternating-node sliding window.
-// - A hook is a same-side branch container.
-// - Bullish hook uses LOW nodes as counted nodes.
-// - Bearish hook uses HIGH nodes as counted nodes.
-// - Opposite nodes are not counted; they are used to identify cycle extremes
-//   and to draw the gray hook arc.
-// - A counted branch is a chronological same-side sequence whose newer counted
-//   nodes move strictly farther in the adverse direction:
-//      bullish/low-side:  LOW1 > LOW2 > LOW3 > LOW4
-//      bearish/high-side: HIGH1 < HIGH2 < HIGH3 < HIGH4
-// - A branch with one or two counted nodes is developing, not ND.
-// - A branch with three or four counted nodes can qualify as ND/Hook.
-// - If the same-side run exceeds four counted nodes, the run is skipped at this
-//   L.  A higher L compressed node view must represent it.
-// - Equality is ignored: equal prices never extend, break, or validate a branch.
+// This file implements the Hook / ND documents under:
+//   docs/flag_counting/phoenix_rebuild/hook_nd_branching/
+//
+// Core contract:
+// - Hook / ND is a bounded same-side context, not a global monotonic run and
+//   not a blind 3/4 alternating-node window.
+// - Low-side Hook is built from LOW nodes. High-side Hook is built from HIGH
+//   nodes. Opposite nodes are only used to find the cycle extreme for arc
+//   curvature and retracement.
+// - For every active same-side node, the engine walks backward to the nearest
+//   older same-side boundary that is strictly farther in the adverse direction.
+//   That boundary is the Hook floor/ceiling. The boundary itself is not counted
+//   as 1/2/3/4.
+// - Branches are extracted inside that bounded Hook span by right-to-left
+//   discovery and old-to-new numbering.
+// - A branch of 1 or 2 counted nodes is developing, not ND.
+// - A branch of 3 or 4 counted nodes can become ND if retracement qualifies.
+// - If any branch inside a bounded Hook context exceeds 4 counted nodes, the
+//   whole context is skipped at this L; a higher-L view must compress it.
+// - Equality is never a break and never validates a structural crossing.
 // ============================================================================
 
 int FP_AdverseKindForHookDirection(const int direction)
@@ -35,18 +39,27 @@ int FP_FavorableKindForHookDirection(const int direction)
    return FP_OppositeKind(FP_AdverseKindForHookDirection(direction));
 }
 
-bool FP_HookNodeMovesAdverse(const FP_Node &newer, const FP_Node &older, const int direction, const double eps)
+bool FP_HookBoundaryBreaksActive(const FP_Node &candidate, const FP_Node &active, const int direction, const double eps)
 {
-   // True when chronological movement from older -> newer is deeper/adverse
-   // for the hook side.
-   return FP_IsMoreAdverse(direction, newer.price, older.price, eps);
+   // Low-side/Bullish: older LOW strictly below active LOW.
+   // High-side/Bearish: older HIGH strictly above active HIGH.
+   return FP_IsMoreAdverse(direction, candidate.price, active.price, eps);
 }
 
-bool FP_HookNodeSamePrice(const FP_Node &a, const FP_Node &b, const double eps)
+bool FP_HookJoinableOlderNode(const FP_Node &candidate, const FP_Node &reference, const int direction, const double eps)
 {
-   return FP_AlmostEqual(a.price, b.price, eps);
+   // Low-side/Bullish: older LOW strictly above the current reference LOW.
+   // High-side/Bearish: older HIGH strictly below the current reference HIGH.
+   return FP_IsMoreFavorable(direction, candidate.price, reference.price, eps);
 }
 
+bool FP_HookSplitterNode(const FP_Node &candidate, const FP_Node &reference, const int direction, const double eps)
+{
+   // A splitter is an older same-side node that moves beyond the current
+   // branch reference in the adverse direction. It closes the current branch
+   // path without becoming part of that branch.
+   return FP_IsMoreAdverse(direction, candidate.price, reference.price, eps);
+}
 
 int FP_HookFindNodePos(const FP_Node &nodes[], const int node_count, const FP_Node &needle)
 {
@@ -109,61 +122,6 @@ FP_Node FP_FindHookCycleExtreme(const FP_Node &nodes[],
    return best;
 }
 
-
-FP_Node FP_FindHookCycleStart(const FP_Node &nodes[],
-                              const int node_count,
-                              const int last_pos,
-                              const int direction,
-                              const double eps)
-{
-   FP_Node start;
-   FP_ResetNode(start);
-   if(last_pos <= 0 || last_pos >= node_count) return start;
-
-   int side_kind = FP_AdverseKindForHookDirection(direction);
-   FP_Node resolve = nodes[last_pos];
-   if(resolve.kind != side_kind) return start;
-
-   // User contract: from the active/final same-side node, walk backward until
-   // the nearest same-side node that is strictly farther in the adverse
-   // direction is found. That node is the cycle boundary / Hook start.
-   // Bullish low-side: older LOW strictly below resolve LOW.
-   // Bearish high-side: older HIGH strictly above resolve HIGH.
-   for(int i=last_pos-1; i>=0; i--)
-   {
-      if(nodes[i].kind != side_kind) continue;
-      if(FP_IsMoreAdverse(direction, nodes[i].price, resolve.price, eps))
-      {
-         start = nodes[i];
-         return start;
-      }
-   }
-   return start;
-}
-
-bool FP_HookCycleStartHeld(const FP_Node &nodes[],
-                           const int node_count,
-                           const int start_pos,
-                           const int resolve_pos,
-                           const int direction,
-                           const double eps)
-{
-   if(start_pos < 0 || resolve_pos < 0 || start_pos >= resolve_pos) return false;
-   int side_kind = FP_AdverseKindForHookDirection(direction);
-   FP_Node start = nodes[start_pos];
-   if(start.kind != side_kind) return false;
-
-   // The start of the Hook must not be hit/broken before the Hook closes.
-   // Equality is deliberately not a hit: only a strict break invalidates.
-   for(int i=start_pos+1; i<=resolve_pos; i++)
-   {
-      if(nodes[i].kind != side_kind) continue;
-      if(FP_IsMoreAdverse(direction, nodes[i].price, start.price, eps))
-         return false;
-   }
-   return true;
-}
-
 void FP_FindCountedBranchExtremes(const FP_HookBranch &h, FP_Node &first_counted, FP_Node &last_counted)
 {
    FP_ResetNode(first_counted);
@@ -188,10 +146,6 @@ double FP_HookRetraceRatio(const FP_HookBranch &h, const int direction)
    double cycle = MathAbs(h.extreme_node.price - cycle_start.price);
    if(cycle <= 0.0) return 0.0;
 
-   // Retracement is measured over the full Hook cycle: cycle_start -> extreme
-   // -> resolve. This fixes the visual/semantic mismatch where gray arcs and
-   // ND qualification started at the first counted branch node instead of the
-   // real cycle boundary.
    return MathAbs(last_counted.price - h.extreme_node.price) / cycle;
 }
 
@@ -200,6 +154,8 @@ bool FP_HookBranchHasSameCountedIdentity(const FP_HookBranch &a, const FP_HookBr
    if(a.scale_L != b.scale_L) return false;
    if(a.direction != b.direction) return false;
    if(a.node_count != b.node_count) return false;
+   if(a.has_cycle_start != b.has_cycle_start) return false;
+   if(a.has_cycle_start && !FP_SameNodeIdentity(a.cycle_start_node, b.cycle_start_node)) return false;
    if(a.node_count >= 1 && !FP_SameNodeIdentity(a.n1, b.n1)) return false;
    if(a.node_count >= 2 && !FP_SameNodeIdentity(a.n2, b.n2)) return false;
    if(a.node_count >= 3 && !FP_SameNodeIdentity(a.n3, b.n3)) return false;
@@ -216,10 +172,10 @@ bool FP_HookIdentityExists(const FP_HookBranch &hooks[], const int hook_count, c
 
 bool FP_HookCandidateBetterForResolve(const FP_HookBranch &candidate, const FP_HookBranch &existing)
 {
-   // Compact visual rendering should keep the strongest semantic branch at a
-   // given resolve, not every scale duplicate. Prefer richer branch count,
-   // then the cleaner/higher L compression, then stronger retracement, then
-   // older cycle boundary.
+   // Keep the strongest branch at a resolve node. Prefer four-node branches,
+   // then higher-L compression, then stronger retracement, then the older full
+   // cycle boundary. This is visual compaction only; branch construction stays
+   // deterministic and non-renderer-owned.
    if(candidate.node_count > existing.node_count) return true;
    if(candidate.node_count < existing.node_count) return false;
    if(candidate.scale_L > existing.scale_L) return true;
@@ -236,11 +192,6 @@ int FP_FindHookWithSameResolve(const FP_HookBranch &hooks[], const int hook_coun
 {
    for(int i=0; i<hook_count; i++)
    {
-      // Cross-scale compaction is intentional. When L2/L3/L5/L8 all resolve
-      // on the same structural node, drawing all gray arcs makes the chart look
-      // "all gray" and hides the colored F structures. The engine may still
-      // evaluate every scale, but the main chart keeps one best branch per
-      // direction + resolve node.
       if(hooks[i].direction != candidate.direction) continue;
       if(hooks[i].resolve_node.id != candidate.resolve_node.id) continue;
       if(hooks[i].resolve_node.index_anchor != candidate.resolve_node.index_anchor) continue;
@@ -249,43 +200,46 @@ int FP_FindHookWithSameResolve(const FP_HookBranch &hooks[], const int hook_coun
    return -1;
 }
 
-bool FP_BuildHookFromCountedNodes(const FP_Node &nodes[],
-                                  const int node_count,
-                                  const int scale_L,
-                                  const int direction,
-                                  const FP_Node &c1,
-                                  const FP_Node &c2,
-                                  const FP_Node &c3,
-                                  const FP_Node &c4,
-                                  const int counted,
-                                  const FP_Config &cfg,
-                                  const int branch_id,
-                                  FP_HookBranch &h)
+bool FP_BuildHookFromCountedNodesAndBoundary(const FP_Node &nodes[],
+                                             const int node_count,
+                                             const int scale_L,
+                                             const int direction,
+                                             const int boundary_pos,
+                                             const FP_Node &c1,
+                                             const FP_Node &c2,
+                                             const FP_Node &c3,
+                                             const FP_Node &c4,
+                                             const int counted,
+                                             const FP_Config &cfg,
+                                             const int branch_id,
+                                             FP_HookBranch &h)
 {
    FP_ResetHook(h);
    if(counted != 3 && counted != 4) return false;
+   if(boundary_pos < 0 || boundary_pos >= node_count) return false;
 
    double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
    int side_kind = FP_AdverseKindForHookDirection(direction);
    if(c1.kind != side_kind || c2.kind != side_kind || c3.kind != side_kind) return false;
    if(counted == 4 && c4.kind != side_kind) return false;
 
-   // Strict same-side adverse staircase.
-   if(!FP_HookNodeMovesAdverse(c2, c1, direction, eps)) return false;
-   if(!FP_HookNodeMovesAdverse(c3, c2, direction, eps)) return false;
-   if(counted == 4 && !FP_HookNodeMovesAdverse(c4, c3, direction, eps)) return false;
+   // Counted branch order is old-to-new. It must move strictly in the adverse
+   // direction from one counted node to the next. The bounding cycle start is
+   // intentionally NOT numbered.
+   if(!FP_IsMoreAdverse(direction, c2.price, c1.price, eps)) return false;
+   if(!FP_IsMoreAdverse(direction, c3.price, c2.price, eps)) return false;
+   if(counted == 4 && !FP_IsMoreAdverse(direction, c4.price, c3.price, eps)) return false;
 
    FP_Node last = (counted == 4 ? c4 : c3);
    int first_pos = FP_HookFindNodePos(nodes, node_count, c1);
    int last_pos = FP_HookFindNodePos(nodes, node_count, last);
    if(first_pos < 0 || last_pos < 0 || last_pos <= first_pos) return false;
+   if(boundary_pos >= first_pos) return false;
 
-   FP_Node cycle_start = FP_FindHookCycleStart(nodes, node_count, last_pos, direction, eps);
-   int cycle_start_pos = FP_HookFindNodePos(nodes, node_count, cycle_start);
-   if(cycle_start.id < 0 || cycle_start_pos < 0 || cycle_start_pos >= first_pos) return false;
-   if(!FP_HookCycleStartHeld(nodes, node_count, cycle_start_pos, last_pos, direction, eps)) return false;
+   FP_Node boundary = nodes[boundary_pos];
+   if(boundary.kind != side_kind) return false;
 
-   FP_Node extreme = FP_FindHookCycleExtreme(nodes, node_count, cycle_start_pos, last_pos, direction, eps);
+   FP_Node extreme = FP_FindHookCycleExtreme(nodes, node_count, boundary_pos, last_pos, direction, eps);
    if(extreme.id < 0) return false;
 
    h.branch_id = branch_id;
@@ -294,14 +248,17 @@ bool FP_BuildHookFromCountedNodes(const FP_Node &nodes[],
    h.status = FP_STATUS_CONFIRMED;
    h.node_count = counted;
    h.start_node = c1;                  // semantic counted-branch start
-   h.cycle_start_node = cycle_start;   // visual/full-cycle start
+   h.cycle_start_node = boundary;      // full cycle start / Hook floor or ceiling
    h.has_cycle_start = true;
    h.extreme_node = extreme;
-   h.resolve_node = last;
+   h.resolve_node = last;              // this is the ND close / F1 phase boundary
    FP_AssignHookCountedNodes(h, c1, c2, c3, c4, counted);
    h.retrace_ratio = FP_HookRetraceRatio(h, direction);
    h.is_nd = (cfg.nd_allow_below_half_cycle || h.retrace_ratio > cfg.nd_min_retrace_ratio);
-   h.reason = "same_side_branch_" + IntegerToString(counted) + "_nodes_retrace_" + DoubleToString(h.retrace_ratio, 3);
+   h.reason = "bounded_hook_branch_" + IntegerToString(counted) +
+              "_nodes_boundary_" + IntegerToString(boundary.id) +
+              "_resolve_" + IntegerToString(last.id) +
+              "_retrace_" + DoubleToString(h.retrace_ratio, 3);
    return h.is_nd;
 }
 
@@ -327,8 +284,84 @@ int FP_AddHookIfAccepted(FP_HookBranch &hooks[], FP_HookBranch &h, const FP_Conf
    return ArraySize(hooks);
 }
 
-// Builds hook/ND branches at the current L view using the same-side branch
-// sequence contract.  This is deliberately NOT sliding-window alternating logic.
+int FP_FindHookBoundarySideIndex(const FP_Node &nodes[],
+                                 const int side_positions[],
+                                 const int active_side_index,
+                                 const int direction,
+                                 const double eps)
+{
+   if(active_side_index <= 0) return -1;
+   FP_Node active = nodes[side_positions[active_side_index]];
+   for(int j=active_side_index - 1; j>=0; j--)
+   {
+      FP_Node candidate = nodes[side_positions[j]];
+      if(FP_HookBoundaryBreaksActive(candidate, active, direction, eps)) return j;
+   }
+   return -1;
+}
+
+int FP_ExtractHookBranchLength(const FP_Node &nodes[],
+                               const int side_positions[],
+                               const int span_start,
+                               const int right,
+                               const int direction,
+                               const double eps,
+                               int &branch_side_indexes[])
+{
+   ArrayResize(branch_side_indexes, 0);
+   if(right < span_start) return 0;
+
+   int sz = 0;
+   ArrayResize(branch_side_indexes, 1);
+   branch_side_indexes[0] = right;
+   sz = 1;
+
+   int reference = right;
+   for(int left=right - 1; left>=span_start; left--)
+   {
+      FP_Node candidate = nodes[side_positions[left]];
+      FP_Node ref_node = nodes[side_positions[reference]];
+
+      if(FP_HookJoinableOlderNode(candidate, ref_node, direction, eps))
+      {
+         ArrayResize(branch_side_indexes, sz + 1);
+         branch_side_indexes[sz] = left;
+         sz++;
+         reference = left;
+         continue;
+      }
+
+      if(FP_HookSplitterNode(candidate, ref_node, direction, eps))
+      {
+         break;
+      }
+
+      // Equality or neutral same-side compression: ignore; do not join and do
+      // not split. This preserves the global equality contract.
+   }
+   return sz;
+}
+
+bool FP_HookBranchSideIdentityExists(const int &seen0[],
+                                      const int &seen1[],
+                                      const int &seen2[],
+                                      const int &seen3[],
+                                      const int existing_count,
+                                      const int key0,
+                                      const int key1,
+                                      const int key2,
+                                      const int key3)
+{
+   for(int i=0; i<existing_count; i++)
+   {
+      if(seen0[i] == key0 && seen1[i] == key1 && seen2[i] == key2 && seen3[i] == key3)
+         return true;
+   }
+   return false;
+}
+
+// Builds Hook/ND branches according to the bounded context algorithm. This is
+// deliberately not the older global strict-run implementation.
 int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int scale_L, const FP_Config &cfg, FP_HookBranch &hooks[])
 {
    ArrayResize(hooks, 0);
@@ -342,75 +375,95 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
       int direction = (direction_index == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
       int side_positions[];
       int side_count = FP_CollectSameSidePositions(nodes, node_count, direction, side_positions);
-      if(side_count < 3) continue;
+      if(side_count < 4) continue; // boundary + at least three counted nodes
 
-      int run_start = 0;
-      int run_len = 1;
-
-      for(int s=1; s<=side_count; s++)
+      for(int active=0; active<side_count; active++)
       {
-         bool continues = false;
-         if(s < side_count)
-         {
-            FP_Node older = nodes[side_positions[s - 1]];
-            FP_Node newer = nodes[side_positions[s]];
-            continues = FP_HookNodeMovesAdverse(newer, older, direction, eps);
-            if(FP_HookNodeSamePrice(newer, older, eps)) continues = false;
-         }
+         int boundary_side = FP_FindHookBoundarySideIndex(nodes, side_positions, active, direction, eps);
+         if(boundary_side < 0) continue;
 
-         if(s < side_count && continues)
-         {
-            run_len++;
-            continue;
-         }
+         int span_start = boundary_side + 1;
+         int span_end = active;
+         int span_len = span_end - span_start + 1;
+         if(span_len < 3) continue;
 
-         // Close current strict adverse run [run_start, run_start + run_len - 1].
-         if(run_len >= 3 && run_len <= 4)
+         // First pass: if any branch in this bounded Hook context exceeds four
+         // counted nodes, skip the entire context at this L. Higher L views must
+         // compress it; do not render misleading 3/4 sub-branches from it.
+         bool overextended = false;
+         for(int right=span_end; right>=span_start; right--)
          {
-            // Emit the 3-node branch and, when present, the 4-node branch.
-            // This preserves multiple internal sequences inside one hook.
-            int max_end = run_start + run_len - 1;
-            for(int end=run_start + 2; end<=max_end; end++)
+            int branch_side_indexes[];
+            int cnt = FP_ExtractHookBranchLength(nodes, side_positions, span_start, right, direction, eps, branch_side_indexes);
+            if(cnt > 4)
             {
-               int counted = end - run_start + 1;
-               if(counted != 3 && counted != 4) continue;
-
-               FP_Node c1 = nodes[side_positions[run_start]];
-               FP_Node c2 = nodes[side_positions[run_start + 1]];
-               FP_Node c3 = nodes[side_positions[run_start + 2]];
-               FP_Node c4; FP_ResetNode(c4);
-               if(counted == 4) c4 = nodes[side_positions[run_start + 3]];
-
-               FP_HookBranch h;
-               if(FP_BuildHookFromCountedNodes(nodes, node_count, scale_L, direction, c1, c2, c3, c4, counted, cfg, next_branch_id, h))
-               {
-                  FP_AddHookIfAccepted(hooks, h, cfg, next_branch_id);
-                  if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks) return ArraySize(hooks);
-               }
+               overextended = true;
+               break;
             }
          }
-         else if(run_len > 4)
-         {
-            // Contract: branch > 4 is not accepted at this L.  Higher L views
-            // are expected to compress it.  Do not emit sub-branches from the
-            // invalid long run, otherwise the chart lies about the hook scale.
-         }
+         if(overextended) continue;
 
-         run_start = s;
-         run_len = 1;
+         // Second pass: emit only ND-qualified branch lengths 3 and 4. A single
+         // Hook may still yield multiple distinct branches.
+         int seen0[];
+         int seen1[];
+         int seen2[];
+         int seen3[];
+         ArrayResize(seen0, 0);
+         ArrayResize(seen1, 0);
+         ArrayResize(seen2, 0);
+         ArrayResize(seen3, 0);
+         int seen_count = 0;
+         for(int right=span_end; right>=span_start; right--)
+         {
+            int branch_side_indexes[];
+            int cnt = FP_ExtractHookBranchLength(nodes, side_positions, span_start, right, direction, eps, branch_side_indexes);
+            if(cnt != 3 && cnt != 4) continue;
+
+            // branch_side_indexes are newest-to-oldest; convert to old-to-new.
+            int k0 = branch_side_indexes[cnt - 1];
+            int k1 = branch_side_indexes[cnt - 2];
+            int k2 = branch_side_indexes[cnt - 3];
+            int k3 = (cnt == 4 ? branch_side_indexes[0] : -1);
+            if(FP_HookBranchSideIdentityExists(seen0, seen1, seen2, seen3, seen_count, k0, k1, k2, k3)) continue;
+            ArrayResize(seen0, seen_count + 1);
+            ArrayResize(seen1, seen_count + 1);
+            ArrayResize(seen2, seen_count + 1);
+            ArrayResize(seen3, seen_count + 1);
+            seen0[seen_count] = k0;
+            seen1[seen_count] = k1;
+            seen2[seen_count] = k2;
+            seen3[seen_count] = k3;
+            seen_count++;
+
+            FP_Node c1 = nodes[side_positions[k0]];
+            FP_Node c2 = nodes[side_positions[k1]];
+            FP_Node c3 = nodes[side_positions[k2]];
+            FP_Node c4; FP_ResetNode(c4);
+            if(cnt == 4) c4 = nodes[side_positions[k3]];
+
+            FP_HookBranch h;
+            if(FP_BuildHookFromCountedNodesAndBoundary(nodes, node_count, scale_L, direction, side_positions[boundary_side], c1, c2, c3, c4, cnt, cfg, next_branch_id, h))
+            {
+               FP_AddHookIfAccepted(hooks, h, cfg, next_branch_id);
+               if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks) return ArraySize(hooks);
+            }
+         }
       }
    }
    return ArraySize(hooks);
 }
 
-// Returns the canonical F1 origin implied by a hook branch.
-// Bullish: lowest LOW inside the hook branch.
-// Bearish: highest HIGH inside the hook branch.
+// Returns the F1 phase boundary implied by a Hook branch. The F1 root is the
+// node where the Hook/ND closes, not the older full-cycle boundary and not an
+// arbitrary interior numbered node.
 FP_Node FP_HookOriginNode(const FP_HookBranch &h, const double eps)
 {
-   FP_Node best;
-   FP_ResetNode(best);
+   FP_Node out;
+   FP_ResetNode(out);
+   if(h.resolve_node.id >= 0) return h.resolve_node;
 
+   // Defensive fallback for legacy branches.
    int adverse_kind = FP_AdverseKindForHookDirection(h.direction);
    FP_Node candidates[4];
    candidates[0] = h.n1;
@@ -421,9 +474,9 @@ FP_Node FP_HookOriginNode(const FP_HookBranch &h, const double eps)
    {
       if(candidates[i].id < 0) continue;
       if(candidates[i].kind != adverse_kind) continue;
-      if(best.id < 0 || FP_IsMoreAdverse(h.direction, candidates[i].price, best.price, eps)) best = candidates[i];
+      if(out.id < 0 || FP_IsMoreAdverse(h.direction, candidates[i].price, out.price, eps)) out = candidates[i];
    }
-   return best;
+   return out;
 }
 
 int FP_CollectHookOrigins(const FP_HookBranch &hooks[], const int hook_count, const int direction, const double eps, FP_Node &origins[])

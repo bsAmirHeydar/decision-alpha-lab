@@ -33,7 +33,7 @@ input bool InpKeepConfirmedF1F2AfterBoundaryHit = false;
 input bool InpRequireF1PhaseBoundary = true;
 input bool InpAllowF1FailOpenWhenNoHook = true;
 input bool InpEnforceSingleChainPerDirectionScale = true;
-input bool InpEnforceSingleChainPerDirectionGlobal = true;
+input bool InpEnforceSingleChainPerDirectionGlobal = false;
 input bool InpAbsorbPreInternalExtensions = true;
 input bool InpHideSupersededParentStates = true;
 input bool InpCompactHookRendering = true;
@@ -66,6 +66,7 @@ input bool   InpDrawConfirmed = true;
 input bool   InpDrawLocked = true;
 input bool   InpDrawInvalidated = false;
 input bool   InpDrawHooks = true;
+input bool   InpDrawOnlyFlagSeedHooks = true;
 input bool   InpDetailedLabels = true;
 input bool   InpShowParentIds = true;
 input bool   InpShowOriginLabels = true;
@@ -181,6 +182,7 @@ void FP_Run()
                           InpDrawLocked,
                           InpDrawInvalidated,
                           InpDrawHooks,
+                          InpDrawOnlyFlagSeedHooks,
                           InpDetailedLabels,
                           InpShowParentIds,
                           InpShowOriginLabels,

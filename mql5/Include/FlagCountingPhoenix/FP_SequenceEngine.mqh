@@ -303,6 +303,72 @@ int FP_FindOriginPosition(const FP_Node &nodes[], const int node_count, const FP
    return -1;
 }
 
+
+int FP_CollectRawOriginNodesForDirection(const FP_Node &nodes[],
+                                         const int node_count,
+                                         const int direction,
+                                         FP_Node &origins[])
+{
+   ArrayResize(origins, 0);
+   int origin_kind = FP_OriginKindForDirection(direction);
+   for(int i=0; i<node_count; i++)
+   {
+      if(nodes[i].kind != origin_kind) continue;
+      FP_AddNode(origins, nodes[i]);
+   }
+   return ArraySize(origins);
+}
+
+int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
+                                     const int node_count,
+                                     const FP_Node &origins[],
+                                     const int direction,
+                                     const bool from_phase_boundary,
+                                     const bool from_fail_open,
+                                     const FP_Config &cfg,
+                                     FP_FlagEvent &events[],
+                                     int &roots_used)
+{
+   int added_roots = 0;
+   for(int oi=0; oi<ArraySize(origins); oi++)
+   {
+      if(cfg.max_roots_per_scale_direction > 0 && roots_used >= cfg.max_roots_per_scale_direction) break;
+      int origin_pos = FP_FindOriginPosition(nodes, node_count, origins[oi]);
+      if(origin_pos < 0) continue;
+
+      int seq_id = FP_NextSequenceId(events);
+      FP_FlagEvent f1;
+      if(!FP_BuildF1FromOrigin(nodes, node_count, origin_pos, direction, seq_id, from_phase_boundary, from_fail_open, cfg, f1)) continue;
+      if(FP_EventBodyDuplicateExists(events, ArraySize(events), f1)) continue;
+
+      int f1_id = FP_AddSemanticEvent(events, f1, cfg);
+      if(f1_id < 0) return added_roots;
+      roots_used++;
+      added_roots++;
+
+      if(cfg.scan_f2 && FP_IsF1Confirmed(f1))
+      {
+         FP_FlagEvent f2;
+         if(FP_BuildF2FromF1(nodes, node_count, f1, seq_id, f1_id, cfg, f2))
+         {
+            int f2_id = FP_AddSemanticEvent(events, f2, cfg);
+            if(f2_id < 0) return added_roots;
+
+            if(cfg.scan_f3 && FP_IsF2Confirmed(f2))
+            {
+               FP_FlagEvent f3;
+               if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3))
+               {
+                  int f3_id = FP_AddSemanticEvent(events, f3, cfg);
+                  if(f3_id < 0) return added_roots;
+               }
+            }
+         }
+      }
+   }
+   return added_roots;
+}
+
 void FP_DetectScale(const MqlRates &rates[],
                     const int total,
                     const int scale_L,
@@ -333,45 +399,39 @@ void FP_DetectScale(const MqlRates &rates[],
    for(int d_index=0; d_index<2; d_index++)
    {
       int direction = (d_index == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
-      FP_Node origins[];
-      bool fail_open = false;
-      FP_CollectOriginNodesFromHooksOrFallback(nodes, node_count, hooks, hook_count, direction, cfg, origins, fail_open);
+      double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
+
+      FP_Node phase_origins[];
+      FP_CollectHookOrigins(hooks, hook_count, direction, eps, phase_origins);
 
       int roots_used = 0;
-      for(int oi=0; oi<ArraySize(origins); oi++)
+      int added_from_phase = FP_TryBuildFlagChainsFromOrigins(nodes,
+                                                              node_count,
+                                                              phase_origins,
+                                                              direction,
+                                                              true,
+                                                              false,
+                                                              cfg,
+                                                              events,
+                                                              roots_used);
+
+      // Critical fail-safe: Hook/ND is a phase-boundary filter, not a reason to
+      // make all F structures disappear. If Hook origins exist but none of them
+      // can build a visible F1 body, fall back to raw origin inspection. This
+      // preserves chart readability while Hook semantics are being researched.
+      if(added_from_phase <= 0 && cfg.allow_f1_fail_open_when_no_hook)
       {
-         if(cfg.max_roots_per_scale_direction > 0 && roots_used >= cfg.max_roots_per_scale_direction) break;
-         int origin_pos = FP_FindOriginPosition(nodes, node_count, origins[oi]);
-         if(origin_pos < 0) continue;
-
-         int seq_id = FP_NextSequenceId(events);
-         FP_FlagEvent f1;
-         if(!FP_BuildF1FromOrigin(nodes, node_count, origin_pos, direction, seq_id, !fail_open, fail_open, cfg, f1)) continue;
-         if(FP_EventBodyDuplicateExists(events, ArraySize(events), f1)) continue;
-
-         int f1_id = FP_AddSemanticEvent(events, f1, cfg);
-         if(f1_id < 0) return;
-         roots_used++;
-
-         if(cfg.scan_f2 && FP_IsF1Confirmed(f1))
-         {
-            FP_FlagEvent f2;
-            if(FP_BuildF2FromF1(nodes, node_count, f1, seq_id, f1_id, cfg, f2))
-            {
-               int f2_id = FP_AddSemanticEvent(events, f2, cfg);
-               if(f2_id < 0) return;
-
-               if(cfg.scan_f3 && FP_IsF2Confirmed(f2))
-               {
-                  FP_FlagEvent f3;
-                  if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3))
-                  {
-                     int f3_id = FP_AddSemanticEvent(events, f3, cfg);
-                     if(f3_id < 0) return;
-                  }
-               }
-            }
-         }
+         FP_Node fallback_origins[];
+         FP_CollectRawOriginNodesForDirection(nodes, node_count, direction, fallback_origins);
+         FP_TryBuildFlagChainsFromOrigins(nodes,
+                                          node_count,
+                                          fallback_origins,
+                                          direction,
+                                          false,
+                                          true,
+                                          cfg,
+                                          events,
+                                          roots_used);
       }
    }
 }

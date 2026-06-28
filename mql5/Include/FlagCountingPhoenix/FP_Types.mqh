@@ -352,7 +352,7 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.require_f1_phase_boundary = true;
    cfg.allow_f1_fail_open_when_no_hook = true;
    cfg.enforce_single_chain_per_direction_scale = true;
-   cfg.enforce_single_chain_per_direction_global = true;
+   cfg.enforce_single_chain_per_direction_global = false;
    cfg.absorb_pre_internal_extensions = true;
    cfg.hide_superseded_parent_states = true;
    cfg.compact_hook_rendering = true;

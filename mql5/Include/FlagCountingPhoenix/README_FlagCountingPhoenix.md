@@ -104,3 +104,13 @@ Hook branches now carry two different starts:
 - `cycle_start_node`: true visual cycle boundary used only for gray Hook/ND arc rendering and retracement measurement.
 
 This prevents Hook arc cleanup from mutating F-sequence ownership. Hook/ND arcs start at the real cycle boundary, close at the resolve node, and are drawn behind colored F structures. Same-resolve Hook duplicates across L-scales are compacted for the main chart when compact Hook rendering is enabled.
+
+## Root repair note - bounded Hook contexts and F visibility
+
+The Phoenix Hook engine now follows the documented bounded-context model instead of global same-side run emission. Low-side Hooks search backward from an active LOW to the nearest older strictly lower LOW; high-side Hooks mirror this from an active HIGH to the nearest older strictly higher HIGH. Branches are extracted only inside that bounded context, discovered right-to-left, and labeled old-to-new.
+
+The gray Hook/ND arc starts from the full-cycle `cycle_start_node`, but F1 ownership is seeded from the Hook `resolve_node`. This prevents visual cycle boundaries from moving semantic F roots.
+
+The main chart now defaults to drawing only Hooks that seed a visible F1 through `InpDrawOnlyFlagSeedHooks=true`. This avoids gray audit-dump charts while preserving Hook context. Full Hook rendering can be restored by setting that input to false.
+
+`InpEnforceSingleChainPerDirectionGlobal` defaults to false. Per-scale restart hygiene remains available, but global pruning is no longer allowed to hide all later flags on long chart windows.
