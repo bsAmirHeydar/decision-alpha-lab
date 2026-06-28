@@ -2,31 +2,15 @@
 #define __FP_HOOK_ENGINE_MQH__
 #property strict
 
-#include "FP_NodeEngine.mqh"
+#include "FP_HookContext.mqh"
 
 // ============================================================================
-// Phoenix Hook / ND Engine - contract-aligned branch implementation
+// Phoenix Hook / ND Engine - Level 04 bounded context implementation
 // ----------------------------------------------------------------------------
-// This file implements the Hook / ND documents under:
-//   docs/flag_counting/phoenix_rebuild/hook_nd_branching/
-//
-// Core contract:
-// - Hook / ND is a bounded same-side context, not a global monotonic run and
-//   not a blind 3/4 alternating-node window.
-// - Low-side Hook is built from LOW nodes. High-side Hook is built from HIGH
-//   nodes. Opposite nodes are only used to find the cycle extreme for arc
-//   curvature and retracement.
-// - For every active same-side node, the engine walks backward to the nearest
-//   older same-side boundary that is strictly farther in the adverse direction.
-//   That boundary is the Hook floor/ceiling. The boundary itself is not counted
-//   as 1/2/3/4.
-// - Branches are extracted inside that bounded Hook span by right-to-left
-//   discovery and old-to-new numbering.
-// - A branch of 1 or 2 counted nodes is developing, not ND.
-// - A branch of 3 or 4 counted nodes can become ND if retracement qualifies.
-// - If any branch inside a bounded Hook context exceeds 4 counted nodes, the
-//   whole context is skipped at this L; a higher-L view must compress it.
-// - Equality is never a break and never validates a structural crossing.
+// Hook/ND is a phase-context engine, not a renderer decoration and not the
+// primary flag detector.  This facade emits FP_HookBranch objects plus a
+// structured FP_HookBuildReport so every accepted/rejected Hook decision can be
+// audited without chart objects.
 // ============================================================================
 
 int FP_AdverseKindForHookDirection(const int direction)
@@ -48,16 +32,14 @@ bool FP_HookBoundaryBreaksActive(const FP_Node &candidate, const FP_Node &active
 
 bool FP_HookJoinableOlderNode(const FP_Node &candidate, const FP_Node &reference, const int direction, const double eps)
 {
-   // Low-side/Bullish: older LOW strictly above the current reference LOW.
-   // High-side/Bearish: older HIGH strictly below the current reference HIGH.
+   // Right-to-left branch discovery.  An older node joins the same counted
+   // branch only if it is strictly more favorable than the current reference.
    return FP_IsMoreFavorable(direction, candidate.price, reference.price, eps);
 }
 
 bool FP_HookSplitterNode(const FP_Node &candidate, const FP_Node &reference, const int direction, const double eps)
 {
-   // A splitter is an older same-side node that moves beyond the current
-   // branch reference in the adverse direction. It closes the current branch
-   // path without becoming part of that branch.
+   // A splitter closes the current counted branch without being counted.
    return FP_IsMoreAdverse(direction, candidate.price, reference.price, eps);
 }
 
@@ -172,10 +154,6 @@ bool FP_HookIdentityExists(const FP_HookBranch &hooks[], const int hook_count, c
 
 bool FP_HookCandidateBetterForResolve(const FP_HookBranch &candidate, const FP_HookBranch &existing)
 {
-   // Keep the strongest branch at a resolve node. Prefer four-node branches,
-   // then higher-L compression, then stronger retracement, then the older full
-   // cycle boundary. This is visual compaction only; branch construction stays
-   // deterministic and non-renderer-owned.
    if(candidate.node_count > existing.node_count) return true;
    if(candidate.node_count < existing.node_count) return false;
    if(candidate.scale_L > existing.scale_L) return true;
@@ -223,9 +201,8 @@ bool FP_BuildHookFromCountedNodesAndBoundary(const FP_Node &nodes[],
    if(c1.kind != side_kind || c2.kind != side_kind || c3.kind != side_kind) return false;
    if(counted == 4 && c4.kind != side_kind) return false;
 
-   // Counted branch order is old-to-new. It must move strictly in the adverse
-   // direction from one counted node to the next. The bounding cycle start is
-   // intentionally NOT numbered.
+   // Counted branch order is old-to-new and must move strictly adverse from
+   // each counted node to the next. Equality never qualifies progression.
    if(!FP_IsMoreAdverse(direction, c2.price, c1.price, eps)) return false;
    if(!FP_IsMoreAdverse(direction, c3.price, c2.price, eps)) return false;
    if(counted == 4 && !FP_IsMoreAdverse(direction, c4.price, c3.price, eps)) return false;
@@ -233,38 +210,68 @@ bool FP_BuildHookFromCountedNodesAndBoundary(const FP_Node &nodes[],
    FP_Node last = (counted == 4 ? c4 : c3);
    int first_pos = FP_HookFindNodePos(nodes, node_count, c1);
    int last_pos = FP_HookFindNodePos(nodes, node_count, last);
-   if(first_pos < 0 || last_pos < 0 || last_pos <= first_pos) return false;
-   if(boundary_pos >= first_pos) return false;
+   if(first_pos < 0 || last_pos < 0 || last_pos <= boundary_pos) return false;
 
    FP_Node boundary = nodes[boundary_pos];
    if(boundary.kind != side_kind) return false;
+   if(!FP_IsMoreAdverse(direction, boundary.price, last.price, eps)) return false;
+
+   FP_Node break_node;
+   int break_pos = -1;
+   if(FP_HookCycleStartBrokenBetween(nodes, node_count, boundary_pos, last_pos, direction, eps, break_pos, break_node))
+   {
+      h.side_kind = side_kind;
+      h.is_cycle_start_broken = true;
+      h.reason = "rejected_cycle_start_broken_by_" + IntegerToString(break_node.id) +
+                 "_before_resolve_" + IntegerToString(last.id);
+      return false;
+   }
 
    FP_Node extreme = FP_FindHookCycleExtreme(nodes, node_count, boundary_pos, last_pos, direction, eps);
-   if(extreme.id < 0) return false;
+   if(extreme.id < 0)
+   {
+      h.side_kind = side_kind;
+      h.reason = "rejected_no_opposite_cycle_extreme";
+      return false;
+   }
 
    h.branch_id = branch_id;
    h.scale_L = scale_L;
    h.direction = direction;
    h.status = FP_STATUS_CONFIRMED;
    h.node_count = counted;
+   h.side_kind = side_kind;
    h.start_node = c1;                  // semantic counted-branch start
    h.cycle_start_node = boundary;      // full cycle start / Hook floor or ceiling
    h.has_cycle_start = true;
    h.extreme_node = extreme;
-   h.resolve_node = last;              // this is the ND close / F1 phase boundary
+   h.resolve_node = last;              // ND close / F1 phase boundary
+   h.max_branch_len = counted;
+   h.is_cycle_start_broken = false;
    FP_AssignHookCountedNodes(h, c1, c2, c3, c4, counted);
    h.retrace_ratio = FP_HookRetraceRatio(h, direction);
-   h.is_nd = (cfg.nd_allow_below_half_cycle || h.retrace_ratio > cfg.nd_min_retrace_ratio);
+   h.nd_qualified = (cfg.nd_allow_below_half_cycle || h.retrace_ratio > cfg.nd_min_retrace_ratio);
+   h.is_nd = h.nd_qualified;
+   h.visible_main = true;
    h.reason = "bounded_hook_branch_" + IntegerToString(counted) +
               "_nodes_boundary_" + IntegerToString(boundary.id) +
               "_resolve_" + IntegerToString(last.id) +
               "_retrace_" + DoubleToString(h.retrace_ratio, 3);
-   return h.is_nd;
+   if(!h.nd_qualified)
+   {
+      h.reason = h.reason + ";rejected_retrace_below_threshold_" + DoubleToString(cfg.nd_min_retrace_ratio, 3);
+      return false;
+   }
+   return true;
 }
 
-int FP_AddHookIfAccepted(FP_HookBranch &hooks[], FP_HookBranch &h, const FP_Config &cfg, int &next_branch_id)
+int FP_AddHookIfAccepted(FP_HookBranch &hooks[], FP_HookBranch &h, const FP_Config &cfg, int &next_branch_id, FP_HookBuildReport &report)
 {
-   if(FP_HookIdentityExists(hooks, ArraySize(hooks), h)) return ArraySize(hooks);
+   if(FP_HookIdentityExists(hooks, ArraySize(hooks), h))
+   {
+      report.duplicates_skipped++;
+      return ArraySize(hooks);
+   }
 
    int same_resolve = (cfg.compact_hook_rendering ? FP_FindHookWithSameResolve(hooks, ArraySize(hooks), h) : -1);
    if(same_resolve >= 0)
@@ -274,6 +281,11 @@ int FP_AddHookIfAccepted(FP_HookBranch &hooks[], FP_HookBranch &h, const FP_Conf
          h.branch_id = hooks[same_resolve].branch_id;
          h.reason = h.reason + ";replaced_weaker_same_resolve_hook";
          hooks[same_resolve] = h;
+         report.same_resolve_replaced++;
+      }
+      else
+      {
+         report.same_resolve_kept_existing++;
       }
       return ArraySize(hooks);
    }
@@ -332,9 +344,7 @@ int FP_ExtractHookBranchLength(const FP_Node &nodes[],
       }
 
       if(FP_HookSplitterNode(candidate, ref_node, direction, eps))
-      {
          break;
-      }
 
       // Equality or neutral same-side compression: ignore; do not join and do
       // not split. This preserves the global equality contract.
@@ -360,12 +370,31 @@ bool FP_HookBranchSideIdentityExists(const int &seen0[],
    return false;
 }
 
-// Builds Hook/ND branches according to the bounded context algorithm. This is
-// deliberately not the older global strict-run implementation.
-int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int scale_L, const FP_Config &cfg, FP_HookBranch &hooks[])
+// Builds Hook/ND branches according to the bounded context algorithm and fills
+// a Level 04 report.  This is deliberately not the older global strict-run
+// implementation.
+int FP_BuildHookBranchesWithReport(const FP_Node &nodes[],
+                                   const int node_count,
+                                   const int scale_L,
+                                   const FP_Config &cfg,
+                                   FP_HookBranch &hooks[],
+                                   FP_HookBuildReport &report)
 {
    ArrayResize(hooks, 0);
-   if(!cfg.scan_hooks || node_count < 5) return 0;
+   FP_InitHookBuildReport(report, scale_L, node_count);
+
+   if(!cfg.scan_hooks)
+   {
+      report.status = "disabled";
+      report.reason = "scan_hooks_false";
+      return 0;
+   }
+   if(node_count < 5)
+   {
+      report.status = "skipped";
+      report.reason = "not_enough_nodes_for_hook_context";
+      return 0;
+   }
 
    int next_branch_id = 0;
    double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
@@ -380,12 +409,31 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
       for(int active=0; active<side_count; active++)
       {
          int boundary_side = FP_FindHookBoundarySideIndex(nodes, side_positions, active, direction, eps);
-         if(boundary_side < 0) continue;
+         if(boundary_side < 0)
+         {
+            report.contexts_no_boundary++;
+            continue;
+         }
 
          int span_start = boundary_side + 1;
          int span_end = active;
          int span_len = span_end - span_start + 1;
-         if(span_len < 3) continue;
+         report.same_side_contexts_seen++;
+         if(span_len < 3)
+         {
+            report.contexts_too_short++;
+            continue;
+         }
+
+         int boundary_pos = side_positions[boundary_side];
+         int resolve_pos = side_positions[active];
+         FP_Node broken;
+         int broken_pos = -1;
+         if(FP_HookCycleStartBrokenBetween(nodes, node_count, boundary_pos, resolve_pos, direction, eps, broken_pos, broken))
+         {
+            report.contexts_cycle_broken++;
+            continue;
+         }
 
          // First pass: if any branch in this bounded Hook context exceeds four
          // counted nodes, skip the entire context at this L. Higher L views must
@@ -395,16 +443,18 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
          {
             int branch_side_indexes[];
             int cnt = FP_ExtractHookBranchLength(nodes, side_positions, span_start, right, direction, eps, branch_side_indexes);
+            FP_HookReportRegisterBranchLength(report, cnt);
             if(cnt > 4)
-            {
                overextended = true;
-               break;
-            }
          }
-         if(overextended) continue;
+         if(overextended)
+         {
+            report.contexts_overextended++;
+            continue;
+         }
 
          // Second pass: emit only ND-qualified branch lengths 3 and 4. A single
-         // Hook may still yield multiple distinct branches.
+         // Hook context may still contain unlimited distinct internal branches.
          int seen0[];
          int seen1[];
          int seen2[];
@@ -419,13 +469,18 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
             int branch_side_indexes[];
             int cnt = FP_ExtractHookBranchLength(nodes, side_positions, span_start, right, direction, eps, branch_side_indexes);
             if(cnt != 3 && cnt != 4) continue;
+            report.nd_candidate_branches++;
 
             // branch_side_indexes are newest-to-oldest; convert to old-to-new.
             int k0 = branch_side_indexes[cnt - 1];
             int k1 = branch_side_indexes[cnt - 2];
             int k2 = branch_side_indexes[cnt - 3];
             int k3 = (cnt == 4 ? branch_side_indexes[0] : -1);
-            if(FP_HookBranchSideIdentityExists(seen0, seen1, seen2, seen3, seen_count, k0, k1, k2, k3)) continue;
+            if(FP_HookBranchSideIdentityExists(seen0, seen1, seen2, seen3, seen_count, k0, k1, k2, k3))
+            {
+               report.duplicates_skipped++;
+               continue;
+            }
             ArrayResize(seen0, seen_count + 1);
             ArrayResize(seen1, seen_count + 1);
             ArrayResize(seen2, seen_count + 1);
@@ -443,15 +498,50 @@ int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int
             if(cnt == 4) c4 = nodes[side_positions[k3]];
 
             FP_HookBranch h;
-            if(FP_BuildHookFromCountedNodesAndBoundary(nodes, node_count, scale_L, direction, side_positions[boundary_side], c1, c2, c3, c4, cnt, cfg, next_branch_id, h))
+            bool accepted = FP_BuildHookFromCountedNodesAndBoundary(nodes,
+                                                                    node_count,
+                                                                    scale_L,
+                                                                    direction,
+                                                                    boundary_pos,
+                                                                    c1,
+                                                                    c2,
+                                                                    c3,
+                                                                    c4,
+                                                                    cnt,
+                                                                    cfg,
+                                                                    next_branch_id,
+                                                                    h);
+            if(!accepted)
             {
-               FP_AddHookIfAccepted(hooks, h, cfg, next_branch_id);
-               if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks) return ArraySize(hooks);
+               if(h.reason != "") report.retrace_rejected++;
+               continue;
+            }
+
+            FP_HookReportRegisterResolve(report, h.resolve_node);
+            FP_AddHookIfAccepted(hooks, h, cfg, next_branch_id, report);
+            if(cfg.max_hooks > 0 && ArraySize(hooks) >= cfg.max_hooks)
+            {
+               report.hooks_emitted = ArraySize(hooks);
+               report.nd_emitted = report.hooks_emitted;
+               FP_FinalizeHookBuildReport(report);
+               return ArraySize(hooks);
             }
          }
       }
    }
+
+   report.hooks_emitted = ArraySize(hooks);
+   report.nd_emitted = 0;
+   for(int h=0; h<ArraySize(hooks); h++)
+      if(hooks[h].is_nd) report.nd_emitted++;
+   FP_FinalizeHookBuildReport(report);
    return ArraySize(hooks);
+}
+
+int FP_BuildHookBranches(const FP_Node &nodes[], const int node_count, const int scale_L, const FP_Config &cfg, FP_HookBranch &hooks[])
+{
+   FP_HookBuildReport report;
+   return FP_BuildHookBranchesWithReport(nodes, node_count, scale_L, cfg, hooks, report);
 }
 
 // Returns the F1 phase boundary implied by a Hook branch. The F1 root is the
@@ -486,6 +576,7 @@ int FP_CollectHookOrigins(const FP_HookBranch &hooks[], const int hook_count, co
    {
       if(hooks[i].direction != direction) continue;
       if(!hooks[i].is_nd) continue;
+      if(hooks[i].is_cycle_start_broken) continue;
       FP_Node o = FP_HookOriginNode(hooks[i], eps);
       if(o.id < 0) continue;
 
@@ -501,6 +592,56 @@ int FP_CollectHookOrigins(const FP_HookBranch &hooks[], const int hook_count, co
       if(!exists) FP_AddNode(origins, o);
    }
    return ArraySize(origins);
+}
+
+bool FP_HookMatchesVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[], const double eps)
+{
+   FP_Node origin = FP_HookOriginNode(h, eps);
+   if(origin.id < 0) return false;
+
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(!events[i].visible_main) continue;
+      if(events[i].level != FP_LEVEL_F1) continue;
+      if(!events[i].from_phase_boundary) continue;
+      if(events[i].direction != h.direction) continue;
+      if(events[i].scale_L != h.scale_L) continue;
+      if(!events[i].has_origin) continue;
+      if(events[i].origin.kind != origin.kind) continue;
+      if(events[i].origin.index_anchor != origin.index_anchor) continue;
+      if(!FP_AlmostEqual(events[i].origin.price, origin.price, eps)) continue;
+      return true;
+   }
+   return false;
+}
+
+void FP_MarkHookSeedVisibility(FP_HookBranch &hooks[], const FP_FlagEvent &events[], const FP_Config &cfg)
+{
+   double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
+   for(int h=0; h<ArraySize(hooks); h++)
+   {
+      hooks[h].seeds_visible_f1 = FP_HookMatchesVisibleF1(hooks[h], events, eps);
+      if(cfg.hook_main_requires_visible_f1 && !hooks[h].seeds_visible_f1 && !cfg.hook_keep_unseeded_visible_for_debug)
+      {
+         hooks[h].visible_main = false;
+         hooks[h].hidden_reason = "hidden_hook_not_connected_to_visible_f1";
+         hooks[h].reason = hooks[h].reason + ";hidden_hook_not_connected_to_visible_f1";
+      }
+      else
+      {
+         hooks[h].visible_main = true;
+         if(hooks[h].seeds_visible_f1)
+            hooks[h].hidden_reason = "";
+      }
+   }
+}
+
+int FP_CountHooksSeedingVisibleF1(const FP_HookBranch &hooks[])
+{
+   int n = 0;
+   for(int i=0; i<ArraySize(hooks); i++)
+      if(hooks[i].seeds_visible_f1) n++;
+   return n;
 }
 
 #endif // __FP_HOOK_ENGINE_MQH__

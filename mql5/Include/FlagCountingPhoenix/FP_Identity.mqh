@@ -227,6 +227,7 @@ void FP_AssignEventIdentities(FP_FlagEvent &events[], const FP_Config &cfg)
 
 string FP_HookSourceMode(const FP_HookBranch &h)
 {
+   if(h.is_cycle_start_broken) return "hook_invalid_cycle_broken";
    if(h.is_nd) return "nd_hook";
    return "hook";
 }
@@ -234,12 +235,15 @@ string FP_HookSourceMode(const FP_HookBranch &h)
 string FP_HookStructuralId(const FP_HookBranch &h)
 {
    return "HK:dir=" + FP_DirectionKey(h.direction) +
+          "|side=" + FP_NodeSideKey(h.side_kind) +
           "|L=" + IntegerToString(h.scale_L) +
           "|start=" + FP_NodeStructuralId(h.start_node) +
           "|cycle=" + FP_NodeStructuralId(h.cycle_start_node) +
           "|extreme=" + FP_NodeStructuralId(h.extreme_node) +
           "|resolve=" + FP_NodeStructuralId(h.resolve_node) +
-          "|count=" + IntegerToString(h.node_count);
+          "|count=" + IntegerToString(h.node_count) +
+          "|max=" + IntegerToString(h.max_branch_len) +
+          "|nd=" + FP_BoolName(h.nd_qualified);
 }
 
 string FP_HookVisualId(const FP_HookBranch &h)
@@ -269,7 +273,7 @@ void FP_AssignHookIdentity(FP_HookBranch &h, const FP_Config &cfg)
    h.source_L = h.scale_L;
    h.source_mode = FP_HookSourceMode(h);
    h.is_fail_open = false;
-   h.canonical_rank_score = (h.is_nd ? 200 : 100) + h.node_count - MathMax(0, h.scale_L);
+   h.canonical_rank_score = (h.is_nd ? 200 : 100) + h.node_count + (h.seeds_visible_f1 ? 75 : 0) - MathMax(0, h.scale_L);
    h.structural_id = FP_HookStructuralId(h);
    h.visual_id = FP_HookVisualId(h);
    h.phase_id = FP_HookPhaseId(h, cfg);
@@ -277,8 +281,10 @@ void FP_AssignHookIdentity(FP_HookBranch &h, const FP_Config &cfg)
    h.audit_id = "A:hook|pass=" + FP_IdSafe(cfg.identity_generation_pass) +
                 "|cfg=" + FP_IdSafe(cfg.identity_config_hash) +
                 "|" + h.structural_id;
-   h.visible_main = true;
-   h.hidden_reason = "";
+   if(h.visible_main)
+      h.hidden_reason = "";
+   else if(h.hidden_reason == "")
+      h.hidden_reason = "hidden_hook_without_reason";
 }
 
 void FP_AssignHookIdentities(FP_HookBranch &hooks[], const FP_Config &cfg)

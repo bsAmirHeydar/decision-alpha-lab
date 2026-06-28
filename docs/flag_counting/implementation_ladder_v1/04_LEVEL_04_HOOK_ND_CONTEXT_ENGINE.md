@@ -161,3 +161,25 @@ If no Hook-derived root seeds a visible F1, valid raw flag bodies must still be 
 ## Freeze condition
 
 Hook/ND is frozen only when it can emit a bounded audit list without any renderer involvement and every Hook can explain its cycle start, resolve node, branch list, retracement, and visibility reason.
+
+
+## Phoenix Level 04 implementation note
+
+Implemented modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_HookAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_HookContext.mqh
+mql5/Include/FlagCountingPhoenix/FP_HookEngine.mqh
+```
+
+`FP_HookEngine.mqh` is now the facade. It emits Hook branches and fills `FP_HookBuildReport`. `FP_HookAudit.mqh` owns `FP_LEVEL04` and `FP_LEVEL04_SEED` logs. `FP_HookContext.mqh` owns cycle-start break validation and bounded-context helpers.
+
+Default audit lines:
+
+```text
+FP_LEVEL04      # per-scale bounded context / branch / rejection audit
+FP_LEVEL04_SEED # post-pruning Hook -> visible F1 connection audit
+```
+
+Level 04 remains audit-first: Hook/ND can propose phase roots, but it cannot erase valid fail-open F bodies and it cannot create F events directly.

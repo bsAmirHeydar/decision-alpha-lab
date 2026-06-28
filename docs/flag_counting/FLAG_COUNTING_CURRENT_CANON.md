@@ -329,6 +329,54 @@ InpIdentitySampleLimit = 6
 
 `FP_LEVEL03` is the current identity sanity log. It must show that every event/hook has assigned identity and every hidden event has a hidden reason before renderer output is trusted.
 
+
+
+## 4.15 Level 04 Hook / ND context engine
+
+Phoenix Hook/ND now has an explicit Level 04 audit layer before Flag Body/F lifecycle may trust Hook roots:
+
+```text
+FP_HookAudit.mqh
+FP_HookContext.mqh
+FP_HookEngine.mqh
+```
+
+Default Hook path:
+
+```text
+Level 02 canonical FP_Node[]
+-> bounded same-side context scan
+-> cycle-start strict-break validation
+-> internal branch-length audit
+-> adaptive-L rejection if any branch exceeds 4 counted nodes
+-> 3/4-node ND candidate
+-> retracement qualification
+-> seeded/unseeded visible-F1 marking
+```
+
+Level 04 invariants:
+
+- bullish Hook counts LOW nodes; bearish Hook counts HIGH nodes;
+- counted branch order is old-to-new after right-to-left discovery;
+- 1-node and 2-node branches are developing Hook context only and are not ND;
+- 3-node and 4-node branches may become ND only after retracement qualification;
+- if any branch in the bounded context has more than 4 counted nodes, the current-L context is rejected and must be re-read at higher L;
+- if the cycle start is strictly broken before resolve, the Hook context is invalid; equality does not invalidate;
+- Hook/ND may seed F1 roots but cannot starve valid fail-open F bodies;
+- main-chart Hook visibility is marked by whether the Hook seeds a visible canonical F1, unless debug inputs explicitly keep unseeded Hooks visible.
+
+Default Level 04 audit inputs:
+
+```text
+InpPrintHookSanity = true
+InpPrintHookSamples = false
+InpHookSampleLimit = 6
+InpHookMainRequiresVisibleF1 = true
+InpHookKeepUnseededVisibleForDebug = false
+```
+
+`FP_LEVEL04` reports bounded context counts, no-boundary contexts, too-short contexts, cycle-start breaks, adaptive-L overextensions, branch-length distribution, ND candidates, retracement rejections, duplicate compaction, and emitted ND hooks. `FP_LEVEL04_SEED` reports how many emitted Hooks seed visible F1 roots and how many Hook contexts are hidden from the main chart with reasons.
+
 ---
 
 ## 5. Interface decision

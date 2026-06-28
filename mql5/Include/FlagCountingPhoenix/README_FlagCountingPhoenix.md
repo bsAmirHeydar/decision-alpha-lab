@@ -44,7 +44,9 @@ Structural / sequence engines:
 - `FP_NodeEngine.mqh`: Level 02 facade used by Hook/F layers.
 - `FP_Identity.mqh`: Level 03 deterministic structural/visual/phase/chain/audit identity kernel.
 - `FP_IdentityAudit.mqh`: Level 03 identity sanity report and optional samples.
-- `FP_HookEngine.mqh`: branch-based ND/hook detection.
+- `FP_HookAudit.mqh`: Level 04 Hook/ND bounded-context report and samples.
+- `FP_HookContext.mqh`: Level 04 cycle-start strict-break and bounded-context helpers.
+- `FP_HookEngine.mqh`: Level 04 branch-based ND/hook facade.
 - `FP_FlagBodyEngine.mqh`: two-leg flag body construction.
 - `FP_InternalCountEngine.mqh`: internal 1/2/3/4 and post-flag correction scanning.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
@@ -135,6 +137,36 @@ InpIdentitySampleLimit = 6
 ```
 
 `FP_LEVEL03` reports whether every emitted event and Hook/ND context has identity and whether hidden events carry a non-empty `hidden_reason`. Visual duplicate pruning is now phase-safe: same geometry may merge only when `phase_id` also matches.
+
+
+
+## Level 04 Hook / ND context engine
+
+Phoenix now audits Hook/ND before using it as phase context. The path is:
+
+```text
+canonical FP_Node[]
+-> bounded same-side Hook contexts
+-> cycle-start strict-break validation
+-> branch-length audit
+-> adaptive-L rejection for branch length >4
+-> 3/4-node ND retracement qualification
+-> visible-F1 seed marking
+```
+
+Default Hook audit inputs:
+
+```text
+InpPrintHookSanity = true
+InpPrintHookSamples = false
+InpHookSampleLimit = 6
+InpHookMainRequiresVisibleF1 = true
+InpHookKeepUnseededVisibleForDebug = false
+```
+
+`FP_LEVEL04` explains bounded context counts, branch-length distribution, cycle-start breaks, overextended current-L contexts, retracement rejections, duplicate compaction, and emitted ND hooks. `FP_LEVEL04_SEED` runs after event pruning and reports how many Hook contexts actually seed visible canonical F1 roots.
+
+Hook/ND still does not emit F events. It only provides phase-boundary context. Fail-open raw roots remain the diagnostic safety net so Hook mistakes cannot starve all flag bodies.
 
 ## Expert
 

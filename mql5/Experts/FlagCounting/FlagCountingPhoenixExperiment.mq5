@@ -1,5 +1,5 @@
 #property strict
-#property version   "7.20"
+#property version   "7.30"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -34,6 +34,9 @@ input int  InpNodeSampleLimit = 6;
 input bool InpPrintIdentitySanity = true;
 input bool InpPrintIdentitySamples = false;
 input int  InpIdentitySampleLimit = 6;
+input bool InpPrintHookSanity = true;
+input bool InpPrintHookSamples = false;
+input int  InpHookSampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -53,6 +56,8 @@ input bool InpAbsorbPreInternalExtensions = true;
 input bool InpHideSupersededParentStates = true;
 input bool InpCompactHookRendering = true;
 input bool InpStrictMainChartOwnership = true;
+input bool InpHookMainRequiresVisibleF1 = true;
+input bool InpHookKeepUnseededVisibleForDebug = false;
 
 // ------------------------------ Rules ---------------------------------------
 input int    InpMaxEvents = 6000;
@@ -134,6 +139,11 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.hide_superseded_parent_states = InpHideSupersededParentStates;
    cfg.compact_hook_rendering = InpCompactHookRendering;
    cfg.strict_main_chart_ownership = InpStrictMainChartOwnership;
+   cfg.print_hook_sanity = InpPrintHookSanity;
+   cfg.print_hook_samples = InpPrintHookSamples;
+   cfg.hook_sample_limit = InpHookSampleLimit;
+   cfg.hook_main_requires_visible_f1 = InpHookMainRequiresVisibleF1;
+   cfg.hook_keep_unseeded_visible_for_debug = InpHookKeepUnseededVisibleForDebug;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -143,11 +153,12 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level03";
+   cfg.identity_generation_pass = "phoenix_level04";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
                               "_hook" + FP_BoolName(InpScanHooks) +
+                              "_hookseed" + FP_BoolName(InpHookMainRequiresVisibleF1) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

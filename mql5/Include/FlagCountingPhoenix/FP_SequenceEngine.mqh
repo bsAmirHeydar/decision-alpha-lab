@@ -419,7 +419,19 @@ void FP_DetectScale(const MqlRates &rates[],
    if(node_count < 4) return;
 
    FP_HookBranch hooks[];
-   int hook_count = FP_BuildHookBranches(nodes, node_count, scale_L, cfg, hooks);
+   FP_HookBuildReport hook_report;
+   int hook_count = FP_BuildHookBranchesWithReport(nodes, node_count, scale_L, cfg, hooks, hook_report);
+   result.hook_contexts_total += hook_report.same_side_contexts_seen;
+   result.hook_contexts_rejected_total += hook_report.contexts_cycle_broken + hook_report.contexts_overextended + hook_report.retrace_rejected;
+   result.hook_branch_scans_total += hook_report.branch_scans;
+   result.hook_branch_len5plus_total += hook_report.branch_len_5plus;
+   result.hook_retrace_rejected_total += hook_report.retrace_rejected;
+
+   if(cfg.print_hook_sanity)
+      FP_PrintHookBuildReport("FP_LEVEL04", hook_report);
+   if(cfg.print_hook_samples)
+      FP_PrintHookSamples("FP_LEVEL04", hooks, hook_count, cfg.hook_sample_limit);
+
    for(int h=0; h<hook_count; h++)
    {
       hooks[h].branch_id = ArraySize(all_hooks);
@@ -968,6 +980,11 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int pending_nodes_prev = result.pending_nodes_total;
    int hooks_prev = result.hooks_total;
    int nd_prev = result.nd_total;
+   int hook_contexts_prev = result.hook_contexts_total;
+   int hook_contexts_rejected_prev = result.hook_contexts_rejected_total;
+   int hook_branch_scans_prev = result.hook_branch_scans_total;
+   int hook_branch_len5plus_prev = result.hook_branch_len5plus_total;
+   int hook_retrace_rejected_prev = result.hook_retrace_rejected_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -975,6 +992,12 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.pending_nodes_total = pending_nodes_prev;
    result.hooks_total = hooks_prev;
    result.nd_total = nd_prev;
+   result.hook_contexts_total = hook_contexts_prev;
+   result.hook_contexts_rejected_total = hook_contexts_rejected_prev;
+   result.hook_branch_scans_total = hook_branch_scans_prev;
+   result.hook_branch_len5plus_total = hook_branch_len5plus_prev;
+   result.hook_retrace_rejected_total = hook_retrace_rejected_prev;
+   result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);
 }
@@ -1014,6 +1037,11 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_FinalizeEventIds(events);
    FP_RebuildParentIdsAfterSort(events);
    FP_NormalizeHiddenReasons(events);
+   FP_MarkHookSeedVisibility(hooks, events, cfg);
+   if(cfg.print_hook_sanity)
+      FP_PrintHookSeedSummary("FP_LEVEL04_SEED", hooks);
+   if(cfg.print_hook_samples)
+      FP_PrintHookSamples("FP_LEVEL04_SEEDED", hooks, ArraySize(hooks), cfg.hook_sample_limit);
    FP_AssignEventIdentities(events, cfg);
    FP_AssignHookIdentities(hooks, cfg);
    if(cfg.print_identity_sanity)

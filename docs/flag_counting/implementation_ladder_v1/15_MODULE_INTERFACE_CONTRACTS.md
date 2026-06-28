@@ -59,6 +59,14 @@ FP_Identity.mqh helper functions
 FP_IdentityAudit.mqh sanity logs
 ```
 
+Level 04 Hook/ND modules additionally own:
+
+```text
+FP_HookBuildReport
+FP_HookAudit.mqh report and sample logs
+FP_HookContext.mqh bounded-context validation helpers
+```
+
 These are the active interface objects.
 
 The older names below are not active mandatory structs:
@@ -213,13 +221,25 @@ Must not:
 - decide final lifecycle state;
 - use renderer object names as semantic ids.
 
-## FP_HookEngine.mqh
+## Level 04 Hook/ND modules
+
+Public facade:
+
+```text
+FP_HookEngine.mqh
+```
+
+Owned submodules:
+
+```text
+FP_HookAudit.mqh
+FP_HookContext.mqh
+```
 
 Input:
 
 ```text
-FP_Node nodes[]
-rates[] only for documented strict boundary hit checks
+canonical Level 02 FP_Node nodes[]
 FP_Config config
 ```
 
@@ -227,18 +247,21 @@ Output:
 
 ```text
 FP_HookBranch hooks[]
+FP_HookBuildReport report
 ```
 
 Owns:
 
-- branch-based Hook/ND context;
-- branch node count;
+- bounded same-side Hook/ND contexts;
+- cycle-start strict-break validation;
+- branch node count distribution;
 - adaptive-L acceptance/rejection reason;
-- retracement ratio;
-- cycle start and resolve identity;
-- Hook/ND reason strings.
+- retracement ratio and threshold rejection;
+- cycle start, cycle extreme, and resolve node fields;
+- seeded visible-F1 marking;
+- Hook/ND reason strings and `FP_LEVEL04` audit logs.
 
-Must not emit F1/F2/F3 events. It may provide phase-boundary context through `FP_HookBranch` fields only.
+Must not emit F1/F2/F3 events. It may provide phase-boundary context through `FP_HookBranch` fields only. It must not call `CopyRates` or draw renderer objects.
 
 ---
 

@@ -369,6 +369,7 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
                        const MqlRates &rates[],
                        const int rates_total)
 {
+   if(!h.visible_main) return;
    if(!h.is_nd) return;
    string base = prefix + "HK_" + IntegerToString(h.branch_id) + "_";
 
@@ -422,6 +423,7 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
 bool FP_HookSeedsVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[])
 {
    double eps = FP_EpsilonPrice(0.0);
+   if(h.seeds_visible_f1) return true;
    FP_Node origin = FP_HookOriginNode(h, eps);
    if(origin.id < 0) return false;
 
@@ -509,6 +511,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
+         if(!hooks[h].visible_main) continue;
          if(draw_only_flag_seed_hooks && !FP_HookSeedsVisibleF1(hooks[h], events)) continue;
          FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), show_hook_count_labels, label_clusters, rates, rates_total);
          hook_drawn++;

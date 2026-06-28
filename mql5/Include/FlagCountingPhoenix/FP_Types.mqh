@@ -155,6 +155,14 @@ struct FP_HookBranch
    double   retrace_ratio;
    bool     is_nd;
 
+   // Level 04 explicit Hook/ND context fields. These make Hook a first-class
+   // auditable phase context rather than a renderer decoration.
+   int      side_kind;
+   bool     is_cycle_start_broken;
+   int      max_branch_len;
+   bool     nd_qualified;
+   bool     seeds_visible_f1;
+
    // Level 03 identity fields for Hook/ND context objects.
    string   structural_id;
    string   visual_id;
@@ -255,6 +263,12 @@ struct FP_Config
    bool   compact_hook_rendering;
    bool   strict_main_chart_ownership;
 
+   bool   print_hook_sanity;
+   bool   print_hook_samples;
+   int    hook_sample_limit;
+   bool   hook_main_requires_visible_f1;
+   bool   hook_keep_unseeded_visible_for_debug;
+
    int    max_events;
    int    max_hooks;
    int    max_roots_per_scale_direction;
@@ -298,6 +312,12 @@ struct FP_DetectResult
    int f2_total;
    int f3_total;
    int nd_total;
+   int hook_contexts_total;
+   int hook_contexts_rejected_total;
+   int hook_branch_scans_total;
+   int hook_branch_len5plus_total;
+   int hook_retrace_rejected_total;
+   int hooks_seed_visible_f1_total;
    int invalid_total;
 };
 
@@ -369,6 +389,11 @@ void FP_ResetHook(FP_HookBranch &h)
    FP_ResetNode(h.n4);
    h.retrace_ratio = 0.0;
    h.is_nd = false;
+   h.side_kind = FP_NODE_NONE;
+   h.is_cycle_start_broken = false;
+   h.max_branch_len = 0;
+   h.nd_qualified = false;
+   h.seeds_visible_f1 = false;
    h.structural_id = "";
    h.visual_id = "";
    h.phase_id = "";
@@ -463,6 +488,12 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.compact_hook_rendering = true;
    cfg.strict_main_chart_ownership = true;
 
+   cfg.print_hook_sanity = true;
+   cfg.print_hook_samples = false;
+   cfg.hook_sample_limit = 6;
+   cfg.hook_main_requires_visible_f1 = true;
+   cfg.hook_keep_unseeded_visible_for_debug = false;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -481,7 +512,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level03";
+   cfg.identity_generation_pass = "phoenix_level04";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -505,6 +536,12 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.f2_total = 0;
    r.f3_total = 0;
    r.nd_total = 0;
+   r.hook_contexts_total = 0;
+   r.hook_contexts_rejected_total = 0;
+   r.hook_branch_scans_total = 0;
+   r.hook_branch_len5plus_total = 0;
+   r.hook_retrace_rejected_total = 0;
+   r.hooks_seed_visible_f1_total = 0;
    r.invalid_total = 0;
 }
 

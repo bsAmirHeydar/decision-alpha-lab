@@ -136,16 +136,25 @@ Acceptance:
 Files:
 
 ```text
+FP_HookAudit.mqh
+FP_HookContext.mqh
 FP_HookEngine.mqh
+FP_Types.mqh
+FP_SequenceEngine.mqh # wiring/counters only
+FlagCountingPhoenixExperiment.mq5 # inputs only
 ```
 
 Acceptance:
 
-- bounded contexts;
-- unlimited branches with accepted branch max <=4 at selected L;
-- 2-node branch not ND;
-- broken cycle start invalidates;
+- bounded same-side contexts are reported through `FP_LEVEL04`;
+- unlimited internal branch scans are allowed, but accepted current-L ND branches have max length <=4;
+- 1-node and 2-node branches are counted as developing context and never emitted as ND;
+- any branch length >4 rejects the whole current-L context and increments adaptive-L rejection audit;
+- strict cycle-start break before resolve invalidates the Hook context; equality does not invalidate;
+- retracement rejection is explicit and counted;
+- Hook objects expose side, cycle_start, extreme, resolve, max_branch_len, nd_qualified, seeds_visible_f1, visible, and hidden_reason;
 - no renderer dependency;
+- `FP_LEVEL04_SEED` reports Hook/F1 connection after canonical event pruning;
 - `FC-GC-002` baselined or marked as blocking before freeze.
 
 ### Step 05 — Build flag body audit only
