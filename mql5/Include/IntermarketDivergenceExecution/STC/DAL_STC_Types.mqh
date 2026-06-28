@@ -44,6 +44,9 @@ struct STC_Config
    bool write_hunt_audit;
    int max_hunt_backfill_on_init;
    int max_hunt_catchup_per_pulse;
+   bool write_smt_candidate_audit;
+   int max_smt_backfill_on_init;
+   int max_smt_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -66,6 +69,7 @@ struct STC_RuntimeState
    string check_candle_audit_file_common;
    string w_level_audit_file_common;
    string hunt_audit_file_common;
+   string smt_candidate_audit_file_common;
    string last_check_audit_stc_day_id;
    int last_check_audit_index;
    long check_candles_audited;
@@ -75,6 +79,9 @@ struct STC_RuntimeState
    string last_hunt_audit_stc_day_id;
    int last_hunt_audit_check_index;
    long hunt_rows_audited;
+   string last_smt_audit_stc_day_id;
+   int last_smt_audit_check_index;
+   long smt_candidate_rows_audited;
    string lock_name;
 };
 
@@ -201,6 +208,48 @@ struct STC_ReferenceHuntAudit
    string low_clean_symbol;
 };
 
+
+struct STC_SMTCandidateAudit
+{
+   string stc_day_id;
+   int check_index;
+   int check_minutes;
+   datetime check_start_ny;
+   datetime check_end_ny;
+   datetime check_start_server;
+   datetime check_end_server;
+   STC_MCycle m_cycle;
+   STC_WCycle current_w_cycle;
+   bool detection_allowed_for_signal;
+   bool entry_allowed_at_close;
+   bool final_check_of_m;
+   bool check_pair_data_complete;
+
+   STC_CandidateStatus candidate_status;
+   string candidate_id;
+   bool is_trade_candidate;
+   STC_Side smt_side;
+   STC_Direction direction;
+   string hunted_symbol;
+   string clean_symbol;
+   string trade_symbol;
+
+   STC_WCycle selected_reference_w_cycle;
+   int selected_reference_w_serial;
+   int selected_reference_rank;
+   double selected_reference_price;
+   double trade_symbol_check_close;
+   double provisional_stop_distance;
+
+   int legal_reference_count;
+   int high_raw_candidate_count;
+   int low_raw_candidate_count;
+   int same_direction_candidate_count;
+   bool simultaneous_buy_sell_forget;
+   string status;
+   string rule_note;
+};
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -255,7 +304,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL05";
+   cfg.run_id = "EXEC001_STC_LEVEL06";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -292,6 +341,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_hunt_audit = true;
    cfg.max_hunt_backfill_on_init = 24;
    cfg.max_hunt_catchup_per_pulse = 48;
+   cfg.write_smt_candidate_audit = true;
+   cfg.max_smt_backfill_on_init = 24;
+   cfg.max_smt_catchup_per_pulse = 48;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -314,6 +366,7 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.check_candle_audit_file_common = "";
    state.w_level_audit_file_common = "";
    state.hunt_audit_file_common = "";
+   state.smt_candidate_audit_file_common = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
@@ -323,16 +376,19 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.last_hunt_audit_stc_day_id = "";
    state.last_hunt_audit_check_index = -1;
    state.hunt_rows_audited = 0;
+   state.last_smt_audit_stc_day_id = "";
+   state.last_smt_audit_check_index = -1;
+   state.smt_candidate_rows_audited = 0;
    state.lock_name = "";
 }
 
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_05_REFERENCE_MATRIX_HUNT_DETECTOR";
-   sanity.build_version = "1.40";
-   sanity.build_scope = "level01 skeleton plus time engine, check-candle aggregation, W levels, previous-W reference matrix, and raw touch-only hunt audit";
-   sanity.locked_contract = "Detect raw high/low hunts against legal previous W references; equality is touch; no SMT candidate generation, no confirmation, no signals, no paper trades, no orders in level 05";
+   sanity.module_level = "LEVEL_06_SMT_CANDIDATE_ENGINE";
+   sanity.build_version = "1.50";
+   sanity.build_scope = "level01 skeleton plus time engine, check-candle aggregation, W levels, reference hunts, and SMT candidate audit";
+   sanity.locked_contract = "Convert raw exactly-one-symbol hunts into auditable SMT candidates; high-side SMT maps to sell clean symbol, low-side SMT maps to buy clean symbol; simultaneous buy/sell in one check candle is forgotten; no confirmation, no paper trades, no orders in level 06";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
@@ -492,6 +548,45 @@ void STC_ResetReferenceHuntAudit(STC_ReferenceHuntAudit &audit)
    audit.high_clean_symbol = "";
    audit.low_hunted_symbol = "";
    audit.low_clean_symbol = "";
+}
+
+
+void STC_ResetSMTCandidateAudit(STC_SMTCandidateAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.check_index = -1;
+   audit.check_minutes = 0;
+   audit.check_start_ny = 0;
+   audit.check_end_ny = 0;
+   audit.check_start_server = 0;
+   audit.check_end_server = 0;
+   audit.m_cycle = STC_M_NONE;
+   audit.current_w_cycle = STC_W_NONE;
+   audit.detection_allowed_for_signal = false;
+   audit.entry_allowed_at_close = false;
+   audit.final_check_of_m = false;
+   audit.check_pair_data_complete = false;
+   audit.candidate_status = STC_CANDIDATE_NONE;
+   audit.candidate_id = "";
+   audit.is_trade_candidate = false;
+   audit.smt_side = STC_SIDE_NONE;
+   audit.direction = STC_DIR_NONE;
+   audit.hunted_symbol = "";
+   audit.clean_symbol = "";
+   audit.trade_symbol = "";
+   audit.selected_reference_w_cycle = STC_W_NONE;
+   audit.selected_reference_w_serial = -1;
+   audit.selected_reference_rank = -1;
+   audit.selected_reference_price = 0.0;
+   audit.trade_symbol_check_close = 0.0;
+   audit.provisional_stop_distance = 0.0;
+   audit.legal_reference_count = 0;
+   audit.high_raw_candidate_count = 0;
+   audit.low_raw_candidate_count = 0;
+   audit.same_direction_candidate_count = 0;
+   audit.simultaneous_buy_sell_forget = false;
+   audit.status = "not_built";
+   audit.rule_note = "";
 }
 
 #endif

@@ -98,7 +98,7 @@ bool STC_BuildReferenceHuntAudit(STC_Config &cfg,
    audit.entry_allowed_at_close = check_audit.entry_allowed_at_close;
    audit.final_check_of_m = check_audit.final_check_of_m;
    audit.check_pair_data_complete = check_audit.pair_data_complete;
-   audit.rule_note = "level05_raw_hunt_only_no_SMT_candidate_no_confirmation_no_entry";
+   audit.rule_note = "raw_hunt_layer_input_to_level06_SMT_candidate_engine_no_confirmation_no_entry";
 
    if(check_index < 0)
    {

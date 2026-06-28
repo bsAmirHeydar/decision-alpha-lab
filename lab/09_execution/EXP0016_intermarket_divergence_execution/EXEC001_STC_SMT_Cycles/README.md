@@ -31,6 +31,7 @@ The strategy rules have been normalized from the source SRS and then refined thr
 - `14_backtest_live_runtime.md` defines the backtest runtime and live/paper runtime.
 - `15_visualization_contract.md` defines chart drawings and audit overlays.
 - `16_implementation_checklist.md` converts the spec into build phases.
+- `27_level_06_smt_candidate_engine.md` documents the Level 06 audit-only SMT candidate engine.
 
 ## Locked one-line strategy definition
 
@@ -73,6 +74,6 @@ STC SMT Cycles detects, confirms, and executes SMT divergence between two config
 33. Duplicate EA instances for the same strategy and symbol pair must be blocked.
 
 
-## Current engineering level: Level 05
+## Current engineering level: Level 06
 
-The current code level builds the legal previous-W reference matrix and audits raw touch-only high/low hunts for every closed check candle. It still does not produce SMT candidates, confirmations, signals, paper trades, or live orders.
+The current code level converts raw exactly-one-symbol high/low hunts into audit-only SMT candidate rows. High-side SMT becomes SELL on the clean symbol; low-side SMT becomes BUY on the clean symbol. If buy-side and sell-side SMT appear in the same check candle, the whole check candle is forgotten. It still does not confirm, consume, simulate trades, draw objects, or send live orders.

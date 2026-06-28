@@ -129,6 +129,10 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.max_hunt_backfill_on_init > 500) cfg.max_hunt_backfill_on_init = 500;
    if(cfg.max_hunt_catchup_per_pulse < 1) cfg.max_hunt_catchup_per_pulse = 1;
    if(cfg.max_hunt_catchup_per_pulse > 500) cfg.max_hunt_catchup_per_pulse = 500;
+   if(cfg.max_smt_backfill_on_init < 0) cfg.max_smt_backfill_on_init = 0;
+   if(cfg.max_smt_backfill_on_init > 500) cfg.max_smt_backfill_on_init = 500;
+   if(cfg.max_smt_catchup_per_pulse < 1) cfg.max_smt_catchup_per_pulse = 1;
+   if(cfg.max_smt_catchup_per_pulse > 500) cfg.max_smt_catchup_per_pulse = 500;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";
