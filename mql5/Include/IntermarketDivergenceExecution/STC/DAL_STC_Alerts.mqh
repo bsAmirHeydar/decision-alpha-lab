@@ -169,7 +169,7 @@ void STC_ProcessPaperLiveAlerts(STC_Config &cfg, STC_RuntimeState &state, STC_Ti
    {
       long previous = state.signal_rows_alerted;
       STC_DispatchPaperLiveAlert(cfg, state, snap, "SIGNAL_CONFIRMED", previous, state.signal_rows_audited,
-         "new Level 07 signal registry row(s); inspect stc_level14_signal_registry.csv",
+         "new Level 07 signal registry row(s); inspect stc_level15_signal_registry.csv",
          "alert-only; signal consumption is handled by the registry; no late entry and no real order");
       state.signal_rows_alerted = state.signal_rows_audited;
    }
@@ -182,7 +182,7 @@ void STC_ProcessPaperLiveAlerts(STC_Config &cfg, STC_RuntimeState &state, STC_Ti
    {
       long previous = state.paper_entry_rows_alerted;
       STC_DispatchPaperLiveAlert(cfg, state, snap, "PAPER_ENTRY_PLANNED", previous, state.paper_entry_rows_audited,
-         "new Level 08 paper entry row(s); inspect stc_level14_paper_entries.csv",
+         "new Level 08 paper entry row(s); inspect stc_level15_paper_entries.csv",
          "alert-only; paper entry uses next check open; no broker order sent");
       state.paper_entry_rows_alerted = state.paper_entry_rows_audited;
    }
@@ -196,7 +196,7 @@ void STC_ProcessPaperLiveAlerts(STC_Config &cfg, STC_RuntimeState &state, STC_Ti
    {
       long previous = state.paper_outcome_rows_alerted;
       STC_DispatchPaperLiveAlert(cfg, state, snap, "PAPER_OUTCOME_UPDATE", previous, state.paper_outcome_rows_audited,
-         "new Level 09 outcome row(s); inspect stc_level14_paper_outcomes.csv for TP/SL/AMBIGUOUS/OPEN_UNRESOLVED",
+         "new Level 09 outcome row(s); inspect stc_level15_paper_outcomes.csv for TP/SL/AMBIGUOUS/OPEN_UNRESOLVED",
          "alert-only; ambiguous outcomes are preserved as ambiguous and no path is invented");
       state.paper_outcome_rows_alerted = state.paper_outcome_rows_audited;
    }
@@ -209,7 +209,7 @@ void STC_ProcessPaperLiveAlerts(STC_Config &cfg, STC_RuntimeState &state, STC_Ti
    {
       long previous = state.partial_rows_alerted;
       STC_DispatchPaperLiveAlert(cfg, state, snap, "PAPER_PARTIAL_ACTION", previous, state.partial_rows_audited,
-         "new Level 10 partial action row(s); inspect stc_level14_partial_actions.csv",
+         "new Level 10 partial action row(s); inspect stc_level15_partial_actions.csv",
          "alert-only; partial actions are simulated/audited and do not close broker volume");
       state.partial_rows_alerted = state.partial_rows_audited;
    }
@@ -222,7 +222,7 @@ void STC_ProcessPaperLiveAlerts(STC_Config &cfg, STC_RuntimeState &state, STC_Ti
    {
       long previous = state.hard_close_rows_alerted;
       STC_DispatchPaperLiveAlert(cfg, state, snap, "PAPER_HARD_CLOSE_ACTION", previous, state.hard_close_rows_audited,
-         "new Level 11 hard-close action row(s); inspect stc_level14_hard_close_actions.csv",
+         "new Level 11 hard-close action row(s); inspect stc_level15_hard_close_actions.csv",
          "alert-only; 15:30 NY hard-close accounting is simulated and no broker position is closed");
       state.hard_close_rows_alerted = state.hard_close_rows_audited;
    }

@@ -49,6 +49,13 @@ struct STC_Config
    bool alert_on_ambiguous;
    bool alert_on_hard_close_due;
    bool alert_replay_on_init;
+   bool enable_broker_position_manager;
+   bool write_broker_position_audit;
+   int broker_position_scan_seconds;
+   bool enable_real_hard_close;
+   bool allow_real_close_in_paper_live;
+   int broker_close_deviation_points;
+   bool audit_foreign_pair_positions;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -144,6 +151,8 @@ struct STC_RuntimeState
    string persistence_recovery_audit_file_common;
    string drawing_audit_file_common;
    string alert_audit_file_common;
+   string broker_position_audit_file_common;
+   string broker_action_audit_file_common;
    datetime last_persistence_snapshot_server_time;
    datetime last_drawing_server_time;
    long drawing_refresh_count;
@@ -156,6 +165,14 @@ struct STC_RuntimeState
    long hard_close_rows_alerted;
    long alert_rows_audited;
    string alert_baseline_status;
+   datetime last_broker_position_scan_server_time;
+   datetime last_real_hard_close_attempt_server_time;
+   long broker_position_rows_audited;
+   long broker_action_rows_audited;
+   int broker_managed_positions_last_scan;
+   int broker_foreign_pair_positions_last_scan;
+   string broker_position_scan_status;
+   string broker_hard_close_status;
    bool persistence_restored;
    string persistence_restore_status;
    string persistence_restore_note;
@@ -808,6 +825,103 @@ void STC_ResetHardCloseAudit(STC_HardCloseAudit &audit)
    audit.rule_note = "";
 }
 
+
+struct STC_BrokerPositionAudit
+{
+   string stc_day_id;
+   datetime server_time;
+   datetime ny_time;
+   string symbol;
+   ulong ticket;
+   long position_identifier;
+   long magic;
+   string position_type;
+   double volume;
+   double price_open;
+   double price_current;
+   double stop_loss;
+   double take_profit;
+   double profit;
+   double swap;
+   double commission;
+   datetime open_time;
+   datetime update_time;
+   bool symbol_is_pair_member;
+   bool magic_matches;
+   bool managed_by_stc;
+   bool hard_close_due;
+   string scan_status;
+   string rule_note;
+};
+
+void STC_ResetBrokerPositionAudit(STC_BrokerPositionAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.server_time = 0;
+   audit.ny_time = 0;
+   audit.symbol = "";
+   audit.ticket = 0;
+   audit.position_identifier = 0;
+   audit.magic = 0;
+   audit.position_type = "";
+   audit.volume = 0.0;
+   audit.price_open = 0.0;
+   audit.price_current = 0.0;
+   audit.stop_loss = 0.0;
+   audit.take_profit = 0.0;
+   audit.profit = 0.0;
+   audit.swap = 0.0;
+   audit.commission = 0.0;
+   audit.open_time = 0;
+   audit.update_time = 0;
+   audit.symbol_is_pair_member = false;
+   audit.magic_matches = false;
+   audit.managed_by_stc = false;
+   audit.hard_close_due = false;
+   audit.scan_status = "not_built";
+   audit.rule_note = "";
+}
+
+struct STC_BrokerActionAudit
+{
+   string stc_day_id;
+   datetime server_time;
+   datetime ny_time;
+   string action_type;
+   string symbol;
+   ulong ticket;
+   long magic;
+   string position_type;
+   double volume;
+   bool action_allowed;
+   bool action_attempted;
+   bool action_succeeded;
+   int trade_result_retcode;
+   string trade_result_comment;
+   string status;
+   string rule_note;
+};
+
+void STC_ResetBrokerActionAudit(STC_BrokerActionAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.server_time = 0;
+   audit.ny_time = 0;
+   audit.action_type = "";
+   audit.symbol = "";
+   audit.ticket = 0;
+   audit.magic = 0;
+   audit.position_type = "";
+   audit.volume = 0.0;
+   audit.action_allowed = false;
+   audit.action_attempted = false;
+   audit.action_succeeded = false;
+   audit.trade_result_retcode = 0;
+   audit.trade_result_comment = "";
+   audit.status = "not_built";
+   audit.rule_note = "";
+}
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -862,7 +976,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL14";
+   cfg.run_id = "EXEC001_STC_LEVEL15";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -904,6 +1018,13 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.alert_on_ambiguous = true;
    cfg.alert_on_hard_close_due = true;
    cfg.alert_replay_on_init = false;
+   cfg.enable_broker_position_manager = true;
+   cfg.write_broker_position_audit = true;
+   cfg.broker_position_scan_seconds = 10;
+   cfg.enable_real_hard_close = false;
+   cfg.allow_real_close_in_paper_live = false;
+   cfg.broker_close_deviation_points = 30;
+   cfg.audit_foreign_pair_positions = true;
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -975,6 +1096,8 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.persistence_recovery_audit_file_common = "";
    state.drawing_audit_file_common = "";
    state.alert_audit_file_common = "";
+   state.broker_position_audit_file_common = "";
+   state.broker_action_audit_file_common = "";
    state.last_persistence_snapshot_server_time = 0;
    state.last_drawing_server_time = 0;
    state.drawing_refresh_count = 0;
@@ -987,6 +1110,14 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.hard_close_rows_alerted = 0;
    state.alert_rows_audited = 0;
    state.alert_baseline_status = "NOT_INITIALIZED";
+   state.last_broker_position_scan_server_time = 0;
+   state.last_real_hard_close_attempt_server_time = 0;
+   state.broker_position_rows_audited = 0;
+   state.broker_action_rows_audited = 0;
+   state.broker_managed_positions_last_scan = 0;
+   state.broker_foreign_pair_positions_last_scan = 0;
+   state.broker_position_scan_status = "NOT_SCANNED";
+   state.broker_hard_close_status = "NOT_DUE";
    state.persistence_restored = false;
    state.persistence_restore_status = "NOT_ATTEMPTED";
    state.persistence_restore_note = "";
@@ -1041,10 +1172,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_14_PAPER_LIVE_ALERTS";
-   sanity.build_version = "2.00";
-   sanity.build_scope = "level01 skeleton through level14 paper-live alert layer for no-order monitoring";
-   sanity.locked_contract = "Emit audit-only alerts for confirmed signals, paper entries, paper outcomes, partial actions, and hard-close actions without sending real orders or changing strategy decisions";
+   sanity.module_level = "LEVEL_15_BROKER_POSITION_MANAGER";
+   sanity.build_version = "2.10";
+   sanity.build_scope = "level01 skeleton through level15 magic-only broker position manager and safety layer";
+   sanity.locked_contract = "Scan only Symbol1/Symbol2 positions with matching magic number, audit broker exposure, and optionally hard-close those magic-only positions after 15:30 New York without enabling auto-entry";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

@@ -167,6 +167,10 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.alert_debounce_seconds < 0) cfg.alert_debounce_seconds = 0;
    if(cfg.alert_debounce_seconds > 300) cfg.alert_debounce_seconds = 300;
    if(cfg.alert_sound_file == "") cfg.alert_sound_file = "alert.wav";
+   if(cfg.broker_position_scan_seconds < 1) cfg.broker_position_scan_seconds = 1;
+   if(cfg.broker_position_scan_seconds > 3600) cfg.broker_position_scan_seconds = 3600;
+   if(cfg.broker_close_deviation_points < 0) cfg.broker_close_deviation_points = 0;
+   if(cfg.broker_close_deviation_points > 10000) cfg.broker_close_deviation_points = 10000;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

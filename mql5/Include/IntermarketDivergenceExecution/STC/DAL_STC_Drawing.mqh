@@ -389,7 +389,7 @@ void STC_DrawAuditLayer(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsh
    STC_DeleteDrawingObjects(cfg);
 
    int created = 0;
-   string chart_note = "level14_audit_drawing_no_strategy_decisions_no_orders";
+   string chart_note = "level15_audit_drawing_no_strategy_decisions_no_orders";
    STC_DrawZones(cfg, snap, created);
    STC_DrawCurrentCheck(cfg, snap, created);
 
@@ -403,7 +403,7 @@ void STC_DrawAuditLayer(STC_Config &cfg, STC_RuntimeState &state, STC_TimeSnapsh
       chart_note = chart_note + "; chart_symbol_not_symbol1_or_symbol2_price_layers_suppressed";
    }
 
-   string dashboard = "DAL STC LEVEL14 | " + cfg.symbol1 + "/" + cfg.symbol2
+   string dashboard = "DAL STC LEVEL15 | " + cfg.symbol1 + "/" + cfg.symbol2
       + " | chart=" + _Symbol
       + " | NY=" + STC_TimeText(snap.ny_time)
       + " | day=" + snap.stc_day_id

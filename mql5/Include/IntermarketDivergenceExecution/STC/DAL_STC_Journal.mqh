@@ -107,6 +107,15 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "alert_sound_file", cfg.alert_sound_file);
    FileWrite(h, "alert_debounce_seconds", cfg.alert_debounce_seconds);
    FileWrite(h, "alert_replay_on_init", STC_BoolText(cfg.alert_replay_on_init));
+   FileWrite(h, "broker_position_manager_enabled", STC_BoolText(cfg.enable_broker_position_manager));
+   FileWrite(h, "broker_position_audit_enabled", STC_BoolText(cfg.write_broker_position_audit));
+   FileWrite(h, "broker_position_file_common", state.broker_position_audit_file_common);
+   FileWrite(h, "broker_action_file_common", state.broker_action_audit_file_common);
+   FileWrite(h, "broker_position_scan_seconds", cfg.broker_position_scan_seconds);
+   FileWrite(h, "real_hard_close_enabled", STC_BoolText(cfg.enable_real_hard_close));
+   FileWrite(h, "allow_real_close_in_paper_live", STC_BoolText(cfg.allow_real_close_in_paper_live));
+   FileWrite(h, "broker_close_deviation_points", cfg.broker_close_deviation_points);
+   FileWrite(h, "audit_foreign_pair_positions", STC_BoolText(cfg.audit_foreign_pair_positions));
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);

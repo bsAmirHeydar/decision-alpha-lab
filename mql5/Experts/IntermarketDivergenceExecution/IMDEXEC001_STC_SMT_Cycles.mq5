@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.00"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 14 paper live alerts"
-#property description "Level 14 emits paper-live alerts for signals, paper entries, outcomes, partials, and hard-close audits while keeping real orders disabled."
+#property version   "2.10"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 15 broker position safety"
+#property description "Level 15 adds magic-only broker position scanning and optional hard-close retry while keeping auto-entry disabled."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 14 Runtime"
+input group "DAL / STC Level 15 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL14";
+input string InpRunId = "EXEC001_STC_LEVEL15";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -83,6 +83,16 @@ input bool InpAlertOnAmbiguous = true;
 input bool InpAlertOnHardCloseDue = true;
 input bool InpAlertReplayOnInit = false;
 
+
+input group "STC Level 15 Broker Position Manager"
+input bool InpEnableBrokerPositionManager = true;
+input bool InpWriteBrokerPositionAudit = true;
+input int InpBrokerPositionScanSeconds = 10;
+input bool InpEnableRealHardClose = false;
+input bool InpAllowRealCloseInPaperLive = false;
+input int InpBrokerCloseDeviationPoints = 30;
+input bool InpAuditForeignPairPositions = true;
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -149,6 +159,13 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.alert_on_ambiguous = InpAlertOnAmbiguous;
    cfg.alert_on_hard_close_due = InpAlertOnHardCloseDue;
    cfg.alert_replay_on_init = InpAlertReplayOnInit;
+   cfg.enable_broker_position_manager = InpEnableBrokerPositionManager;
+   cfg.write_broker_position_audit = InpWriteBrokerPositionAudit;
+   cfg.broker_position_scan_seconds = InpBrokerPositionScanSeconds;
+   cfg.enable_real_hard_close = InpEnableRealHardClose;
+   cfg.allow_real_close_in_paper_live = InpAllowRealCloseInPaperLive;
+   cfg.broker_close_deviation_points = InpBrokerCloseDeviationPoints;
+   cfg.audit_foreign_pair_positions = InpAuditForeignPairPositions;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -212,8 +229,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 14 remains timer-driven. Alerts are audit-only and do not send real orders.
-   // Later levels will add real broker paper-live position management and auto-trading order operations.
+   // Level 15 remains timer-driven. Auto-entry is still disabled.
+   // Broker position manager scans magic-only positions and can optionally hard-close them after 15:30 New York.
 }
 
 void OnDeinit(const int reason)
