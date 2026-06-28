@@ -44,7 +44,11 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*maxSignalCatchupPerPulse=" + IntegerToString(cfg.max_signal_catchup_per_pulse)
       + "*paperEntryAudit=" + STC_BoolText(cfg.write_paper_entry_audit)
       + "*maxPaperEntryBackfillOnInit=" + IntegerToString(cfg.max_paper_entry_backfill_on_init)
-      + "*maxPaperEntryCatchupPerPulse=" + IntegerToString(cfg.max_paper_entry_catchup_per_pulse);
+      + "*maxPaperEntryCatchupPerPulse=" + IntegerToString(cfg.max_paper_entry_catchup_per_pulse)
+      + "*paperOutcomeAudit=" + STC_BoolText(cfg.write_paper_outcome_audit)
+      + "*maxPaperOutcomeBackfillOnInit=" + IntegerToString(cfg.max_paper_outcome_backfill_on_init)
+      + "*maxPaperOutcomeCatchupPerPulse=" + IntegerToString(cfg.max_paper_outcome_catchup_per_pulse)
+      + "*maxPaperOutcomeForwardChecks=" + IntegerToString(cfg.max_paper_outcome_forward_checks);
 }
 
 string STC_LockedRulesOneLine()
@@ -80,14 +84,14 @@ string STC_LockedRulesOneLine()
       + "*finalCheck=audited_but_no_entry"
       + "*wLevels=closed_90m_levels_from_symbol_M1_per_symbol*W1_level_built_but_no_signal*W2_refs=W1*W3_refs=W2_W1*W4_refs=W3_W2_W1"
       + "*rawHunts=touch_only_equality_valid*referenceMatrix=previous_W_only_same_M*W1_no_reference*W2_ref_W1*W3_ref_W2_then_W1*W4_ref_W3_then_W2_then_W1"
-      + "*huntLayer=raw_audit_only*SMTLevel=convert_exactly_one_hunts_to_candidates*highCandidate=sell_clean_symbol*lowCandidate=buy_clean_symbol*sameCheckBuySell=forget_no_trade_consumed_no_carry*referenceSelection=largest_stop_distance_on_clean_symbol_using_check_close_proxy*signalRegistry=confirm_closed_check_candidates_consume_audit_only*entryOff=confirmed_signal_consumed_no_late_entry*missedEntry=never_enter_late*orderAttempt=disabled_in_level08*paperEntry=next_check_open_no_order*riskPlan=SL_reference_TP_FinalRewardR*volume=theoretical_tick_value_or_contract_size*maxTrades=paper_counter_3_per_M*autoTrade=disabled_in_level08";
+      + "*huntLayer=raw_audit_only*SMTLevel=convert_exactly_one_hunts_to_candidates*highCandidate=sell_clean_symbol*lowCandidate=buy_clean_symbol*sameCheckBuySell=forget_no_trade_consumed_no_carry*referenceSelection=largest_stop_distance_on_clean_symbol_using_check_close_proxy*signalRegistry=confirm_closed_check_candidates_consume_audit_only*entryOff=confirmed_signal_consumed_no_late_entry*missedEntry=never_enter_late*orderAttempt=disabled_in_level09*paperEntry=next_check_open_no_order*riskPlan=SL_reference_TP_FinalRewardR*volume=theoretical_tick_value_or_contract_size*maxTrades=paper_counter_3_per_M*paperOutcome=simulate_check_stream_SL_TP_ambiguous_same_check*autoTrade=disabled_in_level09";
 }
 
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL08_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL08_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL09_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL09_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif

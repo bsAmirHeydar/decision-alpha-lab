@@ -106,6 +106,20 @@ enum STC_PaperEntryStatus
    STC_PAPER_PLANNED_SPLIT_REQUIRED = 11
 };
 
+
+
+enum STC_PaperOutcomeStatus
+{
+   STC_OUTCOME_NONE = 0,
+   STC_OUTCOME_NO_PAPER_ENTRY = 1,
+   STC_OUTCOME_OPEN_UNRESOLVED = 2,
+   STC_OUTCOME_TP_HIT = 3,
+   STC_OUTCOME_SL_HIT = 4,
+   STC_OUTCOME_AMBIGUOUS_SL_TP_SAME_CHECK = 5,
+   STC_OUTCOME_REJECTED_DATA_INCOMPLETE = 6,
+   STC_OUTCOME_REJECTED_ENTRY_NOT_PLANNED = 7
+};
+
 enum STC_SignalStatus
 {
    STC_SIGNAL_NONE = 0,
@@ -228,6 +242,19 @@ string STC_PaperEntryStatusText(const STC_PaperEntryStatus status)
    if(status == STC_PAPER_REJECTED_DIRECTION_LOCK) return "REJECTED_DIRECTION_LOCK";
    if(status == STC_PAPER_REJECTED_BROKER_MIN_VOLUME) return "REJECTED_BROKER_MIN_VOLUME";
    if(status == STC_PAPER_PLANNED_SPLIT_REQUIRED) return "PLANNED_SPLIT_REQUIRED";
+   return "NONE";
+}
+
+
+string STC_PaperOutcomeStatusText(const STC_PaperOutcomeStatus status)
+{
+   if(status == STC_OUTCOME_NO_PAPER_ENTRY) return "NO_PAPER_ENTRY";
+   if(status == STC_OUTCOME_OPEN_UNRESOLVED) return "OPEN_UNRESOLVED";
+   if(status == STC_OUTCOME_TP_HIT) return "TP_HIT";
+   if(status == STC_OUTCOME_SL_HIT) return "SL_HIT";
+   if(status == STC_OUTCOME_AMBIGUOUS_SL_TP_SAME_CHECK) return "AMBIGUOUS_SL_TP_SAME_CHECK";
+   if(status == STC_OUTCOME_REJECTED_DATA_INCOMPLETE) return "REJECTED_DATA_INCOMPLETE";
+   if(status == STC_OUTCOME_REJECTED_ENTRY_NOT_PLANNED) return "REJECTED_ENTRY_NOT_PLANNED";
    return "NONE";
 }
 

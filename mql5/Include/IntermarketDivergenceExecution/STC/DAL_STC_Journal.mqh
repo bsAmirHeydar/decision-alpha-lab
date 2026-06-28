@@ -68,6 +68,19 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "smt_candidate_audit_file_common", state.smt_candidate_audit_file_common);
    FileWrite(h, "max_smt_backfill_on_init", cfg.max_smt_backfill_on_init);
    FileWrite(h, "max_smt_catchup_per_pulse", cfg.max_smt_catchup_per_pulse);
+   FileWrite(h, "signal_registry_audit_enabled", STC_BoolText(cfg.write_signal_registry_audit));
+   FileWrite(h, "signal_registry_file_common", state.signal_registry_file_common);
+   FileWrite(h, "max_signal_backfill_on_init", cfg.max_signal_backfill_on_init);
+   FileWrite(h, "max_signal_catchup_per_pulse", cfg.max_signal_catchup_per_pulse);
+   FileWrite(h, "paper_entry_audit_enabled", STC_BoolText(cfg.write_paper_entry_audit));
+   FileWrite(h, "paper_entry_file_common", state.paper_entry_file_common);
+   FileWrite(h, "max_paper_entry_backfill_on_init", cfg.max_paper_entry_backfill_on_init);
+   FileWrite(h, "max_paper_entry_catchup_per_pulse", cfg.max_paper_entry_catchup_per_pulse);
+   FileWrite(h, "paper_outcome_audit_enabled", STC_BoolText(cfg.write_paper_outcome_audit));
+   FileWrite(h, "paper_outcome_file_common", state.paper_outcome_file_common);
+   FileWrite(h, "max_paper_outcome_backfill_on_init", cfg.max_paper_outcome_backfill_on_init);
+   FileWrite(h, "max_paper_outcome_catchup_per_pulse", cfg.max_paper_outcome_catchup_per_pulse);
+   FileWrite(h, "max_paper_outcome_forward_checks", cfg.max_paper_outcome_forward_checks);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);
@@ -357,6 +370,42 @@ bool STC_AppendPaperEntryAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_
       DoubleToString(audit.equity_snapshot, 2), DoubleToString(audit.risk_percent, 4), DoubleToString(audit.risk_money, 2), DoubleToString(audit.tick_size, 8), DoubleToString(audit.tick_value, 8), DoubleToString(audit.contract_size_used, 8), STC_BoolText(audit.used_tick_value),
       DoubleToString(audit.theoretical_volume, 8), DoubleToString(audit.broker_min_volume, 8), DoubleToString(audit.broker_max_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.paper_order_volume, 8), audit.split_order_count,
       DoubleToString(audit.spread_points_for_report, 2), DoubleToString(audit.commission_per_lot_for_report, 2), audit.volume_status, audit.status, audit.rule_note);
+   FileClose(h);
+   return true;
+}
+
+
+bool STC_AppendPaperOutcomeAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_PaperOutcomeAudit &audit)
+{
+   bool exists = FileIsExist(state.paper_outcome_file_common, FILE_COMMON);
+   int h = FileOpen(state.paper_outcome_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append paper outcome CSV ", state.paper_outcome_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "signal_check_index", "entry_check_index", "exit_check_index", "last_checked_index", "check_minutes",
+         "signal_check_start_ny", "signal_check_end_ny", "entry_check_start_ny", "entry_check_end_ny", "exit_check_start_ny", "exit_check_end_ny",
+         "m_cycle", "current_w", "outcome_status", "paper_status", "signal_id", "paper_trade_id", "is_paper_entry", "outcome_resolved", "tp_hit", "sl_hit", "ambiguous",
+         "direction", "trade_symbol", "hunted_symbol", "clean_symbol",
+         "entry_price", "stop_price", "take_profit_price", "exit_price", "last_checked_close", "risk_distance_price", "reward_distance_price", "final_reward_r",
+         "paper_order_volume", "split_order_count", "risk_money", "gross_pnl_money", "estimated_cost_money", "net_pnl_money", "realized_r_gross", "realized_r_net", "floating_r_at_last_check",
+         "spread_points_for_report", "commission_per_lot_for_report", "scanned_checks", "status", "rule_note");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.signal_check_index, audit.entry_check_index, audit.exit_check_index, audit.last_checked_index, audit.check_minutes,
+      STC_TimeText(audit.signal_check_start_ny), STC_TimeText(audit.signal_check_end_ny), STC_TimeText(audit.entry_check_start_ny), STC_TimeText(audit.entry_check_end_ny), STC_TimeText(audit.exit_check_start_ny), STC_TimeText(audit.exit_check_end_ny),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_PaperOutcomeStatusText(audit.outcome_status), STC_PaperEntryStatusText(audit.paper_status), audit.signal_id, audit.paper_trade_id, STC_BoolText(audit.is_paper_entry), STC_BoolText(audit.outcome_resolved), STC_BoolText(audit.tp_hit), STC_BoolText(audit.sl_hit), STC_BoolText(audit.ambiguous),
+      STC_DirectionText(audit.direction), audit.trade_symbol, audit.hunted_symbol, audit.clean_symbol,
+      DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.exit_price, 8), DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.final_reward_r, 2),
+      DoubleToString(audit.paper_order_volume, 8), audit.split_order_count, DoubleToString(audit.risk_money, 2), DoubleToString(audit.gross_pnl_money, 2), DoubleToString(audit.estimated_cost_money, 2), DoubleToString(audit.net_pnl_money, 2), DoubleToString(audit.realized_r_gross, 4), DoubleToString(audit.realized_r_net, 4), DoubleToString(audit.floating_r_at_last_check, 4),
+      DoubleToString(audit.spread_points_for_report, 2), DoubleToString(audit.commission_per_lot_for_report, 2), audit.scanned_checks, audit.status, audit.rule_note);
    FileClose(h);
    return true;
 }
