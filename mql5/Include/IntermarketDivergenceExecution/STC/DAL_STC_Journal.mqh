@@ -410,4 +410,38 @@ bool STC_AppendPaperOutcomeAuditCsv(STC_Config &cfg, STC_RuntimeState &state, ST
    return true;
 }
 
+
+bool STC_AppendPartialAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_PartialAudit &audit)
+{
+   bool exists = FileIsExist(state.partial_audit_file_common, FILE_COMMON);
+   int h = FileOpen(state.partial_audit_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append partial audit CSV ", state.partial_audit_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "signal_check_index", "entry_check_index", "partial_due_check_index", "last_checked_index", "check_minutes",
+         "signal_check_start_ny", "signal_check_end_ny", "entry_check_start_ny", "entry_check_end_ny", "partial_due_ny", "partial_due_server",
+         "m_cycle", "current_w", "partial_status", "paper_status", "pre_partial_outcome_status",
+         "signal_id", "paper_trade_id", "is_paper_entry", "partial_enabled", "partial_due", "partial_action_taken", "full_close_by_small_volume", "open_at_w4_end",
+         "direction", "trade_symbol", "entry_price", "stop_price", "take_profit_price", "paper_order_volume", "broker_volume_step", "close_volume", "remaining_volume", "close_volume_ratio",
+         "last_checked_close", "floating_r_at_partial", "status", "rule_note");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.signal_check_index, audit.entry_check_index, audit.partial_due_check_index, audit.last_checked_index, audit.check_minutes,
+      STC_TimeText(audit.signal_check_start_ny), STC_TimeText(audit.signal_check_end_ny), STC_TimeText(audit.entry_check_start_ny), STC_TimeText(audit.entry_check_end_ny), STC_TimeText(audit.partial_due_ny), STC_TimeText(audit.partial_due_server),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_PartialStatusText(audit.partial_status), STC_PaperEntryStatusText(audit.paper_status), STC_PaperOutcomeStatusText(audit.pre_partial_outcome_status),
+      audit.signal_id, audit.paper_trade_id, STC_BoolText(audit.is_paper_entry), STC_BoolText(audit.partial_enabled), STC_BoolText(audit.partial_due), STC_BoolText(audit.partial_action_taken), STC_BoolText(audit.full_close_by_small_volume), STC_BoolText(audit.open_at_w4_end),
+      STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.close_volume, 8), DoubleToString(audit.remaining_volume, 8), DoubleToString(audit.close_volume_ratio, 4),
+      DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.floating_r_at_partial, 4), audit.status, audit.rule_note);
+   FileClose(h);
+   return true;
+}
+
 #endif

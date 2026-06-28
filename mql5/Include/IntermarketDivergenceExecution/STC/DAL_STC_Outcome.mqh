@@ -164,7 +164,7 @@ bool STC_FindOutcomeCandidateForCheck(STC_Config &cfg,
       return false;
    }
 
-   // Level 09 outcome simulator emits one deterministic candidate per signal check when several same-direction rows exist.
+   // Level 09/10 outcome simulator emits one deterministic candidate per signal check when several same-direction rows exist.
    // Preference order is Symbol1 then Symbol2 after the largest-stop selector has chosen the best reference per symbol.
    if(high_count > 0)
    {
@@ -357,7 +357,7 @@ void STC_SimulateOutcomeFromPaper(STC_Config &cfg,
 
    outcome.outcome_status = STC_OUTCOME_OPEN_UNRESOLVED;
    outcome.status = "paper_trade_still_open_after_available_closed_checks";
-   outcome.rule_note = "Level 09 only simulates SL/TP on closed check candles; partial close and hard-close accounting are deferred";
+   outcome.rule_note = "Level 10 simulates SL/TP before partial; hard-close accounting is deferred";
    STC_FinalizeOutcomePnL(cfg, outcome);
 }
 
