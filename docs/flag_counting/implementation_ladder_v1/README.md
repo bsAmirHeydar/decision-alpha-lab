@@ -45,6 +45,10 @@ A layer is not allowed to move upward until its acceptance tests pass. A higher 
 Target Phoenix modules:
 
 ```text
+mql5/Include/FlagCountingPhoenix/FP_BarSnapshot.mqh
+mql5/Include/FlagCountingPhoenix/FP_TimebaseTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_SeriesContract.mqh
+mql5/Include/FlagCountingPhoenix/FP_Timebase.mqh
 mql5/Include/FlagCountingPhoenix/FP_Types.mqh
 mql5/Include/FlagCountingPhoenix/FP_NodeEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_HookEngine.mqh

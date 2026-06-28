@@ -3,9 +3,18 @@
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_Timebase.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
+// Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
+// when InpUseClosedBarsOnly=true. The loader copies one extra raw bar and drops
+// the current forming live candle before any structural engine runs.
 input int  InpBarsToScan = 5000;
+input bool InpUseClosedBarsOnly = true;
+input bool InpStrictTimebase = true;
+input int  InpMinClosedBars = 200;
+input bool InpPrintTimebaseSanity = true;
+input bool InpPrintTimebaseSamples = false;
 input bool InpRedrawOnNewBarOnly = true;
 
 // ------------------------------ Scales --------------------------------------
@@ -135,14 +144,41 @@ void FP_LoadConfig(FP_Config &cfg)
 void FP_Run()
 {
    MqlRates rates[];
-   ArraySetAsSeries(rates, false);
-   int copied = CopyRates(_Symbol, _Period, 0, InpBarsToScan, rates);
-   if(copied <= 200)
+
+   FP_TimebaseConfig timebase_cfg;
+   FP_DefaultTimebaseConfig(timebase_cfg);
+   timebase_cfg.symbol = _Symbol;
+   timebase_cfg.period = _Period;
+   timebase_cfg.requested_bars = InpBarsToScan;
+   timebase_cfg.min_closed_bars = InpMinClosedBars;
+   timebase_cfg.exclude_live_bar = InpUseClosedBarsOnly;
+   timebase_cfg.require_ascending_time = true;
+   timebase_cfg.strict_contract = InpStrictTimebase;
+   timebase_cfg.print_sanity = InpPrintTimebaseSanity;
+   timebase_cfg.print_samples = InpPrintTimebaseSamples;
+
+   FP_TimebaseReport timebase_report;
+   int copied = FP_LoadCanonicalRates(timebase_cfg, rates, timebase_report);
+
+   if(InpPrintTimebaseSanity || !timebase_report.ok)
+      FP_PrintTimebaseReport("FP_LEVEL01", timebase_report);
+   if(InpPrintTimebaseSamples)
+      FP_PrintTimebaseSamples("FP_LEVEL01", rates, copied);
+
+   if(!timebase_report.ok && InpStrictTimebase)
    {
-      Print("FP_SUMMARY status=not_enough_bars copied=", copied);
+      Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
+            " bars=", copied,
+            " status_detail=", timebase_report.status);
       return;
    }
-   ArraySetAsSeries(rates, false);
+
+   if(copied < InpMinClosedBars)
+   {
+      Print("FP_SUMMARY status=not_enough_closed_bars copied=", copied,
+            " min=", InpMinClosedBars);
+      return;
+   }
 
    int scales[];
    int scale_count = FP_BuildScaleList(InpUseMultiScale,

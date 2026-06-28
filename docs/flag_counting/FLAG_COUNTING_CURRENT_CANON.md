@@ -60,6 +60,8 @@ These rules cannot be relaxed by renderer settings or tactical patches:
 10. Main chart and audit output are separate products.
 11. Every visible or hidden decision must carry a reason.
 12. Given the same bars, inputs, and range, Phoenix must emit deterministic output.
+13. Phoenix structural engines must consume the Level 01 canonical closed-bar stream by default. Direct private `CopyRates` calls are not allowed in higher structural modules.
+14. Canonical bar indexing is fixed: `rates[0]` is the oldest closed bar, and newer bars have higher indices.
 
 ---
 
@@ -204,6 +206,38 @@ candidate/qualified/confirmed/invalidated/locked counts
 ```
 
 CSV/JSON export is the target audit form. Until file export exists, structured log output must expose the same fields.
+
+---
+
+## 4.12 Level 01 candle stream
+
+Default structural input is the Level 01 canonical closed-bar stream:
+
+```text
+FP_LoadCanonicalRates -> canonical MqlRates[] -> node/hook/flag engines
+```
+
+Default settings:
+
+```text
+InpUseClosedBarsOnly = true
+InpStrictTimebase = true
+InpMinClosedBars = 200
+InpPrintTimebaseSanity = true
+```
+
+`InpBarsToScan` means requested closed bars in default mode. Phoenix copies one extra raw terminal bar and drops the current forming live candle before detection.
+
+Canonical convention:
+
+```text
+rates[0] = oldest closed bar
+rates[canonical_bars - 1] = newest closed bar
+newer bars have higher indices
+time is display metadata, not structural x-axis authority
+```
+
+Level 01 must emit an `FP_LEVEL01` sanity line before downstream detection is trusted. If the timebase contract fails under strict mode, Phoenix must stop before node/flag detection.
 
 ---
 

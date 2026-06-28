@@ -25,6 +25,15 @@ Phoenix is a clean rebuild of the Flag Counting engine. It intentionally does no
 
 ## Files
 
+Level 01 foundation:
+
+- `FP_BarSnapshot.mqh`: per-bar diagnostic snapshot and OHLC sanity helper.
+- `FP_TimebaseTypes.mqh`: canonical candle-stream config/report structs.
+- `FP_SeriesContract.mqh`: validates ascending non-series closed-bar arrays.
+- `FP_Timebase.mqh`: the only Phoenix `CopyRates` gateway. It returns canonical bars.
+
+Structural / sequence engines:
+
 - `FP_Types.mqh`: model types and contract helpers.
 - `FP_NodeEngine.mqh`: L-based high/low node extraction with plateau handling.
 - `FP_HookEngine.mqh`: branch-based ND/hook detection.
@@ -33,6 +42,30 @@ Phoenix is a clean rebuild of the Flag Counting engine. It intentionally does no
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
+
+
+## Level 01 candle stream
+
+Phoenix now routes terminal history through `FP_LoadCanonicalRates` before any structural engine runs. The default contract is:
+
+```text
+InpUseClosedBarsOnly = true
+InpStrictTimebase = true
+InpMinClosedBars = 200
+InpPrintTimebaseSanity = true
+```
+
+`InpBarsToScan` means requested closed bars in this mode. The loader copies one extra raw bar, removes the current forming live candle, validates ascending non-series order, and prints an `FP_LEVEL01` sanity line.
+
+Canonical convention:
+
+```text
+rates[0] = oldest closed bar
+rates[ArraySize(rates)-1] = newest closed bar
+newer bars have higher indices
+```
+
+Higher Phoenix modules must not call `CopyRates` directly. They consume the canonical array passed by the EA.
 
 ## Expert
 

@@ -43,7 +43,29 @@ Acceptance:
 - ambiguity decisions are resolved;
 - patch policy requires canon file reference.
 
-### Step 01 — Freeze types and config
+### Step 01 — Freeze Level 01 candle stream and timebase
+
+Files:
+
+```text
+FP_BarSnapshot.mqh
+FP_TimebaseTypes.mqh
+FP_SeriesContract.mqh
+FP_Timebase.mqh
+FlagCountingPhoenixExperiment.mq5 # wiring only
+```
+
+Acceptance:
+
+- Phoenix has exactly one `CopyRates` gateway;
+- `InpBarsToScan` means requested closed bars in default closed-only mode;
+- current forming live candle is dropped by default;
+- canonical arrays are `ArraySetAsSeries(false)`;
+- index 0 is oldest and newer bars have higher indices;
+- duplicate/reversed time and invalid OHLC fail before detection when strict mode is on;
+- `FP_LEVEL01` sanity line proves the stream contract before node detection.
+
+### Step 01.5 — Freeze types and config
 
 Files:
 
