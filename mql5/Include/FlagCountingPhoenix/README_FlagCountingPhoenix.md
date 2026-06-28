@@ -73,3 +73,16 @@ New inputs:
 - `InpCompactHookRendering`
 
 Recommended semantic-view defaults keep all three enabled.
+
+## Hook / ND branch-sequence repair
+
+The Hook engine now follows the branch-sequence contract:
+
+- Hook / ND is not detected from arbitrary alternating 3/4-node windows.
+- Bullish hook contexts count same-side LOW nodes.
+- Bearish hook contexts count same-side HIGH nodes.
+- Counted branches must be strict adverse staircases.
+- Only branches with exactly three or four counted same-side nodes can become ND.
+- Runs with more than four counted same-side nodes are skipped at the current L and are expected to appear in a higher-L compressed view.
+- Opposite-side nodes remain available for cycle extreme detection and gray arc rendering, but they are not counted as internal hook numbers.
+- Chart labels now use cluster-based stacking so dense text appears in deterministic lanes instead of overlapping randomly.

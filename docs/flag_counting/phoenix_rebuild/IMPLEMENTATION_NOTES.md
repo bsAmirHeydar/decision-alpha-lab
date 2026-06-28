@@ -40,3 +40,20 @@ The Phoenix cleanup pass fixes the main remaining failure mode observed on chart
 The semantic chart view now also prefers phase-owned structures over fail-open structures. Fail-open remains enabled by default for inspection so the chart does not become empty while Hook/ND coverage is being audited, but fail-open roots are hidden when a real hook/ND phase root already owns the same region.
 
 Hook rendering has also been compacted. The hook engine may still audit multiple theoretical branches, but the main render keeps the strongest branch per resolve node. This preserves ND visibility while reducing the raw sliding-window look.
+
+## Hook / ND branch-sequence code repair
+
+The Phoenix hook engine now follows the dedicated Hook / ND branch-sequence contract rather than the older alternating sliding-window approximation.
+
+Changes:
+
+- removed blind alternating 3/4-node window hook construction;
+- added same-side counted-node branch extraction;
+- low-side hooks count only LOW nodes and high-side hooks count only HIGH nodes;
+- opposite nodes are used only for cycle extreme and arc geometry;
+- branches require strict adverse progression from older counted node to newer counted node;
+- branch length 1 or 2 is developing and not ND;
+- branch length 3 or 4 can become ND when cycle retracement passes the configured threshold;
+- branch length above 4 is rejected at the current L so a higher-L compressed view must represent it;
+- hook labels now expose the counted branch length using `ND Lx #n`;
+- renderer label placement now uses a deterministic cluster stacker instead of event-id modulo lanes.

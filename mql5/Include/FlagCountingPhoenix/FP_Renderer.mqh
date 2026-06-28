@@ -98,26 +98,45 @@ string FP_EventLabel(const FP_FlagEvent &e, const bool detailed, const bool show
    return s;
 }
 
-double FP_LabelOffsetPrice(const int lane, const int direction, const bool is_peak)
+double FP_LabelStepPrice()
 {
    double step = 24.0 * _Point;
    if(_Digits == 3 || _Digits == 5) step = 240.0 * _Point;
-   double sign = 1.0;
-   // Contract: labels above peaks and below valleys. For bullish flag end is peak;
-   // bearish flag end is valley.
-   if(is_peak) sign = 1.0;
-   else sign = -1.0;
-   return sign * (double)(lane + 1) * step;
+   return step;
 }
 
-int FP_LabelLaneForEvent(const FP_FlagEvent &e, const int max_lanes)
+double FP_LabelOffsetPrice(const int lane, const int direction, const bool is_peak)
 {
-   // Older sequence closer to price: event id grows over time. Use a bounded lane
-   // but keep level/status priority visible.
-   int base = e.event_id % MathMax(1, max_lanes);
-   if(e.status == FP_STATUS_LOCKED) base = 0;
-   else if(e.status == FP_STATUS_CONFIRMED) base = MathMin(base, 2);
-   return base;
+   double sign = (is_peak ? 1.0 : -1.0);
+   return sign * (double)(lane + 1) * FP_LabelStepPrice();
+}
+
+int FP_RegisterLabelLane(int &indices[], double &prices[], bool &peaks[],
+                         const int index_anchor, const double price, const bool is_peak)
+{
+   // Deterministic cluster stacking: older labels are registered first and stay
+   // closer to price; later labels in the same time/price/peak cluster move one
+   // lane farther away.  This keeps chart text vertically readable instead of
+   // using event-id modulo lanes.
+   int lane = 0;
+   int time_cluster_bars = 6;
+   double price_cluster = FP_LabelStepPrice() * 4.0;
+   int n = ArraySize(indices);
+   for(int i=0; i<n; i++)
+   {
+      if(peaks[i] != is_peak) continue;
+      if(MathAbs(indices[i] - index_anchor) > time_cluster_bars) continue;
+      if(MathAbs(prices[i] - price) > price_cluster) continue;
+      lane++;
+   }
+
+   ArrayResize(indices, n + 1);
+   ArrayResize(prices, n + 1);
+   ArrayResize(peaks, n + 1);
+   indices[n] = index_anchor;
+   prices[n] = price;
+   peaks[n] = is_peak;
+   return lane;
 }
 
 void FP_DrawFlagBody(const FP_FlagEvent &e,
@@ -197,7 +216,8 @@ void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color 
    FP_DrawText(prefix + "EV_" + IntegerToString(e.event_id) + "_O", e.origin.time_anchor, p, "O", c, font_size);
 }
 
-void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size)
+void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size,
+                       int &label_indices[], double &label_prices[], bool &label_peaks[])
 {
    if(!h.is_nd) return;
    string base = prefix + "HK_" + IntegerToString(h.branch_id) + "_";
@@ -221,7 +241,26 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
       prev_t = t;
       prev_p = p;
    }
-   FP_DrawText(base + "label", h.resolve_node.time_anchor, h.resolve_node.price, "ND L" + IntegerToString(h.scale_L), c, font_size);
+   bool is_peak = (h.resolve_node.kind == FP_NODE_HIGH);
+   int lane = FP_RegisterLabelLane(label_indices, label_prices, label_peaks, h.resolve_node.index_anchor, h.resolve_node.price, is_peak);
+   double label_price = h.resolve_node.price + FP_LabelOffsetPrice(lane, h.direction, is_peak);
+   string label = "ND L" + IntegerToString(h.scale_L) + " #" + IntegerToString(h.node_count);
+   FP_DrawText(base + "label", h.resolve_node.time_anchor, label_price, label, c, font_size);
+
+   // Show counted branch numbers on same-side nodes so the hook sequence can be
+   // audited visually.
+   FP_Node nums[4];
+   nums[0] = h.n1;
+   nums[1] = h.n2;
+   nums[2] = h.n3;
+   nums[3] = h.n4;
+   for(int i=0; i<4; i++)
+   {
+      if(nums[i].id < 0) continue;
+      bool np = (nums[i].kind == FP_NODE_HIGH);
+      double pp = nums[i].price + FP_LabelOffsetPrice(0, h.direction, np);
+      FP_DrawText(base + "N" + IntegerToString(i+1), nums[i].time_anchor, pp, IntegerToString(i+1), c, MathMax(6, font_size-1));
+   }
 }
 
 bool FP_ShouldDrawEvent(const FP_FlagEvent &e,
@@ -281,13 +320,19 @@ int FP_DrawAll(const FP_FlagEvent &events[],
    FP_DeleteObjectsByPrefix(prefix);
    int drawn = 0;
    int hook_drawn = 0;
+   int label_indices[];
+   double label_prices[];
+   bool label_peaks[];
+   ArrayResize(label_indices, 0);
+   ArrayResize(label_prices, 0);
+   ArrayResize(label_peaks, 0);
 
    if(draw_hooks)
    {
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
-         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size));
+         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_indices, label_prices, label_peaks);
          hook_drawn++;
       }
    }
@@ -308,7 +353,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       if(anchor.id >= 0)
       {
          bool is_peak = (anchor.kind == FP_NODE_HIGH);
-         int lane = FP_LabelLaneForEvent(e, 8);
+         int lane = FP_RegisterLabelLane(label_indices, label_prices, label_peaks, anchor.index_anchor, anchor.price, is_peak);
          double p = anchor.price + FP_LabelOffsetPrice(lane, e.direction, is_peak);
          FP_DrawText(prefix + "EV_" + IntegerToString(e.event_id) + "_LBL", anchor.time_anchor, p, FP_EventLabel(e, detailed_labels, show_parent_ids), c, label_font_size);
       }

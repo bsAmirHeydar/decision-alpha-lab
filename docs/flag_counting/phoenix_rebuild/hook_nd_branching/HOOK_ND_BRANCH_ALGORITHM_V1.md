@@ -401,3 +401,20 @@ The implementation must reject these incorrect behaviors:
 5. Using close price for Hook branch qualification.
 6. Treating equality as a break.
 7. Rendering a Hook branch that the Hook engine did not emit.
+
+## Phoenix code alignment note - branch-sequence implementation
+
+The Phoenix code patch that follows this document replaces the earlier alternating-window hook scanner with the same-side branch sequence engine described here.
+
+Implementation consequences:
+
+1. A low-side hook is built from LOW nodes only. Opposite HIGH nodes are used only to find the cycle extreme for retracement and arc drawing.
+2. A high-side hook is built from HIGH nodes only. Opposite LOW nodes are used only to find the cycle extreme for retracement and arc drawing.
+3. Counted hook branches are strict adverse staircases:
+   - low-side branch: each newer LOW must be strictly lower than the previous counted LOW;
+   - high-side branch: each newer HIGH must be strictly higher than the previous counted HIGH.
+4. Equality is ignored and never extends or validates a counted branch.
+5. A branch with 3 or 4 counted same-side nodes can qualify as ND after the retracement rule is satisfied.
+6. A same-side run with more than 4 counted nodes is not emitted at that L. It must be represented by a higher-L compressed node view.
+7. The renderer displays the branch numbers on the counted same-side nodes and renders the ND label as `ND Lx #n`, where `n` is the counted-node count.
+8. Main chart labels are registered through a time/price cluster stacker so older labels stay closer to price and newer labels are pushed into deterministic lanes.
