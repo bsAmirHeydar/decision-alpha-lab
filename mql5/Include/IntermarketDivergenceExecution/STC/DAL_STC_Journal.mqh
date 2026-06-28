@@ -60,6 +60,10 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "w_level_audit_file_common", state.w_level_audit_file_common);
    FileWrite(h, "max_w_level_backfill_on_init", cfg.max_w_level_backfill_on_init);
    FileWrite(h, "max_w_level_catchup_per_pulse", cfg.max_w_level_catchup_per_pulse);
+   FileWrite(h, "hunt_audit_enabled", STC_BoolText(cfg.write_hunt_audit));
+   FileWrite(h, "hunt_audit_file_common", state.hunt_audit_file_common);
+   FileWrite(h, "max_hunt_backfill_on_init", cfg.max_hunt_backfill_on_init);
+   FileWrite(h, "max_hunt_catchup_per_pulse", cfg.max_hunt_catchup_per_pulse);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);
@@ -213,6 +217,40 @@ bool STC_AppendWLevelAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_WLev
       DoubleToString(audit.symbol1.open, 8), DoubleToString(audit.symbol1.high, 8), DoubleToString(audit.symbol1.low, 8), DoubleToString(audit.symbol1.close, 8), audit.symbol1.tick_volume, audit.symbol1.real_volume, audit.symbol1.spread_max, audit.symbol1.status,
       audit.symbol2.symbol, STC_BoolText(audit.symbol2.selected), STC_BoolText(audit.symbol2.complete), audit.symbol2.expected_m1_bars, audit.symbol2.actual_m1_bars, STC_TimeText(audit.symbol2.first_m1_server_time), STC_TimeText(audit.symbol2.last_m1_server_time),
       DoubleToString(audit.symbol2.open, 8), DoubleToString(audit.symbol2.high, 8), DoubleToString(audit.symbol2.low, 8), DoubleToString(audit.symbol2.close, 8), audit.symbol2.tick_volume, audit.symbol2.real_volume, audit.symbol2.spread_max, audit.symbol2.status);
+   FileClose(h);
+   return true;
+}
+
+
+bool STC_AppendReferenceHuntAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_ReferenceHuntAudit &audit)
+{
+   bool exists = FileIsExist(state.hunt_audit_file_common, FILE_COMMON);
+   int h = FileOpen(state.hunt_audit_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append reference hunt audit CSV ", state.hunt_audit_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "check_index", "check_minutes", "check_start_ny", "check_end_ny", "check_start_server", "check_end_server",
+         "m_cycle", "current_w", "reference_w", "reference_w_serial", "reference_rank",
+         "detection_allowed_for_signal", "entry_allowed_at_close", "final_check_of_m", "check_pair_data_complete", "reference_pair_data_complete", "pair_data_complete", "status", "rule_note",
+         "s1_reference_high", "s1_reference_low", "s1_check_high", "s1_check_low", "s1_high_hunt", "s1_low_hunt",
+         "s2_reference_high", "s2_reference_low", "s2_check_high", "s2_check_low", "s2_high_hunt", "s2_low_hunt",
+         "high_hunt_pattern", "low_hunt_pattern", "high_exactly_one_hunted", "low_exactly_one_hunted", "high_hunted_symbol", "high_clean_symbol", "low_hunted_symbol", "low_clean_symbol");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.check_index, audit.check_minutes, STC_TimeText(audit.check_start_ny), STC_TimeText(audit.check_end_ny), STC_TimeText(audit.check_start_server), STC_TimeText(audit.check_end_server),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_WCycleText(audit.reference_w_cycle), audit.reference_w_serial, audit.reference_rank,
+      STC_BoolText(audit.detection_allowed_for_signal), STC_BoolText(audit.entry_allowed_at_close), STC_BoolText(audit.final_check_of_m), STC_BoolText(audit.check_pair_data_complete), STC_BoolText(audit.reference_pair_data_complete), STC_BoolText(audit.pair_data_complete), audit.status, audit.rule_note,
+      DoubleToString(audit.s1_reference_high, 8), DoubleToString(audit.s1_reference_low, 8), DoubleToString(audit.s1_check_high, 8), DoubleToString(audit.s1_check_low, 8), STC_BoolText(audit.s1_high_hunt), STC_BoolText(audit.s1_low_hunt),
+      DoubleToString(audit.s2_reference_high, 8), DoubleToString(audit.s2_reference_low, 8), DoubleToString(audit.s2_check_high, 8), DoubleToString(audit.s2_check_low, 8), STC_BoolText(audit.s2_high_hunt), STC_BoolText(audit.s2_low_hunt),
+      STC_HuntPatternText(audit.high_hunt_pattern), STC_HuntPatternText(audit.low_hunt_pattern), STC_BoolText(audit.high_exactly_one_hunted), STC_BoolText(audit.low_exactly_one_hunted), audit.high_hunted_symbol, audit.high_clean_symbol, audit.low_hunted_symbol, audit.low_clean_symbol);
    FileClose(h);
    return true;
 }

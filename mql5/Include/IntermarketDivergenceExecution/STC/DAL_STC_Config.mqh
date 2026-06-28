@@ -32,7 +32,10 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*maxCheckCatchupPerPulse=" + IntegerToString(cfg.max_check_catchup_per_pulse)
       + "*wLevelAudit=" + STC_BoolText(cfg.write_w_level_audit)
       + "*maxWLevelBackfillOnInit=" + IntegerToString(cfg.max_w_level_backfill_on_init)
-      + "*maxWLevelCatchupPerPulse=" + IntegerToString(cfg.max_w_level_catchup_per_pulse);
+      + "*maxWLevelCatchupPerPulse=" + IntegerToString(cfg.max_w_level_catchup_per_pulse)
+      + "*huntAudit=" + STC_BoolText(cfg.write_hunt_audit)
+      + "*maxHuntBackfillOnInit=" + IntegerToString(cfg.max_hunt_backfill_on_init)
+      + "*maxHuntCatchupPerPulse=" + IntegerToString(cfg.max_hunt_catchup_per_pulse);
 }
 
 string STC_LockedRulesOneLine()
@@ -66,14 +69,16 @@ string STC_LockedRulesOneLine()
       + "*pairCompleteness=both_symbols_required"
       + "*gapCheckCandles=no_data_extraction"
       + "*finalCheck=audited_but_no_entry"
-      + "*wLevels=closed_90m_levels_from_symbol_M1_per_symbol*W1_level_built_but_no_signal*W2_refs=W1*W3_refs=W2_W1*W4_refs=W3_W2_W1*autoTrade=disabled_in_level04";
+      + "*wLevels=closed_90m_levels_from_symbol_M1_per_symbol*W1_level_built_but_no_signal*W2_refs=W1*W3_refs=W2_W1*W4_refs=W3_W2_W1"
+      + "*rawHunts=touch_only_equality_valid*referenceMatrix=previous_W_only_same_M*W1_no_reference*W2_ref_W1*W3_ref_W2_then_W1*W4_ref_W3_then_W2_then_W1"
+      + "*huntLayer=raw_audit_only_no_SMT_candidates_no_confirmation_no_entries*autoTrade=disabled_in_level05";
 }
 
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL04_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL04_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL05_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL05_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif

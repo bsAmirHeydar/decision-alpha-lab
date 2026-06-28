@@ -41,6 +41,9 @@ struct STC_Config
    bool write_w_level_audit;
    int max_w_level_backfill_on_init;
    int max_w_level_catchup_per_pulse;
+   bool write_hunt_audit;
+   int max_hunt_backfill_on_init;
+   int max_hunt_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -62,12 +65,16 @@ struct STC_RuntimeState
    string time_audit_file_common;
    string check_candle_audit_file_common;
    string w_level_audit_file_common;
+   string hunt_audit_file_common;
    string last_check_audit_stc_day_id;
    int last_check_audit_index;
    long check_candles_audited;
    string last_w_level_audit_stc_day_id;
    int last_w_level_audit_serial;
    long w_levels_audited;
+   string last_hunt_audit_stc_day_id;
+   int last_hunt_audit_check_index;
+   long hunt_rows_audited;
    string lock_name;
 };
 
@@ -146,6 +153,54 @@ struct STC_WLevelAudit
    STC_SymbolCheckAggregate symbol2;
 };
 
+
+struct STC_ReferenceHuntAudit
+{
+   string stc_day_id;
+   int check_index;
+   int check_minutes;
+   datetime check_start_ny;
+   datetime check_end_ny;
+   datetime check_start_server;
+   datetime check_end_server;
+   STC_MCycle m_cycle;
+   STC_WCycle current_w_cycle;
+   STC_WCycle reference_w_cycle;
+   int reference_w_serial;
+   int reference_rank;
+   bool detection_allowed_for_signal;
+   bool entry_allowed_at_close;
+   bool final_check_of_m;
+   bool check_pair_data_complete;
+   bool reference_pair_data_complete;
+   bool pair_data_complete;
+   string status;
+   string rule_note;
+
+   double s1_reference_high;
+   double s1_reference_low;
+   double s1_check_high;
+   double s1_check_low;
+   bool s1_high_hunt;
+   bool s1_low_hunt;
+
+   double s2_reference_high;
+   double s2_reference_low;
+   double s2_check_high;
+   double s2_check_low;
+   bool s2_high_hunt;
+   bool s2_low_hunt;
+
+   STC_HuntPattern high_hunt_pattern;
+   STC_HuntPattern low_hunt_pattern;
+   bool high_exactly_one_hunted;
+   bool low_exactly_one_hunted;
+   string high_hunted_symbol;
+   string high_clean_symbol;
+   string low_hunted_symbol;
+   string low_clean_symbol;
+};
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -200,7 +255,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL04";
+   cfg.run_id = "EXEC001_STC_LEVEL05";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -234,6 +289,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_w_level_audit = true;
    cfg.max_w_level_backfill_on_init = 12;
    cfg.max_w_level_catchup_per_pulse = 12;
+   cfg.write_hunt_audit = true;
+   cfg.max_hunt_backfill_on_init = 24;
+   cfg.max_hunt_catchup_per_pulse = 48;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -255,22 +313,26 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.time_audit_file_common = "";
    state.check_candle_audit_file_common = "";
    state.w_level_audit_file_common = "";
+   state.hunt_audit_file_common = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
    state.last_w_level_audit_stc_day_id = "";
    state.last_w_level_audit_serial = -1;
    state.w_levels_audited = 0;
+   state.last_hunt_audit_stc_day_id = "";
+   state.last_hunt_audit_check_index = -1;
+   state.hunt_rows_audited = 0;
    state.lock_name = "";
 }
 
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_04_W_LEVEL_BUILDER";
-   sanity.build_version = "1.30";
-   sanity.build_scope = "level01 skeleton plus level02 time engine plus level03 check-candle aggregation plus M1-based W high/low construction and W level audit CSV";
-   sanity.locked_contract = "Build closed 90-minute W levels for each symbol independently; no SMT detection, no confirmation, no signals, no paper trades, no orders in level 04";
+   sanity.module_level = "LEVEL_05_REFERENCE_MATRIX_HUNT_DETECTOR";
+   sanity.build_version = "1.40";
+   sanity.build_scope = "level01 skeleton plus time engine, check-candle aggregation, W levels, previous-W reference matrix, and raw touch-only hunt audit";
+   sanity.locked_contract = "Detect raw high/low hunts against legal previous W references; equality is touch; no SMT candidate generation, no confirmation, no signals, no paper trades, no orders in level 05";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
@@ -385,6 +447,51 @@ void STC_ResetWLevelAudit(STC_WLevelAudit &audit)
    audit.status = "not_built";
    STC_ResetSymbolCheckAggregate(audit.symbol1);
    STC_ResetSymbolCheckAggregate(audit.symbol2);
+}
+
+
+void STC_ResetReferenceHuntAudit(STC_ReferenceHuntAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.check_index = -1;
+   audit.check_minutes = 0;
+   audit.check_start_ny = 0;
+   audit.check_end_ny = 0;
+   audit.check_start_server = 0;
+   audit.check_end_server = 0;
+   audit.m_cycle = STC_M_NONE;
+   audit.current_w_cycle = STC_W_NONE;
+   audit.reference_w_cycle = STC_W_NONE;
+   audit.reference_w_serial = -1;
+   audit.reference_rank = -1;
+   audit.detection_allowed_for_signal = false;
+   audit.entry_allowed_at_close = false;
+   audit.final_check_of_m = false;
+   audit.check_pair_data_complete = false;
+   audit.reference_pair_data_complete = false;
+   audit.pair_data_complete = false;
+   audit.status = "not_built";
+   audit.rule_note = "";
+   audit.s1_reference_high = 0.0;
+   audit.s1_reference_low = 0.0;
+   audit.s1_check_high = 0.0;
+   audit.s1_check_low = 0.0;
+   audit.s1_high_hunt = false;
+   audit.s1_low_hunt = false;
+   audit.s2_reference_high = 0.0;
+   audit.s2_reference_low = 0.0;
+   audit.s2_check_high = 0.0;
+   audit.s2_check_low = 0.0;
+   audit.s2_high_hunt = false;
+   audit.s2_low_hunt = false;
+   audit.high_hunt_pattern = STC_HUNT_NONE;
+   audit.low_hunt_pattern = STC_HUNT_NONE;
+   audit.high_exactly_one_hunted = false;
+   audit.low_exactly_one_hunted = false;
+   audit.high_hunted_symbol = "";
+   audit.high_clean_symbol = "";
+   audit.low_hunted_symbol = "";
+   audit.low_clean_symbol = "";
 }
 
 #endif

@@ -73,6 +73,6 @@ STC SMT Cycles detects, confirms, and executes SMT divergence between two config
 33. Duplicate EA instances for the same strategy and symbol pair must be blocked.
 
 
-## Current engineering level: Level 04
+## Current engineering level: Level 05
 
-The current code level builds and audits closed 90-minute W levels for both symbols. It still does not produce SMT signals or trades.
+The current code level builds the legal previous-W reference matrix and audits raw touch-only high/low hunts for every closed check candle. It still does not produce SMT candidates, confirmations, signals, paper trades, or live orders.

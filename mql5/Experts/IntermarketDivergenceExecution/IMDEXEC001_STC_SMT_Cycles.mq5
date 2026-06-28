@@ -1,13 +1,13 @@
 #property strict
-#property version   "1.30"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 04 W level builder"
-#property description "Level 04 adds closed 90-minute W high/low construction per symbol. No SMT signals. No orders."
+#property version   "1.40"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 05 reference matrix and hunt detector"
+#property description "Level 05 adds legal previous-W reference matrix and raw touch-only high/low hunt audit. No SMT signals. No orders."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 04 Runtime"
+input group "DAL / STC Level 05 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL04";
+input string InpRunId = "EXEC001_STC_LEVEL05";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -19,6 +19,9 @@ input int InpMaxCheckCatchupPerPulse = 32;
 input bool InpWriteWLevelAudit = true;
 input int InpMaxWLevelBackfillOnInit = 12;
 input int InpMaxWLevelCatchupPerPulse = 12;
+input bool InpWriteHuntAudit = true;
+input int InpMaxHuntBackfillOnInit = 24;
+input int InpMaxHuntCatchupPerPulse = 48;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -90,6 +93,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.write_w_level_audit = InpWriteWLevelAudit;
    cfg.max_w_level_backfill_on_init = InpMaxWLevelBackfillOnInit;
    cfg.max_w_level_catchup_per_pulse = InpMaxWLevelCatchupPerPulse;
+   cfg.write_hunt_audit = InpWriteHuntAudit;
+   cfg.max_hunt_backfill_on_init = InpMaxHuntBackfillOnInit;
+   cfg.max_hunt_catchup_per_pulse = InpMaxHuntCatchupPerPulse;
 }
 
 int OnInit()
@@ -114,8 +120,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 04 remains timer-driven for audit and does not inspect ticks for signal decisions.
-   // Later levels will add SMT candidates, confirmation, paper execution, drawing, and auto-trading.
+   // Level 05 remains timer-driven for audit and does not inspect ticks for signal decisions.
+   // Later levels will convert raw hunts into SMT candidates, confirmation, paper execution, drawing, and auto-trading.
 }
 
 void OnDeinit(const int reason)

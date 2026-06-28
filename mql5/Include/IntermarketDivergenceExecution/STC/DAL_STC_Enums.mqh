@@ -67,6 +67,15 @@ enum STC_TimePhase
    STC_PHASE_HARD_CLOSE_ZONE       = 3
 };
 
+enum STC_HuntPattern
+{
+   STC_HUNT_NONE         = 0,
+   STC_HUNT_SYMBOL1_ONLY = 1,
+   STC_HUNT_SYMBOL2_ONLY = 2,
+   STC_HUNT_BOTH         = 3
+};
+
+
 string STC_RuntimeModeText(const STC_RuntimeMode mode)
 {
    if(mode == STC_MODE_RESEARCH_BACKTEST) return "RESEARCH_BACKTEST";
@@ -123,6 +132,14 @@ string STC_TimePhaseText(const STC_TimePhase phase)
    if(phase == STC_PHASE_M_GAP) return "M_GAP_NO_ENTRY_NO_DETECTION";
    if(phase == STC_PHASE_HARD_CLOSE_ZONE) return "HARD_CLOSE_ZONE";
    return "PRE_DAY_OR_POST_CLOSE";
+}
+
+string STC_HuntPatternText(const STC_HuntPattern pattern)
+{
+   if(pattern == STC_HUNT_SYMBOL1_ONLY) return "SYMBOL1_ONLY";
+   if(pattern == STC_HUNT_SYMBOL2_ONLY) return "SYMBOL2_ONLY";
+   if(pattern == STC_HUNT_BOTH)         return "BOTH";
+   return "NONE";
 }
 
 #endif
