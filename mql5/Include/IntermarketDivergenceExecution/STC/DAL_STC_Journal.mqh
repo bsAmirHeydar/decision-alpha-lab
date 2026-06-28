@@ -81,6 +81,14 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "max_paper_outcome_backfill_on_init", cfg.max_paper_outcome_backfill_on_init);
    FileWrite(h, "max_paper_outcome_catchup_per_pulse", cfg.max_paper_outcome_catchup_per_pulse);
    FileWrite(h, "max_paper_outcome_forward_checks", cfg.max_paper_outcome_forward_checks);
+   FileWrite(h, "partial_audit_enabled", STC_BoolText(cfg.write_partial_audit));
+   FileWrite(h, "partial_audit_file_common", state.partial_audit_file_common);
+   FileWrite(h, "max_partial_backfill_on_init", cfg.max_partial_backfill_on_init);
+   FileWrite(h, "max_partial_catchup_per_pulse", cfg.max_partial_catchup_per_pulse);
+   FileWrite(h, "hard_close_audit_enabled", STC_BoolText(cfg.write_hard_close_audit));
+   FileWrite(h, "hard_close_audit_file_common", state.hard_close_audit_file_common);
+   FileWrite(h, "max_hard_close_backfill_on_init", cfg.max_hard_close_backfill_on_init);
+   FileWrite(h, "max_hard_close_catchup_per_pulse", cfg.max_hard_close_catchup_per_pulse);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);
@@ -440,6 +448,44 @@ bool STC_AppendPartialAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Par
       audit.signal_id, audit.paper_trade_id, STC_BoolText(audit.is_paper_entry), STC_BoolText(audit.partial_enabled), STC_BoolText(audit.partial_due), STC_BoolText(audit.partial_action_taken), STC_BoolText(audit.full_close_by_small_volume), STC_BoolText(audit.open_at_w4_end),
       STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.close_volume, 8), DoubleToString(audit.remaining_volume, 8), DoubleToString(audit.close_volume_ratio, 4),
       DoubleToString(audit.last_checked_close, 8), DoubleToString(audit.floating_r_at_partial, 4), audit.status, audit.rule_note);
+   FileClose(h);
+   return true;
+}
+
+
+bool STC_AppendHardCloseAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_HardCloseAudit &audit)
+{
+   bool exists = FileIsExist(state.hard_close_audit_file_common, FILE_COMMON);
+   int h = FileOpen(state.hard_close_audit_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append hard close audit CSV ", state.hard_close_audit_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "signal_check_index", "entry_check_index", "hard_close_check_index", "last_checked_index", "check_minutes",
+         "signal_check_start_ny", "signal_check_end_ny", "entry_check_start_ny", "entry_check_end_ny", "hard_close_ny", "hard_close_server",
+         "m_cycle", "current_w", "hard_close_status", "paper_status", "pre_hard_outcome_status", "partial_status",
+         "signal_id", "paper_trade_id", "is_paper_entry", "hard_close_due", "hard_close_action_taken", "hard_close_recovered_late", "open_at_hard_close",
+         "partial_applied_before_hard_close", "partial_full_close_before_hard_close",
+         "direction", "trade_symbol", "entry_price", "stop_price", "take_profit_price", "paper_order_volume", "partial_close_volume", "remaining_after_partial_volume",
+         "hard_close_volume", "hard_close_price", "risk_distance_price", "risk_money", "floating_r_at_hard_close", "hard_close_gross_pnl_money", "hard_close_net_pnl_money",
+         "status", "rule_note");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.signal_check_index, audit.entry_check_index, audit.hard_close_check_index, audit.last_checked_index, audit.check_minutes,
+      STC_TimeText(audit.signal_check_start_ny), STC_TimeText(audit.signal_check_end_ny), STC_TimeText(audit.entry_check_start_ny), STC_TimeText(audit.entry_check_end_ny), STC_TimeText(audit.hard_close_ny), STC_TimeText(audit.hard_close_server),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_HardCloseStatusText(audit.hard_close_status), STC_PaperEntryStatusText(audit.paper_status), STC_PaperOutcomeStatusText(audit.pre_hard_outcome_status), STC_PartialStatusText(audit.partial_status),
+      audit.signal_id, audit.paper_trade_id, STC_BoolText(audit.is_paper_entry), STC_BoolText(audit.hard_close_due), STC_BoolText(audit.hard_close_action_taken), STC_BoolText(audit.hard_close_recovered_late), STC_BoolText(audit.open_at_hard_close),
+      STC_BoolText(audit.partial_applied_before_hard_close), STC_BoolText(audit.partial_full_close_before_hard_close),
+      STC_DirectionText(audit.direction), audit.trade_symbol, DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.paper_order_volume, 8), DoubleToString(audit.partial_close_volume, 8), DoubleToString(audit.remaining_after_partial_volume, 8),
+      DoubleToString(audit.hard_close_volume, 8), DoubleToString(audit.hard_close_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.risk_money, 2), DoubleToString(audit.floating_r_at_hard_close, 4), DoubleToString(audit.hard_close_gross_pnl_money, 2), DoubleToString(audit.hard_close_net_pnl_money, 2),
+      audit.status, audit.rule_note);
    FileClose(h);
    return true;
 }

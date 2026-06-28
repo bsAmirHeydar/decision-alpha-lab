@@ -1,13 +1,13 @@
 #property strict
-#property version   "1.90"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 10 partial close simulator and W4 management"
-#property description "Level 10 adds W4 paper partial-close simulation for M1/M2 while keeping real orders disabled."
+#property version   "2.00"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 11 hard close simulator and 15:30 EOD accounting"
+#property description "Level 11 adds paper hard-close accounting at 15:30 New York while keeping real orders disabled."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 10 Runtime"
+input group "DAL / STC Level 11 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL10";
+input string InpRunId = "EXEC001_STC_LEVEL11";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -38,6 +38,9 @@ input int InpMaxPaperOutcomeForwardChecks = 288;
 input bool InpWritePartialAudit = true;
 input int InpMaxPartialBackfillOnInit = 24;
 input int InpMaxPartialCatchupPerPulse = 24;
+input bool InpWriteHardCloseAudit = true;
+input int InpMaxHardCloseBackfillOnInit = 24;
+input int InpMaxHardCloseCatchupPerPulse = 24;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -128,6 +131,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.write_partial_audit = InpWritePartialAudit;
    cfg.max_partial_backfill_on_init = InpMaxPartialBackfillOnInit;
    cfg.max_partial_catchup_per_pulse = InpMaxPartialCatchupPerPulse;
+   cfg.write_hard_close_audit = InpWriteHardCloseAudit;
+   cfg.max_hard_close_backfill_on_init = InpMaxHardCloseBackfillOnInit;
+   cfg.max_hard_close_catchup_per_pulse = InpMaxHardCloseCatchupPerPulse;
 }
 
 int OnInit()
@@ -152,8 +158,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 10 remains timer-driven and simulates W4 paper partial actions only.
-   // Later levels will add hard-close accounting, drawing, persistence recovery, and auto-trading.
+   // Level 11 remains timer-driven and simulates paper hard-close accounting only.
+   // Later levels will add drawing, persistence recovery, and auto-trading.
 }
 
 void OnDeinit(const int reason)

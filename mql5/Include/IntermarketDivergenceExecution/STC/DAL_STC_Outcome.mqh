@@ -357,7 +357,7 @@ void STC_SimulateOutcomeFromPaper(STC_Config &cfg,
 
    outcome.outcome_status = STC_OUTCOME_OPEN_UNRESOLVED;
    outcome.status = "paper_trade_still_open_after_available_closed_checks";
-   outcome.rule_note = "Level 10 simulates SL/TP before partial; hard-close accounting is deferred";
+   outcome.rule_note = "Level 11 keeps this row as an open outcome until partial and hard-close layers account for later actions";
    STC_FinalizeOutcomePnL(cfg, outcome);
 }
 

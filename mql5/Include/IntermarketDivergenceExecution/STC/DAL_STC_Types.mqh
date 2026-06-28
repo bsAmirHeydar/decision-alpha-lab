@@ -60,6 +60,9 @@ struct STC_Config
    bool write_partial_audit;
    int max_partial_backfill_on_init;
    int max_partial_catchup_per_pulse;
+   bool write_hard_close_audit;
+   int max_hard_close_backfill_on_init;
+   int max_hard_close_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -111,6 +114,10 @@ struct STC_RuntimeState
    string last_partial_audit_stc_day_id;
    int last_partial_audit_check_index;
    long partial_rows_audited;
+   string hard_close_audit_file_common;
+   string last_hard_close_audit_stc_day_id;
+   int last_hard_close_audit_check_index;
+   long hard_close_rows_audited;
    int outcome_trade_count_m1;
    int outcome_trade_count_m2;
    int outcome_trade_count_m3;
@@ -660,6 +667,103 @@ void STC_ResetPartialAudit(STC_PartialAudit &audit)
    audit.rule_note = "";
 }
 
+
+struct STC_HardCloseAudit
+{
+   string stc_day_id;
+   int signal_check_index;
+   int entry_check_index;
+   int hard_close_check_index;
+   int last_checked_index;
+   int check_minutes;
+   datetime signal_check_start_ny;
+   datetime signal_check_end_ny;
+   datetime entry_check_start_ny;
+   datetime entry_check_end_ny;
+   datetime hard_close_ny;
+   datetime hard_close_server;
+   STC_MCycle m_cycle;
+   STC_WCycle current_w_cycle;
+   STC_HardCloseStatus hard_close_status;
+   STC_PaperEntryStatus paper_status;
+   STC_PaperOutcomeStatus pre_hard_outcome_status;
+   STC_PartialStatus partial_status;
+   string signal_id;
+   string paper_trade_id;
+   bool is_paper_entry;
+   bool hard_close_due;
+   bool hard_close_action_taken;
+   bool hard_close_recovered_late;
+   bool open_at_hard_close;
+   bool partial_applied_before_hard_close;
+   bool partial_full_close_before_hard_close;
+   STC_Direction direction;
+   string trade_symbol;
+   double entry_price;
+   double stop_price;
+   double take_profit_price;
+   double paper_order_volume;
+   double partial_close_volume;
+   double remaining_after_partial_volume;
+   double hard_close_volume;
+   double hard_close_price;
+   double risk_distance_price;
+   double risk_money;
+   double floating_r_at_hard_close;
+   double hard_close_gross_pnl_money;
+   double hard_close_net_pnl_money;
+   string status;
+   string rule_note;
+};
+
+void STC_ResetHardCloseAudit(STC_HardCloseAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.signal_check_index = -1;
+   audit.entry_check_index = -1;
+   audit.hard_close_check_index = -1;
+   audit.last_checked_index = -1;
+   audit.check_minutes = 0;
+   audit.signal_check_start_ny = 0;
+   audit.signal_check_end_ny = 0;
+   audit.entry_check_start_ny = 0;
+   audit.entry_check_end_ny = 0;
+   audit.hard_close_ny = 0;
+   audit.hard_close_server = 0;
+   audit.m_cycle = STC_M_NONE;
+   audit.current_w_cycle = STC_W_NONE;
+   audit.hard_close_status = STC_HARDCLOSE_NONE;
+   audit.paper_status = STC_PAPER_NONE;
+   audit.pre_hard_outcome_status = STC_OUTCOME_NONE;
+   audit.partial_status = STC_PARTIAL_NONE;
+   audit.signal_id = "";
+   audit.paper_trade_id = "";
+   audit.is_paper_entry = false;
+   audit.hard_close_due = false;
+   audit.hard_close_action_taken = false;
+   audit.hard_close_recovered_late = false;
+   audit.open_at_hard_close = false;
+   audit.partial_applied_before_hard_close = false;
+   audit.partial_full_close_before_hard_close = false;
+   audit.direction = STC_DIR_NONE;
+   audit.trade_symbol = "";
+   audit.entry_price = 0.0;
+   audit.stop_price = 0.0;
+   audit.take_profit_price = 0.0;
+   audit.paper_order_volume = 0.0;
+   audit.partial_close_volume = 0.0;
+   audit.remaining_after_partial_volume = 0.0;
+   audit.hard_close_volume = 0.0;
+   audit.hard_close_price = 0.0;
+   audit.risk_distance_price = 0.0;
+   audit.risk_money = 0.0;
+   audit.floating_r_at_hard_close = 0.0;
+   audit.hard_close_gross_pnl_money = 0.0;
+   audit.hard_close_net_pnl_money = 0.0;
+   audit.status = "not_built";
+   audit.rule_note = "";
+}
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -714,7 +818,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL10";
+   cfg.run_id = "EXEC001_STC_LEVEL11";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -767,6 +871,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_partial_audit = true;
    cfg.max_partial_backfill_on_init = 24;
    cfg.max_partial_catchup_per_pulse = 24;
+   cfg.write_hard_close_audit = true;
+   cfg.max_hard_close_backfill_on_init = 24;
+   cfg.max_hard_close_catchup_per_pulse = 24;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -794,6 +901,7 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.paper_entry_file_common = "";
    state.paper_outcome_file_common = "";
    state.partial_audit_file_common = "";
+   state.hard_close_audit_file_common = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
@@ -818,6 +926,9 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.last_partial_audit_stc_day_id = "";
    state.last_partial_audit_check_index = -1;
    state.partial_rows_audited = 0;
+   state.last_hard_close_audit_stc_day_id = "";
+   state.last_hard_close_audit_check_index = -1;
+   state.hard_close_rows_audited = 0;
    state.outcome_trade_count_m1 = 0;
    state.outcome_trade_count_m2 = 0;
    state.outcome_trade_count_m3 = 0;
@@ -842,10 +953,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_10_PARTIAL_CLOSE_SIMULATOR";
-   sanity.build_version = "1.90";
-   sanity.build_scope = "level01 skeleton through level10 partial close simulator and W4 management";
-   sanity.locked_contract = "Simulate W4 partial-close decisions for open paper trades in M1/M2; M3 partial is disabled by hard close; no real orders yet";
+   sanity.module_level = "LEVEL_11_HARD_CLOSE_SIMULATOR";
+   sanity.build_version = "2.00";
+   sanity.build_scope = "level01 skeleton through level11 hard close simulator and 15:30 end-of-day accounting";
+   sanity.locked_contract = "Simulate 15:30 New York hard-close accounting for open paper trades after SL/TP and partial logic; no real orders yet";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
