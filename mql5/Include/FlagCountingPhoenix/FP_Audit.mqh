@@ -11,66 +11,68 @@ void FP_PrintSummary(const string symbol,
                      const FP_DetectResult &result,
                      const int drawn)
 {
-   Print("FP_SUMMARY symbol=", symbol,
-         " tf=", EnumToString(period),
-         " bars=", bars,
-         " scales=", scale_count,
-         " raw_nodes=", result.raw_nodes_total,
-         " canonical_nodes=", result.nodes_total,
-         " confirmed_nodes=", result.confirmed_nodes_total,
-         " pending_nodes=", result.pending_nodes_total,
-         " hooks=", result.hooks_total,
-         " nd=", result.nd_total,
-         " hook_contexts=", result.hook_contexts_total,
-         " hook_rejected=", result.hook_contexts_rejected_total,
-         " hook_branch_scans=", result.hook_branch_scans_total,
-         " hook_len5plus=", result.hook_branch_len5plus_total,
-         " hook_retrace_rejected=", result.hook_retrace_rejected_total,
-         " hook_seed_f1=", result.hooks_seed_visible_f1_total,
-         " body_attempts=", result.body_attempts_total,
-         " body_complete=", result.body_complete_total,
-         " body_invalid=", result.body_invalid_total,
-         " body_extended=", result.body_extended_total,
-         " body_leg1_ext=", result.body_leg1_extensions_total,
-         " body_waist_deep=", result.body_waist_deepenings_total,
-         " body_leg2_equal=", result.body_leg2_equal_touches_total,
-         " internal_packs=", result.internal_packs_total,
-         " internal_valid12=", result.internal_valid12_total,
-         " internal_confirm_ready=", result.internal_confirm_ready_total,
-         " internal_invalidated=", result.internal_invalidated_total,
-         " internal_pre_ext=", result.internal_pre_extensions_total,
-         " internal_f1_mid_rejected=", result.internal_f1_middle_rejected_total,
-         " internal_c0=", result.internal_count0_total,
-         " internal_c1=", result.internal_count1_total,
-         " internal_c2=", result.internal_count2_total,
-         " internal_c3=", result.internal_count3_total,
-         " internal_c4=", result.internal_count4_total,
-         " f1_lc_attempts=", result.f1_lifecycle_attempts_total,
-         " f1_lc_phase_attempts=", result.f1_lifecycle_phase_attempts_total,
-         " f1_lc_failopen_attempts=", result.f1_lifecycle_failopen_attempts_total,
-         " f1_lc_gate_pass=", result.f1_lifecycle_gate_pass_total,
-         " f1_lc_gate_reject=", result.f1_lifecycle_gate_reject_total,
-         " f1_lc_body_missing=", result.f1_lifecycle_body_missing_total,
-         " f1_lc_body_complete=", result.f1_lifecycle_body_complete_total,
-         " f1_lc_candidate=", result.f1_lifecycle_candidate_total,
-         " f1_lc_post_flag=", result.f1_lifecycle_post_flag_total,
-         " f1_lc_confirmed=", result.f1_lifecycle_confirmed_total,
-         " f1_lc_invalidated=", result.f1_lifecycle_invalidated_total,
-         " f1_lc_extended=", result.f1_lifecycle_extended_total,
-         " f1_lc_visible=", result.f1_lifecycle_visible_total,
-         " f1_lc_hidden=", result.f1_lifecycle_hidden_total,
-         " f1_lc_f2_ready=", result.f1_lifecycle_f2_ready_total,
-         " f1_lc_duplicate_rejected=", result.f1_lifecycle_duplicate_rejected_total,
-         " f1_lc_emitted_roots=", result.f1_lifecycle_emitted_roots_total,
-         " events=", result.events_total,
-         " visible=", result.visible_events_total,
-         " hidden=", result.hidden_events_total,
-         " identity_events=", result.identity_assigned_events,
-         " f1=", result.f1_total,
-         " f2=", result.f2_total,
-         " f3=", result.f3_total,
-         " invalid=", result.invalid_total,
-         " drawn=", drawn);
+   string msg = "FP_SUMMARY";
+   msg += " symbol=" + symbol;
+   msg += " tf=" + EnumToString(period);
+   msg += " bars=" + IntegerToString(bars);
+   msg += " scales=" + IntegerToString(scale_count);
+   msg += " raw_nodes=" + IntegerToString(result.raw_nodes_total);
+   msg += " canonical_nodes=" + IntegerToString(result.nodes_total);
+   msg += " confirmed_nodes=" + IntegerToString(result.confirmed_nodes_total);
+   msg += " pending_nodes=" + IntegerToString(result.pending_nodes_total);
+   msg += " hooks=" + IntegerToString(result.hooks_total);
+   msg += " nd=" + IntegerToString(result.nd_total);
+   msg += " hook_contexts=" + IntegerToString(result.hook_contexts_total);
+   msg += " hook_rejected=" + IntegerToString(result.hook_contexts_rejected_total);
+   msg += " hook_branch_scans=" + IntegerToString(result.hook_branch_scans_total);
+   msg += " hook_len5plus=" + IntegerToString(result.hook_branch_len5plus_total);
+   msg += " hook_retrace_rejected=" + IntegerToString(result.hook_retrace_rejected_total);
+   msg += " hook_seed_f1=" + IntegerToString(result.hooks_seed_visible_f1_total);
+   msg += " body_attempts=" + IntegerToString(result.body_attempts_total);
+   msg += " body_complete=" + IntegerToString(result.body_complete_total);
+   msg += " body_invalid=" + IntegerToString(result.body_invalid_total);
+   msg += " body_extended=" + IntegerToString(result.body_extended_total);
+   msg += " body_leg1_ext=" + IntegerToString(result.body_leg1_extensions_total);
+   msg += " body_waist_deep=" + IntegerToString(result.body_waist_deepenings_total);
+   msg += " body_leg2_equal=" + IntegerToString(result.body_leg2_equal_touches_total);
+   msg += " internal_packs=" + IntegerToString(result.internal_packs_total);
+   msg += " internal_valid12=" + IntegerToString(result.internal_valid12_total);
+   msg += " internal_confirm_ready=" + IntegerToString(result.internal_confirm_ready_total);
+   msg += " internal_invalidated=" + IntegerToString(result.internal_invalidated_total);
+   msg += " internal_pre_ext=" + IntegerToString(result.internal_pre_extensions_total);
+   msg += " internal_f1_mid_rejected=" + IntegerToString(result.internal_f1_middle_rejected_total);
+   msg += " internal_c0=" + IntegerToString(result.internal_count0_total);
+   msg += " internal_c1=" + IntegerToString(result.internal_count1_total);
+   msg += " internal_c2=" + IntegerToString(result.internal_count2_total);
+   msg += " internal_c3=" + IntegerToString(result.internal_count3_total);
+   msg += " internal_c4=" + IntegerToString(result.internal_count4_total);
+   msg += " f1_lc_attempts=" + IntegerToString(result.f1_lifecycle_attempts_total);
+   msg += " f1_lc_phase_attempts=" + IntegerToString(result.f1_lifecycle_phase_attempts_total);
+   msg += " f1_lc_failopen_attempts=" + IntegerToString(result.f1_lifecycle_failopen_attempts_total);
+   msg += " f1_lc_gate_pass=" + IntegerToString(result.f1_lifecycle_gate_pass_total);
+   msg += " f1_lc_gate_reject=" + IntegerToString(result.f1_lifecycle_gate_reject_total);
+   msg += " f1_lc_body_missing=" + IntegerToString(result.f1_lifecycle_body_missing_total);
+   msg += " f1_lc_body_complete=" + IntegerToString(result.f1_lifecycle_body_complete_total);
+   msg += " f1_lc_candidate=" + IntegerToString(result.f1_lifecycle_candidate_total);
+   msg += " f1_lc_post_flag=" + IntegerToString(result.f1_lifecycle_post_flag_total);
+   msg += " f1_lc_confirmed=" + IntegerToString(result.f1_lifecycle_confirmed_total);
+   msg += " f1_lc_invalidated=" + IntegerToString(result.f1_lifecycle_invalidated_total);
+   msg += " f1_lc_extended=" + IntegerToString(result.f1_lifecycle_extended_total);
+   msg += " f1_lc_visible=" + IntegerToString(result.f1_lifecycle_visible_total);
+   msg += " f1_lc_hidden=" + IntegerToString(result.f1_lifecycle_hidden_total);
+   msg += " f1_lc_f2_ready=" + IntegerToString(result.f1_lifecycle_f2_ready_total);
+   msg += " f1_lc_duplicate_rejected=" + IntegerToString(result.f1_lifecycle_duplicate_rejected_total);
+   msg += " f1_lc_emitted_roots=" + IntegerToString(result.f1_lifecycle_emitted_roots_total);
+   msg += " events=" + IntegerToString(result.events_total);
+   msg += " visible=" + IntegerToString(result.visible_events_total);
+   msg += " hidden=" + IntegerToString(result.hidden_events_total);
+   msg += " identity_events=" + IntegerToString(result.identity_assigned_events);
+   msg += " f1=" + IntegerToString(result.f1_total);
+   msg += " f2=" + IntegerToString(result.f2_total);
+   msg += " f3=" + IntegerToString(result.f3_total);
+   msg += " invalid=" + IntegerToString(result.invalid_total);
+   msg += " drawn=" + IntegerToString(drawn);
+   Print(msg);
 }
 
 string FP_NodeAudit(const FP_Node &n)
@@ -86,76 +88,78 @@ string FP_NodeAudit(const FP_Node &n)
 
 void FP_PrintEventAudit(const FP_FlagEvent &e)
 {
-   Print("FP_EVENT",
-         " id=", e.event_id,
-         " seq=", e.sequence_id,
-         " parent=", e.parent_event_id,
-         " level=", FP_LevelName(e.level),
-         " dir=", FP_DirectionName(e.direction),
-         " L=", e.scale_L,
-         " status=", FP_StatusName(e.status),
-         " body_status=", FP_BodyStatusName(e.body_status),
-         " body_id=", e.body_id,
-         " body_ext=", e.leg2_extension_count,
-         " body_reason=", e.body_reason,
-         " lifecycle_status=", FP_F1LifecycleStatusName(e.lifecycle_status),
-         " lifecycle_id=", e.lifecycle_id,
-         " lifecycle_gate=", FP_BoolName(e.lifecycle_phase_gate_passed),
-         " lifecycle_body=", FP_BoolName(e.lifecycle_body_complete),
-         " lifecycle_internal=", FP_BoolName(e.lifecycle_internal_ready),
-         " lifecycle_f2_ready=", FP_BoolName(e.lifecycle_can_spawn_f2),
-         " lifecycle_reason=", e.lifecycle_reason,
-         " visible=", FP_BoolName(e.visible_main),
-         " hidden_reason=", e.hidden_reason,
-         " rank=", e.canonical_rank_score,
-         " structural_id=", e.structural_id,
-         " visual_id=", e.visual_id,
-         " phase_id=", e.phase_id,
-         " chain_id=", e.chain_id,
-         " audit_id=", e.audit_id,
-         " size=", DoubleToString(e.flag_size, _Digits),
-         " ratio=", DoubleToString(e.size_ratio, 4),
-         " O=", FP_NodeAudit(e.origin),
-         " A=", FP_NodeAudit(e.leg1),
-         " W=", FP_NodeAudit(e.waist),
-         " B=", FP_NodeAudit(e.leg2),
-         " C=", FP_NodeAudit(e.confirm),
-         " internal_pack_id=", e.internal_pack.internal_pack_id,
-         " internal_count=", e.internal_pack.count,
-         " internal_valid12=", FP_BoolName(e.internal_pack.valid12 || e.internal_pack.has_valid12),
-         " internal_first12=", e.internal_pack.first_valid12_pos,
-         " internal_confirm_pos=", e.internal_pack.confirm_pos,
-         " internal_invalid_pos=", e.internal_pack.invalid_pos,
-         " internal_pre_ext=", FP_NodeAudit(e.internal_pack.pre_internal_leg2_extension_node),
-         " reason=", e.reason);
+   string msg = "FP_EVENT";
+   msg += " id=" + IntegerToString(e.event_id);
+   msg += " seq=" + IntegerToString(e.sequence_id);
+   msg += " parent=" + IntegerToString(e.parent_event_id);
+   msg += " level=" + FP_LevelName(e.level);
+   msg += " dir=" + FP_DirectionName(e.direction);
+   msg += " L=" + IntegerToString(e.scale_L);
+   msg += " status=" + FP_StatusName(e.status);
+   msg += " body_status=" + FP_BodyStatusName(e.body_status);
+   msg += " body_id=" + e.body_id;
+   msg += " body_ext=" + IntegerToString(e.leg2_extension_count);
+   msg += " body_reason=" + e.body_reason;
+   msg += " lifecycle_status=" + FP_F1LifecycleStatusName(e.lifecycle_status);
+   msg += " lifecycle_id=" + e.lifecycle_id;
+   msg += " lifecycle_gate=" + FP_BoolName(e.lifecycle_phase_gate_passed);
+   msg += " lifecycle_body=" + FP_BoolName(e.lifecycle_body_complete);
+   msg += " lifecycle_internal=" + FP_BoolName(e.lifecycle_internal_ready);
+   msg += " lifecycle_f2_ready=" + FP_BoolName(e.lifecycle_can_spawn_f2);
+   msg += " lifecycle_reason=" + e.lifecycle_reason;
+   msg += " visible=" + FP_BoolName(e.visible_main);
+   msg += " hidden_reason=" + e.hidden_reason;
+   msg += " rank=" + DoubleToString(e.canonical_rank_score, 4);
+   msg += " structural_id=" + e.structural_id;
+   msg += " visual_id=" + e.visual_id;
+   msg += " phase_id=" + e.phase_id;
+   msg += " chain_id=" + e.chain_id;
+   msg += " audit_id=" + e.audit_id;
+   msg += " size=" + DoubleToString(e.flag_size, _Digits);
+   msg += " ratio=" + DoubleToString(e.size_ratio, 4);
+   msg += " O=" + FP_NodeAudit(e.origin);
+   msg += " A=" + FP_NodeAudit(e.leg1);
+   msg += " W=" + FP_NodeAudit(e.waist);
+   msg += " B=" + FP_NodeAudit(e.leg2);
+   msg += " C=" + FP_NodeAudit(e.confirm);
+   msg += " internal_pack_id=" + e.internal_pack.internal_pack_id;
+   msg += " internal_count=" + IntegerToString(e.internal_pack.count);
+   msg += " internal_valid12=" + FP_BoolName(e.internal_pack.valid12 || e.internal_pack.has_valid12);
+   msg += " internal_first12=" + IntegerToString(e.internal_pack.first_valid12_pos);
+   msg += " internal_confirm_pos=" + IntegerToString(e.internal_pack.confirm_pos);
+   msg += " internal_invalid_pos=" + IntegerToString(e.internal_pack.invalid_pos);
+   msg += " internal_pre_ext=" + FP_NodeAudit(e.internal_pack.pre_internal_leg2_extension_node);
+   msg += " reason=" + e.reason;
+   Print(msg);
 }
 
 void FP_PrintHookAudit(const FP_HookBranch &h)
 {
-   Print("FP_HOOK",
-         " id=", h.branch_id,
-         " dir=", FP_DirectionName(h.direction),
-         " L=", h.scale_L,
-         " nodes=", h.node_count,
-         " side=", FP_NodeKindName(h.side_kind),
-         " max_branch_len=", h.max_branch_len,
-         " nd=", FP_BoolName(h.is_nd),
-         " nd_qualified=", FP_BoolName(h.nd_qualified),
-         " cycle_broken=", FP_BoolName(h.is_cycle_start_broken),
-         " seeds_visible_f1=", FP_BoolName(h.seeds_visible_f1),
-         " visible=", FP_BoolName(h.visible_main),
-         " hidden_reason=", h.hidden_reason,
-         " structural_id=", h.structural_id,
-         " visual_id=", h.visual_id,
-         " phase_id=", h.phase_id,
-         " audit_id=", h.audit_id,
-         " retrace=", DoubleToString(h.retrace_ratio, 4),
-         " start=", FP_NodeAudit(h.start_node),
-         " cycle_start=", FP_NodeAudit(h.cycle_start_node),
-         " has_cycle_start=", FP_BoolName(h.has_cycle_start),
-         " extreme=", FP_NodeAudit(h.extreme_node),
-         " resolve=", FP_NodeAudit(h.resolve_node),
-         " reason=", h.reason);
+   string msg = "FP_HOOK";
+   msg += " id=" + IntegerToString(h.branch_id);
+   msg += " dir=" + FP_DirectionName(h.direction);
+   msg += " L=" + IntegerToString(h.scale_L);
+   msg += " nodes=" + IntegerToString(h.node_count);
+   msg += " side=" + FP_NodeKindName(h.side_kind);
+   msg += " max_branch_len=" + IntegerToString(h.max_branch_len);
+   msg += " nd=" + FP_BoolName(h.is_nd);
+   msg += " nd_qualified=" + FP_BoolName(h.nd_qualified);
+   msg += " cycle_broken=" + FP_BoolName(h.is_cycle_start_broken);
+   msg += " seeds_visible_f1=" + FP_BoolName(h.seeds_visible_f1);
+   msg += " visible=" + FP_BoolName(h.visible_main);
+   msg += " hidden_reason=" + h.hidden_reason;
+   msg += " structural_id=" + h.structural_id;
+   msg += " visual_id=" + h.visual_id;
+   msg += " phase_id=" + h.phase_id;
+   msg += " audit_id=" + h.audit_id;
+   msg += " retrace=" + DoubleToString(h.retrace_ratio, 4);
+   msg += " start=" + FP_NodeAudit(h.start_node);
+   msg += " cycle_start=" + FP_NodeAudit(h.cycle_start_node);
+   msg += " has_cycle_start=" + FP_BoolName(h.has_cycle_start);
+   msg += " extreme=" + FP_NodeAudit(h.extreme_node);
+   msg += " resolve=" + FP_NodeAudit(h.resolve_node);
+   msg += " reason=" + h.reason;
+   Print(msg);
 }
 
 #endif // __FP_AUDIT_MQH__
