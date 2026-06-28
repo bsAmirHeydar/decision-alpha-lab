@@ -514,6 +514,63 @@ f2_lifecycle_reason
 Must not build F3, decide cross-sequence phase ownership, perform duplicate canonicalization, or draw renderer objects.
 
 ---
+
+## FP_F3LifecycleRules.mqh / FP_F3LifecycleAudit.mqh / FP_F3LifecycleEngine.mqh
+
+Input:
+
+```text
+FP_Node canonical_nodes[]
+FP_FlagEvent confirmed and F3-authorized F2 parent from Level 08
+FP_Config config
+Level 05 body service
+```
+
+Output:
+
+```text
+FP_FlagEvent level=F3 with f3 lifecycle fields
+FP_F3LifecycleBuildReport report
+```
+
+Owns:
+
+- F3 parent gate from `f2_can_spawn_f3`;
+- deepest adverse F3 origin backfill between F2 Leg2 and F2 confirmation;
+- terminal F3 body construction;
+- OR qualification by parent-size ratio or parent-L ratio;
+- F3 completed versus OR-rejected state;
+- F3 lock readiness and lock evidence;
+- first opposite confirmed F1 lock scan;
+- `FP_LEVEL09` construction report;
+- `FP_LEVEL09_LOCK` cross-sequence lock report.
+
+Required active fields:
+
+```text
+f3_lifecycle_id
+f3_lifecycle_status
+f3_parent_ready
+f3_origin_found
+f3_body_complete
+f3_size_gate_passed
+f3_leg1_L_gate_passed
+f3_or_gate_passed
+f3_terminal_complete
+f3_lock_ready
+f3_locked
+f3_origin_scan_start_pos
+f3_lifecycle_scan_end_pos
+f3_parent_size_ratio
+f3_parent_leg1_L_ratio
+f3_lock_event_id
+f3_lock_reason
+f3_lifecycle_reason
+```
+
+Must not decide same-direction restart ownership, duplicate canonicalization across L-scales, renderer labels, or execution signals.
+
+---
 ## FP_SequenceEngine.mqh
 
 Input:
@@ -537,7 +594,7 @@ Owns:
 
 - wiring Level 07 F1 lifecycle output into parent/child sequence construction;
 - wiring Level 08 F2 lifecycle output into F3 authorization;
-- F3 lifecycle;
+- wiring Level 09 F3 lifecycle output into terminal chain state;
 - parent-child links;
 - phase ownership;
 - same-direction root control;

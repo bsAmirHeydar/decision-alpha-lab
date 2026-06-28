@@ -667,3 +667,53 @@ f2_can_spawn_f3 == true
 ```
 
 `FP_LEVEL08` is the current audit form for F2. It must report parent attempts, parent-ready/rejected state, origin scan/found/missing state, body missing/complete state, size pass/reject, candidate/post-flag/confirmed/invalidated states, visibility, hidden counts, F3-ready children, emitted children, duplicate rejection, and max extension count.
+
+---
+
+## Level 09 implementation freeze — F3 lifecycle / terminal lock
+
+Level 09 turns F3 from an implicit `SequenceEngine` helper into a dedicated terminal lifecycle layer. The active authority is:
+
+```text
+FP_F3LifecycleRules.mqh
+FP_F3LifecycleAudit.mqh
+FP_F3LifecycleEngine.mqh
+```
+
+`FP_SequenceEngine.mqh` may orchestrate calls, but it must not own F3 semantic decisions.
+
+F3 parent authorization is now locked to Level 08 F2 lifecycle output:
+
+```text
+parent.level == F2
+parent.status == confirmed
+parent.has_confirm == true
+parent.f2_size_gate_passed == true
+parent.f2_can_spawn_f3 == true
+```
+
+F3 origin is the deepest adverse node in the strict backfill window after F2 Leg2 and before F2 confirmation. Nodes after F2 confirmation are not eligible F3 origins in Level 09.
+
+F3 is terminal. It uses the same `Origin -> Leg1 -> Waist -> Leg2` body as F1/F2, but it does not require a post-body internal 1/2. Completion is controlled by the OR contract:
+
+```text
+F3.flag_size >= cfg.f3_min_parent_size_ratio * F2.flag_size
+OR
+F3.leg1_L >= ceil(cfg.f3_leg1_L_min_ratio * F2.leg1_L)
+```
+
+An OR-rejected F3 candidate may be audited, but it must not set `f3_terminal_complete=true` and must not lock. The main chart hides OR-rejected F3 candidates by default through `InpF3ShowORRejectedCandidates=false`.
+
+Completed F3 locks only on the first opposite confirmed F1 after F3 completion. Lock evidence is carried by:
+
+```text
+f3_locked
+f3_lock_ready
+f3_lock_event_id
+f3_lock_reason
+extension_end
+status = locked
+f3_lifecycle_status = locked
+```
+
+`FP_LEVEL09` is the construction/OR audit form. `FP_LEVEL09_LOCK` is the cross-sequence lock audit form. Both must be available before Level 10 ownership and phase reset work is considered frozen.

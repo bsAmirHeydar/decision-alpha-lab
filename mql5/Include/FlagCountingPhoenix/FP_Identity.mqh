@@ -154,6 +154,7 @@ int FP_IdentityStatusRank(const int status)
 
 string FP_EventLifecycleKey(const FP_FlagEvent &e)
 {
+   if(e.level == FP_LEVEL_F3) return "f3=" + FP_F3LifecycleStatusName(e.f3_lifecycle_status);
    if(e.level == FP_LEVEL_F2) return "f2=" + FP_F2LifecycleStatusName(e.f2_lifecycle_status);
    if(e.level == FP_LEVEL_F1) return "f1=" + FP_F1LifecycleStatusName(e.lifecycle_status);
    return "st=" + FP_StatusName(e.status);

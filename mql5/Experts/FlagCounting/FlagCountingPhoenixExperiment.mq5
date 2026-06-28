@@ -1,5 +1,5 @@
 #property strict
-#property version   "8.00"
+#property version   "9.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -49,6 +49,9 @@ input int  InpF1SampleLimit = 6;
 input bool InpPrintF2Sanity = true;
 input bool InpPrintF2Samples = false;
 input int  InpF2SampleLimit = 6;
+input bool InpPrintF3Sanity = true;
+input bool InpPrintF3Samples = false;
+input int  InpF3SampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -75,6 +78,8 @@ input bool InpF1ShowLiveBodyCandidates = true;
 input bool InpF2ShowSizeRejectedCandidates = false;
 input bool InpF2ShowPostFlagCandidates = true;
 input bool InpF2ShowLiveBodyCandidates = true;
+input bool InpF3ShowORRejectedCandidates = false;
+input bool InpF3ShowLiveBodyCandidates = true;
 
 // ------------------------------ Rules ---------------------------------------
 input int    InpMaxEvents = 6000;
@@ -178,6 +183,11 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.f2_show_size_rejected_candidates = InpF2ShowSizeRejectedCandidates;
    cfg.f2_show_post_flag_candidates = InpF2ShowPostFlagCandidates;
    cfg.f2_show_live_body_candidates = InpF2ShowLiveBodyCandidates;
+   cfg.print_f3_sanity = InpPrintF3Sanity;
+   cfg.print_f3_samples = InpPrintF3Samples;
+   cfg.f3_sample_limit = InpF3SampleLimit;
+   cfg.f3_show_or_rejected_candidates = InpF3ShowORRejectedCandidates;
+   cfg.f3_show_live_body_candidates = InpF3ShowLiveBodyCandidates;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -187,7 +197,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level08";
+   cfg.identity_generation_pass = "phoenix_level09";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -202,6 +212,9 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_f2size" + FP_BoolName(InpF2ShowSizeRejectedCandidates) +
                               "_f2post" + FP_BoolName(InpF2ShowPostFlagCandidates) +
                               "_f2live" + FP_BoolName(InpF2ShowLiveBodyCandidates) +
+                              "_f3" + FP_BoolName(InpPrintF3Sanity) +
+                              "_f3or" + FP_BoolName(InpF3ShowORRejectedCandidates) +
+                              "_f3live" + FP_BoolName(InpF3ShowLiveBodyCandidates) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

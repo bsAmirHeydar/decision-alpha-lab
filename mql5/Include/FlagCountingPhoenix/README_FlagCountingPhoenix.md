@@ -59,6 +59,9 @@ Structural / sequence engines:
 - `FP_F2LifecycleRules.mqh`: Level 08 pure F2 parent-gate, size-gate, lifecycle-id, visibility, and F3-authorization predicates.
 - `FP_F2LifecycleAudit.mqh`: Level 08 F2 lifecycle report and optional samples.
 - `FP_F2LifecycleEngine.mqh`: Level 08 facade that converts confirmed F1 parents into candidate/post-flag/confirmed/invalidated F2 children.
+- `FP_F3LifecycleRules.mqh`: Level 09 pure F3 parent-gate, terminal OR qualification, lifecycle-id, visibility, and lock predicates.
+- `FP_F3LifecycleAudit.mqh`: Level 09 F3 lifecycle and lock report with optional samples.
+- `FP_F3LifecycleEngine.mqh`: Level 09 facade that converts authorized F2 parents into completed/locked terminal F3 children.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
@@ -355,6 +358,58 @@ f2_can_spawn_f3 = true
 ```
 
 This prevents undersized or unconfirmed F2 bodies from silently authorizing F3.
+
+
+
+## Level 09 F3 lifecycle
+
+Phoenix now promotes F3 through a dedicated terminal lifecycle layer. The active modules are:
+
+```text
+FP_F3LifecycleRules.mqh
+FP_F3LifecycleAudit.mqh
+FP_F3LifecycleEngine.mqh
+```
+
+Level 09 consumes only F2 parents that Level 08 has authorized with `f2_can_spawn_f3=true`. It owns these F3 facts:
+
+```text
+f3_lifecycle_id
+f3_lifecycle_status
+f3_parent_ready
+f3_origin_found
+f3_body_complete
+f3_size_gate_passed
+f3_leg1_L_gate_passed
+f3_or_gate_passed
+f3_terminal_complete
+f3_lock_ready
+f3_locked
+f3_parent_size_ratio
+f3_parent_leg1_L_ratio
+f3_lock_event_id
+f3_lifecycle_reason
+```
+
+Default F3 lifecycle controls:
+
+```text
+InpPrintF3Sanity = true
+InpPrintF3Samples = false
+InpF3SampleLimit = 6
+InpF3ShowORRejectedCandidates = false
+InpF3ShowLiveBodyCandidates = true
+```
+
+F3 completes through OR qualification:
+
+```text
+F3.flag_size >= InpF3MinParentSizeRatio * F2.flag_size
+OR
+F3.leg1_L >= ceil(InpF3Leg1LMinRatio * F2.leg1_L)
+```
+
+F3 does not need a post-body internal 1/2 in Level 09. Once completed, it can lock on the first opposite confirmed F1 after F3 completion. `FP_LEVEL09` reports construction and OR qualification; `FP_LEVEL09_LOCK` reports cross-sequence lock scans.
 
 ## Phoenix semantic cleanup patch
 

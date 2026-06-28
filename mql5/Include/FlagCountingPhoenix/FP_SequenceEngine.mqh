@@ -2,7 +2,7 @@
 #define __FP_SEQUENCE_ENGINE_MQH__
 #property strict
 
-#include "FP_F2LifecycleEngine.mqh"
+#include "FP_F3LifecycleEngine.mqh"
 #include "FP_IdentityAudit.mqh"
 
 // ============================================================================
@@ -254,27 +254,17 @@ bool FP_BuildF3FromF2(const FP_Node &nodes[],
                       const FP_Config &cfg,
                       FP_FlagEvent &f3,
                       FP_FlagBodyBuildReport &body_report,
-                      FP_InternalCountBuildReport &internal_report)
+                      FP_F3LifecycleBuildReport &f3_report)
 {
-   FP_ResetFlagEvent(f3);
-   if(!FP_IsF2Confirmed(f2)) return false;
-
-   int deepest_pos = -1;
-   FP_Node deepest;
-   int to_pos = MathMax(f2.pos_leg2, f2.pos_confirm - 1);
-   if(!FP_FindDeepestAdverseNode(nodes, node_count, f2.pos_leg2 + 1, to_pos, f2.direction, cfg.boundary_epsilon_points, deepest_pos, deepest))
-      return false;
-
-   if(!FP_FindFlagBodyFromOriginWithReport(nodes, node_count, deepest_pos, f2.direction, FP_LEVEL_F3, sequence_id, parent_event_id, cfg.boundary_epsilon_points, f3, body_report))
-      return false;
-
-   f3.chain_index = 3;
-   f3.parent_sequence_id = f2.sequence_id;
-   f3.parent_event_id = parent_event_id;
-   f3.parent_flag_size = f2.flag_size;
-   f3.parent_leg1_L = f2.leg1_L;
-   FP_QualifyF3(f3, f2, cfg);
-   return FP_EventIsVisibleMain(f3, cfg);
+   return FP_BuildF3LifecycleFromF2WithReport(nodes,
+                                              node_count,
+                                              f2,
+                                              sequence_id,
+                                              parent_event_id,
+                                              cfg,
+                                              f3,
+                                              body_report,
+                                              f3_report);
 }
 
 void FP_CollectOriginNodesFromHooksOrFallback(const FP_Node &nodes[],
@@ -341,7 +331,8 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
                                      FP_FlagBodyBuildReport &body_report,
                                      FP_InternalCountBuildReport &internal_report,
                                      FP_F1LifecycleBuildReport &f1_report,
-                                     FP_F2LifecycleBuildReport &f2_report)
+                                     FP_F2LifecycleBuildReport &f2_report,
+                                     FP_F3LifecycleBuildReport &f3_report)
 {
    int added_roots = 0;
    for(int oi=0; oi<ArraySize(origins); oi++)
@@ -377,10 +368,18 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
             if(cfg.scan_f3 && FP_IsF2Confirmed(f2))
             {
                FP_FlagEvent f3;
-               if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3, body_report, internal_report))
+               if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3, body_report, f3_report))
                {
-                  int f3_id = FP_AddSemanticEvent(events, f3, cfg);
-                  if(f3_id < 0) return added_roots;
+                  if(FP_EventBodyDuplicateExists(events, ArraySize(events), f3))
+                  {
+                     FP_RecordF3DuplicateRejected(f3_report);
+                  }
+                  else
+                  {
+                     int f3_id = FP_AddSemanticEvent(events, f3, cfg);
+                     if(f3_id < 0) return added_roots;
+                     FP_RecordF3EmittedChild(f3_report);
+                  }
                }
             }
          }
@@ -471,6 +470,10 @@ void FP_DetectScale(const MqlRates &rates[],
    FP_ResetF2LifecycleBuildReport(f2_report);
    FP_SeedF2LifecycleBuildReport(f2_report, scale_L, node_count);
 
+   FP_F3LifecycleBuildReport f3_report;
+   FP_ResetF3LifecycleBuildReport(f3_report);
+   FP_SeedF3LifecycleBuildReport(f3_report, scale_L, node_count);
+
    for(int d_index=0; d_index<2; d_index++)
    {
       int direction = (d_index == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
@@ -492,7 +495,8 @@ void FP_DetectScale(const MqlRates &rates[],
                                                               body_report,
                                                               internal_report,
                                                               f1_report,
-                                                              f2_report);
+                                                              f2_report,
+                                                              f3_report);
 
       // Critical fail-safe: Hook/ND is context, not a hard visibility gate.
       // Build Hook-derived roots first, then let raw-origin fail-open inspect the
@@ -515,7 +519,8 @@ void FP_DetectScale(const MqlRates &rates[],
                                           body_report,
                                           internal_report,
                                           f1_report,
-                                          f2_report);
+                                          f2_report,
+                                          f3_report);
       }
    }
 
@@ -574,6 +579,24 @@ void FP_DetectScale(const MqlRates &rates[],
    result.f2_lifecycle_f3_ready_total += f2_report.f3_ready;
    result.f2_lifecycle_emitted_children_total += f2_report.emitted_children;
    result.f2_lifecycle_duplicate_rejected_total += f2_report.duplicate_rejected;
+   result.f3_lifecycle_parent_attempts_total += f3_report.parent_attempts;
+   result.f3_lifecycle_parent_ready_total += f3_report.parent_ready;
+   result.f3_lifecycle_parent_rejected_total += f3_report.parent_rejected;
+   result.f3_lifecycle_origin_scans_total += f3_report.origin_scan_attempts;
+   result.f3_lifecycle_origin_found_total += f3_report.origin_found;
+   result.f3_lifecycle_origin_missing_total += f3_report.origin_missing;
+   result.f3_lifecycle_body_missing_total += f3_report.body_missing;
+   result.f3_lifecycle_body_complete_total += f3_report.body_complete;
+   result.f3_lifecycle_size_pass_total += f3_report.size_gate_pass;
+   result.f3_lifecycle_L_pass_total += f3_report.leg1_L_gate_pass;
+   result.f3_lifecycle_or_pass_total += f3_report.or_gate_pass;
+   result.f3_lifecycle_or_reject_total += f3_report.or_gate_reject;
+   result.f3_lifecycle_completed_total += f3_report.lifecycle_completed;
+   result.f3_lifecycle_locked_total += f3_report.lifecycle_locked;
+   result.f3_lifecycle_visible_total += f3_report.lifecycle_visible;
+   result.f3_lifecycle_hidden_total += f3_report.lifecycle_hidden;
+   result.f3_lifecycle_emitted_children_total += f3_report.emitted_children;
+   result.f3_lifecycle_duplicate_rejected_total += f3_report.duplicate_rejected;
 
    if(cfg.print_body_sanity)
       FP_PrintFlagBodyBuildReport("FP_LEVEL05", body_report);
@@ -591,6 +614,10 @@ void FP_DetectScale(const MqlRates &rates[],
       FP_PrintF2LifecycleBuildReport("FP_LEVEL08", f2_report);
    if(cfg.print_f2_samples)
       FP_PrintF2LifecycleSamples("FP_LEVEL08", events, ArraySize(events), cfg.f2_sample_limit);
+   if(cfg.print_f3_sanity)
+      FP_PrintF3LifecycleBuildReport("FP_LEVEL09", f3_report);
+   if(cfg.print_f3_samples)
+      FP_PrintF3LifecycleSamples("FP_LEVEL09", events, ArraySize(events), cfg.f3_sample_limit);
 }
 
 void FP_HideSupersededParentStates(FP_FlagEvent &events[], const FP_Config &cfg)
@@ -758,35 +785,7 @@ void FP_PruneSameDirectionRestarts(FP_FlagEvent &events[], const FP_Config &cfg)
    }
 }
 
-void FP_LockF3WithFirstOppositeF1(FP_FlagEvent &events[])
-{
-   int n = ArraySize(events);
-   for(int i=0; i<n; i++)
-   {
-      if(events[i].level != FP_LEVEL_F3) continue;
-      if(events[i].status != FP_STATUS_COMPLETED) continue;
-      int complete_anchor = events[i].leg2.index_anchor;
-      int best = -1;
-      for(int j=0; j<n; j++)
-      {
-         if(events[j].level != FP_LEVEL_F1) continue;
-         if(events[j].direction == events[i].direction) continue;
-         if(events[j].status != FP_STATUS_CONFIRMED) continue;
-         if(!events[j].has_confirm) continue;
-         if(events[j].origin.index_anchor <= complete_anchor) continue;
-         if(events[j].confirm.index_anchor <= complete_anchor) continue;
-         if(best < 0 || events[j].confirm.index_anchor < events[best].confirm.index_anchor) best = j;
-      }
-      if(best >= 0)
-      {
-         events[i].status = FP_STATUS_LOCKED;
-         events[i].extension_end = events[best].origin;
-         events[i].has_extension = true;
-         events[i].pos_extension_end = events[best].pos_origin;
-         events[i].reason = events[i].reason + ";locked_by_opposite_F1_Q" + IntegerToString(events[best].event_id);
-      }
-   }
-}
+
 
 
 // ------------------------- Main-chart canonicalization ----------------------
@@ -1149,6 +1148,27 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int f2_f3_ready_prev = result.f2_lifecycle_f3_ready_total;
    int f2_emitted_children_prev = result.f2_lifecycle_emitted_children_total;
    int f2_duplicate_rejected_prev = result.f2_lifecycle_duplicate_rejected_total;
+   int f3_parent_attempts_prev = result.f3_lifecycle_parent_attempts_total;
+   int f3_parent_ready_prev = result.f3_lifecycle_parent_ready_total;
+   int f3_parent_rejected_prev = result.f3_lifecycle_parent_rejected_total;
+   int f3_origin_scans_prev = result.f3_lifecycle_origin_scans_total;
+   int f3_origin_found_prev = result.f3_lifecycle_origin_found_total;
+   int f3_origin_missing_prev = result.f3_lifecycle_origin_missing_total;
+   int f3_body_missing_prev = result.f3_lifecycle_body_missing_total;
+   int f3_body_complete_prev = result.f3_lifecycle_body_complete_total;
+   int f3_size_pass_prev = result.f3_lifecycle_size_pass_total;
+   int f3_L_pass_prev = result.f3_lifecycle_L_pass_total;
+   int f3_or_pass_prev = result.f3_lifecycle_or_pass_total;
+   int f3_or_reject_prev = result.f3_lifecycle_or_reject_total;
+   int f3_completed_prev = result.f3_lifecycle_completed_total;
+   int f3_locked_prev = result.f3_lifecycle_locked_total;
+   int f3_visible_prev = result.f3_lifecycle_visible_total;
+   int f3_hidden_prev = result.f3_lifecycle_hidden_total;
+   int f3_emitted_children_prev = result.f3_lifecycle_emitted_children_total;
+   int f3_duplicate_rejected_prev = result.f3_lifecycle_duplicate_rejected_total;
+   int f3_lock_scans_prev = result.f3_lifecycle_lock_scans_total;
+   int f3_lock_found_prev = result.f3_lifecycle_lock_found_total;
+   int f3_lock_missing_prev = result.f3_lifecycle_lock_missing_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -1216,6 +1236,27 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.f2_lifecycle_f3_ready_total = f2_f3_ready_prev;
    result.f2_lifecycle_emitted_children_total = f2_emitted_children_prev;
    result.f2_lifecycle_duplicate_rejected_total = f2_duplicate_rejected_prev;
+   result.f3_lifecycle_parent_attempts_total = f3_parent_attempts_prev;
+   result.f3_lifecycle_parent_ready_total = f3_parent_ready_prev;
+   result.f3_lifecycle_parent_rejected_total = f3_parent_rejected_prev;
+   result.f3_lifecycle_origin_scans_total = f3_origin_scans_prev;
+   result.f3_lifecycle_origin_found_total = f3_origin_found_prev;
+   result.f3_lifecycle_origin_missing_total = f3_origin_missing_prev;
+   result.f3_lifecycle_body_missing_total = f3_body_missing_prev;
+   result.f3_lifecycle_body_complete_total = f3_body_complete_prev;
+   result.f3_lifecycle_size_pass_total = f3_size_pass_prev;
+   result.f3_lifecycle_L_pass_total = f3_L_pass_prev;
+   result.f3_lifecycle_or_pass_total = f3_or_pass_prev;
+   result.f3_lifecycle_or_reject_total = f3_or_reject_prev;
+   result.f3_lifecycle_completed_total = f3_completed_prev;
+   result.f3_lifecycle_locked_total = f3_locked_prev;
+   result.f3_lifecycle_visible_total = f3_visible_prev;
+   result.f3_lifecycle_hidden_total = f3_hidden_prev;
+   result.f3_lifecycle_emitted_children_total = f3_emitted_children_prev;
+   result.f3_lifecycle_duplicate_rejected_total = f3_duplicate_rejected_prev;
+   result.f3_lifecycle_lock_scans_total = f3_lock_scans_prev;
+   result.f3_lifecycle_lock_found_total = f3_lock_found_prev;
+   result.f3_lifecycle_lock_missing_total = f3_lock_missing_prev;
    result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);
@@ -1245,7 +1286,15 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_AssignEventIdentities(events, cfg);
    FP_AssignHookIdentities(hooks, cfg);
    FP_PruneFailOpenRootsWhenPhaseRootsExist(events);
-   FP_LockF3WithFirstOppositeF1(events);
+   FP_F3LifecycleBuildReport f3_lock_report;
+   FP_ResetF3LifecycleBuildReport(f3_lock_report);
+   FP_LockF3WithFirstOppositeF1WithReport(events, f3_lock_report);
+   if(cfg.print_f3_sanity)
+      FP_PrintF3LifecycleBuildReport("FP_LEVEL09_LOCK", f3_lock_report);
+   result.f3_lifecycle_lock_scans_total += f3_lock_report.lock_scans;
+   result.f3_lifecycle_lock_found_total += f3_lock_report.lock_opposite_found;
+   result.f3_lifecycle_lock_missing_total += f3_lock_report.lock_opposite_missing;
+   result.f3_lifecycle_locked_total += f3_lock_report.lifecycle_locked;
    FP_PruneSameDirectionRestarts(events, cfg);
    FP_HideSupersededParentStates(events, cfg);
    FP_PruneStrictMainChartOwnership(events, cfg);

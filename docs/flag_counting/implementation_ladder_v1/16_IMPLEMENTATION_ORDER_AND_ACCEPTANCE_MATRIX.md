@@ -258,21 +258,32 @@ Acceptance:
 - `FP_LEVEL08` reports parent/origin/body/size/internal/visibility/F3-ready counters;
 - `FC-GC-005` baselined or marked as blocking before freeze.
 
-### Step 09 — Build F3 only
+### Step 09 — Build F3 lifecycle / terminal lock
 
 Files:
 
 ```text
-FP_SequenceEngine.mqh
+FP_F3LifecycleRules.mqh
+FP_F3LifecycleAudit.mqh
+FP_F3LifecycleEngine.mqh
+FP_Types.mqh # F3 lifecycle fields/counters only
+FP_Identity.mqh # lifecycle key only
+FP_Audit.mqh # F3 audit fields only
+FP_SequenceEngine.mqh # orchestration/counters only
+FlagCountingPhoenixExperiment.mq5 # Level 09 inputs only
 ```
 
 Acceptance:
 
-- F3 only after confirmed qualified F2;
-- strict-window backfill origin correct;
-- OR completion;
-- extension/developing state does not die merely because OR is not reached;
-- opposite confirmed F1 locks completed F3;
+- F3 only after confirmed, size-qualified, F3-authorized F2;
+- strict-window F3 origin backfill uses deepest adverse node after F2 Leg2 and before F2 confirmation;
+- F3 uses terminal body completion and does not require post-F3 internal 1/2;
+- OR completion passes on size ratio or Leg1 L ratio; both are not required;
+- OR-rejected F3 is audit-visible but cannot lock and is hidden from main chart by default;
+- first opposite confirmed F1 after completed F3 locks F3;
+- `FP_LEVEL09` reports construction/OR qualification;
+- `FP_LEVEL09_LOCK` reports cross-sequence lock scans;
+- identity includes F3 lifecycle state;
 - `FC-GC-006` baselined or marked as blocking before freeze.
 
 ### Step 10 — Build phase ownership

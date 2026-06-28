@@ -1,110 +1,143 @@
-# Phoenix Flag Counting Implementation Ladder V1
-
-This document is part of the implementation ladder for the Phoenix Flag Counting engine. The ladder is intentionally layered so that lower layers become frozen foundations before higher layers are allowed to depend on them.
-
-Global non-negotiables:
-
-- All structural decisions use candle `high` and `low` only.
-- `open`, `close`, candle body, candle color, volume, and indicators are not structural inputs.
-- Equality is not a break. A level is broken only by a strict pass beyond it.
-- The renderer is non-authoritative. It may only draw logical objects emitted by engines.
-- Main-chart rendering and audit rendering are separate products.
-- Every layer must expose enough audit fields to prove why an object exists.
-- A higher layer may never silently repair a lower-layer defect.
-
-# Level 09 — F3 Extension and Lock Engine
+# Level 09 — F3 Lifecycle / Terminal Extension / Lock Engine
 
 ## Purpose
 
-F3 is the third flag in a chain. It completes the same-direction sequence and then owns extension until the first opposite confirmed F1 locks it.
+Level 09 makes F3 a first-class lifecycle layer. F3 is no longer a generic body plus a few `SequenceEngine` conditionals. It is the terminal child of an authorized F2 and it owns:
 
-## Owned source module
+```text
+F2 parent gate
+F3 origin backfill
+terminal body construction
+OR qualification by size or L
+completed terminal state
+lock evidence from the first opposite confirmed F1
+```
+
+Renderer output is still non-authoritative. `FP_LEVEL09` and `FP_LEVEL09_LOCK` are the audit source of truth.
+
+## Owned modules
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_F3LifecycleRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_F3LifecycleAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_F3LifecycleEngine.mqh
+```
+
+Wiring only:
 
 ```text
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_Types.mqh
+mql5/Include/FlagCountingPhoenix/FP_Identity.mqh
+mql5/Include/FlagCountingPhoenix/FP_Audit.mqh
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
 ```
 
 ## Authorization
 
-F3 may be searched only after parent F2 is confirmed and size-qualified.
+F3 may only be attempted from F2 when all Level 08 gates are true:
 
 ```text
-parent.f_level == F2
-parent.status == confirmed
-parent.can_authorize_f3 == true
+F2.level = F2
+F2.status = confirmed
+F2.has_confirm = true
+F2.f2_size_gate_passed = true
+F2.f2_can_spawn_f3 = true
 ```
 
-## Backfill origin
+F2 candidate, post-flag F2, invalidated F2, undersized F2, and hidden fail-open F2 cannot authorize F3.
 
-F3 origin is backfilled from deepest adverse correction after F2 flag body and before F2 confirmation.
+## Origin backfill
 
-## Completion OR condition
-
-F3 completes when its body exists and either condition is true:
+F3 origin is the deepest adverse node after F2 Leg2 and before F2 confirmation.
 
 ```text
-F3.leg1_L >= ceil(0.80 * F2.leg1_L)
+search window = (F2.Leg2, F2.confirm)
+bullish F3 origin = deepest LOW in that window
+bearish F3 origin = highest HIGH in that window
 ```
 
-or
+Nodes after F2 confirmation are not valid F3 origins.
+
+## Terminal body
+
+F3 uses the same body engine as F1/F2:
 
 ```text
-F3.flag_size > 0.70 * F2.flag_size
+bullish: LOW -> HIGH -> LOW -> HIGH
+bearish: HIGH -> LOW -> HIGH -> LOW
 ```
 
-F3 must not be rejected early simply because it has not yet reached the OR condition. It remains developing until extension, invalidation, or completion.
+Level 09 does not require post-F3 internal 1/2. F3 is terminal after a valid body and OR qualification.
 
-## Extension
+## OR qualification
 
-After F3 completes, the rest of the same-direction move is F3 extension. Do not start new same-direction F1/F2 inside that extension unless a phase reset occurs.
+F3 completes when either condition is true:
+
+```text
+F3.flag_size >= InpF3MinParentSizeRatio * F2.flag_size
+```
+
+or:
+
+```text
+F3.leg1_L >= ceil(InpF3Leg1LMinRatio * F2.leg1_L)
+```
+
+Both are not required. If neither passes, F3 remains an OR-rejected candidate for audit. It cannot lock.
 
 ## Lock
 
-F3 locks with the first opposite confirmed F1 after F3 completion.
+A completed F3 locks on the first opposite confirmed F1 that starts and confirms after F3 completion.
 
-Locked F3 never disappears from historical audit. Main chart may choose a simplified display, but audit persistence is mandatory.
+Lock evidence:
+
+```text
+f3_locked = true
+f3_lock_event_id = opposite confirmed F1 event id
+extension_end = opposite F1 origin
+status = locked
+f3_lifecycle_status = locked
+```
+
+Locked F3 is historical evidence and must not disappear from audit.
 
 ## Required fields
 
 ```text
-f_level = F3
-parent_f2_id
-backfill_origin_node
-leg1_L_ratio_to_f2
-size_ratio_to_f2
-completion_reason: L_ratio | size_ratio | none
-completed_index
-extension_start_index
-opposite_lock_f1_id
-locked_index
-locked_persistent = true/false
+f3_lifecycle_id
+f3_lifecycle_status
+f3_parent_ready
+f3_origin_found
+f3_body_complete
+f3_size_gate_passed
+f3_leg1_L_gate_passed
+f3_or_gate_passed
+f3_terminal_complete
+f3_lock_ready
+f3_locked
+f3_parent_size_ratio
+f3_parent_leg1_L_ratio
+f3_lock_event_id
+f3_lock_reason
+f3_lifecycle_reason
 ```
 
-## Acceptance tests
+## Audit
 
-### Test 01 — F3 only after confirmed qualified F2
+```text
+FP_LEVEL09
+FP_LEVEL09_LOCK
+```
 
-No F3 may appear from F2 post_flag, F2 candidate, or undersized F2.
+`FP_LEVEL09` reports construction and OR qualification. `FP_LEVEL09_LOCK` reports cross-sequence lock scans after all scales are collected and sorted.
 
-### Test 02 — OR condition
+## Acceptance
 
-F3 completes if either L ratio or size ratio passes. Both are not required.
-
-### Test 03 — No early rejection
-
-A developing F3 with incomplete OR condition remains alive unless its own invalidation condition is hit.
-
-### Test 04 — Opposite F1 lock
-
-The first opposite confirmed F1 after F3 completion locks F3.
-
-## Failure symptoms
-
-- F3 appears without visible or confirmed F2.
-- F3 vanishes after being locked.
-- New same-direction F1s appear inside F3 extension.
-- Opposite F1 does not lock completed F3.
-
-## Freeze condition
-
-F3 is frozen when completion, extension, and lock are reproducible in audit across replay.
+- F3 never appears from F2 unless Level 08 authorizes F3.
+- F3 origin is backfilled only inside the strict post-F2/pre-confirmation window.
+- F3 completes by size OR L, not both.
+- OR-rejected F3 cannot lock.
+- Completed F3 locks on the first opposite confirmed F1 after completion.
+- Identity includes F3 lifecycle state.
+- Summary and event audit include F3 lifecycle fields.

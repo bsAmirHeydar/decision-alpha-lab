@@ -118,6 +118,21 @@ enum FP_F2LifecycleStatus
    FP_F2_LC_HIDDEN          = 10
 };
 
+// Level 09 F3 lifecycle state. F3 is terminal: it uses parent-ready F2,
+// terminal body construction, OR qualification by size or L, and later lock
+// evidence from the first opposite confirmed F1.
+enum FP_F3LifecycleStatus
+{
+   FP_F3_LC_NONE            = 0,
+   FP_F3_LC_PARENT_REJECTED = 1,
+   FP_F3_LC_ORIGIN_MISSING  = 2,
+   FP_F3_LC_BODY_MISSING    = 3,
+   FP_F3_LC_OR_REJECTED     = 4,
+   FP_F3_LC_COMPLETED       = 5,
+   FP_F3_LC_LOCKED          = 6,
+   FP_F3_LC_HIDDEN          = 7
+};
+
 // ------------------------------- Data model --------------------------------
 
 struct FP_Node
@@ -306,6 +321,28 @@ struct FP_FlagEvent
    double   f2_parent_size_ratio;
    string   f2_lifecycle_reason;
 
+   // Level 09 F3 lifecycle evidence. F3 is a terminal body authorized only by a
+   // confirmed F2. It completes through OR qualification, then may lock on the
+   // first opposite confirmed F1.
+   string   f3_lifecycle_id;
+   int      f3_lifecycle_status;
+   bool     f3_parent_ready;
+   bool     f3_origin_found;
+   bool     f3_body_complete;
+   bool     f3_size_gate_passed;
+   bool     f3_leg1_L_gate_passed;
+   bool     f3_or_gate_passed;
+   bool     f3_terminal_complete;
+   bool     f3_lock_ready;
+   bool     f3_locked;
+   int      f3_origin_scan_start_pos;
+   int      f3_lifecycle_scan_end_pos;
+   double   f3_parent_size_ratio;
+   double   f3_parent_leg1_L_ratio;
+   int      f3_lock_event_id;
+   string   f3_lock_reason;
+   string   f3_lifecycle_reason;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -402,6 +439,12 @@ struct FP_Config
    bool   f2_show_size_rejected_candidates;
    bool   f2_show_post_flag_candidates;
    bool   f2_show_live_body_candidates;
+
+   bool   print_f3_sanity;
+   bool   print_f3_samples;
+   int    f3_sample_limit;
+   bool   f3_show_or_rejected_candidates;
+   bool   f3_show_live_body_candidates;
 
    int    max_events;
    int    max_hooks;
@@ -501,6 +544,27 @@ struct FP_DetectResult
    int f2_lifecycle_f3_ready_total;
    int f2_lifecycle_emitted_children_total;
    int f2_lifecycle_duplicate_rejected_total;
+   int f3_lifecycle_parent_attempts_total;
+   int f3_lifecycle_parent_ready_total;
+   int f3_lifecycle_parent_rejected_total;
+   int f3_lifecycle_origin_scans_total;
+   int f3_lifecycle_origin_found_total;
+   int f3_lifecycle_origin_missing_total;
+   int f3_lifecycle_body_missing_total;
+   int f3_lifecycle_body_complete_total;
+   int f3_lifecycle_size_pass_total;
+   int f3_lifecycle_L_pass_total;
+   int f3_lifecycle_or_pass_total;
+   int f3_lifecycle_or_reject_total;
+   int f3_lifecycle_completed_total;
+   int f3_lifecycle_locked_total;
+   int f3_lifecycle_visible_total;
+   int f3_lifecycle_hidden_total;
+   int f3_lifecycle_emitted_children_total;
+   int f3_lifecycle_duplicate_rejected_total;
+   int f3_lifecycle_lock_scans_total;
+   int f3_lifecycle_lock_found_total;
+   int f3_lifecycle_lock_missing_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -663,6 +727,25 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.f2_parent_size_ratio = 0.0;
    e.f2_lifecycle_reason = "";
 
+   e.f3_lifecycle_id = "";
+   e.f3_lifecycle_status = FP_F3_LC_NONE;
+   e.f3_parent_ready = false;
+   e.f3_origin_found = false;
+   e.f3_body_complete = false;
+   e.f3_size_gate_passed = false;
+   e.f3_leg1_L_gate_passed = false;
+   e.f3_or_gate_passed = false;
+   e.f3_terminal_complete = false;
+   e.f3_lock_ready = false;
+   e.f3_locked = false;
+   e.f3_origin_scan_start_pos = -1;
+   e.f3_lifecycle_scan_end_pos = -1;
+   e.f3_parent_size_ratio = 0.0;
+   e.f3_parent_leg1_L_ratio = 0.0;
+   e.f3_lock_event_id = -1;
+   e.f3_lock_reason = "";
+   e.f3_lifecycle_reason = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -756,6 +839,12 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.f2_show_post_flag_candidates = true;
    cfg.f2_show_live_body_candidates = true;
 
+   cfg.print_f3_sanity = true;
+   cfg.print_f3_samples = false;
+   cfg.f3_sample_limit = 6;
+   cfg.f3_show_or_rejected_candidates = false;
+   cfg.f3_show_live_body_candidates = true;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -774,7 +863,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level08";
+   cfg.identity_generation_pass = "phoenix_level09";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -853,6 +942,27 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.f2_lifecycle_f3_ready_total = 0;
    r.f2_lifecycle_emitted_children_total = 0;
    r.f2_lifecycle_duplicate_rejected_total = 0;
+   r.f3_lifecycle_parent_attempts_total = 0;
+   r.f3_lifecycle_parent_ready_total = 0;
+   r.f3_lifecycle_parent_rejected_total = 0;
+   r.f3_lifecycle_origin_scans_total = 0;
+   r.f3_lifecycle_origin_found_total = 0;
+   r.f3_lifecycle_origin_missing_total = 0;
+   r.f3_lifecycle_body_missing_total = 0;
+   r.f3_lifecycle_body_complete_total = 0;
+   r.f3_lifecycle_size_pass_total = 0;
+   r.f3_lifecycle_L_pass_total = 0;
+   r.f3_lifecycle_or_pass_total = 0;
+   r.f3_lifecycle_or_reject_total = 0;
+   r.f3_lifecycle_completed_total = 0;
+   r.f3_lifecycle_locked_total = 0;
+   r.f3_lifecycle_visible_total = 0;
+   r.f3_lifecycle_hidden_total = 0;
+   r.f3_lifecycle_emitted_children_total = 0;
+   r.f3_lifecycle_duplicate_rejected_total = 0;
+   r.f3_lifecycle_lock_scans_total = 0;
+   r.f3_lifecycle_lock_found_total = 0;
+   r.f3_lifecycle_lock_missing_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;
@@ -938,6 +1048,18 @@ string FP_F2LifecycleStatusName(const int status)
    if(status == FP_F2_LC_INVALIDATED)     return "invalidated";
    if(status == FP_F2_LC_EXTENDED)        return "extended";
    if(status == FP_F2_LC_HIDDEN)          return "hidden";
+   return "none";
+}
+
+string FP_F3LifecycleStatusName(const int status)
+{
+   if(status == FP_F3_LC_PARENT_REJECTED) return "parent_rejected";
+   if(status == FP_F3_LC_ORIGIN_MISSING)  return "origin_missing";
+   if(status == FP_F3_LC_BODY_MISSING)    return "body_missing";
+   if(status == FP_F3_LC_OR_REJECTED)     return "or_rejected";
+   if(status == FP_F3_LC_COMPLETED)       return "completed";
+   if(status == FP_F3_LC_LOCKED)          return "locked";
+   if(status == FP_F3_LC_HIDDEN)          return "hidden";
    return "none";
 }
 

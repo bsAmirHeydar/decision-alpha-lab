@@ -94,6 +94,11 @@ string FP_EventLabel(const FP_FlagEvent &e, const bool detailed, const bool show
       if(e.has_leg1) s = s + " A" + IntegerToString(e.leg1.id);
       if(e.has_waist) s = s + " W" + IntegerToString(e.waist.id);
       if(e.has_leg2) s = s + " B" + IntegerToString(e.leg2.id);
+      if(e.level == FP_LEVEL_F3)
+      {
+         s = s + " OR" + FP_BoolName(e.f3_or_gate_passed);
+         if(e.f3_locked) s = s + " lockQ" + IntegerToString(e.f3_lock_event_id);
+      }
    }
    return s;
 }
