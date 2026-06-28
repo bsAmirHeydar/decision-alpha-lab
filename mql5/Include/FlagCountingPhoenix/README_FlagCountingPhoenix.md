@@ -73,8 +73,11 @@ Structural / sequence engines:
 - `FP_ExportTypes.mqh`: Level 11.5 raw audit export config/report types.
 - `FP_ExportRows.mqh`: Level 11.5 CSV header and row serialization helpers.
 - `FP_ExportEngine.mqh`: Level 11.5 file export facade for events, hooks, summary, and manifest CSV.
+- `FP_RenderTypes.mqh`: Level 12 renderer config/report types.
+- `FP_RenderRules.mqh`: Level 12 pure display filtering and canonical object-name helpers.
+- `FP_RenderAudit.mqh`: Level 12 `FP_LEVEL12` report and optional render samples.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration, ownership, and canonicalization wiring.
-- `FP_Renderer.mqh`: chart drawing.
+- `FP_Renderer.mqh`: Level 12 chart drawing facade; read-only consumer of canonical events/hooks.
 - `FP_Audit.mqh`: logs and diagnostics.
 
 
@@ -621,3 +624,8 @@ Turn the audit inputs back on when branch extraction or parent identity needs in
 The main chart is now treated as a sequence-state view.  Hook/ND can create phase-boundary candidates, but it cannot make every local same-direction Hook become a new visible F1 chain.  With `InpStrictMainChartOwnership=true`, only one same-direction F1 root owns a phase until an opposite completed/locked F3 resets that phase.  Competing roots are scored by chain maturity and local readability; the losing sequence is hidden together with its descendants.
 
 Audit labels are also separated from the main chart by `InpForceCleanMainChartLabels=true`.  Turn on `InpDetailedLabels` to inspect origin, parent, internal, and Hook branch count labels.
+
+
+## Level 12 renderer
+
+Renderer now uses `FP_RenderTypes`, `FP_RenderRules`, `FP_RenderAudit`, and `FP_Renderer`. It draws after Level 11.5 export, uses canonical object names by default, emits `FP_LEVEL12`, and does not mutate logical events or hooks.

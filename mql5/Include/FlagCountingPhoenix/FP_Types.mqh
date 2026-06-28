@@ -661,6 +661,18 @@ struct FP_DetectResult
    int export_visible_hooks_written_total;
    int export_hidden_hooks_written_total;
 
+   int render_attempted_total;
+   int render_ok_total;
+   int render_objects_total;
+   int render_object_errors_total;
+   int render_deleted_objects_total;
+   int render_events_drawn_total;
+   int render_hooks_drawn_total;
+   int render_event_filtered_total;
+   int render_hook_filtered_total;
+   int render_duplicate_names_total;
+   int render_fallback_curves_total;
+
    int invalid_total;
 };
 
@@ -981,7 +993,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level11";
+   cfg.identity_generation_pass = "phoenix_level12";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -1122,6 +1134,18 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.export_hooks_written_total = 0;
    r.export_visible_hooks_written_total = 0;
    r.export_hidden_hooks_written_total = 0;
+
+   r.render_attempted_total = 0;
+   r.render_ok_total = 0;
+   r.render_objects_total = 0;
+   r.render_object_errors_total = 0;
+   r.render_deleted_objects_total = 0;
+   r.render_events_drawn_total = 0;
+   r.render_hooks_drawn_total = 0;
+   r.render_event_filtered_total = 0;
+   r.render_hook_filtered_total = 0;
+   r.render_duplicate_names_total = 0;
+   r.render_fallback_curves_total = 0;
 
    r.invalid_total = 0;
 }

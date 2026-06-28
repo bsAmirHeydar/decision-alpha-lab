@@ -72,6 +72,9 @@ mql5/Include/FlagCountingPhoenix/FP_F3LifecycleEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_ExportTypes.mqh
 mql5/Include/FlagCountingPhoenix/FP_ExportRows.mqh
 mql5/Include/FlagCountingPhoenix/FP_ExportEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
 mql5/Include/FlagCountingPhoenix/FP_Audit.mqh
@@ -101,3 +104,8 @@ Level 10 now owns semantic sequence ownership through `FP_Ownership*` modules. `
 ## Level 11.5 patch status
 
 Level 11.5 now owns read-only raw audit export through `FP_Export*` modules. Export runs after Level 11 canonicalization and before renderer drawing.
+
+
+## Level 12 patch status
+
+Level 12 now owns read-only chart rendering through `FP_Render*` modules. Renderer runs after export, emits `FP_LEVEL12`, uses canonical object names by default, and remains non-authoritative.

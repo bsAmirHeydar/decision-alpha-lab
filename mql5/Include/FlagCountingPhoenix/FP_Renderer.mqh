@@ -2,23 +2,29 @@
 #define __FP_RENDERER_MQH__
 #property strict
 
-#include "FP_SequenceEngine.mqh"
+#include "FP_RenderAudit.mqh"
 
 // ============================================================================
-// Phoenix Renderer
+// Phoenix Level 12 - Renderer / Labels / Visual Layer
 // ----------------------------------------------------------------------------
-// Renderer is non-authoritative. It draws only emitted semantic events/hooks.
-// It never creates or infers market structure by itself.
+// Renderer is non-authoritative. It draws only emitted canonical events/hooks.
+// It never creates, hides, promotes, confirms, locks, invalidates, repairs, or
+// infers market structure by itself.
 // ============================================================================
 
-void FP_DeleteObjectsByPrefix(const string prefix)
+int FP_DeleteObjectsByPrefix(const string prefix)
 {
    int total = ObjectsTotal(0, -1, -1);
+   int deleted = 0;
    for(int i=total-1; i>=0; i--)
    {
       string name = ObjectName(0, i, -1, -1);
-      if(StringFind(name, prefix) == 0) ObjectDelete(0, name);
+      if(StringFind(name, prefix) == 0)
+      {
+         if(ObjectDelete(0, name)) deleted++;
+      }
    }
+   return deleted;
 }
 
 color FP_StatusColor(const FP_FlagEvent &e,
@@ -55,10 +61,31 @@ color FP_ShadeColor(const color c, const int event_id, const bool use_shades)
    return (color)(r | (g << 8) | (b << 16));
 }
 
-bool FP_DrawTrend(const string name, const datetime t1, const double p1, const datetime t2, const double p2, const color c, const int width, const ENUM_LINE_STYLE style, const bool draw_back=false)
+bool FP_CreateTrend(const string name,
+                    const datetime t1,
+                    const double p1,
+                    const datetime t2,
+                    const double p2,
+                    const color c,
+                    const int width,
+                    const ENUM_LINE_STYLE style,
+                    const bool draw_back,
+                    FP_RenderReport &report)
 {
-   if(ObjectFind(0, name) >= 0) ObjectDelete(0, name);
-   if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2)) return false;
+   report.objects_requested++;
+   if(ObjectFind(0, name) >= 0)
+   {
+      report.duplicate_object_names++;
+      ObjectDelete(0, name);
+   }
+   if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2))
+   {
+      report.object_create_failures++;
+      report.ok = false;
+      report.reason = "object_create_failed";
+      return false;
+   }
+   report.objects_created++;
    ObjectSetInteger(0, name, OBJPROP_COLOR, c);
    ObjectSetInteger(0, name, OBJPROP_WIDTH, width);
    ObjectSetInteger(0, name, OBJPROP_STYLE, style);
@@ -70,10 +97,28 @@ bool FP_DrawTrend(const string name, const datetime t1, const double p1, const d
    return true;
 }
 
-bool FP_DrawText(const string name, const datetime t, const double p, const string text, const color c, const int font_size)
+bool FP_CreateText(const string name,
+                   const datetime t,
+                   const double p,
+                   const string text,
+                   const color c,
+                   const int font_size,
+                   FP_RenderReport &report)
 {
-   if(ObjectFind(0, name) >= 0) ObjectDelete(0, name);
-   if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, p)) return false;
+   report.objects_requested++;
+   if(ObjectFind(0, name) >= 0)
+   {
+      report.duplicate_object_names++;
+      ObjectDelete(0, name);
+   }
+   if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, p))
+   {
+      report.object_create_failures++;
+      report.ok = false;
+      report.reason = "object_create_failed";
+      return false;
+   }
+   report.objects_created++;
    ObjectSetString(0, name, OBJPROP_TEXT, text);
    ObjectSetInteger(0, name, OBJPROP_COLOR, c);
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, MathMax(7, font_size));
@@ -90,25 +135,28 @@ string FP_EventLabel(const FP_FlagEvent &e, const bool detailed, const bool show
    s = s + " " + FP_StatusName(e.status);
    if(detailed)
    {
+      if(StringLen(e.canonical_id) > 0) s = s + " C" + FP_RenderSafeId(e.canonical_id, 12);
+      if(StringLen(e.chain_id) > 0) s = s + " CH" + FP_RenderSafeId(e.chain_id, 10);
       s = s + " O" + IntegerToString(e.origin.id);
       if(e.has_leg1) s = s + " A" + IntegerToString(e.leg1.id);
       if(e.has_waist) s = s + " W" + IntegerToString(e.waist.id);
       if(e.has_leg2) s = s + " B" + IntegerToString(e.leg2.id);
+      if(e.level == FP_LEVEL_F2)
+      {
+         s = s + " sz" + FP_BoolName(e.f2_size_gate_passed);
+      }
       if(e.level == FP_LEVEL_F3)
       {
          s = s + " OR" + FP_BoolName(e.f3_or_gate_passed);
          if(e.f3_locked) s = s + " lockQ" + IntegerToString(e.f3_lock_event_id);
       }
+      if(StringLen(e.hidden_reason) > 0 && !e.visible_main) s = s + " H" + FP_RenderSafeId(e.hidden_reason, 10);
    }
    return s;
 }
 
 double FP_LabelStepPrice()
 {
-   // Chart-readable vertical step.  A point-only offset is too small on
-   // indices, gold, and zoomed M1 charts; text becomes unreadable.  This
-   // function combines a symbol-safe point floor with a viewport-relative
-   // step so labels form clear vertical columns under/above each other.
    double point_floor = 80.0 * _Point;
    if(_Digits == 3 || _Digits == 5) point_floor = 800.0 * _Point;
 
@@ -124,7 +172,7 @@ double FP_LabelStepPrice()
    return point_floor;
 }
 
-double FP_LabelOffsetPrice(const int lane, const int direction, const bool is_peak)
+double FP_LabelOffsetPrice(const int lane, const bool is_peak)
 {
    double sign = (is_peak ? 1.0 : -1.0);
    return sign * (double)(lane + 1) * FP_LabelStepPrice();
@@ -141,8 +189,6 @@ struct FP_LabelStackCluster
 
 int FP_LabelTimeClusterBars()
 {
-   // Wider than the old 6-bar cluster so nearby labels use one readable
-   // vertical column rather than many overlapping columns.
    return 18;
 }
 
@@ -198,8 +244,6 @@ int FP_RegisterLabelCluster(FP_LabelStackCluster &clusters[],
    return 0;
 }
 
-
-
 datetime FP_TimeAtIndex(const MqlRates &rates[], const int rates_total, const int index_anchor, const datetime fallback_time)
 {
    if(index_anchor >= 0 && index_anchor < rates_total)
@@ -214,32 +258,28 @@ int FP_NormalizeIndex(const int index_anchor, const int rates_total)
    return index_anchor;
 }
 
-bool FP_DrawIndexSampledArc(const string base,
-                            const FP_Node &start,
-                            const FP_Node &control,
-                            const FP_Node &finish,
-                            const MqlRates &rates[],
-                            const int rates_total,
-                            const color c,
-                            const int width,
-                            const ENUM_LINE_STYLE style,
-                            const int curve_segments,
-                            const bool draw_back=false)
+bool FP_DrawIndexSampledArcR(const string base,
+                             const FP_Node &start,
+                             const FP_Node &control,
+                             const FP_Node &finish,
+                             const MqlRates &rates[],
+                             const int rates_total,
+                             const color c,
+                             const int width,
+                             const ENUM_LINE_STYLE style,
+                             const int curve_segments,
+                             const bool draw_back,
+                             FP_RenderReport &report)
 {
    int i0 = FP_NormalizeIndex(start.index_anchor, rates_total);
    int ic = FP_NormalizeIndex(control.index_anchor, rates_total);
    int i1 = FP_NormalizeIndex(finish.index_anchor, rates_total);
    if(i0 < 0 || ic < 0 || i1 < 0 || i1 <= i0)
    {
-      return FP_DrawTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back);
+      report.fallback_curves++;
+      return FP_CreateTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back, report);
    }
 
-   // The visual bug came from shaping curves on interpolated timestamps.  On
-   // markets with session gaps, interpolated timestamps can fall between real
-   // candles and the object chain becomes dirty.  This sampler uses candle
-   // indexes as the x-domain and converts every sampled x back to an actual
-   // candle time from the rates[] array.  Therefore every segment endpoint is
-   // anchored to an existing bar.
    int span = i1 - i0;
    int max_segments = MathMax(6, curve_segments);
    int segs = MathMin(MathMax(2, span), max_segments);
@@ -268,7 +308,7 @@ bool FP_DrawIndexSampledArc(const string base,
       }
 
       drawn++;
-      FP_DrawTrend(base + IntegerToString(drawn), prev_t, prev_p, t, p, c, width, style, draw_back);
+      FP_CreateTrend(base + IntegerToString(drawn), prev_t, prev_p, t, p, c, width, style, draw_back, report);
       prev_t = t;
       prev_p = p;
       prev_idx = idx;
@@ -276,60 +316,67 @@ bool FP_DrawIndexSampledArc(const string base,
    }
 
    if(drawn == 0)
-      return FP_DrawTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back);
+   {
+      report.fallback_curves++;
+      return FP_CreateTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back, report);
+   }
    return true;
 }
 
-bool FP_DrawStackedText(const string name,
-                        const int index_anchor,
-                        const datetime time_anchor,
-                        const double price,
-                        const bool is_peak,
-                        const string text,
-                        const color c,
-                        const int font_size,
-                        FP_LabelStackCluster &clusters[])
+bool FP_DrawStackedTextR(const string name,
+                         const int index_anchor,
+                         const datetime time_anchor,
+                         const double price,
+                         const bool is_peak,
+                         const string text,
+                         const color c,
+                         const int font_size,
+                         FP_LabelStackCluster &clusters[],
+                         FP_RenderReport &report)
 {
    datetime column_time = time_anchor;
    double column_price = price;
    int lane = FP_RegisterLabelCluster(clusters, index_anchor, time_anchor, price, is_peak, column_time, column_price);
-   double label_price = column_price + FP_LabelOffsetPrice(lane, 0, is_peak);
-   return FP_DrawText(name, column_time, label_price, text, c, font_size);
+   double label_price = column_price + FP_LabelOffsetPrice(lane, is_peak);
+   return FP_CreateText(name, column_time, label_price, text, c, font_size, report);
 }
 
-void FP_DrawFlagBody(const FP_FlagEvent &e,
-                     const string prefix,
-                     const color c,
-                     const int width,
-                     const int curve_segments,
-                     const MqlRates &rates[],
-                     const int rates_total)
+void FP_DrawFlagBodyR(const FP_FlagEvent &e,
+                      const FP_RenderConfig &cfg,
+                      const color c,
+                      const int width,
+                      const MqlRates &rates[],
+                      const int rates_total,
+                      FP_RenderReport &report)
 {
    if(!e.has_origin || !e.has_leg1) return;
-   string base = prefix + "EV_" + IntegerToString(e.event_id) + "_";
+   string base = FP_RenderEventObjectStem(e, cfg);
 
-   // Origin -> Leg1 straight leg.
-   FP_DrawTrend(base + "leg1", e.origin.time_anchor, e.origin.price, e.leg1.time_anchor, e.leg1.price, c, width, STYLE_SOLID);
+   if(FP_CreateTrend(base + "leg1", e.origin.time_anchor, e.origin.price, e.leg1.time_anchor, e.leg1.price, c, width, STYLE_SOLID, false, report))
+      report.event_body_drawn++;
 
    if(e.has_waist && e.has_leg2)
    {
-      // Leg1 -> Leg2 curve through Waist, sampled by candle index instead of
-      // interpolated timestamps. This keeps the arc clean across session gaps.
-      FP_DrawIndexSampledArc(base + "curve_", e.leg1, e.waist, e.leg2, rates, rates_total, c, width, STYLE_SOLID, curve_segments);
+      FP_DrawIndexSampledArcR(base + "curve_", e.leg1, e.waist, e.leg2, rates, rates_total, c, width, STYLE_SOLID, cfg.curve_segments, false, report);
    }
 }
 
-void FP_DrawProbableLeg(const FP_FlagEvent &e, const string prefix, const color c, const int width)
+void FP_DrawProbableLegR(const FP_FlagEvent &e, const FP_RenderConfig &cfg, const color c, const int width, FP_RenderReport &report)
 {
    if(!e.has_origin || !e.has_leg1) return;
-   string base = prefix + "EV_" + IntegerToString(e.event_id) + "_prob";
-   FP_DrawTrend(base, e.origin.time_anchor, e.origin.price, e.leg1.time_anchor, e.leg1.price, c, width, STYLE_DASH);
+   string base = FP_RenderEventObjectStem(e, cfg) + "prob";
+   if(FP_CreateTrend(base, e.origin.time_anchor, e.origin.price, e.leg1.time_anchor, e.leg1.price, c, width, STYLE_DASH, false, report))
+      report.event_probable_drawn++;
 }
 
-void FP_DrawInternalLabels(const FP_FlagEvent &e, const string prefix, const color c, const int font_size,
-                           FP_LabelStackCluster &label_clusters[])
+void FP_DrawInternalLabelsR(const FP_FlagEvent &e,
+                            const FP_RenderConfig &cfg,
+                            const color c,
+                            const int font_size,
+                            FP_LabelStackCluster &label_clusters[],
+                            FP_RenderReport &report)
 {
-   string base = prefix + "EV_" + IntegerToString(e.event_id) + "_I_";
+   string base = FP_RenderEventObjectStem(e, cfg) + "I_";
 
    FP_Node nums[4];
    nums[0] = e.internal_pack.n1;
@@ -340,67 +387,50 @@ void FP_DrawInternalLabels(const FP_FlagEvent &e, const string prefix, const col
    {
       if(nums[i].id < 0) continue;
       bool is_peak = (nums[i].kind == FP_NODE_HIGH);
-      FP_DrawStackedText(base + IntegerToString(i+1),
-                         nums[i].index_anchor,
-                         nums[i].time_anchor,
-                         nums[i].price,
-                         is_peak,
-                         IntegerToString(i+1),
-                         c,
-                         font_size,
-                         label_clusters);
+      if(FP_DrawStackedTextR(base + IntegerToString(i+1), nums[i].index_anchor, nums[i].time_anchor, nums[i].price, is_peak, IntegerToString(i+1), c, font_size, label_clusters, report))
+         report.event_internal_labels++;
    }
 }
 
-void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color c, const int font_size,
-                        FP_LabelStackCluster &label_clusters[])
+void FP_DrawOriginLabelR(const FP_FlagEvent &e,
+                         const FP_RenderConfig &cfg,
+                         const color c,
+                         const int font_size,
+                         FP_LabelStackCluster &label_clusters[],
+                         FP_RenderReport &report)
 {
    if(!e.has_origin) return;
    bool is_peak = (e.origin.kind == FP_NODE_HIGH);
-   FP_DrawStackedText(prefix + "EV_" + IntegerToString(e.event_id) + "_O",
-                      e.origin.index_anchor,
-                      e.origin.time_anchor,
-                      e.origin.price,
-                      is_peak,
-                      "O",
-                      c,
-                      font_size,
-                      label_clusters);
+   if(FP_DrawStackedTextR(FP_RenderEventObjectStem(e, cfg) + "O", e.origin.index_anchor, e.origin.time_anchor, e.origin.price, is_peak, "O", c, font_size, label_clusters, report))
+      report.event_origin_labels++;
 }
 
-void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size,
-                       const bool show_hook_count_labels,
-                       FP_LabelStackCluster &label_clusters[],
-                       const MqlRates &rates[],
-                       const int rates_total)
+void FP_DrawHookBranchR(const FP_HookBranch &h,
+                        const FP_RenderConfig &cfg,
+                        const color c,
+                        const int width,
+                        const int font_size,
+                        FP_LabelStackCluster &label_clusters[],
+                        const MqlRates &rates[],
+                        const int rates_total,
+                        FP_RenderReport &report)
 {
-   if(!h.visible_main) return;
-   if(!h.is_nd) return;
-   string base = prefix + "HK_" + IntegerToString(h.branch_id) + "_";
+   string base = FP_RenderHookObjectStem(h, cfg);
 
-   // Hook / ND arc is sampled on candle indexes and starts at the true cycle
-   // boundary when available.  It is drawn in the background so gray Hook
-   // context never visually overwrites colored F1/F2/F3 structures.
    FP_Node arc_start;
    if(h.has_cycle_start) arc_start = h.cycle_start_node;
    else arc_start = h.start_node;
-   FP_DrawIndexSampledArc(base + "arc_", arc_start, h.extreme_node, h.resolve_node, rates, rates_total, c, width, STYLE_DOT, curve_segments, true);
+
+   FP_DrawIndexSampledArcR(base + "arc_", arc_start, h.extreme_node, h.resolve_node, rates, rates_total, c, width, STYLE_DOT, cfg.curve_segments, cfg.draw_hook_back, report);
+   report.hook_arcs_drawn++;
+
    bool is_peak = (h.resolve_node.kind == FP_NODE_HIGH);
    string label = "ND L" + IntegerToString(h.scale_L) + " #" + IntegerToString(h.node_count);
-   FP_DrawStackedText(base + "label",
-                      h.resolve_node.index_anchor,
-                      h.resolve_node.time_anchor,
-                      h.resolve_node.price,
-                      is_peak,
-                      label,
-                      c,
-                      font_size,
-                      label_clusters);
+   if(h.seeds_visible_f1) label = label + " seed";
+   if(FP_DrawStackedTextR(base + "label", h.resolve_node.index_anchor, h.resolve_node.time_anchor, h.resolve_node.price, is_peak, label, c, font_size, label_clusters, report))
+      report.hook_labels_drawn++;
 
-   // Counted branch numbers are audit information.  They stay hidden in the
-   // default main-chart view so Hook/ND context does not become a gray number
-   // dump.  Enable the explicit input when checking branch extraction.
-   if(show_hook_count_labels)
+   if(cfg.show_hook_count_labels)
    {
       FP_Node nums[4];
       nums[0] = h.n1;
@@ -411,19 +441,11 @@ void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color 
       {
          if(nums[i].id < 0) continue;
          bool np = (nums[i].kind == FP_NODE_HIGH);
-         FP_DrawStackedText(base + "N" + IntegerToString(i+1),
-                            nums[i].index_anchor,
-                            nums[i].time_anchor,
-                            nums[i].price,
-                            np,
-                            IntegerToString(i+1),
-                            c,
-                            MathMax(6, font_size-1),
-                            label_clusters);
+         if(FP_DrawStackedTextR(base + "N" + IntegerToString(i+1), nums[i].index_anchor, nums[i].time_anchor, nums[i].price, np, IntegerToString(i+1), c, MathMax(6, font_size-1), label_clusters, report))
+            report.hook_count_labels++;
       }
    }
 }
-
 
 bool FP_HookSeedsVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[])
 {
@@ -447,28 +469,87 @@ bool FP_HookSeedsVisibleF1(const FP_HookBranch &h, const FP_FlagEvent &events[])
    return false;
 }
 
-bool FP_ShouldDrawEvent(const FP_FlagEvent &e,
-                        const bool draw_f1,
-                        const bool draw_f2,
-                        const bool draw_f3,
-                        const bool draw_bull,
-                        const bool draw_bear,
-                        const bool draw_candidates,
-                        const bool draw_confirmed,
-                        const bool draw_locked,
-                        const bool draw_invalidated)
+int FP_DrawAllWithReport(const FP_FlagEvent &events[],
+                         const FP_HookBranch &hooks[],
+                         const MqlRates &rates[],
+                         const int rates_total,
+                         const FP_RenderConfig &cfg,
+                         FP_RenderReport &report)
 {
-   if(!e.visible_main) return false;
-   if(e.level == FP_LEVEL_F1 && !draw_f1) return false;
-   if(e.level == FP_LEVEL_F2 && !draw_f2) return false;
-   if(e.level == FP_LEVEL_F3 && !draw_f3) return false;
-   if(e.direction == FP_DIR_BULLISH && !draw_bull) return false;
-   if(e.direction == FP_DIR_BEARISH && !draw_bear) return false;
-   if(e.status == FP_STATUS_INVALIDATED && !draw_invalidated) return false;
-   if((e.status == FP_STATUS_SEED || e.status == FP_STATUS_LIVE_LEG || e.status == FP_STATUS_LIVE_BODY || e.status == FP_STATUS_POST_FLAG || e.status == FP_STATUS_QUALIFIED) && !draw_candidates) return false;
-   if(e.status == FP_STATUS_CONFIRMED && !draw_confirmed) return false;
-   if((e.status == FP_STATUS_COMPLETED || e.status == FP_STATUS_LOCKED) && !draw_locked) return false;
-   return true;
+   FP_ResetRenderReport(report);
+   report.attempted = true;
+   report.status = "running";
+   report.prefix = cfg.prefix;
+   report.input_events = ArraySize(events);
+   report.input_hooks = ArraySize(hooks);
+
+   for(int ve=0; ve<ArraySize(events); ve++) if(events[ve].visible_main) report.visible_events_seen++;
+   for(int vh=0; vh<ArraySize(hooks); vh++) if(hooks[vh].visible_main) report.visible_hooks_seen++;
+
+   if(cfg.delete_existing_by_prefix)
+      report.objects_deleted_by_prefix = FP_DeleteObjectsByPrefix(cfg.prefix);
+
+   FP_LabelStackCluster label_clusters[];
+   ArrayResize(label_clusters, 0);
+
+   if(cfg.draw_hooks)
+   {
+      for(int h=0; h<ArraySize(hooks); h++)
+      {
+         if(cfg.max_hooks_to_draw > 0 && report.drawn_hooks >= cfg.max_hooks_to_draw)
+         {
+            report.hook_filter_limit++;
+            continue;
+         }
+         bool seeds = FP_HookSeedsVisibleF1(hooks[h], events);
+         if(!FP_ShouldRenderHook(hooks[h], seeds, cfg, report)) continue;
+         FP_DrawHookBranchR(hooks[h], cfg, cfg.hook_color, MathMax(1, cfg.fixed_line_width), MathMax(6, cfg.label_font_size), label_clusters, rates, rates_total, report);
+         if(report.first_drawn_hook_id < 0) report.first_drawn_hook_id = hooks[h].branch_id;
+         report.last_drawn_hook_id = hooks[h].branch_id;
+         report.drawn_hooks++;
+         FP_RenderAddSample(report, "H" + IntegerToString(hooks[h].branch_id) + ":" + FP_RenderSafeId(hooks[h].visual_id, 18), cfg.sample_limit);
+      }
+   }
+
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(cfg.max_events_to_draw > 0 && report.drawn_events >= cfg.max_events_to_draw)
+      {
+         report.event_filter_limit++;
+         continue;
+      }
+      FP_FlagEvent e = events[i];
+      if(!FP_ShouldRenderEvent(e, cfg, report)) continue;
+
+      color c = FP_ShadeColor(FP_StatusColor(e, cfg.bull_candidate, cfg.bull_confirmed, cfg.bear_candidate, cfg.bear_confirmed, cfg.f3_locked), e.event_id, cfg.use_sequence_color_shades);
+      int width = MathMax(1, cfg.fixed_line_width);
+      if(e.render_kind == FP_RENDER_FLAG_BODY) FP_DrawFlagBodyR(e, cfg, c, width, rates, rates_total, report);
+      else if(e.render_kind == FP_RENDER_PROBABLE) FP_DrawProbableLegR(e, cfg, c, width, report);
+
+      FP_Node anchor;
+      if(e.has_leg2) anchor = e.leg2;
+      else if(e.has_leg1) anchor = e.leg1;
+      else anchor = e.origin;
+      if(anchor.id >= 0)
+      {
+         bool is_peak = (anchor.kind == FP_NODE_HIGH);
+         if(FP_DrawStackedTextR(FP_RenderEventObjectStem(e, cfg) + "LBL", anchor.index_anchor, anchor.time_anchor, anchor.price, is_peak, FP_EventLabel(e, cfg.detailed_labels, cfg.show_parent_ids), c, cfg.label_font_size, label_clusters, report))
+            report.event_label_drawn++;
+      }
+      if(cfg.show_origin_labels) FP_DrawOriginLabelR(e, cfg, c, cfg.label_font_size, label_clusters, report);
+      if(cfg.show_internal_labels) FP_DrawInternalLabelsR(e, cfg, c, MathMax(6, cfg.label_font_size - 1), label_clusters, report);
+
+      if(report.first_drawn_event_id < 0) report.first_drawn_event_id = e.event_id;
+      report.last_drawn_event_id = e.event_id;
+      report.drawn_events++;
+      FP_RenderAddSample(report, "E" + IntegerToString(e.event_id) + ":" + FP_LevelName(e.level) + ":" + FP_StatusName(e.status) + ":" + FP_RenderSafeId(e.canonical_id, 18), cfg.sample_limit);
+   }
+
+   report.drawn_total = report.drawn_events + report.drawn_hooks;
+   report.status = (report.ok ? "ok" : "partial");
+   if(StringLen(report.reason) <= 0) report.reason = "renderer_readonly_done";
+   ChartRedraw(0);
+   return report.drawn_total;
 }
 
 int FP_DrawAll(const FP_FlagEvent &events[],
@@ -505,58 +586,40 @@ int FP_DrawAll(const FP_FlagEvent &events[],
                const color f3_locked,
                const color hook_color)
 {
-   FP_DeleteObjectsByPrefix(prefix);
-   int drawn = 0;
-   int hook_drawn = 0;
-   FP_LabelStackCluster label_clusters[];
-   ArrayResize(label_clusters, 0);
+   FP_RenderConfig cfg;
+   FP_DefaultRenderConfig(cfg);
+   cfg.prefix = prefix;
+   cfg.max_events_to_draw = max_events_to_draw;
+   cfg.max_hooks_to_draw = max_hooks_to_draw;
+   cfg.draw_f1 = draw_f1;
+   cfg.draw_f2 = draw_f2;
+   cfg.draw_f3 = draw_f3;
+   cfg.draw_bull = draw_bull;
+   cfg.draw_bear = draw_bear;
+   cfg.draw_candidates = draw_candidates;
+   cfg.draw_confirmed = draw_confirmed;
+   cfg.draw_locked = draw_locked;
+   cfg.draw_invalidated = draw_invalidated;
+   cfg.draw_hooks = draw_hooks;
+   cfg.draw_only_flag_seed_hooks = draw_only_flag_seed_hooks;
+   cfg.show_hook_count_labels = show_hook_count_labels;
+   cfg.detailed_labels = detailed_labels;
+   cfg.show_parent_ids = show_parent_ids;
+   cfg.show_origin_labels = show_origin_labels;
+   cfg.show_internal_labels = show_internal_labels;
+   cfg.use_sequence_color_shades = use_sequence_color_shades;
+   cfg.fixed_line_width = fixed_line_width;
+   cfg.curve_segments = curve_segments;
+   cfg.label_font_size = label_font_size;
+   cfg.bull_candidate = bull_candidate;
+   cfg.bull_confirmed = bull_confirmed;
+   cfg.bear_candidate = bear_candidate;
+   cfg.bear_confirmed = bear_confirmed;
+   cfg.f3_locked = f3_locked;
+   cfg.hook_color = hook_color;
 
-   if(draw_hooks)
-   {
-      for(int h=0; h<ArraySize(hooks); h++)
-      {
-         if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
-         if(!hooks[h].visible_main) continue;
-         if(draw_only_flag_seed_hooks && !FP_HookSeedsVisibleF1(hooks[h], events)) continue;
-         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), show_hook_count_labels, label_clusters, rates, rates_total);
-         hook_drawn++;
-      }
-   }
-
-   for(int i=0; i<ArraySize(events); i++)
-   {
-      if(max_events_to_draw > 0 && drawn >= max_events_to_draw) break;
-      FP_FlagEvent e = events[i];
-      if(!FP_ShouldDrawEvent(e, draw_f1, draw_f2, draw_f3, draw_bull, draw_bear, draw_candidates, draw_confirmed, draw_locked, draw_invalidated)) continue;
-
-      color c = FP_ShadeColor(FP_StatusColor(e, bull_candidate, bull_confirmed, bear_candidate, bear_confirmed, f3_locked), e.event_id, use_sequence_color_shades);
-      int width = MathMax(1, fixed_line_width);
-      if(e.render_kind == FP_RENDER_FLAG_BODY) FP_DrawFlagBody(e, prefix, c, width, curve_segments, rates, rates_total);
-      else if(e.render_kind == FP_RENDER_PROBABLE) FP_DrawProbableLeg(e, prefix, c, width);
-
-      // Main label at Leg2 if body exists, otherwise at Leg1.
-      FP_Node anchor;
-      if(e.has_leg2) anchor = e.leg2;
-      else anchor = e.leg1;
-      if(anchor.id >= 0)
-      {
-         bool is_peak = (anchor.kind == FP_NODE_HIGH);
-         FP_DrawStackedText(prefix + "EV_" + IntegerToString(e.event_id) + "_LBL",
-                            anchor.index_anchor,
-                            anchor.time_anchor,
-                            anchor.price,
-                            is_peak,
-                            FP_EventLabel(e, detailed_labels, show_parent_ids),
-                            c,
-                            label_font_size,
-                            label_clusters);
-      }
-      if(show_origin_labels) FP_DrawOriginLabel(e, prefix, c, label_font_size, label_clusters);
-      if(show_internal_labels) FP_DrawInternalLabels(e, prefix, c, MathMax(6, label_font_size - 1), label_clusters);
-      drawn++;
-   }
-   ChartRedraw(0);
-   return drawn + hook_drawn;
+   FP_RenderReport report;
+   return FP_DrawAllWithReport(events, hooks, rates, rates_total, cfg, report);
 }
 
 #endif // __FP_RENDERER_MQH__

@@ -142,6 +142,17 @@ void FP_PrintSummary(const string symbol,
    msg += " export_hooks=" + IntegerToString(result.export_hooks_written_total);
    msg += " export_hooks_visible=" + IntegerToString(result.export_visible_hooks_written_total);
    msg += " export_hooks_hidden=" + IntegerToString(result.export_hidden_hooks_written_total);
+   msg += " render_attempted=" + IntegerToString(result.render_attempted_total);
+   msg += " render_ok=" + IntegerToString(result.render_ok_total);
+   msg += " render_objects=" + IntegerToString(result.render_objects_total);
+   msg += " render_errors=" + IntegerToString(result.render_object_errors_total);
+   msg += " render_deleted=" + IntegerToString(result.render_deleted_objects_total);
+   msg += " render_events=" + IntegerToString(result.render_events_drawn_total);
+   msg += " render_hooks=" + IntegerToString(result.render_hooks_drawn_total);
+   msg += " render_event_filtered=" + IntegerToString(result.render_event_filtered_total);
+   msg += " render_hook_filtered=" + IntegerToString(result.render_hook_filtered_total);
+   msg += " render_duplicate_names=" + IntegerToString(result.render_duplicate_names_total);
+   msg += " render_fallback_curves=" + IntegerToString(result.render_fallback_curves_total);
    msg += " invalid=" + IntegerToString(result.invalid_total);
    msg += " drawn=" + IntegerToString(drawn);
    Print(msg);

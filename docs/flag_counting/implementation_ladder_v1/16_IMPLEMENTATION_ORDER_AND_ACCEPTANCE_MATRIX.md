@@ -366,16 +366,23 @@ Acceptance:
 Files:
 
 ```text
+FP_RenderTypes.mqh
+FP_RenderRules.mqh
+FP_RenderAudit.mqh
 FP_Renderer.mqh
+FlagCountingPhoenixExperiment.mq5 # wiring only
 ```
 
 Acceptance:
 
 - clean main chart readable;
 - audit mode toggles labels only;
-- renderer settings do not change logical output;
-- curves use index sampling;
-- stale objects removed;
+- renderer settings do not change logical output or export output;
+- curves use index sampling and map back to actual candle times;
+- stale objects are removed by prefix before redraw;
+- canonical object names are deterministic when enabled;
+- `FP_LEVEL12 status=ok` and `render_errors=0`;
+- strict visibility prevents hidden events/hooks from drawing;
 - `FC-GC-008` and `FC-GC-009` baselined or marked as blocking before freeze.
 
 ### Step 13 — Build validation suite

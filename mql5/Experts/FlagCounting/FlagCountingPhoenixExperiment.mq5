@@ -1,5 +1,5 @@
 #property strict
-#property version   "11.50"
+#property version   "12.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -62,6 +62,9 @@ input int  InpCanonicalSampleLimit = 8;
 input bool InpPrintExportSanity = true;
 input bool InpPrintExportSamples = false;
 input int  InpExportSampleLimit = 5;
+input bool InpPrintRenderSanity = true;
+input bool InpPrintRenderSamples = false;
+input int  InpRenderSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -137,6 +140,10 @@ input bool   InpDrawLocked = true;
 input bool   InpDrawInvalidated = false;
 input bool   InpDrawHooks = true;
 input bool   InpDrawOnlyFlagSeedHooks = true;
+input bool   InpRenderStrictVisibility = true;
+input bool   InpRenderUseCanonicalObjectNames = true;
+input bool   InpRenderDeleteExistingByPrefix = true;
+input bool   InpRenderDrawHookBack = true;
 input bool   InpShowHookCountLabels = false;
 input bool   InpDetailedLabels = false;
 input bool   InpForceCleanMainChartLabels = true;
@@ -234,7 +241,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level11_5";
+   cfg.identity_generation_pass = "phoenix_level12";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -260,6 +267,9 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_canonorph" + FP_BoolName(InpCanonicalHideUnresolvedOrphans) +
                               "_export" + FP_BoolName(InpExportAuditFiles) +
                               "_exportvisible" + FP_BoolName(InpExportVisibleOnly) +
+                              "_render" + FP_BoolName(InpPrintRenderSanity) +
+                              "_rendercanon" + FP_BoolName(InpRenderUseCanonicalObjectNames) +
+                              "_renderstrict" + FP_BoolName(InpRenderStrictVisibility) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -290,6 +300,47 @@ void FP_LoadExportConfig(FP_ExportConfig &cfg)
    cfg.print_sanity = InpPrintExportSanity;
    cfg.print_samples = InpPrintExportSamples;
    cfg.sample_limit = InpExportSampleLimit;
+}
+
+void FP_LoadRenderConfig(FP_RenderConfig &cfg)
+{
+   FP_DefaultRenderConfig(cfg);
+   cfg.prefix = InpObjectPrefix;
+   cfg.max_events_to_draw = InpMaxEventsToDraw;
+   cfg.max_hooks_to_draw = InpMaxHooksToDraw;
+   cfg.draw_f1 = InpDrawF1;
+   cfg.draw_f2 = InpDrawF2;
+   cfg.draw_f3 = InpDrawF3;
+   cfg.draw_bull = InpDrawBullish;
+   cfg.draw_bear = InpDrawBearish;
+   cfg.draw_candidates = InpDrawCandidates;
+   cfg.draw_confirmed = InpDrawConfirmed;
+   cfg.draw_locked = InpDrawLocked;
+   cfg.draw_invalidated = InpDrawInvalidated;
+   cfg.draw_hooks = InpDrawHooks;
+   cfg.draw_only_flag_seed_hooks = InpDrawOnlyFlagSeedHooks;
+   cfg.strict_visibility = InpRenderStrictVisibility;
+   cfg.use_canonical_object_names = InpRenderUseCanonicalObjectNames;
+   cfg.delete_existing_by_prefix = InpRenderDeleteExistingByPrefix;
+   cfg.draw_hook_back = InpRenderDrawHookBack;
+   cfg.show_hook_count_labels = (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowHookCountLabels);
+   cfg.detailed_labels = InpDetailedLabels;
+   cfg.show_parent_ids = (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowParentIds);
+   cfg.show_origin_labels = (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowOriginLabels);
+   cfg.show_internal_labels = (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowInternalLabels);
+   cfg.use_sequence_color_shades = InpUseSequenceColorShades;
+   cfg.fixed_line_width = InpFixedLineWidth;
+   cfg.curve_segments = InpCurveSegments;
+   cfg.label_font_size = InpLabelFontSize;
+   cfg.bull_candidate = InpBullishCandidateColor;
+   cfg.bull_confirmed = InpBullishConfirmedColor;
+   cfg.bear_candidate = InpBearishCandidateColor;
+   cfg.bear_confirmed = InpBearishConfirmedColor;
+   cfg.f3_locked = InpF3LockedColor;
+   cfg.hook_color = InpHookColor;
+   cfg.print_sanity = InpPrintRenderSanity;
+   cfg.print_samples = InpPrintRenderSamples;
+   cfg.sample_limit = InpRenderSampleLimit;
 }
 
 void FP_Run()
@@ -369,39 +420,15 @@ void FP_Run()
          FP_PrintExportSamples("FP_LEVEL11_5", export_report, events, hooks, export_cfg.sample_limit);
    }
 
-   int drawn = FP_DrawAll(events,
-                          hooks,
-                          rates,
-                          copied,
-                          InpObjectPrefix,
-                          InpMaxEventsToDraw,
-                          InpMaxHooksToDraw,
-                          InpDrawF1,
-                          InpDrawF2,
-                          InpDrawF3,
-                          InpDrawBullish,
-                          InpDrawBearish,
-                          InpDrawCandidates,
-                          InpDrawConfirmed,
-                          InpDrawLocked,
-                          InpDrawInvalidated,
-                          InpDrawHooks,
-                          InpDrawOnlyFlagSeedHooks,
-                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowHookCountLabels),
-                          InpDetailedLabels,
-                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowParentIds),
-                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowOriginLabels),
-                          (InpForceCleanMainChartLabels && !InpDetailedLabels ? false : InpShowInternalLabels),
-                          InpUseSequenceColorShades,
-                          InpFixedLineWidth,
-                          InpCurveSegments,
-                          InpLabelFontSize,
-                          InpBullishCandidateColor,
-                          InpBullishConfirmedColor,
-                          InpBearishCandidateColor,
-                          InpBearishConfirmedColor,
-                          InpF3LockedColor,
-                          InpHookColor);
+   FP_RenderConfig render_cfg;
+   FP_LoadRenderConfig(render_cfg);
+   FP_RenderReport render_report;
+   int drawn = FP_DrawAllWithReport(events, hooks, rates, copied, render_cfg, render_report);
+   FP_RenderApplyReportToResult(render_report, result);
+   if(render_cfg.print_sanity)
+      FP_PrintRenderReport("FP_LEVEL12", render_report);
+   if(render_cfg.print_samples)
+      FP_PrintRenderSamples("FP_LEVEL12", render_report);
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)

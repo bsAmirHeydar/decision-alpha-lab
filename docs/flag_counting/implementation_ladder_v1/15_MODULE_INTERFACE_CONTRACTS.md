@@ -926,3 +926,97 @@ FP_DetectAllScales
 -> FP_DrawAll
 -> FP_PrintSummary
 ```
+
+
+---
+
+## Level 12 Renderer interface contract
+
+### `FP_RenderTypes.mqh`
+
+Owns:
+
+```text
+FP_RenderConfig
+FP_RenderReport
+FP_DefaultRenderConfig
+FP_ResetRenderReport
+FP_RenderApplyReportToResult
+```
+
+Renderer config is independent from structural `FP_Config`. It controls chart drawing only.
+
+### `FP_RenderRules.mqh`
+
+Owns pure display predicates and object identity helpers:
+
+```text
+FP_ShouldRenderEvent
+FP_ShouldRenderHook
+FP_RenderEventObjectStem
+FP_RenderHookObjectStem
+FP_RenderSafeId
+```
+
+Rules may filter for display, but they may not mutate events, hooks, visibility, hidden reasons, lifecycle state, ownership, or canonical state.
+
+### `FP_RenderAudit.mqh`
+
+Owns:
+
+```text
+FP_PrintRenderReport
+FP_PrintRenderSamples
+```
+
+The sanity tag is:
+
+```text
+FP_LEVEL12
+```
+
+### `FP_Renderer.mqh`
+
+Public facade:
+
+```text
+int FP_DrawAllWithReport(
+   const FP_FlagEvent &events[],
+   const FP_HookBranch &hooks[],
+   const MqlRates &rates[],
+   const int rates_total,
+   const FP_RenderConfig &cfg,
+   FP_RenderReport &report
+)
+```
+
+Legacy wrapper remains available:
+
+```text
+int FP_DrawAll(...)
+```
+
+Side effects are limited to chart objects under the configured prefix and `ChartRedraw(0)`. Renderer must not call `CopyRates`, scan nodes, create F objects, alter `visible_main`, alter `hidden_reason`, or alter identity.
+
+### EA wiring
+
+`FlagCountingPhoenixExperiment.mq5` owns:
+
+```text
+InpPrintRenderSanity
+InpPrintRenderSamples
+InpRenderSampleLimit
+InpRenderStrictVisibility
+InpRenderUseCanonicalObjectNames
+InpRenderDeleteExistingByPrefix
+InpRenderDrawHookBack
+```
+
+Call order:
+
+```text
+FP_DetectAllScales
+-> FP_ExportAuditWithReport
+-> FP_DrawAllWithReport
+-> FP_PrintSummary
+```

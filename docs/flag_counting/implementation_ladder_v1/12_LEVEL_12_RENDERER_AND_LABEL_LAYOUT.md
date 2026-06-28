@@ -1,188 +1,259 @@
-# Phoenix Flag Counting Implementation Ladder V1
-
-This document is part of the implementation ladder for the Phoenix Flag Counting engine. The ladder is intentionally layered so that lower layers become frozen foundations before higher layers are allowed to depend on them.
-
-Global non-negotiables:
-
-- All structural decisions use candle `high` and `low` only.
-- `open`, `close`, candle body, candle color, volume, and indicators are not structural inputs.
-- Equality is not a break. A level is broken only by a strict pass beyond it.
-- The renderer is non-authoritative. It may only draw logical objects emitted by engines.
-- Main-chart rendering and audit rendering are separate products.
-- Every layer must expose enough audit fields to prove why an object exists.
-- A higher layer may never silently repair a lower-layer defect.
-
-# Level 12 — Renderer and Label Layout
+# Level 12 — Renderer / Labels / Visual Layer
 
 ## Purpose
 
-Renderer turns emitted objects into chart objects. It must never create, validate, reject, confirm, or merge structures. It is a display layer only.
+Level 12 turns the final Level 11 canonical stream into MetaTrader chart objects.
 
-## Owned source module
+It is a **visual product only**. It cannot create structure, delete structure, confirm structure, lock structure, change ownership, repair hidden reasons, or decide parent/child truth. Those decisions already belong to Levels 01 through 11.
+
+The renderer is allowed to do only these things:
 
 ```text
+read FP_FlagEvent[]
+read FP_HookBranch[]
+read final visible_main / hidden_reason / canonical_id fields
+apply user display filters
+create/delete chart objects under one prefix
+emit FP_LEVEL12 render audit
+```
+
+## Owned source modules
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_RenderTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5 # wiring only
 ```
 
-## Inputs
+## Execution order
 
 ```text
-visible_events[]
-visible_hooks[]
-audit_display_flags
-rates[]
-rates_total
-chart_config
+Level 11 canonicalization
+-> Level 11.5 export/report
+-> Level 12 renderer
+-> FP_SUMMARY
 ```
 
-## Non-authority rule
+Export must be able to run even when renderer is visually disabled. Renderer output is never the source of truth.
 
-Renderer cannot infer missing F structures. Renderer cannot hide semantically visible objects except by explicit display budget rules provided by canonicalization layer.
+## Input contract
 
-## Object naming
-
-All objects must use a prefix:
+Renderer consumes:
 
 ```text
-DAL_FCP_
+FP_FlagEvent events[] after Level 11 canonicalization
+FP_HookBranch hooks[] after final Hook seed visibility
+MqlRates rates[] from Level 01 canonical timebase
+FP_RenderConfig
 ```
 
-Object names must include:
+Renderer assumes:
 
 ```text
-engine version
-object type
-event/hook id
-segment id when polyline segment
+visible_main already means engine-approved main-chart visibility
+hidden_reason already explains hidden objects
+canonical_id / visual_id / structural_id already exist when available
+rates[0] is oldest closed bar
 ```
 
-## Layering
+## Output contract
 
-Recommended layers:
+Renderer returns:
 
 ```text
-background gray Hook/ND arcs
-thin low-priority high-L structures
-colored F body curves
-labels
-selected/debug overlay
+FP_RenderReport
+FP_LEVEL12 sanity line
+optional FP_LEVEL12 samples
+chart objects under InpObjectPrefix only
 ```
+
+`FP_RenderReport` counts:
+
+```text
+input_events / input_hooks
+visible_events_seen / visible_hooks_seen
+drawn_events / drawn_hooks
+objects_requested / objects_created / object_create_failures
+objects_deleted_by_prefix
+duplicate_object_names
+fallback_curves
+event filter reasons
+hook filter reasons
+first/last drawn event and hook ids
+```
+
+The report is folded into `FP_DetectResult` so `FP_SUMMARY` exposes render counts.
+
+## Object naming contract
+
+Object names are derived from canonical identity by default:
+
+```text
+InpRenderUseCanonicalObjectNames = true
+```
+
+Preferred stems:
+
+```text
+<prefix>EV_<canonical_id>_<segment>
+<prefix>HK_<visual_or_structural_id>_<segment>
+```
+
+Fallback stems:
+
+```text
+<prefix>EV_Q<event_id>_<segment>
+<prefix>HK_H<branch_id>_<segment>
+```
+
+All names are sanitized into chart-safe ids. Renderer may truncate long ids, but it must keep deterministic naming for the same stream.
+
+## Visibility contract
+
+Default:
+
+```text
+InpRenderStrictVisibility = true
+```
+
+Meaning:
+
+- hidden engine objects are not drawn;
+- hidden engine objects are not reinterpreted as audit overlay by default;
+- detailed labels can add more text to already-drawn objects, but cannot make hidden structures visible;
+- `DrawInvalidated` is a display filter only and cannot change event status.
 
 ## Curve contract
 
 ### Flag body
 
-Draw:
-
 ```text
 Origin -> Leg1 straight line
-Leg1 -> Waist -> Leg2 smooth curve
+Leg1 -> Waist -> Leg2 index-sampled curve
 ```
 
-Curve x-axis sampling must use candle index and map back to `rates[index].time`.
+The curve x-domain is candle index, then each sampled point maps back to `rates[index].time`. This keeps curves stable across session gaps and weekends.
 
-### Hook/ND
-
-Draw gray arc:
+### Hook / ND
 
 ```text
-cycle_start -> cycle_extreme -> resolve/close
+cycle_start/start -> extreme -> resolve
 ```
 
-Only in main chart if the Hook explains a visible F1 or diagnostic mode requests all hooks.
+Hook arcs are drawn in the background by default:
+
+```text
+InpRenderDrawHookBack = true
+```
+
+Hooks are main-visible only if engine visibility and seed policy allow it.
 
 ## Label contract
 
-Main chart labels must be concise and readable.
-
-Default main label:
+Clean default labels are concise:
 
 ```text
 F1 L13 confirmed
-F2 L8 qualified
+F2 L8 confirmed
 F3 L21 locked
-ND L5 #3
+ND L5 #3 seed
 ```
 
-Detailed audit label may include:
+Detailed mode may add:
 
 ```text
+canonical id fragment
+chain id fragment
 O/A/W/B node ids
 parent id
-phase id
-source mode
-hidden reason
+F2 size gate
+F3 OR gate
+F3 lock id
+hidden reason for audit-visible hidden objects
 ```
 
-## Label stacking
-
-Labels must stack by:
+Label stacking remains deterministic by:
 
 ```text
-local time cluster
-local price cluster
+time-index cluster
+price cluster
 peak/valley side
-semantic priority
+lane counter
 ```
 
-Rules:
-
-- peak labels above price;
-- valley labels below price;
-- older label closer to price;
-- newer/less important label farther away;
-- audit labels can be pushed farther than main labels;
-- label layout must be deterministic.
-
-## Default display modes
-
-### Clean main chart
+## New EA inputs
 
 ```text
-DetailedLabels = false
-ShowParentIds = false
-ShowOriginLabels = false
-ShowInternalLabels = false
-ShowHookCountLabels = false
-DrawOnlyFlagSeedHooks = true
+InpPrintRenderSanity = true
+InpPrintRenderSamples = false
+InpRenderSampleLimit = 8
+InpRenderStrictVisibility = true
+InpRenderUseCanonicalObjectNames = true
+InpRenderDeleteExistingByPrefix = true
+InpRenderDrawHookBack = true
 ```
 
-### Audit chart
+Existing visual filters remain:
 
 ```text
-DetailedLabels = true
-ShowParentIds = true
-ShowOriginLabels = true
-ShowInternalLabels = true
-ShowHookCountLabels = true
-DrawOnlyFlagSeedHooks = false
+InpDrawF1/F2/F3
+InpDrawBullish/Bearish
+InpDrawCandidates/Confirmed/Locked/Invalidated
+InpDrawHooks
+InpDrawOnlyFlagSeedHooks
+InpDetailedLabels
+InpShowParentIds
+InpShowOriginLabels
+InpShowInternalLabels
+InpShowHookCountLabels
 ```
 
 ## Acceptance tests
 
-### Test 01 — Renderer cannot change counts
+### Test 01 — Renderer does not change logical output
 
-Toggling detailed labels must not change number of emitted logical events.
+Toggle each renderer input and confirm exported `latest_events.csv` and `latest_hooks.csv` logical fields do not change.
 
-### Test 02 — Object cleanup
+### Test 02 — Prefix cleanup
 
-On redraw, stale old segments must be deleted.
+With `InpRenderDeleteExistingByPrefix=true`, stale objects under the selected prefix disappear on redraw.
 
-### Test 03 — Gap-safe curve
+### Test 03 — Canonical naming
 
-Curves must not distort across gaps because they sample candle indices.
+With `InpRenderUseCanonicalObjectNames=true`, object names contain deterministic canonical/visual ids rather than only unstable sequential ids.
 
-### Test 04 — Main chart readable
+### Test 04 — Strict visibility
 
-With clean main chart defaults, no dense column of raw internal numbers should appear.
+With `InpRenderStrictVisibility=true`, no event or hook with `visible_main=false` appears on the chart.
+
+### Test 05 — Gap-safe curves
+
+On a range with session gaps, curves remain anchored to actual candle times and do not use interpolated timestamps.
+
+### Test 06 — Clean chart defaults
+
+With clean defaults, internal numbers and hook branch counts do not flood the chart.
 
 ## Failure symptoms
 
-- Old curve fragments remain after redraw.
-- Main chart shows audit numbers despite clean settings.
-- Curves bend strangely across weekends.
-- Renderer patch changes which F structures exist.
+- `FP_LEVEL12 object_errors > 0`.
+- `FP_LEVEL12 duplicate_names > 0` after deterministic naming.
+- Hidden objects appear with strict visibility on.
+- Curves have orphan segments after a redraw.
+- Changing label settings changes export or event counts.
+- Renderer becomes necessary to understand why an object exists.
 
 ## Freeze condition
 
-Renderer is frozen when it can draw a fixed emitted object list in clean and audit modes without changing the object list itself.
+Level 12 is frozen when:
+
+```text
+FP_LEVEL12 status=ok
+render_errors=0 in FP_SUMMARY
+export output remains stable across renderer toggles
+strict visibility hides all hidden objects
+canonical object names are deterministic
+clean chart and audit chart are both readable
+```

@@ -79,3 +79,8 @@ MQL5/Files/FlagCountingPhoenix/latest_manifest.csv
 ```
 
 This export serializes the Level 11 canonical stream. It does not create, hide, repair, or draw structures.
+
+
+## Level 12 renderer
+
+Renderer now uses `FP_RenderTypes`, `FP_RenderRules`, `FP_RenderAudit`, and `FP_Renderer`. It draws after Level 11.5 export, uses canonical object names by default, emits `FP_LEVEL12`, and does not mutate logical events or hooks.

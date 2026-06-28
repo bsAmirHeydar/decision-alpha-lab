@@ -917,3 +917,29 @@ export_hooks_hidden
 ```
 
 Level 11.5 is frozen when renderer can be disabled and the same canonical event/hook stream can still be inspected from the exported files.
+
+
+## Level 12 renderer
+
+Phoenix Level 12 is a read-only visual layer. It consumes the Level 11 canonical stream and draws chart objects after Level 11.5 export. It may apply display filters, but it cannot create or modify semantic truth.
+
+Active renderer modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_RenderTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_RenderAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
+```
+
+Default renderer contract:
+
+```text
+InpRenderStrictVisibility = true
+InpRenderUseCanonicalObjectNames = true
+InpRenderDeleteExistingByPrefix = true
+InpRenderDrawHookBack = true
+InpPrintRenderSanity = true
+```
+
+`FP_LEVEL12` is the renderer sanity line. `FP_SUMMARY` must include render counters so chart-object problems are visible without trusting the chart visually.
