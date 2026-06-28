@@ -1,5 +1,5 @@
 #property strict
-#property version   "7.10"
+#property version   "7.20"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -28,6 +28,9 @@ input int  InpSwingL6 = 21;
 input int  InpSwingL7 = 34;
 input int  InpSwingL8 = 55;
 input bool InpIncludePendingNodes = false;
+input bool InpPrintNodeSanity = true;
+input bool InpPrintNodeSamples = false;
+input int  InpNodeSampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -132,6 +135,9 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
    cfg.max_roots_per_scale_direction = InpMaxRootsPerScaleDirection;
+   cfg.print_node_sanity = InpPrintNodeSanity;
+   cfg.print_node_samples = InpPrintNodeSamples;
+   cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.boundary_epsilon_points = InpBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2MinParentSizeRatio;
    cfg.f3_min_parent_size_ratio = InpF3MinParentSizeRatio;

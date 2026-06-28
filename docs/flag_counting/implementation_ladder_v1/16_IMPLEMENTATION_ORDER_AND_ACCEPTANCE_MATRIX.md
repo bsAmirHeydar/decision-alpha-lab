@@ -85,15 +85,26 @@ Acceptance:
 Files:
 
 ```text
+FP_NodeExtractTypes.mqh
+FP_NodePlateau.mqh
+FP_NodeClearance.mqh
+FP_NodeCanonicalizer.mqh
+FP_NodeScaleList.mqh
+FP_NodeAudit.mqh
 FP_NodeEngine.mqh
+FP_Types.mqh
+FlagCountingPhoenixExperiment.mq5 # wiring only
 ```
 
 Acceptance:
 
-- plateau nodes correct;
-- equality not break;
-- confirmed vs pending separated;
-- audit node dump possible;
+- Level 02 consumes only Level 01 canonical bars and never calls `CopyRates`;
+- plateau nodes are merged and anchored deterministically at the last equal touch;
+- equality is not a break and does not count as L clearance;
+- strict high/low pass is the only clearance rejection break;
+- confirmed and pending nodes are explicitly separated by `confirmed`, `is_confirmed`, `is_live_pending`, and `source`;
+- raw node extraction and canonical alternating compression each emit standalone audit logs;
+- Hook/F layers consume canonical `FP_Node` arrays, not renderer objects;
 - `FC-GC-001` baselined or marked as blocking before freeze.
 
 ### Step 03 — Freeze identity layer

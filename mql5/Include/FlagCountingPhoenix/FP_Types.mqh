@@ -85,6 +85,15 @@ struct FP_Node
    datetime  time_anchor;
    double    price;
    bool      confirmed;
+
+   // Level 02 explicit node-source fields. `confirmed` is kept for backward
+   // compatibility with existing Phoenix modules; the explicit aliases make
+   // audit and live-pending isolation unambiguous.
+   bool      is_confirmed;
+   bool      is_live_pending;
+   int       source;
+   int       plateau_start_index;
+   int       plateau_end_index;
 };
 
 struct FP_InternalPack
@@ -210,6 +219,10 @@ struct FP_Config
    int    max_roots_per_scale_direction;
    int    render_lookback_bars;
 
+   bool   print_node_sanity;
+   bool   print_node_samples;
+   int    node_sample_limit;
+
    double boundary_epsilon_points;
    double f2_min_parent_size_ratio;
    double f3_min_parent_size_ratio;
@@ -222,7 +235,10 @@ struct FP_Config
 
 struct FP_DetectResult
 {
+   int raw_nodes_total;
    int nodes_total;
+   int confirmed_nodes_total;
+   int pending_nodes_total;
    int hooks_total;
    int events_total;
    int visible_events_total;
@@ -248,6 +264,11 @@ void FP_ResetNode(FP_Node &n)
    n.time_anchor = 0;
    n.price = 0.0;
    n.confirmed = false;
+   n.is_confirmed = false;
+   n.is_live_pending = false;
+   n.source = 0;
+   n.plateau_start_index = -1;
+   n.plateau_end_index = -1;
 }
 
 void FP_ResetInternalPack(FP_InternalPack &p)
@@ -364,6 +385,10 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.max_roots_per_scale_direction = 0;
    cfg.render_lookback_bars = 0;
 
+   cfg.print_node_sanity = true;
+   cfg.print_node_samples = false;
+   cfg.node_sample_limit = 6;
+
    cfg.boundary_epsilon_points = 0.0;
    cfg.f2_min_parent_size_ratio = 1.0;
    cfg.f3_min_parent_size_ratio = 0.70;
@@ -376,7 +401,10 @@ void FP_DefaultConfig(FP_Config &cfg)
 
 void FP_ResetDetectResult(FP_DetectResult &r)
 {
+   r.raw_nodes_total = 0;
    r.nodes_total = 0;
+   r.confirmed_nodes_total = 0;
+   r.pending_nodes_total = 0;
    r.hooks_total = 0;
    r.events_total = 0;
    r.visible_events_total = 0;

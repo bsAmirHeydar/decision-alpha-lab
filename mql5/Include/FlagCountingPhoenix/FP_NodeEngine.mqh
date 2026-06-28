@@ -2,287 +2,236 @@
 #define __FP_NODE_ENGINE_MQH__
 #property strict
 
-#include "FP_Types.mqh"
+#include "FP_NodeAudit.mqh"
 
 // ============================================================================
-// Phoenix Node Engine
+// Phoenix Node Engine - Level 02 Facade
 // ----------------------------------------------------------------------------
-// Contract:
-// - Nodes are built from candle highs/lows only.
-// - L means at least L candles on the left and L candles on the right must NOT
-//   reach the node price.
-// - Equal high / equal low plateaus are one structural node.
-// - Equal prices in the neighbour zone are skipped, not counted as confirming
-//   candles and not counted as breaks.
-// - Equality is never a break.
-// - Node does not expire after confirmation.
+// Public contract:
+// - rates[] must already be canonical Level 01 bars: oldest -> newest.
+// - Structural inputs are high/low only.
+// - L means at least L real non-reaching candles to the left and right.
+// - Equal prices are not breaks and do not count as clearance.
+// - Adjacent equal highs/lows are one plateau node.
+// - Anchor policy is stable: last equal touch in the plateau.
+// - Confirmed and live-pending nodes are explicitly tagged and auditable.
 // ============================================================================
 
-void FP_FindHighPlateau(const MqlRates &rates[], const int total, const int i, const double eps, int &start, int &end)
+void FP_NodeRejectLeft(FP_NodeExtractReport &report, const int status)
 {
-   start = i;
-   end = i;
-   double p = rates[i].high;
-   while(start > 0 && FP_AlmostEqual(rates[start - 1].high, p, eps)) start--;
-   while(end + 1 < total && FP_AlmostEqual(rates[end + 1].high, p, eps)) end++;
+   report.rejected_left++;
+   if(status == FP_NODE_CLEARANCE_BROKEN) report.left_broken++;
+   else if(status == FP_NODE_CLEARANCE_NOT_ENOUGH) report.left_not_enough++;
 }
 
-void FP_FindLowPlateau(const MqlRates &rates[], const int total, const int i, const double eps, int &start, int &end)
+void FP_NodeRejectRight(FP_NodeExtractReport &report, const int status, const bool include_pending)
 {
-   start = i;
-   end = i;
-   double p = rates[i].low;
-   while(start > 0 && FP_AlmostEqual(rates[start - 1].low, p, eps)) start--;
-   while(end + 1 < total && FP_AlmostEqual(rates[end + 1].low, p, eps)) end++;
-}
-
-bool FP_HighHasLeftL(const MqlRates &rates[], const int total, const int start, const double price, const int L, const double eps)
-{
-   int cnt = 0;
-   for(int i = start - 1; i >= 0 && cnt < L; i--)
+   if(status == FP_NODE_CLEARANCE_PENDING && !include_pending)
    {
-      if(FP_BreaksAbove(rates[i].high, price, eps)) return false;
-      if(FP_AlmostEqual(rates[i].high, price, eps)) continue;
-      cnt++;
+      report.rejected_pending_not_allowed++;
+      report.right_pending++;
+      return;
    }
-   return (cnt >= L);
+
+   report.rejected_right++;
+   if(status == FP_NODE_CLEARANCE_BROKEN) report.right_broken++;
+   else if(status == FP_NODE_CLEARANCE_PENDING) report.right_pending++;
 }
 
-bool FP_HighHasRightL(const MqlRates &rates[], const int total, const int end, const double price, const int L, const double eps, bool &pending)
+bool FP_TryEmitNodeFromPlateau(const MqlRates &rates[],
+                               const int total,
+                               const int L,
+                               const int kind,
+                               const int start,
+                               const int end,
+                               const double price,
+                               const bool include_pending,
+                               const double eps,
+                               int &next_id,
+                               FP_Node &nodes[],
+                               FP_NodeExtractReport &report)
 {
-   int cnt = 0;
-   pending = false;
-   for(int i = end + 1; i < total && cnt < L; i++)
+   int left_count = 0;
+   int left_eq = 0;
+   int left_blocked = -1;
+   int right_count = 0;
+   int right_eq = 0;
+   int right_blocked = -1;
+
+   int left_status = FP_NODE_CLEARANCE_NONE;
+   int right_status = FP_NODE_CLEARANCE_NONE;
+
+   if(kind == FP_NODE_HIGH)
    {
-      if(FP_BreaksAbove(rates[i].high, price, eps)) return false;
-      if(FP_AlmostEqual(rates[i].high, price, eps)) continue;
-      cnt++;
+      left_status = FP_ScanHighLeftClearance(rates, total, start, price, L, eps, left_count, left_eq, left_blocked);
+      right_status = FP_ScanHighRightClearance(rates, total, end, price, L, eps, right_count, right_eq, right_blocked);
    }
-   if(cnt >= L) return true;
-   pending = true;
-   return false;
-}
-
-bool FP_LowHasLeftL(const MqlRates &rates[], const int total, const int start, const double price, const int L, const double eps)
-{
-   int cnt = 0;
-   for(int i = start - 1; i >= 0 && cnt < L; i--)
+   else if(kind == FP_NODE_LOW)
    {
-      if(FP_BreaksBelow(rates[i].low, price, eps)) return false;
-      if(FP_AlmostEqual(rates[i].low, price, eps)) continue;
-      cnt++;
+      left_status = FP_ScanLowLeftClearance(rates, total, start, price, L, eps, left_count, left_eq, left_blocked);
+      right_status = FP_ScanLowRightClearance(rates, total, end, price, L, eps, right_count, right_eq, right_blocked);
    }
-   return (cnt >= L);
-}
-
-bool FP_LowHasRightL(const MqlRates &rates[], const int total, const int end, const double price, const int L, const double eps, bool &pending)
-{
-   int cnt = 0;
-   pending = false;
-   for(int i = end + 1; i < total && cnt < L; i++)
+   else
    {
-      if(FP_BreaksBelow(rates[i].low, price, eps)) return false;
-      if(FP_AlmostEqual(rates[i].low, price, eps)) continue;
-      cnt++;
+      report.rejected_invalid_params++;
+      return false;
    }
-   if(cnt >= L) return true;
-   pending = true;
-   return false;
-}
 
-void FP_BuildNodeFromPlateau(const MqlRates &rates[], const int L, const int kind, const int start, const int end, const double price, const bool confirmed, const int id, FP_Node &n)
-{
-   FP_ResetNode(n);
-   n.id = id;
-   n.L = L;
-   n.kind = kind;
-   n.index_start = start;
-   n.index_end = end;
-   // Anchor on the last equal touch. This is the point where price finally leaves
-   // the plateau and the structural level becomes visually meaningful.
-   n.index_anchor = end;
-   n.time_start = rates[start].time;
-   n.time_end = rates[end].time;
-   n.time_anchor = rates[end].time;
-   n.price = price;
-   n.confirmed = confirmed;
-}
+   report.equality_touches_skipped += left_eq + right_eq;
 
-void FP_SortNodes(FP_Node &nodes[])
-{
-   int n = ArraySize(nodes);
-   for(int i=0; i<n-1; i++)
+   if(left_status != FP_NODE_CLEARANCE_OK)
    {
-      int best = i;
-      for(int j=i+1; j<n; j++)
-      {
-         if(nodes[j].index_anchor < nodes[best].index_anchor) best = j;
-         else if(nodes[j].index_anchor == nodes[best].index_anchor && nodes[j].kind > nodes[best].kind) best = j;
-      }
-      if(best != i)
-      {
-         FP_Node tmp = nodes[i];
-         nodes[i] = nodes[best];
-         nodes[best] = tmp;
-      }
+      FP_NodeRejectLeft(report, left_status);
+      return false;
    }
-   // Re-id after sort so ids are chronological inside each L view.
-   for(int k=0; k<n; k++) nodes[k].id = k;
+
+   bool right_ok = (right_status == FP_NODE_CLEARANCE_OK);
+   bool right_pending = (right_status == FP_NODE_CLEARANCE_PENDING);
+   if(!right_ok && !(include_pending && right_pending))
+   {
+      FP_NodeRejectRight(report, right_status, include_pending);
+      return false;
+   }
+
+   FP_Node n;
+   FP_BuildNodeFromPlateau(rates, L, kind, start, end, price, right_ok, next_id, n);
+   FP_AddNode(nodes, n);
+   FP_UpdateNodeExtractReportAfterNode(report, n);
+   next_id++;
+   return true;
 }
 
-int FP_ExtractNodesForL(const MqlRates &rates[], const int total, const int L, const bool include_pending, const double epsilon_points, FP_Node &nodes[])
+int FP_ExtractNodesForLWithReport(const MqlRates &rates[],
+                                  const int total,
+                                  const FP_NodeExtractConfig &cfg,
+                                  FP_Node &nodes[],
+                                  FP_NodeExtractReport &report)
 {
    ArrayResize(nodes, 0);
-   if(total <= (2 * L + 5) || L < 1) return 0;
+   FP_ResetNodeExtractReport(report);
+   report.L = cfg.L;
+   report.total_bars = total;
+   report.include_pending = cfg.include_pending;
+   report.epsilon_points = cfg.epsilon_points;
+   report.epsilon_price = FP_EpsilonPrice(cfg.epsilon_points);
 
-   double eps = FP_EpsilonPrice(epsilon_points);
+   if(cfg.L < 1)
+   {
+      report.ok = false;
+      report.status = "invalid_L";
+      report.reason = "L_must_be_positive";
+      report.rejected_invalid_params++;
+      return 0;
+   }
+
+   if(total <= (2 * cfg.L + 1))
+   {
+      report.ok = true;
+      report.status = "not_enough_bars_for_L";
+      report.reason = "total_bars_below_minimum_for_left_right_clearance";
+      return 0;
+   }
+
+   double eps = report.epsilon_price;
    int next_id = 0;
 
    for(int i=0; i<total; i++)
    {
-      int hs, he;
+      int hs = 0;
+      int he = 0;
       FP_FindHighPlateau(rates, total, i, eps, hs, he);
       if(i == hs)
       {
-         bool pending_high = false;
-         bool left_ok = FP_HighHasLeftL(rates, total, hs, rates[i].high, L, eps);
-         bool right_ok = FP_HighHasRightL(rates, total, he, rates[i].high, L, eps, pending_high);
-         if(left_ok && (right_ok || (include_pending && pending_high)))
-         {
-            FP_Node n;
-            FP_BuildNodeFromPlateau(rates, L, FP_NODE_HIGH, hs, he, rates[i].high, right_ok, next_id, n);
-            FP_AddNode(nodes, n);
-            next_id++;
-         }
+         FP_NodeReportPlateau(report, FP_NODE_HIGH, hs, he);
+         FP_TryEmitNodeFromPlateau(rates,
+                                   total,
+                                   cfg.L,
+                                   FP_NODE_HIGH,
+                                   hs,
+                                   he,
+                                   rates[i].high,
+                                   cfg.include_pending,
+                                   eps,
+                                   next_id,
+                                   nodes,
+                                   report);
       }
 
-      int ls, le;
+      int ls = 0;
+      int le = 0;
       FP_FindLowPlateau(rates, total, i, eps, ls, le);
       if(i == ls)
       {
-         bool pending_low = false;
-         bool left_ok = FP_LowHasLeftL(rates, total, ls, rates[i].low, L, eps);
-         bool right_ok = FP_LowHasRightL(rates, total, le, rates[i].low, L, eps, pending_low);
-         if(left_ok && (right_ok || (include_pending && pending_low)))
-         {
-            FP_Node n;
-            FP_BuildNodeFromPlateau(rates, L, FP_NODE_LOW, ls, le, rates[i].low, right_ok, next_id, n);
-            FP_AddNode(nodes, n);
-            next_id++;
-         }
+         FP_NodeReportPlateau(report, FP_NODE_LOW, ls, le);
+         FP_TryEmitNodeFromPlateau(rates,
+                                   total,
+                                   cfg.L,
+                                   FP_NODE_LOW,
+                                   ls,
+                                   le,
+                                   rates[i].low,
+                                   cfg.include_pending,
+                                   eps,
+                                   next_id,
+                                   nodes,
+                                   report);
       }
    }
 
    FP_SortNodes(nodes);
+
+   int bad_index = -1;
+   if(!FP_NodeArrayIsChronological(nodes, ArraySize(nodes), bad_index))
+   {
+      report.ok = false;
+      report.status = "node_order_failed";
+      report.reason = "node_array_not_chronological_after_sort";
+      return ArraySize(nodes);
+   }
+
+   report.emitted_nodes = ArraySize(nodes);
+   report.ok = true;
+   report.status = "ok";
+   report.reason = "raw_nodes_ready";
    return ArraySize(nodes);
 }
 
-bool FP_NodeIsMoreExtreme(const FP_Node &candidate, const FP_Node &current)
+int FP_ExtractNodesForL(const MqlRates &rates[],
+                        const int total,
+                        const int L,
+                        const bool include_pending,
+                        const double epsilon_points,
+                        FP_Node &nodes[])
 {
-   if(candidate.kind == FP_NODE_HIGH) return (candidate.price > current.price);
-   if(candidate.kind == FP_NODE_LOW)  return (candidate.price < current.price);
-   return false;
+   FP_NodeExtractConfig cfg;
+   FP_DefaultNodeExtractConfig(cfg);
+   cfg.L = L;
+   cfg.include_pending = include_pending;
+   cfg.epsilon_points = epsilon_points;
+
+   FP_NodeExtractReport report;
+   return FP_ExtractNodesForLWithReport(rates, total, cfg, nodes, report);
 }
 
-int FP_CompressAlternatingExtreme(const FP_Node &nodes[], const int node_count, FP_Node &out_nodes[])
+int FP_BuildCanonicalNodesForScale(const MqlRates &rates[],
+                                   const int total,
+                                   const int scale_L,
+                                   const bool include_pending,
+                                   const double epsilon_points,
+                                   FP_Node &raw_nodes[],
+                                   FP_Node &canonical_nodes[],
+                                   FP_NodeExtractReport &extract_report,
+                                   FP_NodeCompressReport &compress_report)
 {
-   ArrayResize(out_nodes, 0);
-   if(node_count <= 0) return 0;
+   FP_NodeExtractConfig cfg;
+   FP_DefaultNodeExtractConfig(cfg);
+   cfg.L = scale_L;
+   cfg.include_pending = include_pending;
+   cfg.epsilon_points = epsilon_points;
 
-   FP_Node current = nodes[0];
-   bool has_current = true;
-
-   for(int i=1; i<node_count; i++)
-   {
-      if(!has_current)
-      {
-         current = nodes[i];
-         has_current = true;
-         continue;
-      }
-
-      if(nodes[i].kind == current.kind)
-      {
-         if(FP_NodeIsMoreExtreme(nodes[i], current)) current = nodes[i];
-      }
-      else
-      {
-         FP_AddNode(out_nodes, current);
-         current = nodes[i];
-      }
-   }
-
-   if(has_current) FP_AddNode(out_nodes, current);
-   for(int k=0; k<ArraySize(out_nodes); k++) out_nodes[k].id = k;
-   return ArraySize(out_nodes);
-}
-
-int FP_BuildScaleList(const bool use_multi_scale,
-                      const int L1,
-                      const int L2,
-                      const int L3,
-                      const int L4,
-                      const int L5,
-                      const int L6,
-                      const int L7,
-                      const int L8,
-                      int &scales[])
-{
-   ArrayResize(scales, 0);
-   int raw[8];
-   raw[0] = L1;
-   raw[1] = (use_multi_scale ? L2 : 0);
-   raw[2] = (use_multi_scale ? L3 : 0);
-   raw[3] = (use_multi_scale ? L4 : 0);
-   raw[4] = (use_multi_scale ? L5 : 0);
-   raw[5] = (use_multi_scale ? L6 : 0);
-   raw[6] = (use_multi_scale ? L7 : 0);
-   raw[7] = (use_multi_scale ? L8 : 0);
-
-   for(int i=0; i<8; i++)
-   {
-      if(raw[i] <= 0) continue;
-      bool exists = false;
-      for(int j=0; j<ArraySize(scales); j++)
-      {
-         if(scales[j] == raw[i]) { exists = true; break; }
-      }
-      if(!exists)
-      {
-         int sz = ArraySize(scales);
-         ArrayResize(scales, sz + 1);
-         scales[sz] = raw[i];
-      }
-   }
-
-   // ascending order
-   int n = ArraySize(scales);
-   for(int a=0; a<n-1; a++)
-   {
-      int best = a;
-      for(int b=a+1; b<n; b++) if(scales[b] < scales[best]) best = b;
-      if(best != a)
-      {
-         int tmp = scales[a];
-         scales[a] = scales[best];
-         scales[best] = tmp;
-      }
-   }
-   return n;
-}
-
-int FP_FindNodePositionById(const FP_Node &nodes[], const int node_count, const int id)
-{
-   for(int i=0; i<node_count; i++)
-      if(nodes[i].id == id) return i;
-   return -1;
-}
-
-int FP_FindNodePositionByAnchor(const FP_Node &nodes[], const int node_count, const int anchor_index, const int kind)
-{
-   for(int i=0; i<node_count; i++)
-      if(nodes[i].index_anchor == anchor_index && nodes[i].kind == kind) return i;
-   return -1;
+   int raw_count = FP_ExtractNodesForLWithReport(rates, total, cfg, raw_nodes, extract_report);
+   FP_CompressAlternatingExtremeWithReport(raw_nodes, raw_count, canonical_nodes, compress_report);
+   return ArraySize(canonical_nodes);
 }
 
 #endif // __FP_NODE_ENGINE_MQH__

@@ -383,9 +383,35 @@ void FP_DetectScale(const MqlRates &rates[],
 {
    FP_Node raw_nodes[];
    FP_Node nodes[];
-   int raw_count = FP_ExtractNodesForL(rates, total, scale_L, cfg.include_pending_nodes, cfg.boundary_epsilon_points, raw_nodes);
-   int node_count = FP_CompressAlternatingExtreme(raw_nodes, raw_count, nodes);
+   FP_NodeExtractReport node_extract_report;
+   FP_NodeCompressReport node_compress_report;
+
+   int node_count = FP_BuildCanonicalNodesForScale(rates,
+                                                   total,
+                                                   scale_L,
+                                                   cfg.include_pending_nodes,
+                                                   cfg.boundary_epsilon_points,
+                                                   raw_nodes,
+                                                   nodes,
+                                                   node_extract_report,
+                                                   node_compress_report);
+
+   result.raw_nodes_total += node_extract_report.emitted_nodes;
    result.nodes_total += node_count;
+   result.confirmed_nodes_total += node_extract_report.confirmed_nodes;
+   result.pending_nodes_total += node_extract_report.pending_nodes;
+
+   if(cfg.print_node_sanity)
+   {
+      FP_PrintNodeExtractReport("FP_LEVEL02_RAW", node_extract_report);
+      FP_PrintNodeCompressReport("FP_LEVEL02_CANONICAL", node_compress_report);
+   }
+   if(cfg.print_node_samples)
+   {
+      FP_PrintNodeSamples("FP_LEVEL02_RAW", raw_nodes, ArraySize(raw_nodes), cfg.node_sample_limit);
+      FP_PrintNodeSamples("FP_LEVEL02_CANONICAL", nodes, node_count, cfg.node_sample_limit);
+   }
+
    if(node_count < 4) return;
 
    FP_HookBranch hooks[];

@@ -241,6 +241,42 @@ Level 01 must emit an `FP_LEVEL01` sanity line before downstream detection is tr
 
 ---
 
+
+## 4.13 Level 02 node engine
+
+Default structural node path:
+
+```text
+Level 01 canonical MqlRates[]
+-> FP_BuildCanonicalNodesForScale
+-> raw FP_Node[]
+-> canonical alternating FP_Node[]
+-> Hook/F engines
+```
+
+Level 02 is modularized into plateau detection, L-clearance scans, canonicalization, scale-list construction, and node audit. `FP_NodeEngine.mqh` is the facade; higher layers must not duplicate node extraction logic.
+
+Node rules:
+
+- structural inputs are high/low only;
+- adjacent equal highs/lows form one plateau candidate;
+- plateau anchor is the last equal touch;
+- equality is not a break and does not count as L clearance;
+- confirmed nodes and live-pending candidates are explicitly tagged;
+- canonical nodes are sorted by anchor index and compressed into alternating high/low runs before Hook/F layers consume them.
+
+Default Level 02 audit inputs:
+
+```text
+InpPrintNodeSanity = true
+InpPrintNodeSamples = false
+InpNodeSampleLimit = 6
+```
+
+`FP_LEVEL02_RAW` and `FP_LEVEL02_CANONICAL` logs are the current audit form until raw CSV/JSON export is implemented. Renderer output is not accepted as node evidence.
+
+---
+
 ## 5. Interface decision
 
 Current Phoenix uses these active shared structs:

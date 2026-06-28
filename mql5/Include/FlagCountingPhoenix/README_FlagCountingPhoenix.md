@@ -35,7 +35,13 @@ Level 01 foundation:
 Structural / sequence engines:
 
 - `FP_Types.mqh`: model types and contract helpers.
-- `FP_NodeEngine.mqh`: L-based high/low node extraction with plateau handling.
+- `FP_NodeExtractTypes.mqh`: Level 02 node config/report structs and node-source enums.
+- `FP_NodePlateau.mqh`: adjacent equal high/low plateau detection.
+- `FP_NodeClearance.mqh`: L-clearance scans with equality-skip and strict-break audit.
+- `FP_NodeCanonicalizer.mqh`: chronological ordering, stable re-id, and alternating same-side compression.
+- `FP_NodeScaleList.mqh`: deterministic multi-L list construction.
+- `FP_NodeAudit.mqh`: standalone Level 02 node report and sample logs.
+- `FP_NodeEngine.mqh`: Level 02 facade used by Hook/F layers.
 - `FP_HookEngine.mqh`: branch-based ND/hook detection.
 - `FP_FlagBodyEngine.mqh`: two-leg flag body construction.
 - `FP_InternalCountEngine.mqh`: internal 1/2/3/4 and post-flag correction scanning.
@@ -66,6 +72,44 @@ newer bars have higher indices
 ```
 
 Higher Phoenix modules must not call `CopyRates` directly. They consume the canonical array passed by the EA.
+
+
+## Level 02 node engine
+
+Phoenix now builds nodes through a modular Level 02 facade. The pipeline is:
+
+```text
+canonical closed bars
+-> plateau candidates
+-> L-clearance scans
+-> raw FP_Node[]
+-> chronological re-id
+-> alternating same-side compression
+-> canonical FP_Node[] for Hook/F engines
+```
+
+Default node audit inputs:
+
+```text
+InpPrintNodeSanity = true
+InpPrintNodeSamples = false
+InpNodeSampleLimit = 6
+```
+
+`FP_LEVEL02_RAW` explains candidate plateaus, emitted raw nodes, confirmed/pending counts, equality skips, and rejection reasons. `FP_LEVEL02_CANONICAL` explains same-side run compression and final canonical node counts.
+
+Confirmed nodes and live-pending candidates are no longer implicit. Each `FP_Node` carries:
+
+```text
+confirmed
+is_confirmed
+is_live_pending
+source = confirmed_history | live_candidate
+plateau_start_index
+plateau_end_index
+```
+
+Equality remains non-breaking and non-confirming: it does not reject a candidate as a break, but it also does not count toward L clearance.
 
 ## Expert
 

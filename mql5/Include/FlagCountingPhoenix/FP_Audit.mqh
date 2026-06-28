@@ -15,7 +15,10 @@ void FP_PrintSummary(const string symbol,
          " tf=", EnumToString(period),
          " bars=", bars,
          " scales=", scale_count,
-         " nodes=", result.nodes_total,
+         " raw_nodes=", result.raw_nodes_total,
+         " canonical_nodes=", result.nodes_total,
+         " confirmed_nodes=", result.confirmed_nodes_total,
+         " pending_nodes=", result.pending_nodes_total,
          " hooks=", result.hooks_total,
          " nd=", result.nd_total,
          " events=", result.events_total,
@@ -33,7 +36,9 @@ string FP_NodeAudit(const FP_Node &n)
    return FP_NodeKindName(n.kind) + "#" + IntegerToString(n.id) +
           " L" + IntegerToString(n.L) +
           " i" + IntegerToString(n.index_anchor) +
-          " p" + DoubleToString(n.price, _Digits);
+          " p" + DoubleToString(n.price, _Digits) +
+          " src" + FP_NodeSourceName(n.source) +
+          " pending" + FP_BoolName(n.is_live_pending);
 }
 
 void FP_PrintEventAudit(const FP_FlagEvent &e)

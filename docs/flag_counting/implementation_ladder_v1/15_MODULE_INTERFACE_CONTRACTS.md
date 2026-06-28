@@ -41,6 +41,16 @@ FP_Config
 FP_DetectResult
 ```
 
+Level 02 node audit modules additionally own:
+
+```text
+FP_NodeExtractConfig
+FP_NodeExtractReport
+FP_NodeCompressReport
+FP_NodeSource
+FP_NodeClearanceStatus
+```
+
 These are the active interface objects.
 
 The older names below are not active mandatory structs:
@@ -87,12 +97,29 @@ Must not contain complex detection algorithms.
 
 ---
 
-## FP_NodeEngine.mqh
+## Level 02 node modules
+
+Public facade:
+
+```text
+FP_NodeEngine.mqh
+```
+
+Private/owned submodules:
+
+```text
+FP_NodeExtractTypes.mqh
+FP_NodePlateau.mqh
+FP_NodeClearance.mqh
+FP_NodeCanonicalizer.mqh
+FP_NodeScaleList.mqh
+FP_NodeAudit.mqh
+```
 
 Input:
 
 ```text
-rates[]
+canonical Level 01 rates[]
 L
 config.include_pending_nodes
 config.boundary_epsilon_points
@@ -101,18 +128,25 @@ config.boundary_epsilon_points
 Output:
 
 ```text
-FP_Node nodes[]
+raw FP_Node nodes[]
+canonical alternating FP_Node nodes[]
+FP_NodeExtractReport
+FP_NodeCompressReport
 ```
 
 Owns:
 
 - L-based node extraction;
-- plateau handling;
-- high/low-only rules;
+- adjacent equal high/low plateau detection;
+- high/low-only L-clearance scans;
+- equality-skip semantics;
 - confirmed versus pending node tagging;
-- node ordering and node IDs within the generated stream.
+- source tagging: `confirmed_history` versus `live_candidate`;
+- chronological ordering and node IDs within each generated stream;
+- same-side run compression to most extreme canonical node;
+- Level 02 standalone node audit logs.
 
-Must not emit Hook, ND, F1, F2, F3, sequence, visibility, or renderer objects.
+Must not call `CopyRates`. Must not emit Hook, ND, F1, F2, F3, sequence, visibility, or renderer objects.
 
 ---
 
