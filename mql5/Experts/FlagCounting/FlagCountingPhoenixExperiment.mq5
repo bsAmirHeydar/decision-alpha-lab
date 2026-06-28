@@ -1,5 +1,5 @@
 #property strict
-#property version   "10.00"
+#property version   "11.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -55,6 +55,9 @@ input int  InpF3SampleLimit = 6;
 input bool InpPrintOwnershipSanity = true;
 input bool InpPrintOwnershipSamples = false;
 input int  InpOwnershipSampleLimit = 8;
+input bool InpPrintCanonicalSanity = true;
+input bool InpPrintCanonicalSamples = false;
+input int  InpCanonicalSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -76,6 +79,8 @@ input bool InpCompactHookRendering = true;
 input bool InpStrictMainChartOwnership = true;
 input int  InpOwnershipScoreMargin = 25;
 input bool InpOwnershipHideOrphans = true;
+input bool InpCanonicalStrictInvariants = true;
+input bool InpCanonicalHideUnresolvedOrphans = true;
 input bool InpHookMainRequiresVisibleF1 = true;
 input bool InpHookKeepUnseededVisibleForDebug = false;
 input bool InpF1ShowPostFlagCandidates = true;
@@ -171,6 +176,11 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.ownership_sample_limit = InpOwnershipSampleLimit;
    cfg.ownership_score_margin = InpOwnershipScoreMargin;
    cfg.ownership_hide_orphans = InpOwnershipHideOrphans;
+   cfg.print_canonical_sanity = InpPrintCanonicalSanity;
+   cfg.print_canonical_samples = InpPrintCanonicalSamples;
+   cfg.canonical_sample_limit = InpCanonicalSampleLimit;
+   cfg.canonical_strict_invariants = InpCanonicalStrictInvariants;
+   cfg.canonical_hide_unresolved_orphans = InpCanonicalHideUnresolvedOrphans;
    cfg.print_hook_sanity = InpPrintHookSanity;
    cfg.print_hook_samples = InpPrintHookSamples;
    cfg.hook_sample_limit = InpHookSampleLimit;
@@ -207,7 +217,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level10";
+   cfg.identity_generation_pass = "phoenix_level11";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -228,6 +238,9 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_own" + FP_BoolName(InpStrictMainChartOwnership) +
                               "_ownmargin" + IntegerToString(InpOwnershipScoreMargin) +
                               "_orphan" + FP_BoolName(InpOwnershipHideOrphans) +
+                              "_canon" + FP_BoolName(InpPrintCanonicalSanity) +
+                              "_canonstrict" + FP_BoolName(InpCanonicalStrictInvariants) +
+                              "_canonorph" + FP_BoolName(InpCanonicalHideUnresolvedOrphans) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

@@ -1081,6 +1081,8 @@ void FP_MergeExactVisualDuplicates(FP_FlagEvent &events[])
    }
 }
 
+#include "FP_Canonicalizer.mqh"
+
 void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_DetectResult &result)
 {
    int raw_nodes_prev = result.raw_nodes_total;
@@ -1178,6 +1180,19 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int ownership_hidden_descendants_prev = result.ownership_hidden_descendants_total;
    int ownership_orphans_hidden_prev = result.ownership_orphans_hidden_total;
    int ownership_phase_safe_duplicate_hides_prev = result.ownership_phase_safe_duplicate_hides_total;
+   int canonical_visible_before_prev = result.canonical_visible_before_total;
+   int canonical_visible_after_prev = result.canonical_visible_after_total;
+   int canonical_hidden_before_prev = result.canonical_hidden_before_total;
+   int canonical_hidden_after_prev = result.canonical_hidden_after_total;
+   int canonical_duplicates_hidden_prev = result.canonical_duplicates_hidden_total;
+   int canonical_orphans_hidden_prev = result.canonical_orphans_hidden_total;
+   int canonical_invalid_hidden_prev = result.canonical_invalid_hidden_total;
+   int canonical_missing_body_hidden_prev = result.canonical_missing_body_hidden_total;
+   int canonical_hidden_reason_repaired_prev = result.canonical_hidden_reason_repaired_total;
+   int canonical_parent_ids_repaired_prev = result.canonical_parent_ids_repaired_total;
+   int canonical_invariant_failures_prev = result.canonical_invariant_failures_total;
+   int canonical_visible_duplicate_after_prev = result.canonical_visible_duplicate_after_total;
+   int canonical_parent_missing_after_prev = result.canonical_parent_missing_after_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -1274,6 +1289,19 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.ownership_hidden_descendants_total = ownership_hidden_descendants_prev;
    result.ownership_orphans_hidden_total = ownership_orphans_hidden_prev;
    result.ownership_phase_safe_duplicate_hides_total = ownership_phase_safe_duplicate_hides_prev;
+   result.canonical_visible_before_total = canonical_visible_before_prev;
+   result.canonical_visible_after_total = canonical_visible_after_prev;
+   result.canonical_hidden_before_total = canonical_hidden_before_prev;
+   result.canonical_hidden_after_total = canonical_hidden_after_prev;
+   result.canonical_duplicates_hidden_total = canonical_duplicates_hidden_prev;
+   result.canonical_orphans_hidden_total = canonical_orphans_hidden_prev;
+   result.canonical_invalid_hidden_total = canonical_invalid_hidden_prev;
+   result.canonical_missing_body_hidden_total = canonical_missing_body_hidden_prev;
+   result.canonical_hidden_reason_repaired_total = canonical_hidden_reason_repaired_prev;
+   result.canonical_parent_ids_repaired_total = canonical_parent_ids_repaired_prev;
+   result.canonical_invariant_failures_total = canonical_invariant_failures_prev;
+   result.canonical_visible_duplicate_after_total = canonical_visible_duplicate_after_prev;
+   result.canonical_parent_missing_after_total = canonical_parent_missing_after_prev;
    result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);
@@ -1333,13 +1361,39 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_FinalizeEventIds(events);
    FP_RebuildParentIdsAfterSort(events);
    FP_NormalizeHiddenReasons(events);
+
+   // Hook seed visibility depends on final visible F1 state.  Run once before
+   // canonicalization so Hook objects have provisional visibility, then run
+   // again after Level 11 because canonicalization may hide additional events.
    FP_MarkHookSeedVisibility(hooks, events, cfg);
+
+   FP_CanonicalReport canonical_report;
+   FP_ApplyCanonicalizationWithReport(events, hooks, cfg, canonical_report);
+   result.canonical_visible_before_total += canonical_report.visible_before;
+   result.canonical_visible_after_total += canonical_report.visible_after;
+   result.canonical_hidden_before_total += canonical_report.hidden_before;
+   result.canonical_hidden_after_total += canonical_report.hidden_after;
+   result.canonical_duplicates_hidden_total += canonical_report.visible_duplicates_hidden;
+   result.canonical_orphans_hidden_total += canonical_report.orphan_hidden;
+   result.canonical_invalid_hidden_total += canonical_report.invalid_visible_hidden;
+   result.canonical_missing_body_hidden_total += canonical_report.missing_body_hidden;
+   result.canonical_hidden_reason_repaired_total += canonical_report.hidden_reason_repaired;
+   result.canonical_parent_ids_repaired_total += canonical_report.parent_ids_repaired;
+   result.canonical_invariant_failures_total += canonical_report.invariant_failures;
+   result.canonical_visible_duplicate_after_total += canonical_report.visible_duplicate_visual_after;
+   result.canonical_parent_missing_after_total += canonical_report.parent_missing_after;
+
+   if(cfg.print_canonical_sanity)
+      FP_PrintCanonicalReport("FP_LEVEL11", canonical_report);
+   if(cfg.print_canonical_samples)
+      FP_PrintCanonicalSamples("FP_LEVEL11", events, ArraySize(events), cfg.canonical_sample_limit);
+
+   FP_MarkHookSeedVisibility(hooks, events, cfg);
+   FP_AssignHookIdentities(hooks, cfg);
    if(cfg.print_hook_sanity)
       FP_PrintHookSeedSummary("FP_LEVEL04_SEED", hooks);
    if(cfg.print_hook_samples)
       FP_PrintHookSamples("FP_LEVEL04_SEEDED", hooks, ArraySize(hooks), cfg.hook_sample_limit);
-   FP_AssignEventIdentities(events, cfg);
-   FP_AssignHookIdentities(hooks, cfg);
    if(cfg.print_identity_sanity)
       FP_PrintIdentitySummary("FP_LEVEL03", events, hooks, cfg);
    FP_RecountResult(events, hooks, result);

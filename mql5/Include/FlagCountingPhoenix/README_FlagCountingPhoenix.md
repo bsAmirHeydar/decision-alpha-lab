@@ -66,7 +66,11 @@ Structural / sequence engines:
 - `FP_OwnershipRules.mqh`: Level 10 pure owner ranking, reset, root, and descendant rules.
 - `FP_OwnershipAudit.mqh`: Level 10 FP_LEVEL10 report and ownership samples.
 - `FP_OwnershipEngine.mqh`: Level 10 semantic phase owner facade.
-- `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration and ownership wiring.
+- `FP_CanonicalTypes.mqh`: Level 11 final canonical state and invariant report types.
+- `FP_CanonicalRules.mqh`: Level 11 pure final-stream invariant and duplicate rules.
+- `FP_CanonicalAudit.mqh`: Level 11 FP_LEVEL11 report and canonical samples.
+- `FP_Canonicalizer.mqh`: Level 11 final pre-render canonicalization facade.
+- `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration, ownership, and canonicalization wiring.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
 
@@ -462,6 +466,41 @@ InpOwnershipHideOrphans = true
 ```
 
 `FP_LEVEL10` reports phase count, root candidates, owner roots, competing roots, resets, hidden roots, hidden descendants, fail-open hides, superseded parent hides, orphan hides, and visible-before/after counts. Renderer remains non-authoritative.
+
+
+## Level 11 canonicalization and audit invariants
+
+Phoenix now runs a final engine-owned canonicalization pass before renderer/export. The active modules are:
+
+```text
+FP_CanonicalTypes.mqh
+FP_CanonicalRules.mqh
+FP_CanonicalAudit.mqh
+FP_Canonicalizer.mqh
+```
+
+Level 11 does not create nodes, Hooks, bodies, or lifecycle events. It normalizes the final stream after Level 10 ownership and compatibility duplicate pruning. It owns these event fields:
+
+```text
+canonical_id
+canonical_state
+canonical_rank_final
+canonical_conflict_group_id
+canonical_invariant_flags
+canonical_reason
+```
+
+Default Level 11 controls:
+
+```text
+InpPrintCanonicalSanity = true
+InpPrintCanonicalSamples = false
+InpCanonicalSampleLimit = 8
+InpCanonicalStrictInvariants = true
+InpCanonicalHideUnresolvedOrphans = true
+```
+
+`FP_LEVEL11` reports visible-before/after, hidden-before/after, id repairs, parent-link repairs, hidden-reason repairs, phase-safe duplicate hides, orphan hides, malformed-body hides, invalid hides, invariant failures, post-canonical duplicate conflicts, and canonical rank range. If `FP_LEVEL11 status=failed`, renderer output is diagnostic only until the invariant failure is fixed.
 
 ## Phoenix semantic cleanup patch
 

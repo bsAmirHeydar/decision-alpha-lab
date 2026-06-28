@@ -374,6 +374,17 @@ struct FP_FlagEvent
    string   losing_candidate_ids;
    string   hidden_descendant_ids;
 
+   // Level 11 final canonicalization state.  These fields are written only
+   // after ownership and duplicate pruning. They are the final pre-render and
+   // pre-export evidence for why an event is visible, hidden, repaired, or
+   // invariant-failed.
+   string   canonical_id;
+   int      canonical_state;
+   int      canonical_rank_final;
+   string   canonical_conflict_group_id;
+   int      canonical_invariant_flags;
+   string   canonical_reason;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -449,6 +460,12 @@ struct FP_Config
    int    ownership_sample_limit;
    int    ownership_score_margin;
    bool   ownership_hide_orphans;
+
+   bool   print_canonical_sanity;
+   bool   print_canonical_samples;
+   int    canonical_sample_limit;
+   bool   canonical_strict_invariants;
+   bool   canonical_hide_unresolved_orphans;
 
    bool   print_hook_sanity;
    bool   print_hook_samples;
@@ -611,6 +628,21 @@ struct FP_DetectResult
    int ownership_hidden_descendants_total;
    int ownership_orphans_hidden_total;
    int ownership_phase_safe_duplicate_hides_total;
+
+   int canonical_visible_before_total;
+   int canonical_visible_after_total;
+   int canonical_hidden_before_total;
+   int canonical_hidden_after_total;
+   int canonical_duplicates_hidden_total;
+   int canonical_orphans_hidden_total;
+   int canonical_invalid_hidden_total;
+   int canonical_missing_body_hidden_total;
+   int canonical_hidden_reason_repaired_total;
+   int canonical_parent_ids_repaired_total;
+   int canonical_invariant_failures_total;
+   int canonical_visible_duplicate_after_total;
+   int canonical_parent_missing_after_total;
+
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -801,6 +833,13 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.losing_candidate_ids = "";
    e.hidden_descendant_ids = "";
 
+   e.canonical_id = "";
+   e.canonical_state = 0;
+   e.canonical_rank_final = 0;
+   e.canonical_conflict_group_id = "";
+   e.canonical_invariant_flags = 0;
+   e.canonical_reason = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -873,6 +912,12 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.ownership_score_margin = 25;
    cfg.ownership_hide_orphans = true;
 
+   cfg.print_canonical_sanity = true;
+   cfg.print_canonical_samples = false;
+   cfg.canonical_sample_limit = 8;
+   cfg.canonical_strict_invariants = true;
+   cfg.canonical_hide_unresolved_orphans = true;
+
    cfg.print_hook_sanity = true;
    cfg.print_hook_samples = false;
    cfg.hook_sample_limit = 6;
@@ -924,7 +969,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level10";
+   cfg.identity_generation_pass = "phoenix_level11";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -1033,6 +1078,21 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.ownership_hidden_descendants_total = 0;
    r.ownership_orphans_hidden_total = 0;
    r.ownership_phase_safe_duplicate_hides_total = 0;
+
+   r.canonical_visible_before_total = 0;
+   r.canonical_visible_after_total = 0;
+   r.canonical_hidden_before_total = 0;
+   r.canonical_hidden_after_total = 0;
+   r.canonical_duplicates_hidden_total = 0;
+   r.canonical_orphans_hidden_total = 0;
+   r.canonical_invalid_hidden_total = 0;
+   r.canonical_missing_body_hidden_total = 0;
+   r.canonical_hidden_reason_repaired_total = 0;
+   r.canonical_parent_ids_repaired_total = 0;
+   r.canonical_invariant_failures_total = 0;
+   r.canonical_visible_duplicate_after_total = 0;
+   r.canonical_parent_missing_after_total = 0;
+
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;

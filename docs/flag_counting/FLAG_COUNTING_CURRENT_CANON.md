@@ -769,3 +769,75 @@ Competing root ranking is semantic, not visual:
 If a root loses ownership, all descendants in that sequence must be hidden. F2/F3 orphans are hidden after ownership. Fail-open roots inside a Hook-owned phase region are audit-visible but hidden from the main chart.
 
 `FP_LEVEL10` is the ownership audit form. It must report visible-before/after, root candidates, owner roots, competing roots, strict resets, hidden roots, hidden descendants, fail-open hides, superseded parent hides, orphan hides, and rank range.
+
+---
+
+## Level 11 implementation freeze — canonicalization / audit invariants
+
+Level 11 is the final engine-owned consistency pass before renderer and export/report layers. The active authority is:
+
+```text
+FP_CanonicalTypes.mqh
+FP_CanonicalRules.mqh
+FP_CanonicalAudit.mqh
+FP_Canonicalizer.mqh
+```
+
+`FP_SequenceEngine.mqh` may orchestrate the pass, but Level 11 owns final pre-render stream integrity. Renderer is still non-authoritative and must not repair visibility, parent linkage, hidden reasons, or duplicate conflicts.
+
+Level 11 does **not** create new market structure. It only normalizes structures already emitted by Node, Hook, Body, Internal Count, F1/F2/F3 lifecycle, and Level 10 ownership.
+
+Every F event now carries final canonical evidence:
+
+```text
+canonical_id
+canonical_state
+canonical_rank_final
+canonical_conflict_group_id
+canonical_invariant_flags
+canonical_reason
+```
+
+Canonical states:
+
+```text
+visible
+hidden
+hidden_duplicate
+hidden_orphan
+hidden_invalid
+repaired
+invariant_failed
+```
+
+Level 11 must enforce these invariants before the renderer is trusted:
+
+```text
+1. every hidden event has hidden_reason
+2. visible events do not carry stale hidden_reason
+3. visible F2/F3 descendants have visible parents
+4. visible F1 owners have phase_owner_root_id
+5. visible events have structural_id, visual_id, phase_id, chain_id, audit_id
+6. phase-safe visible duplicate geometry is hidden deterministically
+7. malformed visible bodies are hidden, not drawn
+8. invalidated events are hidden unless audit display explicitly asks for them
+9. hook hidden-state has a hidden_reason
+10. final identity is rebuilt after canonicalization
+```
+
+The final pipeline after Level 10 is:
+
+```text
+ownership result
+-> old compatibility duplicate pruning
+-> provisional Hook seed visibility
+-> Level 11 canonicalization
+-> final Hook seed visibility
+-> final identity assignment
+-> FP_LEVEL11 audit
+-> renderer/export
+```
+
+`FP_LEVEL11` is the canonicalization audit form. It must report visible-before/after, hidden-before/after, repaired IDs, repaired parent links, repaired hidden reasons, duplicate groups, duplicates hidden, orphan hides, malformed-body hides, invalid hides, invariant failures, post-canonical duplicate conflicts, and rank range.
+
+If `canonical_strict_invariants=true`, any `FP_LEVEL11 status=failed` means the renderer output is diagnostic only and must not be treated as canonical research evidence until the invariant failure is fixed.

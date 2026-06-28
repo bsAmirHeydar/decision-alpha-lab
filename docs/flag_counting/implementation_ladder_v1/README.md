@@ -31,7 +31,7 @@ A layer is not allowed to move upward until its acceptance tests pass. A higher 
 9. `08_LEVEL_08_F2_LIFECYCLE_ENGINE.md` — F2 authorization, backfill, size contract, survival after child failure.
 10. `09_LEVEL_09_F3_EXTENSION_AND_LOCK_ENGINE.md` — F3 authorization, OR completion, extension, opposite lock.
 11. `10_LEVEL_10_SEQUENCE_OWNERSHIP_AND_PHASES.md` — F1 -> F2 -> F3 chain ownership and phase resets.
-12. `11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md` — duplicate control, main/audit separation, deterministic winners.
+12. `11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md` — final canonical stream, duplicate/orphan cleanup, hidden-reason completeness, invariant audit.
 13. `11_5_LEVEL_11_5_RAW_AUDIT_EXPORT.md` — raw audit/export/report contract before renderer trust.
 14. `12_LEVEL_12_RENDERER_AND_LABEL_LAYOUT.md` — visual contract, object names, curves, label stacks, debug modes.
 15. `13_LEVEL_13_VALIDATION_MATRIX.md` — tests, golden cases, screenshots, regression packs.

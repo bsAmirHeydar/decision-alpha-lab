@@ -315,21 +315,34 @@ Acceptance:
 - `FP_LEVEL10` reports phase/root/competition/reset/hidden counts before renderer output;
 - `FC-GC-007` baselined or marked as blocking before freeze.
 
-### Step 11 — Build canonicalization
+### Step 11 — Build canonicalization / audit invariants
 
 Files:
 
 ```text
-FP_SequenceEngine.mqh
-FP_Audit.mqh
+FP_CanonicalTypes.mqh
+FP_CanonicalRules.mqh
+FP_CanonicalAudit.mqh
+FP_Canonicalizer.mqh
+FP_SequenceEngine.mqh # orchestration only
+FP_Audit.mqh # canonical counters and event fields only
+FlagCountingPhoenixExperiment.mq5 # Level 11 inputs only
 ```
 
 Acceptance:
 
-- duplicates across L hidden with reason;
-- raw event list and visible event list are distinguishable;
-- main visible list is stable and deterministic;
-- every hidden object has reason.
+- Level 11 does not create new market structure;
+- final visible stream is produced after ownership, duplicate pruning, and canonical invariant checks;
+- phase-safe visual duplicates are hidden deterministically with `canonical_hide_phase_safe_duplicate_*`;
+- visible F2/F3 descendants have visible parents or are hidden/reported as orphan invariants;
+- invalidated visible events are hidden when audit display is disabled;
+- malformed visible F bodies are hidden before renderer;
+- every hidden event and hidden Hook has `hidden_reason`;
+- visible events do not carry stale hidden reasons;
+- final event/hook identities are reassigned after canonicalization;
+- each event exposes `canonical_id`, `canonical_state`, `canonical_rank_final`, `canonical_conflict_group_id`, `canonical_invariant_flags`, and `canonical_reason`;
+- `FP_LEVEL11 status=ok` means renderer/export can consume the stream as canonical;
+- `FP_LEVEL11 status=failed` makes renderer output diagnostic only until invariant failures are fixed.
 
 ### Step 11.5 — Build raw audit export/report
 

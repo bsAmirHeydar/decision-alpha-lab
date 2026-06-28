@@ -770,3 +770,76 @@ Owns:
 - `FP_LEVEL10` report and optional samples.
 
 Must not build nodes, Hook/ND, body, internal count, F1, F2, F3, or renderer objects.
+
+---
+
+## Level 11 canonicalization modules
+
+Public facade:
+
+```text
+FP_Canonicalizer.mqh
+```
+
+Owned submodules:
+
+```text
+FP_CanonicalTypes.mqh
+FP_CanonicalRules.mqh
+FP_CanonicalAudit.mqh
+```
+
+Input:
+
+```text
+FP_FlagEvent events[] after Level 10 ownership and compatibility duplicate pruning
+FP_HookBranch hooks[] after provisional Hook seed visibility
+FP_Config canonical controls
+```
+
+Output fields on `FP_FlagEvent`:
+
+```text
+canonical_id
+canonical_state
+canonical_rank_final
+canonical_conflict_group_id
+canonical_invariant_flags
+canonical_reason
+visible_main
+hidden_reason
+structural_id
+visual_id
+phase_id
+chain_id
+audit_id
+```
+
+Output report:
+
+```text
+FP_CanonicalReport
+FP_LEVEL11 log line
+FP_LEVEL11_SAMPLE lines when requested
+```
+
+Owns:
+
+- final event id repair;
+- parent id repair after sort/pruning;
+- final hidden reason normalization;
+- visible stale hidden-reason cleanup;
+- phase-safe visible duplicate hiding;
+- visible orphan hiding or invariant reporting;
+- visible malformed-body hiding;
+- invalidated visible event hiding when audit display is disabled;
+- final event/hook identity reassignment;
+- final invariant checks before renderer/export.
+
+Must not:
+
+- scan bars or nodes;
+- create new Hook/F events;
+- change F1/F2/F3 lifecycle status except by hidden/canonical state annotation;
+- decide phase ownership already owned by Level 10;
+- draw chart objects.

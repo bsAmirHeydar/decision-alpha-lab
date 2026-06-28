@@ -197,6 +197,7 @@ string FP_EventStructuralId(const FP_FlagEvent &e)
           "|lc=" + FP_EventLifecycleKey(e) +
           "|own=" + FP_OwnershipChainStateName(e.chain_state) +
           "|owner=" + IntegerToString(e.phase_owner_root_id) +
+          "|canon=" + IntegerToString(e.canonical_state) +
           "|" + FP_BodyNodeStructuralKey(e);
 }
 
@@ -208,6 +209,7 @@ string FP_EventVisualId(const FP_FlagEvent &e)
           "|lc=" + FP_EventLifecycleKey(e) +
           "|own=" + FP_OwnershipChainStateName(e.chain_state) +
           "|owner=" + IntegerToString(e.phase_owner_root_id) +
+          "|canon=" + IntegerToString(e.canonical_state) +
           "|" + FP_BodyNodeVisualKey(e);
 }
 
@@ -218,6 +220,7 @@ string FP_EventAuditId(const FP_FlagEvent &e, const FP_Config &cfg)
           "|lc=" + FP_EventLifecycleKey(e) +
           "|own=" + FP_OwnershipChainStateName(e.chain_state) +
           "|owner=" + IntegerToString(e.phase_owner_root_id) +
+          "|canon=" + IntegerToString(e.canonical_state) +
           "|cfg=" + FP_IdSafe(cfg.identity_config_hash) +
           "|" + e.structural_id;
 }
