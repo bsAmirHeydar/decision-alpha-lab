@@ -50,6 +50,9 @@ struct STC_Config
    bool write_signal_registry_audit;
    int max_signal_backfill_on_init;
    int max_signal_catchup_per_pulse;
+   bool write_paper_entry_audit;
+   int max_paper_entry_backfill_on_init;
+   int max_paper_entry_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -89,6 +92,16 @@ struct STC_RuntimeState
    string last_signal_audit_stc_day_id;
    int last_signal_audit_check_index;
    long signal_rows_audited;
+   string paper_entry_file_common;
+   string last_paper_entry_stc_day_id;
+   int last_paper_entry_check_index;
+   long paper_entry_rows_audited;
+   int paper_trade_count_m1;
+   int paper_trade_count_m2;
+   int paper_trade_count_m3;
+   STC_Direction paper_direction_lock_m1;
+   STC_Direction paper_direction_lock_m2;
+   STC_Direction paper_direction_lock_m3;
    string lock_name;
 };
 
@@ -306,6 +319,127 @@ struct STC_SignalAudit
    string rule_note;
 };
 
+
+struct STC_PaperEntryAudit
+{
+   string stc_day_id;
+   int check_index;
+   int entry_check_index;
+   int check_minutes;
+   datetime signal_check_start_ny;
+   datetime signal_check_end_ny;
+   datetime entry_check_start_ny;
+   datetime entry_check_end_ny;
+   datetime entry_check_start_server;
+   datetime entry_check_end_server;
+   STC_MCycle m_cycle;
+   STC_WCycle current_w_cycle;
+   STC_PaperEntryStatus paper_status;
+   string signal_id;
+   string paper_trade_id;
+   bool is_paper_entry;
+   bool signal_confirmed;
+   bool entry_stc_enabled_at_confirmation;
+   bool entry_missed_or_late;
+   bool entry_check_pair_data_complete;
+   bool trade_counter_incremented;
+   int m_trade_count_before;
+   int m_trade_count_after;
+   STC_Direction m_direction_lock_before;
+   STC_Direction m_direction_lock_after;
+   STC_Direction direction;
+   string trade_symbol;
+   string hunted_symbol;
+   string clean_symbol;
+   STC_WCycle selected_reference_w_cycle;
+   int selected_reference_w_serial;
+   double selected_reference_price;
+   double entry_price;
+   double stop_price;
+   double take_profit_price;
+   double risk_distance_price;
+   double reward_distance_price;
+   double final_reward_r;
+   double equity_snapshot;
+   double risk_percent;
+   double risk_money;
+   double tick_size;
+   double tick_value;
+   double contract_size_used;
+   bool used_tick_value;
+   double theoretical_volume;
+   double broker_min_volume;
+   double broker_max_volume;
+   double broker_volume_step;
+   double paper_order_volume;
+   int split_order_count;
+   double spread_points_for_report;
+   double commission_per_lot_for_report;
+   string volume_status;
+   string status;
+   string rule_note;
+};
+
+void STC_ResetPaperEntryAudit(STC_PaperEntryAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.check_index = -1;
+   audit.entry_check_index = -1;
+   audit.check_minutes = 0;
+   audit.signal_check_start_ny = 0;
+   audit.signal_check_end_ny = 0;
+   audit.entry_check_start_ny = 0;
+   audit.entry_check_end_ny = 0;
+   audit.entry_check_start_server = 0;
+   audit.entry_check_end_server = 0;
+   audit.m_cycle = STC_M_NONE;
+   audit.current_w_cycle = STC_W_NONE;
+   audit.paper_status = STC_PAPER_NONE;
+   audit.signal_id = "";
+   audit.paper_trade_id = "";
+   audit.is_paper_entry = false;
+   audit.signal_confirmed = false;
+   audit.entry_stc_enabled_at_confirmation = false;
+   audit.entry_missed_or_late = false;
+   audit.entry_check_pair_data_complete = false;
+   audit.trade_counter_incremented = false;
+   audit.m_trade_count_before = 0;
+   audit.m_trade_count_after = 0;
+   audit.m_direction_lock_before = STC_DIR_NONE;
+   audit.m_direction_lock_after = STC_DIR_NONE;
+   audit.direction = STC_DIR_NONE;
+   audit.trade_symbol = "";
+   audit.hunted_symbol = "";
+   audit.clean_symbol = "";
+   audit.selected_reference_w_cycle = STC_W_NONE;
+   audit.selected_reference_w_serial = -1;
+   audit.selected_reference_price = 0.0;
+   audit.entry_price = 0.0;
+   audit.stop_price = 0.0;
+   audit.take_profit_price = 0.0;
+   audit.risk_distance_price = 0.0;
+   audit.reward_distance_price = 0.0;
+   audit.final_reward_r = 0.0;
+   audit.equity_snapshot = 0.0;
+   audit.risk_percent = 0.0;
+   audit.risk_money = 0.0;
+   audit.tick_size = 0.0;
+   audit.tick_value = 0.0;
+   audit.contract_size_used = 0.0;
+   audit.used_tick_value = false;
+   audit.theoretical_volume = 0.0;
+   audit.broker_min_volume = 0.0;
+   audit.broker_max_volume = 0.0;
+   audit.broker_volume_step = 0.0;
+   audit.paper_order_volume = 0.0;
+   audit.split_order_count = 0;
+   audit.spread_points_for_report = 0.0;
+   audit.commission_per_lot_for_report = 0.0;
+   audit.volume_status = "not_built";
+   audit.status = "not_built";
+   audit.rule_note = "";
+}
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -360,7 +494,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL07";
+   cfg.run_id = "EXEC001_STC_LEVEL08";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -403,6 +537,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.write_signal_registry_audit = true;
    cfg.max_signal_backfill_on_init = 24;
    cfg.max_signal_catchup_per_pulse = 48;
+   cfg.write_paper_entry_audit = true;
+   cfg.max_paper_entry_backfill_on_init = 24;
+   cfg.max_paper_entry_catchup_per_pulse = 48;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -427,6 +564,7 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.hunt_audit_file_common = "";
    state.smt_candidate_audit_file_common = "";
    state.signal_registry_file_common = "";
+   state.paper_entry_file_common = "";
    state.last_check_audit_stc_day_id = "";
    state.last_check_audit_index = -1;
    state.check_candles_audited = 0;
@@ -442,16 +580,25 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.last_signal_audit_stc_day_id = "";
    state.last_signal_audit_check_index = -1;
    state.signal_rows_audited = 0;
+   state.last_paper_entry_stc_day_id = "";
+   state.last_paper_entry_check_index = -1;
+   state.paper_entry_rows_audited = 0;
+   state.paper_trade_count_m1 = 0;
+   state.paper_trade_count_m2 = 0;
+   state.paper_trade_count_m3 = 0;
+   state.paper_direction_lock_m1 = STC_DIR_NONE;
+   state.paper_direction_lock_m2 = STC_DIR_NONE;
+   state.paper_direction_lock_m3 = STC_DIR_NONE;
    state.lock_name = "";
 }
 
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_07_CONFIRMATION_SIGNAL_REGISTRY";
-   sanity.build_version = "1.60";
-   sanity.build_scope = "level01 skeleton through level07 confirmation and signal registry audit";
-   sanity.locked_contract = "Confirm SMT candidates only at closed check candles, register consumed audit-only signals, enforce Entry OFF no-late-entry behavior, enforce final-check no-entry, and keep paper trades and orders disabled in level 07";
+   sanity.module_level = "LEVEL_08_RISK_PLAN_PAPER_ENTRY";
+   sanity.build_version = "1.70";
+   sanity.build_scope = "level01 skeleton through level08 risk plan and no-order paper entry model";
+   sanity.locked_contract = "Build no-order paper entry plans from confirmed signals using next-check open, reference stop, Final Reward R, risk percent, broker tick value fallback, and max-three-per-M paper counters; real orders disabled";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

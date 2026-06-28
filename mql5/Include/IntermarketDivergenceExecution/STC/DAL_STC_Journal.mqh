@@ -323,4 +323,42 @@ bool STC_AppendSignalRegistryCsv(STC_Config &cfg, STC_RuntimeState &state, STC_S
    return true;
 }
 
+
+bool STC_AppendPaperEntryAuditCsv(STC_Config &cfg, STC_RuntimeState &state, STC_PaperEntryAudit &audit)
+{
+   bool exists = FileIsExist(state.paper_entry_file_common, FILE_COMMON);
+   int h = FileOpen(state.paper_entry_file_common, FILE_READ | FILE_WRITE | FILE_CSV | FILE_COMMON | FILE_ANSI, ',');
+   if(h == INVALID_HANDLE)
+   {
+      Print("STC: failed to append paper entry CSV ", state.paper_entry_file_common, " err=", GetLastError());
+      return false;
+   }
+   if(!exists || FileSize(h) == 0)
+   {
+      FileWrite(h,
+         "server_write_time", "strategy_id", "run_id", "symbol1", "symbol2", "stc_day_id",
+         "signal_check_index", "entry_check_index", "check_minutes", "signal_check_start_ny", "signal_check_end_ny", "entry_check_start_ny", "entry_check_end_ny", "entry_check_start_server", "entry_check_end_server",
+         "m_cycle", "current_w", "paper_status", "signal_id", "paper_trade_id", "is_paper_entry", "signal_confirmed", "entry_stc_enabled_at_confirmation", "entry_missed_or_late", "entry_check_pair_data_complete",
+         "trade_counter_incremented", "m_trade_count_before", "m_trade_count_after", "m_direction_lock_before", "m_direction_lock_after",
+         "direction", "trade_symbol", "hunted_symbol", "clean_symbol", "selected_reference_w", "selected_reference_w_serial", "selected_reference_price",
+         "entry_price", "stop_price", "take_profit_price", "risk_distance_price", "reward_distance_price", "final_reward_r",
+         "equity_snapshot", "risk_percent", "risk_money", "tick_size", "tick_value", "contract_size_used", "used_tick_value",
+         "theoretical_volume", "broker_min_volume", "broker_max_volume", "broker_volume_step", "paper_order_volume", "split_order_count",
+         "spread_points_for_report", "commission_per_lot_for_report", "volume_status", "status", "rule_note");
+   }
+   FileSeek(h, 0, SEEK_END);
+   FileWrite(h,
+      STC_TimeText(TimeCurrent()), cfg.strategy_id, cfg.run_id, cfg.symbol1, cfg.symbol2, audit.stc_day_id,
+      audit.check_index, audit.entry_check_index, audit.check_minutes, STC_TimeText(audit.signal_check_start_ny), STC_TimeText(audit.signal_check_end_ny), STC_TimeText(audit.entry_check_start_ny), STC_TimeText(audit.entry_check_end_ny), STC_TimeText(audit.entry_check_start_server), STC_TimeText(audit.entry_check_end_server),
+      STC_MCycleText(audit.m_cycle), STC_WCycleText(audit.current_w_cycle), STC_PaperEntryStatusText(audit.paper_status), audit.signal_id, audit.paper_trade_id, STC_BoolText(audit.is_paper_entry), STC_BoolText(audit.signal_confirmed), STC_BoolText(audit.entry_stc_enabled_at_confirmation), STC_BoolText(audit.entry_missed_or_late), STC_BoolText(audit.entry_check_pair_data_complete),
+      STC_BoolText(audit.trade_counter_incremented), audit.m_trade_count_before, audit.m_trade_count_after, STC_DirectionText(audit.m_direction_lock_before), STC_DirectionText(audit.m_direction_lock_after),
+      STC_DirectionText(audit.direction), audit.trade_symbol, audit.hunted_symbol, audit.clean_symbol, STC_WCycleText(audit.selected_reference_w_cycle), audit.selected_reference_w_serial, DoubleToString(audit.selected_reference_price, 8),
+      DoubleToString(audit.entry_price, 8), DoubleToString(audit.stop_price, 8), DoubleToString(audit.take_profit_price, 8), DoubleToString(audit.risk_distance_price, 8), DoubleToString(audit.reward_distance_price, 8), DoubleToString(audit.final_reward_r, 2),
+      DoubleToString(audit.equity_snapshot, 2), DoubleToString(audit.risk_percent, 4), DoubleToString(audit.risk_money, 2), DoubleToString(audit.tick_size, 8), DoubleToString(audit.tick_value, 8), DoubleToString(audit.contract_size_used, 8), STC_BoolText(audit.used_tick_value),
+      DoubleToString(audit.theoretical_volume, 8), DoubleToString(audit.broker_min_volume, 8), DoubleToString(audit.broker_max_volume, 8), DoubleToString(audit.broker_volume_step, 8), DoubleToString(audit.paper_order_volume, 8), audit.split_order_count,
+      DoubleToString(audit.spread_points_for_report, 2), DoubleToString(audit.commission_per_lot_for_report, 2), audit.volume_status, audit.status, audit.rule_note);
+   FileClose(h);
+   return true;
+}
+
 #endif

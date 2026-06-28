@@ -1,13 +1,13 @@
 #property strict
-#property version   "1.60"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 07 confirmation and signal registry"
-#property description "Level 07 confirms closed-check SMT candidates into audit-only consumed signals. No paper trades. No orders."
+#property version   "1.70"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 08 risk plan and paper entry model"
+#property description "Level 08 converts confirmed signals into no-order paper entry plans with risk, SL, TP, and theoretical volume."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 07 Runtime"
+input group "DAL / STC Level 08 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL07";
+input string InpRunId = "EXEC001_STC_LEVEL08";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -28,6 +28,9 @@ input int InpMaxSMTCatchupPerPulse = 48;
 input bool InpWriteSignalRegistryAudit = true;
 input int InpMaxSignalBackfillOnInit = 24;
 input int InpMaxSignalCatchupPerPulse = 48;
+input bool InpWritePaperEntryAudit = true;
+input int InpMaxPaperEntryBackfillOnInit = 24;
+input int InpMaxPaperEntryCatchupPerPulse = 48;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -108,6 +111,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.write_signal_registry_audit = InpWriteSignalRegistryAudit;
    cfg.max_signal_backfill_on_init = InpMaxSignalBackfillOnInit;
    cfg.max_signal_catchup_per_pulse = InpMaxSignalCatchupPerPulse;
+   cfg.write_paper_entry_audit = InpWritePaperEntryAudit;
+   cfg.max_paper_entry_backfill_on_init = InpMaxPaperEntryBackfillOnInit;
+   cfg.max_paper_entry_catchup_per_pulse = InpMaxPaperEntryCatchupPerPulse;
 }
 
 int OnInit()
@@ -132,8 +138,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 07 remains timer-driven for closed-check confirmation audit and does not inspect ticks for entries.
-   // Later levels will add paper execution, drawing, partial/hard-close management, and auto-trading.
+   // Level 08 remains timer-driven and builds no-order paper entry plans only after closed-check confirmation.
+   // Later levels will add outcome simulation, drawing, partial/hard-close management, and auto-trading.
 }
 
 void OnDeinit(const int reason)
