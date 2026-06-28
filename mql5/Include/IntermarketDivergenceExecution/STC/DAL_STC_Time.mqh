@@ -83,6 +83,56 @@ datetime STC_ServerToUtc(const datetime server_time, const double broker_utc_off
    return (datetime)((long)server_time - offset_seconds);
 }
 
+datetime STC_UtcToServer(const datetime utc_time, const double broker_utc_offset_hours)
+{
+   int offset_seconds = (int)MathRound(broker_utc_offset_hours * 3600.0);
+   return (datetime)((long)utc_time + offset_seconds);
+}
+
+datetime STC_UtcToNewYork(const datetime utc_time, int &ny_offset_seconds, bool &ny_dst);
+
+datetime STC_NewYorkToUtcUsingOffset(const datetime ny_time, const int ny_utc_offset_seconds)
+{
+   return (datetime)((long)ny_time - ny_utc_offset_seconds);
+}
+
+datetime STC_NewYorkToUtcAuto(const datetime ny_time, const int fallback_ny_utc_offset_seconds)
+{
+   // Try daylight offset first, then standard offset. This keeps check-candle boundaries
+   // correct even around the New York DST transition days. Ambiguous fall-back times
+   // resolve to the first matching offset; non-existing spring-forward local times fall
+   // back to the caller snapshot offset.
+   int offsets[2];
+   offsets[0] = -4 * 3600;
+   offsets[1] = -5 * 3600;
+   for(int i = 0; i < 2; i++)
+   {
+      datetime candidate_utc = STC_NewYorkToUtcUsingOffset(ny_time, offsets[i]);
+      int back_offset = 0;
+      bool back_dst = false;
+      datetime back_ny = STC_UtcToNewYork(candidate_utc, back_offset, back_dst);
+      if(back_ny == ny_time)
+         return candidate_utc;
+   }
+   return STC_NewYorkToUtcUsingOffset(ny_time, fallback_ny_utc_offset_seconds);
+}
+
+datetime STC_NewYorkToServerUsingSnapshot(STC_Config &cfg, STC_TimeSnapshot &snap, const datetime ny_time)
+{
+   datetime utc_time = STC_NewYorkToUtcAuto(ny_time, snap.ny_utc_offset_seconds);
+   return STC_UtcToServer(utc_time, cfg.broker_utc_offset_hours);
+}
+
+int STC_LastClosedCheckIndex(STC_TimeSnapshot &snap)
+{
+   if(snap.check_minutes <= 0 || snap.elapsed_seconds_from_2000 <= 0)
+      return -1;
+   int check_seconds = snap.check_minutes * 60;
+   int closed = (snap.elapsed_seconds_from_2000 / check_seconds) - 1;
+   if(closed < -1) closed = -1;
+   return closed;
+}
+
 datetime STC_UtcToNewYork(const datetime utc_time, int &ny_offset_seconds, bool &ny_dst)
 {
    ny_dst = STC_IsNewYorkDstUtc(utc_time);

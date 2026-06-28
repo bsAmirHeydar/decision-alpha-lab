@@ -157,3 +157,7 @@ Before live trading:
 ## Level 02 implementation note
 
 Level 02 implements the STC Time Engine: server-to-UTC-to-New-York conversion, automatic New York DST, STC trading-day id, M/W cycle classification, no-entry gaps, hard-close zone flags, check-candle anchoring from 20:00 New York, and final-check-candle no-entry flags. It remains a no-signal and no-order level.
+
+## Level 03 implementation note
+
+Level 03 implements the check-candle aggregation layer. It builds closed check candles from M1 data for Symbol1 and Symbol2, aligned from 20:00 New York. It audits pair completeness and writes `stc_level03_check_candles.csv`. It still does not build W reference levels, detect SMT, create signals, simulate trades, draw objects, or send orders.

@@ -2,7 +2,7 @@
 #define __DAL_STC_ENGINE_MQH__
 #property strict
 
-#include <IntermarketDivergenceExecution/STC/DAL_STC_Journal.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_CheckCandles.mqh>
 
 class CSTC_Engine
 {
@@ -43,7 +43,7 @@ public:
       {
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = "engine was not configured";
-         Print("STC LEVEL02 init failed: ", m_state.init_error);
+         Print("STC LEVEL03 init failed: ", m_state.init_error);
          return false;
       }
 
@@ -54,26 +54,27 @@ public:
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = validation_error;
          m_state.init_warning = validation_warning;
-         Print("STC LEVEL02 config validation failed: ", validation_error, " warning=", validation_warning);
+         Print("STC LEVEL03 config validation failed: ", validation_error, " warning=", validation_warning);
          return false;
       }
       m_state.init_warning = validation_warning;
       m_state.output_root_common = m_cfg.output_root_common;
-      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level02_build_sanity.csv");
-      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level02_runtime_events.csv");
-      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level02_time_audit.csv");
+      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level03_build_sanity.csv");
+      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level03_runtime_events.csv");
+      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level03_time_audit.csv");
+      m_state.check_candle_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level03_check_candles.csv");
 
       if(!STC_EnsureCommonFolderTree(m_state.output_root_common))
       {
          m_state.init_status = STC_INIT_FOLDER_ERROR;
          m_state.init_error = "failed to create common output folder: " + m_state.output_root_common;
-         Print("STC LEVEL02 folder setup failed: ", m_state.init_error);
+         Print("STC LEVEL03 folder setup failed: ", m_state.init_error);
          return false;
       }
 
       if(!STC_AcquireInstanceLock(m_cfg, m_state))
       {
-         Print("STC LEVEL02 instance lock failed: ", m_state.init_error);
+         Print("STC LEVEL03 instance lock failed: ", m_state.init_error);
          return false;
       }
 
@@ -88,20 +89,22 @@ public:
 
       STC_PrintConfig(m_cfg);
       STC_WriteBuildSanityCsv(m_cfg, m_state, m_sanity);
-      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level02 time engine initialized; no W levels, no SMT, no signals, no orders");
+      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level03 check candle aggregator initialized; no W levels, no SMT, no signals, no orders");
       if(m_cfg.write_time_audit)
       {
          m_state.last_time_audit_server_time = TimeCurrent();
          STC_AppendTimeAuditCsv(m_cfg, m_state, m_time);
       }
+      STC_ProcessClosedCheckCandles(m_cfg, m_state, m_time);
 
       if(m_state.init_warning != "")
-         Print("STC LEVEL02 validation warning: ", m_state.init_warning);
+         Print("STC LEVEL03 validation warning: ", m_state.init_warning);
 
-      Print("STC LEVEL02 initialized. sanity_file=", m_state.sanity_file_common,
+      Print("STC LEVEL03 initialized. sanity_file=", m_state.sanity_file_common,
             " events_file=", m_state.runtime_events_file_common,
-            " time_audit_file=", m_state.time_audit_file_common);
-      Print("STC LEVEL02 initial time *** ", STC_TimeSnapshotOneLine(m_time));
+            " time_audit_file=", m_state.time_audit_file_common,
+            " check_candles_file=", m_state.check_candle_audit_file_common);
+      Print("STC LEVEL03 initial time *** ", STC_TimeSnapshotOneLine(m_time));
       return true;
    }
 
@@ -122,14 +125,16 @@ public:
          }
       }
 
+      STC_ProcessClosedCheckCandles(m_cfg, m_state, m_time);
+
       if(m_cfg.write_heartbeat)
       {
          if(m_state.last_heartbeat_server_time <= 0 || server_time - m_state.last_heartbeat_server_time >= m_cfg.heartbeat_seconds)
          {
             m_state.last_heartbeat_server_time = server_time;
-            string details = "heartbeat; level02 time engine; " + STC_TimeSnapshotOneLine(m_time) + "; no W levels, no SMT candidates, no entries, no orders";
+            string details = "heartbeat; level03 check candle aggregator; " + STC_TimeSnapshotOneLine(m_time) + "; auditedCheckCandles=" + IntegerToString((int)m_state.check_candles_audited) + "; no W levels, no SMT candidates, no entries, no orders";
             STC_AppendRuntimeEventCsv(m_cfg, m_state, "HEARTBEAT", details);
-            Print("STC LEVEL02 heartbeat pulse=", m_state.pulse_count,
+            Print("STC LEVEL03 heartbeat pulse=", m_state.pulse_count,
                   " mode=", STC_RuntimeModeText(m_cfg.runtime_mode),
                   " symbols=", m_cfg.symbol1, "/", m_cfg.symbol2,
                   " ", STC_TimeSnapshotOneLine(m_time));
@@ -142,7 +147,7 @@ public:
       if(m_state.initialized)
       {
          STC_AppendRuntimeEventCsv(m_cfg, m_state, "DEINIT", "reason=" + IntegerToString(reason) + "; last_time=" + STC_TimeSnapshotOneLine(m_time));
-         Print("STC LEVEL02 deinit reason=", reason, " pulses=", m_state.pulse_count);
+         Print("STC LEVEL03 deinit reason=", reason, " pulses=", m_state.pulse_count);
       }
       STC_ReleaseInstanceLock(m_cfg, m_state);
       m_state.initialized = false;

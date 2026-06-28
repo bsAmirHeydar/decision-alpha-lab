@@ -1,18 +1,21 @@
 #property strict
-#property version   "1.10"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 02 time engine"
-#property description "Level 02 adds broker/UTC/New-York time conversion, DST, STC day, M/W cycles, gaps, check-candle anchoring. No signals. No orders."
+#property version   "1.20"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 03 check candle aggregator"
+#property description "Level 03 adds M1-based check-candle aggregation and pair completeness audit. No SMT signals. No orders."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 02 Runtime"
+input group "DAL / STC Level 03 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL02";
+input string InpRunId = "EXEC001_STC_LEVEL03";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
 input bool InpWriteTimeAudit = true;
 input int InpTimeAuditSeconds = 60;
+input bool InpWriteCheckCandleAudit = true;
+input int InpMaxCheckBackfillOnInit = 12;
+input int InpMaxCheckCatchupPerPulse = 32;
 input string InpOutputRootCommon = "dal/stc/EXEC001_STC_SMT_Cycles";
 
 input group "STC Symbols"
@@ -78,6 +81,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.fallback_commission_per_lot = InpFallbackCommissionPerLot;
    cfg.write_time_audit = InpWriteTimeAudit;
    cfg.time_audit_seconds = InpTimeAuditSeconds;
+   cfg.write_check_candle_audit = InpWriteCheckCandleAudit;
+   cfg.max_check_backfill_on_init = InpMaxCheckBackfillOnInit;
+   cfg.max_check_catchup_per_pulse = InpMaxCheckCatchupPerPulse;
 }
 
 int OnInit()
@@ -102,8 +108,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 02 remains timer-driven and does not inspect ticks for signal decisions.
-   // Later levels will add W level construction, check-candle aggregation, SMT, paper execution, drawing, and auto-trading.
+   // Level 03 remains timer-driven for audit and does not inspect ticks for signal decisions.
+   // Later levels will add W level construction, SMT, paper execution, drawing, and auto-trading.
 }
 
 void OnDeinit(const int reason)

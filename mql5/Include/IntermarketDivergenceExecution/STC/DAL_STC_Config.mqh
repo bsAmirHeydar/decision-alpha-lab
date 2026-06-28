@@ -26,7 +26,10 @@ string STC_ConfigOneLine(STC_Config &cfg)
       + "*drawing=" + STC_BoolText(cfg.enable_drawing)
       + "*costsForReporting=" + STC_BoolText(cfg.use_broker_costs_for_reporting)
       + "*timeAudit=" + STC_BoolText(cfg.write_time_audit)
-      + "*timeAuditSeconds=" + IntegerToString(cfg.time_audit_seconds);
+      + "*timeAuditSeconds=" + IntegerToString(cfg.time_audit_seconds)
+      + "*checkCandleAudit=" + STC_BoolText(cfg.write_check_candle_audit)
+      + "*maxCheckBackfillOnInit=" + IntegerToString(cfg.max_check_backfill_on_init)
+      + "*maxCheckCatchupPerPulse=" + IntegerToString(cfg.max_check_catchup_per_pulse);
 }
 
 string STC_LockedRulesOneLine()
@@ -56,13 +59,18 @@ string STC_LockedRulesOneLine()
       + "*orderFail=signal_consumed_counter_unchanged"
       + "*maxTrades=3_per_M_across_pair"
       + "*hardClose=15:30_NY_magic_only_retry"
-      + "*autoTrade=disabled_in_level02";
+      + "*m1Aggregation=from_symbol_M1"
+      + "*pairCompleteness=both_symbols_required"
+      + "*gapCheckCandles=no_data_extraction"
+      + "*finalCheck=audited_but_no_entry"
+      + "*autoTrade=disabled_in_level03";
 }
+
 
 void STC_PrintConfig(STC_Config &cfg)
 {
-   Print("DAL_STC_LEVEL02_CONFIG *** ", STC_ConfigOneLine(cfg));
-   Print("DAL_STC_LEVEL02_LOCKED_RULES *** ", STC_LockedRulesOneLine());
+   Print("DAL_STC_LEVEL03_CONFIG *** ", STC_ConfigOneLine(cfg));
+   Print("DAL_STC_LEVEL03_LOCKED_RULES *** ", STC_LockedRulesOneLine());
 }
 
 #endif

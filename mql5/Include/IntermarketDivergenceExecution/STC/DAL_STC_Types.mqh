@@ -35,6 +35,9 @@ struct STC_Config
    double fallback_commission_per_lot;
    bool write_time_audit;
    int time_audit_seconds;
+   bool write_check_candle_audit;
+   int max_check_backfill_on_init;
+   int max_check_catchup_per_pulse;
 };
 
 struct STC_RuntimeState
@@ -54,6 +57,10 @@ struct STC_RuntimeState
    string sanity_file_common;
    string runtime_events_file_common;
    string time_audit_file_common;
+   string check_candle_audit_file_common;
+   string last_check_audit_stc_day_id;
+   int last_check_audit_index;
+   long check_candles_audited;
    string lock_name;
 };
 
@@ -64,6 +71,49 @@ struct STC_BuildSanity
    string build_version;
    string build_scope;
    string locked_contract;
+};
+
+struct STC_SymbolCheckAggregate
+{
+   string symbol;
+   bool selected;
+   bool complete;
+   int expected_m1_bars;
+   int actual_m1_bars;
+   datetime first_m1_server_time;
+   datetime last_m1_server_time;
+   double open;
+   double high;
+   double low;
+   double close;
+   long tick_volume;
+   long real_volume;
+   int spread_max;
+   string status;
+};
+
+struct STC_CheckCandleAudit
+{
+   string stc_day_id;
+   int check_index;
+   int check_minutes;
+   datetime check_start_ny;
+   datetime check_end_ny;
+   datetime check_start_server;
+   datetime check_end_server;
+   int check_start_elapsed_minutes;
+   int check_end_elapsed_minutes;
+   STC_MCycle m_cycle;
+   STC_WCycle w_cycle;
+   bool start_inside_active_m;
+   bool close_inside_m;
+   bool final_check_of_m;
+   bool entry_allowed_at_close;
+   bool detection_allowed_for_signal;
+   string skip_reason;
+   STC_SymbolCheckAggregate symbol1;
+   STC_SymbolCheckAggregate symbol2;
+   bool pair_data_complete;
 };
 
 struct STC_TimeSnapshot
@@ -120,7 +170,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL02";
+   cfg.run_id = "EXEC001_STC_LEVEL03";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -148,6 +198,9 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.fallback_commission_per_lot = 0.0;
    cfg.write_time_audit = true;
    cfg.time_audit_seconds = 60;
+   cfg.write_check_candle_audit = true;
+   cfg.max_check_backfill_on_init = 12;
+   cfg.max_check_catchup_per_pulse = 32;
 }
 
 void STC_ResetRuntimeState(STC_RuntimeState &state)
@@ -167,16 +220,20 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.sanity_file_common = "";
    state.runtime_events_file_common = "";
    state.time_audit_file_common = "";
+   state.check_candle_audit_file_common = "";
+   state.last_check_audit_stc_day_id = "";
+   state.last_check_audit_index = -1;
+   state.check_candles_audited = 0;
    state.lock_name = "";
 }
 
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_02_TIME_ENGINE";
-   sanity.build_version = "1.10";
-   sanity.build_scope = "level01 skeleton plus broker-UTC-NewYork conversion, DST, STC day, M/W cycles, gaps, check-candle anchoring, final-check flags, time audit";
-   sanity.locked_contract = "No SMT detection, no W construction, no signals, no paper trades, no orders in level 02";
+   sanity.module_level = "LEVEL_03_CHECK_CANDLE_AGGREGATOR";
+   sanity.build_version = "1.20";
+   sanity.build_scope = "level01 skeleton plus level02 time engine plus M1-based check-candle aggregation, pair data completeness, and check-candle audit CSV";
+   sanity.locked_contract = "No W reference levels, no SMT detection, no signals, no paper trades, no orders in level 03";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
@@ -224,6 +281,49 @@ void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
    snap.check_close_inside_m = false;
    snap.final_check_of_m = false;
    snap.check_entry_allowed_at_close = false;
+}
+
+void STC_ResetSymbolCheckAggregate(STC_SymbolCheckAggregate &agg)
+{
+   agg.symbol = "";
+   agg.selected = false;
+   agg.complete = false;
+   agg.expected_m1_bars = 0;
+   agg.actual_m1_bars = 0;
+   agg.first_m1_server_time = 0;
+   agg.last_m1_server_time = 0;
+   agg.open = 0.0;
+   agg.high = 0.0;
+   agg.low = 0.0;
+   agg.close = 0.0;
+   agg.tick_volume = 0;
+   agg.real_volume = 0;
+   agg.spread_max = 0;
+   agg.status = "not_built";
+}
+
+void STC_ResetCheckCandleAudit(STC_CheckCandleAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.check_index = -1;
+   audit.check_minutes = 0;
+   audit.check_start_ny = 0;
+   audit.check_end_ny = 0;
+   audit.check_start_server = 0;
+   audit.check_end_server = 0;
+   audit.check_start_elapsed_minutes = -1;
+   audit.check_end_elapsed_minutes = -1;
+   audit.m_cycle = STC_M_NONE;
+   audit.w_cycle = STC_W_NONE;
+   audit.start_inside_active_m = false;
+   audit.close_inside_m = false;
+   audit.final_check_of_m = false;
+   audit.entry_allowed_at_close = false;
+   audit.detection_allowed_for_signal = false;
+   audit.skip_reason = "not_built";
+   STC_ResetSymbolCheckAggregate(audit.symbol1);
+   STC_ResetSymbolCheckAggregate(audit.symbol2);
+   audit.pair_data_complete = false;
 }
 
 #endif

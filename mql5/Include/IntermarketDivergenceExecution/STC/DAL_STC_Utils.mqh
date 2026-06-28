@@ -117,6 +117,10 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.heartbeat_seconds < 1) cfg.heartbeat_seconds = 60;
    if(cfg.hard_close_retry_seconds < 1) cfg.hard_close_retry_seconds = 5;
    if(cfg.instance_lock_stale_seconds < 10) cfg.instance_lock_stale_seconds = 10;
+   if(cfg.max_check_backfill_on_init < 0) cfg.max_check_backfill_on_init = 0;
+   if(cfg.max_check_backfill_on_init > 500) cfg.max_check_backfill_on_init = 500;
+   if(cfg.max_check_catchup_per_pulse < 1) cfg.max_check_catchup_per_pulse = 1;
+   if(cfg.max_check_catchup_per_pulse > 500) cfg.max_check_catchup_per_pulse = 500;
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";
