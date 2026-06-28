@@ -32,6 +32,14 @@ The strategy rules have been normalized from the source SRS and then refined thr
 - `15_visualization_contract.md` defines chart drawings and audit overlays.
 - `16_implementation_checklist.md` converts the spec into build phases.
 - `27_level_06_smt_candidate_engine.md` documents the Level 06 audit-only SMT candidate engine.
+- `28_level_07_confirmation_signal_registry.md` documents confirmation and signal consumption.
+- `29_level_08_risk_plan_paper_entry.md` documents paper entry planning and risk.
+- `30_level_09_paper_outcome_simulator.md` documents paper TP/SL/ambiguous outcomes.
+- `31_level_10_partial_close_simulator.md` documents W4 partial simulation.
+- `32_level_11_hard_close_simulator.md` documents 15:30 New York hard-close accounting.
+- `33_level_12_persistence_restart_recovery.md` documents same-day persistence and restart recovery.
+- `34_level_13_visualization_audit_drawing.md` documents chart audit drawing.
+- `35_level_14_paper_live_alerts.md` documents no-order paper-live alerts.
 
 ## Locked one-line strategy definition
 
@@ -74,9 +82,9 @@ STC SMT Cycles detects, confirms, and executes SMT divergence between two config
 33. Duplicate EA instances for the same strategy and symbol pair must be blocked.
 
 
-## Current engineering level: Level 06
+## Current engineering level: Level 14
 
-The current code level converts raw exactly-one-symbol high/low hunts into audit-only SMT candidate rows. High-side SMT becomes SELL on the clean symbol; low-side SMT becomes BUY on the clean symbol. If buy-side and sell-side SMT appear in the same check candle, the whole check candle is forgotten. It still does not confirm, consume, simulate trades, draw objects, or send live orders.
+The current code level is Level 14 — Paper Live Alerts. The engine now builds the full paper/audit pipeline through time, check candles, W levels, hunts, SMT candidates, signal registry, paper entries, paper outcomes, partial actions, hard-close actions, persistence, visualization, and no-order alerting. It still does not send real broker orders or manage real broker positions.
 
 
 ## Level 07 — Confirmation and Signal Registry
@@ -84,6 +92,6 @@ The current code level converts raw exactly-one-symbol high/low hunts into audit
 Level 07 adds `DAL_STC_Signals.mqh` and the `stc_level07_signal_registry.csv` output. It converts closed-check Level 06 SMT candidates into consumed audit-only signal rows. Entry OFF, missed entry moments, final check candles, invalid stop distance, incomplete pair data, and same-check buy/sell ambiguity are all represented explicitly. No paper trades and no real orders are created in this level.
 
 
-## Level 13 implementation note
+## Level 14 implementation note
 
-- `34_level_13_visualization_audit_drawing.md` documents the audit-only drawing layer for M/W zones, W levels, SMT paper entries, SL/TP guides, partial markers, hard-close markers, and drawing audit output.
+- `35_level_14_paper_live_alerts.md` documents the no-order paper-live alert layer. The alert layer observes newly created audit rows and can print, popup, push, or sound alerts in PAPER_LIVE/AUTO_TRADE modes without sending broker orders.

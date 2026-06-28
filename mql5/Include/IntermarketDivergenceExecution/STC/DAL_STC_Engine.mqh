@@ -2,7 +2,7 @@
 #define __DAL_STC_ENGINE_MQH__
 #property strict
 
-#include <IntermarketDivergenceExecution/STC/DAL_STC_Drawing.mqh>
+#include <IntermarketDivergenceExecution/STC/DAL_STC_Alerts.mqh>
 
 class CSTC_Engine
 {
@@ -43,7 +43,7 @@ public:
       {
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = "engine was not configured";
-         Print("STC LEVEL13 init failed: ", m_state.init_error);
+         Print("STC LEVEL14 init failed: ", m_state.init_error);
          return false;
       }
 
@@ -54,38 +54,39 @@ public:
          m_state.init_status = STC_INIT_CONFIG_ERROR;
          m_state.init_error = validation_error;
          m_state.init_warning = validation_warning;
-         Print("STC LEVEL13 config validation failed: ", validation_error, " warning=", validation_warning);
+         Print("STC LEVEL14 config validation failed: ", validation_error, " warning=", validation_warning);
          return false;
       }
       m_state.init_warning = validation_warning;
       m_state.output_root_common = m_cfg.output_root_common;
-      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_build_sanity.csv");
-      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_runtime_events.csv");
-      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_time_audit.csv");
-      m_state.check_candle_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_check_candles.csv");
-      m_state.w_level_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_w_levels.csv");
-      m_state.hunt_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_reference_hunts.csv");
-      m_state.smt_candidate_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_smt_candidates.csv");
-      m_state.signal_registry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_signal_registry.csv");
-      m_state.paper_entry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_paper_entries.csv");
-      m_state.paper_outcome_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_paper_outcomes.csv");
-      m_state.partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_partial_actions.csv");
-      m_state.hard_close_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_hard_close_actions.csv");
-      m_state.persistence_snapshot_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_persistence_snapshot.csv");
-      m_state.persistence_recovery_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_persistence_recovery.csv");
-      m_state.drawing_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level13_drawing_audit.csv");
+      m_state.sanity_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_build_sanity.csv");
+      m_state.runtime_events_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_runtime_events.csv");
+      m_state.time_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_time_audit.csv");
+      m_state.check_candle_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_check_candles.csv");
+      m_state.w_level_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_w_levels.csv");
+      m_state.hunt_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_reference_hunts.csv");
+      m_state.smt_candidate_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_smt_candidates.csv");
+      m_state.signal_registry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_signal_registry.csv");
+      m_state.paper_entry_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_paper_entries.csv");
+      m_state.paper_outcome_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_paper_outcomes.csv");
+      m_state.partial_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_partial_actions.csv");
+      m_state.hard_close_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_hard_close_actions.csv");
+      m_state.persistence_snapshot_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_persistence_snapshot.csv");
+      m_state.persistence_recovery_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_persistence_recovery.csv");
+      m_state.drawing_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_drawing_audit.csv");
+      m_state.alert_audit_file_common = STC_JoinPath(m_state.output_root_common, "stc_level14_paper_live_alerts.csv");
 
       if(!STC_EnsureCommonFolderTree(m_state.output_root_common))
       {
          m_state.init_status = STC_INIT_FOLDER_ERROR;
          m_state.init_error = "failed to create common output folder: " + m_state.output_root_common;
-         Print("STC LEVEL13 folder setup failed: ", m_state.init_error);
+         Print("STC LEVEL14 folder setup failed: ", m_state.init_error);
          return false;
       }
 
       if(!STC_AcquireInstanceLock(m_cfg, m_state))
       {
-         Print("STC LEVEL13 instance lock failed: ", m_state.init_error);
+         Print("STC LEVEL14 instance lock failed: ", m_state.init_error);
          return false;
       }
 
@@ -100,7 +101,7 @@ public:
 
       STC_PrintConfig(m_cfg);
       STC_WriteBuildSanityCsv(m_cfg, m_state, m_sanity);
-      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level13 persistence and restart recovery initialized; paper state snapshot/restore enabled; no real orders");
+      STC_AppendRuntimeEventCsv(m_cfg, m_state, "INIT", "level14 paper live alerts initialized; paper state snapshot/restore and no-order alerting enabled; no real orders");
       if(m_cfg.write_time_audit)
       {
          m_state.last_time_audit_server_time = TimeCurrent();
@@ -119,13 +120,14 @@ public:
       STC_ProcessClosedPaperOutcomes(m_cfg, m_state, m_time);
       STC_ProcessClosedPartials(m_cfg, m_state, m_time);
       STC_ProcessClosedHardCloses(m_cfg, m_state, m_time);
+      STC_InitializePaperLiveAlertBaseline(m_cfg, m_state, m_time, "init_after_recovery_pipeline");
       STC_MaybeWritePersistenceSnapshot(m_cfg, m_state, m_time, "init_after_recovery_pipeline", true);
       STC_DrawAuditLayer(m_cfg, m_state, m_time, true);
 
       if(m_state.init_warning != "")
-         Print("STC LEVEL13 validation warning: ", m_state.init_warning);
+         Print("STC LEVEL14 validation warning: ", m_state.init_warning);
 
-      Print("STC LEVEL13 initialized. sanity_file=", m_state.sanity_file_common,
+      Print("STC LEVEL14 initialized. sanity_file=", m_state.sanity_file_common,
             " events_file=", m_state.runtime_events_file_common,
             " time_audit_file=", m_state.time_audit_file_common,
             " check_candles_file=", m_state.check_candle_audit_file_common,
@@ -139,8 +141,9 @@ public:
             " hard_close_file=", m_state.hard_close_audit_file_common,
             " persistence_snapshot=", m_state.persistence_snapshot_file_common,
             " persistence_recovery=", m_state.persistence_recovery_audit_file_common,
-            " drawing_audit=", m_state.drawing_audit_file_common);
-      Print("STC LEVEL13 initial time *** ", STC_TimeSnapshotOneLine(m_time));
+            " drawing_audit=", m_state.drawing_audit_file_common,
+            " alert_audit=", m_state.alert_audit_file_common);
+      Print("STC LEVEL14 initial time *** ", STC_TimeSnapshotOneLine(m_time));
       return true;
    }
 
@@ -170,6 +173,7 @@ public:
       STC_ProcessClosedPaperOutcomes(m_cfg, m_state, m_time);
       STC_ProcessClosedPartials(m_cfg, m_state, m_time);
       STC_ProcessClosedHardCloses(m_cfg, m_state, m_time);
+      STC_ProcessPaperLiveAlerts(m_cfg, m_state, m_time);
       STC_MaybeWritePersistenceSnapshot(m_cfg, m_state, m_time, "pulse_after_recovery_pipeline", false);
       STC_DrawAuditLayer(m_cfg, m_state, m_time, false);
 
@@ -178,9 +182,9 @@ public:
          if(m_state.last_heartbeat_server_time <= 0 || server_time - m_state.last_heartbeat_server_time >= m_cfg.heartbeat_seconds)
          {
             m_state.last_heartbeat_server_time = server_time;
-            string details = "heartbeat; level13 paper outcome simulator; " + STC_TimeSnapshotOneLine(m_time) + "; auditedCheckCandles=" + IntegerToString((int)m_state.check_candles_audited) + "; auditedWLevels=" + IntegerToString((int)m_state.w_levels_audited) + "; auditedHuntRows=" + IntegerToString((int)m_state.hunt_rows_audited) + "; auditedSmtCandidateRows=" + IntegerToString((int)m_state.smt_candidate_rows_audited) + "; auditedSignalRows=" + IntegerToString((int)m_state.signal_rows_audited) + "; auditedPaperRows=" + IntegerToString((int)m_state.paper_entry_rows_audited) + "; auditedOutcomeRows=" + IntegerToString((int)m_state.paper_outcome_rows_audited) + "; auditedPartialRows=" + IntegerToString((int)m_state.partial_rows_audited) + "; auditedHardCloseRows=" + IntegerToString((int)m_state.hard_close_rows_audited) + "; persistenceRestored=" + STC_BoolText(m_state.persistence_restored) + "; persistenceStatus=" + m_state.persistence_restore_status + "; drawingRefreshes=" + IntegerToString((int)m_state.drawing_refresh_count) + "; drawingObjects=" + IntegerToString((int)m_state.drawing_objects_created) + "; no real orders";
+            string details = "heartbeat; level14 paper live alerts; " + STC_TimeSnapshotOneLine(m_time) + "; auditedCheckCandles=" + IntegerToString((int)m_state.check_candles_audited) + "; auditedWLevels=" + IntegerToString((int)m_state.w_levels_audited) + "; auditedHuntRows=" + IntegerToString((int)m_state.hunt_rows_audited) + "; auditedSmtCandidateRows=" + IntegerToString((int)m_state.smt_candidate_rows_audited) + "; auditedSignalRows=" + IntegerToString((int)m_state.signal_rows_audited) + "; auditedPaperRows=" + IntegerToString((int)m_state.paper_entry_rows_audited) + "; auditedOutcomeRows=" + IntegerToString((int)m_state.paper_outcome_rows_audited) + "; auditedPartialRows=" + IntegerToString((int)m_state.partial_rows_audited) + "; auditedHardCloseRows=" + IntegerToString((int)m_state.hard_close_rows_audited) + "; persistenceRestored=" + STC_BoolText(m_state.persistence_restored) + "; persistenceStatus=" + m_state.persistence_restore_status + "; drawingRefreshes=" + IntegerToString((int)m_state.drawing_refresh_count) + "; drawingObjects=" + IntegerToString((int)m_state.drawing_objects_created) + "; alertRows=" + IntegerToString((int)m_state.alert_rows_audited) + "; alertBaseline=" + m_state.alert_baseline_status + "; no real orders";
             STC_AppendRuntimeEventCsv(m_cfg, m_state, "HEARTBEAT", details);
-            Print("STC LEVEL13 heartbeat pulse=", m_state.pulse_count,
+            Print("STC LEVEL14 heartbeat pulse=", m_state.pulse_count,
                   " mode=", STC_RuntimeModeText(m_cfg.runtime_mode),
                   " symbols=", m_cfg.symbol1, "/", m_cfg.symbol2,
                   " ", STC_TimeSnapshotOneLine(m_time));
@@ -196,7 +200,7 @@ public:
          if(m_cfg.enable_drawing && m_cfg.drawing_clear_on_deinit)
             STC_DeleteDrawingObjects(m_cfg);
          STC_AppendRuntimeEventCsv(m_cfg, m_state, "DEINIT", "reason=" + IntegerToString(reason) + "; last_time=" + STC_TimeSnapshotOneLine(m_time));
-         Print("STC LEVEL13 deinit reason=", reason, " pulses=", m_state.pulse_count);
+         Print("STC LEVEL14 deinit reason=", reason, " pulses=", m_state.pulse_count);
       }
       STC_ReleaseInstanceLock(m_cfg, m_state);
       m_state.initialized = false;

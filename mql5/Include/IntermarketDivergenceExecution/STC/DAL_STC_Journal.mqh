@@ -97,6 +97,16 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "drawing_history_w_levels", cfg.drawing_history_w_levels);
    FileWrite(h, "drawing_clear_on_deinit", STC_BoolText(cfg.drawing_clear_on_deinit));
    FileWrite(h, "drawing_object_prefix", cfg.drawing_object_prefix);
+   FileWrite(h, "paper_live_alerts_enabled", STC_BoolText(cfg.enable_paper_live_alerts));
+   FileWrite(h, "alert_audit_enabled", STC_BoolText(cfg.write_alert_audit));
+   FileWrite(h, "alert_audit_file_common", state.alert_audit_file_common);
+   FileWrite(h, "alert_popup", STC_BoolText(cfg.alert_popup));
+   FileWrite(h, "alert_push", STC_BoolText(cfg.alert_push));
+   FileWrite(h, "alert_sound", STC_BoolText(cfg.alert_sound));
+   FileWrite(h, "alert_print", STC_BoolText(cfg.alert_print));
+   FileWrite(h, "alert_sound_file", cfg.alert_sound_file);
+   FileWrite(h, "alert_debounce_seconds", cfg.alert_debounce_seconds);
+   FileWrite(h, "alert_replay_on_init", STC_BoolText(cfg.alert_replay_on_init));
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);

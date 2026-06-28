@@ -230,7 +230,7 @@ bool STC_RestorePersistenceSnapshot(STC_Config &cfg, STC_RuntimeState &state, ST
    if(!STC_ReadKeyValueSnapshot(state.persistence_snapshot_file_common, keys, values, count))
    {
       state.persistence_restore_status = "SKIPPED_NO_SNAPSHOT";
-      state.persistence_restore_note = "no previous level13 run snapshot found";
+      state.persistence_restore_note = "no previous level14 run snapshot found";
       STC_AppendPersistenceRecoveryCsv(cfg, state, "RESTORE", state.persistence_restore_status, state.persistence_restore_note);
       return false;
    }

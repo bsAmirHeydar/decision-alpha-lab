@@ -8,9 +8,9 @@ Main strategy:
 
 EXEC001 STC SMT Cycles is documented as a layered executable specification and implemented level by level.
 
-Current code level: **Level 06 — SMT Candidate Engine**.
+Current code level: **Level 14 — Paper Live Alerts**.
 
-Level 06 converts raw exactly-one-symbol previous-W hunts into audit-only SMT candidates. It does not confirm, consume, simulate trades, draw objects, or send orders.
+Level 14 monitors the full paper/audit pipeline and emits no-order alerts for new signal, paper entry, outcome, partial, and hard-close rows. It still sends no real broker orders.
 
 Key detailed documents:
 
@@ -28,6 +28,5 @@ Key detailed documents:
 The next engineering stage is Level 07: confirmation, signal registry, and no-late-entry consumption logic.
 
 - [Level 07 STC SMT Confirmation and Signal Registry](LEVEL_07_STC_SMT_CONFIRMATION_SIGNAL_REGISTRY.md)
-
-
-- `LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md` — audit-only chart drawing layer for EXEC001 STC SMT Cycles.
+- [Level 13 STC SMT Visualization](LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md)
+- [Level 14 STC SMT Paper Live Alerts](LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS.md)

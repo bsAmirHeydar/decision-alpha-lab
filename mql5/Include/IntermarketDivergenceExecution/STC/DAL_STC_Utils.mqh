@@ -164,6 +164,9 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.drawing_history_w_levels < 1) cfg.drawing_history_w_levels = 1;
    if(cfg.drawing_history_w_levels > 12) cfg.drawing_history_w_levels = 12;
    if(cfg.drawing_object_prefix == "") cfg.drawing_object_prefix = "DAL_STC_EXEC001";
+   if(cfg.alert_debounce_seconds < 0) cfg.alert_debounce_seconds = 0;
+   if(cfg.alert_debounce_seconds > 300) cfg.alert_debounce_seconds = 300;
+   if(cfg.alert_sound_file == "") cfg.alert_sound_file = "alert.wav";
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

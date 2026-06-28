@@ -1,13 +1,13 @@
 #property strict
 #property version   "2.00"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 13 visualization and audit drawing"
-#property description "Level 13 draws M/W zones, W levels, SMT/paper audit objects on chart while keeping real orders disabled."
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 14 paper live alerts"
+#property description "Level 14 emits paper-live alerts for signals, paper entries, outcomes, partials, and hard-close audits while keeping real orders disabled."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 13 Runtime"
+input group "DAL / STC Level 14 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL13";
+input string InpRunId = "EXEC001_STC_LEVEL14";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -65,6 +65,24 @@ input int InpDrawingHistoryWLevels = 12;
 input bool InpDrawingClearOnDeinit = true;
 input string InpDrawingObjectPrefix = "DAL_STC_EXEC001";
 
+input group "STC Level 14 Paper Live Alerts"
+input bool InpEnablePaperLiveAlerts = true;
+input bool InpWriteAlertAudit = true;
+input bool InpAlertPopup = true;
+input bool InpAlertPush = false;
+input bool InpAlertSound = false;
+input bool InpAlertPrint = true;
+input string InpAlertSoundFile = "alert.wav";
+input int InpAlertDebounceSeconds = 2;
+input bool InpAlertOnSignal = true;
+input bool InpAlertOnPaperEntry = true;
+input bool InpAlertOnOutcome = true;
+input bool InpAlertOnPartial = true;
+input bool InpAlertOnHardClose = true;
+input bool InpAlertOnAmbiguous = true;
+input bool InpAlertOnHardCloseDue = true;
+input bool InpAlertReplayOnInit = false;
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -115,6 +133,22 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.drawing_history_w_levels = InpDrawingHistoryWLevels;
    cfg.drawing_clear_on_deinit = InpDrawingClearOnDeinit;
    cfg.drawing_object_prefix = InpDrawingObjectPrefix;
+   cfg.enable_paper_live_alerts = InpEnablePaperLiveAlerts;
+   cfg.write_alert_audit = InpWriteAlertAudit;
+   cfg.alert_popup = InpAlertPopup;
+   cfg.alert_push = InpAlertPush;
+   cfg.alert_sound = InpAlertSound;
+   cfg.alert_print = InpAlertPrint;
+   cfg.alert_sound_file = InpAlertSoundFile;
+   cfg.alert_debounce_seconds = InpAlertDebounceSeconds;
+   cfg.alert_on_signal = InpAlertOnSignal;
+   cfg.alert_on_paper_entry = InpAlertOnPaperEntry;
+   cfg.alert_on_outcome = InpAlertOnOutcome;
+   cfg.alert_on_partial = InpAlertOnPartial;
+   cfg.alert_on_hard_close = InpAlertOnHardClose;
+   cfg.alert_on_ambiguous = InpAlertOnAmbiguous;
+   cfg.alert_on_hard_close_due = InpAlertOnHardCloseDue;
+   cfg.alert_replay_on_init = InpAlertReplayOnInit;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -178,8 +212,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 13 remains timer-driven. Drawing is audit-only and does not change decisions.
-   // Later levels will add real paper-live/auto-trading order operations.
+   // Level 14 remains timer-driven. Alerts are audit-only and do not send real orders.
+   // Later levels will add real broker paper-live position management and auto-trading order operations.
 }
 
 void OnDeinit(const int reason)

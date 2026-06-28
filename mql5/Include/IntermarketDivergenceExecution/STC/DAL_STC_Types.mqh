@@ -33,6 +33,22 @@ struct STC_Config
    int drawing_history_w_levels;
    bool drawing_clear_on_deinit;
    string drawing_object_prefix;
+   bool enable_paper_live_alerts;
+   bool write_alert_audit;
+   bool alert_popup;
+   bool alert_push;
+   bool alert_sound;
+   bool alert_print;
+   string alert_sound_file;
+   int alert_debounce_seconds;
+   bool alert_on_signal;
+   bool alert_on_paper_entry;
+   bool alert_on_outcome;
+   bool alert_on_partial;
+   bool alert_on_hard_close;
+   bool alert_on_ambiguous;
+   bool alert_on_hard_close_due;
+   bool alert_replay_on_init;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -127,10 +143,19 @@ struct STC_RuntimeState
    string persistence_snapshot_file_common;
    string persistence_recovery_audit_file_common;
    string drawing_audit_file_common;
+   string alert_audit_file_common;
    datetime last_persistence_snapshot_server_time;
    datetime last_drawing_server_time;
    long drawing_refresh_count;
    long drawing_objects_created;
+   datetime last_alert_server_time;
+   long signal_rows_alerted;
+   long paper_entry_rows_alerted;
+   long paper_outcome_rows_alerted;
+   long partial_rows_alerted;
+   long hard_close_rows_alerted;
+   long alert_rows_audited;
+   string alert_baseline_status;
    bool persistence_restored;
    string persistence_restore_status;
    string persistence_restore_note;
@@ -837,7 +862,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL13";
+   cfg.run_id = "EXEC001_STC_LEVEL14";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -863,6 +888,22 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.drawing_history_w_levels = 12;
    cfg.drawing_clear_on_deinit = true;
    cfg.drawing_object_prefix = "DAL_STC_EXEC001";
+   cfg.enable_paper_live_alerts = true;
+   cfg.write_alert_audit = true;
+   cfg.alert_popup = true;
+   cfg.alert_push = false;
+   cfg.alert_sound = false;
+   cfg.alert_print = true;
+   cfg.alert_sound_file = "alert.wav";
+   cfg.alert_debounce_seconds = 2;
+   cfg.alert_on_signal = true;
+   cfg.alert_on_paper_entry = true;
+   cfg.alert_on_outcome = true;
+   cfg.alert_on_partial = true;
+   cfg.alert_on_hard_close = true;
+   cfg.alert_on_ambiguous = true;
+   cfg.alert_on_hard_close_due = true;
+   cfg.alert_replay_on_init = false;
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -933,10 +974,19 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.persistence_snapshot_file_common = "";
    state.persistence_recovery_audit_file_common = "";
    state.drawing_audit_file_common = "";
+   state.alert_audit_file_common = "";
    state.last_persistence_snapshot_server_time = 0;
    state.last_drawing_server_time = 0;
    state.drawing_refresh_count = 0;
    state.drawing_objects_created = 0;
+   state.last_alert_server_time = 0;
+   state.signal_rows_alerted = 0;
+   state.paper_entry_rows_alerted = 0;
+   state.paper_outcome_rows_alerted = 0;
+   state.partial_rows_alerted = 0;
+   state.hard_close_rows_alerted = 0;
+   state.alert_rows_audited = 0;
+   state.alert_baseline_status = "NOT_INITIALIZED";
    state.persistence_restored = false;
    state.persistence_restore_status = "NOT_ATTEMPTED";
    state.persistence_restore_note = "";
@@ -991,10 +1041,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_13_VISUALIZATION_AUDIT_DRAWING";
+   sanity.module_level = "LEVEL_14_PAPER_LIVE_ALERTS";
    sanity.build_version = "2.00";
-   sanity.build_scope = "level01 skeleton through level13 visualization and audit drawing for paper execution state";
-   sanity.locked_contract = "Render audit-only M/W zones, W levels, SMT candidates, paper entry plans, SL/TP, partial markers, and hard-close markers on chart without changing strategy decisions or sending real orders";
+   sanity.build_scope = "level01 skeleton through level14 paper-live alert layer for no-order monitoring";
+   sanity.locked_contract = "Emit audit-only alerts for confirmed signals, paper entries, paper outcomes, partial actions, and hard-close actions without sending real orders or changing strategy decisions";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

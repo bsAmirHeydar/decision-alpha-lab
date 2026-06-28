@@ -357,7 +357,7 @@ void STC_SimulateOutcomeFromPaper(STC_Config &cfg,
 
    outcome.outcome_status = STC_OUTCOME_OPEN_UNRESOLVED;
    outcome.status = "paper_trade_still_open_after_available_closed_checks";
-   outcome.rule_note = "Level 13 keeps this row as an open outcome until partial, hard-close, and persistence layers account for later actions";
+   outcome.rule_note = "Level 14 keeps this row as an open outcome until partial, hard-close, and persistence layers account for later actions";
    STC_FinalizeOutcomePnL(cfg, outcome);
 }
 
