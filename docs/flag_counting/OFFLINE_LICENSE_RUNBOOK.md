@@ -1,69 +1,105 @@
-# FlagCounting Phoenix Offline License Runbook
+# FlagCounting Phoenix — Offline License Runbook
 
-This project now supports a fail-closed offline license layer for EX5 distribution.
-The license check runs before Level 01 and again on a timer while the expert is attached.
-It does not create, mutate, hide, reveal, confirm, invalidate, lock, or reinterpret market structure.
+This project uses a hardened offline runtime license for EX5 distribution.
 
-## Runtime input design
-
-The visible MT5 inputs intentionally do not use obvious license names. The recipient fills these fields:
-
-- `InpPhaseModelProfile` — signed offline token
-- `InpRenderMemo` — passphrase/password
-- `InpNodeModelSeed` — hidden numeric gate A
-- `InpBoundaryModelSeed` — hidden numeric gate B
-- `InpValidationModelSeed` — hidden numeric gate C
-- `InpReleaseModelSeed` — hidden numeric gate D
-- `InpSessionCacheDepth` — recheck interval in minutes
-
-The token binds product, account, optional server hash, expiry date, feature flags, nonce, and signature.
-The numeric gates are derived from the same signed payload and password. A copied token without the matching password and four numeric gates fails. A copied bundle on a different account fails when account binding is enabled.
-
-## Token format
+The license is issued with:
 
 ```text
-FCPHX1|FCPHX|ACCOUNT|SERVER_HASH|YYYYMMDD|FEATURE|NONCE|SIG_A|SIG_B
+tools/flag_counting/offline_license_keygen.py
 ```
 
-`SERVER_HASH` is the uppercase hash of `AccountInfoString(ACCOUNT_SERVER)`, or `ANY` when server binding is intentionally disabled by the issuer.
+The tool is private and must never be sent to recipients.
 
-## Generate a license bundle
+## Issuer archive layout
+
+Every generated license is now archived automatically under:
+
+```text
+licenses/
+```
+
+Example:
+
+```text
+licenses/
+  README_LICENSE_ISSUER.md
+  user0001-Amir-Hosein-Heydar/
+    user0001-Amir-Hosein-Heydar_recipient_inputs.txt
+    user0001-Amir-Hosein-Heydar_issuer_audit.json
+    user0001-Amir-Hosein-Heydar_full_record.txt
+  issued_licenses_index.csv
+```
+
+Only `README_LICENSE_ISSUER.md` and `licenses/.gitignore` should be committed. Generated user folders are private local issuer records.
+
+## Required issuer fields
+
+The keygen now requires recipient identity fields:
+
+```text
+--first-name
+--last-name
+```
+
+It also supports:
+
+```text
+--middle-name
+--user-code
+--out-root
+--overwrite
+--no-save
+```
+
+The default user code auto-increments from the existing folders under `licenses/`.
+
+## Secure account + server-bound license
 
 Run from the repository root:
 
 ```powershell
 python tools/flag_counting/offline_license_keygen.py `
+  --first-name Amir `
+  --middle-name Hosein `
+  --last-name Heydar `
   --account 12345678 `
   --server "Broker-Demo" `
-  --expires 20260901
+  --expires 20261231 `
+  --passphrase "Your-Strong-Password-Here"
 ```
 
-For a server-independent license:
+This creates a folder like:
 
-```powershell
-python tools/flag_counting/offline_license_keygen.py `
-  --account 12345678 `
-  --server-any `
-  --expires 20260901
+```text
+licenses/user0001-Amir-Hosein-Heydar/
 ```
 
-The tool prints exactly the fields that must be given to the recipient.
-Keep `tools/flag_counting/offline_license_keygen.py` private. Do not ship it with commercial releases.
+The file to send to the recipient is:
 
-## Runtime behavior
+```text
+user0001-Amir-Hosein-Heydar_recipient_inputs.txt
+```
 
-The expert is fail-closed:
+## Recipient values
 
-- missing token blocks `OnInit`
-- wrong password blocks `OnInit`
-- wrong hidden numeric gates block `OnInit`
-- account mismatch blocks `OnInit`
-- server mismatch blocks `OnInit` when server binding is active
-- expired license blocks `OnInit`
-- expiry during runtime stops future scans/redraws
+The recipient pastes the six neutral input values into MT5:
 
-The check uses broker/server time first via `TimeTradeServer()`, then `TimeCurrent()` as fallback. Local Windows time is not used as the authority.
+```text
+InpPhaseModelProfile
+InpRenderMemo
+InpNodeModelSeed
+InpBoundaryModelSeed
+InpValidationModelSeed
+InpReleaseModelSeed
+```
 
-## Security notes
+## Private files
 
-Offline client-side licensing is never mathematically unbreakable because checks run on the client terminal. The goal is practical protection: prevent casual sharing, account copying, wrong-server copying, expired usage, and missing-password usage. Stronger revocation requires an online license server.
+Do not send these to the recipient:
+
+```text
+*_issuer_audit.json
+*_full_record.txt
+issued_licenses_index.csv
+tools/flag_counting/offline_license_keygen.py
+```

@@ -1,19 +1,33 @@
-# Offline License Lab
+# Offline License Lab Notes
 
-Use this folder to store private issuer notes and generated test bundles. Do not commit real customer tokens, passwords, account numbers, or gate values.
+The private issuer workflow is now archive-first.
 
-Recommended test cases:
+Run the keygen from the repository root. It prints recipient inputs and writes local issuer records under `licenses/`.
 
-1. valid account + valid server + future expiry => active
-2. valid bundle + wrong password => blocked
-3. valid bundle + one wrong numeric gate => blocked
-4. valid bundle + wrong account => blocked
-5. valid bundle + expired date => blocked
-6. server-bound bundle on wrong server => blocked
-7. server-any bundle on same account different server => active
-
-Generator:
+Example:
 
 ```powershell
-python tools/flag_counting/offline_license_keygen.py --account 12345678 --server "Broker-Demo" --expires 20260901
+python tools/flag_counting/offline_license_keygen.py `
+  --first-name Amir `
+  --middle-name Hosein `
+  --last-name Heydar `
+  --account 12345678 `
+  --server "Broker-Demo" `
+  --expires 20261231
 ```
+
+Generated folder:
+
+```text
+licenses/user0001-Amir-Hosein-Heydar/
+```
+
+Generated files:
+
+```text
+user0001-Amir-Hosein-Heydar_recipient_inputs.txt
+user0001-Amir-Hosein-Heydar_issuer_audit.json
+user0001-Amir-Hosein-Heydar_full_record.txt
+```
+
+The recipient receives only the recipient inputs file content. The other files remain private.

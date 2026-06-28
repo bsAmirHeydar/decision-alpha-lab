@@ -1,0 +1,4 @@
+# Keep only the issuer guide in git. Generated license records are private.
+*
+!README_LICENSE_ISSUER.md
+!.gitignore
