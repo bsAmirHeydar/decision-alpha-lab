@@ -291,15 +291,28 @@ Acceptance:
 Files:
 
 ```text
-FP_SequenceEngine.mqh
+FP_OwnershipTypes.mqh
+FP_OwnershipRules.mqh
+FP_OwnershipAudit.mqh
+FP_OwnershipEngine.mqh
+FP_Types.mqh # ownership fields/counters only
+FP_Identity.mqh # ownership state in ids
+FP_Audit.mqh # ownership audit fields only
+FP_SequenceEngine.mqh # orchestration only
+FlagCountingPhoenixExperiment.mq5 # Level 10 inputs only
 ```
 
 Acceptance:
 
 - no repeated same-direction F1 in same phase main chart;
-- strict reset rules explicit;
+- strict reset rules explicit through opposite completed/locked F3 between roots;
 - hidden descendant propagation;
-- lower-L local beats high-L umbrella when semantic quality is equal;
+- orphan descendants hidden after ownership;
+- fail-open roots inside phase-owned Hook regions are hidden but audited;
+- semantic maturity beats visual/local preference;
+- lower-L local beats high-L umbrella only when semantic quality is equal;
+- each event exposes `phase_owner_root_id`, `chain_state`, `next_expected_f_level`, and owner rank;
+- `FP_LEVEL10` reports phase/root/competition/reset/hidden counts before renderer output;
 - `FC-GC-007` baselined or marked as blocking before freeze.
 
 ### Step 11 — Build canonicalization

@@ -717,3 +717,55 @@ f3_lifecycle_status = locked
 ```
 
 `FP_LEVEL09` is the construction/OR audit form. `FP_LEVEL09_LOCK` is the cross-sequence lock audit form. Both must be available before Level 10 ownership and phase reset work is considered frozen.
+
+---
+
+## Level 10 implementation freeze — sequence ownership / phase reset
+
+Level 10 turns Phoenix from a lifecycle candidate enumerator into a semantic phase owner engine. The active authority is:
+
+```text
+FP_OwnershipTypes.mqh
+FP_OwnershipRules.mqh
+FP_OwnershipAudit.mqh
+FP_OwnershipEngine.mqh
+```
+
+`FP_SequenceEngine.mqh` may orchestrate calls, but Level 10 owns main-chart phase truth. Renderer and visual duplicate pruning are not allowed to decide phase ownership.
+
+Every emitted F event now carries Level 10 ownership evidence:
+
+```text
+phase_direction
+phase_owner_root_id
+chain_state
+next_expected_f_level
+phase_reset_reason
+owner_rank_score
+losing_candidate_ids
+hidden_descendant_ids
+```
+
+Main-chart contract:
+
+```text
+one direction / one active phase / one canonical F1 owner
+```
+
+A later same-direction F1 root in the same phase is hidden unless a completed/locked opposite F3 exists between the current owner and the later root. That opposite terminal F3 is the strict phase reset evidence.
+
+Competing root ranking is semantic, not visual:
+
+1. chain has locked F3;
+2. chain has completed F3;
+3. chain has confirmed and size-qualified F2;
+4. chain has confirmed F1;
+5. root is Hook/phase-boundary derived;
+6. root is not fail-open;
+7. lower/local L if semantic quality is equal;
+8. earliest valid root;
+9. deterministic id tie-break.
+
+If a root loses ownership, all descendants in that sequence must be hidden. F2/F3 orphans are hidden after ownership. Fail-open roots inside a Hook-owned phase region are audit-visible but hidden from the main chart.
+
+`FP_LEVEL10` is the ownership audit form. It must report visible-before/after, root candidates, owner roots, competing roots, strict resets, hidden roots, hidden descendants, fail-open hides, superseded parent hides, orphan hides, and rank range.

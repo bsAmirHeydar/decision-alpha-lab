@@ -62,7 +62,11 @@ Structural / sequence engines:
 - `FP_F3LifecycleRules.mqh`: Level 09 pure F3 parent-gate, terminal OR qualification, lifecycle-id, visibility, and lock predicates.
 - `FP_F3LifecycleAudit.mqh`: Level 09 F3 lifecycle and lock report with optional samples.
 - `FP_F3LifecycleEngine.mqh`: Level 09 facade that converts authorized F2 parents into completed/locked terminal F3 children.
-- `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
+- `FP_OwnershipTypes.mqh`: Level 10 ownership report and phase-state audit types.
+- `FP_OwnershipRules.mqh`: Level 10 pure owner ranking, reset, root, and descendant rules.
+- `FP_OwnershipAudit.mqh`: Level 10 FP_LEVEL10 report and ownership samples.
+- `FP_OwnershipEngine.mqh`: Level 10 semantic phase owner facade.
+- `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration and ownership wiring.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
 
@@ -410,6 +414,54 @@ F3.leg1_L >= ceil(InpF3Leg1LMinRatio * F2.leg1_L)
 ```
 
 F3 does not need a post-body internal 1/2 in Level 09. Once completed, it can lock on the first opposite confirmed F1 after F3 completion. `FP_LEVEL09` reports construction and OR qualification; `FP_LEVEL09_LOCK` reports cross-sequence lock scans.
+
+
+## Level 10 sequence ownership and phase reset
+
+Phoenix now separates lifecycle emission from main-chart phase ownership. The active modules are:
+
+```text
+FP_OwnershipTypes.mqh
+FP_OwnershipRules.mqh
+FP_OwnershipAudit.mqh
+FP_OwnershipEngine.mqh
+```
+
+Level 10 runs after Level 09 F3 lock evidence and before visual duplicate pruning. It owns these event fields:
+
+```text
+phase_direction
+phase_owner_root_id
+chain_state
+next_expected_f_level
+phase_reset_reason
+owner_rank_score
+losing_candidate_ids
+hidden_descendant_ids
+```
+
+The main-chart rule is now explicit:
+
+```text
+one direction / one phase / one canonical F1 owner
+```
+
+Later same-direction F1 roots inside the same phase are hidden as competing roots unless an opposite terminal F3 reset exists between the previous owner and the new root. If a root loses ownership, every F2/F3 descendant in the same sequence is hidden with a deterministic reason.
+
+Owner ranking follows semantic maturity first: locked F3, completed F3, confirmed qualified F2, confirmed F1, Hook/phase-boundary source, non-fail-open source, lower local L on equal semantic quality, then deterministic time/id tie-breaks.
+
+Default Level 10 controls:
+
+```text
+InpPrintOwnershipSanity = true
+InpPrintOwnershipSamples = false
+InpOwnershipSampleLimit = 8
+InpStrictMainChartOwnership = true
+InpOwnershipScoreMargin = 25
+InpOwnershipHideOrphans = true
+```
+
+`FP_LEVEL10` reports phase count, root candidates, owner roots, competing roots, resets, hidden roots, hidden descendants, fail-open hides, superseded parent hides, orphan hides, and visible-before/after counts. Renderer remains non-authoritative.
 
 ## Phoenix semantic cleanup patch
 

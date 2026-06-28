@@ -88,3 +88,8 @@ Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06
 ```
 
 Any patch that touches a higher level must declare which lower-level invariants it assumes. If those lower-level invariants are not tested, the patch is not acceptable.
+
+
+## Level 10 patch status
+
+Level 10 now owns semantic sequence ownership through `FP_Ownership*` modules. `FP_SequenceEngine` only orchestrates ownership after Level 09 lock evidence and before visual duplicate pruning.

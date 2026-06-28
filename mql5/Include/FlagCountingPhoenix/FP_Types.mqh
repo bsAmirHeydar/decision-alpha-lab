@@ -133,6 +133,25 @@ enum FP_F3LifecycleStatus
    FP_F3_LC_HIDDEN          = 7
 };
 
+// Level 10 semantic ownership state. This layer owns main-chart phase truth after
+// F1/F2/F3 lifecycles have emitted candidates. Renderer and duplicate pruning are
+// not allowed to invent these states.
+enum FP_OwnershipChainState
+{
+   FP_CHAIN_NONE             = 0,
+   FP_CHAIN_F1_OWNER         = 1,
+   FP_CHAIN_F2_SEARCH        = 2,
+   FP_CHAIN_F2_OWNER         = 3,
+   FP_CHAIN_F3_SEARCH        = 4,
+   FP_CHAIN_F3_OWNER         = 5,
+   FP_CHAIN_F3_EXTENSION     = 6,
+   FP_CHAIN_LOCKED_BY_OP_F1  = 7,
+   FP_CHAIN_RESET_ALLOWED    = 8,
+   FP_CHAIN_HIDDEN_LOSER     = 9,
+   FP_CHAIN_HIDDEN_DESCENDANT= 10,
+   FP_CHAIN_ORPHAN_HIDDEN    = 11
+};
+
 // ------------------------------- Data model --------------------------------
 
 struct FP_Node
@@ -343,6 +362,18 @@ struct FP_FlagEvent
    string   f3_lock_reason;
    string   f3_lifecycle_reason;
 
+   // Level 10 sequence ownership and phase state. Ownership is semantic, not
+   // visual. These fields explain why a chain is the main phase owner or why it
+   // has been hidden as a competing restart, descendant, or orphan.
+   int      phase_direction;
+   int      phase_owner_root_id;
+   int      chain_state;
+   int      next_expected_f_level;
+   string   phase_reset_reason;
+   int      owner_rank_score;
+   string   losing_candidate_ids;
+   string   hidden_descendant_ids;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -412,6 +443,12 @@ struct FP_Config
    bool   hide_superseded_parent_states;
    bool   compact_hook_rendering;
    bool   strict_main_chart_ownership;
+
+   bool   print_ownership_sanity;
+   bool   print_ownership_samples;
+   int    ownership_sample_limit;
+   int    ownership_score_margin;
+   bool   ownership_hide_orphans;
 
    bool   print_hook_sanity;
    bool   print_hook_samples;
@@ -565,6 +602,15 @@ struct FP_DetectResult
    int f3_lifecycle_lock_scans_total;
    int f3_lifecycle_lock_found_total;
    int f3_lifecycle_lock_missing_total;
+
+   int ownership_phases_total;
+   int ownership_owner_roots_total;
+   int ownership_competing_roots_total;
+   int ownership_resets_total;
+   int ownership_hidden_roots_total;
+   int ownership_hidden_descendants_total;
+   int ownership_orphans_hidden_total;
+   int ownership_phase_safe_duplicate_hides_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -746,6 +792,15 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.f3_lock_reason = "";
    e.f3_lifecycle_reason = "";
 
+   e.phase_direction = FP_DIR_NONE;
+   e.phase_owner_root_id = -1;
+   e.chain_state = FP_CHAIN_NONE;
+   e.next_expected_f_level = FP_LEVEL_NONE;
+   e.phase_reset_reason = "";
+   e.owner_rank_score = 0;
+   e.losing_candidate_ids = "";
+   e.hidden_descendant_ids = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -812,6 +867,12 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.compact_hook_rendering = true;
    cfg.strict_main_chart_ownership = true;
 
+   cfg.print_ownership_sanity = true;
+   cfg.print_ownership_samples = false;
+   cfg.ownership_sample_limit = 8;
+   cfg.ownership_score_margin = 25;
+   cfg.ownership_hide_orphans = true;
+
    cfg.print_hook_sanity = true;
    cfg.print_hook_samples = false;
    cfg.hook_sample_limit = 6;
@@ -863,7 +924,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level09";
+   cfg.identity_generation_pass = "phoenix_level10";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -963,6 +1024,15 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.f3_lifecycle_lock_scans_total = 0;
    r.f3_lifecycle_lock_found_total = 0;
    r.f3_lifecycle_lock_missing_total = 0;
+
+   r.ownership_phases_total = 0;
+   r.ownership_owner_roots_total = 0;
+   r.ownership_competing_roots_total = 0;
+   r.ownership_resets_total = 0;
+   r.ownership_hidden_roots_total = 0;
+   r.ownership_hidden_descendants_total = 0;
+   r.ownership_orphans_hidden_total = 0;
+   r.ownership_phase_safe_duplicate_hides_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;
@@ -1008,6 +1078,23 @@ string FP_StatusName(const int status)
    if(status == FP_STATUS_COMPLETED)   return "completed";
    if(status == FP_STATUS_LOCKED)      return "locked";
    if(status == FP_STATUS_INVALIDATED) return "invalidated";
+   return "none";
+}
+
+
+string FP_OwnershipChainStateName(const int state)
+{
+   if(state == FP_CHAIN_F1_OWNER) return "f1_owner";
+   if(state == FP_CHAIN_F2_SEARCH) return "f2_search";
+   if(state == FP_CHAIN_F2_OWNER) return "f2_owner";
+   if(state == FP_CHAIN_F3_SEARCH) return "f3_search";
+   if(state == FP_CHAIN_F3_OWNER) return "f3_owner";
+   if(state == FP_CHAIN_F3_EXTENSION) return "f3_extension";
+   if(state == FP_CHAIN_LOCKED_BY_OP_F1) return "locked_by_opposite_f1";
+   if(state == FP_CHAIN_RESET_ALLOWED) return "reset_allowed";
+   if(state == FP_CHAIN_HIDDEN_LOSER) return "hidden_loser";
+   if(state == FP_CHAIN_HIDDEN_DESCENDANT) return "hidden_descendant";
+   if(state == FP_CHAIN_ORPHAN_HIDDEN) return "orphan_hidden";
    return "none";
 }
 

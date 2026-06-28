@@ -718,3 +718,55 @@ Before a layer is frozen:
 - Raw events and visible events are distinguishable.
 - Every module can be tested without renderer.
 - No module has ambiguous authority.
+
+
+## Level 10 ownership modules
+
+Public facade:
+
+```text
+FP_OwnershipEngine.mqh
+```
+
+Owned submodules:
+
+```text
+FP_OwnershipTypes.mqh
+FP_OwnershipRules.mqh
+FP_OwnershipAudit.mqh
+```
+
+Input:
+
+```text
+FP_FlagEvent events[] after Level 09 lock evidence
+FP_Config ownership controls
+```
+
+Output fields on `FP_FlagEvent`:
+
+```text
+phase_direction
+phase_owner_root_id
+chain_state
+next_expected_f_level
+phase_reset_reason
+owner_rank_score
+losing_candidate_ids
+hidden_descendant_ids
+visible_main
+hidden_reason
+```
+
+Owns:
+
+- one canonical F1 owner per direction/phase on the main chart;
+- same-direction F1 suppression inside an unreset phase;
+- strict reset through opposite terminal F3 evidence;
+- semantic owner ranking before visual pruning;
+- fail-open fallback hiding inside Hook-owned phase regions;
+- descendant hiding when root ownership is lost;
+- orphan descendant hiding after ownership;
+- `FP_LEVEL10` report and optional samples.
+
+Must not build nodes, Hook/ND, body, internal count, F1, F2, F3, or renderer objects.

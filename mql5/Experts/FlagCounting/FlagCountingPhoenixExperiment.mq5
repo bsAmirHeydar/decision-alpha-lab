@@ -1,5 +1,5 @@
 #property strict
-#property version   "9.00"
+#property version   "10.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -52,6 +52,9 @@ input int  InpF2SampleLimit = 6;
 input bool InpPrintF3Sanity = true;
 input bool InpPrintF3Samples = false;
 input int  InpF3SampleLimit = 6;
+input bool InpPrintOwnershipSanity = true;
+input bool InpPrintOwnershipSamples = false;
+input int  InpOwnershipSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -71,6 +74,8 @@ input bool InpAbsorbPreInternalExtensions = true;
 input bool InpHideSupersededParentStates = true;
 input bool InpCompactHookRendering = true;
 input bool InpStrictMainChartOwnership = true;
+input int  InpOwnershipScoreMargin = 25;
+input bool InpOwnershipHideOrphans = true;
 input bool InpHookMainRequiresVisibleF1 = true;
 input bool InpHookKeepUnseededVisibleForDebug = false;
 input bool InpF1ShowPostFlagCandidates = true;
@@ -161,6 +166,11 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.hide_superseded_parent_states = InpHideSupersededParentStates;
    cfg.compact_hook_rendering = InpCompactHookRendering;
    cfg.strict_main_chart_ownership = InpStrictMainChartOwnership;
+   cfg.print_ownership_sanity = InpPrintOwnershipSanity;
+   cfg.print_ownership_samples = InpPrintOwnershipSamples;
+   cfg.ownership_sample_limit = InpOwnershipSampleLimit;
+   cfg.ownership_score_margin = InpOwnershipScoreMargin;
+   cfg.ownership_hide_orphans = InpOwnershipHideOrphans;
    cfg.print_hook_sanity = InpPrintHookSanity;
    cfg.print_hook_samples = InpPrintHookSamples;
    cfg.hook_sample_limit = InpHookSampleLimit;
@@ -197,7 +207,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level09";
+   cfg.identity_generation_pass = "phoenix_level10";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -215,6 +225,9 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_f3" + FP_BoolName(InpPrintF3Sanity) +
                               "_f3or" + FP_BoolName(InpF3ShowORRejectedCandidates) +
                               "_f3live" + FP_BoolName(InpF3ShowLiveBodyCandidates) +
+                              "_own" + FP_BoolName(InpStrictMainChartOwnership) +
+                              "_ownmargin" + IntegerToString(InpOwnershipScoreMargin) +
+                              "_orphan" + FP_BoolName(InpOwnershipHideOrphans) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

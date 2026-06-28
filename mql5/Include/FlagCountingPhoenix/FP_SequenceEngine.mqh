@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_F3LifecycleEngine.mqh"
+#include "FP_OwnershipEngine.mqh"
 #include "FP_IdentityAudit.mqh"
 
 // ============================================================================
@@ -1169,6 +1170,14 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int f3_lock_scans_prev = result.f3_lifecycle_lock_scans_total;
    int f3_lock_found_prev = result.f3_lifecycle_lock_found_total;
    int f3_lock_missing_prev = result.f3_lifecycle_lock_missing_total;
+   int ownership_phases_prev = result.ownership_phases_total;
+   int ownership_owner_roots_prev = result.ownership_owner_roots_total;
+   int ownership_competing_roots_prev = result.ownership_competing_roots_total;
+   int ownership_resets_prev = result.ownership_resets_total;
+   int ownership_hidden_roots_prev = result.ownership_hidden_roots_total;
+   int ownership_hidden_descendants_prev = result.ownership_hidden_descendants_total;
+   int ownership_orphans_hidden_prev = result.ownership_orphans_hidden_total;
+   int ownership_phase_safe_duplicate_hides_prev = result.ownership_phase_safe_duplicate_hides_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -1257,6 +1266,14 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.f3_lifecycle_lock_scans_total = f3_lock_scans_prev;
    result.f3_lifecycle_lock_found_total = f3_lock_found_prev;
    result.f3_lifecycle_lock_missing_total = f3_lock_missing_prev;
+   result.ownership_phases_total = ownership_phases_prev;
+   result.ownership_owner_roots_total = ownership_owner_roots_prev;
+   result.ownership_competing_roots_total = ownership_competing_roots_prev;
+   result.ownership_resets_total = ownership_resets_prev;
+   result.ownership_hidden_roots_total = ownership_hidden_roots_prev;
+   result.ownership_hidden_descendants_total = ownership_hidden_descendants_prev;
+   result.ownership_orphans_hidden_total = ownership_orphans_hidden_prev;
+   result.ownership_phase_safe_duplicate_hides_total = ownership_phase_safe_duplicate_hides_prev;
    result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);
@@ -1285,7 +1302,6 @@ int FP_DetectAllScales(const MqlRates &rates[],
    FP_FinalizeEventIds(events);
    FP_AssignEventIdentities(events, cfg);
    FP_AssignHookIdentities(hooks, cfg);
-   FP_PruneFailOpenRootsWhenPhaseRootsExist(events);
    FP_F3LifecycleBuildReport f3_lock_report;
    FP_ResetF3LifecycleBuildReport(f3_lock_report);
    FP_LockF3WithFirstOppositeF1WithReport(events, f3_lock_report);
@@ -1295,13 +1311,25 @@ int FP_DetectAllScales(const MqlRates &rates[],
    result.f3_lifecycle_lock_found_total += f3_lock_report.lock_opposite_found;
    result.f3_lifecycle_lock_missing_total += f3_lock_report.lock_opposite_missing;
    result.f3_lifecycle_locked_total += f3_lock_report.lifecycle_locked;
-   FP_PruneSameDirectionRestarts(events, cfg);
-   FP_HideSupersededParentStates(events, cfg);
-   FP_PruneStrictMainChartOwnership(events, cfg);
+
+   FP_OwnershipReport ownership_report;
+   FP_ApplySequenceOwnershipWithReport(events, cfg, ownership_report);
+   result.ownership_phases_total += ownership_report.phases_seen;
+   result.ownership_owner_roots_total += ownership_report.owner_roots;
+   result.ownership_competing_roots_total += ownership_report.competing_roots;
+   result.ownership_resets_total += ownership_report.resets;
+   result.ownership_hidden_roots_total += ownership_report.hidden_roots;
+   result.ownership_hidden_descendants_total += ownership_report.hidden_descendants;
+   result.ownership_orphans_hidden_total += ownership_report.orphans_hidden;
+   result.ownership_phase_safe_duplicate_hides_total += ownership_report.phase_safe_duplicate_hides;
+   if(cfg.print_ownership_sanity)
+      FP_PrintOwnershipReport("FP_LEVEL10", ownership_report);
+   if(cfg.print_ownership_samples)
+      FP_PrintOwnershipSamples("FP_LEVEL10", events, ArraySize(events), cfg.ownership_sample_limit);
+
    FP_PruneDuplicateRootSequences(events);
    FP_MergeVisualBodyDuplicates(events);
    FP_MergeExactVisualDuplicates(events);
-   FP_HideOrphanDescendants(events);
    FP_FinalizeEventIds(events);
    FP_RebuildParentIdsAfterSort(events);
    FP_NormalizeHiddenReasons(events);

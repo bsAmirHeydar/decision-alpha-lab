@@ -18,10 +18,14 @@ Global non-negotiables:
 
 This is the layer that prevents the engine from becoming a raw candidate enumerator. It owns the rule that a direction/phase proceeds as F1 -> F2 -> F3, not F1 -> F1 -> F1.
 
-## Owned source module
+## Owned source modules
 
 ```text
-mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_OwnershipTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_OwnershipRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_OwnershipAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_OwnershipEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh # orchestration only
 ```
 
 ## Core state machine
@@ -135,3 +139,33 @@ Opposite confirmed F1 after F3 completion locks old F3 and permits a new opposit
 ## Freeze condition
 
 This layer is frozen only when a replay audit can show phase state transitions and explain every hidden same-direction F1.
+
+## Implementation notes after Level 10 patch
+
+Level 10 is now a dedicated semantic ownership layer, not a group of anonymous pruning helpers. It runs after Level 09 F3 lock evidence and before visual duplicate pruning.
+
+The new engine writes ownership evidence onto every event:
+
+```text
+phase_direction
+phase_owner_root_id
+chain_state
+next_expected_f_level
+phase_reset_reason
+owner_rank_score
+losing_candidate_ids
+hidden_descendant_ids
+```
+
+Default inputs:
+
+```text
+InpPrintOwnershipSanity = true
+InpPrintOwnershipSamples = false
+InpOwnershipSampleLimit = 8
+InpStrictMainChartOwnership = true
+InpOwnershipScoreMargin = 25
+InpOwnershipHideOrphans = true
+```
+
+`FP_LEVEL10` must be inspected before renderer output is trusted. If a same-direction F1 disappears from the main chart, its reason must say whether it was a competing phase root, fail-open fallback inside a phase-owned region, hidden descendant, superseded parent state, or orphan descendant.
