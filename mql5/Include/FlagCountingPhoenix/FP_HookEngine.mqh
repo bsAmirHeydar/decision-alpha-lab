@@ -109,6 +109,61 @@ FP_Node FP_FindHookCycleExtreme(const FP_Node &nodes[],
    return best;
 }
 
+
+FP_Node FP_FindHookCycleStart(const FP_Node &nodes[],
+                              const int node_count,
+                              const int last_pos,
+                              const int direction,
+                              const double eps)
+{
+   FP_Node start;
+   FP_ResetNode(start);
+   if(last_pos <= 0 || last_pos >= node_count) return start;
+
+   int side_kind = FP_AdverseKindForHookDirection(direction);
+   FP_Node resolve = nodes[last_pos];
+   if(resolve.kind != side_kind) return start;
+
+   // User contract: from the active/final same-side node, walk backward until
+   // the nearest same-side node that is strictly farther in the adverse
+   // direction is found. That node is the cycle boundary / Hook start.
+   // Bullish low-side: older LOW strictly below resolve LOW.
+   // Bearish high-side: older HIGH strictly above resolve HIGH.
+   for(int i=last_pos-1; i>=0; i--)
+   {
+      if(nodes[i].kind != side_kind) continue;
+      if(FP_IsMoreAdverse(direction, nodes[i].price, resolve.price, eps))
+      {
+         start = nodes[i];
+         return start;
+      }
+   }
+   return start;
+}
+
+bool FP_HookCycleStartHeld(const FP_Node &nodes[],
+                           const int node_count,
+                           const int start_pos,
+                           const int resolve_pos,
+                           const int direction,
+                           const double eps)
+{
+   if(start_pos < 0 || resolve_pos < 0 || start_pos >= resolve_pos) return false;
+   int side_kind = FP_AdverseKindForHookDirection(direction);
+   FP_Node start = nodes[start_pos];
+   if(start.kind != side_kind) return false;
+
+   // The start of the Hook must not be hit/broken before the Hook closes.
+   // Equality is deliberately not a hit: only a strict break invalidates.
+   for(int i=start_pos+1; i<=resolve_pos; i++)
+   {
+      if(nodes[i].kind != side_kind) continue;
+      if(FP_IsMoreAdverse(direction, nodes[i].price, start.price, eps))
+         return false;
+   }
+   return true;
+}
+
 void FP_FindCountedBranchExtremes(const FP_HookBranch &h, FP_Node &first_counted, FP_Node &last_counted)
 {
    FP_ResetNode(first_counted);
@@ -125,14 +180,18 @@ double FP_HookRetraceRatio(const FP_HookBranch &h, const int direction)
    FP_Node last_counted;
    FP_FindCountedBranchExtremes(h, first_counted, last_counted);
 
-   if(first_counted.id < 0 || last_counted.id < 0 || h.extreme_node.id < 0) return 0.0;
+   FP_Node cycle_start;
+   if(h.has_cycle_start) cycle_start = h.cycle_start_node;
+   else cycle_start = first_counted;
+   if(cycle_start.id < 0 || last_counted.id < 0 || h.extreme_node.id < 0) return 0.0;
 
-   double cycle = MathAbs(h.extreme_node.price - first_counted.price);
+   double cycle = MathAbs(h.extreme_node.price - cycle_start.price);
    if(cycle <= 0.0) return 0.0;
 
-   // The final same-side node must have travelled back from the favorable
-   // extreme toward / beyond the branch start.  This matches the user's
-   // definition of "the last node has returned more than 50% of the cycle".
+   // Retracement is measured over the full Hook cycle: cycle_start -> extreme
+   // -> resolve. This fixes the visual/semantic mismatch where gray arcs and
+   // ND qualification started at the first counted branch node instead of the
+   // real cycle boundary.
    return MathAbs(last_counted.price - h.extreme_node.price) / cycle;
 }
 
@@ -157,20 +216,31 @@ bool FP_HookIdentityExists(const FP_HookBranch &hooks[], const int hook_count, c
 
 bool FP_HookCandidateBetterForResolve(const FP_HookBranch &candidate, const FP_HookBranch &existing)
 {
-   // Prefer richer semantic branch first, then stronger cycle retracement,
-   // then older start so older sequences stay closer to price in rendering.
+   // Compact visual rendering should keep the strongest semantic branch at a
+   // given resolve, not every scale duplicate. Prefer richer branch count,
+   // then the cleaner/higher L compression, then stronger retracement, then
+   // older cycle boundary.
    if(candidate.node_count > existing.node_count) return true;
    if(candidate.node_count < existing.node_count) return false;
+   if(candidate.scale_L > existing.scale_L) return true;
+   if(candidate.scale_L < existing.scale_L) return false;
    if(candidate.retrace_ratio > existing.retrace_ratio) return true;
    if(candidate.retrace_ratio < existing.retrace_ratio) return false;
-   return (candidate.start_node.index_anchor < existing.start_node.index_anchor);
+
+   int cidx = (candidate.has_cycle_start ? candidate.cycle_start_node.index_anchor : candidate.start_node.index_anchor);
+   int eidx = (existing.has_cycle_start ? existing.cycle_start_node.index_anchor : existing.start_node.index_anchor);
+   return (cidx < eidx);
 }
 
 int FP_FindHookWithSameResolve(const FP_HookBranch &hooks[], const int hook_count, const FP_HookBranch &candidate)
 {
    for(int i=0; i<hook_count; i++)
    {
-      if(hooks[i].scale_L != candidate.scale_L) continue;
+      // Cross-scale compaction is intentional. When L2/L3/L5/L8 all resolve
+      // on the same structural node, drawing all gray arcs makes the chart look
+      // "all gray" and hides the colored F structures. The engine may still
+      // evaluate every scale, but the main chart keeps one best branch per
+      // direction + resolve node.
       if(hooks[i].direction != candidate.direction) continue;
       if(hooks[i].resolve_node.id != candidate.resolve_node.id) continue;
       if(hooks[i].resolve_node.index_anchor != candidate.resolve_node.index_anchor) continue;
@@ -206,7 +276,16 @@ bool FP_BuildHookFromCountedNodes(const FP_Node &nodes[],
    if(counted == 4 && !FP_HookNodeMovesAdverse(c4, c3, direction, eps)) return false;
 
    FP_Node last = (counted == 4 ? c4 : c3);
-   FP_Node extreme = FP_FindHookCycleExtreme(nodes, node_count, FP_HookFindNodePos(nodes, node_count, c1), FP_HookFindNodePos(nodes, node_count, last), direction, eps);
+   int first_pos = FP_HookFindNodePos(nodes, node_count, c1);
+   int last_pos = FP_HookFindNodePos(nodes, node_count, last);
+   if(first_pos < 0 || last_pos < 0 || last_pos <= first_pos) return false;
+
+   FP_Node cycle_start = FP_FindHookCycleStart(nodes, node_count, last_pos, direction, eps);
+   int cycle_start_pos = FP_HookFindNodePos(nodes, node_count, cycle_start);
+   if(cycle_start.id < 0 || cycle_start_pos < 0 || cycle_start_pos >= first_pos) return false;
+   if(!FP_HookCycleStartHeld(nodes, node_count, cycle_start_pos, last_pos, direction, eps)) return false;
+
+   FP_Node extreme = FP_FindHookCycleExtreme(nodes, node_count, cycle_start_pos, last_pos, direction, eps);
    if(extreme.id < 0) return false;
 
    h.branch_id = branch_id;
@@ -214,7 +293,9 @@ bool FP_BuildHookFromCountedNodes(const FP_Node &nodes[],
    h.direction = direction;
    h.status = FP_STATUS_CONFIRMED;
    h.node_count = counted;
-   h.start_node = c1;
+   h.start_node = c1;                  // semantic counted-branch start
+   h.cycle_start_node = cycle_start;   // visual/full-cycle start
+   h.has_cycle_start = true;
    h.extreme_node = extreme;
    h.resolve_node = last;
    FP_AssignHookCountedNodes(h, c1, c2, c3, c4, counted);

@@ -91,3 +91,16 @@ The Hook engine now follows the branch-sequence contract:
 
 The Phoenix renderer now uses viewport-aware label spacing and deterministic time-price clusters for all main labels, origin labels, internal 1/2/3/4 labels, and Hook/ND labels. Nearby labels are assigned to the same vertical column and stacked with fixed price-space lanes so chart text remains readable instead of overlapping. Peaks stack above price; valleys stack below price. Older labels keep the closest lane and newer labels are pushed farther away from the same local structure.
 
+
+### Candle-index curve rendering
+
+The Phoenix renderer samples flag-body and Hook/ND arcs by candle index, then converts each sampled index to an actual `rates[index].time`.  This avoids distorted curves caused by market time gaps or interpolated timestamps that do not correspond to real bars.
+
+### Hook/ND cycle-boundary display repair
+
+Hook branches now carry two different starts:
+
+- `start_node`: first counted same-side branch node, preserved for branch identity and F1 phase-boundary logic.
+- `cycle_start_node`: true visual cycle boundary used only for gray Hook/ND arc rendering and retracement measurement.
+
+This prevents Hook arc cleanup from mutating F-sequence ownership. Hook/ND arcs start at the real cycle boundary, close at the resolve node, and are drawn behind colored F structures. Same-resolve Hook duplicates across L-scales are compacted for the main chart when compact Hook rendering is enabled.

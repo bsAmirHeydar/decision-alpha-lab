@@ -55,7 +55,7 @@ input string InpObjectPrefix = "DAL_FCP_";
 input bool   InpCleanObjectsOnInit = true;
 input bool   InpCleanObjectsOnDeinit = true;
 input int    InpMaxEventsToDraw = 1200;
-input int    InpMaxHooksToDraw = 1200;
+input int    InpMaxHooksToDraw = 400;
 input bool   InpDrawF1 = true;
 input bool   InpDrawF2 = true;
 input bool   InpDrawF3 = true;
@@ -166,6 +166,8 @@ void FP_Run()
 
    int drawn = FP_DrawAll(events,
                           hooks,
+                          rates,
+                          copied,
                           InpObjectPrefix,
                           InpMaxEventsToDraw,
                           InpMaxHooksToDraw,

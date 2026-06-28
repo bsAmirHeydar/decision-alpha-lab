@@ -68,6 +68,8 @@ void FP_PrintHookAudit(const FP_HookBranch &h)
          " nd=", FP_BoolName(h.is_nd),
          " retrace=", DoubleToString(h.retrace_ratio, 4),
          " start=", FP_NodeAudit(h.start_node),
+         " cycle_start=", FP_NodeAudit(h.cycle_start_node),
+         " has_cycle_start=", FP_BoolName(h.has_cycle_start),
          " extreme=", FP_NodeAudit(h.extreme_node),
          " resolve=", FP_NodeAudit(h.resolve_node),
          " reason=", h.reason);

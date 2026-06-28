@@ -55,7 +55,7 @@ color FP_ShadeColor(const color c, const int event_id, const bool use_shades)
    return (color)(r | (g << 8) | (b << 16));
 }
 
-bool FP_DrawTrend(const string name, const datetime t1, const double p1, const datetime t2, const double p2, const color c, const int width, const ENUM_LINE_STYLE style)
+bool FP_DrawTrend(const string name, const datetime t1, const double p1, const datetime t2, const double p2, const color c, const int width, const ENUM_LINE_STYLE style, const bool draw_back=false)
 {
    if(ObjectFind(0, name) >= 0) ObjectDelete(0, name);
    if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2)) return false;
@@ -64,7 +64,7 @@ bool FP_DrawTrend(const string name, const datetime t1, const double p1, const d
    ObjectSetInteger(0, name, OBJPROP_STYLE, style);
    ObjectSetInteger(0, name, OBJPROP_RAY_RIGHT, false);
    ObjectSetInteger(0, name, OBJPROP_RAY_LEFT, false);
-   ObjectSetInteger(0, name, OBJPROP_BACK, false);
+   ObjectSetInteger(0, name, OBJPROP_BACK, draw_back);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_SELECTED, false);
    return true;
@@ -193,6 +193,88 @@ int FP_RegisterLabelCluster(FP_LabelStackCluster &clusters[],
    return 0;
 }
 
+
+
+datetime FP_TimeAtIndex(const MqlRates &rates[], const int rates_total, const int index_anchor, const datetime fallback_time)
+{
+   if(index_anchor >= 0 && index_anchor < rates_total)
+      return rates[index_anchor].time;
+   return fallback_time;
+}
+
+int FP_NormalizeIndex(const int index_anchor, const int rates_total)
+{
+   if(index_anchor < 0) return -1;
+   if(index_anchor >= rates_total) return -1;
+   return index_anchor;
+}
+
+bool FP_DrawIndexSampledArc(const string base,
+                            const FP_Node &start,
+                            const FP_Node &control,
+                            const FP_Node &finish,
+                            const MqlRates &rates[],
+                            const int rates_total,
+                            const color c,
+                            const int width,
+                            const ENUM_LINE_STYLE style,
+                            const int curve_segments,
+                            const bool draw_back=false)
+{
+   int i0 = FP_NormalizeIndex(start.index_anchor, rates_total);
+   int ic = FP_NormalizeIndex(control.index_anchor, rates_total);
+   int i1 = FP_NormalizeIndex(finish.index_anchor, rates_total);
+   if(i0 < 0 || ic < 0 || i1 < 0 || i1 <= i0)
+   {
+      return FP_DrawTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back);
+   }
+
+   // The visual bug came from shaping curves on interpolated timestamps.  On
+   // markets with session gaps, interpolated timestamps can fall between real
+   // candles and the object chain becomes dirty.  This sampler uses candle
+   // indexes as the x-domain and converts every sampled x back to an actual
+   // candle time from the rates[] array.  Therefore every segment endpoint is
+   // anchored to an existing bar.
+   int span = i1 - i0;
+   int max_segments = MathMax(6, curve_segments);
+   int segs = MathMin(MathMax(2, span), max_segments);
+
+   datetime prev_t = FP_TimeAtIndex(rates, rates_total, i0, start.time_anchor);
+   double prev_p = start.price;
+   int prev_idx = i0;
+   int drawn = 0;
+
+   for(int s=1; s<=segs; s++)
+   {
+      double raw_u = (double)s / (double)segs;
+      int idx = i0 + (int)MathRound((double)span * raw_u);
+      if(idx <= prev_idx) idx = prev_idx + 1;
+      if(idx > i1) idx = i1;
+      if(idx <= prev_idx) continue;
+
+      double u = (double)(idx - i0) / (double)span;
+      double v = 1.0 - u;
+      double p = v*v*start.price + 2.0*v*u*control.price + u*u*finish.price;
+      datetime t = FP_TimeAtIndex(rates, rates_total, idx, finish.time_anchor);
+      if(t <= prev_t && idx < i1)
+      {
+         prev_idx = idx;
+         continue;
+      }
+
+      drawn++;
+      FP_DrawTrend(base + IntegerToString(drawn), prev_t, prev_p, t, p, c, width, style, draw_back);
+      prev_t = t;
+      prev_p = p;
+      prev_idx = idx;
+      if(idx >= i1) break;
+   }
+
+   if(drawn == 0)
+      return FP_DrawTrend(base + "fallback", start.time_anchor, start.price, finish.time_anchor, finish.price, c, width, style, draw_back);
+   return true;
+}
+
 bool FP_DrawStackedText(const string name,
                         const int index_anchor,
                         const datetime time_anchor,
@@ -214,7 +296,9 @@ void FP_DrawFlagBody(const FP_FlagEvent &e,
                      const string prefix,
                      const color c,
                      const int width,
-                     const int curve_segments)
+                     const int curve_segments,
+                     const MqlRates &rates[],
+                     const int rates_total)
 {
    if(!e.has_origin || !e.has_leg1) return;
    string base = prefix + "EV_" + IntegerToString(e.event_id) + "_";
@@ -224,27 +308,9 @@ void FP_DrawFlagBody(const FP_FlagEvent &e,
 
    if(e.has_waist && e.has_leg2)
    {
-      // Smooth quadratic Bezier from Leg1 to Leg2 through Waist as control.
-      int segs = MathMax(6, curve_segments);
-      datetime t0 = e.leg1.time_anchor;
-      datetime tc = e.waist.time_anchor;
-      datetime t1 = e.leg2.time_anchor;
-      double p0 = e.leg1.price;
-      double pc = e.waist.price;
-      double p1 = e.leg2.price;
-      datetime prev_t = t0;
-      double prev_p = p0;
-      for(int s=1; s<=segs; s++)
-      {
-         double u = (double)s / (double)segs;
-         double v = 1.0 - u;
-         double p = v*v*p0 + 2.0*v*u*pc + u*u*p1;
-         long tt = (long)((double)t0 * v*v + 2.0*v*u*(double)tc + u*u*(double)t1);
-         datetime t = (datetime)tt;
-         FP_DrawTrend(base + "curve_" + IntegerToString(s), prev_t, prev_p, t, p, c, width, STYLE_SOLID);
-         prev_t = t;
-         prev_p = p;
-      }
+      // Leg1 -> Leg2 curve through Waist, sampled by candle index instead of
+      // interpolated timestamps. This keeps the arc clean across session gaps.
+      FP_DrawIndexSampledArc(base + "curve_", e.leg1, e.waist, e.leg2, rates, rates_total, c, width, STYLE_SOLID, curve_segments);
    }
 }
 
@@ -298,30 +364,20 @@ void FP_DrawOriginLabel(const FP_FlagEvent &e, const string prefix, const color 
 }
 
 void FP_DrawHookBranch(const FP_HookBranch &h, const string prefix, const color c, const int width, const int curve_segments, const int font_size,
-                       FP_LabelStackCluster &label_clusters[])
+                       FP_LabelStackCluster &label_clusters[],
+                       const MqlRates &rates[],
+                       const int rates_total)
 {
    if(!h.is_nd) return;
    string base = prefix + "HK_" + IntegerToString(h.branch_id) + "_";
-   datetime t0 = h.start_node.time_anchor;
-   datetime tc = h.extreme_node.time_anchor;
-   datetime t1 = h.resolve_node.time_anchor;
-   double p0 = h.start_node.price;
-   double pc = h.extreme_node.price;
-   double p1 = h.resolve_node.price;
-   int segs = MathMax(6, curve_segments);
-   datetime prev_t = t0;
-   double prev_p = p0;
-   for(int s=1; s<=segs; s++)
-   {
-      double u = (double)s / (double)segs;
-      double v = 1.0 - u;
-      double p = v*v*p0 + 2.0*v*u*pc + u*u*p1;
-      long tt = (long)((double)t0 * v*v + 2.0*v*u*(double)tc + u*u*(double)t1);
-      datetime t = (datetime)tt;
-      FP_DrawTrend(base + "arc_" + IntegerToString(s), prev_t, prev_p, t, p, c, width, STYLE_DOT);
-      prev_t = t;
-      prev_p = p;
-   }
+
+   // Hook / ND arc is sampled on candle indexes and starts at the true cycle
+   // boundary when available.  It is drawn in the background so gray Hook
+   // context never visually overwrites colored F1/F2/F3 structures.
+   FP_Node arc_start;
+   if(h.has_cycle_start) arc_start = h.cycle_start_node;
+   else arc_start = h.start_node;
+   FP_DrawIndexSampledArc(base + "arc_", arc_start, h.extreme_node, h.resolve_node, rates, rates_total, c, width, STYLE_DOT, curve_segments, true);
    bool is_peak = (h.resolve_node.kind == FP_NODE_HIGH);
    string label = "ND L" + IntegerToString(h.scale_L) + " #" + IntegerToString(h.node_count);
    FP_DrawStackedText(base + "label",
@@ -383,6 +439,8 @@ bool FP_ShouldDrawEvent(const FP_FlagEvent &e,
 
 int FP_DrawAll(const FP_FlagEvent &events[],
                const FP_HookBranch &hooks[],
+               const MqlRates &rates[],
+               const int rates_total,
                const string prefix,
                const int max_events_to_draw,
                const int max_hooks_to_draw,
@@ -422,7 +480,7 @@ int FP_DrawAll(const FP_FlagEvent &events[],
       for(int h=0; h<ArraySize(hooks); h++)
       {
          if(max_hooks_to_draw > 0 && hook_drawn >= max_hooks_to_draw) break;
-         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_clusters);
+         FP_DrawHookBranch(hooks[h], prefix, hook_color, MathMax(1, fixed_line_width), curve_segments, MathMax(6, label_font_size), label_clusters, rates, rates_total);
          hook_drawn++;
       }
    }
@@ -435,11 +493,13 @@ int FP_DrawAll(const FP_FlagEvent &events[],
 
       color c = FP_ShadeColor(FP_StatusColor(e, bull_candidate, bull_confirmed, bear_candidate, bear_confirmed, f3_locked), e.event_id, use_sequence_color_shades);
       int width = MathMax(1, fixed_line_width);
-      if(e.render_kind == FP_RENDER_FLAG_BODY) FP_DrawFlagBody(e, prefix, c, width, curve_segments);
+      if(e.render_kind == FP_RENDER_FLAG_BODY) FP_DrawFlagBody(e, prefix, c, width, curve_segments, rates, rates_total);
       else if(e.render_kind == FP_RENDER_PROBABLE) FP_DrawProbableLeg(e, prefix, c, width);
 
       // Main label at Leg2 if body exists, otherwise at Leg1.
-      FP_Node anchor = e.has_leg2 ? e.leg2 : e.leg1;
+      FP_Node anchor;
+      if(e.has_leg2) anchor = e.leg2;
+      else anchor = e.leg1;
       if(anchor.id >= 0)
       {
          bool is_peak = (anchor.kind == FP_NODE_HIGH);

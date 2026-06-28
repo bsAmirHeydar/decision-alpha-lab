@@ -62,3 +62,30 @@ Changes:
 
 The Phoenix renderer now uses viewport-aware label spacing and deterministic time-price clusters for all main labels, origin labels, internal 1/2/3/4 labels, and Hook/ND labels. Nearby labels are assigned to the same vertical column and stacked with fixed price-space lanes so chart text remains readable instead of overlapping. Peaks stack above price; valleys stack below price. Older labels keep the closest lane and newer labels are pushed farther away from the same local structure.
 
+
+## Renderer Patch: Candle-Index Arc Sampling
+
+Phoenix flag curves and Hook/ND arcs are now sampled on candle indexes rather than interpolated timestamps.  The previous renderer shaped quadratic arcs directly in datetime space.  On instruments with session gaps or irregular chart time spacing, interpolated datetimes may land between real candles, which can visually distort the curve or create dirty broken-looking trendline chains.
+
+The renderer now passes the copied `MqlRates` array into `FP_DrawAll`, then into the curve drawing helpers.  Each sampled curve point chooses a real candle index between the start node and the finish node, converts that index back to `rates[index].time`, and draws the segment between actual bar timestamps only.  The price curve remains quadratic through the waist/control node, but the x-domain is candle-index space.
+
+This is a rendering-only change.  It does not modify node extraction, Hook/ND detection, F1/F2/F3 sequencing, internal counting, or ownership logic.
+
+## Phoenix Hook/ND Display Repair — Cycle Boundary Without Downstream Origin Mutation
+
+This repair fixes the chart state where Hook/ND context could visually dominate the chart and make the output look mostly gray.
+
+The key distinction is now explicit:
+
+- `start_node` remains the first counted same-side branch node. This is the semantic branch start used by downstream F1 phase-boundary logic.
+- `cycle_start_node` is the true visual Hook cycle boundary. The gray Hook/ND arc starts from this node and closes at the branch resolve node through the favorable cycle extreme.
+
+For a bullish low-side Hook, `cycle_start_node` is the nearest older LOW that is strictly below the final counted LOW. For a bearish high-side Hook, it is the nearest older HIGH that is strictly above the final counted HIGH. Equality is not a break.
+
+The Hook cycle start must hold until the Hook closes. A bullish Hook is rejected if a later LOW strictly breaks below the cycle start before resolve. A bearish Hook is rejected if a later HIGH strictly breaks above the cycle start before resolve.
+
+The renderer uses `cycle_start_node` only for the gray Hook/ND arc. It does not use the cycle boundary as the F1 semantic origin. This prevents the previous failure mode where fixing the arc start changed downstream sequence ownership and damaged the colored F structures.
+
+Hook rendering is also compacted across scales at the same resolve node. If L2, L3, L5, and L8 all resolve at the same structural node, the main chart keeps the strongest branch instead of drawing every gray duplicate. The engine still scans all scales; this is a main-chart readability rule.
+
+Gray Hook/ND arcs are drawn in the background so they cannot visually overwrite colored F1/F2/F3 structures.

@@ -112,7 +112,17 @@ struct FP_HookBranch
    int      direction;
    int      status;
    int      node_count;
+   // First counted same-side branch node. Kept as the semantic branch start
+   // used by F1 phase boundary logic. Do not replace this with the cycle
+   // boundary; otherwise downstream sequence ownership changes.
    FP_Node  start_node;
+
+   // True visual/cycle boundary. The gray Hook/ND arc starts here. This is
+   // the nearest older same-side node that is strictly beyond the resolve node
+   // in the adverse direction; it must not be strictly broken before resolve.
+   FP_Node  cycle_start_node;
+   bool     has_cycle_start;
+
    FP_Node  extreme_node;
    FP_Node  resolve_node;
    FP_Node  n1;
@@ -265,6 +275,8 @@ void FP_ResetHook(FP_HookBranch &h)
    h.status = FP_STATUS_NONE;
    h.node_count = 0;
    FP_ResetNode(h.start_node);
+   FP_ResetNode(h.cycle_start_node);
+   h.has_cycle_start = false;
    FP_ResetNode(h.extreme_node);
    FP_ResetNode(h.resolve_node);
    FP_ResetNode(h.n1);
