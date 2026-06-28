@@ -1075,3 +1075,29 @@ Must not:
 - draw or delete chart objects;
 - alter Level 11.5 export files;
 - invent expected counts from documentation.
+
+
+## Level 14 release/debug/rollback interfaces
+
+Files:
+
+```text
+FP_ReleaseTypes.mqh
+FP_ReleaseRules.mqh
+FP_ReleaseAudit.mqh
+FP_ReleaseEngine.mqh
+```
+
+Public contracts:
+
+```text
+FP_ReleaseConfig
+FP_ReleaseReport
+FP_ReleaseProfile
+FP_ReleaseApplyProfile(...)
+FP_FinalizeReleaseWithManifest(...)
+FP_ReleaseApplyReportToResult(...)
+FP_PrintReleaseReport(...)
+```
+
+The release layer may adjust runtime config objects before execution and may write a release manifest after execution. It must not create, delete, hide, reveal, confirm, invalidate, lock, or re-parent events or hooks.

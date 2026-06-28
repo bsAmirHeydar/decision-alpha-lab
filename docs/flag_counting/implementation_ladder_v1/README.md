@@ -113,3 +113,13 @@ Level 12 now owns read-only chart rendering through `FP_Render*` modules. Render
 ## Level 13 patch status
 
 Level 13 now owns validation through `FP_Validation*` modules. Validation runs after renderer, emits `FP_LEVEL13`, writes optional `latest_validation.csv`, and can operate in baseline mode or regression mode.
+
+
+## Level 13 patch status
+
+Level 13 now owns validation through `FP_Validation*` modules. Validation runs after renderer and before final summary.
+
+
+## Level 14 patch status
+
+Level 14 now owns operational release/debug/rollback profiles through `FP_Release*` modules. It applies runtime profiles before Level 01, finalizes the release gate after Level 13, writes `latest_release.csv`, and emits `FP_LEVEL14`.

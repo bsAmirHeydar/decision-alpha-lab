@@ -161,6 +161,18 @@ void FP_PrintSummary(const string symbol,
    msg += " validation_warn=" + IntegerToString(result.validation_warn_total);
    msg += " validation_skipped=" + IntegerToString(result.validation_skipped_total);
    msg += " validation_file_errors=" + IntegerToString(result.validation_file_errors_total);
+   msg += " release_attempted=" + IntegerToString(result.release_attempted_total);
+   msg += " release_ok=" + IntegerToString(result.release_ok_total);
+   msg += " release_gate_pass=" + IntegerToString(result.release_gate_pass_total);
+   msg += " release_gate_fail=" + IntegerToString(result.release_gate_fail_total);
+   msg += " release_overrides=" + IntegerToString(result.release_overrides_total);
+   msg += " release_files=" + IntegerToString(result.release_files_written_total);
+   msg += " release_errors=" + IntegerToString(result.release_file_errors_total);
+   msg += " release_cleanup=" + IntegerToString(result.release_cleanup_requested_total);
+   msg += " release_export_forced=" + IntegerToString(result.release_export_forced_total);
+   msg += " release_render_suppressed=" + IntegerToString(result.release_render_suppressed_total);
+   msg += " release_validation_forced=" + IntegerToString(result.release_validation_forced_total);
+   msg += " release_rollback_safe=" + IntegerToString(result.release_rollback_safe_total);
    msg += " invalid=" + IntegerToString(result.invalid_total);
    msg += " drawn=" + IntegerToString(drawn);
    Print(msg);

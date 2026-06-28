@@ -480,3 +480,37 @@ Acceptance additions:
 - hidden-reason, visible-parent, visible-canonical-id, canonical, render, and export invariants are checked;
 - `FP_SUMMARY` includes validation counters;
 - validation runs after renderer and does not mutate events, hooks, export files, or chart objects.
+
+
+---
+
+## Step 14 — Build release/debug/rollback protocol
+
+Files:
+
+```text
+FP_ReleaseTypes.mqh
+FP_ReleaseRules.mqh
+FP_ReleaseAudit.mqh
+FP_ReleaseEngine.mqh
+FlagCountingPhoenixExperiment.mq5 # profile wiring only
+```
+
+Acceptance:
+
+- `InpReleaseProfile` exposes normal, clean_main, audit_export, validation, debug_max, render_off, and safe_rollback profiles;
+- release profiles only mutate runtime configs, not events/hooks;
+- `FP_LEVEL14_PRE` reports profile overrides before Level 01 when overrides exist;
+- `FP_LEVEL14` reports final gate state after Level 13;
+- `latest_release.csv` is written when enabled;
+- safe_rollback suppresses detection/drawing and requests prefix cleanup;
+- render_off allows export without chart rendering;
+- validation profile forces export+validation;
+- FP_SUMMARY includes release counters;
+- release gate failures are visible and do not silently change market structure.
+
+Freeze condition:
+
+```text
+A bad chart can be diagnosed through profile, CSV, validation, renderer, and release-gate counters without guessing whether the problem is stale objects, stale compile, renderer filtering, or logic.
+```

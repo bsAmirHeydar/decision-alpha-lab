@@ -23,3 +23,25 @@ FC-GC-001_node_plateau.png
 ```
 
 A case is not frozen until it has a broker-valid range, expected counts, export files, screenshot, and notes explaining any intentional deviation from the previous baseline.
+
+## Level 14 operational profiles
+
+Before baselining a case, choose one profile explicitly:
+
+```text
+normal       -> manual visual/run check
+clean_main   -> screenshot baseline
+audit_export -> CSV-only audit
+validation   -> regression with expected ranges
+debug_max    -> noisy investigation
+render_off   -> headless CSV check
+safe_rollback-> cleanup/recovery only
+```
+
+For validation cases, prefer:
+
+```text
+InpReleaseProfile = FP_RELEASE_PROFILE_VALIDATION
+InpValidationEnabled = true
+InpExportAuditFiles = true
+```

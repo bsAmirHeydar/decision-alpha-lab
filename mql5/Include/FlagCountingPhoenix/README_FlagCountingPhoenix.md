@@ -657,3 +657,8 @@ MQL5/Files/FlagCountingPhoenix/latest_validation.csv
 ```
 
 Regression mode is created by filling the expected min/max inputs. Exact expectations use the same min and max. The terminal sanity line is `FP_LEVEL13`, and `FP_SUMMARY` includes validation pass/fail/warn counters.
+
+
+## Level 14 release/debug/rollback layer
+
+Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAudit.mqh`, and `FP_ReleaseEngine.mqh`. The active EA exposes `InpReleaseProfile` with `normal`, `clean_main`, `audit_export`, `validation`, `debug_max`, `render_off`, and `safe_rollback` profiles. Level 14 writes `latest_release.csv` and prints `FP_LEVEL14`; it does not mutate market structure.

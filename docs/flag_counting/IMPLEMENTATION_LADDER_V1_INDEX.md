@@ -54,3 +54,8 @@ Recommended reading order:
 ## Level 13 implemented
 
 `13_LEVEL_13_VALIDATION_MATRIX.md` is now backed by Phoenix `FP_ValidationTypes`, `FP_ValidationRules`, `FP_ValidationAudit`, and `FP_ValidationEngine`. The harness emits `FP_LEVEL13`, optional `latest_validation.csv`, and validation counters in `FP_SUMMARY`.
+
+
+## Level 14 release/debug/rollback layer
+
+Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAudit.mqh`, and `FP_ReleaseEngine.mqh`. The active EA exposes `InpReleaseProfile` with `normal`, `clean_main`, `audit_export`, `validation`, `debug_max`, `render_off`, and `safe_rollback` profiles. Level 14 writes `latest_release.csv` and prints `FP_LEVEL14`; it does not mutate market structure.

@@ -1,11 +1,12 @@
 #property strict
-#property version   "13.00"
+#property version   "14.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_Timebase.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ExportEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ValidationEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_ReleaseEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -69,6 +70,9 @@ input int  InpRenderSampleLimit = 8;
 input bool InpPrintValidationSanity = true;
 input bool InpPrintValidationSamples = false;
 input int  InpValidationSampleLimit = 8;
+input bool InpPrintReleaseSanity = true;
+input bool InpPrintReleaseSamples = false;
+input int  InpReleaseSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -167,6 +171,21 @@ input int    InpValidationExpectedMinF3 = -1;
 input int    InpValidationExpectedMaxF3 = -1;
 input int    InpValidationExpectedMinLockedF3 = -1;
 input int    InpValidationExpectedMaxLockedF3 = -1;
+
+// ------------------------------ Release / debug / rollback ------------------
+input FP_ReleaseProfile InpReleaseProfile = FP_RELEASE_PROFILE_NORMAL;
+input string InpReleaseRunTag = "";
+input string InpReleaseFolder = "FlagCountingPhoenix";
+input bool   InpReleaseWriteManifest = true;
+input bool   InpReleaseOverwriteLatest = true;
+input bool   InpReleaseStrictGate = false;
+input bool   InpReleaseRequireValidationOk = false;
+input bool   InpReleaseRequireExportOk = false;
+input bool   InpReleaseRequireRenderOk = true;
+input bool   InpReleaseRequireNoRenderErrors = true;
+input bool   InpReleaseRequireNoExportErrors = false;
+input bool   InpReleaseRequireNoCanonicalFailures = true;
+input bool   InpReleaseCleanObjectsForProfile = true;
 
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
@@ -286,7 +305,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level13";
+   cfg.identity_generation_pass = "phoenix_level14";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -317,6 +336,7 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_renderstrict" + FP_BoolName(InpRenderStrictVisibility) +
                               "_validation" + FP_BoolName(InpValidationEnabled) +
                               "_validationcase" + InpValidationCaseId +
+                              "_release" + FP_ReleaseProfileName(InpReleaseProfile) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -439,9 +459,34 @@ void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
    cfg.expected_max_locked_f3 = InpValidationExpectedMaxLockedF3;
 }
 
+void FP_LoadReleaseConfig(FP_ReleaseConfig &cfg)
+{
+   FP_DefaultReleaseConfig(cfg);
+   cfg.profile = InpReleaseProfile;
+   cfg.folder = InpReleaseFolder;
+   cfg.run_tag = InpReleaseRunTag;
+   cfg.write_manifest = InpReleaseWriteManifest;
+   cfg.overwrite_latest = InpReleaseOverwriteLatest;
+   cfg.strict_gate = InpReleaseStrictGate;
+   cfg.require_validation_ok = InpReleaseRequireValidationOk;
+   cfg.require_export_ok = InpReleaseRequireExportOk;
+   cfg.require_render_ok = InpReleaseRequireRenderOk;
+   cfg.require_no_render_errors = InpReleaseRequireNoRenderErrors;
+   cfg.require_no_export_errors = InpReleaseRequireNoExportErrors;
+   cfg.require_no_canonical_failures = InpReleaseRequireNoCanonicalFailures;
+   cfg.clean_objects_for_profile = InpReleaseCleanObjectsForProfile;
+   cfg.print_sanity = InpPrintReleaseSanity;
+   cfg.print_samples = InpPrintReleaseSamples;
+   cfg.sample_limit = InpReleaseSampleLimit;
+}
+
 void FP_Run()
 {
    MqlRates rates[];
+
+   FP_ReleaseConfig release_cfg;
+   FP_LoadReleaseConfig(release_cfg);
+   FP_ReleaseReport release_report;
 
    FP_TimebaseConfig timebase_cfg;
    FP_DefaultTimebaseConfig(timebase_cfg);
@@ -455,15 +500,33 @@ void FP_Run()
    timebase_cfg.print_sanity = InpPrintTimebaseSanity;
    timebase_cfg.print_samples = InpPrintTimebaseSamples;
 
+   FP_Config cfg;
+   FP_LoadConfig(cfg);
+
+   FP_ExportConfig export_cfg;
+   FP_LoadExportConfig(export_cfg);
+
+   FP_RenderConfig render_cfg;
+   FP_LoadRenderConfig(render_cfg);
+
+   FP_ValidationConfig validation_cfg;
+   FP_LoadValidationConfig(validation_cfg);
+
+   FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
+   if(release_cfg.print_sanity && release_report.overrides_applied > 0)
+      FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
+   if(release_cfg.print_samples && release_report.overrides_applied > 0)
+      FP_PrintReleaseSamples("FP_LEVEL14_PRE", release_report);
+
    FP_TimebaseReport timebase_report;
    int copied = FP_LoadCanonicalRates(timebase_cfg, rates, timebase_report);
 
-   if(InpPrintTimebaseSanity || !timebase_report.ok)
+   if(timebase_cfg.print_sanity || !timebase_report.ok)
       FP_PrintTimebaseReport("FP_LEVEL01", timebase_report);
-   if(InpPrintTimebaseSamples)
+   if(timebase_cfg.print_samples)
       FP_PrintTimebaseSamples("FP_LEVEL01", rates, copied);
 
-   if(!timebase_report.ok && InpStrictTimebase)
+   if(!timebase_report.ok && timebase_cfg.strict_contract)
    {
       Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
             " bars=", copied,
@@ -495,17 +558,13 @@ void FP_Run()
       return;
    }
 
-   FP_Config cfg;
-   FP_LoadConfig(cfg);
-
    FP_FlagEvent events[];
    FP_HookBranch hooks[];
    FP_DetectResult result;
    FP_DetectAllScales(rates, copied, scales, scale_count, cfg, events, hooks, result);
 
-   FP_ExportConfig export_cfg;
-   FP_LoadExportConfig(export_cfg);
    FP_ExportReport export_report;
+   FP_ResetExportReport(export_report);
    if(export_cfg.enabled)
    {
       FP_ExportAuditWithReport(_Symbol, _Period, copied, scale_count, cfg, export_cfg, events, hooks, result, export_report);
@@ -516,9 +575,8 @@ void FP_Run()
          FP_PrintExportSamples("FP_LEVEL11_5", export_report, events, hooks, export_cfg.sample_limit);
    }
 
-   FP_RenderConfig render_cfg;
-   FP_LoadRenderConfig(render_cfg);
    FP_RenderReport render_report;
+   FP_ResetRenderReport(render_report);
    int drawn = FP_DrawAllWithReport(events, hooks, rates, copied, render_cfg, render_report);
    FP_RenderApplyReportToResult(render_report, result);
    if(render_cfg.print_sanity)
@@ -526,9 +584,8 @@ void FP_Run()
    if(render_cfg.print_samples)
       FP_PrintRenderSamples("FP_LEVEL12", render_report);
 
-   FP_ValidationConfig validation_cfg;
-   FP_LoadValidationConfig(validation_cfg);
    FP_ValidationReport validation_report;
+   FP_ResetValidationReport(validation_report);
    string validation_rows[];
    if(validation_cfg.enabled)
    {
@@ -540,6 +597,13 @@ void FP_Run()
          FP_PrintValidationSamples("FP_LEVEL13", validation_report, validation_rows, validation_cfg.sample_limit);
    }
 
+   FP_FinalizeReleaseWithManifest(release_cfg, result, export_report, render_report, validation_report, release_report);
+   FP_ReleaseApplyReportToResult(release_report, result);
+   if(release_cfg.print_sanity)
+      FP_PrintReleaseReport("FP_LEVEL14", release_report);
+   if(release_cfg.print_samples)
+      FP_PrintReleaseSamples("FP_LEVEL14", release_report);
+
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)
    {
@@ -550,7 +614,9 @@ void FP_Run()
 
 int OnInit()
 {
-   if(InpCleanObjectsOnInit)
+   FP_ReleaseConfig init_release_cfg;
+   FP_LoadReleaseConfig(init_release_cfg);
+   if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
    g_fp_last_bar_time = 0;
    FP_Run();
