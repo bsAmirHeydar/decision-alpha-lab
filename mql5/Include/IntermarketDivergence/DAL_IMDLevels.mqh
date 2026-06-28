@@ -145,6 +145,85 @@ bool IMD_PreviousSessionLevels(const IMD_Bar &bars[],
    return true;
 }
 
+bool IMD_CurrentDayLevels(const IMD_Bar &bars[], const int i, IMD_LevelPair &levels)
+{
+   levels.ok = false;
+   if(i <= 0 || i >= ArraySize(bars)) return false;
+   int date_key = IMD_DateKey(bars[i].time);
+   bool found = false;
+   double hi = 0.0, lo = 0.0;
+   int hi_i = -1, lo_i = -1;
+   for(int k=i-1; k>=0; k--)
+   {
+      if(IMD_DateKey(bars[k].time) != date_key) break;
+      if(!found)
+      {
+         hi = bars[k].high; lo = bars[k].low; hi_i = k; lo_i = k; found = true;
+      }
+      else
+      {
+         if(bars[k].high > hi) { hi = bars[k].high; hi_i = k; }
+         if(bars[k].low < lo) { lo = bars[k].low; lo_i = k; }
+      }
+   }
+   if(!found) return false;
+   levels.high = hi;
+   levels.low = lo;
+   levels.high_time = bars[hi_i].time;
+   levels.low_time = bars[lo_i].time;
+   levels.high_index = hi_i;
+   levels.low_index = lo_i;
+   levels.source_name = "CURRENT_DAY";
+   levels.ok = true;
+   return true;
+}
+
+bool IMD_PreviousDayLevels(const IMD_Bar &bars[], const int i, IMD_LevelPair &levels)
+{
+   levels.ok = false;
+   if(i <= 0 || i >= ArraySize(bars)) return false;
+   int current_date = IMD_DateKey(bars[i].time);
+   int prev_date = -1;
+   for(int k=i-1; k>=0; k--)
+   {
+      int d = IMD_DateKey(bars[k].time);
+      if(d != current_date) { prev_date = d; break; }
+   }
+   if(prev_date < 0) return false;
+
+   bool found = false;
+   double hi = 0.0, lo = 0.0;
+   int hi_i = -1, lo_i = -1;
+   for(int k=i-1; k>=0; k--)
+   {
+      int d = IMD_DateKey(bars[k].time);
+      if(d != prev_date)
+      {
+         if(found) break;
+         continue;
+      }
+      if(!found)
+      {
+         hi = bars[k].high; lo = bars[k].low; hi_i = k; lo_i = k; found = true;
+      }
+      else
+      {
+         if(bars[k].high > hi) { hi = bars[k].high; hi_i = k; }
+         if(bars[k].low < lo) { lo = bars[k].low; lo_i = k; }
+      }
+   }
+   if(!found) return false;
+   levels.high = hi;
+   levels.low = lo;
+   levels.high_time = bars[hi_i].time;
+   levels.low_time = bars[lo_i].time;
+   levels.high_index = hi_i;
+   levels.low_index = lo_i;
+   levels.source_name = "PREVIOUS_DAY";
+   levels.ok = true;
+   return true;
+}
+
 bool IMD_GetLevels(const IMD_Bar &bars[],
                    const int i,
                    const IMD_LevelFamily family,
@@ -161,6 +240,17 @@ bool IMD_GetLevels(const IMD_Bar &bars[],
       return IMD_CurrentSessionLevels(bars, i, session_start_minute, session_end_minute, levels);
    if(family == IMD_LEVEL_PREVIOUS_SESSION)
       return IMD_PreviousSessionLevels(bars, i, session_start_minute, session_end_minute, levels);
+   if(family == IMD_LEVEL_CURRENT_DAY)
+      return IMD_CurrentDayLevels(bars, i, levels);
+   if(family == IMD_LEVEL_PREVIOUS_DAY)
+      return IMD_PreviousDayLevels(bars, i, levels);
+
+   // The simple candle/session engine does not consume structural nodes. Keep
+   // this branch deterministic and non-breaking by falling back to a rolling
+   // lookback proxy when an old .set file selects IMD_LEVEL_L_NODE.
+   if(family == IMD_LEVEL_L_NODE)
+      return IMD_RollingLookbackLevels(bars, i, rolling_lookback, levels);
+
    return false;
 }
 

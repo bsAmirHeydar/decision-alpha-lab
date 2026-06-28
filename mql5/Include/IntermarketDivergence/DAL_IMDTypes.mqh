@@ -2,30 +2,40 @@
 #define __DAL_IMD_TYPES_MQH__
 #property strict
 
+// EXP0015 canonical data source.
 enum IMD_DataSource
 {
    IMD_DS_BROKER_SERIES = 0,
    IMD_DS_EXTERNAL_CSV  = 1
 };
 
+// EXP0015 runtime mode.
 enum IMD_RunMode
 {
    IMD_RUN_BACKTEST_BATCH = 0,
    IMD_RUN_LIVE_MONITOR   = 1
 };
 
+// Canonical reference-level family used by the current EXP0015 engine.
+// Values 4..6 are compile-compatible extensions for older/deprecated
+// EXP0015 files that referenced node/day sources. The simple candle/session
+// engine only consumes the first four families directly; unsupported families
+// should be mapped by the caller before dispatching to the simple engine.
 enum IMD_LevelFamily
 {
-   IMD_LEVEL_PREVIOUS_CANDLE = 0,
+   IMD_LEVEL_PREVIOUS_CANDLE  = 0,
    IMD_LEVEL_ROLLING_LOOKBACK = 1,
-   IMD_LEVEL_CURRENT_SESSION = 2,
-   IMD_LEVEL_PREVIOUS_SESSION = 3
+   IMD_LEVEL_CURRENT_SESSION  = 2,
+   IMD_LEVEL_PREVIOUS_SESSION = 3,
+   IMD_LEVEL_L_NODE           = 4,
+   IMD_LEVEL_CURRENT_DAY      = 5,
+   IMD_LEVEL_PREVIOUS_DAY     = 6
 };
 
 enum IMD_TriggerMode
 {
-   IMD_TRIGGER_WICK_TOUCH = 0,
-   IMD_TRIGGER_CLOSE_BREAK = 1,
+   IMD_TRIGGER_WICK_TOUCH        = 0,
+   IMD_TRIGGER_CLOSE_BREAK       = 1,
    IMD_TRIGGER_HUNT_REJECT_CLOSE = 2
 };
 
@@ -41,6 +51,24 @@ enum IMD_Bias
    IMD_BIAS_BUY  = 1,
    IMD_BIAS_SELL = 2
 };
+
+// Legacy origin-bar mode kept so deprecated IMD001_SPX_NDX_TimeDivergence.mq5
+// and old .set files compile cleanly. The current wrapper maps this to a
+// closed-bar-only boolean when loading broker data.
+enum DAL_IMDOriginBarMode
+{
+   IMD_ORIGIN_CLOSED_BARS_ONLY = 0,
+   IMD_ORIGIN_INCLUDE_FORMING_BAR = 1
+};
+
+// Compatibility aliases for the older EXP0015 reference-level code.
+// MQL has no typedef, so these preprocessor aliases intentionally map old type
+// names to the current canonical enum types.
+#define DAL_IMDTriggerMode IMD_TriggerMode
+#define DAL_IMDLevelSource IMD_LevelFamily
+#define DAL_IMDLevelSide   IMD_DivergenceSide
+#define IMD_LEVEL_HIGH     IMD_DIV_HIGH
+#define IMD_LEVEL_LOW      IMD_DIV_LOW
 
 struct IMD_Bar
 {
@@ -62,6 +90,24 @@ struct IMD_LevelPair
    int high_index;
    int low_index;
    string source_name;
+};
+
+// Compatibility level object used by DAL_IMDReferenceLevels.mqh. It is richer
+// than the simple IMD_LevelPair because the old reference module can resolve
+// structural-node and session metadata.
+struct DAL_IMDReferenceLevel
+{
+   bool ok;
+   double price;
+   string source;
+   int source_index;
+   datetime source_time;
+   int node_id;
+   datetime active_from_time;
+   double session_high;
+   double session_low;
+   datetime session_start;
+   datetime session_end;
 };
 
 struct IMD_Event
@@ -125,7 +171,15 @@ string IMD_LevelFamilyText(const IMD_LevelFamily f)
    if(f == IMD_LEVEL_ROLLING_LOOKBACK) return "ROLLING_LOOKBACK";
    if(f == IMD_LEVEL_CURRENT_SESSION) return "CURRENT_SESSION";
    if(f == IMD_LEVEL_PREVIOUS_SESSION) return "PREVIOUS_SESSION";
+   if(f == IMD_LEVEL_L_NODE) return "L_NODE";
+   if(f == IMD_LEVEL_CURRENT_DAY) return "CURRENT_DAY";
+   if(f == IMD_LEVEL_PREVIOUS_DAY) return "PREVIOUS_DAY";
    return "UNKNOWN";
+}
+
+string DAL_IMD_LevelSourceToString(const IMD_LevelFamily f)
+{
+   return IMD_LevelFamilyText(f);
 }
 
 string IMD_TriggerModeText(const IMD_TriggerMode m)
@@ -134,6 +188,11 @@ string IMD_TriggerModeText(const IMD_TriggerMode m)
    if(m == IMD_TRIGGER_CLOSE_BREAK) return "CLOSE_BREAK";
    if(m == IMD_TRIGGER_HUNT_REJECT_CLOSE) return "HUNT_REJECT_CLOSE";
    return "UNKNOWN";
+}
+
+string DAL_IMD_TriggerModeToString(const IMD_TriggerMode m)
+{
+   return IMD_TriggerModeText(m);
 }
 
 IMD_Bias IMD_DefaultBiasForSide(const IMD_DivergenceSide side)
