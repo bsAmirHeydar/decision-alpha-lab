@@ -28,3 +28,6 @@ Key detailed documents:
 The next engineering stage is Level 07: confirmation, signal registry, and no-late-entry consumption logic.
 
 - [Level 07 STC SMT Confirmation and Signal Registry](LEVEL_07_STC_SMT_CONFIRMATION_SIGNAL_REGISTRY.md)
+
+
+- `LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md` — audit-only chart drawing layer for EXEC001 STC SMT Cycles.

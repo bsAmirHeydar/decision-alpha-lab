@@ -89,6 +89,14 @@ bool STC_WriteBuildSanityCsv(STC_Config &cfg, STC_RuntimeState &state, STC_Build
    FileWrite(h, "hard_close_audit_file_common", state.hard_close_audit_file_common);
    FileWrite(h, "max_hard_close_backfill_on_init", cfg.max_hard_close_backfill_on_init);
    FileWrite(h, "max_hard_close_catchup_per_pulse", cfg.max_hard_close_catchup_per_pulse);
+   FileWrite(h, "drawing_enabled", STC_BoolText(cfg.enable_drawing));
+   FileWrite(h, "drawing_audit_enabled", STC_BoolText(cfg.write_drawing_audit));
+   FileWrite(h, "drawing_audit_file_common", state.drawing_audit_file_common);
+   FileWrite(h, "drawing_refresh_seconds", cfg.drawing_refresh_seconds);
+   FileWrite(h, "drawing_history_checks", cfg.drawing_history_checks);
+   FileWrite(h, "drawing_history_w_levels", cfg.drawing_history_w_levels);
+   FileWrite(h, "drawing_clear_on_deinit", STC_BoolText(cfg.drawing_clear_on_deinit));
+   FileWrite(h, "drawing_object_prefix", cfg.drawing_object_prefix);
    FileWrite(h, "locked_rules", STC_LockedRulesOneLine());
    FileWrite(h, "validation_warning", state.init_warning);
    FileClose(h);

@@ -27,6 +27,12 @@ struct STC_Config
    int instance_lock_stale_seconds;
    bool strict_symbol_validation;
    bool enable_drawing;
+   bool write_drawing_audit;
+   int drawing_refresh_seconds;
+   int drawing_history_checks;
+   int drawing_history_w_levels;
+   bool drawing_clear_on_deinit;
+   string drawing_object_prefix;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -120,7 +126,11 @@ struct STC_RuntimeState
    string hard_close_audit_file_common;
    string persistence_snapshot_file_common;
    string persistence_recovery_audit_file_common;
+   string drawing_audit_file_common;
    datetime last_persistence_snapshot_server_time;
+   datetime last_drawing_server_time;
+   long drawing_refresh_count;
+   long drawing_objects_created;
    bool persistence_restored;
    string persistence_restore_status;
    string persistence_restore_note;
@@ -827,7 +837,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL12";
+   cfg.run_id = "EXEC001_STC_LEVEL13";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -847,6 +857,12 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.instance_lock_stale_seconds = 120;
    cfg.strict_symbol_validation = false;
    cfg.enable_drawing = true;
+   cfg.write_drawing_audit = true;
+   cfg.drawing_refresh_seconds = 15;
+   cfg.drawing_history_checks = 96;
+   cfg.drawing_history_w_levels = 12;
+   cfg.drawing_clear_on_deinit = true;
+   cfg.drawing_object_prefix = "DAL_STC_EXEC001";
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -916,7 +932,11 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.hard_close_audit_file_common = "";
    state.persistence_snapshot_file_common = "";
    state.persistence_recovery_audit_file_common = "";
+   state.drawing_audit_file_common = "";
    state.last_persistence_snapshot_server_time = 0;
+   state.last_drawing_server_time = 0;
+   state.drawing_refresh_count = 0;
+   state.drawing_objects_created = 0;
    state.persistence_restored = false;
    state.persistence_restore_status = "NOT_ATTEMPTED";
    state.persistence_restore_note = "";
@@ -971,10 +991,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_12_PERSISTENCE_RESTART_RECOVERY";
+   sanity.module_level = "LEVEL_13_VISUALIZATION_AUDIT_DRAWING";
    sanity.build_version = "2.00";
-   sanity.build_scope = "level01 skeleton through level12 persistence and restart recovery for paper execution state";
-   sanity.locked_contract = "Persist and restore current STC-day cursors, counters, direction locks, and recovery audit state to avoid duplicate paper entries, partials, and hard closes after restart; no real orders yet";
+   sanity.build_scope = "level01 skeleton through level13 visualization and audit drawing for paper execution state";
+   sanity.locked_contract = "Render audit-only M/W zones, W levels, SMT candidates, paper entry plans, SL/TP, partial markers, and hard-close markers on chart without changing strategy decisions or sending real orders";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)

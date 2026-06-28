@@ -1,13 +1,13 @@
 #property strict
 #property version   "2.00"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 12 persistence and restart recovery"
-#property description "Level 12 restores current-day cursors, paper counters and locks after restart while keeping real orders disabled."
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 13 visualization and audit drawing"
+#property description "Level 13 draws M/W zones, W levels, SMT/paper audit objects on chart while keeping real orders disabled."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 12 Runtime"
+input group "DAL / STC Level 13 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL12";
+input string InpRunId = "EXEC001_STC_LEVEL13";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -57,6 +57,14 @@ input bool InpPartial = true;
 input bool InpHedging = false;
 input bool InpEnableDrawing = true;
 
+input group "STC Level 13 Drawing"
+input bool InpWriteDrawingAudit = true;
+input int InpDrawingRefreshSeconds = 15;
+input int InpDrawingHistoryChecks = 96;
+input int InpDrawingHistoryWLevels = 12;
+input bool InpDrawingClearOnDeinit = true;
+input string InpDrawingObjectPrefix = "DAL_STC_EXEC001";
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -101,6 +109,12 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.instance_lock_stale_seconds = InpInstanceLockStaleSeconds;
    cfg.strict_symbol_validation = InpStrictSymbolValidation;
    cfg.enable_drawing = InpEnableDrawing;
+   cfg.write_drawing_audit = InpWriteDrawingAudit;
+   cfg.drawing_refresh_seconds = InpDrawingRefreshSeconds;
+   cfg.drawing_history_checks = InpDrawingHistoryChecks;
+   cfg.drawing_history_w_levels = InpDrawingHistoryWLevels;
+   cfg.drawing_clear_on_deinit = InpDrawingClearOnDeinit;
+   cfg.drawing_object_prefix = InpDrawingObjectPrefix;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -164,8 +178,8 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 12 remains timer-driven and restores paper/audit state after restart.
-   // Later levels will add drawing and auto-trading.
+   // Level 13 remains timer-driven. Drawing is audit-only and does not change decisions.
+   // Later levels will add real paper-live/auto-trading order operations.
 }
 
 void OnDeinit(const int reason)

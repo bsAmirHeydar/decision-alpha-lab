@@ -157,6 +157,13 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.max_hard_close_catchup_per_pulse > 500) cfg.max_hard_close_catchup_per_pulse = 500;
    if(cfg.persistence_snapshot_seconds < 1) cfg.persistence_snapshot_seconds = 1;
    if(cfg.persistence_snapshot_seconds > 3600) cfg.persistence_snapshot_seconds = 3600;
+   if(cfg.drawing_refresh_seconds < 1) cfg.drawing_refresh_seconds = 1;
+   if(cfg.drawing_refresh_seconds > 3600) cfg.drawing_refresh_seconds = 3600;
+   if(cfg.drawing_history_checks < 1) cfg.drawing_history_checks = 1;
+   if(cfg.drawing_history_checks > 500) cfg.drawing_history_checks = 500;
+   if(cfg.drawing_history_w_levels < 1) cfg.drawing_history_w_levels = 1;
+   if(cfg.drawing_history_w_levels > 12) cfg.drawing_history_w_levels = 12;
+   if(cfg.drawing_object_prefix == "") cfg.drawing_object_prefix = "DAL_STC_EXEC001";
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

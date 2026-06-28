@@ -82,3 +82,8 @@ The current code level converts raw exactly-one-symbol high/low hunts into audit
 ## Level 07 — Confirmation and Signal Registry
 
 Level 07 adds `DAL_STC_Signals.mqh` and the `stc_level07_signal_registry.csv` output. It converts closed-check Level 06 SMT candidates into consumed audit-only signal rows. Entry OFF, missed entry moments, final check candles, invalid stop distance, incomplete pair data, and same-check buy/sell ambiguity are all represented explicitly. No paper trades and no real orders are created in this level.
+
+
+## Level 13 implementation note
+
+- `34_level_13_visualization_audit_drawing.md` documents the audit-only drawing layer for M/W zones, W levels, SMT paper entries, SL/TP guides, partial markers, hard-close markers, and drawing audit output.
