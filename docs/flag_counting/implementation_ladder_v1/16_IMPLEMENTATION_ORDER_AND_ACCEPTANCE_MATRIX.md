@@ -514,3 +514,25 @@ Freeze condition:
 ```text
 A bad chart can be diagnosed through profile, CSV, validation, renderer, and release-gate counters without guessing whether the problem is stale objects, stale compile, renderer filtering, or logic.
 ```
+
+---
+
+## Level 15 — interface contract acceptance
+
+Level 15 is accepted when:
+
+```text
+FP_InterfaceTypes.mqh exists
+FP_InterfaceRules.mqh exists
+FP_InterfaceAudit.mqh exists
+FP_InterfaceEngine.mqh exists
+FlagCountingPhoenixExperiment includes FP_InterfaceEngine.mqh
+InpInterfacePreflightEnabled and InpInterfacePostflightEnabled exist
+FP_LEVEL15_PRE can print after release-profile overrides
+FP_LEVEL15 can print before FP_SUMMARY
+FP_SUMMARY includes interface counters
+identity_generation_pass is phoenix_level15
+Level 15 does not mutate event/hook arrays
+Level 15 does not draw/delete chart objects
+Level 15 optional CSV output is disabled by default
+```

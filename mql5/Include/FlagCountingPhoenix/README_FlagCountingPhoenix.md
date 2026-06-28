@@ -78,6 +78,18 @@ Structural / sequence engines:
 - `FP_RenderAudit.mqh`: Level 12 `FP_LEVEL12` report and optional render samples.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration, ownership, and canonicalization wiring.
 - `FP_Renderer.mqh`: Level 12 chart drawing facade; read-only consumer of canonical events/hooks.
+- `FP_ValidationTypes.mqh`: Level 13 validation config/report types.
+- `FP_ValidationRules.mqh`: Level 13 baseline/regression and invariant check helpers.
+- `FP_ValidationAudit.mqh`: Level 13 `FP_LEVEL13` report and validation samples.
+- `FP_ValidationEngine.mqh`: Level 13 read-only validation facade.
+- `FP_ReleaseTypes.mqh`: Level 14 release/debug/rollback config/report types.
+- `FP_ReleaseRules.mqh`: Level 14 release-profile override and gate rules.
+- `FP_ReleaseAudit.mqh`: Level 14 `FP_LEVEL14` report and release samples.
+- `FP_ReleaseEngine.mqh`: Level 14 profile, release gate, and release manifest facade.
+- `FP_InterfaceTypes.mqh`: Level 15 interface contract config/report types.
+- `FP_InterfaceRules.mqh`: Level 15 facade, config, dependency, identity, parent, and result checks.
+- `FP_InterfaceAudit.mqh`: Level 15 `FP_LEVEL15_PRE` / `FP_LEVEL15` reports and samples.
+- `FP_InterfaceEngine.mqh`: Level 15 read-only preflight/postflight interface contract facade.
 - `FP_Audit.mqh`: logs and diagnostics.
 
 
@@ -662,3 +674,7 @@ Regression mode is created by filling the expected min/max inputs. Exact expecta
 ## Level 14 release/debug/rollback layer
 
 Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAudit.mqh`, and `FP_ReleaseEngine.mqh`. The active EA exposes `InpReleaseProfile` with `normal`, `clean_main`, `audit_export`, `validation`, `debug_max`, `render_off`, and `safe_rollback` profiles. Level 14 writes `latest_release.csv` and prints `FP_LEVEL14`; it does not mutate market structure.
+
+## Level 15 module interface contracts
+
+Phoenix now includes `FP_InterfaceTypes.mqh`, `FP_InterfaceRules.mqh`, `FP_InterfaceAudit.mqh`, and `FP_InterfaceEngine.mqh`. The EA runs a read-only preflight pass after Level 14 profile overrides and a read-only postflight pass before final `FP_SUMMARY`. The layer emits `FP_LEVEL15_PRE` and `FP_LEVEL15`, optionally writes `latest_interface_pre.csv` and `latest_interface_post.csv`, and adds interface counters to `FP_SUMMARY`. It does not mutate event/hook streams, renderer objects, lifecycle state, ownership state, or canonical state.

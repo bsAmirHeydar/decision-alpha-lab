@@ -695,6 +695,19 @@ struct FP_DetectResult
    int release_validation_forced_total;
    int release_rollback_safe_total;
 
+   int interface_attempted_total;
+   int interface_ok_total;
+   int interface_checks_total;
+   int interface_pass_total;
+   int interface_fail_total;
+   int interface_warn_total;
+   int interface_skipped_total;
+   int interface_file_errors_total;
+   int interface_missing_ids_total;
+   int interface_parent_errors_total;
+   int interface_negative_counter_errors_total;
+   int interface_partition_errors_total;
+
    int invalid_total;
 };
 
@@ -1015,7 +1028,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level14";
+   cfg.identity_generation_pass = "phoenix_level15";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -1190,6 +1203,19 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.release_render_suppressed_total = 0;
    r.release_validation_forced_total = 0;
    r.release_rollback_safe_total = 0;
+
+   r.interface_attempted_total = 0;
+   r.interface_ok_total = 0;
+   r.interface_checks_total = 0;
+   r.interface_pass_total = 0;
+   r.interface_fail_total = 0;
+   r.interface_warn_total = 0;
+   r.interface_skipped_total = 0;
+   r.interface_file_errors_total = 0;
+   r.interface_missing_ids_total = 0;
+   r.interface_parent_errors_total = 0;
+   r.interface_negative_counter_errors_total = 0;
+   r.interface_partition_errors_total = 0;
 
    r.invalid_total = 0;
 }

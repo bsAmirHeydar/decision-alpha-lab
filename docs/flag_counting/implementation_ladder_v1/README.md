@@ -90,7 +90,7 @@ Do not code from screenshots. Screenshots are symptoms. Code from the layer cont
 The next code rewrite must follow this order:
 
 ```text
-Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 11.5 -> Level 12 -> Level 13 -> Level 14
+Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 11.5 -> Level 12 -> Level 13 -> Level 14 -> Level 15
 ```
 
 Any patch that touches a higher level must declare which lower-level invariants it assumes. If those lower-level invariants are not tested, the patch is not acceptable.
@@ -123,3 +123,7 @@ Level 13 now owns validation through `FP_Validation*` modules. Validation runs a
 ## Level 14 patch status
 
 Level 14 now owns operational release/debug/rollback profiles through `FP_Release*` modules. It applies runtime profiles before Level 01, finalizes the release gate after Level 13, writes `latest_release.csv`, and emits `FP_LEVEL14`.
+
+## Level 15 patch status
+
+Level 15 now owns implementation-backed module interface contracts through `FP_Interface*` modules. It runs preflight checks after release-profile overrides and postflight checks after release finalization. It is read-only and may only report contract health.

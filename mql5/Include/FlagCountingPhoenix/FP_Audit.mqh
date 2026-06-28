@@ -173,6 +173,18 @@ void FP_PrintSummary(const string symbol,
    msg += " release_render_suppressed=" + IntegerToString(result.release_render_suppressed_total);
    msg += " release_validation_forced=" + IntegerToString(result.release_validation_forced_total);
    msg += " release_rollback_safe=" + IntegerToString(result.release_rollback_safe_total);
+   msg += " interface_attempted=" + IntegerToString(result.interface_attempted_total);
+   msg += " interface_ok=" + IntegerToString(result.interface_ok_total);
+   msg += " interface_checks=" + IntegerToString(result.interface_checks_total);
+   msg += " interface_pass=" + IntegerToString(result.interface_pass_total);
+   msg += " interface_fail=" + IntegerToString(result.interface_fail_total);
+   msg += " interface_warn=" + IntegerToString(result.interface_warn_total);
+   msg += " interface_skipped=" + IntegerToString(result.interface_skipped_total);
+   msg += " interface_file_errors=" + IntegerToString(result.interface_file_errors_total);
+   msg += " interface_missing_ids=" + IntegerToString(result.interface_missing_ids_total);
+   msg += " interface_parent_errors=" + IntegerToString(result.interface_parent_errors_total);
+   msg += " interface_negative_counters=" + IntegerToString(result.interface_negative_counter_errors_total);
+   msg += " interface_partition_errors=" + IntegerToString(result.interface_partition_errors_total);
    msg += " invalid=" + IntegerToString(result.invalid_total);
    msg += " drawn=" + IntegerToString(drawn);
    Print(msg);

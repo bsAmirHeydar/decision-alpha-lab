@@ -1101,3 +1101,126 @@ FP_PrintReleaseReport(...)
 ```
 
 The release layer may adjust runtime config objects before execution and may write a release manifest after execution. It must not create, delete, hide, reveal, confirm, invalidate, lock, or re-parent events or hooks.
+
+---
+
+# Level 15 implementation-backed interface contract layer
+
+Level 15 is now backed by runtime Phoenix modules:
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_InterfaceTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_InterfaceRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_InterfaceAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh
+```
+
+## Purpose
+
+Level 15 freezes the public integration boundary after the structural, renderer, validation, and release layers exist. It is not a market-structure layer. It is a contract harness that proves the active runtime still respects the module boundary decisions described in this document.
+
+It checks:
+
+```text
+stable enum values
+stable internal-count constant
+public facade contract version
+engine identity_generation_pass
+non-empty context symbol/timeframe
+config bounds for timebase/engine/export/render/validation/release/interface
+renderer canonical-object-name recommendation
+renderer strict-visibility recommendation
+validation/export dependency warning
+release/validation dependency warning
+post-run event partition
+post-run visible parent continuity
+post-run public identity coverage
+post-run non-negative result counters
+```
+
+It emits:
+
+```text
+FP_LEVEL15_PRE
+FP_LEVEL15
+```
+
+Optional CSV output:
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_interface_pre.csv
+MQL5/Files/FlagCountingPhoenix/latest_interface_post.csv
+```
+
+## Runtime order
+
+```text
+Load user inputs
+-> Level 14 release profile applies overrides
+-> Level 15 preflight interface checks
+-> Level 01 timebase
+-> Levels 02-11 structure/canonicalization
+-> Level 11.5 export
+-> Level 12 renderer
+-> Level 13 validation
+-> Level 14 final release gate
+-> Level 15 postflight interface checks
+-> FP_SUMMARY
+```
+
+The preflight pass checks static contracts and configuration boundaries after release-profile overrides. The postflight pass checks the final event/hook/result stream.
+
+## Inputs
+
+```text
+InpInterfacePreflightEnabled
+InpInterfacePostflightEnabled
+InpInterfaceStrict
+InpInterfaceWriteCsv
+InpInterfaceOverwriteLatest
+InpInterfaceFolder
+InpInterfaceRunTag
+InpInterfaceRequirePreflightOk
+InpInterfaceRequirePostflightOk
+InpInterfaceRequireResultPartition
+InpInterfaceRequirePublicIds
+InpInterfaceRequireParentContract
+InpInterfaceRequireCounterNonnegative
+InpPrintInterfaceSanity
+InpPrintInterfaceSamples
+InpInterfaceSampleLimit
+```
+
+## Non-authority rule
+
+Level 15 must never:
+
+```text
+create events
+create hooks
+repair identity
+repair parent links
+change visible_main
+change hidden_reason
+change lifecycle state
+change ownership state
+change canonical state
+draw or delete chart objects
+change export/render/validation/release reports
+```
+
+It can only report contract status and add interface counters to `FP_DetectResult`.
+
+## Acceptance
+
+A Level 15 patch is acceptable when:
+
+```text
+FP_LEVEL15_PRE prints with attempted=true when preflight is enabled
+FP_LEVEL15 prints with attempted=true when postflight is enabled
+FP_SUMMARY includes interface counters
+CSV can be enabled without changing renderer or event output
+identity_generation_pass is phoenix_level15
+preflight failure does not silently mutate structure
+postflight failure does not silently mutate structure
+```

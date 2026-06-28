@@ -59,3 +59,7 @@ Recommended reading order:
 ## Level 14 release/debug/rollback layer
 
 Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAudit.mqh`, and `FP_ReleaseEngine.mqh`. The active EA exposes `InpReleaseProfile` with `normal`, `clean_main`, `audit_export`, `validation`, `debug_max`, `render_off`, and `safe_rollback` profiles. Level 14 writes `latest_release.csv` and prints `FP_LEVEL14`; it does not mutate market structure.
+
+## Level 15 module interface contracts implemented
+
+`15_MODULE_INTERFACE_CONTRACTS.md` is now backed by Phoenix `FP_InterfaceTypes`, `FP_InterfaceRules`, `FP_InterfaceAudit`, and `FP_InterfaceEngine`. The active EA runs preflight checks after Level 14 profile overrides and postflight checks before `FP_SUMMARY`. Level 15 emits `FP_LEVEL15_PRE` and `FP_LEVEL15` and can write optional interface CSV reports.

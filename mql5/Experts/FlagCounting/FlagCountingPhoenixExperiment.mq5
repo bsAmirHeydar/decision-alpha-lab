@@ -1,5 +1,5 @@
 #property strict
-#property version   "14.00"
+#property version   "15.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -7,6 +7,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_ExportEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ValidationEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ReleaseEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -73,6 +74,9 @@ input int  InpValidationSampleLimit = 8;
 input bool InpPrintReleaseSanity = true;
 input bool InpPrintReleaseSamples = false;
 input int  InpReleaseSampleLimit = 8;
+input bool InpPrintInterfaceSanity = true;
+input bool InpPrintInterfaceSamples = false;
+input int  InpInterfaceSampleLimit = 8;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -186,6 +190,21 @@ input bool   InpReleaseRequireNoRenderErrors = true;
 input bool   InpReleaseRequireNoExportErrors = false;
 input bool   InpReleaseRequireNoCanonicalFailures = true;
 input bool   InpReleaseCleanObjectsForProfile = true;
+
+// ------------------------------ Interface contracts -------------------------
+input bool   InpInterfacePreflightEnabled = true;
+input bool   InpInterfacePostflightEnabled = true;
+input bool   InpInterfaceStrict = false;
+input bool   InpInterfaceWriteCsv = false;
+input bool   InpInterfaceOverwriteLatest = true;
+input string InpInterfaceFolder = "FlagCountingPhoenix";
+input string InpInterfaceRunTag = "";
+input bool   InpInterfaceRequirePreflightOk = false;
+input bool   InpInterfaceRequirePostflightOk = false;
+input bool   InpInterfaceRequireResultPartition = true;
+input bool   InpInterfaceRequirePublicIds = true;
+input bool   InpInterfaceRequireParentContract = true;
+input bool   InpInterfaceRequireCounterNonnegative = true;
 
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
@@ -305,7 +324,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level14";
+   cfg.identity_generation_pass = "phoenix_level15";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -337,6 +356,8 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_validation" + FP_BoolName(InpValidationEnabled) +
                               "_validationcase" + InpValidationCaseId +
                               "_release" + FP_ReleaseProfileName(InpReleaseProfile) +
+                              "_interface_pre" + FP_BoolName(InpInterfacePreflightEnabled) +
+                              "_interface_post" + FP_BoolName(InpInterfacePostflightEnabled) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -480,6 +501,27 @@ void FP_LoadReleaseConfig(FP_ReleaseConfig &cfg)
    cfg.sample_limit = InpReleaseSampleLimit;
 }
 
+void FP_LoadInterfaceConfig(FP_InterfaceConfig &cfg)
+{
+   FP_DefaultInterfaceConfig(cfg);
+   cfg.preflight_enabled = InpInterfacePreflightEnabled;
+   cfg.postflight_enabled = InpInterfacePostflightEnabled;
+   cfg.strict = InpInterfaceStrict;
+   cfg.write_csv = InpInterfaceWriteCsv;
+   cfg.overwrite_latest = InpInterfaceOverwriteLatest;
+   cfg.folder = InpInterfaceFolder;
+   cfg.run_tag = InpInterfaceRunTag;
+   cfg.require_preflight_ok = InpInterfaceRequirePreflightOk;
+   cfg.require_postflight_ok = InpInterfaceRequirePostflightOk;
+   cfg.require_result_partition = InpInterfaceRequireResultPartition;
+   cfg.require_public_ids = InpInterfaceRequirePublicIds;
+   cfg.require_parent_contract = InpInterfaceRequireParentContract;
+   cfg.require_counter_nonnegative = InpInterfaceRequireCounterNonnegative;
+   cfg.print_sanity = InpPrintInterfaceSanity;
+   cfg.print_samples = InpPrintInterfaceSamples;
+   cfg.sample_limit = InpInterfaceSampleLimit;
+}
+
 void FP_Run()
 {
    MqlRates rates[];
@@ -512,11 +554,26 @@ void FP_Run()
    FP_ValidationConfig validation_cfg;
    FP_LoadValidationConfig(validation_cfg);
 
+   FP_InterfaceConfig interface_cfg;
+   FP_LoadInterfaceConfig(interface_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
    if(release_cfg.print_samples && release_report.overrides_applied > 0)
       FP_PrintReleaseSamples("FP_LEVEL14_PRE", release_report);
+
+   FP_InterfaceReport interface_pre_report;
+   FP_ResetInterfaceReport(interface_pre_report);
+   string interface_pre_rows[];
+   if(interface_cfg.preflight_enabled)
+   {
+      FP_RunInterfacePreflightWithReport(_Symbol, _Period, timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, interface_cfg, interface_pre_report, interface_pre_rows);
+      if(interface_cfg.print_sanity)
+         FP_PrintInterfaceReport("FP_LEVEL15_PRE", interface_pre_report);
+      if(interface_cfg.print_samples)
+         FP_PrintInterfaceSamples("FP_LEVEL15_PRE", interface_pre_report, interface_pre_rows, interface_cfg.sample_limit);
+   }
 
    FP_TimebaseReport timebase_report;
    int copied = FP_LoadCanonicalRates(timebase_cfg, rates, timebase_report);
@@ -562,6 +619,8 @@ void FP_Run()
    FP_HookBranch hooks[];
    FP_DetectResult result;
    FP_DetectAllScales(rates, copied, scales, scale_count, cfg, events, hooks, result);
+   if(interface_pre_report.attempted)
+      FP_InterfaceApplyReportToResult(interface_pre_report, result);
 
    FP_ExportReport export_report;
    FP_ResetExportReport(export_report);
@@ -603,6 +662,19 @@ void FP_Run()
       FP_PrintReleaseReport("FP_LEVEL14", release_report);
    if(release_cfg.print_samples)
       FP_PrintReleaseSamples("FP_LEVEL14", release_report);
+
+   FP_InterfaceReport interface_post_report;
+   FP_ResetInterfaceReport(interface_post_report);
+   string interface_post_rows[];
+   if(interface_cfg.postflight_enabled)
+   {
+      FP_RunInterfacePostflightWithReport(_Symbol, _Period, interface_cfg, events, hooks, result, interface_post_report, interface_post_rows);
+      FP_InterfaceApplyReportToResult(interface_post_report, result);
+      if(interface_cfg.print_sanity)
+         FP_PrintInterfaceReport("FP_LEVEL15", interface_post_report);
+      if(interface_cfg.print_samples)
+         FP_PrintInterfaceSamples("FP_LEVEL15", interface_post_report, interface_post_rows, interface_cfg.sample_limit);
+   }
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)

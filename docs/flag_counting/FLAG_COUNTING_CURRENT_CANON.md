@@ -975,3 +975,28 @@ Expected counts must come from MT5 baselines. Documentation must not invent them
 ## Level 14 release/debug/rollback layer
 
 Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAudit.mqh`, and `FP_ReleaseEngine.mqh`. The active EA exposes `InpReleaseProfile` with `normal`, `clean_main`, `audit_export`, `validation`, `debug_max`, `render_off`, and `safe_rollback` profiles. Level 14 writes `latest_release.csv` and prints `FP_LEVEL14`; it does not mutate market structure.
+
+## Level 15 module interface contract layer
+
+Phoenix now includes an implementation-backed interface contract layer:
+
+```text
+FP_InterfaceTypes.mqh
+FP_InterfaceRules.mqh
+FP_InterfaceAudit.mqh
+FP_InterfaceEngine.mqh
+```
+
+Level 15 is read-only. It runs preflight checks after Level 14 profile overrides and postflight checks after Level 14 final release reporting. It validates the integration boundary rather than market structure itself.
+
+The preflight pass freezes active assumptions around enums, constants, identity generation pass, context metadata, config bounds, and dependency-facing settings. The postflight pass checks final stream counters, event partition, visible parent continuity, public identity coverage, and non-negative result counters.
+
+Level 15 emits `FP_LEVEL15_PRE` and `FP_LEVEL15`. Optional CSV output writes `latest_interface_pre.csv` and `latest_interface_post.csv` under the configured interface folder.
+
+The active identity generation pass is now:
+
+```text
+phoenix_level15
+```
+
+Level 15 may only report interface status and add interface counters to `FP_DetectResult`; it may not mutate events, hooks, identities, ownership, canonical state, renderer objects, export files, validation decisions, or release gate semantics.
