@@ -620,3 +620,8 @@ Level 16 checks:
 ## Non-authoritative contract
 
 Level 16 may only add acceptance counters and report rows. It must not change events, hooks, parent links, identity, visibility, hidden reasons, lifecycle state, ownership state, canonical state, renderer output, export output, validation decisions, or release gate semantics.
+
+
+## Level 18 acceptance extension
+
+After Level 17 decision lock, run Level 18 static QA. Acceptance for Level 18 requires current identity pass, current interface contract version, event partition consistency, non-negative critical counters, report alignment, and no required I/O errors. The companion Python source scanner must report no blocking findings before release-hardening.

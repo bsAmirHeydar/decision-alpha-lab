@@ -131,9 +131,9 @@ void FP_AmbiguityAddSourceChecks(FP_AmbiguityReport &report,
                            cfg.contract_version, FP_AMBIGUITY_CONTRACT_VERSION,
                            "ambiguity_contract_version");
    FP_AmbiguityAddDecision(report, rows, "SRC_IDENTITY_PASS", "source", "error",
-                           (engine_cfg.identity_generation_pass == "phoenix_level17"),
-                           engine_cfg.identity_generation_pass, "phoenix_level17",
-                           "identity_generation_pass_must_match_final_decision_lock");
+                           (engine_cfg.identity_generation_pass == "phoenix_level18"),
+                           engine_cfg.identity_generation_pass, "phoenix_level18",
+                           "identity_generation_pass_must_match_level18_static_qa_hardened_build");
 }
 
 void FP_AmbiguityAddDefaultPolicyChecks(FP_AmbiguityReport &report,

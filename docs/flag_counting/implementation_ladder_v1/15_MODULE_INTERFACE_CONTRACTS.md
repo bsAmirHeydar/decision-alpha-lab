@@ -1229,3 +1229,8 @@ postflight failure does not silently mutate structure
 ## Level 16 integration note
 
 After Level 16, the interface preflight accepts `identity_generation_pass=phoenix_level17` and `FP_INTERFACE_CONTRACT_VERSION=17.00` because Level 16 adds the acceptance facade without changing lower-level market semantics.
+
+
+## Level 18 interface extension
+
+The interface contract version is now `18.00`. `FP_StaticQaEngine.mqh` is the final read-only facade after Level 17. It may consume all previous reports but must not mutate any event, hook, renderer object, export artifact, validation result, release report, interface report, acceptance report, or ambiguity report.

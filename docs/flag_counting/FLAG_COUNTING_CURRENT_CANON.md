@@ -1066,3 +1066,8 @@ phoenix_level17
 Level 17 is read-only and runs after Level 16 acceptance. It audits decision
 alignment and does not mutate structure, renderer state, export state,
 validation state, release state, acceptance state, or interface reports.
+
+
+## Level 18 static QA canon addendum
+
+The official post-ladder hardening layer is Level 18. Phoenix runtime must use `identity_generation_pass=phoenix_level18` and `FP_INTERFACE_CONTRACT_VERSION=18.00`. Level 18 is read-only and may only report static QA / compile-hardening state through `FP_LEVEL18` and optional `latest_static_qa.csv`. Source-side checks are performed with `tools/flag_counting/static_qa.py`.

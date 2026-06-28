@@ -693,9 +693,16 @@ Level 17 adds the final read-only decision-lock layer:
 - `FP_AmbiguityAudit.mqh`
 - `FP_AmbiguityEngine.mqh`
 
-The active EA now uses `identity_generation_pass=phoenix_level17`, prints
+The active EA now uses `identity_generation_pass=phoenix_level18`, prints
 `FP_LEVEL17`, and can write `latest_ambiguity.csv`. This layer verifies that
 closed-bar timebase, confirmed-node F bodies, phase-gated F1, fail-open
 diagnostic behavior, F2/F3 display policy, seeded Hook display, strict renderer
 visibility, canonical object names, and release-like profile gates remain aligned
 with `FLAG_COUNTING_CURRENT_CANON.md`.
+
+
+## Level 18 static QA / compile hardening layer
+
+Phoenix now includes `FP_StaticQaTypes.mqh`, `FP_StaticQaRules.mqh`, `FP_StaticQaAudit.mqh`, and `FP_StaticQaEngine.mqh`. Level 18 runs after Level 17 decision lock and before `FP_SUMMARY`, emits `FP_LEVEL18`, and can optionally write `latest_static_qa.csv`.
+
+This layer is read-only. It checks final runtime contracts, identity pass, interface contract version, partition consistency, counter sanity, report alignment, and I/O error state. Source-side checks that MQL cannot do internally are handled by `tools/flag_counting/static_qa.py`.

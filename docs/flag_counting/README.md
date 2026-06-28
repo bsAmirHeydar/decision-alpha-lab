@@ -115,3 +115,12 @@ Phoenix Level 17 closes the old ambiguity list. It runs a read-only runtime
 check after the acceptance matrix and verifies that current inputs/reports match
 `FLAG_COUNTING_CURRENT_CANON.md`. It emits `FP_LEVEL17` and can write
 `latest_ambiguity.csv`.
+
+
+## Level 18 static QA
+
+Phoenix now has a final compile/static QA hardening pass. Runtime emits `FP_LEVEL18`; source-side scanning is available with:
+
+```powershell
+python tools/flag_counting/static_qa.py --root . --csv reports/flag_counting_static_qa.csv
+```

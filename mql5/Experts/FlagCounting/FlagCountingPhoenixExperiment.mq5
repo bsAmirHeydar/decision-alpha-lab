@@ -1,5 +1,5 @@
 #property strict
-#property version   "17.00"
+#property version   "18.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -10,6 +10,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -266,6 +267,33 @@ input bool   InpPrintAmbiguitySanity = true;
 input bool   InpPrintAmbiguitySamples = false;
 input int    InpAmbiguitySampleLimit = 8;
 
+// ------------------------------ Static QA / compile hardening ---------------
+input bool   InpStaticQaEnabled = true;
+input FP_StaticQaMode InpStaticQaMode = FP_STATIC_QA_MODE_OBSERVE;
+input bool   InpStaticQaStrict = false;
+input bool   InpStaticQaWriteCsv = false;
+input bool   InpStaticQaOverwriteLatest = true;
+input string InpStaticQaFolder = "FlagCountingPhoenix";
+input string InpStaticQaRunTag = "";
+input string InpStaticQaCaseId = "manual";
+input bool   InpStaticQaRequireContractVersion = true;
+input bool   InpStaticQaRequireIdentityPass = true;
+input bool   InpStaticQaRequireInterfaceContractAlignment = true;
+input bool   InpStaticQaRequireRuntimePartitions = true;
+input bool   InpStaticQaRequireNonnegativeCounters = true;
+input bool   InpStaticQaRequireReportAlignment = true;
+input bool   InpStaticQaRequireIoAlignment = true;
+input bool   InpStaticQaRequireReleaseSafeDefaults = true;
+input bool   InpStaticQaRequireStaticToolPresent = true;
+input bool   InpStaticQaRequireZeroRuntimeBlockers = false;
+input bool   InpStaticQaAllowObserveWarnings = true;
+input bool   InpStaticQaAllowDisabledExport = true;
+input bool   InpStaticQaAllowDisabledValidation = true;
+input bool   InpStaticQaAllowDisabledRender = false;
+input bool   InpPrintStaticQaSanity = true;
+input bool   InpPrintStaticQaSamples = false;
+input int    InpStaticQaSampleLimit = 8;
+
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
 input bool   InpCleanObjectsOnInit = true;
@@ -384,7 +412,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level17";
+   cfg.identity_generation_pass = "phoenix_level18";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -650,6 +678,36 @@ void FP_LoadAmbiguityConfig(FP_AmbiguityConfig &cfg)
    cfg.sample_limit = InpAmbiguitySampleLimit;
 }
 
+void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
+{
+   FP_DefaultStaticQaConfig(cfg);
+   cfg.enabled = InpStaticQaEnabled;
+   cfg.mode = InpStaticQaMode;
+   cfg.strict = InpStaticQaStrict;
+   cfg.write_csv = InpStaticQaWriteCsv;
+   cfg.overwrite_latest = InpStaticQaOverwriteLatest;
+   cfg.folder = InpStaticQaFolder;
+   cfg.run_tag = InpStaticQaRunTag;
+   cfg.case_id = InpStaticQaCaseId;
+   cfg.require_contract_version = InpStaticQaRequireContractVersion;
+   cfg.require_identity_pass = InpStaticQaRequireIdentityPass;
+   cfg.require_interface_contract_alignment = InpStaticQaRequireInterfaceContractAlignment;
+   cfg.require_runtime_partitions = InpStaticQaRequireRuntimePartitions;
+   cfg.require_nonnegative_counters = InpStaticQaRequireNonnegativeCounters;
+   cfg.require_report_alignment = InpStaticQaRequireReportAlignment;
+   cfg.require_io_alignment = InpStaticQaRequireIoAlignment;
+   cfg.require_release_safe_defaults = InpStaticQaRequireReleaseSafeDefaults;
+   cfg.require_static_tool_present = InpStaticQaRequireStaticToolPresent;
+   cfg.require_zero_runtime_blockers = InpStaticQaRequireZeroRuntimeBlockers;
+   cfg.allow_observe_warnings = InpStaticQaAllowObserveWarnings;
+   cfg.allow_disabled_export = InpStaticQaAllowDisabledExport;
+   cfg.allow_disabled_validation = InpStaticQaAllowDisabledValidation;
+   cfg.allow_disabled_render = InpStaticQaAllowDisabledRender;
+   cfg.print_sanity = InpPrintStaticQaSanity;
+   cfg.print_samples = InpPrintStaticQaSamples;
+   cfg.sample_limit = InpStaticQaSampleLimit;
+}
+
 void FP_Run()
 {
    MqlRates rates[];
@@ -690,6 +748,9 @@ void FP_Run()
 
    FP_AmbiguityConfig ambiguity_cfg;
    FP_LoadAmbiguityConfig(ambiguity_cfg);
+
+   FP_StaticQaConfig staticqa_cfg;
+   FP_LoadStaticQaConfig(staticqa_cfg);
 
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
@@ -834,6 +895,19 @@ void FP_Run()
          FP_PrintAmbiguityReport("FP_LEVEL17", ambiguity_report);
       if(ambiguity_cfg.print_samples)
          FP_PrintAmbiguitySamples("FP_LEVEL17", ambiguity_report, ambiguity_rows, ambiguity_cfg.sample_limit);
+   }
+
+   FP_StaticQaReport staticqa_report;
+   FP_ResetStaticQaReport(staticqa_report);
+   string staticqa_rows[];
+   if(staticqa_cfg.enabled)
+   {
+      FP_RunStaticQaWithReport(_Symbol, _Period, staticqa_cfg, timebase_cfg, timebase_report, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, interface_cfg, acceptance_cfg, ambiguity_cfg, result, export_report, render_report, validation_report, release_report, interface_post_report, acceptance_report, ambiguity_report, staticqa_report, staticqa_rows);
+      FP_StaticQaApplyReportToResult(staticqa_report, result);
+      if(staticqa_cfg.print_sanity)
+         FP_PrintStaticQaReport("FP_LEVEL18", staticqa_report);
+      if(staticqa_cfg.print_samples)
+         FP_PrintStaticQaSamples("FP_LEVEL18", staticqa_report, staticqa_rows, staticqa_cfg.sample_limit);
    }
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

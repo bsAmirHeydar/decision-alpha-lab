@@ -41,6 +41,7 @@ Recommended reading order:
 17. `15_MODULE_INTERFACE_CONTRACTS.md`
 18. `16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md`
 19. `17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md`
+20. `18_LEVEL_18_STATIC_QA_AND_COMPILE_HARDENING.md`
 
 ## Level 11.5 implemented
 
@@ -75,3 +76,8 @@ Level 16 now owns the implementation-backed acceptance matrix through `FP_Accept
 `FP_AmbiguityTypes`, `FP_AmbiguityRules`, `FP_AmbiguityAudit`, and
 `FP_AmbiguityEngine`. The layer runs after Level 16 acceptance and before
 `FP_SUMMARY`, emits `FP_LEVEL17`, and can write `latest_ambiguity.csv`.
+
+
+## Level 18 static QA / compile hardening implemented
+
+`18_LEVEL_18_STATIC_QA_AND_COMPILE_HARDENING.md` is now backed by Phoenix `FP_StaticQaTypes`, `FP_StaticQaRules`, `FP_StaticQaAudit`, and `FP_StaticQaEngine`. The layer runs after Level 17 decision lock and before final `FP_SUMMARY`. It emits `FP_LEVEL18` and pairs runtime QA with the repository-side scanner at `tools/flag_counting/static_qa.py`.

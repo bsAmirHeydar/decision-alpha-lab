@@ -39,6 +39,7 @@ A layer is not allowed to move upward until its acceptance tests pass. A higher 
 17. `15_MODULE_INTERFACE_CONTRACTS.md` — module API boundaries and data objects.
 18. `16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md` — exact build order and acceptance checklist.
 19. `17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md` — resolved decision record; no longer an open-blocker list.
+20. `18_LEVEL_18_STATIC_QA_AND_COMPILE_HARDENING.md` — static QA, compile hardening, and source-side scanner.
 
 ## Source modules covered
 
@@ -90,7 +91,7 @@ Do not code from screenshots. Screenshots are symptoms. Code from the layer cont
 The next code rewrite must follow this order:
 
 ```text
-Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 11.5 -> Level 12 -> Level 13 -> Level 14 -> Level 15
+Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 11.5 -> Level 12 -> Level 13 -> Level 14 -> Level 15 -> Level 16 -> Level 17 -> Level 18
 ```
 
 Any patch that touches a higher level must declare which lower-level invariants it assumes. If those lower-level invariants are not tested, the patch is not acceptable.
@@ -138,3 +139,8 @@ Level 16 now owns the runtime acceptance matrix through `FP_Acceptance*` modules
 The former ambiguity file is now a runtime decision-lock layer. Phoenix ships
 `FP_Ambiguity*` modules, `FP_LEVEL17` logging, optional `latest_ambiguity.csv`,
 and final `FP_SUMMARY` ambiguity counters.
+
+
+## Level 18 implemented
+
+Level 18 now owns static QA and compile hardening through `FP_StaticQa*` modules. It runs after decision lock, emits `FP_LEVEL18`, can write `latest_static_qa.csv`, and is paired with `tools/flag_counting/static_qa.py` for source-side checks.
