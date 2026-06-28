@@ -1,13 +1,13 @@
 #property strict
-#property version   "2.10"
-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 15 broker position safety"
-#property description "Level 15 adds magic-only broker position scanning and optional hard-close retry while keeping auto-entry disabled."
+#property version   "2.11"
+#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 16 real auto-entry router"
+#property description "Level 16 adds gated real auto-entry from confirmed STC paper plans while keeping safety switches off by default."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 
-input group "DAL / STC Level 15 Runtime"
+input group "DAL / STC Level 16 Runtime"
 input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
-input string InpRunId = "EXEC001_STC_LEVEL15";
+input string InpRunId = "EXEC001_STC_LEVEL16";
 input int InpTimerSeconds = 10;
 input bool InpWriteHeartbeat = true;
 input int InpHeartbeatSeconds = 60;
@@ -93,6 +93,16 @@ input bool InpAllowRealCloseInPaperLive = false;
 input int InpBrokerCloseDeviationPoints = 30;
 input bool InpAuditForeignPairPositions = true;
 
+input group "STC Level 16 Real Auto Entry Router"
+input bool InpEnableRealAutoEntry = false;
+input bool InpWriteAutoEntryAudit = true;
+input int InpAutoEntryGraceSeconds = 30;
+input int InpAutoEntryDeviationPoints = 30;
+input int InpMaxAutoSplitOrders = 20;
+input bool InpAllowAutoEntryInPaperLive = false;
+input bool InpAutoEntryRequiresBrokerManager = true;
+input string InpAutoEntryOrderCommentPrefix = "DAL_STC_EXEC001";
+
 input group "STC Locked Risk Inputs"
 input double InpFinalRewardR = 10.0;
 input double InpRiskPercent = 0.50;
@@ -166,6 +176,14 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
    cfg.allow_real_close_in_paper_live = InpAllowRealCloseInPaperLive;
    cfg.broker_close_deviation_points = InpBrokerCloseDeviationPoints;
    cfg.audit_foreign_pair_positions = InpAuditForeignPairPositions;
+   cfg.enable_real_auto_entry = InpEnableRealAutoEntry;
+   cfg.write_auto_entry_audit = InpWriteAutoEntryAudit;
+   cfg.auto_entry_grace_seconds = InpAutoEntryGraceSeconds;
+   cfg.auto_entry_deviation_points = InpAutoEntryDeviationPoints;
+   cfg.max_auto_split_orders = InpMaxAutoSplitOrders;
+   cfg.allow_auto_entry_in_paper_live = InpAllowAutoEntryInPaperLive;
+   cfg.auto_entry_requires_broker_manager = InpAutoEntryRequiresBrokerManager;
+   cfg.auto_entry_order_comment_prefix = InpAutoEntryOrderCommentPrefix;
    cfg.write_heartbeat = InpWriteHeartbeat;
    cfg.heartbeat_seconds = InpHeartbeatSeconds;
    cfg.hard_close_retry_seconds = InpHardCloseRetrySeconds;
@@ -229,8 +247,7 @@ void OnTimer()
 
 void OnTick()
 {
-   // Level 15 remains timer-driven. Auto-entry is still disabled.
-   // Broker position manager scans magic-only positions and can optionally hard-close them after 15:30 New York.
+   // Level 16 remains timer-driven. Real auto-entry is gated by explicit safety inputs and AUTO_TRADE mode.
 }
 
 void OnDeinit(const int reason)

@@ -171,6 +171,13 @@ bool STC_ValidateConfig(STC_Config &cfg, string &error, string &warning)
    if(cfg.broker_position_scan_seconds > 3600) cfg.broker_position_scan_seconds = 3600;
    if(cfg.broker_close_deviation_points < 0) cfg.broker_close_deviation_points = 0;
    if(cfg.broker_close_deviation_points > 10000) cfg.broker_close_deviation_points = 10000;
+   if(cfg.auto_entry_grace_seconds < 0) cfg.auto_entry_grace_seconds = 0;
+   if(cfg.auto_entry_grace_seconds > 3600) cfg.auto_entry_grace_seconds = 3600;
+   if(cfg.auto_entry_deviation_points < 0) cfg.auto_entry_deviation_points = 0;
+   if(cfg.auto_entry_deviation_points > 10000) cfg.auto_entry_deviation_points = 10000;
+   if(cfg.max_auto_split_orders < 1) cfg.max_auto_split_orders = 1;
+   if(cfg.max_auto_split_orders > 100) cfg.max_auto_split_orders = 100;
+   if(cfg.auto_entry_order_comment_prefix == "") cfg.auto_entry_order_comment_prefix = "DAL_STC_EXEC001";
 
    if(cfg.strategy_id == "") error = error + "strategy_id is empty; ";
    if(cfg.run_id == "")      error = error + "run_id is empty; ";

@@ -56,6 +56,14 @@ struct STC_Config
    bool allow_real_close_in_paper_live;
    int broker_close_deviation_points;
    bool audit_foreign_pair_positions;
+   bool enable_real_auto_entry;
+   bool write_auto_entry_audit;
+   int auto_entry_grace_seconds;
+   int auto_entry_deviation_points;
+   int max_auto_split_orders;
+   bool allow_auto_entry_in_paper_live;
+   bool auto_entry_requires_broker_manager;
+   string auto_entry_order_comment_prefix;
    bool write_heartbeat;
    int heartbeat_seconds;
    int hard_close_retry_seconds;
@@ -173,6 +181,18 @@ struct STC_RuntimeState
    int broker_foreign_pair_positions_last_scan;
    string broker_position_scan_status;
    string broker_hard_close_status;
+   string auto_entry_audit_file_common;
+   string last_auto_entry_stc_day_id;
+   int last_auto_entry_check_index;
+   long auto_entry_rows_audited;
+   datetime last_auto_entry_attempt_server_time;
+   int auto_trade_count_m1;
+   int auto_trade_count_m2;
+   int auto_trade_count_m3;
+   STC_Direction auto_direction_lock_m1;
+   STC_Direction auto_direction_lock_m2;
+   STC_Direction auto_direction_lock_m3;
+   string auto_entry_status;
    bool persistence_restored;
    string persistence_restore_status;
    string persistence_restore_note;
@@ -922,6 +942,97 @@ void STC_ResetBrokerActionAudit(STC_BrokerActionAudit &audit)
    audit.rule_note = "";
 }
 
+
+struct STC_AutoEntryAudit
+{
+   string stc_day_id;
+   int signal_check_index;
+   int entry_check_index;
+   int check_minutes;
+   datetime server_time;
+   datetime ny_time;
+   datetime signal_check_end_ny;
+   datetime entry_check_start_ny;
+   STC_MCycle m_cycle;
+   STC_WCycle current_w_cycle;
+   string signal_id;
+   string paper_trade_id;
+   string auto_order_group_id;
+   STC_Direction direction;
+   string trade_symbol;
+   string hunted_symbol;
+   string clean_symbol;
+   double entry_reference_price;
+   double stop_price;
+   double take_profit_price;
+   double risk_distance_price;
+   double risk_money;
+   double theoretical_volume;
+   double requested_total_volume;
+   double sent_total_volume;
+   double broker_min_volume;
+   double broker_max_volume;
+   double broker_volume_step;
+   int planned_split_orders;
+   int attempted_orders;
+   int successful_orders;
+   bool transport_allowed;
+   bool grace_window_ok;
+   bool auto_entry_enabled;
+   bool broker_manager_required_ok;
+   bool order_attempted;
+   bool any_order_succeeded;
+   int last_retcode;
+   string last_trade_comment;
+   string auto_status;
+   string rule_note;
+};
+
+void STC_ResetAutoEntryAudit(STC_AutoEntryAudit &audit)
+{
+   audit.stc_day_id = "";
+   audit.signal_check_index = -1;
+   audit.entry_check_index = -1;
+   audit.check_minutes = 0;
+   audit.server_time = 0;
+   audit.ny_time = 0;
+   audit.signal_check_end_ny = 0;
+   audit.entry_check_start_ny = 0;
+   audit.m_cycle = STC_M_NONE;
+   audit.current_w_cycle = STC_W_NONE;
+   audit.signal_id = "";
+   audit.paper_trade_id = "";
+   audit.auto_order_group_id = "";
+   audit.direction = STC_DIR_NONE;
+   audit.trade_symbol = "";
+   audit.hunted_symbol = "";
+   audit.clean_symbol = "";
+   audit.entry_reference_price = 0.0;
+   audit.stop_price = 0.0;
+   audit.take_profit_price = 0.0;
+   audit.risk_distance_price = 0.0;
+   audit.risk_money = 0.0;
+   audit.theoretical_volume = 0.0;
+   audit.requested_total_volume = 0.0;
+   audit.sent_total_volume = 0.0;
+   audit.broker_min_volume = 0.0;
+   audit.broker_max_volume = 0.0;
+   audit.broker_volume_step = 0.0;
+   audit.planned_split_orders = 0;
+   audit.attempted_orders = 0;
+   audit.successful_orders = 0;
+   audit.transport_allowed = false;
+   audit.grace_window_ok = false;
+   audit.auto_entry_enabled = false;
+   audit.broker_manager_required_ok = false;
+   audit.order_attempted = false;
+   audit.any_order_succeeded = false;
+   audit.last_retcode = 0;
+   audit.last_trade_comment = "";
+   audit.auto_status = "not_built";
+   audit.rule_note = "";
+}
+
 struct STC_TimeSnapshot
 {
    datetime server_time;
@@ -976,7 +1087,7 @@ struct STC_TimeSnapshot
 void STC_ResetConfig(STC_Config &cfg)
 {
    cfg.strategy_id = "EXEC001_STC_SMT_Cycles";
-   cfg.run_id = "EXEC001_STC_LEVEL15";
+   cfg.run_id = "EXEC001_STC_LEVEL16";
    cfg.runtime_mode = STC_MODE_RESEARCH_BACKTEST;
    cfg.symbol1 = "SPXUSD";
    cfg.symbol2 = "NDXUSD";
@@ -1025,6 +1136,14 @@ void STC_ResetConfig(STC_Config &cfg)
    cfg.allow_real_close_in_paper_live = false;
    cfg.broker_close_deviation_points = 30;
    cfg.audit_foreign_pair_positions = true;
+   cfg.enable_real_auto_entry = false;
+   cfg.write_auto_entry_audit = true;
+   cfg.auto_entry_grace_seconds = 30;
+   cfg.auto_entry_deviation_points = 30;
+   cfg.max_auto_split_orders = 20;
+   cfg.allow_auto_entry_in_paper_live = false;
+   cfg.auto_entry_requires_broker_manager = true;
+   cfg.auto_entry_order_comment_prefix = "DAL_STC_EXEC001";
    cfg.write_heartbeat = true;
    cfg.heartbeat_seconds = 60;
    cfg.hard_close_retry_seconds = 5;
@@ -1118,6 +1237,18 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
    state.broker_foreign_pair_positions_last_scan = 0;
    state.broker_position_scan_status = "NOT_SCANNED";
    state.broker_hard_close_status = "NOT_DUE";
+   state.auto_entry_audit_file_common = "";
+   state.last_auto_entry_stc_day_id = "";
+   state.last_auto_entry_check_index = -1;
+   state.auto_entry_rows_audited = 0;
+   state.last_auto_entry_attempt_server_time = 0;
+   state.auto_trade_count_m1 = 0;
+   state.auto_trade_count_m2 = 0;
+   state.auto_trade_count_m3 = 0;
+   state.auto_direction_lock_m1 = STC_DIR_NONE;
+   state.auto_direction_lock_m2 = STC_DIR_NONE;
+   state.auto_direction_lock_m3 = STC_DIR_NONE;
+   state.auto_entry_status = "NOT_PROCESSED";
    state.persistence_restored = false;
    state.persistence_restore_status = "NOT_ATTEMPTED";
    state.persistence_restore_note = "";
@@ -1172,10 +1303,10 @@ void STC_ResetRuntimeState(STC_RuntimeState &state)
 void STC_ResetBuildSanity(STC_BuildSanity &sanity)
 {
    sanity.strategy_id = "EXEC001_STC_SMT_Cycles";
-   sanity.module_level = "LEVEL_15_BROKER_POSITION_MANAGER";
-   sanity.build_version = "2.10";
-   sanity.build_scope = "level01 skeleton through level15 magic-only broker position manager and safety layer";
-   sanity.locked_contract = "Scan only Symbol1/Symbol2 positions with matching magic number, audit broker exposure, and optionally hard-close those magic-only positions after 15:30 New York without enabling auto-entry";
+   sanity.module_level = "LEVEL_16_REAL_AUTO_ENTRY_ROUTER";
+   sanity.build_version = "2.11";
+   sanity.build_scope = "level01 skeleton through level16 gated real auto-entry router";
+   sanity.locked_contract = "Convert confirmed STC paper entry plans into real broker orders only when AUTO_TRADE and explicit auto-entry safety inputs are enabled; keep magic-only management and full audit trail";
 }
 
 void STC_ResetTimeSnapshot(STC_TimeSnapshot &snap)
