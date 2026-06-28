@@ -713,3 +713,24 @@ This layer is read-only. It checks final runtime contracts, identity pass, inter
 Default research display is full-state: all Hook/ND contexts and all emitted F lifecycle states may be shown. Clean/canonical-only display belongs to release/render profiles.
 
 F2 and F3 follow the child-start rule: only Origin is backfilled into the parent correction window; Leg1 is forced to the parent confirmation hit; Waist and Leg2 must occur after that parent confirmation. For F3, the Origin is the bullish lowest low or bearish highest high after final F2 Leg2 and before F2 confirmation. F2 confirmation is the strict high/low hit of F2 Leg2; close is not required. F3 still needs its own Waist and Leg2, but no post-F3 internal count is required.
+
+## Offline license layer
+
+`FlagCountingPhoenixExperiment.mq5` now includes an offline fail-closed runtime gate before Level 01. The issuer generates a bundle with:
+
+```powershell
+python tools/flag_counting/offline_license_keygen.py --account <LOGIN> --server "<SERVER>" --expires <YYYYMMDD>
+```
+
+The recipient fills the neutral-looking runtime fields:
+
+```text
+InpPhaseModelProfile
+InpRenderMemo
+InpNodeModelSeed
+InpBoundaryModelSeed
+InpValidationModelSeed
+InpReleaseModelSeed
+```
+
+The expert checks product, account, server hash, expiry, password, hidden numeric gates, and signature before running structural detection. Expiry is rechecked periodically while attached.

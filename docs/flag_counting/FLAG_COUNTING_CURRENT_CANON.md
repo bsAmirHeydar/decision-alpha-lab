@@ -1058,3 +1058,14 @@ validation state, release state, acceptance state, or interface reports.
 ## Level 18 static QA canon addendum
 
 The official post-ladder hardening layer is Level 18. Phoenix runtime must use `identity_generation_pass=phoenix_level18` and `FP_INTERFACE_CONTRACT_VERSION=18.00`. Level 18 is read-only and may only report static QA / compile-hardening state through `FP_LEVEL18` and optional `latest_static_qa.csv`. Source-side checks are performed with `tools/flag_counting/static_qa.py`.
+
+## Offline runtime license decision lock
+
+Phoenix now has a fail-closed offline license gate for distributable EX5 builds. The gate runs before Level 01 and on a timer during runtime. The visible inputs are intentionally neutral operational names rather than obvious license names:
+
+- `InpPhaseModelProfile`: signed token
+- `InpRenderMemo`: passphrase/password
+- `InpNodeModelSeed`, `InpBoundaryModelSeed`, `InpValidationModelSeed`, `InpReleaseModelSeed`: hidden numeric gates
+- `InpSessionCacheDepth`: periodic recheck interval in minutes
+
+The license token binds product, account login, optional server hash, expiry date, feature flags, nonce, and signature. The numeric gates are derived from the same payload and passphrase. The license layer is operational only and is not a market-structure layer.

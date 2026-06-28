@@ -1,5 +1,5 @@
 #property strict
-#property version   "18.00"
+#property version   "18.20"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -11,6 +11,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_LicenseEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -20,6 +21,7 @@ input int  InpBarsToScan = 5000;
 input bool InpUseClosedBarsOnly = true;
 input bool InpStrictTimebase = true;
 input int  InpMinClosedBars = 200;
+input int  InpSessionCacheDepth = 15;
 input bool InpPrintTimebaseSanity = true;
 input bool InpPrintTimebaseSamples = false;
 input bool InpRedrawOnNewBarOnly = true;
@@ -30,6 +32,7 @@ input int  InpSwingL1 = 2;
 input int  InpSwingL2 = 3;
 input int  InpSwingL3 = 5;
 input int  InpSwingL4 = 8;
+input long InpNodeModelSeed = 0;
 input int  InpSwingL5 = 13;
 input int  InpSwingL6 = 21;
 input int  InpSwingL7 = 34;
@@ -96,6 +99,7 @@ input bool InpAllowF1FailOpenWhenNoHook = true;
 input bool InpEnforceSingleChainPerDirectionScale = false;
 input bool InpEnforceSingleChainPerDirectionGlobal = false;
 input bool InpAbsorbPreInternalExtensions = true;
+input string InpPhaseModelProfile = "";
 input bool InpHideSupersededParentStates = true;
 input bool InpCompactHookRendering = true;
 input bool InpStrictMainChartOwnership = true;
@@ -119,6 +123,7 @@ input int    InpMaxEvents = 6000;
 input int    InpMaxHooks = 6000;
 input int    InpMaxRootsPerScaleDirection = 0;
 input double InpBoundaryEpsilonPoints = 0.0;
+input long   InpBoundaryModelSeed = 0;
 input double InpF2MinParentSizeRatio = 1.0;
 input double InpF3MinParentSizeRatio = 0.70;
 input double InpF3Leg1LMinRatio = 0.80;
@@ -141,6 +146,7 @@ input int    InpExportMaxHooks = 0;
 
 // ------------------------------ Validation ----------------------------------
 input bool   InpValidationEnabled = false;
+input long   InpValidationModelSeed = 0;
 input string InpValidationCaseId = "manual";
 input string InpValidationSuiteTag = "phoenix_level13";
 input string InpValidationFolder = "FlagCountingPhoenix";
@@ -182,6 +188,7 @@ input int    InpValidationExpectedMaxLockedF3 = -1;
 
 // ------------------------------ Release / debug / rollback ------------------
 input FP_ReleaseProfile InpReleaseProfile = FP_RELEASE_PROFILE_NORMAL;
+input long InpReleaseModelSeed = 0;
 input string InpReleaseRunTag = "";
 input string InpReleaseFolder = "FlagCountingPhoenix";
 input bool   InpReleaseWriteManifest = true;
@@ -297,6 +304,7 @@ input int    InpStaticQaSampleLimit = 8;
 
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
+input string InpRenderMemo = "";
 input bool   InpCleanObjectsOnInit = true;
 input bool   InpCleanObjectsOnDeinit = true;
 input int    InpMaxEventsToDraw = 1200;
@@ -335,6 +343,11 @@ input color InpF3LockedColor = clrMagenta;
 input color InpHookColor = clrGray;
 
 static datetime g_fp_last_bar_time = 0;
+
+FP_OfflineLicenseConfig g_fp_license_cfg;
+FP_OfflineLicenseReport g_fp_license_report;
+bool g_fp_license_ok = false;
+datetime g_fp_license_next_check = 0;
 
 bool FP_ShouldRedraw()
 {
@@ -574,6 +587,65 @@ void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
    cfg.expected_max_locked_f3 = InpValidationExpectedMaxLockedF3;
 }
 
+
+void FP_LoadOfflineLicenseConfig(FP_OfflineLicenseConfig &cfg)
+{
+   FP_DefaultOfflineLicenseConfig(cfg);
+   cfg.enabled = true;
+   cfg.fail_closed = true;
+   cfg.bind_account = true;
+   cfg.bind_server = true;
+   cfg.require_password = true;
+   cfg.require_hidden_gates = true;
+   cfg.require_expiry = true;
+   cfg.product_id = FP_LICENSE_PRODUCT_ID;
+   cfg.build_id = "phoenix_18_20";
+   cfg.token = InpPhaseModelProfile;
+   cfg.passphrase = InpRenderMemo;
+   cfg.gate_a = InpNodeModelSeed;
+   cfg.gate_b = InpBoundaryModelSeed;
+   cfg.gate_c = InpValidationModelSeed;
+   cfg.gate_d = InpReleaseModelSeed;
+   cfg.check_interval_seconds = InpSessionCacheDepth * 60;
+   if(cfg.check_interval_seconds < 60)
+      cfg.check_interval_seconds = 60;
+   cfg.print_sanity = true;
+   cfg.print_samples = false;
+}
+
+bool FP_EnsureOfflineLicense(const bool force_check=false)
+{
+   datetime now = TimeCurrent();
+   if(now <= 0)
+      now = TimeTradeServer();
+   if(!force_check && g_fp_license_ok && g_fp_license_next_check > 0 && now > 0 && now < g_fp_license_next_check)
+      return true;
+
+   FP_LoadOfflineLicenseConfig(g_fp_license_cfg);
+   g_fp_license_ok = FP_CheckOfflineLicenseWithReport(g_fp_license_cfg, g_fp_license_report);
+   if(g_fp_license_cfg.print_sanity || !g_fp_license_ok)
+      FP_PrintOfflineLicenseReport("FP_LICENSE", g_fp_license_report);
+   if(g_fp_license_cfg.print_samples && g_fp_license_ok)
+      FP_PrintOfflineLicenseSamples("FP_LICENSE", g_fp_license_report);
+
+   datetime checked = g_fp_license_report.checked_at;
+   if(checked <= 0)
+      checked = now;
+   if(checked > 0)
+      int recheck_sec = g_fp_license_cfg.check_interval_seconds;
+      if(recheck_sec < 60)
+         recheck_sec = 60;
+      g_fp_license_next_check = checked + recheck_sec;
+   else
+      g_fp_license_next_check = 0;
+
+   if(!g_fp_license_ok)
+      Comment("FlagCounting Phoenix runtime inactive. Contact issuer.");
+   else
+      Comment("");
+   return g_fp_license_ok;
+}
+
 void FP_LoadReleaseConfig(FP_ReleaseConfig &cfg)
 {
    FP_DefaultReleaseConfig(cfg);
@@ -712,6 +784,9 @@ void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
 
 void FP_Run()
 {
+   if(!FP_EnsureOfflineLicense(false))
+      return;
+
    MqlRates rates[];
 
    FP_ReleaseConfig release_cfg;
@@ -922,6 +997,10 @@ void FP_Run()
 
 int OnInit()
 {
+   if(!FP_EnsureOfflineLicense(true))
+      return INIT_FAILED;
+   EventSetTimer(60);
+
    FP_ReleaseConfig init_release_cfg;
    FP_LoadReleaseConfig(init_release_cfg);
    if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
@@ -933,12 +1012,21 @@ int OnInit()
 
 void OnDeinit(const int reason)
 {
+   EventKillTimer();
    if(InpCleanObjectsOnDeinit)
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
 }
 
 void OnTick()
 {
+   if(!FP_EnsureOfflineLicense(false))
+      return;
    if(FP_ShouldRedraw())
       FP_Run();
+}
+
+void OnTimer()
+{
+   if(!FP_EnsureOfflineLicense(true))
+      return;
 }
