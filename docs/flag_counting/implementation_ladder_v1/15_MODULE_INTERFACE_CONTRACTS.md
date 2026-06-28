@@ -462,6 +462,58 @@ Must not build F2/F3, decide phase ownership across competing sequences, perform
 
 ---
 
+
+## FP_F2LifecycleRules.mqh / FP_F2LifecycleAudit.mqh / FP_F2LifecycleEngine.mqh
+
+Input:
+
+```text
+FP_Node canonical_nodes[]
+FP_FlagEvent confirmed F1 parent from Level 07
+FP_Config config
+Level 05 body service
+Level 06 internal-count service
+```
+
+Output:
+
+```text
+FP_FlagEvent level=F2 with f2 lifecycle fields
+FP_F2LifecycleBuildReport report
+```
+
+Owns:
+
+- F2 parent gate from `lifecycle_can_spawn_f2`;
+- deepest adverse F2 origin backfill between F1 Leg2 and F1 confirmation;
+- F2 parent-size gate and size ratio evidence;
+- F2 candidate/post-flag/confirmed/invalidated semantic state;
+- F2-only Origin invalidation before confirmation;
+- F2 confirmation after valid internal 1/2 and later Leg2 strict re-break;
+- F2 pre-internal Leg2 extension absorption as lifecycle evidence;
+- `f2_can_spawn_f3` authorization;
+- `FP_LEVEL08` report and optional lifecycle samples.
+
+Required active fields:
+
+```text
+f2_lifecycle_id
+f2_lifecycle_status
+f2_parent_ready
+f2_origin_found
+f2_body_complete
+f2_size_gate_passed
+f2_internal_ready
+f2_can_spawn_f3
+f2_origin_scan_start_pos
+f2_lifecycle_scan_end_pos
+f2_parent_size_ratio
+f2_lifecycle_reason
+```
+
+Must not build F3, decide cross-sequence phase ownership, perform duplicate canonicalization, or draw renderer objects.
+
+---
 ## FP_SequenceEngine.mqh
 
 Input:
@@ -484,7 +536,7 @@ FP_DetectResult summary
 Owns:
 
 - wiring Level 07 F1 lifecycle output into parent/child sequence construction;
-- F2 lifecycle;
+- wiring Level 08 F2 lifecycle output into F3 authorization;
 - F3 lifecycle;
 - parent-child links;
 - phase ownership;

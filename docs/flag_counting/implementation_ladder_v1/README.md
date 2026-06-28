@@ -63,6 +63,9 @@ mql5/Include/FlagCountingPhoenix/FP_InternalCountEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_F1LifecycleRules.mqh
 mql5/Include/FlagCountingPhoenix/FP_F1LifecycleAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_F1LifecycleEngine.mqh
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
 mql5/Include/FlagCountingPhoenix/FP_Audit.mqh

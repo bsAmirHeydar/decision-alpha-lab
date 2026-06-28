@@ -56,6 +56,9 @@ Structural / sequence engines:
 - `FP_F1LifecycleRules.mqh`: Level 07 pure F1 phase-gate, lifecycle-id, visibility, and F2-authorization predicates.
 - `FP_F1LifecycleAudit.mqh`: Level 07 F1 lifecycle report and optional samples.
 - `FP_F1LifecycleEngine.mqh`: Level 07 facade that converts body/internal evidence into candidate/post-flag/confirmed/invalidated F1 roots.
+- `FP_F2LifecycleRules.mqh`: Level 08 pure F2 parent-gate, size-gate, lifecycle-id, visibility, and F3-authorization predicates.
+- `FP_F2LifecycleAudit.mqh`: Level 08 F2 lifecycle report and optional samples.
+- `FP_F2LifecycleEngine.mqh`: Level 08 facade that converts confirmed F1 parents into candidate/post-flag/confirmed/invalidated F2 children.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
 - `FP_Audit.mqh`: logs and diagnostics.
@@ -301,6 +304,57 @@ lifecycle_can_spawn_f2 = true
 ```
 
 This prevents body-only or post-flag F1 structures from silently authorizing F2/F3.
+
+
+
+## Level 08 F2 lifecycle
+
+Phoenix now promotes F2 through a dedicated lifecycle layer instead of letting `FP_SequenceEngine` infer child status from a generic body helper. The active modules are:
+
+```text
+FP_F2LifecycleRules.mqh
+FP_F2LifecycleAudit.mqh
+FP_F2LifecycleEngine.mqh
+```
+
+Level 08 consumes confirmed Level 07 F1 parents, Level 05 body evidence, and Level 06 internal-count evidence. It owns these F2 facts:
+
+```text
+f2_lifecycle_id
+f2_lifecycle_status
+f2_parent_ready
+f2_origin_found
+f2_body_complete
+f2_size_gate_passed
+f2_internal_ready
+f2_can_spawn_f3
+f2_parent_size_ratio
+f2_lifecycle_reason
+```
+
+Default F2 lifecycle controls:
+
+```text
+InpPrintF2Sanity = true
+InpPrintF2Samples = false
+InpF2SampleLimit = 6
+InpF2ShowSizeRejectedCandidates = false
+InpF2ShowPostFlagCandidates = true
+InpF2ShowLiveBodyCandidates = true
+```
+
+`FP_LEVEL08` reports parent attempts, parent-ready/rejected state, strict-window origin scans, origin found/missing state, body missing/complete state, size pass/reject, candidate/post-flag/confirmed/invalidated states, extension absorption, visibility, F3-ready children, emitted children, and duplicate rejection.
+
+F3 may now only spawn from a Level 08 F2 with:
+
+```text
+status = confirmed
+has_confirm = true
+f2_size_gate_passed = true
+f2_can_spawn_f3 = true
+```
+
+This prevents undersized or unconfirmed F2 bodies from silently authorizing F3.
 
 ## Phoenix semantic cleanup patch
 

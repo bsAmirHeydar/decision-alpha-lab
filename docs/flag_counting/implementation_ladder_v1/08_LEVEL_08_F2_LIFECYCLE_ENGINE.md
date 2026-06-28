@@ -16,101 +16,234 @@ Global non-negotiables:
 
 ## Purpose
 
-F2 is the second flag in a chain. It is not a new F1 and it is not authorized by a post_flag F1. It is authorized only by confirmed F1.
+F2 is the second flag in an existing F-chain. It is not a new F1, not a Hook, and not a generic child body. F2 is authorized only by a Level 07 F1 whose lifecycle explicitly allows child construction.
 
-## Owned source module
+The Level 08 contract is:
 
 ```text
+confirmed F1 + lifecycle_can_spawn_f2
+-> strict F2 origin backfill window
+-> F2 body
+-> parent-size gate
+-> F2 internal confirmation / Origin invalidation
+-> f2_can_spawn_f3
+```
+
+F2 is therefore the bridge between a confirmed F1 and any possible F3. F3 must never be built from a body-only, undersized, invalidated, or unconfirmed F2.
+
+## Owned source modules
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_F2LifecycleEngine.mqh
 mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
 ```
 
-## Authorization
+`FP_SequenceEngine.mqh` is orchestration only. The F2 lifecycle decision itself belongs to the Level 08 modules.
 
-F2 may be searched only after parent F1 is confirmed.
+## Parent authorization
+
+F2 may be attempted only when the parent F1 passes:
 
 ```text
-parent.f_level == F1
+parent.level == F1
 parent.status == confirmed
+parent.has_confirm == true
+parent.lifecycle_can_spawn_f2 == true
 ```
 
-No other parent state authorizes F2.
+Any other parent state is rejected and counted in `FP_LEVEL08 parent_rejected`.
 
-## Backfill origin
+## F2 origin backfill
 
-F2 origin is backfilled from the deepest adverse correction after F1 flag body and before F1 confirmation.
+F2 origin is backfilled from the deepest adverse correction after F1 Leg2 and before F1 confirmation.
 
 Bullish chain:
 
 ```text
-deepest LOW after F1 Leg2 and before F1 confirmation
+deepest LOW in (F1.Leg2, F1.Confirm)
 ```
 
 Bearish chain:
 
 ```text
-highest HIGH after F1 Leg2 and before F1 confirmation
+highest HIGH in (F1.Leg2, F1.Confirm)
 ```
 
-## Size contract
+The window is strict. Nodes after F1 confirmation do not become the F2 origin in Level 08.
 
-F2 must compare by size against F1.
+## Body dependency
+
+F2 body construction is delegated to Level 05:
 
 ```text
-F2 flag size >= F1 flag size
+Origin -> Leg1 -> Waist -> Leg2
 ```
 
-If F2 has not reached size condition, it is not necessarily rejected; it may remain candidate/qualified pending extension depending on body state. However, undersized F2 must not authorize F3.
+Level 08 does not invent body points. It only consumes the body and records whether the body exists.
+
+## Size gate
+
+F2 must reach the parent-size condition before it can be a real sequence child:
+
+```text
+F2.flag_size >= InpF2MinParentSizeRatio * F1.flag_size
+```
+
+Default:
+
+```text
+InpF2MinParentSizeRatio = 1.0
+```
+
+If F2 is below the size gate:
+
+- it is counted in audit;
+- it does not authorize F3;
+- it is hidden from the main chart by default;
+- it can be shown for debug with `InpF2ShowSizeRejectedCandidates=true`.
+
+If pre-internal extension absorption increases Leg2 before the internal count is valid, the same F2 candidate is updated and size is recomputed. A duplicate F2 must not be emitted just because Leg2 extended.
+
+## Internal confirmation
+
+After the size gate passes, Level 08 uses Level 06 internal-count evidence.
+
+F2 confirms when:
+
+```text
+valid internal 1/2 after F2 Leg2
++ later strict favorable re-break of F2 Leg2
++ no strict F2 Origin break before confirmation
+```
+
+F2 does not use the special F1 middle-node restriction. That rule belongs only to F1.
 
 ## Invalidation
 
-F2 invalidates at its own Origin, not at its Waist.
+F2 invalidates at its own Origin, not its Waist.
 
-If F2 breaks its Waist but not Origin, the branch is not dead. It may create a waist-break internal branch.
+```text
+bullish F2 invalidation = strict break below F2 Origin
+bearish F2 invalidation = strict break above F2 Origin
+```
 
-## Parent survival
+Equality is not invalidation.
 
-If an F2 candidate dies, parent F1 remains alive and can search for a new F2 from the same post-F1 correction context.
+A Waist break that does not break Origin may still be part of internal branch behavior. It must not kill the F2 lifecycle by itself.
+
+## F3 authorization
+
+F3 may be attempted only when:
+
+```text
+F2.status == confirmed
+F2.has_confirm == true
+F2.f2_size_gate_passed == true
+F2.f2_can_spawn_f3 == true
+```
+
+This is the Level 08 handoff to Level 09.
 
 ## Required fields
 
+`FP_FlagEvent` must carry:
+
 ```text
-f_level = F2
-parent_f1_id
-backfill_origin_node
-backfill_window_start
-backfill_window_end
-size_ratio_to_f1
-size_condition_met
-can_authorize_f3
-invalidated_at_origin
-waist_break_branch
+f2_lifecycle_id
+f2_lifecycle_status
+f2_parent_ready
+f2_origin_found
+f2_body_complete
+f2_size_gate_passed
+f2_internal_ready
+f2_can_spawn_f3
+f2_origin_scan_start_pos
+f2_lifecycle_scan_end_pos
+f2_parent_size_ratio
+f2_lifecycle_reason
+```
+
+## Audit
+
+`FP_LEVEL08` must report:
+
+```text
+parent_attempts
+parent_ready
+parent_rejected
+origin_scans
+origin_found
+origin_missing
+body_missing
+body_complete
+size_pass
+size_reject
+candidate
+post_flag
+confirmed
+invalidated
+extended
+visible
+hidden
+f3_ready
+emitted_children
+duplicate_rejected
+max_ext
+```
+
+Samples are controlled by:
+
+```text
+InpPrintF2Sanity = true
+InpPrintF2Samples = false
+InpF2SampleLimit = 6
+```
+
+Main-chart candidate controls:
+
+```text
+InpF2ShowSizeRejectedCandidates = false
+InpF2ShowPostFlagCandidates = true
+InpF2ShowLiveBodyCandidates = true
 ```
 
 ## Acceptance tests
 
 ### Test 01 — F2 only after confirmed F1
 
-F2 cannot be emitted from F1 `post_flag` or `internal_ready` parent.
+No F2 may be emitted from candidate, post-flag, body-only, invalidated, hidden, or fail-open rejected F1 parents.
 
 ### Test 02 — Backfill window
 
-F2 origin must come from the adverse correction between F1 Leg2 and F1 confirmation, not after confirmation unless documented as extension.
+F2 origin must be the deepest adverse node between F1 Leg2 and F1 confirmation.
 
-### Test 03 — F2 origin invalidation
+### Test 03 — Size gate
 
-F2 candidate dies only when its own origin is strictly broken.
+An undersized F2 must not set `f2_can_spawn_f3=true`.
 
-### Test 04 — F2 small cannot create F3
+### Test 04 — Origin invalidation
 
-Undersized F2 may be audited but cannot become parent of F3.
+F2 dies only on strict Origin break before confirmation. Waist break alone is not fatal.
+
+### Test 05 — Parent survival
+
+If a child F2 fails, the parent F1 remains a confirmed parent. Sequence ownership may hide or display later states, but Level 08 must not mutate the F1 lifecycle.
+
+### Test 06 — F3 handoff
+
+F3 may only consume an F2 with `f2_can_spawn_f3=true`.
 
 ## Failure symptoms
 
-- F2 labels appear next to post_flag F1 labels.
-- Several F2s appear before F1 confirmation index.
-- F2 disappears and kills F1 context.
-- F3 is built from an undersized or unconfirmed F2.
+- F2 appears before F1 confirmation.
+- F2 uses a node after F1 confirmation as origin.
+- An undersized F2 creates F3.
+- F2 invalidates on Waist instead of Origin.
+- Failed F2 hides or invalidates its parent F1.
+- `FP_LEVEL08` reports zero parent attempts while visible F2 exists.
 
 ## Freeze condition
 
-F2 lifecycle is frozen when F2 candidates and confirmations can be audited from confirmed F1 only, including failure and parent survival cases.
+Level 08 is frozen when every emitted F2 has a confirmed Level 07 parent, a strict backfilled origin, a recorded size gate result, a Level 06 internal-pack result, and a deterministic `f2_can_spawn_f3` handoff state.

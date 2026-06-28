@@ -235,21 +235,27 @@ Acceptance:
 - `FP_LEVEL07` reports attempts, phase/fail-open roots, gate pass/reject, body missing/complete, candidate/post-flag/confirmed/invalidated/extended counts, F2-ready parents, duplicate rejections, and emitted roots;
 - `FC-GC-004` baselined or marked as blocking before freeze.
 
-### Step 08 — Build F2 only
+### Step 08 — Build F2 lifecycle only
 
 Files:
 
 ```text
+FP_F2LifecycleRules.mqh
+FP_F2LifecycleAudit.mqh
+FP_F2LifecycleEngine.mqh
 FP_SequenceEngine.mqh
 ```
 
 Acceptance:
 
-- F2 only after confirmed F1;
-- strict-window backfill origin correct;
-- size condition audited;
-- undersized F2 cannot authorize F3;
-- F2 child death does not kill F1;
+- F2 parent gate requires Level 07 `lifecycle_can_spawn_f2=true`;
+- F2 origin is strict-window backfill from deepest adverse node between F1 Leg2 and F1 confirmation;
+- F2 body is still Level 05 O/A/W/B, not a lifecycle shortcut;
+- F2 size gate is audited through `f2_size_gate_passed` and `f2_parent_size_ratio`;
+- undersized F2 cannot set `f2_can_spawn_f3=true`;
+- F2 invalidates only on strict Origin break, not Waist break;
+- failed or undersized F2 does not mutate or kill parent F1;
+- `FP_LEVEL08` reports parent/origin/body/size/internal/visibility/F3-ready counters;
 - `FC-GC-005` baselined or marked as blocking before freeze.
 
 ### Step 09 — Build F3 only

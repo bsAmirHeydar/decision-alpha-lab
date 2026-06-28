@@ -114,50 +114,52 @@ void FP_RecordF1EmittedRoot(FP_F1LifecycleBuildReport &r)
 
 void FP_PrintF1LifecycleBuildReport(const string tag, const FP_F1LifecycleBuildReport &r)
 {
-   Print(tag,
-         " scale_L=", r.scale_L,
-         " nodes=", r.node_count,
-         " attempts=", r.origin_attempts,
-         " phase_attempts=", r.phase_origin_attempts,
-         " failopen_attempts=", r.fail_open_origin_attempts,
-         " gate_pass=", r.phase_gate_passed,
-         " gate_reject=", r.phase_gate_rejected,
-         " body_missing=", r.body_missing,
-         " body_complete=", r.body_complete,
-         " candidate=", r.lifecycle_candidate,
-         " post_flag=", r.lifecycle_post_flag,
-         " confirmed=", r.lifecycle_confirmed,
-         " invalidated=", r.lifecycle_invalidated,
-         " extended=", r.lifecycle_extended,
-         " visible=", r.lifecycle_visible,
-         " hidden=", r.lifecycle_hidden,
-         " f2_ready=", r.f2_ready,
-         " duplicate_rejected=", r.duplicate_rejected,
-         " emitted_roots=", r.emitted_roots,
-         " max_ext=", r.max_extension_count);
+   string msg = tag;
+   msg += " scale_L=" + IntegerToString(r.scale_L);
+   msg += " nodes=" + IntegerToString(r.node_count);
+   msg += " attempts=" + IntegerToString(r.origin_attempts);
+   msg += " phase_attempts=" + IntegerToString(r.phase_origin_attempts);
+   msg += " failopen_attempts=" + IntegerToString(r.fail_open_origin_attempts);
+   msg += " gate_pass=" + IntegerToString(r.phase_gate_passed);
+   msg += " gate_reject=" + IntegerToString(r.phase_gate_rejected);
+   msg += " body_missing=" + IntegerToString(r.body_missing);
+   msg += " body_complete=" + IntegerToString(r.body_complete);
+   msg += " candidate=" + IntegerToString(r.lifecycle_candidate);
+   msg += " post_flag=" + IntegerToString(r.lifecycle_post_flag);
+   msg += " confirmed=" + IntegerToString(r.lifecycle_confirmed);
+   msg += " invalidated=" + IntegerToString(r.lifecycle_invalidated);
+   msg += " extended=" + IntegerToString(r.lifecycle_extended);
+   msg += " visible=" + IntegerToString(r.lifecycle_visible);
+   msg += " hidden=" + IntegerToString(r.lifecycle_hidden);
+   msg += " f2_ready=" + IntegerToString(r.f2_ready);
+   msg += " duplicate_rejected=" + IntegerToString(r.duplicate_rejected);
+   msg += " emitted_roots=" + IntegerToString(r.emitted_roots);
+   msg += " max_ext=" + IntegerToString(r.max_extension_count);
+   Print(msg);
 }
 
 void FP_PrintF1LifecycleSample(const string tag, const FP_FlagEvent &e)
 {
-   Print(tag,
-         " event=", e.event_id,
-         " seq=", e.sequence_id,
-         " dir=", FP_DirectionName(e.direction),
-         " L=", e.scale_L,
-         " status=", FP_StatusName(e.status),
-         " lc_status=", FP_F1LifecycleStatusName(e.lifecycle_status),
-         " lc_id=", e.lifecycle_id,
-         " gate=", FP_BoolName(e.lifecycle_phase_gate_passed),
-         " phase=", FP_BoolName(e.from_phase_boundary),
-         " failopen=", FP_BoolName(e.from_fail_open),
-         " body_complete=", FP_BoolName(e.lifecycle_body_complete),
-         " internal_ready=", FP_BoolName(e.lifecycle_internal_ready),
-         " can_spawn_f2=", FP_BoolName(e.lifecycle_can_spawn_f2),
-         " ext=", e.leg2_extension_count,
-         " visible=", FP_BoolName(e.visible_main),
-         " hidden_reason=", e.hidden_reason,
-         " scan=", e.lifecycle_scan_start_pos, "-", e.lifecycle_scan_end_pos,
-         " reason=", e.lifecycle_reason);
+   string msg = tag;
+   msg += " event=" + IntegerToString(e.event_id);
+   msg += " seq=" + IntegerToString(e.sequence_id);
+   msg += " dir=" + FP_DirectionName(e.direction);
+   msg += " L=" + IntegerToString(e.scale_L);
+   msg += " status=" + FP_StatusName(e.status);
+   msg += " lc_status=" + FP_F1LifecycleStatusName(e.lifecycle_status);
+   msg += " lc_id=" + e.lifecycle_id;
+   msg += " gate=" + FP_BoolName(e.lifecycle_phase_gate_passed);
+   msg += " phase=" + FP_BoolName(e.from_phase_boundary);
+   msg += " failopen=" + FP_BoolName(e.from_fail_open);
+   msg += " body_complete=" + FP_BoolName(e.lifecycle_body_complete);
+   msg += " internal_ready=" + FP_BoolName(e.lifecycle_internal_ready);
+   msg += " can_spawn_f2=" + FP_BoolName(e.lifecycle_can_spawn_f2);
+   msg += " ext=" + IntegerToString(e.leg2_extension_count);
+   msg += " visible=" + FP_BoolName(e.visible_main);
+   msg += " hidden_reason=" + e.hidden_reason;
+   msg += " scan=" + IntegerToString(e.lifecycle_scan_start_pos) + "-" + IntegerToString(e.lifecycle_scan_end_pos);
+   msg += " reason=" + e.lifecycle_reason;
+   Print(msg);
 }
 
 void FP_PrintF1LifecycleSamples(const string tag,

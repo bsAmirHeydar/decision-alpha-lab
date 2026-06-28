@@ -100,6 +100,24 @@ enum FP_F1LifecycleStatus
    FP_F1_LC_HIDDEN         = 8
 };
 
+// Level 08 F2 lifecycle state.  F2 is not just "the next body"; it must pass
+// parent-readiness, F2-origin, parent-size, and internal confirmation gates
+// before it can authorize F3 construction.
+enum FP_F2LifecycleStatus
+{
+   FP_F2_LC_NONE            = 0,
+   FP_F2_LC_PARENT_REJECTED = 1,
+   FP_F2_LC_ORIGIN_MISSING  = 2,
+   FP_F2_LC_BODY_MISSING    = 3,
+   FP_F2_LC_SIZE_REJECTED   = 4,
+   FP_F2_LC_CANDIDATE       = 5,
+   FP_F2_LC_POST_FLAG       = 6,
+   FP_F2_LC_CONFIRMED       = 7,
+   FP_F2_LC_INVALIDATED     = 8,
+   FP_F2_LC_EXTENDED        = 9,
+   FP_F2_LC_HIDDEN          = 10
+};
+
 // ------------------------------- Data model --------------------------------
 
 struct FP_Node
@@ -271,6 +289,23 @@ struct FP_FlagEvent
    int      lifecycle_scan_end_pos;
    string   lifecycle_reason;
 
+   // Level 08 F2 lifecycle evidence.  F2 lifecycle is the only source allowed
+   // to decide whether an F2 can spawn F3.  F1 lifecycle proves parent-readiness;
+   // this layer proves F2 origin, parent-size gate, F2 internal confirmation,
+   // and Origin-boundary invalidation.
+   string   f2_lifecycle_id;
+   int      f2_lifecycle_status;
+   bool     f2_parent_ready;
+   bool     f2_origin_found;
+   bool     f2_body_complete;
+   bool     f2_size_gate_passed;
+   bool     f2_internal_ready;
+   bool     f2_can_spawn_f3;
+   int      f2_origin_scan_start_pos;
+   int      f2_lifecycle_scan_end_pos;
+   double   f2_parent_size_ratio;
+   string   f2_lifecycle_reason;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -361,6 +396,13 @@ struct FP_Config
    bool   f1_show_post_flag_candidates;
    bool   f1_show_live_body_candidates;
 
+   bool   print_f2_sanity;
+   bool   print_f2_samples;
+   int    f2_sample_limit;
+   bool   f2_show_size_rejected_candidates;
+   bool   f2_show_post_flag_candidates;
+   bool   f2_show_live_body_candidates;
+
    int    max_events;
    int    max_hooks;
    int    max_roots_per_scale_direction;
@@ -439,6 +481,26 @@ struct FP_DetectResult
    int f1_lifecycle_f2_ready_total;
    int f1_lifecycle_duplicate_rejected_total;
    int f1_lifecycle_emitted_roots_total;
+   int f2_lifecycle_parent_attempts_total;
+   int f2_lifecycle_parent_ready_total;
+   int f2_lifecycle_parent_rejected_total;
+   int f2_lifecycle_origin_scans_total;
+   int f2_lifecycle_origin_found_total;
+   int f2_lifecycle_origin_missing_total;
+   int f2_lifecycle_body_missing_total;
+   int f2_lifecycle_body_complete_total;
+   int f2_lifecycle_size_pass_total;
+   int f2_lifecycle_size_reject_total;
+   int f2_lifecycle_candidate_total;
+   int f2_lifecycle_post_flag_total;
+   int f2_lifecycle_confirmed_total;
+   int f2_lifecycle_invalidated_total;
+   int f2_lifecycle_extended_total;
+   int f2_lifecycle_visible_total;
+   int f2_lifecycle_hidden_total;
+   int f2_lifecycle_f3_ready_total;
+   int f2_lifecycle_emitted_children_total;
+   int f2_lifecycle_duplicate_rejected_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -588,6 +650,19 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.lifecycle_scan_end_pos = -1;
    e.lifecycle_reason = "";
 
+   e.f2_lifecycle_id = "";
+   e.f2_lifecycle_status = FP_F2_LC_NONE;
+   e.f2_parent_ready = false;
+   e.f2_origin_found = false;
+   e.f2_body_complete = false;
+   e.f2_size_gate_passed = false;
+   e.f2_internal_ready = false;
+   e.f2_can_spawn_f3 = false;
+   e.f2_origin_scan_start_pos = -1;
+   e.f2_lifecycle_scan_end_pos = -1;
+   e.f2_parent_size_ratio = 0.0;
+   e.f2_lifecycle_reason = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -674,6 +749,13 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.f1_show_post_flag_candidates = true;
    cfg.f1_show_live_body_candidates = true;
 
+   cfg.print_f2_sanity = true;
+   cfg.print_f2_samples = false;
+   cfg.f2_sample_limit = 6;
+   cfg.f2_show_size_rejected_candidates = false;
+   cfg.f2_show_post_flag_candidates = true;
+   cfg.f2_show_live_body_candidates = true;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -692,7 +774,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level07";
+   cfg.identity_generation_pass = "phoenix_level08";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -751,6 +833,26 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.f1_lifecycle_f2_ready_total = 0;
    r.f1_lifecycle_duplicate_rejected_total = 0;
    r.f1_lifecycle_emitted_roots_total = 0;
+   r.f2_lifecycle_parent_attempts_total = 0;
+   r.f2_lifecycle_parent_ready_total = 0;
+   r.f2_lifecycle_parent_rejected_total = 0;
+   r.f2_lifecycle_origin_scans_total = 0;
+   r.f2_lifecycle_origin_found_total = 0;
+   r.f2_lifecycle_origin_missing_total = 0;
+   r.f2_lifecycle_body_missing_total = 0;
+   r.f2_lifecycle_body_complete_total = 0;
+   r.f2_lifecycle_size_pass_total = 0;
+   r.f2_lifecycle_size_reject_total = 0;
+   r.f2_lifecycle_candidate_total = 0;
+   r.f2_lifecycle_post_flag_total = 0;
+   r.f2_lifecycle_confirmed_total = 0;
+   r.f2_lifecycle_invalidated_total = 0;
+   r.f2_lifecycle_extended_total = 0;
+   r.f2_lifecycle_visible_total = 0;
+   r.f2_lifecycle_hidden_total = 0;
+   r.f2_lifecycle_f3_ready_total = 0;
+   r.f2_lifecycle_emitted_children_total = 0;
+   r.f2_lifecycle_duplicate_rejected_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;
@@ -821,6 +923,21 @@ string FP_F1LifecycleStatusName(const int status)
    if(status == FP_F1_LC_INVALIDATED)    return "invalidated";
    if(status == FP_F1_LC_EXTENDED)       return "extended";
    if(status == FP_F1_LC_HIDDEN)         return "hidden";
+   return "none";
+}
+
+string FP_F2LifecycleStatusName(const int status)
+{
+   if(status == FP_F2_LC_PARENT_REJECTED) return "parent_rejected";
+   if(status == FP_F2_LC_ORIGIN_MISSING)  return "origin_missing";
+   if(status == FP_F2_LC_BODY_MISSING)    return "body_missing";
+   if(status == FP_F2_LC_SIZE_REJECTED)   return "size_rejected";
+   if(status == FP_F2_LC_CANDIDATE)       return "candidate";
+   if(status == FP_F2_LC_POST_FLAG)       return "post_flag";
+   if(status == FP_F2_LC_CONFIRMED)       return "confirmed";
+   if(status == FP_F2_LC_INVALIDATED)     return "invalidated";
+   if(status == FP_F2_LC_EXTENDED)        return "extended";
+   if(status == FP_F2_LC_HIDDEN)          return "hidden";
    return "none";
 }
 

@@ -612,3 +612,58 @@ Known limitations:
 ```
 
 If a patch conflicts with this canon, update this canon first in a separate governance patch.
+
+---
+
+## Level 08 implementation freeze — F2 lifecycle
+
+Level 08 turns F2 from an implicit `SequenceEngine` child helper into a dedicated lifecycle layer. The active authority is:
+
+```text
+FP_F2LifecycleRules.mqh
+FP_F2LifecycleAudit.mqh
+FP_F2LifecycleEngine.mqh
+```
+
+`FP_SequenceEngine.mqh` may orchestrate calls, but it must not own F2 semantic decisions.
+
+F2 parent authorization is now locked to Level 07 F1 lifecycle output:
+
+```text
+parent.level == F1
+parent.status == confirmed
+parent.has_confirm == true
+parent.lifecycle_can_spawn_f2 == true
+```
+
+F2 origin is the deepest adverse node in the strict backfill window after F1 Leg2 and before F1 confirmation. Nodes after F1 confirmation are not eligible F2 origins in Level 08.
+
+F2 size qualification is explicit:
+
+```text
+f2_size_gate_passed = F2.flag_size >= cfg.f2_min_parent_size_ratio * F1.flag_size
+```
+
+An undersized F2 may be counted for audit, but it must not set `f2_can_spawn_f3=true`. The main chart hides size-rejected F2 candidates by default through `InpF2ShowSizeRejectedCandidates=false`.
+
+F2 confirmation requires Level 06 evidence:
+
+```text
+valid internal 1/2 after F2 Leg2
++ later strict favorable Leg2 re-break
++ no strict F2 Origin break before confirmation
+```
+
+F2 invalidates at its own Origin, not Waist. Equality remains non-breaking.
+
+F3 authorization is now locked to Level 08:
+
+```text
+level == F2
+status == confirmed
+has_confirm == true
+f2_size_gate_passed == true
+f2_can_spawn_f3 == true
+```
+
+`FP_LEVEL08` is the current audit form for F2. It must report parent attempts, parent-ready/rejected state, origin scan/found/missing state, body missing/complete state, size pass/reject, candidate/post-flag/confirmed/invalidated states, visibility, hidden counts, F3-ready children, emitted children, duplicate rejection, and max extension count.
