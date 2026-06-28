@@ -114,7 +114,7 @@ Files:
 
 ## Version Intent
 
-V5 is designed as a rewrite/audit foundation. It should be used before editing `FlagCountingVNext` code.
+V5 is designed as a rewrite/audit foundation for Phoenix. It must be read through `docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`, which is the conflict resolver. Do not use V5 to revive `FlagCountingVNext`; Phoenix is the active implementation path.
 
 The recommended workflow is:
 

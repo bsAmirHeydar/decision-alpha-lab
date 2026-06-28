@@ -1,3 +1,11 @@
+<!-- CURRENT CANON NOTICE
+This file remains the active semantic sequence contract for Phoenix, but it is subordinate to:
+
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+
+If this file conflicts with the current canon, the current canon wins.
+-->
+
 # Flag Counting Sequence Contract V4
 
 This document is the canonical English contract for the Flag Counting experiment.

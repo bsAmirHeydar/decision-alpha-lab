@@ -1,31 +1,18 @@
-# EXP Flag Counting vNext
+# EXP Flag Counting vNext — Archived
 
-Use `FlagCountingVNextExperiment.mq5` for the next implementation round.
+This document is retained as implementation history only.
 
-The old scanner-based experts are considered experimental history. The vNext module implements the current design contract:
+Do not use `FlagCountingVNextExperiment.mq5` for new work. The active implementation path is:
 
-- multi-scale node streams,
-- parallel sequence registry,
-- F1 root,
-- mandatory F2 child from F1 Internal 2,
-- mandatory F3 child from F2 Internal 2 when available,
-- F1 Waist invalidation,
-- F2 Origin invalidation,
-- F3 terminal body behavior,
-- body-only chart rendering,
-- audit logging behind an input flag.
+```text
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+mql5/Include/FlagCountingPhoenix/
+```
 
-Compile target:
+The active source of truth is:
 
-`mql5/Experts/FlagCounting/FlagCountingVNextExperiment.mq5`
+```text
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+```
 
-
-## Current root visibility correction
-
-The visual experiment now keeps live coherent F1 roots visible by default. The previous strict defaults made the chart too empty because they required every root to already have internal `1/2` and confirmation before rendering. Those checks are still available as optional inputs, but the default research view is:
-
-- `InpRequireF1Internal12ForRoot = false`
-- `InpRequireF1ConfirmedForRoot = false`
-- `InpRequireParentConfirmedForNextF = false`
-
-Origin identity is still strict: if a child/candidate touches its own start of leg, only that child dies; the parent remains alive unless its own invalidation is hit.
+Older vNext notes may help explain past design attempts, but they are not authoritative for current Phoenix patches.

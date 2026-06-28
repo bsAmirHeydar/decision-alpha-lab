@@ -1,5 +1,15 @@
 # FlagCounting Phoenix
 
+## Current canon
+
+Phoenix must be implemented and audited from:
+
+```text
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+```
+
+That file is the source of truth. This README is an implementation index only.
+
 Phoenix is a clean rebuild of the Flag Counting engine. It intentionally does not include, reuse, or depend on any earlier `FlagCounting`, `FlagCountingVNext`, or `FlagCountingV6` implementation.
 
 ## Core principles

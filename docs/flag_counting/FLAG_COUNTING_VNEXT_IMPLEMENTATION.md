@@ -1,3 +1,11 @@
+<!-- CURRENT CANON NOTICE
+This file is retained as historical/context documentation. For current Phoenix implementation decisions, use:
+
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+
+If this file conflicts with the current canon, the current canon wins.
+-->
+
 # Flag Counting vNext Implementation Notes
 
 This document maps the v3 concept specification into the first clean MQL5 implementation module.

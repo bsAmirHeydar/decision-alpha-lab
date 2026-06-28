@@ -2,74 +2,74 @@
 
 This experiment studies fractal, multi-scale, multi-sequence F-counting.
 
-Current implementation path:
+## Active source of truth
 
-- `mql5/Experts/FlagCounting/FlagCountingVNextExperiment.mq5`
-- `mql5/Include/FlagCountingVNext/`
+Start from the current canon:
 
-Core documents:
+```text
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+```
 
-- `docs/flag_counting/FLAG_COUNTING_CONCEPT_SPEC_V3.md`
-- `docs/flag_counting/FLAG_COUNTING_ALGORITHM_BLUEPRINT.md`
-- `docs/flag_counting/FLAG_COUNTING_VISUALIZATION_SPEC.md`
+That file resolves all Flag Counting implementation decisions. If older VNext/V6/M0007 documents conflict with it, the current canon wins.
 
-Visualization rule:
+## Active implementation path
 
-- draw body only,
-- stack labels by scale and F-level,
-- keep the strongest label closest to the price structure,
-- use larger thickness/fonts for larger scales.
+```text
+mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+mql5/Include/FlagCountingPhoenix/
+```
 
-## Clean-All Visualization Update
+Phoenix is the only active implementation path for this experiment.
 
-The renderer should not hide accepted sequences by default. Instead, it makes every visible sequence easier to read:
+## Core documents
 
-- All F body lines use the same thin width by default (`InpFixedLineWidth = 1`).
-- Larger scales no longer become visually heavier by line width; scale remains available through labels, logs, and sequence identity.
-- Each sequence receives a subtle shade variation inside its own direction/status color family (`InpUseSequenceColorShades = true`).
-- Bullish, bearish, live, confirmed, F3 terminal, and ND color families remain distinct, but individual sequence shades help separate overlapping paths.
-- ND / Hook phases are text-only labels (`ND`) and do not draw additional body lines. This keeps the chart informative without adding line noise.
-- The visual objective is to show all accepted/provisional structures while preventing scale thickness and repeated labels from overwhelming the price chart.
+Read in this order:
 
-Relevant inputs:
+1. `docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`
+2. `docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V4.md`
+3. `docs/flag_counting/FLAG_COUNTING_ENGINEERING_PACK_V5.md`
+4. `docs/flag_counting/engineering_pack_v5/`
+5. `docs/flag_counting/implementation_ladder_v1/`
+6. `docs/flag_counting/phoenix_rebuild/`
 
-- `InpScanND`
-- `InpDrawND`
-- `InpMaxNDPerScale`
-- `InpUseSequenceColorShades`
-- `InpFixedLineWidth`
-- `InpNDColor`
+## Legacy documents
 
-## ND / Hook Detection Contract
+The old VNext, V6, sequence V2/V3, checklist V2/V3/V4, and M0007 documents remain research history. They must not be used as the decision source for new code.
 
-The VNext implementation now detects ND / Hook phases as first-class text-only events, not only as gaps left after F rendering. For each active scale, the detector scans consecutive compressed node windows of 3 or 4 nodes and accepts a provisional ND when the final high/low node reaches at least 50% toward the active extreme of that node window. This follows the documented rule that an ND does not need a 90% return; a minimum 50% high/low extreme ratio is enough for research visibility.
+## Experiment grammar
 
-Important inputs:
+The active model is:
 
-- `InpScanND`: enables ND detection.
-- `InpDetectAllND`: when true, scan all valid 3/4-node ND windows in each scale; when false, only unowned gaps are marked as ND.
-- `InpMaxNDPerScale`: caps ND labels per scale for visual control.
-- `InpNDMinNodes`: default 3.
-- `InpNDMaxNodes`: default 4.
-- `InpNDMinExtremeRatio`: default 0.50.
+```text
+ND/Hook -> F1 -> F2 -> F3 -> Extension/Lock
+```
 
-ND is rendered as text only (`ND`) so it explains the partition without adding more body lines to the chart. Peak-side ND labels are placed above peaks and valley-side ND labels are placed below valleys using the same stacking system as F labels.
+Core rules:
 
-### ND high/low-only contract
+- high/low only;
+- strict break only;
+- equality is not break;
+- L-based node streams;
+- branch-based Hook/ND;
+- F1/F2/F3 are lifecycle roles, not separate body shapes;
+- F2/F3 origins use strict documented backfill windows;
+- canonical main chart and audit output are separate;
+- renderer is non-authoritative.
 
-ND / Hook detection is close-agnostic. It does not care whether a candle closed beyond a level or not. The whole flag-counting grammar currently treats the market through swing highs and swing lows only. ND windows are therefore evaluated from compressed high/low nodes:
+## Default visibility policy
 
-- valid ND windows use 3 or 4 alternating high/low nodes;
-- the final ND node must reach the configured side of the window by at least `InpNDMinExtremeRatio`;
-- `InpNDMinExtremeRatio = 0.50` means the last swing node is at least in the relevant half of the high-low range of that ND window;
-- candle open, candle close, candle body, and candle color are not part of the ND definition.
+Main chart is canonical-clean by default. Audit/export must preserve raw candidates, hidden duplicates, fail-open recovery roots, Hook/ND branches, sequence transitions, and hidden reasons.
 
+## Recommended first Phoenix run
 
+```text
+InpBarsToScan = 5000
+InpUseMultiScale = true
+InpRequireF1PhaseBoundary = true
+InpAllowF1FailOpenWhenNoHook = true
+InpDrawHooks = true
+InpDetailedLabels = true
+InpVerboseAuditLogs = false
+```
 
-## Origin identity and live-root display contract
-
-The renderer must show coherent live roots by default. A root F1 body does not need to be hidden until internal `1/2` and confirmation; otherwise the chart becomes artificially empty and the research view loses the developing structures. Strict root filters remain optional audit inputs, but their defaults are off.
-
-Orphan control comes from origin identity: if a candidate touches or crosses its own Origin / start of leg, that candidate is invalid and must not be drawn or extended. If it is a child, only the child dies; the parent remains alive unless its own invalidation is hit.
-
-Each rendered F body keeps a traceable identity through `F#/L#/Q#` labels and an `O` origin label, so the chart shows which flag/scale/sequence owns each body and where its first leg starts. ND remains high/low-node based and close-agnostic.
+For audit work, enable verbose audit logs/export before judging the renderer.

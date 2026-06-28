@@ -14,6 +14,17 @@ Global non-negotiables:
 
 ## Level 00 — Governance and Freeze Protocol
 
+## Canon source rule
+
+The decision source for every Phoenix patch is:
+
+```text
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+```
+
+If a ladder file, engineering-pack file, repair note, README, or legacy document conflicts with the current canon, the current canon wins. A patch that wants to change a decision must update the canon first in a governance patch.
+
+
 ### Problem this layer solves
 
 Previous Phoenix iterations failed because tactical patches edited multiple semantic layers at once. Hook logic, flag-body logic, sequence ownership, renderer behavior, and label layout were changed together. When the chart broke, it was impossible to determine whether the defect came from structure detection, phase ownership, duplicate pruning, or rendering.
@@ -85,6 +96,7 @@ Given the same bars, settings, and history range, Phoenix must emit the same log
 
 Commit messages must include:
 
+- canon file used;
 - layer touched;
 - modules touched;
 - invariant preserved;

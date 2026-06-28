@@ -1,137 +1,142 @@
 # Phoenix Flag Counting Implementation Ladder V1
 
-This document is part of the implementation ladder for the Phoenix Flag Counting engine. The ladder is intentionally layered so that lower layers become frozen foundations before higher layers are allowed to depend on them.
+This document is part of the implementation ladder for the Phoenix Flag Counting engine.
 
-Global non-negotiables:
-
-- All structural decisions use candle `high` and `low` only.
-- `open`, `close`, candle body, candle color, volume, and indicators are not structural inputs.
-- Equality is not a break. A level is broken only by a strict pass beyond it.
-- The renderer is non-authoritative. It may only draw logical objects emitted by engines.
-- Main-chart rendering and audit rendering are separate products.
-- Every layer must expose enough audit fields to prove why an object exists.
-- A higher layer may never silently repair a lower-layer defect.
-
-# Ambiguities to Resolve Before Further Code
+# Level 17 — Resolved Decision Record
 
 ## Purpose
 
-This document lists questions that should be answered before another broad Phoenix rewrite. Some can be coded as configurable variants, but they must not remain implicit.
-
-## A. Phase reset rules
-
-Current strict interpretation:
+This file used to list open ambiguities before further code. Those ambiguities are now resolved by:
 
 ```text
-A new same-direction F1 phase is allowed only after an opposite confirmed F1 locks a completed F3.
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
 ```
 
-Questions:
+This file remains as a quick implementation-facing decision index. If this file and the current canon ever conflict, the current canon wins.
 
-1. Can an opposite confirmed F1 reset phase even if prior F3 was not completed?
-2. Can a very large opposite Hook/ND reset phase before F3?
-3. Can a broken F2/F3 parent reset ownership, or does F1 remain owner until opposite phase appears?
+---
 
-Recommended implementation:
+## A. Phase reset rules — resolved
+
+Default:
 
 ```text
-Config enum:
 PHASE_RESET_OPPOSITE_F3_LOCK_ONLY
+```
+
+Implementation meaning:
+
+- A new same-direction F1 phase is not allowed merely because a child failed.
+- A broken F2/F3 child does not reset parent ownership.
+- A large opposite Hook/ND does not reset same-direction phase by default.
+- Completed F3 is locked by first confirmed opposite F1.
+
+Optional future diagnostic variants may exist only as named inputs:
+
+```text
 PHASE_RESET_OPPOSITE_CONFIRMED_F1
 PHASE_RESET_OPPOSITE_HOOK_OR_F1
 ```
 
-Default should remain strict until user confirms otherwise.
+---
 
-## B. F1 root preference
+## B. F1 root preference — resolved
 
-Questions:
+Winner order:
 
-1. If Hook-derived F1 and fail-open F1 differ slightly but both produce valid bodies, which wins?
-2. Should lower-L local F1 always beat high-L umbrella F1 when both confirmed?
-3. Should a later F1 with full F2/F3 chain beat an earlier F1 with only confirmation?
+1. lifecycle quality;
+2. confirmed/qualified over developing;
+3. Hook/phase-boundary root over fail-open;
+4. fuller child chain over isolated root;
+5. lower-L local over high-L umbrella when semantic quality is equal;
+6. earlier stable origin when semantic quality is equal;
+7. deterministic `event_id` tie-breaker.
 
-Recommended implementation:
+Losers remain audit-visible with hidden reason.
 
-Use transparent score components and print them in audit.
+---
 
-## C. F2 size handling
+## C. F2 size handling — resolved
 
-Questions:
-
-1. If F2 body is valid but size is not yet enough, should it be visible as `qualified=false` or audit-only?
-2. If F2 later extends to enough size, should its Leg2 update or should a new candidate be emitted?
-
-Recommended default:
+Default:
 
 ```text
 F2 candidate may exist in audit.
-Main-chart F2 requires size-qualified or explicitly enabled candidate display.
-F3 authorization requires size-qualified confirmed F2.
+Main-chart F2 requires size-qualified status unless candidate display is enabled.
+F3 authorization requires confirmed and size-qualified F2.
 ```
 
-## D. Hook/ND display
+If F2 extends into qualification, update the same candidate path; do not emit a duplicate unless identity truly changes.
 
-Questions:
+---
 
-1. Should Hook arcs be drawn when they do not seed visible F1?
-2. Should ND label appear without drawing full arc?
-3. Should branch numbers ever show on main chart?
+## D. Hook/ND display — resolved
 
-Recommended default:
+Default:
 
 ```text
-Main chart: only Hook/ND connected to visible F1, no branch numbers.
-Audit: all Hook/ND and branch numbers.
+Main chart: Hook/ND only when connected to canonical visible ownership or when Hook debug is enabled.
+Audit: all Hook/ND branches and branch numbers.
 ```
 
-## E. Main-chart density
+Hook/ND is context, not a hard gate that may starve all F structures.
 
-Questions:
+---
 
-1. What maximum number of visible F events per viewport is acceptable?
-2. Should high-L structures be drawn thinner/background when local structures exist?
-3. Should the chart have a scale focus input: local, balanced, high-L?
+## E. Main-chart density — resolved
 
-Recommended implementation:
+Default profile:
 
 ```text
-DisplayProfile = CLEAN_LOCAL | BALANCED | STRUCTURAL_AUDIT
+CLEAN_LOCAL
 ```
 
-## F. Live pending nodes
+Allowed display profiles:
 
-Questions:
+```text
+CLEAN_LOCAL
+BALANCED
+STRUCTURAL_AUDIT
+```
 
-1. Can pending nodes seed Hook/ND only?
-2. Can pending nodes seed F1 body?
-3. Should live mode and historical mode differ?
+Renderer settings must not change logical event emission.
 
-Recommended default:
+---
+
+## F. Live pending nodes — resolved
+
+Default:
 
 ```text
 Pending nodes may support Hook live inspection.
-Confirmed F structures require confirmed nodes unless explicitly in live diagnostic mode.
+Confirmed F bodies require confirmed nodes.
+Pending-node F bodies are diagnostic-only and must be tagged.
 ```
 
-## G. Backfill windows
+---
 
-Questions:
+## G. Backfill windows — resolved
 
-1. For F2, is the backfill window strictly F1 Leg2 -> F1 confirmation, or may it include post-confirmation pullback before F2 Leg1?
-2. Same question for F3.
+Default strict window:
 
-Recommended default:
+```text
+F2 origin: deepest adverse correction after F1 Leg2 and before F1 confirmation.
+F3 origin: deepest adverse correction after F2 Leg2 and before F2 confirmation.
+```
 
-Follow the documented strict window. If extended window is desired, add an explicit config variant.
+Extended windows are diagnostic variants only.
+
+---
 
 ## Required answers before next major code patch
 
-Minimum questions to answer:
+All previous minimum questions are now answered:
 
-1. What exactly resets same-direction F1 ownership?
-2. Should main chart show developing F2/F3 or only confirmed/qualified ones?
-3. Should high-L umbrella flags remain visible when local lower-L canonical flags exist?
-4. Should pending live nodes be allowed in F bodies or only Hook/ND?
+1. Same-direction ownership reset = strict opposite F3 lock default.
+2. Main chart = canonical-clean; developing/diagnostic objects in audit unless explicitly enabled.
+3. High-L umbrella = audit-visible unless it is the canonical owner; lower-L wins on equal semantic quality.
+4. Pending live nodes = Hook/ND live inspection only by default; F bodies require confirmed nodes.
 
-Until these are answered, code should implement the strict documented defaults and keep alternatives behind named inputs.
+## Implementation note
+
+Future code may add inputs for variants, but the default must remain the resolved canon behavior and every variant must be auditable.

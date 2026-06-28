@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This package defines a layered implementation plan for the Phoenix Flag Counting engine. It exists because repeated direct code edits created alternating failure modes: one patch fixed visibility but broke Hook ownership; another fixed Hook rendering but starved F structures; another cleaned labels but mixed audit with main-chart behavior.
+This package defines a layered implementation plan for the Phoenix Flag Counting engine. It is subordinate to `docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md`, which is the active source of truth and conflict resolver. It exists because repeated direct code edits created alternating failure modes: one patch fixed visibility but broke Hook ownership; another fixed Hook rendering but starved F structures; another cleaned labels but mixed audit with main-chart behavior.
 
 The solution is not another tactical patch. The solution is a strict implementation ladder.
 
@@ -32,12 +32,13 @@ A layer is not allowed to move upward until its acceptance tests pass. A higher 
 10. `09_LEVEL_09_F3_EXTENSION_AND_LOCK_ENGINE.md` — F3 authorization, OR completion, extension, opposite lock.
 11. `10_LEVEL_10_SEQUENCE_OWNERSHIP_AND_PHASES.md` — F1 -> F2 -> F3 chain ownership and phase resets.
 12. `11_LEVEL_11_CANONICALIZATION_AND_AUDIT.md` — duplicate control, main/audit separation, deterministic winners.
-13. `12_LEVEL_12_RENDERER_AND_LABEL_LAYOUT.md` — visual contract, object names, curves, label stacks, debug modes.
-14. `13_LEVEL_13_VALIDATION_MATRIX.md` — tests, golden cases, screenshots, regression packs.
-15. `14_LEVEL_14_RELEASE_ROLLBACK_AND_DEBUG_PROTOCOL.md` — release process, rollback, MetaTrader cleanup, failure triage.
-16. `15_MODULE_INTERFACE_CONTRACTS.md` — module API boundaries and data objects.
-17. `16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md` — exact build order and acceptance checklist.
-18. `17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md` — questions that must be answered before touching code.
+13. `11_5_LEVEL_11_5_RAW_AUDIT_EXPORT.md` — raw audit/export/report contract before renderer trust.
+14. `12_LEVEL_12_RENDERER_AND_LABEL_LAYOUT.md` — visual contract, object names, curves, label stacks, debug modes.
+15. `13_LEVEL_13_VALIDATION_MATRIX.md` — tests, golden cases, screenshots, regression packs.
+16. `14_LEVEL_14_RELEASE_ROLLBACK_AND_DEBUG_PROTOCOL.md` — release process, rollback, MetaTrader cleanup, failure triage.
+17. `15_MODULE_INTERFACE_CONTRACTS.md` — module API boundaries and data objects.
+18. `16_IMPLEMENTATION_ORDER_AND_ACCEPTANCE_MATRIX.md` — exact build order and acceptance checklist.
+19. `17_AMBIGUITIES_TO_RESOLVE_BEFORE_CODE.md` — resolved decision record; no longer an open-blocker list.
 
 ## Source modules covered
 
@@ -64,7 +65,7 @@ Do not code from screenshots. Screenshots are symptoms. Code from the layer cont
 The next code rewrite must follow this order:
 
 ```text
-Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 12 -> Level 13 -> Level 14
+Level 00 -> Level 01 -> Level 02 -> Level 03 -> Level 04 -> Level 05 -> Level 06 -> Level 07 -> Level 08 -> Level 09 -> Level 10 -> Level 11 -> Level 11.5 -> Level 12 -> Level 13 -> Level 14
 ```
 
 Any patch that touches a higher level must declare which lower-level invariants it assumes. If those lower-level invariants are not tested, the patch is not acceptable.

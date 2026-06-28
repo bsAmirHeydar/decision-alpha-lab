@@ -1,3 +1,11 @@
+<!-- CURRENT CANON NOTICE
+This file is retained as historical/context documentation. For current Phoenix implementation decisions, use:
+
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+
+If this file conflicts with the current canon, the current canon wins.
+-->
+
 # Flag Counting Concept Specification v2
 
 Status: concept contract, not implementation.

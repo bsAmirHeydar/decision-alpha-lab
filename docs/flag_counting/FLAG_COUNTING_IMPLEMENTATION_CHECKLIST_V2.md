@@ -1,3 +1,11 @@
+<!-- CURRENT CANON NOTICE
+This file is retained as historical/context documentation. For current Phoenix implementation decisions, use:
+
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+
+If this file conflicts with the current canon, the current canon wins.
+-->
+
 # Flag Counting Implementation Checklist V2
 
 This checklist converts `FLAG_COUNTING_SEQUENCE_CONTRACT_V2.md` into concrete engineering tasks.

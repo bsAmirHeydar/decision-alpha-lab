@@ -16,7 +16,7 @@ engineering_pack_v5/
   05_visualization/
 ```
 
-Use this document set as the source of truth before rewriting or auditing the MQL5 implementation.
+Use this document set through `FLAG_COUNTING_CURRENT_CANON.md`. The current canon is the conflict resolver; Engineering Pack V5 supplies the detailed definitions, algorithms, and explanations for Phoenix.
 
 ## Reading Order
 
@@ -35,4 +35,4 @@ The detector must never treat every local alternating high/low window as an F1. 
 
 ## Current Status
 
-This pack is documentation only. It intentionally does not modify code.
+This pack is documentation only. It intentionally does not modify code. For current implementation authority, start from `FLAG_COUNTING_CURRENT_CANON.md` and then read this pack.

@@ -1,3 +1,11 @@
+<!-- CURRENT CANON NOTICE
+This file is retained as historical/context documentation. For current Phoenix implementation decisions, use:
+
+docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+
+If this file conflicts with the current canon, the current canon wins.
+-->
+
 # Flag Counting State Machine V3
 
 This document converts the sequence contract into a deterministic state machine. It is intended for implementation in MQL5 or any other detector backend.

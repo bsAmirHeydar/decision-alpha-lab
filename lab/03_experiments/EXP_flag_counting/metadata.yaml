@@ -2,13 +2,24 @@ id: EXP_flag_counting
 title: Unified F-counting structural experiment
 status: active
 language: mql5
-entrypoint: mql5/Experts/FlagCounting/FlagCountingExperiment.mq5
+source_of_truth: docs/flag_counting/FLAG_COUNTING_CURRENT_CANON.md
+entrypoint: mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
 modules:
-  - mql5/Include/FlagCounting/DAL_FlagCountingTypes.mqh
-  - mql5/Include/FlagCounting/DAL_FlagCountingNodeDetector.mqh
-  - mql5/Include/FlagCounting/DAL_FlagCountingDetector.mqh
-  - mql5/Include/FlagCounting/DAL_FlagCountingRenderer.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_Types.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_NodeEngine.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_HookEngine.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_FlagBodyEngine.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_InternalCountEngine.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_Renderer.mqh
+  - mql5/Include/FlagCountingPhoenix/FP_Audit.mqh
+legacy_reference_only:
+  - mql5/Experts/M0007/M0007_FlagCountingF1.mq5
+  - mql5/Include/M0007/
+  - FlagCountingVNext
+  - FlagCountingV6
 notes:
-  - F1 and F2 are handled as one reusable grammar.
-  - F2 starts from parent F1 internal 2.
-  - Renderer is body-only; internal 1/2 are labels only.
+  - Phoenix is the only active implementation path.
+  - Current canon overrides older concept, checklist, VNext, V6, and M0007 documents.
+  - F1, F2, and F3 share one body grammar but have different lifecycle roles.
+  - Renderer is non-authoritative; audit/export must explain decisions before visual interpretation.
