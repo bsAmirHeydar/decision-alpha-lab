@@ -1,0 +1,81 @@
+# EXEC001_STC_SMT_Cycles deployment profiles
+# This file is a human-readable operator guide, not an MQL5 .set file.
+# Use it to configure EA inputs deliberately in MetaTrader.
+
+profiles:
+  research_backtest_full_audit:
+    runtime_mode: RESEARCH_BACKTEST
+    real_auto_entry: false
+    broker_position_manager: false
+    real_partial_close: false
+    real_hard_close_finalizer: false
+    alerts_transport: false
+    validation_pack: true
+    drawing: optional
+    purpose: "Historical audit and research only."
+
+  paper_live_observer:
+    runtime_mode: PAPER_LIVE
+    real_auto_entry: false
+    broker_position_manager: false
+    real_partial_close: false
+    real_hard_close_finalizer: false
+    alerts_transport: true
+    validation_pack: true
+    drawing: true
+    purpose: "Live signal monitoring without broker interaction."
+
+  paper_live_broker_audit:
+    runtime_mode: PAPER_LIVE
+    real_auto_entry: false
+    broker_position_manager: true
+    real_partial_close: false
+    real_hard_close_finalizer: false
+    paper_live_real_action_overrides: false
+    alerts_transport: true
+    validation_pack: true
+    drawing: true
+    purpose: "Live signal monitoring plus broker position classification audit."
+
+  auto_trade_entry_only_rehearsal:
+    runtime_mode: AUTO_TRADE
+    real_auto_entry: true
+    broker_position_manager: true
+    real_partial_close: false
+    real_hard_close_finalizer: false
+    alerts_transport: true
+    validation_pack: true
+    drawing: true
+    purpose: "Controlled real-entry rehearsal; manual supervision required."
+
+  auto_trade_full_managed:
+    runtime_mode: AUTO_TRADE
+    real_auto_entry: true
+    broker_position_manager: true
+    real_partial_close: true
+    real_hard_close_finalizer: true
+    alerts_transport: true
+    validation_pack: true
+    drawing: true
+    purpose: "Full STC automated lifecycle."
+
+  emergency_hard_close_only:
+    runtime_mode: AUTO_TRADE
+    entry_stc: false
+    real_auto_entry: false
+    broker_position_manager: true
+    real_partial_close: false
+    real_hard_close_finalizer: true
+    alerts_transport: true
+    validation_pack: true
+    drawing: optional
+    purpose: "Close remaining STC magic-number positions after 15:30 without new entries."
+
+forbidden_combinations:
+  - "Real auto-entry enabled while broker position manager is disabled."
+  - "Real partial enabled while broker position manager is disabled."
+  - "Real hard close finalizer enabled while broker position manager is disabled."
+  - "Paper Live real-action overrides enabled accidentally."
+  - "Duplicate EA instances with same account, pair, strategy id, and magic number."
+  - "Auto Trade with validation failures in time or reference matrix."
+  - "Auto Trade with uncertain broker UTC offset."
