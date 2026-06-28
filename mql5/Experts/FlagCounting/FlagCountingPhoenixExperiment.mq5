@@ -37,6 +37,9 @@ input int  InpIdentitySampleLimit = 6;
 input bool InpPrintHookSanity = true;
 input bool InpPrintHookSamples = false;
 input int  InpHookSampleLimit = 6;
+input bool InpPrintBodySanity = true;
+input bool InpPrintBodySamples = false;
+input int  InpBodySampleLimit = 6;
 
 // ------------------------------ Engine switches -----------------------------
 input bool InpScanHooks = true;
@@ -144,6 +147,9 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.hook_sample_limit = InpHookSampleLimit;
    cfg.hook_main_requires_visible_f1 = InpHookMainRequiresVisibleF1;
    cfg.hook_keep_unseeded_visible_for_debug = InpHookKeepUnseededVisibleForDebug;
+   cfg.print_body_sanity = InpPrintBodySanity;
+   cfg.print_body_samples = InpPrintBodySamples;
+   cfg.body_sample_limit = InpBodySampleLimit;
 
    cfg.max_events = InpMaxEvents;
    cfg.max_hooks = InpMaxHooks;
@@ -159,6 +165,7 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
                               "_hook" + FP_BoolName(InpScanHooks) +
                               "_hookseed" + FP_BoolName(InpHookMainRequiresVisibleF1) +
+                              "_body" + FP_BoolName(InpPrintBodySanity) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;

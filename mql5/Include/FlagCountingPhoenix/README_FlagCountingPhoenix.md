@@ -47,7 +47,9 @@ Structural / sequence engines:
 - `FP_HookAudit.mqh`: Level 04 Hook/ND bounded-context report and samples.
 - `FP_HookContext.mqh`: Level 04 cycle-start strict-break and bounded-context helpers.
 - `FP_HookEngine.mqh`: Level 04 branch-based ND/hook facade.
-- `FP_FlagBodyEngine.mqh`: two-leg flag body construction.
+- `FP_FlagBodyRules.mqh`: Level 05 pure O/A/W/B strict-break predicates.
+- `FP_FlagBodyAudit.mqh`: Level 05 body build report and body samples.
+- `FP_FlagBodyEngine.mqh`: Level 05 two-leg body facade.
 - `FP_InternalCountEngine.mqh`: internal 1/2/3/4 and post-flag correction scanning.
 - `FP_SequenceEngine.mqh`: F1 -> F2 -> F3 orchestration.
 - `FP_Renderer.mqh`: chart drawing.
@@ -167,6 +169,32 @@ InpHookKeepUnseededVisibleForDebug = false
 `FP_LEVEL04` explains bounded context counts, branch-length distribution, cycle-start breaks, overextended current-L contexts, retracement rejections, duplicate compaction, and emitted ND hooks. `FP_LEVEL04_SEED` runs after event pruning and reports how many Hook contexts actually seed visible canonical F1 roots.
 
 Hook/ND still does not emit F events. It only provides phase-boundary context. Fail-open raw roots remain the diagnostic safety net so Hook mistakes cannot starve all flag bodies.
+
+
+## Level 05 Flag Body engine
+
+Phoenix now builds the invariant body through a dedicated Level 05 pipeline:
+
+```text
+canonical FP_Node[]
+-> origin kind check
+-> Leg1 candidate / strict favorable extension
+-> Waist candidate / strict adverse deepening without Origin break
+-> Leg2 strict break of Leg1
+-> body identity + body status + body audit
+```
+
+Default body audit inputs:
+
+```text
+InpPrintBodySanity = true
+InpPrintBodySamples = false
+InpBodySampleLimit = 6
+```
+
+`FP_LEVEL05` reports body attempts, completed bodies, invalid origins, origin-break invalidations, Leg1 extensions, Waist deepenings, equal-Origin touches, equal-Leg1 touches, strict Leg2 breaks, and pre-internal Leg2 extension absorption.
+
+Level 05 emits body-stage facts only. It does not confirm F1, qualify F2/F3, reset phases, or decide ownership. Every `FP_FlagEvent` now carries `body_id`, `body_status`, `leg2_extension_count`, `body_scan_start_pos`, `body_scan_end_pos`, and `body_reason` so post-body lifecycle layers can be audited against the exact body they received.
 
 ## Expert
 

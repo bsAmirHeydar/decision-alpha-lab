@@ -265,6 +265,45 @@ Must not emit F1/F2/F3 events. It may provide phase-boundary context through `FP
 
 ---
 
+## FP_FlagBodyRules.mqh
+
+Input:
+
+```text
+FP_Node
+direction
+epsilon
+```
+
+Output:
+
+```text
+pure boolean predicates and body identity helpers
+```
+
+Owns strict Origin/Leg/Waist/Leg2 predicates, equality-is-not-break checks, body size, and body id construction. It must not scan sequences, build hooks, confirm flags, or draw objects.
+
+---
+
+## FP_FlagBodyAudit.mqh
+
+Input:
+
+```text
+FP_FlagBodyBuildReport
+FP_FlagEvent body samples
+```
+
+Output:
+
+```text
+FP_LEVEL05 structured logs
+```
+
+Owns body build counters, body sample logs, extension absorption counters, and first/last body failure reasons. It must not decide body validity.
+
+---
+
 ## FP_FlagBodyEngine.mqh
 
 Input:
@@ -278,7 +317,8 @@ FP_Config config
 Output:
 
 ```text
-FP_FlagEvent body-stage event or service result
+FP_FlagEvent body-stage event
+FP_FlagBodyBuildReport audit evidence
 ```
 
 Current Phoenix represents the flag body inside `FP_FlagEvent` using:
@@ -297,6 +337,14 @@ pos_leg1
 pos_waist
 pos_leg2
 flag_size
+body_id
+body_status
+origin_hit_status
+leg1_break_status
+leg2_extension_count
+body_scan_start_pos
+body_scan_end_pos
+body_reason
 reason
 ```
 
@@ -307,7 +355,7 @@ Owns:
 - Origin/waist boundary checks during body formation;
 - pre-internal Leg2 extension absorption where applicable.
 
-Must not confirm F1 or authorize F2/F3.
+Must not confirm F1 or authorize F2/F3. It may emit probable child body stages for audit, but sequence lifecycle layers decide whether those are visible/usable.
 
 ---
 

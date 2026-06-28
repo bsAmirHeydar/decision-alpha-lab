@@ -80,11 +80,19 @@ bool FP_IsF3CompletedOrLocked(const FP_FlagEvent &e)
 void FP_ApplyPostFlagState(FP_FlagEvent &event,
                            const FP_Node &nodes[],
                            const int node_count,
-                           const FP_Config &cfg)
+                           const FP_Config &cfg,
+                           FP_FlagBodyBuildReport &body_report)
 {
+   int before_ext = event.leg2_extension_count;
    bool absorbed = FP_AbsorbPreInternalExtensions(event, nodes, node_count, cfg);
    if(absorbed)
+   {
+      int absorbed_count = MathMax(0, event.leg2_extension_count - before_ext);
+      body_report.pre_internal_extensions_absorbed += absorbed_count;
+      body_report.body_extended++;
+      body_report.max_extension_count = MathMax(body_report.max_extension_count, event.leg2_extension_count);
       event.reason = event.reason + ";extension_absorption_pass_complete";
+   }
 
    FP_InternalPack pack;
    int confirm_pos = -1;
@@ -193,14 +201,15 @@ bool FP_BuildF1FromOrigin(const FP_Node &nodes[],
                           const bool from_phase_boundary,
                           const bool from_fail_open,
                           const FP_Config &cfg,
-                          FP_FlagEvent &f1)
+                          FP_FlagEvent &f1,
+                          FP_FlagBodyBuildReport &body_report)
 {
-   if(!FP_FindFlagBodyFromOrigin(nodes, node_count, origin_pos, direction, FP_LEVEL_F1, sequence_id, -1, cfg.boundary_epsilon_points, f1))
+   if(!FP_FindFlagBodyFromOriginWithReport(nodes, node_count, origin_pos, direction, FP_LEVEL_F1, sequence_id, -1, cfg.boundary_epsilon_points, f1, body_report))
       return false;
    f1.from_phase_boundary = from_phase_boundary;
    f1.from_fail_open = from_fail_open;
    if(!from_phase_boundary && cfg.require_f1_phase_boundary && !from_fail_open) return false;
-   FP_ApplyPostFlagState(f1, nodes, node_count, cfg);
+   FP_ApplyPostFlagState(f1, nodes, node_count, cfg, body_report);
    f1.chain_index = 1;
    return FP_EventIsVisibleMain(f1, cfg);
 }
@@ -211,7 +220,8 @@ bool FP_BuildF2FromF1(const FP_Node &nodes[],
                       const int sequence_id,
                       const int parent_event_id,
                       const FP_Config &cfg,
-                      FP_FlagEvent &f2)
+                      FP_FlagEvent &f2,
+                      FP_FlagBodyBuildReport &body_report)
 {
    FP_ResetFlagEvent(f2);
    if(!FP_IsF1Confirmed(f1)) return false;
@@ -222,7 +232,7 @@ bool FP_BuildF2FromF1(const FP_Node &nodes[],
    if(!FP_FindDeepestAdverseNode(nodes, node_count, f1.pos_leg2 + 1, to_pos, f1.direction, cfg.boundary_epsilon_points, deepest_pos, deepest))
       return false;
 
-   if(!FP_FindFlagBodyFromOrigin(nodes, node_count, deepest_pos, f1.direction, FP_LEVEL_F2, sequence_id, parent_event_id, cfg.boundary_epsilon_points, f2))
+   if(!FP_FindFlagBodyFromOriginWithReport(nodes, node_count, deepest_pos, f1.direction, FP_LEVEL_F2, sequence_id, parent_event_id, cfg.boundary_epsilon_points, f2, body_report))
       return false;
 
    f2.chain_index = 2;
@@ -231,7 +241,7 @@ bool FP_BuildF2FromF1(const FP_Node &nodes[],
    f2.parent_flag_size = f1.flag_size;
    f2.parent_leg1_L = f1.leg1_L;
    bool size_ok = FP_QualifyF2(f2, f1, cfg);
-   FP_ApplyPostFlagState(f2, nodes, node_count, cfg);
+   FP_ApplyPostFlagState(f2, nodes, node_count, cfg, body_report);
 
    // Contract: F2 is a real sequence stage only after it is at least the F1
    // flag size.  A smaller body is an audit candidate, not a main-chart F2 and
@@ -252,7 +262,8 @@ bool FP_BuildF3FromF2(const FP_Node &nodes[],
                       const int sequence_id,
                       const int parent_event_id,
                       const FP_Config &cfg,
-                      FP_FlagEvent &f3)
+                      FP_FlagEvent &f3,
+                      FP_FlagBodyBuildReport &body_report)
 {
    FP_ResetFlagEvent(f3);
    if(!FP_IsF2Confirmed(f2)) return false;
@@ -263,7 +274,7 @@ bool FP_BuildF3FromF2(const FP_Node &nodes[],
    if(!FP_FindDeepestAdverseNode(nodes, node_count, f2.pos_leg2 + 1, to_pos, f2.direction, cfg.boundary_epsilon_points, deepest_pos, deepest))
       return false;
 
-   if(!FP_FindFlagBodyFromOrigin(nodes, node_count, deepest_pos, f2.direction, FP_LEVEL_F3, sequence_id, parent_event_id, cfg.boundary_epsilon_points, f3))
+   if(!FP_FindFlagBodyFromOriginWithReport(nodes, node_count, deepest_pos, f2.direction, FP_LEVEL_F3, sequence_id, parent_event_id, cfg.boundary_epsilon_points, f3, body_report))
       return false;
 
    f3.chain_index = 3;
@@ -335,7 +346,8 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
                                      const bool from_fail_open,
                                      const FP_Config &cfg,
                                      FP_FlagEvent &events[],
-                                     int &roots_used)
+                                     int &roots_used,
+                                     FP_FlagBodyBuildReport &body_report)
 {
    int added_roots = 0;
    for(int oi=0; oi<ArraySize(origins); oi++)
@@ -346,7 +358,7 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
 
       int seq_id = FP_NextSequenceId(events);
       FP_FlagEvent f1;
-      if(!FP_BuildF1FromOrigin(nodes, node_count, origin_pos, direction, seq_id, from_phase_boundary, from_fail_open, cfg, f1)) continue;
+      if(!FP_BuildF1FromOrigin(nodes, node_count, origin_pos, direction, seq_id, from_phase_boundary, from_fail_open, cfg, f1, body_report)) continue;
       if(FP_EventBodyDuplicateExists(events, ArraySize(events), f1)) continue;
 
       int f1_id = FP_AddSemanticEvent(events, f1, cfg);
@@ -357,7 +369,7 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
       if(cfg.scan_f2 && FP_IsF1Confirmed(f1))
       {
          FP_FlagEvent f2;
-         if(FP_BuildF2FromF1(nodes, node_count, f1, seq_id, f1_id, cfg, f2))
+         if(FP_BuildF2FromF1(nodes, node_count, f1, seq_id, f1_id, cfg, f2, body_report))
          {
             int f2_id = FP_AddSemanticEvent(events, f2, cfg);
             if(f2_id < 0) return added_roots;
@@ -365,7 +377,7 @@ int FP_TryBuildFlagChainsFromOrigins(const FP_Node &nodes[],
             if(cfg.scan_f3 && FP_IsF2Confirmed(f2))
             {
                FP_FlagEvent f3;
-               if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3))
+               if(FP_BuildF3FromF2(nodes, node_count, f2, seq_id, f2_id, cfg, f3, body_report))
                {
                   int f3_id = FP_AddSemanticEvent(events, f3, cfg);
                   if(f3_id < 0) return added_roots;
@@ -443,6 +455,10 @@ void FP_DetectScale(const MqlRates &rates[],
 
    if(!cfg.scan_f1) return;
 
+   FP_FlagBodyBuildReport body_report;
+   FP_ResetFlagBodyBuildReport(body_report);
+   FP_SeedFlagBodyBuildReport(body_report, scale_L, node_count, FP_DIR_NONE, FP_LEVEL_NONE);
+
    for(int d_index=0; d_index<2; d_index++)
    {
       int direction = (d_index == 0 ? FP_DIR_BULLISH : FP_DIR_BEARISH);
@@ -460,7 +476,8 @@ void FP_DetectScale(const MqlRates &rates[],
                                                               false,
                                                               cfg,
                                                               events,
-                                                              roots_used);
+                                                              roots_used,
+                                                              body_report);
 
       // Critical fail-safe: Hook/ND is context, not a hard visibility gate.
       // Build Hook-derived roots first, then let raw-origin fail-open inspect the
@@ -479,9 +496,23 @@ void FP_DetectScale(const MqlRates &rates[],
                                           true,
                                           cfg,
                                           events,
-                                          roots_used);
+                                          roots_used,
+                                          body_report);
       }
    }
+
+   result.body_attempts_total += body_report.body_attempts;
+   result.body_complete_total += body_report.body_complete;
+   result.body_invalid_total += body_report.body_invalid;
+   result.body_extended_total += body_report.body_extended;
+   result.body_leg1_extensions_total += body_report.leg1_extensions;
+   result.body_waist_deepenings_total += body_report.waist_deepenings;
+   result.body_leg2_equal_touches_total += body_report.leg2_equal_touches;
+
+   if(cfg.print_body_sanity)
+      FP_PrintFlagBodyBuildReport("FP_LEVEL05", body_report);
+   if(cfg.print_body_samples)
+      FP_PrintBodyEventSamples("FP_LEVEL05", events, ArraySize(events), cfg.body_sample_limit);
 }
 
 void FP_HideSupersededParentStates(FP_FlagEvent &events[], const FP_Config &cfg)
@@ -985,6 +1016,13 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    int hook_branch_scans_prev = result.hook_branch_scans_total;
    int hook_branch_len5plus_prev = result.hook_branch_len5plus_total;
    int hook_retrace_rejected_prev = result.hook_retrace_rejected_total;
+   int body_attempts_prev = result.body_attempts_total;
+   int body_complete_prev = result.body_complete_total;
+   int body_invalid_prev = result.body_invalid_total;
+   int body_extended_prev = result.body_extended_total;
+   int body_leg1_extensions_prev = result.body_leg1_extensions_total;
+   int body_waist_deepenings_prev = result.body_waist_deepenings_total;
+   int body_leg2_equal_touches_prev = result.body_leg2_equal_touches_total;
    FP_ResetDetectResult(result);
    result.raw_nodes_total = raw_nodes_prev;
    result.nodes_total = nodes_prev;
@@ -997,6 +1035,13 @@ void FP_RecountResult(FP_FlagEvent &events[], const FP_HookBranch &hooks[], FP_D
    result.hook_branch_scans_total = hook_branch_scans_prev;
    result.hook_branch_len5plus_total = hook_branch_len5plus_prev;
    result.hook_retrace_rejected_total = hook_retrace_rejected_prev;
+   result.body_attempts_total = body_attempts_prev;
+   result.body_complete_total = body_complete_prev;
+   result.body_invalid_total = body_invalid_prev;
+   result.body_extended_total = body_extended_prev;
+   result.body_leg1_extensions_total = body_leg1_extensions_prev;
+   result.body_waist_deepenings_total = body_waist_deepenings_prev;
+   result.body_leg2_equal_touches_total = body_leg2_equal_touches_prev;
    result.hooks_seed_visible_f1_total = FP_CountHooksSeedingVisibleF1(hooks);
    for(int i=0; i<ArraySize(events); i++)
       FP_UpdateEventCounters(events[i], result);

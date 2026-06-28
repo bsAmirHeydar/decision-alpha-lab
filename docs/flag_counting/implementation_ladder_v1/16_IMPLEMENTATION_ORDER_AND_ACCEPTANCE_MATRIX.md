@@ -162,15 +162,25 @@ Acceptance:
 Files:
 
 ```text
+FP_FlagBodyRules.mqh
+FP_FlagBodyAudit.mqh
 FP_FlagBodyEngine.mqh
+FP_Types.mqh # body fields/counters only
+FP_InternalCountEngine.mqh # records absorbed Leg2 extensions on the body
+FP_SequenceEngine.mqh # Level 05 report wiring/counters only
+FlagCountingPhoenixExperiment.mq5 # Level 05 inputs only
 ```
 
 Acceptance:
 
 - Origin/Leg1/Waist/Leg2 correct;
 - Leg2 strict break;
+- equal Leg1 touches are audited and are not Leg2;
 - body invalidation uses strict passage only;
-- pre-internal extension absorbed;
+- Waist equal to Origin is accepted and audited;
+- pre-internal extension is absorbed into Leg2 and increments `leg2_extension_count`;
+- `FP_LEVEL05` reports body attempts, complete/invalid/live body stages, strict break counts, equal touch counts, and absorbed extension counts;
+- renderer is not involved;
 - `FC-GC-003` baselined or marked as blocking before freeze.
 
 ### Step 06 — Build internal count audit only

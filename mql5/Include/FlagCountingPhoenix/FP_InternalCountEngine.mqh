@@ -296,6 +296,9 @@ void FP_SetEventLeg2(FP_FlagEvent &event, const FP_Node &new_leg2, const int new
    event.has_leg2 = true;
    event.pos_leg2 = new_pos;
    event.flag_size = FP_FlagSize(event.origin, event.leg2);
+   event.leg2_extension_count++;
+   event.body_scan_end_pos = new_pos;
+   FP_FinalizeBodyIdentity(event, FP_BODY_EXTENDED, "pre_internal_leg2_extension_absorbed");
    event.reason = event.reason + ";absorbed_pre_internal_leg2_extension_to_node_" + IntegerToString(new_leg2.id);
 }
 

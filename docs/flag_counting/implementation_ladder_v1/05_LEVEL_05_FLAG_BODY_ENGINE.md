@@ -18,9 +18,11 @@ Global non-negotiables:
 
 This layer detects the invariant two-leg flag body. It is the central object of Phoenix. F1/F2/F3 are all built from the same body shape; their differences come from lifecycle role and post-body behavior.
 
-## Owned source module
+## Owned source modules
 
 ```text
+mql5/Include/FlagCountingPhoenix/FP_FlagBodyRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_FlagBodyAudit.mqh
 mql5/Include/FlagCountingPhoenix/FP_FlagBodyEngine.mqh
 ```
 
@@ -59,20 +61,25 @@ This rule prevents repeated F1 creation inside one unfinished flag.
 
 ## Output object
 
+Current Phoenix stores the body inside `FP_FlagEvent` and adds explicit Level 05 audit fields:
+
 ```text
 body_id
 direction
-L
-origin_node
-leg1_node
-waist_node
-leg2_node
-body_status: body_complete | body_extended | invalid
+scale_L
+origin / leg1 / waist / leg2
+has_origin / has_leg1 / has_waist / has_leg2
+pos_origin / pos_leg1 / pos_waist / pos_leg2
+body_status: seed | live_leg | live_correction | body_complete | body_extended | invalid
 origin_hit_status
 leg1_break_status
 leg2_extension_count
-source_root_mode
+body_scan_start_pos
+body_scan_end_pos
+body_reason
 ```
+
+The structured build report is `FP_FlagBodyBuildReport` and is printed as `FP_LEVEL05`.
 
 ## Forbidden behavior
 
@@ -106,6 +113,16 @@ If price makes a higher high after Leg2 before internal 1/2 exists, update/exten
 - Large umbrellas and local flags both draw as equal main structures.
 - Body starts from Hook cycle boundary instead of intended semantic origin.
 
+## Implementation status
+
+Implemented in Phoenix Level 05. The body layer is split into:
+
+- `FP_FlagBodyRules.mqh`: pure strict-break/equality predicates;
+- `FP_FlagBodyAudit.mqh`: `FP_FlagBodyBuildReport`, `FP_LEVEL05`, and optional body samples;
+- `FP_FlagBodyEngine.mqh`: public body-search facade.
+
+The sequence engine only wires reports and counters; it does not own body construction.
+
 ## Freeze condition
 
-This layer is frozen when body detection works independently from F-level lifecycle and can output body candidates plus invalidation reasons without drawing them.
+This layer is frozen when `FP_LEVEL05` proves body detection independently from renderer output and `FC-GC-003` is baselined or explicitly marked baseline-required.

@@ -70,6 +70,21 @@ enum FP_RenderKind
    FP_RENDER_LABEL_ONLY = 4
 };
 
+// Level 05 body-construction state.  This is intentionally separate from
+// lifecycle status: F1/F2/F3 may later confirm, complete, lock, or invalidate,
+// but the body layer only owns whether O/A/W/B exists and whether Leg2 has
+// been extended before the required internal count.
+enum FP_BodyStatus
+{
+   FP_BODY_NONE            = 0,
+   FP_BODY_SEED            = 1,
+   FP_BODY_LIVE_LEG        = 2,
+   FP_BODY_LIVE_CORRECTION = 3,
+   FP_BODY_COMPLETE        = 4,
+   FP_BODY_EXTENDED        = 5,
+   FP_BODY_INVALID         = 6
+};
+
 // ------------------------------- Data model --------------------------------
 
 struct FP_Node
@@ -193,6 +208,17 @@ struct FP_FlagEvent
    int      branch_kind;
    int      render_kind;
 
+   // Level 05 body identity/audit fields.  These are body-layer facts only;
+   // they do not confirm F1/F2 or authorize sequence ownership.
+   string   body_id;
+   int      body_status;
+   int      origin_hit_status;
+   int      leg1_break_status;
+   int      leg2_extension_count;
+   int      body_scan_start_pos;
+   int      body_scan_end_pos;
+   string   body_reason;
+
    FP_Node  origin;
    FP_Node  leg1;
    FP_Node  waist;
@@ -269,6 +295,10 @@ struct FP_Config
    bool   hook_main_requires_visible_f1;
    bool   hook_keep_unseeded_visible_for_debug;
 
+   bool   print_body_sanity;
+   bool   print_body_samples;
+   int    body_sample_limit;
+
    int    max_events;
    int    max_hooks;
    int    max_roots_per_scale_direction;
@@ -312,6 +342,13 @@ struct FP_DetectResult
    int f2_total;
    int f3_total;
    int nd_total;
+   int body_attempts_total;
+   int body_complete_total;
+   int body_invalid_total;
+   int body_extended_total;
+   int body_leg1_extensions_total;
+   int body_waist_deepenings_total;
+   int body_leg2_equal_touches_total;
    int hook_contexts_total;
    int hook_contexts_rejected_total;
    int hook_branch_scans_total;
@@ -422,6 +459,15 @@ void FP_ResetFlagEvent(FP_FlagEvent &e)
    e.branch_kind = FP_BRANCH_NONE;
    e.render_kind = FP_RENDER_NONE;
 
+   e.body_id = "";
+   e.body_status = FP_BODY_NONE;
+   e.origin_hit_status = 0;
+   e.leg1_break_status = 0;
+   e.leg2_extension_count = 0;
+   e.body_scan_start_pos = -1;
+   e.body_scan_end_pos = -1;
+   e.body_reason = "";
+
    FP_ResetNode(e.origin);
    FP_ResetNode(e.leg1);
    FP_ResetNode(e.waist);
@@ -494,6 +540,10 @@ void FP_DefaultConfig(FP_Config &cfg)
    cfg.hook_main_requires_visible_f1 = true;
    cfg.hook_keep_unseeded_visible_for_debug = false;
 
+   cfg.print_body_sanity = true;
+   cfg.print_body_samples = false;
+   cfg.body_sample_limit = 6;
+
    cfg.max_events = 6000;
    cfg.max_hooks = 6000;
    cfg.max_roots_per_scale_direction = 0;
@@ -536,6 +586,13 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.f2_total = 0;
    r.f3_total = 0;
    r.nd_total = 0;
+   r.body_attempts_total = 0;
+   r.body_complete_total = 0;
+   r.body_invalid_total = 0;
+   r.body_extended_total = 0;
+   r.body_leg1_extensions_total = 0;
+   r.body_waist_deepenings_total = 0;
+   r.body_leg2_equal_touches_total = 0;
    r.hook_contexts_total = 0;
    r.hook_contexts_rejected_total = 0;
    r.hook_branch_scans_total = 0;
@@ -581,6 +638,17 @@ string FP_StatusName(const int status)
    if(status == FP_STATUS_COMPLETED)   return "completed";
    if(status == FP_STATUS_LOCKED)      return "locked";
    if(status == FP_STATUS_INVALIDATED) return "invalidated";
+   return "none";
+}
+
+string FP_BodyStatusName(const int status)
+{
+   if(status == FP_BODY_SEED)            return "seed";
+   if(status == FP_BODY_LIVE_LEG)        return "live_leg";
+   if(status == FP_BODY_LIVE_CORRECTION) return "live_correction";
+   if(status == FP_BODY_COMPLETE)        return "body_complete";
+   if(status == FP_BODY_EXTENDED)        return "body_extended";
+   if(status == FP_BODY_INVALID)         return "invalid";
    return "none";
 }
 

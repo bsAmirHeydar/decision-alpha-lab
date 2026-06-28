@@ -377,6 +377,73 @@ InpHookKeepUnseededVisibleForDebug = false
 
 `FP_LEVEL04` reports bounded context counts, no-boundary contexts, too-short contexts, cycle-start breaks, adaptive-L overextensions, branch-length distribution, ND candidates, retracement rejections, duplicate compaction, and emitted ND hooks. `FP_LEVEL04_SEED` reports how many emitted Hooks seed visible F1 roots and how many Hook contexts are hidden from the main chart with reasons.
 
+
+
+## 4.16 Level 05 Flag Body engine
+
+Phoenix Flag Body is now a first-class audit layer before any F lifecycle logic may confirm or qualify a sequence. The active modules are:
+
+```text
+FP_FlagBodyRules.mqh
+FP_FlagBodyAudit.mqh
+FP_FlagBodyEngine.mqh
+```
+
+Level 05 owns only this invariant body:
+
+```text
+Origin -> Leg1 -> Waist -> Leg2
+```
+
+Bullish body:
+
+```text
+LOW -> HIGH -> LOW -> HIGH
+```
+
+Bearish body:
+
+```text
+HIGH -> LOW -> HIGH -> LOW
+```
+
+Level 05 invariants:
+
+- Origin kind is direction-specific: bullish starts from LOW, bearish starts from HIGH;
+- Leg1 is the opposite-side node after Origin;
+- Leg1 may extend only by strict favorable passage; equality is not an extension;
+- Waist is the adverse node after Leg1 and may deepen only by strict adverse passage;
+- Waist equal to Origin is allowed and audited;
+- Waist strictly beyond Origin invalidates the body before Leg2;
+- Leg2 must strictly break Leg1; equal to Leg1 is audited but not complete;
+- pre-internal favorable breaks are absorbed as Leg2 extension and counted through `leg2_extension_count`;
+- Level 05 never confirms F1, never authorizes F2/F3, and never decides main-chart ownership.
+
+Default Level 05 audit inputs:
+
+```text
+InpPrintBodySanity = true
+InpPrintBodySamples = false
+InpBodySampleLimit = 6
+```
+
+`FP_LEVEL05` reports body attempts, complete bodies, invalid bodies, live child body stages, Leg1 extensions, Waist deepenings, equal-Origin touches, equal-Leg1 touches, strict Leg2 breaks, and absorbed pre-internal Leg2 extensions.
+
+Each `FP_FlagEvent` now carries Level 05 body audit fields:
+
+```text
+body_id
+body_status
+origin_hit_status
+leg1_break_status
+leg2_extension_count
+body_scan_start_pos
+body_scan_end_pos
+body_reason
+```
+
+These fields are body-layer evidence. Higher lifecycle layers may update lifecycle `status`, but they must not rewrite body construction history.
+
 ---
 
 ## 5. Interface decision
