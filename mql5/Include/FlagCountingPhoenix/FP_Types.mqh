@@ -708,6 +708,21 @@ struct FP_DetectResult
    int interface_negative_counter_errors_total;
    int interface_partition_errors_total;
 
+   int acceptance_attempted_total;
+   int acceptance_ok_total;
+   int acceptance_checks_total;
+   int acceptance_pass_total;
+   int acceptance_fail_total;
+   int acceptance_warn_total;
+   int acceptance_skipped_total;
+   int acceptance_file_errors_total;
+   int acceptance_hard_gates_total;
+   int acceptance_hard_gate_fail_total;
+   int acceptance_order_errors_total;
+   int acceptance_dependency_errors_total;
+   int acceptance_matrix_errors_total;
+   int acceptance_invariant_errors_total;
+
    int invalid_total;
 };
 
@@ -1028,7 +1043,7 @@ void FP_DefaultConfig(FP_Config &cfg)
 
    cfg.context_symbol = "";
    cfg.context_timeframe = "";
-   cfg.identity_generation_pass = "phoenix_level15";
+   cfg.identity_generation_pass = "phoenix_level16";
    cfg.identity_config_hash = "default";
    cfg.print_identity_sanity = true;
    cfg.print_identity_samples = false;
@@ -1216,6 +1231,21 @@ void FP_ResetDetectResult(FP_DetectResult &r)
    r.interface_parent_errors_total = 0;
    r.interface_negative_counter_errors_total = 0;
    r.interface_partition_errors_total = 0;
+
+   r.acceptance_attempted_total = 0;
+   r.acceptance_ok_total = 0;
+   r.acceptance_checks_total = 0;
+   r.acceptance_pass_total = 0;
+   r.acceptance_fail_total = 0;
+   r.acceptance_warn_total = 0;
+   r.acceptance_skipped_total = 0;
+   r.acceptance_file_errors_total = 0;
+   r.acceptance_hard_gates_total = 0;
+   r.acceptance_hard_gate_fail_total = 0;
+   r.acceptance_order_errors_total = 0;
+   r.acceptance_dependency_errors_total = 0;
+   r.acceptance_matrix_errors_total = 0;
+   r.acceptance_invariant_errors_total = 0;
 
    r.invalid_total = 0;
 }

@@ -1,5 +1,5 @@
 #property strict
-#property version   "15.00"
+#property version   "16.00"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -8,6 +8,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_ValidationEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_ReleaseEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_InterfaceEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -206,6 +207,35 @@ input bool   InpInterfaceRequirePublicIds = true;
 input bool   InpInterfaceRequireParentContract = true;
 input bool   InpInterfaceRequireCounterNonnegative = true;
 
+
+// ------------------------------ Acceptance matrix --------------------------
+input bool   InpAcceptanceEnabled = true;
+input FP_AcceptanceMode InpAcceptanceMode = FP_ACCEPTANCE_MODE_OBSERVE;
+input bool   InpAcceptanceStrict = false;
+input bool   InpAcceptanceWriteCsv = false;
+input bool   InpAcceptanceOverwriteLatest = true;
+input string InpAcceptanceFolder = "FlagCountingPhoenix";
+input string InpAcceptanceRunTag = "";
+input string InpAcceptanceCaseId = "manual";
+input bool   InpAcceptanceRequireLevel01Ok = true;
+input bool   InpAcceptanceRequireNoCanonicalFailures = true;
+input bool   InpAcceptanceRequireExportOkWhenEnabled = true;
+input bool   InpAcceptanceRequireRenderOkWhenEnabled = true;
+input bool   InpAcceptanceRequireValidationOkWhenEnabled = true;
+input bool   InpAcceptanceRequireReleaseGateWhenStrict = false;
+input bool   InpAcceptanceRequireInterfacePreOkWhenEnabled = false;
+input bool   InpAcceptanceRequireInterfacePostOkWhenEnabled = false;
+input bool   InpAcceptanceRequireVisiblePartition = true;
+input bool   InpAcceptanceRequireLockedF3IfExpected = true;
+input int    InpAcceptanceExpectedMinVisibleEvents = -1;
+input int    InpAcceptanceExpectedMinF1 = -1;
+input int    InpAcceptanceExpectedMinF2 = -1;
+input int    InpAcceptanceExpectedMinF3 = -1;
+input int    InpAcceptanceExpectedMinLockedF3 = -1;
+input bool   InpPrintAcceptanceSanity = true;
+input bool   InpPrintAcceptanceSamples = false;
+input int    InpAcceptanceSampleLimit = 8;
+
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
 input bool   InpCleanObjectsOnInit = true;
@@ -324,7 +354,7 @@ void FP_LoadConfig(FP_Config &cfg)
    cfg.node_sample_limit = InpNodeSampleLimit;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "phoenix_level15";
+   cfg.identity_generation_pass = "phoenix_level16";
    cfg.identity_config_hash = "eps" + DoubleToString(InpBoundaryEpsilonPoints, 2) +
                               "_f2" + DoubleToString(InpF2MinParentSizeRatio, 2) +
                               "_f3" + DoubleToString(InpF3MinParentSizeRatio, 2) +
@@ -358,6 +388,8 @@ void FP_LoadConfig(FP_Config &cfg)
                               "_release" + FP_ReleaseProfileName(InpReleaseProfile) +
                               "_interface_pre" + FP_BoolName(InpInterfacePreflightEnabled) +
                               "_interface_post" + FP_BoolName(InpInterfacePostflightEnabled) +
+                              "_acceptance" + FP_BoolName(InpAcceptanceEnabled) +
+                              "_acceptance_mode" + FP_AcceptanceModeName(InpAcceptanceMode) +
                               "_failopen" + FP_BoolName(InpAllowF1FailOpenWhenNoHook);
    cfg.print_identity_sanity = InpPrintIdentitySanity;
    cfg.print_identity_samples = InpPrintIdentitySamples;
@@ -522,6 +554,38 @@ void FP_LoadInterfaceConfig(FP_InterfaceConfig &cfg)
    cfg.sample_limit = InpInterfaceSampleLimit;
 }
 
+void FP_LoadAcceptanceConfig(FP_AcceptanceConfig &cfg)
+{
+   FP_DefaultAcceptanceConfig(cfg);
+   cfg.enabled = InpAcceptanceEnabled;
+   cfg.mode = InpAcceptanceMode;
+   cfg.strict = InpAcceptanceStrict;
+   cfg.write_csv = InpAcceptanceWriteCsv;
+   cfg.overwrite_latest = InpAcceptanceOverwriteLatest;
+   cfg.folder = InpAcceptanceFolder;
+   cfg.run_tag = InpAcceptanceRunTag;
+   cfg.case_id = InpAcceptanceCaseId;
+   cfg.matrix_version = FP_ACCEPTANCE_CONTRACT_VERSION;
+   cfg.require_level01_ok = InpAcceptanceRequireLevel01Ok;
+   cfg.require_no_canonical_failures = InpAcceptanceRequireNoCanonicalFailures;
+   cfg.require_export_ok_when_enabled = InpAcceptanceRequireExportOkWhenEnabled;
+   cfg.require_render_ok_when_enabled = InpAcceptanceRequireRenderOkWhenEnabled;
+   cfg.require_validation_ok_when_enabled = InpAcceptanceRequireValidationOkWhenEnabled;
+   cfg.require_release_gate_when_strict = InpAcceptanceRequireReleaseGateWhenStrict;
+   cfg.require_interface_pre_ok_when_enabled = InpAcceptanceRequireInterfacePreOkWhenEnabled;
+   cfg.require_interface_post_ok_when_enabled = InpAcceptanceRequireInterfacePostOkWhenEnabled;
+   cfg.require_visible_partition = InpAcceptanceRequireVisiblePartition;
+   cfg.require_locked_f3_if_expected = InpAcceptanceRequireLockedF3IfExpected;
+   cfg.expected_min_visible_events = InpAcceptanceExpectedMinVisibleEvents;
+   cfg.expected_min_f1 = InpAcceptanceExpectedMinF1;
+   cfg.expected_min_f2 = InpAcceptanceExpectedMinF2;
+   cfg.expected_min_f3 = InpAcceptanceExpectedMinF3;
+   cfg.expected_min_locked_f3 = InpAcceptanceExpectedMinLockedF3;
+   cfg.print_sanity = InpPrintAcceptanceSanity;
+   cfg.print_samples = InpPrintAcceptanceSamples;
+   cfg.sample_limit = InpAcceptanceSampleLimit;
+}
+
 void FP_Run()
 {
    MqlRates rates[];
@@ -556,6 +620,9 @@ void FP_Run()
 
    FP_InterfaceConfig interface_cfg;
    FP_LoadInterfaceConfig(interface_cfg);
+
+   FP_AcceptanceConfig acceptance_cfg;
+   FP_LoadAcceptanceConfig(acceptance_cfg);
 
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
@@ -675,6 +742,20 @@ void FP_Run()
       if(interface_cfg.print_samples)
          FP_PrintInterfaceSamples("FP_LEVEL15", interface_post_report, interface_post_rows, interface_cfg.sample_limit);
    }
+
+   FP_AcceptanceReport acceptance_report;
+   FP_ResetAcceptanceReport(acceptance_report);
+   string acceptance_rows[];
+   if(acceptance_cfg.enabled)
+   {
+      FP_RunAcceptanceWithReport(_Symbol, _Period, acceptance_cfg, timebase_report, result, export_report, render_report, validation_report, release_report, interface_pre_report, interface_post_report, acceptance_report, acceptance_rows);
+      FP_AcceptanceApplyReportToResult(acceptance_report, result);
+      if(acceptance_cfg.print_sanity)
+         FP_PrintAcceptanceReport("FP_LEVEL16", acceptance_report);
+      if(acceptance_cfg.print_samples)
+         FP_PrintAcceptanceSamples("FP_LEVEL16", acceptance_report, acceptance_rows, acceptance_cfg.sample_limit);
+   }
+
 
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)

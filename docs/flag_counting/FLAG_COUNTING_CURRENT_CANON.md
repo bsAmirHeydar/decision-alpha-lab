@@ -996,7 +996,51 @@ Level 15 emits `FP_LEVEL15_PRE` and `FP_LEVEL15`. Optional CSV output writes `la
 The active identity generation pass is now:
 
 ```text
-phoenix_level15
+phoenix_level16
 ```
 
 Level 15 may only report interface status and add interface counters to `FP_DetectResult`; it may not mutate events, hooks, identities, ownership, canonical state, renderer objects, export files, validation decisions, or release gate semantics.
+
+
+## Level 16 acceptance matrix layer
+
+Phoenix now includes an implementation-backed acceptance matrix layer:
+
+```text
+FP_AcceptanceTypes.mqh
+FP_AcceptanceRules.mqh
+FP_AcceptanceAudit.mqh
+FP_AcceptanceEngine.mqh
+```
+
+Level 16 is read-only. It aggregates the Level 01 timebase report, Level 02-11 counters, Level 11.5 export report, Level 12 render report, Level 13 validation report, Level 14 release report, and Level 15 interface reports into one operator-facing acceptance matrix. It cannot mutate events, hooks, identities, visibility, hidden reasons, lifecycle state, ownership state, canonical state, export files, release decisions, or renderer objects.
+
+Default execution order is now:
+
+```text
+Level 14 profile pre-apply
+-> Level 15 preflight
+-> Level 01 timebase
+-> Levels 02-11 detection/canonicalization
+-> Level 11.5 export
+-> Level 12 renderer
+-> Level 13 validation
+-> Level 14 release gate
+-> Level 15 postflight
+-> Level 16 acceptance matrix
+-> FP_SUMMARY
+```
+
+The active identity generation pass is now:
+
+```text
+phoenix_level16
+```
+
+Level 16 emits `FP_LEVEL16`. Optional CSV output writes:
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_acceptance.csv
+```
+
+Acceptance modes are `observe`, `baseline`, `regression`, and `release`. Baseline mode may warn with actual counts that must be copied into validation/acceptance case files; it must not invent expected values. Regression and release modes only pass when configured hard gates pass.

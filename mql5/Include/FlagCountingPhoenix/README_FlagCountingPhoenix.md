@@ -678,3 +678,8 @@ Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAu
 ## Level 15 module interface contracts
 
 Phoenix now includes `FP_InterfaceTypes.mqh`, `FP_InterfaceRules.mqh`, `FP_InterfaceAudit.mqh`, and `FP_InterfaceEngine.mqh`. The EA runs a read-only preflight pass after Level 14 profile overrides and a read-only postflight pass before final `FP_SUMMARY`. The layer emits `FP_LEVEL15_PRE` and `FP_LEVEL15`, optionally writes `latest_interface_pre.csv` and `latest_interface_post.csv`, and adds interface counters to `FP_SUMMARY`. It does not mutate event/hook streams, renderer objects, lifecycle state, ownership state, or canonical state.
+
+
+## Level 16 acceptance matrix
+
+Phoenix now includes `FP_AcceptanceTypes.mqh`, `FP_AcceptanceRules.mqh`, `FP_AcceptanceAudit.mqh`, and `FP_AcceptanceEngine.mqh`. Level 16 runs after Level 15 postflight and before `FP_SUMMARY`, emits `FP_LEVEL16`, and can optionally write `latest_acceptance.csv`. It is a read-only runbook gate: it aggregates timebase, node, hook, body, internal-count, F1/F2/F3 lifecycle, ownership, canonicalization, export, renderer, validation, release, and interface health into one acceptance matrix.

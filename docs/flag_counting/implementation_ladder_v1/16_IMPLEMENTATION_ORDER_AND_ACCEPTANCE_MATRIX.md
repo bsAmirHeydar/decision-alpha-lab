@@ -531,8 +531,92 @@ InpInterfacePreflightEnabled and InpInterfacePostflightEnabled exist
 FP_LEVEL15_PRE can print after release-profile overrides
 FP_LEVEL15 can print before FP_SUMMARY
 FP_SUMMARY includes interface counters
-identity_generation_pass is phoenix_level15
+identity_generation_pass is phoenix_level16
 Level 15 does not mutate event/hook arrays
 Level 15 does not draw/delete chart objects
 Level 15 optional CSV output is disabled by default
 ```
+
+
+---
+
+# Level 16 implemented runtime acceptance matrix
+
+## Active modules
+
+```text
+mql5/Include/FlagCountingPhoenix/FP_AcceptanceTypes.mqh
+mql5/Include/FlagCountingPhoenix/FP_AcceptanceRules.mqh
+mql5/Include/FlagCountingPhoenix/FP_AcceptanceAudit.mqh
+mql5/Include/FlagCountingPhoenix/FP_AcceptanceEngine.mqh
+```
+
+## Runtime position
+
+```text
+Level 14 profile pre-apply
+-> Level 15 preflight
+-> Level 01 timebase
+-> Levels 02-11 engine/canonicalization
+-> Level 11.5 export
+-> Level 12 renderer
+-> Level 13 validation
+-> Level 14 release gate
+-> Level 15 postflight
+-> Level 16 acceptance matrix
+-> FP_SUMMARY
+```
+
+## Acceptance modes
+
+```text
+observe     # default; reports gates without forcing baseline numbers
+baseline    # writes WARN rows with actual counts to copy into case files
+regression  # compares configured minimum expectations
+release     # intended for strict release gate reviews
+```
+
+## Default EA inputs
+
+```text
+InpAcceptanceEnabled = true
+InpAcceptanceMode = FP_ACCEPTANCE_MODE_OBSERVE
+InpAcceptanceStrict = false
+InpAcceptanceWriteCsv = false
+InpAcceptanceRequireLevel01Ok = true
+InpAcceptanceRequireNoCanonicalFailures = true
+InpAcceptanceRequireVisiblePartition = true
+```
+
+## Optional CSV output
+
+```text
+MQL5/Files/FlagCountingPhoenix/latest_acceptance.csv
+```
+
+## Gates
+
+Level 16 checks:
+
+- Level 01 timebase readiness.
+- Level 02 node counter presence.
+- Level 03 identity counter presence.
+- Level 04 Hook/ND counter presence.
+- Level 05 body counter presence.
+- Level 06 internal-count counter presence.
+- Level 07 F1 lifecycle counter presence.
+- Level 08 F2 lifecycle counter presence.
+- Level 09 F3 lifecycle and lock counter presence.
+- Level 10 ownership counter presence.
+- Level 11 canonical invariant failures.
+- Level 11.5 export status when enabled.
+- Level 12 render status when enabled.
+- Level 13 validation status when enabled.
+- Level 14 release gate when strict gate is requested.
+- Level 15 interface pre/post reports when required.
+- final visible/hidden/event partition.
+- optional minimum visible/F1/F2/F3/locked-F3 expectations.
+
+## Non-authoritative contract
+
+Level 16 may only add acceptance counters and report rows. It must not change events, hooks, parent links, identity, visibility, hidden reasons, lifecycle state, ownership state, canonical state, renderer output, export output, validation decisions, or release gate semantics.

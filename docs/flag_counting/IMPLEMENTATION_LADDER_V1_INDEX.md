@@ -63,3 +63,8 @@ Phoenix now includes `FP_ReleaseTypes.mqh`, `FP_ReleaseRules.mqh`, `FP_ReleaseAu
 ## Level 15 module interface contracts implemented
 
 `15_MODULE_INTERFACE_CONTRACTS.md` is now backed by Phoenix `FP_InterfaceTypes`, `FP_InterfaceRules`, `FP_InterfaceAudit`, and `FP_InterfaceEngine`. The active EA runs preflight checks after Level 14 profile overrides and postflight checks before `FP_SUMMARY`. Level 15 emits `FP_LEVEL15_PRE` and `FP_LEVEL15` and can write optional interface CSV reports.
+
+
+## Level 16 patch status
+
+Level 16 now owns the implementation-backed acceptance matrix through `FP_Acceptance*` modules. It runs after interface postflight and before final summary. It is read-only and may only report acceptance health.
