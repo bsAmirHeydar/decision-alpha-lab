@@ -3,7 +3,7 @@
 
 Keep this file private; do not ship it to license recipients.
 
-The recipient only receives the neutral MT5 input values:
+The recipient only receives the neutral/hidden MT5 input values:
   - InpCycleModelProfile
   - InpCycleOperatorMemo
   - InpCycleReferenceSeed
@@ -122,6 +122,7 @@ class IssuerRecord:
     last_name: str
     display_name: str
     account: int
+    account_any: bool
     server: str
     server_any: bool
     server_hash: str
@@ -230,6 +231,7 @@ def full_record_text(record: IssuerRecord, bundle: LicenseBundle) -> str:
         f"last_name={record.last_name}",
         f"display_name={record.display_name}",
         f"account={record.account}",
+        f"account_any={str(record.account_any).lower()}",
         f"server={record.server}",
         f"server_any={str(record.server_any).lower()}",
         f"server_hash={record.server_hash}",
@@ -264,18 +266,19 @@ def write_license_files(out_root: Path, record: IssuerRecord, bundle: LicenseBun
     index_exists = index_path.exists()
     with index_path.open("a", encoding="utf-8", newline="") as f:
         if not index_exists:
-            f.write("user_code,display_name,account,server,server_hash,expires,feature,issued_at_utc,folder\n")
+            f.write("user_code,display_name,account,account_any,server,server_hash,expires,feature,issued_at_utc,folder\n")
         safe_display = record.display_name.replace('"', '""')
         safe_server = record.server.replace('"', '""')
         f.write(
-            f'{record.user_code},"{safe_display}",{record.account},"{safe_server}",{record.server_hash},'
+            f'{record.user_code},"{safe_display}",{record.account},{str(record.account_any).lower()},"{safe_server}",{record.server_hash},'
             f'{record.expires},{record.feature},{record.issued_at_utc},"{folder.as_posix()}"\n'
         )
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--account", type=int, required=True, help="MT5 account login")
+    ap.add_argument("--account", type=int, default=0, help="MT5 account login. Use --account-any for portable account binding.")
+    ap.add_argument("--account-any", action="store_true", help="Do not bind the token to a specific MT5 account login")
     ap.add_argument("--server", default="", help="Exact MT5 AccountInfoString(ACCOUNT_SERVER)")
     ap.add_argument("--server-any", action="store_true", help="Do not bind to server hash")
     ap.add_argument("--expires", type=int, required=True, help="YYYYMMDD expiry date")
@@ -293,6 +296,10 @@ def main() -> None:
 
     if not args.server_any and not args.server.strip():
         raise SystemExit("--server is required unless --server-any is used")
+    if not args.account_any and args.account <= 0:
+        raise SystemExit("--account must be a positive MT5 login unless --account-any is used")
+
+    account_value = 0 if args.account_any else args.account
 
     out_root = Path(args.out_root)
     user_code = normalize_user_code(args.user_code, out_root)
@@ -302,7 +309,7 @@ def main() -> None:
 
     passphrase = args.passphrase or secrets.token_urlsafe(18)
     nonce = args.nonce or secrets.token_hex(5).upper()
-    bundle = build_license(args.account, args.server, args.expires, passphrase, args.feature, nonce, args.server_any)
+    bundle = build_license(account_value, args.server, args.expires, passphrase, args.feature, nonce, args.server_any)
 
     display_parts = [args.first_name.strip()]
     if args.middle_name.strip():
@@ -317,7 +324,8 @@ def main() -> None:
         middle_name=args.middle_name.strip(),
         last_name=args.last_name.strip(),
         display_name=display_name,
-        account=args.account,
+        account=account_value,
+        account_any=bool(args.account_any),
         server="ANY" if args.server_any else args.server.strip(),
         server_any=bool(args.server_any),
         server_hash=bundle.server_hash,
@@ -346,7 +354,8 @@ def main() -> None:
     print("Issuer audit:")
     print(f"user_code={record.user_code}")
     print(f"display_name={record.display_name}")
-    print(f"account={args.account}")
+    print(f"account={account_value}")
+    print(f"account_any={str(args.account_any).lower()}")
     print(f"server_hash={bundle.server_hash}")
     print(f"expires={args.expires}")
     print(f"feature={args.feature.upper()}")

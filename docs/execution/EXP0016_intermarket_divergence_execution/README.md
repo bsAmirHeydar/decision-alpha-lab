@@ -30,3 +30,12 @@ The next engineering stage is Level 07: confirmation, signal registry, and no-la
 - [Level 07 STC SMT Confirmation and Signal Registry](LEVEL_07_STC_SMT_CONFIRMATION_SIGNAL_REGISTRY.md)
 - [Level 13 STC SMT Visualization](LEVEL_13_STC_SMT_VISUALIZATION_AUDIT_DRAWING.md)
 - [Level 14 STC SMT Paper Live Alerts](LEVEL_14_STC_SMT_PAPER_LIVE_ALERTS.md)
+
+
+## Level 22 — Hidden Offline License Fix
+
+```text
+docs/execution/EXP0016_intermarket_divergence_execution/LEVEL_22_STC_SMT_HIDDEN_LICENSE_FIX.md
+```
+
+This keeps the STC SMT license behind neutral `InpCycle...` inputs while fixing account-any/server-any validation and improving diagnostics.

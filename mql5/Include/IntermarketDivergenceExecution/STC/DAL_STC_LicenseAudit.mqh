@@ -32,7 +32,11 @@ void STC_PrintOfflineLicenseReport(const string prefix, const STC_OfflineLicense
    msg += " signature_ok=" + STC_LicenseBoolName(r.signature_ok);
    msg += " expired=" + STC_LicenseBoolName(r.expired);
    msg += " login=" + IntegerToString((long)r.account_login);
+   msg += " license_login=" + IntegerToString((long)r.licensed_account_login);
+   msg += " account_any=" + STC_LicenseBoolName(r.account_any);
    msg += " server_hash=" + r.server_hash;
+   msg += " license_server_hash=" + r.licensed_server_hash;
+   msg += " server_any=" + STC_LicenseBoolName(r.server_any);
    msg += " product=" + r.product_id;
    msg += " build=" + r.build_id;
    msg += " feature=" + r.feature_flags;
@@ -47,6 +51,8 @@ void STC_PrintOfflineLicenseSamples(const string prefix, const STC_OfflineLicens
    string msg = prefix;
    msg += " sample=runtime_binding";
    msg += " login=" + IntegerToString((long)r.account_login);
+   msg += " license_login=" + IntegerToString((long)r.licensed_account_login);
+   msg += " account_any=" + STC_LicenseBoolName(r.account_any);
    msg += " server=" + r.server;
    msg += " server_hash=" + r.server_hash;
    msg += " nonce=" + r.nonce;

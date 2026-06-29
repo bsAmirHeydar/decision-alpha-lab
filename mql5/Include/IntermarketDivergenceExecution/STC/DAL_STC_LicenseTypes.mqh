@@ -11,7 +11,7 @@
 // runtime execution.
 // ============================================================================
 
-#define STC_LICENSE_CONTRACT_VERSION "1.00"
+#define STC_LICENSE_CONTRACT_VERSION "1.02"
 #define STC_LICENSE_PRODUCT_ID       "STCSMT"
 #define STC_LICENSE_TOKEN_PREFIX     "STCSMT1"
 
@@ -68,7 +68,11 @@ struct STC_OfflineLicenseReport
    bool     fail_closed;
    bool     expired;
    long     account_login;
+   long     licensed_account_login;
+   bool     account_any;
+   bool     server_any;
    string   server;
+   string   licensed_server_hash;
    string   server_hash;
    string   product_id;
    string   build_id;
@@ -136,7 +140,11 @@ void STC_ResetOfflineLicenseReport(STC_OfflineLicenseReport &r)
    r.fail_closed = true;
    r.expired = false;
    r.account_login = 0;
+   r.licensed_account_login = 0;
+   r.account_any = false;
+   r.server_any = false;
    r.server = "";
+   r.licensed_server_hash = "";
    r.server_hash = "";
    r.product_id = "";
    r.build_id = "";

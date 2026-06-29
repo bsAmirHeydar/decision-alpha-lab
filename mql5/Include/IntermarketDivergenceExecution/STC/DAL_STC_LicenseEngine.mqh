@@ -134,12 +134,16 @@ bool STC_CheckOfflineLicenseWithReport(const STC_OfflineLicenseConfig &cfg,
    report.nonce = p.nonce;
    report.expires_yyyymmdd = p.expires_yyyymmdd;
    report.expires_at = STC_LicDateFromInt(p.expires_yyyymmdd);
+   report.licensed_account_login = p.account_login;
+   report.licensed_server_hash = p.server_hash;
+   report.account_any = (p.account_login == 0);
+   report.server_any = (p.server_hash == "ANY");
 
    report.product_ok = (p.product_id == cfg.product_id && p.prefix == STC_LICENSE_TOKEN_PREFIX);
 
    report.account_ok = true;
    if(cfg.bind_account)
-      report.account_ok = (p.account_login > 0 && p.account_login == report.account_login);
+      report.account_ok = ((p.account_login == 0) || (p.account_login == report.account_login));
 
    report.server_ok = true;
    if(cfg.bind_server)

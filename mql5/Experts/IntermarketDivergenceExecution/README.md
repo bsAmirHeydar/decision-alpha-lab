@@ -18,3 +18,18 @@ Current level:
 - No live orders
 
 Compile this expert first before moving to the time/cycle engine level.
+
+## STC SMT Hidden License Inputs
+
+The STC SMT license is intentionally entered through neutral Cycle Model fields:
+
+```text
+InpCycleModelProfile
+InpCycleOperatorMemo
+InpCycleReferenceSeed
+InpCycleDivergenceSeed
+InpCycleExecutionSeed
+InpCycleReleaseSeed
+```
+
+This build keeps the license hidden behind the neutral Cycle Model field names.

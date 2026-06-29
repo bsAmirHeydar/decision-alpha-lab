@@ -1,7 +1,7 @@
 #property strict
-#property version   "2.17"
+#property version   "2.18"
 #property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 22 offline license gate"
-#property description "Level 22 adds a fail-closed offline license layer and keeps all strategy, signal, risk, and transport logic unchanged."
+#property description "Level 22 hidden-input offline license fix keeps strategy, signal, risk, and transport logic unchanged."
 
 #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
 #include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
@@ -170,6 +170,10 @@ datetime g_stc_license_next_check = 0;
 void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
 {
    STC_DefaultOfflineLicenseConfig(cfg);
+
+   // License values intentionally stay behind neutral Cycle Model inputs.
+   // Do not add visible license-token inputs here; distribution UX depends on
+   // these fields looking like model/runtime metadata.
    cfg.enabled = true;
    cfg.fail_closed = true;
    cfg.bind_account = true;
@@ -178,16 +182,19 @@ void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
    cfg.require_hidden_gates = true;
    cfg.require_expiry = true;
    cfg.product_id = STC_LICENSE_PRODUCT_ID;
-   cfg.build_id = "exec001_stc_level22";
+   cfg.build_id = "exec001_stc_level22_hidden_fix01";
+
    cfg.token = InpCycleModelProfile;
    cfg.passphrase = InpCycleOperatorMemo;
    cfg.gate_a = InpCycleReferenceSeed;
    cfg.gate_b = InpCycleDivergenceSeed;
    cfg.gate_c = InpCycleExecutionSeed;
    cfg.gate_d = InpCycleReleaseSeed;
+
    cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
    if(cfg.check_interval_seconds < 60)
       cfg.check_interval_seconds = 60;
+
    cfg.print_sanity = true;
    cfg.print_samples = false;
 }
