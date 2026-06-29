@@ -1,0 +1,1488 @@
+diff --git a/.gitignore b/.gitignore
+index 27f6d2b..a793cd8 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -11,3 +11,9 @@ lab/03_experiments/EXP0013_astro_feature_store/output/
+ 
+ data/astro/
+ lab/03_experiments/EXP0013_astro_feature_store/finalization/family_validation/journals/
++
++# Local license issuer archives; keep guides only.
++licenses/**
++!licenses/
++!licenses/README_STC_SMT_LICENSE_ISSUER.md
++!licenses/README_LICENSE_ISSUER.md
+diff --git a/lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md b/lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md
+new file mode 100644
+index 0000000..c59c663
+--- /dev/null
++++ b/lab/09_execution/EXP0016_intermarket_divergence_execution/offline_license/README.md
+@@ -0,0 +1,46 @@
++# Offline License Layer - EXEC001 STC SMT Cycles
++
++This patch ports the FlagCounting Phoenix offline-license architecture to the divergence / time-cycle execution project.
++
++## MT5 recipient inputs
++
++The license is intentionally exposed as neutral strategy/profile fields:
++
++```text
++InpCycleModelProfile      = signed token
++InpCycleOperatorMemo      = passphrase
++InpCycleReferenceSeed     = hidden gate 1
++InpCycleDivergenceSeed    = hidden gate 2
++InpCycleExecutionSeed     = hidden gate 3
++InpCycleReleaseSeed       = hidden gate 4
++InpCycleCacheDepthMinutes = runtime recheck cache, minimum 1 minute
++```
++
++## Issuer command
++
++```bash
++python tools/stc_smt_deployment/offline_license_keygen.py \
++  --account 12345678 \
++  --server "Broker-ServerName" \
++  --expires 20261231 \
++  --first-name Amir \
++  --middle-name Hosein \
++  --last-name Heydar
++```
++
++## Saved files
++
++By default, the issuer archive is written under:
++
++```text
++licenses/stc_smt_cycles/user0001-Amir-Hosein-Heydar/
++```
++
++The recipient only receives the `*_recipient_inputs.txt` values.
++The `*_issuer_audit.json` and `*_full_record.txt` files stay private.
++
++## Runtime behavior
++
++`IMDEXEC001_STC_SMT_Cycles.mq5` checks the license before `g_stc_engine.Init()` and before every timer pulse.
++The two EXP0015 research wrappers check the same license before batch/live-monitor execution.
++If the license is absent, expired, copied to another account/server, or has wrong gates/signature, init fails or the timer pulse returns without running the engine.
+diff --git a/licenses/README_STC_SMT_LICENSE_ISSUER.md b/licenses/README_STC_SMT_LICENSE_ISSUER.md
+new file mode 100644
+index 0000000..e73d1f1
+--- /dev/null
++++ b/licenses/README_STC_SMT_LICENSE_ISSUER.md
+@@ -0,0 +1,84 @@
++# EXEC001 STC SMT Cycles Offline License Issuer Guide
++
++This folder is the private issuer archive for the divergence / time-cycle project.
++Generated user folders must stay private and must not be committed.
++
++## Generate a license
++
++Run from the repository root:
++
++```bash
++python tools/stc_smt_deployment/offline_license_keygen.py \
++  --account 12345678 \
++  --server "Broker-ServerName" \
++  --expires 20261231 \
++  --first-name Amir \
++  --middle-name Hosein \
++  --last-name Heydar
++```
++
++For a server-independent license, use `--server-any` instead of `--server`:
++
++```bash
++python tools/stc_smt_deployment/offline_license_keygen.py \
++  --account 12345678 \
++  --server-any \
++  --expires 20261231 \
++  --first-name Amir \
++  --middle-name Hosein \
++  --last-name Heydar
++```
++
++The script prints and archives only the recipient-safe MT5 inputs:
++
++```text
++InpCycleModelProfile=<token>
++InpCycleOperatorMemo=<passphrase>
++InpCycleReferenceSeed=<gate 1>
++InpCycleDivergenceSeed=<gate 2>
++InpCycleExecutionSeed=<gate 3>
++InpCycleReleaseSeed=<gate 4>
++```
++
++## Archive format
++
++Default output folder:
++
++```text
++licenses/stc_smt_cycles/user0001-Amir-Hosein-Heydar/
++```
++
++Files per user:
++
++```text
++user0001-Amir-Hosein-Heydar_recipient_inputs.txt
++user0001-Amir-Hosein-Heydar_issuer_audit.json
++user0001-Amir-Hosein-Heydar_full_record.txt
++```
++
++Global index:
++
++```text
++licenses/stc_smt_cycles/issued_licenses_index.csv
++```
++
++## Runtime contract
++
++The protected EAs are fail-closed by default:
++
++- `mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5`
++- `mql5/Experts/IntermarketDivergence/IMD001_CandleSessionDivergence.mq5`
++- `mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5`
++
++They check:
++
++- product token prefix and product id: `STCSMT1` / `STCSMT`
++- MT5 account login
++- MT5 server hash, unless `--server-any` was used
++- expiry date
++- passphrase
++- four hidden gate values
++- offline signature match
++
++The license layer does not change the SMT, cycle, paper execution, real execution, partial close, hard close, drawing, or validation logic.
++It only allows or blocks runtime init/pulse.
+diff --git a/mql5/Experts/IntermarketDivergence/IMD001_CandleSessionDivergence.mq5 b/mql5/Experts/IntermarketDivergence/IMD001_CandleSessionDivergence.mq5
+index 6a00398..6aa2ed3 100644
+--- a/mql5/Experts/IntermarketDivergence/IMD001_CandleSessionDivergence.mq5
++++ b/mql5/Experts/IntermarketDivergence/IMD001_CandleSessionDivergence.mq5
+@@ -1,11 +1,12 @@
+ #property strict
+-#property version   "1.00"
+-#property description "Decision Alpha Lab - EXP0015 candle/session intermarket divergence engine"
++#property version   "1.01"
++#property description "Decision Alpha Lab - EXP0015 candle/session intermarket divergence engine with offline license gate"
+ 
+ #include <IntermarketDivergence/DAL_IMDTypes.mqh>
+ #include <IntermarketDivergence/DAL_IMDSeries.mqh>
+ #include <IntermarketDivergence/DAL_IMDEngine.mqh>
+ #include <IntermarketDivergence/DAL_IMDJournal.mqh>
++#include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
+ 
+ input IMD_RunMode InpRunMode = IMD_RUN_BACKTEST_BATCH;
+ input IMD_DataSource InpDataSource = IMD_DS_BROKER_SERIES;
+@@ -40,6 +41,15 @@ input string InpOutputSummaryCommon = "imd/EXP0015/imd001_summary.csv";
+ input int InpLiveTimerSeconds = 10;
+ input bool InpRemoveAfterBatch = true;
+ 
++input group "STC Cycle Model Runtime Profile"
++input string InpCycleModelProfile = "";
++input string InpCycleOperatorMemo = "";
++input long InpCycleReferenceSeed = 0;
++input long InpCycleDivergenceSeed = 0;
++input long InpCycleExecutionSeed = 0;
++input long InpCycleReleaseSeed = 0;
++input int InpCycleCacheDepthMinutes = 15;
++
+ IMD_Bar g_a_raw[];
+ IMD_Bar g_b_raw[];
+ IMD_Bar g_a[];
+@@ -47,6 +57,74 @@ IMD_Bar g_b[];
+ IMD_Event g_events[];
+ datetime g_last_run_time = 0;
+ 
++
++STC_OfflineLicenseConfig g_stc_license_cfg;
++STC_OfflineLicenseReport g_stc_license_report;
++bool g_stc_license_ok = false;
++datetime g_stc_license_next_check = 0;
++
++void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
++{
++   STC_DefaultOfflineLicenseConfig(cfg);
++   cfg.enabled = true;
++   cfg.fail_closed = true;
++   cfg.bind_account = true;
++   cfg.bind_server = true;
++   cfg.require_password = true;
++   cfg.require_hidden_gates = true;
++   cfg.require_expiry = true;
++   cfg.product_id = STC_LICENSE_PRODUCT_ID;
++   cfg.build_id = "exp0015_imd_research_licensed";
++   cfg.token = InpCycleModelProfile;
++   cfg.passphrase = InpCycleOperatorMemo;
++   cfg.gate_a = InpCycleReferenceSeed;
++   cfg.gate_b = InpCycleDivergenceSeed;
++   cfg.gate_c = InpCycleExecutionSeed;
++   cfg.gate_d = InpCycleReleaseSeed;
++   cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
++   if(cfg.check_interval_seconds < 60)
++      cfg.check_interval_seconds = 60;
++   cfg.print_sanity = true;
++   cfg.print_samples = false;
++}
++
++bool STC_EnsureOfflineLicense(const bool force_check=false)
++{
++   datetime now = TimeCurrent();
++   if(now <= 0)
++      now = TimeTradeServer();
++   if(!force_check && g_stc_license_ok && g_stc_license_next_check > 0 && now > 0 && now < g_stc_license_next_check)
++      return true;
++
++   STC_LoadOfflineLicenseConfig(g_stc_license_cfg);
++   g_stc_license_ok = STC_CheckOfflineLicenseWithReport(g_stc_license_cfg, g_stc_license_report);
++   if(g_stc_license_cfg.print_sanity || !g_stc_license_ok)
++      STC_PrintOfflineLicenseReport("STC_LICENSE", g_stc_license_report);
++   if(g_stc_license_cfg.print_samples && g_stc_license_ok)
++      STC_PrintOfflineLicenseSamples("STC_LICENSE", g_stc_license_report);
++
++   datetime checked = g_stc_license_report.checked_at;
++   if(checked <= 0)
++      checked = now;
++   if(checked > 0)
++   {
++      int recheck_sec = g_stc_license_cfg.check_interval_seconds;
++      if(recheck_sec < 60)
++         recheck_sec = 60;
++      g_stc_license_next_check = checked + recheck_sec;
++   }
++   else
++   {
++      g_stc_license_next_check = 0;
++   }
++
++   if(!g_stc_license_ok)
++      Comment("Intermarket Divergence runtime inactive. Contact issuer.");
++   else
++      Comment("");
++   return g_stc_license_ok;
++}
++
+ bool IMD_LoadInputs()
+ {
+    ArrayResize(g_a_raw, 0);
+@@ -116,6 +194,9 @@ void IMD_RunEngine()
+ 
+ int OnInit()
+ {
++   if(!STC_EnsureOfflineLicense(true))
++      return INIT_FAILED;
++
+    if(InpRunMode == IMD_RUN_LIVE_MONITOR)
+    {
+       EventSetTimer(MathMax(1, InpLiveTimerSeconds));
+@@ -131,6 +212,8 @@ int OnInit()
+ 
+ void OnTimer()
+ {
++   if(!STC_EnsureOfflineLicense(false))
++      return;
+    if(InpRunMode == IMD_RUN_LIVE_MONITOR)
+       IMD_RunEngine();
+ }
+diff --git a/mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5 b/mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5
+index d918cda..ff0ce80 100644
+--- a/mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5
++++ b/mql5/Experts/IntermarketDivergence/IMD001_SPX_NDX_TimeDivergence.mq5
+@@ -1,11 +1,12 @@
+ #property strict
+-#property version   "1.01"
+-#property description "EXP0015 legacy SPX/NDX time-divergence wrapper. Use IMD001_CandleSessionDivergence for the canonical CME/live-ready engine."
++#property version   "1.02"
++#property description "EXP0015 legacy SPX/NDX time-divergence wrapper with offline license gate. Use IMD001_CandleSessionDivergence for the canonical CME/live-ready engine."
+ 
+ #include <IntermarketDivergence/DAL_IMDTypes.mqh>
+ #include <IntermarketDivergence/DAL_IMDSeries.mqh>
+ #include <IntermarketDivergence/DAL_IMDEngine.mqh>
+ #include <IntermarketDivergence/DAL_IMDJournal.mqh>
++#include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
+ 
+ input string              InpSymbolA                         = "US500";
+ input string              InpSymbolB                         = "NAS100";
+@@ -45,12 +46,89 @@ input string              InpOutputSummaryCommon             = "imd\\EXP0015\\im
+ input bool                InpRunOnceOnInit                   = true;
+ input bool                InpRemoveAfterBatch                = true;
+ 
++input group "STC Cycle Model Runtime Profile"
++input string InpCycleModelProfile = "";
++input string InpCycleOperatorMemo = "";
++input long InpCycleReferenceSeed = 0;
++input long InpCycleDivergenceSeed = 0;
++input long InpCycleExecutionSeed = 0;
++input long InpCycleReleaseSeed = 0;
++input int InpCycleCacheDepthMinutes = 15;
++
+ IMD_Bar g_imd001_a_raw[];
+ IMD_Bar g_imd001_b_raw[];
+ IMD_Bar g_imd001_a[];
+ IMD_Bar g_imd001_b[];
+ IMD_Event g_imd001_events[];
+ 
++
++STC_OfflineLicenseConfig g_stc_license_cfg;
++STC_OfflineLicenseReport g_stc_license_report;
++bool g_stc_license_ok = false;
++datetime g_stc_license_next_check = 0;
++
++void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
++{
++   STC_DefaultOfflineLicenseConfig(cfg);
++   cfg.enabled = true;
++   cfg.fail_closed = true;
++   cfg.bind_account = true;
++   cfg.bind_server = true;
++   cfg.require_password = true;
++   cfg.require_hidden_gates = true;
++   cfg.require_expiry = true;
++   cfg.product_id = STC_LICENSE_PRODUCT_ID;
++   cfg.build_id = "exp0015_imd_research_licensed";
++   cfg.token = InpCycleModelProfile;
++   cfg.passphrase = InpCycleOperatorMemo;
++   cfg.gate_a = InpCycleReferenceSeed;
++   cfg.gate_b = InpCycleDivergenceSeed;
++   cfg.gate_c = InpCycleExecutionSeed;
++   cfg.gate_d = InpCycleReleaseSeed;
++   cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
++   if(cfg.check_interval_seconds < 60)
++      cfg.check_interval_seconds = 60;
++   cfg.print_sanity = true;
++   cfg.print_samples = false;
++}
++
++bool STC_EnsureOfflineLicense(const bool force_check=false)
++{
++   datetime now = TimeCurrent();
++   if(now <= 0)
++      now = TimeTradeServer();
++   if(!force_check && g_stc_license_ok && g_stc_license_next_check > 0 && now > 0 && now < g_stc_license_next_check)
++      return true;
++
++   STC_LoadOfflineLicenseConfig(g_stc_license_cfg);
++   g_stc_license_ok = STC_CheckOfflineLicenseWithReport(g_stc_license_cfg, g_stc_license_report);
++   if(g_stc_license_cfg.print_sanity || !g_stc_license_ok)
++      STC_PrintOfflineLicenseReport("STC_LICENSE", g_stc_license_report);
++   if(g_stc_license_cfg.print_samples && g_stc_license_ok)
++      STC_PrintOfflineLicenseSamples("STC_LICENSE", g_stc_license_report);
++
++   datetime checked = g_stc_license_report.checked_at;
++   if(checked <= 0)
++      checked = now;
++   if(checked > 0)
++   {
++      int recheck_sec = g_stc_license_cfg.check_interval_seconds;
++      if(recheck_sec < 60)
++         recheck_sec = 60;
++      g_stc_license_next_check = checked + recheck_sec;
++   }
++   else
++   {
++      g_stc_license_next_check = 0;
++   }
++
++   if(!g_stc_license_ok)
++      Comment("Intermarket Divergence runtime inactive. Contact issuer.");
++   else
++      Comment("");
++   return g_stc_license_ok;
++}
++
+ int IMD001_SessionMinute(const int h, const int m)
+ {
+    return MathMax(0, MathMin(23, h)) * 60 + MathMax(0, MathMin(59, m));
+@@ -167,6 +245,9 @@ bool IMD001_RunBatch()
+ 
+ int OnInit()
+ {
++   if(!STC_EnsureOfflineLicense(true))
++      return INIT_FAILED;
++
+    if(InpRunOnceOnInit)
+    {
+       IMD001_RunBatch();
+diff --git a/mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5 b/mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5
+index a425d4e..655172c 100644
+--- a/mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5
++++ b/mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5
+@@ -1,9 +1,10 @@
+ #property strict
+-#property version   "2.16"
+-#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 21 drawing audit hardening"
+-#property description "Level 21 hardens visual audit drawing, fixes the hard-close spread cast warning, and keeps all strategy and transport logic unchanged."
++#property version   "2.17"
++#property description "Decision Alpha Lab - EXEC001 STC SMT Cycles - Level 22 offline license gate"
++#property description "Level 22 adds a fail-closed offline license layer and keeps all strategy, signal, risk, and transport logic unchanged."
+ 
+ #include <IntermarketDivergenceExecution/STC/DAL_STC_Engine.mqh>
++#include <IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh>
+ 
+ input group "DAL / STC Level 21 Runtime"
+ input STC_RuntimeMode InpRuntimeMode = STC_MODE_RESEARCH_BACKTEST;
+@@ -57,6 +58,15 @@ input bool InpPartial = true;
+ input bool InpHedging = false;
+ input bool InpEnableDrawing = true;
+ 
++input group "STC Cycle Model Runtime Profile"
++input string InpCycleModelProfile = "";
++input string InpCycleOperatorMemo = "";
++input long InpCycleReferenceSeed = 0;
++input long InpCycleDivergenceSeed = 0;
++input long InpCycleExecutionSeed = 0;
++input long InpCycleReleaseSeed = 0;
++input int InpCycleCacheDepthMinutes = 15;
++
+ input group "STC Level 13 Drawing"
+ input bool InpWriteDrawingAudit = true;
+ input int InpDrawingRefreshSeconds = 15;
+@@ -152,6 +162,73 @@ input int InpHardCloseRetrySeconds = 5;
+ 
+ CSTC_Engine g_stc_engine;
+ 
++STC_OfflineLicenseConfig g_stc_license_cfg;
++STC_OfflineLicenseReport g_stc_license_report;
++bool g_stc_license_ok = false;
++datetime g_stc_license_next_check = 0;
++
++void STC_LoadOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
++{
++   STC_DefaultOfflineLicenseConfig(cfg);
++   cfg.enabled = true;
++   cfg.fail_closed = true;
++   cfg.bind_account = true;
++   cfg.bind_server = true;
++   cfg.require_password = true;
++   cfg.require_hidden_gates = true;
++   cfg.require_expiry = true;
++   cfg.product_id = STC_LICENSE_PRODUCT_ID;
++   cfg.build_id = "exec001_stc_level22";
++   cfg.token = InpCycleModelProfile;
++   cfg.passphrase = InpCycleOperatorMemo;
++   cfg.gate_a = InpCycleReferenceSeed;
++   cfg.gate_b = InpCycleDivergenceSeed;
++   cfg.gate_c = InpCycleExecutionSeed;
++   cfg.gate_d = InpCycleReleaseSeed;
++   cfg.check_interval_seconds = InpCycleCacheDepthMinutes * 60;
++   if(cfg.check_interval_seconds < 60)
++      cfg.check_interval_seconds = 60;
++   cfg.print_sanity = true;
++   cfg.print_samples = false;
++}
++
++bool STC_EnsureOfflineLicense(const bool force_check=false)
++{
++   datetime now = TimeCurrent();
++   if(now <= 0)
++      now = TimeTradeServer();
++   if(!force_check && g_stc_license_ok && g_stc_license_next_check > 0 && now > 0 && now < g_stc_license_next_check)
++      return true;
++
++   STC_LoadOfflineLicenseConfig(g_stc_license_cfg);
++   g_stc_license_ok = STC_CheckOfflineLicenseWithReport(g_stc_license_cfg, g_stc_license_report);
++   if(g_stc_license_cfg.print_sanity || !g_stc_license_ok)
++      STC_PrintOfflineLicenseReport("STC_LICENSE", g_stc_license_report);
++   if(g_stc_license_cfg.print_samples && g_stc_license_ok)
++      STC_PrintOfflineLicenseSamples("STC_LICENSE", g_stc_license_report);
++
++   datetime checked = g_stc_license_report.checked_at;
++   if(checked <= 0)
++      checked = now;
++   if(checked > 0)
++   {
++      int recheck_sec = g_stc_license_cfg.check_interval_seconds;
++      if(recheck_sec < 60)
++         recheck_sec = 60;
++      g_stc_license_next_check = checked + recheck_sec;
++   }
++   else
++   {
++      g_stc_license_next_check = 0;
++   }
++
++   if(!g_stc_license_ok)
++      Comment("STC SMT Cycles runtime inactive. Contact issuer.");
++   else
++      Comment("");
++   return g_stc_license_ok;
++}
++
+ void STC_LoadInputsIntoConfig(STC_Config &cfg)
+ {
+    STC_ResetConfig(cfg);
+@@ -277,6 +354,9 @@ void STC_LoadInputsIntoConfig(STC_Config &cfg)
+ 
+ int OnInit()
+ {
++   if(!STC_EnsureOfflineLicense(true))
++      return INIT_FAILED;
++
+    STC_Config cfg;
+    STC_LoadInputsIntoConfig(cfg);
+    g_stc_engine.Configure(cfg);
+@@ -292,12 +372,14 @@ int OnInit()
+ 
+ void OnTimer()
+ {
++   if(!STC_EnsureOfflineLicense(false))
++      return;
+    g_stc_engine.Pulse(TimeCurrent());
+ }
+ 
+ void OnTick()
+ {
+-   // Level 21 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
++   // Level 22 remains timer-driven. Validation is audit-only; real auto-entry, real partial close, and real hard close finalizer are gated by explicit safety inputs and AUTO_TRADE mode.
+ }
+ 
+ void OnDeinit(const int reason)
+diff --git a/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseAudit.mqh b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseAudit.mqh
+new file mode 100644
+index 0000000..f9ec4a6
+--- /dev/null
++++ b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseAudit.mqh
+@@ -0,0 +1,58 @@
++#ifndef __DAL_STC_LICENSE_AUDIT_MQH__
++#define __DAL_STC_LICENSE_AUDIT_MQH__
++#property strict
++
++#include "DAL_STC_LicenseTypes.mqh"
++
++// ============================================================================
++// Decision Alpha Lab - STC/SMT Cycles Offline License Audit
++// ============================================================================
++
++string STC_LicenseBoolName(const bool v)
++{
++   return (v ? "true" : "false");
++}
++
++void STC_PrintOfflineLicenseReport(const string prefix, const STC_OfflineLicenseReport &r)
++{
++   string msg = prefix;
++   msg += " attempted=" + STC_LicenseBoolName(r.attempted);
++   msg += " ok=" + STC_LicenseBoolName(r.ok);
++   msg += " status=" + r.status;
++   msg += " reason=" + r.reason;
++   msg += " enabled=" + STC_LicenseBoolName(r.enabled);
++   msg += " fail_closed=" + STC_LicenseBoolName(r.fail_closed);
++   msg += " token_parsed=" + STC_LicenseBoolName(r.token_parsed);
++   msg += " product_ok=" + STC_LicenseBoolName(r.product_ok);
++   msg += " account_ok=" + STC_LicenseBoolName(r.account_ok);
++   msg += " server_ok=" + STC_LicenseBoolName(r.server_ok);
++   msg += " expiry_ok=" + STC_LicenseBoolName(r.expiry_ok);
++   msg += " password_ok=" + STC_LicenseBoolName(r.password_ok);
++   msg += " gates_ok=" + STC_LicenseBoolName(r.gates_ok);
++   msg += " signature_ok=" + STC_LicenseBoolName(r.signature_ok);
++   msg += " expired=" + STC_LicenseBoolName(r.expired);
++   msg += " login=" + IntegerToString((long)r.account_login);
++   msg += " server_hash=" + r.server_hash;
++   msg += " product=" + r.product_id;
++   msg += " build=" + r.build_id;
++   msg += " feature=" + r.feature_flags;
++   msg += " expires=" + IntegerToString(r.expires_yyyymmdd);
++   msg += " now=" + IntegerToString(r.now_yyyymmdd);
++   msg += " recheck_sec=" + IntegerToString(r.seconds_until_recheck);
++   Print(msg);
++}
++
++void STC_PrintOfflineLicenseSamples(const string prefix, const STC_OfflineLicenseReport &r)
++{
++   string msg = prefix;
++   msg += " sample=runtime_binding";
++   msg += " login=" + IntegerToString((long)r.account_login);
++   msg += " server=" + r.server;
++   msg += " server_hash=" + r.server_hash;
++   msg += " nonce=" + r.nonce;
++   msg += " checked_at=" + TimeToString(r.checked_at, TIME_DATE|TIME_SECONDS);
++   msg += " expires_at=" + TimeToString(r.expires_at, TIME_DATE|TIME_SECONDS);
++   Print(msg);
++}
++
++#endif // __DAL_STC_LICENSE_AUDIT_MQH__
+diff --git a/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseCrypto.mqh b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseCrypto.mqh
+new file mode 100644
+index 0000000..c169e88
+--- /dev/null
++++ b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseCrypto.mqh
+@@ -0,0 +1,134 @@
++#ifndef __DAL_STC_LICENSE_CRYPTO_MQH__
++#define __DAL_STC_LICENSE_CRYPTO_MQH__
++#property strict
++
++#include "DAL_STC_LicenseTypes.mqh"
++
++// ============================================================================
++// Decision Alpha Lab - STC/SMT Cycles Offline License Hash / Signature Helpers
++// ----------------------------------------------------------------------------
++// This is not public-key cryptography. It is a hardened offline signature gate
++// for EX5 distribution: product/account/server/expiry/password/gates must all
++// agree with the compiled secret. Offline client-side licensing is never
++// mathematically unbreakable, but this makes casual copying and sharing hard.
++// ============================================================================
++
++uint STC_LicRotL32(const uint x, const int r)
++{
++   return (uint)((x << r) | (x >> (32 - r)));
++}
++
++uint STC_LicMix32(uint x)
++{
++   x ^= (x >> 16);
++   x *= (uint)0x7feb352d;
++   x ^= (x >> 15);
++   x *= (uint)0x846ca68b;
++   x ^= (x >> 16);
++   return x;
++}
++
++uint STC_LicHash32(const string s, const uint seed=2166136261)
++{
++   uint h = seed;
++   int n = StringLen(s);
++   for(int i=0; i<n; i++)
++   {
++      uint c = (uint)StringGetCharacter(s, i);
++      h ^= c;
++      h *= (uint)16777619;
++      h = STC_LicRotL32(h, 5) ^ (h >> 7);
++   }
++   return STC_LicMix32(h ^ (uint)n);
++}
++
++string STC_LicHexNibble(const int v)
++{
++   if(v < 10) return IntegerToString(v);
++   if(v == 10) return "A";
++   if(v == 11) return "B";
++   if(v == 12) return "C";
++   if(v == 13) return "D";
++   if(v == 14) return "E";
++   return "F";
++}
++
++string STC_LicHex8(uint x)
++{
++   string out = "";
++   for(int shift=28; shift>=0; shift-=4)
++   {
++      int v = (int)((x >> shift) & 0x0F);
++      out += STC_LicHexNibble(v);
++   }
++   return out;
++}
++
++string STC_LicUpperTrim(string s)
++{
++   StringTrimLeft(s);
++   StringTrimRight(s);
++   StringToUpper(s);
++   return s;
++}
++
++string STC_LicReverse(const string s)
++{
++   string out = "";
++   for(int i=StringLen(s)-1; i>=0; i--)
++      out += StringSubstr(s, i, 1);
++   return out;
++}
++
++string STC_LicSecretA()
++{
++   // Split constants to avoid one obvious literal secret in the compiled binary.
++   uint a = STC_LicMix32((uint)0x6C79636C ^ STC_LicHash32("stc-smt", (uint)0xA341316C));
++   uint b = STC_LicMix32((uint)0xD1A7E617 ^ STC_LicHash32("time-divergence", (uint)0x8013EA4D));
++   uint c = STC_LicMix32((uint)0xC5C1E501 ^ STC_LicHash32("dal-cycles", (uint)0x9E3779B9));
++   return STC_LicHex8(a) + ":" + STC_LicHex8(b) + ":" + STC_LicHex8(c);
++}
++
++string STC_LicSecretB()
++{
++   uint a = STC_LicMix32((uint)0xB7E15162 ^ STC_LicHash32("w-levels", (uint)0xC2B2AE35));
++   uint b = STC_LicMix32((uint)0x8AED2A6B ^ STC_LicHash32("smt-hunts", (uint)0x27D4EB2F));
++   uint c = STC_LicMix32((uint)0x165667B1 ^ STC_LicHash32("offline-exec", (uint)0x85EBCA6B));
++   return STC_LicHex8(a) + ":" + STC_LicHex8(b) + ":" + STC_LicHex8(c);
++}
++
++void STC_LicSignatures(const string canonical_payload,
++                       const string passphrase,
++                       string &sig_a,
++                       string &sig_b)
++{
++   string p = canonical_payload + "|" + passphrase;
++   uint a = STC_LicHash32(STC_LicSecretA() + "|" + p, (uint)0x811C9DC5);
++   uint b = STC_LicHash32(STC_LicSecretB() + "|" + STC_LicReverse(p), (uint)0x9E3779B9);
++   a = STC_LicMix32(a ^ STC_LicRotL32(b, 13));
++   b = STC_LicMix32(b ^ STC_LicRotL32(a, 7));
++   sig_a = STC_LicHex8(a);
++   sig_b = STC_LicHex8(b);
++}
++
++long STC_LicGateValue(const string canonical_payload,
++                      const string passphrase,
++                      const int gate_index)
++{
++   string sig_a, sig_b;
++   STC_LicSignatures(canonical_payload, passphrase, sig_a, sig_b);
++   string material = canonical_payload + "|" + passphrase + "|" + sig_a + "|" + sig_b + "|G" + IntegerToString(gate_index);
++   uint seed = (uint)0xA5A5A5A5;
++   seed += (uint)(gate_index * 977);
++   uint h = STC_LicHash32(STC_LicSecretB() + "|" + material, seed);
++   long v = 100000 + (long)(h % 900000);
++   return v;
++}
++
++string STC_LicServerHash(const string server)
++{
++   string s = STC_LicUpperTrim(server);
++   return STC_LicHex8(STC_LicHash32(s, (uint)0xC3D2E1F0));
++}
++
++#endif // __DAL_STC_LICENSE_CRYPTO_MQH__
+diff --git a/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh
+new file mode 100644
+index 0000000..f6fd82c
+--- /dev/null
++++ b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseEngine.mqh
+@@ -0,0 +1,205 @@
++#ifndef __DAL_STC_LICENSE_ENGINE_MQH__
++#define __DAL_STC_LICENSE_ENGINE_MQH__
++#property strict
++
++#include "DAL_STC_LicenseCrypto.mqh"
++#include "DAL_STC_LicenseAudit.mqh"
++
++// ============================================================================
++// Decision Alpha Lab - STC/SMT Cycles Offline License Engine
++// ----------------------------------------------------------------------------
++// Public facade: STC_CheckOfflineLicenseWithReport.
++// The engine is fail-closed by default and must run before strategy init/pulse.
++// ============================================================================
++
++bool STC_LicIsBlank(const string s)
++{
++   string x = s;
++   StringTrimLeft(x);
++   StringTrimRight(x);
++   return (StringLen(x) <= 0);
++}
++
++int STC_LicDateInt(const datetime t)
++{
++   if(t <= 0)
++      return 0;
++   MqlDateTime dt;
++   TimeToStruct(t, dt);
++   return dt.year * 10000 + dt.mon * 100 + dt.day;
++}
++
++datetime STC_LicDateFromInt(const int yyyymmdd)
++{
++   int y = yyyymmdd / 10000;
++   int m = (yyyymmdd / 100) % 100;
++   int d = yyyymmdd % 100;
++   if(y < 2000 || y > 2099 || m < 1 || m > 12 || d < 1 || d > 31)
++      return 0;
++   MqlDateTime dt;
++   dt.year = y;
++   dt.mon = m;
++   dt.day = d;
++   dt.hour = 23;
++   dt.min = 59;
++   dt.sec = 59;
++   return StructToTime(dt);
++}
++
++bool STC_ParseOfflineLicenseToken(const string token, STC_OfflineLicensePayload &p)
++{
++   STC_ResetOfflineLicensePayload(p);
++   string t = token;
++   StringTrimLeft(t);
++   StringTrimRight(t);
++   if(StringLen(t) <= 0)
++      return false;
++
++   string parts[];
++   ushort sep = StringGetCharacter("|", 0);
++   int n = StringSplit(t, sep, parts);
++   if(n != 9)
++      return false;
++
++   for(int i=0; i<n; i++)
++   {
++      StringTrimLeft(parts[i]);
++      StringTrimRight(parts[i]);
++   }
++
++   p.prefix = STC_LicUpperTrim(parts[0]);
++   p.product_id = STC_LicUpperTrim(parts[1]);
++   p.account_login = (long)StringToInteger(parts[2]);
++   p.server_hash = STC_LicUpperTrim(parts[3]);
++   p.expires_yyyymmdd = (int)StringToInteger(parts[4]);
++   p.feature_flags = STC_LicUpperTrim(parts[5]);
++   p.nonce = STC_LicUpperTrim(parts[6]);
++   p.sig_a = STC_LicUpperTrim(parts[7]);
++   p.sig_b = STC_LicUpperTrim(parts[8]);
++
++   p.canonical_payload = p.prefix + "|" + p.product_id + "|" + IntegerToString((long)p.account_login) + "|" +
++                         p.server_hash + "|" + IntegerToString(p.expires_yyyymmdd) + "|" +
++                         p.feature_flags + "|" + p.nonce;
++
++   p.parsed = (p.prefix == STC_LICENSE_TOKEN_PREFIX && p.product_id == STC_LICENSE_PRODUCT_ID && p.expires_yyyymmdd > 0);
++   return p.parsed;
++}
++
++bool STC_OfflineLicenseTime(datetime &now, int &now_yyyymmdd)
++{
++   now = TimeTradeServer();
++   if(now <= 0)
++      now = TimeCurrent();
++   if(now <= 0)
++      return false;
++   now_yyyymmdd = STC_LicDateInt(now);
++   return (now_yyyymmdd > 0);
++}
++
++bool STC_CheckOfflineLicenseWithReport(const STC_OfflineLicenseConfig &cfg,
++                                       STC_OfflineLicenseReport &report)
++{
++   STC_ResetOfflineLicenseReport(report);
++   report.attempted = true;
++   report.enabled = cfg.enabled;
++   report.fail_closed = cfg.fail_closed;
++   report.product_id = cfg.product_id;
++   report.build_id = cfg.build_id;
++   report.account_login = (long)AccountInfoInteger(ACCOUNT_LOGIN);
++   report.server = AccountInfoString(ACCOUNT_SERVER);
++   report.server_hash = STC_LicServerHash(report.server);
++   int recheck_sec = cfg.check_interval_seconds;
++   if(recheck_sec < 60)
++      recheck_sec = 60;
++   report.seconds_until_recheck = recheck_sec;
++
++   if(!cfg.enabled)
++   {
++      report.ok = !cfg.fail_closed;
++      report.status = (report.ok ? "disabled_open" : "disabled_closed");
++      report.reason = report.status;
++      return report.ok;
++   }
++
++   STC_OfflineLicensePayload p;
++   report.token_parsed = STC_ParseOfflineLicenseToken(cfg.token, p);
++   if(!report.token_parsed)
++   {
++      report.status = "blocked";
++      report.reason = "license_token_parse_failed";
++      return false;
++   }
++
++   report.feature_flags = p.feature_flags;
++   report.nonce = p.nonce;
++   report.expires_yyyymmdd = p.expires_yyyymmdd;
++   report.expires_at = STC_LicDateFromInt(p.expires_yyyymmdd);
++
++   report.product_ok = (p.product_id == cfg.product_id && p.prefix == STC_LICENSE_TOKEN_PREFIX);
++
++   report.account_ok = true;
++   if(cfg.bind_account)
++      report.account_ok = (p.account_login > 0 && p.account_login == report.account_login);
++
++   report.server_ok = true;
++   if(cfg.bind_server)
++      report.server_ok = (p.server_hash == "ANY" || p.server_hash == report.server_hash);
++
++   report.password_ok = true;
++   if(cfg.require_password)
++      report.password_ok = !STC_LicIsBlank(cfg.passphrase);
++
++   datetime now;
++   int now_i = 0;
++   bool time_ok = STC_OfflineLicenseTime(now, now_i);
++   report.checked_at = now;
++   report.now_yyyymmdd = now_i;
++   report.expiry_ok = true;
++   report.expired = false;
++   if(cfg.require_expiry)
++   {
++      report.expiry_ok = (time_ok && report.expires_at > 0 && now <= report.expires_at);
++      report.expired = (time_ok && report.expires_at > 0 && now > report.expires_at);
++   }
++
++   string expected_a, expected_b;
++   STC_LicSignatures(p.canonical_payload, cfg.passphrase, expected_a, expected_b);
++   report.signature_ok = (p.sig_a == expected_a && p.sig_b == expected_b);
++
++   report.gates_ok = true;
++   if(cfg.require_hidden_gates)
++   {
++      long ga = STC_LicGateValue(p.canonical_payload, cfg.passphrase, 1);
++      long gb = STC_LicGateValue(p.canonical_payload, cfg.passphrase, 2);
++      long gc = STC_LicGateValue(p.canonical_payload, cfg.passphrase, 3);
++      long gd = STC_LicGateValue(p.canonical_payload, cfg.passphrase, 4);
++      report.gates_ok = (cfg.gate_a == ga && cfg.gate_b == gb && cfg.gate_c == gc && cfg.gate_d == gd);
++   }
++
++   report.ok = (report.product_ok && report.account_ok && report.server_ok && report.expiry_ok &&
++                report.password_ok && report.signature_ok && report.gates_ok);
++   report.status = (report.ok ? "active" : "blocked");
++
++   if(report.ok)
++      report.reason = "license_active";
++   else if(!report.product_ok)
++      report.reason = "product_mismatch";
++   else if(!report.account_ok)
++      report.reason = "account_mismatch";
++   else if(!report.server_ok)
++      report.reason = "server_mismatch";
++   else if(!report.expiry_ok)
++      report.reason = (report.expired ? "expired" : "expiry_time_unavailable");
++   else if(!report.password_ok)
++      report.reason = "passphrase_missing";
++   else if(!report.signature_ok)
++      report.reason = "signature_mismatch";
++   else if(!report.gates_ok)
++      report.reason = "hidden_gate_mismatch";
++   else
++      report.reason = "unknown_block";
++
++   return report.ok;
++}
++
++#endif // __DAL_STC_LICENSE_ENGINE_MQH__
+diff --git a/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseTypes.mqh b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseTypes.mqh
+new file mode 100644
+index 0000000..d2c56b5
+--- /dev/null
++++ b/mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_LicenseTypes.mqh
+@@ -0,0 +1,154 @@
++#ifndef __DAL_STC_LICENSE_TYPES_MQH__
++#define __DAL_STC_LICENSE_TYPES_MQH__
++#property strict
++
++// ============================================================================
++// Decision Alpha Lab - STC/SMT Cycles Offline License Types
++// ----------------------------------------------------------------------------
++// Offline, fail-closed, signed-license contract for EX5 distribution.
++// This layer is intentionally operational and must never create, filter, or
++// reinterpret divergence / cycle / execution logic. It only permits or blocks
++// runtime execution.
++// ============================================================================
++
++#define STC_LICENSE_CONTRACT_VERSION "1.00"
++#define STC_LICENSE_PRODUCT_ID       "STCSMT"
++#define STC_LICENSE_TOKEN_PREFIX     "STCSMT1"
++
++struct STC_OfflineLicenseConfig
++{
++   bool   enabled;
++   bool   fail_closed;
++   bool   bind_account;
++   bool   bind_server;
++   bool   require_password;
++   bool   require_hidden_gates;
++   bool   require_expiry;
++   bool   print_sanity;
++   bool   print_samples;
++   int    check_interval_seconds;
++   string product_id;
++   string build_id;
++   string token;
++   string passphrase;
++   long   gate_a;
++   long   gate_b;
++   long   gate_c;
++   long   gate_d;
++};
++
++struct STC_OfflineLicensePayload
++{
++   bool   parsed;
++   string prefix;
++   string product_id;
++   long   account_login;
++   string server_hash;
++   int    expires_yyyymmdd;
++   string feature_flags;
++   string nonce;
++   string sig_a;
++   string sig_b;
++   string canonical_payload;
++};
++
++struct STC_OfflineLicenseReport
++{
++   bool     attempted;
++   bool     ok;
++   bool     enabled;
++   bool     token_parsed;
++   bool     product_ok;
++   bool     account_ok;
++   bool     server_ok;
++   bool     expiry_ok;
++   bool     password_ok;
++   bool     gates_ok;
++   bool     signature_ok;
++   bool     fail_closed;
++   bool     expired;
++   long     account_login;
++   string   server;
++   string   server_hash;
++   string   product_id;
++   string   build_id;
++   string   feature_flags;
++   string   nonce;
++   int      expires_yyyymmdd;
++   int      now_yyyymmdd;
++   int      seconds_until_recheck;
++   datetime checked_at;
++   datetime expires_at;
++   string   status;
++   string   reason;
++};
++
++void STC_DefaultOfflineLicenseConfig(STC_OfflineLicenseConfig &cfg)
++{
++   cfg.enabled = true;
++   cfg.fail_closed = true;
++   cfg.bind_account = true;
++   cfg.bind_server = true;
++   cfg.require_password = true;
++   cfg.require_hidden_gates = true;
++   cfg.require_expiry = true;
++   cfg.print_sanity = true;
++   cfg.print_samples = false;
++   cfg.check_interval_seconds = 900;
++   cfg.product_id = STC_LICENSE_PRODUCT_ID;
++   cfg.build_id = "exec001_stc_smt_cycles_licensed";
++   cfg.token = "";
++   cfg.passphrase = "";
++   cfg.gate_a = 0;
++   cfg.gate_b = 0;
++   cfg.gate_c = 0;
++   cfg.gate_d = 0;
++}
++
++void STC_ResetOfflineLicensePayload(STC_OfflineLicensePayload &p)
++{
++   p.parsed = false;
++   p.prefix = "";
++   p.product_id = "";
++   p.account_login = 0;
++   p.server_hash = "";
++   p.expires_yyyymmdd = 0;
++   p.feature_flags = "";
++   p.nonce = "";
++   p.sig_a = "";
++   p.sig_b = "";
++   p.canonical_payload = "";
++}
++
++void STC_ResetOfflineLicenseReport(STC_OfflineLicenseReport &r)
++{
++   r.attempted = false;
++   r.ok = false;
++   r.enabled = true;
++   r.token_parsed = false;
++   r.product_ok = false;
++   r.account_ok = false;
++   r.server_ok = false;
++   r.expiry_ok = false;
++   r.password_ok = false;
++   r.gates_ok = false;
++   r.signature_ok = false;
++   r.fail_closed = true;
++   r.expired = false;
++   r.account_login = 0;
++   r.server = "";
++   r.server_hash = "";
++   r.product_id = "";
++   r.build_id = "";
++   r.feature_flags = "";
++   r.nonce = "";
++   r.expires_yyyymmdd = 0;
++   r.now_yyyymmdd = 0;
++   r.seconds_until_recheck = 0;
++   r.checked_at = 0;
++   r.expires_at = 0;
++   r.status = "reset";
++   r.reason = "reset";
++}
++
++#endif // __DAL_STC_LICENSE_TYPES_MQH__
+diff --git a/tools/stc_smt_deployment/offline_license_keygen.py b/tools/stc_smt_deployment/offline_license_keygen.py
+new file mode 100755
+index 0000000..759a006
+--- /dev/null
++++ b/tools/stc_smt_deployment/offline_license_keygen.py
+@@ -0,0 +1,369 @@
++#!/usr/bin/env python3
++"""Generate and archive offline runtime codes for EXEC001 STC SMT Cycles.
++
++Keep this file private; do not ship it to license recipients.
++
++The recipient only receives the neutral MT5 input values:
++  - InpCycleModelProfile
++  - InpCycleOperatorMemo
++  - InpCycleReferenceSeed
++  - InpCycleDivergenceSeed
++  - InpCycleExecutionSeed
++  - InpCycleReleaseSeed
++
++By default this issuer tool also archives every issued license under:
++  licenses/stc_smt_cycles/user0001-First-Middle-Last/
++
++Committed repository policy:
++  - Keep licenses/README_STC_SMT_LICENSE_ISSUER.md in git as the guide.
++  - Do not commit generated user folders.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import re
++import secrets
++from dataclasses import asdict, dataclass
++from datetime import datetime, timezone
++from pathlib import Path
++
++MASK = 0xFFFFFFFF
++TOKEN_PREFIX = "STCSMT1"
++PRODUCT_ID = "STCSMT"
++DEFAULT_OUT_ROOT = "licenses/stc_smt_cycles"
++
++
++def u32(x: int) -> int:
++    return x & MASK
++
++
++def rotl32(x: int, r: int) -> int:
++    x = u32(x)
++    return u32((x << r) | (x >> (32 - r)))
++
++
++def mix32(x: int) -> int:
++    x = u32(x)
++    x ^= x >> 16
++    x = u32(x * 0x7FEB352D)
++    x ^= x >> 15
++    x = u32(x * 0x846CA68B)
++    x ^= x >> 16
++    return u32(x)
++
++
++def h32(s: str, seed: int = 2166136261) -> int:
++    h = u32(seed)
++    for ch in s:
++        h ^= ord(ch)
++        h = u32(h * 16777619)
++        h = u32(rotl32(h, 5) ^ (h >> 7))
++    return mix32(h ^ len(s))
++
++
++def hx(x: int) -> str:
++    return f"{u32(x):08X}"
++
++
++def secret_a() -> str:
++    a = mix32(0x6C79636C ^ h32("stc-smt", 0xA341316C))
++    b = mix32(0xD1A7E617 ^ h32("time-divergence", 0x8013EA4D))
++    c = mix32(0xC5C1E501 ^ h32("dal-cycles", 0x9E3779B9))
++    return f"{hx(a)}:{hx(b)}:{hx(c)}"
++
++
++def secret_b() -> str:
++    a = mix32(0xB7E15162 ^ h32("w-levels", 0xC2B2AE35))
++    b = mix32(0x8AED2A6B ^ h32("smt-hunts", 0x27D4EB2F))
++    c = mix32(0x165667B1 ^ h32("offline-exec", 0x85EBCA6B))
++    return f"{hx(a)}:{hx(b)}:{hx(c)}"
++
++
++def signatures(payload: str, passphrase: str) -> tuple[str, str]:
++    p = payload + "|" + passphrase
++    a = h32(secret_a() + "|" + p, 0x811C9DC5)
++    b = h32(secret_b() + "|" + p[::-1], 0x9E3779B9)
++    a = mix32(a ^ rotl32(b, 13))
++    b = mix32(b ^ rotl32(a, 7))
++    return hx(a), hx(b)
++
++
++def gate_value(payload: str, passphrase: str, gate_index: int) -> int:
++    sig_a, sig_b = signatures(payload, passphrase)
++    material = f"{payload}|{passphrase}|{sig_a}|{sig_b}|G{gate_index}"
++    h = h32(secret_b() + "|" + material, 0xA5A5A5A5 + gate_index * 977)
++    return 100000 + (h % 900000)
++
++
++def server_hash(server: str) -> str:
++    return hx(h32(server.strip().upper(), 0xC3D2E1F0))
++
++
++@dataclass
++class LicenseBundle:
++    token: str
++    passphrase: str
++    gate_a: int
++    gate_b: int
++    gate_c: int
++    gate_d: int
++    server_hash: str
++    payload: str
++    sig_a: str
++    sig_b: str
++
++
++@dataclass
++class IssuerRecord:
++    user_code: str
++    first_name: str
++    middle_name: str
++    last_name: str
++    display_name: str
++    account: int
++    server: str
++    server_any: bool
++    server_hash: str
++    expires: int
++    feature: str
++    nonce: str
++    issued_at_utc: str
++    output_folder: str
++    recipient_inputs_file: str
++    issuer_audit_file: str
++    full_record_file: str
++    token_prefix: str
++    product_id: str
++    signature_a: str
++    signature_b: str
++
++
++def build_license(account: int, server: str, expires: int, passphrase: str,
++                  feature: str, nonce: str, server_any: bool) -> LicenseBundle:
++    srv_hash = "ANY" if server_any else server_hash(server)
++    payload = f"{TOKEN_PREFIX}|{PRODUCT_ID}|{account}|{srv_hash}|{expires}|{feature.upper()}|{nonce.upper()}"
++    sig_a, sig_b = signatures(payload, passphrase)
++    token = f"{payload}|{sig_a}|{sig_b}"
++    return LicenseBundle(
++        token=token,
++        passphrase=passphrase,
++        gate_a=gate_value(payload, passphrase, 1),
++        gate_b=gate_value(payload, passphrase, 2),
++        gate_c=gate_value(payload, passphrase, 3),
++        gate_d=gate_value(payload, passphrase, 4),
++        server_hash=srv_hash,
++        payload=payload,
++        sig_a=sig_a,
++        sig_b=sig_b,
++    )
++
++
++def slug_part(value: str) -> str:
++    value = value.strip()
++    if not value:
++        return "NA"
++    value = re.sub(r"[^A-Za-z0-9]+", "-", value)
++    value = re.sub(r"-+", "-", value).strip("-")
++    return value or "NA"
++
++
++def next_user_code(out_root: Path) -> str:
++    out_root.mkdir(parents=True, exist_ok=True)
++    max_n = 0
++    pat = re.compile(r"^user(\d{4})(?:-|$)", re.IGNORECASE)
++    for child in out_root.iterdir():
++        if not child.is_dir():
++            continue
++        m = pat.match(child.name)
++        if m:
++            max_n = max(max_n, int(m.group(1)))
++    return f"user{max_n + 1:04d}"
++
++
++def normalize_user_code(user_code: str, out_root: Path) -> str:
++    user_code = user_code.strip()
++    if not user_code:
++        return next_user_code(out_root)
++    if user_code.isdigit():
++        return f"user{int(user_code):04d}"
++    m = re.fullmatch(r"user(\d{1,4})", user_code, re.IGNORECASE)
++    if m:
++        return f"user{int(m.group(1)):04d}"
++    raise SystemExit("--user-code must be empty, a number like 1, or user0001")
++
++
++def user_folder_name(user_code: str, first_name: str, middle_name: str, last_name: str) -> str:
++    parts = [user_code, slug_part(first_name)]
++    if middle_name.strip():
++        parts.append(slug_part(middle_name))
++    parts.append(slug_part(last_name))
++    return "-".join(parts)
++
++
++def recipient_input_text(bundle: LicenseBundle) -> str:
++    return "\n".join([
++        "# Give only this section to the recipient.",
++        "# The input names are intentionally neutral inside MT5.",
++        f"InpCycleModelProfile={bundle.token}",
++        f"InpCycleOperatorMemo={bundle.passphrase}",
++        f"InpCycleReferenceSeed={bundle.gate_a}",
++        f"InpCycleDivergenceSeed={bundle.gate_b}",
++        f"InpCycleExecutionSeed={bundle.gate_c}",
++        f"InpCycleReleaseSeed={bundle.gate_d}",
++        "",
++    ])
++
++
++def full_record_text(record: IssuerRecord, bundle: LicenseBundle) -> str:
++    return "\n".join([
++        "# EXEC001 STC SMT Cycles offline license full issuer record",
++        "# Keep this file private. Do not send this full record to the recipient.",
++        "",
++        "[recipient_inputs]",
++        recipient_input_text(bundle).strip(),
++        "",
++        "[issuer_audit]",
++        f"user_code={record.user_code}",
++        f"first_name={record.first_name}",
++        f"middle_name={record.middle_name}",
++        f"last_name={record.last_name}",
++        f"display_name={record.display_name}",
++        f"account={record.account}",
++        f"server={record.server}",
++        f"server_any={str(record.server_any).lower()}",
++        f"server_hash={record.server_hash}",
++        f"expires={record.expires}",
++        f"feature={record.feature}",
++        f"nonce={record.nonce}",
++        f"issued_at_utc={record.issued_at_utc}",
++        f"token_prefix={record.token_prefix}",
++        f"product_id={record.product_id}",
++        f"signature_a={record.signature_a}",
++        f"signature_b={record.signature_b}",
++        f"output_folder={record.output_folder}",
++        "",
++    ])
++
++
++def write_license_files(out_root: Path, record: IssuerRecord, bundle: LicenseBundle, overwrite: bool) -> None:
++    folder = Path(record.output_folder)
++    if folder.exists() and not overwrite:
++        raise SystemExit(f"Output folder already exists: {folder}. Use --overwrite to replace files.")
++    folder.mkdir(parents=True, exist_ok=True)
++
++    recipient_path = Path(record.recipient_inputs_file)
++    audit_path = Path(record.issuer_audit_file)
++    full_path = Path(record.full_record_file)
++
++    recipient_path.write_text(recipient_input_text(bundle), encoding="utf-8")
++    audit_path.write_text(json.dumps(asdict(record), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    full_path.write_text(full_record_text(record, bundle), encoding="utf-8")
++
++    index_path = out_root / "issued_licenses_index.csv"
++    index_exists = index_path.exists()
++    with index_path.open("a", encoding="utf-8", newline="") as f:
++        if not index_exists:
++            f.write("user_code,display_name,account,server,server_hash,expires,feature,issued_at_utc,folder\n")
++        safe_display = record.display_name.replace('"', '""')
++        safe_server = record.server.replace('"', '""')
++        f.write(
++            f'{record.user_code},"{safe_display}",{record.account},"{safe_server}",{record.server_hash},'
++            f'{record.expires},{record.feature},{record.issued_at_utc},"{folder.as_posix()}"\n'
++        )
++
++
++def main() -> None:
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--account", type=int, required=True, help="MT5 account login")
++    ap.add_argument("--server", default="", help="Exact MT5 AccountInfoString(ACCOUNT_SERVER)")
++    ap.add_argument("--server-any", action="store_true", help="Do not bind to server hash")
++    ap.add_argument("--expires", type=int, required=True, help="YYYYMMDD expiry date")
++    ap.add_argument("--feature", default="FULL")
++    ap.add_argument("--passphrase", default="", help="Human password. Omit for generated password")
++    ap.add_argument("--nonce", default="", help="Optional public nonce")
++    ap.add_argument("--first-name", required=True, help="Recipient first name, e.g. Amir")
++    ap.add_argument("--middle-name", default="", help="Optional middle name, e.g. Hosein")
++    ap.add_argument("--last-name", required=True, help="Recipient last name, e.g. Heydar")
++    ap.add_argument("--user-code", default="", help="Optional user number/code: 1, 0001, or user0001. Default auto-increments.")
++    ap.add_argument("--out-root", default=DEFAULT_OUT_ROOT, help=f"Issuer archive folder. Default: {DEFAULT_OUT_ROOT}")
++    ap.add_argument("--no-save", action="store_true", help="Print only; do not archive files")
++    ap.add_argument("--overwrite", action="store_true", help="Overwrite existing user folder files")
++    args = ap.parse_args()
++
++    if not args.server_any and not args.server.strip():
++        raise SystemExit("--server is required unless --server-any is used")
++
++    out_root = Path(args.out_root)
++    user_code = normalize_user_code(args.user_code, out_root)
++    folder_name = user_folder_name(user_code, args.first_name, args.middle_name, args.last_name)
++    output_folder = out_root / folder_name
++    file_base = folder_name
++
++    passphrase = args.passphrase or secrets.token_urlsafe(18)
++    nonce = args.nonce or secrets.token_hex(5).upper()
++    bundle = build_license(args.account, args.server, args.expires, passphrase, args.feature, nonce, args.server_any)
++
++    display_parts = [args.first_name.strip()]
++    if args.middle_name.strip():
++        display_parts.append(args.middle_name.strip())
++    display_parts.append(args.last_name.strip())
++    display_name = " ".join(display_parts)
++    issued_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
++
++    record = IssuerRecord(
++        user_code=user_code,
++        first_name=args.first_name.strip(),
++        middle_name=args.middle_name.strip(),
++        last_name=args.last_name.strip(),
++        display_name=display_name,
++        account=args.account,
++        server="ANY" if args.server_any else args.server.strip(),
++        server_any=bool(args.server_any),
++        server_hash=bundle.server_hash,
++        expires=args.expires,
++        feature=args.feature.upper(),
++        nonce=nonce.upper(),
++        issued_at_utc=issued_at,
++        output_folder=output_folder.as_posix(),
++        recipient_inputs_file=(output_folder / f"{file_base}_recipient_inputs.txt").as_posix(),
++        issuer_audit_file=(output_folder / f"{file_base}_issuer_audit.json").as_posix(),
++        full_record_file=(output_folder / f"{file_base}_full_record.txt").as_posix(),
++        token_prefix=TOKEN_PREFIX,
++        product_id=PRODUCT_ID,
++        signature_a=bundle.sig_a,
++        signature_b=bundle.sig_b,
++    )
++
++    print("Give these values to the recipient:")
++    print(f"InpCycleModelProfile={bundle.token}")
++    print(f"InpCycleOperatorMemo={bundle.passphrase}")
++    print(f"InpCycleReferenceSeed={bundle.gate_a}")
++    print(f"InpCycleDivergenceSeed={bundle.gate_b}")
++    print(f"InpCycleExecutionSeed={bundle.gate_c}")
++    print(f"InpCycleReleaseSeed={bundle.gate_d}")
++    print("")
++    print("Issuer audit:")
++    print(f"user_code={record.user_code}")
++    print(f"display_name={record.display_name}")
++    print(f"account={args.account}")
++    print(f"server_hash={bundle.server_hash}")
++    print(f"expires={args.expires}")
++    print(f"feature={args.feature.upper()}")
++
++    if args.no_save:
++        print("")
++        print("Archive: disabled by --no-save")
++    else:
++        write_license_files(out_root, record, bundle, args.overwrite)
++        print("")
++        print("Archive written:")
++        print(f"folder={record.output_folder}")
++        print(f"recipient_inputs={record.recipient_inputs_file}")
++        print(f"issuer_audit={record.issuer_audit_file}")
++        print(f"full_record={record.full_record_file}")
++        print(f"index={(out_root / 'issued_licenses_index.csv').as_posix()}")
++
++
++if __name__ == "__main__":
++    main()

@@ -1,0 +1,978 @@
+diff --git a/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5 b/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+index a71c44f..3617ee4 100644
+--- a/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
++++ b/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+@@ -12,6 +12,7 @@
+ #include "../../Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh"
+ #include "../../Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh"
+ #include "../../Include/FlagCountingPhoenix/FP_LicenseEngine.mqh"
++#include "../../Include/FlagCountingPhoenix/FP_StateGateEngine.mqh"
+ 
+ // ------------------------------ Data / redraw -------------------------------
+ // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
+@@ -302,6 +303,25 @@ input bool   InpPrintStaticQaSanity = true;
+ input bool   InpPrintStaticQaSamples = false;
+ input int    InpStaticQaSampleLimit = 8;
+ 
++// ------------------------------ Level 19 - State Gate Dashboard -------------
++input bool            InpStateGateEnabled             = true;
++input ENUM_TIMEFRAMES InpStateGateTf1                 = PERIOD_M1;
++input ENUM_TIMEFRAMES InpStateGateTf2                 = PERIOD_M10;
++input ENUM_TIMEFRAMES InpStateGateTf3                 = PERIOD_H1;
++input bool            InpStateGatePanelEnabled        = true;
++input bool            InpStateGatePanelStartMinimized = false;
++input ENUM_BASE_CORNER InpStateGatePanelCorner         = CORNER_RIGHT_UPPER;
++input int             InpStateGatePanelX              = 16;
++input int             InpStateGatePanelY              = 24;
++input int             InpStateGatePanelWidth          = 520;
++input int             InpStateGatePanelFontSize       = 8;
++input int             InpStateGateMaxRallyRowsPerTf   = 6;
++input int             InpStateGateMaxHookRowsPerTf    = 10;
++input bool            InpStateGateShowIds             = true;
++input bool            InpStateGateShowScaleL          = true;
++input bool            InpStateGateExportCsv           = true;
++input bool            InpStateGatePrintAudit          = true;
++
+ // ------------------------------ Rendering -----------------------------------
+ input string InpObjectPrefix = "DAL_FCP_";
+ input string InpRenderMemo = "";
+@@ -348,6 +368,7 @@ FP_OfflineLicenseConfig g_fp_license_cfg;
+ FP_OfflineLicenseReport g_fp_license_report;
+ bool g_fp_license_ok = false;
+ datetime g_fp_license_next_check = 0;
++FP_StateGateRuntime g_fp_state_gate_runtime;
+ 
+ bool FP_ShouldRedraw()
+ {
+@@ -786,6 +807,30 @@ void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
+    cfg.sample_limit = InpStaticQaSampleLimit;
+ }
+ 
++
++void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
++{
++   FP_DefaultStateGateConfig(cfg);
++   cfg.enabled = InpStateGateEnabled;
++   cfg.tf1 = InpStateGateTf1;
++   cfg.tf2 = InpStateGateTf2;
++   cfg.tf3 = InpStateGateTf3;
++   cfg.panel_enabled = InpStateGatePanelEnabled;
++   cfg.panel_start_minimized = InpStateGatePanelStartMinimized;
++   cfg.panel_corner = InpStateGatePanelCorner;
++   cfg.panel_x = InpStateGatePanelX;
++   cfg.panel_y = InpStateGatePanelY;
++   cfg.panel_width = InpStateGatePanelWidth;
++   cfg.panel_font_size = InpStateGatePanelFontSize;
++   cfg.max_rally_rows_per_tf = InpStateGateMaxRallyRowsPerTf;
++   cfg.max_hook_rows_per_tf = InpStateGateMaxHookRowsPerTf;
++   cfg.show_ids = InpStateGateShowIds;
++   cfg.show_scale_l = InpStateGateShowScaleL;
++   cfg.export_csv = InpStateGateExportCsv;
++   cfg.print_audit = InpStateGatePrintAudit;
++   cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
++}
++
+ void FP_Run()
+ {
+    if(!FP_EnsureOfflineLicense(false))
+@@ -833,6 +878,9 @@ void FP_Run()
+    FP_StaticQaConfig staticqa_cfg;
+    FP_LoadStaticQaConfig(staticqa_cfg);
+ 
++   FP_StateGateConfig state_gate_cfg;
++   FP_LoadStateGateConfig(state_gate_cfg);
++
+    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
+    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
+       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
+@@ -991,6 +1039,13 @@ void FP_Run()
+          FP_PrintStaticQaSamples("FP_LEVEL18", staticqa_report, staticqa_rows, staticqa_cfg.sample_limit);
+    }
+ 
++   FP_StateGateReport state_gate_report;
++   FP_RunStateGatePhase1(_Symbol, _Period, state_gate_cfg, g_fp_state_gate_runtime, state_gate_report);
++   if(state_gate_cfg.print_audit)
++      FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
++   if(state_gate_cfg.print_audit)
++      FP_PrintStateGateSnapshotSamples("FP_LEVEL19_STATE_GATE_SAMPLE", g_fp_state_gate_runtime.snapshot, FP_STATE_GATE_TF_SLOTS);
++
+    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
+    if(InpVerboseAuditLogs)
+    {
+@@ -1005,6 +1060,11 @@ int OnInit()
+       return INIT_FAILED;
+    EventSetTimer(60);
+ 
++   FP_ResetStateGateRuntime(g_fp_state_gate_runtime);
++   FP_StateGateConfig init_state_gate_cfg;
++   FP_LoadStateGateConfig(init_state_gate_cfg);
++   FP_StateGatePanelCleanup(init_state_gate_cfg);
++
+    FP_ReleaseConfig init_release_cfg;
+    FP_LoadReleaseConfig(init_release_cfg);
+    if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
+@@ -1017,10 +1077,24 @@ int OnInit()
+ void OnDeinit(const int reason)
+ {
+    EventKillTimer();
++   FP_StateGateConfig deinit_state_gate_cfg;
++   FP_LoadStateGateConfig(deinit_state_gate_cfg);
++   FP_StateGatePanelCleanup(deinit_state_gate_cfg);
+    if(InpCleanObjectsOnDeinit)
+       FP_DeleteObjectsByPrefix(InpObjectPrefix);
+ }
+ 
++
++void OnChartEvent(const int id,
++                  const long &lparam,
++                  const double &dparam,
++                  const string &sparam)
++{
++   FP_StateGateConfig event_state_gate_cfg;
++   FP_LoadStateGateConfig(event_state_gate_cfg);
++   FP_StateGatePanelHandleChartEvent(event_state_gate_cfg, g_fp_state_gate_runtime, id, sparam);
++}
++
+ void OnTick()
+ {
+    if(!FP_EnsureOfflineLicense(false))
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGateAudit.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGateAudit.mqh
+new file mode 100644
+index 0000000..97be5ea
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGateAudit.mqh
+@@ -0,0 +1,49 @@
++#ifndef __FP_STATE_GATE_AUDIT_MQH__
++#define __FP_STATE_GATE_AUDIT_MQH__
++#property strict
++
++#include "FP_StateGatePanel.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Audit
++// ============================================================================
++
++void FP_PrintStateGateReport(const string tag, const FP_StateGateReport &r)
++{
++   string msg = tag;
++   msg += " version=" + r.version;
++   msg += " attempted=" + FP_BoolName(r.attempted);
++   msg += " ok=" + FP_BoolName(r.ok);
++   msg += " status=" + r.status;
++   msg += " reason=" + r.reason;
++   msg += " symbol=" + r.symbol;
++   msg += " tfs=" + IntegerToString(r.timeframe_count);
++   msg += " dirty_tfs=" + IntegerToString(r.dirty_timeframes);
++   msg += " rally_rows=" + IntegerToString(r.rally_rows);
++   msg += " hook_rows=" + IntegerToString(r.hook_rows);
++   msg += " objects=" + IntegerToString(r.objects_created);
++   msg += " object_errors=" + IntegerToString(r.object_errors);
++   msg += " files=" + IntegerToString(r.files_written);
++   msg += " file_errors=" + IntegerToString(r.file_errors);
++   Print(msg);
++}
++
++void FP_PrintStateGateSnapshotSamples(const string tag,
++                                      const FP_StateGateSnapshot &snapshot,
++                                      const int limit)
++{
++   int max_rows = MathMax(0, limit);
++   for(int i=0; i<snapshot.timeframe_count && i<max_rows; i++)
++   {
++      string msg = tag;
++      msg += " tf=" + snapshot.tf_states[i].timeframe_label;
++      msg += " closed=" + FP_StateGateClosedBarTimeLabel(snapshot.tf_states[i].last_closed_bar_time);
++      msg += " close=" + DoubleToString(snapshot.tf_states[i].last_closed_bar_close, _Digits);
++      msg += " rally=" + snapshot.tf_states[i].latest_established_f_summary;
++      msg += " probable=" + snapshot.tf_states[i].probable_next_f_summary;
++      msg += " hook=" + snapshot.tf_states[i].hook_summary;
++      Print(msg);
++   }
++}
++
++#endif // __FP_STATE_GATE_AUDIT_MQH__
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGateEngine.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGateEngine.mqh
+new file mode 100644
+index 0000000..5cc4edb
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGateEngine.mqh
+@@ -0,0 +1,99 @@
++#ifndef __FP_STATE_GATE_ENGINE_MQH__
++#define __FP_STATE_GATE_ENGINE_MQH__
++#property strict
++
++#include "FP_StateGateExport.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Engine
++// ----------------------------------------------------------------------------
++// Phase 1 builds a read-only shell snapshot from configured timeframes and
++// renders/export/audits explicit placeholder rows.  It does not read, mutate, or
++// reinterpret F-counting, Hook/ND, node, ownership, canonicalization, renderer,
++// validation, release, or license engines.
++// ============================================================================
++
++void FP_StateGateEnsureRuntime(const FP_StateGateConfig &cfg,
++                               FP_StateGateRuntime &runtime)
++{
++   if(runtime.initialized) return;
++   FP_ResetStateGateRuntime(runtime);
++   runtime.initialized = true;
++   runtime.minimized = cfg.panel_start_minimized;
++}
++
++void FP_StateGateBuildPhase1Snapshot(const string symbol,
++                                     const ENUM_TIMEFRAMES chart_period,
++                                     const FP_StateGateConfig &cfg,
++                                     FP_StateGateRuntime &runtime,
++                                     FP_StateGateReport &report)
++{
++   FP_StateGateEnsureRuntime(cfg, runtime);
++   FP_ResetStateGateSnapshot(runtime.snapshot);
++   runtime.snapshot.initialized = true;
++   runtime.snapshot.symbol = symbol;
++   runtime.snapshot.chart_timeframe = chart_period;
++   runtime.snapshot.generated_at = TimeCurrent();
++   runtime.snapshot.timeframe_count = FP_STATE_GATE_TF_SLOTS;
++   runtime.snapshot.status = "phase1_shell";
++   runtime.snapshot.reason = "input_shell_and_module_skeleton";
++
++   for(int i=0; i<FP_STATE_GATE_TF_SLOTS; i++)
++   {
++      FP_ResetStateGateTimeframeState(runtime.snapshot.tf_states[i]);
++      ENUM_TIMEFRAMES tf = FP_StateGateConfigTimeframeAt(cfg, i);
++      runtime.snapshot.tf_states[i].timeframe = tf;
++      runtime.snapshot.tf_states[i].timeframe_label = FP_StateGateTimeframeName(tf);
++      runtime.snapshot.tf_states[i].status = "phase1_shell";
++      runtime.snapshot.tf_states[i].reason = "projection_pending";
++      if(FP_StateGateTimeframeIsUsable(tf))
++      {
++         runtime.snapshot.tf_states[i].last_closed_bar_time = iTime(symbol, tf, 1);
++         runtime.snapshot.tf_states[i].last_closed_bar_close = iClose(symbol, tf, 1);
++         runtime.snapshot.tf_states[i].closed_bar_available = (runtime.snapshot.tf_states[i].last_closed_bar_time > 0);
++         runtime.snapshot.tf_states[i].dirty = (runtime.last_processed_closed_bar_time[i] != runtime.snapshot.tf_states[i].last_closed_bar_time);
++         runtime.last_processed_closed_bar_time[i] = runtime.snapshot.tf_states[i].last_closed_bar_time;
++         if(runtime.snapshot.tf_states[i].dirty) report.dirty_timeframes++;
++      }
++      else
++      {
++         runtime.snapshot.tf_states[i].closed_bar_available = false;
++         runtime.snapshot.tf_states[i].reason = "period_current_disabled_in_phase1";
++      }
++
++      FP_StateGateSeedPlaceholderRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot);
++   }
++
++   report.attempted = true;
++   report.ok = true;
++   report.status = "phase1_shell";
++   report.reason = "placeholder_rows_only";
++   report.version = FP_STATE_GATE_VERSION;
++   report.symbol = symbol;
++   report.timeframe_count = runtime.snapshot.timeframe_count;
++   report.rally_rows = runtime.snapshot.rally_row_count;
++   report.hook_rows = runtime.snapshot.hook_row_count;
++}
++
++void FP_RunStateGatePhase1(const string symbol,
++                           const ENUM_TIMEFRAMES chart_period,
++                           const FP_StateGateConfig &cfg,
++                           FP_StateGateRuntime &runtime,
++                           FP_StateGateReport &report)
++{
++   FP_ResetStateGateReport(report);
++   if(!cfg.enabled)
++   {
++      report.status = "disabled";
++      report.reason = "InpStateGateEnabled_false";
++      report.ok = true;
++      return;
++   }
++
++   FP_StateGateBuildPhase1Snapshot(symbol, chart_period, cfg, runtime, report);
++   if(cfg.panel_enabled)
++      FP_StateGatePanelDraw(cfg, runtime.snapshot, runtime.minimized, report);
++   FP_StateGateExportPhase1Stub(cfg, runtime.snapshot, report);
++}
++
++#endif // __FP_STATE_GATE_ENGINE_MQH__
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGateExport.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGateExport.mqh
+new file mode 100644
+index 0000000..c8d940a
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGateExport.mqh
+@@ -0,0 +1,25 @@
++#ifndef __FP_STATE_GATE_EXPORT_MQH__
++#define __FP_STATE_GATE_EXPORT_MQH__
++#property strict
++
++#include "FP_StateGateAudit.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Export
++// ----------------------------------------------------------------------------
++// Phase 1 intentionally keeps export as a compile-safe stub.  CSV state-gate
++// files start in later phases when real projection rows exist.
++// ============================================================================
++
++void FP_StateGateExportPhase1Stub(const FP_StateGateConfig &cfg,
++                                  const FP_StateGateSnapshot &snapshot,
++                                  FP_StateGateReport &report)
++{
++   if(!cfg.export_csv) return;
++   report.files_written += 0;
++   report.file_errors += 0;
++   if(snapshot.initialized)
++      report.reason = "phase1_export_stub";
++}
++
++#endif // __FP_STATE_GATE_EXPORT_MQH__
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGatePanel.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGatePanel.mqh
+new file mode 100644
+index 0000000..d405ad3
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGatePanel.mqh
+@@ -0,0 +1,209 @@
++#ifndef __FP_STATE_GATE_PANEL_MQH__
++#define __FP_STATE_GATE_PANEL_MQH__
++#property strict
++
++#include "FP_StateGateRules.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Panel
++// ----------------------------------------------------------------------------
++// Minimal chart-object dashboard shell.  It only renders State Gate snapshot
++// data and owns only objects with the configured Level 19 prefix.
++// ============================================================================
++
++string FP_StateGateObjectName(const FP_StateGateConfig &cfg, const string suffix)
++{
++   return cfg.object_prefix + suffix;
++}
++
++int FP_StateGatePanelCleanup(const FP_StateGateConfig &cfg)
++{
++   int total = ObjectsTotal(0, -1, -1);
++   int deleted = 0;
++   for(int i=total-1; i>=0; i--)
++   {
++      string name = ObjectName(0, i, -1, -1);
++      if(StringFind(name, cfg.object_prefix) == 0)
++      {
++         if(ObjectDelete(0, name)) deleted++;
++      }
++   }
++   return deleted;
++}
++
++bool FP_StateGateCreateRect(const FP_StateGateConfig &cfg,
++                            const string suffix,
++                            const int x,
++                            const int y,
++                            const int w,
++                            const int h,
++                            const color bg,
++                            const color border,
++                            FP_StateGateReport &report)
++{
++   string name = FP_StateGateObjectName(cfg, suffix);
++   report.objects_requested++;
++   if(ObjectFind(0, name) < 0)
++   {
++      if(!ObjectCreate(0, name, OBJ_RECTANGLE_LABEL, 0, 0, 0))
++      {
++         report.object_errors++;
++         report.ok = false;
++         report.reason = "panel_rect_create_failed";
++         return false;
++      }
++      report.objects_created++;
++   }
++   ObjectSetInteger(0, name, OBJPROP_CORNER, cfg.panel_corner);
++   ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
++   ObjectSetInteger(0, name, OBJPROP_YDISTANCE, y);
++   ObjectSetInteger(0, name, OBJPROP_XSIZE, w);
++   ObjectSetInteger(0, name, OBJPROP_YSIZE, h);
++   ObjectSetInteger(0, name, OBJPROP_BGCOLOR, bg);
++   ObjectSetInteger(0, name, OBJPROP_COLOR, border);
++   ObjectSetInteger(0, name, OBJPROP_BORDER_TYPE, BORDER_FLAT);
++   ObjectSetInteger(0, name, OBJPROP_BACK, false);
++   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
++   ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
++   ObjectSetInteger(0, name, OBJPROP_ZORDER, 90);
++   return true;
++}
++
++bool FP_StateGateCreateLabel(const FP_StateGateConfig &cfg,
++                             const string suffix,
++                             const int x,
++                             const int y,
++                             const string text,
++                             const color c,
++                             const int font_size,
++                             FP_StateGateReport &report)
++{
++   string name = FP_StateGateObjectName(cfg, suffix);
++   report.objects_requested++;
++   if(ObjectFind(0, name) < 0)
++   {
++      if(!ObjectCreate(0, name, OBJ_LABEL, 0, 0, 0))
++      {
++         report.object_errors++;
++         report.ok = false;
++         report.reason = "panel_label_create_failed";
++         return false;
++      }
++      report.objects_created++;
++   }
++   ObjectSetInteger(0, name, OBJPROP_CORNER, cfg.panel_corner);
++   ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
++   ObjectSetInteger(0, name, OBJPROP_YDISTANCE, y);
++   ObjectSetString(0, name, OBJPROP_TEXT, text);
++   ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
++   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, MathMax(7, font_size));
++   ObjectSetInteger(0, name, OBJPROP_COLOR, c);
++   ObjectSetInteger(0, name, OBJPROP_BACK, false);
++   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
++   ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
++   ObjectSetInteger(0, name, OBJPROP_ZORDER, 100);
++   return true;
++}
++
++bool FP_StateGateCreateButton(const FP_StateGateConfig &cfg,
++                              const string suffix,
++                              const int x,
++                              const int y,
++                              const int w,
++                              const int h,
++                              const string text,
++                              FP_StateGateReport &report)
++{
++   string name = FP_StateGateObjectName(cfg, suffix);
++   report.objects_requested++;
++   if(ObjectFind(0, name) < 0)
++   {
++      if(!ObjectCreate(0, name, OBJ_BUTTON, 0, 0, 0))
++      {
++         report.object_errors++;
++         report.ok = false;
++         report.reason = "panel_button_create_failed";
++         return false;
++      }
++      report.objects_created++;
++   }
++   ObjectSetInteger(0, name, OBJPROP_CORNER, cfg.panel_corner);
++   ObjectSetInteger(0, name, OBJPROP_XDISTANCE, x);
++   ObjectSetInteger(0, name, OBJPROP_YDISTANCE, y);
++   ObjectSetInteger(0, name, OBJPROP_XSIZE, w);
++   ObjectSetInteger(0, name, OBJPROP_YSIZE, h);
++   ObjectSetString(0, name, OBJPROP_TEXT, text);
++   ObjectSetString(0, name, OBJPROP_FONT, "Arial");
++   ObjectSetInteger(0, name, OBJPROP_FONTSIZE, MathMax(7, cfg.panel_font_size));
++   ObjectSetInteger(0, name, OBJPROP_COLOR, clrWhite);
++   ObjectSetInteger(0, name, OBJPROP_BGCOLOR, clrDimGray);
++   ObjectSetInteger(0, name, OBJPROP_BORDER_COLOR, clrGray);
++   ObjectSetInteger(0, name, OBJPROP_BACK, false);
++   ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
++   ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
++   ObjectSetInteger(0, name, OBJPROP_ZORDER, 110);
++   return true;
++}
++
++void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
++                           const FP_StateGateSnapshot &snapshot,
++                           const bool minimized,
++                           FP_StateGateReport &report)
++{
++   if(!cfg.panel_enabled) return;
++
++   int width = MathMax(300, cfg.panel_width);
++   int font_size = MathMax(7, cfg.panel_font_size);
++   int row_h = MathMax(14, font_size + 6);
++   int title_h = 22;
++   int rows = 1;
++   if(!minimized)
++      rows = 1 + snapshot.timeframe_count * 3;
++   int height = title_h + rows * row_h + 8;
++   if(minimized) height = title_h + 6;
++
++   FP_StateGateCreateRect(cfg, "BG", cfg.panel_x, cfg.panel_y, width, height, clrBlack, clrDimGray, report);
++   FP_StateGateCreateRect(cfg, "TITLE_BG", cfg.panel_x, cfg.panel_y, width, title_h, clrMidnightBlue, clrDimGray, report);
++   FP_StateGateCreateLabel(cfg, "TITLE", cfg.panel_x + 8, cfg.panel_y + 4, FP_StateGateHeaderLabel(snapshot), clrWhite, font_size, report);
++   FP_StateGateCreateButton(cfg, "MINBTN", cfg.panel_x + width - 26, cfg.panel_y + 3, 20, 16, (minimized ? "+" : "-"), report);
++
++   if(minimized)
++   {
++      ChartRedraw(0);
++      return;
++   }
++
++   int y = cfg.panel_y + title_h + 6;
++   for(int i=0; i<snapshot.timeframe_count; i++)
++   {
++      string line1 = snapshot.tf_states[i].timeframe_label + " | close_bar=" + FP_StateGateClosedBarTimeLabel(snapshot.tf_states[i].last_closed_bar_time);
++      string line2 = "  RALLY | " + snapshot.tf_states[i].latest_established_f_summary + " | " + snapshot.tf_states[i].probable_next_f_summary;
++      string line3 = "  HOOK  | " + snapshot.tf_states[i].hook_summary;
++      FP_StateGateCreateLabel(cfg, "TF_" + IntegerToString(i) + "_A", cfg.panel_x + 8, y, line1, clrLightSteelBlue, font_size, report);
++      y += row_h;
++      FP_StateGateCreateLabel(cfg, "TF_" + IntegerToString(i) + "_B", cfg.panel_x + 8, y, line2, clrGainsboro, font_size, report);
++      y += row_h;
++      FP_StateGateCreateLabel(cfg, "TF_" + IntegerToString(i) + "_C", cfg.panel_x + 8, y, line3, clrGainsboro, font_size, report);
++      y += row_h;
++   }
++   ChartRedraw(0);
++}
++
++bool FP_StateGatePanelHandleChartEvent(const FP_StateGateConfig &cfg,
++                                       FP_StateGateRuntime &runtime,
++                                       const int id,
++                                       const string sparam)
++{
++   if(id != CHARTEVENT_OBJECT_CLICK) return false;
++   string btn = FP_StateGateObjectName(cfg, "MINBTN");
++   if(sparam != btn) return false;
++   runtime.minimized = !runtime.minimized;
++   FP_StateGateReport report;
++   FP_ResetStateGateReport(report);
++   report.attempted = true;
++   FP_StateGatePanelCleanup(cfg);
++   FP_StateGatePanelDraw(cfg, runtime.snapshot, runtime.minimized, report);
++   return true;
++}
++
++#endif // __FP_STATE_GATE_PANEL_MQH__
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGateRules.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGateRules.mqh
+new file mode 100644
+index 0000000..4a30c20
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGateRules.mqh
+@@ -0,0 +1,127 @@
++#ifndef __FP_STATE_GATE_RULES_MQH__
++#define __FP_STATE_GATE_RULES_MQH__
++#property strict
++
++#include "FP_StateGateTypes.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Rules
++// ----------------------------------------------------------------------------
++// Pure read-only label and shell rules.  Phase 1 deliberately returns explicit
++// placeholder labels for Rally/Hook projection; real projection is reserved for
++// later phases and must still consume existing Phoenix anatomy only.
++// ============================================================================
++
++int FP_StateGateClampInt(const int value, const int lo, const int hi)
++{
++   if(value < lo) return lo;
++   if(value > hi) return hi;
++   return value;
++}
++
++string FP_StateGateTimeframeName(const ENUM_TIMEFRAMES tf)
++{
++   if(tf == PERIOD_M1)  return "M1";
++   if(tf == PERIOD_M2)  return "M2";
++   if(tf == PERIOD_M3)  return "M3";
++   if(tf == PERIOD_M4)  return "M4";
++   if(tf == PERIOD_M5)  return "M5";
++   if(tf == PERIOD_M6)  return "M6";
++   if(tf == PERIOD_M10) return "M10";
++   if(tf == PERIOD_M12) return "M12";
++   if(tf == PERIOD_M15) return "M15";
++   if(tf == PERIOD_M20) return "M20";
++   if(tf == PERIOD_M30) return "M30";
++   if(tf == PERIOD_H1)  return "H1";
++   if(tf == PERIOD_H2)  return "H2";
++   if(tf == PERIOD_H3)  return "H3";
++   if(tf == PERIOD_H4)  return "H4";
++   if(tf == PERIOD_H6)  return "H6";
++   if(tf == PERIOD_H8)  return "H8";
++   if(tf == PERIOD_H12) return "H12";
++   if(tf == PERIOD_D1)  return "D1";
++   if(tf == PERIOD_W1)  return "W1";
++   if(tf == PERIOD_MN1) return "MN1";
++   if(tf == PERIOD_CURRENT) return "CURRENT";
++   return EnumToString(tf);
++}
++
++ENUM_TIMEFRAMES FP_StateGateConfigTimeframeAt(const FP_StateGateConfig &cfg, const int slot)
++{
++   if(slot == 0) return cfg.tf1;
++   if(slot == 1) return cfg.tf2;
++   if(slot == 2) return cfg.tf3;
++   return PERIOD_CURRENT;
++}
++
++bool FP_StateGateTimeframeIsUsable(const ENUM_TIMEFRAMES tf)
++{
++   return (tf != PERIOD_CURRENT);
++}
++
++string FP_StateGateClosedBarTimeLabel(const datetime t)
++{
++   if(t <= 0) return "no_closed_bar";
++   return TimeToString(t, TIME_DATE|TIME_MINUTES);
++}
++
++string FP_StateGateRallyPlaceholderLabel(const string tf_label)
++{
++   return tf_label + " Rally View | Phase1 shell | F projection pending";
++}
++
++string FP_StateGateHookPlaceholderLabel(const string tf_label)
++{
++   return tf_label + " Hook View | Phase1 shell | Hook/ND projection pending";
++}
++
++string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
++{
++   string header = "FLAG STATE GATE ";
++   header += FP_STATE_GATE_VERSION;
++   header += " | ";
++   for(int i=0; i<snapshot.timeframe_count; i++)
++   {
++      if(i > 0) header += "/";
++      header += snapshot.tf_states[i].timeframe_label;
++   }
++   return header;
++}
++
++void FP_StateGateSeedPlaceholderRowsForSlot(const int slot,
++                                            const FP_StateGateTimeframeState &tf_state,
++                                            FP_StateGateSnapshot &snapshot)
++{
++   if(snapshot.rally_row_count < FP_STATE_GATE_MAX_RALLY_ROWS)
++   {
++      int r = snapshot.rally_row_count;
++      FP_ResetStateGateRallyRow(snapshot.rally_rows[r]);
++      snapshot.rally_rows[r].slot_index = slot;
++      snapshot.rally_rows[r].timeframe = tf_state.timeframe;
++      snapshot.rally_rows[r].timeframe_label = tf_state.timeframe_label;
++      snapshot.rally_rows[r].status = FP_STATE_GATE_ROW_PLACEHOLDER;
++      snapshot.rally_rows[r].label = FP_StateGateRallyPlaceholderLabel(tf_state.timeframe_label);
++      snapshot.rally_rows[r].source_id = "PHASE1_SHELL";
++      snapshot.rally_row_count++;
++      snapshot.tf_states[slot].rally_row_count++;
++      snapshot.tf_states[slot].latest_established_f_summary = "LATEST_ESTABLISHED_F_PENDING";
++      snapshot.tf_states[slot].probable_next_f_summary = "PROBABLE_NEXT_F_PENDING";
++   }
++
++   if(snapshot.hook_row_count < FP_STATE_GATE_MAX_HOOK_ROWS)
++   {
++      int h = snapshot.hook_row_count;
++      FP_ResetStateGateHookRow(snapshot.hook_rows[h]);
++      snapshot.hook_rows[h].slot_index = slot;
++      snapshot.hook_rows[h].timeframe = tf_state.timeframe;
++      snapshot.hook_rows[h].timeframe_label = tf_state.timeframe_label;
++      snapshot.hook_rows[h].status = FP_STATE_GATE_ROW_PLACEHOLDER;
++      snapshot.hook_rows[h].label = FP_StateGateHookPlaceholderLabel(tf_state.timeframe_label);
++      snapshot.hook_rows[h].source_id = "PHASE1_SHELL";
++      snapshot.hook_row_count++;
++      snapshot.tf_states[slot].hook_row_count++;
++      snapshot.tf_states[slot].hook_summary = "HOOK_STATE_PENDING";
++   }
++}
++
++#endif // __FP_STATE_GATE_RULES_MQH__
+diff --git a/mql5/Include/FlagCountingPhoenix/FP_StateGateTypes.mqh b/mql5/Include/FlagCountingPhoenix/FP_StateGateTypes.mqh
+new file mode 100644
+index 0000000..a56bc77
+--- /dev/null
++++ b/mql5/Include/FlagCountingPhoenix/FP_StateGateTypes.mqh
+@@ -0,0 +1,295 @@
++#ifndef __FP_STATE_GATE_TYPES_MQH__
++#define __FP_STATE_GATE_TYPES_MQH__
++#property strict
++
++#include "FP_Types.mqh"
++
++// ============================================================================
++// FlagCounting Phoenix - Level 19 State Gate Types
++// ----------------------------------------------------------------------------
++// The State Gate is a read-only anatomy projection layer.  It is intentionally
++// above the locked Node, Hook/ND, Flag Body, Internal Count, F1/F2/F3 lifecycle,
++// ownership, canonicalization, renderer, validation, release, and license logic.
++//
++// Phase 1 owns only the input shell, stable data contracts, placeholder rows,
++// panel/export/audit scaffolding, and runtime state store.  It must not mutate
++// or reinterpret Phoenix anatomy.
++// ============================================================================
++
++#define FP_STATE_GATE_VERSION "19.00-phase1"
++#define FP_STATE_GATE_TF_SLOTS 3
++#define FP_STATE_GATE_MAX_RALLY_ROWS 24
++#define FP_STATE_GATE_MAX_HOOK_ROWS 48
++#define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
++
++enum FP_StateGateViewType
++{
++   FP_STATE_GATE_VIEW_NONE  = 0,
++   FP_STATE_GATE_VIEW_RALLY = 1,
++   FP_STATE_GATE_VIEW_HOOK  = 2
++};
++
++enum FP_StateGateRowStatus
++{
++   FP_STATE_GATE_ROW_EMPTY       = 0,
++   FP_STATE_GATE_ROW_PLACEHOLDER = 1,
++   FP_STATE_GATE_ROW_PROJECTED   = 2,
++   FP_STATE_GATE_ROW_UNKNOWN     = 3
++};
++
++struct FP_StateGateConfig
++{
++   bool enabled;
++   ENUM_TIMEFRAMES tf1;
++   ENUM_TIMEFRAMES tf2;
++   ENUM_TIMEFRAMES tf3;
++
++   bool panel_enabled;
++   bool panel_start_minimized;
++   int  panel_corner;
++   int  panel_x;
++   int  panel_y;
++   int  panel_width;
++   int  panel_font_size;
++   int  max_rally_rows_per_tf;
++   int  max_hook_rows_per_tf;
++   bool show_ids;
++   bool show_scale_l;
++   bool export_csv;
++   bool print_audit;
++   string object_prefix;
++};
++
++struct FP_StateGateTimeframeState
++{
++   ENUM_TIMEFRAMES timeframe;
++   string timeframe_label;
++   datetime last_closed_bar_time;
++   double last_closed_bar_close;
++   bool closed_bar_available;
++   bool dirty;
++   int rally_row_count;
++   int hook_row_count;
++   string latest_established_f_summary;
++   string probable_next_f_summary;
++   string hook_summary;
++   string status;
++   string reason;
++};
++
++struct FP_StateGateRallyRow
++{
++   int slot_index;
++   ENUM_TIMEFRAMES timeframe;
++   string timeframe_label;
++   int status;
++   int source_event_id;
++   int sequence_id;
++   int parent_event_id;
++   int scale_L;
++   int direction;
++   int f_level;
++   string latest_established_f;
++   string probable_next_f;
++   string body_state;
++   string flag_stage;
++   string post_flag_stage;
++   string source_id;
++   string label;
++};
++
++struct FP_StateGateHookRow
++{
++   int slot_index;
++   ENUM_TIMEFRAMES timeframe;
++   string timeframe_label;
++   int status;
++   int source_hook_id;
++   int sequence_id;
++   int scale_L;
++   int direction;
++   string polarity;
++   int current_node_number;
++   int latest_high_node_id;
++   double latest_high_node_price;
++   int latest_low_node_id;
++   double latest_low_node_price;
++   string position_label;
++   string source_id;
++   string label;
++};
++
++struct FP_StateGateSnapshot
++{
++   bool initialized;
++   string symbol;
++   ENUM_TIMEFRAMES chart_timeframe;
++   datetime generated_at;
++   int timeframe_count;
++   FP_StateGateTimeframeState tf_states[FP_STATE_GATE_TF_SLOTS];
++   FP_StateGateRallyRow rally_rows[FP_STATE_GATE_MAX_RALLY_ROWS];
++   FP_StateGateHookRow hook_rows[FP_STATE_GATE_MAX_HOOK_ROWS];
++   int rally_row_count;
++   int hook_row_count;
++   string status;
++   string reason;
++};
++
++struct FP_StateGateRuntime
++{
++   bool initialized;
++   bool minimized;
++   datetime last_processed_closed_bar_time[FP_STATE_GATE_TF_SLOTS];
++   FP_StateGateSnapshot snapshot;
++};
++
++struct FP_StateGateReport
++{
++   bool attempted;
++   bool ok;
++   string status;
++   string reason;
++   string version;
++   string symbol;
++   int timeframe_count;
++   int dirty_timeframes;
++   int rally_rows;
++   int hook_rows;
++   int objects_requested;
++   int objects_created;
++   int object_errors;
++   int objects_deleted;
++   int files_written;
++   int file_errors;
++};
++
++void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
++{
++   s.timeframe = PERIOD_CURRENT;
++   s.timeframe_label = "TF?";
++   s.last_closed_bar_time = 0;
++   s.last_closed_bar_close = 0.0;
++   s.closed_bar_available = false;
++   s.dirty = false;
++   s.rally_row_count = 0;
++   s.hook_row_count = 0;
++   s.latest_established_f_summary = "RALLY_VIEW_PENDING";
++   s.probable_next_f_summary = "RALLY_VIEW_PENDING";
++   s.hook_summary = "HOOK_VIEW_PENDING";
++   s.status = "empty";
++   s.reason = "reset";
++}
++
++void FP_ResetStateGateRallyRow(FP_StateGateRallyRow &r)
++{
++   r.slot_index = -1;
++   r.timeframe = PERIOD_CURRENT;
++   r.timeframe_label = "TF?";
++   r.status = FP_STATE_GATE_ROW_EMPTY;
++   r.source_event_id = -1;
++   r.sequence_id = -1;
++   r.parent_event_id = -1;
++   r.scale_L = 0;
++   r.direction = FP_DIR_NONE;
++   r.f_level = FP_LEVEL_NONE;
++   r.latest_established_f = "F?_PENDING";
++   r.probable_next_f = "F?_PENDING";
++   r.body_state = "PHASE1_PLACEHOLDER";
++   r.flag_stage = "PHASE1_PLACEHOLDER";
++   r.post_flag_stage = "PHASE1_PLACEHOLDER";
++   r.source_id = "";
++   r.label = "Rally View placeholder: projection starts in Level 19 Phase 3";
++}
++
++void FP_ResetStateGateHookRow(FP_StateGateHookRow &r)
++{
++   r.slot_index = -1;
++   r.timeframe = PERIOD_CURRENT;
++   r.timeframe_label = "TF?";
++   r.status = FP_STATE_GATE_ROW_EMPTY;
++   r.source_hook_id = -1;
++   r.sequence_id = -1;
++   r.scale_L = 0;
++   r.direction = FP_DIR_NONE;
++   r.polarity = "HOOK?_PENDING";
++   r.current_node_number = -1;
++   r.latest_high_node_id = -1;
++   r.latest_high_node_price = 0.0;
++   r.latest_low_node_id = -1;
++   r.latest_low_node_price = 0.0;
++   r.position_label = "PHASE1_PLACEHOLDER";
++   r.source_id = "";
++   r.label = "Hook View placeholder: projection starts in Level 19 Phase 4";
++}
++
++void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
++{
++   s.initialized = false;
++   s.symbol = "";
++   s.chart_timeframe = PERIOD_CURRENT;
++   s.generated_at = 0;
++   s.timeframe_count = FP_STATE_GATE_TF_SLOTS;
++   for(int i=0; i<FP_STATE_GATE_TF_SLOTS; i++)
++      FP_ResetStateGateTimeframeState(s.tf_states[i]);
++   for(int r=0; r<FP_STATE_GATE_MAX_RALLY_ROWS; r++)
++      FP_ResetStateGateRallyRow(s.rally_rows[r]);
++   for(int h=0; h<FP_STATE_GATE_MAX_HOOK_ROWS; h++)
++      FP_ResetStateGateHookRow(s.hook_rows[h]);
++   s.rally_row_count = 0;
++   s.hook_row_count = 0;
++   s.status = "reset";
++   s.reason = "reset";
++}
++
++void FP_ResetStateGateRuntime(FP_StateGateRuntime &rt)
++{
++   rt.initialized = false;
++   rt.minimized = false;
++   for(int i=0; i<FP_STATE_GATE_TF_SLOTS; i++)
++      rt.last_processed_closed_bar_time[i] = 0;
++   FP_ResetStateGateSnapshot(rt.snapshot);
++}
++
++void FP_ResetStateGateReport(FP_StateGateReport &r)
++{
++   r.attempted = false;
++   r.ok = true;
++   r.status = "not_run";
++   r.reason = "not_attempted";
++   r.version = FP_STATE_GATE_VERSION;
++   r.symbol = "";
++   r.timeframe_count = 0;
++   r.dirty_timeframes = 0;
++   r.rally_rows = 0;
++   r.hook_rows = 0;
++   r.objects_requested = 0;
++   r.objects_created = 0;
++   r.object_errors = 0;
++   r.objects_deleted = 0;
++   r.files_written = 0;
++   r.file_errors = 0;
++}
++
++void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
++{
++   cfg.enabled = true;
++   cfg.tf1 = PERIOD_M1;
++   cfg.tf2 = PERIOD_M10;
++   cfg.tf3 = PERIOD_H1;
++   cfg.panel_enabled = true;
++   cfg.panel_start_minimized = false;
++   cfg.panel_corner = CORNER_RIGHT_UPPER;
++   cfg.panel_x = 16;
++   cfg.panel_y = 24;
++   cfg.panel_width = 520;
++   cfg.panel_font_size = 8;
++   cfg.max_rally_rows_per_tf = 6;
++   cfg.max_hook_rows_per_tf = 10;
++   cfg.show_ids = true;
++   cfg.show_scale_l = true;
++   cfg.export_csv = true;
++   cfg.print_audit = true;
++   cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
++}
++
++#endif // __FP_STATE_GATE_TYPES_MQH__

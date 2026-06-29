@@ -12,6 +12,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_AmbiguityEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_LicenseEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_StateGateEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -302,6 +303,25 @@ input bool   InpPrintStaticQaSanity = true;
 input bool   InpPrintStaticQaSamples = false;
 input int    InpStaticQaSampleLimit = 8;
 
+// ------------------------------ Level 19 - State Gate Dashboard -------------
+input bool            InpStateGateEnabled             = true;
+input ENUM_TIMEFRAMES InpStateGateTf1                 = PERIOD_M1;
+input ENUM_TIMEFRAMES InpStateGateTf2                 = PERIOD_M10;
+input ENUM_TIMEFRAMES InpStateGateTf3                 = PERIOD_H1;
+input bool            InpStateGatePanelEnabled        = true;
+input bool            InpStateGatePanelStartMinimized = false;
+input ENUM_BASE_CORNER InpStateGatePanelCorner         = CORNER_RIGHT_UPPER;
+input int             InpStateGatePanelX              = 16;
+input int             InpStateGatePanelY              = 24;
+input int             InpStateGatePanelWidth          = 520;
+input int             InpStateGatePanelFontSize       = 8;
+input int             InpStateGateMaxRallyRowsPerTf   = 6;
+input int             InpStateGateMaxHookRowsPerTf    = 10;
+input bool            InpStateGateShowIds             = true;
+input bool            InpStateGateShowScaleL          = true;
+input bool            InpStateGateExportCsv           = true;
+input bool            InpStateGatePrintAudit          = true;
+
 // ------------------------------ Rendering -----------------------------------
 input string InpObjectPrefix = "DAL_FCP_";
 input string InpRenderMemo = "";
@@ -348,6 +368,7 @@ FP_OfflineLicenseConfig g_fp_license_cfg;
 FP_OfflineLicenseReport g_fp_license_report;
 bool g_fp_license_ok = false;
 datetime g_fp_license_next_check = 0;
+FP_StateGateRuntime g_fp_state_gate_runtime;
 
 bool FP_ShouldRedraw()
 {
@@ -786,6 +807,30 @@ void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
    cfg.sample_limit = InpStaticQaSampleLimit;
 }
 
+
+void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
+{
+   FP_DefaultStateGateConfig(cfg);
+   cfg.enabled = InpStateGateEnabled;
+   cfg.tf1 = InpStateGateTf1;
+   cfg.tf2 = InpStateGateTf2;
+   cfg.tf3 = InpStateGateTf3;
+   cfg.panel_enabled = InpStateGatePanelEnabled;
+   cfg.panel_start_minimized = InpStateGatePanelStartMinimized;
+   cfg.panel_corner = InpStateGatePanelCorner;
+   cfg.panel_x = InpStateGatePanelX;
+   cfg.panel_y = InpStateGatePanelY;
+   cfg.panel_width = InpStateGatePanelWidth;
+   cfg.panel_font_size = InpStateGatePanelFontSize;
+   cfg.max_rally_rows_per_tf = InpStateGateMaxRallyRowsPerTf;
+   cfg.max_hook_rows_per_tf = InpStateGateMaxHookRowsPerTf;
+   cfg.show_ids = InpStateGateShowIds;
+   cfg.show_scale_l = InpStateGateShowScaleL;
+   cfg.export_csv = InpStateGateExportCsv;
+   cfg.print_audit = InpStateGatePrintAudit;
+   cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
+}
+
 void FP_Run()
 {
    if(!FP_EnsureOfflineLicense(false))
@@ -832,6 +877,9 @@ void FP_Run()
 
    FP_StaticQaConfig staticqa_cfg;
    FP_LoadStaticQaConfig(staticqa_cfg);
+
+   FP_StateGateConfig state_gate_cfg;
+   FP_LoadStateGateConfig(state_gate_cfg);
 
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
@@ -991,6 +1039,13 @@ void FP_Run()
          FP_PrintStaticQaSamples("FP_LEVEL18", staticqa_report, staticqa_rows, staticqa_cfg.sample_limit);
    }
 
+   FP_StateGateReport state_gate_report;
+   FP_RunStateGatePhase1(_Symbol, _Period, state_gate_cfg, g_fp_state_gate_runtime, state_gate_report);
+   if(state_gate_cfg.print_audit)
+      FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
+   if(state_gate_cfg.print_audit)
+      FP_PrintStateGateSnapshotSamples("FP_LEVEL19_STATE_GATE_SAMPLE", g_fp_state_gate_runtime.snapshot, FP_STATE_GATE_TF_SLOTS);
+
    FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)
    {
@@ -1005,6 +1060,11 @@ int OnInit()
       return INIT_FAILED;
    EventSetTimer(60);
 
+   FP_ResetStateGateRuntime(g_fp_state_gate_runtime);
+   FP_StateGateConfig init_state_gate_cfg;
+   FP_LoadStateGateConfig(init_state_gate_cfg);
+   FP_StateGatePanelCleanup(init_state_gate_cfg);
+
    FP_ReleaseConfig init_release_cfg;
    FP_LoadReleaseConfig(init_release_cfg);
    if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
@@ -1017,8 +1077,22 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
+   FP_StateGateConfig deinit_state_gate_cfg;
+   FP_LoadStateGateConfig(deinit_state_gate_cfg);
+   FP_StateGatePanelCleanup(deinit_state_gate_cfg);
    if(InpCleanObjectsOnDeinit)
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
+}
+
+
+void OnChartEvent(const int id,
+                  const long &lparam,
+                  const double &dparam,
+                  const string &sparam)
+{
+   FP_StateGateConfig event_state_gate_cfg;
+   FP_LoadStateGateConfig(event_state_gate_cfg);
+   FP_StateGatePanelHandleChartEvent(event_state_gate_cfg, g_fp_state_gate_runtime, id, sparam);
 }
 
 void OnTick()
