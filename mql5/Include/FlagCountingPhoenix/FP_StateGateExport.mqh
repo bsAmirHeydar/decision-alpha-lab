@@ -100,7 +100,27 @@ string FP_StateGateSummaryHeader()
    FP_ExportCsvAppend(h, "mtf_direction_relation");
    FP_ExportCsvAppend(h, "mtf_side_relation");
    FP_ExportCsvAppend(h, "mtf_context_role");
+   FP_ExportCsvAppend(h, "geometry_readiness");
+   FP_ExportCsvAppend(h, "candidate_entry_price_status");
+   FP_ExportCsvAppend(h, "candidate_destination_price_status");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "potential_R_status");
    FP_ExportCsvAppend(h, "mtf_alignment_notes");
+   FP_ExportCsvAppend(h, "candidate_entry_price_status");
+   FP_ExportCsvAppend(h, "candidate_entry_price");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price_status");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price");
+   FP_ExportCsvAppend(h, "candidate_destination_price_status");
+   FP_ExportCsvAppend(h, "candidate_destination_price");
+   FP_ExportCsvAppend(h, "risk_distance_status");
+   FP_ExportCsvAppend(h, "risk_distance");
+   FP_ExportCsvAppend(h, "destination_distance_status");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "potential_R_status");
+   FP_ExportCsvAppend(h, "potential_R");
+   FP_ExportCsvAppend(h, "geometry_readiness");
+   FP_ExportCsvAppend(h, "geometry_key");
+   FP_ExportCsvAppend(h, "geometry_notes");
    return h;
 }
 
@@ -168,7 +188,27 @@ string FP_StateGateSummaryRow(const FP_StateGateSnapshot &snapshot, const int sl
    FP_ExportCsvAppend(line, s.mtf_direction_relation);
    FP_ExportCsvAppend(line, s.mtf_side_relation);
    FP_ExportCsvAppend(line, s.mtf_context_role);
+   FP_ExportCsvAppend(line, s.geometry_readiness);
+   FP_ExportCsvAppend(line, s.candidate_entry_price_status);
+   FP_ExportCsvAppend(line, s.candidate_destination_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.destination_distance));
+   FP_ExportCsvAppend(line, s.potential_R_status);
    FP_ExportCsvAppend(line, s.mtf_alignment_notes);
+   FP_ExportCsvAppend(line, s.candidate_entry_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_entry_price));
+   FP_ExportCsvAppend(line, s.candidate_invalidation_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_invalidation_price));
+   FP_ExportCsvAppend(line, s.candidate_destination_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_destination_price));
+   FP_ExportCsvAppend(line, s.risk_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.risk_distance));
+   FP_ExportCsvAppend(line, s.destination_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.destination_distance));
+   FP_ExportCsvAppend(line, s.potential_R_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.potential_R));
+   FP_ExportCsvAppend(line, s.geometry_readiness);
+   FP_ExportCsvAppend(line, s.geometry_key);
+   FP_ExportCsvAppend(line, s.geometry_notes);
    return line;
 }
 
@@ -623,6 +663,9 @@ bool FP_StateGateExportPanelLinesCsv(const string path,
       string mtf = "mtf | rows=" + IntegerToString(s.mtf_alignment_row_count) + " | " + s.mtf_alignment_status + " | parent=" + s.mtf_parent_timeframe + " | " + s.mtf_direction_relation + " | " + s.mtf_side_relation + " | " + s.mtf_context_role;
       FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "MTF_ALIGNMENT", "MTF_ALIGNMENT", -1, "MTF_ALIGNMENT", s.mtf_alignment_key, mtf, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
 
+      string geom = "geometry | " + s.geometry_readiness + " | entry=" + s.candidate_entry_price_status + " | invalidation=" + s.candidate_invalidation_price_status + " | destination=" + s.candidate_destination_price_status + " | potentialR=" + s.potential_R_status;
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "ENTRY_GEOMETRY", "ENTRY_GEOMETRY", -1, "ENTRY_GEOMETRY", s.geometry_key, geom, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
       string rally_header = "Rally | total=" + IntegerToString(s.rally_row_count) + " | latest=" + s.latest_established_f_summary + " | probable=" + s.probable_next_f_summary;
       FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "RALLY", "SECTION_HEADER", -1, "TF_STATE", s.timeframe_label, rally_header, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
 
@@ -730,6 +773,21 @@ string FP_StateGateContractHeader()
    FP_ExportCsvAppend(h, "mtf_side_relation");
    FP_ExportCsvAppend(h, "mtf_context_role");
    FP_ExportCsvAppend(h, "mtf_alignment_notes");
+   FP_ExportCsvAppend(h, "candidate_entry_price_status");
+   FP_ExportCsvAppend(h, "candidate_entry_price");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price_status");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price");
+   FP_ExportCsvAppend(h, "candidate_destination_price_status");
+   FP_ExportCsvAppend(h, "candidate_destination_price");
+   FP_ExportCsvAppend(h, "risk_distance_status");
+   FP_ExportCsvAppend(h, "risk_distance");
+   FP_ExportCsvAppend(h, "destination_distance_status");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "potential_R_status");
+   FP_ExportCsvAppend(h, "potential_R");
+   FP_ExportCsvAppend(h, "geometry_readiness");
+   FP_ExportCsvAppend(h, "geometry_key");
+   FP_ExportCsvAppend(h, "geometry_notes");
    FP_ExportCsvAppend(h, "primary_rally_key");
    FP_ExportCsvAppend(h, "primary_hook_key");
    FP_ExportCsvAppend(h, "latest_established_f_summary");
@@ -797,6 +855,21 @@ string FP_StateGateContractRow(const FP_StateGateSnapshot &snapshot, const int s
    FP_ExportCsvAppend(line, s.mtf_side_relation);
    FP_ExportCsvAppend(line, s.mtf_context_role);
    FP_ExportCsvAppend(line, s.mtf_alignment_notes);
+   FP_ExportCsvAppend(line, s.candidate_entry_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_entry_price));
+   FP_ExportCsvAppend(line, s.candidate_invalidation_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_invalidation_price));
+   FP_ExportCsvAppend(line, s.candidate_destination_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_destination_price));
+   FP_ExportCsvAppend(line, s.risk_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.risk_distance));
+   FP_ExportCsvAppend(line, s.destination_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.destination_distance));
+   FP_ExportCsvAppend(line, s.potential_R_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.potential_R));
+   FP_ExportCsvAppend(line, s.geometry_readiness);
+   FP_ExportCsvAppend(line, s.geometry_key);
+   FP_ExportCsvAppend(line, s.geometry_notes);
    FP_ExportCsvAppend(line, s.primary_rally_key);
    FP_ExportCsvAppend(line, s.primary_hook_key);
    FP_ExportCsvAppend(line, s.latest_established_f_summary);
@@ -1070,6 +1143,21 @@ string FP_StateGateEntryBridgeHeader()
    FP_ExportCsvAppend(h, "mtf_direction_relation");
    FP_ExportCsvAppend(h, "mtf_side_relation");
    FP_ExportCsvAppend(h, "mtf_context_role");
+   FP_ExportCsvAppend(h, "candidate_entry_price_status");
+   FP_ExportCsvAppend(h, "candidate_entry_price");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price_status");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price");
+   FP_ExportCsvAppend(h, "candidate_destination_price_status");
+   FP_ExportCsvAppend(h, "candidate_destination_price");
+   FP_ExportCsvAppend(h, "risk_distance_status");
+   FP_ExportCsvAppend(h, "risk_distance");
+   FP_ExportCsvAppend(h, "destination_distance_status");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "potential_R_status");
+   FP_ExportCsvAppend(h, "potential_R");
+   FP_ExportCsvAppend(h, "geometry_readiness");
+   FP_ExportCsvAppend(h, "geometry_key");
+   FP_ExportCsvAppend(h, "geometry_notes");
    FP_ExportCsvAppend(h, "primary_rally_key");
    FP_ExportCsvAppend(h, "primary_hook_key");
    FP_ExportCsvAppend(h, "state_key");
@@ -1121,6 +1209,21 @@ string FP_StateGateEntryBridgeRow(const FP_StateGateSnapshot &snapshot, const in
    FP_ExportCsvAppend(line, s.mtf_direction_relation);
    FP_ExportCsvAppend(line, s.mtf_side_relation);
    FP_ExportCsvAppend(line, s.mtf_context_role);
+   FP_ExportCsvAppend(line, s.candidate_entry_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_entry_price));
+   FP_ExportCsvAppend(line, s.candidate_invalidation_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_invalidation_price));
+   FP_ExportCsvAppend(line, s.candidate_destination_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_destination_price));
+   FP_ExportCsvAppend(line, s.risk_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.risk_distance));
+   FP_ExportCsvAppend(line, s.destination_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.destination_distance));
+   FP_ExportCsvAppend(line, s.potential_R_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.potential_R));
+   FP_ExportCsvAppend(line, s.geometry_readiness);
+   FP_ExportCsvAppend(line, s.geometry_key);
+   FP_ExportCsvAppend(line, s.geometry_notes);
    FP_ExportCsvAppend(line, s.primary_rally_key);
    FP_ExportCsvAppend(line, s.primary_hook_key);
    FP_ExportCsvAppend(line, s.state_key);
@@ -1144,6 +1247,122 @@ bool FP_StateGateExportEntryBridgeCsv(const string path,
    FP_StateGateExportWriteLine(handle, FP_StateGateEntryBridgeHeader());
    for(int i=0; i<snapshot.timeframe_count; i++)
       FP_StateGateExportWriteLine(handle, FP_StateGateEntryBridgeRow(snapshot, i));
+   FileClose(handle);
+   report.files_written++;
+   return true;
+}
+
+
+
+string FP_StateGateEntryGeometryHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "chart_timeframe");
+   FP_ExportCsvAppend(h, "slot");
+   FP_ExportCsvAppend(h, "timeframe");
+   FP_ExportCsvAppend(h, "closed_bar_time");
+   FP_ExportCsvAppend(h, "closed_bar_close");
+   FP_ExportCsvAppend(h, "geometry_readiness");
+   FP_ExportCsvAppend(h, "geometry_key");
+   FP_ExportCsvAppend(h, "candidate_entry_price_status");
+   FP_ExportCsvAppend(h, "candidate_entry_price");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price_status");
+   FP_ExportCsvAppend(h, "candidate_invalidation_price");
+   FP_ExportCsvAppend(h, "candidate_destination_price_status");
+   FP_ExportCsvAppend(h, "candidate_destination_price");
+   FP_ExportCsvAppend(h, "risk_distance_status");
+   FP_ExportCsvAppend(h, "risk_distance");
+   FP_ExportCsvAppend(h, "destination_distance_status");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "potential_R_status");
+   FP_ExportCsvAppend(h, "potential_R");
+   FP_ExportCsvAppend(h, "primary_extreme_source");
+   FP_ExportCsvAppend(h, "primary_extreme_side");
+   FP_ExportCsvAppend(h, "primary_extreme_price_status");
+   FP_ExportCsvAppend(h, "primary_extreme_price");
+   FP_ExportCsvAppend(h, "primary_extreme_node_id");
+   FP_ExportCsvAppend(h, "primary_extreme_scale_L");
+   FP_ExportCsvAppend(h, "extreme_map_status");
+   FP_ExportCsvAppend(h, "extreme_map_key");
+   FP_ExportCsvAppend(h, "mtf_alignment_status");
+   FP_ExportCsvAppend(h, "mtf_alignment_key");
+   FP_ExportCsvAppend(h, "mtf_context_role");
+   FP_ExportCsvAppend(h, "entry_bridge_status");
+   FP_ExportCsvAppend(h, "entry_bridge_readiness");
+   FP_ExportCsvAppend(h, "entry_bridge_key");
+   FP_ExportCsvAppend(h, "x_invalidation_status");
+   FP_ExportCsvAppend(h, "x_invalidation_key");
+   FP_ExportCsvAppend(h, "x_destination_status");
+   FP_ExportCsvAppend(h, "x_destination_key");
+   FP_ExportCsvAppend(h, "optionality_status");
+   FP_ExportCsvAppend(h, "optionality_key");
+   FP_ExportCsvAppend(h, "geometry_notes");
+   return h;
+}
+
+string FP_StateGateEntryGeometryRow(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string line = "";
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, IntegerToString(slot));
+   FP_ExportCsvAppend(line, s.timeframe_label);
+   FP_ExportCsvAppend(line, FP_ExportTime(s.last_closed_bar_time));
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.last_closed_bar_close));
+   FP_ExportCsvAppend(line, s.geometry_readiness);
+   FP_ExportCsvAppend(line, s.geometry_key);
+   FP_ExportCsvAppend(line, s.candidate_entry_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_entry_price));
+   FP_ExportCsvAppend(line, s.candidate_invalidation_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_invalidation_price));
+   FP_ExportCsvAppend(line, s.candidate_destination_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.candidate_destination_price));
+   FP_ExportCsvAppend(line, s.risk_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.risk_distance));
+   FP_ExportCsvAppend(line, s.destination_distance_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.destination_distance));
+   FP_ExportCsvAppend(line, s.potential_R_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.potential_R));
+   FP_ExportCsvAppend(line, s.primary_extreme_source);
+   FP_ExportCsvAppend(line, s.primary_extreme_side);
+   FP_ExportCsvAppend(line, s.primary_extreme_price_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.primary_extreme_price));
+   FP_ExportCsvAppend(line, IntegerToString(s.primary_extreme_node_id));
+   FP_ExportCsvAppend(line, IntegerToString(s.primary_extreme_scale_L));
+   FP_ExportCsvAppend(line, s.extreme_map_status);
+   FP_ExportCsvAppend(line, s.extreme_map_key);
+   FP_ExportCsvAppend(line, s.mtf_alignment_status);
+   FP_ExportCsvAppend(line, s.mtf_alignment_key);
+   FP_ExportCsvAppend(line, s.mtf_context_role);
+   FP_ExportCsvAppend(line, s.entry_bridge_status);
+   FP_ExportCsvAppend(line, s.entry_bridge_readiness);
+   FP_ExportCsvAppend(line, s.entry_bridge_key);
+   FP_ExportCsvAppend(line, s.x_invalidation_status);
+   FP_ExportCsvAppend(line, s.x_invalidation_key);
+   FP_ExportCsvAppend(line, s.x_destination_status);
+   FP_ExportCsvAppend(line, s.x_destination_key);
+   FP_ExportCsvAppend(line, s.optionality_status);
+   FP_ExportCsvAppend(line, s.optionality_key);
+   FP_ExportCsvAppend(line, s.geometry_notes);
+   return line;
+}
+
+bool FP_StateGateExportEntryGeometryCsv(const string path,
+                                        const FP_StateGateSnapshot &snapshot,
+                                        FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_entry_geometry_open_failed";
+      return false;
+   }
+   FP_StateGateExportWriteLine(handle, FP_StateGateEntryGeometryHeader());
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateExportWriteLine(handle, FP_StateGateEntryGeometryRow(snapshot, i));
    FileClose(handle);
    report.files_written++;
    return true;
@@ -1305,6 +1524,7 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "hook_rows", IntegerToString(snapshot.hook_row_count));
    FP_StateGateManifestKV(handle, "extreme_candidate_rows", IntegerToString(snapshot.extreme_candidate_row_count));
    FP_StateGateManifestKV(handle, "mtf_alignment_rows", IntegerToString(snapshot.mtf_alignment_row_count));
+   FP_StateGateManifestKV(handle, "geometry_rows", IntegerToString(snapshot.timeframe_count));
    FP_StateGateManifestKV(handle, "panel_enabled", FP_ExportBool(cfg.panel_enabled));
    FP_StateGateManifestKV(handle, "panel_force_left_upper", FP_ExportBool(cfg.panel_force_left_upper));
    FP_StateGateManifestKV(handle, "panel_force_right_upper", FP_ExportBool(cfg.panel_force_right_upper));
@@ -1328,8 +1548,9 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "export_entry_bridge_csv", FP_ExportBool(cfg.export_entry_bridge_csv));
    FP_StateGateManifestKV(handle, "export_extreme_candidates_csv", FP_ExportBool(cfg.export_extreme_candidates_csv));
    FP_StateGateManifestKV(handle, "export_mtf_alignment_csv", FP_ExportBool(cfg.export_mtf_alignment_csv));
+   FP_StateGateManifestKV(handle, "export_entry_geometry_csv", FP_ExportBool(cfg.export_entry_geometry_csv));
    FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
-   FP_StateGateManifestKV(handle, "projection_state", "phase13_mtf_alignment_map");
+   FP_StateGateManifestKV(handle, "projection_state", "phase14_entry_geometry_readiness");
 
    FileClose(handle);
    report.files_written++;
@@ -1359,6 +1580,7 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string entry_bridge_path = FP_StateGateExportPath("entry_bridge", cfg);
    string extreme_candidates_path = FP_StateGateExportPath("extreme_candidates", cfg);
    string mtf_alignment_path = FP_StateGateExportPath("mtf_alignment", cfg);
+   string entry_geometry_path = FP_StateGateExportPath("entry_geometry", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
@@ -1377,6 +1599,8 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
       FP_StateGateExportExtremeCandidatesCsv(extreme_candidates_path, snapshot, report);
    if(cfg.export_mtf_alignment_csv)
       FP_StateGateExportMtfAlignmentCsv(mtf_alignment_path, snapshot, report);
+   if(cfg.export_entry_geometry_csv)
+      FP_StateGateExportEntryGeometryCsv(entry_geometry_path, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

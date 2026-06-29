@@ -389,6 +389,7 @@ int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
       rows++;
    rows++; // extreme candidate map
    rows++; // mtf alignment map
+   rows++; // entry geometry readiness
 
    rows++; // rally header
    if(!g_fp_state_gate_slot_rally_collapsed[slot])
@@ -525,6 +526,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       FP_StateGateCreateLabel(cfg, suffix + "MTF_ALIGN", x + 10, cursor_y + 2,
                               FP_StateGatePanelClip(mtf_line, text_limit),
                               clrLightSteelBlue, font_size, report);
+      cursor_y += row_h;
+
+      string geometry_line = "    Geometry | " + s.geometry_readiness + " | entry=" + s.candidate_entry_price_status + " | dest=" + s.candidate_destination_price_status + " | R=" + s.potential_R_status;
+      FP_StateGateCreateLabel(cfg, suffix + "GEOMETRY", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(geometry_line, text_limit),
+                              clrPaleGreen, font_size, report);
       cursor_y += row_h;
 
       // Rally subsection

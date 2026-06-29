@@ -18,7 +18,7 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.130-phase13"
+#define FP_STATE_GATE_VERSION "19.140-phase14"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -42,6 +42,7 @@
 #define FP_STATE_GATE_REASON_PHASE6 "phase6_state_contract_storage"
 #define FP_STATE_GATE_REASON_PHASE12 "phase12_extreme_candidate_map"
 #define FP_STATE_GATE_REASON_PHASE13 "phase13_mtf_alignment_map"
+#define FP_STATE_GATE_REASON_PHASE14 "phase14_entry_geometry_readiness"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -104,6 +105,7 @@ struct FP_StateGateConfig
    bool export_entry_bridge_csv;
    bool export_extreme_candidates_csv;
    bool export_mtf_alignment_csv;
+   bool export_entry_geometry_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -168,6 +170,21 @@ struct FP_StateGateTimeframeState
    string mtf_side_relation;
    string mtf_context_role;
    string mtf_alignment_notes;
+   string candidate_entry_price_status;
+   double candidate_entry_price;
+   string candidate_invalidation_price_status;
+   double candidate_invalidation_price;
+   string candidate_destination_price_status;
+   double candidate_destination_price;
+   string risk_distance_status;
+   double risk_distance;
+   string destination_distance_status;
+   double destination_distance;
+   string potential_R_status;
+   double potential_R;
+   string geometry_readiness;
+   string geometry_key;
+   string geometry_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -339,6 +356,7 @@ struct FP_StateGateReport
    int contract_rows;
    int extreme_candidate_rows;
    int mtf_alignment_rows;
+   int geometry_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -410,6 +428,21 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.mtf_side_relation = "NO_MTF_SIDE_RELATION";
    s.mtf_context_role = "NO_MTF_CONTEXT";
    s.mtf_alignment_notes = "MTF_ALIGNMENT_PENDING";
+   s.candidate_entry_price_status = "ENTRY_PRICE_PENDING";
+   s.candidate_entry_price = 0.0;
+   s.candidate_invalidation_price_status = "INVALIDATION_PRICE_PENDING";
+   s.candidate_invalidation_price = 0.0;
+   s.candidate_destination_price_status = "DESTINATION_PRICE_PENDING";
+   s.candidate_destination_price = 0.0;
+   s.risk_distance_status = "RISK_DISTANCE_PENDING";
+   s.risk_distance = 0.0;
+   s.destination_distance_status = "DESTINATION_DISTANCE_PENDING";
+   s.destination_distance = 0.0;
+   s.potential_R_status = "POTENTIAL_R_PENDING";
+   s.potential_R = 0.0;
+   s.geometry_readiness = "ENTRY_GEOMETRY_PENDING_NO_SIGNAL";
+   s.geometry_key = "ENTRY_GEOMETRY_KEY_PENDING";
+   s.geometry_notes = "ENTRY_GEOMETRY_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -589,6 +622,7 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.contract_rows = 0;
    r.extreme_candidate_rows = 0;
    r.mtf_alignment_rows = 0;
+   r.geometry_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -635,6 +669,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_entry_bridge_csv = true;
    cfg.export_extreme_candidates_csv = true;
    cfg.export_mtf_alignment_csv = true;
+   cfg.export_entry_geometry_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

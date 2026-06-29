@@ -215,3 +215,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13A_COMPILE_FIX.md
 ```
 
 Phase 13A fixes the duplicate `mtf_alignment_row_count` declaration in `FP_StateGateTimeframeState`.
+
+
+## Level 19 — Phase 14
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE14_ENTRY_GEOMETRY_READINESS.md
+```
+
+Phase 14 adds Entry Geometry Readiness, preparing entry, invalidation, destination, distance, and potential-R context without producing signals or orders.

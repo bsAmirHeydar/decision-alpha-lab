@@ -1468,6 +1468,224 @@ void FP_StateGateFinalizeSnapshotMtfAlignment(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 14 - Entry Geometry Readiness
+// ---------------------------------------------------------------------------
+// This layer prepares price geometry anchors from the existing Extreme Candidate
+// and MTF context. It is still NO_SIGNAL / NO_ORDER. Invalidation remains an
+// anchor until a future buffer/stop model is explicitly added.
+
+bool FP_StateGateGeometryPrimaryEntryReady(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available) return false;
+   if(s.extreme_candidate_row_count <= 0) return false;
+   if(s.primary_extreme_price == 0.0) return false;
+   if(StringFind(s.primary_extreme_price_status, "PRICE") < 0) return false;
+   return true;
+}
+
+string FP_StateGateGeometryEntryStatus(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "ENTRY_PRICE_BLOCKED_NO_CLOSED_BAR";
+   if(s.extreme_candidate_row_count <= 0)
+      return "ENTRY_PRICE_BLOCKED_NO_EXTREME";
+   if(FP_StateGateGeometryPrimaryEntryReady(s))
+      return "ENTRY_PRICE_ANCHOR_FROM_PRIMARY_EXTREME_NO_SIGNAL";
+   return "ENTRY_PRICE_PENDING_EXTREME_HAS_NO_PRICE";
+}
+
+double FP_StateGateGeometryEntryPrice(const FP_StateGateTimeframeState &s)
+{
+   if(FP_StateGateGeometryPrimaryEntryReady(s))
+      return s.primary_extreme_price;
+   return 0.0;
+}
+
+string FP_StateGateGeometryInvalidationStatus(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "INVALIDATION_PRICE_BLOCKED_NO_CLOSED_BAR";
+   if(!FP_StateGateGeometryPrimaryEntryReady(s))
+      return "INVALIDATION_PRICE_PENDING_ENTRY_ANCHOR";
+   return "INVALIDATION_ANCHOR_FROM_PRIMARY_EXTREME_NEEDS_BUFFER_NO_STOP";
+}
+
+double FP_StateGateGeometryInvalidationPrice(const FP_StateGateTimeframeState &s)
+{
+   if(FP_StateGateGeometryPrimaryEntryReady(s))
+      return s.primary_extreme_price;
+   return 0.0;
+}
+
+bool FP_StateGateGeometryDestinationFromHook(const FP_StateGateSnapshot &snapshot,
+                                             const int slot,
+                                             double &out_price,
+                                             int &out_node_id,
+                                             string &out_status)
+{
+   out_price = 0.0;
+   out_node_id = -1;
+   out_status = "DESTINATION_PRICE_PENDING_NO_HOOK_CONTEXT";
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   if(!FP_StateGateGeometryPrimaryEntryReady(s))
+   {
+      out_status = "DESTINATION_PRICE_PENDING_ENTRY_ANCHOR";
+      return false;
+   }
+
+   FP_StateGateHookRow h;
+   FP_ResetStateGateHookRow(h);
+   if(!FP_StateGateFirstProjectedHookRowForSlot(snapshot, slot, h))
+   {
+      out_status = "DESTINATION_PRICE_PENDING_NO_PROJECTED_HOOK";
+      return false;
+   }
+
+   if(s.primary_extreme_side == "LOW_EXTREME")
+   {
+      out_price = h.latest_high_node_price;
+      out_node_id = h.latest_high_node_id;
+   }
+   else if(s.primary_extreme_side == "HIGH_EXTREME")
+   {
+      out_price = h.latest_low_node_price;
+      out_node_id = h.latest_low_node_id;
+   }
+   else
+   {
+      out_status = "DESTINATION_PRICE_PENDING_UNKNOWN_EXTREME_SIDE";
+      return false;
+   }
+
+   if(out_node_id >= 0 && out_price != 0.0)
+   {
+      out_status = "DESTINATION_ANCHOR_FROM_OPPOSITE_HOOK_NODE_NO_TARGET";
+      return true;
+   }
+
+   if(out_node_id >= 0)
+      out_status = "DESTINATION_NODE_WITHOUT_PRICE_CONTEXT_ONLY";
+   else
+      out_status = "DESTINATION_PRICE_PENDING_OPPOSITE_NODE";
+   return false;
+}
+
+string FP_StateGateGeometryRiskDistanceStatus(const FP_StateGateTimeframeState &s)
+{
+   if(!FP_StateGateGeometryPrimaryEntryReady(s))
+      return "RISK_DISTANCE_BLOCKED_NO_ENTRY_ANCHOR";
+   return "RISK_DISTANCE_PENDING_INVALIDATION_BUFFER_NO_POSITION";
+}
+
+string FP_StateGateGeometryDestinationDistanceStatus(const FP_StateGateTimeframeState &s)
+{
+   if(!FP_StateGateGeometryPrimaryEntryReady(s))
+      return "DESTINATION_DISTANCE_BLOCKED_NO_ENTRY_ANCHOR";
+   if(s.candidate_destination_price != 0.0)
+      return "DESTINATION_DISTANCE_READY_CONTEXT_ONLY";
+   return "DESTINATION_DISTANCE_PENDING_DESTINATION_ANCHOR";
+}
+
+string FP_StateGateGeometryPotentialRStatus(const FP_StateGateTimeframeState &s)
+{
+   if(!FP_StateGateGeometryPrimaryEntryReady(s))
+      return "POTENTIAL_R_BLOCKED_NO_ENTRY_ANCHOR";
+   if(s.destination_distance <= 0.0)
+      return "POTENTIAL_R_PENDING_DESTINATION_DISTANCE";
+   return "POTENTIAL_R_PENDING_RISK_BUFFER_NO_SIGNAL";
+}
+
+string FP_StateGateGeometryReadiness(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "ENTRY_GEOMETRY_BLOCKED_NO_CLOSED_BAR";
+   if(s.extreme_candidate_row_count <= 0)
+      return "ENTRY_GEOMETRY_BLOCKED_NO_EXTREME";
+   if(s.candidate_entry_price != 0.0 && s.candidate_destination_price != 0.0)
+      return "ENTRY_GEOMETRY_PARTIAL_READY_NO_SIGNAL";
+   if(s.candidate_entry_price != 0.0)
+      return "ENTRY_GEOMETRY_ENTRY_ANCHOR_READY_DESTINATION_PENDING_NO_SIGNAL";
+   return "ENTRY_GEOMETRY_PENDING_PRICE_CONTEXT_NO_SIGNAL";
+}
+
+string FP_StateGateGeometryKey(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string key = snapshot.symbol;
+   key += "|TF=" + s.timeframe_label;
+   key += "|GEOM=" + FP_StateGateKeyPart(s.geometry_readiness);
+   key += "|ENTRY=" + FP_StateGateKeyPart(s.candidate_entry_price_status);
+   key += "|INV=" + FP_StateGateKeyPart(s.candidate_invalidation_price_status);
+   key += "|DEST=" + FP_StateGateKeyPart(s.candidate_destination_price_status);
+   key += "|RISK=" + FP_StateGateKeyPart(s.risk_distance_status);
+   key += "|RR=" + FP_StateGateKeyPart(s.potential_R_status);
+   key += "|XMAP=" + FP_StateGateKeyPart(s.extreme_map_key);
+   key += "|MTF=" + FP_StateGateKeyPart(s.mtf_alignment_key);
+   return key;
+}
+
+void FP_StateGateFinalizeSlotEntryGeometry(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+
+   double dest_price = 0.0;
+   int dest_node_id = -1;
+   string dest_status = "DESTINATION_PRICE_PENDING";
+   bool has_dest = FP_StateGateGeometryDestinationFromHook(snapshot, slot, dest_price, dest_node_id, dest_status);
+
+   snapshot.tf_states[slot].candidate_entry_price_status = FP_StateGateGeometryEntryStatus(s);
+   snapshot.tf_states[slot].candidate_entry_price = FP_StateGateGeometryEntryPrice(s);
+
+   snapshot.tf_states[slot].candidate_invalidation_price_status = FP_StateGateGeometryInvalidationStatus(s);
+   snapshot.tf_states[slot].candidate_invalidation_price = FP_StateGateGeometryInvalidationPrice(s);
+
+   snapshot.tf_states[slot].candidate_destination_price_status = dest_status;
+   snapshot.tf_states[slot].candidate_destination_price = (has_dest ? dest_price : 0.0);
+
+   snapshot.tf_states[slot].risk_distance_status = FP_StateGateGeometryRiskDistanceStatus(snapshot.tf_states[slot]);
+   snapshot.tf_states[slot].risk_distance = 0.0;
+
+   snapshot.tf_states[slot].destination_distance_status = FP_StateGateGeometryDestinationDistanceStatus(snapshot.tf_states[slot]);
+   if(snapshot.tf_states[slot].candidate_entry_price != 0.0 && snapshot.tf_states[slot].candidate_destination_price != 0.0)
+      snapshot.tf_states[slot].destination_distance = MathAbs(snapshot.tf_states[slot].candidate_destination_price - snapshot.tf_states[slot].candidate_entry_price);
+   else
+      snapshot.tf_states[slot].destination_distance = 0.0;
+
+   snapshot.tf_states[slot].potential_R_status = FP_StateGateGeometryPotentialRStatus(snapshot.tf_states[slot]);
+   snapshot.tf_states[slot].potential_R = 0.0;
+
+   snapshot.tf_states[slot].geometry_readiness = FP_StateGateGeometryReadiness(snapshot.tf_states[slot]);
+   snapshot.tf_states[slot].geometry_key = FP_StateGateGeometryKey(snapshot, slot);
+   snapshot.tf_states[slot].geometry_notes = "dest_node=" + IntegerToString(dest_node_id) + "|risk_buffer_required=true|no_signal=true|no_order=true";
+
+   if(snapshot.tf_states[slot].candidate_invalidation_price != 0.0)
+   {
+      snapshot.tf_states[slot].x_invalidation_status = "X_INVALIDATION_ANCHOR_READY_NEEDS_BUFFER_NO_STOP";
+      snapshot.tf_states[slot].x_invalidation_key = "XINV|TF=" + snapshot.tf_states[slot].timeframe_label + "|PRICE=" + DoubleToString(snapshot.tf_states[slot].candidate_invalidation_price, 8);
+   }
+
+   if(snapshot.tf_states[slot].candidate_destination_price != 0.0)
+   {
+      snapshot.tf_states[slot].x_destination_status = "X_DESTINATION_ANCHOR_READY_NO_TARGET_ORDER";
+      snapshot.tf_states[slot].x_destination_key = "XDEST|TF=" + snapshot.tf_states[slot].timeframe_label + "|PRICE=" + DoubleToString(snapshot.tf_states[slot].candidate_destination_price, 8);
+   }
+
+   snapshot.tf_states[slot].optionality_status = snapshot.tf_states[slot].potential_R_status;
+   snapshot.tf_states[slot].optionality_key = "OPT|TF=" + snapshot.tf_states[slot].timeframe_label + "|DEST_DIST=" + DoubleToString(snapshot.tf_states[slot].destination_distance, 8) + "|RISK_STATUS=" + FP_StateGateKeyPart(snapshot.tf_states[slot].risk_distance_status);
+
+   snapshot.tf_states[slot].entry_bridge_key = FP_StateGateSlotEntryBridgeKey(snapshot, slot);
+}
+
+void FP_StateGateFinalizeSnapshotEntryGeometry(FP_StateGateSnapshot &snapshot)
+{
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateFinalizeSlotEntryGeometry(snapshot, i);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
