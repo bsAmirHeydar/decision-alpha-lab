@@ -938,6 +938,278 @@ string FP_StateGateSlotEntryBridgeKey(const FP_StateGateSnapshot &snapshot, cons
    return key;
 }
 
+
+// ---------------------------------------------------------------------------
+// Phase 12 - Extreme Candidate Map
+// ---------------------------------------------------------------------------
+// This layer maps existing read-only Rally/Hook projection rows into candidate
+// X-extreme context rows. It still does not produce entry, stop, target, or
+// order decisions.
+
+string FP_StateGateExtremeSideFromHook(const FP_StateGateHookRow &h)
+{
+   if(StringFind(h.polarity, "POSITIVE") >= 0) return "LOW_EXTREME";
+   if(StringFind(h.polarity, "NEGATIVE") >= 0) return "HIGH_EXTREME";
+   if(h.direction == FP_DIR_BULLISH) return "LOW_EXTREME";
+   if(h.direction == FP_DIR_BEARISH) return "HIGH_EXTREME";
+   return "UNKNOWN_EXTREME_SIDE";
+}
+
+int FP_StateGateExtremeNodeFromHook(const FP_StateGateHookRow &h, const string side)
+{
+   if(side == "LOW_EXTREME") return h.latest_low_node_id;
+   if(side == "HIGH_EXTREME") return h.latest_high_node_id;
+   return -1;
+}
+
+double FP_StateGateExtremePriceFromHook(const FP_StateGateHookRow &h, const string side)
+{
+   if(side == "LOW_EXTREME") return h.latest_low_node_price;
+   if(side == "HIGH_EXTREME") return h.latest_high_node_price;
+   return 0.0;
+}
+
+string FP_StateGateExtremePriceStatusFromHook(const FP_StateGateHookRow &h, const string side)
+{
+   int node_id = FP_StateGateExtremeNodeFromHook(h, side);
+   double price = FP_StateGateExtremePriceFromHook(h, side);
+   if(node_id >= 0 && price != 0.0) return "EXTREME_PRICE_FROM_HOOK_NODE_CONTEXT_ONLY";
+   if(node_id >= 0) return "EXTREME_NODE_WITHOUT_PRICE_CONTEXT_ONLY";
+   return "EXTREME_PRICE_PENDING_NODE_CONTEXT";
+}
+
+string FP_StateGateExtremeSourceKeyFromHook(const FP_StateGateHookRow &h,
+                                            const string side,
+                                            const int rank)
+{
+   string key = "HOOK_EXTREME";
+   key += "|RANK=" + IntegerToString(rank);
+   key += "|POL=" + FP_StateGateKeyPart(h.polarity);
+   key += "|DIR=" + FP_DirectionName(h.direction);
+   key += "|SIDE=" + FP_StateGateKeyPart(side);
+   key += "|L=" + IntegerToString(h.scale_L);
+   key += "|NODE=" + IntegerToString(FP_StateGateExtremeNodeFromHook(h, side));
+   key += "|HK=" + IntegerToString(h.source_hook_id);
+   return key;
+}
+
+string FP_StateGateExtremeSourceKeyFromRally(const FP_StateGateRallyRow &r,
+                                             const int rank)
+{
+   string key = "RALLY_EXTREME_CONTEXT";
+   key += "|RANK=" + IntegerToString(rank);
+   key += "|F=" + FP_LevelName(r.f_level);
+   key += "|DIR=" + FP_DirectionName(r.direction);
+   key += "|L=" + IntegerToString(r.scale_L);
+   key += "|E=" + IntegerToString(r.source_event_id);
+   key += "|BODY=" + FP_StateGateKeyPart(r.body_state);
+   key += "|FLAG=" + FP_StateGateKeyPart(r.flag_stage);
+   key += "|POST=" + FP_StateGateKeyPart(r.post_flag_stage);
+   return key;
+}
+
+bool FP_StateGateAddExtremeCandidateFromHookRow(FP_StateGateSnapshot &snapshot,
+                                                const int slot,
+                                                const FP_StateGateHookRow &h,
+                                                const int rank)
+{
+   if(snapshot.extreme_candidate_row_count >= FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS)
+      return false;
+
+   int idx = snapshot.extreme_candidate_row_count;
+   FP_ResetStateGateExtremeCandidateRow(snapshot.extreme_candidate_rows[idx]);
+
+   string side = FP_StateGateExtremeSideFromHook(h);
+   int node_id = FP_StateGateExtremeNodeFromHook(h, side);
+   double price = FP_StateGateExtremePriceFromHook(h, side);
+   string price_status = FP_StateGateExtremePriceStatusFromHook(h, side);
+
+   snapshot.extreme_candidate_rows[idx].slot_index = slot;
+   snapshot.extreme_candidate_rows[idx].timeframe = h.timeframe;
+   snapshot.extreme_candidate_rows[idx].timeframe_label = h.timeframe_label;
+   snapshot.extreme_candidate_rows[idx].last_closed_bar_time = h.last_closed_bar_time;
+   snapshot.extreme_candidate_rows[idx].last_closed_bar_close = h.last_closed_bar_close;
+   snapshot.extreme_candidate_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.extreme_candidate_rows[idx].source_kind = "HOOK_VIEW";
+   snapshot.extreme_candidate_rows[idx].source_id = h.source_id;
+   snapshot.extreme_candidate_rows[idx].source_row_index = h.source_hook_id;
+   snapshot.extreme_candidate_rows[idx].direction = h.direction;
+   snapshot.extreme_candidate_rows[idx].direction_label = FP_DirectionName(h.direction);
+   snapshot.extreme_candidate_rows[idx].side = side;
+   snapshot.extreme_candidate_rows[idx].role = "HOOK_REVERSAL_EXTREME_CONTEXT";
+   snapshot.extreme_candidate_rows[idx].scale_L = h.scale_L;
+   snapshot.extreme_candidate_rows[idx].node_id = node_id;
+   snapshot.extreme_candidate_rows[idx].price = price;
+   snapshot.extreme_candidate_rows[idx].price_status = price_status;
+   snapshot.extreme_candidate_rows[idx].rank = rank;
+   snapshot.extreme_candidate_rows[idx].source_key = FP_StateGateExtremeSourceKeyFromHook(h, side, rank);
+   snapshot.extreme_candidate_rows[idx].readiness = "EXTREME_CANDIDATE_MAPPED_FROM_HOOK_NO_DECISION";
+   snapshot.extreme_candidate_rows[idx].label = h.timeframe_label + " | HOOK EXTREME | " + side + " | " + FP_DirectionName(h.direction) + " | L" + IntegerToString(h.scale_L) + " | node=" + IntegerToString(node_id) + " | " + price_status;
+
+   snapshot.extreme_candidate_row_count++;
+   snapshot.tf_states[slot].extreme_candidate_row_count++;
+   return true;
+}
+
+bool FP_StateGateAddExtremeCandidateFromRallyRow(FP_StateGateSnapshot &snapshot,
+                                                 const int slot,
+                                                 const FP_StateGateRallyRow &r,
+                                                 const int rank)
+{
+   if(snapshot.extreme_candidate_row_count >= FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS)
+      return false;
+
+   int idx = snapshot.extreme_candidate_row_count;
+   FP_ResetStateGateExtremeCandidateRow(snapshot.extreme_candidate_rows[idx]);
+
+   snapshot.extreme_candidate_rows[idx].slot_index = slot;
+   snapshot.extreme_candidate_rows[idx].timeframe = r.timeframe;
+   snapshot.extreme_candidate_rows[idx].timeframe_label = r.timeframe_label;
+   snapshot.extreme_candidate_rows[idx].last_closed_bar_time = r.last_closed_bar_time;
+   snapshot.extreme_candidate_rows[idx].last_closed_bar_close = r.last_closed_bar_close;
+   snapshot.extreme_candidate_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.extreme_candidate_rows[idx].source_kind = "RALLY_VIEW";
+   snapshot.extreme_candidate_rows[idx].source_id = r.source_id;
+   snapshot.extreme_candidate_rows[idx].source_row_index = r.source_event_id;
+   snapshot.extreme_candidate_rows[idx].direction = r.direction;
+   snapshot.extreme_candidate_rows[idx].direction_label = FP_DirectionName(r.direction);
+   snapshot.extreme_candidate_rows[idx].side = "RALLY_CONTEXT_SIDE_PENDING";
+   snapshot.extreme_candidate_rows[idx].role = "RALLY_BODY_OR_POST_FLAG_EXTREME_CONTEXT";
+   snapshot.extreme_candidate_rows[idx].scale_L = r.scale_L;
+   snapshot.extreme_candidate_rows[idx].node_id = -1;
+   snapshot.extreme_candidate_rows[idx].price = 0.0;
+   snapshot.extreme_candidate_rows[idx].price_status = "RALLY_CONTEXT_NO_EXTREME_PRICE";
+   snapshot.extreme_candidate_rows[idx].rank = rank;
+   snapshot.extreme_candidate_rows[idx].source_key = FP_StateGateExtremeSourceKeyFromRally(r, rank);
+   snapshot.extreme_candidate_rows[idx].readiness = "EXTREME_CANDIDATE_CONTEXT_FROM_RALLY_NO_DECISION";
+   snapshot.extreme_candidate_rows[idx].label = r.timeframe_label + " | RALLY EXTREME CONTEXT | " + FP_LevelName(r.f_level) + " | " + FP_DirectionName(r.direction) + " | L" + IntegerToString(r.scale_L) + " | " + r.body_state + " | " + r.flag_stage + " | " + r.post_flag_stage;
+
+   snapshot.extreme_candidate_row_count++;
+   snapshot.tf_states[slot].extreme_candidate_row_count++;
+   return true;
+}
+
+int FP_StateGateBuildExtremeCandidatesForSlot(FP_StateGateSnapshot &snapshot,
+                                              const int slot,
+                                              const int max_candidates_per_tf)
+{
+   int limit = FP_StateGateClampInt(max_candidates_per_tf, 0, 24);
+   if(limit <= 0) return 0;
+
+   int made = 0;
+
+   for(int h=0; h<snapshot.hook_row_count && made < limit; h++)
+   {
+      FP_StateGateHookRow row = snapshot.hook_rows[h];
+      if(row.slot_index != slot || row.status != FP_STATE_GATE_ROW_PROJECTED)
+         continue;
+      if(FP_StateGateAddExtremeCandidateFromHookRow(snapshot, slot, row, made))
+         made++;
+   }
+
+   for(int r=0; r<snapshot.rally_row_count && made < limit; r++)
+   {
+      FP_StateGateRallyRow row = snapshot.rally_rows[r];
+      if(row.slot_index != slot || row.status != FP_STATE_GATE_ROW_PROJECTED)
+         continue;
+      if(FP_StateGateAddExtremeCandidateFromRallyRow(snapshot, slot, row, made))
+         made++;
+   }
+
+   return made;
+}
+
+void FP_StateGateBuildExtremeCandidateRows(FP_StateGateSnapshot &snapshot,
+                                           const int max_candidates_per_tf)
+{
+   snapshot.extreme_candidate_row_count = 0;
+   for(int x=0; x<FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS; x++)
+      FP_ResetStateGateExtremeCandidateRow(snapshot.extreme_candidate_rows[x]);
+
+   for(int i=0; i<snapshot.timeframe_count; i++)
+   {
+      snapshot.tf_states[i].extreme_candidate_row_count = 0;
+      FP_StateGateBuildExtremeCandidatesForSlot(snapshot, i, max_candidates_per_tf);
+   }
+}
+
+bool FP_StateGateFirstExtremeCandidateForSlot(const FP_StateGateSnapshot &snapshot,
+                                              const int slot,
+                                              FP_StateGateExtremeCandidateRow &out)
+{
+   for(int x=0; x<snapshot.extreme_candidate_row_count; x++)
+   {
+      FP_StateGateExtremeCandidateRow row = snapshot.extreme_candidate_rows[x];
+      if(row.slot_index != slot || row.status != FP_STATE_GATE_ROW_PROJECTED)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+string FP_StateGateSlotExtremeMapStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "EXTREME_MAP_BLOCKED_NO_CLOSED_BAR";
+   if(snapshot.tf_states[slot].extreme_candidate_row_count > 0)
+      return "EXTREME_MAP_READY_CONTEXT_ONLY_NO_DECISION";
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0 || FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "EXTREME_MAP_NO_ROWS_DESPITE_ANATOMY_CHECK_CSV";
+   return "EXTREME_MAP_NOT_READY_NO_PROJECTED_ANATOMY";
+}
+
+string FP_StateGateSlotExtremeMapKey(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateExtremeCandidateRow x;
+   FP_ResetStateGateExtremeCandidateRow(x);
+   if(FP_StateGateFirstExtremeCandidateForSlot(snapshot, slot, x))
+   {
+      string key = snapshot.symbol;
+      key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+      key += "|XMAP=" + FP_StateGateKeyPart(x.source_key);
+      key += "|ROWS=" + IntegerToString(snapshot.tf_states[slot].extreme_candidate_row_count);
+      return key;
+   }
+   return "NO_EXTREME_MAP_KEY";
+}
+
+void FP_StateGateFinalizeSlotExtremeMap(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   snapshot.tf_states[slot].extreme_map_status = FP_StateGateSlotExtremeMapStatus(snapshot, slot);
+   snapshot.tf_states[slot].extreme_map_key = FP_StateGateSlotExtremeMapKey(snapshot, slot);
+   snapshot.tf_states[slot].extreme_map_notes = "rows=" + IntegerToString(snapshot.tf_states[slot].extreme_candidate_row_count) + "|status=" + snapshot.tf_states[slot].extreme_map_status;
+
+   FP_StateGateExtremeCandidateRow x;
+   FP_ResetStateGateExtremeCandidateRow(x);
+   if(FP_StateGateFirstExtremeCandidateForSlot(snapshot, slot, x))
+   {
+      snapshot.tf_states[slot].primary_extreme_source = x.source_kind;
+      snapshot.tf_states[slot].primary_extreme_direction = x.direction_label;
+      snapshot.tf_states[slot].primary_extreme_side = x.side;
+      snapshot.tf_states[slot].primary_extreme_role = x.role;
+      snapshot.tf_states[slot].primary_extreme_price_status = x.price_status;
+      snapshot.tf_states[slot].primary_extreme_price = x.price;
+      snapshot.tf_states[slot].primary_extreme_node_id = x.node_id;
+      snapshot.tf_states[slot].primary_extreme_scale_L = x.scale_L;
+
+      snapshot.tf_states[slot].candidate_extreme_status = x.readiness;
+      snapshot.tf_states[slot].candidate_extreme_key = x.source_key;
+      snapshot.tf_states[slot].candidate_extreme_source = x.source_kind;
+      snapshot.tf_states[slot].candidate_direction = x.direction_label;
+      snapshot.tf_states[slot].candidate_scale_context = "EXTREME_ROWS=" + IntegerToString(snapshot.tf_states[slot].extreme_candidate_row_count) + "|PRIMARY=" + FP_StateGateKeyPart(x.source_key);
+   }
+
+   snapshot.tf_states[slot].entry_bridge_key = FP_StateGateSlotEntryBridgeKey(snapshot, slot);
+}
+
+void FP_StateGateFinalizeSnapshotExtremeMaps(FP_StateGateSnapshot &snapshot)
+{
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateFinalizeSlotExtremeMap(snapshot, i);
+}
+
+
 void FP_StateGateFinalizeSlotEntryBridge(FP_StateGateSnapshot &snapshot, const int slot)
 {
    snapshot.tf_states[slot].entry_bridge_readiness = FP_StateGateSlotEntryBridgeReadiness(snapshot, slot);
@@ -968,6 +1240,7 @@ void FP_StateGateFinalizeSlotContract(FP_StateGateSnapshot &snapshot, const int 
    snapshot.tf_states[slot].contract_status = FP_StateGateSlotContractStatus(snapshot, slot);
    snapshot.tf_states[slot].state_key = FP_StateGateSlotStateKey(snapshot, slot);
    FP_StateGateFinalizeSlotEntryBridge(snapshot, slot);
+   FP_StateGateFinalizeSlotExtremeMap(snapshot, slot);
 }
 
 void FP_StateGateFinalizeSnapshotContracts(FP_StateGateSnapshot &snapshot)

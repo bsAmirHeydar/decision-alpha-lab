@@ -230,6 +230,7 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
       FP_StateGateSeedPlaceholderRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot);
    }
 
+   FP_StateGateBuildExtremeCandidateRows(runtime.snapshot, cfg.max_extreme_candidates_per_tf);
    FP_StateGateFinalizeSnapshotContracts(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
@@ -247,6 +248,7 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    report.timeframe_count = runtime.snapshot.timeframe_count;
    report.rally_rows = runtime.snapshot.rally_row_count;
    report.hook_rows = runtime.snapshot.hook_row_count;
+   report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -325,6 +327,7 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
       }
    }
 
+   FP_StateGateBuildExtremeCandidateRows(runtime.snapshot, cfg.max_extreme_candidates_per_tf);
    FP_StateGateFinalizeSnapshotContracts(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
@@ -342,6 +345,7 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    report.timeframe_count = runtime.snapshot.timeframe_count;
    report.rally_rows = runtime.snapshot.rally_row_count;
    report.hook_rows = runtime.snapshot.hook_row_count;
+   report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -503,6 +507,38 @@ void FP_RunStateGatePhase11(const string symbol,
    report.reason = runtime.snapshot.reason;
    report.contract_rows = runtime.snapshot.timeframe_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE11);
+}
+
+
+
+void FP_RunStateGatePhase12(const string symbol,
+                            const ENUM_TIMEFRAMES chart_period,
+                            const FP_StateGateConfig &cfg,
+                            const FP_TimebaseConfig &timebase_template,
+                            const FP_Config &engine_template,
+                            const int &scales[],
+                            const int scale_count,
+                            FP_StateGateRuntime &runtime,
+                            FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   runtime.snapshot.status = "phase12_extreme_candidate_map";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE12;
+   report.status = runtime.snapshot.status;
+   report.reason = runtime.snapshot.reason;
+   report.contract_rows = runtime.snapshot.timeframe_count;
+   report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE12);
 }
 
 

@@ -188,3 +188,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE11_ENTRY_BRIDGE_READINESS.md
 ```
 
 Phase 11 adds decision-neutral Entry Bridge readiness fields and exports `latest_state_gate_entry_bridge.csv` for future extreme/X/optionality mapping.
+
+
+## Level 19 — Phase 12
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE12_EXTREME_CANDIDATE_MAP.md
+```
+
+Phase 12 adds the Extreme Candidate Map, exporting Hook/Rally-derived X-extreme candidate context without producing entry decisions.

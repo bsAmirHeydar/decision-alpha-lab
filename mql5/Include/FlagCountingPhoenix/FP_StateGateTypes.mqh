@@ -18,10 +18,11 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.110-phase11"
+#define FP_STATE_GATE_VERSION "19.120-phase12"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
+#define FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS 72
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -38,6 +39,7 @@
 #define FP_STATE_GATE_REASON_PHASE4 "phase4_hook_projection"
 #define FP_STATE_GATE_REASON_PHASE5 "phase5_panel_polish"
 #define FP_STATE_GATE_REASON_PHASE6 "phase6_state_contract_storage"
+#define FP_STATE_GATE_REASON_PHASE12 "phase12_extreme_candidate_map"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -89,6 +91,7 @@ struct FP_StateGateConfig
    bool panel_show_diagnostics;
    int  max_rally_rows_per_tf;
    int  max_hook_rows_per_tf;
+   int  max_extreme_candidates_per_tf;
    bool show_ids;
    bool show_scale_l;
    bool export_csv;
@@ -97,6 +100,7 @@ struct FP_StateGateConfig
    bool export_diagnostics_csv;
    bool export_panel_lines_csv;
    bool export_entry_bridge_csv;
+   bool export_extreme_candidates_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -116,6 +120,7 @@ struct FP_StateGateTimeframeState
    int update_count;
    int rally_row_count;
    int hook_row_count;
+   int extreme_candidate_row_count;
    string latest_established_f_summary;
    string probable_next_f_summary;
    string hook_summary;
@@ -138,6 +143,17 @@ struct FP_StateGateTimeframeState
    string x_destination_key;
    string optionality_status;
    string optionality_key;
+   string extreme_map_status;
+   string extreme_map_key;
+   string primary_extreme_source;
+   string primary_extreme_direction;
+   string primary_extreme_side;
+   string primary_extreme_role;
+   string primary_extreme_price_status;
+   double primary_extreme_price;
+   int primary_extreme_node_id;
+   int primary_extreme_scale_L;
+   string extreme_map_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -190,6 +206,32 @@ struct FP_StateGateHookRow
    string label;
 };
 
+
+struct FP_StateGateExtremeCandidateRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string source_kind;
+   string source_id;
+   int source_row_index;
+   int direction;
+   string direction_label;
+   string side;
+   string role;
+   int scale_L;
+   int node_id;
+   double price;
+   string price_status;
+   int rank;
+   string source_key;
+   string readiness;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -206,8 +248,10 @@ struct FP_StateGateSnapshot
    FP_StateGateTimeframeState tf_states[FP_STATE_GATE_TF_SLOTS];
    FP_StateGateRallyRow rally_rows[FP_STATE_GATE_MAX_RALLY_ROWS];
    FP_StateGateHookRow hook_rows[FP_STATE_GATE_MAX_HOOK_ROWS];
+   FP_StateGateExtremeCandidateRow extreme_candidate_rows[FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS];
    int rally_row_count;
    int hook_row_count;
+   int extreme_candidate_row_count;
    string status;
    string reason;
 };
@@ -245,6 +289,7 @@ struct FP_StateGateReport
    int rally_rows;
    int hook_rows;
    int contract_rows;
+   int extreme_candidate_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -270,6 +315,7 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.update_count = 0;
    s.rally_row_count = 0;
    s.hook_row_count = 0;
+   s.extreme_candidate_row_count = 0;
    s.latest_established_f_summary = "RALLY_VIEW_PENDING";
    s.probable_next_f_summary = "RALLY_VIEW_PENDING";
    s.hook_summary = "HOOK_VIEW_PENDING";
@@ -292,6 +338,17 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.x_destination_key = "X_DESTINATION_KEY_PENDING";
    s.optionality_status = "OPTIONALITY_PENDING";
    s.optionality_key = "OPTIONALITY_KEY_PENDING";
+   s.extreme_map_status = "EXTREME_MAP_PENDING";
+   s.extreme_map_key = "EXTREME_MAP_KEY_PENDING";
+   s.primary_extreme_source = "PRIMARY_EXTREME_PENDING";
+   s.primary_extreme_direction = "NO_DIRECTION";
+   s.primary_extreme_side = "NO_SIDE";
+   s.primary_extreme_role = "NO_ROLE";
+   s.primary_extreme_price_status = "NO_PRICE";
+   s.primary_extreme_price = 0.0;
+   s.primary_extreme_node_id = -1;
+   s.primary_extreme_scale_L = 0;
+   s.extreme_map_notes = "EXTREME_MAP_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -344,6 +401,32 @@ void FP_ResetStateGateHookRow(FP_StateGateHookRow &r)
    r.label = "Hook View placeholder: projection starts in Level 19 Phase 4";
 }
 
+
+void FP_ResetStateGateExtremeCandidateRow(FP_StateGateExtremeCandidateRow &x)
+{
+   x.slot_index = -1;
+   x.timeframe = PERIOD_CURRENT;
+   x.timeframe_label = "TF?";
+   x.last_closed_bar_time = 0;
+   x.last_closed_bar_close = 0.0;
+   x.status = FP_STATE_GATE_ROW_EMPTY;
+   x.source_kind = "NO_SOURCE";
+   x.source_id = "";
+   x.source_row_index = -1;
+   x.direction = FP_DIR_NONE;
+   x.direction_label = "NO_DIRECTION";
+   x.side = "NO_SIDE";
+   x.role = "NO_ROLE";
+   x.scale_L = 0;
+   x.node_id = -1;
+   x.price = 0.0;
+   x.price_status = "NO_PRICE";
+   x.rank = -1;
+   x.source_key = "";
+   x.readiness = "EXTREME_CANDIDATE_PENDING";
+   x.label = "Extreme candidate map pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -363,8 +446,11 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGateRallyRow(s.rally_rows[r]);
    for(int h=0; h<FP_STATE_GATE_MAX_HOOK_ROWS; h++)
       FP_ResetStateGateHookRow(s.hook_rows[h]);
+   for(int x=0; x<FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS; x++)
+      FP_ResetStateGateExtremeCandidateRow(s.extreme_candidate_rows[x]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
+   s.extreme_candidate_row_count = 0;
    s.status = "reset";
    s.reason = "reset";
 }
@@ -405,6 +491,7 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.rally_rows = 0;
    r.hook_rows = 0;
    r.contract_rows = 0;
+   r.extreme_candidate_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -440,6 +527,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_show_diagnostics = true;
    cfg.max_rally_rows_per_tf = 6;
    cfg.max_hook_rows_per_tf = 10;
+   cfg.max_extreme_candidates_per_tf = 8;
    cfg.show_ids = true;
    cfg.show_scale_l = true;
    cfg.export_csv = true;
@@ -448,6 +536,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_diagnostics_csv = true;
    cfg.export_panel_lines_csv = true;
    cfg.export_entry_bridge_csv = true;
+   cfg.export_extreme_candidates_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
