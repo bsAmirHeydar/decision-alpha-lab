@@ -332,6 +332,7 @@ input bool            InpStateGateExportCsv           = true;
 input bool            InpStateGateExportOverwriteLatest = true;
 input bool            InpStateGateExportContractCsv   = true;
 input bool            InpStateGateExportDiagnosticsCsv = true;
+input bool            InpStateGateExportPanelLinesCsv  = true;
 input string          InpStateGateExportFolder        = "FlagCountingPhoenix";
 input bool            InpStateGatePrintAudit          = true;
 
@@ -852,6 +853,7 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_overwrite_latest = InpStateGateExportOverwriteLatest;
    cfg.export_contract_csv = InpStateGateExportContractCsv;
    cfg.export_diagnostics_csv = InpStateGateExportDiagnosticsCsv;
+   cfg.export_panel_lines_csv = InpStateGateExportPanelLinesCsv;
    cfg.export_folder = InpStateGateExportFolder;
    cfg.print_audit = InpStateGatePrintAudit;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

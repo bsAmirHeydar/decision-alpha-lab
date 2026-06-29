@@ -334,6 +334,240 @@ bool FP_StateGateExportPanelCsv(const string path,
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 10 - Panel Lines Contract
+// ---------------------------------------------------------------------------
+// This CSV mirrors the logical dashboard line model in an expanded state so
+// every visible idea on the panel can be traced even if the chart objects are
+// clipped, hidden by old input sets, or collapsed by the operator.
+// It is a debug/export contract only. It never modifies the State Gate snapshot.
+
+string FP_StateGatePanelLineHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "update_serial");
+   FP_ExportCsvAppend(h, "line_index");
+   FP_ExportCsvAppend(h, "slot");
+   FP_ExportCsvAppend(h, "timeframe");
+   FP_ExportCsvAppend(h, "section");
+   FP_ExportCsvAppend(h, "line_type");
+   FP_ExportCsvAppend(h, "preview_index");
+   FP_ExportCsvAppend(h, "source_kind");
+   FP_ExportCsvAppend(h, "source_id");
+   FP_ExportCsvAppend(h, "effective_corner");
+   FP_ExportCsvAppend(h, "panel_x");
+   FP_ExportCsvAppend(h, "panel_y");
+   FP_ExportCsvAppend(h, "text");
+   FP_ExportCsvAppend(h, "closed_bar_time");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "contract_status");
+   FP_ExportCsvAppend(h, "entry_bridge_status");
+   return h;
+}
+
+string FP_StateGatePanelLineRow(const FP_StateGateConfig &cfg,
+                                const FP_StateGateSnapshot &snapshot,
+                                const int line_index,
+                                const int slot,
+                                const string section,
+                                const string line_type,
+                                const int preview_index,
+                                const string source_kind,
+                                const string source_id,
+                                const string text,
+                                const datetime closed_bar_time,
+                                const string state_key,
+                                const string contract_status,
+                                const string entry_bridge_status)
+{
+   string line = "";
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, IntegerToString(snapshot.update_serial));
+   FP_ExportCsvAppend(line, IntegerToString(line_index));
+   FP_ExportCsvAppend(line, IntegerToString(slot));
+   if(slot >= 0 && slot < snapshot.timeframe_count)
+      FP_ExportCsvAppend(line, snapshot.tf_states[slot].timeframe_label);
+   else
+      FP_ExportCsvAppend(line, "GLOBAL");
+   FP_ExportCsvAppend(line, section);
+   FP_ExportCsvAppend(line, line_type);
+   FP_ExportCsvAppend(line, IntegerToString(preview_index));
+   FP_ExportCsvAppend(line, source_kind);
+   FP_ExportCsvAppend(line, source_id);
+   FP_ExportCsvAppend(line, FP_StateGateEffectiveCornerName(cfg));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_x));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_y));
+   FP_ExportCsvAppend(line, text);
+   FP_ExportCsvAppend(line, FP_ExportTime(closed_bar_time));
+   FP_ExportCsvAppend(line, state_key);
+   FP_ExportCsvAppend(line, contract_status);
+   FP_ExportCsvAppend(line, entry_bridge_status);
+   return line;
+}
+
+string FP_StateGatePanelLineTrackerText(const FP_StateGateConfig &cfg,
+                                        const FP_StateGateTimeframeState &s)
+{
+   string text = s.timeframe_label + " | " + FP_StateGateDirtyLabel(s);
+   if(cfg.panel_show_closed_bar)
+   {
+      text += " | closed=" + FP_StateGateClosedBarTimeLabel(s.last_closed_bar_time);
+      text += " | close=" + FP_StateGateCloseLabel(s.last_closed_bar_close);
+   }
+   text += " | updates=" + IntegerToString(s.update_count);
+   if(!s.closed_bar_available)
+      text += " | " + s.reason;
+   return text;
+}
+
+string FP_StateGatePanelLineRallyText(const FP_StateGateConfig &cfg,
+                                      const int preview_index,
+                                      const FP_StateGateRallyRow &r)
+{
+   string text = "R" + IntegerToString(preview_index+1) + " | " + r.timeframe_label + " | " + FP_DirectionName(r.direction);
+   if(r.latest_established_f != FP_STATE_GATE_RALLY_ESTABLISHED_NONE)
+      text += " | " + r.latest_established_f;
+   else if(r.probable_next_f != FP_STATE_GATE_RALLY_PROBABLE_NONE)
+      text += " | " + r.probable_next_f;
+   else if(r.flag_stage != "")
+      text += " | " + r.flag_stage;
+   else if(r.post_flag_stage != "")
+      text += " | " + r.post_flag_stage;
+   if(cfg.show_scale_l)
+      text += " | L" + IntegerToString(r.scale_L);
+   if(cfg.show_ids)
+      text += " | E#" + IntegerToString(r.source_event_id);
+   return text;
+}
+
+string FP_StateGatePanelLineHookText(const FP_StateGateConfig &cfg,
+                                     const int preview_index,
+                                     const FP_StateGateHookRow &h)
+{
+   string text = "H" + IntegerToString(preview_index+1) + " | " + h.timeframe_label;
+   if(h.polarity != "")
+      text += " | " + h.polarity;
+   else
+      text += " | " + FP_DirectionName(h.direction);
+   text += " | N" + IntegerToString(h.current_node_number);
+   if(cfg.show_scale_l)
+      text += " | L" + IntegerToString(h.scale_L);
+   if(h.latest_high_node_id >= 0)
+      text += " | H#" + IntegerToString(h.latest_high_node_id);
+   if(h.latest_low_node_id >= 0)
+      text += " | L#" + IntegerToString(h.latest_low_node_id);
+   if(cfg.show_ids)
+      text += " | Hk#" + IntegerToString(h.source_hook_id);
+   return text;
+}
+
+bool FP_StateGateExportPanelLinesCsv(const string path,
+                                     const FP_StateGateConfig &cfg,
+                                     const FP_StateGateSnapshot &snapshot,
+                                     FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_panel_lines_open_failed";
+      return false;
+   }
+
+   FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineHeader());
+
+   int line_index = 0;
+   string header_text = "State Gate | " + snapshot.symbol + " | dirty=" + IntegerToString(snapshot.dirty_timeframes) + "/" + IntegerToString(snapshot.timeframe_count);
+   header_text += " | rally=" + IntegerToString(snapshot.rally_row_count) + " | hook=" + IntegerToString(snapshot.hook_row_count);
+   FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, -1, "GLOBAL", "HEADER", -1, "SNAPSHOT", "global", header_text, snapshot.generated_at, "", "", ""));
+
+   string diag_text = "diag | " + FP_StateGateEffectiveCornerName(cfg) + "|x=" + IntegerToString(cfg.panel_x) + "|y=" + IntegerToString(cfg.panel_y);
+   diag_text += "|w=" + IntegerToString(cfg.panel_width) + "|font=" + IntegerToString(cfg.panel_font_size);
+   diag_text += "|serial=" + IntegerToString(snapshot.update_serial);
+   FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, -1, "GLOBAL", "DIAGNOSTICS", -1, "SNAPSHOT", "diagnostics", diag_text, snapshot.generated_at, "", "", ""));
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+
+      string slot_header = "[" + s.timeframe_label + "] " + FP_StateGateDirtyLabel(s);
+      slot_header += " | R=" + IntegerToString(s.rally_row_count);
+      slot_header += " H=" + IntegerToString(s.hook_row_count);
+      if(s.latest_established_f_summary != "")
+         slot_header += " | " + s.latest_established_f_summary;
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "TF", "SLOT_HEADER", -1, "TF_STATE", s.timeframe_label, slot_header, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "TRACKER", "TRACKER", -1, "TF_STATE", s.timeframe_label, FP_StateGatePanelLineTrackerText(cfg, s), s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
+      if(cfg.panel_show_row_counts)
+      {
+         string counts = "counts | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | status=" + s.tracker_status;
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "COUNTS", "ROW_COUNTS", -1, "TF_STATE", s.timeframe_label, counts, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+      }
+
+      if(cfg.panel_show_contract_key)
+      {
+         string contract = "contract | " + s.contract_status + " | " + s.entry_bridge_status + " | key=" + s.state_key;
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "CONTRACT", "STATE_KEY", -1, "TF_STATE", s.timeframe_label, contract, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+      }
+
+      string rally_header = "Rally | total=" + IntegerToString(s.rally_row_count) + " | latest=" + s.latest_established_f_summary + " | probable=" + s.probable_next_f_summary;
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "RALLY", "SECTION_HEADER", -1, "TF_STATE", s.timeframe_label, rally_header, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
+      int rlimit = FP_StateGateClampInt(cfg.panel_rally_preview_rows_per_tf, 0, 8);
+      int rally_seen = 0;
+      int rally_total = 0;
+      for(int r=0; r<snapshot.rally_row_count; r++)
+      {
+         if(snapshot.rally_rows[r].slot_index != slot)
+            continue;
+         rally_total++;
+         if(rally_seen >= rlimit)
+            continue;
+         FP_StateGateRallyRow rr = snapshot.rally_rows[r];
+         string rid = "event=" + IntegerToString(rr.source_event_id) + "|seq=" + IntegerToString(rr.sequence_id);
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "RALLY", "PREVIEW_ROW", rally_seen, "RALLY_ROW", rid, FP_StateGatePanelLineRallyText(cfg, rally_seen, rr), rr.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+         rally_seen++;
+      }
+      if(rally_total > rlimit && rlimit > 0)
+      {
+         string more = "R+ | " + IntegerToString(rally_total - rlimit) + " more Rally rows in latest_state_gate_rally.csv";
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "RALLY", "MORE_ROWS", -1, "RALLY_ROW", "more", more, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+      }
+
+      string hook_header = "Hook | total=" + IntegerToString(s.hook_row_count) + " | summary=" + s.hook_summary;
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "HOOK", "SECTION_HEADER", -1, "TF_STATE", s.timeframe_label, hook_header, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
+      int hlimit = FP_StateGateClampInt(cfg.panel_hook_preview_rows_per_tf, 0, 12);
+      int hook_seen = 0;
+      int hook_total = 0;
+      for(int hi=0; hi<snapshot.hook_row_count; hi++)
+      {
+         if(snapshot.hook_rows[hi].slot_index != slot)
+            continue;
+         hook_total++;
+         if(hook_seen >= hlimit)
+            continue;
+         FP_StateGateHookRow hh = snapshot.hook_rows[hi];
+         string hid = "hook=" + IntegerToString(hh.source_hook_id) + "|seq=" + IntegerToString(hh.sequence_id);
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "HOOK", "PREVIEW_ROW", hook_seen, "HOOK_ROW", hid, FP_StateGatePanelLineHookText(cfg, hook_seen, hh), hh.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+         hook_seen++;
+      }
+      if(hook_total > hlimit && hlimit > 0)
+      {
+         string more_h = "H+ | " + IntegerToString(hook_total - hlimit) + " more Hook rows in latest_state_gate_hooks.csv";
+         FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "HOOK", "MORE_ROWS", -1, "HOOK_ROW", "more", more_h, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+      }
+   }
+
+   FileClose(handle);
+   report.files_written++;
+   return true;
+}
+
+
 string FP_StateGateContractHeader()
 {
    string h = "";
@@ -582,8 +816,9 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "panel_show_diagnostics", FP_ExportBool(cfg.panel_show_diagnostics));
    FP_StateGateManifestKV(handle, "export_contract_csv", FP_ExportBool(cfg.export_contract_csv));
    FP_StateGateManifestKV(handle, "export_diagnostics_csv", FP_ExportBool(cfg.export_diagnostics_csv));
+   FP_StateGateManifestKV(handle, "export_panel_lines_csv", FP_ExportBool(cfg.export_panel_lines_csv));
    FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
-   FP_StateGateManifestKV(handle, "projection_state", "phase9_visual_debug_contract");
+   FP_StateGateManifestKV(handle, "projection_state", "phase10_panel_line_contract");
 
    FileClose(handle);
    report.files_written++;
@@ -609,6 +844,7 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string panel_path = FP_StateGateExportPath("panel", cfg);
    string contract_path = FP_StateGateExportPath("contract", cfg);
    string diagnostics_path = FP_StateGateExportPath("diagnostics", cfg);
+   string panel_lines_path = FP_StateGateExportPath("panel_lines", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
@@ -619,6 +855,8 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
       FP_StateGateExportContractCsv(contract_path, snapshot, report);
    if(cfg.export_diagnostics_csv)
       FP_StateGateExportDiagnosticsCsv(diagnostics_path, cfg, snapshot, report);
+   if(cfg.export_panel_lines_csv)
+      FP_StateGateExportPanelLinesCsv(panel_lines_path, cfg, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

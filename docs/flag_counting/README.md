@@ -172,10 +172,10 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE9_VISUAL_DEBUG_CONTRACT.md
 Phase 9 adds a visual/debug contract for the State Gate dashboard, including an on-panel diagnostics line, effective-corner export, and `latest_state_gate_diagnostics.csv`.
 
 
-## Level 19 — Phase 9A
+## Level 19 — Phase 10
 
 ```text
-docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE9A_COMPILE_FIX.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE10_PANEL_LINE_CONTRACT.md
 ```
 
-Phase 9A fixes the missing `InpStateGateExportDiagnosticsCsv` input declaration used by the Phase 9 visual debug contract.
+Phase 10 adds `latest_state_gate_panel_lines.csv`, a line-by-line debug contract for the expanded State Gate dashboard model.

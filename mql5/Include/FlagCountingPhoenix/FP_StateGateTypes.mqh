@@ -18,7 +18,7 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.90-phase9"
+#define FP_STATE_GATE_VERSION "19.100-phase10"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -94,6 +94,7 @@ struct FP_StateGateConfig
    bool export_overwrite_latest;
    bool export_contract_csv;
    bool export_diagnostics_csv;
+   bool export_panel_lines_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -417,6 +418,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_overwrite_latest = true;
    cfg.export_contract_csv = true;
    cfg.export_diagnostics_csv = true;
+   cfg.export_panel_lines_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
