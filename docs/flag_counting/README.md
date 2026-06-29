@@ -117,6 +117,18 @@ check after the acceptance matrix and verifies that current inputs/reports match
 `latest_ambiguity.csv`.
 
 
+
+## Level 19 state gate and dashboard
+
+Phoenix Level 19 is specified as a read-only multi-timeframe State Gate. It does not change Node, Hook/ND, Flag Body, Internal Count, F1/F2/F3, ownership, canonicalization, renderer, validation, release, or license logic. It projects the locked anatomy into a live M1/M10/H1 state map and a top-right minimizable dashboard.
+
+Read:
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_DASHBOARD_SPEC.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md
+```
+
 ## Level 18 static QA
 
 Phoenix now has a final compile/static QA hardening pass. Runtime emits `FP_LEVEL18`; source-side scanning is available with:
