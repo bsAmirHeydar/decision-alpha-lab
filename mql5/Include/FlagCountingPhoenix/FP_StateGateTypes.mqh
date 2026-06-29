@@ -18,7 +18,7 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.100-phase10"
+#define FP_STATE_GATE_VERSION "19.110-phase11"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -38,6 +38,7 @@
 #define FP_STATE_GATE_REASON_PHASE4 "phase4_hook_projection"
 #define FP_STATE_GATE_REASON_PHASE5 "phase5_panel_polish"
 #define FP_STATE_GATE_REASON_PHASE6 "phase6_state_contract_storage"
+#define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
 #define FP_STATE_GATE_RALLY_NO_ROWS "NO_CANONICAL_F_ROWS"
@@ -95,6 +96,7 @@ struct FP_StateGateConfig
    bool export_contract_csv;
    bool export_diagnostics_csv;
    bool export_panel_lines_csv;
+   bool export_entry_bridge_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -123,6 +125,19 @@ struct FP_StateGateTimeframeState
    string anatomy_status;
    string storage_status;
    string entry_bridge_status;
+   string entry_bridge_readiness;
+   string entry_bridge_key;
+   string candidate_extreme_status;
+   string candidate_extreme_key;
+   string candidate_extreme_source;
+   string candidate_direction;
+   string candidate_scale_context;
+   string x_invalidation_status;
+   string x_invalidation_key;
+   string x_destination_status;
+   string x_destination_key;
+   string optionality_status;
+   string optionality_key;
    string contract_status;
    string tracker_status;
    string status;
@@ -264,6 +279,19 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.anatomy_status = "ANATOMY_PENDING";
    s.storage_status = "STORAGE_PENDING";
    s.entry_bridge_status = "ENTRY_BRIDGE_CONTEXT_PENDING";
+   s.entry_bridge_readiness = "ENTRY_READINESS_PENDING";
+   s.entry_bridge_key = "ENTRY_BRIDGE_KEY_PENDING";
+   s.candidate_extreme_status = "CANDIDATE_EXTREME_PENDING";
+   s.candidate_extreme_key = "CANDIDATE_EXTREME_KEY_PENDING";
+   s.candidate_extreme_source = "CANDIDATE_SOURCE_PENDING";
+   s.candidate_direction = "DIRECTION_PENDING";
+   s.candidate_scale_context = "SCALE_CONTEXT_PENDING";
+   s.x_invalidation_status = "X_INVALIDATION_PENDING";
+   s.x_invalidation_key = "X_INVALIDATION_KEY_PENDING";
+   s.x_destination_status = "X_DESTINATION_PENDING";
+   s.x_destination_key = "X_DESTINATION_KEY_PENDING";
+   s.optionality_status = "OPTIONALITY_PENDING";
+   s.optionality_key = "OPTIONALITY_KEY_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -419,6 +447,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_contract_csv = true;
    cfg.export_diagnostics_csv = true;
    cfg.export_panel_lines_csv = true;
+   cfg.export_entry_bridge_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

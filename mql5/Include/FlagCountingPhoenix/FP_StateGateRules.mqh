@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 // Pure read-only labels and projection rules. Phase 6 keeps the Phase 3/4
 // Rally and Hook projections, preserves the Phase 5 dashboard polish, and adds
-// stable State Contract labels for future entry-layer consumption. It does not
+// stable State Contract labels and Phase 11 Entry Bridge readiness fields. It does not
 // mutate or reinterpret the locked engines.
 // ============================================================================
 
@@ -773,6 +773,191 @@ string FP_StateGateSlotStateKey(const FP_StateGateSnapshot &snapshot, const int 
    return key;
 }
 
+
+bool FP_StateGateFirstProjectedRallyRowForSlot(const FP_StateGateSnapshot &snapshot,
+                                               const int slot,
+                                               FP_StateGateRallyRow &out)
+{
+   for(int r=0; r<snapshot.rally_row_count; r++)
+   {
+      FP_StateGateRallyRow row = snapshot.rally_rows[r];
+      if(row.slot_index != slot || row.status != FP_STATE_GATE_ROW_PROJECTED)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateFirstProjectedHookRowForSlot(const FP_StateGateSnapshot &snapshot,
+                                              const int slot,
+                                              FP_StateGateHookRow &out)
+{
+   for(int h=0; h<snapshot.hook_row_count; h++)
+   {
+      FP_StateGateHookRow row = snapshot.hook_rows[h];
+      if(row.slot_index != slot || row.status != FP_STATE_GATE_ROW_PROJECTED)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+string FP_StateGateSlotEntryBridgeReadiness(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "ENTRY_BRIDGE_BLOCKED_NO_CLOSED_BAR";
+   int rally_projected = FP_StateGateProjectedRallyRowsForSlot(snapshot, slot);
+   int hook_projected = FP_StateGateProjectedHookRowsForSlot(snapshot, slot);
+   if(rally_projected > 0 && hook_projected > 0)
+      return "ENTRY_BRIDGE_READY_FOR_EXTREME_MAPPING_NO_DECISION";
+   if(rally_projected > 0)
+      return "ENTRY_BRIDGE_RALLY_ONLY_NEEDS_HOOK_CONTEXT_NO_DECISION";
+   if(hook_projected > 0)
+      return "ENTRY_BRIDGE_HOOK_ONLY_NEEDS_RALLY_CONTEXT_NO_DECISION";
+   return "ENTRY_BRIDGE_NOT_READY_NO_PROJECTED_ANATOMY";
+}
+
+string FP_StateGateSlotCandidateExtremeStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "CANDIDATE_EXTREME_BLOCKED_NO_CLOSED_BAR";
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0)
+      return "CANDIDATE_EXTREME_FROM_HOOK_CONTEXT_NO_PRICE";
+   if(FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "CANDIDATE_EXTREME_FROM_RALLY_CONTEXT_NO_PRICE";
+   return "CANDIDATE_EXTREME_NOT_AVAILABLE";
+}
+
+string FP_StateGateSlotCandidateExtremeKey(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateHookRow h;
+   FP_ResetStateGateHookRow(h);
+   if(FP_StateGateFirstProjectedHookRowForSlot(snapshot, slot, h))
+   {
+      string key = "HOOK_CANDIDATE";
+      key += "|POL=" + FP_StateGateKeyPart(h.polarity);
+      key += "|DIR=" + FP_DirectionName(h.direction);
+      key += "|L=" + IntegerToString(h.scale_L);
+      key += "|N=" + IntegerToString(h.current_node_number);
+      key += "|H=" + IntegerToString(h.latest_high_node_id);
+      key += "|Lw=" + IntegerToString(h.latest_low_node_id);
+      key += "|HK=" + IntegerToString(h.source_hook_id);
+      return key;
+   }
+
+   FP_StateGateRallyRow r;
+   FP_ResetStateGateRallyRow(r);
+   if(FP_StateGateFirstProjectedRallyRowForSlot(snapshot, slot, r))
+   {
+      string key = "RALLY_CANDIDATE";
+      key += "|F=" + FP_LevelName(r.f_level);
+      key += "|DIR=" + FP_DirectionName(r.direction);
+      key += "|L=" + IntegerToString(r.scale_L);
+      key += "|E=" + IntegerToString(r.source_event_id);
+      key += "|BODY=" + FP_StateGateKeyPart(r.body_state);
+      key += "|FLAG=" + FP_StateGateKeyPart(r.flag_stage);
+      key += "|POST=" + FP_StateGateKeyPart(r.post_flag_stage);
+      return key;
+   }
+
+   return "NO_CANDIDATE_EXTREME_KEY";
+}
+
+string FP_StateGateSlotCandidateExtremeSource(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0)
+      return "HOOK_VIEW_PRIMARY";
+   if(FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "RALLY_VIEW_PRIMARY";
+   return "NO_CANDIDATE_SOURCE";
+}
+
+string FP_StateGateSlotCandidateDirection(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateHookRow h;
+   FP_ResetStateGateHookRow(h);
+   if(FP_StateGateFirstProjectedHookRowForSlot(snapshot, slot, h))
+      return FP_DirectionName(h.direction);
+
+   FP_StateGateRallyRow r;
+   FP_ResetStateGateRallyRow(r);
+   if(FP_StateGateFirstProjectedRallyRowForSlot(snapshot, slot, r))
+      return FP_DirectionName(r.direction);
+
+   return "NO_DIRECTION";
+}
+
+string FP_StateGateSlotCandidateScaleContext(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   string s = "RALLY_ROWS=" + IntegerToString(FP_StateGateProjectedRallyRowsForSlot(snapshot, slot));
+   s += "|HOOK_ROWS=" + IntegerToString(FP_StateGateProjectedHookRowsForSlot(snapshot, slot));
+   s += "|PRIMARY_R=" + FP_StateGateKeyPart(snapshot.tf_states[slot].primary_rally_key);
+   s += "|PRIMARY_H=" + FP_StateGateKeyPart(snapshot.tf_states[slot].primary_hook_key);
+   return s;
+}
+
+string FP_StateGateSlotXInvalidationStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "X_INVALIDATION_BLOCKED_NO_CLOSED_BAR";
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0 || FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "X_INVALIDATION_PENDING_GEOMETRY_NO_PRICE";
+   return "X_INVALIDATION_NOT_AVAILABLE";
+}
+
+string FP_StateGateSlotXDestinationStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "X_DESTINATION_BLOCKED_NO_CLOSED_BAR";
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0 || FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "X_DESTINATION_PENDING_GEOMETRY_NO_PRICE";
+   return "X_DESTINATION_NOT_AVAILABLE";
+}
+
+string FP_StateGateSlotOptionalityStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(!snapshot.tf_states[slot].closed_bar_available)
+      return "OPTIONALITY_BLOCKED_NO_CLOSED_BAR";
+   if(FP_StateGateProjectedHookRowsForSlot(snapshot, slot) > 0 || FP_StateGateProjectedRallyRowsForSlot(snapshot, slot) > 0)
+      return "OPTIONALITY_PENDING_X_GEOMETRY_NO_R";
+   return "OPTIONALITY_NOT_AVAILABLE";
+}
+
+string FP_StateGateSlotEntryBridgeKey(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|READINESS=" + FP_StateGateKeyPart(snapshot.tf_states[slot].entry_bridge_readiness);
+   key += "|CAND=" + FP_StateGateKeyPart(snapshot.tf_states[slot].candidate_extreme_key);
+   key += "|DIR=" + FP_StateGateKeyPart(snapshot.tf_states[slot].candidate_direction);
+   key += "|XI=" + FP_StateGateKeyPart(snapshot.tf_states[slot].x_invalidation_status);
+   key += "|XD=" + FP_StateGateKeyPart(snapshot.tf_states[slot].x_destination_status);
+   key += "|OPT=" + FP_StateGateKeyPart(snapshot.tf_states[slot].optionality_status);
+   return key;
+}
+
+void FP_StateGateFinalizeSlotEntryBridge(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   snapshot.tf_states[slot].entry_bridge_readiness = FP_StateGateSlotEntryBridgeReadiness(snapshot, slot);
+   snapshot.tf_states[slot].candidate_extreme_status = FP_StateGateSlotCandidateExtremeStatus(snapshot, slot);
+   snapshot.tf_states[slot].candidate_extreme_key = FP_StateGateSlotCandidateExtremeKey(snapshot, slot);
+   snapshot.tf_states[slot].candidate_extreme_source = FP_StateGateSlotCandidateExtremeSource(snapshot, slot);
+   snapshot.tf_states[slot].candidate_direction = FP_StateGateSlotCandidateDirection(snapshot, slot);
+   snapshot.tf_states[slot].candidate_scale_context = FP_StateGateSlotCandidateScaleContext(snapshot, slot);
+
+   snapshot.tf_states[slot].x_invalidation_status = FP_StateGateSlotXInvalidationStatus(snapshot, slot);
+   snapshot.tf_states[slot].x_invalidation_key = "X_INVALIDATION_KEY_PENDING_GEOMETRY";
+   snapshot.tf_states[slot].x_destination_status = FP_StateGateSlotXDestinationStatus(snapshot, slot);
+   snapshot.tf_states[slot].x_destination_key = "X_DESTINATION_KEY_PENDING_GEOMETRY";
+   snapshot.tf_states[slot].optionality_status = FP_StateGateSlotOptionalityStatus(snapshot, slot);
+   snapshot.tf_states[slot].optionality_key = "OPTIONALITY_KEY_PENDING_X_GEOMETRY";
+
+   snapshot.tf_states[slot].entry_bridge_key = FP_StateGateSlotEntryBridgeKey(snapshot, slot);
+}
+
+
 void FP_StateGateFinalizeSlotContract(FP_StateGateSnapshot &snapshot, const int slot)
 {
    snapshot.tf_states[slot].primary_rally_key = FP_StateGateFirstProjectedRallyKey(snapshot, slot);
@@ -782,6 +967,7 @@ void FP_StateGateFinalizeSlotContract(FP_StateGateSnapshot &snapshot, const int 
    snapshot.tf_states[slot].entry_bridge_status = FP_StateGateSlotEntryBridgeStatus(snapshot, slot);
    snapshot.tf_states[slot].contract_status = FP_StateGateSlotContractStatus(snapshot, slot);
    snapshot.tf_states[slot].state_key = FP_StateGateSlotStateKey(snapshot, slot);
+   FP_StateGateFinalizeSlotEntryBridge(snapshot, slot);
 }
 
 void FP_StateGateFinalizeSnapshotContracts(FP_StateGateSnapshot &snapshot)

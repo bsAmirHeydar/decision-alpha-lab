@@ -333,6 +333,7 @@ input bool            InpStateGateExportOverwriteLatest = true;
 input bool            InpStateGateExportContractCsv   = true;
 input bool            InpStateGateExportDiagnosticsCsv = true;
 input bool            InpStateGateExportPanelLinesCsv  = true;
+input bool            InpStateGateExportEntryBridgeCsv = true;
 input string          InpStateGateExportFolder        = "FlagCountingPhoenix";
 input bool            InpStateGatePrintAudit          = true;
 
@@ -854,6 +855,7 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_contract_csv = InpStateGateExportContractCsv;
    cfg.export_diagnostics_csv = InpStateGateExportDiagnosticsCsv;
    cfg.export_panel_lines_csv = InpStateGateExportPanelLinesCsv;
+   cfg.export_entry_bridge_csv = InpStateGateExportEntryBridgeCsv;
    cfg.export_folder = InpStateGateExportFolder;
    cfg.print_audit = InpStateGatePrintAudit;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
@@ -1068,7 +1070,7 @@ void FP_Run()
    }
 
    FP_StateGateReport state_gate_report;
-   FP_RunStateGatePhase6(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
+   FP_RunStateGatePhase11(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
    if(state_gate_cfg.print_audit)
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
    if(state_gate_cfg.print_audit)
@@ -1182,7 +1184,7 @@ void FP_RunStateGateTimerOnly()
    if(scale_count <= 0)
       FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
    else
-      FP_RunStateGatePhase6(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
+      FP_RunStateGatePhase11(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
 
    if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);

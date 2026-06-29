@@ -179,3 +179,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE10_PANEL_LINE_CONTRACT.md
 ```
 
 Phase 10 adds `latest_state_gate_panel_lines.csv`, a line-by-line debug contract for the expanded State Gate dashboard model.
+
+
+## Level 19 — Phase 11
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE11_ENTRY_BRIDGE_READINESS.md
+```
+
+Phase 11 adds decision-neutral Entry Bridge readiness fields and exports `latest_state_gate_entry_bridge.csv` for future extreme/X/optionality mapping.

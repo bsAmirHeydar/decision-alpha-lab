@@ -305,10 +305,14 @@ string FP_StateGatePanelContractLine(const FP_StateGateConfig &cfg,
                                      const FP_StateGateTimeframeState &s,
                                      const int text_limit)
 {
-   string key = s.state_key;
+   string line = "    K | " + s.entry_bridge_readiness;
+   line += " | " + s.candidate_extreme_status;
+   line += " | " + s.candidate_direction;
    if(!cfg.panel_compact_mode)
-      return "    K | " + FP_StateGatePanelClip(key, text_limit);
-   return "    K | " + FP_StateGatePanelClip(key, MathMax(24, text_limit - 14));
+      line += " | key=" + s.entry_bridge_key;
+   else
+      line += " | key=" + FP_StateGatePanelClip(s.entry_bridge_key, MathMax(24, text_limit - 40));
+   return FP_StateGatePanelClip(line, text_limit);
 }
 
 string FP_StateGatePanelRallyPreviewLine(const FP_StateGateConfig &cfg,
