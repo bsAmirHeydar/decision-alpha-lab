@@ -7,7 +7,7 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Panel
 // ----------------------------------------------------------------------------
-// Phase 7 keeps the State Gate read-only and improves usability:
+// Phase 9 keeps the State Gate read-only and adds panel diagnostics on top of the Phase 7/8 usability work:
 // - default left-upper placement
 // - hard left-upper override for old saved right-corner inputs
 // - master minimize / restore
@@ -169,6 +169,7 @@ bool FP_StateGateCreateLabel(const FP_StateGateConfig &cfg,
    ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
    ObjectSetString(0, name, OBJPROP_TEXT, text);
+   ObjectSetInteger(0, name, OBJPROP_ZORDER, 100);
    return true;
 }
 
@@ -210,6 +211,7 @@ bool FP_StateGateCreateButton(const FP_StateGateConfig &cfg,
    ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, 8);
    ObjectSetString(0, name, OBJPROP_TEXT, text);
+   ObjectSetInteger(0, name, OBJPROP_ZORDER, 110);
    return true;
 }
 
@@ -358,6 +360,17 @@ string FP_StateGatePanelHookPreviewLine(const FP_StateGateConfig &cfg,
    return "      H" + IntegerToString(preview_index+1) + " | " + label;
 }
 
+string FP_StateGatePanelDiagnosticsLine(const FP_StateGateConfig &cfg,
+                                        const FP_StateGateSnapshot &snapshot)
+{
+   string s = "diag | ";
+   s += FP_StateGatePanelPlacementKey(cfg);
+   s += " | serial=" + IntegerToString(snapshot.update_serial);
+   s += " | available=" + IntegerToString(snapshot.available_timeframes);
+   s += " | no_data=" + IntegerToString(snapshot.unavailable_timeframes);
+   return s;
+}
+
 int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
                                    const FP_StateGateSnapshot &snapshot,
                                    const int slot)
@@ -416,6 +429,8 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    if(!minimized)
    {
       rows = 2;
+      if(cfg.panel_show_diagnostics)
+         rows++;
       for(int i=0; i<snapshot.timeframe_count; i++)
          rows += FP_StateGatePanelSlotRowBudget(cfg, snapshot, i);
    }
@@ -439,6 +454,15 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    }
 
    int cursor_y = y + title_h + 4;
+
+   if(cfg.panel_show_diagnostics)
+   {
+      FP_StateGateCreateLabel(cfg, "DIAGNOSTICS", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(FP_StateGatePanelDiagnosticsLine(cfg, snapshot), text_limit),
+                              clrWhite, font_size, report);
+      cursor_y += row_h;
+   }
+
    for(int i=0; i<snapshot.timeframe_count; i++)
    {
       FP_StateGateTimeframeState s = snapshot.tf_states[i];

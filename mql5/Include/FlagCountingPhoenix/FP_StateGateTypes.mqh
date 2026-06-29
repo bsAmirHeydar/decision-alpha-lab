@@ -11,14 +11,14 @@
 // Hook/ND, Flag Body, Internal Count, F1/F2/F3 lifecycle, ownership,
 // canonicalization, renderer, validation, release, and license logic.
 //
-// Phase 6 preserves the closed-bar tracker, Rally View projection, Hook View
-// projection, and dashboard polish, then adds a stable read-only State Contract
-// layer for future entry design. It still does not modify F-counting, Hook/ND,
+// Phase 9 preserves closed-bar tracking, Rally/Hook projection, panel
+// section toggles, and State Contract storage, then adds visual/debug contract
+// fields for compile and panel-hardening checks. It still does not modify F-counting, Hook/ND,
 // node, ownership, canonicalization, renderer, validation, release, or license
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.50-phase6"
+#define FP_STATE_GATE_VERSION "19.90-phase9"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -85,6 +85,7 @@ struct FP_StateGateConfig
    bool panel_show_closed_bar;
    bool panel_show_row_counts;
    bool panel_show_contract_key;
+   bool panel_show_diagnostics;
    int  max_rally_rows_per_tf;
    int  max_hook_rows_per_tf;
    bool show_ids;
@@ -92,6 +93,7 @@ struct FP_StateGateConfig
    bool export_csv;
    bool export_overwrite_latest;
    bool export_contract_csv;
+   bool export_diagnostics_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -393,7 +395,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.tf3 = PERIOD_H1;
    cfg.panel_enabled = true;
    cfg.panel_start_minimized = false;
-   cfg.panel_corner = CORNER_RIGHT_UPPER;
+   cfg.panel_corner = CORNER_LEFT_UPPER;
    cfg.panel_x = 16;
    cfg.panel_y = 24;
    cfg.panel_width = 560;
@@ -406,6 +408,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_show_closed_bar = true;
    cfg.panel_show_row_counts = true;
    cfg.panel_show_contract_key = true;
+   cfg.panel_show_diagnostics = true;
    cfg.max_rally_rows_per_tf = 6;
    cfg.max_hook_rows_per_tf = 10;
    cfg.show_ids = true;
@@ -413,6 +416,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_csv = true;
    cfg.export_overwrite_latest = true;
    cfg.export_contract_csv = true;
+   cfg.export_diagnostics_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

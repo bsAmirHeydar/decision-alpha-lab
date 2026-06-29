@@ -161,3 +161,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE8_PANEL_VISIBILITY_FIX.md
 ```
 
 Phase 8 adds a hard left-upper panel override and stronger panel contrast so old saved right-corner inputs cannot hide the dashboard body.
+
+
+## Level 19 — Phase 9
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE9_VISUAL_DEBUG_CONTRACT.md
+```
+
+Phase 9 adds a visual/debug contract for the State Gate dashboard, including an on-panel diagnostics line, effective-corner export, and `latest_state_gate_diagnostics.csv`.
+
+
+## Level 19 — Phase 9A
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE9A_COMPILE_FIX.md
+```
+
+Phase 9A fixes the missing `InpStateGateExportDiagnosticsCsv` input declaration used by the Phase 9 visual debug contract.

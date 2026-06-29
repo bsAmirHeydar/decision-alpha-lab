@@ -323,6 +323,7 @@ input bool            InpStateGatePanelCompactMode      = true;
 input bool            InpStateGatePanelShowClosedBar    = true;
 input bool            InpStateGatePanelShowRowCounts    = true;
 input bool            InpStateGatePanelShowContractKey  = true;
+input bool            InpStateGatePanelShowDiagnostics = true;
 input int             InpStateGateMaxRallyRowsPerTf   = 6;
 input int             InpStateGateMaxHookRowsPerTf    = 10;
 input bool            InpStateGateShowIds             = true;
@@ -330,6 +331,7 @@ input bool            InpStateGateShowScaleL          = true;
 input bool            InpStateGateExportCsv           = true;
 input bool            InpStateGateExportOverwriteLatest = true;
 input bool            InpStateGateExportContractCsv   = true;
+input bool            InpStateGateExportDiagnosticsCsv = true;
 input string          InpStateGateExportFolder        = "FlagCountingPhoenix";
 input bool            InpStateGatePrintAudit          = true;
 
@@ -841,6 +843,7 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_show_closed_bar = InpStateGatePanelShowClosedBar;
    cfg.panel_show_row_counts = InpStateGatePanelShowRowCounts;
    cfg.panel_show_contract_key = InpStateGatePanelShowContractKey;
+   cfg.panel_show_diagnostics = InpStateGatePanelShowDiagnostics;
    cfg.max_rally_rows_per_tf = InpStateGateMaxRallyRowsPerTf;
    cfg.max_hook_rows_per_tf = InpStateGateMaxHookRowsPerTf;
    cfg.show_ids = InpStateGateShowIds;
@@ -848,6 +851,7 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_csv = InpStateGateExportCsv;
    cfg.export_overwrite_latest = InpStateGateExportOverwriteLatest;
    cfg.export_contract_csv = InpStateGateExportContractCsv;
+   cfg.export_diagnostics_csv = InpStateGateExportDiagnosticsCsv;
    cfg.export_folder = InpStateGateExportFolder;
    cfg.print_audit = InpStateGatePrintAudit;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

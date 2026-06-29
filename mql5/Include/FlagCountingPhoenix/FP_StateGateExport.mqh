@@ -8,9 +8,9 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Export
 // ----------------------------------------------------------------------------
-// Phase 6 writes closed-bar tracker fields plus Rally View, Hook View, panel
-// debug rows, and a stable State Contract CSV for future entry-layer
-// consumption. Hook and Rally rows remain read-only projections.
+// Phase 9 writes closed-bar tracker fields plus Rally View, Hook View,
+// panel/debug rows, State Contract CSV, and a diagnostics CSV for compile and
+// dashboard visibility hardening. Hook and Rally rows remain read-only projections.
 // ============================================================================
 
 bool FP_StateGateExportOpenWrite(const string path, int &handle)
@@ -419,6 +419,120 @@ void FP_StateGateManifestKV(const int handle, const string key, const string val
    FP_StateGateExportWriteLine(handle, row);
 }
 
+
+string FP_StateGateDiagnosticsHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "kind");
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "chart_timeframe");
+   FP_ExportCsvAppend(h, "slot");
+   FP_ExportCsvAppend(h, "timeframe");
+   FP_ExportCsvAppend(h, "state_gate_version");
+   FP_ExportCsvAppend(h, "effective_corner");
+   FP_ExportCsvAppend(h, "force_left_upper");
+   FP_ExportCsvAppend(h, "force_right_upper");
+   FP_ExportCsvAppend(h, "panel_corner_input");
+   FP_ExportCsvAppend(h, "panel_x");
+   FP_ExportCsvAppend(h, "panel_y");
+   FP_ExportCsvAppend(h, "panel_width");
+   FP_ExportCsvAppend(h, "panel_font_size");
+   FP_ExportCsvAppend(h, "panel_enabled");
+   FP_ExportCsvAppend(h, "panel_show_diagnostics");
+   FP_ExportCsvAppend(h, "closed_bar_available");
+   FP_ExportCsvAppend(h, "dirty");
+   FP_ExportCsvAppend(h, "tracker_status");
+   FP_ExportCsvAppend(h, "rally_rows");
+   FP_ExportCsvAppend(h, "hook_rows");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "reason");
+   return h;
+}
+
+string FP_StateGateDiagnosticsGlobalRow(const FP_StateGateConfig &cfg,
+                                        const FP_StateGateSnapshot &snapshot)
+{
+   string line = "";
+   FP_ExportCsvAppend(line, "global");
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, "-1");
+   FP_ExportCsvAppend(line, "ALL");
+   FP_ExportCsvAppend(line, FP_STATE_GATE_VERSION);
+   FP_ExportCsvAppend(line, FP_StateGateEffectiveCornerName(cfg));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_force_left_upper));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_force_right_upper));
+   FP_ExportCsvAppend(line, FP_StateGateBaseCornerName(cfg.panel_corner));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_x));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_y));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_width));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_font_size));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_enabled));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_show_diagnostics));
+   FP_ExportCsvAppend(line, "");
+   FP_ExportCsvAppend(line, FP_ExportBool(snapshot.any_dirty));
+   FP_ExportCsvAppend(line, snapshot.status);
+   FP_ExportCsvAppend(line, IntegerToString(snapshot.rally_row_count));
+   FP_ExportCsvAppend(line, IntegerToString(snapshot.hook_row_count));
+   FP_ExportCsvAppend(line, "");
+   FP_ExportCsvAppend(line, snapshot.reason);
+   return line;
+}
+
+string FP_StateGateDiagnosticsSlotRow(const FP_StateGateConfig &cfg,
+                                      const FP_StateGateSnapshot &snapshot,
+                                      const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string line = "";
+   FP_ExportCsvAppend(line, "slot");
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, IntegerToString(slot));
+   FP_ExportCsvAppend(line, s.timeframe_label);
+   FP_ExportCsvAppend(line, FP_STATE_GATE_VERSION);
+   FP_ExportCsvAppend(line, FP_StateGateEffectiveCornerName(cfg));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_force_left_upper));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_force_right_upper));
+   FP_ExportCsvAppend(line, FP_StateGateBaseCornerName(cfg.panel_corner));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_x));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_y));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_width));
+   FP_ExportCsvAppend(line, IntegerToString(cfg.panel_font_size));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_enabled));
+   FP_ExportCsvAppend(line, FP_ExportBool(cfg.panel_show_diagnostics));
+   FP_ExportCsvAppend(line, FP_ExportBool(s.closed_bar_available));
+   FP_ExportCsvAppend(line, FP_ExportBool(s.dirty));
+   FP_ExportCsvAppend(line, s.tracker_status);
+   FP_ExportCsvAppend(line, IntegerToString(s.rally_row_count));
+   FP_ExportCsvAppend(line, IntegerToString(s.hook_row_count));
+   FP_ExportCsvAppend(line, s.state_key);
+   FP_ExportCsvAppend(line, s.reason);
+   return line;
+}
+
+bool FP_StateGateExportDiagnosticsCsv(const string path,
+                                      const FP_StateGateConfig &cfg,
+                                      const FP_StateGateSnapshot &snapshot,
+                                      FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_diagnostics_open_failed";
+      return false;
+   }
+   FP_StateGateExportWriteLine(handle, FP_StateGateDiagnosticsHeader());
+   FP_StateGateExportWriteLine(handle, FP_StateGateDiagnosticsGlobalRow(cfg, snapshot));
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateExportWriteLine(handle, FP_StateGateDiagnosticsSlotRow(cfg, snapshot, i));
+   FileClose(handle);
+   report.files_written++;
+   return true;
+}
+
+
 bool FP_StateGateExportManifestCsv(const string path,
                                    const FP_StateGateConfig &cfg,
                                    const FP_StateGateSnapshot &snapshot,
@@ -451,8 +565,12 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "rally_rows", IntegerToString(snapshot.rally_row_count));
    FP_StateGateManifestKV(handle, "hook_rows", IntegerToString(snapshot.hook_row_count));
    FP_StateGateManifestKV(handle, "panel_enabled", FP_ExportBool(cfg.panel_enabled));
+   FP_StateGateManifestKV(handle, "panel_force_left_upper", FP_ExportBool(cfg.panel_force_left_upper));
    FP_StateGateManifestKV(handle, "panel_force_right_upper", FP_ExportBool(cfg.panel_force_right_upper));
-   FP_StateGateManifestKV(handle, "panel_corner_effective", (cfg.panel_force_right_upper ? "CORNER_RIGHT_UPPER" : IntegerToString(cfg.panel_corner)));
+   FP_StateGateManifestKV(handle, "panel_corner_input", FP_StateGateBaseCornerName(cfg.panel_corner));
+   FP_StateGateManifestKV(handle, "panel_corner_effective", FP_StateGateEffectiveCornerName(cfg));
+   FP_StateGateManifestKV(handle, "panel_x", IntegerToString(cfg.panel_x));
+   FP_StateGateManifestKV(handle, "panel_y", IntegerToString(cfg.panel_y));
    FP_StateGateManifestKV(handle, "panel_width", IntegerToString(cfg.panel_width));
    FP_StateGateManifestKV(handle, "panel_font_size", IntegerToString(cfg.panel_font_size));
    FP_StateGateManifestKV(handle, "panel_compact_mode", FP_ExportBool(cfg.panel_compact_mode));
@@ -461,9 +579,11 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "panel_rally_preview_rows_per_tf", IntegerToString(cfg.panel_rally_preview_rows_per_tf));
    FP_StateGateManifestKV(handle, "panel_hook_preview_rows_per_tf", IntegerToString(cfg.panel_hook_preview_rows_per_tf));
    FP_StateGateManifestKV(handle, "panel_show_contract_key", FP_ExportBool(cfg.panel_show_contract_key));
+   FP_StateGateManifestKV(handle, "panel_show_diagnostics", FP_ExportBool(cfg.panel_show_diagnostics));
    FP_StateGateManifestKV(handle, "export_contract_csv", FP_ExportBool(cfg.export_contract_csv));
+   FP_StateGateManifestKV(handle, "export_diagnostics_csv", FP_ExportBool(cfg.export_diagnostics_csv));
    FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
-   FP_StateGateManifestKV(handle, "projection_state", "phase6_rally_hook_contract_stored");
+   FP_StateGateManifestKV(handle, "projection_state", "phase9_visual_debug_contract");
 
    FileClose(handle);
    report.files_written++;
@@ -488,6 +608,7 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string hooks_path = FP_StateGateExportPath("hooks", cfg);
    string panel_path = FP_StateGateExportPath("panel", cfg);
    string contract_path = FP_StateGateExportPath("contract", cfg);
+   string diagnostics_path = FP_StateGateExportPath("diagnostics", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
@@ -496,6 +617,8 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    FP_StateGateExportPanelCsv(panel_path, cfg, snapshot, report);
    if(cfg.export_contract_csv)
       FP_StateGateExportContractCsv(contract_path, snapshot, report);
+   if(cfg.export_diagnostics_csv)
+      FP_StateGateExportDiagnosticsCsv(diagnostics_path, cfg, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

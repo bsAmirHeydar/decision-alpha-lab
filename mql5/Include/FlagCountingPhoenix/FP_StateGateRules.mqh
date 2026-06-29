@@ -65,6 +65,34 @@ bool FP_StateGateTimeframeIsUsable(const ENUM_TIMEFRAMES tf)
    return (tf != PERIOD_CURRENT);
 }
 
+string FP_StateGateBaseCornerName(const int corner)
+{
+   if(corner == CORNER_LEFT_UPPER)  return "CORNER_LEFT_UPPER";
+   if(corner == CORNER_LEFT_LOWER)  return "CORNER_LEFT_LOWER";
+   if(corner == CORNER_RIGHT_UPPER) return "CORNER_RIGHT_UPPER";
+   if(corner == CORNER_RIGHT_LOWER) return "CORNER_RIGHT_LOWER";
+   return "CORNER_UNKNOWN_" + IntegerToString(corner);
+}
+
+string FP_StateGateEffectiveCornerName(const FP_StateGateConfig &cfg)
+{
+   if(cfg.panel_force_left_upper)
+      return "CORNER_LEFT_UPPER_FORCED";
+   if(cfg.panel_force_right_upper)
+      return "CORNER_RIGHT_UPPER_FORCED";
+   return FP_StateGateBaseCornerName(cfg.panel_corner);
+}
+
+string FP_StateGatePanelPlacementKey(const FP_StateGateConfig &cfg)
+{
+   string s = FP_StateGateEffectiveCornerName(cfg);
+   s += "|x=" + IntegerToString(cfg.panel_x);
+   s += "|y=" + IntegerToString(cfg.panel_y);
+   s += "|w=" + IntegerToString(cfg.panel_width);
+   s += "|font=" + IntegerToString(cfg.panel_font_size);
+   return s;
+}
+
 string FP_StateGateClosedBarTimeLabel(const datetime t)
 {
    if(t <= 0) return "no_closed_bar";
