@@ -127,7 +127,10 @@ Read:
 ```text
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_DASHBOARD_SPEC.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE2_CLOSED_BAR_TRACKER.md
 ```
+
+Phase 2 implements the closed-bar tracker for the three configured State Gate timeframes. Rally View and Hook View projection remain intentionally pending for Phase 3 and Phase 4.
 
 ## Level 18 static QA
 

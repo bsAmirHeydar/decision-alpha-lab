@@ -320,6 +320,8 @@ input int             InpStateGateMaxHookRowsPerTf    = 10;
 input bool            InpStateGateShowIds             = true;
 input bool            InpStateGateShowScaleL          = true;
 input bool            InpStateGateExportCsv           = true;
+input bool            InpStateGateExportOverwriteLatest = true;
+input string          InpStateGateExportFolder        = "FlagCountingPhoenix";
 input bool            InpStateGatePrintAudit          = true;
 
 // ------------------------------ Rendering -----------------------------------
@@ -827,6 +829,8 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.show_ids = InpStateGateShowIds;
    cfg.show_scale_l = InpStateGateShowScaleL;
    cfg.export_csv = InpStateGateExportCsv;
+   cfg.export_overwrite_latest = InpStateGateExportOverwriteLatest;
+   cfg.export_folder = InpStateGateExportFolder;
    cfg.print_audit = InpStateGatePrintAudit;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
 }
@@ -1040,7 +1044,7 @@ void FP_Run()
    }
 
    FP_StateGateReport state_gate_report;
-   FP_RunStateGatePhase1(_Symbol, _Period, state_gate_cfg, g_fp_state_gate_runtime, state_gate_report);
+   FP_RunStateGatePhase2(_Symbol, _Period, state_gate_cfg, g_fp_state_gate_runtime, state_gate_report);
    if(state_gate_cfg.print_audit)
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
    if(state_gate_cfg.print_audit)
@@ -1107,4 +1111,11 @@ void OnTimer()
 {
    if(!FP_EnsureOfflineLicense(true))
       return;
+
+   FP_StateGateConfig timer_state_gate_cfg;
+   FP_LoadStateGateConfig(timer_state_gate_cfg);
+   FP_StateGateReport timer_state_gate_report;
+   FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
+   if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
+      FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);
 }
