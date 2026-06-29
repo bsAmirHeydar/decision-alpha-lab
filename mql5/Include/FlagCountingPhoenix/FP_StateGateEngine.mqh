@@ -11,8 +11,8 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Engine
 // ----------------------------------------------------------------------------
-// Phase 5 keeps closed-bar tracking, Rally View projection, and Hook View
-// projection, then improves dashboard usability. The projection runs the same
+// Phase 6 keeps closed-bar tracking, Rally View projection, Hook View
+// projection, dashboard usability, and adds State Contract storage fields. The projection runs the same
 // locked Phoenix anatomy pipeline per configured timeframe and maps existing
 // facts into State Gate rows. It does not alter Node, Hook/ND, Flag Body,
 // Internal Count, lifecycle, ownership, canonicalization, renderer, validation,
@@ -230,6 +230,8 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
       FP_StateGateSeedPlaceholderRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot);
    }
 
+   FP_StateGateFinalizeSnapshotContracts(runtime.snapshot);
+
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
    runtime.snapshot.update_serial = runtime.update_serial;
@@ -245,6 +247,7 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    report.timeframe_count = runtime.snapshot.timeframe_count;
    report.rally_rows = runtime.snapshot.rally_row_count;
    report.hook_rows = runtime.snapshot.hook_row_count;
+   report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
 void FP_StateGateBuildPhase4Snapshot(const string symbol,
@@ -322,6 +325,8 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
       }
    }
 
+   FP_StateGateFinalizeSnapshotContracts(runtime.snapshot);
+
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
    runtime.snapshot.update_serial = runtime.update_serial;
@@ -337,6 +342,7 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    report.timeframe_count = runtime.snapshot.timeframe_count;
    report.rally_rows = runtime.snapshot.rally_row_count;
    report.hook_rows = runtime.snapshot.hook_row_count;
+   report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
 void FP_StateGateFinalizeRun(const FP_StateGateConfig &cfg,
@@ -436,12 +442,37 @@ void FP_RunStateGatePhase5(const string symbol,
       return;
    }
 
+   FP_RunStateGatePhase6(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+}
+
+
+void FP_RunStateGatePhase6(const string symbol,
+                           const ENUM_TIMEFRAMES chart_period,
+                           const FP_StateGateConfig &cfg,
+                           const FP_TimebaseConfig &timebase_template,
+                           const FP_Config &engine_template,
+                           const int &scales[],
+                           const int scale_count,
+                           FP_StateGateRuntime &runtime,
+                           FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
    FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
-   runtime.snapshot.status = "phase5_rally_hook_panel_polish";
-   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE5;
+   runtime.snapshot.status = "phase6_state_contract_storage";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE6;
    report.status = runtime.snapshot.status;
    report.reason = runtime.snapshot.reason;
-   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE5);
+   report.contract_rows = runtime.snapshot.timeframe_count;
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE6);
 }
 
 void FP_RunStateGatePhase3(const string symbol,
@@ -454,7 +485,7 @@ void FP_RunStateGatePhase3(const string symbol,
                            FP_StateGateRuntime &runtime,
                            FP_StateGateReport &report)
 {
-   FP_RunStateGatePhase5(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   FP_RunStateGatePhase6(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
 }
 
 // Backward-compatible aliases for older integration names.  Phase 1/2 callers

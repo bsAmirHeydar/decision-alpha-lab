@@ -25,6 +25,7 @@ void FP_PrintStateGateReport(const string tag, const FP_StateGateReport &r)
    msg += " unavailable_tfs=" + IntegerToString(r.unavailable_timeframes);
    msg += " rally_rows=" + IntegerToString(r.rally_rows);
    msg += " hook_rows=" + IntegerToString(r.hook_rows);
+   msg += " contract_rows=" + IntegerToString(r.contract_rows);
    msg += " panel_redrawn=" + FP_StateGateBoolName(r.panel_redrawn);
    msg += " export_attempted=" + FP_StateGateBoolName(r.export_attempted);
    msg += " skipped_no_dirty=" + FP_StateGateBoolName(r.skipped_no_dirty);
@@ -53,6 +54,9 @@ void FP_PrintStateGateSnapshotSamples(const string tag,
       msg += " rally=" + snapshot.tf_states[i].latest_established_f_summary;
       msg += " probable=" + snapshot.tf_states[i].probable_next_f_summary;
       msg += " hook=" + snapshot.tf_states[i].hook_summary;
+      msg += " contract=" + snapshot.tf_states[i].contract_status;
+      msg += " bridge=" + snapshot.tf_states[i].entry_bridge_status;
+      msg += " key=" + snapshot.tf_states[i].state_key;
       Print(msg);
    }
 }

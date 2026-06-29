@@ -8,9 +8,9 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Export
 // ----------------------------------------------------------------------------
-// Phase 5 writes closed-bar tracker fields plus Rally View, Hook View, and
-// dashboard-debug CSV rows. Hook rows are read-only projections of existing
-// Hook/ND branch output and do not change Hook/ND logic.
+// Phase 6 writes closed-bar tracker fields plus Rally View, Hook View, panel
+// debug rows, and a stable State Contract CSV for future entry-layer
+// consumption. Hook and Rally rows remain read-only projections.
 // ============================================================================
 
 bool FP_StateGateExportOpenWrite(const string path, int &handle)
@@ -61,6 +61,13 @@ string FP_StateGateSummaryHeader()
    FP_ExportCsvAppend(h, "latest_established_f_summary");
    FP_ExportCsvAppend(h, "probable_next_f_summary");
    FP_ExportCsvAppend(h, "hook_summary");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "primary_rally_key");
+   FP_ExportCsvAppend(h, "primary_hook_key");
+   FP_ExportCsvAppend(h, "anatomy_status");
+   FP_ExportCsvAppend(h, "storage_status");
+   FP_ExportCsvAppend(h, "entry_bridge_status");
+   FP_ExportCsvAppend(h, "contract_status");
    return h;
 }
 
@@ -87,6 +94,13 @@ string FP_StateGateSummaryRow(const FP_StateGateSnapshot &snapshot, const int sl
    FP_ExportCsvAppend(line, s.latest_established_f_summary);
    FP_ExportCsvAppend(line, s.probable_next_f_summary);
    FP_ExportCsvAppend(line, s.hook_summary);
+   FP_ExportCsvAppend(line, s.state_key);
+   FP_ExportCsvAppend(line, s.primary_rally_key);
+   FP_ExportCsvAppend(line, s.primary_hook_key);
+   FP_ExportCsvAppend(line, s.anatomy_status);
+   FP_ExportCsvAppend(line, s.storage_status);
+   FP_ExportCsvAppend(line, s.entry_bridge_status);
+   FP_ExportCsvAppend(line, s.contract_status);
    return line;
 }
 
@@ -264,6 +278,9 @@ string FP_StateGatePanelHeader()
    FP_ExportCsvAppend(h, "latest_established_f_summary");
    FP_ExportCsvAppend(h, "probable_next_f_summary");
    FP_ExportCsvAppend(h, "hook_summary");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "contract_status");
+   FP_ExportCsvAppend(h, "entry_bridge_status");
    FP_ExportCsvAppend(h, "tracker_status");
    FP_ExportCsvAppend(h, "reason");
    return h;
@@ -288,6 +305,9 @@ string FP_StateGatePanelCsvRow(const FP_StateGateConfig &cfg,
    FP_ExportCsvAppend(line, s.latest_established_f_summary);
    FP_ExportCsvAppend(line, s.probable_next_f_summary);
    FP_ExportCsvAppend(line, s.hook_summary);
+   FP_ExportCsvAppend(line, s.state_key);
+   FP_ExportCsvAppend(line, s.contract_status);
+   FP_ExportCsvAppend(line, s.entry_bridge_status);
    FP_ExportCsvAppend(line, s.tracker_status);
    FP_ExportCsvAppend(line, s.reason);
    return line;
@@ -310,6 +330,84 @@ bool FP_StateGateExportPanelCsv(const string path,
       FP_StateGateExportWriteLine(handle, FP_StateGatePanelCsvRow(cfg, snapshot, i));
    FileClose(handle);
    report.files_written++;
+   return true;
+}
+
+
+string FP_StateGateContractHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "chart_timeframe");
+   FP_ExportCsvAppend(h, "slot");
+   FP_ExportCsvAppend(h, "timeframe");
+   FP_ExportCsvAppend(h, "closed_bar_time");
+   FP_ExportCsvAppend(h, "closed_bar_close");
+   FP_ExportCsvAppend(h, "dirty");
+   FP_ExportCsvAppend(h, "update_count");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "contract_status");
+   FP_ExportCsvAppend(h, "anatomy_status");
+   FP_ExportCsvAppend(h, "storage_status");
+   FP_ExportCsvAppend(h, "entry_bridge_status");
+   FP_ExportCsvAppend(h, "primary_rally_key");
+   FP_ExportCsvAppend(h, "primary_hook_key");
+   FP_ExportCsvAppend(h, "latest_established_f_summary");
+   FP_ExportCsvAppend(h, "probable_next_f_summary");
+   FP_ExportCsvAppend(h, "hook_summary");
+   FP_ExportCsvAppend(h, "rally_rows");
+   FP_ExportCsvAppend(h, "hook_rows");
+   FP_ExportCsvAppend(h, "tracker_status");
+   FP_ExportCsvAppend(h, "reason");
+   return h;
+}
+
+string FP_StateGateContractRow(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string line = "";
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, IntegerToString(slot));
+   FP_ExportCsvAppend(line, s.timeframe_label);
+   FP_ExportCsvAppend(line, FP_ExportTime(s.last_closed_bar_time));
+   FP_ExportCsvAppend(line, FP_ExportDouble(s.last_closed_bar_close));
+   FP_ExportCsvAppend(line, FP_ExportBool(s.dirty));
+   FP_ExportCsvAppend(line, IntegerToString(s.update_count));
+   FP_ExportCsvAppend(line, s.state_key);
+   FP_ExportCsvAppend(line, s.contract_status);
+   FP_ExportCsvAppend(line, s.anatomy_status);
+   FP_ExportCsvAppend(line, s.storage_status);
+   FP_ExportCsvAppend(line, s.entry_bridge_status);
+   FP_ExportCsvAppend(line, s.primary_rally_key);
+   FP_ExportCsvAppend(line, s.primary_hook_key);
+   FP_ExportCsvAppend(line, s.latest_established_f_summary);
+   FP_ExportCsvAppend(line, s.probable_next_f_summary);
+   FP_ExportCsvAppend(line, s.hook_summary);
+   FP_ExportCsvAppend(line, IntegerToString(s.rally_row_count));
+   FP_ExportCsvAppend(line, IntegerToString(s.hook_row_count));
+   FP_ExportCsvAppend(line, s.tracker_status);
+   FP_ExportCsvAppend(line, s.reason);
+   return line;
+}
+
+bool FP_StateGateExportContractCsv(const string path,
+                                   const FP_StateGateSnapshot &snapshot,
+                                   FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_contract_open_failed";
+      return false;
+   }
+   FP_StateGateExportWriteLine(handle, FP_StateGateContractHeader());
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateExportWriteLine(handle, FP_StateGateContractRow(snapshot, i));
+   FileClose(handle);
+   report.files_written++;
+   report.contract_rows = snapshot.timeframe_count;
    return true;
 }
 
@@ -362,7 +460,10 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "panel_show_row_counts", FP_ExportBool(cfg.panel_show_row_counts));
    FP_StateGateManifestKV(handle, "panel_rally_preview_rows_per_tf", IntegerToString(cfg.panel_rally_preview_rows_per_tf));
    FP_StateGateManifestKV(handle, "panel_hook_preview_rows_per_tf", IntegerToString(cfg.panel_hook_preview_rows_per_tf));
-   FP_StateGateManifestKV(handle, "projection_state", "phase5_rally_hook_panel_polished");
+   FP_StateGateManifestKV(handle, "panel_show_contract_key", FP_ExportBool(cfg.panel_show_contract_key));
+   FP_StateGateManifestKV(handle, "export_contract_csv", FP_ExportBool(cfg.export_contract_csv));
+   FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
+   FP_StateGateManifestKV(handle, "projection_state", "phase6_rally_hook_contract_stored");
 
    FileClose(handle);
    report.files_written++;
@@ -386,12 +487,15 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string rally_path = FP_StateGateExportPath("rally", cfg);
    string hooks_path = FP_StateGateExportPath("hooks", cfg);
    string panel_path = FP_StateGateExportPath("panel", cfg);
+   string contract_path = FP_StateGateExportPath("contract", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
    FP_StateGateExportRallyCsv(rally_path, snapshot, report);
    FP_StateGateExportHookCsv(hooks_path, snapshot, report);
    FP_StateGateExportPanelCsv(panel_path, cfg, snapshot, report);
+   if(cfg.export_contract_csv)
+      FP_StateGateExportContractCsv(contract_path, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

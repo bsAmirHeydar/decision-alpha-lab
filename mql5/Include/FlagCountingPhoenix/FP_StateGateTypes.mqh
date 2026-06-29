@@ -11,13 +11,14 @@
 // Hook/ND, Flag Body, Internal Count, F1/F2/F3 lifecycle, ownership,
 // canonicalization, renderer, validation, release, and license logic.
 //
-// Phase 5 keeps the closed-bar tracker, Rally View projection, and Hook View
-// projection, then improves the right-upper dashboard usability layer. It still
-// does not modify F-counting, Hook/ND, node, ownership, canonicalization,
-// renderer, validation, release, or license logic.
+// Phase 6 preserves the closed-bar tracker, Rally View projection, Hook View
+// projection, and dashboard polish, then adds a stable read-only State Contract
+// layer for future entry design. It still does not modify F-counting, Hook/ND,
+// node, ownership, canonicalization, renderer, validation, release, or license
+// logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.40-phase5"
+#define FP_STATE_GATE_VERSION "19.50-phase6"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -36,12 +37,16 @@
 #define FP_STATE_GATE_REASON_PHASE3 "phase3_rally_projection"
 #define FP_STATE_GATE_REASON_PHASE4 "phase4_hook_projection"
 #define FP_STATE_GATE_REASON_PHASE5 "phase5_panel_polish"
+#define FP_STATE_GATE_REASON_PHASE6 "phase6_state_contract_storage"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
 #define FP_STATE_GATE_RALLY_NO_ROWS "NO_CANONICAL_F_ROWS"
 #define FP_STATE_GATE_RALLY_ESTABLISHED_NONE "NO_ESTABLISHED_F"
 #define FP_STATE_GATE_RALLY_PROBABLE_NONE "NO_PROBABLE_NEXT_F"
 #define FP_STATE_GATE_HOOK_NO_ROWS "NO_HOOK_ROWS"
+#define FP_STATE_GATE_CONTRACT_READY "STATE_CONTRACT_READY_CONTEXT_ONLY"
+#define FP_STATE_GATE_CONTRACT_PARTIAL "STATE_CONTRACT_PARTIAL"
+#define FP_STATE_GATE_CONTRACT_NO_DATA "STATE_CONTRACT_NO_DATA"
 
 enum FP_StateGateViewType
 {
@@ -78,12 +83,14 @@ struct FP_StateGateConfig
    bool panel_compact_mode;
    bool panel_show_closed_bar;
    bool panel_show_row_counts;
+   bool panel_show_contract_key;
    int  max_rally_rows_per_tf;
    int  max_hook_rows_per_tf;
    bool show_ids;
    bool show_scale_l;
    bool export_csv;
    bool export_overwrite_latest;
+   bool export_contract_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -106,6 +113,13 @@ struct FP_StateGateTimeframeState
    string latest_established_f_summary;
    string probable_next_f_summary;
    string hook_summary;
+   string state_key;
+   string primary_rally_key;
+   string primary_hook_key;
+   string anatomy_status;
+   string storage_status;
+   string entry_bridge_status;
+   string contract_status;
    string tracker_status;
    string status;
    string reason;
@@ -211,6 +225,7 @@ struct FP_StateGateReport
    int unavailable_timeframes;
    int rally_rows;
    int hook_rows;
+   int contract_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -239,6 +254,13 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.latest_established_f_summary = "RALLY_VIEW_PENDING";
    s.probable_next_f_summary = "RALLY_VIEW_PENDING";
    s.hook_summary = "HOOK_VIEW_PENDING";
+   s.state_key = "STATE_KEY_PENDING";
+   s.primary_rally_key = "RALLY_KEY_PENDING";
+   s.primary_hook_key = "HOOK_KEY_PENDING";
+   s.anatomy_status = "ANATOMY_PENDING";
+   s.storage_status = "STORAGE_PENDING";
+   s.entry_bridge_status = "ENTRY_BRIDGE_CONTEXT_PENDING";
+   s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
    s.reason = "reset";
@@ -350,6 +372,7 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.unavailable_timeframes = 0;
    r.rally_rows = 0;
    r.hook_rows = 0;
+   r.contract_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -380,12 +403,14 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_compact_mode = true;
    cfg.panel_show_closed_bar = true;
    cfg.panel_show_row_counts = true;
+   cfg.panel_show_contract_key = true;
    cfg.max_rally_rows_per_tf = 6;
    cfg.max_hook_rows_per_tf = 10;
    cfg.show_ids = true;
    cfg.show_scale_l = true;
    cfg.export_csv = true;
    cfg.export_overwrite_latest = true;
+   cfg.export_contract_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

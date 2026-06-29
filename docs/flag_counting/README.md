@@ -131,9 +131,10 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE2_CLOSED_BAR_TRACKER.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE3_RALLY_VIEW_PROJECTION.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE5_PANEL_POLISH.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE6_STATE_CONTRACT_STORAGE.md
 ```
 
-Phase 2 implements the closed-bar tracker for the three configured State Gate timeframes. Phase 3 projects Rally View from the existing locked F1/F2/F3 event lifecycle output. Phase 4 projects Hook View from the existing locked Hook/ND branch output across the configured L-scale sequence. Phase 5 polishes the right-upper dashboard, adds configurable Rally/Hook preview limits, improves live debug readability, and exports `latest_state_gate_panel.csv`.
+Phase 2 implements the closed-bar tracker for the three configured State Gate timeframes. Phase 3 projects Rally View from the existing locked F1/F2/F3 event lifecycle output. Phase 4 projects Hook View from the existing locked Hook/ND branch output across the configured L-scale sequence. Phase 5 polishes the right-upper dashboard, adds configurable Rally/Hook preview limits, improves live debug readability, and exports `latest_state_gate_panel.csv`. Phase 6 stores a per-timeframe State Contract with stable `state_key`, anatomy status, storage status, and decision-neutral entry-bridge readiness labels for future entry-layer consumption.
 
 ## Level 18 static QA
 

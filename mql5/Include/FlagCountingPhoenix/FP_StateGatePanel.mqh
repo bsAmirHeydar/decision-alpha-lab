@@ -7,9 +7,9 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Panel
 // ----------------------------------------------------------------------------
-// Phase 5 polishes the right-upper dashboard: configurable row previews, compact
-// labels, dirty/no-data colors, row-count hints, forced right-upper anchoring,
-// and stable cleanup/redraw behavior. It only renders State Gate snapshot data.
+// Phase 6 preserves the polished right-upper dashboard and adds optional State
+// Contract visibility. It only renders read-only State Gate snapshot data and
+// never changes the locked anatomy engines.
 // ============================================================================
 
 string FP_StateGateObjectName(const FP_StateGateConfig &cfg, const string suffix)
@@ -221,6 +221,7 @@ int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
 {
    int rows = 3; // tracker, latest/probable rally, hook summary
    if(cfg.panel_show_row_counts) rows++;
+   if(cfg.panel_show_contract_key) rows++;
    int rlimit = FP_StateGatePanelRallyPreviewLimit(cfg);
    int hlimit = FP_StateGatePanelHookPreviewLimit(cfg);
    int rally_count = FP_StateGatePanelCountRallyRowsForSlot(snapshot, slot);
@@ -252,6 +253,19 @@ string FP_StateGatePanelCountsLine(const FP_StateGateSnapshot &snapshot,
    string line = "  rows | rally=" + IntegerToString(snapshot.tf_states[slot].rally_row_count);
    line += " hook=" + IntegerToString(snapshot.tf_states[slot].hook_row_count);
    line += " | status=" + snapshot.tf_states[slot].tracker_status;
+   return line;
+}
+
+
+string FP_StateGatePanelContractLine(const FP_StateGateConfig &cfg,
+                                     const FP_StateGateSnapshot &snapshot,
+                                     const int slot)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string line = "  contract | " + s.contract_status;
+   line += " | " + s.entry_bridge_status;
+   if(cfg.panel_show_contract_key)
+      line += " | key=" + s.state_key;
    return line;
 }
 
@@ -371,6 +385,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       if(cfg.panel_show_row_counts)
       {
          FP_StateGateCreateLabel(cfg, suffix + "CNT", cfg.panel_x + 8, y, FP_StateGatePanelClip(FP_StateGatePanelCountsLine(snapshot, i), text_limit), clrGray, font_size, report);
+         y += row_h;
+      }
+
+      if(cfg.panel_show_contract_key)
+      {
+         FP_StateGateCreateLabel(cfg, suffix + "CONTRACT", cfg.panel_x + 8, y, FP_StateGatePanelClip(FP_StateGatePanelContractLine(cfg, snapshot, i), text_limit), clrKhaki, font_size, report);
          y += row_h;
       }
 
