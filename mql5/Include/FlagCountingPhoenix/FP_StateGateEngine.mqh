@@ -235,6 +235,8 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    FP_StateGateBuildMtfAlignmentRows(runtime.snapshot);
    FP_StateGateFinalizeSnapshotMtfAlignment(runtime.snapshot);
    FP_StateGateFinalizeSnapshotEntryGeometry(runtime.snapshot);
+   FP_StateGateBuildEntryIdeaRows(runtime.snapshot);
+   FP_StateGateFinalizeSnapshotEntryIdeas(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
@@ -254,6 +256,7 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
    report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -337,6 +340,8 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    FP_StateGateBuildMtfAlignmentRows(runtime.snapshot);
    FP_StateGateFinalizeSnapshotMtfAlignment(runtime.snapshot);
    FP_StateGateFinalizeSnapshotEntryGeometry(runtime.snapshot);
+   FP_StateGateBuildEntryIdeaRows(runtime.snapshot);
+   FP_StateGateFinalizeSnapshotEntryIdeas(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
@@ -356,6 +361,7 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
    report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -550,6 +556,7 @@ void FP_RunStateGatePhase12(const string symbol,
    report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
    report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE12);
 }
 
@@ -584,6 +591,7 @@ void FP_RunStateGatePhase13(const string symbol,
    report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
    report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE13);
 }
 
@@ -618,7 +626,43 @@ void FP_RunStateGatePhase14(const string symbol,
    report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
    report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
    report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE14);
+}
+
+
+
+void FP_RunStateGatePhase15(const string symbol,
+                            const ENUM_TIMEFRAMES chart_period,
+                            const FP_StateGateConfig &cfg,
+                            const FP_TimebaseConfig &timebase_template,
+                            const FP_Config &engine_template,
+                            const int &scales[],
+                            const int scale_count,
+                            FP_StateGateRuntime &runtime,
+                            FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   runtime.snapshot.status = "phase15_entry_idea_layer";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE15;
+   report.status = runtime.snapshot.status;
+   report.reason = runtime.snapshot.reason;
+   report.contract_rows = runtime.snapshot.timeframe_count;
+   report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
+   report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
+   report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE15);
 }
 
 

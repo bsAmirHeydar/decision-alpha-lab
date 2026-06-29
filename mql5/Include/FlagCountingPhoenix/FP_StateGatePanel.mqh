@@ -298,7 +298,7 @@ string FP_StateGatePanelTrackerLine(const FP_StateGateConfig &cfg,
 
 string FP_StateGatePanelCountsLine(const FP_StateGateTimeframeState &s)
 {
-   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count) + " | mtf=" + IntegerToString(s.mtf_alignment_row_count);
+   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count) + " | mtf=" + IntegerToString(s.mtf_alignment_row_count) + " | idea=" + IntegerToString(s.entry_idea_row_count);
 }
 
 string FP_StateGatePanelContractLine(const FP_StateGateConfig &cfg,
@@ -390,6 +390,7 @@ int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
    rows++; // extreme candidate map
    rows++; // mtf alignment map
    rows++; // entry geometry readiness
+   rows++; // entry idea layer
 
    rows++; // rally header
    if(!g_fp_state_gate_slot_rally_collapsed[slot])
@@ -532,6 +533,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       FP_StateGateCreateLabel(cfg, suffix + "GEOMETRY", x + 10, cursor_y + 2,
                               FP_StateGatePanelClip(geometry_line, text_limit),
                               clrPaleGreen, font_size, report);
+      cursor_y += row_h;
+
+      string idea_line = "    Idea | " + s.entry_idea_status + " | " + s.primary_entry_idea_family + " | " + s.entry_idea_readiness;
+      FP_StateGateCreateLabel(cfg, suffix + "ENTRY_IDEA", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(idea_line, text_limit),
+                              clrMagenta, font_size, report);
       cursor_y += row_h;
 
       // Rally subsection

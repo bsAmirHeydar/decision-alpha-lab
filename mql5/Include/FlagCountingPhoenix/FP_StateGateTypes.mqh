@@ -18,12 +18,13 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.140-phase14"
+#define FP_STATE_GATE_VERSION "19.150-phase15"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
 #define FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS 72
 #define FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS 12
+#define FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS 24
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -43,6 +44,7 @@
 #define FP_STATE_GATE_REASON_PHASE12 "phase12_extreme_candidate_map"
 #define FP_STATE_GATE_REASON_PHASE13 "phase13_mtf_alignment_map"
 #define FP_STATE_GATE_REASON_PHASE14 "phase14_entry_geometry_readiness"
+#define FP_STATE_GATE_REASON_PHASE15 "phase15_entry_idea_layer"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -106,6 +108,7 @@ struct FP_StateGateConfig
    bool export_extreme_candidates_csv;
    bool export_mtf_alignment_csv;
    bool export_entry_geometry_csv;
+   bool export_entry_ideas_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -127,6 +130,7 @@ struct FP_StateGateTimeframeState
    int hook_row_count;
    int extreme_candidate_row_count;
    int mtf_alignment_row_count;
+   int entry_idea_row_count;
    string latest_established_f_summary;
    string probable_next_f_summary;
    string hook_summary;
@@ -185,6 +189,17 @@ struct FP_StateGateTimeframeState
    string geometry_readiness;
    string geometry_key;
    string geometry_notes;
+   string entry_idea_status;
+   string entry_idea_readiness;
+   string entry_idea_key;
+   string primary_entry_idea_family;
+   string primary_entry_idea_type;
+   string primary_entry_idea_direction;
+   string primary_entry_idea_source;
+   string primary_entry_idea_role;
+   string primary_entry_idea_geometry_status;
+   string primary_entry_idea_mtf_context;
+   string entry_idea_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -295,6 +310,35 @@ struct FP_StateGateMtfAlignmentRow
    string label;
 };
 
+
+struct FP_StateGateEntryIdeaRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string readiness;
+   string idea_family;
+   string idea_type;
+   string idea_direction;
+   string idea_source;
+   string idea_role;
+   string geometry_status;
+   string mtf_context_role;
+   string extreme_side;
+   double entry_price;
+   double invalidation_anchor_price;
+   double destination_anchor_price;
+   double destination_distance;
+   string risk_status;
+   string potential_R_status;
+   double potential_R;
+   string idea_key;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -313,10 +357,12 @@ struct FP_StateGateSnapshot
    FP_StateGateHookRow hook_rows[FP_STATE_GATE_MAX_HOOK_ROWS];
    FP_StateGateExtremeCandidateRow extreme_candidate_rows[FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS];
    FP_StateGateMtfAlignmentRow mtf_alignment_rows[FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS];
+   FP_StateGateEntryIdeaRow entry_idea_rows[FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS];
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
    int mtf_alignment_row_count;
+   int entry_idea_row_count;
    string status;
    string reason;
 };
@@ -357,6 +403,7 @@ struct FP_StateGateReport
    int extreme_candidate_rows;
    int mtf_alignment_rows;
    int geometry_rows;
+   int entry_idea_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -443,6 +490,18 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.geometry_readiness = "ENTRY_GEOMETRY_PENDING_NO_SIGNAL";
    s.geometry_key = "ENTRY_GEOMETRY_KEY_PENDING";
    s.geometry_notes = "ENTRY_GEOMETRY_PENDING";
+   s.entry_idea_row_count = 0;
+   s.entry_idea_status = "ENTRY_IDEA_PENDING";
+   s.entry_idea_readiness = "ENTRY_IDEA_PENDING_NO_SIGNAL";
+   s.entry_idea_key = "ENTRY_IDEA_KEY_PENDING";
+   s.primary_entry_idea_family = "NO_ENTRY_IDEA_FAMILY";
+   s.primary_entry_idea_type = "NO_ENTRY_IDEA_TYPE";
+   s.primary_entry_idea_direction = "NO_ENTRY_IDEA_DIRECTION";
+   s.primary_entry_idea_source = "NO_ENTRY_IDEA_SOURCE";
+   s.primary_entry_idea_role = "NO_ENTRY_IDEA_ROLE";
+   s.primary_entry_idea_geometry_status = "NO_ENTRY_IDEA_GEOMETRY";
+   s.primary_entry_idea_mtf_context = "NO_ENTRY_IDEA_MTF_CONTEXT";
+   s.entry_idea_notes = "ENTRY_IDEA_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -553,6 +612,35 @@ void FP_ResetStateGateMtfAlignmentRow(FP_StateGateMtfAlignmentRow &m)
    m.label = "MTF alignment pending";
 }
 
+
+void FP_ResetStateGateEntryIdeaRow(FP_StateGateEntryIdeaRow &e)
+{
+   e.slot_index = -1;
+   e.timeframe = PERIOD_CURRENT;
+   e.timeframe_label = "TF?";
+   e.last_closed_bar_time = 0;
+   e.last_closed_bar_close = 0.0;
+   e.status = FP_STATE_GATE_ROW_EMPTY;
+   e.readiness = "ENTRY_IDEA_PENDING_NO_SIGNAL";
+   e.idea_family = "NO_ENTRY_IDEA_FAMILY";
+   e.idea_type = "NO_ENTRY_IDEA_TYPE";
+   e.idea_direction = "NO_ENTRY_IDEA_DIRECTION";
+   e.idea_source = "NO_ENTRY_IDEA_SOURCE";
+   e.idea_role = "NO_ENTRY_IDEA_ROLE";
+   e.geometry_status = "NO_ENTRY_GEOMETRY";
+   e.mtf_context_role = "NO_MTF_CONTEXT";
+   e.extreme_side = "NO_EXTREME_SIDE";
+   e.entry_price = 0.0;
+   e.invalidation_anchor_price = 0.0;
+   e.destination_anchor_price = 0.0;
+   e.destination_distance = 0.0;
+   e.risk_status = "NO_RISK_MODEL";
+   e.potential_R_status = "NO_POTENTIAL_R";
+   e.potential_R = 0.0;
+   e.idea_key = "NO_ENTRY_IDEA_KEY";
+   e.label = "Entry idea pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -576,10 +664,13 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGateExtremeCandidateRow(s.extreme_candidate_rows[x]);
    for(int m=0; m<FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS; m++)
       FP_ResetStateGateMtfAlignmentRow(s.mtf_alignment_rows[m]);
+   for(int e=0; e<FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS; e++)
+      FP_ResetStateGateEntryIdeaRow(s.entry_idea_rows[e]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
    s.mtf_alignment_row_count = 0;
+   s.entry_idea_row_count = 0;
    s.status = "reset";
    s.reason = "reset";
 }
@@ -623,6 +714,7 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.extreme_candidate_rows = 0;
    r.mtf_alignment_rows = 0;
    r.geometry_rows = 0;
+   r.entry_idea_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -670,6 +762,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_extreme_candidates_csv = true;
    cfg.export_mtf_alignment_csv = true;
    cfg.export_entry_geometry_csv = true;
+   cfg.export_entry_ideas_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

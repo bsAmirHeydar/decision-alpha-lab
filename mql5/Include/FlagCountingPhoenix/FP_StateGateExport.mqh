@@ -666,6 +666,9 @@ bool FP_StateGateExportPanelLinesCsv(const string path,
       string geom = "geometry | " + s.geometry_readiness + " | entry=" + s.candidate_entry_price_status + " | invalidation=" + s.candidate_invalidation_price_status + " | destination=" + s.candidate_destination_price_status + " | potentialR=" + s.potential_R_status;
       FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "ENTRY_GEOMETRY", "ENTRY_GEOMETRY", -1, "ENTRY_GEOMETRY", s.geometry_key, geom, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
 
+      string idea = "idea | rows=" + IntegerToString(s.entry_idea_row_count) + " | " + s.entry_idea_status + " | " + s.primary_entry_idea_family + " | " + s.entry_idea_readiness + " | " + s.primary_entry_idea_mtf_context;
+      FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "ENTRY_IDEA", "ENTRY_IDEA", -1, "ENTRY_IDEA", s.entry_idea_key, idea, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
+
       string rally_header = "Rally | total=" + IntegerToString(s.rally_row_count) + " | latest=" + s.latest_established_f_summary + " | probable=" + s.probable_next_f_summary;
       FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, slot, "RALLY", "SECTION_HEADER", -1, "TF_STATE", s.timeframe_label, rally_header, s.last_closed_bar_time, s.state_key, s.contract_status, s.entry_bridge_status));
 
@@ -1369,6 +1372,109 @@ bool FP_StateGateExportEntryGeometryCsv(const string path,
 }
 
 
+
+string FP_StateGateEntryIdeaHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "chart_timeframe");
+   FP_ExportCsvAppend(h, "slot");
+   FP_ExportCsvAppend(h, "timeframe");
+   FP_ExportCsvAppend(h, "closed_bar_time");
+   FP_ExportCsvAppend(h, "closed_bar_close");
+   FP_ExportCsvAppend(h, "status");
+   FP_ExportCsvAppend(h, "readiness");
+   FP_ExportCsvAppend(h, "idea_family");
+   FP_ExportCsvAppend(h, "idea_type");
+   FP_ExportCsvAppend(h, "idea_direction");
+   FP_ExportCsvAppend(h, "idea_source");
+   FP_ExportCsvAppend(h, "idea_role");
+   FP_ExportCsvAppend(h, "geometry_status");
+   FP_ExportCsvAppend(h, "mtf_context_role");
+   FP_ExportCsvAppend(h, "extreme_side");
+   FP_ExportCsvAppend(h, "entry_price");
+   FP_ExportCsvAppend(h, "invalidation_anchor_price");
+   FP_ExportCsvAppend(h, "destination_anchor_price");
+   FP_ExportCsvAppend(h, "destination_distance");
+   FP_ExportCsvAppend(h, "risk_status");
+   FP_ExportCsvAppend(h, "potential_R_status");
+   FP_ExportCsvAppend(h, "potential_R");
+   FP_ExportCsvAppend(h, "idea_key");
+   FP_ExportCsvAppend(h, "label");
+   FP_ExportCsvAppend(h, "state_key");
+   FP_ExportCsvAppend(h, "geometry_key");
+   FP_ExportCsvAppend(h, "mtf_alignment_key");
+   return h;
+}
+
+string FP_StateGateEntryIdeaRowCsv(const FP_StateGateSnapshot &snapshot,
+                                   const int index)
+{
+   FP_StateGateEntryIdeaRow e = snapshot.entry_idea_rows[index];
+   string line = "";
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, IntegerToString(e.slot_index));
+   FP_ExportCsvAppend(line, e.timeframe_label);
+   FP_ExportCsvAppend(line, FP_ExportTime(e.last_closed_bar_time));
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.last_closed_bar_close));
+   FP_ExportCsvAppend(line, IntegerToString(e.status));
+   FP_ExportCsvAppend(line, e.readiness);
+   FP_ExportCsvAppend(line, e.idea_family);
+   FP_ExportCsvAppend(line, e.idea_type);
+   FP_ExportCsvAppend(line, e.idea_direction);
+   FP_ExportCsvAppend(line, e.idea_source);
+   FP_ExportCsvAppend(line, e.idea_role);
+   FP_ExportCsvAppend(line, e.geometry_status);
+   FP_ExportCsvAppend(line, e.mtf_context_role);
+   FP_ExportCsvAppend(line, e.extreme_side);
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.entry_price));
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.invalidation_anchor_price));
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.destination_anchor_price));
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.destination_distance));
+   FP_ExportCsvAppend(line, e.risk_status);
+   FP_ExportCsvAppend(line, e.potential_R_status);
+   FP_ExportCsvAppend(line, FP_ExportDouble(e.potential_R));
+   FP_ExportCsvAppend(line, e.idea_key);
+   FP_ExportCsvAppend(line, e.label);
+
+   if(e.slot_index >= 0 && e.slot_index < snapshot.timeframe_count)
+   {
+      FP_StateGateTimeframeState s = snapshot.tf_states[e.slot_index];
+      FP_ExportCsvAppend(line, s.state_key);
+      FP_ExportCsvAppend(line, s.geometry_key);
+      FP_ExportCsvAppend(line, s.mtf_alignment_key);
+   }
+   else
+   {
+      FP_ExportCsvAppend(line, "");
+      FP_ExportCsvAppend(line, "");
+      FP_ExportCsvAppend(line, "");
+   }
+
+   return line;
+}
+
+bool FP_StateGateExportEntryIdeasCsv(const string path,
+                                     const FP_StateGateSnapshot &snapshot,
+                                     FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_entry_ideas_open_failed";
+      return false;
+   }
+   FP_StateGateExportWriteLine(handle, FP_StateGateEntryIdeaHeader());
+   for(int i=0; i<snapshot.entry_idea_row_count; i++)
+      FP_StateGateExportWriteLine(handle, FP_StateGateEntryIdeaRowCsv(snapshot, i));
+   FileClose(handle);
+   report.files_written++;
+   return true;
+}
+
+
 void FP_StateGateManifestKV(const int handle, const string key, const string value)
 {
    string row = "";
@@ -1549,8 +1655,10 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "export_extreme_candidates_csv", FP_ExportBool(cfg.export_extreme_candidates_csv));
    FP_StateGateManifestKV(handle, "export_mtf_alignment_csv", FP_ExportBool(cfg.export_mtf_alignment_csv));
    FP_StateGateManifestKV(handle, "export_entry_geometry_csv", FP_ExportBool(cfg.export_entry_geometry_csv));
+   FP_StateGateManifestKV(handle, "export_entry_ideas_csv", FP_ExportBool(cfg.export_entry_ideas_csv));
+   FP_StateGateManifestKV(handle, "entry_idea_rows", IntegerToString(snapshot.entry_idea_row_count));
    FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
-   FP_StateGateManifestKV(handle, "projection_state", "phase14_entry_geometry_readiness");
+   FP_StateGateManifestKV(handle, "projection_state", "phase15_entry_idea_layer");
 
    FileClose(handle);
    report.files_written++;
@@ -1581,6 +1689,7 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string extreme_candidates_path = FP_StateGateExportPath("extreme_candidates", cfg);
    string mtf_alignment_path = FP_StateGateExportPath("mtf_alignment", cfg);
    string entry_geometry_path = FP_StateGateExportPath("entry_geometry", cfg);
+   string entry_ideas_path = FP_StateGateExportPath("entry_ideas", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
@@ -1601,6 +1710,8 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
       FP_StateGateExportMtfAlignmentCsv(mtf_alignment_path, snapshot, report);
    if(cfg.export_entry_geometry_csv)
       FP_StateGateExportEntryGeometryCsv(entry_geometry_path, snapshot, report);
+   if(cfg.export_entry_ideas_csv)
+      FP_StateGateExportEntryIdeasCsv(entry_ideas_path, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

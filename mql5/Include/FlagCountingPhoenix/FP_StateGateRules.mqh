@@ -1686,6 +1686,206 @@ void FP_StateGateFinalizeSnapshotEntryGeometry(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 15 - Entry Idea Layer
+// ---------------------------------------------------------------------------
+// This layer wraps the prepared geometry into idea-only records.  It still
+// never produces trade permission, orders, position sizing, or execution fields.
+
+string FP_StateGateEntryIdeaFamily(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "ENTRY_IDEA_BLOCKED_NO_CLOSED_BAR";
+   if(s.candidate_entry_price == 0.0)
+      return "ENTRY_IDEA_BLOCKED_NO_ENTRY_GEOMETRY";
+   if(StringFind(s.primary_extreme_source, "HOOK") >= 0 && StringFind(s.mtf_context_role, "ALIGNED") >= 0)
+      return "MTF_ALIGNED_HOOK_EXTREME_IDEA_ONLY";
+   if(StringFind(s.primary_extreme_source, "HOOK") >= 0)
+      return "HOOK_EXTREME_REVERSAL_IDEA_ONLY";
+   if(StringFind(s.primary_extreme_source, "RALLY") >= 0)
+      return "RALLY_CONTEXT_EXTREME_IDEA_ONLY";
+   if(StringFind(s.geometry_readiness, "PARTIAL") >= 0)
+      return "GEOMETRY_CONTEXT_IDEA_ONLY";
+   return "ENTRY_IDEA_PENDING_CONTEXT_ONLY";
+}
+
+string FP_StateGateEntryIdeaType(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "NO_ENTRY_IDEA_TYPE";
+   if(s.candidate_entry_price == 0.0)
+      return "WAIT_FOR_ENTRY_GEOMETRY_IDEA_ONLY";
+   if(StringFind(s.primary_extreme_source, "HOOK") >= 0)
+      return "SELECTED_EXTREME_REVERSION_CONTEXT_IDEA_ONLY";
+   if(StringFind(s.primary_extreme_source, "RALLY") >= 0)
+      return "RALLY_STAGE_CONTEXT_IDEA_ONLY";
+   return "GEOMETRY_CONTEXT_IDEA_ONLY";
+}
+
+string FP_StateGateEntryIdeaReadiness(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "ENTRY_IDEA_BLOCKED_NO_CLOSED_BAR";
+   if(s.candidate_entry_price == 0.0)
+      return "ENTRY_IDEA_BLOCKED_NO_ENTRY_ANCHOR";
+   if(s.candidate_destination_price != 0.0)
+      return "ENTRY_IDEA_READY_FOR_DRY_RUN_NO_SIGNAL_NO_ORDER";
+   return "ENTRY_IDEA_PARTIAL_DESTINATION_PENDING_NO_SIGNAL_NO_ORDER";
+}
+
+string FP_StateGateEntryIdeaStatus(const FP_StateGateTimeframeState &s)
+{
+   string readiness = FP_StateGateEntryIdeaReadiness(s);
+   if(StringFind(readiness, "READY") >= 0)
+      return "ENTRY_IDEA_CONTEXT_READY_NO_SIGNAL";
+   if(StringFind(readiness, "PARTIAL") >= 0)
+      return "ENTRY_IDEA_CONTEXT_PARTIAL_NO_SIGNAL";
+   return "ENTRY_IDEA_CONTEXT_BLOCKED_NO_SIGNAL";
+}
+
+string FP_StateGateEntryIdeaRole(const FP_StateGateTimeframeState &s)
+{
+   if(StringFind(s.mtf_context_role, "ALIGNED") >= 0)
+      return "IDEA_ROLE_LTF_EXTREME_WITH_HTF_CONTEXT";
+   if(StringFind(s.mtf_context_role, "DIVERGENCE") >= 0)
+      return "IDEA_ROLE_LTF_HTF_DIVERGENCE_REVIEW";
+   if(StringFind(s.primary_extreme_source, "HOOK") >= 0)
+      return "IDEA_ROLE_HOOK_EXTREME_REVIEW";
+   if(StringFind(s.primary_extreme_source, "RALLY") >= 0)
+      return "IDEA_ROLE_RALLY_STAGE_REVIEW";
+   return "IDEA_ROLE_CONTEXT_REVIEW";
+}
+
+string FP_StateGateEntryIdeaKey(const FP_StateGateSnapshot &snapshot,
+                                const int slot,
+                                const string idea_family,
+                                const string idea_type,
+                                const string readiness)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string key = snapshot.symbol;
+   key += "|TF=" + s.timeframe_label;
+   key += "|IDEA=" + FP_StateGateKeyPart(idea_family);
+   key += "|TYPE=" + FP_StateGateKeyPart(idea_type);
+   key += "|READY=" + FP_StateGateKeyPart(readiness);
+   key += "|DIR=" + FP_StateGateKeyPart(s.primary_extreme_direction);
+   key += "|SIDE=" + FP_StateGateKeyPart(s.primary_extreme_side);
+   key += "|GEOM=" + FP_StateGateKeyPart(s.geometry_key);
+   key += "|MTF=" + FP_StateGateKeyPart(s.mtf_alignment_key);
+   return key;
+}
+
+bool FP_StateGateAddEntryIdeaRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.entry_idea_row_count >= FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.entry_idea_row_count;
+   FP_ResetStateGateEntryIdeaRow(snapshot.entry_idea_rows[idx]);
+
+   string family = FP_StateGateEntryIdeaFamily(s);
+   string idea_type = FP_StateGateEntryIdeaType(s);
+   string readiness = FP_StateGateEntryIdeaReadiness(s);
+   string status = FP_StateGateEntryIdeaStatus(s);
+   string role = FP_StateGateEntryIdeaRole(s);
+   string idea_key = FP_StateGateEntryIdeaKey(snapshot, slot, family, idea_type, readiness);
+
+   snapshot.entry_idea_rows[idx].slot_index = slot;
+   snapshot.entry_idea_rows[idx].timeframe = s.timeframe;
+   snapshot.entry_idea_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.entry_idea_rows[idx].last_closed_bar_time = s.last_closed_bar_time;
+   snapshot.entry_idea_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.entry_idea_rows[idx].status = (StringFind(status, "BLOCKED") >= 0 ? FP_STATE_GATE_ROW_PLACEHOLDER : FP_STATE_GATE_ROW_PROJECTED);
+   snapshot.entry_idea_rows[idx].readiness = readiness;
+   snapshot.entry_idea_rows[idx].idea_family = family;
+   snapshot.entry_idea_rows[idx].idea_type = idea_type;
+   snapshot.entry_idea_rows[idx].idea_direction = s.primary_extreme_direction;
+   snapshot.entry_idea_rows[idx].idea_source = s.primary_extreme_source;
+   snapshot.entry_idea_rows[idx].idea_role = role;
+   snapshot.entry_idea_rows[idx].geometry_status = s.geometry_readiness;
+   snapshot.entry_idea_rows[idx].mtf_context_role = s.mtf_context_role;
+   snapshot.entry_idea_rows[idx].extreme_side = s.primary_extreme_side;
+   snapshot.entry_idea_rows[idx].entry_price = s.candidate_entry_price;
+   snapshot.entry_idea_rows[idx].invalidation_anchor_price = s.candidate_invalidation_price;
+   snapshot.entry_idea_rows[idx].destination_anchor_price = s.candidate_destination_price;
+   snapshot.entry_idea_rows[idx].destination_distance = s.destination_distance;
+   snapshot.entry_idea_rows[idx].risk_status = s.risk_distance_status;
+   snapshot.entry_idea_rows[idx].potential_R_status = s.potential_R_status;
+   snapshot.entry_idea_rows[idx].potential_R = s.potential_R;
+   snapshot.entry_idea_rows[idx].idea_key = idea_key;
+   snapshot.entry_idea_rows[idx].label = s.timeframe_label + " | " + family + " | " + readiness + " | " + s.primary_extreme_direction + " | " + s.primary_extreme_side + " | " + s.geometry_readiness + " | " + s.mtf_context_role;
+
+   snapshot.entry_idea_row_count++;
+   snapshot.tf_states[slot].entry_idea_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildEntryIdeaRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.entry_idea_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS; i++)
+      FP_ResetStateGateEntryIdeaRow(snapshot.entry_idea_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].entry_idea_row_count = 0;
+      FP_StateGateAddEntryIdeaRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstEntryIdeaForSlot(const FP_StateGateSnapshot &snapshot,
+                                       const int slot,
+                                       FP_StateGateEntryIdeaRow &out)
+{
+   for(int i=0; i<snapshot.entry_idea_row_count; i++)
+   {
+      FP_StateGateEntryIdeaRow row = snapshot.entry_idea_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotEntryIdea(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateEntryIdeaRow idea;
+   FP_ResetStateGateEntryIdeaRow(idea);
+
+   if(FP_StateGateFirstEntryIdeaForSlot(snapshot, slot, idea))
+   {
+      snapshot.tf_states[slot].entry_idea_status = FP_StateGateEntryIdeaStatus(snapshot.tf_states[slot]);
+      snapshot.tf_states[slot].entry_idea_readiness = idea.readiness;
+      snapshot.tf_states[slot].entry_idea_key = idea.idea_key;
+      snapshot.tf_states[slot].primary_entry_idea_family = idea.idea_family;
+      snapshot.tf_states[slot].primary_entry_idea_type = idea.idea_type;
+      snapshot.tf_states[slot].primary_entry_idea_direction = idea.idea_direction;
+      snapshot.tf_states[slot].primary_entry_idea_source = idea.idea_source;
+      snapshot.tf_states[slot].primary_entry_idea_role = idea.idea_role;
+      snapshot.tf_states[slot].primary_entry_idea_geometry_status = idea.geometry_status;
+      snapshot.tf_states[slot].primary_entry_idea_mtf_context = idea.mtf_context_role;
+      snapshot.tf_states[slot].entry_idea_notes = idea.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].entry_idea_status = "ENTRY_IDEA_NO_ROW_NO_SIGNAL";
+   snapshot.tf_states[slot].entry_idea_readiness = "ENTRY_IDEA_NO_ROW_NO_SIGNAL";
+   snapshot.tf_states[slot].entry_idea_key = "NO_ENTRY_IDEA_KEY";
+   snapshot.tf_states[slot].entry_idea_notes = "No entry idea row was built";
+}
+
+void FP_StateGateFinalizeSnapshotEntryIdeas(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotEntryIdea(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

@@ -224,3 +224,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE14_ENTRY_GEOMETRY_READINESS.md
 ```
 
 Phase 14 adds Entry Geometry Readiness, preparing entry, invalidation, destination, distance, and potential-R context without producing signals or orders.
+
+
+## Level 19 — Phase 15
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE15_ENTRY_IDEA_LAYER.md
+```
+
+Phase 15 adds the Entry Idea Layer, converting context and geometry into idea-only rows without producing executable signals or orders.
