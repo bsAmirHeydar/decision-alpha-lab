@@ -1886,6 +1886,417 @@ void FP_StateGateFinalizeSnapshotEntryIdeas(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 16 - Entry Decision Layer / Dry Run
+// ---------------------------------------------------------------------------
+// This layer converts entry ideas into non-executable dry-run decision rows.
+// It never allows real execution.  decision_allowed is always false here.
+
+string FP_StateGateEntryDecisionDirection(const FP_StateGateTimeframeState &s)
+{
+   if(StringFind(s.primary_entry_idea_direction, "BULLISH") >= 0)
+      return "BUY_DRY_RUN_ONLY";
+   if(StringFind(s.primary_entry_idea_direction, "BEARISH") >= 0)
+      return "SELL_DRY_RUN_ONLY";
+   if(StringFind(s.primary_extreme_direction, "BULLISH") >= 0)
+      return "BUY_DRY_RUN_ONLY";
+   if(StringFind(s.primary_extreme_direction, "BEARISH") >= 0)
+      return "SELL_DRY_RUN_ONLY";
+   return "NO_ENTRY_DECISION_DIRECTION";
+}
+
+string FP_StateGateEntryDecisionType(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "NO_ENTRY_DECISION_TYPE";
+   if(s.candidate_entry_price == 0.0)
+      return "WAIT_FOR_ENTRY_ANCHOR_DRY_RUN";
+   if(StringFind(s.primary_entry_idea_family, "HOOK") >= 0)
+      return "LIMIT_AT_SELECTED_HOOK_EXTREME_DRY_RUN_ONLY";
+   if(StringFind(s.primary_entry_idea_family, "RALLY") >= 0)
+      return "LIMIT_AT_RALLY_CONTEXT_EXTREME_DRY_RUN_ONLY";
+   return "LIMIT_AT_GEOMETRY_ANCHOR_DRY_RUN_ONLY";
+}
+
+string FP_StateGateEntryDecisionReadiness(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "ENTRY_DECISION_BLOCKED_NO_CLOSED_BAR";
+   if(s.entry_idea_row_count <= 0)
+      return "ENTRY_DECISION_BLOCKED_NO_ENTRY_IDEA";
+   if(s.candidate_entry_price == 0.0)
+      return "ENTRY_DECISION_BLOCKED_NO_ENTRY_PRICE";
+   if(s.candidate_destination_price == 0.0)
+      return "ENTRY_DECISION_PARTIAL_DESTINATION_PENDING_DRY_RUN_ONLY";
+   return "ENTRY_DECISION_READY_DRY_RUN_NO_ORDER";
+}
+
+string FP_StateGateEntryDecisionStatus(const FP_StateGateTimeframeState &s)
+{
+   string readiness = FP_StateGateEntryDecisionReadiness(s);
+   if(StringFind(readiness, "READY") >= 0)
+      return "ENTRY_DECISION_CONTEXT_READY_DRY_RUN_ONLY";
+   if(StringFind(readiness, "PARTIAL") >= 0)
+      return "ENTRY_DECISION_CONTEXT_PARTIAL_DRY_RUN_ONLY";
+   return "ENTRY_DECISION_CONTEXT_BLOCKED_DRY_RUN_ONLY";
+}
+
+string FP_StateGateEntryDecisionPriceStatus(const FP_StateGateTimeframeState &s)
+{
+   if(s.candidate_entry_price != 0.0)
+      return "ENTRY_DECISION_PRICE_FROM_GEOMETRY_ANCHOR_DRY_RUN_ONLY";
+   return "ENTRY_DECISION_PRICE_UNAVAILABLE_DRY_RUN_ONLY";
+}
+
+string FP_StateGateEntryDecisionBlockReason(const FP_StateGateTimeframeState &s)
+{
+   if(!s.closed_bar_available)
+      return "BLOCKED_NO_CLOSED_BAR";
+   if(s.entry_idea_row_count <= 0)
+      return "BLOCKED_NO_ENTRY_IDEA_ROW";
+   if(s.candidate_entry_price == 0.0)
+      return "BLOCKED_NO_ENTRY_ANCHOR_PRICE";
+   if(s.candidate_destination_price == 0.0)
+      return "PARTIAL_DESTINATION_ANCHOR_PENDING";
+   return "NOT_BLOCKED_BUT_EXECUTION_DISABLED_DRY_RUN_ONLY";
+}
+
+string FP_StateGateEntryDecisionKey(const FP_StateGateSnapshot &snapshot,
+                                    const int slot,
+                                    const string readiness,
+                                    const string decision_type,
+                                    const string decision_direction)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string key = snapshot.symbol;
+   key += "|TF=" + s.timeframe_label;
+   key += "|DECISION=" + FP_StateGateKeyPart(readiness);
+   key += "|TYPE=" + FP_StateGateKeyPart(decision_type);
+   key += "|DIR=" + FP_StateGateKeyPart(decision_direction);
+   key += "|IDEA=" + FP_StateGateKeyPart(s.entry_idea_key);
+   key += "|GEOM=" + FP_StateGateKeyPart(s.geometry_key);
+   key += "|MTF=" + FP_StateGateKeyPart(s.mtf_alignment_key);
+   key += "|ALLOWED=false";
+   return key;
+}
+
+bool FP_StateGateAddEntryDecisionRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.entry_decision_row_count >= FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.entry_decision_row_count;
+   FP_ResetStateGateEntryDecisionRow(snapshot.entry_decision_rows[idx]);
+
+   string direction = FP_StateGateEntryDecisionDirection(s);
+   string decision_type = FP_StateGateEntryDecisionType(s);
+   string readiness = FP_StateGateEntryDecisionReadiness(s);
+   string decision_status = FP_StateGateEntryDecisionStatus(s);
+   string price_status = FP_StateGateEntryDecisionPriceStatus(s);
+   string block_reason = FP_StateGateEntryDecisionBlockReason(s);
+   string decision_key = FP_StateGateEntryDecisionKey(snapshot, slot, readiness, decision_type, direction);
+
+   snapshot.entry_decision_rows[idx].slot_index = slot;
+   snapshot.entry_decision_rows[idx].timeframe = s.timeframe;
+   snapshot.entry_decision_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.entry_decision_rows[idx].last_closed_bar_time = s.last_closed_bar_time;
+   snapshot.entry_decision_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.entry_decision_rows[idx].status = (StringFind(decision_status, "BLOCKED") >= 0 ? FP_STATE_GATE_ROW_PLACEHOLDER : FP_STATE_GATE_ROW_PROJECTED);
+   snapshot.entry_decision_rows[idx].readiness = readiness;
+   snapshot.entry_decision_rows[idx].decision_status = decision_status;
+   snapshot.entry_decision_rows[idx].decision_direction = direction;
+   snapshot.entry_decision_rows[idx].decision_type = decision_type;
+   snapshot.entry_decision_rows[idx].decision_mode = "DRY_RUN_ONLY_NON_EXECUTABLE";
+   snapshot.entry_decision_rows[idx].decision_allowed = false;
+   snapshot.entry_decision_rows[idx].decision_price_status = price_status;
+   snapshot.entry_decision_rows[idx].decision_price = s.candidate_entry_price;
+   snapshot.entry_decision_rows[idx].invalidation_status = s.candidate_invalidation_price_status;
+   snapshot.entry_decision_rows[idx].invalidation_price = s.candidate_invalidation_price;
+   snapshot.entry_decision_rows[idx].destination_status = s.candidate_destination_price_status;
+   snapshot.entry_decision_rows[idx].destination_price = s.candidate_destination_price;
+   snapshot.entry_decision_rows[idx].risk_status = s.risk_distance_status;
+   snapshot.entry_decision_rows[idx].potential_R_status = s.potential_R_status;
+   snapshot.entry_decision_rows[idx].source_idea_key = s.entry_idea_key;
+   snapshot.entry_decision_rows[idx].source_geometry_key = s.geometry_key;
+   snapshot.entry_decision_rows[idx].source_mtf_key = s.mtf_alignment_key;
+   snapshot.entry_decision_rows[idx].block_reason = block_reason;
+   snapshot.entry_decision_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE16_DRY_RUN_ONLY";
+   snapshot.entry_decision_rows[idx].decision_key = decision_key;
+   snapshot.entry_decision_rows[idx].label = s.timeframe_label + " | " + decision_status + " | " + decision_type + " | " + direction + " | allowed=false | " + block_reason;
+
+   snapshot.entry_decision_row_count++;
+   snapshot.tf_states[slot].entry_decision_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildEntryDecisionRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.entry_decision_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS; i++)
+      FP_ResetStateGateEntryDecisionRow(snapshot.entry_decision_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].entry_decision_row_count = 0;
+      FP_StateGateAddEntryDecisionRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstEntryDecisionForSlot(const FP_StateGateSnapshot &snapshot,
+                                           const int slot,
+                                           FP_StateGateEntryDecisionRow &out)
+{
+   for(int i=0; i<snapshot.entry_decision_row_count; i++)
+   {
+      FP_StateGateEntryDecisionRow row = snapshot.entry_decision_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotEntryDecision(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateEntryDecisionRow row;
+   FP_ResetStateGateEntryDecisionRow(row);
+
+   if(FP_StateGateFirstEntryDecisionForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].entry_decision_status = row.decision_status;
+      snapshot.tf_states[slot].entry_decision_readiness = row.readiness;
+      snapshot.tf_states[slot].entry_decision_key = row.decision_key;
+      snapshot.tf_states[slot].entry_decision_direction = row.decision_direction;
+      snapshot.tf_states[slot].entry_decision_type = row.decision_type;
+      snapshot.tf_states[slot].entry_decision_mode = row.decision_mode;
+      snapshot.tf_states[slot].entry_decision_allowed = false;
+      snapshot.tf_states[slot].entry_decision_price_status = row.decision_price_status;
+      snapshot.tf_states[slot].entry_decision_price = row.decision_price;
+      snapshot.tf_states[slot].entry_decision_invalidation_status = row.invalidation_status;
+      snapshot.tf_states[slot].entry_decision_invalidation_price = row.invalidation_price;
+      snapshot.tf_states[slot].entry_decision_destination_status = row.destination_status;
+      snapshot.tf_states[slot].entry_decision_destination_price = row.destination_price;
+      snapshot.tf_states[slot].entry_decision_risk_status = row.risk_status;
+      snapshot.tf_states[slot].entry_decision_potential_R_status = row.potential_R_status;
+      snapshot.tf_states[slot].entry_decision_block_reason = row.block_reason;
+      snapshot.tf_states[slot].entry_decision_execution_status = row.execution_status;
+      snapshot.tf_states[slot].entry_decision_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].entry_decision_status = "ENTRY_DECISION_NO_ROW_DRY_RUN_ONLY";
+   snapshot.tf_states[slot].entry_decision_readiness = "ENTRY_DECISION_NO_ROW_NO_SIGNAL";
+   snapshot.tf_states[slot].entry_decision_allowed = false;
+   snapshot.tf_states[slot].entry_decision_execution_status = "REAL_EXECUTION_DISABLED_PHASE16_DRY_RUN_ONLY";
+   snapshot.tf_states[slot].entry_decision_notes = "No entry decision row was built";
+}
+
+void FP_StateGateFinalizeSnapshotEntryDecisions(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotEntryDecision(snapshot, slot);
+}
+
+
+
+// ---------------------------------------------------------------------------
+// Phase 17 - Paper Execution / Dry Run Ledger
+// ---------------------------------------------------------------------------
+// This layer records dry-run entry decisions into a paper ledger snapshot.
+// It is still non-executable.  Real order placement remains disabled.
+
+string FP_StateGatePaperLedgerEventId(const FP_StateGateSnapshot &snapshot,
+                                      const int slot,
+                                      const FP_StateGateEntryDecisionRow &d)
+{
+   string id = "PAPER";
+   id += "|" + snapshot.symbol;
+   id += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   id += "|T=" + FP_StateGateKeyPart(FP_StateGateClosedBarTimeLabel(snapshot.tf_states[slot].last_closed_bar_time));
+   id += "|DIR=" + FP_StateGateKeyPart(d.decision_direction);
+   id += "|TYPE=" + FP_StateGateKeyPart(d.decision_type);
+   id += "|PX=" + DoubleToString(d.decision_price, 8);
+   return id;
+}
+
+string FP_StateGatePaperLedgerRecordStatus(const FP_StateGateTimeframeState &s,
+                                           const FP_StateGateEntryDecisionRow &d)
+{
+   if(!s.closed_bar_available)
+      return "PAPER_LEDGER_BLOCKED_NO_CLOSED_BAR";
+   if(d.decision_key == "NO_ENTRY_DECISION_KEY" || d.decision_key == "")
+      return "PAPER_LEDGER_BLOCKED_NO_DECISION";
+   if(d.decision_price == 0.0)
+      return "PAPER_LEDGER_BLOCKED_NO_DECISION_PRICE";
+   return "PAPER_LEDGER_RECORDED_DRY_RUN_ONLY";
+}
+
+string FP_StateGatePaperLedgerLifecycleStatus(const FP_StateGateEntryDecisionRow &d)
+{
+   if(d.decision_price == 0.0)
+      return "PAPER_LIFECYCLE_NOT_OPEN_NO_ENTRY_PRICE";
+   if(d.destination_price != 0.0)
+      return "PAPER_LIFECYCLE_HYPOTHETICAL_OPEN_WITH_DESTINATION_ANCHOR";
+   return "PAPER_LIFECYCLE_HYPOTHETICAL_OPEN_DESTINATION_PENDING";
+}
+
+string FP_StateGatePaperLedgerKey(const FP_StateGateSnapshot &snapshot,
+                                  const int slot,
+                                  const FP_StateGateEntryDecisionRow &d,
+                                  const string record_status,
+                                  const string event_id)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|REC=" + FP_StateGateKeyPart(record_status);
+   key += "|EVENT=" + FP_StateGateKeyPart(event_id);
+   key += "|DEC=" + FP_StateGateKeyPart(d.decision_key);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateFirstEntryDecisionForLedgerSlot(const FP_StateGateSnapshot &snapshot,
+                                                 const int slot,
+                                                 FP_StateGateEntryDecisionRow &out)
+{
+   for(int i=0; i<snapshot.entry_decision_row_count; i++)
+   {
+      FP_StateGateEntryDecisionRow row = snapshot.entry_decision_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateAddPaperLedgerRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.paper_ledger_row_count >= FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGateEntryDecisionRow d;
+   FP_ResetStateGateEntryDecisionRow(d);
+   if(!FP_StateGateFirstEntryDecisionForLedgerSlot(snapshot, slot, d))
+      return false;
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.paper_ledger_row_count;
+   FP_ResetStateGatePaperLedgerRow(snapshot.paper_ledger_rows[idx]);
+
+   string event_id = FP_StateGatePaperLedgerEventId(snapshot, slot, d);
+   string record_status = FP_StateGatePaperLedgerRecordStatus(s, d);
+   string lifecycle = FP_StateGatePaperLedgerLifecycleStatus(d);
+   string ledger_key = FP_StateGatePaperLedgerKey(snapshot, slot, d, record_status, event_id);
+
+   snapshot.paper_ledger_rows[idx].slot_index = slot;
+   snapshot.paper_ledger_rows[idx].timeframe = s.timeframe;
+   snapshot.paper_ledger_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.paper_ledger_rows[idx].recorded_at = TimeCurrent();
+   snapshot.paper_ledger_rows[idx].last_closed_bar_time = s.last_closed_bar_time;
+   snapshot.paper_ledger_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.paper_ledger_rows[idx].status = (StringFind(record_status, "RECORDED") >= 0 ? FP_STATE_GATE_ROW_PROJECTED : FP_STATE_GATE_ROW_PLACEHOLDER);
+   snapshot.paper_ledger_rows[idx].record_status = record_status;
+   snapshot.paper_ledger_rows[idx].ledger_mode = "PAPER_DRY_RUN_ONLY";
+   snapshot.paper_ledger_rows[idx].lifecycle_status = lifecycle;
+   snapshot.paper_ledger_rows[idx].decision_status = d.decision_status;
+   snapshot.paper_ledger_rows[idx].decision_readiness = d.readiness;
+   snapshot.paper_ledger_rows[idx].decision_direction = d.decision_direction;
+   snapshot.paper_ledger_rows[idx].decision_type = d.decision_type;
+   snapshot.paper_ledger_rows[idx].decision_allowed = false;
+   snapshot.paper_ledger_rows[idx].entry_price = d.decision_price;
+   snapshot.paper_ledger_rows[idx].invalidation_price = d.invalidation_price;
+   snapshot.paper_ledger_rows[idx].destination_price = d.destination_price;
+   snapshot.paper_ledger_rows[idx].risk_status = d.risk_status;
+   snapshot.paper_ledger_rows[idx].potential_R_status = d.potential_R_status;
+   snapshot.paper_ledger_rows[idx].source_decision_key = d.decision_key;
+   snapshot.paper_ledger_rows[idx].source_idea_key = d.source_idea_key;
+   snapshot.paper_ledger_rows[idx].source_geometry_key = d.source_geometry_key;
+   snapshot.paper_ledger_rows[idx].source_mtf_key = d.source_mtf_key;
+   snapshot.paper_ledger_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE17_PAPER_ONLY";
+   snapshot.paper_ledger_rows[idx].block_reason = d.block_reason;
+   snapshot.paper_ledger_rows[idx].ledger_key = ledger_key;
+   snapshot.paper_ledger_rows[idx].event_id = event_id;
+   snapshot.paper_ledger_rows[idx].label = s.timeframe_label + " | PAPER LEDGER | " + record_status + " | " + d.decision_direction + " | " + d.decision_type + " | real_execution=false";
+
+   snapshot.paper_ledger_row_count++;
+   snapshot.tf_states[slot].paper_ledger_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperLedgerRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_ledger_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS; i++)
+      FP_ResetStateGatePaperLedgerRow(snapshot.paper_ledger_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].paper_ledger_row_count = 0;
+      FP_StateGateAddPaperLedgerRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPaperLedgerForSlot(const FP_StateGateSnapshot &snapshot,
+                                         const int slot,
+                                         FP_StateGatePaperLedgerRow &out)
+{
+   for(int i=0; i<snapshot.paper_ledger_row_count; i++)
+   {
+      FP_StateGatePaperLedgerRow row = snapshot.paper_ledger_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPaperLedger(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePaperLedgerRow row;
+   FP_ResetStateGatePaperLedgerRow(row);
+
+   if(FP_StateGateFirstPaperLedgerForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].paper_ledger_status = "PAPER_LEDGER_CONTEXT_AVAILABLE_NO_REAL_EXECUTION";
+      snapshot.tf_states[slot].paper_ledger_record_status = row.record_status;
+      snapshot.tf_states[slot].paper_ledger_key = row.ledger_key;
+      snapshot.tf_states[slot].paper_ledger_event_id = row.event_id;
+      snapshot.tf_states[slot].paper_ledger_mode = row.ledger_mode;
+      snapshot.tf_states[slot].paper_ledger_direction = row.decision_direction;
+      snapshot.tf_states[slot].paper_ledger_type = row.decision_type;
+      snapshot.tf_states[slot].paper_ledger_entry_price = row.entry_price;
+      snapshot.tf_states[slot].paper_ledger_invalidation_price = row.invalidation_price;
+      snapshot.tf_states[slot].paper_ledger_destination_price = row.destination_price;
+      snapshot.tf_states[slot].paper_ledger_lifecycle_status = row.lifecycle_status;
+      snapshot.tf_states[slot].paper_ledger_execution_status = row.execution_status;
+      snapshot.tf_states[slot].paper_ledger_source_decision_key = row.source_decision_key;
+      snapshot.tf_states[slot].paper_ledger_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].paper_ledger_status = "PAPER_LEDGER_NO_ROW_NO_REAL_EXECUTION";
+   snapshot.tf_states[slot].paper_ledger_record_status = "PAPER_LEDGER_NO_ROW";
+   snapshot.tf_states[slot].paper_ledger_key = "NO_PAPER_LEDGER_KEY";
+   snapshot.tf_states[slot].paper_ledger_execution_status = "REAL_EXECUTION_DISABLED_PHASE17_PAPER_ONLY";
+   snapshot.tf_states[slot].paper_ledger_notes = "No paper ledger row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPaperLedger(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPaperLedger(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

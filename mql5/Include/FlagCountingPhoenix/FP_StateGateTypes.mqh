@@ -18,13 +18,15 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.150-phase15"
+#define FP_STATE_GATE_VERSION "19.170-phase17"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
 #define FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS 72
 #define FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS 12
 #define FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS 24
+#define FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS 24
+#define FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS 24
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -45,6 +47,8 @@
 #define FP_STATE_GATE_REASON_PHASE13 "phase13_mtf_alignment_map"
 #define FP_STATE_GATE_REASON_PHASE14 "phase14_entry_geometry_readiness"
 #define FP_STATE_GATE_REASON_PHASE15 "phase15_entry_idea_layer"
+#define FP_STATE_GATE_REASON_PHASE16 "phase16_entry_decision_dry_run"
+#define FP_STATE_GATE_REASON_PHASE17 "phase17_paper_execution_ledger"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -109,6 +113,8 @@ struct FP_StateGateConfig
    bool export_mtf_alignment_csv;
    bool export_entry_geometry_csv;
    bool export_entry_ideas_csv;
+   bool export_entry_decisions_csv;
+   bool export_paper_ledger_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -200,6 +206,40 @@ struct FP_StateGateTimeframeState
    string primary_entry_idea_geometry_status;
    string primary_entry_idea_mtf_context;
    string entry_idea_notes;
+   int entry_decision_row_count;
+   string entry_decision_status;
+   string entry_decision_readiness;
+   string entry_decision_key;
+   string entry_decision_direction;
+   string entry_decision_type;
+   string entry_decision_mode;
+   bool entry_decision_allowed;
+   string entry_decision_price_status;
+   double entry_decision_price;
+   string entry_decision_invalidation_status;
+   double entry_decision_invalidation_price;
+   string entry_decision_destination_status;
+   double entry_decision_destination_price;
+   string entry_decision_risk_status;
+   string entry_decision_potential_R_status;
+   string entry_decision_block_reason;
+   string entry_decision_execution_status;
+   string entry_decision_notes;
+   int paper_ledger_row_count;
+   string paper_ledger_status;
+   string paper_ledger_record_status;
+   string paper_ledger_key;
+   string paper_ledger_event_id;
+   string paper_ledger_mode;
+   string paper_ledger_direction;
+   string paper_ledger_type;
+   double paper_ledger_entry_price;
+   double paper_ledger_invalidation_price;
+   double paper_ledger_destination_price;
+   string paper_ledger_lifecycle_status;
+   string paper_ledger_execution_status;
+   string paper_ledger_source_decision_key;
+   string paper_ledger_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -339,6 +379,72 @@ struct FP_StateGateEntryIdeaRow
    string label;
 };
 
+
+struct FP_StateGateEntryDecisionRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string readiness;
+   string decision_status;
+   string decision_direction;
+   string decision_type;
+   string decision_mode;
+   bool decision_allowed;
+   string decision_price_status;
+   double decision_price;
+   string invalidation_status;
+   double invalidation_price;
+   string destination_status;
+   double destination_price;
+   string risk_status;
+   string potential_R_status;
+   string source_idea_key;
+   string source_geometry_key;
+   string source_mtf_key;
+   string block_reason;
+   string execution_status;
+   string decision_key;
+   string label;
+};
+
+
+struct FP_StateGatePaperLedgerRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime recorded_at;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string record_status;
+   string ledger_mode;
+   string lifecycle_status;
+   string decision_status;
+   string decision_readiness;
+   string decision_direction;
+   string decision_type;
+   bool decision_allowed;
+   double entry_price;
+   double invalidation_price;
+   double destination_price;
+   string risk_status;
+   string potential_R_status;
+   string source_decision_key;
+   string source_idea_key;
+   string source_geometry_key;
+   string source_mtf_key;
+   string execution_status;
+   string block_reason;
+   string ledger_key;
+   string event_id;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -358,11 +464,15 @@ struct FP_StateGateSnapshot
    FP_StateGateExtremeCandidateRow extreme_candidate_rows[FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS];
    FP_StateGateMtfAlignmentRow mtf_alignment_rows[FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS];
    FP_StateGateEntryIdeaRow entry_idea_rows[FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS];
+   FP_StateGateEntryDecisionRow entry_decision_rows[FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS];
+   FP_StateGatePaperLedgerRow paper_ledger_rows[FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS];
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
    int mtf_alignment_row_count;
    int entry_idea_row_count;
+   int entry_decision_row_count;
+   int paper_ledger_row_count;
    string status;
    string reason;
 };
@@ -404,6 +514,8 @@ struct FP_StateGateReport
    int mtf_alignment_rows;
    int geometry_rows;
    int entry_idea_rows;
+   int entry_decision_rows;
+   int paper_ledger_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -502,6 +614,40 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.primary_entry_idea_geometry_status = "NO_ENTRY_IDEA_GEOMETRY";
    s.primary_entry_idea_mtf_context = "NO_ENTRY_IDEA_MTF_CONTEXT";
    s.entry_idea_notes = "ENTRY_IDEA_PENDING";
+   s.entry_decision_row_count = 0;
+   s.entry_decision_status = "ENTRY_DECISION_PENDING_DRY_RUN";
+   s.entry_decision_readiness = "ENTRY_DECISION_PENDING_NO_SIGNAL";
+   s.entry_decision_key = "ENTRY_DECISION_KEY_PENDING";
+   s.entry_decision_direction = "NO_ENTRY_DECISION_DIRECTION";
+   s.entry_decision_type = "NO_ENTRY_DECISION_TYPE";
+   s.entry_decision_mode = "DRY_RUN_ONLY";
+   s.entry_decision_allowed = false;
+   s.entry_decision_price_status = "NO_ENTRY_DECISION_PRICE";
+   s.entry_decision_price = 0.0;
+   s.entry_decision_invalidation_status = "NO_ENTRY_DECISION_INVALIDATION";
+   s.entry_decision_invalidation_price = 0.0;
+   s.entry_decision_destination_status = "NO_ENTRY_DECISION_DESTINATION";
+   s.entry_decision_destination_price = 0.0;
+   s.entry_decision_risk_status = "NO_ENTRY_DECISION_RISK";
+   s.entry_decision_potential_R_status = "NO_ENTRY_DECISION_POTENTIAL_R";
+   s.entry_decision_block_reason = "ENTRY_DECISION_PENDING";
+   s.entry_decision_execution_status = "EXECUTION_DISABLED_DRY_RUN_ONLY";
+   s.entry_decision_notes = "ENTRY_DECISION_PENDING";
+   s.paper_ledger_row_count = 0;
+   s.paper_ledger_status = "PAPER_LEDGER_PENDING";
+   s.paper_ledger_record_status = "PAPER_LEDGER_RECORD_PENDING";
+   s.paper_ledger_key = "PAPER_LEDGER_KEY_PENDING";
+   s.paper_ledger_event_id = "PAPER_EVENT_PENDING";
+   s.paper_ledger_mode = "PAPER_DRY_RUN_ONLY";
+   s.paper_ledger_direction = "NO_PAPER_DIRECTION";
+   s.paper_ledger_type = "NO_PAPER_TYPE";
+   s.paper_ledger_entry_price = 0.0;
+   s.paper_ledger_invalidation_price = 0.0;
+   s.paper_ledger_destination_price = 0.0;
+   s.paper_ledger_lifecycle_status = "PAPER_LEDGER_LIFECYCLE_PENDING";
+   s.paper_ledger_execution_status = "REAL_EXECUTION_DISABLED_PHASE17_PAPER_ONLY";
+   s.paper_ledger_source_decision_key = "NO_SOURCE_DECISION_KEY";
+   s.paper_ledger_notes = "PAPER_LEDGER_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -641,6 +787,72 @@ void FP_ResetStateGateEntryIdeaRow(FP_StateGateEntryIdeaRow &e)
    e.label = "Entry idea pending";
 }
 
+
+void FP_ResetStateGateEntryDecisionRow(FP_StateGateEntryDecisionRow &d)
+{
+   d.slot_index = -1;
+   d.timeframe = PERIOD_CURRENT;
+   d.timeframe_label = "TF?";
+   d.last_closed_bar_time = 0;
+   d.last_closed_bar_close = 0.0;
+   d.status = FP_STATE_GATE_ROW_EMPTY;
+   d.readiness = "ENTRY_DECISION_PENDING_NO_SIGNAL";
+   d.decision_status = "ENTRY_DECISION_PENDING_DRY_RUN";
+   d.decision_direction = "NO_ENTRY_DECISION_DIRECTION";
+   d.decision_type = "NO_ENTRY_DECISION_TYPE";
+   d.decision_mode = "DRY_RUN_ONLY";
+   d.decision_allowed = false;
+   d.decision_price_status = "NO_ENTRY_DECISION_PRICE";
+   d.decision_price = 0.0;
+   d.invalidation_status = "NO_INVALIDATION_ANCHOR";
+   d.invalidation_price = 0.0;
+   d.destination_status = "NO_DESTINATION_ANCHOR";
+   d.destination_price = 0.0;
+   d.risk_status = "NO_RISK_MODEL";
+   d.potential_R_status = "NO_POTENTIAL_R";
+   d.source_idea_key = "NO_ENTRY_IDEA_KEY";
+   d.source_geometry_key = "NO_GEOMETRY_KEY";
+   d.source_mtf_key = "NO_MTF_KEY";
+   d.block_reason = "ENTRY_DECISION_PENDING";
+   d.execution_status = "EXECUTION_DISABLED_DRY_RUN_ONLY";
+   d.decision_key = "NO_ENTRY_DECISION_KEY";
+   d.label = "Entry decision pending dry-run only";
+}
+
+
+void FP_ResetStateGatePaperLedgerRow(FP_StateGatePaperLedgerRow &p)
+{
+   p.slot_index = -1;
+   p.timeframe = PERIOD_CURRENT;
+   p.timeframe_label = "TF?";
+   p.recorded_at = 0;
+   p.last_closed_bar_time = 0;
+   p.last_closed_bar_close = 0.0;
+   p.status = FP_STATE_GATE_ROW_EMPTY;
+   p.record_status = "PAPER_LEDGER_RECORD_PENDING";
+   p.ledger_mode = "PAPER_DRY_RUN_ONLY";
+   p.lifecycle_status = "PAPER_LEDGER_PENDING";
+   p.decision_status = "NO_DECISION_STATUS";
+   p.decision_readiness = "NO_DECISION_READINESS";
+   p.decision_direction = "NO_DECISION_DIRECTION";
+   p.decision_type = "NO_DECISION_TYPE";
+   p.decision_allowed = false;
+   p.entry_price = 0.0;
+   p.invalidation_price = 0.0;
+   p.destination_price = 0.0;
+   p.risk_status = "NO_RISK_MODEL";
+   p.potential_R_status = "NO_POTENTIAL_R";
+   p.source_decision_key = "NO_SOURCE_DECISION_KEY";
+   p.source_idea_key = "NO_SOURCE_IDEA_KEY";
+   p.source_geometry_key = "NO_SOURCE_GEOMETRY_KEY";
+   p.source_mtf_key = "NO_SOURCE_MTF_KEY";
+   p.execution_status = "REAL_EXECUTION_DISABLED_PHASE17_PAPER_ONLY";
+   p.block_reason = "PAPER_LEDGER_PENDING";
+   p.ledger_key = "NO_PAPER_LEDGER_KEY";
+   p.event_id = "NO_PAPER_EVENT_ID";
+   p.label = "Paper ledger pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -666,11 +878,16 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGateMtfAlignmentRow(s.mtf_alignment_rows[m]);
    for(int e=0; e<FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS; e++)
       FP_ResetStateGateEntryIdeaRow(s.entry_idea_rows[e]);
+   for(int d=0; d<FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS; d++)
+      FP_ResetStateGateEntryDecisionRow(s.entry_decision_rows[d]);
+   for(int p=0; p<FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS; p++)
+      FP_ResetStateGatePaperLedgerRow(s.paper_ledger_rows[p]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
    s.mtf_alignment_row_count = 0;
    s.entry_idea_row_count = 0;
+   s.entry_decision_row_count = 0;
    s.status = "reset";
    s.reason = "reset";
 }
@@ -715,6 +932,8 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.mtf_alignment_rows = 0;
    r.geometry_rows = 0;
    r.entry_idea_rows = 0;
+   r.entry_decision_rows = 0;
+   r.paper_ledger_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -763,6 +982,8 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_mtf_alignment_csv = true;
    cfg.export_entry_geometry_csv = true;
    cfg.export_entry_ideas_csv = true;
+   cfg.export_entry_decisions_csv = true;
+   cfg.export_paper_ledger_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

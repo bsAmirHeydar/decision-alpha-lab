@@ -233,3 +233,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE15_ENTRY_IDEA_LAYER.md
 ```
 
 Phase 15 adds the Entry Idea Layer, converting context and geometry into idea-only rows without producing executable signals or orders.
+
+
+## Level 19 — Phase 16
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE16_ENTRY_DECISION_DRY_RUN.md
+```
+
+Phase 16 adds the Entry Decision Layer as a dry-run-only, non-executable decision record layer. It keeps `entry_decision_allowed=false` and does not send orders.
+
+
+## Level 19 — Phase 17
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE17_PAPER_EXECUTION_LEDGER.md
+```
+
+Phase 17 adds a paper execution / dry-run ledger that records Phase 16 dry-run decisions without enabling real execution.

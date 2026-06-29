@@ -339,6 +339,8 @@ input bool            InpStateGateExportExtremeCandidatesCsv = true;
 input bool            InpStateGateExportMtfAlignmentCsv = true;
 input bool            InpStateGateExportEntryGeometryCsv = true;
 input bool            InpStateGateExportEntryIdeasCsv = true;
+input bool            InpStateGateExportEntryDecisionsCsv = true;
+input bool            InpStateGateExportPaperLedgerCsv = true;
 input string          InpStateGateExportFolder        = "FlagCountingPhoenix";
 input bool            InpStateGatePrintAudit          = true;
 
@@ -866,6 +868,8 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_mtf_alignment_csv = InpStateGateExportMtfAlignmentCsv;
    cfg.export_entry_geometry_csv = InpStateGateExportEntryGeometryCsv;
    cfg.export_entry_ideas_csv = InpStateGateExportEntryIdeasCsv;
+   cfg.export_entry_decisions_csv = InpStateGateExportEntryDecisionsCsv;
+   cfg.export_paper_ledger_csv = InpStateGateExportPaperLedgerCsv;
    cfg.export_folder = InpStateGateExportFolder;
    cfg.print_audit = InpStateGatePrintAudit;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;
@@ -1080,7 +1084,7 @@ void FP_Run()
    }
 
    FP_StateGateReport state_gate_report;
-   FP_RunStateGatePhase15(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
+   FP_RunStateGatePhase17(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
    if(state_gate_cfg.print_audit)
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
    if(state_gate_cfg.print_audit)
@@ -1194,7 +1198,7 @@ void FP_RunStateGateTimerOnly()
    if(scale_count <= 0)
       FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
    else
-      FP_RunStateGatePhase15(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
+      FP_RunStateGatePhase17(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
 
    if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);
