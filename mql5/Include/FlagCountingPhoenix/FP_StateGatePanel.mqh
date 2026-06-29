@@ -298,7 +298,7 @@ string FP_StateGatePanelTrackerLine(const FP_StateGateConfig &cfg,
 
 string FP_StateGatePanelCountsLine(const FP_StateGateTimeframeState &s)
 {
-   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count);
+   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count) + " | mtf=" + IntegerToString(s.mtf_alignment_row_count);
 }
 
 string FP_StateGatePanelContractLine(const FP_StateGateConfig &cfg,
@@ -388,6 +388,7 @@ int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
    if(cfg.panel_show_contract_key)
       rows++;
    rows++; // extreme candidate map
+   rows++; // mtf alignment map
 
    rows++; // rally header
    if(!g_fp_state_gate_slot_rally_collapsed[slot])
@@ -518,6 +519,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       FP_StateGateCreateLabel(cfg, suffix + "EXTREME_MAP", x + 10, cursor_y + 2,
                               FP_StateGatePanelClip(extreme_line, text_limit),
                               clrKhaki, font_size, report);
+      cursor_y += row_h;
+
+      string mtf_line = "    MTF | " + s.mtf_alignment_status + " | parent=" + s.mtf_parent_timeframe + " | " + s.mtf_direction_relation + " | " + s.mtf_side_relation;
+      FP_StateGateCreateLabel(cfg, suffix + "MTF_ALIGN", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(mtf_line, text_limit),
+                              clrLightSteelBlue, font_size, report);
       cursor_y += row_h;
 
       // Rally subsection

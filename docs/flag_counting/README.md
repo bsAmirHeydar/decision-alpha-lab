@@ -197,3 +197,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE12_EXTREME_CANDIDATE_MAP.md
 ```
 
 Phase 12 adds the Extreme Candidate Map, exporting Hook/Rally-derived X-extreme candidate context without producing entry decisions.
+
+
+## Level 19 — Phase 13
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13_MTF_ALIGNMENT_MAP.md
+```
+
+Phase 13 adds the Multi-Timeframe Alignment Map, comparing lower-slot extreme candidates against higher-slot context without producing entry decisions.
+
+
+## Level 19 — Phase 13A
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE13A_COMPILE_FIX.md
+```
+
+Phase 13A fixes the duplicate `mtf_alignment_row_count` declaration in `FP_StateGateTimeframeState`.

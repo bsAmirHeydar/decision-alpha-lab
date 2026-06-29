@@ -18,11 +18,12 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.120-phase12"
+#define FP_STATE_GATE_VERSION "19.130-phase13"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
 #define FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS 72
+#define FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS 12
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -40,6 +41,7 @@
 #define FP_STATE_GATE_REASON_PHASE5 "phase5_panel_polish"
 #define FP_STATE_GATE_REASON_PHASE6 "phase6_state_contract_storage"
 #define FP_STATE_GATE_REASON_PHASE12 "phase12_extreme_candidate_map"
+#define FP_STATE_GATE_REASON_PHASE13 "phase13_mtf_alignment_map"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -101,6 +103,7 @@ struct FP_StateGateConfig
    bool export_panel_lines_csv;
    bool export_entry_bridge_csv;
    bool export_extreme_candidates_csv;
+   bool export_mtf_alignment_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -121,6 +124,7 @@ struct FP_StateGateTimeframeState
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
+   int mtf_alignment_row_count;
    string latest_established_f_summary;
    string probable_next_f_summary;
    string hook_summary;
@@ -154,6 +158,16 @@ struct FP_StateGateTimeframeState
    int primary_extreme_node_id;
    int primary_extreme_scale_L;
    string extreme_map_notes;
+   string mtf_alignment_status;
+   string mtf_alignment_key;
+   string mtf_parent_timeframe;
+   string mtf_parent_extreme_key;
+   string mtf_parent_direction;
+   string mtf_parent_side;
+   string mtf_direction_relation;
+   string mtf_side_relation;
+   string mtf_context_role;
+   string mtf_alignment_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -232,6 +246,38 @@ struct FP_StateGateExtremeCandidateRow
    string label;
 };
 
+
+struct FP_StateGateMtfAlignmentRow
+{
+   int child_slot;
+   int parent_slot;
+   string child_timeframe_label;
+   string parent_timeframe_label;
+   datetime child_closed_bar_time;
+   datetime parent_closed_bar_time;
+   int status;
+   string readiness;
+   string child_extreme_key;
+   string parent_extreme_key;
+   string child_source;
+   string parent_source;
+   string child_direction;
+   string parent_direction;
+   string child_side;
+   string parent_side;
+   string direction_relation;
+   string side_relation;
+   string context_role;
+   int child_node_id;
+   int parent_node_id;
+   double child_price;
+   double parent_price;
+   string child_price_status;
+   string parent_price_status;
+   string alignment_key;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -249,9 +295,11 @@ struct FP_StateGateSnapshot
    FP_StateGateRallyRow rally_rows[FP_STATE_GATE_MAX_RALLY_ROWS];
    FP_StateGateHookRow hook_rows[FP_STATE_GATE_MAX_HOOK_ROWS];
    FP_StateGateExtremeCandidateRow extreme_candidate_rows[FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS];
+   FP_StateGateMtfAlignmentRow mtf_alignment_rows[FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS];
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
+   int mtf_alignment_row_count;
    string status;
    string reason;
 };
@@ -290,6 +338,7 @@ struct FP_StateGateReport
    int hook_rows;
    int contract_rows;
    int extreme_candidate_rows;
+   int mtf_alignment_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -316,6 +365,7 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
+   s.mtf_alignment_row_count = 0;
    s.latest_established_f_summary = "RALLY_VIEW_PENDING";
    s.probable_next_f_summary = "RALLY_VIEW_PENDING";
    s.hook_summary = "HOOK_VIEW_PENDING";
@@ -349,6 +399,17 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.primary_extreme_node_id = -1;
    s.primary_extreme_scale_L = 0;
    s.extreme_map_notes = "EXTREME_MAP_PENDING";
+   s.mtf_alignment_row_count = 0;
+   s.mtf_alignment_status = "MTF_ALIGNMENT_PENDING";
+   s.mtf_alignment_key = "MTF_ALIGNMENT_KEY_PENDING";
+   s.mtf_parent_timeframe = "NO_PARENT_TF";
+   s.mtf_parent_extreme_key = "NO_PARENT_EXTREME";
+   s.mtf_parent_direction = "NO_PARENT_DIRECTION";
+   s.mtf_parent_side = "NO_PARENT_SIDE";
+   s.mtf_direction_relation = "NO_MTF_DIRECTION_RELATION";
+   s.mtf_side_relation = "NO_MTF_SIDE_RELATION";
+   s.mtf_context_role = "NO_MTF_CONTEXT";
+   s.mtf_alignment_notes = "MTF_ALIGNMENT_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -427,6 +488,38 @@ void FP_ResetStateGateExtremeCandidateRow(FP_StateGateExtremeCandidateRow &x)
    x.label = "Extreme candidate map pending";
 }
 
+
+void FP_ResetStateGateMtfAlignmentRow(FP_StateGateMtfAlignmentRow &m)
+{
+   m.child_slot = -1;
+   m.parent_slot = -1;
+   m.child_timeframe_label = "CHILD?";
+   m.parent_timeframe_label = "PARENT?";
+   m.child_closed_bar_time = 0;
+   m.parent_closed_bar_time = 0;
+   m.status = FP_STATE_GATE_ROW_EMPTY;
+   m.readiness = "MTF_ALIGNMENT_PENDING";
+   m.child_extreme_key = "NO_CHILD_EXTREME";
+   m.parent_extreme_key = "NO_PARENT_EXTREME";
+   m.child_source = "NO_CHILD_SOURCE";
+   m.parent_source = "NO_PARENT_SOURCE";
+   m.child_direction = "NO_CHILD_DIRECTION";
+   m.parent_direction = "NO_PARENT_DIRECTION";
+   m.child_side = "NO_CHILD_SIDE";
+   m.parent_side = "NO_PARENT_SIDE";
+   m.direction_relation = "NO_DIRECTION_RELATION";
+   m.side_relation = "NO_SIDE_RELATION";
+   m.context_role = "NO_CONTEXT_ROLE";
+   m.child_node_id = -1;
+   m.parent_node_id = -1;
+   m.child_price = 0.0;
+   m.parent_price = 0.0;
+   m.child_price_status = "NO_CHILD_PRICE";
+   m.parent_price_status = "NO_PARENT_PRICE";
+   m.alignment_key = "NO_ALIGNMENT_KEY";
+   m.label = "MTF alignment pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -448,9 +541,12 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGateHookRow(s.hook_rows[h]);
    for(int x=0; x<FP_STATE_GATE_MAX_EXTREME_CANDIDATE_ROWS; x++)
       FP_ResetStateGateExtremeCandidateRow(s.extreme_candidate_rows[x]);
+   for(int m=0; m<FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS; m++)
+      FP_ResetStateGateMtfAlignmentRow(s.mtf_alignment_rows[m]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
+   s.mtf_alignment_row_count = 0;
    s.status = "reset";
    s.reason = "reset";
 }
@@ -492,6 +588,7 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.hook_rows = 0;
    r.contract_rows = 0;
    r.extreme_candidate_rows = 0;
+   r.mtf_alignment_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -537,6 +634,7 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_panel_lines_csv = true;
    cfg.export_entry_bridge_csv = true;
    cfg.export_extreme_candidates_csv = true;
+   cfg.export_mtf_alignment_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

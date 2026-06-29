@@ -1249,6 +1249,225 @@ void FP_StateGateFinalizeSnapshotContracts(FP_StateGateSnapshot &snapshot)
       FP_StateGateFinalizeSlotContract(snapshot, i);
 }
 
+
+// ---------------------------------------------------------------------------
+// Phase 13 - Multi-Timeframe Alignment Map
+// ---------------------------------------------------------------------------
+// This layer compares lower-slot extreme candidate context against higher-slot
+// context. Slot order is treated as small-to-large timeframe order by design
+// for the Level 19 State Gate configuration.
+
+string FP_StateGateMtfDirectionRelation(const string child_direction,
+                                        const string parent_direction)
+{
+   if(child_direction == "NO_DIRECTION" || parent_direction == "NO_DIRECTION")
+      return "MTF_DIRECTION_UNKNOWN";
+   if(StringFind(child_direction, "NONE") >= 0 || StringFind(parent_direction, "NONE") >= 0)
+      return "MTF_DIRECTION_UNKNOWN";
+   if(child_direction == parent_direction)
+      return "MTF_DIRECTION_ALIGNED";
+   return "MTF_DIRECTION_DIVERGENT";
+}
+
+string FP_StateGateMtfSideRelation(const string child_side,
+                                   const string parent_side)
+{
+   if(child_side == "NO_SIDE" || parent_side == "NO_SIDE")
+      return "MTF_SIDE_UNKNOWN";
+   if(StringFind(child_side, "PENDING") >= 0 || StringFind(parent_side, "PENDING") >= 0)
+      return "MTF_SIDE_PENDING";
+   if(child_side == parent_side)
+      return "MTF_SAME_EXTREME_SIDE";
+   return "MTF_OPPOSITE_EXTREME_SIDE";
+}
+
+string FP_StateGateMtfContextRole(const string direction_relation,
+                                  const string side_relation)
+{
+   if(direction_relation == "MTF_DIRECTION_ALIGNED" && side_relation == "MTF_SAME_EXTREME_SIDE")
+      return "LTF_EXTREME_WITH_HTF_CONTEXT_ALIGNED";
+   if(direction_relation == "MTF_DIRECTION_ALIGNED" && side_relation == "MTF_OPPOSITE_EXTREME_SIDE")
+      return "LTF_DIRECTION_ALIGNED_HTF_OPPOSITE_SIDE_CONTEXT";
+   if(direction_relation == "MTF_DIRECTION_DIVERGENT")
+      return "LTF_HTF_DIRECTION_DIVERGENCE_CONTEXT";
+   if(side_relation == "MTF_SIDE_PENDING")
+      return "MTF_CONTEXT_PENDING_RALLY_SIDE";
+   return "MTF_CONTEXT_INCOMPLETE";
+}
+
+string FP_StateGateMtfReadiness(const FP_StateGateTimeframeState &child,
+                                const FP_StateGateTimeframeState &parent)
+{
+   if(!child.closed_bar_available)
+      return "MTF_ALIGNMENT_BLOCKED_CHILD_NO_CLOSED_BAR";
+   if(!parent.closed_bar_available)
+      return "MTF_ALIGNMENT_BLOCKED_PARENT_NO_CLOSED_BAR";
+   if(child.extreme_candidate_row_count <= 0)
+      return "MTF_ALIGNMENT_BLOCKED_CHILD_NO_EXTREME";
+   if(parent.extreme_candidate_row_count <= 0)
+      return "MTF_ALIGNMENT_BLOCKED_PARENT_NO_EXTREME";
+   return "MTF_ALIGNMENT_READY_CONTEXT_ONLY_NO_DECISION";
+}
+
+string FP_StateGateMtfAlignmentKey(const FP_StateGateSnapshot &snapshot,
+                                   const int child_slot,
+                                   const int parent_slot,
+                                   const string direction_relation,
+                                   const string side_relation,
+                                   const string context_role)
+{
+   string key = snapshot.symbol;
+   key += "|CHILD=" + snapshot.tf_states[child_slot].timeframe_label;
+   key += "|PARENT=" + snapshot.tf_states[parent_slot].timeframe_label;
+   key += "|CDIR=" + FP_StateGateKeyPart(snapshot.tf_states[child_slot].primary_extreme_direction);
+   key += "|PDIR=" + FP_StateGateKeyPart(snapshot.tf_states[parent_slot].primary_extreme_direction);
+   key += "|CSIDE=" + FP_StateGateKeyPart(snapshot.tf_states[child_slot].primary_extreme_side);
+   key += "|PSIDE=" + FP_StateGateKeyPart(snapshot.tf_states[parent_slot].primary_extreme_side);
+   key += "|DREL=" + FP_StateGateKeyPart(direction_relation);
+   key += "|SREL=" + FP_StateGateKeyPart(side_relation);
+   key += "|ROLE=" + FP_StateGateKeyPart(context_role);
+   return key;
+}
+
+bool FP_StateGateAddMtfAlignmentRow(FP_StateGateSnapshot &snapshot,
+                                    const int child_slot,
+                                    const int parent_slot)
+{
+   if(snapshot.mtf_alignment_row_count >= FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS)
+      return false;
+   if(child_slot < 0 || child_slot >= snapshot.timeframe_count)
+      return false;
+   if(parent_slot < 0 || parent_slot >= snapshot.timeframe_count)
+      return false;
+   if(child_slot == parent_slot)
+      return false;
+
+   FP_StateGateTimeframeState child = snapshot.tf_states[child_slot];
+   FP_StateGateTimeframeState parent = snapshot.tf_states[parent_slot];
+
+   int idx = snapshot.mtf_alignment_row_count;
+   FP_ResetStateGateMtfAlignmentRow(snapshot.mtf_alignment_rows[idx]);
+
+   string direction_relation = FP_StateGateMtfDirectionRelation(child.primary_extreme_direction, parent.primary_extreme_direction);
+   string side_relation = FP_StateGateMtfSideRelation(child.primary_extreme_side, parent.primary_extreme_side);
+   string context_role = FP_StateGateMtfContextRole(direction_relation, side_relation);
+   string readiness = FP_StateGateMtfReadiness(child, parent);
+
+   snapshot.mtf_alignment_rows[idx].child_slot = child_slot;
+   snapshot.mtf_alignment_rows[idx].parent_slot = parent_slot;
+   snapshot.mtf_alignment_rows[idx].child_timeframe_label = child.timeframe_label;
+   snapshot.mtf_alignment_rows[idx].parent_timeframe_label = parent.timeframe_label;
+   snapshot.mtf_alignment_rows[idx].child_closed_bar_time = child.last_closed_bar_time;
+   snapshot.mtf_alignment_rows[idx].parent_closed_bar_time = parent.last_closed_bar_time;
+   snapshot.mtf_alignment_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.mtf_alignment_rows[idx].readiness = readiness;
+   snapshot.mtf_alignment_rows[idx].child_extreme_key = child.extreme_map_key;
+   snapshot.mtf_alignment_rows[idx].parent_extreme_key = parent.extreme_map_key;
+   snapshot.mtf_alignment_rows[idx].child_source = child.primary_extreme_source;
+   snapshot.mtf_alignment_rows[idx].parent_source = parent.primary_extreme_source;
+   snapshot.mtf_alignment_rows[idx].child_direction = child.primary_extreme_direction;
+   snapshot.mtf_alignment_rows[idx].parent_direction = parent.primary_extreme_direction;
+   snapshot.mtf_alignment_rows[idx].child_side = child.primary_extreme_side;
+   snapshot.mtf_alignment_rows[idx].parent_side = parent.primary_extreme_side;
+   snapshot.mtf_alignment_rows[idx].direction_relation = direction_relation;
+   snapshot.mtf_alignment_rows[idx].side_relation = side_relation;
+   snapshot.mtf_alignment_rows[idx].context_role = context_role;
+   snapshot.mtf_alignment_rows[idx].child_node_id = child.primary_extreme_node_id;
+   snapshot.mtf_alignment_rows[idx].parent_node_id = parent.primary_extreme_node_id;
+   snapshot.mtf_alignment_rows[idx].child_price = child.primary_extreme_price;
+   snapshot.mtf_alignment_rows[idx].parent_price = parent.primary_extreme_price;
+   snapshot.mtf_alignment_rows[idx].child_price_status = child.primary_extreme_price_status;
+   snapshot.mtf_alignment_rows[idx].parent_price_status = parent.primary_extreme_price_status;
+   snapshot.mtf_alignment_rows[idx].alignment_key = FP_StateGateMtfAlignmentKey(snapshot, child_slot, parent_slot, direction_relation, side_relation, context_role);
+   snapshot.mtf_alignment_rows[idx].label = child.timeframe_label + " -> " + parent.timeframe_label + " | " + readiness + " | " + direction_relation + " | " + side_relation + " | " + context_role;
+
+   snapshot.mtf_alignment_row_count++;
+   snapshot.tf_states[child_slot].mtf_alignment_row_count++;
+   snapshot.tf_states[parent_slot].mtf_alignment_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildMtfAlignmentRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.mtf_alignment_row_count = 0;
+   for(int m=0; m<FP_STATE_GATE_MAX_MTF_ALIGNMENT_ROWS; m++)
+      FP_ResetStateGateMtfAlignmentRow(snapshot.mtf_alignment_rows[m]);
+
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      snapshot.tf_states[i].mtf_alignment_row_count = 0;
+
+   for(int child=0; child<snapshot.timeframe_count; child++)
+   {
+      for(int parent=child+1; parent<snapshot.timeframe_count; parent++)
+         FP_StateGateAddMtfAlignmentRow(snapshot, child, parent);
+   }
+}
+
+bool FP_StateGateFirstMtfAlignmentForChildSlot(const FP_StateGateSnapshot &snapshot,
+                                               const int child_slot,
+                                               FP_StateGateMtfAlignmentRow &out)
+{
+   for(int i=0; i<snapshot.mtf_alignment_row_count; i++)
+   {
+      FP_StateGateMtfAlignmentRow row = snapshot.mtf_alignment_rows[i];
+      if(row.child_slot != child_slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+string FP_StateGateSlotMtfTopStatus(const FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(slot == snapshot.timeframe_count - 1)
+   {
+      if(snapshot.tf_states[slot].extreme_candidate_row_count > 0)
+         return "MTF_TOP_CONTEXT_READY_NO_PARENT";
+      return "MTF_TOP_CONTEXT_NO_EXTREME";
+   }
+   return "MTF_ALIGNMENT_PENDING";
+}
+
+void FP_StateGateFinalizeSlotMtfAlignment(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGateMtfAlignmentRow row;
+   FP_ResetStateGateMtfAlignmentRow(row);
+
+   if(FP_StateGateFirstMtfAlignmentForChildSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].mtf_alignment_status = row.readiness;
+      snapshot.tf_states[slot].mtf_alignment_key = row.alignment_key;
+      snapshot.tf_states[slot].mtf_parent_timeframe = row.parent_timeframe_label;
+      snapshot.tf_states[slot].mtf_parent_extreme_key = row.parent_extreme_key;
+      snapshot.tf_states[slot].mtf_parent_direction = row.parent_direction;
+      snapshot.tf_states[slot].mtf_parent_side = row.parent_side;
+      snapshot.tf_states[slot].mtf_direction_relation = row.direction_relation;
+      snapshot.tf_states[slot].mtf_side_relation = row.side_relation;
+      snapshot.tf_states[slot].mtf_context_role = row.context_role;
+      snapshot.tf_states[slot].mtf_alignment_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].mtf_alignment_status = FP_StateGateSlotMtfTopStatus(snapshot, slot);
+   snapshot.tf_states[slot].mtf_alignment_key = "NO_PARENT_ALIGNMENT_KEY";
+   snapshot.tf_states[slot].mtf_parent_timeframe = "NO_PARENT_TF";
+   snapshot.tf_states[slot].mtf_parent_extreme_key = "NO_PARENT_EXTREME";
+   snapshot.tf_states[slot].mtf_parent_direction = "NO_PARENT_DIRECTION";
+   snapshot.tf_states[slot].mtf_parent_side = "NO_PARENT_SIDE";
+   snapshot.tf_states[slot].mtf_direction_relation = "NO_PARENT_DIRECTION_RELATION";
+   snapshot.tf_states[slot].mtf_side_relation = "NO_PARENT_SIDE_RELATION";
+   snapshot.tf_states[slot].mtf_context_role = "HTF_TOP_LEVEL_CONTEXT";
+   snapshot.tf_states[slot].mtf_alignment_notes = snapshot.tf_states[slot].mtf_alignment_status;
+}
+
+void FP_StateGateFinalizeSnapshotMtfAlignment(FP_StateGateSnapshot &snapshot)
+{
+   for(int i=0; i<snapshot.timeframe_count; i++)
+      FP_StateGateFinalizeSlotMtfAlignment(snapshot, i);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
