@@ -3546,6 +3546,318 @@ void FP_StateGateFinalizeSnapshotPaperFilters(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 23 - Dry-Run Decision Policy
+// ---------------------------------------------------------------------------
+// This layer converts paper attribution/filter diagnostics into a dry-run
+// policy gate.  It does not enable real execution and does not place orders.
+
+string FP_StateGatePaperPolicyName(const FP_StateGatePaperRegimeRow &r)
+{
+   if(StringFind(r.context_family, "MTF_ALIGNED_HOOK") >= 0)
+      return "POLICY_DRY_RUN_MTF_ALIGNED_HOOK_EXTREME";
+   if(StringFind(r.context_family, "HOOK") >= 0)
+      return "POLICY_DRY_RUN_HOOK_EXTREME";
+   if(StringFind(r.context_family, "MTF_ALIGNED_RALLY") >= 0)
+      return "POLICY_DRY_RUN_MTF_ALIGNED_RALLY_CONTEXT";
+   if(StringFind(r.geometry_context, "READY") >= 0 || StringFind(r.geometry_context, "PARTIAL") >= 0)
+      return "POLICY_DRY_RUN_GEOMETRY_READY_OR_PARTIAL";
+   return "POLICY_DRY_RUN_CONTEXT_REVIEW";
+}
+
+string FP_StateGatePaperPolicyFamily(const string policy_name)
+{
+   if(StringFind(policy_name, "MTF_ALIGNED_HOOK") >= 0)
+      return "PAPER_POLICY_FAMILY_MTF_ALIGNED_HOOK";
+   if(StringFind(policy_name, "HOOK") >= 0)
+      return "PAPER_POLICY_FAMILY_HOOK";
+   if(StringFind(policy_name, "RALLY") >= 0)
+      return "PAPER_POLICY_FAMILY_RALLY";
+   if(StringFind(policy_name, "GEOMETRY") >= 0)
+      return "PAPER_POLICY_FAMILY_GEOMETRY";
+   return "PAPER_POLICY_FAMILY_REVIEW";
+}
+
+double FP_StateGatePaperPolicyScore(const FP_StateGatePaperRegimeRow &r,
+                                    const FP_StateGateSnapshot &snapshot)
+{
+   double score = 0.0;
+
+   if(StringFind(r.context_family, "MTF_ALIGNED_HOOK") >= 0) score += 45.0;
+   else if(StringFind(r.context_family, "HOOK") >= 0) score += 28.0;
+   else if(StringFind(r.context_family, "MTF_ALIGNED_RALLY") >= 0) score += 22.0;
+   else if(StringFind(r.context_family, "RALLY") >= 0) score += 12.0;
+
+   if(StringFind(r.geometry_context, "READY") >= 0) score += 15.0;
+   else if(StringFind(r.geometry_context, "PARTIAL") >= 0) score += 8.0;
+
+   if(StringFind(r.result_bucket, "WIN") >= 0) score += 15.0;
+   if(StringFind(r.result_bucket, "OPEN") >= 0) score += 8.0;
+   if(StringFind(r.result_bucket, "LOSS") >= 0) score -= 18.0;
+   if(StringFind(r.result_bucket, "AMBIGUOUS") >= 0) score -= 35.0;
+   if(StringFind(r.result_bucket, "WAITING") >= 0) score -= 25.0;
+
+   if(StringFind(r.r_status, "READY") >= 0) score += 10.0;
+   if(r.r_multiple > 0.0) score += MathMin(10.0, r.r_multiple * 5.0);
+   if(r.r_multiple < 0.0) score -= MathMin(10.0, MathAbs(r.r_multiple) * 5.0);
+
+   if(StringFind(snapshot.paper_filter_best_filter, "MTF_ALIGNED_HOOK") >= 0 && StringFind(r.context_family, "MTF_ALIGNED_HOOK") >= 0)
+      score += 8.0;
+   else if(StringFind(snapshot.paper_filter_best_filter, "HOOK") >= 0 && StringFind(r.context_family, "HOOK") >= 0)
+      score += 5.0;
+
+   if(score < 0.0) score = 0.0;
+   if(score > 100.0) score = 100.0;
+   return score;
+}
+
+string FP_StateGatePaperPolicyScoreStatus(const double score)
+{
+   if(score >= 70.0) return "PAPER_POLICY_SCORE_STRONG_DRY_RUN_ONLY";
+   if(score >= 55.0) return "PAPER_POLICY_SCORE_ACCEPTABLE_DRY_RUN_ONLY";
+   if(score >= 40.0) return "PAPER_POLICY_SCORE_REVIEW_ONLY";
+   return "PAPER_POLICY_SCORE_WEAK_BLOCKED";
+}
+
+string FP_StateGatePaperPolicyRequiredContext(const FP_StateGatePaperRegimeRow &r)
+{
+   string ctx = "context=" + r.context_family;
+   ctx += "|mtf=" + r.mtf_context;
+   ctx += "|geometry=" + r.geometry_context;
+   ctx += "|bucket=" + r.result_bucket;
+   ctx += "|r=" + r.r_status;
+   return ctx;
+}
+
+string FP_StateGatePaperPolicyDirection(const FP_StateGateTimeframeState &s,
+                                        const FP_StateGatePaperRegimeRow &r)
+{
+   if(StringFind(s.entry_decision_direction, "BUY") >= 0 || StringFind(r.source_context, "BULLISH") >= 0)
+      return "POLICY_DIRECTION_BUY_DRY_RUN_ONLY";
+   if(StringFind(s.entry_decision_direction, "SELL") >= 0 || StringFind(r.source_context, "BEARISH") >= 0)
+      return "POLICY_DIRECTION_SELL_DRY_RUN_ONLY";
+   return "POLICY_DIRECTION_CONTEXT_PENDING";
+}
+
+string FP_StateGatePaperPolicyBlockReason(const FP_StateGateTimeframeState &s,
+                                          const FP_StateGatePaperRegimeRow &r,
+                                          const double score)
+{
+   if(!s.closed_bar_available)
+      return "POLICY_BLOCK_NO_CLOSED_BAR";
+   if(r.attribution_key == "NO_PAPER_REGIME_KEY" || r.attribution_key == "")
+      return "POLICY_BLOCK_NO_REGIME_ATTRIBUTION";
+   if(StringFind(r.result_bucket, "AMBIGUOUS") >= 0)
+      return "POLICY_BLOCK_AMBIGUOUS_PAPER_RESULT";
+   if(StringFind(r.result_bucket, "WAITING") >= 0)
+      return "POLICY_BLOCK_WAITING_FOR_ENTRY";
+   if(score < 55.0)
+      return "POLICY_BLOCK_SCORE_BELOW_DRY_RUN_THRESHOLD";
+   return "POLICY_ALLOW_DRY_RUN_CONTEXT_ONLY_NO_REAL_EXECUTION";
+}
+
+bool FP_StateGatePaperPolicyAllowedDryRun(const string block_reason)
+{
+   return (StringFind(block_reason, "ALLOW_DRY_RUN") >= 0);
+}
+
+string FP_StateGatePaperPolicyStatus(const bool allowed_dry_run,
+                                     const string block_reason)
+{
+   if(allowed_dry_run)
+      return "PAPER_POLICY_ALLOWED_DRY_RUN_NO_REAL_EXECUTION";
+   if(StringFind(block_reason, "NO_REGIME") >= 0)
+      return "PAPER_POLICY_BLOCKED_NO_REGIME_NO_EXECUTION";
+   if(StringFind(block_reason, "AMBIGUOUS") >= 0)
+      return "PAPER_POLICY_BLOCKED_AMBIGUOUS_NO_EXECUTION";
+   if(StringFind(block_reason, "WAITING") >= 0)
+      return "PAPER_POLICY_BLOCKED_WAITING_NO_EXECUTION";
+   if(StringFind(block_reason, "SCORE") >= 0)
+      return "PAPER_POLICY_BLOCKED_LOW_SCORE_NO_EXECUTION";
+   return "PAPER_POLICY_BLOCKED_NO_EXECUTION";
+}
+
+string FP_StateGatePaperPolicyKey(const FP_StateGateSnapshot &snapshot,
+                                  const int slot,
+                                  const string policy_name,
+                                  const bool allowed_dry_run,
+                                  const double score,
+                                  const string block_reason)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|POLICY=" + FP_StateGateKeyPart(policy_name);
+   key += "|ALLOW=" + (allowed_dry_run ? "true" : "false");
+   key += "|SCORE=" + DoubleToString(score, 2);
+   key += "|BLOCK=" + FP_StateGateKeyPart(block_reason);
+   key += "|FILTER=" + FP_StateGateKeyPart(snapshot.paper_filter_best_filter);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateAddPaperPolicyRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.paper_policy_row_count >= FP_STATE_GATE_MAX_PAPER_POLICY_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGatePaperRegimeRow regime;
+   FP_ResetStateGatePaperRegimeRow(regime);
+   if(!FP_StateGateFirstPaperRegimeForSlot(snapshot, slot, regime))
+      return false;
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.paper_policy_row_count;
+   FP_ResetStateGatePaperPolicyRow(snapshot.paper_policy_rows[idx]);
+
+   string policy_name = FP_StateGatePaperPolicyName(regime);
+   string policy_family = FP_StateGatePaperPolicyFamily(policy_name);
+   double score = FP_StateGatePaperPolicyScore(regime, snapshot);
+   string score_status = FP_StateGatePaperPolicyScoreStatus(score);
+   string block_reason = FP_StateGatePaperPolicyBlockReason(s, regime, score);
+   bool allowed_dry_run = FP_StateGatePaperPolicyAllowedDryRun(block_reason);
+   string policy_status = FP_StateGatePaperPolicyStatus(allowed_dry_run, block_reason);
+   string policy_key = FP_StateGatePaperPolicyKey(snapshot, slot, policy_name, allowed_dry_run, score, block_reason);
+
+   snapshot.paper_policy_rows[idx].slot_index = slot;
+   snapshot.paper_policy_rows[idx].timeframe = s.timeframe;
+   snapshot.paper_policy_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.paper_policy_rows[idx].evaluated_at = TimeCurrent();
+   snapshot.paper_policy_rows[idx].last_closed_bar_time = s.last_closed_bar_time;
+   snapshot.paper_policy_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.paper_policy_rows[idx].status = (allowed_dry_run ? FP_STATE_GATE_ROW_PROJECTED : FP_STATE_GATE_ROW_PLACEHOLDER);
+   snapshot.paper_policy_rows[idx].policy_status = policy_status;
+   snapshot.paper_policy_rows[idx].policy_name = policy_name;
+   snapshot.paper_policy_rows[idx].policy_version = "PAPER_POLICY_V1_DRY_RUN_ONLY";
+   snapshot.paper_policy_rows[idx].policy_family = policy_family;
+   snapshot.paper_policy_rows[idx].policy_allowed_dry_run = allowed_dry_run;
+   snapshot.paper_policy_rows[idx].policy_direction = FP_StateGatePaperPolicyDirection(s, regime);
+   snapshot.paper_policy_rows[idx].policy_decision_type = s.entry_decision_type;
+   snapshot.paper_policy_rows[idx].policy_score = score;
+   snapshot.paper_policy_rows[idx].policy_score_status = score_status;
+   snapshot.paper_policy_rows[idx].policy_block_reason = block_reason;
+   snapshot.paper_policy_rows[idx].required_context = FP_StateGatePaperPolicyRequiredContext(regime);
+   snapshot.paper_policy_rows[idx].filter_context = snapshot.paper_filter_best_filter + "|" + snapshot.paper_filter_best_distribution;
+   snapshot.paper_policy_rows[idx].context_family = regime.context_family;
+   snapshot.paper_policy_rows[idx].result_bucket = regime.result_bucket;
+   snapshot.paper_policy_rows[idx].r_status = regime.r_status;
+   snapshot.paper_policy_rows[idx].r_multiple = regime.r_multiple;
+   snapshot.paper_policy_rows[idx].source_regime_key = regime.attribution_key;
+   snapshot.paper_policy_rows[idx].source_result_key = regime.source_result_key;
+   snapshot.paper_policy_rows[idx].source_filter_key = snapshot.paper_filter_key;
+   snapshot.paper_policy_rows[idx].source_portfolio_key = snapshot.paper_portfolio_key;
+   snapshot.paper_policy_rows[idx].policy_key = policy_key;
+   snapshot.paper_policy_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE23_POLICY_ONLY";
+   snapshot.paper_policy_rows[idx].label = s.timeframe_label + " | " + policy_status + " | " + policy_name + " | score=" + DoubleToString(score, 2) + " | " + block_reason + " | real_execution=false";
+
+   snapshot.paper_policy_row_count++;
+   snapshot.tf_states[slot].paper_policy_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperPolicyRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_policy_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_POLICY_ROWS; i++)
+      FP_ResetStateGatePaperPolicyRow(snapshot.paper_policy_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].paper_policy_row_count = 0;
+      FP_StateGateAddPaperPolicyRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPaperPolicyForSlot(const FP_StateGateSnapshot &snapshot,
+                                         const int slot,
+                                         FP_StateGatePaperPolicyRow &out)
+{
+   for(int i=0; i<snapshot.paper_policy_row_count; i++)
+   {
+      FP_StateGatePaperPolicyRow row = snapshot.paper_policy_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPaperPolicy(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePaperPolicyRow row;
+   FP_ResetStateGatePaperPolicyRow(row);
+
+   if(FP_StateGateFirstPaperPolicyForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].paper_policy_status = row.policy_status;
+      snapshot.tf_states[slot].paper_policy_key = row.policy_key;
+      snapshot.tf_states[slot].paper_policy_name = row.policy_name;
+      snapshot.tf_states[slot].paper_policy_family = row.policy_family;
+      snapshot.tf_states[slot].paper_policy_allowed_dry_run = row.policy_allowed_dry_run;
+      snapshot.tf_states[slot].paper_policy_score = row.policy_score;
+      snapshot.tf_states[slot].paper_policy_score_status = row.policy_score_status;
+      snapshot.tf_states[slot].paper_policy_block_reason = row.policy_block_reason;
+      snapshot.tf_states[slot].paper_policy_required_context = row.required_context;
+      snapshot.tf_states[slot].paper_policy_source_filter = row.source_filter_key;
+      snapshot.tf_states[slot].paper_policy_execution_status = row.execution_status;
+      snapshot.tf_states[slot].paper_policy_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].paper_policy_status = "PAPER_POLICY_NO_ROW_NO_EXECUTION";
+   snapshot.tf_states[slot].paper_policy_key = "NO_PAPER_POLICY_KEY";
+   snapshot.tf_states[slot].paper_policy_name = "NO_PAPER_POLICY";
+   snapshot.tf_states[slot].paper_policy_allowed_dry_run = false;
+   snapshot.tf_states[slot].paper_policy_block_reason = "POLICY_BLOCK_NO_POLICY_ROW";
+   snapshot.tf_states[slot].paper_policy_execution_status = "REAL_EXECUTION_DISABLED_PHASE23_POLICY_ONLY";
+   snapshot.tf_states[slot].paper_policy_notes = "No paper policy row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPaperPolicy(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_policy_total_rows = snapshot.paper_policy_row_count;
+   snapshot.paper_policy_allowed_dry_run_rows = 0;
+   snapshot.paper_policy_blocked_rows = 0;
+   snapshot.paper_policy_best_policy = "NO_BEST_POLICY";
+   snapshot.paper_policy_best_score = 0.0;
+   snapshot.paper_policy_distribution = "ALLOW=0|BLOCK=0";
+   snapshot.paper_policy_execution_status = "REAL_EXECUTION_DISABLED_PHASE23_POLICY_ONLY";
+
+   for(int i=0; i<snapshot.paper_policy_row_count; i++)
+   {
+      FP_StateGatePaperPolicyRow row = snapshot.paper_policy_rows[i];
+      if(row.policy_allowed_dry_run)
+         snapshot.paper_policy_allowed_dry_run_rows++;
+      else
+         snapshot.paper_policy_blocked_rows++;
+
+      if(i == 0 || row.policy_score > snapshot.paper_policy_best_score)
+      {
+         snapshot.paper_policy_best_score = row.policy_score;
+         snapshot.paper_policy_best_policy = row.policy_name;
+      }
+   }
+
+   snapshot.paper_policy_distribution = "ALLOW=" + IntegerToString(snapshot.paper_policy_allowed_dry_run_rows) + "|BLOCK=" + IntegerToString(snapshot.paper_policy_blocked_rows);
+
+   if(snapshot.paper_policy_row_count <= 0)
+      snapshot.paper_policy_status = "PAPER_POLICY_EMPTY_NO_EXECUTION";
+   else if(snapshot.paper_policy_allowed_dry_run_rows > 0)
+      snapshot.paper_policy_status = "PAPER_POLICY_HAS_DRY_RUN_ALLOWED_ROWS_NO_REAL_EXECUTION";
+   else
+      snapshot.paper_policy_status = "PAPER_POLICY_ALL_ROWS_BLOCKED_NO_EXECUTION";
+
+   snapshot.paper_policy_key = snapshot.symbol + "|POLICY_ROWS=" + IntegerToString(snapshot.paper_policy_row_count) + "|ALLOW=" + IntegerToString(snapshot.paper_policy_allowed_dry_run_rows) + "|BEST=" + FP_StateGateKeyPart(snapshot.paper_policy_best_policy) + "|EXEC=DISABLED";
+   snapshot.paper_policy_notes = snapshot.paper_policy_status + "|best=" + snapshot.paper_policy_best_policy + "|score=" + DoubleToString(snapshot.paper_policy_best_score, 2) + "|" + snapshot.paper_policy_distribution;
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPaperPolicy(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

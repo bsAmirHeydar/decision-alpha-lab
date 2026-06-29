@@ -305,3 +305,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE22_PAPER_FILTER_DIAGNOSTICS.md
 ```
 
 Phase 22 adds Paper Filter Diagnostics, evaluating non-executable filter scenarios over paper regime/result rows.
+
+
+## Level 19 — Phase 23
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE23_DRY_RUN_DECISION_POLICY.md
+```
+
+Phase 23 adds a Dry-Run Decision Policy gate, converting paper attribution and filter diagnostics into non-executable policy decisions.

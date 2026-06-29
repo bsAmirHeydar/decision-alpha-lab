@@ -446,6 +446,7 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
          rows++;
       rows++; // paper portfolio aggregate metrics
       rows++; // paper filter diagnostics
+      rows++; // paper dry-run decision policy
       for(int i=0; i<snapshot.timeframe_count; i++)
          rows += FP_StateGatePanelSlotRowBudget(cfg, snapshot, i);
    }
@@ -487,6 +488,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    string filter_line = "Filters | " + snapshot.paper_filter_status + " | active=" + IntegerToString(snapshot.paper_filter_active_filters) + "/" + IntegerToString(snapshot.paper_filter_total_filters) + " | best=" + snapshot.paper_filter_best_filter + " | avgD=" + DoubleToString(snapshot.paper_filter_best_avg_delta, 5);
    FP_StateGateCreateLabel(cfg, "PAPER_FILTER_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(filter_line, text_limit),
+                           clrGold, font_size, report);
+   cursor_y += row_h;
+
+   string policy_line = "Policy | " + snapshot.paper_policy_status + " | allow=" + IntegerToString(snapshot.paper_policy_allowed_dry_run_rows) + "/" + IntegerToString(snapshot.paper_policy_total_rows) + " | best=" + snapshot.paper_policy_best_policy + " | score=" + DoubleToString(snapshot.paper_policy_best_score, 2);
+   FP_StateGateCreateLabel(cfg, "PAPER_POLICY_GLOBAL", x + 10, cursor_y + 2,
+                           FP_StateGatePanelClip(policy_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 
