@@ -143,3 +143,12 @@ Phoenix now has a final compile/static QA hardening pass. Runtime emits `FP_LEVE
 ```powershell
 python tools/flag_counting/static_qa.py --root . --csv reports/flag_counting_static_qa.csv
 ```
+
+
+## Level 19 — Phase 7
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE7_LEFT_PANEL_SECTION_TOGGLES.md
+```
+
+Phase 7 moves the State Gate dashboard default anchor to the **left-upper** chart corner and adds independent minimize / restore controls for each timeframe block plus the Rally and Hook subsections.
