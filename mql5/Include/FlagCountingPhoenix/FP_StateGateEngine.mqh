@@ -2,6 +2,8 @@
 #define __FP_STATE_GATE_ENGINE_MQH__
 #property strict
 
+#include "FP_Timebase.mqh"
+#include "FP_SequenceEngine.mqh"
 #include "FP_StateGatePanel.mqh"
 #include "FP_StateGateExport.mqh"
 #include "FP_StateGateAudit.mqh"
@@ -9,9 +11,12 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Engine
 // ----------------------------------------------------------------------------
-// Phase 2 implements closed-bar tracking for each configured timeframe. It does
-// not read, mutate, or reinterpret F-counting, Hook/ND, node, ownership,
-// canonicalization, renderer, validation, release, or license engines.
+// Phase 4 keeps closed-bar tracking and Rally View projection, then adds
+// read-only Hook View projection from the existing Hook/ND branch output. The
+// projection runs the same locked Phoenix anatomy pipeline per configured
+// timeframe and maps existing facts into State Gate rows. It does not alter
+// Node, Hook/ND, Flag Body, Internal Count, lifecycle, ownership,
+// canonicalization, renderer, validation, release, or license logic.
 // ============================================================================
 
 void FP_StateGateEnsureRuntime(const FP_StateGateConfig &cfg,
@@ -100,6 +105,83 @@ void FP_StateGateReadClosedBarState(const string symbol,
    state.reason = "closed_bar_already_processed";
 }
 
+void FP_StateGateQuietEngineConfig(const string symbol,
+                                   const ENUM_TIMEFRAMES tf,
+                                   const FP_Config &source,
+                                   FP_Config &target)
+{
+   target = source;
+   target.context_symbol = symbol;
+   target.context_timeframe = FP_StateGateTimeframeName(tf);
+   target.identity_generation_pass = "phoenix_level19_state_gate";
+   target.print_node_sanity = false;
+   target.print_node_samples = false;
+   target.print_identity_sanity = false;
+   target.print_identity_samples = false;
+   target.print_hook_sanity = false;
+   target.print_hook_samples = false;
+   target.print_body_sanity = false;
+   target.print_body_samples = false;
+   target.print_internal_sanity = false;
+   target.print_internal_samples = false;
+   target.print_f1_sanity = false;
+   target.print_f1_samples = false;
+   target.print_f2_sanity = false;
+   target.print_f2_samples = false;
+   target.print_f3_sanity = false;
+   target.print_f3_samples = false;
+   target.print_ownership_sanity = false;
+   target.print_ownership_samples = false;
+   target.print_canonical_sanity = false;
+   target.print_canonical_samples = false;
+   target.verbose_logs = false;
+}
+
+bool FP_StateGateRunReadOnlyAnatomy(const string symbol,
+                                    const ENUM_TIMEFRAMES tf,
+                                    const FP_TimebaseConfig &timebase_template,
+                                    const FP_Config &engine_template,
+                                    const int &scales[],
+                                    const int scale_count,
+                                    MqlRates &rates[],
+                                    FP_FlagEvent &events[],
+                                    FP_HookBranch &hooks[],
+                                    FP_DetectResult &detect_result,
+                                    string &reason)
+{
+   ArrayResize(rates, 0);
+   ArrayResize(events, 0);
+   ArrayResize(hooks, 0);
+   FP_ResetDetectResult(detect_result);
+   reason = "ok";
+
+   if(scale_count <= 0)
+   {
+      reason = "no_scales";
+      return false;
+   }
+
+   FP_TimebaseConfig tf_timebase = timebase_template;
+   tf_timebase.symbol = symbol;
+   tf_timebase.period = tf;
+   tf_timebase.print_sanity = false;
+   tf_timebase.print_samples = false;
+
+   FP_TimebaseReport timebase_report;
+   int copied = FP_LoadCanonicalRates(tf_timebase, rates, timebase_report);
+   if(!timebase_report.ok || copied < tf_timebase.min_closed_bars)
+   {
+      reason = "timebase_failed:" + timebase_report.reason;
+      return false;
+   }
+
+   FP_Config tf_engine_cfg;
+   FP_StateGateQuietEngineConfig(symbol, tf, engine_template, tf_engine_cfg);
+   FP_DetectAllScales(rates, copied, scales, scale_count, tf_engine_cfg, events, hooks, detect_result);
+   reason = "events=" + IntegerToString(ArraySize(events)) + ";hooks=" + IntegerToString(ArraySize(hooks));
+   return true;
+}
+
 void FP_StateGateBuildPhase2Snapshot(const string symbol,
                                      const ENUM_TIMEFRAMES chart_period,
                                      const FP_StateGateConfig &cfg,
@@ -165,24 +247,103 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    report.hook_rows = runtime.snapshot.hook_row_count;
 }
 
-void FP_RunStateGatePhase2(const string symbol,
-                           const ENUM_TIMEFRAMES chart_period,
-                           const FP_StateGateConfig &cfg,
-                           FP_StateGateRuntime &runtime,
-                           FP_StateGateReport &report)
+void FP_StateGateBuildPhase4Snapshot(const string symbol,
+                                     const ENUM_TIMEFRAMES chart_period,
+                                     const FP_StateGateConfig &cfg,
+                                     const FP_TimebaseConfig &timebase_template,
+                                     const FP_Config &engine_template,
+                                     const int &scales[],
+                                     const int scale_count,
+                                     FP_StateGateRuntime &runtime,
+                                     FP_StateGateReport &report)
 {
-   FP_ResetStateGateReport(report);
-   if(!cfg.enabled)
+   FP_StateGateEnsureRuntime(cfg, runtime);
+   FP_ResetStateGateSnapshot(runtime.snapshot);
+   runtime.snapshot.initialized = true;
+   runtime.snapshot.symbol = symbol;
+   runtime.snapshot.chart_timeframe = chart_period;
+   runtime.snapshot.generated_at = TimeCurrent();
+   runtime.snapshot.timeframe_count = FP_STATE_GATE_TF_SLOTS;
+   runtime.snapshot.status = "phase4_rally_hook_projection";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE4;
+   runtime.snapshot.update_serial = runtime.update_serial;
+
+   for(int i=0; i<FP_STATE_GATE_TF_SLOTS; i++)
    {
-      report.attempted = true;
-      report.status = FP_STATE_GATE_STATUS_DISABLED;
-      report.reason = "InpStateGateEnabled_false";
-      report.ok = true;
-      return;
+      ENUM_TIMEFRAMES tf = FP_StateGateConfigTimeframeAt(cfg, i);
+      FP_StateGateReadClosedBarState(symbol, i, tf, runtime, runtime.snapshot.tf_states[i]);
+      report.slots_checked++;
+
+      if(runtime.snapshot.tf_states[i].closed_bar_available)
+      {
+         runtime.snapshot.available_timeframes++;
+         report.available_timeframes++;
+      }
+      else
+      {
+         runtime.snapshot.unavailable_timeframes++;
+         report.unavailable_timeframes++;
+      }
+
+      if(runtime.snapshot.tf_states[i].dirty)
+      {
+         runtime.snapshot.dirty_timeframes++;
+         runtime.snapshot.any_dirty = true;
+         report.dirty_timeframes++;
+      }
+      else if(runtime.snapshot.tf_states[i].closed_bar_available)
+      {
+         runtime.snapshot.unchanged_timeframes++;
+         report.unchanged_timeframes++;
+      }
+
+      if(!runtime.snapshot.tf_states[i].closed_bar_available)
+      {
+         FP_StateGateAddNoRallyRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot, FP_STATE_GATE_STATUS_TF_UNAVAILABLE);
+         FP_StateGateAddNoHookRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot, FP_STATE_GATE_STATUS_TF_UNAVAILABLE);
+         continue;
+      }
+
+      MqlRates tf_rates[];
+      FP_FlagEvent tf_events[];
+      FP_HookBranch tf_hooks[];
+      FP_DetectResult tf_result;
+      string anatomy_reason = "";
+      bool anatomy_ok = FP_StateGateRunReadOnlyAnatomy(symbol, tf, timebase_template, engine_template, scales, scale_count, tf_rates, tf_events, tf_hooks, tf_result, anatomy_reason);
+      if(!anatomy_ok)
+      {
+         FP_StateGateAddNoRallyRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot, anatomy_reason);
+         FP_StateGateAddNoHookRowsForSlot(i, runtime.snapshot.tf_states[i], runtime.snapshot, anatomy_reason);
+      }
+      else
+      {
+         FP_StateGateBuildRallyRowsForSlot(i, runtime.snapshot.tf_states[i], tf_events, cfg.max_rally_rows_per_tf, runtime.snapshot);
+         FP_StateGateBuildHookRowsForSlot(i, runtime.snapshot.tf_states[i], tf_hooks, cfg.max_hook_rows_per_tf, runtime.snapshot);
+      }
    }
 
-   FP_StateGateBuildPhase2Snapshot(symbol, chart_period, cfg, runtime, report);
+   if(runtime.snapshot.any_dirty)
+      runtime.update_serial++;
+   runtime.snapshot.update_serial = runtime.update_serial;
+   runtime.last_run_had_dirty = runtime.snapshot.any_dirty;
+   runtime.last_engine_run_time = TimeCurrent();
 
+   report.attempted = true;
+   report.ok = true;
+   report.status = runtime.snapshot.status;
+   report.reason = runtime.snapshot.reason;
+   report.version = FP_STATE_GATE_VERSION;
+   report.symbol = symbol;
+   report.timeframe_count = runtime.snapshot.timeframe_count;
+   report.rally_rows = runtime.snapshot.rally_row_count;
+   report.hook_rows = runtime.snapshot.hook_row_count;
+}
+
+void FP_StateGateFinalizeRun(const FP_StateGateConfig &cfg,
+                             FP_StateGateRuntime &runtime,
+                             FP_StateGateReport &report,
+                             const string default_reason)
+{
    bool should_redraw_panel = (cfg.panel_enabled && (runtime.snapshot.any_dirty || !runtime.panel_has_drawn));
    if(should_redraw_panel)
    {
@@ -201,17 +362,75 @@ void FP_RunStateGatePhase2(const string symbol,
    if(!runtime.snapshot.any_dirty && runtime.panel_has_drawn)
    {
       report.skipped_no_dirty = true;
-      if(report.reason == FP_STATE_GATE_REASON_PHASE2)
-         report.reason = "phase2_no_closed_bar_change";
+      if(report.reason == default_reason)
+         report.reason = default_reason + "_no_closed_bar_change";
    }
 
    report.ok = (report.object_errors == 0 && report.file_errors == 0);
-   if(!report.ok && report.reason == FP_STATE_GATE_REASON_PHASE2)
-      report.reason = "phase2_errors";
+   if(!report.ok && report.reason == default_reason)
+      report.reason = default_reason + "_errors";
 }
 
-// Backward-compatible alias for the Phase 1 integration name.  The underlying
-// behavior is now Phase 2 closed-bar tracking.
+void FP_RunStateGatePhase2(const string symbol,
+                           const ENUM_TIMEFRAMES chart_period,
+                           const FP_StateGateConfig &cfg,
+                           FP_StateGateRuntime &runtime,
+                           FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase2Snapshot(symbol, chart_period, cfg, runtime, report);
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE2);
+}
+
+void FP_RunStateGatePhase4(const string symbol,
+                           const ENUM_TIMEFRAMES chart_period,
+                           const FP_StateGateConfig &cfg,
+                           const FP_TimebaseConfig &timebase_template,
+                           const FP_Config &engine_template,
+                           const int &scales[],
+                           const int scale_count,
+                           FP_StateGateRuntime &runtime,
+                           FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE4);
+}
+
+
+void FP_RunStateGatePhase3(const string symbol,
+                           const ENUM_TIMEFRAMES chart_period,
+                           const FP_StateGateConfig &cfg,
+                           const FP_TimebaseConfig &timebase_template,
+                           const FP_Config &engine_template,
+                           const int &scales[],
+                           const int scale_count,
+                           FP_StateGateRuntime &runtime,
+                           FP_StateGateReport &report)
+{
+   FP_RunStateGatePhase4(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+}
+
+// Backward-compatible aliases for older integration names.  Phase 1/2 callers
+// still compile, while the main EA now uses Phase 4 explicitly.
 void FP_RunStateGatePhase1(const string symbol,
                            const ENUM_TIMEFRAMES chart_period,
                            const FP_StateGateConfig &cfg,

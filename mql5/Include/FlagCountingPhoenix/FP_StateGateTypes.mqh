@@ -11,12 +11,13 @@
 // Hook/ND, Flag Body, Internal Count, F1/F2/F3 lifecycle, ownership,
 // canonicalization, renderer, validation, release, and license logic.
 //
-// Phase 2 adds the real closed-bar tracker for three configured timeframes. It
-// still does not project or reinterpret F-counting or Hook/ND anatomy; Rally and
-// Hook rows remain explicit placeholders until Phase 3/4.
+// Phase 4 keeps the closed-bar tracker and Rally View projection, then adds
+// Hook View projection by reading existing Phoenix Hook/ND branch output. It
+// still does not modify F-counting, Hook/ND, node, ownership,
+// canonicalization, renderer, validation, release, or license logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.10-phase2"
+#define FP_STATE_GATE_VERSION "19.30-phase4"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -32,7 +33,14 @@
 #define FP_STATE_GATE_STATUS_TF_UNAVAILABLE "TF_DATA_UNAVAILABLE"
 
 #define FP_STATE_GATE_REASON_PHASE2 "phase2_closed_bar_tracker"
-#define FP_STATE_GATE_REASON_PROJECTION_PENDING "rally_hook_projection_pending"
+#define FP_STATE_GATE_REASON_PHASE3 "phase3_rally_projection"
+#define FP_STATE_GATE_REASON_PHASE4 "phase4_hook_projection"
+#define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
+
+#define FP_STATE_GATE_RALLY_NO_ROWS "NO_CANONICAL_F_ROWS"
+#define FP_STATE_GATE_RALLY_ESTABLISHED_NONE "NO_ESTABLISHED_F"
+#define FP_STATE_GATE_RALLY_PROBABLE_NONE "NO_PROBABLE_NEXT_F"
+#define FP_STATE_GATE_HOOK_NO_ROWS "NO_HOOK_ROWS"
 
 enum FP_StateGateViewType
 {
@@ -249,7 +257,7 @@ void FP_ResetStateGateRallyRow(FP_StateGateRallyRow &r)
    r.flag_stage = "PHASE2_PLACEHOLDER";
    r.post_flag_stage = "PHASE2_PLACEHOLDER";
    r.source_id = "";
-   r.label = "Rally View placeholder: projection starts in Level 19 Phase 3";
+   r.label = "Rally View not projected yet";
 }
 
 void FP_ResetStateGateHookRow(FP_StateGateHookRow &r)

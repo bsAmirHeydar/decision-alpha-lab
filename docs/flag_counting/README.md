@@ -128,9 +128,11 @@ Read:
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_DASHBOARD_SPEC.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_STATE_GATE_IMPLEMENTATION_PLAN.md
 docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE2_CLOSED_BAR_TRACKER.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE3_RALLY_VIEW_PROJECTION.md
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE4_HOOK_VIEW_PROJECTION.md
 ```
 
-Phase 2 implements the closed-bar tracker for the three configured State Gate timeframes. Rally View and Hook View projection remain intentionally pending for Phase 3 and Phase 4.
+Phase 2 implements the closed-bar tracker for the three configured State Gate timeframes. Phase 3 projects Rally View from the existing locked F1/F2/F3 event lifecycle output. Phase 4 projects Hook View from the existing locked Hook/ND branch output across the configured L-scale sequence and renders the dashboard in the upper-right chart corner.
 
 ## Level 18 static QA
 

@@ -8,9 +8,9 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Export
 // ----------------------------------------------------------------------------
-// Phase 2 writes closed-bar tracker and placeholder row snapshots. It does not
-// export any new Rally/Hook interpretation; row files are explicit projection-
-// pending artifacts used to debug the live State Gate store.
+// Phase 4 writes closed-bar tracker fields plus Rally View and Hook View
+// projection rows. Hook rows are read-only projections of existing Hook/ND
+// branch output and do not change Hook/ND logic.
 // ============================================================================
 
 bool FP_StateGateExportOpenWrite(const string path, int &handle)
@@ -287,7 +287,7 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "rally_rows", IntegerToString(snapshot.rally_row_count));
    FP_StateGateManifestKV(handle, "hook_rows", IntegerToString(snapshot.hook_row_count));
    FP_StateGateManifestKV(handle, "panel_enabled", FP_ExportBool(cfg.panel_enabled));
-   FP_StateGateManifestKV(handle, "projection_state", "pending_phase3_phase4");
+   FP_StateGateManifestKV(handle, "projection_state", "phase4_rally_and_hook_projected");
 
    FileClose(handle);
    report.files_written++;

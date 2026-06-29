@@ -1044,7 +1044,7 @@ void FP_Run()
    }
 
    FP_StateGateReport state_gate_report;
-   FP_RunStateGatePhase2(_Symbol, _Period, state_gate_cfg, g_fp_state_gate_runtime, state_gate_report);
+   FP_RunStateGatePhase4(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
    if(state_gate_cfg.print_audit)
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
    if(state_gate_cfg.print_audit)
@@ -1107,15 +1107,67 @@ void OnTick()
       FP_Run();
 }
 
+void FP_RunStateGateTimerOnly()
+{
+   FP_ReleaseConfig release_cfg;
+   FP_LoadReleaseConfig(release_cfg);
+   FP_ReleaseReport release_report;
+
+   FP_TimebaseConfig timebase_cfg;
+   FP_DefaultTimebaseConfig(timebase_cfg);
+   timebase_cfg.symbol = _Symbol;
+   timebase_cfg.period = _Period;
+   timebase_cfg.requested_bars = InpBarsToScan;
+   timebase_cfg.min_closed_bars = InpMinClosedBars;
+   timebase_cfg.exclude_live_bar = InpUseClosedBarsOnly;
+   timebase_cfg.require_ascending_time = true;
+   timebase_cfg.strict_contract = InpStrictTimebase;
+   timebase_cfg.print_sanity = false;
+   timebase_cfg.print_samples = false;
+
+   FP_Config cfg;
+   FP_LoadConfig(cfg);
+
+   FP_ExportConfig export_cfg;
+   FP_LoadExportConfig(export_cfg);
+
+   FP_RenderConfig render_cfg;
+   FP_LoadRenderConfig(render_cfg);
+
+   FP_ValidationConfig validation_cfg;
+   FP_LoadValidationConfig(validation_cfg);
+
+   FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
+
+   int scales[];
+   int scale_count = FP_BuildScaleList(InpUseMultiScale,
+                                       InpSwingL1,
+                                       InpSwingL2,
+                                       InpSwingL3,
+                                       InpSwingL4,
+                                       InpSwingL5,
+                                       InpSwingL6,
+                                       InpSwingL7,
+                                       InpSwingL8,
+                                       scales);
+
+   FP_StateGateConfig timer_state_gate_cfg;
+   FP_LoadStateGateConfig(timer_state_gate_cfg);
+   FP_StateGateReport timer_state_gate_report;
+
+   if(scale_count <= 0)
+      FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
+   else
+      FP_RunStateGatePhase4(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
+
+   if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
+      FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);
+}
+
 void OnTimer()
 {
    if(!FP_EnsureOfflineLicense(true))
       return;
 
-   FP_StateGateConfig timer_state_gate_cfg;
-   FP_LoadStateGateConfig(timer_state_gate_cfg);
-   FP_StateGateReport timer_state_gate_report;
-   FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
-   if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
-      FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);
+   FP_RunStateGateTimerOnly();
 }
