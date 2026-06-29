@@ -251,3 +251,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE17_PAPER_EXECUTION_LEDGER.md
 ```
 
 Phase 17 adds a paper execution / dry-run ledger that records Phase 16 dry-run decisions without enabling real execution.
+
+
+## Level 19 — Phase 18
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE18_PAPER_LEDGER_LIFECYCLE_TRACKING.md
+```
+
+Phase 18 adds Paper Ledger Lifecycle Tracking, evaluating paper-only anchors against the latest closed candle close without enabling real execution.
+
+
+## Level 19 — Phase 19
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE19_PAPER_RESULT_METRICS.md
+```
+
+Phase 19 adds Paper Result Metrics / R-Equivalent Summary, converting paper lifecycle rows into non-executable result metrics.

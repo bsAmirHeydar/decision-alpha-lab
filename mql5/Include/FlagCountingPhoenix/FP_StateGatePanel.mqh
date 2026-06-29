@@ -298,7 +298,7 @@ string FP_StateGatePanelTrackerLine(const FP_StateGateConfig &cfg,
 
 string FP_StateGatePanelCountsLine(const FP_StateGateTimeframeState &s)
 {
-   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count) + " | mtf=" + IntegerToString(s.mtf_alignment_row_count) + " | idea=" + IntegerToString(s.entry_idea_row_count) + " | decision=" + IntegerToString(s.entry_decision_row_count) + " | paper=" + IntegerToString(s.paper_ledger_row_count);
+   return "    C | rally=" + IntegerToString(s.rally_row_count) + " | hook=" + IntegerToString(s.hook_row_count) + " | extreme=" + IntegerToString(s.extreme_candidate_row_count) + " | mtf=" + IntegerToString(s.mtf_alignment_row_count) + " | idea=" + IntegerToString(s.entry_idea_row_count) + " | decision=" + IntegerToString(s.entry_decision_row_count) + " | paper=" + IntegerToString(s.paper_ledger_row_count) + " | life=" + IntegerToString(s.paper_lifecycle_row_count) + " | result=" + IntegerToString(s.paper_result_row_count);
 }
 
 string FP_StateGatePanelContractLine(const FP_StateGateConfig &cfg,
@@ -552,6 +552,18 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       FP_StateGateCreateLabel(cfg, suffix + "PAPER_LEDGER", x + 10, cursor_y + 2,
                               FP_StateGatePanelClip(paper_line, text_limit),
                               clrYellow, font_size, report);
+      cursor_y += row_h;
+
+      string lifecycle_line = "    Life | " + s.paper_lifecycle_path_state + " | " + s.paper_lifecycle_outcome + " | " + s.paper_lifecycle_execution_status;
+      FP_StateGateCreateLabel(cfg, suffix + "PAPER_LIFECYCLE", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(lifecycle_line, text_limit),
+                              clrLightGreen, font_size, report);
+      cursor_y += row_h;
+
+      string result_line = "    Result | " + s.paper_result_status + " | " + s.paper_result_bucket + " | d=" + DoubleToString(s.paper_result_price_delta, 5) + " | " + s.paper_result_r_status;
+      FP_StateGateCreateLabel(cfg, suffix + "PAPER_RESULT", x + 10, cursor_y + 2,
+                              FP_StateGatePanelClip(result_line, text_limit),
+                              clrLightGreen, font_size, report);
       cursor_y += row_h;
 
       // Rally subsection

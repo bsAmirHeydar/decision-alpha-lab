@@ -18,7 +18,7 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.170-phase17"
+#define FP_STATE_GATE_VERSION "19.190-phase19"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -27,6 +27,8 @@
 #define FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS 24
 #define FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS 24
 #define FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS 24
+#define FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS 24
+#define FP_STATE_GATE_MAX_PAPER_RESULT_ROWS 24
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -49,6 +51,8 @@
 #define FP_STATE_GATE_REASON_PHASE15 "phase15_entry_idea_layer"
 #define FP_STATE_GATE_REASON_PHASE16 "phase16_entry_decision_dry_run"
 #define FP_STATE_GATE_REASON_PHASE17 "phase17_paper_execution_ledger"
+#define FP_STATE_GATE_REASON_PHASE18 "phase18_paper_ledger_lifecycle_tracking"
+#define FP_STATE_GATE_REASON_PHASE19 "phase19_paper_result_metrics"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -115,6 +119,8 @@ struct FP_StateGateConfig
    bool export_entry_ideas_csv;
    bool export_entry_decisions_csv;
    bool export_paper_ledger_csv;
+   bool export_paper_lifecycle_csv;
+   bool export_paper_results_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -240,6 +246,32 @@ struct FP_StateGateTimeframeState
    string paper_ledger_execution_status;
    string paper_ledger_source_decision_key;
    string paper_ledger_notes;
+   int paper_lifecycle_row_count;
+   string paper_lifecycle_status;
+   string paper_lifecycle_key;
+   string paper_lifecycle_event_id;
+   string paper_lifecycle_path_state;
+   string paper_entry_touch_status;
+   string paper_invalidation_touch_status;
+   string paper_destination_touch_status;
+   string paper_lifecycle_outcome;
+   string paper_lifecycle_execution_status;
+   string paper_lifecycle_notes;
+   int paper_result_row_count;
+   string paper_result_status;
+   string paper_result_key;
+   string paper_result_outcome;
+   string paper_result_direction;
+   string paper_result_type;
+   double paper_result_entry_price;
+   double paper_result_exit_anchor_price;
+   double paper_result_price_delta;
+   double paper_result_abs_distance;
+   string paper_result_r_status;
+   double paper_result_r_multiple;
+   string paper_result_bucket;
+   string paper_result_execution_status;
+   string paper_result_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -445,6 +477,70 @@ struct FP_StateGatePaperLedgerRow
    string label;
 };
 
+
+struct FP_StateGatePaperLifecycleRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime evaluated_at;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string lifecycle_status;
+   string path_state;
+   string entry_touch_status;
+   string invalidation_touch_status;
+   string destination_touch_status;
+   string outcome;
+   string direction;
+   string decision_type;
+   double entry_price;
+   double invalidation_price;
+   double destination_price;
+   bool entry_touched;
+   bool invalidation_touched;
+   bool destination_touched;
+   string source_ledger_key;
+   string source_decision_key;
+   string event_id;
+   string lifecycle_key;
+   string execution_status;
+   string label;
+};
+
+
+struct FP_StateGatePaperResultRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime summarized_at;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string result_status;
+   string outcome;
+   string result_bucket;
+   string direction;
+   string decision_type;
+   double entry_price;
+   double exit_anchor_price;
+   double destination_price;
+   double invalidation_price;
+   double price_delta;
+   double abs_distance;
+   string r_status;
+   double r_multiple;
+   string source_lifecycle_key;
+   string source_ledger_key;
+   string source_decision_key;
+   string event_id;
+   string result_key;
+   string execution_status;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -466,6 +562,8 @@ struct FP_StateGateSnapshot
    FP_StateGateEntryIdeaRow entry_idea_rows[FP_STATE_GATE_MAX_ENTRY_IDEA_ROWS];
    FP_StateGateEntryDecisionRow entry_decision_rows[FP_STATE_GATE_MAX_ENTRY_DECISION_ROWS];
    FP_StateGatePaperLedgerRow paper_ledger_rows[FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS];
+   FP_StateGatePaperLifecycleRow paper_lifecycle_rows[FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS];
+   FP_StateGatePaperResultRow paper_result_rows[FP_STATE_GATE_MAX_PAPER_RESULT_ROWS];
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
@@ -473,6 +571,8 @@ struct FP_StateGateSnapshot
    int entry_idea_row_count;
    int entry_decision_row_count;
    int paper_ledger_row_count;
+   int paper_lifecycle_row_count;
+   int paper_result_row_count;
    string status;
    string reason;
 };
@@ -516,6 +616,8 @@ struct FP_StateGateReport
    int entry_idea_rows;
    int entry_decision_rows;
    int paper_ledger_rows;
+   int paper_lifecycle_rows;
+   int paper_result_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -648,6 +750,32 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.paper_ledger_execution_status = "REAL_EXECUTION_DISABLED_PHASE17_PAPER_ONLY";
    s.paper_ledger_source_decision_key = "NO_SOURCE_DECISION_KEY";
    s.paper_ledger_notes = "PAPER_LEDGER_PENDING";
+   s.paper_lifecycle_row_count = 0;
+   s.paper_lifecycle_status = "PAPER_LIFECYCLE_PENDING";
+   s.paper_lifecycle_key = "PAPER_LIFECYCLE_KEY_PENDING";
+   s.paper_lifecycle_event_id = "PAPER_LIFECYCLE_EVENT_PENDING";
+   s.paper_lifecycle_path_state = "PAPER_PATH_PENDING";
+   s.paper_entry_touch_status = "PAPER_ENTRY_TOUCH_PENDING";
+   s.paper_invalidation_touch_status = "PAPER_INVALIDATION_TOUCH_PENDING";
+   s.paper_destination_touch_status = "PAPER_DESTINATION_TOUCH_PENDING";
+   s.paper_lifecycle_outcome = "PAPER_OUTCOME_PENDING";
+   s.paper_lifecycle_execution_status = "REAL_EXECUTION_DISABLED_PHASE18_LIFECYCLE_ONLY";
+   s.paper_lifecycle_notes = "PAPER_LIFECYCLE_PENDING";
+   s.paper_result_row_count = 0;
+   s.paper_result_status = "PAPER_RESULT_PENDING";
+   s.paper_result_key = "PAPER_RESULT_KEY_PENDING";
+   s.paper_result_outcome = "PAPER_RESULT_OUTCOME_PENDING";
+   s.paper_result_direction = "NO_PAPER_RESULT_DIRECTION";
+   s.paper_result_type = "NO_PAPER_RESULT_TYPE";
+   s.paper_result_entry_price = 0.0;
+   s.paper_result_exit_anchor_price = 0.0;
+   s.paper_result_price_delta = 0.0;
+   s.paper_result_abs_distance = 0.0;
+   s.paper_result_r_status = "PAPER_R_PENDING";
+   s.paper_result_r_multiple = 0.0;
+   s.paper_result_bucket = "PAPER_RESULT_BUCKET_PENDING";
+   s.paper_result_execution_status = "REAL_EXECUTION_DISABLED_PHASE19_RESULT_ONLY";
+   s.paper_result_notes = "PAPER_RESULT_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -853,6 +981,70 @@ void FP_ResetStateGatePaperLedgerRow(FP_StateGatePaperLedgerRow &p)
    p.label = "Paper ledger pending";
 }
 
+
+void FP_ResetStateGatePaperLifecycleRow(FP_StateGatePaperLifecycleRow &p)
+{
+   p.slot_index = -1;
+   p.timeframe = PERIOD_CURRENT;
+   p.timeframe_label = "TF?";
+   p.evaluated_at = 0;
+   p.last_closed_bar_time = 0;
+   p.last_closed_bar_close = 0.0;
+   p.status = FP_STATE_GATE_ROW_EMPTY;
+   p.lifecycle_status = "PAPER_LIFECYCLE_PENDING";
+   p.path_state = "PAPER_PATH_PENDING";
+   p.entry_touch_status = "PAPER_ENTRY_TOUCH_PENDING";
+   p.invalidation_touch_status = "PAPER_INVALIDATION_TOUCH_PENDING";
+   p.destination_touch_status = "PAPER_DESTINATION_TOUCH_PENDING";
+   p.outcome = "PAPER_OUTCOME_PENDING";
+   p.direction = "NO_PAPER_DIRECTION";
+   p.decision_type = "NO_PAPER_DECISION_TYPE";
+   p.entry_price = 0.0;
+   p.invalidation_price = 0.0;
+   p.destination_price = 0.0;
+   p.entry_touched = false;
+   p.invalidation_touched = false;
+   p.destination_touched = false;
+   p.source_ledger_key = "NO_SOURCE_LEDGER_KEY";
+   p.source_decision_key = "NO_SOURCE_DECISION_KEY";
+   p.event_id = "NO_PAPER_EVENT_ID";
+   p.lifecycle_key = "NO_PAPER_LIFECYCLE_KEY";
+   p.execution_status = "REAL_EXECUTION_DISABLED_PHASE18_LIFECYCLE_ONLY";
+   p.label = "Paper lifecycle pending";
+}
+
+
+void FP_ResetStateGatePaperResultRow(FP_StateGatePaperResultRow &r)
+{
+   r.slot_index = -1;
+   r.timeframe = PERIOD_CURRENT;
+   r.timeframe_label = "TF?";
+   r.summarized_at = 0;
+   r.last_closed_bar_time = 0;
+   r.last_closed_bar_close = 0.0;
+   r.status = FP_STATE_GATE_ROW_EMPTY;
+   r.result_status = "PAPER_RESULT_PENDING";
+   r.outcome = "PAPER_OUTCOME_PENDING";
+   r.result_bucket = "PAPER_RESULT_BUCKET_PENDING";
+   r.direction = "NO_PAPER_DIRECTION";
+   r.decision_type = "NO_PAPER_DECISION_TYPE";
+   r.entry_price = 0.0;
+   r.exit_anchor_price = 0.0;
+   r.destination_price = 0.0;
+   r.invalidation_price = 0.0;
+   r.price_delta = 0.0;
+   r.abs_distance = 0.0;
+   r.r_status = "PAPER_R_PENDING";
+   r.r_multiple = 0.0;
+   r.source_lifecycle_key = "NO_SOURCE_LIFECYCLE_KEY";
+   r.source_ledger_key = "NO_SOURCE_LEDGER_KEY";
+   r.source_decision_key = "NO_SOURCE_DECISION_KEY";
+   r.event_id = "NO_PAPER_EVENT_ID";
+   r.result_key = "NO_PAPER_RESULT_KEY";
+   r.execution_status = "REAL_EXECUTION_DISABLED_PHASE19_RESULT_ONLY";
+   r.label = "Paper result pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -882,6 +1074,10 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGateEntryDecisionRow(s.entry_decision_rows[d]);
    for(int p=0; p<FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS; p++)
       FP_ResetStateGatePaperLedgerRow(s.paper_ledger_rows[p]);
+   for(int q=0; q<FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS; q++)
+      FP_ResetStateGatePaperLifecycleRow(s.paper_lifecycle_rows[q]);
+   for(int z=0; z<FP_STATE_GATE_MAX_PAPER_RESULT_ROWS; z++)
+      FP_ResetStateGatePaperResultRow(s.paper_result_rows[z]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
@@ -934,6 +1130,8 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.entry_idea_rows = 0;
    r.entry_decision_rows = 0;
    r.paper_ledger_rows = 0;
+   r.paper_lifecycle_rows = 0;
+   r.paper_result_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -984,6 +1182,8 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_entry_ideas_csv = true;
    cfg.export_entry_decisions_csv = true;
    cfg.export_paper_ledger_csv = true;
+   cfg.export_paper_lifecycle_csv = true;
+   cfg.export_paper_results_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

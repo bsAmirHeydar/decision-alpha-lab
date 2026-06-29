@@ -2297,6 +2297,516 @@ void FP_StateGateFinalizeSnapshotPaperLedger(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 18 - Paper Ledger Lifecycle Tracking
+// ---------------------------------------------------------------------------
+// This layer evaluates paper ledger anchors against the latest closed candle
+// close only.  It remains non-executable and does not manage broker orders.
+
+bool FP_StateGatePaperIsBuyDirection(const string direction)
+{
+   return (StringFind(direction, "BUY") >= 0 || StringFind(direction, "BULLISH") >= 0);
+}
+
+bool FP_StateGatePaperIsSellDirection(const string direction)
+{
+   return (StringFind(direction, "SELL") >= 0 || StringFind(direction, "BEARISH") >= 0);
+}
+
+bool FP_StateGatePaperTouchByClose(const string direction,
+                                   const double close_price,
+                                   const double anchor_price,
+                                   const bool is_destination)
+{
+   if(anchor_price == 0.0 || close_price == 0.0)
+      return false;
+
+   if(FP_StateGatePaperIsBuyDirection(direction))
+   {
+      if(is_destination)
+         return (close_price >= anchor_price);
+      return (close_price <= anchor_price);
+   }
+
+   if(FP_StateGatePaperIsSellDirection(direction))
+   {
+      if(is_destination)
+         return (close_price <= anchor_price);
+      return (close_price >= anchor_price);
+   }
+
+   return false;
+}
+
+string FP_StateGatePaperEntryTouchStatus(const FP_StateGatePaperLedgerRow &p)
+{
+   if(p.entry_price == 0.0)
+      return "PAPER_ENTRY_TOUCH_BLOCKED_NO_ENTRY_PRICE";
+   if(FP_StateGatePaperTouchByClose(p.decision_direction, p.last_closed_bar_close, p.entry_price, false))
+      return "PAPER_ENTRY_ANCHOR_TOUCHED_BY_CLOSED_CLOSE_ONLY";
+   return "PAPER_ENTRY_ANCHOR_NOT_TOUCHED_BY_CLOSED_CLOSE_ONLY";
+}
+
+string FP_StateGatePaperInvalidationTouchStatus(const FP_StateGatePaperLedgerRow &p)
+{
+   if(p.invalidation_price == 0.0)
+      return "PAPER_INVALIDATION_TOUCH_PENDING_NO_INVALIDATION_ANCHOR";
+   if(FP_StateGatePaperTouchByClose(p.decision_direction, p.last_closed_bar_close, p.invalidation_price, false))
+      return "PAPER_INVALIDATION_ANCHOR_TOUCHED_NO_STOP_NO_ORDER";
+   return "PAPER_INVALIDATION_ANCHOR_NOT_TOUCHED";
+}
+
+string FP_StateGatePaperDestinationTouchStatus(const FP_StateGatePaperLedgerRow &p)
+{
+   if(p.destination_price == 0.0)
+      return "PAPER_DESTINATION_TOUCH_PENDING_NO_DESTINATION_ANCHOR";
+   if(FP_StateGatePaperTouchByClose(p.decision_direction, p.last_closed_bar_close, p.destination_price, true))
+      return "PAPER_DESTINATION_ANCHOR_TOUCHED_NO_TARGET_NO_ORDER";
+   return "PAPER_DESTINATION_ANCHOR_NOT_TOUCHED";
+}
+
+string FP_StateGatePaperLifecyclePathState(const bool entry_touched,
+                                           const bool invalidation_touched,
+                                           const bool destination_touched)
+{
+   if(!entry_touched)
+      return "PAPER_PATH_WAITING_FOR_ENTRY_ANCHOR";
+   if(destination_touched && invalidation_touched)
+      return "PAPER_PATH_BOTH_DESTINATION_AND_INVALIDATION_TOUCHED_SAME_CLOSE_AMBIGUOUS";
+   if(destination_touched)
+      return "PAPER_PATH_DESTINATION_TOUCHED_AFTER_HYPOTHETICAL_ENTRY";
+   if(invalidation_touched)
+      return "PAPER_PATH_INVALIDATION_TOUCHED_AFTER_HYPOTHETICAL_ENTRY";
+   return "PAPER_PATH_HYPOTHETICAL_ENTRY_OPEN_NO_EXIT_TOUCH";
+}
+
+string FP_StateGatePaperLifecycleOutcome(const string path_state)
+{
+   if(StringFind(path_state, "DESTINATION_TOUCHED") >= 0 && StringFind(path_state, "BOTH") < 0)
+      return "PAPER_OUTCOME_HYPOTHETICAL_DESTINATION";
+   if(StringFind(path_state, "INVALIDATION_TOUCHED") >= 0 && StringFind(path_state, "BOTH") < 0)
+      return "PAPER_OUTCOME_HYPOTHETICAL_INVALIDATION";
+   if(StringFind(path_state, "BOTH") >= 0)
+      return "PAPER_OUTCOME_AMBIGUOUS_SAME_CLOSE_ONLY";
+   if(StringFind(path_state, "OPEN") >= 0)
+      return "PAPER_OUTCOME_HYPOTHETICAL_OPEN";
+   return "PAPER_OUTCOME_WAITING_FOR_ENTRY";
+}
+
+string FP_StateGatePaperLifecycleKey(const FP_StateGateSnapshot &snapshot,
+                                     const int slot,
+                                     const FP_StateGatePaperLedgerRow &p,
+                                     const string path_state,
+                                     const string outcome)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|LEDGER=" + FP_StateGateKeyPart(p.ledger_key);
+   key += "|PATH=" + FP_StateGateKeyPart(path_state);
+   key += "|OUTCOME=" + FP_StateGateKeyPart(outcome);
+   key += "|CLOSE=" + DoubleToString(p.last_closed_bar_close, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateFirstPaperLedgerForLifecycleSlot(const FP_StateGateSnapshot &snapshot,
+                                                  const int slot,
+                                                  FP_StateGatePaperLedgerRow &out)
+{
+   for(int i=0; i<snapshot.paper_ledger_row_count; i++)
+   {
+      FP_StateGatePaperLedgerRow row = snapshot.paper_ledger_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateAddPaperLifecycleRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.paper_lifecycle_row_count >= FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGatePaperLedgerRow p;
+   FP_ResetStateGatePaperLedgerRow(p);
+   if(!FP_StateGateFirstPaperLedgerForLifecycleSlot(snapshot, slot, p))
+      return false;
+
+   int idx = snapshot.paper_lifecycle_row_count;
+   FP_ResetStateGatePaperLifecycleRow(snapshot.paper_lifecycle_rows[idx]);
+
+   string entry_status = FP_StateGatePaperEntryTouchStatus(p);
+   string invalid_status = FP_StateGatePaperInvalidationTouchStatus(p);
+   string dest_status = FP_StateGatePaperDestinationTouchStatus(p);
+
+   bool entry_touched = (StringFind(entry_status, "TOUCHED") >= 0 && StringFind(entry_status, "NOT_TOUCHED") < 0);
+   bool invalid_touched = (StringFind(invalid_status, "TOUCHED") >= 0 && StringFind(invalid_status, "NOT_TOUCHED") < 0);
+   bool dest_touched = (StringFind(dest_status, "TOUCHED") >= 0 && StringFind(dest_status, "NOT_TOUCHED") < 0);
+
+   if(!entry_touched)
+   {
+      invalid_touched = false;
+      dest_touched = false;
+   }
+
+   string path_state = FP_StateGatePaperLifecyclePathState(entry_touched, invalid_touched, dest_touched);
+   string outcome = FP_StateGatePaperLifecycleOutcome(path_state);
+   string lifecycle_key = FP_StateGatePaperLifecycleKey(snapshot, slot, p, path_state, outcome);
+
+   snapshot.paper_lifecycle_rows[idx].slot_index = slot;
+   snapshot.paper_lifecycle_rows[idx].timeframe = p.timeframe;
+   snapshot.paper_lifecycle_rows[idx].timeframe_label = p.timeframe_label;
+   snapshot.paper_lifecycle_rows[idx].evaluated_at = TimeCurrent();
+   snapshot.paper_lifecycle_rows[idx].last_closed_bar_time = p.last_closed_bar_time;
+   snapshot.paper_lifecycle_rows[idx].last_closed_bar_close = p.last_closed_bar_close;
+   snapshot.paper_lifecycle_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.paper_lifecycle_rows[idx].lifecycle_status = "PAPER_LIFECYCLE_EVALUATED_CLOSED_CLOSE_ONLY";
+   snapshot.paper_lifecycle_rows[idx].path_state = path_state;
+   snapshot.paper_lifecycle_rows[idx].entry_touch_status = entry_status;
+   snapshot.paper_lifecycle_rows[idx].invalidation_touch_status = invalid_status;
+   snapshot.paper_lifecycle_rows[idx].destination_touch_status = dest_status;
+   snapshot.paper_lifecycle_rows[idx].outcome = outcome;
+   snapshot.paper_lifecycle_rows[idx].direction = p.decision_direction;
+   snapshot.paper_lifecycle_rows[idx].decision_type = p.decision_type;
+   snapshot.paper_lifecycle_rows[idx].entry_price = p.entry_price;
+   snapshot.paper_lifecycle_rows[idx].invalidation_price = p.invalidation_price;
+   snapshot.paper_lifecycle_rows[idx].destination_price = p.destination_price;
+   snapshot.paper_lifecycle_rows[idx].entry_touched = entry_touched;
+   snapshot.paper_lifecycle_rows[idx].invalidation_touched = invalid_touched;
+   snapshot.paper_lifecycle_rows[idx].destination_touched = dest_touched;
+   snapshot.paper_lifecycle_rows[idx].source_ledger_key = p.ledger_key;
+   snapshot.paper_lifecycle_rows[idx].source_decision_key = p.source_decision_key;
+   snapshot.paper_lifecycle_rows[idx].event_id = p.event_id;
+   snapshot.paper_lifecycle_rows[idx].lifecycle_key = lifecycle_key;
+   snapshot.paper_lifecycle_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE18_LIFECYCLE_ONLY";
+   snapshot.paper_lifecycle_rows[idx].label = p.timeframe_label + " | PAPER LIFECYCLE | " + path_state + " | " + outcome + " | close_only=true | real_execution=false";
+
+   snapshot.paper_lifecycle_row_count++;
+   snapshot.tf_states[slot].paper_lifecycle_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperLifecycleRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_lifecycle_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS; i++)
+      FP_ResetStateGatePaperLifecycleRow(snapshot.paper_lifecycle_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].paper_lifecycle_row_count = 0;
+      FP_StateGateAddPaperLifecycleRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPaperLifecycleForSlot(const FP_StateGateSnapshot &snapshot,
+                                            const int slot,
+                                            FP_StateGatePaperLifecycleRow &out)
+{
+   for(int i=0; i<snapshot.paper_lifecycle_row_count; i++)
+   {
+      FP_StateGatePaperLifecycleRow row = snapshot.paper_lifecycle_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPaperLifecycle(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePaperLifecycleRow row;
+   FP_ResetStateGatePaperLifecycleRow(row);
+
+   if(FP_StateGateFirstPaperLifecycleForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].paper_lifecycle_status = row.lifecycle_status;
+      snapshot.tf_states[slot].paper_lifecycle_key = row.lifecycle_key;
+      snapshot.tf_states[slot].paper_lifecycle_event_id = row.event_id;
+      snapshot.tf_states[slot].paper_lifecycle_path_state = row.path_state;
+      snapshot.tf_states[slot].paper_entry_touch_status = row.entry_touch_status;
+      snapshot.tf_states[slot].paper_invalidation_touch_status = row.invalidation_touch_status;
+      snapshot.tf_states[slot].paper_destination_touch_status = row.destination_touch_status;
+      snapshot.tf_states[slot].paper_lifecycle_outcome = row.outcome;
+      snapshot.tf_states[slot].paper_lifecycle_execution_status = row.execution_status;
+      snapshot.tf_states[slot].paper_lifecycle_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].paper_lifecycle_status = "PAPER_LIFECYCLE_NO_ROW";
+   snapshot.tf_states[slot].paper_lifecycle_key = "NO_PAPER_LIFECYCLE_KEY";
+   snapshot.tf_states[slot].paper_lifecycle_path_state = "PAPER_PATH_NO_ROW";
+   snapshot.tf_states[slot].paper_lifecycle_outcome = "PAPER_OUTCOME_NO_ROW";
+   snapshot.tf_states[slot].paper_lifecycle_execution_status = "REAL_EXECUTION_DISABLED_PHASE18_LIFECYCLE_ONLY";
+   snapshot.tf_states[slot].paper_lifecycle_notes = "No paper lifecycle row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPaperLifecycle(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPaperLifecycle(snapshot, slot);
+}
+
+
+
+// ---------------------------------------------------------------------------
+// Phase 19 - Paper Result Metrics / R-Equivalent Summary
+// ---------------------------------------------------------------------------
+// This layer summarizes paper lifecycle rows into dry-run result metrics.
+// It remains non-executable and does not create broker-side performance state.
+
+string FP_StateGatePaperResultBucket(const string outcome)
+{
+   if(StringFind(outcome, "DESTINATION") >= 0)
+      return "PAPER_RESULT_BUCKET_HYPOTHETICAL_WIN";
+   if(StringFind(outcome, "INVALIDATION") >= 0)
+      return "PAPER_RESULT_BUCKET_HYPOTHETICAL_LOSS";
+   if(StringFind(outcome, "OPEN") >= 0)
+      return "PAPER_RESULT_BUCKET_HYPOTHETICAL_OPEN";
+   if(StringFind(outcome, "AMBIGUOUS") >= 0)
+      return "PAPER_RESULT_BUCKET_AMBIGUOUS";
+   if(StringFind(outcome, "WAITING") >= 0)
+      return "PAPER_RESULT_BUCKET_WAITING";
+   return "PAPER_RESULT_BUCKET_UNKNOWN";
+}
+
+string FP_StateGatePaperResultStatus(const string bucket)
+{
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_WIN")
+      return "PAPER_RESULT_HYPOTHETICAL_WIN_NO_EXECUTION";
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_LOSS")
+      return "PAPER_RESULT_HYPOTHETICAL_LOSS_NO_EXECUTION";
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_OPEN")
+      return "PAPER_RESULT_HYPOTHETICAL_OPEN_NO_EXECUTION";
+   if(bucket == "PAPER_RESULT_BUCKET_AMBIGUOUS")
+      return "PAPER_RESULT_AMBIGUOUS_CLOSE_ONLY_NO_EXECUTION";
+   if(bucket == "PAPER_RESULT_BUCKET_WAITING")
+      return "PAPER_RESULT_WAITING_FOR_ENTRY_NO_EXECUTION";
+   return "PAPER_RESULT_UNKNOWN_NO_EXECUTION";
+}
+
+double FP_StateGatePaperSignedDelta(const FP_StateGatePaperLifecycleRow &p,
+                                    const string bucket)
+{
+   if(p.entry_price == 0.0)
+      return 0.0;
+
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_WIN" && p.destination_price != 0.0)
+      return MathAbs(p.destination_price - p.entry_price);
+
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_LOSS" && p.invalidation_price != 0.0)
+      return -MathAbs(p.entry_price - p.invalidation_price);
+
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_OPEN" && p.last_closed_bar_close != 0.0)
+   {
+      if(FP_StateGatePaperIsBuyDirection(p.direction))
+         return p.last_closed_bar_close - p.entry_price;
+      if(FP_StateGatePaperIsSellDirection(p.direction))
+         return p.entry_price - p.last_closed_bar_close;
+   }
+
+   return 0.0;
+}
+
+string FP_StateGatePaperRStatus(const FP_StateGatePaperLifecycleRow &p,
+                                const double signed_delta)
+{
+   if(p.entry_price == 0.0)
+      return "PAPER_R_BLOCKED_NO_ENTRY_PRICE";
+   if(p.invalidation_price == 0.0 || MathAbs(p.entry_price - p.invalidation_price) == 0.0)
+      return "PAPER_R_PENDING_INVALIDATION_BUFFER_NO_RISK_DISTANCE";
+   if(signed_delta == 0.0)
+      return "PAPER_R_ZERO_OR_WAITING";
+   return "PAPER_R_EQUIVALENT_READY_PAPER_ONLY";
+}
+
+double FP_StateGatePaperRMultiple(const FP_StateGatePaperLifecycleRow &p,
+                                  const double signed_delta)
+{
+   if(p.entry_price == 0.0 || p.invalidation_price == 0.0)
+      return 0.0;
+   double risk = MathAbs(p.entry_price - p.invalidation_price);
+   if(risk == 0.0)
+      return 0.0;
+   return signed_delta / risk;
+}
+
+double FP_StateGatePaperExitAnchor(const FP_StateGatePaperLifecycleRow &p,
+                                   const string bucket)
+{
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_WIN")
+      return p.destination_price;
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_LOSS")
+      return p.invalidation_price;
+   if(bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_OPEN")
+      return p.last_closed_bar_close;
+   return 0.0;
+}
+
+string FP_StateGatePaperResultKey(const FP_StateGateSnapshot &snapshot,
+                                  const int slot,
+                                  const FP_StateGatePaperLifecycleRow &p,
+                                  const string result_status,
+                                  const string bucket,
+                                  const double signed_delta,
+                                  const string r_status)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|STATUS=" + FP_StateGateKeyPart(result_status);
+   key += "|BUCKET=" + FP_StateGateKeyPart(bucket);
+   key += "|OUTCOME=" + FP_StateGateKeyPart(p.outcome);
+   key += "|DELTA=" + DoubleToString(signed_delta, 8);
+   key += "|RSTATUS=" + FP_StateGateKeyPart(r_status);
+   key += "|LIFE=" + FP_StateGateKeyPart(p.lifecycle_key);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateFirstPaperLifecycleForResultSlot(const FP_StateGateSnapshot &snapshot,
+                                                  const int slot,
+                                                  FP_StateGatePaperLifecycleRow &out)
+{
+   for(int i=0; i<snapshot.paper_lifecycle_row_count; i++)
+   {
+      FP_StateGatePaperLifecycleRow row = snapshot.paper_lifecycle_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateAddPaperResultRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.paper_result_row_count >= FP_STATE_GATE_MAX_PAPER_RESULT_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGatePaperLifecycleRow p;
+   FP_ResetStateGatePaperLifecycleRow(p);
+   if(!FP_StateGateFirstPaperLifecycleForResultSlot(snapshot, slot, p))
+      return false;
+
+   int idx = snapshot.paper_result_row_count;
+   FP_ResetStateGatePaperResultRow(snapshot.paper_result_rows[idx]);
+
+   string bucket = FP_StateGatePaperResultBucket(p.outcome);
+   string result_status = FP_StateGatePaperResultStatus(bucket);
+   double signed_delta = FP_StateGatePaperSignedDelta(p, bucket);
+   double abs_distance = MathAbs(signed_delta);
+   string r_status = FP_StateGatePaperRStatus(p, signed_delta);
+   double r_multiple = FP_StateGatePaperRMultiple(p, signed_delta);
+   double exit_anchor = FP_StateGatePaperExitAnchor(p, bucket);
+   string result_key = FP_StateGatePaperResultKey(snapshot, slot, p, result_status, bucket, signed_delta, r_status);
+
+   snapshot.paper_result_rows[idx].slot_index = slot;
+   snapshot.paper_result_rows[idx].timeframe = p.timeframe;
+   snapshot.paper_result_rows[idx].timeframe_label = p.timeframe_label;
+   snapshot.paper_result_rows[idx].summarized_at = TimeCurrent();
+   snapshot.paper_result_rows[idx].last_closed_bar_time = p.last_closed_bar_time;
+   snapshot.paper_result_rows[idx].last_closed_bar_close = p.last_closed_bar_close;
+   snapshot.paper_result_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.paper_result_rows[idx].result_status = result_status;
+   snapshot.paper_result_rows[idx].outcome = p.outcome;
+   snapshot.paper_result_rows[idx].result_bucket = bucket;
+   snapshot.paper_result_rows[idx].direction = p.direction;
+   snapshot.paper_result_rows[idx].decision_type = p.decision_type;
+   snapshot.paper_result_rows[idx].entry_price = p.entry_price;
+   snapshot.paper_result_rows[idx].exit_anchor_price = exit_anchor;
+   snapshot.paper_result_rows[idx].destination_price = p.destination_price;
+   snapshot.paper_result_rows[idx].invalidation_price = p.invalidation_price;
+   snapshot.paper_result_rows[idx].price_delta = signed_delta;
+   snapshot.paper_result_rows[idx].abs_distance = abs_distance;
+   snapshot.paper_result_rows[idx].r_status = r_status;
+   snapshot.paper_result_rows[idx].r_multiple = r_multiple;
+   snapshot.paper_result_rows[idx].source_lifecycle_key = p.lifecycle_key;
+   snapshot.paper_result_rows[idx].source_ledger_key = p.source_ledger_key;
+   snapshot.paper_result_rows[idx].source_decision_key = p.source_decision_key;
+   snapshot.paper_result_rows[idx].event_id = p.event_id;
+   snapshot.paper_result_rows[idx].result_key = result_key;
+   snapshot.paper_result_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE19_RESULT_ONLY";
+   snapshot.paper_result_rows[idx].label = p.timeframe_label + " | PAPER RESULT | " + result_status + " | " + bucket + " | delta=" + DoubleToString(signed_delta, 8) + " | " + r_status;
+
+   snapshot.paper_result_row_count++;
+   snapshot.tf_states[slot].paper_result_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperResultRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_result_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_RESULT_ROWS; i++)
+      FP_ResetStateGatePaperResultRow(snapshot.paper_result_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].paper_result_row_count = 0;
+      FP_StateGateAddPaperResultRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPaperResultForSlot(const FP_StateGateSnapshot &snapshot,
+                                         const int slot,
+                                         FP_StateGatePaperResultRow &out)
+{
+   for(int i=0; i<snapshot.paper_result_row_count; i++)
+   {
+      FP_StateGatePaperResultRow row = snapshot.paper_result_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPaperResult(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePaperResultRow row;
+   FP_ResetStateGatePaperResultRow(row);
+
+   if(FP_StateGateFirstPaperResultForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].paper_result_status = row.result_status;
+      snapshot.tf_states[slot].paper_result_key = row.result_key;
+      snapshot.tf_states[slot].paper_result_outcome = row.outcome;
+      snapshot.tf_states[slot].paper_result_direction = row.direction;
+      snapshot.tf_states[slot].paper_result_type = row.decision_type;
+      snapshot.tf_states[slot].paper_result_entry_price = row.entry_price;
+      snapshot.tf_states[slot].paper_result_exit_anchor_price = row.exit_anchor_price;
+      snapshot.tf_states[slot].paper_result_price_delta = row.price_delta;
+      snapshot.tf_states[slot].paper_result_abs_distance = row.abs_distance;
+      snapshot.tf_states[slot].paper_result_r_status = row.r_status;
+      snapshot.tf_states[slot].paper_result_r_multiple = row.r_multiple;
+      snapshot.tf_states[slot].paper_result_bucket = row.result_bucket;
+      snapshot.tf_states[slot].paper_result_execution_status = row.execution_status;
+      snapshot.tf_states[slot].paper_result_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].paper_result_status = "PAPER_RESULT_NO_ROW";
+   snapshot.tf_states[slot].paper_result_key = "NO_PAPER_RESULT_KEY";
+   snapshot.tf_states[slot].paper_result_outcome = "PAPER_RESULT_NO_OUTCOME";
+   snapshot.tf_states[slot].paper_result_execution_status = "REAL_EXECUTION_DISABLED_PHASE19_RESULT_ONLY";
+   snapshot.tf_states[slot].paper_result_notes = "No paper result row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPaperResults(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPaperResult(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
