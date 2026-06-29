@@ -11,12 +11,12 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Engine
 // ----------------------------------------------------------------------------
-// Phase 4 keeps closed-bar tracking and Rally View projection, then adds
-// read-only Hook View projection from the existing Hook/ND branch output. The
-// projection runs the same locked Phoenix anatomy pipeline per configured
-// timeframe and maps existing facts into State Gate rows. It does not alter
-// Node, Hook/ND, Flag Body, Internal Count, lifecycle, ownership,
-// canonicalization, renderer, validation, release, or license logic.
+// Phase 5 keeps closed-bar tracking, Rally View projection, and Hook View
+// projection, then improves dashboard usability. The projection runs the same
+// locked Phoenix anatomy pipeline per configured timeframe and maps existing
+// facts into State Gate rows. It does not alter Node, Hook/ND, Flag Body,
+// Internal Count, lifecycle, ownership, canonicalization, renderer, validation,
+// release, or license logic.
 // ============================================================================
 
 void FP_StateGateEnsureRuntime(const FP_StateGateConfig &cfg,
@@ -416,6 +416,34 @@ void FP_RunStateGatePhase4(const string symbol,
 }
 
 
+void FP_RunStateGatePhase5(const string symbol,
+                           const ENUM_TIMEFRAMES chart_period,
+                           const FP_StateGateConfig &cfg,
+                           const FP_TimebaseConfig &timebase_template,
+                           const FP_Config &engine_template,
+                           const int &scales[],
+                           const int scale_count,
+                           FP_StateGateRuntime &runtime,
+                           FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   runtime.snapshot.status = "phase5_rally_hook_panel_polish";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE5;
+   report.status = runtime.snapshot.status;
+   report.reason = runtime.snapshot.reason;
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE5);
+}
+
 void FP_RunStateGatePhase3(const string symbol,
                            const ENUM_TIMEFRAMES chart_period,
                            const FP_StateGateConfig &cfg,
@@ -426,11 +454,11 @@ void FP_RunStateGatePhase3(const string symbol,
                            FP_StateGateRuntime &runtime,
                            FP_StateGateReport &report)
 {
-   FP_RunStateGatePhase4(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   FP_RunStateGatePhase5(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
 }
 
 // Backward-compatible aliases for older integration names.  Phase 1/2 callers
-// still compile, while the main EA now uses Phase 4 explicitly.
+// still compile, while the main EA now uses Phase 5 explicitly.
 void FP_RunStateGatePhase1(const string symbol,
                            const ENUM_TIMEFRAMES chart_period,
                            const FP_StateGateConfig &cfg,

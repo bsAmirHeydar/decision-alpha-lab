@@ -313,8 +313,14 @@ input bool            InpStateGatePanelStartMinimized = false;
 input ENUM_BASE_CORNER InpStateGatePanelCorner         = CORNER_RIGHT_UPPER;
 input int             InpStateGatePanelX              = 16;
 input int             InpStateGatePanelY              = 24;
-input int             InpStateGatePanelWidth          = 520;
+input int             InpStateGatePanelWidth          = 560;
 input int             InpStateGatePanelFontSize       = 8;
+input int             InpStateGatePanelRallyPreviewRows = 2;
+input int             InpStateGatePanelHookPreviewRows  = 2;
+input bool            InpStateGatePanelForceRightUpper  = true;
+input bool            InpStateGatePanelCompactMode      = true;
+input bool            InpStateGatePanelShowClosedBar    = true;
+input bool            InpStateGatePanelShowRowCounts    = true;
 input int             InpStateGateMaxRallyRowsPerTf   = 6;
 input int             InpStateGateMaxHookRowsPerTf    = 10;
 input bool            InpStateGateShowIds             = true;
@@ -824,6 +830,12 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_y = InpStateGatePanelY;
    cfg.panel_width = InpStateGatePanelWidth;
    cfg.panel_font_size = InpStateGatePanelFontSize;
+   cfg.panel_rally_preview_rows_per_tf = InpStateGatePanelRallyPreviewRows;
+   cfg.panel_hook_preview_rows_per_tf = InpStateGatePanelHookPreviewRows;
+   cfg.panel_force_right_upper = InpStateGatePanelForceRightUpper;
+   cfg.panel_compact_mode = InpStateGatePanelCompactMode;
+   cfg.panel_show_closed_bar = InpStateGatePanelShowClosedBar;
+   cfg.panel_show_row_counts = InpStateGatePanelShowRowCounts;
    cfg.max_rally_rows_per_tf = InpStateGateMaxRallyRowsPerTf;
    cfg.max_hook_rows_per_tf = InpStateGateMaxHookRowsPerTf;
    cfg.show_ids = InpStateGateShowIds;
@@ -1044,7 +1056,7 @@ void FP_Run()
    }
 
    FP_StateGateReport state_gate_report;
-   FP_RunStateGatePhase4(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
+   FP_RunStateGatePhase5(_Symbol, _Period, state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, state_gate_report);
    if(state_gate_cfg.print_audit)
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE", state_gate_report);
    if(state_gate_cfg.print_audit)
@@ -1158,7 +1170,7 @@ void FP_RunStateGateTimerOnly()
    if(scale_count <= 0)
       FP_RunStateGatePhase2(_Symbol, _Period, timer_state_gate_cfg, g_fp_state_gate_runtime, timer_state_gate_report);
    else
-      FP_RunStateGatePhase4(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
+      FP_RunStateGatePhase5(_Symbol, _Period, timer_state_gate_cfg, timebase_cfg, cfg, scales, scale_count, g_fp_state_gate_runtime, timer_state_gate_report);
 
    if(timer_state_gate_cfg.print_audit && (timer_state_gate_report.dirty_timeframes > 0 || timer_state_gate_report.file_errors > 0 || timer_state_gate_report.object_errors > 0))
       FP_PrintStateGateReport("FP_LEVEL19_STATE_GATE_TIMER", timer_state_gate_report);

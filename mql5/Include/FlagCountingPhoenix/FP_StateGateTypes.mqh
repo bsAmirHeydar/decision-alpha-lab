@@ -11,13 +11,13 @@
 // Hook/ND, Flag Body, Internal Count, F1/F2/F3 lifecycle, ownership,
 // canonicalization, renderer, validation, release, and license logic.
 //
-// Phase 4 keeps the closed-bar tracker and Rally View projection, then adds
-// Hook View projection by reading existing Phoenix Hook/ND branch output. It
-// still does not modify F-counting, Hook/ND, node, ownership,
-// canonicalization, renderer, validation, release, or license logic.
+// Phase 5 keeps the closed-bar tracker, Rally View projection, and Hook View
+// projection, then improves the right-upper dashboard usability layer. It still
+// does not modify F-counting, Hook/ND, node, ownership, canonicalization,
+// renderer, validation, release, or license logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.30-phase4"
+#define FP_STATE_GATE_VERSION "19.40-phase5"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -35,6 +35,7 @@
 #define FP_STATE_GATE_REASON_PHASE2 "phase2_closed_bar_tracker"
 #define FP_STATE_GATE_REASON_PHASE3 "phase3_rally_projection"
 #define FP_STATE_GATE_REASON_PHASE4 "phase4_hook_projection"
+#define FP_STATE_GATE_REASON_PHASE5 "phase5_panel_polish"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
 #define FP_STATE_GATE_RALLY_NO_ROWS "NO_CANONICAL_F_ROWS"
@@ -71,6 +72,12 @@ struct FP_StateGateConfig
    int  panel_y;
    int  panel_width;
    int  panel_font_size;
+   int  panel_rally_preview_rows_per_tf;
+   int  panel_hook_preview_rows_per_tf;
+   bool panel_force_right_upper;
+   bool panel_compact_mode;
+   bool panel_show_closed_bar;
+   bool panel_show_row_counts;
    int  max_rally_rows_per_tf;
    int  max_hook_rows_per_tf;
    bool show_ids;
@@ -365,8 +372,14 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_corner = CORNER_RIGHT_UPPER;
    cfg.panel_x = 16;
    cfg.panel_y = 24;
-   cfg.panel_width = 520;
+   cfg.panel_width = 560;
    cfg.panel_font_size = 8;
+   cfg.panel_rally_preview_rows_per_tf = 2;
+   cfg.panel_hook_preview_rows_per_tf = 2;
+   cfg.panel_force_right_upper = true;
+   cfg.panel_compact_mode = true;
+   cfg.panel_show_closed_bar = true;
+   cfg.panel_show_row_counts = true;
    cfg.max_rally_rows_per_tf = 6;
    cfg.max_hook_rows_per_tf = 10;
    cfg.show_ids = true;

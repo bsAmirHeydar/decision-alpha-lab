@@ -7,9 +7,9 @@
 // ============================================================================
 // FlagCounting Phoenix - Level 19 State Gate Rules
 // ----------------------------------------------------------------------------
-// Pure read-only labels and projection rules. Phase 4 projects Rally View from
-// existing Phoenix F1/F2/F3 event/lifecycle fields and Hook View from existing
-// Hook/ND branch fields. It does not mutate or reinterpret the locked engines.
+// Pure read-only labels and projection rules. Phase 5 keeps the Phase 3/4
+// Rally and Hook projections and feeds the polished dashboard. It does not
+// mutate or reinterpret the locked engines.
 // ============================================================================
 
 int FP_StateGateClampInt(const int value, const int lo, const int hi)
