@@ -269,3 +269,30 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE19_PAPER_RESULT_METRICS.md
 ```
 
 Phase 19 adds Paper Result Metrics / R-Equivalent Summary, converting paper lifecycle rows into non-executable result metrics.
+
+
+## Level 19 — Phase 20
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE20_PAPER_PORTFOLIO_AGGREGATE_METRICS.md
+```
+
+Phase 20 adds Paper Portfolio / Aggregate Metrics, summarizing paper result rows across the State Gate snapshot without enabling real execution.
+
+
+## Level 19 — Phase 20A
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE20A_COMPILE_FIX.md
+```
+
+Phase 20A fixes the paper portfolio aggregate compile error by moving snapshot-level portfolio reset assignments out of the per-timeframe reset function.
+
+
+## Level 19 — Phase 21
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE21_PAPER_REGIME_ATTRIBUTION.md
+```
+
+Phase 21 adds Paper Regime Attribution, linking paper results back to Hook, Rally, MTF, geometry, idea, and lifecycle contexts without enabling real execution.

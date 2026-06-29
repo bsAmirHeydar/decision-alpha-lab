@@ -18,7 +18,7 @@
 // logic.
 // ============================================================================
 
-#define FP_STATE_GATE_VERSION "19.190-phase19"
+#define FP_STATE_GATE_VERSION "19.210-phase21"
 #define FP_STATE_GATE_TF_SLOTS 3
 #define FP_STATE_GATE_MAX_RALLY_ROWS 24
 #define FP_STATE_GATE_MAX_HOOK_ROWS 48
@@ -29,6 +29,8 @@
 #define FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS 24
 #define FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS 24
 #define FP_STATE_GATE_MAX_PAPER_RESULT_ROWS 24
+#define FP_STATE_GATE_MAX_PAPER_PORTFOLIO_ROWS 4
+#define FP_STATE_GATE_MAX_PAPER_REGIME_ROWS 24
 #define FP_STATE_GATE_DEFAULT_PREFIX "FP_L19_STATE_GATE_"
 #define FP_STATE_GATE_DEFAULT_EXPORT_FOLDER "FlagCountingPhoenix"
 
@@ -53,6 +55,8 @@
 #define FP_STATE_GATE_REASON_PHASE17 "phase17_paper_execution_ledger"
 #define FP_STATE_GATE_REASON_PHASE18 "phase18_paper_ledger_lifecycle_tracking"
 #define FP_STATE_GATE_REASON_PHASE19 "phase19_paper_result_metrics"
+#define FP_STATE_GATE_REASON_PHASE20 "phase20_paper_portfolio_aggregate_metrics"
+#define FP_STATE_GATE_REASON_PHASE21 "phase21_paper_regime_attribution"
 #define FP_STATE_GATE_REASON_PHASE11 "phase11_entry_bridge_readiness"
 #define FP_STATE_GATE_REASON_PROJECTION_PENDING "projection_pending"
 
@@ -121,6 +125,8 @@ struct FP_StateGateConfig
    bool export_paper_ledger_csv;
    bool export_paper_lifecycle_csv;
    bool export_paper_results_csv;
+   bool export_paper_portfolio_csv;
+   bool export_paper_regime_csv;
    string export_folder;
    bool print_audit;
    string object_prefix;
@@ -272,6 +278,17 @@ struct FP_StateGateTimeframeState
    string paper_result_bucket;
    string paper_result_execution_status;
    string paper_result_notes;
+   int paper_regime_row_count;
+   string paper_regime_status;
+   string paper_regime_key;
+   string paper_regime_context_family;
+   string paper_regime_source_context;
+   string paper_regime_mtf_context;
+   string paper_regime_geometry_context;
+   string paper_regime_outcome;
+   string paper_regime_result_bucket;
+   string paper_regime_execution_status;
+   string paper_regime_notes;
    string contract_status;
    string tracker_status;
    string status;
@@ -541,6 +558,71 @@ struct FP_StateGatePaperResultRow
    string label;
 };
 
+
+struct FP_StateGatePaperPortfolioRow
+{
+   int row_index;
+   datetime summarized_at;
+   int status;
+   string portfolio_status;
+   string portfolio_key;
+   int total_result_rows;
+   int win_like_rows;
+   int loss_like_rows;
+   int open_rows;
+   int waiting_rows;
+   int ambiguous_rows;
+   int unknown_rows;
+   int r_ready_rows;
+   int r_pending_rows;
+   double net_delta;
+   double avg_delta;
+   double avg_R;
+   double best_R;
+   double worst_R;
+   string result_distribution;
+   string execution_status;
+   string label;
+};
+
+
+struct FP_StateGatePaperRegimeRow
+{
+   int slot_index;
+   ENUM_TIMEFRAMES timeframe;
+   string timeframe_label;
+   datetime attributed_at;
+   datetime last_closed_bar_time;
+   double last_closed_bar_close;
+   int status;
+   string attribution_status;
+   string context_family;
+   string source_context;
+   string mtf_context;
+   string mtf_direction_relation;
+   string mtf_side_relation;
+   string geometry_context;
+   string idea_family;
+   string idea_type;
+   string decision_type;
+   string extreme_source;
+   string extreme_side;
+   string hook_context;
+   string rally_context;
+   string lifecycle_path_state;
+   string outcome;
+   string result_bucket;
+   double price_delta;
+   string r_status;
+   double r_multiple;
+   string source_result_key;
+   string source_lifecycle_key;
+   string source_portfolio_key;
+   string attribution_key;
+   string execution_status;
+   string label;
+};
+
 struct FP_StateGateSnapshot
 {
    bool initialized;
@@ -564,6 +646,8 @@ struct FP_StateGateSnapshot
    FP_StateGatePaperLedgerRow paper_ledger_rows[FP_STATE_GATE_MAX_PAPER_LEDGER_ROWS];
    FP_StateGatePaperLifecycleRow paper_lifecycle_rows[FP_STATE_GATE_MAX_PAPER_LIFECYCLE_ROWS];
    FP_StateGatePaperResultRow paper_result_rows[FP_STATE_GATE_MAX_PAPER_RESULT_ROWS];
+   FP_StateGatePaperPortfolioRow paper_portfolio_rows[FP_STATE_GATE_MAX_PAPER_PORTFOLIO_ROWS];
+   FP_StateGatePaperRegimeRow paper_regime_rows[FP_STATE_GATE_MAX_PAPER_REGIME_ROWS];
    int rally_row_count;
    int hook_row_count;
    int extreme_candidate_row_count;
@@ -573,6 +657,27 @@ struct FP_StateGateSnapshot
    int paper_ledger_row_count;
    int paper_lifecycle_row_count;
    int paper_result_row_count;
+   int paper_portfolio_row_count;
+   int paper_regime_row_count;
+   string paper_portfolio_status;
+   string paper_portfolio_key;
+   int paper_portfolio_total_results;
+   int paper_portfolio_win_like_rows;
+   int paper_portfolio_loss_like_rows;
+   int paper_portfolio_open_rows;
+   int paper_portfolio_waiting_rows;
+   int paper_portfolio_ambiguous_rows;
+   int paper_portfolio_unknown_rows;
+   int paper_portfolio_r_ready_rows;
+   int paper_portfolio_r_pending_rows;
+   double paper_portfolio_net_delta;
+   double paper_portfolio_avg_delta;
+   double paper_portfolio_avg_R;
+   double paper_portfolio_best_R;
+   double paper_portfolio_worst_R;
+   string paper_portfolio_distribution;
+   string paper_portfolio_execution_status;
+   string paper_portfolio_notes;
    string status;
    string reason;
 };
@@ -618,6 +723,8 @@ struct FP_StateGateReport
    int paper_ledger_rows;
    int paper_lifecycle_rows;
    int paper_result_rows;
+   int paper_portfolio_rows;
+   int paper_regime_rows;
    int objects_requested;
    int objects_created;
    int object_errors;
@@ -776,6 +883,17 @@ void FP_ResetStateGateTimeframeState(FP_StateGateTimeframeState &s)
    s.paper_result_bucket = "PAPER_RESULT_BUCKET_PENDING";
    s.paper_result_execution_status = "REAL_EXECUTION_DISABLED_PHASE19_RESULT_ONLY";
    s.paper_result_notes = "PAPER_RESULT_PENDING";
+   s.paper_regime_row_count = 0;
+   s.paper_regime_status = "PAPER_REGIME_PENDING";
+   s.paper_regime_key = "PAPER_REGIME_KEY_PENDING";
+   s.paper_regime_context_family = "PAPER_REGIME_CONTEXT_PENDING";
+   s.paper_regime_source_context = "PAPER_REGIME_SOURCE_PENDING";
+   s.paper_regime_mtf_context = "PAPER_REGIME_MTF_PENDING";
+   s.paper_regime_geometry_context = "PAPER_REGIME_GEOMETRY_PENDING";
+   s.paper_regime_outcome = "PAPER_REGIME_OUTCOME_PENDING";
+   s.paper_regime_result_bucket = "PAPER_REGIME_BUCKET_PENDING";
+   s.paper_regime_execution_status = "REAL_EXECUTION_DISABLED_PHASE21_ATTRIBUTION_ONLY";
+   s.paper_regime_notes = "PAPER_REGIME_PENDING";
    s.contract_status = "CONTRACT_PENDING";
    s.tracker_status = "reset";
    s.status = "empty";
@@ -1045,6 +1163,71 @@ void FP_ResetStateGatePaperResultRow(FP_StateGatePaperResultRow &r)
    r.label = "Paper result pending";
 }
 
+
+void FP_ResetStateGatePaperPortfolioRow(FP_StateGatePaperPortfolioRow &p)
+{
+   p.row_index = -1;
+   p.summarized_at = 0;
+   p.status = FP_STATE_GATE_ROW_EMPTY;
+   p.portfolio_status = "PAPER_PORTFOLIO_PENDING";
+   p.portfolio_key = "NO_PAPER_PORTFOLIO_KEY";
+   p.total_result_rows = 0;
+   p.win_like_rows = 0;
+   p.loss_like_rows = 0;
+   p.open_rows = 0;
+   p.waiting_rows = 0;
+   p.ambiguous_rows = 0;
+   p.unknown_rows = 0;
+   p.r_ready_rows = 0;
+   p.r_pending_rows = 0;
+   p.net_delta = 0.0;
+   p.avg_delta = 0.0;
+   p.avg_R = 0.0;
+   p.best_R = 0.0;
+   p.worst_R = 0.0;
+   p.result_distribution = "PAPER_DISTRIBUTION_PENDING";
+   p.execution_status = "REAL_EXECUTION_DISABLED_PHASE20_PORTFOLIO_ONLY";
+   p.label = "Paper portfolio pending";
+}
+
+
+void FP_ResetStateGatePaperRegimeRow(FP_StateGatePaperRegimeRow &r)
+{
+   r.slot_index = -1;
+   r.timeframe = PERIOD_CURRENT;
+   r.timeframe_label = "TF?";
+   r.attributed_at = 0;
+   r.last_closed_bar_time = 0;
+   r.last_closed_bar_close = 0.0;
+   r.status = FP_STATE_GATE_ROW_EMPTY;
+   r.attribution_status = "PAPER_REGIME_PENDING";
+   r.context_family = "PAPER_REGIME_CONTEXT_PENDING";
+   r.source_context = "PAPER_REGIME_SOURCE_PENDING";
+   r.mtf_context = "PAPER_REGIME_MTF_PENDING";
+   r.mtf_direction_relation = "NO_MTF_DIRECTION_RELATION";
+   r.mtf_side_relation = "NO_MTF_SIDE_RELATION";
+   r.geometry_context = "PAPER_REGIME_GEOMETRY_PENDING";
+   r.idea_family = "NO_IDEA_FAMILY";
+   r.idea_type = "NO_IDEA_TYPE";
+   r.decision_type = "NO_DECISION_TYPE";
+   r.extreme_source = "NO_EXTREME_SOURCE";
+   r.extreme_side = "NO_EXTREME_SIDE";
+   r.hook_context = "NO_HOOK_CONTEXT";
+   r.rally_context = "NO_RALLY_CONTEXT";
+   r.lifecycle_path_state = "NO_LIFECYCLE_PATH";
+   r.outcome = "NO_PAPER_OUTCOME";
+   r.result_bucket = "NO_RESULT_BUCKET";
+   r.price_delta = 0.0;
+   r.r_status = "NO_R_STATUS";
+   r.r_multiple = 0.0;
+   r.source_result_key = "NO_SOURCE_RESULT_KEY";
+   r.source_lifecycle_key = "NO_SOURCE_LIFECYCLE_KEY";
+   r.source_portfolio_key = "NO_SOURCE_PORTFOLIO_KEY";
+   r.attribution_key = "NO_PAPER_REGIME_KEY";
+   r.execution_status = "REAL_EXECUTION_DISABLED_PHASE21_ATTRIBUTION_ONLY";
+   r.label = "Paper regime attribution pending";
+}
+
 void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
 {
    s.initialized = false;
@@ -1078,12 +1261,40 @@ void FP_ResetStateGateSnapshot(FP_StateGateSnapshot &s)
       FP_ResetStateGatePaperLifecycleRow(s.paper_lifecycle_rows[q]);
    for(int z=0; z<FP_STATE_GATE_MAX_PAPER_RESULT_ROWS; z++)
       FP_ResetStateGatePaperResultRow(s.paper_result_rows[z]);
+   for(int a=0; a<FP_STATE_GATE_MAX_PAPER_PORTFOLIO_ROWS; a++)
+      FP_ResetStateGatePaperPortfolioRow(s.paper_portfolio_rows[a]);
+   for(int b=0; b<FP_STATE_GATE_MAX_PAPER_REGIME_ROWS; b++)
+      FP_ResetStateGatePaperRegimeRow(s.paper_regime_rows[b]);
    s.rally_row_count = 0;
    s.hook_row_count = 0;
    s.extreme_candidate_row_count = 0;
    s.mtf_alignment_row_count = 0;
    s.entry_idea_row_count = 0;
    s.entry_decision_row_count = 0;
+   s.paper_ledger_row_count = 0;
+   s.paper_lifecycle_row_count = 0;
+   s.paper_result_row_count = 0;
+   s.paper_portfolio_row_count = 0;
+   s.paper_regime_row_count = 0;
+   s.paper_portfolio_status = "PAPER_PORTFOLIO_PENDING";
+   s.paper_portfolio_key = "PAPER_PORTFOLIO_KEY_PENDING";
+   s.paper_portfolio_total_results = 0;
+   s.paper_portfolio_win_like_rows = 0;
+   s.paper_portfolio_loss_like_rows = 0;
+   s.paper_portfolio_open_rows = 0;
+   s.paper_portfolio_waiting_rows = 0;
+   s.paper_portfolio_ambiguous_rows = 0;
+   s.paper_portfolio_unknown_rows = 0;
+   s.paper_portfolio_r_ready_rows = 0;
+   s.paper_portfolio_r_pending_rows = 0;
+   s.paper_portfolio_net_delta = 0.0;
+   s.paper_portfolio_avg_delta = 0.0;
+   s.paper_portfolio_avg_R = 0.0;
+   s.paper_portfolio_best_R = 0.0;
+   s.paper_portfolio_worst_R = 0.0;
+   s.paper_portfolio_distribution = "PAPER_DISTRIBUTION_PENDING";
+   s.paper_portfolio_execution_status = "REAL_EXECUTION_DISABLED_PHASE20_PORTFOLIO_ONLY";
+   s.paper_portfolio_notes = "PAPER_PORTFOLIO_PENDING";
    s.status = "reset";
    s.reason = "reset";
 }
@@ -1132,6 +1343,8 @@ void FP_ResetStateGateReport(FP_StateGateReport &r)
    r.paper_ledger_rows = 0;
    r.paper_lifecycle_rows = 0;
    r.paper_result_rows = 0;
+   r.paper_portfolio_rows = 0;
+   r.paper_regime_rows = 0;
    r.objects_requested = 0;
    r.objects_created = 0;
    r.object_errors = 0;
@@ -1184,6 +1397,8 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.export_paper_ledger_csv = true;
    cfg.export_paper_lifecycle_csv = true;
    cfg.export_paper_results_csv = true;
+   cfg.export_paper_portfolio_csv = true;
+   cfg.export_paper_regime_csv = true;
    cfg.export_folder = FP_STATE_GATE_DEFAULT_EXPORT_FOLDER;
    cfg.print_audit = true;
    cfg.object_prefix = FP_STATE_GATE_DEFAULT_PREFIX;

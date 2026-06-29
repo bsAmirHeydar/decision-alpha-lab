@@ -2807,6 +2807,454 @@ void FP_StateGateFinalizeSnapshotPaperResults(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 20 - Paper Portfolio / Aggregate Metrics
+// ---------------------------------------------------------------------------
+// This layer aggregates paper result rows across the configured State Gate
+// timeframes.  It remains non-executable and portfolio-only.
+
+string FP_StateGatePaperPortfolioStatus(const int total_rows,
+                                        const int win_rows,
+                                        const int loss_rows,
+                                        const int open_rows,
+                                        const int waiting_rows,
+                                        const int ambiguous_rows)
+{
+   if(total_rows <= 0)
+      return "PAPER_PORTFOLIO_EMPTY_NO_EXECUTION";
+   if(ambiguous_rows > 0)
+      return "PAPER_PORTFOLIO_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   if(open_rows > 0)
+      return "PAPER_PORTFOLIO_HAS_OPEN_ROWS_NO_EXECUTION";
+   if(waiting_rows == total_rows)
+      return "PAPER_PORTFOLIO_WAITING_ONLY_NO_EXECUTION";
+   if(win_rows > 0 && loss_rows == 0)
+      return "PAPER_PORTFOLIO_WIN_LIKE_ONLY_NO_EXECUTION";
+   if(loss_rows > 0 && win_rows == 0)
+      return "PAPER_PORTFOLIO_LOSS_LIKE_ONLY_NO_EXECUTION";
+   return "PAPER_PORTFOLIO_MIXED_RESULT_ROWS_NO_EXECUTION";
+}
+
+string FP_StateGatePaperPortfolioDistribution(const int total_rows,
+                                              const int win_rows,
+                                              const int loss_rows,
+                                              const int open_rows,
+                                              const int waiting_rows,
+                                              const int ambiguous_rows,
+                                              const int unknown_rows)
+{
+   string d = "total=" + IntegerToString(total_rows);
+   d += "|win=" + IntegerToString(win_rows);
+   d += "|loss=" + IntegerToString(loss_rows);
+   d += "|open=" + IntegerToString(open_rows);
+   d += "|waiting=" + IntegerToString(waiting_rows);
+   d += "|ambiguous=" + IntegerToString(ambiguous_rows);
+   d += "|unknown=" + IntegerToString(unknown_rows);
+   return d;
+}
+
+string FP_StateGatePaperPortfolioKey(const FP_StateGateSnapshot &snapshot,
+                                      const string portfolio_status,
+                                      const string distribution,
+                                      const double net_delta,
+                                      const double avg_R)
+{
+   string key = snapshot.symbol;
+   key += "|PORTFOLIO=" + FP_StateGateKeyPart(portfolio_status);
+   key += "|DIST=" + FP_StateGateKeyPart(distribution);
+   key += "|NET=" + DoubleToString(net_delta, 8);
+   key += "|AVGR=" + DoubleToString(avg_R, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+void FP_StateGateBuildPaperPortfolioRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_portfolio_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_PORTFOLIO_ROWS; i++)
+      FP_ResetStateGatePaperPortfolioRow(snapshot.paper_portfolio_rows[i]);
+
+   if(FP_STATE_GATE_MAX_PAPER_PORTFOLIO_ROWS <= 0)
+      return;
+
+   int idx = 0;
+   FP_ResetStateGatePaperPortfolioRow(snapshot.paper_portfolio_rows[idx]);
+
+   int total_rows = snapshot.paper_result_row_count;
+   int win_rows = 0;
+   int loss_rows = 0;
+   int open_rows = 0;
+   int waiting_rows = 0;
+   int ambiguous_rows = 0;
+   int unknown_rows = 0;
+   int r_ready_rows = 0;
+   int r_pending_rows = 0;
+
+   double net_delta = 0.0;
+   double sum_R = 0.0;
+   double best_R = 0.0;
+   double worst_R = 0.0;
+   bool have_R = false;
+
+   for(int r=0; r<snapshot.paper_result_row_count; r++)
+   {
+      FP_StateGatePaperResultRow row = snapshot.paper_result_rows[r];
+      net_delta += row.price_delta;
+
+      if(row.result_bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_WIN")
+         win_rows++;
+      else if(row.result_bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_LOSS")
+         loss_rows++;
+      else if(row.result_bucket == "PAPER_RESULT_BUCKET_HYPOTHETICAL_OPEN")
+         open_rows++;
+      else if(row.result_bucket == "PAPER_RESULT_BUCKET_WAITING")
+         waiting_rows++;
+      else if(row.result_bucket == "PAPER_RESULT_BUCKET_AMBIGUOUS")
+         ambiguous_rows++;
+      else
+         unknown_rows++;
+
+      if(StringFind(row.r_status, "READY") >= 0)
+      {
+         r_ready_rows++;
+         sum_R += row.r_multiple;
+         if(!have_R)
+         {
+            best_R = row.r_multiple;
+            worst_R = row.r_multiple;
+            have_R = true;
+         }
+         else
+         {
+            if(row.r_multiple > best_R) best_R = row.r_multiple;
+            if(row.r_multiple < worst_R) worst_R = row.r_multiple;
+         }
+      }
+      else
+         r_pending_rows++;
+   }
+
+   double avg_delta = 0.0;
+   if(total_rows > 0)
+      avg_delta = net_delta / total_rows;
+
+   double avg_R = 0.0;
+   if(r_ready_rows > 0)
+      avg_R = sum_R / r_ready_rows;
+
+   string status = FP_StateGatePaperPortfolioStatus(total_rows, win_rows, loss_rows, open_rows, waiting_rows, ambiguous_rows);
+   string distribution = FP_StateGatePaperPortfolioDistribution(total_rows, win_rows, loss_rows, open_rows, waiting_rows, ambiguous_rows, unknown_rows);
+   string key = FP_StateGatePaperPortfolioKey(snapshot, status, distribution, net_delta, avg_R);
+
+   snapshot.paper_portfolio_rows[idx].row_index = idx;
+   snapshot.paper_portfolio_rows[idx].summarized_at = TimeCurrent();
+   snapshot.paper_portfolio_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.paper_portfolio_rows[idx].portfolio_status = status;
+   snapshot.paper_portfolio_rows[idx].portfolio_key = key;
+   snapshot.paper_portfolio_rows[idx].total_result_rows = total_rows;
+   snapshot.paper_portfolio_rows[idx].win_like_rows = win_rows;
+   snapshot.paper_portfolio_rows[idx].loss_like_rows = loss_rows;
+   snapshot.paper_portfolio_rows[idx].open_rows = open_rows;
+   snapshot.paper_portfolio_rows[idx].waiting_rows = waiting_rows;
+   snapshot.paper_portfolio_rows[idx].ambiguous_rows = ambiguous_rows;
+   snapshot.paper_portfolio_rows[idx].unknown_rows = unknown_rows;
+   snapshot.paper_portfolio_rows[idx].r_ready_rows = r_ready_rows;
+   snapshot.paper_portfolio_rows[idx].r_pending_rows = r_pending_rows;
+   snapshot.paper_portfolio_rows[idx].net_delta = net_delta;
+   snapshot.paper_portfolio_rows[idx].avg_delta = avg_delta;
+   snapshot.paper_portfolio_rows[idx].avg_R = avg_R;
+   snapshot.paper_portfolio_rows[idx].best_R = best_R;
+   snapshot.paper_portfolio_rows[idx].worst_R = worst_R;
+   snapshot.paper_portfolio_rows[idx].result_distribution = distribution;
+   snapshot.paper_portfolio_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE20_PORTFOLIO_ONLY";
+   snapshot.paper_portfolio_rows[idx].label = "PAPER PORTFOLIO | " + status + " | " + distribution + " | net_delta=" + DoubleToString(net_delta, 8) + " | avg_R=" + DoubleToString(avg_R, 8) + " | real_execution=false";
+
+   snapshot.paper_portfolio_row_count = 1;
+}
+
+void FP_StateGateFinalizeSnapshotPaperPortfolio(FP_StateGateSnapshot &snapshot)
+{
+   if(snapshot.paper_portfolio_row_count <= 0)
+   {
+      snapshot.paper_portfolio_status = "PAPER_PORTFOLIO_NO_ROW";
+      snapshot.paper_portfolio_key = "NO_PAPER_PORTFOLIO_KEY";
+      snapshot.paper_portfolio_execution_status = "REAL_EXECUTION_DISABLED_PHASE20_PORTFOLIO_ONLY";
+      snapshot.paper_portfolio_notes = "No paper portfolio row was built";
+      return;
+   }
+
+   FP_StateGatePaperPortfolioRow row = snapshot.paper_portfolio_rows[0];
+   snapshot.paper_portfolio_status = row.portfolio_status;
+   snapshot.paper_portfolio_key = row.portfolio_key;
+   snapshot.paper_portfolio_total_results = row.total_result_rows;
+   snapshot.paper_portfolio_win_like_rows = row.win_like_rows;
+   snapshot.paper_portfolio_loss_like_rows = row.loss_like_rows;
+   snapshot.paper_portfolio_open_rows = row.open_rows;
+   snapshot.paper_portfolio_waiting_rows = row.waiting_rows;
+   snapshot.paper_portfolio_ambiguous_rows = row.ambiguous_rows;
+   snapshot.paper_portfolio_unknown_rows = row.unknown_rows;
+   snapshot.paper_portfolio_r_ready_rows = row.r_ready_rows;
+   snapshot.paper_portfolio_r_pending_rows = row.r_pending_rows;
+   snapshot.paper_portfolio_net_delta = row.net_delta;
+   snapshot.paper_portfolio_avg_delta = row.avg_delta;
+   snapshot.paper_portfolio_avg_R = row.avg_R;
+   snapshot.paper_portfolio_best_R = row.best_R;
+   snapshot.paper_portfolio_worst_R = row.worst_R;
+   snapshot.paper_portfolio_distribution = row.result_distribution;
+   snapshot.paper_portfolio_execution_status = row.execution_status;
+   snapshot.paper_portfolio_notes = row.label;
+}
+
+
+
+// ---------------------------------------------------------------------------
+// Phase 21 - Paper Regime Attribution
+// ---------------------------------------------------------------------------
+// This layer attributes paper result rows back to the context that produced
+// them.  It remains non-executable and does not make trading decisions.
+
+string FP_StateGatePaperRegimeContextFamily(const FP_StateGateTimeframeState &s)
+{
+   bool has_hook = (StringFind(s.primary_extreme_source, "HOOK") >= 0 || StringFind(s.primary_entry_idea_family, "HOOK") >= 0);
+   bool has_rally = (StringFind(s.primary_extreme_source, "RALLY") >= 0 || StringFind(s.primary_entry_idea_family, "RALLY") >= 0);
+   bool mtf_aligned = (StringFind(s.mtf_direction_relation, "ALIGNED") >= 0 || StringFind(s.mtf_context_role, "ALIGNED") >= 0);
+   bool mtf_divergent = (StringFind(s.mtf_direction_relation, "DIVERGENT") >= 0 || StringFind(s.mtf_context_role, "DIVERGENCE") >= 0);
+
+   if(has_hook && mtf_aligned)
+      return "REGIME_MTF_ALIGNED_HOOK_EXTREME";
+   if(has_hook && mtf_divergent)
+      return "REGIME_MTF_DIVERGENT_HOOK_EXTREME";
+   if(has_hook)
+      return "REGIME_HOOK_EXTREME";
+   if(has_rally && mtf_aligned)
+      return "REGIME_MTF_ALIGNED_RALLY_CONTEXT";
+   if(has_rally)
+      return "REGIME_RALLY_CONTEXT";
+   if(StringFind(s.geometry_readiness, "READY") >= 0 || StringFind(s.geometry_readiness, "PARTIAL") >= 0)
+      return "REGIME_GEOMETRY_CONTEXT";
+   return "REGIME_CONTEXT_PENDING";
+}
+
+string FP_StateGatePaperRegimeSourceContext(const FP_StateGateTimeframeState &s)
+{
+   string out = s.primary_extreme_source;
+   out += "|SIDE=" + s.primary_extreme_side;
+   out += "|ROLE=" + s.primary_extreme_role;
+   out += "|DIR=" + s.primary_extreme_direction;
+   return out;
+}
+
+string FP_StateGatePaperRegimeMtfContext(const FP_StateGateTimeframeState &s)
+{
+   string out = s.mtf_context_role;
+   out += "|DIR_REL=" + s.mtf_direction_relation;
+   out += "|SIDE_REL=" + s.mtf_side_relation;
+   out += "|PARENT=" + s.mtf_parent_timeframe;
+   return out;
+}
+
+string FP_StateGatePaperRegimeGeometryContext(const FP_StateGateTimeframeState &s)
+{
+   string out = s.geometry_readiness;
+   out += "|ENTRY=" + s.candidate_entry_price_status;
+   out += "|DEST=" + s.candidate_destination_price_status;
+   out += "|R=" + s.potential_R_status;
+   return out;
+}
+
+string FP_StateGatePaperRegimeAttributionStatus(const FP_StateGateTimeframeState &s,
+                                                const FP_StateGatePaperResultRow &r)
+{
+   if(!s.closed_bar_available)
+      return "PAPER_REGIME_BLOCKED_NO_CLOSED_BAR";
+   if(r.result_key == "NO_PAPER_RESULT_KEY" || r.result_key == "")
+      return "PAPER_REGIME_BLOCKED_NO_RESULT_ROW";
+   if(StringFind(r.result_bucket, "UNKNOWN") >= 0)
+      return "PAPER_REGIME_ATTRIBUTED_UNKNOWN_RESULT_NO_EXECUTION";
+   return "PAPER_REGIME_ATTRIBUTED_NO_EXECUTION";
+}
+
+string FP_StateGatePaperRegimeKey(const FP_StateGateSnapshot &snapshot,
+                                  const int slot,
+                                  const FP_StateGatePaperResultRow &r,
+                                  const string context_family,
+                                  const string attribution_status)
+{
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   string key = snapshot.symbol;
+   key += "|TF=" + s.timeframe_label;
+   key += "|ATTR=" + FP_StateGateKeyPart(attribution_status);
+   key += "|CTX=" + FP_StateGateKeyPart(context_family);
+   key += "|OUTCOME=" + FP_StateGateKeyPart(r.outcome);
+   key += "|BUCKET=" + FP_StateGateKeyPart(r.result_bucket);
+   key += "|IDEA=" + FP_StateGateKeyPart(s.primary_entry_idea_family);
+   key += "|MTF=" + FP_StateGateKeyPart(s.mtf_context_role);
+   key += "|RESULT=" + FP_StateGateKeyPart(r.result_key);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateFirstPaperResultForRegimeSlot(const FP_StateGateSnapshot &snapshot,
+                                               const int slot,
+                                               FP_StateGatePaperResultRow &out)
+{
+   for(int i=0; i<snapshot.paper_result_row_count; i++)
+   {
+      FP_StateGatePaperResultRow row = snapshot.paper_result_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateFirstPaperLifecycleForRegimeSlot(const FP_StateGateSnapshot &snapshot,
+                                                  const int slot,
+                                                  FP_StateGatePaperLifecycleRow &out)
+{
+   for(int i=0; i<snapshot.paper_lifecycle_row_count; i++)
+   {
+      FP_StateGatePaperLifecycleRow row = snapshot.paper_lifecycle_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+bool FP_StateGateAddPaperRegimeRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.paper_regime_row_count >= FP_STATE_GATE_MAX_PAPER_REGIME_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGatePaperResultRow result;
+   FP_ResetStateGatePaperResultRow(result);
+   if(!FP_StateGateFirstPaperResultForRegimeSlot(snapshot, slot, result))
+      return false;
+
+   FP_StateGatePaperLifecycleRow lifecycle;
+   FP_ResetStateGatePaperLifecycleRow(lifecycle);
+   bool has_lifecycle = FP_StateGateFirstPaperLifecycleForRegimeSlot(snapshot, slot, lifecycle);
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.paper_regime_row_count;
+   FP_ResetStateGatePaperRegimeRow(snapshot.paper_regime_rows[idx]);
+
+   string context_family = FP_StateGatePaperRegimeContextFamily(s);
+   string source_context = FP_StateGatePaperRegimeSourceContext(s);
+   string mtf_context = FP_StateGatePaperRegimeMtfContext(s);
+   string geometry_context = FP_StateGatePaperRegimeGeometryContext(s);
+   string attribution_status = FP_StateGatePaperRegimeAttributionStatus(s, result);
+   string lifecycle_path = (has_lifecycle ? lifecycle.path_state : "PAPER_PATH_MISSING_FOR_ATTRIBUTION");
+   string attribution_key = FP_StateGatePaperRegimeKey(snapshot, slot, result, context_family, attribution_status);
+
+   snapshot.paper_regime_rows[idx].slot_index = slot;
+   snapshot.paper_regime_rows[idx].timeframe = s.timeframe;
+   snapshot.paper_regime_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.paper_regime_rows[idx].attributed_at = TimeCurrent();
+   snapshot.paper_regime_rows[idx].last_closed_bar_time = s.last_closed_bar_time;
+   snapshot.paper_regime_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.paper_regime_rows[idx].status = (StringFind(attribution_status, "ATTRIBUTED") >= 0 ? FP_STATE_GATE_ROW_PROJECTED : FP_STATE_GATE_ROW_PLACEHOLDER);
+   snapshot.paper_regime_rows[idx].attribution_status = attribution_status;
+   snapshot.paper_regime_rows[idx].context_family = context_family;
+   snapshot.paper_regime_rows[idx].source_context = source_context;
+   snapshot.paper_regime_rows[idx].mtf_context = mtf_context;
+   snapshot.paper_regime_rows[idx].mtf_direction_relation = s.mtf_direction_relation;
+   snapshot.paper_regime_rows[idx].mtf_side_relation = s.mtf_side_relation;
+   snapshot.paper_regime_rows[idx].geometry_context = geometry_context;
+   snapshot.paper_regime_rows[idx].idea_family = s.primary_entry_idea_family;
+   snapshot.paper_regime_rows[idx].idea_type = s.primary_entry_idea_type;
+   snapshot.paper_regime_rows[idx].decision_type = s.entry_decision_type;
+   snapshot.paper_regime_rows[idx].extreme_source = s.primary_extreme_source;
+   snapshot.paper_regime_rows[idx].extreme_side = s.primary_extreme_side;
+   snapshot.paper_regime_rows[idx].hook_context = s.hook_summary;
+   snapshot.paper_regime_rows[idx].rally_context = s.probable_next_f_summary;
+   snapshot.paper_regime_rows[idx].lifecycle_path_state = lifecycle_path;
+   snapshot.paper_regime_rows[idx].outcome = result.outcome;
+   snapshot.paper_regime_rows[idx].result_bucket = result.result_bucket;
+   snapshot.paper_regime_rows[idx].price_delta = result.price_delta;
+   snapshot.paper_regime_rows[idx].r_status = result.r_status;
+   snapshot.paper_regime_rows[idx].r_multiple = result.r_multiple;
+   snapshot.paper_regime_rows[idx].source_result_key = result.result_key;
+   snapshot.paper_regime_rows[idx].source_lifecycle_key = (has_lifecycle ? lifecycle.lifecycle_key : "NO_SOURCE_LIFECYCLE_KEY");
+   snapshot.paper_regime_rows[idx].source_portfolio_key = snapshot.paper_portfolio_key;
+   snapshot.paper_regime_rows[idx].attribution_key = attribution_key;
+   snapshot.paper_regime_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE21_ATTRIBUTION_ONLY";
+   snapshot.paper_regime_rows[idx].label = s.timeframe_label + " | PAPER REGIME | " + context_family + " | " + result.result_bucket + " | " + result.outcome + " | real_execution=false";
+
+   snapshot.paper_regime_row_count++;
+   snapshot.tf_states[slot].paper_regime_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperRegimeRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_regime_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_REGIME_ROWS; i++)
+      FP_ResetStateGatePaperRegimeRow(snapshot.paper_regime_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].paper_regime_row_count = 0;
+      FP_StateGateAddPaperRegimeRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPaperRegimeForSlot(const FP_StateGateSnapshot &snapshot,
+                                         const int slot,
+                                         FP_StateGatePaperRegimeRow &out)
+{
+   for(int i=0; i<snapshot.paper_regime_row_count; i++)
+   {
+      FP_StateGatePaperRegimeRow row = snapshot.paper_regime_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPaperRegime(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePaperRegimeRow row;
+   FP_ResetStateGatePaperRegimeRow(row);
+
+   if(FP_StateGateFirstPaperRegimeForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].paper_regime_status = row.attribution_status;
+      snapshot.tf_states[slot].paper_regime_key = row.attribution_key;
+      snapshot.tf_states[slot].paper_regime_context_family = row.context_family;
+      snapshot.tf_states[slot].paper_regime_source_context = row.source_context;
+      snapshot.tf_states[slot].paper_regime_mtf_context = row.mtf_context;
+      snapshot.tf_states[slot].paper_regime_geometry_context = row.geometry_context;
+      snapshot.tf_states[slot].paper_regime_outcome = row.outcome;
+      snapshot.tf_states[slot].paper_regime_result_bucket = row.result_bucket;
+      snapshot.tf_states[slot].paper_regime_execution_status = row.execution_status;
+      snapshot.tf_states[slot].paper_regime_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].paper_regime_status = "PAPER_REGIME_NO_ROW";
+   snapshot.tf_states[slot].paper_regime_key = "NO_PAPER_REGIME_KEY";
+   snapshot.tf_states[slot].paper_regime_context_family = "PAPER_REGIME_NO_CONTEXT";
+   snapshot.tf_states[slot].paper_regime_outcome = "PAPER_REGIME_NO_OUTCOME";
+   snapshot.tf_states[slot].paper_regime_execution_status = "REAL_EXECUTION_DISABLED_PHASE21_ATTRIBUTION_ONLY";
+   snapshot.tf_states[slot].paper_regime_notes = "No paper regime attribution row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPaperRegime(FP_StateGateSnapshot &snapshot)
+{
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPaperRegime(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
