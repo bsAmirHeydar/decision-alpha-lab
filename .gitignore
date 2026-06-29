@@ -17,3 +17,4 @@ licenses/**
 !licenses/
 !licenses/README_STC_SMT_LICENSE_ISSUER.md
 !licenses/README_LICENSE_ISSUER.md
+_patch_*/
