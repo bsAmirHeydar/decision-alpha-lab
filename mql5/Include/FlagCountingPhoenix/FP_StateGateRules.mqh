@@ -3858,6 +3858,321 @@ void FP_StateGateFinalizeSnapshotPaperPolicy(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 24 - Persistent Paper Trade Ledger
+// ---------------------------------------------------------------------------
+// This layer assigns stable paper trade identities to dry-run-allowed policy rows.
+// It remains non-executable and never creates broker orders, tickets, or positions.
+
+double FP_StateGatePersistentTradeEntryPrice(const FP_StateGateTimeframeState &s)
+{
+   if(s.entry_decision_price != 0.0)
+      return s.entry_decision_price;
+   if(s.paper_ledger_entry_price != 0.0)
+      return s.paper_ledger_entry_price;
+   if(s.candidate_entry_price != 0.0)
+      return s.candidate_entry_price;
+   return 0.0;
+}
+
+double FP_StateGatePersistentTradeInvalidationPrice(const FP_StateGateTimeframeState &s)
+{
+   if(s.entry_decision_invalidation_price != 0.0)
+      return s.entry_decision_invalidation_price;
+   if(s.paper_ledger_invalidation_price != 0.0)
+      return s.paper_ledger_invalidation_price;
+   if(s.candidate_invalidation_price != 0.0)
+      return s.candidate_invalidation_price;
+   return 0.0;
+}
+
+double FP_StateGatePersistentTradeDestinationPrice(const FP_StateGateTimeframeState &s)
+{
+   if(s.entry_decision_destination_price != 0.0)
+      return s.entry_decision_destination_price;
+   if(s.paper_ledger_destination_price != 0.0)
+      return s.paper_ledger_destination_price;
+   if(s.candidate_destination_price != 0.0)
+      return s.candidate_destination_price;
+   return 0.0;
+}
+
+string FP_StateGatePersistentTradeDirection(const FP_StateGateTimeframeState &s,
+                                            const FP_StateGatePaperPolicyRow &p)
+{
+   if(p.policy_direction != "" && p.policy_direction != "NO_POLICY_DIRECTION")
+      return p.policy_direction;
+   if(s.entry_decision_direction != "" && s.entry_decision_direction != "NO_ENTRY_DECISION_DIRECTION")
+      return s.entry_decision_direction;
+   return s.paper_ledger_direction;
+}
+
+string FP_StateGatePersistentTradeType(const FP_StateGateTimeframeState &s,
+                                       const FP_StateGatePaperPolicyRow &p)
+{
+   if(p.policy_decision_type != "" && p.policy_decision_type != "NO_POLICY_DECISION_TYPE")
+      return p.policy_decision_type;
+   if(s.entry_decision_type != "" && s.entry_decision_type != "NO_ENTRY_DECISION_TYPE")
+      return s.entry_decision_type;
+   return s.paper_ledger_type;
+}
+
+string FP_StateGatePersistentTradeId(const FP_StateGateSnapshot &snapshot,
+                                     const int slot,
+                                     const FP_StateGatePaperPolicyRow &p,
+                                     const double entry_price)
+{
+   string id = "PPT";
+   id += "|" + snapshot.symbol;
+   id += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   id += "|BAR=" + FP_StateGateKeyPart(FP_StateGateClosedBarTimeLabel(snapshot.tf_states[slot].last_closed_bar_time));
+   id += "|POL=" + FP_StateGateKeyPart(p.policy_key);
+   id += "|PX=" + DoubleToString(entry_price, 8);
+   return id;
+}
+
+string FP_StateGatePersistentTradeStatus(const FP_StateGateTimeframeState &s,
+                                         const FP_StateGatePaperPolicyRow &p,
+                                         const double entry_price)
+{
+   if(!s.closed_bar_available)
+      return "PERSISTENT_PAPER_TRADE_BLOCKED_NO_CLOSED_BAR";
+   if(!p.policy_allowed_dry_run)
+      return "PERSISTENT_PAPER_TRADE_BLOCKED_BY_POLICY";
+   if(entry_price == 0.0)
+      return "PERSISTENT_PAPER_TRADE_BLOCKED_NO_ENTRY_PRICE";
+   return "PERSISTENT_PAPER_TRADE_REGISTERED_DRY_RUN_ONLY";
+}
+
+string FP_StateGatePersistentTradeLifecycleStatus(const string trade_status)
+{
+   if(StringFind(trade_status, "REGISTERED") >= 0)
+      return "PAPER_TRADE_LIFECYCLE_REGISTERED_WAITING_FOR_FUTURE_TRACKING";
+   if(StringFind(trade_status, "BLOCKED_BY_POLICY") >= 0)
+      return "PAPER_TRADE_LIFECYCLE_BLOCKED_BY_POLICY";
+   if(StringFind(trade_status, "NO_ENTRY_PRICE") >= 0)
+      return "PAPER_TRADE_LIFECYCLE_BLOCKED_NO_ENTRY_PRICE";
+   return "PAPER_TRADE_LIFECYCLE_BLOCKED";
+}
+
+double FP_StateGatePersistentTradeUnrealizedDelta(const string direction,
+                                                  const double entry_price,
+                                                  const double current_close)
+{
+   if(entry_price == 0.0 || current_close == 0.0)
+      return 0.0;
+   if(FP_StateGatePaperIsBuyDirection(direction))
+      return current_close - entry_price;
+   if(FP_StateGatePaperIsSellDirection(direction))
+      return entry_price - current_close;
+   return 0.0;
+}
+
+string FP_StateGatePersistentTradeRStatus(const double entry_price,
+                                          const double invalidation_price,
+                                          const double unrealized_delta)
+{
+   if(entry_price == 0.0)
+      return "PAPER_TRADE_R_BLOCKED_NO_ENTRY_PRICE";
+   if(invalidation_price == 0.0 || MathAbs(entry_price - invalidation_price) == 0.0)
+      return "PAPER_TRADE_R_PENDING_INVALIDATION_DISTANCE";
+   if(unrealized_delta == 0.0)
+      return "PAPER_TRADE_R_ZERO_OR_WAITING";
+   return "PAPER_TRADE_R_EQUIVALENT_READY_PAPER_ONLY";
+}
+
+double FP_StateGatePersistentTradeRMultiple(const double entry_price,
+                                            const double invalidation_price,
+                                            const double unrealized_delta)
+{
+   if(entry_price == 0.0 || invalidation_price == 0.0)
+      return 0.0;
+   double risk = MathAbs(entry_price - invalidation_price);
+   if(risk == 0.0)
+      return 0.0;
+   return unrealized_delta / risk;
+}
+
+string FP_StateGatePersistentTradeKey(const FP_StateGateSnapshot &snapshot,
+                                      const int slot,
+                                      const string trade_id,
+                                      const string trade_status,
+                                      const string lifecycle_status)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + snapshot.tf_states[slot].timeframe_label;
+   key += "|TRADE=" + FP_StateGateKeyPart(trade_id);
+   key += "|STATUS=" + FP_StateGateKeyPart(trade_status);
+   key += "|LIFE=" + FP_StateGateKeyPart(lifecycle_status);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateAddPersistentPaperTradeRowForSlot(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   if(snapshot.persistent_paper_trade_row_count >= FP_STATE_GATE_MAX_PERSISTENT_PAPER_TRADE_ROWS)
+      return false;
+   if(slot < 0 || slot >= snapshot.timeframe_count)
+      return false;
+
+   FP_StateGatePaperPolicyRow p;
+   FP_ResetStateGatePaperPolicyRow(p);
+   if(!FP_StateGateFirstPaperPolicyForSlot(snapshot, slot, p))
+      return false;
+
+   FP_StateGateTimeframeState s = snapshot.tf_states[slot];
+   int idx = snapshot.persistent_paper_trade_row_count;
+   FP_ResetStateGatePersistentPaperTradeRow(snapshot.persistent_paper_trade_rows[idx]);
+
+   double entry_price = FP_StateGatePersistentTradeEntryPrice(s);
+   double invalidation_price = FP_StateGatePersistentTradeInvalidationPrice(s);
+   double destination_price = FP_StateGatePersistentTradeDestinationPrice(s);
+   string direction = FP_StateGatePersistentTradeDirection(s, p);
+   string decision_type = FP_StateGatePersistentTradeType(s, p);
+   string trade_status = FP_StateGatePersistentTradeStatus(s, p, entry_price);
+   string lifecycle_status = FP_StateGatePersistentTradeLifecycleStatus(trade_status);
+   string trade_id = FP_StateGatePersistentTradeId(snapshot, slot, p, entry_price);
+   double unrealized_delta = FP_StateGatePersistentTradeUnrealizedDelta(direction, entry_price, s.last_closed_bar_close);
+   string r_status = FP_StateGatePersistentTradeRStatus(entry_price, invalidation_price, unrealized_delta);
+   double r_multiple = FP_StateGatePersistentTradeRMultiple(entry_price, invalidation_price, unrealized_delta);
+   string trade_key = FP_StateGatePersistentTradeKey(snapshot, slot, trade_id, trade_status, lifecycle_status);
+
+   snapshot.persistent_paper_trade_rows[idx].slot_index = slot;
+   snapshot.persistent_paper_trade_rows[idx].timeframe = s.timeframe;
+   snapshot.persistent_paper_trade_rows[idx].timeframe_label = s.timeframe_label;
+   snapshot.persistent_paper_trade_rows[idx].registered_at = TimeCurrent();
+   snapshot.persistent_paper_trade_rows[idx].opened_bar_time = s.last_closed_bar_time;
+   snapshot.persistent_paper_trade_rows[idx].last_seen_bar_time = s.last_closed_bar_time;
+   snapshot.persistent_paper_trade_rows[idx].last_closed_bar_close = s.last_closed_bar_close;
+   snapshot.persistent_paper_trade_rows[idx].status = (StringFind(trade_status, "REGISTERED") >= 0 ? FP_STATE_GATE_ROW_PROJECTED : FP_STATE_GATE_ROW_PLACEHOLDER);
+   snapshot.persistent_paper_trade_rows[idx].trade_status = trade_status;
+   snapshot.persistent_paper_trade_rows[idx].lifecycle_status = lifecycle_status;
+   snapshot.persistent_paper_trade_rows[idx].trade_id = trade_id;
+   snapshot.persistent_paper_trade_rows[idx].trade_key = trade_key;
+   snapshot.persistent_paper_trade_rows[idx].trade_mode = "PERSISTENT_PAPER_DRY_RUN_ONLY";
+   snapshot.persistent_paper_trade_rows[idx].policy_allowed_dry_run = p.policy_allowed_dry_run;
+   snapshot.persistent_paper_trade_rows[idx].policy_status = p.policy_status;
+   snapshot.persistent_paper_trade_rows[idx].policy_name = p.policy_name;
+   snapshot.persistent_paper_trade_rows[idx].direction = direction;
+   snapshot.persistent_paper_trade_rows[idx].decision_type = decision_type;
+   snapshot.persistent_paper_trade_rows[idx].entry_price = entry_price;
+   snapshot.persistent_paper_trade_rows[idx].invalidation_price = invalidation_price;
+   snapshot.persistent_paper_trade_rows[idx].destination_price = destination_price;
+   snapshot.persistent_paper_trade_rows[idx].current_close = s.last_closed_bar_close;
+   snapshot.persistent_paper_trade_rows[idx].unrealized_delta = unrealized_delta;
+   snapshot.persistent_paper_trade_rows[idx].r_status = r_status;
+   snapshot.persistent_paper_trade_rows[idx].r_multiple = r_multiple;
+   snapshot.persistent_paper_trade_rows[idx].source_policy_key = p.policy_key;
+   snapshot.persistent_paper_trade_rows[idx].source_decision_key = s.entry_decision_key;
+   snapshot.persistent_paper_trade_rows[idx].source_ledger_key = s.paper_ledger_key;
+   snapshot.persistent_paper_trade_rows[idx].source_result_key = p.source_result_key;
+   snapshot.persistent_paper_trade_rows[idx].block_reason = p.policy_block_reason;
+   snapshot.persistent_paper_trade_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE24_PERSISTENT_PAPER_ONLY";
+   snapshot.persistent_paper_trade_rows[idx].label = s.timeframe_label + " | PERSISTENT PAPER TRADE | " + trade_status + " | " + direction + " | " + decision_type + " | id=" + trade_id + " | real_execution=false";
+
+   snapshot.persistent_paper_trade_row_count++;
+   snapshot.tf_states[slot].persistent_paper_trade_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPersistentPaperTradeRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.persistent_paper_trade_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PERSISTENT_PAPER_TRADE_ROWS; i++)
+      FP_ResetStateGatePersistentPaperTradeRow(snapshot.persistent_paper_trade_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      snapshot.tf_states[slot].persistent_paper_trade_row_count = 0;
+      FP_StateGateAddPersistentPaperTradeRowForSlot(snapshot, slot);
+   }
+}
+
+bool FP_StateGateFirstPersistentPaperTradeForSlot(const FP_StateGateSnapshot &snapshot,
+                                                  const int slot,
+                                                  FP_StateGatePersistentPaperTradeRow &out)
+{
+   for(int i=0; i<snapshot.persistent_paper_trade_row_count; i++)
+   {
+      FP_StateGatePersistentPaperTradeRow row = snapshot.persistent_paper_trade_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPersistentPaperTrade(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePersistentPaperTradeRow row;
+   FP_ResetStateGatePersistentPaperTradeRow(row);
+
+   if(FP_StateGateFirstPersistentPaperTradeForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].persistent_paper_trade_status = row.trade_status;
+      snapshot.tf_states[slot].persistent_paper_trade_key = row.trade_key;
+      snapshot.tf_states[slot].persistent_paper_trade_id = row.trade_id;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_status = row.lifecycle_status;
+      snapshot.tf_states[slot].persistent_paper_trade_direction = row.direction;
+      snapshot.tf_states[slot].persistent_paper_trade_type = row.decision_type;
+      snapshot.tf_states[slot].persistent_paper_trade_entry_price = row.entry_price;
+      snapshot.tf_states[slot].persistent_paper_trade_invalidation_price = row.invalidation_price;
+      snapshot.tf_states[slot].persistent_paper_trade_destination_price = row.destination_price;
+      snapshot.tf_states[slot].persistent_paper_trade_policy_status = row.policy_status;
+      snapshot.tf_states[slot].persistent_paper_trade_execution_status = row.execution_status;
+      snapshot.tf_states[slot].persistent_paper_trade_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].persistent_paper_trade_status = "PERSISTENT_PAPER_TRADE_NO_ROW";
+   snapshot.tf_states[slot].persistent_paper_trade_key = "NO_PERSISTENT_PAPER_TRADE_KEY";
+   snapshot.tf_states[slot].persistent_paper_trade_id = "NO_PERSISTENT_PAPER_TRADE_ID";
+   snapshot.tf_states[slot].persistent_paper_trade_execution_status = "REAL_EXECUTION_DISABLED_PHASE24_PERSISTENT_PAPER_ONLY";
+   snapshot.tf_states[slot].persistent_paper_trade_notes = "No persistent paper trade row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPersistentPaperTrades(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.persistent_paper_trade_total_rows = snapshot.persistent_paper_trade_row_count;
+   snapshot.persistent_paper_trade_registered_rows = 0;
+   snapshot.persistent_paper_trade_blocked_rows = 0;
+   snapshot.persistent_paper_trade_open_like_rows = 0;
+   snapshot.persistent_paper_trade_policy_allowed_rows = 0;
+   snapshot.persistent_paper_trade_execution_status = "REAL_EXECUTION_DISABLED_PHASE24_PERSISTENT_PAPER_ONLY";
+
+   for(int i=0; i<snapshot.persistent_paper_trade_row_count; i++)
+   {
+      FP_StateGatePersistentPaperTradeRow row = snapshot.persistent_paper_trade_rows[i];
+      if(row.policy_allowed_dry_run)
+         snapshot.persistent_paper_trade_policy_allowed_rows++;
+      if(StringFind(row.trade_status, "REGISTERED") >= 0)
+      {
+         snapshot.persistent_paper_trade_registered_rows++;
+         snapshot.persistent_paper_trade_open_like_rows++;
+      }
+      else
+         snapshot.persistent_paper_trade_blocked_rows++;
+   }
+
+   snapshot.persistent_paper_trade_distribution = "REG=" + IntegerToString(snapshot.persistent_paper_trade_registered_rows) + "|BLOCK=" + IntegerToString(snapshot.persistent_paper_trade_blocked_rows) + "|OPEN=" + IntegerToString(snapshot.persistent_paper_trade_open_like_rows) + "|ALLOW=" + IntegerToString(snapshot.persistent_paper_trade_policy_allowed_rows);
+
+   if(snapshot.persistent_paper_trade_row_count <= 0)
+      snapshot.persistent_paper_trade_status = "PERSISTENT_PAPER_TRADE_EMPTY_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_registered_rows > 0)
+      snapshot.persistent_paper_trade_status = "PERSISTENT_PAPER_TRADE_HAS_REGISTERED_ROWS_NO_EXECUTION";
+   else
+      snapshot.persistent_paper_trade_status = "PERSISTENT_PAPER_TRADE_ALL_BLOCKED_NO_EXECUTION";
+
+   snapshot.persistent_paper_trade_key = snapshot.symbol + "|PERSISTENT_PAPER_TRADES=" + IntegerToString(snapshot.persistent_paper_trade_row_count) + "|REG=" + IntegerToString(snapshot.persistent_paper_trade_registered_rows) + "|EXEC=DISABLED";
+   snapshot.persistent_paper_trade_notes = snapshot.persistent_paper_trade_status + "|" + snapshot.persistent_paper_trade_distribution;
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPersistentPaperTrade(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

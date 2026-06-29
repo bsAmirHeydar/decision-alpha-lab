@@ -497,6 +497,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
                            clrGold, font_size, report);
    cursor_y += row_h;
 
+   string trade_line = "PaperTrade | " + snapshot.persistent_paper_trade_status + " | " + snapshot.persistent_paper_trade_distribution;
+   FP_StateGateCreateLabel(cfg, "PERSISTENT_PAPER_TRADE_GLOBAL", x + 10, cursor_y + 2,
+                           FP_StateGatePanelClip(trade_line, text_limit),
+                           clrGold, font_size, report);
+   cursor_y += row_h;
+
    string regime_global_line = "Regime | rows=" + IntegerToString(snapshot.paper_regime_row_count) + " | paper attribution | real execution=false";
    FP_StateGateCreateLabel(cfg, "PAPER_REGIME_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(regime_global_line, text_limit),

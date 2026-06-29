@@ -253,6 +253,8 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    FP_StateGateFinalizeSnapshotPaperFilters(runtime.snapshot);
    FP_StateGateBuildPaperPolicyRows(runtime.snapshot);
    FP_StateGateFinalizeSnapshotPaperPolicy(runtime.snapshot);
+   FP_StateGateBuildPersistentPaperTradeRows(runtime.snapshot);
+   FP_StateGateFinalizeSnapshotPersistentPaperTrades(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
@@ -281,6 +283,7 @@ void FP_StateGateBuildPhase2Snapshot(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -382,6 +385,8 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    FP_StateGateFinalizeSnapshotPaperFilters(runtime.snapshot);
    FP_StateGateBuildPaperPolicyRows(runtime.snapshot);
    FP_StateGateFinalizeSnapshotPaperPolicy(runtime.snapshot);
+   FP_StateGateBuildPersistentPaperTradeRows(runtime.snapshot);
+   FP_StateGateFinalizeSnapshotPersistentPaperTrades(runtime.snapshot);
 
    if(runtime.snapshot.any_dirty)
       runtime.update_serial++;
@@ -410,6 +415,7 @@ void FP_StateGateBuildPhase4Snapshot(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    report.contract_rows = runtime.snapshot.timeframe_count;
 }
 
@@ -613,6 +619,7 @@ void FP_RunStateGatePhase12(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE12);
 }
 
@@ -656,6 +663,7 @@ void FP_RunStateGatePhase13(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE13);
 }
 
@@ -699,6 +707,7 @@ void FP_RunStateGatePhase14(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE14);
 }
 
@@ -742,6 +751,7 @@ void FP_RunStateGatePhase15(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE15);
 }
 
@@ -785,6 +795,7 @@ void FP_RunStateGatePhase16(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE16);
 }
 
@@ -828,6 +839,7 @@ void FP_RunStateGatePhase17(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE17);
 }
 
@@ -871,6 +883,7 @@ void FP_RunStateGatePhase18(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE18);
 }
 
@@ -914,6 +927,7 @@ void FP_RunStateGatePhase19(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE19);
 }
 
@@ -957,6 +971,7 @@ void FP_RunStateGatePhase20(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE20);
 }
 
@@ -1000,6 +1015,7 @@ void FP_RunStateGatePhase21(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE21);
 }
 
@@ -1043,6 +1059,7 @@ void FP_RunStateGatePhase22(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE22);
 }
 
@@ -1086,7 +1103,52 @@ void FP_RunStateGatePhase23(const string symbol,
    report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
    report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
    report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
    FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE23);
+}
+
+
+
+void FP_RunStateGatePhase24(const string symbol,
+                            const ENUM_TIMEFRAMES chart_period,
+                            const FP_StateGateConfig &cfg,
+                            const FP_TimebaseConfig &timebase_template,
+                            const FP_Config &engine_template,
+                            const int &scales[],
+                            const int scale_count,
+                            FP_StateGateRuntime &runtime,
+                            FP_StateGateReport &report)
+{
+   FP_ResetStateGateReport(report);
+   if(!cfg.enabled)
+   {
+      report.attempted = true;
+      report.status = FP_STATE_GATE_STATUS_DISABLED;
+      report.reason = "InpStateGateEnabled_false";
+      report.ok = true;
+      return;
+   }
+
+   FP_StateGateBuildPhase4Snapshot(symbol, chart_period, cfg, timebase_template, engine_template, scales, scale_count, runtime, report);
+   runtime.snapshot.status = "phase24_persistent_paper_trade_ledger";
+   runtime.snapshot.reason = FP_STATE_GATE_REASON_PHASE24;
+   report.status = runtime.snapshot.status;
+   report.reason = runtime.snapshot.reason;
+   report.contract_rows = runtime.snapshot.timeframe_count;
+   report.extreme_candidate_rows = runtime.snapshot.extreme_candidate_row_count;
+   report.mtf_alignment_rows = runtime.snapshot.mtf_alignment_row_count;
+   report.geometry_rows = runtime.snapshot.timeframe_count;
+   report.entry_idea_rows = runtime.snapshot.entry_idea_row_count;
+   report.entry_decision_rows = runtime.snapshot.entry_decision_row_count;
+   report.paper_ledger_rows = runtime.snapshot.paper_ledger_row_count;
+   report.paper_lifecycle_rows = runtime.snapshot.paper_lifecycle_row_count;
+   report.paper_result_rows = runtime.snapshot.paper_result_row_count;
+   report.paper_portfolio_rows = runtime.snapshot.paper_portfolio_row_count;
+   report.paper_regime_rows = runtime.snapshot.paper_regime_row_count;
+   report.paper_filter_rows = runtime.snapshot.paper_filter_row_count;
+   report.paper_policy_rows = runtime.snapshot.paper_policy_row_count;
+   report.persistent_paper_trade_rows = runtime.snapshot.persistent_paper_trade_row_count;
+   FP_StateGateFinalizeRun(cfg, runtime, report, FP_STATE_GATE_REASON_PHASE24);
 }
 
 

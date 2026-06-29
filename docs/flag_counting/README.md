@@ -314,3 +314,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE23_DRY_RUN_DECISION_POLICY.md
 ```
 
 Phase 23 adds a Dry-Run Decision Policy gate, converting paper attribution and filter diagnostics into non-executable policy decisions.
+
+
+## Level 19 — Phase 24
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE24_PERSISTENT_PAPER_TRADE_LEDGER.md
+```
+
+Phase 24 adds a Persistent Paper Trade Ledger, assigning stable paper trade IDs to dry-run-allowed policy rows without enabling real execution.
+
+
+## Level 19 — Phase 24A
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE24A_COMPILE_FIX.md
+```
+
+Phase 24A fixes the duplicate `persistent_paper_trade_row_count` declaration in `FP_StateGateTimeframeState`.
