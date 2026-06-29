@@ -296,3 +296,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE21_PAPER_REGIME_ATTRIBUTION.md
 ```
 
 Phase 21 adds Paper Regime Attribution, linking paper results back to Hook, Rally, MTF, geometry, idea, and lifecycle contexts without enabling real execution.
+
+
+## Level 19 — Phase 22
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE22_PAPER_FILTER_DIAGNOSTICS.md
+```
+
+Phase 22 adds Paper Filter Diagnostics, evaluating non-executable filter scenarios over paper regime/result rows.

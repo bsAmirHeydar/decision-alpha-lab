@@ -3255,6 +3255,297 @@ void FP_StateGateFinalizeSnapshotPaperRegime(FP_StateGateSnapshot &snapshot)
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 22 - Paper Filter Diagnostics
+// ---------------------------------------------------------------------------
+// This layer tests diagnostic filters against paper regime/result rows.
+// It is still non-executable and does not approve or place trades.
+
+int FP_StateGatePaperFilterCount()
+{
+   return 9;
+}
+
+string FP_StateGatePaperFilterName(const int index)
+{
+   if(index == 0) return "FILTER_ALL_PAPER_REGIME_ROWS";
+   if(index == 1) return "FILTER_ONLY_MTF_ALIGNED_CONTEXT";
+   if(index == 2) return "FILTER_ONLY_HOOK_EXTREME";
+   if(index == 3) return "FILTER_ONLY_MTF_ALIGNED_HOOK_EXTREME";
+   if(index == 4) return "FILTER_ONLY_GEOMETRY_READY_OR_PARTIAL";
+   if(index == 5) return "FILTER_EXCLUDE_AMBIGUOUS";
+   if(index == 6) return "FILTER_EXCLUDE_WAITING_FOR_ENTRY";
+   if(index == 7) return "FILTER_ONLY_R_READY";
+   if(index == 8) return "FILTER_ONLY_WIN_OR_OPEN_BUCKETS";
+   return "FILTER_UNKNOWN";
+}
+
+string FP_StateGatePaperFilterRule(const string filter_name)
+{
+   if(filter_name == "FILTER_ALL_PAPER_REGIME_ROWS")
+      return "include every paper regime row";
+   if(filter_name == "FILTER_ONLY_MTF_ALIGNED_CONTEXT")
+      return "context contains MTF aligned relation or aligned context role";
+   if(filter_name == "FILTER_ONLY_HOOK_EXTREME")
+      return "context family or idea source contains HOOK";
+   if(filter_name == "FILTER_ONLY_MTF_ALIGNED_HOOK_EXTREME")
+      return "context family is MTF aligned Hook extreme";
+   if(filter_name == "FILTER_ONLY_GEOMETRY_READY_OR_PARTIAL")
+      return "geometry context contains READY or PARTIAL";
+   if(filter_name == "FILTER_EXCLUDE_AMBIGUOUS")
+      return "exclude ambiguous paper result buckets";
+   if(filter_name == "FILTER_EXCLUDE_WAITING_FOR_ENTRY")
+      return "exclude waiting-for-entry paper result buckets";
+   if(filter_name == "FILTER_ONLY_R_READY")
+      return "include only rows with R status READY";
+   if(filter_name == "FILTER_ONLY_WIN_OR_OPEN_BUCKETS")
+      return "include hypothetical win-like or open paper buckets";
+   return "unknown diagnostic filter";
+}
+
+string FP_StateGatePaperFilterFamily(const string filter_name)
+{
+   if(StringFind(filter_name, "MTF") >= 0)
+      return "PAPER_FILTER_FAMILY_MTF";
+   if(StringFind(filter_name, "HOOK") >= 0)
+      return "PAPER_FILTER_FAMILY_HOOK";
+   if(StringFind(filter_name, "GEOMETRY") >= 0)
+      return "PAPER_FILTER_FAMILY_GEOMETRY";
+   if(StringFind(filter_name, "AMBIGUOUS") >= 0 || StringFind(filter_name, "WAITING") >= 0)
+      return "PAPER_FILTER_FAMILY_CLEANUP";
+   if(StringFind(filter_name, "R_READY") >= 0)
+      return "PAPER_FILTER_FAMILY_RISK";
+   if(StringFind(filter_name, "WIN_OR_OPEN") >= 0)
+      return "PAPER_FILTER_FAMILY_OUTCOME";
+   return "PAPER_FILTER_FAMILY_BASELINE";
+}
+
+bool FP_StateGatePaperFilterAccept(const FP_StateGatePaperRegimeRow &r,
+                                   const string filter_name)
+{
+   if(filter_name == "FILTER_ALL_PAPER_REGIME_ROWS")
+      return true;
+
+   if(filter_name == "FILTER_ONLY_MTF_ALIGNED_CONTEXT")
+      return (StringFind(r.mtf_context, "ALIGNED") >= 0 ||
+              StringFind(r.mtf_direction_relation, "ALIGNED") >= 0 ||
+              StringFind(r.context_family, "MTF_ALIGNED") >= 0);
+
+   if(filter_name == "FILTER_ONLY_HOOK_EXTREME")
+      return (StringFind(r.context_family, "HOOK") >= 0 ||
+              StringFind(r.idea_family, "HOOK") >= 0 ||
+              StringFind(r.extreme_source, "HOOK") >= 0);
+
+   if(filter_name == "FILTER_ONLY_MTF_ALIGNED_HOOK_EXTREME")
+      return (StringFind(r.context_family, "MTF_ALIGNED_HOOK") >= 0);
+
+   if(filter_name == "FILTER_ONLY_GEOMETRY_READY_OR_PARTIAL")
+      return (StringFind(r.geometry_context, "READY") >= 0 ||
+              StringFind(r.geometry_context, "PARTIAL") >= 0);
+
+   if(filter_name == "FILTER_EXCLUDE_AMBIGUOUS")
+      return (StringFind(r.result_bucket, "AMBIGUOUS") < 0 &&
+              StringFind(r.outcome, "AMBIGUOUS") < 0);
+
+   if(filter_name == "FILTER_EXCLUDE_WAITING_FOR_ENTRY")
+      return (StringFind(r.result_bucket, "WAITING") < 0 &&
+              StringFind(r.outcome, "WAITING") < 0);
+
+   if(filter_name == "FILTER_ONLY_R_READY")
+      return (StringFind(r.r_status, "READY") >= 0);
+
+   if(filter_name == "FILTER_ONLY_WIN_OR_OPEN_BUCKETS")
+      return (StringFind(r.result_bucket, "WIN") >= 0 ||
+              StringFind(r.result_bucket, "OPEN") >= 0);
+
+   return false;
+}
+
+bool FP_StateGatePaperBucketIsWinLike(const string bucket)
+{
+   return (StringFind(bucket, "WIN") >= 0);
+}
+
+bool FP_StateGatePaperBucketIsLossLike(const string bucket)
+{
+   return (StringFind(bucket, "LOSS") >= 0);
+}
+
+bool FP_StateGatePaperBucketIsOpenLike(const string bucket)
+{
+   return (StringFind(bucket, "OPEN") >= 0);
+}
+
+bool FP_StateGatePaperBucketIsWaitingLike(const string bucket)
+{
+   return (StringFind(bucket, "WAITING") >= 0);
+}
+
+bool FP_StateGatePaperBucketIsAmbiguousLike(const string bucket)
+{
+   return (StringFind(bucket, "AMBIGUOUS") >= 0);
+}
+
+string FP_StateGatePaperFilterStatus(const FP_StateGatePaperFilterRow &f)
+{
+   if(f.rows_before <= 0)
+      return "PAPER_FILTER_NO_SOURCE_ROWS_NO_EXECUTION";
+   if(f.rows_after <= 0)
+      return "PAPER_FILTER_ZERO_ROWS_AFTER_FILTER_NO_EXECUTION";
+   if(f.ambiguous_rows > 0)
+      return "PAPER_FILTER_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   if(f.loss_like_rows == 0 && f.win_like_rows > 0)
+      return "PAPER_FILTER_WIN_LIKE_ONLY_NO_EXECUTION";
+   if(f.win_like_rows == 0 && f.loss_like_rows > 0)
+      return "PAPER_FILTER_LOSS_LIKE_ONLY_NO_EXECUTION";
+   if(f.open_rows > 0)
+      return "PAPER_FILTER_HAS_OPEN_ROWS_NO_EXECUTION";
+   return "PAPER_FILTER_MIXED_DIAGNOSTIC_NO_EXECUTION";
+}
+
+string FP_StateGatePaperFilterDiagnosticKey(const FP_StateGateSnapshot &snapshot,
+                                            const FP_StateGatePaperFilterRow &f)
+{
+   string key = snapshot.symbol;
+   key += "|FILTER=" + FP_StateGateKeyPart(f.filter_name);
+   key += "|AFTER=" + IntegerToString(f.rows_after);
+   key += "|W=" + IntegerToString(f.win_like_rows);
+   key += "|L=" + IntegerToString(f.loss_like_rows);
+   key += "|O=" + IntegerToString(f.open_rows);
+   key += "|AVGDELTA=" + DoubleToString(f.avg_delta, 8);
+   key += "|AVGR=" + DoubleToString(f.avg_R, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+void FP_StateGateFillPaperFilterRow(FP_StateGateSnapshot &snapshot,
+                                    const int filter_index,
+                                    const string filter_name,
+                                    FP_StateGatePaperFilterRow &out)
+{
+   FP_ResetStateGatePaperFilterRow(out);
+   out.filter_index = filter_index;
+   out.filter_name = filter_name;
+   out.filter_family = FP_StateGatePaperFilterFamily(filter_name);
+   out.filter_rule = FP_StateGatePaperFilterRule(filter_name);
+   out.rows_before = snapshot.paper_regime_row_count;
+   out.strongest_context = "NO_CONTEXT_AFTER_FILTER";
+
+   double r_sum = 0.0;
+   int context_hook = 0;
+   int context_mtf_aligned = 0;
+   int context_rally = 0;
+
+   for(int i=0; i<snapshot.paper_regime_row_count; i++)
+   {
+      FP_StateGatePaperRegimeRow r = snapshot.paper_regime_rows[i];
+      if(!FP_StateGatePaperFilterAccept(r, filter_name))
+         continue;
+
+      out.rows_after++;
+      out.net_delta += r.price_delta;
+
+      if(FP_StateGatePaperBucketIsWinLike(r.result_bucket)) out.win_like_rows++;
+      else if(FP_StateGatePaperBucketIsLossLike(r.result_bucket)) out.loss_like_rows++;
+      else if(FP_StateGatePaperBucketIsOpenLike(r.result_bucket)) out.open_rows++;
+      else if(FP_StateGatePaperBucketIsWaitingLike(r.result_bucket)) out.waiting_rows++;
+      else if(FP_StateGatePaperBucketIsAmbiguousLike(r.result_bucket)) out.ambiguous_rows++;
+      else out.unknown_rows++;
+
+      if(StringFind(r.r_status, "READY") >= 0)
+      {
+         out.r_ready_rows++;
+         r_sum += r.r_multiple;
+      }
+      else
+         out.r_pending_rows++;
+
+      if(StringFind(r.context_family, "HOOK") >= 0) context_hook++;
+      if(StringFind(r.context_family, "MTF_ALIGNED") >= 0) context_mtf_aligned++;
+      if(StringFind(r.context_family, "RALLY") >= 0) context_rally++;
+   }
+
+   if(out.rows_after > 0)
+   {
+      out.avg_delta = out.net_delta / out.rows_after;
+      out.pass_rate = (out.rows_before > 0 ? ((double)out.rows_after / (double)out.rows_before) : 0.0);
+   }
+
+   if(out.r_ready_rows > 0)
+      out.avg_R = r_sum / out.r_ready_rows;
+
+   if(context_mtf_aligned >= context_hook && context_mtf_aligned >= context_rally && context_mtf_aligned > 0)
+      out.strongest_context = "STRONGEST_CONTEXT_MTF_ALIGNED";
+   else if(context_hook >= context_rally && context_hook > 0)
+      out.strongest_context = "STRONGEST_CONTEXT_HOOK";
+   else if(context_rally > 0)
+      out.strongest_context = "STRONGEST_CONTEXT_RALLY";
+
+   out.filter_status = FP_StateGatePaperFilterStatus(out);
+   out.diagnostic_key = FP_StateGatePaperFilterDiagnosticKey(snapshot, out);
+   out.execution_status = "REAL_EXECUTION_DISABLED_PHASE22_FILTER_ONLY";
+   out.label = out.filter_name + " | after=" + IntegerToString(out.rows_after) + "/" + IntegerToString(out.rows_before) + " | W=" + IntegerToString(out.win_like_rows) + " L=" + IntegerToString(out.loss_like_rows) + " O=" + IntegerToString(out.open_rows) + " | avg_delta=" + DoubleToString(out.avg_delta, 8) + " | " + out.filter_status;
+}
+
+void FP_StateGateBuildPaperFilterRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_filter_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_FILTER_ROWS; i++)
+      FP_ResetStateGatePaperFilterRow(snapshot.paper_filter_rows[i]);
+
+   int count = FP_StateGatePaperFilterCount();
+   for(int i=0; i<count && snapshot.paper_filter_row_count < FP_STATE_GATE_MAX_PAPER_FILTER_ROWS; i++)
+   {
+      int idx = snapshot.paper_filter_row_count;
+      string name = FP_StateGatePaperFilterName(i);
+      FP_StateGateFillPaperFilterRow(snapshot, i, name, snapshot.paper_filter_rows[idx]);
+      snapshot.paper_filter_row_count++;
+   }
+}
+
+void FP_StateGateFinalizeSnapshotPaperFilters(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_filter_total_filters = snapshot.paper_filter_row_count;
+   snapshot.paper_filter_active_filters = 0;
+   snapshot.paper_filter_best_filter = "NO_BEST_FILTER";
+   snapshot.paper_filter_best_distribution = "NO_FILTER_DISTRIBUTION";
+   snapshot.paper_filter_best_avg_delta = 0.0;
+   snapshot.paper_filter_best_avg_R = 0.0;
+   snapshot.paper_filter_execution_status = "REAL_EXECUTION_DISABLED_PHASE22_FILTER_ONLY";
+
+   double best_delta = -1000000000.0;
+   bool has_best = false;
+
+   for(int i=0; i<snapshot.paper_filter_row_count; i++)
+   {
+      FP_StateGatePaperFilterRow f = snapshot.paper_filter_rows[i];
+      if(f.rows_after > 0)
+         snapshot.paper_filter_active_filters++;
+
+      if(f.rows_after > 0 && (!has_best || f.avg_delta > best_delta))
+      {
+         has_best = true;
+         best_delta = f.avg_delta;
+         snapshot.paper_filter_best_filter = f.filter_name;
+         snapshot.paper_filter_best_distribution = "W=" + IntegerToString(f.win_like_rows) + "|L=" + IntegerToString(f.loss_like_rows) + "|O=" + IntegerToString(f.open_rows) + "|WAIT=" + IntegerToString(f.waiting_rows) + "|AMB=" + IntegerToString(f.ambiguous_rows);
+         snapshot.paper_filter_best_avg_delta = f.avg_delta;
+         snapshot.paper_filter_best_avg_R = f.avg_R;
+      }
+   }
+
+   if(snapshot.paper_filter_row_count <= 0)
+      snapshot.paper_filter_status = "PAPER_FILTER_DIAGNOSTICS_EMPTY_NO_EXECUTION";
+   else if(snapshot.paper_filter_active_filters <= 0)
+      snapshot.paper_filter_status = "PAPER_FILTER_DIAGNOSTICS_NO_ACTIVE_FILTERS_NO_EXECUTION";
+   else
+      snapshot.paper_filter_status = "PAPER_FILTER_DIAGNOSTICS_READY_NO_EXECUTION";
+
+   snapshot.paper_filter_key = snapshot.symbol + "|FILTERS=" + IntegerToString(snapshot.paper_filter_row_count) + "|ACTIVE=" + IntegerToString(snapshot.paper_filter_active_filters) + "|BEST=" + FP_StateGateKeyPart(snapshot.paper_filter_best_filter) + "|EXEC=DISABLED";
+   snapshot.paper_filter_notes = snapshot.paper_filter_status + "|best=" + snapshot.paper_filter_best_filter + "|distribution=" + snapshot.paper_filter_best_distribution;
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

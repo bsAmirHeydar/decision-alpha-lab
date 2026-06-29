@@ -445,6 +445,7 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       if(cfg.panel_show_diagnostics)
          rows++;
       rows++; // paper portfolio aggregate metrics
+      rows++; // paper filter diagnostics
       for(int i=0; i<snapshot.timeframe_count; i++)
          rows += FP_StateGatePanelSlotRowBudget(cfg, snapshot, i);
    }
@@ -480,6 +481,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    string portfolio_line = "Portfolio | " + snapshot.paper_portfolio_status + " | " + snapshot.paper_portfolio_distribution + " | net=" + DoubleToString(snapshot.paper_portfolio_net_delta, 5) + " | avgR=" + DoubleToString(snapshot.paper_portfolio_avg_R, 3);
    FP_StateGateCreateLabel(cfg, "PAPER_PORTFOLIO", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(portfolio_line, text_limit),
+                           clrGold, font_size, report);
+   cursor_y += row_h;
+
+   string filter_line = "Filters | " + snapshot.paper_filter_status + " | active=" + IntegerToString(snapshot.paper_filter_active_filters) + "/" + IntegerToString(snapshot.paper_filter_total_filters) + " | best=" + snapshot.paper_filter_best_filter + " | avgD=" + DoubleToString(snapshot.paper_filter_best_avg_delta, 5);
+   FP_StateGateCreateLabel(cfg, "PAPER_FILTER_GLOBAL", x + 10, cursor_y + 2,
+                           FP_StateGatePanelClip(filter_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 
