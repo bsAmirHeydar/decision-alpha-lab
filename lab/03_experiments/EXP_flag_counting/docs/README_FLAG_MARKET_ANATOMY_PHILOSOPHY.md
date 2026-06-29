@@ -177,6 +177,22 @@ This means a Flag can be studied through several dimensions:
 
 This view makes the Flag a research object, not a drawing object.
 
+### 7.1 Flag-counting is not node-counting
+
+A necessary clarification for the Flag Project is that Flag-counting and node-counting are not the same operation.
+
+Node-counting is the simpler operation. It detects nodes and counts them as separate structural points. This is useful for building the X-axis map of the market, but it can become too mechanical if every small node is treated as a complete phase.
+
+Flag-counting is a higher-level structural reading. A single Flag unit can contain multiple internal nodes. For example, two nodes may be part of the internal preparation of a structure, and only when the third structural event appears does the system confirm that F1 has actually been established.
+
+This distinction is central to the project's philosophy. Without F-counting, the trader may see two or three small nodes and assume that the move is already extended enough to fade. With F-counting, the same structure may be recognized as a young, newly confirmed F1 with fresh energy still available.
+
+Therefore:
+
+> Node-counting enumerates structural points. Flag-counting interprets how those points combine into a live market phase.
+
+This makes Flag-counting more dynamic and flexible than simple node-counting. It prevents premature counter-move entries that arise from treating every visible node as an exhaustion signal.
+
 ---
 
 ## 8. Minimalism and Deletion
@@ -288,17 +304,19 @@ The next development phase of the Flag Project should answer these questions:
 2. What is the minimum anatomy required for a valid Flag?
 3. What distinguishes a real Flag from a visual imitation?
 4. Which liquidity pools are mandatory, optional, or irrelevant?
-5. What is the relationship between Flag count and directional memory?
-6. What is the relationship between Flag count and path cleanliness?
-7. What is the relationship between Flag count and expansion probability?
-8. Which node types matter most inside a Flag?
-9. How should revisitation be classified?
-10. When does a Flag become invalid?
-11. When does a Flag become a reversal structure instead of a continuation structure?
-12. Can the model identify clean path conditions before the path unfolds?
-13. Which metrics are invariant across symbols and timeframes?
-14. Which metrics are regime-dependent and must be isolated?
-15. What must be deleted from the current model to make it more fundamental?
+5. What is the relationship between simple node-count and true Flag-count?
+6. When do several raw nodes form only one Flag unit?
+7. What is the relationship between Flag-count and directional memory?
+8. What is the relationship between Flag-count and path cleanliness?
+9. What is the relationship between Flag-count and expansion probability?
+10. Which node types matter most inside a Flag?
+11. How should revisitation be classified?
+12. When does a Flag become invalid?
+13. When does a Flag become a reversal structure instead of a continuation structure?
+14. Can the model identify clean path conditions before the path unfolds?
+15. Which metrics are invariant across symbols and timeframes?
+16. Which metrics are regime-dependent and must be isolated?
+17. What must be deleted from the current model to make it more fundamental?
 
 ---
 

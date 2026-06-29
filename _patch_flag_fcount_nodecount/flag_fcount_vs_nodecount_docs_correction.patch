@@ -1,0 +1,267 @@
+diff --git a/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md b/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md
+index dff9512..0c3b077 100644
+--- a/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md
++++ b/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_MARKET_ANATOMY_PHILOSOPHY.md
+@@ -177,6 +177,22 @@ This means a Flag can be studied through several dimensions:
+ 
+ This view makes the Flag a research object, not a drawing object.
+ 
++### 7.1 Flag-counting is not node-counting
++
++A necessary clarification for the Flag Project is that Flag-counting and node-counting are not the same operation.
++
++Node-counting is the simpler operation. It detects nodes and counts them as separate structural points. This is useful for building the X-axis map of the market, but it can become too mechanical if every small node is treated as a complete phase.
++
++Flag-counting is a higher-level structural reading. A single Flag unit can contain multiple internal nodes. For example, two nodes may be part of the internal preparation of a structure, and only when the third structural event appears does the system confirm that F1 has actually been established.
++
++This distinction is central to the project's philosophy. Without F-counting, the trader may see two or three small nodes and assume that the move is already extended enough to fade. With F-counting, the same structure may be recognized as a young, newly confirmed F1 with fresh energy still available.
++
++Therefore:
++
++> Node-counting enumerates structural points. Flag-counting interprets how those points combine into a live market phase.
++
++This makes Flag-counting more dynamic and flexible than simple node-counting. It prevents premature counter-move entries that arise from treating every visible node as an exhaustion signal.
++
+ ---
+ 
+ ## 8. Minimalism and Deletion
+@@ -288,17 +304,19 @@ The next development phase of the Flag Project should answer these questions:
+ 2. What is the minimum anatomy required for a valid Flag?
+ 3. What distinguishes a real Flag from a visual imitation?
+ 4. Which liquidity pools are mandatory, optional, or irrelevant?
+-5. What is the relationship between Flag count and directional memory?
+-6. What is the relationship between Flag count and path cleanliness?
+-7. What is the relationship between Flag count and expansion probability?
+-8. Which node types matter most inside a Flag?
+-9. How should revisitation be classified?
+-10. When does a Flag become invalid?
+-11. When does a Flag become a reversal structure instead of a continuation structure?
+-12. Can the model identify clean path conditions before the path unfolds?
+-13. Which metrics are invariant across symbols and timeframes?
+-14. Which metrics are regime-dependent and must be isolated?
+-15. What must be deleted from the current model to make it more fundamental?
++5. What is the relationship between simple node-count and true Flag-count?
++6. When do several raw nodes form only one Flag unit?
++7. What is the relationship between Flag-count and directional memory?
++8. What is the relationship between Flag-count and path cleanliness?
++9. What is the relationship between Flag-count and expansion probability?
++10. Which node types matter most inside a Flag?
++11. How should revisitation be classified?
++12. When does a Flag become invalid?
++13. When does a Flag become a reversal structure instead of a continuation structure?
++14. Can the model identify clean path conditions before the path unfolds?
++15. Which metrics are invariant across symbols and timeframes?
++16. Which metrics are regime-dependent and must be isolated?
++17. What must be deleted from the current model to make it more fundamental?
+ 
+ ---
+ 
+diff --git a/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md b/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md
+index 183c1a1..12590bf 100644
+--- a/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md
++++ b/lab/03_experiments/EXP_flag_counting/docs/README_FLAG_OPTIONALITY_XY_STATE_PHILOSOPHY.md
+@@ -154,18 +154,30 @@ The Y-axis includes:
+ - whether follow-through is strong or weak;
+ - whether pullbacks are shallow or deep;
+ - whether nodes are being respected or consumed;
++- whether simple node-counting is still useful or has become misleading;
++- whether F-counting shows that a true Flag phase has even been established;
+ - whether F-counting indicates normal movement, exhaustion, or rally mode;
+ - whether the market is operating in hook mode, rally mode, sweep mode, or transition mode.
+ 
+ The Y-axis changes everything because it prevents the system from taking the same structural signal in every environment.
+ 
+-In a normal hook or reversal environment, a third or fourth extreme may be meaningful.
++A critical correction is required here:
+ 
+-In a rally environment, the same third or fourth extreme may be only the middle of the move. Price can continue through F5, F6, F7, or F8 because the state is different.
++> F-counting is not the same thing as simple node-counting.
++
++Simple node-counting is easier. It counts structural nodes one by one: first node, second node, third node, and so on. This is useful for building the X-map, but it is not enough to read the live energetic phase of the market.
++
++F-counting is a higher-level dynamic reading. One F unit can contain multiple nodes. For example, two nodes may form the internal preparation of a structure, and only when the third structural event appears does the system confirm that F1 has actually been established.
++
++This distinction explains a major historical mistake in the earlier model: when only simple node-counting was available, a newly forming structure could be misread as already overextended. The trader could start fading the move while, from the F-counting perspective, the market had only just confirmed F1 and still had fresh expansion energy.
+ 
+ Therefore:
+ 
+-> F-counting is not just a count. It is a live energy model that must be interpreted inside state.
++> Node-counting tells us how many structural points exist. F-counting tells us what energetic phase those points belong to.
++
++In a normal hook or reversal environment, a late F phase may support exhaustion logic. In a rally environment, the same raw number of nodes may still belong to an early F phase, and fading it can be premature.
++
++The important error is not only that markets can reach F5, F6, F7, or F8 in rallies. The deeper error is treating raw node count as if it were F-count. F-counting makes the view more dynamic, more state-aware, and more flexible than simple node-counting.
+ 
+ ---
+ 
+@@ -177,14 +189,15 @@ The combined model is:
+ > Y-axis = live energy / state.  
+ > Optionality = asymmetric payoff permission.
+ 
+-The old approach was mostly X-only:
++The old approach was mostly X-only and node-count based:
+ 
+ - find a node;
+ - find a hook;
+ - find an extreme;
+-- enter against the stretch.
++- count the visible nodes too mechanically;
++- enter against the stretch before the true F phase was understood.
+ 
+-That worked when the market was in a compatible reversal or sweep state. But it broke during rallies because the system was fading energy instead of reading it.
++That worked when the market was in a compatible reversal or sweep state. But it broke during rallies because the system was fading energy instead of reading it. In the worst cases, simple node-counting made the move appear late while F-counting would have shown that the structure had only just stabilized into F1.
+ 
+ The new approach is X/Y:
+ 
+@@ -284,13 +297,15 @@ In this case, fading the move is dangerous. The better action may be:
+ 
+ A major pain point of X-only trading is scale.
+ 
+-When reading hooks and nodes, the trader faces questions like:
++When reading hooks, nodes, and F structures, the trader faces questions like:
+ 
+ - Which hook matters?
+ - Which node should be counted?
+ - Should small nodes be included?
+ - Should large nodes dominate?
+ - Is the current extreme meaningful or just a micro fluctuation?
++- Are these raw nodes independent events, or are they internal components of one F unit?
++- Has F1 actually been confirmed, or are we still only seeing the preconditions of F1?
+ - Which F-count is the real count?
+ - Is this movement an independent structure or only a substructure inside a larger rally?
+ 
+@@ -316,11 +331,27 @@ Possible scale-weighting criteria:
+ 
+ This means the system should not count every tiny node equally. Smaller nodes can exist, but their meaning must be subordinate to the active structural scale.
+ 
++The scale problem is also a translation problem between node-counting and F-counting. A simple node counter may fire too early because it treats each small node as a separate exhaustion step. F-counting must decide whether those nodes are actually separate phases or merely the internal anatomy of a still-young F structure.
++
+ ---
+ 
+ ## 10. F-counting as Y-axis energy analysis
+ 
+-F-counting is not merely a pattern counter.
++F-counting is not merely a pattern counter, and it is not the same as node-counting.
++
++Node-counting is the simpler operation: detect structural nodes and count them. It is useful because nodes create the X-axis map. But node-counting alone can be dangerously early. It may say that price has already produced several extremes, while F-counting may say that those extremes are still only the internal anatomy of a newly forming F structure.
++
++F-counting is the more dynamic layer. It asks how nodes combine into a live structural phase.
++
++A practical example:
++
++- node 1 appears;
++- node 2 appears;
++- the trader who only counts nodes may already feel that the move is extended;
++- but from an F-counting perspective, those two nodes may only be the preparation of one Flag unit;
++- only after the third structural event or confirmation does the system say that F1 is established.
++
++This was the missing knowledge in the older simple node-counting model. The system could fade too early because it treated raw node count as overextension, while the correct F-count would have said: the first F has only just become valid.
+ 
+ In this philosophy, F-counting becomes the primary Y-axis tool for reading energy, moment, and state.
+ 
+@@ -329,27 +360,31 @@ It should help answer:
+ - Is the market in normal movement or rally movement?
+ - Has the current movement already spent its energy?
+ - Is the next F likely to be exhaustion or continuation?
++- Are the observed nodes separate F phases or only internal nodes inside one F?
++- Has F1 truly stabilized, or is the system still observing pre-F structure?
+ - Are we counting inside the correct scale?
+ - Is the market extending because it is still in expansion mode?
+ - Is a reversal expectation valid, or is the count too early for the current regime?
+ 
+-A crucial lesson is that the same numerical count has different meanings in different states.
++A crucial lesson is that the same raw node count can have different meanings in different F states.
++
++Three raw nodes do not necessarily mean three exhausted opportunities. They may mean that F1 has only just been established.
+ 
+-F3 in a normal hook environment may be late.
++F2 or F3 in a normal hook environment may be late.
+ 
+-F3 in a rally may be early or mid-phase.
++F2 or F3 in a rally may be early or mid-phase.
+ 
+-F7 or F8 may be absurd in normal counting but normal in a strong one-sided expansion.
++F-count extension in a strong one-sided expansion may be normal, while the same extension in a hook environment may be exhaustion.
+ 
+-Therefore, F-counting must be state-aware.
++Therefore, F-counting must be state-aware and scale-aware.
+ 
+ The system must avoid this error:
+ 
+-> Count number equals trade signal.
++> Raw node count equals trade signal.
+ 
+ The better model is:
+ 
+-> Count number plus state plus scale plus location defines meaning.
++> Nodes build anatomy. F-counting reads the energetic phase of that anatomy. State, scale, and location define the meaning of the count.
+ 
+ ---
+ 
+@@ -370,7 +405,7 @@ A reversal setup should require evidence such as:
+ - follow-through weakened;
+ - energy appears released;
+ - the market cannot consume the next node;
+-- F-count indicates late-stage movement in the current state;
++- F-count, not merely raw node count, indicates late-stage movement in the current state;
+ - the path back toward a destination is clean enough;
+ - the stop can be placed at a meaningful invalidation level;
+ - reward is asymmetric relative to risk.
+@@ -486,7 +521,7 @@ Responsible for:
+ 
+ Responsible for:
+ 
+-- F-counting;
++- F-counting separated from simple node-counting;
+ - classifying rally mode vs hook mode;
+ - detecting energy release;
+ - detecting compression and expansion;
+@@ -528,18 +563,19 @@ The following questions should guide future Flag experiments:
+ 1. Under what conditions do hook extremes reverse vs continue?
+ 2. What measurable features distinguish a liquidity grab from the start of a rally?
+ 3. How should F-count thresholds change in rally mode?
+-4. Can node-consumption speed identify live energy?
+-5. Can shallow pullback behavior identify continuation state?
+-6. How can scale be inferred from structure instead of timeframe?
+-7. Which node types create the best invalidation levels?
+-8. Which X/Y combinations produce the best MFE/MAE asymmetry?
+-9. Which setups produce high reward without requiring high prediction accuracy?
+-10. Can the system first avoid bad counter-rally reversals before attempting to trade rally continuation?
+-11. What is the minimum optionality threshold for a trade to be worth taking?
+-12. How often do extreme reversal entries fail because the market is actually in expansion state?
+-13. How often do continuation entries fail because the move was only a sweep?
+-14. Can F-counting be normalized by active structural scale?
+-15. Can path cleanliness predict whether high-R trades are realistically reachable?
++4. How should the system distinguish raw node-count from true F-count confirmation?
++5. Can node-consumption speed identify live energy?
++6. Can shallow pullback behavior identify continuation state?
++7. How can scale be inferred from structure instead of timeframe?
++8. Which node types create the best invalidation levels?
++9. Which X/Y combinations produce the best MFE/MAE asymmetry?
++10. Which setups produce high reward without requiring high prediction accuracy?
++11. Can the system first avoid bad counter-rally reversals before attempting to trade rally continuation?
++12. What is the minimum optionality threshold for a trade to be worth taking?
++13. How often do extreme reversal entries fail because the market is actually in expansion state?
++14. How often do continuation entries fail because the move was only a sweep?
++15. Can F-counting be normalized by active structural scale?
++16. Can path cleanliness predict whether high-R trades are realistically reachable?
+ 
+ ---
+ 
+@@ -559,6 +595,7 @@ Useful metrics include:
+ - false reversal rate during rally mode;
+ - false continuation rate during liquidity-grab mode;
+ - performance of X-only logic vs X/Y logic;
++- performance of raw node-count reversal vs true F-count reversal;
+ - performance of fixed F-count reversal vs state-aware F-count reversal;
+ - number of consecutive losses in rally environments;
+ - difference between random entries and X/Y optionality entries;
+@@ -602,7 +639,7 @@ The philosophy can be summarized as the following principles:
+ 2. No setup is valid without state.
+ 3. X gives location; Y gives state.
+ 4. Hooks are context, not entry rules.
+-5. F-counting is energy analysis, not mechanical counting.
++5. Node-counting is simple structural enumeration; F-counting is dynamic energy-phase analysis.
+ 6. Scale must be earned by structure, not selected arbitrarily.
+ 7. Liquidity grabs and rallies must be separated.
+ 8. Reversal is valid only when state supports it.
