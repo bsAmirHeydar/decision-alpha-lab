@@ -152,3 +152,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE7_LEFT_PANEL_SECTION_TOGGLES.md
 ```
 
 Phase 7 moves the State Gate dashboard default anchor to the **left-upper** chart corner and adds independent minimize / restore controls for each timeframe block plus the Rally and Hook subsections.
+
+
+## Level 19 — Phase 8
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE8_PANEL_VISIBILITY_FIX.md
+```
+
+Phase 8 adds a hard left-upper panel override and stronger panel contrast so old saved right-corner inputs cannot hide the dashboard body.

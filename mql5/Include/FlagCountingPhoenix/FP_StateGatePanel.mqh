@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 // Phase 7 keeps the State Gate read-only and improves usability:
 // - default left-upper placement
+// - hard left-upper override for old saved right-corner inputs
 // - master minimize / restore
 // - per-timeframe section minimize / restore
 // - per-timeframe Rally subsection minimize / restore
@@ -42,6 +43,11 @@ string FP_StateGateObjectName(const FP_StateGateConfig &cfg, const string suffix
 
 int FP_StateGatePanelCorner(const FP_StateGateConfig &cfg)
 {
+   // Left override wins over older saved right-corner inputs.
+   // This fixes cases where old EA input sets kept ForceRightUpper=true
+   // and pushed the panel away from the intended upper-left dashboard area.
+   if(cfg.panel_force_left_upper)
+      return CORNER_LEFT_UPPER;
    if(cfg.panel_force_right_upper)
       return CORNER_RIGHT_UPPER;
    return cfg.panel_corner;
@@ -125,6 +131,7 @@ bool FP_StateGateCreateRect(const FP_StateGateConfig &cfg,
    ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_SELECTED, false);
+   ObjectSetInteger(0, name, OBJPROP_ZORDER, 95);
    return true;
 }
 
@@ -158,6 +165,7 @@ bool FP_StateGateCreateLabel(const FP_StateGateConfig &cfg,
    ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_SELECTED, false);
+   ObjectSetInteger(0, name, OBJPROP_ZORDER, 105);
    ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, font_size);
    ObjectSetString(0, name, OBJPROP_TEXT, text);
@@ -198,6 +206,7 @@ bool FP_StateGateCreateButton(const FP_StateGateConfig &cfg,
    ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_SELECTED, false);
+   ObjectSetInteger(0, name, OBJPROP_ZORDER, 105);
    ObjectSetString(0, name, OBJPROP_FONT, "Consolas");
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, 8);
    ObjectSetString(0, name, OBJPROP_TEXT, text);
@@ -418,8 +427,8 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    int x = cfg.panel_x;
    int y = cfg.panel_y;
 
-   FP_StateGateCreateRect(cfg, "BG", x, y, width, height, clrBlack, clrDimGray, report);
-   FP_StateGateCreateRect(cfg, "TITLE_BG", x, y, width, title_h, clrMidnightBlue, clrDimGray, report);
+   FP_StateGateCreateRect(cfg, "BG", x, y, width, height, clrDarkSlateGray, clrWhite, report);
+   FP_StateGateCreateRect(cfg, "TITLE_BG", x, y, width, title_h, clrNavy, clrWhite, report);
    FP_StateGateCreateLabel(cfg, "TITLE", x + 8, y + 4, FP_StateGatePanelClip(FP_StateGatePanelHeaderLabel(snapshot), text_limit), clrWhite, font_size, report);
    FP_StateGateCreateButton(cfg, "MINBTN", x + width - 24, y + 3, 18, 16, (minimized ? "+" : "-"), report);
 

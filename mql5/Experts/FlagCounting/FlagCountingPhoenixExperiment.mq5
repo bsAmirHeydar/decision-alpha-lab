@@ -318,6 +318,7 @@ input int             InpStateGatePanelFontSize       = 8;
 input int             InpStateGatePanelRallyPreviewRows = 2;
 input int             InpStateGatePanelHookPreviewRows  = 2;
 input bool            InpStateGatePanelForceRightUpper  = false;
+input bool            InpStateGatePanelForceLeftUpper   = true;
 input bool            InpStateGatePanelCompactMode      = true;
 input bool            InpStateGatePanelShowClosedBar    = true;
 input bool            InpStateGatePanelShowRowCounts    = true;
@@ -835,6 +836,7 @@ void FP_LoadStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_rally_preview_rows_per_tf = InpStateGatePanelRallyPreviewRows;
    cfg.panel_hook_preview_rows_per_tf = InpStateGatePanelHookPreviewRows;
    cfg.panel_force_right_upper = InpStateGatePanelForceRightUpper;
+   cfg.panel_force_left_upper = InpStateGatePanelForceLeftUpper;
    cfg.panel_compact_mode = InpStateGatePanelCompactMode;
    cfg.panel_show_closed_bar = InpStateGatePanelShowClosedBar;
    cfg.panel_show_row_counts = InpStateGatePanelShowRowCounts;

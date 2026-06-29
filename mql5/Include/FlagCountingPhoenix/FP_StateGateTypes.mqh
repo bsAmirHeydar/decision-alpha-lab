@@ -80,6 +80,7 @@ struct FP_StateGateConfig
    int  panel_rally_preview_rows_per_tf;
    int  panel_hook_preview_rows_per_tf;
    bool panel_force_right_upper;
+   bool panel_force_left_upper;
    bool panel_compact_mode;
    bool panel_show_closed_bar;
    bool panel_show_row_counts;
@@ -399,7 +400,8 @@ void FP_DefaultStateGateConfig(FP_StateGateConfig &cfg)
    cfg.panel_font_size = 8;
    cfg.panel_rally_preview_rows_per_tf = 2;
    cfg.panel_hook_preview_rows_per_tf = 2;
-   cfg.panel_force_right_upper = true;
+   cfg.panel_force_right_upper = false;
+   cfg.panel_force_left_upper = true;
    cfg.panel_compact_mode = true;
    cfg.panel_show_closed_bar = true;
    cfg.panel_show_row_counts = true;
