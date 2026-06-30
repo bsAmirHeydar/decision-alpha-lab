@@ -434,7 +434,7 @@ int FP_StateGatePanelEstimateRows(const FP_StateGateConfig &cfg,
    int rows = 0;
    if(cfg.panel_show_diagnostics)
       rows++;
-   rows += 8; // portfolio, filters, policy, paper trade, trade life, performance, path quality, regime
+   rows += 9; // portfolio, filters, policy, paper trade, trade life, performance, path quality, context matrix, regime
 
    for(int slot=0; slot<snapshot.timeframe_count; slot++)
    {
@@ -627,6 +627,12 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    string path_quality_line = "PathQ | " + snapshot.paper_path_quality_status + " | " + snapshot.paper_path_quality_distribution + " | mfeR=" + DoubleToString(snapshot.paper_path_quality_avg_mfe_R, 3) + " maeR=" + DoubleToString(snapshot.paper_path_quality_avg_mae_R, 3);
    FP_StateGateCreateLabel(cfg, "PAPER_PATH_QUALITY_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(path_quality_line, text_limit),
+                           clrGold, font_size, report);
+   cursor_y += row_h;
+
+   string context_line = "ContextMx | " + snapshot.context_performance_status + " | best=" + snapshot.context_performance_best_context + " | avgR=" + DoubleToString(snapshot.context_performance_best_avg_R, 3) + " smooth=" + DoubleToString(snapshot.context_performance_best_smoothness, 1);
+   FP_StateGateCreateLabel(cfg, "CONTEXT_PERFORMANCE_GLOBAL", x + 10, cursor_y + 2,
+                           FP_StateGatePanelClip(context_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 

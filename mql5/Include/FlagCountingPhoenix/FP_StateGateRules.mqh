@@ -5053,6 +5053,383 @@ void FP_StateGateFinalizeSnapshotPaperPathQuality(FP_StateGateSnapshot &snapshot
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 28 - Context Performance Matrix
+// ---------------------------------------------------------------------------
+// This layer groups paper regime/result/path-quality rows by context family.
+// It is matrix-only, diagnostic-only, and non-executable.
+
+int FP_StateGateContextPerformanceDimensionCount()
+{
+   return 10;
+}
+
+string FP_StateGateContextPerformanceDimensionName(const int index)
+{
+   if(index == 0) return "ALL_CONTEXT";
+   if(index == 1) return "MTF_ALIGNED_CONTEXT";
+   if(index == 2) return "HOOK_CONTEXT";
+   if(index == 3) return "MTF_ALIGNED_HOOK_CONTEXT";
+   if(index == 4) return "RALLY_CONTEXT";
+   if(index == 5) return "GEOMETRY_READY_OR_PARTIAL";
+   if(index == 6) return "R_READY_CONTEXT";
+   if(index == 7) return "CLEAN_PATH_CONTEXT";
+   if(index == 8) return "ADVERSE_PATH_CONTEXT";
+   if(index == 9) return "AMBIGUOUS_CONTEXT";
+   return "UNKNOWN_CONTEXT_DIMENSION";
+}
+
+string FP_StateGateContextPerformanceDimensionValue(const string name)
+{
+   if(name == "ALL_CONTEXT") return "ALL";
+   if(name == "MTF_ALIGNED_CONTEXT") return "MTF_ALIGNED";
+   if(name == "HOOK_CONTEXT") return "HOOK";
+   if(name == "MTF_ALIGNED_HOOK_CONTEXT") return "MTF_ALIGNED_HOOK";
+   if(name == "RALLY_CONTEXT") return "RALLY";
+   if(name == "GEOMETRY_READY_OR_PARTIAL") return "GEOMETRY_READY_OR_PARTIAL";
+   if(name == "R_READY_CONTEXT") return "R_READY";
+   if(name == "CLEAN_PATH_CONTEXT") return "CLEAN_PATH";
+   if(name == "ADVERSE_PATH_CONTEXT") return "ADVERSE_PATH";
+   if(name == "AMBIGUOUS_CONTEXT") return "AMBIGUOUS";
+   return "UNKNOWN";
+}
+
+string FP_StateGateContextPerformanceRule(const string name)
+{
+   if(name == "ALL_CONTEXT") return "include all paper regime rows";
+   if(name == "MTF_ALIGNED_CONTEXT") return "paper regime context or MTF relation contains ALIGNED";
+   if(name == "HOOK_CONTEXT") return "paper regime source/context contains HOOK";
+   if(name == "MTF_ALIGNED_HOOK_CONTEXT") return "paper regime context contains MTF_ALIGNED_HOOK";
+   if(name == "RALLY_CONTEXT") return "paper regime context contains RALLY";
+   if(name == "GEOMETRY_READY_OR_PARTIAL") return "geometry context contains READY or PARTIAL";
+   if(name == "R_READY_CONTEXT") return "paper regime R status contains READY";
+   if(name == "CLEAN_PATH_CONTEXT") return "matching path quality bucket contains CLEAN or ACCEPTABLE";
+   if(name == "ADVERSE_PATH_CONTEXT") return "matching path quality bucket contains ADVERSE or PULLBACK";
+   if(name == "AMBIGUOUS_CONTEXT") return "paper regime or path quality is ambiguous";
+   return "unknown context performance rule";
+}
+
+bool FP_StateGateContextPerformanceRegimeAccept(const FP_StateGatePaperRegimeRow &r,
+                                                const string name)
+{
+   if(name == "ALL_CONTEXT")
+      return true;
+
+   if(name == "MTF_ALIGNED_CONTEXT")
+      return (StringFind(r.context_family, "MTF_ALIGNED") >= 0 ||
+              StringFind(r.mtf_context, "ALIGNED") >= 0 ||
+              StringFind(r.mtf_direction_relation, "ALIGNED") >= 0);
+
+   if(name == "HOOK_CONTEXT")
+      return (StringFind(r.context_family, "HOOK") >= 0 ||
+              StringFind(r.idea_family, "HOOK") >= 0 ||
+              StringFind(r.extreme_source, "HOOK") >= 0 ||
+              StringFind(r.hook_context, "HOOK") >= 0);
+
+   if(name == "MTF_ALIGNED_HOOK_CONTEXT")
+      return (StringFind(r.context_family, "MTF_ALIGNED_HOOK") >= 0);
+
+   if(name == "RALLY_CONTEXT")
+      return (StringFind(r.context_family, "RALLY") >= 0 ||
+              StringFind(r.rally_context, "RALLY") >= 0 ||
+              StringFind(r.idea_family, "RALLY") >= 0);
+
+   if(name == "GEOMETRY_READY_OR_PARTIAL")
+      return (StringFind(r.geometry_context, "READY") >= 0 ||
+              StringFind(r.geometry_context, "PARTIAL") >= 0);
+
+   if(name == "R_READY_CONTEXT")
+      return (StringFind(r.r_status, "READY") >= 0);
+
+   if(name == "AMBIGUOUS_CONTEXT")
+      return (StringFind(r.result_bucket, "AMBIGUOUS") >= 0 ||
+              StringFind(r.outcome, "AMBIGUOUS") >= 0);
+
+   return false;
+}
+
+bool FP_StateGateContextPerformancePathAccept(const FP_StateGatePaperPathQualityRow &p,
+                                              const string name)
+{
+   if(name == "ALL_CONTEXT")
+      return true;
+
+   if(name == "CLEAN_PATH_CONTEXT")
+      return (StringFind(p.path_quality_bucket, "CLEAN") >= 0 ||
+              StringFind(p.path_quality_bucket, "ACCEPTABLE") >= 0);
+
+   if(name == "ADVERSE_PATH_CONTEXT")
+      return (StringFind(p.path_quality_bucket, "ADVERSE") >= 0 ||
+              StringFind(p.path_quality_bucket, "PULLBACK") >= 0);
+
+   if(name == "AMBIGUOUS_CONTEXT")
+      return (StringFind(p.path_quality_bucket, "AMBIGUOUS") >= 0 ||
+              StringFind(p.terminal_status, "AMBIGUOUS") >= 0);
+
+   return false;
+}
+
+bool FP_StateGateContextPerformanceIsPathDimension(const string name)
+{
+   return (name == "CLEAN_PATH_CONTEXT" ||
+           name == "ADVERSE_PATH_CONTEXT");
+}
+
+string FP_StateGateContextPerformanceStatus(const FP_StateGateContextPerformanceRow &r)
+{
+   if(r.source_regime_rows <= 0)
+      return "CONTEXT_PERFORMANCE_NO_SOURCE_ROWS_NO_EXECUTION";
+   if(r.rows_after <= 0)
+      return "CONTEXT_PERFORMANCE_ZERO_ROWS_AFTER_CONTEXT_NO_EXECUTION";
+   if(r.ambiguous_rows > 0)
+      return "CONTEXT_PERFORMANCE_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   if(r.avg_R > 0.0 && r.avg_smoothness_score >= 60.0)
+      return "CONTEXT_PERFORMANCE_POSITIVE_R_CLEAN_PATH_NO_EXECUTION";
+   if(r.avg_R > 0.0)
+      return "CONTEXT_PERFORMANCE_POSITIVE_R_NO_EXECUTION";
+   if(r.avg_R < 0.0)
+      return "CONTEXT_PERFORMANCE_NEGATIVE_R_NO_EXECUTION";
+   if(r.open_rows > 0)
+      return "CONTEXT_PERFORMANCE_OPEN_OR_PENDING_NO_EXECUTION";
+   return "CONTEXT_PERFORMANCE_NEUTRAL_OR_UNKNOWN_NO_EXECUTION";
+}
+
+string FP_StateGateContextPerformanceKey(const FP_StateGateSnapshot &snapshot,
+                                         const FP_StateGateContextPerformanceRow &r)
+{
+   string key = snapshot.symbol;
+   key += "|DIM=" + FP_StateGateKeyPart(r.dimension_name);
+   key += "|VAL=" + FP_StateGateKeyPart(r.dimension_value);
+   key += "|ROWS=" + IntegerToString(r.rows_after);
+   key += "|AVG_R=" + DoubleToString(r.avg_R, 8);
+   key += "|SMOOTH=" + DoubleToString(r.avg_smoothness_score, 4);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+void FP_StateGateFillContextPerformanceRow(FP_StateGateSnapshot &snapshot,
+                                           const int row_index,
+                                           const string dimension_name,
+                                           FP_StateGateContextPerformanceRow &out)
+{
+   FP_ResetStateGateContextPerformanceRow(out);
+
+   out.row_index = row_index;
+   out.dimension_name = dimension_name;
+   out.dimension_value = FP_StateGateContextPerformanceDimensionValue(dimension_name);
+   out.context_rule = FP_StateGateContextPerformanceRule(dimension_name);
+   out.source_regime_rows = snapshot.paper_regime_row_count;
+   out.execution_status = "REAL_EXECUTION_DISABLED_PHASE28_CONTEXT_MATRIX_ONLY";
+
+   double r_sum = 0.0;
+   double smooth_sum = 0.0;
+   double mfe_sum = 0.0;
+   double mae_sum = 0.0;
+   int smooth_rows = 0;
+   int path_r_rows = 0;
+
+   if(FP_StateGateContextPerformanceIsPathDimension(dimension_name))
+   {
+      for(int i=0; i<snapshot.paper_path_quality_row_count; i++)
+      {
+         FP_StateGatePaperPathQualityRow p = snapshot.paper_path_quality_rows[i];
+         if(!FP_StateGateContextPerformancePathAccept(p, dimension_name))
+            continue;
+
+         out.rows_after++;
+         out.net_delta += p.signed_delta;
+
+         if(StringFind(p.path_quality_bucket, "CLEAN") >= 0 ||
+            StringFind(p.path_quality_bucket, "ACCEPTABLE") >= 0)
+            out.clean_path_rows++;
+         else if(StringFind(p.path_quality_bucket, "ADVERSE") >= 0 ||
+                 StringFind(p.path_quality_bucket, "PULLBACK") >= 0)
+            out.adverse_path_rows++;
+         else if(StringFind(p.path_quality_bucket, "PENDING") >= 0)
+            out.pending_path_rows++;
+         else if(StringFind(p.path_quality_bucket, "AMBIGUOUS") >= 0)
+            out.ambiguous_path_rows++;
+
+         if(p.terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION")
+            out.win_like_rows++;
+         else if(p.terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION")
+            out.loss_like_rows++;
+         else if(p.terminal_status == "PAPER_TRADE_TERMINAL_OPEN")
+            out.open_rows++;
+         else if(p.terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+            out.waiting_rows++;
+         else if(p.terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+            out.ambiguous_rows++;
+         else
+            out.unknown_rows++;
+
+         if(p.risk_distance > 0.0)
+         {
+            out.r_ready_rows++;
+            out.net_R += p.net_R;
+            r_sum += p.net_R;
+            mfe_sum += p.mfe_R;
+            mae_sum += p.mae_R;
+            path_r_rows++;
+         }
+         else
+            out.r_pending_rows++;
+
+         smooth_sum += p.path_smoothness_score;
+         smooth_rows++;
+      }
+   }
+   else
+   {
+      for(int i=0; i<snapshot.paper_regime_row_count; i++)
+      {
+         FP_StateGatePaperRegimeRow r = snapshot.paper_regime_rows[i];
+         if(!FP_StateGateContextPerformanceRegimeAccept(r, dimension_name))
+            continue;
+
+         out.rows_after++;
+         out.net_delta += r.price_delta;
+
+         if(StringFind(r.result_bucket, "WIN") >= 0)
+            out.win_like_rows++;
+         else if(StringFind(r.result_bucket, "LOSS") >= 0)
+            out.loss_like_rows++;
+         else if(StringFind(r.result_bucket, "OPEN") >= 0)
+            out.open_rows++;
+         else if(StringFind(r.result_bucket, "WAITING") >= 0)
+            out.waiting_rows++;
+         else if(StringFind(r.result_bucket, "AMBIGUOUS") >= 0)
+            out.ambiguous_rows++;
+         else
+            out.unknown_rows++;
+
+         if(StringFind(r.r_status, "READY") >= 0)
+         {
+            out.r_ready_rows++;
+            out.net_R += r.r_multiple;
+            r_sum += r.r_multiple;
+         }
+         else
+            out.r_pending_rows++;
+      }
+
+      for(int pidx=0; pidx<snapshot.paper_path_quality_row_count; pidx++)
+      {
+         FP_StateGatePaperPathQualityRow p = snapshot.paper_path_quality_rows[pidx];
+         if(dimension_name == "ALL_CONTEXT" ||
+            (dimension_name == "AMBIGUOUS_CONTEXT" && FP_StateGateContextPerformancePathAccept(p, dimension_name)))
+         {
+            if(StringFind(p.path_quality_bucket, "CLEAN") >= 0 ||
+               StringFind(p.path_quality_bucket, "ACCEPTABLE") >= 0)
+               out.clean_path_rows++;
+            else if(StringFind(p.path_quality_bucket, "ADVERSE") >= 0 ||
+                    StringFind(p.path_quality_bucket, "PULLBACK") >= 0)
+               out.adverse_path_rows++;
+            else if(StringFind(p.path_quality_bucket, "PENDING") >= 0)
+               out.pending_path_rows++;
+            else if(StringFind(p.path_quality_bucket, "AMBIGUOUS") >= 0)
+               out.ambiguous_path_rows++;
+
+            smooth_sum += p.path_smoothness_score;
+            smooth_rows++;
+
+            if(p.risk_distance > 0.0)
+            {
+               mfe_sum += p.mfe_R;
+               mae_sum += p.mae_R;
+               path_r_rows++;
+            }
+         }
+      }
+   }
+
+   if(out.rows_after > 0)
+   {
+      out.avg_delta = out.net_delta / out.rows_after;
+      out.pass_rate = (out.source_regime_rows > 0 ? ((double)out.rows_after / (double)out.source_regime_rows) : 0.0);
+      out.win_rate_like = ((double)out.win_like_rows / (double)out.rows_after);
+   }
+
+   if(out.r_ready_rows > 0)
+      out.avg_R = r_sum / out.r_ready_rows;
+
+   if(path_r_rows > 0)
+   {
+      out.avg_mfe_R = mfe_sum / path_r_rows;
+      out.avg_mae_R = mae_sum / path_r_rows;
+   }
+
+   if(smooth_rows > 0)
+      out.avg_smoothness_score = smooth_sum / smooth_rows;
+
+   out.distribution = "ROWS=" + IntegerToString(out.rows_after) + "|W=" + IntegerToString(out.win_like_rows) + "|L=" + IntegerToString(out.loss_like_rows) + "|O=" + IntegerToString(out.open_rows) + "|WAIT=" + IntegerToString(out.waiting_rows) + "|AMB=" + IntegerToString(out.ambiguous_rows) + "|CLEAN=" + IntegerToString(out.clean_path_rows) + "|ADV=" + IntegerToString(out.adverse_path_rows) + "|RREADY=" + IntegerToString(out.r_ready_rows);
+   out.matrix_status = FP_StateGateContextPerformanceStatus(out);
+   out.context_performance_key = FP_StateGateContextPerformanceKey(snapshot, out);
+   out.label = out.dimension_name + " | " + out.dimension_value + " | " + out.matrix_status + " | " + out.distribution + " | avgR=" + DoubleToString(out.avg_R, 4) + " | smooth=" + DoubleToString(out.avg_smoothness_score, 2);
+}
+
+void FP_StateGateBuildContextPerformanceRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.context_performance_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_CONTEXT_PERFORMANCE_ROWS; i++)
+      FP_ResetStateGateContextPerformanceRow(snapshot.context_performance_rows[i]);
+
+   int count = FP_StateGateContextPerformanceDimensionCount();
+   for(int i=0; i<count && snapshot.context_performance_row_count < FP_STATE_GATE_MAX_CONTEXT_PERFORMANCE_ROWS; i++)
+   {
+      int idx = snapshot.context_performance_row_count;
+      string name = FP_StateGateContextPerformanceDimensionName(i);
+      FP_StateGateFillContextPerformanceRow(snapshot, i, name, snapshot.context_performance_rows[idx]);
+      snapshot.context_performance_row_count++;
+   }
+}
+
+void FP_StateGateFinalizeSnapshotContextPerformance(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.context_performance_total_rows = snapshot.context_performance_row_count;
+   snapshot.context_performance_active_rows = 0;
+   snapshot.context_performance_best_context = "NO_BEST_CONTEXT";
+   snapshot.context_performance_best_dimension = "NO_BEST_DIMENSION";
+   snapshot.context_performance_best_avg_R = 0.0;
+   snapshot.context_performance_best_smoothness = 0.0;
+   snapshot.context_performance_execution_status = "REAL_EXECUTION_DISABLED_PHASE28_CONTEXT_MATRIX_ONLY";
+
+   bool has_best = false;
+   double best_score = -1000000000.0;
+
+   for(int i=0; i<snapshot.context_performance_row_count; i++)
+   {
+      FP_StateGateContextPerformanceRow row = snapshot.context_performance_rows[i];
+      if(row.rows_after > 0)
+         snapshot.context_performance_active_rows++;
+
+      double composite = row.avg_R + (row.avg_smoothness_score / 100.0);
+      if(row.rows_after > 0 && (!has_best || composite > best_score))
+      {
+         has_best = true;
+         best_score = composite;
+         snapshot.context_performance_best_context = row.dimension_value;
+         snapshot.context_performance_best_dimension = row.dimension_name;
+         snapshot.context_performance_best_avg_R = row.avg_R;
+         snapshot.context_performance_best_smoothness = row.avg_smoothness_score;
+      }
+   }
+
+   snapshot.context_performance_distribution = "TOTAL=" + IntegerToString(snapshot.context_performance_total_rows) + "|ACTIVE=" + IntegerToString(snapshot.context_performance_active_rows) + "|BEST=" + snapshot.context_performance_best_context + "|AVG_R=" + DoubleToString(snapshot.context_performance_best_avg_R, 6) + "|SMOOTH=" + DoubleToString(snapshot.context_performance_best_smoothness, 2);
+
+   if(snapshot.context_performance_row_count <= 0)
+      snapshot.context_performance_status = "CONTEXT_PERFORMANCE_EMPTY_NO_EXECUTION";
+   else if(snapshot.context_performance_active_rows <= 0)
+      snapshot.context_performance_status = "CONTEXT_PERFORMANCE_NO_ACTIVE_CONTEXTS_NO_EXECUTION";
+   else
+      snapshot.context_performance_status = "CONTEXT_PERFORMANCE_MATRIX_READY_NO_EXECUTION";
+
+   snapshot.context_performance_key = snapshot.symbol + "|CONTEXT_MATRIX=" + IntegerToString(snapshot.context_performance_row_count) + "|ACTIVE=" + IntegerToString(snapshot.context_performance_active_rows) + "|BEST=" + FP_StateGateKeyPart(snapshot.context_performance_best_context) + "|EXEC=DISABLED";
+   snapshot.context_performance_notes = snapshot.context_performance_status + "|" + snapshot.context_performance_distribution;
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

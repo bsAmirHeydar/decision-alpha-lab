@@ -377,3 +377,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE27A_COMPILE_FIX.md
 ```
 
 Phase 27A fixes the undefined `FP_StateGateClampDouble` compile error by replacing it with explicit local clamp logic in the paper path smoothness score function.
+
+
+## Level 19 — Phase 28
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE28_CONTEXT_PERFORMANCE_MATRIX.md
+```
+
+Phase 28 adds Context Performance Matrix, grouping paper regime/result and path quality data by context dimensions such as MTF alignment, Hook, Rally, Geometry, R-ready, clean path, adverse path, and ambiguous context without enabling real execution.
