@@ -4173,6 +4173,356 @@ void FP_StateGateFinalizeSnapshotPersistentPaperTrades(FP_StateGateSnapshot &sna
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 25 - Persistent Paper Trade Lifecycle Engine
+// ---------------------------------------------------------------------------
+// This layer evaluates persistent paper trade rows in a paper-only lifecycle.
+// It is closed-close based, non-executable, and does not manage broker state.
+
+bool FP_StateGatePersistentPaperTradeIsRegistered(const FP_StateGatePersistentPaperTradeRow &t)
+{
+   return (StringFind(t.trade_status, "REGISTERED") >= 0 && t.policy_allowed_dry_run);
+}
+
+string FP_StateGatePersistentPaperTradeEntryTouchStatus(const FP_StateGatePersistentPaperTradeRow &t)
+{
+   if(!FP_StateGatePersistentPaperTradeIsRegistered(t))
+      return "PERSISTENT_PAPER_ENTRY_TOUCH_BLOCKED_NOT_REGISTERED";
+   if(t.entry_price == 0.0)
+      return "PERSISTENT_PAPER_ENTRY_TOUCH_BLOCKED_NO_ENTRY_PRICE";
+   if(t.current_close == 0.0)
+      return "PERSISTENT_PAPER_ENTRY_TOUCH_BLOCKED_NO_CLOSED_CLOSE";
+   if(FP_StateGatePaperTouchByClose(t.direction, t.current_close, t.entry_price, false))
+      return "PERSISTENT_PAPER_ENTRY_TOUCHED_BY_CLOSED_CLOSE_ONLY";
+   return "PERSISTENT_PAPER_ENTRY_NOT_TOUCHED_BY_CLOSED_CLOSE_ONLY";
+}
+
+string FP_StateGatePersistentPaperTradeInvalidationTouchStatus(const FP_StateGatePersistentPaperTradeRow &t)
+{
+   if(!FP_StateGatePersistentPaperTradeIsRegistered(t))
+      return "PERSISTENT_PAPER_INVALIDATION_TOUCH_BLOCKED_NOT_REGISTERED";
+   if(t.invalidation_price == 0.0)
+      return "PERSISTENT_PAPER_INVALIDATION_TOUCH_PENDING_NO_INVALIDATION_ANCHOR";
+   if(t.current_close == 0.0)
+      return "PERSISTENT_PAPER_INVALIDATION_TOUCH_BLOCKED_NO_CLOSED_CLOSE";
+   if(FP_StateGatePaperTouchByClose(t.direction, t.current_close, t.invalidation_price, false))
+      return "PERSISTENT_PAPER_INVALIDATION_TOUCHED_NO_STOP_NO_ORDER";
+   return "PERSISTENT_PAPER_INVALIDATION_NOT_TOUCHED";
+}
+
+string FP_StateGatePersistentPaperTradeDestinationTouchStatus(const FP_StateGatePersistentPaperTradeRow &t)
+{
+   if(!FP_StateGatePersistentPaperTradeIsRegistered(t))
+      return "PERSISTENT_PAPER_DESTINATION_TOUCH_BLOCKED_NOT_REGISTERED";
+   if(t.destination_price == 0.0)
+      return "PERSISTENT_PAPER_DESTINATION_TOUCH_PENDING_NO_DESTINATION_ANCHOR";
+   if(t.current_close == 0.0)
+      return "PERSISTENT_PAPER_DESTINATION_TOUCH_BLOCKED_NO_CLOSED_CLOSE";
+   if(FP_StateGatePaperTouchByClose(t.direction, t.current_close, t.destination_price, true))
+      return "PERSISTENT_PAPER_DESTINATION_TOUCHED_NO_TARGET_NO_ORDER";
+   return "PERSISTENT_PAPER_DESTINATION_NOT_TOUCHED";
+}
+
+string FP_StateGatePersistentPaperTradePathState(const FP_StateGatePersistentPaperTradeRow &t,
+                                                 const bool entry_touched,
+                                                 const bool invalidation_touched,
+                                                 const bool destination_touched)
+{
+   if(!FP_StateGatePersistentPaperTradeIsRegistered(t))
+      return "PAPER_TRADE_PATH_BLOCKED_NOT_REGISTERED";
+   if(t.entry_price == 0.0)
+      return "PAPER_TRADE_PATH_BLOCKED_NO_ENTRY_PRICE";
+   if(!entry_touched)
+      return "PAPER_TRADE_PATH_PENDING_ENTRY";
+   if(destination_touched && invalidation_touched)
+      return "PAPER_TRADE_PATH_AMBIGUOUS_DESTINATION_AND_INVALIDATION_SAME_CLOSE";
+   if(destination_touched)
+      return "PAPER_TRADE_PATH_HIT_DESTINATION_CLOSE_ONLY";
+   if(invalidation_touched)
+      return "PAPER_TRADE_PATH_HIT_INVALIDATION_CLOSE_ONLY";
+   return "PAPER_TRADE_PATH_OPEN_AFTER_ENTRY_CLOSE_ONLY";
+}
+
+string FP_StateGatePersistentPaperTradeTerminalStatus(const string path_state)
+{
+   if(StringFind(path_state, "BLOCKED") >= 0)
+      return "PAPER_TRADE_TERMINAL_BLOCKED";
+   if(StringFind(path_state, "PENDING_ENTRY") >= 0)
+      return "PAPER_TRADE_TERMINAL_PENDING_ENTRY";
+   if(StringFind(path_state, "AMBIGUOUS") >= 0)
+      return "PAPER_TRADE_TERMINAL_AMBIGUOUS";
+   if(StringFind(path_state, "HIT_DESTINATION") >= 0)
+      return "PAPER_TRADE_TERMINAL_HIT_DESTINATION";
+   if(StringFind(path_state, "HIT_INVALIDATION") >= 0)
+      return "PAPER_TRADE_TERMINAL_HIT_INVALIDATION";
+   if(StringFind(path_state, "OPEN_AFTER_ENTRY") >= 0)
+      return "PAPER_TRADE_TERMINAL_OPEN";
+   return "PAPER_TRADE_TERMINAL_UNKNOWN";
+}
+
+double FP_StateGatePersistentPaperTradeSignedDelta(const FP_StateGatePersistentPaperTradeRow &t,
+                                                   const string terminal_status)
+{
+   if(t.entry_price == 0.0)
+      return 0.0;
+
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION" && t.destination_price != 0.0)
+      return MathAbs(t.destination_price - t.entry_price);
+
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION" && t.invalidation_price != 0.0)
+      return -MathAbs(t.entry_price - t.invalidation_price);
+
+   if(terminal_status == "PAPER_TRADE_TERMINAL_OPEN" && t.current_close != 0.0)
+   {
+      if(FP_StateGatePaperIsBuyDirection(t.direction))
+         return t.current_close - t.entry_price;
+      if(FP_StateGatePaperIsSellDirection(t.direction))
+         return t.entry_price - t.current_close;
+   }
+
+   return 0.0;
+}
+
+string FP_StateGatePersistentPaperTradeRStatus(const FP_StateGatePersistentPaperTradeRow &t,
+                                               const double signed_delta)
+{
+   if(t.entry_price == 0.0)
+      return "PAPER_TRADE_R_BLOCKED_NO_ENTRY_PRICE";
+   if(t.invalidation_price == 0.0 || MathAbs(t.entry_price - t.invalidation_price) == 0.0)
+      return "PAPER_TRADE_R_PENDING_INVALIDATION_DISTANCE";
+   if(signed_delta == 0.0)
+      return "PAPER_TRADE_R_ZERO_OR_PENDING";
+   return "PAPER_TRADE_R_EQUIVALENT_READY_LIFECYCLE_ONLY";
+}
+
+double FP_StateGatePersistentPaperTradeRMultiple(const FP_StateGatePersistentPaperTradeRow &t,
+                                                 const double signed_delta)
+{
+   if(t.entry_price == 0.0 || t.invalidation_price == 0.0)
+      return 0.0;
+   double risk = MathAbs(t.entry_price - t.invalidation_price);
+   if(risk == 0.0)
+      return 0.0;
+   return signed_delta / risk;
+}
+
+string FP_StateGatePersistentPaperTradeLifecycleStatus(const string terminal_status)
+{
+   if(terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+      return "PAPER_TRADE_LIFECYCLE_PENDING_ENTRY_NO_EXECUTION";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_OPEN")
+      return "PAPER_TRADE_LIFECYCLE_OPEN_NO_EXECUTION";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION")
+      return "PAPER_TRADE_LIFECYCLE_HIT_DESTINATION_NO_EXECUTION";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION")
+      return "PAPER_TRADE_LIFECYCLE_HIT_INVALIDATION_NO_EXECUTION";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+      return "PAPER_TRADE_LIFECYCLE_AMBIGUOUS_CLOSE_ONLY_NO_EXECUTION";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_BLOCKED")
+      return "PAPER_TRADE_LIFECYCLE_BLOCKED_NO_EXECUTION";
+   return "PAPER_TRADE_LIFECYCLE_UNKNOWN_NO_EXECUTION";
+}
+
+string FP_StateGatePersistentPaperTradeLifecycleKey(const FP_StateGateSnapshot &snapshot,
+                                                    const FP_StateGatePersistentPaperTradeRow &t,
+                                                    const string terminal_status,
+                                                    const string path_state)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + t.timeframe_label;
+   key += "|TRADE=" + FP_StateGateKeyPart(t.trade_id);
+   key += "|TERM=" + FP_StateGateKeyPart(terminal_status);
+   key += "|PATH=" + FP_StateGateKeyPart(path_state);
+   key += "|CLOSE=" + DoubleToString(t.current_close, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateAddPersistentPaperTradeLifecycleRow(FP_StateGateSnapshot &snapshot,
+                                                     const int trade_index)
+{
+   if(trade_index < 0 || trade_index >= snapshot.persistent_paper_trade_row_count)
+      return false;
+   if(snapshot.persistent_paper_trade_lifecycle_row_count >= FP_STATE_GATE_MAX_PERSISTENT_PAPER_TRADE_LIFECYCLE_ROWS)
+      return false;
+
+   FP_StateGatePersistentPaperTradeRow t = snapshot.persistent_paper_trade_rows[trade_index];
+   int idx = snapshot.persistent_paper_trade_lifecycle_row_count;
+   FP_ResetStateGatePersistentPaperTradeLifecycleRow(snapshot.persistent_paper_trade_lifecycle_rows[idx]);
+
+   string entry_status = FP_StateGatePersistentPaperTradeEntryTouchStatus(t);
+   string invalid_status = FP_StateGatePersistentPaperTradeInvalidationTouchStatus(t);
+   string dest_status = FP_StateGatePersistentPaperTradeDestinationTouchStatus(t);
+
+   bool entry_touched = (StringFind(entry_status, "TOUCHED") >= 0 && StringFind(entry_status, "NOT_TOUCHED") < 0);
+   bool invalid_touched = (StringFind(invalid_status, "TOUCHED") >= 0 && StringFind(invalid_status, "NOT_TOUCHED") < 0);
+   bool dest_touched = (StringFind(dest_status, "TOUCHED") >= 0 && StringFind(dest_status, "NOT_TOUCHED") < 0);
+
+   if(!entry_touched)
+   {
+      invalid_touched = false;
+      dest_touched = false;
+   }
+
+   string path_state = FP_StateGatePersistentPaperTradePathState(t, entry_touched, invalid_touched, dest_touched);
+   string terminal_status = FP_StateGatePersistentPaperTradeTerminalStatus(path_state);
+   string lifecycle_status = FP_StateGatePersistentPaperTradeLifecycleStatus(terminal_status);
+   double signed_delta = FP_StateGatePersistentPaperTradeSignedDelta(t, terminal_status);
+   string r_status = FP_StateGatePersistentPaperTradeRStatus(t, signed_delta);
+   double r_multiple = FP_StateGatePersistentPaperTradeRMultiple(t, signed_delta);
+   string lifecycle_key = FP_StateGatePersistentPaperTradeLifecycleKey(snapshot, t, terminal_status, path_state);
+
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].slot_index = t.slot_index;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].timeframe = t.timeframe;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].timeframe_label = t.timeframe_label;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].evaluated_at = TimeCurrent();
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].registered_at = t.registered_at;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].opened_bar_time = t.opened_bar_time;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].last_seen_bar_time = t.last_seen_bar_time;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].last_closed_bar_close = t.last_closed_bar_close;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].lifecycle_status = lifecycle_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].path_state = path_state;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].terminal_status = terminal_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].entry_touch_status = entry_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].invalidation_touch_status = invalid_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].destination_touch_status = dest_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].trade_id = t.trade_id;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].trade_key = t.trade_key;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].direction = t.direction;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].decision_type = t.decision_type;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].entry_price = t.entry_price;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].invalidation_price = t.invalidation_price;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].destination_price = t.destination_price;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].current_close = t.current_close;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].signed_delta = signed_delta;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].r_status = r_status;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].r_multiple = r_multiple;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].source_trade_key = t.trade_key;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].source_policy_key = t.source_policy_key;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].source_result_key = t.source_result_key;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].lifecycle_key = lifecycle_key;
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE25_PAPER_TRADE_LIFECYCLE_ONLY";
+   snapshot.persistent_paper_trade_lifecycle_rows[idx].label = t.timeframe_label + " | PERSISTENT PAPER TRADE LIFECYCLE | " + lifecycle_status + " | " + terminal_status + " | " + path_state + " | real_execution=false";
+
+   snapshot.persistent_paper_trade_lifecycle_row_count++;
+   if(t.slot_index >= 0 && t.slot_index < snapshot.timeframe_count)
+      snapshot.tf_states[t.slot_index].persistent_paper_trade_lifecycle_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPersistentPaperTradeLifecycleRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.persistent_paper_trade_lifecycle_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PERSISTENT_PAPER_TRADE_LIFECYCLE_ROWS; i++)
+      FP_ResetStateGatePersistentPaperTradeLifecycleRow(snapshot.persistent_paper_trade_lifecycle_rows[i]);
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_row_count = 0;
+
+   for(int i=0; i<snapshot.persistent_paper_trade_row_count; i++)
+      FP_StateGateAddPersistentPaperTradeLifecycleRow(snapshot, i);
+}
+
+bool FP_StateGateFirstPersistentPaperTradeLifecycleForSlot(const FP_StateGateSnapshot &snapshot,
+                                                           const int slot,
+                                                           FP_StateGatePersistentPaperTradeLifecycleRow &out)
+{
+   for(int i=0; i<snapshot.persistent_paper_trade_lifecycle_row_count; i++)
+   {
+      FP_StateGatePersistentPaperTradeLifecycleRow row = snapshot.persistent_paper_trade_lifecycle_rows[i];
+      if(row.slot_index != slot)
+         continue;
+      out = row;
+      return true;
+   }
+   return false;
+}
+
+void FP_StateGateFinalizeSlotPersistentPaperTradeLifecycle(FP_StateGateSnapshot &snapshot, const int slot)
+{
+   FP_StateGatePersistentPaperTradeLifecycleRow row;
+   FP_ResetStateGatePersistentPaperTradeLifecycleRow(row);
+
+   if(FP_StateGateFirstPersistentPaperTradeLifecycleForSlot(snapshot, slot, row))
+   {
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_engine_status = row.lifecycle_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_key = row.lifecycle_key;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_trade_id = row.trade_id;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_path_state = row.path_state;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_terminal_status = row.terminal_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_entry_touch_status = row.entry_touch_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_invalidation_touch_status = row.invalidation_touch_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_destination_touch_status = row.destination_touch_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_execution_status = row.execution_status;
+      snapshot.tf_states[slot].persistent_paper_trade_lifecycle_notes = row.label;
+      return;
+   }
+
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_engine_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_NO_ROW";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_key = "NO_PERSISTENT_PAPER_TRADE_LIFECYCLE_KEY";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_trade_id = "NO_PERSISTENT_PAPER_TRADE_ID";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_path_state = "PAPER_TRADE_PATH_NO_ROW";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_terminal_status = "PAPER_TRADE_TERMINAL_NO_ROW";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_execution_status = "REAL_EXECUTION_DISABLED_PHASE25_PAPER_TRADE_LIFECYCLE_ONLY";
+   snapshot.tf_states[slot].persistent_paper_trade_lifecycle_notes = "No persistent paper trade lifecycle row was built";
+}
+
+void FP_StateGateFinalizeSnapshotPersistentPaperTradeLifecycle(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.persistent_paper_trade_lifecycle_total_rows = snapshot.persistent_paper_trade_lifecycle_row_count;
+   snapshot.persistent_paper_trade_lifecycle_pending_entry_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_open_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_destination_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_invalidation_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_ambiguous_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_blocked_rows = 0;
+   snapshot.persistent_paper_trade_lifecycle_execution_status = "REAL_EXECUTION_DISABLED_PHASE25_PAPER_TRADE_LIFECYCLE_ONLY";
+
+   for(int i=0; i<snapshot.persistent_paper_trade_lifecycle_row_count; i++)
+   {
+      FP_StateGatePersistentPaperTradeLifecycleRow row = snapshot.persistent_paper_trade_lifecycle_rows[i];
+
+      if(row.terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+         snapshot.persistent_paper_trade_lifecycle_pending_entry_rows++;
+      else if(row.terminal_status == "PAPER_TRADE_TERMINAL_OPEN")
+         snapshot.persistent_paper_trade_lifecycle_open_rows++;
+      else if(row.terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION")
+         snapshot.persistent_paper_trade_lifecycle_destination_rows++;
+      else if(row.terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION")
+         snapshot.persistent_paper_trade_lifecycle_invalidation_rows++;
+      else if(row.terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+         snapshot.persistent_paper_trade_lifecycle_ambiguous_rows++;
+      else
+         snapshot.persistent_paper_trade_lifecycle_blocked_rows++;
+   }
+
+   snapshot.persistent_paper_trade_lifecycle_distribution = "PEND=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_pending_entry_rows) + "|OPEN=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_open_rows) + "|DEST=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_destination_rows) + "|INV=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_invalidation_rows) + "|AMB=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_ambiguous_rows) + "|BLOCK=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_blocked_rows);
+
+   if(snapshot.persistent_paper_trade_lifecycle_row_count <= 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_EMPTY_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_lifecycle_ambiguous_rows > 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_lifecycle_destination_rows > 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_HAS_DESTINATION_ROWS_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_lifecycle_invalidation_rows > 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_HAS_INVALIDATION_ROWS_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_lifecycle_open_rows > 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_HAS_OPEN_ROWS_NO_EXECUTION";
+   else if(snapshot.persistent_paper_trade_lifecycle_pending_entry_rows > 0)
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_PENDING_ENTRY_ONLY_NO_EXECUTION";
+   else
+      snapshot.persistent_paper_trade_lifecycle_status = "PERSISTENT_PAPER_TRADE_LIFECYCLE_ALL_BLOCKED_NO_EXECUTION";
+
+   snapshot.persistent_paper_trade_lifecycle_key = snapshot.symbol + "|PERSISTENT_PAPER_LIFECYCLE=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_row_count) + "|" + snapshot.persistent_paper_trade_lifecycle_distribution + "|EXEC=DISABLED";
+   snapshot.persistent_paper_trade_lifecycle_notes = snapshot.persistent_paper_trade_lifecycle_status + "|" + snapshot.persistent_paper_trade_lifecycle_distribution;
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+      FP_StateGateFinalizeSlotPersistentPaperTradeLifecycle(snapshot, slot);
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";

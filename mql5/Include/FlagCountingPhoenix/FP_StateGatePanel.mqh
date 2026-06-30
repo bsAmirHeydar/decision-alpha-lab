@@ -421,6 +421,66 @@ int FP_StateGatePanelSlotRowBudget(const FP_StateGateConfig &cfg,
    return rows;
 }
 
+
+int FP_StateGatePanelEstimateRows(const FP_StateGateConfig &cfg,
+                                  const FP_StateGateSnapshot &snapshot,
+                                  const bool minimized,
+                                  const int compact_mode,
+                                  const int preview_limit)
+{
+   if(minimized)
+      return 0;
+
+   int rows = 0;
+   if(cfg.panel_show_diagnostics)
+      rows++;
+   rows += 6; // portfolio, filters, policy, paper trade, trade life, regime
+
+   for(int slot=0; slot<snapshot.timeframe_count; slot++)
+   {
+      rows++; // slot header
+      if(g_fp_state_gate_slot_collapsed[slot])
+         continue;
+
+      rows++; // tracker
+
+      if(compact_mode <= 1 && cfg.panel_show_row_counts)
+         rows++;
+      if(compact_mode <= 1 && cfg.panel_show_contract_key)
+         rows++;
+
+      rows++; // map
+      rows++; // flow
+      rows++; // paper
+
+      int rally_total = FP_StateGatePanelCountRallyRowsForSlot(snapshot, slot);
+      rows++; // rally head
+      if(!g_fp_state_gate_slot_rally_collapsed[slot] && preview_limit > 0)
+      {
+         int rshow = (rally_total < preview_limit ? rally_total : preview_limit);
+         rows += rshow;
+         if(rally_total > rshow)
+            rows++;
+      }
+
+      int hook_total = FP_StateGatePanelCountHookRowsForSlot(snapshot, slot);
+      rows++; // hook head
+      if(!g_fp_state_gate_slot_hook_collapsed[slot] && preview_limit > 0)
+      {
+         int hshow = (hook_total < preview_limit ? hook_total : preview_limit);
+         rows += hshow;
+         if(hook_total > hshow)
+            rows++;
+      }
+
+      if(compact_mode == 2)
+         rows++; // small spacer on large charts
+   }
+
+   return rows;
+}
+
+
 void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
                            const FP_StateGateSnapshot &snapshot,
                            const bool minimized,
@@ -432,35 +492,84 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
    FP_StateGateEnsurePanelState();
    report.objects_deleted += FP_StateGatePanelCleanup(cfg);
 
-   int width = MathMax(560, cfg.panel_width);
-   int font_size = MathMax(7, cfg.panel_font_size);
-   int text_limit = FP_StateGatePanelTextLimit(width, font_size);
-   int row_h = MathMax(14, font_size + 6);
-   int title_h = 22;
+   long chart_width_px = 0;
+   long chart_height_px = 0;
+   ChartGetInteger(0, CHART_WIDTH_IN_PIXELS, 0, chart_width_px);
+   ChartGetInteger(0, CHART_HEIGHT_IN_PIXELS, 0, chart_height_px);
 
-   int rows = 1;
-   if(!minimized)
+   int chart_w = (int)chart_width_px;
+   int chart_h = (int)chart_height_px;
+   if(chart_w <= 0)
+      chart_w = MathMax(900, cfg.panel_width + 24);
+   if(chart_h <= 0)
+      chart_h = 720;
+
+   int font_size = cfg.panel_font_size;
+   if(chart_h <= 680 || chart_w <= 1050)
+      font_size = MathMin(font_size, 6);
+   else if(chart_h <= 860 || chart_w <= 1320)
+      font_size = MathMin(font_size, 7);
+   else if(chart_h >= 1180 && chart_w >= 1800)
+      font_size = MathMax(font_size, 9);
+   else
+      font_size = MathMax(font_size, 8);
+   font_size = FP_StateGateClampInt(font_size, 6, 10);
+
+   int row_h = MathMax((font_size <= 6 ? 11 : 13), font_size + 5);
+   int title_h = MathMax(20, font_size + 12);
+
+   int width_guess = (int)MathRound((double)chart_w * (chart_w < 1000 ? 0.46 : 0.38));
+   int width = MathMax(cfg.panel_width, width_guess);
+   width = FP_StateGateClampInt(width, 320, MathMax(320, chart_w - 8));
+
+   int compact_mode = 1;   // 0=ultra compact, 1=compact, 2=roomy
+   int preview_limit = 1;  // per section preview rows
+   if(chart_h >= 980 && chart_w >= 1500)
    {
-      rows = 2;
-      if(cfg.panel_show_diagnostics)
-         rows++;
-      rows++; // paper portfolio aggregate metrics
-      rows++; // paper filter diagnostics
-      rows++; // paper dry-run decision policy
-      for(int i=0; i<snapshot.timeframe_count; i++)
-         rows += FP_StateGatePanelSlotRowBudget(cfg, snapshot, i);
+      compact_mode = 2;
+      preview_limit = 2;
+   }
+   else if(chart_h <= 680 || chart_w <= 1050)
+   {
+      compact_mode = 0;
+      preview_limit = 0;
    }
 
-   int height = title_h + rows * row_h + 8;
+   int rows = FP_StateGatePanelEstimateRows(cfg, snapshot, minimized, compact_mode, preview_limit);
+   int height = title_h + rows * row_h + 10;
    if(minimized)
       height = title_h + 8;
 
-   int x = cfg.panel_x;
-   int y = cfg.panel_y;
+   if(!minimized && height > chart_h - 8 && compact_mode > 0)
+   {
+      compact_mode = 0;
+      preview_limit = 0;
+      rows = FP_StateGatePanelEstimateRows(cfg, snapshot, minimized, compact_mode, preview_limit);
+      height = title_h + rows * row_h + 10;
+   }
+   if(!minimized && height > chart_h - 8)
+      height = chart_h - 8;
+   height = MathMax(height, title_h + 8);
+
+   int corner = FP_StateGatePanelCorner(cfg);
+   int x = MathMax(2, cfg.panel_x);
+   int y = MathMax(2, cfg.panel_y);
+
+   if(corner == CORNER_RIGHT_UPPER || corner == CORNER_RIGHT_LOWER)
+      x = chart_w - width - MathMax(2, cfg.panel_x);
+   if(corner == CORNER_LEFT_LOWER || corner == CORNER_RIGHT_LOWER)
+      y = chart_h - height - MathMax(2, cfg.panel_y);
+
+   x = FP_StateGateClampInt(x, 2, MathMax(2, chart_w - width - 2));
+   y = FP_StateGateClampInt(y, 2, MathMax(2, chart_h - height - 2));
+
+   int text_limit = FP_StateGatePanelTextLimit(width - 16, font_size);
 
    FP_StateGateCreateRect(cfg, "BG", x, y, width, height, clrDarkSlateGray, clrWhite, report);
    FP_StateGateCreateRect(cfg, "TITLE_BG", x, y, width, title_h, clrNavy, clrWhite, report);
-   FP_StateGateCreateLabel(cfg, "TITLE", x + 8, y + 4, FP_StateGatePanelClip(FP_StateGatePanelHeaderLabel(snapshot), text_limit), clrWhite, font_size, report);
+   FP_StateGateCreateLabel(cfg, "TITLE", x + 8, y + 4,
+                           FP_StateGatePanelClip(FP_StateGatePanelHeaderLabel(snapshot), text_limit - 4),
+                           clrWhite, font_size, report);
    FP_StateGateCreateButton(cfg, "MINBTN", x + width - 24, y + 3, 18, 16, (minimized ? "+" : "-"), report);
 
    if(minimized)
@@ -479,19 +588,19 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
       cursor_y += row_h;
    }
 
-   string portfolio_line = "Portfolio | " + snapshot.paper_portfolio_status + " | " + snapshot.paper_portfolio_distribution + " | net=" + DoubleToString(snapshot.paper_portfolio_net_delta, 5) + " | avgR=" + DoubleToString(snapshot.paper_portfolio_avg_R, 3);
-   FP_StateGateCreateLabel(cfg, "PAPER_PORTFOLIO", x + 10, cursor_y + 2,
+   string portfolio_line = "Portfolio | " + snapshot.paper_portfolio_status + " | " + snapshot.paper_portfolio_distribution + " | avgR=" + DoubleToString(snapshot.paper_portfolio_avg_R, 3);
+   FP_StateGateCreateLabel(cfg, "PAPER_PORTFOLIO_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(portfolio_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 
-   string filter_line = "Filters | " + snapshot.paper_filter_status + " | active=" + IntegerToString(snapshot.paper_filter_active_filters) + "/" + IntegerToString(snapshot.paper_filter_total_filters) + " | best=" + snapshot.paper_filter_best_filter + " | avgD=" + DoubleToString(snapshot.paper_filter_best_avg_delta, 5);
+   string filter_line = "Filters | " + snapshot.paper_filter_status + " | best=" + snapshot.paper_filter_best_filter + " | " + snapshot.paper_filter_best_distribution;
    FP_StateGateCreateLabel(cfg, "PAPER_FILTER_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(filter_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 
-   string policy_line = "Policy | " + snapshot.paper_policy_status + " | allow=" + IntegerToString(snapshot.paper_policy_allowed_dry_run_rows) + "/" + IntegerToString(snapshot.paper_policy_total_rows) + " | best=" + snapshot.paper_policy_best_policy + " | score=" + DoubleToString(snapshot.paper_policy_best_score, 2);
+   string policy_line = "Policy | " + snapshot.paper_policy_status + " | best=" + snapshot.paper_policy_best_policy + " | score=" + DoubleToString(snapshot.paper_policy_best_score, 2);
    FP_StateGateCreateLabel(cfg, "PAPER_POLICY_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(policy_line, text_limit),
                            clrGold, font_size, report);
@@ -503,43 +612,57 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
                            clrGold, font_size, report);
    cursor_y += row_h;
 
+   string trade_lifecycle_line = "TradeLife | " + snapshot.persistent_paper_trade_lifecycle_status + " | " + snapshot.persistent_paper_trade_lifecycle_distribution;
+   FP_StateGateCreateLabel(cfg, "PERSISTENT_PAPER_TRADE_LIFECYCLE_GLOBAL", x + 10, cursor_y + 2,
+                           FP_StateGatePanelClip(trade_lifecycle_line, text_limit),
+                           clrGold, font_size, report);
+   cursor_y += row_h;
+
    string regime_global_line = "Regime | rows=" + IntegerToString(snapshot.paper_regime_row_count) + " | paper attribution | real execution=false";
    FP_StateGateCreateLabel(cfg, "PAPER_REGIME_GLOBAL", x + 10, cursor_y + 2,
                            FP_StateGatePanelClip(regime_global_line, text_limit),
                            clrGold, font_size, report);
    cursor_y += row_h;
 
+   int btn_w = 18;
+   int btn_gap = 3;
+
    for(int i=0; i<snapshot.timeframe_count; i++)
    {
+      if(cursor_y + row_h > y + height - 4)
+         break;
+
       FP_StateGateTimeframeState s = snapshot.tf_states[i];
       string suffix = "S" + IntegerToString(i) + "_";
       color slot_color = FP_StateGatePanelTrackerColor(s);
 
-      // Slot header
       FP_StateGateCreateRect(cfg, suffix + "HDR_BG", x + 4, cursor_y, width - 8, row_h, clrDarkSlateGray, clrDimGray, report);
       FP_StateGateCreateLabel(cfg, suffix + "HDR", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(FP_StateGatePanelSlotHeaderLine(snapshot, i), text_limit - 8),
+                              FP_StateGatePanelClip(FP_StateGatePanelSlotHeaderLine(snapshot, i), MathMax(20, text_limit - 14)),
                               slot_color, font_size, report);
+
       int btn_y = cursor_y + 1;
       int btn_x = x + width - 22;
-      FP_StateGateCreateButton(cfg, suffix + "SLOTBTN", btn_x, btn_y, 18, 15, (g_fp_state_gate_slot_collapsed[i] ? "+" : "-"), report);
+      FP_StateGateCreateButton(cfg, suffix + "SLOTBTN", btn_x, btn_y, btn_w, 15, (g_fp_state_gate_slot_collapsed[i] ? "+" : "-"), report);
+
       if(!g_fp_state_gate_slot_collapsed[i])
       {
-         FP_StateGateCreateButton(cfg, suffix + "RBTN", btn_x - 22, btn_y, 18, 15, (g_fp_state_gate_slot_rally_collapsed[i] ? "R+" : "R-"), report);
-         FP_StateGateCreateButton(cfg, suffix + "HBTN", btn_x - 44, btn_y, 18, 15, (g_fp_state_gate_slot_hook_collapsed[i] ? "H+" : "H-"), report);
+         FP_StateGateCreateButton(cfg, suffix + "RBTN", btn_x - (btn_w + btn_gap) * 2, btn_y, btn_w, 15, (g_fp_state_gate_slot_rally_collapsed[i] ? "R+" : "R-"), report);
+         FP_StateGateCreateButton(cfg, suffix + "HBTN", btn_x - (btn_w + btn_gap), btn_y, btn_w, 15, (g_fp_state_gate_slot_hook_collapsed[i] ? "H+" : "H-"), report);
       }
-      cursor_y += row_h;
 
+      cursor_y += row_h;
       if(g_fp_state_gate_slot_collapsed[i])
          continue;
 
-      // Tracker
+      if(cursor_y + row_h > y + height - 4)
+         break;
       FP_StateGateCreateLabel(cfg, suffix + "TRACK", x + 10, cursor_y + 2,
                               FP_StateGatePanelClip(FP_StateGatePanelTrackerLine(cfg, s), text_limit),
-                              FP_StateGatePanelTrackerColor(s), font_size, report);
+                              slot_color, font_size, report);
       cursor_y += row_h;
 
-      if(cfg.panel_show_row_counts)
+      if(compact_mode <= 1 && cfg.panel_show_row_counts && cursor_y + row_h <= y + height - 4)
       {
          FP_StateGateCreateLabel(cfg, suffix + "COUNTS", x + 10, cursor_y + 2,
                                  FP_StateGatePanelClip(FP_StateGatePanelCountsLine(s), text_limit),
@@ -547,88 +670,69 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
          cursor_y += row_h;
       }
 
-      if(cfg.panel_show_contract_key)
+      if(compact_mode <= 1 && cfg.panel_show_contract_key && cursor_y + row_h <= y + height - 4)
       {
          FP_StateGateCreateLabel(cfg, suffix + "CONTRACT", x + 10, cursor_y + 2,
-                                 FP_StateGatePanelContractLine(cfg, s, text_limit),
-                                 clrDarkGray, font_size, report);
+                                 FP_StateGatePanelClip(FP_StateGatePanelContractLine(cfg, s, text_limit), text_limit),
+                                 clrSilver, font_size, report);
          cursor_y += row_h;
       }
 
-      string extreme_line = "    XMap | " + s.extreme_map_status + " | " + s.primary_extreme_source + " | " + s.primary_extreme_side + " | " + s.primary_extreme_price_status;
-      FP_StateGateCreateLabel(cfg, suffix + "EXTREME_MAP", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(extreme_line, text_limit),
-                              clrKhaki, font_size, report);
-      cursor_y += row_h;
-
-      string mtf_line = "    MTF | " + s.mtf_alignment_status + " | parent=" + s.mtf_parent_timeframe + " | " + s.mtf_direction_relation + " | " + s.mtf_side_relation;
-      FP_StateGateCreateLabel(cfg, suffix + "MTF_ALIGN", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(mtf_line, text_limit),
-                              clrLightSteelBlue, font_size, report);
-      cursor_y += row_h;
-
-      string geometry_line = "    Geometry | " + s.geometry_readiness + " | entry=" + s.candidate_entry_price_status + " | dest=" + s.candidate_destination_price_status + " | R=" + s.potential_R_status;
-      FP_StateGateCreateLabel(cfg, suffix + "GEOMETRY", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(geometry_line, text_limit),
-                              clrPaleGreen, font_size, report);
-      cursor_y += row_h;
-
-      string idea_line = "    Idea | " + s.entry_idea_status + " | " + s.primary_entry_idea_family + " | " + s.entry_idea_readiness;
-      FP_StateGateCreateLabel(cfg, suffix + "ENTRY_IDEA", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(idea_line, text_limit),
-                              clrMagenta, font_size, report);
-      cursor_y += row_h;
-
-      string decision_line = "    Decision | " + s.entry_decision_status + " | " + s.entry_decision_direction + " | allowed=" + (s.entry_decision_allowed ? "true" : "false");
-      FP_StateGateCreateLabel(cfg, suffix + "ENTRY_DECISION", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(decision_line, text_limit),
-                              clrYellow, font_size, report);
-      cursor_y += row_h;
-
-      string paper_line = "    Paper | " + s.paper_ledger_record_status + " | " + s.paper_ledger_direction + " | " + s.paper_ledger_execution_status;
-      FP_StateGateCreateLabel(cfg, suffix + "PAPER_LEDGER", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(paper_line, text_limit),
-                              clrYellow, font_size, report);
-      cursor_y += row_h;
-
-      string lifecycle_line = "    Life | " + s.paper_lifecycle_path_state + " | " + s.paper_lifecycle_outcome + " | " + s.paper_lifecycle_execution_status;
-      FP_StateGateCreateLabel(cfg, suffix + "PAPER_LIFECYCLE", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(lifecycle_line, text_limit),
-                              clrLightGreen, font_size, report);
-      cursor_y += row_h;
-
-      string result_line = "    Result | " + s.paper_result_status + " | " + s.paper_result_bucket + " | d=" + DoubleToString(s.paper_result_price_delta, 5) + " | " + s.paper_result_r_status;
-      FP_StateGateCreateLabel(cfg, suffix + "PAPER_RESULT", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(result_line, text_limit),
-                              clrLightGreen, font_size, report);
-      cursor_y += row_h;
-
-      // Rally subsection
-      int rally_total = FP_StateGatePanelCountRallyRowsForSlot(snapshot, i);
-      string rally_head = "    Rally | total=" + IntegerToString(rally_total) + " | probable=" + FP_StateGatePanelClip(s.probable_next_f_summary, 36);
-      FP_StateGateCreateLabel(cfg, suffix + "RHEAD", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(rally_head, text_limit),
-                              clrAqua, font_size, report);
-      cursor_y += row_h;
-      if(!g_fp_state_gate_slot_rally_collapsed[i])
+      if(cursor_y + row_h <= y + height - 4)
       {
-         int rlimit = FP_StateGatePanelRallyPreviewLimit(cfg);
+         string map_line = "    Map | " + s.extreme_map_status + " | " + s.mtf_alignment_status + " | " + s.geometry_readiness;
+         FP_StateGateCreateLabel(cfg, suffix + "MAP", x + 10, cursor_y + 2,
+                                 FP_StateGatePanelClip(map_line, text_limit),
+                                 clrAqua, font_size, report);
+         cursor_y += row_h;
+      }
+
+      if(cursor_y + row_h <= y + height - 4)
+      {
+         string flow_line = "    Flow | " + s.entry_idea_status + " | " + s.entry_decision_status + " | " + s.paper_policy_status;
+         FP_StateGateCreateLabel(cfg, suffix + "FLOW", x + 10, cursor_y + 2,
+                                 FP_StateGatePanelClip(flow_line, text_limit),
+                                 clrMagenta, font_size, report);
+         cursor_y += row_h;
+      }
+
+      if(cursor_y + row_h <= y + height - 4)
+      {
+         string paper_line = "    Paper | " + s.paper_ledger_status + " | " + s.paper_lifecycle_status + " | " + s.paper_result_status + " | " + s.persistent_paper_trade_lifecycle_engine_status;
+         FP_StateGateCreateLabel(cfg, suffix + "PAPER", x + 10, cursor_y + 2,
+                                 FP_StateGatePanelClip(paper_line, text_limit),
+                                 clrYellow, font_size, report);
+         cursor_y += row_h;
+      }
+
+      int rally_total = FP_StateGatePanelCountRallyRowsForSlot(snapshot, i);
+      if(cursor_y + row_h <= y + height - 4)
+      {
+         string rally_head = "    Rally | total=" + IntegerToString(rally_total) + " | est=" + FP_StateGatePanelClip(s.latest_established_f_summary, 28) + " | next=" + FP_StateGatePanelClip(s.probable_next_f_summary, 28);
+         FP_StateGateCreateLabel(cfg, suffix + "RHEAD", x + 10, cursor_y + 2,
+                                 FP_StateGatePanelClip(rally_head, text_limit),
+                                 clrLime, font_size, report);
+         cursor_y += row_h;
+      }
+
+      if(!g_fp_state_gate_slot_rally_collapsed[i] && preview_limit > 0)
+      {
          int rally_seen = 0;
-         for(int r=0; r<snapshot.rally_row_count && rally_seen < rlimit; r++)
+         for(int r=0; r<snapshot.rally_row_count && rally_seen < preview_limit; r++)
          {
             if(snapshot.rally_rows[r].slot_index != i)
                continue;
-            FP_StateGateCreateLabel(cfg, suffix + "R" + IntegerToString(rally_seen),
-                                    x + 10, cursor_y + 2,
+            if(cursor_y + row_h > y + height - 4)
+               break;
+            FP_StateGateCreateLabel(cfg, suffix + "R" + IntegerToString(rally_seen), x + 10, cursor_y + 2,
                                     FP_StateGatePanelClip(FP_StateGatePanelRallyPreviewLine(cfg, rally_seen, snapshot.rally_rows[r]), text_limit),
-                                    FP_StateGatePanelRallyColor(snapshot.rally_rows[r]),
-                                    font_size, report);
+                                    clrLime, font_size, report);
             cursor_y += row_h;
             rally_seen++;
          }
-         if(rally_total > rlimit && rlimit > 0)
+         if(rally_total > rally_seen && cursor_y + row_h <= y + height - 4)
          {
-            string more_r = "      R+ | " + IntegerToString(rally_total - rlimit) + " more Rally rows in CSV";
+            string more_r = "      R+ | " + IntegerToString(rally_total - rally_seen) + " more Rally rows in CSV";
             FP_StateGateCreateLabel(cfg, suffix + "R_MORE", x + 10, cursor_y + 2,
                                     FP_StateGatePanelClip(more_r, text_limit),
                                     clrGray, font_size, report);
@@ -636,32 +740,34 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
          }
       }
 
-      // Hook subsection
       int hook_total = FP_StateGatePanelCountHookRowsForSlot(snapshot, i);
-      string hook_head = "    Hook | total=" + IntegerToString(hook_total) + " | summary=" + FP_StateGatePanelClip(s.hook_summary, 36);
-      FP_StateGateCreateLabel(cfg, suffix + "HHEAD", x + 10, cursor_y + 2,
-                              FP_StateGatePanelClip(hook_head, text_limit),
-                              clrOrange, font_size, report);
-      cursor_y += row_h;
-      if(!g_fp_state_gate_slot_hook_collapsed[i])
+      if(cursor_y + row_h <= y + height - 4)
       {
-         int hlimit = FP_StateGatePanelHookPreviewLimit(cfg);
+         string hook_head = "    Hook | total=" + IntegerToString(hook_total) + " | " + FP_StateGatePanelClip(s.hook_summary, 42);
+         FP_StateGateCreateLabel(cfg, suffix + "HHEAD", x + 10, cursor_y + 2,
+                                 FP_StateGatePanelClip(hook_head, text_limit),
+                                 clrOrange, font_size, report);
+         cursor_y += row_h;
+      }
+
+      if(!g_fp_state_gate_slot_hook_collapsed[i] && preview_limit > 0)
+      {
          int hook_seen = 0;
-         for(int h=0; h<snapshot.hook_row_count && hook_seen < hlimit; h++)
+         for(int h=0; h<snapshot.hook_row_count && hook_seen < preview_limit; h++)
          {
             if(snapshot.hook_rows[h].slot_index != i)
                continue;
-            FP_StateGateCreateLabel(cfg, suffix + "H" + IntegerToString(hook_seen),
-                                    x + 10, cursor_y + 2,
+            if(cursor_y + row_h > y + height - 4)
+               break;
+            FP_StateGateCreateLabel(cfg, suffix + "H" + IntegerToString(hook_seen), x + 10, cursor_y + 2,
                                     FP_StateGatePanelClip(FP_StateGatePanelHookPreviewLine(cfg, hook_seen, snapshot.hook_rows[h]), text_limit),
-                                    FP_StateGatePanelHookColor(snapshot.hook_rows[h]),
-                                    font_size, report);
+                                    clrOrange, font_size, report);
             cursor_y += row_h;
             hook_seen++;
          }
-         if(hook_total > hlimit && hlimit > 0)
+         if(hook_total > hook_seen && cursor_y + row_h <= y + height - 4)
          {
-            string more_h = "      H+ | " + IntegerToString(hook_total - hlimit) + " more Hook rows in CSV";
+            string more_h = "      H+ | " + IntegerToString(hook_total - hook_seen) + " more Hook rows in CSV";
             FP_StateGateCreateLabel(cfg, suffix + "H_MORE", x + 10, cursor_y + 2,
                                     FP_StateGatePanelClip(more_h, text_limit),
                                     clrGray, font_size, report);
@@ -669,11 +775,13 @@ void FP_StateGatePanelDraw(const FP_StateGateConfig &cfg,
          }
       }
 
-      cursor_y += row_h / 2;
+      if(compact_mode == 2 && cursor_y + row_h / 2 <= y + height - 4)
+         cursor_y += row_h / 2;
    }
 
    ChartRedraw(0);
 }
+
 
 bool FP_StateGatePanelHandleChartEvent(const FP_StateGateConfig &cfg,
                                        FP_StateGateRuntime &runtime,

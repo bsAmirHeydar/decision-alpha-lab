@@ -332,3 +332,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE24A_COMPILE_FIX.md
 ```
 
 Phase 24A fixes the duplicate `persistent_paper_trade_row_count` declaration in `FP_StateGateTimeframeState`.
+
+
+## Level 19 — Phase 25
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE25_PERSISTENT_PAPER_TRADE_LIFECYCLE.md
+```
+
+Phase 25 adds the Persistent Paper Trade Lifecycle Engine, evaluating registered paper trades through pending-entry, open, destination, invalidation, ambiguous, and blocked lifecycle states without enabling real execution.
+
+
+## Level 19 — Phase 25B
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE25B_RESPONSIVE_PANEL_LAYOUT.md
+```
+
+Responsive panel layout for the Level 19 State Gate dashboard. It adapts width, font, row density, and preview density to the visible chart size and monitor resolution while preserving all existing collapse controls.
