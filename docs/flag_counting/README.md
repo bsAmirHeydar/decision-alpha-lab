@@ -359,3 +359,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE26_PAPER_PERFORMANCE_REPORT.md
 ```
 
 Phase 26 adds the Paper Performance Report, summarizing persistent paper trade lifecycle rows into paper-only performance metrics such as win-rate-like, closed win-rate-like, net delta, average delta, net R, average R, expectancy R, best R, worst R, and result distribution.
+
+
+## Level 19 — Phase 27
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE27_PAPER_MFE_MAE_PATH_QUALITY.md
+```
+
+Phase 27 adds Paper MFE / MAE Path Quality diagnostics, computing close-only favorable/adverse excursion proxies, MFE/MAE R proxies, pullback pressure, and path smoothness without enabling real execution.
+
+
+## Level 19 — Phase 27A
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19_PHASE27A_COMPILE_FIX.md
+```
+
+Phase 27A fixes the undefined `FP_StateGateClampDouble` compile error by replacing it with explicit local clamp logic in the paper path smoothness score function.

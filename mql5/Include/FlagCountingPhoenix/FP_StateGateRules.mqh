@@ -4733,6 +4733,326 @@ void FP_StateGateFinalizeSnapshotPaperPerformance(FP_StateGateSnapshot &snapshot
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 27 - Paper MFE / MAE Path Quality
+// ---------------------------------------------------------------------------
+// This layer computes close-only MFE/MAE proxies from persistent paper
+// trade lifecycle rows. It is diagnostic-only and non-executable.
+
+double FP_StateGatePaperPathRiskDistance(const FP_StateGatePersistentPaperTradeLifecycleRow &l)
+{
+   if(l.entry_price == 0.0 || l.invalidation_price == 0.0)
+      return 0.0;
+   return MathAbs(l.entry_price - l.invalidation_price);
+}
+
+double FP_StateGatePaperPathFavorableDelta(const FP_StateGatePersistentPaperTradeLifecycleRow &l)
+{
+   if(l.terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION" && l.destination_price != 0.0)
+      return MathAbs(l.destination_price - l.entry_price);
+   if(l.signed_delta > 0.0)
+      return MathAbs(l.signed_delta);
+   return 0.0;
+}
+
+double FP_StateGatePaperPathAdverseDelta(const FP_StateGatePersistentPaperTradeLifecycleRow &l)
+{
+   if(l.terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION" && l.invalidation_price != 0.0)
+      return MathAbs(l.entry_price - l.invalidation_price);
+   if(l.signed_delta < 0.0)
+      return MathAbs(l.signed_delta);
+   return 0.0;
+}
+
+string FP_StateGatePaperPathPullbackPressureStatus(const double mfe_R,
+                                                   const double mae_R,
+                                                   const string terminal_status)
+{
+   if(terminal_status == "PAPER_TRADE_TERMINAL_BLOCKED")
+      return "PAPER_PULLBACK_PRESSURE_BLOCKED";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+      return "PAPER_PULLBACK_PRESSURE_PENDING_ENTRY";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+      return "PAPER_PULLBACK_PRESSURE_AMBIGUOUS";
+   if(mae_R <= 0.0 && mfe_R > 0.0)
+      return "PAPER_PULLBACK_PRESSURE_CLEAN_CLOSE_ONLY";
+   if(mae_R > 0.0 && mfe_R <= 0.0)
+      return "PAPER_PULLBACK_PRESSURE_ADVERSE_ONLY_CLOSE_ONLY";
+   if(mae_R > 0.0 && mfe_R > 0.0 && mae_R <= mfe_R * 0.35)
+      return "PAPER_PULLBACK_PRESSURE_LOW_RELATIVE_TO_MFE";
+   if(mae_R > 0.0 && mfe_R > 0.0 && mae_R <= mfe_R)
+      return "PAPER_PULLBACK_PRESSURE_MEDIUM_RELATIVE_TO_MFE";
+   if(mae_R > 0.0 && mfe_R > 0.0 && mae_R > mfe_R)
+      return "PAPER_PULLBACK_PRESSURE_HIGH_RELATIVE_TO_MFE";
+   return "PAPER_PULLBACK_PRESSURE_FLAT_OR_UNKNOWN";
+}
+
+string FP_StateGatePaperPathQualityBucket(const double mfe_R,
+                                          const double mae_R,
+                                          const double net_R,
+                                          const string terminal_status)
+{
+   if(terminal_status == "PAPER_TRADE_TERMINAL_BLOCKED")
+      return "PAPER_PATH_BUCKET_BLOCKED";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+      return "PAPER_PATH_BUCKET_PENDING_ENTRY";
+   if(terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+      return "PAPER_PATH_BUCKET_AMBIGUOUS";
+   if(net_R >= 1.0 && mae_R <= 0.25)
+      return "PAPER_PATH_BUCKET_CLEAN_POSITIVE_R";
+   if(net_R > 0.0 && mae_R <= 0.50)
+      return "PAPER_PATH_BUCKET_ACCEPTABLE_POSITIVE_R";
+   if(net_R > 0.0)
+      return "PAPER_PATH_BUCKET_POSITIVE_WITH_PULLBACK";
+   if(net_R == 0.0)
+      return "PAPER_PATH_BUCKET_FLAT_OR_NO_R";
+   return "PAPER_PATH_BUCKET_ADVERSE";
+}
+
+double FP_StateGatePaperPathSmoothnessScore(const double mfe_R,
+                                            const double mae_R,
+                                            const double net_R,
+                                            const string terminal_status)
+{
+   if(terminal_status == "PAPER_TRADE_TERMINAL_BLOCKED" ||
+      terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY")
+      return 0.0;
+
+   double score = 50.0;
+   score += MathMin(35.0, MathMax(0.0, net_R * 20.0));
+   score += MathMin(15.0, MathMax(0.0, mfe_R * 8.0));
+   score -= MathMin(45.0, MathMax(0.0, mae_R * 25.0));
+
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION")
+      score += 10.0;
+   if(terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION")
+      score -= 20.0;
+   if(terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS")
+      score -= 30.0;
+
+   if(score < 0.0)
+      score = 0.0;
+   if(score > 100.0)
+      score = 100.0;
+   return score;
+}
+
+string FP_StateGatePaperPathQualityStatus(const string bucket)
+{
+   if(bucket == "PAPER_PATH_BUCKET_CLEAN_POSITIVE_R")
+      return "PAPER_PATH_QUALITY_CLEAN_POSITIVE_CLOSE_ONLY";
+   if(bucket == "PAPER_PATH_BUCKET_ACCEPTABLE_POSITIVE_R")
+      return "PAPER_PATH_QUALITY_ACCEPTABLE_POSITIVE_CLOSE_ONLY";
+   if(bucket == "PAPER_PATH_BUCKET_POSITIVE_WITH_PULLBACK")
+      return "PAPER_PATH_QUALITY_POSITIVE_WITH_PULLBACK_CLOSE_ONLY";
+   if(bucket == "PAPER_PATH_BUCKET_ADVERSE")
+      return "PAPER_PATH_QUALITY_ADVERSE_CLOSE_ONLY";
+   if(bucket == "PAPER_PATH_BUCKET_AMBIGUOUS")
+      return "PAPER_PATH_QUALITY_AMBIGUOUS_CLOSE_ONLY";
+   if(bucket == "PAPER_PATH_BUCKET_PENDING_ENTRY")
+      return "PAPER_PATH_QUALITY_PENDING_ENTRY";
+   if(bucket == "PAPER_PATH_BUCKET_BLOCKED")
+      return "PAPER_PATH_QUALITY_BLOCKED";
+   return "PAPER_PATH_QUALITY_FLAT_OR_UNKNOWN_CLOSE_ONLY";
+}
+
+string FP_StateGatePaperPathQualityKey(const FP_StateGateSnapshot &snapshot,
+                                       const FP_StateGatePersistentPaperTradeLifecycleRow &l,
+                                       const string bucket,
+                                       const double mfe_R,
+                                       const double mae_R,
+                                       const double net_R)
+{
+   string key = snapshot.symbol;
+   key += "|TF=" + l.timeframe_label;
+   key += "|TRADE=" + FP_StateGateKeyPart(l.trade_id);
+   key += "|BUCKET=" + FP_StateGateKeyPart(bucket);
+   key += "|MFE_R=" + DoubleToString(mfe_R, 8);
+   key += "|MAE_R=" + DoubleToString(mae_R, 8);
+   key += "|NET_R=" + DoubleToString(net_R, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+bool FP_StateGateAddPaperPathQualityRow(FP_StateGateSnapshot &snapshot,
+                                        const int lifecycle_index)
+{
+   if(lifecycle_index < 0 || lifecycle_index >= snapshot.persistent_paper_trade_lifecycle_row_count)
+      return false;
+   if(snapshot.paper_path_quality_row_count >= FP_STATE_GATE_MAX_PAPER_PATH_QUALITY_ROWS)
+      return false;
+
+   FP_StateGatePersistentPaperTradeLifecycleRow l = snapshot.persistent_paper_trade_lifecycle_rows[lifecycle_index];
+   int idx = snapshot.paper_path_quality_row_count;
+   FP_ResetStateGatePaperPathQualityRow(snapshot.paper_path_quality_rows[idx]);
+
+   double risk = FP_StateGatePaperPathRiskDistance(l);
+   double favorable = FP_StateGatePaperPathFavorableDelta(l);
+   double adverse = FP_StateGatePaperPathAdverseDelta(l);
+   double mfe_R = 0.0;
+   double mae_R = 0.0;
+   double net_R = 0.0;
+
+   if(risk > 0.0)
+   {
+      mfe_R = favorable / risk;
+      mae_R = adverse / risk;
+      net_R = l.signed_delta / risk;
+   }
+
+   string pressure = FP_StateGatePaperPathPullbackPressureStatus(mfe_R, mae_R, l.terminal_status);
+   string bucket = FP_StateGatePaperPathQualityBucket(mfe_R, mae_R, net_R, l.terminal_status);
+   string status = FP_StateGatePaperPathQualityStatus(bucket);
+   double smoothness = FP_StateGatePaperPathSmoothnessScore(mfe_R, mae_R, net_R, l.terminal_status);
+   string key = FP_StateGatePaperPathQualityKey(snapshot, l, bucket, mfe_R, mae_R, net_R);
+
+   snapshot.paper_path_quality_rows[idx].slot_index = l.slot_index;
+   snapshot.paper_path_quality_rows[idx].timeframe = l.timeframe;
+   snapshot.paper_path_quality_rows[idx].timeframe_label = l.timeframe_label;
+   snapshot.paper_path_quality_rows[idx].evaluated_at = TimeCurrent();
+   snapshot.paper_path_quality_rows[idx].status = FP_STATE_GATE_ROW_PROJECTED;
+   snapshot.paper_path_quality_rows[idx].path_quality_status = status;
+   snapshot.paper_path_quality_rows[idx].path_quality_bucket = bucket;
+   snapshot.paper_path_quality_rows[idx].pullback_pressure_status = pressure;
+   snapshot.paper_path_quality_rows[idx].trade_id = l.trade_id;
+   snapshot.paper_path_quality_rows[idx].direction = l.direction;
+   snapshot.paper_path_quality_rows[idx].terminal_status = l.terminal_status;
+   snapshot.paper_path_quality_rows[idx].lifecycle_status = l.lifecycle_status;
+   snapshot.paper_path_quality_rows[idx].entry_price = l.entry_price;
+   snapshot.paper_path_quality_rows[idx].current_close = l.current_close;
+   snapshot.paper_path_quality_rows[idx].destination_price = l.destination_price;
+   snapshot.paper_path_quality_rows[idx].invalidation_price = l.invalidation_price;
+   snapshot.paper_path_quality_rows[idx].signed_delta = l.signed_delta;
+   snapshot.paper_path_quality_rows[idx].risk_distance = risk;
+   snapshot.paper_path_quality_rows[idx].favorable_delta = favorable;
+   snapshot.paper_path_quality_rows[idx].adverse_delta = adverse;
+   snapshot.paper_path_quality_rows[idx].mfe_proxy = favorable;
+   snapshot.paper_path_quality_rows[idx].mae_proxy = adverse;
+   snapshot.paper_path_quality_rows[idx].mfe_R = mfe_R;
+   snapshot.paper_path_quality_rows[idx].mae_R = mae_R;
+   snapshot.paper_path_quality_rows[idx].net_R = net_R;
+   snapshot.paper_path_quality_rows[idx].path_smoothness_score = smoothness;
+   snapshot.paper_path_quality_rows[idx].source_lifecycle_key = l.lifecycle_key;
+   snapshot.paper_path_quality_rows[idx].path_quality_key = key;
+   snapshot.paper_path_quality_rows[idx].execution_status = "REAL_EXECUTION_DISABLED_PHASE27_PATH_QUALITY_ONLY";
+   snapshot.paper_path_quality_rows[idx].label = l.timeframe_label + " | PAPER PATH QUALITY | " + status + " | " + bucket + " | MFE_R=" + DoubleToString(mfe_R, 4) + " | MAE_R=" + DoubleToString(mae_R, 4) + " | close_only=true";
+
+   snapshot.paper_path_quality_row_count++;
+   return true;
+}
+
+void FP_StateGateBuildPaperPathQualityRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_path_quality_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_PATH_QUALITY_ROWS; i++)
+      FP_ResetStateGatePaperPathQualityRow(snapshot.paper_path_quality_rows[i]);
+
+   for(int i=0; i<snapshot.persistent_paper_trade_lifecycle_row_count; i++)
+      FP_StateGateAddPaperPathQualityRow(snapshot, i);
+}
+
+void FP_StateGateFinalizeSnapshotPaperPathQuality(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_path_quality_total_rows = snapshot.paper_path_quality_row_count;
+   snapshot.paper_path_quality_clean_rows = 0;
+   snapshot.paper_path_quality_adverse_rows = 0;
+   snapshot.paper_path_quality_pending_rows = 0;
+   snapshot.paper_path_quality_blocked_rows = 0;
+   snapshot.paper_path_quality_ambiguous_rows = 0;
+   snapshot.paper_path_quality_r_ready_rows = 0;
+   snapshot.paper_path_quality_r_pending_rows = 0;
+   snapshot.paper_path_quality_avg_mfe_R = 0.0;
+   snapshot.paper_path_quality_avg_mae_R = 0.0;
+   snapshot.paper_path_quality_avg_net_R = 0.0;
+   snapshot.paper_path_quality_best_mfe_R = 0.0;
+   snapshot.paper_path_quality_worst_mae_R = 0.0;
+   snapshot.paper_path_quality_avg_smoothness_score = 0.0;
+   snapshot.paper_path_quality_execution_status = "REAL_EXECUTION_DISABLED_PHASE27_PATH_QUALITY_ONLY";
+
+   double sum_mfe = 0.0;
+   double sum_mae = 0.0;
+   double sum_net = 0.0;
+   double sum_score = 0.0;
+   bool has_r = false;
+   double best_mfe = 0.0;
+   double worst_mae = 0.0;
+
+   for(int i=0; i<snapshot.paper_path_quality_row_count; i++)
+   {
+      FP_StateGatePaperPathQualityRow row = snapshot.paper_path_quality_rows[i];
+
+      if(StringFind(row.path_quality_bucket, "CLEAN") >= 0 ||
+         StringFind(row.path_quality_bucket, "ACCEPTABLE") >= 0)
+         snapshot.paper_path_quality_clean_rows++;
+      else if(StringFind(row.path_quality_bucket, "ADVERSE") >= 0 ||
+              StringFind(row.path_quality_bucket, "PULLBACK") >= 0)
+         snapshot.paper_path_quality_adverse_rows++;
+      else if(StringFind(row.path_quality_bucket, "PENDING") >= 0)
+         snapshot.paper_path_quality_pending_rows++;
+      else if(StringFind(row.path_quality_bucket, "BLOCKED") >= 0)
+         snapshot.paper_path_quality_blocked_rows++;
+      else if(StringFind(row.path_quality_bucket, "AMBIGUOUS") >= 0)
+         snapshot.paper_path_quality_ambiguous_rows++;
+
+      if(row.risk_distance > 0.0)
+      {
+         snapshot.paper_path_quality_r_ready_rows++;
+         sum_mfe += row.mfe_R;
+         sum_mae += row.mae_R;
+         sum_net += row.net_R;
+         if(!has_r)
+         {
+            best_mfe = row.mfe_R;
+            worst_mae = row.mae_R;
+            has_r = true;
+         }
+         else
+         {
+            if(row.mfe_R > best_mfe)
+               best_mfe = row.mfe_R;
+            if(row.mae_R > worst_mae)
+               worst_mae = row.mae_R;
+         }
+      }
+      else
+         snapshot.paper_path_quality_r_pending_rows++;
+
+      sum_score += row.path_smoothness_score;
+   }
+
+   if(snapshot.paper_path_quality_r_ready_rows > 0)
+   {
+      snapshot.paper_path_quality_avg_mfe_R = sum_mfe / snapshot.paper_path_quality_r_ready_rows;
+      snapshot.paper_path_quality_avg_mae_R = sum_mae / snapshot.paper_path_quality_r_ready_rows;
+      snapshot.paper_path_quality_avg_net_R = sum_net / snapshot.paper_path_quality_r_ready_rows;
+      snapshot.paper_path_quality_best_mfe_R = best_mfe;
+      snapshot.paper_path_quality_worst_mae_R = worst_mae;
+   }
+
+   if(snapshot.paper_path_quality_row_count > 0)
+      snapshot.paper_path_quality_avg_smoothness_score = sum_score / snapshot.paper_path_quality_row_count;
+
+   snapshot.paper_path_quality_distribution = "TOTAL=" + IntegerToString(snapshot.paper_path_quality_total_rows) + "|CLEAN=" + IntegerToString(snapshot.paper_path_quality_clean_rows) + "|ADVERSE=" + IntegerToString(snapshot.paper_path_quality_adverse_rows) + "|PEND=" + IntegerToString(snapshot.paper_path_quality_pending_rows) + "|AMB=" + IntegerToString(snapshot.paper_path_quality_ambiguous_rows) + "|BLOCK=" + IntegerToString(snapshot.paper_path_quality_blocked_rows) + "|RREADY=" + IntegerToString(snapshot.paper_path_quality_r_ready_rows) + "|RPEND=" + IntegerToString(snapshot.paper_path_quality_r_pending_rows);
+
+   if(snapshot.paper_path_quality_row_count <= 0)
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_EMPTY_NO_EXECUTION";
+   else if(snapshot.paper_path_quality_ambiguous_rows > 0)
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   else if(snapshot.paper_path_quality_clean_rows > 0 && snapshot.paper_path_quality_adverse_rows == 0)
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_CLEAN_DOMINANT_NO_EXECUTION";
+   else if(snapshot.paper_path_quality_adverse_rows > 0 && snapshot.paper_path_quality_clean_rows == 0)
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_ADVERSE_DOMINANT_NO_EXECUTION";
+   else if(snapshot.paper_path_quality_pending_rows > 0)
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_HAS_PENDING_ROWS_NO_EXECUTION";
+   else
+      snapshot.paper_path_quality_status = "PAPER_PATH_QUALITY_MIXED_NO_EXECUTION";
+
+   snapshot.paper_path_quality_key = snapshot.symbol + "|PATH_QUALITY=" + IntegerToString(snapshot.paper_path_quality_row_count) + "|" + snapshot.paper_path_quality_distribution + "|EXEC=DISABLED";
+   snapshot.paper_path_quality_notes = snapshot.paper_path_quality_status + "|" + snapshot.paper_path_quality_distribution;
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
