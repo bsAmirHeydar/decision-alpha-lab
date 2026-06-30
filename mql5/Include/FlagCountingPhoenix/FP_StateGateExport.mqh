@@ -647,6 +647,9 @@ bool FP_StateGateExportPanelLinesCsv(const string path,
    string trade_lifecycle_text = "paper trade lifecycle | rows=" + IntegerToString(snapshot.persistent_paper_trade_lifecycle_row_count) + " | " + snapshot.persistent_paper_trade_lifecycle_status + " | " + snapshot.persistent_paper_trade_lifecycle_distribution;
    FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, -1, "GLOBAL", "PERSISTENT_PAPER_TRADE_LIFECYCLE", -1, "PERSISTENT_PAPER_TRADE_LIFECYCLE", snapshot.persistent_paper_trade_lifecycle_key, trade_lifecycle_text, snapshot.generated_at, "", "", ""));
 
+   string performance_text = "performance | rows=" + IntegerToString(snapshot.paper_performance_row_count) + " | " + snapshot.paper_performance_status + " | " + snapshot.paper_performance_distribution + " | avgR=" + FP_ExportDouble(snapshot.paper_performance_avg_R);
+   FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, -1, "GLOBAL", "PAPER_PERFORMANCE", -1, "PAPER_PERFORMANCE", snapshot.paper_performance_key, performance_text, snapshot.generated_at, "", "", ""));
+
    string regime_global = "regime | rows=" + IntegerToString(snapshot.paper_regime_row_count) + " | attribution=paper_result_context | real_execution=false";
    FP_StateGateExportWriteLine(handle, FP_StateGatePanelLineRow(cfg, snapshot, line_index++, -1, "GLOBAL", "PAPER_REGIME_GLOBAL", -1, "PAPER_REGIME", "PAPER_REGIME_GLOBAL", regime_global, snapshot.generated_at, "", "", ""));
 
@@ -2446,6 +2449,101 @@ bool FP_StateGateExportPersistentPaperTradeLifecycleCsv(const string path,
 }
 
 
+
+string FP_StateGatePaperPerformanceHeader()
+{
+   string h = "";
+   FP_ExportCsvAppend(h, "symbol");
+   FP_ExportCsvAppend(h, "chart_timeframe");
+   FP_ExportCsvAppend(h, "row_index");
+   FP_ExportCsvAppend(h, "summarized_at");
+   FP_ExportCsvAppend(h, "status");
+   FP_ExportCsvAppend(h, "performance_status");
+   FP_ExportCsvAppend(h, "source_lifecycle_rows");
+   FP_ExportCsvAppend(h, "closed_rows");
+   FP_ExportCsvAppend(h, "open_rows");
+   FP_ExportCsvAppend(h, "pending_entry_rows");
+   FP_ExportCsvAppend(h, "blocked_rows");
+   FP_ExportCsvAppend(h, "ambiguous_rows");
+   FP_ExportCsvAppend(h, "win_rows");
+   FP_ExportCsvAppend(h, "loss_rows");
+   FP_ExportCsvAppend(h, "r_ready_rows");
+   FP_ExportCsvAppend(h, "r_pending_rows");
+   FP_ExportCsvAppend(h, "win_rate_like");
+   FP_ExportCsvAppend(h, "closed_win_rate_like");
+   FP_ExportCsvAppend(h, "net_delta");
+   FP_ExportCsvAppend(h, "avg_delta");
+   FP_ExportCsvAppend(h, "net_R");
+   FP_ExportCsvAppend(h, "avg_R");
+   FP_ExportCsvAppend(h, "expectancy_R");
+   FP_ExportCsvAppend(h, "best_R");
+   FP_ExportCsvAppend(h, "worst_R");
+   FP_ExportCsvAppend(h, "distribution");
+   FP_ExportCsvAppend(h, "r_distribution");
+   FP_ExportCsvAppend(h, "performance_key");
+   FP_ExportCsvAppend(h, "execution_status");
+   FP_ExportCsvAppend(h, "label");
+   return h;
+}
+
+string FP_StateGatePaperPerformanceRowCsv(const FP_StateGateSnapshot &snapshot,
+                                          const int index)
+{
+   FP_StateGatePaperPerformanceRow p = snapshot.paper_performance_rows[index];
+   string line = "";
+   FP_ExportCsvAppend(line, snapshot.symbol);
+   FP_ExportCsvAppend(line, EnumToString(snapshot.chart_timeframe));
+   FP_ExportCsvAppend(line, IntegerToString(p.row_index));
+   FP_ExportCsvAppend(line, FP_ExportTime(p.summarized_at));
+   FP_ExportCsvAppend(line, IntegerToString(p.status));
+   FP_ExportCsvAppend(line, p.performance_status);
+   FP_ExportCsvAppend(line, IntegerToString(p.source_lifecycle_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.closed_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.open_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.pending_entry_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.blocked_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.ambiguous_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.win_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.loss_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.r_ready_rows));
+   FP_ExportCsvAppend(line, IntegerToString(p.r_pending_rows));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.win_rate_like));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.closed_win_rate_like));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.net_delta));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.avg_delta));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.net_R));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.avg_R));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.expectancy_R));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.best_R));
+   FP_ExportCsvAppend(line, FP_ExportDouble(p.worst_R));
+   FP_ExportCsvAppend(line, p.distribution);
+   FP_ExportCsvAppend(line, p.r_distribution);
+   FP_ExportCsvAppend(line, p.performance_key);
+   FP_ExportCsvAppend(line, p.execution_status);
+   FP_ExportCsvAppend(line, p.label);
+   return line;
+}
+
+bool FP_StateGateExportPaperPerformanceCsv(const string path,
+                                           const FP_StateGateSnapshot &snapshot,
+                                           FP_StateGateReport &report)
+{
+   int handle = INVALID_HANDLE;
+   if(!FP_StateGateExportOpenWrite(path, handle))
+   {
+      report.file_errors++;
+      report.reason = report.reason + ";state_gate_paper_performance_open_failed";
+      return false;
+   }
+   FP_StateGateExportWriteLine(handle, FP_StateGatePaperPerformanceHeader());
+   for(int i=0; i<snapshot.paper_performance_row_count; i++)
+      FP_StateGateExportWriteLine(handle, FP_StateGatePaperPerformanceRowCsv(snapshot, i));
+   FileClose(handle);
+   report.files_written++;
+   return true;
+}
+
+
 void FP_StateGateManifestKV(const int handle, const string key, const string value)
 {
    string row = "";
@@ -2637,6 +2735,7 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "export_paper_policy_csv", FP_ExportBool(cfg.export_paper_policy_csv));
    FP_StateGateManifestKV(handle, "export_persistent_paper_trades_csv", FP_ExportBool(cfg.export_persistent_paper_trades_csv));
    FP_StateGateManifestKV(handle, "export_persistent_paper_trade_lifecycle_csv", FP_ExportBool(cfg.export_persistent_paper_trade_lifecycle_csv));
+   FP_StateGateManifestKV(handle, "export_paper_performance_csv", FP_ExportBool(cfg.export_paper_performance_csv));
    FP_StateGateManifestKV(handle, "entry_idea_rows", IntegerToString(snapshot.entry_idea_row_count));
    FP_StateGateManifestKV(handle, "entry_decision_rows", IntegerToString(snapshot.entry_decision_row_count));
    FP_StateGateManifestKV(handle, "paper_ledger_rows", IntegerToString(snapshot.paper_ledger_row_count));
@@ -2648,6 +2747,7 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "paper_policy_rows", IntegerToString(snapshot.paper_policy_row_count));
    FP_StateGateManifestKV(handle, "persistent_paper_trade_rows", IntegerToString(snapshot.persistent_paper_trade_row_count));
    FP_StateGateManifestKV(handle, "persistent_paper_trade_lifecycle_rows", IntegerToString(snapshot.persistent_paper_trade_lifecycle_row_count));
+   FP_StateGateManifestKV(handle, "paper_performance_rows", IntegerToString(snapshot.paper_performance_row_count));
    FP_StateGateManifestKV(handle, "contract_rows", IntegerToString(snapshot.timeframe_count));
    FP_StateGateManifestKV(handle, "paper_filter_status", snapshot.paper_filter_status);
    FP_StateGateManifestKV(handle, "paper_filter_best_filter", snapshot.paper_filter_best_filter);
@@ -2657,7 +2757,8 @@ bool FP_StateGateExportManifestCsv(const string path,
    FP_StateGateManifestKV(handle, "persistent_paper_trade_status", snapshot.persistent_paper_trade_status);
    FP_StateGateManifestKV(handle, "persistent_paper_trade_registered_rows", IntegerToString(snapshot.persistent_paper_trade_registered_rows));
    FP_StateGateManifestKV(handle, "persistent_paper_trade_lifecycle_status", snapshot.persistent_paper_trade_lifecycle_status);
-   FP_StateGateManifestKV(handle, "projection_state", "phase25_persistent_paper_trade_lifecycle");
+   FP_StateGateManifestKV(handle, "paper_performance_status", snapshot.paper_performance_status);
+   FP_StateGateManifestKV(handle, "projection_state", "phase26_paper_performance_report");
 
    FileClose(handle);
    report.files_written++;
@@ -2699,6 +2800,7 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
    string paper_policy_path = FP_StateGateExportPath("paper_policy", cfg);
    string persistent_paper_trades_path = FP_StateGateExportPath("persistent_paper_trades", cfg);
    string persistent_paper_trade_lifecycle_path = FP_StateGateExportPath("persistent_paper_trade_lifecycle", cfg);
+   string paper_performance_path = FP_StateGateExportPath("paper_performance", cfg);
    string manifest_path = FP_StateGateExportPath("manifest", cfg);
 
    FP_StateGateExportSummaryCsv(summary_path, snapshot, report);
@@ -2741,6 +2843,8 @@ void FP_StateGateExportLatestCsv(const FP_StateGateConfig &cfg,
       FP_StateGateExportPersistentPaperTradesCsv(persistent_paper_trades_path, snapshot, report);
    if(cfg.export_persistent_paper_trade_lifecycle_csv)
       FP_StateGateExportPersistentPaperTradeLifecycleCsv(persistent_paper_trade_lifecycle_path, snapshot, report);
+   if(cfg.export_paper_performance_csv)
+      FP_StateGateExportPaperPerformanceCsv(paper_performance_path, snapshot, report);
    FP_StateGateExportManifestCsv(manifest_path, cfg, snapshot, report);
 }
 

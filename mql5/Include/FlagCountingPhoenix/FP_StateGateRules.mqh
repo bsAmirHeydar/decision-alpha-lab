@@ -4523,6 +4523,216 @@ void FP_StateGateFinalizeSnapshotPersistentPaperTradeLifecycle(FP_StateGateSnaps
 }
 
 
+
+// ---------------------------------------------------------------------------
+// Phase 26 - Paper Performance Report
+// ---------------------------------------------------------------------------
+// This layer summarizes persistent paper trade lifecycle rows into a
+// non-executable performance report. It does not approve or place trades.
+
+bool FP_StateGatePaperPerformanceTerminalWin(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_HIT_DESTINATION");
+}
+
+bool FP_StateGatePaperPerformanceTerminalLoss(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_HIT_INVALIDATION");
+}
+
+bool FP_StateGatePaperPerformanceTerminalOpen(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_OPEN");
+}
+
+bool FP_StateGatePaperPerformanceTerminalPending(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_PENDING_ENTRY");
+}
+
+bool FP_StateGatePaperPerformanceTerminalAmbiguous(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_AMBIGUOUS");
+}
+
+bool FP_StateGatePaperPerformanceTerminalBlocked(const string terminal_status)
+{
+   return (terminal_status == "PAPER_TRADE_TERMINAL_BLOCKED" || terminal_status == "PAPER_TRADE_TERMINAL_UNKNOWN");
+}
+
+string FP_StateGatePaperPerformanceStatus(const FP_StateGatePaperPerformanceRow &p)
+{
+   if(p.source_lifecycle_rows <= 0)
+      return "PAPER_PERFORMANCE_EMPTY_NO_EXECUTION";
+   if(p.ambiguous_rows > 0)
+      return "PAPER_PERFORMANCE_HAS_AMBIGUOUS_ROWS_NO_EXECUTION";
+   if(p.closed_rows > 0 && p.win_rows > 0 && p.loss_rows > 0)
+      return "PAPER_PERFORMANCE_CLOSED_MIXED_NO_EXECUTION";
+   if(p.closed_rows > 0 && p.win_rows > 0 && p.loss_rows == 0)
+      return "PAPER_PERFORMANCE_CLOSED_WIN_LIKE_ONLY_NO_EXECUTION";
+   if(p.closed_rows > 0 && p.loss_rows > 0 && p.win_rows == 0)
+      return "PAPER_PERFORMANCE_CLOSED_LOSS_LIKE_ONLY_NO_EXECUTION";
+   if(p.open_rows > 0)
+      return "PAPER_PERFORMANCE_OPEN_ONLY_OR_OPEN_DOMINANT_NO_EXECUTION";
+   if(p.pending_entry_rows > 0)
+      return "PAPER_PERFORMANCE_PENDING_ENTRY_ONLY_NO_EXECUTION";
+   if(p.blocked_rows > 0)
+      return "PAPER_PERFORMANCE_BLOCKED_ONLY_NO_EXECUTION";
+   return "PAPER_PERFORMANCE_UNKNOWN_NO_EXECUTION";
+}
+
+string FP_StateGatePaperPerformanceKey(const FP_StateGateSnapshot &snapshot,
+                                       const FP_StateGatePaperPerformanceRow &p)
+{
+   string key = snapshot.symbol;
+   key += "|PERF_ROWS=" + IntegerToString(p.source_lifecycle_rows);
+   key += "|CLOSED=" + IntegerToString(p.closed_rows);
+   key += "|W=" + IntegerToString(p.win_rows);
+   key += "|L=" + IntegerToString(p.loss_rows);
+   key += "|OPEN=" + IntegerToString(p.open_rows);
+   key += "|AVG_R=" + DoubleToString(p.avg_R, 8);
+   key += "|EXEC=DISABLED";
+   return key;
+}
+
+void FP_StateGateBuildPaperPerformanceRows(FP_StateGateSnapshot &snapshot)
+{
+   snapshot.paper_performance_row_count = 0;
+   for(int i=0; i<FP_STATE_GATE_MAX_PAPER_PERFORMANCE_ROWS; i++)
+      FP_ResetStateGatePaperPerformanceRow(snapshot.paper_performance_rows[i]);
+
+   int idx = 0;
+   FP_ResetStateGatePaperPerformanceRow(snapshot.paper_performance_rows[idx]);
+   FP_StateGatePaperPerformanceRow row;
+   FP_ResetStateGatePaperPerformanceRow(row);
+
+   row.row_index = 0;
+   row.summarized_at = TimeCurrent();
+   row.status = FP_STATE_GATE_ROW_PROJECTED;
+   row.execution_status = "REAL_EXECUTION_DISABLED_PHASE26_PERFORMANCE_ONLY";
+
+   double r_sum = 0.0;
+   bool has_r = false;
+   double best_r = 0.0;
+   double worst_r = 0.0;
+
+   for(int i=0; i<snapshot.persistent_paper_trade_lifecycle_row_count; i++)
+   {
+      FP_StateGatePersistentPaperTradeLifecycleRow l = snapshot.persistent_paper_trade_lifecycle_rows[i];
+      row.source_lifecycle_rows++;
+      row.net_delta += l.signed_delta;
+
+      if(FP_StateGatePaperPerformanceTerminalWin(l.terminal_status))
+      {
+         row.win_rows++;
+         row.closed_rows++;
+      }
+      else if(FP_StateGatePaperPerformanceTerminalLoss(l.terminal_status))
+      {
+         row.loss_rows++;
+         row.closed_rows++;
+      }
+      else if(FP_StateGatePaperPerformanceTerminalOpen(l.terminal_status))
+         row.open_rows++;
+      else if(FP_StateGatePaperPerformanceTerminalPending(l.terminal_status))
+         row.pending_entry_rows++;
+      else if(FP_StateGatePaperPerformanceTerminalAmbiguous(l.terminal_status))
+         row.ambiguous_rows++;
+      else
+         row.blocked_rows++;
+
+      if(StringFind(l.r_status, "READY") >= 0)
+      {
+         row.r_ready_rows++;
+         row.net_R += l.r_multiple;
+         r_sum += l.r_multiple;
+         if(!has_r)
+         {
+            best_r = l.r_multiple;
+            worst_r = l.r_multiple;
+            has_r = true;
+         }
+         else
+         {
+            if(l.r_multiple > best_r)
+               best_r = l.r_multiple;
+            if(l.r_multiple < worst_r)
+               worst_r = l.r_multiple;
+         }
+      }
+      else
+         row.r_pending_rows++;
+   }
+
+   if(row.source_lifecycle_rows > 0)
+   {
+      row.avg_delta = row.net_delta / row.source_lifecycle_rows;
+      row.win_rate_like = (double)row.win_rows / (double)row.source_lifecycle_rows;
+   }
+
+   if(row.closed_rows > 0)
+      row.closed_win_rate_like = (double)row.win_rows / (double)row.closed_rows;
+
+   if(row.r_ready_rows > 0)
+   {
+      row.avg_R = row.net_R / row.r_ready_rows;
+      row.expectancy_R = row.avg_R;
+      row.best_R = best_r;
+      row.worst_R = worst_r;
+   }
+
+   row.distribution = "SRC=" + IntegerToString(row.source_lifecycle_rows) + "|CLOSED=" + IntegerToString(row.closed_rows) + "|W=" + IntegerToString(row.win_rows) + "|L=" + IntegerToString(row.loss_rows) + "|OPEN=" + IntegerToString(row.open_rows) + "|PEND=" + IntegerToString(row.pending_entry_rows) + "|AMB=" + IntegerToString(row.ambiguous_rows) + "|BLOCK=" + IntegerToString(row.blocked_rows);
+   row.r_distribution = "R_READY=" + IntegerToString(row.r_ready_rows) + "|R_PENDING=" + IntegerToString(row.r_pending_rows) + "|NET_R=" + DoubleToString(row.net_R, 8) + "|AVG_R=" + DoubleToString(row.avg_R, 8);
+   row.performance_status = FP_StateGatePaperPerformanceStatus(row);
+   row.performance_key = FP_StateGatePaperPerformanceKey(snapshot, row);
+   row.label = "Paper performance | " + row.performance_status + " | " + row.distribution + " | " + row.r_distribution + " | real_execution=false";
+
+   snapshot.paper_performance_rows[idx] = row;
+   snapshot.paper_performance_row_count = 1;
+}
+
+void FP_StateGateFinalizeSnapshotPaperPerformance(FP_StateGateSnapshot &snapshot)
+{
+   if(snapshot.paper_performance_row_count <= 0)
+   {
+      snapshot.paper_performance_status = "PAPER_PERFORMANCE_EMPTY_NO_ROW";
+      snapshot.paper_performance_key = "NO_PAPER_PERFORMANCE_KEY";
+      snapshot.paper_performance_distribution = "NO_PAPER_PERFORMANCE_DISTRIBUTION";
+      snapshot.paper_performance_r_distribution = "NO_PAPER_R_DISTRIBUTION";
+      snapshot.paper_performance_execution_status = "REAL_EXECUTION_DISABLED_PHASE26_PERFORMANCE_ONLY";
+      snapshot.paper_performance_notes = "No paper performance row was built";
+      return;
+   }
+
+   FP_StateGatePaperPerformanceRow p = snapshot.paper_performance_rows[0];
+   snapshot.paper_performance_status = p.performance_status;
+   snapshot.paper_performance_key = p.performance_key;
+   snapshot.paper_performance_source_lifecycle_rows = p.source_lifecycle_rows;
+   snapshot.paper_performance_closed_rows = p.closed_rows;
+   snapshot.paper_performance_open_rows = p.open_rows;
+   snapshot.paper_performance_pending_entry_rows = p.pending_entry_rows;
+   snapshot.paper_performance_blocked_rows = p.blocked_rows;
+   snapshot.paper_performance_ambiguous_rows = p.ambiguous_rows;
+   snapshot.paper_performance_win_rows = p.win_rows;
+   snapshot.paper_performance_loss_rows = p.loss_rows;
+   snapshot.paper_performance_r_ready_rows = p.r_ready_rows;
+   snapshot.paper_performance_r_pending_rows = p.r_pending_rows;
+   snapshot.paper_performance_win_rate_like = p.win_rate_like;
+   snapshot.paper_performance_closed_win_rate_like = p.closed_win_rate_like;
+   snapshot.paper_performance_net_delta = p.net_delta;
+   snapshot.paper_performance_avg_delta = p.avg_delta;
+   snapshot.paper_performance_net_R = p.net_R;
+   snapshot.paper_performance_avg_R = p.avg_R;
+   snapshot.paper_performance_expectancy_R = p.expectancy_R;
+   snapshot.paper_performance_best_R = p.best_R;
+   snapshot.paper_performance_worst_R = p.worst_R;
+   snapshot.paper_performance_distribution = p.distribution;
+   snapshot.paper_performance_r_distribution = p.r_distribution;
+   snapshot.paper_performance_execution_status = p.execution_status;
+   snapshot.paper_performance_notes = p.label;
+}
+
+
 string FP_StateGateHeaderLabel(const FP_StateGateSnapshot &snapshot)
 {
    string header = "FLAG STATE GATE ";
