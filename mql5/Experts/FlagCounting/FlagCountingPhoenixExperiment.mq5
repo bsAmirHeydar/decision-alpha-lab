@@ -14,6 +14,8 @@
 #include "../../Include/FlagCountingPhoenix/FP_LicenseEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_StateGateEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_EntryBridgeEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_PaperIntentEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_PaperLifecycleEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -388,6 +390,25 @@ input bool   InpLevel20EntryBridgeAllowHookFallback = true;
 input double InpLevel20EntryBridgeMinRR = 1.0;
 input string InpLevel20EntryBridgeFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 21 Paper Intent -----------------------
+// Paper intent seed only. No order, no broker request, no real execution.
+input bool   InpLevel21PaperIntentEnabled = true;
+input bool   InpLevel21PaperIntentExportCsv = true;
+input bool   InpLevel21PaperIntentPrintSummary = false;
+input bool   InpLevel21PaperIntentRequireEntryBridgeReady = true;
+input bool   InpLevel21PaperIntentRequireDirectionalGeometry = true;
+input int    InpLevel21PaperIntentExpiryBars = 20;
+input string InpLevel21PaperIntentFolder = "FlagCountingPhoenix";
+
+// ------------------------------ Level 22 Paper Lifecycle --------------------
+// Close-only paper lifecycle reconstruction. No order, no broker request, no real execution.
+input bool   InpLevel22PaperLifecycleEnabled = true;
+input bool   InpLevel22PaperLifecycleExportCsv = true;
+input bool   InpLevel22PaperLifecyclePrintSummary = false;
+input bool   InpLevel22PaperLifecycleRequireIntentAllowed = true;
+input int    InpLevel22PaperLifecycleDefaultExpiryBars = 20;
+input string InpLevel22PaperLifecycleFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -623,6 +644,33 @@ void FP_LoadLevel20EntryBridgeConfig(FP_Level20EntryBridgeConfig &cfg)
    cfg.allow_hook_fallback = InpLevel20EntryBridgeAllowHookFallback;
    cfg.min_rr = InpLevel20EntryBridgeMinRR;
    cfg.folder = InpLevel20EntryBridgeFolder;
+}
+
+
+
+void FP_LoadLevel21PaperIntentConfig(FP_Level21PaperIntentConfig &cfg)
+{
+   FP_ResetLevel21PaperIntentConfig(cfg);
+   cfg.enabled = InpLevel21PaperIntentEnabled;
+   cfg.export_csv = InpLevel21PaperIntentExportCsv;
+   cfg.print_summary = InpLevel21PaperIntentPrintSummary;
+   cfg.require_entry_bridge_ready = InpLevel21PaperIntentRequireEntryBridgeReady;
+   cfg.require_directional_geometry = InpLevel21PaperIntentRequireDirectionalGeometry;
+   cfg.expiry_bars = InpLevel21PaperIntentExpiryBars;
+   cfg.folder = InpLevel21PaperIntentFolder;
+}
+
+
+
+void FP_LoadLevel22PaperLifecycleConfig(FP_Level22PaperLifecycleConfig &cfg)
+{
+   FP_ResetLevel22PaperLifecycleConfig(cfg);
+   cfg.enabled = InpLevel22PaperLifecycleEnabled;
+   cfg.export_csv = InpLevel22PaperLifecycleExportCsv;
+   cfg.print_summary = InpLevel22PaperLifecyclePrintSummary;
+   cfg.require_intent_allowed = InpLevel22PaperLifecycleRequireIntentAllowed;
+   cfg.default_expiry_bars = InpLevel22PaperLifecycleDefaultExpiryBars;
+   cfg.folder = InpLevel22PaperLifecycleFolder;
 }
 
 
@@ -926,6 +974,12 @@ void FP_Run()
    FP_Level20EntryBridgeConfig entry_bridge_cfg;
    FP_LoadLevel20EntryBridgeConfig(entry_bridge_cfg);
 
+   FP_Level21PaperIntentConfig paper_intent_cfg;
+   FP_LoadLevel21PaperIntentConfig(paper_intent_cfg);
+
+   FP_Level22PaperLifecycleConfig paper_lifecycle_cfg;
+   FP_LoadLevel22PaperLifecycleConfig(paper_lifecycle_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1102,6 +1156,25 @@ void FP_Run()
                             entry_bridge_cfg, entry_bridge_report);
    if(entry_bridge_cfg.print_summary)
       FP_PrintLevel20EntryBridgeReport("FP_LEVEL20", entry_bridge_report);
+
+   FP_Level21PaperIntentReport paper_intent_report;
+   FP_RunLevel21PaperIntent(_Symbol, _Period, rates, copied,
+                            events, hooks, timebase_report,
+                            render_report, validation_report,
+                            entry_bridge_cfg, paper_intent_cfg,
+                            paper_intent_report);
+   if(paper_intent_cfg.print_summary)
+      FP_PrintLevel21PaperIntentReport("FP_LEVEL21", paper_intent_report);
+
+   FP_Level22PaperLifecycleReport paper_lifecycle_report;
+   FP_RunLevel22PaperLifecycle(_Symbol, _Period, rates, copied,
+                               events, hooks, timebase_report,
+                               render_report, validation_report,
+                               entry_bridge_cfg, paper_intent_cfg,
+                               paper_lifecycle_cfg,
+                               paper_lifecycle_report);
+   if(paper_lifecycle_cfg.print_summary)
+      FP_PrintLevel22PaperLifecycleReport("FP_LEVEL22", paper_lifecycle_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

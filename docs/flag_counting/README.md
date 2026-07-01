@@ -187,3 +187,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_20_ENTRY_BRIDGE_XY_ANCHOR_JOIN.md
 ```
 
 Level 20 adds `state_gate_level20_entry_bridge.csv`, a read-only bridge from Level 19 observation state to X-axis structural anchors. It derives entry, invalidation, and destination anchors from the latest visible event or Hook/ND fallback, computes RR-like readiness, and outputs readiness/block reasons without creating paper orders, broker requests, real orders, panel objects, renderer mutations, or chart-object changes.
+
+
+## Level 21 — Paper Intent / No Order
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_21_PAPER_INTENT_NO_ORDER.md
+```
+
+Level 21 adds `state_gate_level21_paper_intents.csv`, converting a ready Level 20 Entry Bridge row into a paper intent seed with direction, entry price, stop price, target price, RR-like value, geometry status, allowed/blocked status, and block reason. It remains CSV-only, print-silent by default, panel-off by default, and adds no paper order, broker request, volume sizing, real order, renderer mutation, or chart-object change.
+
+
+## Level 22 — Paper Lifecycle Close-Only
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_22_PAPER_LIFECYCLE_CLOSE_ONLY.md
+```
+
+Level 22 adds `state_gate_level22_paper_lifecycle.csv`, reconstructing a close-only lifecycle for the Level 21 paper intent. It tracks blocked, pending, entered-by-close, target-by-close, stop-by-close, expired, open, and ambiguous states, plus close-only MFE/MAE and realized R-like metrics, without creating paper orders, broker requests, real orders, volume sizing, renderer mutations, or chart-object changes.
