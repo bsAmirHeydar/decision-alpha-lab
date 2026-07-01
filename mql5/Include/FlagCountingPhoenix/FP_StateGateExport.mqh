@@ -12,6 +12,14 @@ string FP_L19ExportPath(const FP_Level19StateGateConfig &cfg)
    return folder + "\\latest_state_gate_level19.csv";
 }
 
+string FP_L19ClosedBarLedgerPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_closed_bar_ledger.csv";
+}
+
 string FP_L19Header()
 {
    return "generated_at,version,symbol,period,bars,scale_count,timebase_ok,timebase_status,timebase_reason,first_bar_time,last_bar_time,raw_nodes_total,nodes_total,confirmed_nodes_total,pending_nodes_total,hooks_total,visible_hooks_seen,events_total,visible_events_total,hidden_events_total,f1_total,f2_total,f3_total,nd_total,export_attempted,export_ok,export_files_written,export_file_errors,render_attempted,render_ok,render_objects_created,render_object_errors,render_objects_deleted,render_reason,validation_attempted,validation_ok,validation_failed,validation_warned,latest_visible_event_id,latest_visible_event_level,latest_visible_event_L,latest_visible_event_direction,latest_visible_event_status,latest_visible_hook_id,latest_visible_hook_L,latest_visible_hook_direction,latest_visible_hook_status,latest_visible_hook_is_nd,latest_visible_hook_node_count,state_status,state_key,no_touch_contract";
@@ -101,6 +109,57 @@ bool FP_L19ExportSnapshot(const FP_Level19StateGateConfig &cfg,
    FileClose(handle);
 
    report.files_written++;
+   return true;
+}
+
+
+bool FP_L19AppendClosedBarLedger(const FP_Level19StateGateConfig &cfg,
+                                 const FP_Level19StateGateSnapshot &s,
+                                 FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_closed_bar_ledger_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   string path = FP_L19ClosedBarLedgerPath(cfg);
+   bool exists = FileIsExist(path);
+
+   int handle = INVALID_HANDLE;
+   if(!exists)
+   {
+      handle = FileOpen(path, FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_closed_bar_ledger_create_failed";
+         return false;
+      }
+      FileWriteString(handle, FP_L19Header() + "\r\n");
+      FileWriteString(handle, FP_L19Row(s) + "\r\n");
+      FileClose(handle);
+      report.files_written++;
+      report.ledger_written = true;
+      return true;
+   }
+
+   handle = FileOpen(path, FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
+   if(handle == INVALID_HANDLE)
+   {
+      report.file_errors++;
+      report.reason = "level19_closed_bar_ledger_open_failed";
+      return false;
+   }
+
+   FileSeek(handle, 0, SEEK_END);
+   FileWriteString(handle, FP_L19Row(s) + "\r\n");
+   FileClose(handle);
+
+   report.files_written++;
+   report.ledger_written = true;
    return true;
 }
 

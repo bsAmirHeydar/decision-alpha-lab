@@ -142,3 +142,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19A_SILENT_DEFAULTS_AND_LIFECYCLE_CLEANUP
 ```
 
 Level 19A disables all print inputs by default while keeping them manually switchable, and makes chart-object cleanup explicit on init, deinit, timeframe change, remove, recompile, parameter change, and template apply without touching renderer source files or F/Hook/Node drawing logic.
+
+
+## Level 19B — Closed-Bar State Ledger
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19B_CLOSED_BAR_STATE_LEDGER.md
+```
+
+Level 19B adds an append-only closed-bar state ledger CSV while preserving the clean read-only Level 19 contract. It keeps the panel disabled by default, prints silent by default, and does not touch renderer source files, curves, F/Hook/Node drawings, RTV, zones, or execution logic.

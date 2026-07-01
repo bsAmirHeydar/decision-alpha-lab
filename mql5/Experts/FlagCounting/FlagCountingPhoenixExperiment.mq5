@@ -358,6 +358,7 @@ input color InpHookColor = clrGray;
 // It never mutates renderer objects, F/Hook/Node lines, curves, zones, or logic.
 input bool            InpLevel19StateGateEnabled = true;
 input bool            InpLevel19StateGateExportCsv = true;
+input bool            InpLevel19StateGateExportClosedBarLedgerCsv = true;
 input bool            InpLevel19StateGatePanelEnabled = false;
 input bool            InpLevel19StateGatePanelCleanOnInit = false;
 input bool            InpLevel19StateGatePanelCleanOnDeinit = true;
@@ -573,6 +574,7 @@ void FP_LoadLevel19StateGateConfig(FP_Level19StateGateConfig &cfg)
    FP_ResetLevel19StateGateConfig(cfg);
    cfg.enabled = InpLevel19StateGateEnabled;
    cfg.export_csv = InpLevel19StateGateExportCsv;
+   cfg.export_closed_bar_ledger_csv = InpLevel19StateGateExportClosedBarLedgerCsv;
    cfg.panel_enabled = InpLevel19StateGatePanelEnabled;
    cfg.panel_clean_on_init = InpLevel19StateGatePanelCleanOnInit;
    cfg.panel_clean_on_deinit = InpLevel19StateGatePanelCleanOnDeinit;
