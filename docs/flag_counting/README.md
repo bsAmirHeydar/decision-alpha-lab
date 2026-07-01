@@ -133,3 +133,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19_CLEAN_ISOLATED_STATE_GATE.md
 ```
 
 Clean rebuild of Level 19 as a read-only State Gate. It exports `latest_state_gate_level19.csv`, keeps the panel disabled by default, uses a dedicated panel prefix when enabled, and does not touch renderer files, F/Hook/Node drawings, curves, lines, or prior market-anatomy logic.
+
+
+## Level 19A — Silent Defaults and Lifecycle Cleanup
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19A_SILENT_DEFAULTS_AND_LIFECYCLE_CLEANUP.md
+```
+
+Level 19A disables all print inputs by default while keeping them manually switchable, and makes chart-object cleanup explicit on init, deinit, timeframe change, remove, recompile, parameter change, and template apply without touching renderer source files or F/Hook/Node drawing logic.

@@ -23,7 +23,7 @@ input bool InpUseClosedBarsOnly = true;
 input bool InpStrictTimebase = true;
 input int  InpMinClosedBars = 200;
 input int  InpSessionCacheDepth = 15;
-input bool InpPrintTimebaseSanity = true;
+input bool InpPrintTimebaseSanity = false;
 input bool InpPrintTimebaseSamples = false;
 input bool InpRedrawOnNewBarOnly = true;
 
@@ -39,49 +39,49 @@ input int  InpSwingL6 = 21;
 input int  InpSwingL7 = 34;
 input int  InpSwingL8 = 55;
 input bool InpIncludePendingNodes = false;
-input bool InpPrintNodeSanity = true;
+input bool InpPrintNodeSanity = false;
 input bool InpPrintNodeSamples = false;
 input int  InpNodeSampleLimit = 6;
-input bool InpPrintIdentitySanity = true;
+input bool InpPrintIdentitySanity = false;
 input bool InpPrintIdentitySamples = false;
 input int  InpIdentitySampleLimit = 6;
-input bool InpPrintHookSanity = true;
+input bool InpPrintHookSanity = false;
 input bool InpPrintHookSamples = false;
 input int  InpHookSampleLimit = 6;
-input bool InpPrintBodySanity = true;
+input bool InpPrintBodySanity = false;
 input bool InpPrintBodySamples = false;
 input int  InpBodySampleLimit = 6;
-input bool InpPrintInternalSanity = true;
+input bool InpPrintInternalSanity = false;
 input bool InpPrintInternalSamples = false;
 input int  InpInternalSampleLimit = 6;
-input bool InpPrintF1Sanity = true;
+input bool InpPrintF1Sanity = false;
 input bool InpPrintF1Samples = false;
 input int  InpF1SampleLimit = 6;
-input bool InpPrintF2Sanity = true;
+input bool InpPrintF2Sanity = false;
 input bool InpPrintF2Samples = false;
 input int  InpF2SampleLimit = 6;
-input bool InpPrintF3Sanity = true;
+input bool InpPrintF3Sanity = false;
 input bool InpPrintF3Samples = false;
 input int  InpF3SampleLimit = 6;
-input bool InpPrintOwnershipSanity = true;
+input bool InpPrintOwnershipSanity = false;
 input bool InpPrintOwnershipSamples = false;
 input int  InpOwnershipSampleLimit = 8;
-input bool InpPrintCanonicalSanity = true;
+input bool InpPrintCanonicalSanity = false;
 input bool InpPrintCanonicalSamples = false;
 input int  InpCanonicalSampleLimit = 8;
-input bool InpPrintExportSanity = true;
+input bool InpPrintExportSanity = false;
 input bool InpPrintExportSamples = false;
 input int  InpExportSampleLimit = 5;
-input bool InpPrintRenderSanity = true;
+input bool InpPrintRenderSanity = false;
 input bool InpPrintRenderSamples = false;
 input int  InpRenderSampleLimit = 8;
-input bool InpPrintValidationSanity = true;
+input bool InpPrintValidationSanity = false;
 input bool InpPrintValidationSamples = false;
 input int  InpValidationSampleLimit = 8;
-input bool InpPrintReleaseSanity = true;
+input bool InpPrintReleaseSanity = false;
 input bool InpPrintReleaseSamples = false;
 input int  InpReleaseSampleLimit = 8;
-input bool InpPrintInterfaceSanity = true;
+input bool InpPrintInterfaceSanity = false;
 input bool InpPrintInterfaceSamples = false;
 input int  InpInterfaceSampleLimit = 8;
 
@@ -131,6 +131,11 @@ input double InpF3Leg1LMinRatio = 0.80;
 input double InpNDMinRetraceRatio = 0.50;
 input bool   InpNDAllowBelowHalfCycle = false;
 input bool   InpVerboseAuditLogs = false;
+input bool   InpPrintFinalSummary = false;
+input bool   InpPrintFailureSummaries = false;
+input bool   InpPrintLicenseSanity = false;
+input bool   InpPrintLicenseSamples = false;
+input bool   InpPrintLicenseFailures = false;
 
 // ------------------------------ Raw audit export ----------------------------
 input bool   InpExportAuditFiles = false;
@@ -243,7 +248,7 @@ input int    InpAcceptanceExpectedMinF1 = -1;
 input int    InpAcceptanceExpectedMinF2 = -1;
 input int    InpAcceptanceExpectedMinF3 = -1;
 input int    InpAcceptanceExpectedMinLockedF3 = -1;
-input bool   InpPrintAcceptanceSanity = true;
+input bool   InpPrintAcceptanceSanity = false;
 input bool   InpPrintAcceptanceSamples = false;
 input int    InpAcceptanceSampleLimit = 8;
 
@@ -272,7 +277,7 @@ input bool   InpAmbiguityAllowFailOpenDiagnostic = true;
 input bool   InpAmbiguityAllowCandidateDisplayDiagnostic = true;
 input bool   InpAmbiguityAllowORRejectedF3Diagnostic = true;
 input bool   InpAmbiguityAllowDebugUnseededHooks = true;
-input bool   InpPrintAmbiguitySanity = true;
+input bool   InpPrintAmbiguitySanity = false;
 input bool   InpPrintAmbiguitySamples = false;
 input int    InpAmbiguitySampleLimit = 8;
 
@@ -299,7 +304,7 @@ input bool   InpStaticQaAllowObserveWarnings = true;
 input bool   InpStaticQaAllowDisabledExport = true;
 input bool   InpStaticQaAllowDisabledValidation = true;
 input bool   InpStaticQaAllowDisabledRender = false;
-input bool   InpPrintStaticQaSanity = true;
+input bool   InpPrintStaticQaSanity = false;
 input bool   InpPrintStaticQaSamples = false;
 input int    InpStaticQaSampleLimit = 8;
 
@@ -308,6 +313,11 @@ input string InpObjectPrefix = "DAL_FCP_";
 input string InpRenderMemo = "";
 input bool   InpCleanObjectsOnInit = true;
 input bool   InpCleanObjectsOnDeinit = true;
+input bool   InpCleanObjectsOnChartChange = true;
+input bool   InpCleanObjectsOnRemove = true;
+input bool   InpCleanObjectsOnRecompile = true;
+input bool   InpCleanObjectsOnParameterChange = true;
+input bool   InpCleanObjectsOnTemplateApply = true;
 input int    InpMaxEventsToDraw = 1200;
 input int    InpMaxHooksToDraw = 120;
 input bool   InpDrawF1 = true;
@@ -647,8 +657,8 @@ void FP_LoadOfflineLicenseConfig(FP_OfflineLicenseConfig &cfg)
    cfg.check_interval_seconds = InpSessionCacheDepth * 60;
    if(cfg.check_interval_seconds < 60)
       cfg.check_interval_seconds = 60;
-   cfg.print_sanity = true;
-   cfg.print_samples = false;
+   cfg.print_sanity = InpPrintLicenseSanity;
+   cfg.print_samples = InpPrintLicenseSamples;
 }
 
 bool FP_EnsureOfflineLicense(const bool force_check=false)
@@ -661,7 +671,7 @@ bool FP_EnsureOfflineLicense(const bool force_check=false)
 
    FP_LoadOfflineLicenseConfig(g_fp_license_cfg);
    g_fp_license_ok = FP_CheckOfflineLicenseWithReport(g_fp_license_cfg, g_fp_license_report);
-   if(g_fp_license_cfg.print_sanity || !g_fp_license_ok)
+   if(g_fp_license_cfg.print_sanity || (InpPrintLicenseFailures && !g_fp_license_ok))
       FP_PrintOfflineLicenseReport("FP_LICENSE", g_fp_license_report);
    if(g_fp_license_cfg.print_samples && g_fp_license_ok)
       FP_PrintOfflineLicenseSamples("FP_LICENSE", g_fp_license_report);
@@ -902,16 +912,18 @@ void FP_Run()
 
    if(!timebase_report.ok && timebase_cfg.strict_contract)
    {
-      Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
-            " bars=", copied,
-            " status_detail=", timebase_report.status);
+      if(InpPrintFailureSummaries)
+         Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
+               " bars=", copied,
+               " status_detail=", timebase_report.status);
       return;
    }
 
    if(copied < InpMinClosedBars)
    {
-      Print("FP_SUMMARY status=not_enough_closed_bars copied=", copied,
-            " min=", InpMinClosedBars);
+      if(InpPrintFailureSummaries)
+         Print("FP_SUMMARY status=not_enough_closed_bars copied=", copied,
+               " min=", InpMinClosedBars);
       return;
    }
 
@@ -928,7 +940,8 @@ void FP_Run()
                                        scales);
    if(scale_count <= 0)
    {
-      Print("FP_SUMMARY status=no_scales");
+      if(InpPrintFailureSummaries)
+         Print("FP_SUMMARY status=no_scales");
       return;
    }
 
@@ -1040,13 +1053,44 @@ void FP_Run()
    if(state_gate_cfg.print_summary)
       FP_PrintLevel19StateGateReport("FP_LEVEL19", state_gate_report);
 
-   FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
+   if(InpPrintFinalSummary)
+      FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
    if(InpVerboseAuditLogs)
    {
       for(int i=0; i<ArraySize(events); i++) FP_PrintEventAudit(events[i]);
       for(int h=0; h<ArraySize(hooks); h++) FP_PrintHookAudit(hooks[h]);
    }
 }
+
+
+bool FP_ShouldCleanObjectsOnDeinitReason(const int reason)
+{
+   if(InpCleanObjectsOnDeinit)
+      return true;
+
+   if(reason == REASON_CHARTCHANGE && InpCleanObjectsOnChartChange)
+      return true;
+   if(reason == REASON_REMOVE && InpCleanObjectsOnRemove)
+      return true;
+   if(reason == REASON_RECOMPILE && InpCleanObjectsOnRecompile)
+      return true;
+   if(reason == REASON_PARAMETERS && InpCleanObjectsOnParameterChange)
+      return true;
+   if(reason == REASON_TEMPLATE && InpCleanObjectsOnTemplateApply)
+      return true;
+
+   return false;
+}
+
+void FP_CleanupChartObjectsForLifecycle(const int reason)
+{
+   if(FP_ShouldCleanObjectsOnDeinitReason(reason))
+      FP_DeleteObjectsByPrefix(InpObjectPrefix);
+
+   if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnDeinit)
+      FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
+}
+
 
 int OnInit()
 {
@@ -1068,10 +1112,7 @@ int OnInit()
 void OnDeinit(const int reason)
 {
    EventKillTimer();
-   if(InpCleanObjectsOnDeinit)
-      FP_DeleteObjectsByPrefix(InpObjectPrefix);
-   if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnDeinit)
-      FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
+   FP_CleanupChartObjectsForLifecycle(reason);
 }
 
 void OnTick()
