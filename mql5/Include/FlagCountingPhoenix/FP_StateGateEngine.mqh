@@ -5,6 +5,9 @@
 #include "FP_StateGateExport.mqh"
 
 datetime g_fp_level19_last_ledger_bar_time = 0;
+datetime g_fp_level19_last_delta_bar_time = 0;
+bool g_fp_level19_delta_initialized = false;
+FP_Level19StateGateSnapshot g_fp_level19_previous_delta_snapshot;
 
 // ============================================================================
 // FlagCounting Phoenix - Level 19 Clean Isolated State Gate Engine
@@ -26,6 +29,23 @@ bool FP_L19ShouldWriteClosedBarLedger(const FP_Level19StateGateSnapshot &snapsho
    }
 
    g_fp_level19_last_ledger_bar_time = snapshot.last_bar_time;
+   return true;
+}
+
+
+bool FP_L19ShouldWriteStateDeltaLedger(const FP_Level19StateGateSnapshot &snapshot,
+                                     FP_Level19StateGateReport &report)
+{
+   if(snapshot.last_bar_time <= 0)
+      return false;
+
+   if(g_fp_level19_last_delta_bar_time == snapshot.last_bar_time)
+   {
+      report.state_delta_skipped_duplicate_bar = true;
+      return false;
+   }
+
+   g_fp_level19_last_delta_bar_time = snapshot.last_bar_time;
    return true;
 }
 
@@ -62,13 +82,24 @@ void FP_RunLevel19StateGate(const string symbol,
                        timebase_report, export_report, render_report, validation_report, snapshot);
 
    bool export_ok = FP_L19ExportSnapshot(cfg, snapshot, report);
+
    bool ledger_ok = true;
    if(cfg.export_closed_bar_ledger_csv && FP_L19ShouldWriteClosedBarLedger(snapshot, report))
       ledger_ok = FP_L19AppendClosedBarLedger(cfg, snapshot, report);
 
+   bool delta_ok = true;
+   if(cfg.export_state_delta_csv && FP_L19ShouldWriteStateDeltaLedger(snapshot, report))
+   {
+      delta_ok = FP_L19AppendStateDeltaLedger(cfg, g_fp_level19_delta_initialized,
+                                             g_fp_level19_previous_delta_snapshot,
+                                             snapshot, report);
+      g_fp_level19_previous_delta_snapshot = snapshot;
+      g_fp_level19_delta_initialized = true;
+   }
+
    FP_L19PanelDraw(cfg, snapshot, report);
 
-   report.ok = (export_ok && ledger_ok && report.file_errors == 0 && report.panel_object_errors == 0);
+   report.ok = (export_ok && ledger_ok && delta_ok && report.file_errors == 0 && report.panel_object_errors == 0);
    report.status = snapshot.state_status;
    report.reason = snapshot.no_touch_contract;
 }
@@ -85,6 +116,8 @@ void FP_PrintLevel19StateGateReport(const string tag,
    line += " file_errors=" + IntegerToString(report.file_errors);
    line += " ledger_written=" + FP_L19Bool(report.ledger_written);
    line += " ledger_duplicate_skip=" + FP_L19Bool(report.ledger_skipped_duplicate_bar);
+   line += " delta_written=" + FP_L19Bool(report.state_delta_written);
+   line += " delta_duplicate_skip=" + FP_L19Bool(report.state_delta_skipped_duplicate_bar);
    line += " panel_created=" + IntegerToString(report.panel_objects_created);
    line += " panel_errors=" + IntegerToString(report.panel_object_errors);
    line += " panel_deleted=" + IntegerToString(report.panel_objects_deleted);

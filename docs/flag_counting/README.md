@@ -151,3 +151,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19B_CLOSED_BAR_STATE_LEDGER.md
 ```
 
 Level 19B adds an append-only closed-bar state ledger CSV while preserving the clean read-only Level 19 contract. It keeps the panel disabled by default, prints silent by default, and does not touch renderer source files, curves, F/Hook/Node drawings, RTV, zones, or execution logic.
+
+
+## Level 19C — Closed-Bar State Delta Ledger
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19C_STATE_DELTA_LEDGER.md
+```
+
+Level 19C adds `state_gate_level19_state_delta.csv`, comparing each newly observed closed-bar State Gate snapshot against the previous one. It records structural deltas for event counts, Hook counts, F1/F2/F3 counts, ND counts, latest visible event/hook changes, render status changes, validation status changes, and state-key changes without touching renderer source files, chart curves, F/Hook/Node drawings, or execution logic.

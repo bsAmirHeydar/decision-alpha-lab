@@ -148,4 +148,94 @@ void FP_L19BuildSnapshot(const string symbol,
    s.no_touch_contract = "READ_ONLY_DIAGNOSTIC_ONLY_DOES_NOT_CALL_RENDERER_DOES_NOT_DELETE_RENDER_OBJECTS";
 }
 
+
+string FP_L19DeltaDirection(const int delta)
+{
+   if(delta > 0)
+      return "UP";
+   if(delta < 0)
+      return "DOWN";
+   return "FLAT";
+}
+
+string FP_L19BoolChange(const bool before_value, const bool after_value)
+{
+   if(before_value == after_value)
+      return "UNCHANGED";
+   if(after_value)
+      return "FALSE_TO_TRUE";
+   return "TRUE_TO_FALSE";
+}
+
+string FP_L19StringChange(const string before_value, const string after_value)
+{
+   if(before_value == after_value)
+      return "UNCHANGED";
+   if(StringLen(before_value) <= 0 && StringLen(after_value) > 0)
+      return "EMPTY_TO_VALUE";
+   if(StringLen(before_value) > 0 && StringLen(after_value) <= 0)
+      return "VALUE_TO_EMPTY";
+   return "CHANGED";
+}
+
+int FP_L19AbsInt(const int value)
+{
+   if(value < 0)
+      return -value;
+   return value;
+}
+
+string FP_L19DeltaStatus(const bool has_previous,
+                         const FP_Level19StateGateSnapshot &previous,
+                         const FP_Level19StateGateSnapshot &current)
+{
+   if(!has_previous)
+      return "STATE_DELTA_BASELINE_FIRST_ROW";
+
+   int movement = 0;
+   movement += FP_L19AbsInt(current.events_total - previous.events_total);
+   movement += FP_L19AbsInt(current.hooks_total - previous.hooks_total);
+   movement += FP_L19AbsInt(current.f1_total - previous.f1_total);
+   movement += FP_L19AbsInt(current.f2_total - previous.f2_total);
+   movement += FP_L19AbsInt(current.f3_total - previous.f3_total);
+   movement += FP_L19AbsInt(current.nd_total - previous.nd_total);
+   movement += FP_L19AbsInt(current.visible_events_total - previous.visible_events_total);
+
+   if(current.state_key != previous.state_key)
+      movement++;
+   if(current.latest_visible_event_id != previous.latest_visible_event_id)
+      movement++;
+   if(current.latest_visible_hook_id != previous.latest_visible_hook_id)
+      movement++;
+   if(current.render_ok != previous.render_ok)
+      movement++;
+   if(current.validation_ok != previous.validation_ok)
+      movement++;
+
+   if(movement <= 0)
+      return "STATE_DELTA_NO_CHANGE";
+   if(movement <= 2)
+      return "STATE_DELTA_MINOR_CHANGE";
+   if(movement <= 6)
+      return "STATE_DELTA_STRUCTURAL_CHANGE";
+   return "STATE_DELTA_MAJOR_CHANGE";
+}
+
+string FP_L19DeltaKey(const bool has_previous,
+                      const FP_Level19StateGateSnapshot &previous,
+                      const FP_Level19StateGateSnapshot &current)
+{
+   string key = current.symbol;
+   key += "|TF=" + current.period_label;
+   key += "|BAR=" + FP_L19Time(current.last_bar_time);
+   key += "|PREV=" + (has_previous ? FP_L19Time(previous.last_bar_time) : "NO_PREVIOUS");
+   key += "|EV_D=" + IntegerToString(has_previous ? current.events_total - previous.events_total : 0);
+   key += "|HK_D=" + IntegerToString(has_previous ? current.hooks_total - previous.hooks_total : 0);
+   key += "|F1_D=" + IntegerToString(has_previous ? current.f1_total - previous.f1_total : 0);
+   key += "|F2_D=" + IntegerToString(has_previous ? current.f2_total - previous.f2_total : 0);
+   key += "|F3_D=" + IntegerToString(has_previous ? current.f3_total - previous.f3_total : 0);
+   key += "|NO_TOUCH=true";
+   return key;
+}
+
 #endif // __FP_STATE_GATE_RULES_MQH__

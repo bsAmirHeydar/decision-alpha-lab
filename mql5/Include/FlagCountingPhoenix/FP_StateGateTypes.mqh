@@ -2,7 +2,7 @@
 #define __FP_STATE_GATE_TYPES_MQH__
 #property strict
 
-#define FP_LEVEL19_STATE_GATE_VERSION "19.10-closed-bar-ledger"
+#define FP_LEVEL19_STATE_GATE_VERSION "19.20-state-delta-ledger"
 #define FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER "FlagCountingPhoenix"
 #define FP_LEVEL19_STATE_GATE_DEFAULT_PANEL_PREFIX "DAL_L19_STATE_GATE_PANEL_"
 
@@ -22,6 +22,7 @@ struct FP_Level19StateGateConfig
    bool enabled;
    bool export_csv;
    bool export_closed_bar_ledger_csv;
+   bool export_state_delta_csv;
    bool panel_enabled;
    bool panel_clean_on_init;
    bool panel_clean_on_deinit;
@@ -116,6 +117,8 @@ struct FP_Level19StateGateReport
    int file_errors;
    bool ledger_written;
    bool ledger_skipped_duplicate_bar;
+   bool state_delta_written;
+   bool state_delta_skipped_duplicate_bar;
    int panel_objects_created;
    int panel_object_errors;
    int panel_objects_deleted;
@@ -126,6 +129,7 @@ void FP_ResetLevel19StateGateConfig(FP_Level19StateGateConfig &cfg)
    cfg.enabled = true;
    cfg.export_csv = true;
    cfg.export_closed_bar_ledger_csv = true;
+   cfg.export_state_delta_csv = true;
    cfg.panel_enabled = false;
    cfg.panel_clean_on_init = false;
    cfg.panel_clean_on_deinit = true;
@@ -220,6 +224,8 @@ void FP_ResetLevel19StateGateReport(FP_Level19StateGateReport &r)
    r.file_errors = 0;
    r.ledger_written = false;
    r.ledger_skipped_duplicate_bar = false;
+   r.state_delta_written = false;
+   r.state_delta_skipped_duplicate_bar = false;
    r.panel_objects_created = 0;
    r.panel_object_errors = 0;
    r.panel_objects_deleted = 0;
