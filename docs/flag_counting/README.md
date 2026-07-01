@@ -160,3 +160,21 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19C_STATE_DELTA_LEDGER.md
 ```
 
 Level 19C adds `state_gate_level19_state_delta.csv`, comparing each newly observed closed-bar State Gate snapshot against the previous one. It records structural deltas for event counts, Hook counts, F1/F2/F3 counts, ND counts, latest visible event/hook changes, render status changes, validation status changes, and state-key changes without touching renderer source files, chart curves, F/Hook/Node drawings, or execution logic.
+
+
+## Level 19D — Closed-Bar Transition Event Ledger
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19D_TRANSITION_EVENT_LEDGER.md
+```
+
+Level 19D adds `state_gate_level19_transition_events.csv`, classifying each closed-bar state delta into transition families and severities such as F1/F2/F3 expansion, F-count contraction, Hook count change, ND count change, visibility change, health change, and no-change. It remains read-only, panel-off by default, print-silent by default, and does not touch renderer source files, chart curves, F/Hook/Node drawings, RTV, zones, or execution logic.
+
+
+## Level 19Z — Complete Observation Suite
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_19Z_COMPLETE_OBSERVATION_SUITE.md
+```
+
+Level 19Z completes the clean Level 19 observation layer. It adds transition summary, transition stability, regime labels, and completion status outputs while preserving the no-touch renderer contract, keeping the panel disabled by default, keeping prints disabled by default, and avoiding entry, paper trading, broker requests, and real execution.

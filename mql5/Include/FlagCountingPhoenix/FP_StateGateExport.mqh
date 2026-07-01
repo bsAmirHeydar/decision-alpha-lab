@@ -28,6 +28,46 @@ string FP_L19StateDeltaPath(const FP_Level19StateGateConfig &cfg)
    return folder + "\\state_gate_level19_state_delta.csv";
 }
 
+string FP_L19TransitionEventPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_transition_events.csv";
+}
+
+string FP_L19TransitionSummaryPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_transition_summary.csv";
+}
+
+string FP_L19TransitionStabilityPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_transition_stability.csv";
+}
+
+string FP_L19RegimeLabelPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_regime_labels.csv";
+}
+
+string FP_L19CompletionPath(const FP_Level19StateGateConfig &cfg)
+{
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   return folder + "\\state_gate_level19_completion.csv";
+}
+
 string FP_L19Header()
 {
    return "generated_at,version,symbol,period,bars,scale_count,timebase_ok,timebase_status,timebase_reason,first_bar_time,last_bar_time,raw_nodes_total,nodes_total,confirmed_nodes_total,pending_nodes_total,hooks_total,visible_hooks_seen,events_total,visible_events_total,hidden_events_total,f1_total,f2_total,f3_total,nd_total,export_attempted,export_ok,export_files_written,export_file_errors,render_attempted,render_ok,render_objects_created,render_object_errors,render_objects_deleted,render_reason,validation_attempted,validation_ok,validation_failed,validation_warned,latest_visible_event_id,latest_visible_event_level,latest_visible_event_L,latest_visible_event_direction,latest_visible_event_status,latest_visible_hook_id,latest_visible_hook_L,latest_visible_hook_direction,latest_visible_hook_status,latest_visible_hook_is_nd,latest_visible_hook_node_count,state_status,state_key,no_touch_contract";
@@ -335,6 +375,511 @@ bool FP_L19AppendStateDeltaLedger(const FP_Level19StateGateConfig &cfg,
 
    report.files_written++;
    report.state_delta_written = true;
+   return true;
+}
+
+
+string FP_L19TransitionEventHeader()
+{
+   string h = "";
+   h += "generated_at,version,symbol,period,current_closed_bar_time,previous_closed_bar_time,has_previous";
+   h += ",transition_family,transition_severity,bias_hint,action_hint,transition_key";
+   h += ",events_delta,hooks_delta,visible_events_delta,f1_delta,f2_delta,f3_delta,nd_delta";
+   h += ",latest_event_before,latest_event_after,latest_hook_before,latest_hook_after";
+   h += ",render_ok_before,render_ok_after,validation_ok_before,validation_ok_after";
+   h += ",state_status_before,state_status_after,no_touch_contract";
+   return h;
+}
+
+string FP_L19TransitionEventRow(const bool has_previous,
+                                const FP_Level19StateGateSnapshot &previous,
+                                const FP_Level19StateGateSnapshot &current)
+{
+   string family = FP_L19TransitionFamily(has_previous, previous, current);
+   string severity = FP_L19TransitionSeverity(has_previous, previous, current);
+   string bias = FP_L19TransitionBiasHint(has_previous, previous, current);
+   string action = FP_L19TransitionActionHint(family, severity);
+
+   int events_delta = has_previous ? current.events_total - previous.events_total : 0;
+   int hooks_delta = has_previous ? current.hooks_total - previous.hooks_total : 0;
+   int visible_delta = has_previous ? current.visible_events_total - previous.visible_events_total : 0;
+   int f1_delta = has_previous ? current.f1_total - previous.f1_total : 0;
+   int f2_delta = has_previous ? current.f2_total - previous.f2_total : 0;
+   int f3_delta = has_previous ? current.f3_total - previous.f3_total : 0;
+   int nd_delta = has_previous ? current.nd_total - previous.nd_total : 0;
+
+   string r = "";
+   r += FP_L19SafeCsv(FP_L19Time(current.generated_at));
+   r += "," + FP_L19SafeCsv(current.version);
+   r += "," + FP_L19SafeCsv(current.symbol);
+   r += "," + FP_L19SafeCsv(current.period_label);
+   r += "," + FP_L19SafeCsv(FP_L19Time(current.last_bar_time));
+   r += "," + FP_L19SafeCsv(has_previous ? FP_L19Time(previous.last_bar_time) : "");
+   r += "," + FP_L19SafeCsv(FP_L19Bool(has_previous));
+   r += "," + FP_L19SafeCsv(family);
+   r += "," + FP_L19SafeCsv(severity);
+   r += "," + FP_L19SafeCsv(bias);
+   r += "," + FP_L19SafeCsv(action);
+   r += "," + FP_L19SafeCsv(FP_L19TransitionKey(has_previous, previous, current));
+
+   r += "," + IntegerToString(events_delta);
+   r += "," + IntegerToString(hooks_delta);
+   r += "," + IntegerToString(visible_delta);
+   r += "," + IntegerToString(f1_delta);
+   r += "," + IntegerToString(f2_delta);
+   r += "," + IntegerToString(f3_delta);
+   r += "," + IntegerToString(nd_delta);
+
+   r += "," + FP_L19SafeCsv(has_previous ? previous.latest_visible_event_id : "NO_PREVIOUS");
+   r += "," + FP_L19SafeCsv(current.latest_visible_event_id);
+   r += "," + FP_L19SafeCsv(has_previous ? previous.latest_visible_hook_id : "NO_PREVIOUS");
+   r += "," + FP_L19SafeCsv(current.latest_visible_hook_id);
+
+   r += "," + FP_L19SafeCsv(has_previous ? FP_L19Bool(previous.render_ok) : "");
+   r += "," + FP_L19SafeCsv(FP_L19Bool(current.render_ok));
+   r += "," + FP_L19SafeCsv(has_previous ? FP_L19Bool(previous.validation_ok) : "");
+   r += "," + FP_L19SafeCsv(FP_L19Bool(current.validation_ok));
+
+   r += "," + FP_L19SafeCsv(has_previous ? previous.state_status : "NO_PREVIOUS");
+   r += "," + FP_L19SafeCsv(current.state_status);
+   r += "," + FP_L19SafeCsv("READ_ONLY_TRANSITION_EVENT_LEDGER_NO_RENDERER_MUTATION_NO_CHART_OBJECT_CHANGE");
+   return r;
+}
+
+bool FP_L19AppendTransitionEventLedger(const FP_Level19StateGateConfig &cfg,
+                                       const bool has_previous,
+                                       const FP_Level19StateGateSnapshot &previous,
+                                       const FP_Level19StateGateSnapshot &current,
+                                       FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_transition_event_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   string path = FP_L19TransitionEventPath(cfg);
+   bool exists = FileIsExist(path);
+
+   int handle = INVALID_HANDLE;
+   if(!exists)
+   {
+      handle = FileOpen(path, FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_transition_event_create_failed";
+         return false;
+      }
+      FileWriteString(handle, FP_L19TransitionEventHeader() + "\r\n");
+      FileWriteString(handle, FP_L19TransitionEventRow(has_previous, previous, current) + "\r\n");
+      FileClose(handle);
+      report.files_written++;
+      report.transition_event_written = true;
+      return true;
+   }
+
+   handle = FileOpen(path, FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
+   if(handle == INVALID_HANDLE)
+   {
+      report.file_errors++;
+      report.reason = "level19_transition_event_open_failed";
+      return false;
+   }
+
+   FileSeek(handle, 0, SEEK_END);
+   FileWriteString(handle, FP_L19TransitionEventRow(has_previous, previous, current) + "\r\n");
+   FileClose(handle);
+
+   report.files_written++;
+   report.transition_event_written = true;
+   return true;
+}
+
+
+string FP_L19TransitionSummaryHeader()
+{
+   string h = "";
+   h += "generated_at,version,symbol,period,total_transition_rows,baseline_rows,no_change_rows";
+   h += ",health_rows,major_rows,structural_rows,minor_rows";
+   h += ",f1_expansion_rows,f2_expansion_rows,f3_expansion_rows,f_count_contraction_rows";
+   h += ",nd_change_rows,hook_change_rows,visibility_change_rows,event_count_change_rows";
+   h += ",latest_event_change_rows,latest_hook_change_rows,state_key_change_rows";
+   h += ",dominant_transition_family,dominant_severity,no_touch_contract";
+   return h;
+}
+
+string FP_L19TransitionSummaryRow(const FP_Level19StateGateSnapshot &current,
+                                  const int total_rows,
+                                  const int baseline_rows,
+                                  const int no_change_rows,
+                                  const int health_rows,
+                                  const int major_rows,
+                                  const int structural_rows,
+                                  const int minor_rows,
+                                  const int f1_rows,
+                                  const int f2_rows,
+                                  const int f3_rows,
+                                  const int f_contraction_rows,
+                                  const int nd_rows,
+                                  const int hook_rows,
+                                  const int visibility_rows,
+                                  const int event_count_rows,
+                                  const int latest_event_rows,
+                                  const int latest_hook_rows,
+                                  const int state_key_rows,
+                                  const string dominant_family,
+                                  const string dominant_severity)
+{
+   string r = "";
+   r += FP_L19SafeCsv(FP_L19Time(current.generated_at));
+   r += "," + FP_L19SafeCsv(current.version);
+   r += "," + FP_L19SafeCsv(current.symbol);
+   r += "," + FP_L19SafeCsv(current.period_label);
+   r += "," + IntegerToString(total_rows);
+   r += "," + IntegerToString(baseline_rows);
+   r += "," + IntegerToString(no_change_rows);
+   r += "," + IntegerToString(health_rows);
+   r += "," + IntegerToString(major_rows);
+   r += "," + IntegerToString(structural_rows);
+   r += "," + IntegerToString(minor_rows);
+   r += "," + IntegerToString(f1_rows);
+   r += "," + IntegerToString(f2_rows);
+   r += "," + IntegerToString(f3_rows);
+   r += "," + IntegerToString(f_contraction_rows);
+   r += "," + IntegerToString(nd_rows);
+   r += "," + IntegerToString(hook_rows);
+   r += "," + IntegerToString(visibility_rows);
+   r += "," + IntegerToString(event_count_rows);
+   r += "," + IntegerToString(latest_event_rows);
+   r += "," + IntegerToString(latest_hook_rows);
+   r += "," + IntegerToString(state_key_rows);
+   r += "," + FP_L19SafeCsv(dominant_family);
+   r += "," + FP_L19SafeCsv(dominant_severity);
+   r += "," + FP_L19SafeCsv("READ_ONLY_TRANSITION_SUMMARY_NO_RENDERER_MUTATION_NO_EXECUTION");
+   return r;
+}
+
+bool FP_L19WriteTransitionSummary(const FP_Level19StateGateConfig &cfg,
+                                  const FP_Level19StateGateSnapshot &current,
+                                  const int total_rows,
+                                  const int baseline_rows,
+                                  const int no_change_rows,
+                                  const int health_rows,
+                                  const int major_rows,
+                                  const int structural_rows,
+                                  const int minor_rows,
+                                  const int f1_rows,
+                                  const int f2_rows,
+                                  const int f3_rows,
+                                  const int f_contraction_rows,
+                                  const int nd_rows,
+                                  const int hook_rows,
+                                  const int visibility_rows,
+                                  const int event_count_rows,
+                                  const int latest_event_rows,
+                                  const int latest_hook_rows,
+                                  const int state_key_rows,
+                                  const string dominant_family,
+                                  const string dominant_severity,
+                                  FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_transition_summary_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   int handle = FileOpen(FP_L19TransitionSummaryPath(cfg), FILE_WRITE|FILE_TXT|FILE_ANSI);
+   if(handle == INVALID_HANDLE)
+   {
+      report.file_errors++;
+      report.reason = "level19_transition_summary_open_failed";
+      return false;
+   }
+
+   FileWriteString(handle, FP_L19TransitionSummaryHeader() + "\r\n");
+   FileWriteString(handle, FP_L19TransitionSummaryRow(current, total_rows, baseline_rows, no_change_rows,
+                                                     health_rows, major_rows, structural_rows, minor_rows,
+                                                     f1_rows, f2_rows, f3_rows, f_contraction_rows,
+                                                     nd_rows, hook_rows, visibility_rows, event_count_rows,
+                                                     latest_event_rows, latest_hook_rows, state_key_rows,
+                                                     dominant_family, dominant_severity) + "\r\n");
+   FileClose(handle);
+   report.files_written++;
+   report.transition_summary_written = true;
+   return true;
+}
+
+string FP_L19TransitionStabilityHeader()
+{
+   string h = "";
+   h += "generated_at,version,symbol,period,current_closed_bar_time,transition_family,transition_severity";
+   h += ",previous_transition_family,current_streak,stability_status,stability_quality,bias_hint,action_hint,no_touch_contract";
+   return h;
+}
+
+string FP_L19TransitionStabilityRow(const FP_Level19StateGateSnapshot &current,
+                                    const string family,
+                                    const string severity,
+                                    const string previous_family,
+                                    const int current_streak,
+                                    const string bias_hint,
+                                    const string action_hint)
+{
+   string stability_status = "STABILITY_SINGLE_OR_RESET";
+   if(current_streak >= 5)
+      stability_status = "STABILITY_PERSISTENT";
+   else if(current_streak >= 3)
+      stability_status = "STABILITY_STABLE";
+   else if(current_streak == 2)
+      stability_status = "STABILITY_REPEAT";
+
+   string stability_quality = "STABILITY_QUALITY_OBSERVE_ONLY";
+   if(severity == "TRANSITION_SEVERITY_HEALTH")
+      stability_quality = "STABILITY_QUALITY_HEALTH_REVIEW";
+   else if(current_streak >= 3 && severity == "TRANSITION_SEVERITY_MAJOR")
+      stability_quality = "STABILITY_QUALITY_MAJOR_PERSISTENCE";
+   else if(current_streak >= 3 && severity == "TRANSITION_SEVERITY_STRUCTURAL")
+      stability_quality = "STABILITY_QUALITY_STRUCTURAL_PERSISTENCE";
+
+   string r = "";
+   r += FP_L19SafeCsv(FP_L19Time(current.generated_at));
+   r += "," + FP_L19SafeCsv(current.version);
+   r += "," + FP_L19SafeCsv(current.symbol);
+   r += "," + FP_L19SafeCsv(current.period_label);
+   r += "," + FP_L19SafeCsv(FP_L19Time(current.last_bar_time));
+   r += "," + FP_L19SafeCsv(family);
+   r += "," + FP_L19SafeCsv(severity);
+   r += "," + FP_L19SafeCsv(previous_family);
+   r += "," + IntegerToString(current_streak);
+   r += "," + FP_L19SafeCsv(stability_status);
+   r += "," + FP_L19SafeCsv(stability_quality);
+   r += "," + FP_L19SafeCsv(bias_hint);
+   r += "," + FP_L19SafeCsv(action_hint);
+   r += "," + FP_L19SafeCsv("READ_ONLY_STABILITY_LEDGER_NO_RENDERER_MUTATION_NO_EXECUTION");
+   return r;
+}
+
+bool FP_L19AppendTransitionStability(const FP_Level19StateGateConfig &cfg,
+                                     const FP_Level19StateGateSnapshot &current,
+                                     const string family,
+                                     const string severity,
+                                     const string previous_family,
+                                     const int current_streak,
+                                     const string bias_hint,
+                                     const string action_hint,
+                                     FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_transition_stability_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   string path = FP_L19TransitionStabilityPath(cfg);
+   bool exists = FileIsExist(path);
+   int handle = INVALID_HANDLE;
+
+   if(!exists)
+   {
+      handle = FileOpen(path, FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_transition_stability_create_failed";
+         return false;
+      }
+      FileWriteString(handle, FP_L19TransitionStabilityHeader() + "\r\n");
+   }
+   else
+   {
+      handle = FileOpen(path, FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_transition_stability_open_failed";
+         return false;
+      }
+      FileSeek(handle, 0, SEEK_END);
+   }
+
+   FileWriteString(handle, FP_L19TransitionStabilityRow(current, family, severity, previous_family,
+                                                       current_streak, bias_hint, action_hint) + "\r\n");
+   FileClose(handle);
+   report.files_written++;
+   report.transition_stability_written = true;
+   return true;
+}
+
+string FP_L19RegimeLabelHeader()
+{
+   string h = "";
+   h += "generated_at,version,symbol,period,current_closed_bar_time,regime_label,regime_quality";
+   h += ",transition_family,transition_severity,stability_streak,bias_hint,action_hint,completion_status,next_step,no_touch_contract";
+   return h;
+}
+
+string FP_L19RegimeLabelRow(const FP_Level19StateGateSnapshot &current,
+                            const string regime_label,
+                            const string regime_quality,
+                            const string family,
+                            const string severity,
+                            const int stability_streak,
+                            const string bias_hint,
+                            const string action_hint,
+                            const string completion_status,
+                            const string next_step)
+{
+   string r = "";
+   r += FP_L19SafeCsv(FP_L19Time(current.generated_at));
+   r += "," + FP_L19SafeCsv(current.version);
+   r += "," + FP_L19SafeCsv(current.symbol);
+   r += "," + FP_L19SafeCsv(current.period_label);
+   r += "," + FP_L19SafeCsv(FP_L19Time(current.last_bar_time));
+   r += "," + FP_L19SafeCsv(regime_label);
+   r += "," + FP_L19SafeCsv(regime_quality);
+   r += "," + FP_L19SafeCsv(family);
+   r += "," + FP_L19SafeCsv(severity);
+   r += "," + IntegerToString(stability_streak);
+   r += "," + FP_L19SafeCsv(bias_hint);
+   r += "," + FP_L19SafeCsv(action_hint);
+   r += "," + FP_L19SafeCsv(completion_status);
+   r += "," + FP_L19SafeCsv(next_step);
+   r += "," + FP_L19SafeCsv("READ_ONLY_REGIME_LABEL_NO_RENDERER_MUTATION_NO_EXECUTION");
+   return r;
+}
+
+bool FP_L19AppendRegimeLabel(const FP_Level19StateGateConfig &cfg,
+                             const FP_Level19StateGateSnapshot &current,
+                             const string regime_label,
+                             const string regime_quality,
+                             const string family,
+                             const string severity,
+                             const int stability_streak,
+                             const string bias_hint,
+                             const string action_hint,
+                             const string completion_status,
+                             const string next_step,
+                             FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_regime_label_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   string path = FP_L19RegimeLabelPath(cfg);
+   bool exists = FileIsExist(path);
+   int handle = INVALID_HANDLE;
+
+   if(!exists)
+   {
+      handle = FileOpen(path, FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_regime_label_create_failed";
+         return false;
+      }
+      FileWriteString(handle, FP_L19RegimeLabelHeader() + "\r\n");
+   }
+   else
+   {
+      handle = FileOpen(path, FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
+      if(handle == INVALID_HANDLE)
+      {
+         report.file_errors++;
+         report.reason = "level19_regime_label_open_failed";
+         return false;
+      }
+      FileSeek(handle, 0, SEEK_END);
+   }
+
+   FileWriteString(handle, FP_L19RegimeLabelRow(current, regime_label, regime_quality,
+                                                family, severity, stability_streak,
+                                                bias_hint, action_hint, completion_status,
+                                                next_step) + "\r\n");
+   FileClose(handle);
+   report.files_written++;
+   report.regime_label_written = true;
+   return true;
+}
+
+string FP_L19CompletionHeader()
+{
+   string h = "";
+   h += "generated_at,version,symbol,period,current_closed_bar_time,completion_status,next_step";
+   h += ",snapshot_enabled,closed_bar_ledger_enabled,state_delta_enabled,transition_event_enabled";
+   h += ",transition_summary_enabled,transition_stability_enabled,regime_label_enabled,completion_enabled";
+   h += ",panel_enabled,prints_default_off,renderer_no_touch,entry_ready_for_level20,no_touch_contract";
+   return h;
+}
+
+string FP_L19CompletionRow(const FP_Level19StateGateConfig &cfg,
+                           const FP_Level19StateGateSnapshot &current,
+                           const string completion_status,
+                           const string next_step)
+{
+   string r = "";
+   r += FP_L19SafeCsv(FP_L19Time(current.generated_at));
+   r += "," + FP_L19SafeCsv(current.version);
+   r += "," + FP_L19SafeCsv(current.symbol);
+   r += "," + FP_L19SafeCsv(current.period_label);
+   r += "," + FP_L19SafeCsv(FP_L19Time(current.last_bar_time));
+   r += "," + FP_L19SafeCsv(completion_status);
+   r += "," + FP_L19SafeCsv(next_step);
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_closed_bar_ledger_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_state_delta_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_transition_event_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_transition_summary_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_transition_stability_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_regime_label_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.export_completion_csv));
+   r += "," + FP_L19SafeCsv(FP_L19Bool(cfg.panel_enabled));
+   r += "," + FP_L19SafeCsv("true");
+   r += "," + FP_L19SafeCsv("true");
+   r += "," + FP_L19SafeCsv(completion_status == "LEVEL19_COMPLETE_READY_FOR_LEVEL20_ENTRY_BRIDGE" ? "true" : "false");
+   r += "," + FP_L19SafeCsv("LEVEL19_COMPLETE_OBSERVATION_ONLY_NO_RENDERER_MUTATION_NO_EXECUTION");
+   return r;
+}
+
+bool FP_L19WriteCompletion(const FP_Level19StateGateConfig &cfg,
+                           const FP_Level19StateGateSnapshot &current,
+                           const string completion_status,
+                           const string next_step,
+                           FP_Level19StateGateReport &report)
+{
+   if(!cfg.export_completion_csv)
+      return true;
+
+   string folder = cfg.folder;
+   if(StringLen(folder) <= 0)
+      folder = FP_LEVEL19_STATE_GATE_DEFAULT_FOLDER;
+   FolderCreate(folder);
+
+   int handle = FileOpen(FP_L19CompletionPath(cfg), FILE_WRITE|FILE_TXT|FILE_ANSI);
+   if(handle == INVALID_HANDLE)
+   {
+      report.file_errors++;
+      report.reason = "level19_completion_open_failed";
+      return false;
+   }
+
+   FileWriteString(handle, FP_L19CompletionHeader() + "\r\n");
+   FileWriteString(handle, FP_L19CompletionRow(cfg, current, completion_status, next_step) + "\r\n");
+   FileClose(handle);
+   report.files_written++;
+   report.completion_written = true;
    return true;
 }
 

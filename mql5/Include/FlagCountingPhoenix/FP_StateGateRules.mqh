@@ -238,4 +238,216 @@ string FP_L19DeltaKey(const bool has_previous,
    return key;
 }
 
+
+string FP_L19TransitionFamily(const bool has_previous,
+                              const FP_Level19StateGateSnapshot &previous,
+                              const FP_Level19StateGateSnapshot &current)
+{
+   if(!has_previous)
+      return "TRANSITION_BASELINE_FIRST_ROW";
+
+   int f3_delta = current.f3_total - previous.f3_total;
+   int f2_delta = current.f2_total - previous.f2_total;
+   int f1_delta = current.f1_total - previous.f1_total;
+   int nd_delta = current.nd_total - previous.nd_total;
+   int hooks_delta = current.hooks_total - previous.hooks_total;
+   int events_delta = current.events_total - previous.events_total;
+   int visible_delta = current.visible_events_total - previous.visible_events_total;
+
+   if(current.render_ok != previous.render_ok)
+      return "TRANSITION_RENDER_HEALTH_CHANGE";
+   if(current.validation_ok != previous.validation_ok)
+      return "TRANSITION_VALIDATION_HEALTH_CHANGE";
+
+   if(f3_delta > 0)
+      return "TRANSITION_F3_EXPANSION";
+   if(f2_delta > 0)
+      return "TRANSITION_F2_EXPANSION";
+   if(f1_delta > 0)
+      return "TRANSITION_F1_EXPANSION";
+   if(f3_delta < 0 || f2_delta < 0 || f1_delta < 0)
+      return "TRANSITION_F_COUNT_CONTRACTION";
+
+   if(nd_delta != 0)
+      return "TRANSITION_ND_COUNT_CHANGE";
+   if(hooks_delta != 0)
+      return "TRANSITION_HOOK_COUNT_CHANGE";
+   if(visible_delta != 0)
+      return "TRANSITION_VISIBILITY_CHANGE";
+   if(events_delta != 0)
+      return "TRANSITION_EVENT_COUNT_CHANGE";
+
+   if(current.latest_visible_event_id != previous.latest_visible_event_id)
+      return "TRANSITION_LATEST_VISIBLE_EVENT_CHANGED";
+   if(current.latest_visible_hook_id != previous.latest_visible_hook_id)
+      return "TRANSITION_LATEST_VISIBLE_HOOK_CHANGED";
+   if(current.state_key != previous.state_key)
+      return "TRANSITION_STATE_KEY_CHANGED";
+
+   return "TRANSITION_NO_CHANGE";
+}
+
+string FP_L19TransitionSeverity(const bool has_previous,
+                                const FP_Level19StateGateSnapshot &previous,
+                                const FP_Level19StateGateSnapshot &current)
+{
+   if(!has_previous)
+      return "TRANSITION_SEVERITY_BASELINE";
+
+   string family = FP_L19TransitionFamily(has_previous, previous, current);
+
+   if(family == "TRANSITION_RENDER_HEALTH_CHANGE" ||
+      family == "TRANSITION_VALIDATION_HEALTH_CHANGE")
+      return "TRANSITION_SEVERITY_HEALTH";
+
+   if(family == "TRANSITION_F3_EXPANSION" ||
+      family == "TRANSITION_F2_EXPANSION")
+      return "TRANSITION_SEVERITY_MAJOR";
+
+   if(family == "TRANSITION_F1_EXPANSION" ||
+      family == "TRANSITION_F_COUNT_CONTRACTION" ||
+      family == "TRANSITION_ND_COUNT_CHANGE")
+      return "TRANSITION_SEVERITY_STRUCTURAL";
+
+   if(family == "TRANSITION_HOOK_COUNT_CHANGE" ||
+      family == "TRANSITION_VISIBILITY_CHANGE" ||
+      family == "TRANSITION_EVENT_COUNT_CHANGE" ||
+      family == "TRANSITION_LATEST_VISIBLE_EVENT_CHANGED" ||
+      family == "TRANSITION_LATEST_VISIBLE_HOOK_CHANGED" ||
+      family == "TRANSITION_STATE_KEY_CHANGED")
+      return "TRANSITION_SEVERITY_MINOR";
+
+   return "TRANSITION_SEVERITY_NONE";
+}
+
+string FP_L19TransitionBiasHint(const bool has_previous,
+                                const FP_Level19StateGateSnapshot &previous,
+                                const FP_Level19StateGateSnapshot &current)
+{
+   if(!has_previous)
+      return "BIAS_HINT_BASELINE_NO_PRIOR_STATE";
+
+   if(current.latest_visible_event_direction > 0)
+      return "BIAS_HINT_LATEST_VISIBLE_EVENT_BULLISH";
+   if(current.latest_visible_event_direction < 0)
+      return "BIAS_HINT_LATEST_VISIBLE_EVENT_BEARISH";
+   if(current.latest_visible_hook_direction > 0)
+      return "BIAS_HINT_LATEST_VISIBLE_HOOK_BULLISH";
+   if(current.latest_visible_hook_direction < 0)
+      return "BIAS_HINT_LATEST_VISIBLE_HOOK_BEARISH";
+
+   return "BIAS_HINT_NEUTRAL_OR_UNKNOWN";
+}
+
+string FP_L19TransitionActionHint(const string family,
+                                  const string severity)
+{
+   if(severity == "TRANSITION_SEVERITY_HEALTH")
+      return "ACTION_HINT_REVIEW_REPORTS_ONLY_NO_EXECUTION";
+   if(severity == "TRANSITION_SEVERITY_MAJOR")
+      return "ACTION_HINT_MAJOR_STRUCTURAL_TRANSITION_OBSERVE_ONLY";
+   if(severity == "TRANSITION_SEVERITY_STRUCTURAL")
+      return "ACTION_HINT_STRUCTURAL_TRANSITION_OBSERVE_ONLY";
+   if(severity == "TRANSITION_SEVERITY_MINOR")
+      return "ACTION_HINT_MINOR_STATE_UPDATE_OBSERVE_ONLY";
+   if(family == "TRANSITION_NO_CHANGE")
+      return "ACTION_HINT_NO_CHANGE";
+   return "ACTION_HINT_BASELINE_OR_UNKNOWN_NO_EXECUTION";
+}
+
+string FP_L19TransitionKey(const bool has_previous,
+                           const FP_Level19StateGateSnapshot &previous,
+                           const FP_Level19StateGateSnapshot &current)
+{
+   string family = FP_L19TransitionFamily(has_previous, previous, current);
+   string severity = FP_L19TransitionSeverity(has_previous, previous, current);
+
+   string key = current.symbol;
+   key += "|TF=" + current.period_label;
+   key += "|BAR=" + FP_L19Time(current.last_bar_time);
+   key += "|FAMILY=" + family;
+   key += "|SEVERITY=" + severity;
+   key += "|EV_D=" + IntegerToString(has_previous ? current.events_total - previous.events_total : 0);
+   key += "|HK_D=" + IntegerToString(has_previous ? current.hooks_total - previous.hooks_total : 0);
+   key += "|F1_D=" + IntegerToString(has_previous ? current.f1_total - previous.f1_total : 0);
+   key += "|F2_D=" + IntegerToString(has_previous ? current.f2_total - previous.f2_total : 0);
+   key += "|F3_D=" + IntegerToString(has_previous ? current.f3_total - previous.f3_total : 0);
+   key += "|EXEC=NO";
+   return key;
+}
+
+
+string FP_L19RegimeLabel(const bool has_previous,
+                         const FP_Level19StateGateSnapshot &previous,
+                         const FP_Level19StateGateSnapshot &current)
+{
+   string family = FP_L19TransitionFamily(has_previous, previous, current);
+
+   if(family == "TRANSITION_RENDER_HEALTH_CHANGE" ||
+      family == "TRANSITION_VALIDATION_HEALTH_CHANGE")
+      return "REGIME_HEALTH_REVIEW";
+
+   if(family == "TRANSITION_F3_EXPANSION")
+      return "REGIME_F3_STRUCTURAL_EXPANSION";
+   if(family == "TRANSITION_F2_EXPANSION")
+      return "REGIME_F2_STRUCTURAL_EXPANSION";
+   if(family == "TRANSITION_F1_EXPANSION")
+      return "REGIME_F1_STRUCTURAL_EXPANSION";
+   if(family == "TRANSITION_F_COUNT_CONTRACTION")
+      return "REGIME_F_COUNT_CONTRACTION";
+   if(family == "TRANSITION_ND_COUNT_CHANGE")
+      return "REGIME_ND_REBUILD";
+   if(family == "TRANSITION_HOOK_COUNT_CHANGE")
+      return "REGIME_HOOK_REBUILD";
+   if(family == "TRANSITION_VISIBILITY_CHANGE")
+      return "REGIME_VISIBILITY_RESHUFFLE";
+   if(family == "TRANSITION_NO_CHANGE")
+      return "REGIME_STABLE_NO_CHANGE";
+
+   return "REGIME_OBSERVE_ONLY_UNCLASSIFIED";
+}
+
+string FP_L19RegimeQualityHint(const string regime_label,
+                               const string severity,
+                               const int stability_streak)
+{
+   if(regime_label == "REGIME_HEALTH_REVIEW")
+      return "REGIME_QUALITY_HEALTH_BLOCKED";
+   if(stability_streak >= 5 && severity != "TRANSITION_SEVERITY_HEALTH")
+      return "REGIME_QUALITY_STABLE_OBSERVATION";
+   if(severity == "TRANSITION_SEVERITY_MAJOR")
+      return "REGIME_QUALITY_MAJOR_TRANSITION_OBSERVATION";
+   if(severity == "TRANSITION_SEVERITY_STRUCTURAL")
+      return "REGIME_QUALITY_STRUCTURAL_OBSERVATION";
+   if(severity == "TRANSITION_SEVERITY_MINOR")
+      return "REGIME_QUALITY_MINOR_OBSERVATION";
+   return "REGIME_QUALITY_NEUTRAL_OBSERVATION";
+}
+
+string FP_L19CompletionStatus(const FP_Level19StateGateSnapshot &current)
+{
+   if(!current.timebase_ok)
+      return "LEVEL19_COMPLETE_BLOCKED_TIMEBASE";
+   if(current.render_attempted && !current.render_ok)
+      return "LEVEL19_COMPLETE_RENDER_HEALTH_REVIEW";
+   if(current.validation_attempted && !current.validation_ok)
+      return "LEVEL19_COMPLETE_VALIDATION_HEALTH_REVIEW";
+   if(current.events_total <= 0 && current.hooks_total <= 0)
+      return "LEVEL19_COMPLETE_EMPTY_STATE_OBSERVED";
+   return "LEVEL19_COMPLETE_READY_FOR_LEVEL20_ENTRY_BRIDGE";
+}
+
+string FP_L19CompletionNextStep(const string completion_status)
+{
+   if(completion_status == "LEVEL19_COMPLETE_READY_FOR_LEVEL20_ENTRY_BRIDGE")
+      return "NEXT_LEVEL_20_ENTRY_BRIDGE_XY_ANCHOR_JOIN";
+   if(completion_status == "LEVEL19_COMPLETE_BLOCKED_TIMEBASE")
+      return "FIX_TIMEBASE_BEFORE_LEVEL20";
+   if(completion_status == "LEVEL19_COMPLETE_RENDER_HEALTH_REVIEW")
+      return "REVIEW_RENDER_REPORT_BEFORE_LEVEL20";
+   if(completion_status == "LEVEL19_COMPLETE_VALIDATION_HEALTH_REVIEW")
+      return "REVIEW_VALIDATION_REPORT_BEFORE_LEVEL20";
+   return "KEEP_OBSERVING_UNTIL_STATE_AVAILABLE";
+}
+
 #endif // __FP_STATE_GATE_RULES_MQH__
