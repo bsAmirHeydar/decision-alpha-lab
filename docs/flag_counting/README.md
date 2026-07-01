@@ -178,3 +178,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_19Z_COMPLETE_OBSERVATION_SUITE.md
 ```
 
 Level 19Z completes the clean Level 19 observation layer. It adds transition summary, transition stability, regime labels, and completion status outputs while preserving the no-touch renderer contract, keeping the panel disabled by default, keeping prints disabled by default, and avoiding entry, paper trading, broker requests, and real execution.
+
+
+## Level 20 — Entry Bridge / X-Y Anchor Join
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_20_ENTRY_BRIDGE_XY_ANCHOR_JOIN.md
+```
+
+Level 20 adds `state_gate_level20_entry_bridge.csv`, a read-only bridge from Level 19 observation state to X-axis structural anchors. It derives entry, invalidation, and destination anchors from the latest visible event or Hook/ND fallback, computes RR-like readiness, and outputs readiness/block reasons without creating paper orders, broker requests, real orders, panel objects, renderer mutations, or chart-object changes.

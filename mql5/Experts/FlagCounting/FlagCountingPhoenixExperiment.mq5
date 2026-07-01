@@ -13,6 +13,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_StaticQaEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_LicenseEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_StateGateEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_EntryBridgeEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -377,6 +378,16 @@ input int             InpLevel19StateGatePanelY = 32;
 input int             InpLevel19StateGatePanelWidth = 420;
 input int             InpLevel19StateGatePanelFontSize = 8;
 
+// ------------------------------ Level 20 Entry Bridge -----------------------
+// X/Y anchor join for entry research only. No order, no broker request, no execution.
+input bool   InpLevel20EntryBridgeEnabled = true;
+input bool   InpLevel20EntryBridgeExportCsv = true;
+input bool   InpLevel20EntryBridgePrintSummary = false;
+input bool   InpLevel20EntryBridgePreferLatestVisibleEvent = true;
+input bool   InpLevel20EntryBridgeAllowHookFallback = true;
+input double InpLevel20EntryBridgeMinRR = 1.0;
+input string InpLevel20EntryBridgeFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -598,6 +609,20 @@ void FP_LoadLevel19StateGateConfig(FP_Level19StateGateConfig &cfg)
    cfg.panel_y = InpLevel19StateGatePanelY;
    cfg.panel_width = InpLevel19StateGatePanelWidth;
    cfg.panel_font_size = InpLevel19StateGatePanelFontSize;
+}
+
+
+
+void FP_LoadLevel20EntryBridgeConfig(FP_Level20EntryBridgeConfig &cfg)
+{
+   FP_ResetLevel20EntryBridgeConfig(cfg);
+   cfg.enabled = InpLevel20EntryBridgeEnabled;
+   cfg.export_csv = InpLevel20EntryBridgeExportCsv;
+   cfg.print_summary = InpLevel20EntryBridgePrintSummary;
+   cfg.prefer_latest_visible_event = InpLevel20EntryBridgePreferLatestVisibleEvent;
+   cfg.allow_hook_fallback = InpLevel20EntryBridgeAllowHookFallback;
+   cfg.min_rr = InpLevel20EntryBridgeMinRR;
+   cfg.folder = InpLevel20EntryBridgeFolder;
 }
 
 
@@ -898,6 +923,9 @@ void FP_Run()
    FP_Level19StateGateConfig state_gate_cfg;
    FP_LoadLevel19StateGateConfig(state_gate_cfg);
 
+   FP_Level20EntryBridgeConfig entry_bridge_cfg;
+   FP_LoadLevel20EntryBridgeConfig(entry_bridge_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1066,6 +1094,14 @@ void FP_Run()
                           state_gate_cfg, state_gate_report);
    if(state_gate_cfg.print_summary)
       FP_PrintLevel19StateGateReport("FP_LEVEL19", state_gate_report);
+
+   FP_Level20EntryBridgeReport entry_bridge_report;
+   FP_RunLevel20EntryBridge(_Symbol, _Period, rates, copied,
+                            events, hooks, timebase_report,
+                            render_report, validation_report,
+                            entry_bridge_cfg, entry_bridge_report);
+   if(entry_bridge_cfg.print_summary)
+      FP_PrintLevel20EntryBridgeReport("FP_LEVEL20", entry_bridge_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
