@@ -2,22 +2,23 @@
 
 ## Captured Records
 
-### EXT-03 — Why L2 Is the Default Extreme Anchor
+### EXT-04 — L2 Default Scope and Context Dependence
 
 Path:
 
 ```text
-docs/experience_capture/answers/EXT-03/
+docs/experience_capture/answers/EXT-04/
 ```
 
 Summary:
 
-L2 is the default Extreme anchor because it is the minimum meaningful NDS node level. L1 is rejected as structurally meaningless. L2 preserves more opportunities and smaller stops, which supports convex Extreme entries. Higher L levels may be better in larger cycles, but this must be tested through an adaptive and context-sensitive node-level policy rather than treated as a fixed rule.
+L2 is a default candidate, not a blind law. Lower L creates more entries and preserves convexity, but may reduce quality. Higher L may improve quality and win rate, but can reduce frequency and reward. The correct L coefficient must be tested by context and evaluated through both win rate and reward distribution, not by one metric alone.
 
 Main derived architecture requirements:
 
 ```text
-node_level_candidate_ledger_v1.csv
-extreme_anchor_level_test_v1.csv
-adaptive_anchor_level_policy_v1.csv
+l_level_context_test_v1.csv
+adaptive_l_policy_dataset_v1.csv
+l_level_reward_winrate_tradeoff_v1.csv
+node_level_context_performance_v1.csv
 ```

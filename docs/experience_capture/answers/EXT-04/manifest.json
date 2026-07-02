@@ -1,0 +1,30 @@
+{
+  "question_code": "EXT-04",
+  "language": "en",
+  "topic": "Whether L2 is always default or context-dependent",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "l_coefficient_testing",
+    "context_conditioned_l_level",
+    "entry_frequency_vs_quality",
+    "reward_vs_winrate_tradeoff",
+    "adaptive_l_policy",
+    "scale_role_anchor_selection"
+  ],
+  "proposed_datasets": [
+    "l_level_context_test_v1.csv",
+    "adaptive_l_policy_dataset_v1.csv",
+    "l_level_reward_winrate_tradeoff_v1.csv",
+    "node_level_context_performance_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "L-Level Context Tester",
+    "Adaptive L Policy Model",
+    "Reward-vs-Winrate Tradeoff Analyzer",
+    "L-Level Robustness Model",
+    "Entry Frequency vs Quality Optimizer",
+    "Scale-Role Anchor Selector"
+  ]
+}
