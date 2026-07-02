@@ -21,6 +21,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_BrokerDryRunEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerValidatorEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestLedgerEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_BrokerRequestAuditEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -481,6 +482,21 @@ input bool   InpLevel27BrokerRequestLedgerWriteLatestCsv = true;
 input bool   InpLevel27BrokerRequestLedgerSkipDuplicateRequestKey = true;
 input string InpLevel27BrokerRequestLedgerFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 28 Broker Request Audit ---------------
+// Audits no-send broker request chain. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpLevel28BrokerRequestAuditEnabled = true;
+input bool   InpLevel28BrokerRequestAuditExportCsv = true;
+input bool   InpLevel28BrokerRequestAuditPrintSummary = false;
+input bool   InpLevel28BrokerRequestAuditAppendCsv = true;
+input bool   InpLevel28BrokerRequestAuditWriteLatestCsv = true;
+input bool   InpLevel28BrokerRequestAuditSkipDuplicateAuditKey = true;
+input bool   InpLevel28BrokerRequestAuditRequireDryRunOnly = true;
+input bool   InpLevel28BrokerRequestAuditRequireZeroVolume = true;
+input bool   InpLevel28BrokerRequestAuditRequireNoSendContract = true;
+input bool   InpLevel28BrokerRequestAuditRequireRequestValidatorCoherence = true;
+input bool   InpLevel28BrokerRequestAuditRequireSafetyIntentCoherence = true;
+input string InpLevel28BrokerRequestAuditFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -833,6 +849,25 @@ void FP_LoadLevel27BrokerRequestLedgerConfig(FP_Level27BrokerRequestLedgerConfig
 }
 
 
+
+void FP_LoadLevel28BrokerRequestAuditConfig(FP_Level28BrokerRequestAuditConfig &cfg)
+{
+   FP_ResetLevel28BrokerRequestAuditConfig(cfg);
+   cfg.enabled = InpLevel28BrokerRequestAuditEnabled;
+   cfg.export_csv = InpLevel28BrokerRequestAuditExportCsv;
+   cfg.print_summary = InpLevel28BrokerRequestAuditPrintSummary;
+   cfg.append_audit_csv = InpLevel28BrokerRequestAuditAppendCsv;
+   cfg.write_latest_csv = InpLevel28BrokerRequestAuditWriteLatestCsv;
+   cfg.skip_duplicate_audit_key = InpLevel28BrokerRequestAuditSkipDuplicateAuditKey;
+   cfg.require_dry_run_only = InpLevel28BrokerRequestAuditRequireDryRunOnly;
+   cfg.require_zero_volume = InpLevel28BrokerRequestAuditRequireZeroVolume;
+   cfg.require_no_send_contract = InpLevel28BrokerRequestAuditRequireNoSendContract;
+   cfg.require_request_validator_coherence = InpLevel28BrokerRequestAuditRequireRequestValidatorCoherence;
+   cfg.require_safety_intent_coherence = InpLevel28BrokerRequestAuditRequireSafetyIntentCoherence;
+   cfg.folder = InpLevel28BrokerRequestAuditFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1154,6 +1189,9 @@ void FP_Run()
    FP_Level27BrokerRequestLedgerConfig broker_request_ledger_cfg;
    FP_LoadLevel27BrokerRequestLedgerConfig(broker_request_ledger_cfg);
 
+   FP_Level28BrokerRequestAuditConfig broker_request_audit_cfg;
+   FP_LoadLevel28BrokerRequestAuditConfig(broker_request_audit_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1401,6 +1439,19 @@ void FP_Run()
                                     broker_request_ledger_report);
    if(broker_request_ledger_cfg.print_summary)
       FP_PrintLevel27BrokerRequestLedgerReport("FP_LEVEL27", broker_request_ledger_report);
+
+   FP_Level28BrokerRequestAuditReport broker_request_audit_report;
+   FP_RunLevel28BrokerRequestAudit(_Symbol, _Period, rates, copied,
+                                   events, hooks, timebase_report,
+                                   render_report, validation_report,
+                                   g_fp_license_ok,
+                                   entry_bridge_cfg, paper_intent_cfg,
+                                   safety_gate_cfg, broker_dry_run_cfg,
+                                   broker_validator_cfg,
+                                   broker_request_audit_cfg,
+                                   broker_request_audit_report);
+   if(broker_request_audit_cfg.print_summary)
+      FP_PrintLevel28BrokerRequestAuditReport("FP_LEVEL28", broker_request_audit_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

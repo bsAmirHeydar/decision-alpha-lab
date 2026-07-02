@@ -250,3 +250,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_27_BROKER_REQUEST_LEDGER_NO_SEND.md
 ```
 
 Level 27 adds `state_gate_level27_broker_request_ledger.csv` and `latest_state_gate_level27_broker_request_ledger.csv`, recording dry-run broker preview requests and Level 26 validator outcomes into an append-only no-send ledger with duplicate skipping. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.
+
+
+## Level 28 — Broker Request Audit / No Send
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_28_BROKER_REQUEST_AUDIT_NO_SEND.md
+```
+
+Level 28 adds `state_gate_level28_broker_request_audit.csv` and `latest_state_gate_level28_broker_request_audit.csv`, auditing the no-send broker request chain for dry-run-only integrity, zero-volume integrity, no-send contract integrity, request-validator coherence, and safety/intent coherence. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.
