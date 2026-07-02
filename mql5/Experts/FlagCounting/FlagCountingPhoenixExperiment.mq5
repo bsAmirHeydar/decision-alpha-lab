@@ -17,6 +17,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_PaperIntentEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperLifecycleEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperPerformanceEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_SafetyGateEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -420,6 +421,28 @@ input bool   InpLevel23PaperPerformanceCountOpenSamples = true;
 input bool   InpLevel23PaperPerformanceCountExpiredAsResolved = true;
 input string InpLevel23PaperPerformanceFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 24 Safety Gate ------------------------
+// Pre-broker safety gate. No order, no broker request, no real execution.
+input bool   InpLevel24SafetyGateEnabled = true;
+input bool   InpLevel24SafetyGateExportCsv = true;
+input bool   InpLevel24SafetyGatePrintSummary = false;
+input bool   InpLevel24SafetyGateManualArm = false;
+input bool   InpLevel24SafetyGateRealExecutionEnabled = false;
+input bool   InpLevel24SafetyGateRequireLicenseOk = true;
+input bool   InpLevel24SafetyGateRequireSymbolAllowed = true;
+input bool   InpLevel24SafetyGateRequireTimeframeAllowed = true;
+input bool   InpLevel24SafetyGateRequireSpreadOk = true;
+input bool   InpLevel24SafetyGateRequirePerformanceOk = false;
+input bool   InpLevel24SafetyGateRequireManualArm = false;
+input bool   InpLevel24SafetyGateRequireRealExecutionDisabled = true;
+input string InpLevel24SafetyGateAllowedSymbols = "*";
+input string InpLevel24SafetyGateAllowedTimeframes = "*";
+input int    InpLevel24SafetyGateMaxSpreadPoints = 0;
+input int    InpLevel24SafetyGateMinResolvedSamples = 30;
+input double InpLevel24SafetyGateMinHitRateLike = 0.50;
+input double InpLevel24SafetyGateMinAvgRLike = 0.00;
+input string InpLevel24SafetyGateFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -696,6 +719,32 @@ void FP_LoadLevel23PaperPerformanceConfig(FP_Level23PaperPerformanceConfig &cfg)
    cfg.count_open_samples = InpLevel23PaperPerformanceCountOpenSamples;
    cfg.count_expired_as_resolved = InpLevel23PaperPerformanceCountExpiredAsResolved;
    cfg.folder = InpLevel23PaperPerformanceFolder;
+}
+
+
+
+void FP_LoadLevel24SafetyGateConfig(FP_Level24SafetyGateConfig &cfg)
+{
+   FP_ResetLevel24SafetyGateConfig(cfg);
+   cfg.enabled = InpLevel24SafetyGateEnabled;
+   cfg.export_csv = InpLevel24SafetyGateExportCsv;
+   cfg.print_summary = InpLevel24SafetyGatePrintSummary;
+   cfg.manual_arm = InpLevel24SafetyGateManualArm;
+   cfg.real_execution_enabled = InpLevel24SafetyGateRealExecutionEnabled;
+   cfg.require_license_ok = InpLevel24SafetyGateRequireLicenseOk;
+   cfg.require_symbol_allowed = InpLevel24SafetyGateRequireSymbolAllowed;
+   cfg.require_timeframe_allowed = InpLevel24SafetyGateRequireTimeframeAllowed;
+   cfg.require_spread_ok = InpLevel24SafetyGateRequireSpreadOk;
+   cfg.require_performance_ok = InpLevel24SafetyGateRequirePerformanceOk;
+   cfg.require_manual_arm = InpLevel24SafetyGateRequireManualArm;
+   cfg.require_real_execution_disabled = InpLevel24SafetyGateRequireRealExecutionDisabled;
+   cfg.allowed_symbols = InpLevel24SafetyGateAllowedSymbols;
+   cfg.allowed_timeframes = InpLevel24SafetyGateAllowedTimeframes;
+   cfg.max_spread_points = InpLevel24SafetyGateMaxSpreadPoints;
+   cfg.min_resolved_samples = InpLevel24SafetyGateMinResolvedSamples;
+   cfg.min_hit_rate_like = InpLevel24SafetyGateMinHitRateLike;
+   cfg.min_avg_r_like = InpLevel24SafetyGateMinAvgRLike;
+   cfg.folder = InpLevel24SafetyGateFolder;
 }
 
 
@@ -1008,6 +1057,9 @@ void FP_Run()
    FP_Level23PaperPerformanceConfig paper_performance_cfg;
    FP_LoadLevel23PaperPerformanceConfig(paper_performance_cfg);
 
+   FP_Level24SafetyGateConfig safety_gate_cfg;
+   FP_LoadLevel24SafetyGateConfig(safety_gate_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1213,6 +1265,12 @@ void FP_Run()
                                  paper_performance_report);
    if(paper_performance_cfg.print_summary)
       FP_PrintLevel23PaperPerformanceReport("FP_LEVEL23", paper_performance_report);
+
+   FP_Level24SafetyGateReport safety_gate_report;
+   FP_RunLevel24SafetyGate(_Symbol, _Period, g_fp_license_ok,
+                           safety_gate_cfg, safety_gate_report);
+   if(safety_gate_cfg.print_summary)
+      FP_PrintLevel24SafetyGateReport("FP_LEVEL24", safety_gate_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

@@ -214,3 +214,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_23_PAPER_PERFORMANCE_CLOSE_ONLY.md
 ```
 
 Level 23 adds `state_gate_level23_paper_performance.csv`, summarizing the close-only paper lifecycle from Level 22 into research performance metrics such as target count, stop count, expired count, open count, ambiguous count, hit-rate-like, loss-rate-like, average R-like, best R-like, and worst R-like. It remains CSV-only, print-silent by default, panel-off by default, and adds no paper orders, broker requests, real orders, volume sizing, risk sizing, renderer mutation, or chart-object change.
+
+
+## Level 24 — Safety Gate / Pre-Broker Guard
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_24_SAFETY_GATE_PRE_BROKER.md
+```
+
+Level 24 adds `state_gate_level24_safety_gate.csv`, a pre-broker safety gate that evaluates license status, symbol allow-list, timeframe allow-list, spread, Level 23 paper performance thresholds, manual arm state, and the requirement that real execution remains disabled. It remains CSV-only, print-silent by default, panel-off by default, and adds no paper orders, broker requests, real orders, volume sizing, risk sizing, renderer mutation, or chart-object change.
