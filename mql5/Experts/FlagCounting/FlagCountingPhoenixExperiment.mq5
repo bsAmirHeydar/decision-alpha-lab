@@ -19,6 +19,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_PaperPerformanceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_SafetyGateEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerDryRunEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_BrokerValidatorEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -456,6 +457,19 @@ input long   InpLevel25BrokerDryRunMagic = 250025;
 input string InpLevel25BrokerDryRunComment = "DAL_L25_DRY_RUN_ONLY";
 input string InpLevel25BrokerDryRunFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 26 Broker Validator -------------------
+// Validates broker-like dry-run preview only. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpLevel26BrokerValidatorEnabled = true;
+input bool   InpLevel26BrokerValidatorExportCsv = true;
+input bool   InpLevel26BrokerValidatorPrintSummary = false;
+input bool   InpLevel26BrokerValidatorRequireDryRunBuilt = true;
+input bool   InpLevel26BrokerValidatorRequireTickAlignment = true;
+input bool   InpLevel26BrokerValidatorRequireStopDistance = true;
+input bool   InpLevel26BrokerValidatorRequireNormalizedPrices = true;
+input bool   InpLevel26BrokerValidatorRequireZeroVolume = true;
+input bool   InpLevel26BrokerValidatorRequireDryRunOnly = true;
+input string InpLevel26BrokerValidatorFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -777,6 +791,23 @@ void FP_LoadLevel25BrokerDryRunConfig(FP_Level25BrokerDryRunConfig &cfg)
 }
 
 
+
+void FP_LoadLevel26BrokerValidatorConfig(FP_Level26BrokerValidatorConfig &cfg)
+{
+   FP_ResetLevel26BrokerValidatorConfig(cfg);
+   cfg.enabled = InpLevel26BrokerValidatorEnabled;
+   cfg.export_csv = InpLevel26BrokerValidatorExportCsv;
+   cfg.print_summary = InpLevel26BrokerValidatorPrintSummary;
+   cfg.require_dry_run_built = InpLevel26BrokerValidatorRequireDryRunBuilt;
+   cfg.require_tick_alignment = InpLevel26BrokerValidatorRequireTickAlignment;
+   cfg.require_stop_distance = InpLevel26BrokerValidatorRequireStopDistance;
+   cfg.require_normalized_prices = InpLevel26BrokerValidatorRequireNormalizedPrices;
+   cfg.require_zero_volume = InpLevel26BrokerValidatorRequireZeroVolume;
+   cfg.require_dry_run_only = InpLevel26BrokerValidatorRequireDryRunOnly;
+   cfg.folder = InpLevel26BrokerValidatorFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1092,6 +1123,9 @@ void FP_Run()
    FP_Level25BrokerDryRunConfig broker_dry_run_cfg;
    FP_LoadLevel25BrokerDryRunConfig(broker_dry_run_cfg);
 
+   FP_Level26BrokerValidatorConfig broker_validator_cfg;
+   FP_LoadLevel26BrokerValidatorConfig(broker_validator_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1314,6 +1348,18 @@ void FP_Run()
                              broker_dry_run_report);
    if(broker_dry_run_cfg.print_summary)
       FP_PrintLevel25BrokerDryRunReport("FP_LEVEL25", broker_dry_run_report);
+
+   FP_Level26BrokerValidatorReport broker_validator_report;
+   FP_RunLevel26BrokerValidator(_Symbol, _Period, rates, copied,
+                                events, hooks, timebase_report,
+                                render_report, validation_report,
+                                g_fp_license_ok,
+                                entry_bridge_cfg, paper_intent_cfg,
+                                safety_gate_cfg, broker_dry_run_cfg,
+                                broker_validator_cfg,
+                                broker_validator_report);
+   if(broker_validator_cfg.print_summary)
+      FP_PrintLevel26BrokerValidatorReport("FP_LEVEL26", broker_validator_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

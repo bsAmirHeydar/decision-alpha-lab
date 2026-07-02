@@ -232,3 +232,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_25_BROKER_DRY_RUN_ONLY.md
 ```
 
 Level 25 adds `state_gate_level25_broker_dry_run.csv`, a broker-like request preview that depends on Level 24 Safety Gate and Level 21 Paper Intent. It emits dry-run-only request fields such as preview order type, entry price, SL, TP, magic, comment, and block reason, while keeping volume at zero and avoiding OrderSend, CTrade, OrderCheck, real execution, risk sizing, renderer mutation, or chart-object changes.
+
+
+## Level 26 — Broker Request Validator / No Send
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_26_BROKER_VALIDATOR_NO_SEND.md
+```
+
+Level 26 adds `state_gate_level26_broker_validator.csv`, validating the Level 25 broker dry-run preview against no-send requirements, zero-volume lock, normalized prices, tick-size alignment, directional geometry, and broker stop-level distance. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.
