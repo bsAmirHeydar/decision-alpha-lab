@@ -1,25 +1,39 @@
 # Experience Capture
 
-This folder stores Amir's raw trading experience answers, chart examples, normalized interpretations, open questions, and future AI/architecture mapping.
+This folder stores Amir's trading experience capture system.
 
-Each answered question should have its own folder:
+It has two main sides:
 
-```text
-docs/experience_capture/answers/<QUESTION_CODE>/
-  answer_raw_en.md
-  answer_normalized_en.md
-  notes_en.md
-  images/
-```
+- `questions/` contains the English Markdown questionnaire split by section.
+- `answers/` contains captured answers, normalized interpretations, images, notes, and manifests for each question code.
 
-The purpose is to preserve the original human trading experience and gradually convert it into:
+The goal is to convert raw human trading experience into:
 
-```text
-hard rules
-features
-labels
-tests
-AI model inputs
-execution policies
-backtest requirements
-```
+- hard rules
+- features
+- labels
+- tests
+- AI model contracts
+- execution policies
+- backtest requirements
+
+## Main questionnaire
+
+Start here:
+
+- `questions/README.md`
+- `questions/QUESTIONNAIRE_INDEX_EN.md`
+
+## Answer convention
+
+For each question code, store the answer under:
+
+- `answers/<QUESTION_CODE>/answer_raw_en.md`
+- `answers/<QUESTION_CODE>/answer_normalized_en.md`
+- `answers/<QUESTION_CODE>/notes_en.md`
+- `answers/<QUESTION_CODE>/images/`
+- `answers/<QUESTION_CODE>/manifest.json`
+
+## Existing answer example
+
+- `answers/BASE-01/`

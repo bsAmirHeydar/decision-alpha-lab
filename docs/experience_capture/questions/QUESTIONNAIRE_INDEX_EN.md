@@ -1,0 +1,137 @@
+# Questionnaire Index
+
+This index lists every question code and its section.
+
+- [BASE-01](by_code/BASE-01.md) — When you say the market must be read as multi-state, exactly which primary states are alive in your mind? — Section: Foundation Language and Core Definitions
+- [BASE-02](by_code/BASE-02.md) — What exactly is a scenario, and what must it contain before it counts as a scenario? — Section: Foundation Language and Core Definitions
+- [BASE-03](by_code/BASE-03.md) — What counts as a valid reason in the market, and what is only noise? — Section: Foundation Language and Core Definitions
+- [BASE-04](by_code/BASE-04.md) — Which concepts should never enter the system? — Section: Foundation Language and Core Definitions
+- [BASE-05](by_code/BASE-05.md) — When you say no final judgment can be made, how far is that uncertainty allowed to go? — Section: Foundation Language and Core Definitions
+- [BASE-06](by_code/BASE-06.md) — Which parts of your experience must become hard rules, and which parts should remain learnable? — Section: Foundation Language and Core Definitions
+- [EXT-01](by_code/EXT-01.md) — How is an extreme defined in relation to an unreached node? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-02](by_code/EXT-02.md) — Which project logic produces the anchor node around which the extreme is built? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-03](by_code/EXT-03.md) — Why is L2 the default node level for extremes? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-04](by_code/EXT-04.md) — Is L2 always the default, or only in specific contexts? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-05](by_code/EXT-05.md) — What exactly does unreached node mean? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-06](by_code/EXT-06.md) — If price slightly penetrates the node and quickly returns, is the extreme invalid or still valid? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-07](by_code/EXT-07.md) — If multiple L2 nodes are close to each other, which one becomes the main anchor? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-08](by_code/EXT-08.md) — How important is node freshness? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-09](by_code/EXT-09.md) — How do you recognize the quality of the anchor node? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-10](by_code/EXT-10.md) — What separates a good extreme from a deceptive extreme? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-11](by_code/EXT-11.md) — Does an extreme only make sense when entry is against the current move? — Section: Extreme, L2 Node, and Unreached Node
+- [EXT-12](by_code/EXT-12.md) — What separates your extreme from classical support and resistance? — Section: Extreme, L2 Node, and Unreached Node
+- [CYC-01](by_code/CYC-01.md) — When you say ninety percent of the cycle, where exactly is the origin of that cycle? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-02](by_code/CYC-02.md) — Is ninety percent a real numeric threshold or an intuitive way to say late-cycle? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-03](by_code/CYC-03.md) — What is the practical proximity range near the node? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-04](by_code/CYC-04.md) — If price reaches one hundred percent and exactly touches the node, where is the true entry? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-05](by_code/CYC-05.md) — Is cycle completion measured only by price, or also by structure? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-06](by_code/CYC-06.md) — If multiple cycles exist at the same time, which one becomes the reference? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-07](by_code/CYC-07.md) — Does ninety percent cycle mean the same thing in slow moves and fast moves? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-08](by_code/CYC-08.md) — Which unit should be used to measure proximity to the node? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-09](by_code/CYC-09.md) — When is proximity too late? — Section: Ninety Percent Cycle and Node Proximity
+- [CYC-10](by_code/CYC-10.md) — Is late-cycle always a reversal candidate? — Section: Ninety Percent Cycle and Node Proximity
+- [ENT-01](by_code/ENT-01.md) — Which part of the extreme zone is best for the limit entry? — Section: Limit Entry, Stop, and Destination
+- [ENT-02](by_code/ENT-02.md) — Is limit-first a hard principle, or do you sometimes want confirmation? — Section: Limit Entry, Stop, and Destination
+- [ENT-03](by_code/ENT-03.md) — If price reaches the extreme zone but the limit is not filled and then reverses, what label should it receive? — Section: Limit Entry, Stop, and Destination
+- [ENT-04](by_code/ENT-04.md) — Why do you accept or reject chasing after the market reverses from the extreme? — Section: Limit Entry, Stop, and Destination
+- [ENT-05](by_code/ENT-05.md) — How exactly is the stop placed behind the node? — Section: Limit Entry, Stop, and Destination
+- [ENT-06](by_code/ENT-06.md) — If the stop becomes very small, is the setup better or more fragile? — Section: Limit Entry, Stop, and Destination
+- [ENT-07](by_code/ENT-07.md) — If the stop behind the node becomes large, when does the setup still have value? — Section: Limit Entry, Stop, and Destination
+- [ENT-08](by_code/ENT-08.md) — Is invalidation the same as the stop, or can it be separate? — Section: Limit Entry, Stop, and Destination
+- [ENT-09](by_code/ENT-09.md) — Where is the destination selected from? — Section: Limit Entry, Stop, and Destination
+- [ENT-10](by_code/ENT-10.md) — What does open destination mean? — Section: Limit Entry, Stop, and Destination
+- [ENT-11](by_code/ENT-11.md) — If the destination changes while the setup is alive, what should happen? — Section: Limit Entry, Stop, and Destination
+- [ENT-12](by_code/ENT-12.md) — Is exit only a target event, or can Y-phase change also force exit? — Section: Limit Entry, Stop, and Destination
+- [SCN-01](by_code/SCN-01.md) — What are the minimum conditions for a bullish scenario to remain alive? — Section: Dual Buy/Sell Scenarios
+- [SCN-02](by_code/SCN-02.md) — What are the minimum conditions for a bearish scenario to remain alive? — Section: Dual Buy/Sell Scenarios
+- [SCN-03](by_code/SCN-03.md) — If both scenarios are alive, is that an opportunity or a danger? — Section: Dual Buy/Sell Scenarios
+- [SCN-04](by_code/SCN-04.md) — How do you identify the stronger scenario? — Section: Dual Buy/Sell Scenarios
+- [SCN-05](by_code/SCN-05.md) — Which reason vectors must be recorded for each scenario? — Section: Dual Buy/Sell Scenarios
+- [SCN-06](by_code/SCN-06.md) — When should the opposite scenario only be watched and not traded? — Section: Dual Buy/Sell Scenarios
+- [SCN-07](by_code/SCN-07.md) — Should every buy case always have a sell case built beside it? — Section: Dual Buy/Sell Scenarios
+- [SCN-08](by_code/SCN-08.md) — When does a scenario die? — Section: Dual Buy/Sell Scenarios
+- [SCN-09](by_code/SCN-09.md) — If buy and sell both have high quality but at different extremes, what should execution do? — Section: Dual Buy/Sell Scenarios
+- [SCN-10](by_code/SCN-10.md) — Can scenarios be alive at the same time but on different scales? — Section: Dual Buy/Sell Scenarios
+- [HR-01](by_code/HR-01.md) — Where exactly does a Hook start? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-02](by_code/HR-02.md) — When does a Hook stay alive, and when does it die? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-03](by_code/HR-03.md) — Inside a Hook, what do the extreme and L2 node mean? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-04](by_code/HR-04.md) — Where exactly does a Rally start? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-05](by_code/HR-05.md) — When does a Rally enter valid F-counting? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-06](by_code/HR-06.md) — When is a Rally considered finished? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-07](by_code/HR-07.md) — If Hook and Rally are both alive, what should execution do? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-08](by_code/HR-08.md) — Can Hook/Rally interpretations differ across scales? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-09](by_code/HR-09.md) — Is Hook more important for direction or for entry location? — Section: Hook and Rally as Simultaneous Interpretations
+- [HR-10](by_code/HR-10.md) — Is Rally more important for continuation or for movement termination? — Section: Hook and Rally as Simultaneous Interpretations
+- [F-01](by_code/F-01.md) — What exactly does F1 mean? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-02](by_code/F-02.md) — What does F2 add that F1 does not have? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-03](by_code/F-03.md) — Why is F3 a terminal candidate? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-04](by_code/F-04.md) — Is every F3 a terminal candidate, or only specific F3s? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-05](by_code/F-05.md) — Why does the first opposite F after F3 not necessarily cancel the F3? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-06](by_code/F-06.md) — What confirms that F3 is truly terminal? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-07](by_code/F-07.md) — What shows that F3 was not terminal and parent continuation overrode it? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-08](by_code/F-08.md) — If F3 gives reversal and then the market continues again, how should it be labeled? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-09](by_code/F-09.md) — Are F1/F2/F3 exactly mirrored in buy and sell, or are there differences? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-10](by_code/F-10.md) — How is F-count combined across parent/current/child? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-11](by_code/F-11.md) — When do you reset F-count? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [F-12](by_code/F-12.md) — Is F-count used directly for entry or only as context? — Section: F-counting, F1/F2/F3, and F3 Logic
+- [FR-01](by_code/FR-01.md) — What is the minimum number of scales required for decision-making? — Section: Fractal Parent/Current/Child Context
+- [FR-02](by_code/FR-02.md) — What exactly is the role of the parent scale? — Section: Fractal Parent/Current/Child Context
+- [FR-03](by_code/FR-03.md) — What exactly is the role of the current scale? — Section: Fractal Parent/Current/Child Context
+- [FR-04](by_code/FR-04.md) — What exactly is the role of the child scale? — Section: Fractal Parent/Current/Child Context
+- [FR-05](by_code/FR-05.md) — How do you recognize parent continuation energy? — Section: Fractal Parent/Current/Child Context
+- [FR-06](by_code/FR-06.md) — How do you recognize parent terminal pressure? — Section: Fractal Parent/Current/Child Context
+- [FR-07](by_code/FR-07.md) — If the current setup is excellent but the parent is against it, what do you do? — Section: Fractal Parent/Current/Child Context
+- [FR-08](by_code/FR-08.md) — If the parent agrees but the child is bad, do you delay entry or ignore the child? — Section: Fractal Parent/Current/Child Context
+- [FR-09](by_code/FR-09.md) — If current F3 is terminal but parent destination is still open, do you seek reversal or continuation? — Section: Fractal Parent/Current/Child Context
+- [FR-10](by_code/FR-10.md) — What does fractal multi-state interpretation mean? — Section: Fractal Parent/Current/Child Context
+- [FR-11](by_code/FR-11.md) — Should scales be fixed timeframes such as M1/M5/M15, or should they be structural? — Section: Fractal Parent/Current/Child Context
+- [FR-12](by_code/FR-12.md) — Should fractal context be an AI feature or a hard gate? — Section: Fractal Parent/Current/Child Context
+- [EXE-01](by_code/EXE-01.md) — What is the maximum acceptable spread-to-risk ratio? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-02](by_code/EXE-02.md) — Should spread be calculated in the entry itself or only in validation? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-03](by_code/EXE-03.md) — Should commission and slippage be included now or later? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-04](by_code/EXE-04.md) — When should a pending limit be cancelled? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-05](by_code/EXE-05.md) — When should a pending limit be replaced? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-06](by_code/EXE-06.md) — If price comes near entry but does not fill and structure changes, what happens to the order? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-07](by_code/EXE-07.md) — If Y-phase changes, should all previous pending orders be cancelled? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-08](by_code/EXE-08.md) — If entry is filled and then destination changes, what do you do? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-09](by_code/EXE-09.md) — If spread suddenly widens, should the pending order be removed or only new trades blocked? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-10](by_code/EXE-10.md) — Which execution templates do we need? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-11](by_code/EXE-11.md) — In which conditions is market entry allowed? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-12](by_code/EXE-12.md) — Should broker stop and structural stop be separate? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [EXE-13](by_code/EXE-13.md) — How should order sizing and risk profile be introduced later? — Section: Execution, Spread, Slippage, Pending Orders, and Order Management
+- [OPT-01](by_code/OPT-01.md) — What exactly is good optionality from your perspective? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-02](by_code/OPT-02.md) — What is fake optionality? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-03](by_code/OPT-03.md) — What are the traits of a clean path? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-04](by_code/OPT-04.md) — Do you accept a dirty but profitable path? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-05](by_code/OPT-05.md) — Is win rate more important to you, or tail payoff? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-06](by_code/OPT-06.md) — When exactly does hedge make sense? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-07](by_code/OPT-07.md) — What are the signs of stupid or destructive hedge? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-08](by_code/OPT-08.md) — If one side is filled, what happens to the opposite side? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-09](by_code/OPT-09.md) — Do you want AI to search for 10R, 20R, or higher explosions? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [OPT-10](by_code/OPT-10.md) — What is a good loss from your perspective? — Section: Optionality, Path Cleanliness, Hedge, and Dual Intent
+- [AI-01](by_code/AI-01.md) — What is the first thing you want AI to do? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-02](by_code/AI-02.md) — Is AI allowed to completely veto a setup? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-03](by_code/AI-03.md) — Should AI only change the execution template, or can it also permit and deny setups? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-04](by_code/AI-04.md) — Should AI output be a score or a class? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-05](by_code/AI-05.md) — How necessary is a reason vector? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-06](by_code/AI-06.md) — If AI disagrees with your experience but backtest is better, what do you do? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-07](by_code/AI-07.md) — Should AI be separated into one model per layer? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-08](by_code/AI-08.md) — Is AI allowed to use raw candles, or only ontology fields? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-09](by_code/AI-09.md) — Which algorithms do you want to test first? — Section: AI Role, Model Outputs, and Limits of Authority
+- [AI-10](by_code/AI-10.md) — Should the meta-controller be rule-based or AI-based? — Section: AI Role, Model Outputs, and Limits of Authority
+- [BT-01](by_code/BT-01.md) — When you say an idea worked, exactly which metric convinces you? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-02](by_code/BT-02.md) — Which market should be tested first? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-03](by_code/BT-03.md) — What is the priority scale or timeframe? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-04](by_code/BT-04.md) — How should OOS be defined for you? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-05](by_code/BT-05.md) — What smells like overfit to you? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-06](by_code/BT-06.md) — What should the initial baseline be? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-07](by_code/BT-07.md) — How do you want the anti-overfit test for L2 extremes to be designed? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-08](by_code/BT-08.md) — If a model only improves when parent context is present, is that strength or overfit? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-09](by_code/BT-09.md) — Do raw results without execution cost have any value to you? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [BT-10](by_code/BT-10.md) — What is the minimum acceptable data size for each model? — Section: Backtest, Anti-Overfit, and Acceptance Criteria
+- [NEXT-01](by_code/NEXT-01.md) — If we build only one dataset first, which one should it be? — Section: Next Architecture Priorities
+- [NEXT-02](by_code/NEXT-02.md) — If we train the first AI model, what should its task be? — Section: Next Architecture Priorities
+- [NEXT-03](by_code/NEXT-03.md) — Define the first backtest template precisely. — Section: Next Architecture Priorities
+- [NEXT-04](by_code/NEXT-04.md) — What columns do you want to see in the first output CSV? — Section: Next Architecture Priorities
+- [NEXT-05](by_code/NEXT-05.md) — How do you want the next documentation and code sequence to be ordered? — Section: Next Architecture Priorities
+- [NEXT-06](by_code/NEXT-06.md) — What should we not build in the next phase? — Section: Next Architecture Priorities
