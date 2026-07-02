@@ -1,0 +1,33 @@
+{
+  "question_code": "BASE-03",
+  "language": "en",
+  "topic": "What counts as a valid reason and what counts as noise",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [
+    "images/BASE-03-image-01-hook-hook-rally-example.png"
+  ],
+  "derived_concepts": [
+    "reason_ontology",
+    "structural_reason",
+    "fractal_reason",
+    "execution_reason",
+    "noise_rejection",
+    "hook_hook_rally",
+    "higher_tf_f3_lower_tf_3f_reversal",
+    "post_f1_continuation_entry",
+    "entry_family_library"
+  ],
+  "proposed_datasets": [
+    "reason_vector_v1",
+    "signal_framework_ledger_v1",
+    "entry_family_catalog_v1"
+  ],
+  "proposed_ai_modules": [
+    "Reason Vector Builder",
+    "Signal Framework Classifier",
+    "Entry Family Selector",
+    "Reason Quality Gate",
+    "Noise Rejection Gate"
+  ]
+}

@@ -57,3 +57,27 @@ Main derived architecture requirement:
 ```text
 scenario_ledger_v1.csv
 ```
+
+---
+
+### BASE-03 — Valid Reasons vs Noise
+
+Path:
+
+```text
+docs/experience_capture/answers/BASE-03/
+```
+
+Summary:
+
+Valid reasons come from anatomy-native structural counting, fractal relation, and execution geometry.
+
+Noise includes candle games, generic technical patterns, and indicator-based triggers that do not belong to the Hook/Rally/fractal ontology.
+
+Main derived architecture requirements:
+
+```text
+reason_vector_v1
+entry_family_catalog_v1
+signal_framework_ledger_v1
+```
