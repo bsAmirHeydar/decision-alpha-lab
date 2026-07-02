@@ -259,3 +259,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_28_BROKER_REQUEST_AUDIT_NO_SEND.md
 ```
 
 Level 28 adds `state_gate_level28_broker_request_audit.csv` and `latest_state_gate_level28_broker_request_audit.csv`, auditing the no-send broker request chain for dry-run-only integrity, zero-volume integrity, no-send contract integrity, request-validator coherence, and safety/intent coherence. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.
+
+
+## Level 29 — Paper Broker Adapter / Still No Send
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_29_PAPER_BROKER_ADAPTER_NO_SEND.md
+```
+
+Level 29 adds `state_gate_level29_paper_broker_adapter.csv` and `latest_state_gate_level29_paper_broker_adapter.csv`, registering a validated and audited no-send request chain as an internal paper-broker adapter record with a virtual ticket, paper order state, adapter status, and block reason. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.

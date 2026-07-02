@@ -22,6 +22,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_BrokerValidatorEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestLedgerEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestAuditEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_PaperBrokerAdapterEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -497,6 +498,22 @@ input bool   InpLevel28BrokerRequestAuditRequireRequestValidatorCoherence = true
 input bool   InpLevel28BrokerRequestAuditRequireSafetyIntentCoherence = true;
 input string InpLevel28BrokerRequestAuditFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 29 Paper Broker Adapter ---------------
+// Internal paper-broker adapter only. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpLevel29PaperBrokerAdapterEnabled = true;
+input bool   InpLevel29PaperBrokerAdapterExportCsv = true;
+input bool   InpLevel29PaperBrokerAdapterPrintSummary = false;
+input bool   InpLevel29PaperBrokerAdapterAppendCsv = true;
+input bool   InpLevel29PaperBrokerAdapterWriteLatestCsv = true;
+input bool   InpLevel29PaperBrokerAdapterSkipDuplicateAdapterKey = true;
+input bool   InpLevel29PaperBrokerAdapterRequireAuditPassed = true;
+input bool   InpLevel29PaperBrokerAdapterRequireValidatorPassed = true;
+input bool   InpLevel29PaperBrokerAdapterRequireRequestBuilt = true;
+input bool   InpLevel29PaperBrokerAdapterRequireDryRunOnly = true;
+input bool   InpLevel29PaperBrokerAdapterRequireZeroVolume = true;
+input bool   InpLevel29PaperBrokerAdapterDryRunOnly = true;
+input string InpLevel29PaperBrokerAdapterFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -868,6 +885,26 @@ void FP_LoadLevel28BrokerRequestAuditConfig(FP_Level28BrokerRequestAuditConfig &
 }
 
 
+
+void FP_LoadLevel29PaperBrokerAdapterConfig(FP_Level29PaperBrokerAdapterConfig &cfg)
+{
+   FP_ResetLevel29PaperBrokerAdapterConfig(cfg);
+   cfg.enabled = InpLevel29PaperBrokerAdapterEnabled;
+   cfg.export_csv = InpLevel29PaperBrokerAdapterExportCsv;
+   cfg.print_summary = InpLevel29PaperBrokerAdapterPrintSummary;
+   cfg.append_adapter_csv = InpLevel29PaperBrokerAdapterAppendCsv;
+   cfg.write_latest_csv = InpLevel29PaperBrokerAdapterWriteLatestCsv;
+   cfg.skip_duplicate_adapter_key = InpLevel29PaperBrokerAdapterSkipDuplicateAdapterKey;
+   cfg.require_audit_passed = InpLevel29PaperBrokerAdapterRequireAuditPassed;
+   cfg.require_validator_passed = InpLevel29PaperBrokerAdapterRequireValidatorPassed;
+   cfg.require_request_built = InpLevel29PaperBrokerAdapterRequireRequestBuilt;
+   cfg.require_dry_run_only = InpLevel29PaperBrokerAdapterRequireDryRunOnly;
+   cfg.require_zero_volume = InpLevel29PaperBrokerAdapterRequireZeroVolume;
+   cfg.adapter_dry_run_only = InpLevel29PaperBrokerAdapterDryRunOnly;
+   cfg.folder = InpLevel29PaperBrokerAdapterFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1192,6 +1229,9 @@ void FP_Run()
    FP_Level28BrokerRequestAuditConfig broker_request_audit_cfg;
    FP_LoadLevel28BrokerRequestAuditConfig(broker_request_audit_cfg);
 
+   FP_Level29PaperBrokerAdapterConfig paper_broker_adapter_cfg;
+   FP_LoadLevel29PaperBrokerAdapterConfig(paper_broker_adapter_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1452,6 +1492,20 @@ void FP_Run()
                                    broker_request_audit_report);
    if(broker_request_audit_cfg.print_summary)
       FP_PrintLevel28BrokerRequestAuditReport("FP_LEVEL28", broker_request_audit_report);
+
+   FP_Level29PaperBrokerAdapterReport paper_broker_adapter_report;
+   FP_RunLevel29PaperBrokerAdapter(_Symbol, _Period, rates, copied,
+                                   events, hooks, timebase_report,
+                                   render_report, validation_report,
+                                   g_fp_license_ok,
+                                   entry_bridge_cfg, paper_intent_cfg,
+                                   safety_gate_cfg, broker_dry_run_cfg,
+                                   broker_validator_cfg,
+                                   broker_request_audit_cfg,
+                                   paper_broker_adapter_cfg,
+                                   paper_broker_adapter_report);
+   if(paper_broker_adapter_cfg.print_summary)
+      FP_PrintLevel29PaperBrokerAdapterReport("FP_LEVEL29", paper_broker_adapter_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
