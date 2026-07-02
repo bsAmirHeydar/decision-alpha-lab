@@ -295,3 +295,12 @@ docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md
 ```
 
 Consolidation Patch 01 adds a shared latest-state no-send context snapshot at `latest_consolidation_01_no_send_context.csv`. It caches the latest rows from Level 20, 21, 24, 25, 26, 27, 28, 29, and 30, then exports one consolidated context row. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.
+
+
+## Consolidation Patch 02 — Final No-Send Decision State
+
+```text
+docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md
+```
+
+Consolidation Patch 02 adds `final_no_send_decision_state.csv`, a human-readable latest-state dashboard generated from the Consolidation Patch 01 no-send context. It summarizes setup state, chain stage, blocker layer, blocker reason, request id, virtual ticket, entry, SL, TP, paper lifecycle status, paper order state, realized R-like, and no-send integrity. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.

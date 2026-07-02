@@ -25,6 +25,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerAdapterEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerLifecycleEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_NoSendContextEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_FinalDecisionStateEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -538,6 +539,17 @@ input bool   InpConsolidation01NoSendContextPrintSummary = false;
 input bool   InpConsolidation01NoSendContextWriteLatestCsv = true;
 input string InpConsolidation01NoSendContextFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Consolidation 02 Final Decision -------------
+// Human-readable final no-send decision state. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpConsolidation02FinalDecisionEnabled = true;
+input bool   InpConsolidation02FinalDecisionExportCsv = true;
+input bool   InpConsolidation02FinalDecisionPrintSummary = false;
+input bool   InpConsolidation02FinalDecisionWriteLatestCsv = true;
+input bool   InpConsolidation02FinalDecisionRequireContextReady = true;
+input bool   InpConsolidation02FinalDecisionRequireLifecycleTracked = false;
+input bool   InpConsolidation02FinalDecisionRequireNoSendIntegrity = true;
+input string InpConsolidation02FinalDecisionFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -959,6 +971,21 @@ void FP_LoadConsolidation01NoSendContextConfig(FP_Consolidation01NoSendContextCo
 }
 
 
+
+void FP_LoadConsolidation02FinalDecisionConfig(FP_Consolidation02FinalDecisionConfig &cfg)
+{
+   FP_ResetConsolidation02FinalDecisionConfig(cfg);
+   cfg.enabled = InpConsolidation02FinalDecisionEnabled;
+   cfg.export_csv = InpConsolidation02FinalDecisionExportCsv;
+   cfg.print_summary = InpConsolidation02FinalDecisionPrintSummary;
+   cfg.write_latest_csv = InpConsolidation02FinalDecisionWriteLatestCsv;
+   cfg.require_context_ready_for_ready_state = InpConsolidation02FinalDecisionRequireContextReady;
+   cfg.require_lifecycle_tracked_for_ready_state = InpConsolidation02FinalDecisionRequireLifecycleTracked;
+   cfg.require_no_send_integrity = InpConsolidation02FinalDecisionRequireNoSendIntegrity;
+   cfg.folder = InpConsolidation02FinalDecisionFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1292,6 +1319,9 @@ void FP_Run()
    FP_Consolidation01NoSendContextConfig no_send_context_cfg;
    FP_LoadConsolidation01NoSendContextConfig(no_send_context_cfg);
 
+   FP_Consolidation02FinalDecisionConfig final_decision_cfg;
+   FP_LoadConsolidation02FinalDecisionConfig(final_decision_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1588,6 +1618,14 @@ void FP_Run()
                                       no_send_context_report);
    if(no_send_context_cfg.print_summary)
       FP_PrintConsolidation01NoSendContextReport("FP_CONSOLIDATION01", no_send_context_report);
+
+   FP_Consolidation02FinalDecisionReport final_decision_report;
+   FP_RunConsolidation02FinalDecision(_Symbol, _Period,
+                                      no_send_context_cfg,
+                                      final_decision_cfg,
+                                      final_decision_report);
+   if(final_decision_cfg.print_summary)
+      FP_PrintConsolidation02FinalDecisionReport("FP_CONSOLIDATION02", final_decision_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
