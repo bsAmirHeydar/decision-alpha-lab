@@ -20,6 +20,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_SafetyGateEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerDryRunEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerValidatorEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_BrokerRequestLedgerEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -470,6 +471,16 @@ input bool   InpLevel26BrokerValidatorRequireZeroVolume = true;
 input bool   InpLevel26BrokerValidatorRequireDryRunOnly = true;
 input string InpLevel26BrokerValidatorFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 27 Broker Request Ledger --------------
+// Append-only broker request preview ledger. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpLevel27BrokerRequestLedgerEnabled = true;
+input bool   InpLevel27BrokerRequestLedgerExportCsv = true;
+input bool   InpLevel27BrokerRequestLedgerPrintSummary = false;
+input bool   InpLevel27BrokerRequestLedgerAppendCsv = true;
+input bool   InpLevel27BrokerRequestLedgerWriteLatestCsv = true;
+input bool   InpLevel27BrokerRequestLedgerSkipDuplicateRequestKey = true;
+input string InpLevel27BrokerRequestLedgerFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -808,6 +819,20 @@ void FP_LoadLevel26BrokerValidatorConfig(FP_Level26BrokerValidatorConfig &cfg)
 }
 
 
+
+void FP_LoadLevel27BrokerRequestLedgerConfig(FP_Level27BrokerRequestLedgerConfig &cfg)
+{
+   FP_ResetLevel27BrokerRequestLedgerConfig(cfg);
+   cfg.enabled = InpLevel27BrokerRequestLedgerEnabled;
+   cfg.export_csv = InpLevel27BrokerRequestLedgerExportCsv;
+   cfg.print_summary = InpLevel27BrokerRequestLedgerPrintSummary;
+   cfg.append_ledger_csv = InpLevel27BrokerRequestLedgerAppendCsv;
+   cfg.write_latest_csv = InpLevel27BrokerRequestLedgerWriteLatestCsv;
+   cfg.skip_duplicate_request_key = InpLevel27BrokerRequestLedgerSkipDuplicateRequestKey;
+   cfg.folder = InpLevel27BrokerRequestLedgerFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1126,6 +1151,9 @@ void FP_Run()
    FP_Level26BrokerValidatorConfig broker_validator_cfg;
    FP_LoadLevel26BrokerValidatorConfig(broker_validator_cfg);
 
+   FP_Level27BrokerRequestLedgerConfig broker_request_ledger_cfg;
+   FP_LoadLevel27BrokerRequestLedgerConfig(broker_request_ledger_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1360,6 +1388,19 @@ void FP_Run()
                                 broker_validator_report);
    if(broker_validator_cfg.print_summary)
       FP_PrintLevel26BrokerValidatorReport("FP_LEVEL26", broker_validator_report);
+
+   FP_Level27BrokerRequestLedgerReport broker_request_ledger_report;
+   FP_RunLevel27BrokerRequestLedger(_Symbol, _Period, rates, copied,
+                                    events, hooks, timebase_report,
+                                    render_report, validation_report,
+                                    g_fp_license_ok,
+                                    entry_bridge_cfg, paper_intent_cfg,
+                                    safety_gate_cfg, broker_dry_run_cfg,
+                                    broker_validator_cfg,
+                                    broker_request_ledger_cfg,
+                                    broker_request_ledger_report);
+   if(broker_request_ledger_cfg.print_summary)
+      FP_PrintLevel27BrokerRequestLedgerReport("FP_LEVEL27", broker_request_ledger_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
