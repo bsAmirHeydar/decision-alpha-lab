@@ -322,3 +322,12 @@ docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_04_FINAL_CSV_NORMALIZATION.
 ```
 
 Consolidation Patch 04 adds `final_no_send_decision_state_normalized.csv`, a machine-friendly normalized final decision snapshot with schema version, integer boolean flags, direction sign, separated request fields, price fields, risk/reward fields, lifecycle fields, blocker fields, and no-send integrity. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.
+
+
+## Consolidation Patch 05 — Runtime Health Summary
+
+```text
+docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_05_RUNTIME_HEALTH_SUMMARY.md
+```
+
+Consolidation Patch 05 adds `runtime_no_send_health_summary.csv`, a latest-state health snapshot for the no-send stack. It summarizes context readiness, final decision readiness, normalized CSV quality, no-send integrity, expected output enablement, setup state, chain stage, blocker layer, request id, virtual ticket, prices, request volume, and realized R-like. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.

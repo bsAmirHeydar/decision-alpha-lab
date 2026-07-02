@@ -27,6 +27,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_NoSendContextEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_FinalDecisionStateEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_FinalCsvNormalizationEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_RuntimeHealthSummaryEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -560,6 +561,18 @@ input bool   InpConsolidation04FinalCsvNormalizationWriteLatestCsv = true;
 input bool   InpConsolidation04FinalCsvNormalizationRequireNoSendIntegrity = true;
 input string InpConsolidation04FinalCsvNormalizationFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Consolidation 05 Runtime Health -------------
+// Runtime no-send health summary. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpConsolidation05RuntimeHealthEnabled = true;
+input bool   InpConsolidation05RuntimeHealthExportCsv = true;
+input bool   InpConsolidation05RuntimeHealthPrintSummary = false;
+input bool   InpConsolidation05RuntimeHealthWriteLatestCsv = true;
+input bool   InpConsolidation05RuntimeHealthRequireContextReady = false;
+input bool   InpConsolidation05RuntimeHealthRequireFinalDecisionExport = true;
+input bool   InpConsolidation05RuntimeHealthRequireNormalizedExport = true;
+input bool   InpConsolidation05RuntimeHealthRequireNoSendIntegrity = true;
+input string InpConsolidation05RuntimeHealthFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -1009,6 +1022,22 @@ void FP_LoadConsolidation04FinalCsvNormalizationConfig(FP_Consolidation04FinalCs
 }
 
 
+
+void FP_LoadConsolidation05RuntimeHealthConfig(FP_Consolidation05RuntimeHealthConfig &cfg)
+{
+   FP_ResetConsolidation05RuntimeHealthConfig(cfg);
+   cfg.enabled = InpConsolidation05RuntimeHealthEnabled;
+   cfg.export_csv = InpConsolidation05RuntimeHealthExportCsv;
+   cfg.print_summary = InpConsolidation05RuntimeHealthPrintSummary;
+   cfg.write_latest_csv = InpConsolidation05RuntimeHealthWriteLatestCsv;
+   cfg.require_context_ready = InpConsolidation05RuntimeHealthRequireContextReady;
+   cfg.require_final_decision_export = InpConsolidation05RuntimeHealthRequireFinalDecisionExport;
+   cfg.require_normalized_export = InpConsolidation05RuntimeHealthRequireNormalizedExport;
+   cfg.require_no_send_integrity = InpConsolidation05RuntimeHealthRequireNoSendIntegrity;
+   cfg.folder = InpConsolidation05RuntimeHealthFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1348,6 +1377,9 @@ void FP_Run()
    FP_Consolidation04FinalCsvNormalizationConfig final_csv_normalization_cfg;
    FP_LoadConsolidation04FinalCsvNormalizationConfig(final_csv_normalization_cfg);
 
+   FP_Consolidation05RuntimeHealthConfig runtime_health_cfg;
+   FP_LoadConsolidation05RuntimeHealthConfig(runtime_health_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1661,6 +1693,16 @@ void FP_Run()
                                               final_csv_normalization_report);
    if(final_csv_normalization_cfg.print_summary)
       FP_PrintConsolidation04FinalCsvNormalizationReport("FP_CONSOLIDATION04", final_csv_normalization_report);
+
+   FP_Consolidation05RuntimeHealthReport runtime_health_report;
+   FP_RunConsolidation05RuntimeHealth(_Symbol, _Period,
+                                      no_send_context_cfg,
+                                      final_decision_cfg,
+                                      final_csv_normalization_cfg,
+                                      runtime_health_cfg,
+                                      runtime_health_report);
+   if(runtime_health_cfg.print_summary)
+      FP_PrintConsolidation05RuntimeHealthReport("FP_CONSOLIDATION05", runtime_health_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
