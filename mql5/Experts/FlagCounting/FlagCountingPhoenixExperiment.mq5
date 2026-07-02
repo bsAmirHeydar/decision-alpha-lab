@@ -18,6 +18,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_PaperLifecycleEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperPerformanceEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_SafetyGateEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_BrokerDryRunEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -443,6 +444,18 @@ input double InpLevel24SafetyGateMinHitRateLike = 0.50;
 input double InpLevel24SafetyGateMinAvgRLike = 0.00;
 input string InpLevel24SafetyGateFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 25 Broker Dry Run ---------------------
+// Broker-like request preview only. No OrderSend, no CTrade, no broker request, no real execution.
+input bool   InpLevel25BrokerDryRunEnabled = true;
+input bool   InpLevel25BrokerDryRunExportCsv = true;
+input bool   InpLevel25BrokerDryRunPrintSummary = false;
+input bool   InpLevel25BrokerDryRunRequireSafetyGatePassed = true;
+input bool   InpLevel25BrokerDryRunRequireIntentAllowed = true;
+input bool   InpLevel25BrokerDryRunOnly = true;
+input long   InpLevel25BrokerDryRunMagic = 250025;
+input string InpLevel25BrokerDryRunComment = "DAL_L25_DRY_RUN_ONLY";
+input string InpLevel25BrokerDryRunFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -745,6 +758,22 @@ void FP_LoadLevel24SafetyGateConfig(FP_Level24SafetyGateConfig &cfg)
    cfg.min_hit_rate_like = InpLevel24SafetyGateMinHitRateLike;
    cfg.min_avg_r_like = InpLevel24SafetyGateMinAvgRLike;
    cfg.folder = InpLevel24SafetyGateFolder;
+}
+
+
+
+void FP_LoadLevel25BrokerDryRunConfig(FP_Level25BrokerDryRunConfig &cfg)
+{
+   FP_ResetLevel25BrokerDryRunConfig(cfg);
+   cfg.enabled = InpLevel25BrokerDryRunEnabled;
+   cfg.export_csv = InpLevel25BrokerDryRunExportCsv;
+   cfg.print_summary = InpLevel25BrokerDryRunPrintSummary;
+   cfg.require_safety_gate_passed = InpLevel25BrokerDryRunRequireSafetyGatePassed;
+   cfg.require_intent_allowed = InpLevel25BrokerDryRunRequireIntentAllowed;
+   cfg.dry_run_only = InpLevel25BrokerDryRunOnly;
+   cfg.magic = InpLevel25BrokerDryRunMagic;
+   cfg.request_comment = InpLevel25BrokerDryRunComment;
+   cfg.folder = InpLevel25BrokerDryRunFolder;
 }
 
 
@@ -1060,6 +1089,9 @@ void FP_Run()
    FP_Level24SafetyGateConfig safety_gate_cfg;
    FP_LoadLevel24SafetyGateConfig(safety_gate_cfg);
 
+   FP_Level25BrokerDryRunConfig broker_dry_run_cfg;
+   FP_LoadLevel25BrokerDryRunConfig(broker_dry_run_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1271,6 +1303,17 @@ void FP_Run()
                            safety_gate_cfg, safety_gate_report);
    if(safety_gate_cfg.print_summary)
       FP_PrintLevel24SafetyGateReport("FP_LEVEL24", safety_gate_report);
+
+   FP_Level25BrokerDryRunReport broker_dry_run_report;
+   FP_RunLevel25BrokerDryRun(_Symbol, _Period, rates, copied,
+                             events, hooks, timebase_report,
+                             render_report, validation_report,
+                             g_fp_license_ok,
+                             entry_bridge_cfg, paper_intent_cfg,
+                             safety_gate_cfg, broker_dry_run_cfg,
+                             broker_dry_run_report);
+   if(broker_dry_run_cfg.print_summary)
+      FP_PrintLevel25BrokerDryRunReport("FP_LEVEL25", broker_dry_run_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

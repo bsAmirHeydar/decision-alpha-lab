@@ -223,3 +223,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_24_SAFETY_GATE_PRE_BROKER.md
 ```
 
 Level 24 adds `state_gate_level24_safety_gate.csv`, a pre-broker safety gate that evaluates license status, symbol allow-list, timeframe allow-list, spread, Level 23 paper performance thresholds, manual arm state, and the requirement that real execution remains disabled. It remains CSV-only, print-silent by default, panel-off by default, and adds no paper orders, broker requests, real orders, volume sizing, risk sizing, renderer mutation, or chart-object change.
+
+
+## Level 25 — Broker Dry Run Only
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_25_BROKER_DRY_RUN_ONLY.md
+```
+
+Level 25 adds `state_gate_level25_broker_dry_run.csv`, a broker-like request preview that depends on Level 24 Safety Gate and Level 21 Paper Intent. It emits dry-run-only request fields such as preview order type, entry price, SL, TP, magic, comment, and block reason, while keeping volume at zero and avoiding OrderSend, CTrade, OrderCheck, real execution, risk sizing, renderer mutation, or chart-object changes.
