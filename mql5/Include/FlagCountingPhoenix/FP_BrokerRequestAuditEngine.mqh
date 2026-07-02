@@ -54,11 +54,11 @@ void FP_RunLevel28BrokerRequestAudit(const string symbol,
    FP_L28BuildBrokerRequestAuditRow(symbol, period, safety_row, intent_row,
                                     dry_run_row, validator_row, cfg, row);
 
+   row.latest_written = (cfg.export_csv && cfg.write_latest_csv);
+   row.audit_written = (cfg.export_csv && cfg.append_audit_csv && !row.duplicate_skipped);
+
    bool latest_ok = FP_L28WriteLatestBrokerRequestAudit(cfg, row, report);
    bool audit_ok = FP_L28AppendBrokerRequestAudit(cfg, row, report);
-
-   row.latest_written = report.latest_written;
-   row.audit_written = report.audit_written;
 
    report.ok = (latest_ok && audit_ok && report.file_errors == 0);
    report.status = row.audit_status;

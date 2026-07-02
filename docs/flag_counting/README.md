@@ -277,3 +277,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_30_PAPER_BROKER_LIFECYCLE_NO_SEND.md
 ```
 
 Level 30 adds `state_gate_level30_paper_broker_lifecycle.csv` and `latest_state_gate_level30_paper_broker_lifecycle.csv`, tracking the internal virtual ticket created by Level 29 through a close-only paper-broker lifecycle with pending, active, target, stop, expired, ambiguous, and blocked states. It remains CSV-only, print-silent by default, panel-off by default, and adds no OrderSend, OrderCheck, CTrade, broker request, real order, position, volume sizing, risk sizing, renderer mutation, or chart-object change.
+
+
+## Stabilization Patch 01 — Level 24-30 No-Send Chain
+
+```text
+docs/flag_counting/FLAG_COUNTING_STABILIZATION_PATCH_01_LEVEL_24_30.md
+```
+
+This patch does not add a new level. It stabilizes the Level 24-30 no-send chain by making Level 27-30 exporters respect the master `export_csv` switch, fixing latest/append row write-state flags before serialization, trimming Level 24 allow-list tokens correctly, and adding simple prefix wildcard support for allow-list values such as `GOLD*` or `PERIOD_M*`. It adds no OrderSend, OrderCheck, CTrade, broker request, real execution, volume sizing, risk sizing, renderer mutation, or chart-object mutation.

@@ -101,7 +101,10 @@ bool FP_L27WriteLatestBrokerRequestLedger(const FP_Level27BrokerRequestLedgerCon
                                           const FP_Level27BrokerRequestLedgerRow &row,
                                           FP_Level27BrokerRequestLedgerReport &report)
 {
-   if(!cfg.write_latest_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.write_latest_csv)
       return true;
 
    string folder = cfg.folder;
@@ -130,7 +133,10 @@ bool FP_L27AppendBrokerRequestLedger(const FP_Level27BrokerRequestLedgerConfig &
                                      const FP_Level27BrokerRequestLedgerRow &row,
                                      FP_Level27BrokerRequestLedgerReport &report)
 {
-   if(!cfg.append_ledger_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.append_ledger_csv)
       return true;
 
    if(row.duplicate_skipped)

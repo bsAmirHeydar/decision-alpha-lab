@@ -54,11 +54,11 @@ void FP_RunLevel27BrokerRequestLedger(const string symbol,
    FP_L27BuildBrokerRequestLedgerRow(symbol, period, safety_row, intent_row,
                                      dry_run_row, validator_row, cfg, row);
 
+   row.latest_written = (cfg.export_csv && cfg.write_latest_csv);
+   row.ledger_written = (cfg.export_csv && cfg.append_ledger_csv && !row.duplicate_skipped);
+
    bool latest_ok = FP_L27WriteLatestBrokerRequestLedger(cfg, row, report);
    bool ledger_ok = FP_L27AppendBrokerRequestLedger(cfg, row, report);
-
-   row.latest_written = report.latest_written;
-   row.ledger_written = report.ledger_written;
 
    report.ok = (latest_ok && ledger_ok && report.file_errors == 0);
    report.status = row.ledger_status;

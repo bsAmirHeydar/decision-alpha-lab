@@ -65,11 +65,11 @@ void FP_RunLevel30PaperBrokerLifecycle(const string symbol,
    FP_L30EvaluateLifecycle(cfg, rates, bars, row);
    FP_L30FinalizeKey(cfg, row);
 
+   row.latest_written = (cfg.export_csv && cfg.write_latest_csv);
+   row.lifecycle_written = (cfg.export_csv && cfg.append_lifecycle_csv && !row.duplicate_skipped);
+
    bool latest_ok = FP_L30WriteLatestPaperBrokerLifecycle(cfg, row, report);
    bool lifecycle_ok = FP_L30AppendPaperBrokerLifecycle(cfg, row, report);
-
-   row.latest_written = report.latest_written;
-   row.lifecycle_written = report.lifecycle_written;
 
    report.ok = (latest_ok && lifecycle_ok && report.file_errors == 0);
    report.status = row.lifecycle_status;

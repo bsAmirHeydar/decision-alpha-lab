@@ -99,7 +99,10 @@ bool FP_L28WriteLatestBrokerRequestAudit(const FP_Level28BrokerRequestAuditConfi
                                          const FP_Level28BrokerRequestAuditRow &row,
                                          FP_Level28BrokerRequestAuditReport &report)
 {
-   if(!cfg.write_latest_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.write_latest_csv)
       return true;
 
    string folder = cfg.folder;
@@ -128,7 +131,10 @@ bool FP_L28AppendBrokerRequestAudit(const FP_Level28BrokerRequestAuditConfig &cf
                                     const FP_Level28BrokerRequestAuditRow &row,
                                     FP_Level28BrokerRequestAuditReport &report)
 {
-   if(!cfg.append_audit_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.append_audit_csv)
       return true;
 
    if(row.duplicate_skipped)

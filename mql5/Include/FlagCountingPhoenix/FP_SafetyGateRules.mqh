@@ -39,6 +39,13 @@ bool FP_L24TokenAllowed(const string token,const string list)
          continue;
       if(p == token)
          return true;
+      if(StringFind(p, "*") >= 0)
+      {
+         string prefix = p;
+         StringReplace(prefix, "*", "");
+         if(StringLen(prefix) <= 0 || StringFind(token, prefix) == 0)
+            return true;
+      }
    }
 
    return false;

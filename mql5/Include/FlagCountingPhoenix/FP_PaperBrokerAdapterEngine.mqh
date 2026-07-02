@@ -58,11 +58,11 @@ void FP_RunLevel29PaperBrokerAdapter(const string symbol,
    FP_Level29PaperBrokerAdapterRow row;
    FP_L29BuildPaperBrokerAdapterRow(symbol, period, dry_run_row, validator_row, audit_row, cfg, row);
 
+   row.latest_written = (cfg.export_csv && cfg.write_latest_csv);
+   row.adapter_written = (cfg.export_csv && cfg.append_adapter_csv && !row.duplicate_skipped);
+
    bool latest_ok = FP_L29WriteLatestPaperBrokerAdapter(cfg, row, report);
    bool adapter_ok = FP_L29AppendPaperBrokerAdapter(cfg, row, report);
-
-   row.latest_written = report.latest_written;
-   row.adapter_written = report.adapter_written;
 
    report.ok = (latest_ok && adapter_ok && report.file_errors == 0);
    report.status = row.adapter_status;

@@ -95,7 +95,10 @@ bool FP_L29WriteLatestPaperBrokerAdapter(const FP_Level29PaperBrokerAdapterConfi
                                          const FP_Level29PaperBrokerAdapterRow &row,
                                          FP_Level29PaperBrokerAdapterReport &report)
 {
-   if(!cfg.write_latest_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.write_latest_csv)
       return true;
 
    string folder = cfg.folder;
@@ -124,7 +127,10 @@ bool FP_L29AppendPaperBrokerAdapter(const FP_Level29PaperBrokerAdapterConfig &cf
                                     const FP_Level29PaperBrokerAdapterRow &row,
                                     FP_Level29PaperBrokerAdapterReport &report)
 {
-   if(!cfg.append_adapter_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.append_adapter_csv)
       return true;
 
    if(row.duplicate_skipped)

@@ -100,7 +100,10 @@ bool FP_L30WriteLatestPaperBrokerLifecycle(const FP_Level30PaperBrokerLifecycleC
                                            const FP_Level30PaperBrokerLifecycleRow &row,
                                            FP_Level30PaperBrokerLifecycleReport &report)
 {
-   if(!cfg.write_latest_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.write_latest_csv)
       return true;
 
    string folder = cfg.folder;
@@ -129,7 +132,10 @@ bool FP_L30AppendPaperBrokerLifecycle(const FP_Level30PaperBrokerLifecycleConfig
                                       const FP_Level30PaperBrokerLifecycleRow &row,
                                       FP_Level30PaperBrokerLifecycleReport &report)
 {
-   if(!cfg.append_lifecycle_csv)
+   if(!cfg.export_csv)
+      return true;
+
+    if(!cfg.append_lifecycle_csv)
       return true;
 
    if(row.duplicate_skipped)
