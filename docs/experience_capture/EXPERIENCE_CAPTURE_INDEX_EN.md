@@ -2,131 +2,24 @@
 
 ## Captured Records
 
-### BASE-01 — Multi-State Market Interpretation
+### EXT-01 — Extreme Definition Relative to Untouched Node
 
 Path:
 
 ```text
-docs/experience_capture/answers/BASE-01/
+docs/experience_capture/answers/EXT-01/
 ```
 
 Summary:
 
-The market must be read through two axes: direction and context.
-
-Main derived architecture requirement:
-
-```text
-multi-hypothesis state representation
-```
-
----
-
-### BASE-02 — Scenario Definition
-
-Path:
-
-```text
-docs/experience_capture/answers/BASE-02/
-```
-
-Summary:
-
-A scenario is a structured case file that begins with direction, is justified through Hook/Rally and fractal reasons, becomes practical through an approximate entry zone, becomes executable through an exact entry point, and remains alive only while its anatomy-based invalidation has not occurred.
-
-Main derived architecture requirement:
-
-```text
-scenario_ledger_v1.csv
-```
-
----
-
-### BASE-03 — Valid Reasons vs Noise
-
-Path:
-
-```text
-docs/experience_capture/answers/BASE-03/
-```
-
-Summary:
-
-Valid reasons come from anatomy-native structural counting, fractal relation, and execution geometry.
+Extreme is an NDS-native entry family defined as a near-death zone around an untouched node. It seeks convex entries near the point where a cycle would die, with stop behind the node and reward opened by reversal or continuation from that near-death region.
 
 Main derived architecture requirements:
 
 ```text
-reason_vector_v1
-entry_family_catalog_v1
-signal_framework_ledger_v1
-```
-
----
-
-### BASE-04 — Forbidden Concepts and NDS Boundaries
-
-Path:
-
-```text
-docs/experience_capture/answers/BASE-04/
-```
-
-Summary:
-
-Only NDS-native concepts are allowed. Indicators, ICT, generic technical analysis, artificial time-horizon labels, and external trading ontologies are forbidden unless fully translated into NDS language and revalidated.
-
-Main derived architecture requirements:
-
-```text
-NDS_CONCEPT_REGISTRY.md
-dataset_feature_manifest_v1.csv
-NDS_ONTOLOGY_GATE
-```
-
----
-
-### BASE-05 — Ambiguity and Context Power
-
-Path:
-
-```text
-docs/experience_capture/answers/BASE-05/
-```
-
-Summary:
-
-Uncertainty is allowed only when it is structured by NDS contexts, move origin, fractal hierarchy, context power, and clear execution geometry. Ambiguity becomes dangerous when those contexts cannot be ranked or bounded.
-
-Main derived architecture requirements:
-
-```text
-ambiguity_context_ledger_v1.csv
-context_power_ledger_v1.csv
-origin_of_move_ledger_v1.csv
-fractal_dominance_ledger_v1.csv
-hedge_protection_context_v1.csv
-```
-
----
-
-### BASE-06 — Hard Rules vs Learnable Layers
-
-Path:
-
-```text
-docs/experience_capture/answers/BASE-06/
-```
-
-Summary:
-
-NDS anatomy is fixed and non-negotiable. Hook, Rally, F-counting, Node-counting, and NDS-only ontology boundaries are hard rules. AI may only learn policy over NDS-native states, such as ranking, veto, ambiguity handling, fractal weighting, execution routing, and cancel/replace behavior.
-
-Main derived architecture requirements:
-
-```text
-NDS_CONCEPT_REGISTRY.md
-MODEL_POLICY_BOUNDARY.md
-MODEL_ACCEPTANCE_GATE.md
-FEATURE_MANIFEST_SCHEMA.md
+extreme_opportunity_dataset_v1.csv
+extreme_geometry_ledger_v1.csv
+untouched_node_death_proximity_ledger_v1.csv
+extreme_fill_outcome_ledger_v1.csv
+extreme_stop_then_reverse_ledger_v1.csv
 ```

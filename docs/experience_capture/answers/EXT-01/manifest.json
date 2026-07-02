@@ -1,0 +1,40 @@
+{
+  "question_code": "EXT-01",
+  "language": "en",
+  "topic": "Extreme definition relative to untouched node",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [
+    "images/EXT-01-image-01-near-death-reversal-example-a.png",
+    "images/EXT-01-image-02-near-death-reversal-example-b.png",
+    "images/EXT-01-image-03-near-death-reversal-example-c.png"
+  ],
+  "derived_concepts": [
+    "extreme_entry_family",
+    "near_death_zone",
+    "cycle_death",
+    "untouched_node_anchor",
+    "stop_behind_node",
+    "convex_entry_geometry",
+    "limit_missed_then_reversal",
+    "stop_hit_then_reversal",
+    "extreme_width_policy"
+  ],
+  "proposed_datasets": [
+    "extreme_opportunity_dataset_v1.csv",
+    "extreme_geometry_ledger_v1.csv",
+    "untouched_node_death_proximity_ledger_v1.csv",
+    "extreme_fill_outcome_ledger_v1.csv",
+    "extreme_stop_then_reverse_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Extreme Opportunity Builder",
+    "Extreme Geometry Builder",
+    "Extreme Quality Model",
+    "Extreme Width Policy Model",
+    "Limit-Fill vs Miss Model",
+    "Stop-Then-Reverse Analyzer",
+    "Spread Sanity Gate",
+    "Extreme Convexity Evaluator"
+  ]
+}
