@@ -304,3 +304,12 @@ docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_02_FINAL_DECISION_STATE.md
 ```
 
 Consolidation Patch 02 adds `final_no_send_decision_state.csv`, a human-readable latest-state dashboard generated from the Consolidation Patch 01 no-send context. It summarizes setup state, chain stage, blocker layer, blocker reason, request id, virtual ticket, entry, SL, TP, paper lifecycle status, paper order state, realized R-like, and no-send integrity. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.
+
+
+## Consolidation Patch 03 — Duplicate Rebuild Reduction
+
+```text
+docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_03_DUPLICATE_REBUILD_REDUCTION.md
+```
+
+Consolidation Patch 03 reduces repeated internal rebuilds in Level 26 through Level 30 by reusing the latest-row caches introduced in Consolidation Patch 01. It keeps fallback rebuild paths when caches are unavailable, preserves all current outputs, updates context caches after rows are built, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.

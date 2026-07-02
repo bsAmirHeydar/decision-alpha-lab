@@ -39,26 +39,63 @@ void FP_RunLevel29PaperBrokerAdapter(const string symbol,
       return;
    }
 
-   FP_Level20EntryBridgeRow bridge_row;
-   FP_L20BuildEntryBridgeRow(symbol, period, rates, bars, events, hooks,
-                             timebase_report, render_report, validation_report,
-                             entry_bridge_cfg, bridge_row);
-
    FP_Level21PaperIntentRow intent_row;
-   FP_L21FillFromEntryBridge(intent_cfg, bridge_row, intent_row);
-
    FP_Level24SafetyGateRow safety_row;
-   FP_L24BuildSafetyGateRow(symbol, period, license_ok, safety_cfg, safety_row);
-
    FP_Level25BrokerDryRunRow dry_run_row;
-   FP_L25BuildBrokerDryRunRow(symbol, period, safety_row, intent_row, dry_run_cfg, dry_run_row);
-
    FP_Level26BrokerValidatorRow validator_row;
-   FP_L26BuildBrokerValidatorRow(symbol, period, dry_run_row, validator_cfg, validator_row);
-
    FP_Level28BrokerRequestAuditRow audit_row;
-   FP_L28BuildBrokerRequestAuditRow(symbol, period, safety_row, intent_row,
-                                    dry_run_row, validator_row, audit_cfg, audit_row);
+
+   if(g_fp_c01_has_l25_dry_run_row &&
+      g_fp_c01_has_l26_validator_row &&
+      g_fp_c01_has_l28_audit_row)
+   {
+      dry_run_row = g_fp_c01_l25_dry_run_row;
+      validator_row = g_fp_c01_l26_validator_row;
+      audit_row = g_fp_c01_l28_audit_row;
+   }
+   else
+   {
+      if(g_fp_c01_has_l21_paper_intent_row &&
+         g_fp_c01_has_l24_safety_gate_row &&
+         g_fp_c01_has_l25_dry_run_row &&
+         g_fp_c01_has_l26_validator_row)
+      {
+         intent_row = g_fp_c01_l21_paper_intent_row;
+         safety_row = g_fp_c01_l24_safety_gate_row;
+         dry_run_row = g_fp_c01_l25_dry_run_row;
+         validator_row = g_fp_c01_l26_validator_row;
+      }
+      else
+      {
+         FP_Level20EntryBridgeRow bridge_row;
+         FP_L20BuildEntryBridgeRow(symbol, period, rates, bars, events, hooks,
+                                   timebase_report, render_report, validation_report,
+                                   entry_bridge_cfg, bridge_row);
+         g_fp_c01_l20_entry_bridge_row = bridge_row;
+         g_fp_c01_has_l20_entry_bridge_row = true;
+
+         FP_L21FillFromEntryBridge(intent_cfg, bridge_row, intent_row);
+         g_fp_c01_l21_paper_intent_row = intent_row;
+         g_fp_c01_has_l21_paper_intent_row = true;
+
+         FP_L24BuildSafetyGateRow(symbol, period, license_ok, safety_cfg, safety_row);
+         g_fp_c01_l24_safety_gate_row = safety_row;
+         g_fp_c01_has_l24_safety_gate_row = true;
+
+         FP_L25BuildBrokerDryRunRow(symbol, period, safety_row, intent_row, dry_run_cfg, dry_run_row);
+         g_fp_c01_l25_dry_run_row = dry_run_row;
+         g_fp_c01_has_l25_dry_run_row = true;
+
+         FP_L26BuildBrokerValidatorRow(symbol, period, dry_run_row, validator_cfg, validator_row);
+         g_fp_c01_l26_validator_row = validator_row;
+         g_fp_c01_has_l26_validator_row = true;
+      }
+
+      FP_L28BuildBrokerRequestAuditRow(symbol, period, safety_row, intent_row,
+                                       dry_run_row, validator_row, audit_cfg, audit_row);
+      g_fp_c01_l28_audit_row = audit_row;
+      g_fp_c01_has_l28_audit_row = true;
+   }
 
    FP_Level29PaperBrokerAdapterRow row;
    FP_L29BuildPaperBrokerAdapterRow(symbol, period, dry_run_row, validator_row, audit_row, cfg, row);
@@ -68,6 +105,9 @@ void FP_RunLevel29PaperBrokerAdapter(const string symbol,
 
    bool latest_ok = FP_L29WriteLatestPaperBrokerAdapter(cfg, row, report);
    bool adapter_ok = FP_L29AppendPaperBrokerAdapter(cfg, row, report);
+
+   g_fp_c01_l29_adapter_row = row;
+   g_fp_c01_has_l29_adapter_row = true;
 
    report.ok = (latest_ok && adapter_ok && report.file_errors == 0);
    report.status = row.adapter_status;
