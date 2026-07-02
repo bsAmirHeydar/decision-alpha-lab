@@ -81,3 +81,25 @@ reason_vector_v1
 entry_family_catalog_v1
 signal_framework_ledger_v1
 ```
+
+---
+
+### BASE-04 — Forbidden Concepts and NDS Boundaries
+
+Path:
+
+```text
+docs/experience_capture/answers/BASE-04/
+```
+
+Summary:
+
+Only NDS-native concepts are allowed. Indicators, ICT, generic technical analysis, artificial time-horizon labels, and external trading ontologies are forbidden unless fully translated into NDS language and revalidated.
+
+Main derived architecture requirements:
+
+```text
+NDS_CONCEPT_REGISTRY.md
+dataset_feature_manifest_v1.csv
+NDS_ONTOLOGY_GATE
+```

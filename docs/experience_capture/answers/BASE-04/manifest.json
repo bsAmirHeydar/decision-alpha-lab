@@ -1,0 +1,30 @@
+{
+  "question_code": "BASE-04",
+  "language": "en",
+  "topic": "Forbidden concepts and NDS ontology boundaries",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "NDS",
+    "ontology_purity",
+    "forbidden_concepts",
+    "nds_ontology_gate",
+    "dataset_contamination_checker",
+    "feature_manifest_validator",
+    "label_ontology_checker"
+  ],
+  "proposed_datasets": [
+    "dataset_feature_manifest_v1.csv"
+  ],
+  "proposed_docs": [
+    "NDS_CONCEPT_REGISTRY.md"
+  ],
+  "proposed_ai_modules": [
+    "NDS Ontology Gate",
+    "Feature Manifest Validator",
+    "Reason Vector Validator",
+    "Dataset Contamination Checker",
+    "Label Ontology Checker"
+  ]
+}
