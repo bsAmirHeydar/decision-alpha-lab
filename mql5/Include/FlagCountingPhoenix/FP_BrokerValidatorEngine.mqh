@@ -4,6 +4,10 @@
 
 #include "FP_BrokerValidatorExport.mqh"
 
+// Consolidation Patch 01 latest-row cache. Read-only diagnostic cache.
+bool g_fp_c01_has_l26_validator_row = false;
+FP_Level26BrokerValidatorRow g_fp_c01_l26_validator_row;
+
 void FP_RunLevel26BrokerValidator(const string symbol,
                                   const ENUM_TIMEFRAMES period,
                                   const MqlRates &rates[],
@@ -23,6 +27,7 @@ void FP_RunLevel26BrokerValidator(const string symbol,
 {
    FP_ResetLevel26BrokerValidatorReport(report);
    report.attempted = cfg.enabled;
+   g_fp_c01_has_l26_validator_row = false;
 
    if(!cfg.enabled)
    {
@@ -48,6 +53,8 @@ void FP_RunLevel26BrokerValidator(const string symbol,
 
    FP_Level26BrokerValidatorRow row;
    FP_L26BuildBrokerValidatorRow(symbol, period, dry_run_row, cfg, row);
+   g_fp_c01_l26_validator_row = row;
+   g_fp_c01_has_l26_validator_row = true;
 
    bool export_ok = FP_L26ExportBrokerValidator(cfg, row, report);
 

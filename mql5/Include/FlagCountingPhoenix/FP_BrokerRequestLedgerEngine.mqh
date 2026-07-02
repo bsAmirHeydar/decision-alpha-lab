@@ -4,6 +4,10 @@
 
 #include "FP_BrokerRequestLedgerExport.mqh"
 
+// Consolidation Patch 01 latest-row cache. Read-only diagnostic cache.
+bool g_fp_c01_has_l27_ledger_row = false;
+FP_Level27BrokerRequestLedgerRow g_fp_c01_l27_ledger_row;
+
 void FP_RunLevel27BrokerRequestLedger(const string symbol,
                                       const ENUM_TIMEFRAMES period,
                                       const MqlRates &rates[],
@@ -24,6 +28,7 @@ void FP_RunLevel27BrokerRequestLedger(const string symbol,
 {
    FP_ResetLevel27BrokerRequestLedgerReport(report);
    report.attempted = cfg.enabled;
+   g_fp_c01_has_l27_ledger_row = false;
 
    if(!cfg.enabled)
    {

@@ -4,6 +4,10 @@
 
 #include "FP_BrokerRequestAuditExport.mqh"
 
+// Consolidation Patch 01 latest-row cache. Read-only diagnostic cache.
+bool g_fp_c01_has_l28_audit_row = false;
+FP_Level28BrokerRequestAuditRow g_fp_c01_l28_audit_row;
+
 void FP_RunLevel28BrokerRequestAudit(const string symbol,
                                      const ENUM_TIMEFRAMES period,
                                      const MqlRates &rates[],
@@ -24,6 +28,7 @@ void FP_RunLevel28BrokerRequestAudit(const string symbol,
 {
    FP_ResetLevel28BrokerRequestAuditReport(report);
    report.attempted = cfg.enabled;
+   g_fp_c01_has_l28_audit_row = false;
 
    if(!cfg.enabled)
    {

@@ -24,6 +24,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestAuditEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerAdapterEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerLifecycleEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_NoSendContextEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -529,6 +530,14 @@ input bool   InpLevel30PaperBrokerLifecycleCloseOnly = true;
 input int    InpLevel30PaperBrokerLifecycleExpiryBars = 20;
 input string InpLevel30PaperBrokerLifecycleFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Consolidation 01 No-Send Context ------------
+// Shared latest-row context snapshot. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpConsolidation01NoSendContextEnabled = true;
+input bool   InpConsolidation01NoSendContextExportCsv = true;
+input bool   InpConsolidation01NoSendContextPrintSummary = false;
+input bool   InpConsolidation01NoSendContextWriteLatestCsv = true;
+input string InpConsolidation01NoSendContextFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -938,6 +947,18 @@ void FP_LoadLevel30PaperBrokerLifecycleConfig(FP_Level30PaperBrokerLifecycleConf
 }
 
 
+
+void FP_LoadConsolidation01NoSendContextConfig(FP_Consolidation01NoSendContextConfig &cfg)
+{
+   FP_ResetConsolidation01NoSendContextConfig(cfg);
+   cfg.enabled = InpConsolidation01NoSendContextEnabled;
+   cfg.export_csv = InpConsolidation01NoSendContextExportCsv;
+   cfg.print_summary = InpConsolidation01NoSendContextPrintSummary;
+   cfg.write_latest_csv = InpConsolidation01NoSendContextWriteLatestCsv;
+   cfg.folder = InpConsolidation01NoSendContextFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1268,6 +1289,9 @@ void FP_Run()
    FP_Level30PaperBrokerLifecycleConfig paper_broker_lifecycle_cfg;
    FP_LoadLevel30PaperBrokerLifecycleConfig(paper_broker_lifecycle_cfg);
 
+   FP_Consolidation01NoSendContextConfig no_send_context_cfg;
+   FP_LoadConsolidation01NoSendContextConfig(no_send_context_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1557,6 +1581,13 @@ void FP_Run()
                                      paper_broker_lifecycle_report);
    if(paper_broker_lifecycle_cfg.print_summary)
       FP_PrintLevel30PaperBrokerLifecycleReport("FP_LEVEL30", paper_broker_lifecycle_report);
+
+   FP_Consolidation01NoSendContextReport no_send_context_report;
+   FP_RunConsolidation01NoSendContext(_Symbol, _Period,
+                                      no_send_context_cfg,
+                                      no_send_context_report);
+   if(no_send_context_cfg.print_summary)
+      FP_PrintConsolidation01NoSendContextReport("FP_CONSOLIDATION01", no_send_context_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);

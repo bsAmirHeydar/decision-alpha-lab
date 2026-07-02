@@ -4,6 +4,10 @@
 
 #include "FP_PaperBrokerAdapterExport.mqh"
 
+// Consolidation Patch 01 latest-row cache. Read-only diagnostic cache.
+bool g_fp_c01_has_l29_adapter_row = false;
+FP_Level29PaperBrokerAdapterRow g_fp_c01_l29_adapter_row;
+
 void FP_RunLevel29PaperBrokerAdapter(const string symbol,
                                      const ENUM_TIMEFRAMES period,
                                      const MqlRates &rates[],
@@ -25,6 +29,7 @@ void FP_RunLevel29PaperBrokerAdapter(const string symbol,
 {
    FP_ResetLevel29PaperBrokerAdapterReport(report);
    report.attempted = cfg.enabled;
+   g_fp_c01_has_l29_adapter_row = false;
 
    if(!cfg.enabled)
    {

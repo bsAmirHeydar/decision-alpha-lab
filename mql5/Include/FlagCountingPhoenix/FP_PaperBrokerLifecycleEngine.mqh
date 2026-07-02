@@ -4,6 +4,10 @@
 
 #include "FP_PaperBrokerLifecycleExport.mqh"
 
+// Consolidation Patch 01 latest-row cache. Read-only diagnostic cache.
+bool g_fp_c01_has_l30_lifecycle_row = false;
+FP_Level30PaperBrokerLifecycleRow g_fp_c01_l30_lifecycle_row;
+
 void FP_RunLevel30PaperBrokerLifecycle(const string symbol,
                                        const ENUM_TIMEFRAMES period,
                                        const MqlRates &rates[],
@@ -26,6 +30,7 @@ void FP_RunLevel30PaperBrokerLifecycle(const string symbol,
 {
    FP_ResetLevel30PaperBrokerLifecycleReport(report);
    report.attempted = cfg.enabled;
+   g_fp_c01_has_l30_lifecycle_row = false;
 
    if(!cfg.enabled)
    {

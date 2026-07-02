@@ -286,3 +286,12 @@ docs/flag_counting/FLAG_COUNTING_STABILIZATION_PATCH_01_LEVEL_24_30.md
 ```
 
 This patch does not add a new level. It stabilizes the Level 24-30 no-send chain by making Level 27-30 exporters respect the master `export_csv` switch, fixing latest/append row write-state flags before serialization, trimming Level 24 allow-list tokens correctly, and adding simple prefix wildcard support for allow-list values such as `GOLD*` or `PERIOD_M*`. It adds no OrderSend, OrderCheck, CTrade, broker request, real execution, volume sizing, risk sizing, renderer mutation, or chart-object mutation.
+
+
+## Consolidation Patch 01 — No-Send Context
+
+```text
+docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_01_NO_SEND_CONTEXT.md
+```
+
+Consolidation Patch 01 adds a shared latest-state no-send context snapshot at `latest_consolidation_01_no_send_context.csv`. It caches the latest rows from Level 20, 21, 24, 25, 26, 27, 28, 29, and 30, then exports one consolidated context row. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.
