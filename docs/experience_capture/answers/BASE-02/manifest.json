@@ -1,0 +1,30 @@
+{
+  "question_code": "BASE-02",
+  "language": "en",
+  "topic": "Definition of scenario",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "scenario_case_file",
+    "direction_context_reasoning",
+    "three_layer_scenario_construction",
+    "directional_case",
+    "approximate_entry_zone",
+    "exact_entry_candidate",
+    "scenario_invalidation",
+    "scenario_status_model",
+    "fractal_scenario_logic"
+  ],
+  "proposed_datasets": [
+    "scenario_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Scenario Builder",
+    "Scenario Ranker",
+    "Scenario Status Classifier",
+    "Scenario Invalidation Model",
+    "Fractal Scenario Context Model",
+    "Execution Readiness Gate"
+  ]
+}

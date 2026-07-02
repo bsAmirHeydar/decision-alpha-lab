@@ -35,3 +35,25 @@ Main derived architecture requirement:
 ```text
 multi-hypothesis state representation
 ```
+
+---
+
+### BASE-02 — Scenario Definition
+
+Path:
+
+```text
+docs/experience_capture/answers/BASE-02/
+```
+
+Summary:
+
+A scenario is not only direction.
+
+A scenario is a structured case file that begins with direction, is justified through Hook/Rally and fractal reasons, becomes practical through an approximate entry zone, becomes executable through an exact entry point, and remains alive only while its anatomy-based invalidation has not occurred.
+
+Main derived architecture requirement:
+
+```text
+scenario_ledger_v1.csv
+```
