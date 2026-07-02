@@ -1,0 +1,20 @@
+{
+  "question_code": "BASE-01",
+  "language": "en",
+  "topic": "Multi-state market interpretation: direction and context",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [
+    "images/BASE-01-image-01-bearish-rally-inside-hook.png",
+    "images/BASE-01-image-02-bullish-rally-inside-larger-hook.png"
+  ],
+  "derived_concepts": [
+    "dual_direction_view",
+    "dual_context_view",
+    "hook_rally_ambiguity",
+    "fractal_multi_hypothesis_context",
+    "scenario_ranking",
+    "ambiguity_gate",
+    "execution_router"
+  ]
+}
