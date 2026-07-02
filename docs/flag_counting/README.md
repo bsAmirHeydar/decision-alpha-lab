@@ -205,3 +205,12 @@ docs/flag_counting/FLAG_COUNTING_LEVEL_22_PAPER_LIFECYCLE_CLOSE_ONLY.md
 ```
 
 Level 22 adds `state_gate_level22_paper_lifecycle.csv`, reconstructing a close-only lifecycle for the Level 21 paper intent. It tracks blocked, pending, entered-by-close, target-by-close, stop-by-close, expired, open, and ambiguous states, plus close-only MFE/MAE and realized R-like metrics, without creating paper orders, broker requests, real orders, volume sizing, renderer mutations, or chart-object changes.
+
+
+## Level 23 — Paper Performance Close-Only
+
+```text
+docs/flag_counting/FLAG_COUNTING_LEVEL_23_PAPER_PERFORMANCE_CLOSE_ONLY.md
+```
+
+Level 23 adds `state_gate_level23_paper_performance.csv`, summarizing the close-only paper lifecycle from Level 22 into research performance metrics such as target count, stop count, expired count, open count, ambiguous count, hit-rate-like, loss-rate-like, average R-like, best R-like, and worst R-like. It remains CSV-only, print-silent by default, panel-off by default, and adds no paper orders, broker requests, real orders, volume sizing, risk sizing, renderer mutation, or chart-object change.

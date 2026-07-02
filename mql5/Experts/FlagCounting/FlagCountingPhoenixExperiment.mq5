@@ -16,6 +16,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_EntryBridgeEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperIntentEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperLifecycleEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_PaperPerformanceEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -409,6 +410,16 @@ input bool   InpLevel22PaperLifecycleRequireIntentAllowed = true;
 input int    InpLevel22PaperLifecycleDefaultExpiryBars = 20;
 input string InpLevel22PaperLifecycleFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 23 Paper Performance ------------------
+// Performance summary from close-only paper lifecycle. No order, no broker request, no real execution.
+input bool   InpLevel23PaperPerformanceEnabled = true;
+input bool   InpLevel23PaperPerformanceExportCsv = true;
+input bool   InpLevel23PaperPerformancePrintSummary = false;
+input bool   InpLevel23PaperPerformanceCountBlockedSamples = true;
+input bool   InpLevel23PaperPerformanceCountOpenSamples = true;
+input bool   InpLevel23PaperPerformanceCountExpiredAsResolved = true;
+input string InpLevel23PaperPerformanceFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -671,6 +682,20 @@ void FP_LoadLevel22PaperLifecycleConfig(FP_Level22PaperLifecycleConfig &cfg)
    cfg.require_intent_allowed = InpLevel22PaperLifecycleRequireIntentAllowed;
    cfg.default_expiry_bars = InpLevel22PaperLifecycleDefaultExpiryBars;
    cfg.folder = InpLevel22PaperLifecycleFolder;
+}
+
+
+
+void FP_LoadLevel23PaperPerformanceConfig(FP_Level23PaperPerformanceConfig &cfg)
+{
+   FP_ResetLevel23PaperPerformanceConfig(cfg);
+   cfg.enabled = InpLevel23PaperPerformanceEnabled;
+   cfg.export_csv = InpLevel23PaperPerformanceExportCsv;
+   cfg.print_summary = InpLevel23PaperPerformancePrintSummary;
+   cfg.count_blocked_samples = InpLevel23PaperPerformanceCountBlockedSamples;
+   cfg.count_open_samples = InpLevel23PaperPerformanceCountOpenSamples;
+   cfg.count_expired_as_resolved = InpLevel23PaperPerformanceCountExpiredAsResolved;
+   cfg.folder = InpLevel23PaperPerformanceFolder;
 }
 
 
@@ -980,6 +1005,9 @@ void FP_Run()
    FP_Level22PaperLifecycleConfig paper_lifecycle_cfg;
    FP_LoadLevel22PaperLifecycleConfig(paper_lifecycle_cfg);
 
+   FP_Level23PaperPerformanceConfig paper_performance_cfg;
+   FP_LoadLevel23PaperPerformanceConfig(paper_performance_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1175,6 +1203,16 @@ void FP_Run()
                                paper_lifecycle_report);
    if(paper_lifecycle_cfg.print_summary)
       FP_PrintLevel22PaperLifecycleReport("FP_LEVEL22", paper_lifecycle_report);
+
+   FP_Level23PaperPerformanceReport paper_performance_report;
+   FP_RunLevel23PaperPerformance(_Symbol, _Period, rates, copied,
+                                 events, hooks, timebase_report,
+                                 render_report, validation_report,
+                                 entry_bridge_cfg, paper_intent_cfg,
+                                 paper_lifecycle_cfg, paper_performance_cfg,
+                                 paper_performance_report);
+   if(paper_performance_cfg.print_summary)
+      FP_PrintLevel23PaperPerformanceReport("FP_LEVEL23", paper_performance_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
