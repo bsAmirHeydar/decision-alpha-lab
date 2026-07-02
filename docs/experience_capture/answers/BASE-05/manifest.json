@@ -1,0 +1,37 @@
+{
+  "question_code": "BASE-05",
+  "language": "en",
+  "topic": "Allowed uncertainty, ambiguity, context power, and decision transition",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [
+    "images/BASE-05-image-01-h1-higher-timeframe-bearish-f3-energy.png",
+    "images/BASE-05-image-02-m10-lower-timeframe-bullish-f3-context.png"
+  ],
+  "derived_concepts": [
+    "structured_ambiguity",
+    "context_power",
+    "origin_of_move",
+    "fractal_dominance",
+    "wait_for_base",
+    "higher_scale_override",
+    "dual_intent_candidate",
+    "hedge_protection_candidate"
+  ],
+  "proposed_datasets": [
+    "ambiguity_context_ledger_v1.csv",
+    "context_power_ledger_v1.csv",
+    "origin_of_move_ledger_v1.csv",
+    "fractal_dominance_ledger_v1.csv",
+    "hedge_protection_context_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Ambiguity Scoring Model",
+    "Context Power Model",
+    "Origin-of-Move Analyzer",
+    "Fractal Dominance Gate",
+    "Wait-for-Base Router",
+    "Dual-Intent Detector",
+    "Hedge Protection Router"
+  ]
+}

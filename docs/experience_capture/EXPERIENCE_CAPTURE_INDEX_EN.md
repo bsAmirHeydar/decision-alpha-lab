@@ -14,22 +14,6 @@ Summary:
 
 The market must be read through two axes: direction and context.
 
-Direction:
-
-```text
-bullish
-bearish
-```
-
-Context:
-
-```text
-Hook
-Rally
-```
-
-The same four-way interpretation must be applied fractally across parent/current/child scales.
-
 Main derived architecture requirement:
 
 ```text
@@ -47,8 +31,6 @@ docs/experience_capture/answers/BASE-02/
 ```
 
 Summary:
-
-A scenario is not only direction.
 
 A scenario is a structured case file that begins with direction, is justified through Hook/Rally and fractal reasons, becomes practical through an approximate entry zone, becomes executable through an exact entry point, and remains alive only while its anatomy-based invalidation has not occurred.
 
@@ -71,8 +53,6 @@ docs/experience_capture/answers/BASE-03/
 Summary:
 
 Valid reasons come from anatomy-native structural counting, fractal relation, and execution geometry.
-
-Noise includes candle games, generic technical patterns, and indicator-based triggers that do not belong to the Hook/Rally/fractal ontology.
 
 Main derived architecture requirements:
 
@@ -102,4 +82,28 @@ Main derived architecture requirements:
 NDS_CONCEPT_REGISTRY.md
 dataset_feature_manifest_v1.csv
 NDS_ONTOLOGY_GATE
+```
+
+---
+
+### BASE-05 — Ambiguity and Context Power
+
+Path:
+
+```text
+docs/experience_capture/answers/BASE-05/
+```
+
+Summary:
+
+Uncertainty is allowed only when it is structured by NDS contexts, move origin, fractal hierarchy, context power, and clear execution geometry. Ambiguity becomes dangerous when those contexts cannot be ranked or bounded.
+
+Main derived architecture requirements:
+
+```text
+ambiguity_context_ledger_v1.csv
+context_power_ledger_v1.csv
+origin_of_move_ledger_v1.csv
+fractal_dominance_ledger_v1.csv
+hedge_protection_context_v1.csv
 ```
