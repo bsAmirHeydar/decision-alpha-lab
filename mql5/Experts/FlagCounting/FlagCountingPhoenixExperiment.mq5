@@ -23,6 +23,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestLedgerEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_BrokerRequestAuditEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerAdapterEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_PaperBrokerLifecycleEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -514,6 +515,20 @@ input bool   InpLevel29PaperBrokerAdapterRequireZeroVolume = true;
 input bool   InpLevel29PaperBrokerAdapterDryRunOnly = true;
 input string InpLevel29PaperBrokerAdapterFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Level 30 Paper Broker Lifecycle -------------
+// Internal paper-broker lifecycle only. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpLevel30PaperBrokerLifecycleEnabled = true;
+input bool   InpLevel30PaperBrokerLifecycleExportCsv = true;
+input bool   InpLevel30PaperBrokerLifecyclePrintSummary = false;
+input bool   InpLevel30PaperBrokerLifecycleAppendCsv = true;
+input bool   InpLevel30PaperBrokerLifecycleWriteLatestCsv = true;
+input bool   InpLevel30PaperBrokerLifecycleSkipDuplicateLifecycleKey = true;
+input bool   InpLevel30PaperBrokerLifecycleRequireAdapterRegistered = true;
+input bool   InpLevel30PaperBrokerLifecycleRequireZeroVolume = true;
+input bool   InpLevel30PaperBrokerLifecycleCloseOnly = true;
+input int    InpLevel30PaperBrokerLifecycleExpiryBars = 20;
+input string InpLevel30PaperBrokerLifecycleFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -905,6 +920,24 @@ void FP_LoadLevel29PaperBrokerAdapterConfig(FP_Level29PaperBrokerAdapterConfig &
 }
 
 
+
+void FP_LoadLevel30PaperBrokerLifecycleConfig(FP_Level30PaperBrokerLifecycleConfig &cfg)
+{
+   FP_ResetLevel30PaperBrokerLifecycleConfig(cfg);
+   cfg.enabled = InpLevel30PaperBrokerLifecycleEnabled;
+   cfg.export_csv = InpLevel30PaperBrokerLifecycleExportCsv;
+   cfg.print_summary = InpLevel30PaperBrokerLifecyclePrintSummary;
+   cfg.append_lifecycle_csv = InpLevel30PaperBrokerLifecycleAppendCsv;
+   cfg.write_latest_csv = InpLevel30PaperBrokerLifecycleWriteLatestCsv;
+   cfg.skip_duplicate_lifecycle_key = InpLevel30PaperBrokerLifecycleSkipDuplicateLifecycleKey;
+   cfg.require_adapter_registered = InpLevel30PaperBrokerLifecycleRequireAdapterRegistered;
+   cfg.require_zero_volume = InpLevel30PaperBrokerLifecycleRequireZeroVolume;
+   cfg.close_only = InpLevel30PaperBrokerLifecycleCloseOnly;
+   cfg.expiry_bars = InpLevel30PaperBrokerLifecycleExpiryBars;
+   cfg.folder = InpLevel30PaperBrokerLifecycleFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1232,6 +1265,9 @@ void FP_Run()
    FP_Level29PaperBrokerAdapterConfig paper_broker_adapter_cfg;
    FP_LoadLevel29PaperBrokerAdapterConfig(paper_broker_adapter_cfg);
 
+   FP_Level30PaperBrokerLifecycleConfig paper_broker_lifecycle_cfg;
+   FP_LoadLevel30PaperBrokerLifecycleConfig(paper_broker_lifecycle_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1506,6 +1542,21 @@ void FP_Run()
                                    paper_broker_adapter_report);
    if(paper_broker_adapter_cfg.print_summary)
       FP_PrintLevel29PaperBrokerAdapterReport("FP_LEVEL29", paper_broker_adapter_report);
+
+   FP_Level30PaperBrokerLifecycleReport paper_broker_lifecycle_report;
+   FP_RunLevel30PaperBrokerLifecycle(_Symbol, _Period, rates, copied,
+                                     events, hooks, timebase_report,
+                                     render_report, validation_report,
+                                     g_fp_license_ok,
+                                     entry_bridge_cfg, paper_intent_cfg,
+                                     safety_gate_cfg, broker_dry_run_cfg,
+                                     broker_validator_cfg,
+                                     broker_request_audit_cfg,
+                                     paper_broker_adapter_cfg,
+                                     paper_broker_lifecycle_cfg,
+                                     paper_broker_lifecycle_report);
+   if(paper_broker_lifecycle_cfg.print_summary)
+      FP_PrintLevel30PaperBrokerLifecycleReport("FP_LEVEL30", paper_broker_lifecycle_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
