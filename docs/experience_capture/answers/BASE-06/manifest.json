@@ -1,0 +1,30 @@
+{
+  "question_code": "BASE-06",
+  "language": "en",
+  "topic": "Hard rules versus learnable layers",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "fixed_nds_anatomy",
+    "learnable_policy_layer",
+    "nds_only_hard_rule",
+    "model_acceptance_gate",
+    "policy_layer_model_registry",
+    "ontology_governance",
+    "feature_validation"
+  ],
+  "proposed_docs": [
+    "NDS_CONCEPT_REGISTRY.md",
+    "MODEL_POLICY_BOUNDARY.md",
+    "MODEL_ACCEPTANCE_GATE.md",
+    "FEATURE_MANIFEST_SCHEMA.md"
+  ],
+  "proposed_ai_modules": [
+    "NDS Ontology Gate",
+    "NDS Feature Validator",
+    "Policy-Layer Model Registry",
+    "Model Acceptance Gate",
+    "NDS Compliance Report Generator"
+  ]
+}

@@ -107,3 +107,26 @@ origin_of_move_ledger_v1.csv
 fractal_dominance_ledger_v1.csv
 hedge_protection_context_v1.csv
 ```
+
+---
+
+### BASE-06 — Hard Rules vs Learnable Layers
+
+Path:
+
+```text
+docs/experience_capture/answers/BASE-06/
+```
+
+Summary:
+
+NDS anatomy is fixed and non-negotiable. Hook, Rally, F-counting, Node-counting, and NDS-only ontology boundaries are hard rules. AI may only learn policy over NDS-native states, such as ranking, veto, ambiguity handling, fractal weighting, execution routing, and cancel/replace behavior.
+
+Main derived architecture requirements:
+
+```text
+NDS_CONCEPT_REGISTRY.md
+MODEL_POLICY_BOUNDARY.md
+MODEL_ACCEPTANCE_GATE.md
+FEATURE_MANIFEST_SCHEMA.md
+```
