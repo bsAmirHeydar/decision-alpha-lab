@@ -2,24 +2,23 @@
 
 ## Captured Records
 
-### EXT-01 — Extreme Definition Relative to Untouched Node
+### EXT-02 — Anchor Node Source for Extreme
 
 Path:
 
 ```text
-docs/experience_capture/answers/EXT-01/
+docs/experience_capture/answers/EXT-02/
 ```
 
 Summary:
 
-Extreme is an NDS-native entry family defined as a near-death zone around an untouched node. It seeks convex entries near the point where a cycle would die, with stop behind the node and reward opened by reversal or continuation from that near-death region.
+RTV is excluded from NDS and must not produce Extreme anchor nodes. Extreme is not a direction engine or scenario engine; it is a lower-timeframe entry-refinement mechanism used only after NDS anatomy has defined direction and region. L2 is the default anchor level because it keeps entries small even inside large cycles, but anchor selection must remain flexible and context-sensitive rather than rigidly mechanical.
 
 Main derived architecture requirements:
 
 ```text
-extreme_opportunity_dataset_v1.csv
-extreme_geometry_ledger_v1.csv
-untouched_node_death_proximity_ledger_v1.csv
-extreme_fill_outcome_ledger_v1.csv
-extreme_stop_then_reverse_ledger_v1.csv
+entry_layer_decision_ledger_v1.csv
+extreme_anchor_node_selection_v1.csv
+entry_family_request_ledger_v1.csv
+scenario_region_to_entry_refinement_v1.csv
 ```

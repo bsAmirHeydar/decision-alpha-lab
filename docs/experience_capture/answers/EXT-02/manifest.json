@@ -1,0 +1,32 @@
+{
+  "question_code": "EXT-02",
+  "language": "en",
+  "topic": "Anchor node source for Extreme and entry-layer separation",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "rtv_exclusion",
+    "extreme_as_entry_refinement",
+    "scenario_region_first",
+    "lower_timeframe_extreme_entry",
+    "l2_default_flexible_anchor",
+    "anchor_node_selection_policy",
+    "entry_layer_separation"
+  ],
+  "proposed_datasets": [
+    "entry_layer_decision_ledger_v1.csv",
+    "extreme_anchor_node_selection_v1.csv",
+    "entry_family_request_ledger_v1.csv",
+    "scenario_region_to_entry_refinement_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Entry Family Selector",
+    "Scenario Region Router",
+    "Extreme Anchor Node Selector",
+    "Node-Level Flexibility Policy",
+    "Lower-Timeframe Refinement Model",
+    "Extreme Standalone-Signal Rejection Gate",
+    "RTV Contamination Checker"
+  ]
+}
