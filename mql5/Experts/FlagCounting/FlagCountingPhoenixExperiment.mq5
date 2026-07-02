@@ -26,6 +26,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_PaperBrokerLifecycleEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_NoSendContextEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_FinalDecisionStateEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_FinalCsvNormalizationEngine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -550,6 +551,15 @@ input bool   InpConsolidation02FinalDecisionRequireLifecycleTracked = false;
 input bool   InpConsolidation02FinalDecisionRequireNoSendIntegrity = true;
 input string InpConsolidation02FinalDecisionFolder = "FlagCountingPhoenix";
 
+// ------------------------------ Consolidation 04 CSV Normalization ----------
+// Machine-friendly normalized final no-send decision CSV. No OrderSend, no OrderCheck, no CTrade, no real execution.
+input bool   InpConsolidation04FinalCsvNormalizationEnabled = true;
+input bool   InpConsolidation04FinalCsvNormalizationExportCsv = true;
+input bool   InpConsolidation04FinalCsvNormalizationPrintSummary = false;
+input bool   InpConsolidation04FinalCsvNormalizationWriteLatestCsv = true;
+input bool   InpConsolidation04FinalCsvNormalizationRequireNoSendIntegrity = true;
+input string InpConsolidation04FinalCsvNormalizationFolder = "FlagCountingPhoenix";
+
 static datetime g_fp_last_bar_time = 0;
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
@@ -986,6 +996,19 @@ void FP_LoadConsolidation02FinalDecisionConfig(FP_Consolidation02FinalDecisionCo
 }
 
 
+
+void FP_LoadConsolidation04FinalCsvNormalizationConfig(FP_Consolidation04FinalCsvNormalizationConfig &cfg)
+{
+   FP_ResetConsolidation04FinalCsvNormalizationConfig(cfg);
+   cfg.enabled = InpConsolidation04FinalCsvNormalizationEnabled;
+   cfg.export_csv = InpConsolidation04FinalCsvNormalizationExportCsv;
+   cfg.print_summary = InpConsolidation04FinalCsvNormalizationPrintSummary;
+   cfg.write_latest_csv = InpConsolidation04FinalCsvNormalizationWriteLatestCsv;
+   cfg.require_no_send_integrity = InpConsolidation04FinalCsvNormalizationRequireNoSendIntegrity;
+   cfg.folder = InpConsolidation04FinalCsvNormalizationFolder;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1322,6 +1345,9 @@ void FP_Run()
    FP_Consolidation02FinalDecisionConfig final_decision_cfg;
    FP_LoadConsolidation02FinalDecisionConfig(final_decision_cfg);
 
+   FP_Consolidation04FinalCsvNormalizationConfig final_csv_normalization_cfg;
+   FP_LoadConsolidation04FinalCsvNormalizationConfig(final_csv_normalization_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1626,6 +1652,15 @@ void FP_Run()
                                       final_decision_report);
    if(final_decision_cfg.print_summary)
       FP_PrintConsolidation02FinalDecisionReport("FP_CONSOLIDATION02", final_decision_report);
+
+   FP_Consolidation04FinalCsvNormalizationReport final_csv_normalization_report;
+   FP_RunConsolidation04FinalCsvNormalization(_Symbol, _Period,
+                                              no_send_context_cfg,
+                                              final_decision_cfg,
+                                              final_csv_normalization_cfg,
+                                              final_csv_normalization_report);
+   if(final_csv_normalization_cfg.print_summary)
+      FP_PrintConsolidation04FinalCsvNormalizationReport("FP_CONSOLIDATION04", final_csv_normalization_report);
 
    if(InpPrintFinalSummary)
       FP_PrintSummary(_Symbol, _Period, copied, scale_count, result, drawn);
