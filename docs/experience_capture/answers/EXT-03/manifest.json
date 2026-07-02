@@ -1,0 +1,30 @@
+{
+  "question_code": "EXT-03",
+  "language": "en",
+  "topic": "Why L2 is the default Extreme anchor level",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "l2_minimum_valid_node_level",
+    "l1_rejected_as_meaningless",
+    "l2_default_not_dogma",
+    "adaptive_anchor_level_policy",
+    "cycle_size_conditioned_l_level",
+    "anchor_convexity",
+    "anchor_fragility"
+  ],
+  "proposed_datasets": [
+    "node_level_candidate_ledger_v1.csv",
+    "extreme_anchor_level_test_v1.csv",
+    "adaptive_anchor_level_policy_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Anchor Level Candidate Builder",
+    "L-Level Baseline Tester",
+    "Adaptive Anchor Level Policy",
+    "Anchor Fragility Model",
+    "Anchor Convexity Model",
+    "Cycle-Size-to-Anchor-Level Mapper"
+  ]
+}
