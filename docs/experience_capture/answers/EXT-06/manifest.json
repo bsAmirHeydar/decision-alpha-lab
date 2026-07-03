@@ -1,0 +1,31 @@
+{
+  "question_code": "EXT-06",
+  "language": "en",
+  "topic": "Node penetration and Extreme invalidation",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "one_point_penetration_invalidation",
+    "cycle_origin_node_death",
+    "extreme_node_validity_gate",
+    "penetration_before_fill",
+    "penetration_after_fill",
+    "penetration_then_reversal",
+    "pending_cancel_on_penetration"
+  ],
+  "proposed_datasets": [
+    "node_penetration_ledger_v1.csv",
+    "extreme_invalidation_ledger_v1.csv",
+    "penetration_then_reversal_ledger_v1.csv",
+    "stop_hit_then_reverse_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Node Penetration Detector",
+    "Extreme Invalidation Gate",
+    "Penetration-Then-Reversal Analyzer",
+    "Stop Geometry Fragility Analyzer",
+    "Extreme Width Policy Evaluator",
+    "Pending Cancel Router"
+  ]
+}

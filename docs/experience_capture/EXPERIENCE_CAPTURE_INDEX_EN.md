@@ -2,23 +2,24 @@
 
 ## Captured Records
 
-### EXT-04 — L2 Default Scope and Context Dependence
+### EXT-06 — Node Penetration and Extreme Invalidation
 
 Path:
 
 ```text
-docs/experience_capture/answers/EXT-04/
+docs/experience_capture/answers/EXT-06/
 ```
 
 Summary:
 
-L2 is a default candidate, not a blind law. Lower L creates more entries and preserves convexity, but may reduce quality. Higher L may improve quality and win rate, but can reduce frequency and reward. The correct L coefficient must be tested by context and evaluated through both win rate and reward distribution, not by one metric alone.
+For an Extreme anchor based on a cycle-origin node, any penetration beyond the node, even by one point, ends the validity of that node. Quick return does not preserve the original node. The old Extreme is structurally dead, although the penetration-then-reversal event should be recorded for execution and policy learning.
 
 Main derived architecture requirements:
 
 ```text
-l_level_context_test_v1.csv
-adaptive_l_policy_dataset_v1.csv
-l_level_reward_winrate_tradeoff_v1.csv
-node_level_context_performance_v1.csv
+node_penetration_ledger_v1.csv
+extreme_invalidation_ledger_v1.csv
+penetration_then_reversal_ledger_v1.csv
+stop_hit_then_reverse_ledger_v1.csv
+EXTREME_NODE_VALIDITY_GATE
 ```
