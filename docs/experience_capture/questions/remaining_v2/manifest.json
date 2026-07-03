@@ -1,0 +1,185 @@
+{
+  "artifact": "experience_questions_v2_remaining_only_safe_overlay",
+  "language": "en",
+  "safe_overlay": true,
+  "does_not_delete_existing_questions": true,
+  "does_not_touch_answers": true,
+  "active_path": "docs/experience_capture/questions/remaining_v2",
+  "answered_codes_to_preserve": [
+    "BASE-01",
+    "BASE-02",
+    "BASE-03",
+    "BASE-04",
+    "BASE-05",
+    "BASE-06",
+    "EXT-01",
+    "EXT-02",
+    "EXT-03",
+    "EXT-04",
+    "EXT-06",
+    "EXT-07",
+    "EXT-08",
+    "EXT-09",
+    "EXT-10",
+    "EXT-11",
+    "EXT-12"
+  ],
+  "question_count": 29,
+  "sections": {
+    "01_core_schema": "Core NDS Schema and Lifecycle",
+    "02_context_zone_destination": "Context, Zone, Destination, and Invalidation",
+    "03_entry_families": "Entry Families Beyond Extreme",
+    "04_extreme_remaining": "Remaining Extreme Ambiguities",
+    "05_execution_policy": "Execution Policy and Order Management",
+    "06_labels_datasets": "Labels, Datasets, and Audit",
+    "07_ai_training": "AI Training, Human Review, and Governance",
+    "08_testing_acceptance": "Testing, Acceptance, and Implementation"
+  },
+  "questions": [
+    {
+      "code": "NDS-R01",
+      "title": "Canonical NDS Object Model",
+      "section": "01_core_schema"
+    },
+    {
+      "code": "NDS-R02",
+      "title": "Cycle Lifecycle: Birth, Life, Near-Death, Death, and New Cycle",
+      "section": "01_core_schema"
+    },
+    {
+      "code": "NDS-R03",
+      "title": "Node Identity, Node Cluster, and Node Replacement",
+      "section": "01_core_schema"
+    },
+    {
+      "code": "SCN-R01",
+      "title": "Context Power Scoring",
+      "section": "02_context_zone_destination"
+    },
+    {
+      "code": "SCN-R02",
+      "title": "Potential Zone Definition",
+      "section": "02_context_zone_destination"
+    },
+    {
+      "code": "SCN-R03",
+      "title": "Destination and Open Reward Path",
+      "section": "02_context_zone_destination"
+    },
+    {
+      "code": "SCN-R04",
+      "title": "Layered Invalidation: Entry, Anchor, Zone, Scenario",
+      "section": "02_context_zone_destination"
+    },
+    {
+      "code": "ENT-R01",
+      "title": "Full NDS Entry Family Catalog",
+      "section": "03_entry_families"
+    },
+    {
+      "code": "ENT-R02",
+      "title": "Hook-Hook-Rally Formal Definition",
+      "section": "03_entry_families"
+    },
+    {
+      "code": "ENT-R03",
+      "title": "Higher-Timeframe F3 / Lower-Timeframe 3F Reversal",
+      "section": "03_entry_families"
+    },
+    {
+      "code": "ENT-R04",
+      "title": "Post-F1 Continuation Entry",
+      "section": "03_entry_families"
+    },
+    {
+      "code": "EXT-R01",
+      "title": "Extreme Width Permission",
+      "section": "04_extreme_remaining"
+    },
+    {
+      "code": "EXT-R02",
+      "title": "Missed Limit and Stop-Then-Reverse Policy",
+      "section": "04_extreme_remaining"
+    },
+    {
+      "code": "EXT-R03",
+      "title": "L-Level Adaptive Policy",
+      "section": "04_extreme_remaining"
+    },
+    {
+      "code": "EXT-R04",
+      "title": "Multi-Anchor Execution Policy",
+      "section": "04_extreme_remaining"
+    },
+    {
+      "code": "EXE-R01",
+      "title": "Order Type Policy by Entry Family",
+      "section": "05_execution_policy"
+    },
+    {
+      "code": "EXE-R02",
+      "title": "Pending Order Cancel and Replace Policy",
+      "section": "05_execution_policy"
+    },
+    {
+      "code": "EXE-R03",
+      "title": "Spread, Thin Stop, and Effective Risk",
+      "section": "05_execution_policy"
+    },
+    {
+      "code": "EXE-R04",
+      "title": "Dual-Intent and Hedge Protection",
+      "section": "05_execution_policy"
+    },
+    {
+      "code": "DATA-R01",
+      "title": "Reason Vector v1 Schema",
+      "section": "06_labels_datasets"
+    },
+    {
+      "code": "DATA-R02",
+      "title": "Positive, Negative, Neutral, and Deceptive Examples",
+      "section": "06_labels_datasets"
+    },
+    {
+      "code": "DATA-R03",
+      "title": "Reward-First Outcome Labels",
+      "section": "06_labels_datasets"
+    },
+    {
+      "code": "DATA-R04",
+      "title": "Audit Report and Chart Traceability",
+      "section": "06_labels_datasets"
+    },
+    {
+      "code": "AI-R01",
+      "title": "AI Model Role Registry",
+      "section": "07_ai_training"
+    },
+    {
+      "code": "AI-R02",
+      "title": "Human Review of Learned Rules",
+      "section": "07_ai_training"
+    },
+    {
+      "code": "AI-R03",
+      "title": "Branch-by-Branch Training Design",
+      "section": "07_ai_training"
+    },
+    {
+      "code": "TEST-R01",
+      "title": "Baseline, OOS, Ablation, and Negative Controls",
+      "section": "08_testing_acceptance"
+    },
+    {
+      "code": "TEST-R02",
+      "title": "Reward-First Acceptance Criteria",
+      "section": "08_testing_acceptance"
+    },
+    {
+      "code": "SYS-R01",
+      "title": "Implementation Order to Shadow Mode",
+      "section": "08_testing_acceptance"
+    }
+  ]
+}
