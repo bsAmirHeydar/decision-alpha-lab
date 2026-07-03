@@ -222,13 +222,27 @@ docs/experience_capture/answers/EXT-11/
 
 Summary:
 
-Extreme is a limit-based reversal entry at the local entry-point level. It enters against the immediate move into the anchor node, with the stop behind the node. Continuation entries may exist elsewhere in NDS, but they should be treated as separate entry families rather than redefining Extreme.
+Extreme is a limit-based reversal entry at the local entry-point level.
+
+---
+
+### EXT-12 — Extreme vs Classical Support and Resistance
+
+Path:
+
+```text
+docs/experience_capture/answers/EXT-12/
+```
+
+Summary:
+
+Extreme is separated from classical support/resistance by NDS cycle view and node logic. It is not a generic reaction level; it is a near-death entry zone around an NDS anchor node, used only inside valid context and zone, with stop behind the node and invalidation defined by node penetration.
 
 Main derived architecture requirements:
 
 ```text
-extreme_entry_direction_relation_v1.csv
-entry_family_direction_relation_v1.csv
-local_move_into_anchor_ledger_v1.csv
-limit_reversal_entry_geometry_v1.csv
+extreme_vs_support_resistance_boundary_v1.csv
+nds_level_translation_ledger_v1.csv
+ontology_contamination_checks_v1.csv
+cycle_node_extreme_definition_v1.csv
 ```

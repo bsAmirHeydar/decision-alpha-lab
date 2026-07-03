@@ -1,0 +1,30 @@
+{
+  "question_code": "EXT-12",
+  "language": "en",
+  "topic": "Difference between Extreme and classical support/resistance",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "extreme_not_support_resistance",
+    "cycle_view",
+    "node_view",
+    "near_death_zone",
+    "nds_translation_requirement",
+    "ontology_contamination_checker",
+    "cycle_node_extreme_validator"
+  ],
+  "proposed_datasets": [
+    "extreme_vs_support_resistance_boundary_v1.csv",
+    "nds_level_translation_ledger_v1.csv",
+    "ontology_contamination_checks_v1.csv",
+    "cycle_node_extreme_definition_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "NDS Level Ontology Gate",
+    "Support/Resistance Contamination Checker",
+    "Cycle-Node Extreme Validator",
+    "NDS Translation Validator",
+    "Extreme Object Schema Validator"
+  ]
+}
