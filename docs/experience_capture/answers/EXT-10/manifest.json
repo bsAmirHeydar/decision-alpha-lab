@@ -1,0 +1,31 @@
+{
+  "question_code": "EXT-10",
+  "language": "en",
+  "topic": "Good Extreme versus deceptive Extreme",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "context_zone_extreme_quality",
+    "deceptive_extreme",
+    "entry_precision_trap",
+    "veto_model_principle",
+    "negative_example_labeling",
+    "reward_exposure_gate",
+    "potential_zone_quality_gate"
+  ],
+  "proposed_datasets": [
+    "extreme_veto_dataset_v1.csv",
+    "extreme_negative_examples_v1.csv",
+    "context_zone_extreme_quality_v1.csv",
+    "deceptive_extreme_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Context-Zone Extreme Veto Model",
+    "Deceptive Extreme Classifier",
+    "Extreme Negative Example Builder",
+    "Entry Precision Trap Detector",
+    "Reward Exposure Gate",
+    "Potential Zone Quality Gate"
+  ]
+}
