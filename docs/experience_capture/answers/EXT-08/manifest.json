@@ -1,0 +1,31 @@
+{
+  "question_code": "EXT-08",
+  "language": "en",
+  "topic": "Node freshness, correct trade zone, and reward-first expectancy logic",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "context_first_zone_second_entry_third",
+    "freshness_as_feature",
+    "age_only_expiry_not_assumed",
+    "reward_first_winrate_second",
+    "winrate_improvement_without_reward_sacrifice",
+    "structural_expiry_over_age_expiry"
+  ],
+  "proposed_datasets": [
+    "node_freshness_context_ledger_v1.csv",
+    "freshness_vs_expectancy_test_v1.csv",
+    "node_expiry_reason_ledger_v1.csv",
+    "context_zone_entry_sequence_v1.csv",
+    "reward_first_winrate_tradeoff_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Context-Zone-Entry Router",
+    "Node Freshness Feature Builder",
+    "Freshness vs Expectancy Tester",
+    "Node Expiry Reason Classifier",
+    "Reward-First Anchor Policy",
+    "Win-Rate Improvement Gate"
+  ]
+}
