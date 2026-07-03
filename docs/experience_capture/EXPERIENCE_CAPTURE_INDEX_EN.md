@@ -210,11 +210,25 @@ Summary:
 
 A good Extreme is an entry point inside a valid NDS context and potential-rich zone. A deceptive Extreme is a near-node entry that looks precise but lacks valid context, valid zone, or meaningful reward exposure.
 
+---
+
+### EXT-11 — Extreme Direction Relation to Current Move
+
+Path:
+
+```text
+docs/experience_capture/answers/EXT-11/
+```
+
+Summary:
+
+Extreme is a limit-based reversal entry at the local entry-point level. It enters against the immediate move into the anchor node, with the stop behind the node. Continuation entries may exist elsewhere in NDS, but they should be treated as separate entry families rather than redefining Extreme.
+
 Main derived architecture requirements:
 
 ```text
-extreme_veto_dataset_v1.csv
-extreme_negative_examples_v1.csv
-context_zone_extreme_quality_v1.csv
-deceptive_extreme_ledger_v1.csv
+extreme_entry_direction_relation_v1.csv
+entry_family_direction_relation_v1.csv
+local_move_into_anchor_ledger_v1.csv
+limit_reversal_entry_geometry_v1.csv
 ```

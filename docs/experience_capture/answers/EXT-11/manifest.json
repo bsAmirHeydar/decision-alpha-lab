@@ -1,0 +1,29 @@
+{
+  "question_code": "EXT-11",
+  "language": "en",
+  "topic": "Extreme direction relation to current move",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "contrarian_at_entry_level",
+    "limit_based_extreme",
+    "local_reversal_entry",
+    "stop_behind_node",
+    "entry_family_separation",
+    "higher_context_alignment_distinction"
+  ],
+  "proposed_datasets": [
+    "extreme_entry_direction_relation_v1.csv",
+    "entry_family_direction_relation_v1.csv",
+    "local_move_into_anchor_ledger_v1.csv",
+    "limit_reversal_entry_geometry_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Entry Direction Relation Classifier",
+    "Local Move Into Anchor Detector",
+    "Extreme Limit Reversal Validator",
+    "Entry Family Separation Gate",
+    "Higher-Context Alignment Annotator"
+  ]
+}
