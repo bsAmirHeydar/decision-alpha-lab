@@ -1,0 +1,36 @@
+{
+  "question_code": "EXT-09",
+  "language": "en",
+  "topic": "Anchor-node quality, context priority, reward-first expectancy, and layered training",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "anchor_quality_secondary",
+    "context_zone_required",
+    "reward_exposure_primary",
+    "positive_expectancy_over_winrate",
+    "human_in_the_loop_training",
+    "layered_branch_based_training",
+    "learned_rule_reporting",
+    "reward_preservation_gate"
+  ],
+  "proposed_datasets": [
+    "extreme_anchor_node_quality_v1.csv",
+    "anchor_quality_feature_ledger_v1.csv",
+    "anchor_quality_hypothesis_test_v1.csv",
+    "human_reviewed_learned_rules_v1.csv",
+    "layered_training_branch_registry_v1.csv",
+    "algorithm_comparison_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Anchor Quality Feature Builder",
+    "Anchor Quality Discovery Model",
+    "Learned Rule Reporter",
+    "Human Review Gate",
+    "Layered Training Branch Manager",
+    "Algorithm Comparison Runner",
+    "Reward Preservation Gate",
+    "Win-Rate Improvement Without Reward Loss Gate"
+  ]
+}
