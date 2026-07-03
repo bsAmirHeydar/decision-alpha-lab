@@ -1,0 +1,32 @@
+{
+  "question_code": "EXT-07",
+  "language": "en",
+  "topic": "Multiple nearby L2 nodes and selected Extreme anchor logic",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "multi_anchor_opportunity_set",
+    "convexity_based_anchor_ranking",
+    "positive_expectancy_anchor_policy",
+    "explosion_potential",
+    "reward_potential",
+    "non_predictive_anchor_selection",
+    "secondary_anchor_watchlist",
+    "layered_entry_candidate"
+  ],
+  "proposed_datasets": [
+    "extreme_anchor_opportunity_set_v1.csv",
+    "selected_extreme_anchor_ranking_v1.csv",
+    "multi_anchor_extreme_candidates_v1.csv",
+    "anchor_convexity_ranking_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Extreme Anchor Opportunity Set Builder",
+    "Candidate Anchor Ranker",
+    "Convexity-Based Anchor Selector",
+    "Positive Expectancy Anchor Policy",
+    "Multi-Anchor Optionality Router",
+    "Layered Entry Evaluator"
+  ]
+}

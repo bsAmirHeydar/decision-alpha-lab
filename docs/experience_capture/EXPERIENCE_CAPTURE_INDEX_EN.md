@@ -2,24 +2,23 @@
 
 ## Captured Records
 
-### EXT-06 — Node Penetration and Extreme Invalidation
+### EXT-07 — Multiple Nearby L2 Nodes and Anchor Selection
 
 Path:
 
 ```text
-docs/experience_capture/answers/EXT-06/
+docs/experience_capture/answers/EXT-07/
 ```
 
 Summary:
 
-For an Extreme anchor based on a cycle-origin node, any penetration beyond the node, even by one point, ends the validity of that node. Quick return does not preserve the original node. The old Extreme is structurally dead, although the penetration-then-reversal event should be recorded for execution and policy learning.
+When multiple valid L2 nodes are close to each other, each node is a potential Extreme entry opportunity. The system should not force a predictive single-anchor worldview. It should build an opportunity set, rank candidates by convexity, reward potential, risk geometry, destination openness, parent/context support, and expected value, and only then select an execution anchor if the execution layer requires one.
 
 Main derived architecture requirements:
 
 ```text
-node_penetration_ledger_v1.csv
-extreme_invalidation_ledger_v1.csv
-penetration_then_reversal_ledger_v1.csv
-stop_hit_then_reverse_ledger_v1.csv
-EXTREME_NODE_VALIDITY_GATE
+extreme_anchor_opportunity_set_v1.csv
+selected_extreme_anchor_ranking_v1.csv
+multi_anchor_extreme_candidates_v1.csv
+anchor_convexity_ranking_v1.csv
 ```

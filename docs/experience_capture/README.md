@@ -26,14 +26,4 @@ docs/experience_capture/answers/<QUESTION_CODE>/
   images/
 ```
 
-The purpose is to preserve the original human trading experience and gradually convert it into:
-
-```text
-hard rules
-features
-labels
-tests
-AI model inputs
-execution policies
-backtest requirements
-```
+The purpose is to preserve the original human trading experience and gradually convert it into hard rules, features, labels, tests, AI model inputs, execution policies, and backtest requirements.
