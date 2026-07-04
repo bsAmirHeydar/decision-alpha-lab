@@ -1,0 +1,36 @@
+{
+  "question_code": "EXE-R01",
+  "language": "en",
+  "topic": "ExecutionIntent boundary, fractal four-state view, context-zone-entry conversion, and quality-based trade decision",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "fractal_four_state_view",
+    "context_zone_entry_conversion",
+    "quality_based_trade_decision",
+    "execution_intent_candidate",
+    "unknown_execution_contract_fields",
+    "intent_creation_quality_gate",
+    "nds_lineage_before_broker_fields"
+  ],
+  "proposed_datasets": [
+    "execution_intent_contract_v1.csv",
+    "fractal_four_state_to_intent_model_v1.csv",
+    "context_zone_entry_decision_model_v1.csv",
+    "quality_based_execution_decision_v1.csv",
+    "execution_intent_unknown_fields_v1.csv",
+    "intent_creation_quality_gate_v1.csv",
+    "execution_intent_lineage_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Fractal Four-State Interpreter",
+    "Context-Zone-Entry Layer Builder",
+    "Layer Quality Scorer",
+    "Aggregate Quality Gate",
+    "ExecutionIntent Candidate Builder",
+    "Intent Contract Completion Assistant",
+    "Intent Safety Boundary Checker"
+  ],
+  "created_at_utc": "2026-07-04T11:55:56.458795+00:00"
+}
