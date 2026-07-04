@@ -1,0 +1,40 @@
+{
+  "question_code": "DST-R03",
+  "language": "en",
+  "topic": "NDS-only destination lifecycle, repricing, completion, consumption, weight updates, and ontology boundary",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "nds_only_destination_lifecycle",
+    "destination_uses_same_anatomy",
+    "destination_uses_same_weights",
+    "destination_uses_same_logics",
+    "external_destination_logic_veto",
+    "destination_weight_update",
+    "destination_repricing_by_nds_structure",
+    "destination_completion_by_nds_logic"
+  ],
+  "proposed_datasets": [
+    "destination_state_machine_v1.csv",
+    "destination_repricing_policy_v1.csv",
+    "destination_completion_policy_v1.csv",
+    "destination_consumption_model_v1.csv",
+    "nds_only_destination_lifecycle_v1.csv",
+    "destination_weight_update_model_v1.csv",
+    "destination_audit_ledger_v1.csv",
+    "opposite_destination_effect_model_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "NDS-Only Destination Validator",
+    "Destination Weight Update Engine",
+    "Destination Repricing Engine",
+    "Destination Completion Detector",
+    "Destination Consumption Detector",
+    "Destination Openness Decay Model",
+    "Opposite Destination Effect Model",
+    "Destination Lifecycle Auditor",
+    "Destination Family Performance Evaluator"
+  ],
+  "created_at_utc": "2026-07-04T11:14:13.239797+00:00"
+}
