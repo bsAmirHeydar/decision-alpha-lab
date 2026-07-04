@@ -35,6 +35,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase07Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase08Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -600,6 +601,26 @@ input int    InpHookPhase07MaxSequencesToDraw = 120;
 input int    InpHookPhase07SampleLimit = 10;
 input string InpHookPhase07Folder = "FlagCountingPhoenix";
 input string InpHookPhase07ObjectPrefix = "DAL_HOOK_P07_";
+
+// NDS Hook Phase 08 - audit and CSV reconciliation
+input bool   InpHookPhase08Enabled = true;
+input bool   InpHookPhase08AllowRallyOnlyAudit = false;
+input bool   InpHookPhase08ExportCsv = false;
+input bool   InpHookPhase08ExportPhaseMatrixCsv = true;
+input bool   InpHookPhase08ExportIntegrityCsv = true;
+input bool   InpHookPhase08PrintSummary = false;
+input bool   InpHookPhase08PrintSamples = false;
+input bool   InpHookPhase08RequireRuntimeReportOk = true;
+input bool   InpHookPhase08RequirePhaseChainAlignment = true;
+input bool   InpHookPhase08RequireUniqueObjectPrefixes = true;
+input bool   InpHookPhase08RequireNonnegativeCounts = true;
+input bool   InpHookPhase08RequireAuditExportProfileAlignment = true;
+input bool   InpHookPhase08RequireNoFileErrors = true;
+input bool   InpHookPhase08RequireP06RecordsForQualityAudit = false;
+input int    InpHookPhase08MaxWarningsAllowed = 0;
+input int    InpHookPhase08SampleLimit = 20;
+input string InpHookPhase08Folder = "FlagCountingPhoenix";
+input string InpHookPhase08ObjectPrefix = "DAL_HOOK_P08_";
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1569,6 +1590,31 @@ void FP_LoadHookPhase07Config(FP_HookPhase07Config &cfg)
    cfg.object_prefix = InpHookPhase07ObjectPrefix;
 }
 
+void FP_LoadHookPhase08Config(FP_HookPhase08Config &cfg)
+{
+   FP_ResetHookPhase08Config(cfg);
+   cfg.enabled = InpHookPhase08Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.allow_rally_only_audit = InpHookPhase08AllowRallyOnlyAudit;
+   cfg.export_csv = InpHookPhase08ExportCsv;
+   cfg.export_phase_matrix_csv = InpHookPhase08ExportPhaseMatrixCsv;
+   cfg.export_integrity_csv = InpHookPhase08ExportIntegrityCsv;
+   cfg.print_summary = InpHookPhase08PrintSummary;
+   cfg.print_samples = InpHookPhase08PrintSamples;
+   cfg.require_runtime_report_ok = InpHookPhase08RequireRuntimeReportOk;
+   cfg.require_phase_chain_alignment = InpHookPhase08RequirePhaseChainAlignment;
+   cfg.require_unique_object_prefixes = InpHookPhase08RequireUniqueObjectPrefixes;
+   cfg.require_nonnegative_counts = InpHookPhase08RequireNonnegativeCounts;
+   cfg.require_audit_export_profile_alignment = InpHookPhase08RequireAuditExportProfileAlignment;
+   cfg.require_no_file_errors = InpHookPhase08RequireNoFileErrors;
+   cfg.require_p06_records_for_quality_audit = InpHookPhase08RequireP06RecordsForQualityAudit;
+   cfg.max_warnings_allowed = InpHookPhase08MaxWarningsAllowed;
+   cfg.sample_limit = InpHookPhase08SampleLimit;
+   cfg.folder = InpHookPhase08Folder;
+   cfg.object_prefix = InpHookPhase08ObjectPrefix;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1932,6 +1978,9 @@ void FP_Run()
    FP_HookPhase07Config hook_phase07_cfg;
    FP_LoadHookPhase07Config(hook_phase07_cfg);
 
+   FP_HookPhase08Config hook_phase08_cfg;
+   FP_LoadHookPhase08Config(hook_phase08_cfg);
+
    FP_HookPhase07Report hook_phase07_report;
    FP_ApplyHookPhase07Profile(hook_phase07_cfg,
                               hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
@@ -2050,6 +2099,15 @@ void FP_Run()
    FP_HookPhase06Report hook_phase06_report;
    FP_RunHookPhase06(_Symbol, _Period, rates, copied, scales, scale_count,
                      hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase04_cfg, hook_phase05_cfg, hook_phase06_cfg, hook_phase06_report);
+
+   FP_HookPhase08Report hook_phase08_report;
+   FP_RunHookPhase08(_Symbol, _Period,
+                     hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
+                     hook_phase04_cfg, hook_phase05_cfg, hook_phase06_cfg,
+                     hook_phase07_cfg, hook_phase08_cfg,
+                     hook_phase01_report, hook_phase02_report, hook_phase03_report,
+                     hook_phase04_report, hook_phase05_report, hook_phase06_report,
+                     hook_phase07_report, hook_phase08_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);

@@ -148,3 +148,16 @@ Phase 07 => Visual profile orchestration for Phase 01..Phase 06
 
 Phase 07 implements the planned visualization-control requirement through named
 profiles instead of scattered per-phase toggles only.
+
+
+## Implementation overlay note — Phase 08
+
+Phase 08 implements the planned audit/export requirement as a reconciliation
+layer over Phase 01 through Phase 07. It does not create new Hook objects and
+does not draw chart objects. It verifies runtime report consistency, phase-chain
+alignment, object-prefix uniqueness, nonnegative counters, and export/file-error
+health before Hook output is trusted as training input.
+
+```text
+Phase 08 => Audit and CSV reconciliation
+```
