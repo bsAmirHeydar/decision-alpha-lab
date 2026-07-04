@@ -37,6 +37,14 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase07Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase08Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase09Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase10Engine.mqh"
+
+// ------------------------------ NDS display mode ---------------------------
+// FIRST visible input: choose exactly what the central expert should show.
+// RALLY_ONLY preserves legacy F/Rally rendering and skips Hook phases by default.
+// HOOK_ONLY suppresses Rally/F drawing and shows only the modular Hook layers.
+// RALLY_AND_HOOK shows both families together for combined inspection.
+input FP_NDSHookDisplayFamily InpNDSHookDisplayFamily = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -380,8 +388,8 @@ input color InpHookColor = clrGray;
 
 // ------------------------------ NDS Hook Phase 01 --------------------------
 // Modular Hook/CycleHook node source adapter. It never sends orders and never
-// mutates Rally/F-counting logic. Default keeps the legacy Rally display path.
-input FP_NDSHookDisplayFamily InpNDSHookDisplayFamily = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
+// mutates Rally/F-counting logic. Display-family is the first visible input of
+// the expert and is shared by all Hook phases.
 input bool   InpHookPhase01Enabled = true;
 input bool   InpHookPhase01ShowPeaks = true;
 input bool   InpHookPhase01ShowValleys = true;
@@ -653,6 +661,32 @@ input color  InpHookPhase09PanelOkColor = clrLime;
 input color  InpHookPhase09PanelWarningColor = clrOrange;
 input color  InpHookPhase09PanelBlockerColor = clrRed;
 input color  InpHookPhase09PanelTextColor = clrWhite;
+
+// NDS Hook Phase 10 - freeze Hook v1 and training contract
+input bool   InpHookPhase10Enabled = true;
+input FP_HookPhase10FreezeMode InpHookPhase10FreezeMode = FP_HOOK_P10_FREEZE_V1_CANDIDATE;
+input bool   InpHookPhase10AllowRallyOnlyFreeze = false;
+input bool   InpHookPhase10RequirePhase08Ok = true;
+input bool   InpHookPhase10RequirePhase09Ok = true;
+input bool   InpHookPhase10RequireHookRecords = true;
+input bool   InpHookPhase10RequireXYQualityRecords = true;
+input bool   InpHookPhase10RequireHighQualityRecords = false;
+input bool   InpHookPhase10RequireViewProfileNotKeepInputs = false;
+input bool   InpHookPhase10RequireExportContract = false;
+input bool   InpHookPhase10RequireNoFileErrors = true;
+input bool   InpHookPhase10ExportCsv = false;
+input bool   InpHookPhase10ExportContractChecksCsv = true;
+input bool   InpHookPhase10ExportTrainingSchemaCsv = true;
+input bool   InpHookPhase10ExportFreezeManifestCsv = true;
+input bool   InpHookPhase10PrintSummary = false;
+input bool   InpHookPhase10PrintSamples = false;
+input int    InpHookPhase10MinP06RecordsTotal = 1;
+input int    InpHookPhase10MinXYClosedRecords = 0;
+input int    InpHookPhase10MinHighOrEliteRecords = 0;
+input int    InpHookPhase10MaxWarningsAllowed = 0;
+input int    InpHookPhase10SampleLimit = 20;
+input string InpHookPhase10Folder = "FlagCountingPhoenix";
+input string InpHookPhase10ObjectPrefix = "DAL_HOOK_P10_";
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1683,6 +1717,37 @@ void FP_LoadHookPhase09Config(FP_HookPhase09Config &cfg)
    cfg.panel_text_color = InpHookPhase09PanelTextColor;
 }
 
+
+void FP_LoadHookPhase10Config(FP_HookPhase10Config &cfg)
+{
+   FP_ResetHookPhase10Config(cfg);
+   cfg.enabled = InpHookPhase10Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.freeze_mode = InpHookPhase10FreezeMode;
+   cfg.allow_rally_only_freeze = InpHookPhase10AllowRallyOnlyFreeze;
+   cfg.require_phase08_ok = InpHookPhase10RequirePhase08Ok;
+   cfg.require_phase09_ok = InpHookPhase10RequirePhase09Ok;
+   cfg.require_hook_records = InpHookPhase10RequireHookRecords;
+   cfg.require_xy_quality_records = InpHookPhase10RequireXYQualityRecords;
+   cfg.require_high_quality_records = InpHookPhase10RequireHighQualityRecords;
+   cfg.require_view_profile_not_keep_inputs = InpHookPhase10RequireViewProfileNotKeepInputs;
+   cfg.require_export_contract = InpHookPhase10RequireExportContract;
+   cfg.require_no_file_errors = InpHookPhase10RequireNoFileErrors;
+   cfg.export_csv = InpHookPhase10ExportCsv;
+   cfg.export_contract_checks_csv = InpHookPhase10ExportContractChecksCsv;
+   cfg.export_training_schema_csv = InpHookPhase10ExportTrainingSchemaCsv;
+   cfg.export_freeze_manifest_csv = InpHookPhase10ExportFreezeManifestCsv;
+   cfg.print_summary = InpHookPhase10PrintSummary;
+   cfg.print_samples = InpHookPhase10PrintSamples;
+   cfg.min_p06_records_total = InpHookPhase10MinP06RecordsTotal;
+   cfg.min_xy_closed_records = InpHookPhase10MinXYClosedRecords;
+   cfg.min_high_or_elite_records = InpHookPhase10MinHighOrEliteRecords;
+   cfg.max_warnings_allowed = InpHookPhase10MaxWarningsAllowed;
+   cfg.sample_limit = InpHookPhase10SampleLimit;
+   cfg.folder = InpHookPhase10Folder;
+   cfg.object_prefix = InpHookPhase10ObjectPrefix;
+}
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -2052,6 +2117,9 @@ void FP_Run()
    FP_HookPhase09Config hook_phase09_cfg;
    FP_LoadHookPhase09Config(hook_phase09_cfg);
 
+   FP_HookPhase10Config hook_phase10_cfg;
+   FP_LoadHookPhase10Config(hook_phase10_cfg);
+
    FP_HookPhase07Report hook_phase07_report;
    FP_ApplyHookPhase07Profile(hook_phase07_cfg,
                               hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
@@ -2189,6 +2257,12 @@ void FP_Run()
                      hook_phase01_report, hook_phase02_report, hook_phase03_report,
                      hook_phase04_report, hook_phase05_report, hook_phase06_report,
                      hook_phase07_report, hook_phase08_report, hook_phase09_report);
+
+   FP_HookPhase10Report hook_phase10_report;
+   FP_RunHookPhase10(_Symbol, _Period,
+                     hook_phase07_cfg, hook_phase10_cfg,
+                     hook_phase06_report, hook_phase08_report, hook_phase09_report,
+                     hook_phase10_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);

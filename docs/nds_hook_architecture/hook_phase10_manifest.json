@@ -1,0 +1,63 @@
+{
+  "phase": "phase10_freeze_training_contract",
+  "version": "HOOK-P10-freeze-training-contract",
+  "schema_version": "hook_phase10_freeze_contract_v1",
+  "status": "implemented_overlay",
+  "purpose": "Freeze Hook v1 runtime integrity and define the stable training contract after Phase 08 audit and Phase 09 visual smoke checks.",
+  "central_input_requirement": {
+    "input": "InpNDSHookDisplayFamily",
+    "position": "first visible input of FlagCountingPhoenixExperiment.mq5",
+    "values": [
+      "FP_NDS_HOOK_DISPLAY_RALLY_ONLY",
+      "FP_NDS_HOOK_DISPLAY_HOOK_ONLY",
+      "FP_NDS_HOOK_DISPLAY_RALLY_AND_HOOK"
+    ],
+    "default": "FP_NDS_HOOK_DISPLAY_RALLY_ONLY"
+  },
+  "new_mql5_files": [
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Types.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Rules.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Visual.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Export.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase10Engine.mqh"
+  ],
+  "modified_mql5_files": [
+    "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+  ],
+  "docs": [
+    "docs/nds_hook_architecture/17_phase10_freeze_training_contract_implementation.md"
+  ],
+  "csv_outputs": [
+    "hook_phase10_freeze_summary.csv",
+    "hook_phase10_contract_checks.csv",
+    "hook_phase10_training_schema.csv",
+    "hook_phase10_freeze_manifest.csv"
+  ],
+  "freeze_modes": [
+    "OBSERVE_ONLY",
+    "V1_CANDIDATE",
+    "TRAINING_READY",
+    "STRICT_LOCK"
+  ],
+  "contract_checks": [
+    "DISPLAY_FAMILY_VISIBLE_FIRST_INPUT",
+    "PHASE08_AUDIT_RECONCILED",
+    "PHASE09_VISUAL_SMOKE_RECONCILED",
+    "HOOK_RECORDS_EXIST",
+    "XY_QUALITY_RECORDS_EXIST",
+    "HIGH_OR_ELITE_QUALITY_AVAILABLE",
+    "VIEW_PROFILE_EXPLICIT",
+    "NO_UPSTREAM_FILE_ERRORS",
+    "P10_EXPORT_CONTRACT_ENABLED",
+    "STRICT_LOCK_GATE"
+  ],
+  "does_not_modify_rally_behavior": true,
+  "no_execution_boundary": [
+    "no OrderSend",
+    "no OrderCheck",
+    "no CTrade",
+    "no broker request",
+    "no sizing",
+    "no live trading behavior"
+  ]
+}

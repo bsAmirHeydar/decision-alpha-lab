@@ -173,3 +173,26 @@ Phase 08 audit status, and optional smoke CSV outputs.
 ```text
 Phase 09 => Visual smoke-test harness
 ```
+
+
+## Implementation overlay note — Phase 10
+
+Phase 10 finalizes the current Hook modular build as a freeze/training-contract
+layer. It is intentionally no-draw and no-execution. It records whether Hook v1
+is ready to become a downstream AI/training input by reconciling Phase 06
+quality counts, Phase 08 audit status, Phase 09 visual-smoke status, selected
+view profile, selected display family, and file-error health.
+
+The display-family selector is now placed as the first visible input in the
+central expert:
+
+```text
+InpNDSHookDisplayFamily
+  FP_NDS_HOOK_DISPLAY_RALLY_ONLY
+  FP_NDS_HOOK_DISPLAY_HOOK_ONLY
+  FP_NDS_HOOK_DISPLAY_RALLY_AND_HOOK
+```
+
+```text
+Phase 10 => Hook v1 freeze and training contract
+```

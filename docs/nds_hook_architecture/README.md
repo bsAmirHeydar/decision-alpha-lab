@@ -63,8 +63,7 @@ The system should be built in layers:
 7. Visual profile orchestration
 8. Audit and CSV reconciliation
 9. Visual smoke-test harness
-10. Smoke test and freeze preparation
-10. Integration with Rally display mode
+10. Hook v1 freeze and training contract
 ```
 
 
@@ -80,4 +79,25 @@ The system should be built in layers:
 14_phase07_visual_profile_orchestrator_implementation.md
 15_phase08_audit_csv_reconciliation_implementation.md
 16_phase09_visual_smoke_test_harness_implementation.md
+17_phase10_freeze_training_contract_implementation.md
+```
+
+
+## Implementation overlay note — Phase 10
+
+Phase 10 implements the Hook v1 freeze and training contract. It does not draw
+new Hook structure. It checks Phase 08 audit state, Phase 09 visual smoke state,
+Phase 06 quality record availability, file-error health, selected display
+family, and optional strict-lock rules before marking Hook output as
+training-ready.
+
+The central display-family selector is now the first visible input of the
+expert:
+
+```text
+InpNDSHookDisplayFamily = RALLY_ONLY | HOOK_ONLY | RALLY_AND_HOOK
+```
+
+```text
+Phase 10 => Hook v1 freeze and training contract
 ```
