@@ -80,8 +80,10 @@ struct FP_HookPhase02Config
    bool use_sequence_palette_colors;
    bool color_origin_with_sequence;
    bool color_node_labels_with_sequence;
+   bool color_node_numbers_by_index;
    bool minimal_numbers_only;
    bool use_minimal_node_markers;
+   bool stack_node_labels_on_collisions;
 
    bool export_csv;
    bool print_summary;
@@ -101,6 +103,7 @@ struct FP_HookPhase02Config
    int cycle_arc_segments;
    int cycle_arc_max_height_points;
    int node_number_offset_points;
+   int node_label_stack_step_points;
    int minimal_node_marker_arrow_code;
 
    double cycle_arc_height_ratio;
@@ -115,6 +118,10 @@ struct FP_HookPhase02Config
    color cycle_arc_color;
    color sequence_count_label_color;
    color label_color;
+   color node1_label_color;
+   color node2_label_color;
+   color node3_label_color;
+   color node4_label_color;
 
    int line_width;
    int marker_width;
@@ -266,8 +273,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.use_sequence_palette_colors = false;
    cfg.color_origin_with_sequence = false;
    cfg.color_node_labels_with_sequence = false;
+   cfg.color_node_numbers_by_index = false;
    cfg.minimal_numbers_only = false;
    cfg.use_minimal_node_markers = false;
+   cfg.stack_node_labels_on_collisions = false;
 
    cfg.export_csv = false;
    cfg.print_summary = false;
@@ -287,6 +296,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.cycle_arc_segments = 16;
    cfg.cycle_arc_max_height_points = 0;
    cfg.node_number_offset_points = 20;
+   cfg.node_label_stack_step_points = 14;
    cfg.minimal_node_marker_arrow_code = 159;
 
    cfg.cycle_arc_height_ratio = 0.35;
@@ -301,6 +311,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.cycle_arc_color = clrSlateGray;
    cfg.sequence_count_label_color = clrGold;
    cfg.label_color = clrSilver;
+   cfg.node1_label_color = clrAqua;
+   cfg.node2_label_color = clrGold;
+   cfg.node3_label_color = clrOrchid;
+   cfg.node4_label_color = clrTomato;
 
    cfg.line_width = 1;
    cfg.marker_width = 1;

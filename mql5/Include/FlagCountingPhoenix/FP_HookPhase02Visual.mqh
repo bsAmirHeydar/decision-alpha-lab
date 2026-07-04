@@ -22,6 +22,37 @@ int FP_HookPhase02DeleteObjects(const string prefix)
    return deleted;
 }
 
+string g_fp_hook_p02_label_keys[];
+int    g_fp_hook_p02_label_counts[];
+
+void FP_HookP02ResetLabelCollisionState()
+{
+   ArrayResize(g_fp_hook_p02_label_keys, 0);
+   ArrayResize(g_fp_hook_p02_label_counts, 0);
+}
+
+int FP_HookP02ConsumeLabelStackSlot(const datetime t,
+                                    const double price)
+{
+   string key = IntegerToString((int)t) + "|" + DoubleToString(price, _Digits);
+   for(int i=0; i<ArraySize(g_fp_hook_p02_label_keys); i++)
+   {
+      if(g_fp_hook_p02_label_keys[i] == key)
+      {
+         int slot = g_fp_hook_p02_label_counts[i];
+         g_fp_hook_p02_label_counts[i] = slot + 1;
+         return slot;
+      }
+   }
+
+   int n = ArraySize(g_fp_hook_p02_label_keys);
+   ArrayResize(g_fp_hook_p02_label_keys, n + 1);
+   ArrayResize(g_fp_hook_p02_label_counts, n + 1);
+   g_fp_hook_p02_label_keys[n] = key;
+   g_fp_hook_p02_label_counts[n] = 1;
+   return 0;
+}
+
 color FP_HookP02ColorFromPalette(const int index)
 {
    static color palette[16] =
@@ -74,19 +105,38 @@ string FP_HookP02NodeDisplayLabel(const FP_HookPhase02Config &cfg,
    return fallback_label;
 }
 
+color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
+                                  const int point_index,
+                                  const color fallback_color)
+{
+   if(!cfg.color_node_numbers_by_index)
+      return fallback_color;
+
+   if(point_index == 1) return cfg.node1_label_color;
+   if(point_index == 2) return cfg.node2_label_color;
+   if(point_index == 3) return cfg.node3_label_color;
+   if(point_index == 4) return cfg.node4_label_color;
+   return fallback_color;
+}
+
 double FP_HookP02NodeLabelPrice(const FP_HookPhase02Config &cfg,
                                 const FP_HookPhase02Sequence &seq,
                                 const double price,
-                                const int point_index)
+                                const int point_index,
+                                const int stack_slot)
 {
-   if(cfg.node_number_offset_points <= 0)
+   if(cfg.node_number_offset_points <= 0 && (!cfg.stack_node_labels_on_collisions || cfg.node_label_stack_step_points <= 0))
       return price;
 
    double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
    if(point_index == 0)
       sign *= 1.25;
 
-   return price + sign * _Point * (double)cfg.node_number_offset_points;
+   double total_points = (double)cfg.node_number_offset_points;
+   if(cfg.stack_node_labels_on_collisions && stack_slot > 0 && cfg.node_label_stack_step_points > 0)
+      total_points += (double)(stack_slot * cfg.node_label_stack_step_points);
+
+   return price + sign * _Point * total_points;
 }
 
 string FP_HookP02BaseName(const FP_HookPhase02Config &cfg,
@@ -220,6 +270,13 @@ double FP_HookP02CycleArcHeight(const FP_HookPhase02Sequence &seq,
 
    if(h < min_height)
       h = min_height;
+
+   if(cfg.cycle_arc_max_height_points > 0)
+   {
+      double max_height = _Point * (double)cfg.cycle_arc_max_height_points;
+      if(max_height > 0.0 && h > max_height)
+         h = max_height;
+   }
    return h;
 }
 
@@ -391,7 +448,7 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
       string origin_label = FP_HookP02NodeDisplayLabel(cfg, 0, "O");
       if(origin_label != "")
       {
-         double origin_label_price = FP_HookP02NodeLabelPrice(cfg, seq, seq.origin_price, 0);
+         double origin_label_price = FP_HookP02NodeLabelPrice(cfg, seq, seq.origin_price, 0, 0);
          FP_HookP02CreateText(base + "_ORIGIN_NODE_LABEL", seq.origin_time, origin_label_price,
                               origin_label, origin_label_color, cfg.label_font_size, report);
       }
@@ -417,7 +474,9 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
                if(node_display != "")
                {
                   color node_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
-                  double node_label_price = FP_HookP02NodeLabelPrice(cfg, seq, price, p);
+                  node_label_color = FP_HookP02NodeNumberColor(cfg, p, node_label_color);
+                  int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(t, price) : 0);
+                  double node_label_price = FP_HookP02NodeLabelPrice(cfg, seq, price, p, stack_slot);
                   FP_HookP02CreateText(base + "_" + label + "_LABEL", t, node_label_price,
                                        node_display, node_label_color, cfg.label_font_size, report);
                }
@@ -585,6 +644,7 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
       return 0;
 
    report.objects_deleted += FP_HookPhase02DeleteObjects(cfg.object_prefix);
+   FP_HookP02ResetLabelCollisionState();
 
    int indexes[];
    FP_HookP02SelectSequenceIndexes(cfg, sequences, indexes);
