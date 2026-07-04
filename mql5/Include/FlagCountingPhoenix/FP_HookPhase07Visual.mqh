@@ -34,6 +34,7 @@ int FP_HookP07CleanObjects(const FP_HookPhase07Config &cfg,
       return 0;
 
    int deleted = 0;
+   if(cfg.clean_common_hook_prefix) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.common_hook_object_prefix);
    if(cfg.clean_p01_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p01.object_prefix);
    if(cfg.clean_p02_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p02.object_prefix);
    if(cfg.clean_p03_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p03.object_prefix);
@@ -41,6 +42,9 @@ int FP_HookP07CleanObjects(const FP_HookPhase07Config &cfg,
    if(cfg.clean_p05_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p05.object_prefix);
    if(cfg.clean_p06_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p06.object_prefix);
    if(cfg.clean_p07_objects) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.object_prefix);
+   if(cfg.clean_p08_objects) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.clean_p08_object_prefix);
+   if(cfg.clean_p09_objects) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.clean_p09_object_prefix);
+   if(cfg.clean_p10_objects) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.clean_p10_object_prefix);
    return deleted;
 }
 
