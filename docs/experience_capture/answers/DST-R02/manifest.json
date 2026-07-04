@@ -1,0 +1,40 @@
+{
+  "question_code": "DST-R02",
+  "language": "en",
+  "topic": "Exit policy training, partial close, profit openness, low-cost exit logic, and trailing stop skepticism",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "exit_policy_trainable",
+    "partial_close_preferred",
+    "trailing_stop_not_default",
+    "profit_openness_preservation",
+    "runner_tail_position",
+    "exit_policy_cost",
+    "multi_destination_exit",
+    "exit_family_comparison"
+  ],
+  "proposed_datasets": [
+    "take_profit_policy_v1.csv",
+    "partial_exit_policy_v1.csv",
+    "multi_destination_exit_model_v1.csv",
+    "runner_tail_position_policy_v1.csv",
+    "trailing_stop_policy_v1.csv",
+    "exit_policy_training_model_v1.csv",
+    "profit_openness_preservation_model_v1.csv",
+    "exit_policy_cost_model_v1.csv",
+    "exit_family_comparison_report_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Exit Policy Trainer",
+    "Partial Exit Policy Learner",
+    "Multi-Destination Exit Selector",
+    "Runner/Tail Policy Learner",
+    "Trailing Stop Experiment Evaluator",
+    "Profit Openness Scorer",
+    "Exit Cost Model",
+    "Exit Family Comparison Engine"
+  ],
+  "created_at_utc": "2026-07-04T10:55:31.074359+00:00"
+}
