@@ -121,7 +121,7 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
    if(cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
    {
       p01.max_nodes_to_draw = 0;
-      p02.max_sequences_to_draw = 1;
+      p02.max_sequences_to_draw = (cfg.max_sequences_to_draw > 0 ? cfg.max_sequences_to_draw : 6);
       p03.max_sequences_to_draw = 0;
       p04.max_sequences_to_draw = 0;
       p05.max_sequences_to_draw = 0;

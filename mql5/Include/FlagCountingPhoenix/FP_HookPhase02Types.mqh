@@ -42,11 +42,20 @@ enum FP_HookPhase02OriginPolicy
    FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X = 1
 };
 
+enum FP_HookPhase02SequenceDrawMode
+{
+   FP_HOOK_P02_DRAW_RECENT_N = 0,
+   FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION = 1,
+   FP_HOOK_P02_DRAW_BY_SCALE_RECENT_N = 2,
+   FP_HOOK_P02_DRAW_BY_SEQUENCE_ID = 3
+};
+
 struct FP_HookPhase02Config
 {
    bool enabled;
    FP_NDSHookDisplayFamily display_family;
    FP_HookPhase02OriginPolicy origin_policy;
+   FP_HookPhase02SequenceDrawMode sequence_draw_mode;
 
    bool show_positive;
    bool show_negative;
@@ -67,6 +76,9 @@ struct FP_HookPhase02Config
    int max_bars_to_scan;
    int max_sequences;
    int max_sequences_to_draw;
+   int sequence_draw_scale_l;
+   int sequence_draw_direction;
+   int sequence_draw_sequence_id;
    int min_x_nodes_to_keep;
    int max_x_nodes_per_sequence;
    int sample_limit;
@@ -195,11 +207,21 @@ string FP_HookP02StateName(const FP_HookPhase02SequenceState s)
    return "UNKNOWN_STATE";
 }
 
+string FP_HookP02SequenceDrawModeName(const FP_HookPhase02SequenceDrawMode m)
+{
+   if(m == FP_HOOK_P02_DRAW_RECENT_N) return "RECENT_N";
+   if(m == FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION) return "LATEST_PER_SCALE_DIRECTION";
+   if(m == FP_HOOK_P02_DRAW_BY_SCALE_RECENT_N) return "BY_SCALE_RECENT_N";
+   if(m == FP_HOOK_P02_DRAW_BY_SEQUENCE_ID) return "BY_SEQUENCE_ID";
+   return "UNKNOWN_SEQUENCE_DRAW_MODE";
+}
+
 void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
 {
    cfg.enabled = true;
    cfg.display_family = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
    cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
+   cfg.sequence_draw_mode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
@@ -219,7 +241,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
 
    cfg.max_bars_to_scan = 0;
    cfg.max_sequences = 3000;
-   cfg.max_sequences_to_draw = 120;
+   cfg.max_sequences_to_draw = 6;
+   cfg.sequence_draw_scale_l = 0;
+   cfg.sequence_draw_direction = 0;
+   cfg.sequence_draw_sequence_id = -1;
    cfg.min_x_nodes_to_keep = 1;
    cfg.max_x_nodes_per_sequence = 4;
    cfg.sample_limit = 10;
