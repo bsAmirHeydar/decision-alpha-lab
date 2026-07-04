@@ -1,0 +1,28 @@
+{
+  "question_code": "EXE-R01",
+  "title": "ExecutionIntent Contract Finalization",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/experience_capture/answers/EXE-R01/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "execution_intent_contract_v1.csv",
+    "execution_intent_lineage_v1.csv",
+    "structural_vs_adjusted_price_model_v1.csv",
+    "intent_safety_flags_v1.csv"
+  ]
+}

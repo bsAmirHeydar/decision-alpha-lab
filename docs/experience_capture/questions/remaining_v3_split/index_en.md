@@ -1,0 +1,25 @@
+# Remaining Questions v3 Split Index
+
+Each question is stored in its own folder.
+
+1. [ENT-R03 — Pending Limit Lifecycle: Cancel, Missed, Replace](./ENT-R03/question_en.md)
+2. [ENT-R04 — After Fill: Scenario-to-Position Transition](./ENT-R04/question_en.md)
+3. [DST-R01 — Destination Taxonomy and Open One-Two](./DST-R01/question_en.md)
+4. [DST-R02 — Take Profit, Partial Exit, and Multi-Destination Policy](./DST-R02/question_en.md)
+5. [DST-R03 — Destination Repricing and Completion](./DST-R03/question_en.md)
+6. [RSK-R01 — Risk Budget Across Convex Opportunity Set](./RSK-R01/question_en.md)
+7. [RSK-R02 — Convexity Metrics and Cost-to-Potential Formula](./RSK-R02/question_en.md)
+8. [EXE-R01 — ExecutionIntent Contract Finalization](./EXE-R01/question_en.md)
+9. [EXE-R02 — Broker Validator and Send Gate](./EXE-R02/question_en.md)
+10. [EXE-R03 — Shadow, Paper, and Live Transition](./EXE-R03/question_en.md)
+11. [EXE-R04 — Execution Audit and Reconciliation](./EXE-R04/question_en.md)
+12. [DATA-R01 — Canonical State Packet v1](./DATA-R01/question_en.md)
+13. [DATA-R02 — Label and Event Ledger](./DATA-R02/question_en.md)
+14. [DATA-R03 — Training Granularity and Regime Weight Drift](./DATA-R03/question_en.md)
+15. [DATA-R04 — Evaluation Metrics: Before and After Convexity](./DATA-R04/question_en.md)
+16. [AI-R01 — AI Boundary and Allowed Decisions](./AI-R01/question_en.md)
+17. [AI-R02 — Training Targets and Model Families](./AI-R02/question_en.md)
+18. [AI-R03 — Human-in-the-Loop and Review Policy](./AI-R03/question_en.md)
+19. [TEST-R01 — Baseline, Ablation, and Family Testing](./TEST-R01/question_en.md)
+20. [TEST-R02 — Anti-Overfit, OOS, and Deployment Criteria](./TEST-R02/question_en.md)
+21. [SYS-R01 — Final NDS Architecture and Build Order](./SYS-R01/question_en.md)

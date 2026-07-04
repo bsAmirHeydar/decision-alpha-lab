@@ -1,0 +1,28 @@
+{
+  "question_code": "AI-R02",
+  "title": "Training Targets and Model Families",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/experience_capture/answers/AI-R02/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "ai_training_target_map_v1.csv",
+    "model_family_map_v1.csv",
+    "policy_learning_targets_v1.csv",
+    "feature_label_contract_v1.csv"
+  ]
+}

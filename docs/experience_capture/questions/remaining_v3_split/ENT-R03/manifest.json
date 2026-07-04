@@ -1,0 +1,29 @@
+{
+  "question_code": "ENT-R03",
+  "title": "Pending Limit Lifecycle: Cancel, Missed, Replace",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/experience_capture/answers/ENT-R03/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "pending_limit_state_machine_v1.csv",
+    "cancel_policy_v1.csv",
+    "missed_entry_policy_v1.csv",
+    "replace_entry_policy_v1.csv",
+    "pending_order_structural_expiration_v1.csv"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "question_code": "ENT-R04",
+  "title": "After Fill: Scenario-to-Position Transition",
+  "status": "pending_answer",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "question_files": [
+    "question_fa.md",
+    "question_en.md"
+  ],
+  "expected_answer_record_path": "docs/experience_capture/answers/ENT-R04/",
+  "expected_answer_files": [
+    "question_en.md",
+    "answer_raw_en.md",
+    "answer_normalized_en.md",
+    "notes_en.md",
+    "manifest.json",
+    "images/"
+  ],
+  "expected_derived_outputs": [
+    "scenario_to_position_transition_v1.csv",
+    "position_thread_model_v1.csv",
+    "partial_exit_state_v1.csv",
+    "split_order_position_aggregation_v1.csv"
+  ]
+}
