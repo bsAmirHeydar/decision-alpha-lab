@@ -384,6 +384,112 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
    return true;
 }
 
+bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
+                                      const FP_HookPhase02Sequence &seq)
+{
+   if(!seq.valid)
+      return false;
+
+   if(cfg.sequence_draw_direction != 0 && (int)seq.direction != cfg.sequence_draw_direction)
+      return false;
+
+   if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SCALE_RECENT_N ||
+      cfg.sequence_draw_scale_l > 0)
+   {
+      if(cfg.sequence_draw_scale_l > 0 && seq.scale_l != cfg.sequence_draw_scale_l)
+         return false;
+   }
+
+   if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SEQUENCE_ID)
+   {
+      if(cfg.sequence_draw_sequence_id < 0)
+         return false;
+      if(seq.sequence_id != cfg.sequence_draw_sequence_id)
+         return false;
+   }
+
+   return true;
+}
+
+bool FP_HookP02AlreadySelectedScaleDirection(const int &scales[],
+                                             const int &directions[],
+                                             const int count,
+                                             const int scale_l,
+                                             const int direction)
+{
+   for(int i=0; i<count; i++)
+   {
+      if(scales[i] == scale_l && directions[i] == direction)
+         return true;
+   }
+   return false;
+}
+
+void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
+                                     const FP_HookPhase02Sequence &sequences[],
+                                     int &indexes[])
+{
+   ArrayResize(indexes, 0);
+
+   int n = ArraySize(sequences);
+   int max_draw = cfg.max_sequences_to_draw;
+   if(max_draw <= 0)
+      max_draw = n;
+   if(max_draw > n)
+      max_draw = n;
+
+   if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION)
+   {
+      int selected_scales[];
+      int selected_dirs[];
+      int selected_count = 0;
+
+      for(int i=n-1; i>=0 && ArraySize(indexes)<max_draw; i--)
+      {
+         if(!FP_HookP02SequencePassesDrawFilter(cfg, sequences[i]))
+            continue;
+
+         int dir = (int)sequences[i].direction;
+         if(FP_HookP02AlreadySelectedScaleDirection(selected_scales, selected_dirs,
+                                                    selected_count,
+                                                    sequences[i].scale_l, dir))
+            continue;
+
+         ArrayResize(selected_scales, selected_count + 1);
+         ArrayResize(selected_dirs, selected_count + 1);
+         selected_scales[selected_count] = sequences[i].scale_l;
+         selected_dirs[selected_count] = dir;
+         selected_count++;
+
+         int k = ArraySize(indexes);
+         ArrayResize(indexes, k + 1);
+         indexes[k] = i;
+      }
+   }
+   else
+   {
+      for(int i=n-1; i>=0 && ArraySize(indexes)<max_draw; i--)
+      {
+         if(!FP_HookP02SequencePassesDrawFilter(cfg, sequences[i]))
+            continue;
+
+         int k = ArraySize(indexes);
+         ArrayResize(indexes, k + 1);
+         indexes[k] = i;
+      }
+   }
+
+   // Draw older selected structures first so later/livelier structures remain visually dominant.
+   int m = ArraySize(indexes);
+   for(int a=0; a<m/2; a++)
+   {
+      int b = m - 1 - a;
+      int tmp = indexes[a];
+      indexes[a] = indexes[b];
+      indexes[b] = tmp;
+   }
+}
+
 int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
                             const FP_HookPhase02Sequence &sequences[],
                             FP_HookPhase02Report &report)
@@ -393,18 +499,16 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
 
    report.objects_deleted += FP_HookPhase02DeleteObjects(cfg.object_prefix);
 
-   int n = ArraySize(sequences);
-   int max_draw = cfg.max_sequences_to_draw;
-   if(max_draw <= 0 || max_draw > n)
-      max_draw = n;
-
-   int start = n - max_draw;
-   if(start < 0)
-      start = 0;
+   int indexes[];
+   FP_HookP02SelectSequenceIndexes(cfg, sequences, indexes);
 
    int drawn = 0;
-   for(int i=start; i<n; i++)
+   for(int s=0; s<ArraySize(indexes); s++)
    {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+
       if(FP_HookP02DrawOneSequence(cfg, sequences[i], report))
          drawn++;
    }
