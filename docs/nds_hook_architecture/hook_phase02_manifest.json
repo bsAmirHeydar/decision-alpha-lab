@@ -1,0 +1,37 @@
+{
+  "artifact": "hook_phase02_cyclehook_sequence_builder",
+  "status": "implementation_overlay",
+  "phase": "02",
+  "purpose": "Add modular CycleHook object skeleton and strict positive/negative X-sequence builder using Phase 01 node source adapter.",
+  "depends_on": [
+    "Hook Phase 01 node source adapter",
+    "FP_HookPhase01Types.mqh",
+    "FP_HookPhase01Rules.mqh"
+  ],
+  "adds": [
+    "FP_HookPhase02Types.mqh",
+    "FP_HookPhase02Rules.mqh",
+    "FP_HookPhase02Visual.mqh",
+    "FP_HookPhase02Export.mqh",
+    "FP_HookPhase02Engine.mqh"
+  ],
+  "integrates_with": [
+    "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+  ],
+  "display_modes": [
+    "RALLY_ONLY",
+    "HOOK_ONLY",
+    "RALLY_AND_HOOK"
+  ],
+  "preserves_default_rally_behavior": true,
+  "does_not_add_execution": true,
+  "deferred_to_future_phases": [
+    "Y-axis opposite Extremes",
+    "ND detection",
+    "closure logic",
+    "Hook Type A/B/C",
+    "symmetry scoring",
+    "training labels"
+  ],
+  "created_at_utc": "2026-07-04T13:17:00.978095+00:00"
+}
