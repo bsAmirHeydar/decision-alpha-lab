@@ -36,10 +36,17 @@ enum FP_HookPhase02SequenceState
    FP_HOOK_P02_STATE_REJECTED    = -1
 };
 
+enum FP_HookPhase02OriginPolicy
+{
+   FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE      = 0,
+   FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X = 1
+};
+
 struct FP_HookPhase02Config
 {
    bool enabled;
    FP_NDSHookDisplayFamily display_family;
+   FP_HookPhase02OriginPolicy origin_policy;
 
    bool show_positive;
    bool show_negative;
@@ -49,6 +56,8 @@ struct FP_HookPhase02Config
    bool draw_x_nodes;
    bool draw_x_lines;
    bool draw_death_boundary;
+   bool draw_cycle_arc;
+   bool draw_sequence_count_label;
    bool draw_labels;
 
    bool export_csv;
@@ -61,6 +70,9 @@ struct FP_HookPhase02Config
    int min_x_nodes_to_keep;
    int max_x_nodes_per_sequence;
    int sample_limit;
+   int cycle_arc_segments;
+
+   double cycle_arc_height_ratio;
 
    string folder;
    string object_prefix;
@@ -69,6 +81,8 @@ struct FP_HookPhase02Config
    color negative_color;
    color origin_color;
    color death_color;
+   color cycle_arc_color;
+   color sequence_count_label_color;
    color label_color;
 
    int line_width;
@@ -140,6 +154,8 @@ struct FP_HookPhase02Report
    int sequences_mature;
    int sequences_capped;
    int rejected_candidates;
+   int origin_promotions;
+   int promoted_chains;
 
    int objects_deleted;
    int objects_created;
@@ -161,6 +177,13 @@ string FP_HookP02DirectionName(const FP_HookPhase02Direction d)
    return "UNKNOWN_DIRECTION";
 }
 
+string FP_HookP02OriginPolicyName(const FP_HookPhase02OriginPolicy p)
+{
+   if(p == FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE) return "FIXED_EVERY_NODE";
+   if(p == FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X) return "PROMOTE_WITH_INTERNAL_X";
+   return "UNKNOWN_ORIGIN_POLICY";
+}
+
 string FP_HookP02StateName(const FP_HookPhase02SequenceState s)
 {
    if(s == FP_HOOK_P02_STATE_RESET) return "RESET";
@@ -176,6 +199,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
 {
    cfg.enabled = true;
    cfg.display_family = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
+   cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
@@ -185,6 +209,8 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.draw_x_nodes = true;
    cfg.draw_x_lines = true;
    cfg.draw_death_boundary = true;
+   cfg.draw_cycle_arc = false;
+   cfg.draw_sequence_count_label = false;
    cfg.draw_labels = true;
 
    cfg.export_csv = false;
@@ -197,6 +223,9 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.min_x_nodes_to_keep = 1;
    cfg.max_x_nodes_per_sequence = 4;
    cfg.sample_limit = 10;
+   cfg.cycle_arc_segments = 16;
+
+   cfg.cycle_arc_height_ratio = 0.35;
 
    cfg.folder = FP_HOOK_P02_DEFAULT_FOLDER;
    cfg.object_prefix = FP_HOOK_P02_DEFAULT_PREFIX;
@@ -205,6 +234,8 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.negative_color = clrTomato;
    cfg.origin_color = clrGold;
    cfg.death_color = clrDimGray;
+   cfg.cycle_arc_color = clrSlateGray;
+   cfg.sequence_count_label_color = clrGold;
    cfg.label_color = clrSilver;
 
    cfg.line_width = 1;
@@ -276,6 +307,8 @@ void FP_ResetHookPhase02Report(FP_HookPhase02Report &r)
    r.sequences_mature = 0;
    r.sequences_capped = 0;
    r.rejected_candidates = 0;
+   r.origin_promotions = 0;
+   r.promoted_chains = 0;
 
    r.objects_deleted = 0;
    r.objects_created = 0;

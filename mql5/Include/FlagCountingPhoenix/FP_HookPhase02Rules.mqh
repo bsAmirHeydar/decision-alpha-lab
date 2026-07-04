@@ -120,6 +120,24 @@ bool FP_HookP02AppendSequence(FP_HookPhase02Sequence &sequences[],
    return true;
 }
 
+void FP_HookP02UpdateReportForCommittedSequence(const FP_HookPhase02Direction d,
+                                                const FP_HookPhase02Sequence &seq,
+                                                FP_HookPhase02Report &report)
+{
+   report.sequences_total++;
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      report.sequences_positive++;
+   else
+      report.sequences_negative++;
+
+   if(seq.state == FP_HOOK_P02_STATE_READY)
+      report.sequences_ready++;
+   else if(seq.state == FP_HOOK_P02_STATE_MATURE)
+      report.sequences_mature++;
+   else if(seq.state == FP_HOOK_P02_STATE_CAPPED)
+      report.sequences_capped++;
+}
+
 void FP_HookP02FinalizeSequenceState(FP_HookPhase02Sequence &seq,
                                      const FP_HookPhase02Config &cfg)
 {
@@ -148,6 +166,29 @@ void FP_HookP02FinalizeSequenceState(FP_HookPhase02Sequence &seq,
    seq.state = FP_HOOK_P02_STATE_READY;
 }
 
+bool FP_HookP02CommitSequence(FP_HookPhase02Sequence &seq,
+                              const FP_HookPhase02Direction d,
+                              const FP_HookPhase02Config &cfg,
+                              FP_HookPhase02Sequence &sequences[],
+                              FP_HookPhase02Report &report)
+{
+   FP_HookP02FinalizeSequenceState(seq, cfg);
+
+   if(!seq.valid)
+   {
+      report.rejected_candidates++;
+      return false;
+   }
+
+   seq.sequence_id = ArraySize(sequences);
+   if(!FP_HookP02AppendSequence(sequences, seq, cfg.max_sequences))
+      return false;
+
+   FP_HookP02UpdateReportForCommittedSequence(d, seq, report);
+   return true;
+}
+
+
 void FP_HookP02InitSequenceFromOrigin(const int sequence_id,
                                       const FP_HookPhase02Direction d,
                                       const FP_HookPhase01Node &origin,
@@ -172,6 +213,111 @@ void FP_HookP02InitSequenceFromOrigin(const int sequence_id,
    seq.source = "HOOK_P02_STRICT_X_SEQUENCE_BUILDER";
 }
 
+void FP_HookP02CopyXSlotToOrigin(FP_HookPhase02Sequence &seq,
+                                  const int slot)
+{
+   if(slot == 1)
+   {
+      seq.origin_node_id = seq.x1_node_id;
+      seq.origin_bar_index = seq.x1_bar_index;
+      seq.origin_time = seq.x1_time;
+      seq.origin_price = seq.x1_price;
+   }
+   else if(slot == 2)
+   {
+      seq.origin_node_id = seq.x2_node_id;
+      seq.origin_bar_index = seq.x2_bar_index;
+      seq.origin_time = seq.x2_time;
+      seq.origin_price = seq.x2_price;
+   }
+   else if(slot == 3)
+   {
+      seq.origin_node_id = seq.x3_node_id;
+      seq.origin_bar_index = seq.x3_bar_index;
+      seq.origin_time = seq.x3_time;
+      seq.origin_price = seq.x3_price;
+   }
+   else if(slot == 4)
+   {
+      seq.origin_node_id = seq.x4_node_id;
+      seq.origin_bar_index = seq.x4_bar_index;
+      seq.origin_time = seq.x4_time;
+      seq.origin_price = seq.x4_price;
+   }
+
+   seq.death_boundary_price = seq.origin_price;
+}
+
+void FP_HookP02ClearXSlot(FP_HookPhase02Sequence &seq,
+                          const int slot)
+{
+   FP_HookPhase01Node empty;
+   FP_ResetHookPhase01Node(empty);
+   FP_HookP02SetXNode(seq, slot, empty);
+}
+
+void FP_HookP02ShiftXSlotsLeft(FP_HookPhase02Sequence &seq,
+                               const int max_x)
+{
+   if(max_x >= 1)
+   {
+      seq.x1_node_id = seq.x2_node_id;
+      seq.x1_bar_index = seq.x2_bar_index;
+      seq.x1_time = seq.x2_time;
+      seq.x1_price = seq.x2_price;
+   }
+   if(max_x >= 2)
+   {
+      seq.x2_node_id = seq.x3_node_id;
+      seq.x2_bar_index = seq.x3_bar_index;
+      seq.x2_time = seq.x3_time;
+      seq.x2_price = seq.x3_price;
+   }
+   if(max_x >= 3)
+   {
+      seq.x3_node_id = seq.x4_node_id;
+      seq.x3_bar_index = seq.x4_bar_index;
+      seq.x3_time = seq.x4_time;
+      seq.x3_price = seq.x4_price;
+   }
+}
+
+void FP_HookP02PromoteOriginWithNewX(FP_HookPhase02Sequence &seq,
+                                     const FP_HookPhase01Node &candidate,
+                                     const int max_x,
+                                     FP_HookPhase02Report &report)
+{
+   FP_HookP02CopyXSlotToOrigin(seq, 1);
+   FP_HookP02ShiftXSlotsLeft(seq, max_x);
+   FP_HookP02SetXNode(seq, max_x, candidate);
+   seq.x_count = max_x;
+   seq.capped = true;
+   seq.state = FP_HOOK_P02_STATE_CAPPED;
+   seq.source = "HOOK_P02_PROMOTED_ORIGIN_ROLLING_WINDOW";
+   report.origin_promotions++;
+}
+
+bool FP_HookP02ScaleAlreadySeen(const int scale_l,
+                                const int &scales_seen[])
+{
+   for(int i=0; i<ArraySize(scales_seen); i++)
+   {
+      if(scales_seen[i] == scale_l)
+         return true;
+   }
+   return false;
+}
+
+void FP_HookP02AppendScaleSeen(const int scale_l,
+                               int &scales_seen[])
+{
+   if(FP_HookP02ScaleAlreadySeen(scale_l, scales_seen))
+      return;
+   int n = ArraySize(scales_seen);
+   ArrayResize(scales_seen, n + 1);
+   scales_seen[n] = scale_l;
+}
+
 bool FP_HookP02CandidateIsAfterOrigin(const FP_HookPhase01Node &origin,
                                       const FP_HookPhase01Node &candidate)
 {
@@ -183,6 +329,108 @@ bool FP_HookP02CandidateIsAfterOrigin(const FP_HookPhase01Node &origin,
    if(candidate.bar_time == origin.bar_time && candidate.bar_index > origin.bar_index)
       return true;
    return false;
+}
+
+int FP_HookP02BuildPromotedDirectionForScale(const FP_HookPhase01Node &nodes[],
+                                              const FP_HookPhase02Direction d,
+                                              const FP_HookPhase02Config &cfg,
+                                              const int scale_l,
+                                              FP_HookPhase02Sequence &sequences[],
+                                              FP_HookPhase02Report &report)
+{
+   int node_count = ArraySize(nodes);
+   int max_x = cfg.max_x_nodes_per_sequence;
+   if(max_x <= 0 || max_x > 4)
+      max_x = 4;
+
+   bool active = false;
+   FP_HookPhase02Sequence seq;
+   FP_ResetHookPhase02Sequence(seq);
+   int built = 0;
+
+   for(int i=0; i<node_count; i++)
+   {
+      FP_HookPhase01Node node = nodes[i];
+      if(node.scale_l != scale_l)
+         continue;
+      if(!FP_HookP02NodeMatchesDirection(node, d))
+         continue;
+
+      if(!active)
+      {
+         FP_HookP02InitSequenceFromOrigin(ArraySize(sequences), d, node, seq);
+         seq.source = "HOOK_P02_PROMOTED_ORIGIN_CHAIN_START";
+         active = true;
+         continue;
+      }
+
+      if(FP_HookP02StrictAcceptsNext(d, seq.last_x_price, node.price))
+      {
+         if(seq.x_count < max_x)
+         {
+            seq.x_count++;
+            FP_HookP02SetXNode(seq, seq.x_count, node);
+         }
+         else
+         {
+            FP_HookP02PromoteOriginWithNewX(seq, node, max_x, report);
+         }
+      }
+      else
+      {
+         if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
+         {
+            built++;
+            report.promoted_chains++;
+         }
+
+         if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
+            return built;
+
+         FP_HookP02InitSequenceFromOrigin(ArraySize(sequences), d, node, seq);
+         seq.source = "HOOK_P02_PROMOTED_ORIGIN_CHAIN_RESET";
+      }
+   }
+
+   if(active && (cfg.max_sequences <= 0 || ArraySize(sequences) < cfg.max_sequences))
+   {
+      if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
+      {
+         built++;
+         report.promoted_chains++;
+      }
+   }
+
+   return built;
+}
+
+int FP_HookP02BuildPromotedDirection(const FP_HookPhase01Node &nodes[],
+                                     const FP_HookPhase02Direction d,
+                                     const FP_HookPhase02Config &cfg,
+                                     FP_HookPhase02Sequence &sequences[],
+                                     FP_HookPhase02Report &report)
+{
+   if(!FP_HookP02DirectionAllowed(cfg, d))
+      return 0;
+
+   int scales_seen[];
+   int node_count = ArraySize(nodes);
+   for(int i=0; i<node_count; i++)
+   {
+      FP_HookPhase01Node node = nodes[i];
+      if(FP_HookP02NodeMatchesDirection(node, d))
+         FP_HookP02AppendScaleSeen(node.scale_l, scales_seen);
+   }
+
+   int built = 0;
+   for(int s=0; s<ArraySize(scales_seen); s++)
+   {
+      if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
+         break;
+      built += FP_HookP02BuildPromotedDirectionForScale(nodes, d, cfg, scales_seen[s], sequences, report);
+   }
+
+   return built;
 }
 
 int FP_HookP02BuildOneDirection(const FP_HookPhase01Node &nodes[],
@@ -244,32 +492,13 @@ int FP_HookP02BuildOneDirection(const FP_HookPhase01Node &nodes[],
          }
       }
 
-      FP_HookP02FinalizeSequenceState(seq, cfg);
-
-      if(seq.valid)
+      if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
       {
-         if(FP_HookP02AppendSequence(sequences, seq, cfg.max_sequences))
-         {
-            FP_HookP02MarkStarterUsed(origin.node_id, used_starters);
-            built++;
-
-            report.sequences_total++;
-            if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
-               report.sequences_positive++;
-            else
-               report.sequences_negative++;
-
-            if(seq.state == FP_HOOK_P02_STATE_READY)
-               report.sequences_ready++;
-            else if(seq.state == FP_HOOK_P02_STATE_MATURE)
-               report.sequences_mature++;
-            else if(seq.state == FP_HOOK_P02_STATE_CAPPED)
-               report.sequences_capped++;
-         }
+         FP_HookP02MarkStarterUsed(origin.node_id, used_starters);
+         built++;
       }
       else
       {
-         report.rejected_candidates++;
          FP_HookP02MarkStarterUsed(origin.node_id, used_starters);
       }
    }
@@ -286,8 +515,16 @@ int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
    report.nodes_seen = ArraySize(nodes);
 
    int built = 0;
-   built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
-   built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
+   if(cfg.origin_policy == FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X)
+   {
+      built += FP_HookP02BuildPromotedDirection(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
+      built += FP_HookP02BuildPromotedDirection(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
+   }
+   else
+   {
+      built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
+      built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
+   }
 
    return built;
 }
@@ -328,6 +565,8 @@ void FP_PrintHookPhase02Report(const string tag, const FP_HookPhase02Report &r)
          " mature=", r.sequences_mature,
          " capped=", r.sequences_capped,
          " rejected=", r.rejected_candidates,
+         " origin_promotions=", r.origin_promotions,
+         " promoted_chains=", r.promoted_chains,
          " drawn=", r.sequences_drawn,
          " files=", r.files_written,
          " file_errors=", r.file_errors);

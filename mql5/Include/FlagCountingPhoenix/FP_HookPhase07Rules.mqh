@@ -63,6 +63,8 @@ void FP_HookP07DisableAllDrawing(FP_HookPhase01Config &p01,
    p02.draw_x_nodes = false;
    p02.draw_x_lines = false;
    p02.draw_death_boundary = false;
+   p02.draw_cycle_arc = false;
+   p02.draw_sequence_count_label = false;
    p02.draw_labels = false;
 
    p03.draw_y_extremes = false;
@@ -241,6 +243,40 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p06.draw_quality_label = cfg.show_labels;
       p06.draw_xy_anchor = true;
       p06.draw_projection_lines = true;
+      p06.draw_labels = false;
+      return;
+   }
+
+   if(cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
+   {
+      p02.draw_sequences = true;
+      p02.draw_origin = true;
+      p02.draw_x_nodes = true;
+      p02.draw_x_lines = true;
+      p02.draw_death_boundary = false;
+      p02.draw_cycle_arc = true;
+      p02.draw_sequence_count_label = true;
+      p02.draw_labels = false;
+
+      p03.draw_y_extremes = false;
+      p03.draw_y_lines = false;
+      p03.draw_x_reference = false;
+      p03.draw_labels = false;
+
+      p04.draw_nd = false;
+      p04.draw_death = false;
+      p04.draw_x_closure = false;
+      p04.draw_thresholds = false;
+      p04.draw_labels = false;
+
+      p05.draw_type_label = false;
+      p05.draw_type_anchor = false;
+      p05.draw_type_comparison_lines = false;
+      p05.draw_labels = false;
+
+      p06.draw_quality_label = false;
+      p06.draw_xy_anchor = false;
+      p06.draw_projection_lines = false;
       p06.draw_labels = false;
       return;
    }

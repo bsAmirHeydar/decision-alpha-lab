@@ -414,6 +414,7 @@ input int    InpHookPhase01LabelFontSize = 7;
 // Modular CycleHook / strict X-sequence builder. Phase 02 depends on the Phase
 // 01 node source adapter and keeps Rally/F-counting untouched by default.
 input bool   InpHookPhase02Enabled = true;
+input FP_HookPhase02OriginPolicy InpHookPhase02OriginPolicy = FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X;
 input bool   InpHookPhase02ShowPositive = true;
 input bool   InpHookPhase02ShowNegative = true;
 input bool   InpHookPhase02DrawSequences = true;
@@ -421,6 +422,8 @@ input bool   InpHookPhase02DrawOrigin = true;
 input bool   InpHookPhase02DrawXNodes = true;
 input bool   InpHookPhase02DrawXLines = true;
 input bool   InpHookPhase02DrawDeathBoundary = true;
+input bool   InpHookPhase02DrawCycleArc = true;
+input bool   InpHookPhase02DrawSequenceCountLabel = true;
 input bool   InpHookPhase02DrawLabels = true;
 input bool   InpHookPhase02ExportCsv = false;
 input bool   InpHookPhase02PrintSummary = false;
@@ -431,12 +434,16 @@ input int    InpHookPhase02MaxSequencesToDraw = 120;
 input int    InpHookPhase02MinXNodesToKeep = 1;
 input int    InpHookPhase02MaxXNodesPerSequence = 4;
 input int    InpHookPhase02SampleLimit = 10;
+input int    InpHookPhase02CycleArcSegments = 18;
+input double InpHookPhase02CycleArcHeightRatio = 0.35;
 input string InpHookPhase02Folder = "FlagCountingPhoenix";
 input string InpHookPhase02ObjectPrefix = "DAL_HOOK_P02_";
 input color  InpHookPhase02PositiveColor = clrDeepSkyBlue;
 input color  InpHookPhase02NegativeColor = clrTomato;
 input color  InpHookPhase02OriginColor = clrGold;
 input color  InpHookPhase02DeathColor = clrDimGray;
+input color  InpHookPhase02CycleArcColor = clrSlateGray;
+input color  InpHookPhase02SequenceCountLabelColor = clrGold;
 input color  InpHookPhase02LabelColor = clrSilver;
 input int    InpHookPhase02LineWidth = 1;
 input int    InpHookPhase02MarkerWidth = 1;
@@ -588,7 +595,7 @@ input int    InpHookPhase06LabelFontSize = 8;
 // layers draw together, optionally cleans stale Hook objects, and can write a
 // profile audit row. It does not trade.
 input bool   InpHookPhase07Enabled = true;
-input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_OFFICIAL_SCHEMATIC;
+input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG;
 input bool   InpHookPhase07RespectIndividualPhaseEnabled = true;
 input bool   InpHookPhase07ForceEnableRequiredPhases = true;
 input bool   InpHookPhase07ShowLabels = false;
@@ -611,7 +618,7 @@ input bool   InpHookPhase07CleanP08Objects = true;
 input bool   InpHookPhase07CleanP09Objects = true;
 input bool   InpHookPhase07CleanP10Objects = true;
 input int    InpHookPhase07MaxNodesToDraw = 120;
-input int    InpHookPhase07MaxSequencesToDraw = 12;
+input int    InpHookPhase07MaxSequencesToDraw = 8;
 input int    InpHookPhase07SampleLimit = 10;
 input string InpHookPhase07Folder = "FlagCountingPhoenix";
 input string InpHookPhase07ObjectPrefix = "DAL_HOOK_P07_";
@@ -1406,6 +1413,7 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    FP_ResetHookPhase02Config(cfg);
    cfg.enabled = InpHookPhase02Enabled;
    cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.origin_policy = InpHookPhase02OriginPolicy;
 
    cfg.show_positive = InpHookPhase02ShowPositive;
    cfg.show_negative = InpHookPhase02ShowNegative;
@@ -1415,6 +1423,8 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.draw_x_nodes = InpHookPhase02DrawXNodes;
    cfg.draw_x_lines = InpHookPhase02DrawXLines;
    cfg.draw_death_boundary = InpHookPhase02DrawDeathBoundary;
+   cfg.draw_cycle_arc = InpHookPhase02DrawCycleArc;
+   cfg.draw_sequence_count_label = InpHookPhase02DrawSequenceCountLabel;
    cfg.draw_labels = InpHookPhase02DrawLabels;
 
    cfg.export_csv = InpHookPhase02ExportCsv;
@@ -1427,6 +1437,8 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.min_x_nodes_to_keep = InpHookPhase02MinXNodesToKeep;
    cfg.max_x_nodes_per_sequence = InpHookPhase02MaxXNodesPerSequence;
    cfg.sample_limit = InpHookPhase02SampleLimit;
+   cfg.cycle_arc_segments = InpHookPhase02CycleArcSegments;
+   cfg.cycle_arc_height_ratio = InpHookPhase02CycleArcHeightRatio;
 
    cfg.folder = InpHookPhase02Folder;
    cfg.object_prefix = InpHookPhase02ObjectPrefix;
@@ -1435,6 +1447,8 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.negative_color = InpHookPhase02NegativeColor;
    cfg.origin_color = InpHookPhase02OriginColor;
    cfg.death_color = InpHookPhase02DeathColor;
+   cfg.cycle_arc_color = InpHookPhase02CycleArcColor;
+   cfg.sequence_count_label_color = InpHookPhase02SequenceCountLabelColor;
    cfg.label_color = InpHookPhase02LabelColor;
 
    cfg.line_width = InpHookPhase02LineWidth;

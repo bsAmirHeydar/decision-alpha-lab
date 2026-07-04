@@ -76,7 +76,7 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
 
 string FP_HookP02SummaryHeader()
 {
-   return "schema_version,version,symbol,period,display_family,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,drawn,status,reason";
+   return "schema_version,version,symbol,period,display_family,origin_policy,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,origin_promotions,promoted_chains,drawn,status,reason";
 }
 
 string FP_HookP02SummaryRow(const string symbol,
@@ -90,6 +90,7 @@ string FP_HookP02SummaryRow(const string symbol,
    row += "," + FP_HookP02SafeCsv(symbol);
    row += "," + FP_HookP02SafeCsv(EnumToString(period));
    row += "," + FP_HookP02SafeCsv(FP_HookP01DisplayFamilyName(cfg.display_family));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02OriginPolicyName(cfg.origin_policy));
    row += "," + IntegerToString(r.bars_seen);
    row += "," + IntegerToString(r.bars_scanned);
    row += "," + IntegerToString(r.scales_seen);
@@ -101,6 +102,8 @@ string FP_HookP02SummaryRow(const string symbol,
    row += "," + IntegerToString(r.sequences_mature);
    row += "," + IntegerToString(r.sequences_capped);
    row += "," + IntegerToString(r.rejected_candidates);
+   row += "," + IntegerToString(r.origin_promotions);
+   row += "," + IntegerToString(r.promoted_chains);
    row += "," + IntegerToString(r.sequences_drawn);
    row += "," + FP_HookP02SafeCsv(r.status);
    row += "," + FP_HookP02SafeCsv(r.reason);

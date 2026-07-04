@@ -110,6 +110,147 @@ bool FP_HookP02CreateTrend(const string name,
    return true;
 }
 
+bool FP_HookP02GetCycleEndPoint(const FP_HookPhase02Sequence &seq,
+                                datetime &t,
+                                double &price,
+                                string &label)
+{
+   t = 0;
+   price = 0.0;
+   label = "";
+
+   if(seq.x_count >= 4 && seq.x4_time > 0)
+   {
+      t = seq.x4_time;
+      price = seq.x4_price;
+      label = "X4";
+      return true;
+   }
+   if(seq.x_count >= 3 && seq.x3_time > 0)
+   {
+      t = seq.x3_time;
+      price = seq.x3_price;
+      label = "X3";
+      return true;
+   }
+   if(seq.x_count >= 2 && seq.x2_time > 0)
+   {
+      t = seq.x2_time;
+      price = seq.x2_price;
+      label = "X2";
+      return true;
+   }
+   if(seq.x_count >= 1 && seq.x1_time > 0)
+   {
+      t = seq.x1_time;
+      price = seq.x1_price;
+      label = "X1";
+      return true;
+   }
+
+   return false;
+}
+
+double FP_HookP02CycleArcHeight(const FP_HookPhase02Sequence &seq,
+                                const FP_HookPhase02Config &cfg,
+                                const double end_price)
+{
+   double span = MathAbs(end_price - seq.origin_price);
+   double min_height = _Point * 20.0;
+   double h = span * cfg.cycle_arc_height_ratio;
+
+   if(h < min_height)
+      h = min_height;
+   return h;
+}
+
+bool FP_HookP02CreateCycleArc(const string base,
+                              const FP_HookPhase02Sequence &seq,
+                              const FP_HookPhase02Config &cfg,
+                              FP_HookPhase02Report &report)
+{
+   datetime end_time = 0;
+   double end_price = 0.0;
+   string end_label = "";
+
+   if(!FP_HookP02GetCycleEndPoint(seq, end_time, end_price, end_label))
+      return false;
+
+   if(seq.origin_time <= 0 || end_time <= seq.origin_time)
+      return false;
+
+   int segments = cfg.cycle_arc_segments;
+   if(segments < 4)
+      segments = 4;
+   if(segments > 64)
+      segments = 64;
+
+   long t0 = (long)seq.origin_time;
+   long dt = (long)(end_time - seq.origin_time);
+   if(dt <= 0)
+      return false;
+
+   double h = FP_HookP02CycleArcHeight(seq, cfg, end_price);
+   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
+   double pi = 3.14159265358979323846;
+
+   for(int k=0; k<segments; k++)
+   {
+      double f1 = (double)k / (double)segments;
+      double f2 = (double)(k + 1) / (double)segments;
+
+      datetime t1 = (datetime)(t0 + (long)MathRound((double)dt * f1));
+      datetime t2 = (datetime)(t0 + (long)MathRound((double)dt * f2));
+
+      double base1 = seq.origin_price + (end_price - seq.origin_price) * f1;
+      double base2 = seq.origin_price + (end_price - seq.origin_price) * f2;
+
+      double p1 = base1 + sign * h * MathSin(pi * f1);
+      double p2 = base2 + sign * h * MathSin(pi * f2);
+
+      FP_HookP02CreateTrend(base + "_CYCLE_ARC_" + IntegerToString(k),
+                            t1, p1, t2, p2,
+                            cfg.cycle_arc_color, cfg.line_width,
+                            STYLE_SOLID, report);
+   }
+
+   return true;
+}
+
+bool FP_HookP02DrawSequenceCountLabel(const string base,
+                                      const FP_HookPhase02Sequence &seq,
+                                      const FP_HookPhase02Config &cfg,
+                                      FP_HookPhase02Report &report)
+{
+   datetime end_time = 0;
+   double end_price = 0.0;
+   string end_label = "";
+
+   if(!FP_HookP02GetCycleEndPoint(seq, end_time, end_price, end_label))
+      return false;
+
+   long t0 = (long)seq.origin_time;
+   long dt = (long)(end_time - seq.origin_time);
+   if(dt <= 0)
+      return false;
+
+   double h = FP_HookP02CycleArcHeight(seq, cfg, end_price);
+   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
+   datetime mid_t = (datetime)(t0 + dt / 2);
+   double mid_p = (seq.origin_price + end_price) * 0.5 + sign * h * 1.10;
+
+   string dir_short = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? "+" : "-");
+   string txt = "C" + IntegerToString(seq.sequence_id) + dir_short +
+                " L" + IntegerToString(seq.scale_l) +
+                " " + end_label +
+                " n=" + IntegerToString(seq.x_count);
+
+   return FP_HookP02CreateText(base + "_CYCLE_COUNT_LABEL",
+                               mid_t, mid_p,
+                               txt, cfg.sequence_count_label_color,
+                               cfg.label_font_size + 1, report);
+}
+
 bool FP_HookP02GetPoint(const FP_HookPhase02Sequence &seq,
                         const int point_index,
                         datetime &t,
@@ -218,6 +359,12 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
          }
       }
    }
+
+   if(cfg.draw_cycle_arc)
+      FP_HookP02CreateCycleArc(base, seq, cfg, report);
+
+   if(cfg.draw_sequence_count_label)
+      FP_HookP02DrawSequenceCountLabel(base, seq, cfg, report);
 
    if(cfg.draw_death_boundary)
    {
