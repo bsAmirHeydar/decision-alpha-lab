@@ -1,0 +1,49 @@
+{
+  "question_code": "SCN-R02",
+  "language": "en",
+  "topic": "Potential zone definition, zone source constraints, entry refinement, zone invalidation, and training granularity",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "zone_as_price_range",
+    "zone_as_exploitable_context",
+    "low_cost_high_explosion_zone",
+    "zone_source_constraints",
+    "zone_recipe_family",
+    "entry_level_extreme",
+    "hook_extreme_vs_entry_extreme",
+    "symmetry_zone_start",
+    "hook_origin_zone_end",
+    "global_market_timeframe_dynamic_training_layers",
+    "dynamic_zone_weight_regime"
+  ],
+  "proposed_datasets": [
+    "potential_zone_model_v1.csv",
+    "context_to_zone_promotion_policy_v1.csv",
+    "zone_source_constraint_model_v1.csv",
+    "zone_validity_state_machine_v1.csv",
+    "zone_to_entry_refinement_policy_v1.csv",
+    "entry_level_extreme_model_v1.csv",
+    "zone_training_granularity_model_v1.csv",
+    "zone_weight_regime_model_v1.csv",
+    "market_specific_zone_policy_v1.csv",
+    "market_timeframe_zone_policy_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Potential Zone Builder",
+    "Zone Source Constraint Mapper",
+    "Context-to-Zone Promotion Model",
+    "Zone Boundary Selector",
+    "Symmetry Zone Start Detector",
+    "Hook-Origin Zone End Detector",
+    "Zone Validity Tracker",
+    "Entry-Level Extreme Router",
+    "Lower-Timeframe Entry Refinement Model",
+    "Zone Tradeability Scorer",
+    "Zone Training Granularity Router",
+    "Market-Specific Zone Learner",
+    "Market-Timeframe Zone Learner",
+    "Dynamic Zone Weight Regime Learner"
+  ]
+}
