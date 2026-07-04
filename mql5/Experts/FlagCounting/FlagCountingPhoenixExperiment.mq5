@@ -32,6 +32,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -491,6 +492,39 @@ input color  InpHookPhase04LabelColor = clrSilver;
 input int    InpHookPhase04LineWidth = 1;
 input int    InpHookPhase04MarkerWidth = 1;
 input int    InpHookPhase04LabelFontSize = 7;
+
+// ------------------------------ NDS Hook Phase 05 --------------------------
+// Modular Hook Type A/B/C classifier. Uses Phase 03 Y-axis and Phase 04
+// lifecycle records. Still visualization and diagnostics only.
+input bool   InpHookPhase05Enabled = true;
+input bool   InpHookPhase05ShowPositive = true;
+input bool   InpHookPhase05ShowNegative = true;
+input bool   InpHookPhase05DrawTypeLabel = true;
+input bool   InpHookPhase05DrawTypeAnchor = true;
+input bool   InpHookPhase05DrawTypeComparisonLines = true;
+input bool   InpHookPhase05DrawLabels = true;
+input bool   InpHookPhase05ExportCsv = false;
+input bool   InpHookPhase05PrintSummary = false;
+input bool   InpHookPhase05PrintSamples = false;
+input bool   InpHookPhase05AllowY34AsThirdEvidence = false;
+input int    InpHookPhase05MaxBarsToScan = 0;
+input int    InpHookPhase05MaxSequences = 3000;
+input int    InpHookPhase05MaxSequencesToDraw = 120;
+input int    InpHookPhase05MinXNodesToKeep = 1;
+input int    InpHookPhase05MaxXNodesPerSequence = 4;
+input int    InpHookPhase05MinXNodesForType = 2;
+input int    InpHookPhase05SampleLimit = 10;
+input string InpHookPhase05Folder = "FlagCountingPhoenix";
+input string InpHookPhase05ObjectPrefix = "DAL_HOOK_P05_";
+input color  InpHookPhase05TypeAColor = clrLime;
+input color  InpHookPhase05TypeBColor = clrDeepSkyBlue;
+input color  InpHookPhase05TypeCColor = clrOrange;
+input color  InpHookPhase05InsufficientColor = clrGray;
+input color  InpHookPhase05ComparisonColor = clrSlateGray;
+input color  InpHookPhase05LabelColor = clrWhite;
+input int    InpHookPhase05LineWidth = 1;
+input int    InpHookPhase05MarkerWidth = 1;
+input int    InpHookPhase05LabelFontSize = 8;
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1326,6 +1360,50 @@ void FP_LoadHookPhase04Config(FP_HookPhase04Config &cfg)
 }
 
 
+void FP_LoadHookPhase05Config(FP_HookPhase05Config &cfg)
+{
+   FP_ResetHookPhase05Config(cfg);
+   cfg.enabled = InpHookPhase05Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+
+   cfg.show_positive = InpHookPhase05ShowPositive;
+   cfg.show_negative = InpHookPhase05ShowNegative;
+
+   cfg.draw_type_label = InpHookPhase05DrawTypeLabel;
+   cfg.draw_type_anchor = InpHookPhase05DrawTypeAnchor;
+   cfg.draw_type_comparison_lines = InpHookPhase05DrawTypeComparisonLines;
+   cfg.draw_labels = InpHookPhase05DrawLabels;
+
+   cfg.export_csv = InpHookPhase05ExportCsv;
+   cfg.print_summary = InpHookPhase05PrintSummary;
+   cfg.print_samples = InpHookPhase05PrintSamples;
+
+   cfg.allow_y34_as_third_evidence = InpHookPhase05AllowY34AsThirdEvidence;
+
+   cfg.max_bars_to_scan = InpHookPhase05MaxBarsToScan;
+   cfg.max_sequences = InpHookPhase05MaxSequences;
+   cfg.max_sequences_to_draw = InpHookPhase05MaxSequencesToDraw;
+   cfg.min_x_nodes_to_keep = InpHookPhase05MinXNodesToKeep;
+   cfg.max_x_nodes_per_sequence = InpHookPhase05MaxXNodesPerSequence;
+   cfg.min_x_nodes_for_type = InpHookPhase05MinXNodesForType;
+   cfg.sample_limit = InpHookPhase05SampleLimit;
+
+   cfg.folder = InpHookPhase05Folder;
+   cfg.object_prefix = InpHookPhase05ObjectPrefix;
+
+   cfg.type_a_color = InpHookPhase05TypeAColor;
+   cfg.type_b_color = InpHookPhase05TypeBColor;
+   cfg.type_c_color = InpHookPhase05TypeCColor;
+   cfg.insufficient_color = InpHookPhase05InsufficientColor;
+   cfg.comparison_color = InpHookPhase05ComparisonColor;
+   cfg.label_color = InpHookPhase05LabelColor;
+
+   cfg.line_width = InpHookPhase05LineWidth;
+   cfg.marker_width = InpHookPhase05MarkerWidth;
+   cfg.label_font_size = InpHookPhase05LabelFontSize;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1680,6 +1758,9 @@ void FP_Run()
    FP_HookPhase04Config hook_phase04_cfg;
    FP_LoadHookPhase04Config(hook_phase04_cfg);
 
+   FP_HookPhase05Config hook_phase05_cfg;
+   FP_LoadHookPhase05Config(hook_phase05_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1784,6 +1865,10 @@ void FP_Run()
    FP_HookPhase04Report hook_phase04_report;
    FP_RunHookPhase04(_Symbol, _Period, rates, copied, scales, scale_count,
                      hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase04_cfg, hook_phase04_report);
+
+   FP_HookPhase05Report hook_phase05_report;
+   FP_RunHookPhase05(_Symbol, _Period, rates, copied, scales, scale_count,
+                     hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase04_cfg, hook_phase05_cfg, hook_phase05_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);
@@ -2058,6 +2143,8 @@ void FP_CleanupChartObjectsForLifecycle(const int reason)
       FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
       FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
       FP_HookPhase04DeleteObjects(InpHookPhase04ObjectPrefix);
+      FP_HookPhase05DeleteObjects(InpHookPhase05ObjectPrefix);
+      FP_HookPhase05DeleteObjects(InpHookPhase05ObjectPrefix);
       FP_HookPhase04DeleteObjects(InpHookPhase04ObjectPrefix);
       FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
       FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
