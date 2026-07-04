@@ -62,7 +62,8 @@ The system should be built in layers:
 6. X/Y closure quality scoring
 7. Visual profile orchestration
 8. Audit and CSV reconciliation
-9. Smoke test and freeze preparation
+9. Visual smoke-test harness
+10. Smoke test and freeze preparation
 10. Integration with Rally display mode
 ```
 
@@ -78,4 +79,5 @@ The system should be built in layers:
 13_phase06_xy_closure_quality_score_implementation.md
 14_phase07_visual_profile_orchestrator_implementation.md
 15_phase08_audit_csv_reconciliation_implementation.md
+16_phase09_visual_smoke_test_harness_implementation.md
 ```

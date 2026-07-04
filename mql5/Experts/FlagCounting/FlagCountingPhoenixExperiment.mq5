@@ -36,6 +36,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase07Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase08Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase09Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -621,6 +622,37 @@ input int    InpHookPhase08MaxWarningsAllowed = 0;
 input int    InpHookPhase08SampleLimit = 20;
 input string InpHookPhase08Folder = "FlagCountingPhoenix";
 input string InpHookPhase08ObjectPrefix = "DAL_HOOK_P08_";
+
+// NDS Hook Phase 09 - visual smoke-test harness
+input bool   InpHookPhase09Enabled = true;
+input bool   InpHookPhase09AllowRallyOnlySmoke = false;
+input bool   InpHookPhase09RequirePhase08Ok = true;
+input bool   InpHookPhase09RequireCurrentProfileCoverage = true;
+input bool   InpHookPhase09RequireObjectCensus = true;
+input bool   InpHookPhase09RequireDrawContractWhenRecordsExist = true;
+input bool   InpHookPhase09RequireAuditOnlyNoHookDraw = true;
+input bool   InpHookPhase09RequireNoPhaseFileErrors = true;
+input bool   InpHookPhase09RequirePanelWhenEnabled = true;
+input bool   InpHookPhase09DrawPanel = false;
+input bool   InpHookPhase09CleanObjectsBeforeDraw = true;
+input bool   InpHookPhase09ExportCsv = false;
+input bool   InpHookPhase09ExportScenariosCsv = true;
+input bool   InpHookPhase09ExportObjectCensusCsv = true;
+input bool   InpHookPhase09ExportFindingsCsv = true;
+input bool   InpHookPhase09PrintSummary = false;
+input bool   InpHookPhase09PrintSamples = false;
+input int    InpHookPhase09MaxWarningsAllowed = 0;
+input int    InpHookPhase09SampleLimit = 20;
+input string InpHookPhase09Folder = "FlagCountingPhoenix";
+input string InpHookPhase09ObjectPrefix = "DAL_HOOK_P09_";
+input ENUM_BASE_CORNER InpHookPhase09PanelCorner = CORNER_RIGHT_UPPER;
+input int    InpHookPhase09PanelX = 16;
+input int    InpHookPhase09PanelY = 86;
+input int    InpHookPhase09PanelFontSize = 8;
+input color  InpHookPhase09PanelOkColor = clrLime;
+input color  InpHookPhase09PanelWarningColor = clrOrange;
+input color  InpHookPhase09PanelBlockerColor = clrRed;
+input color  InpHookPhase09PanelTextColor = clrWhite;
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1615,6 +1647,42 @@ void FP_LoadHookPhase08Config(FP_HookPhase08Config &cfg)
 }
 
 
+
+void FP_LoadHookPhase09Config(FP_HookPhase09Config &cfg)
+{
+   FP_ResetHookPhase09Config(cfg);
+   cfg.enabled = InpHookPhase09Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.allow_rally_only_smoke = InpHookPhase09AllowRallyOnlySmoke;
+   cfg.require_phase08_ok = InpHookPhase09RequirePhase08Ok;
+   cfg.require_current_profile_coverage = InpHookPhase09RequireCurrentProfileCoverage;
+   cfg.require_object_census = InpHookPhase09RequireObjectCensus;
+   cfg.require_draw_contract_when_records_exist = InpHookPhase09RequireDrawContractWhenRecordsExist;
+   cfg.require_audit_only_no_hook_draw = InpHookPhase09RequireAuditOnlyNoHookDraw;
+   cfg.require_no_phase_file_errors = InpHookPhase09RequireNoPhaseFileErrors;
+   cfg.require_p09_panel_when_enabled = InpHookPhase09RequirePanelWhenEnabled;
+   cfg.draw_panel = InpHookPhase09DrawPanel;
+   cfg.clean_p09_objects_before_draw = InpHookPhase09CleanObjectsBeforeDraw;
+   cfg.export_csv = InpHookPhase09ExportCsv;
+   cfg.export_scenarios_csv = InpHookPhase09ExportScenariosCsv;
+   cfg.export_object_census_csv = InpHookPhase09ExportObjectCensusCsv;
+   cfg.export_findings_csv = InpHookPhase09ExportFindingsCsv;
+   cfg.print_summary = InpHookPhase09PrintSummary;
+   cfg.print_samples = InpHookPhase09PrintSamples;
+   cfg.max_warnings_allowed = InpHookPhase09MaxWarningsAllowed;
+   cfg.sample_limit = InpHookPhase09SampleLimit;
+   cfg.folder = InpHookPhase09Folder;
+   cfg.object_prefix = InpHookPhase09ObjectPrefix;
+   cfg.panel_corner = InpHookPhase09PanelCorner;
+   cfg.panel_x = InpHookPhase09PanelX;
+   cfg.panel_y = InpHookPhase09PanelY;
+   cfg.panel_font_size = InpHookPhase09PanelFontSize;
+   cfg.panel_ok_color = InpHookPhase09PanelOkColor;
+   cfg.panel_warning_color = InpHookPhase09PanelWarningColor;
+   cfg.panel_blocker_color = InpHookPhase09PanelBlockerColor;
+   cfg.panel_text_color = InpHookPhase09PanelTextColor;
+}
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1981,6 +2049,9 @@ void FP_Run()
    FP_HookPhase08Config hook_phase08_cfg;
    FP_LoadHookPhase08Config(hook_phase08_cfg);
 
+   FP_HookPhase09Config hook_phase09_cfg;
+   FP_LoadHookPhase09Config(hook_phase09_cfg);
+
    FP_HookPhase07Report hook_phase07_report;
    FP_ApplyHookPhase07Profile(hook_phase07_cfg,
                               hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
@@ -2108,6 +2179,16 @@ void FP_Run()
                      hook_phase01_report, hook_phase02_report, hook_phase03_report,
                      hook_phase04_report, hook_phase05_report, hook_phase06_report,
                      hook_phase07_report, hook_phase08_report);
+
+
+   FP_HookPhase09Report hook_phase09_report;
+   FP_RunHookPhase09(_Symbol, _Period,
+                     hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
+                     hook_phase04_cfg, hook_phase05_cfg, hook_phase06_cfg,
+                     hook_phase07_cfg, hook_phase08_cfg, hook_phase09_cfg,
+                     hook_phase01_report, hook_phase02_report, hook_phase03_report,
+                     hook_phase04_report, hook_phase05_report, hook_phase06_report,
+                     hook_phase07_report, hook_phase08_report, hook_phase09_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);

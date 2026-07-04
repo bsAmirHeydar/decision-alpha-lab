@@ -161,3 +161,15 @@ health before Hook output is trusted as training input.
 ```text
 Phase 08 => Audit and CSV reconciliation
 ```
+
+
+## Implementation overlay note — Phase 09
+
+Phase 09 implements the planned smoke-test requirement as a runtime visual
+smoke harness over Phase 01 through Phase 08. It checks the selected Phase 07
+view profile, chart object census by Hook prefix, draw-contract consistency,
+Phase 08 audit status, and optional smoke CSV outputs.
+
+```text
+Phase 09 => Visual smoke-test harness
+```
