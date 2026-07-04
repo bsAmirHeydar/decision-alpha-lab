@@ -588,16 +588,18 @@ input int    InpHookPhase06LabelFontSize = 8;
 // layers draw together, optionally cleans stale Hook objects, and can write a
 // profile audit row. It does not trade.
 input bool   InpHookPhase07Enabled = true;
-input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_KEEP_INPUTS;
+input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_OFFICIAL_SCHEMATIC;
 input bool   InpHookPhase07RespectIndividualPhaseEnabled = true;
 input bool   InpHookPhase07ForceEnableRequiredPhases = true;
-input bool   InpHookPhase07ShowLabels = true;
+input bool   InpHookPhase07ShowLabels = false;
 input bool   InpHookPhase07GlobalExportCsv = false;
 input bool   InpHookPhase07GlobalPrintSummary = false;
 input bool   InpHookPhase07GlobalPrintSamples = false;
 input bool   InpHookPhase07ExportProfileCsv = false;
 input bool   InpHookPhase07PrintSummary = false;
-input bool   InpHookPhase07CleanBeforeApply = false;
+input bool   InpHookPhase07CleanBeforeApply = true;
+input bool   InpHookPhase07CleanCommonHookPrefix = true;
+input string InpHookPhase07CommonHookObjectPrefix = "DAL_HOOK_";
 input bool   InpHookPhase07CleanP01Objects = true;
 input bool   InpHookPhase07CleanP02Objects = true;
 input bool   InpHookPhase07CleanP03Objects = true;
@@ -605,8 +607,11 @@ input bool   InpHookPhase07CleanP04Objects = true;
 input bool   InpHookPhase07CleanP05Objects = true;
 input bool   InpHookPhase07CleanP06Objects = true;
 input bool   InpHookPhase07CleanP07Objects = true;
-input int    InpHookPhase07MaxNodesToDraw = 500;
-input int    InpHookPhase07MaxSequencesToDraw = 120;
+input bool   InpHookPhase07CleanP08Objects = true;
+input bool   InpHookPhase07CleanP09Objects = true;
+input bool   InpHookPhase07CleanP10Objects = true;
+input int    InpHookPhase07MaxNodesToDraw = 120;
+input int    InpHookPhase07MaxSequencesToDraw = 12;
 input int    InpHookPhase07SampleLimit = 10;
 input string InpHookPhase07Folder = "FlagCountingPhoenix";
 input string InpHookPhase07ObjectPrefix = "DAL_HOOK_P07_";
@@ -1640,6 +1645,8 @@ void FP_LoadHookPhase07Config(FP_HookPhase07Config &cfg)
    cfg.print_summary = InpHookPhase07PrintSummary;
 
    cfg.clean_before_apply = InpHookPhase07CleanBeforeApply;
+   cfg.clean_common_hook_prefix = InpHookPhase07CleanCommonHookPrefix;
+   cfg.common_hook_object_prefix = InpHookPhase07CommonHookObjectPrefix;
    cfg.clean_p01_objects = InpHookPhase07CleanP01Objects;
    cfg.clean_p02_objects = InpHookPhase07CleanP02Objects;
    cfg.clean_p03_objects = InpHookPhase07CleanP03Objects;
@@ -1647,6 +1654,13 @@ void FP_LoadHookPhase07Config(FP_HookPhase07Config &cfg)
    cfg.clean_p05_objects = InpHookPhase07CleanP05Objects;
    cfg.clean_p06_objects = InpHookPhase07CleanP06Objects;
    cfg.clean_p07_objects = InpHookPhase07CleanP07Objects;
+   cfg.clean_p08_objects = InpHookPhase07CleanP08Objects;
+   cfg.clean_p09_objects = InpHookPhase07CleanP09Objects;
+   cfg.clean_p10_objects = InpHookPhase07CleanP10Objects;
+
+   cfg.clean_p08_object_prefix = InpHookPhase08ObjectPrefix;
+   cfg.clean_p09_object_prefix = InpHookPhase09ObjectPrefix;
+   cfg.clean_p10_object_prefix = InpHookPhase10ObjectPrefix;
 
    cfg.max_nodes_to_draw = InpHookPhase07MaxNodesToDraw;
    cfg.max_sequences_to_draw = InpHookPhase07MaxSequencesToDraw;
@@ -2509,6 +2523,23 @@ void FP_Run()
 }
 
 
+int FP_CleanupAllNDSHookObjectsByInputPrefixes()
+{
+   int deleted = 0;
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase07CommonHookObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase01ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase02ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase03ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase04ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase05ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase06ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase07ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase08ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase09ObjectPrefix);
+   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase10ObjectPrefix);
+   return deleted;
+}
+
 bool FP_ShouldCleanObjectsOnDeinitReason(const int reason)
 {
    if(InpCleanObjectsOnDeinit)
@@ -2533,15 +2564,7 @@ void FP_CleanupChartObjectsForLifecycle(const int reason)
    if(FP_ShouldCleanObjectsOnDeinitReason(reason))
    {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
-      FP_HookPhase01DeleteObjects(InpHookPhase01ObjectPrefix);
-      FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
-      FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
-      FP_HookPhase04DeleteObjects(InpHookPhase04ObjectPrefix);
-      FP_HookPhase05DeleteObjects(InpHookPhase05ObjectPrefix);
-      FP_HookPhase05DeleteObjects(InpHookPhase05ObjectPrefix);
-      FP_HookPhase04DeleteObjects(InpHookPhase04ObjectPrefix);
-      FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
-      FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
+      FP_CleanupAllNDSHookObjectsByInputPrefixes();
    }
 
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnDeinit)
@@ -2560,7 +2583,7 @@ int OnInit()
    if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
    {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
-      FP_HookPhase01DeleteObjects(InpHookPhase01ObjectPrefix);
+      FP_CleanupAllNDSHookObjectsByInputPrefixes();
    }
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnInit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);

@@ -152,11 +152,11 @@ bool FP_HookP05DrawOneRecord(const FP_HookPhase05Config &cfg,
 
    if(cfg.draw_type_label)
    {
-      string txt = "HOOK " + FP_HookP05ShortTypeName(c.hook_type) +
-                   " " + FP_HookP02DirectionName(seq.direction) +
+      string dir_short = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? "+" : "-");
+      string txt = "HK " + FP_HookP05ShortTypeName(c.hook_type) + dir_short +
                    " L" + IntegerToString(seq.scale_l) +
-                   " S" + IntegerToString(seq.sequence_id) +
-                   " conf=" + DoubleToString(c.confidence_score, 2);
+                   " #" + IntegerToString(seq.sequence_id) +
+                   " " + DoubleToString(c.confidence_score, 2);
 
       FP_HookP05CreateText(base + "_TYPE_LABEL",
                            anchor_time, anchor_price,

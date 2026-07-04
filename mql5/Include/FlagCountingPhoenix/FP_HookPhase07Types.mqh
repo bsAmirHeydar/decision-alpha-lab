@@ -29,7 +29,8 @@ enum FP_HookPhase07ViewProfile
    FP_HOOK_P07_VIEW_TYPE_QUALITY      = 4,
    FP_HOOK_P07_VIEW_QUALITY_FOCUS     = 5,
    FP_HOOK_P07_VIEW_FULL_DEBUG        = 6,
-   FP_HOOK_P07_VIEW_AUDIT_EXPORT_ONLY = 7
+   FP_HOOK_P07_VIEW_AUDIT_EXPORT_ONLY = 7,
+   FP_HOOK_P07_VIEW_OFFICIAL_SCHEMATIC = 8
 };
 
 struct FP_HookPhase07Config
@@ -47,6 +48,7 @@ struct FP_HookPhase07Config
    bool export_profile_csv;
    bool print_summary;
    bool clean_before_apply;
+   bool clean_common_hook_prefix;
    bool clean_p01_objects;
    bool clean_p02_objects;
    bool clean_p03_objects;
@@ -54,6 +56,14 @@ struct FP_HookPhase07Config
    bool clean_p05_objects;
    bool clean_p06_objects;
    bool clean_p07_objects;
+   bool clean_p08_objects;
+   bool clean_p09_objects;
+   bool clean_p10_objects;
+
+   string common_hook_object_prefix;
+   string clean_p08_object_prefix;
+   string clean_p09_object_prefix;
+   string clean_p10_object_prefix;
 
    int max_nodes_to_draw;
    int max_sequences_to_draw;
@@ -118,6 +128,7 @@ string FP_HookP07ViewProfileName(const FP_HookPhase07ViewProfile p)
    if(p == FP_HOOK_P07_VIEW_QUALITY_FOCUS) return "QUALITY_FOCUS";
    if(p == FP_HOOK_P07_VIEW_FULL_DEBUG) return "FULL_DEBUG";
    if(p == FP_HOOK_P07_VIEW_AUDIT_EXPORT_ONLY) return "AUDIT_EXPORT_ONLY";
+   if(p == FP_HOOK_P07_VIEW_OFFICIAL_SCHEMATIC) return "OFFICIAL_SCHEMATIC";
    return "UNKNOWN_VIEW_PROFILE";
 }
 
@@ -136,6 +147,7 @@ void FP_ResetHookPhase07Config(FP_HookPhase07Config &cfg)
    cfg.export_profile_csv = false;
    cfg.print_summary = false;
    cfg.clean_before_apply = false;
+   cfg.clean_common_hook_prefix = true;
    cfg.clean_p01_objects = true;
    cfg.clean_p02_objects = true;
    cfg.clean_p03_objects = true;
@@ -143,6 +155,14 @@ void FP_ResetHookPhase07Config(FP_HookPhase07Config &cfg)
    cfg.clean_p05_objects = true;
    cfg.clean_p06_objects = true;
    cfg.clean_p07_objects = true;
+   cfg.clean_p08_objects = true;
+   cfg.clean_p09_objects = true;
+   cfg.clean_p10_objects = true;
+
+   cfg.common_hook_object_prefix = "DAL_HOOK_";
+   cfg.clean_p08_object_prefix = "DAL_HOOK_P08_";
+   cfg.clean_p09_object_prefix = "DAL_HOOK_P09_";
+   cfg.clean_p10_object_prefix = "DAL_HOOK_P10_";
 
    cfg.max_nodes_to_draw = 500;
    cfg.max_sequences_to_draw = 120;

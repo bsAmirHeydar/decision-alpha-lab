@@ -245,6 +245,38 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       return;
    }
 
+   if(cfg.view_profile == FP_HOOK_P07_VIEW_OFFICIAL_SCHEMATIC)
+   {
+      p02.draw_sequences = true;
+      p02.draw_origin = true;
+      p02.draw_x_nodes = true;
+      p02.draw_x_lines = true;
+      p02.draw_death_boundary = false;
+      p02.draw_labels = false;
+
+      p03.draw_y_extremes = true;
+      p03.draw_y_lines = true;
+      p03.draw_x_reference = false;
+      p03.draw_labels = false;
+
+      p04.draw_nd = true;
+      p04.draw_death = true;
+      p04.draw_x_closure = true;
+      p04.draw_thresholds = false;
+      p04.draw_labels = false;
+
+      p05.draw_type_label = true;
+      p05.draw_type_anchor = true;
+      p05.draw_type_comparison_lines = false;
+      p05.draw_labels = false;
+
+      p06.draw_quality_label = true;
+      p06.draw_xy_anchor = true;
+      p06.draw_projection_lines = false;
+      p06.draw_labels = false;
+      return;
+   }
+
    if(cfg.view_profile == FP_HOOK_P07_VIEW_FULL_DEBUG)
    {
       p01.draw_nodes = true;

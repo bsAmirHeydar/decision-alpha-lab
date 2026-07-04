@@ -22,6 +22,27 @@ int FP_HookPhase06DeleteObjects(const string prefix)
    return deleted;
 }
 
+string FP_HookP06ShortXYStateName(const FP_HookPhase06XYClosureState s)
+{
+   if(s == FP_HOOK_P06_XY_CLOSED) return "XY";
+   if(s == FP_HOOK_P06_XY_X_ONLY) return "X";
+   if(s == FP_HOOK_P06_XY_Y_ONLY) return "Y";
+   if(s == FP_HOOK_P06_XY_OPEN) return "OPN";
+   if(s == FP_HOOK_P06_XY_DEAD_BY_ORIGIN_RETURN) return "DED";
+   if(s == FP_HOOK_P06_XY_INSUFFICIENT) return "INS";
+   return "UNK";
+}
+
+string FP_HookP06ShortQualityBucketName(const FP_HookPhase06QualityBucket q)
+{
+   if(q == FP_HOOK_P06_QUALITY_ELITE) return "E";
+   if(q == FP_HOOK_P06_QUALITY_HIGH) return "H";
+   if(q == FP_HOOK_P06_QUALITY_MEDIUM) return "M";
+   if(q == FP_HOOK_P06_QUALITY_LOW) return "L";
+   if(q == FP_HOOK_P06_QUALITY_INVALID) return "INV";
+   return "UNK";
+}
+
 color FP_HookP06XYColor(const FP_HookPhase06Config &cfg,
                         const FP_HookPhase06XYClosureState s)
 {
@@ -143,10 +164,10 @@ bool FP_HookP06DrawOneRecord(const FP_HookPhase06Config &cfg,
 
    if(cfg.draw_quality_label && s.anchor_time > 0)
    {
-      string txt = "P06 " + FP_HookP06XYStateName(s.xy_state) +
-                   " " + FP_HookP06QualityBucketName(s.quality_bucket) +
-                   " score=" + DoubleToString(s.quality_score, 2) +
-                   " y=" + FP_HookP06YStateName(s.y_state);
+      string dir_short = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? "+" : "-");
+      string txt = "Q " + FP_HookP06ShortXYStateName(s.xy_state) + dir_short +
+                   " " + FP_HookP06ShortQualityBucketName(s.quality_bucket) +
+                   " " + DoubleToString(s.quality_score, 2);
 
       FP_HookP06CreateText(base + "_QUALITY_LABEL",
                            s.anchor_time, s.anchor_price,

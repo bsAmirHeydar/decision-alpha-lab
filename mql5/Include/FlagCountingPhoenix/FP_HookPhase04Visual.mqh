@@ -22,6 +22,29 @@ int FP_HookPhase04DeleteObjects(const string prefix)
    return deleted;
 }
 
+datetime FP_HookP04LatestRelevantTime(const FP_HookPhase04Record &record)
+{
+   datetime latest_time = record.p03.sequence.origin_time;
+
+   if(record.p03.sequence.last_x_time > latest_time)
+      latest_time = record.p03.sequence.last_x_time;
+   if(record.p03.y_axis.y01_time > latest_time)
+      latest_time = record.p03.y_axis.y01_time;
+   if(record.p03.y_axis.y12_time > latest_time)
+      latest_time = record.p03.y_axis.y12_time;
+   if(record.p03.y_axis.y23_time > latest_time)
+      latest_time = record.p03.y_axis.y23_time;
+   if(record.p03.y_axis.y34_time > latest_time)
+      latest_time = record.p03.y_axis.y34_time;
+   if(record.lifecycle.nd_time > latest_time)
+      latest_time = record.lifecycle.nd_time;
+   if(record.lifecycle.death_time > latest_time)
+      latest_time = record.lifecycle.death_time;
+   if(record.lifecycle.x_closure_time > latest_time)
+      latest_time = record.lifecycle.x_closure_time;
+   return latest_time;
+}
+
 string FP_HookP04BaseName(const FP_HookPhase04Config &cfg,
                           const FP_HookPhase04Record &record)
 {
@@ -141,8 +164,14 @@ bool FP_HookP04DrawOneRecord(const FP_HookPhase04Config &cfg,
 
    if(cfg.draw_thresholds)
    {
+      datetime threshold_end_time = FP_HookP04LatestRelevantTime(record);
+      if(threshold_end_time <= 0)
+         threshold_end_time = last_x_time;
+      if(threshold_end_time <= 0)
+         threshold_end_time = seq.origin_time;
+
       FP_HookP04DrawHorizontalThreshold(base, "ND_THRESHOLD",
-                                        last_x_time, TimeCurrent(),
+                                        last_x_time, threshold_end_time,
                                         life.nd_threshold_price,
                                         "ND TH",
                                         cfg.threshold_color, cfg, report);
@@ -150,13 +179,13 @@ bool FP_HookP04DrawOneRecord(const FP_HookPhase04Config &cfg,
       if(life.x_closure_threshold_price != 0.0)
          FP_HookP04DrawHorizontalThreshold(base, "X_CLOSURE_THRESHOLD",
                                            life.x_closure_reference_y_time,
-                                           TimeCurrent(),
+                                           threshold_end_time,
                                            life.x_closure_threshold_price,
                                            "X CLOSE 50%",
                                            cfg.threshold_color, cfg, report);
 
       FP_HookP04DrawHorizontalThreshold(base, "DEATH_BOUNDARY",
-                                        seq.origin_time, TimeCurrent(),
+                                        seq.origin_time, threshold_end_time,
                                         seq.origin_price,
                                         "ORIGIN/DEATH",
                                         cfg.death_color, cfg, report);
