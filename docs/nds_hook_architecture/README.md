@@ -60,7 +60,20 @@ The system should be built in layers:
 4. Closure logic
 5. Hook type classification
 6. X/Y closure quality scoring
-7. Visualization
-7. Diagnostics and audit
-8. Integration with Rally display mode
+7. Visual profile orchestration
+8. Diagnostics and audit
+9. Integration with Rally display mode
+```
+
+
+## Implemented overlays
+
+```text
+08_phase01_node_source_adapter_implementation.md
+09_phase02_cyclehook_sequence_builder_implementation.md
+10_phase03_y_axis_opposite_extremes_implementation.md
+11_phase04_nd_death_x_closure_skeleton_implementation.md
+12_phase05_hook_type_abc_classifier_implementation.md
+13_phase06_xy_closure_quality_score_implementation.md
+14_phase07_visual_profile_orchestrator_implementation.md
 ```

@@ -134,3 +134,17 @@ Acceptance:
 ```text
 Hook v1 is stable enough to feed context/zone/entry training
 ```
+
+
+## Implementation overlay note — Phase 07
+
+The current implementation sequence has one additional refinement layer before
+view finalization:
+
+```text
+Phase 06 => X/Y closure quality scoring
+Phase 07 => Visual profile orchestration for Phase 01..Phase 06
+```
+
+Phase 07 implements the planned visualization-control requirement through named
+profiles instead of scattered per-phase toggles only.

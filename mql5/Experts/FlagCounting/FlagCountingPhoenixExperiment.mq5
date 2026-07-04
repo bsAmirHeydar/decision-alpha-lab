@@ -34,6 +34,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase07Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -571,6 +572,34 @@ input color  InpHookPhase06LabelColor = clrWhite;
 input int    InpHookPhase06LineWidth = 1;
 input int    InpHookPhase06MarkerWidth = 1;
 input int    InpHookPhase06LabelFontSize = 8;
+
+// ------------------------------ NDS Hook Phase 07 --------------------------
+// Central view-profile orchestrator for Hook phases. It controls which Hook
+// layers draw together, optionally cleans stale Hook objects, and can write a
+// profile audit row. It does not trade.
+input bool   InpHookPhase07Enabled = true;
+input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_KEEP_INPUTS;
+input bool   InpHookPhase07RespectIndividualPhaseEnabled = true;
+input bool   InpHookPhase07ForceEnableRequiredPhases = true;
+input bool   InpHookPhase07ShowLabels = true;
+input bool   InpHookPhase07GlobalExportCsv = false;
+input bool   InpHookPhase07GlobalPrintSummary = false;
+input bool   InpHookPhase07GlobalPrintSamples = false;
+input bool   InpHookPhase07ExportProfileCsv = false;
+input bool   InpHookPhase07PrintSummary = false;
+input bool   InpHookPhase07CleanBeforeApply = false;
+input bool   InpHookPhase07CleanP01Objects = true;
+input bool   InpHookPhase07CleanP02Objects = true;
+input bool   InpHookPhase07CleanP03Objects = true;
+input bool   InpHookPhase07CleanP04Objects = true;
+input bool   InpHookPhase07CleanP05Objects = true;
+input bool   InpHookPhase07CleanP06Objects = true;
+input bool   InpHookPhase07CleanP07Objects = true;
+input int    InpHookPhase07MaxNodesToDraw = 500;
+input int    InpHookPhase07MaxSequencesToDraw = 120;
+input int    InpHookPhase07SampleLimit = 10;
+input string InpHookPhase07Folder = "FlagCountingPhoenix";
+input string InpHookPhase07ObjectPrefix = "DAL_HOOK_P07_";
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1506,6 +1535,40 @@ void FP_LoadHookPhase06Config(FP_HookPhase06Config &cfg)
    cfg.label_font_size = InpHookPhase06LabelFontSize;
 }
 
+
+void FP_LoadHookPhase07Config(FP_HookPhase07Config &cfg)
+{
+   FP_ResetHookPhase07Config(cfg);
+   cfg.enabled = InpHookPhase07Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.view_profile = InpHookPhase07ViewProfile;
+
+   cfg.respect_individual_phase_enabled = InpHookPhase07RespectIndividualPhaseEnabled;
+   cfg.force_enable_required_phases = InpHookPhase07ForceEnableRequiredPhases;
+   cfg.show_labels = InpHookPhase07ShowLabels;
+   cfg.global_export_csv = InpHookPhase07GlobalExportCsv;
+   cfg.global_print_summary = InpHookPhase07GlobalPrintSummary;
+   cfg.global_print_samples = InpHookPhase07GlobalPrintSamples;
+   cfg.export_profile_csv = InpHookPhase07ExportProfileCsv;
+   cfg.print_summary = InpHookPhase07PrintSummary;
+
+   cfg.clean_before_apply = InpHookPhase07CleanBeforeApply;
+   cfg.clean_p01_objects = InpHookPhase07CleanP01Objects;
+   cfg.clean_p02_objects = InpHookPhase07CleanP02Objects;
+   cfg.clean_p03_objects = InpHookPhase07CleanP03Objects;
+   cfg.clean_p04_objects = InpHookPhase07CleanP04Objects;
+   cfg.clean_p05_objects = InpHookPhase07CleanP05Objects;
+   cfg.clean_p06_objects = InpHookPhase07CleanP06Objects;
+   cfg.clean_p07_objects = InpHookPhase07CleanP07Objects;
+
+   cfg.max_nodes_to_draw = InpHookPhase07MaxNodesToDraw;
+   cfg.max_sequences_to_draw = InpHookPhase07MaxSequencesToDraw;
+   cfg.sample_limit = InpHookPhase07SampleLimit;
+
+   cfg.folder = InpHookPhase07Folder;
+   cfg.object_prefix = InpHookPhase07ObjectPrefix;
+}
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1865,6 +1928,15 @@ void FP_Run()
 
    FP_HookPhase06Config hook_phase06_cfg;
    FP_LoadHookPhase06Config(hook_phase06_cfg);
+
+   FP_HookPhase07Config hook_phase07_cfg;
+   FP_LoadHookPhase07Config(hook_phase07_cfg);
+
+   FP_HookPhase07Report hook_phase07_report;
+   FP_ApplyHookPhase07Profile(hook_phase07_cfg,
+                              hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg,
+                              hook_phase04_cfg, hook_phase05_cfg, hook_phase06_cfg,
+                              hook_phase07_report);
 
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
