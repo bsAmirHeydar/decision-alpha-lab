@@ -1,0 +1,36 @@
+{
+  "artifact": "hook_phase03_y_axis_opposite_extremes",
+  "status": "implementation_overlay",
+  "phase": "03",
+  "purpose": "Add Y-axis opposite Extreme extraction for Phase 02 CycleHook X sequences.",
+  "depends_on": [
+    "Hook Phase 01 node source adapter",
+    "Hook Phase 02 CycleHook sequence builder"
+  ],
+  "adds": [
+    "FP_HookPhase03Types.mqh",
+    "FP_HookPhase03Rules.mqh",
+    "FP_HookPhase03Visual.mqh",
+    "FP_HookPhase03Export.mqh",
+    "FP_HookPhase03Engine.mqh"
+  ],
+  "integrates_with": [
+    "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+  ],
+  "y_logic": {
+    "positive": "highest highs between O/X boundaries",
+    "negative": "lowest lows between O/X boundaries"
+  },
+  "preserves_default_rally_behavior": true,
+  "does_not_add_execution": true,
+  "deferred_to_future_phases": [
+    "ND detection",
+    "X closure",
+    "Y closure",
+    "XY closure",
+    "Hook Type A/B/C",
+    "symmetry scoring",
+    "training labels"
+  ],
+  "created_at_utc": "2026-07-04T13:23:26.838390+00:00"
+}

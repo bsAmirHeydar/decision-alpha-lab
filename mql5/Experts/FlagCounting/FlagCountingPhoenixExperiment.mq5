@@ -30,6 +30,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_RuntimeHealthSummaryEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase01Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -426,6 +427,35 @@ input color  InpHookPhase02LabelColor = clrSilver;
 input int    InpHookPhase02LineWidth = 1;
 input int    InpHookPhase02MarkerWidth = 1;
 input int    InpHookPhase02LabelFontSize = 7;
+
+// ------------------------------ NDS Hook Phase 03 --------------------------
+// Modular Y-axis opposite Extreme extractor. Phase 03 depends on Phase 01 node
+// source and Phase 02 X-sequence builder. It keeps Rally/F-counting untouched.
+input bool   InpHookPhase03Enabled = true;
+input bool   InpHookPhase03ShowPositive = true;
+input bool   InpHookPhase03ShowNegative = true;
+input bool   InpHookPhase03DrawYExtremes = true;
+input bool   InpHookPhase03DrawYLines = true;
+input bool   InpHookPhase03DrawXReference = false;
+input bool   InpHookPhase03DrawLabels = true;
+input bool   InpHookPhase03ExportCsv = false;
+input bool   InpHookPhase03PrintSummary = false;
+input bool   InpHookPhase03PrintSamples = false;
+input int    InpHookPhase03MaxBarsToScan = 0;
+input int    InpHookPhase03MaxSequences = 3000;
+input int    InpHookPhase03MaxSequencesToDraw = 120;
+input int    InpHookPhase03MinXNodesToKeep = 1;
+input int    InpHookPhase03MaxXNodesPerSequence = 4;
+input int    InpHookPhase03SampleLimit = 10;
+input string InpHookPhase03Folder = "FlagCountingPhoenix";
+input string InpHookPhase03ObjectPrefix = "DAL_HOOK_P03_";
+input color  InpHookPhase03PositiveYColor = clrDodgerBlue;
+input color  InpHookPhase03NegativeYColor = clrOrangeRed;
+input color  InpHookPhase03XReferenceColor = clrDarkGray;
+input color  InpHookPhase03LabelColor = clrSilver;
+input int    InpHookPhase03LineWidth = 1;
+input int    InpHookPhase03MarkerWidth = 1;
+input int    InpHookPhase03LabelFontSize = 7;
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1177,6 +1207,45 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
 }
 
 
+void FP_LoadHookPhase03Config(FP_HookPhase03Config &cfg)
+{
+   FP_ResetHookPhase03Config(cfg);
+   cfg.enabled = InpHookPhase03Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+
+   cfg.show_positive = InpHookPhase03ShowPositive;
+   cfg.show_negative = InpHookPhase03ShowNegative;
+
+   cfg.draw_y_extremes = InpHookPhase03DrawYExtremes;
+   cfg.draw_y_lines = InpHookPhase03DrawYLines;
+   cfg.draw_x_reference = InpHookPhase03DrawXReference;
+   cfg.draw_labels = InpHookPhase03DrawLabels;
+
+   cfg.export_csv = InpHookPhase03ExportCsv;
+   cfg.print_summary = InpHookPhase03PrintSummary;
+   cfg.print_samples = InpHookPhase03PrintSamples;
+
+   cfg.max_bars_to_scan = InpHookPhase03MaxBarsToScan;
+   cfg.max_sequences = InpHookPhase03MaxSequences;
+   cfg.max_sequences_to_draw = InpHookPhase03MaxSequencesToDraw;
+   cfg.min_x_nodes_to_keep = InpHookPhase03MinXNodesToKeep;
+   cfg.max_x_nodes_per_sequence = InpHookPhase03MaxXNodesPerSequence;
+   cfg.sample_limit = InpHookPhase03SampleLimit;
+
+   cfg.folder = InpHookPhase03Folder;
+   cfg.object_prefix = InpHookPhase03ObjectPrefix;
+
+   cfg.positive_y_color = InpHookPhase03PositiveYColor;
+   cfg.negative_y_color = InpHookPhase03NegativeYColor;
+   cfg.x_reference_color = InpHookPhase03XReferenceColor;
+   cfg.label_color = InpHookPhase03LabelColor;
+
+   cfg.line_width = InpHookPhase03LineWidth;
+   cfg.marker_width = InpHookPhase03MarkerWidth;
+   cfg.label_font_size = InpHookPhase03LabelFontSize;
+}
+
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1525,6 +1594,9 @@ void FP_Run()
    FP_HookPhase02Config hook_phase02_cfg;
    FP_LoadHookPhase02Config(hook_phase02_cfg);
 
+   FP_HookPhase03Config hook_phase03_cfg;
+   FP_LoadHookPhase03Config(hook_phase03_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1621,6 +1693,10 @@ void FP_Run()
    FP_HookPhase02Report hook_phase02_report;
    FP_RunHookPhase02(_Symbol, _Period, rates, copied, scales, scale_count,
                      hook_phase01_cfg, hook_phase02_cfg, hook_phase02_report);
+
+   FP_HookPhase03Report hook_phase03_report;
+   FP_RunHookPhase03(_Symbol, _Period, rates, copied, scales, scale_count,
+                     hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase03_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);
@@ -1893,6 +1969,8 @@ void FP_CleanupChartObjectsForLifecycle(const int reason)
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
       FP_HookPhase01DeleteObjects(InpHookPhase01ObjectPrefix);
       FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
+      FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
+      FP_HookPhase03DeleteObjects(InpHookPhase03ObjectPrefix);
       FP_HookPhase02DeleteObjects(InpHookPhase02ObjectPrefix);
    }
 
