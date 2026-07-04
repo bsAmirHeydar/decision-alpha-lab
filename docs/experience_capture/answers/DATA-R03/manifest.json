@@ -1,0 +1,51 @@
+{
+  "question_code": "DATA-R03",
+  "language": "en",
+  "topic": "Layered training, knowledge consolidation, context-zone-entry training stages, human inspectability, and training as reusable capital",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "layered_training_curriculum",
+    "context_first_training",
+    "zone_after_context_training",
+    "entry_after_context_zone_training",
+    "context_fractal_layer",
+    "zone_fractal_layer",
+    "entry_single_timeframe_layer",
+    "trained_knowledge_artifact",
+    "knowledge_consolidation",
+    "knowledge_freeze_state",
+    "human_inspectable_learning",
+    "training_as_capital"
+  ],
+  "proposed_datasets": [
+    "layered_training_curriculum_v1.csv",
+    "context_training_stage_v1.csv",
+    "zone_training_stage_v1.csv",
+    "entry_training_stage_v1.csv",
+    "trained_knowledge_registry_v1.csv",
+    "knowledge_consolidation_policy_v1.csv",
+    "knowledge_freeze_state_v1.csv",
+    "human_inspection_training_report_v1.csv",
+    "layer_dependency_model_v1.csv",
+    "algorithm_optimization_report_v1.csv",
+    "context_error_taxonomy_v1.csv",
+    "zone_error_taxonomy_v1.csv",
+    "entry_error_taxonomy_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Layered Training Orchestrator",
+    "Context Training Engine",
+    "Context Knowledge Consolidator",
+    "Zone Training Engine",
+    "Zone Knowledge Consolidator",
+    "Entry Training Engine",
+    "Entry Knowledge Consolidator",
+    "Human-Readable Learning Reporter",
+    "Layer Error Analyzer",
+    "Algorithm Optimization Loop",
+    "Knowledge Registry Manager"
+  ],
+  "created_at_utc": "2026-07-04T12:35:45.301509+00:00"
+}
