@@ -1,0 +1,37 @@
+{
+  "question_code": "ENT-R03",
+  "language": "en",
+  "topic": "Pending limit lifecycle, reason integrity, cancel/delete policy, missed and replace policy",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "pending_limit_lives_while_reasons_valid",
+    "trade_reason_integrity",
+    "reason_based_pending_order_lifecycle",
+    "structural_expiration",
+    "pending_limit_delete_by_reason_failure",
+    "pending_limit_cancel_policy",
+    "missed_entry_open_policy",
+    "replace_entry_open_policy"
+  ],
+  "proposed_datasets": [
+    "pending_limit_state_machine_v1.csv",
+    "cancel_policy_v1.csv",
+    "missed_entry_policy_v1.csv",
+    "replace_entry_policy_v1.csv",
+    "pending_order_structural_expiration_v1.csv",
+    "reason_integrity_pending_order_model_v1.csv",
+    "pending_limit_lifecycle_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Pending Limit Reason Integrity Tracker",
+    "Pending Limit State Machine",
+    "Pending Limit Cancel Router",
+    "Structural Expiration Detector",
+    "Missed Entry Classifier",
+    "Replace Entry Policy Learner",
+    "Pending Limit Lifecycle Auditor"
+  ],
+  "created_at_utc": "2026-07-04T09:26:02.443957+00:00"
+}
