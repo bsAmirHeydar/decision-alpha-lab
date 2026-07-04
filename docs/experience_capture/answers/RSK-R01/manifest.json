@@ -1,0 +1,44 @@
+{
+  "question_code": "RSK-R01",
+  "language": "en",
+  "topic": "Risk budgeting across context, zone, and entry levels; aggregate risk tolerance; risk/reward scoring; trainable risk allocation",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "hierarchical_risk_budget",
+    "context_risk_cost",
+    "zone_risk_cost",
+    "entry_risk_cost",
+    "aggregate_risk_tolerance",
+    "risk_reward_scoring",
+    "clean_vs_expensive_context",
+    "clean_vs_expensive_zone",
+    "clean_vs_expensive_entry",
+    "trainable_risk_allocation"
+  ],
+  "proposed_datasets": [
+    "risk_budget_per_opportunity_set_v1.csv",
+    "risk_allocation_policy_v1.csv",
+    "context_risk_cost_model_v1.csv",
+    "zone_risk_cost_model_v1.csv",
+    "entry_risk_cost_model_v1.csv",
+    "risk_reward_tolerance_model_v1.csv",
+    "risk_score_model_v1.csv",
+    "aggregate_risk_profile_v1.csv",
+    "risk_veto_policy_v1.csv",
+    "risk_family_performance_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Context Risk Cost Learner",
+    "Zone Risk Cost Learner",
+    "Entry Risk Cost Learner",
+    "Aggregate Risk Tolerance Model",
+    "Risk-to-Reward Scorer",
+    "Risk Budget Allocator",
+    "Risk Veto Router",
+    "Risk Family Performance Evaluator",
+    "Opportunity Risk Ledger Builder"
+  ],
+  "created_at_utc": "2026-07-04T11:37:54.169001+00:00"
+}
