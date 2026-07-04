@@ -1,0 +1,42 @@
+{
+  "question_code": "SCN-R03",
+  "language": "en",
+  "topic": "Scenario ranking, convex opportunity set, multi-zone selection, potential-first ranking, and post-convexity win rate",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "convex_opportunity_set",
+    "scenario_thread",
+    "potential_over_correctness",
+    "convexity_before_win_rate",
+    "multi_zone_coexistence",
+    "conditional_long_short_plans",
+    "cost_to_potential_ranking",
+    "post_convexity_win_rate",
+    "risk_budget_per_zone"
+  ],
+  "proposed_datasets": [
+    "scenario_ranking_model_v1.csv",
+    "multi_zone_selection_policy_v1.csv",
+    "scenario_veto_policy_v1.csv",
+    "risk_budget_per_zone_v1.csv",
+    "conditional_scenario_plan_v1.csv",
+    "convex_opportunity_set_v1.csv",
+    "post_convexity_winrate_model_v1.csv",
+    "scenario_thread_outcome_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Convex Opportunity Set Builder",
+    "Scenario Thread Builder",
+    "Scenario Convexity Scorer",
+    "Cost-to-Potential Ranker",
+    "Reward Path Openness Scorer",
+    "Multi-Zone Selection Policy",
+    "Risk Budget Allocator",
+    "Conditional Plan Router",
+    "Scenario Veto Model",
+    "Post-Convexity Win Rate Evaluator",
+    "Scenario Rank Update Engine"
+  ]
+}
