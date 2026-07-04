@@ -2,27 +2,28 @@
 
 ## Captured Records
 
-### NDS-R03 — Node Identity, Role, Cluster, and Replacement
+### SCN-R01 — Context Power, Position, and Constraint Exploitability
 
 Path:
 
 ```text
-docs/experience_capture/answers/NDS-R03/
+docs/experience_capture/answers/SCN-R01/
 ```
 
 Summary:
 
-Nodes are stable NDS objects. They exist as structural identities, and Hook/Rally/CycleHook definitions assign them different roles with different validity levels. There is no leniency in node rules: identity and validity must be strict. A node may become invalid in a specific role, but the node object remains in history. Nearby nodes should preserve separate identities and may be grouped only through derived clusters. Nodes appearing in multiple sequences keep one node ID with multiple sequence-role mappings.
+Context power in NDS is not merely a strength score. The system must first identify structural position across Hook/Rally, bullish/bearish interpretations, and fractal parent-child scales. Then it must identify which NDS constraints exist in that position and whether those constraints are exploitable with low risk and high reward. X closure usually provides reversal power, Y closure improves zone precision and momentary energy, multiple closed sequences increase power, and symmetry confluence can promote a region into a trade zone or an entry Extreme. Higher timeframe remains dominant, while lower timeframe refines how the higher timeframe map is executed. Final output must include position, constraint strength, exploitability, zone promotion, optionality, and entry permission—not just raw context power.
 
 Main derived architecture requirements:
 
 ```text
-node_identity_model_v1.csv
-node_role_taxonomy_v1.csv
-node_state_machine_v1.csv
-node_cluster_policy_v1.csv
-node_replacement_policy_v1.csv
-node_l_view_presence_v1.csv
-node_sequence_membership_v1.csv
-fractal_node_relation_v1.csv
+context_power_model_v1.csv
+position_constraint_model_v1.csv
+scenario_ranking_v1.csv
+parent_child_context_dominance_v1.csv
+context_to_zone_promotion_policy_v1.csv
+constraint_exploitability_training_v1.csv
+symmetry_confluence_zone_v1.csv
+open_one_two_destination_v1.csv
+destination_optionality_model_v1.csv
 ```

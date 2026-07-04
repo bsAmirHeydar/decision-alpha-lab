@@ -1,0 +1,46 @@
+{
+  "question_code": "SCN-R01",
+  "language": "en",
+  "topic": "Context power, position, constraint exploitability, zone promotion, destination optionality, and parent-child dominance",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "position_before_power",
+    "constraint_exploitability",
+    "context_zone_entry_layers",
+    "x_closure_reversal_power",
+    "y_closure_zone_precision",
+    "xy_closure_higher_reversal_probability",
+    "multi_sequence_confluence",
+    "symmetry_confluence_zone",
+    "open_one_two_destination",
+    "destination_optionality",
+    "parent_context_dominant_child_refines"
+  ],
+  "proposed_datasets": [
+    "context_power_model_v1.csv",
+    "position_constraint_model_v1.csv",
+    "scenario_ranking_v1.csv",
+    "parent_child_context_dominance_v1.csv",
+    "context_to_zone_promotion_policy_v1.csv",
+    "constraint_exploitability_training_v1.csv",
+    "symmetry_confluence_zone_v1.csv",
+    "open_one_two_destination_v1.csv",
+    "destination_optionality_model_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Position State Builder",
+    "Constraint Set Builder",
+    "Constraint Exploitability Model",
+    "Context Power Scorer",
+    "X/Y Closure Weight Learner",
+    "Multi-Sequence Confluence Scorer",
+    "Symmetry Confluence Zone Promoter",
+    "Open One-Two Destination Detector",
+    "Destination Optionality Scorer",
+    "Parent-Child Context Mapper",
+    "Context-to-Zone Promotion Model",
+    "Entry Permission Router"
+  ]
+}
