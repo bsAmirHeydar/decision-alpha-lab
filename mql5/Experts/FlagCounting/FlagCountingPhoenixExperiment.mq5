@@ -33,6 +33,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -525,6 +526,51 @@ input color  InpHookPhase05LabelColor = clrWhite;
 input int    InpHookPhase05LineWidth = 1;
 input int    InpHookPhase05MarkerWidth = 1;
 input int    InpHookPhase05LabelFontSize = 8;
+
+// ------------------------------ NDS Hook Phase 06 --------------------------
+// Modular X/Y closure strength and structural quality scoring. It uses Phase
+// 05 Type A/B/C records plus Phase 04 lifecycle and Phase 03 Y-axis evidence.
+// Still visualization and diagnostics only.
+input bool   InpHookPhase06Enabled = true;
+input bool   InpHookPhase06ShowPositive = true;
+input bool   InpHookPhase06ShowNegative = true;
+input bool   InpHookPhase06DrawQualityLabel = true;
+input bool   InpHookPhase06DrawXYAnchor = true;
+input bool   InpHookPhase06DrawProjectionLines = true;
+input bool   InpHookPhase06DrawLabels = true;
+input bool   InpHookPhase06ExportCsv = false;
+input bool   InpHookPhase06PrintSummary = false;
+input bool   InpHookPhase06PrintSamples = false;
+input bool   InpHookPhase06IncludeDeadRecords = true;
+input bool   InpHookPhase06RequireXClosedForXY = true;
+input int    InpHookPhase06MaxBarsToScan = 0;
+input int    InpHookPhase06MaxSequences = 3000;
+input int    InpHookPhase06MaxSequencesToDraw = 120;
+input int    InpHookPhase06MinXNodesToKeep = 1;
+input int    InpHookPhase06MaxXNodesPerSequence = 4;
+input int    InpHookPhase06MinXNodesForQuality = 3;
+input int    InpHookPhase06MinYComparisonsForClosed = 2;
+input int    InpHookPhase06SampleLimit = 10;
+input double InpHookPhase06XWeight = 0.30;
+input double InpHookPhase06YWeight = 0.30;
+input double InpHookPhase06TypeWeight = 0.20;
+input double InpHookPhase06LifecycleWeight = 0.20;
+input double InpHookPhase06EliteThreshold = 0.80;
+input double InpHookPhase06HighThreshold = 0.65;
+input double InpHookPhase06MediumThreshold = 0.45;
+input double InpHookPhase06LowThreshold = 0.25;
+input string InpHookPhase06Folder = "FlagCountingPhoenix";
+input string InpHookPhase06ObjectPrefix = "DAL_HOOK_P06_";
+input color  InpHookPhase06XYClosedColor = clrLime;
+input color  InpHookPhase06XOnlyColor = clrViolet;
+input color  InpHookPhase06YOnlyColor = clrDeepSkyBlue;
+input color  InpHookPhase06OpenColor = clrOrange;
+input color  InpHookPhase06InsufficientColor = clrGray;
+input color  InpHookPhase06ProjectionColor = clrSlateGray;
+input color  InpHookPhase06LabelColor = clrWhite;
+input int    InpHookPhase06LineWidth = 1;
+input int    InpHookPhase06MarkerWidth = 1;
+input int    InpHookPhase06LabelFontSize = 8;
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -1404,6 +1450,62 @@ void FP_LoadHookPhase05Config(FP_HookPhase05Config &cfg)
 }
 
 
+
+void FP_LoadHookPhase06Config(FP_HookPhase06Config &cfg)
+{
+   FP_ResetHookPhase06Config(cfg);
+   cfg.enabled = InpHookPhase06Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+
+   cfg.show_positive = InpHookPhase06ShowPositive;
+   cfg.show_negative = InpHookPhase06ShowNegative;
+
+   cfg.draw_quality_label = InpHookPhase06DrawQualityLabel;
+   cfg.draw_xy_anchor = InpHookPhase06DrawXYAnchor;
+   cfg.draw_projection_lines = InpHookPhase06DrawProjectionLines;
+   cfg.draw_labels = InpHookPhase06DrawLabels;
+
+   cfg.export_csv = InpHookPhase06ExportCsv;
+   cfg.print_summary = InpHookPhase06PrintSummary;
+   cfg.print_samples = InpHookPhase06PrintSamples;
+
+   cfg.include_dead_records = InpHookPhase06IncludeDeadRecords;
+   cfg.require_x_closed_for_xy = InpHookPhase06RequireXClosedForXY;
+
+   cfg.max_bars_to_scan = InpHookPhase06MaxBarsToScan;
+   cfg.max_sequences = InpHookPhase06MaxSequences;
+   cfg.max_sequences_to_draw = InpHookPhase06MaxSequencesToDraw;
+   cfg.min_x_nodes_to_keep = InpHookPhase06MinXNodesToKeep;
+   cfg.max_x_nodes_per_sequence = InpHookPhase06MaxXNodesPerSequence;
+   cfg.min_x_nodes_for_quality = InpHookPhase06MinXNodesForQuality;
+   cfg.min_y_comparisons_for_closed = InpHookPhase06MinYComparisonsForClosed;
+   cfg.sample_limit = InpHookPhase06SampleLimit;
+
+   cfg.x_weight = InpHookPhase06XWeight;
+   cfg.y_weight = InpHookPhase06YWeight;
+   cfg.type_weight = InpHookPhase06TypeWeight;
+   cfg.lifecycle_weight = InpHookPhase06LifecycleWeight;
+   cfg.elite_threshold = InpHookPhase06EliteThreshold;
+   cfg.high_threshold = InpHookPhase06HighThreshold;
+   cfg.medium_threshold = InpHookPhase06MediumThreshold;
+   cfg.low_threshold = InpHookPhase06LowThreshold;
+
+   cfg.folder = InpHookPhase06Folder;
+   cfg.object_prefix = InpHookPhase06ObjectPrefix;
+
+   cfg.xy_closed_color = InpHookPhase06XYClosedColor;
+   cfg.x_only_color = InpHookPhase06XOnlyColor;
+   cfg.y_only_color = InpHookPhase06YOnlyColor;
+   cfg.open_color = InpHookPhase06OpenColor;
+   cfg.insufficient_color = InpHookPhase06InsufficientColor;
+   cfg.projection_color = InpHookPhase06ProjectionColor;
+   cfg.label_color = InpHookPhase06LabelColor;
+
+   cfg.line_width = InpHookPhase06LineWidth;
+   cfg.marker_width = InpHookPhase06MarkerWidth;
+   cfg.label_font_size = InpHookPhase06LabelFontSize;
+}
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -1761,6 +1863,9 @@ void FP_Run()
    FP_HookPhase05Config hook_phase05_cfg;
    FP_LoadHookPhase05Config(hook_phase05_cfg);
 
+   FP_HookPhase06Config hook_phase06_cfg;
+   FP_LoadHookPhase06Config(hook_phase06_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1869,6 +1974,10 @@ void FP_Run()
    FP_HookPhase05Report hook_phase05_report;
    FP_RunHookPhase05(_Symbol, _Period, rates, copied, scales, scale_count,
                      hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase04_cfg, hook_phase05_cfg, hook_phase05_report);
+
+   FP_HookPhase06Report hook_phase06_report;
+   FP_RunHookPhase06(_Symbol, _Period, rates, copied, scales, scale_count,
+                     hook_phase01_cfg, hook_phase02_cfg, hook_phase03_cfg, hook_phase04_cfg, hook_phase05_cfg, hook_phase06_cfg, hook_phase06_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);

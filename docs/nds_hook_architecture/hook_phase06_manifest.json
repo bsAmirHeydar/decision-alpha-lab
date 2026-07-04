@@ -1,0 +1,46 @@
+{
+  "artifact": "hook_phase06_xy_closure_quality_score",
+  "status": "implementation_overlay",
+  "phase": "06",
+  "purpose": "Add X/Y closure-strength scoring and structural quality buckets using Phase 03 Y-axis, Phase 04 lifecycle and Phase 05 Hook Type A/B/C records.",
+  "depends_on": [
+    "Hook Phase 01 node source adapter",
+    "Hook Phase 02 CycleHook sequence builder",
+    "Hook Phase 03 Y-axis opposite Extremes",
+    "Hook Phase 04 ND/death/X closure skeleton",
+    "Hook Phase 05 Hook Type A/B/C classifier"
+  ],
+  "adds": [
+    "FP_HookPhase06Types.mqh",
+    "FP_HookPhase06Rules.mqh",
+    "FP_HookPhase06Visual.mqh",
+    "FP_HookPhase06Export.mqh",
+    "FP_HookPhase06Engine.mqh"
+  ],
+  "integrates_with": [
+    "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+  ],
+  "xy_logic": {
+    "positive_y_closure": "Y12 < Y01 and Y23 < Y12, optionally Y34 < Y23",
+    "negative_y_closure": "Y12 > Y01 and Y23 > Y12, optionally Y34 > Y23",
+    "xy_closed": "x_closed and y_closed",
+    "default_requires_real_x_closed": true
+  },
+  "quality_score_components": [
+    "x_strength",
+    "y_strength",
+    "type_strength",
+    "lifecycle_strength"
+  ],
+  "preserves_default_rally_behavior": true,
+  "does_not_add_execution": true,
+  "deferred_to_future_phases": [
+    "symmetry projection",
+    "adaptive ND thresholding",
+    "adaptive Extreme width",
+    "context/zone/entry labels",
+    "training labels",
+    "execution logic"
+  ],
+  "created_at_utc": "2026-07-04T00:00:00Z"
+}

@@ -1,9 +1,9 @@
 {
   "artifact": "nds_hook_architecture_design",
   "purpose": "Freeze Hook / CycleHook architecture and implementation phases before adding Hook display to the central F-counting expert.",
-  "status": "design_only",
+  "status": "design_and_implementation_overlays",
   "docs_path": "docs/nds_hook_architecture",
-  "does_not_modify_code": true,
+  "does_not_modify_code": false,
   "does_not_modify_rally_behavior": true,
   "planned_display_modes": [
     "RALLY_ONLY",
@@ -16,6 +16,7 @@
     "X/Y extraction",
     "closure and ND/death lifecycle",
     "Hook Type A/B/C classifier",
+    "X/Y closure quality scoring",
     "Hook visualization",
     "diagnostic audit",
     "MQL5 integration contract"

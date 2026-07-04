@@ -59,7 +59,8 @@ The system should be built in layers:
 3. X/Y extraction
 4. Closure logic
 5. Hook type classification
-6. Visualization
+6. X/Y closure quality scoring
+7. Visualization
 7. Diagnostics and audit
 8. Integration with Rally display mode
 ```
