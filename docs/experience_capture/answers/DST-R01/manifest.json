@@ -1,0 +1,40 @@
+{
+  "question_code": "DST-R01",
+  "language": "en",
+  "topic": "Destination taxonomy, later F-counting destinations, open one-two path structures, higher Hook counting, trainable destination policy, and profit openness",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "destination_candidate_set",
+    "later_f_counting_destination",
+    "open_one_two_destination",
+    "higher_hook_counting_destination",
+    "destination_uncertainty",
+    "destination_trainable_policy",
+    "profit_openness_destination",
+    "destination_family_performance"
+  ],
+  "proposed_datasets": [
+    "destination_taxonomy_v1.csv",
+    "open_one_two_destination_model_v1.csv",
+    "higher_hook_counting_destination_model_v1.csv",
+    "destination_candidate_set_v1.csv",
+    "destination_trainable_policy_v1.csv",
+    "profit_openness_destination_model_v1.csv",
+    "destination_uncertainty_model_v1.csv",
+    "destination_family_performance_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Destination Candidate Builder",
+    "F-Counting Destination Detector",
+    "Open One-Two Destination Detector",
+    "Higher Hook Counting Destination Model",
+    "Destination Weighting Model",
+    "Destination Openness Scorer",
+    "Destination Repricing Engine",
+    "Destination Family Performance Evaluator",
+    "Profit Openness Destination Policy Learner"
+  ],
+  "created_at_utc": "2026-07-04T11:05:47.479791+00:00"
+}
