@@ -1,0 +1,39 @@
+{
+  "question_code": "NDS-R03",
+  "language": "en",
+  "topic": "Node identity, role assignment, role-specific validity, clustering, replacement, and sequence membership",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "stable_node_identity",
+    "contextual_node_role",
+    "role_specific_node_validity",
+    "strict_node_rules_no_leniency",
+    "node_cluster_as_derived_grouping",
+    "l_view_dependent_replacement",
+    "multi_sequence_node_membership",
+    "fractal_node_relation"
+  ],
+  "proposed_datasets": [
+    "node_identity_model_v1.csv",
+    "node_role_taxonomy_v1.csv",
+    "node_state_machine_v1.csv",
+    "node_cluster_policy_v1.csv",
+    "node_replacement_policy_v1.csv",
+    "node_l_view_presence_v1.csv",
+    "node_sequence_membership_v1.csv",
+    "fractal_node_relation_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Node Identity Builder",
+    "Node Role Assigner",
+    "Node Role Validity Tracker",
+    "Node Cluster Builder",
+    "Node L-View Presence Tracker",
+    "Node Replacement Mapper",
+    "Node Sequence Membership Mapper",
+    "Fractal Node Relation Builder",
+    "Node Audit Renderer"
+  ]
+}

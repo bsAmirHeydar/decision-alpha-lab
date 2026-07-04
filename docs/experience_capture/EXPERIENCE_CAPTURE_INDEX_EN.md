@@ -2,26 +2,27 @@
 
 ## Captured Records
 
-### NDS-R02 — CycleHook Lifecycle and Sequence Model
+### NDS-R03 — Node Identity, Role, Cluster, and Replacement
 
 Path:
 
 ```text
-docs/experience_capture/answers/NDS-R02/
+docs/experience_capture/answers/NDS-R03/
 ```
 
 Summary:
 
-Hook and Cycle are the same algorithmic object in NDS. A CycleHook starts from a valid node, moves toward an opposite Extreme, and later returns toward the origin into ND. Positive CycleHooks count descending valleys; negative CycleHooks count ascending peaks. Each CycleHook contains multiple sequences, each with local numbering and X/Y readings. L starts at 2 and increases until sequence node count is four or less, with separate fixed-origin and recalculated-origin views. Closure requires a sequence reaching three or four nodes plus more than 50% return toward the origin; symmetry is not required but helps project reversal zones and refine entries. Hook types A/B/C classify the broader structure, while X/Y closure scores internal sequence strength.
+Nodes are stable NDS objects. They exist as structural identities, and Hook/Rally/CycleHook definitions assign them different roles with different validity levels. There is no leniency in node rules: identity and validity must be strict. A node may become invalid in a specific role, but the node object remains in history. Nearby nodes should preserve separate identities and may be grouped only through derived clusters. Nodes appearing in multiple sequences keep one node ID with multiple sequence-role mappings.
 
 Main derived architecture requirements:
 
 ```text
-cyclehook_lifecycle_state_model_v1.csv
-hook_sequence_model_v1.csv
-x_sequence_y_sequence_model_v1.csv
-adaptive_l_coefficient_policy_v1.csv
-hook_type_abc_classifier_v1.csv
-symmetry_projection_model_v1.csv
-nd_threshold_policy_v1.csv
+node_identity_model_v1.csv
+node_role_taxonomy_v1.csv
+node_state_machine_v1.csv
+node_cluster_policy_v1.csv
+node_replacement_policy_v1.csv
+node_l_view_presence_v1.csv
+node_sequence_membership_v1.csv
+fractal_node_relation_v1.csv
 ```
