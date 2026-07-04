@@ -1,0 +1,40 @@
+{
+  "question_code": "SCN-R04",
+  "language": "en",
+  "topic": "Scenario update, constraint integrity, repricing, death, watchlist, veto, and relative weight updates",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "scenario_born_from_constraints",
+    "constraint_integrity_score",
+    "relative_scenario_weight",
+    "scenario_repricing",
+    "scenario_death_by_constraint_break",
+    "veto_vs_death",
+    "watchlist_alive_not_tradeable",
+    "scenario_state_transition_audit"
+  ],
+  "proposed_datasets": [
+    "scenario_state_machine_v1.csv",
+    "scenario_repricing_policy_v1.csv",
+    "scenario_death_policy_v1.csv",
+    "scenario_watchlist_policy_v1.csv",
+    "scenario_to_position_transition_v1.csv",
+    "constraint_integrity_model_v1.csv",
+    "scenario_weight_update_model_v1.csv",
+    "scenario_state_transition_ledger_v1.csv",
+    "scenario_relative_comparison_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Scenario Constraint Integrity Tracker",
+    "Scenario Relative Weight Updater",
+    "Scenario Repricing Engine",
+    "Scenario State Machine",
+    "Scenario Death Detector",
+    "Scenario Watchlist Router",
+    "Scenario Veto Router",
+    "Convex Opportunity Set Re-Ranker",
+    "Scenario State Transition Auditor"
+  ]
+}
