@@ -1,18 +1,6 @@
 # Experience Capture
 
-This folder stores Amir's raw trading experience answers, chart examples, normalized interpretations, open questions, and future AI/architecture mapping.
-
-Questions are stored under:
-
-```text
-docs/experience_capture/questions/
-```
-
-Answers are stored under:
-
-```text
-docs/experience_capture/answers/
-```
+This folder stores Amir's raw trading experience answers, normalized interpretations, open questions, and future AI/architecture mapping.
 
 Each answered question should have its own folder:
 
@@ -25,5 +13,3 @@ docs/experience_capture/answers/<QUESTION_CODE>/
   manifest.json
   images/
 ```
-
-The purpose is to preserve the original human trading experience and gradually convert it into hard rules, features, labels, tests, AI model inputs, execution policies, and backtest requirements.

@@ -1,0 +1,39 @@
+{
+  "question_code": "NDS-R01",
+  "language": "en",
+  "topic": "Canonical NDS object model, axes, fractality, timeframe dominance, and symmetry",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "x_axis_hook_node_counting",
+    "y_axis_rally_f_counting",
+    "fractal_scale_application",
+    "higher_timeframe_dominance",
+    "f2_greater_or_equal_f1",
+    "hook_1_2_3_symmetry",
+    "hook_4_extension_beyond_symmetry",
+    "symmetry_for_zone_entry_extreme_precision",
+    "canonical_state_packet_v1"
+  ],
+  "proposed_datasets": [
+    "nds_object_model_v1.csv",
+    "canonical_state_packet_v1.csv",
+    "nds_axis_state_v1.csv",
+    "fractal_scale_context_v1.csv",
+    "hook_node_counting_state_v1.csv",
+    "rally_f_counting_state_v1.csv",
+    "symmetry_feature_ledger_v1.csv",
+    "timeframe_dominance_ledger_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "NDS Object Builder",
+    "Axis State Builder",
+    "Fractal Scale Mapper",
+    "Timeframe Dominance Annotator",
+    "Symmetry Feature Builder",
+    "Symmetry Usefulness Tester",
+    "Canonical State Packet Exporter",
+    "NDS Object Schema Validator"
+  ]
+}
