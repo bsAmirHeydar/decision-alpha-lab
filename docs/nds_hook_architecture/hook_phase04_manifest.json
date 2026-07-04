@@ -1,0 +1,37 @@
+{
+  "artifact": "hook_phase04_nd_death_x_closure_skeleton",
+  "status": "implementation_overlay",
+  "phase": "04",
+  "purpose": "Add ND candidate, origin return penetration/death lifecycle marker, and 50% X closure skeleton on top of Phase 03 Y-axis records.",
+  "depends_on": [
+    "Hook Phase 01 node source adapter",
+    "Hook Phase 02 CycleHook sequence builder",
+    "Hook Phase 03 Y-axis opposite Extremes"
+  ],
+  "adds": [
+    "FP_HookPhase04Types.mqh",
+    "FP_HookPhase04Rules.mqh",
+    "FP_HookPhase04Visual.mqh",
+    "FP_HookPhase04Export.mqh",
+    "FP_HookPhase04Engine.mqh"
+  ],
+  "integrates_with": [
+    "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+  ],
+  "lifecycle_logic": {
+    "nd_candidate": "50 percent return from latest X toward origin by default",
+    "death": "return passing origin boundary",
+    "x_closure": "50 percent retracement from latest Y reference toward origin with x_count >= 3 by default"
+  },
+  "preserves_default_rally_behavior": true,
+  "does_not_add_execution": true,
+  "deferred_to_future_phases": [
+    "Hook Type A/B/C",
+    "Y closure strength",
+    "XY closure",
+    "symmetry scoring",
+    "quality labels",
+    "training labels"
+  ],
+  "created_at_utc": "2026-07-04T13:33:46.517107+00:00"
+}
