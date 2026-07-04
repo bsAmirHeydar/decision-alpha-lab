@@ -54,7 +54,8 @@ enum FP_HookPhase02NodeLabelMode
 {
    FP_HOOK_P02_NODE_LABEL_FULL = 0,
    FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO = 1,
-   FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O = 2
+   FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O = 2,
+   FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN = 3
 };
 
 struct FP_HookPhase02Config
@@ -80,6 +81,7 @@ struct FP_HookPhase02Config
    bool color_origin_with_sequence;
    bool color_node_labels_with_sequence;
    bool minimal_numbers_only;
+   bool use_minimal_node_markers;
 
    bool export_csv;
    bool print_summary;
@@ -88,6 +90,8 @@ struct FP_HookPhase02Config
    int max_bars_to_scan;
    int max_sequences;
    int max_sequences_to_draw;
+   int min_x_count_to_draw;
+   int arc_min_x_count_to_draw;
    int sequence_draw_scale_l;
    int sequence_draw_direction;
    int sequence_draw_sequence_id;
@@ -95,6 +99,9 @@ struct FP_HookPhase02Config
    int max_x_nodes_per_sequence;
    int sample_limit;
    int cycle_arc_segments;
+   int cycle_arc_max_height_points;
+   int node_number_offset_points;
+   int minimal_node_marker_arrow_code;
 
    double cycle_arc_height_ratio;
 
@@ -233,6 +240,7 @@ string FP_HookP02NodeLabelModeName(const FP_HookPhase02NodeLabelMode m)
    if(m == FP_HOOK_P02_NODE_LABEL_FULL) return "FULL";
    if(m == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO) return "NUMBERS_FROM_ZERO";
    if(m == FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O) return "NUMBERS_WITH_O";
+   if(m == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN) return "NUMBERS_FROM_ONE_HIDE_ORIGIN";
    return "UNKNOWN_NODE_LABEL_MODE";
 }
 
@@ -242,7 +250,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.display_family = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
    cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
    cfg.sequence_draw_mode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
-   cfg.node_label_mode = FP_HOOK_P02_NODE_LABEL_FULL;
+   cfg.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
@@ -259,6 +267,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.color_origin_with_sequence = false;
    cfg.color_node_labels_with_sequence = false;
    cfg.minimal_numbers_only = false;
+   cfg.use_minimal_node_markers = false;
 
    cfg.export_csv = false;
    cfg.print_summary = false;
@@ -267,6 +276,8 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.max_bars_to_scan = 0;
    cfg.max_sequences = 3000;
    cfg.max_sequences_to_draw = 6;
+   cfg.min_x_count_to_draw = 1;
+   cfg.arc_min_x_count_to_draw = 1;
    cfg.sequence_draw_scale_l = 0;
    cfg.sequence_draw_direction = 0;
    cfg.sequence_draw_sequence_id = -1;
@@ -274,6 +285,9 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.max_x_nodes_per_sequence = 4;
    cfg.sample_limit = 10;
    cfg.cycle_arc_segments = 16;
+   cfg.cycle_arc_max_height_points = 0;
+   cfg.node_number_offset_points = 20;
+   cfg.minimal_node_marker_arrow_code = 159;
 
    cfg.cycle_arc_height_ratio = 0.35;
 

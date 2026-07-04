@@ -65,7 +65,28 @@ string FP_HookP02NodeDisplayLabel(const FP_HookPhase02Config &cfg,
          return "O";
       return IntegerToString(point_index);
    }
+   if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN)
+   {
+      if(point_index == 0)
+         return "";
+      return IntegerToString(point_index);
+   }
    return fallback_label;
+}
+
+double FP_HookP02NodeLabelPrice(const FP_HookPhase02Config &cfg,
+                                const FP_HookPhase02Sequence &seq,
+                                const double price,
+                                const int point_index)
+{
+   if(cfg.node_number_offset_points <= 0)
+      return price;
+
+   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
+   if(point_index == 0)
+      sign *= 1.25;
+
+   return price + sign * _Point * (double)cfg.node_number_offset_points;
 }
 
 string FP_HookP02BaseName(const FP_HookPhase02Config &cfg,
@@ -348,8 +369,9 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
 
    if(cfg.draw_origin)
    {
+      int origin_arrow_code = (cfg.use_minimal_node_markers ? cfg.minimal_node_marker_arrow_code : 159);
       FP_HookP02CreateArrow(base + "_ORIGIN", seq.origin_time, seq.origin_price,
-                            origin_marker_color, 159, cfg.marker_width + 1, report);
+                            origin_marker_color, origin_arrow_code, cfg.marker_width + 1, report);
    }
 
    if(cfg.draw_labels && !cfg.minimal_numbers_only)
@@ -367,8 +389,12 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
    {
       color origin_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
       string origin_label = FP_HookP02NodeDisplayLabel(cfg, 0, "O");
-      FP_HookP02CreateText(base + "_ORIGIN_NODE_LABEL", seq.origin_time, seq.origin_price,
-                           origin_label, origin_label_color, cfg.label_font_size, report);
+      if(origin_label != "")
+      {
+         double origin_label_price = FP_HookP02NodeLabelPrice(cfg, seq, seq.origin_price, 0);
+         FP_HookP02CreateText(base + "_ORIGIN_NODE_LABEL", seq.origin_time, origin_label_price,
+                              origin_label, origin_label_color, cfg.label_font_size, report);
+      }
    }
 
    if(cfg.draw_x_nodes)
@@ -380,16 +406,21 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
          string label;
          if(FP_HookP02GetPoint(seq, p, t, price, label))
          {
-            int arrow_code = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? 233 : 234);
+            int arrow_code = (cfg.use_minimal_node_markers ? cfg.minimal_node_marker_arrow_code :
+                              (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? 233 : 234));
             FP_HookP02CreateArrow(base + "_" + label + "_NODE", t, price,
                                   seq_color, arrow_code, cfg.marker_width, report);
 
             if(cfg.draw_labels)
             {
                string node_display = FP_HookP02NodeDisplayLabel(cfg, p, label);
-               color node_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
-               FP_HookP02CreateText(base + "_" + label + "_LABEL", t, price,
-                                    node_display, node_label_color, cfg.label_font_size, report);
+               if(node_display != "")
+               {
+                  color node_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
+                  double node_label_price = FP_HookP02NodeLabelPrice(cfg, seq, price, p);
+                  FP_HookP02CreateText(base + "_" + label + "_LABEL", t, node_label_price,
+                                       node_display, node_label_color, cfg.label_font_size, report);
+               }
             }
          }
       }
@@ -413,7 +444,7 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
       }
    }
 
-   if(cfg.draw_cycle_arc)
+   if(cfg.draw_cycle_arc && seq.x_count >= cfg.arc_min_x_count_to_draw)
       FP_HookP02CreateCycleArc(base, seq, cfg, report);
 
    if(cfg.draw_sequence_count_label)
@@ -441,6 +472,9 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
                                       const FP_HookPhase02Sequence &seq)
 {
    if(!seq.valid)
+      return false;
+
+   if(cfg.min_x_count_to_draw > 0 && seq.x_count < cfg.min_x_count_to_draw)
       return false;
 
    if(cfg.sequence_draw_direction != 0 && (int)seq.direction != cfg.sequence_draw_direction)

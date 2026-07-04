@@ -136,9 +136,16 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
       p02.color_origin_with_sequence = true;
       p02.color_node_labels_with_sequence = true;
       p02.minimal_numbers_only = true;
-      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO;
+      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
       p02.max_sequences_to_draw = 0;
+      p02.min_x_count_to_draw = 2;
+      p02.arc_min_x_count_to_draw = 2;
+      p02.cycle_arc_height_ratio = 0.08;
+      p02.cycle_arc_max_height_points = 500;
+      p02.node_number_offset_points = 22;
+      p02.use_minimal_node_markers = true;
+      p02.minimal_node_marker_arrow_code = 159;
 
       p03.enabled = false;
       p03.draw_y_extremes = false;
@@ -325,9 +332,16 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.color_origin_with_sequence = true;
       p02.color_node_labels_with_sequence = true;
       p02.minimal_numbers_only = true;
-      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO;
+      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
       p02.max_sequences_to_draw = 0;
+      p02.min_x_count_to_draw = 2;
+      p02.arc_min_x_count_to_draw = 2;
+      p02.cycle_arc_height_ratio = 0.08;
+      p02.cycle_arc_max_height_points = 500;
+      p02.node_number_offset_points = 22;
+      p02.use_minimal_node_markers = true;
+      p02.minimal_node_marker_arrow_code = 159;
 
       p03.enabled = false;
       p03.draw_y_extremes = false;
