@@ -1,0 +1,46 @@
+{
+  "question_code": "RSK-R02",
+  "language": "en",
+  "topic": "Convexity metrics, true cost, setup quality risk coefficient, account-risk percentage, high reward targets, and multi-level optionality",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [],
+  "derived_concepts": [
+    "risk_percent_of_account",
+    "setup_quality_risk_coefficient",
+    "true_cost_position_sizing",
+    "stop_distance_and_commission_cost",
+    "reward_above_10R",
+    "context_optionality",
+    "zone_optionality",
+    "entry_optionality",
+    "aggregate_optionality",
+    "multi_level_convexity"
+  ],
+  "proposed_datasets": [
+    "convexity_metric_model_v1.csv",
+    "cost_to_potential_score_v1.csv",
+    "optionality_score_v1.csv",
+    "context_optionality_model_v1.csv",
+    "zone_optionality_model_v1.csv",
+    "entry_optionality_model_v1.csv",
+    "setup_quality_risk_coefficient_v1.csv",
+    "true_cost_position_sizing_model_v1.csv",
+    "high_reward_target_model_v1.csv",
+    "reward_above_10r_policy_v1.csv",
+    "aggregate_optionality_model_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "Setup Quality Risk Coefficient Learner",
+    "True Cost Calculator",
+    "Cost-to-Potential Scorer",
+    "Context Optionality Model",
+    "Zone Optionality Model",
+    "Entry Optionality Model",
+    "Aggregate Optionality Model",
+    "High Reward Target Classifier",
+    "Convexity Classifier",
+    "Post-Convexity Win Rate Gate"
+  ],
+  "created_at_utc": "2026-07-04T11:46:38.667230+00:00"
+}
