@@ -438,6 +438,7 @@ input int    InpHookPhase02SequenceDrawScaleL = 0;
 input int    InpHookPhase02SequenceDrawDirection = 0;
 input int    InpHookPhase02SequenceDrawSequenceId = -1;
 input FP_HookPhase02NodeLabelMode InpHookPhase02NodeLabelMode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
+input FP_HookPhase02CycleArcEndMode InpHookPhase02CycleArcEndMode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
 input bool   InpHookPhase02UseSequencePaletteColors = false;
 input bool   InpHookPhase02ColorOriginWithSequence = false;
 input bool   InpHookPhase02ColorNodeLabelsWithSequence = false;
@@ -1472,6 +1473,7 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.sequence_draw_direction = InpHookPhase02SequenceDrawDirection;
    cfg.sequence_draw_sequence_id = InpHookPhase02SequenceDrawSequenceId;
    cfg.node_label_mode = InpHookPhase02NodeLabelMode;
+   cfg.cycle_arc_end_mode = InpHookPhase02CycleArcEndMode;
    cfg.use_sequence_palette_colors = InpHookPhase02UseSequencePaletteColors;
    cfg.color_origin_with_sequence = InpHookPhase02ColorOriginWithSequence;
    cfg.color_node_labels_with_sequence = InpHookPhase02ColorNodeLabelsWithSequence;

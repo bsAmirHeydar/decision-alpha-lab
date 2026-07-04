@@ -219,10 +219,60 @@ bool FP_HookP02CreateTrend(const string name,
    return true;
 }
 
-bool FP_HookP02GetCycleEndPoint(const FP_HookPhase02Sequence &seq,
-                                datetime &t,
-                                double &price,
-                                string &label)
+bool FP_HookP02GetDirectionalExtremeEndPoint(const FP_HookPhase02Sequence &seq,
+                                           datetime &t,
+                                           double &price,
+                                           string &label)
+{
+   bool found = false;
+   t = 0;
+   price = 0.0;
+   label = "";
+
+   for(int point_index=1; point_index<=seq.x_count && point_index<=4; point_index++)
+   {
+      datetime pt;
+      double pp;
+      string ll;
+      if(!FP_HookP02GetPoint(seq, point_index, pt, pp, ll))
+         continue;
+
+      if(!found)
+      {
+         found = true;
+         t = pt;
+         price = pp;
+         label = ll;
+         continue;
+      }
+
+      if(seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
+      {
+         if(pp < price || (pp == price && pt > t))
+         {
+            t = pt;
+            price = pp;
+            label = ll;
+         }
+      }
+      else
+      {
+         if(pp > price || (pp == price && pt > t))
+         {
+            t = pt;
+            price = pp;
+            label = ll;
+         }
+      }
+   }
+
+   return found;
+}
+
+bool FP_HookP02GetLastVisibleXEndPoint(const FP_HookPhase02Sequence &seq,
+                                       datetime &t,
+                                       double &price,
+                                       string &label)
 {
    t = 0;
    price = 0.0;
@@ -260,6 +310,18 @@ bool FP_HookP02GetCycleEndPoint(const FP_HookPhase02Sequence &seq,
    return false;
 }
 
+bool FP_HookP02GetCycleEndPoint(const FP_HookPhase02Sequence &seq,
+                                const FP_HookPhase02Config &cfg,
+                                datetime &t,
+                                double &price,
+                                string &label)
+{
+   if(cfg.cycle_arc_end_mode == FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME)
+      return FP_HookP02GetDirectionalExtremeEndPoint(seq, t, price, label);
+
+   return FP_HookP02GetLastVisibleXEndPoint(seq, t, price, label);
+}
+
 double FP_HookP02CycleArcHeight(const FP_HookPhase02Sequence &seq,
                                 const FP_HookPhase02Config &cfg,
                                 const double end_price)
@@ -289,7 +351,7 @@ bool FP_HookP02CreateCycleArc(const string base,
    double end_price = 0.0;
    string end_label = "";
 
-   if(!FP_HookP02GetCycleEndPoint(seq, end_time, end_price, end_label))
+   if(!FP_HookP02GetCycleEndPoint(seq, cfg, end_time, end_price, end_label))
       return false;
 
    if(seq.origin_time <= 0 || end_time <= seq.origin_time)
@@ -343,7 +405,7 @@ bool FP_HookP02DrawSequenceCountLabel(const string base,
    double end_price = 0.0;
    string end_label = "";
 
-   if(!FP_HookP02GetCycleEndPoint(seq, end_time, end_price, end_label))
+   if(!FP_HookP02GetCycleEndPoint(seq, cfg, end_time, end_price, end_label))
       return false;
 
    long t0 = (long)seq.origin_time;

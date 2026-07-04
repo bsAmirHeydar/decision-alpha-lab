@@ -139,6 +139,7 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
       p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
+      p02.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
       p02.max_sequences_to_draw = 0;
       p02.min_x_count_to_draw = 2;
@@ -342,6 +343,7 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
       p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
+      p02.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
       p02.max_sequences_to_draw = 0;
       p02.min_x_count_to_draw = 2;

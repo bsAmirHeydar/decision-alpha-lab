@@ -58,6 +58,12 @@ enum FP_HookPhase02NodeLabelMode
    FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN = 3
 };
 
+enum FP_HookPhase02CycleArcEndMode
+{
+   FP_HOOK_P02_CYCLE_ARC_END_LAST_VISIBLE_X = 0,
+   FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME = 1
+};
+
 struct FP_HookPhase02Config
 {
    bool enabled;
@@ -65,6 +71,7 @@ struct FP_HookPhase02Config
    FP_HookPhase02OriginPolicy origin_policy;
    FP_HookPhase02SequenceDrawMode sequence_draw_mode;
    FP_HookPhase02NodeLabelMode node_label_mode;
+   FP_HookPhase02CycleArcEndMode cycle_arc_end_mode;
 
    bool show_positive;
    bool show_negative;
@@ -251,6 +258,13 @@ string FP_HookP02NodeLabelModeName(const FP_HookPhase02NodeLabelMode m)
    return "UNKNOWN_NODE_LABEL_MODE";
 }
 
+string FP_HookP02CycleArcEndModeName(const FP_HookPhase02CycleArcEndMode m)
+{
+   if(m == FP_HOOK_P02_CYCLE_ARC_END_LAST_VISIBLE_X) return "LAST_VISIBLE_X";
+   if(m == FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME) return "DIRECTIONAL_EXTREME";
+   return "UNKNOWN_CYCLE_ARC_END_MODE";
+}
+
 void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
 {
    cfg.enabled = true;
@@ -258,6 +272,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
    cfg.sequence_draw_mode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
    cfg.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
+   cfg.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_LAST_VISIBLE_X;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
