@@ -1,0 +1,56 @@
+{
+  "question_code": "NDS-R02",
+  "language": "en",
+  "topic": "CycleHook lifecycle, sequence model, X/Y closure, L policy, Hook type A/B/C, and symmetry projection",
+  "status": "captured",
+  "artifact_type": "experience_capture_record",
+  "images": [
+    "NDS-R02-image-01-hook-types-a-b-c.png",
+    "NDS-R02-image-02-multi-sequence-node-counting.png",
+    "NDS-R02-image-03-y-sequence-opposite-extremes.png"
+  ],
+  "derived_concepts": [
+    "hook_cycle_equivalence",
+    "cyclehook_object",
+    "positive_cyclehook_valley_counting",
+    "negative_cyclehook_peak_counting",
+    "strict_sequence_membership",
+    "x_sequence",
+    "y_sequence",
+    "adaptive_l_coefficient",
+    "fixed_origin_l_view",
+    "recalculated_origin_l_view",
+    "hook_closure_3_or_4_nodes_plus_50_percent_return",
+    "symmetry_not_required_for_closure",
+    "hook_type_abc",
+    "price_distance_symmetry",
+    "leg_size_symmetry"
+  ],
+  "proposed_datasets": [
+    "cyclehook_lifecycle_state_model_v1.csv",
+    "hook_sequence_model_v1.csv",
+    "x_sequence_y_sequence_model_v1.csv",
+    "adaptive_l_coefficient_policy_v1.csv",
+    "l_fixed_origin_view_v1.csv",
+    "l_recalculated_origin_view_v1.csv",
+    "hook_closure_state_v1.csv",
+    "hook_type_abc_classifier_v1.csv",
+    "symmetry_projection_model_v1.csv",
+    "nd_threshold_policy_v1.csv"
+  ],
+  "proposed_ai_modules": [
+    "CycleHook Builder",
+    "PositiveNegative Hook Classifier",
+    "Hook Sequence Builder",
+    "XSequence Strength Scorer",
+    "YSequence Validator",
+    "Adaptive L Selector",
+    "FixedOrigin L View Builder",
+    "RecalculatedOrigin L View Builder",
+    "Hook Closure Detector",
+    "Hook Type ABC Classifier",
+    "Symmetry Projection Model",
+    "ND Threshold Policy Model",
+    "Extreme Width Policy Model"
+  ]
+}

@@ -1,6 +1,6 @@
 # Experience Capture
 
-This folder stores Amir's raw trading experience answers, normalized interpretations, open questions, and future AI/architecture mapping.
+This folder stores Amir's raw trading experience answers, normalized interpretations, open questions, images, and future AI/architecture mapping.
 
 Each answered question should have its own folder:
 
