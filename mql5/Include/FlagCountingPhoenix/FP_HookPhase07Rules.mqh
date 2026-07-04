@@ -100,7 +100,7 @@ void FP_HookP07ApplyGlobalLabels(const FP_HookPhase07Config &cfg,
    if(!cfg.show_labels)
    {
       p01.draw_labels = false;
-      p02.draw_labels = false;
+      p02.draw_labels = (cfg.view_profile == FP_HOOK_P07_VIEW_MINIMAL_ALL_HOOKS ? true : false);
       p03.draw_labels = false;
       p04.draw_labels = false;
       p05.draw_labels = false;
@@ -118,6 +118,55 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
                                 FP_HookPhase05Config &p05,
                                 FP_HookPhase06Config &p06)
 {
+   if(cfg.view_profile == FP_HOOK_P07_VIEW_MINIMAL_ALL_HOOKS)
+   {
+      p01.draw_nodes = false;
+      p01.draw_labels = false;
+
+      p02.enabled = true;
+      p02.draw_sequences = true;
+      p02.draw_origin = true;
+      p02.draw_x_nodes = true;
+      p02.draw_x_lines = true;
+      p02.draw_death_boundary = false;
+      p02.draw_cycle_arc = true;
+      p02.draw_sequence_count_label = false;
+      p02.draw_labels = true;
+      p02.use_sequence_palette_colors = true;
+      p02.color_origin_with_sequence = true;
+      p02.color_node_labels_with_sequence = true;
+      p02.minimal_numbers_only = true;
+      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO;
+      p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
+      p02.max_sequences_to_draw = 0;
+
+      p03.enabled = false;
+      p03.draw_y_extremes = false;
+      p03.draw_y_lines = false;
+      p03.draw_x_reference = false;
+      p03.draw_labels = false;
+
+      p04.enabled = false;
+      p04.draw_nd = false;
+      p04.draw_death = false;
+      p04.draw_x_closure = false;
+      p04.draw_thresholds = false;
+      p04.draw_labels = false;
+
+      p05.enabled = false;
+      p05.draw_type_label = false;
+      p05.draw_type_anchor = false;
+      p05.draw_type_comparison_lines = false;
+      p05.draw_labels = false;
+
+      p06.enabled = false;
+      p06.draw_quality_label = false;
+      p06.draw_xy_anchor = false;
+      p06.draw_projection_lines = false;
+      p06.draw_labels = false;
+      return;
+   }
+
    if(cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
    {
       p01.max_nodes_to_draw = 0;
@@ -254,6 +303,55 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p06.draw_quality_label = cfg.show_labels;
       p06.draw_xy_anchor = true;
       p06.draw_projection_lines = true;
+      p06.draw_labels = false;
+      return;
+   }
+
+   if(cfg.view_profile == FP_HOOK_P07_VIEW_MINIMAL_ALL_HOOKS)
+   {
+      p01.draw_nodes = false;
+      p01.draw_labels = false;
+
+      p02.enabled = true;
+      p02.draw_sequences = true;
+      p02.draw_origin = true;
+      p02.draw_x_nodes = true;
+      p02.draw_x_lines = true;
+      p02.draw_death_boundary = false;
+      p02.draw_cycle_arc = true;
+      p02.draw_sequence_count_label = false;
+      p02.draw_labels = true;
+      p02.use_sequence_palette_colors = true;
+      p02.color_origin_with_sequence = true;
+      p02.color_node_labels_with_sequence = true;
+      p02.minimal_numbers_only = true;
+      p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO;
+      p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
+      p02.max_sequences_to_draw = 0;
+
+      p03.enabled = false;
+      p03.draw_y_extremes = false;
+      p03.draw_y_lines = false;
+      p03.draw_x_reference = false;
+      p03.draw_labels = false;
+
+      p04.enabled = false;
+      p04.draw_nd = false;
+      p04.draw_death = false;
+      p04.draw_x_closure = false;
+      p04.draw_thresholds = false;
+      p04.draw_labels = false;
+
+      p05.enabled = false;
+      p05.draw_type_label = false;
+      p05.draw_type_anchor = false;
+      p05.draw_type_comparison_lines = false;
+      p05.draw_labels = false;
+
+      p06.enabled = false;
+      p06.draw_quality_label = false;
+      p06.draw_xy_anchor = false;
+      p06.draw_projection_lines = false;
       p06.draw_labels = false;
       return;
    }

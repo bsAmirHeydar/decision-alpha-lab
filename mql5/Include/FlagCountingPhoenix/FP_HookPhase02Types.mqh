@@ -50,12 +50,20 @@ enum FP_HookPhase02SequenceDrawMode
    FP_HOOK_P02_DRAW_BY_SEQUENCE_ID = 3
 };
 
+enum FP_HookPhase02NodeLabelMode
+{
+   FP_HOOK_P02_NODE_LABEL_FULL = 0,
+   FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO = 1,
+   FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O = 2
+};
+
 struct FP_HookPhase02Config
 {
    bool enabled;
    FP_NDSHookDisplayFamily display_family;
    FP_HookPhase02OriginPolicy origin_policy;
    FP_HookPhase02SequenceDrawMode sequence_draw_mode;
+   FP_HookPhase02NodeLabelMode node_label_mode;
 
    bool show_positive;
    bool show_negative;
@@ -68,6 +76,10 @@ struct FP_HookPhase02Config
    bool draw_cycle_arc;
    bool draw_sequence_count_label;
    bool draw_labels;
+   bool use_sequence_palette_colors;
+   bool color_origin_with_sequence;
+   bool color_node_labels_with_sequence;
+   bool minimal_numbers_only;
 
    bool export_csv;
    bool print_summary;
@@ -216,12 +228,21 @@ string FP_HookP02SequenceDrawModeName(const FP_HookPhase02SequenceDrawMode m)
    return "UNKNOWN_SEQUENCE_DRAW_MODE";
 }
 
+string FP_HookP02NodeLabelModeName(const FP_HookPhase02NodeLabelMode m)
+{
+   if(m == FP_HOOK_P02_NODE_LABEL_FULL) return "FULL";
+   if(m == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO) return "NUMBERS_FROM_ZERO";
+   if(m == FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O) return "NUMBERS_WITH_O";
+   return "UNKNOWN_NODE_LABEL_MODE";
+}
+
 void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
 {
    cfg.enabled = true;
    cfg.display_family = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
    cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
    cfg.sequence_draw_mode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
+   cfg.node_label_mode = FP_HOOK_P02_NODE_LABEL_FULL;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
@@ -234,6 +255,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.draw_cycle_arc = false;
    cfg.draw_sequence_count_label = false;
    cfg.draw_labels = true;
+   cfg.use_sequence_palette_colors = false;
+   cfg.color_origin_with_sequence = false;
+   cfg.color_node_labels_with_sequence = false;
+   cfg.minimal_numbers_only = false;
 
    cfg.export_csv = false;
    cfg.print_summary = false;

@@ -22,12 +22,50 @@ int FP_HookPhase02DeleteObjects(const string prefix)
    return deleted;
 }
 
+color FP_HookP02ColorFromPalette(const int index)
+{
+   static color palette[16] =
+   {
+      clrDeepSkyBlue, clrTomato, clrGold, clrMediumSeaGreen,
+      clrOrchid, clrOrange, clrAqua, clrDodgerBlue,
+      clrHotPink, clrLimeGreen, clrSandyBrown, clrViolet,
+      clrTurquoise, clrSalmon, clrKhaki, clrPlum
+   };
+
+   int n = ArraySize(palette);
+   if(n <= 0)
+      return clrSilver;
+
+   int k = index % n;
+   if(k < 0)
+      k += n;
+   return palette[k];
+}
+
 color FP_HookP02SequenceColor(const FP_HookPhase02Config &cfg,
                               const FP_HookPhase02Sequence &seq)
 {
+   if(cfg.use_sequence_palette_colors)
+      return FP_HookP02ColorFromPalette(seq.sequence_id + seq.scale_l * 3 + (int)seq.direction * 7);
+
    if(seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
       return cfg.positive_color;
    return cfg.negative_color;
+}
+
+string FP_HookP02NodeDisplayLabel(const FP_HookPhase02Config &cfg,
+                                  const int point_index,
+                                  const string fallback_label)
+{
+   if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO)
+      return IntegerToString(point_index);
+   if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O)
+   {
+      if(point_index == 0)
+         return "O";
+      return IntegerToString(point_index);
+   }
+   return fallback_label;
 }
 
 string FP_HookP02BaseName(const FP_HookPhase02Config &cfg,
@@ -208,9 +246,10 @@ bool FP_HookP02CreateCycleArc(const string base,
       double p1 = base1 + sign * h * MathSin(pi * f1);
       double p2 = base2 + sign * h * MathSin(pi * f2);
 
+      color arc_color = (cfg.use_sequence_palette_colors ? FP_HookP02SequenceColor(cfg, seq) : cfg.cycle_arc_color);
       FP_HookP02CreateTrend(base + "_CYCLE_ARC_" + IntegerToString(k),
                             t1, p1, t2, p2,
-                            cfg.cycle_arc_color, cfg.line_width,
+                            arc_color, cfg.line_width,
                             STYLE_SOLID, report);
    }
 
@@ -305,13 +344,15 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
    string base = FP_HookP02BaseName(cfg, seq);
    color seq_color = FP_HookP02SequenceColor(cfg, seq);
 
+   color origin_marker_color = (cfg.color_origin_with_sequence ? seq_color : cfg.origin_color);
+
    if(cfg.draw_origin)
    {
       FP_HookP02CreateArrow(base + "_ORIGIN", seq.origin_time, seq.origin_price,
-                            cfg.origin_color, 159, cfg.marker_width + 1, report);
+                            origin_marker_color, 159, cfg.marker_width + 1, report);
    }
 
-   if(cfg.draw_labels)
+   if(cfg.draw_labels && !cfg.minimal_numbers_only)
    {
       string main_label = "H02 " + FP_HookP02DirectionName(seq.direction) +
                           " L" + IntegerToString(seq.scale_l) +
@@ -320,6 +361,14 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
                           " X" + IntegerToString(seq.x_count);
       FP_HookP02CreateText(base + "_LABEL", seq.origin_time, seq.origin_price,
                            main_label, cfg.label_color, cfg.label_font_size, report);
+   }
+
+   if(cfg.draw_labels && cfg.minimal_numbers_only)
+   {
+      color origin_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
+      string origin_label = FP_HookP02NodeDisplayLabel(cfg, 0, "O");
+      FP_HookP02CreateText(base + "_ORIGIN_NODE_LABEL", seq.origin_time, seq.origin_price,
+                           origin_label, origin_label_color, cfg.label_font_size, report);
    }
 
    if(cfg.draw_x_nodes)
@@ -336,8 +385,12 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
                                   seq_color, arrow_code, cfg.marker_width, report);
 
             if(cfg.draw_labels)
+            {
+               string node_display = FP_HookP02NodeDisplayLabel(cfg, p, label);
+               color node_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
                FP_HookP02CreateText(base + "_" + label + "_LABEL", t, price,
-                                    label, cfg.label_color, cfg.label_font_size, report);
+                                    node_display, node_label_color, cfg.label_font_size, report);
+            }
          }
       }
    }
@@ -376,7 +429,7 @@ bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
                             end_time, seq.death_boundary_price,
                             cfg.death_color, cfg.line_width, STYLE_DOT, report);
 
-      if(cfg.draw_labels)
+      if(cfg.draw_labels && !cfg.minimal_numbers_only)
          FP_HookP02CreateText(base + "_DEATH_LABEL", end_time, seq.death_boundary_price,
                               "DEATH/O", cfg.death_color, cfg.label_font_size, report);
    }

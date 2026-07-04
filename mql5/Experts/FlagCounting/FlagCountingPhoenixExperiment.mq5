@@ -44,7 +44,7 @@
 // RALLY_ONLY preserves legacy F/Rally rendering and skips Hook phases by default.
 // HOOK_ONLY suppresses Rally/F drawing and shows only the modular Hook layers.
 // RALLY_AND_HOOK shows both families together for combined inspection.
-input FP_NDSHookDisplayFamily InpNDSHookDisplayFamily = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
+input FP_NDSHookDisplayFamily InpNDSHookDisplayFamily = FP_NDS_HOOK_DISPLAY_HOOK_ONLY;
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -430,11 +430,16 @@ input bool   InpHookPhase02PrintSummary = false;
 input bool   InpHookPhase02PrintSamples = false;
 input int    InpHookPhase02MaxBarsToScan = 0;
 input int    InpHookPhase02MaxSequences = 3000;
-input int    InpHookPhase02MaxSequencesToDraw = 6;
+input int    InpHookPhase02MaxSequencesToDraw = 0;
 input FP_HookPhase02SequenceDrawMode InpHookPhase02SequenceDrawMode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
 input int    InpHookPhase02SequenceDrawScaleL = 0;
 input int    InpHookPhase02SequenceDrawDirection = 0;
 input int    InpHookPhase02SequenceDrawSequenceId = -1;
+input FP_HookPhase02NodeLabelMode InpHookPhase02NodeLabelMode = FP_HOOK_P02_NODE_LABEL_FULL;
+input bool   InpHookPhase02UseSequencePaletteColors = false;
+input bool   InpHookPhase02ColorOriginWithSequence = false;
+input bool   InpHookPhase02ColorNodeLabelsWithSequence = false;
+input bool   InpHookPhase02MinimalNumbersOnly = false;
 input int    InpHookPhase02MinXNodesToKeep = 1;
 input int    InpHookPhase02MaxXNodesPerSequence = 4;
 input int    InpHookPhase02SampleLimit = 10;
@@ -599,10 +604,10 @@ input int    InpHookPhase06LabelFontSize = 8;
 // layers draw together, optionally cleans stale Hook objects, and can write a
 // profile audit row. It does not trade.
 input bool   InpHookPhase07Enabled = true;
-input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG;
+input FP_HookPhase07ViewProfile InpHookPhase07ViewProfile = FP_HOOK_P07_VIEW_MINIMAL_ALL_HOOKS;
 input bool   InpHookPhase07RespectIndividualPhaseEnabled = true;
 input bool   InpHookPhase07ForceEnableRequiredPhases = true;
-input bool   InpHookPhase07ShowLabels = false;
+input bool   InpHookPhase07ShowLabels = true;
 input bool   InpHookPhase07GlobalExportCsv = false;
 input bool   InpHookPhase07GlobalPrintSummary = false;
 input bool   InpHookPhase07GlobalPrintSamples = false;
@@ -1455,6 +1460,11 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.sequence_draw_scale_l = InpHookPhase02SequenceDrawScaleL;
    cfg.sequence_draw_direction = InpHookPhase02SequenceDrawDirection;
    cfg.sequence_draw_sequence_id = InpHookPhase02SequenceDrawSequenceId;
+   cfg.node_label_mode = InpHookPhase02NodeLabelMode;
+   cfg.use_sequence_palette_colors = InpHookPhase02UseSequencePaletteColors;
+   cfg.color_origin_with_sequence = InpHookPhase02ColorOriginWithSequence;
+   cfg.color_node_labels_with_sequence = InpHookPhase02ColorNodeLabelsWithSequence;
+   cfg.minimal_numbers_only = InpHookPhase02MinimalNumbersOnly;
    cfg.min_x_nodes_to_keep = InpHookPhase02MinXNodesToKeep;
    cfg.max_x_nodes_per_sequence = InpHookPhase02MaxXNodesPerSequence;
    cfg.sample_limit = InpHookPhase02SampleLimit;
