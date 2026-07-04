@@ -28,6 +28,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_FinalDecisionStateEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_FinalCsvNormalizationEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_RuntimeHealthSummaryEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_HookPhase01Engine.mqh"
 
 // ------------------------------ Data / redraw -------------------------------
 // Level 01 canonical candle stream. InpBarsToScan means requested CLOSED bars
@@ -366,7 +367,32 @@ input color InpBullishConfirmedColor = clrLime;
 input color InpBearishCandidateColor = clrOrange;
 input color InpBearishConfirmedColor = clrTomato;
 input color InpF3LockedColor = clrMagenta;
+
 input color InpHookColor = clrGray;
+
+// ------------------------------ NDS Hook Phase 01 --------------------------
+// Modular Hook/CycleHook node source adapter. It never sends orders and never
+// mutates Rally/F-counting logic. Default keeps the legacy Rally display path.
+input FP_NDSHookDisplayFamily InpNDSHookDisplayFamily = FP_NDS_HOOK_DISPLAY_RALLY_ONLY;
+input bool   InpHookPhase01Enabled = true;
+input bool   InpHookPhase01ShowPeaks = true;
+input bool   InpHookPhase01ShowValleys = true;
+input bool   InpHookPhase01DrawNodes = true;
+input bool   InpHookPhase01DrawLabels = true;
+input bool   InpHookPhase01ExportCsv = false;
+input bool   InpHookPhase01PrintSummary = false;
+input bool   InpHookPhase01PrintSamples = false;
+input int    InpHookPhase01MaxBarsToScan = 0;
+input int    InpHookPhase01MaxNodes = 20000;
+input int    InpHookPhase01MaxNodesToDraw = 500;
+input int    InpHookPhase01SampleLimit = 12;
+input string InpHookPhase01Folder = "FlagCountingPhoenix";
+input string InpHookPhase01ObjectPrefix = "DAL_HOOK_P01_";
+input color  InpHookPhase01PeakColor = clrTomato;
+input color  InpHookPhase01ValleyColor = clrDeepSkyBlue;
+input color  InpHookPhase01LabelColor = clrSilver;
+input int    InpHookPhase01MarkerWidth = 1;
+input int    InpHookPhase01LabelFontSize = 7;
 
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
@@ -764,6 +790,18 @@ void FP_LoadRenderConfig(FP_RenderConfig &cfg)
    cfg.bear_confirmed = InpBearishConfirmedColor;
    cfg.f3_locked = InpF3LockedColor;
    cfg.hook_color = InpHookColor;
+
+   // Hook display family override. RALLY_ONLY preserves the previous render
+   // behavior. HOOK_ONLY suppresses Rally/F rendering so Phase 01 Hook nodes can
+   // be inspected without chart pollution. RALLY_AND_HOOK keeps both layers.
+   if(InpNDSHookDisplayFamily == FP_NDS_HOOK_DISPLAY_HOOK_ONLY)
+   {
+      cfg.draw_f1 = false;
+      cfg.draw_f2 = false;
+      cfg.draw_f3 = false;
+      cfg.draw_hooks = false;
+   }
+
    cfg.print_sanity = InpPrintRenderSanity;
    cfg.print_samples = InpPrintRenderSamples;
    cfg.sample_limit = InpRenderSampleLimit;
@@ -1035,6 +1073,32 @@ void FP_LoadConsolidation05RuntimeHealthConfig(FP_Consolidation05RuntimeHealthCo
    cfg.require_normalized_export = InpConsolidation05RuntimeHealthRequireNormalizedExport;
    cfg.require_no_send_integrity = InpConsolidation05RuntimeHealthRequireNoSendIntegrity;
    cfg.folder = InpConsolidation05RuntimeHealthFolder;
+}
+
+
+void FP_LoadHookPhase01Config(FP_HookPhase01Config &cfg)
+{
+   FP_ResetHookPhase01Config(cfg);
+   cfg.enabled = InpHookPhase01Enabled;
+   cfg.display_family = InpNDSHookDisplayFamily;
+   cfg.show_peaks = InpHookPhase01ShowPeaks;
+   cfg.show_valleys = InpHookPhase01ShowValleys;
+   cfg.draw_nodes = InpHookPhase01DrawNodes;
+   cfg.draw_labels = InpHookPhase01DrawLabels;
+   cfg.export_csv = InpHookPhase01ExportCsv;
+   cfg.print_summary = InpHookPhase01PrintSummary;
+   cfg.print_samples = InpHookPhase01PrintSamples;
+   cfg.max_bars_to_scan = InpHookPhase01MaxBarsToScan;
+   cfg.max_nodes = InpHookPhase01MaxNodes;
+   cfg.max_nodes_to_draw = InpHookPhase01MaxNodesToDraw;
+   cfg.sample_limit = InpHookPhase01SampleLimit;
+   cfg.folder = InpHookPhase01Folder;
+   cfg.object_prefix = InpHookPhase01ObjectPrefix;
+   cfg.peak_color = InpHookPhase01PeakColor;
+   cfg.valley_color = InpHookPhase01ValleyColor;
+   cfg.label_color = InpHookPhase01LabelColor;
+   cfg.marker_width = InpHookPhase01MarkerWidth;
+   cfg.label_font_size = InpHookPhase01LabelFontSize;
 }
 
 
@@ -1380,6 +1444,9 @@ void FP_Run()
    FP_Consolidation05RuntimeHealthConfig runtime_health_cfg;
    FP_LoadConsolidation05RuntimeHealthConfig(runtime_health_cfg);
 
+   FP_HookPhase01Config hook_phase01_cfg;
+   FP_LoadHookPhase01Config(hook_phase01_cfg);
+
    FP_ReleaseApplyProfile(timebase_cfg, cfg, export_cfg, render_cfg, validation_cfg, release_cfg, release_report);
    if(release_cfg.print_sanity && release_report.overrides_applied > 0)
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
@@ -1468,6 +1535,10 @@ void FP_Run()
       FP_PrintRenderReport("FP_LEVEL12", render_report);
    if(render_cfg.print_samples)
       FP_PrintRenderSamples("FP_LEVEL12", render_report);
+
+   FP_HookPhase01Report hook_phase01_report;
+   FP_RunHookPhase01(_Symbol, _Period, rates, copied, scales, scale_count,
+                     hook_phase01_cfg, hook_phase01_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);
@@ -1736,7 +1807,10 @@ bool FP_ShouldCleanObjectsOnDeinitReason(const int reason)
 void FP_CleanupChartObjectsForLifecycle(const int reason)
 {
    if(FP_ShouldCleanObjectsOnDeinitReason(reason))
+   {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
+      FP_HookPhase01DeleteObjects(InpHookPhase01ObjectPrefix);
+   }
 
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnDeinit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
@@ -1752,7 +1826,10 @@ int OnInit()
    FP_ReleaseConfig init_release_cfg;
    FP_LoadReleaseConfig(init_release_cfg);
    if(InpCleanObjectsOnInit || FP_ReleaseProfileWantsCleanup(init_release_cfg))
+   {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
+      FP_HookPhase01DeleteObjects(InpHookPhase01ObjectPrefix);
+   }
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnInit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
    g_fp_last_bar_time = 0;
