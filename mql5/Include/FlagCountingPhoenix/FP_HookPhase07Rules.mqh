@@ -118,6 +118,17 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
                                 FP_HookPhase05Config &p05,
                                 FP_HookPhase06Config &p06)
 {
+   if(cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
+   {
+      p01.max_nodes_to_draw = 0;
+      p02.max_sequences_to_draw = 1;
+      p03.max_sequences_to_draw = 0;
+      p04.max_sequences_to_draw = 0;
+      p05.max_sequences_to_draw = 0;
+      p06.max_sequences_to_draw = 0;
+      return;
+   }
+
    if(cfg.max_nodes_to_draw > 0)
       p01.max_nodes_to_draw = cfg.max_nodes_to_draw;
 
@@ -249,6 +260,14 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
 
    if(cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
    {
+      // Hard inspector lens: Phase 01 is allowed to build node inputs, but it
+      // does not draw. Phase 02 is the only visible layer. Later Hook phases are
+      // disabled so stale P03/P04/P05/P06 text cannot be redrawn during sequence
+      // inspection even if their individual inputs are still true in MT5.
+      p01.draw_nodes = false;
+      p01.draw_labels = false;
+
+      p02.enabled = true;
       p02.draw_sequences = true;
       p02.draw_origin = true;
       p02.draw_x_nodes = true;
@@ -258,22 +277,26 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.draw_sequence_count_label = true;
       p02.draw_labels = false;
 
+      p03.enabled = false;
       p03.draw_y_extremes = false;
       p03.draw_y_lines = false;
       p03.draw_x_reference = false;
       p03.draw_labels = false;
 
+      p04.enabled = false;
       p04.draw_nd = false;
       p04.draw_death = false;
       p04.draw_x_closure = false;
       p04.draw_thresholds = false;
       p04.draw_labels = false;
 
+      p05.enabled = false;
       p05.draw_type_label = false;
       p05.draw_type_anchor = false;
       p05.draw_type_comparison_lines = false;
       p05.draw_labels = false;
 
+      p06.enabled = false;
       p06.draw_quality_label = false;
       p06.draw_xy_anchor = false;
       p06.draw_projection_lines = false;

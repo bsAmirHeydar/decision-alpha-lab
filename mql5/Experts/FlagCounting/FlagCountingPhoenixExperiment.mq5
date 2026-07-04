@@ -618,7 +618,7 @@ input bool   InpHookPhase07CleanP08Objects = true;
 input bool   InpHookPhase07CleanP09Objects = true;
 input bool   InpHookPhase07CleanP10Objects = true;
 input int    InpHookPhase07MaxNodesToDraw = 120;
-input int    InpHookPhase07MaxSequencesToDraw = 8;
+input int    InpHookPhase07MaxSequencesToDraw = 1;
 input int    InpHookPhase07SampleLimit = 10;
 input string InpHookPhase07Folder = "FlagCountingPhoenix";
 input string InpHookPhase07ObjectPrefix = "DAL_HOOK_P07_";
@@ -1100,12 +1100,25 @@ void FP_LoadRenderConfig(FP_RenderConfig &cfg)
    // Hook display family override. RALLY_ONLY preserves the previous render
    // behavior. HOOK_ONLY suppresses Rally/F rendering so Phase 01 Hook nodes can
    // be inspected without chart pollution. RALLY_AND_HOOK keeps both layers.
-   if(InpNDSHookDisplayFamily == FP_NDS_HOOK_DISPLAY_HOOK_ONLY)
+   if(InpNDSHookDisplayFamily == FP_NDS_HOOK_DISPLAY_HOOK_ONLY ||
+      InpHookPhase07ViewProfile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
    {
       cfg.draw_f1 = false;
       cfg.draw_f2 = false;
       cfg.draw_f3 = false;
       cfg.draw_hooks = false;
+      cfg.draw_candidates = false;
+      cfg.draw_confirmed = false;
+      cfg.draw_locked = false;
+      cfg.draw_invalidated = false;
+      cfg.show_hook_count_labels = false;
+      cfg.detailed_labels = false;
+      cfg.show_parent_ids = false;
+      cfg.show_origin_labels = false;
+      cfg.show_internal_labels = false;
+      cfg.max_events_to_draw = 0;
+      cfg.max_hooks_to_draw = 0;
+      cfg.delete_existing_by_prefix = true;
    }
 
    cfg.print_sanity = InpPrintRenderSanity;
@@ -2138,6 +2151,12 @@ void FP_Run()
 
    FP_HookPhase07Config hook_phase07_cfg;
    FP_LoadHookPhase07Config(hook_phase07_cfg);
+
+   if(hook_phase07_cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG)
+   {
+      FP_DeleteObjectsByPrefix(InpObjectPrefix);
+      FP_CleanupAllNDSHookObjectsByInputPrefixes();
+   }
 
    FP_HookPhase08Config hook_phase08_cfg;
    FP_LoadHookPhase08Config(hook_phase08_cfg);

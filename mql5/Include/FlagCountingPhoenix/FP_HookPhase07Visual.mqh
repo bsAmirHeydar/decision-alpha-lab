@@ -30,11 +30,13 @@ int FP_HookP07CleanObjects(const FP_HookPhase07Config &cfg,
                            const FP_HookPhase05Config &p05,
                            const FP_HookPhase06Config &p06)
 {
-   if(!cfg.clean_before_apply)
+   const bool sequence_debug_lens = (cfg.view_profile == FP_HOOK_P07_VIEW_SEQUENCE_CYCLE_DEBUG);
+   if(!cfg.clean_before_apply && !sequence_debug_lens)
       return 0;
 
    int deleted = 0;
-   if(cfg.clean_common_hook_prefix) deleted += FP_HookP07DeleteObjectsByPrefix(cfg.common_hook_object_prefix);
+   if(cfg.clean_common_hook_prefix || sequence_debug_lens)
+      deleted += FP_HookP07DeleteObjectsByPrefix(cfg.common_hook_object_prefix);
    if(cfg.clean_p01_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p01.object_prefix);
    if(cfg.clean_p02_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p02.object_prefix);
    if(cfg.clean_p03_objects) deleted += FP_HookP07DeleteObjectsByPrefix(p03.object_prefix);
