@@ -17,8 +17,10 @@
 // - deterministic stacked labels for shared nodes
 // ============================================================================
 
-string g_fp_hook_p02_label_keys[];
-int    g_fp_hook_p02_label_counts[];
+datetime g_fp_hook_p02_label_cluster_times[];
+double   g_fp_hook_p02_label_cluster_prices[];
+int      g_fp_hook_p02_label_cluster_sides[];
+int      g_fp_hook_p02_label_counts[];
 
 int FP_HookPhase02DeleteObjects(const string prefix)
 {
@@ -40,21 +42,39 @@ int FP_HookPhase02DeleteObjects(const string prefix)
 
 void FP_HookP02ResetLabelCollisionState()
 {
-   ArrayResize(g_fp_hook_p02_label_keys, 0);
+   ArrayResize(g_fp_hook_p02_label_cluster_times, 0);
+   ArrayResize(g_fp_hook_p02_label_cluster_prices, 0);
+   ArrayResize(g_fp_hook_p02_label_cluster_sides, 0);
    ArrayResize(g_fp_hook_p02_label_counts, 0);
 }
 
-int FP_HookP02ConsumeLabelStackSlot(const datetime t,
+int FP_HookP02ConsumeLabelStackSlot(const FP_HookPhase02Config &cfg,
+                                    const datetime t,
                                     const double price,
                                     const bool place_below)
 {
-   double bucket_points = 10.0;
-   long price_bucket = (long)MathRound(price / (_Point * bucket_points));
-   string key = IntegerToString((int)t) + "|" + IntegerToString((place_below ? 1 : 0)) + "|" + IntegerToString((int)price_bucket);
+   int side = (place_below ? 1 : 0);
 
-   for(int i=0; i<ArraySize(g_fp_hook_p02_label_keys); i++)
+   int time_window = cfg.label_time_cluster_seconds;
+   if(time_window <= 0)
    {
-      if(g_fp_hook_p02_label_keys[i] == key)
+      time_window = PeriodSeconds(_Period);
+      if(time_window <= 0)
+         time_window = 60;
+   }
+
+   int price_window_points = cfg.label_price_cluster_points;
+   if(price_window_points <= 0)
+      price_window_points = 24;
+
+   for(int i=0; i<ArraySize(g_fp_hook_p02_label_cluster_times); i++)
+   {
+      if(g_fp_hook_p02_label_cluster_sides[i] != side)
+         continue;
+
+      double dt = MathAbs((double)((long)t - (long)g_fp_hook_p02_label_cluster_times[i]));
+      double dp = MathAbs(price - g_fp_hook_p02_label_cluster_prices[i]);
+      if(dt <= (double)time_window && dp <= _Point * (double)price_window_points)
       {
          int slot = g_fp_hook_p02_label_counts[i];
          g_fp_hook_p02_label_counts[i] = slot + 1;
@@ -62,10 +82,14 @@ int FP_HookP02ConsumeLabelStackSlot(const datetime t,
       }
    }
 
-   int n = ArraySize(g_fp_hook_p02_label_keys);
-   ArrayResize(g_fp_hook_p02_label_keys, n + 1);
+   int n = ArraySize(g_fp_hook_p02_label_cluster_times);
+   ArrayResize(g_fp_hook_p02_label_cluster_times, n + 1);
+   ArrayResize(g_fp_hook_p02_label_cluster_prices, n + 1);
+   ArrayResize(g_fp_hook_p02_label_cluster_sides, n + 1);
    ArrayResize(g_fp_hook_p02_label_counts, n + 1);
-   g_fp_hook_p02_label_keys[n] = key;
+   g_fp_hook_p02_label_cluster_times[n] = t;
+   g_fp_hook_p02_label_cluster_prices[n] = price;
+   g_fp_hook_p02_label_cluster_sides[n] = side;
    g_fp_hook_p02_label_counts[n] = 1;
    return 0;
 }
@@ -123,6 +147,26 @@ string FP_HookP02NodeDisplayLabel(const FP_HookPhase02Config &cfg,
    }
 
    return fallback_label;
+}
+
+string FP_HookP02FormattedNodeLabel(const FP_HookPhase02Config &cfg,
+                                  const FP_HookPhase02Sequence &seq,
+                                  const int branch_ordinal,
+                                  const int point_index,
+                                  const string fallback_label)
+{
+   string core = FP_HookP02NodeDisplayLabel(cfg, point_index, fallback_label);
+   if(StringLen(core) <= 0)
+      return "";
+
+   if(!cfg.show_hook_sequence_ids_in_labels)
+      return core;
+
+   int branch_id = branch_ordinal;
+   if(branch_id <= 0)
+      branch_id = seq.sequence_id;
+
+   return "H" + IntegerToString(seq.origin_node_id) + "B" + IntegerToString(branch_id) + ":" + core;
 }
 
 color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
@@ -506,6 +550,7 @@ bool FP_HookP02CreateHookEnvelopeCurve(const string base,
 
 bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
                                       const FP_HookPhase02Sequence &seq,
+                                      const int branch_ordinal,
                                       FP_HookPhase02Report &report)
 {
    if(!cfg.draw_x_nodes || !cfg.draw_labels)
@@ -529,13 +574,13 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
          FP_HookP02CreateArrow(base + "_" + label + "_NODE", t, price, seq_color, arrow_code, cfg.marker_width, report);
       }
 
-      string node_display = FP_HookP02NodeDisplayLabel(cfg, p, label);
+      string node_display = FP_HookP02FormattedNodeLabel(cfg, seq, branch_ordinal, p, label);
       if(StringLen(node_display) <= 0)
          continue;
 
       color node_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
       node_color = FP_HookP02NodeNumberColor(cfg, p, node_color);
-      int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(t, price, place_below) : 0);
+      int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(cfg, t, price, place_below) : 0);
       double label_price = FP_HookP02StackedLabelPrice(cfg, price, place_below, stack_slot);
 
       FP_HookP02CreateText(base + "_" + label + "_LABEL", t, label_price,
@@ -710,6 +755,31 @@ int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
    return arcs_drawn;
 }
 
+
+int FP_HookP02BranchOrdinalInOriginGroup(const FP_HookPhase02Sequence &sequences[],
+                                         const int &indexes[],
+                                         const int selected_slot)
+{
+   if(selected_slot < 0 || selected_slot >= ArraySize(indexes))
+      return 0;
+
+   int current_index = indexes[selected_slot];
+   if(current_index < 0 || current_index >= ArraySize(sequences))
+      return 0;
+
+   FP_HookPhase02Sequence current = sequences[current_index];
+   int ordinal = 1;
+   for(int s=0; s<selected_slot; s++)
+   {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+      if(FP_HookP02SameOriginGroup(current, sequences[i]))
+         ordinal++;
+   }
+   return ordinal;
+}
+
 int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
                             const FP_HookPhase02Sequence &sequences[],
                             FP_HookPhase02Report &report)
@@ -723,6 +793,8 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
    int indexes[];
    FP_HookP02SelectSequenceIndexes(cfg, sequences, indexes);
 
+   FP_HookP02DrawOriginGroupEnvelopes(cfg, sequences, indexes, report);
+
    int drawn = 0;
    for(int s=0; s<ArraySize(indexes); s++)
    {
@@ -730,11 +802,11 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
 
-      if(FP_HookP02DrawOneSequenceNumbers(cfg, sequences[i], report))
+      int branch_ordinal = FP_HookP02BranchOrdinalInOriginGroup(sequences, indexes, s);
+      if(FP_HookP02DrawOneSequenceNumbers(cfg, sequences[i], branch_ordinal, report))
          drawn++;
    }
 
-   FP_HookP02DrawOriginGroupEnvelopes(cfg, sequences, indexes, report);
    report.sequences_drawn = drawn;
    return drawn;
 }

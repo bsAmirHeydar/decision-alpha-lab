@@ -449,6 +449,9 @@ input bool   InpHookPhase02ColorNodeNumbersByIndex = false;
 input bool   InpHookPhase02MinimalNumbersOnly = true;
 input bool   InpHookPhase02UseMinimalNodeMarkers = false;
 input bool   InpHookPhase02StackNodeLabelsOnCollisions = true;
+input bool   InpHookPhase02ShowHookSequenceIdsInLabels = true;
+input int    InpHookPhase02LabelTimeClusterSeconds = 0;
+input int    InpHookPhase02LabelPriceClusterPoints = 28;
 input bool   InpHookPhase02RequireConfirmedResolveNode = true;
 input bool   InpHookPhase02DeathOnBoundaryTouch = true;
 input bool   InpHookPhase02RequireNearDeathForSemanticArc = true;
@@ -458,8 +461,8 @@ input int    InpHookPhase02MaxXNodesPerSequence = 4;
 input int    InpHookPhase02SampleLimit = 10;
 input int    InpHookPhase02CycleArcSegments = 18;
 input int    InpHookPhase02CycleArcMaxHeightPoints = 500;
-input int    InpHookPhase02NodeNumberOffsetPoints = 22;
-input int    InpHookPhase02NodeLabelStackStepPoints = 14;
+input int    InpHookPhase02NodeNumberOffsetPoints = 32;
+input int    InpHookPhase02NodeLabelStackStepPoints = 20;
 input int    InpHookPhase02MinimalNodeMarkerArrowCode = 159;
 input double InpHookPhase02CycleArcHeightRatio = 0.08;
 input string InpHookPhase02Folder = "FlagCountingPhoenix";
@@ -932,6 +935,19 @@ input bool   InpConsolidation05RuntimeHealthRequireNoSendIntegrity = true;
 input string InpConsolidation05RuntimeHealthFolder = "FlagCountingPhoenix";
 
 static datetime g_fp_last_bar_time = 0;
+static int g_fp_runtime_chart_period = 0;
+static string g_fp_runtime_chart_symbol = "";
+
+void FP_SetRuntimeChartIdentity()
+{
+   g_fp_runtime_chart_period = (int)_Period;
+   g_fp_runtime_chart_symbol = _Symbol;
+}
+
+bool FP_RuntimeChartIdentityChanged()
+{
+   return (g_fp_runtime_chart_period != (int)_Period || g_fp_runtime_chart_symbol != _Symbol);
+}
 
 FP_OfflineLicenseConfig g_fp_license_cfg;
 FP_OfflineLicenseReport g_fp_license_report;
@@ -1491,6 +1507,9 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.minimal_numbers_only = InpHookPhase02MinimalNumbersOnly;
    cfg.use_minimal_node_markers = InpHookPhase02UseMinimalNodeMarkers;
    cfg.stack_node_labels_on_collisions = InpHookPhase02StackNodeLabelsOnCollisions;
+   cfg.show_hook_sequence_ids_in_labels = InpHookPhase02ShowHookSequenceIdsInLabels;
+   cfg.label_time_cluster_seconds = InpHookPhase02LabelTimeClusterSeconds;
+   cfg.label_price_cluster_points = InpHookPhase02LabelPriceClusterPoints;
    cfg.require_confirmed_resolve_node = InpHookPhase02RequireConfirmedResolveNode;
    cfg.death_on_boundary_touch = InpHookPhase02DeathOnBoundaryTouch;
    cfg.require_near_death_for_semantic_arc = InpHookPhase02RequireNearDeathForSemanticArc;
@@ -2208,6 +2227,7 @@ void FP_Run()
    {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
       FP_CleanupAllNDSHookObjectsByInputPrefixes();
+      ChartRedraw(0);
    }
 
    FP_HookPhase08Config hook_phase08_cfg;
@@ -2611,6 +2631,8 @@ void FP_Run()
 int FP_CleanupAllNDSHookObjectsByInputPrefixes()
 {
    int deleted = 0;
+   // Hard cleanup for stale Hook objects left by older profiles, timeframe changes, or changed prefixes.
+   deleted += FP_HookP07DeleteObjectsByPrefix("DAL_HOOK_");
    deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase07CommonHookObjectPrefix);
    deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase01ObjectPrefix);
    deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase02ObjectPrefix);
@@ -2650,6 +2672,7 @@ void FP_CleanupChartObjectsForLifecycle(const int reason)
    {
       FP_DeleteObjectsByPrefix(InpObjectPrefix);
       FP_CleanupAllNDSHookObjectsByInputPrefixes();
+      ChartRedraw(0);
    }
 
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnDeinit)
@@ -2672,6 +2695,7 @@ int OnInit()
    }
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnInit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
+   FP_SetRuntimeChartIdentity();
    g_fp_last_bar_time = 0;
    FP_Run();
    return INIT_SUCCEEDED;
@@ -2687,8 +2711,37 @@ void OnTick()
 {
    if(!FP_EnsureOfflineLicense(false))
       return;
+   if(FP_RuntimeChartIdentityChanged())
+   {
+      FP_DeleteObjectsByPrefix(InpObjectPrefix);
+      FP_CleanupAllNDSHookObjectsByInputPrefixes();
+      ChartRedraw(0);
+      FP_SetRuntimeChartIdentity();
+      g_fp_last_bar_time = 0;
+      FP_Run();
+      return;
+   }
    if(FP_ShouldRedraw())
       FP_Run();
+}
+
+void OnChartEvent(const int id,
+                  const long &lparam,
+                  const double &dparam,
+                  const string &sparam)
+{
+   if(id != CHARTEVENT_CHART_CHANGE)
+      return;
+
+   if(!FP_RuntimeChartIdentityChanged())
+      return;
+
+   FP_DeleteObjectsByPrefix(InpObjectPrefix);
+   FP_CleanupAllNDSHookObjectsByInputPrefixes();
+   ChartRedraw(0);
+   FP_SetRuntimeChartIdentity();
+   g_fp_last_bar_time = 0;
+   FP_Run();
 }
 
 void OnTimer()

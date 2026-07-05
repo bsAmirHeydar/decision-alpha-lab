@@ -94,6 +94,7 @@ struct FP_HookPhase02Config
    bool minimal_numbers_only;
    bool use_minimal_node_markers;
    bool stack_node_labels_on_collisions;
+   bool show_hook_sequence_ids_in_labels;
    bool require_confirmed_resolve_node;
    bool death_on_boundary_touch;
    bool require_near_death_for_semantic_arc;
@@ -117,6 +118,8 @@ struct FP_HookPhase02Config
    int cycle_arc_max_height_points;
    int node_number_offset_points;
    int node_label_stack_step_points;
+   int label_time_cluster_seconds;
+   int label_price_cluster_points;
    int minimal_node_marker_arrow_code;
 
    double cycle_arc_height_ratio;
@@ -321,6 +324,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.minimal_numbers_only = true;
    cfg.use_minimal_node_markers = false;
    cfg.stack_node_labels_on_collisions = true;
+   cfg.show_hook_sequence_ids_in_labels = true;
    cfg.require_confirmed_resolve_node = true;
    cfg.death_on_boundary_touch = true;
    cfg.require_near_death_for_semantic_arc = true;
@@ -342,8 +346,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.sample_limit = 10;
    cfg.cycle_arc_segments = 16;
    cfg.cycle_arc_max_height_points = 0;
-   cfg.node_number_offset_points = 20;
-   cfg.node_label_stack_step_points = 14;
+   cfg.node_number_offset_points = 30;
+   cfg.node_label_stack_step_points = 18;
+   cfg.label_time_cluster_seconds = 0;
+   cfg.label_price_cluster_points = 28;
    cfg.minimal_node_marker_arrow_code = 159;
 
    cfg.cycle_arc_height_ratio = 0.35;

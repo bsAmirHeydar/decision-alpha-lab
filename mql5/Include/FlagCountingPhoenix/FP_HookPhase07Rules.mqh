@@ -141,6 +141,9 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
       p02.color_node_numbers_by_index = false;
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
+      p02.show_hook_sequence_ids_in_labels = true;
+      p02.label_time_cluster_seconds = 0;
+      p02.label_price_cluster_points = 28;
       p02.require_confirmed_resolve_node = true;
       p02.death_on_boundary_touch = true;
       p02.require_near_death_for_semantic_arc = true;
@@ -154,8 +157,8 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
       p02.cycle_arc_height_ratio = 0.08;
       p02.cycle_arc_max_height_points = 500;
       p02.cycle_arc_color = C'40,40,40';
-      p02.node_number_offset_points = 22;
-      p02.node_label_stack_step_points = 14;
+      p02.node_number_offset_points = 32;
+      p02.node_label_stack_step_points = 20;
       p02.use_minimal_node_markers = true;
       p02.minimal_node_marker_arrow_code = 159;
       p02.node1_label_color = clrAqua;
@@ -352,6 +355,9 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.color_node_numbers_by_index = false;
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
+      p02.show_hook_sequence_ids_in_labels = true;
+      p02.label_time_cluster_seconds = 0;
+      p02.label_price_cluster_points = 28;
       p02.require_confirmed_resolve_node = true;
       p02.death_on_boundary_touch = true;
       p02.require_near_death_for_semantic_arc = true;
@@ -365,8 +371,8 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.cycle_arc_height_ratio = 0.08;
       p02.cycle_arc_max_height_points = 500;
       p02.cycle_arc_color = C'40,40,40';
-      p02.node_number_offset_points = 22;
-      p02.node_label_stack_step_points = 14;
+      p02.node_number_offset_points = 32;
+      p02.node_label_stack_step_points = 20;
       p02.use_minimal_node_markers = true;
       p02.minimal_node_marker_arrow_code = 159;
       p02.node1_label_color = clrAqua;
