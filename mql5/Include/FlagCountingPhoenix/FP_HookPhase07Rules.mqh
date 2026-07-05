@@ -141,6 +141,10 @@ void FP_HookP07ApplyDrawBudgets(const FP_HookPhase07Config &cfg,
       p02.color_node_numbers_by_index = false;
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
+      p02.require_confirmed_resolve_node = true;
+      p02.death_on_boundary_touch = true;
+      p02.require_near_death_for_semantic_arc = true;
+      p02.near_death_retrace_threshold = 0.50;
       p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
       p02.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;
@@ -348,6 +352,10 @@ void FP_HookP07ApplyProfileDrawing(const FP_HookPhase07Config &cfg,
       p02.color_node_numbers_by_index = false;
       p02.minimal_numbers_only = true;
       p02.stack_node_labels_on_collisions = true;
+      p02.require_confirmed_resolve_node = true;
+      p02.death_on_boundary_touch = true;
+      p02.require_near_death_for_semantic_arc = true;
+      p02.near_death_retrace_threshold = 0.50;
       p02.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
       p02.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
       p02.sequence_draw_mode = FP_HOOK_P02_DRAW_RECENT_N;

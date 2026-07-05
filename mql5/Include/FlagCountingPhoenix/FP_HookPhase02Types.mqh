@@ -94,6 +94,9 @@ struct FP_HookPhase02Config
    bool minimal_numbers_only;
    bool use_minimal_node_markers;
    bool stack_node_labels_on_collisions;
+   bool require_confirmed_resolve_node;
+   bool death_on_boundary_touch;
+   bool require_near_death_for_semantic_arc;
 
    bool export_csv;
    bool print_summary;
@@ -117,6 +120,7 @@ struct FP_HookPhase02Config
    int minimal_node_marker_arrow_code;
 
    double cycle_arc_height_ratio;
+   double near_death_retrace_threshold;
 
    string folder;
    string object_prefix;
@@ -180,6 +184,20 @@ struct FP_HookPhase02Sequence
    datetime cycle_crown_time;
    double cycle_crown_price;
    bool cycle_crown_valid;
+
+   int resolve_node_id;
+   datetime resolve_time;
+   double resolve_price;
+   bool resolve_confirmed;
+
+   double retracement_ratio;
+   bool near_death_confirmed;
+   bool hook_failed;
+   int failure_node_id;
+   datetime failure_time;
+   double failure_price;
+   bool render_eligible;
+   string visibility_reason;
 
    double death_boundary_price;
    bool capped;
@@ -303,6 +321,9 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.minimal_numbers_only = true;
    cfg.use_minimal_node_markers = false;
    cfg.stack_node_labels_on_collisions = true;
+   cfg.require_confirmed_resolve_node = true;
+   cfg.death_on_boundary_touch = true;
+   cfg.require_near_death_for_semantic_arc = true;
 
    cfg.export_csv = false;
    cfg.print_summary = false;
@@ -326,6 +347,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.minimal_node_marker_arrow_code = 159;
 
    cfg.cycle_arc_height_ratio = 0.35;
+   cfg.near_death_retrace_threshold = 0.50;
 
    cfg.folder = FP_HOOK_P02_DEFAULT_FOLDER;
    cfg.object_prefix = FP_HOOK_P02_DEFAULT_PREFIX;
@@ -389,6 +411,20 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.cycle_crown_time = 0;
    s.cycle_crown_price = 0.0;
    s.cycle_crown_valid = false;
+
+   s.resolve_node_id = -1;
+   s.resolve_time = 0;
+   s.resolve_price = 0.0;
+   s.resolve_confirmed = false;
+
+   s.retracement_ratio = 0.0;
+   s.near_death_confirmed = false;
+   s.hook_failed = false;
+   s.failure_node_id = -1;
+   s.failure_time = 0;
+   s.failure_price = 0.0;
+   s.render_eligible = false;
+   s.visibility_reason = "";
 
    s.death_boundary_price = 0.0;
    s.capped = false;

@@ -354,7 +354,7 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
    end_time = 0;
    end_price = 0.0;
 
-   if(start_time <= 0)
+   if(start_time <= 0 || !seed.render_eligible || !seed.near_death_confirmed || seed.hook_failed)
       return false;
 
    bool crown_found = false;
@@ -364,6 +364,8 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
       FP_HookPhase02Sequence seq = sequences[i];
+      if(!seq.render_eligible || !seq.near_death_confirmed || seq.hook_failed)
+         continue;
       if(!FP_HookP02SameOriginGroup(seed, seq))
          continue;
       if(!seq.cycle_crown_valid || seq.cycle_crown_time <= start_time)
@@ -400,6 +402,7 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
    if(!crown_found)
       return false;
 
+   // Lifecycle-aligned: draw only to confirmed Near-Death resolve nodes.
    bool end_found = false;
    for(int s=0; s<ArraySize(indexes); s++)
    {
@@ -407,69 +410,35 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
       FP_HookPhase02Sequence seq = sequences[i];
+      if(!seq.render_eligible || !seq.near_death_confirmed || seq.hook_failed)
+         continue;
       if(!FP_HookP02SameOriginGroup(seed, seq))
          continue;
+      if(!seq.resolve_confirmed || seq.resolve_time <= crown_time)
+         continue;
 
-      for(int p=1; p<=seq.x_count && p<=4; p++)
+      if(!end_found)
       {
-         datetime t;
-         double price;
-         string label;
-         if(!FP_HookP02GetPoint(seq, p, t, price, label))
-            continue;
-         if(t <= crown_time)
-            continue;
+         end_found = true;
+         end_time = seq.resolve_time;
+         end_price = seq.resolve_price;
+         continue;
+      }
 
-         if(!end_found)
+      if(seed.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
+      {
+         if(seq.resolve_price < end_price || (seq.resolve_price == end_price && seq.resolve_time > end_time))
          {
-            end_found = true;
-            end_time = t;
-            end_price = price;
-            continue;
-         }
-
-         if(seed.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
-         {
-            if(price < end_price || (price == end_price && t > end_time))
-            {
-               end_time = t;
-               end_price = price;
-            }
-         }
-         else
-         {
-            if(price > end_price || (price == end_price && t > end_time))
-            {
-               end_time = t;
-               end_price = price;
-            }
+            end_time = seq.resolve_time;
+            end_price = seq.resolve_price;
          }
       }
-   }
-
-   if(!end_found)
-   {
-      for(int s=0; s<ArraySize(indexes); s++)
+      else
       {
-         int i = indexes[s];
-         if(i < 0 || i >= ArraySize(sequences))
-            continue;
-         FP_HookPhase02Sequence seq = sequences[i];
-         if(!FP_HookP02SameOriginGroup(seed, seq))
-            continue;
-
-         datetime t;
-         double price;
-         if(!FP_HookP02GetLastCountedPoint(seq, t, price))
-            continue;
-         if(t <= start_time)
-            continue;
-
-         if(!end_found || t > end_time)
+         if(seq.resolve_price > end_price || (seq.resolve_price == end_price && seq.resolve_time > end_time))
          {
-            end_found = true;
-            end_time = t;
-            end_price = price;
+            end_time = seq.resolve_time;
+            end_price = seq.resolve_price;
          }
       }
    }
@@ -597,6 +566,9 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
                                         const FP_HookPhase02Sequence &seq)
 {
    if(!seq.valid)
+      return false;
+
+   if(!seq.render_eligible)
       return false;
 
    if(cfg.min_x_count_to_draw > 0 && seq.x_count < cfg.min_x_count_to_draw)

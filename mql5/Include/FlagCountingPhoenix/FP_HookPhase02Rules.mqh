@@ -125,27 +125,26 @@ void FP_HookP02SetXNode(FP_HookPhase02Sequence &seq,
    seq.last_x_bar_index = node.bar_index;
 }
 
-void FP_HookP02InitSequenceFromFirstCountedNode(const int sequence_id,
-                                                const FP_HookPhase02Direction d,
-                                                const FP_HookPhase01Node &first_node,
-                                                FP_HookPhase02Sequence &seq)
+void FP_HookP02InitSequenceFromBoundary(const int sequence_id,
+                                         const FP_HookPhase02Direction d,
+                                         const FP_HookPhase01Node &boundary_node,
+                                         FP_HookPhase02Sequence &seq)
 {
    FP_ResetHookPhase02Sequence(seq);
    seq.sequence_id = sequence_id;
-   seq.scale_l = first_node.scale_l;
+   seq.scale_l = boundary_node.scale_l;
    seq.direction = d;
    seq.state = FP_HOOK_P02_STATE_CANDIDATE;
 
-   // Contract-aligned: the Hook envelope starts at the same-side start boundary.
-   // The start boundary can also be counted as node 1 in the branch label stream.
-   // It is not labelled as origin / zero in the semantic minimal view.
-   seq.origin_node_id = first_node.node_id;
-   seq.origin_bar_index = first_node.bar_index;
-   seq.origin_time = first_node.bar_time;
-   seq.origin_price = first_node.price;
-   seq.death_boundary_price = first_node.price;
+   // Contract-aligned: origin is the Hook floor/ceiling boundary.
+   // It is NOT counted as node 1/2/3/4.
+   seq.origin_node_id = boundary_node.node_id;
+   seq.origin_bar_index = boundary_node.bar_index;
+   seq.origin_time = boundary_node.bar_time;
+   seq.origin_price = boundary_node.price;
+   seq.death_boundary_price = boundary_node.price;
 
-   seq.source = "HOOK_P02_END_BACKWARD_BRANCH_BUILDER";
+   seq.source = "HOOK_P02_BOUNDARY_BRANCH_CONTEXT";
 }
 
 bool FP_HookP02AppendSequence(FP_HookPhase02Sequence &sequences[],
@@ -370,7 +369,105 @@ bool FP_HookP02BranchDuplicate(const FP_HookPhase02Sequence &seq,
    return false;
 }
 
+
+bool FP_HookP02BoundaryCondition(const FP_HookPhase02Direction d,
+                                const double older_price,
+                                const double active_price)
+{
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (older_price < active_price);
+   return (older_price > active_price);
+}
+
+bool FP_HookP02BoundaryBreachedPrice(const FP_HookPhase02Direction d,
+                                     const double boundary_price,
+                                     const double candidate_price,
+                                     const bool touch_kills)
+{
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (touch_kills ? candidate_price <= boundary_price : candidate_price < boundary_price);
+   return (touch_kills ? candidate_price >= boundary_price : candidate_price > boundary_price);
+}
+
+int FP_HookP02FindOriginBoundaryIndex(const FP_HookPhase01Node &direction_nodes[],
+                                      const FP_HookPhase02Direction d,
+                                      const int active_index)
+{
+   if(active_index <= 0 || active_index >= ArraySize(direction_nodes))
+      return -1;
+
+   double active_price = direction_nodes[active_index].price;
+   for(int i=active_index-1; i>=0; i--)
+   {
+      if(FP_HookP02BoundaryCondition(d, direction_nodes[i].price, active_price))
+         return i;
+   }
+   return -1;
+}
+
+bool FP_HookP02HookBoundaryFailedInsideSpan(const FP_HookPhase01Node &direction_nodes[],
+                                           const FP_HookPhase02Direction d,
+                                           const int boundary_index,
+                                           const int active_index,
+                                           const bool touch_kills,
+                                           int &failure_node_id,
+                                           datetime &failure_time,
+                                           double &failure_price)
+{
+   failure_node_id = -1;
+   failure_time = 0;
+   failure_price = 0.0;
+
+   if(boundary_index < 0 || active_index <= boundary_index || active_index >= ArraySize(direction_nodes))
+      return true;
+
+   double boundary_price = direction_nodes[boundary_index].price;
+
+   for(int i=boundary_index+1; i<=active_index; i++)
+   {
+      FP_HookPhase01Node n = direction_nodes[i];
+      if(FP_HookP02BoundaryBreachedPrice(d, boundary_price, n.price, touch_kills))
+      {
+         failure_node_id = n.node_id;
+         failure_time = n.bar_time;
+         failure_price = n.price;
+         return true;
+      }
+   }
+   return false;
+}
+
+double FP_HookP02ComputeRetracementRatio(const FP_HookPhase02Direction d,
+                                         const double boundary_price,
+                                         const double crown_price,
+                                         const double resolve_price)
+{
+   double denom = MathAbs(crown_price - boundary_price);
+   if(denom <= _Point * 0.1)
+      return 0.0;
+
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (crown_price - resolve_price) / denom;
+
+   return (resolve_price - crown_price) / denom;
+}
+
+bool FP_HookP02ResolveNodeConfirmed(const FP_HookPhase01Node &direction_nodes[],
+                                    const int &branch_indexes_old_to_new[])
+{
+   int n = ArraySize(branch_indexes_old_to_new);
+   if(n <= 0)
+      return false;
+
+   int idx = branch_indexes_old_to_new[n - 1];
+   if(idx < 0 || idx >= ArraySize(direction_nodes))
+      return false;
+
+   return direction_nodes[idx].confirmed;
+}
+
 bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &direction_nodes[],
+                                              const int boundary_index,
                                               const int &branch_indexes_old_to_new[],
                                               const FP_HookPhase01Node &all_nodes[],
                                               const FP_HookPhase02Direction d,
@@ -382,18 +479,18 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &directio
    if(branch_count <= 0)
       return false;
 
+   if(boundary_index < 0 || boundary_index >= ArraySize(direction_nodes))
+      return false;
+
    if(branch_count > 4)
    {
       report.rejected_candidates++;
+      seq.reject_reason = "BRANCH_EXCEEDS_FOUR_REQUIRES_HIGHER_L";
       return false;
    }
 
-   int first_index = branch_indexes_old_to_new[0];
-   if(first_index < 0 || first_index >= ArraySize(direction_nodes))
-      return false;
-
-   FP_HookPhase01Node first = direction_nodes[first_index];
-   FP_HookP02InitSequenceFromFirstCountedNode(ArraySize(direction_nodes), d, first, seq);
+   FP_HookPhase01Node boundary = direction_nodes[boundary_index];
+   FP_HookP02InitSequenceFromBoundary(ArraySize(direction_nodes), d, boundary, seq);
 
    seq.x_count = branch_count;
    for(int p=0; p<branch_count; p++)
@@ -401,14 +498,43 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &directio
       int idx = branch_indexes_old_to_new[p];
       if(idx < 0 || idx >= ArraySize(direction_nodes))
          return false;
+      if(idx <= boundary_index)
+         return false;
       FP_HookP02SetXNode(seq, p + 1, direction_nodes[idx]);
    }
 
-   seq.origin_node_id = seq.x1_node_id;
-   seq.origin_bar_index = seq.x1_bar_index;
-   seq.origin_time = seq.x1_time;
-   seq.origin_price = seq.x1_price;
-   seq.death_boundary_price = seq.origin_price;
+   // Resolve node is the newest/rightmost counted same-side node in this branch.
+   int resolve_index = branch_indexes_old_to_new[branch_count - 1];
+   FP_HookPhase01Node resolve_node = direction_nodes[resolve_index];
+   seq.resolve_node_id = resolve_node.node_id;
+   seq.resolve_time = resolve_node.bar_time;
+   seq.resolve_price = resolve_node.price;
+   seq.resolve_confirmed = resolve_node.confirmed;
+
+   if(cfg.require_confirmed_resolve_node && !seq.resolve_confirmed)
+   {
+      seq.visibility_reason = "RESOLVE_NODE_NOT_CONFIRMED";
+      seq.render_eligible = false;
+      report.rejected_candidates++;
+      return false;
+   }
+
+   int failure_id;
+   datetime failure_time;
+   double failure_price;
+   if(FP_HookP02HookBoundaryFailedInsideSpan(direction_nodes, d, boundary_index, resolve_index,
+                                            cfg.death_on_boundary_touch,
+                                            failure_id, failure_time, failure_price))
+   {
+      seq.hook_failed = true;
+      seq.failure_node_id = failure_id;
+      seq.failure_time = failure_time;
+      seq.failure_price = failure_price;
+      seq.visibility_reason = "HOOK_BOUNDARY_TOUCHED_OR_BREACHED_BEFORE_RESOLVE";
+      seq.render_eligible = false;
+      report.rejected_candidates++;
+      return false;
+   }
 
    // Documented minimum 1/2: node 2 must strictly pass node 1 and an opposite node must exist between them.
    if(branch_count >= 2)
@@ -431,17 +557,35 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &directio
    int crown_id;
    datetime crown_time;
    double crown_price;
-   if(FP_HookP02FindOppositeExtreme(all_nodes, seq.scale_l, d, seq.origin_time, seq.last_x_time,
-                                    crown_id, crown_time, crown_price))
+   if(!FP_HookP02FindOppositeExtreme(all_nodes, seq.scale_l, d, seq.origin_time, seq.resolve_time,
+                                     crown_id, crown_time, crown_price))
    {
-      seq.cycle_crown_node_id = crown_id;
-      seq.cycle_crown_time = crown_time;
-      seq.cycle_crown_price = crown_price;
-      seq.cycle_crown_valid = true;
+      seq.visibility_reason = "NO_OPPOSITE_CYCLE_EXTREME";
+      seq.render_eligible = false;
+      report.rejected_candidates++;
+      return false;
+   }
+
+   seq.cycle_crown_node_id = crown_id;
+   seq.cycle_crown_time = crown_time;
+   seq.cycle_crown_price = crown_price;
+   seq.cycle_crown_valid = true;
+
+   seq.retracement_ratio = FP_HookP02ComputeRetracementRatio(d, seq.origin_price, seq.cycle_crown_price, seq.resolve_price);
+   seq.near_death_confirmed = (seq.resolve_confirmed && seq.retracement_ratio >= cfg.near_death_retrace_threshold);
+
+   if(cfg.require_near_death_for_semantic_arc && !seq.near_death_confirmed)
+   {
+      seq.visibility_reason = "RESOLVE_NODE_NOT_CONFIRMED_NEAR_DEATH";
+      seq.render_eligible = false;
+      report.rejected_candidates++;
+      return false;
    }
 
    seq.valid = true;
-   seq.source = "HOOK_P02_DOC_END_BACKWARD_BRANCH";
+   seq.render_eligible = true;
+   seq.visibility_reason = "RENDER_ELIGIBLE_CONFIRMED_NEAR_DEATH";
+   seq.source = "HOOK_P02_DOC_BOUNDARY_CONFIRMED_NEAR_DEATH";
    return true;
 }
 
@@ -487,7 +631,7 @@ int FP_HookP02BuildDirectionScaleEndBackward(const FP_HookPhase01Node &all_nodes
 {
    FP_HookPhase01Node direction_nodes[];
    int n = FP_HookP02CollectDirectionScaleNodes(all_nodes, d, scale_l, direction_nodes);
-   if(n <= 0)
+   if(n <= 1)
       return 0;
 
    int built = 0;
@@ -495,42 +639,69 @@ int FP_HookP02BuildDirectionScaleEndBackward(const FP_HookPhase01Node &all_nodes
    if(max_readable <= 0 || max_readable > 4)
       max_readable = 4;
 
-   for(int end_i=0; end_i<n; end_i++)
+   for(int active_i=1; active_i<n; active_i++)
    {
-      int backward_indexes[];
-      ArrayResize(backward_indexes, 1);
-      backward_indexes[0] = end_i;
-      double threshold = direction_nodes[end_i].price;
+      int boundary_index = FP_HookP02FindOriginBoundaryIndex(direction_nodes, d, active_i);
+      if(boundary_index < 0)
+         continue;
 
-      for(int k=end_i-1; k>=0; k--)
-      {
-         if(FP_HookP02StrictEarlierBelongsToBackwardBranch(d, direction_nodes[k].price, threshold))
-         {
-            int m = ArraySize(backward_indexes);
-            ArrayResize(backward_indexes, m + 1);
-            backward_indexes[m] = k;
-            threshold = direction_nodes[k].price;
-         }
-      }
-
-      if(ArraySize(backward_indexes) > max_readable)
+      int failure_id;
+      datetime failure_time;
+      double failure_price;
+      if(FP_HookP02HookBoundaryFailedInsideSpan(direction_nodes, d, boundary_index, active_i,
+                                               cfg.death_on_boundary_touch,
+                                               failure_id, failure_time, failure_price))
       {
          report.rejected_candidates++;
          continue;
       }
 
-      FP_HookP02ReverseIntArray(backward_indexes);
+      // Extract all right-to-left branch paths inside this Hook context.
+      for(int resolver_i=boundary_index+1; resolver_i<=active_i; resolver_i++)
+      {
+         int backward_indexes[];
+         ArrayResize(backward_indexes, 1);
+         backward_indexes[0] = resolver_i;
+         double reference = direction_nodes[resolver_i].price;
 
-      FP_HookPhase02Sequence seq;
-      FP_ResetHookPhase02Sequence(seq);
-      if(!FP_HookP02BuildSequenceFromBranchIndexes(direction_nodes, backward_indexes, all_nodes, d, cfg, seq, report))
-         continue;
+         for(int k=resolver_i-1; k>boundary_index; k--)
+         {
+            // If the candidate would break the running branch reference, this branch path closes.
+            if(FP_HookP02BoundaryCondition(d, direction_nodes[k].price, reference))
+               break;
 
-      if(FP_HookP02BranchDuplicate(seq, sequences))
-         continue;
+            if(FP_HookP02StrictEarlierBelongsToBackwardBranch(d, direction_nodes[k].price, reference))
+            {
+               int m = ArraySize(backward_indexes);
+               ArrayResize(backward_indexes, m + 1);
+               backward_indexes[m] = k;
+               reference = direction_nodes[k].price;
+            }
+         }
 
-      if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
-         built++;
+         if(ArraySize(backward_indexes) > max_readable)
+         {
+            report.rejected_candidates++;
+            continue;
+         }
+
+         FP_HookP02ReverseIntArray(backward_indexes);
+
+         FP_HookPhase02Sequence seq;
+         FP_ResetHookPhase02Sequence(seq);
+         if(!FP_HookP02BuildSequenceFromBranchIndexes(direction_nodes, boundary_index, backward_indexes,
+                                                       all_nodes, d, cfg, seq, report))
+            continue;
+
+         if(FP_HookP02BranchDuplicate(seq, sequences))
+            continue;
+
+         if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
+            built++;
+
+         if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
+            break;
+      }
 
       if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
          break;

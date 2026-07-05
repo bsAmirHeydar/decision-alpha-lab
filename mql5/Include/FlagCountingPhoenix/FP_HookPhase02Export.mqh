@@ -28,7 +28,7 @@ string FP_HookP02SummaryPath(const FP_HookPhase02Config &cfg)
 
 string FP_HookP02SequenceHeader()
 {
-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,death_boundary_price,capped,valid,source,reject_reason";
+   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,death_boundary_price,capped,valid,source,reject_reason";
 }
 
 string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
