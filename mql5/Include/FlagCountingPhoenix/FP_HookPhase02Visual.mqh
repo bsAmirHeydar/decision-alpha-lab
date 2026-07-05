@@ -4,6 +4,22 @@
 
 #include "FP_HookPhase02Rules.mqh"
 
+// ============================================================================
+// Phase 02 Visual — Contract-aligned Hook/ND semantic renderer
+// ----------------------------------------------------------------------------
+// Semantic minimal view:
+// - no straight sequence wiring by default
+// - no heavy node markers by default
+// - one Hook envelope curve per Hook-origin context
+// - branch numbers 1..4 only, old-to-new
+// - low-side numbers below valleys, high-side numbers above peaks
+// - same branch sequence = same number color
+// - deterministic stacked labels for shared nodes
+// ============================================================================
+
+string g_fp_hook_p02_label_keys[];
+int    g_fp_hook_p02_label_counts[];
+
 int FP_HookPhase02DeleteObjects(const string prefix)
 {
    if(StringLen(prefix) <= 0)
@@ -22,9 +38,6 @@ int FP_HookPhase02DeleteObjects(const string prefix)
    return deleted;
 }
 
-string g_fp_hook_p02_label_keys[];
-int    g_fp_hook_p02_label_counts[];
-
 void FP_HookP02ResetLabelCollisionState()
 {
    ArrayResize(g_fp_hook_p02_label_keys, 0);
@@ -32,9 +45,13 @@ void FP_HookP02ResetLabelCollisionState()
 }
 
 int FP_HookP02ConsumeLabelStackSlot(const datetime t,
-                                    const double price)
+                                    const double price,
+                                    const bool place_below)
 {
-   string key = IntegerToString((int)t) + "|" + DoubleToString(price, _Digits);
+   double bucket_points = 10.0;
+   long price_bucket = (long)MathRound(price / (_Point * bucket_points));
+   string key = IntegerToString((int)t) + "|" + IntegerToString((place_below ? 1 : 0)) + "|" + IntegerToString((int)price_bucket);
+
    for(int i=0; i<ArraySize(g_fp_hook_p02_label_keys); i++)
    {
       if(g_fp_hook_p02_label_keys[i] == key)
@@ -90,24 +107,27 @@ string FP_HookP02NodeDisplayLabel(const FP_HookPhase02Config &cfg,
 {
    if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ZERO)
       return IntegerToString(point_index);
+
    if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_WITH_O)
    {
       if(point_index == 0)
          return "O";
       return IntegerToString(point_index);
    }
+
    if(cfg.node_label_mode == FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN)
    {
       if(point_index == 0)
          return "";
       return IntegerToString(point_index);
    }
+
    return fallback_label;
 }
 
 color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
-                                  const int point_index,
-                                  const color fallback_color)
+                                const int point_index,
+                                const color fallback_color)
 {
    if(!cfg.color_node_numbers_by_index)
       return fallback_color;
@@ -119,24 +139,25 @@ color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
    return fallback_color;
 }
 
-double FP_HookP02NodeLabelPrice(const FP_HookPhase02Config &cfg,
-                                const FP_HookPhase02Sequence &seq,
-                                const double price,
-                                const int point_index,
-                                const int stack_slot)
+double FP_HookP02StackedLabelPrice(const FP_HookPhase02Config &cfg,
+                                   const double anchor_price,
+                                   const bool place_below,
+                                   const int stack_slot)
 {
-   if(cfg.node_number_offset_points <= 0 && (!cfg.stack_node_labels_on_collisions || cfg.node_label_stack_step_points <= 0))
-      return price;
+   double base_points = (double)cfg.node_number_offset_points;
+   if(base_points < 0.0)
+      base_points = 0.0;
 
-   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
-   if(point_index == 0)
-      sign *= 1.25;
-
-   double total_points = (double)cfg.node_number_offset_points;
+   double stack_points = 0.0;
    if(cfg.stack_node_labels_on_collisions && stack_slot > 0 && cfg.node_label_stack_step_points > 0)
-      total_points += (double)(stack_slot * cfg.node_label_stack_step_points);
+      stack_points = (double)(stack_slot * cfg.node_label_stack_step_points);
 
-   return price + sign * _Point * total_points;
+   double total_points = base_points + stack_points;
+   if(total_points <= 0.0)
+      return anchor_price;
+
+   double sign = (place_below ? -1.0 : 1.0);
+   return anchor_price + sign * _Point * total_points;
 }
 
 string FP_HookP02BaseName(const FP_HookPhase02Config &cfg,
@@ -158,6 +179,9 @@ bool FP_HookP02CreateText(const string name,
                           const int font_size,
                           FP_HookPhase02Report &report)
 {
+   if(StringLen(text) <= 0)
+      return false;
+
    ObjectDelete(0, name);
    if(!ObjectCreate(0, name, OBJ_TEXT, 0, t, price))
       return false;
@@ -204,6 +228,9 @@ bool FP_HookP02CreateTrend(const string name,
                            const ENUM_LINE_STYLE style,
                            FP_HookPhase02Report &report)
 {
+   if(t1 <= 0 || t2 <= 0 || t2 <= t1)
+      return false;
+
    ObjectDelete(0, name);
    if(!ObjectCreate(0, name, OBJ_TREND, 0, t1, p1, t2, p2))
       return false;
@@ -212,222 +239,11 @@ bool FP_HookP02CreateTrend(const string name,
    ObjectSetInteger(0, name, OBJPROP_WIDTH, width);
    ObjectSetInteger(0, name, OBJPROP_STYLE, style);
    ObjectSetInteger(0, name, OBJPROP_RAY, false);
-   ObjectSetInteger(0, name, OBJPROP_BACK, false);
+   ObjectSetInteger(0, name, OBJPROP_BACK, true);
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
    report.objects_created++;
    return true;
-}
-
-bool FP_HookP02GetDirectionalExtremeEndPoint(const FP_HookPhase02Sequence &seq,
-                                           datetime &t,
-                                           double &price,
-                                           string &label)
-{
-   bool found = false;
-   t = 0;
-   price = 0.0;
-   label = "";
-
-   for(int point_index=1; point_index<=seq.x_count && point_index<=4; point_index++)
-   {
-      datetime pt;
-      double pp;
-      string ll;
-      if(!FP_HookP02GetPoint(seq, point_index, pt, pp, ll))
-         continue;
-
-      if(!found)
-      {
-         found = true;
-         t = pt;
-         price = pp;
-         label = ll;
-         continue;
-      }
-
-      if(seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
-      {
-         if(pp < price || (pp == price && pt > t))
-         {
-            t = pt;
-            price = pp;
-            label = ll;
-         }
-      }
-      else
-      {
-         if(pp > price || (pp == price && pt > t))
-         {
-            t = pt;
-            price = pp;
-            label = ll;
-         }
-      }
-   }
-
-   return found;
-}
-
-bool FP_HookP02GetLastVisibleXEndPoint(const FP_HookPhase02Sequence &seq,
-                                       datetime &t,
-                                       double &price,
-                                       string &label)
-{
-   t = 0;
-   price = 0.0;
-   label = "";
-
-   if(seq.x_count >= 4 && seq.x4_time > 0)
-   {
-      t = seq.x4_time;
-      price = seq.x4_price;
-      label = "X4";
-      return true;
-   }
-   if(seq.x_count >= 3 && seq.x3_time > 0)
-   {
-      t = seq.x3_time;
-      price = seq.x3_price;
-      label = "X3";
-      return true;
-   }
-   if(seq.x_count >= 2 && seq.x2_time > 0)
-   {
-      t = seq.x2_time;
-      price = seq.x2_price;
-      label = "X2";
-      return true;
-   }
-   if(seq.x_count >= 1 && seq.x1_time > 0)
-   {
-      t = seq.x1_time;
-      price = seq.x1_price;
-      label = "X1";
-      return true;
-   }
-
-   return false;
-}
-
-bool FP_HookP02GetCycleEndPoint(const FP_HookPhase02Sequence &seq,
-                                const FP_HookPhase02Config &cfg,
-                                datetime &t,
-                                double &price,
-                                string &label)
-{
-   if(cfg.cycle_arc_end_mode == FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME)
-      return FP_HookP02GetDirectionalExtremeEndPoint(seq, t, price, label);
-
-   return FP_HookP02GetLastVisibleXEndPoint(seq, t, price, label);
-}
-
-double FP_HookP02CycleArcHeight(const FP_HookPhase02Sequence &seq,
-                                const FP_HookPhase02Config &cfg,
-                                const double end_price)
-{
-   double span = MathAbs(end_price - seq.origin_price);
-   double min_height = _Point * 20.0;
-   double h = span * cfg.cycle_arc_height_ratio;
-
-   if(h < min_height)
-      h = min_height;
-
-   if(cfg.cycle_arc_max_height_points > 0)
-   {
-      double max_height = _Point * (double)cfg.cycle_arc_max_height_points;
-      if(max_height > 0.0 && h > max_height)
-         h = max_height;
-   }
-   return h;
-}
-
-bool FP_HookP02CreateCycleArc(const string base,
-                              const FP_HookPhase02Sequence &seq,
-                              const FP_HookPhase02Config &cfg,
-                              FP_HookPhase02Report &report)
-{
-   datetime end_time = 0;
-   double end_price = 0.0;
-   string end_label = "";
-
-   if(!FP_HookP02GetCycleEndPoint(seq, cfg, end_time, end_price, end_label))
-      return false;
-
-   if(seq.origin_time <= 0 || end_time <= seq.origin_time)
-      return false;
-
-   int segments = cfg.cycle_arc_segments;
-   if(segments < 4)
-      segments = 4;
-   if(segments > 64)
-      segments = 64;
-
-   long t0 = (long)seq.origin_time;
-   long dt = (long)(end_time - seq.origin_time);
-   if(dt <= 0)
-      return false;
-
-   double h = FP_HookP02CycleArcHeight(seq, cfg, end_price);
-   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
-   double pi = 3.14159265358979323846;
-
-   for(int k=0; k<segments; k++)
-   {
-      double f1 = (double)k / (double)segments;
-      double f2 = (double)(k + 1) / (double)segments;
-
-      datetime t1 = (datetime)(t0 + (long)MathRound((double)dt * f1));
-      datetime t2 = (datetime)(t0 + (long)MathRound((double)dt * f2));
-
-      double base1 = seq.origin_price + (end_price - seq.origin_price) * f1;
-      double base2 = seq.origin_price + (end_price - seq.origin_price) * f2;
-
-      double p1 = base1 + sign * h * MathSin(pi * f1);
-      double p2 = base2 + sign * h * MathSin(pi * f2);
-
-      color arc_color = (cfg.use_sequence_palette_colors ? FP_HookP02SequenceColor(cfg, seq) : cfg.cycle_arc_color);
-      FP_HookP02CreateTrend(base + "_CYCLE_ARC_" + IntegerToString(k),
-                            t1, p1, t2, p2,
-                            arc_color, cfg.line_width,
-                            STYLE_SOLID, report);
-   }
-
-   return true;
-}
-
-bool FP_HookP02DrawSequenceCountLabel(const string base,
-                                      const FP_HookPhase02Sequence &seq,
-                                      const FP_HookPhase02Config &cfg,
-                                      FP_HookPhase02Report &report)
-{
-   datetime end_time = 0;
-   double end_price = 0.0;
-   string end_label = "";
-
-   if(!FP_HookP02GetCycleEndPoint(seq, cfg, end_time, end_price, end_label))
-      return false;
-
-   long t0 = (long)seq.origin_time;
-   long dt = (long)(end_time - seq.origin_time);
-   if(dt <= 0)
-      return false;
-
-   double h = FP_HookP02CycleArcHeight(seq, cfg, end_price);
-   double sign = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? -1.0 : 1.0);
-   datetime mid_t = (datetime)(t0 + dt / 2);
-   double mid_p = (seq.origin_price + end_price) * 0.5 + sign * h * 1.10;
-
-   string dir_short = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? "+" : "-");
-   string txt = "C" + IntegerToString(seq.sequence_id) + dir_short +
-                " L" + IntegerToString(seq.scale_l) +
-                " " + end_label +
-                " n=" + IntegerToString(seq.x_count);
-
-   return FP_HookP02CreateText(base + "_CYCLE_COUNT_LABEL",
-                               mid_t, mid_p,
-                               txt, cfg.sequence_count_label_color,
-                               cfg.label_font_size + 1, report);
 }
 
 bool FP_HookP02GetPoint(const FP_HookPhase02Sequence &seq,
@@ -436,161 +252,349 @@ bool FP_HookP02GetPoint(const FP_HookPhase02Sequence &seq,
                         double &price,
                         string &label)
 {
+   t = 0;
+   price = 0.0;
+   label = "";
+
    if(point_index == 0)
    {
       t = seq.origin_time;
       price = seq.origin_price;
       label = "O";
-      return true;
+      return (t > 0);
    }
-   if(point_index == 1 && seq.x_count >= 1)
+   if(point_index == 1 && seq.x1_time > 0)
    {
       t = seq.x1_time;
       price = seq.x1_price;
       label = "X1";
       return true;
    }
-   if(point_index == 2 && seq.x_count >= 2)
+   if(point_index == 2 && seq.x2_time > 0)
    {
       t = seq.x2_time;
       price = seq.x2_price;
       label = "X2";
       return true;
    }
-   if(point_index == 3 && seq.x_count >= 3)
+   if(point_index == 3 && seq.x3_time > 0)
    {
       t = seq.x3_time;
       price = seq.x3_price;
       label = "X3";
       return true;
    }
-   if(point_index == 4 && seq.x_count >= 4)
+   if(point_index == 4 && seq.x4_time > 0)
    {
       t = seq.x4_time;
       price = seq.x4_price;
       label = "X4";
       return true;
    }
+
    return false;
 }
 
-bool FP_HookP02DrawOneSequence(const FP_HookPhase02Config &cfg,
-                               const FP_HookPhase02Sequence &seq,
-                               FP_HookPhase02Report &report)
+bool FP_HookP02GetLastCountedPoint(const FP_HookPhase02Sequence &seq,
+                                   datetime &t,
+                                   double &price)
 {
-   if(!seq.valid)
+   string label;
+   int n = seq.x_count;
+   if(n > 4)
+      n = 4;
+   for(int p=n; p>=1; p--)
+   {
+      if(FP_HookP02GetPoint(seq, p, t, price, label))
+         return true;
+   }
+   return false;
+}
+
+bool FP_HookP02SameOriginGroup(const FP_HookPhase02Sequence &a,
+                               const FP_HookPhase02Sequence &b)
+{
+   return (a.direction == b.direction &&
+           a.scale_l == b.scale_l &&
+           a.origin_node_id == b.origin_node_id &&
+           a.origin_time == b.origin_time &&
+           a.origin_price == b.origin_price);
+}
+
+bool FP_HookP02GroupSeenBefore(const FP_HookPhase02Sequence &seed,
+                               const FP_HookPhase02Sequence &sequences[],
+                               const int &indexes[],
+                               const int before_pos)
+{
+   for(int a=0; a<before_pos; a++)
+   {
+      int j = indexes[a];
+      if(j < 0 || j >= ArraySize(sequences))
+         continue;
+      if(FP_HookP02SameOriginGroup(seed, sequences[j]))
+         return true;
+   }
+   return false;
+}
+
+bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
+                                      const FP_HookPhase02Sequence &sequences[],
+                                      const int &indexes[],
+                                      datetime &start_time,
+                                      double &start_price,
+                                      datetime &crown_time,
+                                      double &crown_price,
+                                      datetime &end_time,
+                                      double &end_price)
+{
+   start_time = seed.origin_time;
+   start_price = seed.origin_price;
+   crown_time = 0;
+   crown_price = 0.0;
+   end_time = 0;
+   end_price = 0.0;
+
+   if(start_time <= 0)
       return false;
 
-   string base = FP_HookP02BaseName(cfg, seq);
-   color seq_color = FP_HookP02SequenceColor(cfg, seq);
-
-   color origin_marker_color = (cfg.color_origin_with_sequence ? seq_color : cfg.origin_color);
-
-   if(cfg.draw_origin)
+   bool crown_found = false;
+   for(int s=0; s<ArraySize(indexes); s++)
    {
-      int origin_arrow_code = (cfg.use_minimal_node_markers ? cfg.minimal_node_marker_arrow_code : 159);
-      FP_HookP02CreateArrow(base + "_ORIGIN", seq.origin_time, seq.origin_price,
-                            origin_marker_color, origin_arrow_code, cfg.marker_width + 1, report);
-   }
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+      FP_HookPhase02Sequence seq = sequences[i];
+      if(!FP_HookP02SameOriginGroup(seed, seq))
+         continue;
+      if(!seq.cycle_crown_valid || seq.cycle_crown_time <= start_time)
+         continue;
 
-   if(cfg.draw_labels && !cfg.minimal_numbers_only)
-   {
-      string main_label = "H02 " + FP_HookP02DirectionName(seq.direction) +
-                          " L" + IntegerToString(seq.scale_l) +
-                          " S" + IntegerToString(seq.sequence_id) +
-                          " " + FP_HookP02StateName(seq.state) +
-                          " X" + IntegerToString(seq.x_count);
-      FP_HookP02CreateText(base + "_LABEL", seq.origin_time, seq.origin_price,
-                           main_label, cfg.label_color, cfg.label_font_size, report);
-   }
-
-   if(cfg.draw_labels && cfg.minimal_numbers_only)
-   {
-      color origin_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
-      string origin_label = FP_HookP02NodeDisplayLabel(cfg, 0, "O");
-      if(origin_label != "")
+      if(!crown_found)
       {
-         double origin_label_price = FP_HookP02NodeLabelPrice(cfg, seq, seq.origin_price, 0, 0);
-         FP_HookP02CreateText(base + "_ORIGIN_NODE_LABEL", seq.origin_time, origin_label_price,
-                              origin_label, origin_label_color, cfg.label_font_size, report);
+         crown_found = true;
+         crown_time = seq.cycle_crown_time;
+         crown_price = seq.cycle_crown_price;
+         continue;
+      }
+
+      if(seed.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
+      {
+         if(seq.cycle_crown_price > crown_price ||
+            (seq.cycle_crown_price == crown_price && seq.cycle_crown_time < crown_time))
+         {
+            crown_time = seq.cycle_crown_time;
+            crown_price = seq.cycle_crown_price;
+         }
+      }
+      else
+      {
+         if(seq.cycle_crown_price < crown_price ||
+            (seq.cycle_crown_price == crown_price && seq.cycle_crown_time < crown_time))
+         {
+            crown_time = seq.cycle_crown_time;
+            crown_price = seq.cycle_crown_price;
+         }
       }
    }
 
-   if(cfg.draw_x_nodes)
+   if(!crown_found)
+      return false;
+
+   bool end_found = false;
+   for(int s=0; s<ArraySize(indexes); s++)
    {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+      FP_HookPhase02Sequence seq = sequences[i];
+      if(!FP_HookP02SameOriginGroup(seed, seq))
+         continue;
+
       for(int p=1; p<=seq.x_count && p<=4; p++)
       {
          datetime t;
          double price;
          string label;
-         if(FP_HookP02GetPoint(seq, p, t, price, label))
-         {
-            int arrow_code = (cfg.use_minimal_node_markers ? cfg.minimal_node_marker_arrow_code :
-                              (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? 233 : 234));
-            FP_HookP02CreateArrow(base + "_" + label + "_NODE", t, price,
-                                  seq_color, arrow_code, cfg.marker_width, report);
+         if(!FP_HookP02GetPoint(seq, p, t, price, label))
+            continue;
+         if(t <= crown_time)
+            continue;
 
-            if(cfg.draw_labels)
+         if(!end_found)
+         {
+            end_found = true;
+            end_time = t;
+            end_price = price;
+            continue;
+         }
+
+         if(seed.direction == FP_HOOK_P02_DIRECTION_POSITIVE)
+         {
+            if(price < end_price || (price == end_price && t > end_time))
             {
-               string node_display = FP_HookP02NodeDisplayLabel(cfg, p, label);
-               if(node_display != "")
-               {
-                  color node_label_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
-                  node_label_color = FP_HookP02NodeNumberColor(cfg, p, node_label_color);
-                  int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(t, price) : 0);
-                  double node_label_price = FP_HookP02NodeLabelPrice(cfg, seq, price, p, stack_slot);
-                  FP_HookP02CreateText(base + "_" + label + "_LABEL", t, node_label_price,
-                                       node_display, node_label_color, cfg.label_font_size, report);
-               }
+               end_time = t;
+               end_price = price;
+            }
+         }
+         else
+         {
+            if(price > end_price || (price == end_price && t > end_time))
+            {
+               end_time = t;
+               end_price = price;
             }
          }
       }
    }
 
-   if(cfg.draw_x_lines)
+   if(!end_found)
    {
-      for(int p=0; p<seq.x_count && p<4; p++)
+      for(int s=0; s<ArraySize(indexes); s++)
       {
-         datetime t1, t2;
-         double price1, price2;
-         string label1, label2;
+         int i = indexes[s];
+         if(i < 0 || i >= ArraySize(sequences))
+            continue;
+         FP_HookPhase02Sequence seq = sequences[i];
+         if(!FP_HookP02SameOriginGroup(seed, seq))
+            continue;
 
-         if(FP_HookP02GetPoint(seq, p, t1, price1, label1) &&
-            FP_HookP02GetPoint(seq, p+1, t2, price2, label2))
+         datetime t;
+         double price;
+         if(!FP_HookP02GetLastCountedPoint(seq, t, price))
+            continue;
+         if(t <= start_time)
+            continue;
+
+         if(!end_found || t > end_time)
          {
-            FP_HookP02CreateTrend(base + "_LINE_" + label1 + "_" + label2,
-                                  t1, price1, t2, price2,
-                                  seq_color, cfg.line_width, STYLE_SOLID, report);
+            end_found = true;
+            end_time = t;
+            end_price = price;
          }
       }
    }
 
-   if(cfg.draw_cycle_arc && seq.x_count >= cfg.arc_min_x_count_to_draw)
-      FP_HookP02CreateCycleArc(base, seq, cfg, report);
+   if(!end_found || end_time <= crown_time)
+      return false;
 
-   if(cfg.draw_sequence_count_label)
-      FP_HookP02DrawSequenceCountLabel(base, seq, cfg, report);
+   return true;
+}
 
-   if(cfg.draw_death_boundary)
+bool FP_HookP02CreateHookEnvelopeCurve(const string base,
+                                       const datetime start_time,
+                                       const double start_price,
+                                       const datetime crown_time,
+                                       const double crown_price,
+                                       const datetime end_time,
+                                       const double end_price,
+                                       const color curve_color,
+                                       const int line_width,
+                                       FP_HookPhase02Report &report)
+{
+   if(start_time <= 0 || crown_time <= start_time || end_time <= crown_time)
+      return false;
+
+   int half_segments = 14;
+   datetime prev_t = start_time;
+   double prev_p = start_price;
+
+   for(int k=1; k<=half_segments; k++)
    {
-      datetime end_time = seq.last_x_time;
-      if(end_time <= 0)
-         end_time = seq.origin_time;
-      FP_HookP02CreateTrend(base + "_DEATH_BOUNDARY",
-                            seq.origin_time, seq.death_boundary_price,
-                            end_time, seq.death_boundary_price,
-                            cfg.death_color, cfg.line_width, STYLE_DOT, report);
+      double u = (double)k / (double)half_segments;
+      double eased = MathSin(u * 1.5707963267948966);
+      datetime cur_t = (datetime)((long)MathRound((double)start_time + ((double)(crown_time - start_time) * u)));
+      double cur_p = start_price + (crown_price - start_price) * eased;
+      if(cur_t <= prev_t)
+         cur_t = (datetime)(prev_t + 1);
 
-      if(cfg.draw_labels && !cfg.minimal_numbers_only)
-         FP_HookP02CreateText(base + "_DEATH_LABEL", end_time, seq.death_boundary_price,
-                              "DEATH/O", cfg.death_color, cfg.label_font_size, report);
+      FP_HookP02CreateTrend(base + "_ENV_A_" + IntegerToString(k),
+                            prev_t, prev_p, cur_t, cur_p,
+                            curve_color, line_width, STYLE_SOLID, report);
+      prev_t = cur_t;
+      prev_p = cur_p;
+   }
+
+   prev_t = crown_time;
+   prev_p = crown_price;
+   for(int k=1; k<=half_segments; k++)
+   {
+      double u = (double)k / (double)half_segments;
+      double eased = 1.0 - MathCos(u * 1.5707963267948966);
+      datetime cur_t = (datetime)((long)MathRound((double)crown_time + ((double)(end_time - crown_time) * u)));
+      double cur_p = crown_price + (end_price - crown_price) * eased;
+      if(cur_t <= prev_t)
+         cur_t = (datetime)(prev_t + 1);
+
+      FP_HookP02CreateTrend(base + "_ENV_B_" + IntegerToString(k),
+                            prev_t, prev_p, cur_t, cur_p,
+                            curve_color, line_width, STYLE_SOLID, report);
+      prev_t = cur_t;
+      prev_p = cur_p;
+   }
+
+   return true;
+}
+
+bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
+                                      const FP_HookPhase02Sequence &seq,
+                                      FP_HookPhase02Report &report)
+{
+   if(!cfg.draw_x_nodes || !cfg.draw_labels)
+      return true;
+
+   string base = FP_HookP02BaseName(cfg, seq);
+   color seq_color = FP_HookP02SequenceColor(cfg, seq);
+   bool place_below = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE);
+
+   for(int p=1; p<=seq.x_count && p<=4; p++)
+   {
+      datetime t;
+      double price;
+      string label;
+      if(!FP_HookP02GetPoint(seq, p, t, price, label))
+         continue;
+
+      if(cfg.draw_node_markers)
+      {
+         int arrow_code = (cfg.use_minimal_node_markers ? cfg.minimal_node_marker_arrow_code : 159);
+         FP_HookP02CreateArrow(base + "_" + label + "_NODE", t, price, seq_color, arrow_code, cfg.marker_width, report);
+      }
+
+      string node_display = FP_HookP02NodeDisplayLabel(cfg, p, label);
+      if(StringLen(node_display) <= 0)
+         continue;
+
+      color node_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
+      node_color = FP_HookP02NodeNumberColor(cfg, p, node_color);
+      int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(t, price, place_below) : 0);
+      double label_price = FP_HookP02StackedLabelPrice(cfg, price, place_below, stack_slot);
+
+      FP_HookP02CreateText(base + "_" + label + "_LABEL", t, label_price,
+                           node_display, node_color, cfg.label_font_size, report);
+   }
+
+   if(cfg.draw_x_lines)
+   {
+      for(int p=1; p<seq.x_count && p<4; p++)
+      {
+         datetime t1, t2;
+         double price1, price2;
+         string label1, label2;
+         if(FP_HookP02GetPoint(seq, p, t1, price1, label1) &&
+            FP_HookP02GetPoint(seq, p+1, t2, price2, label2))
+         {
+            FP_HookP02CreateTrend(base + "_DEBUG_LINE_" + label1 + "_" + label2,
+                                  t1, price1, t2, price2,
+                                  seq_color, cfg.line_width, STYLE_DOT, report);
+         }
+      }
    }
 
    return true;
 }
 
 bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
-                                      const FP_HookPhase02Sequence &seq)
+                                        const FP_HookPhase02Sequence &seq)
 {
    if(!seq.valid)
       return false;
@@ -601,12 +605,8 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
    if(cfg.sequence_draw_direction != 0 && (int)seq.direction != cfg.sequence_draw_direction)
       return false;
 
-   if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SCALE_RECENT_N ||
-      cfg.sequence_draw_scale_l > 0)
-   {
-      if(cfg.sequence_draw_scale_l > 0 && seq.scale_l != cfg.sequence_draw_scale_l)
-         return false;
-   }
+   if(cfg.sequence_draw_scale_l > 0 && seq.scale_l != cfg.sequence_draw_scale_l)
+      return false;
 
    if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SEQUENCE_ID)
    {
@@ -638,7 +638,6 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
                                      int &indexes[])
 {
    ArrayResize(indexes, 0);
-
    int n = ArraySize(sequences);
    int max_draw = cfg.max_sequences_to_draw;
    if(max_draw <= 0)
@@ -687,7 +686,6 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       }
    }
 
-   // Draw older selected structures first so later/livelier structures remain visually dominant.
    int m = ArraySize(indexes);
    for(int a=0; a<m/2; a++)
    {
@@ -696,6 +694,48 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       indexes[a] = indexes[b];
       indexes[b] = tmp;
    }
+}
+
+int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
+                                       const FP_HookPhase02Sequence &sequences[],
+                                       const int &indexes[],
+                                       FP_HookPhase02Report &report)
+{
+   if(!cfg.draw_cycle_arc)
+      return 0;
+
+   int arcs_drawn = 0;
+   for(int s=0; s<ArraySize(indexes); s++)
+   {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+
+      FP_HookPhase02Sequence seed = sequences[i];
+      if(FP_HookP02GroupSeenBefore(seed, sequences, indexes, s))
+         continue;
+
+      datetime start_time, crown_time, end_time;
+      double start_price, crown_price, end_price;
+      if(!FP_HookP02GetOriginGroupEnvelope(seed, sequences, indexes,
+                                           start_time, start_price,
+                                           crown_time, crown_price,
+                                           end_time, end_price))
+         continue;
+
+      string base = cfg.object_prefix + "HOOKENV_L" + IntegerToString(seed.scale_l) +
+                    "_D" + IntegerToString((int)seed.direction) +
+                    "_O" + IntegerToString(seed.origin_node_id);
+
+      color arc_color = (cfg.cycle_arc_use_sequence_color ? FP_HookP02SequenceColor(cfg, seed) : cfg.cycle_arc_color);
+      if(FP_HookP02CreateHookEnvelopeCurve(base, start_time, start_price,
+                                           crown_time, crown_price,
+                                           end_time, end_price,
+                                           arc_color, cfg.line_width, report))
+         arcs_drawn++;
+   }
+
+   return arcs_drawn;
 }
 
 int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
@@ -718,10 +758,11 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
 
-      if(FP_HookP02DrawOneSequence(cfg, sequences[i], report))
+      if(FP_HookP02DrawOneSequenceNumbers(cfg, sequences[i], report))
          drawn++;
    }
 
+   FP_HookP02DrawOriginGroupEnvelopes(cfg, sequences, indexes, report);
    report.sequences_drawn = drawn;
    return drawn;
 }

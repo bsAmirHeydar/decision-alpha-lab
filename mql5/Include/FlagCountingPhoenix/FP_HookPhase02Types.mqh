@@ -79,9 +79,12 @@ struct FP_HookPhase02Config
    bool draw_sequences;
    bool draw_origin;
    bool draw_x_nodes;
+   bool draw_node_markers;
    bool draw_x_lines;
    bool draw_death_boundary;
    bool draw_cycle_arc;
+   bool cycle_arc_use_sequence_color;
+   bool group_cycle_arc_by_origin;
    bool draw_sequence_count_label;
    bool draw_labels;
    bool use_sequence_palette_colors;
@@ -172,6 +175,11 @@ struct FP_HookPhase02Sequence
    double last_x_price;
    datetime last_x_time;
    int last_x_bar_index;
+
+   int cycle_crown_node_id;
+   datetime cycle_crown_time;
+   double cycle_crown_price;
+   bool cycle_crown_valid;
 
    double death_boundary_price;
    bool capped;
@@ -272,7 +280,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.origin_policy = FP_HOOK_P02_ORIGIN_FIXED_EVERY_NODE;
    cfg.sequence_draw_mode = FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION;
    cfg.node_label_mode = FP_HOOK_P02_NODE_LABEL_NUMBERS_FROM_ONE_HIDE_ORIGIN;
-   cfg.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_LAST_VISIBLE_X;
+   cfg.cycle_arc_end_mode = FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME;
 
    cfg.show_positive = true;
    cfg.show_negative = true;
@@ -280,18 +288,21 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.draw_sequences = true;
    cfg.draw_origin = true;
    cfg.draw_x_nodes = true;
-   cfg.draw_x_lines = true;
-   cfg.draw_death_boundary = true;
-   cfg.draw_cycle_arc = false;
+   cfg.draw_node_markers = false;
+   cfg.draw_x_lines = false;
+   cfg.draw_death_boundary = false;
+   cfg.draw_cycle_arc = true;
+   cfg.cycle_arc_use_sequence_color = false;
+   cfg.group_cycle_arc_by_origin = true;
    cfg.draw_sequence_count_label = false;
    cfg.draw_labels = true;
-   cfg.use_sequence_palette_colors = false;
+   cfg.use_sequence_palette_colors = true;
    cfg.color_origin_with_sequence = false;
-   cfg.color_node_labels_with_sequence = false;
+   cfg.color_node_labels_with_sequence = true;
    cfg.color_node_numbers_by_index = false;
-   cfg.minimal_numbers_only = false;
+   cfg.minimal_numbers_only = true;
    cfg.use_minimal_node_markers = false;
-   cfg.stack_node_labels_on_collisions = false;
+   cfg.stack_node_labels_on_collisions = true;
 
    cfg.export_csv = false;
    cfg.print_summary = false;
@@ -323,7 +334,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.negative_color = clrTomato;
    cfg.origin_color = clrGold;
    cfg.death_color = clrDimGray;
-   cfg.cycle_arc_color = clrSlateGray;
+   cfg.cycle_arc_color = C'40,40,40';
    cfg.sequence_count_label_color = clrGold;
    cfg.label_color = clrSilver;
    cfg.node1_label_color = clrAqua;
@@ -373,6 +384,11 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.last_x_price = 0.0;
    s.last_x_time = 0;
    s.last_x_bar_index = -1;
+
+   s.cycle_crown_node_id = -1;
+   s.cycle_crown_time = 0;
+   s.cycle_crown_price = 0.0;
+   s.cycle_crown_valid = false;
 
    s.death_boundary_price = 0.0;
    s.capped = false;

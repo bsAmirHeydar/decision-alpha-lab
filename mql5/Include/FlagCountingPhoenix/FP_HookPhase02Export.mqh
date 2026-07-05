@@ -28,7 +28,7 @@ string FP_HookP02SummaryPath(const FP_HookPhase02Config &cfg)
 
 string FP_HookP02SequenceHeader()
 {
-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,death_boundary_price,capped,valid,source,reject_reason";
+   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,death_boundary_price,capped,valid,source,reject_reason";
 }
 
 string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
@@ -65,6 +65,11 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
    row += "," + IntegerToString(s.x4_bar_index);
    row += "," + FP_HookP02SafeCsv(TimeToString(s.x4_time, TIME_DATE|TIME_SECONDS));
    row += "," + DoubleToString(s.x4_price, _Digits);
+
+   row += "," + IntegerToString(s.cycle_crown_node_id);
+   row += "," + FP_HookP02SafeCsv(TimeToString(s.cycle_crown_time, TIME_DATE|TIME_SECONDS));
+   row += "," + DoubleToString(s.cycle_crown_price, _Digits);
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.cycle_crown_valid));
 
    row += "," + DoubleToString(s.death_boundary_price, _Digits);
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.capped));

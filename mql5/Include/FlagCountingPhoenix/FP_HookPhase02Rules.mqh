@@ -4,6 +4,19 @@
 
 #include "FP_HookPhase02Types.mqh"
 
+// ============================================================================
+// Phase 02 — Contract-aligned Hook / ND branch sequence builder
+// ----------------------------------------------------------------------------
+// Implements the documented Hook/ND branch model:
+// - positive / low-side Hook uses valley nodes only
+// - negative / high-side Hook uses peak nodes only
+// - branches are built end-backward and labelled old-to-new as 1..4
+// - branches with more than four counted nodes are not emitted in readable view
+// - valid 1/2 requires an opposite-side node between node 1 and node 2
+// - opposite extreme is captured for Hook envelope rendering
+// - no trade / execution / broker behavior
+// ============================================================================
+
 bool FP_HookP02ShouldRun(const FP_HookPhase02Config &cfg)
 {
    if(!cfg.enabled)
@@ -30,10 +43,23 @@ FP_HookPhase01NodeType FP_HookP02RequiredNodeType(const FP_HookPhase02Direction 
    return FP_HOOK_P01_NODE_PEAK;
 }
 
+FP_HookPhase01NodeType FP_HookP02OppositeNodeType(const FP_HookPhase02Direction d)
+{
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return FP_HOOK_P01_NODE_PEAK;
+   return FP_HOOK_P01_NODE_VALLEY;
+}
+
 bool FP_HookP02NodeMatchesDirection(const FP_HookPhase01Node &node,
                                     const FP_HookPhase02Direction d)
 {
    return (node.node_type == FP_HookP02RequiredNodeType(d));
+}
+
+bool FP_HookP02NodeMatchesOpposite(const FP_HookPhase01Node &node,
+                                   const FP_HookPhase02Direction d)
+{
+   return (node.node_type == FP_HookP02OppositeNodeType(d));
 }
 
 bool FP_HookP02StrictAcceptsNext(const FP_HookPhase02Direction d,
@@ -42,31 +68,23 @@ bool FP_HookP02StrictAcceptsNext(const FP_HookPhase02Direction d,
 {
    if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
       return (candidate_price < previous_price);
-
    if(d == FP_HOOK_P02_DIRECTION_NEGATIVE)
       return (candidate_price > previous_price);
-
    return false;
 }
 
-bool FP_HookP02StarterUsed(const int node_id, const int &used_starters[])
+bool FP_HookP02StrictEarlierBelongsToBackwardBranch(const FP_HookPhase02Direction d,
+                                                    const double earlier_price,
+                                                    const double later_branch_price)
 {
-   for(int i=0; i<ArraySize(used_starters); i++)
-   {
-      if(used_starters[i] == node_id)
-         return true;
-   }
+   // End-backward form of the same strict rule.
+   // Positive / lows: earlier lows must be higher than later lows.
+   // Negative / highs: earlier highs must be lower than later highs.
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (earlier_price > later_branch_price);
+   if(d == FP_HOOK_P02_DIRECTION_NEGATIVE)
+      return (earlier_price < later_branch_price);
    return false;
-}
-
-void FP_HookP02MarkStarterUsed(const int node_id, int &used_starters[])
-{
-   if(FP_HookP02StarterUsed(node_id, used_starters))
-      return;
-
-   int n = ArraySize(used_starters);
-   ArrayResize(used_starters, n + 1);
-   used_starters[n] = node_id;
 }
 
 void FP_HookP02SetXNode(FP_HookPhase02Sequence &seq,
@@ -105,6 +123,29 @@ void FP_HookP02SetXNode(FP_HookPhase02Sequence &seq,
    seq.last_x_price = node.price;
    seq.last_x_time = node.bar_time;
    seq.last_x_bar_index = node.bar_index;
+}
+
+void FP_HookP02InitSequenceFromFirstCountedNode(const int sequence_id,
+                                                const FP_HookPhase02Direction d,
+                                                const FP_HookPhase01Node &first_node,
+                                                FP_HookPhase02Sequence &seq)
+{
+   FP_ResetHookPhase02Sequence(seq);
+   seq.sequence_id = sequence_id;
+   seq.scale_l = first_node.scale_l;
+   seq.direction = d;
+   seq.state = FP_HOOK_P02_STATE_CANDIDATE;
+
+   // Contract-aligned: the Hook envelope starts at the same-side start boundary.
+   // The start boundary can also be counted as node 1 in the branch label stream.
+   // It is not labelled as origin / zero in the semantic minimal view.
+   seq.origin_node_id = first_node.node_id;
+   seq.origin_bar_index = first_node.bar_index;
+   seq.origin_time = first_node.bar_time;
+   seq.origin_price = first_node.price;
+   seq.death_boundary_price = first_node.price;
+
+   seq.source = "HOOK_P02_END_BACKWARD_BRANCH_BUILDER";
 }
 
 bool FP_HookP02AppendSequence(FP_HookPhase02Sequence &sequences[],
@@ -147,7 +188,7 @@ void FP_HookP02FinalizeSequenceState(FP_HookPhase02Sequence &seq,
    {
       seq.state = FP_HOOK_P02_STATE_REJECTED;
       if(StringLen(seq.reject_reason) <= 0)
-         seq.reject_reason = "MIN_X_NODES_NOT_REACHED";
+         seq.reject_reason = "MIN_COUNTED_NODES_NOT_REACHED";
       return;
    }
 
@@ -188,115 +229,6 @@ bool FP_HookP02CommitSequence(FP_HookPhase02Sequence &seq,
    return true;
 }
 
-
-void FP_HookP02InitSequenceFromOrigin(const int sequence_id,
-                                      const FP_HookPhase02Direction d,
-                                      const FP_HookPhase01Node &origin,
-                                      FP_HookPhase02Sequence &seq)
-{
-   FP_ResetHookPhase02Sequence(seq);
-   seq.sequence_id = sequence_id;
-   seq.scale_l = origin.scale_l;
-   seq.direction = d;
-   seq.state = FP_HOOK_P02_STATE_CANDIDATE;
-
-   seq.origin_node_id = origin.node_id;
-   seq.origin_bar_index = origin.bar_index;
-   seq.origin_time = origin.bar_time;
-   seq.origin_price = origin.price;
-
-   seq.last_x_price = origin.price;
-   seq.last_x_time = origin.bar_time;
-   seq.last_x_bar_index = origin.bar_index;
-
-   seq.death_boundary_price = origin.price;
-   seq.source = "HOOK_P02_STRICT_X_SEQUENCE_BUILDER";
-}
-
-void FP_HookP02CopyXSlotToOrigin(FP_HookPhase02Sequence &seq,
-                                  const int slot)
-{
-   if(slot == 1)
-   {
-      seq.origin_node_id = seq.x1_node_id;
-      seq.origin_bar_index = seq.x1_bar_index;
-      seq.origin_time = seq.x1_time;
-      seq.origin_price = seq.x1_price;
-   }
-   else if(slot == 2)
-   {
-      seq.origin_node_id = seq.x2_node_id;
-      seq.origin_bar_index = seq.x2_bar_index;
-      seq.origin_time = seq.x2_time;
-      seq.origin_price = seq.x2_price;
-   }
-   else if(slot == 3)
-   {
-      seq.origin_node_id = seq.x3_node_id;
-      seq.origin_bar_index = seq.x3_bar_index;
-      seq.origin_time = seq.x3_time;
-      seq.origin_price = seq.x3_price;
-   }
-   else if(slot == 4)
-   {
-      seq.origin_node_id = seq.x4_node_id;
-      seq.origin_bar_index = seq.x4_bar_index;
-      seq.origin_time = seq.x4_time;
-      seq.origin_price = seq.x4_price;
-   }
-
-   seq.death_boundary_price = seq.origin_price;
-}
-
-void FP_HookP02ClearXSlot(FP_HookPhase02Sequence &seq,
-                          const int slot)
-{
-   FP_HookPhase01Node empty;
-   FP_ResetHookPhase01Node(empty);
-   FP_HookP02SetXNode(seq, slot, empty);
-}
-
-void FP_HookP02ShiftXSlotsLeft(FP_HookPhase02Sequence &seq,
-                               const int max_x)
-{
-   if(max_x >= 1)
-   {
-      seq.x1_node_id = seq.x2_node_id;
-      seq.x1_bar_index = seq.x2_bar_index;
-      seq.x1_time = seq.x2_time;
-      seq.x1_price = seq.x2_price;
-   }
-   if(max_x >= 2)
-   {
-      seq.x2_node_id = seq.x3_node_id;
-      seq.x2_bar_index = seq.x3_bar_index;
-      seq.x2_time = seq.x3_time;
-      seq.x2_price = seq.x3_price;
-   }
-   if(max_x >= 3)
-   {
-      seq.x3_node_id = seq.x4_node_id;
-      seq.x3_bar_index = seq.x4_bar_index;
-      seq.x3_time = seq.x4_time;
-      seq.x3_price = seq.x4_price;
-   }
-}
-
-void FP_HookP02PromoteOriginWithNewX(FP_HookPhase02Sequence &seq,
-                                     const FP_HookPhase01Node &candidate,
-                                     const int max_x,
-                                     FP_HookPhase02Report &report)
-{
-   FP_HookP02CopyXSlotToOrigin(seq, 1);
-   FP_HookP02ShiftXSlotsLeft(seq, max_x);
-   FP_HookP02SetXNode(seq, max_x, candidate);
-   seq.x_count = max_x;
-   seq.capped = true;
-   seq.state = FP_HOOK_P02_STATE_CAPPED;
-   seq.source = "HOOK_P02_PROMOTED_ORIGIN_ROLLING_WINDOW";
-   report.origin_promotions++;
-}
-
 bool FP_HookP02ScaleAlreadySeen(const int scale_l,
                                 const int &scales_seen[])
 {
@@ -313,42 +245,213 @@ void FP_HookP02AppendScaleSeen(const int scale_l,
 {
    if(FP_HookP02ScaleAlreadySeen(scale_l, scales_seen))
       return;
+
    int n = ArraySize(scales_seen);
    ArrayResize(scales_seen, n + 1);
    scales_seen[n] = scale_l;
 }
 
-bool FP_HookP02CandidateIsAfterOrigin(const FP_HookPhase01Node &origin,
-                                      const FP_HookPhase01Node &candidate)
+bool FP_HookP02SameScaleTimeBetween(const FP_HookPhase01Node &node,
+                                    const int scale_l,
+                                    const datetime a,
+                                    const datetime b)
 {
-   // Prefer time ordering over array ordering. If timestamps are equal, fall back
-   // to bar-index ordering. This keeps the adapter tolerant of series/non-series
-   // MqlRates arrays.
-   if(candidate.bar_time > origin.bar_time)
-      return true;
-   if(candidate.bar_time == origin.bar_time && candidate.bar_index > origin.bar_index)
-      return true;
+   if(node.scale_l != scale_l)
+      return false;
+
+   datetime t1 = a;
+   datetime t2 = b;
+   if(t2 < t1)
+   {
+      datetime tmp = t1;
+      t1 = t2;
+      t2 = tmp;
+   }
+
+   return (node.bar_time > t1 && node.bar_time < t2);
+}
+
+bool FP_HookP02HasOppositeNodeBetween(const FP_HookPhase01Node &all_nodes[],
+                                      const int scale_l,
+                                      const FP_HookPhase02Direction d,
+                                      const datetime a,
+                                      const datetime b)
+{
+   for(int i=0; i<ArraySize(all_nodes); i++)
+   {
+      FP_HookPhase01Node node = all_nodes[i];
+      if(!FP_HookP02NodeMatchesOpposite(node, d))
+         continue;
+      if(FP_HookP02SameScaleTimeBetween(node, scale_l, a, b))
+         return true;
+   }
    return false;
 }
 
-int FP_HookP02BuildPromotedDirectionForScale(const FP_HookPhase01Node &nodes[],
+bool FP_HookP02FindOppositeExtreme(const FP_HookPhase01Node &all_nodes[],
+                                   const int scale_l,
+                                   const FP_HookPhase02Direction d,
+                                   const datetime start_time,
+                                   const datetime end_time,
+                                   int &node_id,
+                                   datetime &node_time,
+                                   double &node_price)
+{
+   bool found = false;
+   node_id = -1;
+   node_time = 0;
+   node_price = 0.0;
+
+   datetime t1 = start_time;
+   datetime t2 = end_time;
+   if(t2 < t1)
+   {
+      datetime tmp = t1;
+      t1 = t2;
+      t2 = tmp;
+   }
+
+   for(int i=0; i<ArraySize(all_nodes); i++)
+   {
+      FP_HookPhase01Node node = all_nodes[i];
+      if(node.scale_l != scale_l)
+         continue;
+      if(!FP_HookP02NodeMatchesOpposite(node, d))
+         continue;
+      if(node.bar_time < t1 || node.bar_time > t2)
+         continue;
+
+      if(!found)
+      {
+         found = true;
+         node_id = node.node_id;
+         node_time = node.bar_time;
+         node_price = node.price;
+         continue;
+      }
+
+      if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      {
+         if(node.price > node_price || (node.price == node_price && node.bar_time < node_time))
+         {
+            node_id = node.node_id;
+            node_time = node.bar_time;
+            node_price = node.price;
+         }
+      }
+      else
+      {
+         if(node.price < node_price || (node.price == node_price && node.bar_time < node_time))
+         {
+            node_id = node.node_id;
+            node_time = node.bar_time;
+            node_price = node.price;
+         }
+      }
+   }
+
+   return found;
+}
+
+bool FP_HookP02BranchDuplicate(const FP_HookPhase02Sequence &seq,
+                               const FP_HookPhase02Sequence &sequences[])
+{
+   for(int i=0; i<ArraySize(sequences); i++)
+   {
+      FP_HookPhase02Sequence s = sequences[i];
+      if(s.direction != seq.direction || s.scale_l != seq.scale_l || s.x_count != seq.x_count)
+         continue;
+      if(s.x1_node_id == seq.x1_node_id &&
+         s.x2_node_id == seq.x2_node_id &&
+         s.x3_node_id == seq.x3_node_id &&
+         s.x4_node_id == seq.x4_node_id)
+         return true;
+   }
+   return false;
+}
+
+bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &direction_nodes[],
+                                              const int &branch_indexes_old_to_new[],
+                                              const FP_HookPhase01Node &all_nodes[],
                                               const FP_HookPhase02Direction d,
                                               const FP_HookPhase02Config &cfg,
-                                              const int scale_l,
-                                              FP_HookPhase02Sequence &sequences[],
+                                              FP_HookPhase02Sequence &seq,
                                               FP_HookPhase02Report &report)
 {
-   int node_count = ArraySize(nodes);
-   int max_x = cfg.max_x_nodes_per_sequence;
-   if(max_x <= 0 || max_x > 4)
-      max_x = 4;
+   int branch_count = ArraySize(branch_indexes_old_to_new);
+   if(branch_count <= 0)
+      return false;
 
-   bool active = false;
-   FP_HookPhase02Sequence seq;
-   FP_ResetHookPhase02Sequence(seq);
-   int built = 0;
+   if(branch_count > 4)
+   {
+      report.rejected_candidates++;
+      return false;
+   }
 
-   for(int i=0; i<node_count; i++)
+   int first_index = branch_indexes_old_to_new[0];
+   if(first_index < 0 || first_index >= ArraySize(direction_nodes))
+      return false;
+
+   FP_HookPhase01Node first = direction_nodes[first_index];
+   FP_HookP02InitSequenceFromFirstCountedNode(ArraySize(direction_nodes), d, first, seq);
+
+   seq.x_count = branch_count;
+   for(int p=0; p<branch_count; p++)
+   {
+      int idx = branch_indexes_old_to_new[p];
+      if(idx < 0 || idx >= ArraySize(direction_nodes))
+         return false;
+      FP_HookP02SetXNode(seq, p + 1, direction_nodes[idx]);
+   }
+
+   seq.origin_node_id = seq.x1_node_id;
+   seq.origin_bar_index = seq.x1_bar_index;
+   seq.origin_time = seq.x1_time;
+   seq.origin_price = seq.x1_price;
+   seq.death_boundary_price = seq.origin_price;
+
+   // Documented minimum 1/2: node 2 must strictly pass node 1 and an opposite node must exist between them.
+   if(branch_count >= 2)
+   {
+      if(!FP_HookP02StrictAcceptsNext(d, seq.x1_price, seq.x2_price))
+      {
+         seq.reject_reason = "NON_STRICT_1_2";
+         report.rejected_candidates++;
+         return false;
+      }
+
+      if(!FP_HookP02HasOppositeNodeBetween(all_nodes, seq.scale_l, d, seq.x1_time, seq.x2_time))
+      {
+         seq.reject_reason = "NO_OPPOSITE_NODE_BETWEEN_1_2";
+         report.rejected_candidates++;
+         return false;
+      }
+   }
+
+   int crown_id;
+   datetime crown_time;
+   double crown_price;
+   if(FP_HookP02FindOppositeExtreme(all_nodes, seq.scale_l, d, seq.origin_time, seq.last_x_time,
+                                    crown_id, crown_time, crown_price))
+   {
+      seq.cycle_crown_node_id = crown_id;
+      seq.cycle_crown_time = crown_time;
+      seq.cycle_crown_price = crown_price;
+      seq.cycle_crown_valid = true;
+   }
+
+   seq.valid = true;
+   seq.source = "HOOK_P02_DOC_END_BACKWARD_BRANCH";
+   return true;
+}
+
+int FP_HookP02CollectDirectionScaleNodes(const FP_HookPhase01Node &nodes[],
+                                         const FP_HookPhase02Direction d,
+                                         const int scale_l,
+                                         FP_HookPhase01Node &direction_nodes[])
+{
+   ArrayResize(direction_nodes, 0);
+   for(int i=0; i<ArraySize(nodes); i++)
    {
       FP_HookPhase01Node node = nodes[i];
       if(node.scale_l != scale_l)
@@ -356,66 +459,97 @@ int FP_HookP02BuildPromotedDirectionForScale(const FP_HookPhase01Node &nodes[],
       if(!FP_HookP02NodeMatchesDirection(node, d))
          continue;
 
-      if(!active)
+      int n = ArraySize(direction_nodes);
+      ArrayResize(direction_nodes, n + 1);
+      direction_nodes[n] = node;
+   }
+   return ArraySize(direction_nodes);
+}
+
+void FP_HookP02ReverseIntArray(int &arr[])
+{
+   int n = ArraySize(arr);
+   for(int i=0; i<n/2; i++)
+   {
+      int j = n - 1 - i;
+      int tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+   }
+}
+
+int FP_HookP02BuildDirectionScaleEndBackward(const FP_HookPhase01Node &all_nodes[],
+                                             const FP_HookPhase02Direction d,
+                                             const FP_HookPhase02Config &cfg,
+                                             const int scale_l,
+                                             FP_HookPhase02Sequence &sequences[],
+                                             FP_HookPhase02Report &report)
+{
+   FP_HookPhase01Node direction_nodes[];
+   int n = FP_HookP02CollectDirectionScaleNodes(all_nodes, d, scale_l, direction_nodes);
+   if(n <= 0)
+      return 0;
+
+   int built = 0;
+   int max_readable = cfg.max_x_nodes_per_sequence;
+   if(max_readable <= 0 || max_readable > 4)
+      max_readable = 4;
+
+   for(int end_i=0; end_i<n; end_i++)
+   {
+      int backward_indexes[];
+      ArrayResize(backward_indexes, 1);
+      backward_indexes[0] = end_i;
+      double threshold = direction_nodes[end_i].price;
+
+      for(int k=end_i-1; k>=0; k--)
       {
-         FP_HookP02InitSequenceFromOrigin(ArraySize(sequences), d, node, seq);
-         seq.source = "HOOK_P02_PROMOTED_ORIGIN_CHAIN_START";
-         active = true;
+         if(FP_HookP02StrictEarlierBelongsToBackwardBranch(d, direction_nodes[k].price, threshold))
+         {
+            int m = ArraySize(backward_indexes);
+            ArrayResize(backward_indexes, m + 1);
+            backward_indexes[m] = k;
+            threshold = direction_nodes[k].price;
+         }
+      }
+
+      if(ArraySize(backward_indexes) > max_readable)
+      {
+         report.rejected_candidates++;
          continue;
       }
 
-      if(FP_HookP02StrictAcceptsNext(d, seq.last_x_price, node.price))
-      {
-         if(seq.x_count < max_x)
-         {
-            seq.x_count++;
-            FP_HookP02SetXNode(seq, seq.x_count, node);
-         }
-         else
-         {
-            FP_HookP02PromoteOriginWithNewX(seq, node, max_x, report);
-         }
-      }
-      else
-      {
-         if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
-         {
-            built++;
-            report.promoted_chains++;
-         }
+      FP_HookP02ReverseIntArray(backward_indexes);
 
-         if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
-            return built;
+      FP_HookPhase02Sequence seq;
+      FP_ResetHookPhase02Sequence(seq);
+      if(!FP_HookP02BuildSequenceFromBranchIndexes(direction_nodes, backward_indexes, all_nodes, d, cfg, seq, report))
+         continue;
 
-         FP_HookP02InitSequenceFromOrigin(ArraySize(sequences), d, node, seq);
-         seq.source = "HOOK_P02_PROMOTED_ORIGIN_CHAIN_RESET";
-      }
-   }
+      if(FP_HookP02BranchDuplicate(seq, sequences))
+         continue;
 
-   if(active && (cfg.max_sequences <= 0 || ArraySize(sequences) < cfg.max_sequences))
-   {
       if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
-      {
          built++;
-         report.promoted_chains++;
-      }
+
+      if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
+         break;
    }
 
    return built;
 }
 
-int FP_HookP02BuildPromotedDirection(const FP_HookPhase01Node &nodes[],
-                                     const FP_HookPhase02Direction d,
-                                     const FP_HookPhase02Config &cfg,
-                                     FP_HookPhase02Sequence &sequences[],
-                                     FP_HookPhase02Report &report)
+int FP_HookP02BuildDirectionEndBackward(const FP_HookPhase01Node &nodes[],
+                                        const FP_HookPhase02Direction d,
+                                        const FP_HookPhase02Config &cfg,
+                                        FP_HookPhase02Sequence &sequences[],
+                                        FP_HookPhase02Report &report)
 {
    if(!FP_HookP02DirectionAllowed(cfg, d))
       return 0;
 
    int scales_seen[];
-   int node_count = ArraySize(nodes);
-   for(int i=0; i<node_count; i++)
+   for(int i=0; i<ArraySize(nodes); i++)
    {
       FP_HookPhase01Node node = nodes[i];
       if(FP_HookP02NodeMatchesDirection(node, d))
@@ -425,82 +559,9 @@ int FP_HookP02BuildPromotedDirection(const FP_HookPhase01Node &nodes[],
    int built = 0;
    for(int s=0; s<ArraySize(scales_seen); s++)
    {
+      built += FP_HookP02BuildDirectionScaleEndBackward(nodes, d, cfg, scales_seen[s], sequences, report);
       if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
          break;
-      built += FP_HookP02BuildPromotedDirectionForScale(nodes, d, cfg, scales_seen[s], sequences, report);
-   }
-
-   return built;
-}
-
-int FP_HookP02BuildOneDirection(const FP_HookPhase01Node &nodes[],
-                                const FP_HookPhase02Direction d,
-                                const FP_HookPhase02Config &cfg,
-                                FP_HookPhase02Sequence &sequences[],
-                                FP_HookPhase02Report &report)
-{
-   if(!FP_HookP02DirectionAllowed(cfg, d))
-      return 0;
-
-   int used_starters[];
-   int built = 0;
-   int node_count = ArraySize(nodes);
-
-   for(int i=0; i<node_count; i++)
-   {
-      FP_HookPhase01Node origin = nodes[i];
-
-      if(!FP_HookP02NodeMatchesDirection(origin, d))
-         continue;
-
-      if(FP_HookP02StarterUsed(origin.node_id, used_starters))
-         continue;
-
-      if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
-         break;
-
-      FP_HookPhase02Sequence seq;
-      FP_HookP02InitSequenceFromOrigin(ArraySize(sequences), d, origin, seq);
-
-      int max_x = cfg.max_x_nodes_per_sequence;
-      if(max_x <= 0 || max_x > 4)
-         max_x = 4;
-
-      for(int j=0; j<node_count; j++)
-      {
-         FP_HookPhase01Node candidate = nodes[j];
-
-         if(candidate.scale_l != origin.scale_l)
-            continue;
-         if(candidate.node_id == origin.node_id)
-            continue;
-         if(!FP_HookP02NodeMatchesDirection(candidate, d))
-            continue;
-         if(!FP_HookP02CandidateIsAfterOrigin(origin, candidate))
-            continue;
-
-         if(FP_HookP02StrictAcceptsNext(d, seq.last_x_price, candidate.price))
-         {
-            seq.x_count++;
-            FP_HookP02SetXNode(seq, seq.x_count, candidate);
-
-            if(seq.x_count >= max_x)
-            {
-               seq.capped = true;
-               break;
-            }
-         }
-      }
-
-      if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
-      {
-         FP_HookP02MarkStarterUsed(origin.node_id, used_starters);
-         built++;
-      }
-      else
-      {
-         FP_HookP02MarkStarterUsed(origin.node_id, used_starters);
-      }
    }
 
    return built;
@@ -513,19 +574,12 @@ int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
 {
    ArrayResize(sequences, 0);
    report.nodes_seen = ArraySize(nodes);
+   report.origin_promotions = 0;
+   report.promoted_chains = 0;
 
    int built = 0;
-   if(cfg.origin_policy == FP_HOOK_P02_ORIGIN_PROMOTE_WITH_INTERNAL_X)
-   {
-      built += FP_HookP02BuildPromotedDirection(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
-      built += FP_HookP02BuildPromotedDirection(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
-   }
-   else
-   {
-      built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
-      built += FP_HookP02BuildOneDirection(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
-   }
-
+   built += FP_HookP02BuildDirectionEndBackward(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
+   built += FP_HookP02BuildDirectionEndBackward(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
    return built;
 }
 
@@ -533,7 +587,7 @@ void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)
 {
    report.ok = true;
    report.status = "HOOK_P02_OK";
-   report.reason = "CYCLEHOOK_SEQUENCES_BUILT";
+   report.reason = "DOC_ALIGNED_END_BACKWARD_BRANCHES_BUILT";
 
    if(report.nodes_seen <= 0)
    {
@@ -543,7 +597,7 @@ void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)
    else if(report.sequences_total <= 0)
    {
       report.status = "HOOK_P02_NO_SEQUENCES";
-      report.reason = "NO_STRICT_CYCLEHOOK_SEQUENCES_FOUND";
+      report.reason = "NO_DOC_ALIGNED_HOOK_BRANCHES_FOUND";
    }
 }
 
@@ -597,7 +651,9 @@ void FP_PrintHookPhase02Samples(const string tag,
             " x1=", DoubleToString(s.x1_price, _Digits),
             " x2=", DoubleToString(s.x2_price, _Digits),
             " x3=", DoubleToString(s.x3_price, _Digits),
-            " x4=", DoubleToString(s.x4_price, _Digits));
+            " x4=", DoubleToString(s.x4_price, _Digits),
+            " crown_valid=", FP_HookP02BoolName(s.cycle_crown_valid),
+            " crown_price=", DoubleToString(s.cycle_crown_price, _Digits));
    }
 }
 
