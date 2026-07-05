@@ -2650,21 +2650,22 @@ void FP_Run()
 
 int FP_CleanupAllNDSHookObjectsByInputPrefixes()
 {
-   int deleted = 0;
+   string prefixes[];
+   ArrayResize(prefixes, 12);
    // Hard cleanup for stale Hook objects left by older profiles, timeframe changes, or changed prefixes.
-   deleted += FP_HookP07DeleteObjectsByPrefix("DAL_HOOK_");
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase07CommonHookObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase01ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase02ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase03ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase04ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase05ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase06ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase07ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase08ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase09ObjectPrefix);
-   deleted += FP_HookP07DeleteObjectsByPrefix(InpHookPhase10ObjectPrefix);
-   return deleted;
+   prefixes[0]  = "DAL_HOOK_";
+   prefixes[1]  = InpHookPhase07CommonHookObjectPrefix;
+   prefixes[2]  = InpHookPhase01ObjectPrefix;
+   prefixes[3]  = InpHookPhase02ObjectPrefix;
+   prefixes[4]  = InpHookPhase03ObjectPrefix;
+   prefixes[5]  = InpHookPhase04ObjectPrefix;
+   prefixes[6]  = InpHookPhase05ObjectPrefix;
+   prefixes[7]  = InpHookPhase06ObjectPrefix;
+   prefixes[8]  = InpHookPhase07ObjectPrefix;
+   prefixes[9]  = InpHookPhase08ObjectPrefix;
+   prefixes[10] = InpHookPhase09ObjectPrefix;
+   prefixes[11] = InpHookPhase10ObjectPrefix;
+   return FP_HookP07DeleteObjectsByPrefixes(prefixes);
 }
 
 bool FP_ShouldCleanObjectsOnDeinitReason(const int reason)

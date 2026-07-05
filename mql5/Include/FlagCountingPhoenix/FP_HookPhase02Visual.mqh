@@ -23,6 +23,12 @@ double   g_fp_hook_p02_label_cluster_prices[];
 int      g_fp_hook_p02_label_cluster_sides[];
 int      g_fp_hook_p02_label_counts[];
 
+datetime g_fp_hook_p02_bar_shift_cache_times[];
+int      g_fp_hook_p02_bar_shift_cache_values[];
+int      g_fp_hook_p02_range_cache_shifts[];
+int      g_fp_hook_p02_range_cache_lookbacks[];
+double   g_fp_hook_p02_range_cache_values[];
+
 int FP_HookPhase02DeleteObjects(const string prefix)
 {
    if(StringLen(prefix) <= 0)
@@ -48,6 +54,11 @@ void FP_HookP02ResetLabelCollisionState()
    ArrayResize(g_fp_hook_p02_label_cluster_prices, 0);
    ArrayResize(g_fp_hook_p02_label_cluster_sides, 0);
    ArrayResize(g_fp_hook_p02_label_counts, 0);
+   ArrayResize(g_fp_hook_p02_bar_shift_cache_times, 0);
+   ArrayResize(g_fp_hook_p02_bar_shift_cache_values, 0);
+   ArrayResize(g_fp_hook_p02_range_cache_shifts, 0);
+   ArrayResize(g_fp_hook_p02_range_cache_lookbacks, 0);
+   ArrayResize(g_fp_hook_p02_range_cache_values, 0);
 }
 
 int FP_HookP02BarShiftFromTime(const datetime t)
@@ -55,9 +66,21 @@ int FP_HookP02BarShiftFromTime(const datetime t)
    if(t <= 0)
       return -1;
 
+   for(int i=0; i<ArraySize(g_fp_hook_p02_bar_shift_cache_times); i++)
+   {
+      if(g_fp_hook_p02_bar_shift_cache_times[i] == t)
+         return g_fp_hook_p02_bar_shift_cache_values[i];
+   }
+
    int shift = iBarShift(_Symbol, _Period, t, false);
    if(shift < 0)
       shift = iBarShift(_Symbol, _Period, t, true);
+
+   int n = ArraySize(g_fp_hook_p02_bar_shift_cache_times);
+   ArrayResize(g_fp_hook_p02_bar_shift_cache_times, n + 1);
+   ArrayResize(g_fp_hook_p02_bar_shift_cache_values, n + 1);
+   g_fp_hook_p02_bar_shift_cache_times[n] = t;
+   g_fp_hook_p02_bar_shift_cache_values[n] = shift;
    return shift;
 }
 
@@ -252,6 +275,13 @@ double FP_HookP02AverageLocalBarRangePoints(const int anchor_shift,
    if(lookback <= 0)
       lookback = 12;
 
+   for(int c=0; c<ArraySize(g_fp_hook_p02_range_cache_shifts); c++)
+   {
+      if(g_fp_hook_p02_range_cache_shifts[c] == anchor_shift &&
+         g_fp_hook_p02_range_cache_lookbacks[c] == lookback)
+         return g_fp_hook_p02_range_cache_values[c];
+   }
+
    int bars_total = Bars(_Symbol, _Period);
    if(bars_total <= 0)
       return 0.0;
@@ -272,9 +302,19 @@ double FP_HookP02AverageLocalBarRangePoints(const int anchor_shift,
       count++;
    }
 
-   if(count <= 0)
-      return 0.0;
-   return sum_points / (double)count;
+   double value = 0.0;
+   if(count > 0)
+      value = sum_points / (double)count;
+
+   int n = ArraySize(g_fp_hook_p02_range_cache_shifts);
+   ArrayResize(g_fp_hook_p02_range_cache_shifts, n + 1);
+   ArrayResize(g_fp_hook_p02_range_cache_lookbacks, n + 1);
+   ArrayResize(g_fp_hook_p02_range_cache_values, n + 1);
+   g_fp_hook_p02_range_cache_shifts[n] = anchor_shift;
+   g_fp_hook_p02_range_cache_lookbacks[n] = lookback;
+   g_fp_hook_p02_range_cache_values[n] = value;
+
+   return value;
 }
 
 void FP_HookP02ResolveResponsiveLabelDistances(const FP_HookPhase02Config &cfg,
