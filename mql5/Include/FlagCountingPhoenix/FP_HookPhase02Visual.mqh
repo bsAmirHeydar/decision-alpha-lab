@@ -18,6 +18,7 @@
 // ============================================================================
 
 datetime g_fp_hook_p02_label_cluster_times[];
+int      g_fp_hook_p02_label_cluster_shifts[];
 double   g_fp_hook_p02_label_cluster_prices[];
 int      g_fp_hook_p02_label_cluster_sides[];
 int      g_fp_hook_p02_label_counts[];
@@ -43,9 +44,35 @@ int FP_HookPhase02DeleteObjects(const string prefix)
 void FP_HookP02ResetLabelCollisionState()
 {
    ArrayResize(g_fp_hook_p02_label_cluster_times, 0);
+   ArrayResize(g_fp_hook_p02_label_cluster_shifts, 0);
    ArrayResize(g_fp_hook_p02_label_cluster_prices, 0);
    ArrayResize(g_fp_hook_p02_label_cluster_sides, 0);
    ArrayResize(g_fp_hook_p02_label_counts, 0);
+}
+
+int FP_HookP02BarShiftFromTime(const datetime t)
+{
+   if(t <= 0)
+      return -1;
+
+   int shift = iBarShift(_Symbol, _Period, t, false);
+   if(shift < 0)
+      shift = iBarShift(_Symbol, _Period, t, true);
+   return shift;
+}
+
+datetime FP_HookP02TimeFromBarShift(const int shift)
+{
+   if(shift < 0)
+      return 0;
+   return iTime(_Symbol, _Period, shift);
+}
+
+int FP_HookP02ClampNonNegative(const int value)
+{
+   if(value < 0)
+      return 0;
+   return value;
 }
 
 int FP_HookP02ConsumeLabelStackSlot(const FP_HookPhase02Config &cfg,
@@ -54,14 +81,15 @@ int FP_HookP02ConsumeLabelStackSlot(const FP_HookPhase02Config &cfg,
                                     const bool place_below)
 {
    int side = (place_below ? 1 : 0);
+   int anchor_shift = FP_HookP02BarShiftFromTime(t);
 
-   int time_window = cfg.label_time_cluster_seconds;
-   if(time_window <= 0)
-   {
-      time_window = PeriodSeconds(_Period);
-      if(time_window <= 0)
-         time_window = 60;
-   }
+   int time_window_seconds = cfg.label_time_cluster_seconds;
+   if(time_window_seconds < 0)
+      time_window_seconds = 0;
+
+   int time_window_bars = cfg.label_time_cluster_bars;
+   if(time_window_bars < 0)
+      time_window_bars = 0;
 
    int price_window_points = cfg.label_price_cluster_points;
    if(price_window_points <= 0)
@@ -72,22 +100,41 @@ int FP_HookP02ConsumeLabelStackSlot(const FP_HookPhase02Config &cfg,
       if(g_fp_hook_p02_label_cluster_sides[i] != side)
          continue;
 
-      double dt = MathAbs((double)((long)t - (long)g_fp_hook_p02_label_cluster_times[i]));
-      double dp = MathAbs(price - g_fp_hook_p02_label_cluster_prices[i]);
-      if(dt <= (double)time_window && dp <= _Point * (double)price_window_points)
+      bool time_match = false;
+      if(anchor_shift >= 0 && g_fp_hook_p02_label_cluster_shifts[i] >= 0)
       {
-         int slot = g_fp_hook_p02_label_counts[i];
-         g_fp_hook_p02_label_counts[i] = slot + 1;
-         return slot;
+         int dbar = MathAbs(anchor_shift - g_fp_hook_p02_label_cluster_shifts[i]);
+         if(dbar <= time_window_bars)
+            time_match = true;
       }
+
+      if(!time_match)
+      {
+         double dt = MathAbs((double)((long)t - (long)g_fp_hook_p02_label_cluster_times[i]));
+         if(dt <= (double)time_window_seconds)
+            time_match = true;
+      }
+
+      if(!time_match)
+         continue;
+
+      double dp = MathAbs(price - g_fp_hook_p02_label_cluster_prices[i]);
+      if(dp > _Point * (double)price_window_points)
+         continue;
+
+      int slot = g_fp_hook_p02_label_counts[i];
+      g_fp_hook_p02_label_counts[i] = slot + 1;
+      return slot;
    }
 
    int n = ArraySize(g_fp_hook_p02_label_cluster_times);
    ArrayResize(g_fp_hook_p02_label_cluster_times, n + 1);
+   ArrayResize(g_fp_hook_p02_label_cluster_shifts, n + 1);
    ArrayResize(g_fp_hook_p02_label_cluster_prices, n + 1);
    ArrayResize(g_fp_hook_p02_label_cluster_sides, n + 1);
    ArrayResize(g_fp_hook_p02_label_counts, n + 1);
    g_fp_hook_p02_label_cluster_times[n] = t;
+   g_fp_hook_p02_label_cluster_shifts[n] = anchor_shift;
    g_fp_hook_p02_label_cluster_prices[n] = price;
    g_fp_hook_p02_label_cluster_sides[n] = side;
    g_fp_hook_p02_label_counts[n] = 1;
@@ -183,20 +230,108 @@ color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
    return fallback_color;
 }
 
+int FP_HookP02ClampPoints(const int value,
+                             const int min_value,
+                             const int max_value)
+{
+   int v = value;
+   if(v < min_value)
+      v = min_value;
+   if(max_value > 0 && v > max_value)
+      v = max_value;
+   return v;
+}
+
+double FP_HookP02AverageLocalBarRangePoints(const int anchor_shift,
+                                            const int lookback_bars)
+{
+   if(anchor_shift < 0)
+      return 0.0;
+
+   int lookback = lookback_bars;
+   if(lookback <= 0)
+      lookback = 12;
+
+   int bars_total = Bars(_Symbol, _Period);
+   if(bars_total <= 0)
+      return 0.0;
+
+   int end_shift = anchor_shift + lookback - 1;
+   if(end_shift >= bars_total)
+      end_shift = bars_total - 1;
+
+   int count = 0;
+   double sum_points = 0.0;
+   for(int shift = anchor_shift; shift <= end_shift; shift++)
+   {
+      double hi = iHigh(_Symbol, _Period, shift);
+      double lo = iLow(_Symbol, _Period, shift);
+      if(hi <= 0.0 || lo <= 0.0 || hi < lo)
+         continue;
+      sum_points += (hi - lo) / _Point;
+      count++;
+   }
+
+   if(count <= 0)
+      return 0.0;
+   return sum_points / (double)count;
+}
+
+void FP_HookP02ResolveResponsiveLabelDistances(const FP_HookPhase02Config &cfg,
+                                               const datetime anchor_time,
+                                               int &base_points,
+                                               int &step_points)
+{
+   base_points = cfg.node_number_offset_points;
+   step_points = cfg.node_label_stack_step_points;
+
+   if(base_points < 0)
+      base_points = 0;
+   if(step_points < 0)
+      step_points = 0;
+
+   if(!cfg.responsive_label_offsets)
+      return;
+
+   int anchor_shift = FP_HookP02BarShiftFromTime(anchor_time);
+   double avg_range_points = FP_HookP02AverageLocalBarRangePoints(anchor_shift, cfg.responsive_label_lookback_bars);
+   if(avg_range_points <= 0.0)
+      return;
+
+   int dynamic_base = (int)MathRound(avg_range_points * cfg.responsive_label_offset_range_ratio);
+   int dynamic_step = (int)MathRound(avg_range_points * cfg.responsive_label_step_range_ratio);
+
+   dynamic_base = FP_HookP02ClampPoints(dynamic_base,
+                                        cfg.responsive_label_min_offset_points,
+                                        cfg.responsive_label_max_offset_points);
+   dynamic_step = FP_HookP02ClampPoints(dynamic_step,
+                                        cfg.responsive_label_min_step_points,
+                                        cfg.responsive_label_max_step_points);
+
+   // Keep manual values as absolute floors if the operator wants larger spacing.
+   if(dynamic_base < base_points)
+      dynamic_base = base_points;
+   if(dynamic_step < step_points)
+      dynamic_step = step_points;
+
+   base_points = dynamic_base;
+   step_points = dynamic_step;
+}
+
 double FP_HookP02StackedLabelPrice(const FP_HookPhase02Config &cfg,
+                                   const datetime anchor_time,
                                    const double anchor_price,
                                    const bool place_below,
                                    const int stack_slot)
 {
-   double base_points = (double)cfg.node_number_offset_points;
-   if(base_points < 0.0)
-      base_points = 0.0;
+   int base_points, step_points;
+   FP_HookP02ResolveResponsiveLabelDistances(cfg, anchor_time, base_points, step_points);
 
    double stack_points = 0.0;
-   if(cfg.stack_node_labels_on_collisions && stack_slot > 0 && cfg.node_label_stack_step_points > 0)
-      stack_points = (double)(stack_slot * cfg.node_label_stack_step_points);
+   if(cfg.stack_node_labels_on_collisions && stack_slot > 0 && step_points > 0)
+      stack_points = (double)(stack_slot * step_points);
 
-   double total_points = base_points + stack_points;
+   double total_points = (double)base_points + stack_points;
    if(total_points <= 0.0)
       return anchor_price;
 
@@ -502,12 +637,74 @@ bool FP_HookP02CreateHookEnvelopeCurve(const string base,
                                        const double end_price,
                                        const color curve_color,
                                        const int line_width,
+                                       const FP_HookPhase02Config &cfg,
                                        FP_HookPhase02Report &report)
 {
    if(start_time <= 0 || crown_time <= start_time || end_time <= crown_time)
       return false;
 
-   int half_segments = 14;
+   if(cfg.cycle_arc_align_to_bar_index)
+   {
+      int start_shift = FP_HookP02BarShiftFromTime(start_time);
+      int crown_shift = FP_HookP02BarShiftFromTime(crown_time);
+      int end_shift   = FP_HookP02BarShiftFromTime(end_time);
+
+      if(start_shift >= 0 && crown_shift >= 0 && end_shift >= 0 && start_shift > crown_shift && crown_shift > end_shift)
+      {
+         datetime prev_t = start_time;
+         double prev_p = start_price;
+         bool has_prev = true;
+
+         for(int shift = start_shift - 1; shift >= end_shift; shift--)
+         {
+            datetime cur_t = FP_HookP02TimeFromBarShift(shift);
+            if(cur_t <= 0)
+               continue;
+
+            double u = 0.0;
+            double cur_p = 0.0;
+            if(shift >= crown_shift)
+            {
+               int total_a = start_shift - crown_shift;
+               int done_a = start_shift - shift;
+               if(total_a <= 0)
+                  u = 1.0;
+               else
+                  u = (double)done_a / (double)total_a;
+               if(u < 0.0) u = 0.0;
+               if(u > 1.0) u = 1.0;
+               double eased = MathSin(u * 1.5707963267948966);
+               cur_p = start_price + (crown_price - start_price) * eased;
+            }
+            else
+            {
+               int total_b = crown_shift - end_shift;
+               int done_b = crown_shift - shift;
+               if(total_b <= 0)
+                  u = 1.0;
+               else
+                  u = (double)done_b / (double)total_b;
+               if(u < 0.0) u = 0.0;
+               if(u > 1.0) u = 1.0;
+               double eased = 1.0 - MathCos(u * 1.5707963267948966);
+               cur_p = crown_price + (end_price - crown_price) * eased;
+            }
+
+            if(has_prev && cur_t > prev_t)
+            {
+               FP_HookP02CreateTrend(base + "_ENV_BAR_" + IntegerToString(shift),
+                                     prev_t, prev_p, cur_t, cur_p,
+                                     curve_color, line_width, STYLE_SOLID, report);
+            }
+            prev_t = cur_t;
+            prev_p = cur_p;
+            has_prev = true;
+         }
+         return true;
+      }
+   }
+
+   int half_segments = 12;
    datetime prev_t = start_time;
    double prev_p = start_price;
 
@@ -581,7 +778,7 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
       color node_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
       node_color = FP_HookP02NodeNumberColor(cfg, p, node_color);
       int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(cfg, t, price, place_below) : 0);
-      double label_price = FP_HookP02StackedLabelPrice(cfg, price, place_below, stack_slot);
+      double label_price = FP_HookP02StackedLabelPrice(cfg, t, price, place_below, stack_slot);
 
       FP_HookP02CreateText(base + "_" + label + "_LABEL", t, label_price,
                            node_display, node_color, cfg.label_font_size, report);
@@ -748,7 +945,7 @@ int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
       if(FP_HookP02CreateHookEnvelopeCurve(base, start_time, start_price,
                                            crown_time, crown_price,
                                            end_time, end_price,
-                                           arc_color, cfg.line_width, report))
+                                           arc_color, cfg.line_width, cfg, report))
          arcs_drawn++;
    }
 

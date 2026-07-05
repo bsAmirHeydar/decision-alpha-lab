@@ -95,6 +95,7 @@ struct FP_HookPhase02Config
    bool use_minimal_node_markers;
    bool stack_node_labels_on_collisions;
    bool show_hook_sequence_ids_in_labels;
+   bool responsive_label_offsets;
    bool require_confirmed_resolve_node;
    bool death_on_boundary_touch;
    bool require_near_death_for_semantic_arc;
@@ -118,12 +119,21 @@ struct FP_HookPhase02Config
    int cycle_arc_max_height_points;
    int node_number_offset_points;
    int node_label_stack_step_points;
+   int responsive_label_lookback_bars;
+   int responsive_label_min_offset_points;
+   int responsive_label_max_offset_points;
+   int responsive_label_min_step_points;
+   int responsive_label_max_step_points;
    int label_time_cluster_seconds;
+   int label_time_cluster_bars;
    int label_price_cluster_points;
    int minimal_node_marker_arrow_code;
 
    double cycle_arc_height_ratio;
    double near_death_retrace_threshold;
+   double responsive_label_offset_range_ratio;
+   double responsive_label_step_range_ratio;
+   bool cycle_arc_align_to_bar_index;
 
    string folder;
    string object_prefix;
@@ -325,6 +335,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.use_minimal_node_markers = false;
    cfg.stack_node_labels_on_collisions = true;
    cfg.show_hook_sequence_ids_in_labels = true;
+   cfg.responsive_label_offsets = true;
    cfg.require_confirmed_resolve_node = true;
    cfg.death_on_boundary_touch = true;
    cfg.require_near_death_for_semantic_arc = true;
@@ -348,12 +359,21 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.cycle_arc_max_height_points = 0;
    cfg.node_number_offset_points = 30;
    cfg.node_label_stack_step_points = 18;
+   cfg.responsive_label_lookback_bars = 12;
+   cfg.responsive_label_min_offset_points = 16;
+   cfg.responsive_label_max_offset_points = 120;
+   cfg.responsive_label_min_step_points = 10;
+   cfg.responsive_label_max_step_points = 80;
    cfg.label_time_cluster_seconds = 0;
+   cfg.label_time_cluster_bars = 2;
    cfg.label_price_cluster_points = 28;
    cfg.minimal_node_marker_arrow_code = 159;
 
    cfg.cycle_arc_height_ratio = 0.35;
    cfg.near_death_retrace_threshold = 0.50;
+   cfg.responsive_label_offset_range_ratio = 0.35;
+   cfg.responsive_label_step_range_ratio = 0.22;
+   cfg.cycle_arc_align_to_bar_index = true;
 
    cfg.folder = FP_HOOK_P02_DEFAULT_FOLDER;
    cfg.object_prefix = FP_HOOK_P02_DEFAULT_PREFIX;
