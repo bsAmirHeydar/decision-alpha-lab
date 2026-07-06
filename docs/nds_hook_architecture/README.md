@@ -113,3 +113,12 @@ Phase 32 adds the raw origin-breach lifecycle guard. A Hook candidate whose
 origin boundary is touched or penetrated before terminal-node confirmation is
 not a failed Hook; it is a non-Hook candidate. It must not draw a semantic arc
 and must not produce a Hook zone.
+
+
+## Latest runtime overlay — Phase 33
+
+```text
+45_phase33_timeframe_change_redraw_state_guard.md
+```
+
+Phase 33 fixes a runtime redraw lifecycle issue after repeated timeframe changes. The new-bar throttle now commits `g_fp_last_bar_time` only after a successful full run. Failed timebase/history runs keep retry eligibility alive, and the timer can retry failed runs without waiting for a new candle.

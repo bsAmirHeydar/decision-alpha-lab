@@ -35,3 +35,10 @@ logic.
 - [[Fractal Noise Control]]
 - [[Limit Entry Optionality]]
 - [[Antifragile Loss Policy]]
+
+## Runtime Redraw / Timeframe Change
+
+- [[Runtime_Redraw_State]]
+- [[Chart_Change_Must_Rebuild_Hook_View]]
+- [[Phase_33_Timeframe_Change_Redraw_State_Guard]]
+- [[Hook_Timeframe_Change_Debug_Checklist]]

@@ -350,6 +350,9 @@ input bool   InpCleanObjectsOnRemove = true;
 input bool   InpCleanObjectsOnRecompile = true;
 input bool   InpCleanObjectsOnParameterChange = true;
 input bool   InpCleanObjectsOnTemplateApply = true;
+input bool   InpRuntimeRetryFailedRunsOnTimer = true;
+input int    InpRuntimeRetryTimerSeconds = 2;
+input bool   InpRuntimePrintRedrawState = false;
 input int    InpMaxEventsToDraw = 1200;
 input int    InpMaxHooksToDraw = 120;
 input bool   InpDrawF1 = true;
@@ -948,6 +951,9 @@ input string InpConsolidation05RuntimeHealthFolder = "FlagCountingPhoenix";
 static datetime g_fp_last_bar_time = 0;
 static int g_fp_runtime_chart_period = 0;
 static string g_fp_runtime_chart_symbol = "";
+static bool g_fp_last_run_ok = false;
+static bool g_fp_force_redraw = false;
+static string g_fp_last_run_status = "INIT";
 
 void FP_SetRuntimeChartIdentity()
 {
@@ -960,6 +966,36 @@ bool FP_RuntimeChartIdentityChanged()
    return (g_fp_runtime_chart_period != (int)_Period || g_fp_runtime_chart_symbol != _Symbol);
 }
 
+void FP_ResetRuntimeRedrawState(const string reason)
+{
+   g_fp_last_bar_time = 0;
+   g_fp_last_run_ok = false;
+   g_fp_force_redraw = true;
+   g_fp_last_run_status = reason;
+}
+
+void FP_MarkRuntimeRunFailed(const string reason)
+{
+   g_fp_last_run_ok = false;
+   g_fp_force_redraw = true;
+   g_fp_last_run_status = reason;
+   if(InpRuntimePrintRedrawState)
+      Print("FP_RUNTIME_REDRAW status=FAILED reason=", reason,
+            " symbol=", _Symbol, " period=", EnumToString(_Period));
+}
+
+void FP_MarkRuntimeRunSucceeded(const string status)
+{
+   g_fp_last_run_ok = true;
+   g_fp_force_redraw = false;
+   g_fp_last_run_status = status;
+   g_fp_last_bar_time = iTime(_Symbol, _Period, 0);
+   if(InpRuntimePrintRedrawState)
+      Print("FP_RUNTIME_REDRAW status=OK reason=", status,
+            " symbol=", _Symbol, " period=", EnumToString(_Period),
+            " bar_time=", TimeToString(g_fp_last_bar_time, TIME_DATE|TIME_MINUTES));
+}
+
 FP_OfflineLicenseConfig g_fp_license_cfg;
 FP_OfflineLicenseReport g_fp_license_report;
 bool g_fp_license_ok = false;
@@ -967,14 +1003,20 @@ datetime g_fp_license_next_check = 0;
 
 bool FP_ShouldRedraw()
 {
-   datetime t = iTime(_Symbol, _Period, 0);
-   if(!InpRedrawOnNewBarOnly) return true;
-   if(t != g_fp_last_bar_time)
-   {
-      g_fp_last_bar_time = t;
+   if(g_fp_force_redraw)
       return true;
-   }
-   return false;
+
+   if(!g_fp_last_run_ok)
+      return true;
+
+   if(!InpRedrawOnNewBarOnly)
+      return true;
+
+   datetime t = iTime(_Symbol, _Period, 0);
+   if(t <= 0)
+      return true;
+
+   return (t != g_fp_last_bar_time);
 }
 
 void FP_LoadConfig(FP_Config &cfg)
@@ -2129,10 +2171,13 @@ void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
    cfg.sample_limit = InpStaticQaSampleLimit;
 }
 
-void FP_Run()
+bool FP_Run()
 {
    if(!FP_EnsureOfflineLicense(false))
-      return;
+   {
+      FP_MarkRuntimeRunFailed("LICENSE_NOT_READY");
+      return false;
+   }
 
    MqlRates rates[];
 
@@ -2299,7 +2344,8 @@ void FP_Run()
          Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
                " bars=", copied,
                " status_detail=", timebase_report.status);
-      return;
+      FP_MarkRuntimeRunFailed("TIMEBASE_FAILED:" + timebase_report.reason);
+      return false;
    }
 
    if(copied < InpMinClosedBars)
@@ -2307,7 +2353,8 @@ void FP_Run()
       if(InpPrintFailureSummaries)
          Print("FP_SUMMARY status=not_enough_closed_bars copied=", copied,
                " min=", InpMinClosedBars);
-      return;
+      FP_MarkRuntimeRunFailed("NOT_ENOUGH_CLOSED_BARS");
+      return false;
    }
 
    int scales[];
@@ -2325,7 +2372,8 @@ void FP_Run()
    {
       if(InpPrintFailureSummaries)
          Print("FP_SUMMARY status=no_scales");
-      return;
+      FP_MarkRuntimeRunFailed("NO_SCALES");
+      return false;
    }
 
    FP_FlagEvent events[];
@@ -2647,6 +2695,9 @@ void FP_Run()
       for(int i=0; i<ArraySize(events); i++) FP_PrintEventAudit(events[i]);
       for(int h=0; h<ArraySize(hooks); h++) FP_PrintHookAudit(hooks[h]);
    }
+
+   FP_MarkRuntimeRunSucceeded("RUN_COMPLETED");
+   return true;
 }
 
 
@@ -2707,7 +2758,10 @@ int OnInit()
 {
    if(!FP_EnsureOfflineLicense(true))
       return INIT_FAILED;
-   EventSetTimer(60);
+   int runtime_timer_seconds = InpRuntimeRetryTimerSeconds;
+   if(runtime_timer_seconds < 1)
+      runtime_timer_seconds = 1;
+   EventSetTimer(runtime_timer_seconds);
 
    FP_ReleaseConfig init_release_cfg;
    FP_LoadReleaseConfig(init_release_cfg);
@@ -2719,7 +2773,7 @@ int OnInit()
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnInit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
    FP_SetRuntimeChartIdentity();
-   g_fp_last_bar_time = 0;
+   FP_ResetRuntimeRedrawState("INIT_OR_REINIT");
    FP_Run();
    return INIT_SUCCEEDED;
 }
@@ -2740,7 +2794,7 @@ void OnTick()
       FP_CleanupAllNDSHookObjectsByInputPrefixes();
       ChartRedraw(0);
       FP_SetRuntimeChartIdentity();
-      g_fp_last_bar_time = 0;
+      FP_ResetRuntimeRedrawState("TICK_CHART_IDENTITY_CHANGED");
       FP_Run();
       return;
    }
@@ -2763,7 +2817,7 @@ void OnChartEvent(const int id,
    FP_CleanupAllNDSHookObjectsByInputPrefixes();
    ChartRedraw(0);
    FP_SetRuntimeChartIdentity();
-   g_fp_last_bar_time = 0;
+   FP_ResetRuntimeRedrawState("CHART_EVENT_IDENTITY_CHANGED");
    FP_Run();
 }
 
@@ -2771,4 +2825,18 @@ void OnTimer()
 {
    if(!FP_EnsureOfflineLicense(true))
       return;
+
+   if(FP_RuntimeChartIdentityChanged())
+   {
+      FP_DeleteObjectsByPrefix(InpObjectPrefix);
+      FP_CleanupAllNDSHookObjectsByInputPrefixes();
+      ChartRedraw(0);
+      FP_SetRuntimeChartIdentity();
+      FP_ResetRuntimeRedrawState("TIMER_CHART_IDENTITY_CHANGED");
+      FP_Run();
+      return;
+   }
+
+   if(InpRuntimeRetryFailedRunsOnTimer && FP_ShouldRedraw())
+      FP_Run();
 }
