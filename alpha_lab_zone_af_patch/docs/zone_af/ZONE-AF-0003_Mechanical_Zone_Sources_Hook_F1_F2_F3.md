@@ -1,0 +1,400 @@
+---
+type: canonical_architecture
+id: ZONE-AF-0003
+status: draft
+language: english
+project: Decision Alpha Lab
+concepts:
+  - Hook Zone
+  - F1 Zone
+  - F2 Zone
+  - F3 Zone
+  - Symmetry
+  - Waist
+  - Stop Stability
+---
+
+# ZONE-AF-0003 — Mechanical Zone Sources: Hook, F1, F2, and F3
+
+## 1. Purpose
+
+This document converts the mechanical zone sources into formal architecture.
+
+The principle is:
+
+> Use every structure through the movement limitations it creates. Do not worship the structure itself. Convert its limitation into a potential reversal area, then decide whether that area has a stable entry edge and stop edge.
+
+Every source is evaluated by:
+
+```text
+Does it create a probable reversal area?
+Does it define a stable entry edge?
+Does it define a stable stop / expiration edge?
+Does it require lower-timeframe refinement?
+Does it offer enough potential relative to cost?
+```
+
+---
+
+## 2. Hook Zone
+
+### 2.1 Core Idea
+
+The Hook source creates a zone through **near-death hook logic** and symmetry.
+
+A Hook Zone is one of the cleaner zone types because it can often define:
+
+```text
+Potential entry area = near-death / symmetry-derived hook area
+Stop / expiration    = behind the hook
+```
+
+### 2.2 Mechanical Logic
+
+The hook creates a movement limitation. Price can approach the hook's critical area, but if the hook logic remains valid, the far side of the hook should not be violated.
+
+The zone is not merely the extreme point. The zone is the bounded region around the hook-derived reversal area where limit risk is rational.
+
+### 2.3 Stop Policy
+
+Primary stop policy:
+
+```text
+Stop behind the hook
+```
+
+This makes Hook Zones more execution-ready than many broad F2/F3 zones.
+
+### 2.4 Quality Conditions
+
+Hook Zone quality increases when:
+
+- the hook is mechanically valid;
+- symmetry gives a clearer near-death area;
+- the stop behind the hook is not too wide;
+- the zone appears inside a higher-timeframe parent zone;
+- lower-timeframe structure supports the limit plan;
+- potential beyond the zone is open;
+- the zone is not merely an obvious trap;
+- the hook is part of a meaningful sequence or compression.
+
+### 2.5 Weaknesses
+
+Hook Zones become weaker when:
+
+- the hook is too obvious and repeatedly touched;
+- stop behind the hook is too expensive;
+- potential is capped by nearby opposite structure;
+- context is against the trade without asymmetry;
+- symmetry area is vague;
+- price has already consumed the area.
+
+### 2.6 Classification
+
+```yaml
+source_type: hook
+execution_stability: high_to_medium
+requires_ltf_refinement: optional
+stop_available: usually_yes
+entry_style: limit
+primary_risk_edge: behind_hook
+```
+
+---
+
+## 3. F1 Zone
+
+### 3.1 Core Idea
+
+After F1 forms and its flag is taken, once points 1 and 2 are made, the system can search for entry in the direction of F1 from point 2.
+
+The stop is placed behind the **waist of F1**.
+
+Important principle:
+
+> The closer price comes to the waist of F1, the narrower and more attractive the zone becomes, provided the context still supports the F1 directional thesis.
+
+### 3.2 Mechanical Logic
+
+F1 provides a directional structural constraint. After the flag is taken and the 1/2 structure forms, point 2 can become the area from which the system searches for continuation in the direction of F1.
+
+### 3.3 Zone Formation
+
+Potential entry area:
+
+```text
+Around point 2 / pullback area after F1 1-2 structure
+```
+
+Stop / expiration:
+
+```text
+Behind the waist of F1
+```
+
+The waist is the core expiration reference. As price approaches the waist, risk can compress.
+
+### 3.4 Why It Can Be Strong
+
+F1 can create strong zones because it has:
+
+- directional logic;
+- known structural reference;
+- a waist stop;
+- measurable narrowing as price approaches the waist;
+- compatibility with limit entry;
+- continuation potential if the F1 logic resumes.
+
+### 3.5 Zone Quality Variables
+
+```text
+f1_flag_taken
+point_1_made
+point_2_made
+distance_to_waist
+zone_width_to_waist
+potential_after_point_2
+context_alignment
+ltf_child_zone_presence
+```
+
+### 3.6 Classification
+
+```yaml
+source_type: f1
+execution_stability: medium_to_high
+requires_ltf_refinement: recommended_but_not_always_mandatory
+stop_available: yes
+primary_risk_edge: behind_f1_waist
+entry_style: limit_in_f1_direction
+```
+
+---
+
+## 4. F2 Zone
+
+F2 is structurally more complex than F1 because it can create reversal potential but may not provide a clean stop on its own.
+
+There are two primary F2 cases.
+
+---
+
+### 4.1 F2 Case A — Point 1 and 2 Without Hitting the F2 Waist
+
+In this case, F2 creates a reversal area after points 1 and 2 form, but the waist has not been hit.
+
+This can be a reversal zone, but the stop is not clean enough on the parent timeframe.
+
+### 4.1.1 Interpretation
+
+The area has potential because F2 has formed enough structure to suggest a reversal attempt. However, the lack of a stable stop means it should usually be classified as:
+
+```text
+Watch Zone / Parent Zone
+```
+
+not direct execution.
+
+### 4.1.2 Required Policy
+
+Lower-timeframe refinement is required.
+
+The system must search for:
+
+- lower-timeframe hook;
+- lower-timeframe F1/F2 child zone;
+- compression break;
+- a narrower stop edge;
+- micro-structure invalidation.
+
+### 4.1.3 Classification
+
+```yaml
+source_type: f2_case_a_no_waist_hit
+execution_stability: low_to_medium
+requires_ltf_refinement: yes
+stop_available: not_stable_on_parent
+primary_use: parent_watch_zone
+entry_style: ltf_limit_only
+```
+
+---
+
+### 4.2 F2 Case B — Point 1 and 2 With F2 Waist Hit
+
+In this case, the F2 waist has also been hit. This can create a more mature reversal area.
+
+However, the stop may still be broad or unclear, depending on the exact structure.
+
+### 4.2.1 Interpretation
+
+The waist hit gives more structural information, but it does not automatically create a safe execution zone.
+
+The system should ask:
+
+```text
+Is the stop edge now stable?
+Is the zone still too wide?
+Is lower-timeframe refinement still required?
+```
+
+### 4.2.2 Policy
+
+If the stop remains broad or unstable, classify as watch/parent zone and require lower timeframe.
+
+If a lower-timeframe child zone forms with a clear entry and stop, it can become tradable.
+
+### 4.2.3 Classification
+
+```yaml
+source_type: f2_case_b_waist_hit
+execution_stability: medium_but_context_dependent
+requires_ltf_refinement: usually_yes
+stop_available: conditional
+primary_use: parent_zone_or_refined_execution_zone
+```
+
+---
+
+## 5. F2 Symmetry with F1
+
+### 5.1 Core Idea
+
+Another F2 limitation comes from symmetry with F1.
+
+From the moment F2 exceeds the symmetry of F1, the area can become a potential reversal region until one of the following occurs:
+
+- F2 makes point 1 and point 2;
+- price returns toward the waist of F2;
+- lower-timeframe structure defines a safer risk contract.
+
+### 5.2 Important Limitation
+
+This area is broad and does not naturally provide a stable stop.
+
+Therefore:
+
+```text
+F2 symmetry extension = potential area, not execution zone by itself
+```
+
+### 5.3 Policy
+
+This source should usually be classified as:
+
+```text
+Broad Watch Zone
+```
+
+It requires lower-timeframe refinement before limit execution.
+
+### 5.4 Safety Note
+
+If this source is examined directly on a low timeframe, it can still be unsafe if no stable stop exists. A zone with no stop is not a trade. It is only a context clue.
+
+### 5.5 Classification
+
+```yaml
+source_type: f2_symmetry_with_f1
+execution_stability: low
+requires_ltf_refinement: yes
+stop_available: no_on_parent
+primary_use: reversal_potential_estimation
+entry_style: only_after_child_zone
+```
+
+---
+
+## 6. F3 Zone
+
+### 6.1 Core Idea
+
+After F3 is hit, reversal can happen from many places. However, F3 does not give a clean symmetry reference and does not define how far continuation can extend.
+
+Even if F3 is locked, the structure remains in F3 and the system still does not know exactly where the reliable reversal start or stop should be.
+
+### 6.2 Consequence
+
+F3 creates a very broad potential environment, not a precise execution zone.
+
+```text
+F3 = broad reversal environment
+not automatically = tradable zone
+```
+
+### 6.3 Main Weakness
+
+For F3:
+
+- the start of the zone is unclear;
+- the stop of the zone is unclear;
+- continuation can extend unexpectedly;
+- reversal can occur from many points;
+- parent timeframe execution is unsafe without refinement.
+
+### 6.4 Required Policy
+
+F3 requires lower-timeframe structure before entry.
+
+The system should search inside the F3 environment for:
+
+- lower-timeframe Hook Zone;
+- lower-timeframe F1/F2 zone;
+- compression/release area;
+- narrow child zone;
+- clear stop edge.
+
+### 6.5 Classification
+
+```yaml
+source_type: f3
+execution_stability: very_low_on_parent
+requires_ltf_refinement: mandatory
+stop_available: no_on_parent
+primary_use: broad_context_zone
+entry_style: only_after_child_zone
+```
+
+---
+
+## 7. Comparative Table
+
+| Source | Reversal Potential | Entry Edge | Stop Edge | Direct Tradability | LTF Required? |
+|---|---:|---:|---:|---:|---:|
+| Hook | High | Often clear | Behind hook | Often possible | Optional/recommended |
+| F1 | Medium/High | Around point 2 / pullback | Behind F1 waist | Possible if narrow | Recommended |
+| F2 Case A | Medium | Broad | Unclear | No | Yes |
+| F2 Case B | Medium | Broad/conditional | Conditional | Conditional | Usually yes |
+| F2 Symmetry | Medium | Broad | No stable stop | No | Yes |
+| F3 | Broad but vague | Unclear | Unclear | No | Mandatory |
+
+---
+
+## 8. Core Rule from All Sources
+
+The alphabet of the system is:
+
+```text
+Potential area is not enough.
+A tradable zone needs a start and a stop.
+```
+
+The system can observe every structure across multiple timeframes. But only areas where the start of the zone and the expiration/stop edge become stable should become execution zones.
+
+This is why lower-timeframe fractal refinement is central.
+
+---
+
+## 9. Implementation Implication
+
+Each source should generate a zone candidate with an execution-stability class:
+
+```text
+execution_ready
+needs_ltf_refinement
+context_only
+unsafe_no_stop
+```
+
+This protects the system from treating every reversal potential as a trade.
+

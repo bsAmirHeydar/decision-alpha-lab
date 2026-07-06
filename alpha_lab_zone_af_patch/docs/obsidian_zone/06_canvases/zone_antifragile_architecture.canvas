@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {"id":"context","type":"text","text":"Mechanical Context\nHook / F1 / F2 / F3 / Rally / Structure","x":0,"y":0,"width":300,"height":140},
+    {"id":"constraint","type":"text","text":"Movement Constraint\nWhat does this structure limit?","x":380,"y":0,"width":300,"height":140},
+    {"id":"zone","type":"text","text":"Zone Candidate\nApproximate reversal / risk area","x":760,"y":0,"width":300,"height":140},
+    {"id":"contract","type":"text","text":"Risk Contract\nEntry edge + Stop edge","x":1140,"y":0,"width":300,"height":140},
+    {"id":"ltf","type":"text","text":"Lower-Timeframe Refinement\nRequired if stop is unclear or zone is wide","x":760,"y":220,"width":350,"height":140},
+    {"id":"limit","type":"text","text":"Limit Plan\nBounded loss, open profit","x":1140,"y":220,"width":300,"height":140},
+    {"id":"outcome","type":"text","text":"Outcome Label\nMFE / MAE / Tail / Dead Zone / Failure","x":1520,"y":220,"width":350,"height":140},
+    {"id":"learn","type":"text","text":"Antifragile Learning\nSmall losses become structured information","x":1520,"y":0,"width":350,"height":140}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"context","fromSide":"right","toNode":"constraint","toSide":"left"},
+    {"id":"e2","fromNode":"constraint","fromSide":"right","toNode":"zone","toSide":"left"},
+    {"id":"e3","fromNode":"zone","fromSide":"right","toNode":"contract","toSide":"left"},
+    {"id":"e4","fromNode":"zone","fromSide":"bottom","toNode":"ltf","toSide":"top"},
+    {"id":"e5","fromNode":"ltf","fromSide":"right","toNode":"limit","toSide":"left"},
+    {"id":"e6","fromNode":"contract","fromSide":"bottom","toNode":"limit","toSide":"top"},
+    {"id":"e7","fromNode":"limit","fromSide":"right","toNode":"outcome","toSide":"left"},
+    {"id":"e8","fromNode":"outcome","fromSide":"top","toNode":"learn","toSide":"bottom"},
+    {"id":"e9","fromNode":"learn","fromSide":"left","toNode":"context","toSide":"top"}
+  ]
+}
