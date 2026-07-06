@@ -1,12 +1,12 @@
 {
   "name": "Alpha Lens Studio",
   "short_name": "Alpha Lens",
-  "start_url": "./index.html?v=studio6",
+  "start_url": "./index.html?v=studio10",
   "display": "standalone",
-  "background_color": "#f7f2e9",
-  "theme_color": "#f7f2e9",
+  "background_color": "#f5f1e8",
+  "theme_color": "#f5f1e8",
   "orientation": "portrait-primary",
   "icons": [
-    {"src":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%2316171a'/%3E%3Ctext x='96' y='112' text-anchor='middle' font-size='72' fill='%23f7f2e9' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E", "sizes":"192x192", "type":"image/svg+xml"}
+    {"src":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%2317181a'/%3E%3Ctext x='96' y='112' text-anchor='middle' font-size='72' fill='%23f5f1e8' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E", "sizes":"192x192", "type":"image/svg+xml"}
   ]
 }
