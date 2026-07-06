@@ -1,0 +1,19 @@
+project: Decision Alpha Lab
+generated_at: '2026-07-06'
+documents_indexed: 862
+registries_indexed: 24
+empty_docs_filled: 22
+short_docs_flagged: 8
+start_file: 00_OBSIDIAN_START_HERE.md
+core_maps:
+- docs/obsidian/00_command_center.md
+- docs/obsidian/01_maps/all_documents_index.md
+- docs/obsidian/01_maps/all_document_relationships.md
+- docs/obsidian/01_maps/entity_index.md
+- docs/obsidian/01_maps/concept_index.md
+- docs/obsidian/01_maps/registry_index.md
+agents:
+- docs/obsidian/05_agents/obsidian_librarian_agent.md
+- docs/obsidian/05_agents/experiment_designer_agent.md
+- docs/obsidian/05_agents/patch_builder_agent.md
+- docs/obsidian/05_agents/validation_skeptic_agent.md

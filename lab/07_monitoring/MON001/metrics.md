@@ -1,0 +1,50 @@
+---
+title: "Mon001"
+type: generated_scaffold
+generated_by: alpha_lab_obsidian_builder
+generated_at: 2026-07-06
+source_path: "lab/07_monitoring/MON001/metrics.md"
+category: "monitoring"
+status: "scaffold"
+---
+
+# Mon001
+
+این README در نسخه ورودی خالی بود؛ این نسخه برای Obsidian و navigation پروژه تولید شده است.
+
+## Purpose
+
+این پوشه بخشی از معماری Decision Alpha Lab است و باید نقش، فایل‌های وابسته، ورودی/خروجی‌ها و مسیر استفاده آن را شفاف کند.
+
+## Context
+
+- Source path: `lab/07_monitoring/MON001/metrics.md`
+- Category: `monitoring`
+- Parent folder: `lab/07_monitoring/MON001`
+- Related entities: `MON001`
+
+## Folder role
+
+این بخش باید به یکی از نقش‌های زیر متصل شود:
+
+- observation / hypothesis / experiment / analysis / validation؛
+- production / monitoring / archive؛
+- execution / infrastructure / core component؛
+- documentation / tooling / registry.
+
+## Operating rules
+
+- هر فایل جدید باید به یک hypothesis، experiment، validation یا component مشخص link شود.
+- خروجی‌های تجربی باید report و metadata داشته باشند.
+- تصمیم‌های معماری باید در ADR یا decision log ثبت شوند.
+- هر claim مثبت باید baseline و failure mode داشته باشد.
+
+## Related documents
+
+- [[lab/07_monitoring/MON001/README|Readme]]
+
+## Obsidian links
+
+- [[00_OBSIDIAN_START_HERE|Start Here]]
+- [[docs/obsidian/00_command_center|Command Center]]
+- [[docs/obsidian/01_maps/all_documents_index|All Documents Index]]

@@ -1,0 +1,53 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": true,
+  "showAttachments": true,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:docs/flag_counting",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "path:docs/nds_hook_architecture",
+      "color": {
+        "a": 1,
+        "rgb": 6425514
+      }
+    },
+    {
+      "query": "path:lab/03_experiments",
+      "color": {
+        "a": 1,
+        "rgb": 11674146
+      }
+    },
+    {
+      "query": "path:lab/03_validation OR path:lab/05_validation",
+      "color": {
+        "a": 1,
+        "rgb": 16753920
+      }
+    },
+    {
+      "query": "path:mql5",
+      "color": {
+        "a": 1,
+        "rgb": 6737151
+      }
+    },
+    {
+      "query": "path:docs/obsidian",
+      "color": {
+        "a": 1,
+        "rgb": 10066329
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+---
+title: "09 - Owner Decisions Pass 1"
+type: document_card
+generated_by: alpha_lab_obsidian_builder
+generated_at: 2026-07-06
+source_path: "lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md"
+source_ext: ".md"
+category: "experiment"
+source_size_bytes: "2754"
+entities:
+  - "EXEC001"
+concepts:
+  - "Execution"
+  - "Intermarket Divergence"
+  - "Validation"
+---
+
+
+# 09 - Owner Decisions Pass 1
+
+**Source:** [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1|lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/09_owner_decisions_pass_1.md]]
+
+**Category:** `experiment`  
+**Status:** ok  
+**Size:** `2754` bytes
+
+## خلاصه
+
+This document records the first owner clarification pass for EXEC001 STC SMT Cycles. 1. No entries are allowed in the temporal gaps between M cycles. 2. Gap data is not required for signal detection, but open positions must still be managed if final TP or SL is reached. 3. W high and W low are the high and low of a synthetic 90-minute candle. The timeframe used to build them does not change the final high/low if data is complete. 4. W2 can compare only with W1. 5. W3 can compare only with W2 and W1. 6. W4 can compare only with W3, W2, and W1. 7. No W compares with itself. 8. W1 gives no signal. 9. Hunts use no tolerance. 10. Buy and sell side mapping from SMT was confirmed. 11. Each symbol h
+
+## Headings
+
+- 09 - Owner Decisions Pass 1
+-   Locked decisions
+
+## Entities
+
+`EXEC001`
+
+## Concepts
+
+- [[docs/obsidian/04_concepts/Execution|Execution]]
+- [[docs/obsidian/04_concepts/Intermarket_Divergence|Intermarket Divergence]]
+- [[docs/obsidian/04_concepts/Validation|Validation]]
+
+## Related documents
+
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/17_implementation_plan|EXEC001 STC SMT Cycles — Implementation Plan]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/18_module_breakdown|EXEC001 STC SMT Cycles — Module Breakdown]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/19_patch_build_sequence|EXEC001 STC SMT Cycles — Patch Build Sequence]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/20_implementation_risk_register|EXEC001 STC SMT Cycles — Implementation Risk Register]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/21_first_patch_scope|EXEC001 STC SMT Cycles — First Implementation Patch Scope]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/22_level_01_skeleton|EXEC001 STC SMT Cycles — Level 01 Skeleton Implementation]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/30_level_09_paper_outcome_simulator|Level 09 — Paper Outcome Simulator and Trade Journal]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/32_level_11_hard_close_simulator|Level 11 — Paper Hard-Close Simulator and 15:30 End-of-Day Accounting]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/34_level_13_visualization_audit_drawing|Level 13 — Visualization / Audit Drawing]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/35_level_14_paper_live_alerts|Level 14 — Paper Live Alerts / No-Order Monitoring Layer]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/38_level_17_real_partial_close_manager|Level 17 — Real Partial Close Manager]] — `experiment`
+- [[lab/09_execution/EXP0016_intermarket_divergence_execution/EXEC001_STC_SMT_Cycles/40_level_19_validation_pack|Level 19 — Validation Pack / Self-Test Reports]] — `experiment`
+
+## Recommended Obsidian use
+
+- این card را به نوت‌های concept، hypothesis، experiment یا ADR مربوط link کن.
+- اگر این سند source of truth است، در MOC مربوطه بالاتر از اسناد legacy قرارش بده.
+- اگر این سند report/validation است، نتیجه نهایی آن را به registry مربوط sync کن.

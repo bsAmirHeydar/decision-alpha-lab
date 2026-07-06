@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "text",
+      "text": "Decision Alpha Lab\nObsidian Knowledge System",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 180
+    },
+    {
+      "id": "n2",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/market_anatomy_moc.md",
+      "x": -900,
+      "y": -300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n3",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/flag_counting_moc.md",
+      "x": -450,
+      "y": -300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n4",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/nds_hook_architecture_moc.md",
+      "x": 0,
+      "y": -300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n5",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/mql_native_moc.md",
+      "x": 450,
+      "y": -300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n6",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/ai_execution_moc.md",
+      "x": 900,
+      "y": -300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n7",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/experiment_validation_moc.md",
+      "x": -450,
+      "y": 300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n8",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/intermarket_divergence_moc.md",
+      "x": 0,
+      "y": 300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n9",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/astro_ml_moc.md",
+      "x": 450,
+      "y": 300,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "n10",
+      "type": "file",
+      "file": "docs/obsidian/02_mocs/tooling_infrastructure_moc.md",
+      "x": 900,
+      "y": 300,
+      "width": 360,
+      "height": 160
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n2",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n3",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n4",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n5",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n6",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n7",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n8",
+      "toSide": "left"
+    },
+    {
+      "id": "e8",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n9",
+      "toSide": "left"
+    },
+    {
+      "id": "e9",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n10",
+      "toSide": "left"
+    }
+  ]
+}
