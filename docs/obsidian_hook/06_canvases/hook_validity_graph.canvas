@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "raw",
+      "type": "text",
+      "text": "Raw Hook-Like Candidate",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "gate",
+      "type": "text",
+      "text": "Hook Validity Gate",
+      "x": 330,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "hah",
+      "type": "text",
+      "text": "Valid: Hook After Hook\nShared terminal-start node",
+      "x": 660,
+      "y": -110,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "f3",
+      "type": "text",
+      "text": "Valid: Hook After Opposing F3\nOpposite direction after F3",
+      "x": 660,
+      "y": 40,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "invalid",
+      "type": "text",
+      "text": "Invalid Fractal Hook\nObservation only",
+      "x": 660,
+      "y": 200,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "zone",
+      "type": "text",
+      "text": "Hook Zone Candidate\nRisk Contract Check",
+      "x": 1030,
+      "y": -35,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "trade",
+      "type": "text",
+      "text": "Tradable Hook Zone\nLimit entry + stop expiration",
+      "x": 1400,
+      "y": -35,
+      "width": 320,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "raw",
+      "fromSide": "right",
+      "toNode": "gate",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "gate",
+      "fromSide": "right",
+      "toNode": "hah",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "gate",
+      "fromSide": "right",
+      "toNode": "f3",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "gate",
+      "fromSide": "right",
+      "toNode": "invalid",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "hah",
+      "fromSide": "right",
+      "toNode": "zone",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "f3",
+      "fromSide": "right",
+      "toNode": "zone",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "zone",
+      "fromSide": "right",
+      "toNode": "trade",
+      "toSide": "left"
+    }
+  ]
+}
