@@ -1,7 +1,7 @@
 {
-  "name": "Alpha Lens Studio",
-  "short_name": "Alpha Lens",
-  "start_url": "./index.html?v=studio10",
+  "name": "NDS Lens",
+  "short_name": "NDS Lens",
+  "start_url": "./index.html?v=studio12",
   "display": "standalone",
   "background_color": "#f5f1e8",
   "theme_color": "#f5f1e8",

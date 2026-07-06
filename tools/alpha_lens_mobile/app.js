@@ -1,4 +1,4 @@
-const VERSION = 'studio10';
+const VERSION = 'studio12';
 const PERSPECTIVES = [
   { key:'hook_bullish', label:'هوک صعودی', dir:'bull' },
   { key:'rally_bullish', label:'رالی صعودی', dir:'bull' },
@@ -6,9 +6,9 @@ const PERSPECTIVES = [
   { key:'rally_bearish', label:'رالی نزولی', dir:'bear' },
 ];
 const TFS = [
-  {key:'1h', label:'۱س', long:'۱ ساعته', role:'کانتکست / زون مادر'},
-  {key:'10m', label:'۱۰د', long:'۱۰ دقیقه', role:'زون میانی / قابل معامله'},
-  {key:'1m', label:'۱د', long:'۱ دقیقه', role:'ورود دقیق / کاهش ریسک'},
+  {key:'1h', label:'۱ ساعته', long:'۱ ساعته', role:'کانتکست / زون مادر'},
+  {key:'10m', label:'۱۰ دقیقه', long:'۱۰ دقیقه', role:'زون میانی / قابل معامله'},
+  {key:'1m', label:'۱ دقیقه', long:'۱ دقیقه', role:'ورود دقیق / کاهش ریسک'},
 ];
 const OPTIONS = {
   view: [
@@ -39,9 +39,9 @@ const OPTIONS = {
     ['No Trade','رد'],
   ]
 };
-const STORAGE_KEY='alpha_lens_studio10_state';
-const SNAP_KEY='alpha_lens_studio10_snaps';
-const OLD_KEYS=['alpha_lens_studio9_state','alpha_lens_studio8_state','alpha_lens_studio7_state','alpha_lens_studio6_state','alpha_lens_studio5_state'];
+const STORAGE_KEY='nds_lens_studio12_state';
+const SNAP_KEY='nds_lens_studio12_snaps';
+const OLD_KEYS=['alpha_lens_studio11_state','alpha_lens_studio10_state','alpha_lens_studio9_state','alpha_lens_studio8_state','alpha_lens_studio7_state','alpha_lens_studio6_state','alpha_lens_studio5_state'];
 const $=id=>document.getElementById(id);
 let active='hook_bullish__1h';
 let activeTf='1h';
@@ -181,10 +181,16 @@ function renderSegmented(){
       btn.type='button';
       btn.className=`seg-btn ${(c[field]||defaultValue(field))===value?'active':''}`;
       btn.textContent=label;
-      btn.onclick=()=>{
+      btn.onclick=(event)=>{
+        event.preventDefault();
+        const y=window.scrollY;
         state.cells[active]={view:'Neutral',risk:'—',reward:'—',action:'Empty',score:'',notes:'',...(state.cells[active]||{}),[field]:value};
         save();
-        renderAll();
+        renderSlides();
+        renderSegmented();
+        applyAccent();
+        btn.blur();
+        requestAnimationFrame(()=>window.scrollTo(0,y));
       };
       el.appendChild(btn);
     }
@@ -215,10 +221,11 @@ function bind(){
   const map={symbolInput:'symbol',sessionInput:'session',globalContext:'globalContext',finalBias:'finalBias',finalAction:'finalAction',finalNotes:'finalNotes'};
   Object.entries(map).forEach(([id,key])=>$(id).addEventListener('input',e=>{ state[key]=e.target.value; save(); }));
   ['scoreInput','notesInput'].forEach(id=>$(id).addEventListener('input',()=>{
+    const y=window.scrollY;
     state.cells[active]={view:'Neutral',risk:'—',reward:'—',action:'Empty',score:'',notes:'',...(state.cells[active]||{}),score:$('scoreInput').value,notes:$('notesInput').value};
     save();
     renderSlides();
-    renderTabs();
+    requestAnimationFrame(()=>window.scrollTo(0,y));
   }));
   $('themeBtn').onclick=()=>{ state.theme = state.theme === 'dark' ? 'light' : 'dark'; save(); applyTheme(); };
   $('resetBtn').onclick=()=>{
@@ -227,7 +234,7 @@ function bind(){
       save(); applyTheme(); renderAll();
     }
   };
-  $('exportBtn').onclick=()=>{ save(); download(`alpha-lens-${new Date().toISOString().slice(0,10)}.json`,state); };
+  $('exportBtn').onclick=()=>{ save(); download(`nds-lens-${new Date().toISOString().slice(0,10)}.json`,state); };
   $('saveSnapshotBtn').onclick=saveSnapshot;
   $('clearSnapshotsBtn').onclick=()=>{ if(confirm('همه اسنپ‌ها حذف شوند؟')){ localStorage.setItem(SNAP_KEY,'[]'); renderSnaps(); } };
   $('importInput').addEventListener('change',importJson);
@@ -271,7 +278,7 @@ function renderSnaps(){
   });
   list.querySelectorAll('[data-export]').forEach(b=>b.onclick=()=>{
     const it=snaps().find(x=>x.id===b.dataset.export);
-    if(it) download(`alpha-lens-snap-${it.id}.json`,it);
+    if(it) download(`nds-lens-snap-${it.id}.json`,it);
   });
   list.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{
     localStorage.setItem(SNAP_KEY,JSON.stringify(snaps().filter(x=>x.id!==b.dataset.del)));
@@ -299,7 +306,7 @@ function importJson(e){
   };
   r.readAsText(file); e.target.value='';
 }
-function registerSW(){ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=studio10').catch(()=>{}); } }
+function registerSW(){ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=studio12').catch(()=>{}); } }
 function renderAll(){
   bindValues();
   renderTabs();

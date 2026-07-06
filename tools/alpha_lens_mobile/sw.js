@@ -1,5 +1,5 @@
-const CACHE_NAME = 'alpha-lens-studio10-20260706';
-const ASSETS = ['./index.html?v=studio10','./styles.css?v=studio10','./app.js?v=studio10','./manifest.webmanifest?v=studio10','./docs/UI_REFORM_V9.md'];
+const CACHE_NAME = 'nds-lens-studio12-20260706';
+const ASSETS = ['./index.html?v=studio12','./styles.css?v=studio12','./app.js?v=studio12','./manifest.webmanifest?v=studio12','./docs/UI_REFORM_V9.md','./docs/FONT_POLICY_V11.md','./docs/NDS_LENS_V12_CHANGES.md'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
   self.skipWaiting();
@@ -13,7 +13,7 @@ self.addEventListener('fetch', event => {
   if (url.pathname.endsWith('/') || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/styles.css') || url.pathname.endsWith('/app.js') || url.pathname.endsWith('/manifest.webmanifest') || url.pathname.endsWith('/UI_REFORM_V9.md')) {
     event.respondWith(fetch(event.request).then(res => {
       const copy = res.clone(); caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)); return res;
-    }).catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html?v=studio10'))));
+    }).catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html?v=studio12'))));
     return;
   }
   event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request)));
