@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "41a05a5411f22486",
+        "id": "cbdf50d39d0d3d42",
         "type": "tabs",
         "children": [
           {
-            "id": "ddc47872c3e4c3b3",
+            "id": "82daf028a18db696",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "docs/flag_counting/engineering_pack_v5/03_explanations/F1_F2_F3_EXPLAINED.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "F1_F2_F3_EXPLAINED"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "docs/flag_counting/engineering_pack_v5/03_explanations/F1_F2_F3_EXPLAINED.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for F1_F2_F3_EXPLAINED"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "docs/flag_counting/engineering_pack_v5/03_explanations/F1_F2_F3_EXPLAINED.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from F1_F2_F3_EXPLAINED"
             }
           },
           {
@@ -161,8 +167,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "ddc47872c3e4c3b3",
+  "active": "82daf028a18db696",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "docs/flag_counting/engineering_pack_v5/03_explanations/F1_F2_F3_EXPLAINED.md",
+    "docs/obsidian/02_mocs/flag_counting_moc.md",
+    "00_OBSIDIAN_START_HERE.md",
+    "00_ALPHA_LAB_KNOWLEDGE_OS.md",
     "docs/obsidian_deep/07_canvases/full_system_architecture.canvas",
     "docs/obsidian_deep/07_canvases/research_pipeline.canvas",
     "docs/obsidian_deep/07_canvases/market_anatomy_graph.canvas",
@@ -193,15 +204,10 @@
     "docs/obsidian_deep/05_workflows/manual_trade_labeling_workflow.md",
     "docs/obsidian_deep/05_workflows/agent_operating_workflow.md",
     "docs/obsidian_deep/05_workflows",
-    "docs/obsidian_deep/04_relationships/traceability_matrix.md",
-    "docs/obsidian_deep/04_relationships/source_document_relationships.md",
-    "docs/obsidian_deep/04_relationships/relationship_types.md",
-    "docs/obsidian_deep/04_relationships/concept_dependency_graph.md",
     "docs/obsidian_deep/04_relationships",
     "docs/obsidian_deep/03_source_cards",
     "docs/obsidian_deep/02_concepts",
     "docs/obsidian_deep/01_canonical_model",
-    "docs/obsidian_deep",
-    "Untitled.canvas"
+    "docs/obsidian_deep"
   ]
 }
