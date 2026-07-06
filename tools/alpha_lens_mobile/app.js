@@ -1,261 +1,37 @@
+const VERSION = 'ultra4';
 const PERSPECTIVES = [
-  { key: 'hook_bullish', label: 'هوک\nصعودی', full: 'هوک صعودی', direction: 'bullish', mode: 'Hook' },
-  { key: 'rally_bullish', label: 'رالی\nصعودی', full: 'رالی صعودی', direction: 'bullish', mode: 'Rally' },
-  { key: 'hook_bearish', label: 'هوک\nنزولی', full: 'هوک نزولی', direction: 'bearish', mode: 'Hook' },
-  { key: 'rally_bearish', label: 'رالی\nنزولی', full: 'رالی نزولی', direction: 'bearish', mode: 'Rally' },
+  { key:'hook_bullish', label:'هوک\nصعودی', full:'هوک صعودی', dir:'bull', mode:'Hook' },
+  { key:'rally_bullish', label:'رالی\nصعودی', full:'رالی صعودی', dir:'bull', mode:'Rally' },
+  { key:'hook_bearish', label:'هوک\nنزولی', full:'هوک نزولی', dir:'bear', mode:'Hook' },
+  { key:'rally_bearish', label:'رالی\nنزولی', full:'رالی نزولی', dir:'bear', mode:'Rally' },
 ];
-const TIMEFRAMES = [
-  { key: '1h', label: '1H', role: 'Context' },
-  { key: '10m', label: '10M', role: 'Zone' },
-  { key: '1m', label: '1M', role: 'Entry' },
+const TFS = [
+  {key:'1h', label:'1H', role:'Context'},
+  {key:'10m', label:'10M', role:'Zone'},
+  {key:'1m', label:'1M', role:'Entry'},
 ];
-
-const STORAGE_KEY = 'alpha_lens_matrix_minimal_v2';
-const SNAPSHOT_KEY = 'alpha_lens_snapshots_minimal_v2';
-const OLD_STORAGE_KEY = 'alpha_lens_matrix_v1';
-const $ = (id) => document.getElementById(id);
-
-let activeCellId = 'hook_bullish__1h';
-let state = loadState();
-
-function makeDefaultCells() {
-  const cells = {};
-  for (const p of PERSPECTIVES) {
-    for (const tf of TIMEFRAMES) {
-      cells[`${p.key}__${tf.key}`] = { risk: '—', reward: '—', action: 'Empty', score: '', notes: '' };
-    }
-  }
-  return cells;
-}
-
-function makeDefaultState() {
-  return {
-    symbol: 'XAUUSD', session: '', globalContext: '',
-    finalBias: 'نامشخص', finalAction: 'Watch', finalNotes: '',
-    cells: makeDefaultCells(), updatedAt: new Date().toISOString(),
-  };
-}
-
-function normalizeState(raw) {
-  const base = makeDefaultState();
-  const parsed = raw ? JSON.parse(raw) : {};
-  return { ...base, ...parsed, cells: { ...base.cells, ...(parsed.cells || {}) } };
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(OLD_STORAGE_KEY);
-    return normalizeState(raw);
-  } catch (_) { return makeDefaultState(); }
-}
-
-function saveState() {
-  state.updatedAt = new Date().toISOString();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
-
-function cellMeta(id) {
-  const [pKey, tfKey] = id.split('__');
-  const p = PERSPECTIVES.find(x => x.key === pKey);
-  const tf = TIMEFRAMES.find(x => x.key === tfKey);
-  return { p, tf };
-}
-
-function shortValue(value, fallback = '—') {
-  if (!value || value === 'Empty') return fallback;
-  if (value === 'Wait for Child') return 'Wait';
-  if (value === 'Limit Ready') return 'Limit';
-  if (value === 'No Trade') return 'No';
-  if (value === 'Medium') return 'Med';
-  return value;
-}
-
-function bindTopInputs() {
-  $('symbolInput').value = state.symbol || '';
-  $('sessionInput').value = state.session || '';
-  $('globalContext').value = state.globalContext || '';
-  $('finalBias').value = state.finalBias || 'نامشخص';
-  $('finalAction').value = state.finalAction || 'Watch';
-  $('finalNotes').value = state.finalNotes || '';
-
-  $('symbolInput').addEventListener('input', e => { state.symbol = e.target.value; saveState(); });
-  $('sessionInput').addEventListener('input', e => { state.session = e.target.value; saveState(); });
-  $('globalContext').addEventListener('input', e => { state.globalContext = e.target.value; saveState(); });
-  $('finalBias').addEventListener('input', e => { state.finalBias = e.target.value; saveState(); });
-  $('finalAction').addEventListener('input', e => { state.finalAction = e.target.value; saveState(); });
-  $('finalNotes').addEventListener('input', e => { state.finalNotes = e.target.value; saveState(); });
-}
-
-function buildMatrix() {
-  const matrix = $('matrix');
-  matrix.innerHTML = '';
-  for (const p of PERSPECTIVES) {
-    const row = document.createElement('div');
-    row.className = 'lens-row';
-    const rowLabel = document.createElement('div');
-    rowLabel.className = `row-label ${p.direction}`;
-    rowLabel.innerHTML = p.label.replace('\n', '<br>');
-    row.appendChild(rowLabel);
-
-    for (const tf of TIMEFRAMES) {
-      const id = `${p.key}__${tf.key}`;
-      const cell = state.cells[id] || { risk: '—', reward: '—', action: 'Empty', score: '', notes: '' };
-      const btn = document.createElement('button');
-      btn.className = `cell-tile ${id === activeCellId ? 'active' : ''}`;
-      btn.type = 'button';
-      btn.dataset.id = id;
-      btn.dataset.direction = p.direction;
-      btn.dataset.action = cell.action || 'Empty';
-      btn.innerHTML = `
-        <span class="dot"></span>
-        <span class="score">${cell.score || '—'}</span>
-        <span class="mini">R:${shortValue(cell.risk)} · W:${shortValue(cell.reward)}</span>
-        <span class="mini">${shortValue(cell.action, 'Empty')}</span>
-      `;
-      btn.addEventListener('click', () => {
-        activeCellId = id;
-        buildMatrix();
-        renderEditor();
-      });
-      row.appendChild(btn);
-    }
-    matrix.appendChild(row);
-  }
-}
-
-function renderEditor() {
-  const { p, tf } = cellMeta(activeCellId);
-  const cell = state.cells[activeCellId] || { risk: '—', reward: '—', action: 'Empty', score: '', notes: '' };
-  $('activeTitle').textContent = `${p.full} · ${tf.label}`;
-  $('activeRole').textContent = tf.role;
-  $('riskInput').value = cell.risk || '—';
-  $('rewardInput').value = cell.reward || '—';
-  $('actionInput').value = cell.action || 'Empty';
-  $('scoreInput').value = cell.score || '';
-  $('notesInput').value = cell.notes || '';
-}
-
-function wireEditor() {
-  ['riskInput', 'rewardInput', 'actionInput', 'scoreInput', 'notesInput'].forEach(id => {
-    $(id).addEventListener('input', () => {
-      state.cells[activeCellId] = {
-        risk: $('riskInput').value,
-        reward: $('rewardInput').value,
-        action: $('actionInput').value,
-        score: $('scoreInput').value,
-        notes: $('notesInput').value,
-      };
-      saveState();
-      buildMatrix();
-    });
-  });
-}
-
-function downloadJson(filename, data) {
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-function getSnapshots() {
-  try { return JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || '[]'); }
-  catch (_) { return []; }
-}
-function saveSnapshots(items) { localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(items)); }
-
-function renderSnapshots() {
-  const list = $('snapshotsList');
-  const items = getSnapshots().sort((a,b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
-  if (!items.length) { list.innerHTML = '<div class="micro">هنوز چیزی ذخیره نشده.</div>'; return; }
-  list.innerHTML = '';
-  for (const item of items) {
-    const div = document.createElement('article');
-    div.className = 'snapshot-item';
-    const title = `${item.state?.symbol || 'Symbol'} · ${item.state?.finalBias || 'Bias'} · ${item.state?.finalAction || 'Watch'}`;
-    const meta = new Date(item.createdAt).toLocaleString('fa-IR');
-    div.innerHTML = `
-      <div class="snapshot-title">${title}</div>
-      <div class="snapshot-meta">${meta}</div>
-      <div class="snapshot-actions">
-        <button type="button" data-load="${item.id}">Load</button>
-        <button type="button" data-export="${item.id}">Export</button>
-        <button type="button" data-delete="${item.id}">Delete</button>
-      </div>`;
-    list.appendChild(div);
-  }
-  list.querySelectorAll('[data-load]').forEach(btn => btn.addEventListener('click', () => {
-    const found = getSnapshots().find(x => x.id === btn.dataset.load);
-    if (!found?.state) return;
-    state = normalizeState(JSON.stringify(found.state));
-    saveState();
-    bindCurrentValuesOnly();
-    buildMatrix(); renderEditor();
-  }));
-  list.querySelectorAll('[data-export]').forEach(btn => btn.addEventListener('click', () => {
-    const found = getSnapshots().find(x => x.id === btn.dataset.export);
-    if (found) downloadJson(`alpha-lens-${found.id}.json`, found);
-  }));
-  list.querySelectorAll('[data-delete]').forEach(btn => btn.addEventListener('click', () => {
-    saveSnapshots(getSnapshots().filter(x => x.id !== btn.dataset.delete));
-    renderSnapshots();
-  }));
-}
-
-function bindCurrentValuesOnly() {
-  $('symbolInput').value = state.symbol || '';
-  $('sessionInput').value = state.session || '';
-  $('globalContext').value = state.globalContext || '';
-  $('finalBias').value = state.finalBias || 'نامشخص';
-  $('finalAction').value = state.finalAction || 'Watch';
-  $('finalNotes').value = state.finalNotes || '';
-}
-
-function wireActions() {
-  $('saveSnapshotBtn').addEventListener('click', () => {
-    const items = getSnapshots();
-    items.push({ id: `${Date.now()}`, createdAt: new Date().toISOString(), state: JSON.parse(JSON.stringify(state)) });
-    saveSnapshots(items);
-    renderSnapshots();
-  });
-  $('exportBtn').addEventListener('click', () => {
-    downloadJson(`alpha-lens-minimal-${Date.now()}.json`, { exportedAt: new Date().toISOString(), state, snapshots: getSnapshots() });
-  });
-  $('importInput').addEventListener('change', async (event) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    try {
-      const obj = JSON.parse(await file.text());
-      state = normalizeState(JSON.stringify(obj.state || obj));
-      if (Array.isArray(obj.snapshots)) saveSnapshots(obj.snapshots);
-      saveState(); bindCurrentValuesOnly(); buildMatrix(); renderEditor(); renderSnapshots();
-    } catch (_) { alert('JSON معتبر نیست.'); }
-    finally { event.target.value = ''; }
-  });
-  $('clearSnapshotsBtn').addEventListener('click', () => {
-    if (confirm('همه Snapshotها حذف شوند؟')) { saveSnapshots([]); renderSnapshots(); }
-  });
-  $('resetBtn').addEventListener('click', () => {
-    if (confirm('فرم فعلی ریست شود؟')) {
-      state = makeDefaultState(); saveState(); bindCurrentValuesOnly(); buildMatrix(); renderEditor();
-    }
-  });
-}
-
-async function registerSW() {
-  if ('serviceWorker' in navigator) {
-    try { await navigator.serviceWorker.register('./sw.js'); }
-    catch (err) { console.warn('Service worker registration failed', err); }
-  }
-}
-
-bindTopInputs();
-buildMatrix();
-renderEditor();
-wireEditor();
-wireActions();
-renderSnapshots();
-saveState();
-registerSW();
+const STORAGE_KEY='alpha_lens_ultra4_state';
+const SNAP_KEY='alpha_lens_ultra4_snaps';
+const OLD_KEYS=['alpha_lens_matrix_minimal_v2','alpha_lens_matrix_v1'];
+const $=id=>document.getElementById(id);
+let active='hook_bullish__1h';
+let state=loadState();
+function defaultCells(){const cells={};for(const p of PERSPECTIVES){for(const t of TFS){cells[`${p.key}__${t.key}`]={risk:'—',reward:'—',action:'Empty',score:'',notes:''}}}return cells}
+function baseState(){return{symbol:'XAUUSD',session:'',finalBias:'نامشخص',globalContext:'',finalAction:'Watch',finalNotes:'',cells:defaultCells(),updatedAt:new Date().toISOString()}}
+function normalize(raw){const b=baseState();let p={};try{p=raw?JSON.parse(raw):{}}catch(e){}return{...b,...p,cells:{...b.cells,...(p.cells||{})}}}
+function loadState(){let raw=localStorage.getItem(STORAGE_KEY);if(!raw){for(const k of OLD_KEYS){raw=localStorage.getItem(k);if(raw)break}}return normalize(raw)}
+function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
+function meta(id){const [pk,tk]=id.split('__');return{p:PERSPECTIVES.find(x=>x.key===pk),t:TFS.find(x=>x.key===tk)}}
+function short(v){if(!v||v==='Empty')return '—';return {'Medium':'M','Low':'L','High':'H','Open':'O','Wait for Child':'Wait','Limit Ready':'Limit','No Trade':'No'}[v]||v}
+function actionClass(a){if(a==='Limit Ready')return 'limit';if(a==='No Trade')return 'no';if(a==='Wait for Child')return 'wait';if(a==='Manage')return 'manage';return ''}
+function renderMatrix(){const body=$('matrixBody');body.innerHTML='';for(const p of PERSPECTIVES){const tr=document.createElement('tr');const name=document.createElement('td');name.className=`row-name ${p.dir}`;name.innerHTML=p.label.replace('\n','<br>');tr.appendChild(name);for(const t of TFS){const id=`${p.key}__${t.key}`;const c=state.cells[id]||{};const td=document.createElement('td');const btn=document.createElement('button');btn.type='button';btn.className=`cell ${p.dir} ${id===active?'active':''} ${actionClass(c.action)}`;btn.innerHTML=`<span class="score">${c.score||'—'}</span><span class="line">R:${short(c.risk)} · W:${short(c.reward)}</span><span class="act">${short(c.action)}</span>`;btn.onclick=()=>{active=id;renderMatrix();renderEditor()};td.appendChild(btn);tr.appendChild(td)}body.appendChild(tr)}}
+function renderEditor(){const {p,t}=meta(active);const c=state.cells[active]||{};$('activeTitle').textContent=`${p.full} · ${t.label}`;$('activeRole').textContent=t.role;$('riskInput').value=c.risk||'—';$('rewardInput').value=c.reward||'—';$('actionInput').value=c.action||'Empty';$('scoreInput').value=c.score||'';$('notesInput').value=c.notes||''}
+function bind(){['symbolInput','sessionInput','finalBias','globalContext','finalAction','finalNotes'].forEach(id=>{$(id).value=state[id.replace('Input','')]||state[id]||''});$('symbolInput').value=state.symbol;$('sessionInput').value=state.session;$('globalContext').value=state.globalContext;$('finalBias').value=state.finalBias;$('finalAction').value=state.finalAction;$('finalNotes').value=state.finalNotes;const map={symbolInput:'symbol',sessionInput:'session',globalContext:'globalContext',finalBias:'finalBias',finalAction:'finalAction',finalNotes:'finalNotes'};Object.entries(map).forEach(([id,key])=>$(id).addEventListener('input',e=>{state[key]=e.target.value;save()}));['riskInput','rewardInput','actionInput','scoreInput','notesInput'].forEach(id=>$(id).addEventListener('input',()=>{state.cells[active]={risk:$('riskInput').value,reward:$('rewardInput').value,action:$('actionInput').value,score:$('scoreInput').value,notes:$('notesInput').value};save();renderMatrix()}));$('resetBtn').onclick=()=>{if(confirm('همه داده‌های صفحه پاک شود؟')){state=baseState();save();bindValues();renderMatrix();renderEditor()}};$('exportBtn').onclick=()=>download(`alpha-lens-${new Date().toISOString().slice(0,10)}.json`,state);$('saveSnapshotBtn').onclick=saveSnapshot;$('clearSnapshotsBtn').onclick=()=>{if(confirm('همه snapshotها حذف شوند؟')){localStorage.setItem(SNAP_KEY,'[]');renderSnaps()}};$('importInput').addEventListener('change',importJson)}
+function bindValues(){$('symbolInput').value=state.symbol;$('sessionInput').value=state.session;$('globalContext').value=state.globalContext;$('finalBias').value=state.finalBias;$('finalAction').value=state.finalAction;$('finalNotes').value=state.finalNotes}
+function download(name,data){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+function snaps(){try{return JSON.parse(localStorage.getItem(SNAP_KEY)||'[]')}catch(e){return[]}}
+function renderSnaps(){const list=$('snapshotsList');const items=snaps().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));if(!items.length){list.innerHTML='<div style="padding-top:8px">هنوز snapshot نداری.</div>';return}list.innerHTML='';for(const it of items){const div=document.createElement('div');div.className='snapshot';div.innerHTML=`<strong>${it.state?.symbol||'Symbol'} · ${it.state?.finalBias||'Bias'} · ${it.state?.finalAction||'Action'}</strong><small>${new Date(it.createdAt).toLocaleString('fa-IR')}</small><div class="snap-row"><button data-load="${it.id}">Load</button><button data-export="${it.id}">Export</button><button data-del="${it.id}">Delete</button></div>`;list.appendChild(div)}list.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{const it=snaps().find(x=>x.id===b.dataset.load);if(it){state=normalize(JSON.stringify(it.state));save();bindValues();renderMatrix();renderEditor()}});list.querySelectorAll('[data-export]').forEach(b=>b.onclick=()=>{const it=snaps().find(x=>x.id===b.dataset.export);if(it)download(`alpha-lens-snap-${it.id}.json`,it)});list.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{localStorage.setItem(SNAP_KEY,JSON.stringify(snaps().filter(x=>x.id!==b.dataset.del)));renderSnaps()})}
+function saveSnapshot(){const items=snaps();items.push({id:Date.now().toString(36),createdAt:new Date().toISOString(),version:VERSION,state});localStorage.setItem(SNAP_KEY,JSON.stringify(items));renderSnaps()}
+function importJson(e){const file=e.target.files?.[0];if(!file)return;const r=new FileReader();r.onload=()=>{state=normalize(r.result);save();bindValues();renderMatrix();renderEditor()};r.readAsText(file);e.target.value=''}
+function registerSW(){if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js?v=ultra4').catch(()=>{})}}
+bind();bindValues();renderMatrix();renderEditor();renderSnaps();registerSW();

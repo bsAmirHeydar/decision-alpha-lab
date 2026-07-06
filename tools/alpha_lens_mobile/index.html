@@ -3,28 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f4f1ea" />
+  <meta name="theme-color" content="#faf8f3" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Alpha Lens" />
-  <title>Alpha Lens</title>
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Alpha Lens Ultra</title>
+  <link rel="manifest" href="./manifest.webmanifest?v=ultra4" />
+  <link rel="stylesheet" href="./styles.css?v=ultra4" />
 </head>
 <body>
-  <main class="shell">
-    <header class="hero">
+  <main class="app">
+    <header class="topbar">
       <div>
-        <p class="kicker">Alpha Lens</p>
-        <h1>ماتریس نگاه بازار</h1>
+        <div class="brand">Alpha Lens</div>
+        <div class="sub">Ultra minimal · v4</div>
       </div>
-      <button id="resetBtn" class="icon-btn danger" type="button" aria-label="ریست">↺</button>
+      <button id="resetBtn" class="ghost" type="button">ریست</button>
     </header>
 
-    <section class="top-strip" aria-label="اطلاعات کلی">
-      <input id="symbolInput" type="text" placeholder="XAUUSD" autocomplete="off" />
-      <input id="sessionInput" type="text" placeholder="Session" autocomplete="off" />
-      <select id="finalBias" aria-label="Bias نهایی">
+    <section class="meta">
+      <input id="symbolInput" placeholder="XAUUSD" />
+      <input id="sessionInput" placeholder="Session" />
+      <select id="finalBias">
         <option value="نامشخص">Bias?</option>
         <option value="صعودی">صعودی</option>
         <option value="نزولی">نزولی</option>
@@ -33,95 +32,78 @@
       </select>
     </section>
 
-    <section class="context-card">
-      <textarea id="globalContext" rows="2" placeholder="کانتکس کوتاه امروز…"></textarea>
+    <textarea id="globalContext" class="context" rows="1" placeholder="کانتکس در یک جمله…"></textarea>
+
+    <section class="matrix-card" aria-label="Alpha Lens Matrix">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th></th>
+            <th>1H</th>
+            <th>10M</th>
+            <th>1M</th>
+          </tr>
+        </thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
     </section>
 
-    <section class="matrix-wrap">
-      <div class="tf-head">
-        <span></span>
-        <b>1H</b>
-        <b>10M</b>
-        <b>1M</b>
+    <section class="editor" id="editor">
+      <div class="editor-title">
+        <span id="activeTitle">—</span>
+        <span id="activeRole">—</span>
       </div>
-      <div id="matrix" class="matrix" aria-label="Alpha Lens Compact Matrix"></div>
-    </section>
-
-    <section class="editor" aria-label="ویرایش سلول انتخاب‌شده">
-      <div class="editor-head">
-        <div>
-          <p class="micro">سلول فعال</p>
-          <h2 id="activeTitle">—</h2>
-        </div>
-        <span id="activeRole" class="pill">—</span>
-      </div>
-
-      <div class="compact-grid">
-        <label>
-          <span>Risk</span>
-          <select id="riskInput">
-            <option value="—">—</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </label>
-        <label>
-          <span>Reward</span>
-          <select id="rewardInput">
-            <option value="—">—</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-            <option value="Open">Open</option>
-          </select>
-        </label>
-        <label>
-          <span>Action</span>
-          <select id="actionInput">
-            <option value="Empty">Empty</option>
-            <option value="No Trade">No Trade</option>
-            <option value="Watch">Watch</option>
-            <option value="Wait for Child">Wait</option>
-            <option value="Limit Ready">Limit</option>
-            <option value="Manage">Manage</option>
-          </select>
-        </label>
-        <label>
-          <span>Score</span>
-          <input id="scoreInput" type="number" min="0" max="100" inputmode="numeric" placeholder="0" />
-        </label>
-      </div>
-
-      <textarea id="notesInput" class="note" rows="2" placeholder="دلیل خیلی کوتاه: هزینه؟ ریوارد؟ زون؟"></textarea>
-    </section>
-
-    <section class="decision-card">
-      <div class="decision-row">
-        <select id="finalAction" aria-label="اکشن نهایی">
+      <div class="controls">
+        <select id="riskInput">
+          <option value="—">Risk</option>
+          <option value="Low">Risk L</option>
+          <option value="Medium">Risk M</option>
+          <option value="High">Risk H</option>
+        </select>
+        <select id="rewardInput">
+          <option value="—">Reward</option>
+          <option value="Low">Reward L</option>
+          <option value="Medium">Reward M</option>
+          <option value="High">Reward H</option>
+          <option value="Open">Reward Open</option>
+        </select>
+        <select id="actionInput">
+          <option value="Empty">Empty</option>
+          <option value="No Trade">No</option>
           <option value="Watch">Watch</option>
           <option value="Wait for Child">Wait</option>
           <option value="Limit Ready">Limit</option>
           <option value="Manage">Manage</option>
-          <option value="No Trade">No Trade</option>
         </select>
-        <textarea id="finalNotes" rows="1" placeholder="تصمیم نهایی در یک جمله…"></textarea>
+        <input id="scoreInput" type="number" min="0" max="100" inputmode="numeric" placeholder="Score" />
       </div>
+      <textarea id="notesInput" rows="1" placeholder="دلیل کوتاه…"></textarea>
     </section>
 
-    <nav class="bottom-actions" aria-label="عملیات">
-      <button id="saveSnapshotBtn" type="button">Snapshot</button>
+    <section class="final">
+      <select id="finalAction">
+        <option value="Watch">Watch</option>
+        <option value="Wait for Child">Wait</option>
+        <option value="Limit Ready">Limit</option>
+        <option value="Manage">Manage</option>
+        <option value="No Trade">No Trade</option>
+      </select>
+      <input id="finalNotes" placeholder="تصمیم نهایی…" />
+    </section>
+
+    <nav class="actions">
+      <button id="saveSnapshotBtn" type="button">Snap</button>
       <button id="exportBtn" type="button">Export</button>
-      <label class="upload-btn">Import<input id="importInput" type="file" accept="application/json" hidden /></label>
+      <label>Import<input id="importInput" type="file" accept="application/json" hidden /></label>
     </nav>
 
-    <details class="snapshots-box">
+    <details class="snaps">
       <summary>Snapshotها</summary>
-      <div id="snapshotsList" class="snapshots-list"></div>
-      <button id="clearSnapshotsBtn" class="small-danger" type="button">حذف همه</button>
+      <div id="snapshotsList"></div>
+      <button id="clearSnapshotsBtn" type="button" class="danger">حذف همه</button>
     </details>
   </main>
 
-  <script src="./app.js"></script>
+  <script src="./app.js?v=ultra4"></script>
 </body>
 </html>

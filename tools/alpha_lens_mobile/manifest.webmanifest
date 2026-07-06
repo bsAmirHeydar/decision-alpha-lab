@@ -1,19 +1,12 @@
 {
-  "name": "Alpha Lens Minimal",
+  "name": "Alpha Lens Ultra",
   "short_name": "Alpha Lens",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=ultra4",
   "display": "standalone",
-  "background_color": "#f7f3ec",
-  "theme_color": "#f4f1ea",
+  "background_color": "#faf8f3",
+  "theme_color": "#faf8f3",
   "orientation": "portrait-primary",
-  "lang": "fa",
-  "dir": "rtl",
   "icons": [
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='44' fill='%23f7f3ec'/%3E%3Crect x='42' y='48' width='108' height='96' rx='22' fill='%23fffdf8' stroke='%232a2722' stroke-width='8'/%3E%3Cpath d='M64 104h64M64 78h64M64 130h64' stroke='%235f8d75' stroke-width='10' stroke-linecap='round'/%3E%3C/svg%3E",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
+    {"src":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%2320201d'/%3E%3Ctext x='96' y='112' text-anchor='middle' font-size='72' fill='%23faf8f3' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E", "sizes":"192x192", "type":"image/svg+xml"}
   ]
 }

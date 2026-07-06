@@ -1,12 +1,10 @@
-# نصب Alpha Lens Minimal Mobile Patch
+# نصب Alpha Lens Ultra Minimal
 
-این patch نسخه قبلی `tools/alpha_lens_mobile` را با یک UI خیلی مینیمال‌تر جایگزین می‌کند.
-
-## نصب داخل پروژه
+## اعمال patch
 
 ```powershell
-Expand-Archive -Path .\alpha_lens_mobile_minimal_patch.zip -DestinationPath . -Force
-Remove-Item .\alpha_lens_mobile_minimal_patch.zip
+Expand-Archive -Path .\alpha_lens_mobile_ultra_minimal_patch.zip -DestinationPath . -Force
+Remove-Item .\alpha_lens_mobile_ultra_minimal_patch.zip
 ```
 
 ## اجرا
@@ -16,24 +14,23 @@ cd .\tools\alpha_lens_mobile
 python -m http.server 8787
 ```
 
-بعد در مرورگر:
+روی کامپیوتر:
 
 ```text
-http://localhost:8787
+http://localhost:8787/index.html?v=ultra4
 ```
 
-برای موبایل، IP کامپیوتر را با `ipconfig` پیدا کن و در موبایل باز کن:
+روی موبایل:
 
 ```text
-http://YOUR-PC-IP:8787
+http://YOUR-PC-IP:8787/index.html?v=ultra4
 ```
 
-## نصب روی موبایل
+## اگر چیزی تغییر نکرد
 
-### Android / Chrome
+نسخه قبلی توسط Service Worker یا PWA cache شده است. این کارها را انجام بده:
 
-سه‌نقطه → Add to Home screen / Install app
-
-### iPhone / Safari
-
-Share → Add to Home Screen
+1. اپ قبلی Alpha Lens را از Home Screen حذف کن.
+2. در Chrome/Safari همان آدرس `index.html?v=ultra4` را باز کن.
+3. صفحه باید بالای خودش بنویسد: `Ultra minimal · v4`.
+4. دوباره Add to Home Screen بزن.

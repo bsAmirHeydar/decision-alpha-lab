@@ -1,31 +1,13 @@
-# Alpha Lens Minimal — اپ آفلاین موبایل
+# Alpha Lens Ultra Minimal
 
-این نسخه مینیمال و فشرده‌ی ماتریس نگاه بازار است.
+نسخه ultra-minimal ماتریس ۴×۳ برای موبایل.
 
-## تغییرات نسخه مینیمال
+برای اطمینان از اینکه نسخه جدید را می‌بینی، بالای صفحه باید نوشته باشد:
 
-- ماتریس واقعی ۴×۳ به جای کارت‌های بزرگ پشت سر هم
-- هر سلول فقط score، risk، reward و action را فشرده نشان می‌دهد
-- با لمس هر سلول، پنل ویرایش کوچک پایین ماتریس باز می‌شود
-- رنگ‌های خنثی و مینیمال: کرم، مشکی نرم، سبز خاکی، قرمز خاکی
-- دکمه‌های اصلی در نوار پایین موبایل
-- Snapshot، Export و Import حفظ شده‌اند
-- داده‌ها همچنان آفلاین و داخل خود مرورگر ذخیره می‌شوند
+`Ultra minimal · v4`
 
-## اجرا
+اگر هنوز UI قبلی را می‌بینی، مرورگر/PWA کش کرده است. آدرس زیر را باز کن:
 
-```powershell
-cd .\tools\alpha_lens_mobile
-python -m http.server 8787
-```
+`/index.html?v=ultra4`
 
-بعد روی موبایل در همان Wi-Fi باز کن:
-
-```text
-http://YOUR-PC-IP:8787
-```
-
-## نصب مثل اپ
-
-- Android/Chrome: منوی سه‌نقطه → Add to Home screen یا Install app
-- iPhone/Safari: Share → Add to Home Screen
+یا اپ نصب‌شده قبلی را از Home Screen حذف کن و دوباره Add to Home Screen بزن.
