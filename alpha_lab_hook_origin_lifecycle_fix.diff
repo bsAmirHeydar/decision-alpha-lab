@@ -1,0 +1,403 @@
+Only in .: 00_HOOK_ORIGIN_LIFECYCLE_FIX_START_HERE.md
+Only in .: INSTALL_HOOK_ORIGIN_LIFECYCLE_FIX_PATCH.md
+Only in .: README_HOOK_ORIGIN_LIFECYCLE_FIX_PATCH.md
+Only in ./docs/nds_hook_architecture: 44_phase32_raw_origin_breach_lifecycle_guard.md
+diff -ru ../orig/decision-alpha-lab-main/docs/nds_hook_architecture/README.md ./docs/nds_hook_architecture/README.md
+--- ../orig/decision-alpha-lab-main/docs/nds_hook_architecture/README.md	2026-07-05 14:53:14.000000000 +0000
++++ ./docs/nds_hook_architecture/README.md	2026-07-06 20:13:44.358982943 +0000
+@@ -101,3 +101,15 @@
+ ```text
+ Phase 10 => Hook v1 freeze and training contract
+ ```
++
++
++## Latest lifecycle overlay — Phase 32
++
++```text
++44_phase32_raw_origin_breach_lifecycle_guard.md
++```
++
++Phase 32 adds the raw origin-breach lifecycle guard. A Hook candidate whose
++origin boundary is touched or penetrated before terminal-node confirmation is
++not a failed Hook; it is a non-Hook candidate. It must not draw a semantic arc
++and must not produce a Hook zone.
+Only in ./docs: obsidian_hook
+diff -ru ../orig/decision-alpha-lab-main/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5 ./mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5
+--- ../orig/decision-alpha-lab-main/mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5	2026-07-06 20:11:06.712558044 +0000
+@@ -463,6 +463,7 @@
+ input int    InpHookPhase02LabelPriceClusterPoints = 28;
+ input bool   InpHookPhase02CycleArcAlignToBarIndex = true;
+ input bool   InpHookPhase02RequireConfirmedResolveNode = true;
++input bool   InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation = true;
+ input bool   InpHookPhase02DeathOnBoundaryTouch = true;
+ input bool   InpHookPhase02RequireNearDeathForSemanticArc = true;
+ input double InpHookPhase02NearDeathRetraceThreshold = 0.50;
+@@ -1531,6 +1532,7 @@
+    cfg.label_price_cluster_points = InpHookPhase02LabelPriceClusterPoints;
+    cfg.cycle_arc_align_to_bar_index = InpHookPhase02CycleArcAlignToBarIndex;
+    cfg.require_confirmed_resolve_node = InpHookPhase02RequireConfirmedResolveNode;
++   cfg.reject_raw_origin_breach_before_terminal_confirmation = InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation;
+    cfg.death_on_boundary_touch = InpHookPhase02DeathOnBoundaryTouch;
+    cfg.require_near_death_for_semantic_arc = InpHookPhase02RequireNearDeathForSemanticArc;
+    cfg.near_death_retrace_threshold = InpHookPhase02NearDeathRetraceThreshold;
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh	2026-07-06 20:11:06.707511844 +0000
+@@ -47,7 +47,7 @@
+    report.bars_scanned = node_report.bars_scanned;
+ 
+    FP_HookPhase02Sequence sequences[];
+-   FP_HookP02BuildSequences(nodes, cfg, sequences, report);
++   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, cfg, sequences, report);
+    FP_HookP02FinalizeReport(report);
+ 
+    if(cfg.draw_sequences)
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh	2026-07-06 20:12:06.263464237 +0000
+@@ -28,7 +28,7 @@
+ 
+ string FP_HookP02SequenceHeader()
+ {
+-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,death_boundary_price,capped,valid,source,reject_reason";
++   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_bar_index,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,death_boundary_price,capped,valid,source,reject_reason";
+ }
+ 
+ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
+@@ -71,6 +71,20 @@
+    row += "," + DoubleToString(s.cycle_crown_price, _Digits);
+    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.cycle_crown_valid));
+ 
++   row += "," + IntegerToString(s.resolve_node_id);
++   row += "," + IntegerToString(s.resolve_bar_index);
++   row += "," + FP_HookP02SafeCsv(TimeToString(s.resolve_time, TIME_DATE|TIME_SECONDS));
++   row += "," + DoubleToString(s.resolve_price, _Digits);
++   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.resolve_confirmed));
++   row += "," + DoubleToString(s.retracement_ratio, 6);
++   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.near_death_confirmed));
++   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.hook_failed));
++   row += "," + IntegerToString(s.failure_node_id);
++   row += "," + FP_HookP02SafeCsv(TimeToString(s.failure_time, TIME_DATE|TIME_SECONDS));
++   row += "," + DoubleToString(s.failure_price, _Digits);
++   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.render_eligible));
++   row += "," + FP_HookP02SafeCsv(s.visibility_reason);
++
+    row += "," + DoubleToString(s.death_boundary_price, _Digits);
+    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.capped));
+    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.valid));
+@@ -81,7 +95,7 @@
+ 
+ string FP_HookP02SummaryHeader()
+ {
+-   return "schema_version,version,symbol,period,display_family,origin_policy,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,origin_promotions,promoted_chains,drawn,status,reason";
++   return "schema_version,version,symbol,period,display_family,origin_policy,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,raw_origin_breach_rejects,origin_promotions,promoted_chains,drawn,status,reason";
+ }
+ 
+ string FP_HookP02SummaryRow(const string symbol,
+@@ -107,6 +121,7 @@
+    row += "," + IntegerToString(r.sequences_mature);
+    row += "," + IntegerToString(r.sequences_capped);
+    row += "," + IntegerToString(r.rejected_candidates);
++   row += "," + IntegerToString(r.raw_origin_breach_rejects);
+    row += "," + IntegerToString(r.origin_promotions);
+    row += "," + IntegerToString(r.promoted_chains);
+    row += "," + IntegerToString(r.sequences_drawn);
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh	2026-07-06 20:11:29.742982528 +0000
+@@ -437,6 +437,52 @@
+    return false;
+ }
+ 
++// Raw lifecycle guard: a same-side swing-node scan is not enough.  A Hook
++// candidate is not allowed to survive if ordinary candle high/low action
++// breaches the origin boundary before the terminal/resolve node has had enough
++// right-side bars to be confirmed.  This implements the documented rule:
++// "origin breach before terminal confirmation = non-hook candidate".
++bool FP_HookP02RawOriginBreachedBeforeTerminalConfirmation(const MqlRates &rates[],
++                                                           const int copied,
++                                                           const FP_HookPhase02Direction d,
++                                                           const int origin_bar_index,
++                                                           const int terminal_bar_index,
++                                                           const int scale_l,
++                                                           const double origin_price,
++                                                           const bool touch_kills,
++                                                           int &failure_bar_index,
++                                                           datetime &failure_time,
++                                                           double &failure_price)
++{
++   failure_bar_index = -1;
++   failure_time = 0;
++   failure_price = 0.0;
++
++   if(copied <= 0 || origin_bar_index < 0 || terminal_bar_index <= origin_bar_index)
++      return false;
++   if(origin_bar_index >= copied)
++      return false;
++
++   int end_bar_index = terminal_bar_index + scale_l;
++   if(end_bar_index >= copied)
++      end_bar_index = copied - 1;
++   if(end_bar_index <= origin_bar_index)
++      return false;
++
++   for(int i = origin_bar_index + 1; i <= end_bar_index; i++)
++   {
++      double candidate_price = (d == FP_HOOK_P02_DIRECTION_POSITIVE ? rates[i].low : rates[i].high);
++      if(FP_HookP02BoundaryBreachedPrice(d, origin_price, candidate_price, touch_kills))
++      {
++         failure_bar_index = i;
++         failure_time = rates[i].time;
++         failure_price = candidate_price;
++         return true;
++      }
++   }
++   return false;
++}
++
+ double FP_HookP02ComputeRetracementRatio(const FP_HookPhase02Direction d,
+                                          const double boundary_price,
+                                          const double crown_price,
+@@ -466,7 +512,9 @@
+    return direction_nodes[idx].confirmed;
+ }
+ 
+-bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &direction_nodes[],
++bool FP_HookP02BuildSequenceFromBranchIndexes(const MqlRates &rates[],
++                                              const int copied,
++                                              const FP_HookPhase01Node &direction_nodes[],
+                                               const int boundary_index,
+                                               const int &branch_indexes_old_to_new[],
+                                               const FP_HookPhase01Node &all_nodes[],
+@@ -507,6 +555,7 @@
+    int resolve_index = branch_indexes_old_to_new[branch_count - 1];
+    FP_HookPhase01Node resolve_node = direction_nodes[resolve_index];
+    seq.resolve_node_id = resolve_node.node_id;
++   seq.resolve_bar_index = resolve_node.bar_index;
+    seq.resolve_time = resolve_node.bar_time;
+    seq.resolve_price = resolve_node.price;
+    seq.resolve_confirmed = resolve_node.confirmed;
+@@ -519,6 +568,34 @@
+       return false;
+    }
+ 
++   if(cfg.reject_raw_origin_breach_before_terminal_confirmation)
++   {
++      int raw_failure_bar_index;
++      datetime raw_failure_time;
++      double raw_failure_price;
++      if(FP_HookP02RawOriginBreachedBeforeTerminalConfirmation(rates, copied, d,
++                                                               seq.origin_bar_index,
++                                                               seq.resolve_bar_index,
++                                                               seq.scale_l,
++                                                               seq.origin_price,
++                                                               cfg.death_on_boundary_touch,
++                                                               raw_failure_bar_index,
++                                                               raw_failure_time,
++                                                               raw_failure_price))
++      {
++         seq.hook_failed = true;
++         seq.failure_node_id = -1;
++         seq.failure_time = raw_failure_time;
++         seq.failure_price = raw_failure_price;
++         seq.visibility_reason = "RAW_ORIGIN_BREACH_BEFORE_TERMINAL_CONFIRMATION";
++         seq.reject_reason = "RAW_ORIGIN_BREACH_BEFORE_TERMINAL_CONFIRMATION";
++         seq.render_eligible = false;
++         report.rejected_candidates++;
++         report.raw_origin_breach_rejects++;
++         return false;
++      }
++   }
++
+    int failure_id;
+    datetime failure_time;
+    double failure_price;
+@@ -622,7 +699,9 @@
+    }
+ }
+ 
+-int FP_HookP02BuildDirectionScaleEndBackward(const FP_HookPhase01Node &all_nodes[],
++int FP_HookP02BuildDirectionScaleEndBackward(const MqlRates &rates[],
++                                             const int copied,
++                                             const FP_HookPhase01Node &all_nodes[],
+                                              const FP_HookPhase02Direction d,
+                                              const FP_HookPhase02Config &cfg,
+                                              const int scale_l,
+@@ -689,7 +768,7 @@
+ 
+          FP_HookPhase02Sequence seq;
+          FP_ResetHookPhase02Sequence(seq);
+-         if(!FP_HookP02BuildSequenceFromBranchIndexes(direction_nodes, boundary_index, backward_indexes,
++         if(!FP_HookP02BuildSequenceFromBranchIndexes(rates, copied, direction_nodes, boundary_index, backward_indexes,
+                                                        all_nodes, d, cfg, seq, report))
+             continue;
+ 
+@@ -710,7 +789,9 @@
+    return built;
+ }
+ 
+-int FP_HookP02BuildDirectionEndBackward(const FP_HookPhase01Node &nodes[],
++int FP_HookP02BuildDirectionEndBackward(const MqlRates &rates[],
++                                        const int copied,
++                                        const FP_HookPhase01Node &nodes[],
+                                         const FP_HookPhase02Direction d,
+                                         const FP_HookPhase02Config &cfg,
+                                         FP_HookPhase02Sequence &sequences[],
+@@ -730,7 +811,7 @@
+    int built = 0;
+    for(int s=0; s<ArraySize(scales_seen); s++)
+    {
+-      built += FP_HookP02BuildDirectionScaleEndBackward(nodes, d, cfg, scales_seen[s], sequences, report);
++      built += FP_HookP02BuildDirectionScaleEndBackward(rates, copied, nodes, d, cfg, scales_seen[s], sequences, report);
+       if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
+          break;
+    }
+@@ -738,10 +819,12 @@
+    return built;
+ }
+ 
+-int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
+-                             const FP_HookPhase02Config &cfg,
+-                             FP_HookPhase02Sequence &sequences[],
+-                             FP_HookPhase02Report &report)
++int FP_HookP02BuildSequencesWithRates(const MqlRates &rates[],
++                                      const int copied,
++                                      const FP_HookPhase01Node &nodes[],
++                                      const FP_HookPhase02Config &cfg,
++                                      FP_HookPhase02Sequence &sequences[],
++                                      FP_HookPhase02Report &report)
+ {
+    ArrayResize(sequences, 0);
+    report.nodes_seen = ArraySize(nodes);
+@@ -749,11 +832,21 @@
+    report.promoted_chains = 0;
+ 
+    int built = 0;
+-   built += FP_HookP02BuildDirectionEndBackward(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
+-   built += FP_HookP02BuildDirectionEndBackward(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
++   built += FP_HookP02BuildDirectionEndBackward(rates, copied, nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
++   built += FP_HookP02BuildDirectionEndBackward(rates, copied, nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
+    return built;
+ }
+ 
++int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
++                             const FP_HookPhase02Config &cfg,
++                             FP_HookPhase02Sequence &sequences[],
++                             FP_HookPhase02Report &report)
++{
++   MqlRates empty_rates[];
++   ArrayResize(empty_rates, 0);
++   return FP_HookP02BuildSequencesWithRates(empty_rates, 0, nodes, cfg, sequences, report);
++}
++
+ void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)
+ {
+    report.ok = true;
+@@ -790,6 +883,7 @@
+          " mature=", r.sequences_mature,
+          " capped=", r.sequences_capped,
+          " rejected=", r.rejected_candidates,
++         " raw_origin_breach_rejects=", r.raw_origin_breach_rejects,
+          " origin_promotions=", r.origin_promotions,
+          " promoted_chains=", r.promoted_chains,
+          " drawn=", r.sequences_drawn,
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh	2026-07-06 20:11:29.741446152 +0000
+@@ -97,6 +97,7 @@
+    bool show_hook_sequence_ids_in_labels;
+    bool responsive_label_offsets;
+    bool require_confirmed_resolve_node;
++   bool reject_raw_origin_breach_before_terminal_confirmation;
+    bool death_on_boundary_touch;
+    bool require_near_death_for_semantic_arc;
+ 
+@@ -199,6 +200,7 @@
+    bool cycle_crown_valid;
+ 
+    int resolve_node_id;
++   int resolve_bar_index;
+    datetime resolve_time;
+    double resolve_price;
+    bool resolve_confirmed;
+@@ -238,6 +240,7 @@
+    int sequences_mature;
+    int sequences_capped;
+    int rejected_candidates;
++   int raw_origin_breach_rejects;
+    int origin_promotions;
+    int promoted_chains;
+ 
+@@ -337,6 +340,7 @@
+    cfg.show_hook_sequence_ids_in_labels = true;
+    cfg.responsive_label_offsets = true;
+    cfg.require_confirmed_resolve_node = true;
++   cfg.reject_raw_origin_breach_before_terminal_confirmation = true;
+    cfg.death_on_boundary_touch = true;
+    cfg.require_near_death_for_semantic_arc = true;
+ 
+@@ -439,6 +443,7 @@
+    s.cycle_crown_valid = false;
+ 
+    s.resolve_node_id = -1;
++   s.resolve_bar_index = -1;
+    s.resolve_time = 0;
+    s.resolve_price = 0.0;
+    s.resolve_confirmed = false;
+@@ -478,6 +483,7 @@
+    r.sequences_mature = 0;
+    r.sequences_capped = 0;
+    r.rejected_candidates = 0;
++   r.raw_origin_breach_rejects = 0;
+    r.origin_promotions = 0;
+    r.promoted_chains = 0;
+ 
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh	2026-07-06 20:11:06.708278809 +0000
+@@ -64,7 +64,7 @@
+    FP_ResetHookPhase02Report(sequence_report);
+    sequence_report.nodes_seen = ArraySize(nodes);
+ 
+-   FP_HookP02BuildSequences(nodes, p02_cfg, sequences, sequence_report);
++   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, p02_cfg, sequences, sequence_report);
+    FP_HookP02FinalizeReport(sequence_report);
+ 
+    report.phase02_sequences_seen = ArraySize(sequences);
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh	2026-07-06 20:11:06.709052644 +0000
+@@ -66,7 +66,7 @@
+    FP_ResetHookPhase02Report(sequence_report);
+    sequence_report.nodes_seen = ArraySize(nodes);
+ 
+-   FP_HookP02BuildSequences(nodes, p02_cfg, sequences, sequence_report);
++   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, p02_cfg, sequences, sequence_report);
+    FP_HookP02FinalizeReport(sequence_report);
+ 
+    report.phase02_sequences_seen = ArraySize(sequences);
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh	2026-07-06 20:11:06.709973342 +0000
+@@ -67,7 +67,7 @@
+    FP_ResetHookPhase02Report(sequence_report);
+    sequence_report.nodes_seen = ArraySize(nodes);
+ 
+-   FP_HookP02BuildSequences(nodes, p02_cfg, sequences, sequence_report);
++   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, p02_cfg, sequences, sequence_report);
+    FP_HookP02FinalizeReport(sequence_report);
+ 
+    report.phase02_sequences_seen = ArraySize(sequences);
+diff -ru ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh ./mql5/Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh
+--- ../orig/decision-alpha-lab-main/mql5/Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh	2026-07-05 14:53:14.000000000 +0000
++++ ./mql5/Include/FlagCountingPhoenix/FP_HookPhase06Engine.mqh	2026-07-06 20:11:06.710746570 +0000
+@@ -68,7 +68,7 @@
+    FP_ResetHookPhase02Report(sequence_report);
+    sequence_report.nodes_seen = ArraySize(nodes);
+ 
+-   FP_HookP02BuildSequences(nodes, p02_cfg, sequences, sequence_report);
++   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, p02_cfg, sequences, sequence_report);
+    FP_HookP02FinalizeReport(sequence_report);
+ 
+    report.phase02_sequences_seen = ArraySize(sequences);

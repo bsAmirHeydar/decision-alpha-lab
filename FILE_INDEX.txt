@@ -1,0 +1,11 @@
+./00_F2_WAIST_HIT_CORRECTION_START_HERE.md
+./FILE_INDEX.txt
+./INSTALL_F2_WAIST_HIT_CORRECTION_PATCH.md
+./README_F2_WAIST_HIT_CORRECTION_PATCH.md
+./docs/obsidian_zone/00_mocs/ZONE_MOC_F2_CORRECTION_ADDENDUM.md
+./docs/obsidian_zone/01_concepts/F2_Waist_Hit_Point1_Point2.md
+./docs/obsidian_zone/01_concepts/F2_Zone.md
+./docs/obsidian_zone/02_architecture/F2_Waist_Hit_Reversal_Field.md
+./docs/obsidian_zone/03_policies/F2_Waist_Hit_Execution_Policy.md
+./docs/zone_af/ZONE-AF-0003_Mechanical_Zone_Sources_Hook_F1_F2_F3.md
+./docs/zone_af/ZONE-AF-0008_F2_Waist_Hit_Point1_Point2_Doctrine.md
