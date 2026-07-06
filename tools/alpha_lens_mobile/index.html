@@ -3,107 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#faf8f3" />
+  <meta name="theme-color" content="#f7f2e9" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Alpha Lens" />
-  <title>Alpha Lens Ultra</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=ultra4" />
-  <link rel="stylesheet" href="./styles.css?v=ultra4" />
+  <title>Alpha Lens Studio</title>
+  <link rel="manifest" href="./manifest.webmanifest?v=studio6" />
+  <link rel="stylesheet" href="./styles.css?v=studio6" />
 </head>
 <body>
-  <main class="app">
-    <header class="topbar">
-      <div>
-        <div class="brand">Alpha Lens</div>
-        <div class="sub">Ultra minimal · v4</div>
-      </div>
-      <button id="resetBtn" class="ghost" type="button">ریست</button>
-    </header>
+  <main class="app-shell">
+    <main class="app">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand">Alpha Lens</div>
+          <div class="sub">Studio refined · v6</div>
+        </div>
+        <div class="top-actions">
+          <button id="themeBtn" class="icon-btn" type="button" aria-label="تغییر تم">☾</button>
+          <button id="resetBtn" class="ghost" type="button">ریست</button>
+        </div>
+      </header>
 
-    <section class="meta">
-      <input id="symbolInput" placeholder="XAUUSD" />
-      <input id="sessionInput" placeholder="Session" />
-      <select id="finalBias">
-        <option value="نامشخص">Bias?</option>
-        <option value="صعودی">صعودی</option>
-        <option value="نزولی">نزولی</option>
-        <option value="دوطرفه">دوطرفه</option>
-        <option value="No Trade">No Trade</option>
-      </select>
-    </section>
-
-    <textarea id="globalContext" class="context" rows="1" placeholder="کانتکس در یک جمله…"></textarea>
-
-    <section class="matrix-card" aria-label="Alpha Lens Matrix">
-      <table class="matrix">
-        <thead>
-          <tr>
-            <th></th>
-            <th>1H</th>
-            <th>10M</th>
-            <th>1M</th>
-          </tr>
-        </thead>
-        <tbody id="matrixBody"></tbody>
-      </table>
-    </section>
-
-    <section class="editor" id="editor">
-      <div class="editor-title">
-        <span id="activeTitle">—</span>
-        <span id="activeRole">—</span>
-      </div>
-      <div class="controls">
-        <select id="riskInput">
-          <option value="—">Risk</option>
-          <option value="Low">Risk L</option>
-          <option value="Medium">Risk M</option>
-          <option value="High">Risk H</option>
+      <section class="meta">
+        <input id="symbolInput" placeholder="نماد" />
+        <input id="sessionInput" placeholder="سشن / بازه" />
+        <select id="finalBias">
+          <option value="نامشخص">بایاس</option>
+          <option value="صعودی">صعودی</option>
+          <option value="نزولی">نزولی</option>
+          <option value="دوطرفه">دوطرفه</option>
+          <option value="No Trade">بدون معامله</option>
         </select>
-        <select id="rewardInput">
-          <option value="—">Reward</option>
-          <option value="Low">Reward L</option>
-          <option value="Medium">Reward M</option>
-          <option value="High">Reward H</option>
-          <option value="Open">Reward Open</option>
-        </select>
-        <select id="actionInput">
-          <option value="Empty">Empty</option>
-          <option value="No Trade">No</option>
-          <option value="Watch">Watch</option>
-          <option value="Wait for Child">Wait</option>
-          <option value="Limit Ready">Limit</option>
-          <option value="Manage">Manage</option>
-        </select>
-        <input id="scoreInput" type="number" min="0" max="100" inputmode="numeric" placeholder="Score" />
-      </div>
-      <textarea id="notesInput" rows="1" placeholder="دلیل کوتاه…"></textarea>
-    </section>
+      </section>
 
-    <section class="final">
-      <select id="finalAction">
-        <option value="Watch">Watch</option>
-        <option value="Wait for Child">Wait</option>
-        <option value="Limit Ready">Limit</option>
-        <option value="Manage">Manage</option>
-        <option value="No Trade">No Trade</option>
-      </select>
-      <input id="finalNotes" placeholder="تصمیم نهایی…" />
-    </section>
+      <textarea id="globalContext" class="context" rows="1" placeholder="کانتکست را در یک جمله کوتاه و شفاف بنویس…"></textarea>
+
+      <section class="matrix-card" aria-label="Alpha Lens Matrix">
+        <div class="matrix-head">
+          <span class="matrix-title">ماتریس تصمیم</span>
+          <span class="matrix-hint">۴ لنز × ۳ تایم‌فریم</span>
+        </div>
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th></th>
+              <th>1H</th>
+              <th>10M</th>
+              <th>1M</th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </section>
+
+      <section class="editor" id="editor">
+        <div class="editor-title">
+          <div>
+            <div id="activeTitle" class="editor-main">—</div>
+            <div id="activeRole" class="editor-sub">—</div>
+          </div>
+          <span class="editor-badge">سلول انتخاب‌شده</span>
+        </div>
+
+        <div class="controls">
+          <select id="riskInput" aria-label="ریسک">
+            <option value="—">ریسک</option>
+            <option value="Low">کم</option>
+            <option value="Medium">متوسط</option>
+            <option value="High">زیاد</option>
+          </select>
+          <select id="rewardInput" aria-label="ریوارد">
+            <option value="—">ریوارد</option>
+            <option value="Low">کم</option>
+            <option value="Medium">متوسط</option>
+            <option value="High">زیاد</option>
+            <option value="Open">باز</option>
+          </select>
+          <select id="actionInput" aria-label="وضعیت">
+            <option value="Empty">وضعیت</option>
+            <option value="No Trade">بدون معامله</option>
+            <option value="Watch">زیرنظر</option>
+            <option value="Wait for Child">منتظر Child</option>
+            <option value="Limit Ready">لیمیت آماده</option>
+            <option value="Manage">مدیریت</option>
+          </select>
+          <input id="scoreInput" type="number" min="0" max="100" inputmode="numeric" placeholder="امتیاز" aria-label="امتیاز" />
+        </div>
+        <textarea id="notesInput" rows="1" placeholder="منطق این سلول را کوتاه و روشن بنویس…"></textarea>
+      </section>
+
+      <section class="final">
+        <select id="finalAction">
+          <option value="Watch">زیرنظر</option>
+          <option value="Wait for Child">منتظر Child</option>
+          <option value="Limit Ready">لیمیت آماده</option>
+          <option value="Manage">مدیریت</option>
+          <option value="No Trade">بدون معامله</option>
+        </select>
+        <input id="finalNotes" placeholder="جمع‌بندی نهایی…" />
+      </section>
+
+      <details class="help">
+        <summary>معنی وضعیت‌ها</summary>
+        <div class="help-grid">
+          <div class="help-card">
+            <strong>ریسک</strong>
+            <p><b>کم:</b> حد ضرر کوچک و واضح است. <b>متوسط:</b> قابل قبول است اما خیلی فشرده نیست. <b>زیاد:</b> زون پهن است یا ابطال پرهزینه است.</p>
+          </div>
+          <div class="help-card">
+            <strong>ریوارد</strong>
+            <p><b>کم:</b> فضای حرکت محدود است. <b>متوسط:</b> فضای حرکت بد نیست. <b>زیاد:</b> نسبت ریوارد خوب است. <b>باز:</b> حرکت می‌تواند رشد کند و سقف تنگی ندارد.</p>
+          </div>
+          <div class="help-card">
+            <strong>وضعیت</strong>
+            <p><b>خالی:</b> هنوز تصمیمی ثبت نشده. <b>بدون معامله:</b> رد کامل. <b>زیرنظر:</b> فقط بررسی. <b>منتظر Child:</b> parent خوب است ولی ورود دقیق لازم است. <b>لیمیت آماده:</b> زون برای Limit آماده است. <b>مدیریت:</b> معامله فعال است و باید مدیریت شود.</p>
+          </div>
+          <div class="help-card">
+            <strong>نقش تایم‌فریم</strong>
+            <p><b>1H:</b> کانتکست و زون مادر. <b>10M:</b> زون قابل‌معامله‌تر. <b>1M:</b> ورود دقیق و کاهش ریسک.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="snaps">
+        <summary>اسنپ‌شات‌ها</summary>
+        <div id="snapshotsList"></div>
+        <button id="clearSnapshotsBtn" type="button" class="danger">حذف همه</button>
+      </details>
+    </main>
 
     <nav class="actions">
-      <button id="saveSnapshotBtn" type="button">Snap</button>
-      <button id="exportBtn" type="button">Export</button>
-      <label>Import<input id="importInput" type="file" accept="application/json" hidden /></label>
+      <button id="saveSnapshotBtn" type="button">اسنپ</button>
+      <button id="exportBtn" type="button">خروجی</button>
+      <label>ورود<input id="importInput" type="file" accept="application/json" hidden /></label>
     </nav>
-
-    <details class="snaps">
-      <summary>Snapshotها</summary>
-      <div id="snapshotsList"></div>
-      <button id="clearSnapshotsBtn" type="button" class="danger">حذف همه</button>
-    </details>
   </main>
 
-  <script src="./app.js?v=ultra4"></script>
+  <script src="./app.js?v=studio6"></script>
 </body>
 </html>
