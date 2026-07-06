@@ -1,7 +1,8 @@
 {
+  "showUnsupportedFiles": true,
+  "promptDelete": false,
   "alwaysUpdateLinks": true,
   "newFileLocation": "folder",
-  "newFileFolderPath": "docs/obsidian/inbox",
-  "attachmentFolderPath": "docs/assets",
-  "promptDelete": false
+  "newFileFolderPath": "docs/obsidian_deep/99_inbox",
+  "attachmentFolderPath": "docs/obsidian_deep/assets"
 }

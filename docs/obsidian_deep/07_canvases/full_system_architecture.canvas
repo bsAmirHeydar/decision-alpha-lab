@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "entry",
+      "type": "file",
+      "file": "00_ALPHA_LAB_KNOWLEDGE_OS.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "cmd",
+      "type": "file",
+      "file": "docs/obsidian_deep/00_master_command_center.md",
+      "x": 420,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "canon",
+      "type": "file",
+      "file": "docs/obsidian_deep/01_canonical_model/README.md",
+      "x": 840,
+      "y": -220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "concept",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Market_Anatomy.md",
+      "x": 840,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "trace",
+      "type": "file",
+      "file": "docs/obsidian_deep/04_relationships/traceability_matrix.md",
+      "x": 840,
+      "y": 220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "docs/obsidian_deep/05_workflows/research_to_execution_pipeline.md",
+      "x": 1260,
+      "y": -220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/AI_Agent_Layer.md",
+      "x": 1260,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "code",
+      "type": "file",
+      "file": "docs/obsidian_deep/04_relationships/code_to_concept_map.md",
+      "x": 1260,
+      "y": 220,
+      "width": 320,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "entry",
+      "fromSide": "right",
+      "toNode": "cmd",
+      "toSide": "left",
+      "label": "opens"
+    },
+    {
+      "id": "e2",
+      "fromNode": "cmd",
+      "fromSide": "right",
+      "toNode": "canon",
+      "toSide": "left",
+      "label": "formalizes"
+    },
+    {
+      "id": "e3",
+      "fromNode": "cmd",
+      "fromSide": "right",
+      "toNode": "concept",
+      "toSide": "left",
+      "label": "maps"
+    },
+    {
+      "id": "e4",
+      "fromNode": "cmd",
+      "fromSide": "right",
+      "toNode": "trace",
+      "toSide": "left",
+      "label": "audits"
+    },
+    {
+      "id": "e5",
+      "fromNode": "canon",
+      "fromSide": "right",
+      "toNode": "workflow",
+      "toSide": "left",
+      "label": "governs"
+    },
+    {
+      "id": "e6",
+      "fromNode": "concept",
+      "fromSide": "right",
+      "toNode": "agent",
+      "toSide": "left",
+      "label": "feeds"
+    },
+    {
+      "id": "e7",
+      "fromNode": "trace",
+      "fromSide": "right",
+      "toNode": "code",
+      "toSide": "left",
+      "label": "links"
+    }
+  ]
+}

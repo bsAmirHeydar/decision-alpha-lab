@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "obs",
+      "type": "text",
+      "text": "Observation\nمشاهده/ایده/ژورنال/خطا",
+      "x": 0,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "concept",
+      "type": "text",
+      "text": "Concept\nتعریف مفهومی",
+      "x": 360,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "hyp",
+      "type": "text",
+      "text": "Hypothesis\nClaim + Mechanism + Failure",
+      "x": 720,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "exp",
+      "type": "text",
+      "text": "Experiment\nProtocol + Metrics",
+      "x": 1080,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "val",
+      "type": "text",
+      "text": "Validation\nAudit + Baseline + Regime",
+      "x": 1440,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "prod",
+      "type": "text",
+      "text": "Production Candidate\nGuardrails + Monitoring",
+      "x": 1800,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    }
+  ],
+  "edges": [
+    {
+      "id": "r1",
+      "fromNode": "obs",
+      "fromSide": "right",
+      "toNode": "concept",
+      "toSide": "left"
+    },
+    {
+      "id": "r2",
+      "fromNode": "concept",
+      "fromSide": "right",
+      "toNode": "hyp",
+      "toSide": "left"
+    },
+    {
+      "id": "r3",
+      "fromNode": "hyp",
+      "fromSide": "right",
+      "toNode": "exp",
+      "toSide": "left"
+    },
+    {
+      "id": "r4",
+      "fromNode": "exp",
+      "fromSide": "right",
+      "toNode": "val",
+      "toSide": "left"
+    },
+    {
+      "id": "r5",
+      "fromNode": "val",
+      "fromSide": "right",
+      "toNode": "prod",
+      "toSide": "left"
+    }
+  ]
+}

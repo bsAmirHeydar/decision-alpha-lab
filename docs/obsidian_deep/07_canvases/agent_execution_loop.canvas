@@ -1,0 +1,109 @@
+{
+  "nodes": [
+    {
+      "id": "agent",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/AI_Agent_Layer.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "read",
+      "type": "text",
+      "text": "Read Repo / Obsidian\nفقط خواندن در سطح اول",
+      "x": 400,
+      "y": -240,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "draft",
+      "type": "text",
+      "text": "Draft Hypothesis/Report/ADR\nخروجی قابل review",
+      "x": 400,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "patch",
+      "type": "text",
+      "text": "Build Patch ZIP\nبدون merge خودکار",
+      "x": 400,
+      "y": 240,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "guard",
+      "type": "text",
+      "text": "Guardrails\nNo live order / no risk override",
+      "x": 800,
+      "y": 0,
+      "width": 330,
+      "height": 170
+    },
+    {
+      "id": "trace",
+      "type": "file",
+      "file": "docs/obsidian_deep/04_relationships/traceability_matrix.md",
+      "x": 1200,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1",
+      "fromNode": "agent",
+      "fromSide": "right",
+      "toNode": "read",
+      "toSide": "left"
+    },
+    {
+      "id": "g2",
+      "fromNode": "agent",
+      "fromSide": "right",
+      "toNode": "draft",
+      "toSide": "left"
+    },
+    {
+      "id": "g3",
+      "fromNode": "agent",
+      "fromSide": "right",
+      "toNode": "patch",
+      "toSide": "left"
+    },
+    {
+      "id": "g4",
+      "fromNode": "read",
+      "fromSide": "right",
+      "toNode": "guard",
+      "toSide": "left"
+    },
+    {
+      "id": "g5",
+      "fromNode": "draft",
+      "fromSide": "right",
+      "toNode": "guard",
+      "toSide": "left"
+    },
+    {
+      "id": "g6",
+      "fromNode": "patch",
+      "fromSide": "right",
+      "toNode": "guard",
+      "toSide": "left"
+    },
+    {
+      "id": "g7",
+      "fromNode": "guard",
+      "fromSide": "right",
+      "toNode": "trace",
+      "toSide": "left"
+    }
+  ]
+}

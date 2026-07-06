@@ -1,0 +1,207 @@
+{
+  "main": {
+    "id": "c2a97e2e08783104",
+    "type": "split",
+    "children": [
+      {
+        "id": "41a05a5411f22486",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ddc47872c3e4c3b3",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "46019f15dc76b6e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "983e7de5910c3644",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9895e7f69aedaa3c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7d391d34c38054fd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "614250928dd9fcf6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "fa48df44cf801067",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e104c32959be04a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8053866560e0c969",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "9f2f92b0e4813ed9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "6a55fcd59a155b65",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8ee637e6835bc04c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "ddc47872c3e4c3b3",
+  "lastOpenFiles": [
+    "docs/obsidian_deep/07_canvases/full_system_architecture.canvas",
+    "docs/obsidian_deep/07_canvases/research_pipeline.canvas",
+    "docs/obsidian_deep/07_canvases/market_anatomy_graph.canvas",
+    "docs/obsidian_deep/07_canvases/agent_execution_loop.canvas",
+    "docs/obsidian_deep/07_canvases",
+    "docs/obsidian_deep/08_templates/validation_template.md",
+    "docs/obsidian_deep/08_templates/README.md",
+    "docs/obsidian_deep/08_templates/patch_note_template.md",
+    "docs/obsidian_deep/08_templates/manual_trade_journal_template.md",
+    "docs/obsidian_deep/08_templates/hypothesis_template.md",
+    "docs/obsidian_deep/08_templates/experiment_template.md",
+    "docs/obsidian_deep/08_templates/daily_research_note.md",
+    "docs/obsidian_deep/08_templates/agent_task_template.md",
+    "docs/obsidian_deep/08_templates/adr_template.md",
+    "docs/obsidian_deep/08_templates",
+    "docs/obsidian_deep/09_indexes/folder_density_index.md",
+    "docs/obsidian_deep/09_indexes/empty_documents_audit.md",
+    "docs/obsidian_deep/09_indexes/all_sources_index.md",
+    "docs/obsidian_deep/09_indexes",
+    "docs/obsidian_deep/06_conversation_knowledge/user_stated_principles.md",
+    "docs/obsidian_deep/06_conversation_knowledge/trading_edge_model.md",
+    "docs/obsidian_deep/06_conversation_knowledge/alpha_lab_philosophy.md",
+    "docs/obsidian_deep/06_conversation_knowledge/ai_agent_positioning.md",
+    "docs/obsidian_deep/06_conversation_knowledge",
+    "docs/obsidian_deep/05_workflows/research_to_execution_pipeline.md",
+    "docs/obsidian_deep/05_workflows/hypothesis_lifecycle.md",
+    "docs/obsidian_deep/05_workflows/patch_and_commit_workflow.md",
+    "docs/obsidian_deep/05_workflows/manual_trade_labeling_workflow.md",
+    "docs/obsidian_deep/05_workflows/agent_operating_workflow.md",
+    "docs/obsidian_deep/05_workflows",
+    "docs/obsidian_deep/04_relationships/traceability_matrix.md",
+    "docs/obsidian_deep/04_relationships/source_document_relationships.md",
+    "docs/obsidian_deep/04_relationships/relationship_types.md",
+    "docs/obsidian_deep/04_relationships/concept_dependency_graph.md",
+    "docs/obsidian_deep/04_relationships",
+    "docs/obsidian_deep/03_source_cards",
+    "docs/obsidian_deep/02_concepts",
+    "docs/obsidian_deep/01_canonical_model",
+    "docs/obsidian_deep",
+    "Untitled.canvas"
+  ]
+}

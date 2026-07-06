@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "anatomy",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Market_Anatomy.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "hook",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Hook.md",
+      "x": 400,
+      "y": -220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "rally",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Rally.md",
+      "x": 400,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "flag",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Flag_Counting.md",
+      "x": 400,
+      "y": 220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "node",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Decision_Node.md",
+      "x": 800,
+      "y": -220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "zone",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Zone____RTV.md",
+      "x": 800,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "convex",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Convexity____Optionality.md",
+      "x": 800,
+      "y": 220,
+      "width": 320,
+      "height": 120
+    },
+    {
+      "id": "valid",
+      "type": "file",
+      "file": "docs/obsidian_deep/02_concepts/Validation____Audit.md",
+      "x": 1200,
+      "y": 0,
+      "width": 320,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "a1",
+      "fromNode": "anatomy",
+      "fromSide": "right",
+      "toNode": "hook",
+      "toSide": "left"
+    },
+    {
+      "id": "a2",
+      "fromNode": "anatomy",
+      "fromSide": "right",
+      "toNode": "rally",
+      "toSide": "left"
+    },
+    {
+      "id": "a3",
+      "fromNode": "anatomy",
+      "fromSide": "right",
+      "toNode": "flag",
+      "toSide": "left"
+    },
+    {
+      "id": "a4",
+      "fromNode": "hook",
+      "fromSide": "right",
+      "toNode": "node",
+      "toSide": "left"
+    },
+    {
+      "id": "a5",
+      "fromNode": "node",
+      "fromSide": "right",
+      "toNode": "zone",
+      "toSide": "left"
+    },
+    {
+      "id": "a6",
+      "fromNode": "zone",
+      "fromSide": "right",
+      "toNode": "convex",
+      "toSide": "left"
+    },
+    {
+      "id": "a7",
+      "fromNode": "flag",
+      "fromSide": "right",
+      "toNode": "valid",
+      "toSide": "left"
+    },
+    {
+      "id": "a8",
+      "fromNode": "convex",
+      "fromSide": "right",
+      "toNode": "valid",
+      "toSide": "left"
+    }
+  ]
+}

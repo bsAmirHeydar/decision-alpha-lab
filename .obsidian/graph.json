@@ -1,52 +1,59 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": true,
-  "showAttachments": true,
+  "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": true,
+  "showOrphans": false,
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:docs/flag_counting",
+      "query": "path:docs/obsidian_deep/02_concepts",
       "color": {
         "a": 1,
         "rgb": 14701138
       }
     },
     {
-      "query": "path:docs/nds_hook_architecture",
+      "query": "path:docs/obsidian_deep/04_relationships",
       "color": {
         "a": 1,
-        "rgb": 6425514
+        "rgb": 6736895
       }
     },
     {
       "query": "path:lab/03_experiments",
       "color": {
         "a": 1,
-        "rgb": 11674146
+        "rgb": 16753920
       }
     },
     {
-      "query": "path:lab/03_validation OR path:lab/05_validation",
+      "query": "path:docs/flag_counting",
       "color": {
         "a": 1,
-        "rgb": 16753920
+        "rgb": 12245603
+      }
+    },
+    {
+      "query": "path:docs/nds_hook_architecture",
+      "color": {
+        "a": 1,
+        "rgb": 5714943
+      }
+    },
+    {
+      "query": "path:docs/mql_native",
+      "color": {
+        "a": 1,
+        "rgb": 4498175
       }
     },
     {
       "query": "path:mql5",
       "color": {
         "a": 1,
-        "rgb": 6737151
-      }
-    },
-    {
-      "query": "path:docs/obsidian",
-      "color": {
-        "a": 1,
-        "rgb": 10066329
+        "rgb": 9781055
       }
     }
   ]
