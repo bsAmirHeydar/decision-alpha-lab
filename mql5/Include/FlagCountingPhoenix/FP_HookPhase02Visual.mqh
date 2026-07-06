@@ -815,8 +815,9 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
       if(StringLen(node_display) <= 0)
          continue;
 
-      color node_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
-      node_color = FP_HookP02NodeNumberColor(cfg, p, node_color);
+      color node_color = seq_color;
+      if(!cfg.color_node_labels_with_sequence)
+         node_color = FP_HookP02NodeNumberColor(cfg, p, cfg.label_color);
       int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(cfg, t, price, place_below) : 0);
       double label_price = FP_HookP02StackedLabelPrice(cfg, t, price, place_below, stack_slot);
 
