@@ -463,6 +463,7 @@ input int    InpHookPhase02LabelTimeClusterBars = 2;
 input int    InpHookPhase02LabelPriceClusterPoints = 28;
 input bool   InpHookPhase02CycleArcAlignToBarIndex = true;
 input bool   InpHookPhase02RequireConfirmedResolveNode = true;
+input bool   InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation = true;
 input bool   InpHookPhase02DeathOnBoundaryTouch = true;
 input bool   InpHookPhase02RequireNearDeathForSemanticArc = true;
 input double InpHookPhase02NearDeathRetraceThreshold = 0.50;
@@ -1531,6 +1532,7 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.label_price_cluster_points = InpHookPhase02LabelPriceClusterPoints;
    cfg.cycle_arc_align_to_bar_index = InpHookPhase02CycleArcAlignToBarIndex;
    cfg.require_confirmed_resolve_node = InpHookPhase02RequireConfirmedResolveNode;
+   cfg.reject_raw_origin_breach_before_terminal_confirmation = InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation;
    cfg.death_on_boundary_touch = InpHookPhase02DeathOnBoundaryTouch;
    cfg.require_near_death_for_semantic_arc = InpHookPhase02RequireNearDeathForSemanticArc;
    cfg.near_death_retrace_threshold = InpHookPhase02NearDeathRetraceThreshold;

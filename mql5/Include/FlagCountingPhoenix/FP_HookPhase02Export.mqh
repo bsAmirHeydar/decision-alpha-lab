@@ -28,7 +28,7 @@ string FP_HookP02SummaryPath(const FP_HookPhase02Config &cfg)
 
 string FP_HookP02SequenceHeader()
 {
-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,death_boundary_price,capped,valid,source,reject_reason";
+   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_bar_index,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,death_boundary_price,capped,valid,source,reject_reason";
 }
 
 string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
@@ -71,6 +71,20 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
    row += "," + DoubleToString(s.cycle_crown_price, _Digits);
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.cycle_crown_valid));
 
+   row += "," + IntegerToString(s.resolve_node_id);
+   row += "," + IntegerToString(s.resolve_bar_index);
+   row += "," + FP_HookP02SafeCsv(TimeToString(s.resolve_time, TIME_DATE|TIME_SECONDS));
+   row += "," + DoubleToString(s.resolve_price, _Digits);
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.resolve_confirmed));
+   row += "," + DoubleToString(s.retracement_ratio, 6);
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.near_death_confirmed));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.hook_failed));
+   row += "," + IntegerToString(s.failure_node_id);
+   row += "," + FP_HookP02SafeCsv(TimeToString(s.failure_time, TIME_DATE|TIME_SECONDS));
+   row += "," + DoubleToString(s.failure_price, _Digits);
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.render_eligible));
+   row += "," + FP_HookP02SafeCsv(s.visibility_reason);
+
    row += "," + DoubleToString(s.death_boundary_price, _Digits);
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.capped));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.valid));
@@ -81,7 +95,7 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
 
 string FP_HookP02SummaryHeader()
 {
-   return "schema_version,version,symbol,period,display_family,origin_policy,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,origin_promotions,promoted_chains,drawn,status,reason";
+   return "schema_version,version,symbol,period,display_family,origin_policy,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,raw_origin_breach_rejects,origin_promotions,promoted_chains,drawn,status,reason";
 }
 
 string FP_HookP02SummaryRow(const string symbol,
@@ -107,6 +121,7 @@ string FP_HookP02SummaryRow(const string symbol,
    row += "," + IntegerToString(r.sequences_mature);
    row += "," + IntegerToString(r.sequences_capped);
    row += "," + IntegerToString(r.rejected_candidates);
+   row += "," + IntegerToString(r.raw_origin_breach_rejects);
    row += "," + IntegerToString(r.origin_promotions);
    row += "," + IntegerToString(r.promoted_chains);
    row += "," + IntegerToString(r.sequences_drawn);

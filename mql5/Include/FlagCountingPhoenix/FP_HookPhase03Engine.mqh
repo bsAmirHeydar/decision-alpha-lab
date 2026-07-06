@@ -64,7 +64,7 @@ void FP_RunHookPhase03(const string symbol,
    FP_ResetHookPhase02Report(sequence_report);
    sequence_report.nodes_seen = ArraySize(nodes);
 
-   FP_HookP02BuildSequences(nodes, p02_cfg, sequences, sequence_report);
+   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, p02_cfg, sequences, sequence_report);
    FP_HookP02FinalizeReport(sequence_report);
 
    report.phase02_sequences_seen = ArraySize(sequences);

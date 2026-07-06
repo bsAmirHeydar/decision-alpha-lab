@@ -101,3 +101,15 @@ InpNDSHookDisplayFamily = RALLY_ONLY | HOOK_ONLY | RALLY_AND_HOOK
 ```text
 Phase 10 => Hook v1 freeze and training contract
 ```
+
+
+## Latest lifecycle overlay — Phase 32
+
+```text
+44_phase32_raw_origin_breach_lifecycle_guard.md
+```
+
+Phase 32 adds the raw origin-breach lifecycle guard. A Hook candidate whose
+origin boundary is touched or penetrated before terminal-node confirmation is
+not a failed Hook; it is a non-Hook candidate. It must not draw a semantic arc
+and must not produce a Hook zone.

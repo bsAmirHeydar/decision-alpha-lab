@@ -47,7 +47,7 @@ void FP_RunHookPhase02(const string symbol,
    report.bars_scanned = node_report.bars_scanned;
 
    FP_HookPhase02Sequence sequences[];
-   FP_HookP02BuildSequences(nodes, cfg, sequences, report);
+   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, cfg, sequences, report);
    FP_HookP02FinalizeReport(report);
 
    if(cfg.draw_sequences)
