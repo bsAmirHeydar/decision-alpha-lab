@@ -141,3 +141,22 @@ risk sizing
 volume sizing
 live trading behavior
 ```
+
+## Phase 34 Correction — Seed-Owned Forward Sequence Builder
+
+The current implementation must follow the seed-owned forward sequence doctrine. Phase 02 should no longer behave as a pure overlapping end-backward branch enumerator for the production Hook sequence view.
+
+The corrected production behavior is:
+
+1. collect same-side raw nodes in old-to-new order;
+2. scope them inside an origin/death-boundary context;
+3. choose the first raw node that has not participated in previous accepted sequences as `node 1`;
+4. scan forward until the end of the raw list;
+5. accept every strict adverse continuation as the next sequence number;
+6. after a sequence is accepted, mark all its participating nodes as participated;
+7. never allow a participated node to become `node 1` of a later overlapping sequence.
+
+The guard is seed-only. It does not ban a participated node from being used as `2`, `3`, or `4` in a later valid sequence.
+
+This correction was made because unrestricted branch enumeration can prematurely end sequences at `2` and then re-seed new sequences from internal nodes, creating noisy fractal recutting on the chart.
+

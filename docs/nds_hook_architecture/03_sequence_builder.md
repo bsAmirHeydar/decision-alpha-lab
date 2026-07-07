@@ -128,3 +128,39 @@ strict_rule_checked
 previous_node_price
 candidate_node_price
 ```
+
+## Canonical Seed-Owned Sequence Rule — Current Authority
+
+This section supersedes any earlier wording that implies unrestricted end-backward branch enumeration for the production Hook view.
+
+Hook sequence counting starts from a raw same-side node list ordered from old to new. The raw list is scoped inside a Hook origin boundary context.
+
+For a positive / low-side Hook:
+
+```text
+raw = valleys ordered old-to-new
+first unused valley = node 1 of the next sequence
+scan forward to the end of the raw list
+each strictly lower valley becomes node 2, then node 3, then node 4, ...
+```
+
+For a negative / high-side Hook:
+
+```text
+raw = peaks ordered old-to-new
+first unused peak = node 1 of the next sequence
+scan forward to the end of the raw list
+each strictly higher peak becomes node 2, then node 3, then node 4, ...
+```
+
+After a sequence is built, every node that participated in that sequence is marked as participated. A participated node may not become `node 1` of a later overlapping sequence. However, it may still appear as a continuation node (`2`, `3`, `4`, ...) in a later sequence if the forward strict-order scan naturally requires it.
+
+This is a seed-ownership rule, not a full node-exclusion rule.
+
+```text
+participated node -> cannot restart as node 1
+participated node -> may still be counted later as continuation evidence
+```
+
+The sequence must not stop at `2` if later valid continuation nodes exist. It must scan to the end of the scoped raw list and keep extending while the strict same-side rule continues to pass.
+

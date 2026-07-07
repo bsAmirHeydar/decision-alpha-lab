@@ -98,3 +98,10 @@ Each branch sequence has one stable color; all labels in that sequence use that 
 ## Remaining limitation
 
 The documentation says that if branch length exceeds four nodes, `L` should be increased and the Hook context rebuilt until all branch lengths are readable. The current Phase 26 implementation rejects over-four branches from the readable view; it does not yet auto-promote to a higher `L` inside the same pass. That adaptive-L rebuild should be a separate engine-level phase.
+
+## Supersession note
+
+Phase 26 used an end-backward branch method because that matched the earlier Hook/ND branch documents. Later manual review refined the intended production behavior: the production Hook sequence view must use seed-owned old-to-new extension.
+
+End-backward enumeration remains useful as a research/debug concept, but the production view must avoid re-seeding from nodes that already participated in previous accepted sequences. See `47_phase34_seed_owned_hook_sequence_and_validity_filter.md`.
+
