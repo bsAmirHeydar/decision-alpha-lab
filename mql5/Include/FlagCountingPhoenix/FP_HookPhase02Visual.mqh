@@ -530,6 +530,30 @@ bool FP_HookP02GetLastCountedPoint(const FP_HookPhase02Sequence &seq,
    return false;
 }
 
+bool FP_HookP02ValidOnlyRequiresSemanticReadiness(const FP_HookPhase02Config &cfg)
+{
+   if(!cfg.show_only_valid_hooks)
+      return true;
+   return cfg.valid_only_require_near_death;
+}
+
+bool FP_HookP02SequenceStructurallyDrawable(const FP_HookPhase02Config &cfg,
+                                            const FP_HookPhase02Sequence &seq)
+{
+   if(!seq.valid)
+      return false;
+   if(seq.hook_failed)
+      return false;
+
+   if(FP_HookP02ValidOnlyRequiresSemanticReadiness(cfg))
+   {
+      if(!seq.render_eligible)
+         return false;
+   }
+
+   return true;
+}
+
 bool FP_HookP02SameOriginGroup(const FP_HookPhase02Sequence &a,
                                const FP_HookPhase02Sequence &b)
 {
@@ -556,7 +580,8 @@ bool FP_HookP02GroupSeenBefore(const FP_HookPhase02Sequence &seed,
    return false;
 }
 
-bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
+bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Config &cfg,
+                                      const FP_HookPhase02Sequence &seed,
                                       const FP_HookPhase02Sequence &sequences[],
                                       const int &indexes[],
                                       datetime &start_time,
@@ -573,7 +598,11 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
    end_time = 0;
    end_price = 0.0;
 
-   if(start_time <= 0 || !seed.render_eligible || !seed.near_death_confirmed || seed.hook_failed)
+   bool require_semantic = FP_HookP02ValidOnlyRequiresSemanticReadiness(cfg);
+
+   if(start_time <= 0 || !seed.valid || seed.hook_failed)
+      return false;
+   if(require_semantic && (!seed.render_eligible || !seed.near_death_confirmed))
       return false;
 
    bool crown_found = false;
@@ -583,7 +612,9 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
       FP_HookPhase02Sequence seq = sequences[i];
-      if(!seq.render_eligible || !seq.near_death_confirmed || seq.hook_failed)
+      if(!seq.valid || seq.hook_failed)
+         continue;
+      if(require_semantic && (!seq.render_eligible || !seq.near_death_confirmed))
          continue;
       if(!FP_HookP02SameOriginGroup(seed, seq))
          continue;
@@ -629,7 +660,9 @@ bool FP_HookP02GetOriginGroupEnvelope(const FP_HookPhase02Sequence &seed,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
       FP_HookPhase02Sequence seq = sequences[i];
-      if(!seq.render_eligible || !seq.near_death_confirmed || seq.hook_failed)
+      if(!seq.valid || seq.hook_failed)
+         continue;
+      if(require_semantic && (!seq.render_eligible || !seq.near_death_confirmed))
          continue;
       if(!FP_HookP02SameOriginGroup(seed, seq))
          continue;
@@ -848,10 +881,7 @@ bool FP_HookP02SequencePassesBaseDrawFilter(const FP_HookPhase02Config &cfg,
                                             const FP_HookPhase02Sequence &seq,
                                             const bool enforce_sequence_id)
 {
-   if(!seq.valid)
-      return false;
-
-   if(!seq.render_eligible)
+   if(!FP_HookP02SequenceStructurallyDrawable(cfg, seq))
       return false;
 
    if(cfg.min_x_count_to_draw > 0 && seq.x_count < cfg.min_x_count_to_draw)
@@ -1080,6 +1110,51 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       }
    }
 
+   if(cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
+   {
+      // Fail-safe doctrine: valid-only view should not become a blind chart.
+      // If the practical valid-family annotator returns zero Hooks in the current
+      // window, fall back to structural Phase02 candidates. This keeps debugging
+      // possible while the validity rules are tuned. Turn off
+      // valid_only_fallback_to_structural for strict research runs.
+      if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION)
+      {
+         int selected_scales_fb[];
+         int selected_dirs_fb[];
+         int selected_count_fb = 0;
+         for(int i=n-1; i>=0 && ArraySize(indexes)<max_draw; i--)
+         {
+            if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, sequences[i], true))
+               continue;
+            int dir = (int)sequences[i].direction;
+            if(FP_HookP02AlreadySelectedScaleDirection(selected_scales_fb, selected_dirs_fb,
+                                                       selected_count_fb,
+                                                       sequences[i].scale_l, dir))
+               continue;
+            ArrayResize(selected_scales_fb, selected_count_fb + 1);
+            ArrayResize(selected_dirs_fb, selected_count_fb + 1);
+            selected_scales_fb[selected_count_fb] = sequences[i].scale_l;
+            selected_dirs_fb[selected_count_fb] = dir;
+            selected_count_fb++;
+
+            int k = ArraySize(indexes);
+            ArrayResize(indexes, k + 1);
+            indexes[k] = i;
+         }
+      }
+      else
+      {
+         for(int i=n-1; i>=0 && ArraySize(indexes)<max_draw; i--)
+         {
+            if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, sequences[i], true))
+               continue;
+            int k = ArraySize(indexes);
+            ArrayResize(indexes, k + 1);
+            indexes[k] = i;
+         }
+      }
+   }
+
    int m = ArraySize(indexes);
    for(int a=0; a<m/2; a++)
    {
@@ -1114,7 +1189,7 @@ int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
 
       datetime start_time, crown_time, end_time;
       double start_price, crown_price, end_price;
-      if(!FP_HookP02GetOriginGroupEnvelope(seed, sequences, indexes,
+      if(!FP_HookP02GetOriginGroupEnvelope(cfg, seed, sequences, indexes,
                                            start_time, start_price,
                                            crown_time, crown_price,
                                            end_time, end_price))

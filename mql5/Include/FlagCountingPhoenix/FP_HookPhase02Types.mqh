@@ -102,6 +102,10 @@ struct FP_HookPhase02Config
    bool require_near_death_for_semantic_arc;
    bool seed_used_nodes_cannot_restart;
    bool show_only_valid_hooks;
+   bool valid_only_require_near_death;
+   bool valid_f3_require_same_scale;
+   bool valid_f3_require_opposite_direction;
+   bool valid_only_fallback_to_structural;
 
    bool export_csv;
    bool print_summary;
@@ -357,6 +361,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.require_near_death_for_semantic_arc = true;
    cfg.seed_used_nodes_cannot_restart = true;
    cfg.show_only_valid_hooks = false;
+   cfg.valid_only_require_near_death = false;
+   cfg.valid_f3_require_same_scale = false;
+   cfg.valid_f3_require_opposite_direction = false;
+   cfg.valid_only_fallback_to_structural = true;
 
    cfg.export_csv = false;
    cfg.print_summary = false;

@@ -834,7 +834,8 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
    report.valid_after_opposing_f3 = 0;
    report.valid_hook_family_total = 0;
 
-   for(int i=0; i<ArraySize(sequences); i++)
+   int n = ArraySize(sequences);
+   for(int i=0; i<n; i++)
    {
       sequences[i].valid_after_hook = false;
       sequences[i].valid_after_opposing_f3 = false;
@@ -843,29 +844,53 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
       sequences[i].previous_hook_sequence_id = -1;
       sequences[i].previous_hook_terminal_node_id = -1;
       sequences[i].opposing_f3_event_id = -1;
+   }
 
-      for(int j=0; j<i; j++)
+   for(int i=0; i<n; i++)
+   {
+      if(!sequences[i].valid || sequences[i].origin_node_id < 0)
+         continue;
+
+      int best_parent = -1;
+      datetime best_parent_time = 0;
+
+      for(int j=0; j<n; j++)
       {
+         if(i == j)
+            continue;
          if(sequences[j].scale_l != sequences[i].scale_l)
             continue;
          if(!sequences[j].valid || sequences[j].resolve_node_id < 0)
             continue;
 
          // Valid Hook-after-Hook doctrine:
-         // terminal node of Hook-1 is exactly the origin node of Hook-2.
-         // Direction is not used as an independent qualifier here; exact node
-         // continuity owns the doctrine. In practice the shared node normally
-         // implies the same side/type, but the rule itself is:
-         // previous terminal == current origin.
-         if(sequences[j].resolve_node_id == sequences[i].origin_node_id)
+         // Hook-2 is valid when its origin node is exactly the structural terminal
+         // node of Hook-1. This is an exact node-continuity test; it is not a
+         // generic "some Hook happened before" test.
+         if(sequences[j].resolve_node_id != sequences[i].origin_node_id)
+            continue;
+
+         if(sequences[j].resolve_time > 0 && sequences[i].origin_time > 0 &&
+            sequences[j].resolve_time > sequences[i].origin_time)
+            continue;
+
+         if(best_parent < 0 ||
+            sequences[j].resolve_time > best_parent_time ||
+            (sequences[j].resolve_time == best_parent_time &&
+             sequences[j].sequence_id > sequences[best_parent].sequence_id))
          {
-            sequences[i].valid_after_hook = true;
-            sequences[i].valid_hook_family = true;
-            sequences[i].hook_validity_family = "HOOK_AFTER_HOOK";
-            sequences[i].previous_hook_sequence_id = sequences[j].sequence_id;
-            sequences[i].previous_hook_terminal_node_id = sequences[j].resolve_node_id;
-            break;
+            best_parent = j;
+            best_parent_time = sequences[j].resolve_time;
          }
+      }
+
+      if(best_parent >= 0)
+      {
+         sequences[i].valid_after_hook = true;
+         sequences[i].valid_hook_family = true;
+         sequences[i].hook_validity_family = "HOOK_AFTER_HOOK";
+         sequences[i].previous_hook_sequence_id = sequences[best_parent].sequence_id;
+         sequences[i].previous_hook_terminal_node_id = sequences[best_parent].resolve_node_id;
       }
 
       if(sequences[i].valid_after_hook)
@@ -908,11 +933,15 @@ datetime FP_HookP02SequenceStartTime(const FP_HookPhase02Sequence &seq)
 }
 
 bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
-                                         const FP_HookPhase02Sequence &seq)
+                                         const FP_HookPhase02Sequence &seq,
+                                         const FP_HookPhase02Config &cfg)
 {
-   // F3-to-Hook validity is local to the same structural scale. If an older
-   // dataset or synthetic event has no usable scale, allow the match rather
-   // than silently disabling the doctrine.
+   // The canonical doctrine is sequence-based, not display-based. Scale matching
+   // is therefore a configurable strictness layer. When enabled, an F3 validates
+   // only the immediate Hook on the same structural scale. When disabled, the
+   // first structural Hook after F3 may qualify even if the scale metadata differs.
+   if(!cfg.valid_f3_require_same_scale)
+      return true;
    if(ev.scale_L <= 0)
       return true;
    return (seq.scale_l == ev.scale_L);
@@ -920,6 +949,7 @@ bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
 
 int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
                                        const datetime f3_time,
+                                       const FP_HookPhase02Config &cfg,
                                        const FP_HookPhase02Sequence &sequences[])
 {
    int best_index = -1;
@@ -927,9 +957,9 @@ int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
 
    for(int i=0; i<ArraySize(sequences); i++)
    {
-      if(!sequences[i].valid || !sequences[i].render_eligible)
+      if(!sequences[i].valid || sequences[i].hook_failed)
          continue;
-      if(!FP_HookP02EventScaleMatchesSequence(ev, sequences[i]))
+      if(!FP_HookP02EventScaleMatchesSequence(ev, sequences[i], cfg))
          continue;
 
       datetime hook_start = FP_HookP02SequenceStartTime(sequences[i]);
@@ -963,6 +993,7 @@ void FP_HookP02MarkSequenceAsOpposingF3Valid(FP_HookPhase02Sequence &seq,
 void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[],
                                              const FP_FlagEvent &events[],
                                              const int event_count,
+                                             const FP_HookPhase02Config &cfg,
                                              FP_HookPhase02Report &report)
 {
    // First apply the chained Hook-after-Hook family. This family is local and
@@ -984,11 +1015,12 @@ void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[
       if(f3_time <= 0)
          continue;
 
-      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, f3_time, sequences);
+      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, f3_time, cfg, sequences);
       if(immediate_index < 0 || immediate_index >= ArraySize(sequences))
          continue;
 
-      if(ev.direction == -((int)sequences[immediate_index].direction))
+      if(!cfg.valid_f3_require_opposite_direction ||
+         ev.direction == -((int)sequences[immediate_index].direction))
          FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[immediate_index], ev);
    }
 
