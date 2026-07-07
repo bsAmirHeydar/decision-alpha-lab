@@ -42,3 +42,11 @@ logic.
 - [[Chart_Change_Must_Rebuild_Hook_View]]
 - [[Phase_33_Timeframe_Change_Redraw_State_Guard]]
 - [[Hook_Timeframe_Change_Debug_Checklist]]
+
+## Phase 34 — Hook Sequence Partition
+
+- [[Greedy_Hook_Sequence_Partition]]
+- [[Consumed_Node_Cannot_Start_New_Hook_Sequence]]
+- [[Phase_34_Hook_Sequence_Partition_Guard]]
+- [[Hook_Sequence_Numbering_Debug_Checklist]]
+

@@ -527,38 +527,60 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const MqlRates &rates[],
    if(branch_count <= 0)
       return false;
 
-   if(boundary_index < 0 || boundary_index >= ArraySize(direction_nodes))
+   int first_branch_index = branch_indexes_old_to_new[0];
+   if(first_branch_index < 0 || first_branch_index >= ArraySize(direction_nodes))
       return false;
 
-   if(branch_count > 4)
+   bool has_external_boundary = (boundary_index >= 0 &&
+                                 boundary_index < ArraySize(direction_nodes) &&
+                                 boundary_index < first_branch_index);
+
+   // In the canonical greedy-partition model, the first raw same-side node is
+   // the counted node 1 of its sequence.  When an older external boundary is
+   // available, it remains the Hook origin/death boundary.  When no such
+   // boundary exists, Phase 02 still emits the counted sequence for visual and
+   // audit continuity, using node 1 as a local sequence anchor.  Raw origin
+   // breach guards are only meaningful for external boundaries.
+   FP_HookPhase01Node anchor;
+   if(has_external_boundary)
+      anchor = direction_nodes[boundary_index];
+   else
+      anchor = direction_nodes[first_branch_index];
+   FP_HookP02InitSequenceFromBoundary(ArraySize(direction_nodes), d, anchor, seq);
+
+   int display_count = branch_count;
+   if(display_count > 4)
    {
-      report.rejected_candidates++;
-      seq.reject_reason = "BRANCH_EXCEEDS_FOUR_REQUIRES_HIGHER_L";
-      return false;
+      display_count = 4;
+      seq.capped = true;
    }
 
-   FP_HookPhase01Node boundary = direction_nodes[boundary_index];
-   FP_HookP02InitSequenceFromBoundary(ArraySize(direction_nodes), d, boundary, seq);
-
    seq.x_count = branch_count;
-   for(int p=0; p<branch_count; p++)
+   for(int p=0; p<display_count; p++)
    {
       int idx = branch_indexes_old_to_new[p];
       if(idx < 0 || idx >= ArraySize(direction_nodes))
          return false;
-      if(idx <= boundary_index)
+      if(has_external_boundary && idx <= boundary_index)
          return false;
       FP_HookP02SetXNode(seq, p + 1, direction_nodes[idx]);
    }
 
-   // Resolve node is the newest/rightmost counted same-side node in this branch.
+   // Resolve node is the newest/rightmost counted same-side node in the full
+   // greedy sequence, even if only the first four nodes are displayed.
    int resolve_index = branch_indexes_old_to_new[branch_count - 1];
+   if(resolve_index < 0 || resolve_index >= ArraySize(direction_nodes))
+      return false;
+
    FP_HookPhase01Node resolve_node = direction_nodes[resolve_index];
    seq.resolve_node_id = resolve_node.node_id;
    seq.resolve_bar_index = resolve_node.bar_index;
    seq.resolve_time = resolve_node.bar_time;
    seq.resolve_price = resolve_node.price;
    seq.resolve_confirmed = resolve_node.confirmed;
+   seq.last_x_price = resolve_node.price;
+   seq.last_x_time = resolve_node.bar_time;
+   seq.last_x_bar_index = resolve_node.bar_index;
 
    if(cfg.require_confirmed_resolve_node && !seq.resolve_confirmed)
    {
@@ -568,7 +590,7 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const MqlRates &rates[],
       return false;
    }
 
-   if(cfg.reject_raw_origin_breach_before_terminal_confirmation)
+   if(has_external_boundary && cfg.reject_raw_origin_breach_before_terminal_confirmation)
    {
       int raw_failure_bar_index;
       datetime raw_failure_time;
@@ -596,24 +618,30 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const MqlRates &rates[],
       }
    }
 
-   int failure_id;
-   datetime failure_time;
-   double failure_price;
-   if(FP_HookP02HookBoundaryFailedInsideSpan(direction_nodes, d, boundary_index, resolve_index,
-                                            cfg.death_on_boundary_touch,
-                                            failure_id, failure_time, failure_price))
+   if(has_external_boundary)
    {
-      seq.hook_failed = true;
-      seq.failure_node_id = failure_id;
-      seq.failure_time = failure_time;
-      seq.failure_price = failure_price;
-      seq.visibility_reason = "HOOK_BOUNDARY_TOUCHED_OR_BREACHED_BEFORE_RESOLVE";
-      seq.render_eligible = false;
-      report.rejected_candidates++;
-      return false;
+      int failure_id;
+      datetime failure_time;
+      double failure_price;
+      if(FP_HookP02HookBoundaryFailedInsideSpan(direction_nodes, d, boundary_index, resolve_index,
+                                               cfg.death_on_boundary_touch,
+                                               failure_id, failure_time, failure_price))
+      {
+         seq.hook_failed = true;
+         seq.failure_node_id = failure_id;
+         seq.failure_time = failure_time;
+         seq.failure_price = failure_price;
+         seq.visibility_reason = "HOOK_BOUNDARY_TOUCHED_OR_BREACHED_BEFORE_RESOLVE";
+         seq.render_eligible = false;
+         report.rejected_candidates++;
+         return false;
+      }
    }
 
-   // Documented minimum 1/2: node 2 must strictly pass node 1 and an opposite node must exist between them.
+   // Minimum 1/2 validation: node 2 must strictly pass node 1.  The opposite
+   // node between 1 and 2 is a quality/structure check, but one-node sequences
+   // remain valid raw partitions because the doctrine requires all raw
+   // same-side nodes to be owned exactly once.
    if(branch_count >= 2)
    {
       if(!FP_HookP02StrictAcceptsNext(d, seq.x1_price, seq.x2_price))
@@ -661,8 +689,8 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const MqlRates &rates[],
 
    seq.valid = true;
    seq.render_eligible = true;
-   seq.visibility_reason = "RENDER_ELIGIBLE_CONFIRMED_NEAR_DEATH";
-   seq.source = "HOOK_P02_DOC_BOUNDARY_CONFIRMED_NEAR_DEATH";
+   seq.visibility_reason = (seq.capped ? "RENDER_ELIGIBLE_GREEDY_PARTITION_CAPPED" : "RENDER_ELIGIBLE_GREEDY_PARTITION");
+   seq.source = (has_external_boundary ? "HOOK_P02_GREEDY_PARTITION_EXTERNAL_ORIGIN" : "HOOK_P02_GREEDY_PARTITION_LOCAL_ANCHOR");
    return true;
 }
 
@@ -710,77 +738,62 @@ int FP_HookP02BuildDirectionScaleEndBackward(const MqlRates &rates[],
 {
    FP_HookPhase01Node direction_nodes[];
    int n = FP_HookP02CollectDirectionScaleNodes(all_nodes, d, scale_l, direction_nodes);
-   if(n <= 1)
+   if(n <= 0)
       return 0;
 
    int built = 0;
-   int max_readable = cfg.max_x_nodes_per_sequence;
-   if(max_readable <= 0 || max_readable > 4)
-      max_readable = 4;
+   bool consumed[];
+   ArrayResize(consumed, n);
+   for(int i=0; i<n; i++)
+      consumed[i] = false;
 
-   for(int active_i=1; active_i<n; active_i++)
+   // Canonical greedy partition, old-to-new:
+   // - first unused same-side node becomes node 1 of a new sequence
+   // - scan forward to the end of the raw list
+   // - accept only stricter same-side nodes: lower valleys for positive,
+   //   higher peaks for negative
+   // - every accepted node is consumed by exactly one canonical sequence
+   // - consumed nodes cannot seed later sequences and cannot be reused inside
+   //   overlapping branches
+   for(int seed_i=0; seed_i<n; seed_i++)
    {
-      int boundary_index = FP_HookP02FindOriginBoundaryIndex(direction_nodes, d, active_i);
-      if(boundary_index < 0)
+      if(consumed[seed_i])
          continue;
 
-      int failure_id;
-      datetime failure_time;
-      double failure_price;
-      if(FP_HookP02HookBoundaryFailedInsideSpan(direction_nodes, d, boundary_index, active_i,
-                                               cfg.death_on_boundary_touch,
-                                               failure_id, failure_time, failure_price))
+      int branch_indexes[];
+      ArrayResize(branch_indexes, 1);
+      branch_indexes[0] = seed_i;
+      consumed[seed_i] = true;
+
+      double reference = direction_nodes[seed_i].price;
+      for(int k=seed_i+1; k<n; k++)
       {
-         report.rejected_candidates++;
+         if(consumed[k])
+            continue;
+
+         if(FP_HookP02StrictAcceptsNext(d, reference, direction_nodes[k].price))
+         {
+            int m = ArraySize(branch_indexes);
+            ArrayResize(branch_indexes, m + 1);
+            branch_indexes[m] = k;
+            consumed[k] = true;
+            reference = direction_nodes[k].price;
+         }
+      }
+
+      int boundary_index = FP_HookP02FindOriginBoundaryIndex(direction_nodes, d, seed_i);
+
+      FP_HookPhase02Sequence seq;
+      FP_ResetHookPhase02Sequence(seq);
+      if(!FP_HookP02BuildSequenceFromBranchIndexes(rates, copied, direction_nodes, boundary_index, branch_indexes,
+                                                    all_nodes, d, cfg, seq, report))
          continue;
-      }
 
-      // Extract all right-to-left branch paths inside this Hook context.
-      for(int resolver_i=boundary_index+1; resolver_i<=active_i; resolver_i++)
-      {
-         int backward_indexes[];
-         ArrayResize(backward_indexes, 1);
-         backward_indexes[0] = resolver_i;
-         double reference = direction_nodes[resolver_i].price;
+      if(FP_HookP02BranchDuplicate(seq, sequences))
+         continue;
 
-         for(int k=resolver_i-1; k>boundary_index; k--)
-         {
-            // If the candidate would break the running branch reference, this branch path closes.
-            if(FP_HookP02BoundaryCondition(d, direction_nodes[k].price, reference))
-               break;
-
-            if(FP_HookP02StrictEarlierBelongsToBackwardBranch(d, direction_nodes[k].price, reference))
-            {
-               int m = ArraySize(backward_indexes);
-               ArrayResize(backward_indexes, m + 1);
-               backward_indexes[m] = k;
-               reference = direction_nodes[k].price;
-            }
-         }
-
-         if(ArraySize(backward_indexes) > max_readable)
-         {
-            report.rejected_candidates++;
-            continue;
-         }
-
-         FP_HookP02ReverseIntArray(backward_indexes);
-
-         FP_HookPhase02Sequence seq;
-         FP_ResetHookPhase02Sequence(seq);
-         if(!FP_HookP02BuildSequenceFromBranchIndexes(rates, copied, direction_nodes, boundary_index, backward_indexes,
-                                                       all_nodes, d, cfg, seq, report))
-            continue;
-
-         if(FP_HookP02BranchDuplicate(seq, sequences))
-            continue;
-
-         if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
-            built++;
-
-         if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
-            break;
-      }
+      if(FP_HookP02CommitSequence(seq, d, cfg, sequences, report))
+         built++;
 
       if(cfg.max_sequences > 0 && ArraySize(sequences) >= cfg.max_sequences)
          break;
@@ -851,7 +864,7 @@ void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)
 {
    report.ok = true;
    report.status = "HOOK_P02_OK";
-   report.reason = "DOC_ALIGNED_END_BACKWARD_BRANCHES_BUILT";
+   report.reason = "CANONICAL_GREEDY_PARTITION_SEQUENCES_BUILT";
 
    if(report.nodes_seen <= 0)
    {
@@ -861,7 +874,7 @@ void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)
    else if(report.sequences_total <= 0)
    {
       report.status = "HOOK_P02_NO_SEQUENCES";
-      report.reason = "NO_DOC_ALIGNED_HOOK_BRANCHES_FOUND";
+      report.reason = "NO_CANONICAL_GREEDY_PARTITION_SEQUENCES_FOUND";
    }
 }
 
