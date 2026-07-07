@@ -350,9 +350,6 @@ input bool   InpCleanObjectsOnRemove = true;
 input bool   InpCleanObjectsOnRecompile = true;
 input bool   InpCleanObjectsOnParameterChange = true;
 input bool   InpCleanObjectsOnTemplateApply = true;
-input bool   InpRuntimeRetryFailedRunsOnTimer = true;
-input int    InpRuntimeRetryTimerSeconds = 2;
-input bool   InpRuntimePrintRedrawState = false;
 input int    InpMaxEventsToDraw = 1200;
 input int    InpMaxHooksToDraw = 120;
 input bool   InpDrawF1 = true;
@@ -466,9 +463,10 @@ input int    InpHookPhase02LabelTimeClusterBars = 2;
 input int    InpHookPhase02LabelPriceClusterPoints = 28;
 input bool   InpHookPhase02CycleArcAlignToBarIndex = true;
 input bool   InpHookPhase02RequireConfirmedResolveNode = true;
-input bool   InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation = true;
 input bool   InpHookPhase02DeathOnBoundaryTouch = true;
 input bool   InpHookPhase02RequireNearDeathForSemanticArc = true;
+input bool   InpHookPhase02SeedUsedNodesCannotRestart = true;
+input bool   InpHookPhase02ShowOnlyValidHooks = false;
 input double InpHookPhase02NearDeathRetraceThreshold = 0.50;
 input int    InpHookPhase02MinXNodesToKeep = 1;
 input int    InpHookPhase02MaxXNodesPerSequence = 4;
@@ -951,9 +949,6 @@ input string InpConsolidation05RuntimeHealthFolder = "FlagCountingPhoenix";
 static datetime g_fp_last_bar_time = 0;
 static int g_fp_runtime_chart_period = 0;
 static string g_fp_runtime_chart_symbol = "";
-static bool g_fp_last_run_ok = false;
-static bool g_fp_force_redraw = false;
-static string g_fp_last_run_status = "INIT";
 
 void FP_SetRuntimeChartIdentity()
 {
@@ -966,36 +961,6 @@ bool FP_RuntimeChartIdentityChanged()
    return (g_fp_runtime_chart_period != (int)_Period || g_fp_runtime_chart_symbol != _Symbol);
 }
 
-void FP_ResetRuntimeRedrawState(const string reason)
-{
-   g_fp_last_bar_time = 0;
-   g_fp_last_run_ok = false;
-   g_fp_force_redraw = true;
-   g_fp_last_run_status = reason;
-}
-
-void FP_MarkRuntimeRunFailed(const string reason)
-{
-   g_fp_last_run_ok = false;
-   g_fp_force_redraw = true;
-   g_fp_last_run_status = reason;
-   if(InpRuntimePrintRedrawState)
-      Print("FP_RUNTIME_REDRAW status=FAILED reason=", reason,
-            " symbol=", _Symbol, " period=", EnumToString(_Period));
-}
-
-void FP_MarkRuntimeRunSucceeded(const string status)
-{
-   g_fp_last_run_ok = true;
-   g_fp_force_redraw = false;
-   g_fp_last_run_status = status;
-   g_fp_last_bar_time = iTime(_Symbol, _Period, 0);
-   if(InpRuntimePrintRedrawState)
-      Print("FP_RUNTIME_REDRAW status=OK reason=", status,
-            " symbol=", _Symbol, " period=", EnumToString(_Period),
-            " bar_time=", TimeToString(g_fp_last_bar_time, TIME_DATE|TIME_MINUTES));
-}
-
 FP_OfflineLicenseConfig g_fp_license_cfg;
 FP_OfflineLicenseReport g_fp_license_report;
 bool g_fp_license_ok = false;
@@ -1003,20 +968,14 @@ datetime g_fp_license_next_check = 0;
 
 bool FP_ShouldRedraw()
 {
-   if(g_fp_force_redraw)
-      return true;
-
-   if(!g_fp_last_run_ok)
-      return true;
-
-   if(!InpRedrawOnNewBarOnly)
-      return true;
-
    datetime t = iTime(_Symbol, _Period, 0);
-   if(t <= 0)
+   if(!InpRedrawOnNewBarOnly) return true;
+   if(t != g_fp_last_bar_time)
+   {
+      g_fp_last_bar_time = t;
       return true;
-
-   return (t != g_fp_last_bar_time);
+   }
+   return false;
 }
 
 void FP_LoadConfig(FP_Config &cfg)
@@ -1574,9 +1533,10 @@ void FP_LoadHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.label_price_cluster_points = InpHookPhase02LabelPriceClusterPoints;
    cfg.cycle_arc_align_to_bar_index = InpHookPhase02CycleArcAlignToBarIndex;
    cfg.require_confirmed_resolve_node = InpHookPhase02RequireConfirmedResolveNode;
-   cfg.reject_raw_origin_breach_before_terminal_confirmation = InpHookPhase02RejectRawOriginBreachBeforeTerminalConfirmation;
    cfg.death_on_boundary_touch = InpHookPhase02DeathOnBoundaryTouch;
    cfg.require_near_death_for_semantic_arc = InpHookPhase02RequireNearDeathForSemanticArc;
+   cfg.seed_used_nodes_cannot_restart = InpHookPhase02SeedUsedNodesCannotRestart;
+   cfg.show_only_valid_hooks = InpHookPhase02ShowOnlyValidHooks;
    cfg.near_death_retrace_threshold = InpHookPhase02NearDeathRetraceThreshold;
    cfg.min_x_nodes_to_keep = InpHookPhase02MinXNodesToKeep;
    cfg.max_x_nodes_per_sequence = InpHookPhase02MaxXNodesPerSequence;
@@ -2171,13 +2131,10 @@ void FP_LoadStaticQaConfig(FP_StaticQaConfig &cfg)
    cfg.sample_limit = InpStaticQaSampleLimit;
 }
 
-bool FP_Run()
+void FP_Run()
 {
    if(!FP_EnsureOfflineLicense(false))
-   {
-      FP_MarkRuntimeRunFailed("LICENSE_NOT_READY");
-      return false;
-   }
+      return;
 
    MqlRates rates[];
 
@@ -2344,8 +2301,7 @@ bool FP_Run()
          Print("FP_SUMMARY status=timebase_failed reason=", timebase_report.reason,
                " bars=", copied,
                " status_detail=", timebase_report.status);
-      FP_MarkRuntimeRunFailed("TIMEBASE_FAILED:" + timebase_report.reason);
-      return false;
+      return;
    }
 
    if(copied < InpMinClosedBars)
@@ -2353,8 +2309,7 @@ bool FP_Run()
       if(InpPrintFailureSummaries)
          Print("FP_SUMMARY status=not_enough_closed_bars copied=", copied,
                " min=", InpMinClosedBars);
-      FP_MarkRuntimeRunFailed("NOT_ENOUGH_CLOSED_BARS");
-      return false;
+      return;
    }
 
    int scales[];
@@ -2372,8 +2327,7 @@ bool FP_Run()
    {
       if(InpPrintFailureSummaries)
          Print("FP_SUMMARY status=no_scales");
-      FP_MarkRuntimeRunFailed("NO_SCALES");
-      return false;
+      return;
    }
 
    FP_FlagEvent events[];
@@ -2409,8 +2363,9 @@ bool FP_Run()
                      hook_phase01_cfg, hook_phase01_report);
 
    FP_HookPhase02Report hook_phase02_report;
-   FP_RunHookPhase02(_Symbol, _Period, rates, copied, scales, scale_count,
-                     hook_phase01_cfg, hook_phase02_cfg, hook_phase02_report);
+   FP_RunHookPhase02WithEvents(_Symbol, _Period, rates, copied, scales, scale_count,
+                               hook_phase01_cfg, hook_phase02_cfg,
+                               events, ArraySize(events), hook_phase02_report);
 
    FP_HookPhase03Report hook_phase03_report;
    FP_RunHookPhase03(_Symbol, _Period, rates, copied, scales, scale_count,
@@ -2695,9 +2650,6 @@ bool FP_Run()
       for(int i=0; i<ArraySize(events); i++) FP_PrintEventAudit(events[i]);
       for(int h=0; h<ArraySize(hooks); h++) FP_PrintHookAudit(hooks[h]);
    }
-
-   FP_MarkRuntimeRunSucceeded("RUN_COMPLETED");
-   return true;
 }
 
 
@@ -2758,10 +2710,7 @@ int OnInit()
 {
    if(!FP_EnsureOfflineLicense(true))
       return INIT_FAILED;
-   int runtime_timer_seconds = InpRuntimeRetryTimerSeconds;
-   if(runtime_timer_seconds < 1)
-      runtime_timer_seconds = 1;
-   EventSetTimer(runtime_timer_seconds);
+   EventSetTimer(60);
 
    FP_ReleaseConfig init_release_cfg;
    FP_LoadReleaseConfig(init_release_cfg);
@@ -2773,7 +2722,7 @@ int OnInit()
    if(InpLevel19StateGatePanelEnabled && InpLevel19StateGatePanelCleanOnInit)
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
    FP_SetRuntimeChartIdentity();
-   FP_ResetRuntimeRedrawState("INIT_OR_REINIT");
+   g_fp_last_bar_time = 0;
    FP_Run();
    return INIT_SUCCEEDED;
 }
@@ -2794,7 +2743,7 @@ void OnTick()
       FP_CleanupAllNDSHookObjectsByInputPrefixes();
       ChartRedraw(0);
       FP_SetRuntimeChartIdentity();
-      FP_ResetRuntimeRedrawState("TICK_CHART_IDENTITY_CHANGED");
+      g_fp_last_bar_time = 0;
       FP_Run();
       return;
    }
@@ -2817,7 +2766,7 @@ void OnChartEvent(const int id,
    FP_CleanupAllNDSHookObjectsByInputPrefixes();
    ChartRedraw(0);
    FP_SetRuntimeChartIdentity();
-   FP_ResetRuntimeRedrawState("CHART_EVENT_IDENTITY_CHANGED");
+   g_fp_last_bar_time = 0;
    FP_Run();
 }
 
@@ -2825,18 +2774,4 @@ void OnTimer()
 {
    if(!FP_EnsureOfflineLicense(true))
       return;
-
-   if(FP_RuntimeChartIdentityChanged())
-   {
-      FP_DeleteObjectsByPrefix(InpObjectPrefix);
-      FP_CleanupAllNDSHookObjectsByInputPrefixes();
-      ChartRedraw(0);
-      FP_SetRuntimeChartIdentity();
-      FP_ResetRuntimeRedrawState("TIMER_CHART_IDENTITY_CHANGED");
-      FP_Run();
-      return;
-   }
-
-   if(InpRuntimeRetryFailedRunsOnTimer && FP_ShouldRedraw())
-      FP_Run();
 }

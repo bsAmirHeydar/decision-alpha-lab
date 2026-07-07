@@ -4,15 +4,19 @@
 
 #include "FP_HookPhase02Export.mqh"
 
-void FP_RunHookPhase02(const string symbol,
-                       const ENUM_TIMEFRAMES period,
-                       const MqlRates &rates[],
-                       const int copied,
-                       const int &scales[],
-                       const int scale_count,
-                       const FP_HookPhase01Config &node_cfg,
-                       const FP_HookPhase02Config &cfg,
-                       FP_HookPhase02Report &report)
+
+void FP_RunHookPhase02Core(const string symbol,
+                           const ENUM_TIMEFRAMES period,
+                           const MqlRates &rates[],
+                           const int copied,
+                           const int &scales[],
+                           const int scale_count,
+                           const FP_HookPhase01Config &node_cfg,
+                           const FP_HookPhase02Config &cfg,
+                           const FP_FlagEvent &events[],
+                           const int event_count,
+                           const bool use_f3_validity_context,
+                           FP_HookPhase02Report &report)
 {
    FP_ResetHookPhase02Report(report);
 
@@ -47,7 +51,9 @@ void FP_RunHookPhase02(const string symbol,
    report.bars_scanned = node_report.bars_scanned;
 
    FP_HookPhase02Sequence sequences[];
-   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, cfg, sequences, report);
+   FP_HookP02BuildSequences(nodes, cfg, sequences, report);
+   if(use_f3_validity_context)
+      FP_HookP02AnnotateValidityFamiliesWithF3(sequences, events, event_count, report);
    FP_HookP02FinalizeReport(report);
 
    if(cfg.draw_sequences)
@@ -64,6 +70,38 @@ void FP_RunHookPhase02(const string symbol,
 
    if(cfg.print_samples)
       FP_PrintHookPhase02Samples("FP_HOOK_P02", sequences, cfg.sample_limit);
+}
+
+void FP_RunHookPhase02(const string symbol,
+                       const ENUM_TIMEFRAMES period,
+                       const MqlRates &rates[],
+                       const int copied,
+                       const int &scales[],
+                       const int scale_count,
+                       const FP_HookPhase01Config &node_cfg,
+                       const FP_HookPhase02Config &cfg,
+                       FP_HookPhase02Report &report)
+{
+   FP_FlagEvent empty_events[];
+   ArrayResize(empty_events, 0);
+   FP_RunHookPhase02Core(symbol, period, rates, copied, scales, scale_count,
+                         node_cfg, cfg, empty_events, 0, false, report);
+}
+
+void FP_RunHookPhase02WithEvents(const string symbol,
+                                 const ENUM_TIMEFRAMES period,
+                                 const MqlRates &rates[],
+                                 const int copied,
+                                 const int &scales[],
+                                 const int scale_count,
+                                 const FP_HookPhase01Config &node_cfg,
+                                 const FP_HookPhase02Config &cfg,
+                                 const FP_FlagEvent &events[],
+                                 const int event_count,
+                                 FP_HookPhase02Report &report)
+{
+   FP_RunHookPhase02Core(symbol, period, rates, copied, scales, scale_count,
+                         node_cfg, cfg, events, event_count, true, report);
 }
 
 #endif // __FP_HOOK_PHASE02_ENGINE_MQH__

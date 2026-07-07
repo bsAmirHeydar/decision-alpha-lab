@@ -815,9 +815,8 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
       if(StringLen(node_display) <= 0)
          continue;
 
-      color node_color = seq_color;
-      if(!cfg.color_node_labels_with_sequence)
-         node_color = FP_HookP02NodeNumberColor(cfg, p, cfg.label_color);
+      color node_color = (cfg.color_node_labels_with_sequence ? seq_color : cfg.label_color);
+      node_color = FP_HookP02NodeNumberColor(cfg, p, node_color);
       int stack_slot = (cfg.stack_node_labels_on_collisions ? FP_HookP02ConsumeLabelStackSlot(cfg, t, price, place_below) : 0);
       double label_price = FP_HookP02StackedLabelPrice(cfg, t, price, place_below, stack_slot);
 
@@ -852,6 +851,9 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
       return false;
 
    if(!seq.render_eligible)
+      return false;
+
+   if(cfg.show_only_valid_hooks && !seq.valid_hook_family)
       return false;
 
    if(cfg.min_x_count_to_draw > 0 && seq.x_count < cfg.min_x_count_to_draw)
@@ -1027,6 +1029,16 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
 
    report.objects_deleted += FP_HookPhase02DeleteObjects(cfg.object_prefix);
    FP_HookP02ResetLabelCollisionState();
+
+   if(cfg.show_only_valid_hooks)
+   {
+      report.invalid_family_filtered = 0;
+      for(int i=0; i<ArraySize(sequences); i++)
+      {
+         if(sequences[i].valid && sequences[i].render_eligible && !sequences[i].valid_hook_family)
+            report.invalid_family_filtered++;
+      }
+   }
 
    int indexes[];
    FP_HookP02SelectSequenceIndexes(cfg, sequences, indexes);

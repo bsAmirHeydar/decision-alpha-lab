@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_HookPhase01Rules.mqh"
+#include "FP_Types.mqh"
 
 // ============================================================================
 // FlagCounting Phoenix - NDS Hook Phase 02 Types
@@ -97,9 +98,10 @@ struct FP_HookPhase02Config
    bool show_hook_sequence_ids_in_labels;
    bool responsive_label_offsets;
    bool require_confirmed_resolve_node;
-   bool reject_raw_origin_breach_before_terminal_confirmation;
    bool death_on_boundary_touch;
    bool require_near_death_for_semantic_arc;
+   bool seed_used_nodes_cannot_restart;
+   bool show_only_valid_hooks;
 
    bool export_csv;
    bool print_summary;
@@ -200,7 +202,6 @@ struct FP_HookPhase02Sequence
    bool cycle_crown_valid;
 
    int resolve_node_id;
-   int resolve_bar_index;
    datetime resolve_time;
    double resolve_price;
    bool resolve_confirmed;
@@ -213,6 +214,14 @@ struct FP_HookPhase02Sequence
    double failure_price;
    bool render_eligible;
    string visibility_reason;
+
+   bool valid_after_hook;
+   bool valid_after_opposing_f3;
+   bool valid_hook_family;
+   string hook_validity_family;
+   int previous_hook_sequence_id;
+   int previous_hook_terminal_node_id;
+   int opposing_f3_event_id;
 
    double death_boundary_price;
    bool capped;
@@ -240,9 +249,13 @@ struct FP_HookPhase02Report
    int sequences_mature;
    int sequences_capped;
    int rejected_candidates;
-   int raw_origin_breach_rejects;
    int origin_promotions;
    int promoted_chains;
+   int seed_reuse_rejects;
+   int valid_after_hook;
+   int valid_after_opposing_f3;
+   int valid_hook_family_total;
+   int invalid_family_filtered;
 
    int objects_deleted;
    int objects_created;
@@ -340,9 +353,10 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.show_hook_sequence_ids_in_labels = true;
    cfg.responsive_label_offsets = true;
    cfg.require_confirmed_resolve_node = true;
-   cfg.reject_raw_origin_breach_before_terminal_confirmation = true;
    cfg.death_on_boundary_touch = true;
    cfg.require_near_death_for_semantic_arc = true;
+   cfg.seed_used_nodes_cannot_restart = true;
+   cfg.show_only_valid_hooks = false;
 
    cfg.export_csv = false;
    cfg.print_summary = false;
@@ -443,7 +457,6 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.cycle_crown_valid = false;
 
    s.resolve_node_id = -1;
-   s.resolve_bar_index = -1;
    s.resolve_time = 0;
    s.resolve_price = 0.0;
    s.resolve_confirmed = false;
@@ -456,6 +469,14 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.failure_price = 0.0;
    s.render_eligible = false;
    s.visibility_reason = "";
+
+   s.valid_after_hook = false;
+   s.valid_after_opposing_f3 = false;
+   s.valid_hook_family = false;
+   s.hook_validity_family = "UNQUALIFIED";
+   s.previous_hook_sequence_id = -1;
+   s.previous_hook_terminal_node_id = -1;
+   s.opposing_f3_event_id = -1;
 
    s.death_boundary_price = 0.0;
    s.capped = false;
@@ -483,9 +504,13 @@ void FP_ResetHookPhase02Report(FP_HookPhase02Report &r)
    r.sequences_mature = 0;
    r.sequences_capped = 0;
    r.rejected_candidates = 0;
-   r.raw_origin_breach_rejects = 0;
    r.origin_promotions = 0;
    r.promoted_chains = 0;
+   r.seed_reuse_rejects = 0;
+   r.valid_after_hook = 0;
+   r.valid_after_opposing_f3 = 0;
+   r.valid_hook_family_total = 0;
+   r.invalid_family_filtered = 0;
 
    r.objects_deleted = 0;
    r.objects_created = 0;
