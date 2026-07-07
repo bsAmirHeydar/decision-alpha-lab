@@ -1884,6 +1884,70 @@ void FP_LoadHookPhase10Config(FP_HookPhase10Config &cfg)
    cfg.object_prefix = InpHookPhase10ObjectPrefix;
 }
 
+
+void FP_ApplyHookPhase02StrictValidOnlyViewGuard(FP_RenderConfig &render_cfg,
+                                                 FP_HookPhase01Config &p01_cfg,
+                                                 FP_HookPhase02Config &p02_cfg,
+                                                 FP_HookPhase03Config &p03_cfg,
+                                                 FP_HookPhase04Config &p04_cfg,
+                                                 FP_HookPhase05Config &p05_cfg,
+                                                 FP_HookPhase06Config &p06_cfg,
+                                                 FP_HookPhase07Config &p07_cfg,
+                                                 FP_HookPhase09Config &p09_cfg)
+{
+   if(!InpHookPhase02ShowOnlyValidHooks)
+      return;
+
+   // Valid-only Hook view must have exactly one production owner: Phase 02
+   // semantic Hook renderer after validity-family annotation. All raw/core Hook
+   // drawings and later diagnostic Hook overlays are suppressed so an old or
+   // unqualified Hook cannot remain visible just because another renderer drew it.
+   render_cfg.draw_hooks = false;
+   render_cfg.max_hooks_to_draw = 0;
+   render_cfg.draw_hook_back = false;
+   render_cfg.show_hook_count_labels = false;
+   render_cfg.delete_existing_by_prefix = true;
+
+   p01_cfg.draw_nodes = false;
+   p01_cfg.draw_labels = false;
+   p01_cfg.max_nodes_to_draw = 0;
+
+   p02_cfg.show_only_valid_hooks = true;
+   p02_cfg.draw_sequences = true;
+   p02_cfg.draw_cycle_arc = true;
+
+   p03_cfg.draw_y_extremes = false;
+   p03_cfg.draw_y_lines = false;
+   p03_cfg.draw_x_reference = false;
+   p03_cfg.draw_labels = false;
+   p03_cfg.max_sequences_to_draw = 0;
+
+   p04_cfg.draw_nd = false;
+   p04_cfg.draw_death = false;
+   p04_cfg.draw_x_closure = false;
+   p04_cfg.draw_thresholds = false;
+   p04_cfg.draw_labels = false;
+   p04_cfg.max_sequences_to_draw = 0;
+
+   p05_cfg.draw_type_label = false;
+   p05_cfg.draw_type_anchor = false;
+   p05_cfg.draw_type_comparison_lines = false;
+   p05_cfg.draw_labels = false;
+   p05_cfg.max_sequences_to_draw = 0;
+
+   p06_cfg.draw_quality_label = false;
+   p06_cfg.draw_xy_anchor = false;
+   p06_cfg.draw_projection_lines = false;
+   p06_cfg.draw_labels = false;
+   p06_cfg.max_sequences_to_draw = 0;
+
+   p07_cfg.show_labels = false;
+   p07_cfg.max_nodes_to_draw = 0;
+   p07_cfg.max_sequences_to_draw = 0;
+
+   p09_cfg.draw_panel = false;
+}
+
 void FP_LoadValidationConfig(FP_ValidationConfig &cfg)
 {
    FP_DefaultValidationConfig(cfg);
@@ -2274,6 +2338,19 @@ void FP_Run()
       FP_PrintReleaseReport("FP_LEVEL14_PRE", release_report);
    if(release_cfg.print_samples && release_report.overrides_applied > 0)
       FP_PrintReleaseSamples("FP_LEVEL14_PRE", release_report);
+
+   FP_ApplyHookPhase02StrictValidOnlyViewGuard(render_cfg,
+                                               hook_phase01_cfg, hook_phase02_cfg,
+                                               hook_phase03_cfg, hook_phase04_cfg,
+                                               hook_phase05_cfg, hook_phase06_cfg,
+                                               hook_phase07_cfg, hook_phase09_cfg);
+   if(InpHookPhase02ShowOnlyValidHooks)
+   {
+      int valid_only_deleted = FP_CleanupAllNDSHookObjectsByInputPrefixes();
+      if(InpHookPhase02PrintSummary)
+         Print("FP_HOOK_VALID_ONLY_VIEW status=cleanup_before_valid_redraw deleted=", valid_only_deleted,
+               " show_only_valid_hooks=", FP_BoolName(InpHookPhase02ShowOnlyValidHooks));
+   }
 
    FP_InterfaceReport interface_pre_report;
    FP_ResetInterfaceReport(interface_pre_report);

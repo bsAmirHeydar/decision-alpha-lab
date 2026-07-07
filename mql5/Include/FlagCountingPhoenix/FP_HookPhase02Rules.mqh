@@ -583,17 +583,20 @@ bool FP_HookP02BuildSequenceFromBranchIndexes(const FP_HookPhase01Node &directio
    seq.retracement_ratio = FP_HookP02ComputeRetracementRatio(d, seq.origin_price, seq.cycle_crown_price, seq.resolve_price);
    seq.near_death_confirmed = (seq.resolve_confirmed && seq.retracement_ratio >= cfg.near_death_retrace_threshold);
 
+   bool semantic_ready = true;
+   string semantic_reason = "RENDER_ELIGIBLE_CONFIRMED_NEAR_DEATH";
    if(cfg.require_near_death_for_semantic_arc && !seq.near_death_confirmed)
    {
-      seq.visibility_reason = "RESOLVE_NODE_NOT_CONFIRMED_NEAR_DEATH";
-      seq.render_eligible = false;
-      report.rejected_candidates++;
-      return false;
+      // Do not discard the structural sequence here. A Hook terminal is a price
+      // extreme, not only the last confirmed Phase01 node. A later raw candle
+      // extreme can still make the same Hook near-death before drawing/export.
+      semantic_ready = false;
+      semantic_reason = "WAITING_FOR_RAW_PRICE_TERMINAL_NEAR_DEATH";
    }
 
    seq.valid = true;
-   seq.render_eligible = true;
-   seq.visibility_reason = "RENDER_ELIGIBLE_CONFIRMED_NEAR_DEATH";
+   seq.render_eligible = semantic_ready;
+   seq.visibility_reason = semantic_reason;
    seq.source = "HOOK_P02_DOC_BOUNDARY_CONFIRMED_NEAR_DEATH";
    return true;
 }
@@ -713,6 +716,117 @@ int FP_HookP02BuildBranchFromSeedToEnd(const FP_HookPhase01Node &direction_nodes
    return ArraySize(branch_indexes_old_to_new);
 }
 
+
+bool FP_HookP02SameTerminalHookGroup(const FP_HookPhase02Sequence &a,
+                                     const FP_HookPhase02Sequence &b)
+{
+   return (a.direction == b.direction &&
+           a.scale_l == b.scale_l &&
+           a.origin_node_id == b.origin_node_id &&
+           a.origin_time == b.origin_time &&
+           a.origin_price == b.origin_price);
+}
+
+bool FP_HookP02ResolveIsMoreTerminal(const FP_HookPhase02Direction d,
+                                     const double candidate_price,
+                                     const datetime candidate_time,
+                                     const double current_price,
+                                     const datetime current_time)
+{
+   // Positive Hook terminal doctrine: the Hook ends at the lowest valley it has seen.
+   // Negative Hook mirror doctrine: the Hook ends at the highest peak it has seen.
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (candidate_price < current_price ||
+              (candidate_price == current_price && candidate_time > current_time));
+
+   if(d == FP_HOOK_P02_DIRECTION_NEGATIVE)
+      return (candidate_price > current_price ||
+              (candidate_price == current_price && candidate_time > current_time));
+
+   return false;
+}
+
+void FP_HookP02ApplyTerminalToSequence(FP_HookPhase02Sequence &seq,
+                                       const int terminal_node_id,
+                                       const datetime terminal_time,
+                                       const double terminal_price,
+                                       const bool terminal_confirmed,
+                                       const FP_HookPhase02Config &cfg)
+{
+   seq.resolve_node_id = terminal_node_id;
+   seq.resolve_time = terminal_time;
+   seq.resolve_price = terminal_price;
+   seq.resolve_confirmed = terminal_confirmed;
+
+   // last_x is the structural Hook terminal used by Hook-after-Hook continuity and export.
+   // X1..X4 display slots remain the compact readable sequence labels.
+   seq.last_x_time = terminal_time;
+   seq.last_x_price = terminal_price;
+   seq.last_x_bar_index = -1;
+
+   if(seq.cycle_crown_valid)
+   {
+      seq.retracement_ratio = FP_HookP02ComputeRetracementRatio(seq.direction,
+                                                                seq.origin_price,
+                                                                seq.cycle_crown_price,
+                                                                seq.resolve_price);
+      seq.near_death_confirmed = (seq.resolve_confirmed &&
+                                  seq.retracement_ratio >= cfg.near_death_retrace_threshold);
+
+      if(cfg.require_near_death_for_semantic_arc && !seq.near_death_confirmed)
+      {
+         seq.visibility_reason = "GROUP_TERMINAL_NOT_CONFIRMED_NEAR_DEATH";
+         seq.render_eligible = false;
+      }
+   }
+}
+
+void FP_HookP02NormalizeHookGroupTerminals(FP_HookPhase02Sequence &sequences[],
+                                           const FP_HookPhase02Config &cfg)
+{
+   // A Hook is an origin group, not merely one compact sequence row.
+   // Therefore its terminal is the extreme same-side point seen by that origin group:
+   // positive Hook -> lowest valley, negative Hook -> highest peak.
+   // This normalized terminal is used by Hook-after-Hook validity:
+   // previous Hook terminal == current Hook origin.
+   int n = ArraySize(sequences);
+   for(int i=0; i<n; i++)
+   {
+      if(!sequences[i].valid || sequences[i].resolve_node_id < 0)
+         continue;
+
+      int best_id = sequences[i].resolve_node_id;
+      datetime best_time = sequences[i].resolve_time;
+      double best_price = sequences[i].resolve_price;
+      bool best_confirmed = sequences[i].resolve_confirmed;
+
+      for(int j=0; j<n; j++)
+      {
+         if(i == j)
+            continue;
+         if(!sequences[j].valid || sequences[j].resolve_node_id < 0)
+            continue;
+         if(!FP_HookP02SameTerminalHookGroup(sequences[i], sequences[j]))
+            continue;
+
+         if(FP_HookP02ResolveIsMoreTerminal(sequences[i].direction,
+                                            sequences[j].resolve_price,
+                                            sequences[j].resolve_time,
+                                            best_price,
+                                            best_time))
+         {
+            best_id = sequences[j].resolve_node_id;
+            best_time = sequences[j].resolve_time;
+            best_price = sequences[j].resolve_price;
+            best_confirmed = sequences[j].resolve_confirmed;
+         }
+      }
+
+      FP_HookP02ApplyTerminalToSequence(sequences[i], best_id, best_time,
+                                        best_price, best_confirmed, cfg);
+   }
+}
+
 void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
                                         FP_HookPhase02Report &report)
 {
@@ -734,13 +848,15 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
       {
          if(sequences[j].scale_l != sequences[i].scale_l)
             continue;
-         if(sequences[j].direction != sequences[i].direction)
-            continue;
          if(!sequences[j].valid || sequences[j].resolve_node_id < 0)
             continue;
 
          // Valid Hook-after-Hook doctrine:
          // terminal node of Hook-1 is exactly the origin node of Hook-2.
+         // Direction is not used as an independent qualifier here; exact node
+         // continuity owns the doctrine. In practice the shared node normally
+         // implies the same side/type, but the rule itself is:
+         // previous terminal == current origin.
          if(sequences[j].resolve_node_id == sequences[i].origin_node_id)
          {
             sequences[i].valid_after_hook = true;
@@ -761,52 +877,119 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
    }
 }
 
+
+datetime FP_HookP02F3AnchorTime(const FP_FlagEvent &ev)
+{
+   if(ev.has_confirm && ev.confirm.time_anchor > 0)
+      return ev.confirm.time_anchor;
+   if(ev.has_leg2 && ev.leg2.time_anchor > 0)
+      return ev.leg2.time_anchor;
+   if(ev.has_extension && ev.extension_end.time_anchor > 0)
+      return ev.extension_end.time_anchor;
+   return 0;
+}
+
+bool FP_HookP02EventIsCompletedOrLockedF3(const FP_FlagEvent &ev)
+{
+   if(ev.level != FP_LEVEL_F3)
+      return false;
+   if(ev.f3_terminal_complete || ev.f3_locked)
+      return true;
+   if(ev.status == FP_STATUS_COMPLETED || ev.status == FP_STATUS_LOCKED)
+      return true;
+   return false;
+}
+
+datetime FP_HookP02SequenceStartTime(const FP_HookPhase02Sequence &seq)
+{
+   if(seq.x1_time > 0)
+      return seq.x1_time;
+   return seq.origin_time;
+}
+
+bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
+                                         const FP_HookPhase02Sequence &seq)
+{
+   // F3-to-Hook validity is local to the same structural scale. If an older
+   // dataset or synthetic event has no usable scale, allow the match rather
+   // than silently disabling the doctrine.
+   if(ev.scale_L <= 0)
+      return true;
+   return (seq.scale_l == ev.scale_L);
+}
+
+int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
+                                       const datetime f3_time,
+                                       const FP_HookPhase02Sequence &sequences[])
+{
+   int best_index = -1;
+   datetime best_hook_time = 0;
+
+   for(int i=0; i<ArraySize(sequences); i++)
+   {
+      if(!sequences[i].valid || !sequences[i].render_eligible)
+         continue;
+      if(!FP_HookP02EventScaleMatchesSequence(ev, sequences[i]))
+         continue;
+
+      datetime hook_start = FP_HookP02SequenceStartTime(sequences[i]);
+      if(hook_start <= 0 || hook_start <= f3_time)
+         continue;
+
+      if(best_index < 0 ||
+         hook_start < best_hook_time ||
+         (hook_start == best_hook_time && sequences[i].sequence_id < sequences[best_index].sequence_id))
+      {
+         best_index = i;
+         best_hook_time = hook_start;
+      }
+   }
+
+   return best_index;
+}
+
+void FP_HookP02MarkSequenceAsOpposingF3Valid(FP_HookPhase02Sequence &seq,
+                                             const FP_FlagEvent &ev)
+{
+   seq.valid_after_opposing_f3 = true;
+   seq.valid_hook_family = true;
+   if(seq.valid_after_hook)
+      seq.hook_validity_family = "HOOK_AFTER_HOOK_AND_IMMEDIATE_OPPOSING_F3";
+   else
+      seq.hook_validity_family = "IMMEDIATE_HOOK_AFTER_OPPOSING_F3";
+   seq.opposing_f3_event_id = ev.event_id;
+}
+
 void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[],
                                              const FP_FlagEvent &events[],
                                              const int event_count,
                                              FP_HookPhase02Report &report)
 {
+   // First apply the chained Hook-after-Hook family. This family is local and
+   // exact: previous terminal node == current origin node.
    FP_HookP02AnnotateValidityFamilies(sequences, report);
 
-   for(int i=0; i<ArraySize(sequences); i++)
+   // Immediate opposing-F3 doctrine:
+   // A completed/locked F3 validates only the immediate next Hook on the same
+   // structural scale, and only if that Hook is in the opposite direction.
+   // It does not validate every later opposing Hook. If the immediate next Hook
+   // after F3 is not opposite, that F3 validates no Hook.
+   for(int e=0; e<event_count; e++)
    {
-      if(!sequences[i].valid)
+      FP_FlagEvent ev = events[e];
+      if(!FP_HookP02EventIsCompletedOrLockedF3(ev))
          continue;
 
-      datetime hook_start = sequences[i].x1_time;
-      if(hook_start <= 0)
-         hook_start = sequences[i].origin_time;
+      datetime f3_time = FP_HookP02F3AnchorTime(ev);
+      if(f3_time <= 0)
+         continue;
 
-      for(int e=0; e<event_count; e++)
-      {
-         FP_FlagEvent ev = events[e];
-         if(ev.level != FP_LEVEL_F3)
-            continue;
-         if(ev.direction != -((int)sequences[i].direction))
-            continue;
-         if(!(ev.f3_terminal_complete || ev.f3_locked || ev.status == FP_STATUS_COMPLETED || ev.status == FP_STATUS_LOCKED))
-            continue;
+      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, f3_time, sequences);
+      if(immediate_index < 0 || immediate_index >= ArraySize(sequences))
+         continue;
 
-         datetime f3_time = 0;
-         if(ev.has_confirm && ev.confirm.time_anchor > 0)
-            f3_time = ev.confirm.time_anchor;
-         else if(ev.has_leg2 && ev.leg2.time_anchor > 0)
-            f3_time = ev.leg2.time_anchor;
-         else if(ev.has_extension && ev.extension_end.time_anchor > 0)
-            f3_time = ev.extension_end.time_anchor;
-
-         if(f3_time <= 0 || hook_start <= 0 || f3_time >= hook_start)
-            continue;
-
-         sequences[i].valid_after_opposing_f3 = true;
-         sequences[i].valid_hook_family = true;
-         if(sequences[i].valid_after_hook)
-            sequences[i].hook_validity_family = "HOOK_AFTER_HOOK_AND_OPPOSING_F3";
-         else
-            sequences[i].hook_validity_family = "HOOK_AFTER_OPPOSING_F3";
-         sequences[i].opposing_f3_event_id = ev.event_id;
-         break;
-      }
+      if(ev.direction == -((int)sequences[immediate_index].direction))
+         FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[immediate_index], ev);
    }
 
    report.valid_after_hook = 0;
@@ -819,6 +1002,7 @@ void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[
       if(sequences[i].valid_hook_family) report.valid_hook_family_total++;
    }
 }
+
 
 int FP_HookP02BuildDirectionScaleSeedOwned(const FP_HookPhase01Node &all_nodes[],
                                            const FP_HookPhase02Direction d,
@@ -928,6 +1112,8 @@ int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
    int built = 0;
    built += FP_HookP02BuildDirectionSeedOwned(nodes, FP_HOOK_P02_DIRECTION_POSITIVE, cfg, sequences, report);
    built += FP_HookP02BuildDirectionSeedOwned(nodes, FP_HOOK_P02_DIRECTION_NEGATIVE, cfg, sequences, report);
+
+   FP_HookP02NormalizeHookGroupTerminals(sequences, cfg);
    FP_HookP02AnnotateValidityFamilies(sequences, report);
    return built;
 }
@@ -942,6 +1128,115 @@ int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
 // Important: rates/copy are intentionally accepted here so Phase 03-06 do not
 // need to be rewritten just to compile against the seed-owned builder. The
 // sequence numbering doctrine is still owned by FP_HookP02BuildSequences.
+
+bool FP_HookP02FindRawTerminalPriceExtreme(const MqlRates &rates[],
+                                           const int copied,
+                                           const FP_HookPhase02Direction d,
+                                           const datetime from_time,
+                                           datetime &terminal_time,
+                                           double &terminal_price,
+                                           int &terminal_bar_index)
+{
+   terminal_time = 0;
+   terminal_price = 0.0;
+   terminal_bar_index = -1;
+
+   int n = MathMin(copied, ArraySize(rates));
+   if(n <= 0 || from_time <= 0)
+      return false;
+
+   bool found = false;
+   for(int i=0; i<n; i++)
+   {
+      if(rates[i].time < from_time)
+         continue;
+
+      double candidate = (d == FP_HOOK_P02_DIRECTION_POSITIVE ? rates[i].low : rates[i].high);
+      datetime candidate_time = rates[i].time;
+
+      if(!found)
+      {
+         found = true;
+         terminal_price = candidate;
+         terminal_time = candidate_time;
+         terminal_bar_index = i;
+         continue;
+      }
+
+      if(FP_HookP02ResolveIsMoreTerminal(d, candidate, candidate_time,
+                                         terminal_price, terminal_time))
+      {
+         terminal_price = candidate;
+         terminal_time = candidate_time;
+         terminal_bar_index = i;
+      }
+   }
+
+   return found;
+}
+
+void FP_HookP02PromoteRawPriceTerminalIfMoreExtreme(FP_HookPhase02Sequence &seq,
+                                                    const MqlRates &rates[],
+                                                    const int copied,
+                                                    const FP_HookPhase02Config &cfg)
+{
+   if(!seq.valid || seq.hook_failed)
+      return;
+   if(!seq.cycle_crown_valid || seq.cycle_crown_time <= 0)
+      return;
+
+   datetime raw_time;
+   double raw_price;
+   int raw_bar;
+   if(!FP_HookP02FindRawTerminalPriceExtreme(rates, copied, seq.direction,
+                                             seq.cycle_crown_time,
+                                             raw_time, raw_price, raw_bar))
+      return;
+
+   if(!FP_HookP02ResolveIsMoreTerminal(seq.direction, raw_price, raw_time,
+                                       seq.resolve_price, seq.resolve_time))
+      return;
+
+   // Keep resolve_node_id as the structural node terminal for Hook-after-Hook
+   // continuity. Promote only the terminal time/price used by the cycle envelope
+   // and near-death geometry. This matches the doctrine: the visual end of a
+   // positive Hook is the lowest price it has actually seen; the mirrored
+   // negative Hook ends at the highest price it has actually seen.
+   seq.resolve_time = raw_time;
+   seq.resolve_price = raw_price;
+   seq.last_x_time = raw_time;
+   seq.last_x_price = raw_price;
+   seq.last_x_bar_index = raw_bar;
+
+   if(seq.cycle_crown_valid)
+   {
+      seq.retracement_ratio = FP_HookP02ComputeRetracementRatio(seq.direction,
+                                                                seq.origin_price,
+                                                                seq.cycle_crown_price,
+                                                                seq.resolve_price);
+      seq.near_death_confirmed = (seq.resolve_confirmed &&
+                                  seq.retracement_ratio >= cfg.near_death_retrace_threshold);
+
+      if(cfg.require_near_death_for_semantic_arc && seq.near_death_confirmed)
+      {
+         seq.render_eligible = true;
+         seq.visibility_reason = "RENDER_ELIGIBLE_RAW_PRICE_TERMINAL_NEAR_DEATH";
+      }
+   }
+
+   if(StringFind(seq.source, "RAW_PRICE_TERMINAL") < 0)
+      seq.source = seq.source + "+RAW_PRICE_TERMINAL";
+}
+
+void FP_HookP02PromoteRawPriceTerminals(FP_HookPhase02Sequence &sequences[],
+                                        const MqlRates &rates[],
+                                        const int copied,
+                                        const FP_HookPhase02Config &cfg)
+{
+   for(int i=0; i<ArraySize(sequences); i++)
+      FP_HookP02PromoteRawPriceTerminalIfMoreExtreme(sequences[i], rates, copied, cfg);
+}
+
 int FP_HookP02BuildSequencesWithRates(const MqlRates &rates[],
                                       const int copied,
                                       const FP_HookPhase01Node &nodes[],
@@ -949,16 +1244,13 @@ int FP_HookP02BuildSequencesWithRates(const MqlRates &rates[],
                                       FP_HookPhase02Sequence &sequences[],
                                       FP_HookPhase02Report &report)
 {
-   // Touch the parameters to make the compatibility contract explicit.
-   // The current seed-owned Phase 02 builder is node-stream based; history-rate
-   // lifecycle guards must be reintroduced through a dedicated audited patch,
-   // not by letting Phase 03-06 depend on a missing function symbol.
-   int ignored_copied = copied;
-   int ignored_rates = ArraySize(rates);
-   if(ignored_copied < 0 || ignored_rates < 0)
-      report.reason = report.reason;
-
-   return FP_HookP02BuildSequences(nodes, cfg, sequences, report);
+   int built = FP_HookP02BuildSequences(nodes, cfg, sequences, report);
+   FP_HookP02PromoteRawPriceTerminals(sequences, rates, copied, cfg);
+   // Hook-after-Hook depends on structural node ids, while raw terminal promotion
+   // changes price/time only. Re-annotate to keep CSV/report counters consistent
+   // after terminal geometry promotion.
+   FP_HookP02AnnotateValidityFamilies(sequences, report);
+   return built;
 }
 
 void FP_HookP02FinalizeReport(FP_HookPhase02Report &report)

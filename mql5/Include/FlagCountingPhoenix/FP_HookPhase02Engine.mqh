@@ -51,7 +51,7 @@ void FP_RunHookPhase02Core(const string symbol,
    report.bars_scanned = node_report.bars_scanned;
 
    FP_HookPhase02Sequence sequences[];
-   FP_HookP02BuildSequences(nodes, cfg, sequences, report);
+   FP_HookP02BuildSequencesWithRates(rates, copied, nodes, cfg, sequences, report);
    if(use_f3_validity_context)
       FP_HookP02AnnotateValidityFamiliesWithF3(sequences, events, event_count, report);
    FP_HookP02FinalizeReport(report);
