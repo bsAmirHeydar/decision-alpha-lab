@@ -101,7 +101,7 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
 
 string FP_HookP02SummaryHeader()
 {
-   return "schema_version,version,symbol,period,display_family,origin_policy,seed_restart_guard,show_only_valid_hooks,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,seed_reuse_rejects,valid_after_hook,valid_after_opposing_f3,valid_hook_family,invalid_family_filtered,origin_promotions,promoted_chains,drawn,status,reason";
+   return "schema_version,version,symbol,period,display_family,origin_policy,seed_restart_guard,show_only_valid_hooks,valid_only_require_near_death,valid_f3_require_same_scale,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,seed_reuse_rejects,valid_after_hook,valid_after_opposing_f3,valid_hook_family,invalid_family_filtered,origin_promotions,promoted_chains,drawn,status,reason";
 }
 
 string FP_HookP02SummaryRow(const string symbol,
@@ -118,6 +118,8 @@ string FP_HookP02SummaryRow(const string symbol,
    row += "," + FP_HookP02SafeCsv(FP_HookP02OriginPolicyName(cfg.origin_policy));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.seed_used_nodes_cannot_restart));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.show_only_valid_hooks));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.valid_only_require_near_death));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.valid_f3_require_same_scale));
    row += "," + IntegerToString(r.bars_seen);
    row += "," + IntegerToString(r.bars_scanned);
    row += "," + IntegerToString(r.scales_seen);
