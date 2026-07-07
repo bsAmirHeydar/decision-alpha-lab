@@ -844,16 +844,14 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
    return true;
 }
 
-bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
-                                        const FP_HookPhase02Sequence &seq)
+bool FP_HookP02SequencePassesBaseDrawFilter(const FP_HookPhase02Config &cfg,
+                                            const FP_HookPhase02Sequence &seq,
+                                            const bool enforce_sequence_id)
 {
    if(!seq.valid)
       return false;
 
    if(!seq.render_eligible)
-      return false;
-
-   if(cfg.show_only_valid_hooks && !seq.valid_hook_family)
       return false;
 
    if(cfg.min_x_count_to_draw > 0 && seq.x_count < cfg.min_x_count_to_draw)
@@ -865,7 +863,7 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
    if(cfg.sequence_draw_scale_l > 0 && seq.scale_l != cfg.sequence_draw_scale_l)
       return false;
 
-   if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SEQUENCE_ID)
+   if(enforce_sequence_id && cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_BY_SEQUENCE_ID)
    {
       if(cfg.sequence_draw_sequence_id < 0)
          return false;
@@ -874,6 +872,105 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
    }
 
    return true;
+}
+
+bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
+                                        const FP_HookPhase02Sequence &seq)
+{
+   if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, seq, true))
+      return false;
+
+   if(cfg.show_only_valid_hooks && !seq.valid_hook_family)
+      return false;
+
+   return true;
+}
+
+bool FP_HookP02IndexAlreadySelected(const int &indexes[],
+                                    const int candidate_index)
+{
+   for(int i=0; i<ArraySize(indexes); i++)
+   {
+      if(indexes[i] == candidate_index)
+         return true;
+   }
+   return false;
+}
+
+int FP_HookP02FindSequenceIndexBySequenceId(const FP_HookPhase02Sequence &sequences[],
+                                            const int sequence_id)
+{
+   for(int i=0; i<ArraySize(sequences); i++)
+   {
+      if(sequences[i].sequence_id == sequence_id)
+         return i;
+   }
+   return -1;
+}
+
+void FP_HookP02SortSelectedIndexesBySequenceId(const FP_HookPhase02Sequence &sequences[],
+                                               int &indexes[])
+{
+   int n = ArraySize(indexes);
+   for(int i=0; i<n-1; i++)
+   {
+      for(int j=i+1; j<n; j++)
+      {
+         int ai = indexes[i];
+         int bi = indexes[j];
+         if(ai < 0 || ai >= ArraySize(sequences) || bi < 0 || bi >= ArraySize(sequences))
+            continue;
+
+         if(sequences[bi].sequence_id < sequences[ai].sequence_id)
+         {
+            int tmp = indexes[i];
+            indexes[i] = indexes[j];
+            indexes[j] = tmp;
+         }
+      }
+   }
+}
+
+void FP_HookP02ExpandSelectionWithHookAfterHookParents(const FP_HookPhase02Config &cfg,
+                                                      const FP_HookPhase02Sequence &sequences[],
+                                                      int &indexes[])
+{
+   if(!cfg.show_only_valid_hooks)
+      return;
+
+   // Doctrine: when the visible valid family is Hook-after-Hook, the second
+   // Hook is the valid Hook, but its immediately chained first Hook is part of
+   // the readable structure. The first Hook is allowed into the production view
+   // only as this required parent companion, not as an independent valid Hook.
+   int original_count = ArraySize(indexes);
+   for(int s=0; s<original_count; s++)
+   {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+
+      FP_HookPhase02Sequence child = sequences[i];
+      if(!child.valid_after_hook)
+         continue;
+      if(child.previous_hook_sequence_id < 0)
+         continue;
+
+      int parent_index = FP_HookP02FindSequenceIndexBySequenceId(sequences, child.previous_hook_sequence_id);
+      if(parent_index < 0 || parent_index >= ArraySize(sequences))
+         continue;
+      if(FP_HookP02IndexAlreadySelected(indexes, parent_index))
+         continue;
+
+      FP_HookPhase02Sequence parent = sequences[parent_index];
+      if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, parent, false))
+         continue;
+
+      int k = ArraySize(indexes);
+      ArrayResize(indexes, k + 1);
+      indexes[k] = parent_index;
+   }
+
+   FP_HookP02SortSelectedIndexesBySequenceId(sequences, indexes);
 }
 
 bool FP_HookP02AlreadySelectedScaleDirection(const int &scales[],
@@ -951,6 +1048,8 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       indexes[a] = indexes[b];
       indexes[b] = tmp;
    }
+
+   FP_HookP02ExpandSelectionWithHookAfterHookParents(cfg, sequences, indexes);
 }
 
 int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
