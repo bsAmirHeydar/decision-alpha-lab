@@ -1,13 +1,20 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-این فولدر پاسخ‌های معمار استراتژی را به اسناد قابل مطالعه، قابل ارجاع و قابل توسعه تبدیل می‌کند.
+این فولدر پاسخ‌های معمار استراتژی برای EXP0017 را به سندهای قابل توسعه تبدیل می‌کند.
 
-## Chapter 09
+## فصل‌های موجود
 
-- CH09_INDEX
-- CH09_clean_symbol_pressure_and_execution_doctrine
-- CH09_research_translation_and_statistical_mission
-- CH09_reference_health_and_stop_logic
-- CH09_signal_equality_and_no_extra_filters
-- CH09_hypothesis_register
-- CH09_glossary_and_language
+- CH01 — Strategy Identity
+- CH02 — Market Relationship
+- CH03 — Hunt Doctrine
+- CH04 — Reference Scope
+- CH05 — Cycle Group Doctrine
+- CH06 — CG Neutrality
+- CH07 — Time Validity
+- CH08 — Close Confirmation
+- CH09 — Clean Symbol Execution
+- CH10 — Risk, Invalidation and Time Exit
+
+## فصل ۱۰
+
+فصل ۱۰، خروج، استاپ، ریسک و برآیند دلاری را تعریف می‌کند. این فصل پایه‌ی تبدیل هر سیگنال به نتیجه‌ی قابل مقایسه است.
