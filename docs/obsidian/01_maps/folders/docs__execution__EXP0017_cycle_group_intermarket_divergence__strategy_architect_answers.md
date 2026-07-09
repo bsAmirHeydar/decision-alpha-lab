@@ -1,13 +1,11 @@
-# Folder Map — EXP0017 Strategy Architect Answers
+# Folder Map — EXP0017 strategy architect answers
 
-این پوشه پاسخ‌های فصل‌به‌فصل معمار استراتژی را برای پروژه EXP0017 نگه می‌دارد.
+این فولدر شامل پاسخ‌های معمار استراتژی برای پروژه EXP0017 است.
 
-## فصل ششم
+## Chapter 07
 
-- CH06_INDEX
-- CH06_cycle_group_behavioral_neutrality_matrix
-- CH06_research_translation_and_statistical_mission
-- CH06_no_prejudgment_across_all_cycle_groups
-- CH06_cycle_group_observation_protocol
-- CH06_hypothesis_register
-- CH06_glossary_and_language
+- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_time_validity_session_quality_and_stop_pressure.md]]
+- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_research_translation_and_statistical_mission.md]]
+- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_intraday_time_neutrality_and_cash_session_hypothesis.md]]
+- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_stop_pressure_as_market_condition.md]]
+- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_hypothesis_register.md]]
