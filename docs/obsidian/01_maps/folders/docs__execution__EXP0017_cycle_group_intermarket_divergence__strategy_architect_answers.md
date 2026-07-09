@@ -1,17 +1,12 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-این پوشه پاسخ‌های معمار استراتژی برای EXP0017 را نگهداری می‌کند.
+این فولدر پاسخ‌های فصل‌به‌فصل معمار استراتژی برای پروژه EXP0017 را نگه می‌دارد.
 
-## فصل‌های موجود
+## Chapter 12
 
-- CH01 — Strategy identity
-- CH02 — Market relationship
-- CH03 — Hunt doctrine
-- CH04 — Reference scope
-- CH05 — Cycle group doctrine
-- CH06 — CG neutrality
-- CH07 — Time validity
-- CH08 — Close confirmation
-- CH09 — Clean symbol execution
-- CH10 — Risk and time exit
-- CH11 — Cycle group independence and daily reset
+- CH12 — Signal Persistence and Invalidation Boundary
+- CH12 — Research Translation and Statistical Mission
+- CH12 — No Filter / No Suppression Doctrine
+- CH12 — Signal Lifecycle and Retirement Boundary
+- CH12 — Hypothesis Register
+- CH12 — Glossary and Language
