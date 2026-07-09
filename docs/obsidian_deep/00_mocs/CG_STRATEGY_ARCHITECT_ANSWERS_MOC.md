@@ -1,16 +1,17 @@
-# MOC — پاسخ‌های معمار استراتژی برای CG Intermarket Divergence
+# CG Strategy Architect Answers — MOC
 
-این MOC محل اتصال یادداشت‌های مربوط به پاسخ‌های معمار استراتژی در پروژه واگرایی بین‌بازاری و سایکل‌های زمانی است.
+این MOC پاسخ‌های معمار استراتژی برای EXP0017 را به داکترین، نقشه تصمیم و لایه‌های تحقیقاتی تبدیل می‌کند.
 
-## فصل ۰۱ — هویت نظری واگرایی
+## فصل‌ها
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
-- [[Intermarket_Asymmetry_as_Liquidity_Language]]
-- [[Cycle_Group_as_Divergence_Family]]
-- [[Divergence_as_Power_Shift_Beginning]]
-- [[Statistical_Classification_Mission_for_CG_Divergence]]
-- [[CG_Chapter_01_Decision_Map]]
+- [[CG_Chapter_02_Market_Relationship_Doctrine]]
 
-## گزاره مرکزی
+## فصل دوم — رابطه دو نماد
 
-واگرایی زبان فهم اختلاف رفتار دو بازار است. این زبان از عدم تقارن نقدینگی شروع می‌شود، در سایکل درست معنا می‌گیرد، می‌تواند شروع جابه‌جایی قدرت باشد، و بعد از اثبات سودآوری می‌تواند دلیل مستقل معامله شود.
+- [[SPX_NDX_Historical_Price_Relative_Correlation]]
+- [[SPXUSD_as_General_Market_Flow]]
+- [[No_Fixed_Leader_Doctrine]]
+- [[Clean_Symbol_as_Preferred_Trade_Vehicle]]
+- [[Cash_Session_Relationship_Validity]]
+- [[CG_Chapter_02_Decision_Map]]
