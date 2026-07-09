@@ -1,8 +1,8 @@
 # CG Strategy Architect Answers MOC
 
-این MOC مسیر پاسخ‌های معمار استراتژی برای پروژه EXP0017 را نگه می‌دارد.
+این MOC پاسخ‌های معمار استراتژی برای EXP0017 را به نوت‌های مفهومی و داکترین‌های قابل توسعه وصل می‌کند.
 
-## فصل ۱ — هویت استراتژی و زبان واگرایی
+## Chapter 01 — Strategy Identity
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
 - [[Intermarket_Asymmetry_as_Liquidity_Language]]
@@ -10,7 +10,7 @@
 - [[Divergence_as_Power_Shift_Beginning]]
 - [[Statistical_Classification_Mission_for_CG_Divergence]]
 
-## فصل ۲ — رابطه دو نماد و نقش‌های رفتاری
+## Chapter 02 — Market Relationship
 
 - [[CG_Chapter_02_Market_Relationship_Doctrine]]
 - [[SPX_NDX_Historical_Price_Relative_Correlation]]
@@ -23,7 +23,7 @@
 - [[Clean_Symbol_as_Preferred_Trade_Vehicle]]
 - [[Hunter_Clean_Symbol_Relationship]]
 
-## فصل ۳ — هانت، شکست کاذب، مرجع و ابطال
+## Chapter 03 — Hunt Doctrine
 
 - [[CG_Chapter_03_Hunt_Doctrine]]
 - [[Hunt_as_Liquidity_Collection_and_False_Breakout]]
@@ -36,12 +36,15 @@
 - [[No_Hunt_Subtype_Distinction_Base_Layer]]
 - [[Reference_Lifecycle_and_Validity_Map]]
 
-## نقشه‌های تصمیم
+## Chapter 04 — Reference Scope and Same-Day Cycle Memory
 
-- [[CG_Chapter_01_Decision_Map]]
-- [[CG_Chapter_02_Decision_Map]]
-- [[CH02_Symbol_Relationship_Question_Map]]
-- [[CH02_Statistical_Discovery_Map]]
-- [[CG_Chapter_03_Decision_Map]]
-- [[CH03_Reference_Lifecycle_Map]]
-- [[CH03_Invalidation_Question_Map]]
+- [[CG_Chapter_04_Reference_Scope_Doctrine]]
+- [[Same_Day_Cycle_Memory]]
+- [[All_Previous_Cycles_As_Reference_Candidates]]
+- [[Independent_Reference_Signals]]
+- [[No_Reference_Hierarchy_Before_Testing]]
+- [[Current_Day_Only_Data_Boundary]]
+- [[Reference_Invalidation_Versus_Retirement]]
+- [[Reference_Family_Taxonomy]]
+- [[Reference_Distance_As_Statistical_Discovery]]
+- [[Multi_Reference_Divergence_Cluster]]

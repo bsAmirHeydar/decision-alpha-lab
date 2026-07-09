@@ -1,11 +1,12 @@
-# Folder Map — EXP0017 strategy architect answers
+# Folder Map — EXP0017 Strategy Architect Answers
 
-این پوشه پاسخ‌های معمار استراتژی برای پروژه CG Intermarket Divergence را نگه می‌دارد.
+## Chapter 04 Added
 
-## اسناد فصل سوم
+- CH04_INDEX.md
+- CH04_reference_scope_and_same_day_cycle_memory.md
+- CH04_research_translation_and_statistical_mission.md
+- CH04_reference_family_taxonomy.md
+- CH04_hypothesis_register.md
+- CH04_glossary_and_language.md
 
-- CH03_hunt_false_breakout_and_reference_validity.md
-- CH03_research_translation_and_statistical_mission.md
-- CH03_reference_lifecycle_and_invalidation.md
-- CH03_glossary_and_language.md
-- CH03_hypothesis_register.md
+موضوع فصل چهارم: مرجع واگرایی، حافظه سایکل‌های همان روز، استقلال سیگنال‌ها، بی‌طرفی آماری پیش از رتبه‌بندی، و حذف داده روز قبل از تحلیل ورود.
