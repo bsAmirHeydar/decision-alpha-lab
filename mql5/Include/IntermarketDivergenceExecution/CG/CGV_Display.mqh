@@ -23,6 +23,19 @@ private:
       return "NONE";
    }
 
+   string AnchorTimeText(const ECGVAnchorTimeMode mode)
+   {
+      if(mode==CGV_ANCHOR_TIME_REFERENCE_CYCLE_START) return "ref_start";
+      if(mode==CGV_ANCHOR_TIME_REFERENCE_CYCLE_MIDDLE) return "ref_mid";
+      if(mode==CGV_ANCHOR_TIME_REFERENCE_CYCLE_END) return "ref_end";
+      if(mode==CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME) return "exact_ref_extreme";
+      if(mode==CGV_ANCHOR_TIME_CURRENT_CYCLE_START) return "current_start";
+      if(mode==CGV_ANCHOR_TIME_CURRENT_CYCLE_END) return "current_end";
+      if(mode==CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME) return "exact_current_extreme";
+      if(mode==CGV_ANCHOR_TIME_CONFIRMATION_CLOSE) return "confirmation_close";
+      return "unknown";
+   }
+
 public:
    string BuildHeader(SCGTTimeSnapshot &time_snapshot,SCGVVisualLedgerConfig &config,const datetime live_broker_now)
    {
@@ -30,7 +43,9 @@ public:
       text += "EXP0017 Phase 06 - Visual Language & Signal Audit Ledger\n";
       text += "No order | No risk | No target | No outcome study | Drawing + raw ledger only\n";
       text += StringFormat("Symbols: %s / %s | chart: %s | TF: %s | closed-boundary: %s\n",config.symbol_a,config.symbol_b,_Symbol,EnumToString(config.confirmation_timeframe),BoolText(config.use_last_closed_candle_boundary));
-      text += StringFormat("Drawing: %s | hunter-chart-only: %s | ledger: %s | file: %s\n",BoolText(config.enable_drawing),BoolText(config.draw_only_when_chart_is_hunter_symbol),BoolText(config.enable_ledger),config.ledger_file_name);
+      text += StringFormat("Drawing: %s | hunter-chart-only: %s | origin->destination: %s | ledger: %s | file: %s\n",BoolText(config.enable_drawing),BoolText(config.draw_only_when_chart_is_hunter_symbol),BoolText(config.draw_divergence_origin_destination_line),BoolText(config.enable_ledger),config.ledger_file_name);
+      text += StringFormat("Visual anchors: origin_time=%s | destination_time=%s | clean_line=%s | guides Href=%s Cstop=%s\n",
+                           AnchorTimeText(config.divergence_origin_time_mode),AnchorTimeText(config.divergence_destination_time_mode),BoolText(config.draw_clean_comparison_line),BoolText(config.draw_hunter_reference_guide),BoolText(config.draw_clean_stop_reference_guide));
       text += StringFormat("Live broker: %s | Observation broker: %s | UTC: %s | NY: %s | NY offset: %d\n",
                            TimeToString(live_broker_now,TIME_DATE|TIME_SECONDS),
                            TimeToString(time_snapshot.broker_now,TIME_DATE|TIME_SECONDS),
@@ -67,9 +82,11 @@ public:
 
    string BuildSignalLine(SCGCFinalSignal &signal)
    {
-      string text=StringFormat("  %s %s | %s | ref #%d | hunter=%s clean=%s | confirm=%s | stop-ref=%s\n",
-                               StatusText(signal),DirectionText(signal),signal.group_name,signal.reference_cycle_number,
+      string text=StringFormat("  %s %s | %s | ref #%d -> current #%d | hunter=%s clean=%s | confirm=%s | Href=%s Hext=%s Cref=%s Cext=%s stop-ref=%s\n",
+                               StatusText(signal),DirectionText(signal),signal.group_name,signal.reference_cycle_number,signal.current_cycle_number,
                                signal.hunter_symbol,signal.clean_symbol,TimeToString(signal.confirmation_time_ny,TIME_DATE|TIME_MINUTES),
+                               DoubleToString(signal.hunter_reference_price,CGC_PRICE_DIGITS),DoubleToString(signal.hunter_current_extreme,CGC_PRICE_DIGITS),
+                               DoubleToString(signal.clean_reference_price,CGC_PRICE_DIGITS),DoubleToString(signal.clean_current_extreme,CGC_PRICE_DIGITS),
                                DoubleToString(signal.clean_stop_reference_price,CGC_PRICE_DIGITS));
       return text;
    }
@@ -111,7 +128,7 @@ public:
          written+=visual_states[i].ledger_written_count;
          duplicates+=visual_states[i].ledger_duplicate_count;
       }
-      return StringFormat("EXP0017 Phase06 closed-candle audit | NY=%s | final=%d | drawn=%d | ledger_written=%d | ledger_duplicates=%d",
+      return StringFormat("EXP0017 Phase06 visual-language audit | NY=%s | final=%d | drawn=%d | ledger_written=%d | ledger_duplicates=%d",
                           TimeToString(time_snapshot.new_york_now,TIME_DATE|TIME_MINUTES),final_count,drawn,written,duplicates);
    }
 };

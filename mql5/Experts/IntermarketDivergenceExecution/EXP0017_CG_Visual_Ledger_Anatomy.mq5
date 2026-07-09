@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.00"
+#property version   "1.01"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix002 adds complete origin-to-destination visual language."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -39,6 +39,39 @@ input color InpBuyColor = clrLime;
 input color InpSellColor = clrTomato;
 input color InpInvalidatedColor = clrSilver;
 input color InpTextColor = clrWhite;
+
+// Hotfix002 — full origin-to-destination divergence visual language.
+input bool InpDrawDivergenceOriginDestinationLine = true;
+input ECGVAnchorSymbolMode InpDivergenceOriginSymbolMode = CGV_ANCHOR_SYMBOL_HUNTER;
+input ECGVAnchorTimeMode   InpDivergenceOriginTimeMode = CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME;
+input ECGVAnchorPriceMode  InpDivergenceOriginPriceMode = CGV_ANCHOR_PRICE_HUNTER_REFERENCE;
+input ECGVAnchorSymbolMode InpDivergenceDestinationSymbolMode = CGV_ANCHOR_SYMBOL_HUNTER;
+input ECGVAnchorTimeMode   InpDivergenceDestinationTimeMode = CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME;
+input ECGVAnchorPriceMode  InpDivergenceDestinationPriceMode = CGV_ANCHOR_PRICE_HUNTER_CURRENT_EXTREME;
+input ECGVVisualLineStyle  InpDivergenceLineStyle = CGV_VISUAL_STYLE_SOLID;
+input int  InpDivergenceLineWidth = 2;
+input bool InpDrawOriginMarker = true;
+input bool InpDrawDestinationMarker = true;
+input int  InpOriginMarkerArrowCode = 159;
+input int  InpDestinationMarkerArrowCode = 159;
+input int  InpOriginMarkerWidth = 2;
+input int  InpDestinationMarkerWidth = 2;
+input bool InpDrawOriginVertical = false;
+input bool InpDrawDestinationVertical = true;
+input bool InpDrawHunterReferenceGuide = true;
+input bool InpDrawCleanReferenceGuide = false;
+input bool InpDrawCleanStopReferenceGuide = true;
+input bool InpDrawHunterCurrentExtremeGuide = false;
+input bool InpDrawCleanComparisonLine = false;
+input bool InpDrawCleanComparisonOnlyWhenChartIsCleanSymbol = true;
+input ECGVVisualLineStyle InpGuideLineStyle = CGV_VISUAL_STYLE_DOT;
+input int  InpGuideLineWidth = 1;
+input int  InpLabelFontSize = 8;
+input double InpLabelOffsetPoints = 20.0;
+input color InpOriginMarkerColor = clrDeepSkyBlue;
+input color InpDestinationMarkerColor = clrGold;
+input color InpGuideColor = clrSlateGray;
+input color InpCleanComparisonColor = clrDodgerBlue;
 
 input bool InpEnableLedger = true;
 input bool InpLedgerUseCommonFiles = false;
@@ -109,6 +142,39 @@ int OnInit()
    config.sell_color=InpSellColor;
    config.invalidated_color=InpInvalidatedColor;
    config.text_color=InpTextColor;
+
+   config.draw_divergence_origin_destination_line=InpDrawDivergenceOriginDestinationLine;
+   config.divergence_origin_symbol_mode=InpDivergenceOriginSymbolMode;
+   config.divergence_origin_time_mode=InpDivergenceOriginTimeMode;
+   config.divergence_origin_price_mode=InpDivergenceOriginPriceMode;
+   config.divergence_destination_symbol_mode=InpDivergenceDestinationSymbolMode;
+   config.divergence_destination_time_mode=InpDivergenceDestinationTimeMode;
+   config.divergence_destination_price_mode=InpDivergenceDestinationPriceMode;
+   config.divergence_line_style=InpDivergenceLineStyle;
+   config.divergence_line_width=InpDivergenceLineWidth;
+   config.draw_origin_marker=InpDrawOriginMarker;
+   config.draw_destination_marker=InpDrawDestinationMarker;
+   config.origin_marker_arrow_code=InpOriginMarkerArrowCode;
+   config.destination_marker_arrow_code=InpDestinationMarkerArrowCode;
+   config.origin_marker_width=InpOriginMarkerWidth;
+   config.destination_marker_width=InpDestinationMarkerWidth;
+   config.draw_origin_vertical=InpDrawOriginVertical;
+   config.draw_destination_vertical=InpDrawDestinationVertical;
+   config.draw_hunter_reference_guide=InpDrawHunterReferenceGuide;
+   config.draw_clean_reference_guide=InpDrawCleanReferenceGuide;
+   config.draw_clean_stop_reference_guide=InpDrawCleanStopReferenceGuide;
+   config.draw_hunter_current_extreme_guide=InpDrawHunterCurrentExtremeGuide;
+   config.draw_clean_comparison_line=InpDrawCleanComparisonLine;
+   config.draw_clean_comparison_only_when_chart_is_clean_symbol=InpDrawCleanComparisonOnlyWhenChartIsCleanSymbol;
+   config.guide_line_style=InpGuideLineStyle;
+   config.guide_line_width=InpGuideLineWidth;
+   config.label_font_size=InpLabelFontSize;
+   config.label_offset_points=InpLabelOffsetPoints;
+   config.origin_marker_color=InpOriginMarkerColor;
+   config.destination_marker_color=InpDestinationMarkerColor;
+   config.guide_color=InpGuideColor;
+   config.clean_comparison_color=InpCleanComparisonColor;
+
    config.enable_ledger=InpEnableLedger;
    config.ledger_use_common_files=InpLedgerUseCommonFiles;
    config.ledger_file_name=InpLedgerFileName;
