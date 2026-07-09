@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "stage05",
+      "type": "text",
+      "text": "Stage 05\nLuxury Dashboard UI Renderer",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "theme",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsDashboardTheme.mqh",
+      "x": 330,
+      "y": -120,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "dashboard",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsDashboard.mqh",
+      "x": 330,
+      "y": 0,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "inputs",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsInputs.mqh",
+      "x": 330,
+      "y": 120,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "store",
+      "type": "text",
+      "text": "Consumes\nGT_NewsStore\nGT_FilterState\nGT_RuntimeState\nGT_Config",
+      "x": 720,
+      "y": 0,
+      "width": 260,
+      "height": 130
+    },
+    {
+      "id": "handoff",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/implementation/stage_05/08_handoff_to_stage_06.md",
+      "x": 1050,
+      "y": 0,
+      "width": 320,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "stage05",
+      "fromSide": "right",
+      "toNode": "theme",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "stage05",
+      "fromSide": "right",
+      "toNode": "dashboard",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "stage05",
+      "fromSide": "right",
+      "toNode": "inputs",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "dashboard",
+      "fromSide": "right",
+      "toNode": "store",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "handoff",
+      "toSide": "left"
+    }
+  ]
+}

@@ -54,6 +54,13 @@
 #define GT_TIMELINE_MIN_DANGER_MINUTES     0
 #define GT_TIMELINE_MAX_DANGER_MINUTES   180
 
+#define GT_DASHBOARD_MODE_COMPACT          0
+#define GT_DASHBOARD_MODE_STANDARD         1
+#define GT_DASHBOARD_MODE_PRO              2
+#define GT_DASHBOARD_MAX_ROWS             20
+#define GT_DASHBOARD_MIN_WIDTH           420
+#define GT_DASHBOARD_MAX_WIDTH          1200
+
 struct GT_NewsEvent
 {
    string   id;
@@ -193,6 +200,26 @@ struct GT_Config
    int    dashboard_y;
    int    dashboard_rows;
 
+   // Stage 05 luxury dashboard contract.
+   int    dashboard_mode;                 // 0 compact, 1 standard, 2 pro
+   int    dashboard_width;
+   int    dashboard_row_height;
+   bool   dashboard_show_header;
+   bool   dashboard_show_next_card;
+   bool   dashboard_show_high_card;
+   bool   dashboard_show_metrics;
+   bool   dashboard_show_filter_bar;
+   bool   dashboard_show_health_bar;
+   bool   dashboard_show_event_table;
+   bool   dashboard_show_mini_tape;
+   bool   dashboard_use_luxury_theme;
+   color  dashboard_bg_color;
+   color  dashboard_panel_color;
+   color  dashboard_border_color;
+   color  dashboard_text_color;
+   color  dashboard_muted_color;
+   color  dashboard_accent_color;
+
    bool   enable_alerts;
    bool   alert_popup;
    bool   alert_sound;
@@ -248,6 +275,13 @@ struct GT_RuntimeState
    int      timeline_last_zones;
    datetime timeline_last_render_at;
    string   timeline_last_render_summary;
+
+   // Stage 05 dashboard diagnostics.
+   int      dashboard_last_objects;
+   int      dashboard_last_rows;
+   int      dashboard_last_cards;
+   datetime dashboard_last_render_at;
+   string   dashboard_last_render_summary;
 
    // Stage 03 diagnostic snapshot.
    bool     time_normalization_ok;

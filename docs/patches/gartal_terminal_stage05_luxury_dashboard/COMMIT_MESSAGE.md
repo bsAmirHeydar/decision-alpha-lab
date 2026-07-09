@@ -1,0 +1,3 @@
+feat(gartal-terminal): implement stage 05 luxury dashboard ui renderer
+
+Implement the fifth coding stage for gartal terminal. Add a premium dashboard UI surface with theme helpers, dashboard modes, configurable width and row height, health badge, source/GMT strip, next-event card, next-red card, impact metrics, filter preview badges, mini upcoming tape, structured event table, debug footer, live countdown repaint, dashboard runtime diagnostics, Stage 05 inputs, validation script, specification, canvas, and English Obsidian documentation. Keep the dashboard as a renderer-only surface; runtime filter mutation is reserved for Stage 06.

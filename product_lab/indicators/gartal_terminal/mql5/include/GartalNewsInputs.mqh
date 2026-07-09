@@ -1,13 +1,13 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 04"
+input group "01 Data Source / Stage 05"
 input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
 input bool   InpUseSampleData                = true;       // Stage 03 default: true. Direct source begins in Stage 08.
 input bool   InpUseCache                     = true;
 input int    InpRefreshMinutes               = 5;
 
-input group "02 Time and Broker GMT / Stage 04"
+input group "02 Time and Broker GMT / Stage 05"
 input int    InpBrokerGMTMode                = 0;          // 0 Auto, 1 Manual, 2 Hybrid(auto unless invalid)
 input bool   InpAutoDetectBrokerGMT          = true;       // compatibility alias; false forces manual mode
 input int    InpBrokerGMTOffsetHours         = 0;          // manual broker GMT hours, e.g. 2 or 3
@@ -56,7 +56,7 @@ input int    InpTimelineProjectionMinutes    = 720;        // future render hori
 input int    InpPreNewsZoneMinutes           = 15;
 input int    InpPostNewsZoneMinutes          = 15;
 
-input group "07 Dashboard / Objects"
+input group "07 Luxury Dashboard / Stage 05"
 input bool   InpShowDashboard                = true;
 input bool   InpCleanObjectsOnDeinit         = true;
 input string InpObjectPrefix                 = "GT_";
@@ -64,6 +64,24 @@ input int    InpDashboardCorner              = 1;          // 0 LU, 1 RU, 2 LL, 
 input int    InpDashboardX                   = 20;
 input int    InpDashboardY                   = 28;
 input int    InpDashboardRows                = 8;
+input int    InpDashboardMode                = 2;          // 0 Compact, 1 Standard, 2 Pro
+input int    InpDashboardWidth               = 720;
+input int    InpDashboardRowHeight           = 18;
+input bool   InpDashboardShowHeader          = true;
+input bool   InpDashboardShowNextCard        = true;
+input bool   InpDashboardShowHighCard        = true;
+input bool   InpDashboardShowMetrics         = true;
+input bool   InpDashboardShowFilterBar       = true;
+input bool   InpDashboardShowHealthBar       = true;
+input bool   InpDashboardShowEventTable      = true;
+input bool   InpDashboardShowMiniTape        = true;
+input bool   InpDashboardLuxuryTheme         = true;
+input color  InpDashboardBgColor             = clrBlack;
+input color  InpDashboardPanelColor          = clrMidnightBlue;
+input color  InpDashboardBorderColor         = clrDarkSlateGray;
+input color  InpDashboardTextColor           = clrWhite;
+input color  InpDashboardMutedColor          = clrSilver;
+input color  InpDashboardAccentColor         = clrDeepSkyBlue;
 
 input group "08 Alerts"
 input bool   InpEnableAlerts                 = true;
@@ -148,7 +166,25 @@ void GT_LoadConfig(GT_Config &config)
    config.dashboard_corner = GT_ClampInt(InpDashboardCorner, 0, 3);
    config.dashboard_x = GT_ClampInt(InpDashboardX, 0, 3000);
    config.dashboard_y = GT_ClampInt(InpDashboardY, 0, 3000);
-   config.dashboard_rows = GT_ClampInt(InpDashboardRows, 1, 20);
+   config.dashboard_rows = GT_ClampInt(InpDashboardRows, 1, GT_DASHBOARD_MAX_ROWS);
+   config.dashboard_mode = GT_ClampInt(InpDashboardMode, GT_DASHBOARD_MODE_COMPACT, GT_DASHBOARD_MODE_PRO);
+   config.dashboard_width = GT_ClampInt(InpDashboardWidth, GT_DASHBOARD_MIN_WIDTH, GT_DASHBOARD_MAX_WIDTH);
+   config.dashboard_row_height = GT_ClampInt(InpDashboardRowHeight, 14, 28);
+   config.dashboard_show_header = InpDashboardShowHeader;
+   config.dashboard_show_next_card = InpDashboardShowNextCard;
+   config.dashboard_show_high_card = InpDashboardShowHighCard;
+   config.dashboard_show_metrics = InpDashboardShowMetrics;
+   config.dashboard_show_filter_bar = InpDashboardShowFilterBar;
+   config.dashboard_show_health_bar = InpDashboardShowHealthBar;
+   config.dashboard_show_event_table = InpDashboardShowEventTable;
+   config.dashboard_show_mini_tape = InpDashboardShowMiniTape;
+   config.dashboard_use_luxury_theme = InpDashboardLuxuryTheme;
+   config.dashboard_bg_color = InpDashboardBgColor;
+   config.dashboard_panel_color = InpDashboardPanelColor;
+   config.dashboard_border_color = InpDashboardBorderColor;
+   config.dashboard_text_color = InpDashboardTextColor;
+   config.dashboard_muted_color = InpDashboardMutedColor;
+   config.dashboard_accent_color = InpDashboardAccentColor;
 
    config.enable_alerts = InpEnableAlerts;
    config.alert_popup = InpAlertPopup;
@@ -206,6 +242,18 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
 
    if(config.pre_news_zone_minutes == 0 && config.post_news_zone_minutes == 0 && config.show_danger_zones)
       runtime.last_warning = "Danger zones are enabled but both pre/post news zone windows are zero.";
+
+   if(config.dashboard_show_event_table && config.dashboard_rows < 1)
+   {
+      runtime.last_error = "Dashboard table is enabled but row count is invalid.";
+      ok = false;
+   }
+
+   if(config.dashboard_width < GT_DASHBOARD_MIN_WIDTH)
+   {
+      runtime.last_error = "Dashboard width is below the supported minimum.";
+      ok = false;
+   }
 
    return ok;
 }

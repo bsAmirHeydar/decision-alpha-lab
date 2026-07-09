@@ -1,20 +1,21 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 04 chart timeline renderer            |
+//| gartal terminal - Stage 05 luxury dashboard UI renderer            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.4.0"
-#property description       "gartal terminal - Stage 04 chart timeline renderer"
+#property version           "0.5.0"
+#property description       "gartal terminal - Stage 05 luxury dashboard UI renderer"
 
-// Stage 04 doctrine:
+// Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
 // - Stage 02 canonical event store remains the single source of truth.
-// - Stage 03 time_broker remains the only rendering time authority.
+// - Stage 03 time_broker remains the only rendering and alert time authority.
 // - Stage 04 owns all chart timeline objects through the GT_TL_ namespace.
+// - Stage 05 upgrades the dashboard into the sellable terminal surface.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -25,6 +26,7 @@
 #include "include/GartalNewsSampleData.mqh"
 #include "include/GartalNewsCalendarClient.mqh"
 #include "include/GartalNewsParser.mqh"
+#include "include/GartalNewsDashboardTheme.mqh"
 #include "include/GartalNewsDashboard.mqh"
 #include "include/GartalNewsChartGeometry.mqh"
 #include "include/GartalNewsTimeline.mqh"
@@ -49,7 +51,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 04 chart timeline renderer boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 05 luxury dashboard UI renderer boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -65,7 +67,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 04 chart timeline renderer boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 05 luxury dashboard UI renderer boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -177,7 +179,7 @@ void GT_RefreshCalendar(const bool first_load)
 
 void GT_RedrawAll()
 {
-   // Stage 04 renders timeline before dashboard so dashboard can display renderer diagnostics.
+   // Stage 05 renders timeline first, then dashboard, so the dashboard can show renderer diagnostics.
    GT_RenderTimeline(g_config, g_store, g_filters, g_runtime);
    GT_RenderDashboard(g_config, g_store, g_filters, g_runtime);
 }
