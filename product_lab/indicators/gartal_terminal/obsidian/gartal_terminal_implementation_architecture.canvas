@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {"id":"master","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/05_implementation_master_plan.md","x":0,"y":0,"width":420,"height":120},
+    {"id":"p01","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/01_foundation_and_contracts.md","x":-520,"y":220,"width":360,"height":100},
+    {"id":"p02","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/02_data_acquisition_forex_factory_adapter.md","x":-120,"y":220,"width":380,"height":100},
+    {"id":"p03","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/03_time_normalization_and_broker_gmt.md","x":320,"y":220,"width":380,"height":100},
+    {"id":"p04","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/04_event_model_filter_engine.md","x":760,"y":220,"width":380,"height":100},
+    {"id":"p05","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/05_dashboard_ui_implementation.md","x":-520,"y":460,"width":380,"height":100},
+    {"id":"p06","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/06_chart_timeline_renderer.md","x":-80,"y":460,"width":380,"height":100},
+    {"id":"p07","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/07_alert_engine_implementation.md","x":360,"y":460,"width":380,"height":100},
+    {"id":"p08","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/08_cache_resilience_and_failover.md","x":800,"y":460,"width":380,"height":100},
+    {"id":"p09","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/09_packaging_licensing_distribution.md","x":-260,"y":700,"width":400,"height":100},
+    {"id":"p10","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/10_validation_qa_release_gate.md","x":220,"y":700,"width":400,"height":100},
+    {"id":"sprints","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/11_next_build_sprints.md","x":700,"y":700,"width":400,"height":100},
+    {"id":"mql","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/MQL5_TASK_BREAKDOWN.md","x":0,"y":900,"width":440,"height":120}
+  ],
+  "edges": [
+    {"id":"e0","fromNode":"master","fromSide":"bottom","toNode":"p01","toSide":"top"},
+    {"id":"e1","fromNode":"p01","fromSide":"right","toNode":"p02","toSide":"left"},
+    {"id":"e2","fromNode":"p02","fromSide":"right","toNode":"p03","toSide":"left"},
+    {"id":"e3","fromNode":"p03","fromSide":"right","toNode":"p04","toSide":"left"},
+    {"id":"e4","fromNode":"p04","fromSide":"bottom","toNode":"p05","toSide":"top"},
+    {"id":"e5","fromNode":"p05","fromSide":"right","toNode":"p06","toSide":"left"},
+    {"id":"e6","fromNode":"p06","fromSide":"right","toNode":"p07","toSide":"left"},
+    {"id":"e7","fromNode":"p07","fromSide":"right","toNode":"p08","toSide":"left"},
+    {"id":"e8","fromNode":"p08","fromSide":"bottom","toNode":"p09","toSide":"top"},
+    {"id":"e9","fromNode":"p09","fromSide":"right","toNode":"p10","toSide":"left"},
+    {"id":"e10","fromNode":"p10","fromSide":"right","toNode":"sprints","toSide":"left"},
+    {"id":"e11","fromNode":"sprints","fromSide":"bottom","toNode":"mql","toSide":"top"}
+  ]
+}
