@@ -11,6 +11,183 @@ private:
    SCGCConfirmationConfig m_config;
    SCGHHuntConfig         m_hunt_config;
    CCGH_HuntField         m_hunt_field;
+   SCGCProtectedReferenceLifecycleRecord m_lifecycle_records[];
+   datetime               m_lifecycle_day_start_ny;
+   bool                   m_lifecycle_initialized;
+
+   void ResetLifecycleRecords()
+   {
+      ArrayResize(m_lifecycle_records,0);
+      m_lifecycle_day_start_ny=0;
+      m_lifecycle_initialized=false;
+   }
+
+   void EnsureLifecycleDay(SCGTTimeSnapshot &time_snapshot)
+   {
+      if(!m_config.enable_protected_reference_retirement)
+         return;
+
+      if(!m_config.reset_lifecycle_at_new_trading_day)
+      {
+         if(!m_lifecycle_initialized)
+         {
+            m_lifecycle_day_start_ny=time_snapshot.trading_day_start_ny;
+            m_lifecycle_initialized=true;
+         }
+         return;
+      }
+
+      if(!m_lifecycle_initialized || m_lifecycle_day_start_ny!=time_snapshot.trading_day_start_ny)
+      {
+         ArrayResize(m_lifecycle_records,0);
+         m_lifecycle_day_start_ny=time_snapshot.trading_day_start_ny;
+         m_lifecycle_initialized=true;
+      }
+   }
+
+   string BuildReferenceLifecycleKey(SCGTTimeSnapshot &time_snapshot,SCGHReferenceHuntState &hunt,const ECGCSignalSide side)
+   {
+      return StringFormat("EXP0017|REFLIFE|%s|TD:%s|R:%s|SIDE:%s",
+                          hunt.group_name,
+                          TimeToString(time_snapshot.trading_day_start_ny,TIME_DATE|TIME_MINUTES),
+                          TimeToString(hunt.reference_cycle_start_ny,TIME_DATE|TIME_MINUTES),
+                          SideText(side));
+   }
+
+   int FindLifecycleRecord(const string key)
+   {
+      int total=ArraySize(m_lifecycle_records);
+      for(int i=0;i<total;i++)
+      {
+         if(m_lifecycle_records[i].key==key)
+            return i;
+      }
+      return -1;
+   }
+
+   bool SymbolHuntedReferenceSide(SCGHReferenceHuntState &hunt,const ECGCSignalSide side,const string symbol)
+   {
+      if(symbol==m_config.symbol_a)
+      {
+         if(side==CGC_SIDE_HIGH)
+            return hunt.symbol_a.high_hunted;
+         if(side==CGC_SIDE_LOW)
+            return hunt.symbol_a.low_hunted;
+      }
+      if(symbol==m_config.symbol_b)
+      {
+         if(side==CGC_SIDE_HIGH)
+            return hunt.symbol_b.high_hunted;
+         if(side==CGC_SIDE_LOW)
+            return hunt.symbol_b.low_hunted;
+      }
+      return false;
+   }
+
+   void RetireLifecycleRecordByIndex(const int index,const datetime retirement_time_ny,const string reason)
+   {
+      if(index<0 || index>=ArraySize(m_lifecycle_records))
+         return;
+      m_lifecycle_records[index].retired=true;
+      m_lifecycle_records[index].active=false;
+      m_lifecycle_records[index].retirement_time_ny=retirement_time_ny;
+      m_lifecycle_records[index].retirement_reason=reason;
+   }
+
+   bool ReferenceLifecycleIsRetired(const string key)
+   {
+      if(!m_config.enable_protected_reference_retirement)
+         return false;
+      int index=FindLifecycleRecord(key);
+      if(index<0)
+         return false;
+      return m_lifecycle_records[index].retired;
+   }
+
+   void MarkProtectedBreachIfNeeded(SCGTTimeSnapshot &time_snapshot,SCGHReferenceHuntState &hunt,const ECGCSignalSide side)
+   {
+      if(!m_config.enable_protected_reference_retirement || !m_config.retire_reference_when_protected_hunts)
+         return;
+      string key=BuildReferenceLifecycleKey(time_snapshot,hunt,side);
+      int index=FindLifecycleRecord(key);
+      if(index<0)
+         return;
+      if(m_lifecycle_records[index].retired)
+         return;
+      string protected_symbol=m_lifecycle_records[index].protected_symbol;
+      if(SymbolHuntedReferenceSide(hunt,side,protected_symbol))
+         RetireLifecycleRecordByIndex(index,time_snapshot.new_york_now,"protected_symbol_hunted_its_reference_side");
+   }
+
+   bool ActivateOrAllowProtectedReference(SCGTTimeSnapshot &time_snapshot,
+                                          SCGHReferenceHuntState &hunt,
+                                          const ECGCSignalSide side,
+                                          const string hunter_symbol,
+                                          const string clean_symbol,
+                                          string &lifecycle_note)
+   {
+      lifecycle_note="";
+      if(!m_config.enable_protected_reference_retirement)
+         return true;
+
+      string key=BuildReferenceLifecycleKey(time_snapshot,hunt,side);
+      int index=FindLifecycleRecord(key);
+
+      if(index>=0 && m_lifecycle_records[index].retired)
+      {
+         lifecycle_note="suppressed_reference_side_already_retired_after_protected_breach";
+         return !m_config.suppress_retired_reference_signals;
+      }
+
+      if(index<0)
+      {
+         int max_records=m_config.max_protected_reference_records;
+         if(max_records<1)
+            max_records=2048;
+         int total=ArraySize(m_lifecycle_records);
+         if(total>=max_records)
+         {
+            lifecycle_note="suppressed_lifecycle_record_capacity_reached";
+            return false;
+         }
+         ArrayResize(m_lifecycle_records,total+1);
+         index=total;
+         m_lifecycle_records[index].key=key;
+         m_lifecycle_records[index].group_name=hunt.group_name;
+         m_lifecycle_records[index].side=side;
+         m_lifecycle_records[index].active=true;
+         m_lifecycle_records[index].retired=false;
+         m_lifecycle_records[index].protected_symbol=clean_symbol;
+         m_lifecycle_records[index].first_hunter_symbol=hunter_symbol;
+         m_lifecycle_records[index].trading_day_start_ny=time_snapshot.trading_day_start_ny;
+         m_lifecycle_records[index].reference_cycle_start_ny=hunt.reference_cycle_start_ny;
+         m_lifecycle_records[index].reference_cycle_end_ny=hunt.reference_cycle_end_ny;
+         m_lifecycle_records[index].first_confirmation_time_ny=time_snapshot.new_york_now;
+         m_lifecycle_records[index].last_allowed_confirmation_time_ny=time_snapshot.new_york_now;
+         m_lifecycle_records[index].retirement_time_ny=0;
+         m_lifecycle_records[index].retirement_reason="";
+         lifecycle_note="protected_reference_lifecycle_started";
+         return true;
+      }
+
+      if(m_lifecycle_records[index].protected_symbol==clean_symbol)
+      {
+         if(!m_config.allow_repeated_divergence_while_protected_survives)
+         {
+            lifecycle_note="suppressed_repeated_reference_signal_by_config";
+            return false;
+         }
+         m_lifecycle_records[index].last_allowed_confirmation_time_ny=time_snapshot.new_york_now;
+         lifecycle_note="repeated_divergence_allowed_while_same_protected_symbol_survives";
+         return true;
+      }
+
+      // The protected side changed. Mechanically this means the symbol that was previously protected
+      // is no longer protected relative to this reference side. Retire the whole reference-side key.
+      RetireLifecycleRecordByIndex(index,time_snapshot.new_york_now,"protected_role_switched_reference_side_compromised");
+      lifecycle_note="suppressed_reference_side_retired_after_protected_role_switch";
+      return false;
+   }
 
    void ResetSignal(SCGCFinalSignal &signal)
    {
@@ -186,6 +363,14 @@ private:
          return false;
       }
 
+      string lifecycle_key=BuildReferenceLifecycleKey(time_snapshot,hunt,CGC_SIDE_HIGH);
+      if(ReferenceLifecycleIsRetired(lifecycle_key))
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note="suppressed_high_side_reference_already_retired_after_protected_breach";
+         return false;
+      }
+
       if(hunt.symbol_a.high_hunted && hunt.symbol_b.high_hunted)
       {
          signal.status=CGC_STATUS_INVALIDATED_DOUBLE_HUNT;
@@ -198,8 +383,9 @@ private:
          signal.hunter_current_extreme=0.0;
          signal.clean_current_extreme=0.0;
          signal.clean_stop_reference_price=0.0;
+         MarkProtectedBreachIfNeeded(time_snapshot,hunt,CGC_SIDE_HIGH);
          signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
-         signal.note="both_symbols_hunted_high_at_closed_candle_no_sell_permission";
+         signal.note="both_symbols_hunted_high_at_closed_candle_no_sell_permission_reference_side_retired_if_protected_was_active";
          return true;
       }
 
@@ -233,8 +419,16 @@ private:
          signal.clean_stop_reference_price=hunt.symbol_a.reference_high;
       }
 
+      string lifecycle_note="";
+      if(!ActivateOrAllowProtectedReference(time_snapshot,hunt,CGC_SIDE_HIGH,signal.hunter_symbol,signal.clean_symbol,lifecycle_note))
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note=lifecycle_note;
+         return false;
+      }
+
       signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
-      signal.note="closed_candle_one_sided_high_hunt_sell_confirmed_tradeable_preview_clean_symbol_only_no_order_yet";
+      signal.note="closed_candle_one_sided_high_hunt_sell_confirmed_tradeable_preview_clean_symbol_only_no_order_yet|"+lifecycle_note;
       return true;
    }
 
@@ -251,6 +445,14 @@ private:
          return false;
       }
 
+      string lifecycle_key=BuildReferenceLifecycleKey(time_snapshot,hunt,CGC_SIDE_LOW);
+      if(ReferenceLifecycleIsRetired(lifecycle_key))
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note="suppressed_low_side_reference_already_retired_after_protected_breach";
+         return false;
+      }
+
       if(hunt.symbol_a.low_hunted && hunt.symbol_b.low_hunted)
       {
          signal.status=CGC_STATUS_INVALIDATED_DOUBLE_HUNT;
@@ -258,8 +460,9 @@ private:
          signal.trade_permission_preview=false;
          signal.hunter_symbol="BOTH_SYMBOLS";
          signal.clean_symbol="NONE";
+         MarkProtectedBreachIfNeeded(time_snapshot,hunt,CGC_SIDE_LOW);
          signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
-         signal.note="both_symbols_hunted_low_at_closed_candle_no_buy_permission";
+         signal.note="both_symbols_hunted_low_at_closed_candle_no_buy_permission_reference_side_retired_if_protected_was_active";
          return true;
       }
 
@@ -293,8 +496,16 @@ private:
          signal.clean_stop_reference_price=hunt.symbol_a.reference_low;
       }
 
+      string lifecycle_note="";
+      if(!ActivateOrAllowProtectedReference(time_snapshot,hunt,CGC_SIDE_LOW,signal.hunter_symbol,signal.clean_symbol,lifecycle_note))
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note=lifecycle_note;
+         return false;
+      }
+
       signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
-      signal.note="closed_candle_one_sided_low_hunt_buy_confirmed_tradeable_preview_clean_symbol_only_no_order_yet";
+      signal.note="closed_candle_one_sided_low_hunt_buy_confirmed_tradeable_preview_clean_symbol_only_no_order_yet|"+lifecycle_note;
       return true;
    }
 
@@ -338,12 +549,15 @@ public:
    void Configure(SCGCConfirmationConfig &config)
    {
       m_config=config;
+      ResetLifecycleRecords();
       if(m_config.max_groups_shown<1)
          m_config.max_groups_shown=1;
       if(m_config.max_signals_per_group_shown<0)
          m_config.max_signals_per_group_shown=0;
       if(m_config.confirmation_timeframe==PERIOD_CURRENT)
          m_config.confirmation_timeframe=(ENUM_TIMEFRAMES)_Period;
+      if(m_config.max_protected_reference_records<1)
+         m_config.max_protected_reference_records=2048;
 
       m_hunt_config.symbol_a=m_config.symbol_a;
       m_hunt_config.symbol_b=m_config.symbol_b;
@@ -375,6 +589,8 @@ public:
       state.current_cycle_end_ny=cycle.cycle_end_ny;
       state.confirmation_time_broker=time_snapshot.broker_now;
       state.confirmation_time_ny=time_snapshot.new_york_now;
+
+      EnsureLifecycleDay(time_snapshot);
 
       if(!cycle.enabled || !cycle.inside_trading_day || cycle.previous_cycle_count<=0)
          return 0;

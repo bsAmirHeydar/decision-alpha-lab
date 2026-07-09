@@ -41,6 +41,34 @@ struct SCGCConfirmationConfig
    bool   show_invalidated_double_hunts;
    bool   show_prices;
    bool   show_stop_reference_preview;
+
+   // Hotfix007: protected-reference lifecycle.
+   // A reference side remains eligible for repeated divergence only while the clean/protected symbol
+   // has not hunted its own reference. Once the protected side is breached, the reference side is retired.
+   bool   enable_protected_reference_retirement;
+   bool   retire_reference_when_protected_hunts;
+   bool   allow_repeated_divergence_while_protected_survives;
+   bool   suppress_retired_reference_signals;
+   bool   reset_lifecycle_at_new_trading_day;
+   int    max_protected_reference_records;
+};
+
+struct SCGCProtectedReferenceLifecycleRecord
+{
+   string   key;
+   string   group_name;
+   ECGCSignalSide side;
+   bool     active;
+   bool     retired;
+   string   protected_symbol;
+   string   first_hunter_symbol;
+   datetime trading_day_start_ny;
+   datetime reference_cycle_start_ny;
+   datetime reference_cycle_end_ny;
+   datetime first_confirmation_time_ny;
+   datetime last_allowed_confirmation_time_ny;
+   datetime retirement_time_ny;
+   string   retirement_reason;
 };
 
 struct SCGCFinalSignal

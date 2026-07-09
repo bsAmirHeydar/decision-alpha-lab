@@ -111,6 +111,12 @@ private:
       m_confirmation_config.show_invalidated_double_hunts=m_visual_config.show_invalidated_double_hunts;
       m_confirmation_config.show_prices=m_visual_config.show_prices;
       m_confirmation_config.show_stop_reference_preview=m_visual_config.show_stop_reference_preview;
+      m_confirmation_config.enable_protected_reference_retirement=m_visual_config.enable_protected_reference_retirement;
+      m_confirmation_config.retire_reference_when_protected_hunts=m_visual_config.retire_reference_when_protected_hunts;
+      m_confirmation_config.allow_repeated_divergence_while_protected_survives=m_visual_config.allow_repeated_divergence_while_protected_survives;
+      m_confirmation_config.suppress_retired_reference_signals=m_visual_config.suppress_retired_reference_signals;
+      m_confirmation_config.reset_lifecycle_at_new_trading_day=m_visual_config.reset_lifecycle_at_new_trading_day;
+      m_confirmation_config.max_protected_reference_records=m_visual_config.max_protected_reference_records;
    }
 
    void ResetVisualState(SCGVGroupVisualLedgerState &s,SCGCGroupConfirmationState &source)

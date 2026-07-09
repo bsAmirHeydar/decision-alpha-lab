@@ -68,6 +68,14 @@ struct SCGVVisualLedgerConfig
    bool   show_prices;
    bool   show_stop_reference_preview;
 
+   // Hotfix007 — protected reference lifecycle controls.
+   bool   enable_protected_reference_retirement;
+   bool   retire_reference_when_protected_hunts;
+   bool   allow_repeated_divergence_while_protected_survives;
+   bool   suppress_retired_reference_signals;
+   bool   reset_lifecycle_at_new_trading_day;
+   int    max_protected_reference_records;
+
    bool   enable_historical_visual_backfill;
    int    historical_backfill_lookback_trading_days;
    int    historical_backfill_max_closed_candles;

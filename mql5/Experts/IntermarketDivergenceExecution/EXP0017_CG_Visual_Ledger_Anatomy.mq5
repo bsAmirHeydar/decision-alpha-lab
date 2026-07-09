@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.06"
+#property version   "1.07"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix006 adds minimal line-only visual mode: no labels, no chart comments, no panels, and no guide clutter by default."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix007 adds protected-reference retirement so a reference side is not reused after its protected symbol hunts it."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -33,6 +33,14 @@ input bool InpShowOnlyGroupsWithFinalStates = false;
 input bool InpShowInvalidatedDoubleHunts = true;
 input bool InpShowPrices = true;
 input bool InpShowStopReferencePreview = true;
+
+// Hotfix007 — protected-reference lifecycle. A same reference side may repeat only while the protected symbol stays protected.
+input bool InpEnableProtectedReferenceRetirement = true;
+input bool InpRetireReferenceWhenProtectedHunts = true;
+input bool InpAllowRepeatedDivergenceWhileProtectedSurvives = true;
+input bool InpSuppressRetiredReferenceSignals = true;
+input bool InpResetProtectedReferenceLifecycleAtNewTradingDay = true;
+input int  InpMaxProtectedReferenceRecords = 4096;
 
 input bool InpEnableDrawing = true;
 input ECGVVisualMode InpVisualMode = CGV_VISUAL_MODE_MINIMAL_LINES_ONLY;
@@ -144,6 +152,12 @@ int OnInit()
    config.show_invalidated_double_hunts=InpShowInvalidatedDoubleHunts;
    config.show_prices=InpShowPrices;
    config.show_stop_reference_preview=InpShowStopReferencePreview;
+   config.enable_protected_reference_retirement=InpEnableProtectedReferenceRetirement;
+   config.retire_reference_when_protected_hunts=InpRetireReferenceWhenProtectedHunts;
+   config.allow_repeated_divergence_while_protected_survives=InpAllowRepeatedDivergenceWhileProtectedSurvives;
+   config.suppress_retired_reference_signals=InpSuppressRetiredReferenceSignals;
+   config.reset_lifecycle_at_new_trading_day=InpResetProtectedReferenceLifecycleAtNewTradingDay;
+   config.max_protected_reference_records=InpMaxProtectedReferenceRecords;
    config.enable_drawing=InpEnableDrawing;
    config.visual_mode=InpVisualMode;
    config.suppress_all_text_objects=InpSuppressAllTextObjects;
