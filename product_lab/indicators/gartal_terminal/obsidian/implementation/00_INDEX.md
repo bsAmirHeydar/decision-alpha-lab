@@ -7,6 +7,11 @@ language: en
 
 # Implementation Index — gartal terminal
 
+## Active coding stages
+
+- [[stage_01_compile_safe_core_skeleton|Stage 01 — Compile-Safe Core Skeleton]]
+- [[stage_01/00_STAGE_01_INDEX|Stage 01 Detailed Index]]
+
 ## Core Notes
 
 - [[../05_implementation_master_plan|Implementation Master Plan]]
@@ -22,11 +27,13 @@ language: en
 - [[10_validation_qa_release_gate|10 — Validation, QA & Release Gate]]
 - [[11_next_build_sprints|11 — Next Build Sprints]]
 - [[../gartal_terminal_implementation_architecture.canvas|Implementation Canvas]]
+- [[../gartal_terminal_stage_01.canvas|Stage 01 Canvas]]
 
 ## Engineering Layers
 
 ```mermaid
 flowchart TD
+    S1[Stage 01 Compile-Safe Core]
     L1[Contracts / Types / Inputs]
     L2[Data Adapter]
     L3[Parser]
@@ -39,6 +46,7 @@ flowchart TD
     L10[Cache + Resilience]
     L11[Packaging + License]
 
+    S1 --> L1
     L1 --> L2 --> L3 --> L4 --> L5 --> L6
     L6 --> L7
     L6 --> L8
@@ -69,4 +77,3 @@ A beta build is acceptable when:
 - alert stages are deduplicated
 - cache fallback works after network failure
 - release package can be generated with one PowerShell command
-
