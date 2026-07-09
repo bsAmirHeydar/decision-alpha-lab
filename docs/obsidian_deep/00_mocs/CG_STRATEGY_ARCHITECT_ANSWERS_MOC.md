@@ -1,6 +1,10 @@
 # CG Strategy Architect Answers MOC
 
-## EXP0017 Strategy-Architect Answer Layers
+## EXP0017 — Cycle Group Intermarket Divergence
+
+این MOC پاسخ‌های معمار استراتژی برای پروژه CG Intermarket Divergence را به لایه‌های doctrine، پژوهش، نقشه تصمیم و آبسیدین عمیق وصل می‌کند.
+
+## فصل‌ها
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
 - [[CG_Chapter_02_Market_Relationship_Doctrine]]
@@ -17,15 +21,16 @@
 - [[CG_Chapter_13_Statistical_Uncertainty_Doctrine]]
 - [[CG_Chapter_14_Statistical_Testing_Doctrine]]
 - [[CG_Chapter_15_Statistical_Reporting_Doctrine]]
+- [[CG_Chapter_16_Decision_Model_Doctrine]]
 
-## Chapter 15 Cluster
+## فصل ۱۶ — مدل آماری و هوش تصمیم‌یار
 
-- [[Actionable_Confirmed_Signals_Only]]
-- [[Metric_Family_For_CG_Divergence]]
-- [[Pip_Movement_And_Daily_Range_Normalization]]
-- [[Cycle_Group_Type_As_Mandatory_Report_Field]]
-- [[Cycle_Group_Overlap_As_Statistical_Field]]
-- [[Signal_Frequency_Per_Day_Week_Month]]
-- [[No_Emotional_Language_In_Expert_Reports]]
-- [[Recommended_Metrics_When_Strategy_Architect_Is_Uncertain]]
-- [[Statistical_Report_As_Strategy_Memory]]
+- [[Model_As_Statistical_Observer_Not_Execution_Authority]]
+- [[All_Cycle_Groups_Analyzed_Together]]
+- [[CG_Position_And_Type_As_Primary_Features]]
+- [[Winrate_And_Expectancy_As_Core_Model_Targets]]
+- [[Historical_Only_Model_Boundary]]
+- [[Quality_Score_As_Report_Not_Order]]
+- [[Strategy_Architect_Remains_Final_Authority]]
+- [[Model_Recommendations_As_Non_Automatic_Rules]]
+- [[Future_AI_Layer_After_Statistical_Proof]]
