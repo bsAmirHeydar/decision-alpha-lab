@@ -1,0 +1,13 @@
+# Document Card — CH11_research_translation_and_statistical_mission.md
+
+## مسیر
+
+`docs/execution/EXP0017_cycle_group_intermarket_divergence/strategy_architect_answers/CH11_research_translation_and_statistical_mission.md`
+
+## نقش
+
+این سند بخشی از فصل ۱۱ پاسخ‌های معمار استراتژی است و doctrine استقلال سایکل‌گروپ‌ها، استقلال روزانه، جداسازی جهت‌ها و عدم انتقال اعتبار بین خانواده‌های سیگنال را مستند می‌کند.
+
+## پیوند مرکزی
+
+- [[CG_Chapter_11_CG_Independence_Doctrine]]

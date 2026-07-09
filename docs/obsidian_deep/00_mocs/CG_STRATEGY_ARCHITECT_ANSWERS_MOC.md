@@ -12,20 +12,19 @@
 - [[CG_Chapter_08_Close_Confirmation_Doctrine]]
 - [[CG_Chapter_09_Clean_Symbol_Execution_Doctrine]]
 - [[CG_Chapter_10_Risk_Time_Exit_Doctrine]]
+- [[CG_Chapter_11_CG_Independence_Doctrine]]
 
-## فصل ۱۰ — Risk, Invalidation and Time Exit
+## فصل ۱۱ — استقلال سایکل‌گروپ‌ها و روزها
 
-فصل ۱۰ تعیین می‌کند که بعد از تشکیل و تأیید واگرایی، معامله چگونه با ریسک ثابت و استاپ مطلق سنجیده می‌شود و چگونه خروج انتهای سایکل، هر سیگنال را به یک برآیند دلاری قابل مقایسه تبدیل می‌کند.
+فصل ۱۱ استقلال را به‌عنوان یک guardrail اصلی تعریف می‌کند:
 
-### نوت‌های فصل ۱۰
-
-- [[CG_Chapter_10_Risk_Time_Exit_Doctrine]]
-- [[Ambiguous_Stop_Meaning_Needs_Reframing]]
-- [[Clean_Reference_Retouch_As_Failure]]
-- [[Absolute_Stop_Doctrine]]
-- [[Fixed_Risk_Across_All_Cycle_Groups]]
-- [[No_Quality_Based_Risk_Adjustment_Base_Layer]]
-- [[CH10_Cycle_End_Time_Target_Doctrine]]
-- [[Stay_Until_Cycle_End_Doctrine]]
-- [[Dollar_Outcome_As_Signal_Result]]
-- [[Future_Combination_With_Price_Targets]]
+- [[CG_Chapter_11_CG_Independence_Doctrine]]
+- [[Independent_Cycle_Groups_Doctrine]]
+- [[Buy_Sell_Both_Stay_In_Research_Field]]
+- [[No_CG_Carryover_Doctrine]]
+- [[Daily_Reset_No_Previous_Day_Carryover]]
+- [[No_Confluence_Assumption_Before_Testing]]
+- [[Research_Memory_Versus_Decision_Memory]]
+- [[CG_Independence_As_Anti_Overfit_Guardrail]]
+- [[Same_Day_Only_Decision_Field]]
+- [[Signal_Separation_By_Cycle_Group_And_Direction]]

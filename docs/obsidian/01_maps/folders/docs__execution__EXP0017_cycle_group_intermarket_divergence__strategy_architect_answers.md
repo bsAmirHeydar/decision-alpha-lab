@@ -1,20 +1,17 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-این فولدر پاسخ‌های معمار استراتژی برای EXP0017 را به سندهای قابل توسعه تبدیل می‌کند.
+این پوشه پاسخ‌های معمار استراتژی برای EXP0017 را نگهداری می‌کند.
 
 ## فصل‌های موجود
 
-- CH01 — Strategy Identity
-- CH02 — Market Relationship
-- CH03 — Hunt Doctrine
-- CH04 — Reference Scope
-- CH05 — Cycle Group Doctrine
-- CH06 — CG Neutrality
-- CH07 — Time Validity
-- CH08 — Close Confirmation
-- CH09 — Clean Symbol Execution
-- CH10 — Risk, Invalidation and Time Exit
-
-## فصل ۱۰
-
-فصل ۱۰، خروج، استاپ، ریسک و برآیند دلاری را تعریف می‌کند. این فصل پایه‌ی تبدیل هر سیگنال به نتیجه‌ی قابل مقایسه است.
+- CH01 — Strategy identity
+- CH02 — Market relationship
+- CH03 — Hunt doctrine
+- CH04 — Reference scope
+- CH05 — Cycle group doctrine
+- CH06 — CG neutrality
+- CH07 — Time validity
+- CH08 — Close confirmation
+- CH09 — Clean symbol execution
+- CH10 — Risk and time exit
+- CH11 — Cycle group independence and daily reset
