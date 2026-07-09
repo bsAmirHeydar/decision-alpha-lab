@@ -1,0 +1,3 @@
+feat(gartal-terminal): implement stage 07 alert engine state machine
+
+Implement the seventh coding stage for gartal terminal. Add deterministic alert engine with event-stage key ledger, duplicate prevention, cooldown, non-overlap pre-alert bands, release window alerts, actual-value alerts, breaking-event alerts, runtime filter-aware eligibility, dashboard ALERTS toggle, alert delivery channels, log-only validation mode, alert diagnostics in runtime state, specification, validation script, canvas, patch docs, and English Obsidian implementation documentation. Keep event.time_broker as the single alert timing authority and keep the event store read-only during alert scans.

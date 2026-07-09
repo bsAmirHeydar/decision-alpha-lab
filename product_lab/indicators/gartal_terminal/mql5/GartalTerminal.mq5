@@ -1,14 +1,14 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 06 runtime filter engine            |
+//| gartal terminal - Stage 07 alert engine state machine            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.6.0"
-#property description       "gartal terminal - Stage 06 runtime filter engine"
+#property version           "0.7.0"
+#property description       "gartal terminal - Stage 07 alert engine state machine"
 
 // Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
@@ -17,6 +17,7 @@
 // - Stage 04 owns all chart timeline objects through the GT_TL_ namespace.
 // - Stage 05 upgrades the dashboard into the sellable terminal surface.
 // - Stage 06 turns dashboard filter chips into live runtime controls.
+// - Stage 07 adds deterministic alert state, de-duplication, and alert diagnostics.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -53,7 +54,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 06 runtime filter engine boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 07 alert engine state machine boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -69,7 +70,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 06 runtime filter engine boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 07 alert engine state machine boot completed.");
 
    return(INIT_SUCCEEDED);
 }

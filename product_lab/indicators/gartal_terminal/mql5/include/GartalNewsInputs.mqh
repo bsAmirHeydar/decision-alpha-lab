@@ -90,7 +90,7 @@ input bool   InpDashboardShowCurrencyButtons = true;
 input bool   InpDashboardShowFilterUtilities = true;
 input bool   InpDashboardClickRepaintsTimeline = true;
 
-input group "09 Alerts"
+input group "09 Alerts / Stage 07"
 input bool   InpEnableAlerts                 = true;
 input bool   InpAlertPopup                   = true;
 input bool   InpAlertSound                   = true;
@@ -103,6 +103,20 @@ input bool   InpAlertBefore5                 = true;
 input bool   InpAlertBefore1                 = false;
 input bool   InpAlertAtRelease               = true;
 input bool   InpAlertAfterActual             = false;
+input bool   InpAlertRespectRuntimeFilters   = true;
+input bool   InpAlertHighImpactOnly          = false;
+input bool   InpAlertIncludeMedium           = true;
+input bool   InpAlertIncludeLow              = false;
+input bool   InpAlertIncludeHoliday          = false;
+input bool   InpAlertSpeech                  = true;
+input bool   InpAlertBreaking                = true;
+input bool   InpAlertTentative               = true;
+input bool   InpAlertPastEvents              = false;
+input bool   InpAlertIncludeActualRow        = true;
+input bool   InpAlertIncludeForecastPrevious = true;
+input bool   InpAlertLogOnly                 = false;
+input int    InpAlertReleaseWindowSeconds    = 90;
+input int    InpAlertCooldownSeconds         = 10;
 input string InpAlertSoundFile               = "alert.wav";
 
 void GT_LoadConfig(GT_Config &config)
@@ -210,6 +224,20 @@ void GT_LoadConfig(GT_Config &config)
    config.alert_before_1 = InpAlertBefore1;
    config.alert_at_release = InpAlertAtRelease;
    config.alert_after_actual = InpAlertAfterActual;
+   config.alert_respect_runtime_filters = InpAlertRespectRuntimeFilters;
+   config.alert_high_impact_only = InpAlertHighImpactOnly;
+   config.alert_include_medium = InpAlertIncludeMedium;
+   config.alert_include_low = InpAlertIncludeLow;
+   config.alert_include_holiday = InpAlertIncludeHoliday;
+   config.alert_speech = InpAlertSpeech;
+   config.alert_breaking = InpAlertBreaking;
+   config.alert_tentative = InpAlertTentative;
+   config.alert_past_events = InpAlertPastEvents;
+   config.alert_include_actual_row = InpAlertIncludeActualRow;
+   config.alert_include_forecast_previous = InpAlertIncludeForecastPrevious;
+   config.alert_log_only = InpAlertLogOnly;
+   config.alert_release_window_seconds = GT_ClampInt(InpAlertReleaseWindowSeconds, 5, 900);
+   config.alert_cooldown_seconds = GT_ClampInt(InpAlertCooldownSeconds, GT_ALERT_MIN_COOLDOWN_SECONDS, GT_ALERT_MAX_COOLDOWN_SECONDS);
    config.alert_sound_file = InpAlertSoundFile;
 }
 
@@ -266,6 +294,12 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
       runtime.last_error = "Dashboard width is below the supported minimum.";
       ok = false;
    }
+
+   if(config.enable_alerts && !config.alert_popup && !config.alert_sound && !config.alert_push && !config.alert_email && !config.alert_log_only)
+      runtime.last_warning = "Alerts are enabled but no delivery channel is active.";
+
+   if(config.alert_high_impact_only && (config.alert_include_medium || config.alert_include_low || config.alert_include_holiday))
+      runtime.last_warning = "AlertHighImpactOnly overrides medium/low/holiday alert inclusion flags.";
 
    return ok;
 }

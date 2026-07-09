@@ -29,6 +29,18 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.filter_last_change_at = 0;
    runtime.filter_last_action = "";
 
+   runtime.alert_scan_count = 0;
+   runtime.alert_last_scanned_events = 0;
+   runtime.alert_last_visible_candidates = 0;
+   runtime.alert_last_sent_count = 0;
+   runtime.alert_last_suppressed_count = 0;
+   runtime.alert_last_scan_at = 0;
+   runtime.alert_last_sent_at = 0;
+   runtime.alert_last_stage = "";
+   runtime.alert_last_event_id = "";
+   runtime.alert_last_message = "";
+   runtime.alert_last_summary = "not scanned";
+
    runtime.time_normalization_ok = false;
    runtime.time_snapshot_server = 0;
    runtime.time_snapshot_gmt = 0;

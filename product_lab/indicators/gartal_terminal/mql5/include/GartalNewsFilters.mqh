@@ -175,6 +175,11 @@ bool GT_HandleSpecialFilterClick(string object_name, GT_FilterState &filters)
       filters.only_symbol = !filters.only_symbol;
       return true;
    }
+   if(GT_ObjectNameHas(object_name, "FLT_ALERTS"))
+   {
+      filters.alerts_enabled = !filters.alerts_enabled;
+      return true;
+   }
    return false;
 }
 

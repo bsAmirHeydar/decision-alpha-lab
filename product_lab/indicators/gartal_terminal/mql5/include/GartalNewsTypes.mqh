@@ -65,6 +65,19 @@
 #define GT_FILTER_BUTTON_HEIGHT            20
 #define GT_FILTER_BUTTON_GAP                6
 
+#define GT_ALERT_STAGE_PRE_60M             "PRE_60M"
+#define GT_ALERT_STAGE_PRE_30M             "PRE_30M"
+#define GT_ALERT_STAGE_PRE_15M             "PRE_15M"
+#define GT_ALERT_STAGE_PRE_5M              "PRE_5M"
+#define GT_ALERT_STAGE_PRE_1M              "PRE_1M"
+#define GT_ALERT_STAGE_RELEASE             "RELEASE"
+#define GT_ALERT_STAGE_ACTUAL              "ACTUAL"
+#define GT_ALERT_STAGE_BREAKING            "BREAKING"
+
+#define GT_ALERT_MIN_COOLDOWN_SECONDS       0
+#define GT_ALERT_MAX_COOLDOWN_SECONDS    3600
+#define GT_ALERT_DEFAULT_RELEASE_WINDOW    90
+
 struct GT_NewsEvent
 {
    string   id;
@@ -244,6 +257,22 @@ struct GT_Config
    bool   alert_before_1;
    bool   alert_at_release;
    bool   alert_after_actual;
+
+   // Stage 07 alert engine controls.
+   bool   alert_respect_runtime_filters;
+   bool   alert_high_impact_only;
+   bool   alert_include_medium;
+   bool   alert_include_low;
+   bool   alert_include_holiday;
+   bool   alert_speech;
+   bool   alert_breaking;
+   bool   alert_tentative;
+   bool   alert_past_events;
+   bool   alert_include_actual_row;
+   bool   alert_include_forecast_previous;
+   bool   alert_log_only;
+   int    alert_release_window_seconds;
+   int    alert_cooldown_seconds;
    string alert_sound_file;
 };
 
@@ -264,8 +293,25 @@ struct GT_FilterState
 
 struct GT_AlertState
 {
-   string sent_keys[GT_MAX_ALERT_KEYS];
-   int    sent_count;
+   string   sent_keys[GT_MAX_ALERT_KEYS];
+   datetime sent_times[GT_MAX_ALERT_KEYS];
+   string   sent_event_ids[GT_MAX_ALERT_KEYS];
+   string   sent_stages[GT_MAX_ALERT_KEYS];
+   int      sent_count;
+
+   datetime last_sent_at;
+   string   last_sent_key;
+   string   last_sent_stage;
+   string   last_event_id;
+   string   last_message;
+
+   int      total_sent;
+   int      pre_alerts_sent;
+   int      release_alerts_sent;
+   int      actual_alerts_sent;
+   int      breaking_alerts_sent;
+   int      suppressed_count;
+   int      duplicate_count;
 };
 
 struct GT_RuntimeState
@@ -299,6 +345,19 @@ struct GT_RuntimeState
    int      filter_change_count;
    datetime filter_last_change_at;
    string   filter_last_action;
+
+   // Stage 07 alert diagnostics.
+   int      alert_scan_count;
+   int      alert_last_scanned_events;
+   int      alert_last_visible_candidates;
+   int      alert_last_sent_count;
+   int      alert_last_suppressed_count;
+   datetime alert_last_scan_at;
+   datetime alert_last_sent_at;
+   string   alert_last_stage;
+   string   alert_last_event_id;
+   string   alert_last_message;
+   string   alert_last_summary;
 
    // Stage 03 diagnostic snapshot.
    bool     time_normalization_ok;

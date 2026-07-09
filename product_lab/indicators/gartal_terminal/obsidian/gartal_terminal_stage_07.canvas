@@ -1,0 +1,17 @@
+{
+  "nodes": [
+    {"id":"stage07","type":"text","text":"Stage 07\nAlert Engine + State Machine","x":0,"y":0,"width":300,"height":120},
+    {"id":"eligibility","type":"text","text":"Eligibility\nConfig + Filters + Event Window","x":360,"y":0,"width":280,"height":120},
+    {"id":"stages","type":"text","text":"Stages\n60/30/15/5/1\nRelease / Actual / Breaking","x":720,"y":0,"width":300,"height":140},
+    {"id":"ledger","type":"text","text":"Duplicate Ledger\nevent.id + stage","x":360,"y":190,"width":280,"height":110},
+    {"id":"delivery","type":"text","text":"Delivery\nPopup / Sound / Push / Email / Log-only","x":720,"y":190,"width":300,"height":120},
+    {"id":"diag","type":"text","text":"Diagnostics\nalert_last_summary\nlast sent stage/message","x":0,"y":190,"width":300,"height":120}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"stage07","fromSide":"right","toNode":"eligibility","toSide":"left"},
+    {"id":"e2","fromNode":"eligibility","fromSide":"right","toNode":"stages","toSide":"left"},
+    {"id":"e3","fromNode":"stages","fromSide":"bottom","toNode":"ledger","toSide":"right"},
+    {"id":"e4","fromNode":"ledger","fromSide":"right","toNode":"delivery","toSide":"left"},
+    {"id":"e5","fromNode":"delivery","fromSide":"left","toNode":"diag","toSide":"right"}
+  ]
+}
