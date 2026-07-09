@@ -1,11 +1,5 @@
-# Folder Map — strategy_architect_answers
+# Folder Map — EXP0017 Strategy Architect Answers
 
-این پوشه پاسخ‌های معمار استراتژی برای EXP0017 را به اسناد قابل ارجاع تبدیل می‌کند.
+This folder contains the strategy-architect answer documentation for EXP0017 Cycle Group Intermarket Divergence.
 
-## Chapter 19 additions
-
-- CH19 direction, conflict, cycle independence
-- CH19 research translation
-- CH19 late entry and large stop doctrine
-- CH19 post-confirmation invalidation
-- CH19 hypothesis register
+Chapter 20 adds version governance, non-mutation doctrine, future optimization gates, and CG overlap complexity framing.

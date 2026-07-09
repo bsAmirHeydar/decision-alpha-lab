@@ -1,22 +1,29 @@
 # CG Strategy Architect Answers MOC
 
-## EXP0017 — پاسخ‌های معمار استراتژی
+## EXP0017 — Strategy Architect Answer Layers
 
-این MOC به فصل‌های پاسخ‌داده‌شده برای معماری استراتژی CG Intermarket Divergence وصل است.
+This MOC indexes strategy-architect answer chapters for the Cycle Group Intermarket Divergence model.
 
-### فصل ۱۹
+## Chapter 20 — Version Governance and Future Optimization Boundary
 
-- [[CG_Chapter_19_Conflict_Independence_Doctrine]]
-- [[High_Hunt_Sell_Low_Hunt_Buy_Doctrine]]
-- [[Direction_Independence_Buy_Sell]]
-- [[CG_And_Internal_Cycle_Independence]]
-- [[Same_And_Opposite_Direction_Signal_Clusters]]
-- [[Late_Entry_And_Large_Stop_Are_Not_Base_Filters]]
-- [[Post_Confirmation_Invalidation_Doctrine]]
-- [[Non_Divergence_Behavior_Backlog]]
-- [[Signal_Count_Does_Not_Change_Validity]]
-- [[Statistics_Important_But_Not_Strategy_Mutating]]
+- [[CG_Chapter_20_Version_Governance_Doctrine]]
+- [[Current_Strategy_No_Mutation_By_Model]]
+- [[Future_Optimization_Version_Gate]]
+- [[Statistical_Mode_Before_Optimization_Mode]]
+- [[Strategy_Architect_Decides_After_Statistics]]
+- [[CG_Overlap_As_Model_Complexity_Source]]
+- [[Repeated_Questions_As_Existing_Doctrine_References]]
+- [[Unknown_Recommendations_Do_Not_Change_Strategy]]
+- [[Future_Decisions_Backlog]]
+- [[Versioned_Strategy_Evolution_Doctrine]]
 
-### اصل مادر فصل ۱۹
+## Decision maps
 
-> واگرایی معتبر، تا وقتی در لحظه تأیید یا بعد از آن باطل نشده، باید مستقل ثبت شود. هیچ CG، سایکل، جهت، تعداد سیگنال، ورود دیرهنگام، استاپ بزرگ یا نتیجه قبلی، قبل از آمار حق حذف آن را ندارد.
+- [[CG_Chapter_20_Decision_Map]]
+- [[CH20_Strategy_Mutation_Boundary_Map]]
+- [[CH20_Future_Optimization_Gate_Map]]
+- [[CH20_CG_Overlap_Complexity_Map]]
+
+## Checklist
+
+- [[CH20_Strategy_Architect_Review_Checklist]]
