@@ -1,14 +1,14 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 05 luxury dashboard UI renderer            |
+//| gartal terminal - Stage 06 runtime filter engine            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.5.0"
-#property description       "gartal terminal - Stage 05 luxury dashboard UI renderer"
+#property version           "0.6.0"
+#property description       "gartal terminal - Stage 06 runtime filter engine"
 
 // Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
@@ -16,6 +16,7 @@
 // - Stage 03 time_broker remains the only rendering and alert time authority.
 // - Stage 04 owns all chart timeline objects through the GT_TL_ namespace.
 // - Stage 05 upgrades the dashboard into the sellable terminal surface.
+// - Stage 06 turns dashboard filter chips into live runtime controls.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -26,6 +27,7 @@
 #include "include/GartalNewsSampleData.mqh"
 #include "include/GartalNewsCalendarClient.mqh"
 #include "include/GartalNewsParser.mqh"
+#include "include/GartalNewsFilters.mqh"
 #include "include/GartalNewsDashboardTheme.mqh"
 #include "include/GartalNewsDashboard.mqh"
 #include "include/GartalNewsChartGeometry.mqh"
@@ -51,7 +53,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 05 luxury dashboard UI renderer boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 06 runtime filter engine boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -67,7 +69,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 05 luxury dashboard UI renderer boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 06 runtime filter engine boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -121,7 +123,10 @@ void OnChartEvent(const int id,
    if(id == CHARTEVENT_OBJECT_CLICK)
    {
       if(GT_HandleDashboardClick(sparam, g_filters, g_config, g_runtime))
+      {
+         GT_UpdateStoreMetrics(g_store, g_filters);
          GT_RedrawAll();
+      }
    }
 
    if(id == CHARTEVENT_CHART_CHANGE)

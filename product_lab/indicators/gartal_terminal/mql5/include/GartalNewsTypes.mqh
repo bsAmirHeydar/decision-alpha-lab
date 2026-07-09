@@ -61,6 +61,10 @@
 #define GT_DASHBOARD_MIN_WIDTH           420
 #define GT_DASHBOARD_MAX_WIDTH          1200
 
+#define GT_FILTER_MAX_CURRENCY_BUTTONS      9
+#define GT_FILTER_BUTTON_HEIGHT            20
+#define GT_FILTER_BUTTON_GAP                6
+
 struct GT_NewsEvent
 {
    string   id;
@@ -213,6 +217,14 @@ struct GT_Config
    bool   dashboard_show_event_table;
    bool   dashboard_show_mini_tape;
    bool   dashboard_use_luxury_theme;
+
+   // Stage 06 runtime dashboard filter controls.
+   bool   dashboard_enable_click_filters;
+   bool   dashboard_enable_currency_toggles;
+   bool   dashboard_show_currency_buttons;
+   bool   dashboard_show_filter_utilities;
+   bool   dashboard_click_repaints_timeline;
+
    color  dashboard_bg_color;
    color  dashboard_panel_color;
    color  dashboard_border_color;
@@ -282,6 +294,11 @@ struct GT_RuntimeState
    int      dashboard_last_cards;
    datetime dashboard_last_render_at;
    string   dashboard_last_render_summary;
+
+   // Stage 06 runtime filter diagnostics.
+   int      filter_change_count;
+   datetime filter_last_change_at;
+   string   filter_last_action;
 
    // Stage 03 diagnostic snapshot.
    bool     time_normalization_ok;

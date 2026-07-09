@@ -103,7 +103,12 @@ int GT_DashboardHeight(GT_Config &config)
    if(config.dashboard_show_next_card)  height += 72;
    if(config.dashboard_show_high_card && config.dashboard_mode == GT_DASHBOARD_MODE_PRO) height += 48;
    if(config.dashboard_show_metrics)    height += 48;
-   if(config.dashboard_show_filter_bar) height += 44;
+   if(config.dashboard_show_filter_bar)
+   {
+      height += 48;
+      if(config.dashboard_show_currency_buttons) height += 28;
+      if(config.dashboard_show_filter_utilities) height += 28;
+   }
    if(config.dashboard_show_mini_tape)  height += 42;
    if(config.dashboard_show_event_table) height += 28 + config.dashboard_rows * config.dashboard_row_height;
    if(config.show_time_debug || config.show_timeline_debug) height += 22;

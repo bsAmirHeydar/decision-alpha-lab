@@ -25,6 +25,10 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.dashboard_last_render_at = 0;
    runtime.dashboard_last_render_summary = "";
 
+   runtime.filter_change_count = 0;
+   runtime.filter_last_change_at = 0;
+   runtime.filter_last_action = "";
+
    runtime.time_normalization_ok = false;
    runtime.time_snapshot_server = 0;
    runtime.time_snapshot_gmt = 0;

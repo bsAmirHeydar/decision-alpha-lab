@@ -2,9 +2,9 @@
 #define GARTAL_NEWS_DASHBOARD_MQH
 
 //+------------------------------------------------------------------+
-//| Stage 05 Dashboard Doctrine                                      |
-//| This module owns the visual terminal surface only. It does not    |
-//| mutate filters yet. Runtime interactivity is reserved for Stage 06.|
+//| Stage 06 Dashboard Doctrine                                      |
+//| This module renders the terminal surface and forwards object-click |
+//| events to the runtime filter engine. The store remains read-only.  |
 //+------------------------------------------------------------------+
 
 void GT_ClearObjects(string prefix)
@@ -67,6 +67,19 @@ void GT_DashBadge(string name, int corner, int x, int y, int width, string text,
    GT_Rect(name + "_BG", corner, x, y, width, 20, bg, border);
    GT_Label(name + "_TXT", corner, x + 8, y + 4, text, fg, 8, "Segoe UI Semibold");
 }
+
+void GT_DashFilterButton(string name, int corner, int x, int y, int width, string text, bool active, color active_color, GT_Config &config, string tooltip)
+{
+   color border = active ? active_color : clrDimGray;
+   color fg = active ? active_color : clrDimGray;
+   color bg = clrBlack;
+
+   GT_Rect(name + "_BG", corner, x, y, width, GT_FILTER_BUTTON_HEIGHT, bg, border);
+   GT_Label(name + "_TXT", corner, x + 8, y + 4, text, fg, 8, "Segoe UI Semibold");
+   ObjectSetString(0, name + "_BG", OBJPROP_TOOLTIP, tooltip);
+   ObjectSetString(0, name + "_TXT", OBJPROP_TOOLTIP, tooltip);
+}
+
 
 void GT_DashMetric(string name, int corner, int x, int y, int width, string label, string value, color value_color, GT_Config &config)
 {
@@ -208,22 +221,51 @@ void GT_RenderDashboardFilterBar(string prefix, int corner, int x, int y, int wi
    if(!config.dashboard_show_filter_bar)
       return;
 
-   GT_Label(prefix + "FILTER_TITLE", corner, x + 16, y, "FILTER PREVIEW", GT_DashMuted(config), 8, "Segoe UI Semibold");
+   string tooltip = GT_FilterTooltip(filters);
+   GT_Label(prefix + "FILTER_TITLE", corner, x + 16, y, "LIVE FILTERS", GT_DashMuted(config), 8, "Segoe UI Semibold");
+   GT_Label(prefix + "FILTER_STATUS", corner, x + width - 258, y, "clickable=" + GT_BoolText(config.dashboard_enable_click_filters) + " | dashboard runtime controls", clrDarkGray, 8, "Consolas");
 
-   int bx = x + 116;
-   GT_DashBadge(prefix + "F_HIGH", corner, bx, y - 3, 54, filters.show_high ? "RED ON" : "RED OFF", clrBlack, filters.show_high ? clrTomato : clrDimGray, filters.show_high ? clrTomato : clrDimGray);
-   bx += 62;
-   GT_DashBadge(prefix + "F_MED", corner, bx, y - 3, 66, filters.show_medium ? "ORG ON" : "ORG OFF", clrBlack, filters.show_medium ? clrOrange : clrDimGray, filters.show_medium ? clrOrange : clrDimGray);
-   bx += 74;
-   GT_DashBadge(prefix + "F_LOW", corner, bx, y - 3, 66, filters.show_low ? "YLW ON" : "YLW OFF", clrBlack, filters.show_low ? clrGold : clrDimGray, filters.show_low ? clrGold : clrDimGray);
-   bx += 74;
-   GT_DashBadge(prefix + "F_SPC", corner, bx, y - 3, 72, filters.show_speech ? "SPC ON" : "SPC OFF", clrBlack, filters.show_speech ? clrDeepSkyBlue : clrDimGray, filters.show_speech ? clrDeepSkyBlue : clrDimGray);
-   bx += 80;
-   GT_DashBadge(prefix + "F_BRK", corner, bx, y - 3, 72, filters.show_breaking ? "BRK ON" : "BRK OFF", clrBlack, filters.show_breaking ? clrRed : clrDimGray, filters.show_breaking ? clrRed : clrDimGray);
+   int bx = x + 16;
+   int by = y + 16;
+   GT_DashFilterButton(prefix + "FLT_HIGH",   corner, bx, by, 76, GT_FilterButtonText("RED", filters.show_high), filters.show_high, clrTomato, config, tooltip); bx += 82;
+   GT_DashFilterButton(prefix + "FLT_MEDIUM", corner, bx, by, 86, GT_FilterButtonText("ORANGE", filters.show_medium), filters.show_medium, clrOrange, config, tooltip); bx += 92;
+   GT_DashFilterButton(prefix + "FLT_LOW",    corner, bx, by, 86, GT_FilterButtonText("YELLOW", filters.show_low), filters.show_low, clrGold, config, tooltip); bx += 92;
+   GT_DashFilterButton(prefix + "FLT_HOLIDAY",corner, bx, by, 86, GT_FilterButtonText("HOL", filters.show_holiday), filters.show_holiday, clrSilver, config, tooltip); bx += 92;
+   GT_DashFilterButton(prefix + "FLT_SPEECH", corner, bx, by, 88, GT_FilterButtonText("SPEECH", filters.show_speech), filters.show_speech, clrDeepSkyBlue, config, tooltip); bx += 94;
+   GT_DashFilterButton(prefix + "FLT_BREAKING", corner, bx, by, 88, GT_FilterButtonText("BREAK", filters.show_breaking), filters.show_breaking, clrRed, config, tooltip);
 
-   string ccy = "CCY: " + GT_CompactTitle(filters.currencies_csv, 48);
-   GT_Label(prefix + "FILTER_CCY", corner, x + 16, y + 22, ccy, clrDarkGray, 8, "Consolas");
+   by += 26;
+   bx = x + 16;
+   GT_DashFilterButton(prefix + "FLT_TENTATIVE", corner, bx, by, 94, GT_FilterButtonText("TENT", filters.show_tentative), filters.show_tentative, clrMediumPurple, config, tooltip); bx += 100;
+   GT_DashFilterButton(prefix + "FLT_PAST", corner, bx, by, 94, GT_FilterButtonText("PAST", filters.show_past_events), filters.show_past_events, clrLightSlateGray, config, tooltip); bx += 100;
+   GT_DashFilterButton(prefix + "FLT_SYMBOL", corner, bx, by, 116, GT_FilterButtonText("SYMBOL", filters.only_symbol), filters.only_symbol, GT_DashAccent(config), config, tooltip);
+   GT_Label(prefix + "FILTER_SUMMARY", corner, bx + 126, by + 4, GT_CompactTitle(GT_FilterSummary(filters), 70), clrDarkGray, 8, "Consolas");
+
+   if(config.dashboard_show_currency_buttons)
+   {
+      by += 28;
+      bx = x + 16;
+      string ccy[9] = {"USD", "EUR", "GBP", "JPY", "CHF", "CAD", "AUD", "NZD", "CNY"};
+      for(int i=0; i<9; i++)
+      {
+         bool active = GT_CsvContains(filters.currencies_csv, ccy[i]);
+         color c = active ? GT_DashAccent(config) : clrDimGray;
+         GT_DashFilterButton(prefix + "FLT_CCY_" + ccy[i], corner, bx, by, 58, ccy[i], active, c, config, tooltip);
+         bx += 64;
+      }
+   }
+
+   if(config.dashboard_show_filter_utilities)
+   {
+      by += 28;
+      bx = x + 16;
+      GT_DashFilterButton(prefix + "FLT_RED_ONLY", corner, bx, by, 90, "RED ONLY", true, clrTomato, config, tooltip); bx += 96;
+      GT_DashFilterButton(prefix + "FLT_ALL_IMPACT", corner, bx, by, 94, "ALL IMP", true, clrSilver, config, tooltip); bx += 100;
+      GT_DashFilterButton(prefix + "FLT_MAJOR_CCY", corner, bx, by, 104, "ALL CCY", true, GT_DashAccent(config), config, tooltip); bx += 110;
+      GT_DashFilterButton(prefix + "FLT_RESET", corner, bx, by, 82, "RESET", true, clrMediumSeaGreen, config, tooltip);
+   }
 }
+
 
 void GT_RenderDashboardMiniTape(string prefix, int corner, int x, int y, int width, GT_Config &config, GT_NewsStore &store, GT_FilterState &filters)
 {
@@ -299,8 +341,10 @@ void GT_RenderDashboardDebug(string prefix, int corner, int x, int y, int width,
 
    string dbg = "window=" + GT_FormatDateWindow(store.window_from_broker, store.window_to_broker) +
                 " | tl=" + runtime.timeline_last_render_summary +
-                " | dash=" + runtime.dashboard_last_render_summary;
-   GT_Label(prefix + "DEBUG", corner, x + 16, y, GT_CompactTitle(dbg, 110), clrDarkSlateGray, 8, "Consolas");
+                " | dash=" + runtime.dashboard_last_render_summary +
+                " | filters=" + IntegerToString(runtime.filter_change_count) +
+                " | last=" + runtime.filter_last_action;
+   GT_Label(prefix + "DEBUG", corner, x + 16, y, GT_CompactTitle(dbg, 128), clrDarkSlateGray, 8, "Consolas");
 }
 
 void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &filters, GT_RuntimeState &runtime)
@@ -362,7 +406,10 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
    if(config.dashboard_show_filter_bar)
    {
       GT_RenderDashboardFilterBar(prefix, corner, x, cursor + 4, width, config, filters);
-      cursor += 46;
+      int filter_height = 48;
+      if(config.dashboard_show_currency_buttons) filter_height += 28;
+      if(config.dashboard_show_filter_utilities) filter_height += 28;
+      cursor += filter_height;
       runtime.dashboard_last_cards++;
    }
 
@@ -387,14 +434,16 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
                                            " width=" + IntegerToString(width) +
                                            " height=" + IntegerToString(height) +
                                            " cards=" + IntegerToString(runtime.dashboard_last_cards) +
-                                           " rows=" + IntegerToString(runtime.dashboard_last_rows);
+                                           " rows=" + IntegerToString(runtime.dashboard_last_rows) +
+                                           " filters=" + IntegerToString(runtime.filter_change_count);
 }
 
 bool GT_HandleDashboardClick(string object_name, GT_FilterState &filters, GT_Config &config, GT_RuntimeState &runtime)
 {
-   // Stage 05 renders the luxury terminal surface only. Stage 06 will mutate
-   // GT_FilterState from these dashboard object namespaces.
-   return false;
+   if(StringFind(object_name, config.object_prefix + "DASH_") != 0)
+      return false;
+
+   return GT_HandleRuntimeFilterClick(object_name, filters, config, runtime);
 }
 
 void GT_UpdateCountdowns(GT_Config &config, GT_NewsStore &store, GT_FilterState &filters, GT_RuntimeState &runtime)

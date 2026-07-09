@@ -1,13 +1,13 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 05"
+input group "01 Data Source / Stage 06"
 input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
 input bool   InpUseSampleData                = true;       // Stage 03 default: true. Direct source begins in Stage 08.
 input bool   InpUseCache                     = true;
 input int    InpRefreshMinutes               = 5;
 
-input group "02 Time and Broker GMT / Stage 05"
+input group "02 Time and Broker GMT / Stage 06"
 input int    InpBrokerGMTMode                = 0;          // 0 Auto, 1 Manual, 2 Hybrid(auto unless invalid)
 input bool   InpAutoDetectBrokerGMT          = true;       // compatibility alias; false forces manual mode
 input int    InpBrokerGMTOffsetHours         = 0;          // manual broker GMT hours, e.g. 2 or 3
@@ -56,7 +56,7 @@ input int    InpTimelineProjectionMinutes    = 720;        // future render hori
 input int    InpPreNewsZoneMinutes           = 15;
 input int    InpPostNewsZoneMinutes          = 15;
 
-input group "07 Luxury Dashboard / Stage 05"
+input group "07 Luxury Dashboard / Stage 06"
 input bool   InpShowDashboard                = true;
 input bool   InpCleanObjectsOnDeinit         = true;
 input string InpObjectPrefix                 = "GT_";
@@ -83,7 +83,14 @@ input color  InpDashboardTextColor           = clrWhite;
 input color  InpDashboardMutedColor          = clrSilver;
 input color  InpDashboardAccentColor         = clrDeepSkyBlue;
 
-input group "08 Alerts"
+input group "08 Runtime Dashboard Filters / Stage 06"
+input bool   InpDashboardEnableClickFilters  = true;
+input bool   InpDashboardCurrencyToggles     = true;
+input bool   InpDashboardShowCurrencyButtons = true;
+input bool   InpDashboardShowFilterUtilities = true;
+input bool   InpDashboardClickRepaintsTimeline = true;
+
+input group "09 Alerts"
 input bool   InpEnableAlerts                 = true;
 input bool   InpAlertPopup                   = true;
 input bool   InpAlertSound                   = true;
@@ -179,6 +186,11 @@ void GT_LoadConfig(GT_Config &config)
    config.dashboard_show_event_table = InpDashboardShowEventTable;
    config.dashboard_show_mini_tape = InpDashboardShowMiniTape;
    config.dashboard_use_luxury_theme = InpDashboardLuxuryTheme;
+   config.dashboard_enable_click_filters = InpDashboardEnableClickFilters;
+   config.dashboard_enable_currency_toggles = InpDashboardCurrencyToggles;
+   config.dashboard_show_currency_buttons = InpDashboardShowCurrencyButtons;
+   config.dashboard_show_filter_utilities = InpDashboardShowFilterUtilities;
+   config.dashboard_click_repaints_timeline = InpDashboardClickRepaintsTimeline;
    config.dashboard_bg_color = InpDashboardBgColor;
    config.dashboard_panel_color = InpDashboardPanelColor;
    config.dashboard_border_color = InpDashboardBorderColor;

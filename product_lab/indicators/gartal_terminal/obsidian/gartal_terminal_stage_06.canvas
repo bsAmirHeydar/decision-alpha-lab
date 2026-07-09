@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {"id":"stage06","type":"text","text":"Stage 06\nRuntime Filter Engine","x":0,"y":0,"width":260,"height":120},
+    {"id":"click","type":"text","text":"OnChartEvent\nDashboard Click","x":340,"y":0,"width":240,"height":100},
+    {"id":"filters","type":"text","text":"GartalNewsFilters.mqh\nMutable GT_FilterState","x":680,"y":0,"width":280,"height":120},
+    {"id":"metrics","type":"text","text":"GT_UpdateStoreMetrics\nvisible + next pointers","x":1020,"y":0,"width":280,"height":120},
+    {"id":"render","type":"text","text":"GT_RedrawAll\nTimeline + Dashboard","x":1360,"y":0,"width":280,"height":120}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"stage06","fromSide":"right","toNode":"click","toSide":"left"},
+    {"id":"e2","fromNode":"click","fromSide":"right","toNode":"filters","toSide":"left"},
+    {"id":"e3","fromNode":"filters","fromSide":"right","toNode":"metrics","toSide":"left"},
+    {"id":"e4","fromNode":"metrics","fromSide":"right","toNode":"render","toSide":"left"}
+  ]
+}
