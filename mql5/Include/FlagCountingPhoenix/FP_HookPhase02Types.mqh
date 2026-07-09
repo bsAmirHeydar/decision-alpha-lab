@@ -363,7 +363,7 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.show_only_valid_hooks = false;
    cfg.valid_only_require_near_death = false;
    cfg.valid_f3_require_same_scale = false;
-   cfg.valid_f3_require_opposite_direction = false;
+   cfg.valid_f3_require_opposite_direction = true;
    cfg.valid_only_fallback_to_structural = false;
 
    cfg.export_csv = false;

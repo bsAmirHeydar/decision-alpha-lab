@@ -827,6 +827,57 @@ void FP_HookP02NormalizeHookGroupTerminals(FP_HookPhase02Sequence &sequences[],
    }
 }
 
+bool FP_HookP02SequenceCycleClosed(const FP_HookPhase02Sequence &seq)
+{
+   // Canon: Hook-1 may validate Hook-2 only after its own sequence/cycle has
+   // reached a structural terminal. Near-death rendering readiness is not part
+   // of this structural test.
+   if(!seq.valid)
+      return false;
+   if(seq.hook_failed)
+      return false;
+   if(seq.origin_node_id < 0 || seq.resolve_node_id < 0)
+      return false;
+   if(seq.resolve_time <= 0 || seq.origin_time <= 0)
+      return false;
+   if(seq.resolve_time < seq.origin_time)
+      return false;
+   return true;
+}
+
+bool FP_HookP02SameHookGenus(const FP_HookPhase02Sequence &a,
+                             const FP_HookPhase02Sequence &b)
+{
+   // User canon: Hook-after-Hook requires both hooks to be هم‌جنس. In this
+   // engine that means the same Hook direction. Scale is metadata, not genus.
+   return (a.direction == b.direction);
+}
+
+bool FP_HookP02IsHookAfterHookChild(const FP_HookPhase02Sequence &child,
+                                    const FP_HookPhase02Sequence &parent)
+{
+   if(!FP_HookP02SequenceCycleClosed(parent))
+      return false;
+   if(!child.valid || child.hook_failed)
+      return false;
+   if(!FP_HookP02SameHookGenus(child, parent))
+      return false;
+   if(child.origin_node_id < 0 || parent.resolve_node_id < 0)
+      return false;
+
+   // Canonical continuity rule: the second Hook starts from the terminal node
+   // of the previous Hook. Raw terminal price/time is for drawing the cycle;
+   // structural node id is for chain ownership.
+   if(child.origin_node_id != parent.resolve_node_id)
+      return false;
+
+   if(parent.resolve_time > 0 && child.origin_time > 0 &&
+      parent.resolve_time > child.origin_time)
+      return false;
+
+   return true;
+}
+
 void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
                                         FP_HookPhase02Report &report)
 {
@@ -858,20 +909,7 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
       {
          if(i == j)
             continue;
-         if(sequences[j].scale_l != sequences[i].scale_l)
-            continue;
-         if(!sequences[j].valid || sequences[j].resolve_node_id < 0)
-            continue;
-
-         // Valid Hook-after-Hook doctrine:
-         // Hook-2 is valid when its origin node is exactly the structural terminal
-         // node of Hook-1. This is an exact node-continuity test; it is not a
-         // generic "some Hook happened before" test.
-         if(sequences[j].resolve_node_id != sequences[i].origin_node_id)
-            continue;
-
-         if(sequences[j].resolve_time > 0 && sequences[i].origin_time > 0 &&
-            sequences[j].resolve_time > sequences[i].origin_time)
+         if(!FP_HookP02IsHookAfterHookChild(sequences[i], sequences[j]))
             continue;
 
          if(best_parent < 0 ||
@@ -902,18 +940,6 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
    }
 }
 
-
-datetime FP_HookP02F3AnchorTime(const FP_FlagEvent &ev)
-{
-   if(ev.has_confirm && ev.confirm.time_anchor > 0)
-      return ev.confirm.time_anchor;
-   if(ev.has_leg2 && ev.leg2.time_anchor > 0)
-      return ev.leg2.time_anchor;
-   if(ev.has_extension && ev.extension_end.time_anchor > 0)
-      return ev.extension_end.time_anchor;
-   return 0;
-}
-
 bool FP_HookP02EventIsCompletedOrLockedF3(const FP_FlagEvent &ev)
 {
    if(ev.level != FP_LEVEL_F3)
@@ -925,21 +951,46 @@ bool FP_HookP02EventIsCompletedOrLockedF3(const FP_FlagEvent &ev)
    return false;
 }
 
-datetime FP_HookP02SequenceStartTime(const FP_HookPhase02Sequence &seq)
+datetime FP_HookP02NodeTime(const FP_Node &node)
 {
-   if(seq.x1_time > 0)
-      return seq.x1_time;
-   return seq.origin_time;
+   if(node.time_anchor > 0)
+      return node.time_anchor;
+   if(node.time_end > 0)
+      return node.time_end;
+   if(node.time_start > 0)
+      return node.time_start;
+   return 0;
+}
+
+double FP_HookP02NodePrice(const FP_Node &node)
+{
+   return node.price;
+}
+
+bool FP_HookP02PriceAlmostEqual(const double a,
+                                const double b)
+{
+   double tol = _Point * 2.0;
+   if(tol <= 0.0)
+      tol = MathMax(MathAbs(a), MathAbs(b)) * 0.0000001;
+   if(tol <= 0.0)
+      tol = 0.0000001;
+   return (MathAbs(a - b) <= tol);
+}
+
+bool FP_HookP02SequenceDirectionOpposesF3(const FP_FlagEvent &ev,
+                                          const FP_HookPhase02Sequence &seq)
+{
+   // Canon is not optional: a valid post-F3 Hook must oppose the F3 direction.
+   return (ev.direction == -((int)seq.direction));
 }
 
 bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
                                          const FP_HookPhase02Sequence &seq,
                                          const FP_HookPhase02Config &cfg)
 {
-   // The canonical doctrine is sequence-based, not display-based. Scale matching
-   // is therefore a configurable strictness layer. When enabled, an F3 validates
-   // only the immediate Hook on the same structural scale. When disabled, the
-   // first structural Hook after F3 may qualify even if the scale metadata differs.
+   // Scale strictness is still a research toggle. Genus/direction is canonical;
+   // same-scale matching is only an optional metadata filter.
    if(!cfg.valid_f3_require_same_scale)
       return true;
    if(ev.scale_L <= 0)
@@ -947,23 +998,92 @@ bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
    return (seq.scale_l == ev.scale_L);
 }
 
+bool FP_HookP02SequenceStartsAtNodeEndpoint(const FP_HookPhase02Sequence &seq,
+                                            const FP_Node &node,
+                                            datetime &endpoint_time,
+                                            double &endpoint_price)
+{
+   endpoint_time = FP_HookP02NodeTime(node);
+   endpoint_price = FP_HookP02NodePrice(node);
+   if(endpoint_time <= 0 || endpoint_price == 0.0)
+      return false;
+   if(seq.origin_time <= 0 || seq.origin_price == 0.0)
+      return false;
+   if(seq.origin_time < endpoint_time)
+      return false;
+
+   // The canonical phrase is: the Hook begins from the end of the opposing F3.
+   // In code, the safest available invariant is terminal price equality with a
+   // small platform-point tolerance; time may differ because confirmation is
+   // delayed, but price identity should remain anchored to the terminal side.
+   if(!FP_HookP02PriceAlmostEqual(seq.origin_price, endpoint_price))
+      return false;
+
+   return true;
+}
+
+bool FP_HookP02SequenceStartsAtF3Terminal(const FP_FlagEvent &ev,
+                                          const FP_HookPhase02Sequence &seq,
+                                          datetime &matched_time,
+                                          double &matched_price)
+{
+   matched_time = 0;
+   matched_price = 0.0;
+
+   // Prefer the latest/most terminal endpoint first. F3 can extend after its
+   // base body is built; a Hook after F3 should attach to the current terminal
+   // side, not to an early body anchor.
+   datetime t;
+   double p;
+   if(ev.has_extension && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.extension_end, t, p))
+   {
+      matched_time = t;
+      matched_price = p;
+      return true;
+   }
+   if(ev.has_confirm && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.confirm, t, p))
+   {
+      matched_time = t;
+      matched_price = p;
+      return true;
+   }
+   if(ev.has_leg2 && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.leg2, t, p))
+   {
+      matched_time = t;
+      matched_price = p;
+      return true;
+   }
+
+   return false;
+}
+
 int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
-                                       const datetime f3_time,
                                        const FP_HookPhase02Config &cfg,
-                                       const FP_HookPhase02Sequence &sequences[])
+                                       const FP_HookPhase02Sequence &sequences[],
+                                       datetime &matched_f3_terminal_time,
+                                       double &matched_f3_terminal_price)
 {
    int best_index = -1;
    datetime best_hook_time = 0;
+   datetime best_terminal_time = 0;
+   double best_terminal_price = 0.0;
 
    for(int i=0; i<ArraySize(sequences); i++)
    {
       if(!sequences[i].valid || sequences[i].hook_failed)
          continue;
+      if(!FP_HookP02SequenceDirectionOpposesF3(ev, sequences[i]))
+         continue;
       if(!FP_HookP02EventScaleMatchesSequence(ev, sequences[i], cfg))
          continue;
 
-      datetime hook_start = FP_HookP02SequenceStartTime(sequences[i]);
-      if(hook_start <= 0 || hook_start <= f3_time)
+      datetime terminal_time;
+      double terminal_price;
+      if(!FP_HookP02SequenceStartsAtF3Terminal(ev, sequences[i], terminal_time, terminal_price))
+         continue;
+
+      datetime hook_start = sequences[i].origin_time;
+      if(hook_start <= 0)
          continue;
 
       if(best_index < 0 ||
@@ -972,9 +1092,13 @@ int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
       {
          best_index = i;
          best_hook_time = hook_start;
+         best_terminal_time = terminal_time;
+         best_terminal_price = terminal_price;
       }
    }
 
+   matched_f3_terminal_time = best_terminal_time;
+   matched_f3_terminal_price = best_terminal_price;
    return best_index;
 }
 
@@ -984,9 +1108,9 @@ void FP_HookP02MarkSequenceAsOpposingF3Valid(FP_HookPhase02Sequence &seq,
    seq.valid_after_opposing_f3 = true;
    seq.valid_hook_family = true;
    if(seq.valid_after_hook)
-      seq.hook_validity_family = "HOOK_AFTER_HOOK_AND_IMMEDIATE_OPPOSING_F3";
+      seq.hook_validity_family = "HOOK_AFTER_HOOK_AND_OPPOSING_F3_TERMINAL";
    else
-      seq.hook_validity_family = "IMMEDIATE_HOOK_AFTER_OPPOSING_F3";
+      seq.hook_validity_family = "HOOK_AFTER_OPPOSING_F3_TERMINAL";
    seq.opposing_f3_event_id = ev.event_id;
 }
 
@@ -1000,28 +1124,25 @@ void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[
    // exact: previous terminal node == current origin node.
    FP_HookP02AnnotateValidityFamilies(sequences, report);
 
-   // Immediate opposing-F3 doctrine:
-   // A completed/locked F3 validates only the immediate next Hook on the same
-   // structural scale, and only if that Hook is in the opposite direction.
-   // It does not validate every later opposing Hook. If the immediate next Hook
-   // after F3 is not opposite, that F3 validates no Hook.
+   // Canonical opposing-F3 doctrine:
+   // A completed/locked F3 validates the first structural Hook that starts from
+   // one of that F3 terminal endpoints and opposes the F3 direction. A historical
+   // F3 does not validate arbitrary later Hooks.
    for(int e=0; e<event_count; e++)
    {
       FP_FlagEvent ev = events[e];
       if(!FP_HookP02EventIsCompletedOrLockedF3(ev))
          continue;
 
-      datetime f3_time = FP_HookP02F3AnchorTime(ev);
-      if(f3_time <= 0)
-         continue;
-
-      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, f3_time, cfg, sequences);
+      datetime matched_terminal_time;
+      double matched_terminal_price;
+      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, cfg, sequences,
+                                                               matched_terminal_time,
+                                                               matched_terminal_price);
       if(immediate_index < 0 || immediate_index >= ArraySize(sequences))
          continue;
 
-      if(!cfg.valid_f3_require_opposite_direction ||
-         ev.direction == -((int)sequences[immediate_index].direction))
-         FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[immediate_index], ev);
+      FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[immediate_index], ev);
    }
 
    report.valid_after_hook = 0;
