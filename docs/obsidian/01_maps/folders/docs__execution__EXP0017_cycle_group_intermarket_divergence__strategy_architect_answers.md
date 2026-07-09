@@ -1,11 +1,11 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-## Chapter 13
+## Chapter 14 Added
 
-- CH13_INDEX.md
-- CH13_statistical_uncertainty_and_no_manual_quality_doctrine.md
-- CH13_research_translation_and_statistical_mission.md
-- CH13_no_manual_preclassification_doctrine.md
-- CH13_future_idea_register_and_non_actionable_hypotheses.md
-- CH13_hypothesis_register.md
-- CH13_glossary_and_language.md
+- CH14_INDEX.md
+- CH14_statistical_testing_and_performance_metrics_doctrine.md
+- CH14_research_translation_and_statistical_mission.md
+- CH14_sample_size_metric_families_and_window_study.md
+- CH14_stop_streak_and_bad_winrate_guardrails.md
+- CH14_hypothesis_register.md
+- CH14_glossary_and_language.md
