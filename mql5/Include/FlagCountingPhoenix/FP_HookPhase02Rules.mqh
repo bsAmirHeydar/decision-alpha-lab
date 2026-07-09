@@ -1428,12 +1428,16 @@ int FP_HookP02BuildSequencesWithRates(const MqlRates &rates[],
                                       FP_HookPhase02Sequence &sequences[],
                                       FP_HookPhase02Report &report)
 {
+   // Canon correction, Phase 47:
+   // A Hook terminal is a confirmed same-side node, not a raw wick/candle
+   // extreme. The raw-terminal promotion layer made visible cycles stretch into
+   // unconfirmed price action and conflicted with the user's lifecycle rule:
+   // if origin is touched before the terminal node is confirmed, the candidate
+   // was never a Hook. Therefore the rate-aware wrapper now preserves the
+   // structural terminals produced by FP_HookP02BuildSequences.
+   //
+   // rates/copy remain in the signature for API compatibility with Phase 03-06.
    int built = FP_HookP02BuildSequences(nodes, cfg, sequences, report);
-   FP_HookP02PromoteRawPriceTerminals(sequences, rates, copied, cfg);
-   // Hook-after-Hook depends on structural node ids, while raw terminal promotion
-   // changes price/time only. Re-annotate to keep CSV/report counters consistent
-   // after terminal geometry promotion.
-   FP_HookP02AnnotateValidityFamilies(sequences, report);
    return built;
 }
 

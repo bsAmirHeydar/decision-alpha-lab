@@ -1082,39 +1082,18 @@ void FP_HookP02ExpandSelectionWithSameHookGroupMembers(const FP_HookPhase02Confi
                                                        const FP_HookPhase02Sequence &sequences[],
                                                        int &indexes[])
 {
-   if(!cfg.show_only_valid_hooks)
-      return;
-
-   // Valid-only view is Hook-scoped. Once a valid Hook is selected, draw labels
-   // only for the sequences that belong to that visible Hook's origin group.
-   // This prevents labels from unqualified Hook groups from leaking onto the chart,
-   // while preserving complete sequence readability inside the valid Hook itself.
-   int cursor = 0;
-   while(cursor < ArraySize(indexes))
-   {
-      int seed_index = indexes[cursor];
-      cursor++;
-
-      if(seed_index < 0 || seed_index >= ArraySize(sequences))
-         continue;
-
-      FP_HookPhase02Sequence seed = sequences[seed_index];
-      for(int i=0; i<ArraySize(sequences); i++)
-      {
-         if(FP_HookP02IndexAlreadySelected(indexes, i))
-            continue;
-         if(!FP_HookP02SameOriginGroup(seed, sequences[i]))
-            continue;
-         if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, sequences[i], false))
-            continue;
-
-         int k = ArraySize(indexes);
-         ArrayResize(indexes, k + 1);
-         indexes[k] = i;
-      }
-   }
-
-   FP_HookP02SortSelectedIndexesBySequenceId(sequences, indexes);
+   // Canon correction, Phase 47:
+   // valid-only production is NOT an origin-group expansion view.
+   // A selected valid Hook may draw only its own sequence row. The only
+   // non-valid row allowed into the visible set is the explicit parent
+   // companion of a valid Hook-after-Hook child, handled by
+   // FP_HookP02ExpandSelectionWithHookAfterHookParents.
+   //
+   // The older origin-group expansion was the source of the chart leakage: once
+   // one valid sequence in an origin group was selected, all sibling structural
+   // sequences from that group were drawn and labelled. That is exactly what the
+   // production canon forbids.
+   return;
 }
 
 bool FP_HookP02AlreadySelectedScaleDirection(const int &scales[],
