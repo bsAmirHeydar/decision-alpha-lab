@@ -65,6 +65,20 @@ enum FP_HookPhase02CycleArcEndMode
    FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME = 1
 };
 
+
+enum FP_HookPostF3RecognitionMode
+{
+   FP_HOOK_POST_F3_STRUCTURAL_ONLY = 0,
+   FP_HOOK_POST_F3_STRUCTURAL_OR_GEOMETRIC_80 = 1
+};
+
+enum FP_HookPostF3SelectionPriority
+{
+   FP_HOOK_POST_F3_PRIORITY_STRUCTURAL_FIRST = 0,
+   FP_HOOK_POST_F3_PRIORITY_EARLIEST_FIRST = 1,
+   FP_HOOK_POST_F3_PRIORITY_GEOMETRIC_FIRST = 2
+};
+
 struct FP_HookPhase02Config
 {
    bool enabled;
@@ -106,6 +120,15 @@ struct FP_HookPhase02Config
    bool valid_f3_require_same_scale;
    bool valid_f3_require_opposite_direction;
    bool valid_only_fallback_to_structural;
+
+   FP_HookPostF3RecognitionMode post_f3_recognition_mode;
+   FP_HookPostF3SelectionPriority post_f3_selection_priority;
+   bool post_f3_allow_direct_terminal_hook;
+   bool post_f3_allow_delayed_rebound_hook;
+   int post_f3_max_search_bars;
+   int post_f3_terminal_tolerance_bars;
+   int post_f3_terminal_tolerance_price_points;
+   double post_f3_geometric_min_completion_pct;
 
    bool export_csv;
    bool print_summary;
@@ -223,6 +246,11 @@ struct FP_HookPhase02Sequence
    bool valid_after_opposing_f3;
    bool valid_hook_family;
    string hook_validity_family;
+   string post_f3_subfamily;
+   bool post_f3_direct_terminal;
+   bool post_f3_delayed_rebound;
+   bool post_f3_geometric_80;
+   double post_f3_completion_pct;
    int previous_hook_sequence_id;
    int previous_hook_terminal_node_id;
    int opposing_f3_event_id;
@@ -366,6 +394,15 @@ void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
    cfg.valid_f3_require_opposite_direction = true;
    cfg.valid_only_fallback_to_structural = false;
 
+   cfg.post_f3_recognition_mode = FP_HOOK_POST_F3_STRUCTURAL_OR_GEOMETRIC_80;
+   cfg.post_f3_selection_priority = FP_HOOK_POST_F3_PRIORITY_STRUCTURAL_FIRST;
+   cfg.post_f3_allow_direct_terminal_hook = true;
+   cfg.post_f3_allow_delayed_rebound_hook = true;
+   cfg.post_f3_max_search_bars = 180;
+   cfg.post_f3_terminal_tolerance_bars = 3;
+   cfg.post_f3_terminal_tolerance_price_points = 20;
+   cfg.post_f3_geometric_min_completion_pct = 80.0;
+
    cfg.export_csv = false;
    cfg.print_summary = false;
    cfg.print_samples = false;
@@ -482,6 +519,11 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.valid_after_opposing_f3 = false;
    s.valid_hook_family = false;
    s.hook_validity_family = "UNQUALIFIED";
+   s.post_f3_subfamily = "";
+   s.post_f3_direct_terminal = false;
+   s.post_f3_delayed_rebound = false;
+   s.post_f3_geometric_80 = false;
+   s.post_f3_completion_pct = 0.0;
    s.previous_hook_sequence_id = -1;
    s.previous_hook_terminal_node_id = -1;
    s.opposing_f3_event_id = -1;

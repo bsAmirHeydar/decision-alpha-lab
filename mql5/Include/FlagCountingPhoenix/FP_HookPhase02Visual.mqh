@@ -977,9 +977,21 @@ string FP_HookP02CanonicalFamilyTag(const FP_HookPhase02Config &cfg,
       return "";
 
    if(seq.valid_after_hook && seq.valid_after_opposing_f3)
+   {
+      if(seq.post_f3_subfamily == "F3H_DIRECT_STRUCTURAL") return "F3H-D-S+HH";
+      if(seq.post_f3_subfamily == "F3H_DIRECT_GEOMETRIC_80") return "F3H-D80+HH";
+      if(seq.post_f3_subfamily == "F3H_DELAYED_STRUCTURAL") return "F3H-R-S+HH";
+      if(seq.post_f3_subfamily == "F3H_DELAYED_GEOMETRIC_80") return "F3H-R80+HH";
       return "F3H+HH";
+   }
    if(seq.valid_after_opposing_f3)
+   {
+      if(seq.post_f3_subfamily == "F3H_DIRECT_STRUCTURAL") return "F3H-D-S";
+      if(seq.post_f3_subfamily == "F3H_DIRECT_GEOMETRIC_80") return "F3H-D80";
+      if(seq.post_f3_subfamily == "F3H_DELAYED_STRUCTURAL") return "F3H-R-S";
+      if(seq.post_f3_subfamily == "F3H_DELAYED_GEOMETRIC_80") return "F3H-R80";
       return "F3H";
+   }
    if(seq.valid_after_hook)
       return "HH";
    if(parent_companion)
@@ -1003,7 +1015,13 @@ color FP_HookP02CanonicalFamilyColor(const FP_HookPhase02Config &cfg,
    if(seq.valid_after_hook && seq.valid_after_opposing_f3)
       return clrGold;
    if(seq.valid_after_opposing_f3)
+   {
+      if(seq.post_f3_subfamily == "F3H_DIRECT_STRUCTURAL") return clrMediumSeaGreen;
+      if(seq.post_f3_subfamily == "F3H_DIRECT_GEOMETRIC_80") return clrLimeGreen;
+      if(seq.post_f3_subfamily == "F3H_DELAYED_STRUCTURAL") return clrDarkTurquoise;
+      if(seq.post_f3_subfamily == "F3H_DELAYED_GEOMETRIC_80") return clrAqua;
       return clrMediumSeaGreen;
+   }
    if(seq.valid_after_hook)
       return clrDeepSkyBlue;
    if(parent_companion)

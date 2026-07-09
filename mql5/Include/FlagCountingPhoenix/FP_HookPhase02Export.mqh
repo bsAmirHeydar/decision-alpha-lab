@@ -28,7 +28,7 @@ string FP_HookP02SummaryPath(const FP_HookPhase02Config &cfg)
 
 string FP_HookP02SequenceHeader()
 {
-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,valid_after_hook,valid_after_opposing_f3,valid_hook_family,hook_validity_family,previous_hook_sequence_id,previous_hook_terminal_node_id,opposing_f3_event_id,death_boundary_price,capped,valid,source,reject_reason";
+   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,valid_after_hook,valid_after_opposing_f3,valid_hook_family,hook_validity_family,post_f3_subfamily,post_f3_direct_terminal,post_f3_delayed_rebound,post_f3_geometric_80,post_f3_completion_pct,previous_hook_sequence_id,previous_hook_terminal_node_id,opposing_f3_event_id,death_boundary_price,capped,valid,source,reject_reason";
 }
 
 string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
@@ -87,6 +87,11 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.valid_after_opposing_f3));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.valid_hook_family));
    row += "," + FP_HookP02SafeCsv(s.hook_validity_family);
+   row += "," + FP_HookP02SafeCsv(s.post_f3_subfamily);
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.post_f3_direct_terminal));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.post_f3_delayed_rebound));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.post_f3_geometric_80));
+   row += "," + DoubleToString(s.post_f3_completion_pct, 2);
    row += "," + IntegerToString(s.previous_hook_sequence_id);
    row += "," + IntegerToString(s.previous_hook_terminal_node_id);
    row += "," + IntegerToString(s.opposing_f3_event_id);

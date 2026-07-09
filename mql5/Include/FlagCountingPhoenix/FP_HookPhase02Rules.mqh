@@ -892,6 +892,11 @@ void FP_HookP02AnnotateValidityFamilies(FP_HookPhase02Sequence &sequences[],
       sequences[i].valid_after_opposing_f3 = false;
       sequences[i].valid_hook_family = false;
       sequences[i].hook_validity_family = "UNQUALIFIED";
+      sequences[i].post_f3_subfamily = "";
+      sequences[i].post_f3_direct_terminal = false;
+      sequences[i].post_f3_delayed_rebound = false;
+      sequences[i].post_f3_geometric_80 = false;
+      sequences[i].post_f3_completion_pct = 0.0;
       sequences[i].previous_hook_sequence_id = -1;
       sequences[i].previous_hook_terminal_node_id = -1;
       sequences[i].opposing_f3_event_id = -1;
@@ -998,13 +1003,46 @@ bool FP_HookP02EventScaleMatchesSequence(const FP_FlagEvent &ev,
    return (seq.scale_l == ev.scale_L);
 }
 
-bool FP_HookP02SequenceStartsAtNodeEndpoint(const FP_HookPhase02Sequence &seq,
-                                            const FP_Node &node,
-                                            datetime &endpoint_time,
-                                            double &endpoint_price)
+double FP_HookP02PostF3PriceTolerance(const FP_HookPhase02Config &cfg)
 {
-   endpoint_time = FP_HookP02NodeTime(node);
-   endpoint_price = FP_HookP02NodePrice(node);
+   double point = _Point;
+   if(point <= 0.0)
+      point = 0.00001;
+
+   int points = cfg.post_f3_terminal_tolerance_price_points;
+   if(points < 2)
+      points = 2;
+   return point * points;
+}
+
+int FP_HookP02PostF3PeriodSeconds()
+{
+   int sec = PeriodSeconds(_Period);
+   if(sec <= 0)
+      sec = 60;
+   return sec;
+}
+
+bool FP_HookP02TimeWithinBarsAfter(const datetime anchor_time,
+                                   const datetime candidate_time,
+                                   const int max_bars)
+{
+   if(anchor_time <= 0 || candidate_time <= 0)
+      return false;
+   if(candidate_time < anchor_time)
+      return false;
+   if(max_bars < 0)
+      return true;
+
+   long max_seconds = (long)max_bars * (long)FP_HookP02PostF3PeriodSeconds();
+   return ((long)candidate_time - (long)anchor_time <= max_seconds);
+}
+
+bool FP_HookP02SequenceOriginNearEndpoint(const FP_HookPhase02Sequence &seq,
+                                          const datetime endpoint_time,
+                                          const double endpoint_price,
+                                          const FP_HookPhase02Config &cfg)
+{
    if(endpoint_time <= 0 || endpoint_price == 0.0)
       return false;
    if(seq.origin_time <= 0 || seq.origin_price == 0.0)
@@ -1012,105 +1050,295 @@ bool FP_HookP02SequenceStartsAtNodeEndpoint(const FP_HookPhase02Sequence &seq,
    if(seq.origin_time < endpoint_time)
       return false;
 
-   // The canonical phrase is: the Hook begins from the end of the opposing F3.
-   // In code, the safest available invariant is terminal price equality with a
-   // small platform-point tolerance; time may differ because confirmation is
-   // delayed, but price identity should remain anchored to the terminal side.
-   if(!FP_HookP02PriceAlmostEqual(seq.origin_price, endpoint_price))
-      return false;
+   int tolerance_bars = cfg.post_f3_terminal_tolerance_bars;
+   if(tolerance_bars >= 0)
+   {
+      long tol_seconds = (long)tolerance_bars * (long)FP_HookP02PostF3PeriodSeconds();
+      if((long)seq.origin_time - (long)endpoint_time > tol_seconds)
+         return false;
+   }
 
+   double tol_price = FP_HookP02PostF3PriceTolerance(cfg);
+   return (MathAbs(seq.origin_price - endpoint_price) <= tol_price);
+}
+
+bool FP_HookP02F3TerminalEndpoint(const FP_FlagEvent &ev,
+                                  datetime &terminal_time,
+                                  double &terminal_price)
+{
+   terminal_time = 0;
+   terminal_price = 0.0;
+
+   // Latest/current terminal side wins. F3 can continue after its first body;
+   // the post-F3 Hook is owned by the terminal side that the market actually
+   // reached before Hook recognition begins.
+   if(ev.has_extension)
+   {
+      terminal_time = FP_HookP02NodeTime(ev.extension_end);
+      terminal_price = FP_HookP02NodePrice(ev.extension_end);
+      if(terminal_time > 0 && terminal_price != 0.0)
+         return true;
+   }
+   if(ev.has_confirm)
+   {
+      terminal_time = FP_HookP02NodeTime(ev.confirm);
+      terminal_price = FP_HookP02NodePrice(ev.confirm);
+      if(terminal_time > 0 && terminal_price != 0.0)
+         return true;
+   }
+   if(ev.has_leg2)
+   {
+      terminal_time = FP_HookP02NodeTime(ev.leg2);
+      terminal_price = FP_HookP02NodePrice(ev.leg2);
+      if(terminal_time > 0 && terminal_price != 0.0)
+         return true;
+   }
+
+   return false;
+}
+
+bool FP_HookP02PostF3StructuralFull(const FP_HookPhase02Sequence &seq)
+{
+   // Structural post-F3 Hook: full confirmed Hook object, not merely a geometric
+   // near-death curve. It must own a confirmed terminal same-side node and a
+   // valid crown. A 1-node near-death candidate is intentionally not classified
+   // as structural; that belongs to the geometric-80 family when enabled.
+   if(!FP_HookP02SequenceCycleClosed(seq))
+      return false;
+   if(!seq.resolve_confirmed)
+      return false;
+   if(!seq.cycle_crown_valid)
+      return false;
+   if(seq.x_count < 2)
+      return false;
    return true;
 }
 
-bool FP_HookP02SequenceStartsAtF3Terminal(const FP_FlagEvent &ev,
-                                          const FP_HookPhase02Sequence &seq,
-                                          datetime &matched_time,
-                                          double &matched_price)
+bool FP_HookP02PostF3Geometric80(const FP_HookPhase02Sequence &seq,
+                                 const FP_HookPhase02Config &cfg,
+                                 double &completion_pct)
 {
-   matched_time = 0;
-   matched_price = 0.0;
+   completion_pct = 0.0;
 
-   // Prefer the latest/most terminal endpoint first. F3 can extend after its
-   // base body is built; a Hook after F3 should attach to the current terminal
-   // side, not to an early body anchor.
-   datetime t;
-   double p;
-   if(ev.has_extension && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.extension_end, t, p))
+   if(cfg.post_f3_recognition_mode == FP_HOOK_POST_F3_STRUCTURAL_ONLY)
+      return false;
+   if(!seq.valid || seq.hook_failed)
+      return false;
+   if(!seq.cycle_crown_valid)
+      return false;
+
+   completion_pct = seq.retracement_ratio * 100.0;
+   return (completion_pct >= cfg.post_f3_geometric_min_completion_pct);
+}
+
+bool FP_HookP02ClassifyPostF3Candidate(const FP_FlagEvent &ev,
+                                       const FP_HookPhase02Config &cfg,
+                                       const FP_HookPhase02Sequence &seq,
+                                       const datetime f3_terminal_time,
+                                       const double f3_terminal_price,
+                                       string &family,
+                                       bool &is_structural,
+                                       bool &is_geometric,
+                                       bool &is_direct,
+                                       bool &is_delayed,
+                                       double &completion_pct)
+{
+   family = "";
+   is_structural = false;
+   is_geometric = false;
+   is_direct = false;
+   is_delayed = false;
+   completion_pct = 0.0;
+
+   if(!seq.valid || seq.hook_failed)
+      return false;
+   if(!FP_HookP02SequenceDirectionOpposesF3(ev, seq))
+      return false;
+   if(!FP_HookP02EventScaleMatchesSequence(ev, seq, cfg))
+      return false;
+   if(f3_terminal_time <= 0 || f3_terminal_price == 0.0)
+      return false;
+   if(seq.origin_time <= 0 || seq.origin_time < f3_terminal_time)
+      return false;
+   if(!FP_HookP02TimeWithinBarsAfter(f3_terminal_time, seq.origin_time, cfg.post_f3_max_search_bars))
+      return false;
+
+   is_direct = (cfg.post_f3_allow_direct_terminal_hook &&
+                FP_HookP02SequenceOriginNearEndpoint(seq, f3_terminal_time, f3_terminal_price, cfg));
+
+   is_delayed = (cfg.post_f3_allow_delayed_rebound_hook && !is_direct);
+
+   if(!is_direct && !is_delayed)
+      return false;
+
+   is_structural = FP_HookP02PostF3StructuralFull(seq);
+   is_geometric = FP_HookP02PostF3Geometric80(seq, cfg, completion_pct);
+
+   if(is_direct && is_structural)
    {
-      matched_time = t;
-      matched_price = p;
+      family = "F3H_DIRECT_STRUCTURAL";
       return true;
    }
-   if(ev.has_confirm && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.confirm, t, p))
+   if(is_direct && is_geometric)
    {
-      matched_time = t;
-      matched_price = p;
+      family = "F3H_DIRECT_GEOMETRIC_80";
       return true;
    }
-   if(ev.has_leg2 && FP_HookP02SequenceStartsAtNodeEndpoint(seq, ev.leg2, t, p))
+   if(is_delayed && is_structural)
    {
-      matched_time = t;
-      matched_price = p;
+      family = "F3H_DELAYED_STRUCTURAL";
+      return true;
+   }
+   if(is_delayed && is_geometric)
+   {
+      family = "F3H_DELAYED_GEOMETRIC_80";
       return true;
    }
 
    return false;
 }
 
-int FP_HookP02FindImmediateHookAfterF3(const FP_FlagEvent &ev,
-                                       const FP_HookPhase02Config &cfg,
-                                       const FP_HookPhase02Sequence &sequences[],
-                                       datetime &matched_f3_terminal_time,
-                                       double &matched_f3_terminal_price)
+int FP_HookP02PostF3PriorityRank(const FP_HookPhase02Config &cfg,
+                                 const bool is_structural,
+                                 const bool is_geometric)
 {
+   if(cfg.post_f3_selection_priority == FP_HOOK_POST_F3_PRIORITY_EARLIEST_FIRST)
+      return 0;
+
+   if(cfg.post_f3_selection_priority == FP_HOOK_POST_F3_PRIORITY_GEOMETRIC_FIRST)
+   {
+      if(is_geometric && !is_structural)
+         return 0;
+      if(is_geometric && is_structural)
+         return 1;
+      return 2;
+   }
+
+   // Default: structural first. If no full structural Hook exists in the
+   // ownership window, geometric-80 is allowed as a secondary practical family.
+   if(is_structural)
+      return 0;
+   if(is_geometric)
+      return 1;
+   return 2;
+}
+
+bool FP_HookP02CandidateBeatsPostF3Selection(const FP_HookPhase02Config &cfg,
+                                             const FP_HookPhase02Sequence &candidate,
+                                             const bool candidate_direct,
+                                             const bool candidate_structural,
+                                             const bool candidate_geometric,
+                                             const FP_HookPhase02Sequence &current,
+                                             const bool current_direct,
+                                             const bool current_structural,
+                                             const bool current_geometric)
+{
+   int cr = FP_HookP02PostF3PriorityRank(cfg, candidate_structural, candidate_geometric);
+   int br = FP_HookP02PostF3PriorityRank(cfg, current_structural, current_geometric);
+   if(cr < br)
+      return true;
+   if(cr > br)
+      return false;
+
+   // Direct terminal ownership is cleaner than delayed rebound when the family
+   // rank is equal.
+   if(candidate_direct && !current_direct)
+      return true;
+   if(!candidate_direct && current_direct)
+      return false;
+
+   if(candidate.origin_time < current.origin_time)
+      return true;
+   if(candidate.origin_time > current.origin_time)
+      return false;
+
+   return (candidate.sequence_id < current.sequence_id);
+}
+
+int FP_HookP02FindBestPostF3Hook(const FP_FlagEvent &ev,
+                                 const FP_HookPhase02Config &cfg,
+                                 const FP_HookPhase02Sequence &sequences[],
+                                 string &best_family,
+                                 bool &best_direct,
+                                 bool &best_delayed,
+                                 bool &best_geometric,
+                                 double &best_completion_pct,
+                                 datetime &matched_f3_terminal_time,
+                                 double &matched_f3_terminal_price)
+{
+   best_family = "";
+   best_direct = false;
+   best_delayed = false;
+   best_geometric = false;
+   best_completion_pct = 0.0;
+   matched_f3_terminal_time = 0;
+   matched_f3_terminal_price = 0.0;
+
+   datetime terminal_time;
+   double terminal_price;
+   if(!FP_HookP02F3TerminalEndpoint(ev, terminal_time, terminal_price))
+      return -1;
+
    int best_index = -1;
-   datetime best_hook_time = 0;
-   datetime best_terminal_time = 0;
-   double best_terminal_price = 0.0;
+   bool best_structural = false;
 
    for(int i=0; i<ArraySize(sequences); i++)
    {
-      if(!sequences[i].valid || sequences[i].hook_failed)
-         continue;
-      if(!FP_HookP02SequenceDirectionOpposesF3(ev, sequences[i]))
-         continue;
-      if(!FP_HookP02EventScaleMatchesSequence(ev, sequences[i], cfg))
-         continue;
-
-      datetime terminal_time;
-      double terminal_price;
-      if(!FP_HookP02SequenceStartsAtF3Terminal(ev, sequences[i], terminal_time, terminal_price))
-         continue;
-
-      datetime hook_start = sequences[i].origin_time;
-      if(hook_start <= 0)
+      string family;
+      bool is_structural;
+      bool is_geometric;
+      bool is_direct;
+      bool is_delayed;
+      double completion_pct;
+      if(!FP_HookP02ClassifyPostF3Candidate(ev, cfg, sequences[i], terminal_time, terminal_price,
+                                            family, is_structural, is_geometric,
+                                            is_direct, is_delayed, completion_pct))
          continue;
 
       if(best_index < 0 ||
-         hook_start < best_hook_time ||
-         (hook_start == best_hook_time && sequences[i].sequence_id < sequences[best_index].sequence_id))
+         FP_HookP02CandidateBeatsPostF3Selection(cfg, sequences[i], is_direct, is_structural,
+                                                 is_geometric, sequences[best_index], best_direct,
+                                                 best_structural, best_geometric))
       {
          best_index = i;
-         best_hook_time = hook_start;
-         best_terminal_time = terminal_time;
-         best_terminal_price = terminal_price;
+         best_family = family;
+         best_direct = is_direct;
+         best_delayed = is_delayed;
+         best_geometric = is_geometric;
+         best_structural = is_structural;
+         best_completion_pct = completion_pct;
       }
    }
 
-   matched_f3_terminal_time = best_terminal_time;
-   matched_f3_terminal_price = best_terminal_price;
+   if(best_index >= 0)
+   {
+      matched_f3_terminal_time = terminal_time;
+      matched_f3_terminal_price = terminal_price;
+   }
+
    return best_index;
 }
 
 void FP_HookP02MarkSequenceAsOpposingF3Valid(FP_HookPhase02Sequence &seq,
-                                             const FP_FlagEvent &ev)
+                                             const FP_FlagEvent &ev,
+                                             const string post_f3_family,
+                                             const bool is_direct,
+                                             const bool is_delayed,
+                                             const bool is_geometric,
+                                             const double completion_pct)
 {
    seq.valid_after_opposing_f3 = true;
    seq.valid_hook_family = true;
+   seq.post_f3_subfamily = post_f3_family;
+   seq.post_f3_direct_terminal = is_direct;
+   seq.post_f3_delayed_rebound = is_delayed;
+   seq.post_f3_geometric_80 = is_geometric;
+   seq.post_f3_completion_pct = completion_pct;
+
    if(seq.valid_after_hook)
-      seq.hook_validity_family = "HOOK_AFTER_HOOK_AND_OPPOSING_F3_TERMINAL";
+      seq.hook_validity_family = "HOOK_AFTER_HOOK_AND_" + post_f3_family;
    else
-      seq.hook_validity_family = "HOOK_AFTER_OPPOSING_F3_TERMINAL";
+      seq.hook_validity_family = post_f3_family;
    seq.opposing_f3_event_id = ev.event_id;
 }
 
@@ -1124,25 +1352,44 @@ void FP_HookP02AnnotateValidityFamiliesWithF3(FP_HookPhase02Sequence &sequences[
    // exact: previous terminal node == current origin node.
    FP_HookP02AnnotateValidityFamilies(sequences, report);
 
-   // Canonical opposing-F3 doctrine:
-   // A completed/locked F3 validates the first structural Hook that starts from
-   // one of that F3 terminal endpoints and opposes the F3 direction. A historical
-   // F3 does not validate arbitrary later Hooks.
+   // Canonical post-F3 doctrine:
+   // A completed/locked F3 validates the best Hook inside its post-F3 ownership
+   // window. The recognized families are:
+   // - F3H_DIRECT_STRUCTURAL
+   // - F3H_DIRECT_GEOMETRIC_80
+   // - F3H_DELAYED_STRUCTURAL
+   // - F3H_DELAYED_GEOMETRIC_80
+   // Historical F3 events do not validate arbitrary later Hooks.
    for(int e=0; e<event_count; e++)
    {
       FP_FlagEvent ev = events[e];
       if(!FP_HookP02EventIsCompletedOrLockedF3(ev))
          continue;
 
+      string post_f3_family;
+      bool post_f3_direct;
+      bool post_f3_delayed;
+      bool post_f3_geometric;
+      double post_f3_completion_pct;
       datetime matched_terminal_time;
       double matched_terminal_price;
-      int immediate_index = FP_HookP02FindImmediateHookAfterF3(ev, cfg, sequences,
-                                                               matched_terminal_time,
-                                                               matched_terminal_price);
-      if(immediate_index < 0 || immediate_index >= ArraySize(sequences))
+      int post_f3_index = FP_HookP02FindBestPostF3Hook(ev, cfg, sequences,
+                                                       post_f3_family,
+                                                       post_f3_direct,
+                                                       post_f3_delayed,
+                                                       post_f3_geometric,
+                                                       post_f3_completion_pct,
+                                                       matched_terminal_time,
+                                                       matched_terminal_price);
+      if(post_f3_index < 0 || post_f3_index >= ArraySize(sequences))
          continue;
 
-      FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[immediate_index], ev);
+      FP_HookP02MarkSequenceAsOpposingF3Valid(sequences[post_f3_index], ev,
+                                              post_f3_family,
+                                              post_f3_direct,
+                                              post_f3_delayed,
+                                              post_f3_geometric,
+                                              post_f3_completion_pct);
    }
 
    report.valid_after_hook = 0;
