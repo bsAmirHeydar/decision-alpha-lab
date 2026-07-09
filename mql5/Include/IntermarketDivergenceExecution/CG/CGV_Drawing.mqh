@@ -239,11 +239,40 @@ private:
       ObjectSetInteger(chart_id,name,OBJPROP_SELECTABLE,true);
       ObjectSetInteger(chart_id,name,OBJPROP_SELECTED,false);
       ObjectSetInteger(chart_id,name,OBJPROP_BACK,false);
+      ObjectSetInteger(chart_id,name,OBJPROP_HIDDEN,false);
+      ObjectSetInteger(chart_id,name,OBJPROP_TIMEFRAMES,OBJ_ALL_PERIODS);
+      ObjectSetInteger(chart_id,name,OBJPROP_ZORDER,1000);
       ObjectSetString(chart_id,name,OBJPROP_TOOLTIP,tooltip);
    }
 
-   bool DrawTrend(const long chart_id,const string name,const datetime t1,const double p1,const datetime t2,const double p2,const color c,const int width,const ECGVVisualLineStyle style,const string tooltip)
+   int SafeVisualSpanSeconds()
    {
+      ENUM_TIMEFRAMES tf=VisualChartTimeframe();
+      int seconds=PeriodSeconds(tf);
+      if(seconds<=0)
+         seconds=PeriodSeconds((ENUM_TIMEFRAMES)_Period);
+      if(seconds<=0)
+         seconds=60;
+      return MathMax(60,seconds*3);
+   }
+
+   void NormalizeVisualSegment(datetime &t1,double &p1,datetime &t2,double &p2)
+   {
+      if(t1<=0 && t2>0)
+         t1=(datetime)(t2-SafeVisualSpanSeconds());
+      if(t2<=0 && t1>0)
+         t2=(datetime)(t1+SafeVisualSpanSeconds());
+      if(t1>0 && t2>0 && t2<=t1)
+         t2=(datetime)(t1+SafeVisualSpanSeconds());
+   }
+
+   bool DrawTrend(const long chart_id,const string name,const datetime in_t1,const double in_p1,const datetime in_t2,const double in_p2,const color c,const int width,const ECGVVisualLineStyle style,const string tooltip)
+   {
+      datetime t1=in_t1;
+      datetime t2=in_t2;
+      double p1=in_p1;
+      double p2=in_p2;
+      NormalizeVisualSegment(t1,p1,t2,p2);
       if(chart_id<0 || t1<=0 || t2<=0 || p1<=0.0 || p2<=0.0)
          return false;
       ObjectDelete(chart_id,name);
@@ -252,9 +281,23 @@ private:
       ObjectSetInteger(chart_id,name,OBJPROP_COLOR,c);
       ObjectSetInteger(chart_id,name,OBJPROP_WIDTH,MathMax(1,width));
       ObjectSetInteger(chart_id,name,OBJPROP_STYLE,StyleFromEnum(style));
+      ObjectSetInteger(chart_id,name,OBJPROP_RAY_LEFT,false);
       ObjectSetInteger(chart_id,name,OBJPROP_RAY_RIGHT,false);
+      ObjectSetInteger(chart_id,name,OBJPROP_HIDDEN,false);
+      ObjectSetInteger(chart_id,name,OBJPROP_TIMEFRAMES,OBJ_ALL_PERIODS);
+      ObjectSetInteger(chart_id,name,OBJPROP_ZORDER,1000);
       ApplyCommonObjectState(chart_id,name,tooltip);
       return true;
+   }
+
+   bool DrawMainLegWithShadow(const long chart_id,const string name,const datetime t1,const double p1,const datetime t2,const double p2,const color c,const int width,const ECGVVisualLineStyle style,const string tooltip)
+   {
+      bool shadow=false;
+      bool main=false;
+      string shadow_name=name+"_shadow";
+      shadow=DrawTrend(chart_id,shadow_name,t1,p1,t2,p2,clrBlack,MathMax(width+2,4),CGV_VISUAL_STYLE_SOLID,tooltip+" | shadow");
+      main=DrawTrend(chart_id,name,t1,p1,t2,p2,c,MathMax(width,3),style,tooltip);
+      return (main || shadow);
    }
 
    bool DrawVertical(const long chart_id,const string name,const datetime t,const color c,const ECGVVisualLineStyle style,const string tooltip)
@@ -352,7 +395,7 @@ private:
 
       if(m_config.draw_divergence_origin_destination_line)
       {
-         if(DrawTrend(chart_id,Key(signal,chart_symbol,"origin_to_destination_"+role),origin_time,reference_price,destination_time,current_extreme,package_color,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
+         if(DrawMainLegWithShadow(chart_id,Key(signal,chart_symbol,"origin_to_destination_"+role),origin_time,reference_price,destination_time,current_extreme,package_color,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
             drawn++;
       }
 
@@ -472,8 +515,30 @@ public:
    void Configure(SCGVVisualLedgerConfig &config)
    {
       m_config=config;
+      if(m_config.force_all_visual_objects_on)
+      {
+         m_config.enable_drawing=true;
+         m_config.draw_on_both_input_symbol_charts=true;
+         m_config.open_missing_input_symbol_charts=true;
+         m_config.draw_confirmed_tradeable=true;
+         m_config.draw_invalidated_double_hunts=true;
+         m_config.draw_divergence_origin_destination_line=true;
+         m_config.draw_origin_marker=true;
+         m_config.draw_destination_marker=true;
+         m_config.draw_origin_vertical=true;
+         m_config.draw_destination_vertical=true;
+         m_config.draw_confirmation_marker=true;
+         m_config.draw_reference_cycle_anchor=true;
+         m_config.draw_hunter_reference_guide=true;
+         m_config.draw_hunter_current_extreme_guide=true;
+         m_config.draw_clean_reference_guide=true;
+         m_config.draw_clean_stop_reference_guide=true;
+         m_config.draw_clean_comparison_line=true;
+         m_config.draw_text_label=true;
+      }
       if(m_config.line_width<1) m_config.line_width=1;
       if(m_config.divergence_line_width<1) m_config.divergence_line_width=m_config.line_width;
+      if(m_config.divergence_line_width<3) m_config.divergence_line_width=3;
       if(m_config.guide_line_width<1) m_config.guide_line_width=1;
       if(m_config.origin_marker_width<1) m_config.origin_marker_width=1;
       if(m_config.destination_marker_width<1) m_config.destination_marker_width=1;

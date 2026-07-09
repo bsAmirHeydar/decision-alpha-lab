@@ -61,6 +61,7 @@ struct SCGVVisualLedgerConfig
    bool   show_stop_reference_preview;
 
    bool   enable_drawing;
+   bool   force_all_visual_objects_on;
    bool   clear_objects_on_init;
    bool   clear_objects_on_deinit;
    bool   draw_only_when_chart_is_hunter_symbol;

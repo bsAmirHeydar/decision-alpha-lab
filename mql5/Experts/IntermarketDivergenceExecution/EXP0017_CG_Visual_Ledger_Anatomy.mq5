@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.03"
+#property version   "1.04"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix003 adds dual-symbol full visual mode: drawings on both input-symbol charts, all drawings on by default, chart comments off by default."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix004 forces real line/marker/vertical drawing, keeps comments off, and repairs visual legs that previously appeared as text-only audit labels."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -26,6 +26,7 @@ input bool InpShowPrices = true;
 input bool InpShowStopReferencePreview = true;
 
 input bool InpEnableDrawing = true;
+input bool InpForceAllVisualObjectsOn = true;
 input bool InpClearPhase06ObjectsOnInit = true;
 input bool InpClearPhase06ObjectsOnDeinit = false;
 input bool InpDrawOnlyWhenChartIsHunterSymbol = false;
@@ -132,6 +133,7 @@ int OnInit()
    config.show_prices=InpShowPrices;
    config.show_stop_reference_preview=InpShowStopReferencePreview;
    config.enable_drawing=InpEnableDrawing;
+   config.force_all_visual_objects_on=InpForceAllVisualObjectsOn;
    config.clear_objects_on_init=InpClearPhase06ObjectsOnInit;
    config.clear_objects_on_deinit=InpClearPhase06ObjectsOnDeinit;
    config.draw_only_when_chart_is_hunter_symbol=InpDrawOnlyWhenChartIsHunterSymbol;
