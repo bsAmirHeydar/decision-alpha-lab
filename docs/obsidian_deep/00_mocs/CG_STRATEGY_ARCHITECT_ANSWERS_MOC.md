@@ -1,20 +1,22 @@
 # CG Strategy Architect Answers MOC
 
-## EXP0017 — Cycle Group Intermarket Divergence
+## EXP0017 — پاسخ‌های معمار استراتژی
 
-This MOC indexes the strategy-architect answer layers for the CG Intermarket Divergence framework.
+این MOC به فصل‌های پاسخ‌داده‌شده برای معماری استراتژی CG Intermarket Divergence وصل است.
 
-### Chapter 18 — Execution Freedom, Position Multiplicity, and No Base Constraints
+### فصل ۱۹
 
-- [[CG_Chapter_18_Execution_Freedom_Doctrine]]
-- [[Immediate_Entry_After_Final_Confirmation]]
-- [[No_Base_Position_Limit_Doctrine]]
-- [[Multiple_Positions_From_One_CG_Allowed]]
-- [[Loss_Does_Not_Block_Next_Cycle]]
-- [[Hedging_Allowed_Base_Layer]]
-- [[No_Restriction_Unless_Divergence_Invalidated]]
-- [[Raw_Execution_Field_Before_Statistical_Constraints]]
-- [[Independent_Cycles_And_CGs_In_Execution]]
-- [[Future_Constraints_Only_After_Statistics]]
+- [[CG_Chapter_19_Conflict_Independence_Doctrine]]
+- [[High_Hunt_Sell_Low_Hunt_Buy_Doctrine]]
+- [[Direction_Independence_Buy_Sell]]
+- [[CG_And_Internal_Cycle_Independence]]
+- [[Same_And_Opposite_Direction_Signal_Clusters]]
+- [[Late_Entry_And_Large_Stop_Are_Not_Base_Filters]]
+- [[Post_Confirmation_Invalidation_Doctrine]]
+- [[Non_Divergence_Behavior_Backlog]]
+- [[Signal_Count_Does_Not_Change_Validity]]
+- [[Statistics_Important_But_Not_Strategy_Mutating]]
 
-Chapter 18 protects the raw execution study from premature portfolio restrictions. The base layer allows every confirmed and non-invalidated divergence to express itself. Limits, caps, conflict rules, anti-overtrading rules, and exposure rules may be introduced later only after statistical evidence proves that they improve the strategy.
+### اصل مادر فصل ۱۹
+
+> واگرایی معتبر، تا وقتی در لحظه تأیید یا بعد از آن باطل نشده، باید مستقل ثبت شود. هیچ CG، سایکل، جهت، تعداد سیگنال، ورود دیرهنگام، استاپ بزرگ یا نتیجه قبلی، قبل از آمار حق حذف آن را ندارد.
