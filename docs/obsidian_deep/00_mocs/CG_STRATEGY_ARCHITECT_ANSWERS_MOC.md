@@ -1,10 +1,6 @@
 # CG Strategy Architect Answers MOC
 
-## EXP0017 — Strategy Architect Answer Layers
-
-این MOC مسیر پاسخ‌های معمار استراتژی برای پروژه EXP0017 Cycle Group Intermarket Divergence را نگه می‌دارد.
-
-## Chapters
+## EXP0017 Strategy-Architect Answer Layers
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
 - [[CG_Chapter_02_Market_Relationship_Doctrine]]
@@ -20,22 +16,16 @@
 - [[CG_Chapter_12_Signal_Persistence_Doctrine]]
 - [[CG_Chapter_13_Statistical_Uncertainty_Doctrine]]
 - [[CG_Chapter_14_Statistical_Testing_Doctrine]]
+- [[CG_Chapter_15_Statistical_Reporting_Doctrine]]
 
-## Chapter 14 Core Notes
+## Chapter 15 Cluster
 
-- [[Win_Rate_As_Primary_Early_Filter]]
-- [[Expectancy_And_Dollar_Outcome_As_Result_Layer]]
-- [[Independent_Testing_For_All_Families]]
-- [[Multi_Window_Post_Signal_Reward_Study]]
-- [[Maximum_Intraday_Reward_Potential]]
-- [[RR_Pip_Movement_And_Daily_Range_Normalization]]
-- [[Minimum_400_Day_Initial_Study]]
-- [[Stop_Streaks_As_Red_Flag]]
-- [[Bad_Winrate_As_Strategy_Stop_Condition]]
-
-## Chapter 14 Decision Maps
-
-- [[CG_Chapter_14_Decision_Map]]
-- [[CH14_Statistical_Testing_Map]]
-- [[CH14_Metric_Family_Map]]
-- [[CH14_Risk_Red_Flag_Map]]
+- [[Actionable_Confirmed_Signals_Only]]
+- [[Metric_Family_For_CG_Divergence]]
+- [[Pip_Movement_And_Daily_Range_Normalization]]
+- [[Cycle_Group_Type_As_Mandatory_Report_Field]]
+- [[Cycle_Group_Overlap_As_Statistical_Field]]
+- [[Signal_Frequency_Per_Day_Week_Month]]
+- [[No_Emotional_Language_In_Expert_Reports]]
+- [[Recommended_Metrics_When_Strategy_Architect_Is_Uncertain]]
+- [[Statistical_Report_As_Strategy_Memory]]
