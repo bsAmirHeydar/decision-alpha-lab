@@ -1,18 +1,26 @@
-# Document Card — CH02 Market Relationship and Symbol Roles
+---
+type: document-card
+source: docs/execution/EXP0017_cycle_group_intermarket_divergence/strategy_architect_answers/CH02_market_relationship_and_symbol_roles.md
+project: EXP0017
+chapter: 02
+---
 
-## Source
+# Card — CH02 Market Relationship and Symbol Roles
 
-docs/execution/EXP0017_cycle_group_intermarket_divergence/strategy_architect_answers/CH02_market_relationship_and_symbol_roles.md
+این سند، پاسخ‌های فصل دوم را به doctrine رابطه SPXUSD/NDXUSD تبدیل می‌کند.
 
-## Purpose
+## هسته سند
 
-ثبت داکترین فصل دوم درباره رابطه SPXUSD و NDXUSD، نقش جریان عمومی SPXUSD، نبود لیدر ثابت، اعتبار هر دو نماد، اهمیت سشن نقدی، و اجرای معامله روی نماد clean.
+- رابطه تاریخی، قیمتی و نسبی؛
+- چسبندگی رابطه به‌خاطر شرکت‌های مشترک؛
+- SPXUSD به‌عنوان جریان عمومی‌تر بازار؛
+- نبود رهبر ثابت؛
+- hunt-only بودن معیار خام؛
+- clean symbol به‌عنوان محل معامله؛
+- cash session به‌عنوان بازه معتبرتر.
 
-## Key Concepts
+## پیوندهای Obsidian
 
-- SPXUSD / NDXUSD relationship
-- historical, price, relative correlation
-- no fixed leader
-- SPXUSD as general market flow
-- clean symbol execution
-- cash session validity
+- [[CG_Chapter_02_Market_Relationship_Doctrine]]
+- [[SPX_NDX_Historical_Price_Relative_Correlation]]
+- [[Clean_Symbol_as_Preferred_Trade_Vehicle]]

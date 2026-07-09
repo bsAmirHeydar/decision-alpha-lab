@@ -1,17 +1,25 @@
-# Document Card — CH02 Research Translation
+---
+type: document-card
+source: docs/execution/EXP0017_cycle_group_intermarket_divergence/strategy_architect_answers/CH02_research_translation_and_statistical_questions.md
+project: EXP0017
+chapter: 02
+---
 
-## Source
+# Card — CH02 Research Translation
 
-docs/execution/EXP0017_cycle_group_intermarket_divergence/strategy_architect_answers/CH02_research_translation_and_statistical_questions.md
+این سند فصل دوم را به پرسش‌های پژوهشی و آزمون‌پذیر تبدیل می‌کند.
 
-## Purpose
+## هسته سند
 
-ترجمه پاسخ‌های فصل دوم به پرسش‌های تحقیقاتی و آماری برای سنجش رفتار SPXUSD / NDXUSD در CGها، جهت‌ها، ساعات نقدی، و حالت‌های hunter/clean.
+- کشف نقش بهتر hunter/clean؛
+- بررسی اعتبار cash session؛
+- تفکیک buy/sell؛
+- بررسی CGها؛
+- جلوگیری از میانگین‌گیری کور؛
+- ساخت نقشه خانواده‌های رفتاری.
 
-## Key Concepts
+## پیوندهای Obsidian
 
-- hunter/clean statistics
-- cash session comparison
-- SPX hunter vs NDX hunter
-- clean symbol validation
-- CG family segmentation
+- [[CH02_Statistical_Discovery_Map]]
+- [[No_Dominance_Before_Testing]]
+- [[Cash_Session_Relationship_Validity]]
