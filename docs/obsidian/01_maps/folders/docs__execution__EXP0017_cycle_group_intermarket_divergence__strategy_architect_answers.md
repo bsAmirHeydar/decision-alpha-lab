@@ -1,12 +1,11 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-این فولدر پاسخ‌های فصل‌به‌فصل معمار استراتژی برای پروژه EXP0017 را نگه می‌دارد.
+## Chapter 13
 
-## Chapter 12
-
-- CH12 — Signal Persistence and Invalidation Boundary
-- CH12 — Research Translation and Statistical Mission
-- CH12 — No Filter / No Suppression Doctrine
-- CH12 — Signal Lifecycle and Retirement Boundary
-- CH12 — Hypothesis Register
-- CH12 — Glossary and Language
+- CH13_INDEX.md
+- CH13_statistical_uncertainty_and_no_manual_quality_doctrine.md
+- CH13_research_translation_and_statistical_mission.md
+- CH13_no_manual_preclassification_doctrine.md
+- CH13_future_idea_register_and_non_actionable_hypotheses.md
+- CH13_hypothesis_register.md
+- CH13_glossary_and_language.md
