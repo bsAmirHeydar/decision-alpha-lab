@@ -1,6 +1,6 @@
 # CG Strategy Architect Answers MOC
 
-این MOC لایه پاسخ‌های معمار استراتژی برای EXP0017 را سازمان‌دهی می‌کند.
+این MOC مرکز پاسخ‌های معمار استراتژی برای پروژه EXP0017 است.
 
 ## فصل‌ها
 
@@ -9,25 +9,23 @@
 - [[CG_Chapter_03_Hunt_Doctrine]]
 - [[CG_Chapter_04_Reference_Scope_Doctrine]]
 - [[CG_Chapter_05_Cycle_Group_Doctrine]]
+- [[CG_Chapter_06_CG_Neutrality_Doctrine]]
 
-## فصل ۵ — سایکل‌گروپ و بی‌طرفی آماری
+## فصل ششم — بی‌طرفی کامل بین CGها
 
-- [[Cycle_Group_As_Independent_Behavioral_Unit]]
-- [[New_York_1800_Daily_Boundary_Doctrine]]
-- [[Contractual_Daily_Candle_Boundary]]
-- [[No_CG_Behavioral_Difference_Before_Testing]]
-- [[All_Cycle_Groups_Trade_Permission]]
-- [[No_Size_Power_Assumption]]
-- [[Cycle_Group_Neutrality_Doctrine]]
-- [[Statistical_Discovery_of_CG_Behavior]]
-- [[Cycle_Group_Family_without_Priority]]
+فصل ششم یک اصل محافظتی و پژوهشی است:
 
-## نقشه‌ها
+> هیچ سایکل‌گروپی با دیگری از لحاظ نوع رفتار فعلاً تفاوتی ندارد، مگر اینکه بعداً تست‌های آماری چیز دیگری به ما بگویند.
 
-- [[CG_Chapter_05_Decision_Map]]
-- [[CH05_Cycle_Group_Neutrality_Map]]
-- [[CH05_CG_Statistical_Discovery_Map]]
+نوت‌های اصلی فصل ششم:
 
-## چک‌لیست
-
-- [[CH05_Strategy_Architect_Review_Checklist]]
+- [[CG_Chapter_06_CG_Neutrality_Doctrine]]
+- [[Absolute_CG_Neutrality_Before_Statistics]]
+- [[No_CG_Behavioral_Difference_Before_Testing_Expanded]]
+- [[Statistical_Personality_Not_Predefined_Personality]]
+- [[All_Cycle_Groups_Enter_Research_Equally]]
+- [[No_Size_Based_Cycle_Power_Assumption_Expanded]]
+- [[Cycle_Group_Observation_Protocol]]
+- [[Anti_Narrative_Fitting_For_Cycle_Groups]]
+- [[CG_Equality_Across_All_Strategy_Questions]]
+- [[Cycle_Group_Difference_As_Discovery_Not_Assumption]]
