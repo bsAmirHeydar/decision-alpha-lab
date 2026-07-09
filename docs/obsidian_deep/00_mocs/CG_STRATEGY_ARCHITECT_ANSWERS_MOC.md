@@ -1,10 +1,10 @@
-# CG Strategy Architect Answers — MOC
+# CG Strategy Architect Answers MOC
 
-## EXP0017 Strategy Architect Doctrine
+## EXP0017 — Cycle Group Intermarket Divergence
 
-This MOC collects the strategy-architect answer layers for EXP0017 Cycle Group Intermarket Divergence.
+این MOC مسیر پاسخ‌های معمار استراتژی را به زبان داکیومنت و نوت‌های مفهومی Obsidian متصل می‌کند.
 
-## Chapters
+### فصل‌های ثبت‌شده
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
 - [[CG_Chapter_02_Market_Relationship_Doctrine]]
@@ -14,23 +14,32 @@ This MOC collects the strategy-architect answer layers for EXP0017 Cycle Group I
 - [[CG_Chapter_06_CG_Neutrality_Doctrine]]
 - [[CG_Chapter_07_Time_Validity_Doctrine]]
 - [[CG_Chapter_08_Close_Confirmation_Doctrine]]
+- [[CG_Chapter_09_Clean_Symbol_Execution_Doctrine]]
 
-## Chapter 08 Cluster — Candle-Close Confirmation
+---
 
-- [[CG_Chapter_08_Close_Confirmation_Doctrine]]
-- [[Candle_Close_As_Confirmation_Boundary]]
-- [[Temporal_Close_Not_Price_Filter]]
-- [[Potential_Divergence_Versus_Confirmed_Divergence]]
-- [[Double_Hunt_Invalidation_Doctrine]]
-- [[Trade_Permission_After_Confirmation]]
-- [[All_Confirmed_Divergences_Are_Visible]]
-- [[Uniform_Confirmation_Standard]]
-- [[Close_Is_Not_Late_Doctrine]]
-- [[Confirmation_Families_As_Statistical_Discovery]]
+## فصل ۹ — Clean Symbol Execution
 
-## Chapter 08 Decision Maps
+### نوت‌های اصلی فصل ۹
 
-- [[CG_Chapter_08_Decision_Map]]
-- [[CH08_Confirmation_Lifecycle_Map]]
-- [[CH08_Invalidation_Map]]
-- [[CH08_Signal_Visibility_Map]]
+- [[CG_Chapter_09_Clean_Symbol_Execution_Doctrine]]
+- [[Clean_Symbol_As_Healthy_Unhunted_Reference]]
+- [[Buy_Pressure_And_Sell_Pressure_In_Clean_Symbol]]
+- [[Hunter_Symbol_Versus_Clean_Symbol_Roles]]
+- [[Trade_On_The_Unhunted_Symbol]]
+- [[Uniform_Execution_Standard_For_All_Divergences]]
+- [[No_Extra_Validity_Filter_Beyond_Divergence]]
+- [[Reference_Health_As_Trade_Basis]]
+- [[Both_Directions_Are_Valid]]
+- [[Clean_Symbol_Stop_Logic_Doctrine]]
+
+### نقشه‌ها
+
+- [[CG_Chapter_09_Decision_Map]]
+- [[CH09_Clean_Symbol_Execution_Map]]
+- [[CH09_Reference_Health_Map]]
+- [[CH09_Statistical_Discovery_Map]]
+
+### چک‌لیست
+
+- [[CH09_Strategy_Architect_Review_Checklist]]
