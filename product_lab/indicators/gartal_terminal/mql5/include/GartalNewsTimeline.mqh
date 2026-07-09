@@ -23,7 +23,11 @@ void GT_RenderVerticalLines(GT_Config &config, GT_NewsStore &store, GT_FilterSta
       ObjectSetInteger(0, name, OBJPROP_BACK, true);
       ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
       ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
-      ObjectSetString(0, name, OBJPROP_TEXT, ev.currency + " " + GT_ImpactText(ev.impact) + " " + GT_EventKindText(ev.kind) + " " + ev.title);
+      ObjectSetString(0, name, OBJPROP_TEXT,
+                      ev.currency + " " + GT_ImpactText(ev.impact) + " " +
+                      GT_EventKindText(ev.kind) + " " + ev.title +
+                      " | broker=" + TimeToString(ev.time_broker, TIME_DATE|TIME_MINUTES) +
+                      " | utc=" + TimeToString(ev.time_utc, TIME_DATE|TIME_MINUTES));
    }
 }
 
@@ -33,19 +37,20 @@ void GT_RenderTimeline(GT_Config &config, GT_NewsStore &store, GT_FilterState &f
       return;
 
    string prefix = config.object_prefix + "TIMELINE_";
-   int width = 760;
-   GT_Rect(prefix + "BG", CORNER_LEFT_LOWER, 18, 22, width, 54, clrBlack, clrDimGray);
+   int width = 860;
+   GT_Rect(prefix + "BG", CORNER_LEFT_LOWER, 18, 22, width, 58, clrBlack, clrDimGray);
 
    string text = "gartal timeline | visible=" + IntegerToString(store.visible_count) +
                  " | next=" + (store.next_event_index >= 0 ? TimeToString(store.events[store.next_event_index].time_broker, TIME_MINUTES) : "none") +
-                 " | red=" + IntegerToString(store.high_count) +
-                 " | stage 02 event store active";
+                 " | broker=" + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) +
+                 " | source=" + GT_SourceTimeModeText(config.source_time_mode) +
+                 " | stage 03 time engine";
    GT_Label(prefix + "INFO", CORNER_LEFT_LOWER, 32, 34, text, clrWhite, 8, "Segoe UI");
 
    string tape = "";
    int shown = 0;
    datetime now = TimeCurrent();
-   for(int i=0; i<store.count && shown<6; i++)
+   for(int i=0; i<store.count && shown<7; i++)
    {
       GT_NewsEvent ev = store.events[i];
       if(ev.time_broker < now)
@@ -55,12 +60,12 @@ void GT_RenderTimeline(GT_Config &config, GT_NewsStore &store, GT_FilterState &f
 
       if(shown > 0)
          tape += "   |   ";
-      tape += TimeToString(ev.time_broker, TIME_MINUTES) + " " + ev.currency + " " + GT_ImpactDot(ev.impact) + " " + GT_CompactTitle(ev.title, 22);
+      tape += TimeToString(ev.time_broker, TIME_MINUTES) + " " + ev.currency + " " + GT_ImpactDot(ev.impact) + " " + GT_CompactTitle(ev.title, 20);
       shown++;
    }
 
    if(shown == 0)
-      tape = "no upcoming visible events in configured window";
+      tape = "no upcoming visible events in configured broker-time window";
 
    GT_Label(prefix + "TAPE", CORNER_LEFT_LOWER, 32, 54, tape, clrSilver, 8, "Consolas");
 }

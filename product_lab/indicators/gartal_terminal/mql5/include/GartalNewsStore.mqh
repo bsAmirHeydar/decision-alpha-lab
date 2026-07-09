@@ -90,7 +90,7 @@ void GT_ClassifyEvent(GT_NewsEvent &ev)
    ev.is_holiday = GT_TitleContains(ev.title, "holiday");
    ev.is_tentative = GT_TitleContains(ev.title, "tentative");
 
-   // Breaking news in Stage 02 is sample/source-flag driven. Stage 08 parser will
+   // Breaking news is sample/source-flag driven until the Stage 08 parser is active. Stage 08 parser will
    // infer it from source semantics when Forex Factory integration is active.
    if(ev.is_breaking)
       ev.kind = GT_EVENT_KIND_BREAKING;
@@ -170,14 +170,7 @@ void GT_AddEventEx(GT_NewsStore &store,
    string clean_title = GT_NormalizeTitle(title);
 
    store.events[i].sequence = i;
-   store.events[i].time_broker = broker_time;
-   store.events[i].time_source = broker_time;
-   store.events[i].time_utc = GT_BrokerToUtcTime(broker_time, config);
-   store.events[i].day_start_broker = StringToTime(TimeToString(broker_time, TIME_DATE));
-   store.events[i].minute_of_day = GT_MinuteOfDay(broker_time);
-   store.events[i].day_offset = GT_DayOffsetFromToday(broker_time);
-   store.events[i].is_today = (store.events[i].day_offset == 0);
-   store.events[i].in_date_window = in_window;
+   GT_UpdateEventTimeFields(store.events[i], config, broker_time);
 
    store.events[i].currency = clean_currency;
    store.events[i].impact = impact;
@@ -213,6 +206,40 @@ void GT_AddEvent(GT_NewsStore &store,
                  string source)
 {
    GT_AddEventEx(store, config, broker_time, currency, impact, title, actual, forecast, previous, source, false, "");
+}
+
+void GT_AddEventFromSource(GT_NewsStore &store,
+                           GT_Config &config,
+                           datetime source_time,
+                           string currency,
+                           int impact,
+                           string title,
+                           string actual,
+                           string forecast,
+                           string previous,
+                           string source,
+                           bool breaking=false,
+                           string notes="")
+{
+   datetime broker_time = GT_SourceToBrokerTime(source_time, config);
+   GT_AddEventEx(store, config, broker_time, currency, impact, title, actual, forecast, previous, source, breaking, notes);
+}
+
+void GT_AddEventFromUtc(GT_NewsStore &store,
+                        GT_Config &config,
+                        datetime utc_time,
+                        string currency,
+                        int impact,
+                        string title,
+                        string actual,
+                        string forecast,
+                        string previous,
+                        string source,
+                        bool breaking=false,
+                        string notes="")
+{
+   datetime broker_time = GT_UtcToBrokerTime(utc_time, config);
+   GT_AddEventEx(store, config, broker_time, currency, impact, title, actual, forecast, previous, source, breaking, notes);
 }
 
 void GT_SortEventsByBrokerTime(GT_NewsStore &store)
@@ -342,8 +369,8 @@ void GT_FinalizeStore(GT_Config &config, GT_NewsStore &store, GT_FilterState &fi
 {
    datetime today = GT_TodayBrokerMidnight();
    store.today_start_broker = today;
-   store.window_from_broker = today - (config.days_back * 86400);
-   store.window_to_broker = today + ((config.days_forward + 1) * 86400);
+   store.window_from_broker = GT_ConfigWindowFromBroker(config);
+   store.window_to_broker = GT_ConfigWindowToBroker(config);
 
    GT_SortEventsByBrokerTime(store);
    GT_MarkRelevance(config, store);

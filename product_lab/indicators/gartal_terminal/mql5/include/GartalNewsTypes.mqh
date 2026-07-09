@@ -6,6 +6,10 @@
 #define GT_MIN_TIMER_SECONDS   10
 #define GT_MAX_TIMER_SECONDS   3600
 
+#define GT_SECONDS_PER_MINUTE  60
+#define GT_SECONDS_PER_HOUR    3600
+#define GT_SECONDS_PER_DAY     86400
+
 #define GT_IMPACT_NONE         0
 #define GT_IMPACT_LOW          1
 #define GT_IMPACT_MEDIUM       2
@@ -30,6 +34,18 @@
 #define GT_LOG_INFO            0
 #define GT_LOG_WARNING         1
 #define GT_LOG_ERROR           2
+
+#define GT_BROKER_GMT_AUTO     0
+#define GT_BROKER_GMT_MANUAL   1
+#define GT_BROKER_GMT_HYBRID   2
+
+#define GT_SOURCE_TIME_UTC     0
+#define GT_SOURCE_TIME_BROKER  1
+#define GT_SOURCE_TIME_MANUAL  2
+
+#define GT_SAMPLE_TIME_BROKER  0
+#define GT_SAMPLE_TIME_SOURCE  1
+#define GT_SAMPLE_TIME_UTC     2
 
 #define GT_STATUS_ACTIVE_WINDOW_SECONDS 900
 #define GT_STATUS_EXPIRE_SECONDS        3600
@@ -128,9 +144,20 @@ struct GT_Config
    bool   show_tentative;
    bool   show_breaking;
 
-   bool   auto_detect_broker_gmt;
-   int    broker_gmt_offset_hours;
+   // Stage 03 time normalization contract.
+   bool   auto_detect_broker_gmt;        // compatibility alias for legacy toggles
+   int    broker_gmt_mode;               // 0 auto, 1 manual, 2 hybrid
+   int    broker_gmt_offset_hours;       // human input/display component
+   int    broker_gmt_offset_minutes;     // human input/display component
+   int    broker_gmt_offset_seconds;     // canonical offset used by conversion
+   int    source_time_mode;              // 0 UTC, 1 broker, 2 manual source GMT
    int    source_gmt_offset_hours;
+   int    source_gmt_offset_minutes;
+   int    source_gmt_offset_seconds;
+   int    time_shift_minutes;            // emergency correction after all normalization
+   int    time_shift_seconds;
+   int    sample_time_mode;              // broker/source/UTC anchor for deterministic tests
+   bool   show_time_debug;
 
    int    days_back;
    int    days_forward;
@@ -193,7 +220,21 @@ struct GT_RuntimeState
 
    bool     last_refresh_ok;
    int      refresh_attempts;
-   int      broker_gmt_detected_hours;
+
+   // Stage 03 diagnostic snapshot.
+   bool     time_normalization_ok;
+   datetime time_snapshot_server;
+   datetime time_snapshot_gmt;
+   datetime time_snapshot_local;
+   int      broker_gmt_detected_hours;   // compatibility summary
+   int      broker_gmt_detected_seconds;
+   int      broker_gmt_effective_seconds;
+   int      source_gmt_effective_seconds;
+   int      time_shift_effective_seconds;
+   int      server_gmt_raw_delta_seconds;
+   int      broker_gmt_confidence;
+   string   time_summary;
+
    string   last_error;
    string   last_warning;
    string   last_info;

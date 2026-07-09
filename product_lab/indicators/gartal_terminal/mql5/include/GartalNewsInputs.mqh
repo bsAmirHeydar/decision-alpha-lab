@@ -1,16 +1,23 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 02"
+input group "01 Data Source / Stage 03"
 input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
-input bool   InpUseSampleData                = true;       // Stage 02 default: true. Direct source begins in Stage 08.
+input bool   InpUseSampleData                = true;       // Stage 03 default: true. Direct source begins in Stage 08.
 input bool   InpUseCache                     = true;
 input int    InpRefreshMinutes               = 5;
 
-input group "02 Time and Broker GMT"
-input bool   InpAutoDetectBrokerGMT          = true;
-input int    InpBrokerGMTOffsetHours         = 0;
-input int    InpSourceGMTOffsetHours         = 0;
+input group "02 Time and Broker GMT / Stage 03"
+input int    InpBrokerGMTMode                = 0;          // 0 Auto, 1 Manual, 2 Hybrid(auto unless invalid)
+input bool   InpAutoDetectBrokerGMT          = true;       // compatibility alias; false forces manual mode
+input int    InpBrokerGMTOffsetHours         = 0;          // manual broker GMT hours, e.g. 2 or 3
+input int    InpBrokerGMTOffsetMinutes       = 0;          // manual broker GMT minutes, usually 0
+input int    InpSourceTimeMode               = 0;          // 0 UTC, 1 Broker time, 2 Manual source GMT
+input int    InpSourceGMTOffsetHours         = 0;          // used when SourceTimeMode=2
+input int    InpSourceGMTOffsetMinutes       = 0;
+input int    InpTimeShiftMinutes             = 0;          // emergency final shift after normalization
+input int    InpSampleTimeMode               = 0;          // 0 Broker, 1 Source, 2 UTC
+input bool   InpShowTimeDebug                = true;
 
 input group "03 Currency Filter"
 input string InpCurrencies                   = "USD,EUR,GBP,JPY,CHF,CAD,AUD,NZD,CNY";
@@ -84,8 +91,23 @@ void GT_LoadConfig(GT_Config &config)
    config.show_breaking = InpShowBreaking;
 
    config.auto_detect_broker_gmt = InpAutoDetectBrokerGMT;
+   config.broker_gmt_mode = GT_ClampInt(InpBrokerGMTMode, GT_BROKER_GMT_AUTO, GT_BROKER_GMT_HYBRID);
+   if(!config.auto_detect_broker_gmt)
+      config.broker_gmt_mode = GT_BROKER_GMT_MANUAL;
+
    config.broker_gmt_offset_hours = GT_ClampInt(InpBrokerGMTOffsetHours, -12, 14);
+   config.broker_gmt_offset_minutes = GT_ClampInt(InpBrokerGMTOffsetMinutes, -59, 59);
+   config.broker_gmt_offset_seconds = GT_OffsetPartsToSeconds(config.broker_gmt_offset_hours, config.broker_gmt_offset_minutes);
+
+   config.source_time_mode = GT_ClampInt(InpSourceTimeMode, GT_SOURCE_TIME_UTC, GT_SOURCE_TIME_MANUAL);
    config.source_gmt_offset_hours = GT_ClampInt(InpSourceGMTOffsetHours, -12, 14);
+   config.source_gmt_offset_minutes = GT_ClampInt(InpSourceGMTOffsetMinutes, -59, 59);
+   config.source_gmt_offset_seconds = GT_OffsetPartsToSeconds(config.source_gmt_offset_hours, config.source_gmt_offset_minutes);
+
+   config.time_shift_minutes = GT_ClampInt(InpTimeShiftMinutes, -720, 720);
+   config.time_shift_seconds = config.time_shift_minutes * GT_SECONDS_PER_MINUTE;
+   config.sample_time_mode = GT_ClampInt(InpSampleTimeMode, GT_SAMPLE_TIME_BROKER, GT_SAMPLE_TIME_UTC);
+   config.show_time_debug = InpShowTimeDebug;
 
    config.days_back = GT_ClampInt(InpDaysBack, 0, 14);
    config.days_forward = GT_ClampInt(InpDaysForward, 0, 14);
@@ -134,6 +156,18 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
    if(!config.show_low && !config.show_medium && !config.show_high && !config.show_holiday)
    {
       runtime.last_warning = "All impact filters are disabled. Dashboard can appear empty.";
+   }
+
+   if(MathAbs(config.broker_gmt_offset_seconds) > 14 * GT_SECONDS_PER_HOUR)
+   {
+      runtime.last_error = "Broker GMT offset is outside the supported range.";
+      ok = false;
+   }
+
+   if(MathAbs(config.source_gmt_offset_seconds) > 14 * GT_SECONDS_PER_HOUR)
+   {
+      runtime.last_error = "Source GMT offset is outside the supported range.";
+      ok = false;
    }
 
    return ok;

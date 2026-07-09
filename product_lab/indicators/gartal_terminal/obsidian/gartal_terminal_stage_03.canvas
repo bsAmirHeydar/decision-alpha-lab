@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "s03",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 120,
+      "text": "Stage 03\nBroker GMT / Time Normalization Engine\nsource -> UTC -> broker -> chart"
+    },
+    {
+      "id": "inputs",
+      "type": "file",
+      "x": 430,
+      "y": -140,
+      "width": 320,
+      "height": 80,
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsInputs.mqh"
+    },
+    {
+      "id": "time",
+      "type": "file",
+      "x": 430,
+      "y": 0,
+      "width": 320,
+      "height": 80,
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsTime.mqh"
+    },
+    {
+      "id": "store",
+      "type": "file",
+      "x": 430,
+      "y": 140,
+      "width": 320,
+      "height": 80,
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsStore.mqh"
+    },
+    {
+      "id": "dash",
+      "type": "file",
+      "x": 850,
+      "y": -50,
+      "width": 320,
+      "height": 80,
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsDashboard.mqh"
+    },
+    {
+      "id": "timeline",
+      "type": "file",
+      "x": 850,
+      "y": 100,
+      "width": 320,
+      "height": 80,
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsTimeline.mqh"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "s03",
+      "fromSide": "right",
+      "toNode": "inputs",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "inputs",
+      "fromSide": "right",
+      "toNode": "time",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "time",
+      "fromSide": "right",
+      "toNode": "store",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "dash",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "timeline",
+      "toSide": "left"
+    }
+  ]
+}

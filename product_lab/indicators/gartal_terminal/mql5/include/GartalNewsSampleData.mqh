@@ -15,15 +15,15 @@ void GT_AddSampleAt(GT_NewsStore &store,
                     bool breaking=false,
                     string notes="")
 {
-   datetime today = GT_TodayBrokerMidnight();
-   datetime t = today + day_offset * 86400 + hour * 3600 + minute * 60;
-   GT_AddEventEx(store, config, t, currency, impact, title, actual, forecast, previous, "sample_stage02", breaking, notes);
+   datetime t = GT_ConfiguredSampleBrokerTime(config, day_offset, hour, minute);
+   string source_tag = "sample_stage03_" + GT_SampleTimeModeText(config.sample_time_mode);
+   GT_AddEventEx(store, config, t, currency, impact, title, actual, forecast, previous, source_tag, breaking, notes);
 }
 
 bool GT_LoadSampleEvents(GT_NewsStore &store, GT_Config &config, GT_RuntimeState &runtime)
 {
    GT_ResetStore(store);
-   store.sample_profile = "stage02_full_day_macro_tape";
+   store.sample_profile = "stage03_time_normalized_macro_tape";
 
    // Previous day events exist to validate DaysBack and past-event filters.
    GT_AddSampleAt(store, config, -1, 10,  0, "EUR", GT_IMPACT_MEDIUM,  "German Flash Manufacturing PMI", "49.4", "48.9", "48.8");
@@ -60,7 +60,7 @@ bool GT_LoadSampleEvents(GT_NewsStore &store, GT_Config &config, GT_RuntimeState
    store.source_status = "SAMPLE_STAGE02";
    store.last_refresh = TimeCurrent();
 
-   GT_RuntimeLog(runtime, GT_LOG_INFO, "Stage 02 sample event pipeline loaded. count=" + IntegerToString(store.count));
+   GT_RuntimeLog(runtime, GT_LOG_INFO, "Stage 03 time-normalized sample pipeline loaded. count=" + IntegerToString(store.count));
    return (store.count > 0);
 }
 

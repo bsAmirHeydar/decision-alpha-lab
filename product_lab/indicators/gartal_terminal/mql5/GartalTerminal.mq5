@@ -1,20 +1,20 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 02 event data model and sample pipeline            |
+//| gartal terminal - Stage 03 broker GMT and time normalization engine            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.2.0"
-#property description       "gartal terminal - Stage 02 event data model and sample pipeline"
+#property version           "0.3.0"
+#property description       "gartal terminal - Stage 03 broker GMT and time normalization engine"
 
-// Stage 02 doctrine:
+// Stage 03 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
-// - The news event model becomes production-shaped before direct source parsing.
-// - Sample data covers currencies, impacts, speeches, holidays, breaking events,
-//   released/active/upcoming/expired statuses, and date-window behavior.
+// - Stage 02 canonical event store remains the single source of truth.
+// - All source, UTC, and broker times are normalized before rendering or alerts.
+// - Broker GMT can be auto-detected, manually overridden, or run in hybrid mode.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -48,7 +48,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 02 event data model boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 03 time normalization boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -57,13 +57,14 @@ int OnInit()
    }
 
    GT_NormalizeConfigTime(g_config, g_runtime);
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Time engine normalized: " + g_runtime.time_summary);
    GT_RenderShell(g_config, g_runtime);
 
    int timer_seconds = GT_ClampInt(g_config.refresh_seconds, GT_MIN_TIMER_SECONDS, GT_MAX_TIMER_SECONDS);
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 02 event data model boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 03 time normalization boot completed.");
 
    return(INIT_SUCCEEDED);
 }

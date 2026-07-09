@@ -11,7 +11,20 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.last_refresh_at = 0;
    runtime.last_refresh_ok = false;
    runtime.refresh_attempts = 0;
+
+   runtime.time_normalization_ok = false;
+   runtime.time_snapshot_server = 0;
+   runtime.time_snapshot_gmt = 0;
+   runtime.time_snapshot_local = 0;
    runtime.broker_gmt_detected_hours = 0;
+   runtime.broker_gmt_detected_seconds = 0;
+   runtime.broker_gmt_effective_seconds = 0;
+   runtime.source_gmt_effective_seconds = 0;
+   runtime.time_shift_effective_seconds = 0;
+   runtime.server_gmt_raw_delta_seconds = 0;
+   runtime.broker_gmt_confidence = 0;
+   runtime.time_summary = "";
+
    runtime.last_error = "";
    runtime.last_warning = "";
    runtime.last_info = "";

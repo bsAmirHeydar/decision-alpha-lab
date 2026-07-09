@@ -176,4 +176,42 @@ string GT_NormalizeWhitespace(string value)
    return result;
 }
 
+int GT_OffsetPartsToSeconds(int hours, int minutes)
+{
+   int sign = 1;
+   if(hours < 0 || minutes < 0)
+      sign = -1;
+
+   int h = (int)MathAbs((double)hours);
+   int m = (int)MathAbs((double)minutes);
+   int seconds = sign * ((h * GT_SECONDS_PER_HOUR) + (m * GT_SECONDS_PER_MINUTE));
+   return seconds;
+}
+
+string GT_TwoDigits(int value)
+{
+   int v = (int)MathAbs((double)value);
+   return (v < 10 ? "0" : "") + IntegerToString(v);
+}
+
+string GT_FormatGmtOffsetSeconds(int offset_seconds)
+{
+   string sign = "+";
+   int seconds = offset_seconds;
+   if(seconds < 0)
+   {
+      sign = "-";
+      seconds = -seconds;
+   }
+
+   int hours = seconds / GT_SECONDS_PER_HOUR;
+   int minutes = (seconds % GT_SECONDS_PER_HOUR) / GT_SECONDS_PER_MINUTE;
+   return "GMT" + sign + IntegerToString(hours) + ":" + GT_TwoDigits(minutes);
+}
+
+string GT_FormatDateWindow(datetime from_time, datetime to_time)
+{
+   return TimeToString(from_time, TIME_DATE|TIME_MINUTES) + " -> " + TimeToString(to_time, TIME_DATE|TIME_MINUTES);
+}
+
 #endif
