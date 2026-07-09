@@ -1,12 +1,12 @@
 # Folder Map — EXP0017 Strategy Architect Answers
 
-## Chapter 04 Added
+این پوشه پاسخ‌های فصل‌به‌فصل معمار استراتژی را برای پروژه EXP0017 نگه می‌دارد.
 
-- CH04_INDEX.md
-- CH04_reference_scope_and_same_day_cycle_memory.md
-- CH04_research_translation_and_statistical_mission.md
-- CH04_reference_family_taxonomy.md
-- CH04_hypothesis_register.md
-- CH04_glossary_and_language.md
+## Chapter 05
 
-موضوع فصل چهارم: مرجع واگرایی، حافظه سایکل‌های همان روز، استقلال سیگنال‌ها، بی‌طرفی آماری پیش از رتبه‌بندی، و حذف داده روز قبل از تحلیل ورود.
+- [[CH05_INDEX]]
+- [[CH05_cycle_group_behavioral_unit_and_daily_boundary]]
+- [[CH05_research_translation_and_statistical_mission]]
+- [[CH05_cycle_group_equality_and_permission_doctrine]]
+- [[CH05_hypothesis_register]]
+- [[CH05_glossary_and_language]]
