@@ -1,0 +1,17 @@
+{
+  "nodes": [
+    {"id":"stage09","type":"text","text":"Stage 09\nCache / Fallback / Resilience Layer","x":0,"y":0,"width":360,"height":120},
+    {"id":"live","type":"text","text":"LIVE SOURCE\nfetch + sanity + parse","x":460,"y":-120,"width":300,"height":100},
+    {"id":"cache","type":"text","text":"VERIFIED CACHE\nfresh / stale / expired","x":460,"y":40,"width":300,"height":120},
+    {"id":"sample","type":"text","text":"SAMPLE FALLBACK\nlast-resort continuity","x":460,"y":220,"width":300,"height":100},
+    {"id":"dash","type":"text","text":"DASHBOARD HEALTH\nLIVE / CACHE / STALE / SAMPLE / ERROR","x":860,"y":40,"width":360,"height":120}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"stage09","fromSide":"right","toNode":"live","toSide":"left"},
+    {"id":"e2","fromNode":"live","fromSide":"bottom","toNode":"cache","toSide":"top"},
+    {"id":"e3","fromNode":"cache","fromSide":"bottom","toNode":"sample","toSide":"top"},
+    {"id":"e4","fromNode":"cache","fromSide":"right","toNode":"dash","toSide":"left"},
+    {"id":"e5","fromNode":"live","fromSide":"right","toNode":"dash","toSide":"left"},
+    {"id":"e6","fromNode":"sample","fromSide":"right","toNode":"dash","toSide":"left"}
+  ]
+}

@@ -71,6 +71,30 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.parser_last_summary = "not parsed";
    runtime.parser_last_warning = "";
 
+   runtime.source_last_fetch_attempt_at = 0;
+   runtime.source_sanity_event_blocks = 0;
+   runtime.source_sanity_fail_count = 0;
+   runtime.source_health_score = 0;
+   runtime.source_raw_hash = "";
+   runtime.source_sanity_summary = "not checked";
+   runtime.source_quality_text = "NONE";
+   runtime.source_quality = GT_SOURCE_QUALITY_NONE;
+
+   runtime.cache_last_saved_at = 0;
+   runtime.cache_last_loaded_at = 0;
+   runtime.cache_age_seconds = -1;
+   runtime.cache_state = GT_CACHE_STATE_NONE;
+   runtime.cache_load_count = 0;
+   runtime.cache_save_count = 0;
+   runtime.cache_status = "none";
+   runtime.cache_last_meta = "";
+
+   runtime.source_using_cache = false;
+   runtime.source_using_stale_cache = false;
+   runtime.source_using_sample_fallback = false;
+   runtime.resilience_failover_count = 0;
+   runtime.resilience_last_summary = "not evaluated";
+
    runtime.last_error = "";
    runtime.last_warning = "";
    runtime.last_info = "";

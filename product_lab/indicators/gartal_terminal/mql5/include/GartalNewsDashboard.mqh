@@ -2,7 +2,7 @@
 #define GARTAL_NEWS_DASHBOARD_MQH
 
 //+------------------------------------------------------------------+
-//| Stage 07 Dashboard Doctrine                                      |
+//| Stage 09 Dashboard Doctrine                                      |
 //| This module renders the terminal surface, alert status, and object-click |
 //| events to the runtime filter engine. The store remains read-only.  |
 //+------------------------------------------------------------------+
@@ -115,7 +115,7 @@ void GT_RenderShell(GT_Config &config, GT_RuntimeState &runtime)
    int width = config.dashboard_width;
    GT_Rect(prefix + "BG", config.dashboard_corner, config.dashboard_x, config.dashboard_y, width, 76, GT_DashBg(config), GT_DashBorder(config));
    GT_Label(prefix + "TITLE", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 12, "gartal terminal", GT_DashText(config), 13, "Segoe UI Semibold");
-   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 08 Forex Factory source adapter booting...", GT_DashMuted(config), 8);
+   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 09 cache fallback resilience booting...", GT_DashMuted(config), 8);
    GT_Label(prefix + "TIME", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 54, runtime.time_summary, clrDarkGray, 8, "Consolas");
 }
 
@@ -131,7 +131,7 @@ void GT_RenderDashboardHeader(string prefix, int corner, int x, int y, int width
 
    color health = GT_DashboardHealthColor(store, runtime);
    string title = "gartal terminal";
-   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  Stage 08";
+   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  Stage 09";
 
    GT_Label(prefix + "BRAND", corner, x + 16, y + 12, title, GT_DashText(config), 14, "Segoe UI Semibold");
    GT_Label(prefix + "SUBTITLE", corner, x + 16, y + 36, subtitle, GT_DashMuted(config), 8, "Segoe UI");
@@ -144,10 +144,21 @@ void GT_RenderDashboardHealthBar(string prefix, int corner, int x, int y, int wi
    if(!config.dashboard_show_health_bar)
       return;
 
-   string left = "source=" + store.source_status + " | fetch=" + GT_FetchModeText(runtime.source_fetch_mode_used) + " | bytes=" + IntegerToString(runtime.source_raw_bytes) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
-   string right = "parser=" + runtime.parser_last_summary + " | broker=" + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) + " | alerts=" + runtime.alert_last_summary;
+   string left = "source=" + store.source_status + " | quality=" + runtime.source_quality_text + " | fetch=" + GT_FetchModeText(runtime.source_fetch_mode_used) + " | bytes=" + IntegerToString(runtime.source_raw_bytes) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
+   string right = "cache=" + runtime.cache_status + " | sanity=" + runtime.source_sanity_summary + " | parser=" + runtime.parser_last_summary;
    GT_Label(prefix + "HEALTH_LEFT", corner, x + 16, y, left, GT_DashMuted(config), 8, "Consolas");
    GT_Label(prefix + "HEALTH_RIGHT", corner, x + 16, y + 14, right, clrDarkGray, 8, "Consolas");
+}
+
+void GT_RenderDashboardResilienceDebug(string prefix, int corner, int x, int y, int width, GT_Config &config, GT_RuntimeState &runtime)
+{
+   if(!config.show_resilience_debug)
+      return;
+
+   string line1 = "resilience=" + runtime.resilience_last_summary;
+   string line2 = "cache_state=" + GT_CacheStateText(runtime.cache_state) + " | age=" + IntegerToString(runtime.cache_age_seconds) + "s | saves=" + IntegerToString(runtime.cache_save_count) + " | loads=" + IntegerToString(runtime.cache_load_count) + " | sanity_fails=" + IntegerToString(runtime.source_sanity_fail_count);
+   GT_Label(prefix + "RES_DBG_1", corner, x + 16, y, GT_CompactTitle(line1, 120), clrDarkGray, 8, "Consolas");
+   GT_Label(prefix + "RES_DBG_2", corner, x + 16, y + 14, GT_CompactTitle(line2, 120), clrDarkGray, 8, "Consolas");
 }
 
 void GT_RenderDashboardNextCard(string prefix, int corner, int x, int y, int width, GT_Config &config, GT_NewsStore &store)
@@ -346,6 +357,7 @@ void GT_RenderDashboardDebug(string prefix, int corner, int x, int y, int width,
                 " | filters=" + IntegerToString(runtime.filter_change_count) +
                 " | alerts=" + runtime.alert_last_summary +
                 " | parser=" + runtime.parser_last_summary +
+                " | resilience=" + runtime.resilience_last_summary +
                 " | last=" + runtime.filter_last_action;
    GT_Label(prefix + "DEBUG", corner, x + 16, y, GT_CompactTitle(dbg, 128), clrDarkSlateGray, 8, "Consolas");
 }
@@ -431,7 +443,16 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
    }
 
    if(config.show_time_debug || config.show_timeline_debug)
+   {
       GT_RenderDashboardDebug(prefix, corner, x, cursor, width, config, store, runtime);
+      cursor += 18;
+   }
+
+   if(config.show_resilience_debug)
+   {
+      GT_RenderDashboardResilienceDebug(prefix, corner, x, cursor, width, config, runtime);
+      cursor += 36;
+   }
 
    runtime.dashboard_last_render_summary = "mode=" + GT_DashboardModeText(config.dashboard_mode) +
                                            " width=" + IntegerToString(width) +

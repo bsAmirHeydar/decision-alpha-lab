@@ -1,14 +1,14 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 08 Forex Factory source adapter            |
+//| gartal terminal - Stage 09 cache fallback resilience            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.8.0"
-#property description       "gartal terminal - Stage 08 Forex Factory source adapter"
+#property version           "0.9.0"
+#property description       "gartal terminal - Stage 09 cache fallback resilience"
 
 // Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
@@ -19,6 +19,7 @@
 // - Stage 06 turns dashboard filter chips into live runtime controls.
 // - Stage 07 adds deterministic alert state, de-duplication, and alert diagnostics.
 // - Stage 08 adds the Forex Factory/Fair Economy source adapter, XML parser, and EA bridge contract.
+// - Stage 09 adds source sanity checks, verified cache bundles, freshness, and failover health states.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -28,6 +29,7 @@
 #include "include/GartalNewsStore.mqh"
 #include "include/GartalNewsSampleData.mqh"
 #include "include/GartalNewsCalendarClient.mqh"
+#include "include/GartalNewsResilience.mqh"
 #include "include/GartalNewsParser.mqh"
 #include "include/GartalNewsFilters.mqh"
 #include "include/GartalNewsDashboardTheme.mqh"
@@ -55,7 +57,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 08 Forex Factory source adapter boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 09 cache fallback resilience boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -71,7 +73,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 08 Forex Factory source adapter boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 09 cache fallback resilience boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -147,51 +149,79 @@ void GT_RefreshCalendar(const bool first_load)
    g_runtime.refresh_attempts++;
    g_runtime.last_refresh_started_at = TimeCurrent();
 
+   if(!GT_ResilienceRefreshAllowed(g_config, g_runtime, first_load))
+   {
+      g_runtime.last_refresh_at = TimeCurrent();
+      g_runtime.last_refresh_finished_at = g_runtime.last_refresh_at;
+      GT_RedrawAll();
+      return;
+   }
+
    GT_ResetStore(g_store);
+   g_runtime.source_using_cache = false;
+   g_runtime.source_using_stale_cache = false;
+   g_runtime.source_using_sample_fallback = false;
+   g_runtime.source_quality = GT_SOURCE_QUALITY_NONE;
+   g_runtime.source_quality_text = "NONE";
 
    if(g_config.data_mode == GT_DATA_MODE_SAMPLE)
    {
       parsed = GT_LoadSampleEvents(g_store, g_config, g_runtime);
       fetched = parsed;
+      if(parsed)
+         GT_MarkSampleFallback(g_runtime);
    }
    else
    {
       fetched = GT_FetchCalendarRaw(g_config, raw, g_runtime);
-      if(fetched)
+      if(fetched && GT_CheckRawCalendarHealth(raw, g_config, g_runtime))
       {
          parsed = GT_ParseCalendar(raw, g_config, g_store, g_runtime);
-         if(parsed && g_config.use_cache)
-            GT_SaveCache(g_config, raw, g_runtime);
+         if(parsed)
+         {
+            GT_MarkLiveSource(g_runtime);
+            if(g_config.use_cache)
+               GT_SaveVerifiedCacheBundle(g_config, raw, g_runtime);
+         }
+      }
+      else if(fetched)
+      {
+         GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Live source failed sanity check: " + g_runtime.source_sanity_summary);
       }
 
       if(!parsed && g_config.use_cache)
       {
          string cached = "";
-         if(GT_LoadCache(g_config, cached, g_runtime))
+         if(GT_LoadCacheBundle(g_config, cached, g_runtime))
             parsed = GT_ParseCalendar(cached, g_config, g_store, g_runtime);
       }
 
       if(!parsed && g_config.fallback_to_sample_on_source_fail)
       {
-         GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Live source failed. Falling back to sample data because fallback is enabled.");
+         GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Live/cache source failed. Falling back to sample data because fallback is enabled.");
          parsed = GT_LoadSampleEvents(g_store, g_config, g_runtime);
          if(parsed)
-            g_store.source_status = "SAMPLE_FALLBACK";
+            GT_MarkSampleFallback(g_runtime);
       }
    }
 
    g_store.source_ok = parsed;
    g_store.last_refresh = TimeCurrent();
-   if(parsed && g_store.source_status != "SAMPLE_FALLBACK")
-      g_store.source_status = (g_config.data_mode == GT_DATA_MODE_SAMPLE ? "SAMPLE" : GT_SourceFormatText(g_runtime.source_format_detected));
-   else if(!parsed)
-      g_store.source_status = "NO DATA";
+
+   if(parsed)
+      GT_ApplySourceQualityToStore(g_store, g_runtime);
+   else
+   {
+      GT_MarkSourceFailed(g_runtime);
+      GT_ApplySourceQualityToStore(g_store, g_runtime);
+   }
 
    g_runtime.last_refresh_at = TimeCurrent();
    g_runtime.last_refresh_finished_at = g_runtime.last_refresh_at;
    g_runtime.last_refresh_ok = parsed;
 
    GT_FinalizeStore(g_config, g_store, g_filters);
+   GT_ApplySourceQualityToStore(g_store, g_runtime);
 
    if(!parsed)
       GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Calendar refresh failed. first_load=" + GT_BoolText(first_load));
@@ -201,7 +231,7 @@ void GT_RefreshCalendar(const bool first_load)
 
 void GT_RedrawAll()
 {
-   // Stage 05 renders timeline first, then dashboard, so the dashboard can show renderer diagnostics.
+   // Stage 09 renders timeline first, then dashboard, so the dashboard can show renderer/source diagnostics.
    GT_RenderTimeline(g_config, g_store, g_filters, g_runtime);
    GT_RenderDashboard(g_config, g_store, g_filters, g_runtime);
 }

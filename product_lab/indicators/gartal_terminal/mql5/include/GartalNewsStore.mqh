@@ -60,6 +60,11 @@ void GT_ResetStore(GT_NewsStore &store)
    store.next_event_index = -1;
    store.next_high_index = -1;
    store.checksum = "";
+   store.using_cache = false;
+   store.using_stale_cache = false;
+   store.using_sample_fallback = false;
+   store.source_quality = GT_SOURCE_QUALITY_NONE;
+   store.source_quality_text = "NONE";
 }
 
 string GT_NormalizeTitle(string title)

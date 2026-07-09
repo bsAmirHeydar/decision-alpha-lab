@@ -6,6 +6,20 @@
 #define GT_MIN_TIMER_SECONDS   10
 #define GT_MAX_TIMER_SECONDS   3600
 
+#define GT_SOURCE_QUALITY_NONE        0
+#define GT_SOURCE_QUALITY_LIVE        1
+#define GT_SOURCE_QUALITY_CACHE       2
+#define GT_SOURCE_QUALITY_STALE_CACHE 3
+#define GT_SOURCE_QUALITY_SAMPLE      4
+#define GT_SOURCE_QUALITY_FAILED      5
+
+#define GT_CACHE_STATE_NONE           0
+#define GT_CACHE_STATE_MISS           1
+#define GT_CACHE_STATE_FRESH          2
+#define GT_CACHE_STATE_STALE          3
+#define GT_CACHE_STATE_EXPIRED        4
+#define GT_CACHE_STATE_UNKNOWN_AGE    5
+
 #define GT_SECONDS_PER_MINUTE  60
 #define GT_SECONDS_PER_HOUR    3600
 #define GT_SECONDS_PER_DAY     86400
@@ -158,6 +172,13 @@ struct GT_NewsStore
    int          next_event_index;
    int          next_high_index;
    string       checksum;
+
+   // Stage 09 cache/fallback audit.
+   bool         using_cache;
+   bool         using_stale_cache;
+   bool         using_sample_fallback;
+   int          source_quality;
+   string       source_quality_text;
 };
 
 struct GT_Config
@@ -183,6 +204,25 @@ struct GT_Config
    string local_raw_file;
    string local_cache_file;
    string source_user_agent;
+
+   // Stage 09 cache / fallback / resilience controls.
+   bool   cache_write_metadata;
+   bool   cache_allow_stale;
+   bool   cache_allow_expired;
+   bool   cache_accept_unknown_age;
+   string cache_metadata_file;
+   int    cache_fresh_minutes;
+   int    cache_stale_after_minutes;
+   int    cache_max_age_hours;
+   int    cache_fresh_seconds;
+   int    cache_stale_after_seconds;
+   int    cache_max_age_seconds;
+   int    source_min_raw_bytes;
+   int    source_max_raw_bytes;
+   int    source_min_event_blocks;
+   bool   source_require_event_blocks;
+   int    source_min_refresh_seconds;
+   bool   show_resilience_debug;
 
    bool   auto_detect_symbol_currencies;
    bool   show_only_symbol_currencies;
@@ -414,6 +454,31 @@ struct GT_RuntimeState
    datetime parser_last_run_at;
    string   parser_last_summary;
    string   parser_last_warning;
+
+   // Stage 09 cache/fallback/resilience diagnostics.
+   datetime source_last_fetch_attempt_at;
+   int      source_sanity_event_blocks;
+   int      source_sanity_fail_count;
+   int      source_health_score;
+   string   source_raw_hash;
+   string   source_sanity_summary;
+   string   source_quality_text;
+   int      source_quality;
+
+   datetime cache_last_saved_at;
+   datetime cache_last_loaded_at;
+   int      cache_age_seconds;
+   int      cache_state;
+   int      cache_load_count;
+   int      cache_save_count;
+   string   cache_status;
+   string   cache_last_meta;
+
+   bool     source_using_cache;
+   bool     source_using_stale_cache;
+   bool     source_using_sample_fallback;
+   int      resilience_failover_count;
+   string   resilience_last_summary;
 
    string   last_error;
    string   last_warning;

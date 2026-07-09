@@ -1,18 +1,19 @@
 //+------------------------------------------------------------------+
 //| GartalNewsDownloaderEA.mq5                                       |
-//| Stage 08 helper EA: downloads Forex Factory/Fair Economy XML      |
+//| Stage 09 helper EA: downloads Forex Factory/Fair Economy XML      |
 //| and writes a local bridge file for the gartal terminal indicator. |
 //+------------------------------------------------------------------+
 #property strict
-#property version "0.8.0"
-#property description "Helper EA for gartal terminal Stage 08 local file bridge"
+#property version "0.9.0"
+#property description "Helper EA for gartal terminal Stage 09 resilient local file bridge"
 
 input string InpSourceUrl       = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml";
 input string InpOutputFile      = "GartalTerminal\\ff_calendar_thisweek.xml";
+input string InpOutputMetaFile  = "GartalTerminal\\ff_calendar_thisweek.download.meta";
 input int    InpRefreshMinutes  = 15;
 input bool   InpDownloadOnInit  = true;
 input bool   InpPrintRawBytes   = true;
-input string InpUserAgent       = "Mozilla/5.0 gartal-terminal-downloader/0.8";
+input string InpUserAgent       = "Mozilla/5.0 gartal-terminal-downloader/0.9";
 
 int GTD_ClampInt(int v, int lo, int hi)
 {
@@ -96,8 +97,18 @@ bool GTD_Download()
    if(!GTD_WriteTextFile(InpOutputFile, raw))
       return false;
 
+   string meta = "product=gartal_terminal\n";
+   meta += "stage=09_downloader\n";
+   meta += "downloaded_at_epoch=" + IntegerToString((int)TimeCurrent()) + "\n";
+   meta += "downloaded_at_text=" + TimeToString(TimeCurrent(), TIME_DATE|TIME_SECONDS) + "\n";
+   meta += "status=" + IntegerToString(status) + "\n";
+   meta += "raw_bytes=" + IntegerToString(StringLen(raw)) + "\n";
+   meta += "source_url=" + InpSourceUrl + "\n";
+   if(StringLen(GTD_Trim(InpOutputMetaFile)) > 0)
+      GTD_WriteTextFile(InpOutputMetaFile, meta);
+
    if(InpPrintRawBytes)
-      Print("gartal downloader INFO | downloaded bytes=", StringLen(raw), " status=", status, " file=", InpOutputFile);
+      Print("gartal downloader INFO | downloaded bytes=", StringLen(raw), " status=", status, " file=", InpOutputFile, " meta=", InpOutputMetaFile);
 
    return true;
 }

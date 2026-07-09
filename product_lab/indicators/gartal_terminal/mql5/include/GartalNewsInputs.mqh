@@ -101,6 +101,23 @@ input bool   InpDashboardShowCurrencyButtons = true;
 input bool   InpDashboardShowFilterUtilities = true;
 input bool   InpDashboardClickRepaintsTimeline = true;
 
+
+input group "10 Cache / Resilience / Stage 09"
+input bool   InpCacheWriteMetadata           = true;
+input bool   InpCacheAllowStale              = true;
+input bool   InpCacheAllowExpired            = false;
+input bool   InpCacheAcceptUnknownAge        = true;
+input string InpCacheMetadataFile            = "GartalTerminal\calendar_cache.meta";
+input int    InpCacheFreshMinutes            = 60;
+input int    InpCacheStaleAfterMinutes       = 180;
+input int    InpCacheMaxAgeHours             = 36;
+input int    InpSourceMinRawBytes            = 250;
+input int    InpSourceMaxRawBytes            = 2000000;
+input int    InpSourceMinEventBlocks         = 3;
+input bool   InpSourceRequireEventBlocks     = true;
+input int    InpSourceMinRefreshSeconds      = 60;
+input bool   InpShowResilienceDebug          = true;
+
 input group "09 Alerts / Stage 07"
 input bool   InpEnableAlerts                 = true;
 input bool   InpAlertPopup                   = true;
@@ -158,6 +175,27 @@ void GT_LoadConfig(GT_Config &config)
    config.source_user_agent = GT_Trim(InpSourceUserAgent);
    if(GT_IsEmpty(config.source_user_agent))
       config.source_user_agent = "Mozilla/5.0 gartal-terminal/0.8";
+
+   config.cache_write_metadata = InpCacheWriteMetadata;
+   config.cache_allow_stale = InpCacheAllowStale;
+   config.cache_allow_expired = InpCacheAllowExpired;
+   config.cache_accept_unknown_age = InpCacheAcceptUnknownAge;
+   config.cache_metadata_file = GT_Trim(InpCacheMetadataFile);
+   if(GT_IsEmpty(config.cache_metadata_file))
+      config.cache_metadata_file = "GartalTerminal\\calendar_cache.meta";
+   config.cache_fresh_minutes = GT_ClampInt(InpCacheFreshMinutes, 1, 1440);
+   config.cache_stale_after_minutes = GT_ClampInt(InpCacheStaleAfterMinutes, config.cache_fresh_minutes, 10080);
+   config.cache_max_age_hours = GT_ClampInt(InpCacheMaxAgeHours, 1, 168);
+   config.cache_fresh_seconds = config.cache_fresh_minutes * GT_SECONDS_PER_MINUTE;
+   config.cache_stale_after_seconds = config.cache_stale_after_minutes * GT_SECONDS_PER_MINUTE;
+   config.cache_max_age_seconds = config.cache_max_age_hours * GT_SECONDS_PER_HOUR;
+   config.source_min_raw_bytes = GT_ClampInt(InpSourceMinRawBytes, 0, 5000000);
+   config.source_max_raw_bytes = GT_ClampInt(InpSourceMaxRawBytes, 0, 10000000);
+   config.source_min_event_blocks = GT_ClampInt(InpSourceMinEventBlocks, 0, 500);
+   config.source_require_event_blocks = InpSourceRequireEventBlocks;
+   config.source_min_refresh_seconds = GT_ClampInt(InpSourceMinRefreshSeconds, 0, 3600);
+   config.show_resilience_debug = InpShowResilienceDebug;
+
 
    config.currencies_csv = GT_ToUpper(GT_Trim(InpCurrencies));
    config.auto_detect_symbol_currencies = InpAutoDetectSymbolCurrencies;
@@ -291,6 +329,26 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
    if(!config.use_sample_data && config.source_fetch_mode == GT_FETCH_LOCAL_FILE && GT_IsEmpty(config.local_raw_file))
    {
       runtime.last_error = "Local raw file cannot be empty in Local File Bridge mode.";
+      ok = false;
+   }
+
+
+
+   if(config.use_cache && GT_IsEmpty(config.local_cache_file))
+   {
+      runtime.last_error = "Local cache file cannot be empty when cache is enabled.";
+      ok = false;
+   }
+
+   if(config.cache_stale_after_seconds < config.cache_fresh_seconds)
+      runtime.last_warning = "Cache stale threshold is below fresh threshold; values were clamped.";
+
+   if(config.cache_max_age_seconds < config.cache_stale_after_seconds)
+      runtime.last_warning = "Cache max age is below stale threshold; expired cache may appear earlier than expected.";
+
+   if(config.source_max_raw_bytes > 0 && config.source_min_raw_bytes > config.source_max_raw_bytes)
+   {
+      runtime.last_error = "Source raw byte limits are invalid.";
       ok = false;
    }
 

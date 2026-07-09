@@ -75,8 +75,14 @@ color GT_DashSuccess()
 
 color GT_DashboardHealthColor(GT_NewsStore &store, GT_RuntimeState &runtime)
 {
-   if(!GT_IsEmpty(runtime.last_error))
+   if(!GT_IsEmpty(runtime.last_error) || runtime.source_quality == GT_SOURCE_QUALITY_FAILED)
       return GT_DashDanger();
+   if(runtime.source_quality == GT_SOURCE_QUALITY_SAMPLE)
+      return clrMediumPurple;
+   if(runtime.source_quality == GT_SOURCE_QUALITY_STALE_CACHE || runtime.source_using_stale_cache)
+      return clrGold;
+   if(runtime.source_quality == GT_SOURCE_QUALITY_CACHE || runtime.source_using_cache)
+      return clrDeepSkyBlue;
    if(!store.source_ok || !runtime.last_refresh_ok)
       return GT_DashWarning();
    if(!GT_IsEmpty(runtime.last_warning))
@@ -86,8 +92,14 @@ color GT_DashboardHealthColor(GT_NewsStore &store, GT_RuntimeState &runtime)
 
 string GT_DashboardHealthText(GT_NewsStore &store, GT_RuntimeState &runtime)
 {
-   if(!GT_IsEmpty(runtime.last_error))
+   if(!GT_IsEmpty(runtime.last_error) || runtime.source_quality == GT_SOURCE_QUALITY_FAILED)
       return "ERROR";
+   if(runtime.source_quality == GT_SOURCE_QUALITY_SAMPLE)
+      return "SAMPLE";
+   if(runtime.source_quality == GT_SOURCE_QUALITY_STALE_CACHE || runtime.source_using_stale_cache)
+      return "STALE CACHE";
+   if(runtime.source_quality == GT_SOURCE_QUALITY_CACHE || runtime.source_using_cache)
+      return "CACHE";
    if(!store.source_ok || !runtime.last_refresh_ok)
       return "SOURCE WARNING";
    if(!GT_IsEmpty(runtime.last_warning))
@@ -111,7 +123,7 @@ int GT_DashboardHeight(GT_Config &config)
    }
    if(config.dashboard_show_mini_tape)  height += 42;
    if(config.dashboard_show_event_table) height += 28 + config.dashboard_rows * config.dashboard_row_height;
-   if(config.show_time_debug || config.show_timeline_debug) height += 22;
+   if(config.show_time_debug || config.show_timeline_debug || config.show_resilience_debug) height += 36;
    return height;
 }
 
