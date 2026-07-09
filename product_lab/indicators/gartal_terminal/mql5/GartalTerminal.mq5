@@ -1,14 +1,14 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 07 alert engine state machine            |
+//| gartal terminal - Stage 08 Forex Factory source adapter            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.7.0"
-#property description       "gartal terminal - Stage 07 alert engine state machine"
+#property version           "0.8.0"
+#property description       "gartal terminal - Stage 08 Forex Factory source adapter"
 
 // Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
@@ -18,6 +18,7 @@
 // - Stage 05 upgrades the dashboard into the sellable terminal surface.
 // - Stage 06 turns dashboard filter chips into live runtime controls.
 // - Stage 07 adds deterministic alert state, de-duplication, and alert diagnostics.
+// - Stage 08 adds the Forex Factory/Fair Economy source adapter, XML parser, and EA bridge contract.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -54,7 +55,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 07 alert engine state machine boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 08 Forex Factory source adapter boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -70,7 +71,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 07 alert engine state machine boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 08 Forex Factory source adapter boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -157,7 +158,11 @@ void GT_RefreshCalendar(const bool first_load)
    {
       fetched = GT_FetchCalendarRaw(g_config, raw, g_runtime);
       if(fetched)
+      {
          parsed = GT_ParseCalendar(raw, g_config, g_store, g_runtime);
+         if(parsed && g_config.use_cache)
+            GT_SaveCache(g_config, raw, g_runtime);
+      }
 
       if(!parsed && g_config.use_cache)
       {
@@ -165,11 +170,22 @@ void GT_RefreshCalendar(const bool first_load)
          if(GT_LoadCache(g_config, cached, g_runtime))
             parsed = GT_ParseCalendar(cached, g_config, g_store, g_runtime);
       }
+
+      if(!parsed && g_config.fallback_to_sample_on_source_fail)
+      {
+         GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Live source failed. Falling back to sample data because fallback is enabled.");
+         parsed = GT_LoadSampleEvents(g_store, g_config, g_runtime);
+         if(parsed)
+            g_store.source_status = "SAMPLE_FALLBACK";
+      }
    }
 
    g_store.source_ok = parsed;
    g_store.last_refresh = TimeCurrent();
-   g_store.source_status = parsed ? GT_DataModeText(g_config.data_mode) : "NO DATA";
+   if(parsed && g_store.source_status != "SAMPLE_FALLBACK")
+      g_store.source_status = (g_config.data_mode == GT_DATA_MODE_SAMPLE ? "SAMPLE" : GT_SourceFormatText(g_runtime.source_format_detected));
+   else if(!parsed)
+      g_store.source_status = "NO DATA";
 
    g_runtime.last_refresh_at = TimeCurrent();
    g_runtime.last_refresh_finished_at = g_runtime.last_refresh_at;

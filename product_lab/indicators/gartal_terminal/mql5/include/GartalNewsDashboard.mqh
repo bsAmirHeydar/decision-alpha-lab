@@ -115,7 +115,7 @@ void GT_RenderShell(GT_Config &config, GT_RuntimeState &runtime)
    int width = config.dashboard_width;
    GT_Rect(prefix + "BG", config.dashboard_corner, config.dashboard_x, config.dashboard_y, width, 76, GT_DashBg(config), GT_DashBorder(config));
    GT_Label(prefix + "TITLE", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 12, "gartal terminal", GT_DashText(config), 13, "Segoe UI Semibold");
-   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 07 alert engine state machine booting...", GT_DashMuted(config), 8);
+   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 08 Forex Factory source adapter booting...", GT_DashMuted(config), 8);
    GT_Label(prefix + "TIME", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 54, runtime.time_summary, clrDarkGray, 8, "Consolas");
 }
 
@@ -131,7 +131,7 @@ void GT_RenderDashboardHeader(string prefix, int corner, int x, int y, int width
 
    color health = GT_DashboardHealthColor(store, runtime);
    string title = "gartal terminal";
-   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  Stage 07";
+   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  Stage 08";
 
    GT_Label(prefix + "BRAND", corner, x + 16, y + 12, title, GT_DashText(config), 14, "Segoe UI Semibold");
    GT_Label(prefix + "SUBTITLE", corner, x + 16, y + 36, subtitle, GT_DashMuted(config), 8, "Segoe UI");
@@ -144,8 +144,8 @@ void GT_RenderDashboardHealthBar(string prefix, int corner, int x, int y, int wi
    if(!config.dashboard_show_health_bar)
       return;
 
-   string left = "source=" + store.source_status + " | refresh=" + TimeToString(store.last_refresh, TIME_MINUTES) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
-   string right = "broker=" + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) + " | alerts=" + runtime.alert_last_summary + " | confidence=" + IntegerToString(runtime.broker_gmt_confidence);
+   string left = "source=" + store.source_status + " | fetch=" + GT_FetchModeText(runtime.source_fetch_mode_used) + " | bytes=" + IntegerToString(runtime.source_raw_bytes) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
+   string right = "parser=" + runtime.parser_last_summary + " | broker=" + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) + " | alerts=" + runtime.alert_last_summary;
    GT_Label(prefix + "HEALTH_LEFT", corner, x + 16, y, left, GT_DashMuted(config), 8, "Consolas");
    GT_Label(prefix + "HEALTH_RIGHT", corner, x + 16, y + 14, right, clrDarkGray, 8, "Consolas");
 }
@@ -345,6 +345,7 @@ void GT_RenderDashboardDebug(string prefix, int corner, int x, int y, int width,
                 " | dash=" + runtime.dashboard_last_render_summary +
                 " | filters=" + IntegerToString(runtime.filter_change_count) +
                 " | alerts=" + runtime.alert_last_summary +
+                " | parser=" + runtime.parser_last_summary +
                 " | last=" + runtime.filter_last_action;
    GT_Label(prefix + "DEBUG", corner, x + 16, y, GT_CompactTitle(dbg, 128), clrDarkSlateGray, 8, "Consolas");
 }

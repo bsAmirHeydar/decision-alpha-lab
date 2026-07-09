@@ -20,6 +20,17 @@
 #define GT_DATA_MODE_DIRECT    1
 #define GT_DATA_MODE_CACHE     2
 
+#define GT_FETCH_LOCAL_FILE    0
+#define GT_FETCH_WEBREQUEST    1
+#define GT_FETCH_AUTO          2
+
+#define GT_SOURCE_FORMAT_AUTO  0
+#define GT_SOURCE_FORMAT_XML   1
+#define GT_SOURCE_FORMAT_CSV   2
+#define GT_SOURCE_FORMAT_HTML  3
+
+#define GT_DEFAULT_FF_XML_URL  "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"
+
 #define GT_EVENT_UPCOMING      0
 #define GT_EVENT_ACTIVE        1
 #define GT_EVENT_RELEASED      2
@@ -159,6 +170,19 @@ struct GT_Config
    bool   use_cache;
    bool   use_sample_data;
    int    refresh_seconds;
+
+   // Stage 08 source adapter / parser controls.
+   int    source_fetch_mode;             // 0 local file bridge, 1 WebRequest attempt, 2 auto local->web
+   int    source_format;                 // 0 auto, 1 FF XML, 2 CSV, 3 website HTML
+   bool   allow_indicator_webrequest;    // MT5 indicators normally cannot call WebRequest; off by default
+   bool   save_raw_after_fetch;
+   bool   fallback_to_sample_on_source_fail;
+   bool   parser_detect_breaking_titles;
+   bool   parser_include_all_day;
+   bool   parser_log_skipped_rows;
+   string local_raw_file;
+   string local_cache_file;
+   string source_user_agent;
 
    bool   auto_detect_symbol_currencies;
    bool   show_only_symbol_currencies;
@@ -372,6 +396,24 @@ struct GT_RuntimeState
    int      server_gmt_raw_delta_seconds;
    int      broker_gmt_confidence;
    string   time_summary;
+
+   // Stage 08 source and parser diagnostics.
+   int      source_fetch_status_code;
+   int      source_raw_bytes;
+   int      source_fetch_mode_used;
+   int      source_format_detected;
+   datetime source_last_fetch_at;
+   string   source_last_url;
+   string   source_last_file;
+   string   source_last_error;
+   string   source_permission_hint;
+
+   int      parser_blocks_seen;
+   int      parser_events_added;
+   int      parser_events_skipped;
+   datetime parser_last_run_at;
+   string   parser_last_summary;
+   string   parser_last_warning;
 
    string   last_error;
    string   last_warning;

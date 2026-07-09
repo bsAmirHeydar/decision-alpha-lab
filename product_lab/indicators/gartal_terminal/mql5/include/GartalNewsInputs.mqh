@@ -1,13 +1,24 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 06"
-input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
-input bool   InpUseSampleData                = true;       // Stage 03 default: true. Direct source begins in Stage 08.
+input group "01 Data Source / Stage 08"
+input string InpForexFactoryUrl              = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"; // FF weekly XML feed used by MT tools
+input bool   InpUseSampleData                = true;       // keep true for UI tests; set false for live bridge
 input bool   InpUseCache                     = true;
-input int    InpRefreshMinutes               = 5;
+input int    InpRefreshMinutes               = 15;         // avoid over-polling public FF feed
+input int    InpSourceFetchMode              = 0;          // 0 Local File Bridge, 1 WebRequest attempt, 2 Auto local->web
+input int    InpSourceFormat                 = 0;          // 0 Auto, 1 FF XML, 2 CSV, 3 Website HTML guardrail
+input bool   InpAllowIndicatorWebRequest     = false;      // MT5 custom indicators normally return 4014 on WebRequest
+input string InpLocalRawFile                 = "GartalTerminal\\ff_calendar_thisweek.xml";
+input string InpLocalCacheFile               = "GartalTerminal\\calendar_cache.txt";
+input bool   InpSaveRawAfterFetch            = true;
+input bool   InpFallbackToSampleOnSourceFail = true;
+input bool   InpParserDetectBreakingTitles   = true;
+input bool   InpParserIncludeAllDay          = true;
+input bool   InpParserLogSkippedRows         = false;
+input string InpSourceUserAgent              = "Mozilla/5.0 gartal-terminal/0.8";
 
-input group "02 Time and Broker GMT / Stage 06"
+input group "02 Time and Broker GMT / Stage 08"
 input int    InpBrokerGMTMode                = 0;          // 0 Auto, 1 Manual, 2 Hybrid(auto unless invalid)
 input bool   InpAutoDetectBrokerGMT          = true;       // compatibility alias; false forces manual mode
 input int    InpBrokerGMTOffsetHours         = 0;          // manual broker GMT hours, e.g. 2 or 3
@@ -56,7 +67,7 @@ input int    InpTimelineProjectionMinutes    = 720;        // future render hori
 input int    InpPreNewsZoneMinutes           = 15;
 input int    InpPostNewsZoneMinutes          = 15;
 
-input group "07 Luxury Dashboard / Stage 06"
+input group "07 Luxury Dashboard / Stage 08"
 input bool   InpShowDashboard                = true;
 input bool   InpCleanObjectsOnDeinit         = true;
 input string InpObjectPrefix                 = "GT_";
@@ -130,6 +141,23 @@ void GT_LoadConfig(GT_Config &config)
    config.use_cache = InpUseCache;
    config.data_mode = config.use_sample_data ? GT_DATA_MODE_SAMPLE : GT_DATA_MODE_DIRECT;
    config.refresh_seconds = GT_ClampInt(InpRefreshMinutes * 60, GT_MIN_TIMER_SECONDS, GT_MAX_TIMER_SECONDS);
+   config.source_fetch_mode = GT_ClampInt(InpSourceFetchMode, GT_FETCH_LOCAL_FILE, GT_FETCH_AUTO);
+   config.source_format = GT_ClampInt(InpSourceFormat, GT_SOURCE_FORMAT_AUTO, GT_SOURCE_FORMAT_HTML);
+   config.allow_indicator_webrequest = InpAllowIndicatorWebRequest;
+   config.local_raw_file = GT_Trim(InpLocalRawFile);
+   if(GT_IsEmpty(config.local_raw_file))
+      config.local_raw_file = "GartalTerminal\\ff_calendar_thisweek.xml";
+   config.local_cache_file = GT_Trim(InpLocalCacheFile);
+   if(GT_IsEmpty(config.local_cache_file))
+      config.local_cache_file = "GartalTerminal\\calendar_cache.txt";
+   config.save_raw_after_fetch = InpSaveRawAfterFetch;
+   config.fallback_to_sample_on_source_fail = InpFallbackToSampleOnSourceFail;
+   config.parser_detect_breaking_titles = InpParserDetectBreakingTitles;
+   config.parser_include_all_day = InpParserIncludeAllDay;
+   config.parser_log_skipped_rows = InpParserLogSkippedRows;
+   config.source_user_agent = GT_Trim(InpSourceUserAgent);
+   if(GT_IsEmpty(config.source_user_agent))
+      config.source_user_agent = "Mozilla/5.0 gartal-terminal/0.8";
 
    config.currencies_csv = GT_ToUpper(GT_Trim(InpCurrencies));
    config.auto_detect_symbol_currencies = InpAutoDetectSymbolCurrencies;
@@ -254,6 +282,15 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
    if(!config.use_sample_data && GT_IsEmpty(config.source_url))
    {
       runtime.last_error = "Source URL cannot be empty when sample data is disabled.";
+      ok = false;
+   }
+
+   if(!config.use_sample_data && config.source_fetch_mode != GT_FETCH_LOCAL_FILE && !config.allow_indicator_webrequest)
+      runtime.last_warning = "Live source is enabled, but indicator WebRequest is disabled. Use the downloader EA bridge or enable the unsafe WebRequest attempt for diagnostics.";
+
+   if(!config.use_sample_data && config.source_fetch_mode == GT_FETCH_LOCAL_FILE && GT_IsEmpty(config.local_raw_file))
+   {
+      runtime.last_error = "Local raw file cannot be empty in Local File Bridge mode.";
       ok = false;
    }
 

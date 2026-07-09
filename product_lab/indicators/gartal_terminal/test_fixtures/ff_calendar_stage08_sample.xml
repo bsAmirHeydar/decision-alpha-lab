@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<weeklyevents>
+  <event>
+    <title><![CDATA[US Core CPI m/m]]></title>
+    <country><![CDATA[US]]></country>
+    <date><![CDATA[07-09-2026]]></date>
+    <time><![CDATA[8:30am]]></time>
+    <impact><![CDATA[High]]></impact>
+    <forecast><![CDATA[0.3%]]></forecast>
+    <previous><![CDATA[0.2%]]></previous>
+    <actual><![CDATA[]]></actual>
+    <url><![CDATA[https://www.forexfactory.com/calendar]]></url>
+  </event>
+  <event>
+    <title><![CDATA[President Trump Speaks]]></title>
+    <country><![CDATA[US]]></country>
+    <date><![CDATA[07-09-2026]]></date>
+    <time><![CDATA[10:00am]]></time>
+    <impact><![CDATA[High]]></impact>
+    <forecast><![CDATA[]]></forecast>
+    <previous><![CDATA[]]></previous>
+    <actual><![CDATA[]]></actual>
+    <url><![CDATA[https://www.forexfactory.com/calendar]]></url>
+  </event>
+  <event>
+    <title><![CDATA[German Final CPI m/m]]></title>
+    <country><![CDATA[EZ]]></country>
+    <date><![CDATA[07-09-2026]]></date>
+    <time><![CDATA[2:00am]]></time>
+    <impact><![CDATA[Medium]]></impact>
+    <forecast><![CDATA[0.1%]]></forecast>
+    <previous><![CDATA[0.1%]]></previous>
+    <actual><![CDATA[]]></actual>
+  </event>
+  <event>
+    <title><![CDATA[NZ Bank Holiday]]></title>
+    <country><![CDATA[NZ]]></country>
+    <date><![CDATA[07-09-2026]]></date>
+    <time><![CDATA[All Day]]></time>
+    <impact><![CDATA[Holiday]]></impact>
+    <forecast><![CDATA[]]></forecast>
+    <previous><![CDATA[]]></previous>
+    <actual><![CDATA[]]></actual>
+  </event>
+</weeklyevents>

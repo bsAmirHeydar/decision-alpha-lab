@@ -54,6 +54,23 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.broker_gmt_confidence = 0;
    runtime.time_summary = "";
 
+   runtime.source_fetch_status_code = 0;
+   runtime.source_raw_bytes = 0;
+   runtime.source_fetch_mode_used = GT_FETCH_LOCAL_FILE;
+   runtime.source_format_detected = GT_SOURCE_FORMAT_AUTO;
+   runtime.source_last_fetch_at = 0;
+   runtime.source_last_url = "";
+   runtime.source_last_file = "";
+   runtime.source_last_error = "";
+   runtime.source_permission_hint = "";
+
+   runtime.parser_blocks_seen = 0;
+   runtime.parser_events_added = 0;
+   runtime.parser_events_skipped = 0;
+   runtime.parser_last_run_at = 0;
+   runtime.parser_last_summary = "not parsed";
+   runtime.parser_last_warning = "";
+
    runtime.last_error = "";
    runtime.last_warning = "";
    runtime.last_info = "";

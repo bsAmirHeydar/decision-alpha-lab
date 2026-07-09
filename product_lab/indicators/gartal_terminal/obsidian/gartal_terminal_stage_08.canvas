@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    {"id":"stage08","type":"text","text":"Stage 08\nForex Factory Source Adapter + Parser","x":0,"y":0,"width":360,"height":120},
+    {"id":"ea","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/02_downloader_ea_bridge.md","x":460,"y":-160,"width":360,"height":120},
+    {"id":"adapter","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/01_source_adapter_contract.md","x":460,"y":0,"width":360,"height":120},
+    {"id":"parser","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/03_ff_xml_parser_contract.md","x":460,"y":160,"width":360,"height":120},
+    {"id":"time","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/04_time_mapping_and_broker_authority.md","x":900,"y":160,"width":360,"height":120},
+    {"id":"breaking","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/05_breaking_news_proxy.md","x":900,"y":320,"width":360,"height":120},
+    {"id":"validation","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/06_validation_checklist.md","x":1340,"y":0,"width":360,"height":120},
+    {"id":"handoff","type":"file","file":"product_lab/indicators/gartal_terminal/obsidian/implementation/stage_08/07_handoff_to_stage_09.md","x":1340,"y":160,"width":360,"height":120}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"stage08","fromSide":"right","toNode":"ea","toSide":"left"},
+    {"id":"e2","fromNode":"stage08","fromSide":"right","toNode":"adapter","toSide":"left"},
+    {"id":"e3","fromNode":"adapter","fromSide":"right","toNode":"parser","toSide":"left"},
+    {"id":"e4","fromNode":"parser","fromSide":"right","toNode":"time","toSide":"left"},
+    {"id":"e5","fromNode":"parser","fromSide":"right","toNode":"breaking","toSide":"left"},
+    {"id":"e6","fromNode":"time","fromSide":"right","toNode":"validation","toSide":"left"},
+    {"id":"e7","fromNode":"validation","fromSide":"right","toNode":"handoff","toSide":"left"}
+  ]
+}
