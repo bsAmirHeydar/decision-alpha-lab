@@ -1,11 +1,13 @@
-# Folder Map — EXP0017 strategy architect answers
+# Folder Map — EXP0017 Strategy Architect Answers
 
-این فولدر شامل پاسخ‌های معمار استراتژی برای پروژه EXP0017 است.
+This folder contains chapter-level strategy-architect answer documents for EXP0017 Cycle Group Intermarket Divergence.
 
-## Chapter 07
+## Chapter 08 Added
 
-- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_time_validity_session_quality_and_stop_pressure.md]]
-- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_research_translation_and_statistical_mission.md]]
-- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_intraday_time_neutrality_and_cash_session_hypothesis.md]]
-- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_stop_pressure_as_market_condition.md]]
-- [[docs__execution__EXP0017_cycle_group_intermarket_divergence__strategy_architect_answers__CH07_hypothesis_register.md]]
+- CH08_INDEX.md
+- CH08_candle_close_confirmation_and_trade_permission.md
+- CH08_research_translation_and_statistical_mission.md
+- CH08_invalidation_and_simultaneous_hunt_doctrine.md
+- CH08_signal_visibility_and_equality.md
+- CH08_hypothesis_register.md
+- CH08_glossary_and_language.md
