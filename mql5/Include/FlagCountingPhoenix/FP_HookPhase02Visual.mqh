@@ -554,6 +554,28 @@ bool FP_HookP02SequenceStructurallyDrawable(const FP_HookPhase02Config &cfg,
    return true;
 }
 
+// Canon Step 1 — production-visible Hook family selector.
+//
+// This helper is intentionally narrow: it answers only whether a Phase 02
+// sequence is the selected valid Hook itself. Parent companion expansion is
+// handled separately by FP_HookP02ExpandSelectionWithHookAfterHookParents().
+//
+// Do not use broad structural drawability here. Valid-only production view must
+// not leak raw Hook candidates, structural fallback rows, or same-origin-group
+// debug branches onto the chart.
+bool FP_HookP02SequenceIsProductionValidHook(const FP_HookPhase02Sequence &seq)
+{
+   if(!seq.valid)
+      return false;
+   if(seq.hook_failed)
+      return false;
+   if(seq.valid_after_opposing_f3)
+      return true;
+   if(seq.valid_after_hook)
+      return true;
+   return false;
+}
+
 bool FP_HookP02SameOriginGroup(const FP_HookPhase02Sequence &a,
                                const FP_HookPhase02Sequence &b)
 {
@@ -910,7 +932,12 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
    if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, seq, true))
       return false;
 
-   if(cfg.show_only_valid_hooks && !seq.valid_hook_family)
+   // Canon Step 1:
+   // In valid-only production view, the primary selected set is only:
+   // 1) Immediate Hook After Opposing F3
+   // 2) Hook-2 After Hook-1
+   // Parent Hook-1 rows are injected later as companions.
+   if(cfg.show_only_valid_hooks && !FP_HookP02SequenceIsProductionValidHook(seq))
       return false;
 
    return true;
@@ -1008,39 +1035,19 @@ void FP_HookP02ExpandSelectionWithSameHookGroupMembers(const FP_HookPhase02Confi
                                                        const FP_HookPhase02Sequence &sequences[],
                                                        int &indexes[])
 {
-   if(!cfg.show_only_valid_hooks)
+   // Canon Step 1:
+   // Valid-only production view is not allowed to expand a valid Hook into all
+   // same-origin structural/debug branches. That previous behavior was the main
+   // source of label leakage: one valid row could pull many unqualified sibling
+   // rows back onto the chart.
+   //
+   // Keep the function as a compatibility hook, but make it a no-op. The final
+   // visible set is therefore:
+   // - selected production-valid Hook rows
+   // - required Hook-after-Hook parent companions
+   // and nothing else.
+   if(ArraySize(indexes) < 0)
       return;
-
-   // Valid-only view is Hook-scoped. Once a valid Hook is selected, draw labels
-   // only for the sequences that belong to that visible Hook's origin group.
-   // This prevents labels from unqualified Hook groups from leaking onto the chart,
-   // while preserving complete sequence readability inside the valid Hook itself.
-   int cursor = 0;
-   while(cursor < ArraySize(indexes))
-   {
-      int seed_index = indexes[cursor];
-      cursor++;
-
-      if(seed_index < 0 || seed_index >= ArraySize(sequences))
-         continue;
-
-      FP_HookPhase02Sequence seed = sequences[seed_index];
-      for(int i=0; i<ArraySize(sequences); i++)
-      {
-         if(FP_HookP02IndexAlreadySelected(indexes, i))
-            continue;
-         if(!FP_HookP02SameOriginGroup(seed, sequences[i]))
-            continue;
-         if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, sequences[i], false))
-            continue;
-
-         int k = ArraySize(indexes);
-         ArrayResize(indexes, k + 1);
-         indexes[k] = i;
-      }
-   }
-
-   FP_HookP02SortSelectedIndexesBySequenceId(sequences, indexes);
 }
 
 bool FP_HookP02AlreadySelectedScaleDirection(const int &scales[],
@@ -1110,7 +1117,7 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       }
    }
 
-   if(cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
+   if(false && cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
    {
       // Debug-only fallback. Production doctrine is strict valid-only:
       // if no valid Hook family is selected, draw nothing. Turn this on only
