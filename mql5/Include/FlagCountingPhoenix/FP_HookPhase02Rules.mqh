@@ -1282,10 +1282,31 @@ int FP_HookP02BuildSequences(const FP_HookPhase01Node &nodes[],
 // need to be rewritten just to compile against the seed-owned builder. The
 // sequence numbering doctrine is still owned by FP_HookP02BuildSequences.
 
+bool FP_HookP02RawTerminalCandidateInsideOriginBoundary(const FP_HookPhase02Direction d,
+                                                            const double origin_price,
+                                                            const double candidate_price,
+                                                            const bool touch_kills)
+{
+   // Canon terminal doctrine:
+   // - Positive Hook terminal is the lowest price/valley still ABOVE origin.
+   // - Negative Hook terminal is the highest price/peak still BELOW origin.
+   // If the raw price touches or crosses origin before terminal confirmation,
+   // the candidate is no longer a living Hook terminal; it is boundary death.
+   if(d == FP_HOOK_P02_DIRECTION_POSITIVE)
+      return (touch_kills ? candidate_price > origin_price : candidate_price >= origin_price);
+
+   if(d == FP_HOOK_P02_DIRECTION_NEGATIVE)
+      return (touch_kills ? candidate_price < origin_price : candidate_price <= origin_price);
+
+   return false;
+}
+
 bool FP_HookP02FindRawTerminalPriceExtreme(const MqlRates &rates[],
                                            const int copied,
                                            const FP_HookPhase02Direction d,
                                            const datetime from_time,
+                                           const double origin_price,
+                                           const bool touch_kills,
                                            datetime &terminal_time,
                                            double &terminal_price,
                                            int &terminal_bar_index)
@@ -1295,7 +1316,7 @@ bool FP_HookP02FindRawTerminalPriceExtreme(const MqlRates &rates[],
    terminal_bar_index = -1;
 
    int n = MathMin(copied, ArraySize(rates));
-   if(n <= 0 || from_time <= 0)
+   if(n <= 0 || from_time <= 0 || origin_price == 0.0)
       return false;
 
    bool found = false;
@@ -1306,6 +1327,14 @@ bool FP_HookP02FindRawTerminalPriceExtreme(const MqlRates &rates[],
 
       double candidate = (d == FP_HOOK_P02_DIRECTION_POSITIVE ? rates[i].low : rates[i].high);
       datetime candidate_time = rates[i].time;
+
+      if(!FP_HookP02RawTerminalCandidateInsideOriginBoundary(d, origin_price, candidate, touch_kills))
+      {
+         // Stop at the first origin-boundary touch/cross. A terminal after this
+         // point would belong to a failed/non-living Hook and must not extend
+         // the visible production cycle.
+         break;
+      }
 
       if(!found)
       {
@@ -1343,6 +1372,8 @@ void FP_HookP02PromoteRawPriceTerminalIfMoreExtreme(FP_HookPhase02Sequence &seq,
    int raw_bar;
    if(!FP_HookP02FindRawTerminalPriceExtreme(rates, copied, seq.direction,
                                              seq.cycle_crown_time,
+                                             seq.origin_price,
+                                             cfg.death_on_boundary_touch,
                                              raw_time, raw_price, raw_bar))
       return;
 
