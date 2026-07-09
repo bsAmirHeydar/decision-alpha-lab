@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "brief",
+      "type": "text",
+      "text": "gartal terminal\nMacro news terminal on chart",
+      "x": 0,
+      "y": 0,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "data",
+      "type": "text",
+      "text": "Data Layer\nForex Factory / API / Cache",
+      "x": 380,
+      "y": -120,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "parser",
+      "type": "text",
+      "text": "Parser + Normalizer\nUTC → Broker Time",
+      "x": 760,
+      "y": -120,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "ui",
+      "type": "text",
+      "text": "Terminal UI\nDashboard + Filters",
+      "x": 380,
+      "y": 120,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "timeline",
+      "type": "text",
+      "text": "Chart Timeline\nFuture events + vertical lines",
+      "x": 760,
+      "y": 120,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "alerts",
+      "type": "text",
+      "text": "Alert Engine\n30m/15m/5m/release",
+      "x": 1140,
+      "y": 0,
+      "width": 300,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "brief",
+      "fromSide": "right",
+      "toNode": "data",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "data",
+      "fromSide": "right",
+      "toNode": "parser",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "parser",
+      "fromSide": "bottom",
+      "toNode": "ui",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "ui",
+      "fromSide": "right",
+      "toNode": "timeline",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "timeline",
+      "fromSide": "right",
+      "toNode": "alerts",
+      "toSide": "left"
+    }
+  ]
+}
