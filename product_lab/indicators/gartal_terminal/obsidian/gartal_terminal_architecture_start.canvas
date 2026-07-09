@@ -1,0 +1,175 @@
+{
+  "nodes": [
+    {
+      "id": "start",
+      "type": "text",
+      "text": "Gartal Terminal\nArchitecture Start",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 120
+    },
+    {
+      "id": "system",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/01_system_architecture.md",
+      "x": 360,
+      "y": -220,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "contracts",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/02_mql5_module_contracts.md",
+      "x": 360,
+      "y": -60,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "source",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/03_data_pipeline_and_source_strategy.md",
+      "x": 360,
+      "y": 100,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "parser",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/04_forex_factory_parsing_contract.md",
+      "x": 780,
+      "y": 100,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "time",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/05_time_and_gmt_architecture.md",
+      "x": 780,
+      "y": -60,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/06_ui_runtime_filter_architecture.md",
+      "x": 1200,
+      "y": -220,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "alerts",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/07_alert_state_machine.md",
+      "x": 1200,
+      "y": -60,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "render",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/08_chart_rendering_object_model.md",
+      "x": 1200,
+      "y": 100,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "resilience",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/09_error_cache_resilience_architecture.md",
+      "x": 1620,
+      "y": -60,
+      "width": 340,
+      "height": 120
+    },
+    {
+      "id": "order",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/architecture/10_engineering_execution_order.md",
+      "x": 1620,
+      "y": 120,
+      "width": 340,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "start",
+      "fromSide": "right",
+      "toNode": "system",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "system",
+      "fromSide": "bottom",
+      "toNode": "contracts",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "contracts",
+      "fromSide": "bottom",
+      "toNode": "source",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "source",
+      "fromSide": "right",
+      "toNode": "parser",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "parser",
+      "fromSide": "top",
+      "toNode": "time",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e6",
+      "fromNode": "time",
+      "fromSide": "right",
+      "toNode": "ui",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "ui",
+      "fromSide": "bottom",
+      "toNode": "alerts",
+      "toSide": "top"
+    },
+    {
+      "id": "e8",
+      "fromNode": "alerts",
+      "fromSide": "bottom",
+      "toNode": "render",
+      "toSide": "top"
+    },
+    {
+      "id": "e9",
+      "fromNode": "render",
+      "fromSide": "right",
+      "toNode": "resilience",
+      "toSide": "left"
+    },
+    {
+      "id": "e10",
+      "fromNode": "resilience",
+      "fromSide": "bottom",
+      "toNode": "order",
+      "toSide": "top"
+    }
+  ]
+}
