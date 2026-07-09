@@ -293,6 +293,133 @@ private:
       return "NONE";
    }
 
+
+   void ResetFrontierEligibility(SCGCExtremeFrontierEligibility &e)
+   {
+      e.high_frontier_valid=false;
+      e.low_frontier_valid=false;
+      e.symbol_a_high_frontier=false;
+      e.symbol_b_high_frontier=false;
+      e.symbol_a_low_frontier=false;
+      e.symbol_b_low_frontier=false;
+      e.later_symbol_a_max_high=0.0;
+      e.later_symbol_b_max_high=0.0;
+      e.later_symbol_a_min_low=0.0;
+      e.later_symbol_b_min_low=0.0;
+      e.high_note="not_calculated";
+      e.low_note="not_calculated";
+   }
+
+   string FrontierSuppressionText(const ECGCSignalSide side,const SCGCExtremeFrontierEligibility &e)
+   {
+      if(side==CGC_SIDE_HIGH)
+      {
+         return StringFormat("suppressed_non_frontier_high_reference|A_frontier:%s B_frontier:%s later_A_max:%s later_B_max:%s",
+                             BoolText(e.symbol_a_high_frontier),
+                             BoolText(e.symbol_b_high_frontier),
+                             FormatPrice(e.later_symbol_a_max_high),
+                             FormatPrice(e.later_symbol_b_max_high));
+      }
+      if(side==CGC_SIDE_LOW)
+      {
+         return StringFormat("suppressed_non_frontier_low_reference|A_frontier:%s B_frontier:%s later_A_min:%s later_B_min:%s",
+                             BoolText(e.symbol_a_low_frontier),
+                             BoolText(e.symbol_b_low_frontier),
+                             FormatPrice(e.later_symbol_a_min_low),
+                             FormatPrice(e.later_symbol_b_min_low));
+      }
+      return "suppressed_non_frontier_reference";
+   }
+
+   string BoolText(const bool value)
+   {
+      return value ? "true" : "false";
+   }
+
+   void BuildExtremeFrontierEligibility(SCGHReferenceHuntState &hunts[],SCGCExtremeFrontierEligibility &eligibility[])
+   {
+      int count=ArraySize(hunts);
+      ArrayResize(eligibility,count);
+      for(int i=0;i<count;i++)
+         ResetFrontierEligibility(eligibility[i]);
+
+      if(!m_config.enable_extreme_frontier_reference_filter)
+      {
+         for(int i=0;i<count;i++)
+         {
+            eligibility[i].high_frontier_valid=true;
+            eligibility[i].low_frontier_valid=true;
+            eligibility[i].symbol_a_high_frontier=true;
+            eligibility[i].symbol_b_high_frontier=true;
+            eligibility[i].symbol_a_low_frontier=true;
+            eligibility[i].symbol_b_low_frontier=true;
+            eligibility[i].high_note="extreme_frontier_filter_disabled";
+            eligibility[i].low_note="extreme_frontier_filter_disabled";
+         }
+         return;
+      }
+
+      double later_a_max_high=-1.0e100;
+      double later_b_max_high=-1.0e100;
+      double later_a_min_low=1.0e100;
+      double later_b_min_low=1.0e100;
+      bool have_later_a_high=false;
+      bool have_later_b_high=false;
+      bool have_later_a_low=false;
+      bool have_later_b_low=false;
+
+      // References arrive oldest -> newest. To suppress stale internal levels, walk newest -> oldest.
+      // A high is eligible only if no later completed cycle has already made an equal/higher high.
+      // A low is eligible only if no later completed cycle has already made an equal/lower low.
+      for(int i=count-1;i>=0;i--)
+      {
+         if(!hunts[i].reference_ready)
+         {
+            eligibility[i].high_note="reference_missing_no_frontier_classification";
+            eligibility[i].low_note="reference_missing_no_frontier_classification";
+            continue;
+         }
+
+         eligibility[i].later_symbol_a_max_high=(have_later_a_high ? later_a_max_high : 0.0);
+         eligibility[i].later_symbol_b_max_high=(have_later_b_high ? later_b_max_high : 0.0);
+         eligibility[i].later_symbol_a_min_low=(have_later_a_low ? later_a_min_low : 0.0);
+         eligibility[i].later_symbol_b_min_low=(have_later_b_low ? later_b_min_low : 0.0);
+
+         eligibility[i].symbol_a_high_frontier=(!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high);
+         eligibility[i].symbol_b_high_frontier=(!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high);
+         eligibility[i].symbol_a_low_frontier=(!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low);
+         eligibility[i].symbol_b_low_frontier=(!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low);
+
+         if(m_config.require_symbol_local_frontier_for_both_symbols)
+         {
+            eligibility[i].high_frontier_valid=(eligibility[i].symbol_a_high_frontier && eligibility[i].symbol_b_high_frontier);
+            eligibility[i].low_frontier_valid=(eligibility[i].symbol_a_low_frontier && eligibility[i].symbol_b_low_frontier);
+         }
+         else
+         {
+            eligibility[i].high_frontier_valid=(eligibility[i].symbol_a_high_frontier || eligibility[i].symbol_b_high_frontier);
+            eligibility[i].low_frontier_valid=(eligibility[i].symbol_a_low_frontier || eligibility[i].symbol_b_low_frontier);
+         }
+
+         eligibility[i].high_note=(eligibility[i].high_frontier_valid ? "high_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_HIGH,eligibility[i]));
+         eligibility[i].low_note=(eligibility[i].low_frontier_valid ? "low_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_LOW,eligibility[i]));
+
+         if(!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high)
+            later_a_max_high=hunts[i].symbol_a.reference_high;
+         if(!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high)
+            later_b_max_high=hunts[i].symbol_b.reference_high;
+         if(!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low)
+            later_a_min_low=hunts[i].symbol_a.reference_low;
+         if(!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low)
+            later_b_min_low=hunts[i].symbol_b.reference_low;
+
+         have_later_a_high=true;
+         have_later_b_high=true;
+         have_later_a_low=true;
+         have_later_b_low=true;
+      }
+   }
+
    string BuildSignalId(SCGTTimeSnapshot &time_snapshot,SCGHReferenceHuntState &hunt,const ECGCSignalDirection direction,const ECGCSignalSide side,const ECGCFinalStatus status,const string hunter_symbol,const string clean_symbol)
    {
       return StringFormat("EXP0017|PH05|%s|TD%s|C%d|R%d|%s|%s|%s|H:%s|C:%s",
@@ -350,7 +477,7 @@ private:
       }
    }
 
-   bool BuildConfirmedHighSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
+   bool BuildConfirmedHighSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,const SCGCExtremeFrontierEligibility &frontier,SCGCFinalSignal &signal)
    {
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_SELL,CGC_SIDE_HIGH);
@@ -361,6 +488,13 @@ private:
          signal.status=CGC_STATUS_MISSING_DATA;
          signal.note="missing_data_no_final_high_side_classification";
          return false;
+      }
+
+      if(m_config.enable_extreme_frontier_reference_filter && !frontier.high_frontier_valid)
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note=frontier.high_note;
+         return !m_config.suppress_non_frontier_reference_signals;
       }
 
       string lifecycle_key=BuildReferenceLifecycleKey(time_snapshot,hunt,CGC_SIDE_HIGH);
@@ -432,7 +566,7 @@ private:
       return true;
    }
 
-   bool BuildConfirmedLowSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
+   bool BuildConfirmedLowSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,const SCGCExtremeFrontierEligibility &frontier,SCGCFinalSignal &signal)
    {
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_BUY,CGC_SIDE_LOW);
@@ -443,6 +577,13 @@ private:
          signal.status=CGC_STATUS_MISSING_DATA;
          signal.note="missing_data_no_final_low_side_classification";
          return false;
+      }
+
+      if(m_config.enable_extreme_frontier_reference_filter && !frontier.low_frontier_valid)
+      {
+         signal.status=CGC_STATUS_NONE;
+         signal.note=frontier.low_note;
+         return !m_config.suppress_non_frontier_reference_signals;
       }
 
       string lifecycle_key=BuildReferenceLifecycleKey(time_snapshot,hunt,CGC_SIDE_LOW);
@@ -558,6 +699,8 @@ public:
          m_config.confirmation_timeframe=(ENUM_TIMEFRAMES)_Period;
       if(m_config.max_protected_reference_records<1)
          m_config.max_protected_reference_records=2048;
+      if(!m_config.enable_extreme_frontier_reference_filter)
+         m_config.suppress_non_frontier_reference_signals=false;
 
       m_hunt_config.symbol_a=m_config.symbol_a;
       m_hunt_config.symbol_b=m_config.symbol_b;
@@ -605,10 +748,13 @@ public:
       if(hunt_count<=0)
          return 0;
 
+      SCGCExtremeFrontierEligibility frontier[];
+      BuildExtremeFrontierEligibility(hunts,frontier);
+
       for(int i=0;i<hunt_count;i++)
       {
          SCGCFinalSignal high_signal;
-         if(BuildConfirmedHighSignal(time_snapshot,cycle,hunts[i],high_signal))
+         if(BuildConfirmedHighSignal(time_snapshot,cycle,hunts[i],frontier[i],high_signal))
          {
             if(high_signal.status==CGC_STATUS_CONFIRMED_TRADEABLE || m_config.show_invalidated_double_hunts)
             {
@@ -620,7 +766,7 @@ public:
          }
 
          SCGCFinalSignal low_signal;
-         if(BuildConfirmedLowSignal(time_snapshot,cycle,hunts[i],low_signal))
+         if(BuildConfirmedLowSignal(time_snapshot,cycle,hunts[i],frontier[i],low_signal))
          {
             if(low_signal.status==CGC_STATUS_CONFIRMED_TRADEABLE || m_config.show_invalidated_double_hunts)
             {

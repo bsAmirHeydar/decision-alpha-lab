@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.07"
+#property version   "1.08"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix007 adds protected-reference retirement so a reference side is not reused after its protected symbol hunts it."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix008 adds extreme-frontier reference filtering so stale swept levels are not reused."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -41,6 +41,11 @@ input bool InpAllowRepeatedDivergenceWhileProtectedSurvives = true;
 input bool InpSuppressRetiredReferenceSignals = true;
 input bool InpResetProtectedReferenceLifecycleAtNewTradingDay = true;
 input int  InpMaxProtectedReferenceRecords = 4096;
+
+// Hotfix008 — only compare against unbroken extreme-frontier references.
+input bool InpEnableExtremeFrontierReferenceFilter = true;
+input bool InpRequireSymbolLocalFrontierForBothSymbols = true;
+input bool InpSuppressNonFrontierReferenceSignals = true;
 
 input bool InpEnableDrawing = true;
 input ECGVVisualMode InpVisualMode = CGV_VISUAL_MODE_MINIMAL_LINES_ONLY;
@@ -158,6 +163,9 @@ int OnInit()
    config.suppress_retired_reference_signals=InpSuppressRetiredReferenceSignals;
    config.reset_lifecycle_at_new_trading_day=InpResetProtectedReferenceLifecycleAtNewTradingDay;
    config.max_protected_reference_records=InpMaxProtectedReferenceRecords;
+   config.enable_extreme_frontier_reference_filter=InpEnableExtremeFrontierReferenceFilter;
+   config.require_symbol_local_frontier_for_both_symbols=InpRequireSymbolLocalFrontierForBothSymbols;
+   config.suppress_non_frontier_reference_signals=InpSuppressNonFrontierReferenceSignals;
    config.enable_drawing=InpEnableDrawing;
    config.visual_mode=InpVisualMode;
    config.suppress_all_text_objects=InpSuppressAllTextObjects;

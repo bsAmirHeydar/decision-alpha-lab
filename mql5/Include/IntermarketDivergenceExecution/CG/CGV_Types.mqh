@@ -76,6 +76,11 @@ struct SCGVVisualLedgerConfig
    bool   reset_lifecycle_at_new_trading_day;
    int    max_protected_reference_records;
 
+   // Hotfix008 — extreme-frontier reference controls.
+   bool   enable_extreme_frontier_reference_filter;
+   bool   require_symbol_local_frontier_for_both_symbols;
+   bool   suppress_non_frontier_reference_signals;
+
    bool   enable_historical_visual_backfill;
    int    historical_backfill_lookback_trading_days;
    int    historical_backfill_max_closed_candles;

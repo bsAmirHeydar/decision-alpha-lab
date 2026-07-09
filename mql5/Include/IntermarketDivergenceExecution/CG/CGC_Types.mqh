@@ -51,6 +51,14 @@ struct SCGCConfirmationConfig
    bool   suppress_retired_reference_signals;
    bool   reset_lifecycle_at_new_trading_day;
    int    max_protected_reference_records;
+
+   // Hotfix008: extreme-frontier reference filter.
+   // A previous high/low is eligible only if it is still an unbroken frontier
+   // between its reference cycle and the current observation. Internal levels
+   // already swept by later candles/cycles are suppressed before divergence.
+   bool   enable_extreme_frontier_reference_filter;
+   bool   require_symbol_local_frontier_for_both_symbols;
+   bool   suppress_non_frontier_reference_signals;
 };
 
 struct SCGCProtectedReferenceLifecycleRecord
@@ -69,6 +77,22 @@ struct SCGCProtectedReferenceLifecycleRecord
    datetime last_allowed_confirmation_time_ny;
    datetime retirement_time_ny;
    string   retirement_reason;
+};
+
+struct SCGCExtremeFrontierEligibility
+{
+   bool high_frontier_valid;
+   bool low_frontier_valid;
+   bool symbol_a_high_frontier;
+   bool symbol_b_high_frontier;
+   bool symbol_a_low_frontier;
+   bool symbol_b_low_frontier;
+   double later_symbol_a_max_high;
+   double later_symbol_b_max_high;
+   double later_symbol_a_min_low;
+   double later_symbol_b_min_low;
+   string high_note;
+   string low_note;
 };
 
 struct SCGCFinalSignal

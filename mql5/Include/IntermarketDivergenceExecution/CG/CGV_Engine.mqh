@@ -117,6 +117,9 @@ private:
       m_confirmation_config.suppress_retired_reference_signals=m_visual_config.suppress_retired_reference_signals;
       m_confirmation_config.reset_lifecycle_at_new_trading_day=m_visual_config.reset_lifecycle_at_new_trading_day;
       m_confirmation_config.max_protected_reference_records=m_visual_config.max_protected_reference_records;
+      m_confirmation_config.enable_extreme_frontier_reference_filter=m_visual_config.enable_extreme_frontier_reference_filter;
+      m_confirmation_config.require_symbol_local_frontier_for_both_symbols=m_visual_config.require_symbol_local_frontier_for_both_symbols;
+      m_confirmation_config.suppress_non_frontier_reference_signals=m_visual_config.suppress_non_frontier_reference_signals;
    }
 
    void ResetVisualState(SCGVGroupVisualLedgerState &s,SCGCGroupConfirmationState &source)
