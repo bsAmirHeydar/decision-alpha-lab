@@ -1,6 +1,21 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
+
+input group "00 Product Hardening / Stage 10"
+input string InpProductVersion               = "1.0.0-beta";
+input string InpReleaseChannel               = "beta";       // dev, beta, stable, internal
+input string InpBuildProfile                 = "BETA";       // DEV, BETA, STABLE, SUPPORT
+input bool   InpStrictReleaseMode            = false;        // hides noisy diagnostics and clamps UI for customers
+input bool   InpShowBrandWatermark           = true;
+input bool   InpShowReleaseBadge             = true;
+input bool   InpHideDebugInRelease           = true;
+input int    InpMaxDashboardRowsRelease      = 10;
+input int    InpLicenseMode                  = 0;            // 0 off, 1 optional audit, 2 required
+input bool   InpRequireLicense               = false;        // compatibility switch; true forces LicenseMode=required
+input string InpLicenseKey                   = "";
+input string InpLicensedUser                 = "";
+
 input group "01 Data Source / Stage 08"
 input string InpForexFactoryUrl              = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"; // FF weekly XML feed used by MT tools
 input bool   InpUseSampleData                = true;       // keep true for UI tests; set false for live bridge
@@ -174,7 +189,29 @@ void GT_LoadConfig(GT_Config &config)
    config.parser_log_skipped_rows = InpParserLogSkippedRows;
    config.source_user_agent = GT_Trim(InpSourceUserAgent);
    if(GT_IsEmpty(config.source_user_agent))
-      config.source_user_agent = "Mozilla/5.0 gartal-terminal/0.8";
+      config.source_user_agent = "Mozilla/5.0 gartal-terminal/1.0";
+
+   config.product_version = GT_Trim(InpProductVersion);
+   if(GT_IsEmpty(config.product_version))
+      config.product_version = "1.0.0-beta";
+   config.release_channel = GT_ToLower(GT_Trim(InpReleaseChannel));
+   if(GT_IsEmpty(config.release_channel))
+      config.release_channel = "beta";
+   config.build_profile = GT_ToUpper(GT_Trim(InpBuildProfile));
+   if(GT_IsEmpty(config.build_profile))
+      config.build_profile = "BETA";
+   config.strict_release_mode = InpStrictReleaseMode;
+   config.show_brand_watermark = InpShowBrandWatermark;
+   config.show_release_badge = InpShowReleaseBadge;
+   config.hide_debug_in_release = InpHideDebugInRelease;
+   config.max_dashboard_rows_release = GT_ClampInt(InpMaxDashboardRowsRelease, 3, GT_DASHBOARD_MAX_ROWS);
+   config.license_mode = GT_ClampInt(InpLicenseMode, GT_LICENSE_MODE_OFF, GT_LICENSE_MODE_REQUIRED);
+   config.require_license = InpRequireLicense || config.license_mode == GT_LICENSE_MODE_REQUIRED;
+   if(config.require_license)
+      config.license_mode = GT_LICENSE_MODE_REQUIRED;
+   config.license_key = GT_Trim(InpLicenseKey);
+   config.licensed_user = GT_Trim(InpLicensedUser);
+   config.license_status_text = "UNVERIFIED";
 
    config.cache_write_metadata = InpCacheWriteMetadata;
    config.cache_allow_stale = InpCacheAllowStale;
@@ -395,6 +432,18 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
 
    if(config.alert_high_impact_only && (config.alert_include_medium || config.alert_include_low || config.alert_include_holiday))
       runtime.last_warning = "AlertHighImpactOnly overrides medium/low/holiday alert inclusion flags.";
+
+   if(config.strict_release_mode && config.data_mode == GT_DATA_MODE_SAMPLE && config.release_channel_id == GT_RELEASE_CHANNEL_STABLE)
+   {
+      runtime.last_error = "Stable release cannot ship in sample-data mode when strict release mode is enabled.";
+      ok = false;
+   }
+
+   if(config.license_mode == GT_LICENSE_MODE_REQUIRED && GT_IsEmpty(config.license_key))
+   {
+      runtime.last_error = "License is required but LicenseKey is empty.";
+      ok = false;
+   }
 
    return ok;
 }

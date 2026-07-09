@@ -1,14 +1,14 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 09 cache fallback resilience            |
+//| gartal terminal - Stage 10 product hardening release build            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.9.0"
-#property description       "gartal terminal - Stage 09 cache fallback resilience"
+#property version           "1.0.0"
+#property description       "gartal terminal - Stage 10 product hardening release build"
 
 // Stage 05 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
@@ -20,6 +20,7 @@
 // - Stage 07 adds deterministic alert state, de-duplication, and alert diagnostics.
 // - Stage 08 adds the Forex Factory/Fair Economy source adapter, XML parser, and EA bridge contract.
 // - Stage 09 adds source sanity checks, verified cache bundles, freshness, and failover health states.
+// - Stage 10 adds release profiles, license hooks, packaging discipline, and product QA gates.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -30,6 +31,7 @@
 #include "include/GartalNewsSampleData.mqh"
 #include "include/GartalNewsCalendarClient.mqh"
 #include "include/GartalNewsResilience.mqh"
+#include "include/GartalNewsProduct.mqh"
 #include "include/GartalNewsParser.mqh"
 #include "include/GartalNewsFilters.mqh"
 #include "include/GartalNewsDashboardTheme.mqh"
@@ -53,13 +55,20 @@ int OnInit()
    GT_ResetStore(g_store);
 
    GT_LoadConfig(g_config);
+   GT_ApplyReleaseProfile(g_config, g_runtime);
    GT_InitFilterState(g_filters, g_config);
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 09 cache fallback resilience boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 10 product hardening release build boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
+   {
+      GT_RenderFatalStatus(g_config, g_runtime);
+      return(INIT_FAILED);
+   }
+
+   if(!GT_ProductValidateLicense(g_config, g_runtime))
    {
       GT_RenderFatalStatus(g_config, g_runtime);
       return(INIT_FAILED);
@@ -73,7 +82,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 09 cache fallback resilience boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 10 product hardening release build boot completed: " + GT_ProductBuildSummary(g_config, g_runtime));
 
    return(INIT_SUCCEEDED);
 }

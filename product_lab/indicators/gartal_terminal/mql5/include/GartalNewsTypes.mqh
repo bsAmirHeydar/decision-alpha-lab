@@ -103,6 +103,15 @@
 #define GT_ALERT_MAX_COOLDOWN_SECONDS    3600
 #define GT_ALERT_DEFAULT_RELEASE_WINDOW    90
 
+#define GT_RELEASE_CHANNEL_DEV        0
+#define GT_RELEASE_CHANNEL_BETA       1
+#define GT_RELEASE_CHANNEL_STABLE     2
+#define GT_RELEASE_CHANNEL_INTERNAL   3
+
+#define GT_LICENSE_MODE_OFF           0
+#define GT_LICENSE_MODE_OPTIONAL      1
+#define GT_LICENSE_MODE_REQUIRED      2
+
 struct GT_NewsEvent
 {
    string   id;
@@ -204,6 +213,22 @@ struct GT_Config
    string local_raw_file;
    string local_cache_file;
    string source_user_agent;
+
+   // Stage 10 product hardening / release controls.
+   string product_version;
+   string release_channel;
+   string build_profile;
+   int    release_channel_id;
+   bool   strict_release_mode;
+   bool   show_brand_watermark;
+   bool   show_release_badge;
+   bool   hide_debug_in_release;
+   int    max_dashboard_rows_release;
+   int    license_mode;
+   bool   require_license;
+   string license_key;
+   string licensed_user;
+   string license_status_text;
 
    // Stage 09 cache / fallback / resilience controls.
    bool   cache_write_metadata;
@@ -479,6 +504,16 @@ struct GT_RuntimeState
    bool     source_using_sample_fallback;
    int      resilience_failover_count;
    string   resilience_last_summary;
+
+   // Stage 10 product/release diagnostics.
+   string   product_version;
+   string   product_release_channel;
+   string   product_build_profile;
+   string   product_license_status;
+   string   product_build_summary;
+   string   product_release_gate_summary;
+   datetime product_last_gate_at;
+   int      product_release_warnings;
 
    string   last_error;
    string   last_warning;

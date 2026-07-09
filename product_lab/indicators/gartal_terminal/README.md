@@ -8,7 +8,7 @@
 
 - **نام محصول:** gartal terminal
 - **نوع:** MT5 Indicator / Macro News Terminal
-- **ورژن پایه:** `v0.1.0-product-architecture`
+- **ورژن فعلی:** `v1.0.0-beta-stage10`
 - **بازار اولیه:** تریدرهای فارکس، طلا، شاخص‌ها و پراپ
 - **منطق اصلی:** تبدیل Calendar به سطح زمانی قابل دیدن روی چارت
 - **داده پیش‌فرض:** اخبار امروز
@@ -68,17 +68,21 @@ product_lab/indicators/gartal_terminal/
 └── spec/
 ```
 
-## وضعیت این پچ
+## وضعیت فعلی
 
-این پچ مرحله اول محصول را می‌سازد:
+این پوشه تا Stage 10 جلو رفته و اکنون یک beta release candidate معماری‌شده دارد:
 
 - داکیومنت محصولی کامل
 - معماری ماژولار
-- اسکلت MQL5
-- طراحی UI/UX
-- مدل داده
-- مدل alert
-- مدل parser
-- مدل انتشار و فروش
+- اسکلت MQL5 چندماژوله
+- مدل داده و sample pipeline
+- موتور زمان و Broker GMT
+- تایم‌لاین چارت
+- داشبورد لوکس
+- فیلترهای runtime
+- alert engine
+- Forex Factory / Fair Economy source adapter با EA bridge
+- cache/fallback/resilience layer
+- release profile، license hook، QA gate، و packaging script
 
-این نسخه هنوز «نسخه نهایی قابل فروش» نیست. مرحله بعدی باید اتصال داده، parser واقعی، تست روی MT5، و hardening انجام شود.
+این نسخه هنوز باید داخل MetaEditor کامپایل و روی حساب تست واقعی validate شود، اما ساختار محصولی و release discipline آن آماده شده است.

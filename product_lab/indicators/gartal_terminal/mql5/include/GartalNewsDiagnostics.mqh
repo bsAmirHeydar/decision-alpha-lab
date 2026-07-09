@@ -95,6 +95,15 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.resilience_failover_count = 0;
    runtime.resilience_last_summary = "not evaluated";
 
+   runtime.product_version = "";
+   runtime.product_release_channel = "";
+   runtime.product_build_profile = "";
+   runtime.product_license_status = "UNVERIFIED";
+   runtime.product_build_summary = "not hardened";
+   runtime.product_release_gate_summary = "not evaluated";
+   runtime.product_last_gate_at = 0;
+   runtime.product_release_warnings = 0;
+
    runtime.last_error = "";
    runtime.last_warning = "";
    runtime.last_info = "";

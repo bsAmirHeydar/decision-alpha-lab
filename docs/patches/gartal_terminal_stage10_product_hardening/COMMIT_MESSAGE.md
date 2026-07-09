@@ -1,0 +1,3 @@
+feat(gartal-terminal): implement stage 10 product hardening release build
+
+Implement Stage 10 for gartal terminal with release profile inputs, product hardening module, strict release mode, license hook scaffolding, dashboard release badge, brand watermark, release diagnostics, beta/live/stable presets, upgraded packaging scripts, release candidate builder, customer installation docs in English and Persian, beta QA checklist, release manifest template, license hook documentation, stage validation script, specification, canvas, patch docs, and English Obsidian implementation documentation. Establish a customer packaging discipline while preserving parser, timeline, filter, alert, and resilience boundaries.

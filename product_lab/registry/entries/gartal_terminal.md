@@ -6,9 +6,9 @@
 | Type | Indicator |
 | Platform | MT5 / MQL5 |
 | Folder | `product_lab/indicators/gartal_terminal` |
-| Stage | Product Architecture / Scaffold |
-| Primary Source | Forex Factory Calendar adapter planned |
+| Stage | Stage 10 Product Hardening / Beta Release Candidate |
+| Primary Source | Forex Factory / Fair Economy XML via EA downloader + local file bridge |
 | Core Features | Dashboard, filters, timeline, vertical lines, alerts, broker GMT |
 | Default Range | Today |
 | Commercial Potential | High |
-| Next Step | Build visual prototype with sample data, then production parser |
+| Next Step | MetaEditor compile gate, beta screenshots, closed-user validation, licensing implementation |

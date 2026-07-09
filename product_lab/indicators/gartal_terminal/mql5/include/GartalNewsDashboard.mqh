@@ -115,7 +115,7 @@ void GT_RenderShell(GT_Config &config, GT_RuntimeState &runtime)
    int width = config.dashboard_width;
    GT_Rect(prefix + "BG", config.dashboard_corner, config.dashboard_x, config.dashboard_y, width, 76, GT_DashBg(config), GT_DashBorder(config));
    GT_Label(prefix + "TITLE", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 12, "gartal terminal", GT_DashText(config), 13, "Segoe UI Semibold");
-   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 09 cache fallback resilience booting...", GT_DashMuted(config), 8);
+   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 36, "Stage 10 product release build booting...", GT_DashMuted(config), 8);
    GT_Label(prefix + "TIME", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 54, runtime.time_summary, clrDarkGray, 8, "Consolas");
 }
 
@@ -131,11 +131,13 @@ void GT_RenderDashboardHeader(string prefix, int corner, int x, int y, int width
 
    color health = GT_DashboardHealthColor(store, runtime);
    string title = "gartal terminal";
-   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  Stage 09";
+   string subtitle = "macro news terminal  |  " + GT_DataModeText(config.data_mode) + "  |  " + GT_DashboardModeText(config.dashboard_mode) + "  |  " + GT_ChannelText(config.release_channel_id);
 
    GT_Label(prefix + "BRAND", corner, x + 16, y + 12, title, GT_DashText(config), 14, "Segoe UI Semibold");
    GT_Label(prefix + "SUBTITLE", corner, x + 16, y + 36, subtitle, GT_DashMuted(config), 8, "Segoe UI");
    GT_DashBadge(prefix + "HEALTH", corner, x + width - 118, y + 16, 96, GT_DashboardHealthText(store, runtime), clrBlack, health, health);
+   if(config.show_release_badge)
+      GT_DashBadge(prefix + "RELEASE", corner, x + width - 230, y + 16, 96, GT_ChannelText(config.release_channel_id), clrBlack, GT_ChannelColor(config.release_channel_id), GT_ChannelColor(config.release_channel_id));
    GT_DashThinLine(prefix + "SEP_HEADER", corner, x + 14, y + 58, width - 28, GT_DashBorder(config));
 }
 
@@ -144,7 +146,7 @@ void GT_RenderDashboardHealthBar(string prefix, int corner, int x, int y, int wi
    if(!config.dashboard_show_health_bar)
       return;
 
-   string left = "source=" + store.source_status + " | quality=" + runtime.source_quality_text + " | fetch=" + GT_FetchModeText(runtime.source_fetch_mode_used) + " | bytes=" + IntegerToString(runtime.source_raw_bytes) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
+   string left = "build=" + config.product_version + " | license=" + runtime.product_license_status + " | source=" + store.source_status + " | quality=" + runtime.source_quality_text + " | fetch=" + GT_FetchModeText(runtime.source_fetch_mode_used) + " | bytes=" + IntegerToString(runtime.source_raw_bytes) + " | attempts=" + IntegerToString(runtime.refresh_attempts);
    string right = "cache=" + runtime.cache_status + " | sanity=" + runtime.source_sanity_summary + " | parser=" + runtime.parser_last_summary;
    GT_Label(prefix + "HEALTH_LEFT", corner, x + 16, y, left, GT_DashMuted(config), 8, "Consolas");
    GT_Label(prefix + "HEALTH_RIGHT", corner, x + 16, y + 14, right, clrDarkGray, 8, "Consolas");
@@ -452,6 +454,12 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
    {
       GT_RenderDashboardResilienceDebug(prefix, corner, x, cursor, width, config, runtime);
       cursor += 36;
+   }
+
+   if(config.show_brand_watermark)
+   {
+      GT_Label(prefix + "WATERMARK", corner, x + 16, cursor + 6, GT_ProductBadge(config), clrDarkGray, 7, "Segoe UI");
+      runtime.dashboard_last_objects++;
    }
 
    runtime.dashboard_last_render_summary = "mode=" + GT_DashboardModeText(config.dashboard_mode) +
