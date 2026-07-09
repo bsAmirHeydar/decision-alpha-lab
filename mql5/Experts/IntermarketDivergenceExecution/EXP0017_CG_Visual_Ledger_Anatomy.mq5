@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.01"
+#property version   "1.03"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix002 adds complete origin-to-destination visual language."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix003 adds dual-symbol full visual mode: drawings on both input-symbol charts, all drawings on by default, chart comments off by default."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -14,7 +14,7 @@ input int  InpManualNewYorkUtcOffsetHours = -5;
 
 input ENUM_TIMEFRAMES InpConfirmationTimeframe = PERIOD_CURRENT;
 input bool InpUseLastClosedCandleBoundary = true;
-input bool InpShowChartPanel = true;
+input bool InpShowChartPanel = false;
 input bool InpPrintSummaryOnNewClosedCandle = false;
 input int  InpTimerSeconds = 5;
 input int  InpMaxGroupsShown = 8;
@@ -29,6 +29,9 @@ input bool InpEnableDrawing = true;
 input bool InpClearPhase06ObjectsOnInit = true;
 input bool InpClearPhase06ObjectsOnDeinit = false;
 input bool InpDrawOnlyWhenChartIsHunterSymbol = false;
+input bool InpDrawOnBothInputSymbolCharts = true;
+input bool InpOpenMissingInputSymbolCharts = true;
+input ENUM_TIMEFRAMES InpVisualChartTimeframe = PERIOD_CURRENT;
 input bool InpDrawConfirmedTradeable = true;
 input bool InpDrawInvalidatedDoubleHunts = true;
 input bool InpDrawReferenceCycleAnchor = true;
@@ -56,13 +59,13 @@ input int  InpOriginMarkerArrowCode = 159;
 input int  InpDestinationMarkerArrowCode = 159;
 input int  InpOriginMarkerWidth = 2;
 input int  InpDestinationMarkerWidth = 2;
-input bool InpDrawOriginVertical = false;
+input bool InpDrawOriginVertical = true;
 input bool InpDrawDestinationVertical = true;
 input bool InpDrawHunterReferenceGuide = true;
-input bool InpDrawCleanReferenceGuide = false;
+input bool InpDrawCleanReferenceGuide = true;
 input bool InpDrawCleanStopReferenceGuide = true;
-input bool InpDrawHunterCurrentExtremeGuide = false;
-input bool InpDrawCleanComparisonLine = false;
+input bool InpDrawHunterCurrentExtremeGuide = true;
+input bool InpDrawCleanComparisonLine = true;
 input bool InpDrawCleanComparisonOnlyWhenChartIsCleanSymbol = true;
 input ECGVVisualLineStyle InpGuideLineStyle = CGV_VISUAL_STYLE_DOT;
 input int  InpGuideLineWidth = 1;
@@ -132,6 +135,9 @@ int OnInit()
    config.clear_objects_on_init=InpClearPhase06ObjectsOnInit;
    config.clear_objects_on_deinit=InpClearPhase06ObjectsOnDeinit;
    config.draw_only_when_chart_is_hunter_symbol=InpDrawOnlyWhenChartIsHunterSymbol;
+   config.draw_on_both_input_symbol_charts=InpDrawOnBothInputSymbolCharts;
+   config.open_missing_input_symbol_charts=InpOpenMissingInputSymbolCharts;
+   config.visual_chart_timeframe=InpVisualChartTimeframe;
    config.draw_confirmed_tradeable=InpDrawConfirmedTradeable;
    config.draw_invalidated_double_hunts=InpDrawInvalidatedDoubleHunts;
    config.draw_reference_cycle_anchor=InpDrawReferenceCycleAnchor;

@@ -5,7 +5,6 @@
 
 #define CGC_PRICE_DIGITS 5
 
-// Phase 05 speaks in final candle-close states, not intrabar states.
 enum ECGCSignalDirection
 {
    CGC_DIRECTION_NONE = 0,
@@ -80,6 +79,15 @@ struct SCGCFinalSignal
    double hunter_current_extreme;
    double clean_current_extreme;
    double clean_stop_reference_price;
+
+   // Hotfix003: symbol-local visual fields for dual-chart drawing.
+   // These allow Phase 06 to draw the SPXUSD leg on the SPXUSD chart and
+   // the NDXUSD leg on the NDXUSD chart, including invalidated double-hunt states.
+   double symbol_a_reference_price;
+   double symbol_b_reference_price;
+   double symbol_a_current_extreme;
+   double symbol_b_current_extreme;
+
    string note;
 };
 

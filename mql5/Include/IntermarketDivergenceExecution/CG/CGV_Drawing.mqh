@@ -17,12 +17,13 @@ private:
       StringReplace(s," ","_");
       StringReplace(s,"-","_");
       StringReplace(s,"|","_");
+      StringReplace(s,"/","_");
       return s;
    }
 
-   string Key(SCGCFinalSignal &signal,const string suffix)
+   string Key(SCGCFinalSignal &signal,const string symbol,const string suffix)
    {
-      return CGV_OBJECT_PREFIX + Sanitize(signal.signal_id) + "_" + suffix;
+      return CGV_OBJECT_PREFIX + Sanitize(signal.signal_id) + "_" + Sanitize(symbol) + "_" + suffix;
    }
 
    bool ValidSymbolName(const string symbol)
@@ -50,6 +51,32 @@ private:
       if(style==CGV_VISUAL_STYLE_DASHDOT)    return STYLE_DASHDOT;
       if(style==CGV_VISUAL_STYLE_DASHDOTDOT) return STYLE_DASHDOTDOT;
       return STYLE_SOLID;
+   }
+
+   ENUM_TIMEFRAMES VisualChartTimeframe()
+   {
+      if(m_config.visual_chart_timeframe==PERIOD_CURRENT)
+         return (ENUM_TIMEFRAMES)_Period;
+      return m_config.visual_chart_timeframe;
+   }
+
+   long FindChartForSymbol(const string symbol)
+   {
+      long chart_id=ChartFirst();
+      while(chart_id>=0)
+      {
+         if(ChartSymbol(chart_id)==symbol)
+            return chart_id;
+         chart_id=ChartNext(chart_id);
+      }
+
+      if(m_config.open_missing_input_symbol_charts && ValidSymbolName(symbol))
+      {
+         SymbolSelect(symbol,true);
+         long opened=ChartOpen(symbol,VisualChartTimeframe());
+         return opened;
+      }
+      return -1;
    }
 
    int BrokerNyOffsetSeconds(SCGCFinalSignal &signal)
@@ -86,28 +113,6 @@ private:
       if(signal.status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT) return "INVALIDATED";
       if(signal.status==CGC_STATUS_MISSING_DATA) return "MISSING";
       return "NONE";
-   }
-
-   string AnchorSymbol(SCGCFinalSignal &signal,const ECGVAnchorSymbolMode mode)
-   {
-      if(mode==CGV_ANCHOR_SYMBOL_CLEAN) return signal.clean_symbol;
-      if(mode==CGV_ANCHOR_SYMBOL_CHART) return _Symbol;
-      if(mode==CGV_ANCHOR_SYMBOL_A)     return m_config.symbol_a;
-      if(mode==CGV_ANCHOR_SYMBOL_B)     return m_config.symbol_b;
-      return signal.hunter_symbol;
-   }
-
-   double AnchorPrice(SCGCFinalSignal &signal,const ECGVAnchorPriceMode mode)
-   {
-      if(mode==CGV_ANCHOR_PRICE_HUNTER_CURRENT_EXTREME)
-         return signal.hunter_current_extreme;
-      if(mode==CGV_ANCHOR_PRICE_CLEAN_REFERENCE)
-         return signal.clean_reference_price;
-      if(mode==CGV_ANCHOR_PRICE_CLEAN_CURRENT_EXTREME)
-         return signal.clean_current_extreme;
-      if(mode==CGV_ANCHOR_PRICE_CLEAN_STOP_REFERENCE)
-         return signal.clean_stop_reference_price;
-      return signal.hunter_reference_price;
    }
 
    datetime MidTime(const datetime a,const datetime b)
@@ -186,6 +191,34 @@ private:
       return fallback_time;
    }
 
+   double SymbolReferencePrice(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(symbol==m_config.symbol_a) return signal.symbol_a_reference_price;
+      if(symbol==m_config.symbol_b) return signal.symbol_b_reference_price;
+      if(symbol==signal.hunter_symbol) return signal.hunter_reference_price;
+      if(symbol==signal.clean_symbol) return signal.clean_reference_price;
+      return 0.0;
+   }
+
+   double SymbolCurrentExtreme(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(symbol==m_config.symbol_a) return signal.symbol_a_current_extreme;
+      if(symbol==m_config.symbol_b) return signal.symbol_b_current_extreme;
+      if(symbol==signal.hunter_symbol) return signal.hunter_current_extreme;
+      if(symbol==signal.clean_symbol) return signal.clean_current_extreme;
+      return 0.0;
+   }
+
+   bool IsHunterChart(SCGCFinalSignal &signal,const string symbol)
+   {
+      return (ValidSymbolName(signal.hunter_symbol) && symbol==signal.hunter_symbol);
+   }
+
+   bool IsCleanChart(SCGCFinalSignal &signal,const string symbol)
+   {
+      return (ValidSymbolName(signal.clean_symbol) && symbol==signal.clean_symbol);
+   }
+
    bool ShouldDraw(SCGCFinalSignal &signal)
    {
       if(!m_config.enable_drawing)
@@ -194,250 +227,270 @@ private:
          return false;
       if(signal.status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT && !m_config.draw_invalidated_double_hunts)
          return false;
-      if(m_config.draw_only_when_chart_is_hunter_symbol && _Symbol!=signal.hunter_symbol)
+      if(!m_config.draw_on_both_input_symbol_charts && m_config.draw_only_when_chart_is_hunter_symbol && _Symbol!=signal.hunter_symbol)
          return false;
       if(signal.confirmation_time_broker<=0)
          return false;
       return true;
    }
 
-   void ApplyCommonObjectState(const string name,const string tooltip)
+   void ApplyCommonObjectState(const long chart_id,const string name,const string tooltip)
    {
-      ObjectSetInteger(0,name,OBJPROP_SELECTABLE,true);
-      ObjectSetInteger(0,name,OBJPROP_SELECTED,false);
-      ObjectSetInteger(0,name,OBJPROP_BACK,false);
-      ObjectSetString(0,name,OBJPROP_TOOLTIP,tooltip);
+      ObjectSetInteger(chart_id,name,OBJPROP_SELECTABLE,true);
+      ObjectSetInteger(chart_id,name,OBJPROP_SELECTED,false);
+      ObjectSetInteger(chart_id,name,OBJPROP_BACK,false);
+      ObjectSetString(chart_id,name,OBJPROP_TOOLTIP,tooltip);
    }
 
-   bool DrawTrend(const string name,const datetime t1,const double p1,const datetime t2,const double p2,const color c,const int width,const ECGVVisualLineStyle style,const string tooltip)
+   bool DrawTrend(const long chart_id,const string name,const datetime t1,const double p1,const datetime t2,const double p2,const color c,const int width,const ECGVVisualLineStyle style,const string tooltip)
    {
-      if(t1<=0 || t2<=0 || p1<=0.0 || p2<=0.0)
+      if(chart_id<0 || t1<=0 || t2<=0 || p1<=0.0 || p2<=0.0)
          return false;
-      ObjectDelete(0,name);
-      if(!ObjectCreate(0,name,OBJ_TREND,0,t1,p1,t2,p2))
+      ObjectDelete(chart_id,name);
+      if(!ObjectCreate(chart_id,name,OBJ_TREND,0,t1,p1,t2,p2))
          return false;
-      ObjectSetInteger(0,name,OBJPROP_COLOR,c);
-      ObjectSetInteger(0,name,OBJPROP_WIDTH,MathMax(1,width));
-      ObjectSetInteger(0,name,OBJPROP_STYLE,StyleFromEnum(style));
-      ObjectSetInteger(0,name,OBJPROP_RAY_RIGHT,false);
-      ApplyCommonObjectState(name,tooltip);
+      ObjectSetInteger(chart_id,name,OBJPROP_COLOR,c);
+      ObjectSetInteger(chart_id,name,OBJPROP_WIDTH,MathMax(1,width));
+      ObjectSetInteger(chart_id,name,OBJPROP_STYLE,StyleFromEnum(style));
+      ObjectSetInteger(chart_id,name,OBJPROP_RAY_RIGHT,false);
+      ApplyCommonObjectState(chart_id,name,tooltip);
       return true;
    }
 
-   bool DrawVertical(const string name,const datetime t,const color c,const ECGVVisualLineStyle style,const string tooltip)
+   bool DrawVertical(const long chart_id,const string name,const datetime t,const color c,const ECGVVisualLineStyle style,const string tooltip)
    {
-      if(t<=0)
+      if(chart_id<0 || t<=0)
          return false;
-      ObjectDelete(0,name);
-      if(!ObjectCreate(0,name,OBJ_VLINE,0,t,0.0))
+      ObjectDelete(chart_id,name);
+      if(!ObjectCreate(chart_id,name,OBJ_VLINE,0,t,0.0))
          return false;
-      ObjectSetInteger(0,name,OBJPROP_COLOR,c);
-      ObjectSetInteger(0,name,OBJPROP_STYLE,StyleFromEnum(style));
-      ObjectSetInteger(0,name,OBJPROP_WIDTH,1);
-      ApplyCommonObjectState(name,tooltip);
+      ObjectSetInteger(chart_id,name,OBJPROP_COLOR,c);
+      ObjectSetInteger(chart_id,name,OBJPROP_STYLE,StyleFromEnum(style));
+      ObjectSetInteger(chart_id,name,OBJPROP_WIDTH,1);
+      ApplyCommonObjectState(chart_id,name,tooltip);
       return true;
    }
 
-   bool DrawMarker(const string name,const datetime t,const double p,const color c,const int arrow_code,const int width,const string tooltip)
+   bool DrawMarker(const long chart_id,const string name,const datetime t,const double p,const color c,const int arrow_code,const int width,const string tooltip)
    {
-      if(t<=0 || p<=0.0)
+      if(chart_id<0 || t<=0 || p<=0.0)
          return false;
-      ObjectDelete(0,name);
-      if(!ObjectCreate(0,name,OBJ_ARROW,0,t,p))
+      ObjectDelete(chart_id,name);
+      if(!ObjectCreate(chart_id,name,OBJ_ARROW,0,t,p))
          return false;
-      ObjectSetInteger(0,name,OBJPROP_COLOR,c);
-      ObjectSetInteger(0,name,OBJPROP_ARROWCODE,arrow_code);
-      ObjectSetInteger(0,name,OBJPROP_WIDTH,MathMax(1,width));
-      ApplyCommonObjectState(name,tooltip);
+      ObjectSetInteger(chart_id,name,OBJPROP_COLOR,c);
+      ObjectSetInteger(chart_id,name,OBJPROP_ARROWCODE,arrow_code);
+      ObjectSetInteger(chart_id,name,OBJPROP_WIDTH,MathMax(1,width));
+      ApplyCommonObjectState(chart_id,name,tooltip);
       return true;
    }
 
-   bool DrawText(const string name,const datetime t,const double p,const string label,const color c,const string tooltip)
+   bool DrawText(const long chart_id,const string name,const datetime t,const double p,const string label,const color c,const string tooltip)
    {
-      if(t<=0 || p<=0.0)
+      if(chart_id<0 || t<=0 || p<=0.0)
          return false;
-      ObjectDelete(0,name);
-      if(!ObjectCreate(0,name,OBJ_TEXT,0,t,p))
+      ObjectDelete(chart_id,name);
+      if(!ObjectCreate(chart_id,name,OBJ_TEXT,0,t,p))
          return false;
-      ObjectSetString(0,name,OBJPROP_TEXT,label);
-      ObjectSetInteger(0,name,OBJPROP_COLOR,c);
-      ObjectSetInteger(0,name,OBJPROP_FONTSIZE,MathMax(6,m_config.label_font_size));
-      ApplyCommonObjectState(name,tooltip);
+      ObjectSetString(chart_id,name,OBJPROP_TEXT,label);
+      ObjectSetInteger(chart_id,name,OBJPROP_COLOR,c);
+      ObjectSetInteger(chart_id,name,OBJPROP_FONTSIZE,MathMax(6,m_config.label_font_size));
+      ApplyCommonObjectState(chart_id,name,tooltip);
       return true;
    }
 
-   string Tooltip(SCGCFinalSignal &signal,const string visual_part,const datetime origin_time,const double origin_price,const datetime destination_time,const double destination_price)
+   string Tooltip(SCGCFinalSignal &signal,const string visual_part,const string chart_symbol,const datetime origin_time,const double origin_price,const datetime destination_time,const double destination_price)
    {
-      return StringFormat("EXP0017 Phase06 Visual Language | %s | %s %s %s | side=%s | CG=%s | hunter=%s | clean=%s | ref #%d | origin=%s @ %s | destination=%s @ %s | note=%s",
-                          visual_part,
-                          StatusText(signal),DirectionText(signal),signal.status==CGC_STATUS_CONFIRMED_TRADEABLE ? "TRADEABLE_PREVIEW" : "NO_PERMISSION",
-                          SideText(signal),signal.group_name,signal.hunter_symbol,signal.clean_symbol,signal.reference_cycle_number,
+      return StringFormat("EXP0017 Phase06 Dual Visual | %s | chart_symbol=%s | %s %s | side=%s | CG=%s | hunter=%s | clean=%s | ref #%d | origin=%s @ %s | destination=%s @ %s | note=%s",
+                          visual_part,chart_symbol,StatusText(signal),DirectionText(signal),SideText(signal),signal.group_name,signal.hunter_symbol,signal.clean_symbol,signal.reference_cycle_number,
                           TimeToString(origin_time,TIME_DATE|TIME_MINUTES),DoubleToString(origin_price,CGC_PRICE_DIGITS),
                           TimeToString(destination_time,TIME_DATE|TIME_MINUTES),DoubleToString(destination_price,CGC_PRICE_DIGITS),signal.note);
    }
 
-   int DrawConfirmedVisualLanguage(SCGCFinalSignal &signal)
+   int DrawSymbolLocalVisualPackage(SCGCFinalSignal &signal,const string chart_symbol)
    {
-      int drawn=0;
-      color c=SignalColor(signal);
-      string origin_symbol=AnchorSymbol(signal,m_config.divergence_origin_symbol_mode);
-      string destination_symbol=AnchorSymbol(signal,m_config.divergence_destination_symbol_mode);
+      if(!ValidSymbolName(chart_symbol))
+         return 0;
+
+      long chart_id=FindChartForSymbol(chart_symbol);
+      if(chart_id<0)
+         return 0;
+
+      bool is_hunter=IsHunterChart(signal,chart_symbol);
+      bool is_clean=IsCleanChart(signal,chart_symbol);
+      bool is_invalidated=(signal.status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT);
+      if(signal.status==CGC_STATUS_CONFIRMED_TRADEABLE && !is_hunter && !is_clean)
+         return 0;
+
+      double reference_price=SymbolReferencePrice(signal,chart_symbol);
+      double current_extreme=SymbolCurrentExtreme(signal,chart_symbol);
+      if(reference_price<=0.0 && is_hunter) reference_price=signal.hunter_reference_price;
+      if(reference_price<=0.0 && is_clean)  reference_price=signal.clean_reference_price;
+      if(current_extreme<=0.0 && is_hunter) current_extreme=signal.hunter_current_extreme;
+      if(current_extreme<=0.0 && is_clean)  current_extreme=signal.clean_current_extreme;
 
       datetime origin_fallback=NyToBroker(signal,signal.reference_cycle_end_ny);
       datetime destination_fallback=signal.confirmation_time_broker;
-      datetime origin_time=AnchorTime(signal,m_config.divergence_origin_time_mode,origin_symbol,origin_fallback);
-      datetime destination_time=AnchorTime(signal,m_config.divergence_destination_time_mode,destination_symbol,destination_fallback);
-      double origin_price=AnchorPrice(signal,m_config.divergence_origin_price_mode);
-      double destination_price=AnchorPrice(signal,m_config.divergence_destination_price_mode);
+      datetime origin_time=AnchorTime(signal,m_config.divergence_origin_time_mode,chart_symbol,origin_fallback);
+      datetime destination_time=AnchorTime(signal,m_config.divergence_destination_time_mode,chart_symbol,destination_fallback);
 
-      string base_tooltip=Tooltip(signal,"main divergence origin-to-destination",origin_time,origin_price,destination_time,destination_price);
+      color package_color=SignalColor(signal);
+      string role="HUNTER";
+      if(is_clean)
+      {
+         package_color=m_config.clean_comparison_color;
+         role="CLEAN";
+      }
+      if(is_invalidated)
+      {
+         package_color=m_config.invalidated_color;
+         role="DOUBLE_HUNT";
+      }
+
+      string base_tooltip=Tooltip(signal,role + " symbol-local divergence leg",chart_symbol,origin_time,reference_price,destination_time,current_extreme);
+      int drawn=0;
 
       if(m_config.draw_divergence_origin_destination_line)
       {
-         if(DrawTrend(Key(signal,"divergence_origin_to_destination"),origin_time,origin_price,destination_time,destination_price,c,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
+         if(DrawTrend(chart_id,Key(signal,chart_symbol,"origin_to_destination_"+role),origin_time,reference_price,destination_time,current_extreme,package_color,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
             drawn++;
       }
 
       if(m_config.draw_origin_marker)
       {
-         if(DrawMarker(Key(signal,"origin_marker"),origin_time,origin_price,m_config.origin_marker_color,m_config.origin_marker_arrow_code,m_config.origin_marker_width,base_tooltip))
+         if(DrawMarker(chart_id,Key(signal,chart_symbol,"origin_marker_"+role),origin_time,reference_price,m_config.origin_marker_color,m_config.origin_marker_arrow_code,m_config.origin_marker_width,base_tooltip))
             drawn++;
       }
 
       if(m_config.draw_destination_marker)
       {
-         if(DrawMarker(Key(signal,"destination_marker"),destination_time,destination_price,m_config.destination_marker_color,m_config.destination_marker_arrow_code,m_config.destination_marker_width,base_tooltip))
+         if(DrawMarker(chart_id,Key(signal,chart_symbol,"destination_marker_"+role),destination_time,current_extreme,m_config.destination_marker_color,m_config.destination_marker_arrow_code,m_config.destination_marker_width,base_tooltip))
             drawn++;
       }
 
       if(m_config.draw_origin_vertical)
       {
-         if(DrawVertical(Key(signal,"origin_vertical"),origin_time,m_config.origin_marker_color,CGV_VISUAL_STYLE_DOT,"EXP0017 divergence origin time"))
+         if(DrawVertical(chart_id,Key(signal,chart_symbol,"origin_vertical_"+role),origin_time,m_config.origin_marker_color,CGV_VISUAL_STYLE_DOT,"EXP0017 origin time for "+role+" leg"))
             drawn++;
       }
 
-      if(m_config.draw_destination_vertical || m_config.draw_confirmation_marker)
+      if(m_config.draw_destination_vertical)
       {
-         datetime vertical_time=(m_config.draw_destination_vertical ? destination_time : signal.confirmation_time_broker);
-         if(DrawVertical(Key(signal,"destination_or_confirmation_vertical"),vertical_time,m_config.destination_marker_color,CGV_VISUAL_STYLE_SOLID,"EXP0017 divergence destination / confirmation boundary"))
+         if(DrawVertical(chart_id,Key(signal,chart_symbol,"destination_vertical_"+role),destination_time,m_config.destination_marker_color,CGV_VISUAL_STYLE_SOLID,"EXP0017 destination/extreme time for "+role+" leg"))
             drawn++;
       }
 
-      if(m_config.draw_hunter_reference_guide)
+      if(m_config.draw_confirmation_marker)
       {
-         if(DrawTrend(Key(signal,"hunter_reference_guide"),origin_time,signal.hunter_reference_price,destination_time,signal.hunter_reference_price,m_config.guide_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 hunter reference horizontal guide"))
+         if(DrawVertical(chart_id,Key(signal,chart_symbol,"confirmation_close_vertical_"+role),signal.confirmation_time_broker,package_color,CGV_VISUAL_STYLE_DASH,"EXP0017 closed-candle confirmation boundary"))
             drawn++;
       }
 
-      if(m_config.draw_hunter_current_extreme_guide)
+      bool draw_reference_guide=(is_hunter && m_config.draw_hunter_reference_guide) || (is_clean && m_config.draw_clean_reference_guide) || is_invalidated;
+      if(draw_reference_guide)
       {
-         if(DrawTrend(Key(signal,"hunter_current_extreme_guide"),origin_time,signal.hunter_current_extreme,destination_time,signal.hunter_current_extreme,m_config.guide_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 hunter current-cycle extreme guide"))
+         if(DrawTrend(chart_id,Key(signal,chart_symbol,"reference_guide_"+role),origin_time,reference_price,destination_time,reference_price,m_config.guide_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 symbol-local reference guide"))
             drawn++;
       }
 
-      if(m_config.draw_clean_reference_guide)
+      if((is_hunter && m_config.draw_hunter_current_extreme_guide) || (is_clean && m_config.draw_clean_comparison_line) || is_invalidated)
       {
-         if(DrawTrend(Key(signal,"clean_reference_guide"),origin_time,signal.clean_reference_price,destination_time,signal.clean_reference_price,m_config.clean_comparison_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 clean reference guide; scale is valid only on clean-symbol chart"))
+         if(DrawTrend(chart_id,Key(signal,chart_symbol,"current_extreme_guide_"+role),origin_time,current_extreme,destination_time,current_extreme,m_config.guide_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 symbol-local current-cycle extreme guide"))
             drawn++;
       }
 
-      if(m_config.draw_clean_stop_reference_guide)
+      if(is_clean && m_config.draw_clean_stop_reference_guide && signal.clean_stop_reference_price>0.0)
       {
-         if(DrawTrend(Key(signal,"clean_stop_reference_guide"),origin_time,signal.clean_stop_reference_price,destination_time,signal.clean_stop_reference_price,m_config.clean_comparison_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 clean stop-reference guide; scale is valid only on clean-symbol chart"))
+         if(DrawTrend(chart_id,Key(signal,chart_symbol,"clean_stop_reference_guide"),origin_time,signal.clean_stop_reference_price,destination_time,signal.clean_stop_reference_price,m_config.clean_comparison_color,m_config.guide_line_width,m_config.guide_line_style,"EXP0017 clean stop-reference guide"))
             drawn++;
       }
 
-      if(m_config.draw_clean_comparison_line)
+      if(m_config.draw_reference_cycle_anchor)
       {
-         if(!m_config.draw_clean_comparison_only_when_chart_is_clean_symbol || _Symbol==signal.clean_symbol)
-         {
-            datetime clean_origin_time=AnchorTime(signal,CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME,signal.clean_symbol,origin_fallback);
-            datetime clean_destination_time=AnchorTime(signal,CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME,signal.clean_symbol,destination_fallback);
-            if(DrawTrend(Key(signal,"clean_reference_to_current_comparison"),clean_origin_time,signal.clean_reference_price,clean_destination_time,signal.clean_current_extreme,m_config.clean_comparison_color,m_config.guide_line_width,CGV_VISUAL_STYLE_DASH,"EXP0017 clean symbol reference-to-current comparison line; not a trade line"))
-               drawn++;
-         }
+         datetime ref_start=NyToBroker(signal,signal.reference_cycle_start_ny);
+         datetime ref_end=NyToBroker(signal,signal.reference_cycle_end_ny);
+         if(DrawTrend(chart_id,Key(signal,chart_symbol,"reference_cycle_anchor_"+role),ref_start,reference_price,ref_end,reference_price,m_config.guide_color,m_config.guide_line_width,CGV_VISUAL_STYLE_DASHDOT,"EXP0017 full reference-cycle anchor"))
+            drawn++;
       }
 
       if(m_config.draw_text_label)
       {
-         double label_price=destination_price;
-         double offset=m_config.label_offset_points*_Point;
-         if(offset<=0.0)
-            offset=20*_Point;
+         double label_price=current_extreme;
+         double point=SymbolInfoDouble(chart_symbol,SYMBOL_POINT);
+         if(point<=0.0) point=_Point;
+         double offset=m_config.label_offset_points*point;
+         if(offset<=0.0) offset=20*point;
          if(signal.direction==CGC_DIRECTION_BUY)
-            label_price=destination_price - offset;
+            label_price=current_extreme - offset;
          if(signal.direction==CGC_DIRECTION_SELL)
-            label_price=destination_price + offset;
-         string label=StringFormat("%s %s %s | %s -> %s | H:%s C:%s | R#%d C#%d",
-                                   signal.group_name,StatusText(signal),DirectionText(signal),
-                                   TimeToString(origin_time,TIME_MINUTES),TimeToString(destination_time,TIME_MINUTES),
-                                   signal.hunter_symbol,signal.clean_symbol,signal.reference_cycle_number,signal.current_cycle_number);
-         if(DrawText(Key(signal,"visual_label"),destination_time,label_price,label,m_config.text_color,base_tooltip))
+            label_price=current_extreme + offset;
+         string label=StringFormat("%s %s %s %s | %s | ref#%d cur#%d",
+                                   signal.group_name,StatusText(signal),DirectionText(signal),role,chart_symbol,signal.reference_cycle_number,signal.current_cycle_number);
+         if(DrawText(chart_id,Key(signal,chart_symbol,"visual_label_"+role),destination_time,label_price,label,m_config.text_color,base_tooltip))
             drawn++;
       }
 
+      ChartRedraw(chart_id);
       return drawn;
    }
 
-   int DrawInvalidatedVisualLanguage(SCGCFinalSignal &signal)
+   int DrawSingleChartLegacyPackage(SCGCFinalSignal &signal)
    {
-      int drawn=0;
-      color c=m_config.invalidated_color;
-      datetime t=signal.confirmation_time_broker;
-      double price=0.0;
-      if(signal.hunter_reference_price>0.0)
-         price=signal.hunter_reference_price;
-      else if(signal.clean_reference_price>0.0)
-         price=signal.clean_reference_price;
-      else if(signal.clean_stop_reference_price>0.0)
-         price=signal.clean_stop_reference_price;
-
-      if(m_config.draw_confirmation_marker)
+      // Single-chart fallback retained for audit/debug modes. In normal Hotfix003 use, dual-symbol drawing is enabled.
+      string symbol=_Symbol;
+      if(signal.status==CGC_STATUS_CONFIRMED_TRADEABLE)
       {
-         if(DrawVertical(Key(signal,"invalidated_confirmation_vertical"),t,c,CGV_VISUAL_STYLE_DASH,"EXP0017 invalidated double-hunt confirmation boundary"))
-            drawn++;
+         if(symbol!=signal.hunter_symbol && symbol!=signal.clean_symbol)
+            symbol=signal.hunter_symbol;
       }
-
-      if(m_config.draw_text_label && price>0.0)
+      else
       {
-         string label=StringFormat("%s INVALIDATED %s | double hunt | ref #%d",signal.group_name,DirectionText(signal),signal.reference_cycle_number);
-         if(DrawText(Key(signal,"invalidated_label"),t,price,label,c,"EXP0017 invalidated double-hunt state"))
-            drawn++;
+         symbol=_Symbol;
       }
-      return drawn;
+      return DrawSymbolLocalVisualPackage(signal,symbol);
+   }
+
+   int ClearObjectsOnChart(const long chart_id)
+   {
+      if(chart_id<0)
+         return 0;
+      int removed=0;
+      for(int i=ObjectsTotal(chart_id,0,-1)-1;i>=0;i--)
+      {
+         string name=ObjectName(chart_id,i,0,-1);
+         if(StringFind(name,CGV_OBJECT_PREFIX)==0)
+         {
+            if(ObjectDelete(chart_id,name))
+               removed++;
+         }
+      }
+      ChartRedraw(chart_id);
+      return removed;
    }
 
 public:
    void Configure(SCGVVisualLedgerConfig &config)
    {
       m_config=config;
-      if(m_config.line_width<1)
-         m_config.line_width=1;
-      if(m_config.divergence_line_width<1)
-         m_config.divergence_line_width=m_config.line_width;
-      if(m_config.guide_line_width<1)
-         m_config.guide_line_width=1;
-      if(m_config.origin_marker_width<1)
-         m_config.origin_marker_width=1;
-      if(m_config.destination_marker_width<1)
-         m_config.destination_marker_width=1;
-      if(m_config.label_font_size<6)
-         m_config.label_font_size=8;
-      if(m_config.label_offset_points<=0.0)
-         m_config.label_offset_points=20.0;
+      if(m_config.line_width<1) m_config.line_width=1;
+      if(m_config.divergence_line_width<1) m_config.divergence_line_width=m_config.line_width;
+      if(m_config.guide_line_width<1) m_config.guide_line_width=1;
+      if(m_config.origin_marker_width<1) m_config.origin_marker_width=1;
+      if(m_config.destination_marker_width<1) m_config.destination_marker_width=1;
+      if(m_config.label_font_size<6) m_config.label_font_size=8;
+      if(m_config.label_offset_points<=0.0) m_config.label_offset_points=20.0;
    }
 
    int ClearPhaseObjects()
    {
       int removed=0;
-      for(int i=ObjectsTotal(0,0,-1)-1;i>=0;i--)
+      long chart_id=ChartFirst();
+      while(chart_id>=0)
       {
-         string name=ObjectName(0,i,0,-1);
-         if(StringFind(name,CGV_OBJECT_PREFIX)==0)
-         {
-            if(ObjectDelete(0,name))
-               removed++;
-         }
+         string s=ChartSymbol(chart_id);
+         if(!m_config.draw_on_both_input_symbol_charts || s==_Symbol || s==m_config.symbol_a || s==m_config.symbol_b)
+            removed+=ClearObjectsOnChart(chart_id);
+         chart_id=ChartNext(chart_id);
       }
       return removed;
    }
@@ -448,11 +501,16 @@ public:
          return false;
 
       int drawn=0;
-      if(signal.status==CGC_STATUS_CONFIRMED_TRADEABLE)
-         drawn+=DrawConfirmedVisualLanguage(signal);
-      else if(signal.status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT)
-         drawn+=DrawInvalidatedVisualLanguage(signal);
-
+      if(m_config.draw_on_both_input_symbol_charts)
+      {
+         drawn+=DrawSymbolLocalVisualPackage(signal,m_config.symbol_a);
+         if(m_config.symbol_b!=m_config.symbol_a)
+            drawn+=DrawSymbolLocalVisualPackage(signal,m_config.symbol_b);
+      }
+      else
+      {
+         drawn+=DrawSingleChartLegacyPackage(signal);
+      }
       return (drawn>0);
    }
 };

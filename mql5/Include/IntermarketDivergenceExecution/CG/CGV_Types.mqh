@@ -6,7 +6,6 @@
 #define CGV_OBJECT_PREFIX "EXP0017_P06_"
 #define CGV_LEDGER_COLUMN_COUNT 38
 
-// Visual-language anchor symbol selection.
 enum ECGVAnchorSymbolMode
 {
    CGV_ANCHOR_SYMBOL_HUNTER = 0,
@@ -16,20 +15,18 @@ enum ECGVAnchorSymbolMode
    CGV_ANCHOR_SYMBOL_B      = 4
 };
 
-// Visual-language anchor time selection.
 enum ECGVAnchorTimeMode
 {
-   CGV_ANCHOR_TIME_REFERENCE_CYCLE_START  = 0,
-   CGV_ANCHOR_TIME_REFERENCE_CYCLE_MIDDLE = 1,
-   CGV_ANCHOR_TIME_REFERENCE_CYCLE_END    = 2,
-   CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME= 3,
-   CGV_ANCHOR_TIME_CURRENT_CYCLE_START    = 4,
-   CGV_ANCHOR_TIME_CURRENT_CYCLE_END      = 5,
-   CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME  = 6,
-   CGV_ANCHOR_TIME_CONFIRMATION_CLOSE     = 7
+   CGV_ANCHOR_TIME_REFERENCE_CYCLE_START   = 0,
+   CGV_ANCHOR_TIME_REFERENCE_CYCLE_MIDDLE  = 1,
+   CGV_ANCHOR_TIME_REFERENCE_CYCLE_END     = 2,
+   CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME = 3,
+   CGV_ANCHOR_TIME_CURRENT_CYCLE_START     = 4,
+   CGV_ANCHOR_TIME_CURRENT_CYCLE_END       = 5,
+   CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME   = 6,
+   CGV_ANCHOR_TIME_CONFIRMATION_CLOSE      = 7
 };
 
-// Visual-language anchor price selection.
 enum ECGVAnchorPriceMode
 {
    CGV_ANCHOR_PRICE_HUNTER_REFERENCE       = 0,
@@ -39,7 +36,6 @@ enum ECGVAnchorPriceMode
    CGV_ANCHOR_PRICE_CLEAN_STOP_REFERENCE   = 4
 };
 
-// MQL line-style input wrapper. Converted to OBJPROP_STYLE in drawing code.
 enum ECGVVisualLineStyle
 {
    CGV_VISUAL_STYLE_SOLID      = 0,
@@ -68,6 +64,9 @@ struct SCGVVisualLedgerConfig
    bool   clear_objects_on_init;
    bool   clear_objects_on_deinit;
    bool   draw_only_when_chart_is_hunter_symbol;
+   bool   draw_on_both_input_symbol_charts;
+   bool   open_missing_input_symbol_charts;
+   ENUM_TIMEFRAMES visual_chart_timeframe;
    bool   draw_confirmed_tradeable;
    bool   draw_invalidated_double_hunts;
    bool   draw_reference_cycle_anchor;
@@ -79,7 +78,6 @@ struct SCGVVisualLedgerConfig
    color  invalidated_color;
    color  text_color;
 
-   // Hotfix 002: full visual language and origin-to-destination divergence drawing.
    bool   draw_divergence_origin_destination_line;
    ECGVAnchorSymbolMode divergence_origin_symbol_mode;
    ECGVAnchorTimeMode   divergence_origin_time_mode;

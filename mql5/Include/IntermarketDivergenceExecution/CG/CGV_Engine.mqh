@@ -223,6 +223,8 @@ public:
 
       if(m_show_panel)
          Comment(m_display.BuildPanel(time_snapshot,m_visual_config,visual_states,flat_signals,group_start,group_count,live_broker_now));
+      else
+         Comment("");
 
       if(m_print_on_new_closed_candle && new_closed_candle)
          Print(m_display.BuildPrintSummary(time_snapshot,visual_states));

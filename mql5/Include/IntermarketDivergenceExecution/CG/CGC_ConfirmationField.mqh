@@ -48,6 +48,10 @@ private:
       signal.hunter_current_extreme=0.0;
       signal.clean_current_extreme=0.0;
       signal.clean_stop_reference_price=0.0;
+      signal.symbol_a_reference_price=0.0;
+      signal.symbol_b_reference_price=0.0;
+      signal.symbol_a_current_extreme=0.0;
+      signal.symbol_b_current_extreme=0.0;
       signal.note="";
    }
 
@@ -150,10 +154,30 @@ private:
       signal.data_ready=(hunt.reference_ready && hunt.current_range_ready);
    }
 
+
+   void FillSymbolLocalVisualFields(SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
+   {
+      if(signal.side==CGC_SIDE_HIGH)
+      {
+         signal.symbol_a_reference_price=hunt.symbol_a.reference_high;
+         signal.symbol_b_reference_price=hunt.symbol_b.reference_high;
+         signal.symbol_a_current_extreme=hunt.symbol_a.current_high;
+         signal.symbol_b_current_extreme=hunt.symbol_b.current_high;
+      }
+      else if(signal.side==CGC_SIDE_LOW)
+      {
+         signal.symbol_a_reference_price=hunt.symbol_a.reference_low;
+         signal.symbol_b_reference_price=hunt.symbol_b.reference_low;
+         signal.symbol_a_current_extreme=hunt.symbol_a.current_low;
+         signal.symbol_b_current_extreme=hunt.symbol_b.current_low;
+      }
+   }
+
    bool BuildConfirmedHighSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
    {
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_SELL,CGC_SIDE_HIGH);
+      FillSymbolLocalVisualFields(hunt,signal);
 
       if(!signal.data_ready)
       {
@@ -218,6 +242,7 @@ private:
    {
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_BUY,CGC_SIDE_LOW);
+      FillSymbolLocalVisualFields(hunt,signal);
 
       if(!signal.data_ready)
       {
