@@ -1112,11 +1112,9 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
 
    if(cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
    {
-      // Fail-safe doctrine: valid-only view should not become a blind chart.
-      // If the practical valid-family annotator returns zero Hooks in the current
-      // window, fall back to structural Phase02 candidates. This keeps debugging
-      // possible while the validity rules are tuned. Turn off
-      // valid_only_fallback_to_structural for strict research runs.
+      // Debug-only fallback. Production doctrine is strict valid-only:
+      // if no valid Hook family is selected, draw nothing. Turn this on only
+      // when diagnosing why the valid-family annotator returned zero candidates.
       if(cfg.sequence_draw_mode == FP_HOOK_P02_DRAW_LATEST_PER_SCALE_DIRECTION)
       {
          int selected_scales_fb[];
