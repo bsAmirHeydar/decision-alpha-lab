@@ -1,9 +1,9 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 01"
+input group "01 Data Source / Stage 02"
 input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
-input bool   InpUseSampleData                = true;       // Stage 01 default: true. Direct source begins in Stage 08.
+input bool   InpUseSampleData                = true;       // Stage 02 default: true. Direct source begins in Stage 08.
 input bool   InpUseCache                     = true;
 input int    InpRefreshMinutes               = 5;
 
@@ -149,6 +149,7 @@ void GT_InitFilterState(GT_FilterState &filters, GT_Config &config)
    filters.show_speech = config.show_speech;
    filters.show_tentative = config.show_tentative;
    filters.show_breaking = config.show_breaking;
+   filters.show_past_events = config.show_past_events;
    filters.only_symbol = config.show_only_symbol_currencies;
    filters.alerts_enabled = config.enable_alerts;
 }

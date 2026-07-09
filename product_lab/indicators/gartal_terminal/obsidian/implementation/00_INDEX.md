@@ -77,3 +77,9 @@ A beta build is acceptable when:
 - alert stages are deduplicated
 - cache fallback works after network failure
 - release package can be generated with one PowerShell command
+
+
+## Stage 02
+
+- [[stage_02_event_data_model_sample_pipeline]]
+- [[stage_02/00_STAGE_02_INDEX]]

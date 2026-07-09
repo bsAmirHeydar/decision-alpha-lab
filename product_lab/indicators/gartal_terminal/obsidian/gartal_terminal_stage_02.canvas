@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "stage02",
+      "type": "text",
+      "text": "Stage 02\nEvent Data Model + Sample Pipeline",
+      "x": 0,
+      "y": 0,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "types",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsTypes.mqh",
+      "x": 360,
+      "y": -160,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "store",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsStore.mqh",
+      "x": 360,
+      "y": -40,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "sample",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsSampleData.mqh",
+      "x": 360,
+      "y": 80,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "dash",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsDashboard.mqh",
+      "x": 760,
+      "y": -80,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "timeline",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsTimeline.mqh",
+      "x": 760,
+      "y": 40,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "docs",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/implementation/stage_02/00_STAGE_02_INDEX.md",
+      "x": 0,
+      "y": 180,
+      "width": 340,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "stage02",
+      "fromSide": "right",
+      "toNode": "types",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "types",
+      "fromSide": "bottom",
+      "toNode": "store",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "sample",
+      "fromSide": "left",
+      "toNode": "store",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e4",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "dash",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "timeline",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "stage02",
+      "fromSide": "bottom",
+      "toNode": "docs",
+      "toSide": "top"
+    }
+  ]
+}

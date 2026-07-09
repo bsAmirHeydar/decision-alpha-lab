@@ -1,8 +1,8 @@
 #ifndef GARTAL_NEWS_TYPES_MQH
 #define GARTAL_NEWS_TYPES_MQH
 
-#define GT_MAX_EVENTS          256
-#define GT_MAX_ALERT_KEYS      1024
+#define GT_MAX_EVENTS          512
+#define GT_MAX_ALERT_KEYS      2048
 #define GT_MIN_TIMER_SECONDS   10
 #define GT_MAX_TIMER_SECONDS   3600
 
@@ -21,39 +21,88 @@
 #define GT_EVENT_RELEASED      2
 #define GT_EVENT_EXPIRED       3
 
+#define GT_EVENT_KIND_ECONOMIC 0
+#define GT_EVENT_KIND_SPEECH   1
+#define GT_EVENT_KIND_HOLIDAY  2
+#define GT_EVENT_KIND_BREAKING 3
+#define GT_EVENT_KIND_OTHER    4
+
 #define GT_LOG_INFO            0
 #define GT_LOG_WARNING         1
 #define GT_LOG_ERROR           2
 
+#define GT_STATUS_ACTIVE_WINDOW_SECONDS 900
+#define GT_STATUS_EXPIRE_SECONDS        3600
+
 struct GT_NewsEvent
 {
    string   id;
+   int      sequence;
+
+   datetime time_source;
    datetime time_utc;
    datetime time_broker;
+   datetime day_start_broker;
+
+   int      minute_of_day;
+   int      day_offset;
+   int      sort_rank;
+   int      impact_rank;
+   int      kind;
+
    string   currency;
    int      impact;
    string   title;
+   string   normalized_title;
    string   actual;
    string   forecast;
    string   previous;
+
    bool     is_tentative;
    bool     is_speech;
    bool     is_holiday;
    bool     is_breaking;
    bool     is_relevant;
    bool     is_released;
+   bool     is_today;
+   bool     in_date_window;
+
    int      status;
    string   source;
    string   raw_hash;
+   string   notes;
 };
 
 struct GT_NewsStore
 {
    GT_NewsEvent events[GT_MAX_EVENTS];
    int          count;
+
    bool         source_ok;
    datetime     last_refresh;
    string       source_status;
+   string       sample_profile;
+
+   datetime     window_from_broker;
+   datetime     window_to_broker;
+   datetime     today_start_broker;
+
+   int          high_count;
+   int          medium_count;
+   int          low_count;
+   int          holiday_count;
+   int          speech_count;
+   int          breaking_count;
+   int          released_count;
+   int          upcoming_count;
+   int          active_count;
+   int          expired_count;
+   int          relevant_count;
+   int          visible_count;
+
+   int          next_event_index;
+   int          next_high_index;
+   string       checksum;
 };
 
 struct GT_Config
@@ -122,6 +171,7 @@ struct GT_FilterState
    bool show_speech;
    bool show_tentative;
    bool show_breaking;
+   bool show_past_events;
    bool only_symbol;
    bool alerts_enabled;
 };

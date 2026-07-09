@@ -23,7 +23,7 @@ void GT_RenderVerticalLines(GT_Config &config, GT_NewsStore &store, GT_FilterSta
       ObjectSetInteger(0, name, OBJPROP_BACK, true);
       ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
       ObjectSetInteger(0, name, OBJPROP_HIDDEN, true);
-      ObjectSetString(0, name, OBJPROP_TEXT, ev.currency + " " + GT_ImpactText(ev.impact) + " " + ev.title);
+      ObjectSetString(0, name, OBJPROP_TEXT, ev.currency + " " + GT_ImpactText(ev.impact) + " " + GT_EventKindText(ev.kind) + " " + ev.title);
    }
 }
 
@@ -33,23 +33,36 @@ void GT_RenderTimeline(GT_Config &config, GT_NewsStore &store, GT_FilterState &f
       return;
 
    string prefix = config.object_prefix + "TIMELINE_";
-   int upcoming = 0;
-   int high = 0;
-   datetime now = TimeCurrent();
+   int width = 760;
+   GT_Rect(prefix + "BG", CORNER_LEFT_LOWER, 18, 22, width, 54, clrBlack, clrDimGray);
 
-   for(int i=0; i<store.count; i++)
+   string text = "gartal timeline | visible=" + IntegerToString(store.visible_count) +
+                 " | next=" + (store.next_event_index >= 0 ? TimeToString(store.events[store.next_event_index].time_broker, TIME_MINUTES) : "none") +
+                 " | red=" + IntegerToString(store.high_count) +
+                 " | stage 02 event store active";
+   GT_Label(prefix + "INFO", CORNER_LEFT_LOWER, 32, 34, text, clrWhite, 8, "Segoe UI");
+
+   string tape = "";
+   int shown = 0;
+   datetime now = TimeCurrent();
+   for(int i=0; i<store.count && shown<6; i++)
    {
-      if(store.events[i].time_broker >= now && GT_EventPassesFilters(store.events[i], filters))
-      {
-         upcoming++;
-         if(store.events[i].impact == GT_IMPACT_HIGH)
-            high++;
-      }
+      GT_NewsEvent ev = store.events[i];
+      if(ev.time_broker < now)
+         continue;
+      if(!GT_EventPassesFilters(ev, filters))
+         continue;
+
+      if(shown > 0)
+         tape += "   |   ";
+      tape += TimeToString(ev.time_broker, TIME_MINUTES) + " " + ev.currency + " " + GT_ImpactDot(ev.impact) + " " + GT_CompactTitle(ev.title, 22);
+      shown++;
    }
 
-   GT_Rect(prefix + "BG", CORNER_LEFT_LOWER, 18, 22, 520, 34, clrBlack, clrDimGray);
-   string text = "gartal timeline | upcoming=" + IntegerToString(upcoming) + " | high=" + IntegerToString(high) + " | stage 01 object model active";
-   GT_Label(prefix + "INFO", CORNER_LEFT_LOWER, 32, 36, text, clrWhite, 8, "Segoe UI");
+   if(shown == 0)
+      tape = "no upcoming visible events in configured window";
+
+   GT_Label(prefix + "TAPE", CORNER_LEFT_LOWER, 32, 54, tape, clrSilver, 8, "Consolas");
 }
 
 #endif

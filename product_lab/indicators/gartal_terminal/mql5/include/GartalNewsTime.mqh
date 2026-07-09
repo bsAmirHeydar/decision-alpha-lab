@@ -34,6 +34,22 @@ datetime GT_TodayBrokerMidnight()
    return StringToTime(TimeToString(now, TIME_DATE));
 }
 
+int GT_MinuteOfDay(datetime broker_time)
+{
+   datetime day_start = StringToTime(TimeToString(broker_time, TIME_DATE));
+   int seconds = (int)(broker_time - day_start);
+   if(seconds < 0)
+      seconds = 0;
+   return GT_ClampInt(seconds / 60, 0, 1439);
+}
+
+int GT_DayOffsetFromToday(datetime broker_time)
+{
+   datetime today = GT_TodayBrokerMidnight();
+   datetime event_day = StringToTime(TimeToString(broker_time, TIME_DATE));
+   return (int)((event_day - today) / 86400);
+}
+
 bool GT_InConfiguredDateWindow(datetime broker_time, GT_Config &config)
 {
    datetime today = GT_TodayBrokerMidnight();
@@ -46,16 +62,18 @@ void GT_UpdateEventStatuses(GT_NewsStore &store, datetime now)
 {
    for(int i=0; i<store.count; i++)
    {
-      int remaining = (int)(store.events[i].time_broker - now);
+      int delta = (int)(now - store.events[i].time_broker);
 
       if(store.events[i].is_released)
          store.events[i].status = GT_EVENT_RELEASED;
-      else if(remaining < -3600)
-         store.events[i].status = GT_EVENT_EXPIRED;
-      else if(remaining <= 0)
-         store.events[i].status = GT_EVENT_ACTIVE;
-      else
+      else if(delta < 0)
          store.events[i].status = GT_EVENT_UPCOMING;
+      else if(delta <= GT_STATUS_ACTIVE_WINDOW_SECONDS)
+         store.events[i].status = GT_EVENT_ACTIVE;
+      else if(delta > GT_STATUS_EXPIRE_SECONDS)
+         store.events[i].status = GT_EVENT_EXPIRED;
+      else
+         store.events[i].status = GT_EVENT_ACTIVE;
    }
 }
 

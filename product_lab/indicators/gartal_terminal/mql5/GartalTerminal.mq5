@@ -1,26 +1,28 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 01 compile-safe core skeleton            |
+//| gartal terminal - Stage 02 event data model and sample pipeline            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.1.1"
-#property description       "gartal terminal - Stage 01 compile-safe core skeleton"
+#property version           "0.2.0"
+#property description       "gartal terminal - Stage 02 event data model and sample pipeline"
 
-// Stage 01 doctrine:
-// - The indicator must compile cleanly before any Forex Factory parser work.
-// - Runtime is deterministic and sample-data driven by default.
-// - Every module exposes a narrow contract so later stages can replace internals
-//   without changing the top-level indicator lifecycle.
+// Stage 02 doctrine:
+// - Stage 01 compile-safe lifecycle remains intact.
+// - The news event model becomes production-shaped before direct source parsing.
+// - Sample data covers currencies, impacts, speeches, holidays, breaking events,
+//   released/active/upcoming/expired statuses, and date-window behavior.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
 #include "include/GartalNewsInputs.mqh"
 #include "include/GartalNewsTime.mqh"
 #include "include/GartalNewsDiagnostics.mqh"
+#include "include/GartalNewsStore.mqh"
+#include "include/GartalNewsSampleData.mqh"
 #include "include/GartalNewsCalendarClient.mqh"
 #include "include/GartalNewsParser.mqh"
 #include "include/GartalNewsDashboard.mqh"
@@ -46,7 +48,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 01 core boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 02 event data model boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -61,7 +63,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 01 core boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 02 event data model boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -101,6 +103,8 @@ void OnTimer()
    if(due)
       GT_RefreshCalendar(false);
 
+   GT_UpdateEventStatuses(g_store, now);
+   GT_UpdateStoreMetrics(g_store, g_filters);
    GT_ProcessAlerts(g_config, g_store, g_filters, g_alerts, g_runtime);
    GT_UpdateCountdowns(g_config, g_store, g_filters, g_runtime);
 }
@@ -161,9 +165,7 @@ void GT_RefreshCalendar(const bool first_load)
    g_runtime.last_refresh_finished_at = g_runtime.last_refresh_at;
    g_runtime.last_refresh_ok = parsed;
 
-   GT_SortEventsByBrokerTime(g_store);
-   GT_MarkRelevance(g_config, g_store);
-   GT_UpdateEventStatuses(g_store, TimeCurrent());
+   GT_FinalizeStore(g_config, g_store, g_filters);
 
    if(!parsed)
       GT_RuntimeLog(g_runtime, GT_LOG_WARNING, "Calendar refresh failed. first_load=" + GT_BoolText(first_load));

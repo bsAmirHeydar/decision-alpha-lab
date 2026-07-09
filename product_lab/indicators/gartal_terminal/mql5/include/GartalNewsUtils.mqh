@@ -57,6 +57,24 @@ string GT_ImpactText(int impact)
    return "NONE";
 }
 
+string GT_ImpactDot(int impact)
+{
+   if(impact == GT_IMPACT_HIGH)    return "RED";
+   if(impact == GT_IMPACT_MEDIUM)  return "ORG";
+   if(impact == GT_IMPACT_LOW)     return "YLW";
+   if(impact == GT_IMPACT_HOLIDAY) return "GRY";
+   return "---";
+}
+
+int GT_ImpactRank(int impact)
+{
+   if(impact == GT_IMPACT_HIGH)    return 400;
+   if(impact == GT_IMPACT_MEDIUM)  return 300;
+   if(impact == GT_IMPACT_LOW)     return 200;
+   if(impact == GT_IMPACT_HOLIDAY) return 100;
+   return 0;
+}
+
 color GT_ImpactColor(int impact)
 {
    if(impact == GT_IMPACT_HIGH)    return clrTomato;
@@ -64,6 +82,24 @@ color GT_ImpactColor(int impact)
    if(impact == GT_IMPACT_LOW)     return clrGold;
    if(impact == GT_IMPACT_HOLIDAY) return clrSilver;
    return clrGray;
+}
+
+string GT_EventStatusText(int status)
+{
+   if(status == GT_EVENT_UPCOMING) return "UPCOMING";
+   if(status == GT_EVENT_ACTIVE)   return "ACTIVE";
+   if(status == GT_EVENT_RELEASED) return "RELEASED";
+   if(status == GT_EVENT_EXPIRED)  return "EXPIRED";
+   return "UNKNOWN";
+}
+
+string GT_EventKindText(int kind)
+{
+   if(kind == GT_EVENT_KIND_ECONOMIC) return "ECON";
+   if(kind == GT_EVENT_KIND_SPEECH)   return "SPEECH";
+   if(kind == GT_EVENT_KIND_HOLIDAY)  return "HOLIDAY";
+   if(kind == GT_EVENT_KIND_BREAKING) return "BREAKING";
+   return "OTHER";
 }
 
 bool GT_CsvContains(string csv, string needle)
@@ -99,6 +135,16 @@ string GT_FormatMinutesRemaining(datetime future_time, datetime now)
    return IntegerToString(minutes) + "m";
 }
 
+string GT_FormatMinuteOfDay(int minute_of_day)
+{
+   int clamped = GT_ClampInt(minute_of_day, 0, 1439);
+   int h = clamped / 60;
+   int m = clamped % 60;
+   string hs = (h < 10 ? "0" : "") + IntegerToString(h);
+   string ms = (m < 10 ? "0" : "") + IntegerToString(m);
+   return hs + ":" + ms;
+}
+
 string GT_SafeObjectName(string prefix, string segment)
 {
    string name = prefix + segment;
@@ -107,7 +153,27 @@ string GT_SafeObjectName(string prefix, string segment)
    StringReplace(name, "/", "_");
    StringReplace(name, "\\", "_");
    StringReplace(name, ".", "_");
+   StringReplace(name, "|", "_");
+   StringReplace(name, "%", "pct");
    return name;
+}
+
+string GT_CompactTitle(string title, int max_len)
+{
+   string clean = GT_Trim(title);
+   if(StringLen(clean) <= max_len)
+      return clean;
+   if(max_len <= 3)
+      return StringSubstr(clean, 0, max_len);
+   return StringSubstr(clean, 0, max_len - 3) + "...";
+}
+
+string GT_NormalizeWhitespace(string value)
+{
+   string result = GT_Trim(value);
+   while(StringFind(result, "  ") >= 0)
+      StringReplace(result, "  ", " ");
+   return result;
 }
 
 #endif
