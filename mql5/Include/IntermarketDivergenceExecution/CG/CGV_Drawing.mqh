@@ -330,6 +330,8 @@ private:
 
    bool DrawText(const long chart_id,const string name,const datetime t,const double p,const string label,const color c,const string tooltip)
    {
+      if(m_config.suppress_all_text_objects)
+         return false;
       if(chart_id<0 || t<=0 || p<=0.0)
          return false;
       ObjectDelete(chart_id,name);
@@ -519,6 +521,159 @@ private:
       return removed;
    }
 
+   int ClearTextObjectsOnChart(const long chart_id)
+   {
+      if(chart_id<0)
+         return 0;
+      int removed=0;
+      for(int i=ObjectsTotal(chart_id,0,-1)-1;i>=0;i--)
+      {
+         string name=ObjectName(chart_id,i,0,-1);
+         if(StringFind(name,CGV_OBJECT_PREFIX)==0)
+         {
+            ENUM_OBJECT type=(ENUM_OBJECT)ObjectGetInteger(chart_id,name,OBJPROP_TYPE);
+            bool is_text=(type==OBJ_TEXT || type==OBJ_LABEL);
+            bool is_visual_label=(StringFind(name,"visual_label")>=0);
+            if(is_text || is_visual_label)
+            {
+               if(ObjectDelete(chart_id,name))
+                  removed++;
+            }
+         }
+      }
+      ChartRedraw(chart_id);
+      return removed;
+   }
+
+   int ClearPhaseTextObjects()
+   {
+      int removed=0;
+      long chart_id=ChartFirst();
+      while(chart_id>=0)
+      {
+         string s=ChartSymbol(chart_id);
+         if(!m_config.draw_on_both_input_symbol_charts || s==_Symbol || s==m_config.symbol_a || s==m_config.symbol_b)
+            removed+=ClearTextObjectsOnChart(chart_id);
+         chart_id=ChartNext(chart_id);
+      }
+      return removed;
+   }
+
+   void ApplyMinimalLinesOnlyVisualMode()
+   {
+      m_config.enable_drawing=true;
+      m_config.draw_on_both_input_symbol_charts=true;
+      m_config.open_missing_input_symbol_charts=true;
+      m_config.draw_confirmed_tradeable=true;
+      // Invalidated double hunts are not divergences in the base doctrine. Keep them optional but off in minimal mode.
+      m_config.draw_invalidated_double_hunts=false;
+      m_config.draw_divergence_origin_destination_line=true;
+      m_config.draw_origin_marker=false;
+      m_config.draw_destination_marker=false;
+      m_config.draw_origin_vertical=false;
+      m_config.draw_destination_vertical=false;
+      m_config.draw_confirmation_marker=false;
+      m_config.draw_reference_cycle_anchor=false;
+      m_config.draw_hunter_reference_guide=false;
+      m_config.draw_hunter_current_extreme_guide=false;
+      m_config.draw_clean_reference_guide=false;
+      m_config.draw_clean_stop_reference_guide=false;
+      m_config.draw_clean_comparison_line=false;
+      m_config.draw_text_label=false;
+      m_config.suppress_all_text_objects=true;
+   }
+
+   void ApplyLinesAndMarkersVisualMode()
+   {
+      m_config.enable_drawing=true;
+      m_config.draw_on_both_input_symbol_charts=true;
+      m_config.open_missing_input_symbol_charts=true;
+      m_config.draw_confirmed_tradeable=true;
+      m_config.draw_divergence_origin_destination_line=true;
+      m_config.draw_origin_marker=true;
+      m_config.draw_destination_marker=true;
+      m_config.draw_origin_vertical=false;
+      m_config.draw_destination_vertical=false;
+      m_config.draw_confirmation_marker=false;
+      m_config.draw_reference_cycle_anchor=false;
+      m_config.draw_hunter_reference_guide=false;
+      m_config.draw_hunter_current_extreme_guide=false;
+      m_config.draw_clean_reference_guide=false;
+      m_config.draw_clean_stop_reference_guide=false;
+      m_config.draw_clean_comparison_line=false;
+      m_config.draw_text_label=false;
+      m_config.suppress_all_text_objects=true;
+   }
+
+   void ApplyStructuralLinesVisualMode()
+   {
+      m_config.enable_drawing=true;
+      m_config.draw_on_both_input_symbol_charts=true;
+      m_config.open_missing_input_symbol_charts=true;
+      m_config.draw_confirmed_tradeable=true;
+      m_config.draw_divergence_origin_destination_line=true;
+      m_config.draw_origin_marker=false;
+      m_config.draw_destination_marker=false;
+      m_config.draw_origin_vertical=true;
+      m_config.draw_destination_vertical=true;
+      m_config.draw_confirmation_marker=true;
+      m_config.draw_reference_cycle_anchor=false;
+      m_config.draw_hunter_reference_guide=false;
+      m_config.draw_hunter_current_extreme_guide=false;
+      m_config.draw_clean_reference_guide=false;
+      m_config.draw_clean_stop_reference_guide=false;
+      m_config.draw_clean_comparison_line=false;
+      m_config.draw_text_label=false;
+      m_config.suppress_all_text_objects=true;
+   }
+
+   void ApplyFullAuditVisualMode()
+   {
+      m_config.enable_drawing=true;
+      m_config.draw_on_both_input_symbol_charts=true;
+      m_config.open_missing_input_symbol_charts=true;
+      m_config.draw_confirmed_tradeable=true;
+      m_config.draw_invalidated_double_hunts=true;
+      m_config.draw_divergence_origin_destination_line=true;
+      m_config.draw_origin_marker=true;
+      m_config.draw_destination_marker=true;
+      m_config.draw_origin_vertical=true;
+      m_config.draw_destination_vertical=true;
+      m_config.draw_confirmation_marker=true;
+      m_config.draw_reference_cycle_anchor=true;
+      m_config.draw_hunter_reference_guide=true;
+      m_config.draw_hunter_current_extreme_guide=true;
+      m_config.draw_clean_reference_guide=true;
+      m_config.draw_clean_stop_reference_guide=true;
+      m_config.draw_clean_comparison_line=true;
+      m_config.draw_text_label=true;
+      m_config.suppress_all_text_objects=false;
+   }
+
+   void ApplyVisualModePreset()
+   {
+      if(m_config.visual_mode==CGV_VISUAL_MODE_MINIMAL_LINES_ONLY)
+      {
+         ApplyMinimalLinesOnlyVisualMode();
+         return;
+      }
+      if(m_config.visual_mode==CGV_VISUAL_MODE_LINES_AND_MARKERS)
+      {
+         ApplyLinesAndMarkersVisualMode();
+         return;
+      }
+      if(m_config.visual_mode==CGV_VISUAL_MODE_STRUCTURAL_LINES)
+      {
+         ApplyStructuralLinesVisualMode();
+         return;
+      }
+      if(m_config.visual_mode==CGV_VISUAL_MODE_FULL_AUDIT)
+      {
+         ApplyFullAuditVisualMode();
+         return;
+      }
+   }
+
 public:
    void Configure(SCGVVisualLedgerConfig &config)
    {
@@ -528,26 +683,18 @@ public:
          // Explicit false is allowed. This block exists only to make the field visible in the configuration contract.
       }
 
-      if(m_config.force_all_visual_objects_on)
+      // Visual mode is the primary authority. This prevents older saved .set files with
+      // InpForceAllVisualObjectsOn=true from overriding the new minimal line-only mode.
+      ApplyVisualModePreset();
+      if(m_config.force_all_visual_objects_on && m_config.visual_mode==CGV_VISUAL_MODE_FULL_AUDIT)
+         ApplyFullAuditVisualMode();
+
+      // Final text-suppression safety. This wins over saved .set files and older visual defaults.
+      if(m_config.suppress_all_text_objects)
       {
-         m_config.enable_drawing=true;
-         m_config.draw_on_both_input_symbol_charts=true;
-         m_config.open_missing_input_symbol_charts=true;
-         m_config.draw_confirmed_tradeable=true;
-         m_config.draw_invalidated_double_hunts=true;
-         m_config.draw_divergence_origin_destination_line=true;
-         m_config.draw_origin_marker=true;
-         m_config.draw_destination_marker=true;
-         m_config.draw_origin_vertical=true;
-         m_config.draw_destination_vertical=true;
-         m_config.draw_confirmation_marker=true;
-         m_config.draw_reference_cycle_anchor=true;
-         m_config.draw_hunter_reference_guide=true;
-         m_config.draw_hunter_current_extreme_guide=true;
-         m_config.draw_clean_reference_guide=true;
-         m_config.draw_clean_stop_reference_guide=true;
-         m_config.draw_clean_comparison_line=true;
-         m_config.draw_text_label=true;
+         m_config.draw_text_label=false;
+         if(m_config.delete_text_objects_when_suppressed)
+            ClearPhaseTextObjects();
       }
       if(m_config.line_width<1) m_config.line_width=1;
       if(m_config.divergence_line_width<1) m_config.divergence_line_width=m_config.line_width;

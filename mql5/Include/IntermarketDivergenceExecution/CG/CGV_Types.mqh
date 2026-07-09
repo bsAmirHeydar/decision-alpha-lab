@@ -45,6 +45,14 @@ enum ECGVVisualLineStyle
    CGV_VISUAL_STYLE_DASHDOTDOT = 4
 };
 
+enum ECGVVisualMode
+{
+   CGV_VISUAL_MODE_MINIMAL_LINES_ONLY = 0,
+   CGV_VISUAL_MODE_LINES_AND_MARKERS  = 1,
+   CGV_VISUAL_MODE_STRUCTURAL_LINES   = 2,
+   CGV_VISUAL_MODE_FULL_AUDIT         = 3
+};
+
 struct SCGVVisualLedgerConfig
 {
    string symbol_a;
@@ -68,6 +76,9 @@ struct SCGVVisualLedgerConfig
    bool   keep_first_visual_for_same_signal_id;
 
    bool   enable_drawing;
+   ECGVVisualMode visual_mode;
+   bool   suppress_all_text_objects;
+   bool   delete_text_objects_when_suppressed;
    bool   force_all_visual_objects_on;
    bool   clear_objects_on_init;
    bool   clear_objects_on_deinit;
@@ -117,6 +128,8 @@ struct SCGVVisualLedgerConfig
    color  destination_marker_color;
    color  guide_color;
    color  clean_comparison_color;
+
+   int    max_historical_visual_draws;
 
    bool   enable_ledger;
    bool   ledger_use_common_files;

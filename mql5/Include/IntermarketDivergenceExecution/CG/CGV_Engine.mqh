@@ -301,6 +301,8 @@ private:
       // Process oldest -> newest so the first confirmed visual for a given signal id is kept in place.
       for(int i=count-1;i>=0;i--)
       {
+         if(m_visual_config.max_historical_visual_draws>0 && m_last_backfill_drawn_count>=m_visual_config.max_historical_visual_draws)
+            break;
          int drawn=0;
          int ledger=0;
          ProcessObservation(observation_times[i],m_visual_config.historical_backfill_write_ledger,false,false,TimeCurrent(),drawn,ledger);
@@ -318,6 +320,8 @@ private:
                             m_visual_config.historical_backfill_lookback_trading_days,
                             m_visual_config.historical_backfill_max_closed_candles,
                             (m_visual_config.keep_first_visual_for_same_signal_id ? "true" : "false")));
+         if(m_visual_config.max_historical_visual_draws>0 && m_last_backfill_drawn_count>=m_visual_config.max_historical_visual_draws)
+            Print(StringFormat("EXP0017 Phase06 historical visual backfill stopped at visual draw cap: cap=%d drawn=%d",m_visual_config.max_historical_visual_draws,m_last_backfill_drawn_count));
       }
    }
 

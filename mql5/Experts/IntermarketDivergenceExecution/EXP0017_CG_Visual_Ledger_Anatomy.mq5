@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.05"
+#property version   "1.06"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix005 adds historical visual backfill so drawings are placed on prior closed candles, not only from the live attach moment."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix006 adds minimal line-only visual mode: no labels, no chart comments, no panels, and no guide clutter by default."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -20,7 +20,8 @@ input bool InpPrintSummaryOnNewClosedCandle = false;
 // Hotfix005 — historical visual backfill. Draw prior confirmed/invalidated states when the EA is attached.
 input bool InpEnableHistoricalVisualBackfill = true;
 input int  InpHistoricalBackfillLookbackTradingDays = 2;
-input int  InpHistoricalBackfillMaxClosedCandles = 600;
+input int  InpHistoricalBackfillMaxClosedCandles = 350;
+input int  InpMaxHistoricalVisualDraws = 250;
 input bool InpHistoricalBackfillWriteLedger = false;
 input bool InpHistoricalBackfillPrintSummary = true;
 input bool InpKeepFirstVisualForSameSignalId = true;
@@ -34,7 +35,10 @@ input bool InpShowPrices = true;
 input bool InpShowStopReferencePreview = true;
 
 input bool InpEnableDrawing = true;
-input bool InpForceAllVisualObjectsOn = true;
+input ECGVVisualMode InpVisualMode = CGV_VISUAL_MODE_MINIMAL_LINES_ONLY;
+input bool InpSuppressAllTextObjects = true;
+input bool InpDeleteTextObjectsWhenSuppressed = true;
+input bool InpForceAllVisualObjectsOn = false;
 input bool InpClearPhase06ObjectsOnInit = true;
 input bool InpClearPhase06ObjectsOnDeinit = false;
 input bool InpDrawOnlyWhenChartIsHunterSymbol = false;
@@ -42,10 +46,10 @@ input bool InpDrawOnBothInputSymbolCharts = true;
 input bool InpOpenMissingInputSymbolCharts = true;
 input ENUM_TIMEFRAMES InpVisualChartTimeframe = PERIOD_CURRENT;
 input bool InpDrawConfirmedTradeable = true;
-input bool InpDrawInvalidatedDoubleHunts = true;
-input bool InpDrawReferenceCycleAnchor = true;
-input bool InpDrawConfirmationMarker = true;
-input bool InpDrawTextLabel = true;
+input bool InpDrawInvalidatedDoubleHunts = false;
+input bool InpDrawReferenceCycleAnchor = false;
+input bool InpDrawConfirmationMarker = false;
+input bool InpDrawTextLabel = false;
 input int  InpLineWidth = 2;
 input color InpBuyColor = clrLime;
 input color InpSellColor = clrTomato;
@@ -62,19 +66,19 @@ input ECGVAnchorTimeMode   InpDivergenceDestinationTimeMode = CGV_ANCHOR_TIME_EX
 input ECGVAnchorPriceMode  InpDivergenceDestinationPriceMode = CGV_ANCHOR_PRICE_HUNTER_CURRENT_EXTREME;
 input ECGVVisualLineStyle  InpDivergenceLineStyle = CGV_VISUAL_STYLE_SOLID;
 input int  InpDivergenceLineWidth = 2;
-input bool InpDrawOriginMarker = true;
-input bool InpDrawDestinationMarker = true;
+input bool InpDrawOriginMarker = false;
+input bool InpDrawDestinationMarker = false;
 input int  InpOriginMarkerArrowCode = 159;
 input int  InpDestinationMarkerArrowCode = 159;
 input int  InpOriginMarkerWidth = 2;
 input int  InpDestinationMarkerWidth = 2;
-input bool InpDrawOriginVertical = true;
-input bool InpDrawDestinationVertical = true;
-input bool InpDrawHunterReferenceGuide = true;
-input bool InpDrawCleanReferenceGuide = true;
-input bool InpDrawCleanStopReferenceGuide = true;
-input bool InpDrawHunterCurrentExtremeGuide = true;
-input bool InpDrawCleanComparisonLine = true;
+input bool InpDrawOriginVertical = false;
+input bool InpDrawDestinationVertical = false;
+input bool InpDrawHunterReferenceGuide = false;
+input bool InpDrawCleanReferenceGuide = false;
+input bool InpDrawCleanStopReferenceGuide = false;
+input bool InpDrawHunterCurrentExtremeGuide = false;
+input bool InpDrawCleanComparisonLine = false;
 input bool InpDrawCleanComparisonOnlyWhenChartIsCleanSymbol = true;
 input ECGVVisualLineStyle InpGuideLineStyle = CGV_VISUAL_STYLE_DOT;
 input int  InpGuideLineWidth = 1;
@@ -141,6 +145,9 @@ int OnInit()
    config.show_prices=InpShowPrices;
    config.show_stop_reference_preview=InpShowStopReferencePreview;
    config.enable_drawing=InpEnableDrawing;
+   config.visual_mode=InpVisualMode;
+   config.suppress_all_text_objects=InpSuppressAllTextObjects;
+   config.delete_text_objects_when_suppressed=InpDeleteTextObjectsWhenSuppressed;
    config.force_all_visual_objects_on=InpForceAllVisualObjectsOn;
    config.clear_objects_on_init=InpClearPhase06ObjectsOnInit;
    config.clear_objects_on_deinit=InpClearPhase06ObjectsOnDeinit;
@@ -190,6 +197,7 @@ int OnInit()
    config.destination_marker_color=InpDestinationMarkerColor;
    config.guide_color=InpGuideColor;
    config.clean_comparison_color=InpCleanComparisonColor;
+   config.max_historical_visual_draws=InpMaxHistoricalVisualDraws;
 
    config.enable_ledger=InpEnableLedger;
    config.ledger_use_common_files=InpLedgerUseCommonFiles;
