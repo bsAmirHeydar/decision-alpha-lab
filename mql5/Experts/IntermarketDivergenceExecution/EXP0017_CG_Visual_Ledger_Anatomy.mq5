@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.04"
+#property version   "1.05"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix004 forces real line/marker/vertical drawing, keeps comments off, and repairs visual legs that previously appeared as text-only audit labels."
+#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix005 adds historical visual backfill so drawings are placed on prior closed candles, not only from the live attach moment."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 
@@ -16,6 +16,14 @@ input ENUM_TIMEFRAMES InpConfirmationTimeframe = PERIOD_CURRENT;
 input bool InpUseLastClosedCandleBoundary = true;
 input bool InpShowChartPanel = false;
 input bool InpPrintSummaryOnNewClosedCandle = false;
+
+// Hotfix005 — historical visual backfill. Draw prior confirmed/invalidated states when the EA is attached.
+input bool InpEnableHistoricalVisualBackfill = true;
+input int  InpHistoricalBackfillLookbackTradingDays = 2;
+input int  InpHistoricalBackfillMaxClosedCandles = 600;
+input bool InpHistoricalBackfillWriteLedger = false;
+input bool InpHistoricalBackfillPrintSummary = true;
+input bool InpKeepFirstVisualForSameSignalId = true;
 input int  InpTimerSeconds = 5;
 input int  InpMaxGroupsShown = 8;
 input int  InpMaxSignalsPerGroupShown = 6;
@@ -189,6 +197,13 @@ int OnInit()
    config.write_confirmed_to_ledger=InpWriteConfirmedToLedger;
    config.write_invalidated_to_ledger=InpWriteInvalidatedToLedger;
    config.use_file_duplicate_guard=InpUseFileDuplicateGuard;
+
+   config.enable_historical_visual_backfill=InpEnableHistoricalVisualBackfill;
+   config.historical_backfill_lookback_trading_days=InpHistoricalBackfillLookbackTradingDays;
+   config.historical_backfill_max_closed_candles=InpHistoricalBackfillMaxClosedCandles;
+   config.historical_backfill_write_ledger=InpHistoricalBackfillWriteLedger;
+   config.historical_backfill_print_summary=InpHistoricalBackfillPrintSummary;
+   config.keep_first_visual_for_same_signal_id=InpKeepFirstVisualForSameSignalId;
 
    bool enabled[CGT_GROUP_COUNT];
    enabled[CGT_CG3M]   = InpBuild_cg_3m;

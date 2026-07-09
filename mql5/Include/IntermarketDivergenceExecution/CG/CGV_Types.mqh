@@ -60,6 +60,13 @@ struct SCGVVisualLedgerConfig
    bool   show_prices;
    bool   show_stop_reference_preview;
 
+   bool   enable_historical_visual_backfill;
+   int    historical_backfill_lookback_trading_days;
+   int    historical_backfill_max_closed_candles;
+   bool   historical_backfill_write_ledger;
+   bool   historical_backfill_print_summary;
+   bool   keep_first_visual_for_same_signal_id;
+
    bool   enable_drawing;
    bool   force_all_visual_objects_on;
    bool   clear_objects_on_init;

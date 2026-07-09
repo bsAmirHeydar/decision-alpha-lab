@@ -391,11 +391,19 @@ private:
       }
 
       string base_tooltip=Tooltip(signal,role + " symbol-local divergence leg",chart_symbol,origin_time,reference_price,destination_time,current_extreme);
+      string primary_leg_name=Key(signal,chart_symbol,"origin_to_destination_"+role);
+
+      // Hotfix005: historical backfill is processed oldest-to-newest.
+      // If this signal id already has its primary visual leg, keep the first visual placement
+      // so later bars in the same CG cycle do not drag the drawing forward.
+      if(m_config.keep_first_visual_for_same_signal_id && ObjectFind(chart_id,primary_leg_name)>=0)
+         return 0;
+
       int drawn=0;
 
       if(m_config.draw_divergence_origin_destination_line)
       {
-         if(DrawMainLegWithShadow(chart_id,Key(signal,chart_symbol,"origin_to_destination_"+role),origin_time,reference_price,destination_time,current_extreme,package_color,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
+         if(DrawMainLegWithShadow(chart_id,primary_leg_name,origin_time,reference_price,destination_time,current_extreme,package_color,m_config.divergence_line_width,m_config.divergence_line_style,base_tooltip))
             drawn++;
       }
 
@@ -515,6 +523,11 @@ public:
    void Configure(SCGVVisualLedgerConfig &config)
    {
       m_config=config;
+      if(m_config.keep_first_visual_for_same_signal_id==false)
+      {
+         // Explicit false is allowed. This block exists only to make the field visible in the configuration contract.
+      }
+
       if(m_config.force_all_visual_objects_on)
       {
          m_config.enable_drawing=true;
