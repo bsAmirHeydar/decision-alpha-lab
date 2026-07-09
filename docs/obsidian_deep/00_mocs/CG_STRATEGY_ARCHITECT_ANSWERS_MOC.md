@@ -1,10 +1,10 @@
 # CG Strategy Architect Answers MOC
 
-## EXP0017 — Cycle Group Intermarket Divergence
+## EXP0017 — Strategy Architect Chapters
 
-این MOC پاسخ‌های معمار استراتژی برای پروژه CG Intermarket Divergence را به لایه‌های doctrine، پژوهش، نقشه تصمیم و آبسیدین عمیق وصل می‌کند.
+این MOC لایه پاسخ‌های معمار استراتژی برای پروژه CG Intermarket Divergence را نگه می‌دارد.
 
-## فصل‌ها
+## فصل‌های ثبت‌شده
 
 - [[CG_Chapter_01_Strategy_Identity_Doctrine]]
 - [[CG_Chapter_02_Market_Relationship_Doctrine]]
@@ -22,15 +22,20 @@
 - [[CG_Chapter_14_Statistical_Testing_Doctrine]]
 - [[CG_Chapter_15_Statistical_Reporting_Doctrine]]
 - [[CG_Chapter_16_Decision_Model_Doctrine]]
+- [[CG_Chapter_17_AI_Role_Boundary_Doctrine]]
 
-## فصل ۱۶ — مدل آماری و هوش تصمیم‌یار
+## فصل ۱۷
 
-- [[Model_As_Statistical_Observer_Not_Execution_Authority]]
-- [[All_Cycle_Groups_Analyzed_Together]]
-- [[CG_Position_And_Type_As_Primary_Features]]
-- [[Winrate_And_Expectancy_As_Core_Model_Targets]]
-- [[Historical_Only_Model_Boundary]]
-- [[Quality_Score_As_Report_Not_Order]]
-- [[Strategy_Architect_Remains_Final_Authority]]
-- [[Model_Recommendations_As_Non_Automatic_Rules]]
-- [[Future_AI_Layer_After_Statistical_Proof]]
+فصل ۱۷ نقش AI را محدود و دقیق می‌کند: تحلیلگر، رتبه‌دهنده، مقایسه‌گر. مدل می‌تواند زبان معمار استراتژی را یاد بگیرد و مولفه‌ها را امتیازبندی کند، اما حق تغییر استراتژی را ندارد.
+
+### نوت‌های اصلی فصل ۱۷
+
+- [[AI_As_Analyst_Ranker_Comparer]]
+- [[Strategy_Invariants_Cannot_Be_Changed_By_Model]]
+- [[Learning_Strategy_Architect_Language_Without_Rule_Mutation]]
+- [[Component_Analysis_And_Quality_Ranking_Are_Primary]]
+- [[Analyze_All_Signals_No_Selective_Blindness]]
+- [[Model_Suggestions_Are_Research_Not_Strategy_Change]]
+- [[Human_Review_Before_Rule_Promotion]]
+- [[Statistical_Governance_For_AI_Layer]]
+- [[Future_AI_Capabilities_Without_Execution_Authority]]

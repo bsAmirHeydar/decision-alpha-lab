@@ -1,11 +1,11 @@
-# Folder Map — EXP0017 Strategy Architect Answers
+# Folder Map — strategy_architect_answers
 
-## Chapter 16
+این پوشه پاسخ‌های فصل‌به‌فصل معمار استراتژی برای EXP0017 را نگه می‌دارد.
 
-- CH16_INDEX.md
-- CH16_statistical_model_and_ai_decision_support_doctrine.md
-- CH16_research_translation_and_modeling_mission.md
-- CH16_feature_priority_and_quality_scoring.md
-- CH16_historical_only_model_boundary.md
-- CH16_hypothesis_register.md
-- CH16_glossary_and_language.md
+## آخرین فصل اضافه‌شده
+
+- CH17 — AI Role Boundary, Ranking and Strategy Integrity
+
+## نقش فصل ۱۷
+
+فصل ۱۷ مشخص می‌کند AI تحلیلگر، رتبه‌دهنده و مقایسه‌گر است، اما اجازه تغییر استراتژی، ورود، خروج، تارگت، بازه روزانه یا سایکل‌گروپ‌ها را ندارد.
