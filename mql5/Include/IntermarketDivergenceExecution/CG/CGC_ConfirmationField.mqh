@@ -1,0 +1,416 @@
+#ifndef __CGC_CONFIRMATION_FIELD_MQH__
+#define __CGC_CONFIRMATION_FIELD_MQH__
+
+#include <IntermarketDivergenceExecution/CG/CGC_Types.mqh>
+#include <IntermarketDivergenceExecution/CG/CGH_HuntField.mqh>
+#include <IntermarketDivergenceExecution/CG/CGT_Time.mqh>
+
+class CCGC_ConfirmationField
+{
+private:
+   SCGCConfirmationConfig m_config;
+   SCGHHuntConfig         m_hunt_config;
+   CCGH_HuntField         m_hunt_field;
+
+   void ResetSignal(SCGCFinalSignal &signal)
+   {
+      signal.signal_id="";
+      signal.group_name="";
+      signal.group_minutes=0;
+      signal.current_cycle_index=-1;
+      signal.current_cycle_number=0;
+      signal.reference_cycle_index=-1;
+      signal.reference_cycle_number=0;
+      signal.trading_day_start_ny=0;
+      signal.trading_day_end_ny=0;
+      signal.current_cycle_start_ny=0;
+      signal.current_cycle_end_ny=0;
+      signal.reference_cycle_start_ny=0;
+      signal.reference_cycle_end_ny=0;
+      signal.confirmation_time_broker=0;
+      signal.confirmation_time_utc=0;
+      signal.confirmation_time_ny=0;
+      signal.confirmation_timeframe=PERIOD_CURRENT;
+      signal.confirmation_timeframe_seconds=0;
+      signal.direction=CGC_DIRECTION_NONE;
+      signal.side=CGC_SIDE_NONE;
+      signal.status=CGC_STATUS_NONE;
+      signal.hunter_symbol="";
+      signal.clean_symbol="";
+      signal.symbol_a_is_hunter=false;
+      signal.symbol_b_is_hunter=false;
+      signal.one_sided_hunt=false;
+      signal.double_hunt_invalidated=false;
+      signal.trade_permission_preview=false;
+      signal.data_ready=false;
+      signal.hunter_reference_price=0.0;
+      signal.clean_reference_price=0.0;
+      signal.hunter_current_extreme=0.0;
+      signal.clean_current_extreme=0.0;
+      signal.clean_stop_reference_price=0.0;
+      signal.note="";
+   }
+
+   void ResetGroupState(SCGCGroupConfirmationState &state)
+   {
+      state.group_name="";
+      state.group_minutes=0;
+      state.enabled=false;
+      state.inside_trading_day=false;
+      state.current_cycle_index=-1;
+      state.current_cycle_number=0;
+      state.previous_cycle_count=0;
+      state.ready_reference_count=0;
+      state.missing_reference_count=0;
+      state.raw_hunt_count=0;
+      state.final_state_count=0;
+      state.confirmed_tradeable_count=0;
+      state.invalidated_double_hunt_count=0;
+      state.missing_data_count=0;
+      state.buy_confirmed_count=0;
+      state.sell_confirmed_count=0;
+      state.symbol_a_clean_count=0;
+      state.symbol_b_clean_count=0;
+      state.high_side_final_count=0;
+      state.low_side_final_count=0;
+      state.has_any_final_state=false;
+      state.has_confirmed_tradeable_signal=false;
+      state.trading_day_start_ny=0;
+      state.trading_day_end_ny=0;
+      state.current_cycle_start_ny=0;
+      state.current_cycle_end_ny=0;
+      state.confirmation_time_broker=0;
+      state.confirmation_time_ny=0;
+   }
+
+   string DirectionText(const ECGCSignalDirection direction)
+   {
+      if(direction==CGC_DIRECTION_BUY)
+         return "BUY";
+      if(direction==CGC_DIRECTION_SELL)
+         return "SELL";
+      return "NONE";
+   }
+
+   string SideText(const ECGCSignalSide side)
+   {
+      if(side==CGC_SIDE_HIGH)
+         return "HIGH";
+      if(side==CGC_SIDE_LOW)
+         return "LOW";
+      return "NONE";
+   }
+
+   string StatusText(const ECGCFinalStatus status)
+   {
+      if(status==CGC_STATUS_CONFIRMED_TRADEABLE)
+         return "CONFIRMED_TRADEABLE";
+      if(status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT)
+         return "INVALIDATED_DOUBLE_HUNT";
+      if(status==CGC_STATUS_MISSING_DATA)
+         return "MISSING_DATA";
+      return "NONE";
+   }
+
+   string BuildSignalId(SCGTTimeSnapshot &time_snapshot,SCGHReferenceHuntState &hunt,const ECGCSignalDirection direction,const ECGCSignalSide side,const ECGCFinalStatus status,const string hunter_symbol,const string clean_symbol)
+   {
+      return StringFormat("EXP0017|PH05|%s|TD%s|C%d|R%d|%s|%s|%s|H:%s|C:%s",
+                          hunt.group_name,
+                          TimeToString(time_snapshot.trading_day_start_ny,TIME_DATE),
+                          hunt.current_cycle_start_ny,
+                          hunt.reference_cycle_start_ny,
+                          DirectionText(direction),
+                          SideText(side),
+                          StatusText(status),
+                          hunter_symbol,
+                          clean_symbol);
+   }
+
+   void FillSharedFields(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal,const ECGCSignalDirection direction,const ECGCSignalSide side)
+   {
+      signal.group_name=hunt.group_name;
+      signal.group_minutes=hunt.group_minutes;
+      signal.current_cycle_index=cycle.current_cycle_index;
+      signal.current_cycle_number=cycle.current_cycle_number;
+      signal.reference_cycle_index=hunt.reference_cycle_index;
+      signal.reference_cycle_number=hunt.reference_cycle_number;
+      signal.trading_day_start_ny=time_snapshot.trading_day_start_ny;
+      signal.trading_day_end_ny=time_snapshot.trading_day_end_ny;
+      signal.current_cycle_start_ny=hunt.current_cycle_start_ny;
+      signal.current_cycle_end_ny=hunt.current_cycle_end_ny;
+      signal.reference_cycle_start_ny=hunt.reference_cycle_start_ny;
+      signal.reference_cycle_end_ny=hunt.reference_cycle_end_ny;
+      signal.confirmation_time_broker=time_snapshot.broker_now;
+      signal.confirmation_time_utc=time_snapshot.utc_now;
+      signal.confirmation_time_ny=time_snapshot.new_york_now;
+      signal.confirmation_timeframe=m_config.confirmation_timeframe;
+      signal.confirmation_timeframe_seconds=PeriodSeconds(m_config.confirmation_timeframe);
+      signal.direction=direction;
+      signal.side=side;
+      signal.data_ready=(hunt.reference_ready && hunt.current_range_ready);
+   }
+
+   bool BuildConfirmedHighSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
+   {
+      ResetSignal(signal);
+      FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_SELL,CGC_SIDE_HIGH);
+
+      if(!signal.data_ready)
+      {
+         signal.status=CGC_STATUS_MISSING_DATA;
+         signal.note="missing_data_no_final_high_side_classification";
+         return false;
+      }
+
+      if(hunt.symbol_a.high_hunted && hunt.symbol_b.high_hunted)
+      {
+         signal.status=CGC_STATUS_INVALIDATED_DOUBLE_HUNT;
+         signal.double_hunt_invalidated=true;
+         signal.trade_permission_preview=false;
+         signal.hunter_symbol="BOTH_SYMBOLS";
+         signal.clean_symbol="NONE";
+         signal.hunter_reference_price=0.0;
+         signal.clean_reference_price=0.0;
+         signal.hunter_current_extreme=0.0;
+         signal.clean_current_extreme=0.0;
+         signal.clean_stop_reference_price=0.0;
+         signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
+         signal.note="both_symbols_hunted_high_at_closed_candle_no_sell_permission";
+         return true;
+      }
+
+      if(hunt.symbol_a.high_hunted==hunt.symbol_b.high_hunted)
+         return false;
+
+      signal.status=CGC_STATUS_CONFIRMED_TRADEABLE;
+      signal.one_sided_hunt=true;
+      signal.trade_permission_preview=true;
+      signal.symbol_a_is_hunter=hunt.symbol_a.high_hunted;
+      signal.symbol_b_is_hunter=hunt.symbol_b.high_hunted;
+
+      if(signal.symbol_a_is_hunter)
+      {
+         signal.hunter_symbol=m_config.symbol_a;
+         signal.clean_symbol=m_config.symbol_b;
+         signal.hunter_reference_price=hunt.symbol_a.reference_high;
+         signal.clean_reference_price=hunt.symbol_b.reference_high;
+         signal.hunter_current_extreme=hunt.symbol_a.current_high;
+         signal.clean_current_extreme=hunt.symbol_b.current_high;
+         signal.clean_stop_reference_price=hunt.symbol_b.reference_high;
+      }
+      else
+      {
+         signal.hunter_symbol=m_config.symbol_b;
+         signal.clean_symbol=m_config.symbol_a;
+         signal.hunter_reference_price=hunt.symbol_b.reference_high;
+         signal.clean_reference_price=hunt.symbol_a.reference_high;
+         signal.hunter_current_extreme=hunt.symbol_b.current_high;
+         signal.clean_current_extreme=hunt.symbol_a.current_high;
+         signal.clean_stop_reference_price=hunt.symbol_a.reference_high;
+      }
+
+      signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
+      signal.note="closed_candle_one_sided_high_hunt_sell_confirmed_tradeable_preview_clean_symbol_only_no_order_yet";
+      return true;
+   }
+
+   bool BuildConfirmedLowSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
+   {
+      ResetSignal(signal);
+      FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_BUY,CGC_SIDE_LOW);
+
+      if(!signal.data_ready)
+      {
+         signal.status=CGC_STATUS_MISSING_DATA;
+         signal.note="missing_data_no_final_low_side_classification";
+         return false;
+      }
+
+      if(hunt.symbol_a.low_hunted && hunt.symbol_b.low_hunted)
+      {
+         signal.status=CGC_STATUS_INVALIDATED_DOUBLE_HUNT;
+         signal.double_hunt_invalidated=true;
+         signal.trade_permission_preview=false;
+         signal.hunter_symbol="BOTH_SYMBOLS";
+         signal.clean_symbol="NONE";
+         signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
+         signal.note="both_symbols_hunted_low_at_closed_candle_no_buy_permission";
+         return true;
+      }
+
+      if(hunt.symbol_a.low_hunted==hunt.symbol_b.low_hunted)
+         return false;
+
+      signal.status=CGC_STATUS_CONFIRMED_TRADEABLE;
+      signal.one_sided_hunt=true;
+      signal.trade_permission_preview=true;
+      signal.symbol_a_is_hunter=hunt.symbol_a.low_hunted;
+      signal.symbol_b_is_hunter=hunt.symbol_b.low_hunted;
+
+      if(signal.symbol_a_is_hunter)
+      {
+         signal.hunter_symbol=m_config.symbol_a;
+         signal.clean_symbol=m_config.symbol_b;
+         signal.hunter_reference_price=hunt.symbol_a.reference_low;
+         signal.clean_reference_price=hunt.symbol_b.reference_low;
+         signal.hunter_current_extreme=hunt.symbol_a.current_low;
+         signal.clean_current_extreme=hunt.symbol_b.current_low;
+         signal.clean_stop_reference_price=hunt.symbol_b.reference_low;
+      }
+      else
+      {
+         signal.hunter_symbol=m_config.symbol_b;
+         signal.clean_symbol=m_config.symbol_a;
+         signal.hunter_reference_price=hunt.symbol_b.reference_low;
+         signal.clean_reference_price=hunt.symbol_a.reference_low;
+         signal.hunter_current_extreme=hunt.symbol_b.current_low;
+         signal.clean_current_extreme=hunt.symbol_a.current_low;
+         signal.clean_stop_reference_price=hunt.symbol_a.reference_low;
+      }
+
+      signal.signal_id=BuildSignalId(time_snapshot,hunt,signal.direction,signal.side,signal.status,signal.hunter_symbol,signal.clean_symbol);
+      signal.note="closed_candle_one_sided_low_hunt_buy_confirmed_tradeable_preview_clean_symbol_only_no_order_yet";
+      return true;
+   }
+
+   void CountSignal(SCGCFinalSignal &signal,SCGCGroupConfirmationState &state)
+   {
+      if(signal.status==CGC_STATUS_NONE)
+         return;
+
+      state.final_state_count++;
+      state.has_any_final_state=true;
+
+      if(signal.status==CGC_STATUS_CONFIRMED_TRADEABLE)
+      {
+         state.confirmed_tradeable_count++;
+         state.has_confirmed_tradeable_signal=true;
+         if(signal.direction==CGC_DIRECTION_BUY)
+            state.buy_confirmed_count++;
+         if(signal.direction==CGC_DIRECTION_SELL)
+            state.sell_confirmed_count++;
+         if(signal.clean_symbol==m_config.symbol_a)
+            state.symbol_a_clean_count++;
+         if(signal.clean_symbol==m_config.symbol_b)
+            state.symbol_b_clean_count++;
+      }
+      else if(signal.status==CGC_STATUS_INVALIDATED_DOUBLE_HUNT)
+      {
+         state.invalidated_double_hunt_count++;
+      }
+      else if(signal.status==CGC_STATUS_MISSING_DATA)
+      {
+         state.missing_data_count++;
+      }
+
+      if(signal.side==CGC_SIDE_HIGH)
+         state.high_side_final_count++;
+      if(signal.side==CGC_SIDE_LOW)
+         state.low_side_final_count++;
+   }
+
+public:
+   void Configure(SCGCConfirmationConfig &config)
+   {
+      m_config=config;
+      if(m_config.max_groups_shown<1)
+         m_config.max_groups_shown=1;
+      if(m_config.max_signals_per_group_shown<0)
+         m_config.max_signals_per_group_shown=0;
+      if(m_config.confirmation_timeframe==PERIOD_CURRENT)
+         m_config.confirmation_timeframe=(ENUM_TIMEFRAMES)_Period;
+
+      m_hunt_config.symbol_a=m_config.symbol_a;
+      m_hunt_config.symbol_b=m_config.symbol_b;
+      m_hunt_config.broker_utc_offset_hours=m_config.broker_utc_offset_hours;
+      m_hunt_config.max_groups_shown=m_config.max_groups_shown;
+      m_hunt_config.max_hunts_per_group_shown=m_config.max_signals_per_group_shown;
+      m_hunt_config.require_m1_history=m_config.require_m1_history;
+      m_hunt_config.show_only_groups_with_hunts=false;
+      m_hunt_config.show_reference_prices=m_config.show_prices;
+      m_hunt_config.show_current_cycle_ranges=m_config.show_prices;
+      m_hunt_field.Configure(m_hunt_config);
+   }
+
+   int BuildFinalSignalsForGroup(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGCFinalSignal &signals[],SCGCGroupConfirmationState &state)
+   {
+      ArrayResize(signals,0);
+      ResetGroupState(state);
+
+      state.group_name=cycle.group_name;
+      state.group_minutes=cycle.group_minutes;
+      state.enabled=cycle.enabled;
+      state.inside_trading_day=cycle.inside_trading_day;
+      state.current_cycle_index=cycle.current_cycle_index;
+      state.current_cycle_number=cycle.current_cycle_number;
+      state.previous_cycle_count=cycle.previous_cycle_count;
+      state.trading_day_start_ny=time_snapshot.trading_day_start_ny;
+      state.trading_day_end_ny=time_snapshot.trading_day_end_ny;
+      state.current_cycle_start_ny=cycle.cycle_start_ny;
+      state.current_cycle_end_ny=cycle.cycle_end_ny;
+      state.confirmation_time_broker=time_snapshot.broker_now;
+      state.confirmation_time_ny=time_snapshot.new_york_now;
+
+      if(!cycle.enabled || !cycle.inside_trading_day || cycle.previous_cycle_count<=0)
+         return 0;
+
+      SCGHReferenceHuntState hunts[];
+      SCGHGroupHuntState hunt_state;
+      int hunt_count=m_hunt_field.BuildHuntsForGroup(time_snapshot,cycle,hunts,hunt_state);
+      state.raw_hunt_count=hunt_state.hunt_state_count;
+      state.ready_reference_count=hunt_state.ready_reference_count;
+      state.missing_reference_count=hunt_state.missing_reference_count;
+
+      if(hunt_count<=0)
+         return 0;
+
+      for(int i=0;i<hunt_count;i++)
+      {
+         SCGCFinalSignal high_signal;
+         if(BuildConfirmedHighSignal(time_snapshot,cycle,hunts[i],high_signal))
+         {
+            if(high_signal.status==CGC_STATUS_CONFIRMED_TRADEABLE || m_config.show_invalidated_double_hunts)
+            {
+               int n=ArraySize(signals);
+               ArrayResize(signals,n+1);
+               signals[n]=high_signal;
+               CountSignal(high_signal,state);
+            }
+         }
+
+         SCGCFinalSignal low_signal;
+         if(BuildConfirmedLowSignal(time_snapshot,cycle,hunts[i],low_signal))
+         {
+            if(low_signal.status==CGC_STATUS_CONFIRMED_TRADEABLE || m_config.show_invalidated_double_hunts)
+            {
+               int n=ArraySize(signals);
+               ArrayResize(signals,n+1);
+               signals[n]=low_signal;
+               CountSignal(low_signal,state);
+            }
+         }
+      }
+
+      return ArraySize(signals);
+   }
+
+   string DirectionTextPublic(const ECGCSignalDirection direction) { return DirectionText(direction); }
+   string SideTextPublic(const ECGCSignalSide side) { return SideText(side); }
+   string StatusTextPublic(const ECGCFinalStatus status) { return StatusText(status); }
+
+   string FormatPrice(const double price)
+   {
+      if(price==0.0)
+         return "-";
+      return DoubleToString(price,CGC_PRICE_DIGITS);
+   }
+
+   string FormatCycleRangeNY(const datetime start_ny,const datetime end_ny)
+   {
+      if(start_ny<=0 || end_ny<=0)
+         return "-";
+      return StringFormat("%s-%s NY",TimeToString(start_ny,TIME_MINUTES),TimeToString(end_ny-60,TIME_MINUTES));
+   }
+};
+
+#endif
