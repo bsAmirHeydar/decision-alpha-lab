@@ -223,20 +223,27 @@ string FP_HookP02FormattedNodeLabel(const FP_HookPhase02Config &cfg,
                                   const FP_HookPhase02Sequence &seq,
                                   const int branch_ordinal,
                                   const int point_index,
-                                  const string fallback_label)
+                                  const string fallback_label,
+                                  const string family_tag)
 {
    string core = FP_HookP02NodeDisplayLabel(cfg, point_index, fallback_label);
    if(StringLen(core) <= 0)
       return "";
 
-   if(!cfg.show_hook_sequence_ids_in_labels)
-      return core;
+   string label = core;
+   if(cfg.show_hook_sequence_ids_in_labels)
+   {
+      int branch_id = branch_ordinal;
+      if(branch_id <= 0)
+         branch_id = seq.sequence_id;
 
-   int branch_id = branch_ordinal;
-   if(branch_id <= 0)
-      branch_id = seq.sequence_id;
+      label = "H" + IntegerToString(seq.origin_node_id) + "B" + IntegerToString(branch_id) + ":" + core;
+   }
 
-   return "H" + IntegerToString(seq.origin_node_id) + "B" + IntegerToString(branch_id) + ":" + core;
+   if(cfg.show_only_valid_hooks && StringLen(family_tag) > 0)
+      return family_tag + " " + label;
+
+   return label;
 }
 
 color FP_HookP02NodeNumberColor(const FP_HookPhase02Config &cfg,
@@ -554,28 +561,6 @@ bool FP_HookP02SequenceStructurallyDrawable(const FP_HookPhase02Config &cfg,
    return true;
 }
 
-// Canon Step 1 — production-visible Hook family selector.
-//
-// This helper is intentionally narrow: it answers only whether a Phase 02
-// sequence is the selected valid Hook itself. Parent companion expansion is
-// handled separately by FP_HookP02ExpandSelectionWithHookAfterHookParents().
-//
-// Do not use broad structural drawability here. Valid-only production view must
-// not leak raw Hook candidates, structural fallback rows, or same-origin-group
-// debug branches onto the chart.
-bool FP_HookP02SequenceIsProductionValidHook(const FP_HookPhase02Sequence &seq)
-{
-   if(!seq.valid)
-      return false;
-   if(seq.hook_failed)
-      return false;
-   if(seq.valid_after_opposing_f3)
-      return true;
-   if(seq.valid_after_hook)
-      return true;
-   return false;
-}
-
 bool FP_HookP02SameOriginGroup(const FP_HookPhase02Sequence &a,
                                const FP_HookPhase02Sequence &b)
 {
@@ -843,13 +828,15 @@ bool FP_HookP02CreateHookEnvelopeCurve(const string base,
 bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
                                       const FP_HookPhase02Sequence &seq,
                                       const int branch_ordinal,
+                                      const string family_tag,
+                                      const color family_color,
                                       FP_HookPhase02Report &report)
 {
    if(!cfg.draw_x_nodes || !cfg.draw_labels)
       return true;
 
    string base = FP_HookP02BaseName(cfg, seq);
-   color seq_color = FP_HookP02SequenceColor(cfg, seq);
+   color seq_color = family_color;
    bool place_below = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE);
 
    for(int p=1; p<=seq.x_count && p<=4; p++)
@@ -866,7 +853,7 @@ bool FP_HookP02DrawOneSequenceNumbers(const FP_HookPhase02Config &cfg,
          FP_HookP02CreateArrow(base + "_" + label + "_NODE", t, price, seq_color, arrow_code, cfg.marker_width, report);
       }
 
-      string node_display = FP_HookP02FormattedNodeLabel(cfg, seq, branch_ordinal, p, label);
+      string node_display = FP_HookP02FormattedNodeLabel(cfg, seq, branch_ordinal, p, label, family_tag);
       if(StringLen(node_display) <= 0)
          continue;
 
@@ -932,12 +919,7 @@ bool FP_HookP02SequencePassesDrawFilter(const FP_HookPhase02Config &cfg,
    if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, seq, true))
       return false;
 
-   // Canon Step 1:
-   // In valid-only production view, the primary selected set is only:
-   // 1) Immediate Hook After Opposing F3
-   // 2) Hook-2 After Hook-1
-   // Parent Hook-1 rows are injected later as companions.
-   if(cfg.show_only_valid_hooks && !FP_HookP02SequenceIsProductionValidHook(seq))
+   if(cfg.show_only_valid_hooks && !seq.valid_hook_family)
       return false;
 
    return true;
@@ -963,6 +945,71 @@ int FP_HookP02FindSequenceIndexBySequenceId(const FP_HookPhase02Sequence &sequen
          return i;
    }
    return -1;
+}
+
+
+bool FP_HookP02IsParentCompanionInVisibleSet(const FP_HookPhase02Sequence &seq,
+                                             const FP_HookPhase02Sequence &sequences[],
+                                             const int &indexes[])
+{
+   for(int s=0; s<ArraySize(indexes); s++)
+   {
+      int i = indexes[s];
+      if(i < 0 || i >= ArraySize(sequences))
+         continue;
+
+      FP_HookPhase02Sequence child = sequences[i];
+      if(!child.valid_after_hook)
+         continue;
+      if(child.previous_hook_sequence_id < 0)
+         continue;
+      if(child.previous_hook_sequence_id == seq.sequence_id)
+         return true;
+   }
+   return false;
+}
+
+string FP_HookP02CanonicalFamilyTag(const FP_HookPhase02Config &cfg,
+                                    const FP_HookPhase02Sequence &seq,
+                                    const bool parent_companion)
+{
+   if(!cfg.show_only_valid_hooks)
+      return "";
+
+   if(seq.valid_after_hook && seq.valid_after_opposing_f3)
+      return "F3H+HH";
+   if(seq.valid_after_opposing_f3)
+      return "F3H";
+   if(seq.valid_after_hook)
+      return "HH";
+   if(parent_companion)
+      return "PARENT";
+
+   return "";
+}
+
+color FP_HookP02CanonicalFamilyColor(const FP_HookPhase02Config &cfg,
+                                     const FP_HookPhase02Sequence &seq,
+                                     const bool parent_companion,
+                                     const color fallback_color)
+{
+   if(!cfg.show_only_valid_hooks)
+      return fallback_color;
+
+   // Canonical production-view colors:
+   // F3H    = Hook after opposing F3
+   // HH     = second Hook after a same-genus Hook
+   // PARENT = first Hook shown only as the required companion of HH
+   if(seq.valid_after_hook && seq.valid_after_opposing_f3)
+      return clrGold;
+   if(seq.valid_after_opposing_f3)
+      return clrMediumSeaGreen;
+   if(seq.valid_after_hook)
+      return clrDeepSkyBlue;
+   if(parent_companion)
+      return clrSilver;
+
+   return fallback_color;
 }
 
 void FP_HookP02SortSelectedIndexesBySequenceId(const FP_HookPhase02Sequence &sequences[],
@@ -1035,19 +1082,39 @@ void FP_HookP02ExpandSelectionWithSameHookGroupMembers(const FP_HookPhase02Confi
                                                        const FP_HookPhase02Sequence &sequences[],
                                                        int &indexes[])
 {
-   // Canon Step 1:
-   // Valid-only production view is not allowed to expand a valid Hook into all
-   // same-origin structural/debug branches. That previous behavior was the main
-   // source of label leakage: one valid row could pull many unqualified sibling
-   // rows back onto the chart.
-   //
-   // Keep the function as a compatibility hook, but make it a no-op. The final
-   // visible set is therefore:
-   // - selected production-valid Hook rows
-   // - required Hook-after-Hook parent companions
-   // and nothing else.
-   if(ArraySize(indexes) < 0)
+   if(!cfg.show_only_valid_hooks)
       return;
+
+   // Valid-only view is Hook-scoped. Once a valid Hook is selected, draw labels
+   // only for the sequences that belong to that visible Hook's origin group.
+   // This prevents labels from unqualified Hook groups from leaking onto the chart,
+   // while preserving complete sequence readability inside the valid Hook itself.
+   int cursor = 0;
+   while(cursor < ArraySize(indexes))
+   {
+      int seed_index = indexes[cursor];
+      cursor++;
+
+      if(seed_index < 0 || seed_index >= ArraySize(sequences))
+         continue;
+
+      FP_HookPhase02Sequence seed = sequences[seed_index];
+      for(int i=0; i<ArraySize(sequences); i++)
+      {
+         if(FP_HookP02IndexAlreadySelected(indexes, i))
+            continue;
+         if(!FP_HookP02SameOriginGroup(seed, sequences[i]))
+            continue;
+         if(!FP_HookP02SequencePassesBaseDrawFilter(cfg, sequences[i], false))
+            continue;
+
+         int k = ArraySize(indexes);
+         ArrayResize(indexes, k + 1);
+         indexes[k] = i;
+      }
+   }
+
+   FP_HookP02SortSelectedIndexesBySequenceId(sequences, indexes);
 }
 
 bool FP_HookP02AlreadySelectedScaleDirection(const int &scales[],
@@ -1117,7 +1184,7 @@ void FP_HookP02SelectSequenceIndexes(const FP_HookPhase02Config &cfg,
       }
    }
 
-   if(false && cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
+   if(cfg.show_only_valid_hooks && cfg.valid_only_fallback_to_structural && ArraySize(indexes) == 0)
    {
       // Debug-only fallback. Production doctrine is strict valid-only:
       // if no valid Hook family is selected, draw nothing. Turn this on only
@@ -1204,7 +1271,9 @@ int FP_HookP02DrawOriginGroupEnvelopes(const FP_HookPhase02Config &cfg,
                     "_D" + IntegerToString((int)seed.direction) +
                     "_O" + IntegerToString(seed.origin_node_id);
 
-      color arc_color = (cfg.cycle_arc_use_sequence_color ? FP_HookP02SequenceColor(cfg, seed) : cfg.cycle_arc_color);
+      bool parent_companion = FP_HookP02IsParentCompanionInVisibleSet(seed, sequences, indexes);
+      color base_arc_color = (cfg.cycle_arc_use_sequence_color ? FP_HookP02SequenceColor(cfg, seed) : cfg.cycle_arc_color);
+      color arc_color = FP_HookP02CanonicalFamilyColor(cfg, seed, parent_companion, base_arc_color);
       if(FP_HookP02CreateHookEnvelopeCurve(base, start_time, start_price,
                                            crown_time, crown_price,
                                            end_time, end_price,
@@ -1272,8 +1341,11 @@ int FP_HookP02DrawSequences(const FP_HookPhase02Config &cfg,
       if(i < 0 || i >= ArraySize(sequences))
          continue;
 
+      bool parent_companion = FP_HookP02IsParentCompanionInVisibleSet(sequences[i], sequences, indexes);
+      string family_tag = FP_HookP02CanonicalFamilyTag(cfg, sequences[i], parent_companion);
+      color family_color = FP_HookP02CanonicalFamilyColor(cfg, sequences[i], parent_companion, FP_HookP02SequenceColor(cfg, sequences[i]));
       int branch_ordinal = FP_HookP02BranchOrdinalInOriginGroup(sequences, indexes, s);
-      if(FP_HookP02DrawOneSequenceNumbers(cfg, sequences[i], branch_ordinal, report))
+      if(FP_HookP02DrawOneSequenceNumbers(cfg, sequences[i], branch_ordinal, family_tag, family_color, report))
          drawn++;
    }
 
