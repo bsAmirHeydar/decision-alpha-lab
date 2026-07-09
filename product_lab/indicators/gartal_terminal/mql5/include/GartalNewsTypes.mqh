@@ -50,6 +50,10 @@
 #define GT_STATUS_ACTIVE_WINDOW_SECONDS 900
 #define GT_STATUS_EXPIRE_SECONDS        3600
 
+#define GT_TIMELINE_MAX_RENDER_EVENTS     64
+#define GT_TIMELINE_MIN_DANGER_MINUTES     0
+#define GT_TIMELINE_MAX_DANGER_MINUTES   180
+
 struct GT_NewsEvent
 {
    string   id;
@@ -166,6 +170,22 @@ struct GT_Config
    bool   show_dashboard;
    bool   show_timeline;
    bool   show_vertical_lines;
+
+   // Stage 04 chart timeline renderer contract.
+   bool   show_event_labels;
+   bool   show_bottom_tape;
+   bool   show_danger_zones;
+   bool   show_timeline_tooltips;
+   bool   show_released_timeline_objects;
+   bool   show_timeline_debug;
+   bool   timeline_compact_titles;
+   int    timeline_max_events;
+   int    timeline_label_rows;
+   int    timeline_bottom_y;
+   int    timeline_projection_minutes;
+   int    pre_news_zone_minutes;
+   int    post_news_zone_minutes;
+
    bool   clean_objects_on_deinit;
 
    int    dashboard_corner;
@@ -220,6 +240,14 @@ struct GT_RuntimeState
 
    bool     last_refresh_ok;
    int      refresh_attempts;
+
+   // Stage 04 renderer diagnostics.
+   int      timeline_last_visible_rendered;
+   int      timeline_last_vertical_lines;
+   int      timeline_last_labels;
+   int      timeline_last_zones;
+   datetime timeline_last_render_at;
+   string   timeline_last_render_summary;
 
    // Stage 03 diagnostic snapshot.
    bool     time_normalization_ok;

@@ -12,6 +12,13 @@ void GT_ResetRuntime(GT_RuntimeState &runtime)
    runtime.last_refresh_ok = false;
    runtime.refresh_attempts = 0;
 
+   runtime.timeline_last_visible_rendered = 0;
+   runtime.timeline_last_vertical_lines = 0;
+   runtime.timeline_last_labels = 0;
+   runtime.timeline_last_zones = 0;
+   runtime.timeline_last_render_at = 0;
+   runtime.timeline_last_render_summary = "";
+
    runtime.time_normalization_ok = false;
    runtime.time_snapshot_server = 0;
    runtime.time_snapshot_gmt = 0;

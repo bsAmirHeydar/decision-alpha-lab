@@ -1,0 +1,3 @@
+feat(gartal-terminal): implement stage 04 chart timeline renderer
+
+Implement the fourth coding stage for gartal terminal. Add chart geometry helpers, dedicated timeline object namespace, aggressive stale-object cleanup, vertical news lines, rotated lower-chart event labels, high-impact and breaking-news danger zones, projection horizon controls, bottom tape summary panel, timeline tooltip payloads, released-event visibility control, render counters, dashboard timeline diagnostics, Stage 04 inputs, validation script, specification, canvas, and English Obsidian documentation. Keep event.time_broker as the single chart rendering authority established in Stage 03.

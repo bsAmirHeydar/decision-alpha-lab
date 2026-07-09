@@ -1,20 +1,20 @@
 //+------------------------------------------------------------------+
 //| GartalTerminal.mq5                                               |
-//| gartal terminal - Stage 03 broker GMT and time normalization engine            |
+//| gartal terminal - Stage 04 chart timeline renderer            |
 //| Product Lab / Commercial MT5 News Terminal                       |
 //+------------------------------------------------------------------+
 #property strict
 #property indicator_chart_window
 #property indicator_plots   0
 #property indicator_buffers 0
-#property version           "0.3.0"
-#property description       "gartal terminal - Stage 03 broker GMT and time normalization engine"
+#property version           "0.4.0"
+#property description       "gartal terminal - Stage 04 chart timeline renderer"
 
-// Stage 03 doctrine:
+// Stage 04 doctrine:
 // - Stage 01 compile-safe lifecycle remains intact.
 // - Stage 02 canonical event store remains the single source of truth.
-// - All source, UTC, and broker times are normalized before rendering or alerts.
-// - Broker GMT can be auto-detected, manually overridden, or run in hybrid mode.
+// - Stage 03 time_broker remains the only rendering time authority.
+// - Stage 04 owns all chart timeline objects through the GT_TL_ namespace.
 
 #include "include/GartalNewsTypes.mqh"
 #include "include/GartalNewsUtils.mqh"
@@ -26,6 +26,7 @@
 #include "include/GartalNewsCalendarClient.mqh"
 #include "include/GartalNewsParser.mqh"
 #include "include/GartalNewsDashboard.mqh"
+#include "include/GartalNewsChartGeometry.mqh"
 #include "include/GartalNewsTimeline.mqh"
 #include "include/GartalNewsAlerts.mqh"
 
@@ -48,7 +49,7 @@ int OnInit()
    GT_InitAlertState(g_alerts);
 
    GT_ClearObjects(g_config.object_prefix);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 03 time normalization boot started.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 04 chart timeline renderer boot started.");
 
    if(!GT_ValidateConfig(g_config, g_runtime))
    {
@@ -64,7 +65,7 @@ int OnInit()
    EventSetTimer(timer_seconds);
 
    GT_RefreshCalendar(true);
-   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 03 time normalization boot completed.");
+   GT_RuntimeLog(g_runtime, GT_LOG_INFO, "Stage 04 chart timeline renderer boot completed.");
 
    return(INIT_SUCCEEDED);
 }
@@ -176,7 +177,7 @@ void GT_RefreshCalendar(const bool first_load)
 
 void GT_RedrawAll()
 {
-   GT_RenderDashboard(g_config, g_store, g_filters, g_runtime);
+   // Stage 04 renders timeline before dashboard so dashboard can display renderer diagnostics.
    GT_RenderTimeline(g_config, g_store, g_filters, g_runtime);
-   GT_RenderVerticalLines(g_config, g_store, g_filters, g_runtime);
+   GT_RenderDashboard(g_config, g_store, g_filters, g_runtime);
 }

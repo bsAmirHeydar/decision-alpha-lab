@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "s04",
+      "type": "text",
+      "text": "Stage 04\nChart Timeline Renderer",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "store",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/implementation/stage_02/02_store_lifecycle.md",
+      "x": -330,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "time",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/obsidian/implementation/stage_03/01_time_authority_contract.md",
+      "x": -330,
+      "y": 120,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "geom",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsChartGeometry.mqh",
+      "x": 330,
+      "y": -110,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "tl",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsTimeline.mqh",
+      "x": 330,
+      "y": 0,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "dash",
+      "type": "file",
+      "file": "product_lab/indicators/gartal_terminal/mql5/include/GartalNewsDashboard.mqh",
+      "x": 330,
+      "y": 110,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "next",
+      "type": "text",
+      "text": "Next: Stage 05\nLuxury Dashboard UI",
+      "x": 720,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "store",
+      "fromSide": "right",
+      "toNode": "s04",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "time",
+      "fromSide": "right",
+      "toNode": "s04",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "s04",
+      "fromSide": "right",
+      "toNode": "geom",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "s04",
+      "fromSide": "right",
+      "toNode": "tl",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "s04",
+      "fromSide": "right",
+      "toNode": "dash",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "tl",
+      "fromSide": "right",
+      "toNode": "next",
+      "toSide": "left"
+    }
+  ]
+}

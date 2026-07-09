@@ -1,13 +1,13 @@
 #ifndef GARTAL_NEWS_INPUTS_MQH
 #define GARTAL_NEWS_INPUTS_MQH
 
-input group "01 Data Source / Stage 03"
+input group "01 Data Source / Stage 04"
 input string InpForexFactoryUrl              = "https://www.forexfactory.com/calendar";
 input bool   InpUseSampleData                = true;       // Stage 03 default: true. Direct source begins in Stage 08.
 input bool   InpUseCache                     = true;
 input int    InpRefreshMinutes               = 5;
 
-input group "02 Time and Broker GMT / Stage 03"
+input group "02 Time and Broker GMT / Stage 04"
 input int    InpBrokerGMTMode                = 0;          // 0 Auto, 1 Manual, 2 Hybrid(auto unless invalid)
 input bool   InpAutoDetectBrokerGMT          = true;       // compatibility alias; false forces manual mode
 input int    InpBrokerGMTOffsetHours         = 0;          // manual broker GMT hours, e.g. 2 or 3
@@ -39,10 +39,25 @@ input int    InpDaysBack                     = 0;
 input int    InpDaysForward                  = 0;
 input bool   InpShowPastEvents               = true;
 
-input group "06 Dashboard / Objects"
-input bool   InpShowDashboard                = true;
+input group "06 Chart Timeline / Stage 04"
 input bool   InpShowTimeline                 = true;
 input bool   InpShowVerticalLines            = true;
+input bool   InpShowEventLabels              = true;
+input bool   InpShowBottomTape               = true;
+input bool   InpShowDangerZones              = true;
+input bool   InpShowTimelineTooltips         = true;
+input bool   InpShowReleasedTimelineObjects  = true;
+input bool   InpShowTimelineDebug            = true;
+input bool   InpTimelineCompactTitles        = true;
+input int    InpTimelineMaxEvents            = 24;
+input int    InpTimelineLabelRows            = 3;
+input int    InpTimelineBottomY              = 22;
+input int    InpTimelineProjectionMinutes    = 720;        // future render horizon from broker now
+input int    InpPreNewsZoneMinutes           = 15;
+input int    InpPostNewsZoneMinutes          = 15;
+
+input group "07 Dashboard / Objects"
+input bool   InpShowDashboard                = true;
 input bool   InpCleanObjectsOnDeinit         = true;
 input string InpObjectPrefix                 = "GT_";
 input int    InpDashboardCorner              = 1;          // 0 LU, 1 RU, 2 LL, 3 RL
@@ -50,7 +65,7 @@ input int    InpDashboardX                   = 20;
 input int    InpDashboardY                   = 28;
 input int    InpDashboardRows                = 8;
 
-input group "07 Alerts"
+input group "08 Alerts"
 input bool   InpEnableAlerts                 = true;
 input bool   InpAlertPopup                   = true;
 input bool   InpAlertSound                   = true;
@@ -116,6 +131,19 @@ void GT_LoadConfig(GT_Config &config)
    config.show_dashboard = InpShowDashboard;
    config.show_timeline = InpShowTimeline;
    config.show_vertical_lines = InpShowVerticalLines;
+   config.show_event_labels = InpShowEventLabels;
+   config.show_bottom_tape = InpShowBottomTape;
+   config.show_danger_zones = InpShowDangerZones;
+   config.show_timeline_tooltips = InpShowTimelineTooltips;
+   config.show_released_timeline_objects = InpShowReleasedTimelineObjects;
+   config.show_timeline_debug = InpShowTimelineDebug;
+   config.timeline_compact_titles = InpTimelineCompactTitles;
+   config.timeline_max_events = GT_ClampInt(InpTimelineMaxEvents, 1, GT_TIMELINE_MAX_RENDER_EVENTS);
+   config.timeline_label_rows = GT_ClampInt(InpTimelineLabelRows, 1, 6);
+   config.timeline_bottom_y = GT_ClampInt(InpTimelineBottomY, 0, 600);
+   config.timeline_projection_minutes = GT_ClampInt(InpTimelineProjectionMinutes, 30, 10080);
+   config.pre_news_zone_minutes = GT_ClampInt(InpPreNewsZoneMinutes, GT_TIMELINE_MIN_DANGER_MINUTES, GT_TIMELINE_MAX_DANGER_MINUTES);
+   config.post_news_zone_minutes = GT_ClampInt(InpPostNewsZoneMinutes, GT_TIMELINE_MIN_DANGER_MINUTES, GT_TIMELINE_MAX_DANGER_MINUTES);
    config.clean_objects_on_deinit = InpCleanObjectsOnDeinit;
    config.dashboard_corner = GT_ClampInt(InpDashboardCorner, 0, 3);
    config.dashboard_x = GT_ClampInt(InpDashboardX, 0, 3000);
@@ -169,6 +197,15 @@ bool GT_ValidateConfig(GT_Config &config, GT_RuntimeState &runtime)
       runtime.last_error = "Source GMT offset is outside the supported range.";
       ok = false;
    }
+
+   if(config.timeline_projection_minutes < 30)
+   {
+      runtime.last_error = "Timeline projection must be at least 30 minutes.";
+      ok = false;
+   }
+
+   if(config.pre_news_zone_minutes == 0 && config.post_news_zone_minutes == 0 && config.show_danger_zones)
+      runtime.last_warning = "Danger zones are enabled but both pre/post news zone windows are zero.";
 
    return ok;
 }

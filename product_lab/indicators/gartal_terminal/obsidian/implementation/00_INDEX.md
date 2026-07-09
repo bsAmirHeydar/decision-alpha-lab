@@ -30,3 +30,5 @@ Stage 10 — Product Hardening + Packaging
 ## Engineering doctrine
 
 Each stage must produce a compile-oriented increment, update the Obsidian implementation map, and leave a narrow handoff contract for the next stage.
+
+- [[stage_04_chart_timeline_renderer]] — Chart timeline renderer, labels, zones, projection, and cleanup.

@@ -1,0 +1,16 @@
+# Install
+
+Run from repository root in PowerShell:
+
+```powershell
+Expand-Archive -Path .\gartal_terminal_stage04_timeline_renderer_patch.zip -DestinationPath . -Force
+Remove-Item .\gartal_terminal_stage04_timeline_renderer_patch.zip -Force
+```
+
+Then run:
+
+```powershell
+.\product_lab\indicators\gartal_terminal\scripts\Check-GartalStage04.ps1
+```
+
+Compile `product_lab/indicators/gartal_terminal/mql5/GartalTerminal.mq5` in MetaEditor.

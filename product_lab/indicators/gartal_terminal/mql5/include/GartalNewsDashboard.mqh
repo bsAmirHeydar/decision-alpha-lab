@@ -65,7 +65,7 @@ void GT_RenderShell(GT_Config &config, GT_RuntimeState &runtime)
    string prefix = config.object_prefix + "SHELL_";
    GT_Rect(prefix + "BG", config.dashboard_corner, config.dashboard_x, config.dashboard_y, 480, 68, clrBlack, clrDimGray);
    GT_Label(prefix + "TITLE", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 12, "gartal terminal", clrWhite, 12, "Segoe UI Semibold");
-   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 34, "Stage 03 time normalization booting...", clrSilver, 8);
+   GT_Label(prefix + "SUB", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 34, "Stage 04 chart timeline renderer booting...", clrSilver, 8);
    GT_Label(prefix + "TIME", config.dashboard_corner, config.dashboard_x + 16, config.dashboard_y + 50, runtime.time_summary, clrDarkGray, 8);
 }
 
@@ -92,13 +92,13 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
    int x = config.dashboard_x;
    int y = config.dashboard_y;
    int width = 650;
-   int height = 168 + config.dashboard_rows * 20;
+   int height = 188 + config.dashboard_rows * 20;
    if(config.show_time_debug)
       height += 20;
 
    GT_Rect(prefix + "BG", corner, x, y, width, height, clrBlack, store.source_ok ? clrDimGray : clrTomato);
 
-   string title = "gartal terminal  |  " + store.source_status + "  |  " + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) + "  |  Stage 03";
+   string title = "gartal terminal  |  " + store.source_status + "  |  " + GT_FormatGmtOffsetSeconds(config.broker_gmt_offset_seconds) + "  |  Stage 04";
    GT_Label(prefix + "HEADER", corner, x + 16, y + 12, title, clrWhite, 11, "Segoe UI Semibold");
 
    string time_line = "time: " + GT_BrokerGmtModeText(config.broker_gmt_mode) +
@@ -126,16 +126,23 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
                       " | " + GT_RuntimeStatusText(runtime);
    GT_Label(prefix + "LIFE", corner, x + 16, y + 72, lifecycle, clrDarkGray, 8);
 
+   string tl = "timeline: rendered=" + IntegerToString(runtime.timeline_last_visible_rendered) +
+               " | lines=" + IntegerToString(runtime.timeline_last_vertical_lines) +
+               " | labels=" + IntegerToString(runtime.timeline_last_labels) +
+               " | zones=" + IntegerToString(runtime.timeline_last_zones) +
+               " | horizon=" + IntegerToString(config.timeline_projection_minutes) + "m";
+   GT_Label(prefix + "TL", corner, x + 16, y + 88, tl, clrDarkGray, 8, "Consolas");
+
    int next = store.next_event_index;
    if(next >= 0)
    {
       GT_NewsEvent evn = store.events[next];
       string next_text = "NEXT  " + TimeToString(evn.time_broker, TIME_MINUTES) + "  " + evn.currency + "  " + GT_ImpactText(evn.impact) + "  " + evn.title + "  |  " + GT_FormatMinutesRemaining(evn.time_broker, TimeCurrent());
-      GT_Label(prefix + "NEXT", corner, x + 16, y + 96, next_text, GT_ImpactColor(evn.impact), 9, "Segoe UI Semibold");
+      GT_Label(prefix + "NEXT", corner, x + 16, y + 110, next_text, GT_ImpactColor(evn.impact), 9, "Segoe UI Semibold");
    }
    else
    {
-      GT_Label(prefix + "NEXT", corner, x + 16, y + 96, "NEXT  no visible upcoming events", clrSilver, 9, "Segoe UI Semibold");
+      GT_Label(prefix + "NEXT", corner, x + 16, y + 110, "NEXT  no visible upcoming events", clrSilver, 9, "Segoe UI Semibold");
    }
 
    int next_high = store.next_high_index;
@@ -143,12 +150,12 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
    {
       GT_NewsEvent hv = store.events[next_high];
       string high_text = "NEXT RED  " + TimeToString(hv.time_broker, TIME_MINUTES) + "  " + hv.currency + "  " + hv.title + "  |  " + GT_FormatMinutesRemaining(hv.time_broker, TimeCurrent());
-      GT_Label(prefix + "NEXTHIGH", corner, x + 16, y + 116, high_text, clrTomato, 8, "Segoe UI Semibold");
+      GT_Label(prefix + "NEXTHIGH", corner, x + 16, y + 130, high_text, clrTomato, 8, "Segoe UI Semibold");
    }
    else
-      GT_Label(prefix + "NEXTHIGH", corner, x + 16, y + 116, "NEXT RED  no visible red event", clrDarkGray, 8, "Segoe UI");
+      GT_Label(prefix + "NEXTHIGH", corner, x + 16, y + 130, "NEXT RED  no visible red event", clrDarkGray, 8, "Segoe UI");
 
-   int row_y = 142;
+   int row_y = 156;
    if(config.show_time_debug)
    {
       string win = "window: " + GT_FormatDateWindow(store.window_from_broker, store.window_to_broker) + " | " + GT_TimeDebugLine(config, runtime);
@@ -187,7 +194,7 @@ void GT_RenderDashboard(GT_Config &config, GT_NewsStore &store, GT_FilterState &
 
 bool GT_HandleDashboardClick(string object_name, GT_FilterState &filters, GT_Config &config, GT_RuntimeState &runtime)
 {
-   // Stage 03 keeps runtime toggle wiring reserved. Stage 06 will mutate filters here.
+   // Stage 04 keeps runtime toggle wiring reserved. Stage 06 will mutate filters here.
    return false;
 }
 
@@ -197,7 +204,7 @@ void GT_UpdateCountdowns(GT_Config &config, GT_NewsStore &store, GT_FilterState 
       return;
 
    // Full countdown-only repaint is deferred until dashboard component IDs become
-   // interactive in Stage 06. Stage 03 recalculates next indices on each timer.
+   // interactive in Stage 06. Stage 04 recalculates next indices on each timer.
 }
 
 #endif
