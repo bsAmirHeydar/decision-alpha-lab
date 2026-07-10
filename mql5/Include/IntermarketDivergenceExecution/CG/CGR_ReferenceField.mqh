@@ -16,6 +16,44 @@ private:
       return ny_time - (ny_utc_offset_hours*3600) + (m_config.broker_utc_offset_hours*3600);
    }
 
+
+   bool ValidateCompleteM1Coverage(const datetime start_broker,const datetime end_broker_exclusive,MqlRates &rates[],const int copied,string &error_text)
+   {
+      if(!m_config.require_m1_history)
+         return true;
+
+      datetime expected_last=(datetime)(((long)(end_broker_exclusive-1)/60)*60);
+      int expected=(int)((expected_last-start_broker)/60)+1;
+      if(expected<=0)
+      {
+         error_text="invalid_expected_m1_bar_count";
+         return false;
+      }
+
+      if(copied!=expected || rates[0].time!=start_broker || rates[copied-1].time!=expected_last)
+      {
+         error_text=StringFormat("incomplete_m1_coverage_expected_%d_copied_%d_first_%s_expected_first_%s_last_%s_expected_last_%s",
+                                 expected,copied,
+                                 TimeToString(rates[0].time,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(start_broker,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(rates[copied-1].time,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(expected_last,TIME_DATE|TIME_MINUTES));
+         return false;
+      }
+
+      for(int i=1;i<copied;i++)
+      {
+         if(rates[i].time-rates[i-1].time!=60)
+         {
+            error_text=StringFormat("m1_internal_gap_after_%s_before_%s",
+                                    TimeToString(rates[i-1].time,TIME_DATE|TIME_MINUTES),
+                                    TimeToString(rates[i].time,TIME_DATE|TIME_MINUTES));
+            return false;
+         }
+      }
+      return true;
+   }
+
    void ResetSymbolReference(SCGRSymbolReference &ref,const string symbol)
    {
       ref.symbol=symbol;
@@ -55,6 +93,15 @@ private:
       if(copied<=0)
       {
          out_ref.error_text=StringFormat("no_m1_rates_%s_%s",TimeToString(start_broker,TIME_DATE|TIME_MINUTES),TimeToString(end_broker_exclusive,TIME_DATE|TIME_MINUTES));
+         return false;
+      }
+
+      string coverage_error="";
+      if(!ValidateCompleteM1Coverage(start_broker,end_broker_exclusive,rates,copied,coverage_error))
+      {
+         out_ref.first_bar_broker=rates[0].time;
+         out_ref.last_bar_broker=rates[copied-1].time;
+         out_ref.error_text=coverage_error;
          return false;
       }
 

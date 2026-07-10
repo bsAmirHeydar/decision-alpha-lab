@@ -1,0 +1,37 @@
+{
+  "patch_id": "EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY",
+  "expert_version": "1.10",
+  "scope": "Dual-symbol M1 completeness, frontier evidence, historical replay readiness, and local drawing parity",
+  "baseline": "Hotfix009",
+  "modified_files": [
+    "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGR_ReferenceField.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGH_HuntField.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGC_Types.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Engine.mqh",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/PHASE06_INDEX.md"
+  ],
+  "added_files": [
+    "INSTALL_EXP0017_PHASE06_HOTFIX010_DUAL_SYMBOL_M1_EVIDENCE_PARITY_PATCH.md",
+    "EXP0017_PHASE06_HOTFIX010_MANIFEST.json",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_010_DUAL_SYMBOL_M1_EVIDENCE_PARITY.md",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_010_LOGIC_AND_RENDER_CONTRACT.md",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_010_VALIDATION_PLAN.md"
+  ],
+  "new_invariants": [
+    "Complete M1 interval coverage is required when InpRequireM1History is true",
+    "All reference and current observation windows use exclusive end boundaries",
+    "A missing newer reference interval blocks freshness proof for every older candidate",
+    "Historical backfill waits for M1 history bounds on both configured symbols",
+    "Strict rendering requires complete local data and fresh local frontier state for both symbols"
+  ],
+  "non_goals": [
+    "No CG schedule change",
+    "No touch-only hunt doctrine change",
+    "No protected-reference lifecycle change",
+    "No ledger schema change",
+    "No trading or risk behavior"
+  ]
+}

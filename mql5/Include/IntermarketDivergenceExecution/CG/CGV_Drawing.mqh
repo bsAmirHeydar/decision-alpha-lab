@@ -122,14 +122,17 @@ private:
       return (datetime)(a + (b-a)/2);
    }
 
-   datetime FindExtremeTimeM1(const string symbol,const datetime start_broker,const datetime end_broker,const ECGCSignalSide side,const datetime fallback_time)
+   datetime FindExtremeTimeM1(const string symbol,const datetime start_broker,const datetime end_broker_exclusive,const ECGCSignalSide side,const datetime fallback_time)
    {
-      if(!ValidSymbolName(symbol) || start_broker<=0 || end_broker<=0 || end_broker<start_broker)
+      if(!ValidSymbolName(symbol) || start_broker<=0 || end_broker_exclusive<=start_broker)
          return fallback_time;
 
       MqlRates rates[];
       ArraySetAsSeries(rates,false);
-      int copied=CopyRates(symbol,PERIOD_M1,start_broker,end_broker,rates);
+      // All Phase 06 cycle and confirmation boundaries are exclusive. Including
+      // the bar that opens exactly at the boundary can anchor an NDX line to the
+      // next cycle even though its price belongs to the prior interval.
+      int copied=CopyRates(symbol,PERIOD_M1,start_broker,end_broker_exclusive-1,rates);
       if(copied<=0)
          return fallback_time;
 
@@ -217,6 +220,15 @@ private:
    bool IsCleanChart(SCGCFinalSignal &signal,const string symbol)
    {
       return (ValidSymbolName(signal.clean_symbol) && symbol==signal.clean_symbol);
+   }
+
+   bool SymbolVisualDataIsReady(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(symbol==m_config.symbol_a)
+         return signal.symbol_a_visual_data_ready;
+      if(symbol==m_config.symbol_b)
+         return signal.symbol_b_visual_data_ready;
+      return false;
    }
 
    bool SymbolReferenceIsFrontier(SCGCFinalSignal &signal,const string symbol)
@@ -357,8 +369,10 @@ private:
 
    string Tooltip(SCGCFinalSignal &signal,const string visual_part,const string chart_symbol,const datetime origin_time,const double origin_price,const datetime destination_time,const double destination_price)
    {
-      return StringFormat("EXP0017 Phase06 Dual Visual | %s | chart_symbol=%s | %s %s | side=%s | CG=%s | hunter=%s | clean=%s | ref #%d | origin=%s @ %s | destination=%s @ %s | note=%s",
+      return StringFormat("EXP0017 Phase06 Dual Visual | %s | chart_symbol=%s | %s %s | side=%s | CG=%s | hunter=%s | clean=%s | ref #%d | local_data=%s | local_frontier=%s | origin=%s @ %s | destination=%s @ %s | note=%s",
                           visual_part,chart_symbol,StatusText(signal),DirectionText(signal),SideText(signal),signal.group_name,signal.hunter_symbol,signal.clean_symbol,signal.reference_cycle_number,
+                          (SymbolVisualDataIsReady(signal,chart_symbol) ? "true" : "false"),
+                          (SymbolReferenceIsFrontier(signal,chart_symbol) ? "true" : "false"),
                           TimeToString(origin_time,TIME_DATE|TIME_MINUTES),DoubleToString(origin_price,CGC_PRICE_DIGITS),
                           TimeToString(destination_time,TIME_DATE|TIME_MINUTES),DoubleToString(destination_price,CGC_PRICE_DIGITS),signal.note);
    }
@@ -368,11 +382,11 @@ private:
       if(!ValidSymbolName(chart_symbol))
          return 0;
 
-      // Hotfix009: pair-level confirmation is not sufficient authority for a
-      // symbol-local price drawing. Every chart leg must carry a fresh frontier
-      // reference for that exact chart symbol. This is especially important for
-      // the non-host chart when permissive pair-frontier mode was loaded from an
-      // older .set file.
+      // Hotfix010: local rendering requires both complete M1 evidence and a
+      // fresh local frontier. Pair-level confirmation alone cannot authorize a
+      // Nasdaq companion leg when NDX history is partial or not synchronized.
+      if(!SymbolVisualDataIsReady(signal,chart_symbol))
+         return 0;
       if(!SymbolReferenceIsFrontier(signal,chart_symbol))
          return 0;
 
@@ -787,6 +801,18 @@ public:
    {
       if(!ShouldDraw(signal))
          return false;
+
+      // In strict pair mode, both local references and both local M1 ranges must
+      // be proven before either chart receives a line. This keeps SPX and NDX
+      // rendering sets mechanically identical at the signal boundary.
+      if(m_config.require_symbol_local_frontier_for_both_symbols)
+      {
+         if(!signal.symbol_a_visual_data_ready || !signal.symbol_b_visual_data_ready)
+            return false;
+         if(m_config.enable_extreme_frontier_reference_filter &&
+            (!signal.symbol_a_reference_frontier || !signal.symbol_b_reference_frontier))
+            return false;
+      }
 
       int drawn=0;
       if(m_config.draw_on_both_input_symbol_charts)

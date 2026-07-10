@@ -24,6 +24,7 @@ private:
    int                      m_last_backfill_observation_count;
    int                      m_last_backfill_drawn_count;
    int                      m_last_backfill_ledger_count;
+   bool                     m_backfill_wait_logged;
 
    ENUM_TIMEFRAMES ResolveTimeframe()
    {
@@ -244,6 +245,49 @@ private:
       return true;
    }
 
+
+   bool HasM1HistoryBounds(const string symbol,const datetime start_broker,const datetime end_broker_exclusive)
+   {
+      if(symbol=="" || end_broker_exclusive<=start_broker)
+         return false;
+      if(!SymbolSelect(symbol,true))
+         return false;
+
+      MqlRates rates[];
+      ArraySetAsSeries(rates,false);
+      int copied=CopyRates(symbol,PERIOD_M1,start_broker,end_broker_exclusive-1,rates);
+      if(copied<=0)
+         return false;
+
+      // The preflight range may cross the daily 17:00-18:00 NY maintenance
+      // break, so it verifies loaded history bounds rather than continuity.
+      // Exact continuity is enforced later for every individual CG interval.
+      return (rates[0].time==start_broker &&
+              rates[copied-1].time>=end_broker_exclusive-60);
+   }
+
+   bool HistoricalBackfillDataReady(datetime &observation_times[])
+   {
+      int count=ArraySize(observation_times);
+      if(count<=0)
+         return false;
+
+      datetime oldest=observation_times[count-1];
+      datetime newest=observation_times[0];
+      SCGTTimeSnapshot oldest_snapshot;
+      m_time.BuildTimeSnapshot(oldest,oldest_snapshot);
+
+      datetime start_broker=oldest_snapshot.trading_day_start_ny
+                            -(oldest_snapshot.new_york_utc_offset_hours*3600)
+                            +(m_visual_config.broker_utc_offset_hours*3600);
+      datetime end_broker=newest;
+      if(end_broker<=start_broker)
+         return false;
+
+      return (HasM1HistoryBounds(m_visual_config.symbol_a,start_broker,end_broker) &&
+              HasM1HistoryBounds(m_visual_config.symbol_b,start_broker,end_broker));
+   }
+
    int CollectBackfillObservationTimes(datetime &observation_times[])
    {
       ArrayResize(observation_times,0);
@@ -290,22 +334,49 @@ private:
    {
       if(m_historical_backfill_done)
          return;
-      m_historical_backfill_done=true;
+
       m_last_backfill_observation_count=0;
       m_last_backfill_drawn_count=0;
       m_last_backfill_ledger_count=0;
 
       if(!m_visual_config.enable_historical_visual_backfill)
+      {
+         m_historical_backfill_done=true;
          return;
+      }
 
       datetime observation_times[];
       int count=CollectBackfillObservationTimes(observation_times);
       if(count<=0)
       {
+         m_historical_backfill_done=true;
          if(m_visual_config.historical_backfill_print_summary)
             Print("EXP0017 Phase06 historical visual backfill: no closed candles found for scan.");
          return;
       }
+
+      // The non-host series may still be loading on the first timer pulse. Do not
+      // freeze a partial reconstruction. Retry until both SPX and NDX have the
+      // complete M1 interval required by the scan.
+      if(m_visual_config.require_m1_history && !HistoricalBackfillDataReady(observation_times))
+      {
+         if(!m_backfill_wait_logged)
+         {
+            Print("EXP0017 Phase06 Hotfix010: historical backfill waiting for complete M1 coverage on both configured symbols.");
+            m_backfill_wait_logged=true;
+         }
+         return;
+      }
+
+      m_historical_backfill_done=true;
+      m_backfill_wait_logged=false;
+      // Waiting for non-host history may have allowed live observations to touch
+      // the lifecycle state. Reset the confirmation engine before deterministic
+      // oldest-to-newest replay so current state cannot leak into history.
+      m_confirmation_field.Configure(m_confirmation_config);
+      // Reconstruction is authoritative. Remove all owned objects from both
+      // charts immediately before replay so no stale non-host leg survives.
+      m_drawing.ClearPhaseObjects();
 
       // Process oldest -> newest so the first confirmed visual for a given signal id is kept in place.
       for(int i=count-1;i>=0;i--)
@@ -348,6 +419,7 @@ public:
       m_last_backfill_observation_count=0;
       m_last_backfill_drawn_count=0;
       m_last_backfill_ledger_count=0;
+      m_backfill_wait_logged=false;
 
       BuildConfirmationConfig();
       InitRegistry(enabled);

@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.09"
+#property version   "1.10"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Hotfix009 enforces symbol-local frontier freshness and verified cleanup on both host and non-host charts."
+#property description "No trading. Hotfix010 enforces complete dual-symbol M1 coverage before freshness, confirmation, backfill, and drawing."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 

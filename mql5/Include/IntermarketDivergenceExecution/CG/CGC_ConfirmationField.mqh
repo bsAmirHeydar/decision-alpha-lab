@@ -231,6 +231,8 @@ private:
       signal.symbol_b_current_extreme=0.0;
       signal.symbol_a_reference_frontier=false;
       signal.symbol_b_reference_frontier=false;
+      signal.symbol_a_visual_data_ready=false;
+      signal.symbol_b_visual_data_ready=false;
       signal.note="";
    }
 
@@ -369,6 +371,7 @@ private:
       bool have_later_b_high=false;
       bool have_later_a_low=false;
       bool have_later_b_low=false;
+      bool later_reference_history_gap=false;
 
       // References arrive oldest -> newest. To suppress stale internal levels, walk newest -> oldest.
       // A high is eligible only if no later completed cycle has already made an equal/higher high.
@@ -377,8 +380,12 @@ private:
       {
          if(!hunts[i].reference_ready)
          {
-            eligibility[i].high_note="reference_missing_no_frontier_classification";
-            eligibility[i].low_note="reference_missing_no_frontier_classification";
+            eligibility[i].high_note="reference_missing_frontier_history_gap";
+            eligibility[i].low_note="reference_missing_frontier_history_gap";
+            // A missing newer cycle must never be skipped. Skipping it would let
+            // an older SPX/NDX level appear fresh without proving that the full
+            // intervening path was observed on both symbols.
+            later_reference_history_gap=true;
             continue;
          }
 
@@ -387,10 +394,10 @@ private:
          eligibility[i].later_symbol_a_min_low=(have_later_a_low ? later_a_min_low : 0.0);
          eligibility[i].later_symbol_b_min_low=(have_later_b_low ? later_b_min_low : 0.0);
 
-         eligibility[i].symbol_a_high_frontier=(!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high);
-         eligibility[i].symbol_b_high_frontier=(!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high);
-         eligibility[i].symbol_a_low_frontier=(!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low);
-         eligibility[i].symbol_b_low_frontier=(!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low);
+         eligibility[i].symbol_a_high_frontier=(!later_reference_history_gap && (!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high));
+         eligibility[i].symbol_b_high_frontier=(!later_reference_history_gap && (!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high));
+         eligibility[i].symbol_a_low_frontier=(!later_reference_history_gap && (!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low));
+         eligibility[i].symbol_b_low_frontier=(!later_reference_history_gap && (!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low));
 
          if(m_config.require_symbol_local_frontier_for_both_symbols)
          {
@@ -403,8 +410,16 @@ private:
             eligibility[i].low_frontier_valid=(eligibility[i].symbol_a_low_frontier || eligibility[i].symbol_b_low_frontier);
          }
 
-         eligibility[i].high_note=(eligibility[i].high_frontier_valid ? "high_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_HIGH,eligibility[i]));
-         eligibility[i].low_note=(eligibility[i].low_frontier_valid ? "low_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_LOW,eligibility[i]));
+         if(later_reference_history_gap)
+         {
+            eligibility[i].high_note="suppressed_high_reference_unproven_due_to_later_m1_history_gap";
+            eligibility[i].low_note="suppressed_low_reference_unproven_due_to_later_m1_history_gap";
+         }
+         else
+         {
+            eligibility[i].high_note=(eligibility[i].high_frontier_valid ? "high_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_HIGH,eligibility[i]));
+            eligibility[i].low_note=(eligibility[i].low_frontier_valid ? "low_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_LOW,eligibility[i]));
+         }
 
          if(!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high)
             later_a_max_high=hunts[i].symbol_a.reference_high;
@@ -463,6 +478,9 @@ private:
 
    void FillSymbolLocalVisualFields(SCGHReferenceHuntState &hunt,SCGCFinalSignal &signal)
    {
+      signal.symbol_a_visual_data_ready=(hunt.symbol_a.reference_ready && hunt.symbol_a.current_range_ready);
+      signal.symbol_b_visual_data_ready=(hunt.symbol_b.reference_ready && hunt.symbol_b.current_range_ready);
+
       if(signal.side==CGC_SIDE_HIGH)
       {
          signal.symbol_a_reference_price=hunt.symbol_a.reference_high;

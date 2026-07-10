@@ -30,10 +30,10 @@ A Phase 06 ledger row is not a trade result. It is only an event record.
 
 ## Active visual hotfix baseline
 
-The current visual baseline is Hotfix009:
+The current visual baseline is Hotfix010:
 
-- [[hotfixes/PHASE06_HOTFIX_009_NON_HOST_FRONTIER_SYNC]]
-- [[hotfixes/PHASE06_HOTFIX_009_STATE_AND_RENDER_CONTRACT]]
-- [[hotfixes/PHASE06_HOTFIX_009_VALIDATION_PLAN]]
+- [[hotfixes/PHASE06_HOTFIX_010_DUAL_SYMBOL_M1_EVIDENCE_PARITY]]
+- [[hotfixes/PHASE06_HOTFIX_010_LOGIC_AND_RENDER_CONTRACT]]
+- [[hotfixes/PHASE06_HOTFIX_010_VALIDATION_PLAN]]
 
-Hotfix009 preserves symbol-local frontier eligibility through the final-signal contract and enforces it independently on every drawn chart. It also verifies cleanup of owned objects on the non-host chart before historical reconstruction.
+Hotfix010 closes the remaining SPX/NDX asymmetry at the evidence layer. Complete M1 coverage is now required for both symbols before reference freshness, hunt classification, historical backfill, or drawing. Missing later history is a frontier barrier, and all visual extreme searches use the same exclusive interval boundaries as the signal logic.

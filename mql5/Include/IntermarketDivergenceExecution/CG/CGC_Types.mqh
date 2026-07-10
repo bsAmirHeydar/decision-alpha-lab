@@ -146,6 +146,11 @@ struct SCGCFinalSignal
    bool   symbol_a_reference_frontier;
    bool   symbol_b_reference_frontier;
 
+   // Hotfix010: drawing authority also requires complete symbol-local M1
+   // coverage for both the reference cycle and the observed current range.
+   bool   symbol_a_visual_data_ready;
+   bool   symbol_b_visual_data_ready;
+
    string note;
 };
 
