@@ -398,6 +398,14 @@ public:
    int ExportCandidates(DAYE_ConfirmationCandidate &items[]) { return m_store.ExportCandidates(items); }
    int ExportResults(DAYE_ConfirmationResult &items[]) { return m_store.ExportResults(items); }
 
+   // P07 read-only evidence surface. This does not grant lifecycle authority to P06.
+   int ExportSourceObservations(DAYE_HuntObservation &items[]) { return m_hunt_engine.ExportObservations(items); }
+
+   bool GetSourceHuntSummary(DAYE_HuntStoreSummary &summary)
+   {
+      return m_hunt_engine.GetCurrentSummary(summary);
+   }
+
    void Shutdown(void)
    {
       string reason="";

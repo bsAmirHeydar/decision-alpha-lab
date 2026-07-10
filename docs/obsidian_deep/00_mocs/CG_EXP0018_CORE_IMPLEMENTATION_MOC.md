@@ -18,3 +18,5 @@ Next: P05 Hunt Observation.
 - [[CG_EXP0018_PHASE05_HUNT_OBSERVATION_MOC]] — touch-only HIGH/LOW observation and pair-state facts.
 
 - [[CG_EXP0018_PHASE06_CLOSE_CONFIRMATION_MOC]] — live candidate admission and immutable host-close outcomes.
+
+- [[CG_EXP0018_PHASE07_REFERENCE_LIFECYCLE_MOC]] — lifecycle, first-use deduplication, and terminal retirement.

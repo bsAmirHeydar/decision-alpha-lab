@@ -38,3 +38,10 @@ tags:
 - [[12_phase05_hunt_observation_v2/00_INDEX|Phase 05 — Touch-Only Hunt Observation v2]]
 
 - [[13_phase06_close_confirmation_v2/00_INDEX|Phase 06 — Host-Timeframe Close Confirmation v2]]
+
+
+## Phase 07 evidence package
+
+- [[14_phase07_reference_lifecycle_v2/00_INDEX|P07 Reference Lifecycle and First-Sweep State Machine v2]]
+- Status: implemented evidence package; MetaEditor compile and runtime validation remain external gates.
+- Next formal stage: P08 Divergence Drawing and Historical Visual Projection.

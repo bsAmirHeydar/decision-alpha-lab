@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "project": "EXP0018",
+  "phase": "P07",
+  "name": "Reference Lifecycle and First-Sweep State Machine",
+  "authority": {
+    "reference_lifecycle": true,
+    "drawing": false,
+    "direction_mapping": false,
+    "risk": false,
+    "execution": false
+  },
+  "identities": {
+    "reference_id": "reference_period_instance_id + side + canonical symbol pair",
+    "exact_opportunity_use_key": "opportunity_id + side + hunter + protected",
+    "use_id": "confirmation result id"
+  },
+  "core_rules": [
+    "one exact opportunity may produce at most one accepted use",
+    "a later distinct opportunity may reuse the same reference while the same protected symbol remains unhunted",
+    "the protected symbol touching its own reference retires the reference side",
+    "double hunt retires the reference side",
+    "role switch on the same reference retires the reference side and is not a new valid use",
+    "retired references never return to active state",
+    "accepted historical uses remain immutable after retirement",
+    "HIGH and LOW lifecycle identities are independent",
+    "no data is not protected survival"
+  ],
+  "states": [
+    "PROTECTED_SURVIVES",
+    "RETIRED_PROTECTED_TOUCH",
+    "RETIRED_DOUBLE_HUNT",
+    "RETIRED_ROLE_SWITCH",
+    "INVALID",
+    "UNAVAILABLE"
+  ],
+  "use_statuses": [
+    "ACCEPTED",
+    "DUPLICATE_EXACT_OPPORTUNITY",
+    "REJECTED_REFERENCE_RETIRED",
+    "REJECTED_ROLE_SWITCH",
+    "REJECTED_INVALID_RESULT",
+    "UNAVAILABLE"
+  ],
+  "checkpoint": true,
+  "replay_required_for_missed_history": true
+}
