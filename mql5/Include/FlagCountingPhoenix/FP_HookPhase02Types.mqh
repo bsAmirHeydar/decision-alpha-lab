@@ -16,8 +16,8 @@
 // - no execution, no broker request, no risk sizing, no volume sizing
 // ============================================================================
 
-#define FP_HOOK_P02_VERSION "HOOK-P02-cyclehook-sequence-builder"
-#define FP_HOOK_P02_SCHEMA_VERSION "hook_phase02_sequences_v1"
+#define FP_HOOK_P02_VERSION "HOOK-P02-pre-canon-stabilization"
+#define FP_HOOK_P02_SCHEMA_VERSION "hook_phase02_sequences_v2"
 #define FP_HOOK_P02_DEFAULT_FOLDER "FlagCountingPhoenix"
 #define FP_HOOK_P02_DEFAULT_PREFIX "DAL_HOOK_P02_"
 
@@ -254,6 +254,10 @@ struct FP_HookPhase02Sequence
    int previous_hook_sequence_id;
    int previous_hook_terminal_node_id;
    int opposing_f3_event_id;
+   int opposing_f3_terminal_bar_index;
+   datetime opposing_f3_terminal_time;
+   double opposing_f3_terminal_price;
+   int post_f3_origin_distance_bars;
 
    double death_boundary_price;
    bool capped;
@@ -350,6 +354,21 @@ string FP_HookP02CycleArcEndModeName(const FP_HookPhase02CycleArcEndMode m)
    if(m == FP_HOOK_P02_CYCLE_ARC_END_LAST_VISIBLE_X) return "LAST_VISIBLE_X";
    if(m == FP_HOOK_P02_CYCLE_ARC_END_DIRECTIONAL_EXTREME) return "DIRECTIONAL_EXTREME";
    return "UNKNOWN_CYCLE_ARC_END_MODE";
+}
+
+string FP_HookP02PostF3RecognitionModeName(const FP_HookPostF3RecognitionMode m)
+{
+   if(m == FP_HOOK_POST_F3_STRUCTURAL_ONLY) return "STRUCTURAL_ONLY";
+   if(m == FP_HOOK_POST_F3_STRUCTURAL_OR_GEOMETRIC_80) return "STRUCTURAL_OR_GEOMETRIC_80";
+   return "UNKNOWN_POST_F3_RECOGNITION_MODE";
+}
+
+string FP_HookP02PostF3SelectionPriorityName(const FP_HookPostF3SelectionPriority p)
+{
+   if(p == FP_HOOK_POST_F3_PRIORITY_STRUCTURAL_FIRST) return "STRUCTURAL_FIRST";
+   if(p == FP_HOOK_POST_F3_PRIORITY_EARLIEST_FIRST) return "EARLIEST_FIRST";
+   if(p == FP_HOOK_POST_F3_PRIORITY_GEOMETRIC_FIRST) return "GEOMETRIC_FIRST";
+   return "UNKNOWN_POST_F3_SELECTION_PRIORITY";
 }
 
 void FP_ResetHookPhase02Config(FP_HookPhase02Config &cfg)
@@ -527,6 +546,10 @@ void FP_ResetHookPhase02Sequence(FP_HookPhase02Sequence &s)
    s.previous_hook_sequence_id = -1;
    s.previous_hook_terminal_node_id = -1;
    s.opposing_f3_event_id = -1;
+   s.opposing_f3_terminal_bar_index = -1;
+   s.opposing_f3_terminal_time = 0;
+   s.opposing_f3_terminal_price = 0.0;
+   s.post_f3_origin_distance_bars = -1;
 
    s.death_boundary_price = 0.0;
    s.capped = false;

@@ -122,3 +122,16 @@ and must not produce a Hook zone.
 ```
 
 Phase 33 fixes a runtime redraw lifecycle issue after repeated timeframe changes. The new-bar throttle now commits `g_fp_last_bar_time` only after a successful full run. Failed timebase/history runs keep retry eligibility alive, and the timer can retry failed runs without waiting for a new candle.
+
+
+## Latest Canon-preparation overlay — Phase 50
+
+```text
+67_phase50_pre_canon_nds_stabilization.md
+```
+
+Phase 50 audits the current NDS Hook corpus before final questionnaire capture.
+It moves post-F3 ownership and tolerance to canonical bar-index authority, makes
+all existing recognition inputs truthful, repairs `EARLIEST_FIRST`, and adds
+F3-terminal ownership evidence to sequence state and CSV. It deliberately does
+not decide open Hook/Zone Canon questions.

@@ -66,7 +66,10 @@ void FP_RunHookPhase02Core(const string symbol,
    }
 
    if(cfg.print_summary)
+   {
+      FP_PrintHookPhase02Config("FP_HOOK_P02", cfg);
       FP_PrintHookPhase02Report("FP_HOOK_P02", report);
+   }
 
    if(cfg.print_samples)
       FP_PrintHookPhase02Samples("FP_HOOK_P02", sequences, cfg.sample_limit);

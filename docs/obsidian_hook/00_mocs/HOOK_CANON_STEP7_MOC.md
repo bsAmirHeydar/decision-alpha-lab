@@ -10,3 +10,9 @@
 - [[Delayed Rebound Geometric 80 Post F3 Hook]]
 - [[Post F3 Recognition Inputs]]
 - [[Post F3 Recognition Code Debug Checklist]]
+
+## Stabilization before final questionnaire
+
+- [[Phase 50 Pre-Canon NDS Stabilization]]
+- [[Canonical Bar Index Authority]]
+- [[NDS Pre-Canon Contract Checklist]]

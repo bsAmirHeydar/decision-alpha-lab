@@ -28,7 +28,7 @@ string FP_HookP02SummaryPath(const FP_HookPhase02Config &cfg)
 
 string FP_HookP02SequenceHeader()
 {
-   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,valid_after_hook,valid_after_opposing_f3,valid_hook_family,hook_validity_family,post_f3_subfamily,post_f3_direct_terminal,post_f3_delayed_rebound,post_f3_geometric_80,post_f3_completion_pct,previous_hook_sequence_id,previous_hook_terminal_node_id,opposing_f3_event_id,death_boundary_price,capped,valid,source,reject_reason";
+   return "schema_version,version,sequence_id,direction,state,scale_l,origin_node_id,origin_bar_index,origin_time,origin_price,x_count,x1_node_id,x1_bar_index,x1_time,x1_price,x2_node_id,x2_bar_index,x2_time,x2_price,x3_node_id,x3_bar_index,x3_time,x3_price,x4_node_id,x4_bar_index,x4_time,x4_price,cycle_crown_node_id,cycle_crown_time,cycle_crown_price,cycle_crown_valid,resolve_node_id,resolve_bar_index,resolve_time,resolve_price,resolve_confirmed,retracement_ratio,near_death_confirmed,hook_failed,failure_node_id,failure_time,failure_price,render_eligible,visibility_reason,valid_after_hook,valid_after_opposing_f3,valid_hook_family,hook_validity_family,post_f3_subfamily,post_f3_direct_terminal,post_f3_delayed_rebound,post_f3_geometric_80,post_f3_completion_pct,previous_hook_sequence_id,previous_hook_terminal_node_id,opposing_f3_event_id,opposing_f3_terminal_bar_index,opposing_f3_terminal_time,opposing_f3_terminal_price,post_f3_origin_distance_bars,death_boundary_price,capped,valid,source,reject_reason";
 }
 
 string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
@@ -72,6 +72,7 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.cycle_crown_valid));
 
    row += "," + IntegerToString(s.resolve_node_id);
+   row += "," + IntegerToString(s.last_x_bar_index);
    row += "," + FP_HookP02SafeCsv(TimeToString(s.resolve_time, TIME_DATE|TIME_SECONDS));
    row += "," + DoubleToString(s.resolve_price, _Digits);
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.resolve_confirmed));
@@ -95,6 +96,10 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
    row += "," + IntegerToString(s.previous_hook_sequence_id);
    row += "," + IntegerToString(s.previous_hook_terminal_node_id);
    row += "," + IntegerToString(s.opposing_f3_event_id);
+   row += "," + IntegerToString(s.opposing_f3_terminal_bar_index);
+   row += "," + FP_HookP02SafeCsv(TimeToString(s.opposing_f3_terminal_time, TIME_DATE|TIME_SECONDS));
+   row += "," + DoubleToString(s.opposing_f3_terminal_price, _Digits);
+   row += "," + IntegerToString(s.post_f3_origin_distance_bars);
 
    row += "," + DoubleToString(s.death_boundary_price, _Digits);
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(s.capped));
@@ -106,7 +111,7 @@ string FP_HookP02SequenceRow(const FP_HookPhase02Sequence &s)
 
 string FP_HookP02SummaryHeader()
 {
-   return "schema_version,version,symbol,period,display_family,origin_policy,seed_restart_guard,show_only_valid_hooks,valid_only_require_near_death,valid_f3_require_same_scale,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,seed_reuse_rejects,valid_after_hook,valid_after_opposing_f3,valid_hook_family,invalid_family_filtered,origin_promotions,promoted_chains,drawn,status,reason";
+   return "schema_version,version,symbol,period,display_family,origin_policy,seed_restart_guard,show_only_valid_hooks,valid_only_require_near_death,valid_f3_require_same_scale,valid_f3_require_opposite_direction,post_f3_recognition_mode,post_f3_selection_priority,post_f3_allow_direct_terminal_hook,post_f3_allow_delayed_rebound_hook,post_f3_max_search_bars,post_f3_terminal_tolerance_bars,post_f3_terminal_tolerance_price_points,post_f3_geometric_min_completion_pct,post_f3_structural_axis,bars_seen,bars_scanned,scales_seen,nodes_seen,sequences_total,positive,negative,ready,mature,capped,rejected,seed_reuse_rejects,valid_after_hook,valid_after_opposing_f3,valid_hook_family,invalid_family_filtered,origin_promotions,promoted_chains,drawn,status,reason";
 }
 
 string FP_HookP02SummaryRow(const string symbol,
@@ -125,6 +130,16 @@ string FP_HookP02SummaryRow(const string symbol,
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.show_only_valid_hooks));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.valid_only_require_near_death));
    row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.valid_f3_require_same_scale));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.valid_f3_require_opposite_direction));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02PostF3RecognitionModeName(cfg.post_f3_recognition_mode));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02PostF3SelectionPriorityName(cfg.post_f3_selection_priority));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.post_f3_allow_direct_terminal_hook));
+   row += "," + FP_HookP02SafeCsv(FP_HookP02BoolName(cfg.post_f3_allow_delayed_rebound_hook));
+   row += "," + IntegerToString(cfg.post_f3_max_search_bars);
+   row += "," + IntegerToString(cfg.post_f3_terminal_tolerance_bars);
+   row += "," + IntegerToString(cfg.post_f3_terminal_tolerance_price_points);
+   row += "," + DoubleToString(cfg.post_f3_geometric_min_completion_pct, 2);
+   row += "," + FP_HookP02SafeCsv("CANONICAL_BAR_INDEX");
    row += "," + IntegerToString(r.bars_seen);
    row += "," + IntegerToString(r.bars_scanned);
    row += "," + IntegerToString(r.scales_seen);

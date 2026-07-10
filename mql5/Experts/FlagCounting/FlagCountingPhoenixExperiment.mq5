@@ -1,5 +1,5 @@
 #property strict
-#property version   "18.20"
+#property version   "18.21"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"

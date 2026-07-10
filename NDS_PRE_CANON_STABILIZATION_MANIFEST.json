@@ -1,0 +1,110 @@
+{
+  "patch_id": "NDS-PRE-CANON-STABILIZATION-001",
+  "title": "NDS Pre-Canon Hook Stabilization",
+  "generated_utc": "2026-07-10T15:23:13+00:00",
+  "target_ea": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+  "target_version": "18.21",
+  "root_relative": true,
+  "semantic_boundary": {
+    "implemented": [
+      "canonical bar-index post-F3 ownership",
+      "truthful configuration behavior",
+      "earliest-first comparator",
+      "exact price tolerance",
+      "ownership audit state and export"
+    ],
+    "not_implemented": [
+      "final questionnaire decisions",
+      "independent geometric 80 synthesis",
+      "verified rebound path",
+      "Hook Zone boundaries/lifecycle",
+      "trading execution"
+    ]
+  },
+  "files": [
+    {
+      "path": "INSTALL_NDS_PRE_CANON_STABILIZATION_PATCH.md",
+      "size_bytes": 2977,
+      "sha256": "7140b85dd7ac0031b14599814c23b470bd9b9d3300e6f37d8b9445ebf59804e3"
+    },
+    {
+      "path": "NDS_PRE_CANON_AUDIT_REPORT.md",
+      "size_bytes": 2804,
+      "sha256": "795ba94ce0e697ce5ffd88530c5f3c942191cbadae5941169dbf3ee9eaef3c40"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_contract_qa.py",
+      "size_bytes": 5489,
+      "sha256": "21e1b527acb5a2974258f8ebc9ebff1122a36bb14ae6041e445eb5b15de8e886"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+      "size_bytes": 139672,
+      "sha256": "618719b1e4c9ddf608a6b4387a2a14db04187d72da97ea3d06452accffdf9c09"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh",
+      "size_bytes": 17379,
+      "sha256": "768ec6ce2c12d250dfb5bfbdf41ad8add9437df5d6eca23caac9323d285703b2"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh",
+      "size_bytes": 67916,
+      "sha256": "529943650468585791fac58b5b0502f8c692d97c0acdf953d5e8ee0559dd1fef"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Export.mqh",
+      "size_bytes": 11499,
+      "sha256": "8062db53f12247e0a9a5f9f0d51e3a1f58fa5e2449355210a1613d9e46072a7b"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh",
+      "size_bytes": 4014,
+      "sha256": "7b7b98bddfc33bd2fb63b86a3349cb14798573db0bb383c0f992584c6d0d3f08"
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "size_bytes": 3998,
+      "sha256": "5a4d08b4f8fbfb149dddf13b7b6b9a59c9c62f979980c3a194d23389f4e73d5b"
+    },
+    {
+      "path": "docs/nds_hook_architecture/67_phase50_pre_canon_nds_stabilization.md",
+      "size_bytes": 5382,
+      "sha256": "8b85ccc3911c2c88aefbdfec0797899e2e5247f3f638f187afc346ba1b816516"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/HOOK_CANON_STEP7_MOC.md",
+      "size_bytes": 543,
+      "sha256": "3d65015be727f39975cda64ce2784633be0272f1ba9961f2c20490ef8dc26e00"
+    },
+    {
+      "path": "docs/obsidian_hook/01_concepts/Canonical Bar Index Authority.md",
+      "size_bytes": 629,
+      "sha256": "db64df3dfeb4b02e6e641421c952cfefeed179fc54069699bfea69c7e8e9edd4"
+    },
+    {
+      "path": "docs/obsidian_hook/03_architecture/Phase 50 Pre-Canon NDS Stabilization.md",
+      "size_bytes": 1346,
+      "sha256": "1cf35bfdeedd95c8b7d50c721a091a13e3342129daf3da7f66dcf2dbbb703fd6"
+    },
+    {
+      "path": "docs/obsidian_hook/04_debug/NDS Pre-Canon Contract Checklist.md",
+      "size_bytes": 1632,
+      "sha256": "af7da3b4f286d7eb0523e526b110e593cc1eab58698b6f488a77a7a2825befba"
+    },
+    {
+      "path": "docs/obsidian_hook/07_indexes/HOOK_VALIDITY_INDEX.md",
+      "size_bytes": 947,
+      "sha256": "8892d3dde4f190df638470dc46df803d232fab643ba451a300559584411c8a80"
+    }
+  ],
+  "validation_commands": [
+    "python tools/engineering/validate_alpha_lab_policy.py .",
+    "python tools/engineering/check_mql5_compatibility.py .",
+    "python tools/engineering/audit_repository_layout.py .",
+    "python docs/ai_algorithm_engineering_os/tools/validate_vault.py docs/ai_algorithm_engineering_os",
+    "python tools/flag_counting/static_qa.py --root .",
+    "python tools/flag_counting/nds_hook_contract_qa.py --root ."
+  ],
+  "metaeditor_compile_required": true
+}
