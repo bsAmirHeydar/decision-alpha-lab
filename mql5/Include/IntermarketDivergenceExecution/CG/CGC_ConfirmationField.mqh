@@ -229,6 +229,8 @@ private:
       signal.symbol_b_reference_price=0.0;
       signal.symbol_a_current_extreme=0.0;
       signal.symbol_b_current_extreme=0.0;
+      signal.symbol_a_reference_frontier=false;
+      signal.symbol_b_reference_frontier=false;
       signal.note="";
    }
 
@@ -477,11 +479,29 @@ private:
       }
    }
 
+   void FillSymbolLocalFrontierFields(const SCGCExtremeFrontierEligibility &frontier,SCGCFinalSignal &signal)
+   {
+      signal.symbol_a_reference_frontier=false;
+      signal.symbol_b_reference_frontier=false;
+
+      if(signal.side==CGC_SIDE_HIGH)
+      {
+         signal.symbol_a_reference_frontier=frontier.symbol_a_high_frontier;
+         signal.symbol_b_reference_frontier=frontier.symbol_b_high_frontier;
+      }
+      else if(signal.side==CGC_SIDE_LOW)
+      {
+         signal.symbol_a_reference_frontier=frontier.symbol_a_low_frontier;
+         signal.symbol_b_reference_frontier=frontier.symbol_b_low_frontier;
+      }
+   }
+
    bool BuildConfirmedHighSignal(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunt,const SCGCExtremeFrontierEligibility &frontier,SCGCFinalSignal &signal)
    {
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_SELL,CGC_SIDE_HIGH);
       FillSymbolLocalVisualFields(hunt,signal);
+      FillSymbolLocalFrontierFields(frontier,signal);
 
       if(!signal.data_ready)
       {
@@ -571,6 +591,7 @@ private:
       ResetSignal(signal);
       FillSharedFields(time_snapshot,cycle,hunt,signal,CGC_DIRECTION_BUY,CGC_SIDE_LOW);
       FillSymbolLocalVisualFields(hunt,signal);
+      FillSymbolLocalFrontierFields(frontier,signal);
 
       if(!signal.data_ready)
       {

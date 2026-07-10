@@ -1,0 +1,25 @@
+{
+  "patch_id": "EXP0017_PHASE06_HOTFIX009_NON_HOST_FRONTIER_SYNC",
+  "expert_version": "1.09",
+  "scope": "Phase 06 symbol-local frontier rendering and cross-chart owned-object cleanup",
+  "modified_files": [
+    "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGC_Types.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh",
+    "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/PHASE06_INDEX.md"
+  ],
+  "added_files": [
+    "INSTALL_EXP0017_PHASE06_HOTFIX009_NON_HOST_FRONTIER_SYNC_PATCH.md",
+    "EXP0017_PHASE06_HOTFIX009_MANIFEST.json",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_009_NON_HOST_FRONTIER_SYNC.md",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_009_STATE_AND_RENDER_CONTRACT.md",
+    "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_009_VALIDATION_PLAN.md"
+  ],
+  "non_goals": [
+    "No divergence doctrine change",
+    "No time/reference/hunt rule change",
+    "No ledger schema change",
+    "No trading or risk behavior"
+  ]
+}

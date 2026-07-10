@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.08"
+#property version   "1.09"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Draws confirmed/invalidated closed-candle states and records a raw CSV audit ledger. Hotfix008 adds extreme-frontier reference filtering so stale swept levels are not reused."
+#property description "No trading. Hotfix009 enforces symbol-local frontier freshness and verified cleanup on both host and non-host charts."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 

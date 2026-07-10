@@ -140,6 +140,12 @@ struct SCGCFinalSignal
    double symbol_a_current_extreme;
    double symbol_b_current_extreme;
 
+   // Hotfix009: preserve the side-specific frontier result for each symbol.
+   // The visual renderer uses these flags to prevent a valid pair-level signal
+   // from drawing a stale local reference leg on the non-host symbol chart.
+   bool   symbol_a_reference_frontier;
+   bool   symbol_b_reference_frontier;
+
    string note;
 };
 

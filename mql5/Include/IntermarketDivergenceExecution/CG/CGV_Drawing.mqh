@@ -219,6 +219,17 @@ private:
       return (ValidSymbolName(signal.clean_symbol) && symbol==signal.clean_symbol);
    }
 
+   bool SymbolReferenceIsFrontier(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(!m_config.enable_extreme_frontier_reference_filter)
+         return true;
+      if(symbol==m_config.symbol_a)
+         return signal.symbol_a_reference_frontier;
+      if(symbol==m_config.symbol_b)
+         return signal.symbol_b_reference_frontier;
+      return false;
+   }
+
    bool ShouldDraw(SCGCFinalSignal &signal)
    {
       if(!m_config.enable_drawing)
@@ -355,6 +366,14 @@ private:
    int DrawSymbolLocalVisualPackage(SCGCFinalSignal &signal,const string chart_symbol)
    {
       if(!ValidSymbolName(chart_symbol))
+         return 0;
+
+      // Hotfix009: pair-level confirmation is not sufficient authority for a
+      // symbol-local price drawing. Every chart leg must carry a fresh frontier
+      // reference for that exact chart symbol. This is especially important for
+      // the non-host chart when permissive pair-frontier mode was loaded from an
+      // older .set file.
+      if(!SymbolReferenceIsFrontier(signal,chart_symbol))
          return 0;
 
       long chart_id=FindChartForSymbol(chart_symbol);
@@ -503,22 +522,66 @@ private:
       return DrawSymbolLocalVisualPackage(signal,symbol);
    }
 
-   int ClearObjectsOnChart(const long chart_id)
+   int CountOwnedObjectsOnChart(const long chart_id)
    {
       if(chart_id<0)
          return 0;
-      int removed=0;
-      for(int i=ObjectsTotal(chart_id,0,-1)-1;i>=0;i--)
+
+      int count=0;
+      int total=ObjectsTotal(chart_id,0,-1);
+      for(int i=0;i<total;i++)
+      {
+         string name=ObjectName(chart_id,i,0,-1);
+         if(StringFind(name,CGV_OBJECT_PREFIX)==0)
+            count++;
+      }
+      return count;
+   }
+
+   int QueueOwnedObjectDeletePass(const long chart_id)
+   {
+      if(chart_id<0)
+         return 0;
+
+      int queued=0;
+      int total=ObjectsTotal(chart_id,0,-1);
+      for(int i=total-1;i>=0;i--)
       {
          string name=ObjectName(chart_id,i,0,-1);
          if(StringFind(name,CGV_OBJECT_PREFIX)==0)
          {
             if(ObjectDelete(chart_id,name))
-               removed++;
+               queued++;
          }
       }
-      ChartRedraw(chart_id);
-      return removed;
+      return queued;
+   }
+
+   int ClearObjectsOnChart(const long chart_id)
+   {
+      if(chart_id<0)
+         return 0;
+
+      int initial_count=CountOwnedObjectsOnChart(chart_id);
+      if(initial_count<=0)
+         return 0;
+
+      // Object commands sent to a foreign chart are queued. A single unverified
+      // delete pass can leave stale EXP0017 objects on the non-host chart. Each
+      // following object query acts as a synchronization barrier, so retry a
+      // bounded number of times until the owned prefix is actually absent.
+      int remaining=initial_count;
+      for(int pass=0;pass<4 && remaining>0;pass++)
+      {
+         QueueOwnedObjectDeletePass(chart_id);
+         ChartRedraw(chart_id);
+         remaining=CountOwnedObjectsOnChart(chart_id);
+      }
+
+      if(remaining>0)
+         Print(StringFormat("EXP0017 Phase06 Hotfix009: %d owned visual objects remained on chart %s (%s) after verified cleanup.",remaining,IntegerToString(chart_id),ChartSymbol(chart_id)));
+
+      return MathMax(0,initial_count-remaining);
    }
 
    int ClearTextObjectsOnChart(const long chart_id)

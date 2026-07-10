@@ -27,3 +27,13 @@ The robot should not merely print that a signal exists. It should draw why the s
 Phase 06 consumes confirmed/invalidation states from Phase 05. It does not redefine them.
 
 A Phase 06 ledger row is not a trade result. It is only an event record.
+
+## Active visual hotfix baseline
+
+The current visual baseline is Hotfix009:
+
+- [[hotfixes/PHASE06_HOTFIX_009_NON_HOST_FRONTIER_SYNC]]
+- [[hotfixes/PHASE06_HOTFIX_009_STATE_AND_RENDER_CONTRACT]]
+- [[hotfixes/PHASE06_HOTFIX_009_VALIDATION_PLAN]]
+
+Hotfix009 preserves symbol-local frontier eligibility through the final-signal contract and enforces it independently on every drawn chart. It also verifies cleanup of owned objects on the non-host chart before historical reconstruction.
