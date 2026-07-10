@@ -24,6 +24,7 @@ Hedging: enabled
 Execution visuals: enabled
 cg_3m: enabled
 all other CGs: disabled
+one-shot divergence execution: hard enabled
 ```
 
 For a USD test account, `InpFixedRiskMoney=100` means a planned maximum stop loss of USD 100 before commission, gaps, and execution slippage.
@@ -61,7 +62,19 @@ Run Strategy Tester in visual mode.
 Default file:
 
 ```text
-EXP0017_Phase14_Raw_Execution_Audit.csv
+EXP0017_Phase14_Raw_Execution_Audit_V3.csv
 ```
 
 The audit includes target model, volume model, hedge state, spread, stop distance, risk budget, one-lot risk, projected stop loss, normalized volume, and broker result.
+
+## One-shot test
+
+Use a visual case where the same divergence remains confirmed across multiple lower-timeframe candle closes. The first observation may create one trade opportunity. Every later observation must be suppressed even after a planning or broker failure.
+
+The main execution audit includes `trade_entitlement_key`. Duplicate observations are written to:
+
+```text
+EXP0017_Phase14_Raw_Execution_Audit_V3_OneShot_Gate.csv
+```
+
+Group by `trade_entitlement_key`; accepted execution count must never exceed one. See [[PHASE14_ONE_SHOT_VALIDATION_PLAN]].

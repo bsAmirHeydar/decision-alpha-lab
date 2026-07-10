@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.10"
+#property version   "1.11"
 #property description "EXP0017 Phase 14 - Modular raw execution backtest"
-#property description "Closed-candle CG divergence entries with modular targets, fixed-money risk, hedge control, and execution visuals."
+#property description "Closed-candle CG divergence entries with hard one-shot signal entitlement, modular targets, fixed-money risk, hedge control, and execution visuals."
 
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_Engine.mqh>
 
@@ -75,7 +75,7 @@ input group "EXP0017 / Audit"
 input bool InpPrintExecutionEvents = true;
 input bool InpEnableExecutionAuditCsv = true;
 input bool InpAuditUseCommonFiles = false;
-input string InpAuditFileName = "EXP0017_Phase14_Raw_Execution_Audit.csv";
+input string InpAuditFileName = "EXP0017_Phase14_Raw_Execution_Audit_V3.csv";
 input int InpMaxSignalRegistryRecords = 20000;
 
 input group "EXP0017 / Enabled CG Trades"

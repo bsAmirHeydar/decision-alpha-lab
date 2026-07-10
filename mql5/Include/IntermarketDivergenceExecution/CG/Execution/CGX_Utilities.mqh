@@ -96,7 +96,8 @@ string CGX_ShortSignalHash(const string signal_id)
 string CGX_BuildOrderComment(const SCGXTradePlan &plan)
 {
    string leg=(plan.trade_leg==CGX_TRADE_PROTECTED_SYMBOL ? "P" : "H");
-   string result=StringFormat("E17|%dm|%s|%s",plan.group_minutes,leg,CGX_ShortSignalHash(plan.signal_id));
+   string identity=(plan.trade_entitlement_key!="" ? plan.trade_entitlement_key : plan.signal_id);
+   string result=StringFormat("E17|%dm|%s|%s",plan.group_minutes,leg,CGX_ShortSignalHash(identity));
    if(StringLen(result)>31)
       result=StringSubstr(result,0,31);
    return result;

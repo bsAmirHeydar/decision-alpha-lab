@@ -2,6 +2,11 @@
 #define __CGX_ENGINE_MQH__
 
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_SignalSource.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_Utilities.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_TradeEntitlement.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_SignalRegistry.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_OrderRouter.mqh>
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_Audit.mqh>
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_ExecutionVisuals.mqh>
 
@@ -38,8 +43,9 @@ private:
          m_registry.EnsureTradingDay(replay_day_start);
          for(int j=0;j<signal_count;j++)
          {
+            string entitlement_key=CGX_BuildTradeEntitlementKey(replay_signals[j]);
             string registry_reason="";
-            m_registry.RegisterAttempt(replay_signals[j].signal_id,registry_reason);
+            m_registry.ConsumeFirstObservation(replay_signals[j],boundaries[i],entitlement_key,registry_reason);
          }
       }
 
@@ -128,7 +134,7 @@ public:
       m_clock_primed=false;
       m_last_processed_close=0;
 
-      Print(StringFormat("EXP0017 CGX initialized | runtime=%s | leg=%s | target=%s | volume=%s | fixed_risk=%.2f %s | hedge=%s | draw=%s | magic_base=%d",
+      Print(StringFormat("EXP0017 CGX initialized | runtime=%s | leg=%s | target=%s | volume=%s | fixed_risk=%.2f %s | hedge=%s | one_shot=HARD_ON | draw=%s | magic_base=%d",
                          CGX_RuntimeText(m_execution_config.runtime_mode),
                          CGX_TradeLegText(m_execution_config.trade_leg),
                          CGX_TargetModelText(m_execution_config.target_model),
@@ -169,12 +175,16 @@ public:
 
       for(int i=0;i<count;i++)
       {
+         string entitlement_key=CGX_BuildTradeEntitlementKey(signals[i]);
          string registry_reason="";
-         if(!m_registry.RegisterAttempt(signals[i].signal_id,registry_reason))
+         if(!m_registry.ConsumeFirstObservation(signals[i],closed_at,entitlement_key,registry_reason))
+         {
+            m_audit.WriteOneShotSuppression(signals[i],closed_at,entitlement_key,registry_reason);
             continue;
+         }
 
          SCGXTradePlan plan;
-         bool planned=m_planner.Build(signals[i],group_indices[i],plan);
+         bool planned=m_planner.Build(signals[i],group_indices[i],entitlement_key,plan);
          SCGXExecutionResult result;
          result.attempted=false;
          result.sent=false;

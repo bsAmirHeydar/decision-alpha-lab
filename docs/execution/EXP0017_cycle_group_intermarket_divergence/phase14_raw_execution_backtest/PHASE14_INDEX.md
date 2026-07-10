@@ -20,6 +20,7 @@ The signal authority remains the Hotfix011 confirmation stack. Phase 14 consumes
 - Targets support ATR multiple and fixed stop-risk multiple.
 - Accepted executions can draw the traded CG divergence and entry/SL/TP levels.
 - Default enabled cycle group: `cg_3m` only.
+- Hard execution invariant: each divergence anatomy owns one non-retryable trade entitlement, regardless of repeated lower-candle observations.
 - All other 20 CG trade switches exist and default to disabled.
 - Default runtime: Strategy Tester only. The expert refuses to transport orders outside the tester unless the runtime input is explicitly changed.
 
@@ -33,6 +34,7 @@ The signal authority remains the Hotfix011 confirmation stack. Phase 14 consumes
 
 - `CGX_Types.mqh`
 - `CGX_Utilities.mqh`
+- `CGX_TradeEntitlement.mqh` — canonical divergence-scoped one-shot identity
 - `CGX_SignalSource.mqh`
 - `CGX_ClosedCandle.mqh`
 - `CGX_EntryModel.mqh`
@@ -42,7 +44,7 @@ The signal authority remains the Hotfix011 confirmation stack. Phase 14 consumes
 - `CGX_TargetModel.mqh`
 - `CGX_VolumeModel.mqh`
 - `CGX_TradePlanner.mqh`
-- `CGX_SignalRegistry.mqh`
+- `CGX_SignalRegistry.mqh` — one-shot entitlement registry and restart reconstruction state
 - `CGX_OrderRouter.mqh`
 - `CGX_Audit.mqh`
 - `CGX_ExecutionVisuals.mqh`
@@ -59,4 +61,8 @@ This phase produces broker/tester orders and a structured audit CSV. It does not
 - [[PHASE14_BACKTEST_OPERATOR_GUIDE]]
 - [[PHASE14_VALIDATION_PLAN]]
 - [[PHASE14_EXECUTION_CONTROLS_V2]]
+- [[PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT]]
+- [[PHASE14_ONE_SHOT_STATE_MACHINE]]
+- [[PHASE14_ONE_SHOT_VALIDATION_PLAN]]
 - [[hotfixes/PHASE14_HOTFIX_001_SIGNAL_SOURCE_DIRECT_DEPENDENCY]]
+- [[hotfixes/PHASE14_HOTFIX_002_ONE_SHOT_SIGNAL_ENTITLEMENT]]

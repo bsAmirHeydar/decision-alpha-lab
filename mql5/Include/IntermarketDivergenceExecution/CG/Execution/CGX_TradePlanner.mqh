@@ -18,6 +18,7 @@ private:
       plan.valid=false;
       plan.rejection_reason="";
       plan.signal_id="";
+      plan.trade_entitlement_key="";
       plan.group_name="";
       plan.group_minutes=0;
       plan.group_index=-1;
@@ -104,10 +105,11 @@ public:
       m_config=config;
    }
 
-   bool Build(SCGCFinalSignal &signal,const int group_index,SCGXTradePlan &plan)
+   bool Build(SCGCFinalSignal &signal,const int group_index,const string trade_entitlement_key,SCGXTradePlan &plan)
    {
       ResetPlan(plan);
       plan.signal_id=signal.signal_id;
+      plan.trade_entitlement_key=trade_entitlement_key;
       plan.group_name=signal.group_name;
       plan.group_minutes=signal.group_minutes;
       plan.group_index=group_index;
@@ -129,6 +131,11 @@ public:
       if(signal.signal_id=="")
       {
          plan.rejection_reason="empty_signal_id";
+         return false;
+      }
+      if(plan.trade_entitlement_key=="")
+      {
+         plan.rejection_reason="empty_trade_entitlement_key";
          return false;
       }
 

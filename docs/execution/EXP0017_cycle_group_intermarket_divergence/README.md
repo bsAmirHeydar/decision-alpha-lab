@@ -78,5 +78,7 @@ The first modular order-producing profile is documented at:
 
 - [[phase14_raw_execution_backtest/PHASE14_INDEX]]
 
-This owner-approved backtest profile uses closed-candle market entry, selectable protected/hunter execution leg, confirmation-candle stop, and ATR target. It consumes the Hotfix011 signal authority without changing divergence detection.
+This owner-approved backtest profile uses closed-candle market entry, selectable protected/hunter execution leg, confirmation-candle stop, and ATR target. It consumes the Hotfix011 signal authority without changing divergence detection. Every divergence anatomy has one hard, non-retryable execution entitlement even when it is observed on multiple lower-timeframe candles.
+
+- [[phase14_raw_execution_backtest/PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT]]
 

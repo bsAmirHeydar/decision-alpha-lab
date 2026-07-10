@@ -95,13 +95,71 @@ def test_signal_source_reuses_confirmation_authority():
     assert "HasM1HistoryBounds(m_confirmation_config.symbol_b" in source
 
 
-def test_attempt_is_registered_before_plan_and_router():
+def test_one_shot_entitlement_is_consumed_before_plan_and_router():
     source = text(MOD / "CGX_Engine.mqh")
-    registry = source.index("m_registry.RegisterAttempt(signals[i].signal_id")
+    key = source.index("CGX_BuildTradeEntitlementKey(signals[i])")
+    consume = source.index("m_registry.ConsumeFirstObservation(signals[i]")
     planner = source.index("m_planner.Build(signals[i]")
     router = source.index("m_router.Execute(plan,result)")
-    assert registry < planner < router
+    assert key < consume < planner < router
 
+
+def test_one_shot_key_is_divergence_scoped_not_lower_candle_scoped():
+    source = text(MOD / "CGX_TradeEntitlement.mqh")
+    start = source.index("string CGX_BuildTradeEntitlementKey")
+    end = source.index("#endif", start)
+    body = source[start:end]
+    assert "CGX_ONCE_V1" in body
+    assert "signal.group_name" in body
+    assert "signal.trading_day_start_ny" in body
+    assert "signal.current_cycle_start_ny" in body
+    assert "signal.reference_cycle_start_ny" in body
+    assert "CGX_EntitlementSideText(signal.side)" in body
+    assert "StringCompare(pair_left,pair_right)>0" in body
+    assert "signal.confirmation_time_broker" not in body
+    assert "signal.confirmation_timeframe" not in body
+
+
+def test_one_shot_registry_consumes_first_observation_and_blocks_duplicates():
+    source = text(MOD / "CGX_SignalRegistry.mqh")
+    assert "SCGXTradeEntitlementRecord m_records[]" in source
+    assert "ConsumeFirstObservation" in source
+    assert "if(Contains(entitlement_key))" in source
+    assert 'reason="one_shot_entitlement_already_consumed"' in source
+    assert 'reason="one_shot_entitlement_consumed_on_first_observation"' in source
+    duplicate = source.index("if(Contains(entitlement_key))")
+    append = source.index("ArrayResize(m_records,count+1)")
+    assert duplicate < append
+
+
+def test_warmup_reconstructs_consumed_entitlements_without_historical_orders():
+    source = text(MOD / "CGX_Engine.mqh")
+    prime_start = source.index("bool PrimeClockAndLifecycle")
+    prime_end = source.index("bool ValidateConfig", prime_start)
+    prime = source[prime_start:prime_end]
+    assert "CGX_BuildTradeEntitlementKey(replay_signals[j])" in prime
+    assert "ConsumeFirstObservation(replay_signals[j],boundaries[i]" in prime
+    assert "m_router.Execute" not in prime
+
+
+def test_one_shot_suppressions_are_audited_separately():
+    audit = text(MOD / "CGX_Audit.mqh")
+    engine = text(MOD / "CGX_Engine.mqh")
+    assert "WriteOneShotSuppression" in audit
+    assert "_OneShot_Gate.csv" in audit
+    assert "trade_entitlement_key" in audit
+    assert "SUPPRESSED_ALREADY_CONSUMED" in audit
+    assert "m_audit.WriteOneShotSuppression" in engine
+
+
+
+def test_one_shot_policy_is_hard_not_input_switchable():
+    ea = text(EA)
+    engine = text(MOD / "CGX_Engine.mqh")
+    assert "InpAllowSignalRetry" not in ea
+    assert "InpEnableOneShot" not in ea
+    assert "one_shot=HARD_ON" in engine
+    assert 'InpAuditFileName = "EXP0017_Phase14_Raw_Execution_Audit_V3.csv"' in ea
 
 def test_transport_isolated_and_backtest_guarded():
     router = text(MOD / "CGX_OrderRouter.mqh")

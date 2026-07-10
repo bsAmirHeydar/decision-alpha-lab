@@ -39,6 +39,13 @@ enum ECGXVolumeModel
    CGX_VOLUME_FIXED_RISK_MONEY    = 2
 };
 
+
+enum ECGXTradeEntitlementState
+{
+   CGX_ENTITLEMENT_NONE     = 0,
+   CGX_ENTITLEMENT_CONSUMED = 1
+};
+
 enum ECGXPositionPolicy
 {
    CGX_POSITION_EVERY_SIGNAL            = 0,
@@ -49,6 +56,20 @@ enum ECGXNettingPolicy
 {
    CGX_NETTING_SKIP_WHEN_POSITION_EXISTS = 0,
    CGX_NETTING_ALLOW_POSITION_MERGE       = 1
+};
+
+struct SCGXTradeEntitlementRecord
+{
+   string   entitlement_key;
+   string   signal_id;
+   string   group_name;
+   int      group_minutes;
+   ECGCSignalSide side;
+   datetime trading_day_start_ny;
+   datetime current_cycle_start_ny;
+   datetime reference_cycle_start_ny;
+   datetime first_observation_close_broker;
+   ECGXTradeEntitlementState state;
 };
 
 struct SCGXExecutionConfig
@@ -119,6 +140,7 @@ struct SCGXTradePlan
    bool     valid;
    string   rejection_reason;
    string   signal_id;
+   string   trade_entitlement_key;
    string   group_name;
    int      group_minutes;
    int      group_index;

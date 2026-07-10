@@ -281,3 +281,9 @@ CG defaults = cg_3m enabled, all others disabled
 
 The authoritative implementation contract for that profile is [[phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTRACT]].
 
+
+## Phase 14 hard one-shot execution invariant
+
+For the raw execution backtest, persistence of one divergence across lower-timeframe closed candles does not create repeated entry permission. The divergence is assigned one canonical trade entitlement from its symbol pair, CG, trading day, current cycle, reference cycle, and side. The first eligible observation consumes it before planning. No later candle may retry the same divergence after plan rejection, position-policy rejection, broker rejection, paper acceptance, or successful execution.
+
+Authoritative contract: [[phase14_raw_execution_backtest/PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT]].

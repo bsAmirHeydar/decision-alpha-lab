@@ -71,3 +71,7 @@ The visual module owns the `EXP0017_P14_` object prefix and can draw:
 - entry, stop, and target levels on the matching trade-symbol chart.
 
 The visual layer does not generate signals or alter order geometry.
+
+## Interaction with one-shot execution
+
+Hedging, position stacking, ATR/R targets, fixed-money sizing, spread-aware stops, and visuals do not create additional permission for a persistent divergence. They operate only after the mandatory one-shot entitlement has been consumed. See [[PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT]].

@@ -7,7 +7,9 @@ EXP0017 signal authority
         ↓
 CGX_SignalSource
         ↓
-CGX_SignalRegistry
+CGX_TradeEntitlement::BuildTradeEntitlementKey
+        ↓
+CGX_SignalRegistry::ConsumeFirstObservation
         ↓
 CGX_TradePlanner
   ├─ CGX_ClosedCandle
@@ -56,6 +58,10 @@ Hedge permission and position-count policy remain router concerns. They do not a
 ## Invariants
 
 - Signal anatomy contains no `CTrade`.
+- One-shot identity is anatomy-scoped and excludes lower-candle confirmation time.
+- Entitlement consumption occurs before planner and router.
+- Failed planning or transport never rearms an entitlement.
+- Symbol order does not change entitlement identity.
 - Entry models do not size volume.
 - Stop models do not create targets.
 - Target models do not access position state.
@@ -65,3 +71,7 @@ Hedge permission and position-count policy remain router concerns. They do not a
 - Visuals are downstream of accepted execution.
 - Paper mode cannot send orders.
 - Backtest-only mode cannot send outside Strategy Tester.
+
+## One-shot ownership
+
+`CCGX_SignalRegistry` owns the terminal one-shot state. Entry, stop, target, volume, position, router, audit, and visual modules may consume the key but may not redefine or rearm it. See [[PHASE14_ONE_SHOT_STATE_MACHINE]].

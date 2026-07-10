@@ -101,11 +101,15 @@ Fixed lots remain available for controlled comparison.
 - Same-direction stacking is separately controlled by `InpPositionPolicy`.
 - Netting-account behavior remains explicit through `InpNettingPolicy`.
 
-## 9. Duplicate and restart behavior
+## 9. One-shot divergence entitlement
 
-A signal ID is attempted at most once per trading day. Attempt registration occurs before planning and routing, preventing a failed order from becoming a late retry.
+Each divergence anatomy has exactly one execution entitlement. Repeated confirmation on later lower-timeframe closed candles is observation of the same signal, not a new trade permission.
 
-Startup warmup replays closed boundaries without sending historical orders and waits for both configured symbols.
+The canonical key is order-independent across the two symbols and is built from the pair, CG, trading day, current cycle, reference cycle, and divergence side. It excludes confirmation-candle time and all execution settings.
+
+The entitlement is consumed before planning and routing. Therefore planner rejection, position-policy rejection, broker rejection, paper acceptance, or successful transport are all terminal for that signal. No later-candle retry is permitted.
+
+Startup warmup replays closed boundaries, reconstructs consumed entitlements without sending historical orders, and prevents same-day restart duplicates. See [[PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT]].
 
 ## 10. Execution visuals
 

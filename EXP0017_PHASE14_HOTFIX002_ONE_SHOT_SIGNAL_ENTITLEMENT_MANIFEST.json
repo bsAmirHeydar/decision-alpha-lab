@@ -1,0 +1,184 @@
+{
+  "patch_id": "EXP0017-PH14-HOTFIX002-ONE-SHOT-SIGNAL-ENTITLEMENT",
+  "version": "1.0.0",
+  "created": "2026-07-10",
+  "experiment": "EXP0017",
+  "required_baseline": [
+    "EXP0017 Phase06 Hotfix011 or later",
+    "EXP0017 Phase14 Raw Execution Backtest V1",
+    "EXP0017 Phase14 Hotfix001",
+    "EXP0017 Phase14 Execution Controls V2"
+  ],
+  "intent": "Enforce a hard one-shot execution entitlement for each divergence anatomy across repeated lower-timeframe closed-candle observations.",
+  "hard_invariants": [
+    "Each canonical divergence entitlement can be consumed once only.",
+    "Confirmation candle time is excluded from entitlement identity.",
+    "Symbol order does not alter entitlement identity.",
+    "Entitlement is consumed before planning and order routing.",
+    "Planner, position-policy, paper, broker failure, and successful execution never rearm the entitlement.",
+    "Startup warmup reconstructs current-day consumed entitlements without sending historical orders.",
+    "Registry capacity fails closed.",
+    "The policy is not input-switchable."
+  ],
+  "behavior_preserved": [
+    "No change to divergence detection, freshness, or lifecycle authority.",
+    "No change to CG definitions.",
+    "No change to protected/hunter trade-leg selection.",
+    "No change to entry, stop, target, risk, hedge, or visual models.",
+    "cg_3m remains the only enabled CG by default."
+  ],
+  "validation": {
+    "phase14_contract_tests": "16 passed",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility_scan": "0 errors, 0 warnings",
+    "repository_layout": "0 missing expected directories",
+    "obsidian_vault": "0 errors, 0 warnings",
+    "metaeditor_compile": "not available in this environment; required on user system"
+  },
+  "files": [
+    {
+      "path": "INSTALL_EXP0017_PHASE14_HOTFIX002_ONE_SHOT_SIGNAL_ENTITLEMENT_PATCH.md",
+      "size_bytes": 4711,
+      "sha256": "35da490b9eeff24b9efab00d795a90439aeeb8fcc7f661a8076b6869700068d7",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5",
+      "size_bytes": 9739,
+      "sha256": "0ba43cde84e44c94793690c574c52cb65ab217a6eb817802df8985e383e50633",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Experts/IntermarketDivergenceExecution/README.md",
+      "size_bytes": 1789,
+      "sha256": "941bc06c1ec18057262e3309cb2230b242693d3a4e92d66e1b5105cbe5a5859b",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Types.mqh",
+      "size_bytes": 4159,
+      "sha256": "64b5454412d380c383427c16dc0bac7e2ff7c00f226a7e469f63116c0a95e6b2",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Utilities.mqh",
+      "size_bytes": 3279,
+      "sha256": "ef924fed9ead6bb22f61fed2f667c3bd1095f9867aca788d3777c43120dcaa4e",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradeEntitlement.mqh",
+      "size_bytes": 1496,
+      "sha256": "537a385cc10ad0a01b397d37a6b6b4cb1d1b3e63a127d0a27198fd6b5af68a4c",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_SignalRegistry.mqh",
+      "size_bytes": 2751,
+      "sha256": "995cb5d0f1de44aaf8073987cd6aea5f1f1b2c30c4b8cd91587cafdb5c0921f3",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh",
+      "size_bytes": 7482,
+      "sha256": "acf50762831b74dd028de4159d8585c02dac7cb0b3d9ccfcef327b15889ae765",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_OrderRouter.mqh",
+      "size_bytes": 6618,
+      "sha256": "9ef0e56e085e652c440f9a8c6942e243f7905dfeb5a69a1401198cfa052a2223",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Audit.mqh",
+      "size_bytes": 8205,
+      "sha256": "c9435f10d2704520dd5810273419ad0a619be9dc4a0448d4fc075b99597af504",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Engine.mqh",
+      "size_bytes": 7801,
+      "sha256": "8afa350425efa277e54b4f9a7cfe4c8e4a474c88bee45a140bc4189b41a6a1f1",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/README.md",
+      "size_bytes": 3769,
+      "sha256": "bc5ce9632cae93854a40d717837f27fb8a00e84b8745f67073c394630c7ac3e0",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/06_execution_and_risk_contract.md",
+      "size_bytes": 6320,
+      "sha256": "4a8e77e9d8a51699a0332b0a98ffc0d20f36686db9b73817c08ee8c5350d4fad",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_INDEX.md",
+      "size_bytes": 3088,
+      "sha256": "ee7e4df310c63eb89459a57527aa86a1825c424d10f82b9a9f62a1bca48ffa61",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTRACT.md",
+      "size_bytes": 4163,
+      "sha256": "6b2eb2cf8c635268610743bfe3bc812fd9dcd26a685f1b9a3114ebc7e356a14b",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_MODULE_ARCHITECTURE.md",
+      "size_bytes": 2396,
+      "sha256": "9f14d73e7b3a8136722334121b1cbe3d4f7b6d4a1345190cb0a2be94933e937b",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_BACKTEST_OPERATOR_GUIDE.md",
+      "size_bytes": 2331,
+      "sha256": "44fd7364ff617609ae7efc7771d21d2b55f0c703f506cd71dd74dd6d67d0c9cb",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_VALIDATION_PLAN.md",
+      "size_bytes": 2512,
+      "sha256": "e510b7f77bac9819b10ce402e50f2c0b824947fc017f5eb4ea701fe024fa7104",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTROLS_V2.md",
+      "size_bytes": 2835,
+      "sha256": "81e160d3e811929d93c5db0983dc9f247237f05def20d2a3f353cb8f5a2972d5",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_ONE_SHOT_SIGNAL_EXECUTION_CONTRACT.md",
+      "size_bytes": 6608,
+      "sha256": "3f6353fe64b4acadbb3d040ae00cd147102323e4b5394e6dc909cc8c937c397f",
+      "change": "added"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_ONE_SHOT_STATE_MACHINE.md",
+      "size_bytes": 3129,
+      "sha256": "4e24218a5a25cec97861f0b48e57cdb911b76d2392cf29f237f5192c876fa590",
+      "change": "added"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_ONE_SHOT_VALIDATION_PLAN.md",
+      "size_bytes": 4427,
+      "sha256": "5b7d7da5ee91611a61e743a1809c6b7a8d76cb1cf6f76b36b846a57800a59efb",
+      "change": "added"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/hotfixes/PHASE14_HOTFIX_002_ONE_SHOT_SIGNAL_ENTITLEMENT.md",
+      "size_bytes": 1902,
+      "sha256": "597b77b82196925133c7a79233296b93ff67f8d86536eb11f7c4f9b7b389bab6",
+      "change": "added"
+    },
+    {
+      "path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+      "size_bytes": 8017,
+      "sha256": "496d422b69591035a13ef4299d84db58555770254fa7b19f8ac962496f73dacf",
+      "change": "modified"
+    }
+  ]
+}

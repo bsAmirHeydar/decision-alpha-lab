@@ -51,3 +51,7 @@ Default profile:
 - optional executed-CG divergence and entry/SL/TP drawings;
 - only `cg_3m` enabled.
 
+
+## One-shot execution invariant
+
+`EXP0017_CG_Raw_Execution_Backtest.mq5` treats each divergence anatomy as one execution entitlement. Re-detection on later confirmation candles cannot create another order. The gate is mandatory and is reconstructed from closed-candle history during startup warmup.

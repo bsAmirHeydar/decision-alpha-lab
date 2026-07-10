@@ -68,3 +68,7 @@ Required result:
 ## Acceptance
 
 Acceptance requires MetaEditor compilation, passing static tests, and visual/audit reconciliation of at least one BUY and one SELL under both target models.
+
+## One-shot entitlement gate
+
+The release is blocked unless a persistent divergence observed on several lower-timeframe candles produces at most one execution opportunity. Same-day restart must reconstruct the consumed key. Planning or transport failure must not cause a later retry. Full matrix: [[PHASE14_ONE_SHOT_VALIDATION_PLAN]].

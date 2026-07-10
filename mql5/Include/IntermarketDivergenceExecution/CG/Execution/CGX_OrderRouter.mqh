@@ -2,7 +2,7 @@
 #define __CGX_ORDER_ROUTER_MQH__
 
 #include <Trade/Trade.mqh>
-#include <IntermarketDivergenceExecution/CG/Execution/CGX_SignalRegistry.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_Utilities.mqh>
 
 class CCGX_OrderRouter
 {
