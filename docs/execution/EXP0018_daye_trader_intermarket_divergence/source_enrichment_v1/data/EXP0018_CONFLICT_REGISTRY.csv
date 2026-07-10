@@ -1,0 +1,11 @@
+﻿conflict_id,topic,source_a,source_b,severity,resolution
+X001,TWO boundary,Word: Tuesday at 18:00 wording,QT/Bucko: Tuesday open begins Monday 18:00 NY,critical,S0 decision
+X002,Direction side,Some text swaps high/low with BUY/SELL,Examples often imply opposite mapping,critical,S0 decision
+X003,Time authority,Primary NY time,Daye pages 184-185 Swiss time claim,critical,Keep NY; quarantine Swiss
+X004,SMT semantics,Core touch-only two-symbol hunt,PDFs include body/close/fill/intermarket variants,high,Typed separate engines
+X005,Relationship count,Word: 22 fixed relationships,Some source wording says 21 or sequential-only,high,Keep registry; resolve labels
+X006,p4 duration,Word p4 is 30m,Generic 90m quarter language,high,Keep explicit p4 tail
+X007,First sweep scope,Word says first sweep only,PDFs show repeated/second-stage SMT,high,Define key granularity
+X008,Triad requirement,Core pair input,QT frequently uses triads,medium,Optional observer only
+X009,News filter,Core no news dependency,PDFs treat calendar as major filter,medium,Optional feature
+X010,Weekly boundary,Not fully defined in core,PDFs provide partial Tuesday-open interpretation,critical,Formal weekly contract

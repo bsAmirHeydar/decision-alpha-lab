@@ -1,0 +1,46 @@
+﻿claim_id,topic,claim_summary,source,page,status,implementation_impact
+C001,Quarter cycle,هر cycle به چهار quarter تقسیم می‌شود,BUCKO,2,corroborating,Core time registry
+C002,Q1,Q1 رفتار cycleهای بعدی را context می‌دهد,QT,2,research_candidate,Profile metadata
+C003,Profile,دو profile اصلی AMDX و XAMD وجود دارد,QT,2,research_candidate,Profile classifier
+C004,True Open,True Open ابتدای Q2 است,QT,9,corroborating,Extended open registry
+C005,TWO,True Week Open برابر Tuesday open/Monday 18:00 است,QT,9,conflict,Resolve TWO boundary
+C006,TDO,True Day Open برابر midnight 00:00 است,QT,9,corroborating,Anchor renderer
+C007,DFR,DFR از دو سوم انتهایی Q1 ساخته می‌شود,QT,10,research_candidate,DFR engine
+C008,DFR,سطوح ±1 projection مهم‌اند,QT,12,research_candidate,Outcome study
+C009,SMT filter,بالای True Open bearish SMT و پایین bullish SMT ترجیح دارد,QT,15,research_candidate,Context feature
+C010,Golden Pocket,چهارشنبه 9-10:30 nesting سه Q3 است,QT,17,research_candidate,Time feature
+C011,CSD,CSD بدون SMT معتبر نیست,QT,22,research_candidate,Typed context
+C012,News,تراکم خبر می‌تواند زمان high/low هفته را context دهد,QT,24,research_candidate,News adapter
+C013,Stacked opens,هم‌ترازی True Openهای چند cycle probability را تغییر می‌دهد,QT,26,research_candidate,Context ledger
+C014,SSMT,Normal/Hidden/Closure SSMT سه نوع مستقل‌اند,QT,31,research_candidate,SSMT engine
+C015,SSMT failure,مکان نسبت به True Open روی failure اثر دارد,QT,38,research_candidate,Outcome stratification
+C016,NWOG,NWOG/NDOG می‌تواند PD array زمانی باشد,QT,39,research_candidate,Gap module
+C017,News open,open کندل خبر قرمز level است,QT,43,research_candidate,Event level
+C018,Precision,PSP/PC با SMT ساخته می‌شوند,QT,45,research_candidate,Precision module
+C019,Q4,overextension Q4 از Q2 با reversal/continuation مرتبط است,QT,51,research_candidate,Profile study
+C020,Cycle limits,هر asset class حداقل cycle متفاوت دارد,QT,57,research_candidate,Config study
+C021,SMT Fill,پرشدن FVG در یک بازار و نه دیگری SMT Fill است,QT,65,research_candidate,Typed event
+C022,Intermarket,SSMT بین بازارهای متفاوت قابل تعریف است,QT,70,research_candidate,Observer
+C023,Stop,Q2 high/low safe stop معرفی شده,QT,77,example_only,Future execution research
+C024,SMT MSS,SMT می‌تواند continuation را نشان دهد,QT,82,research_candidate,Event outcome type
+C025,Pi Range,3.14 candle lookback برای liquidity,QT,86,research_candidate,Experimental module
+C026,Hunter,نمادی که extreme را می‌زند Hunter است,BUCKO,18,clarifying_candidate,Role vocabulary
+C027,Protected,نماد دیگر Protected است,BUCKO,18,clarifying_candidate,Role vocabulary
+C028,Sequential SMT,روابط متوالی Q2-Q3/Q3-Q4 مهم‌اند,BUCKO,19,research_candidate,SSMT taxonomy
+C029,Bias,SSMT بدون bias اعتبار کمتری دارد,BUCKO,22,research_candidate,Context feature
+C030,Persistence,SSMT تا SMT مخالف ادامه دارد,BUCKO,23,research_candidate,Lifecycle study
+C031,333,nested Q3 setup در منبع 75% ادعا شده,DAYE,15,quarantined,Needs dataset
+C032,60-day,چرخش تقریبی هر 60 روز با divergence,DAYE,18,research_candidate,Long-horizon study
+C033,Time priority,زمان بر pattern مقدم است,DAYE,34,research_candidate,Feature hierarchy study
+C034,HTF arrays,BPR/FVG/liquidity pool context اصلی‌اند,DAYE,25,research_candidate,Context ledger
+C035,First sweep,اولین sweep مهم است,PRIMARY_DOCX,1,canonical,Reference lifecycle
+C036,Touch hunt,لمس برای hunt کافی است,PRIMARY_DOCX,1,canonical,Hunt detector
+C037,Close confirm,تأیید روی close timeframe میزبان,PRIMARY_DOCX,1,canonical,State machine
+C038,22 relationships,۲۲ رابطه signal ثابت وجود دارد,PRIMARY_DOCX,1,canonical,Signal registry
+C039,Hunter drawing,رسم فقط روی Hunter,PRIMARY_DOCX,1,canonical,Renderer
+C040,Swiss time,زمان سوییس time حقیقی معرفی شده,DAYE,184,conflict,Quarantine
+C041,NY time,تمام زمان‌های محصول بر اساس نیویورک است,PRIMARY_DOCX,1,canonical,Time core
+C042,Rates hierarchy,rates→DXY→FX→indices,DAYE,150,research_candidate,Intermarket observer
+C043,Close body,body/close می‌تواند sequential divergence بسازد,DAYE,153,conflict,Separate event type
+C044,News density,تعداد اخبار مهم‌تر از نوع خبر است,DAYE,106,research_candidate,News study
+C045,Historical lines,خط تأییدشده حذف نشود,PRIMARY_DOCX,1,canonical,Visual persistence

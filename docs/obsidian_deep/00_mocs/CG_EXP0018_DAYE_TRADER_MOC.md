@@ -42,3 +42,10 @@
 - [[Unresolved_Daye_Ambiguities_Block_Implementation]]
 - [[PHASE_EXP0018_Documentation_To_Implementation_Map]]
 - [[EXP0018_Documentation_Review_Checklist]]
+
+
+## Supplemental Corpus
+
+- [[CG EXP0018 Source Enrichment MOC]]
+- [[EXP0018 Source Authority and Weighting]]
+- [[EXP0018 Conflict and Ambiguity Register V2]]

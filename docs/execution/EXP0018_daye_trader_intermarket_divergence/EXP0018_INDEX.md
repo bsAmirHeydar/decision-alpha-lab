@@ -37,3 +37,10 @@
 ## تصمیم این مرحله
 
 هیچ ابهامی در این مرحله با حدس حل نشده است. موارد متناقض یا ناقص در `EXP0018_AMBIGUITY_REGISTER.md` ثبت شده‌اند تا پیش از کدنویسی پاسخ داده شوند.
+
+
+## غنی‌سازی منابع تکمیلی
+
+- [[EXP0018_SOURCE_ENRICHMENT_INDEX]]
+- سه PDF Bucko، QT Education و Trader Daye با مدل authority ۸۰/۲۰ مستند شدند.
+- هیچ enrichment بدون gate وارد core نمی‌شود.

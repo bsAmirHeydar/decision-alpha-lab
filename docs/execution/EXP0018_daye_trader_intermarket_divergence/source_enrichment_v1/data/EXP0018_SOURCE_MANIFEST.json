@@ -1,0 +1,45 @@
+{
+  "project": "EXP0018",
+  "package": "quarterly_theory_source_enrichment_v1",
+  "authority_model": {
+    "S0": "Explicit architect decisions in conversation",
+    "S1": "06_Daye Trader-v1 (1).docx — primary implementation doctrine (~80%)",
+    "S2": "Trader Daye _ ATT.Group.pdf — closest supplemental transcript",
+    "S3": "Bucko Trades Quarterly Theory Bootcamp — structured derivative summary",
+    "S4": "QT_Education.pdf — broad derivative curriculum and research hypotheses"
+  },
+  "sources": [
+    {
+      "id": "PRIMARY_DOCX",
+      "filename": "06_Daye Trader-v1 (1).docx",
+      "sha256": "f6eba08fd362458c1f88d9fb3e7aaa75610463ad0ec1ba73c7cf847d884e5029",
+      "bytes": 579540,
+      "paragraphs": 216,
+      "extractable_text_chars": 8653
+    },
+    {
+      "id": "BUCKO",
+      "filename": "Bucko Trades (Quarterly Theory Bootcamp) _ ATT.Group.pdf",
+      "sha256": "e4b1cc4fb816e46003fe8f9e7818a8ceb8c79d2957f2ed18bd56c168e49cbf90",
+      "bytes": 6926182,
+      "pages": 23,
+      "extractable_text_chars": 0
+    },
+    {
+      "id": "QT",
+      "filename": "QT_Education.pdf",
+      "sha256": "06b9b54ca41e700f3eceb99a827469ab476394fc0becdbe7d49fecbbf0f318f2",
+      "bytes": 8633186,
+      "pages": 99,
+      "extractable_text_chars": 23879
+    },
+    {
+      "id": "DAYE",
+      "filename": "Trader Daye _ ATT.Group.pdf",
+      "sha256": "1f4aed69788a414ec8c79bb19a643481be6a3160e183efc214b1b51c8d03dd8e",
+      "bytes": 18763723,
+      "pages": 208,
+      "extractable_text_chars": 90194
+    }
+  ]
+}
