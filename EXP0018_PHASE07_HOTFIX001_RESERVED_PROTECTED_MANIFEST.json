@@ -1,0 +1,36 @@
+{
+  "patch_id": "EXP0018-P07-HOTFIX001-RESERVED-PROTECTED",
+  "project": "EXP0018",
+  "phase": "P07",
+  "type": "compile_hotfix",
+  "files": [
+    "INSTALL_EXP0018_PHASE07_HOTFIX001_RESERVED_PROTECTED.md",
+    "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/14_phase07_reference_lifecycle_v2/hotfixes/HOTFIX001_MQL5_RESERVED_PROTECTED_IDENTIFIER.md",
+    "docs/obsidian_deep/01_concepts/EXP0018_P07_Protected_Is_A_Reserved_MQL5_Token.md",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh"
+  ],
+  "file_hashes": [
+    {
+      "path": "INSTALL_EXP0018_PHASE07_HOTFIX001_RESERVED_PROTECTED.md",
+      "sha256": "b0f046b35782d0f9908acd7455660cc415f2dcdd68d41a0bf155b8700980240b",
+      "size_bytes": 473
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/14_phase07_reference_lifecycle_v2/hotfixes/HOTFIX001_MQL5_RESERVED_PROTECTED_IDENTIFIER.md",
+      "sha256": "da8789f36c9898a7397494d408a75db6b730c4662d89ae3b060e9c93cb9b7ff5",
+      "size_bytes": 1093
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/EXP0018_P07_Protected_Is_A_Reserved_MQL5_Token.md",
+      "sha256": "975e7ac9ed7b8e337f69af00b88f191aff847d0b69210d3e52c7f8cc5d826173",
+      "size_bytes": 646
+    },
+    {
+      "path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
+      "sha256": "2fd551b44c0a5e3f74147b2439e4e10752b763218564a4459abadaf91e8373d5",
+      "size_bytes": 4336
+    }
+  ],
+  "behavior_change": false,
+  "execution_authority": false
+}

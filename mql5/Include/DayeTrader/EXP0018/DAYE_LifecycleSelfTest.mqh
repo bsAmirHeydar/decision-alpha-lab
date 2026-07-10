@@ -4,7 +4,7 @@
 #include <DayeTrader/EXP0018/DAYE_LifecycleAudit.mqh>
 
 void DAYE_P07BuildTestResult(const string result_id,const string opportunity_id,const string current_id,
-                             const string reference_id,const string hunter,const string protected,
+                             const string reference_id,const string hunter,const string protected_symbol,
                              const DAYE_HuntSide side,const datetime t,DAYE_ConfirmationResult &r)
 {
    ZeroMemory(r); r.schema_version=DAYE_CONFIRMATION_SCHEMA_VERSION; r.status=DAYE_CONFIRM_STATUS_READY;
@@ -12,7 +12,7 @@ void DAYE_P07BuildTestResult(const string result_id,const string opportunity_id,
    r.result_id=result_id; r.candidate_id="C_"+result_id; r.observation_id="O_"+result_id; r.opportunity_id=opportunity_id;
    r.relationship_id="LN"; r.source_alias="LN"; r.is_major=true; r.chart_label="LN"; r.side=side;
    r.close_pair_state=hunter=="SPX"?DAYE_HUNT_PAIR_A_ONLY:DAYE_HUNT_PAIR_B_ONLY;
-   r.hunter_broker_symbol=hunter; r.hunter_canonical_symbol=hunter; r.protected_broker_symbol=protected; r.protected_canonical_symbol=protected;
+   r.hunter_broker_symbol=hunter; r.hunter_canonical_symbol=hunter; r.protected_broker_symbol=protected_symbol; r.protected_canonical_symbol=protected_symbol;
    r.current_period_instance_id=current_id; r.reference_period_instance_id=reference_id;
    r.hunter_reference_price=100.0; r.protected_reference_price=200.0; r.host_bar_open_utc=t-300; r.host_bar_close_utc=t;
    r.host_bar_id="HB_"+IntegerToString((int)t); r.hunter_host_open=99; r.hunter_host_high=101; r.hunter_host_low=98; r.hunter_host_close=100;
