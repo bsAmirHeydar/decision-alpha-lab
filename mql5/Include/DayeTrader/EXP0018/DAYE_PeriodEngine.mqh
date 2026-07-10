@@ -1,4 +1,3 @@
-
 #ifndef __EXP0018_DAYE_PERIOD_ENGINE_MQH__
 #define __EXP0018_DAYE_PERIOD_ENGINE_MQH__
 
@@ -13,7 +12,9 @@ private:
    DAYE_SymbolDescriptor m_symbol_a;
    DAYE_SymbolDescriptor m_symbol_b;
    DAYE_PeriodStoreSummary m_previous_summary;
+   DAYE_PeriodStoreSummary m_current_summary;
    bool m_has_previous_summary;
+   bool m_has_current_summary;
    datetime m_last_probe_a;
    datetime m_last_probe_b;
    datetime m_last_full_refresh_utc;
@@ -45,7 +46,9 @@ public:
    CDayePeriodAggregationEngine(void)
    {
       ZeroMemory(m_previous_summary);
+      ZeroMemory(m_current_summary);
       m_has_previous_summary = false;
+      m_has_current_summary = false;
       m_last_probe_a = 0;
       m_last_probe_b = 0;
       m_last_full_refresh_utc = 0;
@@ -231,8 +234,36 @@ public:
       if(DAYE_ProbeLatestClosedBarTime(m_config.data_config.broker_symbol_b,m_config.data_config.base_timeframe,probe_b)) m_last_probe_b=probe_b;
       m_last_full_refresh_utc = processing_time_utc;
       m_previous_summary = period_summary;
+      m_current_summary = period_summary;
       m_has_previous_summary = true;
+      m_has_current_summary = true;
       return true;
+   }
+
+
+   bool GetCurrentSummary(DAYE_PeriodStoreSummary &summary)
+   {
+      if(!m_has_current_summary)
+         return false;
+      summary = m_current_summary;
+      return true;
+   }
+
+   int ExportPeriods(DAYE_PairedPeriodSnapshot &items[])
+   {
+      int count = m_store.Count();
+      ArrayResize(items,count);
+      for(int i=0;i<count;i++)
+      {
+         DAYE_PairedPeriodSnapshot item;
+         if(!m_store.Get(i,item))
+         {
+            ArrayResize(items,i);
+            return i;
+         }
+         items[i] = item;
+      }
+      return count;
    }
 
    void Shutdown(void)
@@ -242,7 +273,9 @@ public:
       m_store.Clear();
       ArrayResize(m_registry,0);
       ZeroMemory(m_previous_summary);
+      ZeroMemory(m_current_summary);
       m_has_previous_summary=false;
+      m_has_current_summary=false;
       m_last_probe_a=0;
       m_last_probe_b=0;
       m_last_full_refresh_utc=0;

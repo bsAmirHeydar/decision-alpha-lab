@@ -1,0 +1,10 @@
+﻿case_id,relationship_id,current_code,reference_code,current_completeness,reference_completeness,selector,expected_status,notes
+PA_open_current_complete_reference,DAYE_A_CURR_VS_P_PREV,A,P,OPEN,COMPLETE,PREVIOUS_CHRONOLOGICAL,READY,Open current is eligible; reference must be complete.
+DD_open_current_complete_reference,DAYE_D_CURR_VS_D_PREV,D,D,OPEN,COMPLETE,PREVIOUS_SAME_CODE,READY,Daily uses previous same-code link.
+AL_complete_current_complete_reference,DAYE_L_CURR_VS_A_PREV,L,A,COMPLETE,COMPLETE,PREVIOUS_CHRONOLOGICAL,READY,Major session topology.
+A1_complete_current_complete_reference,DAYE_A1_VS_P4,a1,p4,COMPLETE,COMPLETE,PREVIOUS_CHRONOLOGICAL,READY,p4 tail remains valid predecessor of a1.
+NP_blocked,DAYE_P_CURR_VS_N_PREV,P,N,OPEN,COMPLETE,PREVIOUS_CHRONOLOGICAL,BLOCKED_BY_DOCTRINE,Blocked by DY-A05.
+WW_blocked,DAYE_W_CURR_VS_W_PREV,W,W,OPEN,COMPLETE,PREVIOUS_SAME_CODE,BLOCKED_BY_DOCTRINE,Blocked by DY-A03.
+partial_reference_rejected,DAYE_A_CURR_VS_P_PREV,A,P,OPEN,PARTIAL,PREVIOUS_CHRONOLOGICAL,REFERENCE_NOT_COMPLETE,Fail closed on incomplete reference.
+partial_current_rejected,DAYE_A_CURR_VS_P_PREV,A,P,PARTIAL,COMPLETE,PREVIOUS_CHRONOLOGICAL,CURRENT_NOT_ELIGIBLE,Partial current disabled by default.
+reference_code_mismatch,DAYE_A_CURR_VS_P_PREV,A,N,OPEN,COMPLETE,PREVIOUS_CHRONOLOGICAL,REFERENCE_CODE_MISMATCH,Topology mismatch must not be silently accepted.
