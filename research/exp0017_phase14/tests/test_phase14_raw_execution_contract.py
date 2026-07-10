@@ -48,6 +48,8 @@ def test_atr_target_uses_closed_history_and_wilder_smoothing():
 
 def test_signal_source_reuses_hotfix_confirmation_authority():
     source = text(MOD / "CGX_SignalSource.mqh")
+    assert "#include <IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh>" in source
+    assert source.index("CGC_ConfirmationField.mqh") < source.index("class CCGX_SignalSource")
     assert "CCGC_ConfirmationField m_confirmation_field" in source
     assert "BuildFinalSignalsForGroup" in source
     assert "HasM1HistoryBounds(m_confirmation_config.symbol_a" in source

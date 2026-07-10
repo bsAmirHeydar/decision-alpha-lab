@@ -51,3 +51,4 @@ This phase produces broker/tester orders and a structured audit CSV. It does not
 - [[PHASE14_MODULE_ARCHITECTURE]]
 - [[PHASE14_BACKTEST_OPERATOR_GUIDE]]
 - [[PHASE14_VALIDATION_PLAN]]
+- [[hotfixes/PHASE14_HOTFIX_001_SIGNAL_SOURCE_DIRECT_DEPENDENCY]]

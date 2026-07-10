@@ -2,6 +2,7 @@
 #define __CGX_SIGNAL_SOURCE_MQH__
 
 #include <IntermarketDivergenceExecution/CG/CGT_Time.mqh>
+#include <IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh>
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_Types.mqh>
 
 class CCGX_SignalSource

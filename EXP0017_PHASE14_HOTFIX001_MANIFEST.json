@@ -1,0 +1,41 @@
+{
+  "patch_id": "EXP0017-PH14-HF001-SIGNAL-SOURCE-DIRECT-DEPENDENCY",
+  "version": "1.0.1",
+  "created": "2026-07-10",
+  "experiment": "EXP0017",
+  "required_baseline": "EXP0017 Phase14 Raw Execution Backtest V1",
+  "intent": "Make the signal source directly include the header that defines CCGC_ConfirmationField.",
+  "behavior_change": false,
+  "files": [
+    {
+      "path": "INSTALL_EXP0017_PHASE14_HOTFIX001_SIGNAL_SOURCE_DIRECT_DEPENDENCY_PATCH.md",
+      "size_bytes": 601,
+      "sha256": "a50b2d466b90912088564f4528df6d04179e32db7754ba0104ea787a436b55d7",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_SignalSource.mqh",
+      "size_bytes": 6941,
+      "sha256": "ca91b4baecec1978fcb3bc319f6dae7846eba9ad6c407938e7861d0f8ef3032f",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_INDEX.md",
+      "size_bytes": 2107,
+      "sha256": "eeac0b224edda2a51cfe304a21e49b95edc9b07b2d057cfcf76efc5ff53c5b61",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/hotfixes/PHASE14_HOTFIX_001_SIGNAL_SOURCE_DIRECT_DEPENDENCY.md",
+      "size_bytes": 1136,
+      "sha256": "c94036a8f99d6494161436565dbbc8fb7ca7823b9ff249e4e283cbac2eee3210",
+      "change": "added"
+    },
+    {
+      "path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+      "size_bytes": 3414,
+      "sha256": "1c0aab4ac265b504ad5b6207e3c594f35b03c77586a6ca50f037883a52f269d7",
+      "change": "modified"
+    }
+  ]
+}
