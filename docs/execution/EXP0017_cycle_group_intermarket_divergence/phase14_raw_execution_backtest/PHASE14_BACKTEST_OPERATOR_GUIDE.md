@@ -6,34 +6,55 @@
 mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5
 ```
 
-## Required baseline
-
-Install Phase06 Hotfix011 before compiling Phase14. The executor imports the current confirmation and freshness modules.
-
-## Recommended first test
+## Default test profile
 
 ```text
-Expert: EXP0017_CG_Raw_Execution_Backtest
 Host symbol: SPXUSD
-Period: M1
-Model: Every tick based on real ticks
-Runtime: BACKTEST_ONLY
-Symbol A: SPXUSD
-Symbol B: NDXUSD
-Trade leg: PROTECTED_SYMBOL
+Confirmation timeframe: chart timeframe
+Trade leg: protected symbol
+Entry: market on first tick after closed candle
+Stop: behind confirmation candle
+Sell spread adjustment: enabled
+Target model: ATR multiple
 ATR period: 14
 ATR multiplier: 1.0
-Volume model: RISK_PERCENT_EQUITY
-Risk: 1.0
-cg_3m: true
-all other CG switches: false
+Volume model: fixed monetary risk
+Fixed risk: 100 account-currency units
+Hedging: enabled
+Execution visuals: enabled
+cg_3m: enabled
+all other CGs: disabled
 ```
 
-The default input requires a hedging test account so independent simultaneous positions retain separate SL/TP lifecycles. Disable that requirement only when netting aggregation is deliberately accepted.
+For a USD test account, `InpFixedRiskMoney=100` means a planned maximum stop loss of USD 100 before commission, gaps, and execution slippage.
 
-## First-run behavior
+## Alternative target test
 
-The expert first reconstructs the current New York trading-day lifecycle from historical closed candles. No warmup order is sent. The Journal prints a warmup-complete line once both symbols have sufficient history.
+Select:
+
+```text
+InpTargetModel = CGX_TARGET_RISK_MULTIPLE
+InpRiskRewardMultiple = 1.0
+```
+
+The TP distance then equals one confirmation-stop distance.
+
+## Hedge-off test
+
+Set `InpEnableHedging=false` and generate an opposite signal while an EXP0017 position remains open on the same symbol. The second trade must be rejected with:
+
+```text
+hedging_disabled_opposite_position_exists
+```
+
+## Visual test
+
+Run Strategy Tester in visual mode.
+
+- Executed CG divergence legs use prefix `EXP0017_P14_`.
+- The selected trade-symbol chart receives entry, stop, and TP segments.
+- No drawing should appear for rejected plans.
+- Disable all execution drawings with `InpDrawExecutedCGSignals=false`.
 
 ## Audit output
 
@@ -43,17 +64,4 @@ Default file:
 EXP0017_Phase14_Raw_Execution_Audit.csv
 ```
 
-The audit records accepted plans, rejected plans, paper decisions, broker attempts, retcodes, price geometry, ATR, volume, magic number, and tickets.
-
-## Optimization sequence
-
-Keep signal rules fixed while optimizing execution parameters. Start with:
-
-1. ATR multiplier.
-2. ATR period.
-3. stop buffer points.
-4. protected versus hunter execution leg.
-5. confirmation timeframe.
-6. individual CG enable switches.
-
-Do not optimize freshness or divergence doctrine in the execution test; those are signal-authority parameters and require a separate research decision.
+The audit includes target model, volume model, hedge state, spread, stop distance, risk budget, one-lot risk, projected stop loss, normalized volume, and broker result.

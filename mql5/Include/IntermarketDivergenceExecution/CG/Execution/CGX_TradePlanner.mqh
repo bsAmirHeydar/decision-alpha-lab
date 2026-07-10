@@ -10,7 +10,7 @@ private:
    CCGX_ClosedCandleProvider m_candle_provider;
    CCGX_EntryModel           m_entry_model;
    CCGX_StopModel            m_stop_model;
-   CCGX_TargetModelATR       m_target_model;
+   CCGX_TargetModel          m_target_model;
    CCGX_VolumeModel          m_volume_model;
 
    void ResetPlan(SCGXTradePlan &plan)
@@ -23,6 +23,8 @@ private:
       plan.group_index=-1;
       plan.direction=CGC_DIRECTION_NONE;
       plan.trade_leg=CGX_TRADE_PROTECTED_SYMBOL;
+      plan.target_model=CGX_TARGET_ATR_MULTIPLE;
+      plan.volume_model=CGX_VOLUME_FIXED_RISK_MONEY;
       plan.hunter_symbol="";
       plan.protected_symbol="";
       plan.trade_symbol="";
@@ -34,12 +36,17 @@ private:
       plan.candle_close=0.0;
       plan.quote_bid=0.0;
       plan.quote_ask=0.0;
+      plan.spread_price=0.0;
+      plan.spread_points=0.0;
       plan.planned_entry_price=0.0;
       plan.stop_loss=0.0;
+      plan.stop_distance=0.0;
       plan.atr_value=0.0;
       plan.take_profit=0.0;
-      plan.risk_money=0.0;
+      plan.target_distance=0.0;
+      plan.risk_budget_money=0.0;
       plan.risk_per_lot=0.0;
+      plan.planned_loss_at_stop=0.0;
       plan.volume=0.0;
       plan.magic_number=0;
       plan.order_comment="";
@@ -106,6 +113,8 @@ public:
       plan.group_index=group_index;
       plan.direction=signal.direction;
       plan.trade_leg=m_config.trade_leg;
+      plan.target_model=m_config.target_model;
+      plan.volume_model=m_config.volume_model;
       plan.hunter_symbol=signal.hunter_symbol;
       plan.protected_symbol=signal.clean_symbol;
       plan.confirmation_time_broker=signal.confirmation_time_broker;
@@ -149,23 +158,49 @@ public:
       }
       plan.quote_bid=tick.bid;
       plan.quote_ask=tick.ask;
+      plan.spread_price=MathMax(0.0,tick.ask-tick.bid);
+      double point=SymbolInfoDouble(plan.trade_symbol,SYMBOL_POINT);
+      if(point>0.0)
+         plan.spread_points=plan.spread_price/point;
 
-      if(!m_stop_model.Build(m_config,candle,signal.direction,plan.planned_entry_price,plan.stop_loss,reason))
+      if(!m_stop_model.Build(m_config,candle,signal.direction,plan.planned_entry_price,plan.spread_price,plan.stop_loss,reason))
       {
          plan.rejection_reason=reason;
          return false;
       }
-      if(!m_target_model.Build(m_config,plan.trade_symbol,signal.confirmation_timeframe,signal.confirmation_time_broker,signal.direction,plan.planned_entry_price,plan.atr_value,plan.take_profit,reason))
+      plan.stop_distance=MathAbs(plan.planned_entry_price-plan.stop_loss);
+
+      if(!m_target_model.Build(m_config,
+                               plan.trade_symbol,
+                               signal.confirmation_timeframe,
+                               signal.confirmation_time_broker,
+                               signal.direction,
+                               plan.planned_entry_price,
+                               plan.stop_loss,
+                               plan.atr_value,
+                               plan.take_profit,
+                               reason))
       {
          plan.rejection_reason=reason;
          return false;
       }
+      plan.target_distance=MathAbs(plan.take_profit-plan.planned_entry_price);
+
       if(!ValidateBrokerGeometry(plan,reason))
       {
          plan.rejection_reason=reason;
          return false;
       }
-      if(!m_volume_model.Build(m_config,plan.trade_symbol,signal.direction,plan.planned_entry_price,plan.stop_loss,plan.risk_money,plan.risk_per_lot,plan.volume,reason))
+      if(!m_volume_model.Build(m_config,
+                               plan.trade_symbol,
+                               signal.direction,
+                               plan.planned_entry_price,
+                               plan.stop_loss,
+                               plan.risk_budget_money,
+                               plan.risk_per_lot,
+                               plan.planned_loss_at_stop,
+                               plan.volume,
+                               reason))
       {
          plan.rejection_reason=reason;
          return false;

@@ -44,7 +44,10 @@ Default profile:
 - protected/clean symbol execution;
 - market entry after closed confirmation candle;
 - stop behind the selected symbol confirmation candle;
-- ATR(14) × 1.0 target;
-- 1% equity risk sizing;
+- ATR(14) × 1.0 target by default, with optional fixed stop-risk multiple;
+- fixed monetary risk sizing with maximum broker-valid volume under the risk cap;
+- SELL stop spread adjustment enabled;
+- hedging enabled by default and input-switchable;
+- optional executed-CG divergence and entry/SL/TP drawings;
 - only `cg_3m` enabled.
 

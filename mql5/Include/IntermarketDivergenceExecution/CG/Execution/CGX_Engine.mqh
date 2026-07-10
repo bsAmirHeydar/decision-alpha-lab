@@ -3,6 +3,7 @@
 
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_SignalSource.mqh>
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_Audit.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_ExecutionVisuals.mqh>
 
 class CCGX_Engine
 {
@@ -13,6 +14,7 @@ private:
    CCGX_SignalRegistry m_registry;
    CCGX_OrderRouter    m_router;
    CCGX_Audit          m_audit;
+   CCGX_ExecutionVisuals m_visuals;
    bool                m_clock_primed;
    datetime            m_last_processed_close;
 
@@ -59,14 +61,22 @@ private:
 
    bool ValidateConfig(string &reason)
    {
-      if(m_execution_config.atr_period<1)
+      if(m_execution_config.target_model==CGX_TARGET_ATR_MULTIPLE)
       {
-         reason="atr_period_must_be_positive";
-         return false;
+         if(m_execution_config.atr_period<1)
+         {
+            reason="atr_period_must_be_positive";
+            return false;
+         }
+         if(m_execution_config.atr_multiplier<=0.0)
+         {
+            reason="atr_multiplier_must_be_positive";
+            return false;
+         }
       }
-      if(m_execution_config.atr_multiplier<=0.0)
+      if(m_execution_config.target_model==CGX_TARGET_RISK_MULTIPLE && m_execution_config.risk_reward_multiple<=0.0)
       {
-         reason="atr_multiplier_must_be_positive";
+         reason="risk_reward_multiple_must_be_positive";
          return false;
       }
       if(m_execution_config.magic_base<=0)
@@ -74,9 +84,14 @@ private:
          reason="magic_base_must_be_positive";
          return false;
       }
-      if(m_execution_config.require_hedging_account && !CGX_IsHedgingAccount())
+      if(m_execution_config.enable_hedging && m_execution_config.require_hedging_account && !CGX_IsHedgingAccount())
       {
-         reason="hedging_account_required_for_independent_signal_trades";
+         reason="hedging_account_required_when_hedging_enabled";
+         return false;
+      }
+      if(m_execution_config.volume_model==CGX_VOLUME_FIXED_RISK_MONEY && m_execution_config.fixed_risk_money<=0.0)
+      {
+         reason="fixed_risk_money_must_be_positive";
          return false;
       }
       if(m_execution_config.volume_model==CGX_VOLUME_RISK_PERCENT_EQUITY && m_execution_config.risk_percent_equity<=0.0)
@@ -109,15 +124,19 @@ public:
       m_registry.Configure(m_execution_config.max_signal_registry_records);
       m_router.Configure(m_execution_config);
       m_audit.Configure(m_execution_config);
+      m_visuals.Configure(m_execution_config);
       m_clock_primed=false;
       m_last_processed_close=0;
 
-      Print(StringFormat("EXP0017 CGX initialized | runtime=%s | leg=%s | confirmation_tf=%s | ATR(%d)*%.2f | magic_base=%d",
+      Print(StringFormat("EXP0017 CGX initialized | runtime=%s | leg=%s | target=%s | volume=%s | fixed_risk=%.2f %s | hedge=%s | draw=%s | magic_base=%d",
                          CGX_RuntimeText(m_execution_config.runtime_mode),
                          CGX_TradeLegText(m_execution_config.trade_leg),
-                         EnumToString(m_signal_source.ConfirmationTimeframe()),
-                         m_execution_config.atr_period,
-                         m_execution_config.atr_multiplier,
+                         CGX_TargetModelText(m_execution_config.target_model),
+                         CGX_VolumeModelText(m_execution_config.volume_model),
+                         m_execution_config.fixed_risk_money,
+                         AccountInfoString(ACCOUNT_CURRENCY),
+                         (m_execution_config.enable_hedging ? "ON" : "OFF"),
+                         (m_execution_config.draw_executed_signals ? "ON" : "OFF"),
                          m_execution_config.magic_base));
       return true;
    }
@@ -140,9 +159,6 @@ public:
       if(closed_at<m_last_processed_close)
          return;
 
-      // Commit the decision boundary before planning. A send failure must not be
-      // retried on a later candle because the approved entry is the first tick
-      // after this exact closed-candle boundary.
       m_last_processed_close=closed_at;
 
       SCGCFinalSignal signals[];
@@ -169,7 +185,10 @@ public:
          result.result_price=0.0;
          result.message="";
          if(planned)
+         {
             m_router.Execute(plan,result);
+            m_visuals.DrawAcceptedExecution(signals[i],plan,result);
+         }
          else
             result.message="plan_rejected_"+plan.rejection_reason;
          m_audit.Write(plan,result);
@@ -179,6 +198,7 @@ public:
    void Clear()
    {
       m_registry.Clear();
+      m_visuals.Clear();
    }
 };
 

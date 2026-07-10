@@ -28,13 +28,15 @@ enum ECGXStopModel
 
 enum ECGXTargetModel
 {
-   CGX_TARGET_ATR_MULTIPLE = 0
+   CGX_TARGET_ATR_MULTIPLE  = 0,
+   CGX_TARGET_RISK_MULTIPLE = 1
 };
 
 enum ECGXVolumeModel
 {
    CGX_VOLUME_RISK_PERCENT_EQUITY = 0,
-   CGX_VOLUME_FIXED_LOTS          = 1
+   CGX_VOLUME_FIXED_LOTS          = 1,
+   CGX_VOLUME_FIXED_RISK_MONEY    = 2
 };
 
 enum ECGXPositionPolicy
@@ -59,12 +61,18 @@ struct SCGXExecutionConfig
    ECGXVolumeModel volume_model;
    ECGXPositionPolicy position_policy;
    ECGXNettingPolicy netting_policy;
+
+   bool   enable_hedging;
    bool   require_hedging_account;
 
    double stop_buffer_points;
+   bool   add_spread_to_sell_stop;
+
    int    atr_period;
    double atr_multiplier;
+   double risk_reward_multiple;
 
+   double fixed_risk_money;
    double risk_percent_equity;
    double fixed_lots;
    bool   allow_minimum_volume_risk_overflow;
@@ -80,6 +88,15 @@ struct SCGXExecutionConfig
    bool   audit_use_common_files;
    string audit_file_name;
    int    max_signal_registry_records;
+
+   bool   draw_executed_signals;
+   bool   draw_execution_levels;
+   bool   draw_on_both_input_symbol_charts;
+   bool   open_missing_visual_charts;
+   bool   clear_execution_objects_on_init;
+   bool   clear_execution_objects_on_deinit;
+   string symbol_a;
+   string symbol_b;
 };
 
 struct SCGXClosedCandle
@@ -107,6 +124,8 @@ struct SCGXTradePlan
    int      group_index;
    ECGCSignalDirection direction;
    ECGXTradeLeg trade_leg;
+   ECGXTargetModel target_model;
+   ECGXVolumeModel volume_model;
    string   hunter_symbol;
    string   protected_symbol;
    string   trade_symbol;
@@ -118,12 +137,17 @@ struct SCGXTradePlan
    double   candle_close;
    double   quote_bid;
    double   quote_ask;
+   double   spread_price;
+   double   spread_points;
    double   planned_entry_price;
    double   stop_loss;
+   double   stop_distance;
    double   atr_value;
    double   take_profit;
-   double   risk_money;
+   double   target_distance;
+   double   risk_budget_money;
    double   risk_per_lot;
+   double   planned_loss_at_stop;
    double   volume;
    long     magic_number;
    string   order_comment;

@@ -18,6 +18,21 @@ string CGX_TradeLegText(const ECGXTradeLeg leg)
    return "UNKNOWN";
 }
 
+string CGX_TargetModelText(const ECGXTargetModel model)
+{
+   if(model==CGX_TARGET_ATR_MULTIPLE) return "ATR_MULTIPLE";
+   if(model==CGX_TARGET_RISK_MULTIPLE) return "RISK_MULTIPLE";
+   return "UNKNOWN";
+}
+
+string CGX_VolumeModelText(const ECGXVolumeModel model)
+{
+   if(model==CGX_VOLUME_FIXED_RISK_MONEY) return "FIXED_RISK_MONEY";
+   if(model==CGX_VOLUME_RISK_PERCENT_EQUITY) return "RISK_PERCENT_EQUITY";
+   if(model==CGX_VOLUME_FIXED_LOTS) return "FIXED_LOTS";
+   return "UNKNOWN";
+}
+
 string CGX_DirectionText(const ECGCSignalDirection direction)
 {
    if(direction==CGC_DIRECTION_BUY) return "BUY";

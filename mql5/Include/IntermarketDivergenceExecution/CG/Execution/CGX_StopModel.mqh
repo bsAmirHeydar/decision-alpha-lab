@@ -6,7 +6,13 @@
 class CCGX_StopModel
 {
 public:
-   bool Build(const SCGXExecutionConfig &config,const SCGXClosedCandle &candle,const ECGCSignalDirection direction,const double entry_price,double &stop_loss,string &reason)
+   bool Build(const SCGXExecutionConfig &config,
+              const SCGXClosedCandle &candle,
+              const ECGCSignalDirection direction,
+              const double entry_price,
+              const double spread_price,
+              double &stop_loss,
+              string &reason)
    {
       if(config.stop_model!=CGX_STOP_BEHIND_CONFIRMATION_CANDLE)
       {
@@ -32,7 +38,10 @@ public:
       if(direction==CGC_DIRECTION_BUY)
          stop_loss=candle.low-(buffer_points*point);
       else if(direction==CGC_DIRECTION_SELL)
-         stop_loss=candle.high+(buffer_points*point);
+      {
+         double sell_spread=(config.add_spread_to_sell_stop ? MathMax(0.0,spread_price) : 0.0);
+         stop_loss=candle.high+(buffer_points*point)+sell_spread;
+      }
       else
       {
          reason="invalid_direction_for_stop";

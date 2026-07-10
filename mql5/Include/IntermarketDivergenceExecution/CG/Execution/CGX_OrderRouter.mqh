@@ -80,6 +80,28 @@ private:
       return false;
    }
 
+   bool HasOwnOppositePosition(const string symbol,const ECGCSignalDirection direction)
+   {
+      for(int i=PositionsTotal()-1;i>=0;i--)
+      {
+         ulong ticket=PositionGetTicket(i);
+         if(ticket==0)
+            continue;
+         if(PositionGetString(POSITION_SYMBOL)!=symbol)
+            continue;
+         long magic=PositionGetInteger(POSITION_MAGIC);
+         if(!CGX_IsMagicOwned(magic,m_config.magic_base))
+            continue;
+
+         ENUM_POSITION_TYPE position_type=(ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+         if(direction==CGC_DIRECTION_BUY && position_type==POSITION_TYPE_SELL)
+            return true;
+         if(direction==CGC_DIRECTION_SELL && position_type==POSITION_TYPE_BUY)
+            return true;
+      }
+      return false;
+   }
+
    bool PositionPolicyAllows(const SCGXTradePlan &plan,string &reason)
    {
       if(!CGX_IsHedgingAccount())
@@ -89,6 +111,11 @@ private:
             reason="netting_account_position_already_exists";
             return false;
          }
+      }
+      if(!m_config.enable_hedging && HasOwnOppositePosition(plan.trade_symbol,plan.direction))
+      {
+         reason="hedging_disabled_opposite_position_exists";
+         return false;
       }
       if(m_config.position_policy==CGX_POSITION_ONE_OWN_POSITION_SYMBOL && HasOwnPositionOnSymbol(plan.trade_symbol))
       {
@@ -143,6 +170,16 @@ public:
       }
 
       string reason="";
+      if(!DirectionAllowedBySymbol(plan.trade_symbol,plan.direction,reason))
+      {
+         result.message=reason;
+         return false;
+      }
+      if(!PositionPolicyAllows(plan,reason))
+      {
+         result.message=reason;
+         return false;
+      }
       if(m_config.runtime_mode==CGX_RUNTIME_PAPER_ONLY)
       {
          result.paper_only=true;
@@ -150,16 +187,6 @@ public:
          return true;
       }
       if(!TransportAllowed(reason))
-      {
-         result.message=reason;
-         return false;
-      }
-      if(!DirectionAllowedBySymbol(plan.trade_symbol,plan.direction,reason))
-      {
-         result.message=reason;
-         return false;
-      }
-      if(!PositionPolicyAllows(plan,reason))
       {
          result.message=reason;
          return false;

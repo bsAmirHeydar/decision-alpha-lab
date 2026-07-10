@@ -2,16 +2,16 @@
 
 ## Static contract checks
 
-- Expert default trade leg is protected.
-- `cg_3m` defaults true and every other CG defaults false.
-- ATR defaults to period 14 and multiplier 1.0.
-- Confirmation candle is copied from `[close - period, close)`.
-- BUY stop uses candle low; SELL stop uses candle high.
-- Signal source calls the existing `BuildFinalSignalsForGroup` authority.
-- Warmup checks M1 bounds for Symbol A and Symbol B.
-- Attempt registration occurs before planning and routing.
-- Backtest-only runtime contains a tester gate.
-- CTrade exists only in the router module.
+- Protected symbol remains the default trade leg.
+- Only `cg_3m` defaults enabled.
+- ATR(14) × 1.0 remains the default target.
+- Stop-risk-multiple target is independently selectable.
+- Fixed monetary risk is the default volume model.
+- Hedging defaults enabled and can be disabled.
+- SELL stop includes current spread when enabled.
+- Risk-capped volume is rounded down and rechecked against budget.
+- Executed-signal visuals own prefix `EXP0017_P14_`.
+- `CTrade` exists only in the order router.
 
 ## MetaEditor compile gate
 
@@ -29,43 +29,42 @@ Required result:
 
 ## Strategy Tester scenarios
 
-### Scenario A — default protected CG3
+### A — fixed-risk CG3
 
-- only `cg_3m=true`;
-- protected leg;
-- verify every order comment begins with `E17|3m|P|`;
-- verify BUY SL is below the protected confirmation candle low;
-- verify SELL SL is above the protected confirmation candle high;
-- verify TP distance equals one ATR within symbol rounding.
+- `cg_3m=true`, all others false;
+- fixed risk 100;
+- verify every projected stop loss is `<= 100` in the audit;
+- verify selected volume is one broker step below the first volume that would breach 100, unless capped by broker maximum.
 
-### Scenario B — hunter leg
+### B — sell spread stop
 
-- switch only `InpTradeLeg` to hunter;
-- verify direction remains unchanged;
-- verify candle, SL, ATR, TP, and volume are calculated on hunter symbol.
+- verify SELL SL equals candle high + point buffer + entry quote spread;
+- disable `InpAddSpreadToSellStop` and verify the spread term disappears.
 
-### Scenario C — duplicate suppression
+### C — ATR and R target parity
 
-- keep a confirmed signal visible across multiple closed bars;
-- verify one signal ID produces one attempt only.
+- run ATR target with configurable multiplier;
+- run stop-risk target with 1R and 2R;
+- verify target distance against audit geometry.
 
-### Scenario D — restart warmup
+### D — hedge switch
 
-- start test or attach expert after the New York trading day has begun;
-- verify earlier signals are replayed without orders;
-- verify protected-reference lifecycle matches a test started at 18:00 NY.
+- hedging enabled: allow opposite independent positions on a hedging account;
+- hedging disabled: reject an opposite owned position on the same symbol;
+- verify same-direction behavior follows `InpPositionPolicy`.
 
-### Scenario E — secondary-symbol history delay
+### E — visuals
 
-- withhold or delay NDX history;
-- verify warmup does not complete and no order is sent;
-- load NDX history and verify deterministic continuation.
+- verify only accepted trades draw;
+- verify symbol-local divergence prices are placed only on matching charts;
+- verify entry, SL, and TP levels appear only on the trade-symbol chart;
+- verify disabling visual input creates no `EXP0017_P14_` objects.
 
-### Scenario F — broker constraints
+### F — minimum volume
 
-- test minimum volume, volume step, stop level, stale quote, and spread limit rejection paths;
-- verify each rejection appears in the audit CSV.
+- configure a risk budget below broker minimum-lot stop loss;
+- verify fixed-risk sizing rejects rather than exceeding the budget.
 
 ## Acceptance
 
-Phase14 v1 is accepted only after MetaEditor compilation and visual reconciliation of at least one BUY and one SELL plan against the selected trade symbol's exact confirmation candle.
+Acceptance requires MetaEditor compilation, passing static tests, and visual/audit reconciliation of at least one BUY and one SELL under both target models.

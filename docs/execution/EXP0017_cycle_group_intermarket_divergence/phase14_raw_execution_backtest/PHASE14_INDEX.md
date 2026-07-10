@@ -11,10 +11,14 @@ The signal authority remains the Hotfix011 confirmation stack. Phase 14 consumes
 - Default trade leg: protected symbol (`signal.clean_symbol`).
 - Stop: behind the selected trade symbol's confirmation candle.
 - Buy stop: confirmation candle low minus optional point buffer.
-- Sell stop: confirmation candle high plus optional point buffer.
+- Sell stop: confirmation candle high plus optional point buffer and current spread by default.
 - Target: ATR multiple measured from planned market entry.
 - Default ATR: Wilder ATR, period 14, multiplier 1.0.
-- Default sizing: 1% equity risk, normalized down to broker volume step.
+- Default sizing: fixed monetary risk, normalized down to the largest broker-valid volume that does not exceed the configured stop-loss budget.
+- Hedge permission is input-controlled and defaults enabled.
+- SELL stops optionally include current spread and default to including it.
+- Targets support ATR multiple and fixed stop-risk multiple.
+- Accepted executions can draw the traded CG divergence and entry/SL/TP levels.
 - Default enabled cycle group: `cg_3m` only.
 - All other 20 CG trade switches exist and default to disabled.
 - Default runtime: Strategy Tester only. The expert refuses to transport orders outside the tester unless the runtime input is explicitly changed.
@@ -34,11 +38,14 @@ The signal authority remains the Hotfix011 confirmation stack. Phase 14 consumes
 - `CGX_EntryModel.mqh`
 - `CGX_StopModel.mqh`
 - `CGX_TargetModelATR.mqh`
+- `CGX_TargetModelRiskMultiple.mqh`
+- `CGX_TargetModel.mqh`
 - `CGX_VolumeModel.mqh`
 - `CGX_TradePlanner.mqh`
 - `CGX_SignalRegistry.mqh`
 - `CGX_OrderRouter.mqh`
 - `CGX_Audit.mqh`
+- `CGX_ExecutionVisuals.mqh`
 - `CGX_Engine.mqh`
 
 ## Phase boundary
@@ -51,4 +58,5 @@ This phase produces broker/tester orders and a structured audit CSV. It does not
 - [[PHASE14_MODULE_ARCHITECTURE]]
 - [[PHASE14_BACKTEST_OPERATOR_GUIDE]]
 - [[PHASE14_VALIDATION_PLAN]]
+- [[PHASE14_EXECUTION_CONTROLS_V2]]
 - [[hotfixes/PHASE14_HOTFIX_001_SIGNAL_SOURCE_DIRECT_DEPENDENCY]]

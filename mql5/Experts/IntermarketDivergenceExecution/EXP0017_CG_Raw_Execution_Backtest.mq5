@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.00"
+#property version   "1.10"
 #property description "EXP0017 Phase 14 - Modular raw execution backtest"
-#property description "Closed-candle CG divergence entries; protected/hunter leg input; candle-extreme stop; ATR target."
+#property description "Closed-candle CG divergence entries with modular targets, fixed-money risk, hedge control, and execution visuals."
 
 #include <IntermarketDivergenceExecution/CG/Execution/CGX_Engine.mqh>
 
@@ -36,26 +36,40 @@ input bool InpProcessExistingClosedBarOnInit = false;
 input group "EXP0017 / Stop Model"
 input ECGXStopModel InpStopModel = CGX_STOP_BEHIND_CONFIRMATION_CANDLE;
 input double InpStopBufferPoints = 0.0;
+input bool InpAddSpreadToSellStop = true;
 
 input group "EXP0017 / Target Model"
 input ECGXTargetModel InpTargetModel = CGX_TARGET_ATR_MULTIPLE;
 input int InpATRPeriod = 14;
 input double InpATRMultiplier = 1.0;
+input double InpRiskRewardMultiple = 1.0;
 
 input group "EXP0017 / Volume and Risk"
-input ECGXVolumeModel InpVolumeModel = CGX_VOLUME_RISK_PERCENT_EQUITY;
+input ECGXVolumeModel InpVolumeModel = CGX_VOLUME_FIXED_RISK_MONEY;
+input double InpFixedRiskMoney = 100.0;
 input double InpRiskPercentEquity = 1.0;
 input double InpFixedLots = 0.10;
 input bool InpAllowMinimumVolumeRiskOverflow = false;
+
+input group "EXP0017 / Hedge and Position Policy"
+input bool InpEnableHedging = true;
+input bool InpRequireHedgingAccount = true;
+input ECGXPositionPolicy InpPositionPolicy = CGX_POSITION_EVERY_SIGNAL;
+input ECGXNettingPolicy InpNettingPolicy = CGX_NETTING_SKIP_WHEN_POSITION_EXISTS;
 
 input group "EXP0017 / Broker Routing"
 input long InpMagicBase = 17017000;
 input int InpDeviationPoints = 30;
 input double InpMaxSpreadPoints = 0.0;
 input int InpMaxQuoteAgeSeconds = 0;
-input ECGXPositionPolicy InpPositionPolicy = CGX_POSITION_EVERY_SIGNAL;
-input bool InpRequireHedgingAccount = true;
-input ECGXNettingPolicy InpNettingPolicy = CGX_NETTING_SKIP_WHEN_POSITION_EXISTS;
+
+input group "EXP0017 / Execution Visuals"
+input bool InpDrawExecutedCGSignals = true;
+input bool InpDrawExecutionLevels = true;
+input bool InpDrawOnBothInputSymbolCharts = true;
+input bool InpOpenMissingVisualCharts = false;
+input bool InpClearExecutionObjectsOnInit = true;
+input bool InpClearExecutionObjectsOnDeinit = false;
 
 input group "EXP0017 / Audit"
 input bool InpPrintExecutionEvents = true;
@@ -158,10 +172,14 @@ void LoadExecutionConfig(SCGXExecutionConfig &config)
    config.volume_model=InpVolumeModel;
    config.position_policy=InpPositionPolicy;
    config.netting_policy=InpNettingPolicy;
+   config.enable_hedging=InpEnableHedging;
    config.require_hedging_account=InpRequireHedgingAccount;
    config.stop_buffer_points=InpStopBufferPoints;
+   config.add_spread_to_sell_stop=InpAddSpreadToSellStop;
    config.atr_period=InpATRPeriod;
    config.atr_multiplier=InpATRMultiplier;
+   config.risk_reward_multiple=InpRiskRewardMultiple;
+   config.fixed_risk_money=InpFixedRiskMoney;
    config.risk_percent_equity=InpRiskPercentEquity;
    config.fixed_lots=InpFixedLots;
    config.allow_minimum_volume_risk_overflow=InpAllowMinimumVolumeRiskOverflow;
@@ -175,6 +193,14 @@ void LoadExecutionConfig(SCGXExecutionConfig &config)
    config.audit_use_common_files=InpAuditUseCommonFiles;
    config.audit_file_name=InpAuditFileName;
    config.max_signal_registry_records=InpMaxSignalRegistryRecords;
+   config.draw_executed_signals=InpDrawExecutedCGSignals;
+   config.draw_execution_levels=InpDrawExecutionLevels;
+   config.draw_on_both_input_symbol_charts=InpDrawOnBothInputSymbolCharts;
+   config.open_missing_visual_charts=InpOpenMissingVisualCharts;
+   config.clear_execution_objects_on_init=InpClearExecutionObjectsOnInit;
+   config.clear_execution_objects_on_deinit=InpClearExecutionObjectsOnDeinit;
+   config.symbol_a=InpSymbolA;
+   config.symbol_b=InpSymbolB;
 }
 
 int OnInit()

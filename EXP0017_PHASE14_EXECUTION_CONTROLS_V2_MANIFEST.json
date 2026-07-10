@@ -1,0 +1,177 @@
+{
+  "patch_id": "EXP0017-PH14-EXECUTION-CONTROLS-V2",
+  "version": "1.1.0",
+  "created": "2026-07-10",
+  "experiment": "EXP0017",
+  "required_baseline": [
+    "EXP0017 Phase06 Hotfix011 or later",
+    "EXP0017 Phase14 Raw Execution Backtest V1",
+    "EXP0017 Phase14 Hotfix001"
+  ],
+  "intent": "Add professional backtest execution controls for hedging, spread-adjusted sell stops, modular ATR/R targets, strict fixed-money risk sizing, and optional accepted-trade visuals.",
+  "owner_approved_defaults": {
+    "trade_leg": "protected symbol",
+    "enabled_cycle_groups": [
+      "cg_3m"
+    ],
+    "hedging_enabled": true,
+    "sell_stop_adds_spread": true,
+    "target_model": "ATR multiple",
+    "atr_period": 14,
+    "atr_multiplier": 1.0,
+    "volume_model": "fixed monetary risk",
+    "fixed_risk_money": 100.0,
+    "draw_executed_signals": true,
+    "runtime": "Strategy Tester only"
+  },
+  "preserved_invariants": [
+    "No change to divergence detection or reference freshness authority.",
+    "Entry remains on the first tick after a closed confirmation candle.",
+    "Protected symbol remains the default execution leg.",
+    "Only cg_3m is enabled by default.",
+    "CTrade remains isolated to CGX_OrderRouter.mqh.",
+    "Risk-capped volume is normalized downward."
+  ],
+  "validation": {
+    "phase14_contract_tests": "11 passed",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility_scan": "0 errors, 0 warnings",
+    "repository_layout": "0 missing expected directories",
+    "obsidian_vault": "0 errors, 0 warnings",
+    "metaeditor_compile": "not available in this environment; required on user system"
+  },
+  "files": [
+    {
+      "path": "INSTALL_EXP0017_PHASE14_EXECUTION_CONTROLS_V2_PATCH.md",
+      "size_bytes": 4046,
+      "sha256": "1efc1b65f0751628b135b85df6d74a76ae20d0ed1fb73339c93aa0a3f90062f6",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5",
+      "size_bytes": 9702,
+      "sha256": "bfe8993758d5aafcb9c1aefadddbaf17245152849cb075f0716df121d29c90f7",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Experts/IntermarketDivergenceExecution/README.md",
+      "size_bytes": 1489,
+      "sha256": "c0be7071bdb68bd3948c4316c6c4fab09bb653c62e40a9c255f66597f089361f",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Types.mqh",
+      "size_bytes": 3666,
+      "sha256": "89d29f51ce8de03ddd3e215aa84877382324b798458c13c300b8d8c8b65be1d6",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Utilities.mqh",
+      "size_bytes": 3186,
+      "sha256": "573df7bc9ad03bbf050aa862b52e679b43866e391dd90ed0fc5516fbd3bf8193",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_StopModel.mqh",
+      "size_bytes": 1852,
+      "sha256": "27dbbcab94f1bd255acd6020646e93a03b4cb15f7dceaee03091c2eb6df4401e",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TargetModelATR.mqh",
+      "size_bytes": 3337,
+      "sha256": "85c52446ad88aa73f9f2ed4659b934044425532c3d6e08f8bd6d5ce9ef926bc2",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TargetModelRiskMultiple.mqh",
+      "size_bytes": 1316,
+      "sha256": "10254f94900473873bcb7a184ca786b6467ad06f03a4cfd11e83db3c220f4afb",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TargetModel.mqh",
+      "size_bytes": 1162,
+      "sha256": "e85a0ba189ac3d82e56b743e690222faa0dcec17d256097a6a443eb523068322",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_VolumeModel.mqh",
+      "size_bytes": 6529,
+      "sha256": "29954f464f2283e0a6afafaf3a46977f1e8b3a78c3bc84176bce71f8f5e162aa",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_TradePlanner.mqh",
+      "size_bytes": 7212,
+      "sha256": "aa5ff9c3bf6d3c27483717062ccbd02b911751f5d6105ae11072f200bbb0d72e",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_OrderRouter.mqh",
+      "size_bytes": 6623,
+      "sha256": "fc3aa203b471d6b0ab4932d6b7d499de0e0a16c2df07f4aac43da2c9ea40781a",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Audit.mqh",
+      "size_bytes": 5151,
+      "sha256": "ab92006634bac3e91fd928dfaf6d714657dbbe89be27bbda75272e276a690e86",
+      "change": "modified"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_ExecutionVisuals.mqh",
+      "size_bytes": 8441,
+      "sha256": "b29872ec25854254c7d4a8af8d422313ec25a542e8c21ca934eb49aeeb384ee6",
+      "change": "added"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/Execution/CGX_Engine.mqh",
+      "size_bytes": 7053,
+      "sha256": "dea3d81cbb475987bf4eb0483da02bb3a3d76861025245e67b01798384e9d2b5",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_INDEX.md",
+      "size_bytes": 2611,
+      "sha256": "20febfc2e207c14366efc91408ef243f4d84c3c3e087cc259df54587cd8ce969",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTRACT.md",
+      "size_bytes": 3578,
+      "sha256": "991d8c121cc4bccbd0a88df05eb0158c9c36fc8e1227e2d323878abd95dd07d1",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_MODULE_ARCHITECTURE.md",
+      "size_bytes": 1809,
+      "sha256": "1645b6cf48248b91a6c61bab2cd2b6e490c685ab74df3c058929e2a9a98d30bc",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_BACKTEST_OPERATOR_GUIDE.md",
+      "size_bytes": 1723,
+      "sha256": "ef4979f0d32c8d72f56d67f78ba29d22c7c8d7751f83fd818945c76326e8fa69",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_VALIDATION_PLAN.md",
+      "size_bytes": 2176,
+      "sha256": "62b064710e003bbdeb866d834aadd9dedbc3b4a689eff7b2995f7aaf47da7f04",
+      "change": "modified"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTROLS_V2.md",
+      "size_bytes": 2504,
+      "sha256": "bc6efd5ebf0e18b917ea6fd1d55504cbee239a16f1314c0c5349d0239d7a6a71",
+      "change": "added"
+    },
+    {
+      "path": "research/exp0017_phase14/tests/test_phase14_raw_execution_contract.py",
+      "size_bytes": 5443,
+      "sha256": "31a1fbe37097f1a05815ed861b62a9428328631413b51b98069aab1af23adc70",
+      "change": "modified"
+    }
+  ]
+}

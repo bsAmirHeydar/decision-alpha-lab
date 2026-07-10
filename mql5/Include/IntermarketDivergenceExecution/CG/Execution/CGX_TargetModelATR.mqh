@@ -83,15 +83,18 @@ private:
    }
 
 public:
-   bool Build(const SCGXExecutionConfig &config,const string symbol,const ENUM_TIMEFRAMES timeframe,const datetime confirmation_close,const ECGCSignalDirection direction,const double entry_price,double &atr_value,double &take_profit,string &reason)
+   bool Build(const SCGXExecutionConfig &config,
+              const string symbol,
+              const ENUM_TIMEFRAMES timeframe,
+              const datetime confirmation_close,
+              const ECGCSignalDirection direction,
+              const double entry_price,
+              double &atr_value,
+              double &take_profit,
+              string &reason)
    {
       atr_value=0.0;
       take_profit=0.0;
-      if(config.target_model!=CGX_TARGET_ATR_MULTIPLE)
-      {
-         reason="unsupported_target_model";
-         return false;
-      }
       if(config.atr_multiplier<=0.0)
       {
          reason="atr_multiplier_not_positive";
@@ -112,17 +115,6 @@ public:
       }
 
       take_profit=CGX_NormalizePrice(symbol,take_profit);
-      if(direction==CGC_DIRECTION_BUY && !(take_profit>entry_price))
-      {
-         reason="buy_target_not_above_entry";
-         return false;
-      }
-      if(direction==CGC_DIRECTION_SELL && !(take_profit<entry_price))
-      {
-         reason="sell_target_not_below_entry";
-         return false;
-      }
-
       reason="ok";
       return true;
    }

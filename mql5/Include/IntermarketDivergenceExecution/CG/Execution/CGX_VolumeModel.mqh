@@ -1,12 +1,17 @@
 #ifndef __CGX_VOLUME_MODEL_MQH__
 #define __CGX_VOLUME_MODEL_MQH__
 
-#include <IntermarketDivergenceExecution/CG/Execution/CGX_TargetModelATR.mqh>
+#include <IntermarketDivergenceExecution/CG/Execution/CGX_TargetModel.mqh>
 
 class CCGX_VolumeModel
 {
 private:
-   bool LossPerLot(const string symbol,const ECGCSignalDirection direction,const double entry_price,const double stop_loss,double &loss_per_lot,string &reason)
+   bool LossPerLot(const string symbol,
+                   const ECGCSignalDirection direction,
+                   const double entry_price,
+                   const double stop_loss,
+                   double &loss_per_lot,
+                   string &reason)
    {
       loss_per_lot=0.0;
       ENUM_ORDER_TYPE order_type=(direction==CGC_DIRECTION_BUY ? ORDER_TYPE_BUY : ORDER_TYPE_SELL);
@@ -42,11 +47,75 @@ private:
       return true;
    }
 
-public:
-   bool Build(const SCGXExecutionConfig &config,const string symbol,const ECGCSignalDirection direction,const double entry_price,const double stop_loss,double &risk_money,double &risk_per_lot,double &volume,string &reason)
+   bool BuildLargestRiskCappedVolume(const double risk_budget,
+                                     const double risk_per_lot,
+                                     const double min_volume,
+                                     const double max_volume,
+                                     const double step,
+                                     double &volume,
+                                     double &planned_loss,
+                                     string &reason)
    {
-      risk_money=0.0;
+      volume=0.0;
+      planned_loss=0.0;
+      if(risk_budget<=0.0 || risk_per_lot<=0.0)
+      {
+         reason="invalid_risk_budget_or_risk_per_lot";
+         return false;
+      }
+
+      double raw_volume=risk_budget/risk_per_lot;
+      if(raw_volume>max_volume)
+         raw_volume=max_volume;
+      volume=CGX_NormalizeVolumeDown(raw_volume,step);
+
+      if(volume<min_volume)
+      {
+         reason="risk_capped_volume_below_broker_minimum";
+         return false;
+      }
+
+      double tolerance=MathMax(0.0000001,risk_budget*0.000000001);
+      planned_loss=risk_per_lot*volume;
+      int guard=0;
+      while(planned_loss>risk_budget+tolerance && volume>=min_volume && guard<8)
+      {
+         volume=CGX_NormalizeVolumeDown(volume-step,step);
+         planned_loss=risk_per_lot*volume;
+         guard++;
+      }
+
+      volume=NormalizeDouble(volume,CGX_VolumeDigits(step));
+      if(volume<min_volume || volume>max_volume || volume<=0.0)
+      {
+         reason="normalized_risk_capped_volume_outside_broker_bounds";
+         return false;
+      }
+      if(planned_loss>risk_budget+tolerance)
+      {
+         reason="planned_loss_exceeds_risk_budget";
+         return false;
+      }
+
+      reason="ok";
+      return true;
+   }
+
+public:
+   bool Build(const SCGXExecutionConfig &config,
+              const string symbol,
+              const ECGCSignalDirection direction,
+              const double entry_price,
+              const double stop_loss,
+              double &risk_budget_money,
+              double &risk_per_lot,
+              double &planned_loss_at_stop,
+              double &volume,
+              string &reason)
+   {
+      risk_budget_money=0.0;
       risk_per_lot=0.0;
+      planned_loss_at_stop=0.0;
       volume=0.0;
 
       double min_volume=SymbolInfoDouble(symbol,SYMBOL_VOLUME_MIN);
@@ -58,17 +127,25 @@ public:
          return false;
       }
 
-      double raw_volume=0.0;
-      if(config.volume_model==CGX_VOLUME_FIXED_LOTS)
+      string risk_reason="";
+      if(!LossPerLot(symbol,direction,entry_price,stop_loss,risk_per_lot,risk_reason))
       {
-         raw_volume=config.fixed_lots;
-         if(raw_volume<=0.0)
+         reason=risk_reason;
+         return false;
+      }
+
+      if(config.volume_model==CGX_VOLUME_FIXED_RISK_MONEY)
+      {
+         if(config.fixed_risk_money<=0.0)
          {
-            reason="fixed_lots_not_positive";
+            reason="fixed_risk_money_not_positive";
             return false;
          }
+         risk_budget_money=config.fixed_risk_money;
+         return BuildLargestRiskCappedVolume(risk_budget_money,risk_per_lot,min_volume,max_volume,step,volume,planned_loss_at_stop,reason);
       }
-      else if(config.volume_model==CGX_VOLUME_RISK_PERCENT_EQUITY)
+
+      if(config.volume_model==CGX_VOLUME_RISK_PERCENT_EQUITY)
       {
          if(config.risk_percent_equity<=0.0)
          {
@@ -81,42 +158,45 @@ public:
             reason="account_equity_not_positive";
             return false;
          }
-         risk_money=equity*config.risk_percent_equity/100.0;
-         string risk_reason="";
-         if(!LossPerLot(symbol,direction,entry_price,stop_loss,risk_per_lot,risk_reason))
+         risk_budget_money=equity*config.risk_percent_equity/100.0;
+         if(BuildLargestRiskCappedVolume(risk_budget_money,risk_per_lot,min_volume,max_volume,step,volume,planned_loss_at_stop,reason))
+            return true;
+
+         if(reason=="risk_capped_volume_below_broker_minimum" && config.allow_minimum_volume_risk_overflow)
          {
-            reason=risk_reason;
-            return false;
+            volume=min_volume;
+            planned_loss_at_stop=risk_per_lot*volume;
+            reason="ok_minimum_volume_risk_overflow_allowed";
+            return true;
          }
-         raw_volume=risk_money/risk_per_lot;
-      }
-      else
-      {
-         reason="unsupported_volume_model";
          return false;
       }
 
-      if(raw_volume>max_volume)
-         raw_volume=max_volume;
-      volume=CGX_NormalizeVolumeDown(raw_volume,step);
-      if(volume<min_volume)
+      if(config.volume_model==CGX_VOLUME_FIXED_LOTS)
       {
-         if(config.volume_model==CGX_VOLUME_RISK_PERCENT_EQUITY && !config.allow_minimum_volume_risk_overflow)
+         if(config.fixed_lots<=0.0)
          {
-            reason="risk_sized_volume_below_broker_minimum";
+            reason="fixed_lots_not_positive";
             return false;
          }
-         volume=min_volume;
-      }
-      volume=NormalizeDouble(volume,CGX_VolumeDigits(step));
-      if(volume<min_volume || volume>max_volume || volume<=0.0)
-      {
-         reason="normalized_volume_outside_broker_bounds";
-         return false;
+         double requested=MathMin(config.fixed_lots,max_volume);
+         volume=CGX_NormalizeVolumeDown(requested,step);
+         if(volume<min_volume)
+            volume=min_volume;
+         volume=NormalizeDouble(volume,CGX_VolumeDigits(step));
+         if(volume<min_volume || volume>max_volume || volume<=0.0)
+         {
+            reason="normalized_fixed_volume_outside_broker_bounds";
+            return false;
+         }
+         planned_loss_at_stop=risk_per_lot*volume;
+         risk_budget_money=planned_loss_at_stop;
+         reason="ok";
+         return true;
       }
 
-      reason="ok";
-      return true;
+      reason="unsupported_volume_model";
+      return false;
    }
 };
 
