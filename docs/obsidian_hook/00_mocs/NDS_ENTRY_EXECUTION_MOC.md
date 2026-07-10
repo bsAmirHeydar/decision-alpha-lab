@@ -14,7 +14,7 @@ Canonical valid Hook
 → Broker Authorization
 ```
 
-The current implementation stops at a **zero-volume, no-send Command Preview**.
+The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview**. Phase 52 adds a separate opt-in executable profile restricted to valid HH/F3H Hook-terminal limits and same-direction F123 exits.
 
 ## Authority
 
@@ -28,12 +28,21 @@ The current implementation stops at a **zero-volume, no-send Command Preview**.
 - [[../08_entry_execution/NDS Risk and Capital Boundary]]
 - [[../08_entry_execution/NDS Entry Audit Outputs]]
 - [[../08_entry_execution/NDS Entry Canon Backlog]]
+- [[../08_entry_execution/NDS Hook Limit Entry Contract]]
+- [[../08_entry_execution/NDS Single Exposure Lock]]
+- [[../08_entry_execution/NDS Same Direction F123 Exit]]
+- [[../08_entry_execution/NDS Hook Trade State Machine]]
+- [[../08_entry_execution/NDS Hook Trade Audit Ledger]]
+- [[../08_entry_execution/NDS Hook Trade Operator Checklist]]
 
 ## Implementation
 
 - [[../03_architecture/Phase 51 NDS Entry Transition Architecture]]
 - [[../../nds_entry_architecture/README|NDS Entry Transition Architecture package]]
 - [[../../nds_hook_architecture/68_phase51_nds_entry_transition_architecture|Phase 51 engineering overlay]]
+- [[../03_architecture/Phase 52 NDS Hook Limit F123 Execution]]
+- [[../../nds_hook_architecture/69_phase52_hook_limit_f123_execution|Phase 52 engineering overlay]]
+- [[../../nds_entry_architecture/phase52_hook_limit_f123_execution/README|Phase 52 detailed package]]
 
 ## Operator workflow
 
@@ -48,7 +57,9 @@ The current implementation stops at a **zero-volume, no-send Command Preview**.
 
 - [[../05_templates/NDS Setup Review Template]]
 
-## Non-negotiable safety
+## Authority separation
+
+Phase 51 remains permanently no-send:
 
 ```text
 volume = 0
@@ -56,4 +67,11 @@ send_allowed = false
 command_action = PREVIEW_ONLY_NO_SEND
 ```
 
-No module in Phase 51 may call a broker-send function.
+Phase 52 is a separate strategy profile and requires both explicit inputs:
+
+```text
+InpNDSHookTradeEnabled = true
+InpNDSHookTradeSendLiveOrders = true
+```
+
+Both default to false, and the single-exposure invariant is mandatory.

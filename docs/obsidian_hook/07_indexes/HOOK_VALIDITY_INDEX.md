@@ -37,3 +37,14 @@
 - [[../08_entry_execution/NDS Risk and Capital Boundary]]
 - [[../08_entry_execution/NDS Entry Audit Outputs]]
 - [[../08_entry_execution/NDS Entry Canon Backlog]]
+
+
+## NDS Phase 52 Hook execution
+
+- [[../03_architecture/Phase 52 NDS Hook Limit F123 Execution]]
+- [[../08_entry_execution/NDS Hook Limit Entry Contract]]
+- [[../08_entry_execution/NDS Single Exposure Lock]]
+- [[../08_entry_execution/NDS Same Direction F123 Exit]]
+- [[../08_entry_execution/NDS Hook Trade State Machine]]
+- [[../08_entry_execution/NDS Hook Trade Audit Ledger]]
+- [[../08_entry_execution/NDS Hook Trade Operator Checklist]]

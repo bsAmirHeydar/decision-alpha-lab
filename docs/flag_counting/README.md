@@ -354,3 +354,14 @@ docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md
 
 The default profile is fail-closed. It does not implement unanswered Zone or
 Entry doctrine, always requests zero volume, and never authorizes order send.
+
+
+## NDS Phase 52 execution overlay
+
+The central Phoenix expert now contains a disabled-by-default Hook execution profile:
+
+```text
+valid HH/F3H Hook → terminal limit → single exposure → same-direction post-entry F123 exit
+```
+
+Authority and validation are documented in `docs/nds_entry_architecture/phase52_hook_limit_f123_execution/`.

@@ -43,3 +43,12 @@ Risk code may reject or reduce a Setup. It must not relabel a Hook, move a Zone,
 
 - [[NDS Authority Boundary]]
 - [[NDS Trade Plan Contract]]
+
+
+## Phase 52 narrow authority
+
+Phase 52 supports fixed volume or cash-risk sizing for the Hook-terminal profile, but it remains disabled by default and does not authorize simultaneous portfolio exposure. The magic-wide single-exposure gate is mandatory.
+
+- [[NDS Hook Limit Entry Contract]]
+- [[NDS Single Exposure Lock]]
+- [[NDS Hook Trade Operator Checklist]]

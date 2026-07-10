@@ -82,7 +82,7 @@ def run(root: Path) -> list[Check]:
              "NDS_SCHEMA_BUMP", "audit schema is versioned after adding ownership fields")
     contains(checks, root, ea, "InpHookPhase02ShowOnlyValidHooks = true", "NDS_VALID_ONLY_DEFAULT",
              "production Hook view remains valid-only by default")
-    contains(checks, root, ea, '#property version   "18.30"', "NDS_EA_VERSION",
+    contains(checks, root, ea, '#property version   "18.40"', "NDS_EA_VERSION",
              "central Phoenix EA carries the NDS entry-transition version")
 
     # The Hook module remains analysis/visualization only. The exact word may

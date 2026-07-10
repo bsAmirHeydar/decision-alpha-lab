@@ -1,6 +1,6 @@
 ---
 title: NDS Entry Transition Architecture
-status: implemented_scaffold
+status: implemented_scaffold_plus_phase52
 version: 1.0.0
 updated: 2026-07-10
 ---
@@ -19,7 +19,7 @@ Valid Hook Structure
 → Future Execution Adapter
 ```
 
-The implemented layer is intentionally **no-send**. It prepares state, schemas, adapters, audit output, and command envelopes without granting broker or capital authority.
+Phase 51 remains intentionally **no-send**. Phase 52 adds a separate, narrow, opt-in execution profile for the explicit HH/F3H Hook-terminal limit and same-direction F123 exit contract. The general Zone adapter and generic command preview remain fail-closed.
 
 ## Why a separate NDS entry layer is required
 
@@ -79,6 +79,7 @@ This means the code can observe and export the latest eligible valid Hook, but i
 11. [[11_canon_question_backlog]]
 12. [[12_implementation_roadmap]]
 13. [[13_operator_profiles]]
+14. [[phase52_hook_limit_f123_execution/README|Phase 52 Hook Limit and F123 Exit]]
 
 ## Non-negotiable boundary
 
@@ -94,3 +95,14 @@ No independent risk and broker authorization → no live execution
 ```text
 docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md
 ```
+
+
+## Phase 52 executable overlay
+
+The opt-in overlay is documented at:
+
+```text
+docs/nds_entry_architecture/phase52_hook_limit_f123_execution/
+```
+
+It is source-restricted to valid HH/F3H Hooks, uses a terminal-price pending limit, enforces one managed exposure by magic across charts, and closes only after a new full same-direction F123 chain. Both live-authority inputs default to false.

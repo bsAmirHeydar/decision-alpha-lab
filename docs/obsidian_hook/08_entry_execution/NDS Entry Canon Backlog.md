@@ -1,5 +1,17 @@
 # NDS Entry Canon Backlog
 
+## Phase 52 decisions now locked for the narrow Hook execution profile
+
+- source families: valid HH and opposing-F3 Hook;
+- direction: follow Hook direction;
+- order: one pending limit at raw Hook terminal;
+- protection: stop beyond death/origin;
+- target: no fixed TP;
+- exit: full same-direction post-entry F123;
+- concurrency: one magic-wide exposure.
+
+These decisions do not close the broader multi-Zone Entry Canon backlog below.
+
 ## Structure to opportunity
 
 - Does every valid Hook create a Zone candidate?

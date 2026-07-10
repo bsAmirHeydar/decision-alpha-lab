@@ -146,3 +146,12 @@ Phase 51 creates the NDS-specific bridge from an annotated valid Hook to a
 Zone adapter, Setup Candidate, Trade Plan, and zero-volume no-send Command
 Preview. The default profile deliberately blocks at the unresolved Zone Canon.
 The complete package is indexed at `docs/nds_entry_architecture/README.md`.
+
+
+## Latest executable Hook overlay — Phase 52
+
+```text
+69_phase52_hook_limit_f123_execution.md
+```
+
+This opt-in profile accepts only valid HH/F3H Hook families, submits a pending limit at the raw Hook terminal, enforces one magic-wide exposure, and closes on a complete same-direction F123 formed after entry.

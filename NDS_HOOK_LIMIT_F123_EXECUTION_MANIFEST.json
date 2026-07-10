@@ -1,0 +1,249 @@
+{
+  "patch_id": "NDS-HOOK-LIMIT-F123-EXECUTION-P52",
+  "patch_version": "1.0.0",
+  "generated_at": "2026-07-10",
+  "root_relative": true,
+  "central_ea": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+  "central_ea_version": "18.40",
+  "summary": "Valid HH/F3H Hook terminal limit entry, magic-wide single exposure, and same-direction post-entry F123 exit.",
+  "safe_defaults": {
+    "InpNDSHookTradeEnabled": false,
+    "InpNDSHookTradeSendLiveOrders": false
+  },
+  "validation": {
+    "phase52_contract_qa": "PASS",
+    "phase51_entry_regression_qa": "PASS",
+    "nds_hook_contract_qa": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "ai_engineering_os_vault": "0 errors, 0 warnings",
+    "changed_obsidian_links": "0 unresolved",
+    "mql_lexical_balance": "PASS",
+    "metaeditor_compile": "NOT_RUN_ENVIRONMENT_UNAVAILABLE"
+  },
+  "files": [
+    {
+      "path": "INSTALL_NDS_HOOK_LIMIT_F123_EXECUTION_PATCH.md",
+      "status": "added",
+      "size_bytes": 3162,
+      "sha256": "17949ab924cf915d0a758f5d0d7515d3574d7313eb0b3c38c6e491972dd461df"
+    },
+    {
+      "path": "NDS_HOOK_LIMIT_F123_EXECUTION_AUDIT_REPORT.md",
+      "status": "added",
+      "size_bytes": 7263,
+      "sha256": "67fbbb3f0b430217a75c04cd92308a3363a488d4cf8339a9c92f8478d159e9f6"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "status": "modified",
+      "size_bytes": 19548,
+      "sha256": "0b3fad9fd80c3d4b901893ecb1ac8200274dc1b9ed9981b4e3f370ce1fd24319"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "status": "modified",
+      "size_bytes": 3503,
+      "sha256": "acb6ce445c7a7d5083d9ffa9acc7640e5b0635a7322b470d499572d67881a0cb"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/01_scope_and_canon.md",
+      "status": "added",
+      "size_bytes": 1631,
+      "sha256": "7895204df8f8be63faf52ea8d67c479699d7f11245343e06615c23bf2008cc66"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/02_limit_entry_geometry.md",
+      "status": "added",
+      "size_bytes": 1721,
+      "sha256": "10074f8e30a4f5f938cf5c0e57b22f15f6b43ac02bdac279baf879eec8081f06"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/03_single_exposure_state_machine.md",
+      "status": "added",
+      "size_bytes": 1886,
+      "sha256": "a9adad1a14b4bde7fa139c0ad2a931721f999cbaf31c1af5ff6bcbe11ff84397"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/04_same_direction_f123_exit.md",
+      "status": "added",
+      "size_bytes": 1761,
+      "sha256": "45a3809dd61f766bfe3fc0b19e25ffc326de3273e3a398db9837cd79a7bd3bab"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/05_order_lifecycle_and_recovery.md",
+      "status": "added",
+      "size_bytes": 1828,
+      "sha256": "59c1719a6b9ba9841f78fd2fd363d0045cad6b5fb06274174132ebde2c515990"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/06_inputs_and_operator_profiles.md",
+      "status": "added",
+      "size_bytes": 1882,
+      "sha256": "6b2d16e48380cd37704e540f4a4a66d5fc654b68c345d07948d7c3e618885065"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/07_validation_matrix.md",
+      "status": "added",
+      "size_bytes": 2062,
+      "sha256": "adf7722ffe236a3310b5a78e363459c7aa26617801296d7baf8b981980083374"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/08_persian_operator_guide.md",
+      "status": "added",
+      "size_bytes": 2708,
+      "sha256": "466253fb61585d94d7931ad0858846476744cc81410df6912838d125fb3b828c"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/README.md",
+      "status": "added",
+      "size_bytes": 1454,
+      "sha256": "635887f602b2613cf14231ab631ffb90533d7d2107ac505e764baf8c55b6f33b"
+    },
+    {
+      "path": "docs/nds_hook_architecture/69_phase52_hook_limit_f123_execution.md",
+      "status": "added",
+      "size_bytes": 1216,
+      "sha256": "e4de39caf5aac4e89299775f9559ff83a7ed7523c4fa7350fa294e37c9b28677"
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "status": "modified",
+      "size_bytes": 4727,
+      "sha256": "23c260f57db1f81c5009c5bda3c64aefd78f2072ab899f7e02adfe92032338ea"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/HOOK_CANON_STEP7_MOC.md",
+      "status": "modified",
+      "size_bytes": 959,
+      "sha256": "6003c6c520747be680d4fe33aaa82141974d5e11a56ebed9f378d414490f1a75"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "status": "modified",
+      "size_bytes": 2965,
+      "sha256": "e2a0d4b911de04dd63df07b97b04f24ae4dbf2b5d0be58dc3c150e879fcd3d5d"
+    },
+    {
+      "path": "docs/obsidian_hook/02_policies/Negative Hook Terminal Is Highest Peak.md",
+      "status": "added",
+      "size_bytes": 753,
+      "sha256": "fdb80bcdc38fdeb514bae14dc35f927c5e7f54582014c61b1247875b2c5451f8"
+    },
+    {
+      "path": "docs/obsidian_hook/03_architecture/Phase 52 NDS Hook Limit F123 Execution.md",
+      "status": "added",
+      "size_bytes": 875,
+      "sha256": "2e9326121a6065f53eb227d84092bf2ac9bf3703fec6068dd72b92c90133ea00"
+    },
+    {
+      "path": "docs/obsidian_hook/07_indexes/HOOK_VALIDITY_INDEX.md",
+      "status": "modified",
+      "size_bytes": 1998,
+      "sha256": "afdf4c7d7c384bf6c9474c87dde44b3ce9c58dd85d01cbf1600d5a4f53f3eea9"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Entry Canon Backlog.md",
+      "status": "modified",
+      "size_bytes": 1842,
+      "sha256": "da5c764b22c76e3dd028992dd4cb397378c7bd727278bbc5b072f8f6c3c29e03"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Entry Doctrine.md",
+      "status": "modified",
+      "size_bytes": 1553,
+      "sha256": "cad85c6044837bc7790855f92715e669a21fc7ff5670f1d52df043e8e0740e28"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Hook Limit Entry Contract.md",
+      "status": "added",
+      "size_bytes": 919,
+      "sha256": "700ffa406c4ba260cfb844ffd4eaa255ca4bf0826176eb73dec2b7b2839ae134"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Hook Trade Audit Ledger.md",
+      "status": "added",
+      "size_bytes": 817,
+      "sha256": "dc0c5724ebdbfc6967fb768368cfe467cf184966835bdf210d7e1fab0eb1d84c"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Hook Trade Operator Checklist.md",
+      "status": "added",
+      "size_bytes": 1500,
+      "sha256": "2e1b7de4f5a3b429763253561dfa8053a62b0084e1065703ae7c63919d3cb9d8"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Hook Trade State Machine.md",
+      "status": "added",
+      "size_bytes": 987,
+      "sha256": "3632337a1eee212a798f932f5d4f34202e7fe26500410acbcc8802e11c64ff49"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Risk and Capital Boundary.md",
+      "status": "modified",
+      "size_bytes": 1251,
+      "sha256": "0aa7dc8dfb0cb94ea57178bf17f0614d71c6ff8c1e6b4bd59f54033c1e72cc50"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Same Direction F123 Exit.md",
+      "status": "added",
+      "size_bytes": 1019,
+      "sha256": "9858aa9e19cc8930e21858287326acb3808d800dd24f0f6155bcdc41da049e0c"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Single Exposure Lock.md",
+      "status": "added",
+      "size_bytes": 1000,
+      "sha256": "44b2c93d113ed03f77e5aee38cda6b3b926678aefd744e467f161869305910b4"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+      "status": "modified",
+      "size_bytes": 147141,
+      "sha256": "7483d0eb6fee47d4d48bec59ad46357b99263c639139756161390a9583bc2fe1"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh",
+      "status": "added",
+      "size_bytes": 13185,
+      "sha256": "27b60790c99fd954df6742a6e56cdb006363e33fbc630fa8864b84261f3804c0"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh",
+      "status": "added",
+      "size_bytes": 3609,
+      "sha256": "2c848eec03201cf5326486609649274ad7b984d8faa4cab3f7f6aeaa07deabd3"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh",
+      "status": "added",
+      "size_bytes": 28710,
+      "sha256": "39b461f62a6ee9cd2fa9ac64b402bf4157d5f405b13def509f8f182944ca2f74"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh",
+      "status": "added",
+      "size_bytes": 5104,
+      "sha256": "6588f2f2316904f268ee58a4bc1085d21559cbfb761506ba0bbb699f021c38a1"
+    },
+    {
+      "path": "tools/flag_counting/nds_entry_contract_qa.py",
+      "status": "modified",
+      "size_bytes": 7479,
+      "sha256": "dc8032f3d6799c7bed33a668e54f0f2241871a53e691c07fff2503bc01efcee7"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_contract_qa.py",
+      "status": "modified",
+      "size_bytes": 5486,
+      "sha256": "de8be75692a6baae2f4843a167631897674cf46aa9f303cbb2ca0cb43727dcbc"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_trade_contract_qa.py",
+      "status": "added",
+      "size_bytes": 8302,
+      "sha256": "ad8a220690568f6c1836d39b3bff57491474b6add6dd1312e7d14a4b586ad812"
+    }
+  ]
+}

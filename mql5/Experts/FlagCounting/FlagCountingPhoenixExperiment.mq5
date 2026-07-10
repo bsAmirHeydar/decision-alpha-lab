@@ -1,5 +1,5 @@
 #property strict
-#property version   "18.30"
+#property version   "18.40"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -31,6 +31,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase01Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_NDSEntryEngine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
@@ -784,6 +785,35 @@ input long   InpNDSEntryPreviewMagic = 310001;
 input string InpNDSEntryPreviewComment = "DAL_NDS_ENTRY_PREVIEW_ONLY";
 input string InpNDSEntryFolder = "FlagCountingPhoenix";
 
+// ------------------------------ NDS Hook Trade -----------------------------
+// Executable contract requested for the current NDS stage:
+// valid Hook-after-Hook / Hook-after-F3 -> limit at Hook terminal -> one global
+// managed exposure -> market exit after a complete post-entry same-direction
+// F1-F2-F3 chain. Disabled by default to prevent accidental live submission.
+input bool   InpNDSHookTradeEnabled = false;
+input bool   InpNDSHookTradeSendLiveOrders = false;
+input bool   InpNDSHookTradeAllowHookAfterHook = true;
+input bool   InpNDSHookTradeAllowHookAfterF3 = true;
+input bool   InpNDSHookTradeRequireClosedHook = true;
+input bool   InpNDSHookTradeOneAttemptPerHook = true;
+input bool   InpNDSHookTradeResetUsedSetupsOnInit = false;
+input bool   InpNDSHookTradeCancelPendingOnDeath = true;
+input bool   InpNDSHookTradeRequireFullF123AfterEntry = true;
+input FP_NDSHookTradeSizingMode InpNDSHookTradeSizingMode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
+input double InpNDSHookTradeFixedVolume = 0.01;
+input double InpNDSHookTradeRiskCash = 100.0;
+input double InpNDSHookTradeCommissionPerLotRoundTurn = 0.0;
+input bool   InpNDSHookTradeAllowMinLotIfRiskTooSmall = false;
+input int    InpNDSHookTradeStopBufferPoints = 1;
+input double InpNDSHookTradeStopSpreadMultiplier = 1.0;
+input int    InpNDSHookTradeMaxDeviationPoints = 20;
+input int    InpNDSHookTradeEntryLockTimeoutSeconds = 30;
+input long   InpNDSHookTradeMagic = 310052;
+input string InpNDSHookTradeCommentPrefix = "NDSH";
+input bool   InpNDSHookTradeExportCsv = true;
+input bool   InpNDSHookTradePrintSummary = true;
+input string InpNDSHookTradeFolder = "FlagCountingPhoenix";
+
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
 // It never mutates renderer objects, F/Hook/Node lines, curves, zones, or logic.
@@ -1253,6 +1283,35 @@ void FP_LoadNDSEntryConfig(FP_NDSEntryConfig &cfg)
    cfg.preview_magic = InpNDSEntryPreviewMagic;
    cfg.preview_comment = InpNDSEntryPreviewComment;
    cfg.folder = InpNDSEntryFolder;
+}
+
+
+void FP_LoadNDSHookTradeConfig(FP_NDSHookTradeConfig &cfg)
+{
+   FP_ResetNDSHookTradeConfig(cfg);
+   cfg.enabled = InpNDSHookTradeEnabled;
+   cfg.send_live_orders = InpNDSHookTradeSendLiveOrders;
+   cfg.allow_hook_after_hook = InpNDSHookTradeAllowHookAfterHook;
+   cfg.allow_hook_after_f3 = InpNDSHookTradeAllowHookAfterF3;
+   cfg.require_closed_hook = InpNDSHookTradeRequireClosedHook;
+   cfg.one_attempt_per_hook = InpNDSHookTradeOneAttemptPerHook;
+   cfg.reset_used_setups_on_init = InpNDSHookTradeResetUsedSetupsOnInit;
+   cfg.cancel_pending_on_death = InpNDSHookTradeCancelPendingOnDeath;
+   cfg.require_full_f123_after_entry = InpNDSHookTradeRequireFullF123AfterEntry;
+   cfg.sizing_mode = InpNDSHookTradeSizingMode;
+   cfg.fixed_volume = InpNDSHookTradeFixedVolume;
+   cfg.risk_cash = InpNDSHookTradeRiskCash;
+   cfg.commission_per_lot_round_turn = InpNDSHookTradeCommissionPerLotRoundTurn;
+   cfg.allow_min_lot_if_risk_too_small = InpNDSHookTradeAllowMinLotIfRiskTooSmall;
+   cfg.stop_buffer_points = InpNDSHookTradeStopBufferPoints;
+   cfg.stop_spread_multiplier = InpNDSHookTradeStopSpreadMultiplier;
+   cfg.max_deviation_points = InpNDSHookTradeMaxDeviationPoints;
+   cfg.entry_lock_timeout_seconds = InpNDSHookTradeEntryLockTimeoutSeconds;
+   cfg.magic = InpNDSHookTradeMagic;
+   cfg.comment_prefix = InpNDSHookTradeCommentPrefix;
+   cfg.export_csv = InpNDSHookTradeExportCsv;
+   cfg.print_summary = InpNDSHookTradePrintSummary;
+   cfg.folder = InpNDSHookTradeFolder;
 }
 
 
@@ -2331,6 +2390,9 @@ void FP_Run()
    FP_NDSEntryConfig nds_entry_cfg;
    FP_LoadNDSEntryConfig(nds_entry_cfg);
 
+   FP_NDSHookTradeConfig nds_hook_trade_cfg;
+   FP_LoadNDSHookTradeConfig(nds_hook_trade_cfg);
+
    FP_Level19StateGateConfig state_gate_cfg;
    FP_LoadLevel19StateGateConfig(state_gate_cfg);
 
@@ -2579,6 +2641,14 @@ void FP_Run()
                           nds_entry_cfg, nds_entry_report);
    if(nds_entry_cfg.print_summary)
       FP_PrintNDSEntryReport("FP_NDS_ENTRY", nds_entry_report);
+
+   FP_NDSHookTradeReport nds_hook_trade_report;
+   FP_RunNDSHookLimitF123Execution(_Symbol, _Period,
+                                   events, ArraySize(events),
+                                   nds_hook_trade_cfg,
+                                   nds_hook_trade_report);
+   if(nds_hook_trade_cfg.print_summary)
+      FP_PrintNDSHookTradeReport("FP_NDS_HOOK_TRADE", nds_hook_trade_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);
@@ -2895,6 +2965,12 @@ int OnInit()
       FP_L19PanelCleanup(InpLevel19StateGateObjectPrefix);
    FP_SetRuntimeChartIdentity();
    g_fp_last_bar_time = 0;
+
+   FP_NDSHookTradeConfig init_nds_hook_trade_cfg;
+   FP_LoadNDSHookTradeConfig(init_nds_hook_trade_cfg);
+   if(init_nds_hook_trade_cfg.reset_used_setups_on_init)
+      FP_NDSHookTradeResetUsedSetups(init_nds_hook_trade_cfg);
+
    FP_Run();
    return INIT_SUCCEEDED;
 }

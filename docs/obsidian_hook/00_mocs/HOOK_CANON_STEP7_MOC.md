@@ -21,3 +21,11 @@
 
 - [[NDS_ENTRY_EXECUTION_MOC]]
 - [[../03_architecture/Phase 51 NDS Entry Transition Architecture]]
+
+
+## Phase 52 executable Hook profile
+
+- [[../03_architecture/Phase 52 NDS Hook Limit F123 Execution]]
+- [[../08_entry_execution/NDS Hook Limit Entry Contract]]
+- [[../08_entry_execution/NDS Same Direction F123 Exit]]
+- [[../08_entry_execution/NDS Single Exposure Lock]]
