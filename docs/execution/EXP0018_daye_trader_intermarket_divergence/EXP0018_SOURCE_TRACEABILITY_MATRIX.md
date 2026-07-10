@@ -1,0 +1,20 @@
+# ماتریس ردیابی منبع به قرارداد
+
+| موضوع منبع | سند مقصد |
+|---|---|
+| جدول سشن‌ها | EXP0018_TIME_AND_SESSION_CONTRACT |
+| فهرست خانواده‌های cycle | EXP0018_DAYE_FRAMEWORK_OVERVIEW |
+| W/D/A/L/N/P | EXP0018_TIME_AND_SESSION_CONTRACT |
+| a1 تا p4 | EXP0018_90M_SUBCYCLE_CONTRACT |
+| 22 signal | EXP0018_SIGNAL_CATALOG_22 |
+| touch-only hunt | EXP0018_DIVERGENCE_AND_HUNT_DOCTRINE |
+| close confirmation | EXP0018_CONFIRMATION_AND_PERSISTENCE_CONTRACT |
+| draw on hunter | EXP0018_DRAWING_LANGUAGE_CONTRACT |
+| six labels / 16 unlabeled | EXP0018_DRAWING_LANGUAGE_CONTRACT |
+| session boxes | EXP0018_SESSION_BOXES_CONTRACT |
+| TWO/TDO | EXP0018_TWO_TDO_CONTRACT |
+| inputs | EXP0018_INPUT_CATALOG |
+| missing bars/expiry/weekends | EXP0018_DATA_ROBUSTNESS_CONTRACT |
+| first sweep/protected retirement | EXP0018_REFERENCE_LIFECYCLE_CONTRACT |
+| DST | EXP0018_TIME_AND_SESSION_CONTRACT |
+| contradictions | EXP0018_AMBIGUITY_REGISTER |

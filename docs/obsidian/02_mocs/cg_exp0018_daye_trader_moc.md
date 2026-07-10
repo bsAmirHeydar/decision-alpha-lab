@@ -1,0 +1,3 @@
+# EXP0018 Daye Trader MOC
+
+See [[CG_EXP0018_DAYE_TRADER_MOC]].

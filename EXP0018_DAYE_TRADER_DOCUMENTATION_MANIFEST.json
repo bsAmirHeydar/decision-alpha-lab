@@ -1,0 +1,332 @@
+{
+  "patch_id": "EXP0018_DAYE_TRADER_DOCUMENTATION_BASELINE_001",
+  "created_utc": "2026-07-10T11:52:55.195704+00:00",
+  "scope": "documentation_and_obsidian_only",
+  "project": "EXP0018_daye_trader_intermarket_divergence",
+  "separate_from": "EXP0017_cycle_group_intermarket_divergence",
+  "source": "06_Daye Trader-v1 (1).docx",
+  "file_count": 64,
+  "files": [
+    {
+      "path": "INSTALL_EXP0018_DAYE_TRADER_DOCUMENTATION_PATCH.md",
+      "bytes": 461,
+      "sha256": "0a78a28a277b721d7fd686f1ab1c70e28ee9892407c6eb57eca17002ff3703c6"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_90M_SUBCYCLE_CONTRACT.md",
+      "bytes": 1301,
+      "sha256": "c0d12b8e08f0597a1a402e26ac5d86584619c71d943d0b0c6a69291aaf0823ce"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_AMBIGUITY_REGISTER.md",
+      "bytes": 2709,
+      "sha256": "05b44340a302559d9c0c73ef14cdbfcb73574d6f4842de6a3ce60bc46576282f"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_CONFIRMATION_AND_PERSISTENCE_CONTRACT.md",
+      "bytes": 1440,
+      "sha256": "3ab28dfc6530c06805841d85627cda49f33422bbb68bf0579925a88814c42b7c"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_DATA_ROBUSTNESS_CONTRACT.md",
+      "bytes": 1169,
+      "sha256": "2bb045f40ea3bfa11c133d661a067b48d88ff6e01d594530c72ca65cce27338d"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_DAYE_FRAMEWORK_OVERVIEW.md",
+      "bytes": 1312,
+      "sha256": "76df945e5e5c270801191a1128faeab591453060f759a1bf9298cf1fa189337b"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_DIVERGENCE_AND_HUNT_DOCTRINE.md",
+      "bytes": 1585,
+      "sha256": "059c78abf9648d07f2e37e6d270e74a7a6bc30d396144361f9e3009d8f76e1c1"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_DRAWING_LANGUAGE_CONTRACT.md",
+      "bytes": 1143,
+      "sha256": "dbce81927148e9b651cd8f981fb4f35bca49ef2e84a1ab75526da3045a3ed9c0"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 1213,
+      "sha256": "243a7637f30561ae404f14dd6ca18835140715d4529aeff4ab4eead26e92c16a"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_INDEX.md",
+      "bytes": 1882,
+      "sha256": "891065e3c4cf4e93f1d850b1bee84e0850b19810998fe75be91acedde83b0e98"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_INPUT_CATALOG.md",
+      "bytes": 962,
+      "sha256": "be12b974084305b9cfb42543403515f728fb008842acd960c0f489711fdd3301"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_OBSIDIAN_GUIDE.md",
+      "bytes": 699,
+      "sha256": "f609bd8b156d56b7b9ce6628f064af64d2be584f03977c3456d77d0335f40dc8"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_PROJECT_SEPARATION_CONTRACT.md",
+      "bytes": 1860,
+      "sha256": "9909bf05e10d5d562ee5101f3237d6fcbc7ec6d2e6f4bb136feda9f7f188a69d"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_REFERENCE_LIFECYCLE_CONTRACT.md",
+      "bytes": 1586,
+      "sha256": "078ea6f35d59513c3aa2f78d7d5615ce4d9044bf3d0bf10186780b52139f2eac"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_SESSION_BOXES_CONTRACT.md",
+      "bytes": 940,
+      "sha256": "7c8e9412f8f87f38ed1c2d11c06a047f6b48fed0319aafe8b8d8449a41a0268c"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_SIGNAL_CATALOG_22.md",
+      "bytes": 2152,
+      "sha256": "beb22b7bbc3ce45493bc36593fe25fbfd683e02ff0ecb4996e3973964fda01b3"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_SOURCE_TRACEABILITY_MATRIX.md",
+      "bytes": 1005,
+      "sha256": "8ebe68d3f538a79489eb193a373e25e9c30a45dd1649dbdbdc66b8b626cf30df"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_SOURCE_TRANSCRIPTION.md",
+      "bytes": 9048,
+      "sha256": "e9e2c777640f9dda5dd4fd39eb62faab5583a8f38435188c26dec8e666bc8810"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_TIME_AND_SESSION_CONTRACT.md",
+      "bytes": 1526,
+      "sha256": "9d86b1265f4529ff0a26d721dd97552dae5f4fe1760ecd0965d50b4c805e510c"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_TWO_TDO_CONTRACT.md",
+      "bytes": 892,
+      "sha256": "df95dac39bd7ade53d4031813bb9f918eb589c35cd18828bf116384adbba4f14"
+    },
+    {
+      "path": "docs/execution/EXP0018_daye_trader_intermarket_divergence/EXP0018_VALIDATION_PLAN.md",
+      "bytes": 1022,
+      "sha256": "395ab4e0e3e7b60f8f85c2a9337a3120bfdb3e0201b55e9d7aaa266395840512"
+    },
+    {
+      "path": "docs/obsidian/01_maps/folders/docs__execution__EXP0018_daye_trader_intermarket_divergence.md",
+      "bytes": 694,
+      "sha256": "c414afe4c143254ac064492bc4857432bc62ca1b87883a0c890566d3585f100d"
+    },
+    {
+      "path": "docs/obsidian/02_mocs/cg_exp0018_daye_trader_moc.md",
+      "bytes": 63,
+      "sha256": "46e1d245019b4e7a325ed4fa774ec89ffc102421446c2b747a249c804c28a1b4"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_90M_SUBCYCLE_CONTRACT.md.md",
+      "bytes": 263,
+      "sha256": "01dfad48421a080e6d6b7fa12f04eedcf0cd24ff85d48a9eb6d169178422e47f"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_AMBIGUITY_REGISTER.md.md",
+      "bytes": 254,
+      "sha256": "838fc56d73339332573a1a9613787489dbab9f96ae84064dbbd90dd0e3c66cca"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_CONFIRMATION_AND_PERSISTENCE_CONTRACT.md.md",
+      "bytes": 311,
+      "sha256": "53ce7299bebbabf81b0058e965e23e3083dda1af07c91bc58ed864233260f125"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_DATA_ROBUSTNESS_CONTRACT.md.md",
+      "bytes": 272,
+      "sha256": "785bd538c5efcfe42dc8e3c2b6b3497543052378a11771eba31028f45d38e411"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_DAYE_FRAMEWORK_OVERVIEW.md.md",
+      "bytes": 269,
+      "sha256": "75c347fa970ddc8faa3845f5416a2966c7e01aa9ff00e94b36b81c715541f551"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_DIVERGENCE_AND_HUNT_DOCTRINE.md.md",
+      "bytes": 284,
+      "sha256": "1146a3552262272676543455d22f82e4fc3ea20e6f4d0ce40ea4177e7c0cc479"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_DRAWING_LANGUAGE_CONTRACT.md.md",
+      "bytes": 275,
+      "sha256": "f7975be9d1e86866d5b53a95f3b7896089f180e0a425cd0929287fae258602a8"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_IMPLEMENTATION_ROADMAP.md.md",
+      "bytes": 266,
+      "sha256": "04198ed51cfae6979c24f65220f3c2c4cf2616ff1c4e39c0f20b02ce52307e04"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_INDEX.md.md",
+      "bytes": 215,
+      "sha256": "6da34b0577d756b9e6a8a85ffd0110d46625a0047aa97c3ca48a741cdf91681e"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_INPUT_CATALOG.md.md",
+      "bytes": 239,
+      "sha256": "59d5534b54ad57271936ff8a3b533d3df8049baa3814ffbb3e6d5e27620bebdb"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_OBSIDIAN_GUIDE.md.md",
+      "bytes": 242,
+      "sha256": "18a95eb7ae5c7371d7b089277178e7263de7b672c90d198087c913123dfe7017"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_PROJECT_SEPARATION_CONTRACT.md.md",
+      "bytes": 281,
+      "sha256": "ed3a812199e80b980270963be0d3240dc4debfc7f91c9d8a278245ee46be1a6b"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_REFERENCE_LIFECYCLE_CONTRACT.md.md",
+      "bytes": 284,
+      "sha256": "e0c508eeee14fee3a7949a87d697fd400950a85b298fefcacd40119819020baf"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_SESSION_BOXES_CONTRACT.md.md",
+      "bytes": 266,
+      "sha256": "aa2939691a75ca1f1a718fef904d66fa405903a911a1c8cd4a1e4efeaa4816ee"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_SIGNAL_CATALOG_22.md.md",
+      "bytes": 251,
+      "sha256": "80af25d50fcd1a3bea97a15a3979d3a640350054243ec7cfd991ca0dd770d35e"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_SOURCE_TRACEABILITY_MATRIX.md.md",
+      "bytes": 278,
+      "sha256": "7b91acab900070b5ca193ea1420a3d60efccdd3be5da652b2609c44ff885c615"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_SOURCE_TRANSCRIPTION.md.md",
+      "bytes": 260,
+      "sha256": "1c03318a8ac51110fad8ed4662fb47d6f4e0b64b0907bd2c44511dc4a2463535"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_TIME_AND_SESSION_CONTRACT.md.md",
+      "bytes": 275,
+      "sha256": "e91cfbff2c1c2a12dad1d74d1e01b69215bb37829421d6a7c5470925960a4c0b"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_TWO_TDO_CONTRACT.md.md",
+      "bytes": 248,
+      "sha256": "a31acd857c34047c84af063cb2351985d2a78666dd08337be1bdcd5e574fe5c5"
+    },
+    {
+      "path": "docs/obsidian/03_document_cards/docs__execution__EXP0018_daye_trader_intermarket_divergence__EXP0018_VALIDATION_PLAN.md.md",
+      "bytes": 245,
+      "sha256": "9abf9fb04a14fe20561d89ccdea4e6b382deeca593dcfee505c76b67737c98bc"
+    },
+    {
+      "path": "docs/obsidian_deep/00_mocs/CG_EXP0018_DAYE_TRADER_MOC.md",
+      "bytes": 998,
+      "sha256": "1cc2de273d4a20d9270c85a75c3e6d99dc5d45d3ce724ca651b0146bdcda5820"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Confirmed_Daye_Lines_Are_Historical_Records.md",
+      "bytes": 146,
+      "sha256": "cb7f1d9ba009e47d14705147d513638f1dcc8e980353b78a010267eff0fcce7c"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_90m_Subcycles_Are_Time_Windows.md",
+      "bytes": 159,
+      "sha256": "0560964c71207e2c986d4a5643a38458ea917dd49af909b14b26b8e755dda83d"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Confirmation_Happens_At_Chart_Candle_Close.md",
+      "bytes": 165,
+      "sha256": "e4b9d34fadd9cb0eb4ff2dc2a8b831342863b977c271fed738eaa2a8001db861"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Drawing_Only_Scope_Has_No_Trading_Authority.md",
+      "bytes": 177,
+      "sha256": "8b72f88672526cead8344fbd0926d6783197dcbfb1325480262128976355739d"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Draws_On_The_Hunter_Chart.md",
+      "bytes": 140,
+      "sha256": "e6804d9cd1feed557f5d9c2f0fcc8a363555d5f0a50fb059f56dcd89afe075dc"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Hunt_Is_Touch_Only.md",
+      "bytes": 127,
+      "sha256": "fb337030b98104be1d8b8f3a0754b716a4812c8d8bdda0e258fca36502ed9370"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Session_Boxes_Encode_Range.md",
+      "bytes": 143,
+      "sha256": "37a4323ba77b7b004fa935a314ff4865d0a9aef1136ad4556e429a360d593000"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Trading_Day_Starts_At_1800.md",
+      "bytes": 166,
+      "sha256": "676355bc356f741d21ba59889ffda9fa4ea61dd6ce72fe6ec859046ec2e783f5"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Daye_Uses_22_Predefined_Relationships.md",
+      "bytes": 183,
+      "sha256": "17838351c9f8499d0cc1a0077d2ecc3b1a4343273b22e2c68ab5c68fdd77d8a3"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/EXP0018_Is_Not_EXP0017.md",
+      "bytes": 264,
+      "sha256": "45a3d70b11a9327114c7feb714baed58877677673c6e35429a6ba74cc027f60c"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/New_York_Time_Is_The_Domain_Clock.md",
+      "bytes": 151,
+      "sha256": "29f68ce4288e05b5d9714e53d8bd1f86d52f40700e98740c0f242f8aa46f844e"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Protected_Symbol_Determines_Reference_Life.md",
+      "bytes": 191,
+      "sha256": "5cdc828cde828ff25ce4c52b97a1f226ad07b4d988e89c1f16fa1e5f76ebae15"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Source_Alias_And_Canonical_Signal_ID_Are_Separate.md",
+      "bytes": 190,
+      "sha256": "8deaa32015ede5c5667760d340a87a7a8c98af1a4032190892d6f1a6a86631b2"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/TWO_And_TDO_Are_Open_Anchors.md",
+      "bytes": 126,
+      "sha256": "4f611b9b1163ee59757de2b66ede1d92e68306a462b5a7656b70f731586f24ba"
+    },
+    {
+      "path": "docs/obsidian_deep/01_concepts/Unresolved_Daye_Ambiguities_Block_Implementation.md",
+      "bytes": 196,
+      "sha256": "822a92867a074b47fa636359c851fc757d961e8f08c0721e9e4de9423df9d427"
+    },
+    {
+      "path": "docs/obsidian_deep/03_decision_maps/EXP0018_Reference_Retirement_Map.md",
+      "bytes": 209,
+      "sha256": "d82f8fac87fea5136fa90519cdc0913bea22fd621459509744419259984f08eb"
+    },
+    {
+      "path": "docs/obsidian_deep/03_decision_maps/EXP0018_Separation_Map.md",
+      "bytes": 145,
+      "sha256": "4255b947c62146f20344963e14b173755a5ba89a294e4f4661decf0cc96cd96b"
+    },
+    {
+      "path": "docs/obsidian_deep/03_decision_maps/EXP0018_Signal_Formation_Map.md",
+      "bytes": 195,
+      "sha256": "ffda05f01263123d4e747ade9b5b07e262e01cebd318f1013bd08b90e9414c46"
+    },
+    {
+      "path": "docs/obsidian_deep/03_decision_maps/PHASE_EXP0018_Documentation_To_Implementation_Map.md",
+      "bytes": 239,
+      "sha256": "f8e87bd47156ea56239ebec84f6349cd36074f51935d09ae7277d43e2cb277f6"
+    },
+    {
+      "path": "docs/obsidian_deep/04_checklists/EXP0018_Documentation_Review_Checklist.md",
+      "bytes": 1067,
+      "sha256": "774eddef46d38ed697c2f8b62296923fc42ac7a7fb5febea73492eb7ad92c6b9"
+    }
+  ],
+  "no_code_changes": true
+}
