@@ -21,6 +21,7 @@ class Check:
 
 
 REQUIRED_FILES = (
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase02DetectionCore.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSStructureSnapshot.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSEntryTypes.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSEntryRules.mqh",
@@ -63,6 +64,7 @@ def run(root: Path) -> list[Check]:
         ))
 
     ea = "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5"
+    hook_core = "mql5/Include/FlagCountingPhoenix/FP_HookPhase02DetectionCore.mqh"
     hook_engine = "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh"
     snapshot = "mql5/Include/FlagCountingPhoenix/FP_NDSStructureSnapshot.mqh"
     types = "mql5/Include/FlagCountingPhoenix/FP_NDSEntryTypes.mqh"
@@ -84,10 +86,12 @@ def run(root: Path) -> list[Check]:
     ):
         check_contains(checks, root, ea, field, check_id, "safe authority default")
 
-    check_contains(checks, root, hook_engine, "FP_NDSClearStructureSnapshot",
+    check_contains(checks, root, hook_core, "FP_NDSClearStructureSnapshot",
                    "NDS_ENTRY_SNAPSHOT_CLEAR", "snapshot is cleared before Hook reconstruction")
-    check_contains(checks, root, hook_engine, "FP_NDSCaptureStructureSnapshot",
+    check_contains(checks, root, hook_core, "FP_NDSCaptureStructureSnapshot",
                    "NDS_ENTRY_SNAPSHOT_CAPTURE", "annotated Hook sequences are captured")
+    check_contains(checks, root, hook_engine, "FP_RunHookPhase02DetectionCore",
+                   "NDS_ENTRY_SHARED_HOOK_CORE", "production Hook engine delegates to shared detection core")
     check_contains(checks, root, snapshot, "FP_NDSStructureSnapshotMatches",
                    "NDS_ENTRY_SNAPSHOT_SCOPE", "snapshot is scoped by symbol and timeframe")
 

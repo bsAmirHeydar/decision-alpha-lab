@@ -24,6 +24,7 @@ REQUIRED_FILES = (
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh",
     "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/README.md",
     "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/03_single_exposure_state_machine.md",
@@ -66,6 +67,7 @@ def run(root: Path) -> list[Check]:
     types = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh"
     rules = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh"
     export = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh"
+    core = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh"
     engine = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh"
 
     contains(checks, root, ea, '#property version   "18.41"',
@@ -76,6 +78,8 @@ def run(root: Path) -> list[Check]:
              "P52_SEND_DEFAULT_FALSE", "broker-send authority is disabled by default")
     contains(checks, root, ea, "FP_RunNDSHookLimitF123Execution",
              "P52_ENGINE_WIRED", "Phase 52 engine is wired after Hook reconstruction")
+    contains(checks, root, engine, "FP_RunNDSHookLimitF123ExecutionCore",
+             "P52_SHARED_CORE_WRAPPER", "production engine delegates to the shared execution core")
 
     contains(checks, root, rules, "seq.valid_after_hook",
              "P52_SOURCE_HH", "Hook-after-Hook source is explicit")
@@ -100,11 +104,11 @@ def run(root: Path) -> list[Check]:
              "P52_POSITION_COUNT", "position exposure is counted by strategy magic")
     contains(checks, root, rules, "GlobalVariableSetOnCondition",
              "P52_COMPARE_SWAP_LOCK", "terminal-wide compare-and-swap lock prevents entry race")
-    contains(checks, root, engine, "BLOCKED_EXPOSURE_CHANGED_DURING_ENTRY",
+    contains(checks, root, core, "BLOCKED_EXPOSURE_CHANGED_DURING_ENTRY",
              "P52_SECOND_EXPOSURE_CHECK", "broker state is rechecked while entry lock is held")
     contains(checks, root, rules, "FP_NDSHookTradeReconcileDuplicatePending",
              "P52_DUPLICATE_PENDING_RECOVERY", "duplicate pending orders are reconciled")
-    contains(checks, root, engine, "INVARIANT_MULTIPLE_MANAGED_POSITIONS",
+    contains(checks, root, core, "INVARIANT_MULTIPLE_MANAGED_POSITIONS",
              "P52_MULTIPLE_POSITION_FAIL_CLOSED", "multiple live positions require manual reconciliation")
 
     contains(checks, root, rules, "FP_NDSHookTradeFindF123Evidence",
@@ -134,7 +138,7 @@ def run(root: Path) -> list[Check]:
              "P52_F2_AUDIT", "F2 start is preserved in the exit evidence ledger")
 
     # Broker ownership must not depend on mutable comments.
-    excludes(checks, root, engine, "POSITION_COMMENT",
+    excludes(checks, root, core, "POSITION_COMMENT",
              "P52_MAGIC_ONLY_POSITION_AUTHORITY", "position ownership does not depend on broker comments")
     excludes(checks, root, rules, "ORDER_COMMENT) !=",
              "P52_MAGIC_ONLY_ORDER_AUTHORITY", "order ownership does not depend on broker comments")

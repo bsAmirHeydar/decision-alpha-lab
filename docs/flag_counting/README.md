@@ -365,3 +365,17 @@ valid HH/F3H Hook → terminal limit → single exposure → same-direction post
 ```
 
 Authority and validation are documented in `docs/nds_entry_architecture/phase52_hook_limit_f123_execution/`.
+
+## NDS Phase 53 lightweight Strategy Tester
+
+A dedicated backtest executable now isolates the current HH/F3H limit-entry and
+same-direction F123 exit contract from the production visual/audit runtime:
+
+```text
+mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5
+```
+
+It runs once per new bar, uses shared Hook and trade cores, disables all chart
+objects and CSV by default, and provides FAST, PARITY, and CUSTOM structural
+context profiles. Documentation is under
+`docs/nds_entry_architecture/phase53_lightweight_backtest/`.

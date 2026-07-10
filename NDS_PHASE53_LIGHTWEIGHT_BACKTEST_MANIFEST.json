@@ -1,0 +1,164 @@
+{
+  "patch_id": "NDS-PHASE53-LIGHTWEIGHT-BACKTEST-RUNTIME",
+  "version": "1.0.0",
+  "generated_at_utc": "2026-07-10T17:39:06.157016+00:00",
+  "base": "NDS Phase 52.1 / FlagCountingPhoenixExperiment 18.41",
+  "scope": "Separate lightweight Strategy Tester executable with shared Hook detection and execution cores.",
+  "file_count": 30,
+  "files": [
+    {
+      "path": "INSTALL_NDS_PHASE53_LIGHTWEIGHT_BACKTEST_PATCH.md",
+      "size_bytes": 3613,
+      "sha256": "de31c778703b124e383f53ad0724b808798c9a05a8ce41d9d10429d86a634041"
+    },
+    {
+      "path": "NDS_PHASE53_LIGHTWEIGHT_BACKTEST_AUDIT_REPORT.md",
+      "size_bytes": 5550,
+      "sha256": "880d7253f001d6580a0bf0e119e6097fb8a99799386ac283863cc7f8d6d1d942"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 20077,
+      "sha256": "47e1df33981d930c4c09c081f8f30aed935a41f7d9be5bdcd8636fd8127d1af9"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 3699,
+      "sha256": "9b9c45ed263e0716644c8750f900136420c10cc78f4f7fc3218225ed67409e8c"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/README.md",
+      "size_bytes": 973,
+      "sha256": "a2d40c2a21068c889d4a9567369d400a6baf8723afbf5a5d1e9495a259d05e16"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/01_scope_and_non_goals.md",
+      "size_bytes": 1243,
+      "sha256": "754dbe502e0af14342f3ae8e0a4f095556925a4e322b4cf630b0a4e5fad5b2ac"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/02_runtime_pipeline.md",
+      "size_bytes": 1170,
+      "sha256": "88e9000f1101216ee6f312528518962f6cb3cc33a5e1821cc64f7a7bd20f90bd"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/03_shared_core_parity_contract.md",
+      "size_bytes": 1141,
+      "sha256": "29022b13879d932ea16fffcfe1b337bcdaae7819924a3345ddb8cd3fee51d434"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/04_performance_profiles.md",
+      "size_bytes": 773,
+      "sha256": "fcf97af81ff261590b7b1e064ed3474eb508dd8e93c0b98ccf63aa742d0baec3"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/05_exposure_aware_fast_path.md",
+      "size_bytes": 762,
+      "sha256": "3b689644664424f1f9f12ca5ba0731c608a4a7a5ad01134ea3e33e532ffbce89"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/06_operator_guide_fa.md",
+      "size_bytes": 1751,
+      "sha256": "cb2f477f42facbaf826f0168a9bd96ea62229e64aa6f29a86bbb7d28c2cae236"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/07_validation_matrix.md",
+      "size_bytes": 1049,
+      "sha256": "f9d26f4bcea2d96f843d10f96194b39766586cd9e8c582cb7cab424bbe31df16"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase53_lightweight_backtest/08_benchmark_method.md",
+      "size_bytes": 1021,
+      "sha256": "64b265b4a5b3c3b59d44d3462dcb42722d733af57505b244f9003607fb95e43d"
+    },
+    {
+      "path": "docs/nds_hook_architecture/71_phase53_lightweight_backtest_runtime.md",
+      "size_bytes": 917,
+      "sha256": "2bf05f45037e2e07e138c75e57113591a8656b17376279ec79cfdc3de5b4cb50"
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "size_bytes": 5442,
+      "sha256": "344b850bbfaa4c1103abf550b94ec91e77cda322b1eb6415997f6fc081a59652"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 3171,
+      "sha256": "526749d023c0e9fb3ab7eeaa42b81fdfc5f6a749a27162ccd4a0ed2d3ab1af39"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Lightweight Backtest Runtime.md",
+      "size_bytes": 615,
+      "sha256": "0a68a459723fb4995e88cbe859fc9e03bb28cbe60def0d78ba0ff64a4917a598"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Backtest Performance Profiles.md",
+      "size_bytes": 576,
+      "sha256": "46b378a0528079cbf2c5d0d29125c63d3c2050e58dc86014174af21b9985d6b9"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Backtest Parity Contract.md",
+      "size_bytes": 644,
+      "sha256": "d5f5ff0918ab84184ca7271326151d80e403a292762871c80d01cd89edfde93d"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5",
+      "size_bytes": 17833,
+      "sha256": "efe2b7dda74f419e32d0d7953cacbf654424b3e71d037868e61c8e30fd904f45"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSBacktestTypes.mqh",
+      "size_bytes": 3890,
+      "sha256": "9ad1305f96de64280c6306ed1ca39a71ca44ef2ad7078d4ace7d14ac775131ca"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh",
+      "size_bytes": 9320,
+      "sha256": "e9ce1d593085051135a2966db8f0e774aa55bb8d0a0255eea608f90fa1a26b5a"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02DetectionCore.mqh",
+      "size_bytes": 2538,
+      "sha256": "021cf154d7baa0f794dd82c55d3f498841efb7ca9ef17345921014805188ecde"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh",
+      "size_bytes": 3284,
+      "sha256": "3085e58ce82e0a62bfcb1858b9b1ea1080a5b32997fcbad867d9ad0112874f59"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
+      "size_bytes": 11899,
+      "sha256": "c8792bd2a4fbad02bf47bb894e4552ee045456744ba25be19e0e016be7f9a8fe"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh",
+      "size_bytes": 1581,
+      "sha256": "f37d50945ff34881ca8edd5e47e42f5135f8c26314e006f8d5bebfd10c698b85"
+    },
+    {
+      "path": "tools/flag_counting/nds_lightweight_backtest_contract_qa.py",
+      "size_bytes": 4898,
+      "sha256": "ee5f63cc25dee171d905480385fed9a1f3c7e1f816e8534ffea9fa54318c379c"
+    },
+    {
+      "path": "tools/flag_counting/nds_entry_contract_qa.py",
+      "size_bytes": 7820,
+      "sha256": "f7d120c8731fa3b8e6dedce7dad8c66cd69753b77c73732d777cc0c50b3f3438"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_trade_contract_qa.py",
+      "size_bytes": 8624,
+      "sha256": "0eda722a631ec9af6d1e1f5427f13c4a79604443ed207061a6bca740f1314707"
+    }
+  ],
+  "validation": {
+    "metaeditor_compile": "not_available_in_build_environment",
+    "strategy_tester_runtime": "not_available_in_build_environment",
+    "static_contract_qa": "pass",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing expected directories",
+    "ai_engineering_os_vault": "0 errors, 0 warnings"
+  }
+}

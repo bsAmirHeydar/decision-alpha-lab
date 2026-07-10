@@ -165,3 +165,15 @@ This opt-in profile accepts only valid HH/F3H Hook families, submits a pending l
 Phase 52.1 permits an explicit license bypass only inside Strategy Tester or
 optimization agents. Normal chart runtime remains on the signed fail-closed
 license path.
+
+
+## Latest lightweight tester overlay — Phase 53
+
+```text
+71_phase53_lightweight_backtest_runtime.md
+```
+
+Phase 53 introduces a separate Strategy Tester expert that calls the shared F,
+Hook ownership, and Hook-limit/F123 execution cores directly. Rendering, license,
+CSV, timers, chart events, and research/rehearsal layers are absent from the
+backtest call path. FAST, PARITY, and CUSTOM context profiles are available.

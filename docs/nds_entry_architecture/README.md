@@ -106,3 +106,12 @@ docs/nds_entry_architecture/phase52_hook_limit_f123_execution/
 ```
 
 It is source-restricted to valid HH/F3H Hooks, uses a terminal-price pending limit, enforces one managed exposure by magic across charts, and closes only after a new full same-direction F123 chain. Both live-authority inputs default to false.
+
+
+## Phase 53 — Lightweight backtest runtime
+
+The dedicated Strategy Tester executable and its shared-core parity contract are documented in:
+
+```text
+phase53_lightweight_backtest/README.md
+```

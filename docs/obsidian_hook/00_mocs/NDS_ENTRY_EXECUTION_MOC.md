@@ -76,3 +76,10 @@ InpNDSHookTradeSendLiveOrders = true
 ```
 
 Both default to false, and the single-exposure invariant is mandatory.
+
+
+## Lightweight Strategy Tester
+
+- [[NDS Lightweight Backtest Runtime]]
+- [[NDS Backtest Performance Profiles]]
+- [[NDS Backtest Parity Contract]]
