@@ -1,0 +1,12 @@
+---
+id: CARD-EXP0018-P02-20_HANDOFF_TO_P03_P05_P11
+title: "Card — 20_HANDOFF_TO_P03_P05_P11"
+type: document-card
+status: active
+project: EXP0018
+---
+# 20_HANDOFF_TO_P03_P05_P11
+
+Source: [[20_HANDOFF_TO_P03_P05_P11]]
+
+MOC: [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]

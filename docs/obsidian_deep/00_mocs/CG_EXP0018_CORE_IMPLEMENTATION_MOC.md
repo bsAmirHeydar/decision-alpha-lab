@@ -1,18 +1,22 @@
-  ---
-  id: CG_EXP0018_CORE_IMPLEMENTATION_MOC
-  title: "EXP0018 Core Implementation MOC"
-  type: moc
-  status: active
-  project: EXP0018
-  version: 2.0.0
-  created: 2026-07-10
-  updated: 2026-07-10
-  tags:
-    - exp0018
-- obsidian-moc
-- implementation-design
-  ---
+---
+id: CG_EXP0018_CORE_IMPLEMENTATION_MOC
+title: "EXP0018 Core Implementation MOC"
+type: moc
+status: active
+project: EXP0018
+version: 2.2.0
+created: 2026-07-10
+updated: 2026-07-10
+---
 # EXP0018 Core Implementation MOC
+
+## Implemented evidence packages
+
+- [[CG_EXP0018_PHASE00_DOCTRINE_FREEZE_MOC]]
+- [[CG_EXP0018_PHASE01_TIME_KERNEL_MOC]]
+- [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]
+
+## Phase design packets
 
 - [[EXP0018_CORE_TRACK_INDEX]]
 - [[PHASE00_DOCTRINE_FREEZE_V2_AND_DECISION_BASELINE_DESIGN_PACKET]]
@@ -29,6 +33,3 @@
 - [[PHASE11_HISTORICAL_REPLAY_AND_BACKFILL_ENGINE_DESIGN_PACKET]]
 - [[PHASE12_AUDIT_LEDGER_AND_DIAGNOSTICS_DESIGN_PACKET]]
 - [[PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET]]
-- [[CG_EXP0018_PHASE00_DOCTRINE_FREEZE_MOC]]
-- [[00_INDEX]]
-- [[15_ARCHITECT_DECISION_WORKBOOK]]

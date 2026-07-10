@@ -1,0 +1,12 @@
+---
+id: CARD-EXP0018-P02-19_DEFINITION_OF_DONE
+title: "Card — 19_DEFINITION_OF_DONE"
+type: document-card
+status: active
+project: EXP0018
+---
+# 19_DEFINITION_OF_DONE
+
+Source: [[19_DEFINITION_OF_DONE]]
+
+MOC: [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]

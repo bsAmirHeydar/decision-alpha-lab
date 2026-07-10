@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "project": "EXP0018",
+  "phase": "P02",
+  "name": "multi_symbol_data_synchronization",
+  "alignment_key": "event_time_utc",
+  "alignment_mode": "exact_match_only",
+  "forward_fill_allowed": false,
+  "base_bar_default": "M1",
+  "closed_bars_default": true,
+  "required_bar_fields": [
+    "broker_symbol",
+    "canonical_symbol",
+    "event_time_utc",
+    "event_time_ny",
+    "open",
+    "high",
+    "low",
+    "close",
+    "completeness",
+    "source_status"
+  ],
+  "required_pair_fields": [
+    "pair_id",
+    "timeframe",
+    "event_time_utc",
+    "availability_time_utc",
+    "processing_time_utc",
+    "symbol_a",
+    "symbol_b"
+  ],
+  "partial_data_states": [
+    "HISTORY_NOT_SYNCHRONIZED",
+    "INSUFFICIENT_BARS",
+    "PARTIAL_ALIGNMENT",
+    "NO_COMMON_TIMESTAMPS",
+    "STALE_DATA"
+  ],
+  "invariants": [
+    "bar alignment uses timestamp rather than array index",
+    "missing bar is explicit and is never forward-filled",
+    "symbol A and symbol B retain symbol-local OHLC",
+    "a pair exists only when both bars share exact event_time_utc",
+    "downstream detection must not treat unavailable data as no hunt",
+    "pair identity is deterministic",
+    "phase has no order or execution authority"
+  ]
+}

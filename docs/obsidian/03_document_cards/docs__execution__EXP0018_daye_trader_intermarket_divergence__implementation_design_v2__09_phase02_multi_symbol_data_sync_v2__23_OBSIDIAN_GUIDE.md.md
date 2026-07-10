@@ -1,0 +1,12 @@
+---
+id: CARD-EXP0018-P02-23_OBSIDIAN_GUIDE
+title: "Card — 23_OBSIDIAN_GUIDE"
+type: document-card
+status: active
+project: EXP0018
+---
+# 23_OBSIDIAN_GUIDE
+
+Source: [[23_OBSIDIAN_GUIDE]]
+
+MOC: [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]

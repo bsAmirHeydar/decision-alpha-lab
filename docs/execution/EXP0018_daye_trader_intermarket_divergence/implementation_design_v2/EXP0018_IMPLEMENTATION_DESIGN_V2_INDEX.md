@@ -1,21 +1,16 @@
-  ---
-  id: EXP0018-DESIGN-V2-INDEX
-  title: "EXP0018 Implementation Design v2 — Index"
-  type: moc
-  status: active
-  project: EXP0018
-  version: 2.0.0
-  created: 2026-07-10
-  updated: 2026-07-10
-  tags:
-    - exp0018
-- daye-trader
-- implementation-design
-  ---
-
+---
+id: EXP0018-DESIGN-V2-INDEX
+title: "EXP0018 Implementation Design v2 — Index"
+type: moc
+status: active
+project: EXP0018
+version: 2.2.0
+created: 2026-07-10
+updated: 2026-07-10
+---
 # EXP0018 Implementation Design v2
 
-این شاخه نقشه مهندسی کامل برای تبدیل دکترین Daye/Quarterly Theory به سیستم **deterministic، replayable، visual-only و بدون اختیار معامله** است.
+این شاخه نقشه مهندسی کامل برای تبدیل دکترین Daye/Quarterly Theory به سیستم deterministic، replayable، visual-only و بدون اختیار معامله است.
 
 ## نقطه شروع
 
@@ -25,19 +20,16 @@
 4. [[EXP0018_FIRST_DESIGN_SPRINT|اولین Sprint طراحی]]
 5. [[CG_EXP0018_IMPLEMENTATION_DESIGN_V2_MOC|MOC اصلی Obsidian]]
 
-## Tracks
+## Implementation evidence packages
 
-- **Core P00–P13:** همان ۲۲ رابطه Word، touch-only hunt، close confirmation، lifecycle، drawing، boxes، TWO/TDO، replay و QA.
-- **Optional P14–P20:** True Opens توسعه‌یافته، DFR، SSMTها، context، news، triad و outcome research؛ فقط پس از Core RC.
+- [[EXP0018-P00-V2-INDEX|P00 Doctrine Freeze v2]]
+- [[EXP0018-P01-V2-INDEX|P01 New York Time Kernel v2]]
+- [[EXP0018-P02-V2-INDEX|P02 Multi-Symbol Data Synchronization v2]]
 
 ## وضعیت فعلی
 
-- P01 Time Foundation کد پایه دارد، اما هنوز باید در این معماری review و validate شود.
-- P00 هنوز به‌علت تصمیم‌های doctrine باز، کامل نیست.
-- P02 تا P20 در وضعیت طراحی/عدم شروع هستند.
-- هیچ فاز در این شاخه order placement، risk sizing یا execution authority ندارد.
-## Phase 00 Detailed Package
-
-- [[07_phase00_doctrine_freeze_v2/00_INDEX|P00 Doctrine Freeze v2 — بسته تفصیلی]]
-- [[07_phase00_doctrine_freeze_v2/15_ARCHITECT_DECISION_WORKBOOK|برگه تصمیم معمار]]
-- [[07_phase00_doctrine_freeze_v2/20_DOCTRINE_FREEZE_GATE|Gate انجماد دکترین]]
+- P00 package کامل است ولی ADR approvalهای نهایی هنوز باید ثبت شوند.
+- P01 پیاده‌سازی شده و منتظر Compile/Runtime evidence نهایی است.
+- P02 پیاده‌سازی exact-timestamp و no-forward-fill دارد و منتظر MetaEditor/runtime validation است.
+- P03 مرحله بعدی رسمی است.
+- هیچ فاز فعلی order placement، risk sizing یا execution authority ندارد.

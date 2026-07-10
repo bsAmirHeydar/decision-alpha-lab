@@ -1,0 +1,12 @@
+---
+id: CARD-EXP0018-P02-21_ROLLBACK_PLAN
+title: "Card — 21_ROLLBACK_PLAN"
+type: document-card
+status: active
+project: EXP0018
+---
+# 21_ROLLBACK_PLAN
+
+Source: [[21_ROLLBACK_PLAN]]
+
+MOC: [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]

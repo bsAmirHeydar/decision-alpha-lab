@@ -1,0 +1,12 @@
+---
+id: CARD-EXP0018-P02-09_DATA_QUALITY_RULES
+title: "Card — 09_DATA_QUALITY_RULES"
+type: document-card
+status: active
+project: EXP0018
+---
+# 09_DATA_QUALITY_RULES
+
+Source: [[09_DATA_QUALITY_RULES]]
+
+MOC: [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC]]
