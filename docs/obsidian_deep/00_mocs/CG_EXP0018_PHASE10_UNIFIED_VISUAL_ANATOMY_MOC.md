@@ -57,3 +57,8 @@ status: implemented-evidence-package
 - [[EXP0018_P10_DST_Checklist]]
 - [[EXP0018_P10_Object_Ownership_Checklist]]
 - [[EXP0018_P10_Release_Checklist]]
+
+## Runtime Recovery
+
+- [[EXP0018_P10_Temporal_Visuals_Do_Not_Require_A_Paired_Divergence_Source]]
+- [[HOTFIX002_VISUAL_INIT_AND_BROKER_SYMBOL_RECOVERY]]

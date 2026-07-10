@@ -1,14 +1,23 @@
 #property strict
-#property version   "2.10"
+#property version   "2.11"
 #property description "EXP0018 P10 unified Daye visual anatomy: divergence, cycles, boxes, micro quarters, TDO and TWO. No trading authority."
 
 #include <DayeTrader/EXP0018/DAYE_VisualEngine.mqh>
+#include <DayeTrader/EXP0018/DAYE_SymbolResolver.mqh>
 
 input group "EXP0018 P08 — Symbols"
 input string InpSymbolA="SPXUSD";
 input string InpSymbolB="NDXUSD";
 input string InpCanonicalSymbolA="SPX";
 input string InpCanonicalSymbolB="NDX";
+
+input group "EXP0018 P10 — Broker Symbol Recovery"
+input bool InpAutoResolveBrokerSymbols=true;
+input bool InpPreferCurrentChartSymbol=true;
+input bool InpFailInitIfPairPipelineUnavailable=false;
+input bool InpAllowSingleSymbolTimeFallback=true;
+input int InpLocalVisualMinimumBars=60;
+input bool InpPrintDetailedInitDiagnostics=true;
 
 input group "EXP0018 P08 — Source and Host Timeframes"
 input ENUM_TIMEFRAMES InpBaseTimeframe=PERIOD_M1;
@@ -204,6 +213,9 @@ input string InpAuditCsvFilename="EXP0018_Phase08_Divergence_Drawing_Audit_v2.cs
 
 
 CDayeVisualEngine g_daye_visual_engine;
+string g_daye_resolved_symbol_a="";
+string g_daye_resolved_symbol_b="";
+bool g_daye_pair_symbols_ready=false;
 
 void DAYE_BuildP08TimeConfig(DAYE_TimeConfig &config)
 {
@@ -225,7 +237,7 @@ void DAYE_BuildP08Config(DAYE_RenderConfig &config)
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.schema_version=DAYE_RELATIONSHIP_SCHEMA_VERSION;
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.schema_version=DAYE_PERIOD_AGG_SCHEMA_VERSION;
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.schema_version=DAYE_DATA_SCHEMA_VERSION;
-   config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.broker_symbol_a=InpSymbolA; config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.broker_symbol_b=InpSymbolB;
+   config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.broker_symbol_a=(g_daye_resolved_symbol_a!=""?g_daye_resolved_symbol_a:InpSymbolA); config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.broker_symbol_b=(g_daye_resolved_symbol_b!=""?g_daye_resolved_symbol_b:InpSymbolB);
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.canonical_symbol_a=InpCanonicalSymbolA; config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.canonical_symbol_b=InpCanonicalSymbolB;
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.base_timeframe=InpBaseTimeframe; config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.requested_bars_per_symbol=InpRequestedBarsPerSymbol;
    config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.minimum_common_bars=InpMinimumCommonBars; config.lifecycle_config.confirmation_config.hunt_config.relationship_config.period_config.data_config.maximum_pairs_to_publish=InpMaximumPairsToPublish;
@@ -355,6 +367,10 @@ void DAYE_BuildP10VisualConfig(DAYE_VisualConfig &config)
    config.recreate_manually_deleted_owned_objects=InpVisualRecreateDeletedObjects;
    config.delete_owned_objects_on_deinit=InpVisualDeleteObjectsOnDeinit;
    config.object_verification_interval_seconds=InpVisualVerificationIntervalSeconds;
+   config.allow_single_symbol_time_fallback=InpAllowSingleSymbolTimeFallback;
+   config.fail_init_when_pair_pipeline_unavailable=InpFailInitIfPairPipelineUnavailable;
+   config.local_visual_minimum_bars=InpLocalVisualMinimumBars;
+   config.print_detailed_source_diagnostics=InpPrintDetailedInitDiagnostics;
 }
 
 datetime DAYE_P10CurrentBrokerTime(void)
@@ -366,17 +382,44 @@ datetime DAYE_P10CurrentBrokerTime(void)
 
 int OnInit()
 {
+   string resolution_report="";
+   string current_chart_symbol=ChartSymbol(ChartID());
+   g_daye_pair_symbols_ready=DAYE_ResolveBrokerPair(InpSymbolA,InpCanonicalSymbolA,
+                                                    InpSymbolB,InpCanonicalSymbolB,
+                                                    current_chart_symbol,
+                                                    InpAutoResolveBrokerSymbols,
+                                                    InpPreferCurrentChartSymbol,
+                                                    g_daye_resolved_symbol_a,
+                                                    g_daye_resolved_symbol_b,
+                                                    resolution_report);
+   Print("EXP0018 P10 symbol resolution: ",resolution_report,
+         " | chart=",current_chart_symbol," tf=",EnumToString((ENUM_TIMEFRAMES)_Period));
+   if(!g_daye_pair_symbols_ready && InpFailInitIfPairPipelineUnavailable)
+   {
+      Print("EXP0018 P10 initialization stopped: paired symbols unresolved and strict pair initialization is enabled.");
+      return INIT_FAILED;
+   }
+   if(!g_daye_pair_symbols_ready)
+      Print("EXP0018 P10 continuing in local time-anatomy mode. Divergence lines remain unavailable until both broker symbols resolve.");
+
    DAYE_TimeConfig time_config;
    DAYE_RenderConfig render_config;
    DAYE_VisualConfig visual_config;
    DAYE_BuildP08TimeConfig(time_config);
    DAYE_BuildP08Config(render_config);
    DAYE_BuildP10VisualConfig(visual_config);
+   ResetLastError();
    if(!g_daye_visual_engine.Initialize(render_config,visual_config,time_config,
                                        InpRunEmbeddedSelfTestsOnInit,InpWriteAuditCsv,InpAuditCsvFilename))
+   {
+      Print("EXP0018 P10 initialization failed after symbol resolution. chart=",current_chart_symbol,
+            " resolvedA=",g_daye_resolved_symbol_a," resolvedB=",g_daye_resolved_symbol_b,
+            " last_error=",GetLastError());
       return INIT_FAILED;
+   }
    int timer_seconds=InpTimerSeconds;
    if(timer_seconds<1) timer_seconds=1;
+   ResetLastError();
    if(!EventSetTimer(timer_seconds))
    {
       Print("EXP0018 P10 EventSetTimer failed error=",GetLastError());
@@ -384,7 +427,13 @@ int OnInit()
       return INIT_FAILED;
    }
    datetime now=DAYE_P10CurrentBrokerTime();
-   if(now>0) g_daye_visual_engine.Process(now,InpPrintSummaryOnRefresh,true,InpShowChartComment);
+   if(now>0)
+   {
+      if(!g_daye_visual_engine.Process(now,InpPrintSummaryOnRefresh,true,InpShowChartComment))
+         Print("EXP0018 P10 first process call failed. The timer will retry.");
+   }
+   else
+      Print("EXP0018 P10 current broker time unavailable during OnInit; timer will retry.");
    return INIT_SUCCEEDED;
 }
 

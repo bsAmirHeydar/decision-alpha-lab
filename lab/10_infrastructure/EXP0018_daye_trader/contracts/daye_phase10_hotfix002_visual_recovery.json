@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "hotfix_id": "EXP0018-P10-HF002",
+  "expert": "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5",
+  "requirements": {
+    "auto_resolve_broker_symbols": true,
+    "prefer_current_chart_alias": true,
+    "single_symbol_time_fallback": true,
+    "pair_pipeline_failure_is_nonfatal_by_default": true,
+    "detailed_object_failure_logging": true,
+    "reserved_protected_identifier_absent": true,
+    "execution_authority": false
+  },
+  "ndx_aliases": ["#USNDAQ100", "NDXUSD", "NDX", "US100", "USTEC", "NAS100", "NASDAQ100", "NQ100"],
+  "spx_aliases": ["#USSPX500", "SPXUSD", "SPX", "US500", "SP500", "SPX500", "USA500"]
+}

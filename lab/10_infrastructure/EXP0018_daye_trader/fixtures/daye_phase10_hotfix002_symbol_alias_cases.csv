@@ -1,0 +1,5 @@
+canonical,configured,current_chart,available_symbols,expected_current_side,expected_pair_possible
+NDX,NDXUSD,#USNDAQ100,"#USNDAQ100;#USSPX500",NDX,true
+NDX,NDXUSD,#USNDAQ100,"#USNDAQ100",NDX,false
+SPX,SPXUSD,#USSPX500,"#USSPX500;#USNDAQ100",SPX,true
+NDX,NDXUSD,EURUSD,"US100;US500;EURUSD",NONE,true

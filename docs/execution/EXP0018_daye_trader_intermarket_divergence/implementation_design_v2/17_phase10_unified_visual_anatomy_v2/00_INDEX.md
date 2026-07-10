@@ -43,3 +43,7 @@ Read scope and composition first, then the hierarchy and each geometry contract,
 ## Non-authority statement
 
 This document and the corresponding implementation do not authorize entries, exits, risk sizing, order placement, strategy mutation, model promotion, network access, or execution. Chart objects are projections of upstream immutable evidence and time contracts.
+
+## Runtime Hotfixes
+
+- [Hotfix002 — Visual Initialization and Broker-Symbol Recovery](hotfixes/HOTFIX002_VISUAL_INIT_AND_BROKER_SYMBOL_RECOVERY.md)

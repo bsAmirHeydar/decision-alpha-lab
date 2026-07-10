@@ -1,0 +1,47 @@
+{
+  "patch_id": "EXP0018-P10-HF002",
+  "title": "Visual initialization, broker-symbol recovery, and single-symbol temporal fallback",
+  "files": [
+    "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_VisualEngine.mqh",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_VisualTypes.mqh",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_SymbolResolver.mqh",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
+    "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2/00_INDEX.md",
+    "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2/hotfixes/HOTFIX002_VISUAL_INIT_AND_BROKER_SYMBOL_RECOVERY.md",
+    "docs/obsidian_deep/00_mocs/CG_EXP0018_PHASE10_UNIFIED_VISUAL_ANATOMY_MOC.md",
+    "docs/obsidian_deep/01_concepts/EXP0018_P10_Temporal_Visuals_Do_Not_Require_A_Paired_Divergence_Source.md",
+    "lab/10_infrastructure/EXP0018_daye_trader/contracts/daye_phase10_hotfix002_visual_recovery.json",
+    "lab/10_infrastructure/EXP0018_daye_trader/fixtures/daye_phase10_hotfix002_symbol_alias_cases.csv",
+    "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase10_hotfix002_visual_recovery.py",
+    "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase10_hotfix002_visual_recovery.py",
+    "lab/10_infrastructure/EXP0018_daye_trader/powershell/run_exp0018_phase10_hotfix002_visual_recovery_checks.ps1",
+    "INSTALL_EXP0018_PHASE10_HOTFIX002_VISUAL_RECOVERY.md",
+    "EXP0018_PHASE10_HOTFIX002_VISUAL_RECOVERY_MANIFEST.json"
+  ],
+  "behavior_changes": [
+    "Auto-resolve broker-specific SPX/NDX aliases, including #USNDAQ100 families.",
+    "Do not fail P10 initialization when the paired divergence source is unavailable unless strict mode is enabled.",
+    "Render temporal anatomy from the attached chart as a single-symbol fallback.",
+    "Emit actionable initialization, history, and object-creation diagnostics.",
+    "Carry forward the reserved protected identifier compile fix."
+  ],
+  "execution_authority": false,
+  "sha256": {
+    "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5": "dac14d0b5b8fa3e800a85c1fb98356179d505792ad603a9d0814af3621c5b9c9",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_VisualEngine.mqh": "c1da65deb3d47a9089d4d0749e10ba96a388555618611bbd1109418abf1385ea",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_VisualTypes.mqh": "20c1dca7b0339c452bcc338efb9433a966eeda80a4920bdbf209b905b9424481",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_SymbolResolver.mqh": "6fe86d81da5c4e8766cc7ae1d174982288cd2012790d4ba9517de57a07dd88ab",
+    "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh": "2fd551b44c0a5e3f74147b2439e4e10752b763218564a4459abadaf91e8373d5",
+    "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2/00_INDEX.md": "8b67c9ac5abd0a7ef4fbbb8089929ac6ec16019b3c813263aae0ee9599b2485d",
+    "docs/execution/EXP0018_daye_trader_intermarket_divergence/implementation_design_v2/17_phase10_unified_visual_anatomy_v2/hotfixes/HOTFIX002_VISUAL_INIT_AND_BROKER_SYMBOL_RECOVERY.md": "708a9d3073f1a4e704e09f492aed3296bcb0747abad48f7822def7385965c053",
+    "docs/obsidian_deep/00_mocs/CG_EXP0018_PHASE10_UNIFIED_VISUAL_ANATOMY_MOC.md": "e8e292c86bf14922900cad5f3df199ad70ec97993d554b8c6ee3634a1e140c58",
+    "docs/obsidian_deep/01_concepts/EXP0018_P10_Temporal_Visuals_Do_Not_Require_A_Paired_Divergence_Source.md": "9e6aec6ed82f8e128ee628a12790a91fb1d34acc81bff81169e1b13f6611a45b",
+    "lab/10_infrastructure/EXP0018_daye_trader/contracts/daye_phase10_hotfix002_visual_recovery.json": "23b20abe4b48d2151d7399297a2f190e67650c3124ad22fea4e93cc8326700f5",
+    "lab/10_infrastructure/EXP0018_daye_trader/fixtures/daye_phase10_hotfix002_symbol_alias_cases.csv": "830af205aa71cfbd43d55bc29da8f7551f56489fb3c172da85c6ea82e132a53c",
+    "lab/10_infrastructure/EXP0018_daye_trader/tools/validate_exp0018_phase10_hotfix002_visual_recovery.py": "0ab6b5166f025f30eb3ba95136788faf86f71c4894228da0aa3005c56137a43f",
+    "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase10_hotfix002_visual_recovery.py": "608f950e86341bd9e830f0e4e2fbff896b49fd54034020f4550b837b741745c1",
+    "lab/10_infrastructure/EXP0018_daye_trader/powershell/run_exp0018_phase10_hotfix002_visual_recovery_checks.ps1": "f3b4079820bd30cc7a8fd0d5049b3d26beaa2ad54972d798634f8bf4d1604742",
+    "INSTALL_EXP0018_PHASE10_HOTFIX002_VISUAL_RECOVERY.md": "a14168c419fc23c19ce1277d5f516bae9ad229d73595c94905ed9b82c97d6856"
+  }
+}

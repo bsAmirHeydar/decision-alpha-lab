@@ -7,7 +7,7 @@
 // Object projection only. No strategy mutation, risk, order, model, network,
 // licensing, or execution authority.
 
-#define DAYE_VISUAL_SCHEMA_VERSION 2
+#define DAYE_VISUAL_SCHEMA_VERSION 3
 #define DAYE_VISUAL_OBJECT_PREFIX "EXP0018_P10_"
 
 enum DAYE_VisualTargetPolicy
@@ -111,6 +111,13 @@ struct DAYE_VisualConfig
    bool recreate_manually_deleted_owned_objects;
    bool delete_owned_objects_on_deinit;
    int object_verification_interval_seconds;
+
+   // Hotfix002 resilience policy. The temporal anatomy is allowed to render from
+   // the attached chart even when the paired divergence source cannot initialize.
+   bool allow_single_symbol_time_fallback;
+   bool fail_init_when_pair_pipeline_unavailable;
+   int local_visual_minimum_bars;
+   bool print_detailed_source_diagnostics;
 };
 
 struct DAYE_VisualSummary
@@ -138,6 +145,12 @@ struct DAYE_VisualSummary
    int updated_count;
    int failed_count;
    int skipped_count;
+
+   bool pair_pipeline_initialized;
+   bool local_fallback_used;
+   int local_period_count;
+   string pair_pipeline_reason;
+   string local_fallback_reason;
 };
 
 string DAYE_VisualStatusToString(const DAYE_VisualStatus value)
