@@ -1,0 +1,12 @@
+﻿rule_or_decision_id,source,evidence,affected_phase
+RULE-001,PRIMARY_DOCX,All times New York,P01
+RULE-006,PRIMARY_DOCX,Touch counts as hunt,P05
+RULE-009,PRIMARY_DOCX,Close confirms,P06
+RULE-012,PRIMARY_DOCX,Draw on hunter,P08
+RULE-014,PRIMARY_DOCX,Major labels only,P08
+RULE-020,PRIMARY_DOCX,First sweep only,P07
+RULE-024,PRIMARY_DOCX,Lines remain,P08
+DY-A02,QT_EDUCATION_P9,Tuesday open/Monday 18:00,P10
+DY-A06,TRADER_DAYE_P153,Body/close as separate variant,P16
+DY-A10,QT_EDUCATION,Triad context,P19
+DY-A11,QT_EDUCATION_P24,News timing context,P18

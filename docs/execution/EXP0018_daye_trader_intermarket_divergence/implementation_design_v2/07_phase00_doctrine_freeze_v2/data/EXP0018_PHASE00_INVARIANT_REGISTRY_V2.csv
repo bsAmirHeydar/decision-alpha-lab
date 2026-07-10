@@ -1,0 +1,25 @@
+﻿invariant_id,statement,test_required
+INV-001,تمام زمان‌های domain نیویورک هستند.,true
+INV-002,Trading Day از 18:00 تا 16:59:59 است.,true
+INV-003,17:00–17:59:59 عضو هیچ session نیست.,true
+INV-004,p4 فقط 30 دقیقه است.,true
+INV-005,هر نماد فقط با سطح خودش مقایسه می‌شود.,true
+INV-006,Equality در Hunt حساب می‌شود.,true
+INV-007,Hunt به close پشت سطح نیاز ندارد.,true
+INV-008,No Data با Not Hunted متفاوت است.,true
+INV-009,تأیید فقط روی closed host bar انجام می‌شود.,true
+INV-010,Double Hunt در Close خط تأیید تولید نمی‌کند.,true
+INV-011,Relationshipها مستقل ارزیابی می‌شوند.,true
+INV-012,Renderer truth تولید نمی‌کند.,true
+INV-013,خط فقط روی Hunter chart و با قیمت همان نماد است.,true
+INV-014,Minor signal متن ندارد.,true
+INV-015,Object ID deterministic است.,true
+INV-016,Retired reference دوباره فعال نمی‌شود.,true
+INV-017,Replay از همان core engine لایو استفاده می‌کند.,true
+INV-018,EXP0018 هیچ Order API ندارد.,true
+INV-019,Optional module اجازه تغییر silent Core ندارد.,true
+INV-020,PDF claim بدون promotion وارد rule نمی‌شود.,true
+INV-021,هر event دارای event_time و availability_time است.,true
+INV-022,هر mutable state یک owner دارد.,true
+INV-023,Duplicate event transition دوم ندارد.,true
+INV-024,Confirmed historical event با داده آینده repaint نمی‌شود.,true

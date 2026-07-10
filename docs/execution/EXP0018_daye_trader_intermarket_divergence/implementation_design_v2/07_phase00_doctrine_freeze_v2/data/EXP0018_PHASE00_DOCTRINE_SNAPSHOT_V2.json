@@ -1,0 +1,75 @@
+{
+  "project": "EXP0018",
+  "phase": "P00",
+  "version": "2.1.0",
+  "status": "AWAITING_ARCHITECT_APPROVAL",
+  "clock": "NEW_YORK",
+  "trading_day": {
+    "start": "18:00:00",
+    "end": "16:59:59",
+    "gap_start": "17:00:00",
+    "gap_end": "17:59:59"
+  },
+  "sessions": {
+    "A": [
+      "18:00:00",
+      "23:59:59"
+    ],
+    "L": [
+      "00:00:00",
+      "05:59:59"
+    ],
+    "N": [
+      "06:00:00",
+      "11:59:59"
+    ],
+    "P": [
+      "12:00:00",
+      "16:59:59"
+    ]
+  },
+  "relationship_count": 22,
+  "major_count": 6,
+  "minor_count": 16,
+  "canonical_rules": [
+    "RULE-001",
+    "RULE-002",
+    "RULE-003",
+    "RULE-004",
+    "RULE-005",
+    "RULE-006",
+    "RULE-007",
+    "RULE-008",
+    "RULE-009",
+    "RULE-010",
+    "RULE-011",
+    "RULE-012",
+    "RULE-013",
+    "RULE-014",
+    "RULE-015",
+    "RULE-016"
+  ],
+  "open_decisions": [
+    "DY-A01",
+    "DY-A02",
+    "DY-A03",
+    "DY-A04",
+    "DY-A05",
+    "DY-A06",
+    "DY-A07",
+    "DY-A08",
+    "DY-A09",
+    "DY-A10",
+    "DY-A11",
+    "DY-A12"
+  ],
+  "implementation_blocked": [
+    "P04",
+    "P05",
+    "P07",
+    "P08",
+    "P10",
+    "P13"
+  ],
+  "execution_authority": false
+}

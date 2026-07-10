@@ -36,3 +36,8 @@
 - P00 هنوز به‌علت تصمیم‌های doctrine باز، کامل نیست.
 - P02 تا P20 در وضعیت طراحی/عدم شروع هستند.
 - هیچ فاز در این شاخه order placement، risk sizing یا execution authority ندارد.
+## Phase 00 Detailed Package
+
+- [[07_phase00_doctrine_freeze_v2/00_INDEX|P00 Doctrine Freeze v2 — بسته تفصیلی]]
+- [[07_phase00_doctrine_freeze_v2/15_ARCHITECT_DECISION_WORKBOOK|برگه تصمیم معمار]]
+- [[07_phase00_doctrine_freeze_v2/20_DOCTRINE_FREEZE_GATE|Gate انجماد دکترین]]

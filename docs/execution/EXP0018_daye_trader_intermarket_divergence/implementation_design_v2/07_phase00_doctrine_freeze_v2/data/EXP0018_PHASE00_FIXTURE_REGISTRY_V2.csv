@@ -1,0 +1,21 @@
+﻿fixture_id,rule_or_decision,title,category,status
+FX-001,RULE-006,high equality hunt,POSITIVE,DESIGNED
+FX-002,RULE-006,low equality hunt,POSITIVE,DESIGNED
+FX-003,RULE-010,double hunt before close,NEGATIVE,DESIGNED
+FX-004,RULE-015,symbol B missing data,PARTIAL_DATA,DESIGNED
+FX-005,RULE-009,intrabar candidate then close invalidation,BOUNDARY,DESIGNED
+FX-006,DY-A01,high-side direction mapping,DECISION,DESIGNED
+FX-007,DY-A02,TWO anchor exact date,DECISION,DESIGNED
+FX-008,DY-A03,weekly boundary weekend,DECISION,DESIGNED
+FX-009,DY-A04,first sweep duplicate,DECISION,DESIGNED
+FX-010,DY-A04,protected later breach,DECISION,DESIGNED
+FX-011,DY-A05,NP same-day preceding N,DECISION,DESIGNED
+FX-012,DY-A12,line remains after retirement,DECISION,DESIGNED
+FX-013,RULE-004,p4 30 minute boundary,BOUNDARY,DESIGNED
+FX-014,RULE-003,17:00 session gap,BOUNDARY,DESIGNED
+FX-015,RULE-012,symbol-local drawing,VISUAL,DESIGNED
+FX-016,RULE-011,multiple relationships same close,MULTI_EVENT,DESIGNED
+FX-017,RULE-015,expiry short history,PARTIAL_DATA,DESIGNED
+FX-018,RULE-009,duplicate callback idempotency,RESTART,DESIGNED
+FX-019,RULE-009,replay/live event identity,REPLAY,DESIGNED
+FX-020,RULE-014,minor relationship no text,VISUAL,DESIGNED

@@ -1,111 +1,125 @@
-  ---
-  id: EXP0018-OPEN-DECISIONS-V2
-  title: "EXP0018 Open Decision Register v2"
-  type: register
-  status: active
-  project: EXP0018
-  version: 2.0.0
-  created: 2026-07-10
-  updated: 2026-07-10
-  tags:
-    - exp0018
-- daye-trader
-- implementation-design
-  ---
-# تصمیم‌های باز و Blockerها
+---
+id: EXP0018-OPEN-DECISIONS-V2
+title: "EXP0018 Open Decision Register v2"
+type: register
+status: active
+project: EXP0018
+version: 2.1.0
+created: 2026-07-10
+updated: 2026-07-10
+owner: Strategy Architect
+tags:
+  - exp0018
+  - daye-trader
+  - phase00
+  - doctrine-freeze
+---
+# تصمیم‌های باز
 
-## DY-A01 — BUY/SELL side mapping
+## DY-A01 — BUY/SELL Mapping
 
-- پرسش: آیا SELL دقیقاً high-side و BUY دقیقاً low-side است؟
-- فازهای وابسته: `P04|P05|P13`
+- سؤال: آیا High-side به SELL و Low-side به BUY نگاشت شود؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P04|P05|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `High-side=SELL; Low-side=BUY`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A01-BUY-SELL-MAPPING]]
 
-## DY-A02 — TWO exact time
+## DY-A02 — TWO Anchor
 
-- پرسش: Monday 18:00 NY یا Tuesday 18:00 NY؟
-- فازهای وابسته: `P10|P13`
+- سؤال: TWO دقیقاً از کدام زمان شروع می‌شود؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P10|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Tuesday trading-day open = Monday 18:00 NY`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A02-TWO-ANCHOR]]
 
-## DY-A03 — Weekly period boundary
+## DY-A03 — Weekly Boundary
 
-- پرسش: شروع و پایان دقیق Weekly period چیست؟
-- فازهای وابسته: `P03|P04|P13`
+- سؤال: مرز W چیست؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P03|P04|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Sunday 18:00 NY to Friday 16:59:59 NY`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A03-WEEKLY-BOUNDARY]]
 
-## DY-A04 — First Sweep composite scope
+## DY-A04 — First Sweep Scope
 
-- پرسش: کلید مصرف reference شامل relationship/side/hunter است یا گسترده‌تر؟
-- فازهای وابسته: `P07|P13`
+- سؤال: مصرف نخستین sweep با چه کلیدی اعمال شود؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P07|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `relationship+reference period+side+hunter/protected`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A04-FIRST-SWEEP-SCOPE]]
 
-## DY-A05 — NP relationship
+## DY-A05 — NP Relationship
 
-- پرسش: current P در برابر previous N یا تفسیر دیگر؟
-- فازهای وابسته: `P04|P13`
+- سؤال: NP کدام Periodها را مقایسه می‌کند؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P04|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Current P vs immediately preceding N in same trading day`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A05-NP-RELATIONSHIP]]
 
-## DY-A06 — Body/close divergence scope
+## DY-A06 — Wick vs Body Scope
 
-- پرسش: در Core فقط wick-touch است یا body/close هم وارد شود؟
-- فازهای وابسته: `P00|P16`
+- سؤال: Core فقط wick-touch باشد؟
 - شدت: `CORE_BOUNDARY`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P00|P16`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Core=wick touch only; body/close=P16 typed event`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A06-WICK-VS-BODY]]
 
-## DY-A07 — 22 relationships vs SSMT taxonomy
+## DY-A07 — Core 22 vs SSMT
 
-- پرسش: ۲۲ رابطه مستقل از taxonomy اختیاری باقی بمانند؟
-- فازهای وابسته: `P04|P16`
+- سؤال: ۲۲ رابطه با SSMT taxonomy ادغام شوند؟
 - شدت: `CORE_BOUNDARY`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P04|P16`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Keep 22 Core relationships independent`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A07-CORE-VS-SSMT]]
 
-## DY-A08 — Extended True Opens placement
+## DY-A08 — Extended True Opens Placement
 
-- پرسش: در Expert اصلی یا module/Expert جدا؟
-- فازهای وابسته: `P14`
+- سؤال: True Openهای گسترش‌یافته کجا باشند؟
 - شدت: `OPTIONAL`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P14`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Separate optional module/expert`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A08-EXTENDED-TRUE-OPENS]]
 
-## DY-A09 — DFR roadmap status
+## DY-A09 — DFR Placement
 
-- پرسش: Research vault یا module رسمی اختیاری؟
-- فازهای وابسته: `P15`
+- سؤال: DFR چه جایگاهی دارد؟
 - شدت: `OPTIONAL`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P15`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Research-only optional module first`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A09-DFR-PLACEMENT]]
 
-## DY-A10 — Triad confirmation authority
+## DY-A10 — Triad Authority
 
-- پرسش: در v1 فقط observer باشد؟
-- فازهای وابسته: `P19`
+- سؤال: Triad در v1 چه اختیاری دارد؟
 - شدت: `OPTIONAL`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P19`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Observer only`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A10-TRIAD-AUTHORITY]]
 
-## DY-A11 — News context authority
+## DY-A11 — News Authority
 
-- پرسش: فقط ledger یا filter؟
-- فازهای وابسته: `P18|P20`
+- سؤال: خبر context است یا filter؟
 - شدت: `OPTIONAL`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P18|P20`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Ledger-only context in v1`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A11-NEWS-AUTHORITY]]
 
-## DY-A12 — Historical line persistence
+## DY-A12 — Historical Line Persistence
 
-- پرسش: پس از retirement/invalidation آینده، خط confirmed همیشه باقی بماند؟
-- فازهای وابسته: `P08|P13`
+- سؤال: خط confirmed بعداً حذف شود؟
 - شدت: `BLOCKER`
-- وضعیت: **OPEN**
-- خروجی لازم: ADR مصوب + مثال مثبت/منفی + fixture
+- فازها: `P08|P13`
+- وضعیت: `PROPOSED / AWAITING APPROVAL`
+- پیشنهاد: `Keep confirmed line for configured lookback`
+- ADR: [[../07_phase00_doctrine_freeze_v2/adr/ADR-DY-A12-HISTORICAL-LINE-PERSISTENCE]]

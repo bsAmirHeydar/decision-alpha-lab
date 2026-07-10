@@ -28,3 +28,8 @@
 - [[PHASE11_HISTORICAL_REPLAY_AND_BACKFILL_ENGINE_DESIGN_PACKET|P11 — موتور بازپخش تاریخی و Backfill]] — `not_started`
 - [[PHASE12_AUDIT_LEDGER_AND_DIAGNOSTICS_DESIGN_PACKET|P12 — دفتر ممیزی و Diagnostics]] — `not_started`
 - [[PHASE13_QA,_SUPERVISOR_VALIDATION_AND_CORE_RELEASE_CANDIDATE_DESIGN_PACKET|P13 — کنترل کیفیت، اعتبارسنجی ناظر و نسخه آزمایشی Core]] — `not_started`
+## بسته تفصیلی P00
+
+- [[../07_phase00_doctrine_freeze_v2/00_INDEX|P00 Doctrine Freeze v2 — Index]]
+- [[../07_phase00_doctrine_freeze_v2/15_ARCHITECT_DECISION_WORKBOOK|Architect Decision Workbook]]
+- [[../07_phase00_doctrine_freeze_v2/20_DOCTRINE_FREEZE_GATE|Doctrine Freeze Gate]]
