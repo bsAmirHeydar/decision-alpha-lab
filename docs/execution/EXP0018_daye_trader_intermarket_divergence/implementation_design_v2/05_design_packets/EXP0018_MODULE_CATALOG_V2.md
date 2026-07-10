@@ -1,0 +1,38 @@
+  ---
+  id: EXP0018-MODULE-CATALOG-V2
+  title: "EXP0018 Module Catalog v2"
+  type: architecture
+  status: active
+  project: EXP0018
+  version: 2.0.0
+  created: 2026-07-10
+  updated: 2026-07-10
+  tags:
+    - exp0018
+- daye-trader
+- implementation-design
+  ---
+# کاتالوگ ماژول‌ها
+
+| Module | Phase | Layer | Owns | Must not own |
+|---|---|---|---|---|
+| `DAYE_TimeEngine` | P01 | time | NY conversion, day/session/subcycle identity | no price/drawing |
+| `DAYE_DataSynchronizer` | P02 | data | symbol history and timestamp alignment | no strategy decision |
+| `DAYE_PeriodStore` | P03 | aggregation | period snapshots/completeness | no hunt |
+| `DAYE_SignalRegistry` | P04 | registry | 22 relationship definitions | no runtime state |
+| `DAYE_HuntDetector` | P05 | pure detection | touch facts | no close confirmation |
+| `DAYE_ConfirmationStateMachine` | P06 | state | closed-bar transitions | no drawing |
+| `DAYE_ReferenceLifecycleStore` | P07 | state | reference eligibility/retirement | no chart objects |
+| `DAYE_Drawing` | P08 | renderer | owned hunter-side lines | no doctrine |
+| `DAYE_SessionBoxRenderer` | P09 | renderer | A/L/N/P boxes | no signal |
+| `DAYE_TwoTdoResolver` | P10 | context | TWO/TDO anchors | no signal filtering |
+| `DAYE_ReplayEngine` | P11 | orchestration | chronological historical execution | no alternate logic |
+| `DAYE_AuditLedger` | P12 | persistence | versioned events/diagnostics | no truth mutation |
+| `EXP0018_Daye_Core_RC` | P13 | composition | approved Core assembly | no order API |
+| `DAYE_ExtendedOpenRegistry` | P14 | optional context | TYO/TMO/TSO/TMSO | no Core dependency |
+| `DAYE_DfrEngine` | P15 | optional research | DFR/projections | no trade permission |
+| `DAYE_SsmtEngine` | P16 | optional research | typed SSMT events | no generic SMT collapse |
+| `DAYE_ContextLedger` | P17 | optional research | causal feature rows | no filter |
+| `DAYE_EventCalendarAdapter` | P18 | optional adapter | news context | offline-safe |
+| `DAYE_TriadObserver` | P19 | optional observer | triad/dyad evidence | no mandatory confirmation |
+| `EXP0018_OutcomeStudy` | P20 | research | OOS evidence/promotion candidates | no automatic rule |

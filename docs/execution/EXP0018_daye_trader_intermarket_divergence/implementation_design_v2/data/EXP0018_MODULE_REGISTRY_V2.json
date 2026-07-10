@@ -1,0 +1,146 @@
+{
+  "project": "EXP0018",
+  "version": "2.0.0",
+  "modules": [
+    {
+      "module": "DAYE_TimeEngine",
+      "phase": "P01",
+      "layer": "time",
+      "owns": "NY conversion, day/session/subcycle identity",
+      "must_not_own": "no price/drawing"
+    },
+    {
+      "module": "DAYE_DataSynchronizer",
+      "phase": "P02",
+      "layer": "data",
+      "owns": "symbol history and timestamp alignment",
+      "must_not_own": "no strategy decision"
+    },
+    {
+      "module": "DAYE_PeriodStore",
+      "phase": "P03",
+      "layer": "aggregation",
+      "owns": "period snapshots/completeness",
+      "must_not_own": "no hunt"
+    },
+    {
+      "module": "DAYE_SignalRegistry",
+      "phase": "P04",
+      "layer": "registry",
+      "owns": "22 relationship definitions",
+      "must_not_own": "no runtime state"
+    },
+    {
+      "module": "DAYE_HuntDetector",
+      "phase": "P05",
+      "layer": "pure detection",
+      "owns": "touch facts",
+      "must_not_own": "no close confirmation"
+    },
+    {
+      "module": "DAYE_ConfirmationStateMachine",
+      "phase": "P06",
+      "layer": "state",
+      "owns": "closed-bar transitions",
+      "must_not_own": "no drawing"
+    },
+    {
+      "module": "DAYE_ReferenceLifecycleStore",
+      "phase": "P07",
+      "layer": "state",
+      "owns": "reference eligibility/retirement",
+      "must_not_own": "no chart objects"
+    },
+    {
+      "module": "DAYE_Drawing",
+      "phase": "P08",
+      "layer": "renderer",
+      "owns": "owned hunter-side lines",
+      "must_not_own": "no doctrine"
+    },
+    {
+      "module": "DAYE_SessionBoxRenderer",
+      "phase": "P09",
+      "layer": "renderer",
+      "owns": "A/L/N/P boxes",
+      "must_not_own": "no signal"
+    },
+    {
+      "module": "DAYE_TwoTdoResolver",
+      "phase": "P10",
+      "layer": "context",
+      "owns": "TWO/TDO anchors",
+      "must_not_own": "no signal filtering"
+    },
+    {
+      "module": "DAYE_ReplayEngine",
+      "phase": "P11",
+      "layer": "orchestration",
+      "owns": "chronological historical execution",
+      "must_not_own": "no alternate logic"
+    },
+    {
+      "module": "DAYE_AuditLedger",
+      "phase": "P12",
+      "layer": "persistence",
+      "owns": "versioned events/diagnostics",
+      "must_not_own": "no truth mutation"
+    },
+    {
+      "module": "EXP0018_Daye_Core_RC",
+      "phase": "P13",
+      "layer": "composition",
+      "owns": "approved Core assembly",
+      "must_not_own": "no order API"
+    },
+    {
+      "module": "DAYE_ExtendedOpenRegistry",
+      "phase": "P14",
+      "layer": "optional context",
+      "owns": "TYO/TMO/TSO/TMSO",
+      "must_not_own": "no Core dependency"
+    },
+    {
+      "module": "DAYE_DfrEngine",
+      "phase": "P15",
+      "layer": "optional research",
+      "owns": "DFR/projections",
+      "must_not_own": "no trade permission"
+    },
+    {
+      "module": "DAYE_SsmtEngine",
+      "phase": "P16",
+      "layer": "optional research",
+      "owns": "typed SSMT events",
+      "must_not_own": "no generic SMT collapse"
+    },
+    {
+      "module": "DAYE_ContextLedger",
+      "phase": "P17",
+      "layer": "optional research",
+      "owns": "causal feature rows",
+      "must_not_own": "no filter"
+    },
+    {
+      "module": "DAYE_EventCalendarAdapter",
+      "phase": "P18",
+      "layer": "optional adapter",
+      "owns": "news context",
+      "must_not_own": "offline-safe"
+    },
+    {
+      "module": "DAYE_TriadObserver",
+      "phase": "P19",
+      "layer": "optional observer",
+      "owns": "triad/dyad evidence",
+      "must_not_own": "no mandatory confirmation"
+    },
+    {
+      "module": "EXP0018_OutcomeStudy",
+      "phase": "P20",
+      "layer": "research",
+      "owns": "OOS evidence/promotion candidates",
+      "must_not_own": "no automatic rule"
+    }
+  ]
+}

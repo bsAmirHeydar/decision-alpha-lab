@@ -1,0 +1,94 @@
+﻿test_id,phase,category,description,automation,owner
+EXP0018-P00-T01,P00,phase_acceptance,تمام تصمیم‌های blocker دارای وضعیت صریح باشند.,planned,Phase owner
+EXP0018-P00-T02,P00,phase_acceptance,هیچ Phase کدنویسی به تصمیم unresolved وابسته نباشد.,planned,Phase owner
+EXP0018-P00-T03,P00,phase_acceptance,تمام قواعد Core مثال مثبت و منفی داشته باشند.,planned,Phase owner
+EXP0018-P01-T01,P01,phase_acceptance,DST spring/fall transition,planned,Phase owner
+EXP0018-P01-T02,P01,phase_acceptance,18:00 day rollover,planned,Phase owner
+EXP0018-P01-T03,P01,phase_acceptance,00:00/06:00/12:00/17:00 boundaries,planned,Phase owner
+EXP0018-P01-T04,P01,phase_acceptance,p4 16:30–16:59,planned,Phase owner
+EXP0018-P01-T05,P01,phase_acceptance,manual offset parity,planned,Phase owner
+EXP0018-P02-T01,P02,phase_acceptance,missing bar one symbol,planned,Phase owner
+EXP0018-P02-T02,P02,phase_acceptance,late history load,planned,Phase owner
+EXP0018-P02-T03,P02,phase_acceptance,different broker suffixes,planned,Phase owner
+EXP0018-P02-T04,P02,phase_acceptance,weekend gaps,planned,Phase owner
+EXP0018-P02-T05,P02,phase_acceptance,reconnect/re-attach idempotency,planned,Phase owner
+EXP0018-P03-T01,P03,phase_acceptance,partial first day,planned,Phase owner
+EXP0018-P03-T02,P03,phase_acceptance,session crossing midnight,planned,Phase owner
+EXP0018-P03-T03,P03,phase_acceptance,p4 short tail,planned,Phase owner
+EXP0018-P03-T04,P03,phase_acceptance,weekly holiday week,planned,Phase owner
+EXP0018-P03-T05,P03,phase_acceptance,replay/live period parity,planned,Phase owner
+EXP0018-P04-T01,P04,phase_acceptance,22 unique IDs,planned,Phase owner
+EXP0018-P04-T02,P04,phase_acceptance,6 major + 16 subcycle,planned,Phase owner
+EXP0018-P04-T03,P04,phase_acceptance,all periods resolvable,planned,Phase owner
+EXP0018-P04-T04,P04,phase_acceptance,NP and W rules explicit,planned,Phase owner
+EXP0018-P05-T01,P05,phase_acceptance,equal touch,planned,Phase owner
+EXP0018-P05-T02,P05,phase_acceptance,one-sided high,planned,Phase owner
+EXP0018-P05-T03,P05,phase_acceptance,one-sided low,planned,Phase owner
+EXP0018-P05-T04,P05,phase_acceptance,double hunt same candle,planned,Phase owner
+EXP0018-P05-T05,P05,phase_acceptance,no touch,planned,Phase owner
+EXP0018-P05-T06,P05,phase_acceptance,missing symbol data,planned,Phase owner
+EXP0018-P06-T01,P06,phase_acceptance,hunter first protected later same candle,planned,Phase owner
+EXP0018-P06-T02,P06,phase_acceptance,one-sided through close,planned,Phase owner
+EXP0018-P06-T03,P06,phase_acceptance,multiple signal types same candle,planned,Phase owner
+EXP0018-P06-T04,P06,phase_acceptance,BUY and SELL simultaneous,planned,Phase owner
+EXP0018-P06-T05,P06,phase_acceptance,restart before close,planned,Phase owner
+EXP0018-P07-T01,P07,phase_acceptance,protected survives and repeated eligible case,planned,Phase owner
+EXP0018-P07-T02,P07,phase_acceptance,protected later hunts and retires,planned,Phase owner
+EXP0018-P07-T03,P07,phase_acceptance,same reference other relationship,planned,Phase owner
+EXP0018-P07-T04,P07,phase_acceptance,same side other hunter,planned,Phase owner
+EXP0018-P07-T05,P07,phase_acceptance,restart persistence/rebuild,planned,Phase owner
+EXP0018-P08-T01,P08,phase_acceptance,high-side line,planned,Phase owner
+EXP0018-P08-T02,P08,phase_acceptance,low-side line,planned,Phase owner
+EXP0018-P08-T03,P08,phase_acceptance,major label/minor no-label,planned,Phase owner
+EXP0018-P08-T04,P08,phase_acceptance,historical redraw idempotency,planned,Phase owner
+EXP0018-P08-T05,P08,phase_acceptance,missing chart open failure,planned,Phase owner
+EXP0018-P09-T01,P09,phase_acceptance,cross-midnight A,planned,Phase owner
+EXP0018-P09-T02,P09,phase_acceptance,missing bars,planned,Phase owner
+EXP0018-P09-T03,P09,phase_acceptance,partial current session,planned,Phase owner
+EXP0018-P09-T04,P09,phase_acceptance,lookback cleanup,planned,Phase owner
+EXP0018-P09-T05,P09,phase_acceptance,timeframe changes,planned,Phase owner
+EXP0018-P10-T01,P10,phase_acceptance,exact bar exists,planned,Phase owner
+EXP0018-P10-T02,P10,phase_acceptance,bar missing fallback reject/approved nearest policy,planned,Phase owner
+EXP0018-P10-T03,P10,phase_acceptance,holiday week,planned,Phase owner
+EXP0018-P10-T04,P10,phase_acceptance,DST week,planned,Phase owner
+EXP0018-P10-T05,P10,phase_acceptance,chart reattach,planned,Phase owner
+EXP0018-P11-T01,P11,phase_acceptance,golden days,planned,Phase owner
+EXP0018-P11-T02,P11,phase_acceptance,DST week,planned,Phase owner
+EXP0018-P11-T03,P11,phase_acceptance,missing bar day,planned,Phase owner
+EXP0018-P11-T04,P11,phase_acceptance,restart mid-history,planned,Phase owner
+EXP0018-P11-T05,P11,phase_acceptance,same event hashes live vs replay,planned,Phase owner
+EXP0018-P12-T01,P12,phase_acceptance,CSV escaping,planned,Phase owner
+EXP0018-P12-T02,P12,phase_acceptance,duplicate event prevention,planned,Phase owner
+EXP0018-P12-T03,P12,phase_acceptance,file unavailable,planned,Phase owner
+EXP0018-P12-T04,P12,phase_acceptance,schema header,planned,Phase owner
+EXP0018-P12-T05,P12,phase_acceptance,row lineage,planned,Phase owner
+EXP0018-P13-T01,P13,phase_acceptance,0 errors/warnings,planned,Phase owner
+EXP0018-P13-T02,P13,phase_acceptance,all contract tests,planned,Phase owner
+EXP0018-P13-T03,P13,phase_acceptance,10+ golden visual cases,planned,Phase owner
+EXP0018-P13-T04,P13,phase_acceptance,live/replay parity,planned,Phase owner
+EXP0018-P13-T05,P13,phase_acceptance,performance budget,planned,Phase owner
+EXP0018-P13-T06,P13,phase_acceptance,rollback drill,planned,Phase owner
+EXP0018-P14-T01,P14,phase_acceptance,all anchor fixtures,planned,Phase owner
+EXP0018-P14-T02,P14,phase_acceptance,stack order,planned,Phase owner
+EXP0018-P14-T03,P14,phase_acceptance,no signal filtering,planned,Phase owner
+EXP0018-P15-T01,P15,phase_acceptance,Q1 thirds,planned,Phase owner
+EXP0018-P15-T02,P15,phase_acceptance,body/wick variants as separate experiments,planned,Phase owner
+EXP0018-P15-T03,P15,phase_acceptance,projection math,planned,Phase owner
+EXP0018-P16-T01,P16,phase_acceptance,variant fixtures,planned,Phase owner
+EXP0018-P16-T02,P16,phase_acceptance,false-positive counterexamples,planned,Phase owner
+EXP0018-P16-T03,P16,phase_acceptance,cross-variant identity,planned,Phase owner
+EXP0018-P17-T01,P17,phase_acceptance,causal-time checks,planned,Phase owner
+EXP0018-P17-T02,P17,phase_acceptance,null/missing context,planned,Phase owner
+EXP0018-P17-T03,P17,phase_acceptance,feature schema version,planned,Phase owner
+EXP0018-P18-T01,P18,phase_acceptance,offline mode,planned,Phase owner
+EXP0018-P18-T02,P18,phase_acceptance,stale cache,planned,Phase owner
+EXP0018-P18-T03,P18,phase_acceptance,timezone event conversion,planned,Phase owner
+EXP0018-P18-T04,P18,phase_acceptance,missing provider,planned,Phase owner
+EXP0018-P19-T01,P19,phase_acceptance,missing third symbol,planned,Phase owner
+EXP0018-P19-T02,P19,phase_acceptance,market holiday mismatch,planned,Phase owner
+EXP0018-P19-T03,P19,phase_acceptance,pair vs triad divergence,planned,Phase owner
+EXP0018-P20-T01,P20,phase_acceptance,schema/lineage,planned,Phase owner
+EXP0018-P20-T02,P20,phase_acceptance,leakage audit,planned,Phase owner
+EXP0018-P20-T03,P20,phase_acceptance,walk-forward,planned,Phase owner
+EXP0018-P20-T04,P20,phase_acceptance,baseline comparison,planned,Phase owner
+EXP0018-P20-T05,P20,phase_acceptance,stability,planned,Phase owner

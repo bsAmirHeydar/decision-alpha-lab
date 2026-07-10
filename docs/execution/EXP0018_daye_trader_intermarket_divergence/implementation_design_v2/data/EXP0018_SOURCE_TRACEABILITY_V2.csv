@@ -1,0 +1,10 @@
+﻿trace_id,concept,authority,phase,module,status
+TR-001,A/L/N/P sessions,Word,P01|P03,DAYE_TimeEngine|DAYE_PeriodStore,core
+TR-002,22 relationships,Word,P04,DAYE_SignalRegistry,core
+TR-003,touch-only hunt,Word,P05,DAYE_HuntDetector,core
+TR-004,hunter/protected,Word+Bucko,P05|P07,DAYE_HuntDetector|DAYE_ReferenceLifecycleStore,core_clarified
+TR-005,True Open hierarchy,PDFs,P14,DAYE_ExtendedOpenRegistry,optional
+TR-006,DFR,QT+Trader Daye,P15,DAYE_DfrEngine,research
+TR-007,SSMT taxonomy,PDFs,P16,DAYE_SsmtEngine,research
+TR-008,news context,QT+Trader Daye,P18,DAYE_EventCalendarAdapter,optional
+TR-009,triad observer,QT Education,P19,DAYE_TriadObserver,optional

@@ -1,0 +1,13 @@
+﻿decision_id,title,question,blocked_phases,severity,status,owner,resolution,adr_path
+DY-A01,BUY/SELL side mapping,آیا SELL دقیقاً high-side و BUY دقیقاً low-side است؟,P04|P05|P13,BLOCKER,OPEN,Strategy Architect,,
+DY-A02,TWO exact time,Monday 18:00 NY یا Tuesday 18:00 NY؟,P10|P13,BLOCKER,OPEN,Strategy Architect,,
+DY-A03,Weekly period boundary,شروع و پایان دقیق Weekly period چیست؟,P03|P04|P13,BLOCKER,OPEN,Strategy Architect,,
+DY-A04,First Sweep composite scope,کلید مصرف reference شامل relationship/side/hunter است یا گسترده‌تر؟,P07|P13,BLOCKER,OPEN,Strategy Architect,,
+DY-A05,NP relationship,current P در برابر previous N یا تفسیر دیگر؟,P04|P13,BLOCKER,OPEN,Strategy Architect,,
+DY-A06,Body/close divergence scope,در Core فقط wick-touch است یا body/close هم وارد شود؟,P00|P16,CORE_BOUNDARY,OPEN,Strategy Architect,,
+DY-A07,22 relationships vs SSMT taxonomy,۲۲ رابطه مستقل از taxonomy اختیاری باقی بمانند؟,P04|P16,CORE_BOUNDARY,OPEN,Strategy Architect,,
+DY-A08,Extended True Opens placement,در Expert اصلی یا module/Expert جدا؟,P14,OPTIONAL,OPEN,Strategy Architect,,
+DY-A09,DFR roadmap status,Research vault یا module رسمی اختیاری؟,P15,OPTIONAL,OPEN,Strategy Architect,,
+DY-A10,Triad confirmation authority,در v1 فقط observer باشد؟,P19,OPTIONAL,OPEN,Strategy Architect,,
+DY-A11,News context authority,فقط ledger یا filter؟,P18|P20,OPTIONAL,OPEN,Strategy Architect,,
+DY-A12,Historical line persistence,پس از retirement/invalidation آینده، خط confirmed همیشه باقی بماند؟,P08|P13,BLOCKER,OPEN,Strategy Architect,,

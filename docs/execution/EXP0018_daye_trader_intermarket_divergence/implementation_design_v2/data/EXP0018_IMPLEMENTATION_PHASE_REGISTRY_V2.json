@@ -1,0 +1,333 @@
+{
+  "project": "EXP0018",
+  "version": "2.0.0",
+  "tracks": {
+    "core": "P00-P13",
+    "optional": "P14-P20"
+  },
+  "phases": [
+    {
+      "id": "P00",
+      "num": "00",
+      "track": "core",
+      "name": "Doctrine Freeze v2 and Decision Baseline",
+      "fa": "انجماد دکترین نسخه ۲ و خط مبنای تصمیم‌ها",
+      "status": "blocked_decisions_open",
+      "deps": [],
+      "blocks": [
+        "P04",
+        "P05",
+        "P07",
+        "P10",
+        "P13"
+      ]
+    },
+    {
+      "id": "P01",
+      "num": "01",
+      "track": "core",
+      "name": "New York Time and Calendar Kernel",
+      "fa": "هسته زمان نیویورک و تقویم",
+      "status": "foundation_exists_requires_validation",
+      "deps": [
+        "P00"
+      ],
+      "blocks": [
+        "P02",
+        "P03",
+        "P10",
+        "P11"
+      ]
+    },
+    {
+      "id": "P02",
+      "num": "02",
+      "track": "core",
+      "name": "Multi-Symbol Data Synchronization",
+      "fa": "همگام‌سازی داده چندنمادی",
+      "status": "not_started",
+      "deps": [
+        "P01"
+      ],
+      "blocks": [
+        "P03",
+        "P05",
+        "P11"
+      ]
+    },
+    {
+      "id": "P03",
+      "num": "03",
+      "track": "core",
+      "name": "Period Aggregation and Completeness",
+      "fa": "تجمیع دوره‌ها و کامل‌بودن آن‌ها",
+      "status": "not_started",
+      "deps": [
+        "P02"
+      ],
+      "blocks": [
+        "P04",
+        "P05",
+        "P09",
+        "P11"
+      ]
+    },
+    {
+      "id": "P04",
+      "num": "04",
+      "track": "core",
+      "name": "Declarative 22-Relationship Registry",
+      "fa": "رجیستری اعلامی ۲۲ رابطه",
+      "status": "blocked_by_doctrine",
+      "deps": [
+        "P00",
+        "P03"
+      ],
+      "blocks": [
+        "P05",
+        "P06",
+        "P07"
+      ]
+    },
+    {
+      "id": "P05",
+      "num": "05",
+      "track": "core",
+      "name": "Hunt Detection and Reference Snapshot",
+      "fa": "تشخیص هانت و Snapshot مرجع",
+      "status": "blocked_by_doctrine",
+      "deps": [
+        "P04"
+      ],
+      "blocks": [
+        "P06",
+        "P07"
+      ]
+    },
+    {
+      "id": "P06",
+      "num": "06",
+      "track": "core",
+      "name": "Close Confirmation State Machine",
+      "fa": "ماشین حالت تأیید در کلوز",
+      "status": "not_started",
+      "deps": [
+        "P05"
+      ],
+      "blocks": [
+        "P07",
+        "P08",
+        "P11",
+        "P12"
+      ]
+    },
+    {
+      "id": "P07",
+      "num": "07",
+      "track": "core",
+      "name": "Reference Lifecycle and First-Sweep Policy",
+      "fa": "چرخه عمر مرجع و سیاست First Sweep",
+      "status": "blocked_by_doctrine",
+      "deps": [
+        "P06"
+      ],
+      "blocks": [
+        "P08",
+        "P11",
+        "P12",
+        "P13"
+      ]
+    },
+    {
+      "id": "P08",
+      "num": "08",
+      "track": "core",
+      "name": "Immutable Divergence Visual Events and Drawing",
+      "fa": "رویداد تصویری تغییرناپذیر و رسم واگرایی",
+      "status": "not_started",
+      "deps": [
+        "P07"
+      ],
+      "blocks": [
+        "P11",
+        "P13"
+      ]
+    },
+    {
+      "id": "P09",
+      "num": "09",
+      "track": "core",
+      "name": "Session Box Renderer",
+      "fa": "رندر باکس‌های سشن",
+      "status": "not_started",
+      "deps": [
+        "P03"
+      ],
+      "blocks": [
+        "P11",
+        "P13"
+      ]
+    },
+    {
+      "id": "P10",
+      "num": "10",
+      "track": "core",
+      "name": "TWO and TDO Anchor Renderer",
+      "fa": "رندر Anchorهای TWO و TDO",
+      "status": "blocked_by_doctrine",
+      "deps": [
+        "P00",
+        "P01"
+      ],
+      "blocks": [
+        "P11",
+        "P13"
+      ]
+    },
+    {
+      "id": "P11",
+      "num": "11",
+      "track": "core",
+      "name": "Historical Replay and Backfill Engine",
+      "fa": "موتور بازپخش تاریخی و Backfill",
+      "status": "not_started",
+      "deps": [
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "blocks": [
+        "P12",
+        "P13"
+      ]
+    },
+    {
+      "id": "P12",
+      "num": "12",
+      "track": "core",
+      "name": "Audit Ledger and Diagnostics",
+      "fa": "دفتر ممیزی و Diagnostics",
+      "status": "not_started",
+      "deps": [
+        "P06",
+        "P07",
+        "P11"
+      ],
+      "blocks": [
+        "P13"
+      ]
+    },
+    {
+      "id": "P13",
+      "num": "13",
+      "track": "core",
+      "name": "QA, Supervisor Validation and Core Release Candidate",
+      "fa": "کنترل کیفیت، اعتبارسنجی ناظر و نسخه آزمایشی Core",
+      "status": "not_started",
+      "deps": [
+        "P12"
+      ],
+      "blocks": [
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20"
+      ]
+    },
+    {
+      "id": "P14",
+      "num": "14",
+      "track": "optional",
+      "name": "Extended True Open Registry",
+      "fa": "رجیستری توسعه‌یافته True Open",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": []
+    },
+    {
+      "id": "P15",
+      "num": "15",
+      "track": "optional",
+      "name": "DFR and Projection Research Engine",
+      "fa": "موتور پژوهشی DFR و Projection",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": []
+    },
+    {
+      "id": "P16",
+      "num": "16",
+      "track": "optional",
+      "name": "Typed SSMT Research Engine",
+      "fa": "موتور پژوهشی انواع SSMT",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": []
+    },
+    {
+      "id": "P17",
+      "num": "17",
+      "track": "optional",
+      "name": "Context Feature Ledger",
+      "fa": "دفتر Featureهای زمینه‌ای",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": [
+        "P20"
+      ]
+    },
+    {
+      "id": "P18",
+      "num": "18",
+      "track": "optional",
+      "name": "News and Event-Time Adapter",
+      "fa": "Adapter خبر و زمان رویداد",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": [
+        "P20"
+      ]
+    },
+    {
+      "id": "P19",
+      "num": "19",
+      "track": "optional",
+      "name": "Triad and Intermarket Observer",
+      "fa": "ناظر Triad و Intermarket",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P13"
+      ],
+      "blocks": [
+        "P20"
+      ]
+    },
+    {
+      "id": "P20",
+      "num": "20",
+      "track": "optional",
+      "name": "Outcome Study and Promotion Gate",
+      "fa": "مطالعه نتیجه و دروازه ارتقای قانون",
+      "status": "optional_not_admitted",
+      "deps": [
+        "P17",
+        "P18",
+        "P19"
+      ],
+      "blocks": []
+    }
+  ]
+}
