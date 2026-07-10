@@ -1,0 +1,10 @@
+case_id,period_code,start_utc,end_utc,base_seconds,observed_bars,now_utc,first_bar_offset_seconds,last_bar_offset_seconds,expected_completeness,expected_bars
+p4_complete,p4,100000,101800,60,30,101800,0,1740,COMPLETE,30
+p4_partial,p4,100000,101800,60,10,101800,0,540,PARTIAL,30
+p4_open,p4,100000,101800,60,10,100600,0,540,OPEN,30
+session_P_complete,P,200000,218000,60,300,218000,0,17940,COMPLETE,300
+daily_normal_complete,D,300000,382800,60,1380,382800,0,82740,COMPLETE,1380
+daily_spring_dst_complete,D,400000,479200,60,1320,479200,0,79140,COMPLETE,1320
+daily_fall_dst_complete,D,500000,586400,60,1440,586400,0,86340,COMPLETE,1440
+left_edge_truncated,N,600000,621600,60,300,621600,3600,21540,PARTIAL,360
+empty_period,a1,700000,705400,60,0,705400,0,0,EMPTY,90

@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "project": "EXP0018",
+  "phase": "P03",
+  "name": "period_aggregation_and_completeness",
+  "execution_authority": false,
+  "base_timeframe_rule": "PeriodSeconds(base_timeframe) must evenly divide 1800 seconds",
+  "families": {
+    "daily": {
+      "enabled": true,
+      "weekly_blocked": true
+    },
+    "session": [
+      "A",
+      "L",
+      "N",
+      "P"
+    ],
+    "subcycle": [
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "l1",
+      "l2",
+      "l3",
+      "l4",
+      "n1",
+      "n2",
+      "n3",
+      "n4",
+      "p1",
+      "p2",
+      "p3",
+      "p4"
+    ]
+  },
+  "completeness": [
+    "EMPTY",
+    "OPEN",
+    "PARTIAL",
+    "COMPLETE",
+    "UNAVAILABLE",
+    "INVALID"
+  ],
+  "complete_rule": "closed period, exact expected grid, first bar at start, last bar at end-base_seconds, no invalid grid bars",
+  "no_data_rule": "No data is EMPTY/UNAVAILABLE, never COMPLETE and never no-hunt",
+  "p4_minutes": 30,
+  "weekly_status": "blocked_until_ADR-DY-A03",
+  "required_outputs": [
+    "symbol_period_snapshot",
+    "paired_period_snapshot",
+    "period_store_summary",
+    "period_events"
+  ]
+}

@@ -4,32 +4,30 @@ title: "EXP0018 Implementation Design v2 — Index"
 type: moc
 status: active
 project: EXP0018
-version: 2.2.0
+version: 2.0.0
 created: 2026-07-10
 updated: 2026-07-10
+tags:
+  - exp0018
+  - daye-trader
+  - implementation-design
 ---
+
 # EXP0018 Implementation Design v2
 
 این شاخه نقشه مهندسی کامل برای تبدیل دکترین Daye/Quarterly Theory به سیستم deterministic، replayable، visual-only و بدون اختیار معامله است.
 
-## نقطه شروع
+## Evidence packages ساخته‌شده
 
-1. [[EXP0018_DESIGN_OPERATING_CONTRACT|قرارداد کار طراحی]]
-2. [[EXP0018_MASTER_IMPLEMENTATION_BLUEPRINT|نقشه مادر پیاده‌سازی]]
-3. [[EXP0018_OPEN_DECISION_REGISTER|تصمیم‌های باز و blockerها]]
-4. [[EXP0018_FIRST_DESIGN_SPRINT|اولین Sprint طراحی]]
-5. [[CG_EXP0018_IMPLEMENTATION_DESIGN_V2_MOC|MOC اصلی Obsidian]]
+- [[CG_EXP0018_PHASE00_DOCTRINE_FREEZE_MOC|P00 Doctrine Freeze v2]]
+- [[CG_EXP0018_PHASE01_TIME_KERNEL_MOC|P01 New York Time Kernel v2]]
+- [[CG_EXP0018_PHASE02_MULTI_SYMBOL_DATA_SYNC_MOC|P02 Multi-Symbol Data Sync v2]]
+- [[CG_EXP0018_PHASE03_PERIOD_AGGREGATION_MOC|P03 Period Aggregation and Completeness v2]]
 
-## Implementation evidence packages
+## وضعیت
 
-- [[EXP0018-P00-V2-INDEX|P00 Doctrine Freeze v2]]
-- [[EXP0018-P01-V2-INDEX|P01 New York Time Kernel v2]]
-- [[EXP0018-P02-V2-INDEX|P02 Multi-Symbol Data Synchronization v2]]
-
-## وضعیت فعلی
-
-- P00 package کامل است ولی ADR approvalهای نهایی هنوز باید ثبت شوند.
-- P01 پیاده‌سازی شده و منتظر Compile/Runtime evidence نهایی است.
-- P02 پیاده‌سازی exact-timestamp و no-forward-fill دارد و منتظر MetaEditor/runtime validation است.
-- P03 مرحله بعدی رسمی است.
-- هیچ فاز فعلی order placement، risk sizing یا execution authority ندارد.
+- P00 package کامل است ولی ADRهای معمار هنوز باید نهایی شوند.
+- P01، P02 و P03 کد، قرارداد، تست، داکیومنت و Obsidian دارند؛ compile واقعی MetaEditor برای هر Expert لازم است.
+- Weekly و WW تا ADR-DY-A03 غیرفعال‌اند.
+- مرحله بعدی رسمی: P04 Declarative 22-Relationship Registry.
+- هیچ فاز فعلی execution authority ندارد.
