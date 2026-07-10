@@ -14,3 +14,5 @@ project: EXP0018
 - [[CG_EXP0018_PHASE04_RELATIONSHIP_REGISTRY_MOC]]
 
 Next: P05 Hunt Observation.
+
+- [[CG_EXP0018_PHASE05_HUNT_OBSERVATION_MOC]] — touch-only HIGH/LOW observation and pair-state facts.

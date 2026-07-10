@@ -29,5 +29,9 @@ tags:
 - P00 package کامل است ولی ADRهای معمار هنوز باید نهایی شوند.
 - P01، P02 و P03 کد، قرارداد، تست، داکیومنت و Obsidian دارند؛ compile واقعی MetaEditor برای هر Expert لازم است.
 - Weekly و WW تا ADR-DY-A03 غیرفعال‌اند.
-- مرحله بعدی رسمی: P04 Declarative 22-Relationship Registry.
+- P04 Declarative 22-Relationship Registry: implemented.
+- P05 Touch-Only Hunt Observation: implemented; awaiting MetaEditor/runtime evidence.
+- مرحله بعدی رسمی: P06 Host-Timeframe Close Confirmation State Machine.
 - هیچ فاز فعلی execution authority ندارد.
+
+- [[12_phase05_hunt_observation_v2/00_INDEX|Phase 05 — Touch-Only Hunt Observation v2]]

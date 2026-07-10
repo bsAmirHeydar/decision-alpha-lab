@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "phase": "P05",
+  "name": "EXP0018 Touch-Only Hunt Observation",
+  "execution_authority": false,
+  "direction_authority": false,
+  "confirmation_authority": false,
+  "drawing_authority": false,
+  "core_rules": {
+    "high_hunt": "current_high >= reference_high",
+    "low_hunt": "current_low <= reference_low",
+    "equality_counts": true,
+    "cross_symbol_price_comparison": false,
+    "no_data_is_no_hunt": false,
+    "first_touch_time_claimed": false,
+    "open_period_observation_is_candidate_only": true
+  },
+  "pair_states": [
+    "NONE",
+    "A_ONLY",
+    "B_ONLY",
+    "BOTH",
+    "UNAVAILABLE"
+  ],
+  "sides": [
+    "HIGH",
+    "LOW"
+  ],
+  "required_inputs": [
+    "P04_READY_RELATIONSHIP",
+    "CURRENT_SYMBOL_LOCAL_OHLC",
+    "REFERENCE_SYMBOL_LOCAL_OHLC"
+  ],
+  "forbidden_tokens": [
+    "OrderSend",
+    "CTrade",
+    "PositionOpen",
+    "WebRequest",
+    "ObjectCreate"
+  ]
+}

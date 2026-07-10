@@ -1,0 +1,11 @@
+case_id,side,a_ref_high,a_ref_low,b_ref_high,b_ref_low,a_current_high,a_current_low,b_current_high,b_current_low,expected_pair_state,expected_a_hunted,expected_b_hunted,expected_a_equality,expected_b_equality
+high_none,HIGH,100,90,200,180,99,95,199,190,NONE,0,0,0,0
+high_a_only,HIGH,100,90,200,180,101,95,199,190,A_ONLY,1,0,0,0
+high_b_only,HIGH,100,90,200,180,99,95,201,190,B_ONLY,0,1,0,0
+high_both,HIGH,100,90,200,180,101,95,201,190,BOTH,1,1,0,0
+high_equality_a,HIGH,100,90,200,180,100,95,199,190,A_ONLY,1,0,1,0
+low_none,LOW,100,90,200,180,99,91,199,181,NONE,0,0,0,0
+low_a_only,LOW,100,90,200,180,99,89,199,181,A_ONLY,1,0,0,0
+low_b_only,LOW,100,90,200,180,99,91,199,179,B_ONLY,0,1,0,0
+low_both,LOW,100,90,200,180,99,89,199,179,BOTH,1,1,0,0
+low_equality_b,LOW,100,90,200,180,99,91,199,180,B_ONLY,0,1,0,1

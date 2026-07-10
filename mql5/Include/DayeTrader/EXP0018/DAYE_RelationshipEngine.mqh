@@ -26,6 +26,8 @@ private:
              summary.latest_paired_period_id + "|" +
              summary.latest_complete_paired_period_id + "|" +
              IntegerToString((long)summary.latest_period_start_utc) + "|" +
+             IntegerToString((long)summary.source_last_event_time_utc) + "|" +
+             IntegerToString((long)summary.availability_time_utc) + "|" +
              IntegerToString((int)summary.status);
    }
 
