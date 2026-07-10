@@ -65,6 +65,8 @@ private:
       range.copied_bars=0;
       range.high=0.0;
       range.low=0.0;
+      range.high_time_broker=0;
+      range.low_time_broker=0;
       range.first_bar_broker=0;
       range.last_bar_broker=0;
       range.error_text="not_calculated";
@@ -110,19 +112,29 @@ private:
 
       double hi=rates[0].high;
       double lo=rates[0].low;
+      datetime hi_time=rates[0].time;
+      datetime lo_time=rates[0].time;
       out_range.first_bar_broker=rates[0].time;
       out_range.last_bar_broker=rates[copied-1].time;
 
       for(int i=1;i<copied;i++)
       {
          if(rates[i].high>hi)
+         {
             hi=rates[i].high;
+            hi_time=rates[i].time;
+         }
          if(rates[i].low<lo)
+         {
             lo=rates[i].low;
+            lo_time=rates[i].time;
+         }
       }
 
       out_range.high=hi;
       out_range.low=lo;
+      out_range.high_time_broker=hi_time;
+      out_range.low_time_broker=lo_time;
       out_range.data_ok=true;
       out_range.error_text="ok";
       return true;
@@ -135,8 +147,12 @@ private:
       state.current_range_ready=false;
       state.reference_high=0.0;
       state.reference_low=0.0;
+      state.reference_high_time_broker=0;
+      state.reference_low_time_broker=0;
       state.current_high=0.0;
       state.current_low=0.0;
+      state.current_high_time_broker=0;
+      state.current_low_time_broker=0;
       state.high_hunted=false;
       state.low_hunted=false;
       state.any_hunt=false;
@@ -150,8 +166,12 @@ private:
       out_state.current_range_ready=current.data_ok;
       out_state.reference_high=reference.high;
       out_state.reference_low=reference.low;
+      out_state.reference_high_time_broker=reference.high_time_broker;
+      out_state.reference_low_time_broker=reference.low_time_broker;
       out_state.current_high=current.high;
       out_state.current_low=current.low;
+      out_state.current_high_time_broker=current.high_time_broker;
+      out_state.current_low_time_broker=current.low_time_broker;
 
       if(!reference.data_ok)
       {

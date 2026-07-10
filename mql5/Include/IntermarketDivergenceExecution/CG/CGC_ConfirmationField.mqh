@@ -229,6 +229,10 @@ private:
       signal.symbol_b_reference_price=0.0;
       signal.symbol_a_current_extreme=0.0;
       signal.symbol_b_current_extreme=0.0;
+      signal.symbol_a_reference_time_broker=0;
+      signal.symbol_b_reference_time_broker=0;
+      signal.symbol_a_current_extreme_time_broker=0;
+      signal.symbol_b_current_extreme_time_broker=0;
       signal.symbol_a_reference_frontier=false;
       signal.symbol_b_reference_frontier=false;
       signal.symbol_a_visual_data_ready=false;
@@ -310,6 +314,8 @@ private:
       e.later_symbol_b_max_high=0.0;
       e.later_symbol_a_min_low=0.0;
       e.later_symbol_b_min_low=0.0;
+      e.symbol_a_path_data_ready=false;
+      e.symbol_b_path_data_ready=false;
       e.high_note="not_calculated";
       e.low_note="not_calculated";
    }
@@ -340,7 +346,192 @@ private:
       return value ? "true" : "false";
    }
 
-   void BuildExtremeFrontierEligibility(SCGHReferenceHuntState &hunts[],SCGCExtremeFrontierEligibility &eligibility[])
+   datetime NewYorkToBroker(const datetime ny_time,const int ny_utc_offset_hours)
+   {
+      return ny_time - (ny_utc_offset_hours*3600) + (m_config.broker_utc_offset_hours*3600);
+   }
+
+   double SymbolFreshnessTolerance(const string symbol)
+   {
+      double tick_size=SymbolInfoDouble(symbol,SYMBOL_TRADE_TICK_SIZE);
+      if(tick_size<=0.0)
+         tick_size=SymbolInfoDouble(symbol,SYMBOL_POINT);
+      if(tick_size<=0.0)
+         tick_size=1.0e-8;
+      return tick_size*0.10;
+   }
+
+   void ResetLocalFreshnessProof(SCGCLocalFreshnessProof &proof,const string symbol)
+   {
+      proof.symbol=symbol;
+      proof.data_ready=false;
+      proof.high_fresh=false;
+      proof.low_fresh=false;
+      proof.copied_bars=0;
+      proof.intervening_max_high=0.0;
+      proof.intervening_min_low=0.0;
+      proof.error_text="not_calculated";
+   }
+
+   bool ValidateFreshnessPathCoverage(const datetime start_broker,const datetime end_broker_exclusive,MqlRates &rates[],const int copied,string &error_text)
+   {
+      if(!m_config.require_m1_history)
+         return (copied>0);
+
+      datetime expected_last=(datetime)(((long)(end_broker_exclusive-1)/60)*60);
+      int expected=(int)((expected_last-start_broker)/60)+1;
+      if(expected<=0)
+      {
+         error_text="invalid_freshness_path_expected_bar_count";
+         return false;
+      }
+
+      if(copied!=expected || rates[0].time!=start_broker || rates[copied-1].time!=expected_last)
+      {
+         error_text=StringFormat("incomplete_freshness_path_expected_%d_copied_%d_first_%s_expected_first_%s_last_%s_expected_last_%s",
+                                 expected,copied,
+                                 TimeToString(rates[0].time,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(start_broker,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(rates[copied-1].time,TIME_DATE|TIME_MINUTES),
+                                 TimeToString(expected_last,TIME_DATE|TIME_MINUTES));
+         return false;
+      }
+
+      for(int i=1;i<copied;i++)
+      {
+         if(rates[i].time-rates[i-1].time!=60)
+         {
+            error_text=StringFormat("freshness_path_m1_gap_after_%s_before_%s",
+                                    TimeToString(rates[i-1].time,TIME_DATE|TIME_MINUTES),
+                                    TimeToString(rates[i].time,TIME_DATE|TIME_MINUTES));
+            return false;
+         }
+      }
+      return true;
+   }
+
+   void BuildLocalFreshnessProofsForSymbol(const string symbol,
+                                             const bool use_symbol_a,
+                                             SCGTTimeSnapshot &time_snapshot,
+                                             SCGTCycleSnapshot &cycle,
+                                             SCGHReferenceHuntState &hunts[],
+                                             SCGCLocalFreshnessProof &proofs[])
+   {
+      int count=ArraySize(hunts);
+      ArrayResize(proofs,count);
+      for(int i=0;i<count;i++)
+         ResetLocalFreshnessProof(proofs[i],symbol);
+
+      if(count<=0 || symbol=="")
+         return;
+
+      datetime current_start_broker=NewYorkToBroker(cycle.cycle_start_ny,time_snapshot.new_york_utc_offset_hours);
+      datetime earliest_reference_end_broker=0;
+      for(int i=0;i<count;i++)
+      {
+         if(!hunts[i].reference_ready)
+            continue;
+         datetime reference_end_broker=NewYorkToBroker(hunts[i].reference_cycle_end_ny,time_snapshot.new_york_utc_offset_hours);
+         if(earliest_reference_end_broker<=0 || reference_end_broker<earliest_reference_end_broker)
+            earliest_reference_end_broker=reference_end_broker;
+      }
+
+      if(earliest_reference_end_broker<=0 || current_start_broker<earliest_reference_end_broker)
+         return;
+
+      if(!SymbolSelect(symbol,true))
+      {
+         for(int i=0;i<count;i++)
+            proofs[i].error_text="freshness_symbol_select_failed";
+         return;
+      }
+
+      MqlRates rates[];
+      ArraySetAsSeries(rates,false);
+      int copied=0;
+      if(current_start_broker>earliest_reference_end_broker)
+         copied=CopyRates(symbol,PERIOD_M1,earliest_reference_end_broker,current_start_broker-1,rates);
+
+      if(current_start_broker>earliest_reference_end_broker)
+      {
+         if(copied<=0)
+         {
+            for(int i=0;i<count;i++)
+               proofs[i].error_text="freshness_path_no_m1_rates";
+            return;
+         }
+         string coverage_error="";
+         if(!ValidateFreshnessPathCoverage(earliest_reference_end_broker,current_start_broker,rates,copied,coverage_error))
+         {
+            for(int i=0;i<count;i++)
+               proofs[i].error_text=coverage_error;
+            return;
+         }
+      }
+
+      double suffix_max_high[];
+      double suffix_min_low[];
+      ArrayResize(suffix_max_high,copied+1);
+      ArrayResize(suffix_min_low,copied+1);
+      if(copied>0)
+      {
+         suffix_max_high[copied]=-1.0e100;
+         suffix_min_low[copied]=1.0e100;
+         for(int i=copied-1;i>=0;i--)
+         {
+            suffix_max_high[i]=MathMax(rates[i].high,suffix_max_high[i+1]);
+            suffix_min_low[i]=MathMin(rates[i].low,suffix_min_low[i+1]);
+         }
+      }
+
+      double tolerance=SymbolFreshnessTolerance(symbol);
+      for(int i=0;i<count;i++)
+      {
+         if(!hunts[i].reference_ready)
+         {
+            proofs[i].error_text="reference_pair_not_ready";
+            continue;
+         }
+
+         double reference_high=(use_symbol_a ? hunts[i].symbol_a.reference_high : hunts[i].symbol_b.reference_high);
+         double reference_low=(use_symbol_a ? hunts[i].symbol_a.reference_low : hunts[i].symbol_b.reference_low);
+         datetime reference_end_broker=NewYorkToBroker(hunts[i].reference_cycle_end_ny,time_snapshot.new_york_utc_offset_hours);
+
+         if(reference_high<=0.0 || reference_low<=0.0 || reference_end_broker>current_start_broker)
+         {
+            proofs[i].error_text="invalid_symbol_local_reference";
+            continue;
+         }
+
+         proofs[i].copied_bars=copied;
+         if(reference_end_broker==current_start_broker)
+         {
+            proofs[i].data_ready=true;
+            proofs[i].high_fresh=true;
+            proofs[i].low_fresh=true;
+            proofs[i].error_text="adjacent_reference_no_intervening_path";
+            continue;
+         }
+
+         int offset=(int)((reference_end_broker-earliest_reference_end_broker)/60);
+         if(offset<0 || offset>=copied || rates[offset].time!=reference_end_broker)
+         {
+            proofs[i].error_text="freshness_path_reference_boundary_not_mapped";
+            continue;
+         }
+
+         double path_max=suffix_max_high[offset];
+         double path_min=suffix_min_low[offset];
+         proofs[i].intervening_max_high=path_max;
+         proofs[i].intervening_min_low=path_min;
+         proofs[i].high_fresh=(path_max<reference_high-tolerance);
+         proofs[i].low_fresh=(path_min>reference_low+tolerance);
+         proofs[i].data_ready=true;
+         proofs[i].error_text="ok";
+      }
+   }
+
+   void BuildExtremeFrontierEligibility(SCGTTimeSnapshot &time_snapshot,SCGTCycleSnapshot &cycle,SCGHReferenceHuntState &hunts[],SCGCExtremeFrontierEligibility &eligibility[])
    {
       int count=ArraySize(hunts);
       ArrayResize(eligibility,count);
@@ -357,47 +548,45 @@ private:
             eligibility[i].symbol_b_high_frontier=true;
             eligibility[i].symbol_a_low_frontier=true;
             eligibility[i].symbol_b_low_frontier=true;
+            eligibility[i].symbol_a_path_data_ready=true;
+            eligibility[i].symbol_b_path_data_ready=true;
             eligibility[i].high_note="extreme_frontier_filter_disabled";
             eligibility[i].low_note="extreme_frontier_filter_disabled";
          }
          return;
       }
 
-      double later_a_max_high=-1.0e100;
-      double later_b_max_high=-1.0e100;
-      double later_a_min_low=1.0e100;
-      double later_b_min_low=1.0e100;
-      bool have_later_a_high=false;
-      bool have_later_b_high=false;
-      bool have_later_a_low=false;
-      bool have_later_b_low=false;
-      bool later_reference_history_gap=false;
+      SCGCLocalFreshnessProof proofs_a[];
+      SCGCLocalFreshnessProof proofs_b[];
+      BuildLocalFreshnessProofsForSymbol(m_config.symbol_a,true,time_snapshot,cycle,hunts,proofs_a);
+      BuildLocalFreshnessProofsForSymbol(m_config.symbol_b,false,time_snapshot,cycle,hunts,proofs_b);
 
-      // References arrive oldest -> newest. To suppress stale internal levels, walk newest -> oldest.
-      // A high is eligible only if no later completed cycle has already made an equal/higher high.
-      // A low is eligible only if no later completed cycle has already made an equal/lower low.
-      for(int i=count-1;i>=0;i--)
+      // Hotfix011: each symbol proves its own freshness from one raw M1 path.
+      // Slot A and slot B execute the same batch function with no host-chart shortcut.
+      for(int i=0;i<count;i++)
       {
          if(!hunts[i].reference_ready)
          {
-            eligibility[i].high_note="reference_missing_frontier_history_gap";
-            eligibility[i].low_note="reference_missing_frontier_history_gap";
-            // A missing newer cycle must never be skipped. Skipping it would let
-            // an older SPX/NDX level appear fresh without proving that the full
-            // intervening path was observed on both symbols.
-            later_reference_history_gap=true;
+            eligibility[i].high_note="reference_missing_raw_path_freshness_unproven";
+            eligibility[i].low_note="reference_missing_raw_path_freshness_unproven";
             continue;
          }
 
-         eligibility[i].later_symbol_a_max_high=(have_later_a_high ? later_a_max_high : 0.0);
-         eligibility[i].later_symbol_b_max_high=(have_later_b_high ? later_b_max_high : 0.0);
-         eligibility[i].later_symbol_a_min_low=(have_later_a_low ? later_a_min_low : 0.0);
-         eligibility[i].later_symbol_b_min_low=(have_later_b_low ? later_b_min_low : 0.0);
+         SCGCLocalFreshnessProof proof_a;
+         SCGCLocalFreshnessProof proof_b;
+         proof_a=proofs_a[i];
+         proof_b=proofs_b[i];
 
-         eligibility[i].symbol_a_high_frontier=(!later_reference_history_gap && (!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high));
-         eligibility[i].symbol_b_high_frontier=(!later_reference_history_gap && (!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high));
-         eligibility[i].symbol_a_low_frontier=(!later_reference_history_gap && (!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low));
-         eligibility[i].symbol_b_low_frontier=(!later_reference_history_gap && (!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low));
+         eligibility[i].symbol_a_path_data_ready=proof_a.data_ready;
+         eligibility[i].symbol_b_path_data_ready=proof_b.data_ready;
+         eligibility[i].symbol_a_high_frontier=(eligibility[i].symbol_a_path_data_ready && proof_a.high_fresh);
+         eligibility[i].symbol_b_high_frontier=(eligibility[i].symbol_b_path_data_ready && proof_b.high_fresh);
+         eligibility[i].symbol_a_low_frontier=(eligibility[i].symbol_a_path_data_ready && proof_a.low_fresh);
+         eligibility[i].symbol_b_low_frontier=(eligibility[i].symbol_b_path_data_ready && proof_b.low_fresh);
+         eligibility[i].later_symbol_a_max_high=proof_a.intervening_max_high;
+         eligibility[i].later_symbol_b_max_high=proof_b.intervening_max_high;
+         eligibility[i].later_symbol_a_min_low=proof_a.intervening_min_low;
+         eligibility[i].later_symbol_b_min_low=proof_b.intervening_min_low;
 
          if(m_config.require_symbol_local_frontier_for_both_symbols)
          {
@@ -410,30 +599,16 @@ private:
             eligibility[i].low_frontier_valid=(eligibility[i].symbol_a_low_frontier || eligibility[i].symbol_b_low_frontier);
          }
 
-         if(later_reference_history_gap)
+         if(!eligibility[i].symbol_a_path_data_ready || !eligibility[i].symbol_b_path_data_ready)
          {
-            eligibility[i].high_note="suppressed_high_reference_unproven_due_to_later_m1_history_gap";
-            eligibility[i].low_note="suppressed_low_reference_unproven_due_to_later_m1_history_gap";
+            eligibility[i].high_note=StringFormat("suppressed_high_raw_path_unproven|A:%s|B:%s",proof_a.error_text,proof_b.error_text);
+            eligibility[i].low_note=StringFormat("suppressed_low_raw_path_unproven|A:%s|B:%s",proof_a.error_text,proof_b.error_text);
          }
          else
          {
-            eligibility[i].high_note=(eligibility[i].high_frontier_valid ? "high_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_HIGH,eligibility[i]));
-            eligibility[i].low_note=(eligibility[i].low_frontier_valid ? "low_reference_is_unbroken_extreme_frontier" : FrontierSuppressionText(CGC_SIDE_LOW,eligibility[i]));
+            eligibility[i].high_note=(eligibility[i].high_frontier_valid ? "high_reference_fresh_on_both_raw_m1_paths" : FrontierSuppressionText(CGC_SIDE_HIGH,eligibility[i]));
+            eligibility[i].low_note=(eligibility[i].low_frontier_valid ? "low_reference_fresh_on_both_raw_m1_paths" : FrontierSuppressionText(CGC_SIDE_LOW,eligibility[i]));
          }
-
-         if(!have_later_a_high || hunts[i].symbol_a.reference_high>later_a_max_high)
-            later_a_max_high=hunts[i].symbol_a.reference_high;
-         if(!have_later_b_high || hunts[i].symbol_b.reference_high>later_b_max_high)
-            later_b_max_high=hunts[i].symbol_b.reference_high;
-         if(!have_later_a_low || hunts[i].symbol_a.reference_low<later_a_min_low)
-            later_a_min_low=hunts[i].symbol_a.reference_low;
-         if(!have_later_b_low || hunts[i].symbol_b.reference_low<later_b_min_low)
-            later_b_min_low=hunts[i].symbol_b.reference_low;
-
-         have_later_a_high=true;
-         have_later_b_high=true;
-         have_later_a_low=true;
-         have_later_b_low=true;
       }
    }
 
@@ -487,6 +662,10 @@ private:
          signal.symbol_b_reference_price=hunt.symbol_b.reference_high;
          signal.symbol_a_current_extreme=hunt.symbol_a.current_high;
          signal.symbol_b_current_extreme=hunt.symbol_b.current_high;
+         signal.symbol_a_reference_time_broker=hunt.symbol_a.reference_high_time_broker;
+         signal.symbol_b_reference_time_broker=hunt.symbol_b.reference_high_time_broker;
+         signal.symbol_a_current_extreme_time_broker=hunt.symbol_a.current_high_time_broker;
+         signal.symbol_b_current_extreme_time_broker=hunt.symbol_b.current_high_time_broker;
       }
       else if(signal.side==CGC_SIDE_LOW)
       {
@@ -494,6 +673,10 @@ private:
          signal.symbol_b_reference_price=hunt.symbol_b.reference_low;
          signal.symbol_a_current_extreme=hunt.symbol_a.current_low;
          signal.symbol_b_current_extreme=hunt.symbol_b.current_low;
+         signal.symbol_a_reference_time_broker=hunt.symbol_a.reference_low_time_broker;
+         signal.symbol_b_reference_time_broker=hunt.symbol_b.reference_low_time_broker;
+         signal.symbol_a_current_extreme_time_broker=hunt.symbol_a.current_low_time_broker;
+         signal.symbol_b_current_extreme_time_broker=hunt.symbol_b.current_low_time_broker;
       }
    }
 
@@ -501,6 +684,8 @@ private:
    {
       signal.symbol_a_reference_frontier=false;
       signal.symbol_b_reference_frontier=false;
+      signal.symbol_a_visual_data_ready=(signal.symbol_a_visual_data_ready && frontier.symbol_a_path_data_ready);
+      signal.symbol_b_visual_data_ready=(signal.symbol_b_visual_data_ready && frontier.symbol_b_path_data_ready);
 
       if(signal.side==CGC_SIDE_HIGH)
       {
@@ -788,7 +973,7 @@ public:
          return 0;
 
       SCGCExtremeFrontierEligibility frontier[];
-      BuildExtremeFrontierEligibility(hunts,frontier);
+      BuildExtremeFrontierEligibility(time_snapshot,cycle,hunts,frontier);
 
       for(int i=0;i<hunt_count;i++)
       {

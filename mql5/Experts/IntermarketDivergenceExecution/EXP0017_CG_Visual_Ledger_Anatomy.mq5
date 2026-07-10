@@ -1,7 +1,7 @@
 #property strict
-#property version   "1.10"
+#property version   "1.11"
 #property description "EXP0017 Phase 06 - Cycle Group Visual Language and Signal Audit Ledger"
-#property description "No trading. Hotfix010 enforces complete dual-symbol M1 coverage before freshness, confirmation, backfill, and drawing."
+#property description "No trading. Hotfix011 proves SPX and NDX reference freshness independently from each symbol raw M1 path and renders stored local anchors."
 
 #include <IntermarketDivergenceExecution/CG/CGV_Engine.mqh>
 

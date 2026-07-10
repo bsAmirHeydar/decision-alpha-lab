@@ -79,6 +79,18 @@ struct SCGCProtectedReferenceLifecycleRecord
    string   retirement_reason;
 };
 
+struct SCGCLocalFreshnessProof
+{
+   string   symbol;
+   bool     data_ready;
+   bool     high_fresh;
+   bool     low_fresh;
+   int      copied_bars;
+   double   intervening_max_high;
+   double   intervening_min_low;
+   string   error_text;
+};
+
 struct SCGCExtremeFrontierEligibility
 {
    bool high_frontier_valid;
@@ -91,6 +103,8 @@ struct SCGCExtremeFrontierEligibility
    double later_symbol_b_max_high;
    double later_symbol_a_min_low;
    double later_symbol_b_min_low;
+   bool   symbol_a_path_data_ready;
+   bool   symbol_b_path_data_ready;
    string high_note;
    string low_note;
 };
@@ -139,6 +153,10 @@ struct SCGCFinalSignal
    double symbol_b_reference_price;
    double symbol_a_current_extreme;
    double symbol_b_current_extreme;
+   datetime symbol_a_reference_time_broker;
+   datetime symbol_b_reference_time_broker;
+   datetime symbol_a_current_extreme_time_broker;
+   datetime symbol_b_current_extreme_time_broker;
 
    // Hotfix009: preserve the side-specific frontier result for each symbol.
    // The visual renderer uses these flags to prevent a valid pair-level signal

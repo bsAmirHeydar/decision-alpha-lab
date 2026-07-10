@@ -24,6 +24,8 @@ struct SCGRSymbolReference
    int      copied_bars;
    double   high;
    double   low;
+   datetime high_time_broker;
+   datetime low_time_broker;
    datetime first_bar_broker;
    datetime last_bar_broker;
    string   error_text;

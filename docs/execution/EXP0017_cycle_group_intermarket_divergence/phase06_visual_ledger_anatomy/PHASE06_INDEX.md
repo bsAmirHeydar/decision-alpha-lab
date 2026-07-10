@@ -30,10 +30,10 @@ A Phase 06 ledger row is not a trade result. It is only an event record.
 
 ## Active visual hotfix baseline
 
-The current visual baseline is Hotfix010:
+The current visual baseline is Hotfix011:
 
-- [[hotfixes/PHASE06_HOTFIX_010_DUAL_SYMBOL_M1_EVIDENCE_PARITY]]
-- [[hotfixes/PHASE06_HOTFIX_010_LOGIC_AND_RENDER_CONTRACT]]
-- [[hotfixes/PHASE06_HOTFIX_010_VALIDATION_PLAN]]
+- [[hotfixes/PHASE06_HOTFIX_011_NDX_RAW_PATH_FRESHNESS_AUTHORITY]]
+- [[hotfixes/PHASE06_HOTFIX_011_LOGIC_AND_DRAWING_CONTRACT]]
+- [[hotfixes/PHASE06_HOTFIX_011_VALIDATION_PLAN]]
 
-Hotfix010 closes the remaining SPX/NDX asymmetry at the evidence layer. Complete M1 coverage is now required for both symbols before reference freshness, hunt classification, historical backfill, or drawing. Missing later history is a frontier barrier, and all visual extreme searches use the same exclusive interval boundaries as the signal logic.
+Hotfix011 replaces slot-dependent compressed freshness authority with a symbol-local raw-M1 path proof. SPX and NDX execute the same batch algorithm, strict pair mode requires both local paths to remain fresh, exact local extreme timestamps are persisted into the signal, and the drawing layer renders those approved anchors without an independent NDX history query. Prefix-based verified cleanup removes orphaned non-host objects before replay.

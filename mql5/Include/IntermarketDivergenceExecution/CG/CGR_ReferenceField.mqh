@@ -62,6 +62,8 @@ private:
       ref.copied_bars=0;
       ref.high=0.0;
       ref.low=0.0;
+      ref.high_time_broker=0;
+      ref.low_time_broker=0;
       ref.first_bar_broker=0;
       ref.last_bar_broker=0;
       ref.error_text="not_calculated";
@@ -107,19 +109,29 @@ private:
 
       double hi=rates[0].high;
       double lo=rates[0].low;
+      datetime hi_time=rates[0].time;
+      datetime lo_time=rates[0].time;
       out_ref.first_bar_broker=rates[0].time;
       out_ref.last_bar_broker=rates[copied-1].time;
 
       for(int i=1;i<copied;i++)
       {
          if(rates[i].high>hi)
+         {
             hi=rates[i].high;
+            hi_time=rates[i].time;
+         }
          if(rates[i].low<lo)
+         {
             lo=rates[i].low;
+            lo_time=rates[i].time;
+         }
       }
 
       out_ref.high=hi;
       out_ref.low=lo;
+      out_ref.high_time_broker=hi_time;
+      out_ref.low_time_broker=lo_time;
       out_ref.data_ok=true;
       out_ref.error_text="ok";
       return true;

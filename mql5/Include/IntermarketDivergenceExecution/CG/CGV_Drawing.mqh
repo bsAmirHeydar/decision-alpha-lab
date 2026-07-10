@@ -169,6 +169,20 @@ private:
       return best_time;
    }
 
+   datetime SymbolReferenceTimeBroker(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(symbol==m_config.symbol_a) return signal.symbol_a_reference_time_broker;
+      if(symbol==m_config.symbol_b) return signal.symbol_b_reference_time_broker;
+      return 0;
+   }
+
+   datetime SymbolCurrentExtremeTimeBroker(SCGCFinalSignal &signal,const string symbol)
+   {
+      if(symbol==m_config.symbol_a) return signal.symbol_a_current_extreme_time_broker;
+      if(symbol==m_config.symbol_b) return signal.symbol_b_current_extreme_time_broker;
+      return 0;
+   }
+
    datetime AnchorTime(SCGCFinalSignal &signal,const ECGVAnchorTimeMode mode,const string anchor_symbol,const datetime fallback_time)
    {
       datetime ref_start=NyToBroker(signal,signal.reference_cycle_start_ny);
@@ -183,9 +197,17 @@ private:
       if(mode==CGV_ANCHOR_TIME_CURRENT_CYCLE_END)      return cur_end;
       if(mode==CGV_ANCHOR_TIME_CONFIRMATION_CLOSE)     return signal.confirmation_time_broker;
       if(mode==CGV_ANCHOR_TIME_EXACT_REFERENCE_EXTREME)
+      {
+         datetime stored_reference_time=SymbolReferenceTimeBroker(signal,anchor_symbol);
+         if(stored_reference_time>0)
+            return stored_reference_time;
          return FindExtremeTimeM1(anchor_symbol,ref_start,ref_end,signal.side,fallback_time);
+      }
       if(mode==CGV_ANCHOR_TIME_EXACT_CURRENT_EXTREME)
       {
+         datetime stored_current_time=SymbolCurrentExtremeTimeBroker(signal,anchor_symbol);
+         if(stored_current_time>0)
+            return stored_current_time;
          datetime end_time=signal.confirmation_time_broker;
          if(end_time<=0 || (cur_end>0 && end_time>cur_end))
             end_time=cur_end;
@@ -580,11 +602,12 @@ private:
       if(initial_count<=0)
          return 0;
 
-      // Object commands sent to a foreign chart are queued. A single unverified
-      // delete pass can leave stale EXP0017 objects on the non-host chart. Each
-      // following object query acts as a synchronization barrier, so retry a
-      // bounded number of times until the owned prefix is actually absent.
-      int remaining=initial_count;
+      // Hotfix011: use the prefix overload as the primary authoritative cleanup.
+      // Foreign-chart object commands can otherwise leave orphaned NDX legs.
+      ObjectsDeleteAll(chart_id,CGV_OBJECT_PREFIX,-1,-1);
+      ChartRedraw(chart_id);
+      int remaining=CountOwnedObjectsOnChart(chart_id);
+
       for(int pass=0;pass<4 && remaining>0;pass++)
       {
          QueueOwnedObjectDeletePass(chart_id);
@@ -593,7 +616,7 @@ private:
       }
 
       if(remaining>0)
-         Print(StringFormat("EXP0017 Phase06 Hotfix009: %d owned visual objects remained on chart %s (%s) after verified cleanup.",remaining,IntegerToString(chart_id),ChartSymbol(chart_id)));
+         Print(StringFormat("EXP0017 Phase06 Hotfix011: %d owned objects remained on chart %s (%s) after authoritative cleanup.",remaining,IntegerToString(chart_id),ChartSymbol(chart_id)));
 
       return MathMax(0,initial_count-remaining);
    }

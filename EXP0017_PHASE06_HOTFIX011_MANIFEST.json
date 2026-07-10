@@ -1,0 +1,86 @@
+{
+  "patch_id": "EXP0017_PHASE06_HOTFIX011_NDX_RAW_PATH_FRESHNESS",
+  "version": "1.11",
+  "base_requirement": "EXP0017 Phase06 Hotfix010",
+  "scope": "symbol-local raw M1 freshness proof, stored visual anchors, verified dual-chart cleanup",
+  "files": [
+    {
+      "path": "INSTALL_EXP0017_PHASE06_HOTFIX011_NDX_RAW_PATH_FRESHNESS_PATCH.md",
+      "size_bytes": 1556,
+      "sha256": "bdb31dd15bd40aac9b3012af396d3c85245914670233a59550602240d2fd8c5f"
+    },
+    {
+      "path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+      "size_bytes": 13489,
+      "sha256": "6d4bb4c45d47a7ca9d6cd3632b0e1191fe3d28c6e12484c2db88e0e2c5be67c1"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGR_Types.mqh",
+      "size_bytes": 1594,
+      "sha256": "0e3b42a344e3731499b5bc396ab35f10bb3d31ff0fb475a360b6fd50163fd949"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGR_ReferenceField.mqh",
+      "size_bytes": 8804,
+      "sha256": "5bb993b93883aafe102f189db51ef4e349468171f947e0f5747f4f8babd4c2c1"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGH_Types.mqh",
+      "size_bytes": 2804,
+      "sha256": "d893bacedebb1ccd7c5bea7bf53810812ec6c1211fb22aad217b8ef6a420692e"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGH_HuntField.mqh",
+      "size_bytes": 14173,
+      "sha256": "3855e7423ccbe74a32393e2cc45a250ee8e531995d7b55b1caded155413ef842"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGC_Types.mqh",
+      "size_bytes": 6386,
+      "sha256": "f5deec89c13112fb6d4ea39158b6ff994c435afac3a19d6f8275d4b368dd9292"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGC_ConfirmationField.mqh",
+      "size_bytes": 42473,
+      "sha256": "8053d5aed44cc72b7f97868b4a0d9be45b9ba1bc151fc29ce9b5fce4974cca6e"
+    },
+    {
+      "path": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh",
+      "size_bytes": 33972,
+      "sha256": "0a1594d75db96ebab134a28088dce56e67435bbd621811e950c77beb3f6ba2dd"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/PHASE06_INDEX.md",
+      "size_bytes": 1868,
+      "sha256": "fa5a5907b3c9c83dc7e7475949e3cf27dd1c3e0bb01aba402170a2623a09e0a5"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_011_NDX_RAW_PATH_FRESHNESS_AUTHORITY.md",
+      "size_bytes": 3212,
+      "sha256": "d2d057d7cfd778dcc7f96ecb67f1202f368dac9dbdce1adc725d30a1816cef85"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_011_LOGIC_AND_DRAWING_CONTRACT.md",
+      "size_bytes": 1807,
+      "sha256": "e08e94fbcc47ddbe3d83fb0debeabcdc09a3118638f66e411ca4f4157ad6b7f8"
+    },
+    {
+      "path": "docs/execution/EXP0017_cycle_group_intermarket_divergence/phase06_visual_ledger_anatomy/hotfixes/PHASE06_HOTFIX_011_VALIDATION_PLAN.md",
+      "size_bytes": 2487,
+      "sha256": "1f361ae71bb8a2a901c35026cc960c82bd944c32a707792615bb0edf3467a7fd"
+    },
+    {
+      "path": "research/exp0017_phase06/tests/test_hotfix011_raw_path_freshness.py",
+      "size_bytes": 3041,
+      "sha256": "0b15ab709e0d0204b95fd2bfeeda6ceb1df1d60d699a9196407ded78425d01e9"
+    }
+  ],
+  "validation": {
+    "python_unit_tests": "6 passed",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "obsidian_vault": "0 errors, 0 warnings",
+    "metaeditor_compile": "required on user system"
+  }
+}

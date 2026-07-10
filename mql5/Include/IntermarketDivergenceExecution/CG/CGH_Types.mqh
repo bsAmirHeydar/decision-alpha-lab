@@ -34,6 +34,8 @@ struct SCGHCurrentSymbolRange
    int      copied_bars;
    double   high;
    double   low;
+   datetime high_time_broker;
+   datetime low_time_broker;
    datetime first_bar_broker;
    datetime last_bar_broker;
    string   error_text;
@@ -46,8 +48,12 @@ struct SCGHSymbolHuntState
    bool   current_range_ready;
    double reference_high;
    double reference_low;
+   datetime reference_high_time_broker;
+   datetime reference_low_time_broker;
    double current_high;
    double current_low;
+   datetime current_high_time_broker;
+   datetime current_low_time_broker;
    bool   high_hunted;
    bool   low_hunted;
    bool   any_hunt;
