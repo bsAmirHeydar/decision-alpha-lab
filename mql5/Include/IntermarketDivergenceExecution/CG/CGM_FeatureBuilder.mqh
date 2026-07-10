@@ -128,7 +128,9 @@ public:
       row.shortlist_match = 0;
       row.notes = "";
 
-      if(m_cfg.require_complete_outcome && StringToUpper(CGM_Clean(s.availability)) != "COMPLETE")
+      string availability_upper = CGM_Clean(s.availability);
+      StringToUpper(availability_upper);
+      if(m_cfg.require_complete_outcome && availability_upper != "COMPLETE")
       {
          row.model_use_status = "EXCLUDED";
          row.exclusion_reason = "availability_not_complete";

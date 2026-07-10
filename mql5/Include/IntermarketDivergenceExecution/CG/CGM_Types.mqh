@@ -229,7 +229,8 @@ double CGM_SafeDiv(const double a,const double b)
 
 bool CGM_ToBool(const string v)
 {
-   string x = StringToLower(CGM_Clean(v));
+   string x = CGM_Clean(v);
+   StringToLower(x);
    return (x == "true" || x == "1" || x == "yes");
 }
 
@@ -251,7 +252,8 @@ string CGM_LabelWindowText(const ECGMLabelWindow w)
 
 int CGM_DirectionCode(const string direction)
 {
-   string d = StringToUpper(CGM_Clean(direction));
+   string d = CGM_Clean(direction);
+   StringToUpper(d);
    if(d == "BUY") return 1;
    if(d == "SELL") return -1;
    return 0;
@@ -259,7 +261,8 @@ int CGM_DirectionCode(const string direction)
 
 int CGM_SideCode(const string side)
 {
-   string s = StringToUpper(CGM_Clean(side));
+   string s = CGM_Clean(side);
+   StringToUpper(s);
    if(s == "LOW") return 1;
    if(s == "HIGH") return -1;
    return 0;
