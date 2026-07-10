@@ -267,3 +267,17 @@ error_code
 
 The audit log is essential because multi-CG systems can produce dense signal clusters.
 
+## Phase 14 owner-approved backtest profile override
+
+The original baseline above remains historical doctrine. For `EXP0017_CG_Raw_Execution_Backtest.mq5`, the Strategy Architect explicitly approved a separate execution profile:
+
+```text
+entry = market on first tick after confirmation candle close
+trade leg = protected or hunter by input; protected by default
+stop = behind selected trade symbol confirmation candle
+target = ATR multiple; default ATR(14) * 1.0
+CG defaults = cg_3m enabled, all others disabled
+```
+
+The authoritative implementation contract for that profile is [[phase14_raw_execution_backtest/PHASE14_EXECUTION_CONTRACT]].
+

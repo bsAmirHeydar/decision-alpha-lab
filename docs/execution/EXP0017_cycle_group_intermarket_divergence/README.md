@@ -72,3 +72,11 @@ Daily reset manager
 Audit logger
 ```
 
+## Phase 14 raw execution backtest
+
+The first modular order-producing profile is documented at:
+
+- [[phase14_raw_execution_backtest/PHASE14_INDEX]]
+
+This owner-approved backtest profile uses closed-candle market entry, selectable protected/hunter execution leg, confirmation-candle stop, and ATR target. It consumes the Hotfix011 signal authority without changing divergence detection.
+

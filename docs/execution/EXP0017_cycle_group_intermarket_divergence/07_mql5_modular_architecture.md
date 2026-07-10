@@ -329,3 +329,14 @@ The architecture should allow adding:
 
 These should be added as new modules or config fields, not by rewriting the detector core.
 
+## Implemented Phase 14 execution architecture
+
+The Phase14 backtest executor is implemented under:
+
+```text
+mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Raw_Execution_Backtest.mq5
+mql5/Include/IntermarketDivergenceExecution/CG/Execution/
+```
+
+The implemented dependency map and extension seams are documented in [[phase14_raw_execution_backtest/PHASE14_MODULE_ARCHITECTURE]].
+

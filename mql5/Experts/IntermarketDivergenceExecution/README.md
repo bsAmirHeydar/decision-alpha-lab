@@ -33,3 +33,18 @@ InpCycleReleaseSeed
 ```
 
 This build keeps the license hidden behind the neutral Cycle Model field names.
+
+## EXP0017_CG_Raw_Execution_Backtest.mq5
+
+Phase14 modular raw execution backtest for the EXP0017 cycle-group divergence stack.
+
+Default profile:
+
+- Strategy Tester transport only;
+- protected/clean symbol execution;
+- market entry after closed confirmation candle;
+- stop behind the selected symbol confirmation candle;
+- ATR(14) × 1.0 target;
+- 1% equity risk sizing;
+- only `cg_3m` enabled.
+
