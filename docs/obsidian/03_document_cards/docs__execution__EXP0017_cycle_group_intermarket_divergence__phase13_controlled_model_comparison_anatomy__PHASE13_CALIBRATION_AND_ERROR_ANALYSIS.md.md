@@ -1,0 +1,5 @@
+# Document Card — PHASE13_CALIBRATION_AND_ERROR_ANALYSIS.md
+
+Source: `docs/execution/EXP0017_cycle_group_intermarket_divergence/phase13_controlled_model_comparison_anatomy/PHASE13_CALIBRATION_AND_ERROR_ANALYSIS.md`
+
+Parent: [[cg_exp0017_phase13_controlled_model_comparison_moc]]
