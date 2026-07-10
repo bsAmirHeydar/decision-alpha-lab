@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_HookPhase02Export.mqh"
+#include "FP_NDSStructureSnapshot.mqh"
 
 
 void FP_RunHookPhase02Core(const string symbol,
@@ -19,6 +20,7 @@ void FP_RunHookPhase02Core(const string symbol,
                            FP_HookPhase02Report &report)
 {
    FP_ResetHookPhase02Report(report);
+   FP_NDSClearStructureSnapshot();
 
    if(!FP_HookP02ShouldRun(cfg))
    {
@@ -54,6 +56,8 @@ void FP_RunHookPhase02Core(const string symbol,
    FP_HookP02BuildSequencesWithRates(rates, copied, nodes, cfg, sequences, report);
    if(use_f3_validity_context)
       FP_HookP02AnnotateValidityFamiliesWithF3(sequences, events, event_count, cfg, report);
+
+   FP_NDSCaptureStructureSnapshot(symbol, period, sequences);
    FP_HookP02FinalizeReport(report);
 
    if(cfg.draw_sequences)

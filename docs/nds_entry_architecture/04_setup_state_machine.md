@@ -1,0 +1,94 @@
+---
+title: NDS Setup State Machine
+status: normative
+version: 1.0.0
+---
+# NDS Setup State Machine
+
+## 1. Pipeline stages
+
+```text
+RESET
+→ STRUCTURE_CAPTURED
+→ SETUP_CANDIDATE
+→ TRADE_PLAN_READY
+→ COMMAND_PREVIEW_READY
+```
+
+Any mandatory failure creates a named blocked status. The stage records the highest materially available object, while `status` and `block_reason` report the earliest failing authority boundary. Downstream cascade errors never hide the upstream cause.
+
+## 2. Structure states
+
+```text
+NDS_STRUCTURE_ELIGIBLE
+NDS_STRUCTURE_NOT_ELIGIBLE
+NDS_STRUCTURE_BLOCKED_NO_MATCHING_SNAPSHOT
+NDS_STRUCTURE_BLOCKED_NO_ELIGIBLE_VALID_HOOK
+```
+
+## 3. Zone states
+
+```text
+NDS_ZONE_BLOCKED_PRE_CANON_PROFILE
+NDS_ZONE_BLOCKED_CANON_NOT_LOCKED
+NDS_ZONE_CANON_ADAPTER_PENDING
+NDS_DIAGNOSTIC_ZONE_BLOCKED_BOUNDARIES
+NDS_DIAGNOSTIC_ZONE_BLOCKED_MISSING_PLAN_PRICES
+NDS_DIAGNOSTIC_ZONE_BLOCKED_ENTRY_OUTSIDE_ZONE
+NDS_DIAGNOSTIC_ZONE_BLOCKED_DIRECTIONAL_GEOMETRY
+NDS_DIAGNOSTIC_ZONE_READY_NON_CANONICAL
+```
+
+## 4. Setup states
+
+```text
+NDS_SETUP_BLOCKED_STRUCTURE
+NDS_SETUP_BLOCKED_DIRECTION_POLICY
+NDS_SETUP_BLOCKED_ZONE
+NDS_SETUP_BLOCKED_ORDER_MODEL
+NDS_SETUP_BLOCKED_STOP_MODEL
+NDS_SETUP_BLOCKED_TARGET_MODEL
+NDS_SETUP_BLOCKED_TRADE_CONTRACT_NOT_LOCKED
+NDS_SETUP_READY_DIAGNOSTIC_NON_CANONICAL
+NDS_SETUP_READY_CANONICAL
+```
+
+## 5. Trade Plan states
+
+```text
+NDS_TRADE_PLAN_BLOCKED_SETUP
+NDS_TRADE_PLAN_BLOCKED_MISSING_PRICES
+NDS_TRADE_PLAN_BLOCKED_DIRECTIONAL_GEOMETRY
+NDS_TRADE_PLAN_BLOCKED_ZERO_RISK
+NDS_TRADE_PLAN_BLOCKED_ZERO_REWARD
+NDS_TRADE_PLAN_BLOCKED_MIN_RR
+NDS_TRADE_PLAN_READY_DIAGNOSTIC_NO_SIZING
+NDS_TRADE_PLAN_READY_CANONICAL_NO_SIZING
+```
+
+## 6. Command states
+
+```text
+NDS_COMMAND_BLOCKED_TRADE_PLAN
+NDS_COMMAND_BLOCKED_PREVIEW_LOCK_DISABLED
+NDS_COMMAND_BLOCKED_ORDER_TYPE
+NDS_COMMAND_PREVIEW_READY_NO_SEND_ZERO_VOLUME
+```
+
+## 7. Immutability and revision
+
+Future persistent Setup objects should be append-only and revisioned:
+
+```text
+setup_id
+setup_revision
+source_structure_revision
+zone_revision
+policy_version
+state_before
+state_after
+transition_reason
+knowledge_time
+```
+
+The current implementation writes the latest snapshot only. Persistent lifecycle is a planned next phase.

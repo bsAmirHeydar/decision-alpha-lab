@@ -23,3 +23,17 @@
 - [[../03_architecture/Phase 50 Pre-Canon NDS Stabilization]]
 - [[../01_concepts/Canonical Bar Index Authority]]
 - [[../04_debug/NDS Pre-Canon Contract Checklist]]
+
+## NDS Entry Transition
+
+- [[../00_mocs/NDS_ENTRY_EXECUTION_MOC]]
+- [[../03_architecture/Phase 51 NDS Entry Transition Architecture]]
+- [[../08_entry_execution/NDS Entry Doctrine]]
+- [[../08_entry_execution/NDS Structure Snapshot Contract]]
+- [[../08_entry_execution/NDS Zone Adapter]]
+- [[../08_entry_execution/NDS Setup State Machine]]
+- [[../08_entry_execution/NDS Trade Plan Contract]]
+- [[../08_entry_execution/NDS Command Preview Contract]]
+- [[../08_entry_execution/NDS Risk and Capital Boundary]]
+- [[../08_entry_execution/NDS Entry Audit Outputs]]
+- [[../08_entry_execution/NDS Entry Canon Backlog]]

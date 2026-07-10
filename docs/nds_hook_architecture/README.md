@@ -135,3 +135,14 @@ It moves post-F3 ownership and tolerance to canonical bar-index authority, makes
 all existing recognition inputs truthful, repairs `EARLIEST_FIRST`, and adds
 F3-terminal ownership evidence to sequence state and CSV. It deliberately does
 not decide open Hook/Zone Canon questions.
+
+## Latest entry-transition overlay — Phase 51
+
+```text
+68_phase51_nds_entry_transition_architecture.md
+```
+
+Phase 51 creates the NDS-specific bridge from an annotated valid Hook to a
+Zone adapter, Setup Candidate, Trade Plan, and zero-volume no-send Command
+Preview. The default profile deliberately blocks at the unresolved Zone Canon.
+The complete package is indexed at `docs/nds_entry_architecture/README.md`.

@@ -1,0 +1,305 @@
+{
+  "package_id": "NDS_ENTRY_TRANSITION_PHASE51",
+  "package_version": "1.0.0",
+  "generated_date": "2026-07-10",
+  "base_contract": "NDS_PRE_CANON_STABILIZATION_PHASE50",
+  "ea_version": "18.30",
+  "schema_version": "nds_entry_transition_v1",
+  "scope": "NDS valid-Hook to Zone-adapter, Setup, Trade Plan, and no-send Command Preview transition",
+  "safety_contract": {
+    "live_order_send_implemented": false,
+    "broker_request_implemented": false,
+    "position_sizing_implemented": false,
+    "default_profile": "PRE_CANON_BLOCKED",
+    "command_volume": 0,
+    "send_allowed": false
+  },
+  "canonical_boundaries": {
+    "hook_structure": "read from annotated Hook Phase02 snapshot",
+    "zone": "adapter seam present; final Canon pending",
+    "entry_stop_target": "explicit enums; unresolved by default",
+    "risk": "no capital authority",
+    "broker": "no-send preview only"
+  },
+  "validation": {
+    "nds_hook_contract_qa": "PASS",
+    "nds_entry_contract_qa": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "ai_engineering_os_vault": "0 errors, 0 warnings",
+    "mql_lexical_balance": "PASS",
+    "sequence_fields": "29 checked, 0 missing",
+    "new_obsidian_links": "0 unresolved",
+    "static_qa_blocking": "0",
+    "metaeditor_compile": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT"
+  },
+  "file_count_excluding_manifest": 44,
+  "files": [
+    {
+      "path": "INSTALL_NDS_ENTRY_TRANSITION_PHASE51_PATCH.md",
+      "bytes": 4432,
+      "sha256": "45ae224b74615b226d72496889d7d370c2efbc92423cdb99f7f980eb30ffa6ea",
+      "kind": "new"
+    },
+    {
+      "path": "NDS_ENTRY_TRANSITION_PHASE51_AUDIT_REPORT.md",
+      "bytes": 4351,
+      "sha256": "85dcb46d3d9f79dc07c783d405ceb38d9840b7c9927111bfb576ab6c4b54bc7c",
+      "kind": "new"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "bytes": 19205,
+      "sha256": "5524950e649931351c9f640c30a724ad32c3a3788360113907722f1a2c1e748b",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/nds_entry_architecture/01_doctrine_and_authority.md",
+      "bytes": 2698,
+      "sha256": "11b7b14e027e726ee3ba454fbe726cbd31b7c3efdbb00fcfa1e6a177870a3a7d",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/02_structure_to_setup_contract.md",
+      "bytes": 2446,
+      "sha256": "2de3319a56b39fa38c435d371c212c744d7c1be0a070a2b070b734fa34748e42",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/03_zone_adapter_contract.md",
+      "bytes": 2314,
+      "sha256": "864a9922e52b58a2e0f09b50be15553c50e1c380abeff9cd6dc260bbe2997d97",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/04_setup_state_machine.md",
+      "bytes": 2209,
+      "sha256": "8b22eedbf14b2493b884ed9818c66066fea6bd77223a6925f58d99273c601403",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/05_trade_plan_contract.md",
+      "bytes": 1797,
+      "sha256": "1d73dca942ad83e6983008e1d1879f7ac81052513fe9130f286868cf602f61d9",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/06_command_preview_contract.md",
+      "bytes": 1745,
+      "sha256": "b9b0881f403873e6168a9fb21f731d76288f7f30360d48f9a340eb4e459b6df4",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/07_risk_and_capital_boundary.md",
+      "bytes": 1739,
+      "sha256": "11fd36d024bfd5f4337d0bf181f70f451f3f4b42f8590b76f324274dfc6a85a3",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/08_data_and_audit_schema.md",
+      "bytes": 1555,
+      "sha256": "324c5af7cf1441f79ded954b01d8b482e837af5bf15125a069e8d7da0cac8a89",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/09_mql5_module_architecture.md",
+      "bytes": 1753,
+      "sha256": "88672c70d3b51d31fa5904a69ed2f99acb6891c76ad96a7ddcb5c69f9c61952c",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/10_validation_and_release_plan.md",
+      "bytes": 2146,
+      "sha256": "c9ed528cc9f9ce1ac6bf832fd5288087e11a5a256aa273bbba39f7b53cc3a4d1",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/11_canon_question_backlog.md",
+      "bytes": 2181,
+      "sha256": "3e3a544e8608114be236a8b951c33fac870a55b17d466b458b3736e7f40ac191",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/12_implementation_roadmap.md",
+      "bytes": 2044,
+      "sha256": "acc338d50f5b47733e385b57f9b09f139c8ae833ff62fd44902595e48823a571",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/13_operator_profiles.md",
+      "bytes": 1448,
+      "sha256": "bf49e1916a404ce4ee1b4a213310c91dfd10bfb6bab6ab8c65e667c3e7b5ad27",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "bytes": 2929,
+      "sha256": "c513434e2fd206256d30d396f69541a3174dcc227708fd28b17037b40fcb4386",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README_FA.md",
+      "bytes": 1116,
+      "sha256": "6629af6c03bb289aff6533b580e1590752a2cb804a494cd59129a9154a402d70",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_hook_architecture/68_phase51_nds_entry_transition_architecture.md",
+      "bytes": 1036,
+      "sha256": "860074d48b384034e12df8ff1b27c94f008ed282cd4225d20969fddc435f416b",
+      "kind": "new"
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "bytes": 4414,
+      "sha256": "c790f9a35ee503422405af52f20ea3f607115af58b39216f8e8a7288d72d73b8",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/HOOK_CANON_STEP7_MOC.md",
+      "bytes": 688,
+      "sha256": "c41f9adf0427c497dfd33dc577c23fe4cf96c674650104974499c5b5730fbbc0",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "bytes": 2013,
+      "sha256": "4cf73136bcd18037777fbc576392b5c60a77c5f494fd52a255b6b902baedf744",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/03_architecture/Phase 51 NDS Entry Transition Architecture.md",
+      "bytes": 857,
+      "sha256": "573e7e3214810b3992d75da6f28d4191f1c37518a77980587a0be89345288096",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/05_templates/NDS Setup Review Template.md",
+      "bytes": 1210,
+      "sha256": "989dc7ba864bf7c618e0d8aa227794fb13e0ed6e57383d5b01d3d64250a4cde5",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/07_indexes/HOOK_VALIDITY_INDEX.md",
+      "bytes": 1557,
+      "sha256": "44d4fc7ebe7a3c75a04b7ff8d78bfa3ed58406657dad3cf08eab0dc39b3682a5",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Authority Boundary.md",
+      "bytes": 1126,
+      "sha256": "7556198b50ddecf1a827c55417d278224b816954e9b56edb63f12687344d051e",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Command Preview Contract.md",
+      "bytes": 962,
+      "sha256": "ddfd6e6a6e4755a04e67cf2a8bfdeb883b6630fbe5b276d0f131e377d42059b5",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Entry Audit Outputs.md",
+      "bytes": 995,
+      "sha256": "4a5dd8a3258af981519f194e41ae7192b6bdac2bac8c3af6db33c9a8c73fe12f",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Entry Canon Backlog.md",
+      "bytes": 1406,
+      "sha256": "fd8763ccca6a4d103e02e147a6ca508d1a34b23428a8fb1f594d8b1c8c0100b1",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Entry Doctrine.md",
+      "bytes": 1205,
+      "sha256": "4a4264eabad45bac1e0349bedda2adcc28f7e7707dd56b420caf60b1638c129e",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Risk and Capital Boundary.md",
+      "bytes": 888,
+      "sha256": "e756e7f35c0631cd3a6c650afcbcdbebc6203a157ade7554b73eee8a63cc422e",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Setup State Machine.md",
+      "bytes": 1016,
+      "sha256": "fdbf4d27c2557c3473aae3e5ae9ac7cd4d062f1e55eb40f7623f6239a6cb31fc",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Structure Snapshot Contract.md",
+      "bytes": 951,
+      "sha256": "f28ddbff3859fc9fbd9a91bf2bb0975743452524ba34d7727b2944309afc2d76",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Trade Plan Contract.md",
+      "bytes": 784,
+      "sha256": "138e8d13e45468546a4b0808c43dd76e8e1d3d1d8ffa7cb40a64a5e086729f49",
+      "kind": "new"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS Zone Adapter.md",
+      "bytes": 1025,
+      "sha256": "c5bcb1cbc7438f036839cfef58f944d83ac37620ac923422680b35fc120056a7",
+      "kind": "new"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+      "bytes": 143217,
+      "sha256": "3e5597e1d5f3aee0ba250520bb259be6894358033e47fcc0882d647ec8dca66b",
+      "kind": "modified"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh",
+      "bytes": 4151,
+      "sha256": "5ec348018a69b4436484014fa2891262bf5fde2502f36e80a96a9bac593b079e",
+      "kind": "modified"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSEntryEngine.mqh",
+      "bytes": 1600,
+      "sha256": "cd96320292eb3955c288618e3851ef9ec403d391e5f052836bddf0917c6312cf",
+      "kind": "new"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSEntryExport.mqh",
+      "bytes": 12286,
+      "sha256": "25f2d01c9e8d55e86e94379ba370537bd7379f55d1815859d5adba56f06cab71",
+      "kind": "new"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSEntryRules.mqh",
+      "bytes": 25187,
+      "sha256": "e44f89f66b888a0139246d592354106b86c969db362e124f9bc618a882911ccc",
+      "kind": "new"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSEntryTypes.mqh",
+      "bytes": 11775,
+      "sha256": "360da95736c1c052775735e6ad9ced8e52a48c3c50bc5a677e29b1a5a830abb9",
+      "kind": "new"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSStructureSnapshot.mqh",
+      "bytes": 2128,
+      "sha256": "7dc607a3e64e95d8bdb6e321921d7be2ee5e06a4ad2689ef86f328752a2748eb",
+      "kind": "new"
+    },
+    {
+      "path": "tools/flag_counting/nds_entry_contract_qa.py",
+      "bytes": 7457,
+      "sha256": "b6f7d6f4718b3f4ecc74774541f1da455cabd0c74b235e4dd538d3a3d065ecdd",
+      "kind": "new"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_contract_qa.py",
+      "bytes": 5486,
+      "sha256": "a545c2b754cc827e31e823b44e857ebc334ac2b5e52ca2d5c50588ce17ffdd20",
+      "kind": "modified"
+    }
+  ],
+  "manifest_self_hash": "omitted_by_design_to_avoid_circular_hash"
+}

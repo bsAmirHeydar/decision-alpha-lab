@@ -16,3 +16,8 @@
 - [[Phase 50 Pre-Canon NDS Stabilization]]
 - [[Canonical Bar Index Authority]]
 - [[NDS Pre-Canon Contract Checklist]]
+
+## Entry transition after valid-Hook capture
+
+- [[NDS_ENTRY_EXECUTION_MOC]]
+- [[../03_architecture/Phase 51 NDS Entry Transition Architecture]]

@@ -331,3 +331,26 @@ docs/flag_counting/FLAG_COUNTING_CONSOLIDATION_PATCH_05_RUNTIME_HEALTH_SUMMARY.m
 ```
 
 Consolidation Patch 05 adds `runtime_no_send_health_summary.csv`, a latest-state health snapshot for the no-send stack. It summarizes context readiness, final decision readiness, normalized CSV quality, no-send integrity, expected output enablement, setup state, chain stage, blocker layer, request id, virtual ticket, prices, request volume, and realized R-like. It does not add Level 31, does not change execution behavior, and adds no OrderSend, OrderCheck, CTrade, broker requests, real orders, positions, volume sizing, risk sizing, renderer mutation, or chart-object changes.
+
+## NDS Entry Transition — Phase 51
+
+Phoenix now exposes a separate NDS-specific transition layer after Hook Phase
+02 annotation:
+
+```text
+valid Hook snapshot
+→ Zone adapter
+→ Setup Candidate
+→ Trade Plan
+→ no-send Command Preview
+```
+
+The active documentation is:
+
+```text
+docs/nds_entry_architecture/README.md
+docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md
+```
+
+The default profile is fail-closed. It does not implement unanswered Zone or
+Entry doctrine, always requests zero volume, and never authorizes order send.

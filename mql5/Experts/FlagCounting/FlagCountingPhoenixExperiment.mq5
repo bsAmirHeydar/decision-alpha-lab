@@ -1,5 +1,5 @@
 #property strict
-#property version   "18.21"
+#property version   "18.30"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -30,6 +30,7 @@
 #include "../../Include/FlagCountingPhoenix/FP_RuntimeHealthSummaryEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase01Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase02Engine.mqh"
+#include "../../Include/FlagCountingPhoenix/FP_NDSEntryEngine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase03Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
 #include "../../Include/FlagCountingPhoenix/FP_HookPhase05Engine.mqh"
@@ -753,6 +754,36 @@ input int    InpHookPhase10SampleLimit = 20;
 input string InpHookPhase10Folder = "FlagCountingPhoenix";
 input string InpHookPhase10ObjectPrefix = "DAL_HOOK_P10_";
 
+// ------------------------------ NDS Entry Transition ------------------------
+// Canon-safe bridge: valid Hook structure -> Zone contract -> Setup -> Trade
+// Plan -> broker-neutral command preview.  This layer never sends orders,
+// always keeps volume at zero, and is PRE_CANON_BLOCKED by default.
+input bool   InpNDSEntryEnabled = true;
+input bool   InpNDSEntryExportCsv = true;
+input bool   InpNDSEntryPrintSummary = false;
+input FP_NDSEntryContractProfile InpNDSEntryContractProfile = FP_NDS_ENTRY_PROFILE_PRE_CANON_BLOCKED;
+input FP_NDSTradeDirectionPolicy InpNDSTradeDirectionPolicy = FP_NDS_TRADE_DIRECTION_UNRESOLVED;
+input FP_NDSEntryOrderModel InpNDSEntryOrderModel = FP_NDS_ORDER_MODEL_UNRESOLVED;
+input FP_NDSStopModel InpNDSEntryStopModel = FP_NDS_STOP_MODEL_UNRESOLVED;
+input FP_NDSTargetModel InpNDSEntryTargetModel = FP_NDS_TARGET_MODEL_UNRESOLVED;
+input bool   InpNDSEntryRequireValidHookFamily = true;
+input bool   InpNDSEntryRequireClosedHook = true;
+input bool   InpNDSEntryRequireZoneCanonLocked = true;
+input bool   InpNDSEntryZoneCanonLocked = false;
+input bool   InpNDSEntryRequireTradeContractLocked = true;
+input bool   InpNDSEntryTradeContractLocked = false;
+input bool   InpNDSEntryCommandPreviewOnly = true;
+input double InpNDSEntryManualZoneLower = 0.0;
+input double InpNDSEntryManualZoneUpper = 0.0;
+input double InpNDSEntryManualEntryPrice = 0.0;
+input double InpNDSEntryManualStopPrice = 0.0;
+input double InpNDSEntryManualTargetPrice = 0.0;
+input double InpNDSEntryMinRR = 0.0;
+input int    InpNDSEntryExpiryBars = 0;
+input long   InpNDSEntryPreviewMagic = 310001;
+input string InpNDSEntryPreviewComment = "DAL_NDS_ENTRY_PREVIEW_ONLY";
+input string InpNDSEntryFolder = "FlagCountingPhoenix";
+
 // ------------------------------ Level 19 State Gate -------------------------
 // Clean rebuild: read-only diagnostics. Disabled panel by default.
 // It never mutates renderer objects, F/Hook/Node lines, curves, zones, or logic.
@@ -1192,6 +1223,37 @@ void FP_LoadRenderConfig(FP_RenderConfig &cfg)
    cfg.sample_limit = InpRenderSampleLimit;
 }
 
+
+
+void FP_LoadNDSEntryConfig(FP_NDSEntryConfig &cfg)
+{
+   FP_ResetNDSEntryConfig(cfg);
+   cfg.enabled = InpNDSEntryEnabled;
+   cfg.export_csv = InpNDSEntryExportCsv;
+   cfg.print_summary = InpNDSEntryPrintSummary;
+   cfg.contract_profile = InpNDSEntryContractProfile;
+   cfg.trade_direction_policy = InpNDSTradeDirectionPolicy;
+   cfg.order_model = InpNDSEntryOrderModel;
+   cfg.stop_model = InpNDSEntryStopModel;
+   cfg.target_model = InpNDSEntryTargetModel;
+   cfg.require_valid_hook_family = InpNDSEntryRequireValidHookFamily;
+   cfg.require_closed_hook = InpNDSEntryRequireClosedHook;
+   cfg.require_zone_canon_locked = InpNDSEntryRequireZoneCanonLocked;
+   cfg.zone_canon_locked = InpNDSEntryZoneCanonLocked;
+   cfg.require_trade_contract_locked = InpNDSEntryRequireTradeContractLocked;
+   cfg.trade_contract_locked = InpNDSEntryTradeContractLocked;
+   cfg.command_preview_only = InpNDSEntryCommandPreviewOnly;
+   cfg.manual_zone_lower = InpNDSEntryManualZoneLower;
+   cfg.manual_zone_upper = InpNDSEntryManualZoneUpper;
+   cfg.manual_entry_price = InpNDSEntryManualEntryPrice;
+   cfg.manual_stop_price = InpNDSEntryManualStopPrice;
+   cfg.manual_target_price = InpNDSEntryManualTargetPrice;
+   cfg.min_rr = InpNDSEntryMinRR;
+   cfg.expiry_bars = InpNDSEntryExpiryBars;
+   cfg.preview_magic = InpNDSEntryPreviewMagic;
+   cfg.preview_comment = InpNDSEntryPreviewComment;
+   cfg.folder = InpNDSEntryFolder;
+}
 
 
 void FP_LoadLevel19StateGateConfig(FP_Level19StateGateConfig &cfg)
@@ -2266,6 +2328,9 @@ void FP_Run()
    FP_StaticQaConfig staticqa_cfg;
    FP_LoadStaticQaConfig(staticqa_cfg);
 
+   FP_NDSEntryConfig nds_entry_cfg;
+   FP_LoadNDSEntryConfig(nds_entry_cfg);
+
    FP_Level19StateGateConfig state_gate_cfg;
    FP_LoadLevel19StateGateConfig(state_gate_cfg);
 
@@ -2508,6 +2573,12 @@ void FP_Run()
                      hook_phase07_cfg, hook_phase10_cfg,
                      hook_phase06_report, hook_phase08_report, hook_phase09_report,
                      hook_phase10_report);
+
+   FP_NDSEntryReport nds_entry_report;
+   FP_RunNDSEntryPipeline(_Symbol, _Period, rates, copied,
+                          nds_entry_cfg, nds_entry_report);
+   if(nds_entry_cfg.print_summary)
+      FP_PrintNDSEntryReport("FP_NDS_ENTRY", nds_entry_report);
 
    FP_ValidationReport validation_report;
    FP_ResetValidationReport(validation_report);
