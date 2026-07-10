@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "phase": "P09",
+  "name": "A/L/N/P Session Box Rendering",
+  "authority": {
+    "session_box_drawing": true,
+    "period_aggregation": false,
+    "signal": false,
+    "risk": false,
+    "execution": false
+  },
+  "source": "P03 symbol-local session snapshots",
+  "sessions": {
+    "A": {
+      "ny": "18:00-00:00",
+      "default_color": "sky_blue"
+    },
+    "L": {
+      "ny": "00:00-06:00",
+      "default_color": "lime"
+    },
+    "N": {
+      "ny": "06:00-12:00",
+      "default_color": "orange"
+    },
+    "P": {
+      "ny": "12:00-17:00",
+      "default_color": "light_red"
+    }
+  },
+  "geometry": {
+    "left": "session start",
+    "right": "scheduled session end",
+    "top": "symbol-local session high",
+    "bottom": "symbol-local session low",
+    "object_type": "OBJ_RECTANGLE"
+  },
+  "admission_defaults": {
+    "complete": true,
+    "open": true,
+    "partial": false,
+    "empty": false,
+    "unavailable": false
+  },
+  "target_policy_default": "ALL_OPEN_SYMBOL_CHARTS",
+  "object_prefix": "EXP0018_P09_BOX_",
+  "ownership": {
+    "foreign_objects_untouched": true,
+    "manual_delete_recreated": true,
+    "geometry_repaired": true,
+    "delete_outside_lookback": true,
+    "delete_on_deinit": false
+  },
+  "lookback_weeks_default": 2,
+  "weekly_dependency": false,
+  "historical_replay": "P09 renders currently available P03 history; deterministic full rebuild remains P11 responsibility"
+}

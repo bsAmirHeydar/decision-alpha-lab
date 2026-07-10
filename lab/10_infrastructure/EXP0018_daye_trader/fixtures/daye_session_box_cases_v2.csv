@@ -1,0 +1,13 @@
+case_id,session,completeness,bars,enabled,inside_lookback,chart_open,existing,geometry_match,expected
+a_complete_create,A,COMPLETE,360,1,1,1,0,0,CREATED
+l_complete_verify,L,COMPLETE,360,1,1,1,1,1,VERIFIED_CLOSED
+n_complete_repair,N,COMPLETE,360,1,1,1,1,0,REPAIRED
+p_open_update,P,OPEN,120,1,1,1,1,0,UPDATED_OPEN
+partial_default_skip,A,PARTIAL,300,1,1,1,0,0,SKIPPED_INELIGIBLE_COMPLETENESS
+empty_skip,L,EMPTY,0,1,1,1,0,0,SKIPPED_INELIGIBLE_COMPLETENESS
+disabled_session_skip,N,COMPLETE,360,0,1,1,0,0,SKIPPED_DISABLED_SESSION
+outside_lookback_skip,P,COMPLETE,300,1,0,1,0,0,SKIPPED_OUTSIDE_LOOKBACK
+waiting_symbol_chart,A,COMPLETE,360,1,1,0,0,0,WAITING_FOR_SYMBOL_CHART
+manual_delete_recreate,L,COMPLETE,360,1,1,1,0,0,CREATED
+orphan_cleanup,N,COMPLETE,360,1,0,1,1,1,ORPHAN_DELETED
+symbol_local_scale,P,COMPLETE,300,1,1,1,0,0,CREATED

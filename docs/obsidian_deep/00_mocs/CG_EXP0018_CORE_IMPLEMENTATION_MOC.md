@@ -22,3 +22,5 @@ Next: P05 Hunt Observation.
 - [[CG_EXP0018_PHASE07_REFERENCE_LIFECYCLE_MOC]] — lifecycle, first-use deduplication, and terminal retirement.
 
 - [[CG_EXP0018_PHASE08_DIVERGENCE_DRAWING_MOC]]
+
+- [[CG_EXP0018_PHASE09_SESSION_BOXES_MOC]]
