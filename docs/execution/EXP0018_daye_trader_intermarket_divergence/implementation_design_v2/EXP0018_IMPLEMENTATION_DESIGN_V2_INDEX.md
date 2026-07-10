@@ -31,7 +31,10 @@ tags:
 - Weekly و WW تا ADR-DY-A03 غیرفعال‌اند.
 - P04 Declarative 22-Relationship Registry: implemented.
 - P05 Touch-Only Hunt Observation: implemented; awaiting MetaEditor/runtime evidence.
-- مرحله بعدی رسمی: P06 Host-Timeframe Close Confirmation State Machine.
+- P06 Host-Timeframe Close Confirmation: implemented; awaiting MetaEditor/runtime evidence.
+- مرحله بعدی رسمی: P07 Reference Lifecycle and First-Sweep State Machine.
 - هیچ فاز فعلی execution authority ندارد.
 
 - [[12_phase05_hunt_observation_v2/00_INDEX|Phase 05 — Touch-Only Hunt Observation v2]]
+
+- [[13_phase06_close_confirmation_v2/00_INDEX|Phase 06 — Host-Timeframe Close Confirmation v2]]

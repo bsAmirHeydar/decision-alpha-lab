@@ -1,0 +1,13 @@
+case_id,initial_pair,close_pair,side,source_available_through_close,host_identity_match,missed_close,expected_outcome,expected_confirmed
+a_only_high_survives,A_ONLY,A_ONLY,HIGH,1,1,0,CONFIRMED,1
+b_only_low_survives,B_ONLY,B_ONLY,LOW,1,1,0,CONFIRMED,1
+a_only_becomes_both,A_ONLY,BOTH,HIGH,1,1,0,INVALIDATED_DOUBLE_HUNT,0
+b_only_becomes_both,B_ONLY,BOTH,LOW,1,1,0,INVALIDATED_DOUBLE_HUNT,0
+one_sided_disappears,A_ONLY,NONE,HIGH,1,1,0,NO_SIGNAL_AT_CLOSE,0
+source_unavailable,A_ONLY,UNAVAILABLE,HIGH,1,1,0,UNAVAILABLE_AT_CLOSE,0
+source_not_through_close,A_ONLY,A_ONLY,HIGH,0,1,0,UNAVAILABLE_AT_CLOSE,0
+role_changed,A_ONLY,B_ONLY,HIGH,1,1,0,INVALIDATED_ROLE_CHANGED,0
+host_identity_mismatch,A_ONLY,A_ONLY,HIGH,1,0,0,UNAVAILABLE_AT_CLOSE,0
+missed_host_close,A_ONLY,A_ONLY,HIGH,1,1,1,MISSED_CLOSE_REPLAY_REQUIRED,0
+high_and_low_independent_high,A_ONLY,A_ONLY,HIGH,1,1,0,CONFIRMED,1
+high_and_low_independent_low,B_ONLY,B_ONLY,LOW,1,1,0,CONFIRMED,1

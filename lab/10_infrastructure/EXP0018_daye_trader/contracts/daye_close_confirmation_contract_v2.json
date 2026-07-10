@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "project": "EXP0018",
+  "phase": "P06",
+  "name": "Host-Timeframe Close Confirmation v2",
+  "execution_authority": false,
+  "drawing_authority": false,
+  "reference_lifecycle_authority": false,
+  "direction_mapping_authority": false,
+  "host_timeframe": {
+    "default": "PERIOD_CURRENT",
+    "alignment": "exact UTC open timestamp on both symbols",
+    "interval_model": "closed host bars only",
+    "base_multiple_required": true
+  },
+  "source_admission": {
+    "source": "P05 hunt observation transitions",
+    "fresh_attach_policy": "baseline existing states without retroactive candidates",
+    "candidate_trigger": "transition from non-one-sided to A_ONLY or B_ONLY",
+    "restart_policy": "restore pending candidates and finalized observation IDs from Common Files checkpoint"
+  },
+  "outcomes": [
+    "CONFIRMED",
+    "INVALIDATED_DOUBLE_HUNT",
+    "NO_SIGNAL_AT_CLOSE",
+    "UNAVAILABLE_AT_CLOSE",
+    "INVALIDATED_ROLE_CHANGED",
+    "MISSED_CLOSE_REPLAY_REQUIRED"
+  ],
+  "invariants": [
+    "Only a host-bar close can finalize a candidate.",
+    "The first live one-sided transition selects exactly one target host close.",
+    "A candidate is evaluated only with source state whose availability time is not after the target close.",
+    "Source state must be available through the target close to confirm.",
+    "BOTH at close invalidates the candidate.",
+    "A_ONLY or B_ONLY at close confirms only when the role equals the initial role.",
+    "Fresh attach does not retroactively confirm a pre-existing one-sided state.",
+    "A missed host close is fail-closed and requires replay.",
+    "A finalized observation ID cannot create a second result.",
+    "Confirmed results are immutable and are not retracted by later P05 changes.",
+    "Multiple relationships and HIGH/LOW sides finalize independently in the same host candle.",
+    "P06 exports host-bar geometry for the hunter symbol only."
+  ],
+  "blocked": [
+    "BUY/SELL mapping",
+    "First Sweep retirement",
+    "drawing",
+    "risk",
+    "orders",
+    "historical reconstruction without P11 replay"
+  ]
+}
