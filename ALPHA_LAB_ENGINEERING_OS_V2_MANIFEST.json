@@ -1,0 +1,17 @@
+{
+  "patch_id": "ALPHA-LAB-ENGINEERING-OS-V2",
+  "version": "2.0.0",
+  "date": "2026-07-10",
+  "scope": "Repository-wide engineering policy and Obsidian operating system",
+  "behavior_change": "No trading/research algorithm behavior change",
+  "entries": [
+    "AGENTS.md",
+    "docs/engineering/ALPHA_LAB_ENGINEERING_HANDBOOK.md",
+    "docs/ai_algorithm_engineering_os/00_START_HERE/00_Home.md"
+  ],
+  "validation": [
+    "tools/engineering/validate_alpha_lab_policy.py",
+    "docs/ai_algorithm_engineering_os/tools/validate_vault.py",
+    "tools/engineering/check_mql5_compatibility.py"
+  ]
+}
