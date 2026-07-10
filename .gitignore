@@ -18,3 +18,10 @@ licenses/**
 !licenses/README_STC_SMT_LICENSE_ISSUER.md
 !licenses/README_LICENSE_ISSUER.md
 _patch_*/
+# Local Obsidian UI state
+.obsidian/graph.json
+.obsidian/workspace.json
+
+# Python generated cache
+**/__pycache__/
+*.py[cod]
