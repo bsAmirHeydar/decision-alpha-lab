@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "phase": "P11",
+  "name": "Deterministic Historical Replay",
+  "execution_authority": false,
+  "required_properties": [
+    "chronological_cursor",
+    "exact_utc_source_alignment",
+    "no_forward_fill",
+    "as_of_period_aggregation",
+    "same_relationship_registry",
+    "same_touch_classifier",
+    "same_confirmation_reducer",
+    "same_lifecycle_reducer",
+    "no_lookahead",
+    "chunk_invariant_hashes"
+  ],
+  "outputs": [
+    "summary",
+    "events",
+    "frames",
+    "confirmations",
+    "references",
+    "uses"
+  ],
+  "terminal_statuses": [
+    "COMPLETE",
+    "PIPELINE_FAILED",
+    "SOURCE_UNAVAILABLE",
+    "INVALID_CONFIG"
+  ],
+  "forbidden_capabilities": [
+    "OrderSend",
+    "CTrade",
+    "PositionOpen",
+    "WebRequest"
+  ]
+}

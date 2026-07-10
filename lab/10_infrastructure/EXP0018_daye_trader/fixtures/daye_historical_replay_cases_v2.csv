@@ -1,0 +1,19 @@
+case_id,category,input,expected
+R001,ordering,bars supplied out of order,reject non-monotonic source
+R002,alignment,one missing NDX timestamp,strict replay fails closed
+R003,no-lookahead,future high after cursor,not visible before its close
+R004,transition,NONE to A_ONLY,candidate opens once
+R005,transition,A_ONLY to BOTH before host close,double-hunt invalidation
+R006,confirmation,A_ONLY through host close,immutable confirmed result
+R007,lifecycle,protected remains untouched,reference survives
+R008,lifecycle,protected later touches,reference retires
+R009,dedup,same opportunity confirmed twice,second use suppressed
+R010,repeat,new opportunity same reference protected survives,new use allowed
+R011,chunking,1 step vs 25 steps,same result and lifecycle hashes
+R012,rerun,same source and config,same run identities and hashes
+R013,dst,spring transition range,UTC cursor remains monotonic
+R014,dst,fall fold range,two local 01xx hours remain distinct UTC
+R015,gap,17 to 18 New York bars,excluded from Daye periods
+R016,p4,16:30 to 17:00,thirty-minute period only
+R017,weekly,WW blocked,no WW confirmation
+R018,output,accepted use ledger,contains immutable geometry
