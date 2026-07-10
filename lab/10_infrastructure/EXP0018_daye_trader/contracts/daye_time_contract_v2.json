@@ -1,0 +1,122 @@
+{
+  "schema_version": "2.0.0",
+  "project": "EXP0018",
+  "phase": "P01",
+  "domain_clock": "America/New_York",
+  "conversion": "broker_time -> UTC instant -> New York wall clock",
+  "broker_offset_modes": [
+    "manual_fixed",
+    "auto_current_live"
+  ],
+  "canonical_replay_mode": "manual_fixed",
+  "new_york_offset_modes": [
+    "auto_us_dst",
+    "manual_offset"
+  ],
+  "trading_day": {
+    "start": "18:00:00",
+    "end_exclusive": "17:00:00",
+    "gap": [
+      "17:00:00",
+      "18:00:00"
+    ]
+  },
+  "sessions": {
+    "A": [
+      "18:00:00",
+      "24:00:00"
+    ],
+    "L": [
+      "00:00:00",
+      "06:00:00"
+    ],
+    "N": [
+      "06:00:00",
+      "12:00:00"
+    ],
+    "P": [
+      "12:00:00",
+      "17:00:00"
+    ]
+  },
+  "subcycles": {
+    "a1": [
+      "18:00:00",
+      "19:30:00"
+    ],
+    "a2": [
+      "19:30:00",
+      "21:00:00"
+    ],
+    "a3": [
+      "21:00:00",
+      "22:30:00"
+    ],
+    "a4": [
+      "22:30:00",
+      "24:00:00"
+    ],
+    "l1": [
+      "00:00:00",
+      "01:30:00"
+    ],
+    "l2": [
+      "01:30:00",
+      "03:00:00"
+    ],
+    "l3": [
+      "03:00:00",
+      "04:30:00"
+    ],
+    "l4": [
+      "04:30:00",
+      "06:00:00"
+    ],
+    "n1": [
+      "06:00:00",
+      "07:30:00"
+    ],
+    "n2": [
+      "07:30:00",
+      "09:00:00"
+    ],
+    "n3": [
+      "09:00:00",
+      "10:30:00"
+    ],
+    "n4": [
+      "10:30:00",
+      "12:00:00"
+    ],
+    "p1": [
+      "12:00:00",
+      "13:30:00"
+    ],
+    "p2": [
+      "13:30:00",
+      "15:00:00"
+    ],
+    "p3": [
+      "15:00:00",
+      "16:30:00"
+    ],
+    "p4": [
+      "16:30:00",
+      "17:00:00"
+    ]
+  },
+  "interval_semantics": "half_open_[start,end)",
+  "dst": {
+    "standard_offset_minutes": -300,
+    "daylight_offset_minutes": -240,
+    "start": "second_sunday_march_02:00_local_standard",
+    "end": "first_sunday_november_02:00_local_daylight",
+    "ambiguous_period_start": "earliest_utc",
+    "ambiguous_period_end": "latest_utc"
+  },
+  "weekly": {
+    "enabled": false,
+    "blocker": "ADR-DY-A03 not accepted"
+  },
+  "execution_authority": false
+}
