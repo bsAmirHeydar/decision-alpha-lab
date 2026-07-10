@@ -1,0 +1,91 @@
+{
+  "patch_id": "NDS_PHASE52_HOTFIX01_TESTER_ONINIT",
+  "version": "1.0.0",
+  "created": "2026-07-10",
+  "target_ea": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+  "target_ea_version": "18.41",
+  "purpose": "Allow an explicit offline-license bypass only in Strategy Tester and optimization runtimes while preserving live fail-closed licensing.",
+  "files": [
+    {
+      "path": "INSTALL_NDS_PHASE52_HOTFIX01_TESTER_ONINIT_PATCH.md",
+      "size_bytes": 1504,
+      "sha256": "3e01c977583e7b9097aa16ebc5824818e9d6697454966d047315c212ad03902c"
+    },
+    {
+      "path": "NDS_PHASE52_HOTFIX01_TESTER_ONINIT_AUDIT_REPORT.md",
+      "size_bytes": 2898,
+      "sha256": "b90d3d91ec0edbd97ea7309cf34dc4bf6afff5446f71ec0bd9f2453864f8b3c3"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+      "size_bytes": 149688,
+      "sha256": "92cdc340a5f15043af3af88a10092419688698ab05c7a2232a795b16057b68d6"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/README.md",
+      "size_bytes": 1673,
+      "sha256": "762bb7641be79d656764591eeb3aa9b677c939123fc32440b94787a5eb9225d2"
+    },
+    {
+      "path": "docs/nds_entry_architecture/phase52_hook_limit_f123_execution/09_strategy_tester_license_gate.md",
+      "size_bytes": 1824,
+      "sha256": "f5099d7d3bce9b72e02619204d3e94986de6b5fb6add3b136d9f50a6343c2939"
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "size_bytes": 5018,
+      "sha256": "72cd8f53fdcddce1ec1643b848e1224ab4e4738e359bce4fe0da2ca9c141cc6d"
+    },
+    {
+      "path": "docs/nds_hook_architecture/70_phase52_hotfix01_strategy_tester_oninit.md",
+      "size_bytes": 1092,
+      "sha256": "ba87d8c945f72c4c92aa04a8ec7191d109e43de4bfc2bafdc0787bbbd4994cd5"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 3023,
+      "sha256": "a46dc10fdd2dfbbd0962d6c25b41dfeaabd4589e2505ea1763cc71dcad70136d"
+    },
+    {
+      "path": "docs/obsidian_hook/03_architecture/Phase 52 NDS Hook Limit F123 Execution.md",
+      "size_bytes": 875,
+      "sha256": "146d6627ae0a155c822d68287777020f9f1a738f547b0f640a2590418ae7cc6d"
+    },
+    {
+      "path": "docs/obsidian_hook/04_debug/NDS Strategy Tester OnInit License Gate.md",
+      "size_bytes": 1218,
+      "sha256": "4067ec24650c935172fb748962c0a37d59c91f05afb263da4e0905ae70e9a8f1"
+    },
+    {
+      "path": "tools/flag_counting/nds_tester_oninit_contract_qa.py",
+      "size_bytes": 2895,
+      "sha256": "86391a274b2518a433e39f5177591619d94f916bf96cbd0d0ae4b1692e4eefc6"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_trade_contract_qa.py",
+      "size_bytes": 8304,
+      "sha256": "ac75993f45524a7b150ac11004bf0cb2656db26c45920a4857884b368ea54659"
+    },
+    {
+      "path": "tools/flag_counting/nds_entry_contract_qa.py",
+      "size_bytes": 7479,
+      "sha256": "12a7a7522e145111d208688c043efaa85f4c2a2f39ec4e2a5c737e1fcebc5b5c"
+    },
+    {
+      "path": "tools/flag_counting/nds_hook_contract_qa.py",
+      "size_bytes": 5486,
+      "sha256": "7659bd4438b5d8846be6fe788e3a63532b0905405ff276c190fe179d5a64a2c2"
+    }
+  ],
+  "validation": {
+    "nds_tester_oninit_contract_qa": "PASS",
+    "nds_hook_trade_contract_qa": "PASS",
+    "nds_entry_contract_qa": "PASS",
+    "nds_hook_contract_qa": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "engineering_os_vault": "0 errors, 0 warnings",
+    "metaeditor_compile": "not available in build environment"
+  }
+}

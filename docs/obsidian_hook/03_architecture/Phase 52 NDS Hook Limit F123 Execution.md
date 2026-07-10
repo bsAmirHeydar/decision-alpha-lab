@@ -16,7 +16,7 @@ valid HH/F3H Hook
 - `FP_NDSHookTradeRules.mqh`
 - `FP_NDSHookTradeExport.mqh`
 - `FP_NDSHookTradeEngine.mqh`
-- central EA version `18.40`
+- central EA version `18.41`
 
 ## Safety
 

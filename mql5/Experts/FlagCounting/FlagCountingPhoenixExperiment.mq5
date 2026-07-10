@@ -1,5 +1,5 @@
 #property strict
-#property version   "18.40"
+#property version   "18.41"
 #property description "FlagCounting Phoenix: clean root rebuild of the flag-counting sequence engine."
 
 #include "../../Include/FlagCountingPhoenix/FP_Audit.mqh"
@@ -170,6 +170,12 @@ input bool   InpPrintFailureSummaries = false;
 input bool   InpPrintLicenseSanity = false;
 input bool   InpPrintLicenseSamples = false;
 input bool   InpPrintLicenseFailures = false;
+// Research/backtest authority: the offline distribution license remains
+// fail-closed on live charts, but can be bypassed explicitly inside MT5 tester
+// runtimes so account/server-bound credentials do not abort historical tests.
+input bool   InpLicenseAllowStrategyTesterBypass = true;
+input bool   InpLicenseAllowOptimizationBypass = true;
+input bool   InpPrintLicenseTesterBypass = true;
 
 // ------------------------------ Raw audit export ----------------------------
 input bool   InpExportAuditFiles = false;
@@ -1038,6 +1044,7 @@ FP_OfflineLicenseConfig g_fp_license_cfg;
 FP_OfflineLicenseReport g_fp_license_report;
 bool g_fp_license_ok = false;
 datetime g_fp_license_next_check = 0;
+bool g_fp_license_tester_bypass_logged = false;
 
 bool FP_ShouldRedraw()
 {
@@ -2153,7 +2160,7 @@ void FP_LoadOfflineLicenseConfig(FP_OfflineLicenseConfig &cfg)
    cfg.require_hidden_gates = true;
    cfg.require_expiry = true;
    cfg.product_id = FP_LICENSE_PRODUCT_ID;
-   cfg.build_id = "phoenix_18_20";
+   cfg.build_id = "phoenix_18_41";
    cfg.token = InpPhaseModelProfile;
    cfg.passphrase = InpRenderMemo;
    cfg.gate_a = InpNodeModelSeed;
@@ -2167,11 +2174,74 @@ void FP_LoadOfflineLicenseConfig(FP_OfflineLicenseConfig &cfg)
    cfg.print_samples = InpPrintLicenseSamples;
 }
 
+bool FP_OfflineLicenseTesterBypassAllowed(string &runtime_context)
+{
+   runtime_context = "";
+
+   bool optimization = (bool)MQLInfoInteger(MQL_OPTIMIZATION);
+   bool tester = (bool)MQLInfoInteger(MQL_TESTER);
+   bool visual = (bool)MQLInfoInteger(MQL_VISUAL_MODE);
+
+   if(optimization && InpLicenseAllowOptimizationBypass)
+   {
+      runtime_context = "optimization";
+      return true;
+   }
+
+   if(tester && InpLicenseAllowStrategyTesterBypass)
+   {
+      runtime_context = (visual ? "visual_strategy_tester" : "strategy_tester");
+      return true;
+   }
+
+   return false;
+}
+
+void FP_ActivateOfflineLicenseTesterBypass(const string runtime_context,
+                                           const datetime checked_at)
+{
+   FP_LoadOfflineLicenseConfig(g_fp_license_cfg);
+   g_fp_license_cfg.enabled = false;
+   g_fp_license_cfg.fail_closed = false;
+
+   FP_ResetOfflineLicenseReport(g_fp_license_report);
+   g_fp_license_report.attempted = true;
+   g_fp_license_report.ok = true;
+   g_fp_license_report.enabled = false;
+   g_fp_license_report.fail_closed = false;
+   g_fp_license_report.account_login = (long)AccountInfoInteger(ACCOUNT_LOGIN);
+   g_fp_license_report.server = AccountInfoString(ACCOUNT_SERVER);
+   g_fp_license_report.product_id = FP_LICENSE_PRODUCT_ID;
+   g_fp_license_report.build_id = "phoenix_18_41";
+   g_fp_license_report.checked_at = checked_at;
+   g_fp_license_report.now_yyyymmdd = FP_LicDateInt(checked_at);
+   g_fp_license_report.status = "tester_bypass";
+   g_fp_license_report.reason = runtime_context + "_allowed_by_input";
+
+   g_fp_license_ok = true;
+   g_fp_license_next_check = 0;
+   Comment("");
+
+   if(InpPrintLicenseTesterBypass && !g_fp_license_tester_bypass_logged)
+   {
+      PrintFormat("FP_LICENSE status=tester_bypass context=%s live_license_enforcement=unchanged",
+                  runtime_context);
+      g_fp_license_tester_bypass_logged = true;
+   }
+}
+
 bool FP_EnsureOfflineLicense(const bool force_check=false)
 {
    datetime now = TimeCurrent();
    if(now <= 0)
       now = TimeTradeServer();
+
+   string tester_runtime_context;
+   if(FP_OfflineLicenseTesterBypassAllowed(tester_runtime_context))
+   {
+      FP_ActivateOfflineLicenseTesterBypass(tester_runtime_context, now);
+      return true;
+   }
    if(!force_check && g_fp_license_ok && g_fp_license_next_check > 0 && now > 0 && now < g_fp_license_next_check)
       return true;
 

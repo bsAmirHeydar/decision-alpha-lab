@@ -69,7 +69,7 @@ def run(root: Path) -> list[Check]:
     rules = "mql5/Include/FlagCountingPhoenix/FP_NDSEntryRules.mqh"
     export = "mql5/Include/FlagCountingPhoenix/FP_NDSEntryExport.mqh"
 
-    check_contains(checks, root, ea, '#property version   "18.40"',
+    check_contains(checks, root, ea, '#property version   "18.41"',
                    "NDS_ENTRY_EA_VERSION", "central EA contains Phase 51 scaffold and Phase 52 overlay")
     check_contains(checks, root, ea,
                    "InpNDSEntryContractProfile = FP_NDS_ENTRY_PROFILE_PRE_CANON_BLOCKED",

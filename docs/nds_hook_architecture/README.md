@@ -155,3 +155,13 @@ The complete package is indexed at `docs/nds_entry_architecture/README.md`.
 ```
 
 This opt-in profile accepts only valid HH/F3H Hook families, submits a pending limit at the raw Hook terminal, enforces one magic-wide exposure, and closes on a complete same-direction F123 formed after entry.
+
+## Latest Strategy Tester initialization hotfix — Phase 52.1
+
+```text
+70_phase52_hotfix01_strategy_tester_oninit.md
+```
+
+Phase 52.1 permits an explicit license bypass only inside Strategy Tester or
+optimization agents. Normal chart runtime remains on the signed fail-closed
+license path.

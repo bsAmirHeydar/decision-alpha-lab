@@ -68,8 +68,8 @@ def run(root: Path) -> list[Check]:
     export = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh"
     engine = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeEngine.mqh"
 
-    contains(checks, root, ea, '#property version   "18.40"',
-             "P52_EA_VERSION", "central EA is versioned for Phase 52")
+    contains(checks, root, ea, '#property version   "18.41"',
+             "P52_EA_VERSION", "central EA is versioned for Phase 52.1")
     contains(checks, root, ea, "InpNDSHookTradeEnabled = false",
              "P52_ENABLE_DEFAULT_FALSE", "strategy decision engine is disabled by default")
     contains(checks, root, ea, "InpNDSHookTradeSendLiveOrders = false",

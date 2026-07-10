@@ -57,3 +57,10 @@ FP_NDSHookTradeEngine.mqh
 ```text
 MQL5/Files/FlagCountingPhoenix/nds_hook_limit_f123_trade_ledger.csv
 ```
+
+## Runtime initialization hotfix
+
+9. [[09_strategy_tester_license_gate]]
+
+Phase 52.1 separates local Strategy Tester research authority from the live
+account/server-bound EX5 license. Live runtime remains fail-closed.
