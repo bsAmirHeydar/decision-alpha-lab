@@ -247,6 +247,15 @@ public:
    { if(!m_has_current_summary) return false; summary=m_current_summary; return true; }
    int ExportProjections(DAYE_RenderProjection &items[]) { return m_store.Export(items); }
 
+   // P10 read-only source surfaces. These methods do not transfer mutation
+   // authority to the visual layer; they expose immutable snapshots already
+   // produced by P03 and accepted-use history already produced by P07.
+   int ExportSourcePeriods(DAYE_PairedPeriodSnapshot &items[])
+   { return m_lifecycle_engine.ExportSourcePeriods(items); }
+
+   int ExportAcceptedUses(DAYE_ReferenceUseRecord &items[])
+   { return m_lifecycle_engine.ExportUses(items); }
+
    void Shutdown(void)
    {
       if(m_config.delete_owned_objects_on_deinit) DAYE_DeleteOwnedObjectsFromAllCharts();

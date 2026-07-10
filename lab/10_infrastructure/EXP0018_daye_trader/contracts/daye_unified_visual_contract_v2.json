@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "project": "EXP0018",
+  "phase": "P10",
+  "name": "Unified Core Visual Anatomy v2",
+  "execution_authority": false,
+  "canonical_expert": "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5",
+  "source_pipeline": "single P08/P01-P07 pipeline with read-only P03 export",
+  "owned_prefixes": [
+    "EXP0018_P08_",
+    "EXP0018_P10_"
+  ],
+  "default_on_layers": [
+    "divergence",
+    "daily_frame",
+    "daily_boundaries",
+    "daily_label",
+    "session_boxes",
+    "session_boundaries",
+    "session_labels",
+    "subcycle_boxes",
+    "subcycle_boundaries",
+    "subcycle_labels",
+    "micro_22_5_boundaries",
+    "gap_band",
+    "gap_boundaries",
+    "TDO",
+    "TWO",
+    "legend"
+  ],
+  "default_off_layers": [
+    "extended_session_true_opens",
+    "provisional_week_boundaries"
+  ],
+  "micro_quarter_seconds": 1350,
+  "p4_duration_minutes": 30,
+  "gap_start_ny": "17:00:00",
+  "gap_end_ny": "18:00:00",
+  "tdo": {
+    "anchor": "L open",
+    "start_ny": "00:00:00",
+    "end_ny": "17:00:00"
+  },
+  "two_policies": [
+    "TUESDAY_1800_LITERAL",
+    "MONDAY_1800_TUESDAY_TRADING_DAY"
+  ],
+  "weekly_is_provisional": true,
+  "ww_activation": false,
+  "forbidden_capabilities": [
+    "OrderSend",
+    "CTrade",
+    "PositionOpen",
+    "WebRequest"
+  ]
+}

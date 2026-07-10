@@ -54,3 +54,11 @@ tags:
 ## Phase 09 evidence package
 - [[16_phase09_session_boxes_v2/00_INDEX|P09 A/L/N/P Session Box Rendering v2]]
 - Next formal stage: P10 TWO and TDO Anchor Lines.
+
+
+## Phase 10 — Unified Core Visual Anatomy v2
+
+- [[17_phase10_unified_visual_anatomy_v2/00_INDEX|P10 index]]
+- Canonical single-EA chart suite: P08 divergence, Daily, A/L/N/P, a1-p4, 22.5m, gap, TDO, TWO, labels and legend.
+- Extended True Opens and provisional week remain optional and default off.
+- No execution authority.

@@ -24,3 +24,5 @@ Next: P05 Hunt Observation.
 - [[CG_EXP0018_PHASE08_DIVERGENCE_DRAWING_MOC]]
 
 - [[CG_EXP0018_PHASE09_SESSION_BOXES_MOC]]
+
+- [[CG_EXP0018_PHASE10_UNIFIED_VISUAL_ANATOMY_MOC]] — complete Core chart-facing visual suite.

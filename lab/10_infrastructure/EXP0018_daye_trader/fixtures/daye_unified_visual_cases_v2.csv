@@ -1,0 +1,30 @@
+case_id,family,code,start,end,expected,notes
+daily_normal,daily_frame,D,18:00,17:00,draw,normal 23-hour Daye day
+daily_spring_dst,daily_frame,D,18:00,17:00,draw,UTC duration may contract
+daily_fall_dst,daily_frame,D,18:00,17:00,draw,UTC duration may expand
+session_A,session,A,18:00,00:00,draw,Q1 A
+session_L,session,L,00:00,06:00,draw,Q2 L
+session_N,session,N,06:00,12:00,draw,Q3 N
+session_P,session,P,12:00,17:00,draw,Q4 P
+subcycle_a1,subcycle,a1,18:00,19:30,draw,Q1 a1
+subcycle_a4,subcycle,a4,22:30,00:00,draw,Q4 a4
+subcycle_l2,subcycle,l2,01:30,03:00,draw,Q2 l2
+subcycle_n3,subcycle,n3,09:00,10:30,draw,Q3 n3
+subcycle_p3,subcycle,p3,15:00,16:30,draw,Q3 p3
+p4_tail,subcycle_tail,p4,16:30,17:00,draw_no_micro,30-minute tail
+micro_q1,micro,n3,09:00,09:22:30,draw,first 22.5m quarter
+micro_q2_boundary,micro_boundary,n3,09:22:30,09:22:30,draw,1350 seconds
+micro_q3_boundary,micro_boundary,n3,09:45:00,09:45:00,draw,2700 seconds
+micro_q4_boundary,micro_boundary,n3,10:07:30,10:07:30,draw,4050 seconds
+gap,gap,GAP,17:00,18:00,draw,not missing data
+tdo,anchor,TDO,00:00,17:00,draw,L open
+two_literal,anchor,TWO,Tue 18:00,Fri 17:00,draw,default policy
+two_trading_day,anchor,TWO,Mon 18:00,Fri 17:00,draw,alternative policy
+tso_a2,optional_anchor,a2,19:30,00:00,default_off,context only
+tso_l2,optional_anchor,l2,01:30,06:00,default_off,context only
+provisional_week,optional_boundary,W,Sun/Mon 18:00,Fri 17:00,default_off,does not activate WW
+partial_period,admission,any,,,skip_default,partial opt-in only
+missing_chart,target,any,,,wait,do not report success
+symbol_scale,geometry,any,,,independent,never mix SPX and NDX prices
+manual_move,repair,owned,,,repair,restore source geometry
+foreign_object,ownership,foreign,,,untouched,prefix isolation
