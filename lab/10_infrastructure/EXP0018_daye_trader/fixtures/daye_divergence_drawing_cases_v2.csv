@@ -1,0 +1,12 @@
+case_id,accepted,major,side,hunter,reference_period_present,extreme_time_present,open_hunter_chart,existing_object,geometry_matches,expected_status,label_expected
+major_high_create,1,1,HIGH,SPX,1,1,1,0,0,CREATED,1
+major_low_create,1,1,LOW,NDX,1,1,1,0,0,CREATED,1
+minor_high_create,1,0,HIGH,SPX,1,1,1,0,0,CREATED,0
+existing_exact_verify,1,1,HIGH,SPX,1,1,1,1,1,VERIFIED,1
+existing_mismatch_repair,1,1,HIGH,SPX,1,1,1,1,0,REPAIRED,1
+waiting_chart,1,1,HIGH,NDX,1,1,0,0,0,WAITING_FOR_HUNTER_CHART,0
+missing_reference_period,1,1,HIGH,SPX,0,0,1,0,0,SOURCE_PERIOD_NOT_FOUND,0
+missing_extreme_time,1,1,HIGH,SPX,1,0,1,0,0,SOURCE_EXTREME_UNAVAILABLE,0
+rejected_use_skipped,0,1,HIGH,SPX,1,1,1,0,0,SKIPPED_NOT_ACCEPTED,0
+retired_reference_historical_line_preserved,1,1,LOW,SPX,1,1,1,1,1,VERIFIED,1
+simultaneous_major_minor_independent,1,0,LOW,NDX,1,1,1,0,0,CREATED,0

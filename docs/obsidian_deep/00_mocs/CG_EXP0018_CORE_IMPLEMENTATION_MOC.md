@@ -20,3 +20,5 @@ Next: P05 Hunt Observation.
 - [[CG_EXP0018_PHASE06_CLOSE_CONFIRMATION_MOC]] — live candidate admission and immutable host-close outcomes.
 
 - [[CG_EXP0018_PHASE07_REFERENCE_LIFECYCLE_MOC]] — lifecycle, first-use deduplication, and terminal retirement.
+
+- [[CG_EXP0018_PHASE08_DIVERGENCE_DRAWING_MOC]]

@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "phase": "P08",
+  "name": "Divergence Drawing and Historical Visual Projection",
+  "authority": {
+    "drawing": true,
+    "detection": false,
+    "lifecycle": false,
+    "direction": false,
+    "risk": false,
+    "execution": false
+  },
+  "source": "accepted immutable P07 reference-use records",
+  "geometry": {
+    "reference_anchor": "hunter-symbol actual reference-period HIGH/LOW source-bar time",
+    "confirmation_anchor": "hunter host-bar open time at P06 confirmation endpoint HIGH/LOW",
+    "time_coordinate": "broker chart time derived from UTC through P01 broker adapter",
+    "price_scale": "hunter symbol only",
+    "ray_left": false,
+    "ray_right": false
+  },
+  "labels": {
+    "major_count": 6,
+    "minor_count": 16,
+    "major_labeled": true,
+    "minor_labeled": false
+  },
+  "target_policy_default": "ALL_OPEN_HUNTER_CHARTS",
+  "object_prefix": "EXP0018_P08_",
+  "persistence": {
+    "confirmed_line_immutable": true,
+    "retirement_does_not_delete_historical_line": true,
+    "manual_delete_recreated": true,
+    "deinit_delete_default": false,
+    "foreign_objects_untouched": true
+  },
+  "historical_limit": "P08 projects available accepted uses; full historical reconstruction belongs to P11 replay",
+  "upstream_enrichment": [
+    "P03 stores first and last source-bar time for final period HIGH and LOW",
+    "P04-P07 expose read-only source-period provenance",
+    "P07 expert configuration alias typo is corrected"
+  ]
+}

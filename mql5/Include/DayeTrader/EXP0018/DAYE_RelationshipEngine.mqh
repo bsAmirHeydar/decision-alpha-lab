@@ -199,6 +199,12 @@ public:
       return m_store.Export(items);
    }
 
+   // P08 read-only provenance surface. P04 still owns relationship topology only.
+   int ExportSourcePeriods(DAYE_PairedPeriodSnapshot &items[])
+   {
+      return m_period_engine.ExportPeriods(items);
+   }
+
    void Shutdown(void)
    {
       Comment("");

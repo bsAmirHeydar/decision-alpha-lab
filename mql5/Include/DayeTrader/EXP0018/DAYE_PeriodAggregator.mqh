@@ -1,4 +1,3 @@
-
 #ifndef __EXP0018_DAYE_PERIOD_AGGREGATOR_MQH__
 #define __EXP0018_DAYE_PERIOD_AGGREGATOR_MQH__
 
@@ -118,18 +117,52 @@ bool DAYE_AccumulateBarIntoPeriod(const DAYE_SymbolBar &bar,
    if(offset < 0 || (base_seconds > 0 && (offset % base_seconds) != 0))
       snapshot.invalid_grid_bar_count++;
 
+   string source_bar_id = DAYE_BuildSourceBarId(bar);
    if(snapshot.observed_bar_count == 0)
    {
       snapshot.open = bar.open;
       snapshot.high = bar.high;
       snapshot.low = bar.low;
+      snapshot.high_first_time_utc = bar.event_time_utc;
+      snapshot.high_last_time_utc = bar.event_time_utc;
+      snapshot.low_first_time_utc = bar.event_time_utc;
+      snapshot.low_last_time_utc = bar.event_time_utc;
+      snapshot.high_first_source_bar_id = source_bar_id;
+      snapshot.high_last_source_bar_id = source_bar_id;
+      snapshot.low_first_source_bar_id = source_bar_id;
+      snapshot.low_last_source_bar_id = source_bar_id;
       snapshot.first_source_bar_utc = bar.event_time_utc;
-      snapshot.first_source_bar_id = DAYE_BuildSourceBarId(bar);
+      snapshot.first_source_bar_id = source_bar_id;
    }
    else
    {
-      if(bar.high > snapshot.high) snapshot.high = bar.high;
-      if(bar.low < snapshot.low) snapshot.low = bar.low;
+      if(bar.high > snapshot.high)
+      {
+         snapshot.high = bar.high;
+         snapshot.high_first_time_utc = bar.event_time_utc;
+         snapshot.high_last_time_utc = bar.event_time_utc;
+         snapshot.high_first_source_bar_id = source_bar_id;
+         snapshot.high_last_source_bar_id = source_bar_id;
+      }
+      else if(bar.high == snapshot.high)
+      {
+         snapshot.high_last_time_utc = bar.event_time_utc;
+         snapshot.high_last_source_bar_id = source_bar_id;
+      }
+
+      if(bar.low < snapshot.low)
+      {
+         snapshot.low = bar.low;
+         snapshot.low_first_time_utc = bar.event_time_utc;
+         snapshot.low_last_time_utc = bar.event_time_utc;
+         snapshot.low_first_source_bar_id = source_bar_id;
+         snapshot.low_last_source_bar_id = source_bar_id;
+      }
+      else if(bar.low == snapshot.low)
+      {
+         snapshot.low_last_time_utc = bar.event_time_utc;
+         snapshot.low_last_source_bar_id = source_bar_id;
+      }
    }
 
    snapshot.close = bar.close;

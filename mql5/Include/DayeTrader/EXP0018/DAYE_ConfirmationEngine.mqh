@@ -406,6 +406,12 @@ public:
       return m_hunt_engine.GetCurrentSummary(summary);
    }
 
+   // P08 read-only period provenance. Confirmation authority remains unchanged.
+   int ExportSourcePeriods(DAYE_PairedPeriodSnapshot &items[])
+   {
+      return m_hunt_engine.ExportSourcePeriods(items);
+   }
+
    void Shutdown(void)
    {
       string reason="";

@@ -45,3 +45,7 @@ tags:
 - [[14_phase07_reference_lifecycle_v2/00_INDEX|P07 Reference Lifecycle and First-Sweep State Machine v2]]
 - Status: implemented evidence package; MetaEditor compile and runtime validation remain external gates.
 - Next formal stage: P08 Divergence Drawing and Historical Visual Projection.
+
+
+## Phase 08 evidence package
+- [[15_phase08_divergence_drawing_v2/00_INDEX|P08 Divergence Drawing and Historical Visual Projection v2]]

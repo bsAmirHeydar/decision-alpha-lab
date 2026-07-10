@@ -171,6 +171,12 @@ public:
       return m_store.Export(items);
    }
 
+   // P08 read-only provenance surface. P05 retains hunt-fact authority only.
+   int ExportSourcePeriods(DAYE_PairedPeriodSnapshot &items[])
+   {
+      return m_relationship_engine.ExportSourcePeriods(items);
+   }
+
    void Shutdown(void)
    {
       Comment("");

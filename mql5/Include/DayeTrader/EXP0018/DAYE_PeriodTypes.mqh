@@ -1,4 +1,3 @@
-
 #ifndef __EXP0018_DAYE_PERIOD_TYPES_MQH__
 #define __EXP0018_DAYE_PERIOD_TYPES_MQH__
 
@@ -110,6 +109,18 @@ struct DAYE_SymbolPeriodSnapshot
    double high;
    double low;
    double close;
+
+   // P08 provenance enrichment. Both first and last occurrences are retained
+   // because an equal final extreme can occur more than once inside a period.
+   datetime high_first_time_utc;
+   datetime high_last_time_utc;
+   datetime low_first_time_utc;
+   datetime low_last_time_utc;
+   string high_first_source_bar_id;
+   string high_last_source_bar_id;
+   string low_first_source_bar_id;
+   string low_last_source_bar_id;
+
    long tick_volume;
    long real_volume;
    long spread_sum;

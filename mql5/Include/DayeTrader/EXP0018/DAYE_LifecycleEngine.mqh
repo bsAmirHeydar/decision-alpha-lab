@@ -289,6 +289,12 @@ public:
    int ExportReferences(DAYE_ReferenceLifecycleRecord &items[]) { return m_store.ExportReferences(items); }
    int ExportUses(DAYE_ReferenceUseRecord &items[]) { return m_store.ExportUses(items); }
 
+   // P08 read-only period provenance. P07 still owns lifecycle only.
+   int ExportSourcePeriods(DAYE_PairedPeriodSnapshot &items[])
+   {
+      return m_confirmation_engine.ExportSourcePeriods(items);
+   }
+
    void Shutdown(void)
    {
       string reason=""; DAYE_SaveLifecycleCheckpoint(m_config,m_store,reason);
