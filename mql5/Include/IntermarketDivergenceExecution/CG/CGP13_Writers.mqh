@@ -28,7 +28,7 @@ public:
             CGP13_CsvEscape(rows[i].file_name)+","+
             IntegerToString(rows[i].required?1:0)+","+
             IntegerToString(rows[i].exists?1:0)+","+
-            LongToString(rows[i].size_bytes)+","+
+            IntegerToString(rows[i].size_bytes)+","+
             IntegerToString(rows[i].row_count)+","+
             IntegerToString(rows[i].column_count)+","+
             CGP13_CsvEscape(rows[i].status)+","+
