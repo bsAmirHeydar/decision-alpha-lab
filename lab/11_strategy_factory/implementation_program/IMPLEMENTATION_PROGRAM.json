@@ -1,0 +1,204 @@
+{
+  "program_id": "STRATEGY_FACTORY_V1_IMPLEMENTATION",
+  "version": "1.0.0",
+  "phases": [
+    {
+      "id": "00",
+      "slug": "CURRENT_STATE_AUDIT",
+      "title": "Current-State Audit",
+      "depends_on": []
+    },
+    {
+      "id": "01",
+      "slug": "CONTRACTS_AND_SCHEMA",
+      "title": "Contracts and Schema",
+      "depends_on": [
+        "00"
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "PACKAGE_SKELETON_AND_BOUNDARIES",
+      "title": "Package Skeleton and Boundaries",
+      "depends_on": [
+        "01"
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "PLUGIN_KERNEL_AND_CAPABILITIES",
+      "title": "Plugin Kernel and Capabilities",
+      "depends_on": [
+        "02"
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "MANIFEST_SCHEMA_AND_COMPILER",
+      "title": "Manifest Schema and Compiler",
+      "depends_on": [
+        "03"
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "ARTIFACT_IDENTITY_AND_REPRODUCIBILITY",
+      "title": "Artifact Identity and Reproducibility",
+      "depends_on": [
+        "04"
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "ANATOMY_ADAPTER_SDK",
+      "title": "Anatomy Adapter SDK",
+      "depends_on": [
+        "05"
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "CONTEXT_STATE_AND_MARKET_CLOCK",
+      "title": "Context State and Market Clock",
+      "depends_on": [
+        "06"
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "FEATURE_DAG_AND_INCREMENTAL_CACHE",
+      "title": "Feature DAG and Incremental Cache",
+      "depends_on": [
+        "07"
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "CANDIDATE_POLICY_ENGINE",
+      "title": "Candidate Policy Engine",
+      "depends_on": [
+        "08"
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "OUTCOME_SIMULATOR_AND_COSTS",
+      "title": "Outcome Simulator and Costs",
+      "depends_on": [
+        "09"
+      ]
+    },
+    {
+      "id": "11",
+      "slug": "STATISTICS_REPORTING_AND_NULLS",
+      "title": "Statistics, Reporting, and Nulls",
+      "depends_on": [
+        "10"
+      ]
+    },
+    {
+      "id": "12",
+      "slug": "ANTI_OVERFIT_VALIDATION_ENGINE",
+      "title": "Anti-Overfit Validation Engine",
+      "depends_on": [
+        "11"
+      ]
+    },
+    {
+      "id": "13",
+      "slug": "TRAINING_PIPELINE_AND_BASELINES",
+      "title": "Training Pipeline and Baselines",
+      "depends_on": [
+        "12"
+      ]
+    },
+    {
+      "id": "14",
+      "slug": "MODEL_REGISTRY_AND_PROMOTION",
+      "title": "Model Registry and Promotion",
+      "depends_on": [
+        "13"
+      ]
+    },
+    {
+      "id": "15",
+      "slug": "COMPILED_DECISION_RUNTIME",
+      "title": "Compiled Decision Runtime",
+      "depends_on": [
+        "14"
+      ]
+    },
+    {
+      "id": "16",
+      "slug": "PORTFOLIO_RISK_AND_ACTION_PLANS",
+      "title": "Portfolio Risk and Action Plans",
+      "depends_on": [
+        "15"
+      ]
+    },
+    {
+      "id": "17",
+      "slug": "PAPER_BROKER_AND_REPLAY",
+      "title": "Paper Broker and Replay",
+      "depends_on": [
+        "16"
+      ]
+    },
+    {
+      "id": "18",
+      "slug": "MQL5_RUNTIME_AND_BROKER_BOUNDARY",
+      "title": "MQL5 Runtime and Broker Boundary",
+      "depends_on": [
+        "17"
+      ]
+    },
+    {
+      "id": "19",
+      "slug": "OBSERVABILITY_LATENCY_AND_DRIFT",
+      "title": "Observability, Latency, and Drift",
+      "depends_on": [
+        "18"
+      ]
+    },
+    {
+      "id": "20",
+      "slug": "EXP0017_PILOT_INTEGRATION",
+      "title": "EXP0017 Pilot Integration",
+      "depends_on": [
+        "19"
+      ]
+    },
+    {
+      "id": "21",
+      "slug": "NDS_ZONE_AF_PILOT",
+      "title": "NDS Zone-AF Pilot",
+      "depends_on": [
+        "20"
+      ]
+    },
+    {
+      "id": "22",
+      "slug": "MULTI_STRATEGY_PORTFOLIO_LAYER",
+      "title": "Multi-Strategy Portfolio Layer",
+      "depends_on": [
+        "21"
+      ]
+    },
+    {
+      "id": "23",
+      "slug": "PRODUCTION_HARDENING_AND_CHAOS_TESTS",
+      "title": "Production Hardening and Chaos Tests",
+      "depends_on": [
+        "22"
+      ]
+    },
+    {
+      "id": "24",
+      "slug": "V1_RELEASE_AND_OPERATING_MODEL",
+      "title": "V1 Release and Operating Model",
+      "depends_on": [
+        "23"
+      ]
+    }
+  ]
+}

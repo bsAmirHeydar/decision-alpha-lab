@@ -1,0 +1,270 @@
+{
+  "file_count": 53,
+  "files": [
+    {
+      "path": "README_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "size": 236,
+      "sha256": "547ce6f11c1f48605a1f8544115fc7234eeb979c8d557ceb9210bdacc25870e2"
+    },
+    {
+      "path": "INSTALL_STRATEGY_FACTORY_IMPLEMENTATION_ROADMAP.md",
+      "size": 89,
+      "sha256": "beaeb14c2e468e8a1c4555a15cbd431d6ffe6c7000af00bb2e826a58691272fe"
+    },
+    {
+      "path": "COMMIT_MESSAGE.md",
+      "size": 314,
+      "sha256": "720900ad533ceb18ef475f4fb273f9a29176a7bc37a3323f0092c3a775867344"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/IMPLEMENTATION_PROGRAM.json",
+      "size": 4247,
+      "sha256": "e89ee5b8499d593c834444042c6111c7391ccb0d54b3e760172206cf6b0c3223"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/PHASE_STATUS.csv",
+      "size": 1308,
+      "sha256": "026b2100e0336ab4e15beca3a15c6d89aed0bad9a506e9af3ded5c3259665686"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/README.md",
+      "size": 116,
+      "sha256": "171ace2590502eb651344b957a024a287a197fc253cbe88b1eeb0eb7839e3b6f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/00_STRATEGY_FACTORY_IMPLEMENTATION_MOC.md",
+      "size": 4378,
+      "sha256": "1b3b955b0d89fdb252ef52d67936adcee6d4204db64a89152868474d8ba14d23"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/01_PROGRAM_CHARTER.md",
+      "size": 1681,
+      "sha256": "d2739249f8dd4275232e7e518fe5e6cf9ab61b9e4f5c9a3e8ebdcadc1ba92752"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/02_TARGET_ARCHITECTURE.md",
+      "size": 1764,
+      "sha256": "b65cb5e2f90e86b538e5496769fe618d55cf27724307beb4e1a39bd2f5528946"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/03_PHASE_DEPENDENCY_GRAPH.md",
+      "size": 1699,
+      "sha256": "f9c401a3fe099318c5cfbe19ae8eefb3075dea264b245f7d2cde89265fd3e57f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/04_REPOSITORY_AND_MODULE_MAP.md",
+      "size": 1540,
+      "sha256": "d89ec6c2e8d321c0bafa756390aad89301840260d1b2a4f19a68655bdd5ce07d"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/05_CANONICAL_CONTRACT_FREEZE.md",
+      "size": 1144,
+      "sha256": "0a2c9bd4aee63b17f67545f2788bc1393c77f7e2f4f23325b89f1a8721b4b6c9"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/06_TESTING_AND_QUALITY_MASTER_PLAN.md",
+      "size": 1683,
+      "sha256": "7ff2cbe25103aee45b75eec5ba33e12680da9222b6ca40bd6d31e48bba77b7fc"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/07_ANTI_OVERFIT_IMPLEMENTATION_PLAN.md",
+      "size": 1261,
+      "sha256": "9e7dd36c7d65f863feb7e3396773bf6ca7f00b085f5fdeacc336872f3ba2ac3b"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/08_LOW_LATENCY_IMPLEMENTATION_PLAN.md",
+      "size": 1428,
+      "sha256": "07d1c04041de3f2c0332ef7468ade0f073f515899ccb2c9d6c0fcb9bb5e1a464"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/09_SECURITY_SAFETY_AND_CAPITAL_BOUNDARY.md",
+      "size": 1065,
+      "sha256": "e02206ecd4dfba0a5a6ac364eeb1bd300fef9ad8fd1e9d246713b93327ff425a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/10_MIGRATION_AND_COMPATIBILITY_PLAN.md",
+      "size": 854,
+      "sha256": "2e7c9467e9c748e4022a51a89f8a31e0530afe99230f8826a370d0890bc4fad3"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/11_RELEASE_AND_VERSIONING_PLAN.md",
+      "size": 822,
+      "sha256": "3d4f4e597e8fa3575d53a01a001c9242ecf16ed31bd4de66e0a9a50cdf4cd634"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/12_PROGRAM_GOVERNANCE_AND_COMMIT_PROTOCOL.md",
+      "size": 1090,
+      "sha256": "1c148d9a86209f15e74a4866a04b2979a14468f07fe0b3f2a6a9c954ca33a3ec"
+    },
+    {
+      "path": "docs/obsidian_deep/00_mocs/STRATEGY_FACTORY_IMPLEMENTATION_PROGRAM_MOC.md",
+      "size": 352,
+      "sha256": "635be774ceb74c0a81d5d3e006485f51f4a3a1c6d18cf2fc1e02178f43435be8"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_00_CURRENT_STATE_AUDIT.md",
+      "size": 2432,
+      "sha256": "ca1124e55b409fe1541bfdb73f594db101bd86e40adb7309045c66e0fb76d41f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_01_CONTRACTS_AND_SCHEMA.md",
+      "size": 2310,
+      "sha256": "4aa6b9f53fc36d8a56f9e4a545b91759bba8428c2d11e5968718ecafb70e8294"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_02_PACKAGE_SKELETON_AND_BOUNDARIES.md",
+      "size": 2316,
+      "sha256": "9fe9e94efd192b326d15bc7bcc74544c631f5ab41f904df592d93e53d12376fb"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_03_PLUGIN_KERNEL_AND_CAPABILITIES.md",
+      "size": 2290,
+      "sha256": "b6fa497d3a2928806587abcc5a7e06a63587e98438defd1f75ce0229ecf0005d"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_04_MANIFEST_SCHEMA_AND_COMPILER.md",
+      "size": 2320,
+      "sha256": "8cc46fc89c0be700380db449a475e11f666effbdccc36542b5a6d1feb7534b40"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_05_ARTIFACT_IDENTITY_AND_REPRODUCIBILITY.md",
+      "size": 2278,
+      "sha256": "b95b3f6ffe07ba5c66c4f8fc7b7bf04cc4807c00d4a17d56f2c6f18006d8bc8a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_06_ANATOMY_ADAPTER_SDK.md",
+      "size": 2329,
+      "sha256": "f5a4d77989e8a899e31ad0857f57a3a15f4c829bf6ffe075cb287dc1a93d5121"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_07_CONTEXT_STATE_AND_MARKET_CLOCK.md",
+      "size": 2296,
+      "sha256": "40f84c3d6660be0c1a33b0a31b81d160eca10d8cdd5583ba43a2dd504f51575a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_08_FEATURE_DAG_AND_INCREMENTAL_CACHE.md",
+      "size": 2302,
+      "sha256": "4b93297eb30fa84e1f248b7bfadda1e6a12168dea3a11b055a5fe7e10d0642db"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_09_CANDIDATE_POLICY_ENGINE.md",
+      "size": 2275,
+      "sha256": "b6fadfc0f559f9227414fd2ebac9dbc6671041059954b12dbdd201db2ef59323"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_10_OUTCOME_SIMULATOR_AND_COSTS.md",
+      "size": 2284,
+      "sha256": "7788aa2dd9f8ab9484a56e1f7ca875ea6fc0e1f442ab53764f20192930acbae8"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_11_STATISTICS_REPORTING_AND_NULLS.md",
+      "size": 2309,
+      "sha256": "d87e761fc0bbcc5b555acad7526f8b2e4c365cabc90d59c48024b6db6b992003"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_12_ANTI_OVERFIT_VALIDATION_ENGINE.md",
+      "size": 2311,
+      "sha256": "292c53e14b38c0923da87dcc0ccbb6f37d61678d709df521b40d44082e368a2c"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_13_TRAINING_PIPELINE_AND_BASELINES.md",
+      "size": 2296,
+      "sha256": "16d7a64e12f7a173949e7ecc9aeb49247424275cfdca2e930e878cfcf768396c"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_14_MODEL_REGISTRY_AND_PROMOTION.md",
+      "size": 2280,
+      "sha256": "afd3147963f76755d43aa6670fcb4170f9f9ad3463b20c7a92f61cbf7c5bc87f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_15_COMPILED_DECISION_RUNTIME.md",
+      "size": 2269,
+      "sha256": "aa4b5d20177c6b43044974b04d31f035e064304785810d654f39a58d7ac09042"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_16_PORTFOLIO_RISK_AND_ACTION_PLANS.md",
+      "size": 2296,
+      "sha256": "368b96b5b1482cfd5bf5dcce10243938c116c1635f4bed3bc66ea9fcbb70f65b"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_17_PAPER_BROKER_AND_REPLAY.md",
+      "size": 2261,
+      "sha256": "dc5a5249083ae3f833a67742e1b16510fd98e1f35ebca159695b0930cfa591c3"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_18_MQL5_RUNTIME_AND_BROKER_BOUNDARY.md",
+      "size": 2328,
+      "sha256": "3746cb419d6cba1b3df6de7b13d5e01bae136859e59fbec95cbfb6306a5dc53f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_19_OBSERVABILITY_LATENCY_AND_DRIFT.md",
+      "size": 2289,
+      "sha256": "24cd6d1630bd805b44d820ed1200f07b1b053c61ce8a2077bd4fabb46c927205"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_20_EXP0017_PILOT_INTEGRATION.md",
+      "size": 2280,
+      "sha256": "df1dec38f074ba69da6f74fdc3905c572aa21e7238d01bc77d785f2c96b735fc"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_21_NDS_ZONE_AF_PILOT.md",
+      "size": 2288,
+      "sha256": "3be00028a7a4068b96115d61580c0813c565d9cecf2e1f9d38d74840e761d36a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_22_MULTI_STRATEGY_PORTFOLIO_LAYER.md",
+      "size": 2283,
+      "sha256": "8656d89d323b20fa5acc7202cc639bc49b5bd18e3e0c8060b2a8b629b0ab7307"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_23_PRODUCTION_HARDENING_AND_CHAOS_TESTS.md",
+      "size": 2299,
+      "sha256": "aeb9bcba1780d0e49ad3ae99bd04264e0988e8b9be8d6186033b1e57728ced79"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/phases/PHASE_24_V1_RELEASE_AND_OPERATING_MODEL.md",
+      "size": 2308,
+      "sha256": "703c17cfc58ef32f2f6c7a64ceed9c53d76f77ec22eabe46d9e1a844c8e96575"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/NEW_PHASE_WORK_PACKET_TEMPLATE.md",
+      "size": 472,
+      "sha256": "feef9f69436431f2c59c832e83c0d3e7d730040544119e4ee78163964406ef53"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/NEW_PLUGIN_IMPLEMENTATION_TEMPLATE.md",
+      "size": 499,
+      "sha256": "99780f2f3c6c96429a6ca5d0cbbcfff3f05324de9404a1fbc66c3c6141275200"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/NEW_STRATEGY_ONBOARDING_TEMPLATE.md",
+      "size": 518,
+      "sha256": "fda69be67a2ea3d8ab82f5d813bd9d5638ccfa243ea22bc5c05577f0f795b6ce"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/TEST_PLAN_TEMPLATE.md",
+      "size": 348,
+      "sha256": "4b95450450261a335d4f1f05c4ccdd1dd4ea44f7368161cfe0659ef3092784a3"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/ADR_TEMPLATE.md",
+      "size": 343,
+      "sha256": "cc37118df876e571a7ee01c21a8bb99cfe8f30cb2b821d041c0b05a6c4c75bb1"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/MODEL_CARD_TEMPLATE.md",
+      "size": 407,
+      "sha256": "0710526b32d07551d66f73f36d93d2382133732c1d55fd503ef210bdf69a1511"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/PROMOTION_DECISION_TEMPLATE.md",
+      "size": 334,
+      "sha256": "f1fcadd3743a3eac3050a987f92c632e0b1a7a42e697a37f11527ef9152dc253"
+    },
+    {
+      "path": "docs/strategy_factory_implementation_roadmap/templates/INCIDENT_POSTMORTEM_TEMPLATE.md",
+      "size": 363,
+      "sha256": "9d44351773d34564d1fd5a1a64723db55b03420ef03c5fe9c23c6bde45367753"
+    }
+  ]
+}
