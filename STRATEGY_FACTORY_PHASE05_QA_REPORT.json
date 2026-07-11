@@ -1,0 +1,22 @@
+{
+  "phase": "05",
+  "name": "Run Manifest, Runtime Generation and Versioned Result Sinks",
+  "status": "PASS_PENDING_LOCAL_METAEDITOR_COMPILE",
+  "file_count": 100,
+  "markdown_count": 49,
+  "mql5_count": 18,
+  "python_count": 19,
+  "json_schema_count": 3,
+  "pytest": "104 passed across phases 01-05",
+  "python_compileall": "PASS",
+  "boundary_guards": "PASS",
+  "mql5_include_resolution": "PASS",
+  "mql5_brace_audit": "PASS",
+  "zip_integrity": "PASS",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+  "live_order_authority": false,
+  "legacy_strategy_integration": false,
+  "primary_runtime_authority": "MQL5",
+  "python_role": "conformance, validation, ledger audit, offline research",
+  "final_file_count": 103
+}

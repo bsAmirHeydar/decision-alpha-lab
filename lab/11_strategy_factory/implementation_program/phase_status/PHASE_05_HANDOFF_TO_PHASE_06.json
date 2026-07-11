@@ -1,0 +1,14 @@
+{
+  "from": "PHASE_05",
+  "to": "PHASE_06",
+  "next": "First Anatomy Adapter and Golden Event Ledger",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF05 self-test passes",
+    "generation activation evidence captured",
+    "JSONL ledger validates",
+    "no live authority"
+  ],
+  "central_engine_only": true,
+  "legacy_strategy_migration": false
+}

@@ -1,0 +1,19 @@
+{
+  "phase_id": "05",
+  "name": "Run Manifest, Runtime Generation and Versioned Result Sinks",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "authority": "MQL5_FIRST",
+  "python_role": "CONFORMANCE_AND_OFFLINE_VALIDATION",
+  "live_order_authority": false,
+  "deliverables": [
+    "canonical run manifest",
+    "immutable runtime generation",
+    "exact plugin compilation evidence",
+    "atomic activation and rollback manager",
+    "append-only result envelopes",
+    "memory and JSONL sinks",
+    "artifact catalog",
+    "MQL5 self-test and host",
+    "Python mirror and tests"
+  ]
+}

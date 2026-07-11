@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/run_manifest@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "manifest_id",
+    "run_id",
+    "strategy_id",
+    "strategy_version",
+    "run_mode",
+    "requested_generation_id",
+    "plugin",
+    "configuration_hashes",
+    "sink",
+    "source",
+    "created_at_utc_msc"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/run_manifest@1.0.0"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "strategy_version": {
+      "type": "string"
+    },
+    "run_mode": {
+      "type": "string"
+    },
+    "requested_generation_id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "plugin": {
+      "type": "object"
+    },
+    "configuration_hashes": {
+      "type": "object"
+    },
+    "sink": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "created_at_utc_msc": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

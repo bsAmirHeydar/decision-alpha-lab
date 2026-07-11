@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/runtime_generation@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "generation_uid",
+    "generation_id",
+    "state",
+    "run_manifest_id",
+    "evidence",
+    "compiler",
+    "compiled_at_utc_msc"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/runtime_generation@1.0.0"
+    },
+    "generation_uid": {
+      "type": "string"
+    },
+    "generation_id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "state": {
+      "enum": [
+        "DRAFT",
+        "COMPILED",
+        "VALIDATED",
+        "WARMED",
+        "ACTIVE",
+        "RETIRED",
+        "FAILED"
+      ]
+    },
+    "run_manifest_id": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "compiler": {
+      "type": "object"
+    },
+    "compiled_at_utc_msc": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

@@ -1,3 +1,3 @@
-feat(alpha-lab): implement MQL5-first anatomy plugin registry and SDK
+feat(alpha-lab): implement immutable runtime generations and result sinks
 
-Add exact static plugin registration, descriptors, capability and update-scope contracts, declared market-resource requirements, bounded anatomy-event queues, duplicate and overflow protection, anatomy plugin base interfaces, startup readiness validation, explicit factories, a synthetic fixture anatomy, central SF04 host, self-test and diagnostic EAs, Python conformance mirrors, plugin schemas and artifacts, scaffolding and boundary tools, detailed Obsidian documentation, QA, and the Phase 05 handoff.
+Add canonical run manifests, exact plugin compilation evidence, immutable runtime generations, atomic activation and rollback, versioned append-only result envelopes, memory, JSONL and composite sinks, artifact cataloging, MQL5 host and self-test EAs, Python conformance mirrors, JSON schemas, boundary checks, detailed Obsidian documentation, QA and the Phase 06 handoff.

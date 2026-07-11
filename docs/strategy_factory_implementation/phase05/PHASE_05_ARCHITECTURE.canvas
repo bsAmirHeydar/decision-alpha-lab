@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "manifest",
+      "type": "text",
+      "text": "Run Manifest",
+      "x": 0,
+      "y": 0,
+      "width": 220,
+      "height": 80
+    },
+    {
+      "id": "compiler",
+      "type": "text",
+      "text": "Generation Compiler",
+      "x": 300,
+      "y": 0,
+      "width": 220,
+      "height": 80
+    },
+    {
+      "id": "active",
+      "type": "text",
+      "text": "Atomic Active Generation",
+      "x": 600,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "sink",
+      "type": "text",
+      "text": "Append-Only Result Sink",
+      "x": 900,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "manifest",
+      "fromSide": "right",
+      "toNode": "compiler",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "compiler",
+      "fromSide": "right",
+      "toNode": "active",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "active",
+      "fromSide": "right",
+      "toNode": "sink",
+      "toSide": "left"
+    }
+  ]
+}

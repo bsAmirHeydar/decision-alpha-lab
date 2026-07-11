@@ -1,0 +1,22 @@
+{
+  "schema": "alpha_lab.strategy_factory/runtime_generation@1.0.0",
+  "generation_uid": "gen_example00000001",
+  "generation_id": 1,
+  "state": "ACTIVE",
+  "run_manifest_id": "man_example00000001",
+  "evidence": {
+    "manifest_hash": "mnh_example",
+    "plugin_descriptor_hash": "plg_example",
+    "plugin_requirements_hash": "req_example",
+    "plugin_configuration_hash": "cfg_example",
+    "market_configuration_hash": "mkt_example",
+    "sink_configuration_hash": "snk_example"
+  },
+  "compiler": {
+    "id": "sf05.generation_compiler",
+    "version": "1.0.0"
+  },
+  "previous_generation_uid": "",
+  "compiled_at_utc_msc": 1783771260000,
+  "activated_at_utc_msc": 1783771260100
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/result_envelope@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "sequence",
+    "record_type",
+    "record_id",
+    "run_id",
+    "generation_uid",
+    "aggregate_id",
+    "producer_id",
+    "producer_version",
+    "occurred_at_utc_msc",
+    "known_at_utc_msc",
+    "payload_schema",
+    "payload_hash",
+    "payload"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/result_envelope@1.0.0"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "generation_uid": {
+      "type": "string"
+    },
+    "aggregate_id": {
+      "type": "string"
+    },
+    "producer_id": {
+      "type": "string"
+    },
+    "producer_version": {
+      "type": "string"
+    },
+    "occurred_at_utc_msc": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "known_at_utc_msc": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "payload_schema": {
+      "type": "string"
+    },
+    "payload_hash": {
+      "type": "string"
+    },
+    "payload": {}
+  }
+}

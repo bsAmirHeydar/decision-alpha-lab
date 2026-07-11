@@ -1,6 +1,6 @@
 {
   "authority": "MQL5_PRIMARY_PYTHON_MIRROR",
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "schemas": [
     {
       "mql5_header": "SF01_BarRecord.mqh",
@@ -97,6 +97,78 @@
         "manifest_hash",
         "source_hash",
         "created_at"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "Generation/SF05_RunManifest.mqh",
+      "name": "run_manifest",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "RunManifest",
+      "required_fields": [
+        "schema",
+        "manifest_id",
+        "run_id",
+        "strategy_id",
+        "strategy_version",
+        "run_mode",
+        "requested_generation_id",
+        "plugin_selection",
+        "plugin_configuration_hash",
+        "market_configuration_hash",
+        "sink_config",
+        "git_commit",
+        "build_id",
+        "environment_id",
+        "terminal_instance_id",
+        "strict_fail_closed",
+        "created_at"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "Generation/SF05_RuntimeGeneration.mqh",
+      "name": "runtime_generation",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "RuntimeGeneration",
+      "required_fields": [
+        "schema",
+        "generation_uid",
+        "generation_id",
+        "state",
+        "run_manifest_id",
+        "run_manifest_hash",
+        "plugin_descriptor_hash",
+        "plugin_requirements_hash",
+        "plugin_configuration_hash",
+        "market_configuration_hash",
+        "sink_configuration_hash",
+        "compiler_id",
+        "compiler_version",
+        "compiled_at"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "Generation/SF05_ResultEnvelope.mqh",
+      "name": "result_envelope",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "ResultEnvelope",
+      "required_fields": [
+        "schema",
+        "sequence",
+        "record_type",
+        "record_id",
+        "run_id",
+        "generation_uid",
+        "aggregate_id",
+        "producer_id",
+        "producer_version",
+        "occurred_at",
+        "known_at",
+        "payload_schema",
+        "payload_hash",
+        "payload"
       ],
       "version": "1.0.0"
     }
