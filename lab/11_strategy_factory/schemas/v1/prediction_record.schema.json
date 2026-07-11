@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/prediction_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_score": {
+      "type": "number"
+    },
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "type": "integer"
+    },
+    "model_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "prediction_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "prediction_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "raw_score": {
+      "type": "number"
+    },
+    "role": {
+      "const": 3
+    },
+    "row_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_artifact_hash",
+    "calibration_hash",
+    "dataset_hash",
+    "row_id",
+    "fold_id",
+    "role",
+    "raw_score",
+    "probability",
+    "action_score",
+    "generated_at_utc_msc",
+    "prediction_id",
+    "prediction_hash"
+  ],
+  "title": "Prediction Record",
+  "type": "object"
+}

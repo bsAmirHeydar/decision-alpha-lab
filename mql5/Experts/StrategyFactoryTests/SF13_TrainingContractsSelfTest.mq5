@@ -1,0 +1,10 @@
+#property strict
+#include <AlphaLab/StrategyFactory/Training/SF13_AllTraining.mqh>
+int OnInit()
+{
+   SF13_LabelContract label;label.contract_id="positive_net_r";label.contract_version="1.0.0";label.kind=SF13_LABEL_BINARY_NET_R;label.positive_threshold_r=0.0;label.regression_floor_r=-10.0;label.regression_cap_r=10.0;label.ambiguous_policy=SF13_AMBIGUOUS_EXCLUDE;label.require_filled=true;label.require_terminal=true;label.label_hash=SF13_DeriveLabelHash(label);string error;if(!SF13_ValidateLabelContract(label,error)){Print(error);return INIT_FAILED;}
+   CSF13DatasetAssembler assembler;for(int i=0;i<3;i++){SF13_DatasetRow row;row.dataset_id="sf13_selftest";row.fold_id="fold_000";row.role=(i==0?SF13_ROLE_TRAIN:(i==1?SF13_ROLE_VALIDATION:SF13_ROLE_TEST));row.event_id="event_"+IntegerToString(i);row.cluster_id="cluster_"+IntegerToString(i);row.candidate_id="candidate_"+IntegerToString(i);row.outcome_id="outcome_"+IntegerToString(i);row.feature_snapshot_id="snapshot_"+IntegerToString(i);row.known_time_utc_msc=1000+i*10;row.decision_time_utc_msc=row.known_time_utc_msc+1;row.resolved_time_utc_msc=row.decision_time_utc_msc+4;row.feature_count=2;row.feature_values[0]=(double)i;row.feature_values[1]=0.25;row.feature_missing[0]=false;row.feature_missing[1]=false;row.label_value=(i>0?1.0:0.0);row.label_available=true;row.ambiguous=false;row.source_manifest_hash="manifest_hash";row.source_artifact_hash="artifact_hash";row.row_id=SF13_DeriveDatasetRowId(row);row.row_hash=SF13_DeriveDatasetRowHash(row);if(!assembler.Add(row,error)){Print(error);return INIT_FAILED;}}
+   SF13_DatasetManifest manifest;if(!assembler.BuildManifest("sf13_selftest","1.0.0","reference_strategy","run_selftest","manifest_hash","artifact_hash","vplan_hash","feature_schema_hash",label.label_hash,2000,"revision",manifest,error)){Print(error);return INIT_FAILED;}if(manifest.train_count!=1||manifest.validation_count!=1||manifest.test_count!=1){Print("role count failure");return INIT_FAILED;}
+   Print("SF13 self-test PASS dataset=",manifest.dataset_hash);return INIT_SUCCEEDED;
+}
+void OnTick(){}

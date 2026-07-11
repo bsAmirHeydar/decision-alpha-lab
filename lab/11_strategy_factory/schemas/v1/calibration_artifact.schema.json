@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/calibration_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "calibration_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "intercept": {
+      "type": "number"
+    },
+    "method": {
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "model_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "slope": {
+      "type": "number"
+    },
+    "validation_rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "calibration_id",
+    "method",
+    "model_artifact_hash",
+    "validation_rowset_hash",
+    "intercept",
+    "slope",
+    "sample_count",
+    "calibration_hash"
+  ],
+  "title": "Calibration Artifact",
+  "type": "object"
+}

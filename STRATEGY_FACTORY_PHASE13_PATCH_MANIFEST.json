@@ -1,0 +1,44 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "causal dataset contracts, bounded assembly and research export",
+    "python": "offline dataset audit, train-only transforms, deterministic training, validation calibration and OOS reporting"
+  },
+  "central_engine_only": true,
+  "explicitly_absent": [
+    "ONNX export",
+    "model registry promotion authority",
+    "compiled inference runtime",
+    "paper orders",
+    "live orders",
+    "legacy strategy integration"
+  ],
+  "file_count": 150,
+  "phase": 13,
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_PENDING",
+  "subsystems": [
+    "versioned feature schema",
+    "versioned label contracts",
+    "immutable dataset rows and manifests",
+    "dataset leakage audit",
+    "cluster-atomic fold roles",
+    "train-only imputation and standardization",
+    "exact static trainer registry",
+    "never/always/prevalence baselines",
+    "single-feature threshold",
+    "logistic ridge",
+    "ridge regression plugin",
+    "decision stump plugin",
+    "Platt calibration",
+    "test-only OOS prediction records",
+    "model artifacts",
+    "model cards",
+    "training report manifests",
+    "MQL5 self-test and research export host",
+    "Python conformance tests",
+    "JSON schemas and golden fixtures",
+    "detailed Obsidian documentation",
+    "Phase 14 handoff"
+  ],
+  "title": "Leakage-Safe ML Dataset and Baseline Training"
+}

@@ -1,0 +1,20 @@
+{
+  "code_revision": "reference_revision",
+  "created_at_utc_msc": 9999,
+  "dataset_hash": "dset_0f773f5580c45f7f",
+  "dataset_id": "sf13_reference_dataset",
+  "dataset_version": "1.0.0",
+  "excluded_count": 0,
+  "feature_schema_hash": "fsch_58e82d91450bed96",
+  "label_contract_hash": "lblc_18f8b6463ef89036",
+  "row_count": 24,
+  "rowset_hash": "rowset_94f94c81d1e6fb5c",
+  "source_artifact_hash": "artifact_hash",
+  "source_manifest_hash": "manifest_hash",
+  "source_run_id": "run_reference",
+  "strategy_id": "reference_strategy",
+  "test_count": 6,
+  "train_count": 12,
+  "validation_count": 6,
+  "validation_plan_hash": "vplan_hash"
+}

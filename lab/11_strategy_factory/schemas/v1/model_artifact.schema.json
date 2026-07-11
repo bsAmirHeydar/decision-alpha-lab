@@ -1,0 +1,95 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/model_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "family": {
+      "maximum": 7,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "label_contract_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "parameter_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parameter_values": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "selected_on_role": {
+      "const": 2
+    },
+    "task": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "training_plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "training_rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "transform_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "model_version",
+    "family",
+    "task",
+    "training_plan_hash",
+    "dataset_hash",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "transform_hash",
+    "training_rowset_hash",
+    "parameter_names",
+    "parameter_values",
+    "selected_on_role",
+    "random_seed",
+    "no_execution_authority",
+    "artifact_hash"
+  ],
+  "title": "Model Artifact",
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/label_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguous_policy": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "contract_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "label_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "positive_threshold_r": {
+      "type": "number"
+    },
+    "regression_cap_r": {
+      "type": "number"
+    },
+    "regression_floor_r": {
+      "type": "number"
+    },
+    "require_filled": {
+      "type": "boolean"
+    },
+    "require_terminal": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "contract_id",
+    "contract_version",
+    "kind",
+    "positive_threshold_r",
+    "regression_floor_r",
+    "regression_cap_r",
+    "ambiguous_policy",
+    "require_filled",
+    "require_terminal",
+    "label_hash"
+  ],
+  "title": "Label Contract",
+  "type": "object"
+}

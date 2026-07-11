@@ -1,0 +1,20 @@
+{
+  "feature_schema_hash": "fsch_58e82d91450bed96",
+  "fitted_role": 1,
+  "fitted_row_count": 12,
+  "fitted_rowset_hash": "daac8d565c9598a2212e7b9865165c953d002f5853c431cb337510628372ec2d",
+  "impute_values": [
+    0.0,
+    0.35000000000000003
+  ],
+  "means": [
+    0.0,
+    0.35000000000000003
+  ],
+  "scales": [
+    0.6831300510639732,
+    0.11180339887498947
+  ],
+  "spec_hash": "tspec_6e79e638ab370341",
+  "transform_hash": "xform_4e608f0564e7df43"
+}

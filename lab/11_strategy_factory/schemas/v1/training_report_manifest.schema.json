@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/training_report_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "candidate_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "type": "integer"
+    },
+    "model_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "model_card_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "prediction_rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "report_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "selected_family": {
+      "maximum": 7,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "status": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "training_plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "training_plan_hash",
+    "dataset_hash",
+    "model_artifact_hash",
+    "calibration_hash",
+    "prediction_rowset_hash",
+    "model_card_hash",
+    "candidate_count",
+    "selected_family",
+    "status",
+    "generated_at_utc_msc",
+    "report_hash"
+  ],
+  "title": "Training Report Manifest",
+  "type": "object"
+}

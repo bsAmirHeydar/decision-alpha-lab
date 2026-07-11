@@ -1,0 +1,68 @@
+---
+title: "Strategy Factory Phase 13 — Leakage-Safe Training MOC"
+phase: 13
+status: canonical
+---
+# Phase 13 MOC
+
+- [[00_PHASE_13_MOC]] — Phase 13 Map of Content
+- [[01_PHASE_CHARTER]] — Phase Charter
+- [[02_AUTHORITY_MODEL]] — Authority Model
+- [[03_THREAT_MODEL]] — Threat Model
+- [[04_DOMAIN_MODEL]] — Domain Model
+- [[05_DATASET_MANIFEST]] — Dataset Manifest
+- [[06_DATASET_ROW]] — Dataset Row
+- [[07_FEATURE_SCHEMA]] — Feature Schema
+- [[08_FEATURE_ORDERING]] — Feature Ordering
+- [[09_FEATURE_CAUSALITY]] — Feature Causality
+- [[10_FEATURE_MISSINGNESS]] — Feature Missingness
+- [[11_LABEL_CONTRACT]] — Label Contract
+- [[12_BINARY_LABELS]] — Binary Labels
+- [[13_REGRESSION_LABELS]] — Regression Labels
+- [[14_RANKING_LABELS]] — Ranking Labels
+- [[15_AMBIGUOUS_OUTCOMES]] — Ambiguous Outcomes
+- [[16_PURGED_AND_EMBARGO_ROWS]] — Purged and Embargo Rows
+- [[17_CLUSTER_ATOMICITY]] — Cluster Atomicity
+- [[18_ROW_IDENTITY]] — Row Identity
+- [[19_ROWSET_HASH]] — Rowset Hash
+- [[20_DATASET_BUILDER]] — Dataset Builder
+- [[21_TRAINING_PLAN]] — Training Plan
+- [[22_TRAIN_ONLY_TRANSFORMS]] — Train-Only Transforms
+- [[23_IMPUTATION]] — Imputation
+- [[24_STANDARDIZATION]] — Standardization
+- [[25_TRANSFORM_ARTIFACT]] — Transform Artifact
+- [[26_MODEL_PLUGIN_INTERFACE]] — Model Plugin Interface
+- [[27_NEVER_TRADE_BASELINE]] — Never-Trade Baseline
+- [[28_ALWAYS_TRADE_BASELINE]] — Always-Trade Baseline
+- [[29_PREVALENCE_BASELINE]] — Prevalence Baseline
+- [[30_THRESHOLD_BASELINE]] — Threshold Baseline
+- [[31_LOGISTIC_RIDGE]] — Logistic Ridge
+- [[32_RIDGE_REGRESSION]] — Ridge Regression
+- [[33_DECISION_STUMP]] — Decision Stump
+- [[34_TREE_PLUGIN_BOUNDARY]] — Tree Plugin Boundary
+- [[35_DETERMINISTIC_SEEDS]] — Deterministic Seeds
+- [[36_MODEL_SELECTION]] — Model Selection
+- [[37_CALIBRATION]] — Calibration
+- [[38_PLATT_SCALING]] — Platt Scaling
+- [[39_TEST_OOS_PREDICTIONS]] — Test OOS Predictions
+- [[40_PREDICTION_IDENTITY]] — Prediction Identity
+- [[41_BINARY_METRICS]] — Binary Metrics
+- [[42_REGRESSION_METRICS]] — Regression Metrics
+- [[43_RANKING_METRICS]] — Ranking Metrics
+- [[44_MODEL_ARTIFACT]] — Model Artifact
+- [[45_MODEL_CARD]] — Model Card
+- [[46_REPORT_MANIFEST]] — Training Report Manifest
+- [[47_ARTIFACT_BUNDLE]] — Artifact Bundle
+- [[48_MQL5_DATASET_EXPORT]] — MQL5 Dataset Export
+- [[49_PYTHON_TRAINER]] — Python Trainer
+- [[50_CROSS_LANGUAGE_PARITY]] — Cross-Language Parity
+- [[51_FAILURE_BEHAVIOR]] — Failure Behavior
+- [[52_PERFORMANCE_BOUNDS]] — Performance Bounds
+- [[53_SECURITY_AND_INTEGRITY]] — Security and Integrity
+- [[54_REPRODUCIBILITY]] — Reproducibility
+- [[55_TEST_STRATEGY]] — Test Strategy
+- [[56_OPERATIONAL_RUNBOOK]] — Operational Runbook
+- [[57_ROLLBACK]] — Rollback
+- [[58_NON_GOALS]] — Non-Goals
+- [[59_PHASE14_HANDOFF]] — Phase 14 Handoff
+- [[60_ACCEPTANCE_CHECKLIST]] — Acceptance Checklist

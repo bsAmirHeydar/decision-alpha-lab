@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/transform_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fitted_role": {
+      "const": 1
+    },
+    "fitted_row_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "fitted_rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "impute_values": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "means": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "scales": {
+      "items": {
+        "exclusiveMinimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "spec_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "transform_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "feature_schema_hash",
+    "spec_hash",
+    "fitted_role",
+    "fitted_row_count",
+    "impute_values",
+    "means",
+    "scales",
+    "fitted_rowset_hash",
+    "transform_hash"
+  ],
+  "title": "Transform State",
+  "type": "object"
+}

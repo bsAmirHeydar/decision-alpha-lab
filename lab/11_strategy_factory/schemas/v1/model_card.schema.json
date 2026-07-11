@@ -1,0 +1,78 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/model_card.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "card_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "intended_use": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "model_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "no_capital_authority": {
+      "const": true
+    },
+    "selection_metric": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "test_sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "test_score": {
+      "type": "number"
+    },
+    "training_plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "validation_score": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "model_artifact_hash",
+    "training_plan_hash",
+    "dataset_hash",
+    "selection_metric",
+    "validation_score",
+    "test_score",
+    "test_sample_count",
+    "calibration_hash",
+    "intended_use",
+    "limitations",
+    "status",
+    "no_capital_authority",
+    "card_hash"
+  ],
+  "title": "Model Card",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "ambiguous_policy": 1,
+  "contract_id": "reference_positive_net_r",
+  "contract_version": "1.0.0",
+  "kind": 1,
+  "positive_threshold_r": 0.0,
+  "regression_cap_r": 10.0,
+  "regression_floor_r": -10.0,
+  "require_filled": true,
+  "require_terminal": true
+}

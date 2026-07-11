@@ -1,0 +1,20 @@
+{
+  "calibration_hash": "cal_a24dbd166af3a706",
+  "card_hash": "mcard_eb6ff034a32eeb70",
+  "dataset_hash": "dset_0f773f5580c45f7f",
+  "intended_use": "offline research comparison and Phase 14 registry review only",
+  "limitations": [
+    "reference baseline family",
+    "single frozen dataset manifest",
+    "no paper or live authority",
+    "test evidence was unavailable to fitting, calibration and model selection"
+  ],
+  "model_artifact_hash": "model_2dfe56b8c392de1a",
+  "no_capital_authority": true,
+  "selection_metric": "log_loss",
+  "status": 1,
+  "test_sample_count": 6,
+  "test_score": 0.023505336981837127,
+  "training_plan_hash": "tplan_9e77bf254f79947b",
+  "validation_score": 0.13353139262452263
+}

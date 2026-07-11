@@ -1,0 +1,114 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/dataset_row.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cluster_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time_utc_msc": {
+      "type": "integer"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_missing": {
+      "items": {
+        "type": "boolean"
+      },
+      "maxItems": 4096,
+      "type": "array"
+    },
+    "feature_snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_values": {
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 4096,
+      "type": "array"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_utc_msc": {
+      "type": "integer"
+    },
+    "label_available": {
+      "type": "boolean"
+    },
+    "label_value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "outcome_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolved_time_utc_msc": {
+      "type": "integer"
+    },
+    "role": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "row_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "row_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "fold_id",
+    "role",
+    "event_id",
+    "cluster_id",
+    "candidate_id",
+    "outcome_id",
+    "feature_snapshot_id",
+    "known_time_utc_msc",
+    "decision_time_utc_msc",
+    "resolved_time_utc_msc",
+    "feature_values",
+    "feature_missing",
+    "label_available",
+    "ambiguous",
+    "source_manifest_hash",
+    "source_artifact_hash",
+    "row_id",
+    "row_hash"
+  ],
+  "title": "Dataset Row",
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+{
+  "calibration_method": 2,
+  "l2_penalty": 0.01,
+  "learning_rate": 0.05,
+  "maximum_iterations": 400,
+  "model_families": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+  ],
+  "plan_id": "sf13_reference_plan",
+  "plan_version": "1.0.0",
+  "random_seed": 130013,
+  "selection_metric": "log_loss",
+  "task": 1,
+  "threshold_grid_size": 32
+}

@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/transform_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "constant_value": {
+      "type": "number"
+    },
+    "minimum_scale": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "missing_policy": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "scale_policy": {
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "spec_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "missing_policy",
+    "scale_policy",
+    "constant_value",
+    "minimum_scale",
+    "spec_hash"
+  ],
+  "title": "Transform Spec",
+  "type": "object"
+}

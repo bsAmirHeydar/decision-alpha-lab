@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "cumulative_phase_pytest": {
+      "execution": "phase suites were run independently to avoid duplicate module-basename collection conflicts",
+      "passed": 260,
+      "status": "PASS"
+    },
+    "deterministic_reference_training": {
+      "dataset_hash": "dset_0f773f5580c45f7f",
+      "model_hash": "model_2dfe56b8c392de1a",
+      "report_hash": "trep_07a58348c64f7756",
+      "status": "PASS",
+      "test_oos_predictions": 6
+    },
+    "engineering_policy": {
+      "checks_passed": 4,
+      "checks_total": 4,
+      "status": "PASS"
+    },
+    "include_resolution": {
+      "phase13_sources": 16,
+      "status": "PASS"
+    },
+    "json_parse": {
+      "examples_and_status": "PASS",
+      "schemas": 14,
+      "status": "PASS"
+    },
+    "json_schema_meta_validation": {
+      "schemas": 14,
+      "status": "PASS"
+    },
+    "legacy_strategy_integration": {
+      "status": "ABSENT"
+    },
+    "live_authority": {
+      "status": "ABSENT"
+    },
+    "mql5_compatibility": {
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "onnx_authority": {
+      "status": "ABSENT"
+    },
+    "paper_authority": {
+      "status": "ABSENT"
+    },
+    "phase13_boundary_guard": {
+      "headers": 13,
+      "status": "PASS"
+    },
+    "phase13_pytest": {
+      "passed": 24,
+      "status": "PASS"
+    },
+    "python_compileall": {
+      "status": "PASS"
+    },
+    "syntax_balance": {
+      "status": "PASS"
+    }
+  },
+  "known_limitations": [
+    "MetaEditor is unavailable in this environment; compile the three SF13 Expert Advisors on the local Windows terminal.",
+    "The Python optimizers are deterministic transparent reference implementations, not production-scale numerical solvers.",
+    "The reference tree family is intentionally limited to a deterministic decision stump; larger tree systems require a new exact plugin version.",
+    "The reference orchestration path publishes binary-classification OOS predictions; ridge regression and ranking contracts are present for controlled extension.",
+    "Phase 13 artifacts are research evidence only and cannot be promoted, exported to ONNX, loaded into a decision runtime, or granted capital authority until later phase gates."
+  ],
+  "metaeditor_compile": "REQUIRES_LOCAL_WINDOWS",
+  "phase": 13,
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_PENDING"
+}

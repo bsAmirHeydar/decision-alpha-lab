@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/dataset_leakage_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fatal_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "finding_hash": {
+            "minLength": 8,
+            "type": "string"
+          },
+          "message": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "FATAL"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "severity",
+          "row_id",
+          "message",
+          "finding_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "warning_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_hash",
+    "findings",
+    "fatal_count",
+    "warning_count",
+    "audit_hash"
+  ],
+  "title": "Dataset Leakage Audit",
+  "type": "object"
+}

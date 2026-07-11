@@ -1,0 +1,8 @@
+#ifndef __SF13_TRANSFORM_STATE_MQH__
+#define __SF13_TRANSFORM_STATE_MQH__
+#include "SF13_TrainingPlan.mqh"
+struct SF13_TransformState{string feature_schema_hash;string spec_hash;ENUM_SF13_DATASET_ROLE fitted_role;int fitted_row_count;int feature_count;double impute_values[SF13_MAX_FEATURES];double means[SF13_MAX_FEATURES];double scales[SF13_MAX_FEATURES];string fitted_rowset_hash;string transform_hash;};
+string SF13_TransformCanonical(const SF13_TransformState &v){string values="";for(int i=0;i<v.feature_count;i++)values+="|"+SF01_CanonicalDouble(v.impute_values[i],10)+","+SF01_CanonicalDouble(v.means[i],10)+","+SF01_CanonicalDouble(v.scales[i],10);return "alpha_lab.strategy_factory/transform_state@1.0.0|"+v.feature_schema_hash+"|"+v.spec_hash+"|"+IntegerToString((int)v.fitted_role)+"|"+IntegerToString(v.fitted_row_count)+"|"+IntegerToString(v.feature_count)+values+"|"+v.fitted_rowset_hash;}
+string SF13_DeriveTransformHash(const SF13_TransformState &v){return SF01_StableId("xform",SF13_TransformCanonical(v));}
+bool SF13_ValidateTransformState(const SF13_TransformState &v,string &error){if(v.feature_schema_hash==""||v.spec_hash==""||v.fitted_role!=SF13_ROLE_TRAIN||v.fitted_row_count<1||v.feature_count<1||v.feature_count>SF13_MAX_FEATURES||v.fitted_rowset_hash==""){error="transform was not fitted on training data";return false;}for(int i=0;i<v.feature_count;i++)if(!MathIsValidNumber(v.scales[i])||v.scales[i]<=0){error="invalid transform scale";return false;}if(v.transform_hash!=""&&v.transform_hash!=SF13_DeriveTransformHash(v)){error="transform hash mismatch";return false;}error="";return true;}
+#endif

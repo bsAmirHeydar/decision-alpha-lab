@@ -1,0 +1,100 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/dataset_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_at_utc_msc": {
+      "type": "integer"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "excluded_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "label_contract_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "test_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "train_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "validation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "validation_plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_version",
+    "strategy_id",
+    "source_run_id",
+    "source_manifest_hash",
+    "source_artifact_hash",
+    "validation_plan_hash",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "row_count",
+    "train_count",
+    "validation_count",
+    "test_count",
+    "excluded_count",
+    "rowset_hash",
+    "created_at_utc_msc",
+    "code_revision",
+    "dataset_hash"
+  ],
+  "title": "Dataset Manifest",
+  "type": "object"
+}

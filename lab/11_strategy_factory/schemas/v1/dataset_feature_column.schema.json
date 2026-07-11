@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/dataset_feature_column.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "column_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "feature_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "source_schema": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "value_type": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "feature_id",
+    "feature_version",
+    "ordinal",
+    "value_type",
+    "required",
+    "source_schema",
+    "column_hash"
+  ],
+  "title": "Dataset Feature Column",
+  "type": "object"
+}

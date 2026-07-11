@@ -1,0 +1,30 @@
+{
+  "artifact_hash": "model_2dfe56b8c392de1a",
+  "dataset_hash": "dset_0f773f5580c45f7f",
+  "family": 4,
+  "feature_schema_hash": "fsch_58e82d91450bed96",
+  "label_contract_hash": "lblc_18f8b6463ef89036",
+  "model_id": "sf13.single_feature_threshold",
+  "model_version": "1.0.0",
+  "no_execution_authority": true,
+  "parameter_names": [
+    "feature_index",
+    "direction",
+    "threshold",
+    "low_probability",
+    "high_probability"
+  ],
+  "parameter_values": [
+    0.0,
+    1.0,
+    0.0,
+    0.125,
+    0.875
+  ],
+  "random_seed": 130013,
+  "selected_on_role": 2,
+  "task": 1,
+  "training_plan_hash": "tplan_9e77bf254f79947b",
+  "training_rowset_hash": "daac8d565c9598a2212e7b9865165c953d002f5853c431cb337510628372ec2d",
+  "transform_hash": "xform_4e608f0564e7df43"
+}

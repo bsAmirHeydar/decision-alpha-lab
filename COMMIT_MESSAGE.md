@@ -1,3 +1,3 @@
-feat(alpha-lab): implement anti-overfit validation engine
+feat(alpha-lab): implement leakage-safe datasets and baseline training
 
-Add purged and embargoed walk-forward plans, causal leakage audits, complete trial ledgers, multiple-testing corrections, deflated performance, PBO, White-style reality checks, parameter-surface stability, deterministic stress programs, formal promotion rejection gates, MQL5 hosts and self-tests, Python analytics, schemas, fixtures, Obsidian documentation, QA and the Phase 13 handoff.
+Add exact feature and label contracts, immutable dataset manifests and rows, cluster-safe role assignment, train-only transforms, deterministic never/always/prevalence/threshold/logistic-ridge/ridge/stump baselines, exact trainer registry, validation-only calibration and selection, test-only OOS predictions, model artifacts and cards, MQL5 dataset export contracts, Python training pipeline, schemas, fixtures, tests, detailed Obsidian documentation, QA and Phase 14 handoff.

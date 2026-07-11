@@ -1,0 +1,10 @@
+{
+  "calibration_hash": "cal_a24dbd166af3a706",
+  "calibration_id": "phase13_validation_calibration",
+  "intercept": 7.706476889360517e-17,
+  "method": 2,
+  "model_artifact_hash": "model_2dfe56b8c392de1a",
+  "sample_count": 6,
+  "slope": 1.9213385009411676,
+  "validation_rowset_hash": "278005e386bbf8b1bfbb1917d0befc31770c8e4fb7e3177c01e4e9bad778f86d"
+}

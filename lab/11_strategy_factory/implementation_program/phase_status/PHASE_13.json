@@ -1,0 +1,33 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "causal dataset contract and export",
+    "python": "offline fitting, calibration, scoring and artifacts"
+  },
+  "central_engine_only": true,
+  "deliverables": [
+    "immutable dataset manifests",
+    "causal dataset rows",
+    "versioned label contracts",
+    "train-only transforms",
+    "transparent baselines",
+    "logistic ridge",
+    "ridge regression",
+    "decision stump plugin",
+    "validation calibration",
+    "test OOS predictions",
+    "model cards",
+    "training report manifests"
+  ],
+  "explicit_non_goals": [
+    "ONNX export",
+    "model promotion authority",
+    "paper execution",
+    "live execution",
+    "legacy strategy integration"
+  ],
+  "next": "PHASE_14",
+  "phase": "PHASE_13",
+  "status": "IMPLEMENTED_STATIC_QA_METAEDITOR_PENDING",
+  "title": "Leakage-Safe ML Dataset and Baseline Training"
+}

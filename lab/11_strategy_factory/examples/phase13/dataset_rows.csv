@@ -1,0 +1,4 @@
+row_id,fold_id,role,event_id,cluster_id,candidate_id,outcome_id,feature_snapshot_id,known_time_utc_msc,decision_time_utc_msc,resolved_time_utc_msc,reference.momentum,reference.volatility,label_value
+row_train_1,fold_000,TRAIN,event_1,cluster_1,candidate_1,outcome_1,snapshot_1,1000,1001,1005,-1.0,0.3,0
+row_validation_1,fold_000,VALIDATION,event_2,cluster_2,candidate_2,outcome_2,snapshot_2,2000,2001,2005,0.5,0.2,1
+row_test_1,fold_000,TEST,event_3,cluster_3,candidate_3,outcome_3,snapshot_3,3000,3001,3005,1.0,0.4,1

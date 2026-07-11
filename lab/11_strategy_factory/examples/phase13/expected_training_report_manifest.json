@@ -1,0 +1,14 @@
+{
+  "calibration_hash": "cal_a24dbd166af3a706",
+  "candidate_count": 6,
+  "dataset_hash": "dset_0f773f5580c45f7f",
+  "generated_at_utc_msc": 10000,
+  "model_artifact_hash": "model_2dfe56b8c392de1a",
+  "model_card_hash": "mcard_eb6ff034a32eeb70",
+  "prediction_rowset_hash": "ccf7d676784c066a0d8eeb61eeec7dbc82269817545c27e4f54d6e46a49c1a68",
+  "report_hash": "trep_07a58348c64f7756",
+  "report_id": "sf13_training_report",
+  "selected_family": 4,
+  "status": 1,
+  "training_plan_hash": "tplan_9e77bf254f79947b"
+}

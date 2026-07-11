@@ -1,0 +1,18 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_13",
+  "next": "Model Registry, Promotion and Artifact Governance",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF13 self-test passes",
+    "dataset manifest reproduces from immutable row hashes",
+    "feature and label schemas are exact-versioned",
+    "transforms are fitted on training rows only",
+    "model selection and calibration use validation rows only",
+    "published predictions contain test OOS rows only",
+    "model card records limitations and no capital authority",
+    "all lineage hashes validate",
+    "no live authority"
+  ],
+  "to": "PHASE_14"
+}

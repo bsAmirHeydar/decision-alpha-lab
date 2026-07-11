@@ -1,0 +1,98 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v1/training_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_method": {
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "dataset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "l2_penalty": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "label_contract_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "learning_rate": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "maximum_iterations": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "model_families": {
+      "items": {
+        "maximum": 7,
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "selection_metric": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "threshold_grid_size": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "transform_spec_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "plan_version",
+    "task",
+    "dataset_hash",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "model_families",
+    "transform_spec_hash",
+    "calibration_method",
+    "selection_metric",
+    "random_seed",
+    "maximum_iterations",
+    "learning_rate",
+    "l2_penalty",
+    "threshold_grid_size",
+    "plan_hash"
+  ],
+  "title": "Training Plan",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+#ifndef __SF13_TRAINING_PLAN_MQH__
+#define __SF13_TRAINING_PLAN_MQH__
+#include "SF13_DatasetManifest.mqh"
+struct SF13_TrainingPlan{string plan_id;string plan_version;int task;string dataset_hash;string feature_schema_hash;string label_contract_hash;int model_family_mask;string transform_spec_hash;ENUM_SF13_CALIBRATION_METHOD calibration_method;string selection_metric;int random_seed;int maximum_iterations;double learning_rate;double l2_penalty;int threshold_grid_size;string plan_hash;};
+string SF13_TrainingPlanCanonical(const SF13_TrainingPlan &v){return "alpha_lab.strategy_factory/training_plan@1.0.0|"+v.plan_id+"|"+v.plan_version+"|"+IntegerToString(v.task)+"|"+v.dataset_hash+"|"+v.feature_schema_hash+"|"+v.label_contract_hash+"|"+IntegerToString(v.model_family_mask)+"|"+v.transform_spec_hash+"|"+IntegerToString((int)v.calibration_method)+"|"+v.selection_metric+"|"+IntegerToString(v.random_seed)+"|"+IntegerToString(v.maximum_iterations)+"|"+SF01_CanonicalDouble(v.learning_rate,10)+"|"+SF01_CanonicalDouble(v.l2_penalty,10)+"|"+IntegerToString(v.threshold_grid_size);}
+string SF13_DeriveTrainingPlanHash(const SF13_TrainingPlan &v){return SF01_StableId("tplan",SF13_TrainingPlanCanonical(v));}
+bool SF13_ValidateTrainingPlan(const SF13_TrainingPlan &v,string &error){if(v.plan_id==""||v.plan_version==""||v.dataset_hash==""||v.feature_schema_hash==""||v.label_contract_hash==""||v.model_family_mask<=0||v.transform_spec_hash==""||v.selection_metric==""||v.maximum_iterations<1||v.learning_rate<=0||v.l2_penalty<0||v.threshold_grid_size<2){error="invalid training plan";return false;}if(v.plan_hash!=""&&v.plan_hash!=SF13_DeriveTrainingPlanHash(v)){error="training plan hash mismatch";return false;}error="";return true;}
+#endif
