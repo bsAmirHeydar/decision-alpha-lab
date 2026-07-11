@@ -22,10 +22,10 @@ struct SF05_ResultEnvelope
 
 string SF05_ResultEnvelopeCanonical(const SF05_ResultEnvelope &v)
 {
-   return v.schema+"|"+LongToString(v.sequence)+"|"+IntegerToString((int)v.record_type)+"|"+
+   return v.schema+"|"+IntegerToString(v.sequence)+"|"+IntegerToString((int)v.record_type)+"|"+
           v.run_id+"|"+v.generation_uid+"|"+v.aggregate_id+"|"+v.producer_id+"|"+
-          v.producer_version+"|"+LongToString(v.occurred_at.utc_epoch_milliseconds)+"|"+
-          LongToString(v.known_at.utc_epoch_milliseconds)+"|"+v.payload_schema+"|"+
+          v.producer_version+"|"+IntegerToString(v.occurred_at.utc_epoch_milliseconds)+"|"+
+          IntegerToString(v.known_at.utc_epoch_milliseconds)+"|"+v.payload_schema+"|"+
           v.payload_hash;
 }
 
@@ -55,7 +55,7 @@ bool SF05_ValidateResultEnvelope(const SF05_ResultEnvelope &v,string &e)
 string SF05_ResultEnvelopeToJson(const SF05_ResultEnvelope &v)
 {
    string id=v.record_id==""?SF05_DeriveResultRecordId(v):v.record_id;
-   return "{\"schema\":\""+SF01_JsonEscape(v.schema)+"\",\"sequence\":"+LongToString(v.sequence)+
+   return "{\"schema\":\""+SF01_JsonEscape(v.schema)+"\",\"sequence\":"+IntegerToString(v.sequence)+
           ",\"record_type\":\""+SF05_RecordTypeToString(v.record_type)+"\",\"record_id\":\""+id+
           "\",\"run_id\":\""+SF01_JsonEscape(v.run_id)+"\",\"generation_uid\":\""+
           SF01_JsonEscape(v.generation_uid)+"\",\"aggregate_id\":\""+

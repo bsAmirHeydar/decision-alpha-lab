@@ -28,11 +28,11 @@ struct SF05_RuntimeGenerationRecord
 
 string SF05_RuntimeGenerationCanonical(const SF05_RuntimeGenerationRecord &v)
 {
-   return v.schema+"|"+LongToString(v.generation_id)+"|"+v.run_manifest_id+"|"+
+   return v.schema+"|"+IntegerToString(v.generation_id)+"|"+v.run_manifest_id+"|"+
           v.run_manifest_hash+"|"+v.plugin_descriptor_hash+"|"+v.plugin_requirements_hash+"|"+
           v.plugin_configuration_hash+"|"+v.market_configuration_hash+"|"+
           v.sink_configuration_hash+"|"+v.compiler_id+"|"+v.compiler_version+"|"+
-          v.previous_generation_uid+"|"+LongToString(v.compiled_at.utc_epoch_milliseconds);
+          v.previous_generation_uid+"|"+IntegerToString(v.compiled_at.utc_epoch_milliseconds);
 }
 
 string SF05_DeriveGenerationUid(const SF05_RuntimeGenerationRecord &v)
@@ -80,7 +80,7 @@ string SF05_RuntimeGenerationToJson(const SF05_RuntimeGenerationRecord &v)
 {
    string id=v.generation_uid==""?SF05_DeriveGenerationUid(v):v.generation_uid;
    return "{\"schema\":\""+SF01_JsonEscape(v.schema)+"\",\"generation_uid\":\""+id+
-          "\",\"generation_id\":"+LongToString(v.generation_id)+",\"state\":\""+
+          "\",\"generation_id\":"+IntegerToString(v.generation_id)+",\"state\":\""+
           SF05_GenerationStateToString(v.state)+"\",\"run_manifest_id\":\""+
           SF01_JsonEscape(v.run_manifest_id)+"\",\"run_manifest_hash\":\""+
           SF01_JsonEscape(v.run_manifest_hash)+"\",\"plugin_descriptor_hash\":\""+

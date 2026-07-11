@@ -29,14 +29,14 @@ struct SF05_RunManifest
 string SF05_RunManifestCanonical(const SF05_RunManifest &v)
 {
    return v.schema+"|"+v.run_id+"|"+v.strategy_id+"|"+v.strategy_version+"|"+
-          IntegerToString((int)v.run_mode)+"|"+LongToString(v.requested_generation_id)+"|"+
+          IntegerToString((int)v.run_mode)+"|"+IntegerToString(v.requested_generation_id)+"|"+
           v.plugin_selection.plugin_id+"|"+v.plugin_selection.exact_version+"|"+
-          LongToString((long)v.plugin_selection.required_capabilities)+"|"+
+          IntegerToString((long)v.plugin_selection.required_capabilities)+"|"+
           v.plugin_selection.expected_descriptor_hash+"|"+v.plugin_configuration_hash+"|"+
           v.market_configuration_hash+"|"+SF05_ResultSinkConfigHash(v.sink_config)+"|"+
           v.git_commit+"|"+v.build_id+"|"+v.environment_id+"|"+
           v.terminal_instance_id+"|"+SF01_CanonicalBool(v.strict_fail_closed)+"|"+
-          LongToString(v.created_at.utc_epoch_milliseconds);
+          IntegerToString(v.created_at.utc_epoch_milliseconds);
 }
 
 string SF05_DeriveRunManifestId(const SF05_RunManifest &v)
@@ -73,7 +73,7 @@ string SF05_RunManifestToJson(const SF05_RunManifest &v)
           SF01_JsonEscape(v.strategy_id)+"\",\"strategy_version\":\""+
           SF01_JsonEscape(v.strategy_version)+"\",\"run_mode\":\""+
           SF02_RunModeToString(v.run_mode)+"\",\"requested_generation_id\":"+
-          LongToString(v.requested_generation_id)+",\"plugin_id\":\""+
+          IntegerToString(v.requested_generation_id)+",\"plugin_id\":\""+
           SF01_JsonEscape(v.plugin_selection.plugin_id)+"\",\"plugin_version\":\""+
           SF01_JsonEscape(v.plugin_selection.exact_version)+"\",\"plugin_configuration_hash\":\""+
           SF01_JsonEscape(v.plugin_configuration_hash)+"\",\"market_configuration_hash\":\""+

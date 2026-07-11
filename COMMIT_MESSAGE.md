@@ -1,3 +1,3 @@
-feat(alpha-lab): implement reference anatomy adapter and golden ledger
+fix(alpha-lab): repair SF04 and SF05 MQL5 serialization compatibility
 
-Add the MQL5-first anatomy observation and lifecycle contracts, canonical event builder, deterministic reference sweep-rejection plugin, static factory integration, immutable-generation host, golden ledger protocol, replay and compatibility gates, Python conformance package, schemas, fixtures, self-test and diagnostic EAs, detailed Obsidian documentation, QA, and Phase 07 handoff.
+Replace unsupported LongToString calls with the repository-approved IntegerToString pattern across the Phase 04 plugin registry and Phase 05 runtime generation/result sink layers, preserving canonical serialization semantics and restoring the Engineering Policy check.

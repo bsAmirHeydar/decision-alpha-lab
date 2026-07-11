@@ -49,7 +49,7 @@ string SF05_ResultSinkConfigCanonical(const SF05_ResultSinkConfig &v)
           SF01_CanonicalBool(v.mirror_to_print)+"|"+
           SF01_CanonicalBool(v.include_payload_hash)+"|"+
           IntegerToString(v.flush_every_records)+"|"+
-          LongToString(v.flush_every_milliseconds)+"|"+
+          IntegerToString(v.flush_every_milliseconds)+"|"+
           IntegerToString(v.max_record_bytes);
 }
 

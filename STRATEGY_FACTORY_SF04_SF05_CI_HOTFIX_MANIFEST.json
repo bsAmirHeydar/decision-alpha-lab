@@ -1,0 +1,29 @@
+{
+  "patch_id": "SF-HF-2026-07-11-001",
+  "title": "Strategy Factory SF04/SF05 MQL5 Serialization CI Hotfix",
+  "applies_after": [
+    "PHASE_04",
+    "PHASE_05"
+  ],
+  "required_before": "PHASE_06",
+  "changed_mql5_files": [
+    "mql5/Experts/StrategyFactoryTests/SF04_PluginRegistrySelfTest.mq5",
+    "mql5/Experts/StrategyFactoryTests/SF05_RuntimeGenerationSelfTest.mq5",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_AppendOnlyMemorySink.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_JsonlResultSink.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_ResultEnvelope.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_ResultSinkConfig.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_RunManifest.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Generation/SF05_RuntimeGeneration.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Plugins/Fixture/SF04_FixturePulsePlugin.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Plugins/SF04_DataRequirement.mqh",
+    "mql5/Include/AlphaLab/StrategyFactory/Plugins/SF04_PluginDescriptor.mqh"
+  ],
+  "semantic_change": "none; serialization API compatibility only",
+  "github_actions_reproduction": {
+    "policy": "pass",
+    "vault": "pass",
+    "mql5_compatibility": "pass: errors=0 warnings=0",
+    "layout": "pass: missing=0"
+  }
+}
