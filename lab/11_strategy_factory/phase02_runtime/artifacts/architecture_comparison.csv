@@ -1,0 +1,11 @@
+proposal,decision,improvement
+"MQL5 owns market, event, risk and execution truth",ACCEPT,Split authority into explicit ports and keep Python a strict offline consumer.
+One central Strategy Host,ACCEPT_WITH_CONSTRAINT,"Host is a thin composition root; no anatomy, candidate, risk or broker logic inside it."
+Generic event bus connects modules,MODIFY,Use direct typed orchestration on the hot path and a bounded typed bus for audit/notifications only.
+Load one or several strategies,DEFER_MULTI_STRATEGY,V1 runs one anatomy plugin per Host; portfolio orchestration is introduced after single-strategy parity.
+MQL5-native research and Strategy Tester,ACCEPT,"MQL5 owns candidate/outcome semantics; Python owns advanced statistics, anti-overfit and training."
+Runtime JSON/configuration,MODIFY,Compile or bind configuration at startup; no JSON parsing or dynamic discovery in the decision fast path.
+ONNX inference in MQL5,ACCEPT_DEFER,"Model schema, calibration and fail-closed inference are implemented after deterministic baselines and registry."
+Lightweight MT5 panel now,DEFER_TO_OBSERVABILITY,First close event-to-snapshot and event-to-candidate loops; panel reads runtime telemetry later.
+Same candidate contract in research/tester/paper/live,ACCEPT,One transition model plus differential parity tests across adapters.
+Shared market cache/time/spec services,ACCEPT,Moved immediately after runtime foundation because all anatomy plugins depend on them.

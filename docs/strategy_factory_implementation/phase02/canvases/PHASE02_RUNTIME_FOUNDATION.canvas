@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "host",
+      "type": "text",
+      "text": "Thin Strategy Host",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "runtime",
+      "type": "text",
+      "text": "Runtime State + Direct Orchestration",
+      "x": 340,
+      "y": 0,
+      "width": 310,
+      "height": 90
+    },
+    {
+      "id": "ports",
+      "type": "text",
+      "text": "Typed Ports",
+      "x": 730,
+      "y": 0,
+      "width": 220,
+      "height": 90
+    },
+    {
+      "id": "anatomy",
+      "type": "text",
+      "text": "Anatomy Adapter (later)",
+      "x": 1040,
+      "y": -120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "features",
+      "type": "text",
+      "text": "Feature Provider",
+      "x": 1040,
+      "y": 0,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "sink",
+      "type": "text",
+      "text": "Result Sink",
+      "x": 1040,
+      "y": 120,
+      "width": 260,
+      "height": 90
+    },
+    {
+      "id": "bus",
+      "type": "text",
+      "text": "Bounded Typed Audit Bus",
+      "x": 340,
+      "y": 180,
+      "width": 310,
+      "height": 90
+    },
+    {
+      "id": "python",
+      "type": "text",
+      "text": "Python Research Mirrors / Guards",
+      "x": 730,
+      "y": 250,
+      "width": 300,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "host",
+      "fromSide": "right",
+      "toNode": "runtime",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "runtime",
+      "fromSide": "right",
+      "toNode": "ports",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "ports",
+      "fromSide": "right",
+      "toNode": "anatomy",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "ports",
+      "fromSide": "right",
+      "toNode": "features",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "ports",
+      "fromSide": "right",
+      "toNode": "sink",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "runtime",
+      "fromSide": "bottom",
+      "toNode": "bus",
+      "toSide": "top"
+    },
+    {
+      "id": "e7",
+      "fromNode": "bus",
+      "fromSide": "right",
+      "toNode": "python",
+      "toSide": "left"
+    }
+  ]
+}

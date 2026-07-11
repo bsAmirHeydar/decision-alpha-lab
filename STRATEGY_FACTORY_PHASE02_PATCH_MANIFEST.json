@@ -1,0 +1,516 @@
+{
+  "phase": "02",
+  "file_count": 102,
+  "files": [
+    {
+      "path": "COMMIT_MESSAGE.md",
+      "size": 1836,
+      "sha256": "c7a584d2109ac8ffd9d194ffefb99c52f67ddb2df3b4ef3ec71d7e412b76437e"
+    },
+    {
+      "path": "INSTALL_STRATEGY_FACTORY_PHASE02_IMPLEMENTATION.md",
+      "size": 431,
+      "sha256": "6857ea04aabad65770f57f39099c9c7e058633476dde824333bbceae3a70820d"
+    },
+    {
+      "path": "README_STRATEGY_FACTORY_PHASE02_IMPLEMENTATION.md",
+      "size": 501,
+      "sha256": "88706529aa7bd83b017c6f06ee307520099b123c04b9936f2741045f56833aeb"
+    },
+    {
+      "path": "STRATEGY_FACTORY_PHASE02_FILE_HASHES.sha256",
+      "size": 12190,
+      "sha256": "32ab19366bd9153e65d06f0787c04eecb095d3861f67fd29c746da9b3e78a402"
+    },
+    {
+      "path": "STRATEGY_FACTORY_PHASE02_FILE_INDEX.txt",
+      "size": 6276,
+      "sha256": "16cc0bdbcdbb66747f1a3184134c338a519a53213261a6264eac81157794b4a6"
+    },
+    {
+      "path": "STRATEGY_FACTORY_PHASE02_PATCH_MANIFEST.json",
+      "size": 18335,
+      "sha256": "ac2442791a809f61ed15914eb9dd64fd7d1629474083ebf60daaa36c96c65779"
+    },
+    {
+      "path": "STRATEGY_FACTORY_PHASE02_QA_REPORT.json",
+      "size": 359,
+      "sha256": "e7893414b7e2fa5e68dcfcfb1352bcbb1627efc1ec08d9c568c118dd96b60f99"
+    },
+    {
+      "path": "docs/obsidian_deep/00_mocs/STRATEGY_FACTORY_PHASE02_RUNTIME_FOUNDATION_MOC.md",
+      "size": 526,
+      "sha256": "d59e02f0dd7e683bd3ae2f6df95369d7f48d3fd6427dbe8f71e6da3446776b82"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/00_PHASE_02_MOC.md",
+      "size": 2291,
+      "sha256": "f09d7b83a905513e6abaec050f8fd858c4dc18b67b9a5cfcbba1d5231358087a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/01_PROPOSAL_REVIEW_AND_ARCHITECTURE_COMPARISON.md",
+      "size": 2551,
+      "sha256": "d56c5b3ac793b38efb01eb44fd8d47571536d5bc6b348722589df725498949bc"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/02_ACCEPTED_MODIFIED_AND_DEFERRED_DECISIONS.md",
+      "size": 1277,
+      "sha256": "32b4099669cdebd496f11e98e2bf873b20dec9d3aeff1911af1a1835fc6c2c01"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/03_REVISED_IMPLEMENTATION_ROADMAP_2_1.md",
+      "size": 1347,
+      "sha256": "23c01faebc602d6937d4af7713452d5337bda437ce303c042913043d40e25f5f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/04_PHASE_CHARTER_SCOPE_AND_EXIT_GATE.md",
+      "size": 1103,
+      "sha256": "e6a6c9f54b633272082456072d31a6a3c92c71f64d17b0d0fdee9db7e13686ce"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/05_MQL5_FIRST_RUNTIME_ARCHITECTURE.md",
+      "size": 760,
+      "sha256": "cb559ea1bb0faf466eb6c49465631e88d1db79514f2c380f631d9da47ae0a41c"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/06_THIN_STRATEGY_HOST_DESIGN.md",
+      "size": 541,
+      "sha256": "0c81d1ce16a9919ced8427ceab73316cc13c5519aafb94153326061c0cf29c61"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/07_PACKAGE_AND_DEPENDENCY_BOUNDARIES.md",
+      "size": 747,
+      "sha256": "7de5a75de6bc9daa795eed8f4961bfebaec218fa98576c63abba28eacde86c63"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/08_RUNTIME_STATE_MACHINE.md",
+      "size": 417,
+      "sha256": "b0debfc2bceb7245a44f81244de7c399ce1f718ee94bb09a0bd55fde7ceeb18e"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/09_RUN_MODES_AND_AUTHORITY_MATRIX.md",
+      "size": 764,
+      "sha256": "4be174cbd2baa96d67a4e80424ef93841250f5a9b62faed10c2ff2c7e4f0be55"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/10_TYPED_BOUNDED_AUDIT_BUS.md",
+      "size": 648,
+      "sha256": "c85129b6532cdaa3528fa2cb9aeae29b85e4e414bb61a9432a5266a625e7377c"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/11_PORTS_AND_SERVICE_LIFECYCLE.md",
+      "size": 474,
+      "sha256": "fb8fb5292a503a60435bb22700bf5bbebd5193ea61759b2666f47f569594ae6e"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/12_EVENT_TO_SNAPSHOT_REFERENCE_FLOW.md",
+      "size": 470,
+      "sha256": "253064b78dd901bafd0c4f559d1e9a086bd8f869bc65963c337b3947fbe31a5e"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/13_FAST_PATH_VS_AUDIT_PATH.md",
+      "size": 399,
+      "sha256": "6b6fef1a109a89a7ca6a9175e859b9517322662e80193607176d4c5ca6780326"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/14_PYTHON_RESEARCH_MIRROR_BOUNDARY.md",
+      "size": 430,
+      "sha256": "762b98d7d52381cf90c3d58fc85a9b0d9a5b1fd09a565810ed75409cb11d91d2"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/15_TESTING_AND_ACCEPTANCE_EVIDENCE.md",
+      "size": 771,
+      "sha256": "0e79010792b5bea5b72c8bf41fb277103cdfd21e8266d8c3c65012d9073c5b72"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/16_COMPILE_AND_RUNBOOK.md",
+      "size": 548,
+      "sha256": "dcfe496ce29540ef1012d426c5e382d71467b86b74424b95a09742b602dda2a9"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/17_MIGRATION_GUIDE_FOR_EXISTING_EAS.md",
+      "size": 542,
+      "sha256": "e283625ecd86bf6fe90688adcef6deb8e05989fa7f6938ca340c86837c48709a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/18_PHASE_03_HANDOFF_SHARED_MARKET_SERVICES.md",
+      "size": 642,
+      "sha256": "72d00835b748bfd2171d8cc23de831f4d1fb0613117e5d47e612287ea23b9b96"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/19_DEFINITION_OF_DONE.md",
+      "size": 497,
+      "sha256": "6074c6690c0c5cefc4f577acb7d338b779e0798bf59f97b2846cbd42f713314b"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/20_KNOWN_LIMITATIONS.md",
+      "size": 494,
+      "sha256": "3a4eeadc911e93b5a738efe0612260c97a64f65077b31c6d9c311b0ad5f3ba5b"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/21_MQL5_API_REFERENCE.md",
+      "size": 3437,
+      "sha256": "6038e7ee24f94c188213fbd348406d83419f24088715b1d2e9b1f221a4a29257"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/22_RUNTIME_INVARIANTS.md",
+      "size": 1767,
+      "sha256": "b27f484d31f765c93741ed516670f9649623ca395e6626af8eb96cd9b41cd394"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/23_FAILURE_SEMANTICS_AND_RECOVERY.md",
+      "size": 1640,
+      "sha256": "00af834795e352585967f9dcfb748c90831c97f566aebd8a0c1f2df67bc0bf0e"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/24_PERFORMANCE_AND_LATENCY_BUDGETS.md",
+      "size": 1361,
+      "sha256": "ceca9724fc5cbd75606f752eb7eab2b9ee7e0a806f872fc1981f731f6b448c82"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/25_SERVICE_COMPOSITION_REFERENCE.md",
+      "size": 1070,
+      "sha256": "69ef28fb09a1e8c0e370467fd086340a83d793f692d30c06b2f0ed831c995ee5"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/26_EVENT_BUS_API_AND_USAGE_RULES.md",
+      "size": 1067,
+      "sha256": "e9aebbbd94376a2c046045cc3646863f38f8cc5429859874f0f69ff4e57f9cc2"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/27_SELF_TEST_AND_FIXTURE_REFERENCE.md",
+      "size": 1123,
+      "sha256": "d457ffba662934c9eb86e8b81c69ed4007e376f125146d75a509495b9a9595e5"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/28_DEPENDENCY_ENFORCEMENT_REFERENCE.md",
+      "size": 1002,
+      "sha256": "37612597fff56cb502204850a1581cd4214b355b3cb7d19ee45edd969f61d981"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/29_ROADMAP_CHANGELOG.md",
+      "size": 851,
+      "sha256": "87d04c3e82b3d181616274f2c6c5e9cc908a36ecb8d8d6269a8773f3e2386f11"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/30_PROPOSAL_TRACEABILITY_MATRIX.md",
+      "size": 1079,
+      "sha256": "ddae3e10b65af2fb5882d6cad7a850cdbe3a7a7812f228a28b78d4ffa94841a7"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/31_PHASE02_FILE_AND_MODULE_MAP.md",
+      "size": 823,
+      "sha256": "ec6c69e355b546f30e49cc60b5ec6cb4241e0242456569971d540efaaf539aca"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/32_LOCAL_COMPILE_ACCEPTANCE_FORM.md",
+      "size": 910,
+      "sha256": "b35452af2742c3c05f9e3e7f289fd633e190c5d9bea84186e3b1610b321f4eca"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0201_THIN_HOST_NOT_MONOLITH.md",
+      "size": 282,
+      "sha256": "ed2b52c8e4ceb001de39ec90ef410a66e148fdcbcd9a394cbd0caf087d549b4f"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0202_DIRECT_HOT_PATH_TYPED_AUDIT_BUS.md",
+      "size": 259,
+      "sha256": "74209493a3e68d152ce2d516afdcecea07d2b7b1f7e9547eb5b7af7c1e5a130b"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0203_ONE_STRATEGY_PER_HOST_V1.md",
+      "size": 284,
+      "sha256": "d171bb4cee1bc4979764e13d02cd209779640a9efee02a99ece3aabf4fdd4e75"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0204_MQL5_EXECUTION_SEMANTICS_PYTHON_ADVANCED_RESEARCH.md",
+      "size": 299,
+      "sha256": "00f4d194a6906425202a71d5b6d5a39f9f4d5b2e709286cc9be10a7e8d8d3c28"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0205_STATIC_STARTUP_COMPOSITION.md",
+      "size": 264,
+      "sha256": "afb97785136cedb379f6031443a821d5d0e26ff08dd829c68da7a15692361b4a"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/adrs/ADR_0206_NO_UI_BEFORE_RUNTIME_TELEMETRY.md",
+      "size": 218,
+      "sha256": "ca8091fd18d367b55804991a298d5e70be0e9e61d6ddfa9d74d69ee9fdad7d01"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/phase02/canvases/PHASE02_RUNTIME_FOUNDATION.canvas",
+      "size": 2302,
+      "sha256": "6bac46214e9f6a73698e62fab7f7bf76866be1b18eae47a2febda45f5b06c05d"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/ROADMAP_REVISION_2_1_MQL5_FIRST.json",
+      "size": 3254,
+      "sha256": "f72df575cfef2a99ebbc8aa4414533c774c592d000ecff824671bd80f3239321"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/phase_status/PHASE_02.json",
+      "size": 422,
+      "sha256": "7a34976a1369bea5381cded71f46a67a175c93e4d55db2dfd5a9e2a5f541f12d"
+    },
+    {
+      "path": "lab/11_strategy_factory/implementation_program/phase_status/PHASE_02_HANDOFF_TO_PHASE_03.json",
+      "size": 734,
+      "sha256": "d317c4d82568854348178f24852e2b840c26897c958697ff44f566485a7cddff"
+    },
+    {
+      "path": "lab/11_strategy_factory/phase02_runtime/artifacts/architecture_comparison.csv",
+      "size": 1466,
+      "sha256": "58a8235a65bfc9638cdd0dcbba9cbf5cc496afe2b6abd261b948993f9cefe55b"
+    },
+    {
+      "path": "lab/11_strategy_factory/phase02_runtime/artifacts/architecture_comparison.json",
+      "size": 2100,
+      "sha256": "2d7c2bd92f62d41cf82e45a55279f3d4f4720dfb3ebcb2c5d1731826be3bba27"
+    },
+    {
+      "path": "lab/11_strategy_factory/phase02_runtime/artifacts/runtime_capabilities.json",
+      "size": 781,
+      "sha256": "6c0745ad87bef4312de773e325ab35903eedf8673d1832c3fdababb70e0c1d2d"
+    },
+    {
+      "path": "lab/11_strategy_factory/phase02_runtime/config/dependency_rules.json",
+      "size": 1513,
+      "sha256": "9efd91d0ed9343b257e222712daf53d0f415cd055fdfa33bfe7d28ab068a1fe0"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/pyproject.toml",
+      "size": 396,
+      "sha256": "fea63b0dc8f609e0c46def2ff60d54dcd20364d43f67979d6bf7d2fd07f12d41"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/__init__.py",
+      "size": 341,
+      "sha256": "199e7297c9091e482294a12d4cadc3df464b87f01a76fa9846789e0e8d33f0c8"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/cli.py",
+      "size": 919,
+      "sha256": "4802e4292b35b42e436223e45138c32738d5262e7ad318dbf39475b3a191919a"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/config.py",
+      "size": 1674,
+      "sha256": "1864273d7bfcde1375f9e990d10b154279f9e8a0a3a76209e04fde07f938aac5"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/dependency_guard.py",
+      "size": 1503,
+      "sha256": "746ab0854a99d0df2904c9639066d822670fea6ba1381c5530f29ee593e8c4dd"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/events.py",
+      "size": 2149,
+      "sha256": "9b09aa50287b849066ec8470f9b563529c7d7ac32d7093245b107ebaf8847cb4"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/layout.py",
+      "size": 648,
+      "sha256": "89e8869d3f2ddf7b9c4c4b4b8abe9eb0f02b052ce7149f9fb4e6430a44340e5a"
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory_runtime/state.py",
+      "size": 1437,
+      "sha256": "5be601654669d363e6701ec22fb9e2377527f4711cc96fb439c68c3f779b5ee4"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/conftest.py",
+      "size": 228,
+      "sha256": "f890396d82860ebf589f37aeb0315cb59bdda1bc2f4d547ddc1b56ff07b7004d"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_config.py",
+      "size": 480,
+      "sha256": "9d4eaca9dd6e3b9891d4967b20b097150f123f9a04af264aa2c3547d9abdc54c"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_docs_and_status.py",
+      "size": 721,
+      "sha256": "c949c9b00bf4c5afc0f242e8beb1b96f9e09c248bcc71298acf64eb0185c4110"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_event_bus.py",
+      "size": 835,
+      "sha256": "13a3e2c41b272451d8b9326a13fc883274ba1d4b219d925306602127801a3490"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_layout_and_boundaries.py",
+      "size": 1485,
+      "sha256": "d62215e33b1bc46a1c7466d4ddb41c7529793a062e33feb3da27f6fa9f4e602a"
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/phase02_runtime/test_state.py",
+      "size": 614,
+      "sha256": "073512aeadb95208d57e254de4bf22129943ed3b44ba6e8b448afef195dd09e1"
+    },
+    {
+      "path": "mql5/Experts/StrategyFactory/SF02_StrategyHost.mq5",
+      "size": 2655,
+      "sha256": "fa8cdbee9f70da0a68ecba5e4a33b3d2af93e104ddf59134cc4c6a8e04021cf6"
+    },
+    {
+      "path": "mql5/Experts/StrategyFactoryTests/SF02_RuntimeSelfTest.mq5",
+      "size": 3169,
+      "sha256": "8d91d7a41b36693edd9bea6e93d93d88cfbce7bd7d0f795433758ff3339b0a19"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_AllNullAdapters.mqh",
+      "size": 281,
+      "sha256": "c6ad31e3c43c1d5d95225683a635e311f8797ad1c9e911747ef0959c98d8df51"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_NoSendExecutionBoundary.mqh",
+      "size": 1280,
+      "sha256": "b62fd01e713b57b9c9d76a045ae621068cfead209662ada7455eb1b7d3d643a9"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_NullAnatomyProvider.mqh",
+      "size": 1306,
+      "sha256": "4ebc7ad75f41f316261ec9f543147d8f4ad6f5e6403cab983a0eca9f4e22a537"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_NullFeatureProvider.mqh",
+      "size": 1837,
+      "sha256": "80cdcf1bfedb0e31c915f5afb340090463aae34456e081b44f19e52aca6ee96d"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_PrintResultSink.mqh",
+      "size": 1747,
+      "sha256": "a6d8265b436de57e00368031febd5c2fdfe250ce8fe74aef0b8e79f1abd28364"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Adapters/Null/SF02_TerminalClock.mqh",
+      "size": 1496,
+      "sha256": "d833933d664f3d490a01a0f28945b49469025ea6f3e78a3c8a4dbe737667329b"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_AllCore.mqh",
+      "size": 306,
+      "sha256": "7ed25bbf2e26a3058d6ba1a97c30423072f6c2405634c712879b1cf7484c5c43"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_EventEnvelope.mqh",
+      "size": 1332,
+      "sha256": "f4979d2e624949800b555acf7ee624b547e71e513290e9bcef2a51974427dc4a"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_RuntimeConfig.mqh",
+      "size": 1927,
+      "sha256": "3386e1800db518db84259e4f3b26d5871f19f01fd92ebdf6cf194af161a265db"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_RuntimeEnums.mqh",
+      "size": 2803,
+      "sha256": "6afa9b16448f654ab9e12cb3c1e60f8bba5df013c9ea65cf5c173a59c8619bb0"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_RuntimeState.mqh",
+      "size": 2280,
+      "sha256": "4efdd1223118a862d9740f1f556a630a5ef78c5496606c6cbbb650f3d9783f54"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_RuntimeVersion.mqh",
+      "size": 413,
+      "sha256": "f23a7bad5b6eb17c3898ad3662f735313b4c151c63668e6a6b7fd469aab337d0"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_ServiceHealth.mqh",
+      "size": 290,
+      "sha256": "8a955455b1c0f41d54eb273d5debb512b0b69c96be741ff3e628889d8ad1ee01"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Core/SF02_TypedEventBus.mqh",
+      "size": 2035,
+      "sha256": "194105b16d5b7b1f64972fa099fa62cf16c8c6944f552d5188358706b4ba8125"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_AnatomyProvider.mqh",
+      "size": 461,
+      "sha256": "4981801daf365c52b2c2207677fdd4cf428dd34e7c47c7ae5bd134b38cce7261"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_ClockPort.mqh",
+      "size": 425,
+      "sha256": "16765cdd53cb6a5a2e4eb024d0a9a906b2fa95c71853b6004b0cf8321b3caff0"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_ExecutionBoundary.mqh",
+      "size": 314,
+      "sha256": "454c98896a2af46bc78e05b0d5d52b157f8782c05cea3c65737382bc25834a0d"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_FeatureProvider.mqh",
+      "size": 525,
+      "sha256": "eb3c7fd73043514a8ee521352f3cb552c90dab4daea4de9b619194a596b37fbc"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_LifecycleService.mqh",
+      "size": 586,
+      "sha256": "a235d5624629d05dcd38aa3adb369788c8bc4560eaf132a9e4e7caf75dea9038"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_MarketDataPort.mqh",
+      "size": 734,
+      "sha256": "a545ede760724d94186edbde81b9928d64e4a6b00e4e6b4afd45e32da5204add"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_ResultSink.mqh",
+      "size": 486,
+      "sha256": "9ff6cfb55d089df0049c3b8ea4a615ab055e68b0ec1acf666a3a8181a09012e8"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/ISF02_SymbolSpecPort.mqh",
+      "size": 543,
+      "sha256": "e1075947006d2f16604b30d9c906020c51c120a830589f124c1c576936ca94f3"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Ports/SF02_AllPorts.mqh",
+      "size": 357,
+      "sha256": "2c3384c96c1bd272955157b853e82e7ee95cb9dfa93acb8acdfcb68e4745e284"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Runtime/SF02_AllRuntime.mqh",
+      "size": 267,
+      "sha256": "d41e353e3ecd854c3c990799b7fcfd75ed50386f7368fb8df14c43f153159d4f"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Runtime/SF02_ServiceRegistry.mqh",
+      "size": 1233,
+      "sha256": "1b130440864cca0389315b0a3a90ac488127d47569a5da4e48efcd4dddb2f36d"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Runtime/SF02_StrategyRuntime.mqh",
+      "size": 10992,
+      "sha256": "9eb9b006d5cd253f455b2c7f71471454fcc5cc9283493b0416e022e871f41344"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Testing/SF02_Assert.mqh",
+      "size": 459,
+      "sha256": "bfe89a97d784aa973fab9d9b14202abfce130fe334583eb5881fcdf4e812dbf3"
+    },
+    {
+      "path": "mql5/Include/AlphaLab/StrategyFactory/Testing/SF02_FixtureServices.mqh",
+      "size": 6745,
+      "sha256": "aefd0191ccb6fdafe8f63bdf9d0423dba35d208aa729186f089e126bc02d54bf"
+    },
+    {
+      "path": "tools/strategy_factory/check_sf02_boundaries.py",
+      "size": 484,
+      "sha256": "03ab00163c1d16844ad77b8c9852f8cad710d8085afe0d7d4915c5f10c36dfd2"
+    },
+    {
+      "path": "tools/strategy_factory/compile_sf02_runtime.ps1",
+      "size": 1302,
+      "sha256": "4bd4d5933f2db94aec30af9ea5f248de281e3f655d5fdc69f227917ed915c180"
+    },
+    {
+      "path": "tools/strategy_factory/run_phase02_tests.ps1",
+      "size": 306,
+      "sha256": "bd5d9479ac25dc5afd748a72d6b696062ecfbffbe29ab15b5560f9cf6d6d24bc"
+    }
+  ]
+}

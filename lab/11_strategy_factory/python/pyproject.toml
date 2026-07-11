@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "decision-alpha-lab-strategy-factory"
+version = "0.2.0"
+description = "MQL5-first Strategy Factory research mirrors and engineering tools"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["strategy_factory_contracts*", "strategy_factory_runtime*"]

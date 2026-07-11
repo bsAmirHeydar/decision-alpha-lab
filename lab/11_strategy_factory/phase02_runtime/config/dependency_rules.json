@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "mql5_root": "mql5/Include/AlphaLab/StrategyFactory",
+  "global_forbidden_tokens": [
+    "OrderSend(",
+    "OrderCheck(",
+    "CTrade",
+    "PositionOpen("
+  ],
+  "layers": [
+    {
+      "name": "Contracts",
+      "may_include_layers": [
+        "Contracts"
+      ]
+    },
+    {
+      "name": "Core",
+      "may_include_layers": [
+        "Contracts",
+        "Core"
+      ]
+    },
+    {
+      "name": "Ports",
+      "may_include_layers": [
+        "Contracts",
+        "Core",
+        "Ports"
+      ]
+    },
+    {
+      "name": "Runtime",
+      "may_include_layers": [
+        "Contracts",
+        "Core",
+        "Ports",
+        "Runtime"
+      ]
+    },
+    {
+      "name": "Adapters",
+      "may_include_layers": [
+        "Contracts",
+        "Core",
+        "Ports",
+        "Adapters"
+      ]
+    },
+    {
+      "name": "Testing",
+      "may_include_layers": [
+        "Contracts",
+        "Core",
+        "Ports",
+        "Runtime",
+        "Adapters",
+        "Testing"
+      ]
+    }
+  ],
+  "rules": [
+    "Contracts never depend on runtime services",
+    "Core never depends on adapters or strategy anatomy",
+    "Ports contain interfaces and small transport-neutral structs only",
+    "Runtime orchestrates through ports and must not contain anatomy logic",
+    "Adapters implement ports and never call other adapters directly",
+    "The Host EA remains a composition root, not a strategy implementation",
+    "No live order authority exists before the execution phase"
+  ]
+}

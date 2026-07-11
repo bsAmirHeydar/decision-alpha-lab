@@ -1,0 +1,12 @@
+{
+  "phase": "02",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_COMPILE_PENDING",
+  "mql5_source_files": 30,
+  "python_source_files": 14,
+  "markdown_files": 31,
+  "forbidden_live_authority_hits": [],
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+  "notes": [
+    "Phase 01 contracts are a prerequisite and are not duplicated in this additive patch."
+  ]
+}

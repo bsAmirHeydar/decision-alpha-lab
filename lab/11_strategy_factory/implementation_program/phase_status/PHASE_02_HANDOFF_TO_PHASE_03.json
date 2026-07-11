@@ -1,0 +1,23 @@
+{
+  "from_phase": "02",
+  "to_phase": "03",
+  "title": "Shared Market Cache, UTC Time Kernel, Symbol Specifications and Multi-Symbol Synchronization",
+  "required_inputs": [
+    "ISF02ClockPort",
+    "ISF02MarketDataPort",
+    "ISF02SymbolSpecPort",
+    "SF01_BarRecord",
+    "SF02_RuntimeConfig"
+  ],
+  "required_deliverables": [
+    "real terminal clock with broker/UTC lineage",
+    "bar and tick cache",
+    "new-bar identity",
+    "multi-symbol synchronization",
+    "symbol specification cache",
+    "DST and missing-bar fixtures",
+    "health telemetry",
+    "no private CopyRates loops inside strategy plugins"
+  ],
+  "gate": "No anatomy adapter integration before shared market services pass golden synchronization tests."
+}

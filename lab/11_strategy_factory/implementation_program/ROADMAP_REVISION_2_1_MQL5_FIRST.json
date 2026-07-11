@@ -1,0 +1,131 @@
+{
+  "roadmap_version": "2.1.0-mql5-first",
+  "reason": "Reordered after review of the MQL5-first Strategy Operating System proposal.",
+  "phases": [
+    {
+      "id": "00",
+      "name": "Current-State Audit",
+      "status": "accepted"
+    },
+    {
+      "id": "01",
+      "name": "MQL5-First Canonical Contracts and Schemas",
+      "status": "accepted"
+    },
+    {
+      "id": "02",
+      "name": "Thin Strategy Host, Runtime Kernel, Ports and Typed Audit Bus",
+      "status": "implemented_in_this_patch"
+    },
+    {
+      "id": "03",
+      "name": "Shared Market Cache, UTC Time Kernel, Symbol Specifications and Multi-Symbol Sync",
+      "status": "next"
+    },
+    {
+      "id": "04",
+      "name": "Static Plugin Registry, Capability Model and Anatomy Adapter SDK",
+      "status": "planned"
+    },
+    {
+      "id": "05",
+      "name": "Run Manifest, Runtime Generation and Versioned Result Sinks",
+      "status": "planned"
+    },
+    {
+      "id": "06",
+      "name": "First Anatomy Adapter and Golden Event Ledger",
+      "status": "planned"
+    },
+    {
+      "id": "07",
+      "name": "Context State, Feature Registry, DAG and Incremental Recalculation",
+      "status": "planned"
+    },
+    {
+      "id": "08",
+      "name": "Candidate Contracts, Entry/Stop/Exit Policy Kernel",
+      "status": "planned"
+    },
+    {
+      "id": "09",
+      "name": "MQL5 Outcome Engine, Path Tracking, Fill and Cost Semantics",
+      "status": "planned"
+    },
+    {
+      "id": "10",
+      "name": "Strategy Tester Research Harness, OnTester Metrics and Pass Frames",
+      "status": "planned"
+    },
+    {
+      "id": "11",
+      "name": "Canonical Statistics Export, Python Research Pack and Matched Nulls",
+      "status": "planned"
+    },
+    {
+      "id": "12",
+      "name": "Anti-Overfit Validation and Promotion Gates",
+      "status": "planned"
+    },
+    {
+      "id": "13",
+      "name": "Offline Training, Baselines, Calibration and ONNX Export",
+      "status": "planned"
+    },
+    {
+      "id": "14",
+      "name": "MQL5 ONNX Inference and Model Registry",
+      "status": "planned"
+    },
+    {
+      "id": "15",
+      "name": "Compiled Context-to-Decision Runtime and Abstention",
+      "status": "planned"
+    },
+    {
+      "id": "16",
+      "name": "Hard Risk Engine and Portfolio Exposure",
+      "status": "planned"
+    },
+    {
+      "id": "17",
+      "name": "Paper Broker, Replay and Forward Parity",
+      "status": "planned"
+    },
+    {
+      "id": "18",
+      "name": "Tester and Live Broker Adapters behind No-Send Gate",
+      "status": "planned"
+    },
+    {
+      "id": "19",
+      "name": "Telemetry, Drift, Lightweight MT5 Panel and Incident Replay",
+      "status": "planned"
+    },
+    {
+      "id": "20",
+      "name": "EXP0017 Pilot Closure",
+      "status": "planned"
+    },
+    {
+      "id": "21",
+      "name": "NDS Zone-AF Pilot and Reuse Proof",
+      "status": "planned"
+    },
+    {
+      "id": "22",
+      "name": "Multi-Strategy Portfolio Host",
+      "status": "planned"
+    },
+    {
+      "id": "23",
+      "name": "Chaos, Recovery and Production Hardening",
+      "status": "planned"
+    },
+    {
+      "id": "24",
+      "name": "V1 Release and Operating Model",
+      "status": "planned"
+    }
+  ]
+}

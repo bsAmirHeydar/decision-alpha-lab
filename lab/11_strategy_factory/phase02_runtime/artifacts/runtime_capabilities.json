@@ -1,0 +1,34 @@
+{
+  "phase": "02",
+  "implemented": [
+    "thin_strategy_host",
+    "runtime_state_machine",
+    "run_modes",
+    "typed_bounded_audit_bus",
+    "lifecycle_ports",
+    "anatomy_provider_port",
+    "feature_provider_port",
+    "result_sink_port",
+    "clock_port",
+    "market_data_port_contract",
+    "symbol_spec_port_contract",
+    "explicit_no_send_execution_boundary",
+    "service_registry",
+    "event_to_snapshot_orchestration",
+    "python_runtime_mirror",
+    "dependency_guard",
+    "self_test_ea"
+  ],
+  "not_implemented": [
+    "real_market_cache",
+    "time_zone_and_dst_kernel",
+    "anatomy_plugin_registry",
+    "candidate_contracts",
+    "outcome_simulator",
+    "risk_engine",
+    "paper_broker",
+    "live_order_send",
+    "onnx_inference",
+    "ui_panel"
+  ]
+}
