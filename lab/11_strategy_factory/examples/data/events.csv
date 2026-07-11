@@ -1,0 +1,5 @@
+event_id,symbol,reference_symbol,direction,event_time_utc,known_time_utc,confirmation_time_utc,reference_price,invalidation_price,timeframe,session,market_event_cluster_id,cycle_group,hunter_symbol,clean_symbol
+EVT001,NQ,ES,long,2026-01-05T14:30:00Z,2026-01-05T14:35:00Z,2026-01-05T14:35:00Z,21000,20980,M5,NY_OPEN,CL001,30m,ES,NQ
+EVT002,NQ,ES,short,2026-01-06T15:00:00Z,2026-01-06T15:05:00Z,2026-01-06T15:05:00Z,21120,21145,M5,NY_OPEN,CL002,45m,NQ,ES
+EVT003,NQ,ES,long,2026-01-07T16:00:00Z,2026-01-07T16:05:00Z,2026-01-07T16:05:00Z,20880,20855,M5,NY_AM,CL003,60m,ES,NQ
+EVT004,NQ,ES,short,2026-01-08T18:00:00Z,2026-01-08T18:05:00Z,2026-01-08T18:05:00Z,21200,21230,M5,NY_PM,CL004,90m,NQ,ES

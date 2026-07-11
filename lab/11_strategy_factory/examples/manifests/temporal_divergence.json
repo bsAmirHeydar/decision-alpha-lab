@@ -1,0 +1,160 @@
+{
+  "strategy": {
+    "id": "EXP0017_temporal_divergence_reference",
+    "version": "0.1.0",
+    "owner": "Decision Alpha Lab",
+    "status": "draft",
+    "thesis": "A time-bounded intermarket divergence followed by causal price confirmation may change the distribution of subsequent expansion.",
+    "null_hypothesis": "Conditioning on the divergence event does not improve net execution outcomes relative to a session-matched confirmation-only baseline.",
+    "kill_criteria": [
+      "No positive cluster-level OOS expectancy after costs",
+      "No uplift versus confirmation-only baseline",
+      "Effect disappears on canonical futures data or a second feed"
+    ]
+  },
+  "anatomy_adapter": {
+    "type": "csv_anatomy",
+    "version": "1.0.0",
+    "known_time_field": "known_time_utc",
+    "event_id_fields": [
+      "symbol",
+      "reference_symbol",
+      "direction",
+      "known_time_utc",
+      "cycle_group",
+      "hunter_symbol",
+      "clean_symbol"
+    ]
+  },
+  "features": {
+    "schema_version": "1.0.0",
+    "shared": [
+      "confirmation_close",
+      "atr",
+      "spread",
+      "realized_volatility",
+      "session_minute",
+      "day_of_week"
+    ],
+    "strategy_specific": [
+      "cycle_group",
+      "reference_age_seconds",
+      "divergence_strength",
+      "hunter_is_primary",
+      "impulse_start",
+      "impulse_end",
+      "reference_extreme",
+      "target_price"
+    ],
+    "forbidden": [
+      "net_r",
+      "mfe_r",
+      "mae_r",
+      "exit_reason",
+      "future_cycle_extreme",
+      "full_day_range"
+    ]
+  },
+  "candidate_universe": {
+    "entries": [
+      "market_on_confirmation",
+      {
+        "id": "retracement_fraction",
+        "parameters": {
+          "retracement_fraction": 0.5
+        }
+      }
+    ],
+    "stops": [
+      "anatomy_invalidation",
+      {
+        "id": "atr_buffered_invalidation",
+        "parameters": {
+          "atr_buffer": 0.2
+        }
+      }
+    ],
+    "exits": [
+      {
+        "id": "fixed_r",
+        "parameters": {
+          "reward_r": 1.5
+        }
+      },
+      {
+        "id": "fixed_r",
+        "parameters": {
+          "reward_r": 2.0
+        }
+      },
+      "time_only"
+    ],
+    "incompatible_policy_triplets": [],
+    "max_candidates_per_event": 12,
+    "explicit_allow_pruning": false,
+    "default_expiration_seconds": 3600,
+    "default_max_holding_seconds": 10800,
+    "cost_model_id": "broker_realistic_v1"
+  },
+  "labels": {
+    "version": "1.0.0",
+    "primary": "label_net_r",
+    "secondary": [
+      "label_trade_positive",
+      "label_target_achieved",
+      "label_tail_achieved",
+      "label_mfe_r",
+      "label_mae_r",
+      "label_holding_seconds"
+    ],
+    "label_horizon": "candidate_exit_or_max_holding",
+    "intrabar_ambiguity": "stop_first"
+  },
+  "validation": {
+    "splitter": "purged_walk_forward",
+    "cluster_key": "market_event_cluster_id",
+    "purge_by_label_end": true,
+    "embargo_seconds": 86400,
+    "minimum_unique_clusters": 200,
+    "anti_overfit_suite": [
+      "cluster_bootstrap",
+      "block_bootstrap",
+      "benjamini_hochberg",
+      "white_reality_check",
+      "deflated_sharpe",
+      "probability_of_backtest_overfitting",
+      "best_trade_removal",
+      "cost_stress",
+      "delayed_entry_stress",
+      "cross_feed_validation",
+      "placebo_pair_test",
+      "session_matched_random_baseline"
+    ]
+  },
+  "models": {
+    "baselines": [
+      "always_trade",
+      "confirmation_only",
+      "single_feature_threshold",
+      "logistic_regression",
+      "ridge_regression"
+    ],
+    "challengers": [
+      "catboost_classifier",
+      "gradient_boosted_regressor",
+      "candidate_ranker"
+    ],
+    "selection_metric": "cluster_level_oos_net_expectancy",
+    "calibration_required": true,
+    "minimum_uplift_over_baseline_r": 0.05
+  },
+  "execution": {
+    "paper_enabled": true,
+    "live_enabled": false,
+    "risk_policy": "micro_research_v1",
+    "broker_adapter": "paper_broker_v1",
+    "model_fallback": "skip",
+    "missing_feature_action": "skip",
+    "maximum_decision_latency_ms": 5000
+  }
+}

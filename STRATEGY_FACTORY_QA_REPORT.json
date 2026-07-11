@@ -1,0 +1,85 @@
+{
+  "automated_checks": {
+    "alpha_lab_policy_validation": {
+      "errors": 0,
+      "passed": true,
+      "warnings": 0
+    },
+    "canonical_doc_frontmatter_audit": {
+      "missing": [],
+      "passed": true
+    },
+    "documentation_heading_audit": {
+      "missing": [],
+      "passed": true
+    },
+    "english_text_audit": {
+      "files_with_arabic_script": [],
+      "passed": true
+    },
+    "markdown_code_fence_audit": {
+      "passed": true,
+      "unbalanced": []
+    },
+    "mql5_static_compatibility": {
+      "errors": 0,
+      "passed": true,
+      "warnings": 0
+    },
+    "obsidian_link_audit": {
+      "broken_links": [],
+      "passed": true
+    },
+    "path_collision_audit": {
+      "collisions": [],
+      "passed": true
+    },
+    "pytest": {
+      "passed": true,
+      "tests_failed": 0,
+      "tests_passed": 20
+    },
+    "python_compileall": {
+      "passed": true
+    },
+    "reference_bar_data_audit": {
+      "passed": true
+    },
+    "reference_end_to_end_pipeline": {
+      "artifact_format": "CSV fallback in QA container",
+      "passed": true
+    },
+    "reference_manifest_validation": {
+      "passed": true
+    },
+    "strategy_scaffold_and_generated_manifest": {
+      "passed": true
+    }
+  },
+  "content_metrics": {
+    "code_lines_python_and_mql5": 4139,
+    "extension_counts_before_metadata": {
+      ".csv": 3,
+      ".json": 4,
+      ".md": 111,
+      ".mqh": 6,
+      ".py": 46,
+      ".txt": 1
+    },
+    "final_file_count_including_manifest_index_hashes": 175,
+    "markdown_files": 111,
+    "markdown_word_count": 21035,
+    "mql5_header_files": 6,
+    "python_files": 46
+  },
+  "generated_utc": "2026-07-11T04:35:07.697056+00:00",
+  "limitations": [
+    "MQL5 headers were statically scanned but not compiled in MetaEditor in this environment.",
+    "The patch intentionally contains no live OrderSend, OrderCheck, or CTrade broker implementation.",
+    "No strategy alpha is claimed; the patch is a reusable research and execution foundation.",
+    "The QA container did not provide pyarrow, so the reference end-to-end run exercised the documented CSV fallback. Official runs should install repository requirements and use Parquet.",
+    "Broker-specific partial-fill, timeout, and account-mode behavior must be validated on the target broker before live promotion."
+  ],
+  "patch_id": "decision-alpha-lab-strategy-factory-deep-v1",
+  "status": "PASS_WITH_EXPLICIT_LIMITATIONS"
+}

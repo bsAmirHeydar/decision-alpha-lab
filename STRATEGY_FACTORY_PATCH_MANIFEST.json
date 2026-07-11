@@ -1,0 +1,45 @@
+{
+  "installation": "INSTALL_STRATEGY_FACTORY_PATCH.md",
+  "invariants": [
+    "No future-derived feature may enter a snapshot.",
+    "Candidate generation is bounded and declared before outcomes.",
+    "Official folds are purged by label horizon and cluster-disjoint.",
+    "Models may select or skip existing candidates but do not define anatomy or risk.",
+    "Hard risk gates remain independent of model confidence.",
+    "No live broker send authority is introduced by this patch."
+  ],
+  "language": "English",
+  "major_components": {
+    "adapter_protocol": "lab/11_strategy_factory/python/strategy_factory/adapters/base.py",
+    "anti_overfit": "lab/11_strategy_factory/python/strategy_factory/anti_overfit.py",
+    "candidate_engine": "lab/11_strategy_factory/python/strategy_factory/candidate_engine.py",
+    "contracts": "lab/11_strategy_factory/python/strategy_factory/contracts.py",
+    "documentation": "docs/strategy_factory",
+    "mql5_contracts": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory",
+    "outcome_simulator": "lab/11_strategy_factory/python/strategy_factory/simulation.py",
+    "paper_and_risk": "lab/11_strategy_factory/python/strategy_factory/execution",
+    "scaffold_generator": "lab/11_strategy_factory/python/strategy_factory/scaffold.py",
+    "schemas": "lab/11_strategy_factory/schemas",
+    "statistics": "lab/11_strategy_factory/python/strategy_factory/statistics.py",
+    "training": "lab/11_strategy_factory/python/strategy_factory/models/training.py"
+  },
+  "patch_id": "decision-alpha-lab-strategy-factory-deep-v1",
+  "primary_entrypoints": [
+    "docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md",
+    "lab/11_strategy_factory/README.md",
+    "lab/11_strategy_factory/sf.py"
+  ],
+  "purpose": "Shared anatomy-to-statistics-to-training-to-paper/live execution Strategy Factory",
+  "qa_summary": {
+    "broken_obsidian_links": 0,
+    "mql5_static_errors": 0,
+    "mql5_static_warnings": 0,
+    "path_collisions": 0,
+    "policy_errors": 0,
+    "policy_warnings": 0,
+    "pytest_passed": 20
+  },
+  "type": "additive-root-relative-repository-patch",
+  "verification": "STRATEGY_FACTORY_QA_REPORT.json",
+  "version": "1.0.0"
+}

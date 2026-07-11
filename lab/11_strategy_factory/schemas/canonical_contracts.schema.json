@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/strategy-factory-contracts-1.0.0.json",
+  "title": "Strategy Factory Canonical Contracts",
+  "$defs": {
+    "utcTimestamp": {"type": "string", "format": "date-time"},
+    "direction": {"enum": ["long", "short", "neutral"]},
+    "anatomyEvent": {
+      "type": "object",
+      "required": [
+        "event_id", "strategy_id", "strategy_version", "symbol", "direction",
+        "event_time_utc", "known_time_utc", "confirmation_time_utc", "reference_price"
+      ],
+      "properties": {
+        "event_id": {"type": "string"},
+        "strategy_id": {"type": "string"},
+        "strategy_version": {"type": "string"},
+        "symbol": {"type": "string"},
+        "reference_symbol": {"type": ["string", "null"]},
+        "direction": {"$ref": "#/$defs/direction"},
+        "event_time_utc": {"$ref": "#/$defs/utcTimestamp"},
+        "known_time_utc": {"$ref": "#/$defs/utcTimestamp"},
+        "confirmation_time_utc": {"$ref": "#/$defs/utcTimestamp"},
+        "reference_price": {"type": "number"},
+        "invalidation_price": {"type": ["number", "null"]},
+        "market_event_cluster_id": {"type": ["string", "null"]},
+        "metadata": {"type": "object"}
+      }
+    },
+    "tradeCandidate": {
+      "type": "object",
+      "required": [
+        "candidate_id", "event_id", "symbol", "direction", "entry_policy_id",
+        "stop_policy_id", "exit_policy_id", "entry_price", "stop_price",
+        "risk_distance", "eligible_from_utc", "expires_at_utc", "cost_model_id"
+      ]
+    },
+    "modelDecision": {
+      "type": "object",
+      "required": [
+        "decision_id", "event_id", "model_id", "model_version", "decision_time_utc",
+        "action", "feature_schema_version", "model_artifact_hash"
+      ]
+    },
+    "executionIntent": {
+      "type": "object",
+      "required": [
+        "intent_id", "event_id", "candidate_id", "symbol", "direction",
+        "entry_price", "stop_price", "volume", "risk_dollars", "expires_at_utc"
+      ]
+    }
+  }
+}

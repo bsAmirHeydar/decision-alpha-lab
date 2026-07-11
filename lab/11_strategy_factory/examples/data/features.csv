@@ -1,0 +1,5 @@
+event_id,confirmation_close,atr,spread,realized_volatility,session_minute,day_of_week,cycle_group,reference_age_seconds,divergence_strength,hunter_is_primary,impulse_start,impulse_end,reference_extreme,target_price
+EVT001,21004,12,1.0,0.004,5,0,30m,300,0.75,0,20990,21010,20980,21060
+EVT002,21116,14,1.2,0.005,35,1,45m,240,0.62,1,21130,21110,21145,21060
+EVT003,20884,11,0.9,0.003,95,2,60m,360,0.81,0,20870,20890,20855,20950
+EVT004,21195,16,1.3,0.006,215,3,90m,420,0.58,1,21210,21190,21230,21120

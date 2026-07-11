@@ -1,0 +1,156 @@
+{
+  "strategy": {
+    "id": "NDS_zone_af_reference",
+    "version": "0.1.0",
+    "owner": "Decision Alpha Lab",
+    "status": "draft",
+    "thesis": "A mechanically identified NDS zone with explicit structural invalidation may offer convex execution when refined by lower-timeframe anatomy.",
+    "null_hypothesis": "NDS zone candidates do not outperform location- and volatility-matched random zones after costs.",
+    "kill_criteria": [
+      "Zone identity cannot be reproduced without discretionary relabeling",
+      "No positive OOS expectancy after child-zone and cost constraints",
+      "Outcome is explained entirely by generic trend or volatility features"
+    ]
+  },
+  "anatomy_adapter": {
+    "type": "nds_zone_adapter",
+    "version": "0.1.0",
+    "known_time_field": "zone_known_time_utc",
+    "event_id_fields": [
+      "symbol",
+      "timeframe",
+      "zone_id",
+      "zone_known_time_utc",
+      "zone_source_family"
+    ]
+  },
+  "features": {
+    "schema_version": "1.0.0",
+    "shared": [
+      "confirmation_close",
+      "atr",
+      "spread",
+      "realized_volatility",
+      "session_minute",
+      "day_of_week"
+    ],
+    "strategy_specific": [
+      "zone_source_family",
+      "zone_width_atr",
+      "parent_zone_id_hash",
+      "child_zone_count",
+      "hook_family",
+      "f_count",
+      "free_path_atr",
+      "opposing_structure_distance_atr",
+      "reference_extreme",
+      "target_price"
+    ],
+    "forbidden": [
+      "future_validity_state",
+      "eventual_zone_reaction",
+      "net_r",
+      "mfe_r",
+      "mae_r"
+    ]
+  },
+  "candidate_universe": {
+    "entries": [
+      "reference_limit",
+      {
+        "id": "retracement_fraction",
+        "parameters": {
+          "retracement_fraction": 0.5
+        }
+      }
+    ],
+    "stops": [
+      "anatomy_invalidation",
+      {
+        "id": "atr_buffered_invalidation",
+        "parameters": {
+          "atr_buffer": 0.15
+        }
+      }
+    ],
+    "exits": [
+      {
+        "id": "fixed_r",
+        "parameters": {
+          "reward_r": 2.0
+        }
+      },
+      {
+        "id": "fixed_r",
+        "parameters": {
+          "reward_r": 4.0
+        }
+      },
+      "explicit_target"
+    ],
+    "incompatible_policy_triplets": [],
+    "max_candidates_per_event": 12,
+    "explicit_allow_pruning": false,
+    "default_expiration_seconds": 21600,
+    "default_max_holding_seconds": 86400,
+    "cost_model_id": "broker_realistic_v1"
+  },
+  "labels": {
+    "version": "1.0.0",
+    "primary": "label_net_r",
+    "secondary": [
+      "label_trade_positive",
+      "label_target_achieved",
+      "label_tail_achieved",
+      "label_mfe_r",
+      "label_mae_r"
+    ],
+    "label_horizon": "candidate_exit_or_max_holding",
+    "intrabar_ambiguity": "stop_first"
+  },
+  "validation": {
+    "splitter": "purged_walk_forward",
+    "cluster_key": "market_event_cluster_id",
+    "purge_by_label_end": true,
+    "embargo_seconds": 86400,
+    "minimum_unique_clusters": 200,
+    "anti_overfit_suite": [
+      "cluster_bootstrap",
+      "benjamini_hochberg",
+      "white_reality_check",
+      "deflated_sharpe",
+      "probability_of_backtest_overfitting",
+      "best_trade_removal",
+      "cost_stress",
+      "delayed_entry_stress",
+      "matched_random_zone_baseline",
+      "definition_reproducibility_audit"
+    ]
+  },
+  "models": {
+    "baselines": [
+      "always_trade",
+      "zone_only",
+      "single_feature_threshold",
+      "logistic_regression",
+      "ridge_regression"
+    ],
+    "challengers": [
+      "catboost_classifier",
+      "gradient_boosted_regressor",
+      "candidate_ranker"
+    ],
+    "selection_metric": "cluster_level_oos_net_expectancy",
+    "calibration_required": true,
+    "minimum_uplift_over_baseline_r": 0.05
+  },
+  "execution": {
+    "paper_enabled": true,
+    "live_enabled": false,
+    "risk_policy": "micro_research_v1",
+    "broker_adapter": "paper_broker_v1",
+    "model_fallback": "skip",
+    "missing_feature_action": "skip",
+    "maximum_decision_latency_ms": 5000
+  }
+}
