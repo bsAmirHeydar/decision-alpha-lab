@@ -1,0 +1,11 @@
+module,language,responsibility,classification
+SF03_TimeKernel.mqh,MQL5,Clock and timezone authority,Core market service
+SF03_SessionSchedule.mqh,MQL5,Data-driven session resolution,Core market service
+SF03_TickCache.mqh,MQL5,Bounded latest-tick cache,Core market service
+SF03_BarCache.mqh,MQL5,Closed-bar series cache and gap state,Core market service
+SF03_NewBarTracker.mqh,MQL5,Canonical new-bar identity,Core market service
+SF03_MultiSymbolSync.mqh,MQL5,Cross-symbol close-time readiness,Core market service
+SF03_TerminalMarketSource.mqh,MQL5,Only terminal API boundary,Adapter
+SF03_SymbolSpecCache.mqh,MQL5,Specification generation and cache,Core market service
+SF03_MarketDataService.mqh,MQL5,Market data port implementation,Core market service
+strategy_factory_market,Python,Offline conformance mirror,Research support

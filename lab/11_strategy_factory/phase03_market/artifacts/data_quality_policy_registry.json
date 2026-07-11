@@ -1,0 +1,33 @@
+{
+  "default_policy": "FAIL_CLOSED",
+  "missing_bar_policies": {
+    "FAIL_CLOSED": {
+      "live": "abstain",
+      "paper": "abstain",
+      "research": "reject causal decision; emit audit"
+    },
+    "FORWARD_FILL_CONTEXT_ONLY": {
+      "live": "not authorized",
+      "paper": "not authorized",
+      "research": "deferred; never valid for price or outcome geometry"
+    },
+    "IGNORE_WITH_AUDIT": {
+      "live": "not authorized",
+      "paper": "not authorized",
+      "research": "diagnostic only"
+    },
+    "MARK_GAPPED": {
+      "live": "not authorized",
+      "paper": "not authorized",
+      "research": "allowed only for data-quality analysis"
+    }
+  },
+  "qualities": {
+    "DESYNCHRONIZED": "Required symbols do not satisfy close-time alignment.",
+    "GAPPED": "Closed-bar continuity is broken. Strategy-specific override is not allowed in V1.",
+    "INVALID": "Contract or geometry validation failed.",
+    "MISSING": "Required source or series is absent. Decision use prohibited.",
+    "STALE": "Observed state exceeded configured age. Decision use prohibited.",
+    "VALID": "Usable without qualification."
+  }
+}

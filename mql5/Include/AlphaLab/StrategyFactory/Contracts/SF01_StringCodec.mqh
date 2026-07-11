@@ -65,4 +65,20 @@ bool SF01_IsSafeIdentifier(const string value, const int max_length = 128)
    return true;
 }
 
+// Terminal symbols are broker transport identifiers, not schema identifiers.
+// Common MT5 symbols include #US30, NQ.cash, ES-m, GOLD@, and similar forms.
+bool SF01_IsSafeTerminalSymbol(const string value, const int max_length = 64)
+{
+   const int count = StringLen(value);
+   if(count <= 0 || count > max_length) return false;
+   if(!SF01_IsAscii(value)) return false;
+   for(int i = 0; i < count; i++)
+   {
+      const int c = StringGetCharacter(value, i);
+      if(c <= 32 || c == '|' || c == ',' || c == ';' || c == '"' || c == '\\')
+         return false;
+   }
+   return true;
+}
+
 #endif

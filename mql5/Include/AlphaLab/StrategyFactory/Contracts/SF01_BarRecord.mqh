@@ -40,7 +40,7 @@ string SF01_BarId(const SF01_BarRecord &value)
 bool SF01_ValidateBarRecord(const SF01_BarRecord &value, string &error)
 {
    if(!SF01_ValidateSchemaIdentity(value.schema, error)) return false;
-   if(!SF01_IsSafeIdentifier(value.symbol, 64)) { error = "invalid symbol"; return false; }
+   if(!SF01_IsSafeTerminalSymbol(value.symbol, 64)) { error = "invalid symbol"; return false; }
    if(value.timeframe_seconds <= 0) { error = "timeframe_seconds must be positive"; return false; }
    if(!SF01_ValidateTimestamp(value.open_time, error)) return false;
    if(!SF01_ValidateTimestamp(value.close_time, error)) return false;

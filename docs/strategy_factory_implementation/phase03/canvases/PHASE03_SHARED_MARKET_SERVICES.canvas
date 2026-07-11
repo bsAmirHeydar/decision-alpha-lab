@@ -1,0 +1,125 @@
+{
+  "edges": [
+    {
+      "fromNode": "terminal",
+      "fromSide": "right",
+      "id": "e1",
+      "toNode": "source",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "clock",
+      "fromSide": "top",
+      "id": "e2",
+      "toNode": "source",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "source",
+      "fromSide": "right",
+      "id": "e3",
+      "toNode": "cache",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cache",
+      "fromSide": "bottom",
+      "id": "e4",
+      "toNode": "sync",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "source",
+      "fromSide": "right",
+      "id": "e5",
+      "toNode": "spec",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cache",
+      "fromSide": "right",
+      "id": "e6",
+      "toNode": "plugin",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "sync",
+      "fromSide": "right",
+      "id": "e7",
+      "toNode": "plugin",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "spec",
+      "fromSide": "right",
+      "id": "e8",
+      "toNode": "plugin",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 80,
+      "id": "terminal",
+      "text": "MetaTrader Terminal",
+      "type": "text",
+      "width": 220,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "source",
+      "text": "Terminal Market Source\\nsole terminal API boundary",
+      "type": "text",
+      "width": 260,
+      "x": 300,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "clock",
+      "text": "Time Kernel\\nUTC / broker / New York DST",
+      "type": "text",
+      "width": 260,
+      "x": 300,
+      "y": 180
+    },
+    {
+      "height": 120,
+      "id": "cache",
+      "text": "Tick + Closed Bar Caches\\ngap / stale / generation",
+      "type": "text",
+      "width": 280,
+      "x": 650,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "sync",
+      "text": "Multi-Symbol Synchronizer",
+      "type": "text",
+      "width": 280,
+      "x": 650,
+      "y": 180
+    },
+    {
+      "height": 80,
+      "id": "spec",
+      "text": "Symbol Specification Cache",
+      "type": "text",
+      "width": 280,
+      "x": 650,
+      "y": 300
+    },
+    {
+      "height": 110,
+      "id": "plugin",
+      "text": "Phase 04 Plugin SDK\\n(no legacy integration yet)",
+      "type": "text",
+      "width": 300,
+      "x": 1040,
+      "y": 100
+    }
+  ]
+}

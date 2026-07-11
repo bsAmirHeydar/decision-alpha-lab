@@ -1,0 +1,42 @@
+{
+  "acceptance_status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "artifact": "decision-alpha-lab-strategy-factory-phase03-shared-market-services",
+  "generated_at_utc": "2026-07-11T07:58:06.562840+00:00",
+  "known_limitations": [
+    "MetaEditor is unavailable in the build environment.",
+    "Historical interval-based broker UTC-offset calendars are deferred.",
+    "Exchange holidays and early closes are deferred.",
+    "Legacy strategy engines are intentionally not integrated in this phase."
+  ],
+  "metrics": {
+    "files_pre_metadata": 104,
+    "final_patch_files": 108,
+    "markdown_files": 51,
+    "markdown_words": 7866,
+    "mql5_files": 23,
+    "mql5_lines": 2013,
+    "python_files": 20,
+    "python_lines": 1142
+  },
+  "phase": "PHASE_03",
+  "results": {
+    "combined_phase01_to_phase03_pytest": {
+      "status": "PASS",
+      "tests": 68
+    },
+    "live_order_authority_findings": 0,
+    "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+    "mql5_brace_balance_static": "PASS",
+    "mql5_include_resolution_static": "PASS",
+    "obsidian_broken_links": 0,
+    "phase03_pytest": {
+      "status": "PASS",
+      "tests": 33
+    },
+    "python_compileall": "PASS",
+    "sf03_boundary_guard": "PASS",
+    "terminal_self_test": "PENDING_AFTER_LOCAL_COMPILE",
+    "zip_integrity": "PASS"
+  },
+  "scope": "Central MQL5-first shared market, time, synchronization, and symbol services; no legacy anatomy integration"
+}

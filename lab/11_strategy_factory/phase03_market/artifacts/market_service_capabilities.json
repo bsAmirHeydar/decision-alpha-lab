@@ -1,0 +1,84 @@
+{
+  "capabilities": [
+    {
+      "id": "clock.utc",
+      "owner": "CSF03TimeKernel",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "clock.broker_mapping",
+      "owner": "CSF03TimeKernel",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "clock.new_york_dst",
+      "owner": "CSF03TimeKernel",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "time.trading_day",
+      "owner": "CSF03TimeKernel",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "time.sessions",
+      "owner": "CSF03SessionSchedule",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.tick_cache",
+      "owner": "CSF03TickCache",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.closed_bar_cache",
+      "owner": "CSF03BarCache",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.new_bar_identity",
+      "owner": "CSF03NewBarTracker",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.multi_symbol_sync",
+      "owner": "CSF03MultiSymbolSynchronizer",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.terminal_source",
+      "owner": "CSF03TerminalMarketSource",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.symbol_spec_cache",
+      "owner": "CSF03SymbolSpecCache",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "market.telemetry",
+      "owner": "CSF03MarketTelemetry",
+      "runtime": "MQL5",
+      "status": "implemented"
+    },
+    {
+      "id": "research.python_mirror",
+      "owner": "strategy_factory_market",
+      "runtime": "Python",
+      "status": "implemented"
+    }
+  ],
+  "phase": "PHASE_03",
+  "status": "IMPLEMENTED_STATIC_VALIDATION_PENDING_METAEDITOR"
+}

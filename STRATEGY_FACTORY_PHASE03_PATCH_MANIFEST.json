@@ -1,0 +1,36 @@
+{
+  "artifact_id": "strategy_factory_phase03_shared_market_services",
+  "authority": {
+    "MQL5": [
+      "market truth",
+      "time truth",
+      "session truth",
+      "synchronization truth",
+      "symbol specification truth"
+    ],
+    "Python": [
+      "offline conformance",
+      "fixtures",
+      "research validation"
+    ]
+  },
+  "combined_tests": 68,
+  "file_count": 108,
+  "legacy_strategy_integration": false,
+  "metaeditor_compile": "pending local run",
+  "patch_type": "additive_with_phase01_compatibility_hotfix",
+  "phase": "PHASE_03",
+  "phase03_tests": 33,
+  "prerequisites": [
+    "Strategy Factory Phase 01 installed",
+    "Strategy Factory Phase 02 installed"
+  ],
+  "primary_entry_points": [
+    "mql5/Include/AlphaLab/StrategyFactory/Market/SF03_AllMarket.mqh",
+    "mql5/Experts/StrategyFactoryTests/SF03_MarketServicesSelfTest.mq5",
+    "mql5/Experts/StrategyFactory/SF03_MarketServicesDiagnostic.mq5",
+    "docs/strategy_factory_implementation/phase03/00_PHASE_03_MOC.md"
+  ],
+  "version": "1.0.0",
+  "zip_integrity": "PASS"
+}

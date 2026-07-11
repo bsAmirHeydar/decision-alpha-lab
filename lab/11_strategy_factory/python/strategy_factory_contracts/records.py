@@ -6,7 +6,7 @@ from .hashing import stable_id
 from .registry import default_registry
 from .schema import SchemaIdentity
 from .time import MarketTimestamp
-from .validation import ContractValidationError, require, validate_finite, validate_safe_identifier
+from .validation import ContractValidationError, require, validate_finite, validate_safe_identifier, validate_terminal_symbol
 
 REGISTRY = default_registry()
 
@@ -33,7 +33,7 @@ class BarRecord:
     schema: SchemaIdentity = field(default_factory=lambda: REGISTRY.get("bar_record"))
 
     def __post_init__(self) -> None:
-        validate_safe_identifier(self.symbol, "symbol", 64)
+        validate_terminal_symbol(self.symbol, "symbol", 64)
         require(self.timeframe_seconds > 0, "timeframe_seconds must be positive")
         require(self.open_time < self.close_time, "bar close must be after open")
         for name, value in (("open", self.open_price), ("high", self.high_price),
@@ -84,10 +84,11 @@ class AnatomyEvent:
     def __post_init__(self) -> None:
         for field_name, value in (("strategy_id", self.strategy_id), ("strategy_version", self.strategy_version),
                                   ("producer_id", self.producer_id), ("producer_version", self.producer_version),
-                                  ("symbol", self.symbol), ("market_event_cluster_id", self.market_event_cluster_id),
+                                  ("market_event_cluster_id", self.market_event_cluster_id),
                                   ("source_hash", self.source_hash)):
             validate_safe_identifier(value, field_name)
-        validate_safe_identifier(self.reference_symbol, "reference_symbol", 64, allow_empty=True)
+        validate_terminal_symbol(self.symbol, "symbol", 64)
+        validate_terminal_symbol(self.reference_symbol, "reference_symbol", 64, allow_empty=True)
         validate_safe_identifier(self.session_id, "session_id", 128, allow_empty=True)
         validate_safe_identifier(self.parent_event_id, "parent_event_id", 128, allow_empty=True)
         validate_safe_identifier(self.anatomy_state, "anatomy_state", 128, allow_empty=True)

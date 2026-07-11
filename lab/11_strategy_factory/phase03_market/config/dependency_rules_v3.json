@@ -1,0 +1,74 @@
+{
+  "authority": {
+    "market_truth": "MQL5",
+    "python_role": "offline conformance and research mirror",
+    "symbol_spec_truth": "MQL5",
+    "time_truth": "MQL5"
+  },
+  "forbidden_authority_tokens": [
+    "OrderSend(",
+    "OrderCheck(",
+    "CTrade",
+    "PositionOpen("
+  ],
+  "forbidden_dependencies": [
+    {
+      "from": "Market",
+      "to": "Anatomy"
+    },
+    {
+      "from": "Market",
+      "to": "Candidate"
+    },
+    {
+      "from": "Market",
+      "to": "Risk"
+    },
+    {
+      "from": "Market",
+      "to": "Execution"
+    },
+    {
+      "from": "Contracts",
+      "to": "Market"
+    }
+  ],
+  "layers": {
+    "Contracts": [
+      "Contracts"
+    ],
+    "Core": [
+      "Contracts",
+      "Core"
+    ],
+    "Market": [
+      "Contracts",
+      "Core",
+      "Ports",
+      "Market"
+    ],
+    "Ports": [
+      "Contracts",
+      "Core",
+      "Ports"
+    ],
+    "Testing": [
+      "Contracts",
+      "Core",
+      "Ports",
+      "Market",
+      "Testing"
+    ]
+  },
+  "phase": "PHASE_03",
+  "terminal_api_boundary": {
+    "owner": "mql5/Include/AlphaLab/StrategyFactory/Market/SF03_TerminalMarketSource.mqh",
+    "tokens": [
+      "CopyRates(",
+      "SymbolInfoTick(",
+      "SymbolInfoDouble(",
+      "SymbolInfoInteger(",
+      "SymbolSelect("
+    ]
+  }
+}

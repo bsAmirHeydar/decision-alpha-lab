@@ -1,0 +1,19 @@
+#ifndef __SF03_ALL_MARKET_MQH__
+#define __SF03_ALL_MARKET_MQH__
+#include "SF03_MarketVersion.mqh"
+#include "SF03_MarketEnums.mqh"
+#include "SF03_MarketTypes.mqh"
+#include "SF03_TimeMath.mqh"
+#include "SF03_TimeKernel.mqh"
+#include "SF03_SessionSchedule.mqh"
+#include "SF03_MarketTelemetry.mqh"
+#include "SF03_TickCache.mqh"
+#include "SF03_BarCache.mqh"
+#include "SF03_NewBarTracker.mqh"
+#include "SF03_MultiSymbolSync.mqh"
+#include "ISF03_MarketSource.mqh"
+#include "SF03_TerminalMarketSource.mqh"
+#include "SF03_SymbolSpecCache.mqh"
+#include "SF03_MarketDataService.mqh"
+#include "SF03_MarketServiceBundle.mqh"
+#endif

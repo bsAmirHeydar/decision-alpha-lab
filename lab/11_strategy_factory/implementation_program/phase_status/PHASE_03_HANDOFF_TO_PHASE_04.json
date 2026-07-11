@@ -1,0 +1,21 @@
+{
+  "constraint": "Do not integrate legacy strategy code yet.",
+  "from": "PHASE_03",
+  "inputs": [
+    "MQL5-first canonical contracts",
+    "runtime host and lifecycle",
+    "shared market/time/symbol services",
+    "terminal API boundary",
+    "Python conformance mirrors"
+  ],
+  "next_title": "Static Plugin Registry and Anatomy Adapter SDK",
+  "required_outputs": [
+    "compile-time plugin descriptor",
+    "capability declaration and validation",
+    "anatomy adapter interface refinement",
+    "bounded event queue",
+    "fixture anatomy plugin",
+    "plugin self-test harness"
+  ],
+  "to": "PHASE_04"
+}

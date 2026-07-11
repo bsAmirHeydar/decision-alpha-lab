@@ -53,8 +53,8 @@ bool SF01_ValidateAnatomyEvent(const SF01_AnatomyEvent &value, string &error)
    if(!SF01_IsSafeIdentifier(value.strategy_version)) { error = "invalid strategy_version"; return false; }
    if(!SF01_IsSafeIdentifier(value.producer_id)) { error = "invalid producer_id"; return false; }
    if(!SF01_IsSafeIdentifier(value.producer_version)) { error = "invalid producer_version"; return false; }
-   if(!SF01_IsSafeIdentifier(value.symbol, 64)) { error = "invalid symbol"; return false; }
-   if(value.reference_symbol != "" && !SF01_IsSafeIdentifier(value.reference_symbol, 64))
+   if(!SF01_IsSafeTerminalSymbol(value.symbol, 64)) { error = "invalid symbol"; return false; }
+   if(value.reference_symbol != "" && !SF01_IsSafeTerminalSymbol(value.reference_symbol, 64))
    { error = "invalid reference_symbol"; return false; }
    if(value.direction == SF01_DIRECTION_NONE) { error = "direction cannot be NONE"; return false; }
    if(!SF01_ValidateTimestamp(value.event_time, error)) return false;

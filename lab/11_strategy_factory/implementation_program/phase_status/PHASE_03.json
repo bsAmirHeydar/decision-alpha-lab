@@ -1,0 +1,31 @@
+{
+  "authority": {
+    "MQL5": [
+      "market_truth",
+      "time_truth",
+      "symbol_spec_truth"
+    ],
+    "Python": [
+      "conformance",
+      "offline_research"
+    ]
+  },
+  "automated_evidence": {
+    "boundary_guard": "PASS",
+    "combined_phase01_phase02_phase03_tests": "68 passed",
+    "mql5_brace_balance": "PASS",
+    "mql5_include_resolution": "PASS",
+    "obsidian_broken_links": 0,
+    "phase03_tests": "33 passed",
+    "python_compileall": "PASS"
+  },
+  "implementation_principle": "Central engine first; no legacy anatomy integration",
+  "manual_gate": [
+    "MetaEditor compile with 0 errors",
+    "SF03_MarketServicesSelfTest returns INIT_SUCCEEDED",
+    "diagnostic run on at least two broker symbols"
+  ],
+  "phase_id": "PHASE_03",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "title": "Shared Market, Time, Synchronization and Symbol Services"
+}
