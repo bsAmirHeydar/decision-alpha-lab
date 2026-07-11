@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "PHASE_00",
+  "required_roots": ["lab", "docs"],
+  "ignored_directories": [".git", "__pycache__", "node_modules"],
+  "capital_authority_tokens": [
+    "OrderSend(",
+    "OrderCheck(",
+    "CTrade",
+    "mt5.order_send(",
+    "mt5.order_check("
+  ],
+  "migration_actions": [
+    "REUSE_AS_IS",
+    "ADAPT",
+    "WRAP",
+    "MIGRATE",
+    "DEPRECATE",
+    "DELETE_LATER",
+    "REVIEW"
+  ]
+}

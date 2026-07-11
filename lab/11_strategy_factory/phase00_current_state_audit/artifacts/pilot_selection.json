@@ -1,0 +1,11 @@
+{
+  "constraint": "EXP0017 and NDS are absent from this uploaded archive; they cannot be selected as code pilots until supplied.",
+  "next_phase_consumers": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_06",
+    "PHASE_10"
+  ],
+  "selected_pilot": "CP0001_STRUCTURAL_NODES_M0001_RTV",
+  "selection_reason": "It is the only implemented anatomy-to-metric path in the audited snapshot and exercises data, anatomy, persistence, and outcomes."
+}

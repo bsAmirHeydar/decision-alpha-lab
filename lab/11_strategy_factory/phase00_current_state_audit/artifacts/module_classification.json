@@ -1,0 +1,221 @@
+[
+  {
+    "action": "REUSE_AS_IS",
+    "capability": "research_governance_and_architecture",
+    "current_owner": "repository_docs",
+    "evidence": [
+      "docs/architecture.md",
+      "docs/laboratory_architecture.md",
+      "docs/research-roadmap.md"
+    ],
+    "module_id": "MOD-DOC-001",
+    "path_prefix": "docs/",
+    "reason": "Core research/execution separation and laboratory governance are compatible with Strategy Factory.",
+    "risk": "LOW",
+    "target_owner": "shared_governance"
+  },
+  {
+    "action": "ADAPT",
+    "capability": "market_data_connector",
+    "current_owner": "CP0000",
+    "evidence": [
+      "MT5Connector.py"
+    ],
+    "module_id": "MOD-DATA-001",
+    "path_prefix": "lab/core/CP0000_market_data/connectors/",
+    "reason": "Reusable MT5 ingestion exists, but timezone, dependency injection, retry, and schema contracts are implicit.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.data_connectors"
+  },
+  {
+    "action": "WRAP",
+    "capability": "market_data_service",
+    "current_owner": "CP0000",
+    "evidence": [
+      "MarketDataEngine.py"
+    ],
+    "module_id": "MOD-DATA-002",
+    "path_prefix": "lab/core/CP0000_market_data/services/",
+    "reason": "MarketDataEngine has reusable shift-style accessors and cache synchronization; preserve behind a canonical data interface.",
+    "risk": "MEDIUM",
+    "target_owner": "strategy_factory.market_data"
+  },
+  {
+    "action": "ADAPT",
+    "capability": "parquet_persistence",
+    "current_owner": "CP0000",
+    "evidence": [
+      "ParquetStore.py"
+    ],
+    "module_id": "MOD-DATA-003",
+    "path_prefix": "lab/core/CP0000_market_data/cache/",
+    "reason": "Persistence is useful but currently path-coupled and lacks artifact identity, locking, schema version, and atomic writes.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.artifacts"
+  },
+  {
+    "action": "WRAP",
+    "capability": "structural_node_anatomy",
+    "current_owner": "CP0001",
+    "evidence": [
+      "L_Rule.py"
+    ],
+    "module_id": "MOD-ANA-001",
+    "path_prefix": "lab/core/CP0001_structural_nodes/detectors/",
+    "reason": "L-rule detector is strategy/anatomy knowledge and must remain outside the shared kernel behind an Anatomy Adapter.",
+    "risk": "MEDIUM",
+    "target_owner": "anatomy_plugins.structural_nodes"
+  },
+  {
+    "action": "WRAP",
+    "capability": "structural_node_metric",
+    "current_owner": "CP0001",
+    "evidence": [
+      "M0001_relative_territory_volatility.py"
+    ],
+    "module_id": "MOD-MET-001",
+    "path_prefix": "lab/core/CP0001_structural_nodes/metrics/",
+    "reason": "RTV metric is reusable research logic but has custom persistence and interface drift; expose through feature/label plugins.",
+    "risk": "HIGH",
+    "target_owner": "feature_plugins.structural_nodes"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "experiment_scaffolding",
+    "current_owner": "legacy_lab",
+    "evidence": [
+      "EXP0000_sample",
+      "EXP0001_structural_highs_lows_importance"
+    ],
+    "module_id": "MOD-EXP-001",
+    "path_prefix": "lab/03_experiments/",
+    "reason": "Experiment directories are mostly empty placeholders; migrate to manifest-driven runs and immutable artifacts.",
+    "risk": "MEDIUM",
+    "target_owner": "strategy_factory.experiments"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "validation_scaffolding",
+    "current_owner": "legacy_lab",
+    "evidence": [
+      "VAL001"
+    ],
+    "module_id": "MOD-VAL-001",
+    "path_prefix": "lab/05_validation/",
+    "reason": "Validation shell has no implementation; replace with shared purged walk-forward and anti-overfit modules.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.validation"
+  },
+  {
+    "action": "ADAPT",
+    "capability": "execution_boundary_scaffolding",
+    "current_owner": "legacy_lab",
+    "evidence": [
+      "bridge",
+      "logging",
+      "mql5"
+    ],
+    "module_id": "MOD-EXE-001",
+    "path_prefix": "lab/09_execution/",
+    "reason": "Execution boundary exists only as empty folders; retain ownership boundary and implement later under explicit authority gates.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.execution"
+  },
+  {
+    "action": "ADAPT",
+    "capability": "research_registry",
+    "current_owner": "repository_registry",
+    "evidence": [
+      "experiments.yaml",
+      "hypotheses.yaml",
+      "signals.yaml",
+      "validations.yaml"
+    ],
+    "module_id": "MOD-REG-001",
+    "path_prefix": "registry/",
+    "reason": "Registry files are empty and unversioned; replace with validated machine-readable registries while preserving public location.",
+    "risk": "MEDIUM",
+    "target_owner": "strategy_factory.registry"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "market_data_cache",
+    "current_owner": "legacy_cache",
+    "evidence": [
+      "GOLD",
+      "#US30"
+    ],
+    "module_id": "MOD-CACHE-001",
+    "path_prefix": "lab/cache_data/",
+    "reason": "Generated market data is committed inside source tree; move under versioned artifact/data storage with provenance.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.artifacts"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "anatomy_cache",
+    "current_owner": "legacy_cache",
+    "evidence": [
+      "L_rule"
+    ],
+    "module_id": "MOD-CACHE-002",
+    "path_prefix": "lab/cache_nodes/",
+    "reason": "Generated node artifacts require source hash, schema version, producer version, and atomic replacement.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.artifacts"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "metric_cache",
+    "current_owner": "legacy_cache",
+    "evidence": [
+      "M0001_relative_territory_volatility"
+    ],
+    "module_id": "MOD-CACHE-003",
+    "path_prefix": "lab/cache_metrics/",
+    "reason": "Generated metric artifacts use a second independent path convention and no canonical run identity.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.artifacts"
+  },
+  {
+    "action": "MIGRATE",
+    "capability": "legacy_test_and_demo_scripts",
+    "current_owner": "core_modules",
+    "evidence": [
+      "test.py",
+      "test_L_Rule.py",
+      "test_M0001_relative_territory_volatility.py"
+    ],
+    "module_id": "MOD-TEST-001",
+    "path_prefix": "lab/core/",
+    "reason": "Manual test scripts depend on live MT5 and are mixed with source; move unit tests to deterministic fixtures and mark integration tests.",
+    "risk": "HIGH",
+    "target_owner": "strategy_factory.tests"
+  },
+  {
+    "action": "DELETE_LATER",
+    "capability": "compiled_python_artifacts",
+    "current_owner": "repository",
+    "evidence": [
+      "*.pyc"
+    ],
+    "module_id": "MOD-EPH-001",
+    "path_prefix": "**/__pycache__",
+    "reason": "Compiled bytecode is ephemeral and must not be version-controlled.",
+    "risk": "LOW",
+    "target_owner": "ignored_artifacts"
+  },
+  {
+    "action": "DELETE_LATER",
+    "capability": "pytest_cache",
+    "current_owner": "repository",
+    "evidence": [
+      ".pytest_cache"
+    ],
+    "module_id": "MOD-EPH-002",
+    "path_prefix": ".pytest_cache/",
+    "reason": "Test cache is ephemeral and must be ignored.",
+    "risk": "LOW",
+    "target_owner": "ignored_artifacts"
+  }
+]

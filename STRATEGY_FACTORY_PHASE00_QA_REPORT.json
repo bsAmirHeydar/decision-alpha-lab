@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "PHASE_00",
+  "patch_version": "1.0.0",
+  "status": "PASS",
+  "payload_file_count": 66,
+  "markdown_file_count": 29,
+  "python_file_count": 21,
+  "python_line_count": 1173,
+  "documentation_word_count": 7693,
+  "phase_tests": {
+    "return_code": 0,
+    "summary": ".............                                                            [100%]\n13 passed in 2.50s"
+  },
+  "compileall": {
+    "return_code": 0,
+    "output": ""
+  },
+  "obsidian_broken_link_count": 0,
+  "obsidian_broken_links": [],
+  "required_artifacts_present": true,
+  "execution_authority_findings_in_audited_snapshot": 0,
+  "live_order_authority_added_by_patch": false,
+  "root_relative_collision_with_audited_snapshot": 0,
+  "reproducibility_check": {
+    "installed_patch_reaudit_file_count": 103,
+    "installed_patch_reaudit_contract_count": 14,
+    "installed_patch_reaudit_authority_findings": 0,
+    "self_exclusion_enabled": true
+  }
+}

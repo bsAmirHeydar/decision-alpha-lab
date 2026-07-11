@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "capabilities": [
+    "research_governance_and_architecture",
+    "market_data_connector",
+    "market_data_service",
+    "parquet_persistence",
+    "structural_node_anatomy",
+    "structural_node_metric",
+    "experiment_scaffolding",
+    "validation_scaffolding",
+    "execution_boundary_scaffolding",
+    "research_registry",
+    "market_data_cache",
+    "anatomy_cache",
+    "metric_cache",
+    "legacy_test_and_demo_scripts"
+  ]
+}

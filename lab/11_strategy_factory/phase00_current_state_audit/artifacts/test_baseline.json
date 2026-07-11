@@ -1,0 +1,27 @@
+{
+  "compileall": {
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "-m",
+      "compileall",
+      "-q",
+      "lab"
+    ],
+    "output": "",
+    "passed": true,
+    "return_code": 0
+  },
+  "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+  "pytest": {
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "output": "==================================== ERRORS ====================================\n__ ERROR collecting lab/core/CP0001_structural_nodes/detectors/test_L_Rule.py __\nImportError while importing test module '/mnt/data/sf_phase00_repo/decision-alpha-lab/lab/core/CP0001_structural_nodes/detectors/test_L_Rule.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nlab/core/CP0001_structural_nodes/detectors/test_L_Rule.py:1: in <module>\n    from lab.core.CP0000_market_data.connectors.MT5Connector import MT5Connector\nlab/core/CP0000_market_data/connectors/MT5Connector.py:6: in <module>\n    import MetaTrader5 as mt5\nE   ModuleNotFoundError: No module named 'MetaTrader5'\n_ ERROR collecting lab/core/CP0001_structural_nodes/metrics/test_M0001_relative_territory_volatility.py _\nImportError while importing test module '/mnt/data/sf_phase00_repo/decision-alpha-lab/lab/core/CP0001_structural_nodes/metrics/test_M0001_relative_territory_volatility.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nlab/core/CP0001_structural_nodes/metrics/test_M0001_relative_territory_volatility.py:1: in <module>\n    from lab.core.CP0000_market_data.connectors.MT5Connector import (\nlab/core/CP0000_market_data/connectors/MT5Connector.py:6: in <module>\n    import MetaTrader5 as mt5\nE   ModuleNotFoundError: No module named 'MetaTrader5'\n=========================== short test summary info ============================\nERROR lab/core/CP0001_structural_nodes/detectors/test_L_Rule.py\nERROR lab/core/CP0001_structural_nodes/metrics/test_M0001_relative_territory_volatility.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 0.21s",
+    "passed": false,
+    "return_code": 2
+  },
+  "python_version": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]"
+}

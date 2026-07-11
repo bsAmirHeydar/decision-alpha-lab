@@ -1,0 +1,150 @@
+[
+  {
+    "category": "capital_safety",
+    "evidence": [
+      "No OrderSend, OrderCheck, CTrade, or mt5.order_send call sites found."
+    ],
+    "impact": "low",
+    "likelihood": "unlikely",
+    "mitigation": "Preserve the no-send boundary through Phase 18 and rescan every release.",
+    "owner_phase": "PHASE_18",
+    "risk_id": "RISK-001",
+    "severity": "INFO",
+    "status": "CONTROLLED",
+    "title": "No live order authority present in audited snapshot"
+  },
+  {
+    "category": "testing",
+    "evidence": [
+      "pytest collection fails with ModuleNotFoundError: No module named 'lab'."
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Create an installable package boundary or test bootstrap in Phase 02; separate live MT5 integration tests.",
+    "owner_phase": "PHASE_02",
+    "risk_id": "RISK-002",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Clean-checkout test collection fails"
+  },
+  {
+    "category": "reproducibility",
+    "evidence": [
+      "lab/cache_data",
+      "lab/cache_nodes",
+      "lab/cache_metrics"
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Move to versioned artifact storage with producer/schema/source hashes and retention policy.",
+    "owner_phase": "PHASE_05",
+    "risk_id": "RISK-003",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Generated market and metric artifacts are committed as source"
+  },
+  {
+    "category": "duplication",
+    "evidence": [
+      "ParquetStore",
+      "LRuleNodeDetector._save_nodes",
+      "M0001RTV._save_cache"
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Consolidate through one ArtifactStore contract; preserve domain serializers as adapters.",
+    "owner_phase": "PHASE_05",
+    "risk_id": "RISK-004",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Three independent persistence conventions"
+  },
+  {
+    "category": "causality",
+    "evidence": [
+      "MT5Connector assigns timezone='terminal' without canonical UTC conversion.",
+      "datetime.now() used for synchronization."
+    ],
+    "impact": "critical",
+    "likelihood": "likely",
+    "mitigation": "Introduce canonical MarketTimestamp and source timezone/DST contract before event generation.",
+    "owner_phase": "PHASE_07",
+    "risk_id": "RISK-005",
+    "severity": "CRITICAL",
+    "status": "OPEN",
+    "title": "Terminal-local and naive timestamps"
+  },
+  {
+    "category": "contract_drift",
+    "evidence": [
+      "M0001RTV requires detector in constructor; legacy test passes L keyword."
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Freeze constructor and dependency contracts in Phase 01; add contract tests.",
+    "owner_phase": "PHASE_01",
+    "risk_id": "RISK-006",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Metric interface drift between implementation and test"
+  },
+  {
+    "category": "governance",
+    "evidence": [
+      "registry/*.yaml are zero bytes.",
+      "validation/production/monitoring directories contain placeholders."
+    ],
+    "impact": "medium",
+    "likelihood": "certain",
+    "mitigation": "Replace placeholders with schema-validated registries and generated run artifacts.",
+    "owner_phase": "PHASE_04",
+    "risk_id": "RISK-007",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "title": "Registries and production/validation shells are empty"
+  },
+  {
+    "category": "test_isolation",
+    "evidence": [
+      "MetaTrader5 imported at module import time.",
+      "Legacy tests call connector.connect()."
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Move vendor import behind adapter boundary; add fake connector and deterministic fixtures.",
+    "owner_phase": "PHASE_06",
+    "risk_id": "RISK-008",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Tests depend on a live MT5 terminal and external package"
+  },
+  {
+    "category": "scope_alignment",
+    "evidence": [
+      "Audited archive contains EXP0000 and EXP0001 only."
+    ],
+    "impact": "high",
+    "likelihood": "certain",
+    "mitigation": "Use this snapshot as foundation audit only; provide the current full repository before Phase 20/21 pilot migration.",
+    "owner_phase": "PHASE_20",
+    "risk_id": "RISK-009",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "title": "Repository snapshot lacks EXP0017 and NDS programs referenced by roadmap"
+  },
+  {
+    "category": "repository_hygiene",
+    "evidence": [
+      "__pycache__ directories",
+      ".pytest_cache"
+    ],
+    "impact": "low",
+    "likelihood": "certain",
+    "mitigation": "Add ignore rules and remove generated runtime files in Phase 02.",
+    "owner_phase": "PHASE_02",
+    "risk_id": "RISK-010",
+    "severity": "LOW",
+    "status": "OPEN",
+    "title": "Python bytecode and pytest cache are tracked in snapshot"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "from_phase": "PHASE_00",
+  "to_phase": "PHASE_01",
+  "handoff_status": "READY",
+  "inputs": [
+    "repository_inventory.json",
+    "module_classification.json",
+    "contract_schema_map.csv",
+    "duplicate_engine_matrix.csv",
+    "execution_authority_scan.csv",
+    "migration_risk_register.json",
+    "pilot_selection.json",
+    "test_baseline.json",
+    "phase00_qa_report.json"
+  ],
+  "binding_constraints": [
+    "No strategy-specific market semantics may enter shared kernel contracts.",
+    "Known-time and source-lineage semantics must be explicit.",
+    "Stable identity may not depend on mutable DataFrame row order.",
+    "Schema major mismatches must fail closed.",
+    "No live order authority may be introduced."
+  ],
+  "legacy_compatibility_targets": [
+    "MT5Connector",
+    "MarketDataEngine",
+    "ParquetStore",
+    "LRuleNodeDetector",
+    "M0001RTV"
+  ]
+}

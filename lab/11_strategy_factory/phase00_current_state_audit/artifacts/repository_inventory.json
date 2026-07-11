@@ -1,0 +1,1032 @@
+[
+  {
+    "category": "ephemeral",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 2,
+    "path": ".pytest_cache/.gitignore",
+    "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+    "size_bytes": 37
+  },
+  {
+    "category": "ephemeral",
+    "extension": ".tag",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 4,
+    "path": ".pytest_cache/CACHEDIR.TAG",
+    "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+    "size_bytes": 191
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 8,
+    "path": ".pytest_cache/README.md",
+    "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+    "size_bytes": 302
+  },
+  {
+    "category": "ephemeral",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 4,
+    "path": ".pytest_cache/v/cache/lastfailed",
+    "sha256": "60313b8b5567176c5a2946c176339a4caf5be80503650bf2dda075ff65613b0c",
+    "size_bytes": 167
+  },
+  {
+    "category": "ephemeral",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 1,
+    "path": ".pytest_cache/v/cache/nodeids",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "size_bytes": 2
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 9,
+    "path": "CODE_OF_CONDUCT.md",
+    "sha256": "614bda3a9a08ac4b42a61c9c74edeb3fbb3a0d1a5493fb4792b793f57c83a8a0",
+    "size_bytes": 232
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 11,
+    "path": "CONTRIBUTING.md",
+    "sha256": "8efdbc876c99c49745cfd1a8589167dee03a2fd91ce5bfc6b799e30df2e111e4",
+    "size_bytes": 314
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 201,
+    "path": "LICENSE",
+    "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+    "size_bytes": 11558
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "data/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 34,
+    "path": "docs/architecture.md",
+    "sha256": "6c97eb16c70babc2ee41c6d7d968e10e397e045e1ffa27373705c0274faed46d",
+    "size_bytes": 586
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 19,
+    "path": "docs/glossary.md",
+    "sha256": "5e48c5ee299b5fd02d3e8e854796b480f22081245232d262e6670806279f98cf",
+    "size_bytes": 478
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 450,
+    "path": "docs/laboratory_architecture.md",
+    "sha256": "dc54902b9eb1b6ec0fd6f4a9c1a38b318faa6918b710c18381af086f6dafbee3",
+    "size_bytes": 7087
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 16,
+    "path": "docs/manifesto.md",
+    "sha256": "520d323b2c55e86e1a6c6604043d6b4f4c63578572f89d64835cf0a1f87123de",
+    "size_bytes": 567
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 10,
+    "path": "docs/principles.md",
+    "sha256": "97607f80b885b10820aeb095efc04a8e4fd3df33fdabddd7cab41b68959f706d",
+    "size_bytes": 416
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 31,
+    "path": "docs/research-roadmap.md",
+    "sha256": "a89368fb3dd9e92cab75ba468719807ad67cda8457d2101f39f41f4f57be1c70",
+    "size_bytes": 734
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 54,
+    "path": "lab/01_observation/OBS0001_structural_highs_lows_importance.md",
+    "sha256": "a207a9b219a5643198d606fae554b2238e61caf2413503d2141576bf68daea2f",
+    "size_bytes": 2301
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 172,
+    "path": "lab/02_hypotheses/H0001_structural_highs_lows_as_decision_nodes.md",
+    "sha256": "669e9f134e99d73eac1e1a08544c2fe860add87a713fc80f2a24e72bad5d6bab",
+    "size_bytes": 4746
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 346,
+    "path": "lab/02_hypotheses/H0002_structural_node_revisitation.md",
+    "sha256": "9adbd74f6da052296c348f12a300a921bcd59ca45a7a84c4e33de4e6cc7e48e0",
+    "size_bytes": 8005
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0000_sample/experiment.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0000_sample/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0000_sample/report.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0001_structural_highs_lows_importance/experiment.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0001_structural_highs_lows_importance/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/03_experiments/EXP0001_structural_highs_lows_importance/report.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/04_analysis/ANL001/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/04_analysis/ANL001/notes.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/05_validation/VAL001/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/05_validation/VAL001/report.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/06_production/SIG001/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/06_production/SIG001/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/07_monitoring/MON001/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/07_monitoring/MON001/metrics.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/08_archive/failed_experiments/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/08_archive/rejected_hypotheses/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/08_archive/retired_signals/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/09_execution/bridge/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/09_execution/logging/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/09_execution/mql5/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/10_infrastructure/ci/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/10_infrastructure/config/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/10_infrastructure/data/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/10_infrastructure/tests/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/10_infrastructure/utils/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_data/#US30/M1/#US30_M1.parquet",
+    "sha256": "77266469084b96f44ed257e09ffe7a941adc0d27ffe673f93a627def6ea7bc8b",
+    "size_bytes": 120596
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_data/#US30/M15/#US30_M15.parquet",
+    "sha256": "fb001db95e9a3252bc0f2403e125c1e5933732f567a7ce5797b08173669e550c",
+    "size_bytes": 175626
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_data/GOLD/M1/GOLD_M1.parquet",
+    "sha256": "ffd082ba38285d14ca9c110d32d05f43e2e42ffff8c75d01af1e8d77ccb4a593",
+    "size_bytes": 168326
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_data/GOLD/M15/GOLD_M15.parquet",
+    "sha256": "30a45e6b68cc840fed59446c190d8ebc614865f48e868f2f3727853e219787f2",
+    "size_bytes": 207030
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_data/GOLD/M15/data.parquet",
+    "sha256": "01874052a7a98e4ba2e94aaf62f7543e99183932c7021b1c9bcee217a951841c",
+    "size_bytes": 25341
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/#US30/M1/#US30_M1_T0.9_G6_hunt.parquet",
+    "sha256": "75089411ef675958128e156c8e071b08ece2db77f750b6d6ee737b3fa1eff877",
+    "size_bytes": 120128
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/#US30/M15/#US30_M15_T0.9_G6_hunt.parquet",
+    "sha256": "168a113e4a07c7c4f8a3aff4b7a10a54ce2c795236ce7e5e7f2be5305308ba61",
+    "size_bytes": 131472
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/GOLD/M1/GOLD_M1_T0.8_G3_hunt.parquet",
+    "sha256": "d29b56a2d6f48fb218526fe0fd8ecabb2ee7ed386378886720e38ca0a81abf11",
+    "size_bytes": 87135
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/GOLD/M1/GOLD_M1_T0.9_G3_hunt.parquet",
+    "sha256": "b2f5def7810da7f2381b8ceb8f629ebd98060c0e726bb6d89fcfe5605bf34955",
+    "size_bytes": 151817
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/GOLD/M1/GOLD_M1_T0.9_G4_hunt.parquet",
+    "sha256": "e404f80577b9f05cf33f873b4cefca3105768aab5604d134673e92588ec8402c",
+    "size_bytes": 145850
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/GOLD/M1/GOLD_M1_T0.9_G6_hunt.parquet",
+    "sha256": "8ed94f72c6349f33d5d26ecd927f8e455badd985c9ab7875af61bbc8b1a494ca",
+    "size_bytes": 139445
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_metrics/M0001_relative_territory_volatility/GOLD/M15/GOLD_M15_T0.8_G3_hunt.parquet",
+    "sha256": "e55c299f99ea38a246709f1a5bf6a75e0dec1555d80051e9bb357871fe622b69",
+    "size_bytes": 155271
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_2/#US30/M1/#US30_M1_L2.parquet",
+    "sha256": "cd1442bd25c08dc3b2b406334684a392a09c09048d995ec942eef1e8e4c7c1ee",
+    "size_bytes": 16514
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_2/#US30/M15/#US30_M15_L2.parquet",
+    "sha256": "f911d2569f7b6b93ed85568affb549259543c42a30b9c6f22a63c00b7df52821",
+    "size_bytes": 20384
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_2/GOLD/M1/GOLD_M1_L2.parquet",
+    "sha256": "e87e9a9d2fcff097a1e97dd5634072601d050bdf9751a5d135e360da15c08fc6",
+    "size_bytes": 20805
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_2/GOLD/M15/GOLD_M15_L2.parquet",
+    "sha256": "a2c164a1293bbf560a7cbadf3fb6134e75a6306a6ff458ceb38f244b6034fde3",
+    "size_bytes": 22116
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_4/GOLD/M15/GOLD_M15_L4.parquet",
+    "sha256": "7a0376cf598592fcd6b8f093a563578f960722144b05ab8dab21c95f4a427e0b",
+    "size_bytes": 13457
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_5/#US30/M15/#US30_M15_L5.parquet",
+    "sha256": "18ad6732ad1e16bd20149f09da76d4043b7842c07a7a193036202b949a4cc599",
+    "size_bytes": 11280
+  },
+  {
+    "category": "generated_or_market_data",
+    "extension": ".parquet",
+    "is_binary": true,
+    "is_empty": false,
+    "line_count": null,
+    "path": "lab/cache_nodes/L_rule/L_5/GOLD/M1/GOLD_M1_L5.parquet",
+    "sha256": "00eb9fb3b67129de991c1a9a64fd7b88ac3838f76f5ac91db0d8a4ea792252f7",
+    "size_bytes": 11095
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_market_data/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 73,
+    "path": "lab/core/CP0000_market_data/cache/ParquetStore.py",
+    "sha256": "b31e5a4188e4deb784a295843c803012f611928e31ab376513f5e5155fbe7185",
+    "size_bytes": 1672
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_market_data/connectors/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 268,
+    "path": "lab/core/CP0000_market_data/connectors/MT5Connector.py",
+    "sha256": "71b4636300860ee44f5f7c5f99c17075b072f1efa80a072916a2291d6564249b",
+    "size_bytes": 6818
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 18,
+    "path": "lab/core/CP0000_market_data/connectors/test.py",
+    "sha256": "8bf224f33c91b8ff2bb748f2d44f3208c2c48a5c2ca13b3c51524e7102750630",
+    "size_bytes": 457
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 21,
+    "path": "lab/core/CP0000_market_data/exceptions.py",
+    "sha256": "2672316fcf7dd16463dd1e07911563593c408142c746ad71e08d43ab55f8d0d8",
+    "size_bytes": 513
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_market_data/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 298,
+    "path": "lab/core/CP0000_market_data/services/MarketDataEngine.py",
+    "sha256": "e88fd624f0cb79bd84eaabbc9c6d87949aa86c41e361efbce18bd2706cded01a",
+    "size_bytes": 7831
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 59,
+    "path": "lab/core/CP0000_market_data/test.py",
+    "sha256": "d3c527c93e8849cbf7571b5b1ab7b95841a4193552c228b7d57e001fddb27759",
+    "size_bytes": 1651
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_market_data/tests/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_market_data/utils/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 30,
+    "path": "lab/core/CP0000_market_data/utils/timeframes.py",
+    "sha256": "92da98a75bbf075df8b5788dc5ccbf5a296c1981c66080ed71d6f3171370cca3",
+    "size_bytes": 717
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/01_extractors/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/02_metrics/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/03_features/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/04_statistics/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/05_validation/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/06_tests/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/07_utils/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0000_sample/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/01_extractors/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/02_metrics/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/03_features/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/04_statistics/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/05_validation/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/06_tests/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "other",
+    "extension": "[none]",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/07_utils/.gitkeep",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/README.md",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 383,
+    "path": "lab/core/CP0001_structural_nodes/detectors/L_Rule.py",
+    "sha256": "816c4bfeceab21abd6a7ff0bf02298ff47765716925b005df874c91541597611",
+    "size_bytes": 9981
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 101,
+    "path": "lab/core/CP0001_structural_nodes/detectors/test_L_Rule.py",
+    "sha256": "dba1998f961fd4cb46c5580efafe9134f89ccf9474fbde23aed412e766053022",
+    "size_bytes": 2449
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "lab/core/CP0001_structural_nodes/metadata.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 832,
+    "path": "lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.md",
+    "sha256": "dbb7bbddfee794322364d839d5dfc6803cf3ec76cff8563dfc22edd6f9a16673",
+    "size_bytes": 9907
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 864,
+    "path": "lab/core/CP0001_structural_nodes/metrics/M0001_relative_territory_volatility.py",
+    "sha256": "a013b785d3f3e77a64067774b53b7900d1128fa099edda8cad09fbb80f7e191e",
+    "size_bytes": 22423
+  },
+  {
+    "category": "python_source",
+    "extension": ".py",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 109,
+    "path": "lab/core/CP0001_structural_nodes/metrics/test_M0001_relative_territory_volatility.py",
+    "sha256": "12f6c66185c51ab30b368fd3ae271a94f7107669108d479755aff9731c7adf43",
+    "size_bytes": 2464
+  },
+  {
+    "category": "documentation",
+    "extension": ".md",
+    "is_binary": false,
+    "is_empty": false,
+    "line_count": 7,
+    "path": "papers/000_intro.md",
+    "sha256": "bba9684f5f104c62a8e07cdc7c54ed7200ca866844474f2367c193639d80aa17",
+    "size_bytes": 477
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "registry/experiments.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "registry/hypotheses.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "registry/signals.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "category": "registry_or_config",
+    "extension": ".yaml",
+    "is_binary": false,
+    "is_empty": true,
+    "line_count": 0,
+    "path": "registry/validations.yaml",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  }
+]

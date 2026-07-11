@@ -1,0 +1,12 @@
+{
+  "authority_finding_count": 0,
+  "contract_count": 14,
+  "duplicate_capability_count": 3,
+  "empty_file_count": 54,
+  "file_count": 103,
+  "module_count": 16,
+  "phase": "PHASE_00",
+  "phase_gate_status": "ACCEPTED_WITH_DEFERRED_REMEDIATIONS",
+  "pytest_passed": false,
+  "risk_count": 10
+}
