@@ -1,0 +1,26 @@
+{
+  "phase_id": "PHASE_07",
+  "title": "Context State, Feature DAG, and Immutable Feature Frames",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "authority": "MQL5_FIRST",
+  "central_engine_only": true,
+  "deliverables": [
+    "feature descriptor contract",
+    "deterministic feature registry",
+    "dependency DAG compiler",
+    "cycle and missing dependency rejection",
+    "bounded context state",
+    "dirty generation propagation",
+    "immutable feature snapshots",
+    "context frame identity",
+    "fixed feature vector schema",
+    "context telemetry",
+    "reference feature pack",
+    "self-test and diagnostic EAs",
+    "Python conformance mirror",
+    "Obsidian implementation canon"
+  ],
+  "no_live_authority": true,
+  "no_legacy_strategy_integration": true,
+  "next_phase": "PHASE_08"
+}

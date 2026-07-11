@@ -1,0 +1,61 @@
+#property strict
+#property version "1.00"
+#property description "Strategy Factory Phase 07 context and feature DAG host"
+#include <AlphaLab\StrategyFactory\Runtime\SF02_AllRuntime.mqh>
+#include <AlphaLab\StrategyFactory\Adapters\Null\SF02_NoSendExecutionBoundary.mqh>
+#include <AlphaLab\StrategyFactory\Market\SF03_AllMarket.mqh>
+#include <AlphaLab\StrategyFactory\Plugins\SF04_AllPlugins.mqh>
+#include <AlphaLab\StrategyFactory\Generation\SF05_AllGeneration.mqh>
+#include <AlphaLab\StrategyFactory\Anatomy\SF06_AllAnatomy.mqh>
+#include <AlphaLab\StrategyFactory\Context\SF07_AllContext.mqh>
+input string InpSymbol="EURUSD";
+input ENUM_TIMEFRAMES InpTimeframe=PERIOD_M1;
+input int InpLookbackBars=64;
+input double InpMinimumPenetrationPoints=1.0;
+input bool InpRequireCloseBackInside=true;
+input int InpTimerPeriodMs=250;
+input int InpBrokerUtcOffsetMinutes=0;
+input string InpRunId="run_sf07_context";
+input long InpGenerationId=1;
+input bool InpUseCommonFiles=false;
+CSF03MarketServiceBundle g_market;
+CSF06ReferenceSweepFactory g_factory;
+CSF04PluginRegistry g_registry;
+CSF04PluginStartupValidator g_validator;
+CSF05GenerationCompiler g_compiler;
+CSF05GenerationManager g_manager;
+CSF02NoSendExecutionBoundary g_execution;
+CSF02StrategyRuntime g_runtime;
+CSF07ContextEngine g_context;
+CSF07FixtureFeaturePack g_feature_pack;
+CSF05JsonlResultSink *g_sink=NULL;
+SF02_RuntimeConfig g_config;
+SF05_RunManifest BuildManifest()
+{
+   SF05_RunManifest m;m.schema="alpha_lab.strategy_factory/run_manifest@1.0.0";m.manifest_id="";m.run_id=InpRunId;m.strategy_id="sf07_reference_context";m.strategy_version="1.0.0";m.run_mode=SF02_MODE_ANATOMY_AUDIT;m.requested_generation_id=InpGenerationId;m.plugin_selection.plugin_id="sf06.reference.sweep_rejection";m.plugin_selection.exact_version="1.0.0";m.plugin_selection.required_capabilities=SF04_CAP_CLOSED_BAR_INPUT|SF04_CAP_DETERMINISTIC|SF04_CAP_EMITS_CLUSTER_ID;m.plugin_selection.expected_descriptor_hash="";m.plugin_configuration_hash=SF01_StableId("cfg",InpSymbol+"|"+IntegerToString(PeriodSeconds(InpTimeframe))+"|"+IntegerToString(InpLookbackBars)+"|"+SF01_CanonicalDouble(InpMinimumPenetrationPoints));m.market_configuration_hash=SF01_StableId("mkt",InpSymbol+"|"+IntegerToString(InpBrokerUtcOffsetMinutes));m.sink_config=SF05_DefaultResultSinkConfig();m.sink_config.file_scope=InpUseCommonFiles?SF05_FILE_COMMON:SF05_FILE_TERMINAL_LOCAL;m.git_commit="git_local";m.build_id="sf07_local";m.environment_id="terminal";m.terminal_instance_id="mt5_local";m.strict_fail_closed=true;m.created_at=SF01_MakeUtcMilliseconds(g_market.Clock().UtcNowMilliseconds(),"UTC",0,"terminal",SF01_TIME_MILLISECONDS);m.manifest_id=SF05_DeriveRunManifestId(m);return m;
+}
+int OnInit()
+{
+   g_config=SF02_DefaultRuntimeConfig();g_config.strategy_id="sf07_reference_context";g_config.strategy_version="1.0.0";g_config.run_id=InpRunId;g_config.generation_id=InpGenerationId;g_config.run_mode=SF02_MODE_ANATOMY_AUDIT;g_config.timer_period_ms=InpTimerPeriodMs;
+   SF03_ClockConfig cc;cc.mode=SF03_CLOCK_SERVER_FIXED_OFFSET;cc.fixed_server_utc_offset_minutes=InpBrokerUtcOffsetMinutes;cc.source_timezone_id="broker_fixed";cc.source_clock_id="terminal";string e="";
+   if(!g_market.Initialize(g_config,cc,e)||!g_market.Start(e)){Print("SF07 market failed: ",e);return INIT_FAILED;}
+   g_factory.Configure(InpSymbol,PeriodSeconds(InpTimeframe),InpLookbackBars,InpMinimumPenetrationPoints,InpRequireCloseBackInside);
+   if(!g_registry.RegisterFactory(&g_factory,e)){Print("SF07 registry failed: ",e);return INIT_FAILED;}
+   g_validator.Bind(g_market.Market(),g_market.Specs(),g_market.Clock());g_compiler.Bind(&g_registry,&g_validator,g_market.Clock(),g_market.Market(),g_market.Specs());
+   SF05_RunManifest manifest=BuildManifest();ISF04AnatomyPlugin *plugin=NULL;SF04_PluginDescriptor descriptor;SF04_StartupValidationReport startup;SF05_RuntimeGenerationRecord generation;SF05_CompilationReport report;
+   if(!g_compiler.Compile(manifest,plugin,descriptor,startup,generation,report,e)){Print("SF07 compile failed: ",e);return INIT_FAILED;}
+   g_sink=new CSF05JsonlResultSink();CSF05GenerationBundle *bundle=new CSF05GenerationBundle();bundle.Adopt(manifest,generation,descriptor,plugin,g_sink,true,true);
+   if(!g_manager.Stage(bundle,e)){Print("SF07 stage failed: ",e);return INIT_FAILED;}
+   SF01_MarketTimestamp now=SF01_MakeUtcMilliseconds(g_market.Clock().UtcNowMilliseconds(),"UTC",0,"terminal",SF01_TIME_MILLISECONDS);
+   if(!g_manager.Activate(now,e)){Print("SF07 activate failed: ",e);return INIT_FAILED;}
+   CSF05GenerationBundle *active=g_manager.Active();if(!g_sink.Configure(manifest,active.Generation(),manifest.sink_config,e)){Print("SF07 sink failed: ",e);return INIT_FAILED;}
+   if(!g_feature_pack.RegisterAll(g_context.Registry(),e)){Print("SF07 feature registration failed: ",e);return INIT_FAILED;}
+   CSF07FeatureVectorSchema vector_schema;if(!g_feature_pack.BuildDefaultVectorSchema(vector_schema,e)||!g_context.ConfigureVectorSchema(vector_schema,e)){Print("SF07 vector schema failed: ",e);return INIT_FAILED;}
+   g_runtime.BindClock(g_market.Clock());g_runtime.BindAnatomy(active.Plugin());g_runtime.BindFeatures(&g_context);g_runtime.BindSink(active.Sink());g_runtime.BindExecutionBoundary(&g_execution);
+   if(!g_runtime.Initialize(g_config,e)||!g_runtime.Start(e)){Print("SF07 runtime failed: ",e);return INIT_FAILED;}
+   if(!EventSetMillisecondTimer(InpTimerPeriodMs)){Print("SF07 timer failed");return INIT_FAILED;}
+   Print("SF07 context engine active generation=",active.Generation().generation_uid," graph=",g_context.Registry().GraphHash());return INIT_SUCCEEDED;
+}
+void OnTick(){string e="";g_market.Market().RefreshTick(InpSymbol,e);MqlTick t;if(g_market.Market().LatestTick(InpSymbol,t,e))g_runtime.OnTick(t,e);}
+void OnTimer(){string e="";g_market.Market().RefreshSeries(InpSymbol,PeriodSeconds(InpTimeframe),InpLookbackBars,e);if(!g_runtime.OnTimer(e)&&e!="")Print("SF07 timer error: ",e);}
+void OnDeinit(const int reason){EventKillTimer();string e="";g_runtime.Stop(e);SF01_MarketTimestamp now=SF01_MakeUtcMilliseconds(g_market.Clock().UtcNowMilliseconds(),"UTC",0,"terminal",SF01_TIME_MILLISECONDS);if(CheckPointer(g_sink)!=POINTER_INVALID)g_sink.Seal(now,e);g_runtime.Shutdown();g_manager.RetireActive(now,e);g_market.Stop();g_market.Shutdown();}

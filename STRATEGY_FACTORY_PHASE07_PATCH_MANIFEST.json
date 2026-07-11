@@ -1,0 +1,43 @@
+{
+  "patch_id": "strategy_factory_phase07_context_feature_dag",
+  "version": "1.0.0",
+  "created": "2026-07-11",
+  "authority": "MQL5_FIRST",
+  "central_engine_only": true,
+  "file_count": 86,
+  "counts_by_extension": {
+    ".md": 38,
+    ".canvas": 1,
+    ".json": 8,
+    ".toml": 1,
+    ".py": 17,
+    ".mq5": 3,
+    ".mqh": 16,
+    ".ps1": 2
+  },
+  "deliverables": [
+    "context feature descriptors",
+    "feature registry",
+    "dependency DAG compiler",
+    "context state store",
+    "fixed feature vectors",
+    "context frames",
+    "telemetry",
+    "fixture feature pack",
+    "MQL5 host and self-test",
+    "Python conformance package",
+    "schemas",
+    "Obsidian documentation",
+    "Phase 08 handoff"
+  ],
+  "requires": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03",
+    "PHASE_04",
+    "PHASE_05",
+    "PHASE_06"
+  ],
+  "no_live_authority": true,
+  "no_legacy_integration": true
+}

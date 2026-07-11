@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/feature_vector_schema@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "fields"
+  ],
+  "properties": {
+    "schema_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature_id",
+          "expected_type",
+          "missing_policy",
+          "default_value"
+        ],
+        "properties": {
+          "feature_id": {
+            "type": "string"
+          },
+          "expected_type": {
+            "enum": [
+              "DOUBLE",
+              "INTEGER",
+              "BOOLEAN",
+              "TIMESTAMP"
+            ]
+          },
+          "missing_policy": {
+            "enum": [
+              "FAIL",
+              "DEFAULT",
+              "ZERO"
+            ]
+          },
+          "default_value": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

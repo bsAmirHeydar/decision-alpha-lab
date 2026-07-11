@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/feature_descriptor@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "feature_id",
+    "feature_version",
+    "owner_id",
+    "value_type",
+    "update_scope",
+    "required",
+    "numeric",
+    "max_age_milliseconds",
+    "dependencies"
+  ],
+  "properties": {
+    "feature_id": {
+      "type": "string"
+    },
+    "feature_version": {
+      "type": "string"
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "value_type": {
+      "enum": [
+        "DOUBLE",
+        "INTEGER",
+        "BOOLEAN",
+        "STRING",
+        "TIMESTAMP"
+      ]
+    },
+    "update_scope": {
+      "enum": [
+        "STATIC",
+        "EVENT",
+        "TICK",
+        "NEW_BAR",
+        "TIMER"
+      ]
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "numeric": {
+      "type": "boolean"
+    },
+    "max_age_milliseconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 16,
+      "uniqueItems": true
+    }
+  }
+}

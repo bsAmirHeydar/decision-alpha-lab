@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/context_frame@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "frame_id",
+    "event_id",
+    "snapshot_id",
+    "graph_hash",
+    "vector_schema_hash",
+    "vector_id",
+    "state_generation",
+    "feature_count",
+    "snapshot_time_utc_ms",
+    "source_hash"
+  ],
+  "properties": {
+    "frame_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "snapshot_id": {
+      "type": "string"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "vector_schema_hash": {
+      "type": "string"
+    },
+    "vector_id": {
+      "type": "string"
+    },
+    "state_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "feature_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "snapshot_time_utc_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_hash": {
+      "type": "string"
+    }
+  }
+}

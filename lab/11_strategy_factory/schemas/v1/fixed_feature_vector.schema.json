@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/fixed_feature_vector@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "vector_id",
+    "event_id",
+    "schema_hash",
+    "state_generation",
+    "feature_ids",
+    "values",
+    "quality"
+  ],
+  "properties": {
+    "vector_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "schema_hash": {
+      "type": "string"
+    },
+    "state_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "feature_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "quality": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

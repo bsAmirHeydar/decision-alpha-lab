@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "event",
+      "type": "text",
+      "text": "Canonical AnatomyEvent",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "dag",
+      "type": "text",
+      "text": "Compiled Feature DAG",
+      "x": 340,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "text": "Bounded Context State",
+      "x": 680,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "snapshot",
+      "type": "text",
+      "text": "Immutable FeatureSnapshot",
+      "x": 1020,
+      "y": 0,
+      "width": 280,
+      "height": 80
+    },
+    {
+      "id": "vector",
+      "type": "text",
+      "text": "Fixed FeatureVector",
+      "x": 1020,
+      "y": 160,
+      "width": 280,
+      "height": 80
+    },
+    {
+      "id": "frame",
+      "type": "text",
+      "text": "ContextFrame Identity",
+      "x": 680,
+      "y": 160,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "python",
+      "type": "text",
+      "text": "Python Conformance Mirror",
+      "x": 340,
+      "y": 160,
+      "width": 260,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "event",
+      "fromSide": "right",
+      "toNode": "dag",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "dag",
+      "fromSide": "right",
+      "toNode": "state",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "state",
+      "fromSide": "right",
+      "toNode": "snapshot",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "snapshot",
+      "fromSide": "bottom",
+      "toNode": "vector",
+      "toSide": "top"
+    },
+    {
+      "id": "e5",
+      "fromNode": "vector",
+      "fromSide": "left",
+      "toNode": "frame",
+      "toSide": "right"
+    },
+    {
+      "id": "e6",
+      "fromNode": "frame",
+      "fromSide": "left",
+      "toNode": "python",
+      "toSide": "right"
+    }
+  ]
+}

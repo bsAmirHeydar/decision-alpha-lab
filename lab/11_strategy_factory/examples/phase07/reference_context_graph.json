@@ -1,0 +1,50 @@
+{
+  "schema": "alpha_lab.strategy_factory/context_graph_manifest@1.0.0",
+  "graph_id": "sf07.reference_context",
+  "graph_version": "1.0.0",
+  "graph_hash": "generated_at_runtime",
+  "features": [
+    "event_direction",
+    "risk_distance",
+    "reference_magnitude",
+    "normalized_risk",
+    "conviction_seed"
+  ],
+  "topological_order": [
+    "event_direction",
+    "reference_magnitude",
+    "risk_distance",
+    "normalized_risk",
+    "conviction_seed"
+  ],
+  "vector_schema": {
+    "schema_id": "sf07.reference_context_vector",
+    "schema_version": "1.0.0",
+    "fields": [
+      {
+        "feature_id": "event_direction",
+        "expected_type": "INTEGER",
+        "missing_policy": "FAIL",
+        "default_value": 0.0
+      },
+      {
+        "feature_id": "risk_distance",
+        "expected_type": "DOUBLE",
+        "missing_policy": "FAIL",
+        "default_value": 0.0
+      },
+      {
+        "feature_id": "normalized_risk",
+        "expected_type": "DOUBLE",
+        "missing_policy": "FAIL",
+        "default_value": 0.0
+      },
+      {
+        "feature_id": "conviction_seed",
+        "expected_type": "DOUBLE",
+        "missing_policy": "FAIL",
+        "default_value": 0.0
+      }
+    ]
+  }
+}

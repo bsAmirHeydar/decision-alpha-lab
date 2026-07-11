@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/context_graph_manifest@1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "graph_id",
+    "graph_version",
+    "graph_hash",
+    "features",
+    "topological_order"
+  ],
+  "properties": {
+    "graph_id": {
+      "type": "string"
+    },
+    "graph_version": {
+      "type": "string"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "topological_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

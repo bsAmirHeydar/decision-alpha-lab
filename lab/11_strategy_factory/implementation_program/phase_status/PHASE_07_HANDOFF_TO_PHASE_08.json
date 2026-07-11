@@ -1,0 +1,14 @@
+{
+  "from": "PHASE_07",
+  "to": "PHASE_08",
+  "next": "Candidate Policy Registry and Deterministic Candidate Matrix",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF07 self-test passes",
+    "feature DAG hash recorded",
+    "fixed vector parity verified",
+    "no legacy coupling",
+    "no live authority"
+  ],
+  "central_engine_only": true
+}

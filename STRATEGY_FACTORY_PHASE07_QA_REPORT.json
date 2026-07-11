@@ -1,0 +1,39 @@
+{
+  "status": "PASS_PENDING_LOCAL_METAEDITOR",
+  "python_and_policy_checks": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q /mnt/data/sf_phase07_verify/lab/11_strategy_factory/python",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase01_contracts /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase02_runtime /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase03_market /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase04_plugins /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase05_generation /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase06_anatomy /mnt/data/sf_phase07_verify/lab/11_strategy_factory/tests/phase07_context",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 54%]\n.............................................................            [100%]\n133 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/sf_phase07_verify/tools/strategy_factory/check_sf07_boundaries.py /mnt/data/sf_phase07_verify",
+      "returncode": 0,
+      "stdout": "SF07 boundary guard: errors=0\n",
+      "stderr": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/sf_phase07_verify/tools/engineering/check_mql5_compatibility.py /mnt/data/sf_phase07_verify",
+      "returncode": 0,
+      "stdout": "MQL5 compatibility scan: errors=0 warnings=0\n",
+      "stderr": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/sf_phase07_verify/tools/engineering/run_engineering_policy.py /mnt/data/sf_phase07_verify",
+      "returncode": 0,
+      "stdout": "\n::group::Repository policy\nRoot: /mnt/data/sf_phase07_verify\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::Obsidian operating system\nVault: /mnt/data/sf_phase07_verify/docs/ai_algorithm_engineering_os\nMarkdown notes: 253\nUnique note IDs: 247\nErrors: 0\nWarnings: 0\n::endgroup::\n\n::group::MQL5 compatibility\nMQL5 compatibility scan: errors=0 warnings=0\n::endgroup::\n\n::group::Repository layout\nRoot: /mnt/data/sf_phase07_verify\nMissing expected directories: 0\n::endgroup::\n\nEngineering Policy Summary\n===========================\nPASS  Repository policy\nPASS  Obsidian operating system\nPASS  MQL5 compatibility\nPASS  Repository layout\n\nAll engineering-policy checks passed.\n",
+      "stderr": ""
+    }
+  ],
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+  "live_order_authority": false,
+  "legacy_strategy_integration": false,
+  "broken_obsidian_links": 0
+}
