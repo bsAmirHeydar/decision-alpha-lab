@@ -1,0 +1,24 @@
+{
+  "authority_model": {
+    "primary": "MQL5",
+    "registry": "machine-readable mirror",
+    "secondary": "Python"
+  },
+  "deliverables": {
+    "golden_vector_sets": 1,
+    "mql5_headers": 14,
+    "mql5_self_tests": 1,
+    "python_modules": 10,
+    "schema_count": 5
+  },
+  "gates": {
+    "live_order_authority": "ABSENT",
+    "metaeditor_compile": "REQUIRED_ON_WINDOWS",
+    "mql5_static_scan": "PASS_EXPECTED",
+    "python_tests": "PASS_EXPECTED"
+  },
+  "name": "MQL5-First Contracts and Schema",
+  "next_phase": "PHASE_02_PACKAGE_SKELETON_AND_BOUNDARIES",
+  "phase_id": "PHASE_01",
+  "status": "IMPLEMENTED_PENDING_LOCAL_METAEDITOR_EVIDENCE"
+}

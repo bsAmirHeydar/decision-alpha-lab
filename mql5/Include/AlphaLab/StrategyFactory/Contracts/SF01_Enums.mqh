@@ -1,0 +1,72 @@
+#ifndef __SF01_ENUMS_MQH__
+#define __SF01_ENUMS_MQH__
+
+enum ENUM_SF01_DIRECTION
+{
+   SF01_DIRECTION_NONE = 0,
+   SF01_DIRECTION_LONG = 1,
+   SF01_DIRECTION_SHORT = -1
+};
+
+enum ENUM_SF01_TIMESTAMP_PRECISION
+{
+   SF01_TIME_SECONDS = 0,
+   SF01_TIME_MILLISECONDS = 1,
+   SF01_TIME_MICROSECONDS = 2
+};
+
+enum ENUM_SF01_FEATURE_TYPE
+{
+   SF01_FEATURE_NULL = 0,
+   SF01_FEATURE_DOUBLE = 1,
+   SF01_FEATURE_INTEGER = 2,
+   SF01_FEATURE_BOOLEAN = 3,
+   SF01_FEATURE_STRING = 4,
+   SF01_FEATURE_TIMESTAMP = 5
+};
+
+enum ENUM_SF01_FEATURE_QUALITY
+{
+   SF01_QUALITY_UNKNOWN = 0,
+   SF01_QUALITY_VALID = 1,
+   SF01_QUALITY_MISSING = 2,
+   SF01_QUALITY_STALE = 3,
+   SF01_QUALITY_INVALID = 4,
+   SF01_QUALITY_ESTIMATED = 5
+};
+
+enum ENUM_SF01_COMPATIBILITY
+{
+   SF01_COMPATIBLE = 0,
+   SF01_COMPATIBLE_WITH_MIGRATION = 1,
+   SF01_INCOMPATIBLE = 2
+};
+
+string SF01_DirectionToString(const ENUM_SF01_DIRECTION value)
+{
+   if(value == SF01_DIRECTION_LONG) return "LONG";
+   if(value == SF01_DIRECTION_SHORT) return "SHORT";
+   return "NONE";
+}
+
+string SF01_FeatureTypeToString(const ENUM_SF01_FEATURE_TYPE value)
+{
+   if(value == SF01_FEATURE_DOUBLE) return "DOUBLE";
+   if(value == SF01_FEATURE_INTEGER) return "INTEGER";
+   if(value == SF01_FEATURE_BOOLEAN) return "BOOLEAN";
+   if(value == SF01_FEATURE_STRING) return "STRING";
+   if(value == SF01_FEATURE_TIMESTAMP) return "TIMESTAMP";
+   return "NULL";
+}
+
+string SF01_FeatureQualityToString(const ENUM_SF01_FEATURE_QUALITY value)
+{
+   if(value == SF01_QUALITY_VALID) return "VALID";
+   if(value == SF01_QUALITY_MISSING) return "MISSING";
+   if(value == SF01_QUALITY_STALE) return "STALE";
+   if(value == SF01_QUALITY_INVALID) return "INVALID";
+   if(value == SF01_QUALITY_ESTIMATED) return "ESTIMATED";
+   return "UNKNOWN";
+}
+
+#endif

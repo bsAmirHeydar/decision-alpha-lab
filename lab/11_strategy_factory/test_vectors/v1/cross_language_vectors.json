@@ -1,0 +1,15 @@
+{
+  "event": {
+    "canonical": "exp0017_temporal_divergence|1.0.0|NQ|ES|LONG|1783771200000|1783771260000|1783771320000|60|none|cluster_20260711_001|sha256_deadbeef",
+    "expected_id": "evt_cd79492563408d2b"
+  },
+  "feature": {
+    "canonical": "divergence_strength|1.0.0|DOUBLE|VALID|1783771260000|0.7500000000|sha256_feature"
+  },
+  "hash_algorithm": "FNV1A64_UTF16LE",
+  "snapshot": {
+    "canonical": "evt_cd79492563408d2b|exp0017_temporal_divergence|1783771320000|mql5.context.exp0017|1.0.0|7|sha256_context|divergence_strength|1.0.0|DOUBLE|VALID|1783771260000|0.7500000000|sha256_feature",
+    "expected_id": "snap_a1483fb0aa370dc5"
+  },
+  "vector_version": "1.0.0"
+}

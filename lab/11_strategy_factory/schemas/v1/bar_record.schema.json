@@ -1,0 +1,22 @@
+{
+  "$id": "alpha_lab.strategy_factory/bar_record@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "bar_id",
+    "symbol",
+    "timeframe_seconds",
+    "open_time",
+    "close_time",
+    "open",
+    "high",
+    "low",
+    "close",
+    "source_id"
+  ],
+  "title": "bar_record",
+  "type": "object",
+  "x-authority": "MQL5_PRIMARY_PYTHON_MIRROR",
+  "x-semver": "1.0.0"
+}

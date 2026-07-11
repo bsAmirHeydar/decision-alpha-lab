@@ -1,0 +1,18 @@
+{
+  "$id": "alpha_lab.strategy_factory/feature_value@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "feature_id",
+    "feature_version",
+    "value_type",
+    "quality",
+    "known_time",
+    "source_hash",
+    "value"
+  ],
+  "title": "feature_value",
+  "type": "object",
+  "x-authority": "MQL5_PRIMARY_PYTHON_MIRROR",
+  "x-semver": "1.0.0"
+}

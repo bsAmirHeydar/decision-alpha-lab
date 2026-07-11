@@ -1,0 +1,13 @@
+{
+  "phase": "PHASE_01",
+  "status": "IMPLEMENTED_PENDING_LOCAL_METAEDITOR_EVIDENCE",
+  "python_tests": 19,
+  "python_tests_status": "PASS",
+  "mql5_static_scan": "PASS",
+  "mql5_static_errors": 0,
+  "mql5_static_warnings": 0,
+  "registry_validation": "PASS",
+  "metaeditor_compile": "PENDING",
+  "strategy_tester_selftest": "PENDING",
+  "live_order_authority": "ABSENT"
+}

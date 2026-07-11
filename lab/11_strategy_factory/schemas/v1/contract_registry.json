@@ -1,0 +1,104 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_MIRROR",
+  "registry_version": "1.0.0",
+  "schemas": [
+    {
+      "mql5_header": "SF01_BarRecord.mqh",
+      "name": "bar_record",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "BarRecord",
+      "required_fields": [
+        "schema",
+        "bar_id",
+        "symbol",
+        "timeframe_seconds",
+        "open_time",
+        "close_time",
+        "open",
+        "high",
+        "low",
+        "close",
+        "source_id"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "SF01_AnatomyEvent.mqh",
+      "name": "anatomy_event",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "AnatomyEvent",
+      "required_fields": [
+        "schema",
+        "event_id",
+        "strategy_id",
+        "strategy_version",
+        "producer_id",
+        "producer_version",
+        "symbol",
+        "direction",
+        "event_time",
+        "known_time",
+        "confirmation_time",
+        "market_event_cluster_id",
+        "source_hash"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "SF01_FeatureValue.mqh",
+      "name": "feature_value",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "FeatureValue",
+      "required_fields": [
+        "feature_id",
+        "feature_version",
+        "value_type",
+        "quality",
+        "known_time",
+        "source_hash",
+        "value"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "SF01_FeatureSnapshot.mqh",
+      "name": "feature_snapshot",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "FeatureSnapshot",
+      "required_fields": [
+        "schema",
+        "snapshot_id",
+        "event_id",
+        "strategy_id",
+        "snapshot_time",
+        "producer_id",
+        "producer_version",
+        "source_hash",
+        "state_generation",
+        "values"
+      ],
+      "version": "1.0.0"
+    },
+    {
+      "mql5_header": "SF01_ArtifactIdentity.mqh",
+      "name": "artifact_identity",
+      "namespace": "alpha_lab.strategy_factory",
+      "python_type": "ArtifactIdentity",
+      "required_fields": [
+        "schema",
+        "artifact_id",
+        "artifact_type",
+        "run_id",
+        "producer_id",
+        "producer_version",
+        "git_commit",
+        "strategy_id",
+        "strategy_version",
+        "manifest_hash",
+        "source_hash",
+        "created_at"
+      ],
+      "version": "1.0.0"
+    }
+  ]
+}

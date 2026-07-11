@@ -1,0 +1,23 @@
+{
+  "$id": "alpha_lab.strategy_factory/artifact_identity@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "artifact_id",
+    "artifact_type",
+    "run_id",
+    "producer_id",
+    "producer_version",
+    "git_commit",
+    "strategy_id",
+    "strategy_version",
+    "manifest_hash",
+    "source_hash",
+    "created_at"
+  ],
+  "title": "artifact_identity",
+  "type": "object",
+  "x-authority": "MQL5_PRIMARY_PYTHON_MIRROR",
+  "x-semver": "1.0.0"
+}

@@ -1,0 +1,55 @@
+{
+  "authority": {
+    "research_secondary": "Python",
+    "runtime_primary": "MQL5"
+  },
+  "checks": {
+    "collision_with_latest_uploaded_repository": 0,
+    "live_order_authority_added": false,
+    "metaeditor_compile": "PENDING_LOCAL_WINDOWS_ENVIRONMENT",
+    "mql5_compatibility_static": {
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "obsidian_broken_links": 0,
+    "pytest": "PASS",
+    "pytest_count": 19,
+    "python_compileall": "PASS",
+    "schema_registry_validation": "PASS",
+    "strategy_tester_selftest": "PENDING_AFTER_METAEDITOR_COMPILE"
+  },
+  "counts": {
+    "documentation_lines": 880,
+    "files_before_packaging_metadata": 108,
+    "json_schemas": 5,
+    "markdown_files": 36,
+    "mql5_headers_and_experts": 15,
+    "mql5_lines": 1048,
+    "python_files": 19,
+    "python_lines": 630
+  },
+  "golden_vectors": {
+    "event": {
+      "canonical": "exp0017_temporal_divergence|1.0.0|NQ|ES|LONG|1783771200000|1783771260000|1783771320000|60|none|cluster_20260711_001|sha256_deadbeef",
+      "expected_id": "evt_cd79492563408d2b"
+    },
+    "feature": {
+      "canonical": "divergence_strength|1.0.0|DOUBLE|VALID|1783771260000|0.7500000000|sha256_feature"
+    },
+    "hash_algorithm": "FNV1A64_UTF16LE",
+    "snapshot": {
+      "canonical": "evt_cd79492563408d2b|exp0017_temporal_divergence|1783771320000|mql5.context.exp0017|1.0.0|7|sha256_context|divergence_strength|1.0.0|DOUBLE|VALID|1783771260000|0.7500000000|sha256_feature",
+      "expected_id": "snap_a1483fb0aa370dc5"
+    },
+    "vector_version": "1.0.0"
+  },
+  "limitations": [
+    "No MetaEditor compiler is available in the build container; compilation is not claimed.",
+    "The provided PowerShell harness must be run against the user's exact terminal build and MQL5 data root.",
+    "Later trade, model, risk, and execution contracts remain owned by later phases."
+  ],
+  "phase_id": "PHASE_01",
+  "phase_name": "MQL5-First Contracts and Schema",
+  "status": "IMPLEMENTED_PENDING_LOCAL_METAEDITOR_EVIDENCE"
+}

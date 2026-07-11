@@ -1,0 +1,19 @@
+{
+  "from": "PHASE_01",
+  "non_negotiables": [
+    "MQL5 remains runtime authority",
+    "Python remains strict mirror",
+    "contracts fail closed",
+    "no live order authority",
+    "strategy-specific semantics remain outside kernel"
+  ],
+  "required_inputs": [
+    "MQL5 contract kernel",
+    "Python mirror",
+    "schema registry",
+    "golden vectors",
+    "QA report",
+    "MetaEditor compile log"
+  ],
+  "to": "PHASE_02"
+}

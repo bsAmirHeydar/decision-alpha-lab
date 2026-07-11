@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "mql",
+      "type": "text",
+      "text": "MQL5 Runtime Authority\nAnatomy + Context + Contract Validation",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 140
+    },
+    {
+      "id": "contracts",
+      "type": "text",
+      "text": "SF01 Canonical Contracts\nTime + Identity + Events + Snapshots + Lineage",
+      "x": 400,
+      "y": 0,
+      "width": 360,
+      "height": 160
+    },
+    {
+      "id": "wire",
+      "type": "text",
+      "text": "Versioned Wire Artifacts\nJSONL / CSV / Registry / Golden Vectors",
+      "x": 840,
+      "y": 0,
+      "width": 320,
+      "height": 140
+    },
+    {
+      "id": "python",
+      "type": "text",
+      "text": "Python Research Mirror\nValidation + Statistics + Training + Reporting",
+      "x": 400,
+      "y": 260,
+      "width": 360,
+      "height": 150
+    },
+    {
+      "id": "future",
+      "type": "text",
+      "text": "Later Factory Phases\nDAG + Candidates + Simulation + Models + Execution",
+      "x": 840,
+      "y": 260,
+      "width": 340,
+      "height": 160
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "mql",
+      "fromSide": "right",
+      "toNode": "contracts",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "contracts",
+      "fromSide": "right",
+      "toNode": "wire",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "wire",
+      "fromSide": "bottom",
+      "toNode": "python",
+      "toSide": "right"
+    },
+    {
+      "id": "e4",
+      "fromNode": "contracts",
+      "fromSide": "bottom",
+      "toNode": "python",
+      "toSide": "top"
+    },
+    {
+      "id": "e5",
+      "fromNode": "contracts",
+      "fromSide": "right",
+      "toNode": "future",
+      "toSide": "left"
+    }
+  ]
+}
