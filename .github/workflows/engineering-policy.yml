@@ -22,9 +22,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: pip
-          cache-dependency-path: |
-            **/pyproject.toml
-            **/requirements*.txt
       - name: Run the same preflight used locally
         run: python tools/engineering/run_engineering_policy.py .

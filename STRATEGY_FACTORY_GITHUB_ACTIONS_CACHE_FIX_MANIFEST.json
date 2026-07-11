@@ -1,0 +1,30 @@
+{
+  "patch": "github-actions-cache-fix",
+  "files": [
+    {
+      "path": ".github/workflows/engineering-policy.yml",
+      "size": 546,
+      "sha256": "274002dc8cb7783e0ea7187b5075b15fd40686cd20f1580d2bdee75ca6f77621"
+    },
+    {
+      "path": "COMMIT_MESSAGE.md",
+      "size": 327,
+      "sha256": "e910269067e9882aed95bd11cccbec73670d976d7b7a0e59ffea60b684c7630d"
+    },
+    {
+      "path": "INSTALL_STRATEGY_FACTORY_GITHUB_ACTIONS_CACHE_FIX.md",
+      "size": 116,
+      "sha256": "d20512a0898571a21f83c1f1c22f32c535e5623d79216d1b7faa1b206f12df9b"
+    },
+    {
+      "path": "README_STRATEGY_FACTORY_GITHUB_ACTIONS_CACHE_FIX.md",
+      "size": 209,
+      "sha256": "776403778e881872c8b91f55537d1649cfddfc36fc855e1d4cdb73850f6b5c26"
+    },
+    {
+      "path": "docs/strategy_factory_implementation/hotfixes/GITHUB_ACTIONS_PIP_CACHE_POST_JOB_FIX.md",
+      "size": 1006,
+      "sha256": "2b22e0032119b30fdb7b96e316718f6105fd1338b022c53ab2e301fbabe8a562"
+    }
+  ]
+}
