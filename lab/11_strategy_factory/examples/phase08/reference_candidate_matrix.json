@@ -1,0 +1,22 @@
+{
+  "plan_hash": "generated_at_runtime",
+  "plan_id": "sf08.reference_matrix",
+  "plan_version": "1.0.0",
+  "policy_registry_hash": "generated_at_runtime",
+  "templates": [
+    {
+      "entry": "confirmation_market",
+      "exit": "fixed_1.5R",
+      "priority": 10,
+      "stop": "anatomy_invalidation",
+      "template_id": "market_invalidation_1r5"
+    },
+    {
+      "entry": "reference_limit",
+      "exit": "fixed_2R",
+      "priority": 20,
+      "stop": "buffered_invalidation",
+      "template_id": "reference_buffered_2r"
+    }
+  ]
+}

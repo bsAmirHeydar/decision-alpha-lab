@@ -1,0 +1,31 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_CONFORMANCE",
+  "central_engine_only": true,
+  "checks": {
+    "live_order_authority": {
+      "result": "ABSENT"
+    },
+    "metaeditor_compile": {
+      "result": "LOCAL_REQUIRED"
+    },
+    "mql5_compatibility": {
+      "errors": 0,
+      "result": "PASS",
+      "warnings": 0
+    },
+    "phase01_to_phase08_python_tests": {
+      "count": 150,
+      "result": "PASS"
+    },
+    "phase08_boundary_guard": {
+      "errors": 0,
+      "result": "PASS"
+    },
+    "repository_engineering_policy": {
+      "checks": 4,
+      "result": "PASS"
+    }
+  },
+  "legacy_strategy_integration": false,
+  "status": "PASS_WITH_LOCAL_METAEDITOR_COMPILE_REQUIRED"
+}

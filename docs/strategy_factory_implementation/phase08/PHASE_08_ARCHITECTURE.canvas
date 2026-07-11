@@ -1,0 +1,79 @@
+{
+  "edges": [
+    {
+      "fromNode": "event",
+      "fromSide": "right",
+      "id": "e1",
+      "toNode": "registry",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "registry",
+      "fromSide": "right",
+      "id": "e2",
+      "toNode": "matrix",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "matrix",
+      "fromSide": "right",
+      "id": "e3",
+      "toNode": "engine",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "engine",
+      "fromSide": "right",
+      "id": "e4",
+      "toNode": "candidate",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 80,
+      "id": "event",
+      "text": "AnatomyEvent + ContextFrame",
+      "type": "text",
+      "width": 260,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "registry",
+      "text": "Exact Policy Registry",
+      "type": "text",
+      "width": 220,
+      "x": 340,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "matrix",
+      "text": "Compiled Candidate Matrix",
+      "type": "text",
+      "width": 250,
+      "x": 640,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "engine",
+      "text": "Admissibility + Geometry Engine",
+      "type": "text",
+      "width": 270,
+      "x": 980,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "candidate",
+      "text": "Stable TradeCandidate",
+      "type": "text",
+      "width": 240,
+      "x": 1340,
+      "y": 0
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "context_frame_id": {
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "entry": {
+      "type": "object"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "exit_plan": {
+      "type": "object"
+    },
+    "planned_r_multiple": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "runtime_generation_id": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/trade_candidate@1.0.0"
+    },
+    "snapshot_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "stop": {
+      "type": "object"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "candidate_id",
+    "template_id",
+    "event_id",
+    "snapshot_id",
+    "context_frame_id",
+    "strategy_id",
+    "symbol",
+    "direction",
+    "runtime_generation_id",
+    "entry",
+    "stop",
+    "exit_plan",
+    "planned_r_multiple",
+    "source_hash"
+  ],
+  "title": "trade_candidate",
+  "type": "object"
+}

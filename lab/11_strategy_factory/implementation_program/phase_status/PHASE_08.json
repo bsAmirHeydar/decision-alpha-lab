@@ -1,0 +1,26 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_CONFORMANCE",
+  "central_engine_only": true,
+  "deliverables": [
+    "typed entry/stop/exit interfaces",
+    "exact policy registry",
+    "compiled candidate matrix",
+    "stable trade candidate contract",
+    "bounded candidate queue",
+    "fixture policy pack",
+    "MQL5 self-test",
+    "Python parity",
+    "Obsidian canon"
+  ],
+  "non_goals": [
+    "legacy strategy integration",
+    "fill simulation",
+    "statistics",
+    "training",
+    "risk sizing",
+    "broker execution"
+  ],
+  "phase": "PHASE_08",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "title": "Candidate Policy Registry and Deterministic Candidate Matrix"
+}

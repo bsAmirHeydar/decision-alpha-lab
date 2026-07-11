@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "plan_version": {
+      "type": "string"
+    },
+    "policy_registry_hash": {
+      "type": "string"
+    },
+    "templates": {
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "plan_id",
+    "plan_version",
+    "policy_registry_hash",
+    "templates",
+    "plan_hash"
+  ],
+  "title": "candidate_matrix_manifest",
+  "type": "object"
+}

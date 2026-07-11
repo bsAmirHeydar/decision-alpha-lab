@@ -1,0 +1,14 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_08",
+  "next": "Virtual Outcome Engine and Cost Models",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF08 self-test passes",
+    "policy registry hash recorded",
+    "candidate matrix hash recorded",
+    "candidate IDs stable",
+    "no live authority"
+  ],
+  "to": "PHASE_09"
+}

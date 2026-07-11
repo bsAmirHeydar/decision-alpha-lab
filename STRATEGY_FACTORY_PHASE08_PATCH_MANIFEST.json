@@ -1,0 +1,18 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_CONFORMANCE",
+  "central_engine_only": true,
+  "file_count": 102,
+  "live_order_authority": false,
+  "patch": "STRATEGY_FACTORY_PHASE08",
+  "phase": "08",
+  "requires": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03",
+    "PHASE_04",
+    "PHASE_05",
+    "PHASE_06",
+    "PHASE_07"
+  ],
+  "title": "Candidate Policy Registry and Deterministic Candidate Matrix"
+}

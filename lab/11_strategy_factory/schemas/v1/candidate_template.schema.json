@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "entry_policy": {
+      "type": "object"
+    },
+    "exit_policy": {
+      "type": "object"
+    },
+    "priority": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "stop_policy": {
+      "type": "object"
+    },
+    "template_hash": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    },
+    "template_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "template_id",
+    "template_version",
+    "enabled",
+    "priority",
+    "entry_policy",
+    "stop_policy",
+    "exit_policy",
+    "template_hash"
+  ],
+  "title": "candidate_template",
+  "type": "object"
+}

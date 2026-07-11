@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidates_emitted": {
+      "type": "integer"
+    },
+    "context_frame_id": {
+      "type": "string"
+    },
+    "elapsed_microseconds": {
+      "type": "integer"
+    },
+    "errors": {
+      "type": "integer"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "skips": {
+      "type": "integer"
+    },
+    "templates_considered": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "event_id",
+    "context_frame_id",
+    "templates_considered",
+    "candidates_emitted",
+    "skips",
+    "errors",
+    "elapsed_microseconds"
+  ],
+  "title": "candidate_build_report",
+  "type": "object"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "descriptor_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "fast_path_safe": {
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "entry",
+        "stop",
+        "exit",
+        "gate"
+      ]
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "replay_safe": {
+      "type": "boolean"
+    },
+    "required_feature_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "kind",
+    "deterministic",
+    "fast_path_safe",
+    "replay_safe",
+    "descriptor_hash"
+  ],
+  "title": "candidate_policy_descriptor",
+  "type": "object"
+}
