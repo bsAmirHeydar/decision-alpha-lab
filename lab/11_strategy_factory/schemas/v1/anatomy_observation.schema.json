@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/anatomy_observation@1.0.0",
+  "type": "object",
+  "required": [
+    "schema",
+    "observation_id",
+    "plugin_id",
+    "plugin_version",
+    "symbol",
+    "timeframe_seconds",
+    "kind",
+    "occurred_at_ms",
+    "known_at_ms",
+    "reference_price",
+    "extreme_price",
+    "close_price",
+    "source_bar_id",
+    "source_hash",
+    "market_event_cluster_id"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/anatomy_observation@1.0.0"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "plugin_id": {
+      "type": "string"
+    },
+    "plugin_version": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "timeframe_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "kind": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "occurred_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "known_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reference_price": {
+      "type": "number"
+    },
+    "extreme_price": {
+      "type": "number"
+    },
+    "close_price": {
+      "type": "number"
+    },
+    "source_bar_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "market_event_cluster_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,3 +1,3 @@
-feat(alpha-lab): implement immutable runtime generations and result sinks
+feat(alpha-lab): implement reference anatomy adapter and golden ledger
 
-Add canonical run manifests, exact plugin compilation evidence, immutable runtime generations, atomic activation and rollback, versioned append-only result envelopes, memory, JSONL and composite sinks, artifact cataloging, MQL5 host and self-test EAs, Python conformance mirrors, JSON schemas, boundary checks, detailed Obsidian documentation, QA and the Phase 06 handoff.
+Add the MQL5-first anatomy observation and lifecycle contracts, canonical event builder, deterministic reference sweep-rejection plugin, static factory integration, immutable-generation host, golden ledger protocol, replay and compatibility gates, Python conformance package, schemas, fixtures, self-test and diagnostic EAs, detailed Obsidian documentation, QA, and Phase 07 handoff.

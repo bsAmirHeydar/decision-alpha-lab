@@ -1,0 +1,11 @@
+{
+  "schema": "alpha_lab.strategy_factory/golden_ledger_manifest@1.0.0",
+  "case_id": "sf06_reference_sweep_case_001",
+  "plugin_id": "sf06.reference.sweep_rejection",
+  "plugin_version": "1.0.0",
+  "input_fixture_hash": "sha256_2065ae57fad195913b0611730a8eead043f90a10ed5c2243982d1517a56b58a1",
+  "expected_observation_ids": [],
+  "expected_event_ids": [],
+  "expected_record_count": 0,
+  "note": "Expected IDs are populated from the first locally compiled MQL5 golden run and then frozen under reviewed change control."
+}

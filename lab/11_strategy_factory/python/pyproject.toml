@@ -3,9 +3,9 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.5.0"
-description="MQL5-first Strategy Factory contracts, runtime, market, plugins, immutable generations, and versioned result sinks"
+version="0.6.0"
+description="MQL5-first Strategy Factory contracts, runtime, market, plugins, immutable generations, versioned result sinks, anatomy adapter SDK, and golden ledgers"
 requires-python=">=3.10"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*"]

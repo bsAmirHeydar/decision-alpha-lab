@@ -1,0 +1,13 @@
+{
+  "from": "PHASE_06",
+  "to": "PHASE_07",
+  "next": "Context State, Feature DAG, and Immutable Feature Frames",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF06 self-test passes",
+    "golden ledger evidence captured",
+    "no legacy coupling",
+    "no live authority"
+  ],
+  "central_engine_only": true
+}

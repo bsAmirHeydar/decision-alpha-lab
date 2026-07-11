@@ -1,0 +1,12 @@
+{
+  "phase": "PHASE_06",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "python_tests": "PASS",
+  "boundary_guard": "PASS",
+  "python_compileall": "PASS",
+  "mql5_static": "PASS_BY_SOURCE_GUARDS",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+  "legacy_strategy_migration": false,
+  "live_order_authority": false,
+  "file_count": 63
+}

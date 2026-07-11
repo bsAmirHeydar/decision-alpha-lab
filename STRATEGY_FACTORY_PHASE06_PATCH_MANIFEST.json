@@ -1,0 +1,16 @@
+{
+  "patch_id": "strategy_factory_phase06_reference_anatomy",
+  "version": "1.0.0",
+  "base_required": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03",
+    "PHASE_04",
+    "PHASE_05"
+  ],
+  "phase": "PHASE_06",
+  "files": 66,
+  "central_engine_only": true,
+  "legacy_strategy_migration": false,
+  "live_order_authority": false
+}

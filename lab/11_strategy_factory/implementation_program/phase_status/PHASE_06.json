@@ -1,0 +1,20 @@
+{
+  "phase": "PHASE_06",
+  "title": "Reference Anatomy Adapter and Golden Event Ledger",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "authority": "MQL5_FIRST",
+  "legacy_strategy_migration": false,
+  "live_order_authority": false,
+  "deliverables": [
+    "observation contract",
+    "lifecycle state machine",
+    "event builder",
+    "reference anatomy plugin",
+    "golden ledger",
+    "host",
+    "self-test",
+    "python conformance package",
+    "schemas",
+    "obsidian docs"
+  ]
+}

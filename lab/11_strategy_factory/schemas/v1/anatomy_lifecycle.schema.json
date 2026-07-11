@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/anatomy_lifecycle@1.0.0",
+  "type": "object",
+  "required": [
+    "schema",
+    "lifecycle_id",
+    "aggregate_id",
+    "sequence",
+    "from_state",
+    "to_state",
+    "transition_time_ms",
+    "reason_code",
+    "source_hash",
+    "previous_record_hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/anatomy_lifecycle@1.0.0"
+    },
+    "lifecycle_id": {
+      "type": "string"
+    },
+    "aggregate_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "from_state": {
+      "type": "integer"
+    },
+    "to_state": {
+      "type": "integer"
+    },
+    "transition_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "previous_record_hash": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

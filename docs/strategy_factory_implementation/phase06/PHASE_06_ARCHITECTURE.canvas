@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "market",
+      "type": "text",
+      "text": "Shared Market Services",
+      "x": 0,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "plugin",
+      "type": "text",
+      "text": "Reference Anatomy Plugin",
+      "x": 300,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "obs",
+      "type": "text",
+      "text": "Observation + Lifecycle",
+      "x": 600,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "event",
+      "type": "text",
+      "text": "Canonical Anatomy Event",
+      "x": 900,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "gen",
+      "type": "text",
+      "text": "Immutable Generation",
+      "x": 1200,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    },
+    {
+      "id": "sink",
+      "type": "text",
+      "text": "Golden JSONL Ledger",
+      "x": 1500,
+      "y": 0,
+      "width": 240,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "market",
+      "fromSide": "right",
+      "toNode": "plugin",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "plugin",
+      "fromSide": "right",
+      "toNode": "obs",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "obs",
+      "fromSide": "right",
+      "toNode": "event",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "event",
+      "fromSide": "right",
+      "toNode": "gen",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "gen",
+      "fromSide": "right",
+      "toNode": "sink",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/golden_ledger_manifest@1.0.0",
+  "type": "object",
+  "required": [
+    "schema",
+    "case_id",
+    "plugin_id",
+    "plugin_version",
+    "input_fixture_hash",
+    "expected_observation_ids",
+    "expected_event_ids",
+    "expected_record_count"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/golden_ledger_manifest@1.0.0"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "plugin_id": {
+      "type": "string"
+    },
+    "plugin_version": {
+      "type": "string"
+    },
+    "input_fixture_hash": {
+      "type": "string"
+    },
+    "expected_observation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "expected_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "expected_record_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}
