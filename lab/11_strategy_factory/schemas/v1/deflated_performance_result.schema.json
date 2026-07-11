@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deflated_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "expected_max_sharpe": {
+      "type": "number"
+    },
+    "kurtosis": {
+      "type": "number"
+    },
+    "number_of_trials": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "observed_sharpe": {
+      "type": "number"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "sample_count": {
+      "minimum": 3,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/deflated_performance_result@1.0.0"
+    },
+    "skewness": {
+      "type": "number"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "trial_id",
+    "observed_sharpe",
+    "expected_max_sharpe",
+    "deflated_probability",
+    "number_of_trials",
+    "sample_count",
+    "result_hash"
+  ],
+  "title": "Deflated Performance Result",
+  "type": "object"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "left_trial_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "neighbor_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "normalized_distance": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "right_trial_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/parameter_neighbor@1.0.0"
+    }
+  },
+  "required": [
+    "schema",
+    "left_trial_id",
+    "right_trial_id",
+    "normalized_distance"
+  ],
+  "title": "Parameter Neighbor",
+  "type": "object"
+}

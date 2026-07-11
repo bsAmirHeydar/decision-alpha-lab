@@ -1,0 +1,39 @@
+{
+  "authority": {
+    "forbidden": [
+      "paper order authority",
+      "live order authority",
+      "legacy anatomy integration"
+    ],
+    "mql5": [
+      "fold boundary enforcement",
+      "source observation identity",
+      "tester-side compact gate evidence"
+    ],
+    "python": [
+      "multiple-testing correction",
+      "deflated performance",
+      "PBO",
+      "reality checks",
+      "parameter-surface diagnostics",
+      "report assembly"
+    ]
+  },
+  "central_engine_only": true,
+  "delivered": [
+    "purged and embargoed walk-forward folds",
+    "causal leakage audit",
+    "nested-selection boundary",
+    "Bonferroni/Holm/BH corrections",
+    "deflated Sharpe-style probability",
+    "CSCV/PBO",
+    "White-style reality check",
+    "parameter-surface stability",
+    "best-trade/cost/delay/drop/cluster stress",
+    "formal promotion rejection ledger"
+  ],
+  "name": "Anti-Overfit Validation Engine",
+  "next": "PHASE_13",
+  "phase": "PHASE_12",
+  "status": "IMPLEMENTED_PENDING_LOCAL_METAEDITOR_COMPILE"
+}

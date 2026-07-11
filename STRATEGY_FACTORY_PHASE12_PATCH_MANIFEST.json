@@ -1,0 +1,37 @@
+{
+  "central_engine_only": true,
+  "documentation_note_count": 59,
+  "file_count": 141,
+  "forbidden_scope": [
+    "legacy strategy integration",
+    "paper execution",
+    "live execution",
+    "ML training"
+  ],
+  "mql5_header_count": 10,
+  "patch_id": "strategy_factory_phase12_anti_overfit_validation",
+  "phase": 12,
+  "python_module_count": 16,
+  "schema_count": 15,
+  "scope": [
+    "MQL5 validation contracts and compact gates",
+    "Python anti-overfit analytics",
+    "schemas and fixtures",
+    "tests and documentation"
+  ],
+  "test_file_count": 11,
+  "verification": {
+    "engineering_policy": "4/4 PASS on reconstructed repository",
+    "json_parse": "PASS",
+    "json_schema_meta_validation": "PASS",
+    "metaeditor_compile": "REQUIRES_LOCAL_WINDOWS",
+    "mql5_compatibility_scan": "0 errors, 0 warnings",
+    "mql5_crude_syntax_balance": "PASS",
+    "mql5_include_resolution": "PASS",
+    "phase01_through_phase12_tests": "236 passed when phase suites run independently",
+    "phase12_boundary_guard": "PASS (10 headers)",
+    "phase12_tests": "19 passed",
+    "python_compileall": "PASS"
+  },
+  "version": "1.0.0"
+}

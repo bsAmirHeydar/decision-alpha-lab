@@ -1,0 +1,111 @@
+{
+  "edges": [
+    {
+      "fromNode": "plan",
+      "fromSide": "right",
+      "id": "e1",
+      "toNode": "folds",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "folds",
+      "fromSide": "bottom",
+      "id": "e2",
+      "toNode": "audit",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "ledger",
+      "fromSide": "right",
+      "id": "e3",
+      "toNode": "audit",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "audit",
+      "fromSide": "right",
+      "id": "e4",
+      "toNode": "diag",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "diag",
+      "fromSide": "right",
+      "id": "e5",
+      "toNode": "gates",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "gates",
+      "fromSide": "right",
+      "id": "e6",
+      "toNode": "report",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 120,
+      "id": "plan",
+      "text": "Validation Plan\nlineage + split policy",
+      "type": "text",
+      "width": 260,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 120,
+      "id": "folds",
+      "text": "Purged / Embargoed Folds",
+      "type": "text",
+      "width": 260,
+      "x": 340,
+      "y": 0
+    },
+    {
+      "height": 120,
+      "id": "ledger",
+      "text": "Complete Trial Ledger",
+      "type": "text",
+      "width": 260,
+      "x": 0,
+      "y": 210
+    },
+    {
+      "height": 120,
+      "id": "audit",
+      "text": "Leakage Audit",
+      "type": "text",
+      "width": 260,
+      "x": 340,
+      "y": 210
+    },
+    {
+      "height": 170,
+      "id": "diag",
+      "text": "PBO + DSR + Reality Check\nSurface + Stress",
+      "type": "text",
+      "width": 300,
+      "x": 680,
+      "y": 105
+    },
+    {
+      "height": 140,
+      "id": "gates",
+      "text": "Promotion Rejection Gates",
+      "type": "text",
+      "width": 280,
+      "x": 1060,
+      "y": 105
+    },
+    {
+      "height": 140,
+      "id": "report",
+      "text": "Immutable Evidence Bundle\nDataset-review only",
+      "type": "text",
+      "width": 280,
+      "x": 1420,
+      "y": 105
+    }
+  ]
+}

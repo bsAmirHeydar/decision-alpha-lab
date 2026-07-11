@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bootstrap_iterations": {
+      "minimum": 100,
+      "type": "integer"
+    },
+    "bootstrap_p_value": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "observed_max_statistic": {
+      "type": "number"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/reality_check_result@1.0.0"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "winner_trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "winner_trial_id",
+    "observed_max_statistic",
+    "bootstrap_p_value",
+    "bootstrap_iterations",
+    "seed",
+    "result_hash"
+  ],
+  "title": "Reality Check Result",
+  "type": "object"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjusted_p_values": {
+      "items": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "alpha": {
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "hypothesis_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "method": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "raw_p_values": {
+      "items": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "rejected": {
+      "items": {
+        "type": "boolean"
+      },
+      "type": "array"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/multiple_testing_result@1.0.0"
+    }
+  },
+  "required": [
+    "schema",
+    "method",
+    "hypothesis_ids",
+    "raw_p_values",
+    "adjusted_p_values",
+    "rejected",
+    "alpha",
+    "result_hash"
+  ],
+  "title": "Multiple Testing Result",
+  "type": "object"
+}

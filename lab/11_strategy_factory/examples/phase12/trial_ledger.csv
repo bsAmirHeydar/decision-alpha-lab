@@ -1,0 +1,7 @@
+trial_id,parameter_hash,fold_id,train_mean_r,validation_mean_r,test_mean_r,discovery_ordinal
+trial_a,param_a,fold_00,0.21,0.12,0.10,0
+trial_a,param_a,fold_01,0.19,0.11,0.08,0
+trial_b,param_b,fold_00,0.35,0.02,-0.04,1
+trial_b,param_b,fold_01,0.31,0.01,-0.06,1
+trial_c,param_c,fold_00,0.16,0.13,0.11,2
+trial_c,param_c,fold_01,0.14,0.10,0.09,2

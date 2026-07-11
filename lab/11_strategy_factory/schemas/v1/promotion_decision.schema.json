@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_artifact_hashes": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "gate_results": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "rejection_reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/promotion_decision@1.0.0"
+    },
+    "selected_trial_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "decision_id",
+    "plan_hash",
+    "selected_trial_id",
+    "status",
+    "gate_results",
+    "rejection_reasons",
+    "evidence_artifact_hashes",
+    "decision_hash"
+  ],
+  "title": "Promotion Decision",
+  "type": "object"
+}

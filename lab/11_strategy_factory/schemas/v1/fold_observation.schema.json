@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "cluster_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cost_r": {
+      "type": "number"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gross_r": {
+      "type": "number"
+    },
+    "known_time_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "net_r": {
+      "type": "number"
+    },
+    "observation_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "parameter_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "resolved_time_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "role": {
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/fold_observation@1.0.0"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "observation_id",
+    "trial_id",
+    "parameter_hash",
+    "fold_id",
+    "role",
+    "event_id",
+    "cluster_id",
+    "outcome_id",
+    "known_time_utc_msc",
+    "resolved_time_utc_msc",
+    "net_r",
+    "gross_r",
+    "cost_r",
+    "ambiguous"
+  ],
+  "title": "Fold Observation",
+  "type": "object"
+}

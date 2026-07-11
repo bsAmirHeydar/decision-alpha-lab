@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "embargo_span_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "end_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_folds": {
+      "maximum": 4096,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "method": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "minimum_test_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "minimum_train_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "minimum_validation_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "purge_span_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/validation_plan@1.0.0"
+    },
+    "search_space_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "step_span_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "test_span_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "train_span_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "validation_span_msc": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "plan_id",
+    "plan_version",
+    "method",
+    "source_run_id",
+    "source_manifest_hash",
+    "source_artifact_hash",
+    "strategy_id",
+    "search_space_hash",
+    "start_utc_msc",
+    "end_utc_msc",
+    "train_span_msc",
+    "validation_span_msc",
+    "test_span_msc",
+    "step_span_msc",
+    "purge_span_msc",
+    "embargo_span_msc",
+    "minimum_train_samples",
+    "minimum_validation_samples",
+    "minimum_test_samples"
+  ],
+  "title": "Validation Plan",
+  "type": "object"
+}

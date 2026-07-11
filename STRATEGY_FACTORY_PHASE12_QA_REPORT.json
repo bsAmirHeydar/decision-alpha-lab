@@ -1,0 +1,61 @@
+{
+  "checks": {
+    "cumulative_phase_pytest": {
+      "execution": "phase suites run independently to avoid pre-existing duplicate test module basenames",
+      "passed": 236,
+      "status": "PASS"
+    },
+    "engineering_policy": {
+      "checks_passed": 4,
+      "checks_total": 4,
+      "status": "PASS"
+    },
+    "include_resolution": {
+      "status": "PASS"
+    },
+    "json_parse": {
+      "files": 22,
+      "status": "PASS"
+    },
+    "json_schema_meta_validation": {
+      "status": "PASS"
+    },
+    "legacy_strategy_integration": {
+      "status": "ABSENT"
+    },
+    "live_authority": {
+      "status": "ABSENT"
+    },
+    "ml_training_authority": {
+      "status": "ABSENT"
+    },
+    "mql5_compatibility": {
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "phase12_boundary_guard": {
+      "headers": 10,
+      "status": "PASS"
+    },
+    "phase12_pytest": {
+      "passed": 19,
+      "status": "PASS"
+    },
+    "python_compileall": {
+      "status": "PASS"
+    },
+    "syntax_balance": {
+      "status": "PASS"
+    }
+  },
+  "known_limitations": [
+    "MetaEditor is unavailable in this environment; compile the three SF12 EAs on the local Windows terminal.",
+    "Python reality-check bootstrap is deterministic IID resampling of aligned observations; alternate block bootstraps require a new registry version.",
+    "MQL5 computes compact fold/gate evidence; advanced PBO, multiple-testing and bootstrap diagnostics remain offline Python responsibilities.",
+    "Promotion eligibility stops at dataset review and provides no paper or live order authority."
+  ],
+  "metaeditor_compile": "REQUIRES_LOCAL_WINDOWS",
+  "phase": 12,
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_PENDING"
+}

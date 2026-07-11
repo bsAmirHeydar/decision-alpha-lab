@@ -1,3 +1,3 @@
-feat(alpha-lab): implement statistical reporting and matched nulls
+feat(alpha-lab): implement anti-overfit validation engine
 
-Add MQL5-first canonical statistical samples, streaming moments, bounded quantiles, grouped summaries, confidence intervals, exact matched-null specifications and comparisons, deterministic report manifests and CSV exporters, SF11 research host, diagnostic and self-test EAs, Python cluster-bootstrap and reporting package, schemas, fixtures, comprehensive Obsidian documentation, QA and the Phase 12 handoff.
+Add purged and embargoed walk-forward plans, causal leakage audits, complete trial ledgers, multiple-testing corrections, deflated performance, PBO, White-style reality checks, parameter-surface stability, deterministic stress programs, formal promotion rejection gates, MQL5 hosts and self-tests, Python analytics, schemas, fixtures, Obsidian documentation, QA and the Phase 13 handoff.

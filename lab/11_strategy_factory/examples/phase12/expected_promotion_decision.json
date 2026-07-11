@@ -1,0 +1,13 @@
+{
+  "decision_hash": "prom_generated_by_runtime",
+  "decision_id": "decision_reference",
+  "evidence_artifact_hashes": [
+    "sha256_validation_bundle"
+  ],
+  "gate_results": [],
+  "plan_hash": "vplan_reference",
+  "rejection_reasons": [],
+  "schema": "alpha_lab.strategy_factory/promotion_decision@1.0.0",
+  "selected_trial_id": "trial_c",
+  "status": 3
+}

@@ -1,0 +1,86 @@
+{
+  "$defs": {
+    "time_range": {
+      "additionalProperties": false,
+      "properties": {
+        "end_utc_msc": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "start_utc_msc": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_utc_msc",
+        "end_utc_msc"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "embargo_before_test": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/time_range"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fold_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "purge_before_validation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/time_range"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/validation_fold@1.0.0"
+    },
+    "test": {
+      "$ref": "#/$defs/time_range"
+    },
+    "train": {
+      "$ref": "#/$defs/time_range"
+    },
+    "validation": {
+      "$ref": "#/$defs/time_range"
+    }
+  },
+  "required": [
+    "schema",
+    "fold_id",
+    "ordinal",
+    "plan_hash",
+    "train",
+    "validation",
+    "test",
+    "fold_hash"
+  ],
+  "title": "Validation Fold",
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "mean_net_r": {
+      "type": "number"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "retained_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "sample_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/stress_result@1.0.0"
+    },
+    "total_net_r": {
+      "type": "number"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "worst_net_r": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "schema",
+    "scenario_id",
+    "trial_id",
+    "sample_count",
+    "mean_net_r",
+    "total_net_r",
+    "worst_net_r",
+    "retained_fraction",
+    "result_hash"
+  ],
+  "title": "Stress Result",
+  "type": "object"
+}

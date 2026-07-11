@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "median_relative_degradation": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "neighbor_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "normalized_roughness": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "positive_neighbor_share": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/surface_stability_result@1.0.0"
+    },
+    "support_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "winner_trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "winner_trial_id",
+    "neighbor_count",
+    "positive_neighbor_share",
+    "median_relative_degradation",
+    "normalized_roughness",
+    "support_score",
+    "result_hash"
+  ],
+  "title": "Surface Stability Result",
+  "type": "object"
+}

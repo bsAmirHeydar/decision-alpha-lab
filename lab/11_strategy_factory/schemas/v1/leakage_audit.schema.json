@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fatal_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/leakage_audit@1.0.0"
+    },
+    "warning_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "plan_hash",
+    "fatal_count",
+    "warning_count",
+    "findings",
+    "audit_hash"
+  ],
+  "title": "Leakage Audit",
+  "type": "object"
+}

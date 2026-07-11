@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "discovery_ordinal": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fold_metrics": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "parameter_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "parameter_vector": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/trial_record@1.0.0"
+    },
+    "trial_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "trial_id",
+    "parameter_hash",
+    "parameter_vector",
+    "fold_metrics",
+    "discovery_ordinal"
+  ],
+  "title": "Trial Record",
+  "type": "object"
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "median_logit": {
+      "type": "number"
+    },
+    "probability_of_backtest_overfitting": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/pbo_result@1.0.0"
+    },
+    "selected_trial_counts": {
+      "type": "array"
+    },
+    "split_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "probability_of_backtest_overfitting",
+    "median_logit",
+    "split_count",
+    "selected_trial_counts",
+    "result_hash"
+  ],
+  "title": "Probability of Backtest Overfitting Result",
+  "type": "object"
+}

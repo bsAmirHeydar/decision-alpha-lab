@@ -1,0 +1,41 @@
+{
+  "scenarios": [
+    {
+      "additive_penalty_r": 0.02,
+      "drop_fraction": 0.0,
+      "excluded_cluster_id": "",
+      "kind": 1,
+      "remove_best_count": 0,
+      "scenario_hash": "stress_runtime",
+      "scenario_id": "cost_plus_002r",
+      "scenario_version": "1.0.0",
+      "schema": "alpha_lab.strategy_factory/stress_scenario@1.0.0",
+      "seed": 12
+    },
+    {
+      "additive_penalty_r": 0.0,
+      "drop_fraction": 0.1,
+      "excluded_cluster_id": "",
+      "kind": 4,
+      "remove_best_count": 0,
+      "scenario_hash": "stress_runtime",
+      "scenario_id": "drop_10pct",
+      "scenario_version": "1.0.0",
+      "schema": "alpha_lab.strategy_factory/stress_scenario@1.0.0",
+      "seed": 120012
+    },
+    {
+      "additive_penalty_r": 0.0,
+      "drop_fraction": 0.0,
+      "excluded_cluster_id": "",
+      "kind": 5,
+      "remove_best_count": 3,
+      "scenario_hash": "stress_runtime",
+      "scenario_id": "remove_best_3",
+      "scenario_version": "1.0.0",
+      "schema": "alpha_lab.strategy_factory/stress_scenario@1.0.0",
+      "seed": 12
+    }
+  ],
+  "schema": "alpha_lab.strategy_factory/stress_registry@1.0.0"
+}

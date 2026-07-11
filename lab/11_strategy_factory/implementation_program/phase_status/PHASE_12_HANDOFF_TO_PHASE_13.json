@@ -1,0 +1,17 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_12",
+  "next": "Leakage-Safe ML Dataset and Label Contracts",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF12 self-test passes",
+    "all fatal leakage findings are zero",
+    "walk-forward folds reproduce by plan hash",
+    "trial ledger includes every searched configuration",
+    "multiple-testing and PBO diagnostics are generated",
+    "stress registry is complete",
+    "promotion status is no more authoritative than dataset-review eligibility",
+    "no live authority"
+  ],
+  "to": "PHASE_13"
+}

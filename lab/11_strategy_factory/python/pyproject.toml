@@ -3,11 +3,12 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.11.0"
-description="MQL5-first Strategy Factory through statistical reporting and matched nulls"
+version="0.12.0"
+description="MQL5-first Strategy Factory through anti-overfit validation and promotion rejection gates"
 requires-python=">=3.10"
 [project.scripts]
 strategy-factory-statistics="strategy_factory_statistics.cli:main"
+strategy-factory-validation="strategy_factory_validation.cli:main"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*"]

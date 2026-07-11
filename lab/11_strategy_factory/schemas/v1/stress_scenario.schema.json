@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "additive_penalty_r": {
+      "type": "number"
+    },
+    "drop_fraction": {
+      "exclusiveMaximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "excluded_cluster_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "type": "integer"
+    },
+    "remove_best_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scenario_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scenario_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/stress_scenario@1.0.0"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "scenario_id",
+    "scenario_version",
+    "kind"
+  ],
+  "title": "Stress Scenario",
+  "type": "object"
+}

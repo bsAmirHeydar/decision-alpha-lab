@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "gate_registry_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "git_commit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "plan_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/anti_overfit_report_manifest@1.0.0"
+    },
+    "source_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "split_registry_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "statistical_report_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "stress_registry_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "trial_ledger_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "report_id",
+    "report_version",
+    "plan_hash",
+    "source_run_id",
+    "source_manifest_hash",
+    "trial_ledger_hash",
+    "statistical_report_hash",
+    "split_registry_hash",
+    "stress_registry_hash",
+    "gate_registry_hash",
+    "random_seed",
+    "generated_at_utc_msc",
+    "git_commit",
+    "manifest_hash"
+  ],
+  "title": "Anti-Overfit Report Manifest",
+  "type": "object"
+}
