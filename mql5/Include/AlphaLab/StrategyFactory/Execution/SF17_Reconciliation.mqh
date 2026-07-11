@@ -1,0 +1,8 @@
+#ifndef __SF17_RECONCILIATION_MQH__
+#define __SF17_RECONCILIATION_MQH__
+#include "SF17_ExecutionTelemetry.mqh"
+enum ENUM_SF17_RECONCILIATION_STATUS{SF17_RECON_MATCHED=1,SF17_RECON_MISSING_EXPECTED=2,SF17_RECON_UNEXPECTED_OBSERVED=3,SF17_RECON_VOLUME_MISMATCH=4,SF17_RECON_DIRECTION_MISMATCH=5,SF17_RECON_PRICE_DRIFT=6};
+struct SF17_ObservedPosition{string external_position_id;string symbol;int direction;double volume;double average_price;long observed_at_utc_msc;};
+struct SF17_ReconciliationItem{string key;ENUM_SF17_RECONCILIATION_STATUS status;string expected_position_id;string observed_position_id;double expected_volume;double observed_volume;double expected_price;double observed_price;string message;};
+struct SF17_ReconciliationReport{string report_id;long report_time_utc_msc;int matched;int mismatched;SF17_ReconciliationItem items[SF17_MAX_POSITIONS];int item_count;string report_hash;};
+#endif

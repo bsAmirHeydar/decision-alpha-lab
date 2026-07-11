@@ -1,3 +1,7 @@
-feat(alpha-lab): implement deterministic ONNX export and MQL5 inference
+feat(alpha-lab): implement deterministic paper and shadow execution
 
-Add governed exact-version ONNX export, static float32 tensor contracts, immutable feature ordering, train-only preprocessing and calibration manifests, artifact digest and runtime fingerprint checks, native MQL5 OnnxCreate and OnnxRun integration, fail-closed startup and request guards, typed inference requests and results, golden cross-language parity vectors and reports, runtime compatibility and rollback contracts, telemetry, host, diagnostic and self-test EAs, Python tooling, schemas, fixtures, detailed Obsidian documentation, QA and the Phase 16 handoff.
+Add typed paper and shadow execution contracts, market, limit and stop lifecycle handling, bounded
+partial fills, conservative bid/ask and slippage semantics, commission accounting, position
+aggregation, stop and target exits, immutable reports, append-only hash-chained transaction records,
+reconciliation and shadow comparisons, MQL5 host and self-test EAs, Python conformance tooling,
+schemas, golden fixtures, detailed Obsidian documentation, QA and the Phase 18 handoff.

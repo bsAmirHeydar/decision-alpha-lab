@@ -1,0 +1,9 @@
+#ifndef __SF17_EXECUTION_POLICY_MQH__
+#define __SF17_EXECUTION_POLICY_MQH__
+#include "SF17_ExecutionEnums.mqh"
+#include "../Contracts/SF01_AllContracts.mqh"
+struct SF17_ExecutionPolicy{string policy_id;string policy_version;ENUM_SF17_EXECUTION_MODE mode;double point;double adverse_slippage_points;double commission_per_lot_per_side;double max_fill_volume_per_quote;long maximum_quote_age_milliseconds;bool allow_research_only_intents;bool allow_partial_fills;bool fill_market_on_next_quote;long deterministic_seed;string policy_hash;};
+string SF17_PolicyCanonical(const SF17_ExecutionPolicy &p){return p.policy_id+"|"+p.policy_version+"|"+IntegerToString((int)p.mode)+"|"+SF01_CanonicalDouble(p.point)+"|"+SF01_CanonicalDouble(p.adverse_slippage_points)+"|"+SF01_CanonicalDouble(p.commission_per_lot_per_side)+"|"+SF01_CanonicalDouble(p.max_fill_volume_per_quote)+"|"+IntegerToString(p.maximum_quote_age_milliseconds)+"|"+SF01_CanonicalBool(p.allow_research_only_intents)+"|"+SF01_CanonicalBool(p.allow_partial_fills)+"|"+SF01_CanonicalBool(p.fill_market_on_next_quote)+"|"+IntegerToString(p.deterministic_seed);}
+string SF17_DerivePolicyHash(const SF17_ExecutionPolicy &p){return SF01_StableId("xpol",SF17_PolicyCanonical(p));}
+bool SF17_ValidatePolicy(const SF17_ExecutionPolicy &p,string &error){if(!SF01_IsSafeIdentifier(p.policy_id,128)||!SF01_IsSafeIdentifier(p.policy_version,64)){error="invalid policy identity";return false;}if(!MathIsValidNumber(p.point)||p.point<=0.0||!MathIsValidNumber(p.adverse_slippage_points)||p.adverse_slippage_points<0.0||!MathIsValidNumber(p.commission_per_lot_per_side)||p.commission_per_lot_per_side<0.0||!MathIsValidNumber(p.max_fill_volume_per_quote)||p.max_fill_volume_per_quote<0.0||p.maximum_quote_age_milliseconds<0){error="invalid policy quantity";return false;}if(p.policy_hash!=""&&p.policy_hash!=SF17_DerivePolicyHash(p)){error="policy hash mismatch";return false;}error="";return true;}
+#endif

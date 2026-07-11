@@ -1,0 +1,28 @@
+{
+  "from_phase": 17,
+  "to_phase": 18,
+  "next": "Live Broker Adapter and Hard Safety",
+  "preconditions": [
+    "local MetaEditor compilation passes",
+    "paper and shadow soak evidence exists",
+    "transaction ledger chain validates",
+    "reconciliation mismatches are understood",
+    "no live authority exists in Phase 17"
+  ],
+  "handoff_contracts": [
+    "execution intent",
+    "paper order",
+    "fill record",
+    "position record",
+    "transaction ledger",
+    "reconciliation report",
+    "shadow comparison"
+  ],
+  "explicitly_deferred": [
+    "OrderCheck and OrderSend adapters",
+    "broker retcode mapping",
+    "kill switch",
+    "circuit breakers",
+    "micro-live authorization"
+  ]
+}

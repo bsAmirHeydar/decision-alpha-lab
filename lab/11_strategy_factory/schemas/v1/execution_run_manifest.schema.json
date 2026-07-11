@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/execution_run_manifest.schema.json",
+  "title": "Execution Run Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "runtime_generation_id",
+    "mode",
+    "policy_hash",
+    "decision_run_id",
+    "started_at_utc_msc",
+    "input_ledger_hash",
+    "manifest_hash"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "runtime_generation_id": {
+      "type": "integer"
+    },
+    "mode": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "decision_run_id": {
+      "type": "string"
+    },
+    "started_at_utc_msc": {
+      "type": "integer"
+    },
+    "input_ledger_hash": {
+      "type": "string"
+    },
+    "manifest_hash": {
+      "type": "string"
+    }
+  }
+}

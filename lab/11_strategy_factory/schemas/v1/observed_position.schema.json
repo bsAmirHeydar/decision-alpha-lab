@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/observed_position.schema.json",
+  "title": "Observed Position",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "external_position_id",
+    "symbol",
+    "direction",
+    "volume",
+    "average_price",
+    "observed_at_utc_msc"
+  ],
+  "properties": {
+    "external_position_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "integer"
+    },
+    "volume": {
+      "type": "number"
+    },
+    "average_price": {
+      "type": "number"
+    },
+    "observed_at_utc_msc": {
+      "type": "integer"
+    }
+  }
+}

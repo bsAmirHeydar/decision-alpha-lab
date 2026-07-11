@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/quote_observation.schema.json",
+  "title": "Quote Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "symbol",
+    "bid",
+    "ask",
+    "time_utc_msc",
+    "sequence",
+    "source"
+  ],
+  "properties": {
+    "symbol": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    },
+    "ask": {
+      "type": "number"
+    },
+    "time_utc_msc": {
+      "type": "integer"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}

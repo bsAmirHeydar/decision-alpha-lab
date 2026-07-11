@@ -1,0 +1,10 @@
+[
+  {
+    "external_position_id": "broker_shadow_001",
+    "symbol": "TEST",
+    "direction": 1,
+    "volume": 1.0,
+    "average_price": 99.81,
+    "observed_at_utc_msc": 1700000003500
+  }
+]

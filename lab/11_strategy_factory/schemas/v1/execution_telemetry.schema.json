@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/execution_telemetry.schema.json",
+  "title": "Execution Telemetry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intents_received",
+    "intents_accepted",
+    "intents_rejected",
+    "orders_working",
+    "orders_filled",
+    "orders_expired",
+    "orders_canceled",
+    "fills",
+    "positions_open",
+    "positions_closed",
+    "duplicate_intents",
+    "stale_quotes"
+  ],
+  "properties": {
+    "intents_received": {
+      "type": "integer"
+    },
+    "intents_accepted": {
+      "type": "integer"
+    },
+    "intents_rejected": {
+      "type": "integer"
+    },
+    "orders_working": {
+      "type": "integer"
+    },
+    "orders_filled": {
+      "type": "integer"
+    },
+    "orders_expired": {
+      "type": "integer"
+    },
+    "orders_canceled": {
+      "type": "integer"
+    },
+    "fills": {
+      "type": "integer"
+    },
+    "positions_open": {
+      "type": "integer"
+    },
+    "positions_closed": {
+      "type": "integer"
+    },
+    "duplicate_intents": {
+      "type": "integer"
+    },
+    "stale_quotes": {
+      "type": "integer"
+    }
+  }
+}

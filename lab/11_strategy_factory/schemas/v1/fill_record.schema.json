@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/fill_record.schema.json",
+  "title": "Fill Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fill_id",
+    "order_id",
+    "intent_id",
+    "position_id",
+    "symbol",
+    "direction",
+    "reason",
+    "volume",
+    "price",
+    "commission_cash",
+    "quote_sequence",
+    "fill_time_utc_msc",
+    "fill_hash"
+  ],
+  "properties": {
+    "fill_id": {
+      "type": "string"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "position_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "integer"
+    },
+    "reason": {
+      "type": "integer"
+    },
+    "volume": {
+      "type": "number"
+    },
+    "price": {
+      "type": "number"
+    },
+    "commission_cash": {
+      "type": "number"
+    },
+    "slippage_cash_proxy": {
+      "type": "number"
+    },
+    "quote_sequence": {
+      "type": "integer"
+    },
+    "fill_time_utc_msc": {
+      "type": "integer"
+    },
+    "fill_hash": {
+      "type": "string"
+    }
+  }
+}

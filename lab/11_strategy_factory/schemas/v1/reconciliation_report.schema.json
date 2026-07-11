@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/reconciliation_report.schema.json",
+  "title": "Reconciliation Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_id",
+    "report_time_utc_msc",
+    "matched",
+    "mismatched",
+    "items",
+    "report_hash"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "report_time_utc_msc": {
+      "type": "integer"
+    },
+    "matched": {
+      "type": "integer"
+    },
+    "mismatched": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "array"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  }
+}

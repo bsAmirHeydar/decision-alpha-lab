@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/transaction_record.schema.json",
+  "title": "Transaction Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "transaction_id",
+    "sequence",
+    "transaction_type",
+    "entity_id",
+    "event_time_utc_msc",
+    "previous_chain_hash",
+    "payload_hash",
+    "chain_hash",
+    "message"
+  ],
+  "properties": {
+    "transaction_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "transaction_type": {
+      "type": "integer"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "event_time_utc_msc": {
+      "type": "integer"
+    },
+    "previous_chain_hash": {
+      "type": "string"
+    },
+    "payload_hash": {
+      "type": "string"
+    },
+    "chain_hash": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

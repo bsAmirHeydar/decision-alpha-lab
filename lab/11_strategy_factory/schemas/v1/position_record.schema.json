@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/position_record.schema.json",
+  "title": "Position Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "position_id",
+    "intent_id",
+    "symbol",
+    "direction",
+    "state",
+    "volume",
+    "average_entry_price",
+    "stop_price",
+    "opened_at_utc_msc",
+    "position_hash"
+  ],
+  "properties": {
+    "position_id": {
+      "type": "string"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "integer"
+    },
+    "state": {
+      "type": "integer"
+    },
+    "volume": {
+      "type": "number"
+    },
+    "average_entry_price": {
+      "type": "number"
+    },
+    "stop_price": {
+      "type": "number"
+    },
+    "target_price": {
+      "type": "number"
+    },
+    "has_target": {
+      "type": "boolean"
+    },
+    "opened_at_utc_msc": {
+      "type": "integer"
+    },
+    "closed_at_utc_msc": {
+      "type": "integer"
+    },
+    "average_exit_price": {
+      "type": "number"
+    },
+    "realized_gross_price_units": {
+      "type": "number"
+    },
+    "commission_cash": {
+      "type": "number"
+    },
+    "close_reason": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "position_hash": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/execution_report.schema.json",
+  "title": "Execution Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_id",
+    "run_id",
+    "mode",
+    "policy_hash",
+    "generated_at_utc_msc",
+    "orders",
+    "fills",
+    "positions",
+    "transactions",
+    "telemetry",
+    "report_hash"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "type": "integer"
+    },
+    "orders": {
+      "type": "array"
+    },
+    "fills": {
+      "type": "array"
+    },
+    "positions": {
+      "type": "array"
+    },
+    "transactions": {
+      "type": "array"
+    },
+    "telemetry": {
+      "type": "object"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "phase": 17,
+  "name": "Paper and Shadow Execution",
+  "created_utc": "2026-07-11T00:00:00Z",
+  "file_count": 143,
+  "live_order_authority": false,
+  "components": {
+    "mql5": "typed paper/shadow engine",
+    "python": "conformance mirror",
+    "schemas": 12,
+    "docs": 74,
+    "tests": "phase17_execution"
+  },
+  "notes": [
+    "MetaEditor compilation must be performed locally",
+    "No broker-send API exists in Phase 17",
+    "Phase 18 remains gated",
+    "Adds SF01_IsTerminalSymbol compatibility alias delegating to SF01_IsSafeTerminalSymbol"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "phase": 17,
+  "static_status": "PASS",
+  "python_tests": "14 passed",
+  "engineering_policy": "4/4 PASS on cumulative repository overlay",
+  "mql5_metaeditor_compile": "REQUIRED_LOCALLY; not available in build environment",
+  "boundary_assertions": {
+    "broker_send_api_absent": true,
+    "paper_shadow_only": true,
+    "json_fast_path_absent": true,
+    "filesystem_fast_path_absent": true
+  },
+  "test_scope": [
+    "models",
+    "policy hash",
+    "market/limit/stop triggers",
+    "partial fills",
+    "target close",
+    "idempotency",
+    "authority rejection",
+    "cancel",
+    "reconciliation",
+    "shadow comparison",
+    "schemas",
+    "layout"
+  ],
+  "static_checks": [
+    "14 Python tests",
+    "Python compileall",
+    "paper/shadow boundary scan",
+    "MQL5 include and brace audit",
+    "cumulative Engineering Policy"
+  ],
+  "shared_contract_compatibility_alias": true,
+  "python_compileall": "PASS",
+  "phase17_boundary_scan": "PASS",
+  "mql5_static_include_brace_audit": "PASS"
+}

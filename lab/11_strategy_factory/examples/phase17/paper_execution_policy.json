@@ -1,0 +1,15 @@
+{
+  "policy_id": "paper-reference",
+  "policy_version": "1.0.0",
+  "mode": 1,
+  "point": 0.01,
+  "adverse_slippage_points": 1.0,
+  "commission_per_lot_per_side": 2.5,
+  "max_fill_volume_per_quote": 0.5,
+  "maximum_quote_age_milliseconds": 1000,
+  "allow_research_only_intents": false,
+  "allow_partial_fills": true,
+  "fill_market_on_next_quote": true,
+  "deterministic_seed": 1701,
+  "policy_hash": ""
+}

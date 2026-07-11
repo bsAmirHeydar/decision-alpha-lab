@@ -1,0 +1,24 @@
+{
+  "phase": 17,
+  "name": "Paper and Shadow Execution",
+  "status": "IMPLEMENTED",
+  "authority": "paper_shadow_only",
+  "live_order_authority": false,
+  "deliverables": [
+    "deterministic paper order lifecycle",
+    "partial fills",
+    "pending order triggers",
+    "position lifecycle",
+    "append-only transaction ledger",
+    "shadow comparison",
+    "reconciliation",
+    "MQL5 host and self-test",
+    "Python conformance"
+  ],
+  "acceptance": [
+    "Phase 17 tests pass",
+    "engineering policy passes",
+    "boundary guard finds no broker send API",
+    "MetaEditor compile required locally"
+  ]
+}

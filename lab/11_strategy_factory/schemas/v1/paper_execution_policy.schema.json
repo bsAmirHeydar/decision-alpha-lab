@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/paper_execution_policy.schema.json",
+  "title": "Paper Execution Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id",
+    "policy_version",
+    "mode",
+    "point",
+    "adverse_slippage_points",
+    "commission_per_lot_per_side",
+    "max_fill_volume_per_quote",
+    "maximum_quote_age_milliseconds",
+    "allow_research_only_intents",
+    "allow_partial_fills",
+    "fill_market_on_next_quote",
+    "deterministic_seed"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "integer"
+    },
+    "point": {
+      "type": "number"
+    },
+    "adverse_slippage_points": {
+      "type": "number"
+    },
+    "commission_per_lot_per_side": {
+      "type": "number"
+    },
+    "max_fill_volume_per_quote": {
+      "type": "number"
+    },
+    "maximum_quote_age_milliseconds": {
+      "type": "integer"
+    },
+    "allow_research_only_intents": {
+      "type": "boolean"
+    },
+    "allow_partial_fills": {
+      "type": "boolean"
+    },
+    "fill_market_on_next_quote": {
+      "type": "boolean"
+    },
+    "deterministic_seed": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    }
+  }
+}

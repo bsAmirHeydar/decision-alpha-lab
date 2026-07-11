@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/paper_order.schema.json",
+  "title": "Paper Order",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "order_id",
+    "intent_id",
+    "symbol",
+    "direction",
+    "order_kind",
+    "state",
+    "requested_volume",
+    "filled_volume",
+    "remaining_volume",
+    "requested_price",
+    "stop_price",
+    "accepted_at_utc_msc",
+    "updated_at_utc_msc",
+    "expires_at_utc_msc",
+    "order_hash"
+  ],
+  "properties": {
+    "order_id": {
+      "type": "string"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "intent_hash": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "integer"
+    },
+    "order_kind": {
+      "type": "integer"
+    },
+    "state": {
+      "type": "integer"
+    },
+    "requested_volume": {
+      "type": "number"
+    },
+    "filled_volume": {
+      "type": "number"
+    },
+    "remaining_volume": {
+      "type": "number"
+    },
+    "requested_price": {
+      "type": "number"
+    },
+    "average_fill_price": {
+      "type": "number"
+    },
+    "stop_price": {
+      "type": "number"
+    },
+    "target_price": {
+      "type": "number"
+    },
+    "has_target": {
+      "type": "boolean"
+    },
+    "accepted_at_utc_msc": {
+      "type": "integer"
+    },
+    "updated_at_utc_msc": {
+      "type": "integer"
+    },
+    "expires_at_utc_msc": {
+      "type": "integer"
+    },
+    "last_quote_sequence": {
+      "type": "integer"
+    },
+    "reject_reason": {
+      "type": "integer"
+    },
+    "order_hash": {
+      "type": "string"
+    }
+  }
+}

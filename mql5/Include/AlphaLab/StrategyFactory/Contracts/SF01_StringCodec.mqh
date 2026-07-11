@@ -81,4 +81,11 @@ bool SF01_IsSafeTerminalSymbol(const string value, const int max_length = 64)
    return true;
 }
 
+// Compatibility alias retained because Strategy Factory phases 08-17 use the concise name.
+// The implementation delegates to the canonical transport-symbol validator above.
+bool SF01_IsTerminalSymbol(const string value, const int max_length = 64)
+{
+   return SF01_IsSafeTerminalSymbol(value, max_length);
+}
+
 #endif

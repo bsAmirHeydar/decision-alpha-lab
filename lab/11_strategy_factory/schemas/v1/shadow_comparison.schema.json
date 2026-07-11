@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab/schemas/v1/shadow_comparison.schema.json",
+  "title": "Shadow Comparison",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "comparison_id",
+    "intent_id",
+    "paper_order_id",
+    "observed_external_order_id",
+    "paper_fill_price",
+    "observed_fill_price",
+    "paper_fill_time_utc_msc",
+    "observed_fill_time_utc_msc",
+    "price_delta",
+    "latency_delta_milliseconds",
+    "volume_delta",
+    "matched",
+    "comparison_hash"
+  ],
+  "properties": {
+    "comparison_id": {
+      "type": "string"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "paper_order_id": {
+      "type": "string"
+    },
+    "observed_external_order_id": {
+      "type": "string"
+    },
+    "paper_fill_price": {
+      "type": "number"
+    },
+    "observed_fill_price": {
+      "type": "number"
+    },
+    "paper_fill_time_utc_msc": {
+      "type": "integer"
+    },
+    "observed_fill_time_utc_msc": {
+      "type": "integer"
+    },
+    "price_delta": {
+      "type": "number"
+    },
+    "latency_delta_milliseconds": {
+      "type": "integer"
+    },
+    "volume_delta": {
+      "type": "number"
+    },
+    "matched": {
+      "type": "boolean"
+    },
+    "comparison_hash": {
+      "type": "string"
+    }
+  }
+}
