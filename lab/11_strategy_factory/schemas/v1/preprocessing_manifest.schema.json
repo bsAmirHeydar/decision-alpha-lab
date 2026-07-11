@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "fitted_role": {
+      "const": "TRAIN"
+    },
+    "fitted_rowset_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "impute_values": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "means": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "missing_policy": {
+      "enum": [
+        "TRAIN_IMPUTE"
+      ]
+    },
+    "scale_policy": {
+      "enum": [
+        "STANDARDIZE"
+      ]
+    },
+    "scales": {
+      "items": {
+        "exclusiveMinimum": 0,
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/preprocessing_manifest@1.0.0"
+    },
+    "transform_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "feature_schema_hash",
+    "transform_hash",
+    "impute_values",
+    "means",
+    "scales",
+    "missing_policy",
+    "scale_policy",
+    "fitted_role",
+    "fitted_rowset_hash",
+    "manifest_hash"
+  ],
+  "title": "Preprocessing manifest",
+  "type": "object"
+}

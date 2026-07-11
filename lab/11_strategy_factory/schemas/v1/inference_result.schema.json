@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "backend": {
+      "type": "integer"
+    },
+    "calibrated_score": {
+      "type": "number"
+    },
+    "error_code": {
+      "type": "integer"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "inference_time_utc_msc": {
+      "type": "integer"
+    },
+    "latency_micros": {
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "predicted_class": {
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "raw_score": {
+      "type": "number"
+    },
+    "release_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "result_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "result_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/inference_result@1.0.0"
+    },
+    "status": {
+      "type": "integer"
+    },
+    "threshold": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "schema",
+    "result_id",
+    "request_id",
+    "model_id",
+    "model_version",
+    "release_hash",
+    "manifest_hash",
+    "status",
+    "raw_score",
+    "calibrated_score",
+    "predicted_class",
+    "threshold",
+    "inference_time_utc_msc",
+    "latency_micros",
+    "backend",
+    "error_code",
+    "error_message",
+    "result_hash"
+  ],
+  "title": "Inference result",
+  "type": "object"
+}

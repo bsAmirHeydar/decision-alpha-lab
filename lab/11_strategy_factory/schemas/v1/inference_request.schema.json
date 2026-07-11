@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_frame_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time_utc_msc": {
+      "type": "integer"
+    },
+    "feature_order_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "generation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_utc_msc": {
+      "type": "integer"
+    },
+    "missing": {
+      "items": {
+        "type": "boolean"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "request_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/inference_request@1.0.0"
+    },
+    "values": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "request_id",
+    "run_id",
+    "generation_id",
+    "context_frame_id",
+    "candidate_id",
+    "feature_schema_hash",
+    "feature_order_hash",
+    "known_time_utc_msc",
+    "decision_time_utc_msc",
+    "values",
+    "missing",
+    "request_hash"
+  ],
+  "title": "Inference request",
+  "type": "object"
+}

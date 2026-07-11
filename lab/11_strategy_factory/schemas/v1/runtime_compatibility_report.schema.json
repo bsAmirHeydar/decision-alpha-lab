@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compatible": {
+      "type": "boolean"
+    },
+    "errors": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "input_shape": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "model_fnv1a64": {
+      "pattern": "^[0-9a-f]{16}$",
+      "type": "string"
+    },
+    "model_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "model_size_bytes": {
+      "type": "integer"
+    },
+    "operator_allowlist": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "output_shape": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/runtime_compatibility_report@1.0.0"
+    },
+    "terminal_build_checked": {
+      "type": "integer"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "manifest_hash",
+    "compatible",
+    "errors",
+    "warnings",
+    "model_sha256",
+    "model_fnv1a64",
+    "model_size_bytes",
+    "terminal_build_checked",
+    "operator_allowlist",
+    "input_shape",
+    "output_shape"
+  ],
+  "title": "Runtime compatibility report",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "exact-version model loading, preprocessing, prediction and fail-closed runtime checks",
+    "python": "offline deterministic ONNX export, manifest construction, compatibility and parity validation"
+  },
+  "central_engine_only": true,
+  "invariants": [
+    "only Phase 14 governed exact releases may be exported",
+    "feature order is immutable and dense",
+    "preprocessing is training-fitted and exact",
+    "ONNX graph uses a static operator allowlist and static shapes",
+    "startup model fingerprint and lineage must match",
+    "smoke parity must pass before readiness",
+    "prediction grants no trade, risk or order authority",
+    "all runtime failures fail closed"
+  ],
+  "next_phase": 16,
+  "phase": 15,
+  "status": "IMPLEMENTED_STATIC_QA_PASS_METAEDITOR_RUNTIME_PENDING",
+  "title": "ONNX Export and MQL5 Inference"
+}

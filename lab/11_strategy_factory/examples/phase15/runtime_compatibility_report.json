@@ -1,0 +1,23 @@
+{
+  "compatible": true,
+  "errors": [],
+  "input_shape": [
+    1,
+    4
+  ],
+  "manifest_hash": "omnf_d07081ff8fb2361e",
+  "model_fnv1a64": "1e623513209288b3",
+  "model_sha256": "3e0fa5825e5656cfefdcf34bb9e05e1844ab231c8dbb74150619068c392fcac8",
+  "model_size_bytes": 269,
+  "operator_allowlist": [
+    "MatMul",
+    "Add"
+  ],
+  "output_shape": [
+    1,
+    1
+  ],
+  "schema": "alpha_lab.strategy_factory/runtime_compatibility_report@1.0.0",
+  "terminal_build_checked": 3900,
+  "warnings": []
+}

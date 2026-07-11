@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_allowed": {
+      "type": "boolean"
+    },
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "created_at_utc_msc": {
+      "type": "integer"
+    },
+    "deployment_channel": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_order_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "onnx_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "parity_report_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "preprocessing_manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_authority": {
+      "const": false
+    },
+    "rollback_release_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/inference_release_manifest@1.0.0"
+    },
+    "trade_authority": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema",
+    "release_id",
+    "release_hash",
+    "onnx_manifest_hash",
+    "feature_order_hash",
+    "preprocessing_manifest_hash",
+    "calibration_hash",
+    "parity_report_hash",
+    "deployment_channel",
+    "activation_allowed",
+    "trade_authority",
+    "risk_authority",
+    "order_authority",
+    "rollback_release_hash",
+    "created_at_utc_msc"
+  ],
+  "title": "Inference release manifest",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_15",
+  "next": "Decision, Allocation and Risk Engine",
+  "preconditions": [
+    "MetaEditor compile passes for all four SF15 EAs",
+    "reference ONNX runtime smoke test passes in local terminal and Strategy Tester",
+    "offline SHA-256 and terminal FNV-1a fingerprints reproduce",
+    "exact feature order, transform and calibration lineage validate",
+    "all eight parity vectors pass within declared float32 tolerances",
+    "unsupported terminal build and tampered model tests fail closed",
+    "inference results are append-only and attributable to exact model release",
+    "no trade, risk, paper or live authority"
+  ],
+  "to": "PHASE_16"
+}

@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "exact-version model loading, static shape binding, preprocessing, calibration and prediction",
+    "python": "offline deterministic ONNX export, structural inspection, artifact validation, compatibility checks and parity evidence"
+  },
+  "central_engine_only": true,
+  "explicitly_absent": [
+    "candidate trade/skip authority",
+    "candidate ranking",
+    "portfolio allocation",
+    "risk sizing",
+    "paper orders",
+    "live orders",
+    "broker adapter",
+    "legacy strategy integration",
+    "runtime JSON parsing",
+    "dynamic model discovery"
+  ],
+  "file_count": 158,
+  "phase": 15,
+  "reference_artifact": {
+    "fnv1a64": "1e623513209288b3",
+    "graph": "AlphaLabLinearScalarV1",
+    "input_shape": [
+      1,
+      4
+    ],
+    "ir_version": 8,
+    "model_id": "sf15.reference.linear_classifier",
+    "model_version": "1.0.0",
+    "operators": [
+      "MatMul",
+      "Add"
+    ],
+    "opset": 13,
+    "output_shape": [
+      1,
+      1
+    ],
+    "parity_vectors": 8,
+    "sha256": "3e0fa5825e5656cfefdcf34bb9e05e1844ab231c8dbb74150619068c392fcac8",
+    "size_bytes": 269
+  },
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_AND_TERMINAL_RUNTIME_PENDING",
+  "subsystems": [
+    "Phase 14 exact-release consumption",
+    "versioned ONNX export plans",
+    "pure-stdlib deterministic ONNX protobuf writer",
+    "linear scalar and logistic-ridge deployment profile",
+    "MatMul and Add operator allowlist",
+    "pinned opset 13 and IR version 8",
+    "float32 static input and output tensors",
+    "immutable dense feature order",
+    "training-fitted preprocessing manifests",
+    "missing-value imputation contract",
+    "identity, sigmoid and Platt calibration contracts",
+    "classification threshold contract",
+    "canonical ONNX model manifests",
+    "offline SHA-256 artifact authority",
+    "terminal FNV-1a startup fingerprint",
+    "minimum terminal-build gate",
+    "MQL5 Files and Common Files deployment modes",
+    "native OnnxCreate, shape binding and OnnxRun session wrapper",
+    "fail-closed startup guard",
+    "fail-closed per-request lineage and causality guard",
+    "typed inference requests and results",
+    "prediction-only authority boundary",
+    "reference linear model",
+    "eight-vector golden parity corpus",
+    "raw score, calibration and class parity",
+    "runtime compatibility reports",
+    "research-and-paper-only inference release manifest",
+    "rollback release contract",
+    "runtime telemetry",
+    "MQL5 host, diagnostic, contract self-test and ONNX runtime smoke test",
+    "Python CLI and conformance package",
+    "JSON schemas and deterministic fixtures",
+    "detailed Obsidian documentation",
+    "Phase 16 handoff"
+  ],
+  "title": "ONNX Export and MQL5 Inference"
+}

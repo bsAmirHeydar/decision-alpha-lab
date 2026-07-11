@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "feature_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "feature_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ordinal": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "value_type": {
+            "enum": [
+              "float32"
+            ]
+          }
+        },
+        "required": [
+          "feature_id",
+          "feature_version",
+          "ordinal",
+          "value_type",
+          "required"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "order_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/feature_order@1.0.0"
+    }
+  },
+  "required": [
+    "schema",
+    "feature_schema_hash",
+    "bindings",
+    "order_hash"
+  ],
+  "title": "Feature order",
+  "type": "object"
+}

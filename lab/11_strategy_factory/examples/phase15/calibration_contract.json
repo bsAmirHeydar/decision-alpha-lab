@@ -1,0 +1,8 @@
+{
+  "a": 1.0,
+  "b": 0.0,
+  "calibration_hash": "cal_a8e1f8e97506568a",
+  "method": "SIGMOID",
+  "schema": "alpha_lab.strategy_factory/calibration_contract@1.0.0",
+  "threshold": 0.55
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bias": {
+      "type": "number"
+    },
+    "parameter_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/linear_scalar_parameters@1.0.0"
+    },
+    "weights": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "weights",
+    "bias",
+    "parameter_hash"
+  ],
+  "title": "Linear scalar parameters",
+  "type": "object"
+}

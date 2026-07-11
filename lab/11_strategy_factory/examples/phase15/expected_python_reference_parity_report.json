@@ -1,0 +1,15 @@
+{
+  "backend": 1,
+  "calibrated_tolerance": 1e-12,
+  "failed_count": 0,
+  "manifest_hash": "omnf_d07081ff8fb2361e",
+  "maximum_calibrated_abs_error": 0.0,
+  "maximum_raw_abs_error": 0.0,
+  "passed_count": 8,
+  "raw_tolerance": 1e-12,
+  "report_hash": "prep_339525cf4b52dc08",
+  "report_id": "parep_1ab87b63f2eac257",
+  "schema": "alpha_lab.strategy_factory/parity_report@1.0.0",
+  "vector_count": 8,
+  "verdict": 1
+}

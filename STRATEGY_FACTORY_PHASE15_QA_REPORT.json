@@ -1,0 +1,130 @@
+{
+  "checks": {
+    "calibration_lineage_validation": {
+      "status": "PASS"
+    },
+    "capital_authority": {
+      "status": "ABSENT"
+    },
+    "cumulative_phase_pytest": {
+      "execution": "phase suites were run independently to avoid duplicate module-basename collection conflicts",
+      "passed": 302,
+      "status": "PASS"
+    },
+    "engineering_policy": {
+      "checks_passed": 4,
+      "checks_total": 4,
+      "status": "PASS"
+    },
+    "example_schema_validation": {
+      "machine_readable_fixtures": 14,
+      "status": "PASS"
+    },
+    "feature_order_validation": {
+      "status": "PASS"
+    },
+    "include_resolution": {
+      "phase15_sources": 22,
+      "status": "PASS"
+    },
+    "json_parse": {
+      "example_files": 14,
+      "schemas": 13,
+      "status": "PASS"
+    },
+    "json_schema_meta_validation": {
+      "schemas": 13,
+      "status": "PASS"
+    },
+    "legacy_strategy_integration": {
+      "status": "ABSENT"
+    },
+    "live_authority": {
+      "status": "ABSENT"
+    },
+    "mql5_compatibility": {
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "mql5_onnx_parity_harness": {
+      "calibrated_tolerance": 1e-05,
+      "raw_tolerance": 1e-05,
+      "status": "IMPLEMENTED_LOCAL_RUNTIME_PENDING",
+      "vectors": 8
+    },
+    "old_terminal_rejection": {
+      "status": "PASS"
+    },
+    "paper_authority": {
+      "status": "ABSENT"
+    },
+    "phase15_boundary_guard": {
+      "experts": 4,
+      "headers": 18,
+      "status": "PASS"
+    },
+    "phase15_pytest": {
+      "passed": 23,
+      "status": "PASS"
+    },
+    "preprocessing_lineage_validation": {
+      "status": "PASS"
+    },
+    "python_compileall": {
+      "status": "PASS"
+    },
+    "python_reference_parity": {
+      "calibrated_tolerance": 1e-12,
+      "failed": 0,
+      "raw_tolerance": 1e-12,
+      "status": "PASS",
+      "vectors": 8
+    },
+    "reference_onnx_digest": {
+      "copies_identical": true,
+      "fnv1a64": "1e623513209288b3",
+      "sha256": "3e0fa5825e5656cfefdcf34bb9e05e1844ab231c8dbb74150619068c392fcac8",
+      "status": "PASS"
+    },
+    "reference_onnx_structure": {
+      "graph_name": "AlphaLabLinearScalarV1",
+      "initializers": [
+        "weights[4,1]",
+        "bias[1]"
+      ],
+      "ir_version": 8,
+      "operators": [
+        "MatMul",
+        "Add"
+      ],
+      "opset": 13,
+      "size_bytes": 269,
+      "status": "PASS"
+    },
+    "syntax_balance": {
+      "status": "PASS"
+    },
+    "tamper_detection": {
+      "status": "PASS"
+    }
+  },
+  "known_limitations": [
+    "MetaEditor is unavailable in this environment; compile the four SF15 Expert Advisors on the local Windows terminal.",
+    "The native MQL5 ONNX runtime parity harness is implemented but must be executed locally because MetaTrader 5 is unavailable in this environment.",
+    "Phase 15 supports the governed linear scalar/logistic-ridge deployment profile. Additional model families require separate exporter, operator-allowlist and parity evidence.",
+    "SHA-256 remains the offline governance digest. The terminal FNV-1a fingerprint detects accidental or unauthorized local replacement but is not treated as a cryptographic authenticity proof.",
+    "The reference release has prediction authority only. Phase 16 must provide explicit decision, allocation and risk contracts before a prediction can affect capital.",
+    "GPU execution is not part of the deterministic acceptance baseline; the supplied hosts default to CPU-only execution."
+  ],
+  "metaeditor_compile": "REQUIRES_LOCAL_WINDOWS",
+  "mql5_onnx_runtime": "REQUIRES_LOCAL_TERMINAL_OR_STRATEGY_TESTER",
+  "phase": 15,
+  "primary_sources_reviewed": [
+    "official MQL5 OnnxCreate reference",
+    "official MQL5 OnnxRun reference",
+    "official MQL5 shape-binding references",
+    "official ONNX onnx.proto3 schema"
+  ],
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_AND_TERMINAL_RUNTIME_PENDING"
+}

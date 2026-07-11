@@ -1,0 +1,15 @@
+{
+  "backend": 3,
+  "calibrated_tolerance": 1e-05,
+  "failed_count": 0,
+  "manifest_hash": "omnf_d07081ff8fb2361e",
+  "maximum_calibrated_abs_error": 0.0,
+  "maximum_raw_abs_error": 0.0,
+  "passed_count": 0,
+  "raw_tolerance": 1e-05,
+  "report_hash": "prep_mql5_runtime_pending",
+  "report_id": "parep_mql5_runtime_pending_phase15",
+  "schema": "alpha_lab.strategy_factory/parity_report@1.0.0",
+  "vector_count": 8,
+  "verdict": 3
+}

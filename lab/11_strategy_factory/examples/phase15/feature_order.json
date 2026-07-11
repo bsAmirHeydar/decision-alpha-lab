@@ -1,0 +1,35 @@
+{
+  "bindings": [
+    {
+      "feature_id": "ref.range_position",
+      "feature_version": "1.0.0",
+      "ordinal": 0,
+      "required": true,
+      "value_type": "float32"
+    },
+    {
+      "feature_id": "ref.body_fraction",
+      "feature_version": "1.0.0",
+      "ordinal": 1,
+      "required": true,
+      "value_type": "float32"
+    },
+    {
+      "feature_id": "ref.displacement_atr",
+      "feature_version": "1.0.0",
+      "ordinal": 2,
+      "required": true,
+      "value_type": "float32"
+    },
+    {
+      "feature_id": "ref.session_progress",
+      "feature_version": "1.0.0",
+      "ordinal": 3,
+      "required": true,
+      "value_type": "float32"
+    }
+  ],
+  "feature_schema_hash": "fvec_b0f3a1edd021edee",
+  "order_hash": "ford_9ae1141c6d2f1b1d",
+  "schema": "alpha_lab.strategy_factory/feature_order@1.0.0"
+}

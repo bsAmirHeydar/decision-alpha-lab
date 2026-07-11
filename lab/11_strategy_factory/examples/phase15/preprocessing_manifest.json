@@ -1,0 +1,28 @@
+{
+  "feature_schema_hash": "fvec_b0f3a1edd021edee",
+  "fitted_role": "TRAIN",
+  "fitted_rowset_hash": "rowset_reference_phase15",
+  "impute_values": [
+    0.0,
+    0.0,
+    0.0,
+    0.5
+  ],
+  "manifest_hash": "prep_0a2d9c471003c4a6",
+  "means": [
+    0.1,
+    -0.2,
+    0.3,
+    0.5
+  ],
+  "missing_policy": "TRAIN_IMPUTE",
+  "scale_policy": "STANDARDIZE",
+  "scales": [
+    1.2,
+    0.8,
+    2.0,
+    0.25
+  ],
+  "schema": "alpha_lab.strategy_factory/preprocessing_manifest@1.0.0",
+  "transform_hash": "xform_bb9fb122fd545bcc"
+}

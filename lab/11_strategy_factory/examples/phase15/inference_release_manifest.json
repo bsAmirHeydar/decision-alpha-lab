@@ -1,0 +1,17 @@
+{
+  "activation_allowed": true,
+  "calibration_hash": "cal_a8e1f8e97506568a",
+  "created_at_utc_msc": 1783771200000,
+  "deployment_channel": "RESEARCH_AND_PAPER_ONLY",
+  "feature_order_hash": "ford_9ae1141c6d2f1b1d",
+  "onnx_manifest_hash": "omnf_d07081ff8fb2361e",
+  "order_authority": false,
+  "parity_report_hash": "prep_339525cf4b52dc08",
+  "preprocessing_manifest_hash": "prep_0a2d9c471003c4a6",
+  "release_hash": "mrel_da0b4459eae24ad0",
+  "release_id": "irel_reference_phase15",
+  "risk_authority": false,
+  "rollback_release_hash": "mrel_previous_reference",
+  "schema": "alpha_lab.strategy_factory/inference_release_manifest@1.0.0",
+  "trade_authority": false
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "element_type": {
+      "const": 1
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/tensor_contract@1.0.0"
+    },
+    "shape": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "name",
+    "element_type",
+    "shape",
+    "ordinal",
+    "contract_hash"
+  ],
+  "title": "Tensor contract",
+  "type": "object"
+}

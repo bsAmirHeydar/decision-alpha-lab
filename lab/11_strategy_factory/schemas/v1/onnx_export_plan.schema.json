@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "dynamic_axes_allowed": {
+      "const": false
+    },
+    "exporter_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_order_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "float_precision": {
+      "const": "FLOAT32"
+    },
+    "input_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_family": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_semantics": {
+      "enum": [
+        "SCALAR_SCORE",
+        "BINARY_LOGIT",
+        "BINARY_PROBABILITY"
+      ]
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/onnx_export_plan@1.0.0"
+    },
+    "source_model_artifact_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "target_opset": {
+      "minimum": 7,
+      "type": "integer"
+    },
+    "transform_hash": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "plan_id",
+    "plan_version",
+    "model_id",
+    "model_version",
+    "release_hash",
+    "model_family",
+    "source_model_artifact_hash",
+    "feature_schema_hash",
+    "feature_order_hash",
+    "transform_hash",
+    "calibration_hash",
+    "target_opset",
+    "input_name",
+    "output_name",
+    "output_semantics",
+    "float_precision",
+    "dynamic_axes_allowed",
+    "exporter_version"
+  ],
+  "title": "ONNX export plan",
+  "type": "object"
+}

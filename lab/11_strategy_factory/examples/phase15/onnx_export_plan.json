@@ -1,0 +1,21 @@
+{
+  "calibration_hash": "cal_a8e1f8e97506568a",
+  "dynamic_axes_allowed": false,
+  "exporter_version": "0.15.0",
+  "feature_order_hash": "ford_9ae1141c6d2f1b1d",
+  "feature_schema_hash": "fvec_b0f3a1edd021edee",
+  "float_precision": "FLOAT32",
+  "input_name": "features",
+  "model_family": "LOGISTIC_RIDGE",
+  "model_id": "sf15.reference.linear_classifier",
+  "model_version": "1.0.0",
+  "output_name": "score",
+  "output_semantics": "BINARY_LOGIT",
+  "plan_id": "phase15.reference.export",
+  "plan_version": "1.0.0",
+  "release_hash": "mrel_da0b4459eae24ad0",
+  "schema": "alpha_lab.strategy_factory/onnx_export_plan@1.0.0",
+  "source_model_artifact_hash": "mart_reference_phase15",
+  "target_opset": 13,
+  "transform_hash": "xform_bb9fb122fd545bcc"
+}

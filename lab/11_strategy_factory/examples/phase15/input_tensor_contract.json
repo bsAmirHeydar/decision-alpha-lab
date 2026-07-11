@@ -1,0 +1,11 @@
+{
+  "contract_hash": "tens_4f7ea306375d3d3a",
+  "element_type": 1,
+  "name": "features",
+  "ordinal": 0,
+  "schema": "alpha_lab.strategy_factory/tensor_contract@1.0.0",
+  "shape": [
+    1,
+    4
+  ]
+}

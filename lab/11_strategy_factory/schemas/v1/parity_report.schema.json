@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "backend": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "calibrated_tolerance": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "failed_count": {
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "maximum_calibrated_abs_error": {
+      "type": "number"
+    },
+    "maximum_raw_abs_error": {
+      "type": "number"
+    },
+    "passed_count": {
+      "type": "integer"
+    },
+    "raw_tolerance": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/parity_report@1.0.0"
+    },
+    "vector_count": {
+      "type": "integer"
+    },
+    "verdict": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "report_id",
+    "manifest_hash",
+    "backend",
+    "vector_count",
+    "passed_count",
+    "failed_count",
+    "maximum_raw_abs_error",
+    "maximum_calibrated_abs_error",
+    "raw_tolerance",
+    "calibrated_tolerance",
+    "verdict",
+    "report_hash"
+  ],
+  "title": "Parity report",
+  "type": "object"
+}

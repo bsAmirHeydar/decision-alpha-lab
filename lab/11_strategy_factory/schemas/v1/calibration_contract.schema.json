@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "a": {
+      "type": "number"
+    },
+    "b": {
+      "type": "number"
+    },
+    "calibration_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "method": {
+      "enum": [
+        "IDENTITY",
+        "SIGMOID",
+        "PLATT"
+      ]
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/calibration_contract@1.0.0"
+    },
+    "threshold": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "schema",
+    "method",
+    "a",
+    "b",
+    "threshold",
+    "calibration_hash"
+  ],
+  "title": "Calibration contract",
+  "type": "object"
+}

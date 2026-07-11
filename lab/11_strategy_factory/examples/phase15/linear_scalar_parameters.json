@@ -1,0 +1,11 @@
+{
+  "bias": -0.15,
+  "parameter_hash": "lpar_87125063aeabc6a8",
+  "schema": "alpha_lab.strategy_factory/linear_scalar_parameters@1.0.0",
+  "weights": [
+    0.75,
+    -0.5,
+    0.25,
+    1.1
+  ]
+}

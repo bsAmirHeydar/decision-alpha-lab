@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "code_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "export_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_order_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "type": "integer"
+    },
+    "graph_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ir_version": {
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "minimum_terminal_build": {
+      "type": "integer"
+    },
+    "model_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "onnx_fnv1a64": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "onnx_sha256": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "onnx_size_bytes": {
+      "type": "integer"
+    },
+    "opset": {
+      "type": "integer"
+    },
+    "output_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_semantics": {
+      "type": "integer"
+    },
+    "preprocessing_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "registry_scope_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relative_model_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/onnx_model_manifest@1.0.0"
+    },
+    "transform_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "export_id",
+    "model_id",
+    "model_version",
+    "release_hash",
+    "registry_scope_hash",
+    "model_artifact_hash",
+    "onnx_sha256",
+    "onnx_fnv1a64",
+    "onnx_size_bytes",
+    "feature_schema_hash",
+    "feature_order_hash",
+    "transform_hash",
+    "preprocessing_manifest_hash",
+    "calibration_hash",
+    "input_contract_hash",
+    "output_contract_hash",
+    "output_semantics",
+    "opset",
+    "ir_version",
+    "graph_name",
+    "relative_model_path",
+    "minimum_terminal_build",
+    "generated_at_utc_msc",
+    "code_revision",
+    "manifest_hash"
+  ],
+  "title": "ONNX model manifest",
+  "type": "object"
+}

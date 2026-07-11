@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_calibrated_score": {
+      "type": "number"
+    },
+    "expected_class": {
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "expected_raw_score": {
+      "type": "number"
+    },
+    "expected_transformed": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "missing": {
+      "items": {
+        "type": "boolean"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/parity_vector@1.0.0"
+    },
+    "values": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "vector_hash": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "vector_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "vector_id",
+    "values",
+    "missing",
+    "expected_transformed",
+    "expected_raw_score",
+    "expected_calibrated_score",
+    "expected_class",
+    "vector_hash"
+  ],
+  "title": "Parity vector",
+  "type": "object"
+}
