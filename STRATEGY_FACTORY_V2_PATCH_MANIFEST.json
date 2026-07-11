@@ -1,0 +1,1661 @@
+{
+  "name": "Decision Alpha Lab Strategy Factory V2 Ultra-Modular Low-Latency Patch",
+  "version": "2.0.0",
+  "standalone": true,
+  "supersedes": "decision-alpha-lab-strategy-factory-deep-patch.zip",
+  "file_count_before_metadata": 332,
+  "markdown_count": 204,
+  "markdown_word_count": 37990,
+  "code_file_count": 113,
+  "code_line_count": 7267,
+  "extension_counts": {
+    ".md": 204,
+    ".sha256": 1,
+    ".txt": 2,
+    ".json": 9,
+    ".csv": 3,
+    ".mqh": 14,
+    ".py": 99
+  },
+  "primary_entry": "docs/strategy_factory_v2/00_start_here/00_STRATEGY_FACTORY_V2_MOC.md",
+  "python_entry": "lab/11_strategy_factory/python/strategy_factory",
+  "mql5_entry": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2",
+  "collision_count_with_uploaded_repository": 0,
+  "files": [
+    {
+      "path": "COMMIT_MESSAGE_V2.md",
+      "sha256": "8d4c87c24958896174831dd628c24186152c74c75ec956478900a0a307536199",
+      "size_bytes": 527
+    },
+    {
+      "path": "INSTALL_STRATEGY_FACTORY_V2_PATCH.md",
+      "sha256": "36b0d563d84f988d3c5dec89b733c47f31e8a737ba5b9f2d6c432141c9db9215",
+      "size_bytes": 1461
+    },
+    {
+      "path": "README_STRATEGY_FACTORY_V2_PATCH.md",
+      "sha256": "506c35e535279646e12d957a7fd48aa7866ef6c9d72e325566db0a233a5d3f84",
+      "size_bytes": 2659
+    },
+    {
+      "path": "docs/obsidian_deep/00_mocs/STRATEGY_FACTORY_MOC.md",
+      "sha256": "00da969c0176e39651d8cab2209c7a96ac95720cca3a8fd2f7aea26cd3ecc1a1",
+      "size_bytes": 873
+    },
+    {
+      "path": "docs/strategy_factory/00_start_here/00_STRATEGY_FACTORY_MOC.md",
+      "sha256": "145f794e2e95c550f43cf109dfc504fba2b661dfe68ef9f9762bb3ecf3488cfa",
+      "size_bytes": 2926
+    },
+    {
+      "path": "docs/strategy_factory/00_start_here/01_MISSION_AND_NON_GOALS.md",
+      "sha256": "2c336a9ff502447e56b8125e181c36bdc1a9b5d2dab0ee1aa9a62d19a33bb055",
+      "size_bytes": 2091
+    },
+    {
+      "path": "docs/strategy_factory/00_start_here/02_EXECUTIVE_SYSTEM_ARCHITECTURE.md",
+      "sha256": "7b66888da01b12ce486fe026bead510472ddc73f3175ee80bec6c0e1a68567b6",
+      "size_bytes": 2074
+    },
+    {
+      "path": "docs/strategy_factory/01_governance/03_STRATEGY_LIFECYCLE_AND_STATE_MACHINE.md",
+      "sha256": "5a375f1002cd2bd022ee10c273e5b54c5599576e3bb51ee38dd8902f6f4a7ca1",
+      "size_bytes": 1843
+    },
+    {
+      "path": "docs/strategy_factory/01_governance/04_AUTHORITY_AND_BOUNDARY_MATRIX.md",
+      "sha256": "1f14b0039e50a410a6c372d10a31fa7c4d5e60a926274549dab7a102af2c0e9b",
+      "size_bytes": 1525
+    },
+    {
+      "path": "docs/strategy_factory/01_governance/05_STRATEGY_ADMISSION_GATE.md",
+      "sha256": "78ee11ad971724bbc02a1c23097cf49f43466fc63d16d1d4b7f6702000a1b189",
+      "size_bytes": 1522
+    },
+    {
+      "path": "docs/strategy_factory/01_governance/06_CANON_FREEZE_AND_CHANGE_CONTROL.md",
+      "sha256": "aaff0e2da98ce6c83848618c2173613778be56e5487a38ae175d617f5411c3ff",
+      "size_bytes": 1219
+    },
+    {
+      "path": "docs/strategy_factory/01_governance/07_RESEARCH_TRIAL_REGISTRY.md",
+      "sha256": "e210f2f35d769dbc7241301b2975bc049eb3a45d28f0f160c7ad6db5d852d441",
+      "size_bytes": 1157
+    },
+    {
+      "path": "docs/strategy_factory/02_architecture/08_ANATOMY_ADAPTER_CONTRACT.md",
+      "sha256": "5979ddccf327c7656bb3c88b3fb0338694938ab2a00fcc656b3e2d23daa8d127",
+      "size_bytes": 1604
+    },
+    {
+      "path": "docs/strategy_factory/02_architecture/75_ANATOMY_TO_EXPLOITATION_COMPILER.md",
+      "sha256": "a015fd7a31ab9a770fa5ecab309924ad389aaa3cc48bfb2459bfede265500a68",
+      "size_bytes": 1894
+    },
+    {
+      "path": "docs/strategy_factory/02_architecture/76_EXCEL_CSV_PARQUET_INGESTION_CONTRACT.md",
+      "sha256": "17c1f10f9c16f63cd32e2921dc7d022133bcd01f04e63d0402a7aac998ca2f60",
+      "size_bytes": 1545
+    },
+    {
+      "path": "docs/strategy_factory/02_architecture/85_FULL_REFERENCE_ARCHITECTURE.md",
+      "sha256": "3db845e40b880aa26074621d4fde18cd3491d36195109cc4ce91dc8e6aebbf96",
+      "size_bytes": 9481
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/09_KNOWN_TIME_AND_CAUSALITY_CONTRACT.md",
+      "sha256": "26c88f21308f79b6b98d56bcff6cf2137b616a140e7d377bba5d7caf83975e02",
+      "size_bytes": 1459
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/10_EVENT_IDENTITY_AND_LINEAGE.md",
+      "sha256": "abfe7c55380ac6e2a21b2b1b6105aaaf3240df3ca684c37c63b3cba1e9c15d51",
+      "size_bytes": 1124
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/11_IMMUTABLE_FEATURE_SNAPSHOT.md",
+      "sha256": "25db32a8c385dadb62992cdd657217ae84d977b74101f68978d72e2d8ea62837",
+      "size_bytes": 1350
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/12_MARKET_EVENT_CLUSTER_ID.md",
+      "sha256": "6966bdfe493f6b4c999867f1cc746c23f76ddb0893b7f455dd720849fc67dfa0",
+      "size_bytes": 1135
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/13_DATA_LINEAGE_AND_VERSIONING.md",
+      "sha256": "b81c299990d4156567a661f83fd4f31a1fd8b9ae89bac4414de6e019494cea57",
+      "size_bytes": 1086
+    },
+    {
+      "path": "docs/strategy_factory/03_contracts/86_CANONICAL_SCHEMA_REFERENCE.md",
+      "sha256": "e2aab3c36edb68f0a7f08a51b261ab8cbb2f5f079e129b70807b79020076c08a",
+      "size_bytes": 7045
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/14_CANDIDATE_UNIVERSE_ENGINE.md",
+      "sha256": "89cce767a87488db1e921f1e7c458dad5943f8a5fc178da5da950a4ce9a4a793",
+      "size_bytes": 1354
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/15_ENTRY_POLICY_CATALOG.md",
+      "sha256": "8858b66a0e732efd74bdc246443acdbb1495943f2fcebc90cd6f64cebf5cb9c7",
+      "size_bytes": 1209
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/16_STOP_POLICY_CATALOG.md",
+      "sha256": "cf448e9db1f20b2cf4e58ebbd9ef1022892b196f4265214065fba94417e3c534",
+      "size_bytes": 1002
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/17_EXIT_POLICY_CATALOG.md",
+      "sha256": "9650b304f8b0114d2bba7d8081defbcb902703bb359de5a4bc8aef35e8bfb702",
+      "size_bytes": 1063
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/18_CANDIDATE_COMPATIBILITY_AND_PRUNING.md",
+      "sha256": "c1b2e2e518edc3af2413ed6246e2a1366bb8807fa0f6e5ef019f7d94e26c0720",
+      "size_bytes": 1036
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/19_SETUP_DISCOVERY_AND_RULE_SEARCH.md",
+      "sha256": "2176f07b05d66685123536466eb82eebfff35131cdab1241f873dc1479122603",
+      "size_bytes": 1056
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/20_COST_FILL_AND_MICROSTRUCTURE_MODEL.md",
+      "sha256": "5e5aae4ccb3c64102aec0bfcab60924ba9a8392b22c3fbf3a1e2d34c45390c4b",
+      "size_bytes": 1031
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/77_MAXIMUM_ANATOMY_EXPLOITATION_PLAYBOOK.md",
+      "sha256": "62ce33cb56e6556a1d5209a89e7325bd28abcfa62bfeeae3d8be4f9de6dd2076",
+      "size_bytes": 1419
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/78_MULTI_OBJECTIVE_POLICY_SELECTION.md",
+      "sha256": "264098e3ffca45dcf5543518fe1e1c6053134190c2a92cf2fa63cdc8e8104aec",
+      "size_bytes": 1329
+    },
+    {
+      "path": "docs/strategy_factory/04_candidate_engine/92_SETUP_ENTRY_EXIT_LIBRARY_REFERENCE.md",
+      "sha256": "c8bd964eaf32bb2db333a3566f893018d10150d406eeca3aba8eca25f88d7112",
+      "size_bytes": 5015
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/21_OUTCOME_ENGINE_AND_PATH_ACCOUNTING.md",
+      "sha256": "3b1c510672fbcbc367d513b48010856ec0abcc6ecee5979477cdaa85febc084a",
+      "size_bytes": 1243
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/22_LABEL_TAXONOMY.md",
+      "sha256": "bc0a0962305cbeb21da2e9afcc338e987b72f27013e62284dd9d1660d5a538a8",
+      "size_bytes": 1154
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/23_STANDARD_STATISTICAL_PACK.md",
+      "sha256": "b30ea6383a1aba43ad861b69af6f3e48936dd05e2c5e5b7f0da1f944560422c2",
+      "size_bytes": 1163
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/24_BASE_RATE_AND_INCREMENTAL_UPLIFT.md",
+      "sha256": "d62cb6a781ac73f2e2f380a5891c26fc07710070ea7158c9f71c8cc0f66cc280",
+      "size_bytes": 1010
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/25_CONDITIONAL_ATTRIBUTION_AND_BUCKETS.md",
+      "sha256": "e217fde11240cc705d9138785b0db37c7ac3cd6701b4761375460942b95dc58d",
+      "size_bytes": 913
+    },
+    {
+      "path": "docs/strategy_factory/05_outcome_statistics/87_STATISTICAL_ENGINE_REFERENCE.md",
+      "sha256": "8418073760c12d3a29b8e7a6ac4e5e23387cc3120ce4b5109f24627d9ad0e6e6",
+      "size_bytes": 5870
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/26_VALIDATION_MASTER_PROTOCOL.md",
+      "sha256": "b4839eb8d5bbe4641c5fe5f7f4dbc6855c7ef76ddfff5fa8608d1a6c945ac146",
+      "size_bytes": 942
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/27_LEAKAGE_AND_CONTAMINATION_AUDIT.md",
+      "sha256": "6914fac5998da22c9e54a5981e988708d5b7c62ff88aae24a80cd0e1769879ac",
+      "size_bytes": 1038
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/28_PURGED_WALK_FORWARD_VALIDATION.md",
+      "sha256": "22e4af297efd2444921b6717292ce70c3aa2c05f8fc65863bbd5ebe66dd78420",
+      "size_bytes": 944
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/29_DEPENDENCE_CLUSTER_AND_BOOTSTRAP.md",
+      "sha256": "0242577212e5a1edfe113883690aae71c59225d818b288921344e1ea3475ee65",
+      "size_bytes": 930
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/30_NULL_PLACEBO_AND_RANDOM_BASELINES.md",
+      "sha256": "1b29dc6406f0ea74020d924b0cb18dd2f2cb0947c870bb8b5b7963cd53971796",
+      "size_bytes": 1006
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/31_MULTIPLE_TESTING_AND_FALSE_DISCOVERY_CONTROL.md",
+      "sha256": "6324961947e94b511a743fc2e1727f72122219b211e80aae8cb257e9e2853b27",
+      "size_bytes": 1010
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/32_REALITY_CHECK_DEFLATED_SHARPE_AND_PBO.md",
+      "sha256": "56dc2e48312012ded5440c5cd7ed1271491f8312376247d0b5c13285f2df9dc7",
+      "size_bytes": 1178
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/33_FRAGILITY_AND_STRESS_TEST_SUITE.md",
+      "sha256": "7e9d985a954d06464467ff5373182568403aa5d30f15bd18fabe3d052abefda7",
+      "size_bytes": 952
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/34_CROSS_FEED_CROSS_SYMBOL_AND_REGIME_VALIDATION.md",
+      "sha256": "c3e6337bb233bc07d7c43f14c21e22df19cf0386946cb0dec2bdd0d3abe17d41",
+      "size_bytes": 1085
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/35_DISCOVERY_CONFIRMATION_AND_RESEARCH_FREEZE.md",
+      "sha256": "8aac7d26026e11ae7c60fbff13f9243426a281ddd363c8d574bdc69cd51e6cbe",
+      "size_bytes": 868
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/79_SAMPLE_SIZE_POWER_AND_MINIMUM_EVIDENCE.md",
+      "sha256": "91c3abb88bfb7313926b36aaab2d1ccc42f25f0af88b9784d8ccc65744a31ca6",
+      "size_bytes": 1344
+    },
+    {
+      "path": "docs/strategy_factory/06_validation_anti_overfit/88_ANTI_OVERFIT_MASTER_SUITE.md",
+      "sha256": "b670ca75e50afae2221ce2cb7f6dfee3e82a5201ccf5428c92901308fbaa493b",
+      "size_bytes": 7110
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/40_AI_OPERATING_MODEL.md",
+      "sha256": "c40b3a5fafbcdff76c9bd9a1fa1748e457897494ec17cc2b8ca48f0a6a32f190",
+      "size_bytes": 1271
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/41_BASELINE_MODEL_LADDER.md",
+      "sha256": "f87071e6dfd8e69b74bca4d3ceac380a5bb1d64c3630917b78873586712aeaa1",
+      "size_bytes": 977
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/42_META_LABELING_AND_TRADE_SKIP.md",
+      "sha256": "fa2c751883bd820746fa931a741ab79f1c6abc216410ec56860539901b492ce3",
+      "size_bytes": 960
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/43_CANDIDATE_POLICY_RANKING.md",
+      "sha256": "64ef458fa9f1a7c7e54b93e925c28ef180a02bb5f9af0ea1605e704947b555dd",
+      "size_bytes": 921
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/44_PROBABILITY_CALIBRATION_AND_DECISION_THRESHOLDS.md",
+      "sha256": "994cb6f34b240d8fa4db15da9c8334cab5cdf51b9221c24b3144009d4c00edc9",
+      "size_bytes": 986
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/45_SEQUENCE_MODELS_AND_RL_BOUNDARY.md",
+      "sha256": "0042856a3df2ec9628d6600095bd7d799cd6e289cf3a41b1a4c394d82eb8d66e",
+      "size_bytes": 1047
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/46_MODEL_REGISTRY_AND_MODEL_CARD.md",
+      "sha256": "e8e34a594f46da4e2a35a6ca2a5c23fae2c193ec415ce3d5c791da3273d5358e",
+      "size_bytes": 936
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/47_CHAMPION_CHALLENGER_AND_DRIFT.md",
+      "sha256": "897eae93a6c8c6c2f294a2273563a86f4e2f4395982ac47622b1bbc9fe3c8862",
+      "size_bytes": 937
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/48_EXPLAINABILITY_ABLATION_AND_FAILURE_ANALYSIS.md",
+      "sha256": "cfdb9d61077ce1ede514db8977915fd26671f5cda6f5dd074df66c6b8312d61b",
+      "size_bytes": 972
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/80_HUMAN_LABELS_ACTIVE_LEARNING_AND_REVIEW_QUEUE.md",
+      "sha256": "f1797173448619229b28587d6f03d0d1378e8d85509008552cf7cb7b9531a372",
+      "size_bytes": 1267
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/81_COUNTERFACTUAL_AND_CAUSAL_POLICY_ANALYSIS.md",
+      "sha256": "a3924ca99c86e230f5ae2f72bc5873810e2e0c3bb34d5ababea76f34e61ecbd7",
+      "size_bytes": 1288
+    },
+    {
+      "path": "docs/strategy_factory/07_training_ai/89_ML_TRAINING_MASTER_PROTOCOL.md",
+      "sha256": "2b473536684ea961ad8f37d4b793232cd8f9df75e52b6b5cbadcd4921d0494d1",
+      "size_bytes": 6889
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/49_PAPER_EXECUTION_ARCHITECTURE.md",
+      "sha256": "af499e3ab9122945220b25a69782d1b47df6d7f8cfdf627df813d8939afbd09c",
+      "size_bytes": 1009
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/50_HARD_RISK_GATE.md",
+      "sha256": "cae070fc251991714c9c40bb836268dc9ab017b80c9a2be1bec8d0a1673bbc22",
+      "size_bytes": 1141
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/51_LIVE_EXECUTION_AND_BROKER_BRIDGE.md",
+      "sha256": "518c6387d48ba3d62f48a278a7aa3dd99be26ea5be5269ff34a99214a85c4b51",
+      "size_bytes": 1180
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/52_POSITION_LIFECYCLE_AND_RECONCILIATION.md",
+      "sha256": "35e7dcc76b9b6cb4cc4540a00866841dbe6e8d4da27dcf209bd326acb9b8bc69",
+      "size_bytes": 903
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/53_KILL_SWITCH_INCIDENT_AND_ROLLBACK.md",
+      "sha256": "72d07bc0c49d96cd3262b080d7c5aceca1802a03dc21a393263fbec7810d2a06",
+      "size_bytes": 934
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/54_OBSERVABILITY_AND_LIVE_MONITORING.md",
+      "sha256": "9ed6efc8c54985d18b313972b7981539a8d35c6330cc0b64ae96846891898af5",
+      "size_bytes": 949
+    },
+    {
+      "path": "docs/strategy_factory/08_execution/90_EXECUTION_MASTER_PROTOCOL.md",
+      "sha256": "bbf3074bcb6d498eca9765b78a00246eabd81514e6980d028e17ec170b68c17f",
+      "size_bytes": 5902
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/55_STRATEGY_OVERLAP_AND_PORTFOLIO_DEPENDENCE.md",
+      "sha256": "1e1e64c4edd84d7dfa42a759e2375cfaa2fb349857a0f3841b36d322a507c1f7",
+      "size_bytes": 957
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/56_CAPITAL_ALLOCATION_AND_RISK_TIERS.md",
+      "sha256": "2b282d6fbd1e0d148a847c04d80cdb341798deb42b346e8988fa932fe2d7ccae",
+      "size_bytes": 922
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/57_PORTFOLIO_SIMULATION_AND_CAPACITY.md",
+      "sha256": "6d4cfbc28f94e6ca376a848a6e6e99e9e61b09319312c633884328ec22985183",
+      "size_bytes": 1052
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/58_STRATEGY_PROMOTION_AND_RETIREMENT.md",
+      "sha256": "0ba255e5772731073567faae400f0a7826894cdfb5fcb0ddc40156939829f29a",
+      "size_bytes": 985
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/82_PARALLEL_STRATEGY_RESEARCH_SCHEDULER.md",
+      "sha256": "5d9cd59c173cd9cd860759e202cc9c8b94565f831c1d7d9aba65196d751bae4b",
+      "size_bytes": 1316
+    },
+    {
+      "path": "docs/strategy_factory/09_portfolio_promotion/94_MAXIMUM_ALPHA_EXTRACTION_PLAYBOOK.md",
+      "sha256": "0a542f4048f37457320e770910ec211f95389dcf4708b7f98b4d8427617685dc",
+      "size_bytes": 5475
+    },
+    {
+      "path": "docs/strategy_factory/10_testing/59_TEST_STRATEGY_AND_PYRAMID.md",
+      "sha256": "f7be39aea22cd51291c8596fb5dfa277d8f1de139b7025600cd5aef6b4b4ac46",
+      "size_bytes": 1012
+    },
+    {
+      "path": "docs/strategy_factory/10_testing/60_FULL_TEST_CATALOG.md",
+      "sha256": "a7c6f955f40d705cb1871b7059f1a01f82d1f9d6e8a53149e5a3c484599368a2",
+      "size_bytes": 1263
+    },
+    {
+      "path": "docs/strategy_factory/10_testing/61_CI_RELEASE_AND_REPRODUCIBILITY.md",
+      "sha256": "681f55add482bd277a5fbe6c9538f3e60947f497a9d9a25478d4e56dcd29d20e",
+      "size_bytes": 961
+    },
+    {
+      "path": "docs/strategy_factory/10_testing/93_TEST_MATRIX_REFERENCE.md",
+      "sha256": "adfdda28d9138fba81ac16eae91a53c237ed034f8442f55ccd6632c523622a1c",
+      "size_bytes": 4887
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/63_NEW_ANATOMY_ONBOARDING_RUNBOOK.md",
+      "sha256": "6331f89c08c2295e1a9c39ae1df9620d9ddf2ddb6820d856cc56d7a98b6909df",
+      "size_bytes": 1402
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/64_EXPERIMENT_AND_TRAINING_RUNBOOK.md",
+      "sha256": "f71e450a0179c23e202f0b3471895218e40a8ec739fbcd8f886a4ee4f99a258f",
+      "size_bytes": 1074
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/65_PAPER_TO_MICRO_LIVE_RUNBOOK.md",
+      "sha256": "660b08da13cc2d6f712cb56e0e021d7bf91e168c7c084b4be3e4d57fa82c566f",
+      "size_bytes": 874
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/66_DEBUG_RESEARCH_LIVE_MISMATCH.md",
+      "sha256": "0597803744ce58be434203218813474319ef39f5979e092e727865e21d1dda02",
+      "size_bytes": 897
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/83_FASTEST_IMPLEMENTATION_ROADMAP.md",
+      "sha256": "01175c0123794e18bef3e6e908c12a45ee93a923b54f5b361b64be41eebdd840",
+      "size_bytes": 1695
+    },
+    {
+      "path": "docs/strategy_factory/11_runbooks/91_NEW_ANATOMY_IMPLEMENTATION_PACKET.md",
+      "sha256": "06dff836499840af401871ed42d2e3c81d325b026b57e7b00c2581e7395a1c93",
+      "size_bytes": 4742
+    },
+    {
+      "path": "docs/strategy_factory/12_examples/67_TEMPORAL_DIVERGENCE_FACTORY_MAPPING.md",
+      "sha256": "f0542dd7be09b7c96d492190e29642e078bdc404f4fb0fa3363cbe7c47896b3c",
+      "size_bytes": 1084
+    },
+    {
+      "path": "docs/strategy_factory/12_examples/68_NDS_ZONE_AF_FACTORY_MAPPING.md",
+      "sha256": "20b593dd583c5ad48d81888fb44d9cdb805dc0de4716a662c7f5cefd18ed60ae",
+      "size_bytes": 1047
+    },
+    {
+      "path": "docs/strategy_factory/12_examples/69_DAYE_TIME_ANATOMY_FACTORY_MAPPING.md",
+      "sha256": "ffde0e1b49917115806ccacb09eccc50f0c97d151d8daadd0524df331c26e668",
+      "size_bytes": 854
+    },
+    {
+      "path": "docs/strategy_factory/12_examples/70_STRUCTURAL_NODE_FACTORY_MAPPING.md",
+      "sha256": "ebf7714a54e1fc92e84699185d043a7fde8850a17e97d92a434783f9215ec09e",
+      "size_bytes": 737
+    },
+    {
+      "path": "docs/strategy_factory/12_examples/71_ICT_DETERMINISTIC_FAMILY_MAPPING.md",
+      "sha256": "8bbcbb7d342465f1a1f03e48b3686be18235b982a7852b331f4dcfc48ec08eca",
+      "size_bytes": 735
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/72_TEMPLATE_INDEX.md",
+      "sha256": "ce2d14d58bda287b2fdc006f14ca84e3f9748bba874bd1cef38764c2af990004",
+      "size_bytes": 778
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/84_SETUP_LIBRARY_REGISTRY.md",
+      "sha256": "7c9dde618f01521832a944fc8e7b60f1e597d19e7cfe654db996af04492b8b49",
+      "size_bytes": 919
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T01_ANATOMY_DOCTRINE_TEMPLATE.md",
+      "sha256": "8b127278016ca473682d16bf15947081f0205727bb2f0924029fdcbce136ce5d",
+      "size_bytes": 507
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T02_STRATEGY_MANIFEST_TEMPLATE.md",
+      "sha256": "e2958da1009626c402bb05a86b34475f7014d223e719c8646f896aabb7d82395",
+      "size_bytes": 540
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T03_FEATURE_CONTRACT_TEMPLATE.md",
+      "sha256": "45b9d6ee9206801b0d243a2808240b9afaa5993a77888df0cfc395198f0aaa7c",
+      "size_bytes": 400
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T04_CANDIDATE_POLICY_TEMPLATE.md",
+      "sha256": "c14f93edc5342771dac27e41903afdddcbc75b8d2f381f4999bd3a1cef20de23",
+      "size_bytes": 377
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T05_LABEL_POLICY_TEMPLATE.md",
+      "sha256": "bec8041695e2b8fe0b38e056ed63bcd2b311f7c2523ebecbe19f387b5314624b",
+      "size_bytes": 316
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T06_EXPERIMENT_PLAN_TEMPLATE.md",
+      "sha256": "0619c0dfe7fddf6f7abf0a696307830fbc2177d8550c6988ffb47eaab2b55f0f",
+      "size_bytes": 395
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T07_DATA_AUDIT_TEMPLATE.md",
+      "sha256": "e70e6636644500ec9f1a03a648e00cc66ebed8c411fe542ade239442a5a144dd",
+      "size_bytes": 361
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T08_ANTI_OVERFIT_REPORT_TEMPLATE.md",
+      "sha256": "2135be5fee99896651dd32c2390a2bf26221b44596c47bdfcf102e02b9bd848d",
+      "size_bytes": 428
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T09_MODEL_CARD_TEMPLATE.md",
+      "sha256": "8e5a6bf9a7ba78f59ecfb72b3a6b864ba5cae5d90caf1a4af1f1b8a8388a4b87",
+      "size_bytes": 459
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T10_PROMOTION_DECISION_TEMPLATE.md",
+      "sha256": "91acd32cccd15a2d54a51e454de8e057a0fbc1e818e09945007f7b2857eebdeb",
+      "size_bytes": 312
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T11_PAPER_DEPLOYMENT_TEMPLATE.md",
+      "sha256": "86abf80df8774e89dacafc0a30df4620cd203a218c926f5be6afffb41ee58588",
+      "size_bytes": 353
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T12_LIVE_DEPLOYMENT_TEMPLATE.md",
+      "sha256": "d215fbe443e62a440dc78a89d28ff57c3fe3eb0851c63ffcdbacb1eb93c073c7",
+      "size_bytes": 319
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T13_INCIDENT_REPORT_TEMPLATE.md",
+      "sha256": "22baa2ae2f27bc70fd22d7cdccf3694fbf0389d84036a6f6dcc801635cfef821",
+      "size_bytes": 344
+    },
+    {
+      "path": "docs/strategy_factory/13_templates/T14_RETIREMENT_REPORT_TEMPLATE.md",
+      "sha256": "7b4db867b53481a4af5137f328a235f730fecd4e87548372404e014d0df84a34",
+      "size_bytes": 318
+    },
+    {
+      "path": "docs/strategy_factory/14_indexes/73_CODE_AND_CONTRACT_INDEX.md",
+      "sha256": "eb47f696a592657bd41c1eae98e15b0b045a591e7f2f065c157d5bcd377bd679",
+      "size_bytes": 1074
+    },
+    {
+      "path": "docs/strategy_factory/14_indexes/74_DEFINITION_OF_DONE.md",
+      "sha256": "53309197c5d74257462e6d0a3c28014051728d12301f63d6602e8c21b6b2ee7e",
+      "size_bytes": 1201
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/00_STRATEGY_FACTORY_V2_MOC.md",
+      "sha256": "53878589d02565e8cc1a16e08bf6f62f64efb48c86cc2e40ca6011ecabc573e4",
+      "size_bytes": 3911
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/01_SPEED_ACCURACY_AND_FLEXIBILITY_CHARTER.md",
+      "sha256": "881b2af16c23424c23a3f035595363ef643dbb27ddc1f6ec697151300ea1b082",
+      "size_bytes": 2877
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/02_TWO_LANE_ARCHITECTURE.md",
+      "sha256": "1a838913d140aa77518ead2b3c576161ef60472d98d84c7e791ecbf4551aa61d",
+      "size_bytes": 1983
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/03_END_TO_END_REFERENCE_FLOW.md",
+      "sha256": "c7500f7aca028ef021307988af75b21a122bb121fde6b7084cc37cc51f043bae",
+      "size_bytes": 2514
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/04_WHAT_REMAINS_STRATEGY_SPECIFIC.md",
+      "sha256": "42863241f1832323155e0bea2e85078d50e0c410459cbf45e1e182bd9e03c580",
+      "size_bytes": 1487
+    },
+    {
+      "path": "docs/strategy_factory_v2/00_start_here/_MOC_00_START_HERE.md",
+      "sha256": "04f2217e82ec45d1d3fa13939500219784efb601039bc688c47da826fa43151e",
+      "size_bytes": 379
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/05_MODULAR_KERNEL_AND_PLUGIN_BOUNDARIES.md",
+      "sha256": "1dca7560df392d6914f08c77f396e149957c755aadaa03bae83c6f649fdac07c",
+      "size_bytes": 1515
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/06_STARTUP_COMPILATION_PIPELINE.md",
+      "sha256": "8e0950150cf538e4bc79362f2863cf98ec0618f3a63da5a47d237f67576f54e9",
+      "size_bytes": 1549
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/07_CONTROL_DATA_DECISION_PLANES.md",
+      "sha256": "34cc2102ceccb0609ee6f3feb0dd9b194965ea65322e4be9dbf4c478e691cc18",
+      "size_bytes": 1450
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/08_CAPABILITY_MODEL.md",
+      "sha256": "ebd51915db54cd4df10e8662d3de4421216e57a773c95de57663f39886c1a74c",
+      "size_bytes": 1398
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/09_IMMUTABLE_GENERATIONS_AND_HOT_SWAP.md",
+      "sha256": "af8363fef0eeea891ebebb550be44ae3c760f0dda68f6a5f42f5a0bd0043580c",
+      "size_bytes": 1447
+    },
+    {
+      "path": "docs/strategy_factory_v2/01_architecture/_MOC_01_ARCHITECTURE.md",
+      "sha256": "5c1558990bc8829a36b2cc6a8fe89a6f62ad8e3346d428530f2439a6539d8d4b",
+      "size_bytes": 388
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/10_PLUGIN_SDK_OVERVIEW.md",
+      "sha256": "29c0c4428f4e480d1b45f75477a3bfc64ba0719ebaa1823cd1a509ecd54f4ea5",
+      "size_bytes": 1429
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/11_ANATOMY_ADAPTER_PLUGIN.md",
+      "sha256": "5b78427e898bb3845f9b4cbf0da1d713f7bcae29b892aad366774838f5b52284",
+      "size_bytes": 1403
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/12_FEATURE_PROVIDER_PLUGIN.md",
+      "sha256": "5bf274d32bb19264b662094d04a5783b0663c52b6fd8a73f44cccd819207dee4",
+      "size_bytes": 1427
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/13_CANDIDATE_POLICY_PLUGIN.md",
+      "sha256": "a9e460073417b369c471351afd7b0cb274be546decddeb8b35a1d35243dbc540",
+      "size_bytes": 1343
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/14_MODEL_PLUGIN.md",
+      "sha256": "3b608601188bacdf1164290d60eba5aa7a6d2964c7a443f1f877e856171d10e9",
+      "size_bytes": 1425
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/15_DECISION_AND_RISK_PLUGINS.md",
+      "sha256": "df5c46a17e55d31a32f6c9ce03c4b8c54aeb297832f6867f3f6046141e4f79e4",
+      "size_bytes": 1368
+    },
+    {
+      "path": "docs/strategy_factory_v2/02_plugins/_MOC_02_PLUGINS.md",
+      "sha256": "988ccba36282b2aebfa9b78ea799a359e30ee703c088cb983d3c8e97873af086",
+      "size_bytes": 370
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/16_CONTEXT_ONTOLOGY_AND_NAMESPACES.md",
+      "sha256": "677c3c3999e9781eded263069ffec5d305197c01aeaee85b432084b765376371",
+      "size_bytes": 1428
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/17_FEATURE_DEPENDENCY_DAG.md",
+      "sha256": "77a8c230baa5b46b023986126e14109bbc4029264ea89a52ad9de4bf3bd44794",
+      "size_bytes": 1415
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/18_INCREMENTAL_RECOMPUTATION.md",
+      "sha256": "dc1b8be7699b128cb44914c1116fb3a370c90211daa4f4d0df6babd6237f9b5e",
+      "size_bytes": 1455
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/19_CACHE_HIERARCHY.md",
+      "sha256": "e5be4053166f069ebd17ea7185410c39dc4db8e9cbf3d3a98b2a022d75c51a25",
+      "size_bytes": 1402
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/20_MISSING_STALE_AND_DEGRADED_CONTEXT.md",
+      "sha256": "8d7465849b6c60d4ce983addd8220ac0d988f98da2382705546b5f65e024d793",
+      "size_bytes": 1451
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/21_MULTI_SYMBOL_TIME_SYNCHRONIZATION.md",
+      "sha256": "24e7d85d61bd06de1d06abac04cc71b77cce478b7b91dccab1e4833180ac72a0",
+      "size_bytes": 1423
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/22_FIXED_FEATURE_VECTORS.md",
+      "sha256": "1aed2abebc01bf6bd7bd727898b90d408c1387c10cc1ef2eccc26aec5e6f5d12",
+      "size_bytes": 1436
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/23_CONTEXT_FINGERPRINT_AND_LINEAGE.md",
+      "sha256": "a681b71ce43488a67c6b8a07b223b9eb506ca4b48d684213e7d0acbbac1f9b97",
+      "size_bytes": 1373
+    },
+    {
+      "path": "docs/strategy_factory_v2/03_context/_MOC_03_CONTEXT.md",
+      "sha256": "19e57b7faf77045bb381b1cfdaecc4f413fdac318a3ba91557d6ad6185dbf621",
+      "size_bytes": 478
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/24_CONTEXT_TO_DECISION_FAST_PATH.md",
+      "sha256": "c4107e16cd5a972b8a751a1399dd4c5150a31b507a7c209e3f2a08c76a2827d0",
+      "size_bytes": 1457
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/25_PREDECISION_GATES.md",
+      "sha256": "b395361a19f3809a83368e5dbd94178cfb678404188332df5bd6435e8ce5738c",
+      "size_bytes": 1271
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/26_PRECOMPILED_CANDIDATE_TEMPLATES.md",
+      "sha256": "1a1ab935045a8b6b4ca1fe698d097c6985c322a539b40569cb9d2f9a91b6c12c",
+      "size_bytes": 1425
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/27_CANDIDATE_PRUNING_AND_DOMINANCE.md",
+      "sha256": "8eab73816898d6db0cdc1ce56556070ef277feab73f3d155dfcca51e92952127",
+      "size_bytes": 1349
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/28_MODEL_ROUTING_AND_ENSEMBLES.md",
+      "sha256": "a7425d52d704c7d3447d752711216536069a6756fc6aa73e1b5206ea4aa14b89",
+      "size_bytes": 1453
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/29_CALIBRATION_AND_UNCERTAINTY.md",
+      "sha256": "990cf4fcd05e9a22cd68c8678aad11817b5907580a762a258015e206687bf555",
+      "size_bytes": 1379
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/30_MULTI_OBJECTIVE_UTILITY.md",
+      "sha256": "78a2d0b06fe1759e1799d8434c5b7c0eab3e519b9ac42b15cc647301bba6ed15",
+      "size_bytes": 1431
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/31_ABSTENTION_AND_SAFE_FALLBACK.md",
+      "sha256": "61e01dd890937d0c5a16e089b90a1b3180dd8f59c326cf71d2176a0f635c94b9",
+      "size_bytes": 1413
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/32_DECISION_ENVELOPE_AND_EXPLANATION.md",
+      "sha256": "0e30a40b185b5e97e4cd7d7ce993859c29e924d88082ff473ec95d517684d377",
+      "size_bytes": 1404
+    },
+    {
+      "path": "docs/strategy_factory_v2/04_decision/_MOC_04_DECISION.md",
+      "sha256": "19443a4bd864f5564576b9f75d4927bacc8cc5fa3a17f5f93a8b9ff66d95cced",
+      "size_bytes": 524
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/33_LATENCY_BUDGETS_AND_SLOS.md",
+      "sha256": "b21999e264d545def121fca2a26dcd4985505d8c3957029705a2e33bebfe78be",
+      "size_bytes": 1407
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/34_ZERO_IO_AND_ALLOCATION_DISCIPLINE.md",
+      "sha256": "ad7c72f86a62ce9fe3adbd6d59641c922f30f2abcf7567f679c9f23762de384e",
+      "size_bytes": 1394
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/35_CONCURRENCY_AND_ORDERING.md",
+      "sha256": "6716c5937d8109b7d083239479b53cb5de8f7f8a352eb49ec941b6c5136305b4",
+      "size_bytes": 1391
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/36_ATOMIC_HOT_RELOAD.md",
+      "sha256": "6108cd8f7e5ac3bb6c636b4320bc9954b2d09ca9fdd615fd869a22254d6e06c4",
+      "size_bytes": 1322
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/37_SHADOW_AND_CHAMPION_CHALLENGER.md",
+      "sha256": "9bc006c7699163c0709f18f5b294db4dfbe9c7990cfb990cb999d3f93d2cff29",
+      "size_bytes": 1368
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/38_TELEMETRY_AND_REASON_CODES.md",
+      "sha256": "063b547025f48d50d89055696e0fb8fca9c205e4618563c335f9c22940deb2e7",
+      "size_bytes": 1322
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/39_FAILURE_CONTAINMENT.md",
+      "sha256": "10b2dfdc0b811f6fa38d6f0a0a787ca04b835b1221809838ec2891ee3fbbb2a7",
+      "size_bytes": 1367
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/40_DETERMINISTIC_REPLAY.md",
+      "sha256": "c54e6fc83f95679c009fe70ecf07fc2e8cf4add4064e540afa72c93f438881f0",
+      "size_bytes": 1352
+    },
+    {
+      "path": "docs/strategy_factory_v2/05_runtime/_MOC_05_RUNTIME.md",
+      "sha256": "b4bcca3602bb36b8dfe1781cb752104fb67df8665719ad6f9a06a4d2bc48bb7a",
+      "size_bytes": 459
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/41_EXPERIMENT_PLAN_COMPILER.md",
+      "sha256": "fa2060b9b5708c6b9e19e14dbe7e8646c3d8f426508b75ba7ce89fe86d6a4364",
+      "size_bytes": 1346
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/42_COARSE_TO_FINE_SETUP_SEARCH.md",
+      "sha256": "87167f3ee20d75f834190d73378020a6335ef23d7046e08b8011189a14ae017e",
+      "size_bytes": 1388
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/43_LABEL_AND_HORIZON_FACTORY.md",
+      "sha256": "89c7fdb65d7519d9688d405c5728c82dce674263f8729075ac447535a0dff03b",
+      "size_bytes": 1331
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/44_MODEL_TRAINING_LADDER.md",
+      "sha256": "9367ad8ed909062a0177730243c84aaa72a2477ead02ba630d7356144a4ba5fb",
+      "size_bytes": 1402
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/45_SEQUENCE_AND_REPRESENTATION_MODELS.md",
+      "sha256": "6679b20d6417e36928e5a152a4c81e60ad9d9e150c00d06a8171232bf6be4541",
+      "size_bytes": 1419
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/46_CONTEXTUAL_BANDITS_AND_ONLINE_LEARNING.md",
+      "sha256": "e97ac476d8e073d125067005a5b16deb25841288b4398e3255e65d57f73e1347",
+      "size_bytes": 1391
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/47_MULTI_STRATEGY_PORTFOLIO_LAYER.md",
+      "sha256": "cda7fac6c94ff3a620677868be74b1f873efa4c31bac823f8b3c28c26411c2eb",
+      "size_bytes": 1389
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/48_MAXIMUM_ANATOMY_EXTRACTION.md",
+      "sha256": "3ae689829257a06898af30d3f27e2482ee04232619bbab357f73532287b60b28",
+      "size_bytes": 1369
+    },
+    {
+      "path": "docs/strategy_factory_v2/06_research/_MOC_06_RESEARCH.md",
+      "sha256": "bd0d3ccfc7863c5455ba91eb67be682c3563cb122d23e7e065c732c474cfc2b9",
+      "size_bytes": 493
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/49_VALIDATION_ARCHITECTURE.md",
+      "sha256": "5d257838b2ba31467602074130f87ef63e969f723b9c3a2b55b207707260d4e0",
+      "size_bytes": 1270
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/50_ANTI_OVERFIT_MASTER_PROTOCOL.md",
+      "sha256": "44ef7a26ebcd517960d827e566c09480d5cf5cb0b4d6018550fb3c644217acea",
+      "size_bytes": 1521
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/51_PURGED_NESTED_WALK_FORWARD.md",
+      "sha256": "b66722c8bb86fa88c4ff875235626e6dccd77b0c425dfa7dabb08b0b95df8ba3",
+      "size_bytes": 1374
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/52_PBO_DSR_FDR_AND_REALITY_CHECK.md",
+      "sha256": "9a989c8101f8a9cd8909d3a7d0e0ff0970b4e7abb649112a8ba247c9723889f9",
+      "size_bytes": 1401
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/53_NULL_PLACEBO_AND_RANDOMIZATION.md",
+      "sha256": "63c80047b3d5340f3fd1f0289ce718c265656444b7eca04cad67689e72d9beac",
+      "size_bytes": 1383
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/54_PROPERTY_METAMORPHIC_DIFFERENTIAL_TESTS.md",
+      "sha256": "f3017ffa70d137e5f75fd9136161cf8a640f5cb0be4f7e367351068ab06ce384",
+      "size_bytes": 1357
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/55_COST_DELAY_AND_MICROSTRUCTURE_STRESS.md",
+      "sha256": "2a3d4dc875a1a78ff8deed7a372037a759364e3b907a98e9d04cf9581fb66f5e",
+      "size_bytes": 1297
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/56_CROSS_FEED_AND_REGIME_VALIDATION.md",
+      "sha256": "dc5389f46cc19492936d358b13e16bb943b5602d937ecb9404f2ccd5cb7f0084",
+      "size_bytes": 1395
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/57_DRIFT_AND_DECAY_MONITORING.md",
+      "sha256": "1b05647692a7bec006755b7c94b99d37ff1b70f0f731c57e87d3a78330e158bd",
+      "size_bytes": 1378
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/58_PROMOTION_AND_KILL_GATES.md",
+      "sha256": "d110b2e1d4d4017b4b33ed8d6ed0a98546ce902da82267a2456aaca25419fdc5",
+      "size_bytes": 1397
+    },
+    {
+      "path": "docs/strategy_factory_v2/07_validation/_MOC_07_VALIDATION.md",
+      "sha256": "1deb3853a562249a9ce6b958fe4dce5e11c020574a08573b74394674189a4a18",
+      "size_bytes": 585
+    },
+    {
+      "path": "docs/strategy_factory_v2/08_execution/64_PAPER_LIVE_PARITY_AND_RISK.md",
+      "sha256": "fe372629499e1ebc67076476481a732f386bdd358bc3f9eca4b1a06796522abd",
+      "size_bytes": 1382
+    },
+    {
+      "path": "docs/strategy_factory_v2/08_execution/65_BROKER_PREFLIGHT_RECONCILIATION.md",
+      "sha256": "a68d61aa86e702336ab05f077c18aa3891ff88a75bc144cea9a90a898eeb31a3",
+      "size_bytes": 1416
+    },
+    {
+      "path": "docs/strategy_factory_v2/08_execution/_MOC_08_EXECUTION.md",
+      "sha256": "12f2a01d6dc4e67d2d63445b3505ebce01c666b6ddb1fa208f1d17792127dff2",
+      "size_bytes": 267
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/59_TESTING_MASTER_MATRIX.md",
+      "sha256": "fec7ec959be8a10bf1add9504b73899dd71757070ac57a639642e6e2c28fbc73",
+      "size_bytes": 1378
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/60_PERFORMANCE_AND_LATENCY_BENCHMARKING.md",
+      "sha256": "21926972f80b9895900d35a0a25e010235f20403cca9c28389d270442e6f6123",
+      "size_bytes": 1320
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/61_CHAOS_AND_FAULT_INJECTION.md",
+      "sha256": "6a241715232b4178ce50d561373c81cecb2ff20546246171d1722d3601fc3fe9",
+      "size_bytes": 1344
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/62_GOLDEN_FIXTURE_LIBRARY.md",
+      "sha256": "81cf708195d674400adda58114c0b31f353988cf72058044a0bdc4e7ea34921a",
+      "size_bytes": 1358
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/63_COVERAGE_AND_DEFINITION_OF_DONE.md",
+      "sha256": "0134dd5cb4a024c37d99c9f25c9075cbdc7eaf0541d8d357cb44ac029bfb43df",
+      "size_bytes": 1412
+    },
+    {
+      "path": "docs/strategy_factory_v2/09_testing/_MOC_09_TESTING.md",
+      "sha256": "b5f2d2b3dfc59205238845ac001e2406b2cfa915824ae116465d7cae81562a9f",
+      "size_bytes": 371
+    },
+    {
+      "path": "docs/strategy_factory_v2/11_templates/66_NEW_ANATOMY_FAST_ONBOARDING.md",
+      "sha256": "9964177c978c68d96da2ec4f759937eba401e89f1b76a9e94264789b8c637e18",
+      "size_bytes": 1503
+    },
+    {
+      "path": "docs/strategy_factory_v2/11_templates/67_PLUGIN_IMPLEMENTATION_CHECKLIST.md",
+      "sha256": "711fd911dcd67a3a39314696a2e636a9895c726ffbe3acee19edaf32a48a783b",
+      "size_bytes": 1295
+    },
+    {
+      "path": "docs/strategy_factory_v2/11_templates/68_DECISION_PLAN_TEMPLATE.md",
+      "sha256": "2dde4d3bf3dd5aef3b6a383c7c7aaf7e8f489629e86eef41fada9d67991b6b03",
+      "size_bytes": 1332
+    },
+    {
+      "path": "docs/strategy_factory_v2/11_templates/69_OPERATIONAL_READINESS_CHECKLIST.md",
+      "sha256": "6008e1dd73dc7533da3ec666b8bcfcf01034d0d496f2646883b4088283f16def",
+      "size_bytes": 1324
+    },
+    {
+      "path": "docs/strategy_factory_v2/11_templates/_MOC_11_TEMPLATES.md",
+      "sha256": "504e2a8e5e2643bd77f69995d9e94018023ef27698777b4a3b65a56ef7abe5eb",
+      "size_bytes": 341
+    },
+    {
+      "path": "docs/strategy_factory_v2/12_migration/70_V1_TO_V2_MIGRATION.md",
+      "sha256": "606afac175e96573b7bf01b652bb7b4d1e86ca179afd8bde78e3dd7b830c3a71",
+      "size_bytes": 1466
+    },
+    {
+      "path": "docs/strategy_factory_v2/12_migration/71_EXISTING_PROJECT_MAPPING.md",
+      "sha256": "b0ed669133930a02b05744ed161b7ba3147d1c53fd02b022099701231ca2a4f4",
+      "size_bytes": 1450
+    },
+    {
+      "path": "docs/strategy_factory_v2/12_migration/72_DEPLOYMENT_SEQUENCE.md",
+      "sha256": "e4e0074ee150930da72a93ba4d873fbfa58f815e68d9b2659ed199c8a9fe2d89",
+      "size_bytes": 1335
+    },
+    {
+      "path": "docs/strategy_factory_v2/12_migration/_MOC_12_MIGRATION.md",
+      "sha256": "0adacdbd8ed2f3badc29a19b1e21b06de4971ab29108d01019b8fae9eba5e60f",
+      "size_bytes": 281
+    },
+    {
+      "path": "docs/strategy_factory_v2/90_reference/73_MODULE_CATALOG.md",
+      "sha256": "e90728d3354a21de2158012040b4ab8f9893345a3e09761086f71425b2c8c5e4",
+      "size_bytes": 1334
+    },
+    {
+      "path": "docs/strategy_factory_v2/90_reference/74_REASON_CODE_CATALOG.md",
+      "sha256": "c044a0148f0f5131fdb61edf8cb32572d71c3030ec21b4cbf681c2c9f15c9ba6",
+      "size_bytes": 1327
+    },
+    {
+      "path": "docs/strategy_factory_v2/90_reference/75_LATENCY_BUDGET_REFERENCE.md",
+      "sha256": "88fe27c183f1f1beee873dbd163d83600353d42f91e1442c0e4f98d25f6f7a77",
+      "size_bytes": 1416
+    },
+    {
+      "path": "docs/strategy_factory_v2/90_reference/76_CLI_AND_ARTIFACT_REFERENCE.md",
+      "sha256": "67434daea1edd7cc3d66009c7c63ca8712d473619461a7b8fa5aed37166469d7",
+      "size_bytes": 1424
+    },
+    {
+      "path": "docs/strategy_factory_v2/90_reference/_MOC_90_REFERENCE.md",
+      "sha256": "e40614251a34b1c0aa14cd1be30a5e95d9ed852369e9240a6152ea6fa79d11f7",
+      "size_bytes": 313
+    },
+    {
+      "path": "lab/11_strategy_factory/README.md",
+      "sha256": "0b7de3841e4c270b28ff2a6a3ead7f2cd6b24bf4b7c8150cc84f7456e8dc8523",
+      "size_bytes": 719
+    },
+    {
+      "path": "lab/11_strategy_factory/README_V2.md",
+      "sha256": "64badb8f1ef2ecb3231ef8856430286e1c6df1c96d70b554489067ce9e333af4",
+      "size_bytes": 835
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/NEW_ANATOMY_COMMANDS.md",
+      "sha256": "78525166d59c4765e63b66226a586583a3aae1fa222366d6d4c39935f2c20a0d",
+      "size_bytes": 508
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/data/bars_NQ.csv",
+      "sha256": "e5ce2aed7349dc9d1c6ce49a5965fcb277b1d1ae28c4bbc05733a17ed863d06e",
+      "size_bytes": 940
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/data/events.csv",
+      "sha256": "48be34d7d88598714a4a14ff5679a7d3dfc854fa162ecbedf23460faf310b48e",
+      "size_bytes": 689
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/data/features.csv",
+      "sha256": "55e241cd6161c6b83d11fcb38b5185292b06c167235ddfa80ba18d736a9137b2",
+      "size_bytes": 495
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/manifests/nds_zone_af.json",
+      "sha256": "e923adf6d895e4b17c95923c6d553d1be9989ea9235461bc69f79672aebe50c4",
+      "size_bytes": 4016
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/manifests/temporal_divergence.json",
+      "sha256": "9a02831a00fa60363d7c9830d1a49a6bbb10ac724929f5d92a251a5c523f580e",
+      "size_bytes": 4082
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/manifests_v2/nds_zone_af_fast.json",
+      "sha256": "307c85c8d7d4f431f6a460dc66e8017197e971a6e9930d8d61226c2680c6736e",
+      "size_bytes": 3377
+    },
+    {
+      "path": "lab/11_strategy_factory/examples/manifests_v2/temporal_divergence_fast.json",
+      "sha256": "181ed5bd111fced8798ae085d1239a60aec04d2cf819bcbaf9b899491f23e9c6",
+      "size_bytes": 3826
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_AnatomyAdapter.mqh",
+      "sha256": "5c062184dbb711932b53ab35b75e55e0a7e991a2a9f9cd5089747299d23dd077",
+      "size_bytes": 1476
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_CandidatePolicies.mqh",
+      "sha256": "31b3433f5a0f7d1212578e8d2a952e33aec7e6745280550ec707dc55e22a795b",
+      "size_bytes": 2231
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_Contracts.mqh",
+      "sha256": "e085f8e5d7fe36f223f59af090914079919a58f0b3d5efdb851dc824e01ee848",
+      "size_bytes": 5363
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_ExecutionBridge.mqh",
+      "sha256": "6d74801cd08a6f1128e14a6e0a895c22f617c51a5fa9e7209ee8ddb07101f74b",
+      "size_bytes": 711
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_PaperBroker.mqh",
+      "sha256": "9e11f2356f0560e1ad39d5b49166dbe4e5237935459c472b77f47437c22d99e0",
+      "size_bytes": 1428
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactory/SF_RiskGate.mqh",
+      "sha256": "07a4c18512aca30c8b33f5aaa3e683e567a718ad81836ede4dd4fdbd2ab80ba3",
+      "size_bytes": 1518
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_ContextFrame.mqh",
+      "sha256": "1dfef328a9fd6fe1783e88c6f4eb6604a5026b4a1a02fc6c2716fe4d2413f653",
+      "size_bytes": 2610
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_Contracts.mqh",
+      "sha256": "83ebe70b2fd786e6b60a47c7f6725dfeb7e1ed096f2f90706f31ed60a4eef4de",
+      "size_bytes": 2560
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_DecisionPlan.mqh",
+      "sha256": "0c8d14e8d22a09c2d74ad6b267cba0d51d3d79b1075e89b8bdffbc22c9b5894a",
+      "size_bytes": 700
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_FastDecisionEngine.mqh",
+      "sha256": "45befbeb2810d70bc62e8498502e7fcea226182751189c278d3aeb5b2e2d5605",
+      "size_bytes": 2176
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_LatencyBudget.mqh",
+      "sha256": "241cff0115ccc2fa0f2b082dc8bfd67ae017bdf20e8ff6a7003c30b1c19d169e",
+      "size_bytes": 1853
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_PluginInterfaces.mqh",
+      "sha256": "99e316b081b860636531c946a640759b1e2adc7ab18ec5cfbe7dafcc1ad5ded0",
+      "size_bytes": 1352
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_RuntimeGate.mqh",
+      "sha256": "13c9bfa8d319310a9f0f0fdd6faf9bbdaa7500b67a157139786048098538d089",
+      "size_bytes": 1243
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/StrategyFactoryV2/SF2_Telemetry.mqh",
+      "sha256": "d38208daf04e1a2d542d985e3fcfa856636e7740f76af051258805f003c6c167",
+      "size_bytes": 1077
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/README.md",
+      "sha256": "9498ec09d321225ed47bf3ed1aad0e6384d3f7967f964a3c8594ebcf669711e1",
+      "size_bytes": 633
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/README_V2.md",
+      "sha256": "744e449a60392c2bed6f44bde97e25fef0acd0c606b298d67d015618185dde64",
+      "size_bytes": 1169
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/__init__.py",
+      "sha256": "591effb30ca5b3080d47bcf9f5b3b12a204e7eca178cada2e1a736a268acefd0",
+      "size_bytes": 746
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "size_bytes": 48
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/adapters/__init__.py",
+      "sha256": "e11ee9c0daa02bb3a29e6240cae81cc36f2f6bde082e284c6d68ead1833861d0",
+      "size_bytes": 127
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/adapters/base.py",
+      "sha256": "912fc0d5549beb2f0b2303609d27c3a70ea0dc39d12e7116c4c1c4f2e28cc3d0",
+      "size_bytes": 1489
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/adapters/csv_adapter.py",
+      "sha256": "62482c4b0a42d5fe25f5e6975ee33b68f87701899319d61ea80417c539f4db23",
+      "size_bytes": 5244
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/anti_overfit.py",
+      "sha256": "bee22a7223045dc063fda3a0da3f0cb6d83c12ba26bfda7d6caf0ae3122b7ad6",
+      "size_bytes": 14868
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/artifacts.py",
+      "sha256": "f32723bb649aa08d487d4a9eb5466ca5c640cca867519c7cd93ba96268c0b50d",
+      "size_bytes": 3516
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/audit.py",
+      "sha256": "1d19c446c36dc93b47afb2c33aaa9426242ba72e684efd539c9848a67fe8e6d4",
+      "size_bytes": 6062
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/candidate_engine.py",
+      "sha256": "8fa2b8f193586bb94033e22991e47183624b39ce91bd1351d97d770093bee141",
+      "size_bytes": 8775
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/cli.py",
+      "sha256": "debf2d668dd0414b925c220e595be69c07cc0fddba718d41c699f5d3ba0bb9e8",
+      "size_bytes": 10446
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/__init__.py",
+      "sha256": "88ab1977ab562d032a555bd38530537e8b5ad03d0024908e3e8d4ea51e978a65",
+      "size_bytes": 657
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/cache.py",
+      "sha256": "0645e2ff2836aa42ea7535f82405e633f6b4000ff34b57cdc2125f6e98ea6861",
+      "size_bytes": 2375
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/engine.py",
+      "sha256": "8aea911edbc8c2b1a613ee1ebf07a20ee3311944a3625c8cbfba66f4f0755594",
+      "size_bytes": 3882
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/graph.py",
+      "sha256": "6305adf09634261ac39c3288b026d864e9867c85ded96b1853959685565c332d",
+      "size_bytes": 3099
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/providers.py",
+      "sha256": "396db3c487389b1858ee3fa0a7a5812e9d2fd5f807ca950c2a24d86914845b13",
+      "size_bytes": 1549
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/context/vector.py",
+      "sha256": "f1770a035fadbbcff5b1f84ba39eb792eaa64e7c1b0ce90958e8f49b482a97e9",
+      "size_bytes": 1716
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/contracts.py",
+      "sha256": "7bca3b79efa5c3ca036353efb52300ca6de6016a96a31857fc6dad2bf8718abd",
+      "size_bytes": 13703
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/costs.py",
+      "sha256": "38501ff25b73ff609f967c087de53f2a6477c10de525ab0bdbdf2ff5aef51ce2",
+      "size_bytes": 1403
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/dataset.py",
+      "sha256": "d359a2408cae78d6233535cbda4735fb956dea8c260a5f232f442862099adb41",
+      "size_bytes": 3842
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/__init__.py",
+      "sha256": "2c0ce1e6b217866481e7944facf96cce9a79d8a7e5a8158756ca328a682a78a6",
+      "size_bytes": 678
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/abstention.py",
+      "sha256": "051432b8fa6031b01b933742aed098c0d7c61183533876b4304654388c1837b8",
+      "size_bytes": 1743
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/calibration.py",
+      "sha256": "3bc0b4a5c11608f4c44931855d8d3d19fcd7a8f3779c6255225c49337107aff6",
+      "size_bytes": 1701
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/contracts.py",
+      "sha256": "e91028733d3cd1ebe9af0b2aae247589639ddb7c2aa812bfeabc390461b97626",
+      "size_bytes": 1328
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/models.py",
+      "sha256": "e360d82db60bbdf86d4fedb180149ee92aafa8b3cfb9e4d5e76eea14a797c981",
+      "size_bytes": 2752
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/policy.py",
+      "sha256": "8f446360b1f6659fef046435262bbd8f48647913a6cf74ba7a734c8e251b98c1",
+      "size_bytes": 3469
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/decision/scoring.py",
+      "sha256": "58327547afe3018d279efa0e8dfb70e8f84c5b447cc6c829269b562fa533bcfb",
+      "size_bytes": 2605
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/execution/__init__.py",
+      "sha256": "8adcc4d3b55a123b7138e2d0653e0111a911db174b737d0d19757b8f1eee0476",
+      "size_bytes": 382
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/execution/broker.py",
+      "sha256": "f7f55b07b424c42b094bfebb1ca45e7eb3584d00bbe89065b061e60ab8a55f65",
+      "size_bytes": 705
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/execution/paper.py",
+      "sha256": "a4d424b093603c8383db83b1227bb4c99b8ddeaffb59e549776b5518e44066cd",
+      "size_bytes": 2681
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/execution/risk.py",
+      "sha256": "70fd9b7c97fd29e525f1e289a8bbf191d9c5a1c9dfb6cb15bbaf259ebf7c2edc",
+      "size_bytes": 3753
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/execution/runner.py",
+      "sha256": "b8ad2603cb089ec2ff0af9c59f637c93e90d3c841377d8fb3d588609092d775b",
+      "size_bytes": 2321
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/labels.py",
+      "sha256": "3acdaa47cc7469bd7f8010b4e235d5be5dbaf8593ba8284f3b9981b008238a00",
+      "size_bytes": 2772
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/manifest.py",
+      "sha256": "588aaafe5e1c915b38ccfa5bfff3061b2423d2022aee95af2f7dd69120bfff4d",
+      "size_bytes": 6147
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/models/__init__.py",
+      "sha256": "3c7f921fa6a6b9cb3e3ab67662589614fbe223fe41ab77aa093e34dcc10d24c1",
+      "size_bytes": 392
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/models/baselines.py",
+      "sha256": "f5d4291a7d3d9e7f13b84c8255256029bcc86cd09fc50c28e9eb10aca6cdea2a",
+      "size_bytes": 4879
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/models/training.py",
+      "sha256": "ddac5fb147be604915ed091f8bbadf5ce749138cb290ba377ea929ca4b330ef5",
+      "size_bytes": 5995
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/optimization/__init__.py",
+      "sha256": "30726115725a474a4f05c456914c1bbe45318502e032683af8cb4bbab80d7c4b",
+      "size_bytes": 396
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/optimization/compiler.py",
+      "sha256": "2362655219c39557a29ecf86b4f2d8ac63103e55b6354f3bf9f4a60b45249fbb",
+      "size_bytes": 4905
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/optimization/io.py",
+      "sha256": "c4b6e7e5deb7091344aa330a0ebaf4016265e344c642149d3c55393c876e8c94",
+      "size_bytes": 878
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/optimization/plan.py",
+      "sha256": "d1f4a256a1d89df4415c794cad611ad9dce42e1b824fc0477186186e923d3e04",
+      "size_bytes": 1895
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/optimization/pruning.py",
+      "sha256": "12e8fc1981e7b267a62f6b1a96c005a2e5f8335addda5265b7e9d4eb58de3582",
+      "size_bytes": 1470
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/pipeline.py",
+      "sha256": "d3b9d996705b3a652bccac006d4ea10b50aaadec4966d98c180d44b73dc39a38",
+      "size_bytes": 5647
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/plugins/__init__.py",
+      "sha256": "623928101fdf4cf29d0bf6fec3b118ced8346c5a7a554dc3f1b6bf0281c161b1",
+      "size_bytes": 786
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/plugins/builtins.py",
+      "sha256": "4f83cc527901d610708bd37de0a2945dfe1f667bc519966419ec87cc37f36e70",
+      "size_bytes": 3205
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/plugins/decorators.py",
+      "sha256": "589ae91b2f025a62ad03b6f6fd63726122ef3e22ae66745eae06f03bf68951a1",
+      "size_bytes": 817
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/plugins/interfaces.py",
+      "sha256": "5a9c75743e18bbdf5f17a6b2fe511f04beae5a5e0bdbd3c5959872d42b0cf6c2",
+      "size_bytes": 3065
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/plugins/registry.py",
+      "sha256": "4aa91882005ad7e54febf743a98ec163fcddc4ccada7d7c7412a0845f8c4f10a",
+      "size_bytes": 2826
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/promotion.py",
+      "sha256": "0030395b8c6a830ccf3cfbb120810a3a3525e1a860c9fd05d3c73933c58b884c",
+      "size_bytes": 2885
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/registry.py",
+      "sha256": "6b9a786f4810970f18e67b2bc2574db2356afc886bca8b7b5c1ded205a2a45ce",
+      "size_bytes": 2033
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/reporting.py",
+      "sha256": "c8e85329c690c0bce4b1a157a651f7a698d2322838b79d408617d18211ec7870",
+      "size_bytes": 1555
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/__init__.py",
+      "sha256": "39be6b969f967bd491342b745e2e64830103f26999532eaffee4f4b61c8e7e37",
+      "size_bytes": 481
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/dedup.py",
+      "sha256": "d2dc9c46429dc23242791ebb8b3d548848bf63210dddb4b53b6c51f813651b1e",
+      "size_bytes": 697
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/events.py",
+      "sha256": "368dea6464b10dc9219076e1b33e3fbcf0503a9de8c9a968a8dd4d98240e7ba0",
+      "size_bytes": 1500
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/latency.py",
+      "sha256": "ea0b0c60ff02997f83121fe790d5ce3fe454cfa57d7426840d49033c32d7d51a",
+      "size_bytes": 1766
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/reload.py",
+      "sha256": "c0da9b8a15dcd87268062879c742c6657d533ec663e5b5d143ef3b1354403619",
+      "size_bytes": 909
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/runtime/telemetry.py",
+      "sha256": "e522b3180772cdb1f3876cc1c05a3e642495ee492b23f0f485ae1db3e97bca69",
+      "size_bytes": 1264
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/scaffold.py",
+      "sha256": "fe499aea3cfba9b2a9da12f14a5d1bfb95607d5f147c3b123d9b58ea0c2f9954",
+      "size_bytes": 5984
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/scaffold_v2.py",
+      "sha256": "1106dde8e62a78d4dd58c257bc798105fd7f59e5f4f41c557943464c414b895d",
+      "size_bytes": 5483
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/__init__.py",
+      "sha256": "71b18f7bfc74cd51278ad0c909dbb489cced437ad9a6a31c2895eddce6f13de7",
+      "size_bytes": 338
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/benchmark.py",
+      "sha256": "96dd6c336c77a988c01483b82778f999c7c45a121432579b7180d80f4afe8437",
+      "size_bytes": 909
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/candidates.py",
+      "sha256": "de484caffa755a114f7b6e858f9715cb025e8ac484e839d531d8849b8c3c49a1",
+      "size_bytes": 4287
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/factory.py",
+      "sha256": "dfd4dff55a141c8678891978bee5ad787b2a40afa2cb81351732b9b33be4eb09",
+      "size_bytes": 1453
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/fallback.py",
+      "sha256": "b2655a560526c0e9dbc2fad5f686f8a72c43a36e6ae401395b41e63ebe60bfb4",
+      "size_bytes": 1786
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/serving/fast_path.py",
+      "sha256": "10fce625162dc7f773c78d860cf9d9ff6c84078a96b7d939855e358433b56681",
+      "size_bytes": 9512
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/simulation.py",
+      "sha256": "761f646e5d7375d887b4845e0fafa65dd6c1e433c0dba5b810c3453998f7da46",
+      "size_bytes": 8185
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/statistics.py",
+      "sha256": "78535f2365c3f3f39a2807f335fe3bca3c8a4c0e307d84ceeebac802747feb27",
+      "size_bytes": 5585
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/testing/__init__.py",
+      "sha256": "34a093a6d3724e3061b1e06c531252cc820b707dc24e5ba70412f4618e670c20",
+      "size_bytes": 213
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/testing/metamorphic.py",
+      "sha256": "44c680084124d33093d87a2b34db7155e5bf54c00895edeab5adda1a7eb278a3",
+      "size_bytes": 1968
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/testing/property_cases.py",
+      "sha256": "0ff4294cd6f68800700fd43a87c82e9b9d6d1a632a45436caf4edf7da34723d4",
+      "size_bytes": 1047
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/validation/__init__.py",
+      "sha256": "e26c1756b37c3b4d800aeaf78c4dbfe1e2f2233945ed7e5d4b6b39da08d627a7",
+      "size_bytes": 100
+    },
+    {
+      "path": "lab/11_strategy_factory/python/strategy_factory/validation/folds.py",
+      "sha256": "4a294b8bd2dbff1ceb4d930f5fa6c4df726dabdfb1eaad086f3e7c4a3a2fcfd6",
+      "size_bytes": 5961
+    },
+    {
+      "path": "lab/11_strategy_factory/requirements-optional.txt",
+      "sha256": "1472d9b4c3422c4d7eaa798b28462d1774cba7f43bcccac87a6fcc5867a5cded",
+      "size_bytes": 265
+    },
+    {
+      "path": "lab/11_strategy_factory/schemas/canonical_contracts.schema.json",
+      "sha256": "0270588a72895909ef7ca117e2e7b74b397691e6225e59b173ecb20e499b6f67",
+      "size_bytes": 2080
+    },
+    {
+      "path": "lab/11_strategy_factory/schemas/strategy_manifest.schema.json",
+      "sha256": "5d022c272805b066f89bca402f0fe10c3a10f94d108be8e66cb01b16481b9492",
+      "size_bytes": 2555
+    },
+    {
+      "path": "lab/11_strategy_factory/schemas/strategy_plan_v2.schema.json",
+      "sha256": "2353a700d9a40b76c6b6ef95e444a35ebd372b6e3471a3773958118c5461575f",
+      "size_bytes": 3643
+    },
+    {
+      "path": "lab/11_strategy_factory/sf.py",
+      "sha256": "7a7fd9eba88330cf4ea3bbf03b70785dd7ad4eac07945d02ab53bc0fe2730523",
+      "size_bytes": 356
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/conftest.py",
+      "sha256": "bcc813b63ca650f3d24666970a99d2523538c05dfeeb162908d0d6496e177a00",
+      "size_bytes": 176
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_anti_overfit.py",
+      "sha256": "999ee7d36f5a11b72dd9ca5f9d754369d52433e634d9a8516036dc2f96e3433a",
+      "size_bytes": 1578
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_audit.py",
+      "sha256": "33f47d75b9a339cb5a814caab8832c8fc722f294f19dea13f63142508f4456ee",
+      "size_bytes": 949
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_candidate_engine.py",
+      "sha256": "19f43fdb5c42c0ecfdb07d1d9b5dd0ee037933d72c294e3ec4f609585b1e0f5f",
+      "size_bytes": 1314
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_contracts.py",
+      "sha256": "7e7087b3bf4154009a1e1f68a97c33f27d0e8ba28e8b66ffa50c55dc9ba6067e",
+      "size_bytes": 1364
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_folds.py",
+      "sha256": "17b529d28c5c84602bf58697a104ec82ed96d536fad114bd96c63be2b79ee713",
+      "size_bytes": 904
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_manifest.py",
+      "sha256": "9899dbff5f5c7051b865be7f3a464d72922d06f3002528e2cdd00bdb62262085",
+      "size_bytes": 429
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_models.py",
+      "sha256": "74bf1ada75ac266ed4df90193cc0ddc27722f4b72ad15b89d8444f2a23ee163b",
+      "size_bytes": 682
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_promotion.py",
+      "sha256": "a827adc0f78bb62c568ec328bd6f834bd9cd26ac41f2fdf88b8cb1e4e2cc52bd",
+      "size_bytes": 429
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_registry.py",
+      "sha256": "46aaa1bf05656038a14cac1a18f44247bdf091dd1e12ebaa401b56500dd72a91",
+      "size_bytes": 372
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_risk_gate.py",
+      "sha256": "0ef9f10bba5f6a53599ebaaf507f068f55abbabb533fe4689b3f331e8786b67d",
+      "size_bytes": 1232
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_scaffold.py",
+      "sha256": "64b40a20ba0c77dd7215847af9bb426e90b6726c858038398de19f39cbc1f0c8",
+      "size_bytes": 413
+    },
+    {
+      "path": "lab/11_strategy_factory/tests/test_simulation.py",
+      "sha256": "6a51f4dbd0669edb2399ff86619c5e4106a0de6f94dbf73c73f0314a61b02c35",
+      "size_bytes": 1578
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/conftest.py",
+      "sha256": "bcc813b63ca650f3d24666970a99d2523538c05dfeeb162908d0d6496e177a00",
+      "size_bytes": 176
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_benchmark.py",
+      "sha256": "4fc28c80885cab0d452d9ead9ae14dcb4f4b921f707496ae1714e71ff937c2dd",
+      "size_bytes": 236
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_calibration.py",
+      "sha256": "41361116da97386ef0439421d40e45fdbacd386051bd16dbafc657658fb4b716",
+      "size_bytes": 343
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_candidate_factory.py",
+      "sha256": "a28001e6b5166473399ec40cca5c044863340f365d6ed50c7c5d3faee6c7868d",
+      "size_bytes": 1074
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_context_engine.py",
+      "sha256": "eb5c385b2eaa79d783593e7a96e88272b60c37d532f7e06fe567a9c28a65fe6b",
+      "size_bytes": 1760
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_context_graph.py",
+      "sha256": "33cc38c9dcb1af2acfd0196e5718cce2545194bb42a90a902151c09f2a12063c",
+      "size_bytes": 1120
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_decision_components.py",
+      "sha256": "cf1a2dec3597c55d20af49c3cb758081efc5c38b196b539090b2a99ad088fd4b",
+      "size_bytes": 1183
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_fast_path.py",
+      "sha256": "84d1c42d648ed5754f6d34dc7f5734faf422ccb727b52358790b1e4e7843ea65",
+      "size_bytes": 1866
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_plan_compiler.py",
+      "sha256": "d8883bf0a617d1425d365e2723e62aa959e922597345194e9c81007ed44404bb",
+      "size_bytes": 750
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_plugins.py",
+      "sha256": "6dc40ca6c369d14121c266cf6b80eb9c58003f33de1ba15c9ad5d96a4ee58206",
+      "size_bytes": 942
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_pruning.py",
+      "sha256": "6de23b21b8bd6c5512e5dca302efebb59c0b5493dc48464fe3a2052b4b45ffd3",
+      "size_bytes": 411
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_runtime.py",
+      "sha256": "5a19386bea0a9dd03ba1bbb8bde1799d4d690d49fb0113ce786aba980db4deb0",
+      "size_bytes": 746
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_scaffold_v2.py",
+      "sha256": "9ca8276c7bc9391afec925ab45ec1b271e319f01ae39415aeae6d92e4d005cee",
+      "size_bytes": 362
+    },
+    {
+      "path": "lab/11_strategy_factory/tests_v2/test_vector.py",
+      "sha256": "96e74f2283d2d18069e95387b5b7c7f3c8884bbd69870a582de90d056effe014",
+      "size_bytes": 487
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+---
+title: "Plugin Capability Model"
+domain: strategy-factory-v2
+status: canonical
+language: en
+version: 2.0.0
+tags:
+  - alpha-lab
+  - strategy-factory
+  - anatomy-to-decision
+---
+
+# Purpose
+
+Makes flexibility explicit through declared capabilities rather than implicit assumptions.
+
+# Responsibilities
+
+Plugins declare kind, version, determinism, thread safety, fast-path safety, and capabilities such as online, batch, local, multi-symbol, or probabilistic.
+
+# Fast-path constraints
+
+- All authoritative inputs must be available at the declared decision time.
+- Work must be bounded by the compiled plan.
+- Runtime failures must map to explicit abstention or rejection reason codes.
+- No module may silently change strategy canon, model schema, thresholds, or capital limits.
+
+# Forbidden coupling and failure modes
+
+Loading a batch-only or remote plugin into the live path; silent fallback to an incompatible version.
+
+# Required tests
+
+Compile-time capability validation and a generated compatibility matrix.
+
+# Operational completion criteria
+
+1. The module has a versioned contract and owner.
+2. Inputs, outputs, timestamps, units, and missing behavior are explicit.
+3. Deterministic replay is possible from stored artifacts.
+4. Performance is benchmarked under the intended mode.
+5. Failure behavior is fail-closed when the module is authoritative.
+6. Migration and rollback are documented.

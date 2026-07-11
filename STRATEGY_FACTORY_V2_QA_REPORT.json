@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "python_compileall": "PASS",
+  "pytest": "45 passed",
+  "mql5_static_scan": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "alpha_lab_policy": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "v2_plan_compile": "PASS",
+  "v2_reference_decision": "PASS",
+  "benchmark_reference_environment": {
+    "iterations": 1000,
+    "mean_ns": 471440.502,
+    "p50_ns": 433070.0,
+    "p95_ns": 686898.0,
+    "p99_ns": 768721.0,
+    "max_ns": 6346597.0,
+    "disclaimer": "Reference container result only; not a production guarantee."
+  },
+  "markdown_frontmatter_missing": [],
+  "markdown_heading_missing": [],
+  "unbalanced_code_fences": [],
+  "wiki_link_count": 124,
+  "broken_wiki_links": [],
+  "zip_integrity": "PASS",
+  "live_order_authority_added": false,
+  "forbidden_order_tokens_in_v2_mql5": [],
+  "zip_file_count": 393,
+  "zip_size_bytes": 390702
+}

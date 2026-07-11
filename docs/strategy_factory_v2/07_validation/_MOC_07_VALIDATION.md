@@ -1,0 +1,24 @@
+---
+title: "07 Validation MOC"
+domain: strategy-factory-v2
+status: canonical
+language: en
+version: 2.0.0
+tags:
+  - alpha-lab
+  - strategy-factory
+  - anatomy-to-decision
+---
+
+# 07 Validation
+
+- [[49_VALIDATION_ARCHITECTURE]]
+- [[50_ANTI_OVERFIT_MASTER_PROTOCOL]]
+- [[51_PURGED_NESTED_WALK_FORWARD]]
+- [[52_PBO_DSR_FDR_AND_REALITY_CHECK]]
+- [[53_NULL_PLACEBO_AND_RANDOMIZATION]]
+- [[54_PROPERTY_METAMORPHIC_DIFFERENTIAL_TESTS]]
+- [[55_COST_DELAY_AND_MICROSTRUCTURE_STRESS]]
+- [[56_CROSS_FEED_AND_REGIME_VALIDATION]]
+- [[57_DRIFT_AND_DECAY_MONITORING]]
+- [[58_PROMOTION_AND_KILL_GATES]]

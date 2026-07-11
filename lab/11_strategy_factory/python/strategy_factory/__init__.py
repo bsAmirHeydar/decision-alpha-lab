@@ -32,3 +32,5 @@ __all__ = [
     "OutcomeRecord",
     "TradeCandidate",
 ]
+
+__version__ = "2.0.0"

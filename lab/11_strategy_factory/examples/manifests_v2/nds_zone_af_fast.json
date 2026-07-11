@@ -1,0 +1,112 @@
+{
+  "strategy": {
+    "id": "nds_zone_af_fast",
+    "version": "2.0.0",
+    "owner": "Decision Alpha Lab",
+    "thesis": "A frozen NDS zone with a precise structural invalidation can expose asymmetric optionality.",
+    "null_hypothesis": "The NDS context adds no uplift over matched location and volatility baselines."
+  },
+  "context": {
+    "providers": [
+      {
+        "id": "nds_market_state",
+        "version": "1.0.0",
+        "implementation": "market_state_fields",
+        "fields": [
+          "confirmation_close",
+          "atr",
+          "reference_extreme",
+          "hook_quality",
+          "f_count",
+          "zone_width_atr",
+          "free_path_atr",
+          "spread_r"
+        ],
+        "required": true,
+        "ttl_seconds": 1.0
+      }
+    ],
+    "feature_vectors": {
+      "nds_quality": {
+        "version": "1.0.0",
+        "names": ["hook_quality", "f_count", "zone_width_atr", "free_path_atr", "spread_r", "risk_distance"],
+        "defaults": [0.0, 0.0, 1.0, 0.0, 0.0, 1.0]
+      }
+    }
+  },
+  "decision": {
+    "max_candidates_per_event": 2,
+    "candidate_templates": [
+      {
+        "id": "zone_limit_2r",
+        "entry": "reference_limit",
+        "stop": "anatomy_invalidation",
+        "exit": "fixed_r",
+        "priority": 0,
+        "parameters": {"reward_r": 2.0}
+      },
+      {
+        "id": "confirmation_market_1_5r",
+        "entry": "market_on_confirmation",
+        "stop": "atr_buffered_invalidation",
+        "exit": "fixed_r",
+        "priority": 1,
+        "parameters": {"reward_r": 1.5, "atr_buffer": 0.2}
+      }
+    ],
+    "models": [
+      {
+        "id": "nds_quality_model",
+        "version": "1.0.0",
+        "feature_order": ["hook_quality", "f_count", "zone_width_atr", "free_path_atr", "spread_r", "risk_distance"],
+        "coefficients": [0.8, 0.05, -0.25, 0.2, -1.0, -0.02],
+        "intercept": -0.1,
+        "output_name": "probability_positive",
+        "logistic": true
+      },
+      {
+        "id": "nds_expectancy_model",
+        "version": "1.0.0",
+        "feature_order": ["hook_quality", "f_count", "zone_width_atr", "free_path_atr", "spread_r", "risk_distance"],
+        "coefficients": [0.5, 0.03, -0.2, 0.15, -0.7, -0.01],
+        "intercept": -0.05,
+        "output_name": "expected_net_r",
+        "logistic": false
+      }
+    ],
+    "model_routes": [
+      {
+        "model_id": "nds_quality_model",
+        "model_version": "1.0.0",
+        "feature_schema_id": "nds_quality",
+        "output_mapping": {"probability_positive": "probability_positive"},
+        "required": true
+      },
+      {
+        "model_id": "nds_expectancy_model",
+        "model_version": "1.0.0",
+        "feature_schema_id": "nds_quality",
+        "output_mapping": {"expected_net_r": "expected_net_r"},
+        "required": true
+      }
+    ],
+    "utility_weights": {"expected_r": 1.0, "probability_positive": 0.25},
+    "abstention": {
+      "minimum_probability": 0.5,
+      "minimum_expected_r": 0.0,
+      "required_context_keys": ["hook_quality", "zone_width_atr", "free_path_atr"]
+    }
+  },
+  "runtime": {
+    "fallback_mode": "abstain",
+    "latency_budget_ms": {
+      "context": 3.0,
+      "candidates": 1.0,
+      "models": 1.0,
+      "ranking": 0.5,
+      "total": 8.0,
+      "action_on_breach": "record"
+    }
+  },
+  "metadata": {"mode": "paper", "authoritative_execution": false}
+}
