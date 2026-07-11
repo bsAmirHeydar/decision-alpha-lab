@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/integration_telemetry.schema.json",
+  "title": "integration_telemetry",
+  "type": "object",
+  "required": [
+    "pulses",
+    "legacy_candidates_seen",
+    "canonical_events_emitted",
+    "duplicate_events_suppressed",
+    "mapping_failures",
+    "live_authority_attempts"
+  ],
+  "properties": {
+    "pulses": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "legacy_candidates_seen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "canonical_events_emitted": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "duplicate_events_suppressed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "events_retired": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mapping_failures": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "differential_mismatches": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "context_passes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_passes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "downstream_gates": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "live_authority_attempts": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

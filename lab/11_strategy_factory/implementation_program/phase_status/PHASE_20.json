@@ -1,0 +1,30 @@
+{
+  "phase": "20",
+  "title": "EXP0017 Temporal Intermarket Divergence Pilot Integration",
+  "status": "IMPLEMENTED_PENDING_LOCAL_METAEDITOR_AND_REPLAY_EVIDENCE",
+  "authority": "AUDIT_AND_SHADOW_ONLY",
+  "live_authority": false,
+  "deliverables": [
+    "static EXP0017 anatomy plugin and factory",
+    "legacy candidate to canonical AnatomyEvent mapper",
+    "known-time and cluster identity preservation",
+    "identity-stable dedup and lifecycle retirement",
+    "legacy differential ledger",
+    "shared context and candidate binding",
+    "outcome inference decision paper and live fail-closed gates",
+    "Phase 19 monitoring binding",
+    "Python conformance and differential replay",
+    "schemas fixtures tests documentation and runbooks"
+  ],
+  "acceptance_gates": [
+    "Engineering Policy green",
+    "MetaEditor compile of host diagnostic and self-test",
+    "golden mapper parity",
+    "duplicate suppression",
+    "cycle retirement evidence",
+    "shared context and candidate route evidence",
+    "no governed EXP0017 model means inference decision and execution remain gated",
+    "zero broker authority tokens in integration package",
+    "controlled shadow soak"
+  ]
+}

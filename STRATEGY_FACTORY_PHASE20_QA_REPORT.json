@@ -1,0 +1,75 @@
+{
+  "phase": 20,
+  "title": "EXP0017 Temporal Intermarket Divergence Pilot Integration",
+  "generated_static_validation": {
+    "phase20_python_tests": {
+      "status": "PASS",
+      "passed": 13,
+      "warnings": 0
+    },
+    "selected_regression_suite": {
+      "status": "PASS",
+      "passed": 211,
+      "warnings": 8,
+      "phases": [
+        "04",
+        "06",
+        "07",
+        "08",
+        "09",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "note": "Phase 16 warnings are existing jsonschema.RefResolver deprecation warnings."
+    },
+    "python_compileall": "PASS",
+    "engineering_policy": {
+      "status": "PASS",
+      "checks": 4,
+      "errors": 0,
+      "warnings": 0
+    },
+    "boundary_guard": "PASS",
+    "mql5_static": {
+      "status": "PASS",
+      "phase20_files": 16
+    },
+    "mql5_include_resolution": {
+      "status": "PASS",
+      "missing_includes": 0
+    }
+  },
+  "metaeditor_compile": {
+    "status": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT",
+    "required_locally": true,
+    "targets": [
+      "SF20_EXP0017PilotHost.mq5",
+      "SF20_EXP0017Diagnostic.mq5",
+      "SF20_EXP0017IntegrationSelfTest.mq5"
+    ]
+  },
+  "broker_authority": {
+    "status": "ABSENT",
+    "live_authority": false,
+    "phase20_boundary_scan": "PASS"
+  },
+  "integration_evidence": {
+    "legacy_detector_reused_without_formula_rewrite": true,
+    "canonical_known_time_contract": true,
+    "stable_event_identity_under_dynamic_extreme_updates": true,
+    "deduplication_and_retirement": true,
+    "differential_ledger": true,
+    "context_candidate_monitoring_bindings": true,
+    "outcome_inference_decision_paper_shadow_live_fail_closed": true
+  },
+  "known_limitations": [
+    "Legacy detector retains direct terminal-series reads during the parity pilot.",
+    "No governed EXP0017 model is included, so inference, decision and execution remain gated.",
+    "Local MetaEditor compile, terminal self-test and controlled differential replay remain mandatory.",
+    "A single aggregate invocation of all historical pytest directories is not an acceptance gate because older suites contain duplicate module basenames and Phase 02 intentionally scans for the live authority added later in the roadmap. Selected phase regressions and Engineering Policy passed."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "manifest_id": "sf20manifest_ed17c14bf5484440",
+  "run_id": "sf20-reference-run",
+  "generation_id": "sf20-reference-generation",
+  "strategy_id": "exp0017_cycle_group_divergence",
+  "adapter_id": "sf20.exp0017.temporal_intermarket_divergence",
+  "adapter_version": "1.0.0",
+  "adapter_config_hash": "sf20cfg_b48a6320dbaf3e05",
+  "legacy_source_hash": "legacy_exp0017_source_v13",
+  "engine_phase": 20,
+  "mode": "AUDIT_ONLY",
+  "live_authority": false,
+  "created_at_utc_ms": 1783795000000,
+  "downstream_bindings": [
+    "context",
+    "candidate",
+    "outcome",
+    "inference",
+    "decision",
+    "paper_shadow",
+    "monitoring"
+  ],
+  "exact_contract_versions": [
+    [
+      "anatomy_event",
+      "1.0.0"
+    ],
+    [
+      "context_frame",
+      "1.0.0"
+    ],
+    [
+      "trade_candidate",
+      "1.0.0"
+    ],
+    [
+      "outcome_record",
+      "1.0.0"
+    ],
+    [
+      "inference_result",
+      "1.0.0"
+    ],
+    [
+      "execution_intent",
+      "1.0.0"
+    ]
+  ]
+}

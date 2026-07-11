@@ -1,0 +1,51 @@
+{
+  "case_id": "sf20-golden-reference",
+  "events": [
+    {
+      "schema_name": "alpha_lab.strategy_factory/anatomy_event",
+      "schema_version": "1.0.0",
+      "event_id": "evt_a11fb9fd69df598c",
+      "strategy_id": "exp0017_cycle_group_divergence",
+      "strategy_version": "1.0.0",
+      "producer_id": "sf20.exp0017.temporal_intermarket_divergence",
+      "producer_version": "1.0.0",
+      "symbol": "NDXUSD",
+      "reference_symbol": "SPXUSD",
+      "direction": "LONG",
+      "event_time_ms": 1783795000000,
+      "known_time_ms": 1783795000000,
+      "confirmation_time_ms": 1783795000000,
+      "reference_price": 22400.0,
+      "invalidation_price": 22400.0,
+      "timeframe_seconds": 900,
+      "session_id": "nytd_a2f162f280a34a53",
+      "parent_event_id": "parent_d088f3e09f2cde52",
+      "market_event_cluster_id": "cluster_9c88ac67c7c6cb6d",
+      "source_hash": "src_fc354d9f36a504ff",
+      "anatomy_state": "exp0017_raw_divergence_candidate_unconfirmed_trade"
+    },
+    {
+      "schema_name": "alpha_lab.strategy_factory/anatomy_event",
+      "schema_version": "1.0.0",
+      "event_id": "evt_29a414609cf3e2e8",
+      "strategy_id": "exp0017_cycle_group_divergence",
+      "strategy_version": "1.0.0",
+      "producer_id": "sf20.exp0017.temporal_intermarket_divergence",
+      "producer_version": "1.0.0",
+      "symbol": "SPXUSD",
+      "reference_symbol": "NDXUSD",
+      "direction": "SHORT",
+      "event_time_ms": 1783795000000,
+      "known_time_ms": 1783795000000,
+      "confirmation_time_ms": 1783795000000,
+      "reference_price": 6260.0,
+      "invalidation_price": 6260.0,
+      "timeframe_seconds": 3600,
+      "session_id": "nytd_a2f162f280a34a53",
+      "parent_event_id": "parent_0bbfdc8a5390dbfc",
+      "market_event_cluster_id": "cluster_027c28adba394d35",
+      "source_hash": "src_b99bcc204ee354dd",
+      "anatomy_state": "exp0017_raw_divergence_candidate_unconfirmed_trade"
+    }
+  ]
+}

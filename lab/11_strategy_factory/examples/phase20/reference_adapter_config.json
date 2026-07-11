@@ -1,0 +1,16 @@
+{
+  "symbol_a": "SPXUSD",
+  "symbol_b": "NDXUSD",
+  "broker_utc_offset_hours": 3,
+  "use_auto_new_york_dst": true,
+  "manual_new_york_utc_offset_hours": -5,
+  "group_minutes": [
+    15,
+    60
+  ],
+  "require_m1_history": true,
+  "mode": "AUDIT_ONLY",
+  "live_authority": false,
+  "adapter_version": "1.0.0",
+  "config_hash": "sf20cfg_b48a6320dbaf3e05"
+}

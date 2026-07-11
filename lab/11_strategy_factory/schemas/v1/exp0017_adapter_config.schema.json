@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/exp0017_adapter_config.schema.json",
+  "title": "exp0017_adapter_config",
+  "type": "object",
+  "required": [
+    "symbol_a",
+    "symbol_b",
+    "group_minutes",
+    "mode",
+    "live_authority",
+    "adapter_version"
+  ],
+  "properties": {
+    "symbol_a": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbol_b": {
+      "type": "string",
+      "minLength": 1
+    },
+    "broker_utc_offset_hours": {
+      "type": "integer"
+    },
+    "use_auto_new_york_dst": {
+      "type": "boolean"
+    },
+    "manual_new_york_utc_offset_hours": {
+      "type": "integer"
+    },
+    "group_minutes": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "require_m1_history": {
+      "type": "boolean"
+    },
+    "mode": {
+      "enum": [
+        "AUDIT_ONLY",
+        "PILOT_SHADOW"
+      ]
+    },
+    "live_authority": {
+      "const": false
+    },
+    "adapter_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config_hash": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

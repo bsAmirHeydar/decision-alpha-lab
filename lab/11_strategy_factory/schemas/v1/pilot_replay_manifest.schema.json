@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/pilot_replay_manifest.schema.json",
+  "title": "pilot_replay_manifest",
+  "type": "object",
+  "required": [
+    "replay_id",
+    "case_id",
+    "adapter_config_hash",
+    "input_fixture_hash",
+    "expected_event_ids",
+    "pulse_times_utc_ms",
+    "strict_ordering"
+  ],
+  "properties": {
+    "replay_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_config_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_fixture_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "expected_cluster_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "pulse_times_utc_ms": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "strict_ordering": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

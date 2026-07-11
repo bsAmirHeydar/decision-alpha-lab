@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/exp0017_legacy_candidate.schema.json",
+  "title": "exp0017_legacy_candidate",
+  "type": "object",
+  "required": [
+    "divergence_id",
+    "group_name",
+    "group_minutes",
+    "direction",
+    "side",
+    "hunter_symbol",
+    "clean_symbol",
+    "one_sided_hunt",
+    "data_ready",
+    "clean_reference_price",
+    "clean_stop_reference_price"
+  ],
+  "properties": {
+    "divergence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "group_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "group_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "direction": {
+      "enum": [
+        "BUY",
+        "SELL"
+      ]
+    },
+    "side": {
+      "enum": [
+        "LOW",
+        "HIGH"
+      ]
+    },
+    "hunter_symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "clean_symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "one_sided_hunt": {
+      "const": true
+    },
+    "data_ready": {
+      "const": true
+    },
+    "clean_reference_price": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "clean_stop_reference_price": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "payload_hash": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

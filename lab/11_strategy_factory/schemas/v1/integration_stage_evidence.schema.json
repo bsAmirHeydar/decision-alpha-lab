@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/integration_stage_evidence.schema.json",
+  "title": "integration_stage_evidence",
+  "type": "object",
+  "required": [
+    "stage",
+    "status",
+    "known_time_ms",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "properties": {
+    "stage": {
+      "enum": [
+        "anatomy",
+        "context",
+        "candidate",
+        "outcome",
+        "inference",
+        "decision",
+        "paper_shadow",
+        "monitoring",
+        "live"
+      ]
+    },
+    "status": {
+      "enum": [
+        "NOT_RUN",
+        "PASSED",
+        "GATED",
+        "FAILED"
+      ]
+    },
+    "input_id": {
+      "type": "string"
+    },
+    "output_id": {
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "reason_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "detail": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

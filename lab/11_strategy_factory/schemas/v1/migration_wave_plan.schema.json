@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/migration_wave_plan.schema.json",
+  "title": "migration_wave_plan",
+  "type": "object",
+  "required": [
+    "plan_id",
+    "waves"
+  ],
+  "properties": {
+    "plan_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "waves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "wave_id",
+          "order",
+          "anatomy_family",
+          "target_adapter_id",
+          "entry_gate",
+          "exit_gate",
+          "status"
+        ],
+        "properties": {
+          "wave_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "anatomy_family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "target_adapter_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entry_gate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exit_gate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "PILOT",
+              "PLANNED",
+              "BLOCKED",
+              "COMPLETE"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/anatomy_integration_manifest.schema.json",
+  "title": "anatomy_integration_manifest",
+  "type": "object",
+  "required": [
+    "manifest_id",
+    "run_id",
+    "generation_id",
+    "strategy_id",
+    "adapter_id",
+    "adapter_version",
+    "adapter_config_hash",
+    "legacy_source_hash",
+    "engine_phase",
+    "mode",
+    "live_authority",
+    "downstream_bindings"
+  ],
+  "properties": {
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strategy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_config_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_source_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_phase": {
+      "const": 20
+    },
+    "mode": {
+      "enum": [
+        "AUDIT_ONLY",
+        "PILOT_SHADOW"
+      ]
+    },
+    "live_authority": {
+      "const": false
+    },
+    "created_at_utc_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "downstream_bindings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "exact_contract_versions": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "string",
+            "minLength": 1
+          }
+        ],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    }
+  },
+  "additionalProperties": false
+}

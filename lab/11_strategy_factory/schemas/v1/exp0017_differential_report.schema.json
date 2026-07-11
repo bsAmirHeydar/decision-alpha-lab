@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/exp0017_differential_report.schema.json",
+  "title": "exp0017_differential_report",
+  "type": "object",
+  "required": [
+    "report_id",
+    "case_id",
+    "legacy_count",
+    "canonical_count",
+    "matched_count",
+    "passed",
+    "records"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "canonical_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "matched_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "missing_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "extra_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mismatch_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

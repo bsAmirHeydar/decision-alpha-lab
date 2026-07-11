@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "case_id": "missing_m1_history",
+      "expected": "fail_closed_no_event"
+    },
+    {
+      "case_id": "one_symbol_stale",
+      "expected": "fail_closed_no_event"
+    },
+    {
+      "case_id": "symmetric_hunt",
+      "expected": "legacy_no_divergence_no_event"
+    },
+    {
+      "case_id": "duplicate_pulse",
+      "expected": "single_canonical_event"
+    },
+    {
+      "case_id": "cycle_rollover",
+      "expected": "retire_absent_event"
+    },
+    {
+      "case_id": "missing_governed_model",
+      "expected": "inference_decision_execution_gated"
+    },
+    {
+      "case_id": "live_authority_attempt",
+      "expected": "hard_rejection"
+    }
+  ]
+}

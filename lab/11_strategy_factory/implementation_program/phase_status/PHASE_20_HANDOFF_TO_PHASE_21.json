@@ -1,0 +1,39 @@
+{
+  "from_phase": "20",
+  "to_phase": "21",
+  "next_title": "MT5 Operator Panel and Visual Diagnostics",
+  "handoff_status": "READY_AFTER_LOCAL_EVIDENCE",
+  "inputs": [
+    "EXP0017 canonical anatomy stream",
+    "integration stage evidence",
+    "pilot telemetry",
+    "differential parity report",
+    "lifecycle records",
+    "monitoring health snapshots",
+    "migration wave plan"
+  ],
+  "preconditions": [
+    "Phase 20 MetaEditor compile passes locally",
+    "SF20 self-test and diagnostic pass",
+    "EXP0017 legacy differential replay is exact on approved fixtures",
+    "pilot emits no duplicate event per persistent divergence identity",
+    "context and candidate bindings are stable",
+    "inference decision paper and live remain gated without governed model",
+    "latest Engineering Policy workflow is green"
+  ],
+  "phase21_scope": [
+    "lightweight MT5 operator panel",
+    "runtime generation and adapter identity",
+    "event candidate model decision risk execution and monitoring status",
+    "visible fail-closed gates",
+    "kill switch and live authority state display",
+    "visual replay and differential diagnostics"
+  ],
+  "not_transferred": [
+    "automatic live activation",
+    "automatic model promotion",
+    "automatic lifecycle mutation",
+    "NDS Daye and remaining anatomy wave implementation",
+    "React or web control plane"
+  ]
+}

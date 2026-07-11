@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "mapping_id": "sf20map_7f1cf010a63f88fc",
+      "legacy_divergence_id": "EXP0017|cg_15m|buy",
+      "legacy_payload_hash": "sf20lp_93df265a711abbff",
+      "canonical_event_id": "evt_a11fb9fd69df598c",
+      "canonical_source_hash": "src_fc354d9f36a504ff",
+      "cluster_id": "cluster_9c88ac67c7c6cb6d",
+      "mapped_at_utc_ms": 1783795000000,
+      "adapter_config_hash": "sf20cfg_b48a6320dbaf3e05",
+      "adapter_version": "1.0.0",
+      "reasons": [
+        "legacy_raw_candidate",
+        "trade_confirmation_not_inferred",
+        "clean_symbol_is_trade_symbol"
+      ]
+    },
+    {
+      "mapping_id": "sf20map_4912a1d62c106cc2",
+      "legacy_divergence_id": "EXP0017|cg_60m|sell",
+      "legacy_payload_hash": "sf20lp_7f5ff1342a7a58a4",
+      "canonical_event_id": "evt_29a414609cf3e2e8",
+      "canonical_source_hash": "src_b99bcc204ee354dd",
+      "cluster_id": "cluster_027c28adba394d35",
+      "mapped_at_utc_ms": 1783795000000,
+      "adapter_config_hash": "sf20cfg_b48a6320dbaf3e05",
+      "adapter_version": "1.0.0",
+      "reasons": [
+        "legacy_raw_candidate",
+        "trade_confirmation_not_inferred",
+        "clean_symbol_is_trade_symbol"
+      ]
+    }
+  ]
+}

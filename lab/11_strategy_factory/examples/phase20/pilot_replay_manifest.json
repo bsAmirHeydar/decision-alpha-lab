@@ -1,0 +1,20 @@
+{
+  "replay_id": "sf20-replay-reference",
+  "case_id": "sf20-golden-reference",
+  "adapter_config_hash": "sf20cfg_b48a6320dbaf3e05",
+  "input_fixture_hash": "sf20_fixture_reference",
+  "expected_event_ids": [
+    "evt_a11fb9fd69df598c",
+    "evt_29a414609cf3e2e8"
+  ],
+  "expected_cluster_ids": [
+    "cluster_9c88ac67c7c6cb6d",
+    "cluster_027c28adba394d35"
+  ],
+  "pulse_times_utc_ms": [
+    1783795000000,
+    1783795005000,
+    1783795010000
+  ],
+  "strict_ordering": true
+}

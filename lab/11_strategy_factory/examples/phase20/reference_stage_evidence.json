@@ -1,0 +1,95 @@
+{
+  "event_id": "evt_a11fb9fd69df598c",
+  "stages": [
+    {
+      "stage": "anatomy",
+      "status": "PASSED",
+      "input_id": "evt_a11fb9fd69df598c",
+      "output_id": "evt_a11fb9fd69df598c",
+      "known_time_ms": 1783795000000,
+      "reason_code": "CANONICAL_EVENT_VALID",
+      "detail": "EXP0017 candidate mapped with causal known time",
+      "evidence_hash": "sf20evd_7ac9f7571aabf7b6"
+    },
+    {
+      "stage": "context",
+      "status": "PASSED",
+      "input_id": "evt_a11fb9fd69df598c",
+      "output_id": "ctx_reference",
+      "known_time_ms": 1783795000000,
+      "reason_code": "CONTEXT_FRAME_BUILT",
+      "detail": "shared context engine accepted the event",
+      "evidence_hash": "sf20evd_86038f19111fbd49"
+    },
+    {
+      "stage": "candidate",
+      "status": "PASSED",
+      "input_id": "ctx_reference",
+      "output_id": "candidate_reference",
+      "known_time_ms": 1783795000000,
+      "reason_code": "CANDIDATE_MATRIX_BUILT",
+      "detail": "shared candidate matrix produced research candidates",
+      "evidence_hash": "sf20evd_8f530e7049c67578"
+    },
+    {
+      "stage": "outcome",
+      "status": "GATED",
+      "input_id": "candidate_reference",
+      "output_id": "",
+      "known_time_ms": 1783795000000,
+      "reason_code": "AWAITING_CAUSAL_PRICE_PATH",
+      "detail": "outcome engine requires subsequent observations",
+      "evidence_hash": "sf20evd_18f1d2218321f277"
+    },
+    {
+      "stage": "inference",
+      "status": "GATED",
+      "input_id": "ctx_reference",
+      "output_id": "",
+      "known_time_ms": 1783795000000,
+      "reason_code": "NO_GOVERNED_EXP0017_MODEL",
+      "detail": "reference models cannot be substituted",
+      "evidence_hash": "sf20evd_475261f8a0f4a019"
+    },
+    {
+      "stage": "decision",
+      "status": "GATED",
+      "input_id": "",
+      "output_id": "",
+      "known_time_ms": 1783795000000,
+      "reason_code": "INFERENCE_NOT_ACCEPTED",
+      "detail": "fail-closed skip",
+      "evidence_hash": "sf20evd_f67600622b970251"
+    },
+    {
+      "stage": "paper_shadow",
+      "status": "GATED",
+      "input_id": "",
+      "output_id": "",
+      "known_time_ms": 1783795000000,
+      "reason_code": "NO_EXECUTION_INTENT",
+      "detail": "paper broker receives nothing",
+      "evidence_hash": "sf20evd_82f113eddf32ae02"
+    },
+    {
+      "stage": "monitoring",
+      "status": "PASSED",
+      "input_id": "evt_a11fb9fd69df598c",
+      "output_id": "sf20mon_07462230907ece09",
+      "known_time_ms": 1783795000000,
+      "reason_code": "TELEMETRY_EMITTED",
+      "detail": "pilot telemetry and lineage recorded",
+      "evidence_hash": "sf20evd_0fc7095d36e0751c"
+    },
+    {
+      "stage": "live",
+      "status": "GATED",
+      "input_id": "evt_a11fb9fd69df598c",
+      "output_id": "",
+      "known_time_ms": 1783795000000,
+      "reason_code": "LIVE_AUTHORITY_DISABLED",
+      "detail": "Phase 20 contains no broker authority",
+      "evidence_hash": "sf20evd_99bb0368fb71e78a"
+    }
+  ]
+}

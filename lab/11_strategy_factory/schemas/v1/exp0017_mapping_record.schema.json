@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v1/exp0017_mapping_record.schema.json",
+  "title": "exp0017_mapping_record",
+  "type": "object",
+  "required": [
+    "mapping_id",
+    "legacy_divergence_id",
+    "canonical_event_id",
+    "cluster_id",
+    "mapped_at_utc_ms",
+    "adapter_config_hash"
+  ],
+  "properties": {
+    "mapping_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_divergence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_payload_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_source_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cluster_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mapped_at_utc_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "adapter_config_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "additionalProperties": false
+}

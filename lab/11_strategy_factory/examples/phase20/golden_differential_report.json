@@ -1,0 +1,33 @@
+{
+  "report_id": "sf20report_865ee33aeb836dc9",
+  "case_id": "sf20-golden-reference",
+  "legacy_count": 2,
+  "canonical_count": 2,
+  "matched_count": 2,
+  "missing_count": 0,
+  "extra_count": 0,
+  "mismatch_count": 0,
+  "records": [
+    {
+      "record_id": "sf20diff_7127cca7a34f1906",
+      "legacy_divergence_id": "EXP0017|cg_15m|buy",
+      "canonical_event_id": "evt_a11fb9fd69df598c",
+      "status": "MATCH",
+      "mismatched_fields": [],
+      "legacy_payload_hash": "sf20lp_93df265a711abbff",
+      "canonical_payload_hash": "sf20cp_8e2911a08638aa0b",
+      "known_time_ms": 1783795000000
+    },
+    {
+      "record_id": "sf20diff_3f789df9a0030f90",
+      "legacy_divergence_id": "EXP0017|cg_60m|sell",
+      "canonical_event_id": "evt_29a414609cf3e2e8",
+      "status": "MATCH",
+      "mismatched_fields": [],
+      "legacy_payload_hash": "sf20lp_7f5ff1342a7a58a4",
+      "canonical_payload_hash": "sf20cp_b39db5234f565a63",
+      "known_time_ms": 1783795000000
+    }
+  ],
+  "passed": true
+}
