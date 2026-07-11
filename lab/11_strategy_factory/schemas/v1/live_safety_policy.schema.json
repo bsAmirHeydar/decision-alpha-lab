@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_emergency_flatten": {
+      "type": "boolean"
+    },
+    "cooldown_after_failure_milliseconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_account_snapshot_age_milliseconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_cash_risk_per_order": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "maximum_concurrent_orders": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_consecutive_failures": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_daily_realized_loss_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_daily_total_loss_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_deviation_points": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_orders_per_session": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_positions": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_quote_age_milliseconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_total_exposure_volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "maximum_volume_per_order": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "minimum_equity_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_free_margin_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_margin_level_percent": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "one_shot_authorization": {
+      "type": "boolean"
+    },
+    "policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "require_account_trade_permission": {
+      "type": "boolean"
+    },
+    "require_terminal_trade_permission": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "maximum_orders_per_session",
+    "maximum_concurrent_orders",
+    "maximum_positions",
+    "maximum_volume_per_order",
+    "maximum_total_exposure_volume",
+    "maximum_cash_risk_per_order",
+    "maximum_daily_realized_loss_cash",
+    "maximum_daily_total_loss_cash",
+    "minimum_equity_cash",
+    "minimum_free_margin_cash",
+    "minimum_margin_level_percent",
+    "maximum_spread_points",
+    "maximum_quote_age_milliseconds",
+    "maximum_account_snapshot_age_milliseconds",
+    "maximum_deviation_points",
+    "maximum_consecutive_failures",
+    "cooldown_after_failure_milliseconds",
+    "one_shot_authorization",
+    "require_terminal_trade_permission",
+    "require_account_trade_permission",
+    "allow_emergency_flatten",
+    "policy_hash"
+  ],
+  "title": "Live Safety Policy",
+  "type": "object"
+}

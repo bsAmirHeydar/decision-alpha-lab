@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "api_ok": {
+      "type": "boolean"
+    },
+    "ask": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "bid": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "deal_ticket": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "order_ticket": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "price": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "result_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "retcode": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "retcode_class": {
+      "maximum": 8,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "sent_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "volume": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "request_id",
+    "api_ok",
+    "retcode",
+    "retcode_class",
+    "order_ticket",
+    "deal_ticket",
+    "volume",
+    "price",
+    "bid",
+    "ask",
+    "comment",
+    "sent_at_utc_msc",
+    "result_hash"
+  ],
+  "title": "Broker Send Result",
+  "type": "object"
+}

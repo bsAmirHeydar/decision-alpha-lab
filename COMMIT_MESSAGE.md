@@ -1,7 +1,3 @@
-feat(alpha-lab): implement deterministic paper and shadow execution
+feat(alpha-lab): implement isolated micro-live broker adapter and hard safety
 
-Add typed paper and shadow execution contracts, market, limit and stop lifecycle handling, bounded
-partial fills, conservative bid/ask and slippage semantics, commission accounting, position
-aggregation, stop and target exits, immutable reports, append-only hash-chained transaction records,
-reconciliation and shadow comparisons, MQL5 host and self-test EAs, Python conformance tooling,
-schemas, golden fixtures, detailed Obsidian documentation, QA and the Phase 18 handoff.
+Add a single-file MQL5 OrderCheck and OrderSend authority boundary, exact micro-live release and short-lived authorization contracts, default-engaged kill switch, bounded circuit breaker, account and quote freshness, spread, equity, margin, loss, exposure, position, order-count, volume and cash-risk gates, mandatory broker preflight, normalized retcodes, idempotent request construction, append-only live transaction evidence, locked hosts, dry-run conformance adapters, Python mirrors, schemas, fixtures, detailed Obsidian documentation, QA and the Phase 19 handoff.

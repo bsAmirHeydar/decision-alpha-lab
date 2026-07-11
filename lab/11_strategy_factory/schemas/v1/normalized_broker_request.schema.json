@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "deviation_points": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "direction": {
+      "enum": [
+        -1,
+        1
+      ],
+      "type": "integer"
+    },
+    "expires_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "has_target": {
+      "type": "boolean"
+    },
+    "intent_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "intent_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "magic_number": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "order_kind": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "price": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "request_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stop_price": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_price": {
+      "type": "number"
+    },
+    "volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "request_id",
+    "intent_id",
+    "intent_hash",
+    "action",
+    "symbol",
+    "direction",
+    "order_kind",
+    "volume",
+    "price",
+    "stop_price",
+    "target_price",
+    "has_target",
+    "deviation_points",
+    "magic_number",
+    "expires_at_utc_msc",
+    "request_hash"
+  ],
+  "title": "Normalized Broker Request",
+  "type": "object"
+}

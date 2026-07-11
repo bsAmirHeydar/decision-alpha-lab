@@ -1,0 +1,15 @@
+{
+  "account_login": 123456,
+  "account_server": "Broker-Demo",
+  "allowed_symbol": "X",
+  "authorization_hash": "lauth_reference",
+  "authorization_id": "auth.reference",
+  "expires_at_utc_msc": 2030000,
+  "issued_at_utc_msc": 1999000,
+  "maximum_orders": 1,
+  "maximum_volume": 0.01,
+  "mode": 1,
+  "nonce": "nonce-001",
+  "operator_token_hash": "operator-token",
+  "release_hash": "lrel_reference"
+}

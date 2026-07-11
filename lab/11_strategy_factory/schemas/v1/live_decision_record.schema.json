@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authorization_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "maximum": 8,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "decision_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_time_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "intent_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "reject_reason": {
+      "maximum": 39,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "release_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_id",
+    "intent_id",
+    "decision",
+    "reject_reason",
+    "request_id",
+    "authorization_id",
+    "release_hash",
+    "event_time_utc_msc",
+    "message",
+    "decision_hash"
+  ],
+  "title": "Live Decision Record",
+  "type": "object"
+}

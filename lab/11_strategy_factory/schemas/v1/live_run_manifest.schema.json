@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_login": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "account_server": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorization_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "build_commit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "magic_number": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "release_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "safety_policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "started_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "terminal_build": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "run_id",
+    "mode",
+    "release_hash",
+    "authorization_hash",
+    "safety_policy_hash",
+    "account_login",
+    "account_server",
+    "symbol",
+    "magic_number",
+    "started_at_utc_msc",
+    "build_commit",
+    "terminal_build",
+    "manifest_hash"
+  ],
+  "title": "Live Run Manifest",
+  "type": "object"
+}

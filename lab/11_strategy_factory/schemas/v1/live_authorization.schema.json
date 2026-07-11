@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_login": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "account_server": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "allowed_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorization_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorization_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expires_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "issued_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_orders": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "mode": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "nonce": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator_token_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "authorization_id",
+    "release_hash",
+    "account_login",
+    "account_server",
+    "allowed_symbol",
+    "mode",
+    "issued_at_utc_msc",
+    "expires_at_utc_msc",
+    "maximum_volume",
+    "maximum_orders",
+    "nonce",
+    "operator_token_hash",
+    "authorization_hash"
+  ],
+  "title": "Live Authorization",
+  "type": "object"
+}

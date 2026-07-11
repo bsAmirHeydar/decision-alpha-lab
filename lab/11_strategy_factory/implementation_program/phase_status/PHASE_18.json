@@ -1,0 +1,27 @@
+{
+  "acceptance": [
+    "Phase 18 Python tests pass",
+    "engineering policy passes",
+    "OrderSend and OrderCheck appear only in SF18_Mql5BrokerAdapter.mqh",
+    "micro-live host defaults disabled and kill switch engaged",
+    "MetaEditor compilation and broker-demo rehearsal required locally"
+  ],
+  "authority": "isolated_micro_live_disabled_by_default",
+  "deliverables": [
+    "single isolated MQL5 broker mutation adapter",
+    "OrderCheck before every send",
+    "default-engaged kill switch",
+    "bounded circuit breaker",
+    "exact release and authorization gates",
+    "micro-live one-shot authorization",
+    "account quote spread exposure and loss gates",
+    "retcode normalization",
+    "append-only live ledger",
+    "dry-run conformance mirror",
+    "MQL5 host diagnostic and self-test"
+  ],
+  "live_order_authority": true,
+  "name": "Live Broker Adapter and Hard Safety",
+  "phase": 18,
+  "status": "IMPLEMENTED"
+}

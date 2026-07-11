@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authorization_id": {
+      "type": "string"
+    },
+    "changed_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer"
+    }
+  },
+  "required": [
+    "state",
+    "reason",
+    "changed_at_utc_msc",
+    "authorization_id"
+  ],
+  "title": "Kill Switch State",
+  "type": "object"
+}

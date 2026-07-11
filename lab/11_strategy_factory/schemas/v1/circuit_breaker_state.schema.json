@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "consecutive_failures": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "cooldown_milliseconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "last_failure_reason": {
+      "type": "string"
+    },
+    "opened_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    }
+  },
+  "required": [
+    "state",
+    "consecutive_failures",
+    "opened_at_utc_msc",
+    "cooldown_milliseconds",
+    "last_failure_reason"
+  ],
+  "title": "Circuit Breaker State",
+  "type": "object"
+}

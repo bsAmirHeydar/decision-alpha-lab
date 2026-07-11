@@ -1,0 +1,32 @@
+{
+  "authority_boundary": "mql5/Include/AlphaLab/StrategyFactory/Live/SF18_Mql5BrokerAdapter.mqh",
+  "components": {
+    "docs": 88,
+    "mql5": "isolated micro-live adapter and hard-safety coordinator",
+    "python": "offline conformance mirror only",
+    "schemas": 13,
+    "tests": "phase18_live"
+  },
+  "created_utc": "2026-07-11T00:00:00Z",
+  "file_count": 162,
+  "live_order_authority": true,
+  "name": "Live Broker Adapter and Hard Safety",
+  "notes": [
+    "Micro-live disabled by default",
+    "Kill switch engaged by default",
+    "OrderCheck required before OrderSend",
+    "OrderCheck success retcode 0 is distinct from OrderSend success retcodes",
+    "No OrderSendAsync or CTrade",
+    "No real order was sent during build",
+    "Demo rehearsal required before micro-live"
+  ],
+  "phase": 18,
+  "verification": {
+    "engineering_policy": "4/4 PASS",
+    "metaeditor": "REQUIRED_LOCALLY",
+    "phase16_18_regression": "64 passed",
+    "phase18_boundary": "PASS",
+    "phase18_mql5_static": "PASS",
+    "python_compileall": "PASS"
+  }
+}

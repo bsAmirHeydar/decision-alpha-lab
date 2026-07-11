@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_login": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "account_server": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "allocation_policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "allowed_symbols": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "anti_overfit_evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "max_orders_per_session": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_volume_per_order": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "model_release_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "phase17_soak_evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reconciliation_evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "release_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_policy_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "runtime_generation_id": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "strategy_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "valid_from_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "valid_until_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_version",
+    "strategy_id",
+    "strategy_version",
+    "runtime_generation_id",
+    "model_release_hash",
+    "decision_policy_hash",
+    "risk_policy_hash",
+    "allocation_policy_hash",
+    "execution_policy_hash",
+    "account_login",
+    "account_server",
+    "allowed_symbols",
+    "max_volume_per_order",
+    "max_orders_per_session",
+    "valid_from_utc_msc",
+    "valid_until_utc_msc",
+    "phase17_soak_evidence_hash",
+    "reconciliation_evidence_hash",
+    "anti_overfit_evidence_hash",
+    "release_hash"
+  ],
+  "title": "Micro Live Release",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "account_login": 123456,
+  "account_server": "Broker-Demo",
+  "account_trade_allowed": true,
+  "active_order_count": 0,
+  "balance_cash": 10000,
+  "daily_realized_pnl_cash": 0,
+  "equity_cash": 10000,
+  "expert_trade_allowed": true,
+  "floating_pnl_cash": 0,
+  "free_margin_cash": 9000,
+  "margin_level_percent": 1000,
+  "open_position_count": 0,
+  "snapshot_hash": "acct_reference",
+  "snapshot_time_utc_msc": 2000000,
+  "terminal_trade_allowed": true,
+  "total_exposure_volume": 0
+}

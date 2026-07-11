@@ -1,0 +1,15 @@
+{
+  "account_login": 123456,
+  "account_server": "Broker-Demo",
+  "authorization_hash": "lauth_reference",
+  "build_commit": "local",
+  "magic_number": 180018,
+  "manifest_hash": "lrun_reference",
+  "mode": 1,
+  "release_hash": "lrel_reference",
+  "run_id": "sf18-reference",
+  "safety_policy_hash": "lpol_reference",
+  "started_at_utc_msc": 2000000,
+  "symbol": "X",
+  "terminal_build": 0
+}

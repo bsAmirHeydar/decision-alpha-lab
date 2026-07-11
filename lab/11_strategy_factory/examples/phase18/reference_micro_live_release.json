@@ -1,0 +1,25 @@
+{
+  "account_login": 123456,
+  "account_server": "Broker-Demo",
+  "allocation_policy_hash": "allocation_policy",
+  "allowed_symbols": [
+    "X"
+  ],
+  "anti_overfit_evidence_hash": "anti_overfit_evidence",
+  "decision_policy_hash": "decision_policy",
+  "execution_policy_hash": "execution_policy",
+  "max_orders_per_session": 1,
+  "max_volume_per_order": 0.01,
+  "model_release_hash": "model_release",
+  "phase17_soak_evidence_hash": "soak_evidence",
+  "reconciliation_evidence_hash": "reconciliation_evidence",
+  "release_hash": "lrel_reference",
+  "release_id": "sf18.reference.release",
+  "release_version": "1.0.0",
+  "risk_policy_hash": "risk_policy",
+  "runtime_generation_id": 18,
+  "strategy_id": "sf.reference",
+  "strategy_version": "1.0.0",
+  "valid_from_utc_msc": 1999000,
+  "valid_until_utc_msc": 2060000
+}

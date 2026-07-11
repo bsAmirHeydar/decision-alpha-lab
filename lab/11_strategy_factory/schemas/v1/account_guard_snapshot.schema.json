@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_login": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "account_server": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "account_trade_allowed": {
+      "type": "boolean"
+    },
+    "active_order_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "balance_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "daily_realized_pnl_cash": {
+      "type": "number"
+    },
+    "equity_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "expert_trade_allowed": {
+      "type": "boolean"
+    },
+    "floating_pnl_cash": {
+      "type": "number"
+    },
+    "free_margin_cash": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "margin_level_percent": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "open_position_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "snapshot_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "snapshot_time_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "terminal_trade_allowed": {
+      "type": "boolean"
+    },
+    "total_exposure_volume": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "account_login",
+    "account_server",
+    "equity_cash",
+    "balance_cash",
+    "free_margin_cash",
+    "margin_level_percent",
+    "daily_realized_pnl_cash",
+    "floating_pnl_cash",
+    "total_exposure_volume",
+    "active_order_count",
+    "open_position_count",
+    "terminal_trade_allowed",
+    "account_trade_allowed",
+    "expert_trade_allowed",
+    "snapshot_time_utc_msc",
+    "snapshot_hash"
+  ],
+  "title": "Account Guard Snapshot",
+  "type": "object"
+}

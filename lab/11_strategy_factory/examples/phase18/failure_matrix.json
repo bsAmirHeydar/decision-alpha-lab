@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "expected_reject_reason": 2,
+      "name": "default_kill_switch"
+    },
+    {
+      "expected_reject_reason": 20,
+      "name": "wide_spread"
+    },
+    {
+      "expected_reject_reason": 23,
+      "name": "daily_loss"
+    },
+    {
+      "expected_reject_reason": 12,
+      "name": "release_mismatch"
+    },
+    {
+      "expected_reject_reason": 11,
+      "name": "one_shot_reuse"
+    }
+  ]
+}

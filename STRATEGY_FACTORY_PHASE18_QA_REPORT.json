@@ -1,0 +1,37 @@
+{
+  "broker_semantics": {
+    "ctrade_absent": true,
+    "order_check_success_retcode_zero": true,
+    "order_send_async_absent": true,
+    "order_send_success_retcode_classes": [
+      10008,
+      10009,
+      10010
+    ]
+  },
+  "demo_broker_rehearsal": "REQUIRED_LOCALLY BEFORE MICRO-LIVE",
+  "engineering_policy": "4/4 PASS on cumulative repository overlay",
+  "live_defaults": {
+    "host_synthesizes_intents": false,
+    "kill_switch_engaged": true,
+    "micro_live_enabled": false,
+    "one_shot_authorization": true
+  },
+  "metaeditor_compile": "REQUIRED_LOCALLY; MetaEditor unavailable in build environment",
+  "notes": [
+    "The monolithic historical test tree has pre-existing duplicate test-module basenames; regression was executed by phase directory.",
+    "No claim of broker compatibility is made until local MetaEditor compile and demo-account rehearsal evidence exists."
+  ],
+  "phase": 18,
+  "phase18_boundary_guard": "PASS; OrderCheck and OrderSend exist only in SF18_Mql5BrokerAdapter.mqh",
+  "phase18_mql5_static": "PASS; no compatibility hazard or brace mismatch detected",
+  "python_compileall": "PASS",
+  "python_tests": {
+    "phase16_decision": "34 passed",
+    "phase17_execution": "14 passed",
+    "phase18_live": "16 passed",
+    "regression_total": "64 passed"
+  },
+  "real_order_sent_in_build_environment": false,
+  "status": "PASS_STATIC_AND_CONFORMANCE"
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "api_ok": {
+      "type": "boolean"
+    },
+    "balance_cash": {
+      "type": "number"
+    },
+    "checked_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "equity_cash": {
+      "type": "number"
+    },
+    "free_margin_cash": {
+      "type": "number"
+    },
+    "margin_cash": {
+      "type": "number"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "result_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "retcode": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "retcode_class": {
+      "maximum": 8,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "request_id",
+    "api_ok",
+    "retcode",
+    "retcode_class",
+    "balance_cash",
+    "equity_cash",
+    "margin_cash",
+    "free_margin_cash",
+    "comment",
+    "checked_at_utc_msc",
+    "result_hash"
+  ],
+  "title": "Broker Check Result",
+  "type": "object"
+}

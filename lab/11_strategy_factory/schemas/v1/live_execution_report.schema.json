@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks_accepted": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "circuit_state": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "consecutive_failures": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "generated_at_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "intents_received": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "kill_switch_state": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "ledger_tail_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "preflight_passed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rejected": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sends_accepted": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sends_attempted": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "session_orders": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "report_id",
+    "run_id",
+    "mode",
+    "intents_received",
+    "preflight_passed",
+    "rejected",
+    "checks_accepted",
+    "sends_attempted",
+    "sends_accepted",
+    "session_orders",
+    "consecutive_failures",
+    "circuit_state",
+    "kill_switch_state",
+    "ledger_tail_hash",
+    "generated_at_utc_msc",
+    "report_hash"
+  ],
+  "title": "Live Execution Report",
+  "type": "object"
+}
