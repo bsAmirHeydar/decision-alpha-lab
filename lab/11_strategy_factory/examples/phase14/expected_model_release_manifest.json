@@ -1,0 +1,17 @@
+{
+  "artifact_inventory_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+  "attestation_hash": "",
+  "calibration_hash": "160f47fd587973b81d5dbfa1f4d74761dcb4faed0b939d3957efc8e77982842b",
+  "channel": 2,
+  "created_at_utc_msc": 1700000008000,
+  "feature_schema_hash": "3a713eac0a58636c2abeffa0bbd187f91e9f9c5f1765dd008cd47d898e732b34",
+  "label_contract_hash": "7adcb8312cd785f2a7f7df979ef411da517da1a1a5c250ad7a678e46dee515c0",
+  "model_artifact_hash": "d296ef024a483e02ae04ca578725fcf59fe1be50344598d99aebb8be448bc2c7",
+  "no_execution_authority": true,
+  "registry_entry_hash": "mreg_61adfe82b8517a3b",
+  "registry_snapshot_hash": "rsnap_37de6b23301bbcf4",
+  "release_hash": "mrel_51e15a5020975d25",
+  "release_id": "mrel_e3cff7f58e3ffa30",
+  "release_version": "1.0.0",
+  "transform_hash": "7767b99a67269112a1cb3d30c4aa6367a560e30da80dd0e663106ea410909ff1"
+}

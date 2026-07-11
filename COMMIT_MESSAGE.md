@@ -1,3 +1,3 @@
-feat(alpha-lab): implement leakage-safe datasets and baseline training
+feat(alpha-lab): implement model registry and promotion governance
 
-Add exact feature and label contracts, immutable dataset manifests and rows, cluster-safe role assignment, train-only transforms, deterministic never/always/prevalence/threshold/logistic-ridge/ridge/stump baselines, exact trainer registry, validation-only calibration and selection, test-only OOS predictions, model artifacts and cards, MQL5 dataset export contracts, Python training pipeline, schemas, fixtures, tests, detailed Obsidian documentation, QA and Phase 14 handoff.
+Add exact registry scopes, immutable model evidence bundles, artifact digests and inventories, integrity and authenticity separation, versioned promotion policies and gate evaluations, legal model lifecycle transitions, champion and challenger governance, append-only hash-chained decisions, registry snapshots, release manifests, rollback plans, MQL5 governance hosts and self-tests, Python governance tooling, schemas, deterministic fixtures, detailed Obsidian documentation, QA and the Phase 15 handoff.

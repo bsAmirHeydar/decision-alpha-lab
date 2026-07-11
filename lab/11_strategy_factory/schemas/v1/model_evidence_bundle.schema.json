@@ -1,0 +1,111 @@
+{
+  "$id": "alpha_lab.strategy_factory/model_evidence_bundle@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anti_overfit_report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_inventory_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "attestation_hash": {
+      "type": "string"
+    },
+    "bundle_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "bundle_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "calibration_hash": {
+      "type": "string"
+    },
+    "code_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "dataset_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "label_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_card_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "phase12_promotion_decision_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prediction_rowset_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "training_plan_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "training_report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "model_id",
+    "model_version",
+    "model_artifact_hash",
+    "transform_hash",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "dataset_hash",
+    "training_plan_hash",
+    "training_report_hash",
+    "model_card_hash",
+    "prediction_rowset_hash",
+    "anti_overfit_report_hash",
+    "phase12_promotion_decision_hash",
+    "code_revision",
+    "artifact_inventory_hash",
+    "created_at_utc_msc",
+    "no_execution_authority",
+    "bundle_hash"
+  ],
+  "title": "model_evidence_bundle",
+  "type": "object"
+}

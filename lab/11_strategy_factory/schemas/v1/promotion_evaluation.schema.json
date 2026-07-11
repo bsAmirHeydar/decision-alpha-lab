@@ -1,0 +1,109 @@
+{
+  "$id": "alpha_lab.strategy_factory/promotion_evaluation@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evaluated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evaluation_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "evaluation_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "evaluator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_hash": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "gate_hash": {
+            "minLength": 3,
+            "type": "string"
+          },
+          "gate_id": {
+            "minLength": 3,
+            "type": "string"
+          },
+          "observed_value": {
+            "type": "string"
+          },
+          "reason_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_value": {
+            "type": "string"
+          },
+          "status": {
+            "maximum": 3,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "gate_id",
+          "status",
+          "observed_value",
+          "required_value",
+          "reason_code",
+          "evidence_hash",
+          "gate_hash"
+        ],
+        "type": "object"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
+    "model_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "policy_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "scope_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "verdict": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "evaluation_id",
+    "model_artifact_hash",
+    "scope_id",
+    "evidence_bundle_hash",
+    "policy_hash",
+    "gates",
+    "verdict",
+    "evaluated_at_utc_msc",
+    "evaluator_id",
+    "no_execution_authority",
+    "evaluation_hash"
+  ],
+  "title": "promotion_evaluation",
+  "type": "object"
+}

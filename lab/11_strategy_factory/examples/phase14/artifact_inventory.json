@@ -1,0 +1,41 @@
+{
+  "digests": [
+    {
+      "byte_size": 128,
+      "digest_id": "adig_a0ca921082a2d47d",
+      "logical_name": "model",
+      "media_type": "application/octet-stream",
+      "relative_path": "artifacts/model.bin",
+      "required": true,
+      "role": 1,
+      "schema_id": "",
+      "sha256": "62c36fc8ff04ebe70088584ad45b484685ee2ce16f03d49c69a131e30ae9d3c9"
+    },
+    {
+      "byte_size": 256,
+      "digest_id": "adig_fb457941023ecaec",
+      "logical_name": "transform",
+      "media_type": "application/json",
+      "relative_path": "artifacts/transform.json",
+      "required": true,
+      "role": 2,
+      "schema_id": "alpha_lab.strategy_factory/transform_state@1.0.0",
+      "sha256": "0700b2286c25165c2f19f06de9fb6ed84bc5b82fe29e3b2b04ebb8700dcecec4"
+    },
+    {
+      "byte_size": 512,
+      "digest_id": "adig_ef2dba7d811f48d2",
+      "logical_name": "model_card",
+      "media_type": "application/json",
+      "relative_path": "artifacts/model_card.json",
+      "required": true,
+      "role": 6,
+      "schema_id": "alpha_lab.strategy_factory/model_card@1.0.0",
+      "sha256": "d569d77f1f1c28d54be792da2ecc91030c61214b32288a94278faef09917db4b"
+    }
+  ],
+  "generated_at_utc_msc": 1700000000000,
+  "inventory_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+  "inventory_id": "sf14_reference_inventory",
+  "inventory_version": "1.0.0"
+}

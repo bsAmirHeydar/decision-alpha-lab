@@ -1,0 +1,8 @@
+#ifndef __SF14_AUTHENTICITY_ATTESTATION_MQH__
+#define __SF14_AUTHENTICITY_ATTESTATION_MQH__
+#include "SF14_ArtifactInventory.mqh"
+struct SF14_AuthenticityAttestation{ENUM_SF14_ATTESTATION_KIND kind;string subject_inventory_hash;string signer_id;string algorithm;string key_id;string signature_reference;string verifier_id;bool verified;long signed_at_utc_msc;string attestation_hash;};
+string SF14_AuthenticityCanonical(const SF14_AuthenticityAttestation &v){return "alpha_lab.strategy_factory/authenticity_attestation@1.0.0|"+IntegerToString((int)v.kind)+"|"+v.subject_inventory_hash+"|"+v.signer_id+"|"+v.algorithm+"|"+v.key_id+"|"+v.signature_reference+"|"+v.verifier_id+"|"+SF01_CanonicalBool(v.verified)+"|"+IntegerToString(v.signed_at_utc_msc);}
+string SF14_DeriveAttestationHash(const SF14_AuthenticityAttestation &v){return SF01_StableId("attn",SF14_AuthenticityCanonical(v));}
+bool SF14_ValidateAuthenticityAttestation(const SF14_AuthenticityAttestation &v,string &error){if(!SF14_IsLowerHex64(v.subject_inventory_hash)||v.signed_at_utc_msc<0){error="invalid attestation subject or timestamp";return false;}if(v.kind==SF14_ATTESTATION_NONE){if(v.verified||v.signer_id!=""||v.algorithm!=""||v.key_id!=""||v.signature_reference!=""||v.verifier_id!=""){error="unsigned attestation claims verification";return false;}}else if(!v.verified||v.signer_id==""||v.algorithm==""||v.key_id==""||v.signature_reference==""||v.verifier_id==""){error="signature attestation is incomplete or unverified";return false;}if(v.attestation_hash!=""&&v.attestation_hash!=SF14_DeriveAttestationHash(v)){error="attestation hash mismatch";return false;}error="";return true;}
+#endif

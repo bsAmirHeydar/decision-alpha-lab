@@ -1,0 +1,21 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "typed governance contracts, bounded in-memory registry and deterministic state transitions",
+    "python": "offline artifact inventory, promotion evaluation, append-only governance ledger, snapshots, releases and reporting"
+  },
+  "central_engine_only": true,
+  "invariants": [
+    "one champion per exact registry scope",
+    "append-only hash-chained governance decisions",
+    "exact model version uniqueness",
+    "ineligible evidence fails closed",
+    "all artifacts retain Phase 12 and Phase 13 lineage",
+    "promotion never grants execution authority",
+    "rollback is a governed state transition plan, not an order action"
+  ],
+  "next_phase": 15,
+  "phase": 14,
+  "status": "IMPLEMENTED_STATIC_QA_PASS_METAEDITOR_PENDING",
+  "title": "Model Registry, Promotion and Artifact Governance"
+}

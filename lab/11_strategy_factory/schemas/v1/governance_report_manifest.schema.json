@@ -1,0 +1,54 @@
+{
+  "$id": "alpha_lab.strategy_factory/governance_report_manifest@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_chain_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "generated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "promotion_evaluation_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "registry_snapshot_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "release_manifest_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "report_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "rollback_plan_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "evidence_bundle_hash",
+    "promotion_evaluation_hash",
+    "registry_snapshot_hash",
+    "release_manifest_hash",
+    "decision_chain_hash",
+    "generated_at_utc_msc",
+    "report_hash"
+  ],
+  "title": "governance_report_manifest",
+  "type": "object"
+}

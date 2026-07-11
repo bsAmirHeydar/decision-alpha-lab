@@ -1,0 +1,15 @@
+{
+  "approved_at_utc_msc": 1700000010000,
+  "approved_by": "governance_committee",
+  "from_entry_id": "mentry_b3d004624f66b257",
+  "no_execution_authority": true,
+  "plan_hash": "rplan_aafc06c158438fa5",
+  "plan_id": "sf14_reference_rollback",
+  "registry_snapshot_hash": "rsnap_37de6b23301bbcf4",
+  "scope_id": "scope_d8c438d54c6e6190",
+  "to_entry_id": "mentry_prior_champion",
+  "trigger_codes": [
+    "MODEL_DRIFT",
+    "PARITY_FAILURE"
+  ]
+}

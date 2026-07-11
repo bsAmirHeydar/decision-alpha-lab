@@ -1,0 +1,12 @@
+{
+  "algorithm": "",
+  "attestation_hash": "attn_61d958ea7182ec3a",
+  "key_id": "",
+  "kind": 1,
+  "signature_reference": "",
+  "signed_at_utc_msc": 1700000000000,
+  "signer_id": "",
+  "subject_inventory_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+  "verified": false,
+  "verifier_id": ""
+}

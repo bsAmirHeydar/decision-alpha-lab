@@ -1,0 +1,16 @@
+{
+  "challenger_entry_ids": [],
+  "champion_entry_ids": [
+    "mentry_b3d004624f66b257"
+  ],
+  "decision_chain_hash": "17254ea5526ef80622765d29c874670fcff4a538aa9fc60a2172a407c9c114ad",
+  "decision_sequence": 5,
+  "entry_hashes": [
+    "mreg_61adfe82b8517a3b"
+  ],
+  "generated_at_utc_msc": 1700000007000,
+  "no_execution_authority": true,
+  "registry_version": "1.0.0",
+  "snapshot_hash": "rsnap_37de6b23301bbcf4",
+  "snapshot_id": "rsnap_547a802be5bfe01a"
+}

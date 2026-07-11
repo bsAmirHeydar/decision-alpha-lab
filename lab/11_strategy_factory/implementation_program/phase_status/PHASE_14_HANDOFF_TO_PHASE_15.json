@@ -1,0 +1,18 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_14",
+  "next": "ONNX Export and MQL5 Inference",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF14 self-test passes",
+    "artifact inventory hashes reproduce",
+    "promotion policy and all gate results validate",
+    "governance decision ledger is contiguous and hash chained",
+    "registry snapshot contains at most one champion per exact scope",
+    "release manifest points to a champion or challenger in the snapshot",
+    "rollback target is explicit and exact-versioned",
+    "model, transform, calibration and feature order lineage are immutable",
+    "no live authority"
+  ],
+  "to": "PHASE_15"
+}

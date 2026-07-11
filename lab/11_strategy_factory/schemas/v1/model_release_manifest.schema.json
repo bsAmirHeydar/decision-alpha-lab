@@ -1,0 +1,82 @@
+{
+  "$id": "alpha_lab.strategy_factory/model_release_manifest@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_inventory_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "attestation_hash": {
+      "type": "string"
+    },
+    "calibration_hash": {
+      "type": "string"
+    },
+    "channel": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "created_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "feature_schema_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "label_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "registry_entry_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "registry_snapshot_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "release_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "release_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "release_version",
+    "channel",
+    "registry_snapshot_hash",
+    "registry_entry_hash",
+    "model_artifact_hash",
+    "transform_hash",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "artifact_inventory_hash",
+    "created_at_utc_msc",
+    "no_execution_authority",
+    "release_hash"
+  ],
+  "title": "model_release_manifest",
+  "type": "object"
+}

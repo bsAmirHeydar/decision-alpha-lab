@@ -1,0 +1,65 @@
+{
+  "$id": "alpha_lab.strategy_factory/rollback_plan@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approved_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "approved_by": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "from_entry_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "plan_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "registry_snapshot_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "scope_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "to_entry_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "trigger_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "plan_id",
+    "scope_id",
+    "from_entry_id",
+    "to_entry_id",
+    "trigger_codes",
+    "registry_snapshot_hash",
+    "approved_by",
+    "approved_at_utc_msc",
+    "no_execution_authority",
+    "plan_hash"
+  ],
+  "title": "rollback_plan",
+  "type": "object"
+}

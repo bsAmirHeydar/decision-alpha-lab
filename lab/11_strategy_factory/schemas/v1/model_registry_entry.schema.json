@@ -1,0 +1,77 @@
+{
+  "$id": "alpha_lab.strategy_factory/model_registry_entry@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "entry_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "entry_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "evaluation_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "model_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "scope_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "state": {
+      "maximum": 9,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "supersedes_entry_id": {
+      "type": "string"
+    },
+    "updated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "entry_id",
+    "model_id",
+    "model_version",
+    "model_artifact_hash",
+    "scope_id",
+    "evidence_bundle_hash",
+    "state",
+    "revision",
+    "created_at_utc_msc",
+    "updated_at_utc_msc",
+    "no_execution_authority",
+    "entry_hash"
+  ],
+  "title": "model_registry_entry",
+  "type": "object"
+}

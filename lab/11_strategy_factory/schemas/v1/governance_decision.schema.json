@@ -1,0 +1,78 @@
+{
+  "$id": "alpha_lab.strategy_factory/governance_decision@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decided_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "decision_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "decision_type": {
+      "maximum": 11,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "entry_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "from_state": {
+      "maximum": 9,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "previous_decision_hash": {
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "to_state": {
+      "maximum": 9,
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sequence",
+    "decision_type",
+    "entry_id",
+    "scope_id",
+    "from_state",
+    "to_state",
+    "actor_id",
+    "reason_code",
+    "evidence_hash",
+    "previous_decision_hash",
+    "decided_at_utc_msc",
+    "decision_id",
+    "decision_hash"
+  ],
+  "title": "governance_decision",
+  "type": "object"
+}

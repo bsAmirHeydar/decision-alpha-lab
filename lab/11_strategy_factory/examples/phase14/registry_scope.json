@@ -1,0 +1,11 @@
+{
+  "anatomy_plugin_id": "sf06.reference_sweep",
+  "anatomy_plugin_version": "1.0.0",
+  "deployment_profile_id": "research_default",
+  "feature_schema_hash": "3a713eac0a58636c2abeffa0bbd187f91e9f9c5f1765dd008cd47d898e732b34",
+  "label_contract_hash": "7adcb8312cd785f2a7f7df979ef411da517da1a1a5c250ad7a678e46dee515c0",
+  "scope_id": "scope_d8c438d54c6e6190",
+  "strategy_id": "reference_strategy",
+  "symbol_universe_id": "major_indices",
+  "timeframe_profile_id": "m5_h1"
+}

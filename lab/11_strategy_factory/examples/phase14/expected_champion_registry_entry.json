@@ -1,0 +1,16 @@
+{
+  "created_at_utc_msc": 1700000002000,
+  "entry_hash": "mreg_61adfe82b8517a3b",
+  "entry_id": "mentry_b3d004624f66b257",
+  "evaluation_hash": "peval_d8faecb9eed0cf3f",
+  "evidence_bundle_hash": "mevb_d1b14d694e587529",
+  "model_artifact_hash": "d296ef024a483e02ae04ca578725fcf59fe1be50344598d99aebb8be448bc2c7",
+  "model_id": "reference_logistic",
+  "model_version": "1.0.0",
+  "no_execution_authority": true,
+  "revision": 5,
+  "scope_id": "scope_d8c438d54c6e6190",
+  "state": 6,
+  "supersedes_entry_id": "",
+  "updated_at_utc_msc": 1700000006000
+}

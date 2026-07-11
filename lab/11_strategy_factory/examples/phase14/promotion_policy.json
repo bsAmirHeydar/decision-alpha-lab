@@ -1,0 +1,18 @@
+{
+  "max_calibration_error": 0.08,
+  "max_challengers_per_scope": 4,
+  "max_generalization_gap": 0.1,
+  "min_stress_pass_ratio": 0.75,
+  "min_test_samples": 100,
+  "min_test_score": 0.5,
+  "min_validation_score": 0.52,
+  "policy_hash": "ppol_e419ca4c6761bac1",
+  "policy_id": "default_research_promotion",
+  "policy_version": "1.0.0",
+  "require_inventory_valid": true,
+  "require_lineage_valid": true,
+  "require_model_card_no_capital_authority": true,
+  "require_phase12_acceptance": true,
+  "require_test_oos_only": true,
+  "require_verified_attestation": false
+}

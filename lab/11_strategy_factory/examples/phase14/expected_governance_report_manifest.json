@@ -1,0 +1,11 @@
+{
+  "decision_chain_hash": "17254ea5526ef80622765d29c874670fcff4a538aa9fc60a2172a407c9c114ad",
+  "evidence_bundle_hash": "mevb_d1b14d694e587529",
+  "generated_at_utc_msc": 1700000009000,
+  "promotion_evaluation_hash": "peval_d8faecb9eed0cf3f",
+  "registry_snapshot_hash": "rsnap_37de6b23301bbcf4",
+  "release_manifest_hash": "mrel_51e15a5020975d25",
+  "report_hash": "grep_efe3de32329c74cb",
+  "report_id": "sf14_reference_report",
+  "rollback_plan_hash": ""
+}

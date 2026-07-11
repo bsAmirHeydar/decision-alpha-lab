@@ -1,0 +1,122 @@
+{
+  "evaluated_at_utc_msc": 1700000001000,
+  "evaluation_hash": "peval_d8faecb9eed0cf3f",
+  "evaluation_id": "peval_64236a50046d4436",
+  "evaluator_id": "sf14_reference_evaluator",
+  "evidence_bundle_hash": "mevb_d1b14d694e587529",
+  "gates": [
+    {
+      "evidence_hash": "mevb_d1b14d694e587529",
+      "gate_hash": "pgate_501cda3c4d586d89",
+      "gate_id": "phase12_acceptance",
+      "observed_value": "true",
+      "reason_code": "PASS",
+      "required_value": "true",
+      "status": 1
+    },
+    {
+      "evidence_hash": "4b852ceea646906d8d0579c794f60785bf612a77bc23c9f52b07c10541e157d0",
+      "gate_hash": "pgate_8e2b922366690f03",
+      "gate_id": "test_oos_only",
+      "observed_value": "true",
+      "reason_code": "PASS",
+      "required_value": "true",
+      "status": 1
+    },
+    {
+      "evidence_hash": "4b852ceea646906d8d0579c794f60785bf612a77bc23c9f52b07c10541e157d0",
+      "gate_hash": "pgate_197e842f9a702666",
+      "gate_id": "test_sample_count",
+      "observed_value": "240",
+      "reason_code": "PASS",
+      "required_value": "100",
+      "status": 1
+    },
+    {
+      "evidence_hash": "ee8b9383c5dd1b96b208d8f52a92cd486f16b5ec6b92fa67d8fbe3dd5f0a0094",
+      "gate_hash": "pgate_6b1f40da285cafb1",
+      "gate_id": "validation_score",
+      "observed_value": "0.60999999999999999",
+      "reason_code": "PASS",
+      "required_value": "0.52000000000000002",
+      "status": 1
+    },
+    {
+      "evidence_hash": "ee8b9383c5dd1b96b208d8f52a92cd486f16b5ec6b92fa67d8fbe3dd5f0a0094",
+      "gate_hash": "pgate_384e056cb1589bf5",
+      "gate_id": "test_score",
+      "observed_value": "0.56999999999999995",
+      "reason_code": "PASS",
+      "required_value": "0.5",
+      "status": 1
+    },
+    {
+      "evidence_hash": "ee8b9383c5dd1b96b208d8f52a92cd486f16b5ec6b92fa67d8fbe3dd5f0a0094",
+      "gate_hash": "pgate_d080ca2121402f5f",
+      "gate_id": "generalization_gap",
+      "observed_value": "0.040000000000000036",
+      "reason_code": "PASS",
+      "required_value": "0.10000000000000001",
+      "status": 1
+    },
+    {
+      "evidence_hash": "160f47fd587973b81d5dbfa1f4d74761dcb4faed0b939d3957efc8e77982842b",
+      "gate_hash": "pgate_a9d0116af4fd46c6",
+      "gate_id": "calibration_error",
+      "observed_value": "0.035000000000000003",
+      "reason_code": "PASS",
+      "required_value": "0.080000000000000002",
+      "status": 1
+    },
+    {
+      "evidence_hash": "f45d69ae0654d36dc040f5989f38e1f545e0203192d7bec79515f653c307db11",
+      "gate_hash": "pgate_fab323a6771a9c98",
+      "gate_id": "stress_pass_ratio",
+      "observed_value": "0.875",
+      "reason_code": "PASS",
+      "required_value": "0.75",
+      "status": 1
+    },
+    {
+      "evidence_hash": "mevb_d1b14d694e587529",
+      "gate_hash": "pgate_beeddec9f5474c4e",
+      "gate_id": "lineage_integrity",
+      "observed_value": "true",
+      "reason_code": "PASS",
+      "required_value": "true",
+      "status": 1
+    },
+    {
+      "evidence_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+      "gate_hash": "pgate_9b2ef9be536664b2",
+      "gate_id": "artifact_inventory",
+      "observed_value": "true",
+      "reason_code": "PASS",
+      "required_value": "true",
+      "status": 1
+    },
+    {
+      "evidence_hash": "1b9541b6f976a2c2132994e5cde67e75bd1edc97ee14eba1182905b171ddd5b9",
+      "gate_hash": "pgate_56d1a70285b8d8cd",
+      "gate_id": "model_card_authority",
+      "observed_value": "true",
+      "reason_code": "PASS",
+      "required_value": "true",
+      "status": 1
+    },
+    {
+      "evidence_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+      "gate_hash": "pgate_0e2951ab660375ea",
+      "gate_id": "authenticity_attestation",
+      "observed_value": "false",
+      "reason_code": "PASS",
+      "required_value": "optional",
+      "status": 1
+    }
+  ],
+  "model_artifact_hash": "d296ef024a483e02ae04ca578725fcf59fe1be50344598d99aebb8be448bc2c7",
+  "no_execution_authority": true,
+  "policy_hash": "ppol_e419ca4c6761bac1",
+  "scope_id": "scope_d8c438d54c6e6190",
+  "verdict": 1
+}

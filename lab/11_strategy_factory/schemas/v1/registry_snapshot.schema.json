@@ -1,0 +1,72 @@
+{
+  "$id": "alpha_lab.strategy_factory/registry_snapshot@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "challenger_entry_ids": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "champion_entry_ids": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "decision_chain_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "entry_hashes": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "generated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "no_execution_authority": {
+      "const": true
+    },
+    "registry_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "snapshot_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 3,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "registry_version",
+    "decision_sequence",
+    "decision_chain_hash",
+    "entry_hashes",
+    "champion_entry_ids",
+    "challenger_entry_ids",
+    "generated_at_utc_msc",
+    "no_execution_authority",
+    "snapshot_hash"
+  ],
+  "title": "registry_snapshot",
+  "type": "object"
+}

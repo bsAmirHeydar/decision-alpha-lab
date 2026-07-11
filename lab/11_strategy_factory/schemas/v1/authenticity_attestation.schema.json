@@ -1,0 +1,51 @@
+{
+  "$id": "alpha_lab.strategy_factory/authenticity_attestation@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm": {
+      "type": "string"
+    },
+    "attestation_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "key_id": {
+      "type": "string"
+    },
+    "kind": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "signature_reference": {
+      "type": "string"
+    },
+    "signed_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "signer_id": {
+      "type": "string"
+    },
+    "subject_inventory_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "verifier_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "subject_inventory_hash",
+    "verified",
+    "signed_at_utc_msc",
+    "attestation_hash"
+  ],
+  "title": "authenticity_attestation",
+  "type": "object"
+}

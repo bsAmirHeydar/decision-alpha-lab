@@ -1,0 +1,88 @@
+{
+  "$id": "alpha_lab.strategy_factory/artifact_inventory@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "digests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "byte_size": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "digest_id": {
+            "minLength": 3,
+            "type": "string"
+          },
+          "logical_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "role": {
+            "maximum": 12,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "logical_name",
+          "relative_path",
+          "role",
+          "media_type",
+          "byte_size",
+          "sha256",
+          "required",
+          "digest_id"
+        ],
+        "type": "object"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "type": "array"
+    },
+    "generated_at_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "inventory_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "inventory_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "inventory_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "inventory_id",
+    "inventory_version",
+    "digests",
+    "generated_at_utc_msc",
+    "inventory_hash"
+  ],
+  "title": "artifact_inventory",
+  "type": "object"
+}

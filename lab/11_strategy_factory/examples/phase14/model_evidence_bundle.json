@@ -1,0 +1,23 @@
+{
+  "anti_overfit_report_hash": "f45d69ae0654d36dc040f5989f38e1f545e0203192d7bec79515f653c307db11",
+  "artifact_inventory_hash": "c7d339af2d04ca56b012f87340134f7799541098737040856fe18da40eef683b",
+  "attestation_hash": "",
+  "bundle_hash": "mevb_d1b14d694e587529",
+  "bundle_id": "sf14_reference_bundle",
+  "calibration_hash": "160f47fd587973b81d5dbfa1f4d74761dcb4faed0b939d3957efc8e77982842b",
+  "code_revision": "revision_sf14",
+  "created_at_utc_msc": 1700000000000,
+  "dataset_hash": "a096eb00c648682de1469e03cd6a4b14b9a3a52dea054c6ef4114bc5c2aee98f",
+  "feature_schema_hash": "3a713eac0a58636c2abeffa0bbd187f91e9f9c5f1765dd008cd47d898e732b34",
+  "label_contract_hash": "7adcb8312cd785f2a7f7df979ef411da517da1a1a5c250ad7a678e46dee515c0",
+  "model_artifact_hash": "d296ef024a483e02ae04ca578725fcf59fe1be50344598d99aebb8be448bc2c7",
+  "model_card_hash": "1b9541b6f976a2c2132994e5cde67e75bd1edc97ee14eba1182905b171ddd5b9",
+  "model_id": "reference_logistic",
+  "model_version": "1.0.0",
+  "no_execution_authority": true,
+  "phase12_promotion_decision_hash": "32b3bf315bcf607d1cce19bd47c3b39fe2fcd5db4c03d60576f214fcac701d4d",
+  "prediction_rowset_hash": "4b852ceea646906d8d0579c794f60785bf612a77bc23c9f52b07c10541e157d0",
+  "training_plan_hash": "566b91c008ef004b309c5fddb1ba66122e20b602bde5cea27ee064c401f73023",
+  "training_report_hash": "ee8b9383c5dd1b96b208d8f52a92cd486f16b5ec6b92fa67d8fbe3dd5f0a0094",
+  "transform_hash": "7767b99a67269112a1cb3d30c4aa6367a560e30da80dd0e663106ea410909ff1"
+}

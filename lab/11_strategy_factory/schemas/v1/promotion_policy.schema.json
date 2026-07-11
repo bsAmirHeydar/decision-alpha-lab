@@ -1,0 +1,79 @@
+{
+  "$id": "alpha_lab.strategy_factory/promotion_policy@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_calibration_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "max_challengers_per_scope": {
+      "maximum": 64,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_generalization_gap": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "min_stress_pass_ratio": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "min_test_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "min_test_score": {
+      "type": "number"
+    },
+    "min_validation_score": {
+      "type": "number"
+    },
+    "policy_hash": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "require_inventory_valid": {
+      "type": "boolean"
+    },
+    "require_lineage_valid": {
+      "type": "boolean"
+    },
+    "require_model_card_no_capital_authority": {
+      "type": "boolean"
+    },
+    "require_phase12_acceptance": {
+      "type": "boolean"
+    },
+    "require_test_oos_only": {
+      "type": "boolean"
+    },
+    "require_verified_attestation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "min_test_samples",
+    "min_validation_score",
+    "min_test_score",
+    "max_generalization_gap",
+    "max_calibration_error",
+    "min_stress_pass_ratio",
+    "max_challengers_per_scope",
+    "policy_hash"
+  ],
+  "title": "promotion_policy",
+  "type": "object"
+}

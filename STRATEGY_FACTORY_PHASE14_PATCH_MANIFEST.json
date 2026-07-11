@@ -1,0 +1,49 @@
+{
+  "authority": {
+    "capital": "none",
+    "mql5": "typed governance contracts, bounded registry state machine, champion uniqueness and terminal-side validation",
+    "python": "offline artifact hashing, promotion evaluation, append-only governance ledger, snapshots, releases and reports"
+  },
+  "central_engine_only": true,
+  "explicitly_absent": [
+    "ONNX export",
+    "compiled model inference",
+    "candidate trade/skip authority",
+    "risk allocation",
+    "paper orders",
+    "live orders",
+    "broker adapter",
+    "legacy strategy integration"
+  ],
+  "file_count": 146,
+  "phase": 14,
+  "status": "STATIC_QA_PASS_LOCAL_METAEDITOR_PENDING",
+  "subsystems": [
+    "exact registry scopes",
+    "artifact digests",
+    "artifact inventories",
+    "integrity versus authenticity boundary",
+    "external authenticity attestation metadata",
+    "immutable model evidence bundles",
+    "versioned promotion policies",
+    "twelve deterministic promotion gates",
+    "fail-closed promotion verdicts",
+    "exact model version registration",
+    "legal registry transition matrix",
+    "candidate and challenger governance",
+    "one champion per exact scope",
+    "atomic champion supersession",
+    "suspension, retirement and rejection",
+    "append-only hash-chained governance decisions",
+    "immutable entry revisions",
+    "registry snapshots",
+    "model release manifests",
+    "rollback plans",
+    "MQL5 governance host, diagnostic and self-test",
+    "Python governance CLI and conformance tests",
+    "JSON schemas and deterministic fixtures",
+    "detailed Obsidian documentation",
+    "Phase 15 handoff"
+  ],
+  "title": "Model Registry, Promotion and Artifact Governance"
+}

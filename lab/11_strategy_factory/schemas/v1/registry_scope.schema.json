@@ -1,0 +1,56 @@
+{
+  "$id": "alpha_lab.strategy_factory/registry_scope@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anatomy_plugin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "anatomy_plugin_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "deployment_profile_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "label_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "symbol_universe_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "timeframe_profile_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "strategy_id",
+    "anatomy_plugin_id",
+    "anatomy_plugin_version",
+    "symbol_universe_id",
+    "timeframe_profile_id",
+    "deployment_profile_id",
+    "feature_schema_hash",
+    "label_contract_hash",
+    "scope_id"
+  ],
+  "title": "registry_scope",
+  "type": "object"
+}
