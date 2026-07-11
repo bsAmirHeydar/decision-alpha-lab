@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/telemetry_schema_entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lower_bound": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "metric_kind": {
+      "enum": [
+        "COUNTER",
+        "GAUGE",
+        "HISTOGRAM",
+        "STATE"
+      ]
+    },
+    "metric_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stage": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "upper_bound": {
+      "type": [
+        "number",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "metric_name",
+    "schema_version",
+    "metric_kind",
+    "unit",
+    "stage",
+    "description"
+  ],
+  "title": "telemetry_schema_entry",
+  "type": "object"
+}

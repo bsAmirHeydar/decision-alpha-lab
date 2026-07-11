@@ -1,0 +1,54 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/monitoring_run_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dashboard_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "ring_capacity": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "started_time_ms": {
+      "type": "integer"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "telemetry_manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "generation_id",
+    "strategy_id",
+    "model_id",
+    "telemetry_manifest_id",
+    "dashboard_id",
+    "started_time_ms",
+    "ring_capacity",
+    "manifest_id"
+  ],
+  "title": "monitoring_run_manifest",
+  "type": "object"
+}

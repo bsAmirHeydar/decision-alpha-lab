@@ -1,0 +1,22 @@
+{
+  "baseline_id": "baseline-feature-v1",
+  "bin_edges": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "feature_name": "feature.volatility_z",
+  "kind": "FEATURE",
+  "mean": 0.0,
+  "model_id": "model-reference",
+  "probabilities": [
+    0.1,
+    0.4,
+    0.4,
+    0.1
+  ],
+  "sample_count": 1000,
+  "standard_deviation": 1.0,
+  "window_end_ms": 1699100000000,
+  "window_start_ms": 1699000000000
+}

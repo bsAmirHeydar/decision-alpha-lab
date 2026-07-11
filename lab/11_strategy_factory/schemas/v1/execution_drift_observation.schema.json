@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/execution_drift_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "fill_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mean_fill_latency_us": {
+      "type": "number"
+    },
+    "mean_slippage_points": {
+      "type": "number"
+    },
+    "mismatch_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "missing_transaction_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "order_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "p95_fill_latency_us": {
+      "type": "number"
+    },
+    "p95_slippage_points": {
+      "type": "number"
+    },
+    "reject_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "window_end_ms": {
+      "type": "integer"
+    },
+    "window_start_ms": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "observation_id",
+    "window_start_ms",
+    "window_end_ms",
+    "order_count",
+    "fill_count",
+    "reject_count",
+    "mismatch_count",
+    "mean_slippage_points",
+    "p95_slippage_points",
+    "mean_fill_latency_us",
+    "p95_fill_latency_us"
+  ],
+  "title": "execution_drift_observation",
+  "type": "object"
+}

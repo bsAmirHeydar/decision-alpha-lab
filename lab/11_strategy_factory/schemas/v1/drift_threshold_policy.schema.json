@@ -1,0 +1,70 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/drift_threshold_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "invalid_rate_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "js_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "js_warning": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "kind": {
+      "enum": [
+        "FEATURE",
+        "PREDICTION",
+        "EXECUTION",
+        "DATA_QUALITY"
+      ]
+    },
+    "mean_z_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mean_z_warning": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "missing_rate_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "psi_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "psi_warning": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "policy_id",
+    "kind",
+    "psi_warning",
+    "psi_critical",
+    "js_warning",
+    "js_critical",
+    "mean_z_warning",
+    "mean_z_critical",
+    "missing_rate_critical",
+    "invalid_rate_critical",
+    "minimum_samples"
+  ],
+  "title": "drift_threshold_policy",
+  "type": "object"
+}

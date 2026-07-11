@@ -1,0 +1,71 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/monitoring_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alerts": {
+      "items": {
+        "$ref": "alert_event.schema.json"
+      },
+      "type": "array"
+    },
+    "drift": {
+      "items": {
+        "$ref": "drift_result.schema.json"
+      },
+      "type": "array"
+    },
+    "execution_drift": {
+      "items": {
+        "$ref": "execution_drift_result.schema.json"
+      },
+      "type": "array"
+    },
+    "generated_time_ms": {
+      "type": "integer"
+    },
+    "health": {
+      "$ref": "health_snapshot.schema.json"
+    },
+    "latency": {
+      "items": {
+        "$ref": "latency_histogram.schema.json"
+      },
+      "type": "array"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recommendation": {
+      "$ref": "lifecycle_recommendation.schema.json"
+    },
+    "report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "telemetry_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "report_id",
+    "manifest_id",
+    "generated_time_ms",
+    "health",
+    "latency",
+    "drift",
+    "execution_drift",
+    "alerts",
+    "recommendation",
+    "telemetry_count",
+    "report_hash"
+  ],
+  "title": "monitoring_report",
+  "type": "object"
+}

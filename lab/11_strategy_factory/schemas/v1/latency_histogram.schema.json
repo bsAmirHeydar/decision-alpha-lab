@@ -1,0 +1,79 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/latency_histogram.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bucket_counts": {
+      "items": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "bucket_edges_us": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "maximum_us": {
+      "type": "integer"
+    },
+    "mean_us": {
+      "type": "number"
+    },
+    "minimum_us": {
+      "type": "integer"
+    },
+    "overflow_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "p50_us": {
+      "type": "integer"
+    },
+    "p95_us": {
+      "type": "integer"
+    },
+    "p99_us": {
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sample_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "slo_breached": {
+      "type": "boolean"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "snapshot_time_ms": {
+      "type": "integer"
+    },
+    "stage": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "policy_id",
+    "sample_count",
+    "bucket_edges_us",
+    "bucket_counts",
+    "p50_us",
+    "p95_us",
+    "p99_us",
+    "slo_breached",
+    "snapshot_time_ms",
+    "snapshot_id"
+  ],
+  "title": "latency_histogram",
+  "type": "object"
+}

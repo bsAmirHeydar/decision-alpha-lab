@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/execution_drift_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "mismatch_rate": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reject_rate": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "result_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "CRITICAL",
+        "EMERGENCY"
+      ]
+    },
+    "sufficient_samples": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "result_id",
+    "observation_id",
+    "policy_id",
+    "reject_rate",
+    "mismatch_rate",
+    "severity",
+    "sufficient_samples",
+    "reasons"
+  ],
+  "title": "execution_drift_result",
+  "type": "object"
+}

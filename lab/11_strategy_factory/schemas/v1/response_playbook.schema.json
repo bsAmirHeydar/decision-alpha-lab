@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/response_playbook.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_required": {
+      "const": true
+    },
+    "containment_steps": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "diagnostic_steps": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "playbook_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recovery_steps": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "CRITICAL",
+        "EMERGENCY"
+      ]
+    },
+    "trigger": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "playbook_id",
+    "trigger",
+    "severity",
+    "diagnostic_steps",
+    "containment_steps",
+    "recovery_steps",
+    "approval_required"
+  ],
+  "title": "response_playbook",
+  "type": "object"
+}

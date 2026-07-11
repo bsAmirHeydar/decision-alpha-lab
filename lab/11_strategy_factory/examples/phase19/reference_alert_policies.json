@@ -1,0 +1,57 @@
+[
+  {
+    "comparison": "HIGH",
+    "consecutive_breaches": 2,
+    "consecutive_recoveries": 2,
+    "cooldown_ms": 0,
+    "critical_threshold": 0.25,
+    "metric_name": "drift.feature.psi",
+    "policy_id": "alert-feature-psi-v1",
+    "reminder_ms": 300000,
+    "warning_threshold": 0.1
+  },
+  {
+    "comparison": "HIGH",
+    "consecutive_breaches": 2,
+    "consecutive_recoveries": 2,
+    "cooldown_ms": 0,
+    "critical_threshold": 0.25,
+    "metric_name": "drift.prediction.psi",
+    "policy_id": "alert-prediction-psi-v1",
+    "reminder_ms": 300000,
+    "warning_threshold": 0.1
+  },
+  {
+    "comparison": "HIGH",
+    "consecutive_breaches": 2,
+    "consecutive_recoveries": 2,
+    "cooldown_ms": 0,
+    "critical_threshold": 0.15,
+    "metric_name": "drift.execution.reject_rate",
+    "policy_id": "alert-reject-rate-v1",
+    "reminder_ms": 300000,
+    "warning_threshold": 0.05
+  },
+  {
+    "comparison": "HIGH",
+    "consecutive_breaches": 1,
+    "consecutive_recoveries": 2,
+    "cooldown_ms": 0,
+    "critical_threshold": 1,
+    "metric_name": "reconciliation.mismatch_count",
+    "policy_id": "alert-reconciliation-v1",
+    "reminder_ms": 60000,
+    "warning_threshold": 1
+  },
+  {
+    "comparison": "HIGH",
+    "consecutive_breaches": 2,
+    "consecutive_recoveries": 2,
+    "cooldown_ms": 0,
+    "critical_threshold": 500,
+    "metric_name": "runtime.queue_depth",
+    "policy_id": "alert-queue-v1",
+    "reminder_ms": 300000,
+    "warning_threshold": 100
+  }
+]

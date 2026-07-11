@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/dashboard_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dashboard_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generated_time_ms": {
+      "type": "integer"
+    },
+    "panels": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "metric_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "panel_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "refresh_ms": {
+            "minimum": 100,
+            "type": "integer"
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "visualization": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "panel_id",
+          "title",
+          "metric_names",
+          "visualization",
+          "refresh_ms"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dashboard_id",
+    "version",
+    "panels",
+    "generated_time_ms"
+  ],
+  "title": "dashboard_spec",
+  "type": "object"
+}

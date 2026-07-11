@@ -1,0 +1,14 @@
+{
+  "fill_count": 96,
+  "mean_fill_latency_us": 110000,
+  "mean_slippage_points": 1.2,
+  "mismatch_count": 1,
+  "missing_transaction_count": 0,
+  "observation_id": "execution-window-reference",
+  "order_count": 100,
+  "p95_fill_latency_us": 500000,
+  "p95_slippage_points": 3.5,
+  "reject_count": 3,
+  "window_end_ms": 1700000060000,
+  "window_start_ms": 1700000000000
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/telemetry_schema_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "items": {
+        "$ref": "telemetry_schema_entry.schema.json"
+      },
+      "type": "array"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "entries",
+    "manifest_id"
+  ],
+  "title": "telemetry_schema_manifest",
+  "type": "object"
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "approval_required": true,
+    "containment_steps": [
+      "Recommend throttling only",
+      "Preserve immutable evidence",
+      "Do not mutate broker or model automatically"
+    ],
+    "diagnostic_steps": [
+      "Freeze run and generation identities",
+      "Compare stage P50 P95 P99 to baseline",
+      "Inspect queue depth and terminal load"
+    ],
+    "playbook_id": "pb-latency-slo-v1",
+    "recovery_steps": [
+      "Re-run controlled diagnostic",
+      "Require consecutive healthy windows",
+      "Obtain operator approval before runtime change"
+    ],
+    "severity": "WARNING",
+    "trigger": "LATENCY_SLO_BREACH"
+  },
+  {
+    "approval_required": true,
+    "containment_steps": [
+      "Recommend suspend or rollback",
+      "Lock evidence bundle",
+      "Keep kill switch authority in Phase 18"
+    ],
+    "diagnostic_steps": [
+      "Validate exact baseline and model lineage",
+      "Inspect missing and invalid rates",
+      "Compare feature and prediction drift"
+    ],
+    "playbook_id": "pb-model-drift-v1",
+    "recovery_steps": [
+      "Run leakage-safe retraining and Phase 12 validation",
+      "Promote through Phase 14 governance",
+      "Require operator approval"
+    ],
+    "severity": "CRITICAL",
+    "trigger": "DISTRIBUTION_DRIFT_CRITICAL"
+  },
+  {
+    "approval_required": true,
+    "containment_steps": [
+      "Recommend immediate suspension",
+      "Engage Phase 18 kill switch through operator procedure",
+      "Preserve terminal and broker evidence"
+    ],
+    "diagnostic_steps": [
+      "Read live transaction ledger",
+      "Reconcile order deal and position identifiers",
+      "Confirm broker account and server"
+    ],
+    "playbook_id": "pb-reconciliation-v1",
+    "recovery_steps": [
+      "Resolve every mismatch",
+      "Run paper and shadow replay",
+      "Authorize micro-live again explicitly"
+    ],
+    "severity": "EMERGENCY",
+    "trigger": "RECONCILIATION_MISMATCH"
+  }
+]

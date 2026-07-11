@@ -1,0 +1,39 @@
+{
+  "from_phase": "19",
+  "to_phase": "20",
+  "next_title": "EXP0017 Temporal Intermarket Divergence Pilot Integration",
+  "handoff_status": "READY_AFTER_LOCAL_EVIDENCE",
+  "inputs": [
+    "telemetry schema manifest",
+    "latency SLO policies and histograms",
+    "feature prediction execution drift contracts",
+    "alert and health contracts",
+    "dashboard specification",
+    "response playbooks",
+    "lifecycle recommendation contract"
+  ],
+  "preconditions": [
+    "Phase 19 MetaEditor compile passes locally",
+    "SF19 self-test and diagnostic EAs pass",
+    "controlled telemetry replay matches golden evidence",
+    "latency windows have sufficient samples",
+    "drift baselines are exact and immutable",
+    "alert hysteresis and recovery drills pass",
+    "operator-approval invariant is verified",
+    "latest Engineering Policy workflow is green"
+  ],
+  "phase20_scope": [
+    "wrap EXP0017 anatomy output in canonical AnatomyEvent contract",
+    "preserve known-time and cluster identity",
+    "bind the pilot to existing context candidate outcome inference decision paper shadow and monitoring layers",
+    "create differential replay against the legacy implementation",
+    "keep live authority disabled during pilot"
+  ],
+  "not_transferred": [
+    "NDS Hook F Rally Zone integration",
+    "Daye integration",
+    "automatic live promotion",
+    "automatic model rollback",
+    "multi-strategy host"
+  ]
+}

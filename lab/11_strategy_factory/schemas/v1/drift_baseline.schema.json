@@ -1,0 +1,70 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/drift_baseline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "bin_edges": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "feature_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "FEATURE",
+        "PREDICTION",
+        "EXECUTION",
+        "DATA_QUALITY"
+      ]
+    },
+    "mean": {
+      "type": "number"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "probabilities": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "standard_deviation": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "window_end_ms": {
+      "type": "integer"
+    },
+    "window_start_ms": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "kind",
+    "feature_name",
+    "model_id",
+    "bin_edges",
+    "probabilities",
+    "mean",
+    "standard_deviation",
+    "sample_count",
+    "window_start_ms",
+    "window_end_ms"
+  ],
+  "title": "drift_baseline",
+  "type": "object"
+}

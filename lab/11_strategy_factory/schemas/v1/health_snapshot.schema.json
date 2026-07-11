@@ -1,0 +1,61 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/health_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_alert_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "critical_alert_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "dropped_telemetry_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "duplicate_telemetry_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_rejection_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "HEALTHY",
+        "DEGRADED",
+        "CRITICAL",
+        "SUSPEND_RECOMMENDED"
+      ]
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "known_time_ms",
+    "state",
+    "active_alert_count",
+    "critical_alert_count",
+    "dropped_telemetry_count",
+    "duplicate_telemetry_count",
+    "schema_rejection_count",
+    "reasons"
+  ],
+  "title": "health_snapshot",
+  "type": "object"
+}

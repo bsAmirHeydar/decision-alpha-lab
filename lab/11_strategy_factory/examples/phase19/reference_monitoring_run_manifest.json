@@ -1,0 +1,11 @@
+{
+  "dashboard_id": "sf19-reference-dashboard",
+  "generation_id": "generation-phase19-reference",
+  "manifest_id": "b8927bdcd27a4250",
+  "model_id": "model-reference",
+  "ring_capacity": 128,
+  "run_id": "run-phase19-reference",
+  "started_time_ms": 1700000000000,
+  "strategy_id": "strategy-reference",
+  "telemetry_manifest_id": "982a7aa08d139ec7"
+}

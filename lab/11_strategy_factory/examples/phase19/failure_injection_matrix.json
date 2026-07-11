@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "case": "telemetry_overflow",
+      "expected": "bounded drop and degraded health"
+    },
+    {
+      "case": "schema_mismatch",
+      "expected": "fail closed and critical health"
+    },
+    {
+      "case": "prediction_shift",
+      "expected": "critical drift recommendation"
+    },
+    {
+      "case": "broker_reconciliation_mismatch",
+      "expected": "suspend recommendation"
+    },
+    {
+      "case": "model_integrity_failure",
+      "expected": "rollback recommendation with operator approval"
+    },
+    {
+      "case": "alert_flapping",
+      "expected": "hysteresis and cooldown suppress noise"
+    }
+  ],
+  "version": "1.0.0"
+}

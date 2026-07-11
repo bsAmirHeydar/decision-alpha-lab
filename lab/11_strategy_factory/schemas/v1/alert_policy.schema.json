@@ -1,0 +1,57 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/alert_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "comparison": {
+      "enum": [
+        "HIGH",
+        "LOW",
+        "ABS_HIGH"
+      ]
+    },
+    "consecutive_breaches": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "consecutive_recoveries": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "cooldown_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "critical_threshold": {
+      "type": "number"
+    },
+    "metric_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reminder_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "warning_threshold": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "policy_id",
+    "metric_name",
+    "warning_threshold",
+    "critical_threshold",
+    "comparison",
+    "consecutive_breaches",
+    "consecutive_recoveries",
+    "cooldown_ms",
+    "reminder_ms"
+  ],
+  "title": "alert_policy",
+  "type": "object"
+}

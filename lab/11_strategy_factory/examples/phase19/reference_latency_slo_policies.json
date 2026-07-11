@@ -1,0 +1,68 @@
+[
+  {
+    "bucket_edges_us": [
+      100,
+      250,
+      500,
+      1000,
+      2500,
+      5000,
+      10000,
+      25000,
+      50000,
+      100000,
+      250000,
+      1000000
+    ],
+    "minimum_samples": 5,
+    "p50_limit_us": 5000,
+    "p95_limit_us": 25000,
+    "p99_limit_us": 100000,
+    "policy_id": "slo-pipeline-v1",
+    "stage": "pipeline"
+  },
+  {
+    "bucket_edges_us": [
+      100,
+      250,
+      500,
+      1000,
+      2500,
+      5000,
+      10000,
+      25000,
+      50000,
+      100000,
+      250000,
+      1000000
+    ],
+    "minimum_samples": 5,
+    "p50_limit_us": 1000,
+    "p95_limit_us": 5000,
+    "p99_limit_us": 10000,
+    "policy_id": "slo-inference-v1",
+    "stage": "inference"
+  },
+  {
+    "bucket_edges_us": [
+      100,
+      250,
+      500,
+      1000,
+      2500,
+      5000,
+      10000,
+      25000,
+      50000,
+      100000,
+      250000,
+      1000000
+    ],
+    "minimum_samples": 5,
+    "p50_limit_us": 50000,
+    "p95_limit_us": 250000,
+    "p99_limit_us": 1000000,
+    "policy_id": "slo-execution-v1",
+    "stage": "execution"
+  }
+]

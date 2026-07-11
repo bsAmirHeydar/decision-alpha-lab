@@ -1,0 +1,71 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/alert_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "correlation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "message": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metric_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurrence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "CRITICAL",
+        "EMERGENCY"
+      ]
+    },
+    "state": {
+      "enum": [
+        "CLEAR",
+        "PENDING",
+        "FIRING",
+        "RECOVERING"
+      ]
+    },
+    "threshold": {
+      "type": "number"
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "alert_id",
+    "policy_id",
+    "metric_name",
+    "state",
+    "severity",
+    "value",
+    "threshold",
+    "known_time_ms",
+    "occurrence",
+    "correlation_id",
+    "message"
+  ],
+  "title": "alert_event",
+  "type": "object"
+}

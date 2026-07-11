@@ -1,0 +1,13 @@
+{
+  "invalid_rate_critical": 0.01,
+  "js_critical": 0.1,
+  "js_warning": 0.03,
+  "kind": "FEATURE",
+  "mean_z_critical": 2.0,
+  "mean_z_warning": 1.0,
+  "minimum_samples": 100,
+  "missing_rate_critical": 0.05,
+  "policy_id": "drift-policy-feature-v1",
+  "psi_critical": 0.25,
+  "psi_warning": 0.1
+}

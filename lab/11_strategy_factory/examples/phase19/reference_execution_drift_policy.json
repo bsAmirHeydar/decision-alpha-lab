@@ -1,0 +1,11 @@
+{
+  "minimum_orders": 20,
+  "mismatch_rate_critical": 0.01,
+  "p95_fill_latency_critical_us": 1000000,
+  "p95_fill_latency_warning_us": 250000,
+  "p95_slippage_critical": 5.0,
+  "p95_slippage_warning": 2.0,
+  "policy_id": "execution-drift-v1",
+  "reject_rate_critical": 0.15,
+  "reject_rate_warning": 0.05
+}

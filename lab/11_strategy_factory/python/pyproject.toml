@@ -3,8 +3,8 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.18.0"
-description="MQL5-first Strategy Factory through isolated hard-safety micro-live execution"
+version="0.19.0"
+description="MQL5-first Strategy Factory through observability, latency, drift and lifecycle governance"
 requires-python=">=3.10"
 [project.scripts]
 strategy-factory-statistics="strategy_factory_statistics.cli:main"
@@ -15,6 +15,7 @@ strategy-factory-inference="strategy_factory_inference.cli:main"
 strategy-factory-decision="strategy_factory_decision.cli:main"
 strategy-factory-execution="strategy_factory_execution.cli:main"
 strategy-factory-live="strategy_factory_live.cli:main"
+strategy-factory-monitoring="strategy_factory_monitoring.cli:main"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*"]

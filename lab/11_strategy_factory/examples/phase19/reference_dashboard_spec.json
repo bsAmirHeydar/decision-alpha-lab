@@ -1,0 +1,39 @@
+{
+  "dashboard_id": "sf19-reference-dashboard",
+  "generated_time_ms": 1700000000000,
+  "panels": [
+    {
+      "metric_names": [
+        "runtime.queue_depth",
+        "reconciliation.mismatch_count"
+      ],
+      "panel_id": "health",
+      "refresh_ms": 1000,
+      "title": "Runtime Health",
+      "visualization": "status"
+    },
+    {
+      "metric_names": [
+        "latency.pipeline_us",
+        "latency.inference_us",
+        "latency.execution_us"
+      ],
+      "panel_id": "latency",
+      "refresh_ms": 5000,
+      "title": "Latency P50/P95/P99",
+      "visualization": "histogram"
+    },
+    {
+      "metric_names": [
+        "drift.feature.psi",
+        "drift.prediction.psi",
+        "drift.execution.reject_rate"
+      ],
+      "panel_id": "drift",
+      "refresh_ms": 60000,
+      "title": "Feature Prediction Execution Drift",
+      "visualization": "timeseries"
+    }
+  ],
+  "version": "1.0.0"
+}

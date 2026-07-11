@@ -1,0 +1,89 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/telemetry_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "causation_id": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "metric_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "observed_time_ms": {
+      "type": "integer"
+    },
+    "payload_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "minLength": 1,
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "metric_name",
+    "schema_id",
+    "run_id",
+    "generation_id",
+    "correlation_id",
+    "observed_time_ms",
+    "known_time_ms",
+    "sequence",
+    "value",
+    "event_id"
+  ],
+  "title": "telemetry_event",
+  "type": "object"
+}

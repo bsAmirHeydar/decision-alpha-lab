@@ -1,0 +1,87 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/drift_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "invalid_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "jensen_shannon": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "kind": {
+      "enum": [
+        "FEATURE",
+        "PREDICTION",
+        "EXECUTION",
+        "DATA_QUALITY"
+      ]
+    },
+    "mean_z_shift": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "missing_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "psi": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "result_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "CRITICAL",
+        "EMERGENCY"
+      ]
+    },
+    "sufficient_samples": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "result_id",
+    "baseline_id",
+    "observation_id",
+    "policy_id",
+    "kind",
+    "psi",
+    "jensen_shannon",
+    "mean_z_shift",
+    "missing_rate",
+    "invalid_rate",
+    "severity",
+    "sufficient_samples",
+    "reasons"
+  ],
+  "title": "drift_result",
+  "type": "object"
+}

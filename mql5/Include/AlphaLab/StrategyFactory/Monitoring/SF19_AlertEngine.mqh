@@ -1,0 +1,25 @@
+#ifndef __SF19_ALERT_ENGINE_MQH__
+#define __SF19_ALERT_ENGINE_MQH__
+#include "SF19_TelemetryContracts.mqh"
+struct SF19_AlertPolicy
+{string policy_id,metric_name,comparison;double warning_threshold,critical_threshold;int consecutive_breaches,consecutive_recoveries;long cooldown_msc,reminder_msc;};
+struct SF19_AlertEvent
+{string alert_id,policy_id,metric_name,correlation_id,message;ENUM_SF19_ALERT_STATE state;ENUM_SF19_SEVERITY severity;double value,threshold;long known_time_utc_msc;int occurrence;};
+struct SF19_AlertRuntime
+{ENUM_SF19_ALERT_STATE state;ENUM_SF19_SEVERITY severity;int breach_count,recovery_count,occurrence;long last_emit_utc_msc;};
+class CSF19AlertEngine
+{
+ private: SF19_AlertPolicy m_policies[SF19_MAX_ALERT_POLICIES];SF19_AlertRuntime m_runtime[SF19_MAX_ALERT_POLICIES];int m_count;
+ ENUM_SF19_SEVERITY ValueSeverity(const SF19_AlertPolicy &p,const double value)const{double x=(p.comparison=="ABS_HIGH"?MathAbs(value):value);if(p.comparison=="LOW"){if(x<=p.critical_threshold)return SF19_SEVERITY_CRITICAL;if(x<=p.warning_threshold)return SF19_SEVERITY_WARNING;}else{if(x>=p.critical_threshold)return SF19_SEVERITY_CRITICAL;if(x>=p.warning_threshold)return SF19_SEVERITY_WARNING;}return SF19_SEVERITY_INFO;}
+ public:
+ CSF19AlertEngine(){m_count=0;}
+ bool AddPolicy(const SF19_AlertPolicy &p,string &error){if(m_count>=SF19_MAX_ALERT_POLICIES||p.policy_id==""||p.metric_name==""||p.consecutive_breaches<1||p.consecutive_recoveries<1){error="invalid alert policy";return false;}for(int i=0;i<m_count;i++)if(m_policies[i].policy_id==p.policy_id||m_policies[i].metric_name==p.metric_name){error="duplicate alert policy";return false;}m_policies[m_count]=p;m_runtime[m_count].state=SF19_ALERT_CLEAR;m_runtime[m_count].severity=SF19_SEVERITY_INFO;m_runtime[m_count].breach_count=0;m_runtime[m_count].recovery_count=0;m_runtime[m_count].occurrence=0;m_runtime[m_count].last_emit_utc_msc=-1;m_count++;error="";return true;}
+ bool Observe(const string metric_name,const double value,const long now,const string correlation_id,SF19_AlertEvent &event,bool &emitted,string &error)
+ {
+  emitted=false;int idx=-1;for(int i=0;i<m_count;i++)if(m_policies[i].metric_name==metric_name){idx=i;break;}if(idx<0){error="";return true;}SF19_AlertPolicy p=m_policies[idx];ENUM_SF19_SEVERITY sev=ValueSeverity(p,value);bool breach=(sev!=SF19_SEVERITY_INFO);
+  if(breach){m_runtime[idx].breach_count++;m_runtime[idx].recovery_count=0;if(m_runtime[idx].state==SF19_ALERT_CLEAR||m_runtime[idx].state==SF19_ALERT_RECOVERING)m_runtime[idx].state=SF19_ALERT_PENDING;bool fire=m_runtime[idx].breach_count>=p.consecutive_breaches;bool escalation=(m_runtime[idx].state==SF19_ALERT_FIRING&&sev>m_runtime[idx].severity);bool reminder=(m_runtime[idx].state==SF19_ALERT_FIRING&&m_runtime[idx].last_emit_utc_msc>=0&&now-m_runtime[idx].last_emit_utc_msc>=p.reminder_msc);bool cooldown=(m_runtime[idx].last_emit_utc_msc<0||now-m_runtime[idx].last_emit_utc_msc>=p.cooldown_msc);if(fire&&(m_runtime[idx].state!=SF19_ALERT_FIRING||escalation||reminder)&&cooldown){m_runtime[idx].state=SF19_ALERT_FIRING;m_runtime[idx].severity=sev;m_runtime[idx].occurrence++;m_runtime[idx].last_emit_utc_msc=now;event.policy_id=p.policy_id;event.metric_name=p.metric_name;event.state=SF19_ALERT_FIRING;event.severity=sev;event.value=value;event.threshold=(sev==SF19_SEVERITY_CRITICAL?p.critical_threshold:p.warning_threshold);event.known_time_utc_msc=now;event.occurrence=m_runtime[idx].occurrence;event.correlation_id=correlation_id;event.message=metric_name+" breached";event.alert_id=SF01_StableId("sf19-alert",p.policy_id+"|"+IntegerToString(event.occurrence)+"|"+IntegerToString(now)+"|"+IntegerToString((int)sev));emitted=true;}}
+  else{m_runtime[idx].breach_count=0;if(m_runtime[idx].state==SF19_ALERT_FIRING){m_runtime[idx].state=SF19_ALERT_RECOVERING;m_runtime[idx].recovery_count=1;}else if(m_runtime[idx].state==SF19_ALERT_RECOVERING)m_runtime[idx].recovery_count++;else if(m_runtime[idx].state==SF19_ALERT_PENDING)m_runtime[idx].state=SF19_ALERT_CLEAR;if(m_runtime[idx].state==SF19_ALERT_RECOVERING&&m_runtime[idx].recovery_count>=p.consecutive_recoveries){m_runtime[idx].state=SF19_ALERT_CLEAR;m_runtime[idx].severity=SF19_SEVERITY_INFO;m_runtime[idx].occurrence++;event.policy_id=p.policy_id;event.metric_name=p.metric_name;event.state=SF19_ALERT_CLEAR;event.severity=SF19_SEVERITY_INFO;event.value=value;event.threshold=p.warning_threshold;event.known_time_utc_msc=now;event.occurrence=m_runtime[idx].occurrence;event.correlation_id=correlation_id;event.message=metric_name+" recovered";event.alert_id=SF01_StableId("sf19-alert-recovery",p.policy_id+"|"+IntegerToString(event.occurrence)+"|"+IntegerToString(now));emitted=true;}}error="";return true;
+ }
+ int ActiveCount()const{int n=0;for(int i=0;i<m_count;i++)if(m_runtime[i].state==SF19_ALERT_FIRING)n++;return n;}int CriticalCount()const{int n=0;for(int i=0;i<m_count;i++)if(m_runtime[i].state==SF19_ALERT_FIRING&&m_runtime[i].severity>=SF19_SEVERITY_CRITICAL)n++;return n;}
+};
+#endif

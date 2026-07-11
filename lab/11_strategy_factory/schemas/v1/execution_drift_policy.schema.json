@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/execution_drift_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "minimum_orders": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "mismatch_rate_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "p95_fill_latency_critical_us": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "p95_fill_latency_warning_us": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "p95_slippage_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "p95_slippage_warning": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reject_rate_critical": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "reject_rate_warning": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "policy_id",
+    "minimum_orders",
+    "reject_rate_warning",
+    "reject_rate_critical",
+    "mismatch_rate_critical",
+    "p95_slippage_warning",
+    "p95_slippage_critical",
+    "p95_fill_latency_warning_us",
+    "p95_fill_latency_critical_us"
+  ],
+  "title": "execution_drift_policy",
+  "type": "object"
+}

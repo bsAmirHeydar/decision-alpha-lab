@@ -1,0 +1,20 @@
+{
+  "baseline_id": "baseline-feature-v1",
+  "bin_counts": [
+    10,
+    40,
+    40,
+    10
+  ],
+  "feature_name": "feature.volatility_z",
+  "invalid_count": 0,
+  "kind": "FEATURE",
+  "mean": 0.05,
+  "missing_count": 0,
+  "model_id": "model-reference",
+  "observation_id": "287831e75bdb6eca",
+  "sample_count": 100,
+  "standard_deviation": 1.0,
+  "window_end_ms": 1700000060000,
+  "window_start_ms": 1700000000000
+}

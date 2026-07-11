@@ -1,0 +1,50 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/latency_slo_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bucket_edges_us": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "minimum_samples": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "p50_limit_us": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "p95_limit_us": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "p99_limit_us": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stage": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "stage",
+    "bucket_edges_us",
+    "p50_limit_us",
+    "p95_limit_us",
+    "p99_limit_us",
+    "minimum_samples"
+  ],
+  "title": "latency_slo_policy",
+  "type": "object"
+}

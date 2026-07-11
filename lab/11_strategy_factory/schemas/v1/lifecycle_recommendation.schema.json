@@ -1,0 +1,68 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v1/lifecycle_recommendation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "CONTINUE",
+        "OBSERVE",
+        "THROTTLE",
+        "SUSPEND",
+        "ROLLBACK",
+        "RETIRE",
+        "INVESTIGATE"
+      ]
+    },
+    "automatic_mutation_allowed": {
+      "const": false
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "recommendation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "requires_operator_approval": {
+      "const": true
+    },
+    "scope_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "recommendation_id",
+    "action",
+    "scope_id",
+    "model_id",
+    "generation_id",
+    "known_time_ms",
+    "reason_codes",
+    "evidence_ids",
+    "requires_operator_approval",
+    "automatic_mutation_allowed"
+  ],
+  "title": "lifecycle_recommendation",
+  "type": "object"
+}

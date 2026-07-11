@@ -1,0 +1,44 @@
+from enum import Enum
+
+class MetricKind(str, Enum):
+    COUNTER="COUNTER"
+    GAUGE="GAUGE"
+    HISTOGRAM="HISTOGRAM"
+    STATE="STATE"
+
+class Severity(str, Enum):
+    INFO="INFO"
+    WARNING="WARNING"
+    CRITICAL="CRITICAL"
+    EMERGENCY="EMERGENCY"
+
+class HealthState(str, Enum):
+    HEALTHY="HEALTHY"
+    DEGRADED="DEGRADED"
+    CRITICAL="CRITICAL"
+    SUSPEND_RECOMMENDED="SUSPEND_RECOMMENDED"
+
+class AlertState(str, Enum):
+    CLEAR="CLEAR"
+    PENDING="PENDING"
+    FIRING="FIRING"
+    RECOVERING="RECOVERING"
+
+class DriftKind(str, Enum):
+    FEATURE="FEATURE"
+    PREDICTION="PREDICTION"
+    EXECUTION="EXECUTION"
+    DATA_QUALITY="DATA_QUALITY"
+
+class LifecycleAction(str, Enum):
+    CONTINUE="CONTINUE"
+    OBSERVE="OBSERVE"
+    THROTTLE="THROTTLE"
+    SUSPEND="SUSPEND"
+    ROLLBACK="ROLLBACK"
+    RETIRE="RETIRE"
+    INVESTIGATE="INVESTIGATE"
+
+class OverflowPolicy(str, Enum):
+    DROP_OLDEST="DROP_OLDEST"
+    REJECT_NEW="REJECT_NEW"

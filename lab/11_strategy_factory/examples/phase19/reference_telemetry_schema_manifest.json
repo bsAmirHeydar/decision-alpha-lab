@@ -1,0 +1,109 @@
+{
+  "entries": [
+    {
+      "description": "End-to-end event to decision latency",
+      "lower_bound": 0,
+      "metric_kind": "HISTOGRAM",
+      "metric_name": "latency.pipeline_us",
+      "schema_id": "bfcc928f1e19a137",
+      "schema_version": "1.0.0",
+      "stage": "pipeline",
+      "tags": [
+        "strategy_id",
+        "model_id"
+      ],
+      "unit": "microseconds",
+      "upper_bound": 10000000
+    },
+    {
+      "description": "ONNX inference latency",
+      "lower_bound": 0,
+      "metric_kind": "HISTOGRAM",
+      "metric_name": "latency.inference_us",
+      "schema_id": "706c3f7cb6e0399f",
+      "schema_version": "1.0.0",
+      "stage": "inference",
+      "tags": [
+        "model_id"
+      ],
+      "unit": "microseconds",
+      "upper_bound": 10000000
+    },
+    {
+      "description": "Intent to broker acknowledgement latency",
+      "lower_bound": 0,
+      "metric_kind": "HISTOGRAM",
+      "metric_name": "latency.execution_us",
+      "schema_id": "034f3e43daf37daf",
+      "schema_version": "1.0.0",
+      "stage": "execution",
+      "tags": [
+        "symbol"
+      ],
+      "unit": "microseconds",
+      "upper_bound": 60000000
+    },
+    {
+      "description": "Feature PSI",
+      "lower_bound": 0,
+      "metric_kind": "GAUGE",
+      "metric_name": "drift.feature.psi",
+      "schema_id": "9238712b84f1f127",
+      "schema_version": "1.0.0",
+      "stage": "drift",
+      "tags": [],
+      "unit": "ratio",
+      "upper_bound": 100
+    },
+    {
+      "description": "Prediction PSI",
+      "lower_bound": 0,
+      "metric_kind": "GAUGE",
+      "metric_name": "drift.prediction.psi",
+      "schema_id": "5dabfcce4802e266",
+      "schema_version": "1.0.0",
+      "stage": "drift",
+      "tags": [],
+      "unit": "ratio",
+      "upper_bound": 100
+    },
+    {
+      "description": "Broker reject rate",
+      "lower_bound": 0,
+      "metric_kind": "GAUGE",
+      "metric_name": "drift.execution.reject_rate",
+      "schema_id": "66614a0365cca55e",
+      "schema_version": "1.0.0",
+      "stage": "execution",
+      "tags": [],
+      "unit": "ratio",
+      "upper_bound": 1
+    },
+    {
+      "description": "Unresolved broker reconciliation mismatches",
+      "lower_bound": 0,
+      "metric_kind": "COUNTER",
+      "metric_name": "reconciliation.mismatch_count",
+      "schema_id": "c881ba7312204358",
+      "schema_version": "1.0.0",
+      "stage": "reconciliation",
+      "tags": [],
+      "unit": "count",
+      "upper_bound": null
+    },
+    {
+      "description": "Bounded queue depth",
+      "lower_bound": 0,
+      "metric_kind": "GAUGE",
+      "metric_name": "runtime.queue_depth",
+      "schema_id": "0bce07cc0a72cdd6",
+      "schema_version": "1.0.0",
+      "stage": "runtime",
+      "tags": [],
+      "unit": "count",
+      "upper_bound": 100000
+    }
+  ],
+  "manifest_id": "982a7aa08d139ec7",
+  "manifest_version": "1.0.0"
+}
