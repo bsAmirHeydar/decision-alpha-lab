@@ -1,0 +1,48 @@
+{
+  "$id": "alpha_lab.strategy_factory/fidelity_preset@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "maximum_selected_passes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minimum_observation_fidelity": {
+      "type": "integer"
+    },
+    "preset": {
+      "maximum": 3,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "preset_id": {
+      "type": "string"
+    },
+    "preset_version": {
+      "type": "string"
+    },
+    "reject_ambiguous_bars": {
+      "type": "boolean"
+    },
+    "require_bid_ask": {
+      "type": "boolean"
+    },
+    "require_differential_validation": {
+      "type": "boolean"
+    },
+    "require_spread": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "preset_id",
+    "preset_version",
+    "preset",
+    "minimum_observation_fidelity",
+    "require_spread",
+    "require_bid_ask",
+    "reject_ambiguous_bars",
+    "require_differential_validation",
+    "maximum_selected_passes"
+  ],
+  "type": "object"
+}

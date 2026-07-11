@@ -1,0 +1,43 @@
+{
+  "$id": "alpha_lab.strategy_factory/research_metrics@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "expectancy_r": {
+      "type": "number"
+    },
+    "fill_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "filled_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_drawdown_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "metrics_hash": {
+      "type": "string"
+    },
+    "outcome_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "unique_event_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "outcome_count",
+    "filled_count",
+    "unique_event_count",
+    "fill_rate",
+    "expectancy_r",
+    "maximum_drawdown_r",
+    "metrics_hash"
+  ],
+  "type": "object"
+}

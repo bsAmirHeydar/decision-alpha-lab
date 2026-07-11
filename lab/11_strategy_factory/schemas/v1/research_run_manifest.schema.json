@@ -1,0 +1,73 @@
+{
+  "$id": "alpha_lab.strategy_factory/research_run_manifest@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "candidate_matrix_hash": {
+      "type": "string"
+    },
+    "cost_registry_hash": {
+      "type": "string"
+    },
+    "fidelity_preset": {
+      "maximum": 3,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "objective_mode": {
+      "maximum": 3,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "runtime_generation_id": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "alpha_lab.strategy_factory/research_run_manifest@1.0.0"
+    },
+    "simulation_policy_hash": {
+      "type": "string"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "test_end_utc_msc": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "test_start_utc_msc": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "timeframe_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "run_id",
+    "strategy_id",
+    "runtime_generation_id",
+    "candidate_matrix_hash",
+    "simulation_policy_hash",
+    "cost_registry_hash",
+    "symbol",
+    "timeframe_seconds",
+    "test_start_utc_msc",
+    "test_end_utc_msc",
+    "fidelity_preset",
+    "objective_mode",
+    "manifest_hash"
+  ],
+  "type": "object"
+}

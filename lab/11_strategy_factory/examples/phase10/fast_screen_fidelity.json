@@ -1,0 +1,11 @@
+{
+  "maximum_selected_passes": 100,
+  "minimum_observation_fidelity": 0,
+  "preset": 0,
+  "preset_id": "fast_screen",
+  "preset_version": "1.0.0",
+  "reject_ambiguous_bars": true,
+  "require_bid_ask": false,
+  "require_differential_validation": false,
+  "require_spread": false
+}

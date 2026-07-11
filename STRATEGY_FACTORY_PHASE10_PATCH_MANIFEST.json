@@ -1,0 +1,19 @@
+{
+  "authority": "NO_LIVE_ORDER_AUTHORITY",
+  "entry_documents": [
+    "docs/strategy_factory_implementation/phase10/00_PHASE_10_MOC.md",
+    "docs/obsidian_deep/00_mocs/STRATEGY_FACTORY_PHASE10_TESTER_RESEARCH_MOC.md"
+  ],
+  "install_mode": "root-relative additive patch",
+  "next_phase": "PHASE_11_STATISTICS_REPORTING_AND_NULLS",
+  "patch_id": "STRATEGY_FACTORY_PHASE10_TESTER_RESEARCH_HARNESS",
+  "phase": "10",
+  "primary_runtime": "MQL5",
+  "requires": [
+    "Strategy Factory Phase 01 through Phase 09"
+  ],
+  "research_host": "mql5/Experts/StrategyFactory/SF10_StrategyTesterResearchHost.mq5",
+  "secondary_runtime": "Python research mirror",
+  "self_test": "mql5/Experts/StrategyFactoryTests/SF10_ResearchHarnessSelfTest.mq5",
+  "version": "1.0.0"
+}

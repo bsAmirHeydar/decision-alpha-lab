@@ -1,0 +1,15 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_10",
+  "next": "Statistics, Reporting and Matched Nulls",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF10 self-test passes",
+    "optimization frames arrive and late frames drain",
+    "selected-pass CSV is deterministic",
+    "run manifests validate",
+    "differential comparator fixtures pass",
+    "no live authority"
+  ],
+  "to": "PHASE_11"
+}

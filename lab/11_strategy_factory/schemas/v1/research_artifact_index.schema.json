@@ -1,0 +1,40 @@
+{
+  "$id": "alpha_lab.strategy_factory/research_artifact_index@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "artifacts": {
+      "items": {
+        "properties": {
+          "artifact_type": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_type",
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "manifest_hash",
+    "artifacts"
+  ],
+  "type": "object"
+}

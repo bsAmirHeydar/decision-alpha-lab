@@ -1,3 +1,3 @@
-feat(alpha-lab): implement causal virtual outcome engine and cost models
+feat(alpha-lab): implement Strategy Tester research harness
 
-Add normalized price observations, versioned simulation policies, exact cost-model registration, bounded candidate lifecycle state, market, limit and stop fill semantics, expiration, stop, target and time resolution, explicit intrabar ambiguity and gap policies, partial exits, path-chain tracking, MFE and MAE, canonical terminal OutcomeRecords, bounded queues and telemetry, SF09 host, diagnostic and self-test EAs, Python conformance mirrors, schemas, fixtures, detailed Obsidian documentation, QA and the Phase 10 handoff.
+Add MQL5-first run manifests, bounded online research metrics, conservative custom optimization objectives, fixed-width FrameAdd and FrameNext pass summaries, late-frame draining, deterministic selected-pass collection, fidelity presets, selected full-rerun protocol, virtual/tester differential validation, research telemetry, Strategy Tester host and self-test EAs, Python conformance mirrors, schemas, presets, detailed Obsidian documentation, QA and the Phase 11 handoff.

@@ -1,0 +1,34 @@
+{
+  "$id": "alpha_lab.strategy_factory/selected_pass_request@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "full_export_required": {
+      "type": "boolean"
+    },
+    "objective_score": {
+      "type": "number"
+    },
+    "parameter_hash": {
+      "type": "string"
+    },
+    "public_id": {
+      "type": "integer"
+    },
+    "rank": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "required_fidelity": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "rank",
+    "public_id",
+    "objective_score",
+    "parameter_hash",
+    "required_fidelity",
+    "full_export_required"
+  ],
+  "type": "object"
+}

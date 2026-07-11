@@ -1,0 +1,13 @@
+{
+  "dispersion_penalty_weight": 0.25,
+  "drawdown_penalty_weight": 1.0,
+  "minimum_cost_survival": 0.0,
+  "minimum_expectancy_r": 0.0,
+  "minimum_fill_rate": 0.1,
+  "minimum_filled_outcomes": 20,
+  "minimum_fold_survival": 0.0,
+  "minimum_stability": 0.0,
+  "minimum_unique_events": 30,
+  "mode": "conservative",
+  "tail_dependency_penalty_weight": 1.0
+}

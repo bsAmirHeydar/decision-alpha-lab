@@ -1,0 +1,9 @@
+InpPassPublicId=1||1||1||100000||N
+InpMinimumUniqueEvents=30||30||1||500||N
+InpMinimumFilledOutcomes=20||20||1||500||N
+InpMinimumFillRate=0.10||0.10||0.01||1.0||N
+InpMinimumExpectancyR=0.0||0.0||0.01||2.0||N
+InpTopPasses=20||20||1||100||N
+InpEmitOptimizationFrame=true||false||0||true||N
+InpRunId=sf10_sf10_fast_screen
+InpParameterHash=params_default

@@ -1,0 +1,21 @@
+{
+  "authority": "NO_LIVE_ORDER_AUTHORITY",
+  "central_engine_only": true,
+  "deliverables": [
+    "MQL5 run manifests",
+    "bounded research metrics",
+    "custom objective",
+    "optimization frame transport",
+    "selected-pass collection",
+    "fidelity presets",
+    "differential validation",
+    "Python conformance package",
+    "schemas",
+    "self-test and host EAs",
+    "Obsidian documentation"
+  ],
+  "next_phase": "PHASE_11",
+  "phase": "PHASE_10",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE_AND_TESTER_RUN",
+  "title": "Strategy Tester Research Harness and Run Manifests"
+}

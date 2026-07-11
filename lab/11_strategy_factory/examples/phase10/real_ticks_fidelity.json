@@ -1,0 +1,11 @@
+{
+  "maximum_selected_passes": 20,
+  "minimum_observation_fidelity": 3,
+  "preset": 3,
+  "preset_id": "real_ticks",
+  "preset_version": "1.0.0",
+  "reject_ambiguous_bars": true,
+  "require_bid_ask": true,
+  "require_differential_validation": true,
+  "require_spread": true
+}

@@ -1,0 +1,113 @@
+{
+  "edges": [
+    {
+      "fromNode": "a",
+      "id": "e1",
+      "toNode": "b"
+    },
+    {
+      "fromNode": "b",
+      "id": "e2",
+      "toNode": "c"
+    },
+    {
+      "fromNode": "c",
+      "id": "e3",
+      "toNode": "d"
+    },
+    {
+      "fromNode": "d",
+      "id": "e4",
+      "toNode": "e"
+    },
+    {
+      "fromNode": "e",
+      "id": "e5",
+      "toNode": "f"
+    },
+    {
+      "fromNode": "f",
+      "id": "e6",
+      "toNode": "g"
+    },
+    {
+      "fromNode": "g",
+      "id": "e7",
+      "toNode": "h"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 80,
+      "id": "a",
+      "text": "Canonical SF09 Outcomes",
+      "type": "text",
+      "width": 260,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "b",
+      "text": "SF10 Research Accumulator",
+      "type": "text",
+      "width": 280,
+      "x": 330,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "c",
+      "text": "Hard Gates + Custom Objective",
+      "type": "text",
+      "width": 300,
+      "x": 680,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "d",
+      "text": "FrameAdd Compact Summary",
+      "type": "text",
+      "width": 280,
+      "x": 1040,
+      "y": 0
+    },
+    {
+      "height": 80,
+      "id": "e",
+      "text": "OnTesterPass / Deinit Collector",
+      "type": "text",
+      "width": 300,
+      "x": 1040,
+      "y": 180
+    },
+    {
+      "height": 80,
+      "id": "f",
+      "text": "Top-N Selected Pass Requests",
+      "type": "text",
+      "width": 300,
+      "x": 680,
+      "y": 180
+    },
+    {
+      "height": 80,
+      "id": "g",
+      "text": "High-Fidelity Full Rerun",
+      "type": "text",
+      "width": 280,
+      "x": 330,
+      "y": 180
+    },
+    {
+      "height": 80,
+      "id": "h",
+      "text": "Virtual vs Tester Differential Gate",
+      "type": "text",
+      "width": 280,
+      "x": 0,
+      "y": 180
+    }
+  ]
+}

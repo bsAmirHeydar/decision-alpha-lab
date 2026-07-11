@@ -1,0 +1,41 @@
+{
+  "capabilities": [
+    "canonical research run manifests",
+    "bounded online outcome aggregation",
+    "conservative custom OnTester objective",
+    "fixed-width optimization frames",
+    "late-frame drain",
+    "deterministic selected-pass collection",
+    "fidelity escalation presets",
+    "selected full-rerun protocol",
+    "virtual/tester differential comparator",
+    "research telemetry",
+    "Python conformance package",
+    "JSON schemas",
+    "detailed Obsidian documentation"
+  ],
+  "central_engine_only": true,
+  "checks": {
+    "cumulative_engineering_policy": "4/4 PASS",
+    "live_order_authority": "ABSENT",
+    "metaeditor_compile": "PENDING_LOCAL_WINDOWS_RUN",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "phase10_pytest": "11 passed",
+    "python_compileall": "PASS",
+    "sf10_boundary_guard": "PASS",
+    "strategy_tester_self_test": "PENDING_AFTER_LOCAL_COMPILE"
+  },
+  "file_count_before_qa_metadata": 138,
+  "json_files": 12,
+  "markdown_files": 60,
+  "markdown_lines": 2807,
+  "mql5_files": 15,
+  "mql5_first": true,
+  "mql5_lines": 686,
+  "phase": "PHASE_10",
+  "python_files": 20,
+  "python_lines": 251,
+  "python_role": "research conformance and offline tooling",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_COMPILE_PENDING",
+  "title": "Strategy Tester Research Harness and Run Manifests"
+}

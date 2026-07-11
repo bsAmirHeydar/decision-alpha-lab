@@ -1,0 +1,35 @@
+{
+  "$id": "alpha_lab.strategy_factory/differential_comparison@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "count_delta": {
+      "type": "integer"
+    },
+    "drawdown_delta": {
+      "type": "number"
+    },
+    "fill_rate_delta": {
+      "type": "number"
+    },
+    "net_r_delta": {
+      "type": "number"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "status": {
+      "maximum": 3,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "status",
+    "net_r_delta",
+    "fill_rate_delta",
+    "drawdown_delta",
+    "count_delta",
+    "reason"
+  ],
+  "type": "object"
+}

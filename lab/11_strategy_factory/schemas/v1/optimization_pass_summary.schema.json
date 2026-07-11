@@ -1,0 +1,43 @@
+{
+  "$id": "alpha_lab.strategy_factory/optimization_pass_summary@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "manifest_hash": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "objective_score": {
+      "type": "number"
+    },
+    "parameter_hash": {
+      "type": "string"
+    },
+    "public_id": {
+      "type": "integer"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "status": {
+      "maximum": 5,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "summary_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "public_id",
+    "run_id",
+    "manifest_hash",
+    "parameter_hash",
+    "objective_score",
+    "status",
+    "metrics",
+    "summary_hash"
+  ],
+  "type": "object"
+}
