@@ -1,0 +1,50 @@
+{
+  "schema": "alpha_lab.strategy_factory/dependency_rules@4.0.0",
+  "rules": [
+    {
+      "layer": "Plugins",
+      "may_import": [
+        "Contracts",
+        "Core",
+        "Ports",
+        "Market",
+        "Plugins"
+      ],
+      "must_not_import": [
+        "Risk",
+        "Execution",
+        "AI"
+      ]
+    },
+    {
+      "layer": "Plugins/Fixture",
+      "may_import": [
+        "Contracts",
+        "Core",
+        "Ports",
+        "Market",
+        "Plugins",
+        "Testing"
+      ],
+      "must_not_import": [
+        "Risk",
+        "Execution",
+        "AI"
+      ]
+    },
+    {
+      "layer": "Experts/StrategyFactory",
+      "role": "composition-root",
+      "must_not_contain": [
+        "HookAfterF3",
+        "F3Locked",
+        "DivergenceStrength",
+        "ZoneInvalidation",
+        "OrderSend(",
+        "CTrade"
+      ]
+    }
+  ],
+  "terminal_market_api_owner": "mql5/Include/AlphaLab/StrategyFactory/Market/SF03_TerminalMarketSource.mqh",
+  "live_order_authority_allowed": false
+}

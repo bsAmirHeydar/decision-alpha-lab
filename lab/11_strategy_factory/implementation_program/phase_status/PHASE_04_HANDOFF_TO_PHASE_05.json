@@ -1,0 +1,31 @@
+{
+  "schema": "alpha_lab.strategy_factory/phase_handoff@1.0.0",
+  "from": "PHASE_04",
+  "to": "PHASE_05",
+  "title": "Runtime Generations, Compiled Plugin Plans, Result Sinks and Artifact Identity",
+  "preconditions": [
+    "SF04 headers compile in MetaEditor",
+    "SF04 self-test returns INIT_SUCCEEDED",
+    "fixture plugin emits deterministic event and snapshot",
+    "static registry resolves exact version",
+    "startup validator fails closed on unmet required data"
+  ],
+  "phase05_scope": [
+    "immutable runtime generation",
+    "compiled plugin plan",
+    "generation hash",
+    "atomic generation activation",
+    "append-only result sink interfaces",
+    "buffered JSONL/CSV sink",
+    "run manifest",
+    "artifact lineage binding",
+    "replay envelope",
+    "generation rollback"
+  ],
+  "not_in_scope": [
+    "legacy anatomy migration",
+    "candidate engine",
+    "outcome simulation",
+    "live order authority"
+  ]
+}

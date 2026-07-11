@@ -1,17 +1,11 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
-
+requires=["setuptools>=68","wheel"]
+build-backend="setuptools.build_meta"
 [project]
-name = "decision-alpha-lab-strategy-factory"
-version = "0.3.0"
-description = "MQL5-first Strategy Factory contracts, runtime mirrors, and shared market-service conformance tools"
-requires-python = ">=3.10"
-
+name="decision-alpha-lab-strategy-factory"
+version="0.4.0"
+description="MQL5-first Strategy Factory contracts, runtime, market, and plugins"
+requires-python=">=3.10"
 [tool.setuptools.packages.find]
-where = ["."]
-include = [
-  "strategy_factory_contracts*",
-  "strategy_factory_runtime*",
-  "strategy_factory_market*",
-]
+where=["."]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*"]

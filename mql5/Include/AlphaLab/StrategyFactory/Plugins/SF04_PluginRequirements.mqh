@@ -1,0 +1,6 @@
+#ifndef __SF04_PLUGIN_REQUIREMENTS_MQH__
+#define __SF04_PLUGIN_REQUIREMENTS_MQH__
+#include "../Contracts/SF01_Hash.mqh"
+#include "SF04_DataRequirement.mqh"
+class CSF04PluginRequirements{private:SF04_DataRequirement m_items[];int Find(const string id)const{for(int i=0;i<ArraySize(m_items);i++)if(m_items[i].requirement_id==id)return i;return -1;}public:void Clear(void){ArrayResize(m_items,0);}int Count(void)const{return ArraySize(m_items);}bool Add(const SF04_DataRequirement &v,string &e){if(!SF04_ValidateDataRequirement(v,e))return false;if(Find(v.requirement_id)>=0){e="duplicate requirement";return false;}int i=ArraySize(m_items);ArrayResize(m_items,i+1);m_items[i]=v;e="";return true;}bool At(const int i,SF04_DataRequirement &v)const{if(i<0||i>=ArraySize(m_items))return false;v=m_items[i];return true;}string CanonicalPayload(void)const{string o="";for(int i=0;i<ArraySize(m_items);i++){if(i>0)o+="||";o+=SF04_DataRequirementCanonical(m_items[i]);}return o;}string Hash(void)const{return SF01_StableId("req",CanonicalPayload());}bool Validate(string &e)const{for(int i=0;i<ArraySize(m_items);i++){if(!SF04_ValidateDataRequirement(m_items[i],e))return false;for(int j=i+1;j<ArraySize(m_items);j++)if(m_items[i].requirement_id==m_items[j].requirement_id){e="duplicate requirement";return false;}}e="";return true;}};
+#endif

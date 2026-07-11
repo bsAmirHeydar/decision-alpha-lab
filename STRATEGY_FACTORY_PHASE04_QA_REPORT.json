@@ -1,0 +1,30 @@
+{
+  "schema": "alpha_lab.strategy_factory/qa_report@1.0.0",
+  "phase": "PHASE_04",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_COMPILE_PENDING",
+  "checks": [
+    {
+      "command": "python -m compileall -q /mnt/data/sf_phase04_verify/lab/11_strategy_factory/python",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pytest -q /mnt/data/sf_phase04_verify/lab/11_strategy_factory/tests/phase01_contracts /mnt/data/sf_phase04_verify/lab/11_strategy_factory/tests/phase02_runtime /mnt/data/sf_phase04_verify/lab/11_strategy_factory/tests/phase03_market /mnt/data/sf_phase04_verify/lab/11_strategy_factory/tests/phase04_plugins",
+      "returncode": 0,
+      "stdout": "........................................................................ [ 94%]\n....                                                                     [100%]\n76 passed in 0.34s\n",
+      "stderr": ""
+    },
+    {
+      "command": "python /mnt/data/sf_phase04_verify/tools/strategy_factory/check_sf04_boundaries.py",
+      "returncode": 0,
+      "stdout": "{\n  \"phase\": \"SF04\",\n  \"errors\": [],\n  \"status\": \"PASS\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "mql5_include_resolution": "PASS",
+  "obsidian_local_links": "PASS",
+  "live_order_authority": "ABSENT",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "self_test_ea": "PENDING_AFTER_LOCAL_COMPILE"
+}

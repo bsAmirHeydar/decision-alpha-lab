@@ -1,0 +1,18 @@
+{
+  "schema": "alpha_lab.strategy_factory/static_plugin_registry@1.0.0",
+  "selection_policy": "exact plugin_id plus exact semantic version",
+  "dynamic_discovery": false,
+  "plugins": [
+    {
+      "plugin_id": "fixture.pulse.anatomy",
+      "version": "1.0.0",
+      "factory_id": "fixture.pulse.factory",
+      "kind": "ANATOMY",
+      "source": "mql5/Include/AlphaLab/StrategyFactory/Plugins/Fixture/SF04_FixturePulseFactory.mqh",
+      "capability_mask": 6851,
+      "update_scope_mask": 3,
+      "queue_capacity": 64,
+      "live_order_authority": false
+    }
+  ]
+}

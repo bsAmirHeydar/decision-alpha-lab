@@ -1,0 +1,26 @@
+{
+  "phase_id": "PHASE_04",
+  "name": "Static Plugin Registry and Anatomy Adapter SDK",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "authority_model": "MQL5-first",
+  "legacy_strategy_integration": false,
+  "deliverables": [
+    "plugin descriptor",
+    "capability registry",
+    "resource requirements",
+    "bounded anatomy queue",
+    "anatomy plugin base",
+    "static exact-version registry",
+    "startup validator",
+    "fixture anatomy plugin",
+    "central host",
+    "self-test and diagnostics",
+    "Python conformance mirror",
+    "Obsidian canon"
+  ],
+  "tests": {
+    "python_and_static": "required",
+    "metaeditor_compile": "pending local Windows run"
+  },
+  "next_phase": "PHASE_05"
+}

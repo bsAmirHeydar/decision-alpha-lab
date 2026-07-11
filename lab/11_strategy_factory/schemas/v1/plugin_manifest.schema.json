@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alpha_lab.strategy_factory/plugin_manifest@1.0.0",
+  "title": "Strategy Factory Static Plugin Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "plugin_id",
+    "version",
+    "kind",
+    "factory_id",
+    "capabilities",
+    "update_scopes",
+    "requirements"
+  ],
+  "properties": {
+    "schema": {
+      "const": "alpha_lab.strategy_factory/plugin_manifest@1.0.0"
+    },
+    "plugin_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,128}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "kind": {
+      "enum": [
+        "ANATOMY",
+        "FEATURE",
+        "CANDIDATE",
+        "MODEL",
+        "RISK",
+        "EXECUTION"
+      ]
+    },
+    "factory_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,128}$"
+    },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "update_scopes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "TICK",
+          "NEW_BAR",
+          "TIMER",
+          "HISTORY_REBUILD",
+          "REPLAY"
+        ]
+      }
+    },
+    "configuration_schema_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "requirement_id",
+          "kind",
+          "strength",
+          "symbol"
+        ],
+        "properties": {
+          "requirement_id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "TICK",
+              "CLOSED_BARS",
+              "SYMBOL_SPEC"
+            ]
+          },
+          "strength": {
+            "enum": [
+              "REQUIRED",
+              "OPTIONAL"
+            ]
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "timeframe_seconds": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "lookback_bars": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "max_staleness_msc": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "max_close_skew_msc": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "synchronization_group_id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "queue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capacity",
+        "overflow_policy"
+      ],
+      "properties": {
+        "capacity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65536
+        },
+        "overflow_policy": {
+          "enum": [
+            "REJECT_NEW",
+            "DROP_OLDEST",
+            "FAIL_PLUGIN"
+          ]
+        }
+      }
+    }
+  }
+}

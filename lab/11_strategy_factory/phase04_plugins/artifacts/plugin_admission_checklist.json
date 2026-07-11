@@ -1,0 +1,25 @@
+{
+  "schema": "alpha_lab.strategy_factory/plugin_admission_checklist@1.0.0",
+  "required_evidence": [
+    "frozen anatomy doctrine",
+    "unique plugin id",
+    "semantic version",
+    "explicit capability mask",
+    "explicit update scopes",
+    "declared symbol/timeframe/lookback requirements",
+    "bounded event queue",
+    "known-time proof",
+    "deterministic event identity",
+    "duplicate-event regression test",
+    "overflow-policy test",
+    "history-rebuild test when declared",
+    "replay determinism test when declared",
+    "startup requirement validation",
+    "golden fixture",
+    "no direct terminal market API outside shared market services",
+    "no order authority",
+    "static registry entry",
+    "local MetaEditor compile",
+    "self-test EA pass"
+  ]
+}

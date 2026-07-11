@@ -1,0 +1,76 @@
+{
+  "schema": "alpha_lab.strategy_factory/capability_registry@1.0.0",
+  "authority": "MQL5",
+  "capabilities": [
+    {
+      "id": "tick_input",
+      "bit": 1,
+      "meaning": "Consumes canonical ticks from the shared market service"
+    },
+    {
+      "id": "closed_bar_input",
+      "bit": 2,
+      "meaning": "Consumes only canonical closed bars"
+    },
+    {
+      "id": "multi_symbol",
+      "bit": 4,
+      "meaning": "Declares more than one market symbol"
+    },
+    {
+      "id": "multi_timeframe",
+      "bit": 8,
+      "meaning": "Declares more than one bar timeframe"
+    },
+    {
+      "id": "timer_input",
+      "bit": 16,
+      "meaning": "Requires timer callbacks"
+    },
+    {
+      "id": "history_rebuild",
+      "bit": 32,
+      "meaning": "Can rebuild state from bounded history"
+    },
+    {
+      "id": "replay_safe",
+      "bit": 64,
+      "meaning": "Produces identical outputs for identical ordered inputs"
+    },
+    {
+      "id": "deterministic",
+      "bit": 128,
+      "meaning": "Has no undeclared external or stochastic dependency"
+    },
+    {
+      "id": "fast_path_safe",
+      "bit": 256,
+      "meaning": "May execute in the bounded context-to-event path"
+    },
+    {
+      "id": "stateful",
+      "bit": 512,
+      "meaning": "Maintains explicit lifecycle state"
+    },
+    {
+      "id": "emits_parent_links",
+      "bit": 1024,
+      "meaning": "Can emit parent_event_id lineage"
+    },
+    {
+      "id": "emits_cluster_id",
+      "bit": 2048,
+      "meaning": "Emits market_event_cluster_id"
+    },
+    {
+      "id": "requires_symbol_spec",
+      "bit": 4096,
+      "meaning": "Consumes versioned broker symbol specifications"
+    },
+    {
+      "id": "requires_synchronization",
+      "bit": 8192,
+      "meaning": "Requires a declared multi-series synchronization gate"
+    }
+  ]
+}

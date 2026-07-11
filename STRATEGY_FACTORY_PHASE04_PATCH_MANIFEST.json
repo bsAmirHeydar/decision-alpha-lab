@@ -1,0 +1,18 @@
+{
+  "schema": "alpha_lab.strategy_factory/patch_manifest@1.0.0",
+  "phase": "PHASE_04",
+  "name": "Static Plugin Registry and Anatomy Adapter SDK",
+  "authority": "MQL5-first",
+  "additive": true,
+  "requires": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03"
+  ],
+  "legacy_strategy_integration": false,
+  "live_order_authority": false,
+  "files": 106,
+  "mql5_files": 20,
+  "python_files": 16,
+  "markdown_files": 57
+}

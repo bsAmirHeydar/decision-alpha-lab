@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "market",
+      "type": "text",
+      "text": "Phase 03 Shared Market Services",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "registry",
+      "type": "text",
+      "text": "Static Exact-Version Registry",
+      "x": 330,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "validator",
+      "type": "text",
+      "text": "Requirement + Capability Validator",
+      "x": 660,
+      "y": 0,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "plugin",
+      "type": "text",
+      "text": "Bounded Anatomy Plugin",
+      "x": 330,
+      "y": 180,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "queue",
+      "type": "text",
+      "text": "Canonical Event Queue",
+      "x": 660,
+      "y": 180,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "runtime",
+      "type": "text",
+      "text": "SF02 Event-to-Snapshot Runtime",
+      "x": 990,
+      "y": 180,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "audit",
+      "type": "text",
+      "text": "Typed Audit + Telemetry",
+      "x": 660,
+      "y": 360,
+      "width": 260,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "market",
+      "toNode": "validator"
+    },
+    {
+      "id": "e2",
+      "fromNode": "registry",
+      "toNode": "plugin"
+    },
+    {
+      "id": "e3",
+      "fromNode": "validator",
+      "toNode": "plugin"
+    },
+    {
+      "id": "e4",
+      "fromNode": "plugin",
+      "toNode": "queue"
+    },
+    {
+      "id": "e5",
+      "fromNode": "queue",
+      "toNode": "runtime"
+    },
+    {
+      "id": "e6",
+      "fromNode": "queue",
+      "toNode": "audit"
+    }
+  ]
+}
