@@ -1,0 +1,34 @@
+{
+  "$id": "alpha_lab.strategy_factory/null_assignment@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "assignment_id": {
+      "type": "string"
+    },
+    "control_sample_id": {
+      "type": "string"
+    },
+    "null_hash": {
+      "type": "string"
+    },
+    "observed_sample_id": {
+      "type": "string"
+    },
+    "reuse_ordinal": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "stratum_key": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assignment_id",
+    "null_hash",
+    "observed_sample_id",
+    "control_sample_id",
+    "stratum_key",
+    "reuse_ordinal"
+  ],
+  "type": "object"
+}

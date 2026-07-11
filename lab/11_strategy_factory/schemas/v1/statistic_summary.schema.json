@@ -1,0 +1,41 @@
+{
+  "$id": "alpha_lab.strategy_factory/statistic_summary@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "filled_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "group_key": {
+      "type": "string"
+    },
+    "mean_net_r": {
+      "type": "number"
+    },
+    "sample_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "summary_hash": {
+      "type": "string"
+    },
+    "unique_cluster_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "unique_event_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "group_key",
+    "sample_count",
+    "filled_count",
+    "unique_event_count",
+    "unique_cluster_count",
+    "mean_net_r",
+    "summary_hash"
+  ],
+  "type": "object"
+}

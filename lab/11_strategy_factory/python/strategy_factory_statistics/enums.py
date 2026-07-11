@@ -1,0 +1,22 @@
+from enum import IntEnum
+
+class NullMethod(IntEnum):
+    EXACT_STRATIFIED_CYCLIC = 1
+    EXACT_STRATIFIED_HASHED = 2
+    WITHIN_DAY_TIME_SHIFT = 3
+    ROLE_RANDOMIZATION = 4
+    MATCHED_RANDOM_ENTRY = 5
+
+class ReportStatus(IntEnum):
+    VALID = 1
+    INSUFFICIENT_SAMPLE = 2
+    INVALID_LINEAGE = 3
+    INVALID_NONFINITE = 4
+    UNMATCHED = 5
+    PARTIAL_MATCH = 6
+    FAILED = 7
+
+class IntervalKind(IntEnum):
+    NORMAL_MEAN = 1
+    WILSON_PROPORTION = 2
+    CLUSTER_BOOTSTRAP_PERCENTILE = 3

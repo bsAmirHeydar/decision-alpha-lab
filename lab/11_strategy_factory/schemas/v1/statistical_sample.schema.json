@@ -1,0 +1,79 @@
+{
+  "$id": "alpha_lab.strategy_factory/statistical_sample@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cluster_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "filled": {
+      "type": "boolean"
+    },
+    "holding_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mae_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mfe_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "net_r": {
+      "type": "number"
+    },
+    "outcome_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sample_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "strategy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stratum_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "weight": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "sample_id",
+    "outcome_id",
+    "candidate_id",
+    "event_id",
+    "cluster_id",
+    "strategy_id",
+    "symbol",
+    "stratum_key",
+    "filled",
+    "net_r",
+    "mfe_r",
+    "mae_r",
+    "holding_seconds"
+  ],
+  "type": "object"
+}

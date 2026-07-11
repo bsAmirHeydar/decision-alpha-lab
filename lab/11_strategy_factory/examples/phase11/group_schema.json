@@ -1,0 +1,15 @@
+{
+  "schema": "alpha_lab.strategy_factory/group_schema@1.0.0",
+  "group_schema_id": "phase11_reference_groups",
+  "version": "1.0.0",
+  "dimensions": [
+    "all",
+    "session_id",
+    "direction",
+    "year",
+    "month",
+    "weekday",
+    "stratum_key"
+  ],
+  "schema_hash": "gsch_fixture"
+}

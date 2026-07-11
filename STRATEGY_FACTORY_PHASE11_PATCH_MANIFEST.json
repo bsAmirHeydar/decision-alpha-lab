@@ -1,0 +1,23 @@
+{
+  "patch_id": "strategy_factory_phase11_statistics_reporting_matched_nulls",
+  "phase": 11,
+  "version": "1.0.0",
+  "root_relative": true,
+  "requires": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03",
+    "PHASE_04",
+    "PHASE_05",
+    "PHASE_06",
+    "PHASE_07",
+    "PHASE_08",
+    "PHASE_09",
+    "PHASE_10"
+  ],
+  "adds_live_authority": false,
+  "next_phase": "PHASE_12",
+  "primary_mql5_include": "mql5/Include/AlphaLab/StrategyFactory/Statistics/SF11_AllStatistics.mqh",
+  "python_package": "strategy_factory_statistics",
+  "obsidian_moc": "docs/strategy_factory_implementation/phase11/00_PHASE_11_MOC.md"
+}

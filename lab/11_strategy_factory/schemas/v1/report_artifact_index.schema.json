@@ -1,0 +1,25 @@
+{
+  "$id": "alpha_lab.strategy_factory/report_artifact_index@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "artifacts": {
+      "type": "array"
+    },
+    "index_hash": {
+      "type": "string"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "manifest_hash",
+    "artifacts",
+    "index_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,48 @@
+{
+  "$id": "alpha_lab.strategy_factory/null_comparison@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "comparison_hash": {
+      "type": "string"
+    },
+    "control_mean_r": {
+      "type": "number"
+    },
+    "group_key": {
+      "type": "string"
+    },
+    "match_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "matched_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "null_hash": {
+      "type": "string"
+    },
+    "observed_mean_r": {
+      "type": "number"
+    },
+    "status": {
+      "type": "integer"
+    },
+    "uplift_r": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "null_hash",
+    "group_key",
+    "matched_count",
+    "observed_mean_r",
+    "control_mean_r",
+    "uplift_r",
+    "match_rate",
+    "status",
+    "comparison_hash"
+  ],
+  "type": "object"
+}

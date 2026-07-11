@@ -1,0 +1,41 @@
+{
+  "$id": "alpha_lab.strategy_factory/statistical_report_manifest@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "manifest_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "source_artifact_hash": {
+      "type": "string"
+    },
+    "source_manifest_hash": {
+      "type": "string"
+    },
+    "source_run_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "report_program_id",
+    "report_version",
+    "source_run_id",
+    "source_manifest_hash",
+    "source_artifact_hash",
+    "strategy_id",
+    "strategy_version",
+    "candidate_matrix_hash",
+    "simulation_policy_hash",
+    "cost_registry_hash",
+    "group_schema_hash",
+    "metric_registry_hash",
+    "null_registry_hash",
+    "generated_at_utc_msc",
+    "git_commit",
+    "manifest_hash"
+  ],
+  "type": "object"
+}

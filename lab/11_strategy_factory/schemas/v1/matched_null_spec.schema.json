@@ -1,0 +1,49 @@
+{
+  "$id": "alpha_lab.strategy_factory/matched_null_spec@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "maximum_reuse": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "method": {
+      "type": "integer"
+    },
+    "minimum_pool_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "null_hash": {
+      "type": "string"
+    },
+    "null_id": {
+      "type": "string"
+    },
+    "null_version": {
+      "type": "string"
+    },
+    "require_different_cluster": {
+      "type": "boolean"
+    },
+    "required_stratum_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "null_id",
+    "null_version",
+    "method",
+    "seed",
+    "minimum_pool_size",
+    "maximum_reuse",
+    "required_stratum_fields",
+    "null_hash"
+  ],
+  "type": "object"
+}

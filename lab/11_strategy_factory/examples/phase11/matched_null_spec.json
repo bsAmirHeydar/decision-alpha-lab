@@ -1,0 +1,15 @@
+{
+  "schema": "alpha_lab.strategy_factory/matched_null_spec@1.0.0",
+  "null_id": "fixture_exact_stratified",
+  "null_version": "1.0.0",
+  "method": 1,
+  "seed": 17,
+  "minimum_pool_size": 2,
+  "maximum_reuse": 2,
+  "require_different_cluster": true,
+  "required_stratum_fields": [
+    "session_id",
+    "direction"
+  ],
+  "null_hash": "null_fixture"
+}

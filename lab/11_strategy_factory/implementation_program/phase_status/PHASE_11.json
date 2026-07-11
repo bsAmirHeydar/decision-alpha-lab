@@ -1,0 +1,24 @@
+{
+  "phase": "PHASE_11",
+  "name": "Statistics, Reporting and Matched Nulls",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "authority": {
+    "mql5": [
+      "canonical statistical sample",
+      "streaming statistics",
+      "tester export"
+    ],
+    "python": [
+      "cluster bootstrap",
+      "matched nulls",
+      "report assembly"
+    ]
+  },
+  "tests": {
+    "phase11_python": "31 passed",
+    "phase10_phase11_combined": "42 passed",
+    "engineering_policy": "4/4 PASS on cumulative repository",
+    "metaeditor": "pending local Windows run"
+  },
+  "next": "PHASE_12"
+}

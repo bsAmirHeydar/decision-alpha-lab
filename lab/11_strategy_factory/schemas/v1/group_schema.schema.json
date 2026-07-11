@@ -1,0 +1,28 @@
+{
+  "$id": "alpha_lab.strategy_factory/group_schema@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dimensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "group_schema_id": {
+      "type": "string"
+    },
+    "schema_hash": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "group_schema_id",
+    "version",
+    "dimensions",
+    "schema_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "a",
+      "type": "text",
+      "text": "MQL5 Outcome Stream",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 80
+    },
+    {
+      "id": "b",
+      "type": "text",
+      "text": "Statistical Sample + Lineage Gate",
+      "x": 340,
+      "y": 0,
+      "width": 300,
+      "height": 80
+    },
+    {
+      "id": "c",
+      "type": "text",
+      "text": "Streaming / Grouped Statistics",
+      "x": 700,
+      "y": -100,
+      "width": 300,
+      "height": 80
+    },
+    {
+      "id": "d",
+      "type": "text",
+      "text": "Cluster Confidence + Matched Nulls",
+      "x": 700,
+      "y": 100,
+      "width": 320,
+      "height": 80
+    },
+    {
+      "id": "e",
+      "type": "text",
+      "text": "Deterministic Report Bundle",
+      "x": 1080,
+      "y": 0,
+      "width": 300,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "a",
+      "fromSide": "right",
+      "toNode": "b",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "b",
+      "fromSide": "right",
+      "toNode": "c",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "b",
+      "fromSide": "right",
+      "toNode": "d",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "c",
+      "fromSide": "right",
+      "toNode": "e",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "d",
+      "fromSide": "right",
+      "toNode": "e",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,3 +1,3 @@
-feat(alpha-lab): implement Strategy Tester research harness
+feat(alpha-lab): implement statistical reporting and matched nulls
 
-Add MQL5-first run manifests, bounded online research metrics, conservative custom optimization objectives, fixed-width FrameAdd and FrameNext pass summaries, late-frame draining, deterministic selected-pass collection, fidelity presets, selected full-rerun protocol, virtual/tester differential validation, research telemetry, Strategy Tester host and self-test EAs, Python conformance mirrors, schemas, presets, detailed Obsidian documentation, QA and the Phase 11 handoff.
+Add MQL5-first canonical statistical samples, streaming moments, bounded quantiles, grouped summaries, confidence intervals, exact matched-null specifications and comparisons, deterministic report manifests and CSV exporters, SF11 research host, diagnostic and self-test EAs, Python cluster-bootstrap and reporting package, schemas, fixtures, comprehensive Obsidian documentation, QA and the Phase 12 handoff.

@@ -1,0 +1,48 @@
+{
+  "$id": "alpha_lab.strategy_factory/confidence_interval@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "confidence_level": {
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "effective_sample_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "estimate": {
+      "type": "number"
+    },
+    "group_key": {
+      "type": "string"
+    },
+    "interval_hash": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "integer"
+    },
+    "lower": {
+      "type": "number"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "upper": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "metric_id",
+    "group_key",
+    "kind",
+    "confidence_level",
+    "estimate",
+    "lower",
+    "upper",
+    "effective_sample_count",
+    "interval_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+{
+  "from": "PHASE_11",
+  "to": "PHASE_12",
+  "next": "Anti-Overfit Validation Engine",
+  "central_engine_only": true,
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF11 self-test passes",
+    "statistical samples reconcile with Phase 10 outcomes",
+    "group reports are deterministic",
+    "cluster bootstrap is reproducible",
+    "matched null match-rate is reported",
+    "no live authority"
+  ]
+}
