@@ -1,0 +1,12 @@
+.github/workflows/engineering-policy.yml
+COMMIT_MESSAGE.md
+INSTALL_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
+README_STRATEGY_FACTORY_SF06_CI_RECOVERY.md
+STRATEGY_FACTORY_SF06_CI_RECOVERY_MANIFEST.json
+docs/strategy_factory_implementation/hotfixes/SF06_CI_RECOVERY_AND_POLICY_EXPLANATION.md
+lab/11_strategy_factory/tests/phase06_anatomy/test_layout.py
+mql5/Include/AlphaLab/StrategyFactory/Anatomy/Reference/SF06_ReferenceSweepPlugin.mqh
+mql5/Include/AlphaLab/StrategyFactory/Anatomy/SF06_AnatomyObservation.mqh
+mql5/Include/AlphaLab/StrategyFactory/Anatomy/SF06_EventLifecycle.mqh
+tools/engineering/run_engineering_policy.py
+tools/strategy_factory/verify_repository_before_push.ps1

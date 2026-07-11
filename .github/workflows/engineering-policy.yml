@@ -3,21 +3,28 @@ name: Engineering Policy
 on:
   pull_request:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: engineering-policy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   policy:
+    name: Repository preflight
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Validate repository policy
-        run: python tools/engineering/validate_alpha_lab_policy.py .
-      - name: Validate Obsidian operating system
-        run: python docs/ai_algorithm_engineering_os/tools/validate_vault.py docs/ai_algorithm_engineering_os
-      - name: Scan MQL5 compatibility hazards
-        run: python tools/engineering/check_mql5_compatibility.py .
-      - name: Audit repository layout
-        run: python tools/engineering/audit_repository_layout.py .
+          cache: pip
+          cache-dependency-path: |
+            **/pyproject.toml
+            **/requirements*.txt
+      - name: Run the same preflight used locally
+        run: python tools/engineering/run_engineering_policy.py .
