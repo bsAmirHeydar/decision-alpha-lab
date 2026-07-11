@@ -1,0 +1,95 @@
+{
+  "edges": [
+    {
+      "fromNode": "candidate",
+      "fromSide": "right",
+      "id": "e1",
+      "toNode": "obs",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "obs",
+      "fromSide": "right",
+      "id": "e2",
+      "toNode": "lifecycle",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "lifecycle",
+      "fromSide": "right",
+      "id": "e3",
+      "toNode": "path",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "path",
+      "fromSide": "right",
+      "id": "e4",
+      "toNode": "cost",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cost",
+      "fromSide": "right",
+      "id": "e5",
+      "toNode": "outcome",
+      "toSide": "left"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 70,
+      "id": "candidate",
+      "text": "TradeCandidate",
+      "type": "text",
+      "width": 200,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 70,
+      "id": "obs",
+      "text": "Ordered PriceObservation",
+      "type": "text",
+      "width": 230,
+      "x": 280,
+      "y": 0
+    },
+    {
+      "height": 70,
+      "id": "lifecycle",
+      "text": "Activation / Fill / Lifecycle",
+      "type": "text",
+      "width": 240,
+      "x": 600,
+      "y": 0
+    },
+    {
+      "height": 70,
+      "id": "path",
+      "text": "Bounded Path + MFE/MAE",
+      "type": "text",
+      "width": 230,
+      "x": 930,
+      "y": 0
+    },
+    {
+      "height": 70,
+      "id": "cost",
+      "text": "Versioned Cost Model",
+      "type": "text",
+      "width": 220,
+      "x": 1250,
+      "y": 0
+    },
+    {
+      "height": 70,
+      "id": "outcome",
+      "text": "Terminal OutcomeRecord",
+      "type": "text",
+      "width": 240,
+      "x": 1560,
+      "y": 0
+    }
+  ]
+}

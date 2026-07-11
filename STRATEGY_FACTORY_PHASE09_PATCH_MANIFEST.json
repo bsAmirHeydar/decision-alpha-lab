@@ -1,0 +1,25 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_CONFORMANCE",
+  "central_engine_only": true,
+  "file_count": 108,
+  "live_order_authority": false,
+  "markdown_files": 55,
+  "markdown_words": 5762,
+  "mql5_files": 17,
+  "mql5_lines": 1020,
+  "patch": "STRATEGY_FACTORY_PHASE09",
+  "phase": "09",
+  "python_files": 19,
+  "python_lines": 330,
+  "requires": [
+    "PHASE_01",
+    "PHASE_02",
+    "PHASE_03",
+    "PHASE_04",
+    "PHASE_05",
+    "PHASE_06",
+    "PHASE_07",
+    "PHASE_08"
+  ],
+  "title": "Virtual Outcome Engine and Cost Models"
+}

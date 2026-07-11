@@ -1,0 +1,67 @@
+{
+  "$id": "alpha_lab.strategy_factory/price_observation@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "close": {
+      "type": "number"
+    },
+    "fidelity": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "type": "integer"
+    },
+    "high": {
+      "type": "number"
+    },
+    "kind": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "low": {
+      "type": "number"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "observed_at_ms": {
+      "type": "integer"
+    },
+    "open": {
+      "type": "number"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "symbol": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "observation_id",
+    "symbol",
+    "kind",
+    "fidelity",
+    "sequence",
+    "observed_at_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "source_hash"
+  ],
+  "type": "object"
+}

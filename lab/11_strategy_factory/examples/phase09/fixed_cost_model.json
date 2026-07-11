@@ -1,0 +1,9 @@
+{
+  "commission_r": 0.02,
+  "entry_slippage_points": 0.0,
+  "exit_slippage_points": 0.0,
+  "model_id": "sf09.cost.fixed",
+  "other_r": 0.0,
+  "uses_observed_spread": true,
+  "version": "1.0.0"
+}

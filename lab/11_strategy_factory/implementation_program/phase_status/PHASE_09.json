@@ -1,0 +1,30 @@
+{
+  "authority": "MQL5_PRIMARY_PYTHON_CONFORMANCE",
+  "central_engine_only": true,
+  "deliverables": [
+    "normalized observations",
+    "simulation policy",
+    "cost model registry",
+    "candidate lifecycle",
+    "fill semantics",
+    "ambiguity and gap policies",
+    "path tracker",
+    "MFE MAE",
+    "partial exits",
+    "terminal outcome records",
+    "MQL5 self-test",
+    "Python parity",
+    "Obsidian canon"
+  ],
+  "non_goals": [
+    "legacy strategy integration",
+    "statistics",
+    "optimization",
+    "machine learning",
+    "risk sizing",
+    "paper or live execution"
+  ],
+  "phase": "PHASE_09",
+  "status": "IMPLEMENTED_PENDING_LOCAL_MQL5_COMPILE",
+  "title": "Virtual Outcome Engine and Cost Models"
+}

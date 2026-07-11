@@ -1,0 +1,78 @@
+{
+  "$id": "alpha_lab.strategy_factory/outcome_record@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "costs": {
+      "type": "object"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "exit_reason": {
+      "type": "integer"
+    },
+    "fidelity": {
+      "type": "integer"
+    },
+    "filled": {
+      "type": "boolean"
+    },
+    "gross_r": {
+      "type": "number"
+    },
+    "mae_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mfe_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "net_r": {
+      "type": "number"
+    },
+    "outcome_id": {
+      "type": "string"
+    },
+    "path_hash": {
+      "type": "string"
+    },
+    "simulation_policy_hash": {
+      "type": "string"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "terminal_state": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "outcome_id",
+    "candidate_id",
+    "event_id",
+    "strategy_id",
+    "symbol",
+    "terminal_state",
+    "exit_reason",
+    "fidelity",
+    "filled",
+    "gross_r",
+    "net_r",
+    "mfe_r",
+    "mae_r",
+    "costs",
+    "simulation_policy_hash",
+    "path_hash"
+  ],
+  "type": "object"
+}

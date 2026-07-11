@@ -1,0 +1,15 @@
+{
+  "allow_limit_price_improvement": false,
+  "allow_stop_gap_slippage": true,
+  "ambiguity_policy": 1,
+  "fail_on_stale_observation": true,
+  "gap_policy": 2,
+  "market_fill_policy": 3,
+  "maximum_observation_age_milliseconds": 300000,
+  "maximum_path_events": 64,
+  "minimum_fidelity": 1,
+  "policy_hash": "generated-at-runtime",
+  "policy_id": "sf09.conservative",
+  "strict_monotonic_observations": true,
+  "version": "1.0.0"
+}

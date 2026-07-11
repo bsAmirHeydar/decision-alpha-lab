@@ -1,0 +1,51 @@
+{
+  "$id": "alpha_lab.strategy_factory/simulation_policy@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ambiguity_policy": {
+      "maximum": 4,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "gap_policy": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "market_fill_policy": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_path_events": {
+      "maximum": 96,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "minimum_fidelity": {
+      "maximum": 3,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "ambiguity_policy",
+    "gap_policy",
+    "market_fill_policy",
+    "minimum_fidelity",
+    "maximum_path_events",
+    "policy_hash"
+  ],
+  "type": "object"
+}

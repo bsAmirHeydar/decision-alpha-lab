@@ -1,0 +1,41 @@
+{
+  "$id": "alpha_lab.strategy_factory/outcome_run_manifest@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ambiguity_policy": {
+      "type": "integer"
+    },
+    "candidate_matrix_hash": {
+      "type": "string"
+    },
+    "cost_registry_hash": {
+      "type": "string"
+    },
+    "data_fidelity": {
+      "type": "integer"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "runtime_generation_id": {
+      "type": "integer"
+    },
+    "simulation_policy_hash": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "runtime_generation_id",
+    "candidate_matrix_hash",
+    "simulation_policy_hash",
+    "cost_registry_hash",
+    "data_fidelity",
+    "ambiguity_policy",
+    "source_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "alpha_lab.strategy_factory/cost_model_descriptor@1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "descriptor_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "uses_observed_spread": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "version",
+    "deterministic",
+    "uses_observed_spread",
+    "descriptor_hash"
+  ],
+  "type": "object"
+}

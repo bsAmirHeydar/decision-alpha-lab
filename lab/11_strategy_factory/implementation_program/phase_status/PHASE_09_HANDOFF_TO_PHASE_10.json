@@ -1,0 +1,15 @@
+{
+  "central_engine_only": true,
+  "from": "PHASE_09",
+  "next": "Strategy Tester Research Harness and Run Manifests",
+  "preconditions": [
+    "MetaEditor compile passes",
+    "SF09 self-test passes",
+    "outcome IDs stable",
+    "cost reconciliation passes",
+    "ambiguity policies tested",
+    "no live authority",
+    "candidate identity unchanged"
+  ],
+  "to": "PHASE_10"
+}
