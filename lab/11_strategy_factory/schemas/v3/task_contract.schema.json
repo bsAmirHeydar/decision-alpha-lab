@@ -1,0 +1,105 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/task_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "bounded_max": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "bounded_min": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "calibration_required": {
+      "type": "boolean"
+    },
+    "censoring": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "class_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "maximize_metric": {
+      "type": "boolean"
+    },
+    "output_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "prediction_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "primary_metric": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "quantile_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "ranking_group_required": {
+      "type": "boolean"
+    },
+    "sample_weight_required": {
+      "type": "boolean"
+    },
+    "target_shape": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "threshold_selection_required": {
+      "type": "boolean"
+    },
+    "treatment_set_required": {
+      "type": "boolean"
+    },
+    "view_kind": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "task_version",
+    "task_kind",
+    "view_kind",
+    "target_shape",
+    "prediction_kind",
+    "primary_metric",
+    "maximize_metric",
+    "output_names"
+  ],
+  "title": "Universal Learning Task Contract",
+  "type": "object"
+}

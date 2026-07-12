@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/prediction_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "lineage": {
+      "$ref": "prediction_lineage.schema.json"
+    },
+    "outputs": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "predicted_class": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "prediction_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prediction_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "threshold": {
+      "type": [
+        "number",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "prediction_id",
+    "row_id",
+    "outputs",
+    "prediction_kind",
+    "lineage"
+  ],
+  "title": "Prediction Record",
+  "type": "object"
+}

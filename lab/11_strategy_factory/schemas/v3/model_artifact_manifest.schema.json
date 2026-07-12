@@ -1,0 +1,123 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/model_artifact_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "calibration_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "code_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "environment_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "export_formats": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "oof_protocol_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "resource_budget_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_level": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_contract_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "threshold_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_config_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_descriptor_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_version",
+    "trainer_descriptor_hash",
+    "trainer_config_hash",
+    "task_contract_hash",
+    "dataset_manifest_hash",
+    "oof_protocol_hash",
+    "resource_budget_hash",
+    "feature_order",
+    "output_names",
+    "state_hash",
+    "calibration_hash",
+    "threshold_hash",
+    "environment_hash",
+    "code_hash",
+    "metrics",
+    "limitations",
+    "export_formats",
+    "risk_level"
+  ],
+  "title": "Model Artifact Manifest",
+  "type": "object"
+}

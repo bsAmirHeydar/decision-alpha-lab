@@ -1,0 +1,154 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_capability_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Fail-closed machine-readable trainer capabilities.",
+  "properties": {
+    "calibration_kinds": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "censoring_support": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "determinism": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "devices": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "explainability_kinds": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "export_formats": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "family": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "max_features": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_outputs": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "min_rows": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "missingness_support": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "precisions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supported_target_shapes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supported_tasks": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supported_tensors": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supported_views": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supports_cancel": {
+      "type": "boolean"
+    },
+    "supports_checkpoint": {
+      "type": "boolean"
+    },
+    "supports_multi_output": {
+      "type": "boolean"
+    },
+    "supports_sample_weight": {
+      "type": "boolean"
+    },
+    "supports_warm_start": {
+      "type": "boolean"
+    },
+    "tags": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "trainer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "trainer_id",
+    "trainer_version",
+    "family",
+    "supported_tasks",
+    "supported_views",
+    "supported_target_shapes",
+    "determinism"
+  ],
+  "title": "Trainer Capability Descriptor",
+  "type": "object"
+}

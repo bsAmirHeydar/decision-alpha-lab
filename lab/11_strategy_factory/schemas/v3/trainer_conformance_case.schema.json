@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_conformance_case.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "case_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_evidence_hash": {
+      "type": "string"
+    },
+    "expected_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "trainer_key",
+    "task_key",
+    "expected_status",
+    "checks"
+  ],
+  "title": "Trainer Conformance Case",
+  "type": "object"
+}

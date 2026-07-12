@@ -1,0 +1,31 @@
+{
+  "note": "Concrete row identities come from the UCE-I06 split planner.",
+  "plan_id": "example_binary",
+  "plan_version": "1.0.0",
+  "task": {
+    "maximize_metric": false,
+    "output_names": [
+      "probability"
+    ],
+    "prediction_kind": "probability",
+    "primary_metric": "brier",
+    "target_shape": "scalar",
+    "task_id": "trade_or_skip",
+    "task_kind": "binary_classification",
+    "task_version": "1.0.0",
+    "view_kind": "tabular"
+  },
+  "trainer": {
+    "calibration_kind": "identity",
+    "hyperparameters": {},
+    "seed": 7,
+    "threshold_grid": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "threshold_metric": "accuracy",
+    "trainer_id": "uce.reference.prior_binary",
+    "trainer_version": "1.0.0"
+  }
+}

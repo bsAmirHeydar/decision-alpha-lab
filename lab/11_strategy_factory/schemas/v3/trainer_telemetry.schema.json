@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "details": {
+      "type": "object"
+    },
+    "elapsed_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "memory_estimate_mb": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "severity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "telemetry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "telemetry_id",
+    "sequence",
+    "phase",
+    "trainer_key",
+    "fold_id",
+    "event_code",
+    "severity",
+    "elapsed_ms",
+    "row_count",
+    "feature_count",
+    "memory_estimate_mb",
+    "details"
+  ],
+  "title": "Trainer Telemetry",
+  "type": "object"
+}

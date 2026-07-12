@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/task_orchestration_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "oof": {
+      "$ref": "oof_protocol.schema.json"
+    },
+    "package_artifact": {
+      "type": "boolean"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "require_deterministic_rerun": {
+      "type": "boolean"
+    },
+    "require_serialization_parity": {
+      "type": "boolean"
+    },
+    "resources": {
+      "$ref": "trainer_resource_budget.schema.json"
+    },
+    "retain_failed_trials": {
+      "type": "boolean"
+    },
+    "task": {
+      "$ref": "task_contract.schema.json"
+    },
+    "trainer": {
+      "$ref": "trainer_config.schema.json"
+    }
+  },
+  "required": [
+    "plan_id",
+    "plan_version",
+    "task",
+    "trainer",
+    "resources",
+    "oof"
+  ],
+  "title": "Task Orchestration Plan",
+  "type": "object"
+}

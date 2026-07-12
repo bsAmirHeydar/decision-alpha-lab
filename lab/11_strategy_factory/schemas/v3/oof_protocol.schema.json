@@ -1,0 +1,78 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/oof_protocol.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "embargo_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "final_calibration_row_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "final_test_row_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "final_threshold_row_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "final_train_row_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "folds": {
+      "items": {
+        "$ref": "fold_definition.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "protocol_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "protocol_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "purge_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "test_sealed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "protocol_id",
+    "protocol_version",
+    "folds",
+    "final_train_row_ids",
+    "final_calibration_row_ids",
+    "final_threshold_row_ids",
+    "final_test_row_ids",
+    "test_sealed"
+  ],
+  "title": "Out-of-Fold Protocol",
+  "type": "object"
+}

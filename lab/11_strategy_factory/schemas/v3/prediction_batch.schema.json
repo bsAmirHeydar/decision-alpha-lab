@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/prediction_batch.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "prediction_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "prediction_record.schema.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "batch_id",
+    "records",
+    "output_names",
+    "prediction_kind",
+    "complete",
+    "evidence_hash"
+  ],
+  "title": "Prediction Batch",
+  "type": "object"
+}

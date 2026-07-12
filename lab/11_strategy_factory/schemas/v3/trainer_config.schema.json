@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "calibration_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hyperparameters": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "threshold_grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "threshold_metric": {
+      "type": "string"
+    },
+    "trainer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "trainer_id",
+    "trainer_version",
+    "hyperparameters",
+    "seed",
+    "calibration_kind"
+  ],
+  "title": "Trainer Configuration",
+  "type": "object"
+}

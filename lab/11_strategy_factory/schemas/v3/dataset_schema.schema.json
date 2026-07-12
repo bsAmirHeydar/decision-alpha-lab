@@ -1,0 +1,65 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/dataset_schema.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "has_censoring": {
+      "type": "boolean"
+    },
+    "has_missing_values": {
+      "type": "boolean"
+    },
+    "has_sample_weights": {
+      "type": "boolean"
+    },
+    "output_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "target_shape": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tensor_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "view_kind": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_manifest_hash",
+    "feature_order",
+    "view_kind",
+    "tensor_kind",
+    "target_shape",
+    "output_count",
+    "row_count"
+  ],
+  "title": "Trainer Dataset Schema",
+  "type": "object"
+}

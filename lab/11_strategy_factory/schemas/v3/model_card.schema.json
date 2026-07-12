@@ -1,0 +1,100 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/model_card.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "artifact_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "economic_assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evaluation_summary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fairness_scope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "intended_uses": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operational_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "prohibited_uses": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "residual_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rollback_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "summary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "training_data_summary": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "title",
+    "summary",
+    "intended_uses",
+    "prohibited_uses",
+    "training_data_summary",
+    "evaluation_summary",
+    "limitations",
+    "economic_assumptions",
+    "fairness_scope",
+    "operational_requirements",
+    "rollback_conditions",
+    "residual_risks",
+    "artifact_manifest_hash"
+  ],
+  "title": "Model Card",
+  "type": "object"
+}

@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trial_ledger_entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "checkpoint_hash": {
+      "type": "string"
+    },
+    "elapsed_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "finished_sequence": {
+      "type": "integer"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "model_state_hash": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prediction_batch_hash": {
+      "type": "string"
+    },
+    "started_sequence": {
+      "type": "integer"
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "plan_hash",
+    "trainer_key",
+    "fold_id",
+    "status",
+    "started_sequence",
+    "finished_sequence",
+    "elapsed_ms",
+    "metrics",
+    "model_state_hash",
+    "prediction_batch_hash"
+  ],
+  "title": "Trial Ledger Entry",
+  "type": "object"
+}

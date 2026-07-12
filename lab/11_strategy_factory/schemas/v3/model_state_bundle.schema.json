@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/model_state_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "fitted_feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "fitted_output_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "state_format": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state_payload": {
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "trainer_key",
+    "state_format",
+    "state_payload",
+    "state_hash",
+    "fitted_feature_order",
+    "fitted_output_names"
+  ],
+  "title": "Model State Bundle",
+  "type": "object"
+}

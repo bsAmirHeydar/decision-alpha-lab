@@ -1,0 +1,156 @@
+{
+  "entries": [
+    {
+      "calibration_kinds": [
+        "none"
+      ],
+      "censoring_support": [
+        "none"
+      ],
+      "determinism": "bit_exact",
+      "devices": [
+        "cpu"
+      ],
+      "explainability_kinds": [
+        "none",
+        "global_importance",
+        "local_contribution"
+      ],
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "reference_ranking",
+      "max_features": 100000,
+      "max_outputs": 1,
+      "min_rows": 1,
+      "missingness_support": "reject",
+      "precisions": [
+        "float64"
+      ],
+      "supported_target_shapes": [
+        "listwise"
+      ],
+      "supported_tasks": [
+        "ranking"
+      ],
+      "supported_tensors": [
+        "dense_float64"
+      ],
+      "supported_views": [
+        "tabular"
+      ],
+      "supports_cancel": true,
+      "supports_checkpoint": false,
+      "supports_multi_output": false,
+      "supports_sample_weight": true,
+      "supports_warm_start": false,
+      "tags": [
+        "conformance",
+        "baseline"
+      ],
+      "trainer_id": "uce.reference.linear_ranker",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "calibration_kinds": [
+        "none"
+      ],
+      "censoring_support": [
+        "none"
+      ],
+      "determinism": "bit_exact",
+      "devices": [
+        "cpu"
+      ],
+      "explainability_kinds": [
+        "none"
+      ],
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "reference_regression",
+      "max_features": 100000,
+      "max_outputs": 1,
+      "min_rows": 1,
+      "missingness_support": "reject",
+      "precisions": [
+        "float64"
+      ],
+      "supported_target_shapes": [
+        "scalar"
+      ],
+      "supported_tasks": [
+        "regression"
+      ],
+      "supported_tensors": [
+        "dense_float64"
+      ],
+      "supported_views": [
+        "tabular"
+      ],
+      "supports_cancel": true,
+      "supports_checkpoint": false,
+      "supports_multi_output": false,
+      "supports_sample_weight": true,
+      "supports_warm_start": false,
+      "tags": [
+        "conformance",
+        "baseline"
+      ],
+      "trainer_id": "uce.reference.mean_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "calibration_kinds": [
+        "none",
+        "identity"
+      ],
+      "censoring_support": [
+        "none"
+      ],
+      "determinism": "bit_exact",
+      "devices": [
+        "cpu"
+      ],
+      "explainability_kinds": [
+        "none",
+        "global_importance"
+      ],
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "reference_probability",
+      "max_features": 100000,
+      "max_outputs": 1,
+      "min_rows": 1,
+      "missingness_support": "reject",
+      "precisions": [
+        "float64"
+      ],
+      "supported_target_shapes": [
+        "scalar"
+      ],
+      "supported_tasks": [
+        "binary_classification"
+      ],
+      "supported_tensors": [
+        "dense_float64"
+      ],
+      "supported_views": [
+        "tabular"
+      ],
+      "supports_cancel": true,
+      "supports_checkpoint": false,
+      "supports_multi_output": false,
+      "supports_sample_weight": true,
+      "supports_warm_start": false,
+      "tags": [
+        "conformance",
+        "baseline"
+      ],
+      "trainer_id": "uce.reference.prior_binary",
+      "trainer_version": "1.0.0"
+    }
+  ],
+  "release": "UCE-I07"
+}

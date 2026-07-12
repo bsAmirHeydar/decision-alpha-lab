@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/access_audit_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "purpose": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_ids_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "row_ids_hash",
+    "role",
+    "purpose",
+    "phase",
+    "trainer_key",
+    "allowed",
+    "reason"
+  ],
+  "title": "Dataset Access Audit Record",
+  "type": "object"
+}

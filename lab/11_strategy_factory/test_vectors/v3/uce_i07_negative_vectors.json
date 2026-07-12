@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "case_id": "unsupported_task_pair",
+      "expected_error": "trainer_incompatible"
+    },
+    {
+      "case_id": "final_test_before_selection_lock",
+      "expected_error": "dataset_access_denied"
+    },
+    {
+      "case_id": "exact_version_missing",
+      "expected_error": "trainer_not_found"
+    },
+    {
+      "case_id": "overlapping_fold_roles",
+      "expected_error": "fold_role_overlap"
+    },
+    {
+      "case_id": "memory_budget_exceeded",
+      "expected_error": "memory_budget_exceeded"
+    },
+    {
+      "case_id": "corrupt_model_state",
+      "expected_error": "state_hash_mismatch"
+    }
+  ],
+  "release": "UCE-I07"
+}

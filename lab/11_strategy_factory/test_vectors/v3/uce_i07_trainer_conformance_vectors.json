@@ -1,0 +1,43 @@
+{
+  "cancelled_trial_retained": true,
+  "cases": [
+    {
+      "artifact_id": "uce_model_3fc2a0f67838e32117233369",
+      "deterministic": true,
+      "ledger_retained": true,
+      "lineage_complete": true,
+      "oof_count": 4,
+      "task": "binary_classification",
+      "test_count": 4,
+      "trainer": "uce.reference.prior_binary@1.0.0"
+    },
+    {
+      "artifact_id": "uce_model_ddbd1bb515ffb113e48b9a98",
+      "deterministic": true,
+      "ledger_retained": true,
+      "lineage_complete": true,
+      "oof_count": 4,
+      "task": "regression",
+      "test_count": 4,
+      "trainer": "uce.reference.mean_regression@1.0.0"
+    },
+    {
+      "artifact_id": "uce_model_dec1a0974036ef2926fbedd2",
+      "deterministic": true,
+      "ledger_retained": true,
+      "lineage_complete": true,
+      "oof_count": 4,
+      "task": "ranking",
+      "test_count": 4,
+      "trainer": "uce.reference.linear_ranker@1.0.0"
+    }
+  ],
+  "evidence_hash": "4eaa8bcbf15f902c19b1739c8a4a25f9744e78a4b8afbd6af58f5e43abd7b912",
+  "failed_trial_retained": true,
+  "final_test_one_shot": true,
+  "passed": true,
+  "registry_size": 3,
+  "release": "UCE-I07",
+  "test_seal_enforced": true,
+  "unsupported_pair_rejected": true
+}

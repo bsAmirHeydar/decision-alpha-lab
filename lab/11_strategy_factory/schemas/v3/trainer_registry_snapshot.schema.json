@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "trainer_capability_descriptor.schema.json"
+      },
+      "type": "array"
+    },
+    "snapshot_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "contract_version",
+    "entries",
+    "snapshot_hash"
+  ],
+  "title": "Trainer Registry Snapshot",
+  "type": "object"
+}

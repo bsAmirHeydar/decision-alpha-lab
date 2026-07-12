@@ -1,0 +1,47 @@
+{
+  "authority": "offline_research_training_control_plane_no_live_order_authority",
+  "conformance": {
+    "binary_oof_count": 4,
+    "cancelled_trial_retained": true,
+    "evidence_hash": "4eaa8bcbf15f902c19b1739c8a4a25f9744e78a4b8afbd6af58f5e43abd7b912",
+    "exact_registry_size": 3,
+    "failed_trial_retained": true,
+    "final_test_count_per_family": 4,
+    "final_test_one_shot": true,
+    "ranking_oof_count": 4,
+    "regression_oof_count": 4,
+    "test_seal_enforced": true,
+    "trainer_family_count": 3,
+    "unsupported_pair_rejected": true
+  },
+  "engineering_policy": {
+    "mql5_compatibility": "PASS",
+    "obsidian_vault": "PASS",
+    "repository_layout": "PASS",
+    "repository_policy": "PASS"
+  },
+  "limitations": [
+    "MetaEditor compile cannot be executed in the current Linux environment",
+    "reference trainers are conformance baselines rather than production algorithms",
+    "local synchronous orchestration only; process isolation and distributed workers are deferred",
+    "full pruning and hyperparameter search arrive in UCE-I11"
+  ],
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_EVIDENCE",
+  "phase_checks": {
+    "boundary_guard": "PASS",
+    "delivery_validator": "PASS",
+    "golden_vector_verification": "PASS",
+    "mql5_static": "PASS",
+    "python_compileall": "PASS",
+    "python_conformance": "PASS"
+  },
+  "phase_id": "UCE-I07",
+  "qa_status": "PASS_WITH_LOCAL_METAEDITOR_EVIDENCE_PENDING",
+  "tests": {
+    "cumulative_ucee_i01_to_i07": 153,
+    "failed": 0,
+    "passed": 153
+  },
+  "title": "Universal Trainer SDK, Capability Registry, and Task Orchestrator",
+  "validated_on": "2026-07-12"
+}

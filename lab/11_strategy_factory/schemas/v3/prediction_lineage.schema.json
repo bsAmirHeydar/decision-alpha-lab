@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/prediction_lineage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_state_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "orchestration_phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "task_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_config_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "dataset_manifest_hash",
+    "task_key",
+    "trainer_key",
+    "trainer_config_hash",
+    "fold_id",
+    "seed",
+    "model_state_hash",
+    "role",
+    "orchestration_phase"
+  ],
+  "title": "Prediction Lineage",
+  "type": "object"
+}

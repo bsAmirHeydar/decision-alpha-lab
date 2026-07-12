@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/trainer_resource_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "",
+  "properties": {
+    "checkpoint_interval_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "deterministic_required": {
+      "type": "boolean"
+    },
+    "device": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "max_features": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_memory_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_outputs": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_rows": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_wall_seconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "max_workers": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "numeric_tolerance": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "precision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "seed",
+    "max_rows",
+    "max_features",
+    "max_outputs",
+    "max_memory_mb",
+    "max_wall_seconds",
+    "max_workers",
+    "device",
+    "precision",
+    "deterministic_required"
+  ],
+  "title": "Trainer Resource Budget",
+  "type": "object"
+}
