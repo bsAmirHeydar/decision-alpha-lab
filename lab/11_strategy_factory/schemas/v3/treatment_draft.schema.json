@@ -1,0 +1,23 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/treatment_draft.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiler_mode": {},
+    "draft_name": {},
+    "intrabar_policy": {},
+    "runtime_mode": {},
+    "selections": {},
+    "side": {}
+  },
+  "required": [
+    "draft_name",
+    "side",
+    "runtime_mode",
+    "compiler_mode",
+    "selections",
+    "intrabar_policy"
+  ],
+  "title": "TreatmentDraft",
+  "type": "object"
+}

@@ -1,0 +1,5 @@
+{
+  "broker_authority": false,
+  "economics": "Deferred to UCE-I05.",
+  "purpose": "Executable examples for UCE-I04 treatment composition, manual parity, matrix generation, and golden path replay."
+}

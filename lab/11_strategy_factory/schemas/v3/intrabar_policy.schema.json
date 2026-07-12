@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/intrabar_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity": {},
+    "fidelity": {},
+    "gap": {},
+    "partial_priority": {},
+    "policy_id": {},
+    "stale_quote": {},
+    "version": {}
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "fidelity",
+    "ambiguity",
+    "gap",
+    "partial_priority",
+    "stale_quote"
+  ],
+  "title": "IntrabarPolicy",
+  "type": "object"
+}

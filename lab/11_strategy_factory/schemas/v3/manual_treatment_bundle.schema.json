@@ -1,0 +1,21 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/manual_treatment_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {},
+    "draft": {},
+    "frozen": {},
+    "owner_id": {},
+    "version": {}
+  },
+  "required": [
+    "bundle_id",
+    "version",
+    "owner_id",
+    "draft",
+    "frozen"
+  ],
+  "title": "ManualTreatmentBundle",
+  "type": "object"
+}

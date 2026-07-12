@@ -1,0 +1,8 @@
+{
+  "description": "Immediate, passive and breakout entry styles crossed with wide/tight stops, fixed-R/runner exits, trailing variants and capital styles.",
+  "matrix_id": "example.entry_style_sweep",
+  "max_combinations": 256,
+  "max_compiled": 128,
+  "overflow_policy": "reject",
+  "version": "1.0.0"
+}

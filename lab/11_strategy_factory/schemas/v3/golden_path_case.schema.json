@@ -1,0 +1,19 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/golden_path_case.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {},
+    "events": {},
+    "expected_snapshot": {},
+    "treatment_id": {}
+  },
+  "required": [
+    "case_id",
+    "treatment_id",
+    "events",
+    "expected_snapshot"
+  ],
+  "title": "GoldenPathCase",
+  "type": "object"
+}

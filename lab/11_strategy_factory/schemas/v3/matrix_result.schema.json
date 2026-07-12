@@ -1,0 +1,19 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/matrix_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiled_count": {},
+    "generated_count": {},
+    "matrix_definition_id": {},
+    "rejected_count": {}
+  },
+  "required": [
+    "matrix_definition_id",
+    "generated_count",
+    "compiled_count",
+    "rejected_count"
+  ],
+  "title": "MatrixResult",
+  "type": "object"
+}

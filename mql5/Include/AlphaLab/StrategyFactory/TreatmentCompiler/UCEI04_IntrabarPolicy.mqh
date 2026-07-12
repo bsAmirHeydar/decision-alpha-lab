@@ -1,0 +1,8 @@
+#ifndef __UCEI04_INTRABAR_POLICY_MQH__
+#define __UCEI04_INTRABAR_POLICY_MQH__
+#include "UCEI04_PathStateMachine.mqh"
+class CUCEI04IntrabarResolver{
+public:
+ bool ResolveFirstTerminal(const UCEI04_CompiledTreatment &t,const UCEI04_PathSnapshot &s,const UCEI04_BarObservation &b,const int sequence,UCEI04_PathEvent &e,bool &has_event,string &error){has_event=false;if(s.open_fraction<=0.0){error="";return true;}double stop=s.has_last_trail?s.last_trail_price:s.active_stop_price;bool stop_hit=s.has_active_stop&&(t.side==UCEI03_LONG?b.low<=stop:b.high>=stop);double target=0.0;bool target_hit=false;for(int i=0;i<ArraySize(t.target.legs);i++)if(t.target.legs[i].has_target_price){double p=t.target.legs[i].target_price;bool h=t.side==UCEI03_LONG?b.high>=p:b.low<=p;if(h){target=p;target_hit=true;break;}}if(!stop_hit&&!target_hit){error="";return true;}ENUM_UCEI04_EVENT_TYPE type=stop_hit?UCEI04_STOP_HIT:UCEI04_TARGET_HIT;double price=stop_hit?stop:target;if(stop_hit&&target_hit){if(t.intrabar.ambiguity==UCEI04_REJECT_AMBIGUOUS){error="ambiguous_bar";return false;}if(t.intrabar.ambiguity==UCEI04_TARGET_FIRST||t.intrabar.ambiguity==UCEI04_BEST_CASE){type=UCEI04_TARGET_HIT;price=target;}else if(t.intrabar.ambiguity==UCEI04_NEAREST_FIRST&&s.has_average_entry&&MathAbs(target-s.average_entry_price)<MathAbs(stop-s.average_entry_price)){type=UCEI04_TARGET_HIT;price=target;}else{type=UCEI04_STOP_HIT;price=stop;}}e.sequence=sequence;e.event_type=type;e.event_time_ms=b.close_time_ms;e.known_time_ms=b.known_time_ms;e.has_price=true;e.price=price;e.quantity_fraction=s.open_fraction;e.source="intrabar_resolver";e.reason=type==UCEI04_STOP_HIT?"stop_hit":"target_hit";e.metadata_json="{}";UCEI04_SealPathEvent(e);has_event=true;error="";return true;}
+};
+#endif

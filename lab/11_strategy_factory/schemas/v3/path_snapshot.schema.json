@@ -1,0 +1,21 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/path_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "filled_fraction": {},
+    "last_sequence": {},
+    "open_fraction": {},
+    "state": {},
+    "treatment_id": {}
+  },
+  "required": [
+    "treatment_id",
+    "state",
+    "last_sequence",
+    "filled_fraction",
+    "open_fraction"
+  ],
+  "title": "PathSnapshot",
+  "type": "object"
+}

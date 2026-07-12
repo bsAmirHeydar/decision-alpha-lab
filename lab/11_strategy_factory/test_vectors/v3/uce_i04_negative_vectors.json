@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "case_id": "missing_stop",
+      "expected_code": "invalid_cardinality"
+    },
+    {
+      "case_id": "duplicate_entry",
+      "expected_code": "invalid_cardinality"
+    },
+    {
+      "case_id": "management_over_exit",
+      "expected_code": "management_exit_fraction"
+    },
+    {
+      "case_id": "runner_without_termination",
+      "expected_code": "runner_without_termination"
+    },
+    {
+      "case_id": "event_sequence_gap",
+      "expected_code": "sequence_gap"
+    },
+    {
+      "case_id": "known_time_before_event",
+      "expected_code": "future_knowledge"
+    },
+    {
+      "case_id": "illegal_transition",
+      "expected_code": "illegal_transition"
+    },
+    {
+      "case_id": "trail_loosened_long",
+      "expected_code": "trail_loosened"
+    },
+    {
+      "case_id": "ambiguous_bar_reject",
+      "expected_code": "ambiguous_bar"
+    },
+    {
+      "case_id": "matrix_budget_exceeded",
+      "expected_code": "matrix_budget_exceeded"
+    },
+    {
+      "case_id": "manual_parity_mismatch",
+      "expected_code": "manual_parity_mismatch"
+    }
+  ],
+  "schema_version": "3.0.0"
+}

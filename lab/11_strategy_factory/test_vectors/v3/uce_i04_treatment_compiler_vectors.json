@@ -1,0 +1,105 @@
+{
+  "checks": {
+    "deterministic_identity": true,
+    "golden_paths_terminal": true,
+    "long_short_distinct": true,
+    "manual_exact_parity": true,
+    "matrix_bounded": true,
+    "unique_treatment_ids": true
+  },
+  "matrix": {
+    "compiled_count": 2,
+    "deterministic_order_hash": "uceorder_c0c0dbe7749ad86d4274006f",
+    "generated_count": 2,
+    "matrix_definition_id": "ucemx_8b0fb3ea75cfabd0c065f128",
+    "rejected_count": 0,
+    "rejection_codes": {},
+    "treatment_ids": [
+      "ucet_9a5f99b1342063973aa0a3d5",
+      "ucet_006004c3736fbd64b652b4e3"
+    ],
+    "truncated_count": 0
+  },
+  "passed": true,
+  "paths": {
+    "market_stop": {
+      "active_stop_price": "99.02",
+      "average_entry_price": "100.02",
+      "exited_fraction": "1",
+      "filled_fraction": "1",
+      "last_event_time_ms": 1700000001003,
+      "last_known_time_ms": 1700000001003,
+      "last_sequence": 4,
+      "last_trail_price": null,
+      "open_fraction": "0",
+      "state": "closed",
+      "terminal_reason": "close",
+      "transition_count": 4,
+      "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+    },
+    "market_target": {
+      "active_stop_price": "99.02",
+      "average_entry_price": "100.02",
+      "exited_fraction": "1",
+      "filled_fraction": "1",
+      "last_event_time_ms": 1700000001003,
+      "last_known_time_ms": 1700000001003,
+      "last_sequence": 4,
+      "last_trail_price": null,
+      "open_fraction": "0",
+      "state": "closed",
+      "terminal_reason": "close",
+      "transition_count": 4,
+      "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+    },
+    "partial_fill_timeout": {
+      "active_stop_price": "99.02",
+      "average_entry_price": "100.02",
+      "exited_fraction": "0.4",
+      "filled_fraction": "0.4",
+      "last_event_time_ms": 1700000001003,
+      "last_known_time_ms": 1700000001003,
+      "last_sequence": 4,
+      "last_trail_price": null,
+      "open_fraction": "0",
+      "state": "closed",
+      "terminal_reason": "close",
+      "transition_count": 4,
+      "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+    },
+    "partial_trail_close": {
+      "active_stop_price": "99.02",
+      "average_entry_price": "100.02",
+      "exited_fraction": "1.0",
+      "filled_fraction": "1",
+      "last_event_time_ms": 1700000001004,
+      "last_known_time_ms": 1700000001004,
+      "last_sequence": 5,
+      "last_trail_price": "100.22",
+      "open_fraction": "0",
+      "state": "closed",
+      "terminal_reason": "close",
+      "transition_count": 5,
+      "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+    },
+    "pending_cancel": {
+      "active_stop_price": "99.02",
+      "average_entry_price": null,
+      "exited_fraction": "0",
+      "filled_fraction": "0",
+      "last_event_time_ms": 1700000001002,
+      "last_known_time_ms": 1700000001002,
+      "last_sequence": 3,
+      "last_trail_price": null,
+      "open_fraction": "0",
+      "state": "closed",
+      "terminal_reason": "close",
+      "transition_count": 3,
+      "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+    }
+  },
+  "treatment_ids": [
+    "ucet_4f7a239a58444b27bf54dbe7",
+    "ucet_82801f7eccabb28efabd5687"
+  ]
+}

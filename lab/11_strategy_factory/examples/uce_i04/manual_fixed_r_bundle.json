@@ -1,0 +1,79 @@
+{
+  "approval_note": "Approved parity baseline",
+  "bundle_id": "manual.fixed_r",
+  "draft": {
+    "account_mode": "any",
+    "compiler_mode": "research",
+    "draft_name": "golden.fixed_r",
+    "intrabar_policy": {
+      "ambiguity": "worst_case",
+      "fidelity": "bar",
+      "gap": "worst_executable",
+      "latency_ms": 0,
+      "max_quote_age_ms": 100000000,
+      "partial_priority": "fifo",
+      "policy_id": "intrabar.canonical",
+      "stale_quote": "reject",
+      "version": "1.0.0"
+    },
+    "market_mode": "any",
+    "pinned": true,
+    "required_capabilities": [],
+    "runtime_mode": "research",
+    "selections": [
+      {
+        "alias": "",
+        "exact_key": "entry.immediate_market@1.0.0",
+        "parameters": {
+          "max_age_ms": 2000
+        },
+        "role": "entry"
+      },
+      {
+        "alias": "",
+        "exact_key": "stop.fixed_distance@1.0.0",
+        "parameters": {
+          "distance_points": "100"
+        },
+        "role": "stop"
+      },
+      {
+        "alias": "",
+        "exact_key": "target.fixed_r@1.0.0",
+        "parameters": {
+          "reward_multiple": "2",
+          "risk_points": "100"
+        },
+        "role": "target"
+      },
+      {
+        "alias": "",
+        "exact_key": "trailing.none@1.0.0",
+        "parameters": {},
+        "role": "trailing"
+      },
+      {
+        "alias": "",
+        "exact_key": "management.max_holding_time@1.0.0",
+        "parameters": {
+          "holding_ms": 14400000
+        },
+        "role": "management"
+      },
+      {
+        "alias": "",
+        "exact_key": "sizing.fixed_cash@1.0.0",
+        "parameters": {
+          "cash_amount": "100"
+        },
+        "role": "sizing"
+      }
+    ],
+    "side": "long",
+    "tags": {}
+  },
+  "expected_treatment_id": "ucet_4f7a239a58444b27bf54dbe7",
+  "frozen": true,
+  "owner_id": "alpha_lab",
+  "version": "1.0.0"
+}

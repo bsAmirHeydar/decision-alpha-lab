@@ -1,0 +1,19 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/path_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_time_ms": {},
+    "event_type": {},
+    "known_time_ms": {},
+    "sequence": {}
+  },
+  "required": [
+    "sequence",
+    "event_type",
+    "event_time_ms",
+    "known_time_ms"
+  ],
+  "title": "PathEvent",
+  "type": "object"
+}

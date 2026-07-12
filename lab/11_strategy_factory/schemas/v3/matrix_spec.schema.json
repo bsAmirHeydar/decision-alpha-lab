@@ -1,0 +1,21 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/matrix_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "axes": {},
+    "matrix_id": {},
+    "max_combinations": {},
+    "max_compiled": {},
+    "version": {}
+  },
+  "required": [
+    "matrix_id",
+    "version",
+    "axes",
+    "max_combinations",
+    "max_compiled"
+  ],
+  "title": "MatrixSpec",
+  "type": "object"
+}

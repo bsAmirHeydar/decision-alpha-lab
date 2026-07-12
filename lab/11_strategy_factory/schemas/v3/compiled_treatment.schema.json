@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/compiled_treatment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_order": {},
+    "context_occurrence_id": {},
+    "draft_id": {},
+    "entry": {},
+    "sizing": {},
+    "stop": {},
+    "target": {},
+    "trailing": {},
+    "treatment_id": {}
+  },
+  "required": [
+    "treatment_id",
+    "draft_id",
+    "context_occurrence_id",
+    "entry",
+    "stop",
+    "target",
+    "trailing",
+    "sizing",
+    "action_order"
+  ],
+  "title": "CompiledTreatment",
+  "type": "object"
+}

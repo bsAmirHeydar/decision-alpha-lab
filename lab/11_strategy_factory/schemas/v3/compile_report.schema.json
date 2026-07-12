@@ -1,0 +1,17 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/compile_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {},
+    "draft_id": {},
+    "findings": {}
+  },
+  "required": [
+    "draft_id",
+    "accepted",
+    "findings"
+  ],
+  "title": "CompileReport",
+  "type": "object"
+}

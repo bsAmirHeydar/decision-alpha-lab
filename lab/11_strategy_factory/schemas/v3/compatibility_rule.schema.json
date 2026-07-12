@@ -1,0 +1,19 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/compatibility_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rule_id": {},
+    "rule_type": {},
+    "severity": {},
+    "version": {}
+  },
+  "required": [
+    "rule_id",
+    "version",
+    "rule_type",
+    "severity"
+  ],
+  "title": "CompatibilityRule",
+  "type": "object"
+}

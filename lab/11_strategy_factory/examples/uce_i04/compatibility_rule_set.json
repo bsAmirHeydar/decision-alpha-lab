@@ -1,0 +1,78 @@
+{
+  "rules": [
+    {
+      "applies_to_modes": [],
+      "message": "exactly one entry atom is allowed",
+      "object_value": "",
+      "operator": "",
+      "rule_id": "core.one_entry",
+      "rule_type": "max_count",
+      "severity": "error",
+      "subject": "entry",
+      "threshold": "1",
+      "version": "1.0.0"
+    },
+    {
+      "applies_to_modes": [],
+      "message": "exactly one sizing atom is allowed",
+      "object_value": "",
+      "operator": "",
+      "rule_id": "core.one_sizing",
+      "rule_type": "max_count",
+      "severity": "error",
+      "subject": "sizing",
+      "threshold": "1",
+      "version": "1.0.0"
+    },
+    {
+      "applies_to_modes": [],
+      "message": "exactly one stop atom is allowed",
+      "object_value": "",
+      "operator": "",
+      "rule_id": "core.one_stop",
+      "rule_type": "max_count",
+      "severity": "error",
+      "subject": "stop",
+      "threshold": "1",
+      "version": "1.0.0"
+    },
+    {
+      "applies_to_modes": [],
+      "message": "exactly one target atom is allowed",
+      "object_value": "",
+      "operator": "",
+      "rule_id": "core.one_target",
+      "rule_type": "max_count",
+      "severity": "error",
+      "subject": "target",
+      "threshold": "1",
+      "version": "1.0.0"
+    },
+    {
+      "applies_to_modes": [],
+      "message": "exactly one trailing atom is allowed",
+      "object_value": "",
+      "operator": "",
+      "rule_id": "core.one_trailing",
+      "rule_type": "max_count",
+      "severity": "error",
+      "subject": "trailing",
+      "threshold": "1",
+      "version": "1.0.0"
+    },
+    {
+      "applies_to_modes": [
+        "live"
+      ],
+      "message": "live treatments require broker_preflight capability",
+      "object_value": "broker_preflight",
+      "operator": "",
+      "rule_id": "live.requires_broker_guard",
+      "rule_type": "require_capability",
+      "severity": "error",
+      "subject": "",
+      "threshold": null,
+      "version": "1.0.0"
+    }
+  ]
+}

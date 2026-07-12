@@ -1,0 +1,29 @@
+{
+  "artifact": "decision-alpha-lab-ucee-i04-complete-treatment-compiler-path-state-machine",
+  "broker_authority": false,
+  "dependencies": [
+    "UCE-I01",
+    "UCE-I02",
+    "UCE-I03"
+  ],
+  "file_count": 109,
+  "file_count_before_metadata": 105,
+  "generated_on": "2026-07-12",
+  "metaeditor_compile": "pending local Windows execution",
+  "next_phase": "UCE-I05 \u2014 Side-Aware Economics and Capital Risk",
+  "phase_id": "UCE-I04",
+  "primary_components": [
+    "declarative compatibility rule language",
+    "immutable treatment compiler",
+    "canonical action ordering",
+    "causal path state machine",
+    "intrabar ambiguity and gap policy",
+    "bounded treatment matrix generator",
+    "manual treatment parity compiler",
+    "golden path library",
+    "Python and MQL5 conformance surfaces",
+    "English Obsidian delivery documentation"
+  ],
+  "scope": "Incremental patch over UCEE-I03",
+  "version": "1.0.0"
+}

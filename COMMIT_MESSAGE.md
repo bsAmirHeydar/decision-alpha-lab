@@ -1,3 +1,3 @@
-feat(alpha-lab): implement UCEE treatment atom registries
+feat(alpha-lab): implement UCEE treatment compiler and causal path engine
 
-Add 50 exact-version entry, stop, target, trailing, management and preliminary sizing atoms, typed behavior parameter schemas, immutable invocation identity, side-aware executable quote and tick semantics, six frozen registries, manual and AI parity, long-short golden vectors, monotonicity and no-authority conformance, Python and MQL5 SDKs, schemas, detailed English Obsidian documentation, QA and the UCE-I04 handoff.
+Add exact-version treatment composition, declarative compatibility rules, immutable behavior identity, canonical action ordering, causal path transitions, explicit intrabar and gap policies, bounded matrix generation, exact manual-treatment parity, Python and MQL5 conformance surfaces, schemas, golden and negative vectors, comprehensive English Obsidian documentation, QA evidence and the UCE-I05 handoff.

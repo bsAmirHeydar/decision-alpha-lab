@@ -1,0 +1,545 @@
+{
+  "action_order": [
+    {
+      "action_type": "reserve_sizing_budget",
+      "payload": {
+        "cap_value": "250",
+        "invocation_id": "ucei_27c51538649f6ca4b19afe7b",
+        "metadata": {},
+        "requested_value": "100",
+        "scale_factor": "1",
+        "unit": "cash_risk"
+      },
+      "phase": "risk",
+      "priority": 0,
+      "sequence": 1,
+      "source_exact_key": "sizing.fixed_cash@1.0.0",
+      "source_plan_id": "ucezp_7be3366953e2e08c0f97c11c"
+    },
+    {
+      "action_type": "install_initial_stop",
+      "payload": {
+        "catastrophic_price": null,
+        "distance": "1",
+        "invocation_id": "ucei_f67301aec3513879220da1cc",
+        "metadata": {},
+        "stop_price": "99.02",
+        "time_exit_ms": null
+      },
+      "phase": "protection",
+      "priority": 10,
+      "sequence": 2,
+      "source_exact_key": "stop.fixed_distance@1.0.0",
+      "source_plan_id": "ucesp_3a9fa8b185ecb2443d8548bf"
+    },
+    {
+      "action_type": "submit_entry_leg",
+      "payload": {
+        "allocation_fraction": "1",
+        "earliest_time_ms": 1700000001000,
+        "latest_time_ms": 1700000001000,
+        "leg_index": 0,
+        "limit_price": null,
+        "order_type": "market",
+        "trigger_price": "100.02"
+      },
+      "phase": "entry",
+      "priority": 100,
+      "sequence": 3,
+      "source_exact_key": "entry.immediate_market@1.0.0",
+      "source_plan_id": "uceep_32e7965483820ded98340594"
+    },
+    {
+      "action_type": "install_target_leg",
+      "payload": {
+        "activation_r": null,
+        "is_runner": false,
+        "leg_index": 0,
+        "quantity_fraction": "1",
+        "target_price": "102.02"
+      },
+      "phase": "exit",
+      "priority": 300,
+      "sequence": 4,
+      "source_exact_key": "target.fixed_r@1.0.0",
+      "source_plan_id": "ucetp_a312b2b5ebb377a37792f07b"
+    },
+    {
+      "action_type": "configure_trailing",
+      "payload": {
+        "activation_r": "0",
+        "cadence_ms": 0,
+        "distance": null,
+        "invocation_id": "ucei_2502e8dfe2058829e1edcbd3",
+        "lock_r": null,
+        "metadata": {},
+        "mode": "none",
+        "reference_field": ""
+      },
+      "phase": "management",
+      "priority": 500,
+      "sequence": 5,
+      "source_exact_key": "trailing.none@1.0.0",
+      "source_plan_id": "ucetrp_136f4d7c4d47955efc0de1dc"
+    },
+    {
+      "action_type": "register_management_rule",
+      "payload": {
+        "action_value": null,
+        "activation_value": 14400000,
+        "quantity_fraction": "1",
+        "rule_index": 0,
+        "rule_type": "force_exit_after_ms"
+      },
+      "phase": "management",
+      "priority": 600,
+      "sequence": 6,
+      "source_exact_key": "management.max_holding_time@1.0.0",
+      "source_plan_id": "ucemp_340d0b7b04ac604521a40a42"
+    }
+  ],
+  "compatibility_findings": [
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_520c47cfcef72b6c84f44f3a",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_520c47cfcef72b6c84f44f3a",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_520c47cfcef72b6c84f44f3a",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_520c47cfcef72b6c84f44f3a",
+      "severity": "error"
+    },
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_d0a96abadbd589a69951acd7",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_d0a96abadbd589a69951acd7",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_d0a96abadbd589a69951acd7",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_d0a96abadbd589a69951acd7",
+      "severity": "error"
+    },
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_bcbf18529fca55930912fe8a",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_bcbf18529fca55930912fe8a",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_bcbf18529fca55930912fe8a",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_bcbf18529fca55930912fe8a",
+      "severity": "error"
+    },
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_96f64c0a34548240df291a16",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_96f64c0a34548240df291a16",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_96f64c0a34548240df291a16",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_96f64c0a34548240df291a16",
+      "severity": "error"
+    },
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_cd071e95b1235e77747092cf",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_cd071e95b1235e77747092cf",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_cd071e95b1235e77747092cf",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_cd071e95b1235e77747092cf",
+      "severity": "error"
+    },
+    {
+      "code": "side_compatible",
+      "evidence": {
+        "side": "long"
+      },
+      "message": "side compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_ec81e5b856c36de5904d5743",
+      "severity": "error"
+    },
+    {
+      "code": "mode_compatible",
+      "evidence": {
+        "mode": "research"
+      },
+      "message": "runtime compatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_ec81e5b856c36de5904d5743",
+      "severity": "error"
+    },
+    {
+      "code": "context_fields_present",
+      "evidence": {
+        "missing": []
+      },
+      "message": "required context fields",
+      "passed": true,
+      "rule_definition_id": "ucea_ec81e5b856c36de5904d5743",
+      "severity": "error"
+    },
+    {
+      "code": "no_conflict",
+      "evidence": {
+        "conflicts": []
+      },
+      "message": "atom incompatibility",
+      "passed": true,
+      "rule_definition_id": "ucea_ec81e5b856c36de5904d5743",
+      "severity": "error"
+    },
+    {
+      "code": "ok",
+      "evidence": {
+        "count": 1
+      },
+      "message": "exactly one entry atom is allowed",
+      "passed": true,
+      "rule_definition_id": "ucerule_e7b7a3183a9e57aabe8c7780",
+      "severity": "error"
+    },
+    {
+      "code": "ok",
+      "evidence": {
+        "count": 1
+      },
+      "message": "exactly one sizing atom is allowed",
+      "passed": true,
+      "rule_definition_id": "ucerule_e40a2687cde277ff63d74c2b",
+      "severity": "error"
+    },
+    {
+      "code": "ok",
+      "evidence": {
+        "count": 1
+      },
+      "message": "exactly one stop atom is allowed",
+      "passed": true,
+      "rule_definition_id": "ucerule_b97c2b2ed7f52128d63e50a7",
+      "severity": "error"
+    },
+    {
+      "code": "ok",
+      "evidence": {
+        "count": 1
+      },
+      "message": "exactly one target atom is allowed",
+      "passed": true,
+      "rule_definition_id": "ucerule_c1cde76596f79ed03d0d8f99",
+      "severity": "error"
+    },
+    {
+      "code": "ok",
+      "evidence": {
+        "count": 1
+      },
+      "message": "exactly one trailing atom is allowed",
+      "passed": true,
+      "rule_definition_id": "ucerule_c5d30d710a84e3465f1eaecf",
+      "severity": "error"
+    }
+  ],
+  "compiler_version": "3.1.0",
+  "context_occurrence_id": "ctx_occ_reference_001",
+  "decision_time_ms": 1700000001000,
+  "draft_id": "ucedraft_75299243b30c856117812139",
+  "entry": {
+    "cancel_policy": "cancel_on_context_invalidation",
+    "invocation_id": "ucei_c5a8a024fd23fbdf96c34279",
+    "legs": [
+      {
+        "allocation_fraction": "1",
+        "earliest_time_ms": 1700000001000,
+        "latest_time_ms": 1700000001000,
+        "limit_price": null,
+        "order_type": "market",
+        "trigger_price": "100.02"
+      }
+    ],
+    "metadata": {
+      "executable_side": "ask"
+    }
+  },
+  "feature_frame_hash": "feature_frame_sha256_reference",
+  "intrabar_policy": {
+    "ambiguity": "worst_case",
+    "fidelity": "bar",
+    "gap": "worst_executable",
+    "latency_ms": 0,
+    "max_quote_age_ms": 100000000,
+    "partial_priority": "fifo",
+    "policy_id": "intrabar.canonical",
+    "stale_quote": "reject",
+    "version": "1.0.0"
+  },
+  "management": [
+    {
+      "invocation_id": "ucei_1a481824e5a5186fc2715fe7",
+      "metadata": {},
+      "rules": [
+        {
+          "action_value": null,
+          "activation_value": 14400000,
+          "quantity_fraction": "1",
+          "rule_type": "force_exit_after_ms"
+        }
+      ]
+    }
+  ],
+  "manual_baseline": false,
+  "metadata": {
+    "account_mode": "any",
+    "compiler_mode": "research",
+    "market_mode": "any",
+    "rule_set": [
+      "ucerule_e7b7a3183a9e57aabe8c7780",
+      "ucerule_e40a2687cde277ff63d74c2b",
+      "ucerule_b97c2b2ed7f52128d63e50a7",
+      "ucerule_c1cde76596f79ed03d0d8f99",
+      "ucerule_c5d30d710a84e3465f1eaecf",
+      "ucerule_a2b26ff9f1958ac19870c511"
+    ]
+  },
+  "required_capabilities": [],
+  "selections": [
+    {
+      "alias": "",
+      "exact_key": "entry.immediate_market@1.0.0",
+      "parameters": {
+        "max_age_ms": 2000
+      },
+      "role": "entry"
+    },
+    {
+      "alias": "",
+      "exact_key": "management.max_holding_time@1.0.0",
+      "parameters": {
+        "holding_ms": 14400000
+      },
+      "role": "management"
+    },
+    {
+      "alias": "",
+      "exact_key": "sizing.fixed_cash@1.0.0",
+      "parameters": {
+        "cash_amount": "100"
+      },
+      "role": "sizing"
+    },
+    {
+      "alias": "",
+      "exact_key": "stop.fixed_distance@1.0.0",
+      "parameters": {
+        "distance_points": "100"
+      },
+      "role": "stop"
+    },
+    {
+      "alias": "",
+      "exact_key": "target.fixed_r@1.0.0",
+      "parameters": {
+        "reward_multiple": "2",
+        "risk_points": "100"
+      },
+      "role": "target"
+    },
+    {
+      "alias": "",
+      "exact_key": "trailing.none@1.0.0",
+      "parameters": {},
+      "role": "trailing"
+    }
+  ],
+  "side": "long",
+  "sizing": {
+    "cap_value": "250",
+    "invocation_id": "ucei_27c51538649f6ca4b19afe7b",
+    "metadata": {},
+    "requested_value": "100",
+    "scale_factor": "1",
+    "unit": "cash_risk"
+  },
+  "stop": {
+    "catastrophic_price": null,
+    "distance": "1.00",
+    "invocation_id": "ucei_f67301aec3513879220da1cc",
+    "metadata": {},
+    "stop_price": "99.02",
+    "time_exit_ms": null
+  },
+  "target": {
+    "invocation_id": "ucei_08dac021a9d44b75f5a22a64",
+    "legs": [
+      {
+        "activation_r": null,
+        "is_runner": false,
+        "quantity_fraction": "1",
+        "target_price": "102.02"
+      }
+    ],
+    "metadata": {},
+    "no_fixed_target": false
+  },
+  "trailing": {
+    "activation_r": "0",
+    "cadence_ms": 0,
+    "distance": null,
+    "invocation_id": "ucei_2502e8dfe2058829e1edcbd3",
+    "lock_r": null,
+    "metadata": {},
+    "mode": "none",
+    "reference_field": ""
+  },
+  "treatment_id": "ucet_4f7a239a58444b27bf54dbe7"
+}
