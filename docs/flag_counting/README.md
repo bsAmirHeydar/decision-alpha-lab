@@ -396,7 +396,7 @@ The dedicated lightweight executable tests the corrected F-only setup:
 mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
 ```
 
-A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a strict limit behind the Waist is executable Point 2; Stop is behind the direct parent F1 Waist; Target is the F2 Leg2 endpoint. F2 confirmation is explicitly rejected as an entry trigger because the confirmation re-break is the target event. Hook, Zone, CG, AI, F3, renderer and CSV are excluded from the runtime. The default minimum RR is 1.0; opposite-direction hedge and same-direction independent contexts are enabled by default, with a hard hedging-account boundary for parallel same-symbol positions. Documentation is under `docs/nds_entry_architecture/f2_waist_break_point2_limit/`.
+A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a strict limit behind the Waist is executable Point 2; Stop is behind the direct parent F1 Waist; Target is the F2 Leg2 endpoint. F2 confirmation is explicitly rejected as an entry trigger because the confirmation re-break is the target event. Hook, Zone, CG, AI, F3, renderer and CSV remain excluded from the entry-timeframe runtime. The optional H1 authority filter runs a separate cached canonical F/Hook classification once per new H1 bar. The default minimum RR is 1.0; opposite-direction hedge and same-direction independent contexts are enabled by default, with a hard hedging-account boundary for parallel same-symbol positions. Documentation is under `docs/nds_entry_architecture/f2_waist_break_point2_limit/`.
 
 
 ## F2 v5 — overlap arbitration and RR entry repricing
@@ -404,3 +404,8 @@ A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a st
 The dedicated F2 Waist-Break Point-2 backtest now reprices sub-threshold RR setups by moving only the pending Entry toward the fixed F1-waist Stop, and deduplicates near-identical same-direction contexts using configurable stop-corridor overlap. The default overlap threshold is 80%, with the wider executable corridor selected. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/11_overlap_arbitration_and_rr_entry_repricing.md`.
 
 The profile now also supports two explicit exit modes. Fixed mode attaches TP at the original F2 Leg2. Dynamic F3-retest mode keeps that same F2 Leg2 only as the RR reference, waits for the exact source F2 confirmation node (canonical F3 Leg1), observes a correction, and exits on the retest of that node. The full contract is in `docs/nds_entry_architecture/f2_waist_break_point2_limit/12_dual_exit_fixed_f2_and_f3_flag_retest.md`.
+
+
+## F2 v7 — higher-timeframe canonical F-phase gate
+
+The dedicated F2 Waist-Break Point-2 tester now enables a closed-bar higher-timeframe direction filter by default on H1. The higher-timeframe classifier reuses the canonical F1/F2/F3 and Hook/ND engines, caches its result once per new H1 bar, allows Buy only in bullish F, allows Sell only in bearish F, and blocks both directions in Hook/ND or unresolved context. Misaligned pending orders are cancelled by default; open positions keep their original exit contract. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md`.

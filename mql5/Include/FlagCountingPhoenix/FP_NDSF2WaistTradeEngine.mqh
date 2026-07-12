@@ -11,7 +11,9 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
                                                   const FP_FlagEvent &events[],
                                                   const int event_count,
                                                   const double epsilon_points,
-                                                  const FP_NDSF2WaistTradeConfig &cfg)
+                                                  const FP_NDSF2WaistTradeConfig &cfg,
+                                                  const bool entry_direction_gate_open,
+                                                  const int allowed_entry_direction)
 {
    if(!cfg.enabled) return FP_NDS_F2_RUN_IDLE;
 
@@ -41,6 +43,18 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
    {
       int f1_index = f1_indices[i];
       int f2_index = f2_indices[i];
+      if(!entry_direction_gate_open)
+      {
+         blocked_count++;
+         continue;
+      }
+      if(f2_index >= 0 && f2_index < event_count &&
+         allowed_entry_direction != FP_DIR_NONE &&
+         events[f2_index].direction != allowed_entry_direction)
+      {
+         blocked_count++;
+         continue;
+      }
       if(f1_index < 0 || f1_index >= event_count ||
          f2_index < 0 || f2_index >= event_count)
       {

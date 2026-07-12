@@ -477,6 +477,47 @@ bool FP_NDSF2ExposurePolicyAllowsAfterReplacement(const string symbol,
    return true;
 }
 
+int FP_NDSF2CancelPendingOrdersOutsideDirection(const string symbol,
+                                                const FP_NDSF2WaistTradeConfig &cfg,
+                                                const bool gate_open,
+                                                const int allowed_direction,
+                                                int &error_count)
+{
+   error_count = 0;
+   ulong tickets[];
+   ArrayResize(tickets, 0);
+
+   for(int i=OrdersTotal()-1; i>=0; i--)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0) continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+
+      int direction = FP_NDSF2OrderDirection(
+         (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE));
+      bool disallowed = (!gate_open || allowed_direction == FP_DIR_NONE ||
+                         direction != allowed_direction);
+      if(!disallowed) continue;
+
+      int n = ArraySize(tickets);
+      if(ArrayResize(tickets, n + 1) != n + 1)
+      {
+         error_count++;
+         break;
+      }
+      tickets[n] = ticket;
+   }
+
+   int cancelled = 0;
+   for(int i=0; i<ArraySize(tickets); i++)
+   {
+      if(FP_NDSF2DeletePendingOrder(cfg, tickets[i])) cancelled++;
+      else error_count++;
+   }
+   return cancelled;
+}
+
 int FP_NDSF2CancelConsumedPendingOrders(const string symbol,
                                         const ENUM_TIMEFRAMES period,
                                         const FP_NDSF2WaistTradeConfig &cfg,

@@ -4,7 +4,7 @@
 
 Canonical execution contract for the dedicated lightweight Strategy Tester profile.
 
-The setup now has two explicit exit modes: fixed F2 flag-end TP and dynamic F3 flag-retest TP.
+The setup has two explicit exit modes and an optional canonical higher-timeframe F-phase direction filter. The filter is enabled by default on H1.
 
 ## Core sentence
 
@@ -25,3 +25,4 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 11. [Overlap arbitration and RR entry repricing](11_overlap_arbitration_and_rr_entry_repricing.md)
 
 12. [Dual exit contract: fixed F2 end or F3 flag retest](12_dual_exit_fixed_f2_and_f3_flag_retest.md)
+13. [Higher-timeframe F-phase direction filter](13_higher_timeframe_f_phase_direction_filter.md)

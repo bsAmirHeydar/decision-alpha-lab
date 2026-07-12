@@ -29,6 +29,9 @@ InpF2BTStopSpaceOverlapThresholdPercent = 80.0
 InpF2BTAllowOppositeDirectionHedge = true
 InpF2BTAllowSameDirectionMultipleContexts = true
 InpF2BTMaxConcurrentManagedExposures = 0
+InpF2BTUseHigherTimeframeFPhaseFilter = true
+InpF2BTHigherTimeframe = PERIOD_H1
+InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
 InpF2BTFixedVolume = 0.01
 ```
 
@@ -68,3 +71,9 @@ Use an MT5 hedging account in Strategy Tester when testing simultaneous same-sym
 `FP_NDS_F2_EXIT_FIXED_F2_FLAG_END` attaches the original F2 Leg2 as broker TP immediately.
 
 `FP_NDS_F2_EXIT_F3_FLAG_RETEST` sends the order with no TP, preserves the original F2 Leg2 only for RR, captures the exact F2-confirm/F3-Leg1 node, waits for correction, then arms TP at that node for the retest.
+
+## Higher-timeframe filter interpretation
+
+The default `PERIOD_H1` filter allows only Buy setups during a bullish canonical H1 F phase and only Sell setups during a bearish canonical H1 F phase. If the latest H1 context is Hook/ND or cannot be resolved, the expert sends no new order.
+
+The H1 snapshot uses closed bars and is recalculated only on a new H1 bar. This keeps the lower-timeframe tester fast. The filter may cancel a misaligned pending order, but it does not close an existing position.

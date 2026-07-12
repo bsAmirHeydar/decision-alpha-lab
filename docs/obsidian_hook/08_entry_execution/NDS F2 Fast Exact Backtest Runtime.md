@@ -28,7 +28,8 @@ Freshness is measured from the exact bar where the F2 Leg2 node becomes observab
 
 ## Performance boundary
 
-- no Hook branch construction;
+- no Hook branch construction on the entry timeframe;
+- optional HTF authority filter runs a cached canonical F/Hook pass only on new HTF bars;
 - F3 disabled;
 - no global ownership/canonical-render finalization;
 - no renderer, CSV, timer, custom Print, timing statistics, terminal Global Variable registry or global mutex;

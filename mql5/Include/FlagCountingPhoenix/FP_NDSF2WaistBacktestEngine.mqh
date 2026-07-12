@@ -7,6 +7,7 @@
 #include "FP_NDSF2FastDetector.mqh"
 #include "FP_NDSF2WaistTradeEngine.mqh"
 #include "FP_NDSF2WaistBacktestTypes.mqh"
+#include "FP_NDSF2HigherTimeframePhaseFilter.mqh"
 
 void FP_NDSF2BacktestApplyProfile(FP_NDSBacktestRuntimeConfig &cfg)
 {
@@ -64,32 +65,78 @@ int FP_NDSF2BacktestBuildScales(const FP_NDSBacktestRuntimeConfig &cfg,
                             scales);
 }
 
-FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
-                                                      const ENUM_TIMEFRAMES period,
-                                                      const FP_NDSBacktestRuntimeConfig &runtime_cfg,
-                                                      const FP_Config &detector_cfg,
-                                                      const FP_NDSF2WaistTradeConfig &trade_cfg)
+FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
+   const string symbol,
+   const ENUM_TIMEFRAMES period,
+   const FP_NDSBacktestRuntimeConfig &runtime_cfg,
+   const FP_Config &detector_cfg,
+   const FP_NDSF2WaistTradeConfig &trade_cfg,
+   const FP_NDSF2HigherTimeframePhaseConfig &htf_cfg,
+   FP_NDSF2HigherTimeframePhaseSnapshot &htf_snapshot)
 {
-   int cancel_errors = 0;
-   int cancelled = 0;
-   if(trade_cfg.cancel_pending_if_target_touched_before_fill)
-      cancelled = FP_NDSF2CancelConsumedPendingOrders(symbol, period,
-                                                       trade_cfg, cancel_errors);
+   // Higher-timeframe context is cached by its current open-bar timestamp. The
+   // expensive canonical F/Hook pass therefore runs only once per new HTF bar,
+   // while the lower-timeframe detector remains once per lower-timeframe bar.
+   FP_NDSF2RefreshHigherTimeframePhase(symbol, htf_cfg, htf_snapshot);
 
+   bool entry_gate_open = (!htf_cfg.enabled || htf_snapshot.gate_open);
+   int allowed_entry_direction =
+      (!htf_cfg.enabled ? FP_DIR_NONE : htf_snapshot.allowed_direction);
+
+   int phase_cancel_errors = 0;
+   int phase_cancelled = 0;
+   if(htf_cfg.enabled && htf_cfg.cancel_disallowed_pending_orders)
+   {
+      phase_cancelled = FP_NDSF2CancelPendingOrdersOutsideDirection(
+         symbol,
+         trade_cfg,
+         entry_gate_open,
+         allowed_entry_direction,
+         phase_cancel_errors);
+   }
+
+   int target_cancel_errors = 0;
+   int target_cancelled = 0;
+   if(trade_cfg.cancel_pending_if_target_touched_before_fill)
+      target_cancelled = FP_NDSF2CancelConsumedPendingOrders(symbol, period,
+                                                              trade_cfg,
+                                                              target_cancel_errors);
+
+   int cancel_errors = phase_cancel_errors + target_cancel_errors;
    int active_orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
    int active_positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
    int active_total = active_orders + active_positions;
 
+   // A blocked HTF gate does not close live positions. It only prevents new
+   // entries and, when enabled, removes still-unfilled pending orders. Dynamic
+   // F3-retest positions still require the lower-timeframe F2 event stream to
+   // discover their confirmation node, so only that case continues to detector.
+   bool needs_dynamic_exit_detection =
+      (active_positions > 0 &&
+       trade_cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
+
+   if(!entry_gate_open && !needs_dynamic_exit_detection)
+   {
+      if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
+      if(phase_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER;
+      if(target_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+      if(active_orders > 0) return FP_NDS_F2_RUN_PENDING_HELD;
+      if(active_positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
+      return FP_NDS_F2_RUN_BLOCKED;
+   }
+
    // Preserve the ultra-light hold path whenever no additional context can be
    // admitted. One exception is a still-pending order: overlap arbitration may
-   // need the detector to discover a wider replacement. Open positions are never
-   // closed merely to replace them with a wider context.
+   // need the detector to discover a wider replacement. Open dynamic-exit
+   // positions also continue to receive the F2 confirmation stream.
    bool pending_replacement_scan =
       (trade_cfg.use_stop_space_overlap_deduplication &&
-       active_orders > 0 && active_positions == 0);
+       active_orders > 0 && active_positions == 0 && entry_gate_open);
 
    bool hard_parallel_block = false;
-   if(active_total > 0 && !pending_replacement_scan)
+   if(active_total > 0 && !pending_replacement_scan && !needs_dynamic_exit_detection)
    {
       if(!FP_NDSF2AccountSupportsIndependentContexts()) hard_parallel_block = true;
       if(trade_cfg.max_concurrent_managed_exposures > 0 &&
@@ -102,15 +149,14 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
    if(hard_parallel_block)
    {
       if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
-      if(cancelled > 0) return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+      if(phase_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER;
+      if(target_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
       if(active_orders > 0) return FP_NDS_F2_RUN_PENDING_HELD;
       if(active_positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
    }
 
-   // Parallel same-direction contexts and opposite-direction hedge contexts can
-   // be created while existing orders/positions are active. Therefore the fast
-   // F1/F2 detector still runs once per closed bar only when policy/account mode
-   // can admit another context. Heavy Hook/F3/visual branches remain absent.
    FP_TimebaseConfig timebase_cfg;
    FP_DefaultTimebaseConfig(timebase_cfg);
    timebase_cfg.symbol = symbol;
@@ -130,7 +176,10 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
       copied < runtime_cfg.min_closed_bars)
    {
       if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
-      if(cancelled > 0) return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+      if(phase_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER;
+      if(target_cancelled > 0)
+         return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
       int orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
       int positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
       if(orders > 0) return FP_NDS_F2_RUN_PENDING_HELD;
@@ -146,11 +195,17 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
    int event_count = FP_DetectF2ExecutionScales(rates, copied,
                                                 scales, scale_count,
                                                 detector_cfg, events);
-   FP_NDSF2WaistRunResult result = FP_RunNDSF2WaistTradeCore(symbol, period,
-                                                             rates, copied,
-                                                             events, event_count,
-                                                             detector_cfg.boundary_epsilon_points,
-                                                             trade_cfg);
+   FP_NDSF2WaistRunResult result = FP_RunNDSF2WaistTradeCore(
+      symbol,
+      period,
+      rates,
+      copied,
+      events,
+      event_count,
+      detector_cfg.boundary_epsilon_points,
+      trade_cfg,
+      entry_gate_open,
+      allowed_entry_direction);
 
    // The new-bar detector may have just exposed the F2 confirmation node. Run
    // the lightweight tick manager once immediately so the dynamic F3 TP can be
@@ -159,7 +214,9 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
 
    if(result == FP_NDS_F2_RUN_IDLE && cancel_errors > 0)
       return FP_NDS_F2_RUN_ERROR;
-   if(result == FP_NDS_F2_RUN_IDLE && cancelled > 0)
+   if(result == FP_NDS_F2_RUN_IDLE && phase_cancelled > 0)
+      return FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER;
+   if(result == FP_NDS_F2_RUN_IDLE && target_cancelled > 0)
       return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
    return result;
 }

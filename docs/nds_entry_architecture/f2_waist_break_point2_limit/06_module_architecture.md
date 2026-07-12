@@ -30,7 +30,8 @@ NDSF2WaistLimitBacktest.mq5
 - canonical rates and nodes;
 - F1 lifecycle;
 - F2 body and lifecycle;
-- no Hook construction;
+- no Hook construction in the entry-timeframe detector;
+- optional HTF filter uses a separate cached canonical F/Hook classifier;
 - no F3;
 - no renderer or canonical visual ownership.
 

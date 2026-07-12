@@ -1,12 +1,14 @@
 #property strict
-#property version   "1.50"
-#property description "NDS F2 Point-2 backtest with fixed F2-end or dynamic F3-flag-retest exit modes."
+#property version   "1.60"
+#property description "NDS F2 Point-2 backtest with dual exit and canonical higher-timeframe F-phase direction filter."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
 // Dedicated execution-only tester.
 // Loaded path: canonical rates -> canonical nodes -> F1 -> F2 body -> order.
-// Not loaded: Hook setup, Zone, CG, AI, F3, renderer, CSV, timer or custom prints.
+// Entry-timeframe runtime does not load Hook setup, Zone, CG, AI, F3, renderer,
+// CSV, timer or custom prints. The optional HTF gate runs a cached canonical
+// F/Hook phase classification only once per new higher-timeframe bar.
 
 input FP_NDSBacktestProfile InpF2BTProfile = FP_NDS_BACKTEST_PROFILE_FAST;
 input bool InpF2BTAllowNonTesterDryRun = false;
@@ -73,6 +75,13 @@ input bool InpF2BTAllowOppositeDirectionHedge = true;
 input bool InpF2BTAllowSameDirectionMultipleContexts = true;
 input int  InpF2BTMaxConcurrentManagedExposures = 0; // 0 = unlimited.
 
+// Higher-timeframe canonical context filter. The current higher timeframe must
+// be in an F phase, not Hook/ND. Bullish F allows only Buy setups; bearish F
+// allows only Sell setups. Closed higher-timeframe bars are used.
+input bool            InpF2BTUseHigherTimeframeFPhaseFilter = true;
+input ENUM_TIMEFRAMES InpF2BTHigherTimeframe = PERIOD_H1;
+input bool            InpF2BTCancelPendingWhenHigherTimeframeDisallows = true;
+
 input FP_NDSHookTradeSizingMode InpF2BTSizingMode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
 input double InpF2BTFixedVolume = 0.01;
 input double InpF2BTRiskCash = 100.0;
@@ -86,6 +95,8 @@ static datetime g_f2_bt_last_open_bar = 0;
 static FP_NDSBacktestRuntimeConfig g_f2_bt_runtime_cfg;
 static FP_Config g_f2_bt_detector_cfg;
 static FP_NDSF2WaistTradeConfig g_f2_bt_trade_cfg;
+static FP_NDSF2HigherTimeframePhaseConfig g_f2_bt_htf_cfg;
+static FP_NDSF2HigherTimeframePhaseSnapshot g_f2_bt_htf_snapshot;
 
 bool FP_NDSF2BTIsTesterRuntime()
 {
@@ -158,8 +169,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v6";
-   cfg.identity_config_hash = "f2_wb2_v6";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v7";
+   cfg.identity_config_hash = "f2_wb2_v7";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -223,12 +234,27 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.comment_prefix = InpF2BTCommentPrefix;
 }
 
+void FP_LoadNDSF2HigherTimeframePhaseConfig(FP_NDSF2HigherTimeframePhaseConfig &cfg)
+{
+   FP_ResetNDSF2HigherTimeframePhaseConfig(cfg);
+   cfg.enabled = InpF2BTUseHigherTimeframeFPhaseFilter;
+   cfg.timeframe = InpF2BTHigherTimeframe;
+   cfg.cancel_disallowed_pending_orders =
+      InpF2BTCancelPendingWhenHigherTimeframeDisallows;
+   cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
+   cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
+   cfg.nd_min_retrace_ratio = InpF2BTNDMinRetraceRatio;
+   cfg.nd_allow_below_half_cycle = InpF2BTNDAllowBelowHalfCycle;
+}
+
 void FP_NDSF2BTRunOnce()
 {
    FP_RunNDSF2WaistBacktestCycle(_Symbol, _Period,
                                  g_f2_bt_runtime_cfg,
                                  g_f2_bt_detector_cfg,
-                                 g_f2_bt_trade_cfg);
+                                 g_f2_bt_trade_cfg,
+                                 g_f2_bt_htf_cfg,
+                                 g_f2_bt_htf_snapshot);
 }
 
 int OnInit()
@@ -239,6 +265,8 @@ int OnInit()
    FP_LoadNDSF2BacktestRuntimeConfig(g_f2_bt_runtime_cfg);
    FP_LoadNDSF2DetectorConfig(g_f2_bt_runtime_cfg, g_f2_bt_detector_cfg);
    FP_LoadNDSF2TradeConfig(g_f2_bt_trade_cfg);
+   FP_LoadNDSF2HigherTimeframePhaseConfig(g_f2_bt_htf_cfg);
+   FP_ResetNDSF2HigherTimeframePhaseSnapshot(g_f2_bt_htf_snapshot);
    if(g_f2_bt_trade_cfg.reset_used_setups_on_init)
       FP_NDSF2ResetUsedSetups();
 

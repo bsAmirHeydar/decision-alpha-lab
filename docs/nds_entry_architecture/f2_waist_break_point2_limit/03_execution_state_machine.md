@@ -3,6 +3,9 @@
 ```text
 IDLE / PORTFOLIO_ACTIVE
   │
+  ├─ HTF phase is Hook/ND, ambiguous or unavailable → no new order
+  ├─ HTF bullish F + Sell candidate → no new order
+  ├─ HTF bearish F + Buy candidate → no new order
   ├─ no complete F2 body → no new order
   ├─ no confirmed direct parent F1 → no new order
   ├─ stale or previously used F2 context → no new order
@@ -87,3 +90,16 @@ At or above the configured threshold, only the wider same-direction corridor is 
 ## Dual-exit invariant
 
 The RR gate and RR-based Entry repricing always use the original F2 Leg2 endpoint. Dynamic F3 exit does not use future target information at setup time.
+
+## Higher-timeframe phase transition
+
+```text
+NEW HTF BAR
+  → rebuild cached canonical HTF F/Hook snapshot
+  → F bullish: keep Buy pending, cancel Sell pending
+  → F bearish: keep Sell pending, cancel Buy pending
+  → Hook/ND/unresolved: cancel all managed pending
+  → never force-close an already-filled position
+```
+
+The HTF gate is evaluated before RR repricing, overlap arbitration and context-concurrency policy.

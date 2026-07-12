@@ -114,7 +114,19 @@ F2 confirmation is not the entry trigger.
 
 In the waist-break branch, F2 confirms only after Point 2 exists and price later re-breaks the F2 Leg2 endpoint. That endpoint is this setup's target. Waiting for confirmed F2 would therefore arm the trade after the target had already been reached.
 
-## 8. Non-goals
+## 8. Higher-timeframe directional authorization
+
+By default, a new lower-timeframe setup must agree with the current canonical H1 F phase:
+
+```text
+H1 bullish F → Buy setups only
+H1 bearish F → Sell setups only
+H1 Hook/ND, ambiguous or unavailable → no new setup
+```
+
+This gate uses closed H1 bars and the canonical Phoenix F/Hook architecture. It does not alter the structural Entry, Stop, Target, RR or overlap formulas. It is entry authorization only. Managed pending orders that cease to match the gate are cancelled by default; open positions remain under their original exit contract.
+
+## 9. Non-goals
 
 This setup does not:
 
@@ -124,7 +136,7 @@ This setup does not:
 - use an AI score;
 - chase a missed entry with a market order.
 
-## 9. Relation to existing Canon
+## 10. Relation to existing Canon
 
 This setup reuses the already documented F2 waist-break grammar:
 
