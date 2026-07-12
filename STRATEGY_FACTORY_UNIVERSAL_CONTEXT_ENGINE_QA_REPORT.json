@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": {
+    "markdown_files": 90,
+    "total_approximate_words": 18008,
+    "master_moc_present": true,
+    "algorithm_deep_dives": 14,
+    "roadmap_phase_packets": 16,
+    "templates": 8,
+    "adrs": 7,
+    "broken_wikilinks": [],
+    "machine_readable_program": true,
+    "algorithm_catalog": true,
+    "policy_catalog": true,
+    "test_gate_matrix": true,
+    "live_authority_added": false
+  }
+}
