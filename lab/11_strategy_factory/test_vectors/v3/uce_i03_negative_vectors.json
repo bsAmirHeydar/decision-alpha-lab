@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "atom": "stop.fixed_distance@1.0.0",
+      "case_id": "unknown_parameter",
+      "expected_error": "unknown_parameter",
+      "parameters": {
+        "unknown": 1
+      }
+    },
+    {
+      "atom": "stop.fixed_distance@1.0.0",
+      "case_id": "zero_stop",
+      "expected_error": "below_minimum",
+      "parameters": {
+        "distance_points": 0
+      }
+    },
+    {
+      "atom": "entry.immediate_market@9.9.9",
+      "case_id": "missing_exact_version",
+      "expected_error": "exact_version_missing"
+    },
+    {
+      "ask": "100",
+      "bid": "101",
+      "case_id": "crossed_quote",
+      "expected_error": "crossed_quote"
+    },
+    {
+      "case_id": "invalid_target_side",
+      "expected_error": "invalid_target_side"
+    },
+    {
+      "case_id": "registry_mutation_after_freeze",
+      "expected_error": "registry_frozen"
+    }
+  ],
+  "phase": "UCE-I03"
+}

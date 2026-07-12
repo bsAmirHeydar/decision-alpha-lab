@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/entry_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cancel_policy": {
+      "type": "string"
+    },
+    "invocation_id": {
+      "type": "string"
+    },
+    "legs": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "legs",
+    "cancel_policy"
+  ],
+  "title": "Entry Plan",
+  "type": "object"
+}

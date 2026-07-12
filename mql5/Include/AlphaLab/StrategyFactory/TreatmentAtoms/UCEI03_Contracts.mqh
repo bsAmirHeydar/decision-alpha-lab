@@ -1,0 +1,26 @@
+#ifndef __UCEI03_CONTRACTS_MQH__
+#define __UCEI03_CONTRACTS_MQH__
+#include "../Contracts/UCE03_AllContracts.mqh"
+#include "UCEI03_Enums.mqh"
+struct UCEI03_ParameterSpec{string name;ENUM_UCEI03_PARAM_TYPE type;string default_value;string minimum_value;string maximum_value;string allowed_values_csv;string units;bool identity_affecting;string monotonic_direction;string description;};
+struct UCEI03_AtomCompatibility{int side_mask;int runtime_mode_mask;string required_context_fields_csv;string incompatible_atom_ids_csv;string tags_csv;};
+struct UCEI03_AtomDescriptor{string atom_id;string version;ENUM_UCEI03_ATOM_KIND kind;string family;string owner_id;string implementation_id;UCEI03_AtomCompatibility compatibility;UCEI03_ParameterSpec parameters[];string description;string definition_id;string evidence_hash;};
+struct UCEI03_ParameterValue{string name;string value;};
+struct UCEI03_ParameterPacket{string schema_definition_id;UCEI03_ParameterValue values[];string packet_id;string evidence_hash;};
+struct UCEI03_Invocation{string descriptor_definition_id;string exact_key;string context_occurrence_id;string feature_frame_hash;ENUM_UCEI03_SIDE side;long decision_time_ms;UCEI03_ParameterPacket parameters;string provenance_json;string invocation_id;string evidence_hash;};
+struct UCEI03_PriceEnvironment{double bid;double ask;double point;double tick_size;int digits;long quote_time_ms;int stops_level_points;int freeze_level_points;};
+struct UCEI03_BuildContext{string context_occurrence_id;string feature_frame_hash;ENUM_UCEI03_SIDE side;int runtime_mode;long known_time_ms;long decision_time_ms;UCEI03_PriceEnvironment price;double reference_price;double atr;double structural_stop;double structural_target;double signal_high;double signal_low;double context_high;double context_low;double swing_high;double swing_low;double confirmation_price;double retest_price;double account_equity;double cash_risk_budget;double portfolio_budget;double confidence;double expected_payoff;double drawdown_fraction;double realized_volatility;long session_close_ms;string tags_json;};
+struct UCEI03_EntryLeg{ENUM_UCEI03_ORDER_TYPE order_type;double trigger_price;double limit_price;double allocation_fraction;long earliest_time_ms;long latest_time_ms;};
+struct UCEI03_EntryPlan{string invocation_id;UCEI03_EntryLeg legs[];string cancel_policy;string metadata_json;string plan_id;};
+struct UCEI03_StopPlan{string invocation_id;bool has_price_stop;double stop_price;double distance;bool has_time_exit;long time_exit_ms;bool has_catastrophic;double catastrophic_price;string metadata_json;string plan_id;};
+struct UCEI03_TargetLeg{bool has_target_price;double target_price;double quantity_fraction;double activation_r;bool is_runner;};
+struct UCEI03_TargetPlan{string invocation_id;UCEI03_TargetLeg legs[];bool no_fixed_target;string metadata_json;string plan_id;};
+struct UCEI03_TrailingPlan{string invocation_id;string mode;double activation_r;double distance;double lock_r;long cadence_ms;string reference_field;string metadata_json;string plan_id;};
+struct UCEI03_ManagementRule{string rule_type;string activation_value;double quantity_fraction;string action_value;};
+struct UCEI03_ManagementPlan{string invocation_id;UCEI03_ManagementRule rules[];string metadata_json;string plan_id;};
+struct UCEI03_SizingPlan{string invocation_id;string unit;double requested_value;double cap_value;double scale_factor;string metadata_json;string plan_id;};
+bool UCEI03_ValidatePriceEnvironment(const UCEI03_PriceEnvironment &p,string &error){if(p.bid<=0.0||p.ask<=0.0||p.ask<p.bid){error="invalid executable quote";return false;}if(p.point<=0.0||p.tick_size<=0.0){error="invalid point or tick size";return false;}error="";return true;}
+bool UCEI03_ValidateDescriptor(const UCEI03_AtomDescriptor &d,string &error){if(!UCE03_IsSafeIdentifier(d.atom_id)||!UCE03_IsSafeIdentifier(d.version)||!UCE03_IsSafeIdentifier(d.family)||!UCE03_IsSafeIdentifier(d.owner_id)||!UCE03_IsSafeIdentifier(d.implementation_id)){error="unsafe descriptor identifier";return false;}if(d.compatibility.side_mask==0||d.compatibility.runtime_mode_mask==0){error="empty compatibility mask";return false;}for(int i=0;i<ArraySize(d.parameters);i++){if(!UCE03_IsSafeIdentifier(d.parameters[i].name)||!d.parameters[i].identity_affecting){error="invalid or non-identity parameter";return false;}for(int j=i+1;j<ArraySize(d.parameters);j++)if(d.parameters[i].name==d.parameters[j].name){error="duplicate parameter name";return false;}}error="";return true;}
+string UCEI03_DescriptorMaterial(const UCEI03_AtomDescriptor &d){CUCE03CanonicalObject o;o.AddString("atom_id",d.atom_id);o.AddString("family",d.family);o.AddString("implementation_id",d.implementation_id);o.AddString("kind",UCEI03_KindName(d.kind));o.AddString("owner_id",d.owner_id);o.AddLong("parameter_count",ArraySize(d.parameters));o.AddString("required_context_fields_csv",d.compatibility.required_context_fields_csv);o.AddLong("runtime_mode_mask",d.compatibility.runtime_mode_mask);o.AddLong("side_mask",d.compatibility.side_mask);o.AddString("version",d.version);return o.Serialize();}
+void UCEI03_SealDescriptor(UCEI03_AtomDescriptor &d){string material=UCEI03_DescriptorMaterial(d);d.definition_id="ucea_"+UCE03_Fnv1a64HexUtf8(material);d.evidence_hash="fnv1a64:"+UCE03_Fnv1a64HexUtf8(material);}
+#endif

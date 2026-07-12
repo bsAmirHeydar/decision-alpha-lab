@@ -10,13 +10,13 @@ last_updated: 2026-07-12
 
 - [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/00_IMPLEMENTATION_PROGRAM_MOC|UCEE Detailed Implementation Program]]
 - [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i01/00_UCE_I01_MOC|UCE-I01 — Canonical Contracts and Identity Kernel]]
+- [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i02/00_UCE_I02_MOC|UCE-I02 — Context Package SDK and Reference Contexts]]
+- [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i03/00_UCE_I03_DELIVERY_MOC|UCE-I03 — Treatment Atom Registries]]
 
 ## Current Phase State
 
-UCE-I01 provides contract release 3.0, canonical identities, known-time causality, exact schemas, explicit migrations, component capabilities, compatibility admission, SF01 bridging, Python/MQL5 conformance vectors, executable tests, and the handoff to UCE-I02.
+UCE-I03 provides 50 exact-version entry, stop, target, trailing, management, and preliminary sizing atoms; immutable invocation and plan contracts; side-aware executable quote semantics; frozen registries; manual/AI parity; conformance vectors; Python/MQL5 SDKs; and the handoff to complete-treatment compilation.
 
 ## Next Phase
 
-- [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I02_CONTEXT_PACKAGE_SDK_AND_REFERENCE_CONTEXTS|UCE-I02 — Context Package SDK and Reference Contexts]]
-
-- [[../../strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i02/00_UCE_I02_MOC|UCE-I02 Context Package SDK]]
+- [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I04_COMPLETE_TREATMENT_COMPILER_AND_PATH_STATE_MACHINE|UCE-I04 — Complete Treatment Compiler and Causal Trade Path State Machine]]

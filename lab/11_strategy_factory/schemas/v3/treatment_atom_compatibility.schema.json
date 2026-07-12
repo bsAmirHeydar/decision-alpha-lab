@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/treatment_atom_compatibility.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "incompatible_atom_ids": {
+      "type": "array"
+    },
+    "required_context_fields": {
+      "type": "array"
+    },
+    "supported_modes": {
+      "type": "array"
+    },
+    "supported_sides": {
+      "type": "array"
+    },
+    "tags": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "supported_sides",
+    "supported_modes",
+    "required_context_fields"
+  ],
+  "title": "Treatment Atom Compatibility",
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+from enum import Enum
+class TreatmentKind(str,Enum): ENTRY='entry'; STOP='stop'; TARGET='target'; TRAILING='trailing'; MANAGEMENT='management'; SIZING='sizing'
+class TradeSide(str,Enum): LONG='long'; SHORT='short'
+class RuntimeMode(str,Enum): RESEARCH='research'; TESTER='tester'; PAPER='paper'; SHADOW='shadow'; LIVE='live'
+class AtomOwner(str,Enum): CORE='core'; PERSONAL='personal'; AI_SEARCH='ai_search'; CONTEXT='context'
+class ParameterType(str,Enum): DECIMAL='decimal'; INTEGER='integer'; BOOLEAN='boolean'; STRING='string'; ENUM='enum'
+class EntryOrderType(str,Enum): MARKET='market'; LIMIT='limit'; STOP='stop'; STOP_LIMIT='stop_limit'; NONE='none'
+class PriceRole(str,Enum): ENTRY='entry'; STOP='stop'; TARGET='target'; TRAIL='trail'
+class SizingUnit(str,Enum): CASH_RISK='cash_risk'; EQUITY_FRACTION='equity_fraction'; VOLUME='volume'; NORMALIZED_BUDGET='normalized_budget'
+class MonotonicDirection(str,Enum): NONE='none'; INCREASING='increasing'; DECREASING='decreasing'

@@ -1,0 +1,22 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/stop_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catastrophic_price": {},
+    "distance": {},
+    "invocation_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "stop_price": {},
+    "time_exit_ms": {}
+  },
+  "required": [
+    "invocation_id"
+  ],
+  "title": "Stop Plan",
+  "type": "object"
+}

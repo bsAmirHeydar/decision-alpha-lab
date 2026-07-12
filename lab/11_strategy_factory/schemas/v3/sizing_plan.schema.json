@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/sizing_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cap_value": {},
+    "invocation_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "requested_value": {},
+    "scale_factor": {},
+    "unit": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "unit",
+    "requested_value",
+    "scale_factor"
+  ],
+  "title": "Sizing Plan",
+  "type": "object"
+}

@@ -1,0 +1,320 @@
+{
+  "atom_count": 50,
+  "cases": [
+    {
+      "atom_exact_key": "entry.immediate_market@1.0.0",
+      "case_id": "long.market",
+      "expected": {
+        "cancel_policy": "cancel_on_context_invalidation",
+        "invocation_id": "ucei_2671c08344ddd85455f0930b",
+        "legs": [
+          {
+            "allocation_fraction": "1",
+            "earliest_time_ms": 1700000001000,
+            "latest_time_ms": 1700000001000,
+            "limit_price": null,
+            "order_type": "market",
+            "trigger_price": "100.02"
+          }
+        ],
+        "metadata": {
+          "executable_side": "ask"
+        }
+      },
+      "invocation_id": "ucei_2671c08344ddd85455f0930b",
+      "parameters": {},
+      "plan_id": "uceep_ce9defa6639ace7de6b77eda",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "entry.immediate_market@1.0.0",
+      "case_id": "short.market",
+      "expected": {
+        "cancel_policy": "cancel_on_context_invalidation",
+        "invocation_id": "ucei_7ddc1bff9bb3887a4245868e",
+        "legs": [
+          {
+            "allocation_fraction": "1",
+            "earliest_time_ms": 1700000001000,
+            "latest_time_ms": 1700000001000,
+            "limit_price": null,
+            "order_type": "market",
+            "trigger_price": "100"
+          }
+        ],
+        "metadata": {
+          "executable_side": "bid"
+        }
+      },
+      "invocation_id": "ucei_7ddc1bff9bb3887a4245868e",
+      "parameters": {},
+      "plan_id": "uceep_7695f4d46cbf5fc8ef576dac",
+      "side": "short"
+    },
+    {
+      "atom_exact_key": "entry.passive_limit@1.0.0",
+      "case_id": "long.passive10",
+      "expected": {
+        "cancel_policy": "cancel_on_context_invalidation",
+        "invocation_id": "ucei_eb015af2b289a4578686dda9",
+        "legs": [
+          {
+            "allocation_fraction": "1",
+            "earliest_time_ms": 1700000001000,
+            "latest_time_ms": 1700000301000,
+            "limit_price": "99.92",
+            "order_type": "limit",
+            "trigger_price": "99.92"
+          }
+        ],
+        "metadata": {}
+      },
+      "invocation_id": "ucei_eb015af2b289a4578686dda9",
+      "parameters": {
+        "offset_points": "10"
+      },
+      "plan_id": "uceep_f1b6aaf8db81ffa242635d78",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "entry.passive_limit@1.0.0",
+      "case_id": "short.passive10",
+      "expected": {
+        "cancel_policy": "cancel_on_context_invalidation",
+        "invocation_id": "ucei_77b463cdd9b2d182bf9cf0c6",
+        "legs": [
+          {
+            "allocation_fraction": "1",
+            "earliest_time_ms": 1700000001000,
+            "latest_time_ms": 1700000301000,
+            "limit_price": "100.1",
+            "order_type": "limit",
+            "trigger_price": "100.1"
+          }
+        ],
+        "metadata": {}
+      },
+      "invocation_id": "ucei_77b463cdd9b2d182bf9cf0c6",
+      "parameters": {
+        "offset_points": "10"
+      },
+      "plan_id": "uceep_d3ed51fbd367c5af5fbad18d",
+      "side": "short"
+    },
+    {
+      "atom_exact_key": "stop.fixed_distance@1.0.0",
+      "case_id": "long.stop20",
+      "expected": {
+        "catastrophic_price": null,
+        "distance": "0.2",
+        "invocation_id": "ucei_05146f76428339cb7205b577",
+        "metadata": {},
+        "stop_price": "99.82",
+        "time_exit_ms": null
+      },
+      "invocation_id": "ucei_05146f76428339cb7205b577",
+      "parameters": {
+        "distance_points": "20"
+      },
+      "plan_id": "ucesp_226726d9600b17dbcc6facff",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "stop.fixed_distance@1.0.0",
+      "case_id": "short.stop20",
+      "expected": {
+        "catastrophic_price": null,
+        "distance": "0.2",
+        "invocation_id": "ucei_85e80da2c2d49d5f33ea8957",
+        "metadata": {},
+        "stop_price": "100.2",
+        "time_exit_ms": null
+      },
+      "invocation_id": "ucei_85e80da2c2d49d5f33ea8957",
+      "parameters": {
+        "distance_points": "20"
+      },
+      "plan_id": "ucesp_5a37f9f16188e5a4c6cf0ad6",
+      "side": "short"
+    },
+    {
+      "atom_exact_key": "stop.fixed_distance@1.0.0",
+      "case_id": "long.stop200",
+      "expected": {
+        "catastrophic_price": null,
+        "distance": "2",
+        "invocation_id": "ucei_471f606c8502dfe940c9fe99",
+        "metadata": {},
+        "stop_price": "98.02",
+        "time_exit_ms": null
+      },
+      "invocation_id": "ucei_471f606c8502dfe940c9fe99",
+      "parameters": {
+        "distance_points": "200"
+      },
+      "plan_id": "ucesp_960acb7af15cb864a9dd3ff9",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "stop.fixed_distance@1.0.0",
+      "case_id": "short.stop200",
+      "expected": {
+        "catastrophic_price": null,
+        "distance": "2",
+        "invocation_id": "ucei_15b86e1dca94937191539d13",
+        "metadata": {},
+        "stop_price": "102",
+        "time_exit_ms": null
+      },
+      "invocation_id": "ucei_15b86e1dca94937191539d13",
+      "parameters": {
+        "distance_points": "200"
+      },
+      "plan_id": "ucesp_f8ff08aed049e7c33dd792cf",
+      "side": "short"
+    },
+    {
+      "atom_exact_key": "target.fixed_r@1.0.0",
+      "case_id": "long.target2r",
+      "expected": {
+        "invocation_id": "ucei_ea27648e7b951eeb2ed4f29d",
+        "legs": [
+          {
+            "activation_r": null,
+            "is_runner": false,
+            "quantity_fraction": "1",
+            "target_price": "102.02"
+          }
+        ],
+        "metadata": {},
+        "no_fixed_target": false
+      },
+      "invocation_id": "ucei_ea27648e7b951eeb2ed4f29d",
+      "parameters": {
+        "reward_multiple": "2",
+        "risk_points": "100"
+      },
+      "plan_id": "ucetp_71de18d5687970e4329022cc",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "target.fixed_r@1.0.0",
+      "case_id": "short.target2r",
+      "expected": {
+        "invocation_id": "ucei_e5c3a8f5b6fea1ebd99d4f49",
+        "legs": [
+          {
+            "activation_r": null,
+            "is_runner": false,
+            "quantity_fraction": "1",
+            "target_price": "98"
+          }
+        ],
+        "metadata": {},
+        "no_fixed_target": false
+      },
+      "invocation_id": "ucei_e5c3a8f5b6fea1ebd99d4f49",
+      "parameters": {
+        "reward_multiple": "2",
+        "risk_points": "100"
+      },
+      "plan_id": "ucetp_54a50eb880960df35c75b1a8",
+      "side": "short"
+    },
+    {
+      "atom_exact_key": "target.runner@1.0.0",
+      "case_id": "long.runner",
+      "expected": {
+        "invocation_id": "ucei_e0fa70dbb7a8e815b9a34e4f",
+        "legs": [
+          {
+            "activation_r": null,
+            "is_runner": true,
+            "quantity_fraction": "1",
+            "target_price": null
+          }
+        ],
+        "metadata": {},
+        "no_fixed_target": true
+      },
+      "invocation_id": "ucei_e0fa70dbb7a8e815b9a34e4f",
+      "parameters": {},
+      "plan_id": "ucetp_500bb0739b561ad01e016281",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "trailing.break_even@1.0.0",
+      "case_id": "long.break_even",
+      "expected": {
+        "activation_r": "1",
+        "cadence_ms": 0,
+        "distance": "0",
+        "invocation_id": "ucei_03c0af5aa4fac203f4366132",
+        "lock_r": "0",
+        "metadata": {},
+        "mode": "break_even",
+        "reference_field": ""
+      },
+      "invocation_id": "ucei_03c0af5aa4fac203f4366132",
+      "parameters": {
+        "activation_r": "1"
+      },
+      "plan_id": "ucetrp_3f1c0e2b5b7524ecb6f0cdfd",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "sizing.fixed_cash@1.0.0",
+      "case_id": "long.fixed_cash",
+      "expected": {
+        "cap_value": "250",
+        "invocation_id": "ucei_418366e345375add51f65382",
+        "metadata": {},
+        "requested_value": "100",
+        "scale_factor": "1",
+        "unit": "cash_risk"
+      },
+      "invocation_id": "ucei_418366e345375add51f65382",
+      "parameters": {
+        "cash_amount": "100"
+      },
+      "plan_id": "ucezp_37f5fb9814dd0c6896dc18bb",
+      "side": "long"
+    },
+    {
+      "atom_exact_key": "sizing.equity_fraction@1.0.0",
+      "case_id": "long.equity_fraction",
+      "expected": {
+        "cap_value": "250",
+        "invocation_id": "ucei_1e04f45544c11f927e6b8e3e",
+        "metadata": {},
+        "requested_value": "100",
+        "scale_factor": "1",
+        "unit": "cash_risk"
+      },
+      "invocation_id": "ucei_1e04f45544c11f927e6b8e3e",
+      "parameters": {
+        "fraction": "0.01"
+      },
+      "plan_id": "ucezp_3ea0f5e8ab75da227e1cdb2c",
+      "side": "long"
+    }
+  ],
+  "contract_release": "3.0.0",
+  "phase": "UCE-I03",
+  "registry_counts": {
+    "entry": 8,
+    "management": 8,
+    "sizing": 9,
+    "stop": 8,
+    "target": 7,
+    "trailing": 10
+  },
+  "registry_snapshot_ids": {
+    "entry": "ucers_7d112040a60202fe1f8848a1",
+    "management": "ucers_3497b42895d06421332e45eb",
+    "sizing": "ucers_46c70a4fbacadb84aa293f14",
+    "stop": "ucers_7a64e2fcbfb2f801d12e179c",
+    "target": "ucers_ada7dc71f69da012f8d42365",
+    "trailing": "ucers_05472a1a3f877ca0caa73504"
+  }
+}

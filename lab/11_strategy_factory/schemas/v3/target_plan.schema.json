@@ -1,0 +1,26 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/target_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "invocation_id": {
+      "type": "string"
+    },
+    "legs": {
+      "type": "array"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "no_fixed_target": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "legs",
+    "no_fixed_target"
+  ],
+  "title": "Target Plan",
+  "type": "object"
+}

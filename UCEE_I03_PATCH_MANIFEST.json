@@ -1,0 +1,32 @@
+{
+  "authority_boundary": "no broker authority",
+  "base_phase": "UCE-I02",
+  "catalog": {
+    "entry": 8,
+    "management": 8,
+    "sizing": 9,
+    "stop": 8,
+    "target": 7,
+    "total": 50,
+    "trailing": 10
+  },
+  "contract_release": "3.0.0",
+  "description": "Exact-version modular entry, stop, target, trailing, management and preliminary sizing atom registries for UCEE.",
+  "file_count": 98,
+  "file_index": "UCEE_I03_FILE_INDEX.txt",
+  "hash_ledger": "UCEE_I03_FILE_HASHES.sha256",
+  "metaeditor_status": "pending local Windows verification",
+  "package_version": "0.23.0",
+  "patch_id": "decision-alpha-lab-ucee-i03-treatment-atom-registries",
+  "phase": "UCE-I03",
+  "qa_report": "UCEE_I03_QA_REPORT.json",
+  "top_level_outputs": [
+    "MQL5 treatment SDK",
+    "Python reference SDK",
+    "JSON schemas",
+    "golden and negative vectors",
+    "English Obsidian phase delivery",
+    "tests and validation tools",
+    "UCE-I04 handoff"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/management_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "invocation_id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "rules": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "rules"
+  ],
+  "title": "Management Plan",
+  "type": "object"
+}

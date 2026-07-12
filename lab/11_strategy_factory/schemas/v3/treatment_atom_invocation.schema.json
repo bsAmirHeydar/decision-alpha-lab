@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/treatment_atom_invocation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_occurrence_id": {
+      "type": "string"
+    },
+    "decision_time_ms": {
+      "type": "integer"
+    },
+    "descriptor_definition_id": {
+      "type": "string"
+    },
+    "exact_key": {
+      "type": "string"
+    },
+    "feature_frame_hash": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    }
+  },
+  "required": [
+    "descriptor_definition_id",
+    "exact_key",
+    "context_occurrence_id",
+    "feature_frame_hash",
+    "side",
+    "decision_time_ms",
+    "parameters",
+    "provenance"
+  ],
+  "title": "Treatment Atom Invocation",
+  "type": "object"
+}

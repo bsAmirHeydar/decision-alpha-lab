@@ -1,0 +1,23 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/treatment_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "atom_count": {
+      "type": "integer"
+    },
+    "contract_release": {
+      "type": "string"
+    },
+    "registries": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract_release",
+    "registries",
+    "atom_count"
+  ],
+  "title": "Treatment Registry Snapshot",
+  "type": "object"
+}

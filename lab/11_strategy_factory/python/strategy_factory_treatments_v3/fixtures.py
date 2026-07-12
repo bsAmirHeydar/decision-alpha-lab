@@ -1,0 +1,6 @@
+from decimal import Decimal
+from .context import TreatmentBuildContext
+from .price import PriceEnvironment
+from .enums import TradeSide,RuntimeMode
+def reference_context(side=TradeSide.LONG):
+ return TreatmentBuildContext('ctx_occ_reference_001','feature_frame_sha256_reference',side,RuntimeMode.RESEARCH,1700000000000,1700000001000,PriceEnvironment(Decimal('100.00'),Decimal('100.02'),Decimal('0.01'),Decimal('0.01'),2,1700000000950),reference_price=Decimal('101.00') if side is TradeSide.LONG else Decimal('99.00'),atr=Decimal('0.50'),structural_stop=Decimal('98.50') if side is TradeSide.LONG else Decimal('101.50'),structural_target=Decimal('104.00') if side is TradeSide.LONG else Decimal('96.00'),signal_high=Decimal('100.80'),signal_low=Decimal('99.20'),context_high=Decimal('105.00'),context_low=Decimal('95.00'),swing_high=Decimal('102.00'),swing_low=Decimal('98.00'),confirmation_price=Decimal('100.01'),retest_price=Decimal('99.70') if side is TradeSide.LONG else Decimal('100.30'),account_equity=Decimal('10000'),cash_risk_budget=Decimal('250'),portfolio_budget=Decimal('1000'),confidence=Decimal('0.75'),expected_payoff=Decimal('2'),drawdown_fraction=Decimal('0.05'),realized_volatility=Decimal('0.012'),session_close_ms=1700020000000,tags={'fixture':'reference'})

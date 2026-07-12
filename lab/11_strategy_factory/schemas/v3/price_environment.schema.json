@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/price_environment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {},
+    "bid": {},
+    "digits": {
+      "type": "integer"
+    },
+    "freeze_level_points": {
+      "type": "integer"
+    },
+    "point": {},
+    "quote_time_ms": {
+      "type": "integer"
+    },
+    "stops_level_points": {
+      "type": "integer"
+    },
+    "tick_size": {}
+  },
+  "required": [
+    "bid",
+    "ask",
+    "point",
+    "tick_size",
+    "digits",
+    "quote_time_ms"
+  ],
+  "title": "Price Environment",
+  "type": "object"
+}

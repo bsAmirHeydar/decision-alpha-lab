@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/treatment_parameter_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_values": {
+      "type": "array"
+    },
+    "default": {},
+    "description": {
+      "type": "string"
+    },
+    "identity_affecting": {
+      "type": "boolean"
+    },
+    "maximum": {},
+    "minimum": {},
+    "monotonic_direction": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parameter_type": {
+      "enum": [
+        "decimal",
+        "integer",
+        "boolean",
+        "string",
+        "enum"
+      ]
+    },
+    "units": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "parameter_type",
+    "default",
+    "units",
+    "identity_affecting"
+  ],
+  "title": "Treatment Parameter Spec",
+  "type": "object"
+}

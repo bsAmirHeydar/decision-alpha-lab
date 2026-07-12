@@ -1,0 +1,55 @@
+{
+  "atoms": [
+    {
+      "exact_key": "entry.confirmation_market@1.0.0",
+      "parameters": {
+        "max_deviation_points": "20"
+      }
+    },
+    {
+      "exact_key": "stop.signal_bar@1.0.0",
+      "parameters": {
+        "buffer_points": "1"
+      }
+    },
+    {
+      "exact_key": "target.runner@1.0.0",
+      "parameters": {
+        "runner_fraction": "1"
+      }
+    },
+    {
+      "exact_key": "trailing.swing_node@1.0.0",
+      "parameters": {
+        "activation_r": "1",
+        "buffer_points": "2"
+      }
+    },
+    {
+      "exact_key": "management.partial_exit_r@1.0.0",
+      "parameters": {
+        "activation_r": "1",
+        "quantity_fraction": "0.5"
+      }
+    },
+    {
+      "exact_key": "sizing.confidence_scaling@1.0.0",
+      "parameters": {
+        "base_cash": "100",
+        "ceiling_confidence": "0.9",
+        "floor_confidence": "0.5"
+      }
+    }
+  ],
+  "context_binding": {
+    "context_occurrence_id": "ctx_occ_reference_001",
+    "feature_frame_hash": "feature_frame_sha256_reference"
+  },
+  "note": "AI and personal policies use identical atom contracts; selection does not grant runtime authority.",
+  "policy_id": "search.tight_stop_runner",
+  "provenance": {
+    "experiment_id": "fixture_search_001",
+    "source": "ai_search"
+  },
+  "version": "1.0.0"
+}

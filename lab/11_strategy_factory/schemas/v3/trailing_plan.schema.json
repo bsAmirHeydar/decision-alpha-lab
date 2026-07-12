@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/trailing_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_r": {},
+    "cadence_ms": {
+      "type": "integer"
+    },
+    "distance": {},
+    "invocation_id": {
+      "type": "string"
+    },
+    "lock_r": {},
+    "metadata": {
+      "type": "object"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "reference_field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "mode",
+    "activation_r",
+    "cadence_ms"
+  ],
+  "title": "Trailing Plan",
+  "type": "object"
+}

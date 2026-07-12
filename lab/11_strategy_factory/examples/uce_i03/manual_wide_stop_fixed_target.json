@@ -1,0 +1,48 @@
+{
+  "atoms": [
+    {
+      "exact_key": "entry.immediate_market@1.0.0",
+      "parameters": {}
+    },
+    {
+      "exact_key": "stop.structural@1.0.0",
+      "parameters": {
+        "buffer_points": "5"
+      }
+    },
+    {
+      "exact_key": "target.fixed_r@1.0.0",
+      "parameters": {
+        "reward_multiple": "2",
+        "risk_points": "250"
+      }
+    },
+    {
+      "exact_key": "trailing.none@1.0.0",
+      "parameters": {}
+    },
+    {
+      "exact_key": "management.max_holding_time@1.0.0",
+      "parameters": {
+        "holding_ms": 14400000
+      }
+    },
+    {
+      "exact_key": "sizing.fixed_cash@1.0.0",
+      "parameters": {
+        "cash_amount": "100"
+      }
+    }
+  ],
+  "context_binding": {
+    "context_occurrence_id": "ctx_occ_reference_001",
+    "feature_frame_hash": "feature_frame_sha256_reference"
+  },
+  "note": "Illustrative atom selection; UCE-I04 compiles complete treatment and UCE-I05 normalizes economics.",
+  "policy_id": "personal.wide_stop_fixed_target",
+  "provenance": {
+    "owner": "operator",
+    "source": "personal"
+  },
+  "version": "1.0.0"
+}

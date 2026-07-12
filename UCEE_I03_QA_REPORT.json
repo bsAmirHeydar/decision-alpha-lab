@@ -1,0 +1,66 @@
+{
+  "acceptance": [
+    "exact-version registries",
+    "identity-affecting parameters",
+    "long/short executable-side geometry",
+    "manual/AI contract parity",
+    "deterministic plans",
+    "no broker authority"
+  ],
+  "automated_evidence": [
+    {
+      "check": "Python compileall strategy_factory_treatments_v3",
+      "result": "PASS"
+    },
+    {
+      "check": "pytest UCE-I01 through UCE-I03",
+      "result": "PASS",
+      "tests": 80
+    },
+    {
+      "check": "UCE-I03 catalog conformance",
+      "invocations": 100,
+      "result": "PASS"
+    },
+    {
+      "broker_authority": false,
+      "check": "UCE-I03 boundary scan",
+      "result": "PASS"
+    },
+    {
+      "check": "UCE-I03 MQL5 static scan",
+      "files": 13,
+      "result": "PASS"
+    },
+    {
+      "check": "UCE-I03 delivery validation",
+      "result": "PASS"
+    },
+    {
+      "check": "Engineering Policy",
+      "gates": 4,
+      "result": "PASS"
+    }
+  ],
+  "generated_at_utc": "2026-07-12T00:00:00Z",
+  "limitations": [
+    "MetaEditor is unavailable in the build environment; local Windows compilation and terminal self-test are mandatory.",
+    "Complete treatment compatibility and causal path state are UCE-I04.",
+    "Full side-aware commission, slippage, margin, currency conversion and broker-normalized volume are UCE-I05."
+  ],
+  "phase": "UCE-I03",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_GATE",
+  "summary": {
+    "canonical_atoms": 50,
+    "patch_files_before_metadata": 94,
+    "registry_counts": {
+      "entry": 8,
+      "management": 8,
+      "sizing": 9,
+      "stop": 8,
+      "target": 7,
+      "trailing": 10
+    }
+  },
+  "title": "Treatment Atom Registries"
+}
