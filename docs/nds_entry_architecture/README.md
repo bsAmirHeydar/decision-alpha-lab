@@ -133,4 +133,4 @@ The corrected canonical setup is documented at:
 f2_waist_break_point2_limit/README.md
 ```
 
-It reuses Phoenix canonical node/F1/F2 builders but does not wait for F2 confirmation. A complete unconfirmed F2 body arms a limit strictly beyond the F2 Waist. The Waist is Point 1; the limit fill is executable Point 2; Stop is strictly beyond the direct parent F1 Waist; Target is the F2 Leg2 endpoint. The dedicated detector builds no Hook branches and skips all visual/canonical post-processing.
+It reuses Phoenix canonical node/F1/F2 builders but does not wait for F2 confirmation. A complete unconfirmed F2 body arms a limit strictly beyond the F2 Waist. The Waist is Point 1; the limit fill is executable Point 2; Stop is strictly beyond the direct parent F1 Waist; Target is the F2 Leg2 endpoint. The dedicated detector builds no Hook branches and skips all visual/canonical post-processing. The executable now also supports a minimum Reward/Risk gate, opposite-direction hedge contexts, and independent same-direction contexts. Parallel same-symbol positions are permitted only on MT5 hedging accounts.

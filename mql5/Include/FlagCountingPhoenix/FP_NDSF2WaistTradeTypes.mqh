@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-03"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v3"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-04"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v4"
 
 enum FP_NDSF2WaistRunResult
 {
@@ -16,7 +16,8 @@ enum FP_NDSF2WaistRunResult
    FP_NDS_F2_RUN_POSITION_HELD = 4,
    FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED = 5,
    FP_NDS_F2_RUN_BLOCKED = 6,
-   FP_NDS_F2_RUN_ERROR = 7
+   FP_NDS_F2_RUN_ERROR = 7,
+   FP_NDS_F2_RUN_MULTI_ORDER_SENT = 8
 };
 
 struct FP_NDSF2WaistTradeConfig
@@ -28,6 +29,17 @@ struct FP_NDSF2WaistTradeConfig
    bool require_f2_size_gate;
    bool cancel_pending_if_target_touched_before_fill;
    int max_setup_age_bars;
+
+   // Opportunity geometry filter.
+   bool use_min_reward_risk_filter;
+   double min_reward_risk;
+
+   // Parallel-context policy. Distinct setup_hash values are distinct contexts.
+   // Independent parallel positions require an MT5 hedging account. On netting
+   // accounts, a second exposure is blocked to preserve per-context SL/TP.
+   bool allow_opposite_direction_hedge;
+   bool allow_same_direction_multiple_contexts;
+   int max_concurrent_managed_exposures; // 0 = unlimited by strategy policy.
 
    FP_NDSHookTradeSizingMode sizing_mode;
    double fixed_volume;
@@ -66,6 +78,9 @@ struct FP_NDSF2WaistTradeSetup
    double entry_price;
    double stop_price;
    double target_price;
+   double risk_distance;
+   double reward_distance;
+   double reward_risk;
    double volume;
 
    long setup_hash;
@@ -81,6 +96,12 @@ void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.require_f2_size_gate = false;
    cfg.cancel_pending_if_target_touched_before_fill = true;
    cfg.max_setup_age_bars = 0;
+
+   cfg.use_min_reward_risk_filter = true;
+   cfg.min_reward_risk = 1.0;
+   cfg.allow_opposite_direction_hedge = true;
+   cfg.allow_same_direction_multiple_contexts = true;
+   cfg.max_concurrent_managed_exposures = 0;
 
    cfg.sizing_mode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
    cfg.fixed_volume = 0.01;
@@ -113,6 +134,9 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.entry_price = 0.0;
    s.stop_price = 0.0;
    s.target_price = 0.0;
+   s.risk_distance = 0.0;
+   s.reward_distance = 0.0;
+   s.reward_risk = 0.0;
    s.volume = 0.0;
    s.setup_hash = 0;
    s.broker_comment = "";

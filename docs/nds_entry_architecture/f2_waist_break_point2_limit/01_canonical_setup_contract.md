@@ -59,13 +59,34 @@ For bearish F2:
 Target < Entry < Stop
 ```
 
-## 5. Critical timing rule
+## 5. Reward/Risk eligibility
+
+After executable prices are normalized:
+
+```text
+RR = abs(Target - Entry) / abs(Entry - Stop)
+```
+
+The default minimum is `1.0`. A setup below the configured minimum is rejected before any order request is built.
+
+## 6. Parallel context policy
+
+A distinct F2 body version is a distinct context. By default:
+
+```text
+same-direction contexts = allowed
+opposite-direction hedge contexts = allowed
+```
+
+The same context can still trade only once. Independent same-symbol positions require an MT5 hedging account; non-hedging accounts remain single-exposure to preserve independent SL/TP ownership.
+
+## 7. Critical timing rule
 
 F2 confirmation is not the entry trigger.
 
 In the waist-break branch, F2 confirms only after Point 2 exists and price later re-breaks the F2 Leg2 endpoint. That endpoint is this setup's target. Waiting for confirmed F2 would therefore arm the trade after the target had already been reached.
 
-## 6. Non-goals
+## 8. Non-goals
 
 This setup does not:
 
@@ -74,10 +95,9 @@ This setup does not:
 - use a CG filter;
 - use an AI score;
 - use F3 as an exit;
-- open multiple concurrent exposures;
 - chase a missed entry with a market order.
 
-## 7. Relation to existing Canon
+## 9. Relation to existing Canon
 
 This setup reuses the already documented F2 waist-break grammar:
 

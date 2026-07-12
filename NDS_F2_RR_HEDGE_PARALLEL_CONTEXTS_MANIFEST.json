@@ -1,0 +1,143 @@
+{
+  "patch_id": "NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS",
+  "version": "1.0.0",
+  "generated_date": "2026-07-12",
+  "root_relative": true,
+  "expert_version": "1.30",
+  "trade_contract_version": "NDS-F2-WAIST-BREAK-04",
+  "schema_version": "nds_f2_waist_break_point2_v4",
+  "purpose": "Add a configurable minimum normalized reward-to-risk filter, opposite-direction hedge contexts, and same-direction independent contexts to the lightweight F2 Waist-Break Point2 Strategy Tester profile.",
+  "defaults": {
+    "minimum_reward_risk_filter": true,
+    "minimum_reward_risk": 1.0,
+    "allow_opposite_direction_hedge": true,
+    "allow_same_direction_multiple_contexts": true,
+    "max_concurrent_managed_exposures": 0
+  },
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_PATCH.md",
+      "size_bytes": 3626,
+      "sha256": "46cea357e278566b3fc5b927719c2457e42862d56be4bc4796e2ebea2012a21f"
+    },
+    {
+      "path": "NDS_F2_RR_HEDGE_PARALLEL_CONTEXTS_AUDIT_REPORT.md",
+      "size_bytes": 5083,
+      "sha256": "4f7c8cffc092510e3fcf917bc147da0141cd549b07652d908e78b97bfd374100"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 21363,
+      "sha256": "7fcae89ea64e612898b0e29dc435a903c4fa2f11c8a6867360459e819f00c153"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 4867,
+      "sha256": "e0928e604382363e9ff280568bf9683f0eeeeb75c137abcfca84f7f0f721815e"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
+      "size_bytes": 3083,
+      "sha256": "bc59ae5b617b1f265022fa8eafa0d0c7486ec3e712020c2980de9f1cb07e6f44"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/03_execution_state_machine.md",
+      "size_bytes": 1889,
+      "sha256": "c619c1809c343862f1f2eaaacb566e1351c26e1e9ac3e359ae9f7d8a9f6aa7ba"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/05_lifecycle_and_edge_cases.md",
+      "size_bytes": 2097,
+      "sha256": "6e157fc0e54b24ac3c1b6a8333021b024191974ae60076e92cdd78975ebb4e7b"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/08_operator_guide.md",
+      "size_bytes": 1478,
+      "sha256": "eb77d29e21f19d8c5773ebc227d383eebe8a810040c847ee3c1a761ddd5240ce"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/10_reward_risk_and_parallel_context_policy.md",
+      "size_bytes": 3430,
+      "sha256": "78c5110ebe930460d933bc21e3e2713c048939332c1b07da8258e7fb7ed53e85"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "size_bytes": 1162,
+      "sha256": "74753cf45f9ea8aa138ef4ba87df1dcf2539b7b83c1be0ebea6f13799222f784"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 4028,
+      "sha256": "5b7a619bb428efd5e655669aee1cb50ae7a58c16fd86ee7fdaad715c2b508517"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 RR Hedge and Parallel Contexts.md",
+      "size_bytes": 1256,
+      "sha256": "c15e23d653a980ae00a0d445373ae4abc6ac31c6f7c58f9e54feeb8e8dc15b6d"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist-Break Point2 Limit Setup.md",
+      "size_bytes": 1710,
+      "sha256": "943e544961d6e4206e11acb0b1e12ec3fdd8c3c01cb15691b4684e1f8fc08397"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "size_bytes": 9108,
+      "sha256": "b3cd5fd906e2a26c68c2db8f49bf12f3fdac0aa68a23a0c07c62fc12dbbcc03e"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "size_bytes": 6492,
+      "sha256": "38d348c37dc451d0d54c066e1dc26b42f6183256b9f0292b6bcd6b10a53cc073"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "size_bytes": 14728,
+      "sha256": "c1746f42045770a36b21344bbdfb7a2ab6967b4529395971e2b532127198c098"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "size_bytes": 3176,
+      "sha256": "654fe1d1f37bb57859c3ef4a0a8f6eb4c64197d45cf7fccb757ee1ae4a0c78aa"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "size_bytes": 11844,
+      "sha256": "b58ba61ba7b3e9c8d2cf15425179b02fab56fcd7581772f118610998009939c1"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "size_bytes": 4082,
+      "sha256": "c6ed4d12734de24c2dd573291e8fa210789bb1f747a6f08d259ca31c0fb5fe1b"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "size_bytes": 5218,
+      "sha256": "406d423480d627a52f4803b4c836c541f0bb6be826818bdf14b7e30b1344c925"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "size_bytes": 4543,
+      "sha256": "71ce35a20f331ff793f4fe40a90085d712e4e99fd67fce9ebb86f1c0a854d399"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "size_bytes": 6443,
+      "sha256": "2f639566eb85536285d9f3269131c310780f3a066390468380ea01e54ffafb52"
+    }
+  ],
+  "validation": {
+    "f2_point2_contract_qa": "PASS",
+    "f2_fast_backtest_contract_qa": "PASS",
+    "f2_rr_parallel_context_contract_qa": "PASS",
+    "python_syntax": "PASS",
+    "local_include_resolution": "PASS",
+    "mql_lexical_balance": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "ai_engineering_os_vault": "0 errors, 0 warnings",
+    "metaeditor_compile": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT",
+    "strategy_tester_execution": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT"
+  }
+}

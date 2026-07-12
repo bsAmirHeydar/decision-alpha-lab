@@ -70,29 +70,43 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
                                                       const FP_Config &detector_cfg,
                                                       const FP_NDSF2WaistTradeConfig &trade_cfg)
 {
-   ulong order_ticket = 0;
-   ulong position_ticket = 0;
-   int positions = FP_NDSF2CountManagedPositions(trade_cfg, position_ticket);
-   int orders = FP_NDSF2CountManagedOrders(trade_cfg, order_ticket);
+   int cancel_errors = 0;
+   int cancelled = 0;
+   if(trade_cfg.cancel_pending_if_target_touched_before_fill)
+      cancelled = FP_NDSF2CancelConsumedPendingOrders(symbol, period,
+                                                       trade_cfg, cancel_errors);
 
-   if(positions > 1 || orders > 1) return FP_NDS_F2_RUN_ERROR;
-   if(positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
+   int active_orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
+   int active_positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
+   int active_total = active_orders + active_positions;
 
-   // Pending path remains ultra-light: one closed-bar read only. If the F2 flag
-   // endpoint was reached before the limit filled, the target is consumed and
-   // the stale pending is removed. No detector rebuild is needed for this check.
-   if(orders > 0)
+   // Preserve the old ultra-light hold path whenever another independent
+   // context cannot legally be added. This avoids unnecessary detector rebuilds
+   // on netting accounts, under a reached cap, or when both parallel switches
+   // are disabled.
+   bool hard_parallel_block = false;
+   if(active_total > 0)
    {
-      if(trade_cfg.cancel_pending_if_target_touched_before_fill &&
-         FP_NDSF2PendingTargetConsumed(symbol, period, order_ticket))
-      {
-         if(FP_NDSF2DeletePendingOrder(trade_cfg, order_ticket))
-            return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
-         return FP_NDS_F2_RUN_ERROR;
-      }
-      return FP_NDS_F2_RUN_PENDING_HELD;
+      if(!FP_NDSF2AccountSupportsIndependentContexts()) hard_parallel_block = true;
+      if(trade_cfg.max_concurrent_managed_exposures > 0 &&
+         active_total >= trade_cfg.max_concurrent_managed_exposures)
+         hard_parallel_block = true;
+      if(!trade_cfg.allow_same_direction_multiple_contexts &&
+         !trade_cfg.allow_opposite_direction_hedge)
+         hard_parallel_block = true;
+   }
+   if(hard_parallel_block)
+   {
+      if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
+      if(cancelled > 0) return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+      if(active_orders > 0) return FP_NDS_F2_RUN_PENDING_HELD;
+      if(active_positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
    }
 
+   // Parallel same-direction contexts and opposite-direction hedge contexts can
+   // be created while existing orders/positions are active. Therefore the fast
+   // F1/F2 detector still runs once per closed bar only when policy/account mode
+   // can admit another context. Heavy Hook/F3/visual branches remain absent.
    FP_TimebaseConfig timebase_cfg;
    FP_DefaultTimebaseConfig(timebase_cfg);
    timebase_cfg.symbol = symbol;
@@ -110,7 +124,15 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
    int copied = FP_LoadCanonicalRates(timebase_cfg, rates, timebase_report);
    if((!timebase_report.ok && runtime_cfg.strict_timebase) ||
       copied < runtime_cfg.min_closed_bars)
+   {
+      if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
+      if(cancelled > 0) return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+      int orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
+      int positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
+      if(orders > 0) return FP_NDS_F2_RUN_PENDING_HELD;
+      if(positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
       return FP_NDS_F2_RUN_IDLE;
+   }
 
    int scales[];
    int scale_count = FP_NDSF2BacktestBuildScales(runtime_cfg, scales);
@@ -120,11 +142,16 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
    int event_count = FP_DetectF2ExecutionScales(rates, copied,
                                                 scales, scale_count,
                                                 detector_cfg, events);
-   return FP_RunNDSF2WaistTradeCore(symbol, period,
-                                    rates, copied,
-                                    events, event_count,
-                                    detector_cfg.boundary_epsilon_points,
-                                    trade_cfg);
+   FP_NDSF2WaistRunResult result = FP_RunNDSF2WaistTradeCore(symbol, period,
+                                                             rates, copied,
+                                                             events, event_count,
+                                                             detector_cfg.boundary_epsilon_points,
+                                                             trade_cfg);
+   if(result == FP_NDS_F2_RUN_IDLE && cancel_errors > 0)
+      return FP_NDS_F2_RUN_ERROR;
+   if(result == FP_NDS_F2_RUN_IDLE && cancelled > 0)
+      return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+   return result;
 }
 
 #endif // __FP_NDS_F2_WAIST_BACKTEST_ENGINE_MQH__

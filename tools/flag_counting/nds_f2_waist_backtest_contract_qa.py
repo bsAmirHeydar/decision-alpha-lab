@@ -53,6 +53,7 @@ def main() -> None:
     require(setup, "f1.waist.price - stop_offset", "bullish_behind_f1_waist")
     require(setup, "f1.waist.price + stop_offset", "bearish_behind_f1_waist")
     require(setup, "f2.leg2.price", "f2_leg2_target")
+    require(setup, "setup.reward_risk = setup.reward_distance / setup.risk_distance", "reward_risk_filter")
 
     require(rules, "TRADE_ACTION_PENDING", "real_pending_request")
     require(rules, "ORDER_TYPE_BUY_LIMIT", "buy_limit")
@@ -62,9 +63,12 @@ def main() -> None:
     require(rules, "OrderCheck", "broker_preflight")
     require(rules, "OrderSend", "broker_send")
     require(rules, "TRADE_ACTION_REMOVE", "stale_pending_removal")
-    require(trade_engine, "FP_NDSF2CountManagedOrders", "single_pending")
-    require(trade_engine, "FP_NDSF2CountManagedPositions", "single_position")
-    require(engine, "FP_NDSF2PendingTargetConsumed", "pending_target_consumption")
+    require(rules, "ACCOUNT_MARGIN_MODE_RETAIL_HEDGING", "hedging_account_boundary")
+    require(rules, "allow_same_direction_multiple_contexts", "same_direction_parallel_contexts")
+    require(rules, "allow_opposite_direction_hedge", "opposite_direction_hedge")
+    require(trade_engine, "FP_NDSF2CollectWaistBreakPairs", "parallel_context_collection")
+    require(trade_engine, "FP_NDSF2ExposurePolicyAllows", "parallel_exposure_policy")
+    require(engine, "FP_NDSF2CancelConsumedPendingOrders", "multi_pending_target_consumption")
     require(engine, "FP_DetectF2ExecutionScales", "fast_detector")
 
     forbid(runtime, "Print(", "no_runtime_print")

@@ -40,3 +40,16 @@ F1 confirmed
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract|Canonical setup contract]]
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/02_structural_anatomy|Structural anatomy]]
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/03_execution_state_machine|Execution state machine]]
+
+## Portfolio extension
+
+```text
+RR = abs(Target - Entry) / abs(Entry - Stop)
+Default minimum RR = 1.0
+Opposite-direction hedge contexts = enabled
+Same-direction distinct contexts = enabled
+```
+
+The deterministic F2 body-version hash is the context authority. The same hash cannot submit twice. Parallel same-symbol positions require an MT5 hedging account.
+
+- [[NDS F2 RR Hedge and Parallel Contexts]]

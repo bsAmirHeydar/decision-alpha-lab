@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.20"
+#property version   "1.30"
 #property description "NDS F2 waist-break Point-2 limit backtest: enter beyond F2 waist, stop beyond parent F1 waist, target F2 flag end."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
@@ -42,6 +42,16 @@ input bool   InpF2BTCancelPendingIfTargetTouchedBeforeFill = true;
 input int    InpF2BTMaxSetupAgeBars = 0;
 input double InpF2BTEntryBehindF2WaistTicks = 1.0;
 input double InpF2BTStopBehindF1WaistTicks = 1.0;
+
+// Reward/Risk filter. RR = abs(TP-Entry) / abs(Entry-SL).
+input bool   InpF2BTUseMinimumRewardRiskFilter = true;
+input double InpF2BTMinimumRewardRisk = 1.0;
+
+// Parallel context policy. Distinct F2 setup hashes are independent contexts.
+// Separate same-symbol positions require a hedging account in MT5.
+input bool InpF2BTAllowOppositeDirectionHedge = true;
+input bool InpF2BTAllowSameDirectionMultipleContexts = true;
+input int  InpF2BTMaxConcurrentManagedExposures = 0; // 0 = unlimited.
 
 input FP_NDSHookTradeSizingMode InpF2BTSizingMode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
 input double InpF2BTFixedVolume = 0.01;
@@ -128,8 +138,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v3";
-   cfg.identity_config_hash = "f2_wb2_v3";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v4";
+   cfg.identity_config_hash = "f2_wb2_v4";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -171,6 +181,11 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.max_setup_age_bars = InpF2BTMaxSetupAgeBars;
    cfg.entry_behind_f2_waist_ticks = InpF2BTEntryBehindF2WaistTicks;
    cfg.stop_behind_f1_waist_ticks = InpF2BTStopBehindF1WaistTicks;
+   cfg.use_min_reward_risk_filter = InpF2BTUseMinimumRewardRiskFilter;
+   cfg.min_reward_risk = InpF2BTMinimumRewardRisk;
+   cfg.allow_opposite_direction_hedge = InpF2BTAllowOppositeDirectionHedge;
+   cfg.allow_same_direction_multiple_contexts = InpF2BTAllowSameDirectionMultipleContexts;
+   cfg.max_concurrent_managed_exposures = InpF2BTMaxConcurrentManagedExposures;
    cfg.sizing_mode = InpF2BTSizingMode;
    cfg.fixed_volume = InpF2BTFixedVolume;
    cfg.risk_cash = InpF2BTRiskCash;

@@ -97,3 +97,7 @@ This branch is research-only and has no execution authority.
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/README|Detailed F2 Waist-Break Point-2 package]]
 
 This profile is independent of HH/F3H setup selection. The F2 Waist is Point 1; the pending fill strictly beyond the Waist is executable Point 2; the direct parent F1 Waist is the stop edge; and the F2 Leg2 endpoint is the target. Hook is not built or consulted by the dedicated fast detector.
+
+## F2 portfolio controls
+
+- [[../08_entry_execution/NDS F2 RR Hedge and Parallel Contexts]]

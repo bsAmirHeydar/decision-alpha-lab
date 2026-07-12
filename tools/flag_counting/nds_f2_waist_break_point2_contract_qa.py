@@ -48,9 +48,12 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.20"', "expert version", errors)
+    require(expert, '#property version   "1.30"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
+    require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)
+    require(expert, "InpF2BTAllowOppositeDirectionHedge = true", "default hedge policy", errors)
+    require(expert, "InpF2BTAllowSameDirectionMultipleContexts = true", "default same-direction policy", errors)
     require(expert, "cfg.f2_show_post_flag_candidates = true", "unconfirmed F2 visibility", errors)
     require(expert, "cfg.f2_show_live_body_candidates = true", "F2 body candidate visibility", errors)
     require(expert, "cfg.scan_hooks = false", "Hook disable", errors)
@@ -68,6 +71,9 @@ def main() -> int:
     require(setup, "MathMax(1.0, cfg.entry_behind_f2_waist_ticks)", "strict entry penetration", errors)
     require(setup, "MathMax(1.0, cfg.stop_behind_f1_waist_ticks)", "strict stop penetration", errors)
     require(setup, "events[i].leg2", "Leg2 observability", errors)
+    require(setup, "setup.reward_risk = setup.reward_distance / setup.risk_distance", "RR calculation", errors)
+    require(setup, "setup.reward_risk + 1e-12 <", "minimum RR rejection", errors)
+    require(setup, "FP_NDSF2CollectWaistBreakPairs", "multi-context collection", errors)
 
     require(detector, "FP_BuildCanonicalNodesForScale", "canonical node reuse", errors)
     require(detector, "FP_TryBuildFlagChainsFromOrigins", "canonical F1/F2 lifecycle reuse", errors)
@@ -81,11 +87,15 @@ def main() -> int:
     require(rules, "TRADE_ACTION_REMOVE", "stale pending removal", errors)
     require(rules, "OrderCheck", "broker precheck", errors)
     require(rules, "OrderSend", "tester order send", errors)
+    require(rules, "FP_NDSF2ExposurePolicyAllows", "parallel exposure policy", errors)
+    require(rules, "ACCOUNT_MARGIN_MODE_RETAIL_HEDGING", "hedging account guard", errors)
+    require(rules, "allow_same_direction_multiple_contexts", "same-direction context switch", errors)
+    require(rules, "allow_opposite_direction_hedge", "opposite hedge switch", errors)
 
-    require(engine, "FP_NDSF2SelectLatestWaistBreakPair", "waist-break selector", errors)
+    require(engine, "FP_NDSF2CollectWaistBreakPairs", "waist-break context collector", errors)
     require(engine, "FP_NDSF2BuildWaistBreakSetup", "waist-break setup builder", errors)
     require(bt, "FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED", "pending cancellation state", errors)
-    require(bt, "FP_NDSF2PendingTargetConsumed", "light pending reconciliation", errors)
+    require(bt, "FP_NDSF2CancelConsumedPendingOrders", "multi-pending reconciliation", errors)
 
     require(doc, "Point 1 = F2 Waist", "documented Point 1", errors)
     require(doc, "Target = F2 Leg2 endpoint", "documented target", errors)

@@ -53,6 +53,31 @@ void FP_NDSF2BuildSharedTradeConfig(const FP_NDSF2WaistTradeConfig &src,
    dst.print_summary = false;
 }
 
+int FP_NDSF2OrderDirection(const ENUM_ORDER_TYPE type)
+{
+   if(type == ORDER_TYPE_BUY_LIMIT || type == ORDER_TYPE_BUY_STOP ||
+      type == ORDER_TYPE_BUY_STOP_LIMIT || type == ORDER_TYPE_BUY)
+      return FP_DIR_BULLISH;
+   if(type == ORDER_TYPE_SELL_LIMIT || type == ORDER_TYPE_SELL_STOP ||
+      type == ORDER_TYPE_SELL_STOP_LIMIT || type == ORDER_TYPE_SELL)
+      return FP_DIR_BEARISH;
+   return FP_DIR_NONE;
+}
+
+int FP_NDSF2PositionDirection(const ENUM_POSITION_TYPE type)
+{
+   if(type == POSITION_TYPE_BUY) return FP_DIR_BULLISH;
+   if(type == POSITION_TYPE_SELL) return FP_DIR_BEARISH;
+   return FP_DIR_NONE;
+}
+
+bool FP_NDSF2AccountSupportsIndependentContexts()
+{
+   ENUM_ACCOUNT_MARGIN_MODE mode =
+      (ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger(ACCOUNT_MARGIN_MODE);
+   return (mode == ACCOUNT_MARGIN_MODE_RETAIL_HEDGING);
+}
+
 int FP_NDSF2CountManagedOrders(const FP_NDSF2WaistTradeConfig &cfg,
                                ulong &first_ticket)
 {
@@ -85,6 +110,42 @@ int FP_NDSF2CountManagedPositions(const FP_NDSF2WaistTradeConfig &cfg,
    return count;
 }
 
+int FP_NDSF2CountManagedOrdersOnSymbol(const string symbol,
+                                       const FP_NDSF2WaistTradeConfig &cfg,
+                                       const int direction)
+{
+   int count = 0;
+   for(int i=OrdersTotal()-1; i>=0; i--)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0) continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+      int d = FP_NDSF2OrderDirection((ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE));
+      if(direction != FP_DIR_NONE && d != direction) continue;
+      count++;
+   }
+   return count;
+}
+
+int FP_NDSF2CountManagedPositionsOnSymbol(const string symbol,
+                                          const FP_NDSF2WaistTradeConfig &cfg,
+                                          const int direction)
+{
+   int count = 0;
+   for(int i=PositionsTotal()-1; i>=0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      if(ticket == 0 || !PositionSelectByTicket(ticket)) continue;
+      if((long)PositionGetInteger(POSITION_MAGIC) != cfg.magic) continue;
+      if(PositionGetString(POSITION_SYMBOL) != symbol) continue;
+      int d = FP_NDSF2PositionDirection((ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE));
+      if(direction != FP_DIR_NONE && d != direction) continue;
+      count++;
+   }
+   return count;
+}
+
 int FP_NDSF2CountForeignPositionsOnSymbol(const string symbol,
                                           const FP_NDSF2WaistTradeConfig &cfg)
 {
@@ -98,6 +159,53 @@ int FP_NDSF2CountForeignPositionsOnSymbol(const string symbol,
       count++;
    }
    return count;
+}
+
+bool FP_NDSF2ExposurePolicyAllows(const string symbol,
+                                  const FP_NDSF2WaistTradeConfig &cfg,
+                                  const FP_NDSF2WaistTradeSetup &setup,
+                                  string &reason)
+{
+   reason = "none";
+   if(FP_NDSF2CountForeignPositionsOnSymbol(symbol, cfg) > 0)
+   {
+      reason = "foreign_position_on_symbol";
+      return false;
+   }
+
+   int buy_count = FP_NDSF2CountManagedOrdersOnSymbol(symbol, cfg, FP_DIR_BULLISH) +
+                   FP_NDSF2CountManagedPositionsOnSymbol(symbol, cfg, FP_DIR_BULLISH);
+   int sell_count = FP_NDSF2CountManagedOrdersOnSymbol(symbol, cfg, FP_DIR_BEARISH) +
+                    FP_NDSF2CountManagedPositionsOnSymbol(symbol, cfg, FP_DIR_BEARISH);
+   int total = buy_count + sell_count;
+   if(total <= 0) return true;
+
+   if(!FP_NDSF2AccountSupportsIndependentContexts())
+   {
+      reason = "parallel_context_requires_hedging_account";
+      return false;
+   }
+
+   if(cfg.max_concurrent_managed_exposures > 0 &&
+      total >= cfg.max_concurrent_managed_exposures)
+   {
+      reason = "max_concurrent_managed_exposures";
+      return false;
+   }
+
+   int same = (setup.direction == FP_DIR_BULLISH ? buy_count : sell_count);
+   int opposite = (setup.direction == FP_DIR_BULLISH ? sell_count : buy_count);
+   if(same > 0 && !cfg.allow_same_direction_multiple_contexts)
+   {
+      reason = "same_direction_context_disabled";
+      return false;
+   }
+   if(opposite > 0 && !cfg.allow_opposite_direction_hedge)
+   {
+      reason = "opposite_direction_hedge_disabled";
+      return false;
+   }
+   return true;
 }
 
 bool FP_NDSF2PendingTargetConsumed(const string symbol,
@@ -142,6 +250,35 @@ bool FP_NDSF2DeletePendingOrder(const FP_NDSF2WaistTradeConfig &cfg,
    return FP_NDSHookTradeRetcodeAccepted(result.retcode);
 }
 
+int FP_NDSF2CancelConsumedPendingOrders(const string symbol,
+                                        const ENUM_TIMEFRAMES period,
+                                        const FP_NDSF2WaistTradeConfig &cfg,
+                                        int &error_count)
+{
+   error_count = 0;
+   ulong tickets[];
+   ArrayResize(tickets, 0);
+   for(int i=OrdersTotal()-1; i>=0; i--)
+   {
+      ulong ticket = OrderGetTicket(i);
+      if(ticket == 0) continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+      int n = ArraySize(tickets);
+      if(ArrayResize(tickets, n + 1) != n + 1) break;
+      tickets[n] = ticket;
+   }
+
+   int cancelled = 0;
+   for(int i=0; i<ArraySize(tickets); i++)
+   {
+      if(!FP_NDSF2PendingTargetConsumed(symbol, period, tickets[i])) continue;
+      if(FP_NDSF2DeletePendingOrder(cfg, tickets[i])) cancelled++;
+      else error_count++;
+   }
+   return cancelled;
+}
+
 bool FP_NDSF2SendLimit(const string symbol,
                        const FP_NDSF2WaistTradeConfig &cfg,
                        FP_NDSF2WaistTradeSetup &setup,
@@ -153,6 +290,7 @@ bool FP_NDSF2SendLimit(const string symbol,
 
    string reason;
    if(!FP_NDSHookTradeCanSend(symbol, setup.direction, reason)) return false;
+   if(!FP_NDSF2ExposurePolicyAllows(symbol, cfg, setup, reason)) return false;
 
    FP_NDSHookTradeConfig shared_cfg;
    FP_NDSF2BuildSharedTradeConfig(cfg, shared_cfg);
@@ -190,16 +328,12 @@ bool FP_NDSF2SendLimit(const string symbol,
    ticket = result.order;
    if(ticket == 0)
    {
-      ulong managed_order = 0;
-      ulong managed_position = 0;
-      if(FP_NDSF2CountManagedOrders(cfg, managed_order) > 0)
-         ticket = managed_order;
-      else if(FP_NDSF2CountManagedPositions(cfg, managed_position) > 0)
-         ticket = managed_position;
+      // A placed pending order normally returns result.order. For tester/broker
+      // variants that return zero, broker acceptance is still authoritative.
+      ticket = (result.deal > 0 ? result.deal : (ulong)1);
    }
-   if(ticket == 0) return false;
 
-   // Consume the exact F2 body version only after broker/tester acceptance.
+   // Consume the exact F2 context only after broker/tester acceptance.
    return FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash);
 }
 

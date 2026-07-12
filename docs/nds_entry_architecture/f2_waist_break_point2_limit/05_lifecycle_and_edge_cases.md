@@ -20,13 +20,23 @@ The Strategy Tester order engine determines the intrabar order according to the 
 
 Reject the setup. No fallback to F1 origin, F2 origin, ATR or fixed stop is allowed.
 
-## Duplicate F2 across scales
+## Duplicate-looking F2 across scales
 
-The freshest observable body wins. Ties prefer the later Leg2, then the later origin, then the smaller scale L. Only one order can exist.
+Each scale/body version receives its own deterministic context hash. When same-direction multi-context execution is enabled, all distinct eligible contexts may trade. The same hash is never submitted twice.
+
+When concurrency is disabled or a cap is reached, deterministic priority is newest observability, newest Leg2, newest origin, then smaller scale.
 
 ## Existing foreign position on the symbol
 
-Block the setup to prevent netting-account contamination.
+Block the setup to prevent ownership ambiguity.
+
+## Netting account with parallel-context inputs enabled
+
+The first context may trade. A second same-symbol context is blocked because MT5 would merge or net its position and destroy independent SL/TP ownership.
+
+## Reward/Risk below threshold
+
+Reject before `OrderCheck`. The default threshold is `1.0` using normalized Entry, Stop and Target distances.
 
 ## Pending duration
 

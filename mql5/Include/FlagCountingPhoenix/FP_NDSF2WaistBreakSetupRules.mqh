@@ -16,6 +16,7 @@
 //   Target = F2 Leg2 / end of the two-leg F2 flag.
 //   F2 confirmation is NOT the entry trigger; reaching the target is the event
 //   that would confirm F2 after the waist-break branch.
+//   Reward/Risk = abs(Target-Entry) / abs(Entry-Stop).
 
 bool FP_NDSF2IsWaistBreakArmedBody(const FP_FlagEvent &f2,
                                    const FP_NDSF2WaistTradeConfig &cfg)
@@ -84,6 +85,96 @@ int FP_NDSF2NodeAvailabilityIndex(const MqlRates &rates[],
    return -1;
 }
 
+bool FP_NDSF2PairComesBefore(const FP_FlagEvent &events[],
+                             const int f2_a,
+                             const int available_a,
+                             const int f2_b,
+                             const int available_b)
+{
+   if(available_a != available_b) return (available_a > available_b);
+   if(events[f2_a].leg2.index_anchor != events[f2_b].leg2.index_anchor)
+      return (events[f2_a].leg2.index_anchor > events[f2_b].leg2.index_anchor);
+   if(events[f2_a].origin.index_anchor != events[f2_b].origin.index_anchor)
+      return (events[f2_a].origin.index_anchor > events[f2_b].origin.index_anchor);
+   if(events[f2_a].scale_L != events[f2_b].scale_L)
+      return (events[f2_a].scale_L < events[f2_b].scale_L);
+   return (events[f2_a].event_id > events[f2_b].event_id);
+}
+
+int FP_NDSF2CollectWaistBreakPairs(const FP_FlagEvent &events[],
+                                   const int event_count,
+                                   const MqlRates &rates[],
+                                   const int rates_total,
+                                   const FP_NDSF2WaistTradeConfig &cfg,
+                                   const double epsilon_points,
+                                   int &f1_indices[],
+                                   int &f2_indices[],
+                                   int &body_available_indices[])
+{
+   ArrayResize(f1_indices, 0);
+   ArrayResize(f2_indices, 0);
+   ArrayResize(body_available_indices, 0);
+
+   int latest_closed = rates_total - 1;
+   int n = MathMin(event_count, ArraySize(events));
+   for(int i=0; i<n; i++)
+   {
+      if(!FP_NDSF2IsWaistBreakArmedBody(events[i], cfg)) continue;
+
+      int parent = FP_CanonicalFindParentIndex(events, n, events[i]);
+      if(parent < 0) continue;
+      if(!FP_NDSF2IsDirectConfirmedParentF1(events[parent], events[i])) continue;
+
+      int available_at = FP_NDSF2NodeAvailabilityIndex(rates, rates_total,
+                                                       events[i].leg2,
+                                                       epsilon_points);
+      if(available_at < 0 || available_at > latest_closed) continue;
+      int age = latest_closed - available_at;
+      if(cfg.max_setup_age_bars >= 0 && age > cfg.max_setup_age_bars) continue;
+
+      int size = ArraySize(f2_indices);
+      int next_size = size + 1;
+      bool resized = (ArrayResize(f1_indices, next_size) == next_size &&
+                      ArrayResize(f2_indices, next_size) == next_size &&
+                      ArrayResize(body_available_indices, next_size) == next_size);
+      if(!resized)
+      {
+         ArrayResize(f1_indices, size);
+         ArrayResize(f2_indices, size);
+         ArrayResize(body_available_indices, size);
+         break;
+      }
+      f1_indices[size] = parent;
+      f2_indices[size] = i;
+      body_available_indices[size] = available_at;
+   }
+
+   int count = ArraySize(f2_indices);
+   // Deterministic insertion sort: newest observable context first, then newest
+   // Leg2/body, then smaller scale. This matters only when concurrency policy
+   // blocks some otherwise valid contexts.
+   for(int i=1; i<count; i++)
+   {
+      int f1_key = f1_indices[i];
+      int f2_key = f2_indices[i];
+      int av_key = body_available_indices[i];
+      int j = i - 1;
+      while(j >= 0 &&
+            FP_NDSF2PairComesBefore(events, f2_key, av_key,
+                                    f2_indices[j], body_available_indices[j]))
+      {
+         f1_indices[j + 1] = f1_indices[j];
+         f2_indices[j + 1] = f2_indices[j];
+         body_available_indices[j + 1] = body_available_indices[j];
+         j--;
+      }
+      f1_indices[j + 1] = f1_key;
+      f2_indices[j + 1] = f2_key;
+      body_available_indices[j + 1] = av_key;
+   }
+   return count;
+}
+
 bool FP_NDSF2SelectLatestWaistBreakPair(const FP_FlagEvent &events[],
                                         const int event_count,
                                         const MqlRates &rates[],
@@ -94,51 +185,25 @@ bool FP_NDSF2SelectLatestWaistBreakPair(const FP_FlagEvent &events[],
                                         int &f2_index,
                                         int &body_available_index)
 {
-   f1_index = -1;
-   f2_index = -1;
-   body_available_index = -1;
-   int latest_closed = rates_total - 1;
-   int n = MathMin(event_count, ArraySize(events));
-
-   for(int i=0; i<n; i++)
+   int f1_indices[];
+   int f2_indices[];
+   int available_indices[];
+   int count = FP_NDSF2CollectWaistBreakPairs(events, event_count,
+                                              rates, rates_total,
+                                              cfg, epsilon_points,
+                                              f1_indices, f2_indices,
+                                              available_indices);
+   if(count <= 0)
    {
-      if(!FP_NDSF2IsWaistBreakArmedBody(events[i], cfg)) continue;
-
-      int parent = FP_CanonicalFindParentIndex(events, n, events[i]);
-      if(parent < 0) continue;
-      if(!FP_NDSF2IsDirectConfirmedParentF1(events[parent], events[i])) continue;
-
-      // The setup becomes knowable when the F2 Leg2 node, and therefore the
-      // complete two-leg F2 body, becomes observable. Waiting for F2.confirm is
-      // prohibited because confirmation is the target event, not the trigger.
-      int available_at = FP_NDSF2NodeAvailabilityIndex(rates, rates_total,
-                                                       events[i].leg2,
-                                                       epsilon_points);
-      if(available_at < 0 || available_at > latest_closed) continue;
-      int age = latest_closed - available_at;
-      if(cfg.max_setup_age_bars >= 0 && age > cfg.max_setup_age_bars) continue;
-
-      bool better = false;
-      if(f2_index < 0) better = true;
-      else if(available_at > body_available_index) better = true;
-      else if(available_at == body_available_index &&
-              events[i].leg2.index_anchor > events[f2_index].leg2.index_anchor) better = true;
-      else if(available_at == body_available_index &&
-              events[i].leg2.index_anchor == events[f2_index].leg2.index_anchor &&
-              events[i].origin.index_anchor > events[f2_index].origin.index_anchor) better = true;
-      else if(available_at == body_available_index &&
-              events[i].leg2.index_anchor == events[f2_index].leg2.index_anchor &&
-              events[i].origin.index_anchor == events[f2_index].origin.index_anchor &&
-              events[i].scale_L < events[f2_index].scale_L) better = true;
-
-      if(better)
-      {
-         f1_index = parent;
-         f2_index = i;
-         body_available_index = available_at;
-      }
+      f1_index = -1;
+      f2_index = -1;
+      body_available_index = -1;
+      return false;
    }
-   return (f1_index >= 0 && f2_index >= 0 && body_available_index >= 0);
+   f1_index = f1_indices[0];
+   f2_index = f2_indices[0];
+   body_available_index = available_indices[0];
+   return true;
 }
 
 long FP_NDSF2BuildSetupHash(const string symbol,
@@ -160,9 +225,12 @@ long FP_NDSF2BuildSetupHash(const string symbol,
 }
 
 string FP_NDSF2BuildComment(const FP_NDSF2WaistTradeConfig &cfg,
-                            const FP_FlagEvent &f2)
+                            const FP_FlagEvent &f2,
+                            const long setup_hash)
 {
-   string comment = cfg.comment_prefix + "|WB2|L" + IntegerToString(f2.scale_L);
+   int short_hash = (int)(setup_hash % 10000000);
+   string comment = cfg.comment_prefix + "|W2|L" + IntegerToString(f2.scale_L) +
+                    "|" + IntegerToString(short_hash);
    if(StringLen(comment) > 31) comment = StringSubstr(comment, 0, 31);
    return comment;
 }
@@ -211,7 +279,7 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    setup.parent_f1_waist_price = f1.waist.price;
    setup.f2_flag_end_price = f2.leg2.price;
    setup.setup_hash = FP_NDSF2BuildSetupHash(symbol, period, f1, f2);
-   setup.broker_comment = FP_NDSF2BuildComment(cfg, f2);
+   setup.broker_comment = FP_NDSF2BuildComment(cfg, f2, setup.setup_hash);
 
    double entry_ticks = MathMax(1.0, cfg.entry_behind_f2_waist_ticks);
    double stop_ticks = MathMax(1.0, cfg.stop_behind_f1_waist_ticks);
@@ -222,8 +290,6 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
 
    if(setup.direction == FP_DIR_BULLISH)
    {
-      // Point 1 = F2 waist. Buy Limit strictly behind/below it. A fill is the
-      // executable Point 2 of the canonical F2 waist-break branch.
       setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol,
                                                         f2.waist.price - entry_offset,
                                                         false);
@@ -238,8 +304,6 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
       if(!(setup.entry_price < market.ask - min_dist)) return false;
       if(setup.entry_price - setup.stop_price < min_dist) return false;
       if(setup.target_price - setup.entry_price < min_dist) return false;
-
-      // If price is already at/above the F2 flag end, target has been consumed.
       if(market.bid >= setup.target_price) return false;
    }
    else if(setup.direction == FP_DIR_BEARISH)
@@ -261,6 +325,14 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
       if(market.ask <= setup.target_price) return false;
    }
    else return false;
+
+   setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price);
+   setup.reward_distance = MathAbs(setup.target_price - setup.entry_price);
+   if(setup.risk_distance <= 0.0 || setup.reward_distance <= 0.0) return false;
+   setup.reward_risk = setup.reward_distance / setup.risk_distance;
+   if(cfg.use_min_reward_risk_filter &&
+      setup.reward_risk + 1e-12 < MathMax(0.0, cfg.min_reward_risk))
+      return false;
 
    setup.eligible = true;
    return true;
