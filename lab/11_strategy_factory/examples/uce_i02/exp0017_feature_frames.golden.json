@@ -1,0 +1,65 @@
+[
+  {
+    "context_observation_id": "uce3_context_occurrence_87d0a32893af5ba3",
+    "context_package_id": "ucee.reference.exp0017",
+    "context_package_version": "1.0.0",
+    "features": [
+      {
+        "descriptor_hash": "4ce457b4d1d412ed2ae3abf263e99e6856e8862e1373b5126cfb7eebb2e3c251",
+        "feature_id": "exp0017.clean_displacement",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1711000001000,
+        "missing_reason": "none",
+        "source_time_ms": 1711000001000,
+        "value": 1.0
+      },
+      {
+        "descriptor_hash": "ca2dfeb5d29b7b57155c004b572e02578e7a90b4d0af5e09145429e3c2b19788",
+        "feature_id": "exp0017.direction",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1711000001000,
+        "missing_reason": "none",
+        "source_time_ms": 1711000001000,
+        "value": "short"
+      },
+      {
+        "descriptor_hash": "29c0787291be74a4e7f333eb6ef0b9bde2f7604fd1b78aec30516ff70cd1acfe",
+        "feature_id": "exp0017.divergence_gap",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1711000001000,
+        "missing_reason": "none",
+        "source_time_ms": 1711000001000,
+        "value": 24.0
+      },
+      {
+        "descriptor_hash": "f8571d29e845f64fc4f3dc2451d5837b44007ebeba0bd1e86aae72d45d157a00",
+        "feature_id": "exp0017.group_minutes",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1711000001000,
+        "missing_reason": "none",
+        "source_time_ms": 1711000001000,
+        "value": 60
+      },
+      {
+        "descriptor_hash": "7d75ae7ecbc46575f8221363689714ddf3413191fda74214a520f96641acbf7b",
+        "feature_id": "exp0017.hunter_displacement",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1711000001000,
+        "missing_reason": "none",
+        "source_time_ms": 1711000001000,
+        "value": 25.0
+      }
+    ],
+    "observation_cut_ms": 1711000001000
+  }
+]

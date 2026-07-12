@@ -1,0 +1,107 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/feature_descriptor_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "availability_modes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "category_values": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "data_type": {
+      "enum": [
+        "bool",
+        "int64",
+        "float64",
+        "category",
+        "string",
+        "vector_float64"
+      ]
+    },
+    "dependencies": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "descriptor_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "feature_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "max_staleness_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "missingness_policy": {
+      "enum": [
+        "reject",
+        "explicit_missing",
+        "zero_is_valid",
+        "forward_fill_bounded",
+        "not_applicable"
+      ]
+    },
+    "owner_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "runtime_exportable": {
+      "type": "boolean"
+    },
+    "shape": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "staleness_policy": {
+      "enum": [
+        "reject",
+        "mark_stale",
+        "allow_with_age"
+      ]
+    },
+    "units": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "feature_id",
+    "version",
+    "owner_id",
+    "data_type",
+    "units",
+    "shape",
+    "missingness_policy",
+    "staleness_policy",
+    "max_staleness_ms",
+    "dependencies",
+    "availability_modes",
+    "runtime_exportable",
+    "category_values",
+    "description"
+  ],
+  "title": "UCEE v3 Feature Descriptor",
+  "type": "object"
+}

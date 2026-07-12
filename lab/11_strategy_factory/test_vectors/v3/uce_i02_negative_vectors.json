@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "case_id": "missing_required_source",
+      "expected": "no_observation",
+      "package": "synthetic",
+      "source": {
+        "symbol": "EURUSD"
+      }
+    },
+    {
+      "case_id": "inside_range_abstention",
+      "expected": "no_observation",
+      "package": "synthetic",
+      "source": {
+        "atr": 0.001,
+        "close": 1.099,
+        "confirmation_time_ms": 1710000120000,
+        "decision_time_ms": 1710000120001,
+        "event_time_ms": 1710000119999,
+        "known_time_ms": 1710000120000,
+        "observation_cut_ms": 1710000120000,
+        "prior_high": 1.1,
+        "prior_low": 1.098,
+        "session": "london",
+        "signal_bar_open_ms": 1710000060000,
+        "source_event_id": "evt.synthetic.none",
+        "spread_points": 12.0,
+        "symbol": "EURUSD",
+        "timeframe_seconds": 60,
+        "trading_day": "2024-03-09"
+      }
+    },
+    {
+      "case_id": "future_feature",
+      "expected_error": "future_feature"
+    },
+    {
+      "case_id": "illegal_transition",
+      "expected_error": "illegal_transition",
+      "from": "retired",
+      "to": "active"
+    },
+    {
+      "case_id": "missing_sequence_window",
+      "expected_error": "missing_sequence_window"
+    },
+    {
+      "case_id": "missing_cluster_dimension",
+      "expected_error": "missing_cluster_dimension"
+    },
+    {
+      "case_id": "duplicate_package_version",
+      "expected_error": "duplicate_context_package"
+    }
+  ]
+}

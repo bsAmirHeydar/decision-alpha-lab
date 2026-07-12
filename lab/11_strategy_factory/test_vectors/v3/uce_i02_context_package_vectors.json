@@ -1,0 +1,91 @@
+{
+  "contract_release": "3.0.0",
+  "exp0017_adapter_records": [
+    {
+      "canonical_event_id": "sf20_evt_001",
+      "clean_current_extreme": 5201.0,
+      "clean_reference_price": 5200.0,
+      "clean_symbol": "US500",
+      "confirmation_time_ms": 1711000001000,
+      "current_cycle_start_ms": 1710997200000,
+      "decision_time_ms": 1711000001001,
+      "direction": "short",
+      "event_time_ms": 1711000000000,
+      "group_minutes": 60,
+      "hunter_current_extreme": 18025.0,
+      "hunter_reference_price": 18000.0,
+      "hunter_symbol": "US100",
+      "known_time_ms": 1711000001000,
+      "observation_cut_ms": 1711000001000,
+      "parent_event_id": "sf20_parent_001",
+      "trading_day": "2024-03-21"
+    }
+  ],
+  "phase": "UCE-I02",
+  "synthetic_future_mutations": [
+    {
+      "base_record_index": 0,
+      "changes": {
+        "future_close": 1.2,
+        "future_high": 1.25
+      },
+      "mutation_time_ms": 1710000120000
+    }
+  ],
+  "synthetic_source_records": [
+    {
+      "atr": 0.001,
+      "close": 1.101,
+      "confirmation_time_ms": 1710000060000,
+      "decision_time_ms": 1710000060001,
+      "event_time_ms": 1710000059999,
+      "known_time_ms": 1710000060000,
+      "observation_cut_ms": 1710000060000,
+      "prior_high": 1.1,
+      "prior_low": 1.098,
+      "session": "london",
+      "signal_bar_open_ms": 1710000000000,
+      "source_event_id": "evt.synthetic.001",
+      "spread_points": 12.0,
+      "symbol": "EURUSD",
+      "timeframe_seconds": 60,
+      "trading_day": "2024-03-09"
+    },
+    {
+      "atr": 0.001,
+      "close": 1.099,
+      "confirmation_time_ms": 1710000120000,
+      "decision_time_ms": 1710000120001,
+      "event_time_ms": 1710000119999,
+      "known_time_ms": 1710000120000,
+      "observation_cut_ms": 1710000120000,
+      "prior_high": 1.1,
+      "prior_low": 1.098,
+      "session": "london",
+      "signal_bar_open_ms": 1710000060000,
+      "source_event_id": "evt.synthetic.none",
+      "spread_points": 12.0,
+      "symbol": "EURUSD",
+      "timeframe_seconds": 60,
+      "trading_day": "2024-03-09"
+    },
+    {
+      "atr": 0.001,
+      "close": 1.097,
+      "confirmation_time_ms": 1710000180000,
+      "decision_time_ms": 1710000180001,
+      "event_time_ms": 1710000179999,
+      "known_time_ms": 1710000180000,
+      "observation_cut_ms": 1710000180000,
+      "prior_high": 1.1,
+      "prior_low": 1.098,
+      "session": "new_york",
+      "signal_bar_open_ms": 1710000120000,
+      "source_event_id": "evt.synthetic.002",
+      "spread_points": 12.0,
+      "symbol": "EURUSD",
+      "timeframe_seconds": 60,
+      "trading_day": "2024-03-09"
+    }
+  ]
+}

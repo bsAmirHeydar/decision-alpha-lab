@@ -1,0 +1,69 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_conformance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          },
+          "evidence": {
+            "type": "object"
+          },
+          "message": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "error",
+              "fatal"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "severity",
+          "message",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "package_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "package_version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "replay_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "tested_records": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "package_id",
+    "package_version",
+    "passed",
+    "findings",
+    "replay_hash",
+    "tested_records"
+  ],
+  "title": "UCEE v3 Context Package Conformance Report",
+  "type": "object"
+}

@@ -1,0 +1,93 @@
+{
+  "anatomy_adapter": {
+    "id": "sf20.exp0017.adapter",
+    "version": "1.0.0"
+  },
+  "cluster_rules": [
+    {
+      "component_id": "exp0017.opportunity",
+      "required": true,
+      "schema_hash": "5f555c2346431bad8f0d7d49cc6d474c703870f667c0f1e380d91d56d3a14f7f",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "exp0017.parent_cycle",
+      "required": true,
+      "schema_hash": "43829e694cf739e00e7b96654200acbe81eccb58fe8841cf3df7f3c3bdf07c50",
+      "version": "1.0.0"
+    }
+  ],
+  "description": "Reference package wrapping the accepted SF20 EXP0017 adapter output without moving trade decisions into context truth.",
+  "doctrine": {
+    "id": "exp0017.temporal_intermarket_divergence",
+    "version": "1.0.0"
+  },
+  "feature_packs": [
+    {
+      "component_id": "exp0017.core_features",
+      "required": true,
+      "schema_hash": "7c82896f4f6a6acd0b97095a440cf7de6731ad1d4feaef4a71b5baa9ed945f1e",
+      "version": "1.0.0"
+    }
+  ],
+  "manual_policies": [
+    {
+      "kind": "baseline_setup",
+      "policy_id": "exp0017.manual_divergence_baseline",
+      "required_feature_ids": [
+        "exp0017.direction",
+        "exp0017.divergence_gap"
+      ],
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {},
+  "owner_id": "alpha_lab",
+  "package_id": "ucee.reference.exp0017",
+  "parent_package_id": "none",
+  "representation_views": [
+    {
+      "component_id": "exp0017.tabular",
+      "required": true,
+      "schema_hash": "503964e48312c7cf86b39ed4c6422a8412b768a8fbbef5be0cacb8421786179a",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "exp0017.intermarket",
+      "required": true,
+      "schema_hash": "e8b81af157d6ce0561e5b424206616d837151934c9b6fc2fb3882263a1ab79be",
+      "version": "1.0.0"
+    }
+  ],
+  "runtime_modes": 31,
+  "source_requirements": [
+    {
+      "kind": "anatomy_event",
+      "lookback": 1,
+      "max_staleness_ms": 120000,
+      "purpose": "canonical SF20 EXP0017 anatomy event",
+      "requirement_id": "sf20_exp0017_event",
+      "strength": "required",
+      "symbols": [
+        "HUNTER",
+        "CLEAN"
+      ],
+      "synchronization_group_id": "exp0017_pair_m1",
+      "timeframe_seconds": 60
+    }
+  ],
+  "tasks": [
+    {
+      "allowed_view_ids": [
+        "exp0017.tabular",
+        "exp0017.intermarket"
+      ],
+      "kind": "binary",
+      "label_contract_id": "label.net_r_positive",
+      "task_id": "exp0017.tradeability",
+      "version": "1.0.0"
+    }
+  ],
+  "update_scope": 28,
+  "version": "1.0.0"
+}

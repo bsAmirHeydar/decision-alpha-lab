@@ -1,0 +1,105 @@
+{
+  "anatomy_adapter": {
+    "id": "ucee.reference.break_adapter",
+    "version": "1.0.0"
+  },
+  "cluster_rules": [
+    {
+      "component_id": "break.opportunity",
+      "required": true,
+      "schema_hash": "b5db449cf1732208b5a9efb352a1acd0f12974d0ff3b07cfb37b6ac30d6a7954",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "break.session_day",
+      "required": true,
+      "schema_hash": "cde36bd06c68e937e43ad7eab2eaf8973127be0e7c222e525fd97e62e6a48b52",
+      "version": "1.0.0"
+    }
+  ],
+  "description": "Synthetic causal reference context used to prove package conformance without strategy doctrine ambiguity.",
+  "doctrine": {
+    "id": "doctrine.synthetic_break",
+    "version": "1.0.0"
+  },
+  "feature_packs": [
+    {
+      "component_id": "break.core_features",
+      "required": true,
+      "schema_hash": "d7fa1edf3dc3a2db7d142aeb11de93d2ca57085cb8c029caada84d98173c00b5",
+      "version": "1.0.0"
+    }
+  ],
+  "manual_policies": [
+    {
+      "kind": "baseline_setup",
+      "policy_id": "break.manual_close_confirmed",
+      "required_feature_ids": [
+        "break.direction",
+        "break.distance_atr"
+      ],
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {},
+  "owner_id": "alpha_lab",
+  "package_id": "ucee.reference.synthetic_break",
+  "parent_package_id": "none",
+  "representation_views": [
+    {
+      "component_id": "break.tabular",
+      "required": true,
+      "schema_hash": "737bcfa130381eff5225b4098fcbddf759c4a3700989f29c317064fdaecdb4f4",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "break.sequence",
+      "required": true,
+      "schema_hash": "c55b3aafbd6978636cb6de060034059d540b48d3c097bc50f3009e5fc204d8c6",
+      "version": "1.0.0"
+    }
+  ],
+  "runtime_modes": 31,
+  "source_requirements": [
+    {
+      "kind": "closed_bars",
+      "lookback": 64,
+      "max_staleness_ms": 120000,
+      "purpose": "closed-bar causal break detection",
+      "requirement_id": "primary_m1",
+      "strength": "required",
+      "symbols": [
+        "PRIMARY"
+      ],
+      "synchronization_group_id": "primary_m1",
+      "timeframe_seconds": 60
+    },
+    {
+      "kind": "symbol_spec",
+      "lookback": 1,
+      "max_staleness_ms": 60000,
+      "purpose": "price and spread normalization",
+      "requirement_id": "primary_spec",
+      "strength": "required",
+      "symbols": [
+        "PRIMARY"
+      ],
+      "synchronization_group_id": "none",
+      "timeframe_seconds": 0
+    }
+  ],
+  "tasks": [
+    {
+      "allowed_view_ids": [
+        "break.tabular",
+        "break.sequence"
+      ],
+      "kind": "binary",
+      "label_contract_id": "label.net_r_positive",
+      "task_id": "break.tradeability",
+      "version": "1.0.0"
+    }
+  ],
+  "update_scope": 26,
+  "version": "1.0.0"
+}

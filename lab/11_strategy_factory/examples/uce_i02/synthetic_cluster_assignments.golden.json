@@ -1,0 +1,56 @@
+[
+  {
+    "cluster_id": "uce3_context_cluster_72f23b4b4b04572d",
+    "cluster_kind": "opportunity",
+    "context_observation_id": "uce3_context_occurrence_0a249c4fee855f5d",
+    "dimensions": {
+      "direction": "long",
+      "signal_bar_open_ms": 1710000000000,
+      "symbol": "EURUSD",
+      "timeframe_seconds": 60
+    },
+    "evidence_hash": "e2b0dd303daf6316d6fd8492c2b9f76f86a3c78374ed96b2025eb08003899e68",
+    "rule_id": "break.opportunity",
+    "rule_version": "1.0.0"
+  },
+  {
+    "cluster_id": "uce3_context_cluster_db57c7a4a5d83734",
+    "cluster_kind": "symbol_session_day",
+    "context_observation_id": "uce3_context_occurrence_0a249c4fee855f5d",
+    "dimensions": {
+      "session": "london",
+      "symbol": "EURUSD",
+      "trading_day": "2024-03-09"
+    },
+    "evidence_hash": "4c271b468237bcbf69322c6b6422a7ec705130427062b43c894dff0784a228db",
+    "rule_id": "break.session_day",
+    "rule_version": "1.0.0"
+  },
+  {
+    "cluster_id": "uce3_context_cluster_d0bcba91b679f8cc",
+    "cluster_kind": "opportunity",
+    "context_observation_id": "uce3_context_occurrence_6713f93ac7c17f6f",
+    "dimensions": {
+      "direction": "short",
+      "signal_bar_open_ms": 1710000120000,
+      "symbol": "EURUSD",
+      "timeframe_seconds": 60
+    },
+    "evidence_hash": "6475d381ce2160f9d0a18f90a4c31127568c80aad388413e5d028af8ba21eb28",
+    "rule_id": "break.opportunity",
+    "rule_version": "1.0.0"
+  },
+  {
+    "cluster_id": "uce3_context_cluster_0ef004a6f7f1f46a",
+    "cluster_kind": "symbol_session_day",
+    "context_observation_id": "uce3_context_occurrence_6713f93ac7c17f6f",
+    "dimensions": {
+      "session": "new_york",
+      "symbol": "EURUSD",
+      "trading_day": "2024-03-09"
+    },
+    "evidence_hash": "cce29cac459bb33ea63789580bc8a08f278240e967701f6b0cb5addf6c43fcfa",
+    "rule_id": "break.session_day",
+    "rule_version": "1.0.0"
+  }
+]

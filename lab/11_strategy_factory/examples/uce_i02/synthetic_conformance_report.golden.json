@@ -1,0 +1,8 @@
+{
+  "findings": [],
+  "package_id": "ucee.reference.synthetic_break",
+  "package_version": "1.0.0",
+  "passed": true,
+  "replay_hash": "59df46a4357a04dd564604d7ed1c81eb9c1f4a418c9fef5f9e8612e0523066c2",
+  "tested_records": 3
+}

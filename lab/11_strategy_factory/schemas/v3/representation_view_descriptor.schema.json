@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/representation_view_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "availability_modes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "descriptor_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "feature_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "enum": [
+        "tabular",
+        "sequence",
+        "graph",
+        "intermarket",
+        "raster",
+        "sparse_event",
+        "path_signature",
+        "execution",
+        "portfolio",
+        "fused"
+      ]
+    },
+    "owner_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "runtime_exportable": {
+      "type": "boolean"
+    },
+    "shape": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "view_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "view_id",
+    "version",
+    "owner_id",
+    "kind",
+    "feature_ids",
+    "shape",
+    "availability_modes",
+    "runtime_exportable",
+    "parameters"
+  ],
+  "title": "UCEE v3 Representation View Descriptor",
+  "type": "object"
+}

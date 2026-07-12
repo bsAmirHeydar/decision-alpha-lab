@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_transition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "from_state": {
+      "type": "string"
+    },
+    "known_time": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "to_state": {
+      "type": "string"
+    },
+    "transition_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "transition_id",
+    "observation_id",
+    "from_state",
+    "to_state",
+    "known_time",
+    "reason_code",
+    "evidence_hash",
+    "sequence"
+  ],
+  "title": "UCEE v3 Context Observation Transition",
+  "type": "object"
+}

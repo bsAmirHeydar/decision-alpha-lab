@@ -1,0 +1,69 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_source_requirement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "enum": [
+        "closed_bars",
+        "ticks",
+        "symbol_spec",
+        "account",
+        "calendar",
+        "external_ledger",
+        "anatomy_event"
+      ]
+    },
+    "lookback": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_staleness_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "requirement_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "strength": {
+      "enum": [
+        "required",
+        "optional"
+      ]
+    },
+    "symbols": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "synchronization_group_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "timeframe_seconds": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "requirement_id",
+    "kind",
+    "strength",
+    "symbols",
+    "timeframe_seconds",
+    "lookback",
+    "max_staleness_ms",
+    "synchronization_group_id",
+    "purpose"
+  ],
+  "title": "UCEE v3 Context Source Requirement",
+  "type": "object"
+}

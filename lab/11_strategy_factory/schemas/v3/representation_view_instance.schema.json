@@ -1,0 +1,45 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/representation_view_instance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "feature_frame_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "view_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "view_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "view_instance_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "view_instance_id",
+    "view_hash",
+    "view_id",
+    "version",
+    "context_observation_id",
+    "feature_frame_hash",
+    "payload"
+  ],
+  "title": "UCEE v3 Representation View Instance",
+  "type": "object"
+}

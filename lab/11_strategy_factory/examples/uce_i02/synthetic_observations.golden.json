@@ -1,0 +1,120 @@
+[
+  {
+    "lifecycle_state": "confirmed",
+    "observation_id": "uce3_context_occurrence_0a249c4fee855f5d",
+    "package_id": "ucee.reference.synthetic_break",
+    "package_version": "1.0.0",
+    "parent_observation_id": "none",
+    "payload": {
+      "atr": 0.001,
+      "close": 1.101,
+      "direction": "long",
+      "prior_high": 1.1,
+      "prior_low": 1.098,
+      "session": "london",
+      "signal_bar_open_ms": 1710000000000,
+      "spread_points": 12.0,
+      "trading_day": "2024-03-09"
+    },
+    "sequence": 0,
+    "source_event_ids": [
+      "evt.synthetic.001"
+    ],
+    "supersedes_observation_id": "none",
+    "symbol_scope": [
+      "EURUSD"
+    ],
+    "time_chain": {
+      "action_time": null,
+      "confirmation_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000060000,
+        "timezone": "UTC"
+      },
+      "decision_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000060001,
+        "timezone": "UTC"
+      },
+      "event_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000059999,
+        "timezone": "UTC"
+      },
+      "fill_time": null,
+      "known_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000060000,
+        "timezone": "UTC"
+      },
+      "label_maturity_time": null,
+      "observation_cut": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000060000,
+        "timezone": "UTC"
+      }
+    },
+    "timeframe_scope_seconds": [
+      60
+    ]
+  },
+  {
+    "lifecycle_state": "confirmed",
+    "observation_id": "uce3_context_occurrence_6713f93ac7c17f6f",
+    "package_id": "ucee.reference.synthetic_break",
+    "package_version": "1.0.0",
+    "parent_observation_id": "none",
+    "payload": {
+      "atr": 0.001,
+      "close": 1.097,
+      "direction": "short",
+      "prior_high": 1.1,
+      "prior_low": 1.098,
+      "session": "new_york",
+      "signal_bar_open_ms": 1710000120000,
+      "spread_points": 12.0,
+      "trading_day": "2024-03-09"
+    },
+    "sequence": 0,
+    "source_event_ids": [
+      "evt.synthetic.002"
+    ],
+    "supersedes_observation_id": "none",
+    "symbol_scope": [
+      "EURUSD"
+    ],
+    "time_chain": {
+      "action_time": null,
+      "confirmation_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000180000,
+        "timezone": "UTC"
+      },
+      "decision_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000180001,
+        "timezone": "UTC"
+      },
+      "event_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000179999,
+        "timezone": "UTC"
+      },
+      "fill_time": null,
+      "known_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000180000,
+        "timezone": "UTC"
+      },
+      "label_maturity_time": null,
+      "observation_cut": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1710000180000,
+        "timezone": "UTC"
+      }
+    },
+    "timeframe_scope_seconds": [
+      60
+    ]
+  }
+]

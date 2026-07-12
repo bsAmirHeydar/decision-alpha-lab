@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/cluster_assignment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "cluster_kind": {
+      "type": "string"
+    },
+    "context_observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "rule_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "rule_version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule_id",
+    "rule_version",
+    "cluster_kind",
+    "context_observation_id",
+    "cluster_id",
+    "dimensions",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Cluster Assignment",
+  "type": "object"
+}

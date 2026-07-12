@@ -1,0 +1,25 @@
+[
+  {
+    "context_observation_id": "uce3_context_occurrence_87d0a32893af5ba3",
+    "descriptor_hash": "503964e48312c7cf86b39ed4c6422a8412b768a8fbbef5be0cacb8421786179a",
+    "feature_frame_hash": "ea62ba95c369cddbf340636d88f98b0f3a21a9f3f32b37cdafa01eaefc19093f",
+    "payload": {
+      "columns": [
+        "exp0017.clean_displacement",
+        "exp0017.direction",
+        "exp0017.divergence_gap",
+        "exp0017.group_minutes",
+        "exp0017.hunter_displacement"
+      ],
+      "values": [
+        1.0,
+        "short",
+        24.0,
+        60,
+        25.0
+      ]
+    },
+    "version": "1.0.0",
+    "view_id": "exp0017.tabular"
+  }
+]

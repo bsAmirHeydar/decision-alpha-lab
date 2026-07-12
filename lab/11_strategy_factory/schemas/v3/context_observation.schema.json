@@ -1,0 +1,94 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "lifecycle_state": {
+      "enum": [
+        "detected",
+        "confirmed",
+        "active",
+        "invalidated",
+        "expired",
+        "superseded",
+        "retired"
+      ]
+    },
+    "observation_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "package_version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "parent_observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_event_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supersedes_observation_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "symbol_scope": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "time_chain": {
+      "type": "object"
+    },
+    "timeframe_scope_seconds": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "observation_id",
+    "package_id",
+    "package_version",
+    "source_event_ids",
+    "symbol_scope",
+    "timeframe_scope_seconds",
+    "lifecycle_state",
+    "time_chain",
+    "payload",
+    "parent_observation_id",
+    "supersedes_observation_id",
+    "sequence",
+    "observation_hash"
+  ],
+  "title": "UCEE v3 Context Observation",
+  "type": "object"
+}

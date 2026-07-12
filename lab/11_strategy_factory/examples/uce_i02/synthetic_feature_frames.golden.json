@@ -1,0 +1,128 @@
+[
+  {
+    "context_observation_id": "uce3_context_occurrence_0a249c4fee855f5d",
+    "context_package_id": "ucee.reference.synthetic_break",
+    "context_package_version": "1.0.0",
+    "features": [
+      {
+        "descriptor_hash": "0ff3da76c90c806f4c354ca58108a73ba6be409bc55271e9db977b7f404f3de2",
+        "feature_id": "break.direction",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000060000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000060000,
+        "value": "long"
+      },
+      {
+        "descriptor_hash": "5095f2e047786eb85f26a81f8407ff7b11ea41937c71ebf13b6f97be7cdc3a8a",
+        "feature_id": "break.distance_atr",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000060000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000060000,
+        "value": 1.0
+      },
+      {
+        "descriptor_hash": "04abae24ae0c105b0eea96cd911aafb9de9341424f85b899255a834547a45c54",
+        "feature_id": "break.range_atr",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000060000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000060000,
+        "value": 2.0
+      },
+      {
+        "descriptor_hash": "9e0a41873762b5333328aa85e97356384b856f8ae3cf01186c47bfb505f1a5a2",
+        "feature_id": "market.spread_points",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000060000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000060000,
+        "value": 12.0
+      },
+      {
+        "descriptor_hash": "8c9f24b25270c0b8861367ba4728e11814ea8618648b9c90876d3b6ca55e1fd3",
+        "feature_id": "time.session",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000060000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000060000,
+        "value": "london"
+      }
+    ],
+    "observation_cut_ms": 1710000060000
+  },
+  {
+    "context_observation_id": "uce3_context_occurrence_6713f93ac7c17f6f",
+    "context_package_id": "ucee.reference.synthetic_break",
+    "context_package_version": "1.0.0",
+    "features": [
+      {
+        "descriptor_hash": "0ff3da76c90c806f4c354ca58108a73ba6be409bc55271e9db977b7f404f3de2",
+        "feature_id": "break.direction",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000180000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000180000,
+        "value": "short"
+      },
+      {
+        "descriptor_hash": "5095f2e047786eb85f26a81f8407ff7b11ea41937c71ebf13b6f97be7cdc3a8a",
+        "feature_id": "break.distance_atr",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000180000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000180000,
+        "value": 1.0
+      },
+      {
+        "descriptor_hash": "04abae24ae0c105b0eea96cd911aafb9de9341424f85b899255a834547a45c54",
+        "feature_id": "break.range_atr",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000180000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000180000,
+        "value": 2.0
+      },
+      {
+        "descriptor_hash": "9e0a41873762b5333328aa85e97356384b856f8ae3cf01186c47bfb505f1a5a2",
+        "feature_id": "market.spread_points",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000180000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000180000,
+        "value": 12.0
+      },
+      {
+        "descriptor_hash": "8c9f24b25270c0b8861367ba4728e11814ea8618648b9c90876d3b6ca55e1fd3",
+        "feature_id": "time.session",
+        "feature_version": "1.0.0",
+        "freshness": "fresh",
+        "is_missing": false,
+        "known_time_ms": 1710000180000,
+        "missing_reason": "none",
+        "source_time_ms": 1710000180000,
+        "value": "new_york"
+      }
+    ],
+    "observation_cut_ms": 1710000180000
+  }
+]

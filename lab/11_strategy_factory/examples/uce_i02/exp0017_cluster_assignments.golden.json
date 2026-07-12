@@ -1,0 +1,30 @@
+[
+  {
+    "cluster_id": "uce3_context_cluster_54bbd77cae367fb8",
+    "cluster_kind": "opportunity",
+    "context_observation_id": "uce3_context_occurrence_87d0a32893af5ba3",
+    "dimensions": {
+      "clean_symbol": "US500",
+      "direction": "short",
+      "group_minutes": 60,
+      "hunter_symbol": "US100",
+      "trading_day": "2024-03-21"
+    },
+    "evidence_hash": "db588730367e4882e52377d3ff31990e348141f6fa684a4fa4bbf425171b1f50",
+    "rule_id": "exp0017.opportunity",
+    "rule_version": "1.0.0"
+  },
+  {
+    "cluster_id": "uce3_context_cluster_2f42d14fc485ebc4",
+    "cluster_kind": "parent_child",
+    "context_observation_id": "uce3_context_occurrence_87d0a32893af5ba3",
+    "dimensions": {
+      "current_cycle_start_ms": 1710997200000,
+      "group_minutes": 60,
+      "trading_day": "2024-03-21"
+    },
+    "evidence_hash": "06207c5595c42e02471a746950d1b7fc6b47259a1898d05284f279a5b6da1fc5",
+    "rule_id": "exp0017.parent_cycle",
+    "rule_version": "1.0.0"
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "context_observation_id": "uce3_context_occurrence_0a249c4fee855f5d",
+    "descriptor_hash": "737bcfa130381eff5225b4098fcbddf759c4a3700989f29c317064fdaecdb4f4",
+    "feature_frame_hash": "b21f890d15426f99ff1589fd1cb4be6dab07b168a61620e83c9a38ccb2538d4f",
+    "payload": {
+      "columns": [
+        "break.direction",
+        "break.distance_atr",
+        "break.range_atr",
+        "market.spread_points",
+        "time.session"
+      ],
+      "values": [
+        "long",
+        1.0,
+        2.0,
+        12.0,
+        "london"
+      ]
+    },
+    "version": "1.0.0",
+    "view_id": "break.tabular"
+  },
+  {
+    "context_observation_id": "uce3_context_occurrence_6713f93ac7c17f6f",
+    "descriptor_hash": "737bcfa130381eff5225b4098fcbddf759c4a3700989f29c317064fdaecdb4f4",
+    "feature_frame_hash": "ab274b3c41f7ae9114437014b5e79b6efa6e05083e0ad917c714342f76446976",
+    "payload": {
+      "columns": [
+        "break.direction",
+        "break.distance_atr",
+        "break.range_atr",
+        "market.spread_points",
+        "time.session"
+      ],
+      "values": [
+        "short",
+        1.0,
+        2.0,
+        12.0,
+        "new_york"
+      ]
+    },
+    "version": "1.0.0",
+    "view_id": "break.tabular"
+  }
+]

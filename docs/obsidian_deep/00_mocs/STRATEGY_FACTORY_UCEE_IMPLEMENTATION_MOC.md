@@ -18,3 +18,5 @@ UCE-I01 provides contract release 3.0, canonical identities, known-time causalit
 ## Next Phase
 
 - [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I02_CONTEXT_PACKAGE_SDK_AND_REFERENCE_CONTEXTS|UCE-I02 — Context Package SDK and Reference Contexts]]
+
+- [[../../strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i02/00_UCE_I02_MOC|UCE-I02 Context Package SDK]]

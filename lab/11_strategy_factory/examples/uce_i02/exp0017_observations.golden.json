@@ -1,0 +1,63 @@
+[
+  {
+    "lifecycle_state": "confirmed",
+    "observation_id": "uce3_context_occurrence_87d0a32893af5ba3",
+    "package_id": "ucee.reference.exp0017",
+    "package_version": "1.0.0",
+    "parent_observation_id": "sf20_parent_001",
+    "payload": {
+      "clean_current_extreme": 5201.0,
+      "clean_reference_price": 5200.0,
+      "clean_symbol": "US500",
+      "current_cycle_start_ms": 1710997200000,
+      "direction": "short",
+      "group_minutes": 60,
+      "hunter_current_extreme": 18025.0,
+      "hunter_reference_price": 18000.0,
+      "hunter_symbol": "US100",
+      "trading_day": "2024-03-21"
+    },
+    "sequence": 0,
+    "source_event_ids": [
+      "sf20_evt_001"
+    ],
+    "supersedes_observation_id": "none",
+    "symbol_scope": [
+      "US100",
+      "US500"
+    ],
+    "time_chain": {
+      "action_time": null,
+      "confirmation_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1711000001000,
+        "timezone": "UTC"
+      },
+      "decision_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1711000001001,
+        "timezone": "UTC"
+      },
+      "event_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1711000000000,
+        "timezone": "UTC"
+      },
+      "fill_time": null,
+      "known_time": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1711000001000,
+        "timezone": "UTC"
+      },
+      "label_maturity_time": null,
+      "observation_cut": {
+        "clock_id": "fixture.utc",
+        "epoch_ms": 1711000001000,
+        "timezone": "UTC"
+      }
+    },
+    "timeframe_scope_seconds": [
+      60
+    ]
+  }
+]

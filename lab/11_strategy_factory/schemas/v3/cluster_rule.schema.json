@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/cluster_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dimensions": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "enum": [
+        "opportunity",
+        "overlapping_path",
+        "parent_child",
+        "symbol_session_day",
+        "treatment_sibling",
+        "custom"
+      ]
+    },
+    "owner_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "rule_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "rule_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule_id",
+    "version",
+    "owner_id",
+    "kind",
+    "dimensions",
+    "parameters"
+  ],
+  "title": "UCEE v3 Cluster Rule",
+  "type": "object"
+}

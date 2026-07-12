@@ -1,0 +1,21 @@
+{
+  "contract_release": "3.0.0",
+  "phase": "UCE-I02",
+  "schemas": [
+    "cluster_assignment.schema.json",
+    "cluster_rule.schema.json",
+    "context_conformance_report.schema.json",
+    "context_observation.schema.json",
+    "context_package_manifest.schema.json",
+    "context_package_release_manifest.schema.json",
+    "context_source_requirement.schema.json",
+    "context_task_reference.schema.json",
+    "context_transition.schema.json",
+    "feature_descriptor_v3.schema.json",
+    "feature_frame_v3.schema.json",
+    "feature_value_v3.schema.json",
+    "manual_policy_reference.schema.json",
+    "representation_view_descriptor.schema.json",
+    "representation_view_instance.schema.json"
+  ]
+}

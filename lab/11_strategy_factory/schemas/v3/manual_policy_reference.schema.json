@@ -1,0 +1,40 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/manual_policy_reference.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "enum": [
+        "hard_rule",
+        "baseline_setup",
+        "override",
+        "abstention",
+        "label_only"
+      ]
+    },
+    "policy_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "required_feature_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "kind",
+    "required_feature_ids"
+  ],
+  "title": "UCEE v3 Manual Policy Reference",
+  "type": "object"
+}

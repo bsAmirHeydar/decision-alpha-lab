@@ -1,0 +1,48 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_task_reference.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_view_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "enum": [
+        "binary",
+        "multiclass",
+        "regression",
+        "ranking",
+        "survival",
+        "quantile",
+        "policy_selection"
+      ]
+    },
+    "label_contract_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "task_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "version",
+    "kind",
+    "label_contract_id",
+    "allowed_view_ids"
+  ],
+  "title": "UCEE v3 Context Task Reference",
+  "type": "object"
+}

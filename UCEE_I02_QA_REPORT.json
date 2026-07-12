@@ -1,0 +1,87 @@
+{
+  "artifact": "UCE-I02 Context Package SDK, Lifecycle, and Reference Contexts",
+  "checks": [
+    {
+      "gate": "Python compileall",
+      "status": "passed"
+    },
+    {
+      "detail": "58 passed across UCE-I01 and UCE-I02",
+      "gate": "Python cumulative phase tests",
+      "status": "passed"
+    },
+    {
+      "detail": "synthetic_break and exp0017_adapter_backed",
+      "gate": "Reference context conformance",
+      "status": "passed"
+    },
+    {
+      "detail": "future mutation cannot alter historical occurrence hashes",
+      "gate": "Future-perturbation causality",
+      "status": "passed"
+    },
+    {
+      "detail": "15 schemas",
+      "gate": "JSON Schema 2020-12 structural validation",
+      "status": "passed"
+    },
+    {
+      "detail": "12 examples",
+      "gate": "Golden example and vector validation",
+      "status": "passed"
+    },
+    {
+      "detail": "31 phase-owned source files",
+      "gate": "UCE-I02 architecture boundary scan",
+      "status": "passed"
+    },
+    {
+      "detail": "0 errors, 0 warnings",
+      "gate": "MQL5 compatibility scan",
+      "status": "passed"
+    },
+    {
+      "detail": "16 files",
+      "gate": "MQL5 static include and delimiter scan",
+      "status": "passed"
+    },
+    {
+      "detail": "4 of 4 checks",
+      "gate": "Merged-repository Engineering Policy",
+      "status": "passed"
+    },
+    {
+      "gate": "Native MetaEditor compilation",
+      "status": "pending_external"
+    },
+    {
+      "gate": "Terminal MQL5 self-tests",
+      "status": "pending_external"
+    }
+  ],
+  "contract_release": "3.0.0",
+  "coverage": {
+    "english_phase_documents": 37,
+    "json_schemas": 15,
+    "mql5_eas": 3,
+    "mql5_headers": 13,
+    "python_modules": 15,
+    "python_test_files": 10,
+    "reference_context_packages": 2,
+    "representation_view_kinds": 10
+  },
+  "honesty": {
+    "live_authority_present": false,
+    "metaeditor_available": false,
+    "native_compile_claimed": false,
+    "real_strategy_edge_claimed": false,
+    "treatment_or_execution_logic_present": false
+  },
+  "residual_risks": [
+    "Native MetaEditor and MetaTrader terminal evidence must be produced on the target Windows installation",
+    "Advanced MQL5 representation compilers remain later runtime work",
+    "EXP0017 treatment exploitation and statistical edge claims are outside UCE-I02",
+    "Additional doctrine packages such as Hook, Zone, Daye, and temporal divergence still require migration"
+  ],
+  "status": "PASS_WITH_EXTERNAL_MQL5_GATES_PENDING"
+}

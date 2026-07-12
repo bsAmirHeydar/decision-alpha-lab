@@ -1,0 +1,208 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/context_package_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anatomy_adapter": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "type": "object"
+    },
+    "cluster_rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "schema_hash": {
+            "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "component_id",
+          "version",
+          "schema_hash",
+          "required"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "doctrine": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "type": "object"
+    },
+    "feature_packs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "schema_hash": {
+            "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "component_id",
+          "version",
+          "schema_hash",
+          "required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+      "type": "string"
+    },
+    "manual_policies": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "owner_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "parent_package_id": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    },
+    "representation_views": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "schema_hash": {
+            "pattern": "^(?:[0-9a-f]{64}|fnv1a64:[0-9a-f]{16})$",
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "component_id",
+          "version",
+          "schema_hash",
+          "required"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "runtime_modes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_requirements": {
+      "items": {
+        "$ref": "context_source_requirement.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "tasks": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "update_scope": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9._:/-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "package_id",
+    "version",
+    "owner_id",
+    "doctrine",
+    "anatomy_adapter",
+    "update_scope",
+    "runtime_modes",
+    "parent_package_id",
+    "description",
+    "metadata",
+    "source_requirements",
+    "feature_packs",
+    "representation_views",
+    "cluster_rules",
+    "manual_policies",
+    "tasks"
+  ],
+  "title": "UCEE v3 Context Package Manifest",
+  "type": "object"
+}
