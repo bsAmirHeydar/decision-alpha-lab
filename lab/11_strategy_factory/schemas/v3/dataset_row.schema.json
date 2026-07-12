@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cell_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_frame_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_values": {
+      "type": "object"
+    },
+    "fold_roles": {
+      "type": "object"
+    },
+    "label": {
+      "type": "object"
+    },
+    "label_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "representation_hashes": {
+      "type": "object"
+    },
+    "row_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_known_time_ms": {
+      "type": "integer"
+    },
+    "row_lineage_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "row_id",
+    "opportunity_id",
+    "treatment_id",
+    "cell_id",
+    "label_id",
+    "fold_roles",
+    "feature_frame_hash",
+    "feature_values",
+    "label",
+    "row_known_time_ms",
+    "row_lineage_hash"
+  ],
+  "title": "UCEE v3 Dataset Row",
+  "type": "object"
+}

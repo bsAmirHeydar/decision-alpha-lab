@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cells": {
+      "type": "array"
+    },
+    "compiler_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cube_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "path_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scenario_set_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment_matrix_hash": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "cube_hash",
+    "opportunity_id",
+    "anchor_hash",
+    "path_hash",
+    "treatment_matrix_hash",
+    "scenario_set_hash",
+    "cells",
+    "compiler_version"
+  ],
+  "title": "UCEE v3 Outcome Cube",
+  "type": "object"
+}

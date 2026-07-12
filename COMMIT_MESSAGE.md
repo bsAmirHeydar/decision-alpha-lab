@@ -1,3 +1,3 @@
-feat(alpha-lab): implement UCEE side-aware economics and capital risk
+feat(alpha-lab): implement UCEE outcome cube and dataset compiler
 
-Add executable bid/ask pricing, exact cost-model and capital-policy registries, broker constraint normalization, conservative maximum-loss sizing, append-only reservation and restart reconciliation, economic stress testing, MQL5/Python conformance surfaces, schemas, golden fixtures, cumulative tests, detailed English Obsidian documentation, QA evidence and the UCE-I06 handoff.
+Add immutable context opportunity anchors, shared causal path evaluation, treatment-sibling counterfactual cubes, side-aware economic scenarios, maturity and censoring evidence, binary regression ranking treatment-choice survival competing-risk quantile multi-task novelty and bounded-policy labels, cluster-safe purged and embargoed splits, train-only transform plans, deterministic dataset manifests, blocking leakage audits, MQL5 and Python conformance surfaces, schemas, golden fixtures, cumulative tests, comprehensive English Obsidian documentation, QA evidence and the UCE-I07 handoff.

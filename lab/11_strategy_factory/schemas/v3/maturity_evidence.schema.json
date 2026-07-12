@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "censoring": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "competing_event": {
+      "type": "string"
+    },
+    "event_observed": {
+      "type": "boolean"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mature": {
+      "type": "boolean"
+    },
+    "observation_end_ms": {
+      "type": "integer"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "required_end_ms": {
+      "type": "integer"
+    },
+    "state": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "state",
+    "censoring",
+    "observation_end_ms",
+    "required_end_ms",
+    "mature",
+    "event_observed"
+  ],
+  "title": "UCEE v3 Maturity Evidence",
+  "type": "object"
+}

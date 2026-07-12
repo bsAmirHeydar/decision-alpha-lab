@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feature_names": {
+      "type": "array"
+    },
+    "fit_opportunity_ids": {
+      "type": "array"
+    },
+    "fold_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "kinds": {
+      "type": "array"
+    },
+    "missingness_mask": {
+      "type": "boolean"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "plan_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "transform_id",
+    "version",
+    "fold_id",
+    "feature_names",
+    "kinds",
+    "fit_opportunity_ids",
+    "parameters",
+    "plan_hash"
+  ],
+  "title": "UCEE v3 Transform Plan",
+  "type": "object"
+}

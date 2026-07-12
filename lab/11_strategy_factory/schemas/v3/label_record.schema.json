@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "category_value": {
+      "type": "string"
+    },
+    "cell_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "class_value": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "competing_event": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "event_observed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "evidence_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "label_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mask": {
+      "type": "boolean"
+    },
+    "mature": {
+      "type": "boolean"
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rank": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "sample_weight": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "scalar_value": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "task_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "vector_value": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "label_id",
+    "opportunity_id",
+    "treatment_id",
+    "task_key",
+    "cell_id",
+    "mature",
+    "mask",
+    "known_time_ms",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Label Record",
+  "type": "object"
+}

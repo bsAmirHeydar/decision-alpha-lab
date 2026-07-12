@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "anchor_count": {
+      "type": "integer"
+    },
+    "censored_count": {
+      "type": "integer"
+    },
+    "cube_count": {
+      "type": "integer"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "label_count": {
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "masked_label_count": {
+      "type": "integer"
+    },
+    "rejected_treatment_count": {
+      "type": "integer"
+    },
+    "row_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "accepted",
+    "anchor_count",
+    "cube_count",
+    "label_count",
+    "row_count",
+    "manifest_hash"
+  ],
+  "title": "UCEE v3 Dataset Build Report",
+  "type": "object"
+}

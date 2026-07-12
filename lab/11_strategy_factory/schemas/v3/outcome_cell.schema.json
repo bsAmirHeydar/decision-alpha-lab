@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cell_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "economic_envelope_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "entry_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "entry_time_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "exit_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exit_time_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "filled_fraction": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "gross_pnl_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "horizon_ms": {
+      "type": "integer"
+    },
+    "mae_r": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "maturity": {
+      "type": "object"
+    },
+    "max_drawdown_r": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "mfe_r": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "net_pnl_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "net_r": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "path_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scenario_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tail_loss": {
+      "type": "boolean"
+    },
+    "terminal_reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "time_to_exit_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "time_to_fill_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "total_cost_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "treatment_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "cell_id",
+    "opportunity_id",
+    "treatment_id",
+    "scenario_key",
+    "horizon_ms",
+    "state",
+    "terminal_reason",
+    "maturity",
+    "path_hash"
+  ],
+  "title": "UCEE v3 Outcome Cell",
+  "type": "object"
+}

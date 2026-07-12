@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "type": "array"
+    },
+    "cluster_rule_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "folds": {
+      "type": "array"
+    },
+    "nested": {
+      "type": "boolean"
+    },
+    "plan_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sibling_lock": {
+      "type": "boolean"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "version",
+    "folds",
+    "assignments",
+    "cluster_rule_hash",
+    "sibling_lock",
+    "plan_hash"
+  ],
+  "title": "UCEE v3 Split Plan",
+  "type": "object"
+}

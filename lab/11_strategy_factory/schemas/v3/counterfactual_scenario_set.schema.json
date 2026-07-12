@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "economic_scenario_keys": {
+      "type": "array"
+    },
+    "horizons_ms": {
+      "type": "array"
+    },
+    "path_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scenario_set_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment_ids": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "scenario_set_id",
+    "treatment_ids",
+    "economic_scenario_keys",
+    "horizons_ms",
+    "path_hash"
+  ],
+  "title": "UCEE v3 Counterfactual Scenario Set",
+  "type": "object"
+}

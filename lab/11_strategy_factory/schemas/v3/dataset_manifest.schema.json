@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_table_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "code_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_package_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_time_ms": {
+      "type": "integer"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "label_set_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "leakage_report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "opportunity_count": {
+      "type": "integer"
+    },
+    "outcome_cube_set_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_inventory_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "split_plan_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_keys": {
+      "type": "array"
+    },
+    "transform_plan_hashes": {
+      "type": "array"
+    },
+    "treatment_count": {
+      "type": "integer"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "version",
+    "context_package_key",
+    "task_keys",
+    "opportunity_count",
+    "treatment_count",
+    "row_count",
+    "anchor_table_hash",
+    "outcome_cube_set_hash",
+    "label_set_hash",
+    "split_plan_hash",
+    "rows_hash",
+    "leakage_report_hash",
+    "manifest_hash"
+  ],
+  "title": "UCEE v3 Dataset Manifest",
+  "type": "object"
+}

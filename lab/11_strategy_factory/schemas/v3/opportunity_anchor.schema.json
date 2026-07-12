@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_package_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time_ms": {
+      "type": "integer"
+    },
+    "dependence_cluster_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "event_time_ms": {
+      "type": "integer"
+    },
+    "feature_frame_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ineligibility_reason": {
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "representation_hashes": {
+      "type": "object"
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    },
+    "source_inventory": {
+      "type": "array"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tags": {
+      "type": "object"
+    },
+    "timeframe": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "opportunity_id",
+    "context_occurrence_id",
+    "dependence_cluster_id",
+    "decision_time_ms",
+    "known_time_ms",
+    "feature_frame_hash"
+  ],
+  "title": "UCEE v3 Opportunity Anchor",
+  "type": "object"
+}

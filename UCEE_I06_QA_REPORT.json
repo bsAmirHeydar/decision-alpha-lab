@@ -1,0 +1,38 @@
+{
+  "authority": "no_live_order_authority",
+  "conformance": {
+    "anchor_count": 6,
+    "cell_count": 24,
+    "cube_count": 6,
+    "label_count": 36,
+    "split_assignment_count": 18
+  },
+  "engineering_policy": {
+    "mql5_compatibility": "PASS",
+    "obsidian_vault": "PASS",
+    "repository_layout": "PASS",
+    "repository_policy": "PASS"
+  },
+  "limitations": [
+    "MetaEditor compile cannot be executed in the current Linux environment",
+    "columnar persistence adapter is deferred",
+    "bar ambiguity requires an explicit UCE-I04 policy"
+  ],
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_EVIDENCE",
+  "phase_checks": {
+    "boundary_guard": "PASS",
+    "delivery_validator": "PASS",
+    "mql5_static": "PASS",
+    "python_compileall": "PASS",
+    "python_conformance": "PASS"
+  },
+  "phase_id": "UCE-I06",
+  "qa_status": "PASS_WITH_LOCAL_METAEDITOR_EVIDENCE_PENDING",
+  "tests": {
+    "cumulative_ucee_i01_to_i06": 137,
+    "failed": 0,
+    "passed": 137
+  },
+  "title": "Counterfactual Outcome Cube, Dataset Builder, and Label Compiler",
+  "validated_on": "2026-07-12"
+}

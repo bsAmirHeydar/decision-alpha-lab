@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked": {
+      "type": "boolean"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "future_perturbation_passed": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reproducibility_passed": {
+      "type": "boolean"
+    },
+    "source_revision_passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "dataset_id",
+    "findings",
+    "future_perturbation_passed",
+    "reproducibility_passed",
+    "source_revision_passed",
+    "blocked",
+    "report_hash"
+  ],
+  "title": "UCEE v3 Dataset Leakage Report",
+  "type": "object"
+}

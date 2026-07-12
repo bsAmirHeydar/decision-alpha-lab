@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_terminal_reasons": {
+      "type": "array"
+    },
+    "bounded_min_utility": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "comparison_group": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "direction": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "horizon_ms": {
+      "type": "integer"
+    },
+    "maturity_policies": {
+      "type": "array"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "metric": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "quantile": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "scenario_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "threshold": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "task_id",
+    "version",
+    "task_kind",
+    "metric",
+    "horizon_ms",
+    "scenario_key"
+  ],
+  "title": "UCEE v3 Label Task Contract",
+  "type": "object"
+}

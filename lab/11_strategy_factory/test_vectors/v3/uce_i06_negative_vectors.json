@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "case_id": "future_source",
+      "expected_code": "future_source_in_anchor"
+    },
+    {
+      "case_id": "crossed_quote",
+      "expected_code": "crossed_quote"
+    },
+    {
+      "case_id": "duplicate_opportunity",
+      "expected_code": "duplicate_opportunity"
+    },
+    {
+      "case_id": "cluster_cross_fold",
+      "expected_code": "cluster_crosses_train_test"
+    },
+    {
+      "case_id": "transform_fit_leakage",
+      "expected_code": "transform_fit_leakage"
+    },
+    {
+      "case_id": "rebuild_mismatch",
+      "expected_code": "non_reproducible_dataset"
+    },
+    {
+      "case_id": "future_perturbation",
+      "expected_code": "future_perturbation_changed_past"
+    }
+  ]
+}

@@ -22,3 +22,5 @@ UCE-I03 provides 50 exact-version entry, stop, target, trailing, management, and
 - [[docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phases/UCE_I04_COMPLETE_TREATMENT_COMPILER_AND_PATH_STATE_MACHINE|UCE-I04 — Complete Treatment Compiler and Causal Trade Path State Machine]]
 
 - [[00_UCE_I05_DELIVERY_MOC]] — UCE-I05 side-aware economics, broker constraints, maximum loss, capital policies, reservations, and stress.
+
+- [[../../strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i06/00_UCE_I06_DELIVERY_MOC|UCE-I06 Delivery — Outcome Cube, Dataset, and Label Compiler]]

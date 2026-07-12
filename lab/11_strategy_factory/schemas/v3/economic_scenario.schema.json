@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commission_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "cost_multiplier": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "financing_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "gap_reserve_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "slippage_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "version"
+  ],
+  "title": "UCEE v3 Economic Scenario",
+  "type": "object"
+}

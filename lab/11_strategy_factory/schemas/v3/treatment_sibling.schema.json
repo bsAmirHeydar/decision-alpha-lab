@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admissible": {
+      "type": "boolean"
+    },
+    "cash_per_price_unit": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "economic_envelope_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "entry_expiry_ms": {
+      "type": "integer"
+    },
+    "entry_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "entry_style": {
+      "enum": [
+        "market",
+        "limit",
+        "stop"
+      ]
+    },
+    "estimated_cost_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exit_horizon_ms": {
+      "type": "integer"
+    },
+    "manual_baseline": {
+      "type": "boolean"
+    },
+    "maximum_loss_cash": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "rejection_reason": {
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    },
+    "stop_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "target_price": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "trail_distance": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "treatment_family_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "volume": {
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "treatment_id",
+    "treatment_family_id",
+    "side",
+    "entry_style",
+    "stop_price",
+    "volume",
+    "cash_per_price_unit",
+    "maximum_loss_cash",
+    "economic_envelope_hash"
+  ],
+  "title": "UCEE v3 Treatment Sibling",
+  "type": "object"
+}

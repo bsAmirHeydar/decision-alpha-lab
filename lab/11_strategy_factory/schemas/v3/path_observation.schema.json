@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "available_volume": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "bid": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "event_time_ms": {
+      "type": "integer"
+    },
+    "gap": {
+      "type": "boolean"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "source_revision": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "event_time_ms",
+    "known_time_ms",
+    "bid",
+    "ask"
+  ],
+  "title": "UCEE v3 Path Observation",
+  "type": "object"
+}

@@ -1,0 +1,231 @@
+{
+  "anchor": {
+    "anchor_hash": "1b51114f6a1c95f6aafe2bac3925af2e9635c168e1af067a81a1ae4ce868d8ee",
+    "context_occurrence_id": "ctx.00",
+    "context_package_key": "context.synthetic@1.0.0",
+    "decision_time_ms": 1700000000000,
+    "dependence_cluster_id": "cluster.00",
+    "eligible": true,
+    "event_time_ms": 1700000000000,
+    "feature_frame_hash": "frame00",
+    "ineligibility_reason": "",
+    "known_time_ms": 1700000000000,
+    "opportunity_id": "uceopp_1b51114f6a1c95f6aafe2bac",
+    "representation_hashes": {
+      "tabular": "view00"
+    },
+    "side": "long",
+    "source_inventory": [
+      {
+        "available_time_ms": 1700000000000,
+        "content_hash": "src00",
+        "revision": "r1",
+        "source_id": "market.EURUSD"
+      }
+    ],
+    "symbol": "EURUSD",
+    "tags": {
+      "regime": "reference"
+    },
+    "timeframe": "M5"
+  },
+  "conformance": {
+    "accepted": true,
+    "anchor_count": 6,
+    "cell_count": 24,
+    "cube_count": 6,
+    "cube_set_hash": "8fd94730c83dc513b4c8a3ec4ba40485a86022c9a9eae6e939ea8087d50ca0c5",
+    "label_count": 36,
+    "label_set_hash": "0749a3399a7f926d541e9e5d5c28cd527c29b517ec2b881507f6c64bafedd138",
+    "split_assignment_count": 18,
+    "split_plan_hash": "de8fc4175c2776b3d9aaf83c809e70d3f28953f8c9130ebe9a9b00bac657534b"
+  },
+  "path": [
+    {
+      "ask": "1.10005",
+      "available_volume": "2",
+      "bid": "1.09995",
+      "event_time_ms": 1700000000000,
+      "gap": false,
+      "known_time_ms": 1700000000000,
+      "sequence": 0,
+      "source_revision": "r1"
+    },
+    {
+      "ask": "1.10035",
+      "available_volume": "2",
+      "bid": "1.10025",
+      "event_time_ms": 1700000060000,
+      "gap": false,
+      "known_time_ms": 1700000060000,
+      "sequence": 1,
+      "source_revision": "r1"
+    },
+    {
+      "ask": "1.10075",
+      "available_volume": "2",
+      "bid": "1.10065",
+      "event_time_ms": 1700000120000,
+      "gap": false,
+      "known_time_ms": 1700000120000,
+      "sequence": 2,
+      "source_revision": "r1"
+    },
+    {
+      "ask": "1.10125",
+      "available_volume": "2",
+      "bid": "1.10115",
+      "event_time_ms": 1700000180000,
+      "gap": false,
+      "known_time_ms": 1700000180000,
+      "sequence": 3,
+      "source_revision": "r1"
+    },
+    {
+      "ask": "1.10185",
+      "available_volume": "2",
+      "bid": "1.10175",
+      "event_time_ms": 1700000240000,
+      "gap": false,
+      "known_time_ms": 1700000240000,
+      "sequence": 4,
+      "source_revision": "r1"
+    },
+    {
+      "ask": "1.10135",
+      "available_volume": "2",
+      "bid": "1.10125",
+      "event_time_ms": 1700000300000,
+      "gap": false,
+      "known_time_ms": 1700000300000,
+      "sequence": 5,
+      "source_revision": "r1"
+    }
+  ],
+  "scenarios": [
+    {
+      "commission_cash": "2",
+      "cost_multiplier": "1",
+      "financing_cash": "0",
+      "gap_reserve_cash": "0",
+      "scenario_id": "economics.baseline",
+      "slippage_price": "0",
+      "version": "1.0.0"
+    },
+    {
+      "commission_cash": "4",
+      "cost_multiplier": "1.25",
+      "financing_cash": "1",
+      "gap_reserve_cash": "1",
+      "scenario_id": "economics.stressed",
+      "slippage_price": "0.00002",
+      "version": "1.0.0"
+    }
+  ],
+  "tasks": [
+    {
+      "allowed_terminal_reasons": [],
+      "bounded_min_utility": null,
+      "comparison_group": "opportunity",
+      "direction": "maximize",
+      "horizon_ms": 300000,
+      "maturity_policies": [
+        "require_resolved"
+      ],
+      "metadata": {},
+      "metric": "net_r",
+      "quantile": null,
+      "scenario_key": "economics.baseline@1.0.0",
+      "task_id": "task.trade.net_r_positive",
+      "task_kind": "binary",
+      "threshold": "0",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_terminal_reasons": [],
+      "bounded_min_utility": null,
+      "comparison_group": "opportunity",
+      "direction": "maximize",
+      "horizon_ms": 300000,
+      "maturity_policies": [
+        "require_resolved",
+        "require_all_siblings"
+      ],
+      "metadata": {},
+      "metric": "net_r",
+      "quantile": null,
+      "scenario_key": "economics.baseline@1.0.0",
+      "task_id": "task.treatment.rank",
+      "task_kind": "ranking",
+      "threshold": "0",
+      "version": "1.0.0"
+    },
+    {
+      "allowed_terminal_reasons": [],
+      "bounded_min_utility": null,
+      "comparison_group": "opportunity",
+      "direction": "maximize",
+      "horizon_ms": 300000,
+      "maturity_policies": [
+        "require_resolved",
+        "require_all_siblings"
+      ],
+      "metadata": {},
+      "metric": "net_r",
+      "quantile": null,
+      "scenario_key": "economics.baseline@1.0.0",
+      "task_id": "task.choice.best",
+      "task_kind": "treatment_choice",
+      "threshold": "0",
+      "version": "1.0.0"
+    }
+  ],
+  "treatments": [
+    {
+      "admissible": true,
+      "cash_per_price_unit": "100000",
+      "economic_envelope_hash": "econ.reference",
+      "entry_expiry_ms": 0,
+      "entry_price": null,
+      "entry_style": "market",
+      "estimated_cost_cash": "2",
+      "exit_horizon_ms": 300000,
+      "manual_baseline": true,
+      "maximum_loss_cash": "55",
+      "metadata": {
+        "style": "tight_fixed"
+      },
+      "rejection_reason": "",
+      "side": "long",
+      "stop_price": "1.09955",
+      "target_price": "1.10105",
+      "trail_distance": null,
+      "treatment_family_id": "family.tight",
+      "treatment_id": "t.ctx.00.tight",
+      "volume": "1"
+    },
+    {
+      "admissible": true,
+      "cash_per_price_unit": "100000",
+      "economic_envelope_hash": "econ.reference",
+      "entry_expiry_ms": 0,
+      "entry_price": null,
+      "entry_style": "market",
+      "estimated_cost_cash": "2",
+      "exit_horizon_ms": 300000,
+      "manual_baseline": false,
+      "maximum_loss_cash": "55",
+      "metadata": {
+        "style": "runner"
+      },
+      "rejection_reason": "",
+      "side": "long",
+      "stop_price": "1.09955",
+      "target_price": null,
+      "trail_distance": "0.0004",
+      "treatment_family_id": "family.runner",
+      "treatment_id": "t.ctx.00.runner",
+      "volume": "1"
+    }
+  ]
+}

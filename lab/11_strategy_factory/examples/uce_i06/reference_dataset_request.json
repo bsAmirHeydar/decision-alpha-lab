@@ -1,0 +1,19 @@
+{
+  "context_package_key": "context.synthetic@1.0.0",
+  "dataset_id": "dataset.synthetic.reference",
+  "economic_scenarios": [
+    "economics.baseline@1.0.0",
+    "economics.stressed@1.0.0"
+  ],
+  "horizons_ms": [
+    300000
+  ],
+  "release_policy": "block_on_any_fatal_leakage",
+  "split_plan": "split.walk_forward@1.0.0",
+  "task_keys": [
+    "task.trade.net_r_positive@1.0.0",
+    "task.treatment.rank@1.0.0",
+    "task.choice.best@1.0.0"
+  ],
+  "version": "1.0.0"
+}
