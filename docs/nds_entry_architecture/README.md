@@ -115,3 +115,22 @@ The dedicated Strategy Tester executable and its shared-core parity contract are
 ```text
 phase53_lightweight_backtest/README.md
 ```
+## Phase 54 — NDS × CG AI cycle-selection architecture
+
+The research-only architecture for discovering non-random and non-simultaneous CG/cycle relationships is documented in:
+
+```text
+../nds_ai_cycle_selection/README.md
+```
+
+Phase 54 adds schemas, anti-random evidence gates, walk-forward design, and a no-training research scaffold. It does not change the executable Phase 52/53 strategy.
+
+## F2 Waist Limit — dedicated lightweight profile
+
+A separate non-Hook execution profile is documented at:
+
+```text
+f2_waist_limit_backtest/README.md
+```
+
+It reuses the canonical Phoenix F1/F2 detector and Phase 52 generic broker/exposure helpers, but authorizes orders only from a fresh confirmed F2. Entry is beyond the F2 waist, Stop is the canonical parent F1 waist, and Take Profit is the F2 Leg2 endpoint.

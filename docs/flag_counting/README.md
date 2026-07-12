@@ -379,3 +379,21 @@ It runs once per new bar, uses shared Hook and trade cores, disables all chart
 objects and CSV by default, and provides FAST, PARITY, and CUSTOM structural
 context profiles. Documentation is under
 `docs/nds_entry_architecture/phase53_lightweight_backtest/`.
+## Phase 54 — NDS × CG AI cycle-selection architecture
+
+```text
+docs/nds_ai_cycle_selection/README.md
+research/nds_cg_ai/README.md
+```
+
+Phase 54 freezes the research architecture used to test whether CG identity, cycle ordinal, phase, or lead-lag context adds non-random out-of-sample information to valid HH/F3H opportunities. It adds no training entrypoint and does not change the lightweight backtest or live execution path.
+
+## NDS F2 Waist Limit Strategy Tester
+
+A second dedicated lightweight executable tests the F-only setup:
+
+```text
+mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
+```
+
+It does not use Hook validity, Zone, or AI as order inputs. It reuses the canonical Phoenix F1/F2 event stream, enters beyond the confirmed F2 waist, uses the canonical parent F1 waist as Stop, uses F2 Leg2 as Take Profit, and enforces one managed exposure. Documentation is under `docs/nds_entry_architecture/f2_waist_limit_backtest/`.

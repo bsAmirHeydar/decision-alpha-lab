@@ -1,0 +1,115 @@
+{
+  "manifest_version": "1.0",
+  "patch_id": "NDS-F2-WAIST-LIMIT-BACKTEST-01",
+  "generated_utc": "2026-07-12T05:26:06.502252+00:00",
+  "root_relative": true,
+  "purpose": "Dedicated lightweight F2 waist limit Strategy Tester profile using canonical F1/F2 and reused Phase52 execution primitives.",
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_WAIST_LIMIT_BACKTEST_PATCH.md",
+      "size_bytes": 1171,
+      "sha256": "da58c969c938c398f0e1410fef6ef210881e1b2442a6c0d8f10a22fa54f5a8e6"
+    },
+    {
+      "path": "NDS_F2_WAIST_LIMIT_BACKTEST_AUDIT_REPORT.md",
+      "size_bytes": 4441,
+      "sha256": "64258445ec2ea8cc092fb06911e70d52e71765306972a5c8c5fee225381daa6d"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 21019,
+      "sha256": "d865e9e2c83a2899ec452f317b78711307390c2067bf814ac9a2a9c8803a5412"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 4508,
+      "sha256": "b2b38ffda1a26ee527db15c1196e91c19a09b1b63f34bfdc834ba8ab0d06901a"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/README.md",
+      "size_bytes": 1086,
+      "sha256": "6d010d893aa9ed2362daa04da8906a5377e253898d5a46e545f305584e591d92"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/01_execution_contract.md",
+      "size_bytes": 1766,
+      "sha256": "6b7975811cf1a01963edb2d85bddb93d89760e5b7404d7db92837f8a287e11d2"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/02_module_reuse_map.md",
+      "size_bytes": 1927,
+      "sha256": "ec30b27b2354db534c07b68e404362a989f67be07e8f55e68cb3e0176773a7c5"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/03_state_machine.md",
+      "size_bytes": 1147,
+      "sha256": "724e49b31e4dcf8272b3fe35dc4be92aae3174933468e2bf4fb02838b9c86e0b"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/04_price_semantics.md",
+      "size_bytes": 1123,
+      "sha256": "5583d649eed0038f356e7043ebd6ea948a8b66e0bb2ef100100b2b930d026086"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/05_performance_contract.md",
+      "size_bytes": 891,
+      "sha256": "caa5ce79208eb70d4d8d2f291ff52ff459e078a02ea189d595fa27afd540ca4a"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/06_validation_plan.md",
+      "size_bytes": 1259,
+      "sha256": "99e8d0a545e64290454184a1741829069d0d32fbf0044f4b0b02c7c599a42780"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/07_operator_guide.md",
+      "size_bytes": 769,
+      "sha256": "26484e1d50bcd5a41496c237a4300aca444483ef2b8ca62d13e38bd29730a4ee"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 3525,
+      "sha256": "5f9c5e71a2a00ee24df020d2c1a2d5731acc0e68f2fd1b1080b073b945b58e6e"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist Limit Backtest.md",
+      "size_bytes": 862,
+      "sha256": "ba4c69a5a0f5a813f7ef72570e8db0f5b603dc710bbed87a6f7ee39986191181"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "size_bytes": 11951,
+      "sha256": "80f868dd7aea15710c6f0a6a456cdd70a8d7195a41a4cf2d7075a77130345912"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "size_bytes": 3751,
+      "sha256": "a352d40fafd9e6612fe2b0324916fee062564390ffb66b2fc7f25f16cc010c36"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "size_bytes": 12813,
+      "sha256": "44dd2a515a6b3c47794337c064b0e04cd53de55dcfe95737fce2350bd374f6d3"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "size_bytes": 6089,
+      "sha256": "c35f44743afbcfa892a747be047a6dca02c980a3f28504d2c637de5c069b45b0"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestTypes.mqh",
+      "size_bytes": 1444,
+      "sha256": "7e65f82acb3308d27ac0630444d847c4b8241d1589fdb691f334974f1ecea5c0"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "size_bytes": 7390,
+      "sha256": "b10597e748c279d9f812569e5fb657c3785ea020ceb3e891c39d6f4a3af5ec9a"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "size_bytes": 2530,
+      "sha256": "6eeaa3f4d89a935d29715dab51a76f9e1d9e3399f787e7a27795c21b3d64037e"
+    }
+  ],
+  "manifest_self_hash_policy": "manifest file is included in the ZIP but excluded from its own file hash list"
+}

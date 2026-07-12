@@ -83,3 +83,14 @@ Both default to false, and the single-exposure invariant is mandatory.
 - [[NDS Lightweight Backtest Runtime]]
 - [[NDS Backtest Performance Profiles]]
 - [[NDS Backtest Parity Contract]]
+## AI / Cycle Group research
+
+- [[NDS_AI_CG_CYCLE_SELECTION_MOC]]
+
+This branch is research-only and has no execution authority.
+
+## F2-only lightweight execution profile
+
+- [[NDS F2 Waist Limit Backtest]]
+
+This profile is independent of HH/F3H setup selection. Hook can remain internal detector boundary evidence, but no Hook field authorizes the order.
