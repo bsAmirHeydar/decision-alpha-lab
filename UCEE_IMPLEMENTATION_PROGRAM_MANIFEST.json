@@ -1,0 +1,12 @@
+{
+  "package_id": "decision-alpha-lab-ucee-implementation-program-v1",
+  "version": "3.0.0",
+  "generated_at": "2026-07-12",
+  "architecture_source": "UCEE V2 deep roadmap",
+  "phase_count": 19,
+  "work_package_count": 133,
+  "file_count": 84,
+  "entrypoint": "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/00_IMPLEMENTATION_PROGRAM_MOC.md",
+  "first_phase": "UCE-I00",
+  "status": "ready_to_start"
+}
