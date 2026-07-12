@@ -1,0 +1,174 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/capability_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Pre-compute capability and bounded-resource declaration.",
+  "properties": {
+    "component_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "component_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "context_kinds": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "export_targets": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "input_schema_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "output_schema_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "representation_kinds": {
+      "items": {
+        "enum": [
+          "tabular",
+          "sequence",
+          "image",
+          "graph",
+          "multi_view"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "resource_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_batch_size": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_features": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_latency_us": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_memory_mb": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_sequence_length": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_features",
+        "max_sequence_length",
+        "max_batch_size",
+        "max_memory_mb",
+        "max_latency_us"
+      ],
+      "type": "object"
+    },
+    "runtime_modes": {
+      "items": {
+        "enum": [
+          "research",
+          "tester",
+          "paper",
+          "shadow",
+          "live"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "support_level": {
+      "enum": [
+        "experimental",
+        "research",
+        "paper",
+        "production"
+      ]
+    },
+    "supports_missing_values": {
+      "type": "boolean"
+    },
+    "supports_multitask": {
+      "type": "boolean"
+    },
+    "supports_sample_weights": {
+      "type": "boolean"
+    },
+    "task_types": {
+      "items": {
+        "enum": [
+          "binary_classification",
+          "multiclass_classification",
+          "regression",
+          "quantile_regression",
+          "pairwise_ranking",
+          "listwise_ranking",
+          "survival",
+          "policy_selection",
+          "multi_task"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "treatment_families": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "component_id",
+    "component_version",
+    "support_level",
+    "context_kinds",
+    "representation_kinds",
+    "task_types",
+    "treatment_families",
+    "runtime_modes",
+    "export_targets",
+    "input_schema_ids",
+    "output_schema_ids",
+    "supports_missing_values",
+    "supports_sample_weights",
+    "supports_multitask",
+    "deterministic",
+    "resource_budget"
+  ],
+  "title": "UCEE v3 Capability Descriptor",
+  "type": "object"
+}

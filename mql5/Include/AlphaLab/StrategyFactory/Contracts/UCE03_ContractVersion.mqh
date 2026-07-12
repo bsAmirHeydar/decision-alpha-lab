@@ -1,0 +1,6 @@
+#ifndef __UCE03_CONTRACT_VERSION_MQH__
+#define __UCE03_CONTRACT_VERSION_MQH__
+#define UCE03_CONTRACT_RELEASE "3.0.0"
+#define UCE03_CONTRACT_NAMESPACE "alpha_lab.ucee"
+#define UCE03_ID_PREFIX "uce3"
+#endif

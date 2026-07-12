@@ -3,8 +3,8 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.20.0"
-description="MQL5-first Strategy Factory through EXP0017 pilot anatomy integration"
+version="0.21.0"
+description="MQL5-first Strategy Factory with UCEE v3 canonical contract kernel"
 requires-python=">=3.10"
 [project.scripts]
 strategy-factory-statistics="strategy_factory_statistics.cli:main"
@@ -17,6 +17,7 @@ strategy-factory-execution="strategy_factory_execution.cli:main"
 strategy-factory-live="strategy_factory_live.cli:main"
 strategy-factory-monitoring="strategy_factory_monitoring.cli:main"
 strategy-factory-integration="strategy_factory_integration.cli:main"
+strategy-factory-contracts-v3="strategy_factory_contracts_v3.cli:main"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*","strategy_factory_contracts_v3*"]

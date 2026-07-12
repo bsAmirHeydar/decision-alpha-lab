@@ -1,0 +1,17 @@
+{
+  "applied_at": {
+    "clock_id": "migration",
+    "epoch_ms": 1783800000000,
+    "timezone": "UTC"
+  },
+  "destination_payload_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "destination_schema": "alpha_lab.ucee/context_feature_vector@3.1.0",
+  "migration_path": [
+    "context_features_300_to_310"
+  ],
+  "mode_chain": [
+    "lossless"
+  ],
+  "source_payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "source_schema": "alpha_lab.ucee/context_feature_vector@3.0.0"
+}

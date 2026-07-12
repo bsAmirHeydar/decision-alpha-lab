@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/schema_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Exact schema registration record with immutable semantic hash.",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "enum_domains": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "type": "object"
+    },
+    "optional_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_id": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "semantic_owner": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "semantic_owner",
+    "required_fields",
+    "optional_fields",
+    "semantic_hash"
+  ],
+  "title": "UCEE v3 Schema Descriptor",
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/identity_key.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Immutable semantic identity material and its fast and strong digests.",
+  "properties": {
+    "dimensions": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "evidence_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "context_occurrence",
+        "context_cluster",
+        "parent_event",
+        "representation_view",
+        "treatment_atom",
+        "complete_treatment",
+        "task",
+        "dataset_row",
+        "experiment_trial",
+        "prediction",
+        "model",
+        "policy",
+        "runtime_generation",
+        "evidence_bundle"
+      ]
+    },
+    "owner_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "semantic_namespace": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "semantic_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "stable_id": {
+      "pattern": "^uce3_[a-z_]+_[0-9a-f]{16}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "semantic_namespace",
+    "semantic_version",
+    "owner_id",
+    "dimensions",
+    "stable_id",
+    "evidence_sha256"
+  ],
+  "title": "UCEE v3 Identity Key",
+  "type": "object"
+}

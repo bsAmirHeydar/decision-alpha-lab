@@ -1,0 +1,14 @@
+{
+  "bridge_version": "1.0.0",
+  "bridged_at": {
+    "clock_id": "bridge",
+    "epoch_ms": 1783800000000,
+    "timezone": "UTC"
+  },
+  "legacy_contract_id": "sf01",
+  "legacy_entity_id": "EXP0017_EVT_000042",
+  "legacy_payload_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "legacy_schema_id": "alpha_lab.strategy_factory/anatomy_event@1.0.0",
+  "v3_entity_id": "uce3_context_occurrence_06893bba7f56fb57",
+  "v3_identity_sha256": "d06964316802c451d64483ce799a2f40980b3e9b5be4275dc468d37ff638f175"
+}

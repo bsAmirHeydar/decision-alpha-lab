@@ -1,0 +1,77 @@
+{
+  "artifact": "UCEE-I01 Canonical Contracts and Identity Kernel",
+  "checks": [
+    {
+      "gate": "Python compileall",
+      "status": "passed"
+    },
+    {
+      "detail": "24 passed",
+      "gate": "Python phase tests",
+      "status": "passed"
+    },
+    {
+      "gate": "Cross-language vector regeneration check",
+      "status": "passed_for_python"
+    },
+    {
+      "detail": "10 schemas",
+      "gate": "JSON Schema 2020-12 meta-validation",
+      "status": "passed"
+    },
+    {
+      "detail": "7 examples",
+      "gate": "Example validation",
+      "status": "passed"
+    },
+    {
+      "gate": "UCE-I01 architecture boundary scan",
+      "status": "passed"
+    },
+    {
+      "detail": "0 errors, 0 warnings",
+      "gate": "MQL5 compatibility scan",
+      "status": "passed"
+    },
+    {
+      "detail": "17 files",
+      "gate": "MQL5 static include and delimiter scan",
+      "status": "passed"
+    },
+    {
+      "detail": "4 of 4 checks",
+      "gate": "Merged-repository Engineering Policy",
+      "status": "passed"
+    },
+    {
+      "gate": "Native MetaEditor compilation",
+      "status": "pending_external"
+    },
+    {
+      "gate": "Terminal MQL5 self-test",
+      "status": "pending_external"
+    }
+  ],
+  "contract_release": "3.0.0",
+  "coverage": {
+    "english_phase_documents": 23,
+    "json_schemas": 10,
+    "mql5_eas": 2,
+    "mql5_headers": 15,
+    "python_modules": 18,
+    "python_tests": 24
+  },
+  "honesty": {
+    "live_authority_present": false,
+    "metaeditor_available": false,
+    "native_compile_claimed": false,
+    "real_strategy_edge_claimed": false
+  },
+  "residual_risks": [
+    "Native MetaEditor/terminal evidence must be produced locally",
+    "MQL5 SHA-256 is not in the decision path",
+    "MQL5 runtime migration is compiled/direct rather than generic multi-hop",
+    "non-BMP Unicode identifiers are outside release-3.0 scope"
+  ],
+  "status": "PASS_WITH_EXTERNAL_MQL5_GATES_PENDING"
+}

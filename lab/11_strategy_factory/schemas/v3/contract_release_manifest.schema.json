@@ -1,0 +1,111 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/contract_release_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Frozen release boundary for all downstream UCEE SDKs.",
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "byte_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "media_type": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+            "type": "string"
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "media_type",
+          "byte_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "compatibility_policy_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "contract_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "created_at": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "migration_registry_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "prior_release_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "registry_entries": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "release_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "semantic_owner": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "contract_version",
+    "created_at",
+    "semantic_owner",
+    "registry_entries",
+    "artifacts",
+    "compatibility_policy_version",
+    "migration_registry_version",
+    "manifest_sha256"
+  ],
+  "title": "UCEE v3 Contract Release Manifest",
+  "type": "object"
+}

@@ -1,0 +1,217 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/known_time_chain.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "UTC-only causal availability chain. Ordering is validated by executable code.",
+  "properties": {
+    "action_time": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "clock_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+              "type": "string"
+            },
+            "epoch_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timezone": {
+              "const": "UTC"
+            }
+          },
+          "required": [
+            "clock_id",
+            "epoch_ms",
+            "timezone"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "confirmation_time": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "decision_time": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "event_time": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "fill_time": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "clock_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+              "type": "string"
+            },
+            "epoch_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timezone": {
+              "const": "UTC"
+            }
+          },
+          "required": [
+            "clock_id",
+            "epoch_ms",
+            "timezone"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "known_time": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "label_maturity_time": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "clock_id": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+              "type": "string"
+            },
+            "epoch_ms": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "timezone": {
+              "const": "UTC"
+            }
+          },
+          "required": [
+            "clock_id",
+            "epoch_ms",
+            "timezone"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observation_cut": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "event_time",
+    "known_time",
+    "confirmation_time",
+    "observation_cut",
+    "decision_time",
+    "action_time",
+    "fill_time",
+    "label_maturity_time"
+  ],
+  "title": "UCEE v3 Known-Time Chain",
+  "type": "object"
+}

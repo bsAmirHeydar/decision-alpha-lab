@@ -1,0 +1,76 @@
+{
+  "codec_vectors": [
+    {
+      "canonical_json": "{\"a\":\"ASCII\",\"escaped\":\"line\\nquote\\\"\",\"z\":1}",
+      "input_index": 0
+    },
+    {
+      "canonical_json": "{\"negative_zero\":0.0000,\"price\":12.34567}",
+      "input_index": 1
+    },
+    {
+      "canonical_json": "[null,true,false,-7,\"\\u00e9\"]",
+      "input_index": 2
+    }
+  ],
+  "contract_release": "3.0.0",
+  "identity_vectors": [
+    {
+      "canonical_material": "{\"contract_release\":\"3.0.0\",\"dimensions\":{\"confirmation_time_ms\":1783800000000,\"direction\":\"long\",\"primary_symbol\":\"US100\",\"reference_symbol\":\"US500\",\"source_event_id\":\"EXP0017_EVT_000042\"},\"kind\":\"context_occurrence\",\"owner_id\":\"exp0017\",\"semantic_namespace\":\"exp0017.cycle_divergence\",\"semantic_version\":\"1.0.0\"}",
+      "evidence_sha256": "d06964316802c451d64483ce799a2f40980b3e9b5be4275dc468d37ff638f175",
+      "stable_id": "uce3_context_occurrence_06893bba7f56fb57"
+    },
+    {
+      "canonical_material": "{\"contract_release\":\"3.0.0\",\"dimensions\":{\"entry_atom_id\":\"entry.stop.tight.v1\",\"exit_atom_id\":\"exit.fixed_rr.v1\",\"management_atom_id\":\"management.none.v1\",\"risk_atom_id\":\"risk.fixed_cash.v1\",\"stop_atom_id\":\"stop.structural.wide.v1\"},\"kind\":\"complete_treatment\",\"owner_id\":\"strategy_factory\",\"semantic_namespace\":\"ucee.treatments\",\"semantic_version\":\"3.0.0\"}",
+      "evidence_sha256": "9697052501c55815f169c12ac3389383a65532266ad5e76ed4be684a3557ec3a",
+      "stable_id": "uce3_complete_treatment_ed32d399c023e14f"
+    },
+    {
+      "canonical_material": "{\"contract_release\":\"3.0.0\",\"dimensions\":{\"context_occurrence_id\":\"uce3_context_occurrence_0000000000000000\",\"feature_schema_id\":\"alpha_lab.ucee/context_feature_vector@3.0.0\",\"label_contract_id\":\"net_r_after_costs.v1\",\"observation_cut_ms\":1783800000000,\"treatment_id\":\"uce3_complete_treatment_0000000000000000\"},\"kind\":\"dataset_row\",\"owner_id\":\"strategy_factory\",\"semantic_namespace\":\"ucee.dataset\",\"semantic_version\":\"3.0.0\"}",
+      "evidence_sha256": "d9bc2960c66f106fef1d0ec09c58e47f57f2e6200b71cfb628196a6d4e8decaf",
+      "stable_id": "uce3_dataset_row_c88fd1ae8002c6d6"
+    }
+  ],
+  "known_time_chain": {
+    "action_time": {
+      "clock_id": "execution",
+      "epoch_ms": 1783800000002,
+      "timezone": "UTC"
+    },
+    "confirmation_time": {
+      "clock_id": "bar_close",
+      "epoch_ms": 1783800000000,
+      "timezone": "UTC"
+    },
+    "decision_time": {
+      "clock_id": "decision",
+      "epoch_ms": 1783800000001,
+      "timezone": "UTC"
+    },
+    "event_time": {
+      "clock_id": "market_event",
+      "epoch_ms": 1783799940000,
+      "timezone": "UTC"
+    },
+    "fill_time": {
+      "clock_id": "broker",
+      "epoch_ms": 1783800000010,
+      "timezone": "UTC"
+    },
+    "known_time": {
+      "clock_id": "bar_close",
+      "epoch_ms": 1783800000000,
+      "timezone": "UTC"
+    },
+    "label_maturity_time": {
+      "clock_id": "label_engine",
+      "epoch_ms": 1783886400000,
+      "timezone": "UTC"
+    },
+    "observation_cut": {
+      "clock_id": "feature_cut",
+      "epoch_ms": 1783800000000,
+      "timezone": "UTC"
+    }
+  }
+}

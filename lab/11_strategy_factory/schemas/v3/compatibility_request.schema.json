@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/compatibility_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Exact request evaluated before any dataset, training, export, or runtime work.",
+  "properties": {
+    "consumer_component_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "context_kind": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "export_target": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "input_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "minimum_support_level": {
+      "enum": [
+        "experimental",
+        "research",
+        "paper",
+        "production"
+      ]
+    },
+    "representation_kind": {
+      "enum": [
+        "tabular",
+        "sequence",
+        "image",
+        "graph",
+        "multi_view"
+      ]
+    },
+    "required_output_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "requires_determinism": {
+      "type": "boolean"
+    },
+    "requires_missing_values": {
+      "type": "boolean"
+    },
+    "requires_multitask": {
+      "type": "boolean"
+    },
+    "requires_sample_weights": {
+      "type": "boolean"
+    },
+    "resource_request": {
+      "type": "object"
+    },
+    "runtime_mode": {
+      "enum": [
+        "research",
+        "tester",
+        "paper",
+        "shadow",
+        "live"
+      ]
+    },
+    "task_type": {
+      "type": "string"
+    },
+    "treatment_family": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "consumer_component_id",
+    "context_kind",
+    "representation_kind",
+    "task_type",
+    "treatment_family",
+    "runtime_mode",
+    "export_target",
+    "input_schema",
+    "required_output_schema",
+    "resource_request",
+    "minimum_support_level"
+  ],
+  "title": "UCEE v3 Compatibility Request",
+  "type": "object"
+}

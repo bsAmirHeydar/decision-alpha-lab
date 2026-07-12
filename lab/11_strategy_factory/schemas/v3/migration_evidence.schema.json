@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/migration_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Cryptographic evidence that preserves both ends of a migration.",
+  "properties": {
+    "applied_at": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "destination_payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "destination_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "migration_path": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mode_chain": {
+      "items": {
+        "enum": [
+          "lossless",
+          "lossy",
+          "semantic_reinterpretation"
+        ]
+      },
+      "type": "array"
+    },
+    "source_payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "migration_path",
+    "source_schema",
+    "destination_schema",
+    "source_payload_sha256",
+    "destination_payload_sha256",
+    "applied_at",
+    "mode_chain"
+  ],
+  "title": "UCEE v3 Migration Evidence",
+  "type": "object"
+}

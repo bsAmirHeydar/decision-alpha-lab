@@ -1,0 +1,44 @@
+{
+  "component_id": "trainer.logistic_ridge",
+  "component_version": "1.0.0",
+  "context_kinds": [
+    "exp0017.cycle_divergence",
+    "hook"
+  ],
+  "deterministic": true,
+  "export_targets": [
+    "onnx"
+  ],
+  "input_schema_ids": [
+    "alpha_lab.ucee/context_feature_vector@3.0.0"
+  ],
+  "output_schema_ids": [
+    "alpha_lab.ucee/prediction@3.0.0"
+  ],
+  "representation_kinds": [
+    "tabular"
+  ],
+  "resource_budget": {
+    "max_batch_size": 1000000,
+    "max_features": 512,
+    "max_latency_us": 5000,
+    "max_memory_mb": 4096,
+    "max_sequence_length": 1
+  },
+  "runtime_modes": [
+    "research",
+    "tester",
+    "paper"
+  ],
+  "support_level": "research",
+  "supports_missing_values": true,
+  "supports_multitask": false,
+  "supports_sample_weights": true,
+  "task_types": [
+    "binary_classification",
+    "regression"
+  ],
+  "treatment_families": [
+    "entry_stop_exit_matrix"
+  ]
+}

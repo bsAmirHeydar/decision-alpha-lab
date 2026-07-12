@@ -1,0 +1,42 @@
+{
+  "action_time": {
+    "clock_id": "execution",
+    "epoch_ms": 1783800000002,
+    "timezone": "UTC"
+  },
+  "confirmation_time": {
+    "clock_id": "bar_close",
+    "epoch_ms": 1783800000000,
+    "timezone": "UTC"
+  },
+  "decision_time": {
+    "clock_id": "decision",
+    "epoch_ms": 1783800000001,
+    "timezone": "UTC"
+  },
+  "event_time": {
+    "clock_id": "market_event",
+    "epoch_ms": 1783799940000,
+    "timezone": "UTC"
+  },
+  "fill_time": {
+    "clock_id": "broker",
+    "epoch_ms": 1783800000010,
+    "timezone": "UTC"
+  },
+  "known_time": {
+    "clock_id": "bar_close",
+    "epoch_ms": 1783800000000,
+    "timezone": "UTC"
+  },
+  "label_maturity_time": {
+    "clock_id": "label_engine",
+    "epoch_ms": 1783886400000,
+    "timezone": "UTC"
+  },
+  "observation_cut": {
+    "clock_id": "feature_cut",
+    "epoch_ms": 1783800000000,
+    "timezone": "UTC"
+  }
+}

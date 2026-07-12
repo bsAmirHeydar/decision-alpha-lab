@@ -1,0 +1,13 @@
+{
+  "contract_release": "3.0.0",
+  "cases": [
+    {"case_id": "raw_float", "expected_error": "raw_float_forbidden", "payload": {"price": 1.1}},
+    {"case_id": "naive_datetime", "expected_error": "naive_datetime", "payload": "2026-07-12T10:00:00"},
+    {"case_id": "future_feature", "expected_error": "future_feature", "feature_known_ms": 1783800000001, "observation_cut_ms": 1783800000000},
+    {"case_id": "future_schema_major", "expected_error": "unknown_schema_major", "schema": "alpha_lab.ucee/identity_key@4.0.0"},
+    {"case_id": "implicit_schema_upgrade", "expected_error": "unknown_exact_schema", "schema": "alpha_lab.ucee/identity_key@3.1.0"},
+    {"case_id": "unmigratable_input", "expected_reason": "input_schema_unsupported_and_unmigratable"},
+    {"case_id": "resource_budget", "expected_reason": "feature_budget_exceeded"},
+    {"case_id": "mutable_identity", "expected_error": "mutable_identity_dimension", "field": "created_at"}
+  ]
+}

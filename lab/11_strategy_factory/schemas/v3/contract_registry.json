@@ -1,0 +1,56 @@
+{
+  "contract_release": "3.0.0",
+  "registry_version": "1.0.0",
+  "schemas": [
+    {
+      "file": "capability_descriptor.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/capability_descriptor.schema.json",
+      "title": "UCEE v3 Capability Descriptor"
+    },
+    {
+      "file": "compatibility_decision.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/compatibility_decision.schema.json",
+      "title": "UCEE v3 Compatibility Decision"
+    },
+    {
+      "file": "compatibility_request.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/compatibility_request.schema.json",
+      "title": "UCEE v3 Compatibility Request"
+    },
+    {
+      "file": "contract_release_manifest.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/contract_release_manifest.schema.json",
+      "title": "UCEE v3 Contract Release Manifest"
+    },
+    {
+      "file": "identity_key.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/identity_key.schema.json",
+      "title": "UCEE v3 Identity Key"
+    },
+    {
+      "file": "known_time_chain.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/known_time_chain.schema.json",
+      "title": "UCEE v3 Known-Time Chain"
+    },
+    {
+      "file": "legacy_bridge_record.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/legacy_bridge_record.schema.json",
+      "title": "SF01 to UCEE v3 Bridge Record"
+    },
+    {
+      "file": "migration_edge.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/migration_edge.schema.json",
+      "title": "UCEE v3 Migration Edge"
+    },
+    {
+      "file": "migration_evidence.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/migration_evidence.schema.json",
+      "title": "UCEE v3 Migration Evidence"
+    },
+    {
+      "file": "schema_descriptor.schema.json",
+      "id": "https://decision-alpha-lab.local/schemas/v3/schema_descriptor.schema.json",
+      "title": "UCEE v3 Schema Descriptor"
+    }
+  ]
+}

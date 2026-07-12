@@ -1,3 +1,3 @@
-docs(alpha-lab): add detailed UCEE implementation program
+feat(alpha-lab): implement UCEE v3 contracts and identity kernel
 
-Add the English Obsidian execution program for the Universal Context Exploitation Engine with current-state reuse and gap analysis, 19 contract-first implementation phases, 133 vertical work packages, dependency and critical paths, release trains, test and evidence gates, CI and artifact protocol, trainer rollout, statistical and anti-overfit governance, manual and hybrid policy implementation, first-context tournament, legacy migration waves, production qualification, templates, ADRs, and machine-readable validation metadata.
+Add canonical UCEE v3 identities, UTC known-time causality, compact ASCII JSON with fixed-scale numeric normalization, UTF-8 FNV-1a IDs and SHA-256 evidence, exact schema and migration registries, capability and fail-closed compatibility contracts, SF01 bridging, release manifests, Python and MQL5 SDKs, cross-language vectors, schemas, tests, diagnostics, detailed English Obsidian documentation, acceptance evidence, and the UCE-I02 handoff.

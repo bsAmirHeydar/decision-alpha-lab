@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/legacy_bridge_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Evidence-preserving dual-identity bridge; historical SF01 IDs are never rewritten.",
+  "properties": {
+    "bridge_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "bridged_at": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+          "type": "string"
+        },
+        "epoch_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timezone": {
+          "const": "UTC"
+        }
+      },
+      "required": [
+        "clock_id",
+        "epoch_ms",
+        "timezone"
+      ],
+      "type": "object"
+    },
+    "legacy_contract_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "legacy_entity_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "legacy_payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "legacy_schema_id": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "v3_entity_id": {
+      "type": "string"
+    },
+    "v3_identity_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "legacy_contract_id",
+    "legacy_schema_id",
+    "legacy_entity_id",
+    "legacy_payload_sha256",
+    "v3_entity_id",
+    "v3_identity_sha256",
+    "bridged_at",
+    "bridge_version"
+  ],
+  "title": "SF01 to UCEE v3 Bridge Record",
+  "type": "object"
+}

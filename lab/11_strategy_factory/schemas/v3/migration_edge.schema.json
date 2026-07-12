@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/migration_edge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Directional and explicit schema migration metadata.",
+  "properties": {
+    "destination_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "destination_semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "migration_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "lossless",
+        "lossy",
+        "semantic_reinterpretation"
+      ]
+    },
+    "source_schema": {
+      "pattern": "^[A-Za-z0-9_.:/-]+/[A-Za-z0-9_.:/-]+@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "source_semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "migration_id",
+    "source_schema",
+    "destination_schema",
+    "source_semantic_hash",
+    "destination_semantic_hash",
+    "mode"
+  ],
+  "title": "UCEE v3 Migration Edge",
+  "type": "object"
+}

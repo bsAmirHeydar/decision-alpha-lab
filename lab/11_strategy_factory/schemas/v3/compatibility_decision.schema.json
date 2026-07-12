@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/compatibility_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Machine-readable fail-closed compatibility result.",
+  "properties": {
+    "migration_path": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,127}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "compatible",
+        "compatible_after_migration",
+        "incompatible"
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "reason_codes",
+    "migration_path"
+  ],
+  "title": "UCEE v3 Compatibility Decision",
+  "type": "object"
+}

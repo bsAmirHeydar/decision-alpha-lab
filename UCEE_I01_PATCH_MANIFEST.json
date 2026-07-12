@@ -1,0 +1,25 @@
+{
+  "changed_existing_files": [
+    "lab/11_strategy_factory/python/pyproject.toml",
+    "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/00_IMPLEMENTATION_PROGRAM_MOC.md"
+  ],
+  "code_file_count": 50,
+  "contract_release": "3.0.0",
+  "documentation_file_count": 35,
+  "documents_language": "English",
+  "file_count": 119,
+  "generated_date": "2026-07-12",
+  "live_order_authority": false,
+  "native_mql5_gate": "pending_local_windows_metaeditor",
+  "overlay_mode": "repository-root-force",
+  "patch_id": "decision-alpha-lab-ucee-i01-canonical-contracts-identity-kernel",
+  "phase_id": "UCE-I01",
+  "primary_roots": [
+    "mql5/Include/AlphaLab/StrategyFactory/Contracts",
+    "lab/11_strategy_factory/python/strategy_factory_contracts_v3",
+    "lab/11_strategy_factory/schemas/v3",
+    "docs/strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i01"
+  ],
+  "purpose": "Implement the canonical UCEE v3 contract, identity, known-time, schema, migration, capability, compatibility, legacy bridge, and release kernel.",
+  "schema_file_count": 10
+}
