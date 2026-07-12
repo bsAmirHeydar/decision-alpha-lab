@@ -1,19 +1,12 @@
 {
-  "artifact": "decision-alpha-lab-universal-context-exploitation-engine-architecture-roadmap",
-  "version": "1.0.0",
-  "created_utc": "2026-07-11T19:20:09.818752+00:00",
+  "artifact": "decision-alpha-lab-universal-context-exploitation-engine-architecture-roadmap-v2-deep",
+  "version": "2.0.0",
+  "generated_at": "2026-07-12",
   "type": "documentation_and_implementation_program",
-  "language": "English",
-  "markdown_count": 90,
-  "approximate_word_count": 18008,
-  "scope": [
-    "context-centric AI training",
-    "trainer plugin families",
-    "manual and hybrid policies",
-    "entry stop exit management sizing registries",
-    "side-aware execution economics",
-    "statistics and anti-overfit",
-    "implementation roadmap"
-  ],
-  "live_authority": false
+  "canonical_moc": "docs/strategy_factory_universal_context_exploitation_engine/00_UNIVERSAL_CONTEXT_EXPLOITATION_ENGINE_MOC.md",
+  "file_count": 233,
+  "markdown_file_count": 218,
+  "approximate_word_count": 155081,
+  "phase_count": 16,
+  "live_order_authority_added": false
 }

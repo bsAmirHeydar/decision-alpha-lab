@@ -1,18 +1,21 @@
 {
   "status": "PASS",
   "checks": {
-    "markdown_files": 90,
-    "total_approximate_words": 18008,
-    "master_moc_present": true,
-    "algorithm_deep_dives": 14,
-    "roadmap_phase_packets": 16,
-    "templates": 8,
-    "adrs": 7,
-    "broken_wikilinks": [],
-    "machine_readable_program": true,
-    "algorithm_catalog": true,
-    "policy_catalog": true,
-    "test_gate_matrix": true,
-    "live_authority_added": false
+    "markdown_files_at_least_180": true,
+    "words_at_least_80000": true,
+    "phases_exactly_16": true,
+    "contracts_at_least_15": true,
+    "representations_at_least_10": true,
+    "tasks_at_least_12": true,
+    "treatments_at_least_18": true,
+    "trainer_families_at_least_20": true,
+    "validation_specs_at_least_20": true,
+    "operations_specs_at_least_15": true,
+    "live_order_authority_added": false
+  },
+  "metrics": {
+    "files": 233,
+    "markdown_files": 218,
+    "approximate_words": 155081
   }
 }

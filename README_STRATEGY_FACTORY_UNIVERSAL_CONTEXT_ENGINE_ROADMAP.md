@@ -1,19 +1,5 @@
-# Universal Context Exploitation Engine Architecture and Roadmap
+# Universal Context Exploitation Engine — V2 Deep Architecture
 
-A comprehensive English Obsidian documentation package for turning any deterministic market context into a modular manual, AI, or hybrid exploitation program.
+This patch replaces the concise initial roadmap with a comprehensive English Obsidian engineering program. It covers context contracts, causal chart representations, learning tasks, complete treatment and capital policy families, side-aware economics, trainer and algorithm plugins, search orchestration, statistical and anti-overfit governance, manual and hybrid policies, ONNX/MQL5 runtime compilation, production operations, ADRs, templates, examples, a machine-readable capability matrix, risk register, WBS, and a sixteen-phase implementation roadmap.
 
-It covers:
-
-- context-centric learning architecture;
-- modular trainer families;
-- treatment matrices;
-- entry, stop, exit, trailing, management, and sizing registries;
-- side-aware spread, commission, slippage, and cash-risk economics;
-- manual and hybrid policy modes;
-- statistical testing and anti-overfit governance;
-- MQL5/Python authority boundaries;
-- sixteen implementation work packets.
-
-Start at:
-
-`docs/strategy_factory_universal_context_exploitation_engine/00_UNIVERSAL_CONTEXT_EXPLOITATION_ENGINE_MOC.md`
+Canonical entry: `docs/strategy_factory_universal_context_exploitation_engine/00_UNIVERSAL_CONTEXT_EXPLOITATION_ENGINE_MOC.md`.
