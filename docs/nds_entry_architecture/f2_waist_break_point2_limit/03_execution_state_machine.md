@@ -23,8 +23,24 @@ ORDER_PENDING(context_hash)
 POSITION_OPEN(context_hash)
   │
   ├─ own parent F1 waist stop reached → stop exit
-  ├─ own F2 Leg2 endpoint reached → target exit
-  └─ otherwise → hold independently
+  ├─ fixed-exit mode + own F2 Leg2 reached → target exit
+  └─ dynamic F3-exit mode → WAIT_F2_CONFIRM
+
+WAIT_F2_CONFIRM(context_hash)
+  │
+  ├─ source F2 confirms → capture F2.confirm = F3 Leg1
+  └─ otherwise → hold
+
+WAIT_F3_CORRECTION(context_hash)
+  │
+  ├─ price moves adversely by configured ticks → arm TP at F2.confirm
+  └─ otherwise → hold
+
+WAIT_F3_RETEST(context_hash)
+  │
+  ├─ TP can be attached → broker TP at F2.confirm
+  ├─ target already re-hit → market close
+  └─ otherwise → retry on next tick
 ```
 
 ## Parallel-context invariant
@@ -66,3 +82,8 @@ Overlap % = intersection length / narrower corridor length × 100
 ```
 
 At or above the configured threshold, only the wider same-direction corridor is retained. If both appear on the same bar, arbitration occurs before any order is sent. If a wider context appears while a narrower pending order still exists, the narrower pending is removed and replaced. An already-filled overlapping position is not closed or replaced.
+
+
+## Dual-exit invariant
+
+The RR gate and RR-based Entry repricing always use the original F2 Leg2 endpoint. Dynamic F3 exit does not use future target information at setup time.

@@ -39,12 +39,23 @@ Bearish F2: Sell Limit strictly above F2 Waist
 
 Therefore, the fill itself is the executable Point 2.
 
-## 4. Risk and target
+## 4. Risk and exit authority
 
 ```text
-Entry  = behind F2 Waist
-Stop   = behind direct parent F1 Waist
-Target = F2 Leg2 endpoint / end of F2 two-leg flag
+Entry = behind F2 Waist
+Stop  = behind direct parent F1 Waist
+```
+
+Exit is selected by input:
+
+```text
+Fixed mode:
+TP = F2 Leg2 endpoint / end of F2 two-leg flag
+
+F3 retest mode:
+RR reference = original F2 Leg2
+initial broker TP = none
+dynamic TP = F2 confirmation node / canonical F3 Leg1 after correction
 ```
 
 For bullish F2:
@@ -111,7 +122,6 @@ This setup does not:
 - wait for a Zone;
 - use a CG filter;
 - use an AI score;
-- use F3 as an exit;
 - chase a missed entry with a market order.
 
 ## 9. Relation to existing Canon
@@ -126,7 +136,9 @@ The new decision in this execution profile is the explicit direct risk contract:
 
 ```text
 Stop authority = direct parent F1 Waist
-Target authority = F2 Leg2 endpoint
+RR-reference authority = original F2 Leg2 endpoint
+Fixed-exit authority = original F2 Leg2 endpoint
+Dynamic-exit authority = F2 confirmation node / F3 Leg1 after correction
 ```
 
 This is a dedicated backtest authorization. It does not silently change the general Zone doctrine for other F2 contexts.

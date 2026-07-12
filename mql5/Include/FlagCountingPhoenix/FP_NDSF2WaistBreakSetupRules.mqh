@@ -27,6 +27,13 @@ bool FP_NDSF2IsWaistBreakArmedBody(const FP_FlagEvent &f2,
    if(!f2.f2_body_complete) return false;
    if(cfg.require_f2_size_gate && !f2.f2_size_gate_passed) return false;
 
+   // The dynamic exit is defined through the canonical F3 path. Therefore its
+   // source F2 must already satisfy the Level-08 size authority required to
+   // become f2_can_spawn_f3 after confirmation.
+   if(cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST &&
+      !f2.f2_size_gate_passed)
+      return false;
+
    if(f2.status == FP_STATUS_INVALIDATED || f2.f2_lifecycle_status == FP_F2_LC_INVALIDATED)
       return false;
 
@@ -325,12 +332,17 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
 
    setup.direction = f2.direction;
    setup.scale_L = f2.scale_L;
+   setup.period = period;
    setup.f1_event_id = f1.event_id;
    setup.f2_event_id = f2.event_id;
    setup.sequence_id = f2.sequence_id;
    setup.body_available_index = body_available_index;
    setup.age_bars = rates_total - 1 - body_available_index;
    setup.body_available_time = rates[body_available_index].time;
+   setup.f1_waist_time = f1.waist.time_anchor;
+   setup.f2_origin_time = f2.origin.time_anchor;
+   setup.f2_waist_time = f2.waist.time_anchor;
+   setup.f2_leg2_time = f2.leg2.time_anchor;
    setup.point_1_price = f2.waist.price;
    setup.parent_f1_waist_price = f1.waist.price;
    setup.f2_flag_end_price = f2.leg2.price;
@@ -367,6 +379,13 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
       setup.target_price = FP_NDSF2NormalizeNearest(symbol, f2.leg2.price);
    }
    else return false;
+
+   // This original F2 two-leg endpoint is the economic reference target in
+   // both exit modes. Dynamic F3 exit deliberately keeps RR and entry repricing
+   // anchored here because the eventual F3 retest node does not yet exist.
+   setup.rr_reference_target_price = setup.target_price;
+   setup.initial_broker_take_profit_price =
+      (cfg.exit_mode == FP_NDS_F2_EXIT_FIXED_F2_FLAG_END ? setup.target_price : 0.0);
 
    setup.point_2_limit_price = setup.entry_price;
    if(!FP_NDSF2AdjustEntryForMinimumRewardRisk(symbol, cfg, setup)) return false;

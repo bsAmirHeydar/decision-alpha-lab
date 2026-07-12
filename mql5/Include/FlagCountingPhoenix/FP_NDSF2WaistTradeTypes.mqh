@@ -4,8 +4,32 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-05"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v5"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-06"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v6"
+
+
+
+enum FP_NDSF2ExitMode
+{
+   // Existing behavior: broker TP is attached at the original F2 two-leg end.
+   FP_NDS_F2_EXIT_FIXED_F2_FLAG_END = 0,
+
+   // Dynamic behavior: the original F2 end remains the RR reference only.
+   // After F2 confirms, its confirmation node becomes F3 Leg1. Once price
+   // corrects away, TP is armed at that node for the F3 flag retest.
+   FP_NDS_F2_EXIT_F3_FLAG_RETEST = 1
+};
+
+enum FP_NDSF2DynamicExitStage
+{
+   FP_NDS_F2_DYN_EXIT_NONE = 0,
+   FP_NDS_F2_DYN_EXIT_PENDING = 1,
+   FP_NDS_F2_DYN_EXIT_WAIT_F2_CONFIRM = 2,
+   FP_NDS_F2_DYN_EXIT_WAIT_CORRECTION = 3,
+   FP_NDS_F2_DYN_EXIT_WAIT_RETEST = 4,
+   FP_NDS_F2_DYN_EXIT_TP_ARMED = 5,
+   FP_NDS_F2_DYN_EXIT_CLOSED = 6
+};
 
 enum FP_NDSF2WaistRunResult
 {
@@ -29,6 +53,13 @@ struct FP_NDSF2WaistTradeConfig
    bool require_f2_size_gate;
    bool cancel_pending_if_target_touched_before_fill;
    int max_setup_age_bars;
+
+   // Exit policy. In dynamic F3 mode, min-RR and entry repricing still use
+   // the original F2 flag end because the eventual F3 retest node is unknown
+   // at entry time.
+   int exit_mode;
+   double f3_exit_correction_ticks;
+   bool close_at_market_if_f3_target_already_reached;
 
    // Opportunity geometry filter. When adjustment is enabled, a setup below
    // the requested minimum is not rejected immediately: its pending entry is
@@ -70,12 +101,19 @@ struct FP_NDSF2WaistTradeSetup
    bool eligible;
    int direction;
    int scale_L;
+   ENUM_TIMEFRAMES period;
    int f1_event_id;
    int f2_event_id;
    int sequence_id;
    int body_available_index;
    int age_bars;
    datetime body_available_time;
+
+   // Stable structural identity required by the dynamic F3 exit manager.
+   datetime f1_waist_time;
+   datetime f2_origin_time;
+   datetime f2_waist_time;
+   datetime f2_leg2_time;
 
    // Structural anatomy:
    // point_1 = F2 waist
@@ -89,7 +127,15 @@ struct FP_NDSF2WaistTradeSetup
    double structural_entry_price;
    double entry_price;
    double stop_price;
+   // target_price and rr_reference_target_price are the original F2 Leg2
+   // endpoint. They remain the RR authority in both exit modes.
    double target_price;
+   double rr_reference_target_price;
+
+   // Fixed mode sends this TP with the pending order. Dynamic F3 mode sends
+   // zero and arms a later TP after F2 confirmation plus correction.
+   double initial_broker_take_profit_price;
+
    bool entry_adjusted_for_reward_risk;
    double risk_distance;
    double reward_distance;
@@ -100,6 +146,68 @@ struct FP_NDSF2WaistTradeSetup
    string broker_comment;
 };
 
+struct FP_NDSF2DynamicExitContext
+{
+   bool active;
+   string symbol;
+   ENUM_TIMEFRAMES period;
+   long setup_hash;
+   string broker_comment;
+   int direction;
+   int scale_L;
+
+   datetime f1_waist_time;
+   datetime f2_origin_time;
+   datetime f2_waist_time;
+   datetime initial_f2_leg2_time;
+   double initial_f2_leg2_price;
+   double reference_target_price;
+
+   ulong order_ticket;
+   ulong position_ticket;
+   long position_identifier;
+   int stage;
+
+   bool f2_confirm_captured;
+   int f2_confirm_event_id;
+   int f2_confirm_node_id;
+   datetime f2_confirm_time;
+   double f2_confirm_price;
+   double dynamic_target_price;
+
+   bool correction_seen;
+   bool tp_armed;
+};
+
+void FP_ResetNDSF2DynamicExitContext(FP_NDSF2DynamicExitContext &ctx)
+{
+   ctx.active = false;
+   ctx.symbol = "";
+   ctx.period = PERIOD_CURRENT;
+   ctx.setup_hash = 0;
+   ctx.broker_comment = "";
+   ctx.direction = FP_DIR_NONE;
+   ctx.scale_L = 0;
+   ctx.f1_waist_time = 0;
+   ctx.f2_origin_time = 0;
+   ctx.f2_waist_time = 0;
+   ctx.initial_f2_leg2_time = 0;
+   ctx.initial_f2_leg2_price = 0.0;
+   ctx.reference_target_price = 0.0;
+   ctx.order_ticket = 0;
+   ctx.position_ticket = 0;
+   ctx.position_identifier = 0;
+   ctx.stage = FP_NDS_F2_DYN_EXIT_NONE;
+   ctx.f2_confirm_captured = false;
+   ctx.f2_confirm_event_id = -1;
+   ctx.f2_confirm_node_id = -1;
+   ctx.f2_confirm_time = 0;
+   ctx.f2_confirm_price = 0.0;
+   ctx.dynamic_target_price = 0.0;
+   ctx.correction_seen = false;
+   ctx.tp_armed = false;
+}
+
 void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
 {
    cfg.enabled = true;
@@ -109,6 +217,9 @@ void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.require_f2_size_gate = false;
    cfg.cancel_pending_if_target_touched_before_fill = true;
    cfg.max_setup_age_bars = 0;
+   cfg.exit_mode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+   cfg.f3_exit_correction_ticks = 1.0;
+   cfg.close_at_market_if_f3_target_already_reached = true;
 
    cfg.use_min_reward_risk_filter = true;
    cfg.adjust_entry_to_min_reward_risk = true;
@@ -137,12 +248,17 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.eligible = false;
    s.direction = FP_DIR_NONE;
    s.scale_L = 0;
+   s.period = PERIOD_CURRENT;
    s.f1_event_id = -1;
    s.f2_event_id = -1;
    s.sequence_id = -1;
    s.body_available_index = -1;
    s.age_bars = -1;
    s.body_available_time = 0;
+   s.f1_waist_time = 0;
+   s.f2_origin_time = 0;
+   s.f2_waist_time = 0;
+   s.f2_leg2_time = 0;
    s.point_1_price = 0.0;
    s.point_2_limit_price = 0.0;
    s.parent_f1_waist_price = 0.0;
@@ -151,6 +267,8 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.entry_price = 0.0;
    s.stop_price = 0.0;
    s.target_price = 0.0;
+   s.rr_reference_target_price = 0.0;
+   s.initial_broker_take_profit_price = 0.0;
    s.entry_adjusted_for_reward_risk = false;
    s.risk_distance = 0.0;
    s.reward_distance = 0.0;

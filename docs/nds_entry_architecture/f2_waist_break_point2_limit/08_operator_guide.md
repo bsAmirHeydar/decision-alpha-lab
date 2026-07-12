@@ -18,6 +18,9 @@ InpF2BTCancelPendingIfTargetTouchedBeforeFill = true
 InpF2BTMaxSetupAgeBars = 0
 InpF2BTEntryBehindF2WaistTicks = 1
 InpF2BTStopBehindF1WaistTicks = 1
+InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END
+InpF2BTF3ExitCorrectionTicks = 1.0
+InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true
 InpF2BTUseMinimumRewardRiskFilter = true
 InpF2BTAdjustEntryToMinimumRewardRisk = true
 InpF2BTMinimumRewardRisk = 1.0
@@ -38,7 +41,8 @@ A complete unconfirmed F2 body existed.
 Its waist was Point 1.
 The limit beyond that waist represented Point 2.
 The parent F1 waist defined failure.
-The F2 Leg2 endpoint defined completion/target.
+The original F2 Leg2 endpoint defined the fixed TP and the RR reference.
+In dynamic mode, F2 confirmation defines F3 Leg1 and the later retest defines exit.
 ```
 
 ## No-log behavior
@@ -57,3 +61,10 @@ Use an MT5 hedging account in Strategy Tester when testing simultaneous same-sym
 ## Overlap interpretation
 
 `InpF2BTStopSpaceOverlapThresholdPercent = 80.0` means that when at least 80% of the narrower same-direction stop corridor is shared, the two contexts are treated as one and the wider corridor wins. Set it to `70.0` to make deduplication more aggressive.
+
+
+## Exit-mode interpretation
+
+`FP_NDS_F2_EXIT_FIXED_F2_FLAG_END` attaches the original F2 Leg2 as broker TP immediately.
+
+`FP_NDS_F2_EXIT_F3_FLAG_RETEST` sends the order with no TP, preserves the original F2 Leg2 only for RR, captures the exact F2-confirm/F3-Leg1 node, waits for correction, then arms TP at that node for the retest.

@@ -59,7 +59,7 @@ def main() -> None:
     require(rules, "ORDER_TYPE_BUY_LIMIT", "buy_limit")
     require(rules, "ORDER_TYPE_SELL_LIMIT", "sell_limit")
     require(rules, "request.sl = setup.stop_price", "attached_stop")
-    require(rules, "request.tp = setup.target_price", "attached_target")
+    require(rules, "request.tp = setup.initial_broker_take_profit_price", "mode_aware_attached_target")
     require(rules, "OrderCheck", "broker_preflight")
     require(rules, "OrderSend", "broker_send")
     require(rules, "TRADE_ACTION_REMOVE", "stale_pending_removal")

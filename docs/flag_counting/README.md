@@ -402,3 +402,5 @@ A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a st
 ## F2 v5 — overlap arbitration and RR entry repricing
 
 The dedicated F2 Waist-Break Point-2 backtest now reprices sub-threshold RR setups by moving only the pending Entry toward the fixed F1-waist Stop, and deduplicates near-identical same-direction contexts using configurable stop-corridor overlap. The default overlap threshold is 80%, with the wider executable corridor selected. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/11_overlap_arbitration_and_rr_entry_repricing.md`.
+
+The profile now also supports two explicit exit modes. Fixed mode attaches TP at the original F2 Leg2. Dynamic F3-retest mode keeps that same F2 Leg2 only as the RR reference, waits for the exact source F2 confirmation node (canonical F3 Leg1), observes a correction, and exits on the retest of that node. The full contract is in `docs/nds_entry_architecture/f2_waist_break_point2_limit/12_dual_exit_fixed_f2_and_f3_flag_retest.md`.

@@ -15,6 +15,10 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
 {
    if(!cfg.enabled) return FP_NDS_F2_RUN_IDLE;
 
+   // Dynamic F3 exit is updated from the same canonical F2 event stream before
+   // any new setup is considered. Fixed exit mode is a no-op here.
+   FP_NDSF2UpdateDynamicExitFromEvents(cfg, events, event_count);
+
    int f1_indices[];
    int f2_indices[];
    int available_indices[];

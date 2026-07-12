@@ -151,6 +151,12 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
                                                              events, event_count,
                                                              detector_cfg.boundary_epsilon_points,
                                                              trade_cfg);
+
+   // The new-bar detector may have just exposed the F2 confirmation node. Run
+   // the lightweight tick manager once immediately so the dynamic F3 TP can be
+   // armed without waiting for the next market tick.
+   FP_NDSF2ManageDynamicExitOnTick(symbol, period, trade_cfg);
+
    if(result == FP_NDS_F2_RUN_IDLE && cancel_errors > 0)
       return FP_NDS_F2_RUN_ERROR;
    if(result == FP_NDS_F2_RUN_IDLE && cancelled > 0)

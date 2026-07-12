@@ -4,6 +4,7 @@
 
 #include "FP_NDSF2WaistBreakSetupRules.mqh"
 #include "FP_NDSHookTradeRules.mqh"
+#include "FP_NDSF2F3ExitManager.mqh"
 
 // Tester-only in-memory body-version registry. No terminal global variables,
 // filesystem persistence, renderer state, CSV or mutex is used.
@@ -12,6 +13,7 @@ long g_fp_nds_f2_used_hashes[];
 void FP_NDSF2ResetUsedSetups()
 {
    ArrayResize(g_fp_nds_f2_used_hashes, 0);
+   FP_NDSF2ResetDynamicExitContexts();
 }
 
 bool FP_NDSF2SetupUsed(const FP_NDSF2WaistTradeConfig &cfg,
@@ -247,7 +249,9 @@ bool FP_NDSF2DeletePendingOrder(const FP_NDSF2WaistTradeConfig &cfg,
    request.magic = (ulong)cfg.magic;
 
    if(!OrderSend(request, result)) return false;
-   return FP_NDSHookTradeRetcodeAccepted(result.retcode);
+   if(!FP_NDSHookTradeRetcodeAccepted(result.retcode)) return false;
+   FP_NDSF2DeactivateDynamicContextByOrderTicket(order_ticket);
+   return true;
 }
 
 double FP_NDSF2StopCorridorLow(const double entry, const double stop)
@@ -544,7 +548,7 @@ bool FP_NDSF2SendLimit(const string symbol,
    request.volume = setup.volume;
    request.price = setup.entry_price;
    request.sl = setup.stop_price;
-   request.tp = setup.target_price;
+   request.tp = setup.initial_broker_take_profit_price;
    request.deviation = (ulong)MathMax(0, cfg.max_deviation_points);
    request.type = (setup.direction == FP_DIR_BULLISH ? ORDER_TYPE_BUY_LIMIT : ORDER_TYPE_SELL_LIMIT);
    request.type_filling = ORDER_FILLING_RETURN;
@@ -573,8 +577,42 @@ bool FP_NDSF2SendLimit(const string symbol,
       ticket = (result.deal > 0 ? result.deal : (ulong)1);
    }
 
-   // Consume the exact F2 context only after broker/tester acceptance.
-   return FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash);
+   // Dynamic exit needs the exact source anatomy after the pending order fills.
+   // Register before consuming the setup; if registration fails, remove the
+   // accepted pending order so no unmanaged no-TP position can be created.
+   if(cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)
+   {
+      if(result.order > 0) ticket = result.order;
+      if(ticket == 0 || ticket == (ulong)1)
+      {
+         for(int i=OrdersTotal()-1; i>=0; i--)
+         {
+            ulong candidate_ticket = OrderGetTicket(i);
+            if(candidate_ticket == 0) continue;
+            if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+            if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+            if(OrderGetString(ORDER_COMMENT) != setup.broker_comment) continue;
+            ticket = candidate_ticket;
+            break;
+         }
+      }
+
+      if(ticket == 0 || ticket == (ulong)1 ||
+         !FP_NDSF2RegisterDynamicExitContext(symbol, setup.period, cfg, setup, ticket))
+      {
+         if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
+         return false;
+      }
+   }
+
+   // Consume the exact F2 context only after broker/tester acceptance and,
+   // in dynamic mode, after its exit context is safely registered.
+   if(!FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash))
+   {
+      if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
+      return false;
+   }
+   return true;
 }
 
 #endif // __FP_NDS_F2_WAIST_TRADE_RULES_MQH__

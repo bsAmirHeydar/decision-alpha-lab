@@ -48,7 +48,7 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.40"', "expert version", errors)
+    require(expert, '#property version   "1.50"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)
@@ -98,7 +98,7 @@ def main() -> int:
     require(bt, "FP_NDSF2CancelConsumedPendingOrders", "multi-pending reconciliation", errors)
 
     require(doc, "Point 1 = F2 Waist", "documented Point 1", errors)
-    require(doc, "Target = F2 Leg2 endpoint", "documented target", errors)
+    require(doc, "Fixed mode:", "documented fixed exit", errors)
     require(doc, "F2 confirmation is not the entry trigger", "documented timing", errors)
 
     # Runtime cleanliness.

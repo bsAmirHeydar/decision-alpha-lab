@@ -4,9 +4,11 @@
 
 Canonical execution contract for the dedicated lightweight Strategy Tester profile.
 
+The setup now has two explicit exit modes: fixed F2 flag-end TP and dynamic F3 flag-retest TP.
+
 ## Core sentence
 
-After a complete two-leg F2 flag exists, the F2 waist is treated as structural Point 1. A strict penetration beyond that waist is Point 2. The system stages a limit order strictly beyond the F2 waist so the fill is the executable Point 2, places the stop beyond the direct parent F1 waist, and targets the F2 Leg2 endpoint—the end of the two-leg F2 flag.
+After a complete two-leg F2 flag exists, the F2 waist is treated as structural Point 1. A strict penetration beyond that waist is Point 2. The system stages a limit order strictly beyond the F2 waist so the fill is the executable Point 2, places the stop beyond the direct parent F1 waist, and either targets the F2 Leg2 endpoint directly or, in dynamic mode, keeps that endpoint only as the RR reference and exits on the later F3 flag retest of the F2-confirmation node.
 
 ## Index
 
@@ -21,3 +23,5 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 9. [Correction of the previous implementation](09_previous_implementation_correction.md)
 10. [Reward/Risk and parallel-context policy](10_reward_risk_and_parallel_context_policy.md)
 11. [Overlap arbitration and RR entry repricing](11_overlap_arbitration_and_rr_entry_repricing.md)
+
+12. [Dual exit contract: fixed F2 end or F3 flag retest](12_dual_exit_fixed_f2_and_f3_flag_retest.md)

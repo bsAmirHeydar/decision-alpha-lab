@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.40"
-#property description "NDS F2 Point-2 backtest with minimum-RR entry repricing and wider-context stop-space arbitration."
+#property version   "1.50"
+#property description "NDS F2 Point-2 backtest with fixed F2-end or dynamic F3-flag-retest exit modes."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
@@ -43,7 +43,18 @@ input int    InpF2BTMaxSetupAgeBars = 0;
 input double InpF2BTEntryBehindF2WaistTicks = 1.0;
 input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
-// Reward/Risk policy. RR = abs(TP-Entry) / abs(Entry-SL).
+
+
+// Exit mode.
+// FIXED_F2_FLAG_END: current behavior, broker TP at original F2 Leg2.
+// F3_FLAG_RETEST: original F2 Leg2 remains the RR reference only. After F2
+// confirms and price corrects away, TP is armed at the F2-confirm/F3-Leg1 node.
+input FP_NDSF2ExitMode InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+input double InpF2BTF3ExitCorrectionTicks = 1.0;
+input bool   InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true;
+
+// Reward/Risk policy. RR always uses original F2 Leg2, even in F3 exit mode.
+// RR = abs(F2_Leg2-Entry) / abs(Entry-SL).
 // If the structural waist entry is below the minimum, the tester can move the
 // pending entry farther behind the F2 waist until the requested RR is reached.
 input bool   InpF2BTUseMinimumRewardRiskFilter = true;
@@ -147,8 +158,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v5";
-   cfg.identity_config_hash = "f2_wb2_v5";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v6";
+   cfg.identity_config_hash = "f2_wb2_v6";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -188,6 +199,10 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.require_f2_size_gate = InpF2BTRequireF2SizeGate;
    cfg.cancel_pending_if_target_touched_before_fill = InpF2BTCancelPendingIfTargetTouchedBeforeFill;
    cfg.max_setup_age_bars = InpF2BTMaxSetupAgeBars;
+   cfg.exit_mode = InpF2BTExitMode;
+   cfg.f3_exit_correction_ticks = InpF2BTF3ExitCorrectionTicks;
+   cfg.close_at_market_if_f3_target_already_reached =
+      InpF2BTCloseAtMarketIfF3TargetAlreadyReached;
    cfg.entry_behind_f2_waist_ticks = InpF2BTEntryBehindF2WaistTicks;
    cfg.stop_behind_f1_waist_ticks = InpF2BTStopBehindF1WaistTicks;
    cfg.use_min_reward_risk_filter = InpF2BTUseMinimumRewardRiskFilter;
@@ -235,6 +250,11 @@ int OnInit()
 
 void OnTick()
 {
+   // Per-tick path is intentionally tiny: no detector, renderer, CSV or prints.
+   // It only cancels consumed dynamic pending orders and manages the optional
+   // F3-retest TP on already-open positions.
+   FP_NDSF2ManageDynamicExitOnTick(_Symbol, _Period, g_f2_bt_trade_cfg);
+
    datetime open_bar = iTime(_Symbol, _Period, 0);
    if(open_bar <= 0 || open_bar == g_f2_bt_last_open_bar) return;
    g_f2_bt_last_open_bar = open_bar;
