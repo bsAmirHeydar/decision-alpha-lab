@@ -1,11 +1,12 @@
 #property strict
-#property version   "1.10"
-#property description "NDS fast F2 waist limit backtest: F2 waist entry, F1 waist stop, F2 Leg2 target."
+#property version   "1.20"
+#property description "NDS F2 waist-break Point-2 limit backtest: enter beyond F2 waist, stop beyond parent F1 waist, target F2 flag end."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
-// Execution-only tester. No Hook setup, Zone, AI, renderer, CSV, timer or custom
-// runtime Print path is loaded.
+// Dedicated execution-only tester.
+// Loaded path: canonical rates -> canonical nodes -> F1 -> F2 body -> order.
+// Not loaded: Hook setup, Zone, CG, AI, F3, renderer, CSV, timer or custom prints.
 
 input FP_NDSBacktestProfile InpF2BTProfile = FP_NDS_BACKTEST_PROFILE_FAST;
 input bool InpF2BTAllowNonTesterDryRun = false;
@@ -27,17 +28,20 @@ input int  InpF2BTCustomMaxEvents = 900;
 
 // Canonical F1/F2 anatomy.
 input double InpF2BTBoundaryEpsilonPoints = 0.0;
+input bool   InpF2BTRequireF2SizeGate = false;
 input double InpF2BTF2MinParentSizeRatio = 1.0;
 input double InpF2BTNDMinRetraceRatio = 0.50;
 input bool   InpF2BTNDAllowBelowHalfCycle = false;
 
-// Execution.
+// F2 waist-break Point-2 execution.
 input bool   InpF2BTTradeEnabled = true;
 input bool   InpF2BTSendTesterOrders = true;
-input bool   InpF2BTOneAttemptPerF2 = true;
+input bool   InpF2BTOneAttemptPerF2Body = true;
 input bool   InpF2BTResetUsedSetupsOnInit = true;
+input bool   InpF2BTCancelPendingIfTargetTouchedBeforeFill = true;
 input int    InpF2BTMaxSetupAgeBars = 0;
-input double InpF2BTEntryOffsetTicks = 1.0;
+input double InpF2BTEntryBehindF2WaistTicks = 1.0;
+input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
 input FP_NDSHookTradeSizingMode InpF2BTSizingMode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
 input double InpF2BTFixedVolume = 0.01;
@@ -46,7 +50,7 @@ input double InpF2BTCommissionPerLotRoundTurn = 0.0;
 input bool   InpF2BTAllowMinLotIfRiskTooSmall = false;
 input int    InpF2BTMaxDeviationPoints = 20;
 input long   InpF2BTMagic = 310055;
-input string InpF2BTCommentPrefix = "NDSF2";
+input string InpF2BTCommentPrefix = "NDSF2WB";
 
 static datetime g_f2_bt_last_open_bar = 0;
 static FP_NDSBacktestRuntimeConfig g_f2_bt_runtime_cfg;
@@ -94,7 +98,7 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.scan_f2 = true;
    cfg.scan_f3 = false;
 
-   // This setup is F-only. Raw canonical origin nodes are the F1 seed authority.
+   // The dedicated detector uses raw canonical origin nodes as F1 seed authority.
    cfg.require_f1_phase_boundary = false;
    cfg.allow_f1_fail_open_when_no_hook = true;
    cfg.enforce_single_chain_per_direction_scale = false;
@@ -110,9 +114,12 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.keep_confirmed_f1f2_after_boundary_hit = false;
    cfg.f1_show_post_flag_candidates = false;
    cfg.f1_show_live_body_candidates = false;
-   cfg.f2_show_size_rejected_candidates = false;
-   cfg.f2_show_post_flag_candidates = false;
-   cfg.f2_show_live_body_candidates = false;
+
+   // This setup must receive body-complete, unconfirmed F2 events. Confirmation
+   // is the target event and would be too late for entry.
+   cfg.f2_show_size_rejected_candidates = !InpF2BTRequireF2SizeGate;
+   cfg.f2_show_post_flag_candidates = true;
+   cfg.f2_show_live_body_candidates = true;
    cfg.f3_show_or_rejected_candidates = false;
    cfg.f3_show_live_body_candidates = false;
 
@@ -121,8 +128,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_fast_execution_v2";
-   cfg.identity_config_hash = "f2_fast_v2";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v3";
+   cfg.identity_config_hash = "f2_wb2_v3";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -157,10 +164,13 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    FP_ResetNDSF2WaistTradeConfig(cfg);
    cfg.enabled = InpF2BTTradeEnabled;
    cfg.send_tester_orders = InpF2BTSendTesterOrders;
-   cfg.one_attempt_per_f2 = InpF2BTOneAttemptPerF2;
+   cfg.one_attempt_per_f2_body = InpF2BTOneAttemptPerF2Body;
    cfg.reset_used_setups_on_init = InpF2BTResetUsedSetupsOnInit;
+   cfg.require_f2_size_gate = InpF2BTRequireF2SizeGate;
+   cfg.cancel_pending_if_target_touched_before_fill = InpF2BTCancelPendingIfTargetTouchedBeforeFill;
    cfg.max_setup_age_bars = InpF2BTMaxSetupAgeBars;
-   cfg.entry_offset_ticks = InpF2BTEntryOffsetTicks;
+   cfg.entry_behind_f2_waist_ticks = InpF2BTEntryBehindF2WaistTicks;
+   cfg.stop_behind_f1_waist_ticks = InpF2BTStopBehindF1WaistTicks;
    cfg.sizing_mode = InpF2BTSizingMode;
    cfg.fixed_volume = InpF2BTFixedVolume;
    cfg.risk_cash = InpF2BTRiskCash;

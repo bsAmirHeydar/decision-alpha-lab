@@ -388,12 +388,12 @@ research/nds_cg_ai/README.md
 
 Phase 54 freezes the research architecture used to test whether CG identity, cycle ordinal, phase, or lead-lag context adds non-random out-of-sample information to valid HH/F3H opportunities. It adds no training entrypoint and does not change the lightweight backtest or live execution path.
 
-## NDS F2 Waist Limit Strategy Tester
+## NDS F2 Waist-Break Point-2 Strategy Tester
 
-A second dedicated lightweight executable tests the F-only setup:
+The dedicated lightweight executable tests the corrected F-only setup:
 
 ```text
 mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
 ```
 
-It is an F-only execution path: Hook scanning, Zone and AI are disabled. It reuses the canonical Phoenix node/F1/F2 lifecycle builders, measures freshness from the exact node-observability bar, enters beyond the confirmed F2 waist, uses the parent F1 waist as Stop, uses F2 Leg2 as Take Profit, and enforces one managed exposure. The execution-only detector skips global visual/canonical post-processing. Documentation is under `docs/nds_entry_architecture/f2_waist_limit_backtest/`.
+A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a strict limit behind the Waist is executable Point 2; Stop is behind the direct parent F1 Waist; Target is the F2 Leg2 endpoint. F2 confirmation is explicitly rejected as an entry trigger because the confirmation re-break is the target event. Hook, Zone, CG, AI, F3, renderer and CSV are excluded from the runtime. Documentation is under `docs/nds_entry_architecture/f2_waist_break_point2_limit/`.

@@ -1,0 +1,155 @@
+{
+  "patch_id": "NDS_F2_WAIST_BREAK_POINT2_LIMIT",
+  "version": "1.0.0",
+  "generated_date": "2026-07-12",
+  "root_relative": true,
+  "expert_version": "1.20",
+  "purpose": "Correct the F2 setup so a complete unconfirmed F2 body arms a limit beyond the F2 waist; fill is Point 2, stop is beyond parent F1 waist, and target is F2 Leg2.",
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_WAIST_BREAK_POINT2_LIMIT_PATCH.md",
+      "size_bytes": 1176,
+      "sha256": "a75e632a03116ce2a973a197748f6b0a5545c5b5519af67fb62c05fe4ecb63ef"
+    },
+    {
+      "path": "NDS_F2_WAIST_BREAK_POINT2_LIMIT_AUDIT_REPORT.md",
+      "size_bytes": 4258,
+      "sha256": "4f84c57b83c27dd37a0f96bb47d1bc5f6da45c622033c735105dbf63703f7cef"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 21170,
+      "sha256": "e75c23216b28cfa7d0a67c2a08856252e6a3ea957058f133fce209cbe0671878"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 4655,
+      "sha256": "d2e01cf10ddb31f5f96fb85d5e8cad0b056df40b781547a3ac46f6306fe00220"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
+      "size_bytes": 2495,
+      "sha256": "8d4f2bd1163b27b02a27f55f8f4cbfab4555ec999429816b1c11c22247d63751"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/02_structural_anatomy.md",
+      "size_bytes": 2013,
+      "sha256": "34eed6e8b327477ed55e6d67fda39820a0ef8ffae1c63855c339695e1b85bf7f"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/03_execution_state_machine.md",
+      "size_bytes": 1335,
+      "sha256": "3a3e6b867a9bf254d474ca102d1785b7e2260ad2bed3159739004556c1fdae66"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/04_price_and_order_semantics.md",
+      "size_bytes": 1383,
+      "sha256": "9e8474d900478a7bbc9fefa2e6ad493117363b2fbbcf69271911b8f34fb96c63"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/05_lifecycle_and_edge_cases.md",
+      "size_bytes": 1528,
+      "sha256": "a28bcc3bd3e96b36afbd13c3081f50e81bb10b7bedbb4cd1876c9f1192460e0a"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/06_module_architecture.md",
+      "size_bytes": 1490,
+      "sha256": "234b192c49abce5542508ed8e6dabdae8b63fa0b1c1474d5eb7cac738904c8be"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/07_validation_and_acceptance.md",
+      "size_bytes": 1329,
+      "sha256": "0863c41bc3b4dbb11545df18976fc9757b277d08aa6380afb9901967dbed4194"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/08_operator_guide.md",
+      "size_bytes": 900,
+      "sha256": "9aa8209de202cb1d119e1829559cf5bfea3e2b992949b2a046d11888417a8137"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/09_previous_implementation_correction.md",
+      "size_bytes": 1061,
+      "sha256": "fb04638b4b65c149f1acccf4f58dc462b6fdcfe9e8f702bf51c46bce44b2e30d"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "size_bytes": 1069,
+      "sha256": "376ee58bf0e98e27050b12e41170c476ed705341d3cb6f6422a5a1001611c129"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 3935,
+      "sha256": "313e41ed9a203b344c8ac4735d9c8f3e15905a7bd353d9e10aa5881e9d3ba6f3"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Fast Exact Backtest Runtime.md",
+      "size_bytes": 1523,
+      "sha256": "da0c0630dacbf3e662b0bf77f7f9ba97e94d687bac35c5dbd00a81f65445b4a1"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist Limit Backtest.md",
+      "size_bytes": 1928,
+      "sha256": "2804ff9349fb67e69ab65d9d696576f75dbbd5ec3afcd2eb3f41720e7bf21094"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist-Break Point2 Limit Setup.md",
+      "size_bytes": 1307,
+      "sha256": "3dd370822aa750d86913cc9c5a3e298b2f807e1f11f81e028f01b8045a26a98a"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "size_bytes": 8245,
+      "sha256": "3aece8d4a55dec23679a20bc19f1dcba7ea020d42cbd7634080b45c848015a4e"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh",
+      "size_bytes": 3801,
+      "sha256": "e8b68ee4e8cc343adaa76d2b614e2d31e0ef9adb8d26c07f995ad53f13f7ca08"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "size_bytes": 4804,
+      "sha256": "fb6bb380a8392835af179c33967e2c7ad7c9e26ca21177e94ac3c7862b181886"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "size_bytes": 12007,
+      "sha256": "aee7b34aa9e010216403c2256362e726b3d429be30a4b057a9e821a6d20221a6"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "size_bytes": 2864,
+      "sha256": "c402e09ee64a8194ac87c4a84de946558d23877b29914090ea2425a3a1819175"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "size_bytes": 7058,
+      "sha256": "50ff6e7d76be4fafda7635d45cb36684a11931605847b7b2b7c005b71359dae1"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "size_bytes": 3169,
+      "sha256": "f1b759b333789251d340602c2f923c2c0c26d5f1b17d0c65c726caf11e884799"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "size_bytes": 4135,
+      "sha256": "07984aca5de5d27876087a8a5373044b1656506d43167a3c01789d7497c93296"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "size_bytes": 5490,
+      "sha256": "d4c94da684418c565654a6f85724d2194735c1d5512e861531537a2a8171ae6b"
+    }
+  ],
+  "validation": {
+    "contract_qa": "PASS",
+    "legacy_f2_qa_updated": "PASS",
+    "project_include_resolution": "PASS",
+    "mql_lexical_balance": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "metaeditor_compile": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT"
+  }
+}

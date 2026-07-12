@@ -125,12 +125,12 @@ The research-only architecture for discovering non-random and non-simultaneous C
 
 Phase 54 adds schemas, anti-random evidence gates, walk-forward design, and a no-training research scaffold. It does not change the executable Phase 52/53 strategy.
 
-## F2 Waist Limit — dedicated lightweight profile
+## F2 Waist-Break Point-2 — dedicated lightweight profile
 
-A separate non-Hook execution profile is documented at:
+The corrected canonical setup is documented at:
 
 ```text
-f2_waist_limit_backtest/README.md
+f2_waist_break_point2_limit/README.md
 ```
 
-It reuses Phoenix canonical node/F1/F2 lifecycle builders but disables Hook scanning and the heavy global visual/canonical finalization path. Freshness is measured from the exact bar where the F2 confirmation node obtains right-side clearance. Entry is beyond the F2 waist, Stop is the parent F1 waist, Take Profit is F2 Leg2, and broker submission uses an explicit checked pending request.
+It reuses Phoenix canonical node/F1/F2 builders but does not wait for F2 confirmation. A complete unconfirmed F2 body arms a limit strictly beyond the F2 Waist. The Waist is Point 1; the limit fill is executable Point 2; Stop is strictly beyond the direct parent F1 Waist; Target is the F2 Leg2 endpoint. The dedicated detector builds no Hook branches and skips all visual/canonical post-processing.

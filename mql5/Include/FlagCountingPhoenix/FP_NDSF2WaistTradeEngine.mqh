@@ -31,21 +31,24 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
 
    int f1_index = -1;
    int f2_index = -1;
-   int availability_index = -1;
-   if(!FP_NDSF2SelectLatestPair(events, event_count,
-                                rates, rates_total,
-                                cfg, epsilon_points,
-                                f1_index, f2_index,
-                                availability_index))
+   int body_available_index = -1;
+   if(!FP_NDSF2SelectLatestWaistBreakPair(events, event_count,
+                                          rates, rates_total,
+                                          cfg, epsilon_points,
+                                          f1_index, f2_index,
+                                          body_available_index))
       return FP_NDS_F2_RUN_IDLE;
 
    FP_NDSF2WaistTradeSetup setup;
-   if(!FP_NDSF2BuildSetup(symbol, period,
-                          rates, rates_total,
-                          events[f1_index], events[f2_index],
-                          availability_index,
-                          cfg, setup))
+   if(!FP_NDSF2BuildWaistBreakSetup(symbol, period,
+                                    rates, rates_total,
+                                    events[f1_index], events[f2_index],
+                                    body_available_index,
+                                    cfg, setup))
       return FP_NDS_F2_RUN_BLOCKED;
+
+   if(FP_NDSF2SetupUsed(cfg, setup.setup_hash))
+      return FP_NDS_F2_RUN_IDLE;
 
    if(!cfg.send_tester_orders)
    {
@@ -54,8 +57,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
       return FP_NDS_F2_RUN_PAPER;
    }
 
-   // Recheck exposure immediately before the broker request. The tester runs one
-   // EA thread, so no terminal-global mutex is needed.
+   // Single-exposure recheck immediately before the request.
    managed_orders = FP_NDSF2CountManagedOrders(cfg, first_order);
    managed_positions = FP_NDSF2CountManagedPositions(cfg, first_position);
    if(managed_orders > 0 || managed_positions > 0)
@@ -63,9 +65,6 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
 
    ulong ticket = 0;
    if(!FP_NDSF2SendLimit(symbol, cfg, setup, ticket))
-      return FP_NDS_F2_RUN_ERROR;
-
-   if(!FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash))
       return FP_NDS_F2_RUN_ERROR;
    return FP_NDS_F2_RUN_ORDER_SENT;
 }

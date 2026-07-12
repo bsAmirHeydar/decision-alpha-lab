@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 EXPERT = ROOT / "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5"
 FAST = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh"
+SETUP = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh"
 RULES = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh"
 ENGINE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 TRADE_ENGINE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh"
@@ -26,25 +27,33 @@ def forbid(text: str, token: str, label: str) -> None:
 def main() -> None:
     expert = EXPERT.read_text(encoding="utf-8")
     fast = FAST.read_text(encoding="utf-8")
+    setup = SETUP.read_text(encoding="utf-8")
     rules = RULES.read_text(encoding="utf-8")
     engine = ENGINE.read_text(encoding="utf-8")
     trade_engine = TRADE_ENGINE.read_text(encoding="utf-8")
-    runtime = "\n".join((expert, fast, rules, engine, trade_engine))
+    runtime = "\n".join((expert, fast, setup, rules, engine, trade_engine))
 
     require(expert, "FP_NDSF2WaistBacktestEngine.mqh", "dedicated_expert")
     require(expert, "cfg.scan_hooks = false", "hook_scan_disabled")
     require(expert, "cfg.scan_f1 = true", "f1_reuse")
     require(expert, "cfg.scan_f2 = true", "f2_reuse")
     require(expert, "cfg.scan_f3 = false", "f3_disabled")
-    require(fast, "FP_DetectScale", "canonical_stage_reuse")
+    require(fast, "FP_BuildCanonicalNodesForScale", "canonical_node_reuse")
+    require(fast, "FP_TryBuildFlagChainsFromOrigins", "canonical_f1_f2_reuse")
+    forbid(fast, "FP_DetectScale(", "skip_general_heavy_detector")
+    forbid(fast, "FP_BuildHookBranches", "skip_hook_build")
     forbid(fast, "FP_DetectAllScales", "skip_global_postprocessing")
-    require(rules, "f2.f2_can_spawn_f3", "confirmed_f2_gate")
-    require(rules, "FP_CanonicalFindParentIndex", "canonical_parent_f1")
-    require(rules, "FP_NDSF2NodeAvailabilityIndex", "observable_bar_freshness")
-    require(rules, "f2.waist.price - offset", "bullish_below_f2_waist")
-    require(rules, "f2.waist.price + offset", "bearish_above_f2_waist")
-    require(rules, "f1.waist.price", "f1_waist_stop")
-    require(rules, "f2.leg2.price", "f2_leg2_target")
+
+    require(setup, "f2.f2_body_complete", "complete_unconfirmed_f2_gate")
+    require(setup, "f2.status == FP_STATUS_CONFIRMED", "reject_confirmed_f2")
+    require(setup, "FP_CanonicalFindParentIndex", "canonical_parent_f1")
+    require(setup, "events[i].leg2", "leg2_observable_bar_freshness")
+    require(setup, "f2.waist.price - entry_offset", "bullish_below_f2_waist")
+    require(setup, "f2.waist.price + entry_offset", "bearish_above_f2_waist")
+    require(setup, "f1.waist.price - stop_offset", "bullish_behind_f1_waist")
+    require(setup, "f1.waist.price + stop_offset", "bearish_behind_f1_waist")
+    require(setup, "f2.leg2.price", "f2_leg2_target")
+
     require(rules, "TRADE_ACTION_PENDING", "real_pending_request")
     require(rules, "ORDER_TYPE_BUY_LIMIT", "buy_limit")
     require(rules, "ORDER_TYPE_SELL_LIMIT", "sell_limit")
@@ -52,9 +61,10 @@ def main() -> None:
     require(rules, "request.tp = setup.target_price", "attached_target")
     require(rules, "OrderCheck", "broker_preflight")
     require(rules, "OrderSend", "broker_send")
+    require(rules, "TRADE_ACTION_REMOVE", "stale_pending_removal")
     require(trade_engine, "FP_NDSF2CountManagedOrders", "single_pending")
     require(trade_engine, "FP_NDSF2CountManagedPositions", "single_position")
-    require(engine, "FP_NDSF2BacktestHasManagedExposure", "exposure_fast_path")
+    require(engine, "FP_NDSF2PendingTargetConsumed", "pending_target_consumption")
     require(engine, "FP_DetectF2ExecutionScales", "fast_detector")
 
     forbid(runtime, "Print(", "no_runtime_print")
@@ -67,10 +77,9 @@ def main() -> None:
     forbid(expert, "FP_RunHookPhase02DetectionCore", "no_hook_phase02")
     forbid(expert, "FP_NDSAI", "no_ai_runtime")
     forbid(rules, "GlobalVariable", "no_terminal_registry_io")
-    forbid(trade_engine, "AcquireEntryLock", "no_global_mutex")
     forbid(engine, "GetMicrosecondCount", "no_timing_overhead")
 
-    print("NDS F2 waist fast backtest contract: PASS")
+    print("NDS F2 waist-break Point-2 fast backtest contract: PASS")
 
 
 if __name__ == "__main__":

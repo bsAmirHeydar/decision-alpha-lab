@@ -64,28 +64,33 @@ int FP_NDSF2BacktestBuildScales(const FP_NDSBacktestRuntimeConfig &cfg,
                             scales);
 }
 
-bool FP_NDSF2BacktestHasManagedExposure(const FP_NDSF2WaistTradeConfig &cfg)
-{
-   ulong order_ticket = 0;
-   ulong position_ticket = 0;
-   return (FP_NDSF2CountManagedOrders(cfg, order_ticket) > 0 ||
-           FP_NDSF2CountManagedPositions(cfg, position_ticket) > 0);
-}
-
 FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
                                                       const ENUM_TIMEFRAMES period,
                                                       const FP_NDSBacktestRuntimeConfig &runtime_cfg,
                                                       const FP_Config &detector_cfg,
                                                       const FP_NDSF2WaistTradeConfig &trade_cfg)
 {
-   if(FP_NDSF2BacktestHasManagedExposure(trade_cfg))
+   ulong order_ticket = 0;
+   ulong position_ticket = 0;
+   int positions = FP_NDSF2CountManagedPositions(trade_cfg, position_ticket);
+   int orders = FP_NDSF2CountManagedOrders(trade_cfg, order_ticket);
+
+   if(positions > 1 || orders > 1) return FP_NDS_F2_RUN_ERROR;
+   if(positions > 0) return FP_NDS_F2_RUN_POSITION_HELD;
+
+   // Pending path remains ultra-light: one closed-bar read only. If the F2 flag
+   // endpoint was reached before the limit filled, the target is consumed and
+   // the stale pending is removed. No detector rebuild is needed for this check.
+   if(orders > 0)
    {
-      ulong order_ticket = 0;
-      ulong position_ticket = 0;
-      if(FP_NDSF2CountManagedPositions(trade_cfg, position_ticket) > 0)
-         return FP_NDS_F2_RUN_POSITION_HELD;
-      if(FP_NDSF2CountManagedOrders(trade_cfg, order_ticket) > 0)
-         return FP_NDS_F2_RUN_PENDING_HELD;
+      if(trade_cfg.cancel_pending_if_target_touched_before_fill &&
+         FP_NDSF2PendingTargetConsumed(symbol, period, order_ticket))
+      {
+         if(FP_NDSF2DeletePendingOrder(trade_cfg, order_ticket))
+            return FP_NDS_F2_RUN_PENDING_CANCELLED_TARGET_CONSUMED;
+         return FP_NDS_F2_RUN_ERROR;
+      }
+      return FP_NDS_F2_RUN_PENDING_HELD;
    }
 
    FP_TimebaseConfig timebase_cfg;
