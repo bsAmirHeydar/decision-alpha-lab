@@ -49,15 +49,21 @@ def main() -> int:
     backtest_engine = content["backtest_engine"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.30"', "expert version", errors)
+    require(expert, '#property version   "1.40"', "expert version", errors)
     require(expert, "InpF2BTUseMinimumRewardRiskFilter = true", "RR filter default", errors)
+    require(expert, "InpF2BTAdjustEntryToMinimumRewardRisk = true", "RR repricing default", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "minimum RR default", errors)
+    require(expert, "InpF2BTUseStopSpaceOverlapDeduplication = true", "overlap dedup default", errors)
+    require(expert, "InpF2BTStopSpaceOverlapThresholdPercent = 80.0", "overlap threshold default", errors)
     require(expert, "InpF2BTAllowOppositeDirectionHedge = true", "hedge default", errors)
     require(expert, "InpF2BTAllowSameDirectionMultipleContexts = true", "same-direction default", errors)
     require(expert, "InpF2BTMaxConcurrentManagedExposures = 0", "unlimited cap default", errors)
 
     require(types, "use_min_reward_risk_filter", "RR config field", errors)
+    require(types, "adjust_entry_to_min_reward_risk", "RR repricing field", errors)
     require(types, "min_reward_risk", "RR threshold field", errors)
+    require(types, "use_stop_space_overlap_deduplication", "overlap dedup field", errors)
+    require(types, "stop_space_overlap_percent", "overlap threshold field", errors)
     require(types, "allow_opposite_direction_hedge", "hedge config field", errors)
     require(types, "allow_same_direction_multiple_contexts", "same-direction config field", errors)
     require(types, "reward_risk", "setup RR evidence", errors)
@@ -65,7 +71,9 @@ def main() -> int:
     require(setup, "setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price)", "risk distance", errors)
     require(setup, "setup.reward_distance = MathAbs(setup.target_price - setup.entry_price)", "reward distance", errors)
     require(setup, "setup.reward_risk = setup.reward_distance / setup.risk_distance", "RR formula", errors)
-    require(setup, "setup.reward_risk + 1e-12 <", "RR rejection", errors)
+    require(setup, "Entry = (Target + required_rr * Stop) / (1 + required_rr)", "RR repricing equation comment", errors)
+    require(setup, "FP_NDSF2AdjustEntryForMinimumRewardRisk", "RR repricing helper", errors)
+    require(setup, "setup.entry_adjusted_for_reward_risk", "RR adjustment evidence", errors)
     require(setup, "FP_NDSF2CollectWaistBreakPairs", "all-context collector", errors)
 
     require(rules, "FP_NDSF2ExposurePolicyAllows", "exposure policy", errors)
@@ -74,8 +82,11 @@ def main() -> int:
     require(rules, "opposite_direction_hedge_disabled", "hedge blocker", errors)
     require(rules, "parallel_context_requires_hedging_account", "netting blocker", errors)
     require(rules, "FP_NDSF2CancelConsumedPendingOrders", "per-order target reconciliation", errors)
+    require(rules, "FP_NDSF2StopSpaceOverlapPercent", "stop-corridor overlap", errors)
+    require(rules, "overlapping_pending_is_equal_or_wider", "wider pending arbitration", errors)
 
-    require(trade_engine, "for(int i=0; i<pair_count; i++)", "multi-context loop", errors)
+    require(trade_engine, "FP_NDSF2SameDirectionNearDuplicate", "same-bar overlap arbitration", errors)
+    require(trade_engine, "FP_NDSF2SetupIsWider", "wider candidate selection", errors)
     require(trade_engine, "FP_NDS_F2_RUN_MULTI_ORDER_SENT", "multi-send result", errors)
     require(backtest_engine, "hard_parallel_block", "fast blocked-exposure path", errors)
     require(backtest_engine, "FP_NDSF2AccountSupportsIndependentContexts", "account-aware fast path", errors)

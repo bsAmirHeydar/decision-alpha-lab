@@ -20,3 +20,4 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 8. [Operator guide](08_operator_guide.md)
 9. [Correction of the previous implementation](09_previous_implementation_correction.md)
 10. [Reward/Risk and parallel-context policy](10_reward_risk_and_parallel_context_policy.md)
+11. [Overlap arbitration and RR entry repricing](11_overlap_arbitration_and_rr_entry_repricing.md)

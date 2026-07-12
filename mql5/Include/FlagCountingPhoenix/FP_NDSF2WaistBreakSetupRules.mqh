@@ -243,6 +243,62 @@ double FP_NDSF2NormalizeNearest(const string symbol, const double price)
    return NormalizeDouble(MathRound(price / tick) * tick, digits);
 }
 
+double FP_NDSF2RewardRiskAtEntry(const double entry,
+                                      const double stop,
+                                      const double target)
+{
+   double risk = MathAbs(entry - stop);
+   double reward = MathAbs(target - entry);
+   if(risk <= 0.0 || reward <= 0.0) return 0.0;
+   return reward / risk;
+}
+
+bool FP_NDSF2AdjustEntryForMinimumRewardRisk(const string symbol,
+                                             const FP_NDSF2WaistTradeConfig &cfg,
+                                             FP_NDSF2WaistTradeSetup &setup)
+{
+   if(!cfg.use_min_reward_risk_filter) return true;
+
+   double required_rr = MathMax(0.0, cfg.min_reward_risk);
+   if(required_rr <= 0.0) return true;
+
+   double current_rr = FP_NDSF2RewardRiskAtEntry(setup.entry_price,
+                                                 setup.stop_price,
+                                                 setup.target_price);
+   if(current_rr + 1e-12 >= required_rr) return true;
+   if(!cfg.adjust_entry_to_min_reward_risk) return false;
+
+   // Solve the exact boundary:
+   // abs(Target-Entry) / abs(Entry-Stop) = required_rr
+   // Entry = (Target + required_rr * Stop) / (1 + required_rr)
+   // For a Buy Limit we round down, and for a Sell Limit we round up. Both
+   // round toward the stop, so the executable RR cannot fall below the request.
+   double raw_entry = (setup.target_price + required_rr * setup.stop_price) /
+                      (1.0 + required_rr);
+   double adjusted = raw_entry;
+
+   if(setup.direction == FP_DIR_BULLISH)
+   {
+      adjusted = FP_NDSHookTradeNormalizePrice(symbol, raw_entry, false);
+      if(adjusted > setup.structural_entry_price)
+         adjusted = setup.structural_entry_price;
+   }
+   else if(setup.direction == FP_DIR_BEARISH)
+   {
+      adjusted = FP_NDSHookTradeNormalizePrice(symbol, raw_entry, true);
+      if(adjusted < setup.structural_entry_price)
+         adjusted = setup.structural_entry_price;
+   }
+   else return false;
+
+   double tick = FP_NDSHookTradeTickSize(symbol);
+   setup.entry_adjusted_for_reward_risk =
+      (MathAbs(adjusted - setup.structural_entry_price) > MathMax(1e-12, tick * 0.25));
+   setup.entry_price = adjusted;
+   setup.point_2_limit_price = adjusted;
+   return true;
+}
+
 bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
                                   const ENUM_TIMEFRAMES period,
                                   const MqlRates &rates[],
@@ -290,15 +346,34 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
 
    if(setup.direction == FP_DIR_BULLISH)
    {
-      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol,
-                                                        f2.waist.price - entry_offset,
-                                                        false);
+      setup.structural_entry_price = FP_NDSHookTradeNormalizePrice(symbol,
+                                                                   f2.waist.price - entry_offset,
+                                                                   false);
+      setup.entry_price = setup.structural_entry_price;
       setup.stop_price = FP_NDSHookTradeNormalizePrice(symbol,
                                                        f1.waist.price - stop_offset,
                                                        false);
       setup.target_price = FP_NDSF2NormalizeNearest(symbol, f2.leg2.price);
-      setup.point_2_limit_price = setup.entry_price;
+   }
+   else if(setup.direction == FP_DIR_BEARISH)
+   {
+      setup.structural_entry_price = FP_NDSHookTradeNormalizePrice(symbol,
+                                                                   f2.waist.price + entry_offset,
+                                                                   true);
+      setup.entry_price = setup.structural_entry_price;
+      setup.stop_price = FP_NDSHookTradeNormalizePrice(symbol,
+                                                       f1.waist.price + stop_offset,
+                                                       true);
+      setup.target_price = FP_NDSF2NormalizeNearest(symbol, f2.leg2.price);
+   }
+   else return false;
 
+   setup.point_2_limit_price = setup.entry_price;
+   if(!FP_NDSF2AdjustEntryForMinimumRewardRisk(symbol, cfg, setup)) return false;
+
+   // Validate the final executable geometry after any RR-based entry movement.
+   if(setup.direction == FP_DIR_BULLISH)
+   {
       if(!(setup.stop_price < setup.entry_price && setup.entry_price < setup.target_price))
          return false;
       if(!(setup.entry_price < market.ask - min_dist)) return false;
@@ -306,17 +381,8 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
       if(setup.target_price - setup.entry_price < min_dist) return false;
       if(market.bid >= setup.target_price) return false;
    }
-   else if(setup.direction == FP_DIR_BEARISH)
+   else
    {
-      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol,
-                                                        f2.waist.price + entry_offset,
-                                                        true);
-      setup.stop_price = FP_NDSHookTradeNormalizePrice(symbol,
-                                                       f1.waist.price + stop_offset,
-                                                       true);
-      setup.target_price = FP_NDSF2NormalizeNearest(symbol, f2.leg2.price);
-      setup.point_2_limit_price = setup.entry_price;
-
       if(!(setup.target_price < setup.entry_price && setup.entry_price < setup.stop_price))
          return false;
       if(!(setup.entry_price > market.bid + min_dist)) return false;
@@ -324,12 +390,12 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
       if(setup.entry_price - setup.target_price < min_dist) return false;
       if(market.ask <= setup.target_price) return false;
    }
-   else return false;
 
    setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price);
    setup.reward_distance = MathAbs(setup.target_price - setup.entry_price);
    if(setup.risk_distance <= 0.0 || setup.reward_distance <= 0.0) return false;
    setup.reward_risk = setup.reward_distance / setup.risk_distance;
+
    if(cfg.use_min_reward_risk_filter &&
       setup.reward_risk + 1e-12 < MathMax(0.0, cfg.min_reward_risk))
       return false;

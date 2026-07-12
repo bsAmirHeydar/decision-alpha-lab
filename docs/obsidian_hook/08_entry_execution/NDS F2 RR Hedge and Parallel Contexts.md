@@ -28,7 +28,7 @@ Use filter = true
 Minimum RR = 1.0
 ```
 
-Any setup below the threshold is rejected before order submission.
+A setup below the threshold is repriced by moving only its limit farther behind the F2 Waist toward the fixed F1-waist Stop. If a valid executable limit cannot provide the threshold, it is rejected.
 
 ## Context identity
 
@@ -54,3 +54,24 @@ MaxConcurrentManagedExposures = 0
 ```
 
 Zero means no strategy-level numerical cap.
+
+
+## Near-duplicate stop-space arbitration
+
+```text
+Overlap % = shared stop-corridor length / narrower corridor length × 100
+```
+
+Defaults:
+
+```text
+Use overlap deduplication = true
+Threshold = 80%
+Winner = wider same-direction corridor
+```
+
+The threshold is an input and may be set to 70%. Opposite-direction hedge contexts are not merged.
+
+- same-bar duplicates are resolved before sending;
+- wider pending replaces narrower pending;
+- an already-filled position is not replaced.

@@ -22,9 +22,9 @@ Reject the setup. No fallback to F1 origin, F2 origin, ATR or fixed stop is allo
 
 ## Duplicate-looking F2 across scales
 
-Each scale/body version receives its own deterministic context hash. When same-direction multi-context execution is enabled, all distinct eligible contexts may trade. The same hash is never submitted twice.
+Each scale/body version receives its own deterministic context hash, but hash difference alone is not sufficient for parallel execution. Same-direction setups are compared by their final executable stop corridors.
 
-When concurrency is disabled or a cap is reached, deterministic priority is newest observability, newest Leg2, newest origin, then smaller scale.
+If the overlap percentage is at or above the configured threshold, they are one practical opportunity and only the wider corridor is kept. Below the threshold, they remain independent contexts and may coexist when the parallel-context policy allows it. Opposite-direction hedge contexts are not merged by this rule.
 
 ## Existing foreign position on the symbol
 
@@ -36,8 +36,18 @@ The first context may trade. A second same-symbol context is blocked because MT5
 
 ## Reward/Risk below threshold
 
-Reject before `OrderCheck`. The default threshold is `1.0` using normalized Entry, Stop and Target distances.
+With the default repricing switch enabled, keep the structural Stop and Target fixed and move the limit farther behind the F2 Waist toward the Stop until normalized RR reaches the configured minimum. If the required limit is not broker-valid, reject.
+
+With repricing disabled, retain the previous behavior and reject the setup.
 
 ## Pending duration
 
 The pending is GTC but is structurally cancelled when its target is consumed before fill. No arbitrary bar expiration is added in this contract.
+
+## Wider context appears after narrower pending
+
+If both are same-direction and their stop-corridor overlap meets the threshold, remove the narrower pending and submit the wider context. Equal widths keep the existing pending to prevent churn.
+
+## Wider context appears after overlapping position has filled
+
+Do not close or replace the live position. The already-filled position owns the opportunity and the new overlapping context is blocked.

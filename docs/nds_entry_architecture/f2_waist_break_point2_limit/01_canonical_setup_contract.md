@@ -59,17 +59,25 @@ For bearish F2:
 Target < Entry < Stop
 ```
 
-## 5. Reward/Risk eligibility
+## 5. Reward/Risk entry repricing
 
-After executable prices are normalized:
+After structural Entry, Stop and Target are normalized:
 
 ```text
 RR = abs(Target - Entry) / abs(Entry - Stop)
 ```
 
-The default minimum is `1.0`. A setup below the configured minimum is rejected before any order request is built.
+The default minimum is `1.0`. If the structural limit behind the F2 Waist is below the configured minimum, the setup is not rejected immediately. The Stop and Target remain fixed, while the pending Entry is moved farther behind the F2 Waist—toward the F1-waist Stop—until the executable tick-normalized geometry provides at least the requested RR.
 
-## 6. Parallel context policy
+The exact boundary is:
+
+```text
+Required Entry = (Target + MinimumRR × Stop) / (1 + MinimumRR)
+```
+
+For bullish setups the price is rounded down; for bearish setups it is rounded up. This rounding is toward the Stop and therefore cannot reduce RR below the request. If the adjusted price is not a valid pending limit or violates broker distance rules, the setup is rejected.
+
+## 6. Parallel context and near-duplicate policy
 
 A distinct F2 body version is a distinct context. By default:
 
@@ -78,7 +86,16 @@ same-direction contexts = allowed
 opposite-direction hedge contexts = allowed
 ```
 
-The same context can still trade only once. Independent same-symbol positions require an MT5 hedging account; non-hedging accounts remain single-exposure to preserve independent SL/TP ownership.
+However, different hashes do not automatically authorize two nearly identical same-direction trades. The executable stop corridor of each setup is the interval between its final Entry and Stop. If the intersection covers at least the configured percentage of the narrower corridor, the contexts are treated as one opportunity and only the wider corridor survives.
+
+Default:
+
+```text
+Stop-space overlap threshold = 80%
+Winner = wider executable stop corridor
+```
+
+The percentage is an input and may be changed to `70`, `80`, or another controlled value. Opposite-direction contexts are not deduplicated by this rule because they belong to the explicit hedge policy. The same exact context remains one-attempt-only. Independent same-symbol positions require an MT5 hedging account.
 
 ## 7. Critical timing rule
 

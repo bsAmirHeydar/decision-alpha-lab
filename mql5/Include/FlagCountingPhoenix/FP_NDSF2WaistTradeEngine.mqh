@@ -29,6 +29,10 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
    int blocked_count = 0;
    int error_count = 0;
 
+   // Build all executable candidates before any order is sent. This prevents
+   // iteration order from deciding which near-identical context survives.
+   FP_NDSF2WaistTradeSetup candidates[];
+   ArrayResize(candidates, 0);
    for(int i=0; i<pair_count; i++)
    {
       int f1_index = f1_indices[i];
@@ -50,18 +54,74 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
          blocked_count++;
          continue;
       }
-
       if(FP_NDSF2SetupUsed(cfg, setup.setup_hash)) continue;
 
-      string exposure_reason;
-      if(!FP_NDSF2ExposurePolicyAllows(symbol, cfg, setup, exposure_reason))
+      int n = ArraySize(candidates);
+      if(ArrayResize(candidates, n + 1) != n + 1)
       {
-         blocked_count++;
-         continue;
+         error_count++;
+         break;
       }
+      candidates[n] = setup;
+   }
+
+   int candidate_count = ArraySize(candidates);
+   bool suppressed[];
+   ArrayResize(suppressed, candidate_count);
+   for(int i=0; i<candidate_count; i++) suppressed[i] = false;
+
+   // Same-direction candidates whose final executable stop corridors overlap
+   // above the configured percentage represent one opportunity. Keep the wider
+   // corridor. Equal-width ties keep the earlier deterministic candidate.
+   double tick = FP_NDSHookTradeTickSize(symbol);
+   double width_tolerance = MathMax(1e-12, tick * 0.25);
+   for(int i=0; i<candidate_count; i++)
+   {
+      if(suppressed[i]) continue;
+      for(int j=i+1; j<candidate_count; j++)
+      {
+         if(suppressed[j]) continue;
+         if(!FP_NDSF2SameDirectionNearDuplicate(cfg, candidates[i], candidates[j]))
+            continue;
+
+         if(FP_NDSF2SetupIsWider(candidates[j], candidates[i], width_tolerance))
+         {
+            suppressed[i] = true;
+            blocked_count++;
+            break;
+         }
+
+         suppressed[j] = true;
+         blocked_count++;
+      }
+   }
+
+   for(int i=0; i<candidate_count; i++)
+   {
+      if(suppressed[i]) continue;
+      FP_NDSF2WaistTradeSetup setup = candidates[i];
 
       if(!cfg.send_tester_orders)
       {
+         ulong replace_tickets[];
+         string overlap_reason;
+         if(!FP_NDSF2InspectCandidateAgainstExistingOverlap(symbol, cfg, setup,
+                                                             replace_tickets,
+                                                             overlap_reason))
+         {
+            blocked_count++;
+            continue;
+         }
+
+         string exposure_reason;
+         if(!FP_NDSF2ExposurePolicyAllowsAfterReplacement(symbol, cfg, setup,
+                                                            ArraySize(replace_tickets),
+                                                            exposure_reason))
+         {
+            blocked_count++;
+            continue;
+         }
+
          if(FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash)) paper_count++;
          else error_count++;
          continue;

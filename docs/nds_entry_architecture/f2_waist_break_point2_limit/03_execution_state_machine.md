@@ -7,9 +7,12 @@ IDLE / PORTFOLIO_ACTIVE
   ├─ no confirmed direct parent F1 → no new order
   ├─ stale or previously used F2 context → no new order
   ├─ target already consumed / F2 confirmed → no new order
-  ├─ RR below configured minimum → no new order
+  ├─ structural RR below minimum + repricing disabled → no new order
+  ├─ structural RR below minimum + repricing enabled → move Entry toward Stop
+  ├─ adjusted Entry invalid for broker geometry → no new order
+  ├─ same-direction stop corridor overlaps above threshold → wider context wins
   ├─ concurrency policy blocks direction/context → no new order
-  └─ valid independent context → ORDER_PENDING(context_hash)
+  └─ valid surviving context → ORDER_PENDING(context_hash)
 
 ORDER_PENDING(context_hash)
   │
@@ -54,3 +57,12 @@ A body version is identified by:
 - F2 Leg2 time and price.
 
 If Leg2 extends before entry, the old target is consumed and the old pending is cancelled. The extended Leg2 creates a new context and can arm a new order.
+
+## Near-duplicate arbitration
+
+```text
+Stop corridor = [min(Entry, Stop), max(Entry, Stop)]
+Overlap % = intersection length / narrower corridor length × 100
+```
+
+At or above the configured threshold, only the wider same-direction corridor is retained. If both appear on the same bar, arbitration occurs before any order is sent. If a wider context appears while a narrower pending order still exists, the narrower pending is removed and replaced. An already-filled overlapping position is not closed or replaced.

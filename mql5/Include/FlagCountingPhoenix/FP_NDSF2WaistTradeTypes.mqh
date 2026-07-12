@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-04"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v4"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-05"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v5"
 
 enum FP_NDSF2WaistRunResult
 {
@@ -30,9 +30,20 @@ struct FP_NDSF2WaistTradeConfig
    bool cancel_pending_if_target_touched_before_fill;
    int max_setup_age_bars;
 
-   // Opportunity geometry filter.
+   // Opportunity geometry filter. When adjustment is enabled, a setup below
+   // the requested minimum is not rejected immediately: its pending entry is
+   // moved farther behind the F2 waist, toward the fixed F1-waist stop, until
+   // the normalized executable geometry provides at least min_reward_risk.
    bool use_min_reward_risk_filter;
+   bool adjust_entry_to_min_reward_risk;
    double min_reward_risk;
+
+   // Near-duplicate arbitration. Same-direction setups are treated as one
+   // opportunity when the overlap of their executable stop corridors covers
+   // at least stop_space_overlap_percent of the narrower corridor. The wider
+   // corridor wins; opposite-direction hedge contexts are never deduplicated.
+   bool use_stop_space_overlap_deduplication;
+   double stop_space_overlap_percent;
 
    // Parallel-context policy. Distinct setup_hash values are distinct contexts.
    // Independent parallel positions require an MT5 hedging account. On netting
@@ -75,9 +86,11 @@ struct FP_NDSF2WaistTradeSetup
    double parent_f1_waist_price;
    double f2_flag_end_price;
 
+   double structural_entry_price;
    double entry_price;
    double stop_price;
    double target_price;
+   bool entry_adjusted_for_reward_risk;
    double risk_distance;
    double reward_distance;
    double reward_risk;
@@ -98,7 +111,10 @@ void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.max_setup_age_bars = 0;
 
    cfg.use_min_reward_risk_filter = true;
+   cfg.adjust_entry_to_min_reward_risk = true;
    cfg.min_reward_risk = 1.0;
+   cfg.use_stop_space_overlap_deduplication = true;
+   cfg.stop_space_overlap_percent = 80.0;
    cfg.allow_opposite_direction_hedge = true;
    cfg.allow_same_direction_multiple_contexts = true;
    cfg.max_concurrent_managed_exposures = 0;
@@ -131,9 +147,11 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.point_2_limit_price = 0.0;
    s.parent_f1_waist_price = 0.0;
    s.f2_flag_end_price = 0.0;
+   s.structural_entry_price = 0.0;
    s.entry_price = 0.0;
    s.stop_price = 0.0;
    s.target_price = 0.0;
+   s.entry_adjusted_for_reward_risk = false;
    s.risk_distance = 0.0;
    s.reward_distance = 0.0;
    s.reward_risk = 0.0;

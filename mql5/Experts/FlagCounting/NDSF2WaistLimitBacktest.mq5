@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.30"
-#property description "NDS F2 waist-break Point-2 limit backtest: enter beyond F2 waist, stop beyond parent F1 waist, target F2 flag end."
+#property version   "1.40"
+#property description "NDS F2 Point-2 backtest with minimum-RR entry repricing and wider-context stop-space arbitration."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
@@ -43,9 +43,18 @@ input int    InpF2BTMaxSetupAgeBars = 0;
 input double InpF2BTEntryBehindF2WaistTicks = 1.0;
 input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
-// Reward/Risk filter. RR = abs(TP-Entry) / abs(Entry-SL).
+// Reward/Risk policy. RR = abs(TP-Entry) / abs(Entry-SL).
+// If the structural waist entry is below the minimum, the tester can move the
+// pending entry farther behind the F2 waist until the requested RR is reached.
 input bool   InpF2BTUseMinimumRewardRiskFilter = true;
+input bool   InpF2BTAdjustEntryToMinimumRewardRisk = true;
 input double InpF2BTMinimumRewardRisk = 1.0;
+
+// Near-duplicate same-direction contexts. The overlap percentage is measured
+// against the narrower executable stop corridor. Example: 80 means that if at
+// least 80% of the narrower corridor is shared, only the wider setup survives.
+input bool   InpF2BTUseStopSpaceOverlapDeduplication = true;
+input double InpF2BTStopSpaceOverlapThresholdPercent = 80.0;
 
 // Parallel context policy. Distinct F2 setup hashes are independent contexts.
 // Separate same-symbol positions require a hedging account in MT5.
@@ -138,8 +147,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v4";
-   cfg.identity_config_hash = "f2_wb2_v4";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v5";
+   cfg.identity_config_hash = "f2_wb2_v5";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -182,7 +191,10 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.entry_behind_f2_waist_ticks = InpF2BTEntryBehindF2WaistTicks;
    cfg.stop_behind_f1_waist_ticks = InpF2BTStopBehindF1WaistTicks;
    cfg.use_min_reward_risk_filter = InpF2BTUseMinimumRewardRiskFilter;
+   cfg.adjust_entry_to_min_reward_risk = InpF2BTAdjustEntryToMinimumRewardRisk;
    cfg.min_reward_risk = InpF2BTMinimumRewardRisk;
+   cfg.use_stop_space_overlap_deduplication = InpF2BTUseStopSpaceOverlapDeduplication;
+   cfg.stop_space_overlap_percent = InpF2BTStopSpaceOverlapThresholdPercent;
    cfg.allow_opposite_direction_hedge = InpF2BTAllowOppositeDirectionHedge;
    cfg.allow_same_direction_multiple_contexts = InpF2BTAllowSameDirectionMultipleContexts;
    cfg.max_concurrent_managed_exposures = InpF2BTMaxConcurrentManagedExposures;

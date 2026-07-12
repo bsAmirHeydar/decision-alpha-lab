@@ -1,0 +1,137 @@
+{
+  "patch_id": "NDS_F2_OVERLAP_WIDER_RR_REPRICE",
+  "version": "1.0.0",
+  "generated_date": "2026-07-12",
+  "expert_version": "1.40",
+  "contract_version": "NDS-F2-WAIST-BREAK-05",
+  "schema_version": "nds_f2_waist_break_point2_v5",
+  "root_relative": true,
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_OVERLAP_WIDER_RR_REPRICE_PATCH.md",
+      "size_bytes": 3377,
+      "sha256": "0d641c4b000afdbe6a7d9fe359f385b2a529a1fa41bffd7461795acacee76e2a"
+    },
+    {
+      "path": "NDS_F2_OVERLAP_WIDER_RR_REPRICE_AUDIT_REPORT.md",
+      "size_bytes": 4143,
+      "sha256": "9679830285cfc8661c9b161d801865181d16662e37abe7a7df56f9570f6d63fe"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 21863,
+      "sha256": "de8a3d493bf66ab226ac301b588e4b17b5be34ad33702779d2e35cbc684d0781"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 5367,
+      "sha256": "bd556ae7e161afe9def3ea674a145c50ee9b09e683ea3357b4d401c0547a7597"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
+      "size_bytes": 4322,
+      "sha256": "f54977ee609dc1c54d7b503153a30c316c8fe512d88830fa9604058ee0ee3d75"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/03_execution_state_machine.md",
+      "size_bytes": 2662,
+      "sha256": "ee683e67c64dd89015d0572a5a367c588700f909445b30cf861b80096c5ed247"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/05_lifecycle_and_edge_cases.md",
+      "size_bytes": 2938,
+      "sha256": "cdde520ff9db19e223837d817f6ad21b3ba089c7303213613b7c776fa82ec5e1"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/08_operator_guide.md",
+      "size_bytes": 2078,
+      "sha256": "cb50384d0f2055257aa151beddfae07d5bee057b2ae60e66e26d8b848fe33158"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/10_reward_risk_and_parallel_context_policy.md",
+      "size_bytes": 2807,
+      "sha256": "a014d36612df4083aec9100403cb0ad4b63bab48d3ed7e8305ea46da1bd3035a"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/11_overlap_arbitration_and_rr_entry_repricing.md",
+      "size_bytes": 3053,
+      "sha256": "169b45d5059187c37a44064bc8a8dfd1822b82fbbfccf62fcdf266c2a7a126b8"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "size_bytes": 1261,
+      "sha256": "bb627f25a2d4fe497e6ec0534e1e1ec48fedc014526e8b63aeb54f03d9c232b7"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 4094,
+      "sha256": "60d5b6fb709dd82c052dfbd6d0c7b15f06e56721c0683f53075987129f76920b"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Overlap Wider and RR Repricing.md",
+      "size_bytes": 1161,
+      "sha256": "493e3959736dadaf044a6d998e6a5cb61275c6f3fc09913e9859bd9b88c14898"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 RR Hedge and Parallel Contexts.md",
+      "size_bytes": 1871,
+      "sha256": "4ed4d04b4ffa68c233a33c7840206a4cbee1c8662650de4d61ecc3f5a896cf51"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "size_bytes": 9913,
+      "sha256": "5464c92d84f265b715ba4c92d36e66e0783a2cb4730f8c0b9075b2f8ff7fcb9c"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "size_bytes": 6711,
+      "sha256": "686ab3afa3d7b4e594b19cc3e6b5df7166185f52467ccfa8450263aee2f37833"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "size_bytes": 17323,
+      "sha256": "47064ae09bea3f5e4bd452cf0a34eb015876d821c8c35200ac0563d9438bae98"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "size_bytes": 5321,
+      "sha256": "9a2f977cbb4b475cad30c6d28951d90712a347d095f3f61e936a23625b53a51e"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "size_bytes": 21612,
+      "sha256": "b34fa27371963b193174d1867cafe34cd4168edef29035601581471f25218d2d"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "size_bytes": 5087,
+      "sha256": "0d7cd322403374c412b08184cdb8e781092cbaeaed3cbc6239043ea4aea2f912"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_overlap_wider_rr_reprice_contract_qa.py",
+      "size_bytes": 6105,
+      "sha256": "c9bf2fb69ce5688b6b5d56004e93f85f3454b40ecbd19b44faa27f59475acdb5"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "size_bytes": 6303,
+      "sha256": "391abcfd4a59879bf224737cdd7a0ed6fecbe8a8402d57be526f953388b5a45a"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "size_bytes": 6462,
+      "sha256": "e0d11b2454381b65c0d76975d09f35aef6402147b9b009846eb16daf3c6ab677"
+    }
+  ],
+  "validation": {
+    "nds_f2_point2_contract": "PASS",
+    "nds_f2_fast_backtest_contract": "PASS",
+    "nds_f2_rr_parallel_context_contract": "PASS",
+    "nds_f2_overlap_wider_rr_reprice_contract": "PASS",
+    "engineering_policy": "0 errors, 0 warnings",
+    "mql5_compatibility": "0 errors, 0 warnings",
+    "repository_layout": "0 missing directories",
+    "vault_validation": "0 errors, 0 warnings",
+    "metaeditor_compile": "NOT_AVAILABLE_IN_BUILD_ENVIRONMENT"
+  }
+}

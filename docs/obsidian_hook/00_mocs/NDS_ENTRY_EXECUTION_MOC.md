@@ -101,3 +101,4 @@ This profile is independent of HH/F3H setup selection. The F2 Waist is Point 1; 
 ## F2 portfolio controls
 
 - [[../08_entry_execution/NDS F2 RR Hedge and Parallel Contexts]]
+- [[../08_entry_execution/NDS F2 Overlap Wider and RR Repricing]]

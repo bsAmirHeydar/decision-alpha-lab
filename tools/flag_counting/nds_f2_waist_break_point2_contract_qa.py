@@ -48,7 +48,7 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.30"', "expert version", errors)
+    require(expert, '#property version   "1.40"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)
@@ -72,7 +72,7 @@ def main() -> int:
     require(setup, "MathMax(1.0, cfg.stop_behind_f1_waist_ticks)", "strict stop penetration", errors)
     require(setup, "events[i].leg2", "Leg2 observability", errors)
     require(setup, "setup.reward_risk = setup.reward_distance / setup.risk_distance", "RR calculation", errors)
-    require(setup, "setup.reward_risk + 1e-12 <", "minimum RR rejection", errors)
+    require(setup, "FP_NDSF2AdjustEntryForMinimumRewardRisk", "minimum RR entry adjustment", errors)
     require(setup, "FP_NDSF2CollectWaistBreakPairs", "multi-context collection", errors)
 
     require(detector, "FP_BuildCanonicalNodesForScale", "canonical node reuse", errors)

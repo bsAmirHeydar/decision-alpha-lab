@@ -250,6 +250,229 @@ bool FP_NDSF2DeletePendingOrder(const FP_NDSF2WaistTradeConfig &cfg,
    return FP_NDSHookTradeRetcodeAccepted(result.retcode);
 }
 
+double FP_NDSF2StopCorridorLow(const double entry, const double stop)
+{
+   return MathMin(entry, stop);
+}
+
+double FP_NDSF2StopCorridorHigh(const double entry, const double stop)
+{
+   return MathMax(entry, stop);
+}
+
+double FP_NDSF2StopCorridorWidth(const double entry, const double stop)
+{
+   return MathAbs(entry - stop);
+}
+
+double FP_NDSF2StopSpaceOverlapPercent(const double entry_a,
+                                        const double stop_a,
+                                        const double entry_b,
+                                        const double stop_b)
+{
+   double width_a = FP_NDSF2StopCorridorWidth(entry_a, stop_a);
+   double width_b = FP_NDSF2StopCorridorWidth(entry_b, stop_b);
+   double narrower = MathMin(width_a, width_b);
+   if(narrower <= 0.0) return 0.0;
+
+   double left = MathMax(FP_NDSF2StopCorridorLow(entry_a, stop_a),
+                         FP_NDSF2StopCorridorLow(entry_b, stop_b));
+   double right = MathMin(FP_NDSF2StopCorridorHigh(entry_a, stop_a),
+                          FP_NDSF2StopCorridorHigh(entry_b, stop_b));
+   double intersection = MathMax(0.0, right - left);
+   return 100.0 * intersection / narrower;
+}
+
+bool FP_NDSF2SameDirectionNearDuplicate(const FP_NDSF2WaistTradeConfig &cfg,
+                                         const FP_NDSF2WaistTradeSetup &a,
+                                         const FP_NDSF2WaistTradeSetup &b)
+{
+   if(!cfg.use_stop_space_overlap_deduplication) return false;
+   if(a.direction == FP_DIR_NONE || a.direction != b.direction) return false;
+
+   double threshold = MathMax(0.0, MathMin(100.0, cfg.stop_space_overlap_percent));
+   double overlap = FP_NDSF2StopSpaceOverlapPercent(a.entry_price, a.stop_price,
+                                                    b.entry_price, b.stop_price);
+   return (overlap + 1e-12 >= threshold);
+}
+
+bool FP_NDSF2SetupIsWider(const FP_NDSF2WaistTradeSetup &candidate,
+                          const FP_NDSF2WaistTradeSetup &other,
+                          const double tolerance)
+{
+   return (candidate.risk_distance > other.risk_distance + MathMax(0.0, tolerance));
+}
+
+bool FP_NDSF2ReadManagedOrderCorridor(const string symbol,
+                                      const FP_NDSF2WaistTradeConfig &cfg,
+                                      const ulong ticket,
+                                      int &direction,
+                                      double &entry,
+                                      double &stop,
+                                      double &width)
+{
+   direction = FP_DIR_NONE;
+   entry = 0.0;
+   stop = 0.0;
+   width = 0.0;
+   if(ticket == 0 || !OrderSelect(ticket)) return false;
+   if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) return false;
+   if(OrderGetString(ORDER_SYMBOL) != symbol) return false;
+
+   direction = FP_NDSF2OrderDirection((ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE));
+   entry = OrderGetDouble(ORDER_PRICE_OPEN);
+   stop = OrderGetDouble(ORDER_SL);
+   width = FP_NDSF2StopCorridorWidth(entry, stop);
+   return (direction != FP_DIR_NONE && entry > 0.0 && stop > 0.0 && width > 0.0);
+}
+
+bool FP_NDSF2ReadManagedPositionCorridor(const string symbol,
+                                         const FP_NDSF2WaistTradeConfig &cfg,
+                                         const ulong ticket,
+                                         int &direction,
+                                         double &entry,
+                                         double &stop,
+                                         double &width)
+{
+   direction = FP_DIR_NONE;
+   entry = 0.0;
+   stop = 0.0;
+   width = 0.0;
+   if(ticket == 0 || !PositionSelectByTicket(ticket)) return false;
+   if((long)PositionGetInteger(POSITION_MAGIC) != cfg.magic) return false;
+   if(PositionGetString(POSITION_SYMBOL) != symbol) return false;
+
+   direction = FP_NDSF2PositionDirection((ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE));
+   entry = PositionGetDouble(POSITION_PRICE_OPEN);
+   stop = PositionGetDouble(POSITION_SL);
+   width = FP_NDSF2StopCorridorWidth(entry, stop);
+   return (direction != FP_DIR_NONE && entry > 0.0 && stop > 0.0 && width > 0.0);
+}
+
+bool FP_NDSF2InspectCandidateAgainstExistingOverlap(const string symbol,
+                                                     const FP_NDSF2WaistTradeConfig &cfg,
+                                                     const FP_NDSF2WaistTradeSetup &setup,
+                                                     ulong &replace_tickets[],
+                                                     string &reason)
+{
+   reason = "none";
+   ArrayResize(replace_tickets, 0);
+   if(!cfg.use_stop_space_overlap_deduplication) return true;
+
+   double threshold = MathMax(0.0, MathMin(100.0, cfg.stop_space_overlap_percent));
+   double tick = FP_NDSHookTradeTickSize(symbol);
+   double tolerance = MathMax(1e-12, tick * 0.25);
+
+   // An already-filled overlapping position owns the opportunity. We do not
+   // close and replace live positions merely because a wider context appears.
+   for(int i=PositionsTotal()-1; i>=0; i--)
+   {
+      ulong ticket = PositionGetTicket(i);
+      int direction = FP_DIR_NONE;
+      double entry = 0.0, stop = 0.0, width = 0.0;
+      if(!FP_NDSF2ReadManagedPositionCorridor(symbol, cfg, ticket,
+                                              direction, entry, stop, width))
+         continue;
+      if(direction != setup.direction) continue;
+
+      double overlap = FP_NDSF2StopSpaceOverlapPercent(setup.entry_price,
+                                                       setup.stop_price,
+                                                       entry, stop);
+      if(overlap + 1e-12 < threshold) continue;
+      reason = "overlapping_position_already_filled";
+      return false;
+   }
+
+   // Pending orders can still be arbitrated. The wider final executable stop
+   // corridor may replace every narrower overlapping pending order. Equal or
+   // narrower candidates are blocked to prevent order churn.
+   for(int i=OrdersTotal()-1; i>=0; i--)
+   {
+      ulong ticket = OrderGetTicket(i);
+      int direction = FP_DIR_NONE;
+      double entry = 0.0, stop = 0.0, width = 0.0;
+      if(!FP_NDSF2ReadManagedOrderCorridor(symbol, cfg, ticket,
+                                           direction, entry, stop, width))
+         continue;
+      if(direction != setup.direction) continue;
+
+      double overlap = FP_NDSF2StopSpaceOverlapPercent(setup.entry_price,
+                                                       setup.stop_price,
+                                                       entry, stop);
+      if(overlap + 1e-12 < threshold) continue;
+
+      if(setup.risk_distance <= width + tolerance)
+      {
+         reason = "overlapping_pending_is_equal_or_wider";
+         return false;
+      }
+
+      int n = ArraySize(replace_tickets);
+      if(ArrayResize(replace_tickets, n + 1) != n + 1)
+      {
+         reason = "overlap_replacement_allocation_failed";
+         return false;
+      }
+      replace_tickets[n] = ticket;
+   }
+   return true;
+}
+
+bool FP_NDSF2ExposurePolicyAllowsAfterReplacement(const string symbol,
+                                                   const FP_NDSF2WaistTradeConfig &cfg,
+                                                   const FP_NDSF2WaistTradeSetup &setup,
+                                                   const int replacement_count,
+                                                   string &reason)
+{
+   reason = "none";
+   if(FP_NDSF2CountForeignPositionsOnSymbol(symbol, cfg) > 0)
+   {
+      reason = "foreign_position_on_symbol";
+      return false;
+   }
+
+   int buy_count = FP_NDSF2CountManagedOrdersOnSymbol(symbol, cfg, FP_DIR_BULLISH) +
+                   FP_NDSF2CountManagedPositionsOnSymbol(symbol, cfg, FP_DIR_BULLISH);
+   int sell_count = FP_NDSF2CountManagedOrdersOnSymbol(symbol, cfg, FP_DIR_BEARISH) +
+                    FP_NDSF2CountManagedPositionsOnSymbol(symbol, cfg, FP_DIR_BEARISH);
+
+   int replace = MathMax(0, replacement_count);
+   if(setup.direction == FP_DIR_BULLISH)
+      buy_count = MathMax(0, buy_count - replace);
+   else if(setup.direction == FP_DIR_BEARISH)
+      sell_count = MathMax(0, sell_count - replace);
+
+   int total = buy_count + sell_count;
+   if(total <= 0) return true;
+
+   if(!FP_NDSF2AccountSupportsIndependentContexts())
+   {
+      reason = "parallel_context_requires_hedging_account";
+      return false;
+   }
+
+   if(cfg.max_concurrent_managed_exposures > 0 &&
+      total >= cfg.max_concurrent_managed_exposures)
+   {
+      reason = "max_concurrent_managed_exposures";
+      return false;
+   }
+
+   int same = (setup.direction == FP_DIR_BULLISH ? buy_count : sell_count);
+   int opposite = (setup.direction == FP_DIR_BULLISH ? sell_count : buy_count);
+   if(same > 0 && !cfg.allow_same_direction_multiple_contexts)
+   {
+      reason = "same_direction_context_disabled";
+      return false;
+   }
+   if(opposite > 0 && !cfg.allow_opposite_direction_hedge)
+   {
+      reason = "opposite_direction_hedge_disabled";
+      return false;
+   }
+   return true;
+}
+
 int FP_NDSF2CancelConsumedPendingOrders(const string symbol,
                                         const ENUM_TIMEFRAMES period,
                                         const FP_NDSF2WaistTradeConfig &cfg,
@@ -290,7 +513,15 @@ bool FP_NDSF2SendLimit(const string symbol,
 
    string reason;
    if(!FP_NDSHookTradeCanSend(symbol, setup.direction, reason)) return false;
-   if(!FP_NDSF2ExposurePolicyAllows(symbol, cfg, setup, reason)) return false;
+
+   ulong replace_tickets[];
+   if(!FP_NDSF2InspectCandidateAgainstExistingOverlap(symbol, cfg, setup,
+                                                       replace_tickets, reason))
+      return false;
+   if(!FP_NDSF2ExposurePolicyAllowsAfterReplacement(symbol, cfg, setup,
+                                                      ArraySize(replace_tickets),
+                                                      reason))
+      return false;
 
    FP_NDSHookTradeConfig shared_cfg;
    FP_NDSF2BuildSharedTradeConfig(cfg, shared_cfg);
@@ -321,6 +552,15 @@ bool FP_NDSF2SendLimit(const string symbol,
    request.expiration = 0;
    request.comment = setup.broker_comment;
 
+   // Preflight before removing any narrower pending order. This avoids losing
+   // the existing order when the new request itself is structurally invalid.
+   if(!OrderCheck(request, check)) return false;
+
+   for(int i=0; i<ArraySize(replace_tickets); i++)
+      if(!FP_NDSF2DeletePendingOrder(cfg, replace_tickets[i])) return false;
+
+   // Recheck after replacement because margin and order-state inputs changed.
+   ZeroMemory(check);
    if(!OrderCheck(request, check)) return false;
    if(!OrderSend(request, result)) return false;
    if(!FP_NDSHookTradeRetcodeAccepted(result.retcode)) return false;

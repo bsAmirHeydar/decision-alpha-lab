@@ -80,12 +80,16 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(const string symbol,
    int active_positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, trade_cfg, FP_DIR_NONE);
    int active_total = active_orders + active_positions;
 
-   // Preserve the old ultra-light hold path whenever another independent
-   // context cannot legally be added. This avoids unnecessary detector rebuilds
-   // on netting accounts, under a reached cap, or when both parallel switches
-   // are disabled.
+   // Preserve the ultra-light hold path whenever no additional context can be
+   // admitted. One exception is a still-pending order: overlap arbitration may
+   // need the detector to discover a wider replacement. Open positions are never
+   // closed merely to replace them with a wider context.
+   bool pending_replacement_scan =
+      (trade_cfg.use_stop_space_overlap_deduplication &&
+       active_orders > 0 && active_positions == 0);
+
    bool hard_parallel_block = false;
-   if(active_total > 0)
+   if(active_total > 0 && !pending_replacement_scan)
    {
       if(!FP_NDSF2AccountSupportsIndependentContexts()) hard_parallel_block = true;
       if(trade_cfg.max_concurrent_managed_exposures > 0 &&

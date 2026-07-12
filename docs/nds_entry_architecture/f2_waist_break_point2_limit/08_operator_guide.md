@@ -19,7 +19,10 @@ InpF2BTMaxSetupAgeBars = 0
 InpF2BTEntryBehindF2WaistTicks = 1
 InpF2BTStopBehindF1WaistTicks = 1
 InpF2BTUseMinimumRewardRiskFilter = true
+InpF2BTAdjustEntryToMinimumRewardRisk = true
 InpF2BTMinimumRewardRisk = 1.0
+InpF2BTUseStopSpaceOverlapDeduplication = true
+InpF2BTStopSpaceOverlapThresholdPercent = 80.0
 InpF2BTAllowOppositeDirectionHedge = true
 InpF2BTAllowSameDirectionMultipleContexts = true
 InpF2BTMaxConcurrentManagedExposures = 0
@@ -49,4 +52,8 @@ Use an MT5 hedging account in Strategy Tester when testing simultaneous same-sym
 
 ## RR interpretation
 
-`InpF2BTMinimumRewardRisk = 1.0` means the distance from Entry to Target must be at least equal to the distance from Entry to Stop.
+`InpF2BTMinimumRewardRisk = 1.0` means the final executable distance from Entry to Target must be at least equal to the distance from Entry to Stop. With `InpF2BTAdjustEntryToMinimumRewardRisk = true`, an insufficient structural Entry is moved farther behind the F2 Waist until the requested ratio is reached.
+
+## Overlap interpretation
+
+`InpF2BTStopSpaceOverlapThresholdPercent = 80.0` means that when at least 80% of the narrower same-direction stop corridor is shared, the two contexts are treated as one and the wider corridor wins. Set it to `70.0` to make deduplication more aggressive.
