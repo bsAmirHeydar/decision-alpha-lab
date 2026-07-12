@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/commission_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "applies_entry": {
+      "type": "boolean"
+    },
+    "applies_exit": {
+      "type": "boolean"
+    },
+    "basis": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "maximum": {
+      "oneOf": [
+        {
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "minimum": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "rule_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule_id",
+    "basis",
+    "amount"
+  ],
+  "title": "Commission Rule",
+  "type": "object"
+}

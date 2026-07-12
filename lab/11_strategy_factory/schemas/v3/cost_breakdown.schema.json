@@ -1,0 +1,83 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/cost_breakdown.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commission_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "conversion_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "entry_slippage_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exit_slippage_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "financing_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "gap_reserve_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "spread_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "tax_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "total_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "spread_cash",
+    "entry_slippage_cash",
+    "exit_slippage_cash",
+    "commission_cash",
+    "financing_cash",
+    "tax_cash",
+    "conversion_cash",
+    "gap_reserve_cash",
+    "total_cash"
+  ],
+  "title": "Cost Breakdown",
+  "type": "object"
+}

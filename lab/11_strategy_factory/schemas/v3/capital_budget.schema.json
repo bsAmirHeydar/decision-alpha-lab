@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/capital_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "approved_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "policy_definition_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "reductions": {
+      "additionalProperties": {
+        "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "type": "object"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "requested_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "request_id",
+    "policy_definition_ids",
+    "requested_cash",
+    "approved_cash",
+    "accepted",
+    "reason_code"
+  ],
+  "title": "Capital Budget",
+  "type": "object"
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/risk_geometry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entry_transactions": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "exit_transactions": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expected_holding_days": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "gap_reserve_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "geometry_id": {
+      "type": "string"
+    },
+    "logical_entry_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "logical_stop_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "logical_target_price": {
+      "oneOf": [
+        {
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "order_kind": {
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    },
+    "treatment_id": {
+      "type": "string"
+    },
+    "volatility_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "treatment_id",
+    "side",
+    "order_kind",
+    "logical_entry_price",
+    "logical_stop_price"
+  ],
+  "title": "Risk Geometry",
+  "type": "object"
+}

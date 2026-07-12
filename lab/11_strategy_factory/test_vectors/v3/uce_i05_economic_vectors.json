@@ -1,0 +1,257 @@
+{
+  "accepted": true,
+  "checks": [
+    {
+      "name": "golden_count",
+      "passed": true
+    },
+    {
+      "name": "all_accepted",
+      "passed": true
+    },
+    {
+      "name": "risk_never_exceeds_budget",
+      "passed": true
+    },
+    {
+      "name": "treatment_identity_preserved",
+      "passed": true
+    },
+    {
+      "name": "deterministic_ids",
+      "passed": true
+    },
+    {
+      "name": "long_entry_ask_side",
+      "passed": true
+    },
+    {
+      "name": "short_entry_bid_side",
+      "passed": true
+    },
+    {
+      "name": "stress_non_increasing_volume",
+      "passed": true
+    },
+    {
+      "name": "reservation_idempotent",
+      "passed": true
+    },
+    {
+      "name": "reservation_restart_parity",
+      "passed": true
+    }
+  ],
+  "envelopes": [
+    {
+      "accepted": true,
+      "adjustments": [
+        "volume_step"
+      ],
+      "capital_budget_id": "ucebudget_cac728c2cf5c9fac51e7d2f6",
+      "cash_risk_utilization": "0.99750252",
+      "cost_model_definition_id": "ucecost_e91f5a3a42840931b96221c7",
+      "costs": {
+        "commission_cash": "2.940",
+        "conversion_cash": "2.31025200",
+        "entry_slippage_cash": "0.84",
+        "exit_slippage_cash": "1.26",
+        "financing_cash": "0",
+        "gap_reserve_cash": "2.10",
+        "spread_cash": "4.20",
+        "tax_cash": "0E-7",
+        "total_cash": "13.65025200"
+      },
+      "decision_time_ms": 1700000000000,
+      "entry_executable_price": "1.10012",
+      "geometry_id": "ucegeo_7f0f4fca22cd49a9c06aba7b",
+      "margin_required": "462.0504000",
+      "maximum_loss_cash": "99.75025200",
+      "metadata": {
+        "conversion_rate": "1",
+        "reward_cost_ratio": "12.1536217793",
+        "unit_max_loss_cash": "237.5006"
+      },
+      "normalized_volume": "0.42",
+      "price_loss_cash": "86.10",
+      "quote_id": "uceq_1753f381adc67f30c1ef1543",
+      "raw_volume": "0.4210515678697232764885646605",
+      "reason_code": "ok",
+      "risk_budget_cash": "100",
+      "side": "long",
+      "stop_executable_price": "1.09807",
+      "symbol_spec_id": "ucespec_ddde14868863dec32c92c971",
+      "target_executable_price": "1.10407",
+      "target_gross_cash": "165.90",
+      "target_net_cash": "152.24974800",
+      "treatment_id": "ucet_fixture"
+    },
+    {
+      "accepted": true,
+      "adjustments": [
+        "volume_step"
+      ],
+      "capital_budget_id": "ucebudget_cac728c2cf5c9fac51e7d2f6",
+      "cash_risk_utilization": "0.9700030",
+      "cost_model_definition_id": "ucecost_e91f5a3a42840931b96221c7",
+      "costs": {
+        "commission_cash": "2.80",
+        "conversion_cash": "2.2003000",
+        "entry_slippage_cash": "0.8",
+        "exit_slippage_cash": "1.2",
+        "financing_cash": "0",
+        "gap_reserve_cash": "2.0",
+        "spread_cash": "4.0",
+        "tax_cash": "0.000000",
+        "total_cash": "13.0003000"
+      },
+      "decision_time_ms": 1700000000000,
+      "entry_executable_price": "1.10015",
+      "geometry_id": "ucegeo_7f0f4fca22cd49a9c06aba7b",
+      "margin_required": "200.0",
+      "maximum_loss_cash": "97.0003000",
+      "metadata": {
+        "conversion_rate": "1",
+        "reward_cost_ratio": "11.9997230833",
+        "unit_max_loss_cash": "242.50075"
+      },
+      "normalized_volume": "0.4",
+      "price_loss_cash": "84.0",
+      "quote_id": "uceq_1753f381adc67f30c1ef1543",
+      "raw_volume": "0.4123698586499217012730888461",
+      "reason_code": "ok",
+      "risk_budget_cash": "100",
+      "side": "long",
+      "stop_executable_price": "1.09805",
+      "symbol_spec_id": "ucespec_7da024fbaeee8300bf961a07",
+      "target_executable_price": "1.10405",
+      "target_gross_cash": "156.0",
+      "target_net_cash": "142.9997000",
+      "treatment_id": "ucet_fixture"
+    },
+    {
+      "accepted": true,
+      "adjustments": [
+        "volume_step"
+      ],
+      "capital_budget_id": "ucebudget_cac728c2cf5c9fac51e7d2f6",
+      "cash_risk_utilization": "0.99749958",
+      "cost_model_definition_id": "ucecost_e91f5a3a42840931b96221c7",
+      "costs": {
+        "commission_cash": "2.940",
+        "conversion_cash": "2.30995800",
+        "entry_slippage_cash": "0.84",
+        "exit_slippage_cash": "1.26",
+        "financing_cash": "0",
+        "gap_reserve_cash": "2.10",
+        "spread_cash": "4.20",
+        "tax_cash": "0E-7",
+        "total_cash": "13.64995800"
+      },
+      "decision_time_ms": 1700000000000,
+      "entry_executable_price": "1.09998",
+      "geometry_id": "ucegeo_54819db378028aa8377ddc7d",
+      "margin_required": "461.9916000",
+      "maximum_loss_cash": "99.74995800",
+      "metadata": {
+        "conversion_rate": "1",
+        "reward_cost_ratio": "12.1538835504",
+        "unit_max_loss_cash": "237.4999"
+      },
+      "normalized_volume": "0.42",
+      "price_loss_cash": "86.10",
+      "quote_id": "uceq_1753f381adc67f30c1ef1543",
+      "raw_volume": "0.4210528088643405744591892460",
+      "reason_code": "ok",
+      "risk_budget_cash": "100",
+      "side": "short",
+      "stop_executable_price": "1.10203",
+      "symbol_spec_id": "ucespec_ddde14868863dec32c92c971",
+      "target_executable_price": "1.09603",
+      "target_gross_cash": "165.90",
+      "target_net_cash": "152.25004200",
+      "treatment_id": "ucet_fixture"
+    },
+    {
+      "accepted": true,
+      "adjustments": [
+        "volume_step"
+      ],
+      "capital_budget_id": "ucebudget_cac728c2cf5c9fac51e7d2f6",
+      "cash_risk_utilization": "0.9699990",
+      "cost_model_definition_id": "ucecost_e91f5a3a42840931b96221c7",
+      "costs": {
+        "commission_cash": "2.80",
+        "conversion_cash": "2.1999000",
+        "entry_slippage_cash": "0.8",
+        "exit_slippage_cash": "1.2",
+        "financing_cash": "0",
+        "gap_reserve_cash": "2.0",
+        "spread_cash": "4.0",
+        "tax_cash": "0.000000",
+        "total_cash": "12.9999000"
+      },
+      "decision_time_ms": 1700000000000,
+      "entry_executable_price": "1.09995",
+      "geometry_id": "ucegeo_54819db378028aa8377ddc7d",
+      "margin_required": "200.0",
+      "maximum_loss_cash": "96.9999000",
+      "metadata": {
+        "conversion_rate": "1",
+        "reward_cost_ratio": "12.0000923084",
+        "unit_max_loss_cash": "242.49975"
+      },
+      "normalized_volume": "0.4",
+      "price_loss_cash": "84.0",
+      "quote_id": "uceq_1753f381adc67f30c1ef1543",
+      "raw_volume": "0.4123715591459372638528493328",
+      "reason_code": "ok",
+      "risk_budget_cash": "100",
+      "side": "short",
+      "stop_executable_price": "1.10205",
+      "symbol_spec_id": "ucespec_7da024fbaeee8300bf961a07",
+      "target_executable_price": "1.09605",
+      "target_gross_cash": "156.0",
+      "target_net_cash": "143.0001000",
+      "treatment_id": "ucet_fixture"
+    }
+  ],
+  "stress_results": [
+    {
+      "accepted": true,
+      "baseline_envelope_id": "uceecon_1a4417a20e448d97ef242aae",
+      "baseline_max_loss": "99.75025200",
+      "baseline_volume": "0.42",
+      "passed_monotonicity": true,
+      "reason_code": "ok",
+      "scenario_definition_id": "ucestress_77fbe509f47623c2a06033a1",
+      "stressed_envelope_id": "uceecon_f5e7de0ed5cc7c9ddbf3a05b",
+      "stressed_max_loss": "98.97540700",
+      "stressed_volume": "0.37"
+    },
+    {
+      "accepted": true,
+      "baseline_envelope_id": "uceecon_1a4417a20e448d97ef242aae",
+      "baseline_max_loss": "99.75025200",
+      "baseline_volume": "0.42",
+      "passed_monotonicity": true,
+      "reason_code": "ok",
+      "scenario_definition_id": "ucestress_f0bc8ac8535ee1538cb7e9e4",
+      "stressed_envelope_id": "uceecon_775d3405d3bcc38a055c144a",
+      "stressed_max_loss": "97.80024000",
+      "stressed_volume": "0.40"
+    },
+    {
+      "accepted": true,
+      "baseline_envelope_id": "uceecon_1a4417a20e448d97ef242aae",
+      "baseline_max_loss": "99.75025200",
+      "baseline_volume": "0.42",
+      "passed_monotonicity": true,
+      "reason_code": "ok",
+      "scenario_definition_id": "ucestress_15a54166f3926c74fe9cadd2",
+      "stressed_envelope_id": "uceecon_d91cca35f346b6ecd5384d21",
+      "stressed_max_loss": "99.90039600",
+      "stressed_volume": "0.36"
+    }
+  ]
+}

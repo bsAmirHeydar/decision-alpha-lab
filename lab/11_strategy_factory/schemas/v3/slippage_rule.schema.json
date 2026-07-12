@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/slippage_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entry_long_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "entry_short_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exit_long_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "exit_short_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "kind": {
+      "type": "string"
+    },
+    "percentile": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "rule_id": {
+      "type": "string"
+    },
+    "volatility_multiplier": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "rule_id",
+    "kind"
+  ],
+  "title": "Slippage Rule",
+  "type": "object"
+}

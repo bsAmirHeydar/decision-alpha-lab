@@ -1,0 +1,65 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/executable_price_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "base_executable_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "executable_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "quote_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "result_id": {
+      "type": "string"
+    },
+    "slippage_amount": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "spread_amount": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "used_quote_side": {
+      "enum": [
+        "bid",
+        "ask"
+      ]
+    }
+  },
+  "required": [
+    "request_id",
+    "quote_id",
+    "base_executable_price",
+    "executable_price",
+    "accepted"
+  ],
+  "title": "Executable Price Result",
+  "type": "object"
+}

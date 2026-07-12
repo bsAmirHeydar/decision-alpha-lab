@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/currency_conversion_quote.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "bid": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "conversion_id": {
+      "type": "string"
+    },
+    "from_currency": {
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_time_ms": {
+      "type": "integer"
+    },
+    "to_currency": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "from_currency",
+    "to_currency",
+    "bid",
+    "ask",
+    "source_time_ms",
+    "known_time_ms"
+  ],
+  "title": "Currency Conversion Quote",
+  "type": "object"
+}

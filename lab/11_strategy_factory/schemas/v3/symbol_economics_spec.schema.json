@@ -1,0 +1,165 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/symbol_economics_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_filling_modes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowed_order_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "base_currency": {
+      "type": "string"
+    },
+    "broker_id": {
+      "type": "string"
+    },
+    "contract_size": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "definition_id": {
+      "type": "string"
+    },
+    "digits": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "freeze_level_points": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "leverage": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "margin_currency": {
+      "type": "string"
+    },
+    "margin_mode": {
+      "enum": [
+        "fixed_per_lot",
+        "notional_rate",
+        "leverage"
+      ]
+    },
+    "margin_per_lot": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "margin_rate": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "point": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "profit_currency": {
+      "type": "string"
+    },
+    "spec_time_ms": {
+      "type": "integer"
+    },
+    "stops_level_points": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "tick_size": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "tick_value_loss": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "tick_value_profit": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "trade_status": {
+      "enum": [
+        "enabled",
+        "close_only",
+        "disabled"
+      ]
+    },
+    "version": {
+      "type": "string"
+    },
+    "volume_max": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "volume_min": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "volume_step": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "symbol",
+    "digits",
+    "point",
+    "tick_size",
+    "tick_value_profit",
+    "tick_value_loss",
+    "contract_size",
+    "volume_min",
+    "volume_max",
+    "volume_step",
+    "known_time_ms",
+    "version"
+  ],
+  "title": "Symbol Economics Spec",
+  "type": "object"
+}

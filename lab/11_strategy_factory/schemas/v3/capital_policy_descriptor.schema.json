@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/capital_policy_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "definition_id": {
+      "type": "string"
+    },
+    "hard_cap": {
+      "type": "boolean"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "type": "object"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "kind",
+    "parameters",
+    "priority"
+  ],
+  "title": "Capital Policy Descriptor",
+  "type": "object"
+}

@@ -1,0 +1,126 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/account_economic_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "account_time_ms": {
+      "type": "integer"
+    },
+    "balance": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "daily_realized_pnl": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "daily_unrealized_pnl": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "equity": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "free_margin": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "group_risk": {
+      "additionalProperties": {
+        "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "type": "object"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "margin_used": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "open_planned_risk": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "peak_equity": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "reserved_risk": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "snapshot_id": {
+      "type": "string"
+    },
+    "strategy_risk": {
+      "additionalProperties": {
+        "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "type": "object"
+    },
+    "symbol_risk": {
+      "additionalProperties": {
+        "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+        "type": [
+          "string",
+          "number"
+        ]
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "account_id",
+    "currency",
+    "balance",
+    "equity",
+    "free_margin",
+    "peak_equity",
+    "known_time_ms"
+  ],
+  "title": "Account Economic Snapshot",
+  "type": "object"
+}

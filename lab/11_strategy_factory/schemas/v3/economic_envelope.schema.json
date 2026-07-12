@@ -1,0 +1,164 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/economic_envelope.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "adjustments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_budget_id": {
+      "type": "string"
+    },
+    "cash_risk_utilization": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "cost_model_definition_id": {
+      "type": "string"
+    },
+    "costs": {
+      "$ref": "cost_breakdown.schema.json"
+    },
+    "decision_time_ms": {
+      "type": "integer"
+    },
+    "entry_executable_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "envelope_id": {
+      "type": "string"
+    },
+    "geometry_id": {
+      "type": "string"
+    },
+    "margin_required": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "maximum_loss_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "normalized_volume": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "price_loss_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "quote_id": {
+      "type": "string"
+    },
+    "raw_volume": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "risk_budget_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    },
+    "stop_executable_price": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "symbol_spec_id": {
+      "type": "string"
+    },
+    "target_executable_price": {
+      "oneOf": [
+        {
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_gross_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "target_net_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "treatment_id",
+    "geometry_id",
+    "quote_id",
+    "symbol_spec_id",
+    "cost_model_definition_id",
+    "capital_budget_id",
+    "side",
+    "entry_executable_price",
+    "stop_executable_price",
+    "normalized_volume",
+    "maximum_loss_cash",
+    "risk_budget_cash",
+    "accepted",
+    "reason_code"
+  ],
+  "title": "Economic Envelope",
+  "type": "object"
+}

@@ -1,0 +1,89 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/cost_model_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commission_rules": {
+      "items": {
+        "$ref": "commission_rule.schema.json"
+      },
+      "type": "array"
+    },
+    "conversion_cost_bps": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "definition_id": {
+      "type": "string"
+    },
+    "financing_rule": {
+      "type": "object"
+    },
+    "max_quote_age_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_spec_age_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "reserve_multiplier": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "slippage_rule": {
+      "$ref": "slippage_rule.schema.json"
+    },
+    "spread_floor_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "spread_percentile_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "spread_source": {
+      "type": "string"
+    },
+    "tags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "tax_bps": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "version",
+    "spread_source",
+    "commission_rules",
+    "slippage_rule"
+  ],
+  "title": "Cost Model Descriptor",
+  "type": "object"
+}

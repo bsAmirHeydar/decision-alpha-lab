@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/executable_price_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adverse_slippage_points": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "decision_time_ms": {
+      "type": "integer"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "logical_price": {
+      "oneOf": [
+        {
+          "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "order_kind": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "long",
+        "short"
+      ]
+    }
+  },
+  "required": [
+    "side",
+    "role",
+    "order_kind",
+    "decision_time_ms"
+  ],
+  "title": "Executable Price Request",
+  "type": "object"
+}

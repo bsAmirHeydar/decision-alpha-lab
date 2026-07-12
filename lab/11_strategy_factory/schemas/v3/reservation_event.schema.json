@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/reservation_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "amount_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "correlation_group": {
+      "type": "string"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_time_ms": {
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "prior_hash": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "reservation_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "action",
+    "reservation_id",
+    "account_id",
+    "treatment_id",
+    "amount_cash",
+    "event_time_ms",
+    "known_time_ms",
+    "prior_hash",
+    "event_hash"
+  ],
+  "title": "Reservation Event",
+  "type": "object"
+}

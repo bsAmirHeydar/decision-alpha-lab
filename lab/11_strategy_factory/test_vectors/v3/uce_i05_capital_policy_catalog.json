@@ -1,0 +1,72 @@
+{
+  "policies": [
+    {
+      "hard_cap": true,
+      "kind": "capped_kelly",
+      "parameters": {
+        "kelly_fraction": "0.25",
+        "max_fraction": "0.01"
+      },
+      "policy_id": "capital.capped_kelly",
+      "priority": 20,
+      "version": "1.0.0"
+    },
+    {
+      "hard_cap": true,
+      "kind": "confidence_scaled",
+      "parameters": {
+        "confidence_cap": "0.80",
+        "confidence_floor": "0.50"
+      },
+      "policy_id": "capital.confidence_tier",
+      "priority": 40,
+      "version": "1.0.0"
+    },
+    {
+      "hard_cap": true,
+      "kind": "drawdown_scaled",
+      "parameters": {
+        "start_fraction": "0.05",
+        "stop_fraction": "0.20"
+      },
+      "policy_id": "capital.drawdown_guard",
+      "priority": 30,
+      "version": "1.0.0"
+    },
+    {
+      "hard_cap": true,
+      "kind": "equity_fraction",
+      "parameters": {
+        "fraction": "0.005"
+      },
+      "policy_id": "capital.equity_fraction",
+      "priority": 10,
+      "version": "1.0.0"
+    },
+    {
+      "hard_cap": true,
+      "kind": "fixed_cash",
+      "parameters": {
+        "cash": "100"
+      },
+      "policy_id": "capital.fixed_cash",
+      "priority": 10,
+      "version": "1.0.0"
+    },
+    {
+      "hard_cap": true,
+      "kind": "portfolio_budget",
+      "parameters": {
+        "daily_loss_cap": "500",
+        "group_risk_cap": "600",
+        "portfolio_risk_cap": "1000",
+        "strategy_risk_cap": "500",
+        "symbol_risk_cap": "300"
+      },
+      "policy_id": "capital.portfolio_guard",
+      "priority": 100,
+      "version": "1.0.0"
+    }
+  ],
+  "schema_version": "3.0.0"
+}

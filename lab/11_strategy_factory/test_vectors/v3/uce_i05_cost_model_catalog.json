@@ -1,0 +1,87 @@
+{
+  "models": [
+    {
+      "commission_rules": [
+        {
+          "amount": "3.5",
+          "applies_entry": true,
+          "applies_exit": true,
+          "basis": "per_lot_per_side",
+          "currency": "",
+          "maximum": null,
+          "minimum": "0",
+          "rule_id": "commission.lot_side"
+        }
+      ],
+      "conversion_cost_bps": "0.5",
+      "financing_rule": {
+        "basis": "none",
+        "long_amount": "0",
+        "short_amount": "0",
+        "triple_day": 3
+      },
+      "max_quote_age_ms": 2000,
+      "max_spec_age_ms": 86400000,
+      "model_id": "cost.fx_standard",
+      "reserve_multiplier": "1",
+      "slippage_rule": {
+        "entry_long_points": "2",
+        "entry_short_points": "2",
+        "exit_long_points": "3",
+        "exit_short_points": "3",
+        "kind": "order_side_points",
+        "percentile": "0.99",
+        "rule_id": "slippage.conservative",
+        "volatility_multiplier": "0"
+      },
+      "spread_floor_points": "8",
+      "spread_percentile_points": "0",
+      "spread_source": "max_observed_and_floor",
+      "tags": {},
+      "tax_bps": "0",
+      "version": "1.0.0"
+    },
+    {
+      "commission_rules": [
+        {
+          "amount": "0.25",
+          "applies_entry": true,
+          "applies_exit": true,
+          "basis": "fixed_per_transaction",
+          "currency": "",
+          "maximum": null,
+          "minimum": "0.25",
+          "rule_id": "commission.fixed_min"
+        }
+      ],
+      "conversion_cost_bps": "1",
+      "financing_rule": {
+        "basis": "notional_annual_rate",
+        "long_amount": "0.08",
+        "short_amount": "0.08",
+        "triple_day": 3
+      },
+      "max_quote_age_ms": 2000,
+      "max_spec_age_ms": 86400000,
+      "model_id": "cost.index_cfd",
+      "reserve_multiplier": "1.05",
+      "slippage_rule": {
+        "entry_long_points": "1",
+        "entry_short_points": "1",
+        "exit_long_points": "2",
+        "exit_short_points": "2",
+        "kind": "volatility_scaled",
+        "percentile": "0.99",
+        "rule_id": "slippage.index",
+        "volatility_multiplier": "0.05"
+      },
+      "spread_floor_points": "0",
+      "spread_percentile_points": "0",
+      "spread_source": "observed",
+      "tags": {},
+      "tax_bps": "0",
+      "version": "1.0.0"
+    }
+  ],
+  "schema_version": "3.0.0"
+}

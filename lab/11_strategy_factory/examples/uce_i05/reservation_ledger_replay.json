@@ -1,0 +1,78 @@
+{
+  "events": [
+    {
+      "account_id": "acct.fixture",
+      "action": "reserve",
+      "amount_cash": "99.75025200",
+      "correlation_group": "fx_major",
+      "event_hash": "ucerlev_76feb2a8aaa210f4367c453fdc7f4094e7bbbe341cf0e7926b6ba801ce2fab1e",
+      "event_time_ms": 1700000000001,
+      "known_time_ms": 1700000000001,
+      "metadata": {
+        "envelope_id": "uceecon_1a4417a20e448d97ef242aae"
+      },
+      "prior_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "reason": "pre_intent_reservation",
+      "reservation_id": "uceriskres_1885dace20088761bc5ca933",
+      "sequence": 1,
+      "strategy_id": "strategy.fixture",
+      "symbol": "",
+      "treatment_id": "ucet_fixture"
+    },
+    {
+      "account_id": "acct.fixture",
+      "action": "consume",
+      "amount_cash": "49.87512600",
+      "correlation_group": "fx_major",
+      "event_hash": "ucerlev_4e0a48085114e9cdb1b4e201bf59c683f453a35ca528ef852b7697c012bde71f",
+      "event_time_ms": 1700000000002,
+      "known_time_ms": 1700000000002,
+      "metadata": {},
+      "prior_hash": "ucerlev_76feb2a8aaa210f4367c453fdc7f4094e7bbbe341cf0e7926b6ba801ce2fab1e",
+      "reason": "fill_consumption",
+      "reservation_id": "uceriskres_1885dace20088761bc5ca933",
+      "sequence": 2,
+      "strategy_id": "strategy.fixture",
+      "symbol": "",
+      "treatment_id": "ucet_fixture"
+    },
+    {
+      "account_id": "acct.fixture",
+      "action": "release",
+      "amount_cash": "49.87512600",
+      "correlation_group": "fx_major",
+      "event_hash": "ucerlev_aff6d73807b513e5c846242e4cb3b73958caa545a4f68d5647c9ed5792530c92",
+      "event_time_ms": 1700000000003,
+      "known_time_ms": 1700000000003,
+      "metadata": {},
+      "prior_hash": "ucerlev_4e0a48085114e9cdb1b4e201bf59c683f453a35ca528ef852b7697c012bde71f",
+      "reason": "release",
+      "reservation_id": "uceriskres_1885dace20088761bc5ca933",
+      "sequence": 3,
+      "strategy_id": "strategy.fixture",
+      "symbol": "",
+      "treatment_id": "ucet_fixture"
+    }
+  ],
+  "snapshot": {
+    "head_hash": "ucerlev_aff6d73807b513e5c846242e4cb3b73958caa545a4f68d5647c9ed5792530c92",
+    "records": [
+      {
+        "account_id": "acct.fixture",
+        "consumed_cash": "49.87512600",
+        "correlation_group": "fx_major",
+        "last_event_hash": "ucerlev_aff6d73807b513e5c846242e4cb3b73958caa545a4f68d5647c9ed5792530c92",
+        "last_sequence": 3,
+        "open_cash": "0",
+        "released_cash": "49.87512600",
+        "reservation_id": "uceriskres_1885dace20088761bc5ca933",
+        "reserved_cash": "99.75025200",
+        "state": "released",
+        "strategy_id": "strategy.fixture",
+        "symbol": "",
+        "treatment_id": "ucet_fixture"
+      }
+    ],
+    "total_open_cash": "0"
+  }
+}

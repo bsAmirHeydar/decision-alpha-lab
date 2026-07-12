@@ -1,0 +1,30 @@
+{
+  "acceptance_gates": {
+    "conservative_volume_rounding": "PASS",
+    "long_short_executable_side": "PASS",
+    "maximum_loss_within_budget": "PASS on golden and stress vectors",
+    "no_live_order_authority": "PASS",
+    "no_mid_price_promotable_fill": "PASS by contract and tests",
+    "reservation_restart_no_double_count": "PASS"
+  },
+  "automated_evidence": {
+    "boundary_guard": "PASS",
+    "cumulative_pytest": "115 passed",
+    "delivery_validator": "PASS",
+    "engineering_policy": "PASS (4/4)",
+    "mql5_static_guard": "PASS (14 files)",
+    "python_compileall": "PASS",
+    "python_conformance": "PASS"
+  },
+  "generated_on": "2026-07-12",
+  "limitations": [
+    "MetaEditor compilation was not available in the build environment and must be performed locally on Windows.",
+    "Broker-specific tick-value, nonlinear margin, filling-mode and live transaction parity require terminal evidence.",
+    "Empirical slippage and historical Ask reconstruction quality depend on future observed execution datasets."
+  ],
+  "next_phase": "UCE-I06 \u2014 Outcome Cube, Dataset, and Label Compiler",
+  "phase_id": "UCE-I05",
+  "status": "automated_gates_passed",
+  "title": "Side-Aware Economics, Broker Constraints, Position Sizing, and Capital Risk",
+  "version": "3.0.0"
+}

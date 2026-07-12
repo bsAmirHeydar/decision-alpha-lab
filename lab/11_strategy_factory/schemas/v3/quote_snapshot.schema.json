@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/quote_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "bid": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "quote_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_time_ms": {
+      "type": "integer"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "symbol",
+    "bid",
+    "ask",
+    "source_time_ms",
+    "known_time_ms"
+  ],
+  "title": "Quote Snapshot",
+  "type": "object"
+}

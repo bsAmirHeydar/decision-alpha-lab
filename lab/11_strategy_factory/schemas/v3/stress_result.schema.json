@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/stress_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "baseline_envelope_id": {
+      "type": "string"
+    },
+    "baseline_max_loss": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "baseline_volume": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "passed_monotonicity": {
+      "type": "boolean"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "scenario_definition_id": {
+      "type": "string"
+    },
+    "stressed_envelope_id": {
+      "type": "string"
+    },
+    "stressed_max_loss": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "stressed_volume": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "scenario_definition_id",
+    "baseline_envelope_id",
+    "baseline_max_loss",
+    "stressed_max_loss",
+    "baseline_volume",
+    "stressed_volume",
+    "passed_monotonicity",
+    "accepted",
+    "reason_code"
+  ],
+  "title": "Stress Result",
+  "type": "object"
+}

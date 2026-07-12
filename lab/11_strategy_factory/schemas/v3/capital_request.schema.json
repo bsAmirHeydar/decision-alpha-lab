@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/capital_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": "string"
+    },
+    "confidence": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "correlation_group": {
+      "type": "string"
+    },
+    "decision_time_ms": {
+      "type": "integer"
+    },
+    "expected_win_loss_ratio": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "expected_win_probability": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "strategy_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "tags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "treatment_id": {
+      "type": "string"
+    },
+    "volatility_fraction": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "request_id",
+    "account_id",
+    "treatment_id",
+    "strategy_id",
+    "symbol",
+    "correlation_group",
+    "decision_time_ms"
+  ],
+  "title": "Capital Request",
+  "type": "object"
+}

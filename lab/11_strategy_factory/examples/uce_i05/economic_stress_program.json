@@ -1,0 +1,44 @@
+{
+  "scenarios": [
+    {
+      "enabled": true,
+      "expected_direction": "non_improving",
+      "kind": "spread_multiplier",
+      "magnitude": "3",
+      "scenario_id": "spread_3x",
+      "version": "1.0.0"
+    },
+    {
+      "enabled": true,
+      "expected_direction": "non_improving",
+      "kind": "commission_multiplier",
+      "magnitude": "2",
+      "scenario_id": "commission_2x",
+      "version": "1.0.0"
+    },
+    {
+      "enabled": true,
+      "expected_direction": "non_improving",
+      "kind": "slippage_points",
+      "magnitude": "10",
+      "scenario_id": "slippage_tail",
+      "version": "1.0.0"
+    },
+    {
+      "enabled": true,
+      "expected_direction": "non_improving",
+      "kind": "gap_points",
+      "magnitude": "30",
+      "scenario_id": "gap_30pt",
+      "version": "1.0.0"
+    },
+    {
+      "enabled": true,
+      "expected_direction": "non_improving",
+      "kind": "conversion_shock",
+      "magnitude": "0.05",
+      "scenario_id": "conversion_5pct",
+      "version": "1.0.0"
+    }
+  ]
+}

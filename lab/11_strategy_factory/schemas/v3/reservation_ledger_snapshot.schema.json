@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab/schemas/v3/reservation_ledger_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "head_hash": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "reservation_record.schema.json"
+      },
+      "type": "array"
+    },
+    "total_open_cash": {
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  },
+  "required": [
+    "head_hash",
+    "total_open_cash",
+    "records"
+  ],
+  "title": "Reservation Ledger Snapshot",
+  "type": "object"
+}

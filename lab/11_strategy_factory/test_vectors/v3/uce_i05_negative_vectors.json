@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case_id": "missing_conversion",
+      "expected_code": "missing_conversion"
+    },
+    {
+      "case_id": "stale_quote",
+      "expected_code": "stale_quote"
+    },
+    {
+      "case_id": "stale_spec",
+      "expected_code": "stale_spec"
+    },
+    {
+      "case_id": "disabled_symbol",
+      "expected_code": "trade_status_disabled"
+    },
+    {
+      "case_id": "minimum_volume_exceeds_budget",
+      "expected_code": "risk_budget_below_minimum_volume"
+    },
+    {
+      "case_id": "unsupported_order_kind",
+      "expected_code": "order_kind_not_allowed"
+    },
+    {
+      "case_id": "duplicate_reservation",
+      "expected_code": "duplicate_reservation"
+    },
+    {
+      "case_id": "broken_ledger_hash_chain",
+      "expected_code": "hash_chain_break"
+    }
+  ],
+  "schema_version": "3.0.0"
+}
