@@ -1,0 +1,128 @@
+{
+  "patch_id": "NDS_F2_FAST_EXACT_BACKTEST_HOTFIX",
+  "version": "1.0.0",
+  "expert_version": "1.10",
+  "scope": "Dedicated F2 waist limit Strategy Tester only",
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_FAST_EXACT_BACKTEST_HOTFIX_PATCH.md",
+      "size_bytes": 828,
+      "sha256": "9fabd0cf48a0cedc3c9d74ff2db372361e1591fec12b493686470b5c63f76ca9"
+    },
+    {
+      "path": "NDS_F2_FAST_EXACT_BACKTEST_HOTFIX_AUDIT_REPORT.md",
+      "size_bytes": 3151,
+      "sha256": "7c26905a74c996c8b010fc37d29fc13b714da986ac9ed63b82f5748a5b799f10"
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "size_bytes": 21166,
+      "sha256": "d4140b2f0283bedd81ef9a5bb16e1a40621bb86ccaa1bacb50b2f0d1b8ec2dff"
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "size_bytes": 4642,
+      "sha256": "986dbed08e9b4cc3377e188a402464372591674b9821e0913c3023e8b83f487d"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/README.md",
+      "size_bytes": 1119,
+      "sha256": "7cd8e2fbc82204efc3cdd87cbcd06faf54001b9c73e519dd14db799a5a5c5b61"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/01_execution_contract.md",
+      "size_bytes": 981,
+      "sha256": "41a195f5fad96b7b47127e38de9cc21e0390e84f3062e77a61a9f7a6f363669c"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/02_module_reuse_map.md",
+      "size_bytes": 1490,
+      "sha256": "7f77c17ffacfb3f35c84ff74224db42b259c18732ddf0fe5031531a672df60b9"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/03_state_machine.md",
+      "size_bytes": 908,
+      "sha256": "5473593dd031e3d252d2aaa91fbd2aeead108435c34c793e8a45aa677cc01877"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/04_price_semantics.md",
+      "size_bytes": 959,
+      "sha256": "9da50bebd8b078e7620b5922bf1f35f042f311cf0b429fa443f91795c2665e64"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/05_performance_contract.md",
+      "size_bytes": 794,
+      "sha256": "47815c37bb9d06625e1b3f759473e7f6d0a1f2bcae7f2ae20964f80e4e9d6f3c"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/06_validation_plan.md",
+      "size_bytes": 1192,
+      "sha256": "9d778ec28cf52e8eda3ae1034f14a690eef3843be2d82d6533d4036c15eab393"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/07_operator_guide.md",
+      "size_bytes": 591,
+      "sha256": "becbec7f3087475187f94f1816108810620da5023f1410d6b6e2f1737482953a"
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_limit_backtest/08_fast_exact_runtime_hotfix.md",
+      "size_bytes": 1218,
+      "sha256": "c1cbd04ec680538e5b3580161f34001f2102b02f4b28583b007173ea5fe2888d"
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "size_bytes": 3566,
+      "sha256": "070abf904a5b33bccb78407774f8bcde99ef75bb9aaa76d796d3337957dbcdcc"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist Limit Backtest.md",
+      "size_bytes": 918,
+      "sha256": "fa2598beff067dd82c431d94501b89bfbe1a419dff931eb3a5919b71ad32c091"
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Fast Exact Backtest Runtime.md",
+      "size_bytes": 1253,
+      "sha256": "da90c66226aedf775d8ec3e823db0b4e329a0df2c48afa5eb73addb4cfbd3962"
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "size_bytes": 7516,
+      "sha256": "760cf3ee28eaa09e5b67e84a32728b290548aab03c8f16bf00f03c5d5ae08301"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh",
+      "size_bytes": 1013,
+      "sha256": "2f818b3332f7664a345530fe54a9439e33e6a0eba6f4d56ee8b374819ebdc0e8"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "size_bytes": 2512,
+      "sha256": "7bfdcb2618784bc638e101d257b083f8611c569c00dfcbbd81298766b1627319"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "size_bytes": 13999,
+      "sha256": "50f9ea524929759f6a9be590a1dc4412ed9e04cfd0a9b9098e3abc386b62f5b9"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "size_bytes": 2840,
+      "sha256": "aa3fcc7fa8a3db360cdfd7780f46b6285e3ed26de2d0d00215c50ce3c0e346b1"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestTypes.mqh",
+      "size_bytes": 299,
+      "sha256": "af2a2e4d0e735d6208bc4d3b7c5bf54c32901c5a97886680fb8adfa26a1433ad"
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "size_bytes": 4469,
+      "sha256": "5bd2ac8148fe4c78efa3ad34436ab4cb7a9b75389a2d9d5dac112581d8350d22"
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "size_bytes": 3562,
+      "sha256": "0e56a3471017d2ef802c73873996f451e089d15bf616b61e603d78e55aea48ec"
+    }
+  ]
+}

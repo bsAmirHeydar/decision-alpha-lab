@@ -1,45 +1,40 @@
 # F2 Waist Limit — Module Reuse Map
 
-## Reused canonical modules
+## Existing authorities reused
 
-| Concern | Existing authority reused |
+| Concern | Reused authority |
 |---|---|
-| Closed-bar data | `FP_Timebase.mqh` |
+| Closed bars | `FP_Timebase.mqh` |
 | Scale list | `FP_NodeScaleList.mqh` |
-| F1/F2 anatomy | `FP_SequenceEngine.mqh` |
-| F2 lifecycle | `FP_F2LifecycleEngine.mqh` |
-| Canonical parent resolution | `FP_CanonicalRules.mqh` through Sequence Engine |
-| Price/tick normalization | `FP_NDSHookTradeRules.mqh` generic helpers |
-| Fixed/risk-cash sizing | `FP_NDSHookTradeRules.mqh` generic helpers |
-| Managed-order counting | Phase 52 trade helpers |
-| Managed-position counting | Phase 52 trade helpers |
-| Foreign-position guard | Phase 52 trade helpers |
-| Terminal-wide entry mutex | Phase 52 trade helpers |
-| Duplicate pending reconciliation | Phase 52 trade helpers |
+| Canonical nodes | `FP_NodeEngine.mqh` through Sequence Engine |
+| F1 body/lifecycle | Phoenix Levels 05–07 |
+| F2 body/lifecycle | `FP_F2LifecycleEngine.mqh` |
+| Parent resolution | `FP_CanonicalFindParentIndex` |
+| Tick normalization | `FP_NDSHookTradeRules.mqh` generic price helper |
+| Fixed/risk-cash size | `FP_NDSHookTradeComputeVolume` |
+| Symbol trade permissions | `FP_NDSHookTradeCanSend` |
 
-## New modules
+## F2-specific modules
 
 | Module | Responsibility |
 |---|---|
-| `FP_NDSF2WaistTradeTypes.mqh` | F2-specific configuration, setup and report contracts |
-| `FP_NDSF2WaistTradeRules.mqh` | F2 selection, F1 parent resolution and exact price geometry |
-| `FP_NDSF2WaistTradeEngine.mqh` | Single-exposure execution state machine |
-| `FP_NDSF2WaistBacktestTypes.mqh` | Lightweight runtime reports and performance counters |
-| `FP_NDSF2WaistBacktestEngine.mqh` | Closed-bar detector/execution orchestration |
-| `NDSF2WaistLimitBacktest.mq5` | Dedicated Strategy Tester entry point |
+| `FP_NDSF2FastDetector.mqh` | Executes approved per-scale F detection without global visual/canonical post-processing |
+| `FP_NDSF2WaistTradeTypes.mqh` | Minimal runtime configuration and setup data |
+| `FP_NDSF2WaistTradeRules.mqh` | Freshness, pair selection, exact prices, volume and broker request |
+| `FP_NDSF2WaistTradeEngine.mqh` | Single-exposure state machine |
+| `FP_NDSF2WaistBacktestEngine.mqh` | Closed-bar orchestration |
+| `NDSF2WaistLimitBacktest.mq5` | Tester-only entry point |
 
-## Explicitly excluded
+## Removed from this runtime
 
-- Hook Phase 02 validity and sequence classification
-- Hook-after-Hook and Hook-after-F3 setup selection
-- Zone adapter
-- AI/CG scoring
-- rendering and chart objects
-- CSV ledgers
-- production license
-- timer and chart-event handlers
-- paper broker and release-governance stack
-
-## Internal Hook boundary nuance
-
-`cfg.scan_hooks=true` remains inside the canonical F detector because approved F1 root construction can depend on phase-boundary evidence. No Hook object is passed to the F2 trade rules, and no Hook field can authorize an order.
+- Hook branch scanning
+- Hook Phase 02 and Hook validity
+- global sequence ownership and visual canonicalization
+- renderer and chart objects
+- CSV/report export
+- performance timing counters
+- terminal Global Variable registry
+- terminal-wide mutex
+- custom runtime prints
+- F3 construction
+- Zone and AI

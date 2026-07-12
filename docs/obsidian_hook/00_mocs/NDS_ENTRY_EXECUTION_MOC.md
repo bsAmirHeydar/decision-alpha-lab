@@ -92,5 +92,6 @@ This branch is research-only and has no execution authority.
 ## F2-only lightweight execution profile
 
 - [[NDS F2 Waist Limit Backtest]]
+- [[NDS F2 Fast Exact Backtest Runtime]]
 
 This profile is independent of HH/F3H setup selection. Hook can remain internal detector boundary evidence, but no Hook field authorizes the order.

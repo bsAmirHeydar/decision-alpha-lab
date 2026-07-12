@@ -396,4 +396,4 @@ A second dedicated lightweight executable tests the F-only setup:
 mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
 ```
 
-It does not use Hook validity, Zone, or AI as order inputs. It reuses the canonical Phoenix F1/F2 event stream, enters beyond the confirmed F2 waist, uses the canonical parent F1 waist as Stop, uses F2 Leg2 as Take Profit, and enforces one managed exposure. Documentation is under `docs/nds_entry_architecture/f2_waist_limit_backtest/`.
+It is an F-only execution path: Hook scanning, Zone and AI are disabled. It reuses the canonical Phoenix node/F1/F2 lifecycle builders, measures freshness from the exact node-observability bar, enters beyond the confirmed F2 waist, uses the parent F1 waist as Stop, uses F2 Leg2 as Take Profit, and enforces one managed exposure. The execution-only detector skips global visual/canonical post-processing. Documentation is under `docs/nds_entry_architecture/f2_waist_limit_backtest/`.

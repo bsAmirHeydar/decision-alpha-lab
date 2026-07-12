@@ -1,22 +1,21 @@
 # NDS F2 Waist Limit Backtest — Index
 
-## Purpose
-
-This package defines a separate, minimal Strategy Tester executable for one mechanical entry contract:
+## Mechanical contract
 
 ```text
-Confirmed canonical F2
-→ limit beyond the F2 waist
-→ stop at the canonical parent F1 waist
-→ take profit at the canonical F2 Leg2 endpoint
-→ one managed pending order or position at a time
+Fresh confirmed F2 becomes observable
+→ bullish Buy Limit one tick below F2 waist
+→ bearish Sell Limit one tick above F2 waist
+→ Stop at canonical parent F1 waist
+→ Take Profit at F2 Leg2 endpoint
+→ no second pending order or position
 ```
 
-## Important boundary
+## Runtime boundary
 
-Hook is **not** an entry condition. Hook validity, Hook-after-Hook, Hook-after-F3, Zone and AI are not loaded as decision layers.
+This executable is F-only. Hook scanning, Hook validity, Zone, AI, drawing, CSV, timer, chart events and production governance are not part of the tester path.
 
-The existing Phoenix sequence detector may still scan internal Hook branches because the current canonical F1 detector uses approved phase boundaries to seed F1. This is detector infrastructure reuse, not Hook-based trade authorization.
+The implementation reuses the approved Phoenix node, F1 lifecycle, F2 lifecycle, parent-resolution, tick-normalization and risk-sizing modules. It replaces only the heavy orchestration path with an execution-only detector.
 
 ## Documents
 
@@ -27,3 +26,4 @@ The existing Phoenix sequence detector may still scan internal Hook branches bec
 - [Performance Contract](05_performance_contract.md)
 - [Validation Plan](06_validation_plan.md)
 - [Operator Guide](07_operator_guide.md)
+- [Fast Exact Runtime Hotfix](08_fast_exact_runtime_hotfix.md)

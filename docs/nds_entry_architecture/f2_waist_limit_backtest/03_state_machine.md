@@ -1,32 +1,29 @@
 # F2 Waist Limit — State Machine
 
 ```text
-IDLE
-├── no fresh confirmed F2 → stay IDLE
-├── F2 missing canonical parent F1 waist → BLOCKED
-├── exact geometry invalid → BLOCKED
-├── broker distance invalid → BLOCKED
-├── already-used F2 → BLOCKED
-└── valid setup → acquire global entry lock
+NEW BAR
+├── managed position exists → HOLD, no detector
+├── managed pending exists → HOLD, no detector
+└── no exposure → load closed bars
 
-ENTRY LOCK
-├── exposure changed → release lock, BLOCKED
-├── paper mode → persist F2 attempt, PAPER_LIMIT
-└── tester-send mode → place pending order with exact SL/TP
+DETECT
+├── build canonical nodes
+├── build F1
+├── build F2
+└── skip Hook/F3/global visual post-processing
 
-PENDING
-└── hold; skip the full detector on later bars
+SELECT
+├── no newly observable confirmed F2 → IDLE
+├── no parent F1 waist → BLOCK
+├── setup already consumed → BLOCK
+├── illegal price ordering → BLOCK
+├── illegal pending side → BLOCK
+└── valid geometry → BROKER PREFLIGHT
 
-POSITION
-└── hold; broker manages exact F1-waist SL and F2-Leg2 TP; skip detector
-
-CLOSED
-└── next bar returns to IDLE and scans for a new fresh F2
+SEND
+├── `OrderCheck` fails → ERROR
+├── `OrderSend` fails/rejects → ERROR
+└── accepted Buy/Sell Limit with attached SL/TP → mark F2 used
 ```
 
-## Recovery
-
-- More than one managed position: fail closed; manual reconciliation.
-- More than one managed pending order: preserve one deterministically and delete duplicates using the reused Phase 52 helper.
-- Position plus pending order: the position owns the strategy and managed pending orders are deleted.
-- Foreign position on the symbol: setup blocked to prevent netting-account merges.
+A filled position is managed by the Strategy Tester through the attached Stop Loss and Take Profit. No dynamic exit loop is loaded.

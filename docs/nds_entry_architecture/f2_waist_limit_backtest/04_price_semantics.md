@@ -1,28 +1,27 @@
 # F2 Waist Limit — Price Semantics
 
-## Canonical references
+## Structural references
 
-- `F2 waist`: `FP_FlagEvent.waist.price` on the confirmed F2.
-- `F1 waist`: `FP_FlagEvent.waist.price` on the canonical parent F1.
-- `F2 leg end`: `FP_FlagEvent.leg2.price` after the existing pre-internal extension absorption pass.
+- Entry reference: confirmed F2 `waist.price`.
+- Stop reference: canonical same-direction parent F1 `waist.price`.
+- Target reference: confirmed F2 `leg2.price` after Phoenix extension absorption.
 
-## Entry
+## Tick semantics
 
-The phrase “under the F2 waist” is implemented directionally:
+The offset is expressed in symbol trade ticks, not generic points:
 
-- Bullish F2: one configurable point below the F2 waist.
-- Bearish F2: the mirrored location, one configurable point above the F2 waist.
+```text
+Bullish entry = floor-to-tick(F2 waist − offset ticks)
+Bearish entry = ceil-to-tick(F2 waist + offset ticks)
+```
 
-No market-order fallback exists. If the resulting level is not a legal pending limit relative to current Bid/Ask and broker freeze/stops levels, the setup is blocked.
+F1 waist and F2 Leg2 are normalized to the nearest valid trade tick. No ATR, spread padding, hidden widening, fixed-R target or market-order fallback is applied.
 
-## Stop
+## Broker legality
 
-The Stop is the exact F1 waist, with tick-size normalization only. No ATR, spread buffer, point padding or hidden widening is applied.
+The exact structure must also satisfy:
 
-## Target
-
-The Take Profit is the exact current F2 Leg2 endpoint, with tick-size normalization only. There is no R-multiple target and no F3 exit in this profile.
-
-## Closed-bar authority
-
-F2 confirmation must exist in the closed-bar detector output. Live-bar pending nodes are disabled by default.
+- Buy Limit below current Ask by the symbol stop-distance requirement.
+- Sell Limit above current Bid by the symbol stop-distance requirement.
+- SL and TP on the correct side of entry.
+- Entry-to-SL and entry-to-TP distances not below `SYMBOL_TRADE_STOPS_LEVEL`.

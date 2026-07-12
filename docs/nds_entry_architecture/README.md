@@ -133,4 +133,4 @@ A separate non-Hook execution profile is documented at:
 f2_waist_limit_backtest/README.md
 ```
 
-It reuses the canonical Phoenix F1/F2 detector and Phase 52 generic broker/exposure helpers, but authorizes orders only from a fresh confirmed F2. Entry is beyond the F2 waist, Stop is the canonical parent F1 waist, and Take Profit is the F2 Leg2 endpoint.
+It reuses Phoenix canonical node/F1/F2 lifecycle builders but disables Hook scanning and the heavy global visual/canonical finalization path. Freshness is measured from the exact bar where the F2 confirmation node obtains right-side clearance. Entry is beyond the F2 waist, Stop is the parent F1 waist, Take Profit is F2 Leg2, and broker submission uses an explicit checked pending request.

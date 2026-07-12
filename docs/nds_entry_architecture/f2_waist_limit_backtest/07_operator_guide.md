@@ -1,35 +1,24 @@
 # F2 Waist Limit — Operator Guide
 
-## Tester executable
-
-Select:
+## Expert
 
 ```text
 NDSF2WaistLimitBacktest
 ```
 
-## First fast run
+## Recommended first run
 
 ```text
 InpF2BTProfile = FAST
 InpF2BTTradeEnabled = true
 InpF2BTSendTesterOrders = true
-InpF2BTEntryOffsetPoints = 1
-InpF2BTMaxSetupAgeBars = 1
+InpF2BTEntryOffsetTicks = 1
+InpF2BTMaxSetupAgeBars = 0
 InpF2BTOneAttemptPerF2 = true
 InpF2BTResetUsedSetupsOnInit = true
+InpF2BTFixedVolume = 0.01
 ```
 
-After the first initialization, set `InpF2BTResetUsedSetupsOnInit=false` when testing restart persistence rather than a clean run.
+There is intentionally no custom startup or per-bar print. Trade acceptance and execution remain visible through the Strategy Tester’s native Deals, Orders, Results and Journal records.
 
-## Journal startup contract
-
-```text
-NDS_F2_BT_INIT status=ready
-contract=F2_confirmed_to_waist_limit_F1_waist_SL_F2_leg2_TP
-hooks_as_entry=false zones=false ai=false
-```
-
-## Final verification
-
-Run the same test with `PARITY`. FAST is intended for development speed, not final equivalence claims.
+Use `PARITY` only after FAST behavior is verified.
