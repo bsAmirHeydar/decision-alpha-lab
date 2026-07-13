@@ -1,0 +1,11 @@
+from enum import Enum
+class Side(str,Enum): LONG="long"; SHORT="short"; FLAT="flat"
+class GateStatus(str,Enum): PASS="pass"; FAIL="fail"; PENDING="pending"
+class PromotionStatus(str,Enum): PROMOTE="promote"; CHALLENGE="challenge"; REJECT="reject"
+class OpportunityStatus(str,Enum): ELIGIBLE="eligible"; REJECTED="rejected"; ABSTAIN="abstain"
+class ReservationStatus(str,Enum): RESERVED="reserved"; CONSUMED="consumed"; RELEASED="released"; REJECTED="rejected"
+class AllocationStatus(str,Enum): ALLOCATED="allocated"; PARTIAL="partial"; ABSTAIN="abstain"; REJECTED="rejected"
+class ConflictPolicy(str,Enum): DENY="deny"; NET="net"; HEDGE="hedge"
+class RuntimeState(str,Enum): BUILT="built"; VALIDATED="validated"; SHADOW="shadow"; ACTIVE="active"; HALTED="halted"
+class ValidationStatus(str,Enum): PASS="pass"; CHALLENGE="challenge"; FAIL="fail"
+class DependenceSource(str,Enum): EMPIRICAL="empirical"; SYMBOL="symbol"; CURRENCY="currency"; SESSION="session"; ANATOMY="anatomy"; CLUSTER="cluster"; FALLBACK="fallback"

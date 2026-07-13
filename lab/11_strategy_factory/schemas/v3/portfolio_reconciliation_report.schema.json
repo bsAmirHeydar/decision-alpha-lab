@@ -1,0 +1,28 @@
+{
+  "$id": "https://alpha-lab.local/schemas/v3/portfolio_reconciliation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_hash"
+  ],
+  "title": "Portfolio Reconciliation Report",
+  "type": "object"
+}

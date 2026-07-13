@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "golden-stress",
+  "artifact_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "payload": {
+    "scenarios": [
+      "drop-context",
+      "correlation-shock",
+      "capacity-haircut"
+    ]
+  }
+}

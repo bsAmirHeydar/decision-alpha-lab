@@ -1,0 +1,11 @@
+{
+  "activation_allowed": false,
+  "file_count": 166,
+  "file_hashes": "UCEE_I17_FILE_HASHES.sha256",
+  "file_index": "UCEE_I17_FILE_INDEX.txt",
+  "patch_name": "decision-alpha-lab-ucee-i17-portfolio-capacity-v1.0.0.zip",
+  "phase": "UCE-I17",
+  "sha256": "external_release_checksum",
+  "status": "release",
+  "version": "1.0.0"
+}

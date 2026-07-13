@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "golden-batch",
+  "artifact_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "payload": {
+    "candidate_count": 3,
+    "as_of_ms": 2000
+  }
+}

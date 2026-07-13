@@ -1,0 +1,44 @@
+{
+  "activation": {
+    "allowed": false,
+    "reason": "repository lacks two real contexts with completed prospective promotion and calibrated portfolio evidence"
+  },
+  "counts": {
+    "atomic_concepts": 12,
+    "closed_json_schemas": 25,
+    "documentation_chapters": 46,
+    "mql5_files": 16,
+    "phase_test_count": 87,
+    "python_modules": 21
+  },
+  "delivery": {
+    "boundary_guard": "pass",
+    "clean_baseline_patch_verification": "pass",
+    "delivery_validation": "pass",
+    "json_schemas": "pass",
+    "metaeditor_compile": "pending_local_windows",
+    "mql5_static": "pass",
+    "zip_integrity": "pass"
+  },
+  "engineering_policy": {
+    "errors": 0,
+    "passed": 4,
+    "total": 4,
+    "warnings": 0
+  },
+  "limitations": [
+    "synthetic fixtures prove contracts, not portfolio alpha",
+    "real capacity and broker behavior require prospective shadow evidence",
+    "MetaEditor compilation remains a local Windows gate"
+  ],
+  "next_phase": "UCE-I18",
+  "phase": "UCE-I17",
+  "status": "implemented_static_and_python_validated_activation_blocked",
+  "tests": {
+    "cumulative_i01_i17": 918,
+    "cumulative_status": "pass",
+    "phase": 87,
+    "phase_status": "pass"
+  },
+  "version": "1.0.0"
+}
