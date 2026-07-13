@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "default": {
+    "policy": "STRICT_SAME_SESSION_FIRST_ELIGIBLE_CLOSE",
+    "resolve_period_current_at_initialization": true,
+    "close_before_deadline": true,
+    "causal_availability_required": true,
+    "complete_constituent_m1_required": true,
+    "confirmed_signal_immutable": true,
+    "missed_close_requires_replay": true
+  }
+}

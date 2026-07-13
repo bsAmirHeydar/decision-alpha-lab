@@ -1,0 +1,28 @@
+{
+  "boundary_guard": "pass",
+  "clean_baseline_patch": "pass",
+  "cumulative_fp_tests": {
+    "count": 438,
+    "result": "pass"
+  },
+  "daye_regressions": {
+    "count": 50,
+    "result": "pass"
+  },
+  "delivery_validation": "pass",
+  "engineering_policies": {
+    "count": 4,
+    "result": "pass"
+  },
+  "errors": 0,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "phase": "FP-I07",
+  "phase_tests": {
+    "count": 60,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "total_executed_tests": 488,
+  "warnings": 0
+}

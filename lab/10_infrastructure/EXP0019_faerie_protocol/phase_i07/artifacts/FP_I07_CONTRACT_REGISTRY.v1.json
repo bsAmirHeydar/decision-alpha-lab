@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "FP-I07",
+  "contracts": [
+    "confirmation_config",
+    "host_bar",
+    "confirmation_projection",
+    "pending_confirmation",
+    "close_observation",
+    "confirmed_signal",
+    "confirmation_transition",
+    "confirmation_result",
+    "revision_impact",
+    "confirmation_checkpoint",
+    "confirmation_engine_snapshot",
+    "reason_registry",
+    "golden_case",
+    "phase_status",
+    "handoff"
+  ],
+  "python_package": "fp_i07_confirmation",
+  "mql5_root": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I07",
+  "live_execution_authority": "NONE"
+}

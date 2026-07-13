@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "data",
+  "pair_state": "DATA_INCOMPLETE",
+  "expected": "UNAVAILABLE_AT_CLOSE"
+}

@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "confirmed",
+  "pair_state": "HUNTER_ONLY",
+  "expected": "CONFIRMED"
+}

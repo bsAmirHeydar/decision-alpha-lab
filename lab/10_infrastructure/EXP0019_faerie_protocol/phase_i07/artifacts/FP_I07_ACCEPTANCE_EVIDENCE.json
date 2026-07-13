@@ -1,0 +1,23 @@
+{
+  "acceptance": {
+    "causal_availability": true,
+    "first_eligible_close": true,
+    "illegal_transition_rejected": true,
+    "immutable_confirmed_signal": true,
+    "revision_bounded": true,
+    "strict_deadline": true
+  },
+  "evidence": {
+    "boundary_guard": "pass",
+    "clean_baseline_patch": "pass",
+    "cumulative_fp_tests": 438,
+    "daye_regressions": 50,
+    "delivery_validation": "pass",
+    "engineering_policy": "pass",
+    "metaeditor": "pending_local_windows",
+    "mql5_static": "pass",
+    "phase_tests": 60
+  },
+  "phase": "FP-I07",
+  "qa": "pass_except_local_metaeditor"
+}

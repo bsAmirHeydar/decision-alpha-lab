@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "FP-I07",
+  "vectors": [
+    {
+      "case_id": "confirmed",
+      "pair_state": "HUNTER_ONLY",
+      "expected": "CONFIRMED"
+    },
+    {
+      "case_id": "double_hunt",
+      "pair_state": "BOTH",
+      "expected": "INVALIDATED_DOUBLE_HUNT"
+    },
+    {
+      "case_id": "role_changed",
+      "pair_state": "PROTECTED_ONLY",
+      "expected": "INVALIDATED_ROLE_CHANGED"
+    },
+    {
+      "case_id": "none",
+      "pair_state": "NONE",
+      "expected": "NO_SIGNAL_AT_CLOSE"
+    },
+    {
+      "case_id": "data",
+      "pair_state": "DATA_INCOMPLETE",
+      "expected": "UNAVAILABLE_AT_CLOSE"
+    }
+  ]
+}

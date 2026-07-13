@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "double_hunt",
+  "pair_state": "BOTH",
+  "expected": "INVALIDATED_DOUBLE_HUNT"
+}

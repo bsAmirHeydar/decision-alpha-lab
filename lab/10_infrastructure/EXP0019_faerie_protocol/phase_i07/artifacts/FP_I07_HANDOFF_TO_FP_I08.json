@@ -1,0 +1,22 @@
+{
+  "from_phase": "FP-I07",
+  "to_phase": "FP-I08",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "may_consume": [
+    "ConfirmedSignal",
+    "ConfirmationResult",
+    "ConfirmationEngineSnapshot",
+    "strict same-session evidence",
+    "host timeframe identity"
+  ],
+  "may_not_change": [
+    "M1 first-sweep authority",
+    "confirmed signal immutability",
+    "strict close-before-session-end",
+    "WW remains unimplemented in FP-I07"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "runtime_authority": "NONE"
+}

@@ -1,0 +1,22 @@
+{
+  "atomic_concept_count": 7,
+  "created_at_utc": "2026-07-13T13:38:35Z",
+  "cumulative_fp_test_count": 438,
+  "delivery_doc_count": 49,
+  "file_count": 147,
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_include_count": 14,
+  "next_phase": "FP-I08 Weekly WW Context Engine, Recency, Neutralization, and Active Gate",
+  "outcome_count": 7,
+  "patch_id": "EXP0019-FP-I07-CONFIRMATION-LIFECYCLE",
+  "patch_version": "1.0.0",
+  "phase": "FP-I07",
+  "phase_test_count": 60,
+  "previous_context_regression_count": 50,
+  "public_contract_count": 11,
+  "public_schema_count": 15,
+  "python_module_count": 19,
+  "reason_code_count": 19,
+  "runtime_authority": "NONE",
+  "total_executed_test_count": 488
+}

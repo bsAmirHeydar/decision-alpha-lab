@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "role_changed",
+  "pair_state": "PROTECTED_ONLY",
+  "expected": "INVALIDATED_ROLE_CHANGED"
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "FP-I07",
+  "registry_id": "FP-I07-CONFIRMATION-REASONS",
+  "reason_codes": [
+    {
+      "code": "FP_CRC_CANDIDATE_ADMITTED",
+      "terminal": false,
+      "meaning": "Active candidate admitted once"
+    },
+    {
+      "code": "FP_CRC_HUNTER_ONLY_AT_CLOSE",
+      "terminal": false,
+      "meaning": "Asymmetry persists"
+    },
+    {
+      "code": "FP_CRC_BOTH_TOUCHED_AT_CLOSE",
+      "terminal": true,
+      "meaning": "Both touched"
+    },
+    {
+      "code": "FP_CRC_ROLE_CHANGED_AT_CLOSE",
+      "terminal": true,
+      "meaning": "Role changed"
+    },
+    {
+      "code": "FP_CRC_NONE_AT_CLOSE",
+      "terminal": true,
+      "meaning": "No signal"
+    },
+    {
+      "code": "FP_CRC_DATA_INCOMPLETE_AT_CLOSE",
+      "terminal": true,
+      "meaning": "Data incomplete"
+    },
+    {
+      "code": "FP_CRC_SIGNAL_CONFIRMED",
+      "terminal": true,
+      "meaning": "Signal confirmed"
+    },
+    {
+      "code": "FP_CRC_PROTECTED_TOUCH_BEFORE_CONFIRMATION",
+      "terminal": true,
+      "meaning": "Protected touch cancels"
+    },
+    {
+      "code": "FP_CRC_ASYMMETRY_ABSENT_AT_CLOSE",
+      "terminal": true,
+      "meaning": "No asymmetry"
+    },
+    {
+      "code": "FP_CRC_UNAVAILABLE_AT_CLOSE",
+      "terminal": true,
+      "meaning": "Unavailable"
+    },
+    {
+      "code": "FP_CRC_CONFIRMATION_DEADLINE_MISSED",
+      "terminal": true,
+      "meaning": "Deadline missed"
+    },
+    {
+      "code": "FP_CRC_MISSED_CLOSE_REPLAY_REQUIRED",
+      "terminal": true,
+      "meaning": "Replay required"
+    },
+    {
+      "code": "FP_CRC_PENDING_INVALIDATED_BY_REVISION",
+      "terminal": true,
+      "meaning": "Pending invalidated"
+    },
+    {
+      "code": "FP_CRC_CONFIRMED_EVIDENCE_PRESERVED",
+      "terminal": true,
+      "meaning": "Confirmed preserved"
+    },
+    {
+      "code": "FP_CRC_ENGINE_READY",
+      "terminal": true,
+      "meaning": "Healthy"
+    },
+    {
+      "code": "FP_CRC_ENGINE_BLOCKED_REPLAY_OR_DATA",
+      "terminal": true,
+      "meaning": "Blocked"
+    }
+  ]
+}

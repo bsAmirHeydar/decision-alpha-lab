@@ -1,10 +1,7 @@
-feat(exp0019): implement FP-I06 relation compiler and M1 hunt engine
+feat(exp0019): implement FP-I07 confirmation lifecycle
 
-- compile AL/AN/LN/NA/NL/NN relation instances
-- preserve exact historical calendar offsets
-- emit symbol-local HIGH/LOW hunt facts
-- classify M1 first sweep and same-M1 symmetry
-- assign Hunter/Protected roles and raw candidate direction
-- cancel candidates on protected second touch or invalid data
-- add checkpoint, revision, schemas, MQL5 mirror, tests, and Obsidian docs
-- keep WW, confirmation, drawing, quota, risk, and execution out of scope
+- resolve host timeframe once and freeze it in semantic configuration
+- project FP-I06 candidates to the first eligible closed host bar
+- enforce strict same-session close deadline and causal M1 coverage
+- finalize confirmed, double-hunt, role-change, no-signal, unavailable, deadline, and replay outcomes
+- add immutable signal identity, lifecycle events, deduplication, checkpoints, revisions, MQL5 mirrors, tests, and Obsidian documentation
