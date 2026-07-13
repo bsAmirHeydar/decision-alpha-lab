@@ -1,65 +1,6 @@
 {
-  "context_id": "FP-CONTEXT-001",
-  "decisions": [
-    {
-      "id": "FP-DEC-001",
-      "topic": "weekly_boundary",
-      "status": "open",
-      "recommended": "new_york_trading_week"
-    },
-    {
-      "id": "FP-DEC-002",
-      "topic": "ww_tradeability",
-      "status": "open",
-      "recommended": "gate_only_initially"
-    },
-    {
-      "id": "FP-DEC-003",
-      "topic": "no_ww_behavior",
-      "status": "open",
-      "recommended": "allow_both"
-    },
-    {
-      "id": "FP-DEC-004",
-      "topic": "ww_conflict",
-      "status": "open",
-      "recommended": "block_and_audit"
-    },
-    {
-      "id": "FP-DEC-005",
-      "topic": "n_lookback_counting",
-      "status": "open",
-      "recommended": "available_sessions"
-    },
-    {
-      "id": "FP-DEC-006",
-      "topic": "session_quota_scope",
-      "status": "open",
-      "recommended": "pair_global"
-    },
-    {
-      "id": "FP-DEC-007",
-      "topic": "quota_consumption",
-      "status": "open",
-      "recommended": "accepted_fill"
-    },
-    {
-      "id": "FP-DEC-008",
-      "topic": "boundary_cross_confirmation",
-      "status": "open",
-      "recommended": "event_time_ownership"
-    },
-    {
-      "id": "FP-DEC-009",
-      "topic": "suppressed_drawing",
-      "status": "open",
-      "recommended": "configurable"
-    },
-    {
-      "id": "FP-DEC-011",
-      "topic": "repeated_reference_stages",
-      "status": "needs_confirmation",
-      "recommended": "allow_until_protected_touch"
-    }
-  ]
+  "schema_version": "1.0.0",
+  "status": "SUPERSEDED",
+  "superseded_by": "fp_open_decisions.v2.json",
+  "note": "V2 freezes fourteen decisions; only FP-DEC-012 remains open."
 }

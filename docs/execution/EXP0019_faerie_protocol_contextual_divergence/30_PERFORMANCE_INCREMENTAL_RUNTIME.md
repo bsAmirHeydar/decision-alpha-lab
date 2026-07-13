@@ -1,72 +1,103 @@
 ---
-title: "30 — Runtime Incremental و Performance"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "30 - Performance and Incremental Runtime"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 30 — Runtime Incremental و Performance
+# 30 - Performance and Incremental Runtime
 
-## اصل
+## Purpose
 
-History backfill و live incremental update دو pipeline جدا هستند.
+Define scalable history processing for long weekly/calendar lookbacks without rescanning all data.
 
-## backfill
+## Scope
 
-- یک بار در init یا فرمان operator.
-- batch شده بر حسب trading day/week.
-- progress/cancel/resume.
-- cache reference ranges و event hashes.
-- CPU budget per timer pulse.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## live
+## Frozen Decisions Applied
 
-Triggers:
+- Calendar-day gaps remain explicit even when cached.
+- M1 is canonical input.
 
-- new M1 bar: active session/week range update.
-- new confirmation bar close: candidate re-evaluation.
-- session close: reference freeze.
-- weekly boundary: WW rollover.
+## Normative Invariants
 
-## ممنوعیت
+1. **Process each new M1 once per symbol.**
+2. **Cache completed windows immutably.**
+3. **Recompute only affected active windows.**
+4. **Drawing updates are event-driven.**
 
-`ProcessAllSignals()` روی تمام هفته‌ها در هر timer ممنوع است.
+## Deterministic Procedure
 
-## caches
+```text
+Backfill required M1 range.
+Build completed A/L/N/W windows.
+Persist cache.
+Set cursor.
+On new M1 update active windows and detectors.
+Emit events only on state changes.
+```
 
-- Window cache.
-- Symbol range cache.
-- Reference lifecycle registry.
-- Candidate registry.
-- Drawing registry.
-- Quota registry.
+## State and Evidence Requirements
 
-## invalidation
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `last_processed_m1` | Per symbol cursor. | Required. |
+| `window_cache_key` | symbol/interval/data revision. | Canonical. |
+| `processing_latency_ms` | Telemetry. | Alert threshold. |
+| `backfill_state` | PENDING/READY/FAILED. | Execution blocked unless READY. |
 
-cache key باید symbol contract، timeframe source، window UTC bounds، config version و data revision را داشته باشد.
+## Edge-Case Catalogue
 
-## benchmark profile
+### History arrives late
 
-پروفایل SET واقعی `100 weeks × 13 N-depth` باید performance acceptance test باشد؛ نه default live processing loop.
+Invalidate only affected data revision/windows.
 
-## سطح اختیار این سند
+### Symbol reconnect gap
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Enter DATA_INCOMPLETE until backfilled.
 
-| سطح | معنی |
+### Large calendar depth
+
+Selector uses indexed window store, not repeated CopyRates scans.
+
+### Chart redraw storm
+
+Batch visual updates.
+
+## Executable Test Obligations
+
+1. Long-history performance benchmark.
+2. Incremental versus full replay parity.
+3. Reconnect gap test.
+4. No duplicate event test.
+
+## Implementation Guidance
+
+- Use immutable completed-window cache and small active-window state.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

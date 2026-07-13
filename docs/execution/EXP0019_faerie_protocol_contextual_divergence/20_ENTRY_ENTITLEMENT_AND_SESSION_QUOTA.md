@@ -1,63 +1,107 @@
 ---
-title: "20 — Entry Entitlement و سهمیه سشن"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "20 - Entry Entitlement and Pair-Session Quota"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 20 — Entry Entitlement و سهمیه سشن
+# 20 - Entry Entitlement and Pair-Session Quota
 
-## Owner Intent
+## Purpose
 
-در هر A، L و N فقط یک ورود انجام شود. این محدودیت نباید detection یا drawing raw را حذف کند.
+Define pair-global one-entry scope, first-signal ownership, reservation, and the remaining open consumption decision.
 
-## entitlement flow
+## Scope
+
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- Only one entry across both symbols and all relations in each A/L/N session.
+- Earliest canonical M1 hunt wins.
+- Permanent quota consumption moment is still open.
+
+## Normative Invariants
+
+1. **Quota key is context epoch + trading day + pair + session.**
+2. **Raw signals are never deleted by quota.**
+3. **Winner selection precedes live order attempt.**
+4. **Tie-breaks are technical and versioned.**
+5. **Reservation and permanent consumption are distinct states.**
+
+## Deterministic Procedure
 
 ```text
-Confirmed -> WW aligned -> session identified -> quota available
--> risk/geometry valid -> entitlement consumed -> order attempt
+Collect confirmed eligible candidates for session.
+Sort by first_hunt_m1_time.
+Apply stable tie-breaks.
+Atomically reserve quota for winner.
+Suppress later candidates with reason.
+At configured consumption event, mark CONSUMED; on pre-consumption failure, RELEASE according to policy.
 ```
 
-## session quota key پیشنهادی
+## State and Evidence Requirements
 
-```text
-context_version + trading_day_key + pair_id + session_code
-```
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `quota_key` | context_epoch/trading_day/pair/session. | Required. |
+| `quota_state` | AVAILABLE/RESERVED/CONSUMED/RELEASED. | Closed enum. |
+| `winner_signal_id` | First eligible candidate. | Required after reservation. |
+| `consumption_policy` | Open owner decision. | Live execution disabled if unset. |
 
-این baseline یعنی یک ورود global برای pair در هر session. Scopeهای ممکن دیگر:
+## Edge-Case Catalogue
 
-- per trade symbol
-- per direction
-- per relation
+### Two signals same M1
 
-متن منبع scope دقیق را مشخص نکرده؛ Decision Register باز است.
+Use confirmation close, relation-code order, direction enum, then signal ID as non-strategic tie-breaks.
 
-## consumption moment
+### Winner fails geometry before send
 
-پیشنهاد: quota فقط پس از accepted order/paper fill مصرف شود؛ rejected geometry یا missing quote quota را مصرف نکند. برای جلوگیری از retry duplicate، entitlement event one-shot جداست.
+Reservation release behavior depends on FP-DEC-012 profile.
 
-## concurrency
+### Order rejected by broker
 
-چند signal همزمان باید deterministic priority داشته باشند. هیچ priority owner-confirmed نیست. baseline research: earliest confirmation time، سپس relation registry order فقط به‌عنوان tie-break versioned.
+Permanent consumption remains open policy.
 
-## سطح اختیار این سند
+### WW setup and lower setup compete
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Both share same pair-session quota.
 
-| سطح | معنی |
+## Executable Test Obligations
+
+1. Pair-global competition fixture.
+2. Both-symbol competition fixture.
+3. Same-M1 tie fixture.
+4. Reservation atomicity fixture.
+5. Each candidate remains in ledger.
+
+## Implementation Guidance
+
+- Build quota store as atomic compare-and-set service.
+- Do not hard-code plan/attempt/accepted/fill until owner freezes Q12.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,71 +1,98 @@
 ---
-title: "10 — Taxonomy و Relation Registry هفت‌گانه"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "10 - Signal Taxonomy and Seven-Relation Registry"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 10 — Taxonomy و Relation Registry هفت‌گانه
+# 10 - Signal Taxonomy and Seven-Relation Registry
 
-## Registry canonical
+## Purpose
 
-| relation | reference selector | check selector | scope |
-|---|---|---|---|
-| AL | A همین trading day | L همین trading day | same-day |
-| AN | A همین trading day | N همین trading day | same-day |
-| LN | L همین trading day | N همین trading day | same-day |
-| NA | N روزهای قبل | A روز جاری | cross-day |
-| NL | N روزهای قبل | L روز جاری | cross-day |
-| NN | N روزهای قبل | N روز جاری | cross-day |
-| WW | W قبلی | W جاری | weekly context |
+Define relation codes, selectors, direction, tradeability, priority metadata, and versioned registry behavior.
 
-## descriptor پیشنهادی
+## Scope
 
-```cpp
-struct FPRelationDef {
-  relation_code;
-  reference_window_kind;
-  check_window_kind;
-  reference_scope;
-  max_reference_depth;
-  enable_detection;
-  enable_drawing;
-  enable_execution;
-  color;
-  label;
-};
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- WW is both a gate and a tradeable relation.
+- Calendar-day depth applies only to NA/NL/NN historical N references.
+
+## Normative Invariants
+
+1. **Relation code means reference window first, check window second.**
+2. **Registry order is not strategy priority except as technical tie-break.**
+3. **Every relation has independent enable-detect/draw/execute flags.**
+4. **Direction is separate from relation code.**
+
+## Deterministic Procedure
+
+```text
+Resolve relation descriptor.
+Select reference interval(s).
+Select check interval.
+Run shared divergence detector.
+Apply relation-specific confirmation deadline.
+Emit relation-qualified signal.
 ```
 
-## invariants
+## State and Evidence Requirements
 
-- relation order در registry authority نیست؛ code string authority است.
-- هر relation input مستقل دارد.
-- WW در detector registry است ولی policy role آن می‌تواند `GATE_ONLY` باشد.
-- یک confirmation candle می‌تواند چند relation مستقل تولید کند.
-- buy/sell sideها eventهای جدا هستند.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `relation_code` | AL/AN/LN/NA/NL/NN/WW. | Reject unknown. |
+| `reference_selector` | Versioned selector. | Block absent. |
+| `check_selector` | Versioned selector. | Block absent. |
+| `execution_enabled` | Policy flag. | No order when false. |
 
-## legacy gap
+## Edge-Case Catalogue
 
-FP101 فقط شش relation دارد و `SIGNAL_COUNT=6`. افزودن WW با افزایش array کافی نیست؛ weekly window provider و directional gate لازم است.
+### Disabled execution but enabled detection
 
-## سطح اختیار این سند
+Signal remains detectable and drawable.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### Unknown relation code
 
-| سطح | معنی |
+Fail closed.
+
+### Multiple historical N offsets trigger
+
+Each reference interval produces a distinct signal identity.
+
+## Executable Test Obligations
+
+1. Registry schema closure test.
+2. Relation-code naming test.
+3. Per-relation golden cases.
+
+## Implementation Guidance
+
+- Use generated descriptors rather than switch statements distributed across modules.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

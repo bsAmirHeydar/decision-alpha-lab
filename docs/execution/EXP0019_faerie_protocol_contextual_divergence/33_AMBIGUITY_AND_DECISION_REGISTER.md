@@ -1,51 +1,97 @@
 ---
-title: "33 — Ambiguity و Decision Register"
-tags: [exp0019, faerie-protocol, divergence-context]
-status: decision-register
+title: "33 - Ambiguity and Decision Register"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
+status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 33 — Ambiguity و Decision Register
+# 33 - Ambiguity and Decision Register
 
-## تصمیم‌های باز
+## Purpose
 
-| ID | موضوع | گزینه‌ها | توصیه baseline | Blocking |
-|---|---|---|---|---|
-| FP-DEC-001 | WW boundary | broker W1 / NY trading week | NY trading week | بله برای WW code |
-| FP-DEC-002 | WW tradeability | gate-only / signal+trade | gate-only ابتدا | بله execution WW |
-| FP-DEC-003 | WW no-context | allow both / block all | allow both | بله policy |
-| FP-DEC-004 | WW conflict both sides | block / last-event / both | block and audit | بله policy |
-| FP-DEC-005 | N lookback counting | calendar / available sessions | available sessions | بله selector |
-| FP-DEC-006 | session quota scope | pair / symbol / direction / relation | pair-global | بله execution |
-| FP-DEC-007 | quota consumption | plan / order attempt / fill | accepted fill | بله execution |
-| FP-DEC-008 | boundary-cross confirmation candle | event-time / strict session | event-time ownership | بله confirmation |
-| FP-DEC-009 | suppressed drawing | hide / draw muted / raw mode only | configurable; trading view hide | خیر detection |
-| FP-DEC-010 | historical confirmed invalidation visuals | immutable / remove | immutable (owner-confirmed) | بسته |
-| FP-DEC-011 | repeated same reference stages | allow until protected touch / first-ever only | allow per check window | نیاز تأیید نهایی |
-| FP-DEC-012 | spread adjustment on sell stop | none / add spread | none تا دستور صریح | execution |
+Record the complete decision set, exact option mapping, authority, interpretation, and remaining blockers.
 
-## قاعده
+## Scope
 
-هیچ گزینه پیشنهادی تا owner confirmation به `OWNER_CONFIRMED` ارتقا نمی‌یابد. Code باید decision IDs/version را در config/manifest ثبت کند.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## سطح اختیار این سند
+## Frozen Decisions Applied
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+- Fourteen decisions are owner-confirmed.
+- FP-DEC-012 is the only open decision.
 
-| سطح | معنی |
+## Normative Invariants
+
+1. **No unanswered item is hidden by a default.**
+2. **Derived tie-breaks are not mislabelled as strategy preference.**
+3. **Each decision has implementation and test impact.**
+
+## Deterministic Procedure
+
+```text
+Load owner response.
+Map option letters to archived question text.
+Assign canonical policy.
+Classify authority.
+Update manifest/open-decision contract.
+```
+
+## State and Evidence Requirements
+
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `decision_id` | FP-DEC-001..015. | Required. |
+| `owner_option` | A/B/C/... or UNANSWERED. | Required. |
+| `canonical_policy` | Machine-readable enum. | Required. |
+| `authority` | OWNER_CONFIRMED/OPEN_DECISION. | Required. |
+
+## Edge-Case Catalogue
+
+### Option C in WW lifecycle only defines neutralization
+
+Activation/confirmation use shared candidate-confirmation architecture and are labelled derived.
+
+### Option A no-WW
+
+Applies to valid complete weekly evaluation; incomplete data remains separate.
+
+### Q12 unanswered
+
+Live consumption policy stays unset.
+
+## Executable Test Obligations
+
+1. Decision count equals 15.
+2. Exactly one open decision.
+3. Manifest references decision-set hash.
+4. Traceability links each decision.
+
+## Implementation Guidance
+
+- Use `fp_owner_decisions.v2.json` as machine authority.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,85 +1,112 @@
 ---
-title: "32 — Test Strategy و Golden Cases"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "32 - Test Strategy and Golden Cases"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 32 — Test Strategy و Golden Cases
+# 32 - Test Strategy and Golden Cases
 
-## لایه‌های تست
+## Purpose
 
-1. Time/DST unit tests.
-2. Window/session identity.
-3. M1 aggregation and coverage.
-4. Touch and first sweep.
-5. Reference lifecycle.
-6. Relation matrix.
-7. Closed-candle confirmation.
-8. WW gate.
-9. quota/entitlement.
-10. drawing identity.
-11. risk/geometry.
-12. restart/cache/dedup.
-13. performance/backfill.
+Define unit, contract, integration, replay, negative, differential, performance, and model-checking obligations.
 
-## Golden cases
+## Scope
 
-### G01 AL sell
-A references ready؛ Symbol1 high hunts در L؛ Symbol2 نه؛ close حفظ → SELL, hunter1/protected2.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-### G02 AL transient cancelled
-Symbol1 first hunts؛ قبل از close Symbol2 هم hunts → CANCELLED_BEFORE_CLOSE، no final line.
+## Frozen Decisions Applied
 
-### G03 same candle multi-relation
-AN و LN sell در یک close → دو event ID و دو line.
+- All fourteen frozen decisions require direct tests.
+- Q12 requires tests for each selectable consumption profile but no owner-canonical assertion yet.
 
-### G04 repeated-stage allowed
-N reference؛ hunter در A event؛ protected intact؛ hunter در L event جدید → دو event. سپس protected touch → future NN blocked.
+## Normative Invariants
 
-### G05 missing protected data
-hunter data ready، protected missing → no divergence، `PAIR_DATA_INCOMPLETE`.
+1. **Tests use deterministic fixtures.**
+2. **Live and historical M1 outcomes must match.**
+3. **Suppressed events remain visible and ledgered.**
+4. **Previous divergence contexts must not regress.**
 
-### G06 WW bullish gate
-lower sell confirmed → raw ledger + `SUPPRESSED_BY_WW`؛ lower buy eligible.
+## Deterministic Procedure
 
-### G07 session quota
-دو eligible event در N → deterministic first consumes quota؛ second `SUPPRESSED_BY_QUOTA`.
+```text
+Build synthetic M1 pair streams.
+Generate A/L/N/W windows.
+Exercise relation and policy modules.
+Assert event sequences and hashes.
+Replay after restart.
+Compare outputs.
+```
 
-### G08 object identity next day
-D0 equivalent events دو روز متفاوت → object IDs متفاوت.
+## State and Evidence Requirements
 
-### G09 DST transition
-A/L windows exact across March/November transition.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `fixture_id` | Stable test fixture. | Required. |
+| `expected_event_hash` | Golden output identity. | Review on change. |
+| `decision_ids` | Rules covered. | Coverage matrix. |
+| `mode` | historical/live-replay/paper. | Required. |
 
-### G10 timeframe invariance
-M5/H1 host همان M1 reference/hunt facts را تولید کنند؛ فقط confirmation times متفاوت.
+## Edge-Case Catalogue
 
-## property tests
+### Same-M1 dual touch
 
-- symmetric paired input under symbol swap swaps hunter/protected but keeps direction.
-- both hunt => no divergence.
-- neither hunt => no divergence.
-- identity changes on behavior policy change.
+No ordered first sweep.
 
-## سطح اختیار این سند
+### Confirmation boundary
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Reject close at/after end.
 
-| سطح | معنی |
+### Opposite WW
+
+Newest active wins.
+
+### Calendar weekend
+
+No compressed lookback.
+
+### Two simultaneous setups
+
+Earliest hunt wins, stable tie-break.
+
+### SELL execution
+
+Stop includes one spread and volume recalculates.
+
+## Executable Test Obligations
+
+1. One golden per relation/direction.
+2. One negative per invariant.
+3. Property tests for identity and lifecycle.
+4. Performance benchmark.
+5. Legacy regression tests.
+
+## Implementation Guidance
+
+- Maintain a decision-to-test matrix and refuse code-ready status if any owner decision lacks a test.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

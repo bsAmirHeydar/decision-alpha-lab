@@ -1,59 +1,97 @@
 ---
-title: "14 — قرارداد Reference Field"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "14 - Reference Field Contract"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 14 — قرارداد Reference Field
+# 14 - Reference Field Contract
 
-## reference object
+## Purpose
 
-هر reference برای هر نماد باید شامل این‌ها باشد:
+Define immutable symbol-local reference windows, sides, completeness, freshness, and lineage.
+
+## Scope
+
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- Calendar-day selection and protected-touch consumption are owner-confirmed.
+
+## Normative Invariants
+
+1. **A reference belongs to one symbol and one interval.**
+2. **High and low sides have independent lifecycle state.**
+3. **Reference price is immutable after source window completion.**
+4. **Incomplete source windows cannot produce canonical references.**
+
+## Deterministic Procedure
 
 ```text
-reference_id, context_version, relation_code, window_id,
-symbol, side, high, low, high_time_m1, low_time_m1,
-start_utc, end_utc, coverage_status, source_hash
+Aggregate M1 source interval.
+Validate coverage.
+Freeze high/low with bar provenance.
+Create side lifecycle records.
+Expose read-only reference to detector.
 ```
 
-## aggregation
+## State and Evidence Requirements
 
-- source timeframe canonical = M1.
-- high=max high؛ low=min low در `[start,end)`.
-- exact extreme timestamp ذخیره شود.
-- incomplete coverage status مستقل است.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `reference_id` | Hash of symbol, interval, side, data revision. | Reject collision. |
+| `price` | Symbol-native price. | Reject non-finite. |
+| `source_bar_ids` | M1 provenance. | Block absent. |
+| `coverage_state` | Complete or explicit failure. | No eligible reference otherwise. |
 
-## چرا PERIOD_CURRENT ممنوع است؟
+## Edge-Case Catalogue
 
-H1 bar که 09:00 باز شده، بخشی از L و N را در خود دارد. استفاده از high/low آن برای window 04:00–09:30 boundary leakage ایجاد می‌کند. FP101 به `PERIOD_CURRENT` وابسته است و نتیجه با timeframe چارت عوض می‌شود؛ canonical باید timeframe-invariant باشد.
+### Late historical data repair
 
-## reference pair
+Create new data revision and context epoch; do not silently mutate prior ledger.
 
-دو نماد باید یک logical window identity داشته باشند ولی price fields مستقل‌اند. ready pair فقط وقتی true است که coverage هر دو side معتبر باشد.
+### Equal high/low flat window
 
-## cache
+Valid only if coverage rules pass; touch semantics remain equality.
 
-reference کامل‌شده immutable و content-addressed است. active check range mutable است ولی با sequence/version کنترل می‌شود.
+### Corporate symbol rollover
 
-## سطح اختیار این سند
+New symbol mapping/version required.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+## Executable Test Obligations
 
-| سطح | معنی |
+1. Immutable price test.
+2. Side identity test.
+3. Coverage failure test.
+4. Data revision identity change test.
+
+## Implementation Guidance
+
+- Reuse shared reference store with FP interval providers.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

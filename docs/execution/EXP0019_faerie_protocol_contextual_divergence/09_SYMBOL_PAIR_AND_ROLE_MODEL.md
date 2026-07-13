@@ -1,62 +1,98 @@
 ---
-title: "09 — مدل Symbol Pair و نقش Hunter/Protected"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "09 - Symbol Pair and Role Model"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 09 — مدل Symbol Pair و نقش Hunter/Protected
+# 09 - Symbol Pair and Role Model
 
-## اصل symbol-local
+## Purpose
 
-SPX/NDX یا هر pair دیگر بر اساس سطح قیمت مطلق با هم مقایسه نمی‌شوند. برای یک relation، دو reference هم‌زمان داریم:
+Define two-symbol pair identity, symbol-local references, hunter/protected roles, and trade-symbol selection.
+
+## Scope
+
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- The quota is pair-global across both symbols.
+- The first eligible setup across either symbol wins the session.
+
+## Normative Invariants
+
+1. **Each symbol compares only to its own reference.**
+2. **Hunter is the symbol that touches first; protected is the other symbol while its corresponding side remains untouched.**
+3. **Roles are side- and event-specific.**
+4. **Pair order is canonical for identity but does not imply preferred trading symbol.**
+
+## Deterministic Procedure
 
 ```text
-reference_A_on_symbol1, reference_A_on_symbol2
+Load pair descriptor.
+Build local reference for each symbol.
+Detect first one-sided touch.
+Assign roles.
+Confirm divergence.
+Resolve trade-symbol policy from protected/hunter doctrine.
 ```
 
-هر نماد سطح خودش را hunt می‌کند.
+## State and Evidence Requirements
 
-## نقش‌ها dynamic هستند
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `pair_id` | Canonical sorted or configured pair identity. | Reject duplicate symbols. |
+| `hunter_symbol` | One member of pair. | Block unknown. |
+| `protected_symbol` | The other member. | Block same as hunter. |
+| `side` | HIGH/LOW. | Reject unset. |
 
-- Symbol1 می‌تواند hunter یا protected باشد.
-- Symbol2 می‌تواند hunter یا protected باشد.
-- هیچ leader/follower ثابت وجود ندارد.
+## Edge-Case Catalogue
 
-## high-side
+### Both touch same M1
 
-Exactly one high hunt → bearish/SELL context؛ trade candidate=protected.
+No hunter/protected ordering exists.
 
-## low-side
+### One symbol data missing
 
-Exactly one low hunt → bullish/BUY context؛ trade candidate=protected.
+Pair observation is incomplete.
 
-## paired data readiness
+### Symbols have different point/tick sizes
 
-Signal فقط وقتی `data_ready=true` است که reference/check coverage هر دو نماد معتبر باشد. missing یک نماد نباید به‌عنوان «نزدن سطح» تعبیر شود.
+Normalize comparisons symbol-locally; never compare raw prices across symbols.
 
-## expiry symbols
+## Executable Test Obligations
 
-نمادهای سررسیدی مثل `SP500SEP26`/`NDQ100SEP26` identity مستقل دارند. rollover یا alias mapping باید explicit باشد و eventهای دو قرارداد به‌طور silent به هم متصل نشوند.
+1. Swap display order and prove pair identity policy is stable.
+2. Verify local references are never crossed between symbols.
+3. Verify quota spans both symbols.
 
-## سطح اختیار این سند
+## Implementation Guidance
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+- Keep role assignment in shared divergence result; FP consumes it.
 
-| سطح | معنی |
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

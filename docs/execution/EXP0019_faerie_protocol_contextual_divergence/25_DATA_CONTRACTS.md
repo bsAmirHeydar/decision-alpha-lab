@@ -1,71 +1,102 @@
 ---
-title: "25 — قراردادهای داده"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "25 - Data Contracts"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 25 — قراردادهای داده
+# 25 - Data Contracts
 
-## FPWindow
+## Purpose
 
-```text
-window_id, kind(A/L/N/W), trading_day/week_key,
-start_ny, end_ny_exclusive, start_utc, end_utc,
-state, source_policy_hash
-```
+Define closed schemas for context manifest, windows, references, hunts, signals, WW resolution, quota, drawings, and execution plans.
 
-## FPSymbolRange
+## Scope
 
-```text
-window_id, symbol, coverage_status, high, low,
-high_time_m1, low_time_m1, copied_bars, source_hash
-```
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## FPReferencePair
+## Frozen Decisions Applied
 
-```text
-relation_code, reference_window_id, symbol1_range, symbol2_range,
-side_lifecycle_high, side_lifecycle_low, ready
-```
+- All frozen owner decisions are serialized.
+- Q12 is represented as `UNSET` rather than omitted.
 
-## FPDivergenceEvent
+## Normative Invariants
+
+1. **Unknown fields are rejected in strict mode.**
+2. **Enums are closed.**
+3. **Timestamps include UTC instant and NY identity where needed.**
+4. **Hashes are lowercase SHA-256.**
+
+## Deterministic Procedure
 
 ```text
-event_id, relation, side, direction, hunter, protected,
-reference/check ids, first_sweep_time, confirmation_close,
-status, WW disposition, quota disposition, evidence hashes
+Validate incoming record.
+Normalize enums and numbers.
+Compute canonical hash.
+Persist immutable record.
+Reference by ID downstream.
 ```
 
-## FPTradePlan
+## State and Evidence Requirements
 
-```text
-entitlement_id, event_id, trade_symbol, entry, stop, target,
-risk_percent, risk_money, volume, geometry_status
-```
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `schema_version` | Exact semantic version. | No implicit migration. |
+| `decision_set_id` | Owner decision freeze identity. | Required. |
+| `context_hash` | Canonical manifest hash. | Required. |
+| `data_revision` | Market-data lineage. | Required for replay. |
 
-## closure
+## Edge-Case Catalogue
 
-تمام enumها closed و versioned هستند. unknown fields در schema implementation باید reject شوند، نه ignore.
+### Older v1 manifest
 
-## سطح اختیار این سند
+Migrate explicitly to v2; do not assume defaults.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### Missing Q12 field
 
-| سطح | معنی |
+Treat live execution as disabled.
+
+### Unknown reason code
+
+Reject visual/execution projection.
+
+### Non-finite price
+
+Reject record.
+
+## Executable Test Obligations
+
+1. Schema round-trip tests.
+2. Unknown-property rejection.
+3. Hash stability.
+4. v1-to-v2 migration fixture.
+
+## Implementation Guidance
+
+- Keep examples in `contracts/` and sync with code structs.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

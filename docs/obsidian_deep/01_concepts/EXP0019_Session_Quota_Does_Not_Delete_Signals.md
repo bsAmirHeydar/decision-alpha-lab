@@ -1,24 +1,27 @@
 ---
-title: "EXP0019 Session Quota Does Not Delete Signals"
-tags: [atomic-concept, exp0019, faerie-protocol]
+title: "Session Quota Does Not Delete Signals"
+tags: [exp0019, atomic-concept, faerie-protocol]
 status: canonical
-experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# EXP0019 Session Quota Does Not Delete Signals
+# Session Quota Does Not Delete Signals
 
 ## Definition
 
-یک ورود در هر session یک execution entitlement policy است و detection/drawing audit را حذف نمی‌کند.
+Quota arbitration affects execution entitlement only. Losing candidates remain in the ledger and are always drawn with `SUPPRESSED_BY_QUOTA` styling and a link to the winning signal.
 
-## Consequence
+## Operational Consequence
 
-- در contract به‌صورت explicit field/enum ثبت شود.
-- در identity و test coverage منعکس شود.
-- failure آن به‌عنوان reason-coded evidence باقی بماند.
+- The rule is represented in a closed contract or state transition.
+- The rule is included in identity when it changes signal or execution behavior.
+- At least one golden and one negative test are required.
+- Violations are fail-closed and reason-coded.
 
-## Links
+## Related Documentation
 
-- [[docs/execution/EXP0019_faerie_protocol_contextual_divergence/00_EXP0019_MOC]]
+- [[../../execution/EXP0019_faerie_protocol_contextual_divergence/00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[../../execution/EXP0019_faerie_protocol_contextual_divergence/38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[../../execution/EXP0019_faerie_protocol_contextual_divergence/40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]

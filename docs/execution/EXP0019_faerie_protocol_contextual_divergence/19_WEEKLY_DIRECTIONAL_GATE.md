@@ -1,67 +1,105 @@
 ---
-title: "19 — Weekly Directional Gate"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "19 - Weekly Directional Gate"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 19 — Weekly Directional Gate
+# 19 - Weekly Directional Gate
 
-## رفتار مورد درخواست
+## Purpose
 
-- WW bearish → فقط lower relationهای bearish eligible.
-- WW bullish → فقط lower relationهای bullish eligible.
-- direction مخالف نادیده گرفته/سرکوب می‌شود.
+Resolve the active WW context and apply it to lower-relation execution eligibility without deleting raw signals.
 
-## جایگاه معماری
+## Scope
 
-Gate بعد از confirmation قرار می‌گیرد:
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- No active WW with valid data allows both directions.
+- Newest active confirmed WW wins.
+- Suppressed signals remain visible.
+
+## Normative Invariants
+
+1. **Only CONFIRMED and non-NEUTRALIZED WW events are gate candidates.**
+2. **Recency uses confirmation time then stable tie-breaks.**
+3. **Bullish gate allows bullish lower setups and suppresses bearish; bearish gate does the inverse.**
+4. **WW_DATA_INCOMPLETE is not WW_NONE.**
+
+## Deterministic Procedure
 
 ```text
-confirmed raw FP signal -> weekly gate -> eligible/suppressed disposition
+Load active WW events.
+Discard neutralized/expired.
+Sort by confirmation time descending.
+Select newest active.
+If none and data valid -> ALLOW_BOTH.
+If data incomplete -> block execution with reason.
+Apply gate to lower relation and direct WW setup.
 ```
 
-این ترتیب باعث می‌شود data research همه signalها را ببیند ولی execution policy Owner حفظ شود.
+## State and Evidence Requirements
 
-## states
-
-| WW state | lower BUY | lower SELL |
+| Field / Evidence | Requirement | Failure Behavior |
 |---|---|---|
-| NONE | allow* | allow* |
-| BULLISH_ONLY | allow | suppress |
-| BEARISH_ONLY | suppress | allow |
-| CONFLICT/BOTH | open decision | open decision |
-| MISSING_DATA | fail-closed for trade; record raw | fail-closed for trade; record raw |
+| `active_ww_signal_id` | Selected gate event. | Null only for valid no-context. |
+| `gate_direction` | BULLISH/BEARISH/BOTH/BLOCKED_DATA. | Closed enum. |
+| `resolution_time` | When gate computed. | Audit. |
+| `suppression_reason` | WW_DIRECTION_MISMATCH or data reason. | Required when blocked. |
 
-`*` رفتار NONE هنوز owner-confirmed نیست؛ توصیه allow both.
+## Edge-Case Catalogue
 
-## drawing policy
+### Newest WW neutralizes
 
-دو view قابل پشتیبانی است:
+Recompute from remaining active events.
 
-- `RAW_AUDIT`: همه confirmedها با status WW.
-- `TRADING_VIEW`: فقط alignedها.
+### Opposite WW same confirmation time
 
-Default production drawing باید تصمیم مالک را دنبال کند؛ ledger همیشه کامل است.
+Use first-hunt time then signal ID tie-break.
 
-## سطح اختیار این سند
+### No WW because no asymmetry
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Allow both.
 
-| سطح | معنی |
+### No WW because missing week data
+
+Block execution, draw reason-coded signals.
+
+## Executable Test Obligations
+
+1. No-WW allow-both fixture.
+2. Newest-wins fixture.
+3. Neutralization fallback fixture.
+4. Missing-data fail-closed fixture.
+
+## Implementation Guidance
+
+- Implement resolver as pure function over append-only WW ledger.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

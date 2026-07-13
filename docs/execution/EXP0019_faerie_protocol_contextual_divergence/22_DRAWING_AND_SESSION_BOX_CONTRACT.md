@@ -1,71 +1,102 @@
 ---
-title: "22 — قرارداد Drawing و Session Boxes"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "22 - Drawing and Session-Box Contract"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 22 — قرارداد Drawing و Session Boxes
+# 22 - Drawing and Session-Box Contract
 
-## divergence line
+## Purpose
 
-- فقط یک `OBJ_TREND` ساده به‌عنوان main semantic.
-- روی chart hunter symbol.
-- anchor 1: exact reference extreme timestamp/price hunter.
-- anchor 2: confirmation candle extreme/time hunter؛ high برای sell، low برای buy.
-- label relation code در midpoint.
-- color/width/font configurable.
+Define persistent, reason-coded visual evidence for active, confirmed, neutralized, and suppressed signals.
 
-## simultaneous events
+## Scope
 
-تمام relationها و هر دو جهت که confirmed شوند line مستقل دارند؛ object ID collision ممنوع است.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## immutability
+## Frozen Decisions Applied
 
-confirmed line پس از رسم جابجا یا حذف نمی‌شود مگر operator cleanup صریح. cancelled-before-close line نهایی ندارد.
+- Suppressed signals are always drawn with distinct style.
+- Confirmed drawings remain historical evidence.
 
-## session boxes
+## Normative Invariants
 
-برای هر symbol و trading day:
+1. **Drawing is a projection of ledger state, not state storage.**
+2. **Object names are collision-free and include absolute IDs.**
+3. **Suppression affects color/opacity/line style, not existence.**
+4. **Rebuild is deterministic.**
 
-- A box high/low از M1 A.
-- L box high/low از M1 L.
-- N box high/low از M1 N.
-- active box incremental update؛ complete box freeze.
-- fill color مستقل.
-
-## object names
+## Deterministic Procedure
 
 ```text
-FP19|DIV|<event_id>
-FP19|LBL|<event_id>
-FP19|BOX|<symbol_hash>|<trading_day>|<session>
+Read ledger events.
+Resolve visual state and reason code.
+Build immutable object descriptor.
+Upsert by signal/object ID.
+On reinit, clear managed namespace and rebuild.
 ```
 
-نام Legacy `D0/K1` ممنوع است چون روز بعد collision می‌سازد.
+## State and Evidence Requirements
 
-## chart management
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `object_id` | Hash of context/signal/visual role. | Reject collision. |
+| `visual_state` | RAW/CONFIRMED/SUPPRESSED/NEUTRALIZED/INVALID. | Closed enum. |
+| `reason_code` | Why style differs. | Required for non-active. |
+| `style_id` | Registry key. | Reject unknown. |
 
-Chart discovery/opening یک service جداست. drawing failure signal authority را تغییر نمی‌دهد.
+## Edge-Case Catalogue
 
-## سطح اختیار این سند
+### Same relation across multiple days
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Absolute window IDs prevent collision.
 
-| سطح | معنی |
+### WW neutralized after confirmation
+
+Retain confirmed annotation and overlay neutralized style/status.
+
+### Quota-suppressed setup
+
+Draw with `SUPPRESSED_BY_QUOTA` style.
+
+### Missing data
+
+Draw diagnostic marker only when configured.
+
+## Executable Test Obligations
+
+1. Rebuild parity test.
+2. Collision test across days.
+3. All suppression reasons have styles.
+4. No chart object is treated as business state.
+
+## Implementation Guidance
+
+- Keep drawing adapter read-only against core state.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,57 +1,102 @@
 ---
-title: "03 — دکترین canonical استراتژی"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "03 - Canonical Strategy Doctrine"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 03 — دکترین canonical استراتژی
+# 03 - Canonical Strategy Doctrine
 
-## دکترین‌های ثابت
+## Purpose
 
-1. **واگرایی اختلاف رفتار بین دو بازار مرتبط است؛ نه مقایسه قیمت مطلق دو بازار.**
-2. **هر نماد فقط سطح خودش را hunt می‌کند.**
-3. **Touch/Equality/Cross همگی hunt هستند.**
-4. **Candidate intrabar ممکن است؛ confirmation فقط روی closed candle است.**
-5. **Hunter سطح خودش را زده؛ Protected سطح متناظر خودش را حفظ کرده است.**
-6. **Core detector هیچ دانشی از A/L/N/WW ندارد.**
-7. **Faerie context فقط window، relation، eligibility و gating را تعریف می‌کند.**
-8. **Raw detections حتی اگر WW یا quota آن‌ها را suppress کند باید در ledger بمانند.**
-9. **Reference protected با touch نماد protected برای آینده exhausted می‌شود؛ confirmed history حذف نمی‌شود.**
-10. **Execution از detection و drawing جداست.**
-11. **هر رفتار identity-bearing باید در event ID و config hash حاضر باشد.**
-12. **مفقودی دیتا مساوی no-signal نیست؛ وضعیت مستقل `MISSING_DATA` است.**
+Define the immutable principles that all Faerie Protocol modules must follow.
 
-## سه سطح خروجی
+## Scope
 
-| سطح | خروجی | اجازه معامله |
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- Calendar-day depth, strict same-session confirmation, M1 first-sweep authority, and pair-global first-entry arbitration are owner-confirmed.
+- WW is both a gate and a tradeable setup.
+
+## Normative Invariants
+
+1. **Each symbol hunts only its own reference.**
+2. **Touch, equality, and cross qualify as hunt.**
+3. **Hunter and protected roles are symbol-local facts.**
+4. **Confirmed history is immutable evidence even after later neutralization.**
+5. **Suppression changes eligibility and style, never raw detection existence.**
+6. **Context rules do not alter the shared detector core.**
+
+## Deterministic Procedure
+
+```text
+Observe symbol-local windows.
+Build reference sides.
+Detect one-sided M1 hunt.
+Create candidate.
+Require closed candle inside owning session.
+Confirm or expire.
+Apply WW and quota policies.
+Preserve all outcomes in ledger.
+```
+
+## State and Evidence Requirements
+
+| Field / Evidence | Requirement | Failure Behavior |
 |---|---|---|
-| Observation | range/reference/hunt facts | خیر |
-| Context Signal | confirmed divergence + FP relation | خیر |
-| Trade Entitlement | WW-aligned + quota + risk/geometry pass | فقط در execution profile |
+| `context_epoch_id` | Hash of all behavior-bearing configuration. | Do not mix signals across epochs. |
+| `raw_detection_id` | Identity before policy gates. | Never delete on suppression. |
+| `eligibility_state` | Reason-coded policy result. | Block order if unknown. |
 
-## عدم اختلاط Context و Quality
+## Edge-Case Catalogue
 
-Faerie Protocol در این سند context تعریف می‌کند، نه اینکه ادعا کند هر FP signal edge دارد. ranking، statistics و promotion باید پایین‌دست و مستقل باشند.
+### Both symbols hunt same side in same M1
 
-## سطح اختیار این سند
+No ordered divergence exists; record symmetric touch.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### Protected symbol hunts after confirmation
 
-| سطح | معنی |
+Consume future reference side; preserve confirmed event.
+
+### Current chart timeframe changes
+
+Create a new configuration epoch and signal namespace.
+
+## Executable Test Obligations
+
+1. Prove detector output is unchanged by WW/quota modules.
+2. Prove suppressed raw signals remain queryable.
+3. Prove missing data cannot produce no-signal.
+
+## Implementation Guidance
+
+- Express policy in adapters and registries, not if/else scattered through shared cores.
+- Add compatibility tests before any reuse change.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

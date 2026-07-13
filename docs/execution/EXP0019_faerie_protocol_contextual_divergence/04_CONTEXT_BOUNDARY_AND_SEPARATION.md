@@ -1,78 +1,96 @@
 ---
-title: "04 — مرز Context و جداسازی از واگرایی‌های دیگر"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "04 - Context Boundary and Separation"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 04 — مرز Context و جداسازی از واگرایی‌های دیگر
+# 04 - Context Boundary and Separation
 
-## مسئله
+## Purpose
 
-چند خانواده واگرایی در ریپو وجود دارد: EXP0015 time divergence، EXP0016 STC/SMT، EXP0017 Cycle Group و EXP0018 Daye. اگر A/L/N و WW در core مشترک نوشته شوند، core به یک استراتژی خاص آلوده می‌شود و reuse واقعی از بین می‌رود.
+Define precisely what belongs to the fixed shared divergence cores and what belongs to Faerie Protocol.
 
-## مرز پیشنهادی
+## Scope
+
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- All owner choices are context policies except spread-adjusted SELL stop, which configures shared execution risk behavior through an adapter.
+
+## Normative Invariants
+
+1. **Shared cores remain context-agnostic.**
+2. **Faerie modules may compose but may not duplicate shared services.**
+3. **Context outputs are explicit data contracts.**
+4. **Execution remains downstream of detection.**
+
+## Deterministic Procedure
 
 ```text
-DivergenceCore
-  input: paired symbol-local references + paired observations
-  output: hunter/protected/raw direction
-
-FPContext
-  input: trading day/session/relationship/history/week policy
-  output: eligible reference-check pairs + context tags
-
-FPPolicy
-  input: confirmed FP events + WW + quota
-  output: visible/tradeable/suppressed disposition
+Read shared facts.
+Apply FP window selectors.
+Apply relation rules.
+Apply WW gate.
+Apply arbitration and drawing policies.
+Hand eligible plan to execution adapter.
 ```
 
-## چیزهایی که فقط FP هستند
+## State and Evidence Requirements
 
-- نام و مرز A/L/N.
-- relation registry هفت‌گانه.
-- N historical selector.
-- WW weekly gate.
-- session boxes.
-- one-entry-per-session.
-- FP-specific reference lifecycle interpretation.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `shared_core_version` | Exact compatible version. | Reject incompatible runtime. |
+| `context_policy_version` | FP policy version. | Create new epoch on change. |
+| `adapter_contract_hash` | Hash of mapping rules. | Block silent adapter drift. |
 
-## چیزهایی که مشترک می‌مانند
+## Edge-Case Catalogue
 
-- NY time conversion primitive.
-- symbol-local M1 aggregation.
-- touch hunt predicate.
-- exact-one-symbol asymmetry.
-- closed-candle projection.
-- signal/event ID.
-- ledger/dedup.
-- risk-capped volume.
+### Needed behavior absent in core
 
-## ممنوعیت coupling
+Add a generic capability only if reusable and covered by compatibility tests; otherwise keep it in FP adapter.
 
-- `DivergenceCore` نباید switch روی `AL` یا `NN` داشته باشد.
-- `FPContext` نباید order ارسال کند.
-- `FPExecution` نباید reference دوباره محاسبه کند.
-- visualization نباید authority signal باشد.
+### Legacy FP101 utility duplicates core
 
-## سطح اختیار این سند
+Do not port blindly; map to shared service.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### Policy needs historical audit
 
-| سطح | معنی |
+Store decision version in manifest and signal ID.
+
+## Executable Test Obligations
+
+1. Scan FP modules for forbidden duplicate time/reference/hunt implementations.
+2. Verify shared core imports are one-way.
+3. Verify execution cannot call detection internals mutably.
+
+## Implementation Guidance
+
+- Use interfaces: `ITimeKernel`, `IWindowProvider`, `IReferenceStore`, `IDivergenceDetector`, `IConfirmationProjector`, `ILedger`.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

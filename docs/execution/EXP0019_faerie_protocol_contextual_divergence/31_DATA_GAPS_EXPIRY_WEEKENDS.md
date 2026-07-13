@@ -1,66 +1,103 @@
 ---
-title: "31 — Data Gaps، Expiry و Weekend"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "31 - Data Gaps, Expiry, Weekends, and Calendar-Day Depth"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 31 — Data Gaps، Expiry و Weekend
+# 31 - Data Gaps, Expiry, Weekends, and Calendar-Day Depth
 
-## اصل fail-closed
+## Purpose
 
-No data ≠ not hunted. هر window status دارد:
+Define the consequences of the owner-selected calendar-day lookback and all incomplete-data states.
 
-- READY_COMPLETE
-- PARTIAL_COVERAGE
-- NO_HISTORY
-- SYMBOL_UNAVAILABLE
-- CONTRACT_NOT_LISTED
-- WEEKEND_NO_SESSION
+## Scope
 
-## expiry
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-اگر قرارداد فقط یک روز history دارد، فقط referenceهای معتبر همان محدوده تولید می‌شوند. engine نباید array/index error بدهد و نباید missing را synthetic fill کند.
+## Frozen Decisions Applied
 
-## weekend
+- Weekends and missing days consume lookback offsets.
+- They are not replaced by older valid N sessions.
 
-A Sunday open و weekends broker-specific است. Calendar باید NY policy بسازد؛ series layer گزارش می‌دهد داده واقعی وجود دارد یا نه.
+## Normative Invariants
 
-## lookback counting
+1. **`NO_SIGNAL` requires complete evaluable data.**
+2. **Missing/partial/non-trading offsets are distinct evidence.**
+3. **A missing historical offset cannot create a reference.**
+4. **Data gaps block only affected relations unless a required gate is unavailable.**
 
-هر دو semantics باید صریح باشند:
+## Deterministic Procedure
 
-- calendar depth.
-- available-session count.
+```text
+For each calendar offset, derive expected interval.
+Inspect market calendar/data coverage.
+Classify state.
+Create reference only when complete.
+Record skipped offset.
+Continue to next fixed offset without depth compensation.
+```
 
-نتیجه و event ID بدون mode قابل مقایسه نیست.
+## State and Evidence Requirements
 
-## pair asymmetry in data
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `offset_date` | Exact calendar date. | Required. |
+| `coverage_ratio` | Expected versus observed M1. | Threshold versioned. |
+| `gap_reason` | WEEKEND/HOLIDAY/MISSING/PARTIAL. | Closed enum. |
+| `eligible_reference` | Boolean derived. | False unless complete. |
 
-اگر یک symbol history دارد و دیگری ندارد، relation status `PAIR_DATA_INCOMPLETE` است و هیچ divergence ساخته نمی‌شود.
+## Edge-Case Catalogue
 
-## restart/data revision
+### Lookback=3 across weekend
 
-اگر broker historical bars را اصلاح کرد، source hash تغییر می‌کند؛ cached artifact stale و superseding audit لازم است.
+Offsets remain Friday/Saturday/Sunday or exact date sequence according to current day; no fourth-day replacement.
 
-## سطح اختیار این سند
+### Holiday with no bars
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+Classify NON_TRADING or MISSING per calendar source.
 
-| سطح | معنی |
+### Partial bars
+
+PARTIAL, no reference.
+
+### Weekly data incomplete
+
+WW gate becomes BLOCKED_DATA, not no-context.
+
+## Executable Test Obligations
+
+1. Weekend lookback fixtures.
+2. Holiday fixture.
+3. Partial coverage fixture.
+4. No backfill compensation test.
+
+## Implementation Guidance
+
+- Maintain explicit market-calendar policy; do not infer holiday from absence alone if a calendar source exists.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,70 +1,101 @@
 ---
-title: "08 — تقویم روز معاملاتی و سشن‌های A/L/N"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "08 - Trading Day and Session Calendar"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 08 — تقویم روز معاملاتی و سشن‌های A/L/N
+# 08 - Trading Day and Session Calendar
 
-## روز معاملاتی
+## Purpose
+
+Define the A, L, and N session windows, trading-day ownership, and strict session-close confirmation.
+
+## Scope
+
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- Confirmation must close inside the owning session.
+- One pair-global first entry is allowed in each A/L/N session.
+
+## Normative Invariants
+
+1. **Session intervals are explicit and half-open.**
+2. **A trading day may cross midnight.**
+3. **A candidate never migrates to another session.**
+4. **Session quota key uses the check-session ID.**
+
+## Deterministic Procedure
 
 ```text
-start = 18:00:00 NY
-end_exclusive = 17:00:00 NY next calendar day
-length = 23 wall-clock hours
+Resolve NY timestamp.
+Assign trading-day key.
+Assign session A/L/N.
+Create session interval ID.
+At confirmation close, verify close instant is before session end.
 ```
 
-بازه 17:00 تا 17:59:59 خارج از active field است.
+## State and Evidence Requirements
 
-## سشن‌ها
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `trading_day_key` | NY trading-day identity. | Block if unresolved. |
+| `session_code` | A/L/N. | Reject unknown. |
+| `session_start/end_utc` | Resolved interval. | Block malformed interval. |
+| `confirmation_deadline` | Owning session end. | Expire after deadline. |
 
-| کد | start NY | end exclusive NY | مدت |
-|---|---|---|---:|
-| A | 18:00 | 04:00 روز بعد | 600 دقیقه |
-| L | 04:00 | 09:30 | 330 دقیقه |
-| N | 09:30 | 17:00 | 450 دقیقه |
+## Edge-Case Catalogue
 
-مجموع دقیقاً 1380 دقیقه است؛ overlap و gap ندارند.
+### Hunt at final session minute
 
-## identity
+Eligible only if the resolved confirmation candle closes before session end.
 
-```text
-session_id = hash(context_version, trading_day_key, session_code, start_utc, end_utc)
-```
+### Confirmation closes exactly at boundary
 
-`trading_day_key` باید تاریخ شروع A در New York باشد، نه broker date.
+Belongs to next interval and therefore candidate expires.
 
-## ownership
+### Chart timeframe too large
 
-- bar با open time داخل session لزوماً تمام range session نیست.
-- reference و box از M1 با `[start,end)` ساخته می‌شوند.
-- confirmation candle ممکن است boundary را قطع کند؛ rule آن در سند 18 است.
+Many late hunts will expire by design.
 
-## state
+### Holiday/short session
 
-`UPCOMING -> ACTIVE -> COMPLETE -> ARCHIVED`
+Use configured FP session calendar unless an explicit holiday policy is introduced.
 
-فقط COMPLETE می‌تواند reference same-day باشد. ACTIVE فقط check observation تولید می‌کند.
+## Executable Test Obligations
 
-## سطح اختیار این سند
+1. Boundary tests at start, end-minus-one, and end.
+2. Test overnight A session.
+3. Test strict confirmation with multiple chart timeframes.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+## Implementation Guidance
 
-| سطح | معنی |
+- Session definitions must be versioned inputs rather than constants buried in detector code.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

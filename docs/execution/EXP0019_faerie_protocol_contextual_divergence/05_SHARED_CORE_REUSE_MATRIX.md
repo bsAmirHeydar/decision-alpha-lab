@@ -1,62 +1,97 @@
 ---
-title: "05 — ماتریس reuse هسته‌های قبلی"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "05 - Shared Core Reuse Matrix"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 05 — ماتریس reuse هسته‌های قبلی
+# 05 - Shared Core Reuse Matrix
 
-## اصل
+## Purpose
 
-هسته‌های معتبر قبلی تغییر نمی‌کنند. EXP0019 با adapter و wrapper از آن‌ها استفاده می‌کند. اگر interface فعلی بیش از حد CG-specific باشد، ابتدا compatibility harness نوشته می‌شود و سپس primitive مشترک بدون تغییر رفتار نسخه قبلی استخراج می‌گردد.
+Map each requirement to an existing stable module, an FP adapter, or a new context-specific component.
 
-## ماتریس
+## Scope
 
-| ماژول موجود | قابلیت قابل reuse | وضعیت | FP adapter/new policy |
-|---|---|---|---|
-| `CGT_Time.mqh` | DST دقیق آمریکا: 07:00 UTC شروع و 06:00 UTC پایان؛ trading-day 18→17 | Freeze/Reuse | `FPT_SessionCalendar` روی snapshot آن A/L/N می‌سازد. |
-| `CGR_ReferenceField.mqh` | M1 coverage، high/low و extreme timestamps | Reuse primitive | `FPR_WindowReferenceAdapter` arbitrary window می‌دهد؛ previous-CG enumeration استفاده نمی‌شود. |
-| `CGH_HuntField.mqh` | symbol-local touch predicates و current range | Reuse semantic | `FPH_FirstSweepAdapter` first-touch time و lifecycle را اضافه می‌کند. |
-| `CGD_DivergenceField.mqh` | exact-one-symbol high/low asymmetry، hunter/clean | Reuse semantic | `FPD_ContextProjector` relation metadata را attach می‌کند. |
-| `CGX_ClosedCandle.mqh` | closed-candle materialization | Reuse مستقیم | `FPC_ConfirmationBoundary` مالکیت window/candle را کنترل می‌کند. |
-| `CGX_SignalRegistry.mqh` | one-shot entitlement storage | Reuse pattern | key باید FP absolute identity باشد و day/session quota جداست. |
-| `CGX_VolumeModel.mqh` | risk percent equity، broker min/max/step | Reuse مستقیم | default FP=2%. |
-| `CGX_TargetModelRiskMultiple.mqh` | R-multiple target | Reuse مستقیم | default FP=1R. |
-| `CGX_TradePlanner.mqh` | quote/geometry/plan orchestration | Adapter | stop model جایگزین reference stop می‌شود. |
-| `CGV_Drawing.mqh` | object lifecycle، chart lookup، local-symbol drawing | Reuse primitives | `FPV_RelationLineRenderer` و `FPV_SessionBoxRenderer` جدید. |
-| `CGV_Ledger.mqh` | visual audit ledger pattern | Reuse pattern | FP event/disposition fields افزوده می‌شود. |
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## مواردی که نباید reuse شوند
+## Frozen Decisions Applied
 
-- EXP0017 cycle-group registry و previous-cycle enumeration.
-- STC/M/W signal taxonomy.
-- confirmation-candle stop model فعلی raw execution.
-- D0/K object naming در FP101.
-- timer full-rescan loop.
+- Reuse is mandatory where behavior is already canonical.
+- The FP layer owns calendar-day N selectors, WW recency, strict session-close policy, and first-entry arbitration.
 
-## Compatibility rule
+## Normative Invariants
 
-هر extraction از core قبلی باید golden vectors قبلی EXP0017 را بدون تغییر hash/semantic پاس کند. FP feature نباید به‌صورت patch داخل فایل core قدیمی اضافه شود.
+1. **No duplicated DST logic.**
+2. **No duplicated signal hashing.**
+3. **No duplicated risk sizing formula.**
+4. **All extensions identify owner and test suite.**
 
-## سطح اختیار این سند
+## Deterministic Procedure
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+```text
+Inventory requirement.
+Find stable core capability.
+Assess semantic fit.
+Create adapter if fit is partial.
+Create FP module only when context-specific.
+Add compatibility test.
+```
 
-| سطح | معنی |
+## State and Evidence Requirements
+
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `requirement_id` | Stable FP requirement. | No untracked feature. |
+| `owner_module` | Core or FP module. | Reject dual ownership. |
+| `compatibility_test` | Test proving unchanged behavior. | No merge without test. |
+
+## Edge-Case Catalogue
+
+### Core API is close but not exact
+
+Do not alter semantics through hidden flags; create explicit adapter.
+
+### Core lacks M1 tie state
+
+Extend generically with `SIMULTANEOUS_TOUCH` if reusable.
+
+### Execution spread adjustment
+
+Supply stop transformer to shared risk engine; do not fork lot sizing.
+
+## Executable Test Obligations
+
+1. Verify every requirement has one owner.
+2. Verify all reused cores have compatibility tests.
+3. Verify no circular dependency.
+
+## Implementation Guidance
+
+- Maintain matrix as a code-review checklist and architectural guard.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,55 +1,101 @@
 ---
-title: "18 — Projection به Closed Candle"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "18 - Closed-Candle Projection"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 18 — Projection به Closed Candle
+# 18 - Closed-Candle Projection
 
-## confirmation timeframe
+## Purpose
 
-Timeframe چارت/ورودی فقط boundary confirmation است؛ reference/hunt range با M1 مستقل از آن ساخته می‌شود.
+Specify how M1 candidate facts are projected onto the current chart timeframe without changing M1 ordering.
 
-## projection rule
+## Scope
 
-برای هر raw candidate، اولین closed candle که `candidate_first_seen_time` داخل آن است، confirmation candle است. در close آن، paired state دوباره ارزیابی می‌شود.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## session boundary crossing
+## Frozen Decisions Applied
 
-اگر confirmation candle از end session عبور کند، دو policy ممکن است:
+- Host chart timeframe is owner-confirmed.
+- M1 remains first-sweep authority.
 
-- `EVENT_TIME_OWNERSHIP`: event متعلق به session زمان first sweep است و در close بعدی confirm می‌شود.
-- `STRICT_SESSION_CLOSE`: candle باید داخل session بسته شود.
+## Normative Invariants
 
-Owner فقط candle close را قطعی کرده، نه boundary-cross rule. baseline پیشنهادی `EVENT_TIME_OWNERSHIP` است تا H1 روی 09:30 قابل استفاده باشد؛ تصمیم باید ثبت شود.
+1. **Projection never changes hunt timestamp.**
+2. **Only a fully closed chart candle can confirm.**
+3. **Projection includes exact constituent M1 evidence.**
+4. **Session deadline is checked against candle close.**
 
-## closed-bar source
+## Deterministic Procedure
 
-`CGX_ClosedCandleProvider` برای materialization قابل reuse است، اما candidate state باید از paired M1 field در close گرفته شود.
+```text
+Resolve chart timeframe at init.
+Map candidate time to chart bar.
+Determine first eligible closed bar.
+Collect constituent M1 coverage.
+At close, re-evaluate confirmation predicate.
+```
 
-## restart
+## State and Evidence Requirements
 
-pending candidates باید با deterministic reconstruction از M1 + last processed close بازیابی شوند؛ object existence authority نیست.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `chart_bar_id` | Symbol/timeframe/open time. | Required. |
+| `bar_close_utc` | Actual close instant. | Deadline check. |
+| `constituent_m1_hash` | Coverage lineage. | Block incomplete. |
+| `projection_version` | Mapping algorithm version. | Identity-bearing. |
 
-## سطح اختیار این سند
+## Edge-Case Catalogue
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### Non-divisible broker bar alignment
 
-| سطح | معنی |
+Use actual bar open/close timestamps, not arithmetic assumptions.
+
+### Chart timeframe larger than session remainder
+
+Candidate expires.
+
+### Missing constituent M1
+
+Confirmation data incomplete.
+
+### Chart timeframe changed
+
+New context epoch.
+
+## Executable Test Obligations
+
+1. M5/M15/H1 fixtures.
+2. Boundary-crossing bar fixture.
+3. Missing M1 constituent fixture.
+
+## Implementation Guidance
+
+- Projection is a shared confirmation adapter; FP supplies strict deadline policy.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,60 +1,103 @@
 ---
-title: "37 — Limits، Non-Goals و Governance"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "37 - Limits, Non-Goals, and Governance"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 37 — Limits، Non-Goals و Governance
+# 37 - Limits, Non-Goals, and Governance
 
-## non-goals این فاز
+## Purpose
 
-- کدنویسی EA.
-- ادعای edge آماری.
-- بهینه‌سازی parameters.
-- live trading.
-- ادغام FP با EXP0017 core.
-- بازنویسی هسته‌های تاییدشده.
+Define what this context does not claim and how future policy changes are governed.
 
-## governance
+## Scope
 
-- Context version immutable پس از استفاده در dataset/backtest.
-- rule change → نسخه جدید، نه mutation silent.
-- raw، confirmed، policy-suppressed و traded counts جدا گزارش شوند.
-- drawing outcome authority نیست.
-- open decisions در code comment حل نمی‌شوند؛ در register بسته می‌شوند.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## residual risks
+## Frozen Decisions Applied
 
-- تعریف دقیق W.
-- quota scope.
-- confirmation candle در session boundary.
-- history revision broker.
-- symbol rollover/contract mapping.
-- spread/stop geometry live.
+- Documentation freeze does not prove edge.
+- Only Q12 remains open.
 
-## next action
+## Normative Invariants
 
-مالک Decision Register را مرور و موارد blocking را تأیید می‌کند؛ سپس Phase 01 implementation آغاز می‌شود.
+1. **No market-edge claim.**
+2. **No guarantee of broker parity without data.**
+3. **No direct modification of other context semantics.**
+4. **No silent policy change.**
+5. **No live execution with unset consumption policy.**
 
-## سطح اختیار این سند
+## Deterministic Procedure
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+```text
+Version decision set.
+Version context manifest.
+Run impact analysis.
+Run regression suites.
+Record ADR.
+Release patch with exact file index.
+```
 
-| سطح | معنی |
+## State and Evidence Requirements
+
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `governance_version` | Policy process version. | Required. |
+| `canonical_profile` | Exact manifest. | Required. |
+| `research_profile` | Explicit non-canonical label. | No production confusion. |
+| `change_record` | Reason/impact/tests. | Required. |
+
+## Edge-Case Catalogue
+
+### Owner changes chart-timeframe rule
+
+New decision-set and signal namespace.
+
+### Research override desired
+
+Separate profile; do not call canonical.
+
+### New symbol pair
+
+New pair descriptor and validation.
+
+### New relation
+
+Registry/schema/version update and tests.
+
+## Executable Test Obligations
+
+1. Policy-change identity test.
+2. Cross-context regression.
+3. Production-profile refusal for open decisions.
+
+## Implementation Guidance
+
+- Use ADRs for all behavior changes after v2 freeze.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

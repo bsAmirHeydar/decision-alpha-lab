@@ -1,44 +1,6 @@
 {
-  "context_id": "FP-CONTEXT-001",
-  "context_version": "1.0.0-doc-draft",
-  "symbols": [
-    "SPXUSD",
-    "NDXUSD"
-  ],
-  "trading_day": {
-    "timezone": "America/New_York",
-    "start": "18:00:00",
-    "end_exclusive": "17:00:00"
-  },
-  "sessions": {
-    "A": [
-      "18:00:00",
-      "04:00:00"
-    ],
-    "L": [
-      "04:00:00",
-      "09:30:00"
-    ],
-    "N": [
-      "09:30:00",
-      "17:00:00"
-    ]
-  },
-  "relation_registry": "fp_relation_registry.v1.json",
-  "confirmation_timeframe": "host_chart",
-  "hunt_mode": "touch_or_cross",
-  "risk_percent_equity": 2.0,
-  "reward_r": 1.0,
-  "open_decisions": [
-    "FP-DEC-001",
-    "FP-DEC-002",
-    "FP-DEC-003",
-    "FP-DEC-004",
-    "FP-DEC-005",
-    "FP-DEC-006",
-    "FP-DEC-007",
-    "FP-DEC-008",
-    "FP-DEC-009",
-    "FP-DEC-011"
-  ]
+  "schema_version": "1.0.0",
+  "status": "SUPERSEDED",
+  "superseded_by": "fp_context_manifest.v2.example.json",
+  "note": "This compatibility marker prevents the draft v1 manifest from being mistaken for the frozen contract."
 }

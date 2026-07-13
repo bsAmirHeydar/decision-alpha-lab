@@ -1,69 +1,96 @@
 ---
-title: "02 — استخراج Owner Intent و سلسله‌مراتب حقیقت"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "02 - Source Transcription and Owner Intent"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 02 — استخراج Owner Intent و سلسله‌مراتب حقیقت
+# 02 - Source Transcription and Owner Intent
 
-## هدف
+## Purpose
 
-این سند توضیح می‌دهد چگونه متن محاوره‌ای، کد Legacy و معماری هدف به قرارداد تبدیل می‌شوند بدون اینکه یک رفتار تصادفی Legacy به قانون استراتژی تبدیل شود.
+Separate literal owner statements from architectural interpretations and legacy implementation artifacts.
 
-## سلسله‌مراتب
+## Scope
 
-1. اظهارات صریح مالک در Word و پیام فعلی.
-2. تصمیم‌های قبلی تأییدشده پروژه درباره هسته عمومی واگرایی.
-3. رفتار Legacy که با 1 و 2 تعارض ندارد.
-4. پیشنهاد معماری برای موارد ساکت.
-5. تصمیم باز برای موارد چندمعنا.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## اظهارات قطعی استخراج‌شده
+## Frozen Decisions Applied
 
-- زمان استراتژی New York است و DST باید auto/manual باشد.
-- A=`18:00–03:59:59`، L=`04:00–09:29:59`، N=`09:30–16:59:59`.
-- هانت touch-only است؛ close برای هانت لازم نیست.
-- واگرایی در close کندل timeframe اجراشده تأیید می‌شود.
-- اگر تا close هر دو نماد سطح متناظر را بزنند، آن رابطه در آن کندل واگرایی نیست.
-- entry روی protected/clean symbol است.
-- stop روی reference همان protected symbol است.
-- RR input با default 1 و risk percent equity با default 2 است.
-- در یک کندل چند relation و دو جهت می‌توانند ثبت شوند.
-- confirmed drawing پاک نمی‌شود.
-- WW جهت lower relations را gate می‌کند.
+- The 15-answer response is recorded verbatim in Persian as source evidence.
+- Question 12 remains explicitly unanswered and cannot be promoted to owner-confirmed.
 
-## مواردی که از Legacy وارد canonical نمی‌شوند
+## Normative Invariants
 
-- وابستگی range/reference به timeframe جاری.
-- نام آبجکت بر اساس D0/K1 بدون تاریخ مطلق.
-- مصرف سطح hunter پیش از check window.
-- DST با transition ساعت 02:00 UTC.
-- rescan کامل 100 هفته هر پنج ثانیه.
-- حذف WW و execution.
+1. **A transcription preserves meaning and paragraph order.**
+2. **A paraphrase is labelled as interpretation.**
+3. **Conflicts are visible and linked to decision IDs.**
 
-## قاعده حل تعارض
+## Deterministic Procedure
 
-هرجا Word و Legacy متفاوت‌اند، Legacy به‌عنوان fixture مطالعه می‌شود، نه authority. تعارض در Decision Register ثبت و implementation تا تصمیم نهایی fail-closed می‌ماند.
+```text
+Transcribe source.
+Assign paragraph IDs.
+Classify each statement.
+Map to canonical rule IDs.
+Attach owner-decision overrides.
+```
 
-## سطح اختیار این سند
+## State and Evidence Requirements
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `source_statement_id` | Stable paragraph or answer identifier. | Cannot cite by page alone. |
+| `classification` | owner/source/legacy/derived/open. | Reject unknown classification. |
+| `decision_id` | Link to frozen or open decision. | Leave null only when no decision exists. |
 
-| سطح | معنی |
+## Edge-Case Catalogue
+
+### Ambiguous pronoun or window name
+
+Preserve original text and add a separate interpretation note.
+
+### Option letter without question context
+
+Resolve against the archived questionnaire and record the exact option text.
+
+### Unanswered question
+
+Create an open decision; do not choose on behalf of owner.
+
+## Executable Test Obligations
+
+1. Round-trip all 15 answers to exact question text.
+2. Confirm option-letter mapping.
+3. Confirm Q12 remains open.
+
+## Implementation Guidance
+
+- Retain Persian raw transcript; all normative explanation remains English.
+- Use traceability CSV for machine review.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

@@ -1,66 +1,102 @@
 ---
-title: "16 — Freshness، Consumption و Lifecycle سطح"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "16 - Reference Freshness and Consumption Lifecycle"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 16 — Freshness، Consumption و Lifecycle سطح
+# 16 - Reference Freshness and Consumption Lifecycle
 
-## اصل Owner
+## Purpose
 
-سطح وقتی برای آینده از کار می‌افتد که protected symbol سطح متناظر خودش را hunt کند. confirmed line گذشته حذف نمی‌شود.
+Define when a reference side is eligible, reused, consumed, expired, or superseded.
 
-## دو lifecycle جدا
+## Scope
 
-### Reference-side lifecycle
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
+
+## Frozen Decisions Applied
+
+- Reuse continues until protected-symbol touch.
+- Hunter touch does not globally consume the reference.
+
+## Normative Invariants
+
+1. **Lifecycle is per symbol-reference-side.**
+2. **Confirmed signals survive later consumption.**
+3. **Consumption blocks future candidates only.**
+4. **Expiry and consumption are distinct reasons.**
+
+## Deterministic Procedure
 
 ```text
-UNBUILT -> READY_INTACT -> EXHAUSTED_BY_PROTECTED_TOUCH -> EXPIRED_BY_SCOPE
+Create FRESH side.
+Hunter touches -> HUNTER_SEEN but side remains reusable.
+Protected touches -> CONSUMED_BY_PROTECTED_TOUCH.
+Window policy expires -> EXPIRED.
+Data revision -> SUPERSEDED.
 ```
 
-### Event lifecycle
+## State and Evidence Requirements
 
-```text
-OBSERVING -> RAW_ASYMMETRY -> CONFIRMED
-                         \-> CANCELLED_BEFORE_CLOSE
-CONFIRMED -> ARCHIVED (immutable evidence)
-```
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `lifecycle_state` | FRESH/HUNTER_SEEN/CONSUMED/EXPIRED/SUPERSEDED. | Reject unknown. |
+| `consumed_time` | Protected touch M1 time. | Required when consumed. |
+| `consumed_by_symbol` | Protected symbol. | Must match role. |
+| `side` | HIGH/LOW. | Independent lifecycle. |
 
-## hunter touch مصرف جهانی نیست
+## Edge-Case Catalogue
 
-مطابق توضیح مالک، اگر protected هنوز protected بماند، همان reference در stage دیگری می‌تواند divergence جدید بسازد. بنابراین touch hunter فقط event فعلی را می‌سازد و reference pair را globally exhaust نمی‌کند.
+### Protected touch occurs in later session
 
-## تعارض Legacy
+All future relations using that side become ineligible.
 
-FP101 در `LevelAlreadyBroken` هم hunter و هم protected را قبل از check window بررسی و هرکدام touch شده باشد reference را رد می‌کند. این با repeated-stage interpretation سازگار نیست و canonical نیست.
+### High consumed, low untouched
 
-## side-specificity
+Low remains reusable.
 
-high و low lifecycle مستقل‌اند. touch high protected نباید low reference همان window را خودکار exhaust کند.
+### Multiple hunter events before protected touch
 
-## evidence
+May form distinct relation/check-window signals with distinct IDs.
 
-هر transition باید timestamp، symbol، side، source bar/tick، previous state و reason code داشته باشد.
+### Historical signal rebuild after consumption
 
-## سطح اختیار این سند
+Reconstruct using event time; do not retroactively suppress confirmed history.
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+## Executable Test Obligations
 
-| سطح | معنی |
+1. Cross-stage reuse test.
+2. Protected-touch stop test.
+3. Side independence test.
+4. Historical immutability test.
+
+## Implementation Guidance
+
+- Implement lifecycle as append-only events plus derived current state.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

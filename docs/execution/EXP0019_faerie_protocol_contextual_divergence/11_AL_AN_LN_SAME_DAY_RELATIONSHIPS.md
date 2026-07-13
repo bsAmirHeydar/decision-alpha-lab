@@ -1,56 +1,102 @@
 ---
-title: "11 — روابط Same-Day: AL / AN / LN"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "11 - AL, AN, and LN Same-Day Relationships"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 11 — روابط Same-Day: AL / AN / LN
+# 11 - AL, AN, and LN Same-Day Relationships
 
-## AL
+## Purpose
 
-A(d) باید کامل باشد. L(d) check window است. high/low مرجع برای هر نماد از A ساخته می‌شود و first touchها در L بررسی می‌شوند.
+Specify same-trading-day reference-to-check relations and their deadlines.
 
-## AN
+## Scope
 
-A(d) reference و N(d) check است. huntهای رخ‌داده در L به‌خودی‌خود AN نیستند، اما روی freshness سطح اثر دارند؛ policy مصرف باید event timeline را ببیند.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## LN
+## Frozen Decisions Applied
 
-L(d) reference و N(d) check است.
+- Strict same-session close applies to L and N check sessions.
+- M1 is first-sweep authority.
 
-## نکته حیاتی chronology
+## Normative Invariants
 
-برای AN، اگر protected level A در L touch شده باشد، A دیگر برای N protected نیست. پس AN eligibility فقط با snapshot ساده A/N قابل تعیین نیست؛ lifecycle بین `A.end` و `N.start` باید audit شود.
+1. **AL uses completed/current A reference and L check.**
+2. **AN uses A reference and N check.**
+3. **LN uses L reference and N check.**
+4. **References are symbol-local.**
+5. **Confirmation cannot close after check-session end.**
 
-## candidate key
+## Deterministic Procedure
 
 ```text
-trading_day + relation + reference_session_id + check_session_id + side + hunter + protected
+Build reference at source-window completion.
+Observe M1 in check window.
+Create one-sided candidate.
+Project to host chart timeframe.
+Confirm before check end or expire.
 ```
 
-## simultaneous relations
+## State and Evidence Requirements
 
-N می‌تواند هم AN و هم LN و هم NN/NA/NL بسازد. core هیچ relation را به‌دلیل relation دیگر حذف نمی‌کند؛ WW/quota بعداً disposition می‌دهند.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `reference_window_id` | Same trading-day source interval. | Block absent. |
+| `check_window_id` | Same trading-day target interval. | Block absent. |
+| `candidate_first_hunt_m1` | Earliest one-sided touch. | No tick override. |
+| `confirmation_close` | Host chart close inside session. | Expire otherwise. |
 
-## سطح اختیار این سند
+## Edge-Case Catalogue
 
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
+### A reference incomplete at L open
 
-| سطح | معنی |
+Mark relation `REFERENCE_INCOMPLETE`.
+
+### Both symbols hunt in same M1
+
+Symmetric touch; no divergence candidate.
+
+### Second symbol hunts before confirmation
+
+Cancel candidate.
+
+### Second symbol hunts after confirmation
+
+Preserve signal; consume future side state per lifecycle.
+
+## Executable Test Obligations
+
+1. Golden bullish and bearish case for each relation.
+2. Same-minute symmetric touch case.
+3. Boundary-close rejection case.
+
+## Implementation Guidance
+
+- Share one generic relation evaluator parameterized by registry descriptor.
+
+
+## Authority Classification
+
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]

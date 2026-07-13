@@ -1,107 +1,107 @@
 ---
-title: "34 — نقشه پیاده‌سازی مرحله‌ای"
-tags: [exp0019, faerie-protocol, divergence-context]
+title: "34 - Implementation Roadmap"
+tags: [exp0019, faerie-protocol, contextual-divergence, obsidian]
 status: normative
 experiment: EXP0019
 context_id: FP-CONTEXT-001
-doc_version: 1.0.0
+context_version: 2.0.0-doc-freeze
+doc_version: 2.0.0
 last_updated: 2026-07-13
+language: en
 ---
-# 34 — نقشه پیاده‌سازی مرحله‌ای
+# 34 - Implementation Roadmap
 
-## Phase 00 — Doctrine Freeze
+## Purpose
 
-- تصمیم‌های blocking را ببند.
-- relation registry/config schema freeze.
-- source traceability sign-off.
+Provide a phase-by-phase implementation sequence that protects shared cores and closes evidence before execution.
 
-## Phase 01 — Compatibility Harness
+## Scope
 
-- golden vectors CGT/CGR/CGH/CGD/CGX.
-- ثابت‌بودن هسته‌های EXP0017.
+This document defines the Faerie Protocol context-layer behavior for its subject. It does not modify the stable intermarket divergence core. The shared core continues to own symbol-local references, touch/hunt facts, hunter/protected roles, closed-candle confirmation primitives, signal identity, deduplication, and ledger mechanics.
 
-## Phase 02 — FP Types and Registry
+## Frozen Decisions Applied
 
-- window/relation/event/lifecycle types.
-- seven descriptors.
+- Detection/drawing can proceed now.
+- Live execution completion waits on FP-DEC-012.
 
-## Phase 03 — Time and Session Calendar
+## Normative Invariants
 
-- exact NY conversion.
-- A/L/N identities and tests.
+1. **Each phase has contracts, code, tests, docs, and handoff.**
+2. **Shared-core compatibility precedes FP adapter integration.**
+3. **No monolithic EA rewrite.**
+4. **Diagnostics precede trading.**
 
-## Phase 04 — Window Range and References
+## Deterministic Procedure
 
-- M1 aggregator adapter.
-- same-day/cross-day selectors.
-- data gap statuses.
+```text
+Phase 0 compatibility harness.
+Phase 1 types/contracts/manifest.
+Phase 2 time/session/windows.
+Phase 3 references and relation registry.
+Phase 4 detection/candidates/confirmation.
+Phase 5 WW gate/setup.
+Phase 6 drawing/ledger.
+Phase 7 quota arbitration.
+Phase 8 risk/paper execution.
+Phase 9 live execution after Q12 freeze.
+```
 
-## Phase 05 — Hunt and Lifecycle
+## State and Evidence Requirements
 
-- first sweep.
-- protected-only exhaustion.
-- repeated-stage tests.
+| Field / Evidence | Requirement | Failure Behavior |
+|---|---|---|
+| `phase_id` | Stable implementation phase. | Required. |
+| `entry_gate` | Tests/evidence required. | Block if unmet. |
+| `exit_artifacts` | Code/docs/tests/manifest. | Required. |
+| `rollback_boundary` | Files/state to revert. | Required. |
 
-## Phase 06 — Divergence and Confirmation
+## Edge-Case Catalogue
 
-- raw candidates.
-- close projection.
-- cancellation-before-close.
+### Core regression appears
 
-## Phase 07 — WW
+Stop and fix before advancing.
 
-- weekly provider.
-- weekly raw divergence.
-- direction gate.
+### Data coverage incomplete
 
-## Phase 08 — Ledger and Identity
+Continue diagnostics; block execution.
 
-- absolute IDs.
-- persistence/restart.
-- dedup layers.
+### Q12 still open
 
-## Phase 09 — Visuals
+Ship non-live profile only.
 
-- hunter relation line.
-- labels and boxes.
-- multi-chart service.
+### MetaEditor unavailable
 
-## Phase 10 — Backfill/Performance
+Record static validation separately.
 
-- cache.
-- 100-week benchmark.
-- incremental scheduler.
+## Executable Test Obligations
 
-## Phase 11 — Paper Execution
+1. Phase-level test counts.
+2. Golden end-to-end replay.
+3. Paper execution simulation.
+4. Live profile refuses unset quota policy.
 
-- protected reference stop.
-- 1R default, 2% default.
-- session quota.
+## Implementation Guidance
 
-## Phase 12 — Live Gate
+- Commit each phase independently and stage only indexed files.
 
-- broker geometry.
-- recovery.
-- explicit operator authorization.
 
-هر phase patch مستقل، testable و rollbackable است.
+## Authority Classification
 
-## سطح اختیار این سند
-
-این سند چهار سطح حقیقت را از هم جدا می‌کند:
-
-| سطح | معنی |
+| Classification | Meaning |
 |---|---|
-| `OWNER_CONFIRMED` | در فایل Word یا درخواست صریح مالک آمده است. |
-| `LEGACY_IMPLEMENTED` | در `FP 101.mq5` وجود دارد، حتی اگر قرارداد نهایی نباشد. |
-| `ARCHITECTURAL_DERIVATION` | برای ماژولارکردن و حفظ هسته‌های مشترک از منبع استنتاج شده است. |
-| `OPEN_DECISION` | قبل از کدنویسی نهایی نیازمند تصمیم مالک است. |
+| `OWNER_CONFIRMED` | Explicitly selected by the owner in the 15-question decision response. |
+| `SOURCE_CONFIRMED` | Directly present in the original Faerie Protocol source package or owner narrative. |
+| `ARCHITECTURAL_DERIVATION` | Required to make the confirmed behavior deterministic, modular, testable, or compatible with shared cores. |
+| `LEGACY_OBSERVATION` | Behavior observed in `FP 101.mq5`; not automatically canonical. |
+| `OPEN_DECISION` | Must not be silently hard-coded. |
 
-قاعده: رفتار Legacy فقط وقتی canonical است که با Owner Intent و قرارداد این پکیج تعارض نداشته باشد.
+Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
-## ناوبری
 
-- [[00_EXP0019_MOC|MOC اصلی EXP0019]]
-- [[33_AMBIGUITY_AND_DECISION_REGISTER|ثبت ابهام‌ها و تصمیم‌ها]]
-- [[34_IMPLEMENTATION_ROADMAP|نقشه پیاده‌سازی]]
-- [[35_HANDOFF_TO_CODE|تحویل به کدنویسی]]
+## Navigation
+
+- [[00_EXP0019_MOC|EXP0019 Master MOC]]
+- [[38_OWNER_DECISION_FREEZE_V2|Owner Decision Freeze v2]]
+- [[33_AMBIGUITY_AND_DECISION_REGISTER|Decision Register]]
+- [[40_NORMATIVE_ALGORITHM_SPECIFICATION|Normative Algorithm Specification]]
+- [[44_ACCEPTANCE_GATE_FOR_CODING|Acceptance Gate for Coding]]
