@@ -1,0 +1,5 @@
+rules:
+  - {profile: P3, requires: [path_replay, trail_runtime]}
+  - {profile: P5, entry: E2, requires: [confirmatory_trigger]}
+  - {entry: E3, requires: [fill_model, expiry_policy, non_fill_label]}
+  - {entry: E1, requires: [slippage_model, false_break_label]}

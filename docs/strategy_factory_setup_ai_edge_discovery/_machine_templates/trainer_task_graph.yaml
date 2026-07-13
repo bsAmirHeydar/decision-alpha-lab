@@ -1,0 +1,7 @@
+tasks:
+  eligibility: {type: binary, output: trade_skip_probability}
+  fill: {type: survival_or_binary, output: fill_before_expiry}
+  outcome: {type: quantile_regression, outputs: [net_r_q10, net_r_q50, net_r_q90, mae, mfe]}
+  ranking: {type: grouped_ranking, group_key: opportunity_cluster_id, include_skip: true}
+  novelty: {type: novelty, fallback: manual_or_skip}
+composition: {upstream_predictions: out_of_fold_only}

@@ -1,0 +1,12 @@
+mandatory:
+  - known_time_and_future_perturbation
+  - purged_nested_walk_forward
+  - complete_selection_universe
+  - multiplicity_and_deflated_performance
+  - pbo_cscv
+  - matched_nulls
+  - parameter_and_treatment_stability
+  - cost_delay_fill_stress
+  - best_cluster_removal
+  - prospective_challenge
+hard_vetoes: [leakage, incomplete_universe, non_reproducible, parity_failure, unsafe_execution]

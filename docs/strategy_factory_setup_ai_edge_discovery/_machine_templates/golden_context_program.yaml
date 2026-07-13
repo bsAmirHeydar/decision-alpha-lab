@@ -1,0 +1,7 @@
+program_id: SAED_EXP0017_F2_V1
+context: {id: EXP0017_F2, version: exact}
+payoff_profiles: [P1, P2, P3, P4, P5]
+entry_mechanisms: [E1, E2, E3]
+manual_baseline: required
+skip_candidate: required
+first_stage_policy: isolate_entry_effect_with_controlled_stop_exit

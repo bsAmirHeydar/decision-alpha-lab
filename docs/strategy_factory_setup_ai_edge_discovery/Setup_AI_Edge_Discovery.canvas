@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "text",
+      "text": "Immutable Context Package",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "n2",
+      "type": "text",
+      "text": "Style + Entry + Trigger Registries",
+      "x": 330,
+      "y": 0,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "n3",
+      "type": "text",
+      "text": "Treatment Universe Compiler",
+      "x": 700,
+      "y": 0,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "n4",
+      "type": "text",
+      "text": "Outcome Cube + Dataset",
+      "x": 1050,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "n5",
+      "type": "text",
+      "text": "Trainer Task Graph",
+      "x": 1380,
+      "y": 0,
+      "width": 250,
+      "height": 100
+    },
+    {
+      "id": "n6",
+      "type": "text",
+      "text": "Experiment + Anti-Overfit Gate",
+      "x": 1700,
+      "y": 0,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "n7",
+      "type": "text",
+      "text": "Manual / AI / Hybrid Policy",
+      "x": 2070,
+      "y": 0,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "n8",
+      "type": "text",
+      "text": "Runtime \u2192 Portfolio \u2192 Production",
+      "x": 2420,
+      "y": 0,
+      "width": 300,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "n1",
+      "fromSide": "right",
+      "toNode": "n2",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "n2",
+      "fromSide": "right",
+      "toNode": "n3",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "n3",
+      "fromSide": "right",
+      "toNode": "n4",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "n4",
+      "fromSide": "right",
+      "toNode": "n5",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "n5",
+      "fromSide": "right",
+      "toNode": "n6",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "n6",
+      "fromSide": "right",
+      "toNode": "n7",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "n7",
+      "fromSide": "right",
+      "toNode": "n8",
+      "toSide": "left"
+    }
+  ]
+}

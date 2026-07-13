@@ -1,0 +1,6 @@
+objectives:
+  P1: {primary: calibrated_hit_rate_lcb, constraints: [net_reward_r_gte_1, tail_limit, capital_time_limit]}
+  P2: {primary: robust_convex_utility, constraints: [tail_stability, drawdown_limit]}
+  P3: {primary: right_tail_capture, constraints: [path_replay_certified, giveback_limit]}
+  P4: {primary: trend_capture, constraints: [regime_stability, time_underwater_limit]}
+  P5: {primary: calibrated_hit_rate_lcb, constraints: [net_reward_r_gte_1, execution_stress_pass]}

@@ -1,0 +1,13 @@
+{
+  "patch_id": "SETUP-AI-EDGE-DISCOVERY-ARCH-V1",
+  "version": "1.0.0",
+  "created": "2026-07-13",
+  "purpose": "Obsidian architecture and templates for context-conditioned Setup/Treatment learning and anti-overfit edge discovery.",
+  "base_compatibility": "UCEE I01-I18 / V3 schemas and packages",
+  "files": 124,
+  "markdown_files": 89,
+  "machine_templates": 8,
+  "core_code_changes": false,
+  "qa_status": "pass",
+  "entrypoint": "docs/strategy_factory_setup_ai_edge_discovery/00_START_HERE/00_Home.md"
+}

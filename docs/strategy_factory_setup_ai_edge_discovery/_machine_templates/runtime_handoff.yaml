@@ -1,0 +1,11 @@
+generation_id: content_hash
+requires:
+  - context_package_hash
+  - feature_schema_and_order_hash
+  - preprocessing_hash
+  - model_and_calibration_hash
+  - treatment_registry_hash
+  - policy_graph_and_fallback_hash
+  - parity_certificate_hash
+  - monitoring_contract_hash
+order_authority: false

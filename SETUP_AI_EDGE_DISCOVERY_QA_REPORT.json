@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "version": "1.0.0",
+  "markdown_files": 89,
+  "machine_templates": 8,
+  "canvas_files": 1,
+  "frontmatter_failures": [],
+  "unresolved_internal_wikilinks": [],
+  "checks": {
+    "frontmatter_and_h1": "pass",
+    "internal_wikilinks": "pass",
+    "ucee_contract_crosswalk": "documented",
+    "core_code_modified": false,
+    "language": "English canonical + Persian executive overview"
+  }
+}

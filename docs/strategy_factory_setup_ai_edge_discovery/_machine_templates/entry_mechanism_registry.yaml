@@ -1,0 +1,5 @@
+registry_id: entry_mechanism_registry_v1
+entries:
+  - {id: E1, name: breakout_stop, premium: confirmation}
+  - {id: E2, name: immediate_market, premium: immediacy}
+  - {id: E3, name: pullback_limit, premium: price_improvement}
