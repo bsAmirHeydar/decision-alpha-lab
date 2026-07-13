@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_quota_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "consumption_event_id": {
+      "type": "string"
+    },
+    "key": {
+      "$ref": "fp_i02_quota_key.schema.json"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "release_event_id": {
+      "type": "string"
+    },
+    "reservation_event_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "AVAILABLE",
+        "RESERVED",
+        "CONSUMED",
+        "RELEASED"
+      ]
+    },
+    "winner_first_hunt_m1_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "winner_signal_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "state",
+    "winner_signal_id",
+    "winner_first_hunt_m1_utc_ms",
+    "reservation_event_id",
+    "consumption_event_id",
+    "release_event_id",
+    "reason_code"
+  ],
+  "title": "fp_i02_quota_record",
+  "type": "object"
+}

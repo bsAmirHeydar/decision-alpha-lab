@@ -1,0 +1,23 @@
+{
+  "context_id": "FP-CONTEXT-001",
+  "context_version": "1.0.0",
+  "created_utc_ms": 1782000000000,
+  "decision_set_id": "FP-OWNER-DECISIONS-2026-07-13-V2",
+  "dependency_snapshot_hash": "840411f6f286f14e290b036f4cf032957370fba0a7953603d4950174bab3fe35",
+  "execution_authority": "NONE",
+  "open_decision_ids": [
+    "FP-DEC-012"
+  ],
+  "pair": {
+    "pair_version": "1.0.0",
+    "primary_symbol": "SPXUSD",
+    "secondary_symbol": "NDXUSD"
+  },
+  "profile": "CANONICAL_RESEARCH",
+  "projection_config_hash": "4418532d3494c84ab8efe03184f182aca34586da4f14d4622725987e94a43e7f",
+  "reason_registry_hash": "fac3e8c30fae934a28a3e26d1a76d739d5103731924c38a8562b4e441c24a285",
+  "relation_registry_hash": "c95d06441e986b7e888d4db0764c4edefb4bef3fd9a56a52364dcaa3b6c41eb0",
+  "resolved_confirmation_timeframe_seconds": 3600,
+  "schema_version": "1.0.0",
+  "semantic_config_hash": "4d2b65509859262f44326b3b2f68eebc9a1828a84f26b27c1459f04411ae3a09"
+}

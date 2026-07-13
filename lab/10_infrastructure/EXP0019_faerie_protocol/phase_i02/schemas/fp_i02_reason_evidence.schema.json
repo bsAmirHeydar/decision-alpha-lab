@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_reason_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "details": {
+      "type": "object"
+    },
+    "observed_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "parent_event_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "subject_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "reason_code",
+    "subject_id",
+    "observed_utc_ms",
+    "details",
+    "parent_event_id"
+  ],
+  "title": "fp_i02_reason_evidence",
+  "type": "object"
+}

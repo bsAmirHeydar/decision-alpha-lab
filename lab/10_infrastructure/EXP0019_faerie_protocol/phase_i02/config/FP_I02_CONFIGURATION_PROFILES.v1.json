@@ -1,0 +1,119 @@
+{
+  "adapter_snapshot_hash": "840411f6f286f14e290b036f4cf032957370fba0a7953603d4950174bab3fe35",
+  "config_file_hash": "b9f718ee910b14fd48eb30cac9d2263a5f95308d4a7b679503b333659e9b328a",
+  "default_profile": "CANONICAL_RESEARCH",
+  "phase_id": "FP-I02",
+  "profiles": {
+    "CANONICAL_LIVE": {
+      "execution_authority": "BLOCKED_UNTIL_FP_DEC_012",
+      "required_decisions": [
+        "FP-DEC-012"
+      ]
+    },
+    "CANONICAL_PAPER": {
+      "execution_authority": "PAPER_ONLY",
+      "open_decisions": [
+        "FP-DEC-012"
+      ],
+      "quota_consumption_policy": "UNSET"
+    },
+    "CANONICAL_RESEARCH": {
+      "execution_authority": "NONE",
+      "open_decisions": [
+        "FP-DEC-012"
+      ],
+      "operational": {
+        "checkpoint_enabled": true,
+        "diagnostic_level": "NORMAL",
+        "max_history_calendar_days": 130,
+        "max_objects_per_chart": 3000,
+        "schema_version": "1.0.0",
+        "timer_interval_ms": 1000
+      },
+      "projection": {
+        "active_opacity": 255,
+        "label_font_size": 9,
+        "line_width": 1,
+        "palette": {
+          "bearish": "#EF4444",
+          "bullish": "#22C55E",
+          "neutral": "#94A3B8",
+          "warning": "#F59E0B"
+        },
+        "schema_version": "1.0.0",
+        "show_candidate_lines": true,
+        "show_confirmed_signals": true,
+        "show_health_panel": true,
+        "show_hunt_markers": true,
+        "show_reference_levels": true,
+        "show_session_boxes": true,
+        "show_ww_context": true,
+        "style_registry_version": "2.0.0",
+        "suppressed_drawing_policy": "ALWAYS_DRAW_WITH_DISTINCT_STYLE",
+        "suppressed_opacity": 120
+      },
+      "quota_consumption_policy": "UNSET",
+      "semantic": {
+        "adapter_snapshot_hash": "840411f6f286f14e290b036f4cf032957370fba0a7953603d4950174bab3fe35",
+        "confirmation_deadline_policy": "STRICT_SAME_SESSION_CLOSE",
+        "confirmation_timeframe_source": "HOST_CHART",
+        "decision_set_id": "FP-OWNER-DECISIONS-2026-07-13-V2",
+        "enabled_relations": [
+          "AL",
+          "AN",
+          "LN",
+          "NA",
+          "NL",
+          "NN",
+          "WW"
+        ],
+        "first_sweep_authority": "M1_ONLY",
+        "historical_n_depth": 13,
+        "interval_semantics": "HALF_OPEN",
+        "lookback_policy": "CALENDAR_DAY_DEPTH",
+        "no_active_ww_policy": "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW",
+        "pair": {
+          "pair_version": "1.0.0",
+          "primary_symbol": "SPXUSD",
+          "secondary_symbol": "NDXUSD"
+        },
+        "quota_consumption_policy": "UNSET",
+        "quota_scope": "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION",
+        "quota_winner_policy": "EARLIEST_HUNT_M1_TIME_WINS",
+        "reason_registry_version": "1.0.0",
+        "reference_reuse_policy": "ALLOW_UNTIL_PROTECTED_TOUCH",
+        "relation_registry_version": "2.0.0",
+        "replace_missing_offsets": false,
+        "resolved_confirmation_timeframe_seconds": 3600,
+        "risk_uses_adjusted_stop": true,
+        "schema_version": "1.0.0",
+        "sell_stop_policy": "SELL_STOP_PLUS_ONE_SPREAD",
+        "session_a": [
+          "18:00:00",
+          "04:00:00"
+        ],
+        "session_l": [
+          "04:00:00",
+          "09:30:00"
+        ],
+        "session_n": [
+          "09:30:00",
+          "17:00:00"
+        ],
+        "source_data_revision": "FIXTURE-DATA-REV-001",
+        "timezone": "America/New_York",
+        "trading_day_end_exclusive": "17:00:00",
+        "trading_day_start": "18:00:00",
+        "week_boundary_policy": "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700",
+        "ww_neutralization_policy": "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH",
+        "ww_resolution_policy": "NEWEST_ACTIVE_CONFIRMED_WW_WINS",
+        "ww_tradeability_policy": "WW_GATE_AND_TRADEABLE_SETUP"
+      }
+    },
+    "NON_CANONICAL_EXPERIMENT": {
+      "execution_authority": "NONE",
+      "must_emit_reason": "FP_RC_NON_CANONICAL_PROFILE"
+    }
+  },
+  "schema_version": "1.0.0"
+}

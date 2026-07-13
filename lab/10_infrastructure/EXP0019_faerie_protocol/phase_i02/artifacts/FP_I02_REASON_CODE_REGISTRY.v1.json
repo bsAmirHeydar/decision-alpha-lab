@@ -1,0 +1,324 @@
+{
+  "closed": true,
+  "reason_count": 35,
+  "reasons": [
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_CANCELLED_BY_SECOND_TOUCH",
+      "default_visual_treatment": "cancelled style",
+      "execution_blocking": true,
+      "meaning": "Protected symbol touched before confirmation",
+      "severity": "WARNING",
+      "terminal": true
+    },
+    {
+      "category": "DEPENDENCY",
+      "code": "FP_RC_CHECKPOINT_VERSION_MISMATCH",
+      "default_visual_treatment": "warning diagnostic",
+      "execution_blocking": true,
+      "meaning": "Checkpoint version is incompatible",
+      "severity": "WARNING",
+      "terminal": true
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_CONFIRMATION_DEADLINE_MISSED",
+      "default_visual_treatment": "expired style",
+      "execution_blocking": true,
+      "meaning": "Confirmation candle closed outside owning session",
+      "severity": "WARNING",
+      "terminal": true
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_RC_CONFIRMED_ACTIVE",
+      "default_visual_treatment": "solid/high opacity",
+      "execution_blocking": false,
+      "meaning": "Normal confirmed signal",
+      "severity": "INFO",
+      "terminal": false
+    },
+    {
+      "category": "DEPENDENCY",
+      "code": "FP_RC_DEPENDENCY_HASH_MISMATCH",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Pinned shared-core hash differs",
+      "severity": "CRITICAL",
+      "terminal": true
+    },
+    {
+      "category": "IDENTITY",
+      "code": "FP_RC_DUPLICATE_EVENT_DEDUPED",
+      "default_visual_treatment": "none",
+      "execution_blocking": false,
+      "meaning": "Exact duplicate event was deduplicated",
+      "severity": "INFO",
+      "terminal": false
+    },
+    {
+      "category": "EXECUTION",
+      "code": "FP_RC_GEOMETRY_INVALID",
+      "default_visual_treatment": "execution warning",
+      "execution_blocking": true,
+      "meaning": "Broker/local stop geometry invalid",
+      "severity": "ERROR",
+      "terminal": false
+    },
+    {
+      "category": "IDENTITY",
+      "code": "FP_RC_IDENTITY_CONFLICT",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Same ID maps to conflicting payload",
+      "severity": "CRITICAL",
+      "terminal": true
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_ILLEGAL_TRANSITION",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "State transition is not permitted",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_INVALID_CONFIG",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Configuration contract is invalid",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "IDENTITY",
+      "code": "FP_RC_INVALID_IDENTIFIER",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Invalid canonical identifier",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_INVALID_SEMVER",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Invalid semantic version",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "IDENTITY",
+      "code": "FP_RC_INVALID_SHA256",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Invalid SHA-256 field",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "GOVERNANCE",
+      "code": "FP_RC_LIVE_AUTHORITY_FORBIDDEN",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "This phase has no live authority",
+      "severity": "CRITICAL",
+      "terminal": true
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_NONFINITE_NUMBER",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "NaN or infinity is forbidden",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_NON_CANONICAL_PROFILE",
+      "default_visual_treatment": "distinct banner/style",
+      "execution_blocking": false,
+      "meaning": "Research override active",
+      "severity": "WARNING",
+      "terminal": false
+    },
+    {
+      "category": "GOVERNANCE",
+      "code": "FP_RC_OPEN_DECISION_BLOCKS_LIVE",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Open owner decision blocks live authority",
+      "severity": "CRITICAL",
+      "terminal": false
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_RC_PROJECTION_ONLY_CHANGE",
+      "default_visual_treatment": "none",
+      "execution_blocking": false,
+      "meaning": "Projection changed without semantic identity change",
+      "severity": "INFO",
+      "terminal": false
+    },
+    {
+      "category": "GOVERNANCE",
+      "code": "FP_RC_QUOTA_POLICY_UNSET",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Live execution disabled pending FP-DEC-012",
+      "severity": "CRITICAL",
+      "terminal": false
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_RC_READY",
+      "default_visual_treatment": "none",
+      "execution_blocking": false,
+      "meaning": "Kernel and contracts are ready",
+      "severity": "INFO",
+      "terminal": false
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_REFERENCE_CONSUMED",
+      "default_visual_treatment": "muted unavailable",
+      "execution_blocking": true,
+      "meaning": "Protected side previously touched",
+      "severity": "INFO",
+      "terminal": true
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_REFERENCE_INCOMPLETE",
+      "default_visual_treatment": "warning diagnostic",
+      "execution_blocking": true,
+      "meaning": "Source window incomplete",
+      "severity": "ERROR",
+      "terminal": false
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_RELATION_DESCRIPTOR_INVALID",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Relation descriptor is inconsistent",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "EXECUTION",
+      "code": "FP_RC_SELL_SPREAD_UNAVAILABLE",
+      "default_visual_treatment": "execution warning",
+      "execution_blocking": true,
+      "meaning": "Cannot form adjusted SELL stop",
+      "severity": "ERROR",
+      "terminal": false
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_SEMANTIC_CONFIG_CHANGED",
+      "default_visual_treatment": "none",
+      "execution_blocking": false,
+      "meaning": "Behavior-bearing configuration changed",
+      "severity": "INFO",
+      "terminal": false
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_SOURCE_REVISION_MISMATCH",
+      "default_visual_treatment": "warning diagnostic",
+      "execution_blocking": true,
+      "meaning": "Source data revision differs",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "SUPPRESSION",
+      "code": "FP_RC_SUPPRESSED_BY_QUOTA",
+      "default_visual_treatment": "dotted/medium opacity",
+      "execution_blocking": true,
+      "meaning": "Another earlier signal owns pair-session quota",
+      "severity": "WARNING",
+      "terminal": false
+    },
+    {
+      "category": "SUPPRESSION",
+      "code": "FP_RC_SUPPRESSED_BY_WW",
+      "default_visual_treatment": "dashed/medium opacity",
+      "execution_blocking": true,
+      "meaning": "Direction conflicts with active WW",
+      "severity": "WARNING",
+      "terminal": false
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_SYMBOL_PAIR_INVALID",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Symbol pair is invalid",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_SYMMETRIC_SAME_M1",
+      "default_visual_treatment": "neutral diagnostic",
+      "execution_blocking": true,
+      "meaning": "Both symbols touched in the same canonical M1",
+      "severity": "INFO",
+      "terminal": true
+    },
+    {
+      "category": "CONFIGURATION",
+      "code": "FP_RC_UNKNOWN_ENUM",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Unknown closed enum value",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_WINDOW_INTERVAL_INVALID",
+      "default_visual_treatment": "critical diagnostic",
+      "execution_blocking": true,
+      "meaning": "Window interval is empty or inverted",
+      "severity": "ERROR",
+      "terminal": true
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_WW_DATA_INCOMPLETE",
+      "default_visual_treatment": "warning/low opacity",
+      "execution_blocking": true,
+      "meaning": "Weekly data insufficient",
+      "severity": "ERROR",
+      "terminal": false
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_WW_NEUTRALIZED",
+      "default_visual_treatment": "muted neutral",
+      "execution_blocking": true,
+      "meaning": "Second symbol touched corresponding weekly side",
+      "severity": "INFO",
+      "terminal": true
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_RC_WW_NONE_ALLOW_BOTH",
+      "default_visual_treatment": "normal plus context badge",
+      "execution_blocking": false,
+      "meaning": "No active WW with complete data",
+      "severity": "INFO",
+      "terminal": false
+    }
+  ],
+  "registry_hash": "fac3e8c30fae934a28a3e26d1a76d739d5103731924c38a8562b4e441c24a285",
+  "registry_version": "1.0.0",
+  "schema_version": "1.0.0"
+}

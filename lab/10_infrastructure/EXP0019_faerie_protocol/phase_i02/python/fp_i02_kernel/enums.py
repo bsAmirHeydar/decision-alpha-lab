@@ -1,0 +1,215 @@
+"""Closed enum system for the Faerie Protocol context kernel."""
+from enum import Enum
+
+
+class StrEnum(str, Enum):
+    def __str__(self) -> str:
+        return self.value
+
+
+class AuthorityClass(StrEnum):
+    OWNER_CONFIRMED = "OWNER_CONFIRMED"
+    SOURCE_CONFIRMED = "SOURCE_CONFIRMED"
+    ARCHITECTURAL_DERIVATION = "ARCHITECTURAL_DERIVATION"
+    LEGACY_OBSERVATION = "LEGACY_OBSERVATION"
+    OPEN_DECISION = "OPEN_DECISION"
+
+
+class ContextProfile(StrEnum):
+    CANONICAL_RESEARCH = "CANONICAL_RESEARCH"
+    CANONICAL_PAPER = "CANONICAL_PAPER"
+    CANONICAL_LIVE = "CANONICAL_LIVE"
+    NON_CANONICAL_EXPERIMENT = "NON_CANONICAL_EXPERIMENT"
+
+
+class HealthState(StrEnum):
+    READY = "READY"
+    DEGRADED = "DEGRADED"
+    BLOCKED = "BLOCKED"
+
+
+class ExecutionAuthority(StrEnum):
+    NONE = "NONE"
+    PAPER_ONLY = "PAPER_ONLY"
+    LIVE = "LIVE"
+
+
+class WindowKind(StrEnum):
+    A = "A"
+    L = "L"
+    N = "N"
+    W = "W"
+
+
+class WindowScope(StrEnum):
+    SAME_TRADING_DAY = "SAME_TRADING_DAY"
+    CURRENT_TRADING_DAY = "CURRENT_TRADING_DAY"
+    EXACT_PRIOR_CALENDAR_OFFSET = "EXACT_PRIOR_CALENDAR_OFFSET"
+    PREVIOUS_COMPLETED_NY_WEEK = "PREVIOUS_COMPLETED_NY_WEEK"
+    CURRENT_NY_WEEK = "CURRENT_NY_WEEK"
+
+
+class RelationCode(StrEnum):
+    AL = "AL"
+    AN = "AN"
+    LN = "LN"
+    NA = "NA"
+    NL = "NL"
+    NN = "NN"
+    WW = "WW"
+
+
+class Direction(StrEnum):
+    BULLISH = "BULLISH"
+    BEARISH = "BEARISH"
+
+
+class SymbolRole(StrEnum):
+    HUNTER = "HUNTER"
+    PROTECTED = "PROTECTED"
+
+
+class PriceSide(StrEnum):
+    HIGH = "HIGH"
+    LOW = "LOW"
+
+
+class IntervalSemantics(StrEnum):
+    HALF_OPEN = "HALF_OPEN"
+
+
+class DataState(StrEnum):
+    COMPLETE = "COMPLETE"
+    INCOMPLETE = "INCOMPLETE"
+    MISSING = "MISSING"
+    STALE = "STALE"
+    INVALID = "INVALID"
+
+
+class ReferenceState(StrEnum):
+    FRESH = "FRESH"
+    HUNTER_SEEN = "HUNTER_SEEN"
+    CONSUMED_BY_PROTECTED_TOUCH = "CONSUMED_BY_PROTECTED_TOUCH"
+    EXPIRED = "EXPIRED"
+    SUPERSEDED = "SUPERSEDED"
+
+
+class CandidateState(StrEnum):
+    OBSERVED = "OBSERVED"
+    RAW_CANDIDATE = "RAW_CANDIDATE"
+    CONFIRMED = "CONFIRMED"
+    CANCELLED_SECOND_TOUCH = "CANCELLED_SECOND_TOUCH"
+    EXPIRED_SESSION_DEADLINE = "EXPIRED_SESSION_DEADLINE"
+    INVALID_DATA = "INVALID_DATA"
+
+
+class WWState(StrEnum):
+    RAW = "RAW"
+    CONFIRMED = "CONFIRMED"
+    NEUTRALIZED = "NEUTRALIZED"
+    EXPIRED = "EXPIRED"
+    INVALID_DATA = "INVALID_DATA"
+
+
+class QuotaState(StrEnum):
+    AVAILABLE = "AVAILABLE"
+    RESERVED = "RESERVED"
+    CONSUMED = "CONSUMED"
+    RELEASED = "RELEASED"
+
+
+class EligibilityState(StrEnum):
+    ELIGIBLE = "ELIGIBLE"
+    SUPPRESSED = "SUPPRESSED"
+    BLOCKED = "BLOCKED"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+
+
+class LookbackPolicy(StrEnum):
+    CALENDAR_DAY_DEPTH = "CALENDAR_DAY_DEPTH"
+
+
+class ReferenceReusePolicy(StrEnum):
+    ALLOW_UNTIL_PROTECTED_TOUCH = "ALLOW_UNTIL_PROTECTED_TOUCH"
+
+
+class ConfirmationDeadlinePolicy(StrEnum):
+    STRICT_SAME_SESSION_CLOSE = "STRICT_SAME_SESSION_CLOSE"
+
+
+class TimeframeSource(StrEnum):
+    HOST_CHART = "HOST_CHART"
+
+
+class FirstSweepAuthority(StrEnum):
+    M1_ONLY = "M1_ONLY"
+
+
+class WeekBoundaryPolicy(StrEnum):
+    NY_TRADING_WEEK_SUN_1800_TO_FRI_1700 = "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700"
+
+
+class WWNeutralizationPolicy(StrEnum):
+    NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH = "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH"
+
+
+class WWTradeabilityPolicy(StrEnum):
+    WW_GATE_AND_TRADEABLE_SETUP = "WW_GATE_AND_TRADEABLE_SETUP"
+
+
+class NoActiveWWPolicy(StrEnum):
+    ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW = "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW"
+
+
+class WWResolutionPolicy(StrEnum):
+    NEWEST_ACTIVE_CONFIRMED_WW_WINS = "NEWEST_ACTIVE_CONFIRMED_WW_WINS"
+
+
+class QuotaScope(StrEnum):
+    PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION = "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION"
+
+
+class QuotaWinnerPolicy(StrEnum):
+    EARLIEST_HUNT_M1_TIME_WINS = "EARLIEST_HUNT_M1_TIME_WINS"
+
+
+class QuotaConsumptionPolicy(StrEnum):
+    UNSET = "UNSET"
+    PLAN_CREATED = "PLAN_CREATED"
+    ORDER_ATTEMPTED = "ORDER_ATTEMPTED"
+    ORDER_ACCEPTED = "ORDER_ACCEPTED"
+    FILLED = "FILLED"
+    TWO_STAGE = "TWO_STAGE"
+
+
+class SellStopAdjustmentPolicy(StrEnum):
+    SELL_STOP_PLUS_ONE_SPREAD = "SELL_STOP_PLUS_ONE_SPREAD"
+
+
+class SuppressedDrawingPolicy(StrEnum):
+    ALWAYS_DRAW_WITH_DISTINCT_STYLE = "ALWAYS_DRAW_WITH_DISTINCT_STYLE"
+
+
+class ConfigDomain(StrEnum):
+    SEMANTIC = "SEMANTIC"
+    PROJECTION = "PROJECTION"
+    OPERATIONAL = "OPERATIONAL"
+
+
+class Severity(StrEnum):
+    INFO = "INFO"
+    WARNING = "WARNING"
+    ERROR = "ERROR"
+    CRITICAL = "CRITICAL"
+
+
+class ReasonCategory(StrEnum):
+    NORMAL = "NORMAL"
+    SUPPRESSION = "SUPPRESSION"
+    DATA = "DATA"
+    LIFECYCLE = "LIFECYCLE"
+    CONFIGURATION = "CONFIGURATION"
+    IDENTITY = "IDENTITY"
+    DEPENDENCY = "DEPENDENCY"
+    EXECUTION = "EXECUTION"
+    GOVERNANCE = "GOVERNANCE"

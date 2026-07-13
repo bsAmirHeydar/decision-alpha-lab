@@ -3,15 +3,15 @@ GOV-001,FP-I00,Capture repository baseline and branch,manifest,COMPLETE,lab/10_i
 GOV-002,FP-I00,Hash FP source package and v2 docs,hashes,COMPLETE,docs/execution/EXP0019_faerie_protocol_contextual_divergence/source_audit/SOURCE_HASHES.sha256
 GOV-003,FP-I00,Inventory shared-core exact versions,report,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_SHARED_CORE_DEPENDENCY_INVENTORY.csv
 GOV-004,FP-I00,Freeze phase ownership and patch policy,registry,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_PHASE_FILE_OWNERSHIP.csv
-CMP-001,FP-I01,Map shared time/data/reference/hunt APIs,matrix,PLANNED,
-CMP-002,FP-I01,Create old-context regression launcher,test,PLANNED,
-CMP-003,FP-I01,Define FP adapter interfaces,contracts,PLANNED,
-CMP-004,FP-I01,Prove dependency mismatch failure,test,PLANNED,
-CTR-001,FP-I02,Implement closed enums and value structs,code,PLANNED,
-CTR-002,FP-I02,Implement semantic/config/projection hashes,code,PLANNED,
-CTR-003,FP-I02,Implement window/reference/signal identities,code,PLANNED,
-CTR-004,FP-I02,Freeze relation and reason registries,contracts,PLANNED,
-CTR-005,FP-I02,Compile contract self-test,test,PLANNED,
+CMP-001,FP-I01,Map shared time/data/reference/hunt APIs,matrix,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/artifacts/FP_I01_REUSE_COMPATIBILITY_MATRIX.csv
+CMP-002,FP-I01,Create old-context regression launcher,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/tests/test_previous_contexts.py
+CMP-003,FP-I01,Define FP adapter interfaces,contracts,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/artifacts/FP_I01_ADAPTER_REGISTRY.v1.json
+CMP-004,FP-I01,Prove dependency mismatch failure,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i01/tests/test_hash_guard.py
+CTR-001,FP-I02,Implement closed enums and value structs,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/enums.py
+CTR-002,FP-I02,Implement semantic/config/projection hashes,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/config.py
+CTR-003,FP-I02,Implement window/reference/signal identities,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/identity.py
+CTR-004,FP-I02,Freeze relation and reason registries,contracts,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/artifacts/FP_I02_REASON_CODE_REGISTRY.v1.json
+CTR-005,FP-I02,Compile contract self-test,test,COMPLETE,mql5/Experts/FaerieProtocolTests/EXP0019_FP_I02_ContractKernelSelfTest.mq5
 TIM-001,FP-I03,Adapt exact New York conversion,code,PLANNED,
 TIM-002,FP-I03,Implement DST transition fixtures,test,PLANNED,
 TIM-003,FP-I03,Implement A/L/N ownership,code,PLANNED,

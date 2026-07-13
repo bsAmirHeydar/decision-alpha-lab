@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_window_key.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_offset": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "context_id": {
+      "const": "FP-CONTEXT-001"
+    },
+    "data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "W"
+      ]
+    },
+    "pair_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope": {
+      "enum": [
+        "SAME_TRADING_DAY",
+        "CURRENT_TRADING_DAY",
+        "EXACT_PRIOR_CALENDAR_OFFSET",
+        "PREVIOUS_COMPLETED_NY_WEEK",
+        "CURRENT_NY_WEEK"
+      ]
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "timezone": {
+      "const": "America/New_York"
+    },
+    "trading_day_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "week_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "kind",
+    "scope",
+    "trading_day_id",
+    "start_utc_ms",
+    "end_utc_ms",
+    "timezone",
+    "calendar_offset",
+    "week_id",
+    "data_revision"
+  ],
+  "title": "fp_i02_window_key",
+  "type": "object"
+}

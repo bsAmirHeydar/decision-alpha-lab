@@ -1,7 +1,8 @@
-feat(ucee): implement I16 context onboarding factory and legacy migration
+feat(exp0019): implement FP-I02 core context identity kernel
 
-- add deterministic context package generator and exact-version registry
-- add typed legacy adapter protocol with differential replay and mutation isolation
-- add stop-safe migration waves A, B, and C with explicit capability scopes
-- add reusable per-context tournament compilation template
-- add central-engine invariance, ADR, evidence, schema, MQL5, tests, and I17 handoff
+- add closed Faerie Protocol enums and immutable public contracts
+- separate semantic, projection, and operational configuration identity
+- add canonical SHA-256 IDs for pair, epoch, window, reference, hunt, candidate, signal, quota, and projection
+- freeze seven relations, thirty-five reason codes, sixteen public contracts, and four state machines
+- preserve FP-DEC-012 as explicit UNSET and block live quota consumption
+- add strict JSON schemas, migration, conformance vectors, MQL5 mirrors, tests, and Obsidian delivery documentation

@@ -1,0 +1,70 @@
+{
+  "machines": {
+    "candidate": {
+      "CANCELLED_SECOND_TOUCH": [],
+      "CONFIRMED": [],
+      "EXPIRED_SESSION_DEADLINE": [],
+      "INVALID_DATA": [],
+      "OBSERVED": [
+        "INVALID_DATA",
+        "RAW_CANDIDATE"
+      ],
+      "RAW_CANDIDATE": [
+        "CANCELLED_SECOND_TOUCH",
+        "CONFIRMED",
+        "EXPIRED_SESSION_DEADLINE",
+        "INVALID_DATA"
+      ]
+    },
+    "quota": {
+      "AVAILABLE": [
+        "RESERVED"
+      ],
+      "CONSUMED": [],
+      "RELEASED": [],
+      "RESERVED": [
+        "CONSUMED",
+        "RELEASED"
+      ]
+    },
+    "reference_side": {
+      "CONSUMED_BY_PROTECTED_TOUCH": [
+        "EXPIRED",
+        "SUPERSEDED"
+      ],
+      "EXPIRED": [],
+      "FRESH": [
+        "CONSUMED_BY_PROTECTED_TOUCH",
+        "EXPIRED",
+        "HUNTER_SEEN",
+        "SUPERSEDED"
+      ],
+      "HUNTER_SEEN": [
+        "CONSUMED_BY_PROTECTED_TOUCH",
+        "EXPIRED",
+        "SUPERSEDED"
+      ],
+      "SUPERSEDED": []
+    },
+    "ww": {
+      "CONFIRMED": [
+        "EXPIRED",
+        "NEUTRALIZED"
+      ],
+      "EXPIRED": [],
+      "INVALID_DATA": [],
+      "NEUTRALIZED": [
+        "EXPIRED"
+      ],
+      "RAW": [
+        "CONFIRMED",
+        "EXPIRED",
+        "INVALID_DATA"
+      ]
+    }
+  },
+  "quota_live_guard": "CONSUMED_FORBIDDEN_WHILE_POLICY_UNSET",
+  "registry_hash": "2992fa4598b4b69e1ca584d89c02039aa46eb7fcedbf07ac4440dfbd12a3612f",
+  "registry_id": "FP-I02-STATE-MACHINES@1.0.0",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_reference_side_key.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "window_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "window_id",
+    "symbol",
+    "side",
+    "price",
+    "data_revision"
+  ],
+  "title": "fp_i02_reference_side_key",
+  "type": "object"
+}

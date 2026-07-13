@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_transition_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "machine": {
+      "enum": [
+        "candidate",
+        "reference_side",
+        "ww",
+        "quota"
+      ]
+    },
+    "next_state": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurred_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "previous_state": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "subject_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "transition_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "machine",
+    "subject_id",
+    "previous_state",
+    "next_state",
+    "event_id",
+    "occurred_utc_ms",
+    "reason_code",
+    "transition_version"
+  ],
+  "title": "fp_i02_transition_evidence",
+  "type": "object"
+}

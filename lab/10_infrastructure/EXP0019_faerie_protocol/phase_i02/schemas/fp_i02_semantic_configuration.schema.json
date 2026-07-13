@@ -1,0 +1,187 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_semantic_configuration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "confirmation_deadline_policy": {
+      "const": "STRICT_SAME_SESSION_CLOSE"
+    },
+    "confirmation_timeframe_source": {
+      "const": "HOST_CHART"
+    },
+    "decision_set_id": {
+      "const": "FP-OWNER-DECISIONS-2026-07-13-V2"
+    },
+    "enabled_relations": {
+      "items": {
+        "enum": [
+          "AL",
+          "AN",
+          "LN",
+          "NA",
+          "NL",
+          "NN",
+          "WW"
+        ]
+      },
+      "maxItems": 7,
+      "minItems": 7,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "first_sweep_authority": {
+      "const": "M1_ONLY"
+    },
+    "historical_n_depth": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "interval_semantics": {
+      "const": "HALF_OPEN"
+    },
+    "lookback_policy": {
+      "const": "CALENDAR_DAY_DEPTH"
+    },
+    "no_active_ww_policy": {
+      "const": "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW"
+    },
+    "pair": {
+      "$ref": "fp_i02_symbol_pair.schema.json"
+    },
+    "quota_consumption_policy": {
+      "enum": [
+        "UNSET",
+        "PLAN_CREATED",
+        "ORDER_ATTEMPTED",
+        "ORDER_ACCEPTED",
+        "FILLED",
+        "TWO_STAGE"
+      ]
+    },
+    "quota_scope": {
+      "const": "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION"
+    },
+    "quota_winner_policy": {
+      "const": "EARLIEST_HUNT_M1_TIME_WINS"
+    },
+    "reason_registry_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "reference_reuse_policy": {
+      "const": "ALLOW_UNTIL_PROTECTED_TOUCH"
+    },
+    "relation_registry_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "replace_missing_offsets": {
+      "const": false
+    },
+    "resolved_confirmation_timeframe_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "risk_uses_adjusted_stop": {
+      "const": true
+    },
+    "schema_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "sell_stop_policy": {
+      "const": "SELL_STOP_PLUS_ONE_SPREAD"
+    },
+    "session_a": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "session_l": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "session_n": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "source_data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "timezone": {
+      "const": "America/New_York"
+    },
+    "trading_day_end_exclusive": {
+      "const": "17:00:00"
+    },
+    "trading_day_start": {
+      "const": "18:00:00"
+    },
+    "week_boundary_policy": {
+      "const": "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700"
+    },
+    "ww_neutralization_policy": {
+      "const": "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH"
+    },
+    "ww_resolution_policy": {
+      "const": "NEWEST_ACTIVE_CONFIRMED_WW_WINS"
+    },
+    "ww_tradeability_policy": {
+      "const": "WW_GATE_AND_TRADEABLE_SETUP"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_set_id",
+    "pair",
+    "timezone",
+    "interval_semantics",
+    "first_sweep_authority",
+    "trading_day_start",
+    "trading_day_end_exclusive",
+    "session_a",
+    "session_l",
+    "session_n",
+    "week_boundary_policy",
+    "confirmation_timeframe_source",
+    "resolved_confirmation_timeframe_seconds",
+    "confirmation_deadline_policy",
+    "lookback_policy",
+    "historical_n_depth",
+    "replace_missing_offsets",
+    "reference_reuse_policy",
+    "ww_neutralization_policy",
+    "ww_tradeability_policy",
+    "no_active_ww_policy",
+    "ww_resolution_policy",
+    "quota_scope",
+    "quota_winner_policy",
+    "quota_consumption_policy",
+    "sell_stop_policy",
+    "risk_uses_adjusted_stop",
+    "relation_registry_version",
+    "reason_registry_version",
+    "source_data_revision",
+    "adapter_snapshot_hash",
+    "enabled_relations"
+  ],
+  "title": "fp_i02_semantic_configuration",
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_confirmation_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "confirmation_bar_close_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "confirmation_bar_open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "confirmation_price": {
+      "type": "number"
+    },
+    "data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "OBSERVED",
+        "RAW_CANDIDATE",
+        "CONFIRMED",
+        "CANCELLED_SECOND_TOUCH",
+        "EXPIRED_SESSION_DEADLINE",
+        "INVALID_DATA"
+      ]
+    }
+  },
+  "required": [
+    "candidate_id",
+    "confirmation_bar_open_utc_ms",
+    "confirmation_bar_close_utc_ms",
+    "confirmation_price",
+    "state",
+    "reason_code",
+    "data_revision",
+    "event_version"
+  ],
+  "title": "fp_i02_confirmation_event",
+  "type": "object"
+}

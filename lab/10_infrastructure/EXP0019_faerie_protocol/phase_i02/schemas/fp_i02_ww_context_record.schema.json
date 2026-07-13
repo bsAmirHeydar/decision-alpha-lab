@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_ww_context_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confirmed_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "direction": {
+      "enum": [
+        "BULLISH",
+        "BEARISH"
+      ]
+    },
+    "neutralized_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "neutralizing_hunt_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "signal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "RAW",
+        "CONFIRMED",
+        "NEUTRALIZED",
+        "EXPIRED",
+        "INVALID_DATA"
+      ]
+    }
+  },
+  "required": [
+    "signal_id",
+    "direction",
+    "state",
+    "confirmed_utc_ms",
+    "neutralized_utc_ms",
+    "neutralizing_hunt_id",
+    "reason_code"
+  ],
+  "title": "fp_i02_ww_context_record",
+  "type": "object"
+}

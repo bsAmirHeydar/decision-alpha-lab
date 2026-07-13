@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_quota_key.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_epoch_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "pair_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "session": {
+      "enum": [
+        "A",
+        "L",
+        "N"
+      ]
+    },
+    "trading_day_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_epoch_id",
+    "trading_day_id",
+    "pair_id",
+    "session"
+  ],
+  "title": "fp_i02_quota_key",
+  "type": "object"
+}

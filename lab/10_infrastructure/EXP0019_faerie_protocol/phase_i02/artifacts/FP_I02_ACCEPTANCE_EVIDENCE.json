@@ -1,0 +1,80 @@
+{
+  "authority": {
+    "broker": false,
+    "drawing": false,
+    "history": false,
+    "live_execution": false,
+    "network": false,
+    "orders": false,
+    "positions": false
+  },
+  "decision": "ACCEPTED_WITH_LOCAL_METAEDITOR_PENDING",
+  "evidence_hash": "f8ad9e54a14f37c0e01b852a53a97fe6e009df98863cb63592468d6997c232b8",
+  "gates": {
+    "boundary_guard": {
+      "result": "pass"
+    },
+    "conformance": {
+      "count": 19,
+      "result": "pass"
+    },
+    "engineering_policy": {
+      "checks": 4,
+      "errors": 0,
+      "result": "pass",
+      "warnings": 0
+    },
+    "exp0018_selected_regression": {
+      "count": 15,
+      "result": "pass"
+    },
+    "fp_i00_regression": {
+      "count": 26,
+      "result": "pass"
+    },
+    "fp_i01_regression": {
+      "count": 39,
+      "result": "pass"
+    },
+    "json_schemas": {
+      "count": 18,
+      "result": "pass"
+    },
+    "metaeditor": {
+      "required_logs": 2,
+      "result": "pending_local_windows"
+    },
+    "mql5_static": {
+      "include_count": 11,
+      "result": "pass"
+    },
+    "phase_tests": {
+      "count": 64,
+      "result": "pass"
+    }
+  },
+  "identity_evidence": {
+    "contract_registry_hash": "14f04abe0def56fdd2648b3f193eb58d22c54b0fc56bb76d9d2b2804e3a5dcec",
+    "projection_config_hash": "4418532d3494c84ab8efe03184f182aca34586da4f14d4622725987e94a43e7f",
+    "reason_registry_hash": "fac3e8c30fae934a28a3e26d1a76d739d5103731924c38a8562b4e441c24a285",
+    "relation_registry_hash": "c95d06441e986b7e888d4db0764c4edefb4bef3fd9a56a52364dcaa3b6c41eb0",
+    "semantic_config_hash": "7ae4ba0eb2b2591e5eca7c2f0788b4fcf346c24f2387c8e0994427ccdf653ac2"
+  },
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I02",
+  "phase_version": "1.0.0",
+  "registry_counts": {
+    "contracts": 16,
+    "reasons": 35,
+    "relations": 7,
+    "state_machines": 4
+  },
+  "residual_risks": [
+    "MetaEditor compile not executable in this environment",
+    "FP-I03 must still prove New York/DST/session/week semantics",
+    "Synthetic contracts do not prove trading edge"
+  ],
+  "schema_version": "1.0.0"
+}

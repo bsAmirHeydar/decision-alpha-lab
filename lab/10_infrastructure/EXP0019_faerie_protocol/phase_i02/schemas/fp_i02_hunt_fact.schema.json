@@ -1,0 +1,96 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_hunt_fact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_window_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_epoch_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "m1_open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observed_price": {
+      "type": "number"
+    },
+    "pair_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "reference_price": {
+      "type": "number"
+    },
+    "reference_side_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN",
+        "WW"
+      ]
+    },
+    "role": {
+      "enum": [
+        "HUNTER",
+        "PROTECTED"
+      ]
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "source_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_epoch_id",
+    "relation",
+    "reference_side_id",
+    "check_window_id",
+    "pair_id",
+    "symbol",
+    "role",
+    "side",
+    "m1_open_utc_ms",
+    "observed_price",
+    "reference_price",
+    "data_revision",
+    "source_fingerprint",
+    "reason_code"
+  ],
+  "title": "fp_i02_hunt_fact",
+  "type": "object"
+}

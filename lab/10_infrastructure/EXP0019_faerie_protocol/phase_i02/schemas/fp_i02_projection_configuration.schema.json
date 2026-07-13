@@ -1,0 +1,86 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_projection_configuration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_opacity": {
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "label_font_size": {
+      "maximum": 30,
+      "minimum": 6,
+      "type": "integer"
+    },
+    "line_width": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "palette": {
+      "additionalProperties": {
+        "pattern": "^#[0-9A-Fa-f]{6}$",
+        "type": "string"
+      },
+      "minProperties": 4,
+      "type": "object"
+    },
+    "schema_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "show_candidate_lines": {
+      "type": "boolean"
+    },
+    "show_confirmed_signals": {
+      "type": "boolean"
+    },
+    "show_health_panel": {
+      "type": "boolean"
+    },
+    "show_hunt_markers": {
+      "type": "boolean"
+    },
+    "show_reference_levels": {
+      "type": "boolean"
+    },
+    "show_session_boxes": {
+      "type": "boolean"
+    },
+    "show_ww_context": {
+      "type": "boolean"
+    },
+    "style_registry_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "suppressed_drawing_policy": {
+      "const": "ALWAYS_DRAW_WITH_DISTINCT_STYLE"
+    },
+    "suppressed_opacity": {
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "suppressed_drawing_policy",
+    "style_registry_version",
+    "line_width",
+    "active_opacity",
+    "suppressed_opacity",
+    "show_session_boxes",
+    "show_reference_levels",
+    "show_hunt_markers",
+    "show_candidate_lines",
+    "show_confirmed_signals",
+    "show_ww_context",
+    "show_health_panel",
+    "label_font_size",
+    "palette"
+  ],
+  "title": "fp_i02_projection_configuration",
+  "type": "object"
+}

@@ -1,0 +1,42 @@
+{
+  "boundary_guard": "PASS",
+  "conformance_checks": 19,
+  "delivery_validation": "PASS",
+  "engineering_policy": {
+    "errors": 0,
+    "passed": 4,
+    "total": 4,
+    "warnings": 0
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "golden_vectors": "PASS",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_entrypoints": 2,
+  "mql5_includes": 11,
+  "mql5_static": "PASS",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I02",
+  "phase_version": "1.0.0",
+  "python_modules": 16,
+  "qa_hash": "97353e03ee9efb2ba0172f46b380d26e7d896f7e51754b9e04e21bec7ced105a",
+  "registries": {
+    "public_contracts": 16,
+    "reason_codes": 35,
+    "relations": 7,
+    "state_machines": 4
+  },
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "schemas": 18,
+  "status": "PASS_WITH_METAEDITOR_PENDING",
+  "tests": {
+    "cumulative_fp_i00_i02": 129,
+    "exp0018_selected": 15,
+    "fp_i00": 26,
+    "fp_i01": 39,
+    "fp_i02": 64,
+    "total_executed": 144
+  }
+}

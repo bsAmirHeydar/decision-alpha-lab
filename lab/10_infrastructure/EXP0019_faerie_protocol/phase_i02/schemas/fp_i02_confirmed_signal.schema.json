@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_confirmed_signal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_ww_id": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "confirmation_event_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "confirmed_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "direction": {
+      "enum": [
+        "BULLISH",
+        "BEARISH"
+      ]
+    },
+    "eligibility": {
+      "enum": [
+        "ELIGIBLE",
+        "SUPPRESSED",
+        "BLOCKED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "first_hunt_m1_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hunter_symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "pair_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "quota_key_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN",
+        "WW"
+      ]
+    },
+    "semantic_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signal_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "confirmation_event_id",
+    "relation",
+    "direction",
+    "pair_id",
+    "hunter_symbol",
+    "protected_symbol",
+    "first_hunt_m1_utc_ms",
+    "confirmed_utc_ms",
+    "eligibility",
+    "reason_code",
+    "active_ww_id",
+    "quota_key_id",
+    "semantic_config_hash",
+    "signal_version"
+  ],
+  "title": "fp_i02_confirmed_signal",
+  "type": "object"
+}

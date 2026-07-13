@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_health_status.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checked_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "dependency_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "primary_reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "pattern": "^FP_RC_[A-Z0-9_]+$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "semantic_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "state",
+    "primary_reason_code",
+    "reason_codes",
+    "checked_utc_ms",
+    "semantic_config_hash",
+    "dependency_snapshot_hash"
+  ],
+  "title": "fp_i02_health_status",
+  "type": "object"
+}

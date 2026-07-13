@@ -1,0 +1,34 @@
+{
+  "FP_I03_may_implement": [
+    "DST-aware America/New_York conversion",
+    "trading day ownership",
+    "A/L/N half-open sessions",
+    "NY week keys"
+  ],
+  "FP_I03_may_not_change": [
+    "public enum values",
+    "identity field sets",
+    "owner decision mappings",
+    "reason code meanings",
+    "relation descriptors"
+  ],
+  "from_phase": "FP-I02",
+  "handoff_hash": "1dfa156f58278cb4ab6917675191275d6521e02b1a2134f981c41ca30c340345",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "public_contract_registry_hash": "14f04abe0def56fdd2648b3f193eb58d22c54b0fc56bb76d9d2b2804e3a5dcec",
+  "reason_registry_hash": "fac3e8c30fae934a28a3e26d1a76d739d5103731924c38a8562b4e441c24a285",
+  "relation_registry_hash": "c95d06441e986b7e888d4db0764c4edefb4bef3fd9a56a52364dcaa3b6c41eb0",
+  "required_entry_checks": [
+    "FP-I02 tests pass",
+    "FP-I01 compatibility remains green",
+    "dependency snapshot hash matches",
+    "MetaEditor local compile logs retained"
+  ],
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "semantic_config_hash": "4d2b65509859262f44326b3b2f68eebc9a1828a84f26b27c1459f04411ae3a09",
+  "to_phase": "FP-I03"
+}

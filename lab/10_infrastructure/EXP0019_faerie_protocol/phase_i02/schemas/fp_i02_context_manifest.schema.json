@@ -1,0 +1,94 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_context_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "const": "FP-CONTEXT-001"
+    },
+    "context_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "decision_set_id": {
+      "const": "FP-OWNER-DECISIONS-2026-07-13-V2"
+    },
+    "dependency_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "execution_authority": {
+      "enum": [
+        "NONE",
+        "PAPER_ONLY",
+        "LIVE"
+      ]
+    },
+    "open_decision_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "pair": {
+      "$ref": "fp_i02_symbol_pair.schema.json"
+    },
+    "profile": {
+      "enum": [
+        "CANONICAL_RESEARCH",
+        "CANONICAL_PAPER",
+        "CANONICAL_LIVE",
+        "NON_CANONICAL_EXPERIMENT"
+      ]
+    },
+    "projection_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "relation_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "resolved_confirmation_timeframe_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "semantic_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "decision_set_id",
+    "profile",
+    "pair",
+    "semantic_config_hash",
+    "projection_config_hash",
+    "dependency_snapshot_hash",
+    "relation_registry_hash",
+    "reason_registry_hash",
+    "execution_authority",
+    "open_decision_ids",
+    "resolved_confirmation_timeframe_seconds",
+    "created_utc_ms"
+  ],
+  "title": "fp_i02_context_manifest",
+  "type": "object"
+}

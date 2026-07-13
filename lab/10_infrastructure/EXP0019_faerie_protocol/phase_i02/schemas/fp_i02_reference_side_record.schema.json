@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_reference_side_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "consumed_event_id": {
+      "type": "string"
+    },
+    "first_hunter_event_id": {
+      "type": "string"
+    },
+    "key": {
+      "$ref": "fp_i02_reference_side_key.schema.json"
+    },
+    "last_transition_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "FRESH",
+        "HUNTER_SEEN",
+        "CONSUMED_BY_PROTECTED_TOUCH",
+        "EXPIRED",
+        "SUPERSEDED"
+      ]
+    }
+  },
+  "required": [
+    "key",
+    "state",
+    "first_hunter_event_id",
+    "consumed_event_id",
+    "last_transition_utc_ms",
+    "reason_code"
+  ],
+  "title": "fp_i02_reference_side_record",
+  "type": "object"
+}

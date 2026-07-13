@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_window_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bar_count_by_symbol": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "maxProperties": 2,
+      "minProperties": 2,
+      "type": "object"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "data_state": {
+      "enum": [
+        "COMPLETE",
+        "INCOMPLETE",
+        "MISSING",
+        "STALE",
+        "INVALID"
+      ]
+    },
+    "high_by_symbol": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "maxProperties": 2,
+      "minProperties": 2,
+      "type": "object"
+    },
+    "key": {
+      "$ref": "fp_i02_window_key.schema.json"
+    },
+    "low_by_symbol": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "maxProperties": 2,
+      "minProperties": 2,
+      "type": "object"
+    },
+    "record_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "source_revision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "data_state",
+    "high_by_symbol",
+    "low_by_symbol",
+    "bar_count_by_symbol",
+    "source_revision_hash",
+    "completed",
+    "record_version"
+  ],
+  "title": "fp_i02_window_record",
+  "type": "object"
+}

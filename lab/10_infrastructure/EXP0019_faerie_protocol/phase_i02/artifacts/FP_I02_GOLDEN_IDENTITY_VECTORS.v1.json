@@ -1,0 +1,16 @@
+{
+  "candidate_id": "FPCAND_be03d2aaba04e19caed3db87106c5e46",
+  "confirmation_event_id": "FPCONF_e34562cf18168f437ab4d28297c5173e",
+  "context_epoch_id": "FPEPOCH_3c5dbd2a010f786758fbb75ccb0dbec3",
+  "hunt_id": "FPHUNT_886d832eae48d85ac1caa933dcafd457",
+  "manifest_hash": "5be93c8b4434ed75598b3947ea23dfc0a57ced595466f49f55028889154d9cfc",
+  "pair_id": "FPPAIR_f4a8b5ced85e9a9c1e6baf78",
+  "projection_config_hash": "4418532d3494c84ab8efe03184f182aca34586da4f14d4622725987e94a43e7f",
+  "quota_key_id": "FPQUOTA_e0654dfd6c278f54c7035f1d4f257414",
+  "reason_evidence_id": "FPREASON_88125949ddb599ef143004218ee5eafe",
+  "reference_side_id": "FPREF_86b770e9a08ec8b626c3ed5f97da4dcb",
+  "semantic_config_hash": "7ae4ba0eb2b2591e5eca7c2f0788b4fcf346c24f2387c8e0994427ccdf653ac2",
+  "signal_id": "FPSIG_9684201b74e35abd2366955b9dc6e48a",
+  "vector_hash": "67b5c8e32349e4a5bf5adfb12ba6eb81c1aa7cd05174bac13fe6dacba5fc19c2",
+  "window_id": "FPWIN_214b0c17404bfbc796b58d9c452299c2"
+}

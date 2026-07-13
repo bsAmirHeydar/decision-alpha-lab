@@ -1,0 +1,138 @@
+{
+  "authority": "NONE",
+  "contract_count": 16,
+  "contracts": [
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ConfirmationEvent",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I07",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ConfirmedSignal",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I07",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ContextManifestRecord",
+      "identity_domain": "SEMANTIC",
+      "persistence": "MANIFEST",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.DivergenceCandidate",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I06",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.HealthStatus",
+      "identity_domain": "SEMANTIC",
+      "persistence": "DIAGNOSTIC",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.HuntFact",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I06",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ProjectionIdentity",
+      "identity_domain": "PROJECTION",
+      "persistence": "CHART_OBJECT",
+      "phase_owner": "FP-I10",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.QuotaKey",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I09",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.QuotaRecord",
+      "identity_domain": "SEMANTIC",
+      "persistence": "CHECKPOINT",
+      "phase_owner": "FP-I09",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ReasonEvidence",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ReferenceSideKey",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.ReferenceSideRecord",
+      "identity_domain": "SEMANTIC",
+      "persistence": "CHECKPOINT",
+      "phase_owner": "FP-I05",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.SymbolPair",
+      "identity_domain": "SEMANTIC",
+      "persistence": "MANIFEST",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.WWContextRecord",
+      "identity_domain": "SEMANTIC",
+      "persistence": "CHECKPOINT",
+      "phase_owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.WindowKey",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "phase_owner": "FP-I02",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.WindowRecord",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "phase_owner": "FP-I05",
+      "version": "1.0.0"
+    }
+  ],
+  "frozen": true,
+  "phase_id": "FP-I02",
+  "registry_hash": "14f04abe0def56fdd2648b3f193eb58d22c54b0fc56bb76d9d2b2804e3a5dcec",
+  "schema_version": "1.0.0"
+}

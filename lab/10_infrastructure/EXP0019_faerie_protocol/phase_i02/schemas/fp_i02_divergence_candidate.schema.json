@@ -1,0 +1,126 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i02/fp_i02_divergence_candidate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_offset": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "candidate_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "check_window_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "confirmation_deadline_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "context_epoch_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_revision": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "BULLISH",
+        "BEARISH"
+      ]
+    },
+    "first_hunt_m1_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hunter_hunt_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "hunter_symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "pair_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_symbol": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "pattern": "^FP_RC_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "reference_side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "reference_window_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN",
+        "WW"
+      ]
+    },
+    "resolved_confirmation_timeframe_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "OBSERVED",
+        "RAW_CANDIDATE",
+        "CONFIRMED",
+        "CANCELLED_SECOND_TOUCH",
+        "EXPIRED_SESSION_DEADLINE",
+        "INVALID_DATA"
+      ]
+    }
+  },
+  "required": [
+    "context_epoch_id",
+    "relation",
+    "direction",
+    "pair_id",
+    "hunter_symbol",
+    "protected_symbol",
+    "reference_window_id",
+    "check_window_id",
+    "reference_side",
+    "hunter_hunt_id",
+    "first_hunt_m1_utc_ms",
+    "confirmation_deadline_utc_ms",
+    "resolved_confirmation_timeframe_seconds",
+    "calendar_offset",
+    "state",
+    "data_revision",
+    "reason_code",
+    "candidate_version"
+  ],
+  "title": "fp_i02_divergence_candidate",
+  "type": "object"
+}
