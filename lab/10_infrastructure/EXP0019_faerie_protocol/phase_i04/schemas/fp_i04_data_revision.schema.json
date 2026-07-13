@@ -1,0 +1,83 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_data_revision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "affected_start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "changed_symbols": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "current_payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "INITIAL",
+        "APPEND",
+        "LATE_INSERT",
+        "VALUE_CORRECTION",
+        "DELETE",
+        "CONFLICT",
+        "NO_CHANGE"
+      ]
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "parent_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "previous_payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revision_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "revision_id",
+    "pair_id",
+    "parent_revision_id",
+    "kind",
+    "changed_symbols",
+    "affected_start_utc_ms",
+    "affected_end_utc_ms",
+    "previous_payload_hash",
+    "current_payload_hash",
+    "created_utc_ms",
+    "reason_code",
+    "revision_version"
+  ],
+  "title": "fp_i04_data_revision",
+  "type": "object"
+}

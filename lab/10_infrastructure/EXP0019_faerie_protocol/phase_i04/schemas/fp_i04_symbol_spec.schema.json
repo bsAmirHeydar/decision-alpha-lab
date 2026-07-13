@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_symbol_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "digits": {
+      "maximum": 12,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "tick_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "aliases",
+    "tick_size",
+    "digits",
+    "contract_version"
+  ],
+  "title": "fp_i04_symbol_spec",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "fixture_count": 6,
+  "fixtures": [
+    {
+      "expected": "new dataset root",
+      "kind": "INITIAL"
+    },
+    {
+      "expected": "affected suffix begins after previous max minute",
+      "kind": "APPEND"
+    },
+    {
+      "expected": "only missing historical minute and dependent windows invalidate",
+      "kind": "LATE_INSERT"
+    },
+    {
+      "expected": "changed minute marked REVISED",
+      "kind": "VALUE_CORRECTION"
+    },
+    {
+      "expected": "deleted minute becomes missing/out-of-coverage",
+      "kind": "DELETE"
+    },
+    {
+      "expected": "stable semantic result and no affected minute",
+      "kind": "NO_CHANGE"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

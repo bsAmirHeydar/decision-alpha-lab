@@ -1,0 +1,20 @@
+{
+  "check_count": 10,
+  "checks": {
+    "both_present": true,
+    "cursor_active": true,
+    "deterministic_result": true,
+    "five_rows": true,
+    "impact_hashes": true,
+    "no_backfill": true,
+    "no_conflicts": true,
+    "no_gaps": true,
+    "ready": true,
+    "snapshot_hash": true
+  },
+  "passed": true,
+  "phase": "FP-I04",
+  "result_id": "FPSYNC_b0844344e58a19f579157149819d0755",
+  "revision_id": "FPREV_657e2fba880036469caaf490b6ca5549",
+  "semantic_hash": "793e2f1c73da90fe51dc6151ca3d8c99398830dd448c552e1510365e975f4e11"
+}

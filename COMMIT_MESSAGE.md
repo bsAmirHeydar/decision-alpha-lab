@@ -1,9 +1,8 @@
-feat(exp0019): implement FP-I03 New York time and calendar kernel
+feat(exp0019): implement FP-I04 multi-symbol M1 data synchronization
 
-- add deterministic UTC/New York DST conversion for 2007+
-- add explicit broker-offset adapter and local ambiguity handling
-- add trading-day, A/L/N session, daily-gap, and NY-week windows
-- add semantic IDs, evidence, registries, schemas, vectors, and examples
-- add MQL5 mirrors, diagnostics, self-tests, and compile runbook
-- add 83 tests and detailed Obsidian delivery documentation
-- preserve zero price, drawing, broker, order, position, and network authority
+- add canonical symbol-pair and closed M1 bar contracts
+- align both symbols by exact UTC minute open
+- distinguish missing, out-of-coverage, conflict, and revised states
+- add coverage, gap, revision, cursor, backfill, and snapshot evidence
+- add batch/incremental parity tests and MQL5 contract mirrors
+- add detailed FP-I04 Obsidian delivery documentation

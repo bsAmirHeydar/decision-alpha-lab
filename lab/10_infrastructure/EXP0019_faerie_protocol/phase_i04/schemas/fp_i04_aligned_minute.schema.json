@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_aligned_minute.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_segment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "calendar_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "left": {
+      "$ref": "fp_i04_minute_cell.schema.json"
+    },
+    "open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right": {
+      "$ref": "fp_i04_minute_cell.schema.json"
+    },
+    "synchronization_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "pair_id",
+    "open_utc_ms",
+    "left",
+    "right",
+    "calendar_segment",
+    "calendar_snapshot_hash",
+    "synchronization_version"
+  ],
+  "title": "fp_i04_aligned_minute",
+  "type": "object"
+}

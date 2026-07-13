@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_gap_interval.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "first_detected_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "missing_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "reason": {
+      "enum": [
+        "SOURCE_MISSING",
+        "BEFORE_COVERAGE",
+        "AFTER_COVERAGE",
+        "CALENDAR_EXCLUDED",
+        "DUPLICATE_CONFLICT"
+      ]
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "start_utc_ms",
+    "end_utc_ms",
+    "missing_minutes",
+    "reason",
+    "first_detected_revision",
+    "evidence_hash"
+  ],
+  "title": "fp_i04_gap_interval",
+  "type": "object"
+}

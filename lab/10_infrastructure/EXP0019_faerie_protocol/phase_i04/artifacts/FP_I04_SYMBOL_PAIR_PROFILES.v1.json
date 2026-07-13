@@ -1,0 +1,32 @@
+{
+  "pair_count": 1,
+  "pairs": [
+    {
+      "context_id": "FP-CONTEXT-001",
+      "left": {
+        "aliases": [
+          "ES",
+          "US500"
+        ],
+        "canonical_symbol": "ES",
+        "contract_version": "1.0.0",
+        "digits": 2,
+        "tick_size": 0.25
+      },
+      "pair_id": "FP-PAIR-ES-NQ",
+      "resolver_version": "1.0.0",
+      "right": {
+        "aliases": [
+          "NQ",
+          "USTEC"
+        ],
+        "canonical_symbol": "NQ",
+        "contract_version": "1.0.0",
+        "digits": 2,
+        "tick_size": 0.25
+      }
+    }
+  ],
+  "resolver_hash": "408d0dcd100b1f97972b0ff3095f25e0d06f2bec78376eaea4ce521ad1566ee7",
+  "schema_version": "1.0.0"
+}

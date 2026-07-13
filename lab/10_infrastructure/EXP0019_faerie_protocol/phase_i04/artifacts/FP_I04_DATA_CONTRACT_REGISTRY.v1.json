@@ -1,0 +1,23 @@
+{
+  "contract_count": 15,
+  "contracts": [
+    "SymbolSpec",
+    "SymbolPairSpec",
+    "M1Bar",
+    "DuplicateResolution",
+    "CoverageInterval",
+    "GapInterval",
+    "MinuteCell",
+    "AlignedMinute",
+    "DataRevision",
+    "IncrementalCursor",
+    "BackfillRequest",
+    "SynchronizationResult",
+    "RevisionImpact",
+    "SynchronizerConfig",
+    "PairDatasetSnapshot"
+  ],
+  "phase": "FP-I04",
+  "registry_hash": "b65087470b446a5872db2b762244f114a926aba958d2a56477bd609210427674",
+  "version": "1.0.0"
+}

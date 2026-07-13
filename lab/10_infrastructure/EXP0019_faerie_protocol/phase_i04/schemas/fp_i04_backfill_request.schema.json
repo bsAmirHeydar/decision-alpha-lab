@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_backfill_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "NONE",
+        "FETCH_RANGE",
+        "FULL_REBUILD",
+        "BLOCK"
+      ]
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "priority": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "requested_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "request_id",
+    "canonical_symbol",
+    "start_utc_ms",
+    "end_utc_ms",
+    "requested_minutes",
+    "action",
+    "reason_code",
+    "priority",
+    "policy_version"
+  ],
+  "title": "fp_i04_backfill_request",
+  "type": "object"
+}

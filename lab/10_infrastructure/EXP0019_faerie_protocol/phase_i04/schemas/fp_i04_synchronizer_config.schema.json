@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_synchronizer_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "closed_bars_only": {
+      "type": "boolean"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expected_minute_policy": {
+      "enum": [
+        "ALL_REQUESTED_MINUTES",
+        "NY_TRADING_SESSIONS_ONLY"
+      ]
+    },
+    "kernel_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "maximum_backfill_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_gap_run_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "expected_minute_policy",
+    "closed_bars_only",
+    "maximum_backfill_minutes",
+    "maximum_gap_run_minutes",
+    "kernel_version",
+    "calendar_config_hash"
+  ],
+  "title": "fp_i04_synchronizer_config",
+  "type": "object"
+}

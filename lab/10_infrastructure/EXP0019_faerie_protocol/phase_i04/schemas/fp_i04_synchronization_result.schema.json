@@ -1,0 +1,90 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_synchronization_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conflicts": {
+      "items": {
+        "$ref": "fp_i04_duplicate_resolution.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "gaps": {
+      "items": {
+        "$ref": "fp_i04_gap_interval.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "left_coverage": {
+      "$ref": "fp_i04_coverage_interval.schema.json"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "result_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revision": {
+      "$ref": "fp_i04_data_revision.schema.json"
+    },
+    "right_coverage": {
+      "$ref": "fp_i04_coverage_interval.schema.json"
+    },
+    "rows": {
+      "items": {
+        "$ref": "fp_i04_aligned_minute.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "result_id",
+    "pair_id",
+    "start_utc_ms",
+    "end_utc_ms",
+    "rows",
+    "left_coverage",
+    "right_coverage",
+    "gaps",
+    "conflicts",
+    "revision",
+    "health",
+    "reason_codes",
+    "semantic_hash"
+  ],
+  "title": "fp_i04_synchronization_result",
+  "type": "object"
+}

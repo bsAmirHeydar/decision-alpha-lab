@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_minute_cell.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bar": {
+      "anyOf": [
+        {
+          "$ref": "fp_i04_m1_bar.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "PRESENT",
+        "MISSING",
+        "OUT_OF_COVERAGE",
+        "CONFLICT",
+        "REVISED"
+      ]
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "open_utc_ms",
+    "state",
+    "bar",
+    "reason_code",
+    "source_revision_hash"
+  ],
+  "title": "fp_i04_minute_cell",
+  "type": "object"
+}

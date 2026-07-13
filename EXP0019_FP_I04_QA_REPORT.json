@@ -1,0 +1,71 @@
+{
+  "authority_boundary": {
+    "divergence": false,
+    "drawing": false,
+    "network": false,
+    "orders": false,
+    "positions": false,
+    "references": false
+  },
+  "boundary_guard": "pass",
+  "conformance": {
+    "count": 10,
+    "report_hash": "2641a4bcdf4e94bb74c8cba36140d38efa3fbfb699a1f2a0fc9832fd1859444c",
+    "result": "pass"
+  },
+  "cumulative_fp_tests": {
+    "breakdown": {
+      "FP-I00": 26,
+      "FP-I01": 39,
+      "FP-I02": 64,
+      "FP-I03": 83,
+      "FP-I04": 67
+    },
+    "count": 279,
+    "result": "pass"
+  },
+  "engineering_policy": {
+    "checks": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "golden_gates": {
+    "batch_incremental_parity": "pass",
+    "duplicate_conflict_fail_closed": "pass",
+    "exact_utc_m1_alignment": "pass",
+    "explicit_absence_taxonomy": "pass",
+    "late_revision_bounded_invalidation": "pass"
+  },
+  "known_limitations": [
+    "actual MetaEditor compile pending",
+    "holiday/early-close calendar outside scope",
+    "external persistent storage adapter not implemented",
+    "tick stream does not override closed M1 authority"
+  ],
+  "metaeditor_compile": {
+    "represented_as_pass": false,
+    "result": "pending_local_windows"
+  },
+  "mql5_static": "pass",
+  "phase": "FP-I04",
+  "phase_tests": {
+    "count": 67,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "previous_context_regressions": {
+    "count": 50,
+    "result": "pass",
+    "suite": "EXP0018 Daye Trader"
+  },
+  "qa_hash": "560eaf1d92667398007a6a2a93179c0e378b6f323802bd3a08a147f61f61e0a9",
+  "schemas": {
+    "closed": true,
+    "count": 15,
+    "result": "pass"
+  },
+  "status": "PASS",
+  "total_executed_tests": 329
+}

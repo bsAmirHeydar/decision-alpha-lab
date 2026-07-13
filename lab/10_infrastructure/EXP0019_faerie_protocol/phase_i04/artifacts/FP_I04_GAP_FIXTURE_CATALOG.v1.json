@@ -1,0 +1,31 @@
+{
+  "fixture_count": 5,
+  "fixtures": [
+    {
+      "expected_cell": "OUT_OF_COVERAGE",
+      "id": "BEFORE",
+      "reason": "BEFORE_COVERAGE"
+    },
+    {
+      "expected_cell": "MISSING",
+      "id": "INSIDE",
+      "reason": "SOURCE_MISSING"
+    },
+    {
+      "expected_cell": "OUT_OF_COVERAGE",
+      "id": "AFTER",
+      "reason": "AFTER_COVERAGE"
+    },
+    {
+      "expected_cell": "CONFLICT",
+      "id": "CONFLICT",
+      "reason": "DUPLICATE_CONFLICT"
+    },
+    {
+      "expected_cell": "NOT_EMITTED_SESSION_POLICY",
+      "id": "CALENDAR",
+      "reason": "CALENDAR_EXCLUDED"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_coverage_interval.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_excluded_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expected_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "present_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "EMPTY",
+        "CONFLICTED",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "start_utc_ms",
+    "end_utc_ms",
+    "present_minutes",
+    "expected_minutes",
+    "calendar_excluded_minutes",
+    "state",
+    "source_revision_hash",
+    "reason_code"
+  ],
+  "title": "fp_i04_coverage_interval",
+  "type": "object"
+}

@@ -1,0 +1,339 @@
+{
+  "backfill": [
+    {
+      "action": "FETCH_RANGE",
+      "canonical_symbol": "NQ",
+      "end_utc_ms": 1783900980000,
+      "policy_version": "1.0.0",
+      "priority": 10,
+      "reason_code": "FP_DRC_BACKFILL_RANGE_PLANNED",
+      "request_id": "FPBACKFILL_67339d63feecb116e5b5218dd586ac08",
+      "requested_minutes": 1,
+      "start_utc_ms": 1783900920000
+    }
+  ],
+  "result": {
+    "conflicts": [],
+    "end_utc_ms": 1783901100000,
+    "gaps": [
+      {
+        "canonical_symbol": "NQ",
+        "end_utc_ms": 1783900980000,
+        "evidence_hash": "450e69195ed4cb455d77a7e8cc2a914987c92b510104967055f0a60a83d52f9d",
+        "first_detected_revision": "FPREV_75bb1ea809bac5c8584600d801f68263",
+        "missing_minutes": 1,
+        "reason": "SOURCE_MISSING",
+        "start_utc_ms": 1783900920000
+      }
+    ],
+    "health": "DEGRADED",
+    "left_coverage": {
+      "calendar_excluded_minutes": 0,
+      "canonical_symbol": "ES",
+      "end_utc_ms": 1783901100000,
+      "expected_minutes": 5,
+      "present_minutes": 5,
+      "reason_code": "FP_DRC_COVERAGE_COMPLETE",
+      "source_revision_hash": "65a0437380f459116cad9d93000fd1bb8cfdfdb8dd62071b10a1f4a4d96ac5d3",
+      "start_utc_ms": 1783900800000,
+      "state": "COMPLETE"
+    },
+    "pair_id": "FP-PAIR-ES-NQ",
+    "reason_codes": [
+      "FP_DRC_M1_MISSING",
+      "FP_DRC_SYNC_DEGRADED"
+    ],
+    "result_id": "FPSYNC_37577af1c7ac29dcd76f6795e8affe6e",
+    "revision": {
+      "affected_end_utc_ms": 1783901100000,
+      "affected_start_utc_ms": 1783900800000,
+      "changed_symbols": [
+        "ES",
+        "NQ"
+      ],
+      "created_utc_ms": 1783901799999,
+      "current_payload_hash": "b2cb9cb4277a655fa6325814deecc0f6ec9c57af36c3739f933e2fe4d59a2aeb",
+      "kind": "INITIAL",
+      "pair_id": "FP-PAIR-ES-NQ",
+      "parent_revision_id": "NONE",
+      "previous_payload_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reason_code": "FP_DRC_REVISION_INITIAL",
+      "revision_id": "FPREV_75bb1ea809bac5c8584600d801f68263",
+      "revision_version": "1.0.0"
+    },
+    "right_coverage": {
+      "calendar_excluded_minutes": 0,
+      "canonical_symbol": "NQ",
+      "end_utc_ms": 1783901100000,
+      "expected_minutes": 5,
+      "present_minutes": 4,
+      "reason_code": "FP_DRC_COVERAGE_PARTIAL",
+      "source_revision_hash": "974d01acbd5b84ad0b75a23df16a23939d9a603c5f2e6d03b5622d22459f209d",
+      "start_utc_ms": 1783900800000,
+      "state": "PARTIAL"
+    },
+    "rows": [
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "bec25f2d36581abbae1da39550c86cbfea52eb25f387ea20213f5add9cee1c9b",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5000.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5000.5,
+            "low": 4999.5,
+            "open": 5000,
+            "open_utc_ms": 1783900800000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900860000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 0,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900800000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783900800000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20000.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20000.5,
+            "low": 19999.5,
+            "open": 20000,
+            "open_utc_ms": 1783900800000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900860000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 1,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900800000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      },
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "d34fedeb5f1e29d060bb6a68b2abfbfc8e61360e8e0c29007832b641ed7d6bc0",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5001.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5001.5,
+            "low": 5000.5,
+            "open": 5001,
+            "open_utc_ms": 1783900860000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900920000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 2,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900860000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783900860000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20001.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20001.5,
+            "low": 20000.5,
+            "open": 20001,
+            "open_utc_ms": 1783900860000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900920000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 3,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900860000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      },
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "8fa6785c847af77a93255317ce0269fcaab5cb189d1c7dec2b24a4a243c55947",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5002.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5002.5,
+            "low": 5001.5,
+            "open": 5002,
+            "open_utc_ms": 1783900920000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900980000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 4,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900920000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783900920000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": null,
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900920000,
+          "reason_code": "FP_DRC_M1_MISSING",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "MISSING"
+        },
+        "synchronization_version": "1.0.0"
+      },
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "bf648d80214dce99a22c7f4e6f41cbbb8b0c18ee7f2b4720ab21769fcf666a14",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5003.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5003.5,
+            "low": 5002.5,
+            "open": 5003,
+            "open_utc_ms": 1783900980000,
+            "real_volume": 0,
+            "received_utc_ms": 1783901040000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 6,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900980000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783900980000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20003.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20003.5,
+            "low": 20002.5,
+            "open": 20003,
+            "open_utc_ms": 1783900980000,
+            "real_volume": 0,
+            "received_utc_ms": 1783901040000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 7,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900980000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      },
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "8e7b7d915dc3a934df3c6069b6804ccb7b209869652c1d38742b858dea98145a",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5004.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5004.5,
+            "low": 5003.5,
+            "open": 5004,
+            "open_utc_ms": 1783901040000,
+            "real_volume": 0,
+            "received_utc_ms": 1783901100000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 8,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783901040000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783901040000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20004.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20004.5,
+            "low": 20003.5,
+            "open": 20004,
+            "open_utc_ms": 1783901040000,
+            "real_volume": 0,
+            "received_utc_ms": 1783901100000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 9,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783901040000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "20334aac7be1abda4fd86698a164dfd04a409fe23dc1c64fb016a12ddf0aa03c",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      }
+    ],
+    "semantic_hash": "f440dfb1140cb928674a3b4b62691817e63b019e66b9f73deac4efea24432444",
+    "start_utc_ms": 1783900800000
+  }
+}

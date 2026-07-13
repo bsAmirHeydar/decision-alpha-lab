@@ -1,0 +1,174 @@
+{
+  "result": {
+    "conflicts": [
+      {
+        "canonical_symbol": "ES",
+        "disposition": "CONFLICT",
+        "evidence_hash": "e1413451005e9a7bc27db1ce7e7360ca9c60543b78a83446fc1d6353ec1a3068",
+        "input_hashes": [
+          "b23648a0dd091b04ca489daf2ba273138057abc5575aad868328988563590088",
+          "d6567eae0106ff579c46ed72962a74bf4dcfb94235a036ceb028ea760d1bb7fc"
+        ],
+        "open_utc_ms": 1783900800000,
+        "reason_code": "FP_DRC_DUPLICATE_CONFLICT",
+        "selected_bar": null
+      }
+    ],
+    "end_utc_ms": 1783900920000,
+    "gaps": [
+      {
+        "canonical_symbol": "ES",
+        "end_utc_ms": 1783900860000,
+        "evidence_hash": "8d85be39d9e549ace3241e855be459a668a35c6b596eda8f7bd0b46c6c187dd2",
+        "first_detected_revision": "FPREV_e4b44ee79196935fcb8e33050017ddef",
+        "missing_minutes": 1,
+        "reason": "DUPLICATE_CONFLICT",
+        "start_utc_ms": 1783900800000
+      }
+    ],
+    "health": "BLOCKED",
+    "left_coverage": {
+      "calendar_excluded_minutes": 0,
+      "canonical_symbol": "ES",
+      "end_utc_ms": 1783900920000,
+      "expected_minutes": 2,
+      "present_minutes": 1,
+      "reason_code": "FP_DRC_COVERAGE_CONFLICTED",
+      "source_revision_hash": "61cc8f1dece465ebe647c6cbd448052ce52da71e32bdbc72e9c1985332101819",
+      "start_utc_ms": 1783900800000,
+      "state": "CONFLICTED"
+    },
+    "pair_id": "FP-PAIR-ES-NQ",
+    "reason_codes": [
+      "FP_DRC_DUPLICATE_CONFLICT",
+      "FP_DRC_SYNC_BLOCKED"
+    ],
+    "result_id": "FPSYNC_d67637febf5ebb574a9d1cd2a1c914c0",
+    "revision": {
+      "affected_end_utc_ms": 1783900920000,
+      "affected_start_utc_ms": 1783900800000,
+      "changed_symbols": [
+        "ES",
+        "NQ"
+      ],
+      "created_utc_ms": 1783901799999,
+      "current_payload_hash": "108bd5fd70fa423c89e87d805aa84e38b02cbe0051eac77f0b952d4637fb79da",
+      "kind": "INITIAL",
+      "pair_id": "FP-PAIR-ES-NQ",
+      "parent_revision_id": "NONE",
+      "previous_payload_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reason_code": "FP_DRC_REVISION_INITIAL",
+      "revision_id": "FPREV_e4b44ee79196935fcb8e33050017ddef",
+      "revision_version": "1.0.0"
+    },
+    "right_coverage": {
+      "calendar_excluded_minutes": 0,
+      "canonical_symbol": "NQ",
+      "end_utc_ms": 1783900920000,
+      "expected_minutes": 2,
+      "present_minutes": 2,
+      "reason_code": "FP_DRC_COVERAGE_COMPLETE",
+      "source_revision_hash": "690a675e33d5853f99e87ca3f992dbd0fffbdb8c78d223656c96cf5494c5d1d4",
+      "start_utc_ms": 1783900800000,
+      "state": "COMPLETE"
+    },
+    "rows": [
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "bec25f2d36581abbae1da39550c86cbfea52eb25f387ea20213f5add9cee1c9b",
+        "left": {
+          "bar": null,
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900800000,
+          "reason_code": "FP_DRC_DUPLICATE_CONFLICT",
+          "source_revision_hash": "a03aaf02ce193d9b45dfabf24b04e34005ca9af659e55b90d6c57250e42be255",
+          "state": "CONFLICT"
+        },
+        "open_utc_ms": 1783900800000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20000.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20000.5,
+            "low": 19999.5,
+            "open": 20000,
+            "open_utc_ms": 1783900800000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900860000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 1,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900800000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "a03aaf02ce193d9b45dfabf24b04e34005ca9af659e55b90d6c57250e42be255",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      },
+      {
+        "calendar_segment": "A",
+        "calendar_snapshot_hash": "d34fedeb5f1e29d060bb6a68b2abfbfc8e61360e8e0c29007832b641ed7d6bc0",
+        "left": {
+          "bar": {
+            "canonical_symbol": "ES",
+            "close": 5001.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 5001.5,
+            "low": 5000.5,
+            "open": 5001,
+            "open_utc_ms": 1783900860000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900920000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 2,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "ES",
+          "open_utc_ms": 1783900860000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "a03aaf02ce193d9b45dfabf24b04e34005ca9af659e55b90d6c57250e42be255",
+          "state": "PRESENT"
+        },
+        "open_utc_ms": 1783900860000,
+        "pair_id": "FP-PAIR-ES-NQ",
+        "right": {
+          "bar": {
+            "canonical_symbol": "NQ",
+            "close": 20001.25,
+            "contract_version": "1.0.0",
+            "finality": "CLOSED",
+            "high": 20001.5,
+            "low": 20000.5,
+            "open": 20001,
+            "open_utc_ms": 1783900860000,
+            "real_volume": 0,
+            "received_utc_ms": 1783900920000,
+            "source_id": "GOLDEN",
+            "source_revision": "R1",
+            "source_sequence": 3,
+            "spread_points": 1,
+            "tick_volume": 10
+          },
+          "canonical_symbol": "NQ",
+          "open_utc_ms": 1783900860000,
+          "reason_code": "FP_DRC_M1_PRESENT",
+          "source_revision_hash": "a03aaf02ce193d9b45dfabf24b04e34005ca9af659e55b90d6c57250e42be255",
+          "state": "PRESENT"
+        },
+        "synchronization_version": "1.0.0"
+      }
+    ],
+    "semantic_hash": "9dcc5e797248416f7f6f9cb376ebd3c9ad5ac9f81761ffe4d211cae45ae64b10",
+    "start_utc_ms": 1783900800000
+  }
+}

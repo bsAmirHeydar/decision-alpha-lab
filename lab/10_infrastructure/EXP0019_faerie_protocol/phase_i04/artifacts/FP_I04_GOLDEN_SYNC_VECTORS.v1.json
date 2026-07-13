@@ -1,0 +1,83 @@
+{
+  "fixture_count": 4,
+  "fixtures": [
+    {
+      "fixture_id": "FP-I04-GOLDEN-COMPLETE",
+      "health": "READY",
+      "input_bar_hashes": [
+        "b23648a0dd091b04ca489daf2ba273138057abc5575aad868328988563590088",
+        "0fe7b26ca677f022c9322435af3678ce3edbe66028eda1a77b2e91bf2cebd810",
+        "f11d448fd90a182fb56aaadfdb0ec71651545caf199028334a73714314646f88",
+        "91b55c4b8a5638125b05ede12e505b8e8edcbdd101d74c17056ee5b00bb6bcdb",
+        "d303b25b8a725f92505b4e654a433d164b239477052d092f3840388de5e2cf85",
+        "e76cd661af22e568df12294d130c2d2b3bf44838a659b391a1be9de560cb893f",
+        "c72127c26e4e998551b9bb81c366dca4f272080b23e8862b1bf0852780548d0d",
+        "d44ec24f0706d0d9bb691369b682656fa56a6a03effe97ae810b1379577e74b0",
+        "a0b0e79d2e1ff2d41c67ccfbbdb4d6e01b75382985cc0da31320f0a650f9528b",
+        "425b5791cf74a1e05c9724f925fa1fc6c75bd0b5c4827604a54d89211440c6d9"
+      ],
+      "result_id": "FPSYNC_b0844344e58a19f579157149819d0755",
+      "revision_id": "FPREV_657e2fba880036469caaf490b6ca5549",
+      "row_ids": [
+        "FPALIGN_fd38a36a0c88ad4ab2453bf35d6eb41d",
+        "FPALIGN_46a36a323b1119601273c69d384b721f",
+        "FPALIGN_b7a5efe2f8527d4cd8d4d8cebf36769a",
+        "FPALIGN_d21082b076b9eafa74d6872639225cb4",
+        "FPALIGN_ea207af37aa247e864ce5929e0d3030c"
+      ],
+      "semantic_hash": "793e2f1c73da90fe51dc6151ca3d8c99398830dd448c552e1510365e975f4e11"
+    },
+    {
+      "fixture_id": "FP-I04-GOLDEN-MISSING-INTERNAL",
+      "gap_ids": [
+        "FPGAP_d11f47064e8418504acca18c5a9405d1"
+      ],
+      "health": "DEGRADED",
+      "result_id": "FPSYNC_37577af1c7ac29dcd76f6795e8affe6e",
+      "semantic_hash": "f440dfb1140cb928674a3b4b62691817e63b019e66b9f73deac4efea24432444"
+    },
+    {
+      "conflict_hashes": [
+        "e1413451005e9a7bc27db1ce7e7360ca9c60543b78a83446fc1d6353ec1a3068"
+      ],
+      "fixture_id": "FP-I04-GOLDEN-CONFLICT",
+      "health": "BLOCKED",
+      "result_id": "FPSYNC_d67637febf5ebb574a9d1cd2a1c914c0",
+      "semantic_hash": "9dcc5e797248416f7f6f9cb376ebd3c9ad5ac9f81761ffe4d211cae45ae64b10"
+    },
+    {
+      "fixture_id": "FP-I04-GOLDEN-CORRECTION",
+      "impact": {
+        "affected_minute_ids": [
+          1783900800000
+        ],
+        "affected_window_ids": [
+          "FPSESSION-2026-07-13-A"
+        ],
+        "changed_suffix_hash": "f1632b1a51f1893173fc2d970bfe1833970afefbee0dde27b0a870138caf85dd",
+        "reason_code": "FP_DRC_REVISION_IMPACT_COMPUTED",
+        "revision_id": "FPREV_c2db56e8f8e7ea92ea11abdc3932be29",
+        "unaffected_prefix_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "result_id": "FPSYNC_d2b4fec87f3f012f7cd9415ec7de953a",
+      "revision": {
+        "affected_end_utc_ms": 1783900860000,
+        "affected_start_utc_ms": 1783900800000,
+        "changed_symbols": [
+          "ES"
+        ],
+        "created_utc_ms": 1783902799999,
+        "current_payload_hash": "e9fd62321e4d243b8a8cedf94565f82a80c045f00d71c314e96e65ef1a7ecc65",
+        "kind": "VALUE_CORRECTION",
+        "pair_id": "FP-PAIR-ES-NQ",
+        "parent_revision_id": "FPREV_657e2fba880036469caaf490b6ca5549",
+        "previous_payload_hash": "ac0f39c216048803141bf2373b0a6d308dd596c3b994fcaecdf9e6dd69d65e1a",
+        "reason_code": "FP_DRC_REVISION_VALUE_CORRECTION",
+        "revision_id": "FPREV_c2db56e8f8e7ea92ea11abdc3932be29",
+        "revision_version": "1.0.0"
+      },
+      "semantic_hash": "7cac404f08be2662b2120236c8762ee86f1551ab825ee6ebaf2e922644b3a647"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

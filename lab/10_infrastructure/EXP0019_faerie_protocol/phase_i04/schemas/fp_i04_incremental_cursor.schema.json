@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_incremental_cursor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cursor_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "last_emitted_open_utc_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "left_last_source_sequence": {
+      "minimum": -1,
+      "type": "integer"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right_last_source_sequence": {
+      "minimum": -1,
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "EMPTY",
+        "ACTIVE",
+        "EXHAUSTED",
+        "INVALIDATED"
+      ]
+    }
+  },
+  "required": [
+    "pair_id",
+    "last_emitted_open_utc_ms",
+    "left_last_source_sequence",
+    "right_last_source_sequence",
+    "data_revision_id",
+    "state",
+    "cursor_version"
+  ],
+  "title": "fp_i04_incremental_cursor",
+  "type": "object"
+}

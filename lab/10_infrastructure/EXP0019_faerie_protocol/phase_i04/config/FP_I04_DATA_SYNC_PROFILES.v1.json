@@ -1,0 +1,84 @@
+{
+  "profile_count": 2,
+  "profiles": [
+    {
+      "pair": {
+        "context_id": "FP-CONTEXT-001",
+        "left": {
+          "aliases": [
+            "ES",
+            "US500"
+          ],
+          "canonical_symbol": "ES",
+          "contract_version": "1.0.0",
+          "digits": 2,
+          "tick_size": 0.25
+        },
+        "pair_id": "FP-PAIR-ES-NQ",
+        "resolver_version": "1.0.0",
+        "right": {
+          "aliases": [
+            "NQ",
+            "USTEC"
+          ],
+          "canonical_symbol": "NQ",
+          "contract_version": "1.0.0",
+          "digits": 2,
+          "tick_size": 0.25
+        }
+      },
+      "profile_id": "FP-I04-ES-NQ-CANONICAL",
+      "synchronizer": {
+        "calendar_config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+        "closed_bars_only": true,
+        "context_id": "FP-CONTEXT-001",
+        "expected_minute_policy": "ALL_REQUESTED_MINUTES",
+        "kernel_version": "1.0.0",
+        "maximum_backfill_minutes": 250000,
+        "maximum_gap_run_minutes": 1440,
+        "pair_id": "FP-PAIR-ES-NQ"
+      },
+      "time_config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c"
+    },
+    {
+      "pair": {
+        "context_id": "FP-CONTEXT-001",
+        "left": {
+          "aliases": [
+            "ES",
+            "US500"
+          ],
+          "canonical_symbol": "ES",
+          "contract_version": "1.0.0",
+          "digits": 2,
+          "tick_size": 0.25
+        },
+        "pair_id": "FP-PAIR-ES-NQ",
+        "resolver_version": "1.0.0",
+        "right": {
+          "aliases": [
+            "NQ",
+            "USTEC"
+          ],
+          "canonical_symbol": "NQ",
+          "contract_version": "1.0.0",
+          "digits": 2,
+          "tick_size": 0.25
+        }
+      },
+      "profile_id": "FP-I04-ES-NQ-SESSION-ONLY",
+      "synchronizer": {
+        "calendar_config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+        "closed_bars_only": true,
+        "context_id": "FP-CONTEXT-001",
+        "expected_minute_policy": "NY_TRADING_SESSIONS_ONLY",
+        "kernel_version": "1.0.0",
+        "maximum_backfill_minutes": 250000,
+        "maximum_gap_run_minutes": 1440,
+        "pair_id": "FP-PAIR-ES-NQ"
+      },
+      "time_config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

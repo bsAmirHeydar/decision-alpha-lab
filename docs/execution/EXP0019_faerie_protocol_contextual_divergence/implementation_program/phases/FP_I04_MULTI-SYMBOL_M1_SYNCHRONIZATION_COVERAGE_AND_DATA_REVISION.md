@@ -1,12 +1,13 @@
 ---
 title: "FP-I04 — Multi-Symbol M1 Synchronization, Coverage, and Data Revision"
-tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+tags: [exp0019, faerie-protocol, implementation-program, fp-i04, obsidian]
+status: implemented-python-static-validated
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
 program_version: 1.0.0
-doc_version: 1.0.0
+phase_version: 1.0.0
+doc_version: 2.0.0
 last_updated: 2026-07-13
 language: en
 ---
@@ -14,129 +15,101 @@ language: en
 
 ## Mission
 
-Build deterministic two-symbol M1 acquisition, synchronization, gap detection, cursoring, coverage states, and bounded backfill.
+Build the canonical two-symbol M1 data plane. Resolve broker aliases to stable symbols, validate closed bars, align both symbols by exact UTC M1 open, expose every absence and conflict, maintain parent-linked revisions, and support deterministic batch/incremental replay.
 
-## Position in the program
+## Accepted architecture
 
-- **Phase ID:** `FP-I04`
-- **Depends on:** `FP-I03`
-- **Primary product impact:** Shared context engine
-- **Live execution authority:** `NONE`
+```text
+raw M1 deliveries
+   │
+   ├─ SymbolResolver
+   ├─ closed-bar / tick-grid / OHLC validation
+   ├─ duplicate normalization
+   └─ transport-vs-semantic separation
+   │
+FP-I03 CalendarSnapshot ── expected UTC minute axis
+   │
+   ├─ MinuteCell(left)
+   ├─ MinuteCell(right)
+   ├─ coverage and gap runs
+   └─ AlignedMinute rows
+   │
+   ├─ DataRevision / RevisionImpact
+   ├─ IncrementalCursor
+   ├─ BackfillRequest
+   └─ PairDatasetSnapshot
+   │
+   ▼
+FP-I05 window/reference engine
+```
 
-## Scope
+## Canonical policies
 
-- symbol resolver
-- M1 synchronizer
-- bar identity
-- coverage intervals
-- gap repair
-- data revision
-- incremental cursors
+1. **Alignment key:** exact UTC M1 open only.
+2. **Finality:** only closed M1 bars enter canonical results.
+3. **Duplicate equality:** semantic bar hash, not arrival order.
+4. **Conflict:** no winner; minute and result are blocked.
+5. **Absence:** `MISSING` inside known coverage and `OUT_OF_COVERAGE` outside it.
+6. **Calendar exclusions:** daily gap and weekend are not expected observations.
+7. **Revision:** initial, append, late insert, correction, delete, conflict, or no change.
+8. **Invalidation:** changed minutes and dependent windows only.
+9. **Parity:** batch is the incremental/restart oracle.
+10. **Synthetic data:** forbidden.
+
+## Delivered code
+
+| Surface | Path |
+|---|---|
+| Python package | `lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/python/fp_i04_data` |
+| Tests | `lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/tests` |
+| Schemas | `lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/schemas` |
+| Config/examples | `lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/config`, `examples` |
+| MQL5 mirror | `mql5/Include/FaerieProtocol/EXP0019/Data` |
+| Self-test | `mql5/Experts/FaerieProtocolTests/EXP0019_FP_I04_DataSyncSelfTest.mq5` |
+| Diagnostic | `mql5/Experts/FaerieProtocol/EXP0019_FP_I04_DataSyncDiagnostic.mq5` |
+
+## Public contracts
+
+- `SymbolSpec`
+- `SymbolPairSpec`
+- `M1Bar`
+- `DuplicateResolution`
+- `CoverageInterval`
+- `GapInterval`
+- `MinuteCell`
+- `AlignedMinute`
+- `DataRevision`
+- `IncrementalCursor`
+- `BackfillRequest`
+- `SynchronizationResult`
+- `RevisionImpact`
+- `SynchronizerConfig`
+- `PairDatasetSnapshot`
+
+## Acceptance evidence
+
+- 67 phase tests.
+- 279 cumulative FP-I00 through FP-I04 tests.
+- 50 EXP0018 Daye regression tests.
+- 15 closed JSON schemas.
+- 10 executable conformance checks.
+- MQL5 static contract parity and no forbidden authority.
+- Clean-baseline patch verification required before release.
 
 ## Explicit non-goals
 
-- No relation semantics
-- No chart projections
-- No execution
+- No A/L/N/W aggregation.
+- No reference creation or lifecycle.
+- No hunt, relation, divergence, or confirmation.
+- No indicator, drawing, alert, or panel.
+- No paper/live execution.
 
-## Entry criteria
+## Handoff to FP-I05
 
-- [ ] Previous phase is accepted and its file/hash manifest is available.
-- [ ] All referenced contracts and dependency versions are exact.
-- [ ] No unresolved regression exists in previous divergence contexts.
-- [ ] Working tree changes unrelated to this phase are excluded from the patch.
-
-## Planned deliverables
-
-- FP_SymbolPair.mqh
-- FP_M1Synchronizer.mqh
-- FP_DataCoverage.mqh
-- data sync diagnostic/self-test
-
-
-## Engineering procedure
-
-1. Freeze the phase-specific public contracts and identify all behavior-bearing fields.
-2. Add compile-time enums/types before engine behavior.
-3. Implement the smallest deterministic module behind an explicit interface.
-4. Add module-local self-tests before integration.
-5. Integrate only through the composition root; leaf modules may not reach upward into product entry points.
-6. Add golden, negative, restart, and failure-injection fixtures relevant to the phase.
-7. Compile every affected indicator/EA/test entry point in MetaEditor.
-8. Run cumulative FP tests and previous-context compatibility tests.
-9. Record telemetry/performance evidence when state volume or runtime work changes.
-10. Update Obsidian documentation, file inventory, hashes, QA, commit message, and rollback scope.
-
-## Required state and event evidence
-
-| Evidence | Requirement |
-|---|---|
-| configuration/context hash | exact and visible in diagnostics |
-| module version | included in manifest/checkpoint |
-| semantic IDs | canonical and deterministic |
-| state transitions | append-only or reproducible from event stream |
-| reason codes | closed registry; no free-text-only failure |
-| health state | READY/DEGRADED/BLOCKED with cause |
-| test fixture ID | attached to golden/replay output |
-| source data revision | recorded for replay-relevant phases |
-
-## Failure behavior
-
-- Missing or incompatible dependency: fail initialization or keep product `BLOCKED`; never guess.
-- Missing M1/history: preserve data-incomplete evidence and block conclusions that require the data.
-- Duplicate event: deduplicate by semantic identity and emit diagnostic evidence.
-- Illegal transition: reject transition and fail the self-test.
-- Checkpoint/version mismatch: discard checkpoint and perform deterministic rebuild.
-- Performance overrun: preserve semantic processing, degrade noncritical projection, and report health.
-- Regression in another context: stop phase acceptance.
-
-## Test obligations
-
-### Unit and contract
-
-- Every enum/state/ID input validates.
-- One behavior-bearing field change changes the required identity.
-- Repeated identical input produces identical state/output.
-
-### Golden and negative
-
-- At least one positive golden path for every new semantic branch.
-- At least one missing/ambiguous/invalid path.
-- Duplicate/replay/restart path where state is persistent.
-
-### Integration
-
-- Nearest upstream and downstream contracts are exercised.
-- No forbidden dependency or authority is imported.
-- Previous-context compatibility remains green.
-
-### Runtime and performance
-
-- MetaEditor compile evidence.
-- Strategy Tester or diagnostic runtime evidence where applicable.
-- Incremental processing counters prove no accidental full-history loop.
-
-## Acceptance criteria
-
-- [ ] both symbols aligned by M1 open time.
-- [ ] missing bar is explicit.
-- [ ] late history invalidates affected windows only.
-- [ ] incremental and batch source sequences match.
-
-- [ ] Phase file index and SHA-256 inventory validate.
-- [ ] Documentation and implementation agree on versions and behavior.
-- [ ] Rollback restores the previous accepted phase without deleting unrelated evidence.
-
-## Handoff package
-
-The handoff contains the exact public API, accepted tests, golden hashes, known limitations, performance baseline, changed file inventory, and one next-phase entry checklist. The next phase may not infer missing behavior from implementation details.
-
-## Rollback boundary
-
-Revert only files listed in this phase's file index. Persisted artifacts generated under the phase version are retained for audit, while incompatible checkpoints are ignored by the restored version.
+FP-I05 consumes revision-bearing aligned rows and may aggregate them into symbol-local A/L/N/W windows. It may not compress missing calendar dates, substitute absent bars, alter the UTC join key, or erase revision lineage.
 
 ## Navigation
 
-- [[../00_IMPLEMENTATION_PROGRAM_MOC|Implementation Program MOC]]
-- [[../../00_EXP0019_MOC|EXP0019 Master MOC]]
-- [[../../34_IMPLEMENTATION_ROADMAP|Implementation Roadmap]]
+- [[../phase_deliveries/fp_i04/00_FP_I04_DELIVERY_MOC|FP-I04 Delivery MOC]]
+- [[FP_I03_NEW_YORK_TIME_TRADING-DAY_SESSION_AND_WEEK_KERNEL|Previous: FP-I03]]
+- [[FP_I05_SESSION_WEEK_WINDOW_STORE_CALENDAR-DAY_SELECTOR_AND_REFERENCE_ENGINE|Next: FP-I05]]

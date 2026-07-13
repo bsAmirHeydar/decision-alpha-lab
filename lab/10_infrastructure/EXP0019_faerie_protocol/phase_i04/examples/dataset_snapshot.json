@@ -1,0 +1,20 @@
+{
+  "created_utc_ms": 1783901799999,
+  "data_revision_id": "FPREV_657e2fba880036469caaf490b6ca5549",
+  "end_utc_ms": 1783901100000,
+  "health": "READY",
+  "pair_id": "FP-PAIR-ES-NQ",
+  "reason_codes": [
+    "FP_DRC_SYNC_READY"
+  ],
+  "row_ids": [
+    "FPALIGN_fd38a36a0c88ad4ab2453bf35d6eb41d",
+    "FPALIGN_46a36a323b1119601273c69d384b721f",
+    "FPALIGN_b7a5efe2f8527d4cd8d4d8cebf36769a",
+    "FPALIGN_d21082b076b9eafa74d6872639225cb4",
+    "FPALIGN_ea207af37aa247e864ce5929e0d3030c"
+  ],
+  "semantic_hash": "a7d2f924252dcc64910bf89f9e56d33e651608e95917d3e6659cc6c979262f41",
+  "snapshot_id": "FPDATA_a7d2f924252dcc64910bf89f9e56d33e",
+  "start_utc_ms": 1783900800000
+}

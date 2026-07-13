@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_symbol_pair_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "left": {
+      "$ref": "fp_i04_symbol_spec.schema.json"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolver_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right": {
+      "$ref": "fp_i04_symbol_spec.schema.json"
+    }
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "left",
+    "right",
+    "resolver_version"
+  ],
+  "title": "fp_i04_symbol_pair_spec",
+  "type": "object"
+}

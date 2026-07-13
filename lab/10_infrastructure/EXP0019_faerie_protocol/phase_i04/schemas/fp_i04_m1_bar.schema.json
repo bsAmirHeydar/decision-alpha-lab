@@ -1,0 +1,84 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_m1_bar.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "close": {
+      "type": "number"
+    },
+    "contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "finality": {
+      "enum": [
+        "CLOSED",
+        "PROVISIONAL"
+      ]
+    },
+    "high": {
+      "type": "number"
+    },
+    "low": {
+      "type": "number"
+    },
+    "open": {
+      "type": "number"
+    },
+    "open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "real_volume": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "received_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "spread_points": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "tick_volume": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "open_utc_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "tick_volume",
+    "real_volume",
+    "spread_points",
+    "finality",
+    "source_id",
+    "source_sequence",
+    "source_revision",
+    "received_utc_ms",
+    "contract_version"
+  ],
+  "title": "fp_i04_m1_bar",
+  "type": "object"
+}

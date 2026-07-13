@@ -1,0 +1,48 @@
+{
+  "FP_I05_may_consume": [
+    "SymbolPairSpec",
+    "AlignedMinute rows",
+    "symbol-local M1Bar",
+    "CoverageInterval",
+    "GapInterval",
+    "DataRevision",
+    "RevisionImpact",
+    "IncrementalCursor",
+    "PairDatasetSnapshot",
+    "FP-I03 calendar snapshot hashes"
+  ],
+  "FP_I05_may_not_change": [
+    "UTC M1 open alignment key",
+    "closed-bar finality",
+    "duplicate conflict policy",
+    "missing/out-of-coverage distinction",
+    "calendar exclusion accounting",
+    "data revision parentage",
+    "batch/incremental parity"
+  ],
+  "conformance_hash": "2641a4bcdf4e94bb74c8cba36140d38efa3fbfb699a1f2a0fc9832fd1859444c",
+  "data_contract_registry_hash": "b65087470b446a5872db2b762244f114a926aba958d2a56477bd609210427674",
+  "data_reason_registry_hash": "6cebd22efdfc4d34431a89ddd67441939b4695c79aba5cab0dfe4a31f155f1fc",
+  "from_phase": "FP-I04",
+  "handoff_hash": "eeb548959e6e229b3f2b9a3df3ed4fa67937798a15ca4c183887f220b77bd12d",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "next_golden_tests": [
+    "A/L/N/W aggregation preserves symbol-local highs and lows",
+    "calendar-day offsets do not compress across missing dates",
+    "late insert invalidates only dependent windows",
+    "window cache rebuild matches incremental state"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "required_entry_checks": [
+    "FP-I04 phase tests pass",
+    "FP-I00 through FP-I03 remain green",
+    "EXP0018 regressions remain green",
+    "FP-I04 file/hash manifest validates",
+    "MetaEditor logs retained"
+  ],
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "to_phase": "FP-I05"
+}

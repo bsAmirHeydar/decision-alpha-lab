@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_pair_dataset_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "data_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "row_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "pair_id",
+    "start_utc_ms",
+    "end_utc_ms",
+    "row_ids",
+    "semantic_hash",
+    "data_revision_id",
+    "created_utc_ms",
+    "health",
+    "reason_codes"
+  ],
+  "title": "fp_i04_pair_dataset_snapshot",
+  "type": "object"
+}

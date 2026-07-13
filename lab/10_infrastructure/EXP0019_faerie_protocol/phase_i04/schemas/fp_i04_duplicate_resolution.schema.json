@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i04/fp_i04_duplicate_resolution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "UNIQUE",
+        "IDENTICAL_DEDUPLICATED",
+        "CONFLICT"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "input_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "selected_bar": {
+      "anyOf": [
+        {
+          "$ref": "fp_i04_m1_bar.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "canonical_symbol",
+    "open_utc_ms",
+    "disposition",
+    "selected_bar",
+    "input_hashes",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i04_duplicate_resolution",
+  "type": "object"
+}
