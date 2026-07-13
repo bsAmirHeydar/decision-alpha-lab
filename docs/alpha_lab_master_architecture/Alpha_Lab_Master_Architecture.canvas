@@ -1,0 +1,284 @@
+{
+  "nodes": [
+    {
+      "id": "vision",
+      "type": "text",
+      "text": "# Alpha Lab\n**Knowledge → Context → Alpha → Capital → Monitoring**",
+      "x": 600,
+      "y": -500,
+      "width": 480,
+      "height": 150,
+      "color": "4"
+    },
+    {
+      "id": "knowledge",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/02_Knowledge_To_Context_Architecture.md",
+      "x": 600,
+      "y": -260,
+      "width": 400,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "context",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/03_Context_Factory_Architecture.md",
+      "x": 600,
+      "y": -40,
+      "width": 400,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "branches",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/04_Two_Branch_Setup_Architecture.md",
+      "x": 600,
+      "y": 180,
+      "width": 400,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "human",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/04_Two_Branch_Setup_Architecture.md",
+      "x": 160,
+      "y": 420,
+      "width": 330,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "ai",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/05_AI_Setup_Discovery_Architecture.md",
+      "x": 1040,
+      "y": 420,
+      "width": 330,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "firewall",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/06_Research_Firewall_And_Evidence.md",
+      "x": 600,
+      "y": 650,
+      "width": 400,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "statistics",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/07_Statistics_Monte_Carlo_And_AI_Analyst.md",
+      "x": 600,
+      "y": 870,
+      "width": 400,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "capital",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/08_Capital_And_Portfolio_Architecture.md",
+      "x": 600,
+      "y": 1090,
+      "width": 400,
+      "height": 120,
+      "color": "5"
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/09_Runtime_Security_And_Execution.md",
+      "x": 600,
+      "y": 1310,
+      "width": 400,
+      "height": 120,
+      "color": "5"
+    },
+    {
+      "id": "monitor",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/10_Assumption_Aware_Monitoring.md",
+      "x": 600,
+      "y": 1530,
+      "width": 400,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "memory",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/11_Compounding_Speed_And_Scalability.md",
+      "x": 1040,
+      "y": 870,
+      "width": 360,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "lineage",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/12_Authority_Lineage_And_Artifact_Chain.md",
+      "x": 160,
+      "y": 870,
+      "width": 360,
+      "height": 120,
+      "color": "6"
+    },
+    {
+      "id": "program",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/13_Implementation_Program.md",
+      "x": 160,
+      "y": 1310,
+      "width": 360,
+      "height": 120,
+      "color": "4"
+    },
+    {
+      "id": "risks",
+      "type": "file",
+      "file": "00_MASTER_ARCHITECTURE/14_Architectural_Risks_And_Controls.md",
+      "x": 1040,
+      "y": 1310,
+      "width": 360,
+      "height": 120,
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "vision",
+      "fromSide": "bottom",
+      "toNode": "knowledge",
+      "toSide": "top"
+    },
+    {
+      "id": "e2",
+      "fromNode": "knowledge",
+      "fromSide": "bottom",
+      "toNode": "context",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "context",
+      "fromSide": "bottom",
+      "toNode": "branches",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "branches",
+      "fromSide": "bottom",
+      "toNode": "human",
+      "toSide": "top",
+      "label": "Human-designed setups"
+    },
+    {
+      "id": "e5",
+      "fromNode": "branches",
+      "fromSide": "bottom",
+      "toNode": "ai",
+      "toSide": "top",
+      "label": "AI-discovered treatments"
+    },
+    {
+      "id": "e6",
+      "fromNode": "human",
+      "fromSide": "bottom",
+      "toNode": "firewall",
+      "toSide": "top"
+    },
+    {
+      "id": "e7",
+      "fromNode": "ai",
+      "fromSide": "bottom",
+      "toNode": "firewall",
+      "toSide": "top"
+    },
+    {
+      "id": "e8",
+      "fromNode": "firewall",
+      "fromSide": "bottom",
+      "toNode": "statistics",
+      "toSide": "top"
+    },
+    {
+      "id": "e9",
+      "fromNode": "statistics",
+      "fromSide": "bottom",
+      "toNode": "capital",
+      "toSide": "top",
+      "label": "Supported evidence"
+    },
+    {
+      "id": "e10",
+      "fromNode": "capital",
+      "fromSide": "bottom",
+      "toNode": "runtime",
+      "toSide": "top"
+    },
+    {
+      "id": "e11",
+      "fromNode": "runtime",
+      "fromSide": "bottom",
+      "toNode": "monitor",
+      "toSide": "top"
+    },
+    {
+      "id": "e12",
+      "fromNode": "statistics",
+      "fromSide": "bottom",
+      "toNode": "memory",
+      "toSide": "top",
+      "label": "Trial and failure memory"
+    },
+    {
+      "id": "e13",
+      "fromNode": "monitor",
+      "fromSide": "bottom",
+      "toNode": "memory",
+      "toSide": "top",
+      "label": "Live evidence"
+    },
+    {
+      "id": "e14",
+      "fromNode": "memory",
+      "fromSide": "bottom",
+      "toNode": "ai",
+      "toSide": "top",
+      "label": "Better priors"
+    },
+    {
+      "id": "e15",
+      "fromNode": "lineage",
+      "fromSide": "bottom",
+      "toNode": "statistics",
+      "toSide": "top",
+      "label": "Authority and lineage"
+    },
+    {
+      "id": "e16",
+      "fromNode": "program",
+      "fromSide": "bottom",
+      "toNode": "runtime",
+      "toSide": "top",
+      "label": "Implementation path"
+    },
+    {
+      "id": "e17",
+      "fromNode": "risks",
+      "fromSide": "bottom",
+      "toNode": "runtime",
+      "toSide": "top",
+      "label": "Controls"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "AI Algorithm Engineering OS — Decision Alpha Lab Edition",
+  "version": "2.0.0",
+  "created": "2026-07-10",
+  "purpose": "Specification-first AI-assisted algorithm engineering and research governance for Decision Alpha Lab",
+  "entry": "00_START_HERE/00_Home.md",
+  "repository_policy_entry": "../../AGENTS.md",
+  "languages": [
+    "English",
+    "Persian onboarding"
+  ],
+  "target_integrations": [
+    "Obsidian",
+    "Decision Alpha Lab",
+    "MQL5",
+    "Python",
+    "TypeScript/React",
+    "PowerShell",
+    "Git",
+    "CI"
+  ],
+  "modules": 21,
+  "normative_rule": "AI and models have no implicit domain or execution authority."
+}
