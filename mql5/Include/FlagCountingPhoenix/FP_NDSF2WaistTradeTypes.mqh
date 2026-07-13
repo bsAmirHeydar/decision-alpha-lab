@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-08"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v8"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-09"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v9"
 
 
 
@@ -17,8 +17,31 @@ enum FP_NDSF2ExitMode
    // Dynamic behavior: the original F2 end remains the RR reference only.
    // After F2 confirms, its confirmation node becomes F3 Leg1. Once price
    // corrects away, TP is armed at that node for the F3 flag retest.
-   FP_NDS_F2_EXIT_F3_FLAG_RETEST = 1
+   FP_NDS_F2_EXIT_F3_FLAG_RETEST = 1,
+
+   // Higher-timeframe dynamic behavior: keep the position open until the first
+   // canonical same-direction F3 on the configured higher timeframe forms its
+   // Leg1 and then its own Waist. The Waist is the correction gate; TP is armed
+   // at the end of that exact higher-timeframe F3 Leg1.
+   FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST = 2
 };
+
+bool FP_NDSF2ExitModeIsDynamic(const int exit_mode)
+{
+   return (exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST ||
+           exit_mode == FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST);
+}
+
+bool FP_NDSF2ExitModeUsesEntryTimeframeF3(const int exit_mode)
+{
+   return (exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
+}
+
+bool FP_NDSF2ExitModeUsesHigherTimeframeF3(const int exit_mode)
+{
+   return (exit_mode == FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST);
+}
+
 
 enum FP_NDSF2DynamicExitStage
 {
@@ -28,7 +51,10 @@ enum FP_NDSF2DynamicExitStage
    FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_WAIST = 3,
    FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_RETEST = 4,
    FP_NDS_F2_DYN_EXIT_TP_ARMED = 5,
-   FP_NDS_F2_DYN_EXIT_CLOSED = 6
+   FP_NDS_F2_DYN_EXIT_CLOSED = 6,
+   FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_LEG1 = 7,
+   FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_WAIST = 8,
+   FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_RETEST = 9
 };
 
 enum FP_NDSF2WaistRunResult
@@ -55,10 +81,11 @@ struct FP_NDSF2WaistTradeConfig
    bool cancel_pending_if_target_touched_before_fill;
    int max_setup_age_bars;
 
-   // Exit policy. In dynamic F3 mode, min-RR and entry repricing still use
+   // Exit policy. In either dynamic F3 mode, min-RR and entry repricing still use
    // the original F2 flag end because the eventual F3 retest node is unknown
    // at entry time.
    int exit_mode;
+   ENUM_TIMEFRAMES higher_timeframe_f3_exit_timeframe;
    double f3_exit_correction_ticks;
    bool close_at_market_if_f3_target_already_reached;
 
@@ -136,7 +163,7 @@ struct FP_NDSF2WaistTradeSetup
    double entry_price;
    double stop_price;
    // target_price and rr_reference_target_price are the original F2 Leg2
-   // endpoint. They remain the RR authority in both exit modes.
+   // endpoint. They remain the RR authority in all exit modes.
    double target_price;
    double rr_reference_target_price;
 
@@ -189,6 +216,9 @@ struct FP_NDSF2DynamicExitContext
    ulong position_ticket;
    long position_identifier;
    int stage;
+   int dynamic_exit_mode;
+   ENUM_TIMEFRAMES dynamic_exit_timeframe;
+   datetime position_open_time;
 
    // Exact child-F3 evidence. The target is taken from the Leg1 node of the
    // child whose parent_event_id is the bound source F2. The correction gate is
@@ -204,6 +234,25 @@ struct FP_NDSF2DynamicExitContext
    datetime exact_child_f3_waist_time;
    double exact_child_f3_waist_price;
    double dynamic_target_price;
+
+   // Higher-timeframe F3 evidence. This is intentionally per trade. Each
+   // position independently locks the first eligible canonical same-direction
+   // HTF F3 Leg1 that becomes observable after that position opens. Even when
+   // multiple positions legitimately share one HTF F3, every ticket carries
+   // its own immutable identity and TP state.
+   bool htf_f3_leg1_captured;
+   int htf_f3_event_id;
+   int htf_f3_sequence_id;
+   int htf_f3_parent_sequence_id;
+   int htf_f3_parent_event_id;
+   int htf_f3_scale_L;
+   int htf_f3_leg1_node_id;
+   datetime htf_f3_leg1_time;
+   double htf_f3_leg1_price;
+   int htf_f3_waist_node_id;
+   datetime htf_f3_waist_time;
+   double htf_f3_waist_price;
+   datetime htf_search_after_time;
 
    bool correction_seen;
    bool tp_armed;
@@ -238,6 +287,9 @@ void FP_ResetNDSF2DynamicExitContext(FP_NDSF2DynamicExitContext &ctx)
    ctx.position_ticket = 0;
    ctx.position_identifier = 0;
    ctx.stage = FP_NDS_F2_DYN_EXIT_NONE;
+   ctx.dynamic_exit_mode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+   ctx.dynamic_exit_timeframe = PERIOD_CURRENT;
+   ctx.position_open_time = 0;
    ctx.exact_child_f3_captured = false;
    ctx.exact_child_f3_event_id = -1;
    ctx.exact_child_f3_parent_event_id = -1;
@@ -249,6 +301,19 @@ void FP_ResetNDSF2DynamicExitContext(FP_NDSF2DynamicExitContext &ctx)
    ctx.exact_child_f3_waist_time = 0;
    ctx.exact_child_f3_waist_price = 0.0;
    ctx.dynamic_target_price = 0.0;
+   ctx.htf_f3_leg1_captured = false;
+   ctx.htf_f3_event_id = -1;
+   ctx.htf_f3_sequence_id = -1;
+   ctx.htf_f3_parent_sequence_id = -1;
+   ctx.htf_f3_parent_event_id = -1;
+   ctx.htf_f3_scale_L = 0;
+   ctx.htf_f3_leg1_node_id = -1;
+   ctx.htf_f3_leg1_time = 0;
+   ctx.htf_f3_leg1_price = 0.0;
+   ctx.htf_f3_waist_node_id = -1;
+   ctx.htf_f3_waist_time = 0;
+   ctx.htf_f3_waist_price = 0.0;
+   ctx.htf_search_after_time = 0;
    ctx.correction_seen = false;
    ctx.tp_armed = false;
 }
@@ -263,6 +328,7 @@ void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.cancel_pending_if_target_touched_before_fill = true;
    cfg.max_setup_age_bars = 0;
    cfg.exit_mode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+   cfg.higher_timeframe_f3_exit_timeframe = PERIOD_H1;
    cfg.f3_exit_correction_ticks = 1.0;
    cfg.close_at_market_if_f3_target_already_reached = true;
 

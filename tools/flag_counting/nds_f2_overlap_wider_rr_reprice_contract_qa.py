@@ -51,12 +51,12 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.70"', "expert version", errors)
+    require(expert, '#property version   "1.80"', "expert version", errors)
     require(expert, "InpF2BTAdjustEntryToMinimumRewardRisk = true", "RR adjustment default", errors)
     require(expert, "InpF2BTUseStopSpaceOverlapDeduplication = true", "overlap dedup default", errors)
     require(expert, "InpF2BTStopSpaceOverlapThresholdPercent = 80.0", "overlap default", errors)
 
-    require(types, 'NDS-F2-WAIST-BREAK-08', "contract version", errors)
+    require(types, 'NDS-F2-WAIST-BREAK-09', "contract version", errors)
     require(types, "adjust_entry_to_min_reward_risk", "RR adjustment config", errors)
     require(types, "use_stop_space_overlap_deduplication", "overlap config", errors)
     require(types, "stop_space_overlap_percent", "overlap threshold config", errors)

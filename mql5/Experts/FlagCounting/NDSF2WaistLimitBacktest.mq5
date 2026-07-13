@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.70"
-#property description "NDS F2 Point-2 backtest with dual exit and canonical higher-timeframe F-phase direction filter."
+#property version   "1.80"
+#property description "NDS F2 Point-2 backtest with fixed, local-F3, and higher-timeframe-F3 exits."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
@@ -53,7 +53,11 @@ input double InpF2BTStopBehindF1WaistTicks = 1.0;
 // F3_FLAG_RETEST: original F2 Leg2 remains the RR reference only. Each
 // position waits for the direct child F3 of its own source F2; after that exact
 // child forms its Waist, TP is armed at that same child's Leg1 node.
+// FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST: hold the lower-timeframe trade until the
+// first canonical same-direction F3 on InpF2BTF3ExitHigherTimeframe forms its
+// Leg1 and then its own Waist. TP is then armed at that exact HTF F3 Leg1 end.
 input FP_NDSF2ExitMode InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+input ENUM_TIMEFRAMES InpF2BTF3ExitHigherTimeframe = PERIOD_H1;
 input double InpF2BTF3ExitCorrectionTicks = 1.0; // legacy compatibility; exact mode uses the bound child-F3 Waist.
 input bool   InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true;
 
@@ -141,7 +145,7 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.scan_f2 = true;
    // Dynamic exit needs the exact child F3 of each source F2. Fixed-target mode
    // keeps the old F1/F2-only fast path.
-   cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
+   cfg.scan_f3 = FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode);
 
    // The dedicated detector uses raw canonical origin nodes as F1 seed authority.
    cfg.require_f1_phase_boundary = false;
@@ -167,15 +171,15 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.f2_show_live_body_candidates = true;
    cfg.f3_show_or_rejected_candidates = false;
    cfg.f3_show_live_body_candidates =
-      (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
+      FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode);
 
    cfg.max_events = runtime_cfg.max_events;
    cfg.max_hooks = 0;
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v8";
-   cfg.identity_config_hash = "f2_wb2_v8";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v9";
+   cfg.identity_config_hash = "f2_wb2_v9";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -216,6 +220,7 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.cancel_pending_if_target_touched_before_fill = InpF2BTCancelPendingIfTargetTouchedBeforeFill;
    cfg.max_setup_age_bars = InpF2BTMaxSetupAgeBars;
    cfg.exit_mode = InpF2BTExitMode;
+   cfg.higher_timeframe_f3_exit_timeframe = InpF2BTF3ExitHigherTimeframe;
    cfg.f3_exit_correction_ticks = InpF2BTF3ExitCorrectionTicks;
    cfg.close_at_market_if_f3_target_already_reached =
       InpF2BTCloseAtMarketIfF3TargetAlreadyReached;
@@ -267,6 +272,16 @@ int OnInit()
    if(!FP_NDSF2BTIsTesterRuntime() && !InpF2BTAllowNonTesterDryRun)
       return INIT_FAILED;
 
+   if(FP_NDSF2ExitModeUsesHigherTimeframeF3(InpF2BTExitMode))
+   {
+      ENUM_TIMEFRAMES resolved_exit_tf =
+         (InpF2BTF3ExitHigherTimeframe == PERIOD_CURRENT
+          ? _Period
+          : InpF2BTF3ExitHigherTimeframe);
+      if(PeriodSeconds(resolved_exit_tf) <= PeriodSeconds(_Period))
+         return INIT_PARAMETERS_INCORRECT;
+   }
+
    FP_LoadNDSF2BacktestRuntimeConfig(g_f2_bt_runtime_cfg);
    FP_LoadNDSF2DetectorConfig(g_f2_bt_runtime_cfg, g_f2_bt_detector_cfg);
    FP_LoadNDSF2TradeConfig(g_f2_bt_trade_cfg);
@@ -284,8 +299,9 @@ int OnInit()
 void OnTick()
 {
    // Per-tick path is intentionally tiny: no detector, renderer, CSV or prints.
-   // It only cancels consumed dynamic pending orders and manages the optional
-   // F3-retest TP on already-open positions.
+   // It only cancels consumed dynamic pending orders and manages an already
+   // discovered local-F3 or higher-timeframe-F3 target on bound positions.
+   // Structural scans remain on new bars; the HTF scan is cached per HTF bar.
    FP_NDSF2ManageDynamicExitOnTick(_Symbol, _Period, g_f2_bt_trade_cfg);
 
    datetime open_bar = iTime(_Symbol, _Period, 0);

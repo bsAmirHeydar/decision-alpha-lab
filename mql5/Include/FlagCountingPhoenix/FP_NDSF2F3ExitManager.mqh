@@ -4,6 +4,7 @@
 
 #include "FP_NDSF2WaistTradeTypes.mqh"
 #include "FP_NDSHookTradeRules.mqh"
+#include "FP_NDSF2HigherTimeframePhaseFilter.mqh"
 
 // Exact per-trade dynamic-exit registry.
 //
@@ -15,9 +16,28 @@
 
 FP_NDSF2DynamicExitContext g_fp_nds_f2_exit_contexts[];
 
+// Cached canonical higher-timeframe stream for the optional HTF-F3 exit mode.
+// The full scan runs only once per new configured HTF bar and only while at
+// least one live position is waiting for this exit mode.
+FP_FlagEvent g_fp_nds_f2_htf_f3_exit_events[];
+string g_fp_nds_f2_htf_f3_exit_cache_symbol = "";
+ENUM_TIMEFRAMES g_fp_nds_f2_htf_f3_exit_cache_timeframe = PERIOD_CURRENT;
+datetime g_fp_nds_f2_htf_f3_exit_cache_open_bar = 0;
+bool g_fp_nds_f2_htf_f3_exit_cache_ready = false;
+
+void FP_NDSF2ResetHigherTimeframeF3ExitCache()
+{
+   ArrayResize(g_fp_nds_f2_htf_f3_exit_events, 0);
+   g_fp_nds_f2_htf_f3_exit_cache_symbol = "";
+   g_fp_nds_f2_htf_f3_exit_cache_timeframe = PERIOD_CURRENT;
+   g_fp_nds_f2_htf_f3_exit_cache_open_bar = 0;
+   g_fp_nds_f2_htf_f3_exit_cache_ready = false;
+}
+
 void FP_NDSF2ResetDynamicExitContexts()
 {
    ArrayResize(g_fp_nds_f2_exit_contexts, 0);
+   FP_NDSF2ResetHigherTimeframeF3ExitCache();
 }
 
 int FP_NDSF2FindDynamicContextBySetupHash(const long setup_hash)
@@ -45,7 +65,7 @@ bool FP_NDSF2RegisterDynamicExitContext(const string symbol,
                                         const FP_NDSF2WaistTradeSetup &setup,
                                         const ulong order_ticket)
 {
-   if(cfg.exit_mode != FP_NDS_F2_EXIT_F3_FLAG_RETEST) return true;
+   if(!FP_NDSF2ExitModeIsDynamic(cfg.exit_mode)) return true;
    if(order_ticket == 0 || setup.setup_hash == 0) return false;
 
    int existing = FP_NDSF2FindDynamicContextBySetupHash(setup.setup_hash);
@@ -55,6 +75,13 @@ bool FP_NDSF2RegisterDynamicExitContext(const string symbol,
       g_fp_nds_f2_exit_contexts[existing].position_ticket = 0;
       g_fp_nds_f2_exit_contexts[existing].position_identifier = 0;
       g_fp_nds_f2_exit_contexts[existing].stage = FP_NDS_F2_DYN_EXIT_PENDING;
+      g_fp_nds_f2_exit_contexts[existing].dynamic_exit_mode = cfg.exit_mode;
+      g_fp_nds_f2_exit_contexts[existing].dynamic_exit_timeframe =
+         (FP_NDSF2ExitModeUsesHigherTimeframeF3(cfg.exit_mode)
+          ? cfg.higher_timeframe_f3_exit_timeframe
+          : period);
+      g_fp_nds_f2_exit_contexts[existing].position_open_time = 0;
+      g_fp_nds_f2_exit_contexts[existing].htf_search_after_time = 0;
       return true;
    }
 
@@ -87,6 +114,11 @@ bool FP_NDSF2RegisterDynamicExitContext(const string symbol,
    ctx.reference_target_price = setup.rr_reference_target_price;
    ctx.order_ticket = order_ticket;
    ctx.stage = FP_NDS_F2_DYN_EXIT_PENDING;
+   ctx.dynamic_exit_mode = cfg.exit_mode;
+   ctx.dynamic_exit_timeframe =
+      (FP_NDSF2ExitModeUsesHigherTimeframeF3(cfg.exit_mode)
+       ? cfg.higher_timeframe_f3_exit_timeframe
+       : period);
 
    int n = ArraySize(g_fp_nds_f2_exit_contexts);
    if(ArrayResize(g_fp_nds_f2_exit_contexts, n + 1) != n + 1) return false;
@@ -116,7 +148,21 @@ bool FP_NDSF2FindPositionForDynamicContext(const FP_NDSF2WaistTradeConfig &cfg,
    {
       if((long)PositionGetInteger(POSITION_MAGIC) == cfg.magic &&
          PositionGetString(POSITION_SYMBOL) == ctx.symbol)
+      {
+         if(ctx.position_open_time <= 0)
+            ctx.position_open_time = (datetime)PositionGetInteger(POSITION_TIME);
+         if(ctx.htf_search_after_time <= 0 &&
+            FP_NDSF2ExitModeUsesHigherTimeframeF3(ctx.dynamic_exit_mode))
+         {
+            int shift = iBarShift(ctx.symbol, ctx.dynamic_exit_timeframe,
+                                  ctx.position_open_time, false);
+            datetime entry_bar = (shift >= 0
+                                  ? iTime(ctx.symbol, ctx.dynamic_exit_timeframe, shift)
+                                  : ctx.position_open_time);
+            ctx.htf_search_after_time = entry_bar - 1;
+         }
          return true;
+      }
    }
    ctx.position_ticket = 0;
 
@@ -147,6 +193,17 @@ bool FP_NDSF2FindPositionForDynamicContext(const FP_NDSF2WaistTradeConfig &cfg,
 
       ctx.position_ticket = ticket;
       ctx.position_identifier = identifier;
+      ctx.position_open_time = (datetime)PositionGetInteger(POSITION_TIME);
+      if(ctx.htf_search_after_time <= 0 &&
+         FP_NDSF2ExitModeUsesHigherTimeframeF3(ctx.dynamic_exit_mode))
+      {
+         int shift = iBarShift(ctx.symbol, ctx.dynamic_exit_timeframe,
+                               ctx.position_open_time, false);
+         datetime entry_bar = (shift >= 0
+                               ? iTime(ctx.symbol, ctx.dynamic_exit_timeframe, shift)
+                               : ctx.position_open_time);
+         ctx.htf_search_after_time = entry_bar - 1;
+      }
       return true;
    }
    return false;
@@ -251,7 +308,7 @@ void FP_NDSF2UpdateDynamicExitFromEvents(const FP_NDSF2WaistTradeConfig &cfg,
                                          const FP_FlagEvent &events[],
                                          const int event_count)
 {
-   if(cfg.exit_mode != FP_NDS_F2_EXIT_F3_FLAG_RETEST) return;
+   if(!FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode)) return;
 
    for(int c=0; c<ArraySize(g_fp_nds_f2_exit_contexts); c++)
    {
@@ -320,6 +377,257 @@ void FP_NDSF2UpdateDynamicExitFromEvents(const FP_NDSF2WaistTradeConfig &cfg,
                                          child_f3.leg1.price);
       g_fp_nds_f2_exit_contexts[c].correction_seen = true;
       g_fp_nds_f2_exit_contexts[c].stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_RETEST;
+   }
+}
+
+
+bool FP_NDSF2HasActiveHigherTimeframeF3ExitPosition(
+   const FP_NDSF2WaistTradeConfig &cfg)
+{
+   for(int i=0; i<ArraySize(g_fp_nds_f2_exit_contexts); i++)
+   {
+      if(!g_fp_nds_f2_exit_contexts[i].active) continue;
+      if(!FP_NDSF2ExitModeUsesHigherTimeframeF3(
+            g_fp_nds_f2_exit_contexts[i].dynamic_exit_mode))
+         continue;
+      if(FP_NDSF2FindPositionForDynamicContext(
+            cfg, g_fp_nds_f2_exit_contexts[i]))
+         return true;
+   }
+   return false;
+}
+
+bool FP_NDSF2RefreshHigherTimeframeF3ExitEvents(
+   const string symbol,
+   const FP_NDSF2WaistTradeConfig &trade_cfg,
+   const FP_NDSF2HigherTimeframePhaseConfig &base_htf_cfg)
+{
+   ENUM_TIMEFRAMES timeframe = trade_cfg.higher_timeframe_f3_exit_timeframe;
+   datetime open_bar = iTime(symbol, timeframe, 0);
+   if(open_bar <= 0) return false;
+
+   if(g_fp_nds_f2_htf_f3_exit_cache_ready &&
+      g_fp_nds_f2_htf_f3_exit_cache_symbol == symbol &&
+      g_fp_nds_f2_htf_f3_exit_cache_timeframe == timeframe &&
+      g_fp_nds_f2_htf_f3_exit_cache_open_bar == open_bar)
+      return true;
+
+   FP_NDSF2HigherTimeframePhaseConfig cfg;
+   cfg = base_htf_cfg;
+   cfg.enabled = true;
+   cfg.timeframe = timeframe;
+   if(cfg.requested_bars < 900) cfg.requested_bars = 900;
+   if(cfg.min_closed_bars < 180) cfg.min_closed_bars = 180;
+   if(cfg.max_events < 2400) cfg.max_events = 2400;
+   if(cfg.max_hooks < 2400) cfg.max_hooks = 2400;
+
+   FP_TimebaseConfig timebase_cfg;
+   FP_DefaultTimebaseConfig(timebase_cfg);
+   timebase_cfg.symbol = symbol;
+   timebase_cfg.period = timeframe;
+   timebase_cfg.requested_bars = MathMax(cfg.min_closed_bars, cfg.requested_bars);
+   timebase_cfg.min_closed_bars = MathMax(50, cfg.min_closed_bars);
+   timebase_cfg.exclude_live_bar = true;
+   timebase_cfg.require_ascending_time = true;
+   timebase_cfg.strict_contract = true;
+   timebase_cfg.print_sanity = false;
+   timebase_cfg.print_samples = false;
+
+   MqlRates rates[];
+   FP_TimebaseReport report;
+   int copied = FP_LoadCanonicalRates(timebase_cfg, rates, report);
+   if(!report.ok || copied < timebase_cfg.min_closed_bars)
+      return false;
+
+   int scales[];
+   int scale_count = FP_NDSF2HTFBuildScales(cfg, scales);
+   if(scale_count <= 0) return false;
+
+   FP_Config detector_cfg;
+   FP_NDSF2HTFBuildDetectorConfig(symbol, cfg, detector_cfg);
+   detector_cfg.identity_generation_pass = "nds_f2_htf_f3_exit_v1";
+   detector_cfg.identity_config_hash = "htf_f3_exit_v1";
+   // Keep invalidated candidates in the audit stream so a per-trade locked
+   // Leg1 can be explicitly released and the position can wait for the next F3.
+   detector_cfg.show_invalidated_in_audit = true;
+
+   FP_HookBranch hooks[];
+   FP_DetectResult detect_result;
+   ArrayResize(g_fp_nds_f2_htf_f3_exit_events, 0);
+   FP_DetectAllScales(rates, copied, scales, scale_count,
+                      detector_cfg,
+                      g_fp_nds_f2_htf_f3_exit_events,
+                      hooks,
+                      detect_result);
+
+   g_fp_nds_f2_htf_f3_exit_cache_symbol = symbol;
+   g_fp_nds_f2_htf_f3_exit_cache_timeframe = timeframe;
+   g_fp_nds_f2_htf_f3_exit_cache_open_bar = open_bar;
+   g_fp_nds_f2_htf_f3_exit_cache_ready = true;
+   return true;
+}
+
+bool FP_NDSF2HigherTimeframeF3CandidateEligible(
+   const FP_NDSF2DynamicExitContext &ctx,
+   const FP_FlagEvent &f3)
+{
+   if(f3.level != FP_LEVEL_F3) return false;
+   if(f3.direction != ctx.direction) return false;
+   if(!f3.visible_main) return false;
+   if(f3.status == FP_STATUS_INVALIDATED || f3.body_status == FP_BODY_INVALID)
+      return false;
+   if(!f3.has_leg1 || f3.leg1.price <= 0.0 || f3.leg1.time_anchor <= 0)
+      return false;
+   if(f3.leg1.time_anchor <= ctx.htf_search_after_time) return false;
+   return true;
+}
+
+bool FP_NDSF2HigherTimeframeF3IdentityMatches(
+   const FP_NDSF2DynamicExitContext &ctx,
+   const FP_FlagEvent &f3)
+{
+   if(f3.level != FP_LEVEL_F3 || f3.direction != ctx.direction) return false;
+   if(f3.scale_L != ctx.htf_f3_scale_L) return false;
+   if(f3.sequence_id != ctx.htf_f3_sequence_id) return false;
+   if(f3.parent_sequence_id != ctx.htf_f3_parent_sequence_id) return false;
+   if(!f3.has_leg1) return false;
+   if(f3.leg1.id != ctx.htf_f3_leg1_node_id) return false;
+   return (f3.leg1.time_anchor == ctx.htf_f3_leg1_time);
+}
+
+void FP_NDSF2CaptureHigherTimeframeF3Leg1(
+   FP_NDSF2DynamicExitContext &ctx,
+   const FP_FlagEvent &f3)
+{
+   ctx.htf_f3_leg1_captured = true;
+   ctx.htf_f3_event_id = f3.event_id;
+   ctx.htf_f3_sequence_id = f3.sequence_id;
+   ctx.htf_f3_parent_sequence_id = f3.parent_sequence_id;
+   ctx.htf_f3_parent_event_id = f3.parent_event_id;
+   ctx.htf_f3_scale_L = f3.scale_L;
+   ctx.htf_f3_leg1_node_id = f3.leg1.id;
+   ctx.htf_f3_leg1_time = f3.leg1.time_anchor;
+   ctx.htf_f3_leg1_price = f3.leg1.price;
+   ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_WAIST;
+}
+
+void FP_NDSF2ResetHigherTimeframeF3Candidate(
+   FP_NDSF2DynamicExitContext &ctx)
+{
+   if(ctx.htf_f3_leg1_time > ctx.htf_search_after_time)
+      ctx.htf_search_after_time = ctx.htf_f3_leg1_time;
+   ctx.htf_f3_leg1_captured = false;
+   ctx.htf_f3_event_id = -1;
+   ctx.htf_f3_sequence_id = -1;
+   ctx.htf_f3_parent_sequence_id = -1;
+   ctx.htf_f3_parent_event_id = -1;
+   ctx.htf_f3_scale_L = 0;
+   ctx.htf_f3_leg1_node_id = -1;
+   ctx.htf_f3_leg1_time = 0;
+   ctx.htf_f3_leg1_price = 0.0;
+   ctx.htf_f3_waist_node_id = -1;
+   ctx.htf_f3_waist_time = 0;
+   ctx.htf_f3_waist_price = 0.0;
+   ctx.dynamic_target_price = 0.0;
+   ctx.correction_seen = false;
+   ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_LEG1;
+}
+
+void FP_NDSF2UpdateHigherTimeframeF3Exit(
+   const string symbol,
+   const FP_NDSF2WaistTradeConfig &trade_cfg,
+   const FP_NDSF2HigherTimeframePhaseConfig &base_htf_cfg)
+{
+   if(!FP_NDSF2ExitModeUsesHigherTimeframeF3(trade_cfg.exit_mode)) return;
+   if(!FP_NDSF2HasActiveHigherTimeframeF3ExitPosition(trade_cfg)) return;
+   if(!FP_NDSF2RefreshHigherTimeframeF3ExitEvents(symbol, trade_cfg,
+                                                   base_htf_cfg))
+      return;
+
+   int event_count = ArraySize(g_fp_nds_f2_htf_f3_exit_events);
+   for(int c=0; c<ArraySize(g_fp_nds_f2_exit_contexts); c++)
+   {
+      FP_NDSF2DynamicExitContext ctx = g_fp_nds_f2_exit_contexts[c];
+      if(!ctx.active ||
+         !FP_NDSF2ExitModeUsesHigherTimeframeF3(ctx.dynamic_exit_mode) ||
+         ctx.correction_seen || ctx.tp_armed)
+         continue;
+      if(!FP_NDSF2FindPositionForDynamicContext(
+            trade_cfg, g_fp_nds_f2_exit_contexts[c]))
+         continue;
+
+      if(!g_fp_nds_f2_exit_contexts[c].htf_f3_leg1_captured)
+      {
+         int best = -1;
+         datetime best_time = 0;
+         long best_priority = 0;
+         for(int i=0; i<event_count; i++)
+         {
+            if(!FP_NDSF2HigherTimeframeF3CandidateEligible(
+                  g_fp_nds_f2_exit_contexts[c],
+                  g_fp_nds_f2_htf_f3_exit_events[i]))
+               continue;
+            datetime leg1_time =
+               g_fp_nds_f2_htf_f3_exit_events[i].leg1.time_anchor;
+            long priority = FP_NDSF2HTFEventPriority(
+               g_fp_nds_f2_htf_f3_exit_events[i]);
+            if(best < 0 || leg1_time < best_time ||
+               (leg1_time == best_time && priority > best_priority) ||
+               (leg1_time == best_time && priority == best_priority &&
+                g_fp_nds_f2_htf_f3_exit_events[i].event_id >
+                g_fp_nds_f2_htf_f3_exit_events[best].event_id))
+            {
+               best = i;
+               best_time = leg1_time;
+               best_priority = priority;
+            }
+         }
+         if(best < 0) continue;
+         FP_NDSF2CaptureHigherTimeframeF3Leg1(
+            g_fp_nds_f2_exit_contexts[c],
+            g_fp_nds_f2_htf_f3_exit_events[best]);
+      }
+
+      int exact = -1;
+      for(int i=0; i<event_count; i++)
+      {
+         if(!FP_NDSF2HigherTimeframeF3IdentityMatches(
+               g_fp_nds_f2_exit_contexts[c],
+               g_fp_nds_f2_htf_f3_exit_events[i]))
+            continue;
+         if(exact >= 0)
+         {
+            exact = -2;
+            break;
+         }
+         exact = i;
+      }
+      if(exact < 0) continue;
+
+      FP_FlagEvent f3 = g_fp_nds_f2_htf_f3_exit_events[exact];
+      if(f3.status == FP_STATUS_INVALIDATED || f3.body_status == FP_BODY_INVALID)
+      {
+         FP_NDSF2ResetHigherTimeframeF3Candidate(
+            g_fp_nds_f2_exit_contexts[c]);
+         continue;
+      }
+      if(!f3.has_waist || f3.pos_waist <= f3.pos_leg1)
+      {
+         g_fp_nds_f2_exit_contexts[c].stage =
+            FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_WAIST;
+         continue;
+      }
+
+      g_fp_nds_f2_exit_contexts[c].htf_f3_waist_node_id = f3.waist.id;
+      g_fp_nds_f2_exit_contexts[c].htf_f3_waist_time = f3.waist.time_anchor;
+      g_fp_nds_f2_exit_contexts[c].htf_f3_waist_price = f3.waist.price;
+      g_fp_nds_f2_exit_contexts[c].dynamic_target_price =
+         FP_NDSF2DynamicNormalizeNearest(
+            g_fp_nds_f2_exit_contexts[c].symbol,
+            g_fp_nds_f2_exit_contexts[c].htf_f3_leg1_price);
+      g_fp_nds_f2_exit_contexts[c].correction_seen = true;
+      g_fp_nds_f2_exit_contexts[c].stage =
+         FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_RETEST;
    }
 }
 
@@ -418,9 +726,13 @@ void FP_NDSF2ManageOneDynamicContextOnTick(const FP_NDSF2WaistTradeConfig &cfg,
    if(position_active)
    {
       if(ctx.stage == FP_NDS_F2_DYN_EXIT_PENDING)
-         ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3;
+      {
+         ctx.stage = (FP_NDSF2ExitModeUsesHigherTimeframeF3(ctx.dynamic_exit_mode)
+                      ? FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_LEG1
+                      : FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3);
+      }
 
-      if(!ctx.exact_child_f3_captured || ctx.tp_armed) return;
+      if(!ctx.correction_seen || ctx.dynamic_target_price <= 0.0 || ctx.tp_armed) return;
 
       if(FP_NDSF2DynamicTargetReached(ctx, market))
       {
@@ -436,7 +748,9 @@ void FP_NDSF2ManageOneDynamicContextOnTick(const FP_NDSF2WaistTradeConfig &cfg,
 
    if(ctx.position_identifier > 0)
    {
-      ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3;
+      ctx.stage = (FP_NDSF2ExitModeUsesHigherTimeframeF3(ctx.dynamic_exit_mode)
+                   ? FP_NDS_F2_DYN_EXIT_WAIT_HTF_F3_LEG1
+                   : FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3);
       return;
    }
 
@@ -448,7 +762,7 @@ void FP_NDSF2ManageDynamicExitOnTick(const string symbol,
                                      const ENUM_TIMEFRAMES period,
                                      const FP_NDSF2WaistTradeConfig &cfg)
 {
-   if(cfg.exit_mode != FP_NDS_F2_EXIT_F3_FLAG_RETEST) return;
+   if(!FP_NDSF2ExitModeIsDynamic(cfg.exit_mode)) return;
 
    MqlTick market;
    if(!SymbolInfoTick(symbol, market) || market.bid <= 0.0 || market.ask <= 0.0)

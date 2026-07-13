@@ -618,10 +618,10 @@ bool FP_NDSF2SendLimit(const string symbol,
       ticket = (result.deal > 0 ? result.deal : (ulong)1);
    }
 
-   // Dynamic exit needs the exact source anatomy after the pending order fills.
+   // Dynamic exit needs a dedicated per-position context after the pending order fills.
    // Register before consuming the setup; if registration fails, remove the
    // accepted pending order so no unmanaged no-TP position can be created.
-   if(cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)
+   if(FP_NDSF2ExitModeIsDynamic(cfg.exit_mode))
    {
       if(result.order > 0) ticket = result.order;
       if(ticket == 0 || ticket == (ulong)1)

@@ -111,9 +111,18 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
    // entries and, when enabled, removes still-unfilled pending orders. Dynamic
    // F3-retest positions still require the lower-timeframe exact source-F2 and
    // direct-child-F3 event stream, so only that case continues to detector.
+   // Local F3 mode needs the entry-timeframe event stream. Higher-timeframe
+   // F3 mode owns a separate cached HTF stream and therefore must not force a
+   // lower-timeframe F3 scan merely because a position is open.
    bool needs_dynamic_exit_detection =
       (active_positions > 0 &&
-       trade_cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
+       FP_NDSF2ExitModeUsesEntryTimeframeF3(trade_cfg.exit_mode));
+
+   // The HTF-F3 exit is independent of the entry gate. Once a position exists,
+   // it keeps waiting for its own configured higher-timeframe F3 even if the
+   // entry filter later closes. The scan is cached once per HTF bar.
+   FP_NDSF2UpdateHigherTimeframeF3Exit(symbol, trade_cfg, htf_cfg);
+   FP_NDSF2ManageDynamicExitOnTick(symbol, period, trade_cfg);
 
    if(!entry_gate_open && !needs_dynamic_exit_detection)
    {
@@ -207,9 +216,11 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
       entry_gate_open,
       allowed_entry_direction);
 
-   // The new-bar detector may have exposed the exact child F3 and its Waist. Run
-   // the lightweight tick manager immediately so only the bound position ticket
-   // can receive its own child-F3 Leg1 target.
+   // The new-bar detector may have exposed the local exact child F3. The same
+   // cycle may also have converted a pending order into a position that must now
+   // enter the independent HTF-F3 waiting state. Refresh both dynamic sources,
+   // then apply TP only to each bound position ticket.
+   FP_NDSF2UpdateHigherTimeframeF3Exit(symbol, trade_cfg, htf_cfg);
    FP_NDSF2ManageDynamicExitOnTick(symbol, period, trade_cfg);
 
    if(result == FP_NDS_F2_RUN_IDLE && cancel_errors > 0)

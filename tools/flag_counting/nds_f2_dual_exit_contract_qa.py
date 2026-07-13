@@ -52,23 +52,23 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.70"', "expert version", errors)
+    require(expert, '#property version   "1.80"', "expert version", errors)
     require(expert, "InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "default fixed exit", errors)
     require(expert, "InpF2BTF3ExitCorrectionTicks = 1.0", "default correction gate", errors)
     require(expert, "InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true", "market fallback default", errors)
     require(expert, "FP_NDSF2ManageDynamicExitOnTick", "per-tick dynamic manager", errors)
-    require(expert, "cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)", "dynamic exact F3 scan", errors)
+    require(expert, "cfg.scan_f3 = FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode)", "dynamic exact F3 scan", errors)
 
     require(types, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "fixed exit enum", errors)
     require(types, "FP_NDS_F2_EXIT_F3_FLAG_RETEST", "dynamic exit enum", errors)
     require(types, "rr_reference_target_price", "RR reference field", errors)
     require(types, "initial_broker_take_profit_price", "initial broker TP field", errors)
     require(types, "FP_NDSF2DynamicExitContext", "dynamic context type", errors)
-    require(types, "NDS-F2-WAIST-BREAK-08", "contract version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-09", "contract version", errors)
 
     require(setup, "setup.rr_reference_target_price = setup.target_price", "F2 Leg2 RR authority", errors)
     require(setup, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END ? setup.target_price : 0.0", "mode-aware initial TP", errors)
-    require(setup, "cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST", "dynamic F2 size authority", errors)
+    require(setup, "FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode)", "dynamic F2 size authority", errors)
     require(setup, "FP_NDSF2AdjustEntryForMinimumRewardRisk", "unchanged RR repricing", errors)
 
     require(rules, "request.tp = setup.initial_broker_take_profit_price", "mode-aware pending TP", errors)

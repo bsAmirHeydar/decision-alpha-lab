@@ -19,6 +19,7 @@ InpF2BTMaxSetupAgeBars = 0
 InpF2BTEntryBehindF2WaistTicks = 1
 InpF2BTStopBehindF1WaistTicks = 1
 InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END
+InpF2BTF3ExitHigherTimeframe = PERIOD_H1
 InpF2BTF3ExitCorrectionTicks = 1.0
 InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true
 InpF2BTUseMinimumRewardRiskFilter = true
@@ -45,7 +46,7 @@ Its waist was Point 1.
 The limit beyond that waist represented Point 2.
 The parent F1 waist defined failure.
 The original F2 Leg2 endpoint defined the fixed TP and the RR reference.
-In dynamic mode, F2 confirmation defines F3 Leg1 and the later retest defines exit.
+In local dynamic mode, the exact direct-child F3 defines exit. In HTF dynamic mode, the first eligible canonical same-direction HTF F3 after entry defines exit.
 ```
 
 ## No-log behavior
@@ -71,6 +72,8 @@ Use an MT5 hedging account in Strategy Tester when testing simultaneous same-sym
 `FP_NDS_F2_EXIT_FIXED_F2_FLAG_END` attaches the original F2 Leg2 as broker TP immediately.
 
 `FP_NDS_F2_EXIT_F3_FLAG_RETEST` sends the order with no TP, preserves the original F2 Leg2 only for RR, captures the exact F2-confirm/F3-Leg1 node, waits for correction, then arms TP at that node for the retest.
+
+`FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST` also sends the order with no TP, but holds the position until the configured higher timeframe forms a same-direction canonical F3 Leg1 and then the Waist of that same F3. TP is armed at that exact HTF F3 Leg1 endpoint. Default exit timeframe is `PERIOD_H1`.
 
 ## Higher-timeframe filter interpretation
 

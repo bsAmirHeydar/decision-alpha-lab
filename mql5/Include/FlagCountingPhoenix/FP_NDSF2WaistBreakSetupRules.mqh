@@ -30,7 +30,7 @@ bool FP_NDSF2IsWaistBreakArmedBody(const FP_FlagEvent &f2,
    // The dynamic exit is defined through the canonical F3 path. Therefore its
    // source F2 must already satisfy the Level-08 size authority required to
    // become f2_can_spawn_f3 after confirmation.
-   if(cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST &&
+   if(FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode) &&
       !f2.f2_size_gate_passed)
       return false;
 
@@ -388,7 +388,7 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    else return false;
 
    // This original F2 two-leg endpoint is the economic reference target in
-   // both exit modes. Dynamic F3 exit deliberately keeps RR and entry repricing
+   // all exit modes. Both dynamic F3 exits deliberately keep RR and entry repricing
    // anchored here because the eventual F3 retest node does not yet exist.
    setup.rr_reference_target_price = setup.target_price;
    setup.initial_broker_take_profit_price =

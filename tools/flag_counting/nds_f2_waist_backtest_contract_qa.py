@@ -37,7 +37,7 @@ def main() -> None:
     require(expert, "cfg.scan_hooks = false", "hook_scan_disabled")
     require(expert, "cfg.scan_f1 = true", "f1_reuse")
     require(expert, "cfg.scan_f2 = true", "f2_reuse")
-    require(expert, "cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)", "mode_aware_f3_scan")
+    require(expert, "cfg.scan_f3 = FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode)", "mode_aware_f3_scan")
     require(fast, "FP_BuildCanonicalNodesForScale", "canonical_node_reuse")
     require(fast, "FP_TryBuildFlagChainsFromOrigins", "canonical_f1_f2_reuse")
     forbid(fast, "FP_DetectScale(", "skip_general_heavy_detector")

@@ -4,11 +4,11 @@
 
 Canonical execution contract for the dedicated lightweight Strategy Tester profile.
 
-The setup has two explicit exit modes and an optional canonical higher-timeframe F-phase direction filter. The filter is enabled by default on H1.
+The setup has three explicit exit modes and an optional canonical higher-timeframe F-phase direction filter. The filter is enabled by default on H1.
 
 ## Core sentence
 
-After a complete two-leg F2 flag exists, the F2 waist is treated as structural Point 1. A strict penetration beyond that waist is Point 2. The system stages a limit order strictly beyond the F2 waist so the fill is the executable Point 2, places the stop beyond the direct parent F1 waist, and either targets the F2 Leg2 endpoint directly or, in dynamic mode, keeps that endpoint only as the RR reference and exits on the later F3 flag retest of the F2-confirmation node.
+After a complete two-leg F2 flag exists, the F2 waist is treated as structural Point 1. A strict penetration beyond that waist is Point 2. The system stages a limit order strictly beyond the F2 waist so the fill is the executable Point 2, places the stop beyond the direct parent F1 waist, and supports three exit authorities: the fixed F2 endpoint, the exact local direct-child F3 retest, or the first exact same-direction higher-timeframe F3 Leg1 retest after that position opens. In both dynamic modes the original F2 endpoint remains the RR reference.
 
 ## Index
 
@@ -27,3 +27,5 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 12. [Dual exit contract: fixed F2 end or F3 flag retest](12_dual_exit_fixed_f2_and_f3_flag_retest.md)
 13. [Higher-timeframe F-phase direction filter](13_higher_timeframe_f_phase_direction_filter.md)
 14. [Exact per-trade F3 lineage exit](14_exact_per_trade_f3_lineage_exit.md)
+
+15. [Higher-timeframe F3 flag-retest exit](15_higher_timeframe_f3_flag_retest_exit.md)

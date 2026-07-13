@@ -150,3 +150,8 @@ The F2 Point-2 profile now contains an entry-authority gate based on the canonic
 ## Exact per-trade F3 lineage exit
 
 The F2 Waist-Break profile now resolves dynamic exits through `Position → Source F2 → Direct Child F3`. The direct child F3 Waist is the correction gate and that child's Leg1 is the target. Cross-context target borrowing is fail-closed.
+
+
+## F2 v9 — higher-timeframe F3 exit
+
+The F2 Point-2 profile now has a third exit mode. A lower-timeframe position can be held until the first eligible canonical same-direction F3 on a configurable higher timeframe forms Leg1 and then its own Waist; TP is armed at that exact Leg1 endpoint. The default exit timeframe is H1. RR remains anchored to the original lower-timeframe F2 Leg2. See `f2_waist_break_point2_limit/15_higher_timeframe_f3_flag_retest_exit.md`.

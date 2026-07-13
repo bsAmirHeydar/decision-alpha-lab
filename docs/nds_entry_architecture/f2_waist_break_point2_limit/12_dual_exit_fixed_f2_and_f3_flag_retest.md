@@ -2,7 +2,7 @@
 
 ## 1. Decision
 
-The F2 Waist-Break Point-2 setup now supports two explicit exit modes.
+The F2 Waist-Break Point-2 setup now supports three explicit exit modes.
 
 ```text
 Mode A — FIXED_F2_FLAG_END
@@ -14,7 +14,13 @@ Mode B — F3_FLAG_RETEST
 Entry  = behind F2 Waist
 Stop   = behind parent F1 Waist
 RR Ref = original F2 Leg2 endpoint
-TP     = F2-confirm node / F3 Leg1, armed only after correction
+TP     = Leg1 of the exact local direct-child F3, armed after that F3 Waist
+
+Mode C — HIGHER_TIMEFRAME_F3_FLAG_RETEST
+Entry  = behind F2 Waist
+Stop   = behind parent F1 Waist
+RR Ref = original F2 Leg2 endpoint
+TP     = Leg1 of the first exact same-direction HTF F3 after entry, armed after that F3 Waist
 ```
 
 The entry setup, Stop authority, overlap arbitration, hedge policy and one-attempt identity do not change.
@@ -197,6 +203,9 @@ Same-direction and opposite-direction contexts therefore remain independently ma
 InpF2BTExitMode
   FP_NDS_F2_EXIT_FIXED_F2_FLAG_END
   FP_NDS_F2_EXIT_F3_FLAG_RETEST
+  FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST
+
+InpF2BTF3ExitHigherTimeframe = PERIOD_H1
 
 InpF2BTF3ExitCorrectionTicks = 1.0
 InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true
@@ -242,3 +251,10 @@ Dynamic exit is no longer resolved from a compatible or latest confirmed F2. Eac
 The correction gate is the Waist of that same child F3. The target is the Leg1 of that same child F3. Ambiguous or missing children fail closed and may not borrow another context's F3.
 
 See [Exact per-trade F3 lineage exit](14_exact_per_trade_f3_lineage_exit.md).
+
+
+## 14. Higher-timeframe F3 mode
+
+Mode C does not derive its F3 from the lower-timeframe source F2. Each position waits for the first canonical same-direction F3 on `InpF2BTF3ExitHigherTimeframe` whose Leg1 belongs to the position's entry HTF bar or a later bar. The candidate is locked per position. Its own Waist is the correction gate and its Leg1 endpoint is the TP.
+
+See [Higher-timeframe F3 flag-retest exit](15_higher_timeframe_f3_flag_retest_exit.md).
