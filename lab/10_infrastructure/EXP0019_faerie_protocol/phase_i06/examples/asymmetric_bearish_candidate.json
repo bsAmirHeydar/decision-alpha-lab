@@ -1,0 +1,9 @@
+{
+  "direction": "BEARISH",
+  "first_sweep": "LEFT_FIRST",
+  "hunter": "ES",
+  "protected": "NQ",
+  "relation": "AL",
+  "side": "HIGH",
+  "state": "RAW_ACTIVE"
+}

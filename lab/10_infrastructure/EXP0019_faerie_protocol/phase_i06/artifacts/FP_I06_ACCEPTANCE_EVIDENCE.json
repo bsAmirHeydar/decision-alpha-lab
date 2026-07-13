@@ -1,0 +1,34 @@
+{
+  "errors": 0,
+  "gates": {
+    "boundary_guard": "pass",
+    "bounded_revision_invalidation": "pass",
+    "clean_baseline_patch": "pending",
+    "cumulative_fp_regression": "pass",
+    "daye_regression": "pass",
+    "delivery_validation": "pass",
+    "duplicate_replay_stable_ids": "pass",
+    "engineering_policy": "pass",
+    "golden_vector": "pass",
+    "missing_data_blocks_classification": "pass",
+    "mql5_static": "pass",
+    "protected_second_touch_cancels": "pass",
+    "runtime_authority_none": "pass",
+    "same_m1_no_invented_order": "pass",
+    "six_non_weekly_relations_both_sides": "pass",
+    "ww_deferred": "pass"
+  },
+  "metaeditor": {
+    "claim": "not_compiled_in_current_environment",
+    "result": "pending_local_windows"
+  },
+  "phase": "FP-I06",
+  "phase_version": "1.0.0",
+  "test_counts": {
+    "cumulative_fp": 378,
+    "daye_regression": 50,
+    "phase": 48,
+    "total": 428
+  },
+  "warnings": 0
+}

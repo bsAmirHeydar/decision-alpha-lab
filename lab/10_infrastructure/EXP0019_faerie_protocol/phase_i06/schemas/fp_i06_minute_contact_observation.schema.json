@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_minute_contact_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contact_state": {
+      "enum": [
+        "LEFT_ONLY",
+        "RIGHT_ONLY",
+        "BOTH_SAME_M1",
+        "NONE",
+        "DATA_BLOCKED"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "left_hunt_fact_id": {
+      "type": "string"
+    },
+    "minute_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right_hunt_fact_id": {
+      "type": "string"
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_row_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "observation_id",
+    "side_plan_id",
+    "minute_utc_ms",
+    "contact_state",
+    "left_hunt_fact_id",
+    "right_hunt_fact_id",
+    "source_row_id",
+    "source_revision_hash",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i06_minute_contact_observation",
+  "type": "object"
+}

@@ -1,0 +1,112 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_side_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "check_start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "left_reference_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "left_reference_price": {
+      "type": "number"
+    },
+    "left_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN"
+      ]
+    },
+    "relation_instance_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right_reference_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "right_reference_price": {
+      "type": "number"
+    },
+    "right_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_reference_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "state": {
+      "enum": [
+        "ELIGIBLE",
+        "REFERENCE_UNAVAILABLE",
+        "REFERENCE_CONSUMED",
+        "DATA_BLOCKED",
+        "DEFERRED"
+      ]
+    }
+  },
+  "required": [
+    "side_plan_id",
+    "relation_instance_id",
+    "relation",
+    "side",
+    "left_reference_id",
+    "left_symbol",
+    "left_reference_price",
+    "right_reference_id",
+    "right_symbol",
+    "right_reference_price",
+    "check_start_utc_ms",
+    "check_end_utc_ms",
+    "state",
+    "reason_codes",
+    "source_reference_hashes",
+    "semantic_hash"
+  ],
+  "title": "fp_i06_relation_side_plan",
+  "type": "object"
+}

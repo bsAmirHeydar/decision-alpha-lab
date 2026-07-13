@@ -1,0 +1,22 @@
+{
+  "contract_count": 15,
+  "contracts": [
+    "fp_i06_relation_descriptor",
+    "fp_i06_relation_compiler_config",
+    "fp_i06_relation_instance",
+    "fp_i06_relation_side_plan",
+    "fp_i06_hunt_fact",
+    "fp_i06_minute_contact_observation",
+    "fp_i06_first_sweep_classification",
+    "fp_i06_raw_candidate",
+    "fp_i06_candidate_transition",
+    "fp_i06_relation_scan_result",
+    "fp_i06_relation_compilation_report",
+    "fp_i06_scan_cursor",
+    "fp_i06_engine_snapshot",
+    "fp_i06_engine_checkpoint",
+    "fp_i06_revision_impact"
+  ],
+  "phase": "FP-I06",
+  "version": "1.0.0"
+}

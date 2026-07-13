@@ -1,0 +1,128 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_instance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_trading_date": {
+      "format": "date",
+      "type": "string"
+    },
+    "calendar_offset": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "check_descriptor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "check_end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "check_pair_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "check_start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "check_window_kind": {
+      "enum": [
+        "A",
+        "L",
+        "N"
+      ]
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "reference_descriptor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_pair_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_trading_date": {
+      "format": "date",
+      "type": "string"
+    },
+    "reference_window_kind": {
+      "enum": [
+        "A",
+        "L",
+        "N"
+      ]
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN"
+      ]
+    },
+    "relation_instance_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_store_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "COMPILED",
+        "ACTIVE",
+        "COMPLETE",
+        "BLOCKED",
+        "SUPERSEDED"
+      ]
+    }
+  },
+  "required": [
+    "relation_instance_id",
+    "relation",
+    "pair_id",
+    "anchor_trading_date",
+    "calendar_offset",
+    "reference_pair_window_id",
+    "reference_descriptor_id",
+    "reference_window_kind",
+    "reference_trading_date",
+    "check_pair_window_id",
+    "check_descriptor_id",
+    "check_window_kind",
+    "check_start_utc_ms",
+    "check_end_utc_ms",
+    "source_store_snapshot_hash",
+    "source_revision_id",
+    "state",
+    "reason_codes",
+    "semantic_hash"
+  ],
+  "title": "fp_i06_relation_instance",
+  "type": "object"
+}

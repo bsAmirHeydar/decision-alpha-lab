@@ -1,0 +1,39 @@
+{
+  "FP_I07_may_consume": [
+    "RelationCompilationReport",
+    "RelationInstance",
+    "RelationSidePlan",
+    "HuntFact",
+    "MinuteContactObservation",
+    "FirstSweepClassification",
+    "RawDivergenceCandidate",
+    "CandidateTransitionRecord",
+    "ScanCursor",
+    "source revision and check-window deadline"
+  ],
+  "FP_I07_may_not_change": [
+    "M1_ONLY first-sweep authority",
+    "same-M1 symmetric no-order policy",
+    "LOW bullish / HIGH bearish direction mapping",
+    "Hunter and Protected role assignment",
+    "calendar offset identity",
+    "symbol-local reference prices",
+    "protected second-touch cancellation",
+    "WW remains separate until FP-I08"
+  ],
+  "from_phase": "FP-I06",
+  "handoff_hash": "fb3c89c5a2fe9551192790350fe20899fa4e7a08d94fdef8ab870a84d962bc10",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "next_golden_tests": [
+    "resolve host confirmation timeframe at initialization",
+    "confirm only on first eligible closed host bar",
+    "expire when confirmation close reaches or crosses owning session end",
+    "cancel when asymmetry disappears before close",
+    "preserve raw candidate identity through confirmation lifecycle"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "runtime_authority": "NONE",
+  "to_phase": "FP-I07"
+}

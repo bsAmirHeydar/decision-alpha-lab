@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_candidate_transition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "next_state": {
+      "enum": [
+        "RAW_ACTIVE",
+        "CANCELLED_SECOND_TOUCH",
+        "INVALID_DATA",
+        "CHECK_WINDOW_ENDED"
+      ]
+    },
+    "prior_state": {
+      "enum": [
+        "RAW_ACTIVE",
+        "CANCELLED_SECOND_TOUCH",
+        "INVALID_DATA",
+        "CHECK_WINDOW_ENDED",
+        null
+      ]
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "transition": {
+      "enum": [
+        "CREATED",
+        "SECOND_TOUCH_CANCELLED",
+        "DATA_INVALIDATED",
+        "WINDOW_ENDED"
+      ]
+    }
+  },
+  "required": [
+    "event_id",
+    "candidate_id",
+    "sequence",
+    "transition",
+    "prior_state",
+    "next_state",
+    "event_utc_ms",
+    "evidence_id",
+    "reason_code",
+    "event_hash"
+  ],
+  "title": "fp_i06_candidate_transition",
+  "type": "object"
+}

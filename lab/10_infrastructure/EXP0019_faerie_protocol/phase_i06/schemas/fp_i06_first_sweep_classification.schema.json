@@ -1,0 +1,84 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_first_sweep_classification.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_block_minute_utc_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "first_hunt_minute_utc_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "hunter_hunt_fact_id": {
+      "type": "string"
+    },
+    "hunter_symbol": {
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "LEFT_FIRST",
+        "RIGHT_FIRST",
+        "SYMMETRIC_SAME_M1",
+        "NO_CONTACT",
+        "DATA_BLOCKED"
+      ]
+    },
+    "protected_symbol": {
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relation_instance_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "symmetric_fact_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "classification_id",
+    "side_plan_id",
+    "relation_instance_id",
+    "outcome",
+    "first_hunt_minute_utc_ms",
+    "hunter_symbol",
+    "protected_symbol",
+    "hunter_hunt_fact_id",
+    "symmetric_fact_ids",
+    "data_block_minute_utc_ms",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i06_first_sweep_classification",
+  "type": "object"
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_compilation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_trading_date": {
+      "format": "date",
+      "type": "string"
+    },
+    "blocked_items": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "compiled_instances": {
+      "items": {
+        "$ref": "fp_i06_relation_instance.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "relation_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "side_plans": {
+      "items": {
+        "$ref": "fp_i06_relation_side_plan.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "skipped_relations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_store_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "anchor_trading_date",
+    "compiled_instances",
+    "side_plans",
+    "skipped_relations",
+    "blocked_items",
+    "source_store_snapshot_hash",
+    "relation_registry_hash",
+    "evidence_hash"
+  ],
+  "title": "fp_i06_relation_compilation_report",
+  "type": "object"
+}

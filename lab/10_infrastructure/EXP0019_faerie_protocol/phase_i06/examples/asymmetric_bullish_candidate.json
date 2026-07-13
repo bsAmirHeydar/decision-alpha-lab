@@ -1,0 +1,10 @@
+{
+  "calendar_offset": 2,
+  "direction": "BULLISH",
+  "first_sweep": "RIGHT_FIRST",
+  "hunter": "NQ",
+  "protected": "ES",
+  "relation": "NA",
+  "side": "LOW",
+  "state": "RAW_ACTIVE"
+}

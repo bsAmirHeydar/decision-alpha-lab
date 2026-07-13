@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_engine_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "checkpoint_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "compiler_report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "snapshot_semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoint_id",
+    "checkpoint_version",
+    "config_hash",
+    "source_revision_id",
+    "compiler_report_hash",
+    "snapshot_semantic_hash",
+    "payload_hash",
+    "created_utc_ms"
+  ],
+  "title": "fp_i06_engine_checkpoint",
+  "type": "object"
+}

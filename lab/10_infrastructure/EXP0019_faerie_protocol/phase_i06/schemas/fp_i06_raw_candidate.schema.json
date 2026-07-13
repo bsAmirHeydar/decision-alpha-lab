@@ -1,0 +1,117 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_raw_candidate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "check_end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "direction": {
+      "enum": [
+        "BULLISH",
+        "BEARISH"
+      ]
+    },
+    "first_hunt_minute_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hunter_hunt_fact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hunter_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN"
+      ]
+    },
+    "relation_instance_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "second_touch_fact_id": {
+      "type": "string"
+    },
+    "second_touch_minute_utc_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "RAW_ACTIVE",
+        "CANCELLED_SECOND_TOUCH",
+        "INVALID_DATA",
+        "CHECK_WINDOW_ENDED"
+      ]
+    },
+    "state_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "side_plan_id",
+    "relation_instance_id",
+    "relation",
+    "direction",
+    "side",
+    "hunter_symbol",
+    "protected_symbol",
+    "first_hunt_minute_utc_ms",
+    "hunter_hunt_fact_id",
+    "state",
+    "state_sequence",
+    "second_touch_minute_utc_ms",
+    "second_touch_fact_id",
+    "check_end_utc_ms",
+    "source_revision_id",
+    "reason_code",
+    "semantic_hash"
+  ],
+  "title": "fp_i06_raw_candidate",
+  "type": "object"
+}

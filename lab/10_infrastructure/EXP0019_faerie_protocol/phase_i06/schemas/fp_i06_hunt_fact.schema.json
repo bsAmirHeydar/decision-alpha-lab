@@ -1,0 +1,76 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_hunt_fact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bar_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hunt_fact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hunt_minute_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observed_extreme": {
+      "type": "number"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_price": {
+      "type": "number"
+    },
+    "relation_instance_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "hunt_fact_id",
+    "side_plan_id",
+    "relation_instance_id",
+    "canonical_symbol",
+    "side",
+    "reference_id",
+    "reference_price",
+    "hunt_minute_utc_ms",
+    "bar_hash",
+    "observed_extreme",
+    "source_revision_id",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i06_hunt_fact",
+  "type": "object"
+}

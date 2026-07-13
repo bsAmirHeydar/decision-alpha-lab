@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "canonical_research": {
+      "enabled_relations": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN"
+      ],
+      "first_sweep_authority": "M1_ONLY",
+      "missing_data_policy": "BLOCK_CLASSIFICATION",
+      "runtime_authority": "NONE",
+      "same_m1_policy": "SYMMETRIC_NO_ORDER",
+      "second_touch_policy": "CANCEL_RAW_CANDIDATE",
+      "ww_phase": "FP-I08"
+    }
+  },
+  "schema_version": "1.0.0"
+}

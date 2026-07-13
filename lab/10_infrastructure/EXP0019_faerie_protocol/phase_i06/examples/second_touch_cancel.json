@@ -1,0 +1,7 @@
+{
+  "candidate_state_after": "CANCELLED_SECOND_TOUCH",
+  "candidate_state_before": "RAW_ACTIVE",
+  "event": "SECOND_TOUCH_CANCELLED",
+  "relation": "AN",
+  "side": "LOW"
+}

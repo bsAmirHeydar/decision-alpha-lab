@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_offset_required": {
+      "type": "boolean"
+    },
+    "check_kind": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "W"
+      ]
+    },
+    "directly_tradeable": {
+      "type": "boolean"
+    },
+    "family": {
+      "enum": [
+        "SAME_DAY",
+        "PRIOR_N_CALENDAR_OFFSET",
+        "WEEKLY_DEFERRED"
+      ]
+    },
+    "historical_selector_required": {
+      "type": "boolean"
+    },
+    "reference_kind": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "W"
+      ]
+    },
+    "relation": {
+      "enum": [
+        "AL",
+        "AN",
+        "LN",
+        "NA",
+        "NL",
+        "NN",
+        "WW"
+      ]
+    },
+    "supported_in_phase": {
+      "type": "boolean"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "relation",
+    "family",
+    "reference_kind",
+    "check_kind",
+    "historical_selector_required",
+    "calendar_offset_required",
+    "directly_tradeable",
+    "supported_in_phase",
+    "version"
+  ],
+  "title": "fp_i06_relation_descriptor",
+  "type": "object"
+}

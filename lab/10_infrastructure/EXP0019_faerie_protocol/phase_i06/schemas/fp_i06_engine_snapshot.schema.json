@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_engine_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "fp_i06_raw_candidate.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "compiler_report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scan_results": {
+      "items": {
+        "$ref": "fp_i06_relation_scan_result.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "config_hash",
+    "compiler_report_hash",
+    "scan_results",
+    "candidates",
+    "health",
+    "reason_codes",
+    "source_revision_id",
+    "created_utc_ms",
+    "semantic_hash"
+  ],
+  "title": "fp_i06_engine_snapshot",
+  "type": "object"
+}

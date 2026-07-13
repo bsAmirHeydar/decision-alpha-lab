@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_compiler_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_engine_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "enabled_relations": {
+      "items": {
+        "enum": [
+          "AL",
+          "AN",
+          "LN",
+          "NA",
+          "NL",
+          "NN"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hunt_engine_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_store_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "relation_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "relation_registry_hash",
+    "reference_store_hash",
+    "hunt_engine_version",
+    "candidate_engine_version",
+    "enabled_relations"
+  ],
+  "title": "fp_i06_relation_compiler_config",
+  "type": "object"
+}

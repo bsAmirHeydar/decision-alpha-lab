@@ -1,7 +1,7 @@
 ---
 title: "FP-I06 — Relation Compiler, Hunt Facts, First-Sweep Classification, and Candidates"
 tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+status: implemented_python_and_static_validated
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
@@ -139,3 +139,9 @@ Revert only files listed in this phase's file index. Persisted artifacts generat
 - [[../00_IMPLEMENTATION_PROGRAM_MOC|Implementation Program MOC]]
 - [[../../00_EXP0019_MOC|EXP0019 Master MOC]]
 - [[../../34_IMPLEMENTATION_ROADMAP|Implementation Roadmap]]
+
+## Implemented delivery
+
+- [[../phase_deliveries/fp_i06/00_FP_I06_DELIVERY_MOC|FP-I06 Delivery MOC]]
+- Python/MQL5 contract mirror, 48 phase tests, 15 schemas, golden vectors, and acceptance evidence are delivered in version `1.0.0`.
+- Real MetaEditor compile remains `pending_local_windows`.

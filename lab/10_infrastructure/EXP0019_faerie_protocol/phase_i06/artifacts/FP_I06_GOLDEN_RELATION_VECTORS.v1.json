@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "candidate_direction": "BEARISH",
+    "candidate_hunter": "ES",
+    "candidate_state": "RAW_ACTIVE",
+    "compiled_relation_count": 9,
+    "compiled_side_plan_count": 18,
+    "same_m1_outcome": "SYMMETRIC_SAME_M1",
+    "ww_compiled": false
+  },
+  "evidence_hash": "94f5c4232f32dfbb54d5019a298e51a1696bb5dad2b438f0002b018d45d026f8",
+  "phase": "FP-I06",
+  "version": "1.0.0"
+}

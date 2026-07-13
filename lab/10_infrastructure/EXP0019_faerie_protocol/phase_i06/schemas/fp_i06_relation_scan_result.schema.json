@@ -1,0 +1,97 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_relation_scan_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate": {
+      "anyOf": [
+        {
+          "$ref": "fp_i06_raw_candidate.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "candidate_events": {
+      "items": {
+        "$ref": "fp_i06_candidate_transition.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "classification": {
+      "$ref": "fp_i06_first_sweep_classification.schema.json"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hunt_facts": {
+      "items": {
+        "$ref": "fp_i06_hunt_fact.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "observations": {
+      "items": {
+        "$ref": "fp_i06_minute_contact_observation.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "processed_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scan_mode": {
+      "enum": [
+        "BATCH",
+        "INCREMENTAL"
+      ]
+    },
+    "scanned_end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scanned_start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_rows_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scan_id",
+    "side_plan_id",
+    "scan_mode",
+    "scanned_start_utc_ms",
+    "scanned_end_utc_ms",
+    "observations",
+    "hunt_facts",
+    "classification",
+    "candidate",
+    "candidate_events",
+    "processed_row_count",
+    "source_revision_id",
+    "source_rows_hash",
+    "evidence_hash"
+  ],
+  "title": "fp_i06_relation_scan_result",
+  "type": "object"
+}

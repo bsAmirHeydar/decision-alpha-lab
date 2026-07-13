@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/exp0019/fp_i06/fp_i06_scan_cursor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_state": {
+      "enum": [
+        "RAW_ACTIVE",
+        "CANCELLED_SECOND_TOUCH",
+        "INVALID_DATA",
+        "CHECK_WINDOW_ENDED",
+        null
+      ]
+    },
+    "cursor_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "next_open_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "side_plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_rows_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "side_plan_id",
+    "next_open_utc_ms",
+    "source_revision_id",
+    "source_rows_hash",
+    "candidate_id",
+    "candidate_state",
+    "cursor_hash"
+  ],
+  "title": "fp_i06_scan_cursor",
+  "type": "object"
+}

@@ -1,0 +1,57 @@
+{
+  "phase": "FP-I06",
+  "relation_count": 7,
+  "relations": [
+    {
+      "check": "L",
+      "historical": false,
+      "reference": "A",
+      "relation": "AL",
+      "supported_in_i06": true
+    },
+    {
+      "check": "N",
+      "historical": false,
+      "reference": "A",
+      "relation": "AN",
+      "supported_in_i06": true
+    },
+    {
+      "check": "N",
+      "historical": false,
+      "reference": "L",
+      "relation": "LN",
+      "supported_in_i06": true
+    },
+    {
+      "check": "A",
+      "historical": true,
+      "reference": "N",
+      "relation": "NA",
+      "supported_in_i06": true
+    },
+    {
+      "check": "L",
+      "historical": true,
+      "reference": "N",
+      "relation": "NL",
+      "supported_in_i06": true
+    },
+    {
+      "check": "N",
+      "historical": true,
+      "reference": "N",
+      "relation": "NN",
+      "supported_in_i06": true
+    },
+    {
+      "check": "W",
+      "historical": false,
+      "reference": "W",
+      "relation": "WW",
+      "supported_in_i06": false
+    }
+  ],
+  "supported_relation_count": 6,
+  "version": "1.0.0"
+}
