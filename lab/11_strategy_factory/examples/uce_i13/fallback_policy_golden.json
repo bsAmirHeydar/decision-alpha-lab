@@ -1,0 +1,77 @@
+{
+  "default_action": "abstain",
+  "policy_id": "default_fallback",
+  "rules": [
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "invalid_model"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "stale_model"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "stale_features"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "out_of_distribution"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "low_confidence"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "timeout"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "missing_view"
+    },
+    {
+      "action": "manual_only",
+      "note": "preserve pinned manual doctrine",
+      "reason": "signature_failure"
+    },
+    {
+      "action": "abstain",
+      "note": "",
+      "reason": "conflict"
+    },
+    {
+      "action": "abstain",
+      "note": "",
+      "reason": "unsupported_action"
+    },
+    {
+      "action": "abstain",
+      "note": "",
+      "reason": "unsupported_treatment"
+    },
+    {
+      "action": "abstain",
+      "note": "",
+      "reason": "unsupported_risk"
+    },
+    {
+      "action": "reject",
+      "note": "",
+      "reason": "risk_rejection"
+    },
+    {
+      "action": "reject",
+      "note": "",
+      "reason": "kill_switch"
+    }
+  ],
+  "version": "1.0.0"
+}

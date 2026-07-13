@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_manual_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "eligibility": {
+      "type": "array"
+    },
+    "exceptions": {
+      "type": "array"
+    },
+    "operator_notes": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_tier": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "setup_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "valid_from_ms": {
+      "type": "integer"
+    },
+    "valid_until_ms": {
+      "type": "integer"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "vetoes": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "setup_id",
+    "version",
+    "context_type",
+    "eligibility",
+    "action",
+    "treatment",
+    "risk_tier",
+    "vetoes",
+    "exceptions",
+    "operator_notes",
+    "valid_from_ms",
+    "valid_until_ms"
+  ],
+  "title": "policy_manual_definition",
+  "type": "object"
+}

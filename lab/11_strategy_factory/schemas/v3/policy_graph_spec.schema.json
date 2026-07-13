@@ -1,0 +1,78 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_graph_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_hash": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "authority_matrix_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fallback_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manual_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "mode": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "output_node_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "supported_actions": {
+      "type": "array"
+    },
+    "supported_context_types": {
+      "type": "array"
+    },
+    "supported_risk_tiers": {
+      "type": "array"
+    },
+    "supported_treatments": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_id",
+    "version",
+    "mode",
+    "nodes",
+    "output_node_id",
+    "manual_policy_hash",
+    "fallback_policy_hash",
+    "authority_matrix_hash",
+    "supported_context_types",
+    "supported_treatments",
+    "supported_risk_tiers",
+    "supported_actions",
+    "admission_hash"
+  ],
+  "title": "policy_graph_spec",
+  "type": "object"
+}

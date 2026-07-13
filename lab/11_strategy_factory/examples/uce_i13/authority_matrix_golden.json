@@ -1,0 +1,60 @@
+{
+  "matrix_id": "default_authority",
+  "precedence": [
+    "kill_switch",
+    "risk_engine",
+    "human_operator",
+    "manual_policy",
+    "treatment_compiler",
+    "model",
+    "portfolio_engine",
+    "system"
+  ],
+  "rules": [
+    {
+      "conflict": "kill_switch_over_all",
+      "disposition": "accept_higher_authority",
+      "hard_veto": true,
+      "losers": [
+        "risk_engine",
+        "human_operator",
+        "manual_policy",
+        "treatment_compiler",
+        "model",
+        "portfolio_engine",
+        "system"
+      ],
+      "winner": "kill_switch"
+    },
+    {
+      "conflict": "risk_reject_over_approval",
+      "disposition": "accept_higher_authority",
+      "hard_veto": true,
+      "losers": [
+        "human_operator",
+        "manual_policy",
+        "model"
+      ],
+      "winner": "risk_engine"
+    },
+    {
+      "conflict": "operator_veto_over_model",
+      "disposition": "accept_higher_authority",
+      "hard_veto": true,
+      "losers": [
+        "model"
+      ],
+      "winner": "human_operator"
+    },
+    {
+      "conflict": "manual_support_bounds_model",
+      "disposition": "accept_higher_authority",
+      "hard_veto": true,
+      "losers": [
+        "model"
+      ],
+      "winner": "manual_policy"
+    }
+  ],
+  "version": "1.0.0"
+}

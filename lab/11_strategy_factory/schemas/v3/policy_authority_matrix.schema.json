@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_authority_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "matrix_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "precedence": {
+      "type": "array"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "matrix_id",
+    "version",
+    "rules",
+    "precedence"
+  ],
+  "title": "policy_authority_matrix",
+  "type": "object"
+}

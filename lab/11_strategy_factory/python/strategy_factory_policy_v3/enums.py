@@ -1,0 +1,12 @@
+from enum import Enum
+class PolicyMode(str,Enum): MANUAL_ONLY='manual_only'; AI_FILTER='ai_filter'; AI_RANK='ai_rank'; AI_TREATMENT='ai_treatment'; AI_RISK='ai_risk'; HYBRID='hybrid'
+class NodeKind(str,Enum): INPUT='input'; MANUAL_ELIGIBILITY='manual_eligibility'; MANUAL_TREATMENT='manual_treatment'; MODEL_FILTER='model_filter'; MODEL_RANK='model_rank'; MODEL_TREATMENT='model_treatment'; MODEL_RISK='model_risk'; MANUAL_VETO='manual_veto'; OPERATOR_APPROVAL='operator_approval'; PORTFOLIO_ALLOCATION='portfolio_allocation'; RISK_GATE='risk_gate'; KILL_SWITCH='kill_switch'; FALLBACK='fallback'; OUTPUT='output'
+class Authority(str,Enum): KILL_SWITCH='kill_switch'; RISK_ENGINE='risk_engine'; HUMAN_OPERATOR='human_operator'; MANUAL_POLICY='manual_policy'; TREATMENT_COMPILER='treatment_compiler'; MODEL='model'; PORTFOLIO_ENGINE='portfolio_engine'; SYSTEM='system'
+class DecisionStatus(str,Enum): APPROVED='approved'; REJECTED='rejected'; ABSTAINED='abstained'; PENDING_APPROVAL='pending_approval'; INELIGIBLE='ineligible'
+class Action(str,Enum): ENTER_LONG='enter_long'; ENTER_SHORT='enter_short'; NO_ACTION='no_action'; ABSTAIN='abstain'; REJECT='reject'
+class FallbackAction(str,Enum): MANUAL_ONLY='manual_only'; ABSTAIN='abstain'; REJECT='reject'
+class FallbackReason(str,Enum): INVALID_MODEL='invalid_model'; STALE_MODEL='stale_model'; STALE_FEATURES='stale_features'; OUT_OF_DISTRIBUTION='out_of_distribution'; LOW_CONFIDENCE='low_confidence'; CONFLICT='conflict'; TIMEOUT='timeout'; MISSING_VIEW='missing_view'; RISK_REJECTION='risk_rejection'; UNSUPPORTED_ACTION='unsupported_action'; UNSUPPORTED_TREATMENT='unsupported_treatment'; UNSUPPORTED_RISK='unsupported_risk'; SIGNATURE_FAILURE='signature_failure'; KILL_SWITCH='kill_switch'
+class CalibrationState(str,Enum): VALID='valid'; DEGRADED='degraded'; INVALID='invalid'; UNKNOWN='unknown'
+class OverrideKind(str,Enum): APPROVE='approve'; VETO='veto'
+class ConflictDisposition(str,Enum): ACCEPT_HIGHER_AUTHORITY='accept_higher_authority'; REJECT_AMBIGUOUS='reject_ambiguous'; REQUIRE_OPERATOR='require_operator'
+class ValueComponent(str,Enum): SELECTION='selection'; TREATMENT='treatment'; RISK='risk'; TIMING='timing'; RESIDUAL='residual'

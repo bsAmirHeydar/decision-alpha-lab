@@ -1,0 +1,47 @@
+{
+  "action": "enter_long",
+  "context_type": "ctx.breakout",
+  "eligibility": [
+    {
+      "field": "features.score",
+      "operator": "ge",
+      "value": 0.6
+    },
+    {
+      "field": "features.direction",
+      "operator": "eq",
+      "value": "long"
+    }
+  ],
+  "exceptions": [
+    {
+      "action": null,
+      "note": "reduce risk",
+      "risk_tier": "low",
+      "rule_id": "thin_liquidity",
+      "treatment": null,
+      "veto": false,
+      "when": [
+        {
+          "field": "features.liquidity",
+          "operator": "lt",
+          "value": 0.3
+        }
+      ]
+    }
+  ],
+  "operator_notes": "pinned manual doctrine",
+  "risk_tier": "standard",
+  "setup_id": "setup.breakout",
+  "treatment": "market",
+  "valid_from_ms": 0,
+  "valid_until_ms": 999999,
+  "version": "1.0.0",
+  "vetoes": [
+    {
+      "field": "features.blocked",
+      "operator": "eq",
+      "value": true
+    }
+  ]
+}

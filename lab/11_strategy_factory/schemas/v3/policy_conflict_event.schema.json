@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_conflict_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authorities": {
+      "type": "array"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolution": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "winner": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "occurrence_id",
+    "authorities",
+    "resolution",
+    "winner",
+    "evidence_hash"
+  ],
+  "title": "policy_conflict_event",
+  "type": "object"
+}

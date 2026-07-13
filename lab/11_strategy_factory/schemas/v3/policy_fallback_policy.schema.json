@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_fallback_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "default_action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "rules",
+    "default_action"
+  ],
+  "title": "policy_fallback_policy",
+  "type": "object"
+}

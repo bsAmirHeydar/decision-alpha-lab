@@ -1,0 +1,143 @@
+{
+  "admission_hash": "763393f6e05df56730bc488f49d6d3feb9a4b38a13f7b9d0231b13d1bb919535",
+  "authority_matrix_hash": "a737fee5225ee788952bec5107847fad81b9bc110c285c709230c07a70efa826",
+  "fallback_policy_hash": "d870a60cd00ef083e016a989f058ff6732693a536fc94714dd4b1094f22567dc",
+  "graph_id": "graph.hybrid",
+  "manual_policy_hash": "84796514fa651401d6e266596948b686b0f44c60a0a2af3a513bc27f0e391138",
+  "mode": "hybrid",
+  "nodes": [
+    {
+      "authority": "system",
+      "config": {},
+      "dependencies": [],
+      "kind": "input",
+      "node_id": "input"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "input"
+      ],
+      "kind": "manual_eligibility",
+      "node_id": "eligibility"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "eligibility"
+      ],
+      "kind": "manual_treatment",
+      "node_id": "manual"
+    },
+    {
+      "authority": "model",
+      "config": {
+        "action": "enter_long",
+        "minimum_probability": 0.55,
+        "minimum_utility": 0.0
+      },
+      "dependencies": [
+        "manual"
+      ],
+      "kind": "model_filter",
+      "node_id": "filter"
+    },
+    {
+      "authority": "model",
+      "config": {
+        "minimum_rank": 0.5
+      },
+      "dependencies": [
+        "filter"
+      ],
+      "kind": "model_rank",
+      "node_id": "rank"
+    },
+    {
+      "authority": "model",
+      "config": {},
+      "dependencies": [
+        "rank"
+      ],
+      "kind": "model_treatment",
+      "node_id": "treatment"
+    },
+    {
+      "authority": "model",
+      "config": {},
+      "dependencies": [
+        "treatment"
+      ],
+      "kind": "model_risk",
+      "node_id": "risk"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "risk"
+      ],
+      "kind": "manual_veto",
+      "node_id": "veto"
+    },
+    {
+      "authority": "risk_engine",
+      "config": {
+        "risk_rejected": false
+      },
+      "dependencies": [
+        "veto"
+      ],
+      "kind": "risk_gate",
+      "node_id": "risk_gate"
+    },
+    {
+      "authority": "kill_switch",
+      "config": {
+        "engaged": false
+      },
+      "dependencies": [
+        "risk_gate"
+      ],
+      "kind": "kill_switch",
+      "node_id": "kill"
+    },
+    {
+      "authority": "system",
+      "config": {},
+      "dependencies": [
+        "kill"
+      ],
+      "kind": "fallback",
+      "node_id": "fallback"
+    },
+    {
+      "authority": "system",
+      "config": {},
+      "dependencies": [
+        "fallback"
+      ],
+      "kind": "output",
+      "node_id": "output"
+    }
+  ],
+  "output_node_id": "output",
+  "supported_actions": [
+    "enter_long",
+    "no_action"
+  ],
+  "supported_context_types": [
+    "ctx.breakout"
+  ],
+  "supported_risk_tiers": [
+    "low",
+    "standard"
+  ],
+  "supported_treatments": [
+    "market",
+    "limit"
+  ],
+  "version": "1.0.0"
+}

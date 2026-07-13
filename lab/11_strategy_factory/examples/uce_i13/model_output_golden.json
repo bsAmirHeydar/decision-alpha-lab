@@ -1,0 +1,33 @@
+{
+  "action_probabilities": {
+    "enter_long": 0.75,
+    "no_action": 0.25
+  },
+  "as_of_ms": 5000,
+  "calibration_state": "valid",
+  "diagnostics": {},
+  "feature_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "model_id": "model-alpha",
+  "model_version": "1.2.0",
+  "novelty": 0.1,
+  "occurrence_id": "occ:1",
+  "output_schema_version": "1.0.0",
+  "rank_score": 0.81,
+  "required_views": [
+    "tabular",
+    "sequence"
+  ],
+  "risk_distribution": {
+    "low": 0.2,
+    "standard": 0.8
+  },
+  "survival_probability": 0.72,
+  "tail_loss_probability": 0.08,
+  "treatment_distribution": {
+    "limit": 0.65,
+    "market": 0.35
+  },
+  "uncertainty": 0.12,
+  "utility": 0.22,
+  "valid_until_ms": 6000
+}

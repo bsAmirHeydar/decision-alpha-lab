@@ -1,0 +1,80 @@
+{
+  "acceptance_gates": {
+    "ai_cannot_create_context_or_expand_support": "pass",
+    "deterministic_replay_and_trace_tamper_detection": "pass",
+    "every_missing_or_invalid_model_path_has_deterministic_fallback": "pass",
+    "incremental_ai_value_is_relative_to_manual_baseline": "pass",
+    "manual_only_output_matches_pinned_setup": "pass",
+    "operator_risk_manual_and_kill_authority_are_explicit_and_logged": "pass"
+  },
+  "engineering_policy": {
+    "checks_passed": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_on": "2026-07-13",
+  "implementation_metrics": {
+    "atomic_concepts": 9,
+    "delivery_note_lines": 4773,
+    "delivery_notes": 37,
+    "mql5_files": 12,
+    "phase_test_modules": 11,
+    "public_schemas": 25,
+    "python_modules": 20,
+    "registered_policy_nodes": 14,
+    "total_obsidian_notes": 46
+  },
+  "limitations": [
+    "Golden fixtures validate contracts and determinism, not real-market alpha.",
+    "The policy graph grants no broker, order, position, sizing, or network authority.",
+    "Production signing-key custody and operator authorization infrastructure remain outside this phase.",
+    "ONNX export, numerical Python/MQL5 parity, atomic runtime activation, restart, and rollback remain UCE-I14."
+  ],
+  "metaeditor": {
+    "result": "pending_local_windows",
+    "statement": "MetaEditor is unavailable in this environment. MQL5 static checks passed, but static validation is not represented as compilation."
+  },
+  "next_phase": "UCE-I14 Immutable Runtime Compilation, ONNX Export, and MQL5 Parity",
+  "phase_id": "UCE-I13",
+  "quality_gates": {
+    "boundary_guard": "pass",
+    "clean_i12_baseline_patch_application": {
+      "cumulative_tests": 462,
+      "engineering_policy": "4/4 pass",
+      "phase_tests": 86,
+      "result": "pass"
+    },
+    "closed_json_schemas": {
+      "count": 25,
+      "result": "pass"
+    },
+    "conformance_vectors": "pass",
+    "delivery_validation": "pass",
+    "mql5_static": {
+      "file_count": 12,
+      "result": "pass"
+    },
+    "python_compileall": "pass",
+    "registered_policy_nodes": {
+      "count": 14,
+      "result": "pass"
+    },
+    "zip_integrity": "pass"
+  },
+  "result": "pass_with_local_metaeditor_gate_pending",
+  "runtime_authority": "none",
+  "scope": "Versioned manual policies, signed model-output admission, bounded manual/AI hybrid DAGs, abstention, deterministic fallback, explicit authority, replay, trace evidence, and paired incremental value attribution",
+  "tests": {
+    "cumulative_uce_i01_to_i13": {
+      "count": 462,
+      "pytest_import_mode": "importlib",
+      "result": "pass"
+    },
+    "phase": {
+      "count": 86,
+      "result": "pass"
+    }
+  },
+  "version": "1.0.0"
+}

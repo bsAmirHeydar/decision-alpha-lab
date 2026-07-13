@@ -1,0 +1,24 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_compiled_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjacency": {
+      "type": "object"
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "topological_order": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "graph_hash",
+    "topological_order",
+    "adjacency"
+  ],
+  "title": "policy_compiled_graph",
+  "type": "object"
+}

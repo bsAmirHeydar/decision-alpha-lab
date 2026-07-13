@@ -1,0 +1,82 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_promotion_admission.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "type": "array"
+    },
+    "admission_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capability_flags": {
+      "type": "array"
+    },
+    "context_types": {
+      "type": "array"
+    },
+    "decision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "residual_risks": {
+      "type": "array"
+    },
+    "risk_tiers": {
+      "type": "array"
+    },
+    "signature_valid": {
+      "type": "boolean"
+    },
+    "treatments": {
+      "type": "array"
+    },
+    "valid_from_ms": {
+      "type": "integer"
+    },
+    "valid_until_ms": {
+      "type": "integer"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "admission_id",
+    "version",
+    "decision_hash",
+    "evidence_bundle_hash",
+    "signature_valid",
+    "outcome",
+    "model_id",
+    "model_version",
+    "context_types",
+    "treatments",
+    "risk_tiers",
+    "actions",
+    "valid_from_ms",
+    "valid_until_ms",
+    "capability_flags",
+    "residual_risks"
+  ],
+  "title": "policy_promotion_admission",
+  "type": "object"
+}

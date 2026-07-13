@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_node_trace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "node_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "node_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "previous_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "node_id",
+    "node_kind",
+    "status",
+    "payload",
+    "previous_hash",
+    "entry_hash"
+  ],
+  "title": "policy_node_trace",
+  "type": "object"
+}

@@ -1,0 +1,26 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_fallback_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "note": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "reason",
+    "action",
+    "note"
+  ],
+  "title": "policy_fallback_rule",
+  "type": "object"
+}

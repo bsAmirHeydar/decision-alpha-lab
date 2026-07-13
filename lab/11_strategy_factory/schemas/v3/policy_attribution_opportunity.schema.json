@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_attribution_opportunity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "hybrid_selected": {
+      "type": "boolean"
+    },
+    "hybrid_value": {
+      "type": "number"
+    },
+    "manual_selected": {
+      "type": "boolean"
+    },
+    "manual_value": {
+      "type": "number"
+    },
+    "opportunity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_changed": {
+      "type": "boolean"
+    },
+    "timing_delta": {
+      "type": "number"
+    },
+    "treatment_changed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "opportunity_id",
+    "manual_selected",
+    "hybrid_selected",
+    "manual_value",
+    "hybrid_value",
+    "treatment_changed",
+    "risk_changed",
+    "timing_delta"
+  ],
+  "title": "policy_attribution_opportunity",
+  "type": "object"
+}

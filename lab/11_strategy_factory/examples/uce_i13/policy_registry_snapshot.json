@@ -1,0 +1,119 @@
+{
+  "count": 14,
+  "items": [
+    {
+      "authority": "system",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "input",
+      "runtime_authority": false
+    },
+    {
+      "authority": "manual_policy",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "manual_eligibility",
+      "runtime_authority": false
+    },
+    {
+      "authority": "manual_policy",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "manual_treatment",
+      "runtime_authority": false
+    },
+    {
+      "authority": "model",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "model_filter",
+      "runtime_authority": false
+    },
+    {
+      "authority": "model",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "model_rank",
+      "runtime_authority": false
+    },
+    {
+      "authority": "model",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "model_treatment",
+      "runtime_authority": false
+    },
+    {
+      "authority": "model",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "model_risk",
+      "runtime_authority": false
+    },
+    {
+      "authority": "manual_policy",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "manual_veto",
+      "runtime_authority": false
+    },
+    {
+      "authority": "human_operator",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "operator_approval",
+      "runtime_authority": false
+    },
+    {
+      "authority": "portfolio_engine",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "portfolio_allocation",
+      "runtime_authority": false
+    },
+    {
+      "authority": "risk_engine",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "risk_gate",
+      "runtime_authority": false
+    },
+    {
+      "authority": "kill_switch",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "kill_switch",
+      "runtime_authority": false
+    },
+    {
+      "authority": "system",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": true,
+      "node_kind": "fallback",
+      "runtime_authority": false
+    },
+    {
+      "authority": "system",
+      "creates_occurrence": false,
+      "deterministic": true,
+      "may_abstain": false,
+      "node_kind": "output",
+      "runtime_authority": false
+    }
+  ],
+  "registry_hash": "53fe2ffd169d0e78b46b2076dcec007832717d2970dd66c6312e562ee995a973",
+  "version": "1.0.0"
+}

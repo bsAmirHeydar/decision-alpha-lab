@@ -1,0 +1,23 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_predicate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "field",
+    "operator",
+    "value"
+  ],
+  "title": "policy_predicate",
+  "type": "object"
+}

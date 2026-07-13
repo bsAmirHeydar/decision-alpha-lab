@@ -1,0 +1,114 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decisive_authority": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fallback_used": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "manual_decision_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "model_output_hash": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reasons": {
+      "type": "array"
+    },
+    "risk_tier": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "score": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trace": {
+      "type": "array"
+    },
+    "treatment": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "decision_id",
+    "occurrence_id",
+    "status",
+    "action",
+    "treatment",
+    "risk_tier",
+    "score",
+    "reasons",
+    "trace",
+    "fallback_used",
+    "decisive_authority",
+    "graph_hash",
+    "manual_decision_hash",
+    "model_output_hash",
+    "known_time_ms"
+  ],
+  "title": "policy_decision",
+  "type": "object"
+}

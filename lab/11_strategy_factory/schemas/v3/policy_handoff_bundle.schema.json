@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_handoff_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_hash": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "authority_matrix_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "conformance_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fallback_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "manual_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "graph_hash",
+    "manual_policy_hash",
+    "fallback_policy_hash",
+    "authority_matrix_hash",
+    "admission_hash",
+    "conformance_hash",
+    "limitations",
+    "signature_hash"
+  ],
+  "title": "policy_handoff_bundle",
+  "type": "object"
+}

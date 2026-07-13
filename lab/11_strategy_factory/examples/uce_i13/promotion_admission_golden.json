@@ -1,0 +1,36 @@
+{
+  "actions": [
+    "enter_long",
+    "no_action"
+  ],
+  "admission_id": "admit:model-alpha",
+  "capability_flags": [
+    "filter",
+    "rank",
+    "treatment",
+    "risk"
+  ],
+  "context_types": [
+    "ctx.breakout"
+  ],
+  "decision_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "evidence_bundle_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "model_id": "model-alpha",
+  "model_version": "1.2.0",
+  "outcome": "promote",
+  "residual_risks": [
+    "synthetic_fixture"
+  ],
+  "risk_tiers": [
+    "low",
+    "standard"
+  ],
+  "signature_valid": true,
+  "treatments": [
+    "market",
+    "limit"
+  ],
+  "valid_from_ms": 1000,
+  "valid_until_ms": 999999,
+  "version": "1.0.0"
+}

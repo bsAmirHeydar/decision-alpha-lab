@@ -1,0 +1,16 @@
+{
+  "components": {
+    "residual": -0.050000000000000114,
+    "risk": 0.19999999999999996,
+    "selection": 0.4,
+    "timing": 0.05,
+    "treatment": 0.19999999999999996
+  },
+  "evidence_hash": "3a2c2e2406d04d3d44f63fa81b4f7a5fe9872754bd21d3a8acff7dfdf789d492",
+  "hybrid_total": 1.9,
+  "incremental_total": 0.7999999999999998,
+  "manual_total": 1.1,
+  "opportunity_count": 3,
+  "paired_win_rate": 1.0,
+  "report_id": "incremental_value:3a2c2e2406d04d3d44f63fa8"
+}

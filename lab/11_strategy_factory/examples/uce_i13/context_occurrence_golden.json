@@ -1,0 +1,29 @@
+{
+  "available_risk_tiers": [
+    "low",
+    "standard"
+  ],
+  "available_treatments": [
+    "market",
+    "limit"
+  ],
+  "candidate_actions": [
+    "enter_long",
+    "no_action"
+  ],
+  "context_type": "ctx.breakout",
+  "feature_time_ms": 5000,
+  "features": {
+    "blocked": false,
+    "direction": "long",
+    "liquidity": 0.8,
+    "score": 0.8
+  },
+  "known_time_ms": 5000,
+  "metadata": {},
+  "occurrence_id": "occ:1",
+  "views_present": [
+    "tabular",
+    "sequence"
+  ]
+}

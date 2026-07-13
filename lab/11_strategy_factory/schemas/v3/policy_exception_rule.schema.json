@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_exception_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "note": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_tier": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rule_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "treatment": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "veto": {
+      "type": "boolean"
+    },
+    "when": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "rule_id",
+    "when",
+    "action",
+    "treatment",
+    "risk_tier",
+    "veto",
+    "note"
+  ],
+  "title": "policy_exception_rule",
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_incremental_value_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hybrid_total": {
+      "type": "number"
+    },
+    "incremental_total": {
+      "type": "number"
+    },
+    "manual_total": {
+      "type": "number"
+    },
+    "opportunity_count": {
+      "type": "integer"
+    },
+    "paired_win_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "opportunity_count",
+    "manual_total",
+    "hybrid_total",
+    "incremental_total",
+    "components",
+    "paired_win_rate",
+    "evidence_hash"
+  ],
+  "title": "policy_incremental_value_report",
+  "type": "object"
+}

@@ -1,0 +1,110 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_model_output.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_probabilities": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "as_of_ms": {
+      "type": "integer"
+    },
+    "calibration_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "feature_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "novelty": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rank_score": {
+      "type": "number"
+    },
+    "required_views": {
+      "type": "array"
+    },
+    "risk_distribution": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "survival_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "tail_loss_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "treatment_distribution": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "uncertainty": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "utility": {
+      "type": "number"
+    },
+    "valid_until_ms": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "model_id",
+    "model_version",
+    "occurrence_id",
+    "as_of_ms",
+    "valid_until_ms",
+    "action_probabilities",
+    "utility",
+    "rank_score",
+    "treatment_distribution",
+    "risk_distribution",
+    "survival_probability",
+    "tail_loss_probability",
+    "uncertainty",
+    "novelty",
+    "calibration_state",
+    "required_views",
+    "feature_hash",
+    "output_schema_version",
+    "diagnostics"
+  ],
+  "title": "policy_model_output",
+  "type": "object"
+}

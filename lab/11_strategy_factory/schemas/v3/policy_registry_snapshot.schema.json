@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "array"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "count",
+    "items",
+    "registry_hash"
+  ],
+  "title": "policy_registry_snapshot",
+  "type": "object"
+}

@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_context_occurrence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_risk_tiers": {
+      "type": "array"
+    },
+    "available_treatments": {
+      "type": "array"
+    },
+    "candidate_actions": {
+      "type": "array"
+    },
+    "context_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_time_ms": {
+      "type": "integer"
+    },
+    "features": {
+      "type": "object"
+    },
+    "known_time_ms": {
+      "type": "integer"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "views_present": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "occurrence_id",
+    "context_type",
+    "known_time_ms",
+    "feature_time_ms",
+    "features",
+    "views_present",
+    "available_treatments",
+    "available_risk_tiers",
+    "candidate_actions",
+    "metadata"
+  ],
+  "title": "policy_context_occurrence",
+  "type": "object"
+}

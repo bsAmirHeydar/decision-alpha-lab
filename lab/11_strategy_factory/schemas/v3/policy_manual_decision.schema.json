@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_manual_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "matched_exceptions": {
+      "type": "array"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reasons": {
+      "type": "array"
+    },
+    "risk_tier": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "treatment": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "vetoed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "eligible",
+    "action",
+    "treatment",
+    "risk_tier",
+    "vetoed",
+    "matched_exceptions",
+    "reasons",
+    "policy_hash"
+  ],
+  "title": "policy_manual_decision",
+  "type": "object"
+}

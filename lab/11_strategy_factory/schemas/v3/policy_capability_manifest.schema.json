@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_capability_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "type": "array"
+    },
+    "authorities": {
+      "type": "array"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "node_kinds": {
+      "type": "array"
+    },
+    "risk_tiers": {
+      "type": "array"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "treatments": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "node_kinds",
+    "authorities",
+    "actions",
+    "treatments",
+    "risk_tiers",
+    "runtime_authority",
+    "manifest_hash"
+  ],
+  "title": "policy_capability_manifest",
+  "type": "object"
+}

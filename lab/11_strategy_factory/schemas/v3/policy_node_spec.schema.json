@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_node_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "config": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "node_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "node_id",
+    "kind",
+    "dependencies",
+    "authority",
+    "config"
+  ],
+  "title": "policy_node_spec",
+  "type": "object"
+}

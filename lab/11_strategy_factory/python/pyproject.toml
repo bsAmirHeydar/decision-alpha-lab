@@ -3,8 +3,8 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.31.0"
-description="MQL5-first Strategy Factory with UCEE v3 experiment orchestration and statistical promotion governance"
+version="0.32.0"
+description="MQL5-first Strategy Factory with UCEE v3 statistical promotion and bounded manual-AI policy graphs"
 requires-python=">=3.10"
 [project.scripts]
 strategy-factory-statistics="strategy_factory_statistics.cli:main"
@@ -29,9 +29,10 @@ strategy-factory-advanced-tasks-v3="strategy_factory_advanced_tasks_v3.cli:main"
 strategy-factory-deep-views-v3="strategy_factory_deep_views_v3.cli:main"
 strategy-factory-experiments-v3="strategy_factory_experiments_v3.cli:main"
 strategy-factory-promotion-v3="strategy_factory_promotion_v3.cli:main"
+strategy-factory-policy-v3="strategy_factory_policy_v3.cli:main"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*","strategy_factory_contracts_v3*","strategy_factory_contexts_v3*","strategy_factory_treatments_v3*","strategy_factory_treatment_compiler_v3*","strategy_factory_economics_v3*","strategy_factory_dataset_v3*","strategy_factory_trainers_v3*","strategy_factory_classical_v3*","strategy_factory_advanced_tasks_v3*","strategy_factory_deep_views_v3*","strategy_factory_experiments_v3*","strategy_factory_promotion_v3*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*","strategy_factory_contracts_v3*","strategy_factory_contexts_v3*","strategy_factory_treatments_v3*","strategy_factory_treatment_compiler_v3*","strategy_factory_economics_v3*","strategy_factory_dataset_v3*","strategy_factory_trainers_v3*","strategy_factory_classical_v3*","strategy_factory_advanced_tasks_v3*","strategy_factory_deep_views_v3*","strategy_factory_experiments_v3*","strategy_factory_promotion_v3*","strategy_factory_policy_v3*"]
 
 [project.optional-dependencies]
 ucee-classical=["numpy>=1.26","scikit-learn>=1.4","scipy>=1.11"]

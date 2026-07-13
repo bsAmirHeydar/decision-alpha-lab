@@ -1,0 +1,14 @@
+{
+  "action": "enter_long",
+  "admission_hash": "763393f6e05df56730bc488f49d6d3feb9a4b38a13f7b9d0231b13d1bb919535",
+  "decision_hash": "92572da4132243a6c33ac970066668fddeb3bd2d8f77d4f627e1c494f6e486e0",
+  "graph_hash": "cb376f82ec690d2104d1821efaf69f9bd6f3816d1192eba4dab08e48ae480cdd",
+  "manual_policy_hash": "84796514fa651401d6e266596948b686b0f44c60a0a2af3a513bc27f0e391138",
+  "model_output_hash": "39c92323af48ceb58bd8faa99fc42c8840f226f113ad3160545b82266ef30097",
+  "occurrence_hash": "bdd00e680e3c5fefc16d0ba13f832e872877c97d30ea39cd8cbd745fbc27be54",
+  "risk_tier": "standard",
+  "status": "approved",
+  "treatment": "limit",
+  "vector_hash": "e844046add19688b7fea51b67405b7356a1de052492d29c3ef956387ccf42a37",
+  "version": "1.0.0"
+}

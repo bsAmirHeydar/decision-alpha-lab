@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_operator_override.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expires_at_ms": {
+      "type": "integer"
+    },
+    "issued_at_ms": {
+      "type": "integer"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operator_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "override_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "signature_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "override_id",
+    "occurrence_id",
+    "kind",
+    "operator_id",
+    "reason",
+    "issued_at_ms",
+    "expires_at_ms",
+    "signature_hash"
+  ],
+  "title": "policy_operator_override",
+  "type": "object"
+}

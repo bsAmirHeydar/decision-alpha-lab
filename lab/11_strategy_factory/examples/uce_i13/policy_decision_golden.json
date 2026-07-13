@@ -1,0 +1,161 @@
+{
+  "action": "enter_long",
+  "decision_id": "policy_decision:f5c6287f24806943592d3ec6",
+  "decisive_authority": "model",
+  "fallback_used": null,
+  "graph_hash": "cb376f82ec690d2104d1821efaf69f9bd6f3816d1192eba4dab08e48ae480cdd",
+  "known_time_ms": 5000,
+  "manual_decision_hash": "b18d77addf9272b0255c8384ec257898c70aa50dbfb1b74b2a4d8f486d794c9c",
+  "model_output_hash": "39c92323af48ceb58bd8faa99fc42c8840f226f113ad3160545b82266ef30097",
+  "occurrence_id": "occ:1",
+  "reasons": [
+    "manual_policy_matched"
+  ],
+  "risk_tier": "standard",
+  "score": 0.81,
+  "status": "approved",
+  "trace": [
+    {
+      "entry_hash": "66decff424e313d0d685dc23569245643c624bf360856cb59f169bcfe6eb2758",
+      "node_id": "input",
+      "node_kind": "input",
+      "payload": {
+        "occurrence_hash": "bdd00e680e3c5fefc16d0ba13f832e872877c97d30ea39cd8cbd745fbc27be54"
+      },
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sequence": 0,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "0523a088814520d9c5128d461e4cdb538bf7ec07f3fdd0f8d27a7a0a8478c651",
+      "node_id": "eligibility",
+      "node_kind": "manual_eligibility",
+      "payload": {
+        "eligible": true,
+        "vetoed": false
+      },
+      "previous_hash": "66decff424e313d0d685dc23569245643c624bf360856cb59f169bcfe6eb2758",
+      "sequence": 1,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "d0dc44b552fdabbc6330fd28ef9cc42945db6e221ee5a388a23c5feb3cd6e4ac",
+      "node_id": "manual",
+      "node_kind": "manual_treatment",
+      "payload": {
+        "action": "enter_long",
+        "risk_tier": "standard",
+        "treatment": "market"
+      },
+      "previous_hash": "0523a088814520d9c5128d461e4cdb538bf7ec07f3fdd0f8d27a7a0a8478c651",
+      "sequence": 2,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "8e016889c373f3319ba300e4a56f5913dff1b4522c91976785ecdb6d4b9a0411",
+      "node_id": "filter",
+      "node_kind": "model_filter",
+      "payload": {
+        "minimum_probability": 0.55,
+        "passed": true,
+        "probability": 0.75,
+        "utility": 0.22
+      },
+      "previous_hash": "d0dc44b552fdabbc6330fd28ef9cc42945db6e221ee5a388a23c5feb3cd6e4ac",
+      "sequence": 3,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "ef8000778b452caf69c825ac019763e6542e94f4fd8c52478b5a67157c7c77d3",
+      "node_id": "rank",
+      "node_kind": "model_rank",
+      "payload": {
+        "rank_score": 0.81
+      },
+      "previous_hash": "8e016889c373f3319ba300e4a56f5913dff1b4522c91976785ecdb6d4b9a0411",
+      "sequence": 4,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "0afce1e27ac9390ea7d648657074c3976381e98fadfe5c51b0df4d194096d2ec",
+      "node_id": "treatment",
+      "node_kind": "model_treatment",
+      "payload": {
+        "treatment": "limit"
+      },
+      "previous_hash": "ef8000778b452caf69c825ac019763e6542e94f4fd8c52478b5a67157c7c77d3",
+      "sequence": 5,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "f0d9058ab3afb55635aefa792cd14d3d1ba1c7360c6d475d08ef266e5df64982",
+      "node_id": "risk",
+      "node_kind": "model_risk",
+      "payload": {
+        "risk_tier": "standard"
+      },
+      "previous_hash": "0afce1e27ac9390ea7d648657074c3976381e98fadfe5c51b0df4d194096d2ec",
+      "sequence": 6,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "55a68be18a9149c341f871348ce115dc009b07da745c836f553eabac7fc97b18",
+      "node_id": "veto",
+      "node_kind": "manual_veto",
+      "payload": {
+        "vetoed": false
+      },
+      "previous_hash": "f0d9058ab3afb55635aefa792cd14d3d1ba1c7360c6d475d08ef266e5df64982",
+      "sequence": 7,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "bc860df1b640f4a4604b9fa204a64841186f6c6230f224f18a99f7398985dce1",
+      "node_id": "risk_gate",
+      "node_kind": "risk_gate",
+      "payload": {
+        "risk_rejected": false
+      },
+      "previous_hash": "55a68be18a9149c341f871348ce115dc009b07da745c836f553eabac7fc97b18",
+      "sequence": 8,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "7f144556f83431d1f4212206b58c045d37ed135358db9bf8b024f46ddf330cfe",
+      "node_id": "kill",
+      "node_kind": "kill_switch",
+      "payload": {
+        "engaged": false
+      },
+      "previous_hash": "bc860df1b640f4a4604b9fa204a64841186f6c6230f224f18a99f7398985dce1",
+      "sequence": 9,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "27cbe335b19d969ac2522e10eee55705ff3848e2054eda9542b2c7e69c3314ca",
+      "node_id": "fallback",
+      "node_kind": "fallback",
+      "payload": {
+        "active": null
+      },
+      "previous_hash": "7f144556f83431d1f4212206b58c045d37ed135358db9bf8b024f46ddf330cfe",
+      "sequence": 10,
+      "status": "approved"
+    },
+    {
+      "entry_hash": "4289c75a3e18849a423068ca641c2680f97f57bfcfad9fafb3a18fe6f874c71e",
+      "node_id": "output",
+      "node_kind": "output",
+      "payload": {
+        "action": "enter_long",
+        "decisive_authority": "model",
+        "hard_reasons": [],
+        "status": "approved"
+      },
+      "previous_hash": "27cbe335b19d969ac2522e10eee55705ff3848e2054eda9542b2c7e69c3314ca",
+      "sequence": 11,
+      "status": "approved"
+    }
+  ],
+  "treatment": "limit"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_replay_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_hashes": {
+      "type": "array"
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurrence_hashes": {
+      "type": "array"
+    },
+    "replay_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "graph_hash",
+    "occurrence_hashes",
+    "decision_hashes",
+    "replay_hash"
+  ],
+  "title": "policy_replay_manifest",
+  "type": "object"
+}

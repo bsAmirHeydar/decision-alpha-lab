@@ -1,0 +1,14 @@
+{
+  "admission_hash": "763393f6e05df56730bc488f49d6d3feb9a4b38a13f7b9d0231b13d1bb919535",
+  "authority_matrix_hash": "a737fee5225ee788952bec5107847fad81b9bc110c285c709230c07a70efa826",
+  "bundle_id": "uce-i13-handoff:golden",
+  "conformance_hash": "ae06946bd13c991eafdb55abbecbb3ec613ae0f79778948fcd8fb6b469f43690",
+  "fallback_policy_hash": "d870a60cd00ef083e016a989f058ff6732693a536fc94714dd4b1094f22567dc",
+  "graph_hash": "cb376f82ec690d2104d1821efaf69f9bd6f3816d1192eba4dab08e48ae480cdd",
+  "limitations": [
+    "synthetic_fixture",
+    "metaeditor_pending_local_windows"
+  ],
+  "manual_policy_hash": "84796514fa651401d6e266596948b686b0f44c60a0a2af3a513bc27f0e391138",
+  "signature_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+}

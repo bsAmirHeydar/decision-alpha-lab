@@ -1,0 +1,70 @@
+{
+  "admission_hash": null,
+  "authority_matrix_hash": "a737fee5225ee788952bec5107847fad81b9bc110c285c709230c07a70efa826",
+  "fallback_policy_hash": "d870a60cd00ef083e016a989f058ff6732693a536fc94714dd4b1094f22567dc",
+  "graph_id": "graph.manual",
+  "manual_policy_hash": "84796514fa651401d6e266596948b686b0f44c60a0a2af3a513bc27f0e391138",
+  "mode": "manual_only",
+  "nodes": [
+    {
+      "authority": "system",
+      "config": {},
+      "dependencies": [],
+      "kind": "input",
+      "node_id": "input"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "input"
+      ],
+      "kind": "manual_eligibility",
+      "node_id": "eligibility"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "eligibility"
+      ],
+      "kind": "manual_treatment",
+      "node_id": "treatment"
+    },
+    {
+      "authority": "manual_policy",
+      "config": {},
+      "dependencies": [
+        "treatment"
+      ],
+      "kind": "manual_veto",
+      "node_id": "veto"
+    },
+    {
+      "authority": "system",
+      "config": {},
+      "dependencies": [
+        "veto"
+      ],
+      "kind": "output",
+      "node_id": "output"
+    }
+  ],
+  "output_node_id": "output",
+  "supported_actions": [
+    "enter_long",
+    "no_action"
+  ],
+  "supported_context_types": [
+    "ctx.breakout"
+  ],
+  "supported_risk_tiers": [
+    "low",
+    "standard"
+  ],
+  "supported_treatments": [
+    "market",
+    "limit"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_authority_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conflict": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "disposition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hard_veto": {
+      "type": "boolean"
+    },
+    "losers": {
+      "type": "array"
+    },
+    "winner": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "conflict",
+    "winner",
+    "losers",
+    "disposition",
+    "hard_veto"
+  ],
+  "title": "policy_authority_rule",
+  "type": "object"
+}
