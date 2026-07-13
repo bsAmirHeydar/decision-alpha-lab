@@ -1,0 +1,25 @@
+{
+  "all_probability_disclosed": true,
+  "available_count": 40,
+  "benchmark_observation_count": 4,
+  "benchmark_ready": true,
+  "catalog_count": 40,
+  "deterministic": true,
+  "evidence_hash": "21d521b3ea92fa6093da014201218b620c92e2f425af9e3797ee261955c4c038",
+  "failed_algorithms": [],
+  "families": [
+    "additive",
+    "baseline",
+    "boosting",
+    "kernel",
+    "linear",
+    "neighborhood",
+    "optional_external",
+    "probabilistic",
+    "tree"
+  ],
+  "gate_state": "pass",
+  "optional_missing_clean": true,
+  "passed": true,
+  "release": "UCE-I08"
+}

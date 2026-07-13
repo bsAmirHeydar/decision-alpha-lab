@@ -1,0 +1,2063 @@
+{
+  "availability": [
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "always_trade@1.0.0",
+      "evidence_hash": "e7ceb5e94558bf67fd9fa1e8d9d2d6383f5aee94b266565203e414807e20719a",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "bernoulli_nb@1.0.0",
+      "evidence_hash": "704c8c26340582261f34d0f1f43354943060dd95529a3fa7963e77d53f0e6bb7",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "65359a19acbcbdc8ed91e1a57e239b04cd59e6a20d0067bb048d7a1dd5ffc6cc",
+          "installed_version": "1.2.8",
+          "module": "catboost",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "catboost_classifier@1.0.0",
+      "evidence_hash": "6ff3951337e6d9324a2793f2b04c114b6bb9d4919eb446c6ef1bc1b5f78dd9cc",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "65359a19acbcbdc8ed91e1a57e239b04cd59e6a20d0067bb048d7a1dd5ffc6cc",
+          "installed_version": "1.2.8",
+          "module": "catboost",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "catboost_regressor@1.0.0",
+      "evidence_hash": "93c6b150c67f77b6b8f5360b9615dbda2c056dd27cb485abe94e28e1c614b66d",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "decision_tree_classifier@1.0.0",
+      "evidence_hash": "b2de209b020b24b6c0323398e07f78493c8f4534038a1b54f3a3039705631b0f",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "decision_tree_regressor@1.0.0",
+      "evidence_hash": "f2c68883e977ba153ef6081170d9cd97d60a319dee9d5635744863fc184c7e45",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "elastic_net@1.0.0",
+      "evidence_hash": "a2d00997416563f5ce9644df1445f80808357f56bc717731dfb72d6491b138a4",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "extra_trees_classifier@1.0.0",
+      "evidence_hash": "9310245a9555578e5dfed2342c4975c7dfa33a004825e5eaf73e80d3f2b88f8b",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "extra_trees_regressor@1.0.0",
+      "evidence_hash": "d2afc738fb1a9004e977332d4cb34121c814ad2be6198d984584f9a391e5eee2",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "gaussian_nb@1.0.0",
+      "evidence_hash": "646cbb5f86f06d0cd0308b559bec83f38997559692a6942a140d361e384e0ed8",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "gradient_boosting_classifier@1.0.0",
+      "evidence_hash": "09d0dfe84d4fea6fb4af7779862be233bd89da7de86dc10bff0705364860b2f6",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "gradient_boosting_regressor@1.0.0",
+      "evidence_hash": "84ec676668fd58734df0ef0a9fb97461f7791d286296c75ad4e48823fad02bf8",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "hist_gradient_boosting_classifier@1.0.0",
+      "evidence_hash": "6f582405112400a1163f3a9e6c54d7cf8a2c1377862892991a2ea0732dfe1cfa",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "hist_gradient_boosting_regressor@1.0.0",
+      "evidence_hash": "046ed7477b9c62cbc68b752d3c0035924c8d55fd3426b430b0da39a4a1b5116a",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "huber_regression@1.0.0",
+      "evidence_hash": "cdbc806f81e6fc2294db425fcc4a74774c2ac39621395049f362a27b7fecfdd5",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "knn_classifier@1.0.0",
+      "evidence_hash": "e96b5bc3907c578a9c0879199f386571fe18017e46e5fe6d45a04bac5522a982",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "knn_regressor@1.0.0",
+      "evidence_hash": "42ef06b1cbce2b0950b53722a426ab086c2b158c91ec40c7883777d6b14c5c9e",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "lasso_regression@1.0.0",
+      "evidence_hash": "c72a5e411465f96ae0b86912a39ff367e1b50923f88e7198635a5db93a098234",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "b86745f56f9f1d7ddc5bf4945c1f6b0130e1c4c07bb205f6fd7ca2ccad8186c6",
+          "installed_version": "4.6.0",
+          "module": "lightgbm",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "lightgbm_classifier@1.0.0",
+      "evidence_hash": "5338c38d4a3b331c2043a12aed1579df39232143783d6c3000c71a686d3ce811",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "b86745f56f9f1d7ddc5bf4945c1f6b0130e1c4c07bb205f6fd7ca2ccad8186c6",
+          "installed_version": "4.6.0",
+          "module": "lightgbm",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "lightgbm_regressor@1.0.0",
+      "evidence_hash": "086847ea3b656fa2baed2a4e21144bbaba9553c42afe7b279b71303ddc0824f0",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "linear_regression@1.0.0",
+      "evidence_hash": "62699a877abf604490d50ed26307c3277899e46d4b6d385910f14d730fca1dc7",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "linear_svm@1.0.0",
+      "evidence_hash": "3b9cc15f4b1bee28bd5efe40035eee499ae154ebac851c0108d404d09b619942",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "logistic_regression@1.0.0",
+      "evidence_hash": "e883dbb58ec98310f872138290bfee6a1544ae752354782fd99b8eb2f8bda824",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "manual_threshold@1.0.0",
+      "evidence_hash": "34be24f7fa4fd989b12dba37726e99fa8311b7f31a01bdfb9efda8b23c50438f",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "multinomial_nb@1.0.0",
+      "evidence_hash": "3a2f6bc80d19b418f634f4bd7a43df2133cb4b3c59837f4e1ad13399419071ff",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "nearest_centroid@1.0.0",
+      "evidence_hash": "dbccf4f97581cc9f55cacef8d56632132e162303eb61b3c8202214d0f3311f97",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "never_trade@1.0.0",
+      "evidence_hash": "8e2016b01bcfd402c995c7c1f574482f0cea0fc842c1ece14014a3f73e348931",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "prevalence@1.0.0",
+      "evidence_hash": "1d9bf1be2f69371e88e39c7feb8a46b89cf48f05da77f4c9a2c479ca5a3efe4a",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "random_forest_classifier@1.0.0",
+      "evidence_hash": "19bc969770f00c04e5b2cf7adde77313e7e447ce620fd5c32a98b53e97ef2dc9",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "random_forest_regressor@1.0.0",
+      "evidence_hash": "ed8d8216e3f6ed7915721216ddb789f66207a533fae46f2accde02e17447ea78",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "random_null@1.0.0",
+      "evidence_hash": "c752c320c4d4a539b57a7d9b76da497ca7bfdae96be22e05837f1960d46713b9",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "rate_matched_null@1.0.0",
+      "evidence_hash": "2a24a0f9290f8750c894abb4908763a4377ccec40d17c6b5abbdc162de7ede50",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "rbf_svm@1.0.0",
+      "evidence_hash": "0ced52e5945442b9fb8d9ac3900561496fc7365fc116e9a7fddd52318ea211cd",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "ridge_classifier@1.0.0",
+      "evidence_hash": "ac672a78894456fcb5ee985e28350d29ac5cefc8eb7d666ba4162467f18c48ec",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "ridge_regression@1.0.0",
+      "evidence_hash": "0982662b3158e1657f1b39b465bd50d07ce9e956e84e2ed831f9316f898f3e5d",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [],
+      "descriptor_key": "single_feature_search@1.0.0",
+      "evidence_hash": "f519b753e373813647e09478036687acb5b8e0ecdda367deb6f90e8829d42cdb",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "spline_logistic_gam@1.0.0",
+      "evidence_hash": "7b7663d57cd60b47a02ab8c33ec8bf7cae4c01029f4b4bbbf9752a03c9fde66b",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "623110c6527ee8e96dd4b40bb131cd72b1e0d8771501198765cc53f13a675f81",
+          "installed_version": "1.8.0",
+          "module": "sklearn",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "spline_ridge_gam@1.0.0",
+      "evidence_hash": "9938c0043c31317a9decbd1ccaa4d9718238b12fc52a59e6f69e4990d9bad1e5",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "ca09ee9be2ac128732c3ab20932b06914613d94b0e5b3dee0e4abe2e6bb9d72c",
+          "installed_version": "3.1.3",
+          "module": "xgboost",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "xgboost_classifier@1.0.0",
+      "evidence_hash": "dc36d62f68dad5fb4753176d86c0000f25cee3d5fd25668545deb0329f4311ab",
+      "reason": "available"
+    },
+    {
+      "available": true,
+      "dependencies": [
+        {
+          "evidence_hash": "ca09ee9be2ac128732c3ab20932b06914613d94b0e5b3dee0e4abe2e6bb9d72c",
+          "installed_version": "3.1.3",
+          "module": "xgboost",
+          "reason": "",
+          "state": "available"
+        }
+      ],
+      "descriptor_key": "xgboost_regressor@1.0.0",
+      "evidence_hash": "00fc5b8582ff7487388a4727db17f525c54c96202b63a9cea209e2aa4196374b",
+      "reason": "available"
+    }
+  ],
+  "descriptors": [
+    {
+      "algorithm_id": "always_trade",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "naive",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.always_trade",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "bernoulli_nb",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "alpha": 1.0,
+        "binarize": 0.0
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "probabilistic",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "bayesian"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.bernoulli_nb",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "catboost_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "depth": 5,
+        "iterations": 64,
+        "learning_rate": 0.05,
+        "thread_count": 1,
+        "verbose": false
+      },
+      "dependencies": [
+        {
+          "distribution": "catboost",
+          "feature": "ordered boosting",
+          "mode": "optional",
+          "module": "catboost",
+          "version_spec": ">=1.2"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.catboost_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "catboost_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "depth": 5,
+        "iterations": 64,
+        "learning_rate": 0.05,
+        "thread_count": 1,
+        "verbose": false
+      },
+      "dependencies": [
+        {
+          "distribution": "catboost",
+          "feature": "ordered boosting",
+          "mode": "optional",
+          "module": "catboost",
+          "version_spec": ">=1.2"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.catboost_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "decision_tree_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 4,
+        "min_samples_leaf": 2
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "tree",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.decision_tree_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "decision_tree_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 4,
+        "min_samples_leaf": 2
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "tree",
+        "mandatory"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.decision_tree_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "elastic_net",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {
+        "alpha": [
+          1e-06,
+          100.0
+        ],
+        "l1_ratio": [
+          0.0,
+          1.0
+        ]
+      },
+      "default_hyperparameters": {
+        "alpha": 0.01,
+        "l1_ratio": 0.5,
+        "max_iter": 5000
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "sparse"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.elastic_net",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "extra_trees_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "ensemble"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.extra_trees_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "extra_trees_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "ensemble"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.extra_trees_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "gaussian_nb",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "var_smoothing": 1e-09
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "probabilistic",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "bayesian",
+        "calibratable"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.gaussian_nb",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "gradient_boosting_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "max_depth": 3,
+        "n_estimators": 64
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "boosting",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "boosting"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.gradient_boosting_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "gradient_boosting_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "loss": "huber",
+        "max_depth": 3,
+        "n_estimators": 64
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "boosting",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "boosting"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.gradient_boosting_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "hist_gradient_boosting_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "max_iter": 80,
+        "max_leaf_nodes": 31
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "boosting",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": true,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "boosting",
+        "histogram"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.hist_gradient_boosting_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "hist_gradient_boosting_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "max_iter": 80,
+        "max_leaf_nodes": 31
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "boosting",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": true,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "boosting",
+        "histogram"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.hist_gradient_boosting_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "huber_regression",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "alpha": 0.0001,
+        "epsilon": 1.35
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "robust"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.huber_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "knn_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "n_neighbors": 7,
+        "weights": "distance"
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "neighborhood",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "distance"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.knn_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "knn_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "n_neighbors": 7,
+        "weights": "distance"
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "neighborhood",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "distance"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.knn_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "lasso_regression",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {
+        "alpha": [
+          1e-06,
+          100.0
+        ]
+      },
+      "default_hyperparameters": {
+        "alpha": 0.01,
+        "max_iter": 5000
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "sparse"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.lasso_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "lightgbm_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "n_estimators": 64,
+        "n_jobs": 1,
+        "num_leaves": 31,
+        "verbosity": -1
+      },
+      "dependencies": [
+        {
+          "distribution": "lightgbm",
+          "feature": "gradient boosted trees",
+          "mode": "optional",
+          "module": "lightgbm",
+          "version_spec": ">=4.0"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.lightgbm_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "lightgbm_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "n_estimators": 64,
+        "n_jobs": 1,
+        "num_leaves": 31,
+        "verbosity": -1
+      },
+      "dependencies": [
+        {
+          "distribution": "lightgbm",
+          "feature": "gradient boosted trees",
+          "mode": "optional",
+          "module": "lightgbm",
+          "version_spec": ">=4.0"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.lightgbm_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "linear_regression",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "fit_intercept": true
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "linear",
+        "mandatory"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.linear_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "linear_svm",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "C": 1.0,
+        "max_iter": 10000
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "kernel",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "margin"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.linear_svm",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "logistic_regression",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {
+        "C": [
+          0.0001,
+          10000.0
+        ]
+      },
+      "default_hyperparameters": {
+        "C": 1.0,
+        "max_iter": 2000,
+        "solver": "lbfgs"
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json",
+        "onnx",
+        "mql5_linear"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "linear",
+        "mandatory",
+        "calibratable"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.logistic_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "manual_threshold",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "direction": 1,
+        "feature_index": 0,
+        "threshold": 0.0
+      },
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "manual",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.manual_threshold",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "multinomial_nb",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "alpha": 1.0
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "probabilistic",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "bayesian",
+        "nonnegative_features"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.multinomial_nb",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "nearest_centroid",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "neighborhood",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "distance",
+        "transparent"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.nearest_centroid",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "never_trade",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "naive",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.never_trade",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "prevalence",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "naive",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.prevalence",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "random_forest_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "ensemble",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.random_forest_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "random_forest_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_depth": 8,
+        "min_samples_leaf": 2,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "tree",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "ensemble",
+        "mandatory"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.random_forest_regressor",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "random_null",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "null"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.random_null",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "rate_matched_null",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {},
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "null",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.rate_matched_null",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "rbf_svm",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "C": 1.0,
+        "gamma": "scale",
+        "probability": true
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "kernel",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "kernel",
+        "compute_gated"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.rbf_svm",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "ridge_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "alpha": 1.0
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "linear"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.ridge_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "ridge_regression",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {
+        "alpha": [
+          0.0001,
+          10000.0
+        ]
+      },
+      "default_hyperparameters": {
+        "alpha": 1.0
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "linear",
+      "limitations": [],
+      "portability": "parameter_snapshot",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "linear",
+        "mandatory"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.ridge_regression",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "single_feature_search",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "max_thresholds": 64
+      },
+      "dependencies": [],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "baseline",
+      "limitations": [],
+      "portability": "native_json",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "transparent",
+        "mandatory"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.single_feature_search",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "spline_logistic_gam",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "C": 1.0,
+        "degree": 3,
+        "n_knots": 5
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "additive",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "gam",
+        "additive",
+        "interpretable"
+      ],
+      "tasks": [
+        "binary_classification"
+      ],
+      "trainer_id": "uce.classical.spline_logistic_gam",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "spline_ridge_gam",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "alpha": 1.0,
+        "degree": 3,
+        "n_knots": 5
+      },
+      "dependencies": [
+        {
+          "distribution": "scikit-learn",
+          "feature": "classical tabular estimators",
+          "mode": "required",
+          "module": "sklearn",
+          "version_spec": ">=1.4"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json"
+      ],
+      "family": "additive",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "gam",
+        "additive",
+        "interpretable"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.spline_ridge_gam",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "xgboost_classifier",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "max_depth": 4,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "xgboost",
+          "feature": "gradient boosted trees",
+          "mode": "optional",
+          "module": "xgboost",
+          "version_spec": ">=2.0"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json",
+        "onnx"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": true,
+      "supports_missing_values": false,
+      "supports_multiclass": true,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "binary_classification",
+        "multiclass_classification"
+      ],
+      "trainer_id": "uce.classical.xgboost_classifier",
+      "trainer_version": "1.0.0"
+    },
+    {
+      "algorithm_id": "xgboost_regressor",
+      "algorithm_version": "1.0.0",
+      "bounded_hyperparameters": {},
+      "default_hyperparameters": {
+        "learning_rate": 0.05,
+        "max_depth": 4,
+        "n_estimators": 64,
+        "n_jobs": 1
+      },
+      "dependencies": [
+        {
+          "distribution": "xgboost",
+          "feature": "gradient boosted trees",
+          "mode": "optional",
+          "module": "xgboost",
+          "version_spec": ">=2.0"
+        }
+      ],
+      "deterministic_level": "numeric_tolerance",
+      "export_formats": [
+        "native_json",
+        "onnx"
+      ],
+      "family": "optional_external",
+      "limitations": [],
+      "portability": "library_artifact_required",
+      "probability_output": false,
+      "supports_missing_values": false,
+      "supports_multiclass": false,
+      "supports_sample_weight": true,
+      "tags": [
+        "optional",
+        "boosting"
+      ],
+      "tasks": [
+        "regression"
+      ],
+      "trainer_id": "uce.classical.xgboost_regressor",
+      "trainer_version": "1.0.0"
+    }
+  ],
+  "evidence_hash": "e7aa1b2b515f46f3853271224a5dbb03f103aba024a8b3f5c99bbe9e08303805",
+  "frozen": true,
+  "snapshot_id": "ucealgreg_e0cff5ec14b374cf83b2ac2e"
+}

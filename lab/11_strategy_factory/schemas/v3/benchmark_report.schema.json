@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/benchmark_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_optional_failures_clean": {},
+    "all_probability_disclosed": {},
+    "classical_comparison_ready": {},
+    "evidence_hash": {},
+    "missing_required_families": {},
+    "observations": {},
+    "plan_id": {},
+    "report_id": {},
+    "required_families": {}
+  },
+  "required": [
+    "report_id",
+    "plan_id",
+    "observations",
+    "required_families",
+    "missing_required_families",
+    "all_probability_disclosed",
+    "all_optional_failures_clean",
+    "classical_comparison_ready",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Classical Benchmark Report",
+  "type": "object"
+}

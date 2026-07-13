@@ -1,0 +1,44 @@
+{
+  "authority": "offline_research_training_and_audit_no_live_order_authority",
+  "conformance": {
+    "all_probability_disclosed": true,
+    "available_count": 40,
+    "benchmark_observation_count": 4,
+    "catalog_count": 40,
+    "deterministic": true,
+    "evidence_hash": "21d521b3ea92fa6093da014201218b620c92e2f425af9e3797ee261955c4c038",
+    "family_count": 9,
+    "gate_state": "pass",
+    "optional_missing_clean": true
+  },
+  "engineering_policy": {
+    "mql5_compatibility": "PASS",
+    "obsidian_vault": "PASS",
+    "repository_layout": "PASS",
+    "repository_policy": "PASS"
+  },
+  "limitations": [
+    "MetaEditor compile requires local Windows terminal evidence",
+    "optional external boosters are dependency-gated and may be unavailable in a minimal environment",
+    "deep sequence and representation-learning families are deferred to UCE-I09 and later phases",
+    "final-test explanations are audit-only and cannot drive model selection"
+  ],
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS_EVIDENCE",
+  "phase_checks": {
+    "boundary_guard": "PASS",
+    "delivery_validator": "PASS",
+    "golden_vector_verification": "PASS",
+    "mql5_static": "PASS",
+    "python_compileall": "PASS",
+    "python_conformance": "PASS"
+  },
+  "phase_id": "UCE-I08",
+  "qa_status": "PASS_WITH_LOCAL_METAEDITOR_EVIDENCE_PENDING",
+  "tests": {
+    "cumulative_ucee_i01_to_i08": 179,
+    "failed": 0,
+    "passed": 179
+  },
+  "title": "Classical, Probabilistic, and Strong Tabular Algorithm Pack",
+  "validated_on": "2026-07-12"
+}

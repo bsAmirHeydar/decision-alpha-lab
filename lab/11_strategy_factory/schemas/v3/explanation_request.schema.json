@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/explanation_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dataset_id": {},
+    "fold_id": {},
+    "for_selection": {},
+    "kinds": {},
+    "model_state_hash": {},
+    "request_id": {},
+    "role": {},
+    "scope": {},
+    "seed": {}
+  },
+  "required": [
+    "request_id",
+    "model_state_hash",
+    "dataset_id",
+    "fold_id",
+    "role",
+    "scope",
+    "kinds",
+    "for_selection",
+    "seed"
+  ],
+  "title": "UCEE v3 Explanation Request",
+  "type": "object"
+}

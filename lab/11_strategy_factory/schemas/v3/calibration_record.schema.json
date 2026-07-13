@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/calibration_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disclosure": {},
+    "evidence_hash": {},
+    "fitted_role": {},
+    "method": {},
+    "model_state_hash": {},
+    "parameters": {},
+    "row_ids_hash": {}
+  },
+  "required": [
+    "model_state_hash",
+    "disclosure",
+    "method",
+    "fitted_role",
+    "row_ids_hash",
+    "parameters",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Calibration Record",
+  "type": "object"
+}

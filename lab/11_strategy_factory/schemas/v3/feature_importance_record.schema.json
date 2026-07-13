@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/feature_importance_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "direction": {},
+    "feature_index": {},
+    "feature_name": {},
+    "fold_id": {},
+    "kind": {},
+    "mean_importance": {},
+    "model_state_hash": {},
+    "rank": {},
+    "role": {},
+    "std_importance": {}
+  },
+  "required": [
+    "feature_name",
+    "feature_index",
+    "kind",
+    "mean_importance",
+    "std_importance",
+    "direction",
+    "fold_id",
+    "role",
+    "model_state_hash",
+    "rank"
+  ],
+  "title": "UCEE v3 Feature Importance Record",
+  "type": "object"
+}

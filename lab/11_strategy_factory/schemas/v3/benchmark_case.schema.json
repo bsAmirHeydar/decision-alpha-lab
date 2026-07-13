@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/benchmark_case.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {},
+    "context_id": {},
+    "dataset_id": {},
+    "dataset_manifest_hash": {},
+    "required_family": {},
+    "seed": {},
+    "task_key": {},
+    "trainer_config_hash": {},
+    "trainer_key": {}
+  },
+  "required": [
+    "case_id",
+    "context_id",
+    "dataset_id",
+    "dataset_manifest_hash",
+    "task_key",
+    "trainer_key",
+    "trainer_config_hash",
+    "seed",
+    "required_family"
+  ],
+  "title": "UCEE v3 Classical Benchmark Case",
+  "type": "object"
+}

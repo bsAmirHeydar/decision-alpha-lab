@@ -1,0 +1,15 @@
+{
+  "extras": {
+    "boosters": [
+      "xgboost",
+      "lightgbm",
+      "catboost"
+    ],
+    "interpretability": [
+      "shap"
+    ]
+  },
+  "forbidden_behavior": "silent fallback",
+  "mode": "explicit_optional_extras",
+  "unavailable_behavior": "skip_with_typed_evidence"
+}

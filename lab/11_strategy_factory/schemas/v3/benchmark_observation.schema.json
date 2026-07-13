@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/benchmark_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_key": {},
+    "case_id": {},
+    "deterministic_rerun": {},
+    "explanation_available": {},
+    "exportable": {},
+    "family": {},
+    "fit_ms": {},
+    "observation_id": {},
+    "predict_ms": {},
+    "primary_metric": {},
+    "primary_value": {},
+    "serializable": {},
+    "status": {}
+  },
+  "required": [
+    "observation_id",
+    "case_id",
+    "algorithm_key",
+    "family",
+    "status",
+    "primary_metric",
+    "primary_value",
+    "fit_ms",
+    "predict_ms",
+    "deterministic_rerun",
+    "serializable",
+    "exportable",
+    "explanation_available"
+  ],
+  "title": "UCEE v3 Classical Benchmark Observation",
+  "type": "object"
+}

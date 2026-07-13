@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/classical_comparison_gate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {},
+    "context_id": {},
+    "evidence_hash": {},
+    "gate_id": {},
+    "present_families": {},
+    "report_id": {},
+    "required_families": {},
+    "state": {},
+    "warnings": {}
+  },
+  "required": [
+    "gate_id",
+    "context_id",
+    "report_id",
+    "state",
+    "required_families",
+    "present_families",
+    "blockers",
+    "warnings",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Classical Comparison Gate",
+  "type": "object"
+}

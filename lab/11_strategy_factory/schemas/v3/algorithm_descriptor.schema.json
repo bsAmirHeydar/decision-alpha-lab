@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/algorithm_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_id": {},
+    "algorithm_version": {},
+    "default_hyperparameters": {},
+    "dependencies": {},
+    "family": {},
+    "limitations": {},
+    "probability_output": {},
+    "tasks": {},
+    "trainer_id": {},
+    "trainer_version": {}
+  },
+  "required": [
+    "algorithm_id",
+    "algorithm_version",
+    "family",
+    "trainer_id",
+    "trainer_version",
+    "tasks",
+    "probability_output",
+    "dependencies",
+    "default_hyperparameters",
+    "limitations"
+  ],
+  "title": "UCEE v3 Classical Algorithm Descriptor",
+  "type": "object"
+}

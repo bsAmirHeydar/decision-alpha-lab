@@ -1,0 +1,10 @@
+{
+  "hyperparameters": {
+    "direction": 1,
+    "feature_index": 0,
+    "threshold": 0.0
+  },
+  "purpose": "personal setup parity baseline",
+  "selection": "frozen before hidden test",
+  "trainer": "uce.classical.manual_threshold@1.0.0"
+}

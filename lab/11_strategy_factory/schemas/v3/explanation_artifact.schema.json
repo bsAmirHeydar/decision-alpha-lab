@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/explanation_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_key": {},
+    "dataset_manifest_hash": {},
+    "evidence_hash": {},
+    "explanation_id": {},
+    "fold_id": {},
+    "limitations": {},
+    "partial_dependence": {},
+    "records": {},
+    "request_id": {},
+    "role": {},
+    "selection_safe": {},
+    "shap_hook": {}
+  },
+  "required": [
+    "explanation_id",
+    "request_id",
+    "algorithm_key",
+    "dataset_manifest_hash",
+    "fold_id",
+    "role",
+    "selection_safe",
+    "records",
+    "partial_dependence",
+    "shap_hook",
+    "limitations",
+    "evidence_hash"
+  ],
+  "title": "UCEE v3 Explanation Artifact",
+  "type": "object"
+}

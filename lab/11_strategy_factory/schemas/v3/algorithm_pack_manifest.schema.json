@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/algorithm_pack_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_gates": {},
+    "algorithm_count": {},
+    "catalog_hash": {},
+    "family_counts": {},
+    "mandatory_algorithms": {},
+    "optional_algorithms": {},
+    "release": {}
+  },
+  "required": [
+    "release",
+    "catalog_hash",
+    "algorithm_count",
+    "family_counts",
+    "mandatory_algorithms",
+    "optional_algorithms",
+    "acceptance_gates"
+  ],
+  "title": "UCEE v3 Classical Algorithm Pack Manifest",
+  "type": "object"
+}

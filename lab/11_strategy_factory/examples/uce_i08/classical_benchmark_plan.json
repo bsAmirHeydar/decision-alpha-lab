@@ -1,0 +1,23 @@
+{
+  "context_id": "synthetic_reference",
+  "final_test_explanations": "audit_only",
+  "optional_algorithms": [
+    "xgboost_classifier",
+    "lightgbm_classifier",
+    "catboost_classifier"
+  ],
+  "probability_policy": "calibrated_or_explicitly_uncalibrated",
+  "promotion_rule": "classical comparison required before high-capacity admission",
+  "required_algorithms": [
+    "prevalence",
+    "manual_threshold",
+    "logistic_regression",
+    "decision_tree_classifier",
+    "random_forest_classifier"
+  ],
+  "required_families": [
+    "baseline",
+    "linear",
+    "tree"
+  ]
+}
