@@ -1,0 +1,47 @@
+{
+  "boundary_evidence_hash": "77f1c24d27ac9e4c0e6de917546c221fd281f0c1d60c6efe91a2340f794658f7",
+  "config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+  "daily_gap_end_utc_ms": 1784412000000,
+  "daily_gap_start_utc_ms": 1784408400000,
+  "health": "READY",
+  "ny_timestamp": {
+    "dst_regime": "DAYLIGHT",
+    "fold": 0,
+    "local_date": "2026-07-18",
+    "local_iso": "2026-07-18T08:00:00.000",
+    "second_of_day": 28800,
+    "time_rule_version": "FP-NY-US-DST-2007PLUS@1.0.0",
+    "timezone_name": "America/New_York",
+    "utc_epoch_ms": 1784376000000,
+    "utc_offset_minutes": -240
+  },
+  "reason_code": "FP_TRC_WEEKEND_CLOSED",
+  "reference_utc_ms": 1784376000000,
+  "segment": "WEEKEND_CLOSED",
+  "session": null,
+  "snapshot_id": "FPCAL_b3c5c30a7bebc635aeb47513aa306f35",
+  "trading_day": {
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "elapsed_seconds": 82800,
+    "end_ny_iso": "2026-07-18T17:00:00",
+    "end_utc_ms": 1784408400000,
+    "start_ny_iso": "2026-07-17T18:00:00",
+    "start_utc_ms": 1784325600000,
+    "timezone_name": "America/New_York",
+    "trading_date": "2026-07-18",
+    "trading_day_id": "NYDAY-2026-07-18"
+  },
+  "week": {
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "contains_reference_time": false,
+    "elapsed_seconds": 428400,
+    "end_date": "2026-07-17",
+    "end_ny_iso": "2026-07-17T17:00:00",
+    "end_utc_ms": 1784322000000,
+    "start_date": "2026-07-12",
+    "start_ny_iso": "2026-07-12T18:00:00",
+    "start_utc_ms": 1783893600000,
+    "state": "CLOSED_AFTER_FRIDAY",
+    "week_id": "NYWEEK-2026-07-12"
+  }
+}

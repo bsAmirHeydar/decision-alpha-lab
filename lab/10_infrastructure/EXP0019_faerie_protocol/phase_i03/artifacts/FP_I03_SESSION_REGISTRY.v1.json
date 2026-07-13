@@ -1,0 +1,37 @@
+{
+  "registry": {
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "frozen": true,
+    "registry_version": "FP-SESSION-REGISTRY@1.0.0",
+    "sessions": [
+      {
+        "code": "A",
+        "end_second": 14400,
+        "ordinal": 0,
+        "start_second": 64800,
+        "version": "1.0.0",
+        "wraps_midnight": true
+      },
+      {
+        "code": "L",
+        "end_second": 34200,
+        "ordinal": 1,
+        "start_second": 14400,
+        "version": "1.0.0",
+        "wraps_midnight": false
+      },
+      {
+        "code": "N",
+        "end_second": 61200,
+        "ordinal": 2,
+        "start_second": 34200,
+        "version": "1.0.0",
+        "wraps_midnight": false
+      }
+    ],
+    "time_rule_version": "FP-NY-US-DST-2007PLUS@1.0.0",
+    "timezone_name": "America/New_York"
+  },
+  "registry_hash": "2af65fec8323ced888b2550493ca976db322281eb01d3d1dd9e287ff0de96bc5",
+  "schema_version": "1.0.0"
+}

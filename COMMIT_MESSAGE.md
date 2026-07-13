@@ -1,6 +1,9 @@
-feat(ucee): implement I17 multi-context portfolio and capacity governance
+feat(exp0019): implement FP-I03 New York time and calendar kernel
 
-- add deterministic cross-context opportunity ranking and conservative dependence
-- add hard risk reservations, capacity/impact and constrained allocation
-- add interaction, stress, validation, reconciliation and bounded runtime contracts
-- add closed schemas, MQL5 mirror, tests and detailed Obsidian documentation
+- add deterministic UTC/New York DST conversion for 2007+
+- add explicit broker-offset adapter and local ambiguity handling
+- add trading-day, A/L/N session, daily-gap, and NY-week windows
+- add semantic IDs, evidence, registries, schemas, vectors, and examples
+- add MQL5 mirrors, diagnostics, self-tests, and compile runbook
+- add 83 tests and detailed Obsidian delivery documentation
+- preserve zero price, drawing, broker, order, position, and network authority

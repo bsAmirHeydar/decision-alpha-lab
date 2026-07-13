@@ -1,0 +1,87 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_calendar_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundary_evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "daily_gap_end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "daily_gap_start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "ny_timestamp": {
+      "$ref": "fp_i03_ny_timestamp.schema.json"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "segment": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "DAILY_GAP",
+        "WEEKEND_CLOSED"
+      ]
+    },
+    "session": {
+      "anyOf": [
+        {
+          "$ref": "fp_i03_session_window.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trading_day": {
+      "$ref": "fp_i03_trading_day_window.schema.json"
+    },
+    "week": {
+      "$ref": "fp_i03_week_window.schema.json"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "reference_utc_ms",
+    "ny_timestamp",
+    "trading_day",
+    "segment",
+    "session",
+    "week",
+    "daily_gap_start_utc_ms",
+    "daily_gap_end_utc_ms",
+    "health",
+    "reason_code",
+    "config_hash",
+    "boundary_evidence_hash"
+  ],
+  "title": "fp_i03_calendar_snapshot",
+  "type": "object"
+}

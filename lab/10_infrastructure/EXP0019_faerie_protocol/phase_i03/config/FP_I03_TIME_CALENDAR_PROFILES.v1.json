@@ -1,0 +1,19 @@
+{
+  "authority": "NONE",
+  "broker_time_policy": "Only explicit broker UTC offset is accepted; automatic current-server inference is outside FP-I03.",
+  "canonical_profile": {
+    "ambiguous_end_policy": "LATEST",
+    "ambiguous_start_policy": "EARLIEST",
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "context_id": "FP-CONTEXT-001",
+    "kernel_version": "1.0.0",
+    "maximum_supported_year": 2099,
+    "minimum_supported_year": 2007,
+    "session_registry_version": "FP-SESSION-REGISTRY@1.0.0",
+    "time_rule_version": "FP-NY-US-DST-2007PLUS@1.0.0",
+    "timezone_name": "America/New_York"
+  },
+  "config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+  "noncanonical_profiles_policy": "Explicit new config hash; never overwrite canonical profile.",
+  "schema_version": "1.0.0"
+}

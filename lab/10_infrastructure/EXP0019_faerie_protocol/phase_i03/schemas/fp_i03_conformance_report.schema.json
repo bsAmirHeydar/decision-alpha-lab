@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_conformance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "check_id",
+          "passed",
+          "detail"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "const": "FP-I03"
+    },
+    "report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "passed",
+    "check_count",
+    "checks",
+    "report_hash"
+  ],
+  "title": "fp_i03_conformance_report",
+  "type": "object"
+}

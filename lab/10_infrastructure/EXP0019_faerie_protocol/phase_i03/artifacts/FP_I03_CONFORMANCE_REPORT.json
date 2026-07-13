@@ -1,0 +1,108 @@
+{
+  "check_count": 20,
+  "checks": [
+    {
+      "check_id": "registry_frozen",
+      "detail": "2af65fec8323ced888b2550493ca976db322281eb01d3d1dd9e287ff0de96bc5",
+      "passed": true
+    },
+    {
+      "check_id": "contract_count",
+      "detail": "11",
+      "passed": true
+    },
+    {
+      "check_id": "iana_differential",
+      "detail": "points=168 mismatch=[]",
+      "passed": true
+    },
+    {
+      "check_id": "fall_ambiguous",
+      "detail": "(1793511000000, 1793514600000)",
+      "passed": true
+    },
+    {
+      "check_id": "spring_nonexistent",
+      "detail": "FP_TRC_LOCAL_NONEXISTENT",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-12T21:59:59Z",
+      "detail": "WEEKEND_CLOSED/WEEKEND_CLOSED",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-12T22:00:00Z",
+      "detail": "A/A",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T07:59:59Z",
+      "detail": "A/A",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T08:00:00Z",
+      "detail": "L/L",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T13:29:59Z",
+      "detail": "L/L",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T13:30:00Z",
+      "detail": "N/N",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T20:59:59Z",
+      "detail": "N/N",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T21:00:00Z",
+      "detail": "DAILY_GAP/DAILY_GAP",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-13T22:00:00Z",
+      "detail": "A/A",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_2026-07-17T21:00:00Z",
+      "detail": "WEEKEND_CLOSED/WEEKEND_CLOSED",
+      "passed": true
+    },
+    {
+      "check_id": "duration_A",
+      "detail": "36000",
+      "passed": true
+    },
+    {
+      "check_id": "duration_L",
+      "detail": "19800",
+      "passed": true
+    },
+    {
+      "check_id": "duration_N",
+      "detail": "27000",
+      "passed": true
+    },
+    {
+      "check_id": "week_duration",
+      "detail": "428400",
+      "passed": true
+    },
+    {
+      "check_id": "golden_vector",
+      "detail": "43b1c634c0bf9ed9c2950c84019bae9b5a649aad1ea3a5891a6b61ed3c43c00e",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "phase": "FP-I03",
+  "report_hash": "534e884416be2ba7543af04353bb9c8e1e6e8db4c2574538183eefd89daacc04"
+}

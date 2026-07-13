@@ -1,12 +1,12 @@
 ---
 title: "FP-I03 — New York Time, Trading-Day, Session, and Week Kernel"
 tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+status: implemented_python_and_static_mql5_validated
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
 program_version: 1.0.0
-doc_version: 1.0.0
+doc_version: 2.0.0
 last_updated: 2026-07-13
 language: en
 ---
@@ -133,6 +133,36 @@ The handoff contains the exact public API, accepted tests, golden hashes, known 
 ## Rollback boundary
 
 Revert only files listed in this phase's file index. Persisted artifacts generated under the phase version are retained for audit, while incompatible checkpoints are ignored by the restored version.
+
+
+## Implemented delivery
+
+FP-I03 is implemented as a pure deterministic Python kernel plus an MQL5 mirror that reuses the accepted Daye New York conversion primitives. The delivered implementation includes:
+
+- UTC-canonical instant handling and an explicit-offset broker adapter;
+- deterministic US/New York DST rules for 2007–2099;
+- unique, ambiguous, and nonexistent New York local-time resolution;
+- ending-date trading-day labels;
+- half-open A, L, N, daily-gap, and weekly intervals;
+- semantic IDs and boundary-evidence hashes;
+- adapters into the frozen FP-I02 WindowKey contract;
+- 83 phase tests, 12 schemas, 20 conformance checks, and 12 exact boundary fixtures;
+- MQL5 self-test and diagnostic entry points with no price, drawing, or trading authority.
+
+### Canonical interval table
+
+| State | New York interval | Ownership |
+|---|---|---|
+| A | `[18:00 previous date, 04:00 trading date)` | active session |
+| L | `[04:00, 09:30)` | active session |
+| N | `[09:30, 17:00)` | active session |
+| Daily gap | `[17:00, 18:00)` | valid closed state; no session |
+| NY week | `[Sunday 18:00, Friday 17:00)` | active weekly interval |
+| Weekend closed | `[Friday 17:00, Sunday 18:00)` | no session/week ownership |
+
+### Honest compile status
+
+Python tests, schemas, vectors, boundary guards, and static MQL5 validation pass. Actual MetaEditor compile remains `pending_local_windows` until logs are produced on a Windows MT5 installation.
 
 ## Navigation
 

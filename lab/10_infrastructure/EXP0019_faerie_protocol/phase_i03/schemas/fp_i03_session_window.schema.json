@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_session_window.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contains_reference_time": {
+      "type": "boolean"
+    },
+    "elapsed_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "end_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "registry_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "session_code": {
+      "enum": [
+        "A",
+        "L",
+        "N"
+      ]
+    },
+    "session_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trading_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trading_day_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "window_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "session_id",
+    "session_code",
+    "trading_day_id",
+    "trading_date",
+    "start_ny_iso",
+    "end_ny_iso",
+    "start_utc_ms",
+    "end_utc_ms",
+    "elapsed_seconds",
+    "contains_reference_time",
+    "registry_version",
+    "window_id"
+  ],
+  "title": "fp_i03_session_window",
+  "type": "object"
+}

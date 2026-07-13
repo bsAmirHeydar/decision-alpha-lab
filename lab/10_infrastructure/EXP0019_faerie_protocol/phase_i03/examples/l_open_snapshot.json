@@ -1,0 +1,59 @@
+{
+  "boundary_evidence_hash": "ad455649a9a9df5a440ea44e34f4f6c13ce92899a64d126fb27f90eac14279e3",
+  "config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+  "daily_gap_end_utc_ms": 1783980000000,
+  "daily_gap_start_utc_ms": 1783976400000,
+  "health": "READY",
+  "ny_timestamp": {
+    "dst_regime": "DAYLIGHT",
+    "fold": 0,
+    "local_date": "2026-07-13",
+    "local_iso": "2026-07-13T04:00:00.000",
+    "second_of_day": 14400,
+    "time_rule_version": "FP-NY-US-DST-2007PLUS@1.0.0",
+    "timezone_name": "America/New_York",
+    "utc_epoch_ms": 1783929600000,
+    "utc_offset_minutes": -240
+  },
+  "reason_code": "FP_TRC_SESSION_L",
+  "reference_utc_ms": 1783929600000,
+  "segment": "L",
+  "session": {
+    "contains_reference_time": true,
+    "elapsed_seconds": 19800,
+    "end_ny_iso": "2026-07-13T09:30:00",
+    "end_utc_ms": 1783949400000,
+    "registry_version": "FP-SESSION-REGISTRY@1.0.0",
+    "session_code": "L",
+    "session_id": "FPSESSION-2026-07-13-L",
+    "start_ny_iso": "2026-07-13T04:00:00",
+    "start_utc_ms": 1783929600000,
+    "trading_date": "2026-07-13",
+    "trading_day_id": "NYDAY-2026-07-13"
+  },
+  "snapshot_id": "FPCAL_692ba87d40ed1a80dc4d5ec08d568baa",
+  "trading_day": {
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "elapsed_seconds": 82800,
+    "end_ny_iso": "2026-07-13T17:00:00",
+    "end_utc_ms": 1783976400000,
+    "start_ny_iso": "2026-07-12T18:00:00",
+    "start_utc_ms": 1783893600000,
+    "timezone_name": "America/New_York",
+    "trading_date": "2026-07-13",
+    "trading_day_id": "NYDAY-2026-07-13"
+  },
+  "week": {
+    "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+    "contains_reference_time": true,
+    "elapsed_seconds": 428400,
+    "end_date": "2026-07-17",
+    "end_ny_iso": "2026-07-17T17:00:00",
+    "end_utc_ms": 1784322000000,
+    "start_date": "2026-07-12",
+    "start_ny_iso": "2026-07-12T18:00:00",
+    "start_utc_ms": 1783893600000,
+    "state": "ACTIVE",
+    "week_id": "NYWEEK-2026-07-12"
+  }
+}

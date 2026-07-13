@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_session_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "enum": [
+        "A",
+        "L",
+        "N"
+      ]
+    },
+    "definition_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_second": {
+      "maximum": 86399,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ordinal": {
+      "maximum": 2,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "start_second": {
+      "maximum": 86399,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "wraps_midnight": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "code",
+    "start_second",
+    "end_second",
+    "wraps_midnight",
+    "ordinal",
+    "version",
+    "definition_id"
+  ],
+  "title": "fp_i03_session_definition",
+  "type": "object"
+}

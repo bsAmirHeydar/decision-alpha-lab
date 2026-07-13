@@ -1,0 +1,67 @@
+{
+  "authority_boundary": {
+    "drawing": false,
+    "network": false,
+    "orders": false,
+    "positions": false,
+    "price_history": false
+  },
+  "boundary_guard": "pass",
+  "conformance": {
+    "count": 20,
+    "result": "pass",
+    "vector_hash": "43b1c634c0bf9ed9c2950c84019bae9b5a649aad1ea3a5891a6b61ed3c43c00e"
+  },
+  "cumulative_fp_tests": {
+    "breakdown": {
+      "FP-I00": 26,
+      "FP-I01": 39,
+      "FP-I02": 64,
+      "FP-I03": 83
+    },
+    "count": 212,
+    "result": "pass"
+  },
+  "engineering_policy": {
+    "checks": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "golden_gates": {
+    "broker_timezone_invariance": "pass",
+    "declared_state_for_every_timestamp": "pass",
+    "dst_spring_fall": "pass",
+    "session_week_boundaries": "pass"
+  },
+  "known_limitations": [
+    "US DST rules supported from 2007 through 2099",
+    "holiday/early-close calendar excluded",
+    "actual MetaEditor compile pending"
+  ],
+  "metaeditor_compile": {
+    "represented_as_pass": false,
+    "result": "pending_local_windows"
+  },
+  "mql5_static": "pass",
+  "phase": "FP-I03",
+  "phase_tests": {
+    "count": 83,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "previous_context_regressions": {
+    "count": 50,
+    "result": "pass",
+    "suite": "EXP0018 Daye Trader"
+  },
+  "qa_hash": "f958e0370bba20cb68eed9ba62f1abe78f33dba1615a12e32f5e5e10129b30e1",
+  "schemas": {
+    "closed": true,
+    "count": 12,
+    "result": "pass"
+  },
+  "status": "PASS",
+  "total_executed_tests": 262
+}

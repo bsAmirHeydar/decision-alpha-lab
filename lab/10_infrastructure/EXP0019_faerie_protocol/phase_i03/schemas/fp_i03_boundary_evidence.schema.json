@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_boundary_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundary_kind": {
+      "enum": [
+        "SESSION_START",
+        "SESSION_END",
+        "TRADING_DAY_START",
+        "TRADING_DAY_END",
+        "DAILY_GAP_START",
+        "DAILY_GAP_END",
+        "WEEK_START",
+        "WEEK_END",
+        "DST_START",
+        "DST_END"
+      ]
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "local_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolution_policy": {
+      "enum": [
+        "REJECT",
+        "EARLIEST",
+        "LATEST"
+      ]
+    },
+    "resolved_offset_minutes": {
+      "enum": [
+        -300,
+        -240
+      ]
+    },
+    "utc_epoch_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "boundary_kind",
+    "local_iso",
+    "utc_epoch_ms",
+    "resolved_offset_minutes",
+    "resolution_policy",
+    "reason_code",
+    "evidence_id"
+  ],
+  "title": "fp_i03_boundary_evidence",
+  "type": "object"
+}

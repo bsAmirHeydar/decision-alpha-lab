@@ -1,0 +1,95 @@
+{
+  "contract_count": 11,
+  "contracts": [
+    {
+      "authority": "NONE",
+      "contract_id": "FP.BoundaryEvidence",
+      "identity_domain": "SEMANTIC",
+      "persistence": "LEDGER",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.BrokerTimestamp",
+      "identity_domain": "OPERATIONAL",
+      "persistence": "TRANSIENT",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.CalendarRegistrySnapshot",
+      "identity_domain": "SEMANTIC",
+      "persistence": "REGISTRY",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.CalendarSnapshot",
+      "identity_domain": "SEMANTIC",
+      "persistence": "CHECKPOINT",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.LocalResolution",
+      "identity_domain": "SEMANTIC",
+      "persistence": "DIAGNOSTIC",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.NyTimestamp",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.SessionDefinition",
+      "identity_domain": "SEMANTIC",
+      "persistence": "REGISTRY",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.SessionWindow",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.TimeKernelConfig",
+      "identity_domain": "SEMANTIC",
+      "persistence": "MANIFEST",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.TradingDayWindow",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "contract_id": "FP.WeekWindow",
+      "identity_domain": "SEMANTIC",
+      "persistence": "EVENT_STORE",
+      "producer": "FP-I03",
+      "version": "1.0.0"
+    }
+  ],
+  "registry_hash": "f5a112c0ea95640cfe9b544404f474763bc4f8128c88b82762f8e8a1817ff257",
+  "schema_version": "1.0.0"
+}

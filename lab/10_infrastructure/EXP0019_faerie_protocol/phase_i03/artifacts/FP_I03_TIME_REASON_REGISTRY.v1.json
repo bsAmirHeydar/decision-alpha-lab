@@ -1,0 +1,97 @@
+{
+  "reason_count": 15,
+  "reasons": [
+    {
+      "blocking": true,
+      "code": "FP_TRC_BOUNDARY_UNRESOLVED",
+      "meaning": "Calendar boundary could not resolve",
+      "severity": "CRITICAL"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_BROKER_OFFSET_INVALID",
+      "meaning": "Explicit broker UTC offset invalid",
+      "severity": "ERROR"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_DAILY_GAP",
+      "meaning": "Reference belongs to 17:00-18:00 NY daily gap",
+      "severity": "INFO"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_LOCAL_AMBIGUOUS_EARLIEST",
+      "meaning": "Repeated local time resolved to earliest UTC",
+      "severity": "WARNING"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_LOCAL_AMBIGUOUS_LATEST",
+      "meaning": "Repeated local time resolved to latest UTC",
+      "severity": "WARNING"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_LOCAL_AMBIGUOUS_REJECTED",
+      "meaning": "Repeated local time rejected",
+      "severity": "ERROR"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_LOCAL_NONEXISTENT",
+      "meaning": "Spring-forward local time does not exist",
+      "severity": "ERROR"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_LOCAL_UNIQUE",
+      "meaning": "New York civil time maps to one UTC instant",
+      "severity": "INFO"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_READY",
+      "meaning": "Time/calendar kernel ready",
+      "severity": "INFO"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_SESSION_A",
+      "meaning": "Reference belongs to A session",
+      "severity": "INFO"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_SESSION_L",
+      "meaning": "Reference belongs to L session",
+      "severity": "INFO"
+    },
+    {
+      "blocking": false,
+      "code": "FP_TRC_SESSION_N",
+      "meaning": "Reference belongs to N session",
+      "severity": "INFO"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_SESSION_OWNERSHIP_MISMATCH",
+      "meaning": "Session classification and interval disagree",
+      "severity": "CRITICAL"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_WEEKEND_CLOSED",
+      "meaning": "Reference is outside Sunday 18:00-Friday 17:00 NY week",
+      "severity": "INFO"
+    },
+    {
+      "blocking": true,
+      "code": "FP_TRC_YEAR_UNSUPPORTED",
+      "meaning": "Timestamp outside deterministic rule range",
+      "severity": "ERROR"
+    }
+  ],
+  "registry_hash": "c22fe9f4c415131ff515680567cc73a665ca56ef07b6b06ab0175d5724c7c5e0",
+  "schema_version": "1.0.0"
+}

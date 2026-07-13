@@ -1,0 +1,44 @@
+{
+  "ambiguous_candidates": [
+    1793511000000,
+    1793514600000
+  ],
+  "config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+  "dst_end_utc": "2026-11-01T06:00:00+00:00",
+  "dst_start_utc": "2026-03-08T07:00:00+00:00",
+  "i02_window_ids": {
+    "A": "FPWIN_f66dd62ae57d0dbaf9de583a901be23a",
+    "L": "FPWIN_8c2e70b22f998ca6dc0bfeac2ddb8d4c",
+    "N": "FPWIN_27cea55cea177626ee0de4c4b66dc534"
+  },
+  "nonexistent_candidate_count": 0,
+  "previous_completed_week_id": "NYWEEK-2026-07-05",
+  "registry_hash": "2af65fec8323ced888b2550493ca976db322281eb01d3d1dd9e287ff0de96bc5",
+  "segments": {
+    "A_END": "L",
+    "A_OPEN": "A",
+    "GAP_MID": "DAILY_GAP",
+    "L_END": "N",
+    "N_END": "DAILY_GAP",
+    "WEEKEND": "WEEKEND_CLOSED"
+  },
+  "session_window_ids": {
+    "A": "FPSESS_eaef8fbb1696032f899247f6e9695df0",
+    "L": "FPSESS_cef0645e399f4e57212bfaa91f6b9834",
+    "N": "FPSESS_d40a41b92eb489775848df68dbd1f4a6"
+  },
+  "snapshot_ids": {
+    "A_END": "FPCAL_692ba87d40ed1a80dc4d5ec08d568baa",
+    "A_OPEN": "FPCAL_3aff160b5ec6861d9ad70dd7ac0f7292",
+    "GAP_MID": "FPCAL_96bb9904b1b6beda8cf3632b3b73b728",
+    "L_END": "FPCAL_bf10a645a8d05ad770cc5bdeff732286",
+    "N_END": "FPCAL_c477df5a45a505a0122f720d459d4aee",
+    "WEEKEND": "FPCAL_b3c5c30a7bebc635aeb47513aa306f35"
+  },
+  "time_contract_registry_hash": "f5a112c0ea95640cfe9b544404f474763bc4f8128c88b82762f8e8a1817ff257",
+  "trading_day_id": "NYDAY-2026-07-13",
+  "trading_day_window_id": "FPTDAY_7e2b1cb6a0866fc9db832c9c6455a169",
+  "vector_hash": "43b1c634c0bf9ed9c2950c84019bae9b5a649aad1ea3a5891a6b61ed3c43c00e",
+  "week_id": "NYWEEK-2026-07-12",
+  "week_window_id": "FPWEEK_3315f5a01848a7650703873e20ba4b7c"
+}

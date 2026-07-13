@@ -1,0 +1,45 @@
+{
+  "FP_I04_may_consume": [
+    "UTC-normalized timestamps",
+    "NyTimestamp",
+    "trading-day IDs and windows",
+    "A/L/N SessionWindow",
+    "daily-gap state",
+    "WeekWindow",
+    "boundary evidence hashes"
+  ],
+  "FP_I04_may_not_change": [
+    "DST rules",
+    "half-open boundaries",
+    "session definitions",
+    "week boundary",
+    "trading-day date labeling",
+    "public FP-I02 identity fields"
+  ],
+  "from_phase": "FP-I03",
+  "golden_vector_hash": "43b1c634c0bf9ed9c2950c84019bae9b5a649aad1ea3a5891a6b61ed3c43c00e",
+  "handoff_hash": "51a9bbf06a1390c4a0eca700b650a3c0d64995b03ecfd126f351356fcc5c0ab9",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "next_golden_tests": [
+    "two symbols align by canonical M1 UTC open",
+    "missing M1 is explicit",
+    "late data changes only affected revision/window",
+    "batch and incremental sequences match"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "required_entry_checks": [
+    "FP-I03 tests pass",
+    "FP-I02 tests remain green",
+    "FP-I01 dependency pins remain green",
+    "MetaEditor logs retained"
+  ],
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "session_registry_hash": "2af65fec8323ced888b2550493ca976db322281eb01d3d1dd9e287ff0de96bc5",
+  "time_config_hash": "3b5f67c42ed8a4d2f9610c3ac52868980a2e50ed38e0a138b898a0ab07fac25c",
+  "time_contract_registry_hash": "f5a112c0ea95640cfe9b544404f474763bc4f8128c88b82762f8e8a1817ff257",
+  "time_reason_registry_hash": "c22fe9f4c415131ff515680567cc73a665ca56ef07b6b06ab0175d5724c7c5e0",
+  "to_phase": "FP-I04"
+}

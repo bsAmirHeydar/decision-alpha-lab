@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_ny_timestamp.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dst_regime": {
+      "enum": [
+        "STANDARD",
+        "DAYLIGHT"
+      ]
+    },
+    "fold": {
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "local_date": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "type": "string"
+    },
+    "local_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "second_of_day": {
+      "maximum": 86399,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "time_rule_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "timestamp_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "timezone_name": {
+      "const": "America/New_York"
+    },
+    "utc_epoch_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "utc_offset_minutes": {
+      "enum": [
+        -300,
+        -240
+      ]
+    }
+  },
+  "required": [
+    "utc_epoch_ms",
+    "local_iso",
+    "local_date",
+    "second_of_day",
+    "utc_offset_minutes",
+    "dst_regime",
+    "fold",
+    "timezone_name",
+    "time_rule_version",
+    "timestamp_id"
+  ],
+  "title": "fp_i03_ny_timestamp",
+  "type": "object"
+}

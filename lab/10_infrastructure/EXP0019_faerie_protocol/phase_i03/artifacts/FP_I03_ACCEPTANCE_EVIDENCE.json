@@ -1,0 +1,29 @@
+{
+  "accepted": true,
+  "authority_boundary": "No prices, M1 acquisition, hunt, detection, drawing, broker/order/position/network authority.",
+  "conformance": "20/20 passed",
+  "cumulative_tests": "262 passed",
+  "engineering_policies": "4/4 passed",
+  "evidence_hash": "52e11d22fc9788871532b420c3af5631668138bf5d052cb78048ca34452303f7",
+  "golden_gates": {
+    "broker_timezone_invariant": true,
+    "dst_spring_fall": true,
+    "every_timestamp_declared_state": true,
+    "session_week_boundaries_exact": true
+  },
+  "metaeditor": {
+    "represented_as_compile": false,
+    "result": "pending_local_windows"
+  },
+  "mql5_static": "pass",
+  "phase": "FP-I03",
+  "previous_context_regressions": "50 passed",
+  "python_tests": "83 passed",
+  "residual_risks": [
+    "MetaEditor compile pending",
+    "US DST rule range intentionally starts 2007",
+    "holiday/early-close calendar not implemented",
+    "IANA rule changes require explicit new time_rule_version"
+  ],
+  "schemas": "12 closed"
+}

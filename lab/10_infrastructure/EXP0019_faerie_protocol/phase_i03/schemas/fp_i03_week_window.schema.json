@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_week_window.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contains_reference_time": {
+      "type": "boolean"
+    },
+    "elapsed_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "end_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "start_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "ACTIVE",
+        "CLOSED_AFTER_FRIDAY",
+        "CLOSED_BEFORE_SUNDAY_OPEN"
+      ]
+    },
+    "week_id": {
+      "pattern": "^NYWEEK-[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "type": "string"
+    },
+    "window_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "week_id",
+    "start_date",
+    "end_date",
+    "start_ny_iso",
+    "end_ny_iso",
+    "start_utc_ms",
+    "end_utc_ms",
+    "elapsed_seconds",
+    "state",
+    "contains_reference_time",
+    "calendar_version",
+    "window_id"
+  ],
+  "title": "fp_i03_week_window",
+  "type": "object"
+}

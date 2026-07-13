@@ -1,0 +1,13 @@
+{
+  "calendar_version": "FP-CALENDAR-ALN-WEEK@1.0.0",
+  "contains_reference_time": false,
+  "elapsed_seconds": 428400,
+  "end_date": "2026-07-10",
+  "end_ny_iso": "2026-07-10T17:00:00",
+  "end_utc_ms": 1783717200000,
+  "start_date": "2026-07-05",
+  "start_ny_iso": "2026-07-05T18:00:00",
+  "start_utc_ms": 1783288800000,
+  "state": "CLOSED_BEFORE_SUNDAY_OPEN",
+  "week_id": "NYWEEK-2026-07-05"
+}

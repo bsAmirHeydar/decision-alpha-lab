@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_trading_day_window.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "elapsed_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "end_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "start_ny_iso": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "timezone_name": {
+      "const": "America/New_York"
+    },
+    "trading_date": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "type": "string"
+    },
+    "trading_day_id": {
+      "pattern": "^NYDAY-[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "type": "string"
+    },
+    "window_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "trading_day_id",
+    "trading_date",
+    "start_ny_iso",
+    "end_ny_iso",
+    "start_utc_ms",
+    "end_utc_ms",
+    "elapsed_seconds",
+    "timezone_name",
+    "calendar_version",
+    "window_id"
+  ],
+  "title": "fp_i03_trading_day_window",
+  "type": "object"
+}

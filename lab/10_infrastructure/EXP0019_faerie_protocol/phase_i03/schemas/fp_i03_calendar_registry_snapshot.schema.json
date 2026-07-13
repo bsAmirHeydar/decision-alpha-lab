@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i03/fp_i03_calendar_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "frozen": {
+      "const": true
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sessions": {
+      "items": {
+        "$ref": "fp_i03_session_definition.schema.json"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "time_rule_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "timezone_name": {
+      "const": "America/New_York"
+    }
+  },
+  "required": [
+    "registry_version",
+    "sessions",
+    "timezone_name",
+    "time_rule_version",
+    "calendar_version",
+    "frozen",
+    "registry_hash"
+  ],
+  "title": "fp_i03_calendar_registry_snapshot",
+  "type": "object"
+}

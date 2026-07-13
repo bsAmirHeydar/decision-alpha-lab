@@ -1,0 +1,36 @@
+{
+  "boundary_fixture_count": 12,
+  "conformance_check_count": 20,
+  "cumulative_fp_test_count": 212,
+  "dst_transition_year_count": 29,
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_entrypoint_count": 2,
+  "mql5_include_count": 12,
+  "next_phase": "FP-I04",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase": "FP-I03",
+  "phase_test_count": 83,
+  "phase_version": "1.0.0",
+  "previous_context_regression_test_count": 50,
+  "public_contract_count": 11,
+  "public_schema_count": 12,
+  "python_module_count": 15,
+  "runtime_authority": "NONE",
+  "semantic_summary": [
+    "US DST 2007+ exact rule math",
+    "A 18:00-04:00",
+    "L 04:00-09:30",
+    "N 09:30-17:00",
+    "daily gap 17:00-18:00",
+    "NY week Sunday 18:00-Friday 17:00",
+    "half-open ownership",
+    "explicit broker offset only"
+  ],
+  "session_count": 3,
+  "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+  "status_hash": "4eac9e03a4a527a9a49a4870efad5810df6c79096f62824f97ae969c14f2a6ab",
+  "time_reason_count": 15,
+  "total_test_count": 262
+}
