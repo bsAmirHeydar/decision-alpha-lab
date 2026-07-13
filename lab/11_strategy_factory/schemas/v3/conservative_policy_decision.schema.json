@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/conservative_policy_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_action_key": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "action",
+        "abstain",
+        "baseline",
+        "rejected"
+      ]
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "improvement_lower_bound": {
+      "type": "number"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "scores": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selected_action_key": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_id",
+    "row_id",
+    "scores",
+    "selected_action_key",
+    "baseline_action_key",
+    "decision",
+    "improvement_lower_bound",
+    "reason",
+    "evidence_hash"
+  ],
+  "title": "conservative_policy_decision",
+  "type": "object"
+}

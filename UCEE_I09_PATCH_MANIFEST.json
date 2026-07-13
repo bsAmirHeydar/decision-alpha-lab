@@ -1,0 +1,18 @@
+{
+  "authority_boundary": "offline research plus MQL5 data contracts; no live order authority",
+  "catalog_algorithm_count": 18,
+  "created_date": "2026-07-13",
+  "documentation_note_count": 27,
+  "file_count_before_indexes": 119,
+  "native_algorithm_count": 9,
+  "next_phase": "UCE-I10 Deep Multi-View, Graph, and Regime Pack",
+  "patch_id": "decision-alpha-lab-ucee-i09-advanced-task-algorithm-pack",
+  "patch_version": "1.0.0",
+  "phase_id": "UCE-I09",
+  "primary_modules": [
+    "strategy_factory_advanced_tasks_v3",
+    "AlphaLab/StrategyFactory/AdvancedTasks"
+  ],
+  "test_count_cumulative": 189,
+  "title": "Ranking, Treatment Selection, Survival, Distributional, Multi-Task, Regime, and Bounded Policy Pack"
+}

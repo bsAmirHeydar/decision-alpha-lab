@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/regime_assignment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignment_id": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "fallback_reason": {
+      "type": "string"
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "regime_id": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "support_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "assignment_id",
+    "row_id",
+    "regime_id",
+    "probability",
+    "support_count",
+    "fallback_used",
+    "fallback_reason",
+    "evidence_hash"
+  ],
+  "title": "regime_assignment",
+  "type": "object"
+}

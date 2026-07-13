@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/advanced_task_pack_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "manifest_version": {
+      "type": "string"
+    },
+    "native_algorithm_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "optional_algorithm_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "registry_snapshot_hash": {
+      "type": "string"
+    },
+    "schema_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "vector_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "manifest_version",
+    "registry_snapshot_hash",
+    "schema_hashes",
+    "vector_hashes",
+    "native_algorithm_keys",
+    "optional_algorithm_keys",
+    "limitations",
+    "evidence_hash"
+  ],
+  "title": "advanced_task_pack_manifest",
+  "type": "object"
+}

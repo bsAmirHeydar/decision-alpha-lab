@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/policy_support_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_id": {
+      "type": "string"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "declared_action_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "masked_violation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minimum_action_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minimum_propensity": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "observed_action_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unseen_action_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "audit_id",
+    "declared_action_keys",
+    "observed_action_keys",
+    "unseen_action_keys",
+    "masked_violation_count",
+    "minimum_action_count",
+    "minimum_propensity",
+    "decision",
+    "blockers",
+    "evidence_hash"
+  ],
+  "title": "policy_support_audit",
+  "type": "object"
+}

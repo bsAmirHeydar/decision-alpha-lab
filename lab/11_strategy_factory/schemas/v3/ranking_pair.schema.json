@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/ranking_pair.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "group_id": {
+      "type": "string"
+    },
+    "other_row_id": {
+      "type": "string"
+    },
+    "pair_id": {
+      "type": "string"
+    },
+    "preferred_row_id": {
+      "type": "string"
+    },
+    "utility_gap": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "weight": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "pair_id",
+    "group_id",
+    "preferred_row_id",
+    "other_row_id",
+    "weight",
+    "utility_gap"
+  ],
+  "title": "ranking_pair",
+  "type": "object"
+}

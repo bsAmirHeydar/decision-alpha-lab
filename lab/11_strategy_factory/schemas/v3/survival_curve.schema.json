@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/survival_curve.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cumulative_hazard": {
+      "items": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "curve_id": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "horizons_ms": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "model_key": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "survival": {
+      "items": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "curve_id",
+    "row_id",
+    "horizons_ms",
+    "survival",
+    "cumulative_hazard",
+    "model_key",
+    "evidence_hash"
+  ],
+  "title": "survival_curve",
+  "type": "object"
+}

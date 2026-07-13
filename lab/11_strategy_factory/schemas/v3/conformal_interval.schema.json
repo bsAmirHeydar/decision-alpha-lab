@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/conformal_interval.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha": {
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "calibration_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "group_key": {
+      "type": "string"
+    },
+    "interval_id": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "symmetric",
+        "asymmetric",
+        "mondrian"
+      ]
+    },
+    "lower": {
+      "type": "number"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "upper": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "interval_id",
+    "row_id",
+    "alpha",
+    "lower",
+    "upper",
+    "kind",
+    "calibration_size",
+    "group_key",
+    "evidence_hash"
+  ],
+  "title": "conformal_interval",
+  "type": "object"
+}

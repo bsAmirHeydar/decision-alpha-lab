@@ -1,0 +1,13 @@
+{
+  "baseline_action": "wide_stop",
+  "declared_actions": [
+    "wide_stop",
+    "tight_stop",
+    "trail_runner"
+  ],
+  "minimum_action_count": 100,
+  "minimum_improvement_lcb": 0.0,
+  "minimum_propensity": 0.02,
+  "unseen_action_policy": "forbid",
+  "unsupported_state_policy": "abstain"
+}

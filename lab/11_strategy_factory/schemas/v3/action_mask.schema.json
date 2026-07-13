@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/action_mask.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_action_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "blocked_reasons": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mask_id": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mask_id",
+    "opportunity_id",
+    "allowed_action_keys",
+    "blocked_reasons",
+    "known_time_ms",
+    "evidence_hash"
+  ],
+  "title": "action_mask",
+  "type": "object"
+}

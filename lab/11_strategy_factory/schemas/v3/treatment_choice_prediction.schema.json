@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/treatment_choice_prediction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_action_keys": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chosen_action_key": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "action",
+        "abstain",
+        "baseline",
+        "rejected"
+      ]
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "prediction_id": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "uncertainty_by_action": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "utility_by_action": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "prediction_id",
+    "row_id",
+    "allowed_action_keys",
+    "utility_by_action",
+    "uncertainty_by_action",
+    "chosen_action_key",
+    "decision",
+    "reason",
+    "evidence_hash"
+  ],
+  "title": "treatment_choice_prediction",
+  "type": "object"
+}

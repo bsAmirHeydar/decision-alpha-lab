@@ -1,0 +1,15 @@
+from enum import Enum
+class AdvancedTaskFamily(str,Enum):
+ RANKING='ranking';TREATMENT_SELECTION='treatment_selection';SURVIVAL='survival';COMPETING_RISK='competing_risk';DISTRIBUTIONAL='distributional';MULTI_TASK='multi_task';REGIME_GATING='regime_gating';BOUNDED_POLICY='bounded_policy'
+class AlgorithmAvailability(str,Enum):NATIVE='native';OPTIONAL='optional';UNAVAILABLE='unavailable'
+class RankingFormulation(str,Enum):POINTWISE='pointwise';PAIRWISE='pairwise';LISTWISE='listwise'
+class TreatmentEstimator(str,Enum):DIRECT_OUTCOME='direct_outcome';ONE_VS_REST='one_vs_rest';DOUBLY_ROBUST='doubly_robust';POLICY_VALUE='policy_value'
+class SurvivalModelKind(str,Enum):KAPLAN_MEIER='kaplan_meier';DISCRETE_HAZARD='discrete_hazard';COX='cox';AFT='aft';SURVIVAL_FOREST='survival_forest';SURVIVAL_BOOSTING='survival_boosting'
+class CompetingRiskKind(str,Enum):CAUSE_SPECIFIC='cause_specific';SUBDISTRIBUTION='subdistribution';EMPIRICAL_CIF='empirical_cif'
+class DistributionalKind(str,Enum):QUANTILE='quantile';CONFORMAL='conformal';EMPIRICAL='empirical';DISTRIBUTIONAL_BOOSTING='distributional_boosting'
+class PolicyDecision(str,Enum):ACTION='action';ABSTAIN='abstain';BASELINE='baseline';REJECTED='rejected'
+class SupportState(str,Enum):SUPPORTED='supported';WEAK='weak';UNSUPPORTED='unsupported';MASKED='masked'
+class GateDecision(str,Enum):ACCEPT='accept';WARN='warn';REJECT='reject'
+class MetricDirection(str,Enum):MAXIMIZE='maximize';MINIMIZE='minimize'
+class IntervalKind(str,Enum):SYMMETRIC='symmetric';ASYMMETRIC='asymmetric';MONDRIAN='mondrian'
+class RegimeFallback(str,Enum):GLOBAL='global';NEAREST_SUPPORTED='nearest_supported';ABSTAIN='abstain'

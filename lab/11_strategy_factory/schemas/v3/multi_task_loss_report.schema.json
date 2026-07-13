@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/multi_task_loss_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "type": "string"
+    },
+    "gradient_balance_score": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "heads": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "shared_representation_hash": {
+      "type": "string"
+    },
+    "weighted_loss": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "report_id",
+    "heads",
+    "weighted_loss",
+    "gradient_balance_score",
+    "shared_representation_hash",
+    "evidence_hash"
+  ],
+  "title": "multi_task_loss_report",
+  "type": "object"
+}

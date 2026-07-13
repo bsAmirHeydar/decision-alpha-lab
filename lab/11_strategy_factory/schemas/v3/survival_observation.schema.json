@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/survival_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cause": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "duration_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event": {
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "weight": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "row_id",
+    "duration_ms",
+    "event",
+    "cause",
+    "weight",
+    "known_time_ms"
+  ],
+  "title": "survival_observation",
+  "type": "object"
+}

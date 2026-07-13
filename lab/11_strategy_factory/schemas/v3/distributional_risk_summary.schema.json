@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/distributional_risk_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conditional_value_at_risk": {
+      "type": "number"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "expected_value": {
+      "type": "number"
+    },
+    "probability_positive": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "probability_stop_first": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "probability_target_first": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "summary_id": {
+      "type": "string"
+    },
+    "tail_level": {
+      "exclusiveMaximum": 1,
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "value_at_risk": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "summary_id",
+    "row_id",
+    "expected_value",
+    "probability_positive",
+    "value_at_risk",
+    "conditional_value_at_risk",
+    "probability_target_first",
+    "probability_stop_first",
+    "tail_level",
+    "evidence_hash"
+  ],
+  "title": "distributional_risk_summary",
+  "type": "object"
+}

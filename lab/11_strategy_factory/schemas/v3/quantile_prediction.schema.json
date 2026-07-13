@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/quantile_prediction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "type": "string"
+    },
+    "levels": {
+      "items": {
+        "exclusiveMaximum": 1,
+        "exclusiveMinimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "monotone": {
+      "type": "boolean"
+    },
+    "prediction_id": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "values": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "prediction_id",
+    "row_id",
+    "levels",
+    "values",
+    "monotone",
+    "evidence_hash"
+  ],
+  "title": "quantile_prediction",
+  "type": "object"
+}

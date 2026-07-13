@@ -10,5 +10,6 @@
 - UCE-I06 — Outcome Cube, Dataset, and Label Compiler
 - UCE-I07 — Universal Trainer SDK and Task Orchestrator
 - [[../../strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i08/00_UCE_I08_DELIVERY_MOC|UCE-I08 — Classical Tabular Algorithm Pack]]
+- [[../../strategy_factory_universal_context_exploitation_engine/implementation_program/phase_deliveries/uce_i09/00_UCE_I09_DELIVERY_MOC|UCE-I09 — Advanced Task Algorithm Pack]]
 
-Next: UCE-I09 advanced task algorithm pack.
+Next: UCE-I10 deep multi-view, graph, sequence, image, event-set, and regime-specialist algorithm pack.

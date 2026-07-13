@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/ranking_metric_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "type": "string"
+    },
+    "group_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "group_weights_hash": {
+      "type": "string"
+    },
+    "k": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "mean_map_at_k": {
+      "type": "number"
+    },
+    "mean_ndcg_at_k": {
+      "type": "number"
+    },
+    "mean_top_k_utility": {
+      "type": "number"
+    },
+    "pair_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pairwise_accuracy": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "report_id",
+    "group_count",
+    "row_count",
+    "pair_count",
+    "pairwise_accuracy",
+    "mean_ndcg_at_k",
+    "mean_map_at_k",
+    "mean_top_k_utility",
+    "k",
+    "evidence_hash"
+  ],
+  "title": "ranking_metric_report",
+  "type": "object"
+}

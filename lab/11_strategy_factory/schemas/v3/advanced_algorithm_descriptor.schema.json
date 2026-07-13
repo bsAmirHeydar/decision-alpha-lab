@@ -1,0 +1,85 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/advanced_algorithm_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "algorithm_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "default_parameters": {
+      "type": "object"
+    },
+    "deterministic_level": {
+      "type": "string"
+    },
+    "export_formats": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "family": {
+      "enum": [
+        "ranking",
+        "treatment_selection",
+        "survival",
+        "competing_risk",
+        "distributional",
+        "multi_task",
+        "regime_gating",
+        "bounded_policy"
+      ]
+    },
+    "formulation": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "native": {
+      "type": "boolean"
+    },
+    "optional_dependency": {
+      "type": "string"
+    },
+    "output_semantics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tasks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "algorithm_id",
+    "algorithm_version",
+    "family",
+    "formulation",
+    "tasks",
+    "native",
+    "deterministic_level",
+    "required_fields",
+    "output_semantics"
+  ],
+  "title": "advanced_algorithm_descriptor",
+  "type": "object"
+}

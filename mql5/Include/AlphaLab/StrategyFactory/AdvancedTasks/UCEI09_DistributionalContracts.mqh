@@ -1,0 +1,5 @@
+#ifndef __UCEI09_DISTRIBUTIONAL_CONTRACTS_MQH__
+#define __UCEI09_DISTRIBUTIONAL_CONTRACTS_MQH__
+struct UCEI09_QuantilePrediction{string prediction_id;string row_id;double levels[];double values[];string evidence_hash;bool Valid()const{int n=ArraySize(levels);if(prediction_id=="" || n<1 || ArraySize(values)!=n)return false;for(int i=0;i<n;i++){if(levels[i]<=0.0 || levels[i]>=1.0)return false;if(i>0 && (levels[i]<=levels[i-1] || values[i]<values[i-1]))return false;}return true;}};
+struct UCEI09_DistributionalRiskSummary{string summary_id;string row_id;double expected_value;double probability_positive;double value_at_risk;double conditional_value_at_risk;double probability_target_first;double probability_stop_first;double tail_level;string evidence_hash;bool Valid()const{return summary_id!="" && probability_positive>=0.0 && probability_positive<=1.0 && probability_target_first>=0.0 && probability_target_first<=1.0 && probability_stop_first>=0.0 && probability_stop_first<=1.0 && tail_level>0.0 && tail_level<1.0 && conditional_value_at_risk<=value_at_risk;}};
+#endif

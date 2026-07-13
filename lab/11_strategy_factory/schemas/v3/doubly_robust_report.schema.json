@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/doubly_robust_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clipped_propensity_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "effective_sample_size": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "estimated_value": {
+      "type": "number"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "standard_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "support_audit_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "policy_id",
+    "row_count",
+    "estimated_value",
+    "standard_error",
+    "effective_sample_size",
+    "clipped_propensity_count",
+    "support_audit_id",
+    "evidence_hash"
+  ],
+  "title": "doubly_robust_report",
+  "type": "object"
+}

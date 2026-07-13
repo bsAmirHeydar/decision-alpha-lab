@@ -1,0 +1,529 @@
+{
+  "conformance": {
+    "distributional": {
+      "coverage": 0.7,
+      "cvar_le_var": true,
+      "monotone": true
+    },
+    "passed": true,
+    "policy": {
+      "comparison": "accept",
+      "no_unseen": true,
+      "support": "accept"
+    },
+    "ranking": {
+      "deterministic": true,
+      "ndcg": 1.0,
+      "pairs": 40,
+      "pairwise": 1.0
+    },
+    "registry": {
+      "count": 18,
+      "frozen": true,
+      "hash": "45bd321a4923aa9d85811ea112126a497d69e004f8314205dde7333eea069a09"
+    },
+    "survival": {
+      "c_index": 1.0,
+      "cif_causes": [
+        1,
+        2
+      ],
+      "monotone": true
+    },
+    "treatment": {
+      "actions": [
+        "trail_runner",
+        "trail_runner",
+        "trail_runner",
+        "trail_runner",
+        "trail_runner",
+        "trail_runner"
+      ],
+      "deterministic_hash": "e03eaecb735115838f2c3e73aa137d1d458808491d907329ba896eae63fa906d",
+      "supported": true
+    }
+  },
+  "registry": {
+    "descriptors": [
+      {
+        "algorithm_id": "aft_weibull",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "survival",
+        "formulation": "aft",
+        "limitations": [],
+        "native": false,
+        "optional_dependency": "lifelines",
+        "output_semantics": [
+          "time_quantiles"
+        ],
+        "required_fields": [
+          "duration",
+          "event"
+        ],
+        "tasks": [
+          "survival"
+        ]
+      },
+      {
+        "algorithm_id": "conformal_residual_interval",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "distributional",
+        "formulation": "split_conformal",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "lower",
+          "upper"
+        ],
+        "required_fields": [
+          "calibration_residuals"
+        ],
+        "tasks": [
+          "quantile",
+          "regression"
+        ]
+      },
+      {
+        "algorithm_id": "conservative_policy_improvement",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "bounded_policy",
+        "formulation": "offline_cpi",
+        "limitations": [
+          "cannot generate unseen actions",
+          "requires overlap audit"
+        ],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "action",
+          "abstention",
+          "improvement_lcb"
+        ],
+        "required_fields": [
+          "logged_action",
+          "reward",
+          "propensity",
+          "action_mask"
+        ],
+        "tasks": [
+          "bounded_policy"
+        ]
+      },
+      {
+        "algorithm_id": "cox_proportional_hazards",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "survival",
+        "formulation": "cox",
+        "limitations": [
+          "proportional hazards assumption must be audited"
+        ],
+        "native": false,
+        "optional_dependency": "lifelines",
+        "output_semantics": [
+          "risk_score",
+          "survival_curve"
+        ],
+        "required_fields": [
+          "duration",
+          "event"
+        ],
+        "tasks": [
+          "survival"
+        ]
+      },
+      {
+        "algorithm_id": "direct_outcome_selector",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.01,
+          "minimum_support": 5
+        },
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "treatment_selection",
+        "formulation": "direct_outcome",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "utility_by_action",
+          "chosen_action"
+        ],
+        "required_fields": [
+          "treatment_id",
+          "utility",
+          "action_mask"
+        ],
+        "tasks": [
+          "treatment_choice"
+        ]
+      },
+      {
+        "algorithm_id": "discrete_hazard",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 1.0
+        },
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "survival",
+        "formulation": "discrete_time",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "survival_curve",
+          "cause_cif"
+        ],
+        "required_fields": [
+          "duration",
+          "event",
+          "cause"
+        ],
+        "tasks": [
+          "survival",
+          "competing_risk"
+        ]
+      },
+      {
+        "algorithm_id": "distributional_boosting",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "distributional",
+        "formulation": "distributional_boosting",
+        "limitations": [],
+        "native": false,
+        "optional_dependency": "lightgbm",
+        "output_semantics": [
+          "distribution_parameters",
+          "quantiles"
+        ],
+        "required_fields": [
+          "utility"
+        ],
+        "tasks": [
+          "quantile"
+        ]
+      },
+      {
+        "algorithm_id": "doubly_robust_selector",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "treatment_selection",
+        "formulation": "doubly_robust",
+        "limitations": [
+          "requires overlap and propensity audit"
+        ],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "policy_value",
+          "standard_error"
+        ],
+        "required_fields": [
+          "logged_action",
+          "propensity",
+          "outcome_model",
+          "action_mask"
+        ],
+        "tasks": [
+          "treatment_choice",
+          "bounded_policy"
+        ]
+      },
+      {
+        "algorithm_id": "empirical_quantiles",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "distributional",
+        "formulation": "empirical",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "quantiles"
+        ],
+        "required_fields": [
+          "utility"
+        ],
+        "tasks": [
+          "quantile"
+        ]
+      },
+      {
+        "algorithm_id": "kaplan_meier",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "survival",
+        "formulation": "nonparametric",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "survival_curve"
+        ],
+        "required_fields": [
+          "duration",
+          "event"
+        ],
+        "tasks": [
+          "survival"
+        ]
+      },
+      {
+        "algorithm_id": "lambdamart_ranker",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "ranking",
+        "formulation": "lambda_rank",
+        "limitations": [
+          "optional dependency",
+          "portfolio top-k validation mandatory"
+        ],
+        "native": false,
+        "optional_dependency": "lightgbm",
+        "output_semantics": [
+          "rank_score"
+        ],
+        "required_fields": [
+          "ranking_group",
+          "utility"
+        ],
+        "tasks": [
+          "ranking"
+        ]
+      },
+      {
+        "algorithm_id": "linear_quantile_regression",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "distributional",
+        "formulation": "pinball",
+        "limitations": [],
+        "native": false,
+        "optional_dependency": "scikit-learn",
+        "output_semantics": [
+          "quantiles"
+        ],
+        "required_fields": [
+          "utility"
+        ],
+        "tasks": [
+          "quantile"
+        ]
+      },
+      {
+        "algorithm_id": "listwise_softmax_ranker",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "ranking",
+        "formulation": "listwise",
+        "limitations": [
+          "optional dependency",
+          "group ordering required"
+        ],
+        "native": false,
+        "optional_dependency": "lightgbm",
+        "output_semantics": [
+          "rank_score"
+        ],
+        "required_fields": [
+          "ranking_group",
+          "utility"
+        ],
+        "tasks": [
+          "ranking"
+        ]
+      },
+      {
+        "algorithm_id": "one_vs_rest_utility_selector",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "treatment_selection",
+        "formulation": "one_vs_rest",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "utility_by_action",
+          "chosen_action"
+        ],
+        "required_fields": [
+          "treatment_id",
+          "utility",
+          "action_mask"
+        ],
+        "tasks": [
+          "treatment_choice"
+        ]
+      },
+      {
+        "algorithm_id": "pairwise_linear_ranker",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "epochs": 240,
+          "l2": 0.001,
+          "learning_rate": 0.04
+        },
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "ranking",
+        "formulation": "pairwise",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "rank_score"
+        ],
+        "required_fields": [
+          "ranking_group",
+          "utility"
+        ],
+        "tasks": [
+          "ranking"
+        ]
+      },
+      {
+        "algorithm_id": "random_survival_forest",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "deterministic_level": "numeric_tolerance",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "survival",
+        "formulation": "survival_forest",
+        "limitations": [],
+        "native": false,
+        "optional_dependency": "scikit-survival",
+        "output_semantics": [
+          "survival_curve"
+        ],
+        "required_fields": [
+          "duration",
+          "event",
+          "cause"
+        ],
+        "tasks": [
+          "survival",
+          "competing_risk"
+        ]
+      },
+      {
+        "algorithm_id": "regime_centroid_gate",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "minimum_support": 10
+        },
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "regime_gating",
+        "formulation": "mixture_of_experts",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "expert_key",
+          "fallback"
+        ],
+        "required_fields": [
+          "regime_label",
+          "features"
+        ],
+        "tasks": [
+          "regime_gating"
+        ]
+      },
+      {
+        "algorithm_id": "shared_linear_heads",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.01
+        },
+        "deterministic_level": "bit_exact",
+        "export_formats": [
+          "native_json"
+        ],
+        "family": "multi_task",
+        "formulation": "hard_parameter_sharing",
+        "limitations": [],
+        "native": true,
+        "optional_dependency": "",
+        "output_semantics": [
+          "head_outputs"
+        ],
+        "required_fields": [
+          "multi_output_target"
+        ],
+        "tasks": [
+          "multi_task"
+        ]
+      }
+    ],
+    "evidence_hash": "45bd321a4923aa9d85811ea112126a497d69e004f8314205dde7333eea069a09",
+    "frozen": true,
+    "snapshot_id": "uceadvreg_c961af90d72af2fd4c50e721"
+  },
+  "schema_version": "3.0.0"
+}

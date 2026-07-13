@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/treatment_support_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_declared_actions_observed": {
+      "type": "boolean"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "overlap_sufficient": {
+      "type": "boolean"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "audit_id",
+    "dataset_id",
+    "entries",
+    "all_declared_actions_observed",
+    "overlap_sufficient",
+    "blockers",
+    "warnings",
+    "evidence_hash"
+  ],
+  "title": "treatment_support_audit",
+  "type": "object"
+}

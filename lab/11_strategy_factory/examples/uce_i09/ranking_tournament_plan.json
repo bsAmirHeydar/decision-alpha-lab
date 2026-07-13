@@ -1,0 +1,21 @@
+{
+  "group_key": "opportunity_id",
+  "k_values": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "metrics": [
+    "pairwise_accuracy",
+    "ndcg_at_k",
+    "map_at_k",
+    "top_k_net_utility"
+  ],
+  "plan_id": "uce_i09_ranking_demo",
+  "portfolio_constraints": [
+    "one_action_per_opportunity",
+    "risk_budget",
+    "correlation_group_limit"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/logged_policy_comparison.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_policy_id": {
+      "type": "string"
+    },
+    "baseline_value": {
+      "type": "number"
+    },
+    "candidate_policy_id": {
+      "type": "string"
+    },
+    "candidate_value": {
+      "type": "number"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "effective_sample_size": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "improvement": {
+      "type": "number"
+    },
+    "improvement_standard_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "lower_confidence_bound": {
+      "type": "number"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "support_audit_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "candidate_policy_id",
+    "baseline_policy_id",
+    "candidate_value",
+    "baseline_value",
+    "improvement",
+    "improvement_standard_error",
+    "lower_confidence_bound",
+    "effective_sample_size",
+    "support_audit_id",
+    "decision",
+    "evidence_hash"
+  ],
+  "title": "logged_policy_comparison",
+  "type": "object"
+}

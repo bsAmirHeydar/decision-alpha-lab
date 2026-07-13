@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/expert_gate_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "global_model_used": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "regime_id": {
+      "type": "string"
+    },
+    "result_id": {
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "selected_expert_key": {
+      "type": "string"
+    },
+    "support_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "result_id",
+    "row_id",
+    "selected_expert_key",
+    "global_model_used",
+    "regime_id",
+    "support_count",
+    "decision",
+    "reason",
+    "evidence_hash"
+  ],
+  "title": "expert_gate_result",
+  "type": "object"
+}

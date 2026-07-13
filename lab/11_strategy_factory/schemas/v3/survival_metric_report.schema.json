@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/survival_metric_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "censored_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "comparable_pairs": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "concordance_index": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "event_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "horizons_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "integrated_brier_score": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "time_dependent_calibration_error": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "report_id",
+    "concordance_index",
+    "integrated_brier_score",
+    "time_dependent_calibration_error",
+    "event_count",
+    "censored_count",
+    "comparable_pairs",
+    "horizons_ms",
+    "evidence_hash"
+  ],
+  "title": "survival_metric_report",
+  "type": "object"
+}

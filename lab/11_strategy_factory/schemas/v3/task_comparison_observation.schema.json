@@ -1,0 +1,79 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/task_comparison_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_key": {
+      "type": "string"
+    },
+    "artifact_hash": {
+      "type": "string"
+    },
+    "calibration_value": {
+      "type": "number"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "economic_utility": {
+      "type": "number"
+    },
+    "fit_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "predict_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "primary_metric": {
+      "type": "string"
+    },
+    "primary_value": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "support_gate": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "task_family": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "observation_id",
+    "context_id",
+    "task_family",
+    "algorithm_key",
+    "status",
+    "primary_metric",
+    "primary_value",
+    "economic_utility",
+    "calibration_value",
+    "support_gate",
+    "deterministic",
+    "fit_ms",
+    "predict_ms",
+    "artifact_hash"
+  ],
+  "title": "task_comparison_observation",
+  "type": "object"
+}

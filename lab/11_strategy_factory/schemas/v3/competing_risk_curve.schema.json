@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/competing_risk_curve.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cause_ids": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "cumulative_incidence": {
+      "items": {
+        "items": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "curve_id": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "horizons_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "overall_survival": {
+      "items": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "row_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "curve_id",
+    "row_id",
+    "horizons_ms",
+    "cause_ids",
+    "cumulative_incidence",
+    "overall_survival",
+    "evidence_hash"
+  ],
+  "title": "competing_risk_curve",
+  "type": "object"
+}

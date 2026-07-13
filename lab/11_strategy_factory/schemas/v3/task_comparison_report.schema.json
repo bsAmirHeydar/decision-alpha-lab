@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/task_comparison_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attempted_families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "best_by_family": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "missing_families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observations": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "promotion_ready": {
+      "type": "boolean"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "report_id",
+    "context_id",
+    "dataset_manifest_hash",
+    "observations",
+    "attempted_families",
+    "missing_families",
+    "best_by_family",
+    "promotion_ready",
+    "blockers",
+    "warnings",
+    "evidence_hash"
+  ],
+  "title": "task_comparison_report",
+  "type": "object"
+}

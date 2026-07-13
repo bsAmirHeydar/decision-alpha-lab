@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/advanced_task_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptors": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "snapshot_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "descriptors",
+    "frozen",
+    "evidence_hash"
+  ],
+  "title": "advanced_task_registry_snapshot",
+  "type": "object"
+}

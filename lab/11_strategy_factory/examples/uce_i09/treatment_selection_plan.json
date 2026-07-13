@@ -1,0 +1,19 @@
+{
+  "actions": [
+    "wide_stop",
+    "tight_stop",
+    "fixed_target",
+    "trail_runner"
+  ],
+  "estimators": [
+    "direct_outcome",
+    "one_vs_rest",
+    "doubly_robust"
+  ],
+  "mandatory_gates": [
+    "action_mask",
+    "minimum_support",
+    "propensity_overlap",
+    "economic_max_loss"
+  ]
+}
