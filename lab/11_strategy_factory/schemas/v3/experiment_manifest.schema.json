@@ -1,0 +1,106 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Exact nodes, edges, trials, claims, exclusions, and identity emitted by compiler.",
+  "properties": {
+    "candidate_admission_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "compiler_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "declaration_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "declared_trial_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "$ref": "experiment_dag_edge.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "generated_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hidden_test_role": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "manifest_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "experiment_dag_node.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "rejected_candidate_keys": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "resource_claims": {
+      "items": {
+        "$ref": "experiment_resource_claim.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scheduler_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "trials": {
+      "items": {
+        "$ref": "experiment_trial_identity.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_id",
+    "manifest_version",
+    "declaration_hash",
+    "compiler_version",
+    "scheduler_version",
+    "generated_sequence",
+    "candidate_admission_hash",
+    "nodes",
+    "edges",
+    "trials",
+    "resource_claims",
+    "declared_trial_count",
+    "rejected_candidate_keys",
+    "hidden_test_role",
+    "manifest_hash"
+  ],
+  "title": "Experiment Manifest",
+  "type": "object"
+}

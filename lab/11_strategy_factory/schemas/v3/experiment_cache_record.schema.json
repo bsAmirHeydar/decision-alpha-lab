@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_cache_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Content-addressed cache record with producer/schema/provenance identity.",
+  "properties": {
+    "artifact_kind": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "cache_key": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "input_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "namespace": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "producer_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "provenance_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "size_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cache_key",
+    "namespace",
+    "artifact_kind",
+    "producer_version",
+    "schema_version",
+    "input_hashes",
+    "payload_hash",
+    "provenance_hash",
+    "created_sequence",
+    "size_bytes",
+    "metadata"
+  ],
+  "title": "Experiment Cache Record",
+  "type": "object"
+}

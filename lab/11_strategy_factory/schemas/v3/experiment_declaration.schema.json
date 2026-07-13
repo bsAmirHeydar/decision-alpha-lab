@@ -1,0 +1,170 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_declaration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Immutable input to the UCE-I11 experiment DAG compiler.",
+  "properties": {
+    "baseline_first": {
+      "type": "boolean"
+    },
+    "budget": {
+      "$ref": "experiment_budget_policy.schema.json"
+    },
+    "calibration_kinds": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "candidates": {
+      "items": {
+        "$ref": "experiment_candidate_admission.schema.json"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "compiler_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "economics_plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ensemble_kinds": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "experiment_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "experiment_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "export_requested": {
+      "type": "boolean"
+    },
+    "folds": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hidden_test_role": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "known_time_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "requested_roles": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scheduler_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "search_plan": {
+      "$ref": "experiment_search_plan.schema.json"
+    },
+    "seeds": {
+      "items": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "split_plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_plan_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "target_plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "threshold_kinds": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "transform_plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "experiment_id",
+    "experiment_version",
+    "dataset_id",
+    "dataset_manifest_hash",
+    "split_plan_id",
+    "split_plan_hash",
+    "transform_plan_hash",
+    "target_plan_hash",
+    "economics_plan_hash",
+    "known_time_policy_hash",
+    "candidates",
+    "folds",
+    "seeds",
+    "search_plan",
+    "budget",
+    "scheduler_version",
+    "compiler_version",
+    "baseline_first",
+    "hidden_test_role",
+    "requested_roles",
+    "calibration_kinds",
+    "threshold_kinds",
+    "ensemble_kinds",
+    "export_requested"
+  ],
+  "title": "Experiment Declaration",
+  "type": "object"
+}

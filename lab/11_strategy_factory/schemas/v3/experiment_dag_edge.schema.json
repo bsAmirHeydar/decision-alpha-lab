@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_dag_edge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Explicit dependency edge.",
+  "properties": {
+    "child_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "edge_type": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "parent_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent_id",
+    "child_id",
+    "edge_type"
+  ],
+  "title": "Experiment Dag Edge",
+  "type": "object"
+}

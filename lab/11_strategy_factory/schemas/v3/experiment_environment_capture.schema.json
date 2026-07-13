@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_environment_capture.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Pinned interpreter, package, platform, and deterministic environment evidence for a worker.",
+  "properties": {
+    "capture_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capture_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "environment_flags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "implementation": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "package_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "platform_machine": {
+      "type": "string"
+    },
+    "platform_system": {
+      "type": "string"
+    },
+    "python_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "capture_id",
+    "python_version",
+    "implementation",
+    "platform_system",
+    "platform_machine",
+    "package_versions",
+    "environment_flags",
+    "capture_hash"
+  ],
+  "title": "Experiment Environment Capture",
+  "type": "object"
+}

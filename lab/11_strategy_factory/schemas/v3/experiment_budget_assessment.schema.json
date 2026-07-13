@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_budget_assessment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Fail-closed result of assessing a proposed resource claim.",
+  "properties": {
+    "assessment_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "assessment_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "allow",
+        "warn",
+        "deny"
+      ]
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "proposed_claim": {
+      "$ref": "experiment_resource_claim.schema.json"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "usage_before": {
+      "$ref": "experiment_budget_usage.schema.json"
+    }
+  },
+  "required": [
+    "assessment_id",
+    "decision",
+    "reason_codes",
+    "usage_before",
+    "proposed_claim",
+    "policy_hash",
+    "assessment_hash"
+  ],
+  "title": "Experiment Budget Assessment",
+  "type": "object"
+}

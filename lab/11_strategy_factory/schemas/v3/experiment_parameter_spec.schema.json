@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_parameter_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed search parameter domain; every parameter is identity-bearing.",
+  "properties": {
+    "behavior_changing": {
+      "const": true
+    },
+    "high": {
+      "type": [
+        "number",
+        "integer",
+        "null"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "integer",
+        "float",
+        "categorical",
+        "boolean"
+      ]
+    },
+    "log_scale": {
+      "type": "boolean"
+    },
+    "low": {
+      "type": [
+        "number",
+        "integer",
+        "null"
+      ]
+    },
+    "name": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "step": {
+      "exclusiveMinimum": 0,
+      "type": [
+        "number",
+        "integer",
+        "null"
+      ]
+    },
+    "values": {
+      "items": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "name",
+    "kind",
+    "values",
+    "low",
+    "high",
+    "step",
+    "log_scale",
+    "behavior_changing"
+  ],
+  "title": "Experiment Parameter Spec",
+  "type": "object"
+}

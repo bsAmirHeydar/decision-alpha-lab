@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_isolated_process_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Parent-observed result of a spawn-isolated worker process.",
+  "properties": {
+    "elapsed_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "error_message": {
+      "type": "string"
+    },
+    "error_type": {
+      "type": "string"
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "result_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "timed_out"
+      ]
+    },
+    "value": {}
+  },
+  "required": [
+    "status",
+    "value",
+    "error_type",
+    "error_message",
+    "exit_code",
+    "elapsed_seconds",
+    "result_hash"
+  ],
+  "title": "Experiment Isolated Process Result",
+  "type": "object"
+}

@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_budget_usage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Cumulative resource accounting snapshot.",
+  "properties": {
+    "artifact_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "memory_high_water_mb": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "per_candidate_trials": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "total_wall_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "trials_completed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trials_started": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "trials_started",
+    "trials_completed",
+    "total_wall_seconds",
+    "artifact_bytes",
+    "memory_high_water_mb",
+    "per_candidate_trials"
+  ],
+  "title": "Experiment Budget Usage",
+  "type": "object"
+}

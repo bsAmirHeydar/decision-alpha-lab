@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_resource_claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Atomic resource reservation attached to a trial node.",
+  "properties": {
+    "artifact_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "cpu_slots": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "deterministic_required": {
+      "type": "boolean"
+    },
+    "device": {
+      "enum": [
+        "cpu",
+        "gpu",
+        "any"
+      ]
+    },
+    "gpu_slots": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "memory_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "wall_seconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "claim_id",
+    "trial_id",
+    "device",
+    "cpu_slots",
+    "gpu_slots",
+    "memory_mb",
+    "wall_seconds",
+    "artifact_bytes",
+    "deterministic_required"
+  ],
+  "title": "Experiment Resource Claim",
+  "type": "object"
+}

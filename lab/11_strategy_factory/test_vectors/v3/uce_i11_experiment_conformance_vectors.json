@@ -1,0 +1,28 @@
+{
+  "declaration_hash": "f56e99bec8c106a4859e8a5475d64d2163eec91a3f4e3c84d7a633b937b318d4",
+  "edge_count": 198,
+  "manifest_hash": "4242cec7b5e8b7bd527bbd97794341ef5f9c22cabf454c3f1a9b8355e8a98be4",
+  "node_count": 140,
+  "proposal_hashes": [
+    "aae208b225058990e8c18ddadcf3c6ea499840de718487712fb30c155431f924",
+    "1bf14d5cff24b6b60e75a9f1b691dcdbdfa4c9f92729ad09d635b3a3a1d61e70",
+    "0f1fb05b9bf7c4775d15c5f10cb2969e1d3813c5b090a63772bde08688e0f117"
+  ],
+  "search_plan_hash": "660c125d4194da37163f591b8f059d31e0c7b0045ac8582b588caee60f452c8b",
+  "trial_ids": [
+    "ucetrial_665c871902f8dec361583835",
+    "ucetrial_ff312deaf5b733ec6f49bb66",
+    "ucetrial_55d58dcb51f5419bf8d2db12",
+    "ucetrial_332404bcffef33dd36e9562f",
+    "ucetrial_9df18ae9cd2c8180f2e5e4aa",
+    "ucetrial_42a4eb223df657dd6bdbd1b8",
+    "ucetrial_d82f97b68a93508873554e08",
+    "ucetrial_db88ac6d92d0e428a8bff80f",
+    "ucetrial_50804b6d5653a1de634c8c92",
+    "ucetrial_0a1ba6cb3877ae9ab548a363",
+    "ucetrial_0db92776a7aa29acfad39cf0",
+    "ucetrial_959afb18f9e50453a9b6103b"
+  ],
+  "vector_hash": "77164a25d51c9b68b183122b43eb2e4a6febb38a4fe1d33f26d80e851c231121",
+  "version": "1.0.0"
+}

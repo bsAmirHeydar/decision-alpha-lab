@@ -1,0 +1,103 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_selection_ledger_entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Hash-chained evidence for every attempted, skipped, failed, selected, or overridden choice.",
+  "properties": {
+    "action": {
+      "enum": [
+        "attempted",
+        "skipped",
+        "invalid",
+        "pruned",
+        "failed",
+        "timed_out",
+        "selected",
+        "rejected",
+        "thresholded",
+        "calibrated",
+        "ensembled",
+        "manual_override",
+        "cached",
+        "resumed",
+        "cancelled",
+        "succeeded"
+      ]
+    },
+    "actor": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "artifact_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "entry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "entry_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "experiment_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "node_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "previous_entry_hash": {
+      "pattern": "^$|^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "entry_id",
+    "sequence",
+    "experiment_id",
+    "manifest_hash",
+    "trial_id",
+    "node_id",
+    "action",
+    "reason_code",
+    "metrics",
+    "artifact_hashes",
+    "actor",
+    "previous_entry_hash",
+    "entry_hash"
+  ],
+  "title": "Experiment Selection Ledger Entry",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_search_adapter_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Exact-version search adapter capability descriptor.",
+  "properties": {
+    "adapter_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "adapter_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "dependency_profile": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "baseline",
+        "grid",
+        "random",
+        "quasi_random",
+        "tpe",
+        "successive_halving",
+        "hyperband",
+        "evolutionary",
+        "multi_objective"
+      ]
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "native": {
+      "type": "boolean"
+    },
+    "supports_constraints": {
+      "type": "boolean"
+    },
+    "supports_multi_objective": {
+      "type": "boolean"
+    },
+    "supports_pruning": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "adapter_id",
+    "adapter_version",
+    "kind",
+    "native",
+    "deterministic",
+    "supports_constraints",
+    "supports_multi_objective",
+    "supports_pruning",
+    "dependency_profile",
+    "limitations"
+  ],
+  "title": "Experiment Search Adapter Descriptor",
+  "type": "object"
+}

@@ -1,0 +1,199 @@
+{
+  "baseline_first": true,
+  "budget": {
+    "budget_id": "uce_i11_golden_budget",
+    "budget_version": "1.0.0",
+    "cpu_slots": 2,
+    "fail_closed": true,
+    "gpu_slots": 0,
+    "max_artifact_bytes": 268435456,
+    "max_candidates": 4,
+    "max_folds": 2,
+    "max_memory_mb": 2048,
+    "max_retries": 1,
+    "max_seeds": 2,
+    "max_total_wall_seconds": 300.0,
+    "max_trial_wall_seconds": 30.0,
+    "max_trials": 12,
+    "per_candidate_trial_cap": 8,
+    "retain_failed_artifacts": true
+  },
+  "calibration_kinds": [
+    "none",
+    "platt"
+  ],
+  "candidates": [
+    {
+      "baseline": true,
+      "blockers": [],
+      "candidate_key": "uce.classical.logistic",
+      "candidate_version": "1.0.0",
+      "capability_flags": {
+        "deterministic": true,
+        "exportable": true
+      },
+      "decision": "accept",
+      "estimated_memory_mb": 128,
+      "estimated_wall_seconds": 5.0,
+      "evidence_hash": "1fde555b892d79d0d5e183db442a485ee13d87968321b92355a36de12ef3794f",
+      "family": "classical",
+      "requires_gpu": false,
+      "trainer_key": "uce.classical.logistic_ridge@1.0.0",
+      "warnings": []
+    },
+    {
+      "baseline": false,
+      "blockers": [],
+      "candidate_key": "uce.deep.temporal_conv",
+      "candidate_version": "1.0.0",
+      "capability_flags": {
+        "deterministic": true,
+        "exportable": true,
+        "known_time_audited": true
+      },
+      "decision": "warn",
+      "estimated_memory_mb": 512,
+      "estimated_wall_seconds": 10.0,
+      "evidence_hash": "7da0a071e658fcd5ad8006adeadf3c49e64f60e2f870dc3bb87009a1e8c21180",
+      "family": "deep_sequence",
+      "requires_gpu": false,
+      "trainer_key": "uce.deep.causal_temporal_conv_ridge@1.0.0",
+      "warnings": [
+        "latency_margin_narrow"
+      ]
+    },
+    {
+      "baseline": false,
+      "blockers": [
+        "future_perturbation_failed"
+      ],
+      "candidate_key": "uce.deep.rejected_graph",
+      "candidate_version": "1.0.0",
+      "capability_flags": {
+        "deterministic": false
+      },
+      "decision": "reject",
+      "estimated_memory_mb": 512,
+      "estimated_wall_seconds": 10.0,
+      "evidence_hash": "5bc8dec92f1b6fd1fd534b1c133b75ceef1d5b14b033e4fb9c1256dbe742ad7b",
+      "family": "deep_graph",
+      "requires_gpu": false,
+      "trainer_key": "uce.deep.graph@1.0.0",
+      "warnings": []
+    }
+  ],
+  "compiler_version": "1.0.0",
+  "dataset_id": "dataset_context_v3",
+  "dataset_manifest_hash": "5b4f24b3eb8f29c0e5f55e5c038fbeb213eb8a3fc53d64f07bf32c93afd26138",
+  "economics_plan_hash": "970a9730516129ced879bb092abf22555e320d993951b7ede6494bf61a611698",
+  "ensemble_kinds": [
+    "weighted_oof"
+  ],
+  "experiment_id": "uce_i11_golden_experiment",
+  "experiment_version": "1.0.0",
+  "export_requested": true,
+  "folds": [
+    "wf_00",
+    "wf_01"
+  ],
+  "hidden_test_role": "final_test",
+  "known_time_policy_hash": "b556e9c16e8278385e35af1f335ea5c42941a3de3fe744b2ef7ef3f578f33680",
+  "requested_roles": [
+    "train",
+    "validation"
+  ],
+  "scheduler_version": "1.0.0",
+  "search_plan": {
+    "baseline_parameters": {
+      "alpha": 0.01,
+      "depth": 1,
+      "loss": "logloss",
+      "use_bias": true
+    },
+    "eta": 3,
+    "kind": "quasi_random",
+    "max_resource": 9,
+    "max_trials": 3,
+    "min_resource": 1,
+    "objectives": [
+      {
+        "constraint_max": null,
+        "constraint_min": null,
+        "direction": "minimize",
+        "name": "validation_loss",
+        "weight": 1.0
+      },
+      {
+        "constraint_max": 25.0,
+        "constraint_min": null,
+        "direction": "minimize",
+        "name": "latency_ms",
+        "weight": 0.05
+      }
+    ],
+    "parameters": [
+      {
+        "behavior_changing": true,
+        "high": 0.1,
+        "kind": "float",
+        "log_scale": true,
+        "low": 0.0001,
+        "name": "alpha",
+        "step": null,
+        "values": []
+      },
+      {
+        "behavior_changing": true,
+        "high": 4,
+        "kind": "integer",
+        "log_scale": false,
+        "low": 1,
+        "name": "depth",
+        "step": 1,
+        "values": []
+      },
+      {
+        "behavior_changing": true,
+        "high": null,
+        "kind": "boolean",
+        "log_scale": false,
+        "low": null,
+        "name": "use_bias",
+        "step": null,
+        "values": [
+          false,
+          true
+        ]
+      },
+      {
+        "behavior_changing": true,
+        "high": null,
+        "kind": "categorical",
+        "log_scale": false,
+        "low": null,
+        "name": "loss",
+        "step": null,
+        "values": [
+          "logloss",
+          "brier"
+        ]
+      }
+    ],
+    "search_id": "uce_i11_golden_search",
+    "search_version": "1.0.0",
+    "seed": 17,
+    "warmup_trials": 3
+  },
+  "seeds": [
+    7,
+    19
+  ],
+  "split_plan_hash": "5affcae7f6fe408bc6b4f30d46a5aa688ce1b1216c518ca4c2424697798bca8d",
+  "split_plan_id": "walk_forward_v3",
+  "target_plan_hash": "2f8a95e017d919e25f096d5e161552086b1b6af67ce305264b6b40e496b86b66",
+  "threshold_kinds": [
+    "default",
+    "cost_optimal"
+  ],
+  "transform_plan_hash": "96fb21bf46aa14f8f4910f989d801a4342244386a98e37b446b1f64825318c94"
+}

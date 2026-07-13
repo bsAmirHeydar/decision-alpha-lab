@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_work_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Terminal result returned by an isolated scheduler worker.",
+  "properties": {
+    "artifact_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "artifact_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "elapsed_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "failure_code": {
+      "type": "string"
+    },
+    "failure_disposition": {
+      "enum": [
+        "retryable",
+        "terminal",
+        "quarantine"
+      ]
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "pruned",
+        "cancelled",
+        "quarantined",
+        "timed_out",
+        "cached"
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "metrics",
+    "artifact_hashes",
+    "elapsed_seconds",
+    "artifact_bytes",
+    "failure_code",
+    "failure_disposition"
+  ],
+  "title": "Experiment Work Result",
+  "type": "object"
+}

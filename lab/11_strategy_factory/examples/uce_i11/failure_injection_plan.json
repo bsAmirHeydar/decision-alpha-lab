@@ -1,0 +1,27 @@
+{
+  "scenarios": [
+    {
+      "attempt": 1,
+      "expected": "retry",
+      "id": "retryable_worker_failure",
+      "node_kind": "trial"
+    },
+    {
+      "elapsed_seconds": 999,
+      "expected": "timed_out",
+      "id": "trial_timeout",
+      "node_kind": "trial"
+    },
+    {
+      "artifact_kind": "predictions",
+      "expected": "refuse_cache",
+      "id": "cache_corruption"
+    },
+    {
+      "expected": "cancelled_and_descendants_skipped",
+      "id": "explicit_cancel",
+      "node_kind": "trial"
+    }
+  ],
+  "version": "1.0.0"
+}

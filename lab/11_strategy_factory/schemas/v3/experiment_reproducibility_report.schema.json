@@ -1,0 +1,100 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_reproducibility_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Declared-versus-executed reconciliation and rerun artifact parity evidence.",
+  "properties": {
+    "artifact_comparisons": {
+      "items": {
+        "$ref": "experiment_artifact_comparison.schema.json"
+      },
+      "type": "array"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "declared_trial_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event_stream_hash_actual": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_stream_hash_expected": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "executed_trial_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "rerun_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "selected_trial_ids_actual": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "selected_trial_ids_expected": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "report_id",
+    "manifest_hash",
+    "rerun_manifest_hash",
+    "declared_trial_count",
+    "executed_trial_count",
+    "selected_trial_ids_expected",
+    "selected_trial_ids_actual",
+    "artifact_comparisons",
+    "event_stream_hash_expected",
+    "event_stream_hash_actual",
+    "passed",
+    "blockers",
+    "warnings",
+    "report_hash"
+  ],
+  "title": "Experiment Reproducibility Report",
+  "type": "object"
+}

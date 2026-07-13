@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_objective_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Metric direction, weight, and hard feasibility constraints.",
+  "properties": {
+    "constraint_max": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "constraint_min": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "direction": {
+      "enum": [
+        "minimize",
+        "maximize"
+      ]
+    },
+    "name": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "weight": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "name",
+    "direction",
+    "weight",
+    "constraint_min",
+    "constraint_max"
+  ],
+  "title": "Experiment Objective Spec",
+  "type": "object"
+}

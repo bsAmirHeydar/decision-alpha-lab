@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_dag_node.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Immutable node in the compiled experiment DAG.",
+  "properties": {
+    "dependencies": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "enum": [
+        "dataset",
+        "split",
+        "transform",
+        "trainer",
+        "trial",
+        "fold",
+        "seed",
+        "calibration",
+        "threshold",
+        "ensemble",
+        "validation",
+        "report",
+        "export"
+      ]
+    },
+    "node_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "priority": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "resource_claim_hash": {
+      "pattern": "^$|^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "semantic_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "trial_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "node_id",
+    "kind",
+    "semantic_key",
+    "payload_hash",
+    "dependencies",
+    "priority",
+    "resource_claim_hash",
+    "trial_id"
+  ],
+  "title": "Experiment Dag Node",
+  "type": "object"
+}

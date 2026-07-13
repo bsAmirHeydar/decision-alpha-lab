@@ -1,0 +1,97 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_search_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Exact search strategy, seed, parameter universe, and objective contract.",
+  "properties": {
+    "baseline_parameters": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "eta": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "baseline",
+        "grid",
+        "random",
+        "quasi_random",
+        "tpe",
+        "successive_halving",
+        "hyperband",
+        "evolutionary",
+        "multi_objective"
+      ]
+    },
+    "max_resource": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_trials": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "min_resource": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "objectives": {
+      "items": {
+        "$ref": "experiment_objective_spec.schema.json"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "parameters": {
+      "items": {
+        "$ref": "experiment_parameter_spec.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "search_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "search_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "warmup_trials": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "search_id",
+    "search_version",
+    "kind",
+    "parameters",
+    "max_trials",
+    "seed",
+    "objectives",
+    "baseline_parameters",
+    "eta",
+    "min_resource",
+    "max_resource",
+    "warmup_trials"
+  ],
+  "title": "Experiment Search Plan",
+  "type": "object"
+}

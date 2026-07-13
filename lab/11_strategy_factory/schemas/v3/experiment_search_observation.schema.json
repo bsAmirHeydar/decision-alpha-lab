@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_search_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Completed-trial evidence consumed by adaptive search adapters.",
+  "properties": {
+    "completed_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "feasible": {
+      "type": "boolean"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "parameter_values": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null"
+        ]
+      },
+      "type": "object"
+    },
+    "resource_level": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "parameter_values",
+    "metrics",
+    "feasible",
+    "resource_level",
+    "completed_sequence"
+  ],
+  "title": "Experiment Search Observation",
+  "type": "object"
+}

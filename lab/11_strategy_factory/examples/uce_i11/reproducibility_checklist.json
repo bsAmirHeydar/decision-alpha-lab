@@ -1,0 +1,10 @@
+{
+  "required": [
+    "manifest_semantic_hash_equal",
+    "declared_executed_trial_count_equal",
+    "selected_trial_set_equal",
+    "event_stream_hash_equal",
+    "artifacts_within_declared_tolerance"
+  ],
+  "version": "1.0.0"
+}

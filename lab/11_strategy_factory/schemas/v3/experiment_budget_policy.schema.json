@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_budget_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Hard trial, time, memory, CPU/GPU, seed, fold, candidate, and retention ceilings.",
+  "properties": {
+    "budget_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "budget_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "cpu_slots": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "gpu_slots": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_artifact_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_candidates": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_folds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_memory_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_retries": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_seeds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_total_wall_seconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "max_trial_wall_seconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "max_trials": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "per_candidate_trial_cap": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "retain_failed_artifacts": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budget_id",
+    "budget_version",
+    "max_trials",
+    "max_total_wall_seconds",
+    "max_trial_wall_seconds",
+    "max_memory_mb",
+    "cpu_slots",
+    "gpu_slots",
+    "max_retries",
+    "max_artifact_bytes",
+    "max_seeds",
+    "max_folds",
+    "max_candidates",
+    "per_candidate_trial_cap",
+    "retain_failed_artifacts",
+    "fail_closed"
+  ],
+  "title": "Experiment Budget Policy",
+  "type": "object"
+}

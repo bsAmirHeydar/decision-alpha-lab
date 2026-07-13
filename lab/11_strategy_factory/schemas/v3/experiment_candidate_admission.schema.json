@@ -1,0 +1,89 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_candidate_admission.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "UCE-I10 admission evidence projected into the UCE-I11 scheduling boundary.",
+  "properties": {
+    "baseline": {
+      "type": "boolean"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "candidate_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "candidate_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "capability_flags": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "type": "object"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "estimated_memory_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "estimated_wall_seconds": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "family": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "requires_gpu": {
+      "type": "boolean"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "candidate_key",
+    "candidate_version",
+    "family",
+    "trainer_key",
+    "decision",
+    "evidence_hash",
+    "baseline",
+    "warnings",
+    "blockers",
+    "capability_flags",
+    "estimated_memory_mb",
+    "estimated_wall_seconds",
+    "requires_gpu"
+  ],
+  "title": "Experiment Candidate Admission",
+  "type": "object"
+}

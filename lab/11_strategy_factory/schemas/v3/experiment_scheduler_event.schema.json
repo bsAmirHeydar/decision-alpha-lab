@@ -1,0 +1,104 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_scheduler_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Append-only scheduler transition event.",
+  "properties": {
+    "attempt": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "event_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "plan",
+        "ready",
+        "claim",
+        "start",
+        "heartbeat",
+        "complete",
+        "fail",
+        "retry",
+        "timeout",
+        "cancel",
+        "quarantine",
+        "cache_hit",
+        "resume",
+        "skip"
+      ]
+    },
+    "node_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status_after": {
+      "enum": [
+        "planned",
+        "ready",
+        "running",
+        "succeeded",
+        "failed",
+        "pruned",
+        "skipped",
+        "cancelled",
+        "quarantined",
+        "timed_out",
+        "cached",
+        "invalid"
+      ]
+    },
+    "status_before": {
+      "enum": [
+        "planned",
+        "ready",
+        "running",
+        "succeeded",
+        "failed",
+        "pruned",
+        "skipped",
+        "cancelled",
+        "quarantined",
+        "timed_out",
+        "cached",
+        "invalid"
+      ]
+    },
+    "trial_id": {
+      "type": "string"
+    },
+    "worker_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "sequence",
+    "node_id",
+    "trial_id",
+    "kind",
+    "status_before",
+    "status_after",
+    "attempt",
+    "worker_id",
+    "payload_hash",
+    "reason_code"
+  ],
+  "title": "Experiment Scheduler Event",
+  "type": "object"
+}

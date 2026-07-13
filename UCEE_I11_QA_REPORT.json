@@ -1,0 +1,78 @@
+{
+  "acceptance_gates": {
+    "baseline_first_priority_is_deterministic": "pass",
+    "cache_requires_producer_schema_input_and_provenance_identity": "pass",
+    "declared_and_executed_counts_reconcile": "pass",
+    "failure_injection_respects_retry_timeout_cancel_and_quarantine": "pass",
+    "protected_final_test_roles_are_unreferenceable": "pass",
+    "rejected_candidates_are_evidence_only": "pass",
+    "reproducibility_audit_compares_manifest_events_selection_and_artifacts": "pass",
+    "resume_accepts_only_valid_succeeded_or_cached_snapshots": "pass",
+    "same_budget_seed_and_manifest_compile_to_identical_trial_universe": "pass",
+    "selection_ledger_is_hash_chained": "pass"
+  },
+  "engineering_policy": {
+    "checks_passed": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_on": "2026-07-13",
+  "implementation_metrics": {
+    "atomic_concepts": 7,
+    "delivery_notes": 33,
+    "example_artifacts": 5,
+    "mql5_files": 11,
+    "native_search_adapters": 9,
+    "phase_test_modules": 11,
+    "public_schemas": 24,
+    "python_modules": 18,
+    "search_adapters": 10,
+    "total_obisidian_notes": 40,
+    "trainer_or_search_optional_boundary_count": 1
+  },
+  "limitations": [
+    "The optional Optuna adapter requires a pinned external dependency and deterministic sampler/storage/worker settings.",
+    "Local process isolation is spawn-based and does not claim distributed-cluster fault tolerance.",
+    "Statistical multiplicity and anti-overfit acceptance remain the responsibility of UCE-I12."
+  ],
+  "metaeditor": {
+    "result": "pending_local_windows",
+    "statement": "MetaEditor is unavailable in this environment. MQL5 static checks passed, but static validation is not represented as compilation."
+  },
+  "next_phase": "UCE-I12 Statistical Anti-Overfit and Multiplicity Control",
+  "phase_id": "UCE-I11",
+  "quality_gates": {
+    "boundary_guard": "pass",
+    "closed_json_schemas": {
+      "count": 24,
+      "result": "pass"
+    },
+    "conformance_vectors": {
+      "manifest_hash": "4242cec7b5e8b7bd527bbd97794341ef5f9c22cabf454c3f1a9b8355e8a98be4",
+      "result": "pass"
+    },
+    "delivery_validation": "pass",
+    "mql5_static": {
+      "file_count": 11,
+      "result": "pass"
+    },
+    "python_compileall": "pass",
+    "zip_integrity": "pass"
+  },
+  "result": "pass_with_local_metaeditor_gate_pending",
+  "runtime_authority": "none",
+  "scope": "Experiment DAG, search, scheduling, budget governance, process isolation, ledger, cache, resume, and reproducibility evidence",
+  "tests": {
+    "cumulative_uce_i01_to_i11": {
+      "count": 290,
+      "pytest_import_mode": "importlib",
+      "result": "pass"
+    },
+    "phase": {
+      "count": 59,
+      "result": "pass"
+    }
+  },
+  "version": "1.0.0"
+}

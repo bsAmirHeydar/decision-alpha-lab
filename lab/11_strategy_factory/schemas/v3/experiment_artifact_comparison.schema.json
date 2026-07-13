@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_artifact_comparison.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Hash and numeric-tolerance comparison for one reproducibility artifact.",
+  "properties": {
+    "actual_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "artifact_name": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    },
+    "expected_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "max_abs_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "tolerance": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "within_tolerance": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_name",
+    "expected_hash",
+    "actual_hash",
+    "within_tolerance",
+    "max_abs_error",
+    "tolerance"
+  ],
+  "title": "Experiment Artifact Comparison",
+  "type": "object"
+}

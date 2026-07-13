@@ -1,0 +1,131 @@
+{
+  "descriptors": [
+    {
+      "adapter_id": "uce.search.baseline",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "baseline",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.evolutionary_reference",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "evolutionary",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.grid",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "grid",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.halton",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "quasi_random",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.hyperband",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "hyperband",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": true
+    },
+    {
+      "adapter_id": "uce.search.optuna_tpe_adapter",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "optuna>=4",
+      "deterministic": false,
+      "kind": "tpe",
+      "limitations": [
+        "determinism requires pinned dependency, sampler, storage, and worker count"
+      ],
+      "native": false,
+      "supports_constraints": true,
+      "supports_multi_objective": true,
+      "supports_pruning": true
+    },
+    {
+      "adapter_id": "uce.search.pareto",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "multi_objective",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": true,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.random",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "random",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    },
+    {
+      "adapter_id": "uce.search.successive_halving",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "successive_halving",
+      "limitations": [],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": true
+    },
+    {
+      "adapter_id": "uce.search.tpe_reference",
+      "adapter_version": "1.0.0",
+      "dependency_profile": "",
+      "deterministic": true,
+      "kind": "tpe",
+      "limitations": [
+        "native reference uses a lightweight deterministic density ratio"
+      ],
+      "native": true,
+      "supports_constraints": true,
+      "supports_multi_objective": false,
+      "supports_pruning": false
+    }
+  ],
+  "evidence_hash": "37073dd249bea3af2d2197e8a08685a3ce0939fdb973989a318561abff40aa1b",
+  "frozen": true,
+  "snapshot_id": "ucesearchreg_c69978c7325352b8b185c9ac"
+}

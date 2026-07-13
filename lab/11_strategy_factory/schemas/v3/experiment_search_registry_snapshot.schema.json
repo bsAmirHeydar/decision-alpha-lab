@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/experiment_search_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Frozen search adapter registry snapshot.",
+  "properties": {
+    "descriptors": {
+      "items": {
+        "$ref": "experiment_search_adapter_descriptor.schema.json"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "descriptors",
+    "frozen",
+    "evidence_hash"
+  ],
+  "title": "Experiment Search Registry Snapshot",
+  "type": "object"
+}
