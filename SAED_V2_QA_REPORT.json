@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "additive_boundary": {
+      "passed": true,
+      "unexpected_paths": []
+    },
+    "adr_count": 13,
+    "deep_design_count": 33,
+    "frontmatter": {
+      "errors": [],
+      "markdown_files": 254,
+      "passed": true
+    },
+    "json_schema_parse": {
+      "files": 16,
+      "json_errors": [],
+      "passed": true,
+      "schema_errors": []
+    },
+    "machine_contract_count": 26,
+    "markdown_lines": 20341,
+    "runbook_count": 12,
+    "schema_count": 15,
+    "semantic_coverage": {
+      "missing_terms": [],
+      "passed": true
+    },
+    "ucee_i01_i18_coverage": {
+      "missing": [],
+      "passed": true
+    },
+    "unique_titles": {
+      "duplicates": {},
+      "passed": true
+    },
+    "wikilinks": {
+      "broken": [],
+      "passed": true
+    },
+    "yaml_parse": {
+      "errors": [],
+      "files": 26,
+      "passed": true
+    }
+  },
+  "explicit_non_claims": [
+    "trainer_platform_implemented",
+    "actual_metaeditor_compile_completed",
+    "real_prospective_edge_proven",
+    "production_or_live_authorized"
+  ],
+  "file_index_count": 306,
+  "generated_at": "2026-07-13T14:41:05.532929+00:00",
+  "package_version": "2.0.0",
+  "schema_version": "saed.qa-report.v2",
+  "scope": "additive documentation, contracts, schemas, runbooks and governance only",
+  "status": "pass"
+}

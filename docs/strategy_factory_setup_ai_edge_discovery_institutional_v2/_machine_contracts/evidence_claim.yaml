@@ -1,0 +1,31 @@
+schema_version: saed.evidence-claim.v2
+claim_id: CLAIM_REFERENCE
+subject_artifact_hash: REQUIRED
+predicate: incremental_utility_positive
+value: null
+evidence_class: selection_validation
+scope:
+  contexts:
+  - REQUIRED
+  symbols:
+  - REQUIRED
+  regimes:
+  - REQUIRED
+  payoff_profiles:
+  - REQUIRED
+support_and_uncertainty:
+  point_estimate: null
+  interval: null
+  calibration_status: REQUIRED
+  support_status: REQUIRED
+sources:
+- REQUIRED_ARTIFACT_HASH
+assumptions:
+- REQUIRED
+invalidated_by:
+- future_suffix_leakage
+- critical_execution_mismatch
+- expired_scope
+owner: REQUIRED
+reviewer: REQUIRED
+status: proposed

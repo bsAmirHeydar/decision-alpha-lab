@@ -1,0 +1,21 @@
+schema_version: saed.runtime-handoff.v2
+binds:
+- ucee_i12_signed_admission
+- feature_order_hash
+- preprocessing_hash
+- model_hash
+- calibration_hash
+- policy_graph_hash
+- treatment_state_machine_hash
+- risk_contract_hash
+- monitoring_contract_hash
+- rollback_generation
+authorities:
+  order: false
+  broker: false
+  network: false
+requires:
+- python_export_mql5_parity
+- partial_bundle_fail_closed
+- restart_deduplication
+- fallback_conformance

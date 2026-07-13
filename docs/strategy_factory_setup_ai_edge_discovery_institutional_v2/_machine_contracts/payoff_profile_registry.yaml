@@ -1,0 +1,33 @@
+schema_version: saed.payoff-registry.v2
+profiles:
+- id: P1_WIDE_SURVIVAL_HIGH_HIT_FIXED
+  objective: maximize_calibrated_hit_rate
+  hard_constraints:
+    net_reward_r_gte: 1.0
+    tail_risk: bounded
+    capital_occupancy: bounded
+  path_dependent: false
+- id: P2_TIGHT_CONVEX_FIXED
+  objective: maximize_right_tail_expected_utility
+  hard_constraints:
+    loss: tight_trigger_invalidation
+    best_trade_dependency: challenged
+  path_dependent: false
+- id: P3_TIGHT_CONVEX_TRAIL
+  objective: maximize_robust_tail_capture
+  hard_constraints:
+    trail_parity: true
+    path_resolution: qualified
+  path_dependent: true
+- id: P4_WIDE_SURVIVAL_OPEN_TRAIL
+  objective: maximize_trend_capture_per_capital_time
+  hard_constraints:
+    regime_support: true
+    time_underwater: bounded
+  path_dependent: true
+- id: P5_TIGHT_PRECISION_HIGH_HIT_FIXED
+  objective: maximize_calibrated_precision
+  hard_constraints:
+    net_reward_r_gte: 1.0
+    execution_stress: pass
+  path_dependent: false

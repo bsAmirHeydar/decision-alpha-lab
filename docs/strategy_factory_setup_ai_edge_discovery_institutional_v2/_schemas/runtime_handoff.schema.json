@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Runtime Handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "admission_hash",
+    "component_hashes",
+    "parity_certificate_hash",
+    "authority"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.runtime-handoff.v2"
+    },
+    "admission_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "component_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "parity_certificate_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "order",
+        "broker",
+        "network"
+      ],
+      "properties": {
+        "order": {
+          "const": false
+        },
+        "broker": {
+          "const": false
+        },
+        "network": {
+          "const": false
+        }
+      }
+    }
+  }
+}

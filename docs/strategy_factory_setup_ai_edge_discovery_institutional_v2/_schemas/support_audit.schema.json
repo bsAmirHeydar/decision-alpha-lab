@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Support Audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "occurrence_id",
+    "candidate_id",
+    "in_support",
+    "reasons",
+    "fallback"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.support-audit.v2"
+    },
+    "occurrence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "in_support": {
+      "type": "boolean"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "fallback": {
+      "enum": [
+        "manual",
+        "simpler_model",
+        "skip",
+        "reject"
+      ]
+    },
+    "novelty_score": {
+      "type": "number"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_tools": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "promotion": {
+          "const": false
+        },
+        "release": {
+          "const": false
+        },
+        "trading": {
+          "const": false
+        }
+      },
+      "required": [
+        "promotion",
+        "trading",
+        "release"
+      ],
+      "type": "object"
+    },
+    "budget": {
+      "additionalProperties": false,
+      "properties": {
+        "compute_minutes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tool_calls": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tool_calls",
+        "compute_minutes"
+      ],
+      "type": "object"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "forbidden_actions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "input_artifact_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "objective": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "saed.agent-task-envelope.v2"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "running",
+        "completed",
+        "failed",
+        "revoked",
+        "expired"
+      ]
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "write_scope": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "expires_at",
+    "objective",
+    "input_artifact_hashes",
+    "allowed_tools",
+    "forbidden_actions",
+    "write_scope",
+    "budget",
+    "verification",
+    "authority"
+  ],
+  "title": "SAED Agent Task Envelope",
+  "type": "object"
+}

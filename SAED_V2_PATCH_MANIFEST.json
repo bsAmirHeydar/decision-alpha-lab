@@ -1,0 +1,37 @@
+{
+  "archive_name": "decision-alpha-lab-setup-ai-edge-discovery-institutional-v2.0.0.zip",
+  "artifact_inventory": "SAED_V2_ARTIFACT_INVENTORY.csv",
+  "capability_boundaries": {
+    "agents": "no_promotion_no_trading",
+    "foundation_models": "challenger_only",
+    "offline_rl": "finite_action_research_only",
+    "production": "requires_actual_UCEE_I18_evidence",
+    "world_models": "research_only"
+  },
+  "compatibility": {
+    "authority_added": false,
+    "modifies_core_engine": false,
+    "upstream": "UCEE I01–I18"
+  },
+  "contents": {
+    "adrs": 13,
+    "canvas": 1,
+    "deep_blueprints": 33,
+    "json_schemas": 15,
+    "markdown_lines": 20341,
+    "markdown_notes": 254,
+    "runbooks": 12,
+    "yaml_contracts": 26
+  },
+  "created_at": "2026-07-13T14:41:05.533124+00:00",
+  "file_count": 306,
+  "file_index": "SAED_V2_FILE_INDEX.txt",
+  "hash_ledger": "SAED_V2_FILE_HASHES.sha256",
+  "obsidian_home": "docs/strategy_factory_setup_ai_edge_discovery_institutional_v2/00_START_HERE/00_Home.md",
+  "package_name": "decision-alpha-lab-setup-ai-edge-discovery-institutional-v2",
+  "qa_report": "SAED_V2_QA_REPORT.json",
+  "root_documentation": "README_SETUP_AI_EDGE_DISCOVERY_INSTITUTIONAL_V2.md",
+  "schema_version": "saed.patch-manifest.v2",
+  "status": "pass",
+  "version": "2.0.0"
+}

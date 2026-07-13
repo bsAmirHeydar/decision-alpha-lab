@@ -1,0 +1,24 @@
+schema_version: saed.conformal-control-policy.v2
+policy_id: CONFORMAL_REFERENCE
+status: proposed
+target: decision_selectivity_and_risk
+calibration_role: calibration
+exchangeability_scope: declared_and_monitored
+methods:
+- split_conformal
+- cluster_aware_conformal
+- weighted_or_adaptive_challenger
+- conformal_risk_control
+- selective_prediction
+outputs:
+- prediction_set_or_interval
+- risk_upper_bound
+- coverage_flag
+- abstention_directive
+failure_actions:
+  coverage_break: abstain_or_manual
+  support_break: reject
+  calibration_stale: quarantine
+prohibited_claims:
+- distribution_free_under_unchecked_nonstationarity
+- coverage_guarantee_outside_declared_scope

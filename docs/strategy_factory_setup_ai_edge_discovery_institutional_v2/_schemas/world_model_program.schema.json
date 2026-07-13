@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "type": "string"
+    },
+    "capability_tier": {
+      "const": "research_only"
+    },
+    "evidence_label": {
+      "const": "synthetic_research_only"
+    },
+    "forbidden_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "permitted_uses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prohibited_uses": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "saed.world-model-program.v2"
+    },
+    "state_contract": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "research_only",
+        "challenged",
+        "rejected",
+        "retired"
+      ]
+    },
+    "training_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "status",
+    "capability_tier",
+    "state_contract",
+    "actions",
+    "training_roles",
+    "forbidden_roles",
+    "permitted_uses",
+    "prohibited_uses",
+    "validation",
+    "evidence_label"
+  ],
+  "title": "SAED World Model Program",
+  "type": "object"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Model Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "model_id",
+    "model_version",
+    "capability_tier",
+    "task",
+    "artifact_hash",
+    "data_roles",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.model-card.v2"
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_tier": {
+      "enum": [
+        "A_CORE_PRODUCTION",
+        "B_GOVERNED_CHALLENGER",
+        "C_RESEARCH_ONLY"
+      ]
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "runtime_exportable": {
+      "type": "boolean"
+    }
+  }
+}

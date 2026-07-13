@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assumptions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "exploration",
+        "training",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective_paper",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_research_only"
+      ]
+    },
+    "invalidated_by": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "predicate": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "saed.evidence-claim.v2"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "contexts": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "payoff_profiles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "regimes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "symbols": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "contexts",
+        "symbols",
+        "regimes",
+        "payoff_profiles"
+      ],
+      "type": "object"
+    },
+    "sources": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "accepted",
+        "challenged",
+        "invalidated",
+        "retired"
+      ]
+    },
+    "subject_artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "support_and_uncertainty": {
+      "type": "object"
+    },
+    "value": {}
+  },
+  "required": [
+    "schema_version",
+    "claim_id",
+    "subject_artifact_hash",
+    "predicate",
+    "evidence_class",
+    "scope",
+    "sources",
+    "assumptions",
+    "owner",
+    "reviewer",
+    "status"
+  ],
+  "title": "SAED Evidence Claim",
+  "type": "object"
+}

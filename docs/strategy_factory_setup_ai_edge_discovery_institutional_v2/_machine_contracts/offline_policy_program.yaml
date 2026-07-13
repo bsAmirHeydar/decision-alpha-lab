@@ -1,0 +1,25 @@
+schema_version: saed.offline-policy-program.v2
+program_id: OPL_REFERENCE
+status: research_only
+capability_tier: research_only
+state: approved_context_and_support_features
+action_space: finite_approved_treatment_ids_plus_skip
+reward: versioned_bounded_utility
+algorithms:
+- behavior_cloning
+- conservative_q_learning
+- implicit_q_learning
+- sequence_policy_challenger
+required_controls:
+- behavior_support_model
+- safe_action_projection
+- off_policy_evaluation
+- uncertainty_penalty
+- manual_baseline
+- policy_value_lower_bound
+forbidden:
+- continuous_unbounded_orders
+- online_self_update
+- model_defined_risk_limits
+- synthetic_only_promotion
+handoff: research_report_only
