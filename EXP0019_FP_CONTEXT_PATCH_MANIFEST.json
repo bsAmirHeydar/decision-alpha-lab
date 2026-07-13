@@ -1,0 +1,15 @@
+{
+  "adr_count": 6,
+  "atomic_concept_count": 10,
+  "authority": "no-runtime-no-trading",
+  "context_id": "FP-CONTEXT-001",
+  "entrypoint": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/00_EXP0019_MOC.md",
+  "experiment_id": "EXP0019",
+  "file_index": "EXP0019_FP_CONTEXT_FILE_INDEX.txt",
+  "kind": "documentation-and-contracts-only",
+  "open_decision_count": 10,
+  "patch_id": "decision-alpha-lab-exp0019-faerie-protocol-context-docs",
+  "primary_notes": 38,
+  "source_files_read": 3,
+  "version": "1.0.0"
+}

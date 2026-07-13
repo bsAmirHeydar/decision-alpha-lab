@@ -1,0 +1,17 @@
+﻿trace_id,source_locator,statement,authority,canonical_docs
+FP-SRC-001,P006-P008;P033-P035,A/L/N windows,owner-confirmed,07_TIME_AND_DST_CONTRACT.md;08_TRADING_DAY_AND_SESSION_CALENDAR.md
+FP-SRC-002,P013-P016;P040-P043,seven relations AL AN LN NA NL NN WW,owner-confirmed,10_SIGNAL_TAXONOMY_AND_RELATION_REGISTRY.md
+FP-SRC-003,P024-P029,symbol-local touch divergence and NY time,owner-confirmed,09_SYMBOL_PAIR_AND_ROLE_MODEL.md;15_HUNT_TOUCH_AND_FIRST_SWEEP_CONTRACT.md
+FP-SRC-004,P047-P053,relation semantics,owner-confirmed,11_AL_AN_LN_SAME_DAY_RELATIONSHIPS.md;12_NA_NL_NN_CROSS_DAY_RELATIONSHIPS.md;13_WW_WEEKLY_CONTEXT_RELATION.md
+FP-SRC-005,P056-P060,closed-candle confirmation and no transient intrabar signal,owner-confirmed,17_DIVERGENCE_CANDIDATE_CONFIRMATION_INVALIDATION.md;18_CLOSED_CANDLE_PROJECTION.md
+FP-SRC-006,P064-P074,trend-line labels/colors and inputs,owner-confirmed,22_DRAWING_AND_SESSION_BOX_CONTRACT.md;26_INPUTS_AND_CONFIGURATION_CONTRACT.md
+FP-SRC-007,P077-P090,multiple simultaneous divergences and session boxes,owner-confirmed,22_DRAWING_AND_SESSION_BOX_CONTRACT.md
+FP-SRC-008,P093-P095,"N lookback, missing history, first sweep",owner-confirmed-with-ambiguity,12_NA_NL_NN_CROSS_DAY_RELATIONSHIPS.md;16_REFERENCE_FRESHNESS_CONSUMPTION_LIFECYCLE.md;31_DATA_GAPS_EXPIRY_WEEKENDS.md
+FP-SRC-009,P101-P113,auto DST and manual offset,owner-confirmed,07_TIME_AND_DST_CONTRACT.md
+FP-SRC-010,P115-P117,"protected-level consumption, repeated stages, lookback weeks, per-relation inputs",owner-confirmed-with-ambiguity,16_REFERENCE_FRESHNESS_CONSUMPTION_LIFECYCLE.md;26_INPUTS_AND_CONFIGURATION_CONTRACT.md
+FP-SRC-011,P119-P123,"WW, entry on protected symbol, session quota, weekly gate, RR and risk",owner-confirmed-with-open-scope,13_WW_WEEKLY_CONTEXT_RELATION.md;19_WEEKLY_DIRECTIONAL_GATE.md;20_ENTRY_ENTITLEMENT_AND_SESSION_QUOTA.md;21_EXECUTION_RISK_STOP_TARGET_CONTRACT.md
+FP-CODE-001,FP 101.mq5:69-137,40 legacy inputs,legacy-implemented,29_LEGACY_FP101_CODE_AUDIT.md
+FP-CODE-002,FP 101.mq5:204-303,legacy DST/session windows,legacy-implemented-with-defect,07_TIME_AND_DST_CONTRACT.md;29_LEGACY_FP101_CODE_AUDIT.md
+FP-CODE-003,FP 101.mq5:308-390,PERIOD_CURRENT sweep/range/extreme,legacy-implemented-not-canonical,14_REFERENCE_FIELD_CONTRACT.md;15_HUNT_TOUCH_AND_FIRST_SWEEP_CONTRACT.md;29_LEGACY_FP101_CODE_AUDIT.md
+FP-CODE-004,FP 101.mq5:502-599,six-relation detection and relative D/K names,legacy-implemented-incomplete,10_SIGNAL_TAXONOMY_AND_RELATION_REGISTRY.md;23_SIGNAL_IDENTITY_DEDUP_AND_LEDGER.md
+FP-CODE-005,FP 101.mq5:710-752,timer/new-bar orchestration,legacy-implemented-not-scalable,30_PERFORMANCE_INCREMENTAL_RUNTIME.md

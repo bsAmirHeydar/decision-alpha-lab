@@ -1,0 +1,49 @@
+{
+  "context_id": "FP-CONTEXT-001",
+  "version": "1.0.0",
+  "naming": "reference_then_check",
+  "relations": [
+    {
+      "code": "AL",
+      "reference": "A:same_day",
+      "check": "L:same_day",
+      "scope": "same_day"
+    },
+    {
+      "code": "AN",
+      "reference": "A:same_day",
+      "check": "N:same_day",
+      "scope": "same_day"
+    },
+    {
+      "code": "LN",
+      "reference": "L:same_day",
+      "check": "N:same_day",
+      "scope": "same_day"
+    },
+    {
+      "code": "NA",
+      "reference": "N:historical",
+      "check": "A:current_day",
+      "scope": "cross_day"
+    },
+    {
+      "code": "NL",
+      "reference": "N:historical",
+      "check": "L:current_day",
+      "scope": "cross_day"
+    },
+    {
+      "code": "NN",
+      "reference": "N:historical",
+      "check": "N:current_day",
+      "scope": "cross_day"
+    },
+    {
+      "code": "WW",
+      "reference": "W:previous",
+      "check": "W:current",
+      "scope": "weekly"
+    }
+  ]
+}

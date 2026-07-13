@@ -1,0 +1,41 @@
+﻿line,group,type,name,default,comment
+69,=== نمادها ===,string,InpSymbol1,"""SPXUSD""",نماد اول (پیش‌فرض)
+70,=== نمادها ===,string,InpSymbol2,"""NDXUSD""",نماد دوم (پیش‌فرض)
+73,=== زمان ===,double,InpBrokerUTCOffset,3.0,افست UTC سرور بروکر (مثلا UTC+3 => 3.0)
+80,=== زمان ===,ENUM_NY_OFFSET_MODE,InpNYOffsetMode,NY_AUTO_DST,حالت افست نیویورک
+81,=== زمان ===,double,InpManualNYOffset,-5.0,افست دستی نیویورک نسبت به UTC (فقط در حالت Manual)
+84,=== ظاهر مشترک خطوط ===,int,InpDivLineWidth,2,عرض خط واگرایی (مشترک بین همه سیگنال‌ها)
+85,=== ظاهر مشترک خطوط ===,bool,InpShowLabel,true,نمایش متن نام سیگنال روی وسط خط
+86,=== ظاهر مشترک خطوط ===,int,InpLabelFontSize,8,اندازه‌ی فونت متن روی خط
+89,=== باکس سشن‌ها ===,bool,InpDrawSessionBoxes,true,رسم باکس سه سایکل
+90,=== باکس سشن‌ها ===,color,InpBoxColorA,"C'20,35,90'",باکس A  18:00-03:59:59  (آبی تیره)
+91,=== باکس سشن‌ها ===,color,InpBoxColorL,"C'57,255,20'",باکس L  04:00-09:29:59  (سبز فسفری)
+92,=== باکس سشن‌ها ===,color,InpBoxColorN,clrOrange,باکس N  09:30-16:59:59  (نارنجی)
+95,=== تاریخچه / بازه‌ی رسم ===,int,InpLookbackWeeks,2,چند هفته‌ی گذشته همه‌ی drawing ها (خط‌ها + باکس‌ها) رسم شود (هر هفته = 7 روز)
+96,=== تاریخچه / بازه‌ی رسم ===,int,InpNSessionLookbackDays,7,تعداد روزهای گذشته برای مرجع N در سیگنال‌های NA/NL/NN (نسبت به هر روزِ چک)
+99,=== سایر ===,bool,InpClearDrawingsOnInit,false,پاک‌کردن آبجکت‌های قبلی این اکسپرت هنگام شروع
+100,=== سایر ===,int,InpTimerSeconds,5,فاصله بروزرسانی (ثانیه)
+104,--- AL ---,bool,InpEnable_AL,true,
+105,--- AL ---,color,InpTrendColor_AL,clrYellow,
+106,--- AL ---,color,InpTextColor_AL,clrWhite,
+107,--- AL ---,string,InpLabelText_AL,"""AL""",
+110,--- AN ---,bool,InpEnable_AN,true,
+111,--- AN ---,color,InpTrendColor_AN,clrAqua,
+112,--- AN ---,color,InpTextColor_AN,clrWhite,
+113,--- AN ---,string,InpLabelText_AN,"""AN""",
+116,--- LN ---,bool,InpEnable_LN,true,
+117,--- LN ---,color,InpTrendColor_LN,clrMagenta,
+118,--- LN ---,color,InpTextColor_LN,clrWhite,
+119,--- LN ---,string,InpLabelText_LN,"""LN""",
+122,--- NA ---,bool,InpEnable_NA,true,
+123,--- NA ---,color,InpTrendColor_NA,clrLime,
+124,--- NA ---,color,InpTextColor_NA,clrWhite,
+125,--- NA ---,string,InpLabelText_NA,"""NA""",
+128,--- NL ---,bool,InpEnable_NL,true,
+129,--- NL ---,color,InpTrendColor_NL,clrOrange,
+130,--- NL ---,color,InpTextColor_NL,clrWhite,
+131,--- NL ---,string,InpLabelText_NL,"""NL""",
+134,--- NN ---,bool,InpEnable_NN,true,
+135,--- NN ---,color,InpTrendColor_NN,clrDeepSkyBlue,
+136,--- NN ---,color,InpTextColor_NN,clrWhite,
+137,--- NN ---,string,InpLabelText_NN,"""NN""",

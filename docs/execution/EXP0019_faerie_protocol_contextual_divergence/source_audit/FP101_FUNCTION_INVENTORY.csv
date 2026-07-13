@@ -1,0 +1,32 @@
+﻿line,return_type,name,signature
+150,string,CycleName,string CycleName(ENUM_CYCLE c)
+190,void,FillSignalSettings,void FillSignalSettings()
+204,int,GetWeekdayOf,"int GetWeekdayOf(int year, int mon, int day)"
+216,datetime,GetNthSundayUTC,"datetime GetNthSundayUTC(int year, int month, int nth)"
+228,double,NYOffsetForUTC,double NYOffsetForUTC(datetime utcTime)
+245,datetime,BrokerToUTC,datetime BrokerToUTC(datetime brokerT)
+250,datetime,UTCToBroker,datetime UTCToBroker(datetime utcT)
+257,datetime,GetDayAnchorUTC,datetime GetDayAnchorUTC(int daysBack)
+285,void,GetCycleOffsets,"void GetCycleOffsets(ENUM_CYCLE c, long &offStart, long &offEnd)"
+296,void,GetCycleWindow,"void GetCycleWindow(int daysBack, ENUM_CYCLE c, datetime &startBroker, datetime &endBroker)"
+308,bool,FindFirstSweep,"bool FindFirstSweep(string symbol, datetime start, datetime end, double refLevel, bool checkHigh,"
+337,bool,LevelAlreadyBroken,"bool LevelAlreadyBroken(string symbol, datetime refEnd, datetime winStart, double level, bool checkHigh)"
+344,double,HighestLowestInRange,"double HighestLowestInRange(string symbol, datetime start, datetime end, bool high)"
+370,datetime,FindExtremeTime,"datetime FindExtremeTime(string symbol, datetime start, datetime end, double level, bool high)"
+392,bool,BoxRange,"bool BoxRange(string symbol, datetime start, datetime end, double &hi, double &lo)"
+419,void,DrawDivLine,"void DrawDivLine(long chartId, string baseName, datetime t1, double p1, datetime t2, double p2,"
+462,void,DrawCycleBox,"void DrawCycleBox(long chartId, string symbol, int daysBack, ENUM_CYCLE cyc, color clr)"
+502,void,CheckOneDirection,"void CheckOneDirection(int sigIndex, datetime refStart, datetime refEnd,"
+534,void,ProcessDivergencePair,"void ProcessDivergencePair(int sigIndex, datetime refStart, datetime refEnd,"
+552,int,TotalHistoryDays,int TotalHistoryDays()
+559,void,ProcessAllSignals,void ProcessAllSignals()
+601,void,UpdateSessionBoxes,void UpdateSessionBoxes()
+621,void,ProcessAll,void ProcessAll()
+630,long,OpenOrFindChart,long OpenOrFindChart(string symbol)
+651,void,InitSymbolsAndCharts,void InitSymbolsAndCharts()
+678,void,ClearObjectsOnChart,void ClearObjectsOnChart(long chartId)
+690,bool,EnsureHistorySynced,"bool EnsureHistorySynced(string symbol, int maxWaitMs = 5000)"
+710,int,OnInit,int OnInit()
+731,void,OnDeinit,void OnDeinit(const int reason)
+737,void,OnTick,void OnTick()
+748,void,OnTimer,void OnTimer()
