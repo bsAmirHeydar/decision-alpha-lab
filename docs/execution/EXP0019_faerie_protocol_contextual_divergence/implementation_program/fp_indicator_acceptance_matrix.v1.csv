@@ -1,0 +1,15 @@
+requirement_id,requirement,exit_phase,evidence
+IND-001,M1-only detection invariant,I13,golden replay hash
+IND-002,strict same-session confirmation,I13,boundary fixture
+IND-003,all seven relations visualized,I11,visual inventory
+IND-004,suppressed signals remain visible in audit mode,I11,projection fixture
+IND-005,WW newest-active resolution displayed,I11,WW fixture
+IND-006,pair-global first signal and quota status displayed,I12,panel fixture
+IND-007,alerts deduplicated by signal/type,I12,alert ledger
+IND-008,historical rebuild does not replay alerts,I12,restart fixture
+IND-009,same engine/IDs as diagnostic EA,I14,differential hash
+IND-010,timeframe change does not alter detection ledger,I13,multi-timeframe replay
+IND-011,multi-chart/instance object isolation,I13,object inventory
+IND-012,incremental/full replay parity,I13,event hash
+IND-013,restart parity,I13,checkpoint/rebuild hash
+IND-014,no order authority/imports,I10,static boundary check

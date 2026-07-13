@@ -1,0 +1,27 @@
+{
+  "authority_boundary": "documentation, implementation planning, contracts, registries, and QA only; no executable strategy code modified",
+  "complete_indicator_phases": [
+    "FP-I10",
+    "FP-I11",
+    "FP-I12",
+    "FP-I13"
+  ],
+  "context_id": "FP-CONTEXT-001",
+  "created_at_utc": "2026-07-13T00:00:00Z",
+  "diagnostic_ea_phase": "FP-I14",
+  "experiment_id": "EXP0019",
+  "file_count": 54,
+  "file_hashes": "EXP0019_FP_IMPLEMENTATION_PROGRAM_FILE_HASHES.sha256",
+  "file_index": "EXP0019_FP_IMPLEMENTATION_PROGRAM_FILE_INDEX.txt",
+  "indicator_acceptance_requirement_count": 14,
+  "live_blocker": "FP-DEC-012",
+  "live_execution_phase": "FP-I16",
+  "paper_execution_phase": "FP-I15",
+  "patch_id": "decision-alpha-lab-exp0019-faerie-protocol-implementation-program",
+  "patch_version": "1.0.0",
+  "phase_count": 17,
+  "planned_module_count": 23,
+  "qa_report": "EXP0019_FP_IMPLEMENTATION_PROGRAM_QA_REPORT.json",
+  "task_count": 83,
+  "title": "Detailed Faerie Protocol Implementation Program with Complete Indicator Delivery Path"
+}

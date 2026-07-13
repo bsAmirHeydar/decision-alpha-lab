@@ -94,6 +94,10 @@ Do not use for first-sweep ordering.
 Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
 
+## Program Handoff Order
+
+Developers must follow [[implementation_program/00_IMPLEMENTATION_PROGRAM_MOC|FP-IMP-001]]. The first production milestone is the complete indicator at FP-I13. Diagnostic and execution products begin only after indicator replay, restart, timeframe, and multi-instance parity are accepted.
+
 ## Navigation
 
 - [[00_EXP0019_MOC|EXP0019 Master MOC]]

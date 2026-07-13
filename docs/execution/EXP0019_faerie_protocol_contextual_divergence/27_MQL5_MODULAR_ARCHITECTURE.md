@@ -96,6 +96,10 @@ Fail closed.
 Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
 
+## Implementation Program Extension
+
+The exact planned file tree, composition boundaries, indicator modules, diagnostic EA, paper EA, and live adapter are normative in [[implementation_program/04_TARGET_REPOSITORY_AND_FILE_ARCHITECTURE|Target Repository and File Architecture]]. The indicator projection layer is a separate consumer of `FP_Engine`; it may not duplicate detection logic.
+
 ## Navigation
 
 - [[00_EXP0019_MOC|EXP0019 Master MOC]]

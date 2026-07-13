@@ -1,0 +1,19 @@
+{
+  "broken_local_links": 0,
+  "context_id": "FP-CONTEXT-001",
+  "documentation_only": true,
+  "executable_strategy_files_modified": false,
+  "experiment_id": "EXP0019",
+  "implementation_program_lines": 3828,
+  "implementation_program_markdown_files": 38,
+  "indicator_acceptance_requirement_count": 14,
+  "indicator_milestone": "FP-I13",
+  "live_blocker": "FP-DEC-012",
+  "patch_id": "decision-alpha-lab-exp0019-faerie-protocol-implementation-program",
+  "patch_version": "1.0.0",
+  "phase_count": 17,
+  "planned_module_count": 23,
+  "task_count": 83,
+  "validation": "PASS",
+  "windows_unsafe_filenames": 0
+}

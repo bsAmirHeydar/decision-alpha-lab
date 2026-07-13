@@ -85,6 +85,10 @@ language: en
 
 Canonical priority is: `OWNER_CONFIRMED` > `SOURCE_CONFIRMED` > reviewed `ARCHITECTURAL_DERIVATION` > `LEGACY_OBSERVATION`.
 
+## Complete Indicator Coding Gate
+
+The indicator is accepted only through FP-I10–FP-I13. It must use the shared context engine, render all semantic states, expose WW/quota/data health, support filters/alerts/export, and pass incremental/full replay, restart, timeframe-invariance, and multi-instance isolation tests. Paper execution cannot start before this gate. See [[implementation_program/07_COMPLETE_INDICATOR_PRODUCT_REQUIREMENTS|Complete Indicator Product Requirements]].
+
 ## Navigation
 
 - [[00_EXP0019_MOC|EXP0019 Master MOC]]

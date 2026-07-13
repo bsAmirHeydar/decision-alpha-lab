@@ -1,0 +1,24 @@
+module,layer,responsibility,available_from
+FP_All.mqh,composition,all stable FP modules,none
+FP_Enums.mqh,contracts,closed enums,all
+FP_Types.mqh,contracts,structs/value objects,all
+FP_Config.mqh,contracts,semantic/projection configuration,all
+FP_Identity.mqh,contracts,canonical identities/hashes,all
+FP_TimeAdapter.mqh,core adapter,NY time/DST mapping,I03+
+FP_SessionCalendar.mqh,context core,A/L/N/trading-day ownership,I03+
+FP_WeekCalendar.mqh,context core,NY week ownership,I03+
+FP_M1Synchronizer.mqh,data,two-symbol M1 sequencing,I04+
+FP_WindowStore.mqh,data/context,A/L/N/W aggregation,I05+
+FP_ReferenceEngine.mqh,context,symbol-local references/lifecycle,I05+
+FP_RelationRegistry.mqh,context,AL/AN/LN/NA/NL/NN/WW specs,I06+
+FP_CandidateEngine.mqh,context,hunt pairing and candidates,I06+
+FP_ConfirmationEngine.mqh,context,host-close confirmation,I07+
+FP_WWEngine.mqh,context,weekly detection/gate/stack,I08+
+FP_SignalLedger.mqh,evidence,append-only events/indexes,I09+
+FP_QuotaArbiter.mqh,policy,earliest-hunt/session reservation,I09+
+FP_IndicatorProjection.mqh,indicator,semantic-to-visual projection,I11+
+FP_IndicatorObjectManager.mqh,indicator,instance-safe objects/dirty set,I11+
+FP_IndicatorPanel.mqh,indicator,operator panel/filter state,I12+
+FP_AlertRouter.mqh,indicator,deduplicated alerts,I12+
+FP_AuditExporter.mqh,evidence,CSV/JSONL export,I12+
+FP_RiskAdapter.mqh,execution,stop/target/risk geometry,I15+

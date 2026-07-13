@@ -1,0 +1,147 @@
+{
+  "program_id": "FP-IMP-001",
+  "program_version": "1.0.0",
+  "experiment_id": "EXP0019",
+  "context_id": "FP-CONTEXT-001",
+  "indicator_milestone": "FP-I13",
+  "diagnostic_ea_milestone": "FP-I14",
+  "paper_milestone": "FP-I15",
+  "live_milestone": "FP-I16",
+  "live_blocker": "FP-DEC-012",
+  "phases": [
+    {
+      "phase_id": "FP-I00",
+      "title": "Governance, Baseline Freeze, and Source-Control Harness",
+      "depends_on": [],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I01",
+      "title": "Shared-Core Compatibility Harness and Adapter Contracts",
+      "depends_on": [
+        "FP-I00"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I02",
+      "title": "Contracts, Enums, Identity, Configuration, and Reason Codes",
+      "depends_on": [
+        "FP-I01"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I03",
+      "title": "New York Time, Trading-Day, Session, and Week Kernel",
+      "depends_on": [
+        "FP-I02"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I04",
+      "title": "Multi-Symbol M1 Synchronization, Coverage, and Data Revision",
+      "depends_on": [
+        "FP-I03"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I05",
+      "title": "Session/Week Window Store, Calendar-Day Selector, and Reference Engine",
+      "depends_on": [
+        "FP-I04"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I06",
+      "title": "Relation Compiler, Hunt Facts, First-Sweep Classification, and Candidates",
+      "depends_on": [
+        "FP-I05"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I07",
+      "title": "Host-Candle Confirmation, Strict Session Deadline, Invalidation, and Lifecycle",
+      "depends_on": [
+        "FP-I06"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I08",
+      "title": "Weekly WW Detection, Neutralization, Active Stack, and Directional Policy",
+      "depends_on": [
+        "FP-I07"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I09",
+      "title": "Signal Ledger, Deduplication, Pair-Session Arbitration, Checkpoints, and Restart",
+      "depends_on": [
+        "FP-I08"
+      ],
+      "product": "context_engine"
+    },
+    {
+      "phase_id": "FP-I10",
+      "title": "Complete Indicator Shell, Engine Composition, Health, and Machine-Readable Outputs",
+      "depends_on": [
+        "FP-I09"
+      ],
+      "product": "indicator"
+    },
+    {
+      "phase_id": "FP-I11",
+      "title": "Indicator Visual Projection: Sessions, References, Hunts, Signals, WW, and Suppression",
+      "depends_on": [
+        "FP-I10"
+      ],
+      "product": "indicator"
+    },
+    {
+      "phase_id": "FP-I12",
+      "title": "Indicator Panel, Filters, Alerts, Audit Export, and Operator UX",
+      "depends_on": [
+        "FP-I11"
+      ],
+      "product": "indicator"
+    },
+    {
+      "phase_id": "FP-I13",
+      "title": "Indicator Historical Replay, Incremental Performance, Multi-Chart Isolation, and Release",
+      "depends_on": [
+        "FP-I12"
+      ],
+      "product": "indicator"
+    },
+    {
+      "phase_id": "FP-I14",
+      "title": "Diagnostic EA and Cross-Product Differential Validation",
+      "depends_on": [
+        "FP-I13"
+      ],
+      "product": "execution"
+    },
+    {
+      "phase_id": "FP-I15",
+      "title": "Risk Geometry, Pair-Session Reservation, and Paper Execution",
+      "depends_on": [
+        "FP-I14"
+      ],
+      "product": "execution"
+    },
+    {
+      "phase_id": "FP-I16",
+      "title": "Live Execution Decision Gate, Authorization, Micro-Release, and Monitoring",
+      "depends_on": [
+        "FP-I15"
+      ],
+      "product": "execution"
+    }
+  ]
+}
