@@ -1,0 +1,37 @@
+{
+  "acceptance": {
+    "deterministic_golden_fixtures": true,
+    "exact_dependency_pins": true,
+    "metaeditor_compile": false,
+    "mql5_static_validation": true,
+    "no_duplicate_core_scan": true,
+    "previous_test_discovery": true,
+    "read_only_adapters": true
+  },
+  "adapter_count": 8,
+  "authority": {
+    "broker": false,
+    "indicator": false,
+    "network": false,
+    "order": false,
+    "position": false,
+    "shared_core_mutation": false
+  },
+  "compatibility_report_hash": "b8c2398ef475d429871d8aa65dfdb081711b6646d73fce5a47dd6b02f4795c09",
+  "dependency_pin_count": 19,
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_contract_file_count": 9,
+  "mql5_entrypoint_count": 2,
+  "next_phase": "FP-I02",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I01",
+  "phase_version": "1.0.0",
+  "previous_context_test_count": 12,
+  "python_module_count": 15,
+  "python_test_count": 39,
+  "schema_version": "1.0.0",
+  "status": "IMPLEMENTED_PYTHON_AND_STATIC_VALIDATED",
+  "status_hash": "044cef63cfb7edd84adad97cbe7367a3ba13c3cb62031f34dcbf834b6d5a41ad"
+}

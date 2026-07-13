@@ -1,0 +1,44 @@
+{
+  "entry_criteria": [
+    "All 19 dependency pins still match",
+    "All 8 adapters remain deterministic/read-only",
+    "MetaEditor compile logs for new diagnostic/self-test and affected previous-context entrypoints are captured",
+    "No source under EXP0017/EXP0018 shared cores is modified",
+    "FP-DEC-012 remains open and execution authority remains disabled"
+  ],
+  "first_golden_test": "The same semantic FP identity material must produce the same ID in Python and MQL5 while changing any behavior-bearing field changes the ID.",
+  "forbidden": [
+    "mutating shared cores",
+    "reusing source-context IDs as FP semantic IDs",
+    "adding indicator product code before FP-I10",
+    "adding order/broker authority",
+    "resolving FP-DEC-012 by inference"
+  ],
+  "fp_i02_required_outputs": [
+    "FP native enums and closed reason-code registry",
+    "canonical context/window/reference/opportunity/signal identifiers",
+    "context manifest and configuration identity",
+    "cross-language parity vectors"
+  ],
+  "from_phase": "FP-I01",
+  "handoff_hash": "ea3df56b354e1032370871fbe2b8e1452a5f7c52d53c73c6951da6b3f59e48c2",
+  "handoff_id": "EXP0019-FP-I01-TO-FP-I02-V1",
+  "immutable_inputs": [
+    "FP_I01_ADAPTER_REGISTRY.v1.json",
+    "FP_I01_GOLDEN_ADAPTER_FIXTURES.v1.json",
+    "FP_I01_REUSE_COMPATIBILITY_MATRIX.csv",
+    "FP_I01_COMPATIBILITY_REPORT.json",
+    "FP_I01_PHASE_STATUS.json"
+  ],
+  "public_api": [
+    "FP_I01_TimeSnapshot",
+    "FP_I01_ReferencePair",
+    "FP_I01_HuntObservation",
+    "FP_I01_DivergenceCandidate",
+    "FP_I01_ConfirmationResult",
+    "FP_I01_LifecycleRecord"
+  ],
+  "schema_version": "1.0.0",
+  "status": "READY_AFTER_LOCAL_METAEDITOR_COMPILE",
+  "to_phase": "FP-I02"
+}

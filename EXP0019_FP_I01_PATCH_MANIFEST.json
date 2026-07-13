@@ -1,0 +1,12 @@
+{
+  "adapter_count": 8,
+  "created_at_utc": "2026-07-13T10:25:21Z",
+  "dependency_pin_count": 19,
+  "file_count": 104,
+  "metaeditor_compile_status": "pending_local_windows",
+  "next_phase": "FP-I02",
+  "patch_id": "decision-alpha-lab-exp0019-faerie-protocol-fp-i01-compatibility",
+  "patch_version": "1.0.0",
+  "phase_id": "FP-I01",
+  "python_test_count": 39
+}

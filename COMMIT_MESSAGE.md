@@ -1,9 +1,9 @@
-feat(exp0019): implement FP-I00 governance baseline harness
+feat(exp0019): implement FP-I01 shared-core compatibility adapters
 
-- freeze source, doctrine, owner decisions, relation and program identities
-- add Git-aware baseline capture and phase-clean working-tree classification
-- inventory 19 shared-core dependencies and 12 previous-context tests
-- add source-package verification, manifest hashing and semantic diff tooling
-- enforce FP-DEC-012 live-execution gate and zero runtime authority
-- add 26 tests, PowerShell runbooks and detailed Obsidian phase delivery
-- prepare immutable handoff to FP-I01 compatibility harness
+- pin 19 shared dependency groups by exact hash and file count
+- add eight read-only CG/Daye adapter contracts
+- add neutral compatibility snapshots and exact adapter registry
+- add deterministic golden fixtures and non-mutation evidence
+- add previous-context regression and duplicate-core guards
+- add MQL5 contract mirror, diagnostic, and self-test
+- add detailed FP-I01 Obsidian delivery documentation

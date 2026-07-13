@@ -1,0 +1,257 @@
+{
+  "adapter_count": 8,
+  "adapters": [
+    {
+      "adapter_id": "FP_CGT_TIME_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "CGT_TIME_CORE",
+      "descriptor_hash": "e4f1a8776d8edda2041eabd21b4f703f6de4184eb89c4f50be36e05476073674",
+      "family": "TIME",
+      "input_fields": [
+        "broker_now",
+        "utc_now",
+        "new_york_now",
+        "trading_day_start_ny",
+        "trading_day_end_ny",
+        "inside_trading_day",
+        "new_york_utc_offset_hours",
+        "trading_day_label"
+      ],
+      "key": "FP_CGT_TIME_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "broker_time",
+        "utc_time",
+        "new_york_time",
+        "trading_day_start_ny",
+        "trading_day_end_ny",
+        "inside_trading_day",
+        "ny_utc_offset_hours",
+        "trading_day_key"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Renames fields into context-neutral vocabulary."
+      ],
+      "source_context": "EXP0017",
+      "source_type": "SCGTTimeSnapshot"
+    },
+    {
+      "adapter_id": "FP_CGR_REFERENCE_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "CGR_REFERENCE_CORE",
+      "descriptor_hash": "af88989bc4a6a1f21b627207d4074addf93ce1d1084dcb45bd5e650368595318",
+      "family": "REFERENCE",
+      "input_fields": [
+        "group_name",
+        "reference_cycle_index",
+        "cycle_start_ny",
+        "cycle_end_ny",
+        "complete_cycle",
+        "ready",
+        "symbol_a",
+        "symbol_b"
+      ],
+      "key": "FP_CGR_REFERENCE_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "reference_id",
+        "window_code",
+        "window_start",
+        "window_end",
+        "complete",
+        "ready",
+        "symbol-local prices/times"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Creates a neutral reference_id; does not change prices."
+      ],
+      "source_context": "EXP0017",
+      "source_type": "SCGRReferencePair"
+    },
+    {
+      "adapter_id": "FP_CGH_HUNT_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "CGH_HUNT_CORE",
+      "descriptor_hash": "62a98cf45a33069df8588a4e0a60acdcaa61b0d4724ecc64b3b4028c1cc25474",
+      "family": "HUNT",
+      "input_fields": [
+        "group_name",
+        "reference_cycle_index",
+        "reference_cycle_start_ny",
+        "current_cycle_start_ny",
+        "symbol_a",
+        "symbol_b"
+      ],
+      "key": "FP_CGH_HUNT_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "observation_id",
+        "reference_id",
+        "side",
+        "pair_state",
+        "hunter/protected",
+        "prices/extremes"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Normalizes pair-state names; preserves touch semantics."
+      ],
+      "source_context": "EXP0017",
+      "source_type": "SCGHReferenceHuntState"
+    },
+    {
+      "adapter_id": "FP_CGD_DIVERGENCE_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "CGD_DIVERGENCE_CORE",
+      "descriptor_hash": "93264d84ad3b59a73542f95475cbaa95bab16512d4f870e843561845ac2ce508",
+      "family": "DIVERGENCE",
+      "input_fields": [
+        "divergence_id",
+        "direction",
+        "side",
+        "hunter_symbol",
+        "clean_symbol",
+        "data_ready"
+      ],
+      "key": "FP_CGD_DIVERGENCE_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "candidate_id",
+        "direction",
+        "side",
+        "hunter/protected",
+        "health"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Maps BUY/SELL to BULLISH/BEARISH labels only."
+      ],
+      "source_context": "EXP0017",
+      "source_type": "SCGDDivergenceCandidate"
+    },
+    {
+      "adapter_id": "FP_CGC_CONFIRMATION_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "CGC_CONFIRMATION_CORE",
+      "descriptor_hash": "1c5cdbff5aebf9d48f6e8b97edf2782c88b766c9683d82ce28017106b061295c",
+      "family": "CONFIRMATION",
+      "input_fields": [
+        "signal_id",
+        "status",
+        "direction",
+        "side",
+        "confirmation_time_utc",
+        "confirmation_timeframe_seconds"
+      ],
+      "key": "FP_CGC_CONFIRMATION_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "result_id",
+        "outcome",
+        "host close",
+        "immutable/replay flags"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Projects final CG state; does not apply FP session policy."
+      ],
+      "source_context": "EXP0017",
+      "source_type": "SCGCFinalSignal"
+    },
+    {
+      "adapter_id": "FP_DAYE_HUNT_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "DAYE_HUNT_CORE",
+      "descriptor_hash": "bdffb5ef575993b0103c61520ffeef0820fd9e049006414e0b6ae1da83f89159",
+      "family": "HUNT",
+      "input_fields": [
+        "observation_id",
+        "opportunity_id",
+        "relationship_id",
+        "side",
+        "pair_state",
+        "hunter_canonical_symbol",
+        "protected_canonical_symbol"
+      ],
+      "key": "FP_DAYE_HUNT_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": [
+        "observation_id",
+        "reference/opportunity",
+        "side",
+        "pair state",
+        "roles",
+        "timestamps"
+      ],
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Drops Daye relationship family from neutral output; retains source fingerprint."
+      ],
+      "source_context": "EXP0018",
+      "source_type": "DAYE_HuntObservation"
+    },
+    {
+      "adapter_id": "FP_DAYE_CONFIRMATION_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "DAYE_CONFIRMATION_CORE",
+      "descriptor_hash": "c87f390fe0f8d73cb4a0601d3894bddde1ac1a5d317c89631c5cc593714e4333",
+      "family": "CONFIRMATION",
+      "input_fields": [
+        "result_id",
+        "candidate_id",
+        "outcome",
+        "side",
+        "host_bar_open_utc",
+        "host_bar_close_utc"
+      ],
+      "key": "FP_DAYE_CONFIRMATION_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": "result/outcome/direction/roles/host boundary/immutability",
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Derives direction from side; does not decide FP eligibility."
+      ],
+      "source_context": "EXP0018",
+      "source_type": "DAYE_ConfirmationResult"
+    },
+    {
+      "adapter_id": "FP_DAYE_LIFECYCLE_ADAPTER",
+      "adapter_version": "1.0.0",
+      "authority": [],
+      "dependency_id": "DAYE_LIFECYCLE_CORE",
+      "descriptor_hash": "28af644c1d7688f4c9a2353b27900bf10b7b2417ef2c161f24709d0c6a945ee3",
+      "family": "LIFECYCLE",
+      "input_fields": [
+        "reference_id",
+        "side",
+        "protected_canonical_symbol",
+        "first_hunter_canonical_symbol",
+        "state",
+        "is_retired"
+      ],
+      "key": "FP_DAYE_LIFECYCLE_ADAPTER@1.0.0",
+      "mutation_allowed": false,
+      "output_fields": "reference/state/roles/use counts/timestamps",
+      "reuse_mode": "ADAPTER_REUSE",
+      "semantic_delta": [
+        "Projects lifecycle evidence without changing retirement policy."
+      ],
+      "source_context": "EXP0018",
+      "source_type": "DAYE_ReferenceLifecycleRecord"
+    }
+  ],
+  "frozen": true,
+  "phase_id": "FP-I01",
+  "registry_hash": "3e6646c8b815b3afb03f1c38838a7c105808165a26ce581aa57293c01615a9cd",
+  "registry_id": "FP-I01-ADAPTER-REGISTRY-V1",
+  "schema_version": "1.0.0"
+}

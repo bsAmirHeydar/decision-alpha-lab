@@ -1,0 +1,69 @@
+{
+  "authority": {
+    "broker": false,
+    "indicator": false,
+    "network": false,
+    "order": false,
+    "position": false,
+    "shared_core_mutation": false
+  },
+  "checks": {
+    "adapter_golden_fixtures": {
+      "count": 8,
+      "determinism_failures": 0,
+      "result": "PASS",
+      "source_mutations": 0
+    },
+    "boundary_guard": {
+      "result": "PASS"
+    },
+    "dependency_hash_pins": {
+      "count": 19,
+      "result": "PASS"
+    },
+    "engineering_policy": {
+      "errors": 0,
+      "passed": 4,
+      "result": "PASS",
+      "warnings": 0
+    },
+    "exp0018_previous_context_python_tests": {
+      "failed": 0,
+      "passed": 4,
+      "result": "PASS"
+    },
+    "fp_i00_regression_tests": {
+      "failed": 0,
+      "passed": 26,
+      "result": "PASS"
+    },
+    "fp_i01_phase_tests": {
+      "failed": 0,
+      "passed": 39,
+      "result": "PASS"
+    },
+    "metaeditor_compile": {
+      "required_targets": 13,
+      "result": "PENDING_LOCAL_WINDOWS"
+    },
+    "mql5_static": {
+      "entrypoints": 2,
+      "headers": 9,
+      "result": "PASS"
+    },
+    "previous_context_entrypoint_discovery": {
+      "count": 12,
+      "result": "PASS"
+    }
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "known_limitations": [
+    "MetaEditor compile logs cannot be produced in the current Linux environment.",
+    "Python golden fixtures validate neutral projection semantics but do not execute MQL5 engines."
+  ],
+  "next_phase": "FP-I02",
+  "phase_id": "FP-I01",
+  "phase_version": "1.0.0",
+  "result": "PASS_WITH_METAEDITOR_PENDING",
+  "schema_version": "1.0.0"
+}
