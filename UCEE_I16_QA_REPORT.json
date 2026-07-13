@@ -1,0 +1,35 @@
+{
+  "boundary_guard": "pass",
+  "central_engine_invariance": "pass",
+  "clean_baseline_patch_verification": "pass",
+  "cumulative_uce_i01_i16": {
+    "failed": 0,
+    "passed": 831
+  },
+  "delivery_validation": "pass",
+  "engineering_policy": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 4,
+    "warnings": 0
+  },
+  "golden_scaffold_repeatability": "pass",
+  "limitations": [
+    "Static and Python validation do not replace MetaEditor compilation.",
+    "Reference fixture parity does not prove live legacy MQL5 equivalence.",
+    "I17 portfolio entry still requires at least two contexts with completed untouched prospective paper evidence."
+  ],
+  "metaeditor_compile": "pending_local_windows",
+  "migration_activation": "disabled_until_real_parity",
+  "mql5_static": "pass",
+  "phase": "UCE-I16",
+  "phase_tests": {
+    "failed": 0,
+    "passed": 127
+  },
+  "real_runtime_differential_parity": "pending_local_windows",
+  "schema_validation": "pass",
+  "title": "Context Onboarding Factory and Legacy Anatomy Migration",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

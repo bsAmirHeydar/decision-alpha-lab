@@ -1,0 +1,22 @@
+{
+  "atomic_concepts": 12,
+  "behavior_changing_migration_enabled": false,
+  "clean_baseline_patch_verification": "pass",
+  "closed_schemas": 25,
+  "cumulative_tests": 831,
+  "delivery_documents": 46,
+  "file_count": 190,
+  "file_index": "UCEE_I16_FILE_INDEX.txt",
+  "hash_manifest": "UCEE_I16_FILE_HASHES.sha256",
+  "metaeditor_compile": "pending_local_windows",
+  "migration_units": 12,
+  "mql5_files": 17,
+  "next_phase": "UCE-I17",
+  "phase": "UCE-I16",
+  "phase_tests": 127,
+  "python_modules": 19,
+  "real_runtime_differential_parity": "pending_local_windows",
+  "title": "Context Onboarding Factory and Legacy Anatomy Migration",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

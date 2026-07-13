@@ -1,9 +1,7 @@
-feat(exp0019): implement FP-I01 shared-core compatibility adapters
+feat(ucee): implement I16 context onboarding factory and legacy migration
 
-- pin 19 shared dependency groups by exact hash and file count
-- add eight read-only CG/Daye adapter contracts
-- add neutral compatibility snapshots and exact adapter registry
-- add deterministic golden fixtures and non-mutation evidence
-- add previous-context regression and duplicate-core guards
-- add MQL5 contract mirror, diagnostic, and self-test
-- add detailed FP-I01 Obsidian delivery documentation
+- add deterministic context package generator and exact-version registry
+- add typed legacy adapter protocol with differential replay and mutation isolation
+- add stop-safe migration waves A, B, and C with explicit capability scopes
+- add reusable per-context tournament compilation template
+- add central-engine invariance, ADR, evidence, schema, MQL5, tests, and I17 handoff
