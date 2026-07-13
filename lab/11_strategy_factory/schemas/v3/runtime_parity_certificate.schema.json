@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_parity_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "certificate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "observations": {
+      "type": "array"
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tolerance": {
+      "type": "object"
+    },
+    "vector_set_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate_id",
+    "version",
+    "bundle_hash",
+    "vector_set_hash",
+    "status",
+    "observations",
+    "tolerance"
+  ],
+  "title": "Runtime Parity Certificate",
+  "type": "object"
+}

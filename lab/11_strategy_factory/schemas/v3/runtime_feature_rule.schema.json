@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_feature_rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "missing": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scaling": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "kind",
+    "missing",
+    "scaling"
+  ],
+  "title": "Runtime Feature Rule",
+  "type": "object"
+}

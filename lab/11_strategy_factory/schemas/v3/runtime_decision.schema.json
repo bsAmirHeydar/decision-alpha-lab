@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "disposition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generation": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "label": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "latency_us": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "order_authority": {
+      "type": "boolean"
+    },
+    "reasons": {
+      "type": "array"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scores": {
+      "type": "object"
+    },
+    "trace_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_id",
+    "request_id",
+    "occurrence_id",
+    "bundle_hash",
+    "generation",
+    "disposition",
+    "label",
+    "scores",
+    "known_time_ms",
+    "latency_us",
+    "reasons",
+    "order_authority",
+    "trace_hash"
+  ],
+  "title": "Runtime Decision",
+  "type": "object"
+}

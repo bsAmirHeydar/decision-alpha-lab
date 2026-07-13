@@ -1,0 +1,29 @@
+{
+  "atomic_concepts": 10,
+  "authority_boundary": "no broker, order, position, or network authority in generic runtime surfaces",
+  "closed_json_schemas": 25,
+  "counts_by_category": {
+    "documentation": 48,
+    "evidence": 4,
+    "fixture": 15,
+    "mql5": 16,
+    "python": 25,
+    "release": 8,
+    "schema": 25,
+    "test": 11,
+    "tool": 7
+  },
+  "cumulative_tests_passed": 588,
+  "delivery_documents": 38,
+  "engineering_policy": "pass_4_of_4",
+  "file_count": 159,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_files": 16,
+  "next_phase": "UCE-I15",
+  "patch_name": "decision-alpha-lab-ucee-i14-immutable-runtime-v1.0.0.zip",
+  "phase": "UCE-I14",
+  "phase_tests_passed": 126,
+  "python_modules": 24,
+  "stage_source": "UCEE_I14_FILE_INDEX.txt",
+  "version": "1.0.0"
+}

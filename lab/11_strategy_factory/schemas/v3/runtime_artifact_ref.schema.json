@@ -1,0 +1,41 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_artifact_ref.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "byte_size": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "media_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "version",
+    "sha256",
+    "media_type",
+    "byte_size",
+    "role"
+  ],
+  "title": "Runtime Artifact Ref",
+  "type": "object"
+}

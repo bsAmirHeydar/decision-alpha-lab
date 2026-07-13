@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_failure_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "bundle_hash",
+    "findings",
+    "passed",
+    "created_at_ms"
+  ],
+  "title": "Runtime Failure Report",
+  "type": "object"
+}

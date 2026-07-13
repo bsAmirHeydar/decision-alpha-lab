@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "failure_report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "parity_certificate_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_hash",
+    "parity_certificate_hash",
+    "failure_report_hash",
+    "evidence_hash"
+  ],
+  "title": "Runtime Evidence Bundle",
+  "type": "object"
+}

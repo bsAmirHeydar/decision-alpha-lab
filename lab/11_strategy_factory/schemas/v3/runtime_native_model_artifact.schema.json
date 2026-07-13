@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_native_model_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bias": {
+      "type": "array"
+    },
+    "input_names": {
+      "type": "array"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_names": {
+      "type": "array"
+    },
+    "precision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "weights": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "model_id",
+    "version",
+    "kind",
+    "input_names",
+    "output_names",
+    "weights",
+    "bias",
+    "precision"
+  ],
+  "title": "Runtime Native Model Artifact",
+  "type": "object"
+}

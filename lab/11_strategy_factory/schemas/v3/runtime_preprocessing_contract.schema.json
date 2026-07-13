@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_preprocessing_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_order": {
+      "type": "array"
+    },
+    "precision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_id",
+    "version",
+    "feature_order",
+    "rules",
+    "precision"
+  ],
+  "title": "Runtime Preprocessing Contract",
+  "type": "object"
+}

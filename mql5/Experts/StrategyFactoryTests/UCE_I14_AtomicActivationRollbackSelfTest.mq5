@@ -1,0 +1,4 @@
+#property strict
+#include <AlphaLab/StrategyFactory/ImmutableRuntime/UCEI14_All.mqh>
+int OnInit(){UCEI14BundleManifest m;m.bundle_hash="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";m.preprocessing_hash="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";m.model_hash="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";m.export_hash="dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";m.policy_graph_hash="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";m.signature_valid=true;m.parity_pass=true;m.generation=14;UCEI14Generation g;g.bundle_hash=m.bundle_hash;g.previous_hash="0000000000000000000000000000000000000000000000000000000000000000";g.generation=14;g.state=UCEI14_VALIDATED;if(!UCEI14CanActivate(g,m))return(INIT_FAILED);g.state=UCEI14_ACTIVE;UCEI14Retire(g);return(g.state==UCEI14_RETIRED?INIT_SUCCEEDED:INIT_FAILED);}
+void OnTick(){}

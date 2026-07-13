@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_handoff_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failure_report_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "parity_certificate_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "residual_risks": {
+      "type": "array"
+    },
+    "rollback_target_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "version",
+    "runtime_bundle_hash",
+    "parity_certificate_hash",
+    "failure_report_hash",
+    "rollback_target_hash",
+    "residual_risks"
+  ],
+  "title": "Runtime Handoff Bundle",
+  "type": "object"
+}

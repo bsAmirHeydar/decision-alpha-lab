@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_parity_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "export_decision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "export_outputs": {
+      "type": "array"
+    },
+    "max_absolute_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "max_relative_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mql5_decision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mql5_outputs": {
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "source_decision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_outputs": {
+      "type": "array"
+    },
+    "vector_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "vector_id",
+    "source_outputs",
+    "export_outputs",
+    "mql5_outputs",
+    "source_decision",
+    "export_decision",
+    "mql5_decision",
+    "max_absolute_error",
+    "max_relative_error",
+    "passed"
+  ],
+  "title": "Runtime Parity Observation",
+  "type": "object"
+}

@@ -1,0 +1,1 @@
+{"export_formats":["approved_native_v1","onnx_optional"],"manifest_id":"runtime-capabilities-v1","onnx_probe":{"available":false,"onnx":false,"onnxruntime":false},"operators":["linear_softmax","linear_scalar"],"precisions":["float32","float64"],"runtime_modes":["research","tester","shadow","paper"],"version":"1.0.0"}

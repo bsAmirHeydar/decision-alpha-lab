@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_generation_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "generation": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "previous_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "generation",
+    "state",
+    "previous_bundle_hash"
+  ],
+  "title": "Runtime Generation Record",
+  "type": "object"
+}

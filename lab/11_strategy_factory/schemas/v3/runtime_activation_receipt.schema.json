@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_activation_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activated_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "activation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "generation": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "idempotency_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "previous_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "activation_id",
+    "bundle_hash",
+    "generation",
+    "previous_bundle_hash",
+    "activated_at_ms",
+    "idempotency_key",
+    "state"
+  ],
+  "title": "Runtime Activation Receipt",
+  "type": "object"
+}

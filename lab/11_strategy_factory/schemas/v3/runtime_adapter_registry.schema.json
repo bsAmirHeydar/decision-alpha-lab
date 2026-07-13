@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_adapter_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapters": {
+      "type": "array"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "version",
+    "adapters"
+  ],
+  "title": "Runtime Adapter Registry",
+  "type": "object"
+}

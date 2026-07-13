@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_parity_vector.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "family": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "features": {
+      "type": "object"
+    },
+    "vector_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "vector_id",
+    "family",
+    "features"
+  ],
+  "title": "Runtime Parity Vector",
+  "type": "object"
+}

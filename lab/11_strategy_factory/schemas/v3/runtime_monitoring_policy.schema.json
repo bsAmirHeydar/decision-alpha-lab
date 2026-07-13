@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_monitoring_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_rules": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "array"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "version",
+    "metrics",
+    "alert_rules"
+  ],
+  "title": "Runtime Monitoring Policy",
+  "type": "object"
+}

@@ -1,0 +1,1 @@
+{"current_bundle_hash":"22c91c8cadc62a89d49510b2fdc4331b7ddc9e6095929db83b759ccb69ab730d","duplicate_decision_policy":"idempotent_journal_restore","plan_id":"rollback:golden","target_bundle_hash":"3333333333333333333333333333333333333333333333333333333333333333","trigger_codes":["corrupt_artifact","signature_failure","parity_failure","restart_reconciliation"],"version":"1.0.0"}

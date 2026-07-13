@@ -1,0 +1,25 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_parity_tolerance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "absolute": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "decision_exact": {
+      "type": "boolean"
+    },
+    "relative": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "absolute",
+    "relative",
+    "decision_exact"
+  ],
+  "title": "Runtime Parity Tolerance",
+  "type": "object"
+}

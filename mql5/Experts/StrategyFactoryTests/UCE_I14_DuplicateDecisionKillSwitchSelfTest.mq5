@@ -1,0 +1,4 @@
+#property strict
+#include <AlphaLab/StrategyFactory/ImmutableRuntime/UCEI14_All.mqh>
+int OnInit(){UCEI14BundleManifest m;m.bundle_hash="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";m.preprocessing_hash="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";m.model_hash="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";m.export_hash="dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";m.policy_graph_hash="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";m.signature_valid=true;m.parity_pass=true;m.generation=14;UCEI14Input x;x.request_id="r";x.occurrence_id="o";x.symbol="EURUSD";x.score=.8;x.direction="long";x.liquidity=.8;x.kill_switch=true;CUCEI14DecisionJournal j;UCEI14Decision a=UCEI14Decide(m,x,j);UCEI14Decision b=UCEI14Decide(m,x,j);return(a.result==UCEI14_GATE_REJECT&&a.reason=="kill_switch"&&b.reason=="duplicate_request"&&j.Size()==1?INIT_SUCCEEDED:INIT_FAILED);}
+void OnTick(){}

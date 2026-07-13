@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "features": {
+      "type": "object"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mode": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurrence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "received_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "occurrence_id",
+    "symbol",
+    "known_time_ms",
+    "received_at_ms",
+    "features",
+    "mode"
+  ],
+  "title": "Runtime Request",
+  "type": "object"
+}

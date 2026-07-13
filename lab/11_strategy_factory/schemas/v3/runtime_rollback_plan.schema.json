@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_rollback_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "current_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "trigger_codes": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "plan_id",
+    "version",
+    "current_bundle_hash",
+    "target_bundle_hash",
+    "trigger_codes"
+  ],
+  "title": "Runtime Rollback Plan",
+  "type": "object"
+}

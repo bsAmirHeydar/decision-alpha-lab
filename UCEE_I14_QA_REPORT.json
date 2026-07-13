@@ -1,0 +1,33 @@
+{
+  "approved_native_export": "pass",
+  "boundary_guard": "pass",
+  "clean_baseline_patch_verification": "pass",
+  "cumulative_uce_i01_i14": {
+    "failed": 0,
+    "passed": 588
+  },
+  "engineering_policy": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 4,
+    "warnings": 0
+  },
+  "limitations": [
+    "synthetic fixtures do not establish market edge",
+    "real MetaEditor compilation remains local",
+    "ONNX conversion is not certified without dependencies and a registered adapter",
+    "production key custody and real broker reconciliation remain downstream"
+  ],
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "onnx_export": "unavailable_or_unregistered_fail_closed",
+  "parity_certificate": "pass",
+  "phase": "UCE-I14",
+  "phase_tests": {
+    "failed": 0,
+    "passed": 126
+  },
+  "title": "Immutable Runtime Compilation, ONNX Export, and MQL5 Parity",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

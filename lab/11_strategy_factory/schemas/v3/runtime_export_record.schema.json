@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_export_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "export_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "format": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_names": {
+      "type": "array"
+    },
+    "model_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "output_names": {
+      "type": "array"
+    },
+    "precision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "export_id",
+    "version",
+    "format",
+    "model_hash",
+    "artifact_hash",
+    "precision",
+    "input_names",
+    "output_names"
+  ],
+  "title": "Runtime Export Record",
+  "type": "object"
+}

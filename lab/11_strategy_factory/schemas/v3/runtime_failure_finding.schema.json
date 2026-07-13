@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_failure_finding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "detected": {
+      "type": "boolean"
+    },
+    "disposition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "severity",
+    "detected",
+    "disposition"
+  ],
+  "title": "Runtime Failure Finding",
+  "type": "object"
+}

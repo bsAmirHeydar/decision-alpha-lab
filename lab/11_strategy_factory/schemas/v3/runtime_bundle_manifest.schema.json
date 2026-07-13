@@ -1,0 +1,97 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_bundle_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_modes": {
+      "type": "array"
+    },
+    "authority_matrix_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "components": {
+      "type": "array"
+    },
+    "export_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fallback_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "feature_order": {
+      "type": "array"
+    },
+    "generation": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "manual_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "model_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "monitoring_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "output_names": {
+      "type": "array"
+    },
+    "policy_graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "preprocessing_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rollback_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signature_key_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "version",
+    "generation",
+    "components",
+    "preprocessing_hash",
+    "model_hash",
+    "export_hash",
+    "policy_graph_hash",
+    "manual_policy_hash",
+    "fallback_policy_hash",
+    "authority_matrix_hash",
+    "monitoring_policy_hash",
+    "rollback_bundle_hash",
+    "allowed_modes",
+    "feature_order",
+    "output_names",
+    "signature_key_id",
+    "signature"
+  ],
+  "title": "Runtime Bundle Manifest",
+  "type": "object"
+}

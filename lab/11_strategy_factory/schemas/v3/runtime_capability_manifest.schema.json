@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/runtime_capability_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "export_formats": {
+      "type": "array"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operators": {
+      "type": "array"
+    },
+    "precisions": {
+      "type": "array"
+    },
+    "runtime_modes": {
+      "type": "array"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "version",
+    "export_formats",
+    "precisions",
+    "runtime_modes",
+    "operators"
+  ],
+  "title": "Runtime Capability Manifest",
+  "type": "object"
+}
