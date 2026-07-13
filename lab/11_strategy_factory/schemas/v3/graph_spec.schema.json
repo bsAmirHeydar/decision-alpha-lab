@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/graph_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "directed": {
+      "type": "boolean"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "message_passing_rounds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "node_feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "topology_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_id",
+    "version",
+    "node_feature_order",
+    "directed",
+    "message_passing_rounds",
+    "topology_version"
+  ],
+  "title": "graph_spec",
+  "type": "object"
+}

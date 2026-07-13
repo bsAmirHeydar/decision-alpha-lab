@@ -1,0 +1,111 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/deep_qualification_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ablations": {
+      "items": {
+        "$ref": "view_ablation_observation.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "admission_evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "algorithm_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "baseline_metric": {
+      "type": "number"
+    },
+    "blockers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "promotable",
+        "challenger_only",
+        "rejected"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "export": {
+      "$ref": "export_assessment.schema.json"
+    },
+    "failed_run_rate": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "mean_economic_utility": {
+      "type": "number"
+    },
+    "mean_metric": {
+      "type": "number"
+    },
+    "metric_std": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_incremental_uplift": {
+      "type": "number"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "seed_runs": {
+      "items": {
+        "$ref": "seed_run_observation.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "report_id",
+    "algorithm_key",
+    "dataset_manifest_hash",
+    "admission_evidence_id",
+    "seed_runs",
+    "ablations",
+    "export",
+    "baseline_metric",
+    "mean_metric",
+    "metric_std",
+    "mean_economic_utility",
+    "failed_run_rate",
+    "minimum_incremental_uplift",
+    "decision",
+    "blockers",
+    "warnings",
+    "evidence_hash"
+  ],
+  "title": "deep_qualification_report",
+  "type": "object"
+}

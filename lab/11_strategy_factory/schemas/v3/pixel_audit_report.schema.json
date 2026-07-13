@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/pixel_audit_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_a_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "artifact_b_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "changed_pixel_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "max_abs_difference": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "prefix_invariant": {
+      "type": "boolean"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "artifact_a_hash",
+    "artifact_b_hash",
+    "max_abs_difference",
+    "changed_pixel_count",
+    "prefix_invariant",
+    "evidence_hash"
+  ],
+  "title": "pixel_audit_report",
+  "type": "object"
+}

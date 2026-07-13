@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/deterministic_replay_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "run_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array"
+    }
+  },
+  "required": [
+    "audit_id",
+    "run_hashes",
+    "passed",
+    "evidence_hash"
+  ],
+  "title": "deterministic_replay_audit",
+  "type": "object"
+}

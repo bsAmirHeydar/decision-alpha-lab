@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/quantization_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "bits": {
+      "enum": [
+        8
+      ],
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "max_abs_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mean_abs_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scale": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "zero_point": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "report_id",
+    "bits",
+    "scale",
+    "zero_point",
+    "max_abs_error",
+    "mean_abs_error",
+    "accepted",
+    "evidence_hash"
+  ],
+  "title": "quantization_report",
+  "type": "object"
+}

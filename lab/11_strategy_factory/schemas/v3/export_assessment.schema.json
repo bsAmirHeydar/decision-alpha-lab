@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/export_assessment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "parity_max_abs_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "path": {
+      "enum": [
+        "none",
+        "native_json",
+        "onnx",
+        "distilled_mql5"
+      ]
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "path",
+    "available",
+    "parity_max_abs_error",
+    "latency_ms",
+    "artifact_hash",
+    "reason",
+    "evidence_hash"
+  ],
+  "title": "export_assessment",
+  "type": "object"
+}

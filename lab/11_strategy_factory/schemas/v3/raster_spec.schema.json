@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/raster_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "augmentation_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "channels": {
+      "items": {
+        "enum": [
+          "wick",
+          "body",
+          "direction",
+          "volume",
+          "close",
+          "range"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "height": {
+      "minimum": 4,
+      "type": "integer"
+    },
+    "overlay_policy": {
+      "enum": [
+        "none",
+        "causal_numeric_only"
+      ]
+    },
+    "price_normalization": {
+      "enum": [
+        "window_min_max",
+        "last_close_range"
+      ]
+    },
+    "raster_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "width": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "raster_id",
+    "version",
+    "height",
+    "width",
+    "channels",
+    "price_normalization",
+    "overlay_policy",
+    "augmentation_policy_hash"
+  ],
+  "title": "raster_spec",
+  "type": "object"
+}

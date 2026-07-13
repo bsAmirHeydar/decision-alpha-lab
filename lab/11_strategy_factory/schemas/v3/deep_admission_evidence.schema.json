@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/deep_admission_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ablation_plan_hash": {
+      "type": "string"
+    },
+    "augmentation_policy_hash": {
+      "type": "string"
+    },
+    "blockers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "classical_best_metric": {
+      "type": "number"
+    },
+    "classical_gate_passed": {
+      "type": "boolean"
+    },
+    "dataset_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "warn",
+        "reject"
+      ]
+    },
+    "dependence_cluster_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "effective_sample_size": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "event_diversity_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "future_perturbation_passed": {
+      "type": "boolean"
+    },
+    "known_time_audit_passed": {
+      "type": "boolean"
+    },
+    "stable_dimensions": {
+      "type": "boolean"
+    },
+    "warnings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "evidence_id",
+    "dataset_id",
+    "dataset_manifest_hash",
+    "effective_sample_size",
+    "dependence_cluster_count",
+    "event_diversity_count",
+    "stable_dimensions",
+    "known_time_audit_passed",
+    "future_perturbation_passed",
+    "classical_gate_passed",
+    "classical_best_metric",
+    "augmentation_policy_hash",
+    "ablation_plan_hash",
+    "decision",
+    "blockers",
+    "warnings",
+    "evidence_hash"
+  ],
+  "title": "deep_admission_evidence",
+  "type": "object"
+}

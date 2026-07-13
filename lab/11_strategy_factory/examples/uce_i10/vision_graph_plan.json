@@ -1,0 +1,33 @@
+{
+  "forbidden": [
+    "future overlays",
+    "random crop across known-time boundary",
+    "unversioned graph topology"
+  ],
+  "fusion": {
+    "algorithm_key": "late_weighted_fusion@1.0.0",
+    "missing_view_policy": "global_fallback"
+  },
+  "phase_id": "UCE-I10",
+  "schema_version": "3.0.0",
+  "views": [
+    {
+      "future_pixel_audit": true,
+      "id": "chart",
+      "kind": "image",
+      "renderer": "deterministic_chart_raster_conv@1.0.0",
+      "shape": [
+        3,
+        32,
+        64
+      ]
+    },
+    {
+      "encoder": "deterministic_graph_message_passing@1.0.0",
+      "id": "swing_graph",
+      "kind": "graph",
+      "node_known_time_required": true,
+      "topology_version": "swing-node-v1"
+    }
+  ]
+}

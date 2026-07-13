@@ -1,0 +1,31 @@
+{
+  "admission": {
+    "minimum_dependence_clusters": 30,
+    "minimum_effective_sample_size": 500,
+    "minimum_event_diversity": 3,
+    "require_classical_gate": true
+  },
+  "algorithm_key": "causal_temporal_conv_ridge@1.0.0",
+  "phase_id": "UCE-I10",
+  "qualification": {
+    "require_export_path": true,
+    "require_view_ablation": true,
+    "seeds": [
+      11,
+      23,
+      47
+    ]
+  },
+  "schema_version": "3.0.0",
+  "task": "regression",
+  "view": {
+    "kind": "sequence",
+    "known_time_cut": "context_observation.known_time_ms",
+    "layout": "time_major",
+    "mask_required": true,
+    "shape": [
+      32,
+      8
+    ]
+  }
+}

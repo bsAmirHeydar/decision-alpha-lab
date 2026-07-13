@@ -1,0 +1,21 @@
+{
+  "authority_boundary": "offline research and runtime-neutral contracts; no live order authority",
+  "catalog_algorithm_count": 17,
+  "created_at_utc": "2026-07-13T07:22:07Z",
+  "cumulative_ucee_test_count": 231,
+  "documentation_note_count": 31,
+  "engineering_policy_check_count": 4,
+  "file_count": 140,
+  "file_hashes": "UCEE_I10_FILE_HASHES.sha256",
+  "file_index": "UCEE_I10_FILE_INDEX.txt",
+  "metaeditor_compile_status": "pending_local_windows",
+  "native_algorithm_count": 10,
+  "next_phase": "UCE-I11 Experiment DAG, Search, and Budgeting",
+  "patch_id": "decision-alpha-lab-ucee-i10-deep-multi-view-graph-regime-pack",
+  "patch_version": "1.1.0",
+  "phase_id": "UCE-I10",
+  "phase_test_count": 42,
+  "schema_count": 24,
+  "title": "Deep Sequence, Deterministic Raster, Graph, Regime, Multi-View Fusion, and Qualification Pack",
+  "trainer_plugin_count": 5
+}

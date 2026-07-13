@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/regime_novelty_prediction.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "change_score": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "decision": {
+      "enum": [
+        "expert",
+        "global",
+        "abstain"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expert_key": {
+      "type": "string"
+    },
+    "novelty_score": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "prediction_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "regime_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "regime_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "row_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "support_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "prediction_id",
+    "row_id",
+    "regime_id",
+    "regime_probability",
+    "novelty_score",
+    "change_score",
+    "support_count",
+    "decision",
+    "expert_key",
+    "reason",
+    "evidence_hash"
+  ],
+  "title": "regime_novelty_prediction",
+  "type": "object"
+}

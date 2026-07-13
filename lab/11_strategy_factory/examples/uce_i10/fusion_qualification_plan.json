@@ -1,0 +1,25 @@
+{
+  "baseline_source": "accepted UCE-I09/UCE-I08 OOF artifact",
+  "candidate": "stacked_linear_fusion@1.0.0",
+  "cross_attention": "disabled_until_late_fusion_incremental_value_is_proven",
+  "fallback": "accepted classical baseline",
+  "gates": [
+    "known_time_audit",
+    "future_perturbation",
+    "classical_uplift",
+    "multi_seed_stability",
+    "view_ablation",
+    "export_parity",
+    "latency_budget"
+  ],
+  "phase_id": "UCE-I10",
+  "schema_version": "3.0.0",
+  "selection_metric": "oof_economic_utility",
+  "views": [
+    "tabular",
+    "sequence",
+    "image",
+    "graph",
+    "regime"
+  ]
+}

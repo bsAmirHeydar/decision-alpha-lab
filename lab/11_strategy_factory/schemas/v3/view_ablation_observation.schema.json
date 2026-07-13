@@ -1,0 +1,41 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/view_ablation_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ablated_metric": {
+      "type": "number"
+    },
+    "economic_incremental_value": {
+      "type": "number"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "full_metric": {
+      "type": "number"
+    },
+    "incremental_value": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "view_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "view_id",
+    "full_metric",
+    "ablated_metric",
+    "incremental_value",
+    "economic_incremental_value",
+    "passed",
+    "evidence_hash"
+  ],
+  "title": "view_ablation_observation",
+  "type": "object"
+}

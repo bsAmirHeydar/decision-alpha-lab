@@ -1,0 +1,1120 @@
+{
+  "conformance": {
+    "compression": {
+      "distillation": true,
+      "quantization": true,
+      "ratio": 8.0
+    },
+    "evidence_hash": "2dad31d056783214a2e27d7978ab603a6b2269ef8941902cd18f05519bedbc11",
+    "fusion": {
+      "gated_abstained": false,
+      "late_abstained": false,
+      "stacked_value": 2.6639769165510974e-06,
+      "weight_sum": 1.0
+    },
+    "graph": {
+      "deterministic": true,
+      "topology_hash": "0d2794a7fc291d0547f3507398705c8b9b9c06a1f2e6fd438a0743ad6674c292"
+    },
+    "passed": true,
+    "qualification": {
+      "admission": "accept",
+      "blockers": [],
+      "decision": "promotable"
+    },
+    "raster": {
+      "changed_pixel_count": 0,
+      "hash": "61d7e0070d000c2545ff445456a691e5cca83515258d5c10e37800edb4e36404",
+      "prefix_invariant": true,
+      "shape": [
+        3,
+        24,
+        20
+      ]
+    },
+    "regime": {
+      "decision": "expert",
+      "deterministic": true,
+      "support": [
+        26,
+        36,
+        28
+      ]
+    },
+    "registry": {
+      "count": 17,
+      "families": [
+        "graph",
+        "multi_view_fusion",
+        "regime_anomaly",
+        "sequence",
+        "transfer_compression",
+        "vision"
+      ],
+      "frozen": true,
+      "hash": "927a65806d2590a1068ecf7dec76955b4529e5f688c3dd4469fb666c418fde8b",
+      "replay_passed": true
+    },
+    "release": "UCE-I10",
+    "sequence": {
+      "deterministic": true,
+      "mae": 8.141807307524933e-05,
+      "state_hash": "2dfb483a5664eb0dad5b529bab41a21ffb5ce462304257412bf7183693c71d7b"
+    },
+    "transfer": {
+      "blockers": [],
+      "decision": "accept"
+    },
+    "version": "1.1.0",
+    "vision": {
+      "deterministic": true,
+      "prediction": 0.39230938923172687
+    }
+  },
+  "phase_id": "UCE-I10",
+  "registry": {
+    "descriptors": [
+      {
+        "algorithm_id": "autoencoder_novelty_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "regime_anomaly",
+        "formulation": "compact_autoencoder",
+        "limitations": [
+          "N",
+          "o",
+          "v",
+          "e",
+          "l",
+          "t",
+          "y",
+          " ",
+          "t",
+          "h",
+          "r",
+          "e",
+          "s",
+          "h",
+          "o",
+          "l",
+          "d",
+          " ",
+          "m",
+          "u",
+          "s",
+          "t",
+          " ",
+          "b",
+          "e",
+          " ",
+          "f",
+          "i",
+          "t",
+          "t",
+          "e",
+          "d",
+          " ",
+          "w",
+          "i",
+          "t",
+          "h",
+          "o",
+          "u",
+          "t",
+          " ",
+          "f",
+          "i",
+          "n",
+          "a",
+          "l",
+          "-",
+          "t",
+          "e",
+          "s",
+          "t",
+          " ",
+          "a",
+          "c",
+          "c",
+          "e",
+          "s",
+          "s",
+          "."
+        ],
+        "native": false,
+        "output_semantics": [
+          "novelty_score",
+          "abstention"
+        ],
+        "required_fields": [
+          "train_only_representation",
+          "reconstruction_error"
+        ],
+        "tasks": [
+          "novelty"
+        ],
+        "view_kinds": [
+          "tabular",
+          "sequence",
+          "image"
+        ]
+      },
+      {
+        "algorithm_id": "causal_temporal_conv_ridge",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.001,
+          "dilations": [
+            1,
+            2
+          ],
+          "kernel_sizes": [
+            2,
+            3
+          ]
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json",
+          "distilled_mql5"
+        ],
+        "family": "sequence",
+        "formulation": "causal_fixed_tcn_plus_ridge",
+        "limitations": [
+          "Deterministic reference floor; not a learned deep representation."
+        ],
+        "native": true,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value"
+        ],
+        "required_fields": [
+          "time_major_tensor",
+          "causal_mask",
+          "known_time_cut"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "multi_task"
+        ],
+        "view_kinds": [
+          "sequence"
+        ]
+      },
+      {
+        "algorithm_id": "compact_gru_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "dropout": 0.0,
+          "hidden_size": 32,
+          "layers": 1
+        },
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "sequence",
+        "formulation": "masked_compact_gru",
+        "limitations": [
+          "Optional torch dependency.",
+          "Multi-seed qualification is mandatory."
+        ],
+        "native": false,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value"
+        ],
+        "required_fields": [
+          "masked_sequence",
+          "known_time_cut",
+          "seed_control"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "multi_task"
+        ],
+        "view_kinds": [
+          "sequence"
+        ]
+      },
+      {
+        "algorithm_id": "compact_image_cnn_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "channels": [
+            8,
+            16
+          ],
+          "kernel_size": 3
+        },
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "vision",
+        "formulation": "small_causal_chart_cnn",
+        "limitations": [
+          "A",
+          "u",
+          "g",
+          "m",
+          "e",
+          "n",
+          "t",
+          "a",
+          "t",
+          "i",
+          "o",
+          "n",
+          " ",
+          "m",
+          "u",
+          "s",
+          "t",
+          " ",
+          "p",
+          "r",
+          "e",
+          "s",
+          "e",
+          "r",
+          "v",
+          "e",
+          " ",
+          "k",
+          "n",
+          "o",
+          "w",
+          "n",
+          "-",
+          "t",
+          "i",
+          "m",
+          "e",
+          " ",
+          "s",
+          "e",
+          "m",
+          "a",
+          "n",
+          "t",
+          "i",
+          "c",
+          "s",
+          "."
+        ],
+        "native": false,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value"
+        ],
+        "required_fields": [
+          "deterministic_raster",
+          "augmentation_policy",
+          "pixel_audit"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression"
+        ],
+        "view_kinds": [
+          "image"
+        ]
+      },
+      {
+        "algorithm_id": "cusum_change_point",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "regime_anomaly",
+        "formulation": "two_sided_cusum",
+        "limitations": [],
+        "native": true,
+        "output_semantics": [
+          "change_score",
+          "alarm_index"
+        ],
+        "required_fields": [
+          "ordered_values",
+          "known_time_cut"
+        ],
+        "tasks": [
+          "novelty",
+          "regime_gating"
+        ],
+        "view_kinds": [
+          "sequence",
+          "tabular"
+        ]
+      },
+      {
+        "algorithm_id": "deterministic_chart_raster_conv",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.001,
+          "channels": 3,
+          "height": 32
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json",
+          "distilled_mql5"
+        ],
+        "family": "vision",
+        "formulation": "deterministic_raster_fixed_conv_plus_ridge",
+        "limitations": [
+          "R",
+          "a",
+          "s",
+          "t",
+          "e",
+          "r",
+          " ",
+          "s",
+          "e",
+          "m",
+          "a",
+          "n",
+          "t",
+          "i",
+          "c",
+          "s",
+          " ",
+          "a",
+          "r",
+          "e",
+          " ",
+          "f",
+          "i",
+          "x",
+          "e",
+          "d",
+          ";",
+          " ",
+          "v",
+          "i",
+          "s",
+          "u",
+          "a",
+          "l",
+          " ",
+          "d",
+          "e",
+          "c",
+          "o",
+          "r",
+          "a",
+          "t",
+          "i",
+          "o",
+          "n",
+          " ",
+          "i",
+          "s",
+          " ",
+          "p",
+          "r",
+          "o",
+          "h",
+          "i",
+          "b",
+          "i",
+          "t",
+          "e",
+          "d",
+          "."
+        ],
+        "native": true,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value"
+        ],
+        "required_fields": [
+          "ohlc_cut",
+          "raster_spec",
+          "pixel_audit"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression"
+        ],
+        "view_kinds": [
+          "image"
+        ]
+      },
+      {
+        "algorithm_id": "deterministic_graph_message_passing",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.001,
+          "rounds": 2
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json",
+          "distilled_mql5"
+        ],
+        "family": "graph",
+        "formulation": "fixed_message_passing_plus_ridge",
+        "limitations": [
+          "Reference mean-aggregation baseline."
+        ],
+        "native": true,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value"
+        ],
+        "required_fields": [
+          "node_features",
+          "edges",
+          "topology_version",
+          "node_known_times"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression"
+        ],
+        "view_kinds": [
+          "graph"
+        ]
+      },
+      {
+        "algorithm_id": "deterministic_regime_kmeans",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "k": 3,
+          "minimum_support": 10
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "regime_anomaly",
+        "formulation": "deterministic_kmeans",
+        "limitations": [],
+        "native": true,
+        "output_semantics": [
+          "regime",
+          "probability",
+          "fallback"
+        ],
+        "required_fields": [
+          "features",
+          "cluster_support",
+          "ordered_rows"
+        ],
+        "tasks": [
+          "regime_gating",
+          "novelty"
+        ],
+        "view_kinds": [
+          "tabular",
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "distance_novelty",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "quantile": 0.95
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "regime_anomaly",
+        "formulation": "standardized_distance",
+        "limitations": [],
+        "native": true,
+        "output_semantics": [
+          "novelty_score",
+          "abstention"
+        ],
+        "required_fields": [
+          "train_only_center_scale"
+        ],
+        "tasks": [
+          "novelty",
+          "regime_gating"
+        ],
+        "view_kinds": [
+          "tabular",
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "gated_cross_attention_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "multi_view_fusion",
+        "formulation": "gated_cross_attention",
+        "limitations": [
+          "A",
+          "d",
+          "m",
+          "i",
+          "t",
+          "t",
+          "e",
+          "d",
+          " ",
+          "o",
+          "n",
+          "l",
+          "y",
+          " ",
+          "a",
+          "f",
+          "t",
+          "e",
+          "r",
+          " ",
+          "l",
+          "a",
+          "t",
+          "e",
+          "-",
+          "f",
+          "u",
+          "s",
+          "i",
+          "o",
+          "n",
+          " ",
+          "u",
+          "p",
+          "l",
+          "i",
+          "f",
+          "t",
+          " ",
+          "a",
+          "n",
+          "d",
+          " ",
+          "v",
+          "i",
+          "e",
+          "w",
+          "-",
+          "a",
+          "b",
+          "l",
+          "a",
+          "t",
+          "i",
+          "o",
+          "n",
+          " ",
+          "e",
+          "v",
+          "i",
+          "d",
+          "e",
+          "n",
+          "c",
+          "e",
+          "."
+        ],
+        "native": false,
+        "output_semantics": [
+          "fused_representation",
+          "uncertainty"
+        ],
+        "required_fields": [
+          "view_masks",
+          "view_identity",
+          "known_time_cut"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "multi_task"
+        ],
+        "view_kinds": [
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "gaussian_hmm_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "regime_anomaly",
+        "formulation": "gaussian_hmm",
+        "limitations": [
+          "S",
+          "t",
+          "a",
+          "t",
+          "e",
+          "-",
+          "i",
+          "d",
+          "e",
+          "n",
+          "t",
+          "i",
+          "t",
+          "y",
+          " ",
+          "s",
+          "t",
+          "a",
+          "b",
+          "i",
+          "l",
+          "i",
+          "t",
+          "y",
+          " ",
+          "a",
+          "n",
+          "d",
+          " ",
+          "t",
+          "r",
+          "a",
+          "n",
+          "s",
+          "i",
+          "t",
+          "i",
+          "o",
+          "n",
+          " ",
+          "a",
+          "u",
+          "d",
+          "i",
+          "t",
+          "s",
+          " ",
+          "a",
+          "r",
+          "e",
+          " ",
+          "m",
+          "a",
+          "n",
+          "d",
+          "a",
+          "t",
+          "o",
+          "r",
+          "y",
+          "."
+        ],
+        "native": false,
+        "output_semantics": [
+          "regime_probability",
+          "transition_state"
+        ],
+        "required_fields": [
+          "ordered_features",
+          "state_count",
+          "seed_control"
+        ],
+        "tasks": [
+          "regime_gating"
+        ],
+        "view_kinds": [
+          "sequence",
+          "tabular"
+        ]
+      },
+      {
+        "algorithm_id": "graph_neural_network_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "hidden_size": 32,
+          "layers": 2,
+          "message_passing": "sage"
+        },
+        "dependency_profile": "ucee-graph",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "graph",
+        "formulation": "graph_neural_network",
+        "limitations": [
+          "E",
+          "x",
+          "p",
+          "l",
+          "i",
+          "c",
+          "i",
+          "t",
+          " ",
+          "n",
+          "o",
+          "n",
+          "-",
+          "g",
+          "r",
+          "a",
+          "p",
+          "h",
+          " ",
+          "a",
+          "n",
+          "d",
+          " ",
+          "d",
+          "e",
+          "t",
+          "e",
+          "r",
+          "m",
+          "i",
+          "n",
+          "i",
+          "s",
+          "t",
+          "i",
+          "c",
+          " ",
+          "g",
+          "r",
+          "a",
+          "p",
+          "h",
+          " ",
+          "b",
+          "a",
+          "s",
+          "e",
+          "l",
+          "i",
+          "n",
+          "e",
+          "s",
+          " ",
+          "a",
+          "r",
+          "e",
+          " ",
+          "r",
+          "e",
+          "q",
+          "u",
+          "i",
+          "r",
+          "e",
+          "d",
+          "."
+        ],
+        "native": false,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value",
+          "rank_score"
+        ],
+        "required_fields": [
+          "graph_batch",
+          "topology_version",
+          "node_masks"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "ranking"
+        ],
+        "view_kinds": [
+          "graph"
+        ]
+      },
+      {
+        "algorithm_id": "late_weighted_fusion",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "missing_policy": "abstain"
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "multi_view_fusion",
+        "formulation": "validation_weighted_late_fusion",
+        "limitations": [],
+        "native": true,
+        "output_semantics": [
+          "fused_value",
+          "uncertainty",
+          "abstention"
+        ],
+        "required_fields": [
+          "view_predictions",
+          "missing_view_policy"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "ranking"
+        ],
+        "view_kinds": [
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "linear_teacher_student_distillation",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "distilled_mql5"
+        ],
+        "family": "transfer_compression",
+        "formulation": "teacher_student_linear_distillation",
+        "limitations": [
+          "F",
+          "i",
+          "d",
+          "e",
+          "l",
+          "i",
+          "t",
+          "y",
+          " ",
+          "d",
+          "o",
+          "e",
+          "s",
+          " ",
+          "n",
+          "o",
+          "t",
+          " ",
+          "r",
+          "e",
+          "p",
+          "l",
+          "a",
+          "c",
+          "e",
+          " ",
+          "e",
+          "c",
+          "o",
+          "n",
+          "o",
+          "m",
+          "i",
+          "c",
+          " ",
+          "q",
+          "u",
+          "a",
+          "l",
+          "i",
+          "f",
+          "i",
+          "c",
+          "a",
+          "t",
+          "i",
+          "o",
+          "n",
+          "."
+        ],
+        "native": true,
+        "output_semantics": [
+          "student_state",
+          "fidelity_report"
+        ],
+        "required_fields": [
+          "teacher_oof_predictions",
+          "student_features"
+        ],
+        "tasks": [
+          "regression",
+          "binary_classification"
+        ],
+        "view_kinds": [
+          "tabular",
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "small_transformer_adapter",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "heads": 4,
+          "layers": 2,
+          "model_width": 32
+        },
+        "dependency_profile": "ucee-deep",
+        "determinism": "numeric_tolerance",
+        "export_paths": [
+          "onnx"
+        ],
+        "family": "sequence",
+        "formulation": "causal_small_transformer",
+        "limitations": [
+          "Attention mask and position encoding are identity-bearing."
+        ],
+        "native": false,
+        "output_semantics": [
+          "score",
+          "probability",
+          "value",
+          "rank_score"
+        ],
+        "required_fields": [
+          "causal_attention_mask",
+          "position_encoding",
+          "known_time_cut"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression",
+          "ranking",
+          "multi_task"
+        ],
+        "view_kinds": [
+          "sequence",
+          "event_set"
+        ]
+      },
+      {
+        "algorithm_id": "stacked_linear_fusion",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {
+          "alpha": 0.001
+        },
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "native_json"
+        ],
+        "family": "multi_view_fusion",
+        "formulation": "oof_only_stacking",
+        "limitations": [
+          "B",
+          "a",
+          "s",
+          "e",
+          " ",
+          "p",
+          "r",
+          "e",
+          "d",
+          "i",
+          "c",
+          "t",
+          "i",
+          "o",
+          "n",
+          "s",
+          " ",
+          "m",
+          "u",
+          "s",
+          "t",
+          " ",
+          "b",
+          "e",
+          " ",
+          "o",
+          "u",
+          "t",
+          "-",
+          "o",
+          "f",
+          "-",
+          "f",
+          "o",
+          "l",
+          "d",
+          "."
+        ],
+        "native": true,
+        "output_semantics": [
+          "fused_value"
+        ],
+        "required_fields": [
+          "oof_view_predictions",
+          "missing_view_policy"
+        ],
+        "tasks": [
+          "binary_classification",
+          "regression"
+        ],
+        "view_kinds": [
+          "multi_view"
+        ]
+      },
+      {
+        "algorithm_id": "symmetric_int8_quantization",
+        "algorithm_version": "1.0.0",
+        "default_parameters": {},
+        "dependency_profile": "",
+        "determinism": "bit_exact",
+        "export_paths": [
+          "distilled_mql5"
+        ],
+        "family": "transfer_compression",
+        "formulation": "symmetric_int8",
+        "limitations": [],
+        "native": true,
+        "output_semantics": [
+          "quantized_weights",
+          "parity_report"
+        ],
+        "required_fields": [
+          "frozen_weights"
+        ],
+        "tasks": [
+          "runtime_compression"
+        ],
+        "view_kinds": [
+          "sequence",
+          "image",
+          "graph",
+          "multi_view"
+        ]
+      }
+    ],
+    "evidence_hash": "927a65806d2590a1068ecf7dec76955b4529e5f688c3dd4469fb666c418fde8b",
+    "frozen": true,
+    "snapshot_id": "ucedeepreg_99d854eb731b19b0686f60e4"
+  },
+  "schema_version": "3.0.0"
+}

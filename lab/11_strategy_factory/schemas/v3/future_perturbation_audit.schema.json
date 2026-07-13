@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/future_perturbation_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "baseline_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "perturbation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "perturbed_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_id",
+    "baseline_hash",
+    "perturbed_hash",
+    "passed",
+    "perturbation_count",
+    "evidence_hash"
+  ],
+  "title": "future_perturbation_audit",
+  "type": "object"
+}

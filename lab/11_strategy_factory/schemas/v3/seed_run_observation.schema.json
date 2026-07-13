@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/seed_run_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "calibration_error": {
+      "type": "number"
+    },
+    "economic_utility": {
+      "type": "number"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "fit_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "predict_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "primary_metric": {
+      "type": "number"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "seed",
+    "status",
+    "primary_metric",
+    "economic_utility",
+    "calibration_error",
+    "fit_ms",
+    "predict_ms",
+    "artifact_hash",
+    "error_code"
+  ],
+  "title": "seed_run_observation",
+  "type": "object"
+}

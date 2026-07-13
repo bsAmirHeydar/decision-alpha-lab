@@ -1,0 +1,92 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/view_tensor_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "descriptor_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "const": ""
+        }
+      ]
+    },
+    "feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "layout": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "mask_required": {
+      "type": "boolean"
+    },
+    "payload_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "const": ""
+        }
+      ]
+    },
+    "runtime_exportable": {
+      "type": "boolean"
+    },
+    "shape": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "view_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "view_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "view_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "view_id",
+    "view_version",
+    "view_kind",
+    "shape",
+    "layout",
+    "feature_order",
+    "context_observation_id",
+    "known_time_ms",
+    "descriptor_hash",
+    "payload_hash",
+    "mask_required",
+    "runtime_exportable"
+  ],
+  "title": "view_tensor_spec",
+  "type": "object"
+}

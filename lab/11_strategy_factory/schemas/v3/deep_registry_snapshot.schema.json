@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/deep_registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptors": {
+      "items": {
+        "$ref": "deep_algorithm_descriptor.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "descriptors",
+    "frozen",
+    "evidence_hash"
+  ],
+  "title": "deep_registry_snapshot",
+  "type": "object"
+}

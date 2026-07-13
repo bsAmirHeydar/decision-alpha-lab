@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/adapter_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "dependency_profile": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "deterministic_required": {
+      "type": "boolean"
+    },
+    "device": {
+      "enum": [
+        "cpu",
+        "cuda"
+      ]
+    },
+    "export_format": {
+      "enum": [
+        "onnx",
+        "native_json",
+        "distilled_mql5"
+      ]
+    },
+    "precision": {
+      "enum": [
+        "float32",
+        "float64"
+      ]
+    },
+    "required_modules": {
+      "additionalProperties": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "algorithm_key",
+    "dependency_profile",
+    "required_modules",
+    "deterministic_required",
+    "seed",
+    "device",
+    "precision",
+    "export_format"
+  ],
+  "title": "adapter_plan",
+  "type": "object"
+}

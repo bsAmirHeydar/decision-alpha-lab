@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/sequence_window_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feature_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "layout": {
+      "enum": [
+        "time_major",
+        "feature_major"
+      ]
+    },
+    "pad_value": {
+      "type": "number"
+    },
+    "require_strict_time": {
+      "type": "boolean"
+    },
+    "sequence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "steps": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence_id",
+    "version",
+    "steps",
+    "feature_order",
+    "layout",
+    "pad_value",
+    "require_strict_time"
+  ],
+  "title": "sequence_window_spec",
+  "type": "object"
+}

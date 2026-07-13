@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/distillation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "compression_ratio": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "fidelity_mae": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "student_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "student_metric": {
+      "type": "number"
+    },
+    "teacher_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "teacher_metric": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "report_id",
+    "teacher_key",
+    "student_key",
+    "row_count",
+    "teacher_metric",
+    "student_metric",
+    "fidelity_mae",
+    "compression_ratio",
+    "accepted",
+    "limitations",
+    "evidence_hash"
+  ],
+  "title": "distillation_report",
+  "type": "object"
+}

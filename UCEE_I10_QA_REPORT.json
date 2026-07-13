@@ -1,0 +1,47 @@
+{
+  "boundary_guard": "pass",
+  "compileall": "pass",
+  "conformance": "pass",
+  "cumulative_pytest": {
+    "count": 231,
+    "result": "pass",
+    "scope": "UCE-I01 through UCE-I10"
+  },
+  "delivery_validation": "pass",
+  "documentation": {
+    "atomic_concepts": 6,
+    "delivery_notes": 31,
+    "delivery_note_lines": 2719,
+    "result": "pass"
+  },
+  "engineering_policy": {
+    "checks": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_at_utc": "2026-07-13T07:14:39Z",
+  "known_limitations": [
+    "Synthetic and golden fixtures do not prove real-market edge.",
+    "Optional deep/graph/ONNX adapters require separate dependency and runtime evidence.",
+    "Final anti-overfit promotion is deferred to UCE-I12.",
+    "Full runtime export and Python/MQL5 prediction parity are deferred to UCE-I14."
+  ],
+  "metaeditor": {
+    "result": "pending_local_windows",
+    "statement": "MetaEditor is unavailable in this environment; static validation is not reported as compilation."
+  },
+  "mql5_static": {
+    "file_count": 12,
+    "result": "pass"
+  },
+  "phase_id": "UCE-I10",
+  "phase_pytest": {
+    "count": 42,
+    "result": "pass"
+  },
+  "public_schema_count": 24,
+  "result": "pass_with_local_metaeditor_gate_pending",
+  "vector_verification": "pass",
+  "version": "1.1.0"
+}

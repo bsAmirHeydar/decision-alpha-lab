@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/transfer_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "boundary_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "reject"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "representation_frozen": {
+      "type": "boolean"
+    },
+    "source_dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_row_ids_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "target_dataset_manifest_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_final_test_row_ids_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "target_train_row_ids_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "boundary_id",
+    "source_dataset_manifest_hash",
+    "target_dataset_manifest_hash",
+    "source_row_ids_hash",
+    "target_train_row_ids_hash",
+    "target_final_test_row_ids_hash",
+    "representation_frozen",
+    "decision",
+    "blockers",
+    "evidence_hash"
+  ],
+  "title": "transfer_boundary",
+  "type": "object"
+}

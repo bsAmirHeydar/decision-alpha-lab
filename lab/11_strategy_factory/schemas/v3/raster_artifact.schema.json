@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/raster_artifact.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_observation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "shape": {
+      "items": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "values": {
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "spec_hash",
+    "context_observation_id",
+    "known_time_ms",
+    "shape",
+    "values",
+    "source_hash",
+    "evidence_hash"
+  ],
+  "title": "raster_artifact",
+  "type": "object"
+}
