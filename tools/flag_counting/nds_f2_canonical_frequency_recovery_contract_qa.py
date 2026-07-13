@@ -8,6 +8,7 @@ FILES = {
     "expert": ROOT / "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
     "types": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
     "setup": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+    "adapter": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh",
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
     "backtest": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
@@ -60,14 +61,15 @@ def main() -> int:
     expert = content["expert"]
     types = content["types"]
     setup = content["setup"]
+    adapter = content["adapter"]
     rules = content["rules"]
     backtest = content["backtest"]
     phase = content["phase"]
     doc = content["doc"]
 
-    require(expert, '#property version   "2.00"', "expert version", errors)
-    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v11", "schema version", errors)
+    require(expert, '#property version   "2.10"', "expert version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-12", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v12", "schema version", errors)
     require(expert, "InpF2BTMaxSetupAgeBars = -1", "lifecycle-owned age default", errors)
     require(types, "cfg.max_setup_age_bars = -1", "config age default", errors)
     require(expert, "InpF2BTConsumeAttemptOnlyOnFill = true", "consume-on-fill default", errors)
@@ -80,7 +82,7 @@ def main() -> int:
     require(setup, "setup.entry_price", "entry-consumption check", errors)
     require(expert, "InpF2BTRequireCanonicalF3SpawnForLocalExit = true", "explicit local-F3 spawn input", errors)
     require(types, "require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn config", errors)
-    require(setup, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
+    require(adapter, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
 
     require(rules, "FP_NDSF2ActiveAttempt", "active attempt registry", errors)
     require(rules, "TRADE_TRANSACTION_DEAL_ADD", "fill transaction", errors)

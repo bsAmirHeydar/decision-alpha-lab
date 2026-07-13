@@ -422,3 +422,23 @@ The optional H1 phase gate evaluates every canonical higher-timeframe count inde
 ### Version 2.00 frequency and lifecycle correction
 
 The setup no longer expires at `Age=0`; default `InpF2BTMaxSetupAgeBars=-1` keeps it alive by structural lifecycle while causal entry/target-touch checks prevent late orders. Pending attempts are consumed on fill, FAST covers 800 bars and L=8, local-F3 spawn dependency is explicit, and optional one-row funnel diagnostics remain default-off. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md`.
+
+## NDS F2 canonical Point-2 execution adapter — v2.10
+
+The F2 Waist-Break Point-2 backtest now consumes the existing Phoenix F lifecycle through an execution-only adapter. The core Flag Body, Internal Count, F1/F2/F3 lifecycle, and Sequence modules are unchanged.
+
+Locked sequence:
+
+```text
+F2 two-leg flag body
+→ post-flag correction / minimum 1-2
+→ optional Waist-break branch where 1 = F2 Waist and 2 = the Waist-breaking passage
+→ later return through original F2 flag end confirms F2
+```
+
+The setup stages a strict pending limit beyond the existing F2 flag Waist to capture Point 2, stops behind the direct parent F1 Waist, and uses the original F2 flag end as fixed target and RR reference.
+
+Detailed contract:
+
+- [`18_canonical_point2_projection_root_fix.md`](../nds_entry_architecture/f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md)
+- [`01_canonical_setup_contract.md`](../nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md)

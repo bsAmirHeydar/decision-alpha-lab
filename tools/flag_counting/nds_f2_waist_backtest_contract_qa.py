@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPERT = ROOT / "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5"
 FAST = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh"
 SETUP = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh"
+ADAPTER = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh"
 RULES = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh"
 ENGINE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 TRADE_ENGINE = ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh"
@@ -28,10 +29,11 @@ def main() -> None:
     expert = EXPERT.read_text(encoding="utf-8")
     fast = FAST.read_text(encoding="utf-8")
     setup = SETUP.read_text(encoding="utf-8")
+    adapter = ADAPTER.read_text(encoding="utf-8")
     rules = RULES.read_text(encoding="utf-8")
     engine = ENGINE.read_text(encoding="utf-8")
     trade_engine = TRADE_ENGINE.read_text(encoding="utf-8")
-    runtime = "\n".join((expert, fast, setup, rules, engine, trade_engine))
+    runtime = "\n".join((expert, fast, setup, adapter, rules, engine, trade_engine))
 
     require(expert, "FP_NDSF2WaistBacktestEngine.mqh", "dedicated_expert")
     require(expert, "cfg.scan_hooks = false", "hook_scan_disabled")
@@ -44,8 +46,8 @@ def main() -> None:
     forbid(fast, "FP_BuildHookBranches", "skip_hook_build")
     forbid(fast, "FP_DetectAllScales", "skip_global_postprocessing")
 
-    require(setup, "f2.f2_body_complete", "complete_unconfirmed_f2_gate")
-    require(setup, "f2.status == FP_STATUS_CONFIRMED", "reject_confirmed_f2")
+    require(adapter, "f2.f2_body_complete", "complete_unconfirmed_f2_gate")
+    require(adapter, "f2.status == FP_STATUS_CONFIRMED", "reject_confirmed_f2")
     require(setup, "FP_CanonicalFindParentIndex", "canonical_parent_f1")
     require(setup, "events[i].leg2", "leg2_observable_bar_freshness")
     require(setup, "f2.waist.price - entry_offset", "bullish_below_f2_waist")

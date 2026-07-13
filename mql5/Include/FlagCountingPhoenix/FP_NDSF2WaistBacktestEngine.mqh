@@ -139,13 +139,19 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
       (active_positions > 0 &&
        FP_NDSF2ExitModeUsesEntryTimeframeF3(trade_cfg.exit_mode));
 
+   // Pending orders must still see the exact source-F2 lifecycle even when the
+   // HTF entry gate is closed and the operator chooses not to cancel by HTF.
+   // This is execution reconciliation only; Phoenix F detection remains intact.
+   bool needs_pending_source_lifecycle_detection = (active_orders > 0);
+
    // The HTF-F3 exit is independent of the entry gate. Once a position exists,
    // it keeps waiting for its own configured higher-timeframe F3 even if the
    // entry filter later closes. The scan is cached once per HTF bar.
    FP_NDSF2UpdateHigherTimeframeF3Exit(symbol, trade_cfg, htf_cfg);
    FP_NDSF2ManageDynamicExitOnTick(symbol, period, trade_cfg);
 
-   if(!entry_gate_open && !needs_dynamic_exit_detection)
+   if(!entry_gate_open && !needs_dynamic_exit_detection &&
+      !needs_pending_source_lifecycle_detection)
    {
       if(cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
       if(phase_cancelled > 0)
@@ -165,8 +171,15 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
       (trade_cfg.use_stop_space_overlap_deduplication &&
        active_orders > 0 && active_positions == 0 && entry_gate_open);
 
+   // Pending orders must receive the current canonical F2 event stream even
+   // when overlap replacement is disabled. This lets the execution layer cancel
+   // a pending order whose exact source F2 body extended, confirmed, invalidated
+   // or disappeared, without changing any Phoenix F detector/lifecycle module.
+   bool pending_source_lifecycle_scan = needs_pending_source_lifecycle_detection;
+
    bool hard_parallel_block = false;
-   if(active_total > 0 && !pending_replacement_scan && !needs_dynamic_exit_detection)
+   if(active_total > 0 && !pending_replacement_scan &&
+      !pending_source_lifecycle_scan && !needs_dynamic_exit_detection)
    {
       if(!FP_NDSF2AccountSupportsIndependentContexts()) hard_parallel_block = true;
       if(trade_cfg.max_concurrent_managed_exposures > 0 &&

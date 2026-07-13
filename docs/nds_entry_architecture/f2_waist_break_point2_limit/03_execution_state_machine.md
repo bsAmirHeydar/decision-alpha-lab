@@ -1,108 +1,95 @@
 # 03 — Execution State Machine
 
-## 1. Candidate lifecycle
+## 1. Canonical source lifecycle
 
 ```text
-IDLE / PORTFOLIO_ACTIVE
+PHOENIX F2 BODY NOT READY
+  ↓
+PHOENIX F2 FLAG BODY READY
+Origin → Leg1 → Waist → Leg2
+  ↓
+F2 POST-FLAG CONTEXT ACTIVE
+  ├─ Phoenix internal counting develops
+  ├─ F2 may create the special Waist-break branch
+  ├─ F2 Origin break → source invalid
+  └─ favorable re-break after valid post-flag structure → F2 confirmed
+```
+
+The setup engine observes this lifecycle. It does not write it.
+
+## 2. Setup projection lifecycle
+
+```text
+NO PROJECTION
+  ↓ exact canonical body is observable
+POINT2 PROJECTION ARMED
+  ├─ projected Point 1 = F2 flag Waist
+  ├─ Point-2 limit = strictly beyond Waist and boundary epsilon
+  ├─ Stop = behind direct parent F1 Waist
+  └─ RR reference = original F2 flag end
+```
+
+A body may remain eligible across multiple bars, but a missed Entry or already-consumed flag end cannot be armed retrospectively.
+
+## 3. Pending lifecycle
+
+```text
+PENDING_POINT2_CAPTURE(exact_f2_body_id)
   │
-  ├─ rebuild cached HTF state only on a new HTF bar
-  ├─ evaluate every canonical HTF F count
-  ├─ no sole qualifying HTF direction → no new order
-  ├─ lower-timeframe direction conflicts with HTF → reject candidate
-  ├─ no complete unconfirmed F2 body → reject candidate
-  ├─ no confirmed direct parent F1 → reject candidate
-  ├─ F2 or parent invalidated → reject candidate
-  ├─ F2 target already retested since observability → reject candidate
-  ├─ final executable entry already touched since observability → missed, reject
-  ├─ setup already filled under one-attempt policy → reject
-  ├─ RR below minimum + repricing disabled → reject
-  ├─ RR below minimum + repricing enabled → move Entry toward fixed Stop
-  ├─ final broker geometry invalid → reject
-  ├─ overlap above threshold → suppress narrower context
-  ├─ exposure policy blocks context → reject
-  └─ valid survivor → ORDER_PENDING(context_hash)
-```
-
-There is no arbitrary age rejection by default. `InpF2BTMaxSetupAgeBars = -1` means structural lifecycle owns validity.
-
-## 2. Pending lifecycle
-
-```text
-ORDER_PENDING(context_hash)
+  ├─ limit fills
+  │    └─ executable Waist-break Point 2 captured
   │
-  ├─ duplicate of same hash requested → blocked by active-attempt registry
-  ├─ price reaches final limit → fill → consume one-attempt identity
-  ├─ own F2 Leg2 target reached first → cancel; setup becomes structurally consumed
-  ├─ HTF direction/window closes and cancellation policy is on → cancel
-  │     └─ active attempt released; may re-arm later only if still causally valid
-  ├─ external cancellation/rejection/expiry → release active attempt
-  ├─ wider overlapping pending appears → remove narrower, submit wider
-  └─ otherwise → hold independently
-```
-
-## 3. Position lifecycle
-
-```text
-POSITION_OPEN(context_hash)
+  ├─ exact source Leg2 extends
+  │    └─ cancel old order; new body version may re-arm
   │
-  ├─ own direct-parent F1-waist stop reached → stop exit
-  ├─ FIXED_F2 mode + own F2 Leg2 reached → target exit
-  ├─ LOCAL_F3 mode → exact source-F2 / direct-child-F3 manager
-  └─ HTF_F3 mode → per-position higher-timeframe F3 manager
+  ├─ exact source F2 confirms
+  │    └─ cancel; original target event already occurred
+  │
+  ├─ exact source F2 invalidates or disappears
+  │    └─ cancel
+  │
+  ├─ original F2 flag end touched before fill
+  │    └─ cancel in every exit mode, including dynamic TP=0 modes
+  │
+  ├─ HTF gate disallows and cancellation policy is enabled
+  │    └─ cancel
+  │
+  ├─ wider overlapping context replaces this pending
+  │    └─ cancel and release reservation
+  │
+  └─ otherwise
+       └─ hold the exact source-bound pending order
 ```
 
-The HTF entry gate never force-closes an open position.
-
-## 4. Local exact-F3 exit
+## 4. Fill and attempt ownership
 
 ```text
-POSITION_OPEN(source_f2_identity, position_ticket)
-  → detect only exact direct-child F3 of that source F2
-  → wait for Waist of the same F3
-  → TP = Leg1 endpoint of that same F3
-  → modify or close only the bound position ticket
+pending accepted → active source-body reservation
+pending cancelled → reservation released
+entry deal filled → F2 body attempt permanently consumed
 ```
 
-No F3 from another scale, sequence, F2, or position can own the exit.
+A fill is the execution event for Point 2. It is not F2 confirmation.
 
-## 5. HTF-F3 exit
+## 5. Position lifecycle
 
 ```text
-POSITION_OPEN(position_ticket, open_time)
-  → first eligible same-direction canonical F3 on configured higher timeframe
-  → lock exact F3 identity per ticket
-  → wait for Waist of the same locked F3
-  → TP = exact Leg1 endpoint
+POSITION_OPEN(exact_setup_hash)
+  ├─ Stop behind parent F1 Waist
+  ├─ Fixed exit → original F2 flag end
+  ├─ Local F3 exit → exact child F3 of the same source F2
+  └─ HTF F3 exit → independently locked HTF F3 per position ticket
 ```
 
-## 6. Parallel-context invariant
+The HTF entry gate never force-closes an already-filled position.
+
+## 6. Invariants
 
 ```text
-same setup_hash + active pending → never duplicate
-same setup_hash + prior fill → permanently consumed when one-attempt is on
-same direction + different context → input-controlled, default allowed
-opposite direction + different context → hedge input-controlled, default allowed
+F2 detector/lifecycle code is unchanged
+one pending order owns one exact F2 body version
+body extension cannot leave an old-target order alive
+F2 confirmation cannot leave an unfilled Point-2 order alive
+boundary epsilon is part of Point-2 entry geometry
+no confirmed-node lookahead is used for entry
 ```
-
-Independent same-symbol contexts require an MT5 hedging account. With the default fail-fast input, a netting account causes `INIT_PARAMETERS_INCORRECT` instead of silently producing a different portfolio model.
-
-## 7. Near-duplicate arbitration
-
-```text
-Stop corridor = [min(final Entry, Stop), max(final Entry, Stop)]
-Overlap % = intersection / narrower corridor × 100
-```
-
-At or above the configured threshold, only the wider same-direction corridor survives. An already-filled position is never replaced.
-
-## 8. RR invariant
-
-All three exit modes calculate minimum RR from:
-
-```text
-RR reference = original F2 Leg2 endpoint
-Risk = abs(final Entry - F1-waist Stop)
-Reward = abs(F2 Leg2 - final Entry)
-```
-
-Future F3 exits never enter setup-time RR.

@@ -8,6 +8,7 @@ FILES = {
     "expert": ROOT / "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
     "types": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
     "setup": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+    "adapter": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh",
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "manager": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
@@ -44,21 +45,22 @@ def main() -> int:
     expert = content["expert"]
     types = content["types"]
     setup = content["setup"]
+    adapter = content["adapter"]
     rules = content["rules"]
     manager = content["manager"]
     engine = content["engine"]
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "2.00"', "expert version", errors)
+    require(expert, '#property version   "2.10"', "expert version", errors)
     require(expert, "FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST", "third exit mode documentation", errors)
     require(expert, "InpF2BTF3ExitHigherTimeframe = PERIOD_H1", "default H1 exit timeframe", errors)
     require(expert, "cfg.higher_timeframe_f3_exit_timeframe = InpF2BTF3ExitHigherTimeframe", "exit timeframe wiring", errors)
     require(expert, "FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode)", "local-only entry-TF F3 scan", errors)
     require(expert, "PeriodSeconds(resolved_exit_tf) <= PeriodSeconds(_Period)", "strictly-higher timeframe validation", errors)
 
-    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v11", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-12", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v12", "schema version", errors)
     require(types, "FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST = 2", "HTF F3 enum", errors)
     require(types, "higher_timeframe_f3_exit_timeframe", "HTF exit config field", errors)
     for token in (
@@ -71,7 +73,7 @@ def main() -> int:
     ):
         require(types, token, f"per-trade HTF field {token}", errors)
 
-    require(setup, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
+    require(adapter, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
     require(expert, "InpF2BTRequireCanonicalF3SpawnForLocalExit = true", "explicit local-F3 spawn input", errors)
     forbid(setup, "FP_NDSF2ExitModeIsDynamic(cfg.exit_mode) &&\n      !f2.f2_size_gate_passed", "HTF mode forced through local F2 spawn gate", errors)
     require(rules, "FP_NDSF2ExitModeIsDynamic(cfg.exit_mode)", "dynamic context registration for both modes", errors)

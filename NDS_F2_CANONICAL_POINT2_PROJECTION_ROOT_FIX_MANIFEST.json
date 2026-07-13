@@ -1,0 +1,191 @@
+{
+  "patch_name": "NDS_F2_Canonical_Point2_Projection_Root_Fix_Patch",
+  "created_date": "2026-07-13",
+  "expert_version": "2.10",
+  "contract_version": "NDS-F2-WAIST-BREAK-12",
+  "schema_version": "nds_f2_waist_break_point2_v12",
+  "base_requirement": "Apply after the cumulative NDS F2 Canonical Frequency Recovery build / Expert 2.00, or onto a repository containing the same cumulative F2 execution files.",
+  "scope": "Execution-only root correction for the F2 Waist-break Point-2 setup. Existing Phoenix Flag Body, Internal Count, F1/F2/F3 lifecycle, and Sequence engines are protected and unchanged.",
+  "summary": "Separates the two-leg F2 flag body from the complete post-flag F2 lifecycle, stages a strict epsilon-aware limit to capture the future Waist-break Point 2, binds every pending order to its exact source F2 body version, cancels stale source orders on extension/confirmation/invalidation/disappearance, and restores original F2 flag-end target consumption for dynamic TP=0 orders.",
+  "protected_core": {
+    "result": "byte-for-byte unchanged from Expert 2.00 boundary",
+    "files": [
+      "mql5/Include/FlagCountingPhoenix/FP_FlagBodyEngine.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_FlagBodyRules.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_InternalCountEngine.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_InternalCountRules.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_F1LifecycleEngine.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_F2LifecycleEngine.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_F2LifecycleRules.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_F3LifecycleEngine.mqh",
+      "mql5/Include/FlagCountingPhoenix/FP_SequenceEngine.mqh"
+    ]
+  },
+  "validation": {
+    "new_root_fix_qa": "passed",
+    "all_nds_f2_regression_qa": "passed",
+    "protected_core_hashes": "passed",
+    "engineering_policy": "passed with 0 errors and 0 warnings",
+    "mql5_compatibility": "passed with 0 errors and 0 warnings",
+    "repository_layout": "passed",
+    "static_qa": "passed with no blocking findings; unrelated pre-existing warnings only",
+    "include_resolution": "62 project files resolved",
+    "delimiter_balance": "passed for 7 changed MQL files",
+    "markdown_links": "passed for changed Markdown files",
+    "python_syntax": "passed for all NDS F2 QA scripts",
+    "metaeditor_compile": "not available in build environment"
+  },
+  "file_count_excluding_manifest": 30,
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_CANONICAL_POINT2_PROJECTION_ROOT_FIX_PATCH.md",
+      "sha256": "62499989b14194a7a319c014ad8807db77f345d06f9c6797fd3b2e26279101c4",
+      "size_bytes": 3068
+    },
+    {
+      "path": "NDS_F2_CANONICAL_POINT2_PROJECTION_ROOT_FIX_AUDIT_REPORT.md",
+      "sha256": "67d32203e45c9bc44bd5bd2292a90537bd70a7d3a542aed8eb0b48755f5680e0",
+      "size_bytes": 8481
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "sha256": "61af944527ae03147d37f3f9e7715eb3ec8224789c1674293b61d2b0ac4bc114",
+      "size_bytes": 25521
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "sha256": "acad2ae3ccb96f29ec3c6c66043a073134d2df8f123a979ce3b27299769307e5",
+      "size_bytes": 8949
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/01_canonical_setup_contract.md",
+      "sha256": "ffaf622d934f7dbcb924ad2680be402c095670f531c5e33ed4fda2905810f13e",
+      "size_bytes": 5842
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/02_structural_anatomy.md",
+      "sha256": "d1589b8b26ea9e5d4830c72ed7a76356723e59c4414db9075c41d17d311ab143",
+      "size_bytes": 4457
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/03_execution_state_machine.md",
+      "sha256": "cd72a2cb69dc4f46fde41aa17a672c48f713c96cdd918ca68b7f61b7437bda92",
+      "size_bytes": 2771
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md",
+      "sha256": "854f6669bb936d1d15ef83f407b7996965b0dced3d1d5924c60f3b14287dc3ea",
+      "size_bytes": 2736
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "sha256": "2b18c12f16f19b6d3633c97c68cfeb2a112828b053d13c8688a5380f7fbf3fff",
+      "size_bytes": 2592
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "sha256": "3860a2bf4d497783e212126ed7fd6b0a9f535725d0fadb1eec5d622e32385dd5",
+      "size_bytes": 4656
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Canonical Point-2 Projection Root Fix.md",
+      "sha256": "d6de260c6cee62d8073ef54dd0038725bf08ae2b26bdd210ffd61b3696a74ecf",
+      "size_bytes": 1482
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Waist-Break Point2 Limit Setup.md",
+      "sha256": "2ed202c1cbe9911afbd0884394012cf0c84fdb8f1292391f416d3b6b1269d057",
+      "size_bytes": 2211
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "sha256": "a6cb682d125b870378f7b58da4edd772d03a9998fa7f3dc3c7ea0794779b616c",
+      "size_bytes": 15669
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh",
+      "sha256": "d6ae1146381ff8a9104f945df49cdb8d073700b3f19245aa70df2ded2bc89c24",
+      "size_bytes": 5836
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "sha256": "10f45290000f799683b49ecdba40a0b75e07474bd13142eb3d58f4f14658bb75",
+      "size_bytes": 11214
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "sha256": "ebbdaaccfb361f3031c1f56172ff7fb9d8586c5d5950ddba66685aa6b795d977",
+      "size_bytes": 20235
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
+      "sha256": "835594bf99fe39299b4ce129b7a2f7cc6641ff2410862232009a2f11f410936d",
+      "size_bytes": 7317
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
+      "sha256": "13bb71dac43d8679aaf5b34ff0658ae2c3a10be601af7ea37231857126242983",
+      "size_bytes": 35357
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "sha256": "b19cf962863764b15d37726927e602c1fba3bd7e00c0927f4072bd4c4f67696d",
+      "size_bytes": 14899
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_canonical_frequency_recovery_contract_qa.py",
+      "sha256": "22465df3a38af81903001b709200714d8b6c39503994dab83ae23dac90a2d9ff",
+      "size_bytes": 6955
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_canonical_point2_projection_root_fix_qa.py",
+      "sha256": "22312c256ac42c4c86e1d9b753ce211d69e9ed7192713a886e60a2548d192a81",
+      "size_bytes": 9609
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_dual_exit_contract_qa.py",
+      "sha256": "c63c8c8f7df98b92b31b7a66d416a62a50f90dce5f8d549121f76661681e7c88",
+      "size_bytes": 6159
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_higher_timeframe_f3_exit_contract_qa.py",
+      "sha256": "b388deac73621b6e2192945c1e29e0c107acca970fa2060d90ef49412a6f08e3",
+      "size_bytes": 6217
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_htf_f1_to_f2_window_contract_qa.py",
+      "sha256": "e50ebc03552baef64f250e732d490409d9c6cab60612fb5d0e0e1e17c4747508",
+      "size_bytes": 5433
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_htf_f_phase_filter_contract_qa.py",
+      "sha256": "88a1ed2fcb61e9dd8d2eeb54c27b780596791de707b4e993d897e052c22ce448",
+      "size_bytes": 6310
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_overlap_wider_rr_reprice_contract_qa.py",
+      "sha256": "9e2f594b6112d1b34ede75a8917ff50914e7a5bceb95d5408fea73dec17228d0",
+      "size_bytes": 6045
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_per_trade_f3_exit_contract_qa.py",
+      "sha256": "ad9900708ddd1f5931cb35d27f584efb661b49127b6e647c2386408dee5e25bd",
+      "size_bytes": 4269
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "sha256": "9de2fcd6fb70174704c3ce442de46d2a5cbac05702837c0196e890dd6f9c166d",
+      "size_bytes": 6242
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "sha256": "c2e3c6c7ac78e7f8c28b4d2f7fcb788be729a11713ea0d6cd68694a201f21521",
+      "size_bytes": 4784
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "sha256": "e094f27855d8117c4b4d88d4614cf3bef981b452367adeda78f19847ad6d9431",
+      "size_bytes": 7306
+    }
+  ]
+}

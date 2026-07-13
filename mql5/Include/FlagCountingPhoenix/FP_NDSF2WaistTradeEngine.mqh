@@ -21,6 +21,16 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
    // any new setup is considered. Fixed exit mode is a no-op here.
    FP_NDSF2UpdateDynamicExitFromEvents(cfg, events, event_count);
 
+   // Every pending order remains bound to the exact Phoenix F2 flag-body
+   // version that created it. If that source body extends, confirms, invalidates
+   // or disappears, cancel only that pending order and release its reservation.
+   int source_cancel_errors = 0;
+   int source_cancelled = FP_NDSF2CancelPendingOrdersWithDeadSource(symbol, cfg,
+                                                                    events, event_count,
+                                                                    source_cancel_errors);
+   g_fp_nds_f2_funnel.pending_cancelled_source_lifecycle +=
+      (ulong)MathMax(0, source_cancelled);
+
    int f1_indices[];
    int f2_indices[];
    int available_indices[];
@@ -71,6 +81,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
                                        rates, rates_total,
                                        events[f1_index], events[f2_index],
                                        available_indices[i],
+                                       epsilon_points,
                                        cfg, setup))
       {
          blocked_count++;
@@ -168,7 +179,9 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
    if(sent_count > 1) return FP_NDS_F2_RUN_MULTI_ORDER_SENT;
    if(sent_count == 1) return FP_NDS_F2_RUN_ORDER_SENT;
    if(paper_count > 0) return FP_NDS_F2_RUN_PAPER;
-   if(error_count > 0) return FP_NDS_F2_RUN_ERROR;
+   if(error_count > 0 || source_cancel_errors > 0) return FP_NDS_F2_RUN_ERROR;
+   if(source_cancelled > 0)
+      return FP_NDS_F2_RUN_PENDING_CANCELLED_SOURCE_LIFECYCLE;
 
    int orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, cfg, FP_DIR_NONE);
    int positions = FP_NDSF2CountManagedPositionsOnSymbol(symbol, cfg, FP_DIR_NONE);

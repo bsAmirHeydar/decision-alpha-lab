@@ -13,17 +13,19 @@ status: canonical
 
 ## Canon
 
-> وقتی فلگ دو لگ F2 کامل شد، کمر همان فلگ شماره 1 است. اولین عبور سخت از پشت کمر، شماره 2 است. سفارش Limit از قبل پشت کمر F2 قرار می‌گیرد تا Fill آن همان ورود روی شماره 2 باشد. استاپ پشت کمر F1 والد و تارگت انتهای دو لگ F2 است.
+> Phoenix تعریف کامل F2 را از قبل دارد: بدنه دو‌لگ، اصلاح پس از فلگ با حداقل ۱/۲، و سپس برگشت به انتهای فلگ برای تأیید F2. این ستاپ فقط ورود شاخه Waist-break را اجرا می‌کند: کمر بدنه فلگ F2 نقش Point 1 شاخه را دارد و سفارش Limit از قبل با عبور سخت و epsilon-safe پشت همان کمر قرار می‌گیرد تا Fill آن Point 2 اجرایی باشد. استاپ پشت کمر F1 والد و مرجع RR/تارگت ثابت انتهای فلگ F2 است.
 
 ## State flow
 
 ```text
 F1 confirmed
-→ F2 Origin-Leg1-Waist-Leg2 complete
-→ arm pending behind F2 Waist
-→ fill = Point 2
-→ SL behind F1 Waist
-→ TP at F2 Leg2
+→ Phoenix builds F2 flag body: Origin-Leg1-Waist-Leg2
+→ execution adapter arms strict pending beyond F2 Waist
+→ post-flag correction reaches Waist
+→ fill = executable Waist-break Point 2
+→ Phoenix continues its own post-flag count
+→ favorable return to original Leg2 confirms F2
+→ SL behind F1 Waist / fixed TP at original Leg2
 ```
 
 ## Forbidden reinterpretations
@@ -53,3 +55,5 @@ Same-direction distinct contexts = enabled
 The deterministic F2 body-version hash is the context authority. The same hash cannot submit twice. Parallel same-symbol positions require an MT5 hedging account.
 
 - [[NDS F2 RR Hedge and Parallel Contexts]]
+
+- [[NDS F2 Canonical Point-2 Projection Root Fix]]

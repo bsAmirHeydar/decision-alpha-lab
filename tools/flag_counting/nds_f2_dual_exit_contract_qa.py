@@ -8,6 +8,7 @@ FILES = {
     "expert": ROOT / "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
     "types": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
     "setup": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+    "adapter": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2CanonicalPoint2SetupAdapter.mqh",
     "rules": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeRules.mqh",
     "manager": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
     "engine": ROOT / "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeEngine.mqh",
@@ -45,6 +46,7 @@ def main() -> int:
     expert = content["expert"]
     types = content["types"]
     setup = content["setup"]
+    adapter = content["adapter"]
     rules = content["rules"]
     manager = content["manager"]
     engine = content["engine"]
@@ -52,7 +54,7 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "2.00"', "expert version", errors)
+    require(expert, '#property version   "2.10"', "expert version", errors)
     require(expert, "InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "default fixed exit", errors)
     require(expert, "InpF2BTF3ExitCorrectionTicks = 1.0", "default correction gate", errors)
     require(expert, "InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true", "market fallback default", errors)
@@ -64,12 +66,12 @@ def main() -> int:
     require(types, "rr_reference_target_price", "RR reference field", errors)
     require(types, "initial_broker_take_profit_price", "initial broker TP field", errors)
     require(types, "FP_NDSF2DynamicExitContext", "dynamic context type", errors)
-    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-12", "contract version", errors)
 
     require(setup, "setup.rr_reference_target_price = setup.target_price", "F2 Leg2 RR authority", errors)
     require(setup, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END ? setup.target_price : 0.0", "mode-aware initial TP", errors)
     require(expert, "InpF2BTRequireCanonicalF3SpawnForLocalExit = true", "explicit local-F3 spawn default", errors)
-    require(setup, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
+    require(adapter, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
     require(setup, "FP_NDSF2AdjustEntryForMinimumRewardRisk", "unchanged RR repricing", errors)
 
     require(rules, "request.tp = setup.initial_broker_take_profit_price", "mode-aware pending TP", errors)

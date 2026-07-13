@@ -8,7 +8,7 @@ The setup has three explicit exit modes and an optional canonical higher-timefra
 
 ## Core sentence
 
-After a complete two-leg F2 flag exists, the F2 waist is treated as structural Point 1. A strict penetration beyond that waist is Point 2. The system stages a limit order strictly beyond the F2 waist so the fill is the executable Point 2, places the stop beyond the direct parent F1 waist, and supports three exit authorities: the fixed F2 endpoint, the exact local direct-child F3 retest, or the first exact same-direction higher-timeframe F3 Leg1 retest after that position opens. In both dynamic modes the original F2 endpoint remains the RR reference.
+Phoenix already owns the complete F2 lifecycle: a two-leg flag body, a post-flag internal 1/2 or Waist-break branch, and a later favorable return through the original flag end that confirms F2. This execution profile does not redefine that lifecycle. It projects the preferred Waist-break branch by staging a strict limit beyond the already-existing F2 flag Waist after the body is observable, so the fill captures executable Point 2 while the F engine continues unchanged. Stop remains beyond the direct parent F1 Waist, and the original F2 flag end remains the fixed target and RR reference.
 
 ## Index
 
@@ -31,3 +31,4 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 15. [Higher-timeframe F3 flag-retest exit](15_higher_timeframe_f3_flag_retest_exit.md)
 16. [Higher-timeframe F1-to-F2 confirmation window](16_higher_timeframe_f1_to_f2_confirmation_window.md)
 17. [Canonical frequency recovery and lifecycle corrections](17_canonical_frequency_recovery_and_lifecycle.md)
+18. [Canonical Point-2 projection root fix](18_canonical_point2_projection_root_fix.md)

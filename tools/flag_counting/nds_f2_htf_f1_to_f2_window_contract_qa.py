@@ -52,11 +52,11 @@ def main() -> int:
     phase_doc = content["phase_doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "2.00"', "expert version", errors)
+    require(expert, '#property version   "2.10"', "expert version", errors)
     require(expert, "InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true", "default-on input", errors)
     require(expert, "cfg.require_f1_confirmed_before_f2_confirmed_window", "config wiring", errors)
-    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v11", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-12", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v12", "schema version", errors)
 
     require(phase, 'NDS-F2-HTF-F-PHASE-03', "phase module version", errors)
     require(phase, "FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM", "pre-F1 state", errors)

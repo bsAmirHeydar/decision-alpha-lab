@@ -1,181 +1,197 @@
 # 01 — Canonical Setup Contract
 
-## 1. Scope
+## 1. Authority boundary
 
-This setup is independent of Hook, Hook-after-Hook, Hook-after-F3, Zone, Cycle Group and AI selection logic. It consumes only canonical F1/F2 anatomy from Phoenix.
+This execution profile **does not define F1, F2, F3, their internal counts, or their confirmation lifecycle**.
 
-## 2. Structural precondition
-
-A valid parent-child pair exists:
+The authoritative Phoenix sequence remains unchanged:
 
 ```text
-Confirmed F1 parent
-→ complete F2 two-leg body
+F2 flag body:
+Origin → Leg1 → Waist → Leg2 / flag end
+
+Then F2 post-flag correction:
+minimum internal 1/2, including the special Waist-break branch
+
+Then F2 confirmation:
+price returns in the F2 direction and strictly re-passes the original F2 flag end
 ```
 
-The F2 body is:
+The setup layer only projects and executes one preferred entry inside that already-defined F2 lifecycle.
+
+Core files deliberately left untouched include:
 
 ```text
-F2 Origin → F2 Leg1 → F2 Waist → F2 Leg2
+FP_FlagBodyEngine.mqh
+FP_FlagBodyRules.mqh
+FP_InternalCountEngine.mqh
+FP_InternalCountRules.mqh
+FP_F1LifecycleEngine.mqh
+FP_F2LifecycleEngine.mqh
+FP_F2LifecycleRules.mqh
+FP_F3LifecycleEngine.mqh
+FP_SequenceEngine.mqh
 ```
 
-The setup is armed when the complete F2 body becomes observable without future data. It does not wait for F2 confirmation.
+## 2. Exact setup being traded
 
-## 3. Point-1 / Point-2 grammar
-
-The special F2 waist-break branch is:
+The desired branch is the existing F2 Waist-break branch:
 
 ```text
-Point 1 = F2 Waist
-Point 2 = first strict penetration beyond the F2 Waist
+Point 1 = the Waist of the already-complete two-leg F2 flag body
+Point 2 = the post-flag adverse node / price passage that strictly breaks that Waist
 ```
 
-The pending order is placed before Point 2 forms:
+The trade must enter at Point 2. Because Point 2 does not exist before the Waist is crossed, the executable representation is a pending limit staged in advance:
 
 ```text
-Bullish F2: Buy Limit strictly below F2 Waist
-Bearish F2: Sell Limit strictly above F2 Waist
+Bullish F2 → Buy Limit strictly below the F2 flag Waist
+Bearish F2 → Sell Limit strictly above the F2 flag Waist
 ```
 
-Therefore, the fill itself is the executable Point 2.
+The fill is the executable Point 2. The fill does **not** mean the complete F2 has confirmed. F2 confirmation remains a later Phoenix lifecycle event.
 
-## 4. Risk and exit authority
+## 3. Full causal sequence
 
 ```text
-Entry = behind F2 Waist
-Stop  = behind direct parent F1 Waist
+1. Phoenix creates the F2 two-leg flag body
+   Origin → Leg1 → Waist → Leg2 / flag end
+
+2. The setup adapter binds to that exact body version
+
+3. It stages a limit strictly beyond the F2 flag Waist
+
+4. The market corrects after the flag body
+
+5. Crossing the F2 Waist fills the order
+   F2 Waist = branch Point 1
+   strict crossing / breaking node = branch Point 2
+
+6. The market later returns in the original F2 direction
+
+7. Re-passing the original F2 flag end confirms F2
 ```
 
-Exit is selected by input:
+This is the only interpretation allowed by this profile.
+
+## 4. Entry, stop, and economic target
 
 ```text
-Fixed mode:
-TP = F2 Leg2 endpoint / end of F2 two-leg flag
-
-F3 retest mode:
-RR reference = original F2 Leg2
-initial broker TP = none
-dynamic TP = F2 confirmation node / canonical F3 Leg1 after correction
+Entry = strict Point-2 projection beyond F2 flag Waist
+Stop  = behind the direct parent F1 Waist
+RR reference = original F2 flag end / Leg2
 ```
 
-For bullish F2:
+For the fixed exit mode:
 
 ```text
-Stop < Entry < Target
+Broker TP = original F2 flag end / Leg2
 ```
 
-For bearish F2:
+For both dynamic F3 exit modes:
 
 ```text
-Target < Entry < Stop
+Initial broker TP = 0
+RR reference still = original F2 flag end / Leg2
+Actual exit is managed later by the selected F3 exit contract
 ```
 
-Local exact-F3 exit has one explicit source-lineage prerequisite:
+## 5. Strict structural break semantics
+
+Phoenix defines equality as not being a break. Therefore the Point-2 order cannot be placed merely one nominal tick behind the Waist when the configured structural boundary epsilon is wider.
+
+The minimum entry offset is now:
 
 ```text
-InpF2BTRequireCanonicalF3SpawnForLocalExit = true
+max(
+  requested entry ticks × trade tick size,
+  Phoenix boundary epsilon + one trade tick
+)
 ```
 
-This does not alter fixed-F2 or HTF-F3 entry eligibility.
+Consequently, an executable fill is guaranteed to be beyond the same strict boundary used by Phoenix.
 
-## 5. Reward/Risk entry repricing
+## 6. Source-body ownership
 
-After structural Entry, Stop and Target are normalized:
+Every pending order is bound to the exact F2 flag-body version that created it:
 
 ```text
-RR = abs(Target - Entry) / abs(Entry - Stop)
+body_id
+sequence identity
+scale
+origin node and time
+waist node and time
+Leg2 node and time
 ```
 
-The default minimum is `1.0`. If the structural limit behind the F2 Waist is below the configured minimum, the setup is not rejected immediately. The Stop and Target remain fixed, while the pending Entry is moved farther behind the F2 Waist—toward the F1-waist Stop—until the executable tick-normalized geometry provides at least the requested RR.
+The order is cancelled if that exact source body:
 
-The exact boundary is:
+- extends Leg2 before Point 2;
+- confirms;
+- invalidates through its own Phoenix lifecycle;
+- disappears or is superseded in the rebuilt canonical event stream.
+
+A new valid body version may then create its own new setup hash and order. The setup adapter never edits the underlying F event.
+
+## 7. Timing and no-lookahead
+
+The order may be armed only after the current F2 flag body is observable from confirmed closed-bar nodes.
+
+The adapter rejects retrospective entry when, after body observability and before order creation:
+
+- the final executable Point-2 limit was already touched; or
+- the original F2 flag end was already touched.
+
+The setup is lifecycle-owned rather than one-bar-owned, but it cannot chase a missed level.
+
+## 8. Post-flag internal counting
+
+The existing Phoenix internal-count engine remains authoritative.
+
+The execution adapter does not invent a replacement `internal_pack`, does not rewrite the displayed 1/2 labels, and does not call the two-leg flag body the whole F2 lifecycle.
+
+It performs one execution projection only:
 
 ```text
-Required Entry = (Target + MinimumRR × Stop) / (1 + MinimumRR)
+existing F2 flag Waist → projected branch Point 1
+strict future Waist passage → executable branch Point 2
 ```
 
-For bullish setups the price is rounded down; for bearish setups it is rounded up. This rounding is toward the Stop and therefore cannot reduce RR below the request. If the adjusted price is not a valid pending limit or violates broker distance rules, the setup is rejected.
+This projection is necessary because waiting for a confirmed Point-2 node would make the limit entry retrospective.
 
-## 6. Parallel context and near-duplicate policy
-
-A distinct F2 body version is a distinct context. By default:
+## 9. Reward/Risk policy
 
 ```text
-same-direction contexts = allowed
-opposite-direction hedge contexts = allowed
+Risk   = abs(final Entry - Stop)
+Reward = abs(original F2 flag end - final Entry)
+RR     = Reward / Risk
 ```
 
-However, different hashes do not automatically authorize two nearly identical same-direction trades. The executable stop corridor of each setup is the interval between its final Entry and Stop. If the intersection covers at least the configured percentage of the narrower corridor, the contexts are treated as one opportunity and only the wider corridor survives.
+Default minimum RR is `1.0`.
 
-Default:
+When enabled, RR repricing moves only the Entry farther toward the fixed Stop. It never moves the F1-waist Stop or the original F2 flag-end reference.
+
+## 10. Pending lifecycle
+
+A pending order is held only while all of the following remain true:
 
 ```text
-Stop-space overlap threshold = 80%
-Winner = wider executable stop corridor
+exact source F2 body still exists
+source F2 remains unconfirmed
+source F2 remains non-invalidated
+source body version has not extended or changed
+original target has not been consumed
+HTF gate still allows the order when cancel-on-gate-close is enabled
 ```
 
-The percentage is an input and may be changed to `70`, `80`, or another controlled value. Opposite-direction contexts are not deduplicated by this rule because they belong to the explicit hedge policy. The same exact context remains one-attempt-only. Independent same-symbol positions require an MT5 hedging account.
-
-## 7. Critical timing rule
-
-F2 confirmation is not the entry trigger.
-
-In the waist-break branch, F2 confirms only after Point 2 exists and price later re-breaks the F2 Leg2 endpoint. That endpoint is this setup's target. Waiting for confirmed F2 would therefore arm the trade after the target had already been reached.
-
-## 8. Higher-timeframe directional authorization
-
-By default, a new lower-timeframe setup must agree with the current canonical H1 F phase:
-
-```text
-H1 bullish F → Buy setups only
-H1 bearish F → Sell setups only
-H1 Hook/ND, ambiguous or unavailable → no new setup
-```
-
-This gate uses closed H1 bars and the canonical Phoenix F/Hook architecture. It does not alter the structural Entry, Stop, Target, RR or overlap formulas. It is entry authorization only. Managed pending orders that cease to match the gate are cancelled by default; open positions remain under their original exit contract.
-
-
-## 9. Lifecycle-owned eligibility
-
-The setup is not valid for only one bar. With the default `InpF2BTMaxSetupAgeBars = -1`, structural lifecycle owns eligibility. A body-complete F2 may wait for a later HTF authorization window, but the engine must reject any retrospective order when its final Entry or original Leg2 target has already been touched since the body became observable.
-
-The default one-attempt point is the first actual fill:
-
-```text
-pending accepted → active, duplicate blocked
-pending cancelled before fill → active reservation released
-entry deal filled → setup permanently consumed
-```
-
-## 10. Multi-count higher-timeframe authority
-
-All canonical HTF counts are evaluated. Direction is authorized when one or more qualifying counts exist in only one direction. Hook/ND veto is count-local. A count qualifies in the optional lifecycle window only after its own exact F1 confirms and before its exact direct-child F2 confirms. F1/F2 stabilization does not depend on later spawn eligibility.
+Dynamic exit modes also use the original F2 flag end for pre-fill target consumption even though their broker TP is initially zero.
 
 ## 11. Non-goals
 
-This setup does not:
+This patch does not:
 
-- infer Hook validity;
-- wait for a Zone;
-- use a CG filter;
-- use an AI score;
-- chase a missed entry with a market order.
-
-## 12. Relation to existing Canon
-
-This setup reuses the already documented F2 waist-break grammar:
-
-- `docs/flag_counting/FLAG_COUNTING_SEQUENCE_CONTRACT_V3.md` — `1 = F2 Waist`, `2 = node that breaks F2 Waist`;
-- `docs/flag_counting/FLAG_COUNTING_STATE_MACHINE_V3.md` — waist-break branch remains valid while F2 Origin is preserved;
-- `docs/zone_af/ZONE-AF-0008_F2_Waist_Hit_Point1_Point2_Doctrine.md` — waist contact becomes Point 1 and the following hit/extension becomes Point 2.
-
-The new decision in this execution profile is the explicit direct risk contract:
-
-```text
-Stop authority = direct parent F1 Waist
-RR-reference authority = original F2 Leg2 endpoint
-Fixed-exit authority = original F2 Leg2 endpoint
-Dynamic-exit authority = F2 confirmation node / F3 Leg1 after correction
-```
-
-This is a dedicated backtest authorization. It does not silently change the general Zone doctrine for other F2 contexts.
+- change any canonical F detector or lifecycle engine;
+- alter F2 origin, Leg1, Waist, Leg2, internal count, confirmation, size, or F3 authorization;
+- turn the two-leg body into the entire F2 lifecycle;
+- wait for a confirmed Point-2 node and then chase it;
+- use Hook, Zone, CG, or AI as the lower-timeframe setup definition.

@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-11"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v11"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-12"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v12"
 
 
 
@@ -68,7 +68,8 @@ enum FP_NDSF2WaistRunResult
    FP_NDS_F2_RUN_BLOCKED = 6,
    FP_NDS_F2_RUN_ERROR = 7,
    FP_NDS_F2_RUN_MULTI_ORDER_SENT = 8,
-   FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER = 9
+   FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER = 9,
+   FP_NDS_F2_RUN_PENDING_CANCELLED_SOURCE_LIFECYCLE = 10
 };
 
 struct FP_NDSF2WaistTradeConfig
@@ -148,6 +149,17 @@ struct FP_NDSF2WaistTradeSetup
    int parent_sequence_id;
    int f2_parent_event_id;
    int f2_chain_index;
+
+   // Snapshot of the existing Phoenix F2 body/lifecycle at the moment the
+   // execution projection is armed. These fields do not redefine F2; they bind
+   // the pending order to the exact canonical two-leg body version.
+   string f2_body_id;
+   int f2_body_status_at_arm;
+   int f2_status_at_arm;
+   int f2_lifecycle_status_at_arm;
+   int f2_internal_count_at_arm;
+   bool projected_waist_break_branch;
+
    int body_available_index;
    int age_bars;
    datetime body_available_time;
@@ -168,8 +180,14 @@ struct FP_NDSF2WaistTradeSetup
    // limit is placed there in advance, so its fill is the executable Point 2.
    double point_1_price;
    double point_2_limit_price;
+   double f2_origin_price;
    double parent_f1_waist_price;
    double f2_flag_end_price;
+
+   // The projected Point-2 limit must sit beyond Phoenix boundary epsilon,
+   // not merely one nominal tick behind the Waist.
+   double canonical_break_epsilon_price;
+   double canonical_point2_min_offset_price;
 
    double structural_entry_price;
    double entry_price;
@@ -381,6 +399,12 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.parent_sequence_id = -1;
    s.f2_parent_event_id = -1;
    s.f2_chain_index = -1;
+   s.f2_body_id = "";
+   s.f2_body_status_at_arm = FP_BODY_NONE;
+   s.f2_status_at_arm = FP_STATUS_NONE;
+   s.f2_lifecycle_status_at_arm = FP_F2_LC_NONE;
+   s.f2_internal_count_at_arm = 0;
+   s.projected_waist_break_branch = false;
    s.body_available_index = -1;
    s.age_bars = -1;
    s.body_available_time = 0;
@@ -394,8 +418,11 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.f2_leg2_time = 0;
    s.point_1_price = 0.0;
    s.point_2_limit_price = 0.0;
+   s.f2_origin_price = 0.0;
    s.parent_f1_waist_price = 0.0;
    s.f2_flag_end_price = 0.0;
+   s.canonical_break_epsilon_price = 0.0;
+   s.canonical_point2_min_offset_price = 0.0;
    s.structural_entry_price = 0.0;
    s.entry_price = 0.0;
    s.stop_price = 0.0;

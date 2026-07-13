@@ -133,7 +133,7 @@ The corrected canonical setup is documented at:
 f2_waist_break_point2_limit/README.md
 ```
 
-It reuses Phoenix canonical node/F1/F2 builders but does not wait for F2 confirmation. A complete unconfirmed F2 body arms a limit strictly beyond the F2 Waist. The Waist is Point 1; the limit fill is executable Point 2; Stop is strictly beyond the direct parent F1 Waist; Target is the F2 Leg2 endpoint. The dedicated entry-timeframe detector builds no Hook branches and skips visual/canonical post-processing. The optional higher-timeframe authority gate is separate and runs a cached canonical F/Hook phase pass only on new HTF bars. The executable now also supports a minimum Reward/Risk gate, opposite-direction hedge contexts, and independent same-direction contexts. Parallel same-symbol positions are permitted only on MT5 hedging accounts.
+It consumes the existing Phoenix F2 lifecycle without modifying it. Phoenix first creates the two-leg F2 flag body, then owns the post-flag 1/2 or Waist-break branch, and later confirms F2 when price returns through the original flag end. The execution adapter stages a strict limit beyond the source F2 flag Waist before the preferred Waist-break Point 2 forms; the fill is the executable Point 2. Stop is beyond the direct parent F1 Waist and the original F2 flag end remains the fixed target and RR reference. The dedicated entry-timeframe detector builds no Hook branches and skips visual/canonical post-processing. The optional higher-timeframe authority gate is separate and runs a cached canonical F/Hook phase pass only on new HTF bars. The executable now also supports a minimum Reward/Risk gate, opposite-direction hedge contexts, and independent same-direction contexts. Parallel same-symbol positions are permitted only on MT5 hedging accounts.
 
 
 ## F2 v5 — overlap arbitration and RR entry repricing
@@ -164,3 +164,7 @@ The optional higher-timeframe entry gate is evaluated independently across every
 ## F2 canonical frequency recovery — version 2.00
 
 The F2 setup is now lifecycle-owned instead of restricted to its first observable bar. Pending attempts are consumed on fill by default, unrelated HTF Hooks no longer globally veto all counts, F1/F2 confirmation boundaries no longer depend on spawn eligibility, FAST coverage includes 800 bars and L=8, and parallel-context tests can fail fast on non-hedging accounts. Causal missed-entry and target-consumption checks prevent retrospective orders. See `f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md`.
+
+## F2 canonical Point-2 root correction — version 2.10
+
+The F detectors and lifecycle engines remain untouched. A new execution-only adapter binds every pending order to the exact existing Phoenix F2 flag-body version, enforces boundary-epsilon-aware strict Waist passage, cancels orders when the source body extends/confirms/invalidates/disappears, and preserves original F2 flag-end target consumption even when dynamic exits send broker TP `0`. See `f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md`.

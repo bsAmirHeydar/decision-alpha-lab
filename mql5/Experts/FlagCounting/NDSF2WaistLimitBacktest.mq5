@@ -1,11 +1,13 @@
 #property strict
-#property version   "2.00"
-#property description "NDS F2 Point-2 backtest with fixed, local-F3, and higher-timeframe-F3 exits."
+#property version   "2.10"
+#property description "NDS F2 canonical Waist-break Point-2 projection with fixed, local-F3, and HTF-F3 exits."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
 // Dedicated execution-only tester.
-// Loaded path: canonical rates -> canonical nodes -> F1 -> F2 body -> order.
+// Loaded path: canonical rates -> canonical nodes -> existing Phoenix F1/F2
+// lifecycle -> execution-only Point-2 projection -> order. Core F definitions
+// and lifecycle engines are consumed as-is and are not reimplemented here.
 // Entry-timeframe runtime does not load Hook setup, Zone, CG, AI, renderer,
 // CSV, timer or custom prints. Dynamic exit mode enables only the exact direct
 // child-F3 lifecycle needed for per-position exit lineage. The optional HTF gate runs a cached canonical
@@ -45,7 +47,7 @@ input bool   InpF2BTConsumeAttemptOnlyOnFill = true;
 input bool   InpF2BTEnableFunnelDiagnostics = false; // One CSV row on deinit only.
 input bool   InpF2BTCancelPendingIfTargetTouchedBeforeFill = true;
 input int    InpF2BTMaxSetupAgeBars = -1; // -1 = lifecycle-owned, no arbitrary bar expiry.
-input double InpF2BTEntryBehindF2WaistTicks = 1.0;
+input double InpF2BTEntryBehindF2WaistTicks = 1.0; // Minimum; canonical epsilon + one tick is always enforced.
 input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
 
@@ -189,8 +191,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v11";
-   cfg.identity_config_hash = "f2_wb2_v11";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v12";
+   cfg.identity_config_hash = "f2_wb2_v12";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;

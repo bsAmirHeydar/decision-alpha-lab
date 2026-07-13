@@ -3,52 +3,23 @@
 #property strict
 
 #include "FP_SequenceEngine.mqh"
-#include "FP_NDSF2WaistTradeTypes.mqh"
+#include "FP_NDSF2CanonicalPoint2SetupAdapter.mqh"
 
-// Canonical setup contract:
-//   F2 body = Origin -> Leg1 -> Waist -> Leg2.
-//   Point 1 = F2 Waist.
-//   The F2 Waist is structural Point 1.
-//   A strict penetration beyond that Waist is structural Point 2.
-//   The pending limit is staged one or more ticks beyond the Waist, therefore
-//   the order fill is the executable Point 2.
-//   Stop = beyond the direct parent F1 Waist.
-//   Target = F2 Leg2 / end of the two-leg F2 flag.
-//   F2 confirmation is NOT the entry trigger; reaching the target is the event
-//   that would confirm F2 after the waist-break branch.
-//   Reward/Risk = abs(Target-Entry) / abs(Entry-Stop).
+// Execution setup contract:
+//   Existing Phoenix owns the complete F2 definition:
+//     two-leg flag body -> post-flag 1/2 or Waist-break branch -> re-hit Leg2.
+//   This module does not redefine those stages. It only projects a pending
+//   order that captures the preferred F2 Waist-break Point 2:
+//     projected Point 1 = canonical F2 flag Waist
+//     executable Point 2 = first strict passage beyond that Waist
+//     Stop = behind direct parent F1 Waist
+//     RR/fixed target = original F2 flag end / Leg2
+//   The pending order must be staged while the source F2 is still unconfirmed.
 
 bool FP_NDSF2IsWaistBreakArmedBody(const FP_FlagEvent &f2,
                                    const FP_NDSF2WaistTradeConfig &cfg)
 {
-   if(f2.level != FP_LEVEL_F2) return false;
-   if(f2.direction != FP_DIR_BULLISH && f2.direction != FP_DIR_BEARISH) return false;
-   if(!f2.f2_parent_ready || !f2.f2_origin_found) return false;
-   if(!f2.f2_body_complete) return false;
-   if(cfg.require_f2_size_gate && !f2.f2_size_gate_passed) return false;
-
-   // The exact local-F3 exit can only be owned by a source F2 that the
-   // canonical lifecycle can later promote into F3. This dependency is an
-   // explicit operator policy; fixed and independent HTF-F3 exits do not use it.
-   if(FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode) &&
-      cfg.require_canonical_f3_spawn_for_local_exit &&
-      !f2.f2_size_gate_passed)
-      return false;
-
-   if(f2.status == FP_STATUS_INVALIDATED || f2.f2_lifecycle_status == FP_F2_LC_INVALIDATED)
-      return false;
-
-   // A confirmed F2 has already re-broken Leg2. That is the target event, so the
-   // waist-break Point-2 setup is already consumed and must not be armed.
-   if(f2.status == FP_STATUS_CONFIRMED ||
-      f2.f2_lifecycle_status == FP_F2_LC_CONFIRMED ||
-      f2.has_confirm || f2.f2_can_spawn_f3)
-      return false;
-
-   if(!f2.has_origin || !f2.has_waist || !f2.has_leg2) return false;
-   if(f2.origin.price <= 0.0 || f2.waist.price <= 0.0 || f2.leg2.price <= 0.0) return false;
-   if(f2.pos_waist < 0 || f2.pos_leg2 < 0 || f2.pos_leg2 <= f2.pos_waist) return false;
-   return true;
+   return FP_NDSF2CanonicalBodyCanProjectPoint2(f2, cfg);
 }
 
 bool FP_NDSF2IsDirectConfirmedParentF1(const FP_FlagEvent &f1,
@@ -264,6 +235,9 @@ long FP_NDSF2BuildSetupHash(const string symbol,
    string key = symbol + "|" + EnumToString(period);
    key += "|D=" + IntegerToString(f2.direction);
    key += "|L=" + IntegerToString(f2.scale_L);
+   key += "|SEQ=" + IntegerToString(f2.sequence_id);
+   key += "|PSEQ=" + IntegerToString(f2.parent_sequence_id);
+   key += "|BODY=" + f2.body_id;
    key += "|F1W=" + IntegerToString((long)f1.waist.time_anchor);
    key += "|F2O=" + IntegerToString((long)f2.origin.time_anchor);
    key += "|F2W=" + IntegerToString((long)f2.waist.time_anchor);
@@ -354,6 +328,7 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
                                   const FP_FlagEvent &f1,
                                   const FP_FlagEvent &f2,
                                   const int body_available_index,
+                                  const double epsilon_points,
                                   const FP_NDSF2WaistTradeConfig &cfg,
                                   FP_NDSF2WaistTradeSetup &setup)
 {
@@ -380,6 +355,12 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    setup.parent_sequence_id = f2.parent_sequence_id;
    setup.f2_parent_event_id = f2.parent_event_id;
    setup.f2_chain_index = f2.chain_index;
+   setup.f2_body_id = f2.body_id;
+   setup.f2_body_status_at_arm = f2.body_status;
+   setup.f2_status_at_arm = f2.status;
+   setup.f2_lifecycle_status_at_arm = f2.f2_lifecycle_status;
+   setup.f2_internal_count_at_arm = f2.internal_pack.count;
+   setup.projected_waist_break_branch = true;
    setup.body_available_index = body_available_index;
    setup.age_bars = rates_total - 1 - body_available_index;
    setup.body_available_time = rates[body_available_index].time;
@@ -392,15 +373,20 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    setup.f2_waist_time = f2.waist.time_anchor;
    setup.f2_leg2_time = f2.leg2.time_anchor;
    setup.point_1_price = f2.waist.price;
+   setup.f2_origin_price = f2.origin.price;
    setup.parent_f1_waist_price = f1.waist.price;
    setup.f2_flag_end_price = f2.leg2.price;
    setup.setup_hash = FP_NDSF2BuildSetupHash(symbol, period, f1, f2);
    setup.broker_comment = FP_NDSF2BuildComment(cfg, f2, setup.setup_hash);
 
-   double entry_ticks = MathMax(1.0, cfg.entry_behind_f2_waist_ticks);
    double stop_ticks = MathMax(1.0, cfg.stop_behind_f1_waist_ticks);
-   double entry_offset = entry_ticks * trade_tick;
+   double entry_offset = FP_NDSF2CanonicalPoint2OffsetPrice(symbol,
+                                                             cfg.entry_behind_f2_waist_ticks,
+                                                             epsilon_points);
    double stop_offset = stop_ticks * trade_tick;
+   setup.canonical_break_epsilon_price = MathMax(0.0, FP_EpsilonPrice(epsilon_points));
+   setup.canonical_point2_min_offset_price = entry_offset;
+   if(entry_offset <= 0.0) return false;
    int stops_level = MathMax(0, (int)SymbolInfoInteger(symbol, SYMBOL_TRADE_STOPS_LEVEL));
    double min_dist = stops_level * point;
 
@@ -438,10 +424,10 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    setup.point_2_limit_price = setup.entry_price;
    if(!FP_NDSF2AdjustEntryForMinimumRewardRisk(symbol, cfg, setup)) return false;
 
-   // The body may remain structurally valid for many bars, but the order may not
-   // be created retrospectively after its executable Point 2 or its original F2
-   // target was already touched while no order existed. This preserves causal
-   // timing when an HTF gate opens after the F2 body became observable.
+   // The existing Phoenix lifecycle may remain in body/post-flag state for many
+   // bars. The order may not be created retrospectively after the projected
+   // Waist-break Point 2 or original F2 flag end was already touched while no
+   // order existed. This keeps the projection causal without redefining F2.
    if(FP_NDSF2LevelTouchedSinceAvailability(rates, rates_total,
                                              body_available_index,
                                              setup.direction,

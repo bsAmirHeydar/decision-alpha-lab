@@ -25,6 +25,7 @@ struct FP_NDSF2FunnelStats
    ulong orders_filled;
    ulong pending_cancelled_htf;
    ulong pending_cancelled_target;
+   ulong pending_cancelled_source_lifecycle;
 };
 
 FP_NDSF2FunnelStats g_fp_nds_f2_funnel;
@@ -45,7 +46,7 @@ void FP_NDSF2ExportFunnelStats(const FP_NDSF2WaistTradeConfig &cfg)
              "htf_before_f1", "htf_after_f2", "htf_ambiguous",
              "direction_block", "build_block", "overlap",
              "exposure_or_send", "sent", "filled",
-             "cancel_htf", "cancel_target");
+             "cancel_htf", "cancel_target", "cancel_source_lifecycle");
    FileWrite(handle,
              g_fp_nds_f2_funnel.cycles,
              g_fp_nds_f2_funnel.pair_candidates,
@@ -62,7 +63,8 @@ void FP_NDSF2ExportFunnelStats(const FP_NDSF2WaistTradeConfig &cfg)
              g_fp_nds_f2_funnel.orders_sent,
              g_fp_nds_f2_funnel.orders_filled,
              g_fp_nds_f2_funnel.pending_cancelled_htf,
-             g_fp_nds_f2_funnel.pending_cancelled_target);
+             g_fp_nds_f2_funnel.pending_cancelled_target,
+             g_fp_nds_f2_funnel.pending_cancelled_source_lifecycle);
    FileClose(handle);
 }
 
@@ -76,6 +78,22 @@ struct FP_NDSF2ActiveAttempt
    bool active;
    ulong order_ticket;
    long setup_hash;
+
+   // Exact canonical F2 flag-body version that owns this pending order. The
+   // execution layer stores identity only; it never mutates Phoenix F logic.
+   string f2_body_id;
+   int direction;
+   int scale_L;
+   int sequence_id;
+   int parent_sequence_id;
+   int f2_parent_event_id;
+   int f2_origin_node_id;
+   datetime f2_origin_time;
+   int f2_waist_node_id;
+   datetime f2_waist_time;
+   int initial_f2_leg2_node_id;
+   datetime initial_f2_leg2_time;
+   double f2_flag_end_price;
 };
 
 FP_NDSF2ActiveAttempt g_fp_nds_f2_active_attempts[];
@@ -101,20 +119,33 @@ bool FP_NDSF2ActiveAttemptExists(const long setup_hash)
 }
 
 bool FP_NDSF2RegisterActiveAttempt(const ulong order_ticket,
-                                   const long setup_hash)
+                                   const FP_NDSF2WaistTradeSetup &setup)
 {
-   if(order_ticket == 0 || setup_hash == 0) return false;
+   if(order_ticket == 0 || setup.setup_hash == 0) return false;
    int existing = FP_NDSF2FindActiveAttemptByTicket(order_ticket);
-   if(existing >= 0)
+   if(existing < 0)
    {
-      g_fp_nds_f2_active_attempts[existing].setup_hash = setup_hash;
-      return true;
+      int n = ArraySize(g_fp_nds_f2_active_attempts);
+      if(ArrayResize(g_fp_nds_f2_active_attempts, n + 1) != n + 1) return false;
+      existing = n;
    }
-   int n = ArraySize(g_fp_nds_f2_active_attempts);
-   if(ArrayResize(g_fp_nds_f2_active_attempts, n + 1) != n + 1) return false;
-   g_fp_nds_f2_active_attempts[n].active = true;
-   g_fp_nds_f2_active_attempts[n].order_ticket = order_ticket;
-   g_fp_nds_f2_active_attempts[n].setup_hash = setup_hash;
+
+   g_fp_nds_f2_active_attempts[existing].active = true;
+   g_fp_nds_f2_active_attempts[existing].order_ticket = order_ticket;
+   g_fp_nds_f2_active_attempts[existing].setup_hash = setup.setup_hash;
+   g_fp_nds_f2_active_attempts[existing].f2_body_id = setup.f2_body_id;
+   g_fp_nds_f2_active_attempts[existing].direction = setup.direction;
+   g_fp_nds_f2_active_attempts[existing].scale_L = setup.scale_L;
+   g_fp_nds_f2_active_attempts[existing].sequence_id = setup.sequence_id;
+   g_fp_nds_f2_active_attempts[existing].parent_sequence_id = setup.parent_sequence_id;
+   g_fp_nds_f2_active_attempts[existing].f2_parent_event_id = setup.f2_parent_event_id;
+   g_fp_nds_f2_active_attempts[existing].f2_origin_node_id = setup.f2_origin_node_id;
+   g_fp_nds_f2_active_attempts[existing].f2_origin_time = setup.f2_origin_time;
+   g_fp_nds_f2_active_attempts[existing].f2_waist_node_id = setup.f2_waist_node_id;
+   g_fp_nds_f2_active_attempts[existing].f2_waist_time = setup.f2_waist_time;
+   g_fp_nds_f2_active_attempts[existing].initial_f2_leg2_node_id = setup.initial_f2_leg2_node_id;
+   g_fp_nds_f2_active_attempts[existing].initial_f2_leg2_time = setup.f2_leg2_time;
+   g_fp_nds_f2_active_attempts[existing].f2_flag_end_price = setup.f2_flag_end_price;
    return true;
 }
 
@@ -384,6 +415,15 @@ bool FP_NDSF2PendingTargetConsumed(const string symbol,
 
    ENUM_ORDER_TYPE order_type = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
    double target = OrderGetDouble(ORDER_TP);
+   if(target <= 0.0)
+   {
+      // Dynamic exit modes intentionally send TP=0, but pre-fill validity still
+      // uses the original F2 flag end. Recover that immutable reference from
+      // the active source-body reservation.
+      int attempt_index = FP_NDSF2FindActiveAttemptByTicket(order_ticket);
+      if(attempt_index >= 0)
+         target = g_fp_nds_f2_active_attempts[attempt_index].f2_flag_end_price;
+   }
    if(target <= 0.0) return false;
 
    MqlRates last_closed[];
@@ -418,6 +458,75 @@ bool FP_NDSF2DeletePendingOrder(const FP_NDSF2WaistTradeConfig &cfg,
    FP_NDSF2DeactivateDynamicContextByOrderTicket(order_ticket);
    FP_NDSF2ReleaseActiveAttempt(order_ticket);
    return true;
+}
+
+
+bool FP_NDSF2ActiveAttemptSourceStillAlive(const FP_NDSF2ActiveAttempt &attempt,
+                                            const FP_FlagEvent &events[],
+                                            const int event_count,
+                                            const FP_NDSF2WaistTradeConfig &cfg)
+{
+   int n = MathMin(event_count, ArraySize(events));
+   for(int i=0; i<n; i++)
+   {
+      FP_FlagEvent f2 = events[i];
+      if(!FP_NDSF2SameCanonicalBodyIdentity(f2,
+                                            attempt.f2_body_id,
+                                            attempt.direction,
+                                            attempt.scale_L,
+                                            attempt.sequence_id,
+                                            attempt.parent_sequence_id,
+                                            attempt.f2_parent_event_id,
+                                            attempt.f2_origin_node_id,
+                                            attempt.f2_origin_time,
+                                            attempt.f2_waist_node_id,
+                                            attempt.f2_waist_time,
+                                            attempt.initial_f2_leg2_node_id,
+                                            attempt.initial_f2_leg2_time))
+         continue;
+
+      return FP_NDSF2CanonicalBodyCanProjectPoint2(f2, cfg);
+   }
+   return false;
+}
+
+int FP_NDSF2CancelPendingOrdersWithDeadSource(const string symbol,
+                                               const FP_NDSF2WaistTradeConfig &cfg,
+                                               const FP_FlagEvent &events[],
+                                               const int event_count,
+                                               int &error_count)
+{
+   error_count = 0;
+   ulong tickets[];
+   ArrayResize(tickets, 0);
+
+   for(int i=0; i<ArraySize(g_fp_nds_f2_active_attempts); i++)
+   {
+      FP_NDSF2ActiveAttempt attempt = g_fp_nds_f2_active_attempts[i];
+      if(!attempt.active || attempt.order_ticket == 0) continue;
+      if(!OrderSelect(attempt.order_ticket)) continue;
+      if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+      if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+
+      if(FP_NDSF2ActiveAttemptSourceStillAlive(attempt, events, event_count, cfg))
+         continue;
+
+      int n = ArraySize(tickets);
+      if(ArrayResize(tickets, n + 1) != n + 1)
+      {
+         error_count++;
+         break;
+      }
+      tickets[n] = attempt.order_ticket;
+   }
+
+   int cancelled = 0;
+   for(int i=0; i<ArraySize(tickets); i++)
+   {
+      if(FP_NDSF2DeletePendingOrder(cfg, tickets[i])) cancelled++;
+      else error_count++;
+   }
+   return cancelled;
 }
 
 double FP_NDSF2StopCorridorLow(const double entry, const double stop)
@@ -819,7 +928,7 @@ bool FP_NDSF2SendLimit(const string symbol,
       return false;
    }
 
-   if(!FP_NDSF2RegisterActiveAttempt(ticket, setup.setup_hash))
+   if(!FP_NDSF2RegisterActiveAttempt(ticket, setup))
    {
       if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
       return false;

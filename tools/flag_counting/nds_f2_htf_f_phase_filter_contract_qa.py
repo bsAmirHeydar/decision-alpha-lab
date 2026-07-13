@@ -50,15 +50,15 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "2.00"', "expert version", errors)
+    require(expert, '#property version   "2.10"', "expert version", errors)
     require(expert, "InpF2BTUseHigherTimeframeFPhaseFilter = true", "enabled default", errors)
     require(expert, "InpF2BTHigherTimeframe = PERIOD_H1", "H1 default", errors)
     require(expert, "InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true", "F1-to-F2 window default", errors)
     require(expert, "InpF2BTCancelPendingWhenHigherTimeframeDisallows = true", "pending cancel default", errors)
     require(expert, "FP_LoadNDSF2HigherTimeframePhaseConfig", "HTF config loader", errors)
 
-    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v11", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-12", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v12", "schema version", errors)
     require(types, "FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER", "HTF cancellation result", errors)
 
     require(phase, "FP_NDS_F2_HTF_PHASE_F_BULLISH", "bullish F state", errors)
