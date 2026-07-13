@@ -1,0 +1,19 @@
+{
+  "$id": "urn:alpha-lab:exp0019:fp-i08:ww_neutralization_result:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "payload": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "payload"
+  ],
+  "title": "ww_neutralization_result",
+  "type": "object"
+}

@@ -1,0 +1,81 @@
+{
+  "closed": true,
+  "contracts": [
+    {
+      "contract_id": "WWConfig",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWRelationInstance",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWSidePlan",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWCompilationReport",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWScanRecord",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWContext",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWTransitionRecord",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWNeutralizationObservation",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWNeutralizationResult",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWStackEntry",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWActiveStack",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "DirectionGateDecision",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWEngineSnapshot",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWCheckpoint",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "contract_id": "WWRevisionImpact",
+      "owner": "FP-I08",
+      "version": "1.0.0"
+    }
+  ],
+  "registry_version": "1.0.0"
+}

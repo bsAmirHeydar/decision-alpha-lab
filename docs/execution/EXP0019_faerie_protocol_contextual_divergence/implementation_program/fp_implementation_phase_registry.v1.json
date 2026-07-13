@@ -50,7 +50,10 @@
         "FP-I02"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i03/00_FP_I03_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I04_ENTRY"
     },
     {
       "phase_id": "FP-I04",
@@ -59,7 +62,10 @@
         "FP-I03"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i04/00_FP_I04_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I05_ENTRY"
     },
     {
       "phase_id": "FP-I05",
@@ -68,7 +74,10 @@
         "FP-I04"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i05/00_FP_I05_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I06_ENTRY"
     },
     {
       "phase_id": "FP-I06",
@@ -77,7 +86,10 @@
         "FP-I05"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i06/00_FP_I06_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I07_ENTRY"
     },
     {
       "phase_id": "FP-I07",
@@ -86,7 +98,10 @@
         "FP-I06"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i07/00_FP_I07_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I08_ENTRY"
     },
     {
       "phase_id": "FP-I08",
@@ -95,7 +110,10 @@
         "FP-I07"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i08/00_FP_I08_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I09_ENTRY"
     },
     {
       "phase_id": "FP-I09",

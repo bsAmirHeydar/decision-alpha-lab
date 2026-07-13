@@ -1,0 +1,71 @@
+{
+  "closed": true,
+  "reasons": [
+    {
+      "category": "NORMAL",
+      "code": "FP_WRC_WW_RELATION_COMPILED",
+      "execution_blocking": false
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_WRC_WW_SIDE_PLAN_ELIGIBLE",
+      "execution_blocking": false
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_WRC_WW_CONFIRMED_ACTIVE",
+      "execution_blocking": false
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_RC_WW_NEUTRALIZED",
+      "execution_blocking": true
+    },
+    {
+      "category": "DATA",
+      "code": "FP_RC_WW_DATA_INCOMPLETE",
+      "execution_blocking": true
+    },
+    {
+      "category": "NORMAL",
+      "code": "FP_RC_WW_NONE_ALLOW_BOTH",
+      "execution_blocking": false
+    },
+    {
+      "category": "SUPPRESSION",
+      "code": "FP_RC_SUPPRESSED_BY_WW",
+      "execution_blocking": true
+    },
+    {
+      "category": "RESOLUTION",
+      "code": "FP_WRC_NEWEST_ACTIVE_WW_WINS",
+      "execution_blocking": false
+    },
+    {
+      "category": "RESOLUTION",
+      "code": "FP_WRC_OLDER_ACTIVE_WW_SHADOWED",
+      "execution_blocking": false
+    },
+    {
+      "category": "GATE",
+      "code": "FP_WRC_DIRECTION_ALIGNED_WITH_ACTIVE_WW",
+      "execution_blocking": false
+    },
+    {
+      "category": "GATE",
+      "code": "FP_WRC_WW_DIRECT_SETUP_NOT_SELF_GATED",
+      "execution_blocking": false
+    },
+    {
+      "category": "LIFECYCLE",
+      "code": "FP_WRC_WW_CHECK_WEEK_EXPIRED",
+      "execution_blocking": true
+    },
+    {
+      "category": "REVISION",
+      "code": "FP_WRC_CONFIRMED_WW_EVIDENCE_PRESERVED",
+      "execution_blocking": false
+    }
+  ],
+  "registry_version": "1.0.0"
+}

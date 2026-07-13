@@ -12,36 +12,36 @@ CTR-002,FP-I02,Implement semantic/config/projection hashes,code,COMPLETE,lab/10_
 CTR-003,FP-I02,Implement window/reference/signal identities,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/python/fp_i02_kernel/identity.py
 CTR-004,FP-I02,Freeze relation and reason registries,contracts,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i02/artifacts/FP_I02_REASON_CODE_REGISTRY.v1.json
 CTR-005,FP-I02,Compile contract self-test,test,COMPLETE,mql5/Experts/FaerieProtocolTests/EXP0019_FP_I02_ContractKernelSelfTest.mq5
-TIM-001,FP-I03,Adapt exact New York conversion,code,PLANNED,
-TIM-002,FP-I03,Implement DST transition fixtures,test,PLANNED,
-TIM-003,FP-I03,Implement A/L/N ownership,code,PLANNED,
-TIM-004,FP-I03,Implement NY trading day/week keys,code,PLANNED,
-TIM-005,FP-I03,Compile time diagnostic,test,PLANNED,
-DAT-001,FP-I04,Resolve/select pair symbols,code,PLANNED,
-DAT-002,FP-I04,Synchronize M1 sequences,code,PLANNED,
-DAT-003,FP-I04,Detect gaps and coverage intervals,code,PLANNED,
-DAT-004,FP-I04,Implement cursor and data revision,code,PLANNED,
-DAT-005,FP-I04,Test late-history repair,test,PLANNED,
-REF-001,FP-I05,Build active/completed A/L/N/W windows,code,PLANNED,
-REF-002,FP-I05,Implement calendar-day N selector,code,PLANNED,
-REF-003,FP-I05,Build symbol-local references,code,PLANNED,
-REF-004,FP-I05,Implement freshness/consumption lifecycle,code,PLANNED,
-REF-005,FP-I05,Benchmark indexed long-depth lookup,perf,PLANNED,
-SIG-001,FP-I06,Compile six non-WW relation instances,code,PLANNED,
-SIG-002,FP-I06,Adapt generic Hunt facts,code,PLANNED,
-SIG-003,FP-I06,Implement same-M1 ambiguity,code,PLANNED,
-SIG-004,FP-I06,Assign Hunter/Protected roles,code,PLANNED,
-SIG-005,FP-I06,Run relation golden matrix,test,PLANNED,
-CNF-001,FP-I07,Resolve host confirmation timeframe at init,code,PLANNED,
-CNF-002,FP-I07,Implement host-close clock,code,PLANNED,
-CNF-003,FP-I07,Enforce strict same-session deadline,code,PLANNED,
-CNF-004,FP-I07,Implement confirm/invalidate/expire reducer,code,PLANNED,
-CNF-005,FP-I07,Run boundary-close fixtures,test,PLANNED,
-WW-001,FP-I08,Build weekly reference/check instances,code,PLANNED,
-WW-002,FP-I08,Implement WW candidate and confirmation,code,PLANNED,
-WW-003,FP-I08,Implement second-symbol neutralization,code,PLANNED,
-WW-004,FP-I08,Implement active stack/newest resolver,code,PLANNED,
-WW-005,FP-I08,Test direct WW setup and downstream gate,test,PLANNED,
+TIM-001,FP-I03,Adapt exact New York conversion,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/artifacts/FP_I03_PHASE_STATUS.json
+TIM-002,FP-I03,Implement DST transition fixtures,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/artifacts/FP_I03_PHASE_STATUS.json
+TIM-003,FP-I03,Implement A/L/N ownership,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/artifacts/FP_I03_PHASE_STATUS.json
+TIM-004,FP-I03,Implement NY trading day/week keys,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/artifacts/FP_I03_PHASE_STATUS.json
+TIM-005,FP-I03,Compile time diagnostic,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i03/artifacts/FP_I03_PHASE_STATUS.json
+DAT-001,FP-I04,Resolve/select pair symbols,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/artifacts/FP_I04_PHASE_STATUS.json
+DAT-002,FP-I04,Synchronize M1 sequences,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/artifacts/FP_I04_PHASE_STATUS.json
+DAT-003,FP-I04,Detect gaps and coverage intervals,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/artifacts/FP_I04_PHASE_STATUS.json
+DAT-004,FP-I04,Implement cursor and data revision,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/artifacts/FP_I04_PHASE_STATUS.json
+DAT-005,FP-I04,Test late-history repair,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i04/artifacts/FP_I04_PHASE_STATUS.json
+REF-001,FP-I05,Build active/completed A/L/N/W windows,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/artifacts/FP_I05_PHASE_STATUS.json
+REF-002,FP-I05,Implement calendar-day N selector,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/python/fp_i05_reference/selector.py
+REF-003,FP-I05,Build symbol-local references,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/artifacts/FP_I05_PHASE_STATUS.json
+REF-004,FP-I05,Implement freshness/consumption lifecycle,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/artifacts/FP_I05_PHASE_STATUS.json
+REF-005,FP-I05,Benchmark indexed long-depth lookup,perf,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i05/artifacts/FP_I05_PHASE_STATUS.json
+SIG-001,FP-I06,Compile six non-WW relation instances,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/python/fp_i06_relations/compiler.py
+SIG-002,FP-I06,Adapt generic Hunt facts,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/artifacts/FP_I06_PHASE_STATUS.json
+SIG-003,FP-I06,Implement same-M1 ambiguity,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/artifacts/FP_I06_PHASE_STATUS.json
+SIG-004,FP-I06,Assign Hunter/Protected roles,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/artifacts/FP_I06_PHASE_STATUS.json
+SIG-005,FP-I06,Run relation golden matrix,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i06/artifacts/FP_I06_GOLDEN_RELATION_VECTORS.v1.json
+CNF-001,FP-I07,Resolve host confirmation timeframe at init,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/timeframe.py
+CNF-002,FP-I07,Implement host-close clock,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/artifacts/FP_I07_PHASE_STATUS.json
+CNF-003,FP-I07,Enforce strict same-session deadline,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/artifacts/FP_I07_PHASE_STATUS.json
+CNF-004,FP-I07,Implement confirm/invalidate/expire reducer,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/engine.py
+CNF-005,FP-I07,Run boundary-close fixtures,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/artifacts/FP_I07_PHASE_STATUS.json
+WW-001,FP-I08,Build weekly reference/check instances,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/compiler.py
+WW-002,FP-I08,Implement WW candidate and confirmation,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/confirmation.py
+WW-003,FP-I08,Implement second-symbol neutralization,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/neutralization.py
+WW-004,FP-I08,Implement active stack/newest resolver,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/stack.py
+WW-005,FP-I08,Test direct WW setup and downstream gate,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_gate.py
 LED-001,FP-I09,Implement append-only semantic ledger,code,PLANNED,
 LED-002,FP-I09,Add indexes and dedup,code,PLANNED,
 LED-003,FP-I09,Implement earliest-M1 pair/session arbiter,code,PLANNED,

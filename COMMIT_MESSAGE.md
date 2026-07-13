@@ -1,7 +1,10 @@
-feat(exp0019): implement FP-I07 confirmation lifecycle
+feat(exp0019): implement FP-I08 weekly WW context engine
 
-- resolve host timeframe once and freeze it in semantic configuration
-- project FP-I06 candidates to the first eligible closed host bar
-- enforce strict same-session close deadline and causal M1 coverage
-- finalize confirmed, double-hunt, role-change, no-signal, unavailable, deadline, and replay outcomes
-- add immutable signal identity, lifecycle events, deduplication, checkpoints, revisions, MQL5 mirrors, tests, and Obsidian documentation
+- compile previous-week versus current-week WW relations from FP-I05 windows and references
+- reuse FP-I06 M1 first-sweep and candidate semantics without a parallel detector
+- reuse FP-I07 closed-host-candle confirmation and preserve immutable confirmed evidence
+- implement protected-symbol second-touch neutralization and check-week expiry
+- resolve newest active confirmed WW while retaining shadowed historical contexts
+- publish deterministic downstream directional gates with fail-closed data handling
+- retain suppressed signals and keep WW directly tradeable without self-suppression
+- add closed schemas, checkpoints, revision impact, MQL5 mirrors, tests, QA evidence, and Obsidian documentation

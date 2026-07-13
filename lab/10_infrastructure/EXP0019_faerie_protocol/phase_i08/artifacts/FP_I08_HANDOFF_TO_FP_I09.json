@@ -1,0 +1,23 @@
+{
+  "from_phase": "FP-I08",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "may_consume": [
+    "WWContext",
+    "WWActiveStack",
+    "DirectionGateDecision",
+    "WWTransitionRecord",
+    "ConfirmedSignal"
+  ],
+  "may_not_change": [
+    "newest active confirmed WW wins",
+    "second-symbol neutralization",
+    "no-active complete data allows both directions",
+    "WW direct setup is tradeable",
+    "suppressed signals remain visible"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "runtime_authority": "NONE",
+  "to_phase": "FP-I09"
+}

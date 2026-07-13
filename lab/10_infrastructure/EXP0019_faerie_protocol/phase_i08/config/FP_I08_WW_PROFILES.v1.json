@@ -1,0 +1,11 @@
+{
+  "default": {
+    "expiry_policy": "EXPIRE_AT_CHECK_WEEK_END",
+    "neutralization_policy": "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH",
+    "no_active_policy": "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW",
+    "resolution_policy": "NEWEST_ACTIVE_CONFIRMED_WW_WINS",
+    "runtime_authority": "NONE",
+    "tradeability_policy": "WW_GATE_AND_TRADEABLE_SETUP"
+  },
+  "profile_version": "1.0.0"
+}

@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "case_id": "WW-DIRECT-BULL",
+      "expected": {
+        "context_state": "CONFIRMED",
+        "direct_gate": "NOT_APPLICABLE"
+      },
+      "purpose": "direct bullish WW confirmed and tradeable"
+    },
+    {
+      "case_id": "WW-NEUTRALIZE",
+      "expected": {
+        "context_state": "NEUTRALIZED"
+      },
+      "purpose": "protected symbol second touch neutralizes"
+    },
+    {
+      "case_id": "WW-NEWEST-WINS",
+      "expected": {
+        "resolution": "NEWEST_ACTIVE_CONFIRMED_WW_WINS"
+      },
+      "purpose": "newest active opposite WW controls direction"
+    },
+    {
+      "case_id": "WW-NONE-ALLOW-BOTH",
+      "expected": {
+        "gate": "ALLOWED"
+      },
+      "purpose": "complete weekly data and no active WW allows both"
+    },
+    {
+      "case_id": "WW-DATA-BLOCK",
+      "expected": {
+        "gate": "BLOCKED"
+      },
+      "purpose": "missing weekly data blocks downstream direction"
+    },
+    {
+      "case_id": "WW-OPPOSITE-SUPPRESS",
+      "expected": {
+        "gate": "SUPPRESSED",
+        "reason": "FP_RC_SUPPRESSED_BY_WW"
+      },
+      "purpose": "opposite lower signal retained but suppressed"
+    }
+  ],
+  "vector_version": "1.0.0"
+}
