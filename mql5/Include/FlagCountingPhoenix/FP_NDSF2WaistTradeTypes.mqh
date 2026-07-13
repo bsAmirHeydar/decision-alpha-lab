@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-10"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v10"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-11"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v11"
 
 
 
@@ -78,8 +78,20 @@ struct FP_NDSF2WaistTradeConfig
    bool one_attempt_per_f2_body;
    bool reset_used_setups_on_init;
    bool require_f2_size_gate;
+   // Local exact-F3 exit requires the source F2 to possess canonical F3-spawn
+   // authority. Kept separate from the general entry size-gate input so the
+   // dependency is explicit rather than hidden inside the exit mode.
+   bool require_canonical_f3_spawn_for_local_exit;
    bool cancel_pending_if_target_touched_before_fill;
+   // Optional safety cap only. -1 means the setup is lifecycle-owned and does
+   // not expire merely because a fixed number of bars passed.
    int max_setup_age_bars;
+
+   // A setup is consumed on an actual order fill, not merely when a pending
+   // order is accepted. A cancelled pending order may be re-armed while the
+   // same F2 body remains structurally valid.
+   bool consume_attempt_on_fill;
+   bool enable_funnel_diagnostics;
 
    // Exit policy. In either dynamic F3 mode, min-RR and entry repricing still use
    // the original F2 flag end because the eventual F3 retest node is unknown
@@ -325,8 +337,11 @@ void FP_ResetNDSF2WaistTradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.one_attempt_per_f2_body = true;
    cfg.reset_used_setups_on_init = false;
    cfg.require_f2_size_gate = false;
+   cfg.require_canonical_f3_spawn_for_local_exit = true;
    cfg.cancel_pending_if_target_touched_before_fill = true;
-   cfg.max_setup_age_bars = 0;
+   cfg.max_setup_age_bars = -1;
+   cfg.consume_attempt_on_fill = true;
+   cfg.enable_funnel_diagnostics = false;
    cfg.exit_mode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
    cfg.higher_timeframe_f3_exit_timeframe = PERIOD_H1;
    cfg.f3_exit_correction_ticks = 1.0;

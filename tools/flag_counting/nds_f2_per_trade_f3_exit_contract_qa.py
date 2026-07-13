@@ -41,8 +41,8 @@ def main() -> int:
     detector = content["detector"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
-    require(expert, 'nds_f2_waist_break_point2_v10', "schema identity", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
+    require(expert, 'nds_f2_waist_break_point2_v11', "schema identity", errors)
     require(expert, 'cfg.scan_f3 = FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode)', "mode-aware F3 scan", errors)
     require(expert, 'cfg.f3_show_live_body_candidates', "live child F3 candidates", errors)
 

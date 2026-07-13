@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.90"
+#property version   "2.00"
 #property description "NDS F2 Point-2 backtest with fixed, local-F3, and higher-timeframe-F3 exits."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
@@ -16,13 +16,13 @@ input bool InpF2BTAllowNonTesterDryRun = false;
 input bool InpF2BTRunOnFirstTick = false;
 
 // CUSTOM profile only.
-input int  InpF2BTCustomBarsToScan = 420;
+input int  InpF2BTCustomBarsToScan = 800;
 input int  InpF2BTCustomMinClosedBars = 140;
 input bool InpF2BTCustomUseMultiScale = true;
 input int  InpF2BTCustomSwingL1 = 2;
 input int  InpF2BTCustomSwingL2 = 3;
 input int  InpF2BTCustomSwingL3 = 5;
-input int  InpF2BTCustomSwingL4 = 0;
+input int  InpF2BTCustomSwingL4 = 8;
 input int  InpF2BTCustomSwingL5 = 0;
 input int  InpF2BTCustomSwingL6 = 0;
 input int  InpF2BTCustomSwingL7 = 0;
@@ -41,8 +41,10 @@ input bool   InpF2BTTradeEnabled = true;
 input bool   InpF2BTSendTesterOrders = true;
 input bool   InpF2BTOneAttemptPerF2Body = true;
 input bool   InpF2BTResetUsedSetupsOnInit = true;
+input bool   InpF2BTConsumeAttemptOnlyOnFill = true;
+input bool   InpF2BTEnableFunnelDiagnostics = false; // One CSV row on deinit only.
 input bool   InpF2BTCancelPendingIfTargetTouchedBeforeFill = true;
-input int    InpF2BTMaxSetupAgeBars = 0;
+input int    InpF2BTMaxSetupAgeBars = -1; // -1 = lifecycle-owned, no arbitrary bar expiry.
 input double InpF2BTEntryBehindF2WaistTicks = 1.0;
 input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
@@ -57,6 +59,10 @@ input double InpF2BTStopBehindF1WaistTicks = 1.0;
 // first canonical same-direction F3 on InpF2BTF3ExitHigherTimeframe forms its
 // Leg1 and then its own Waist. TP is then armed at that exact HTF F3 Leg1 end.
 input FP_NDSF2ExitMode InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
+// The local exact-F3 exit is undefined for a source F2 that canonical Phoenix
+// does not authorize to spawn F3. This explicit input replaces the old hidden
+// mode-dependent size filter. It has no effect on fixed or HTF-F3 exits.
+input bool InpF2BTRequireCanonicalF3SpawnForLocalExit = true;
 input ENUM_TIMEFRAMES InpF2BTF3ExitHigherTimeframe = PERIOD_H1;
 input double InpF2BTF3ExitCorrectionTicks = 1.0; // legacy compatibility; exact mode uses the bound child-F3 Waist.
 input bool   InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true;
@@ -79,6 +85,7 @@ input double InpF2BTStopSpaceOverlapThresholdPercent = 80.0;
 // Separate same-symbol positions require a hedging account in MT5.
 input bool InpF2BTAllowOppositeDirectionHedge = true;
 input bool InpF2BTAllowSameDirectionMultipleContexts = true;
+input bool InpF2BTRequireHedgingAccountForParallelContexts = true;
 input int  InpF2BTMaxConcurrentManagedExposures = 0; // 0 = unlimited.
 
 // Higher-timeframe canonical context filter. The current higher timeframe must
@@ -182,8 +189,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v10";
-   cfg.identity_config_hash = "f2_wb2_v10";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v11";
+   cfg.identity_config_hash = "f2_wb2_v11";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -221,8 +228,12 @@ void FP_LoadNDSF2TradeConfig(FP_NDSF2WaistTradeConfig &cfg)
    cfg.one_attempt_per_f2_body = InpF2BTOneAttemptPerF2Body;
    cfg.reset_used_setups_on_init = InpF2BTResetUsedSetupsOnInit;
    cfg.require_f2_size_gate = InpF2BTRequireF2SizeGate;
+   cfg.require_canonical_f3_spawn_for_local_exit =
+      InpF2BTRequireCanonicalF3SpawnForLocalExit;
    cfg.cancel_pending_if_target_touched_before_fill = InpF2BTCancelPendingIfTargetTouchedBeforeFill;
    cfg.max_setup_age_bars = InpF2BTMaxSetupAgeBars;
+   cfg.consume_attempt_on_fill = InpF2BTConsumeAttemptOnlyOnFill;
+   cfg.enable_funnel_diagnostics = InpF2BTEnableFunnelDiagnostics;
    cfg.exit_mode = InpF2BTExitMode;
    cfg.higher_timeframe_f3_exit_timeframe = InpF2BTF3ExitHigherTimeframe;
    cfg.f3_exit_correction_ticks = InpF2BTF3ExitCorrectionTicks;
@@ -278,6 +289,12 @@ int OnInit()
    if(!FP_NDSF2BTIsTesterRuntime() && !InpF2BTAllowNonTesterDryRun)
       return INIT_FAILED;
 
+   if(InpF2BTRequireHedgingAccountForParallelContexts &&
+      (InpF2BTAllowOppositeDirectionHedge ||
+       InpF2BTAllowSameDirectionMultipleContexts) &&
+      !FP_NDSF2AccountSupportsIndependentContexts())
+      return INIT_PARAMETERS_INCORRECT;
+
    if(FP_NDSF2ExitModeUsesHigherTimeframeF3(InpF2BTExitMode))
    {
       ENUM_TIMEFRAMES resolved_exit_tf =
@@ -300,6 +317,20 @@ int OnInit()
    if(g_f2_bt_runtime_cfg.run_on_first_tick)
       FP_NDSF2BTRunOnce();
    return INIT_SUCCEEDED;
+}
+
+
+
+void OnDeinit(const int reason)
+{
+   FP_NDSF2ExportFunnelStats(g_f2_bt_trade_cfg);
+}
+
+void OnTradeTransaction(const MqlTradeTransaction &trans,
+                        const MqlTradeRequest &request,
+                        const MqlTradeResult &result)
+{
+   FP_NDSF2HandleTradeTransaction(trans, g_f2_bt_trade_cfg);
 }
 
 void OnTick()

@@ -50,15 +50,15 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
     require(expert, "InpF2BTUseHigherTimeframeFPhaseFilter = true", "enabled default", errors)
     require(expert, "InpF2BTHigherTimeframe = PERIOD_H1", "H1 default", errors)
     require(expert, "InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true", "F1-to-F2 window default", errors)
     require(expert, "InpF2BTCancelPendingWhenHigherTimeframeDisallows = true", "pending cancel default", errors)
     require(expert, "FP_LoadNDSF2HigherTimeframePhaseConfig", "HTF config loader", errors)
 
-    require(types, "NDS-F2-WAIST-BREAK-10", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v10", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v11", "schema version", errors)
     require(types, "FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER", "HTF cancellation result", errors)
 
     require(phase, "FP_NDS_F2_HTF_PHASE_F_BULLISH", "bullish F state", errors)
@@ -70,10 +70,14 @@ def main() -> int:
     require(phase, "cfg.scan_f2 = true", "F2 scan", errors)
     require(phase, "cfg.scan_f3 = true", "F3 scan", errors)
     require(phase, "timebase_cfg.exclude_live_bar = true", "closed HTF bars", errors)
-    require(phase, "latest_hook_time >= best_time", "Hook ownership gate", errors)
+    require(phase, "FP_NDSF2HTFHookOwnerRootIndex", "same-count Hook ownership resolver", errors)
+    require(phase, "FP_NDSF2HTFHookBelongsToRoot", "same-count Hook gate", errors)
+    require(phase, "qualifying_bullish_count", "multi-count bullish aggregation", errors)
+    require(phase, "qualifying_bearish_count", "multi-count bearish aggregation", errors)
+    require(phase, "opposite_direction_qualifying_higher_timeframe_counts", "opposite-count ambiguity gate", errors)
     require(phase, "snapshot.source_open_bar_time == open_bar", "HTF cache", errors)
     require(phase, "snapshot.gate_open", "entry gate state", errors)
-    require(phase, "FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow", "lifecycle window", errors)
+    require(phase, "FP_NDSF2HTFEvaluateCount", "per-count lifecycle evaluation", errors)
 
     require(rules, "FP_NDSF2CancelPendingOrdersOutsideDirection", "pending reconciliation", errors)
     require(rules, "direction != allowed_direction", "directional cancellation", errors)
@@ -96,12 +100,14 @@ def main() -> int:
     require(obsidian, "HTF bullish F → Buy only", "Obsidian bullish summary", errors)
 
     runtime = "\n".join(content[name] for name in (
-        "expert", "phase", "types", "rules", "engine", "backtest"
+        "expert", "phase", "types", "engine", "backtest"
     ))
     forbid(runtime, "ObjectCreate(", "renderer", errors)
-    forbid(runtime, "FileOpen(", "runtime file IO", errors)
     forbid(runtime, "Print(", "runtime Print", errors)
     forbid(runtime, "PrintFormat(", "runtime PrintFormat", errors)
+    forbid(rules, "Print(", "runtime Print in rules", errors)
+    forbid(rules, "PrintFormat(", "runtime PrintFormat in rules", errors)
+    require(rules, "if(!cfg.enable_funnel_diagnostics) return;", "diagnostics opt-in guard", errors)
 
     if errors:
         print("NDS F2 HTF F-phase filter contract QA: FAIL")

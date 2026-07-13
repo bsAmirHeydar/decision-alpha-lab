@@ -1,19 +1,24 @@
 # 16 — Higher-Timeframe F1-to-F2 Confirmation Window
 
-## 1. Purpose
+## 1. Requested interval
 
-This optional filter narrows the existing higher-timeframe F-phase direction gate to one exact lifecycle interval on the same canonical higher-timeframe count that supplies direction.
+The optional window permits lower-timeframe entries only inside this half-open structural interval:
+
+```text
+[ exact HTF F1 confirmation, exact direct-child HTF F2 confirmation )
+```
+
+In words:
 
 ```text
 Before HTF F1 confirmation
-→ no new lower-timeframe trade
+→ no entry
 
-After HTF F1 confirmation
-and before the direct child HTF F2 confirmation
-→ lower-timeframe trades may be authorized
+After HTF F1 confirmation and before its exact child F2 confirmation
+→ that count may authorize its own direction
 
 At or after the direct child HTF F2 confirmation
-→ no new lower-timeframe trade
+→ that count no longer authorizes a new entry
 ```
 
 Default:
@@ -22,155 +27,134 @@ Default:
 InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
 ```
 
-The filter is subordinate to the existing requirement that the higher timeframe is in F rather than Hook/ND. Both conditions must pass.
+## 2. Per-count evaluation
 
-## 2. Exact-count authority
+The window is evaluated for every visible canonical higher-timeframe F1 root, not only for one global winner.
 
-The window is not evaluated from any F1 and any F2 found on the higher timeframe. It is evaluated from the exact canonical sequence selected by the existing higher-timeframe phase classifier.
+Each candidate count must preserve:
 
 ```text
-Selected HTF canonical F event
-→ selected sequence_id
-→ exact F1 root of that sequence
-→ exact direct-child F2 of that F1
+same canonical higher-timeframe count
+same sequence_id
+same direction
+same scale L
+F1 chain_index = 1
+F2 chain_index = 2
+F2.parent_sequence_id = F1.sequence_id
+F2.parent_event_id = F1.event_id
 ```
 
-The following identity fields must agree:
+A different sequence, a different scale, or a merely same-direction F2 cannot close the window.
 
-- `sequence_id`;
-- direction;
-- scale `L`;
-- F1 `chain_index = 1`;
-- F2 `chain_index = 2`;
-- F2 `parent_sequence_id = F1.sequence_id`;
-- F2 `parent_event_id = F1.event_id`.
+## 3. Exact stabilization predicates
 
-A similarly directed F1 or F2 from another scale, another sequence, or another parent is not allowed to open or close this window.
+### F1 opens the window
 
-## 3. Confirmation definitions
-
-### F1 confirmation
-
-F1 is considered stabilized only when all canonical lifecycle evidence is present:
+F1 is stabilized when:
 
 ```text
 level = F1
+chain_index = 1
 status = CONFIRMED
 lifecycle_status = FP_F1_LC_CONFIRMED
 has_confirm = true
-lifecycle_can_spawn_f2 = true
 ```
 
-A complete F1 body, live F1, post-flag F1, or probable F1 does not open the window.
+`lifecycle_can_spawn_f2` is not part of the definition. Spawn eligibility is a separate downstream authority and must not delay the requested “F1 stabilized” boundary.
 
-### F2 confirmation
+### F2 closes the window
 
-The window closes only when the exact direct child F2 is stabilized:
+The exact direct child F2 closes the window when:
 
 ```text
 level = F2
+chain_index = 2
 status = CONFIRMED
 f2_lifecycle_status = FP_F2_LC_CONFIRMED
 has_confirm = true
-f2_can_spawn_f3 = true
+exact parent identity matches F1
 ```
 
-A live-body, size-rejected, post-flag, or otherwise unconfirmed F2 does not close the window.
+`f2_can_spawn_f3` is not part of the definition. The requested close boundary is F2 confirmation itself, not later F3 eligibility.
 
-## 4. Direction contract
-
-The direction continues to come from the selected canonical higher-timeframe F phase.
+## 4. Multi-count truth table
 
 ```text
-Selected HTF count is bullish F
-+ exact F1 confirmed
-+ exact F2 not yet confirmed
-→ Buy setups only
-
-Selected HTF count is bearish F
-+ exact F1 confirmed
-+ exact F2 not yet confirmed
-→ Sell setups only
+Count A: bullish, F1 confirmed, child F2 unconfirmed
+Count B: bullish, before F1 confirmation
+→ Buy remains authorized by Count A
 ```
-
-The lifecycle window does not create a direction. It only narrows the time interval during which the already-selected direction has entry authority.
-
-## 5. Combined gate
-
-The full authorization is:
 
 ```text
-HTF data ready
-AND canonical F exists
-AND latest phase is F, not Hook/ND
-AND no equal-priority direction conflict
-AND selected count F1 is confirmed
-AND selected count direct-child F2 is not confirmed
-AND lower-timeframe setup direction matches selected HTF direction
+Count A: bullish, child F2 confirmed
+Count B: bullish, F1 confirmed, child F2 unconfirmed
+→ Buy remains authorized by Count B
 ```
 
-Any failure closes the gate.
+```text
+Count A: bullish window open
+Count B: bearish window open
+→ ambiguous; no entry
+```
+
+```text
+All counts before F1 or after F2
+→ no entry
+```
+
+This prevents a newer immature count from suppressing a different valid count.
+
+## 5. Hook relationship
+
+The count must also be in F phase. A Hook/ND can close only the count that owns that Hook boundary. An unrelated Hook does not globally veto every count.
 
 ## 6. Closed-bar semantics
 
-The higher-timeframe classifier uses closed bars only. Therefore the lifecycle boundary becomes effective only after the higher-timeframe bar containing the canonical confirmation has closed and the cached snapshot refreshes.
+The classifier uses closed bars only. Therefore:
 
 ```text
-F1 confirmation becomes visible on a closed H1 bar
-→ window opens on the next cached H1 snapshot
+F1 confirmation becomes visible in the cached HTF event stream
+→ window opens
 
-F2 confirmation becomes visible on a closed H1 bar
-→ window closes on the next cached H1 snapshot
+Exact child F2 confirmation becomes visible in the cached HTF event stream
+→ window closes
 ```
 
-No live higher-timeframe candle is used. This preserves causal replay and prevents future leakage.
+No live HTF candle is used.
 
-## 7. Pending-order lifecycle
+## 7. Pending-order semantics
 
-The existing pending-order policy also applies to this window:
+With pending cancellation enabled, a pending order is required to remain inside the currently authorized window. When its direction is no longer authorized, the order is cancelled.
+
+With consume-on-fill enabled:
 
 ```text
-InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
+pending accepted
+→ context is active but not permanently consumed
+
+pending cancelled before fill
+→ active attempt is released
+
+same F2 still structurally valid
++ entry and target were not already touched
++ HTF window reopens
+→ order may be armed again
+
+order fills
+→ one-attempt identity becomes permanently consumed
 ```
 
-With the default enabled:
+Open positions are not closed by the window.
 
-- pending orders created before F1 confirmation are not allowed;
-- pending orders are allowed only inside the open F1→F2 interval;
-- when the exact F2 confirms, still-unfilled managed pending orders are cancelled;
-- open positions are not force-closed by this entry filter.
-
-Position exit authority remains with the selected fixed, local-F3, or higher-timeframe-F3 exit mode.
-
-## 8. Optionality
+## 8. Input off
 
 ```text
-InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
-→ strict F1-confirmed / F2-unconfirmed window
-
 InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = false
-→ original HTF F-phase direction filter only
 ```
 
-Turning this input off does not turn off the higher-timeframe direction filter. The two controls are separate.
+The broad HTF F-phase direction filter remains active. Any count in count-local F phase may qualify without the F1-confirmed/F2-unconfirmed restriction.
 
-## 9. Fail-closed cases
-
-No entry is authorized when:
-
-- the selected canonical event has no valid sequence id;
-- the exact F1 root is missing;
-- more than one F1 root exists for the selected sequence;
-- more than one exact direct-child F2 exists for that F1;
-- F1 is not confirmed;
-- F2 is already confirmed;
-- the phase is Hook/ND;
-- direction is ambiguous;
-- higher-timeframe history is incomplete.
-
-The filter never substitutes another sequence merely to keep trading.
-
-## 10. State model
+## 9. State model
 
 ```text
 DISABLED
@@ -182,73 +166,4 @@ OPEN
 CLOSED_AFTER_F2_CONFIRM
 ```
 
-Only `OPEN` authorizes a new setup when the input is enabled.
-
-## 11. Performance contract
-
-No second higher-timeframe scan is added. The lifecycle window consumes the same event array already produced by the cached higher-timeframe F/Hook classifier.
-
-```text
-One HTF canonical scan per new HTF bar
-→ phase selection
-→ same-array F1/F2 lineage-window evaluation
-→ cached gate
-```
-
-There is no per-tick detector, renderer, CSV, timer, or print.
-
-## 12. Acceptance cases
-
-### Before F1 confirmation
-
-```text
-HTF bullish F1 body exists but is not confirmed
-→ Buy blocked
-→ Sell blocked
-```
-
-### Open interval
-
-```text
-HTF bullish F1 confirmed
-HTF direct-child F2 absent or unconfirmed
-→ Buy allowed
-→ Sell blocked
-```
-
-### Close boundary
-
-```text
-Same HTF direct-child F2 confirms
-→ new Buy blocked
-→ pending Buy cancelled when cancellation policy is enabled
-→ existing Buy position remains under its own exit mode
-```
-
-### Different sequence cannot close the window
-
-```text
-Selected sequence A: F1 confirmed, F2 unconfirmed
-Different sequence B: F2 confirmed
-→ sequence B cannot close sequence A's window
-```
-
-### Input disabled
-
-```text
-Lifecycle-window input = false
-HTF is bullish canonical F and not Hook/ND
-→ Buy may be authorized under the original phase-direction contract
-```
-
-## 13. Non-goals
-
-This filter does not:
-
-- change lower-timeframe entry geometry;
-- change RR calculation or entry repricing;
-- change overlap arbitration;
-- close live positions when F2 confirms;
-- select another HTF count by AI;
-- use an F2 from another sequence as the close boundary;
-- use the live higher-timeframe candle.
+Only `OPEN` qualifies when the lifecycle-window input is enabled.

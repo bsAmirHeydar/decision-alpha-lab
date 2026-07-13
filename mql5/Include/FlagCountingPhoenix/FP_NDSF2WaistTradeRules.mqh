@@ -6,34 +6,199 @@
 #include "FP_NDSHookTradeRules.mqh"
 #include "FP_NDSF2F3ExitManager.mqh"
 
+
+struct FP_NDSF2FunnelStats
+{
+   ulong cycles;
+   ulong pair_candidates;
+   ulong htf_gate_blocked;
+   ulong htf_no_f;
+   ulong htf_hook_blocked;
+   ulong htf_before_f1;
+   ulong htf_after_f2;
+   ulong htf_ambiguous;
+   ulong direction_blocked;
+   ulong setup_build_blocked;
+   ulong overlap_suppressed;
+   ulong exposure_or_send_blocked;
+   ulong orders_sent;
+   ulong orders_filled;
+   ulong pending_cancelled_htf;
+   ulong pending_cancelled_target;
+};
+
+FP_NDSF2FunnelStats g_fp_nds_f2_funnel;
+
+void FP_NDSF2ResetFunnelStats()
+{
+   ZeroMemory(g_fp_nds_f2_funnel);
+}
+
+void FP_NDSF2ExportFunnelStats(const FP_NDSF2WaistTradeConfig &cfg)
+{
+   if(!cfg.enable_funnel_diagnostics) return;
+   string name = "NDSF2_Funnel_" + IntegerToString(cfg.magic) + ".csv";
+   int handle = FileOpen(name, FILE_WRITE|FILE_CSV|FILE_COMMON, ';');
+   if(handle == INVALID_HANDLE) return;
+   FileWrite(handle,
+             "cycles", "pairs", "htf_block", "htf_no_f", "htf_hook",
+             "htf_before_f1", "htf_after_f2", "htf_ambiguous",
+             "direction_block", "build_block", "overlap",
+             "exposure_or_send", "sent", "filled",
+             "cancel_htf", "cancel_target");
+   FileWrite(handle,
+             g_fp_nds_f2_funnel.cycles,
+             g_fp_nds_f2_funnel.pair_candidates,
+             g_fp_nds_f2_funnel.htf_gate_blocked,
+             g_fp_nds_f2_funnel.htf_no_f,
+             g_fp_nds_f2_funnel.htf_hook_blocked,
+             g_fp_nds_f2_funnel.htf_before_f1,
+             g_fp_nds_f2_funnel.htf_after_f2,
+             g_fp_nds_f2_funnel.htf_ambiguous,
+             g_fp_nds_f2_funnel.direction_blocked,
+             g_fp_nds_f2_funnel.setup_build_blocked,
+             g_fp_nds_f2_funnel.overlap_suppressed,
+             g_fp_nds_f2_funnel.exposure_or_send_blocked,
+             g_fp_nds_f2_funnel.orders_sent,
+             g_fp_nds_f2_funnel.orders_filled,
+             g_fp_nds_f2_funnel.pending_cancelled_htf,
+             g_fp_nds_f2_funnel.pending_cancelled_target);
+   FileClose(handle);
+}
+
 // Tester-only in-memory body-version registry. No terminal global variables,
-// filesystem persistence, renderer state, CSV or mutex is used.
+// persistent setup registry, renderer state, runtime prints or mutex is used.
+// Optional funnel diagnostics write one deinit-only CSV row when explicitly enabled.
 long g_fp_nds_f2_used_hashes[];
+
+struct FP_NDSF2ActiveAttempt
+{
+   bool active;
+   ulong order_ticket;
+   long setup_hash;
+};
+
+FP_NDSF2ActiveAttempt g_fp_nds_f2_active_attempts[];
+
+int FP_NDSF2FindActiveAttemptByTicket(const ulong order_ticket)
+{
+   if(order_ticket == 0) return -1;
+   for(int i=0; i<ArraySize(g_fp_nds_f2_active_attempts); i++)
+      if(g_fp_nds_f2_active_attempts[i].active &&
+         g_fp_nds_f2_active_attempts[i].order_ticket == order_ticket)
+         return i;
+   return -1;
+}
+
+bool FP_NDSF2ActiveAttemptExists(const long setup_hash)
+{
+   if(setup_hash == 0) return false;
+   for(int i=0; i<ArraySize(g_fp_nds_f2_active_attempts); i++)
+      if(g_fp_nds_f2_active_attempts[i].active &&
+         g_fp_nds_f2_active_attempts[i].setup_hash == setup_hash)
+         return true;
+   return false;
+}
+
+bool FP_NDSF2RegisterActiveAttempt(const ulong order_ticket,
+                                   const long setup_hash)
+{
+   if(order_ticket == 0 || setup_hash == 0) return false;
+   int existing = FP_NDSF2FindActiveAttemptByTicket(order_ticket);
+   if(existing >= 0)
+   {
+      g_fp_nds_f2_active_attempts[existing].setup_hash = setup_hash;
+      return true;
+   }
+   int n = ArraySize(g_fp_nds_f2_active_attempts);
+   if(ArrayResize(g_fp_nds_f2_active_attempts, n + 1) != n + 1) return false;
+   g_fp_nds_f2_active_attempts[n].active = true;
+   g_fp_nds_f2_active_attempts[n].order_ticket = order_ticket;
+   g_fp_nds_f2_active_attempts[n].setup_hash = setup_hash;
+   return true;
+}
+
+void FP_NDSF2ReleaseActiveAttempt(const ulong order_ticket)
+{
+   int index = FP_NDSF2FindActiveAttemptByTicket(order_ticket);
+   if(index < 0) return;
+   g_fp_nds_f2_active_attempts[index].active = false;
+}
 
 void FP_NDSF2ResetUsedSetups()
 {
    ArrayResize(g_fp_nds_f2_used_hashes, 0);
+   ArrayResize(g_fp_nds_f2_active_attempts, 0);
+   FP_NDSF2ResetFunnelStats();
    FP_NDSF2ResetDynamicExitContexts();
+}
+
+bool FP_NDSF2SetupHashConsumed(const long setup_hash)
+{
+   for(int i=0; i<ArraySize(g_fp_nds_f2_used_hashes); i++)
+      if(g_fp_nds_f2_used_hashes[i] == setup_hash) return true;
+   return false;
 }
 
 bool FP_NDSF2SetupUsed(const FP_NDSF2WaistTradeConfig &cfg,
                        const long setup_hash)
 {
+   // Never duplicate the same context while its pending order is active, even
+   // when the operator allows more than one completed attempt per F2 body.
+   if(FP_NDSF2ActiveAttemptExists(setup_hash)) return true;
    if(!cfg.one_attempt_per_f2_body) return false;
-   for(int i=0; i<ArraySize(g_fp_nds_f2_used_hashes); i++)
-      if(g_fp_nds_f2_used_hashes[i] == setup_hash) return true;
-   return false;
+   return FP_NDSF2SetupHashConsumed(setup_hash);
 }
 
 bool FP_NDSF2MarkSetupUsed(const FP_NDSF2WaistTradeConfig &cfg,
                            const long setup_hash)
 {
    if(!cfg.one_attempt_per_f2_body) return true;
-   if(FP_NDSF2SetupUsed(cfg, setup_hash)) return true;
+   if(FP_NDSF2SetupHashConsumed(setup_hash)) return true;
    int n = ArraySize(g_fp_nds_f2_used_hashes);
    if(ArrayResize(g_fp_nds_f2_used_hashes, n + 1) != n + 1) return false;
    g_fp_nds_f2_used_hashes[n] = setup_hash;
    return true;
+}
+
+void FP_NDSF2HandleTradeTransaction(const MqlTradeTransaction &trans,
+                                    const FP_NDSF2WaistTradeConfig &cfg)
+{
+   // Release externally cancelled/rejected/expired pending orders. Filled
+   // orders stay registered until their entry deal consumes the F2 attempt.
+   if(trans.type == TRADE_TRANSACTION_ORDER_DELETE && trans.order > 0)
+   {
+      // Active-attempt membership is the ownership proof; no history timing
+      // assumption is required. Filled orders remain mapped until DEAL_ADD.
+      if(FP_NDSF2FindActiveAttemptByTicket(trans.order) < 0) return;
+      ENUM_ORDER_STATE state = trans.order_state;
+      if(state == ORDER_STATE_CANCELED || state == ORDER_STATE_REJECTED ||
+         state == ORDER_STATE_EXPIRED)
+      {
+         FP_NDSF2ReleaseActiveAttempt(trans.order);
+         FP_NDSF2DeactivateDynamicContextByOrderTicket(trans.order);
+      }
+      return;
+   }
+
+   if(!cfg.consume_attempt_on_fill) return;
+   if(trans.type != TRADE_TRANSACTION_DEAL_ADD || trans.deal == 0) return;
+   if(!HistoryDealSelect(trans.deal)) return;
+   if((long)HistoryDealGetInteger(trans.deal, DEAL_MAGIC) != cfg.magic) return;
+
+   ENUM_DEAL_ENTRY entry =
+      (ENUM_DEAL_ENTRY)HistoryDealGetInteger(trans.deal, DEAL_ENTRY);
+   if(entry != DEAL_ENTRY_IN && entry != DEAL_ENTRY_INOUT) return;
+
+   ulong order_ticket =
+      (ulong)HistoryDealGetInteger(trans.deal, DEAL_ORDER);
+   int index = FP_NDSF2FindActiveAttemptByTicket(order_ticket);
+   if(index < 0) return;
+
+   long setup_hash = g_fp_nds_f2_active_attempts[index].setup_hash;
+   g_fp_nds_f2_active_attempts[index].active = false;
+   if(FP_NDSF2MarkSetupUsed(cfg, setup_hash))
+      g_fp_nds_f2_funnel.orders_filled++;
 }
 
 void FP_NDSF2BuildSharedTradeConfig(const FP_NDSF2WaistTradeConfig &src,
@@ -251,6 +416,7 @@ bool FP_NDSF2DeletePendingOrder(const FP_NDSF2WaistTradeConfig &cfg,
    if(!OrderSend(request, result)) return false;
    if(!FP_NDSHookTradeRetcodeAccepted(result.retcode)) return false;
    FP_NDSF2DeactivateDynamicContextByOrderTicket(order_ticket);
+   FP_NDSF2ReleaseActiveAttempt(order_ticket);
    return true;
 }
 
@@ -613,42 +779,47 @@ bool FP_NDSF2SendLimit(const string symbol,
    ticket = result.order;
    if(ticket == 0)
    {
-      // A placed pending order normally returns result.order. For tester/broker
-      // variants that return zero, broker acceptance is still authoritative.
-      ticket = (result.deal > 0 ? result.deal : (ulong)1);
+      // Some tester/broker variants accept the request but return a zero order
+      // ticket. Resolve the real pending ticket from the unique setup comment
+      // for every exit mode so the active-attempt registry is never keyed by a
+      // deal id or placeholder value.
+      for(int i=OrdersTotal()-1; i>=0; i--)
+      {
+         ulong candidate_ticket = OrderGetTicket(i);
+         if(candidate_ticket == 0) continue;
+         if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
+         if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
+         if(OrderGetString(ORDER_COMMENT) != setup.broker_comment) continue;
+         ticket = candidate_ticket;
+         break;
+      }
    }
+   if(ticket == 0) return false;
 
    // Dynamic exit needs a dedicated per-position context after the pending order fills.
    // Register before consuming the setup; if registration fails, remove the
    // accepted pending order so no unmanaged no-TP position can be created.
    if(FP_NDSF2ExitModeIsDynamic(cfg.exit_mode))
    {
-      if(result.order > 0) ticket = result.order;
-      if(ticket == 0 || ticket == (ulong)1)
+      if(!FP_NDSF2RegisterDynamicExitContext(symbol, setup.period, cfg, setup, ticket))
       {
-         for(int i=OrdersTotal()-1; i>=0; i--)
-         {
-            ulong candidate_ticket = OrderGetTicket(i);
-            if(candidate_ticket == 0) continue;
-            if((long)OrderGetInteger(ORDER_MAGIC) != cfg.magic) continue;
-            if(OrderGetString(ORDER_SYMBOL) != symbol) continue;
-            if(OrderGetString(ORDER_COMMENT) != setup.broker_comment) continue;
-            ticket = candidate_ticket;
-            break;
-         }
-      }
-
-      if(ticket == 0 || ticket == (ulong)1 ||
-         !FP_NDSF2RegisterDynamicExitContext(symbol, setup.period, cfg, setup, ticket))
-      {
-         if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
+         FP_NDSF2DeletePendingOrder(cfg, ticket);
          return false;
       }
    }
 
-   // Consume the exact F2 context only after broker/tester acceptance and,
-   // in dynamic mode, after its exit context is safely registered.
-   if(!FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash))
+   // A live pending order blocks duplicate placement through the active-attempt
+   // registry. By default the one-attempt rule is consumed only when that order
+   // actually fills. If HTF policy or target consumption cancels it first, the
+   // same still-valid F2 body may be armed again.
+   if(!cfg.consume_attempt_on_fill &&
+      !FP_NDSF2MarkSetupUsed(cfg, setup.setup_hash))
+   {
+      if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
+      return false;
+   }
+
+   if(!FP_NDSF2RegisterActiveAttempt(ticket, setup.setup_hash))
    {
       if(ticket > 1) FP_NDSF2DeletePendingOrder(cfg, ticket);
       return false;

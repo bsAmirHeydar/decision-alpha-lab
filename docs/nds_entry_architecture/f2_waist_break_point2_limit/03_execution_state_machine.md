@@ -1,105 +1,108 @@
 # 03 — Execution State Machine
 
+## 1. Candidate lifecycle
+
 ```text
 IDLE / PORTFOLIO_ACTIVE
   │
-  ├─ HTF phase is Hook/ND, ambiguous or unavailable → no new order
-  ├─ HTF bullish F + Sell candidate → no new order
-  ├─ HTF bearish F + Buy candidate → no new order
-  ├─ no complete F2 body → no new order
-  ├─ no confirmed direct parent F1 → no new order
-  ├─ stale or previously used F2 context → no new order
-  ├─ target already consumed / F2 confirmed → no new order
-  ├─ structural RR below minimum + repricing disabled → no new order
-  ├─ structural RR below minimum + repricing enabled → move Entry toward Stop
-  ├─ adjusted Entry invalid for broker geometry → no new order
-  ├─ same-direction stop corridor overlaps above threshold → wider context wins
-  ├─ concurrency policy blocks direction/context → no new order
-  └─ valid surviving context → ORDER_PENDING(context_hash)
+  ├─ rebuild cached HTF state only on a new HTF bar
+  ├─ evaluate every canonical HTF F count
+  ├─ no sole qualifying HTF direction → no new order
+  ├─ lower-timeframe direction conflicts with HTF → reject candidate
+  ├─ no complete unconfirmed F2 body → reject candidate
+  ├─ no confirmed direct parent F1 → reject candidate
+  ├─ F2 or parent invalidated → reject candidate
+  ├─ F2 target already retested since observability → reject candidate
+  ├─ final executable entry already touched since observability → missed, reject
+  ├─ setup already filled under one-attempt policy → reject
+  ├─ RR below minimum + repricing disabled → reject
+  ├─ RR below minimum + repricing enabled → move Entry toward fixed Stop
+  ├─ final broker geometry invalid → reject
+  ├─ overlap above threshold → suppress narrower context
+  ├─ exposure policy blocks context → reject
+  └─ valid survivor → ORDER_PENDING(context_hash)
+```
 
+There is no arbitrary age rejection by default. `InpF2BTMaxSetupAgeBars = -1` means structural lifecycle owns validity.
+
+## 2. Pending lifecycle
+
+```text
 ORDER_PENDING(context_hash)
   │
-  ├─ price penetrates F2 waist → LIMIT FILLED → POSITION_OPEN(context_hash)
-  ├─ own F2 Leg2 target touched before fill → cancel only this order
+  ├─ duplicate of same hash requested → blocked by active-attempt registry
+  ├─ price reaches final limit → fill → consume one-attempt identity
+  ├─ own F2 Leg2 target reached first → cancel; setup becomes structurally consumed
+  ├─ HTF direction/window closes and cancellation policy is on → cancel
+  │     └─ active attempt released; may re-arm later only if still causally valid
+  ├─ external cancellation/rejection/expiry → release active attempt
+  ├─ wider overlapping pending appears → remove narrower, submit wider
   └─ otherwise → hold independently
+```
 
+## 3. Position lifecycle
+
+```text
 POSITION_OPEN(context_hash)
   │
-  ├─ own parent F1 waist stop reached → stop exit
-  ├─ fixed-exit mode + own F2 Leg2 reached → target exit
-  └─ dynamic F3-exit mode → WAIT_F2_CONFIRM
-
-WAIT_F2_CONFIRM(context_hash)
-  │
-  ├─ source F2 confirms → capture F2.confirm = F3 Leg1
-  └─ otherwise → hold
-
-WAIT_F3_CORRECTION(context_hash)
-  │
-  ├─ price moves adversely by configured ticks → arm TP at F2.confirm
-  └─ otherwise → hold
-
-WAIT_F3_RETEST(context_hash)
-  │
-  ├─ TP can be attached → broker TP at F2.confirm
-  ├─ target already re-hit → market close
-  └─ otherwise → retry on next tick
+  ├─ own direct-parent F1-waist stop reached → stop exit
+  ├─ FIXED_F2 mode + own F2 Leg2 reached → target exit
+  ├─ LOCAL_F3 mode → exact source-F2 / direct-child-F3 manager
+  └─ HTF_F3 mode → per-position higher-timeframe F3 manager
 ```
 
-## Parallel-context invariant
+The HTF entry gate never force-closes an open position.
 
-The old global invariant `pending + positions <= 1` is removed.
-
-The new contract is:
+## 4. Local exact-F3 exit
 
 ```text
-same setup_hash → never duplicated
-same direction + different context → controlled by input, default allowed
-opposite direction + different context → controlled by hedge input, default allowed
+POSITION_OPEN(source_f2_identity, position_ticket)
+  → detect only exact direct-child F3 of that source F2
+  → wait for Waist of the same F3
+  → TP = Leg1 endpoint of that same F3
+  → modify or close only the bound position ticket
 ```
 
-Independent same-symbol positions are authorized only on MT5 hedging accounts. On netting/exchange accounts, a second managed exposure is blocked.
+No F3 from another scale, sequence, F2, or position can own the exit.
 
-## Optional exposure cap
-
-`InpF2BTMaxConcurrentManagedExposures = 0` means unlimited by strategy policy. A positive number creates a hard cap.
-
-## Body-version policy
-
-A body version is identified by:
-
-- symbol and timeframe;
-- direction and scale;
-- parent F1 waist time;
-- F2 origin time;
-- F2 waist time;
-- F2 Leg2 time and price.
-
-If Leg2 extends before entry, the old target is consumed and the old pending is cancelled. The extended Leg2 creates a new context and can arm a new order.
-
-## Near-duplicate arbitration
+## 5. HTF-F3 exit
 
 ```text
-Stop corridor = [min(Entry, Stop), max(Entry, Stop)]
-Overlap % = intersection length / narrower corridor length × 100
+POSITION_OPEN(position_ticket, open_time)
+  → first eligible same-direction canonical F3 on configured higher timeframe
+  → lock exact F3 identity per ticket
+  → wait for Waist of the same locked F3
+  → TP = exact Leg1 endpoint
 ```
 
-At or above the configured threshold, only the wider same-direction corridor is retained. If both appear on the same bar, arbitration occurs before any order is sent. If a wider context appears while a narrower pending order still exists, the narrower pending is removed and replaced. An already-filled overlapping position is not closed or replaced.
-
-
-## Dual-exit invariant
-
-The RR gate and RR-based Entry repricing always use the original F2 Leg2 endpoint. Dynamic F3 exit does not use future target information at setup time.
-
-## Higher-timeframe phase transition
+## 6. Parallel-context invariant
 
 ```text
-NEW HTF BAR
-  → rebuild cached canonical HTF F/Hook snapshot
-  → F bullish: keep Buy pending, cancel Sell pending
-  → F bearish: keep Sell pending, cancel Buy pending
-  → Hook/ND/unresolved: cancel all managed pending
-  → never force-close an already-filled position
+same setup_hash + active pending → never duplicate
+same setup_hash + prior fill → permanently consumed when one-attempt is on
+same direction + different context → input-controlled, default allowed
+opposite direction + different context → hedge input-controlled, default allowed
 ```
 
-The HTF gate is evaluated before RR repricing, overlap arbitration and context-concurrency policy.
+Independent same-symbol contexts require an MT5 hedging account. With the default fail-fast input, a netting account causes `INIT_PARAMETERS_INCORRECT` instead of silently producing a different portfolio model.
+
+## 7. Near-duplicate arbitration
+
+```text
+Stop corridor = [min(final Entry, Stop), max(final Entry, Stop)]
+Overlap % = intersection / narrower corridor × 100
+```
+
+At or above the configured threshold, only the wider same-direction corridor survives. An already-filled position is never replaced.
+
+## 8. RR invariant
+
+All three exit modes calculate minimum RR from:
+
+```text
+RR reference = original F2 Leg2 endpoint
+Risk = abs(final Entry - F1-waist Stop)
+Reward = abs(F2 Leg2 - final Entry)
+```
+
+Future F3 exits never enter setup-time RR.

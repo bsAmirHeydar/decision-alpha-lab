@@ -30,6 +30,8 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
                                                    f1_indices, f2_indices,
                                                    available_indices);
 
+   g_fp_nds_f2_funnel.pair_candidates += (ulong)MathMax(0, pair_count);
+
    int sent_count = 0;
    int paper_count = 0;
    int blocked_count = 0;
@@ -46,6 +48,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
       if(!entry_direction_gate_open)
       {
          blocked_count++;
+         g_fp_nds_f2_funnel.htf_gate_blocked++;
          continue;
       }
       if(f2_index >= 0 && f2_index < event_count &&
@@ -53,6 +56,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
          events[f2_index].direction != allowed_entry_direction)
       {
          blocked_count++;
+         g_fp_nds_f2_funnel.direction_blocked++;
          continue;
       }
       if(f1_index < 0 || f1_index >= event_count ||
@@ -70,6 +74,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
                                        cfg, setup))
       {
          blocked_count++;
+         g_fp_nds_f2_funnel.setup_build_blocked++;
          continue;
       }
       if(FP_NDSF2SetupUsed(cfg, setup.setup_hash)) continue;
@@ -106,11 +111,13 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
          {
             suppressed[i] = true;
             blocked_count++;
+            g_fp_nds_f2_funnel.overlap_suppressed++;
             break;
          }
 
          suppressed[j] = true;
          blocked_count++;
+         g_fp_nds_f2_funnel.overlap_suppressed++;
       }
    }
 
@@ -146,8 +153,16 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistTradeCore(const string symbol,
       }
 
       ulong ticket = 0;
-      if(FP_NDSF2SendLimit(symbol, cfg, setup, ticket)) sent_count++;
-      else error_count++;
+      if(FP_NDSF2SendLimit(symbol, cfg, setup, ticket))
+      {
+         sent_count++;
+         g_fp_nds_f2_funnel.orders_sent++;
+      }
+      else
+      {
+         error_count++;
+         g_fp_nds_f2_funnel.exposure_or_send_blocked++;
+      }
    }
 
    if(sent_count > 1) return FP_NDS_F2_RUN_MULTI_ORDER_SENT;

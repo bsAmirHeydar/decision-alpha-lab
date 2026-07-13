@@ -4,6 +4,7 @@
 
 ```text
 mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
+Version 2.00
 ```
 
 ## Recommended first run
@@ -12,83 +13,101 @@ mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
 InpF2BTProfile = FAST
 InpF2BTTradeEnabled = true
 InpF2BTSendTesterOrders = true
+
 InpF2BTRequireF2SizeGate = false
 InpF2BTOneAttemptPerF2Body = true
+InpF2BTConsumeAttemptOnlyOnFill = true
+InpF2BTMaxSetupAgeBars = -1
 InpF2BTCancelPendingIfTargetTouchedBeforeFill = true
-InpF2BTMaxSetupAgeBars = 0
+
 InpF2BTEntryBehindF2WaistTicks = 1
 InpF2BTStopBehindF1WaistTicks = 1
-InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END
-InpF2BTF3ExitHigherTimeframe = PERIOD_H1
-InpF2BTF3ExitCorrectionTicks = 1.0
-InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true
+
 InpF2BTUseMinimumRewardRiskFilter = true
 InpF2BTAdjustEntryToMinimumRewardRisk = true
 InpF2BTMinimumRewardRisk = 1.0
+
 InpF2BTUseStopSpaceOverlapDeduplication = true
 InpF2BTStopSpaceOverlapThresholdPercent = 80.0
+
 InpF2BTAllowOppositeDirectionHedge = true
 InpF2BTAllowSameDirectionMultipleContexts = true
+InpF2BTRequireHedgingAccountForParallelContexts = true
 InpF2BTMaxConcurrentManagedExposures = 0
-InpF2BTUseHigherTimeframeFPhaseFilter = true
-InpF2BTHigherTimeframe = PERIOD_H1
-InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
-InpF2BTFixedVolume = 0.01
-```
 
-## Interpretation of tester trades
-
-Every submitted trade means:
-
-```text
-A complete unconfirmed F2 body existed.
-Its waist was Point 1.
-The limit beyond that waist represented Point 2.
-The parent F1 waist defined failure.
-The original F2 Leg2 endpoint defined the fixed TP and the RR reference.
-In local dynamic mode, the exact direct-child F3 defines exit. In HTF dynamic mode, the first eligible canonical same-direction HTF F3 after entry defines exit.
-```
-
-## No-log behavior
-
-The expert intentionally emits no custom runtime prints. Use Strategy Tester Orders, Deals, Results and chart visualization for inspection.
-
-
-## Account mode for hedge and parallel contexts
-
-Use an MT5 hedging account in Strategy Tester when testing simultaneous same-symbol contexts. On netting accounts, the expert intentionally blocks the second exposure.
-
-## RR interpretation
-
-`InpF2BTMinimumRewardRisk = 1.0` means the final executable distance from Entry to Target must be at least equal to the distance from Entry to Stop. With `InpF2BTAdjustEntryToMinimumRewardRisk = true`, an insufficient structural Entry is moved farther behind the F2 Waist until the requested ratio is reached.
-
-## Overlap interpretation
-
-`InpF2BTStopSpaceOverlapThresholdPercent = 80.0` means that when at least 80% of the narrower same-direction stop corridor is shared, the two contexts are treated as one and the wider corridor wins. Set it to `70.0` to make deduplication more aggressive.
-
-
-## Exit-mode interpretation
-
-`FP_NDS_F2_EXIT_FIXED_F2_FLAG_END` attaches the original F2 Leg2 as broker TP immediately.
-
-`FP_NDS_F2_EXIT_F3_FLAG_RETEST` sends the order with no TP, preserves the original F2 Leg2 only for RR, captures the exact F2-confirm/F3-Leg1 node, waits for correction, then arms TP at that node for the retest.
-
-`FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST` also sends the order with no TP, but holds the position until the configured higher timeframe forms a same-direction canonical F3 Leg1 and then the Waist of that same F3. TP is armed at that exact HTF F3 Leg1 endpoint. Default exit timeframe is `PERIOD_H1`.
-
-## Higher-timeframe filter interpretation
-
-The default `PERIOD_H1` filter allows only Buy setups during a bullish canonical H1 F phase and only Sell setups during a bearish canonical H1 F phase. If the latest H1 context is Hook/ND or cannot be resolved, the expert sends no new order.
-
-The H1 snapshot uses closed bars and is recalculated only on a new H1 bar. This keeps the lower-timeframe tester fast. The filter may cancel a misaligned pending order, but it does not close an existing position.
-
-
-## Higher-timeframe F1-to-F2 entry window
-
-```text
 InpF2BTUseHigherTimeframeFPhaseFilter = true
 InpF2BTHigherTimeframe = PERIOD_H1
 InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
 InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
+
+InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END
+InpF2BTRequireCanonicalF3SpawnForLocalExit = true
+InpF2BTF3ExitHigherTimeframe = PERIOD_H1
+InpF2BTF3ExitCorrectionTicks = 1.0
+InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true
+
+InpF2BTEnableFunnelDiagnostics = false
+InpF2BTFixedVolume = 0.01
 ```
 
-With the window enabled, the selected H1 count authorizes entries only after its F1 confirms and before its exact direct-child F2 confirms. Turning the window input off restores the broader F-phase direction-only gate.
+Use `Every tick based on real ticks` for final execution validation.
+
+## What each order proves
+
+```text
+complete unconfirmed F2 body existed
+F2 Waist was Point 1
+limit beyond Waist represented executable Point 2
+confirmed direct-parent F1 Waist defined failure
+original F2 Leg2 defined fixed TP and RR reference
+HTF had one sole qualifying direction
+when enabled, at least one same-direction HTF count was after F1 confirmation and before exact child F2 confirmation
+```
+
+## Frequency-corrected lifecycle
+
+`InpF2BTMaxSetupAgeBars = -1` removes the old one-bar-only eligibility. The EA still refuses a missed trade: if Entry or Target has already been touched since the F2 became observable, it does not place a late order.
+
+`InpF2BTConsumeAttemptOnlyOnFill = true` means a pending cancelled before fill does not permanently burn the F2 context.
+
+## FAST and PARITY
+
+```text
+FAST   = 800 closed bars, L 2/3/5/8
+PARITY = 2500 closed bars, L 2/3/5/8/13/21
+```
+
+Use FAST for iteration and PARITY for final structure-frequency comparison.
+
+## HTF interpretation
+
+The default H1 filter evaluates all canonical H1 counts. An unrelated Hook cannot veto another count. A newer count before F1 confirmation cannot hide a different open F1→F2 window.
+
+```text
+bullish qualifying counts only → Buy
+bearish qualifying counts only → Sell
+both directions qualify → block as ambiguous
+no qualifying count → block
+```
+
+## Account mode
+
+Parallel same-symbol and hedge tests require a hedging account. With the default fail-fast switch, a netting account does not initialize.
+
+## Exit modes
+
+- `FP_NDS_F2_EXIT_FIXED_F2_FLAG_END`: broker TP at original F2 Leg2.
+- `FP_NDS_F2_EXIT_F3_FLAG_RETEST`: exact local direct-child F3, isolated per source F2 and position ticket. With `InpF2BTRequireCanonicalF3SpawnForLocalExit = true`, only source F2 bodies with canonical F3-spawn authority may enter under this mode.
+- `FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST`: exact per-position HTF F3 Leg1 retest after the same F3 forms its Waist.
+
+Every mode preserves original F2 Leg2 as RR reference.
+
+## Diagnostics
+
+The EA emits no custom runtime prints. Optional funnel diagnostics are default-off:
+
+```text
+InpF2BTEnableFunnelDiagnostics = true
+```
+
+When enabled, one CSV row is written on deinitialization under MT5 Common Files. It is intended only for identifying the dominant rejection gate and adds no per-tick or per-bar print path.

@@ -48,7 +48,7 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)
@@ -101,13 +101,19 @@ def main() -> int:
     require(doc, "Fixed mode:", "documented fixed exit", errors)
     require(doc, "F2 confirmation is not the entry trigger", "documented timing", errors)
 
-    # Runtime cleanliness.
-    for name in ("expert", "detector", "setup", "rules", "engine", "bt"):
+    # Runtime cleanliness. The only optional I/O is one deinit-only funnel row
+    # inside the rules module, disabled by default.
+    require(expert, "InpF2BTEnableFunnelDiagnostics = false", "diagnostics default-off", errors)
+    require(rules, "if(!cfg.enable_funnel_diagnostics) return;", "diagnostics opt-in guard", errors)
+    for name in ("expert", "detector", "setup", "engine", "bt"):
         text = content[name]
         forbid(text, "Print(", f"custom Print in {name}", errors)
         forbid(text, "PrintFormat(", f"custom PrintFormat in {name}", errors)
-        forbid(text, "FileOpen(", f"CSV/file I/O in {name}", errors)
+        forbid(text, "FileOpen(", f"unexpected file I/O in {name}", errors)
         forbid(text, "ObjectCreate(", f"chart object path in {name}", errors)
+    forbid(rules, "Print(", "custom Print in rules", errors)
+    forbid(rules, "PrintFormat(", "custom PrintFormat in rules", errors)
+    forbid(rules, "ObjectCreate(", "chart object path in rules", errors)
 
     if errors:
         print("NDS F2 waist-break Point-2 contract QA: FAIL")

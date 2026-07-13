@@ -159,4 +159,8 @@ The F2 Point-2 profile now has a third exit mode. A lower-timeframe position can
 
 ## F2 v10 — higher-timeframe F1-to-F2 confirmation window
 
-The optional higher-timeframe entry gate can now be narrowed to the exact lifecycle interval of the same selected HTF count: after canonical F1 confirmation and strictly before confirmation of its exact direct-child F2. The default is enabled. Direction still comes from the selected canonical F phase; Hook/ND, pre-F1, post-F2, missing-lineage, and ambiguous states fail closed. See `f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.
+The optional higher-timeframe entry gate is evaluated independently across every canonical HTF count. The default-on lifecycle window qualifies a count only after its exact F1 confirmation and strictly before confirmation of its exact direct-child F2. At least one sole-direction count may authorize entry; opposite qualifying directions remain fail-closed. Hook/ND veto is count-local. See `f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.
+
+## F2 canonical frequency recovery — version 2.00
+
+The F2 setup is now lifecycle-owned instead of restricted to its first observable bar. Pending attempts are consumed on fill by default, unrelated HTF Hooks no longer globally veto all counts, F1/F2 confirmation boundaries no longer depend on spawn eligibility, FAST coverage includes 800 bars and L=8, and parallel-context tests can fail fast on non-hedging accounts. Causal missed-entry and target-consumption checks prevent retrospective orders. See `f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md`.

@@ -13,18 +13,20 @@ void FP_NDSF2BacktestApplyProfile(FP_NDSBacktestRuntimeConfig &cfg)
 {
    if(cfg.profile == FP_NDS_BACKTEST_PROFILE_FAST)
    {
-      cfg.requested_bars = 420;
-      cfg.min_closed_bars = 140;
+      // Balanced fast profile: still lightweight, but no longer drops the
+      // common L=8 context or truncates medium-lived F1/F2 chains at 420 bars.
+      cfg.requested_bars = 800;
+      cfg.min_closed_bars = 160;
       cfg.use_multi_scale = true;
       cfg.scale_l1 = 2;
       cfg.scale_l2 = 3;
       cfg.scale_l3 = 5;
-      cfg.scale_l4 = 0;
+      cfg.scale_l4 = 8;
       cfg.scale_l5 = 0;
       cfg.scale_l6 = 0;
       cfg.scale_l7 = 0;
       cfg.scale_l8 = 0;
-      cfg.max_events = 900;
+      cfg.max_events = 1800;
       cfg.max_hooks = 0;
    }
    else if(cfg.profile == FP_NDS_BACKTEST_PROFILE_PARITY)
@@ -74,6 +76,8 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
    const FP_NDSF2HigherTimeframePhaseConfig &htf_cfg,
    FP_NDSF2HigherTimeframePhaseSnapshot &htf_snapshot)
 {
+   g_fp_nds_f2_funnel.cycles++;
+
    // Higher-timeframe context is cached by its current open-bar timestamp. The
    // expensive canonical F/Hook pass therefore runs only once per new HTF bar,
    // while the lower-timeframe detector remains once per lower-timeframe bar.
@@ -82,6 +86,20 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
    bool entry_gate_open = (!htf_cfg.enabled || htf_snapshot.gate_open);
    int allowed_entry_direction =
       (!htf_cfg.enabled ? FP_DIR_NONE : htf_snapshot.allowed_direction);
+
+   if(htf_cfg.enabled && !entry_gate_open)
+   {
+      if(htf_snapshot.state == FP_NDS_F2_HTF_PHASE_HOOK_OR_ND)
+         g_fp_nds_f2_funnel.htf_hook_blocked++;
+      else if(htf_snapshot.state == FP_NDS_F2_HTF_PHASE_AMBIGUOUS)
+         g_fp_nds_f2_funnel.htf_ambiguous++;
+      else if(htf_snapshot.before_f1_total > 0)
+         g_fp_nds_f2_funnel.htf_before_f1++;
+      else if(htf_snapshot.after_f2_total > 0)
+         g_fp_nds_f2_funnel.htf_after_f2++;
+      else
+         g_fp_nds_f2_funnel.htf_no_f++;
+   }
 
    int phase_cancel_errors = 0;
    int phase_cancelled = 0;
@@ -101,6 +119,9 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
       target_cancelled = FP_NDSF2CancelConsumedPendingOrders(symbol, period,
                                                               trade_cfg,
                                                               target_cancel_errors);
+
+   g_fp_nds_f2_funnel.pending_cancelled_htf += (ulong)MathMax(0, phase_cancelled);
+   g_fp_nds_f2_funnel.pending_cancelled_target += (ulong)MathMax(0, target_cancelled);
 
    int cancel_errors = phase_cancel_errors + target_cancel_errors;
    int active_orders = FP_NDSF2CountManagedOrdersOnSymbol(symbol, trade_cfg, FP_DIR_NONE);

@@ -3,29 +3,30 @@
 ## Contract
 
 ```text
-Selected HTF count before F1 confirmation
-→ no entry
-
-Selected HTF count after F1 confirmation
-and before exact direct-child F2 confirmation
-→ selected HTF direction may trade
-
-Exact direct-child F2 confirmed
-→ no new entry
+Each HTF count before F1 confirmation → does not qualify
+Each HTF count after F1 confirmation and before exact child F2 confirmation → qualifies
+Exact direct-child F2 confirmed → that count closes
 ```
 
-Default input:
+At least one count may authorize the direction. A newer immature count does not suppress another open window. If bullish and bearish windows are both open, entry is blocked as ambiguous.
+
+Default:
 
 ```text
 InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
 ```
 
-The selected F1 and F2 must belong to the same canonical sequence, direction, scale, and direct parent-child lineage used by the HTF phase-direction classifier. Another count cannot open or close this window.
+Stabilization is exact confirmation, not later spawn eligibility:
 
-The filter uses closed HTF bars and the existing cached HTF scan. It does not add a second scan. When pending cancellation is enabled, unfilled orders are removed when the window closes; open positions keep their own exit mode.
+```text
+F1 = confirmed lifecycle + confirm node
+F2 = confirmed F2 lifecycle + confirm node + exact parent identity
+```
+
+Closed HTF bars and the existing cached scan are used. Pending cancellation affects unfilled orders; open positions retain their own exit authority.
 
 ## Authority
 
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window|Full lifecycle-window contract]]
 - [[NDS F2 Higher-Timeframe F-Phase Filter]]
-- [[NDS F2 Waist-Break Point2 Limit Setup]]
+- [[NDS F2 Canonical Frequency Recovery and Multi-Count HTF Gate]]

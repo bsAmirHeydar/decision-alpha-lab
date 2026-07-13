@@ -6,7 +6,7 @@
 #include "FP_NodeScaleList.mqh"
 #include "FP_SequenceEngine.mqh"
 
-#define FP_NDS_F2_HTF_PHASE_FILTER_VERSION "NDS-F2-HTF-F-PHASE-02"
+#define FP_NDS_F2_HTF_PHASE_FILTER_VERSION "NDS-F2-HTF-F-PHASE-03"
 
 enum FP_NDSF2HigherTimeframePhaseState
 {
@@ -104,7 +104,32 @@ struct FP_NDSF2HigherTimeframePhaseSnapshot
    int latest_hook_scale_L;
    datetime latest_hook_time;
 
+   int evaluated_count_total;
+   int qualifying_count_total;
+   int qualifying_bullish_count;
+   int qualifying_bearish_count;
+   int same_count_hook_blocked_total;
+   int before_f1_total;
+   int after_f2_total;
+   int ambiguous_count_total;
+
    string reason;
+};
+
+struct FP_NDSF2HTFCountEvaluation
+{
+   bool evaluated;
+   bool qualifies;
+   int direction;
+   int sequence_id;
+   int f1_index;
+   int f2_index;
+   int latest_event_index;
+   int window_state;
+   bool hook_blocked;
+   int hook_index;
+   datetime latest_event_time;
+   long latest_event_priority;
 };
 
 void FP_ResetNDSF2HigherTimeframePhaseConfig(FP_NDSF2HigherTimeframePhaseConfig &cfg)
@@ -143,7 +168,6 @@ void FP_ResetNDSF2HigherTimeframePhaseSnapshot(FP_NDSF2HigherTimeframePhaseSnaps
    s.gate_open = false;
    s.state = FP_NDS_F2_HTF_PHASE_DATA_NOT_READY;
    s.allowed_direction = FP_DIR_NONE;
-
    s.f1_to_f2_window_evaluated = false;
    s.f1_to_f2_window_open = false;
    s.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_NOT_EVALUATED;
@@ -156,18 +180,15 @@ void FP_ResetNDSF2HigherTimeframePhaseSnapshot(FP_NDSF2HigherTimeframePhaseSnaps
    s.selected_f2_status = FP_STATUS_NONE;
    s.selected_f2_lifecycle_status = FP_F2_LC_NONE;
    s.selected_f2_confirm_time = 0;
-
    s.symbol = "";
    s.timeframe = PERIOD_CURRENT;
    s.source_open_bar_time = 0;
    s.last_closed_bar_time = 0;
    s.refreshed_at = 0;
-
    s.copied_bars = 0;
    s.scale_count = 0;
    s.event_count = 0;
    s.hook_count = 0;
-
    s.selected_event_id = -1;
    s.selected_event_level = FP_LEVEL_NONE;
    s.selected_event_direction = FP_DIR_NONE;
@@ -175,13 +196,35 @@ void FP_ResetNDSF2HigherTimeframePhaseSnapshot(FP_NDSF2HigherTimeframePhaseSnaps
    s.selected_event_status = FP_STATUS_NONE;
    s.selected_event_time = 0;
    s.selected_event_priority = 0;
-
    s.latest_hook_branch_id = -1;
    s.latest_hook_direction = FP_DIR_NONE;
    s.latest_hook_scale_L = 0;
    s.latest_hook_time = 0;
-
+   s.evaluated_count_total = 0;
+   s.qualifying_count_total = 0;
+   s.qualifying_bullish_count = 0;
+   s.qualifying_bearish_count = 0;
+   s.same_count_hook_blocked_total = 0;
+   s.before_f1_total = 0;
+   s.after_f2_total = 0;
+   s.ambiguous_count_total = 0;
    s.reason = "not_evaluated";
+}
+
+void FP_ResetNDSF2HTFCountEvaluation(FP_NDSF2HTFCountEvaluation &e)
+{
+   e.evaluated = false;
+   e.qualifies = false;
+   e.direction = FP_DIR_NONE;
+   e.sequence_id = -1;
+   e.f1_index = -1;
+   e.f2_index = -1;
+   e.latest_event_index = -1;
+   e.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_NOT_EVALUATED;
+   e.hook_blocked = false;
+   e.hook_index = -1;
+   e.latest_event_time = 0;
+   e.latest_event_priority = 0;
 }
 
 bool FP_NDSF2HTFDirectionIsValid(const int direction)
@@ -267,15 +310,13 @@ bool FP_NDSF2HTFEventBeats(const FP_FlagEvent &candidate,
    return (candidate.event_id > current.event_id);
 }
 
-
 bool FP_NDSF2HTFIsConfirmedF1(const FP_FlagEvent &e)
 {
    return (e.level == FP_LEVEL_F1 &&
            e.chain_index == 1 &&
            e.status == FP_STATUS_CONFIRMED &&
            e.lifecycle_status == FP_F1_LC_CONFIRMED &&
-           e.has_confirm &&
-           e.lifecycle_can_spawn_f2);
+           e.has_confirm);
 }
 
 bool FP_NDSF2HTFIsConfirmedF2(const FP_FlagEvent &e)
@@ -284,117 +325,246 @@ bool FP_NDSF2HTFIsConfirmedF2(const FP_FlagEvent &e)
            e.chain_index == 2 &&
            e.status == FP_STATUS_CONFIRMED &&
            e.f2_lifecycle_status == FP_F2_LC_CONFIRMED &&
-           e.has_confirm &&
-           e.f2_can_spawn_f3);
+           e.has_confirm);
 }
 
-bool FP_NDSF2HTFEventBelongsToSelectedSequence(const FP_FlagEvent &e,
-                                               const FP_FlagEvent &selected)
+bool FP_NDSF2HTFEventBelongsToRoot(const FP_FlagEvent &e,
+                                   const FP_FlagEvent &f1)
 {
-   if(e.sequence_id != selected.sequence_id) return false;
-   if(e.direction != selected.direction) return false;
-   if(e.scale_L != selected.scale_L) return false;
-   return true;
+   return (e.sequence_id == f1.sequence_id &&
+           e.direction == f1.direction &&
+           e.scale_L == f1.scale_L);
 }
 
-bool FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow(
-   const FP_FlagEvent &events[],
-   const int selected_index,
-   const FP_NDSF2HigherTimeframePhaseConfig &cfg,
-   FP_NDSF2HigherTimeframePhaseSnapshot &snapshot)
+int FP_NDSF2HTFHookOwnerRootIndex(const FP_HookBranch &h,
+                                   const FP_FlagEvent &events[],
+                                   const double eps)
 {
-   snapshot.f1_to_f2_window_evaluated = true;
-   snapshot.f1_to_f2_window_open = false;
+   if(!FP_NDSF2HTFHookIsVisiblePhase(h)) return -1;
+   FP_Node hook_origin = FP_HookOriginNode(h, eps);
 
-   if(!cfg.require_f1_confirmed_before_f2_confirmed_window)
+   // Exact seed ownership has first authority.
+   if(hook_origin.id >= 0)
    {
-      snapshot.f1_to_f2_window_open = true;
-      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_DISABLED;
-      return true;
+      for(int i=0; i<ArraySize(events); i++)
+      {
+         if(events[i].level != FP_LEVEL_F1 || events[i].chain_index != 1) continue;
+         if(!FP_NDSF2HTFEventIsCanonicalFPhase(events[i])) continue;
+         if(events[i].direction != h.direction || events[i].scale_L != h.scale_L) continue;
+         if(!events[i].has_origin) continue;
+         if(events[i].origin.kind != hook_origin.kind) continue;
+         if(events[i].origin.index_anchor != hook_origin.index_anchor) continue;
+         if(!FP_AlmostEqual(events[i].origin.price, hook_origin.price, eps)) continue;
+         return i;
+      }
    }
 
-   if(selected_index < 0 || selected_index >= ArraySize(events))
-   {
-      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
-      return false;
-   }
-
-   FP_FlagEvent selected = events[selected_index];
-   snapshot.selected_sequence_id = selected.sequence_id;
-   if(selected.sequence_id < 0)
-   {
-      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
-      return false;
-   }
-
-   int f1_index = -1;
-   int f1_count = 0;
+   // A later Hook/ND transition belongs to the most recent canonical root on
+   // the same direction and scale whose origin precedes that Hook. This keeps
+   // Hook veto local to one count instead of allowing an unrelated scale/count
+   // to close the entire higher-timeframe gate.
+   int hook_start = (h.has_cycle_start
+                     ? h.cycle_start_node.index_anchor
+                     : h.start_node.index_anchor);
+   int best = -1;
+   int best_origin = -1;
    for(int i=0; i<ArraySize(events); i++)
    {
-      if(!FP_NDSF2HTFEventBelongsToSelectedSequence(events[i], selected)) continue;
       if(events[i].level != FP_LEVEL_F1 || events[i].chain_index != 1) continue;
-      f1_index = i;
-      f1_count++;
+      if(!FP_NDSF2HTFEventIsCanonicalFPhase(events[i])) continue;
+      if(events[i].direction != h.direction || events[i].scale_L != h.scale_L) continue;
+      if(!events[i].has_origin || events[i].origin.index_anchor > hook_start) continue;
+      if(best < 0 || events[i].origin.index_anchor > best_origin)
+      {
+         best = i;
+         best_origin = events[i].origin.index_anchor;
+      }
    }
+   return best;
+}
 
-   if(f1_count != 1 || f1_index < 0)
+bool FP_NDSF2HTFHookBelongsToRoot(const FP_HookBranch &h,
+                                  const FP_FlagEvent &events[],
+                                  const FP_FlagEvent &f1,
+                                  const double eps)
+{
+   int owner = FP_NDSF2HTFHookOwnerRootIndex(h, events, eps);
+   if(owner < 0) return false;
+   return (events[owner].sequence_id == f1.sequence_id);
+}
+
+int FP_NDSF2HTFFindLatestSequenceEvent(const FP_FlagEvent &events[],
+                                       const FP_FlagEvent &f1)
+{
+   int best = -1;
+   datetime best_time = 0;
+   long best_priority = 0;
+   for(int i=0; i<ArraySize(events); i++)
    {
-      snapshot.f1_to_f2_window_state =
-         (f1_count <= 0
-          ? FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING
-          : FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS);
+      if(!FP_NDSF2HTFEventBelongsToRoot(events[i], f1)) continue;
+      if(!FP_NDSF2HTFEventIsCanonicalFPhase(events[i])) continue;
+      datetime t = FP_NDSF2HTFEventTime(events[i]);
+      long p = FP_NDSF2HTFEventPriority(events[i]);
+      if(best < 0 || FP_NDSF2HTFEventBeats(events[i], t, p,
+                                           events[best], best_time, best_priority))
+      {
+         best = i;
+         best_time = t;
+         best_priority = p;
+      }
+   }
+   return best;
+}
+
+int FP_NDSF2HTFFindDirectChildF2(const FP_FlagEvent &events[],
+                                 const FP_FlagEvent &f1)
+{
+   int best = -1;
+   datetime best_time = 0;
+   long best_priority = 0;
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      FP_FlagEvent e = events[i];
+      if(e.level != FP_LEVEL_F2 || e.chain_index != 2) continue;
+      if(!FP_NDSF2HTFEventBelongsToRoot(e, f1)) continue;
+      if(e.parent_sequence_id != f1.sequence_id || e.parent_event_id != f1.event_id)
+         continue;
+      datetime t = FP_NDSF2HTFEventTime(e);
+      long p = FP_NDSF2HTFEventPriority(e);
+      if(best < 0 || FP_NDSF2HTFEventBeats(e, t, p,
+                                           events[best], best_time, best_priority))
+      {
+         best = i;
+         best_time = t;
+         best_priority = p;
+      }
+   }
+   return best;
+}
+
+bool FP_NDSF2HTFEvaluateCount(const FP_FlagEvent &events[],
+                              const FP_HookBranch &hooks[],
+                              const int f1_index,
+                              const FP_NDSF2HigherTimeframePhaseConfig &cfg,
+                              FP_NDSF2HTFCountEvaluation &out)
+{
+   FP_ResetNDSF2HTFCountEvaluation(out);
+   out.evaluated = true;
+   if(f1_index < 0 || f1_index >= ArraySize(events))
+   {
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
       return false;
    }
 
    FP_FlagEvent f1 = events[f1_index];
-   snapshot.selected_f1_event_id = f1.event_id;
-   snapshot.selected_f1_status = f1.status;
-   snapshot.selected_f1_lifecycle_status = f1.lifecycle_status;
-   snapshot.selected_f1_confirm_time = (f1.has_confirm ? f1.confirm.time_anchor : 0);
+   out.f1_index = f1_index;
+   out.direction = f1.direction;
+   out.sequence_id = f1.sequence_id;
+   if(f1.level != FP_LEVEL_F1 || f1.chain_index != 1 ||
+      !FP_NDSF2HTFEventIsCanonicalFPhase(f1) || f1.sequence_id < 0)
+   {
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
+      return false;
+   }
+
+   out.latest_event_index = FP_NDSF2HTFFindLatestSequenceEvent(events, f1);
+   if(out.latest_event_index < 0)
+   {
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
+      return false;
+   }
+   out.latest_event_time = FP_NDSF2HTFEventTime(events[out.latest_event_index]);
+   out.latest_event_priority = FP_NDSF2HTFEventPriority(events[out.latest_event_index]);
+
+   double eps = FP_EpsilonPrice(cfg.boundary_epsilon_points);
+   datetime latest_matching_hook_time = 0;
+   for(int i=0; i<ArraySize(hooks); i++)
+   {
+      if(!FP_NDSF2HTFHookBelongsToRoot(hooks[i], events, f1, eps)) continue;
+      datetime t = FP_NDSF2HTFHookTime(hooks[i]);
+      if(out.hook_index < 0 || t > latest_matching_hook_time)
+      {
+         out.hook_index = i;
+         latest_matching_hook_time = t;
+      }
+   }
+   if(out.hook_index >= 0 && latest_matching_hook_time >= out.latest_event_time)
+   {
+      out.hook_blocked = true;
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_NOT_EVALUATED;
+      return true;
+   }
+
+   if(!cfg.require_f1_confirmed_before_f2_confirmed_window)
+   {
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_DISABLED;
+      out.qualifies = true;
+      return true;
+   }
 
    if(!FP_NDSF2HTFIsConfirmedF1(f1))
    {
-      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM;
-      return false;
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM;
+      return true;
    }
 
-   int f2_index = -1;
-   int f2_count = 0;
-   for(int i=0; i<ArraySize(events); i++)
+   out.f2_index = FP_NDSF2HTFFindDirectChildF2(events, f1);
+   if(out.f2_index >= 0 && FP_NDSF2HTFIsConfirmedF2(events[out.f2_index]))
    {
-      if(!FP_NDSF2HTFEventBelongsToSelectedSequence(events[i], selected)) continue;
-      if(events[i].level != FP_LEVEL_F2 || events[i].chain_index != 2) continue;
-      if(events[i].parent_sequence_id != f1.sequence_id) continue;
-      if(events[i].parent_event_id != f1.event_id) continue;
-      f2_index = i;
-      f2_count++;
+      out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM;
+      return true;
    }
 
-   if(f2_count > 1)
-   {
-      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS;
-      return false;
-   }
+   out.window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_OPEN;
+   out.qualifies = true;
+   return true;
+}
 
-   if(f2_index >= 0)
+void FP_NDSF2HTFCopySelectedCount(const FP_FlagEvent &events[],
+                                  const FP_HookBranch &hooks[],
+                                  const FP_NDSF2HTFCountEvaluation &e,
+                                  FP_NDSF2HigherTimeframePhaseSnapshot &snapshot)
+{
+   snapshot.selected_sequence_id = e.sequence_id;
+   snapshot.f1_to_f2_window_evaluated = true;
+   snapshot.f1_to_f2_window_open = e.qualifies;
+   snapshot.f1_to_f2_window_state = e.window_state;
+
+   if(e.f1_index >= 0 && e.f1_index < ArraySize(events))
    {
-      FP_FlagEvent f2 = events[f2_index];
+      FP_FlagEvent f1 = events[e.f1_index];
+      snapshot.selected_f1_event_id = f1.event_id;
+      snapshot.selected_f1_status = f1.status;
+      snapshot.selected_f1_lifecycle_status = f1.lifecycle_status;
+      snapshot.selected_f1_confirm_time = (f1.has_confirm ? f1.confirm.time_anchor : 0);
+   }
+   if(e.f2_index >= 0 && e.f2_index < ArraySize(events))
+   {
+      FP_FlagEvent f2 = events[e.f2_index];
       snapshot.selected_f2_event_id = f2.event_id;
       snapshot.selected_f2_status = f2.status;
       snapshot.selected_f2_lifecycle_status = f2.f2_lifecycle_status;
       snapshot.selected_f2_confirm_time = (f2.has_confirm ? f2.confirm.time_anchor : 0);
-
-      if(FP_NDSF2HTFIsConfirmedF2(f2))
-      {
-         snapshot.f1_to_f2_window_state =
-            FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM;
-         return false;
-      }
    }
-
-   snapshot.f1_to_f2_window_open = true;
-   snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_OPEN;
-   return true;
+   if(e.latest_event_index >= 0 && e.latest_event_index < ArraySize(events))
+   {
+      FP_FlagEvent selected = events[e.latest_event_index];
+      snapshot.selected_event_id = selected.event_id;
+      snapshot.selected_event_level = selected.level;
+      snapshot.selected_event_direction = selected.direction;
+      snapshot.selected_event_scale_L = selected.scale_L;
+      snapshot.selected_event_status = selected.status;
+      snapshot.selected_event_time = e.latest_event_time;
+      snapshot.selected_event_priority = e.latest_event_priority;
+   }
+   if(e.hook_index >= 0 && e.hook_index < ArraySize(hooks))
+   {
+      FP_HookBranch h = hooks[e.hook_index];
+      snapshot.latest_hook_branch_id = h.branch_id;
+      snapshot.latest_hook_direction = h.direction;
+      snapshot.latest_hook_scale_L = h.scale_L;
+      snapshot.latest_hook_time = FP_NDSF2HTFHookTime(h);
+   }
 }
 
 void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
@@ -409,9 +579,6 @@ void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
    cfg.scan_f3 = true;
    cfg.show_invalidated_in_audit = false;
    cfg.keep_confirmed_f1f2_after_boundary_hit = false;
-
-   // Higher-timeframe context must use the canonical ownership and Hook/ND
-   // branch logic. It is deliberately not the relaxed F2 execution detector.
    cfg.require_f1_phase_boundary = true;
    cfg.allow_f1_fail_open_when_no_hook = true;
    cfg.strict_main_chart_ownership = true;
@@ -420,7 +587,6 @@ void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
    cfg.canonical_hide_unresolved_orphans = true;
    cfg.hook_main_requires_visible_f1 = false;
    cfg.hook_keep_unseeded_visible_for_debug = true;
-
    cfg.f1_show_post_flag_candidates = true;
    cfg.f1_show_live_body_candidates = true;
    cfg.f2_show_size_rejected_candidates = true;
@@ -428,24 +594,20 @@ void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
    cfg.f2_show_live_body_candidates = true;
    cfg.f3_show_or_rejected_candidates = true;
    cfg.f3_show_live_body_candidates = true;
-
    cfg.max_events = MathMax(100, src.max_events);
    cfg.max_hooks = MathMax(100, src.max_hooks);
    cfg.render_lookback_bars = 0;
-
    cfg.boundary_epsilon_points = src.boundary_epsilon_points;
    cfg.f2_min_parent_size_ratio = src.f2_min_parent_size_ratio;
    cfg.f3_min_parent_size_ratio = src.f3_min_parent_size_ratio;
    cfg.f3_leg1_L_min_ratio = src.f3_leg1_L_min_ratio;
    cfg.nd_min_retrace_ratio = src.nd_min_retrace_ratio;
    cfg.nd_allow_below_half_cycle = src.nd_allow_below_half_cycle;
-
    cfg.context_symbol = symbol;
    cfg.context_timeframe = EnumToString(src.timeframe);
-   cfg.identity_generation_pass = "nds_f2_htf_f_phase_v2";
-   cfg.identity_config_hash = "htf_f_phase_v2";
+   cfg.identity_generation_pass = "nds_f2_htf_f_phase_v3";
+   cfg.identity_config_hash = "htf_f_phase_v3";
    cfg.verbose_logs = false;
-
    cfg.print_node_sanity = false;
    cfg.print_node_samples = false;
    cfg.print_identity_sanity = false;
@@ -472,14 +634,8 @@ int FP_NDSF2HTFBuildScales(const FP_NDSF2HigherTimeframePhaseConfig &cfg,
                            int &scales[])
 {
    return FP_BuildScaleList(cfg.use_multi_scale,
-                            cfg.scale_l1,
-                            cfg.scale_l2,
-                            cfg.scale_l3,
-                            cfg.scale_l4,
-                            cfg.scale_l5,
-                            cfg.scale_l6,
-                            cfg.scale_l7,
-                            cfg.scale_l8,
+                            cfg.scale_l1, cfg.scale_l2, cfg.scale_l3, cfg.scale_l4,
+                            cfg.scale_l5, cfg.scale_l6, cfg.scale_l7, cfg.scale_l8,
                             scales);
 }
 
@@ -506,10 +662,8 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
    datetime open_bar = iTime(symbol, cfg.timeframe, 0);
    if(snapshot.evaluated &&
       snapshot.state != FP_NDS_F2_HTF_PHASE_DATA_NOT_READY &&
-      snapshot.symbol == symbol &&
-      snapshot.timeframe == cfg.timeframe &&
-      snapshot.source_open_bar_time > 0 &&
-      snapshot.source_open_bar_time == open_bar)
+      snapshot.symbol == symbol && snapshot.timeframe == cfg.timeframe &&
+      snapshot.source_open_bar_time > 0 && snapshot.source_open_bar_time == open_bar)
       return true;
 
    FP_ResetNDSF2HigherTimeframePhaseSnapshot(snapshot);
@@ -563,7 +717,6 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
 
    FP_Config detector_cfg;
    FP_NDSF2HTFBuildDetectorConfig(symbol, cfg, detector_cfg);
-
    FP_FlagEvent events[];
    FP_HookBranch hooks[];
    FP_DetectResult detect_result;
@@ -571,118 +724,102 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
                       detector_cfg, events, hooks, detect_result);
    snapshot.event_count = ArraySize(events);
    snapshot.hook_count = ArraySize(hooks);
+   snapshot.evaluated = true;
 
-   int best = -1;
-   datetime best_time = 0;
-   long best_priority = 0;
-   bool top_direction_conflict = false;
+   FP_NDSF2HTFCountEvaluation best_bull;
+   FP_NDSF2HTFCountEvaluation best_bear;
+   FP_ResetNDSF2HTFCountEvaluation(best_bull);
+   FP_ResetNDSF2HTFCountEvaluation(best_bear);
 
+   int seen_sequences[];
+   ArrayResize(seen_sequences, 0);
    for(int i=0; i<ArraySize(events); i++)
    {
+      if(events[i].level != FP_LEVEL_F1 || events[i].chain_index != 1) continue;
       if(!FP_NDSF2HTFEventIsCanonicalFPhase(events[i])) continue;
-      datetime event_time = FP_NDSF2HTFEventTime(events[i]);
-      long priority = FP_NDSF2HTFEventPriority(events[i]);
-      if(best < 0 || FP_NDSF2HTFEventBeats(events[i], event_time, priority,
-                                           events[best], best_time, best_priority))
+
+      bool seen = false;
+      for(int k=0; k<ArraySize(seen_sequences); k++)
+         if(seen_sequences[k] == events[i].sequence_id) { seen = true; break; }
+      if(seen) continue;
+      int sn = ArraySize(seen_sequences);
+      if(ArrayResize(seen_sequences, sn + 1) != sn + 1) break;
+      seen_sequences[sn] = events[i].sequence_id;
+
+      FP_NDSF2HTFCountEvaluation eval;
+      FP_NDSF2HTFEvaluateCount(events, hooks, i, cfg, eval);
+      snapshot.evaluated_count_total++;
+      if(eval.hook_blocked) snapshot.same_count_hook_blocked_total++;
+      if(eval.window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM)
+         snapshot.before_f1_total++;
+      if(eval.window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM)
+         snapshot.after_f2_total++;
+      if(eval.window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS)
+         snapshot.ambiguous_count_total++;
+      if(!eval.qualifies) continue;
+
+      snapshot.qualifying_count_total++;
+      if(eval.direction == FP_DIR_BULLISH)
       {
-         best = i;
-         best_time = event_time;
-         best_priority = priority;
-         top_direction_conflict = false;
+         snapshot.qualifying_bullish_count++;
+         if(!best_bull.qualifies || eval.latest_event_time > best_bull.latest_event_time ||
+            (eval.latest_event_time == best_bull.latest_event_time &&
+             eval.latest_event_priority > best_bull.latest_event_priority))
+            best_bull = eval;
       }
-      else if(best >= 0 && event_time == best_time && priority == best_priority &&
-              events[i].direction != events[best].direction)
+      else if(eval.direction == FP_DIR_BEARISH)
       {
-         top_direction_conflict = true;
+         snapshot.qualifying_bearish_count++;
+         if(!best_bear.qualifies || eval.latest_event_time > best_bear.latest_event_time ||
+            (eval.latest_event_time == best_bear.latest_event_time &&
+             eval.latest_event_priority > best_bear.latest_event_priority))
+            best_bear = eval;
       }
    }
 
-   datetime latest_hook_time = 0;
-   int latest_hook = -1;
-   for(int i=0; i<ArraySize(hooks); i++)
-   {
-      if(!FP_NDSF2HTFHookIsVisiblePhase(hooks[i])) continue;
-      datetime hook_time = FP_NDSF2HTFHookTime(hooks[i]);
-      if(latest_hook < 0 || hook_time > latest_hook_time ||
-         (hook_time == latest_hook_time && hooks[i].scale_L > hooks[latest_hook].scale_L))
-      {
-         latest_hook = i;
-         latest_hook_time = hook_time;
-      }
-   }
-
-   snapshot.evaluated = true;
-   if(latest_hook >= 0)
-   {
-      snapshot.latest_hook_branch_id = hooks[latest_hook].branch_id;
-      snapshot.latest_hook_direction = hooks[latest_hook].direction;
-      snapshot.latest_hook_scale_L = hooks[latest_hook].scale_L;
-      snapshot.latest_hook_time = latest_hook_time;
-   }
-
-   if(best < 0)
-   {
-      snapshot.state = FP_NDS_F2_HTF_PHASE_NO_CANONICAL_F;
-      snapshot.reason = "no_visible_canonical_higher_timeframe_f";
-      return true;
-   }
-
-   snapshot.selected_event_id = events[best].event_id;
-   snapshot.selected_event_level = events[best].level;
-   snapshot.selected_event_direction = events[best].direction;
-   snapshot.selected_event_scale_L = events[best].scale_L;
-   snapshot.selected_event_status = events[best].status;
-   snapshot.selected_event_time = best_time;
-   snapshot.selected_event_priority = best_priority;
-   snapshot.selected_sequence_id = events[best].sequence_id;
-
-   if(top_direction_conflict)
+   if(snapshot.qualifying_bullish_count > 0 && snapshot.qualifying_bearish_count > 0)
    {
       snapshot.state = FP_NDS_F2_HTF_PHASE_AMBIGUOUS;
-      snapshot.reason = "equal_priority_opposite_higher_timeframe_f_events";
+      snapshot.reason = "opposite_direction_qualifying_higher_timeframe_counts";
       return true;
    }
 
-   // A Hook/ND context at or after the most recent canonical F endpoint owns the
-   // current higher-timeframe phase. Entry is fail-closed until a newer F event
-   // reclaims phase authority.
-   if(latest_hook >= 0 && latest_hook_time >= best_time)
+   FP_NDSF2HTFCountEvaluation selected;
+   FP_ResetNDSF2HTFCountEvaluation(selected);
+   if(snapshot.qualifying_bullish_count > 0) selected = best_bull;
+   else if(snapshot.qualifying_bearish_count > 0) selected = best_bear;
+
+   if(selected.qualifies)
+   {
+      FP_NDSF2HTFCopySelectedCount(events, hooks, selected, snapshot);
+      snapshot.allowed_direction = selected.direction;
+      snapshot.state = (selected.direction == FP_DIR_BULLISH
+                        ? FP_NDS_F2_HTF_PHASE_F_BULLISH
+                        : FP_NDS_F2_HTF_PHASE_F_BEARISH);
+      snapshot.gate_open = true;
+      snapshot.reason = (selected.direction == FP_DIR_BULLISH
+                         ? "qualifying_bullish_count_in_f_phase"
+                         : "qualifying_bearish_count_in_f_phase");
+      return true;
+   }
+
+   snapshot.gate_open = false;
+   if(snapshot.evaluated_count_total <= 0)
+   {
+      snapshot.state = FP_NDS_F2_HTF_PHASE_NO_CANONICAL_F;
+      snapshot.reason = "no_visible_canonical_higher_timeframe_f_count";
+   }
+   else if(snapshot.same_count_hook_blocked_total > 0 &&
+           snapshot.same_count_hook_blocked_total == snapshot.evaluated_count_total)
    {
       snapshot.state = FP_NDS_F2_HTF_PHASE_HOOK_OR_ND;
-      snapshot.reason = "latest_higher_timeframe_context_is_hook_or_nd";
-      return true;
+      snapshot.reason = "all_higher_timeframe_counts_owned_by_their_own_hook_or_nd";
    }
-
-   snapshot.allowed_direction = events[best].direction;
-   snapshot.state = (snapshot.allowed_direction == FP_DIR_BULLISH
-                     ? FP_NDS_F2_HTF_PHASE_F_BULLISH
-                     : FP_NDS_F2_HTF_PHASE_F_BEARISH);
-
-   bool lifecycle_window_open = FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow(
-      events, best, cfg, snapshot);
-   if(!lifecycle_window_open)
-   {
-      snapshot.gate_open = false;
-      if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM)
-         snapshot.reason = "higher_timeframe_selected_count_before_f1_confirmation";
-      else if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM)
-         snapshot.reason = "higher_timeframe_selected_count_f2_already_confirmed";
-      else if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS)
-         snapshot.reason = "higher_timeframe_selected_count_f1_f2_window_ambiguous";
-      else
-         snapshot.reason = "higher_timeframe_selected_count_f1_f2_lineage_missing";
-      return true;
-   }
-
-   snapshot.gate_open = FP_NDSF2HTFDirectionIsValid(snapshot.allowed_direction);
-   if(cfg.require_f1_confirmed_before_f2_confirmed_window)
-      snapshot.reason = (snapshot.allowed_direction == FP_DIR_BULLISH
-                         ? "higher_timeframe_canonical_f_bullish_in_f1_to_f2_window"
-                         : "higher_timeframe_canonical_f_bearish_in_f1_to_f2_window");
    else
-      snapshot.reason = (snapshot.allowed_direction == FP_DIR_BULLISH
-                         ? "higher_timeframe_canonical_f_bullish"
-                         : "higher_timeframe_canonical_f_bearish");
+   {
+      snapshot.state = FP_NDS_F2_HTF_PHASE_NO_CANONICAL_F;
+      snapshot.reason = "no_higher_timeframe_count_inside_requested_f1_to_f2_window";
+   }
    return true;
 }
 

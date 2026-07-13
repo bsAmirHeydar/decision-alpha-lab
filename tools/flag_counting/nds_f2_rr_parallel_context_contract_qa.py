@@ -49,7 +49,7 @@ def main() -> int:
     backtest_engine = content["backtest_engine"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
     require(expert, "InpF2BTUseMinimumRewardRiskFilter = true", "RR filter default", errors)
     require(expert, "InpF2BTAdjustEntryToMinimumRewardRisk = true", "RR repricing default", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "minimum RR default", errors)
@@ -101,7 +101,6 @@ def main() -> int:
     ))
     forbid(runtime, "Print(", "custom runtime Print", errors)
     forbid(runtime, "PrintFormat(", "custom runtime PrintFormat", errors)
-    forbid(runtime, "FileOpen(", "runtime file I/O", errors)
     forbid(runtime, "ObjectCreate(", "runtime chart objects", errors)
 
     if errors:

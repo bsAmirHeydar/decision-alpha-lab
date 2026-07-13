@@ -3,16 +3,17 @@
 ## Contract
 
 ```text
-HTF bullish F → Buy only
-HTF bearish F → Sell only
-HTF Hook/ND or unresolved → no new entry
+HTF bullish F → Buy only (when bullish qualifying counts are the sole qualifying direction)
+HTF bearish qualifying F counts only → Sell only
+both directions qualify → ambiguous / no entry
+no qualifying count → no entry
 ```
 
 Default higher timeframe: `H1`.
 
-The classifier uses closed higher-timeframe bars and the canonical Phoenix F1/F2/F3 plus Hook/ND engine. A Hook/ND context at or after the latest canonical F endpoint closes the gate. The snapshot is cached and rebuilt only on a new higher-timeframe bar.
+Every canonical HTF F1 root is evaluated as a separate count. Hook/ND veto is local to the count that owns the Hook boundary; an unrelated scale or sequence cannot close the entire gate. The snapshot uses closed HTF bars and refreshes once per new HTF bar.
 
-Pending orders that no longer match the HTF gate are cancelled by default. Open positions are not closed by the filter; they keep their original SL and selected exit mode.
+Pending orders that no longer match the gate are cancelled by default. Open positions are not force-closed.
 
 ## Inputs
 
@@ -26,10 +27,5 @@ InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
 ## Authority
 
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter|Full higher-timeframe filter contract]]
-- [[NDS F2 Waist-Break Point2 Limit Setup]]
-- [[NDS F2 Dual Exit - Fixed F2 or F3 Retest]]
-
-
-## Optional lifecycle window
-
-The selected HTF count can be restricted to the interval after its F1 confirmation and before confirmation of its exact direct-child F2. See [[NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window]].
+- [[NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window]]
+- [[NDS F2 Canonical Frequency Recovery and Multi-Count HTF Gate]]

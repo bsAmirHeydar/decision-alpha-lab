@@ -70,6 +70,14 @@ For bearish F2:
 Target < Entry < Stop
 ```
 
+Local exact-F3 exit has one explicit source-lineage prerequisite:
+
+```text
+InpF2BTRequireCanonicalF3SpawnForLocalExit = true
+```
+
+This does not alter fixed-F2 or HTF-F3 entry eligibility.
+
 ## 5. Reward/Risk entry repricing
 
 After structural Entry, Stop and Target are normalized:
@@ -126,7 +134,24 @@ H1 Hook/ND, ambiguous or unavailable → no new setup
 
 This gate uses closed H1 bars and the canonical Phoenix F/Hook architecture. It does not alter the structural Entry, Stop, Target, RR or overlap formulas. It is entry authorization only. Managed pending orders that cease to match the gate are cancelled by default; open positions remain under their original exit contract.
 
-## 9. Non-goals
+
+## 9. Lifecycle-owned eligibility
+
+The setup is not valid for only one bar. With the default `InpF2BTMaxSetupAgeBars = -1`, structural lifecycle owns eligibility. A body-complete F2 may wait for a later HTF authorization window, but the engine must reject any retrospective order when its final Entry or original Leg2 target has already been touched since the body became observable.
+
+The default one-attempt point is the first actual fill:
+
+```text
+pending accepted → active, duplicate blocked
+pending cancelled before fill → active reservation released
+entry deal filled → setup permanently consumed
+```
+
+## 10. Multi-count higher-timeframe authority
+
+All canonical HTF counts are evaluated. Direction is authorized when one or more qualifying counts exist in only one direction. Hook/ND veto is count-local. A count qualifies in the optional lifecycle window only after its own exact F1 confirms and before its exact direct-child F2 confirms. F1/F2 stabilization does not depend on later spawn eligibility.
+
+## 11. Non-goals
 
 This setup does not:
 
@@ -136,7 +161,7 @@ This setup does not:
 - use an AI score;
 - chase a missed entry with a market order.
 
-## 10. Relation to existing Canon
+## 12. Relation to existing Canon
 
 This setup reuses the already documented F2 waist-break grammar:
 

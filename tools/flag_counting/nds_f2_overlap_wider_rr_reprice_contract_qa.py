@@ -51,12 +51,12 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
     require(expert, "InpF2BTAdjustEntryToMinimumRewardRisk = true", "RR adjustment default", errors)
     require(expert, "InpF2BTUseStopSpaceOverlapDeduplication = true", "overlap dedup default", errors)
     require(expert, "InpF2BTStopSpaceOverlapThresholdPercent = 80.0", "overlap default", errors)
 
-    require(types, 'NDS-F2-WAIST-BREAK-10', "contract version", errors)
+    require(types, 'NDS-F2-WAIST-BREAK-11', "contract version", errors)
     require(types, "adjust_entry_to_min_reward_risk", "RR adjustment config", errors)
     require(types, "use_stop_space_overlap_deduplication", "overlap config", errors)
     require(types, "stop_space_overlap_percent", "overlap threshold config", errors)
@@ -111,7 +111,6 @@ def main() -> int:
     ))
     forbid(runtime, "Print(", "runtime print", errors)
     forbid(runtime, "PrintFormat(", "runtime printformat", errors)
-    forbid(runtime, "FileOpen(", "runtime file IO", errors)
     forbid(runtime, "ObjectCreate(", "runtime chart object", errors)
 
     if errors:

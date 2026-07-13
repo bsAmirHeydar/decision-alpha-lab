@@ -27,10 +27,11 @@ bool FP_NDSF2IsWaistBreakArmedBody(const FP_FlagEvent &f2,
    if(!f2.f2_body_complete) return false;
    if(cfg.require_f2_size_gate && !f2.f2_size_gate_passed) return false;
 
-   // The dynamic exit is defined through the canonical F3 path. Therefore its
-   // source F2 must already satisfy the Level-08 size authority required to
-   // become f2_can_spawn_f3 after confirmation.
+   // The exact local-F3 exit can only be owned by a source F2 that the
+   // canonical lifecycle can later promote into F3. This dependency is an
+   // explicit operator policy; fixed and independent HTF-F3 exits do not use it.
    if(FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode) &&
+      cfg.require_canonical_f3_spawn_for_local_exit &&
       !f2.f2_size_gate_passed)
       return false;
 
@@ -90,6 +91,46 @@ int FP_NDSF2NodeAvailabilityIndex(const MqlRates &rates[],
       if(cleared >= node.L) return i;
    }
    return -1;
+}
+
+
+bool FP_NDSF2LevelTouchedSinceAvailability(const MqlRates &rates[],
+                                            const int rates_total,
+                                            const int available_index,
+                                            const int direction,
+                                            const double level,
+                                            const bool target_level)
+{
+   if(rates_total <= 0 || available_index < 0 || available_index >= rates_total)
+      return true;
+
+   for(int i=available_index; i<rates_total; i++)
+   {
+      if(direction == FP_DIR_BULLISH)
+      {
+         if(target_level)
+         {
+            if(rates[i].high >= level) return true;
+         }
+         else
+         {
+            if(rates[i].low <= level) return true;
+         }
+      }
+      else if(direction == FP_DIR_BEARISH)
+      {
+         if(target_level)
+         {
+            if(rates[i].low <= level) return true;
+         }
+         else
+         {
+            if(rates[i].high >= level) return true;
+         }
+      }
+      else return true;
+   }
+   return false;
 }
 
 bool FP_NDSF2PairComesBefore(const FP_FlagEvent &events[],
@@ -396,6 +437,23 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
 
    setup.point_2_limit_price = setup.entry_price;
    if(!FP_NDSF2AdjustEntryForMinimumRewardRisk(symbol, cfg, setup)) return false;
+
+   // The body may remain structurally valid for many bars, but the order may not
+   // be created retrospectively after its executable Point 2 or its original F2
+   // target was already touched while no order existed. This preserves causal
+   // timing when an HTF gate opens after the F2 body became observable.
+   if(FP_NDSF2LevelTouchedSinceAvailability(rates, rates_total,
+                                             body_available_index,
+                                             setup.direction,
+                                             setup.target_price,
+                                             true))
+      return false;
+   if(FP_NDSF2LevelTouchedSinceAvailability(rates, rates_total,
+                                             body_available_index,
+                                             setup.direction,
+                                             setup.entry_price,
+                                             false))
+      return false;
 
    // Validate the final executable geometry after any RR-based entry movement.
    if(setup.direction == FP_DIR_BULLISH)

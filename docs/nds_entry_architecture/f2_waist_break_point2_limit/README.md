@@ -4,7 +4,7 @@
 
 Canonical execution contract for the dedicated lightweight Strategy Tester profile.
 
-The setup has three explicit exit modes and an optional canonical higher-timeframe F-phase direction filter. The filter is enabled by default on H1, with an additional optional default-on window that authorizes entries only after the selected HTF F1 confirms and before its exact direct-child F2 confirms.
+The setup has three explicit exit modes and an optional canonical higher-timeframe F-phase direction filter. The filter is enabled by default on H1. Every canonical HTF count is evaluated independently, and the default-on lifecycle window authorizes a direction when at least one count is after its own F1 confirmation and before confirmation of its exact direct-child F2. Opposite qualifying directions remain fail-closed.
 
 ## Core sentence
 
@@ -30,3 +30,4 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 
 15. [Higher-timeframe F3 flag-retest exit](15_higher_timeframe_f3_flag_retest_exit.md)
 16. [Higher-timeframe F1-to-F2 confirmation window](16_higher_timeframe_f1_to_f2_confirmation_window.md)
+17. [Canonical frequency recovery and lifecycle corrections](17_canonical_frequency_recovery_and_lifecycle.md)

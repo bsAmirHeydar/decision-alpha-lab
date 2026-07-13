@@ -1,53 +1,86 @@
 # 05 — Lifecycle and Edge Cases
 
+## Complete F2 is born while HTF gate is closed
+
+Do not discard it because one bar passed. The setup remains a candidate while its structure is valid. When the HTF gate later opens, it may arm only if neither its final executable Entry nor original F2 Leg2 target has already been touched since the body became observable.
+
 ## F2 is confirmed before arming
 
-Reject. Confirmation means the F2 Leg2 endpoint has already been re-broken after an internal or waist-break branch. That endpoint is the setup target.
+Reject. F2 confirmation means the original Leg2 target has already been consumed.
+
+## Entry was already crossed before order placement
+
+Reject. Do not send a retrospective limit and do not chase with a market order.
 
 ## F2 is size-rejected
 
-The setup contract itself does not require the F2/F1 size gate. The input `InpF2BTRequireF2SizeGate` can enable it for controlled research. Default is `false` to avoid adding an unstated filter.
+Fixed-F2 and HTF-F3 exit modes use only the explicit general input `InpF2BTRequireF2SizeGate`.
+
+Local exact-F3 exit has a separate explicit dependency:
+
+```text
+InpF2BTRequireCanonicalF3SpawnForLocalExit = true
+```
+
+Without canonical source-F2 spawn authority, an exact local child F3 cannot own the exit. The dedicated input makes this unavoidable dependency visible instead of silently changing the general size-gate input.
 
 ## F2 Leg2 extends before entry
 
-The previous target is consumed, so the old pending is cancelled. The canonical extension becomes a new F2 body version with a new Leg2 target and may arm again.
+The old body version is consumed. The extension creates a new body identity and target. It may arm as a new context if all gates pass.
 
 ## F2 target and entry are touched in one modeled bar
 
-The Strategy Tester order engine determines the intrabar order according to the selected tick model. At the next closed bar, target-consumption cancellation is applied only if the pending order still exists. If the order filled and closed, no pending remains.
+The Strategy Tester tick model determines intrabar ordering. On the next closed-bar reconciliation, any still-existing pending whose target was consumed is cancelled.
 
 ## F1 waist does not produce valid stop geometry
 
-Reject the setup. No fallback to F1 origin, F2 origin, ATR or fixed stop is allowed.
+Reject. No substitution with F1 Origin, F2 Origin, ATR, or a fixed stop is permitted.
+
+## Pending cancelled by HTF policy
+
+With consume-on-fill enabled, cancellation releases the active attempt. The F2 may re-arm later only if it remains valid and causally unconsumed.
+
+## Pending cancelled externally, rejected, or expired
+
+The transaction handler releases its active-attempt and dynamic-exit reservation when history confirms a non-filled terminal order state.
+
+## One-attempt point
+
+Default:
+
+```text
+InpF2BTConsumeAttemptOnlyOnFill = true
+```
+
+The setup is permanently consumed at the first entry deal, not at pending-order acceptance.
 
 ## Duplicate-looking F2 across scales
 
-Each scale/body version receives its own deterministic context hash, but hash difference alone is not sufficient for parallel execution. Same-direction setups are compared by their final executable stop corridors.
-
-If the overlap percentage is at or above the configured threshold, they are one practical opportunity and only the wider corridor is kept. Below the threshold, they remain independent contexts and may coexist when the parallel-context policy allows it. Opposite-direction hedge contexts are not merged by this rule.
+Distinct hashes are compared using final executable stop corridors. At or above the overlap threshold, only the wider same-direction setup survives. Opposite directions remain governed by hedge policy.
 
 ## Existing foreign position on the symbol
 
-Block the setup to prevent ownership ambiguity.
+Block new managed setup creation to avoid ownership ambiguity.
 
 ## Netting account with parallel-context inputs enabled
 
-The first context may trade. A second same-symbol context is blocked because MT5 would merge or net its position and destroy independent SL/TP ownership.
+With the default `InpF2BTRequireHedgingAccountForParallelContexts = true`, initialization fails. This prevents a netting test from masquerading as independent hedge/parallel-position execution.
 
 ## Reward/Risk below threshold
 
-With the default repricing switch enabled, keep the structural Stop and Target fixed and move the limit farther behind the F2 Waist toward the Stop until normalized RR reaches the configured minimum. If the required limit is not broker-valid, reject.
-
-With repricing disabled, retain the previous behavior and reject the setup.
+Keep Stop and F2 Leg2 fixed. Move Entry toward Stop until the configured minimum RR is reached. Reject only if the required limit is no longer structurally or broker-valid.
 
 ## Pending duration
 
-The pending is GTC but is structurally cancelled when its target is consumed before fill. No arbitrary bar expiration is added in this contract.
+Pending orders are GTC, but structural lifecycle can cancel them when:
 
-## Wider context appears after narrower pending
+- their own target is consumed;
+- HTF authorization closes and cancellation is enabled;
+- a wider overlapping pending replaces them;
+- the broker/operator cancels, rejects, or expires them.
 
-If both are same-direction and their stop-corridor overlap meets the threshold, remove the narrower pending and submit the wider context. Equal widths keep the existing pending to prevent churn.
+There is no arbitrary bar expiration by default.
 
-## Wider context appears after overlapping position has filled
+## Opposite qualifying HTF directions
 
-Do not close or replace the live position. The already-filled position owns the opportunity and the new overlapping context is blocked.
+Fail closed. The engine does not guess between bullish and bearish qualifying counts.

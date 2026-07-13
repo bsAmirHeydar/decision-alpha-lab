@@ -52,7 +52,7 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.90"', "expert version", errors)
+    require(expert, '#property version   "2.00"', "expert version", errors)
     require(expert, "InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "default fixed exit", errors)
     require(expert, "InpF2BTF3ExitCorrectionTicks = 1.0", "default correction gate", errors)
     require(expert, "InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true", "market fallback default", errors)
@@ -64,11 +64,12 @@ def main() -> int:
     require(types, "rr_reference_target_price", "RR reference field", errors)
     require(types, "initial_broker_take_profit_price", "initial broker TP field", errors)
     require(types, "FP_NDSF2DynamicExitContext", "dynamic context type", errors)
-    require(types, "NDS-F2-WAIST-BREAK-10", "contract version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-11", "contract version", errors)
 
     require(setup, "setup.rr_reference_target_price = setup.target_price", "F2 Leg2 RR authority", errors)
     require(setup, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END ? setup.target_price : 0.0", "mode-aware initial TP", errors)
-    require(setup, "FP_NDSF2ExitModeUsesEntryTimeframeF3(cfg.exit_mode)", "dynamic F2 size authority", errors)
+    require(expert, "InpF2BTRequireCanonicalF3SpawnForLocalExit = true", "explicit local-F3 spawn default", errors)
+    require(setup, "cfg.require_canonical_f3_spawn_for_local_exit", "explicit local-F3 spawn gate", errors)
     require(setup, "FP_NDSF2AdjustEntryForMinimumRewardRisk", "unchanged RR repricing", errors)
 
     require(rules, "request.tp = setup.initial_broker_take_profit_price", "mode-aware pending TP", errors)
@@ -98,7 +99,7 @@ def main() -> int:
     ))
     forbid(runtime, "Print(", "runtime Print", errors)
     forbid(runtime, "PrintFormat(", "runtime PrintFormat", errors)
-    forbid(runtime, "FileOpen(", "runtime file IO", errors)
+    require(rules, "if(!cfg.enable_funnel_diagnostics) return;", "diagnostics opt-in guard", errors)
     forbid(runtime, "ObjectCreate(", "runtime renderer", errors)
     require(runtime, "FP_NDSF2ExactChildF3Matches", "exact child F3 lineage gate", errors)
 

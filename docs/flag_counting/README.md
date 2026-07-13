@@ -396,7 +396,7 @@ The dedicated lightweight executable tests the corrected F-only setup:
 mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5
 ```
 
-A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a strict limit behind the Waist is executable Point 2; Stop is behind the direct parent F1 Waist; Target is the F2 Leg2 endpoint. F2 confirmation is explicitly rejected as an entry trigger because the confirmation re-break is the target event. Hook, Zone, CG, AI, F3, renderer and CSV remain excluded from the entry-timeframe runtime. The optional H1 authority filter runs a separate cached canonical F/Hook classification once per new H1 bar. The default minimum RR is 1.0; opposite-direction hedge and same-direction independent contexts are enabled by default, with a hard hedging-account boundary for parallel same-symbol positions. Documentation is under `docs/nds_entry_architecture/f2_waist_break_point2_limit/`.
+A complete unconfirmed F2 two-leg body arms the order. F2 Waist is Point 1; a strict limit behind the Waist is executable Point 2; Stop is behind the direct parent F1 Waist; Target is the F2 Leg2 endpoint. F2 confirmation is explicitly rejected as an entry trigger because the confirmation re-break is the target event. Hook construction, Zone, CG, AI and rendering remain excluded from the lower-timeframe entry detector; local F3 is scanned only when that exit mode is selected. The optional H1 authority filter runs a separate cached canonical F/Hook classification once per new H1 bar. The default minimum RR is 1.0; opposite-direction hedge and same-direction independent contexts are enabled by default, with a hard hedging-account boundary for parallel same-symbol positions. Documentation is under `docs/nds_entry_architecture/f2_waist_break_point2_limit/`.
 
 
 ## F2 v5 — overlap arbitration and RR entry repricing
@@ -417,4 +417,8 @@ Dynamic F3-retest exits are now bound to the exact F1/F2 lineage and direct chil
 
 ## F2 v10 — higher-timeframe F1-to-F2 confirmation window
 
-The optional H1 phase gate can now be restricted to the exact lifecycle window of the same canonical higher-timeframe count that supplies direction. With the default enabled, no lower-timeframe entry is authorized before that count's F1 confirms; authorization exists only while its exact direct-child F2 is still unconfirmed; and the gate closes when that F2 confirms. Hook/ND and ambiguous states remain fail-closed. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.
+The optional H1 phase gate evaluates every canonical higher-timeframe count independently. With the default lifecycle window enabled, a count qualifies only after its F1 confirms and before its exact direct-child F2 confirms. At least one sole-direction qualifying count authorizes entry; opposite qualifying directions remain fail-closed, and Hook/ND veto is local to its owning count. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.
+
+### Version 2.00 frequency and lifecycle correction
+
+The setup no longer expires at `Age=0`; default `InpF2BTMaxSetupAgeBars=-1` keeps it alive by structural lifecycle while causal entry/target-touch checks prevent late orders. Pending attempts are consumed on fill, FAST covers 800 bars and L=8, local-F3 spawn dependency is explicit, and optional one-row funnel diagnostics remain default-off. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/17_canonical_frequency_recovery_and_lifecycle.md`.
