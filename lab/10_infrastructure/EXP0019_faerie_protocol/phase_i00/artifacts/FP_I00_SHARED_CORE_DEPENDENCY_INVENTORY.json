@@ -1,0 +1,211 @@
+[
+  {
+    "aggregate_sha256": "25d9a226aa7aa3a17a73f6cedfda9008d3a07ec33a791d5e940131dd5478c381",
+    "dependency_id": "CGT_TIME_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 4,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I01",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "37b1a49098864ba199f0178a920fa4bc29181d237f5b582c9c1babe72d8f13bd",
+    "dependency_id": "CGR_REFERENCE_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 4,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I01",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "09adbd6fc6fe6cafd75f124698b3c1f2a1114baf72c9d65fc04a22f3a32bf6e0",
+    "dependency_id": "CGH_HUNT_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 4,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I01",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "5c4f6a5044f220d40e2b0600a2ae2e1c885b15ad87b5fb01be69d73eafbf8a4f",
+    "dependency_id": "CGD_DIVERGENCE_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 4,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I01",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "29e1cc4bf97677df66f41484db55bdb60bac3b67ff82fe8a13e4733774db2785",
+    "dependency_id": "CGC_CONFIRMATION_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 4,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I01",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "1482ba37c603d01d2b32fc0449f8018b7c7de65922483318cec3a039441b8ae3",
+    "dependency_id": "CGV_VISUAL_LEDGER_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 5,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+    "required_for_phase": "FP-I11",
+    "reuse_classification": "PATTERN_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group"
+  },
+  {
+    "aggregate_sha256": "37db982e8b2629b6db82874a70d1cbe476b7cc0ef0ba1a14f8149a88318c108b",
+    "dependency_id": "CGX_EXECUTION_RISK_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 17,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG/Execution",
+    "required_for_phase": "FP-I15",
+    "reuse_classification": "PATTERN_REUSE",
+    "semantic_owner": "EXP0017 Cycle Group Execution"
+  },
+  {
+    "aggregate_sha256": "464750c0acce61af576a71c4cf5ad116c37ec98441f199a5036e5beb5dc936f2",
+    "dependency_id": "DAYE_TIME_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 6,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I03",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "c3b4f1c5b4ab3279414b87b658d521f34af7889e3645aee181cd9ad7d8a4d8a0",
+    "dependency_id": "DAYE_DATA_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 10,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I04",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "b570d7aeed0a0a0bbede793c19b6fafd9eee82c0902114dc74b0ea429322a340",
+    "dependency_id": "DAYE_PERIOD_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 10,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I05",
+    "reuse_classification": "PATTERN_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "bbf496e7ab2f1bf9aeec9df8d9445584740ccb56c60e8d7fd4113c5f4860864b",
+    "dependency_id": "DAYE_RELATIONSHIP_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 9,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I06",
+    "reuse_classification": "PATTERN_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "0822cd0ae8201c1e20ab4f42bd84adfe85d37e7f57a89027b4fb08377ef3c90e",
+    "dependency_id": "DAYE_HUNT_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 8,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I06",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "c3d899d117abb1b72925745f9cf7707ab706494c2b55d03d47f62f71ac827731",
+    "dependency_id": "DAYE_CONFIRMATION_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 9,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I07",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "32bbe47e3dd773f2f9b9410c5e2564fddfbe4e37cac6551b896a02859105c11e",
+    "dependency_id": "DAYE_LIFECYCLE_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 10,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I07",
+    "reuse_classification": "ADAPTER_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "7b5c6728595f17562492cb17c6218a0f431eeb219f2f67f708554da5866375b8",
+    "dependency_id": "DAYE_RENDER_REPLAY_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 35,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/DayeTrader/EXP0018",
+    "required_for_phase": "FP-I11",
+    "reuse_classification": "PATTERN_REUSE",
+    "semantic_owner": "EXP0018 Daye"
+  },
+  {
+    "aggregate_sha256": "c523aaa8faeceecbb2352063904242b80d85f8b7605047d417e2d71f5e31bca1",
+    "dependency_id": "SF03_MARKET_CORE",
+    "exact_version": "1.0.0",
+    "file_count": 17,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Market",
+    "required_for_phase": "FP-I04",
+    "reuse_classification": "DIRECT_REUSE",
+    "semantic_owner": "Strategy Factory Market"
+  },
+  {
+    "aggregate_sha256": "dd233b824b5a00dcb8af4b06a5a4963c4a992c6fa5ebe1ccb88fad50b874830b",
+    "dependency_id": "UCEI05_ECONOMICS_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 11,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Economics",
+    "required_for_phase": "FP-I15",
+    "reuse_classification": "DIRECT_REUSE",
+    "semantic_owner": "Strategy Factory Economics"
+  },
+  {
+    "aggregate_sha256": "495e08d9a85e314dd6a9c1dc85314bddd5adb4d04b289125ff2ea350f61ef800",
+    "dependency_id": "SF17_PAPER_EXECUTION_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 13,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Execution",
+    "required_for_phase": "FP-I15",
+    "reuse_classification": "DIRECT_REUSE",
+    "semantic_owner": "Strategy Factory Execution"
+  },
+  {
+    "aggregate_sha256": "3e59ecea0328f506556e5815100635e52000c4a675dcc0c72ebc34e6eb387560",
+    "dependency_id": "SF18_LIVE_SAFETY_CORE",
+    "exact_version": "HASH_PINNED",
+    "file_count": 17,
+    "mutation_allowed": false,
+    "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Live",
+    "required_for_phase": "FP-I16",
+    "reuse_classification": "DIRECT_REUSE",
+    "semantic_owner": "Strategy Factory Live"
+  }
+]

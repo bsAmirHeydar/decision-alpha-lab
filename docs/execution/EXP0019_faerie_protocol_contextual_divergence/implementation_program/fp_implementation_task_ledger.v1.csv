@@ -1,8 +1,8 @@
 task_id,phase_id,task,artifact_class,status,evidence_path
-GOV-001,FP-I00,Capture repository baseline and branch,manifest,PLANNED,
-GOV-002,FP-I00,Hash FP source package and v2 docs,hashes,PLANNED,
-GOV-003,FP-I00,Inventory shared-core exact versions,report,PLANNED,
-GOV-004,FP-I00,Freeze phase ownership and patch policy,registry,PLANNED,
+GOV-001,FP-I00,Capture repository baseline and branch,manifest,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_BASELINE_MANIFEST.v1.json
+GOV-002,FP-I00,Hash FP source package and v2 docs,hashes,COMPLETE,docs/execution/EXP0019_faerie_protocol_contextual_divergence/source_audit/SOURCE_HASHES.sha256
+GOV-003,FP-I00,Inventory shared-core exact versions,report,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_SHARED_CORE_DEPENDENCY_INVENTORY.csv
+GOV-004,FP-I00,Freeze phase ownership and patch policy,registry,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_PHASE_FILE_OWNERSHIP.csv
 CMP-001,FP-I01,Map shared time/data/reference/hunt APIs,matrix,PLANNED,
 CMP-002,FP-I01,Create old-context regression launcher,test,PLANNED,
 CMP-003,FP-I01,Define FP adapter interfaces,contracts,PLANNED,

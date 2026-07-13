@@ -1,0 +1,14 @@
+{
+  "actual": {
+    "05_Faerie Protocol_2.docx": "acb67952584d431fe5d9bfd64ad704259a609304c2c4c18c0710d3321469390c",
+    "FP 101.mq5": "672e0f3cca5edf3db573dcc200a5f8295fe92f7b50defd82c69eaaded22c7589",
+    "fp101.set": "628e5acb92e94609f857e587fce9cc56d42ce141997735c737ad914c137645a3"
+  },
+  "expected_count": 3,
+  "extra": [],
+  "mismatched": [],
+  "missing": [],
+  "passed": true,
+  "source_root": "/mnt/data/fp_new_src/FP-NEW/FP-NEW",
+  "verified_count": 3
+}

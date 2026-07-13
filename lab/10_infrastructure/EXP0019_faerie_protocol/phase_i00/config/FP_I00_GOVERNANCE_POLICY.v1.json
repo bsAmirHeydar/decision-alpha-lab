@@ -1,0 +1,345 @@
+{
+  "schema_version": "1.0.0",
+  "phase_id": "FP-I00",
+  "phase_version": "1.0.0",
+  "experiment_id": "EXP0019",
+  "context_id": "FP-CONTEXT-001",
+  "expected_source_count": 3,
+  "documentation_root": "docs/execution/EXP0019_faerie_protocol_contextual_divergence",
+  "source_hash_contract": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/source_audit/SOURCE_HASHES.sha256",
+  "owner_decisions_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_owner_decisions.v2.json",
+  "open_decisions_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_open_decisions.v2.json",
+  "relation_registry_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_relation_registry.v2.json",
+  "program_registry_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
+  "artifacts_root": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts",
+  "baseline_manifest_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/artifacts/FP_I00_BASELINE_MANIFEST.v1.json",
+  "required_files": [
+    "README_EXP0019_FAERIE_PROTOCOL_CONTEXT_DOCS.md",
+    "README_EXP0019_FAERIE_PROTOCOL_IMPLEMENTATION_PROGRAM.md",
+    "EXP0019_FP_CONTEXT_V2_PATCH_MANIFEST.json",
+    "EXP0019_FP_IMPLEMENTATION_PROGRAM_PATCH_MANIFEST.json",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/00_EXP0019_MOC.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/38_OWNER_DECISION_FREEZE_V2.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/39_QUOTA_CONSUMPTION_EXPLAINER_AND_OPEN_DECISION.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/40_NORMATIVE_ALGORITHM_SPECIFICATION.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/44_ACCEPTANCE_GATE_FOR_CODING.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/00_IMPLEMENTATION_PROGRAM_MOC.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phases/FP_I00_GOVERNANCE_BASELINE_FREEZE_AND_SOURCE-CONTROL_HARNESS.md",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_owner_decisions.v2.json",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_open_decisions.v2.json",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/contracts/fp_relation_registry.v2.json",
+    "docs/execution/EXP0019_faerie_protocol_contextual_divergence/source_audit/SOURCE_HASHES.sha256"
+  ],
+  "shared_dependencies": [
+    {
+      "dependency_id": "CGT_TIME_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGT_*.mqh"],
+      "required_for_phase": "FP-I01",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGR_REFERENCE_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGR_*.mqh"],
+      "required_for_phase": "FP-I01",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGH_HUNT_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGH_*.mqh"],
+      "required_for_phase": "FP-I01",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGD_DIVERGENCE_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGD_*.mqh"],
+      "required_for_phase": "FP-I01",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGC_CONFIRMATION_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGC_*.mqh"],
+      "required_for_phase": "FP-I01",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGV_VISUAL_LEDGER_CORE",
+      "semantic_owner": "EXP0017 Cycle Group",
+      "reuse_classification": "PATTERN_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
+      "globs": ["CGV_*.mqh"],
+      "required_for_phase": "FP-I11",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "CGX_EXECUTION_RISK_CORE",
+      "semantic_owner": "EXP0017 Cycle Group Execution",
+      "reuse_classification": "PATTERN_REUSE",
+      "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG/Execution",
+      "globs": ["CGX_*.mqh"],
+      "required_for_phase": "FP-I15",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_TIME_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Time*.mqh", "DAYE_Calendar.mqh", "DAYE_HostCloseClock.mqh"],
+      "required_for_phase": "FP-I03",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_DATA_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Data*.mqh", "DAYE_Symbol*.mqh"],
+      "required_for_phase": "FP-I04",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_PERIOD_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "PATTERN_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Period*.mqh"],
+      "required_for_phase": "FP-I05",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_RELATIONSHIP_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "PATTERN_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Relationship*.mqh"],
+      "required_for_phase": "FP-I06",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_HUNT_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Hunt*.mqh"],
+      "required_for_phase": "FP-I06",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_CONFIRMATION_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Confirmation*.mqh"],
+      "required_for_phase": "FP-I07",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_LIFECYCLE_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "ADAPTER_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Lifecycle*.mqh"],
+      "required_for_phase": "FP-I07",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "DAYE_RENDER_REPLAY_CORE",
+      "semantic_owner": "EXP0018 Daye",
+      "reuse_classification": "PATTERN_REUSE",
+      "relative_root": "mql5/Include/DayeTrader/EXP0018",
+      "globs": ["DAYE_Render*.mqh", "DAYE_Visual*.mqh", "DAYE_Replay*.mqh", "DAYE_SessionBox*.mqh"],
+      "required_for_phase": "FP-I11",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "SF03_MARKET_CORE",
+      "semantic_owner": "Strategy Factory Market",
+      "reuse_classification": "DIRECT_REUSE",
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Market",
+      "suffixes": [".mqh"],
+      "required_for_phase": "FP-I04",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "UCEI05_ECONOMICS_CORE",
+      "semantic_owner": "Strategy Factory Economics",
+      "reuse_classification": "DIRECT_REUSE",
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Economics",
+      "suffixes": [".mqh"],
+      "required_for_phase": "FP-I15",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "SF17_PAPER_EXECUTION_CORE",
+      "semantic_owner": "Strategy Factory Execution",
+      "reuse_classification": "DIRECT_REUSE",
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Execution",
+      "suffixes": [".mqh"],
+      "required_for_phase": "FP-I15",
+      "mutation_allowed": false
+    },
+    {
+      "dependency_id": "SF18_LIVE_SAFETY_CORE",
+      "semantic_owner": "Strategy Factory Live",
+      "reuse_classification": "DIRECT_REUSE",
+      "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Live",
+      "suffixes": [".mqh"],
+      "required_for_phase": "FP-I16",
+      "mutation_allowed": false
+    }
+  ],
+  "previous_context_tests": [
+    {
+      "context_id": "EXP0017",
+      "test_id": "EXP0017_CGT_TIME_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC",
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Time_Anatomy.mq5",
+      "compile_required": true,
+      "execution_command": "MetaEditor compile EXP0017_CG_Time_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0017",
+      "test_id": "EXP0017_CGR_REFERENCE_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC",
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Reference_Anatomy.mq5",
+      "compile_required": true,
+      "execution_command": "MetaEditor compile EXP0017_CG_Reference_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0017",
+      "test_id": "EXP0017_CGH_HUNT_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC",
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Hunt_Anatomy.mq5",
+      "compile_required": true,
+      "execution_command": "MetaEditor compile EXP0017_CG_Hunt_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0017",
+      "test_id": "EXP0017_CGD_DIVERGENCE_ANATOMY",
+      "test_type": "MQL5_DIAGNOSTIC",
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Divergence_Anatomy.mq5",
+      "compile_required": true,
+      "execution_command": "MetaEditor compile EXP0017_CG_Divergence_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0017",
+      "test_id": "EXP0017_CGV_VISUAL_LEDGER",
+      "test_type": "MQL5_DIAGNOSTIC",
+      "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
+      "compile_required": true,
+      "execution_command": "MetaEditor compile EXP0017_CG_Visual_Ledger_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_TIME_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_TimeSelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Time_Foundation.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_DATA_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_DataSelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Data_Sync_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_HUNT_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_HuntSelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Hunt_Observation_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_CONFIRMATION_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationSelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Close_Confirmation_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_LIFECYCLE_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_REPLAY_SELFTEST",
+      "test_type": "MQL5_HEADER_SELFTEST",
+      "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ReplaySelfTest.mqh",
+      "compile_required": true,
+      "execution_command": "Compile EXP0018_Daye_Historical_Replay_Anatomy.mq5"
+    },
+    {
+      "context_id": "EXP0018",
+      "test_id": "EXP0018_PHASE00_PYTHON",
+      "test_type": "PYTHON",
+      "relative_path": "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
+      "compile_required": false,
+      "execution_command": "python -m unittest lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py"
+    }
+  ],
+  "phase_ownership": [
+    {
+      "path_prefix": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00",
+      "owner_phase": "FP-I00",
+      "ownership_class": "GOVERNANCE_CODE_AND_EVIDENCE",
+      "mutation_policy": "OWNED",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "path_prefix": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i00",
+      "owner_phase": "FP-I00",
+      "ownership_class": "OBSIDIAN_PHASE_DELIVERY",
+      "mutation_policy": "OWNED",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "path_prefix": "docs/obsidian_deep/01_concepts/EXP0019_FP_I00_",
+      "owner_phase": "FP-I00",
+      "ownership_class": "ATOMIC_CONCEPTS",
+      "mutation_policy": "OWNED",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    },
+    {
+      "path_prefix": "EXP0019_FP_I00_",
+      "owner_phase": "FP-I00",
+      "ownership_class": "ROOT_RELEASE_METADATA",
+      "mutation_policy": "OWNED",
+      "rollback_policy": "REMOVE_ONLY_INDEXED_FILES"
+    }
+  ],
+  "phase_owned_code_roots": [
+    "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/python",
+    "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i00/powershell"
+  ],
+  "forbidden_runtime_paths": [
+    "mql5/Include/IntermarketDivergenceContexts/EXP0019_FaerieProtocol",
+    "mql5/Indicators/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+    "mql5/Experts/FaerieProtocol/EXP0019_FaerieProtocol_Diagnostic.mq5",
+    "mql5/Experts/FaerieProtocol/EXP0019_FaerieProtocol_Paper.mq5",
+    "mql5/Experts/FaerieProtocol/EXP0019_FaerieProtocol_Live.mq5"
+  ]
+}

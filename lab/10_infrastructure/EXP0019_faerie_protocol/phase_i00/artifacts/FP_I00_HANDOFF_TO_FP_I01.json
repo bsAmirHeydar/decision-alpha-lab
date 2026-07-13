@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "handoff_id": "EXP0019-FP-I00-TO-FP-I01-V1",
+  "from_phase": "FP-I00",
+  "to_phase": "FP-I01",
+  "status": "READY_AFTER_LOCAL_GIT_BASELINE",
+  "immutable_inputs": [
+    "FP_I00_BASELINE_MANIFEST.v1.json",
+    "FP_I00_SHARED_CORE_DEPENDENCY_INVENTORY.csv",
+    "FP_I00_PREVIOUS_CONTEXT_TEST_INVENTORY.csv",
+    "FP_I00_PHASE_FILE_OWNERSHIP.csv",
+    "fp_owner_decisions.v2.json",
+    "fp_open_decisions.v2.json",
+    "fp_relation_registry.v2.json",
+    "fp_implementation_phase_registry.v1.json"
+  ],
+  "entry_criteria": [
+    "FP-I00 validation report is READY",
+    "local Git-aware baseline has been regenerated",
+    "unrelated working-tree changes are reviewed or absent",
+    "all 19 shared dependency records resolve with exact hashes",
+    "all 12 previous-context test entry points remain discoverable",
+    "no Faerie Protocol runtime path exists",
+    "FP-DEC-012 remains open and live execution remains disabled"
+  ],
+  "fp_i01_required_outputs": [
+    "shared-core API compatibility matrix",
+    "thin adapter contracts",
+    "EXP0017 differential compatibility evidence",
+    "EXP0018 differential compatibility evidence",
+    "no-duplicate-implementation scan",
+    "MetaEditor compile logs for affected compatibility test entry points"
+  ],
+  "forbidden_in_fp_i01": [
+    "silent shared-core mutation",
+    "indicator product implementation",
+    "broker or order authority",
+    "inference of FP-DEC-012",
+    "replacement of hash-pinned dependencies without rebaseline"
+  ],
+  "first_golden_test": "The same shared-core fixture must produce the accepted EXP0017/EXP0018 output before and after the FP adapter is present, while the FP adapter consumes the output without mutating shared state."
+}

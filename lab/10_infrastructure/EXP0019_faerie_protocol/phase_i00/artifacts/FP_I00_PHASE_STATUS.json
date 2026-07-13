@@ -1,0 +1,43 @@
+{
+  "context_id": "FP-CONTEXT-001",
+  "engineering_policy_checks": 4,
+  "engineering_policy_errors": 0,
+  "engineering_policy_warnings": 0,
+  "experiment_id": "EXP0019",
+  "external_source_verification": "PASS_3_OF_3",
+  "health": "READY",
+  "local_operator_gate": {
+    "action": "REGENERATE_GIT_AWARE_BASELINE_AFTER_PATCH_EXTRACTION",
+    "pass_condition": "VALIDATION_REPORT_READY_AND_UNRELATED_CHANGES_REVIEWED",
+    "required": true
+  },
+  "metaeditor_compile": {
+    "required": false,
+    "result": "NOT_APPLICABLE_NO_MQL5_RUNTIME_CHANGE"
+  },
+  "metrics": {
+    "atomic_concept_count": 6,
+    "delivery_note_count": 27,
+    "governance_check_count": 139,
+    "implementation_phase_count": 17,
+    "open_decision_count": 1,
+    "owner_decision_count": 15,
+    "phase_test_count": 26,
+    "previous_context_test_record_count": 12,
+    "python_module_count": 11,
+    "python_test_module_count": 9,
+    "relation_count": 7,
+    "shared_dependency_count": 19
+  },
+  "mql5_runtime_files_added": 0,
+  "next_phase": "FP-I01",
+  "next_phase_title": "Shared-Core Compatibility Harness and Adapter Contracts",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I00",
+  "phase_version": "1.0.0",
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "status": "IMPLEMENTED_ARCHIVE_VALIDATED"
+}

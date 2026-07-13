@@ -1,0 +1,64 @@
+{
+  "authority_boundary": "NONE",
+  "environment": {
+    "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "inventory": {
+    "atomic_concepts": 6,
+    "delivery_notes": 27,
+    "implementation_phases": 17,
+    "open_decisions": 1,
+    "owner_decisions": 15,
+    "previous_context_test_records": 12,
+    "python_modules": 11,
+    "relations": 7,
+    "shared_dependencies": 19,
+    "test_modules": 9
+  },
+  "next_phase": "FP-I01",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I00",
+  "phase_version": "1.0.0",
+  "results": {
+    "engineering_policy": {
+      "checks": 4,
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "external_source_verification": {
+      "expected": 3,
+      "status": "PASS",
+      "verified": 3
+    },
+    "governance_validation": {
+      "checks": 139,
+      "errors": 0,
+      "status": "PASS",
+      "warnings": 0
+    },
+    "metaeditor_compile": {
+      "reason": "FP-I00 adds no MQL5 runtime code",
+      "status": "NOT_APPLICABLE"
+    },
+    "mql5_runtime_change": {
+      "files_added": 0,
+      "status": "NONE"
+    },
+    "phase_pytest": {
+      "status": "PASS",
+      "tests": 26
+    },
+    "previous_context_python_compatibility": {
+      "context": "EXP0018",
+      "status": "PASS",
+      "tests": 4
+    }
+  },
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

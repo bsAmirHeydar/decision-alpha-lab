@@ -13,7 +13,11 @@
       "phase_id": "FP-I00",
       "title": "Governance, Baseline Freeze, and Source-Control Harness",
       "depends_on": [],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "IMPLEMENTED_ARCHIVE_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i00/00_FP_I00_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_GIT_BASELINE_AND_FP_I01_ENTRY"
     },
     {
       "phase_id": "FP-I01",
@@ -21,7 +25,8 @@
       "depends_on": [
         "FP-I00"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I02",
@@ -29,7 +34,8 @@
       "depends_on": [
         "FP-I01"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I03",
@@ -37,7 +43,8 @@
       "depends_on": [
         "FP-I02"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I04",
@@ -45,7 +52,8 @@
       "depends_on": [
         "FP-I03"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I05",
@@ -53,7 +61,8 @@
       "depends_on": [
         "FP-I04"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I06",
@@ -61,7 +70,8 @@
       "depends_on": [
         "FP-I05"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I07",
@@ -69,7 +79,8 @@
       "depends_on": [
         "FP-I06"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I08",
@@ -77,7 +88,8 @@
       "depends_on": [
         "FP-I07"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I09",
@@ -85,7 +97,8 @@
       "depends_on": [
         "FP-I08"
       ],
-      "product": "context_engine"
+      "product": "context_engine",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I10",
@@ -93,7 +106,8 @@
       "depends_on": [
         "FP-I09"
       ],
-      "product": "indicator"
+      "product": "indicator",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I11",
@@ -101,7 +115,8 @@
       "depends_on": [
         "FP-I10"
       ],
-      "product": "indicator"
+      "product": "indicator",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I12",
@@ -109,7 +124,8 @@
       "depends_on": [
         "FP-I11"
       ],
-      "product": "indicator"
+      "product": "indicator",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I13",
@@ -117,7 +133,8 @@
       "depends_on": [
         "FP-I12"
       ],
-      "product": "indicator"
+      "product": "indicator",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I14",
@@ -125,7 +142,8 @@
       "depends_on": [
         "FP-I13"
       ],
-      "product": "execution"
+      "product": "execution",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I15",
@@ -133,7 +151,8 @@
       "depends_on": [
         "FP-I14"
       ],
-      "product": "execution"
+      "product": "execution",
+      "status": "PLANNED"
     },
     {
       "phase_id": "FP-I16",
@@ -141,7 +160,8 @@
       "depends_on": [
         "FP-I15"
       ],
-      "product": "execution"
+      "product": "execution",
+      "status": "PLANNED"
     }
   ]
 }

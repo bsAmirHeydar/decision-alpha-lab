@@ -1,0 +1,11 @@
+{
+  "checks_run": 139,
+  "error_count": 0,
+  "evidence_hash": "c893ad7d63be972e41d24ebbb282ea85c68d49635e41cc6286d782f1d2315548",
+  "health": "READY",
+  "issues": [],
+  "passed": true,
+  "phase_id": "FP-I00",
+  "policy_version": "1.0.0",
+  "warning_count": 0
+}
