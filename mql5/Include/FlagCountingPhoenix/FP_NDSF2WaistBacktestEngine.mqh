@@ -109,8 +109,8 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
 
    // A blocked HTF gate does not close live positions. It only prevents new
    // entries and, when enabled, removes still-unfilled pending orders. Dynamic
-   // F3-retest positions still require the lower-timeframe F2 event stream to
-   // discover their confirmation node, so only that case continues to detector.
+   // F3-retest positions still require the lower-timeframe exact source-F2 and
+   // direct-child-F3 event stream, so only that case continues to detector.
    bool needs_dynamic_exit_detection =
       (active_positions > 0 &&
        trade_cfg.exit_mode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
@@ -130,7 +130,7 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
    // Preserve the ultra-light hold path whenever no additional context can be
    // admitted. One exception is a still-pending order: overlap arbitration may
    // need the detector to discover a wider replacement. Open dynamic-exit
-   // positions also continue to receive the F2 confirmation stream.
+   // positions also continue to receive their exact child-F3 lineage stream.
    bool pending_replacement_scan =
       (trade_cfg.use_stop_space_overlap_deduplication &&
        active_orders > 0 && active_positions == 0 && entry_gate_open);
@@ -207,9 +207,9 @@ FP_NDSF2WaistRunResult FP_RunNDSF2WaistBacktestCycle(
       entry_gate_open,
       allowed_entry_direction);
 
-   // The new-bar detector may have just exposed the F2 confirmation node. Run
-   // the lightweight tick manager once immediately so the dynamic F3 TP can be
-   // armed without waiting for the next market tick.
+   // The new-bar detector may have exposed the exact child F3 and its Waist. Run
+   // the lightweight tick manager immediately so only the bound position ticket
+   // can receive its own child-F3 Leg1 target.
    FP_NDSF2ManageDynamicExitOnTick(symbol, period, trade_cfg);
 
    if(result == FP_NDS_F2_RUN_IDLE && cancel_errors > 0)

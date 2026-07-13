@@ -6,7 +6,9 @@
 
 // Execution-only F1/F2 detector.
 // Reuses canonical Phoenix node extraction, F1 lifecycle, F2 body/lifecycle and
-// parent resolution. It intentionally does not build Hook branches, F3,
+// parent resolution. In fixed-exit mode it remains F1/F2-only. In dynamic-exit
+// mode it additionally emits only the direct child F3 lifecycle needed to bind
+// each position to its own source F2. It still does not build Hook branches,
 // ownership, canonical rendering, chart objects, audit exports or diagnostics.
 void FP_DetectF2ExecutionScale(const MqlRates &rates[],
                                const int total,

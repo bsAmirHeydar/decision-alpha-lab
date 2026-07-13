@@ -48,7 +48,7 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.60"', "expert version", errors)
+    require(expert, '#property version   "1.70"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)
@@ -57,7 +57,7 @@ def main() -> int:
     require(expert, "cfg.f2_show_post_flag_candidates = true", "unconfirmed F2 visibility", errors)
     require(expert, "cfg.f2_show_live_body_candidates = true", "F2 body candidate visibility", errors)
     require(expert, "cfg.scan_hooks = false", "Hook disable", errors)
-    require(expert, "cfg.scan_f3 = false", "F3 disable", errors)
+    require(expert, "cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)", "mode-aware F3 scan", errors)
 
     require(setup, "Point 1 = F2 Waist", "Point-1 contract", errors)
     require(setup, "F2 confirmation is NOT the entry trigger", "confirmation exclusion", errors)

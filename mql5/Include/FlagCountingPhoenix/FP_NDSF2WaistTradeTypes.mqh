@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-07"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v7"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-08"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v8"
 
 
 
@@ -24,9 +24,9 @@ enum FP_NDSF2DynamicExitStage
 {
    FP_NDS_F2_DYN_EXIT_NONE = 0,
    FP_NDS_F2_DYN_EXIT_PENDING = 1,
-   FP_NDS_F2_DYN_EXIT_WAIT_F2_CONFIRM = 2,
-   FP_NDS_F2_DYN_EXIT_WAIT_CORRECTION = 3,
-   FP_NDS_F2_DYN_EXIT_WAIT_RETEST = 4,
+   FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3 = 2,
+   FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_WAIST = 3,
+   FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_RETEST = 4,
    FP_NDS_F2_DYN_EXIT_TP_ARMED = 5,
    FP_NDS_F2_DYN_EXIT_CLOSED = 6
 };
@@ -106,11 +106,18 @@ struct FP_NDSF2WaistTradeSetup
    int f1_event_id;
    int f2_event_id;
    int sequence_id;
+   int parent_sequence_id;
+   int f2_parent_event_id;
+   int f2_chain_index;
    int body_available_index;
    int age_bars;
    datetime body_available_time;
 
    // Stable structural identity required by the dynamic F3 exit manager.
+   int f1_waist_node_id;
+   int f2_origin_node_id;
+   int f2_waist_node_id;
+   int initial_f2_leg2_node_id;
    datetime f1_waist_time;
    datetime f2_origin_time;
    datetime f2_waist_time;
@@ -157,6 +164,20 @@ struct FP_NDSF2DynamicExitContext
    int direction;
    int scale_L;
 
+   // Exact source-lineage authority. Every dynamic exit is bound to the same
+   // F1/F2 chain that created its own order; no latest/same-direction lookup is
+   // allowed to service another position.
+   int source_f1_event_id;
+   int source_f2_event_id;
+   int source_sequence_id;
+   int source_parent_sequence_id;
+   int source_f2_parent_event_id;
+   int source_f2_chain_index;
+   int source_f1_waist_node_id;
+   int source_f2_origin_node_id;
+   int source_f2_waist_node_id;
+   int source_initial_f2_leg2_node_id;
+
    datetime f1_waist_time;
    datetime f2_origin_time;
    datetime f2_waist_time;
@@ -169,11 +190,19 @@ struct FP_NDSF2DynamicExitContext
    long position_identifier;
    int stage;
 
-   bool f2_confirm_captured;
-   int f2_confirm_event_id;
-   int f2_confirm_node_id;
-   datetime f2_confirm_time;
-   double f2_confirm_price;
+   // Exact child-F3 evidence. The target is taken from the Leg1 node of the
+   // child whose parent_event_id is the bound source F2. The correction gate is
+   // the Waist of that same child F3, not a shared tick-distance approximation.
+   bool exact_child_f3_captured;
+   int exact_child_f3_event_id;
+   int exact_child_f3_parent_event_id;
+   int exact_child_f3_sequence_id;
+   int exact_child_f3_leg1_node_id;
+   datetime exact_child_f3_leg1_time;
+   double exact_child_f3_leg1_price;
+   int exact_child_f3_waist_node_id;
+   datetime exact_child_f3_waist_time;
+   double exact_child_f3_waist_price;
    double dynamic_target_price;
 
    bool correction_seen;
@@ -189,6 +218,16 @@ void FP_ResetNDSF2DynamicExitContext(FP_NDSF2DynamicExitContext &ctx)
    ctx.broker_comment = "";
    ctx.direction = FP_DIR_NONE;
    ctx.scale_L = 0;
+   ctx.source_f1_event_id = -1;
+   ctx.source_f2_event_id = -1;
+   ctx.source_sequence_id = -1;
+   ctx.source_parent_sequence_id = -1;
+   ctx.source_f2_parent_event_id = -1;
+   ctx.source_f2_chain_index = -1;
+   ctx.source_f1_waist_node_id = -1;
+   ctx.source_f2_origin_node_id = -1;
+   ctx.source_f2_waist_node_id = -1;
+   ctx.source_initial_f2_leg2_node_id = -1;
    ctx.f1_waist_time = 0;
    ctx.f2_origin_time = 0;
    ctx.f2_waist_time = 0;
@@ -199,11 +238,16 @@ void FP_ResetNDSF2DynamicExitContext(FP_NDSF2DynamicExitContext &ctx)
    ctx.position_ticket = 0;
    ctx.position_identifier = 0;
    ctx.stage = FP_NDS_F2_DYN_EXIT_NONE;
-   ctx.f2_confirm_captured = false;
-   ctx.f2_confirm_event_id = -1;
-   ctx.f2_confirm_node_id = -1;
-   ctx.f2_confirm_time = 0;
-   ctx.f2_confirm_price = 0.0;
+   ctx.exact_child_f3_captured = false;
+   ctx.exact_child_f3_event_id = -1;
+   ctx.exact_child_f3_parent_event_id = -1;
+   ctx.exact_child_f3_sequence_id = -1;
+   ctx.exact_child_f3_leg1_node_id = -1;
+   ctx.exact_child_f3_leg1_time = 0;
+   ctx.exact_child_f3_leg1_price = 0.0;
+   ctx.exact_child_f3_waist_node_id = -1;
+   ctx.exact_child_f3_waist_time = 0;
+   ctx.exact_child_f3_waist_price = 0.0;
    ctx.dynamic_target_price = 0.0;
    ctx.correction_seen = false;
    ctx.tp_armed = false;
@@ -253,9 +297,16 @@ void FP_ResetNDSF2WaistTradeSetup(FP_NDSF2WaistTradeSetup &s)
    s.f1_event_id = -1;
    s.f2_event_id = -1;
    s.sequence_id = -1;
+   s.parent_sequence_id = -1;
+   s.f2_parent_event_id = -1;
+   s.f2_chain_index = -1;
    s.body_available_index = -1;
    s.age_bars = -1;
    s.body_available_time = 0;
+   s.f1_waist_node_id = -1;
+   s.f2_origin_node_id = -1;
+   s.f2_waist_node_id = -1;
+   s.initial_f2_leg2_node_id = -1;
    s.f1_waist_time = 0;
    s.f2_origin_time = 0;
    s.f2_waist_time = 0;

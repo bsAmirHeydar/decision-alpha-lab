@@ -26,3 +26,4 @@ After a complete two-leg F2 flag exists, the F2 waist is treated as structural P
 
 12. [Dual exit contract: fixed F2 end or F3 flag retest](12_dual_exit_fixed_f2_and_f3_flag_retest.md)
 13. [Higher-timeframe F-phase direction filter](13_higher_timeframe_f_phase_direction_filter.md)
+14. [Exact per-trade F3 lineage exit](14_exact_per_trade_f3_lineage_exit.md)

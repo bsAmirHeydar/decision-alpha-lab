@@ -234,3 +234,11 @@ TP_ARMED
 - F2 confirmation is consumed only when emitted by the canonical closed-bar detector.
 - Correction is observed from current executable Bid/Ask after confirmation capture.
 - No future F3 terminal, lock or opposite-F1 information is used.
+
+## 13. Exact per-position lineage hotfix
+
+Dynamic exit is no longer resolved from a compatible or latest confirmed F2. Each position is bound to the source F1/F2 event lineage captured at order creation. The only acceptable exit structure is the direct child F3 whose `parent_event_id` equals that exact source F2.
+
+The correction gate is the Waist of that same child F3. The target is the Leg1 of that same child F3. Ambiguous or missing children fail closed and may not borrow another context's F3.
+
+See [Exact per-trade F3 lineage exit](14_exact_per_trade_f3_lineage_exit.md).

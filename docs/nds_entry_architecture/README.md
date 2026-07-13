@@ -146,3 +146,7 @@ The profile now also supports two explicit exit modes. Fixed mode attaches TP at
 ## F2 v7 — higher-timeframe F-phase direction filter
 
 The F2 Point-2 profile now contains an entry-authority gate based on the canonical higher-timeframe phase. Default `H1` bullish F authorizes only Buy setups; bearish F authorizes only Sell setups; Hook/ND or unresolved state blocks new orders. The full contract is in `f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md`.
+
+## Exact per-trade F3 lineage exit
+
+The F2 Waist-Break profile now resolves dynamic exits through `Position → Source F2 → Direct Child F3`. The direct child F3 Waist is the correction gate and that child's Leg1 is the target. Cross-context target borrowing is fail-closed.

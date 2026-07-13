@@ -409,3 +409,7 @@ The profile now also supports two explicit exit modes. Fixed mode attaches TP at
 ## F2 v7 — higher-timeframe canonical F-phase gate
 
 The dedicated F2 Waist-Break Point-2 tester now enables a closed-bar higher-timeframe direction filter by default on H1. The higher-timeframe classifier reuses the canonical F1/F2/F3 and Hook/ND engines, caches its result once per new H1 bar, allows Buy only in bullish F, allows Sell only in bearish F, and blocks both directions in Hook/ND or unresolved context. Misaligned pending orders are cancelled by default; open positions keep their original exit contract. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md`.
+
+## F2 exact per-trade F3 exit hotfix
+
+Dynamic F3-retest exits are now bound to the exact F1/F2 lineage and direct child F3 of each position. Parallel trades cannot share a compatible or latest same-direction F3 target. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/14_exact_per_trade_f3_lineage_exit.md`.

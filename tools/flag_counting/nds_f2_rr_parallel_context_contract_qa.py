@@ -49,7 +49,7 @@ def main() -> int:
     backtest_engine = content["backtest_engine"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.60"', "expert version", errors)
+    require(expert, '#property version   "1.70"', "expert version", errors)
     require(expert, "InpF2BTUseMinimumRewardRiskFilter = true", "RR filter default", errors)
     require(expert, "InpF2BTAdjustEntryToMinimumRewardRisk = true", "RR repricing default", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "minimum RR default", errors)

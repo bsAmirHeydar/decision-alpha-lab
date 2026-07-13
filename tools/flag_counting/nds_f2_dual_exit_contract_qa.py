@@ -52,19 +52,19 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.60"', "expert version", errors)
+    require(expert, '#property version   "1.70"', "expert version", errors)
     require(expert, "InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "default fixed exit", errors)
     require(expert, "InpF2BTF3ExitCorrectionTicks = 1.0", "default correction gate", errors)
     require(expert, "InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true", "market fallback default", errors)
     require(expert, "FP_NDSF2ManageDynamicExitOnTick", "per-tick dynamic manager", errors)
-    require(expert, "cfg.scan_f3 = false", "no heavy F3 scan", errors)
+    require(expert, "cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST)", "dynamic exact F3 scan", errors)
 
     require(types, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END", "fixed exit enum", errors)
     require(types, "FP_NDS_F2_EXIT_F3_FLAG_RETEST", "dynamic exit enum", errors)
     require(types, "rr_reference_target_price", "RR reference field", errors)
     require(types, "initial_broker_take_profit_price", "initial broker TP field", errors)
     require(types, "FP_NDSF2DynamicExitContext", "dynamic context type", errors)
-    require(types, "NDS-F2-WAIST-BREAK-07", "contract version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-08", "contract version", errors)
 
     require(setup, "setup.rr_reference_target_price = setup.target_price", "F2 Leg2 RR authority", errors)
     require(setup, "FP_NDS_F2_EXIT_FIXED_F2_FLAG_END ? setup.target_price : 0.0", "mode-aware initial TP", errors)
@@ -75,9 +75,9 @@ def main() -> int:
     require(rules, "FP_NDSF2RegisterDynamicExitContext", "dynamic context registration", errors)
     require(rules, "FP_NDSF2DeactivateDynamicContextByOrderTicket", "context cleanup on order delete", errors)
 
-    require(manager, "events[best].confirm.price", "F2 confirmation target capture", errors)
+    require(manager, "child_f3.leg1.price", "exact child F3 target capture", errors)
     require(manager, "f2.f2_can_spawn_f3", "canonical F3 authorization", errors)
-    require(manager, "FP_NDSF2DynamicCorrectionSeen", "correction gate", errors)
+    require(manager, "child_f3.has_waist", "canonical F3 waist correction gate", errors)
     require(manager, "TRADE_ACTION_SLTP", "dynamic TP modification", errors)
     require(manager, "PositionClose", "already-reached market close fallback", errors)
     require(manager, "ORDER_POSITION_ID", "order-position binding", errors)
@@ -100,7 +100,7 @@ def main() -> int:
     forbid(runtime, "PrintFormat(", "runtime PrintFormat", errors)
     forbid(runtime, "FileOpen(", "runtime file IO", errors)
     forbid(runtime, "ObjectCreate(", "runtime renderer", errors)
-    forbid(runtime, "FP_BuildF3", "heavy F3 build", errors)
+    require(runtime, "FP_NDSF2ExactChildF3Matches", "exact child F3 lineage gate", errors)
 
     if errors:
         print("NDS F2 dual-exit contract QA: FAIL")

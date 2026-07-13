@@ -336,9 +336,16 @@ bool FP_NDSF2BuildWaistBreakSetup(const string symbol,
    setup.f1_event_id = f1.event_id;
    setup.f2_event_id = f2.event_id;
    setup.sequence_id = f2.sequence_id;
+   setup.parent_sequence_id = f2.parent_sequence_id;
+   setup.f2_parent_event_id = f2.parent_event_id;
+   setup.f2_chain_index = f2.chain_index;
    setup.body_available_index = body_available_index;
    setup.age_bars = rates_total - 1 - body_available_index;
    setup.body_available_time = rates[body_available_index].time;
+   setup.f1_waist_node_id = f1.waist.id;
+   setup.f2_origin_node_id = f2.origin.id;
+   setup.f2_waist_node_id = f2.waist.id;
+   setup.initial_f2_leg2_node_id = f2.leg2.id;
    setup.f1_waist_time = f1.waist.time_anchor;
    setup.f2_origin_time = f2.origin.time_anchor;
    setup.f2_waist_time = f2.waist.time_anchor;

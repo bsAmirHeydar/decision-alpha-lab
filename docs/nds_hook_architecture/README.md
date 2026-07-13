@@ -177,3 +177,7 @@ Phase 53 introduces a separate Strategy Tester expert that calls the shared F,
 Hook ownership, and Hook-limit/F123 execution cores directly. Rendering, license,
 CSV, timers, chart events, and research/rehearsal layers are absent from the
 backtest call path. FAST, PARITY, and CUSTOM context profiles are available.
+
+## F2 exact per-trade F3 exit hotfix
+
+- [Engineering overlay](72_f2_exact_per_trade_f3_exit_hotfix.md)

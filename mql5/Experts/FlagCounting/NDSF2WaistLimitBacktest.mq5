@@ -1,13 +1,14 @@
 #property strict
-#property version   "1.60"
+#property version   "1.70"
 #property description "NDS F2 Point-2 backtest with dual exit and canonical higher-timeframe F-phase direction filter."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
 
 // Dedicated execution-only tester.
 // Loaded path: canonical rates -> canonical nodes -> F1 -> F2 body -> order.
-// Entry-timeframe runtime does not load Hook setup, Zone, CG, AI, F3, renderer,
-// CSV, timer or custom prints. The optional HTF gate runs a cached canonical
+// Entry-timeframe runtime does not load Hook setup, Zone, CG, AI, renderer,
+// CSV, timer or custom prints. Dynamic exit mode enables only the exact direct
+// child-F3 lifecycle needed for per-position exit lineage. The optional HTF gate runs a cached canonical
 // F/Hook phase classification only once per new higher-timeframe bar.
 
 input FP_NDSBacktestProfile InpF2BTProfile = FP_NDS_BACKTEST_PROFILE_FAST;
@@ -49,10 +50,11 @@ input double InpF2BTStopBehindF1WaistTicks = 1.0;
 
 // Exit mode.
 // FIXED_F2_FLAG_END: current behavior, broker TP at original F2 Leg2.
-// F3_FLAG_RETEST: original F2 Leg2 remains the RR reference only. After F2
-// confirms and price corrects away, TP is armed at the F2-confirm/F3-Leg1 node.
+// F3_FLAG_RETEST: original F2 Leg2 remains the RR reference only. Each
+// position waits for the direct child F3 of its own source F2; after that exact
+// child forms its Waist, TP is armed at that same child's Leg1 node.
 input FP_NDSF2ExitMode InpF2BTExitMode = FP_NDS_F2_EXIT_FIXED_F2_FLAG_END;
-input double InpF2BTF3ExitCorrectionTicks = 1.0;
+input double InpF2BTF3ExitCorrectionTicks = 1.0; // legacy compatibility; exact mode uses the bound child-F3 Waist.
 input bool   InpF2BTCloseAtMarketIfF3TargetAlreadyReached = true;
 
 // Reward/Risk policy. RR always uses original F2 Leg2, even in F3 exit mode.
@@ -137,7 +139,9 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.scan_hooks = false;
    cfg.scan_f1 = true;
    cfg.scan_f2 = true;
-   cfg.scan_f3 = false;
+   // Dynamic exit needs the exact child F3 of each source F2. Fixed-target mode
+   // keeps the old F1/F2-only fast path.
+   cfg.scan_f3 = (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
 
    // The dedicated detector uses raw canonical origin nodes as F1 seed authority.
    cfg.require_f1_phase_boundary = false;
@@ -162,15 +166,16 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.f2_show_post_flag_candidates = true;
    cfg.f2_show_live_body_candidates = true;
    cfg.f3_show_or_rejected_candidates = false;
-   cfg.f3_show_live_body_candidates = false;
+   cfg.f3_show_live_body_candidates =
+      (InpF2BTExitMode == FP_NDS_F2_EXIT_F3_FLAG_RETEST);
 
    cfg.max_events = runtime_cfg.max_events;
    cfg.max_hooks = 0;
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v7";
-   cfg.identity_config_hash = "f2_wb2_v7";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v8";
+   cfg.identity_config_hash = "f2_wb2_v8";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;

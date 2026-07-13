@@ -5,16 +5,13 @@
 #include "FP_NDSF2WaistTradeTypes.mqh"
 #include "FP_NDSHookTradeRules.mqh"
 
-// Lightweight, tester-only dynamic-exit registry.
+// Exact per-trade dynamic-exit registry.
 //
-// Exit mode FP_NDS_F2_EXIT_F3_FLAG_RETEST keeps the original F2 Leg2 endpoint
-// only as the reward/risk reference. No broker TP is attached initially.
-// When the exact source F2 confirms, its confirmation node becomes F3 Leg1.
-// After price corrects away from that node, the manager arms the position TP at
-// the same node. The eventual retest is the executable "F3 flag hit" exit.
-//
-// The registry is in-memory by design: this dedicated expert is a fast Strategy
-// Tester runtime, not a restart-persistent production executor.
+// Every context is bound at order creation to one concrete F1/F2 lineage. The
+// dynamic exit may consume only the direct child F3 whose parent_event_id is the
+// exact source F2 of that same context. The F3 Leg1 node is the future retest
+// target; the F3 Waist is the canonical correction gate. No latest-F3,
+// same-direction-F3, or shared market-level lookup is allowed.
 
 FP_NDSF2DynamicExitContext g_fp_nds_f2_exit_contexts[];
 
@@ -55,6 +52,8 @@ bool FP_NDSF2RegisterDynamicExitContext(const string symbol,
    if(existing >= 0)
    {
       g_fp_nds_f2_exit_contexts[existing].order_ticket = order_ticket;
+      g_fp_nds_f2_exit_contexts[existing].position_ticket = 0;
+      g_fp_nds_f2_exit_contexts[existing].position_identifier = 0;
       g_fp_nds_f2_exit_contexts[existing].stage = FP_NDS_F2_DYN_EXIT_PENDING;
       return true;
    }
@@ -68,6 +67,18 @@ bool FP_NDSF2RegisterDynamicExitContext(const string symbol,
    ctx.broker_comment = setup.broker_comment;
    ctx.direction = setup.direction;
    ctx.scale_L = setup.scale_L;
+
+   ctx.source_f1_event_id = setup.f1_event_id;
+   ctx.source_f2_event_id = setup.f2_event_id;
+   ctx.source_sequence_id = setup.sequence_id;
+   ctx.source_parent_sequence_id = setup.parent_sequence_id;
+   ctx.source_f2_parent_event_id = setup.f2_parent_event_id;
+   ctx.source_f2_chain_index = setup.f2_chain_index;
+   ctx.source_f1_waist_node_id = setup.f1_waist_node_id;
+   ctx.source_f2_origin_node_id = setup.f2_origin_node_id;
+   ctx.source_f2_waist_node_id = setup.f2_waist_node_id;
+   ctx.source_initial_f2_leg2_node_id = setup.initial_f2_leg2_node_id;
+
    ctx.f1_waist_time = setup.f1_waist_time;
    ctx.f2_origin_time = setup.f2_origin_time;
    ctx.f2_waist_time = setup.f2_waist_time;
@@ -179,18 +190,52 @@ bool FP_NDSF2DeleteDynamicPending(const FP_NDSF2WaistTradeConfig &cfg,
    return true;
 }
 
-bool FP_NDSF2DynamicContextF2Matches(const FP_NDSF2DynamicExitContext &ctx,
-                                     const FP_FlagEvent &f2)
+bool FP_NDSF2ExactSourceF2Matches(const FP_NDSF2DynamicExitContext &ctx,
+                                  const FP_FlagEvent &f2)
 {
    if(f2.level != FP_LEVEL_F2) return false;
    if(f2.direction != ctx.direction || f2.scale_L != ctx.scale_L) return false;
+   // event_id and parent_event_id are audit snapshots and may be reindexed when
+   // an earlier sequence emits a new F3 on a later scan. Runtime identity is
+   // therefore based on stable sequence/chain/node anatomy.
+   if(f2.sequence_id != ctx.source_sequence_id) return false;
+   if(f2.parent_sequence_id != ctx.source_parent_sequence_id) return false;
+   if(f2.chain_index != ctx.source_f2_chain_index) return false;
    if(!f2.has_origin || !f2.has_waist || !f2.has_leg2 || !f2.has_confirm) return false;
-   if(f2.status != FP_STATUS_CONFIRMED) return false;
-   if(!f2.f2_can_spawn_f3) return false;
-   if(f2.origin.time_anchor != ctx.f2_origin_time) return false;
-   if(f2.waist.time_anchor != ctx.f2_waist_time) return false;
+   if(f2.status != FP_STATUS_CONFIRMED || !f2.f2_can_spawn_f3) return false;
+   if(f2.origin.id != ctx.source_f2_origin_node_id ||
+      f2.origin.time_anchor != ctx.f2_origin_time) return false;
+   if(f2.waist.id != ctx.source_f2_waist_node_id ||
+      f2.waist.time_anchor != ctx.f2_waist_time) return false;
    if(f2.leg2.time_anchor < ctx.initial_f2_leg2_time) return false;
    if(f2.confirm.time_anchor <= f2.leg2.time_anchor) return false;
+   return true;
+}
+
+bool FP_NDSF2ExactParentF1Matches(const FP_NDSF2DynamicExitContext &ctx,
+                                  const FP_FlagEvent &f1)
+{
+   if(f1.level != FP_LEVEL_F1) return false;
+   if(f1.sequence_id != ctx.source_sequence_id) return false;
+   if(f1.direction != ctx.direction || f1.scale_L != ctx.scale_L) return false;
+   if(!f1.has_waist) return false;
+   if(f1.waist.id != ctx.source_f1_waist_node_id) return false;
+   return (f1.waist.time_anchor == ctx.f1_waist_time);
+}
+
+bool FP_NDSF2ExactChildF3Matches(const FP_NDSF2DynamicExitContext &ctx,
+                                 const FP_FlagEvent &source_f2,
+                                 const FP_FlagEvent &f3)
+{
+   if(f3.level != FP_LEVEL_F3) return false;
+   if(f3.direction != ctx.direction || f3.scale_L != ctx.scale_L) return false;
+   if(f3.sequence_id != ctx.source_sequence_id) return false;
+   if(f3.parent_sequence_id != source_f2.sequence_id) return false;
+   if(f3.parent_event_id != source_f2.event_id) return false;
+   if(!f3.has_leg1 || !source_f2.has_confirm) return false;
+   if(f3.leg1.id != source_f2.confirm.id) return false;
+   if(f3.leg1.time_anchor != source_f2.confirm.time_anchor) return false;
+   if(f3.pos_leg1 != source_f2.pos_confirm) return false;
    return true;
 }
 
@@ -210,55 +255,72 @@ void FP_NDSF2UpdateDynamicExitFromEvents(const FP_NDSF2WaistTradeConfig &cfg,
 
    for(int c=0; c<ArraySize(g_fp_nds_f2_exit_contexts); c++)
    {
-      if(!g_fp_nds_f2_exit_contexts[c].active) continue;
-      if(g_fp_nds_f2_exit_contexts[c].f2_confirm_captured) continue;
-      if(!FP_NDSF2FindPositionForDynamicContext(cfg, g_fp_nds_f2_exit_contexts[c]))
+      if(!g_fp_nds_f2_exit_contexts[c].active ||
+         g_fp_nds_f2_exit_contexts[c].exact_child_f3_captured)
+         continue;
+      if(!FP_NDSF2FindPositionForDynamicContext(cfg,
+                                                 g_fp_nds_f2_exit_contexts[c]))
          continue;
 
-      int best = -1;
+      int source_f1_index = -1;
+      int source_f2_index = -1;
       for(int i=0; i<event_count; i++)
       {
-         if(!FP_NDSF2DynamicContextF2Matches(g_fp_nds_f2_exit_contexts[c], events[i]))
-            continue;
-
-         int parent_index = FP_CanonicalFindParentIndex(events, event_count, events[i]);
-         if(parent_index < 0 || !events[parent_index].has_waist ||
-            events[parent_index].waist.time_anchor !=
-               g_fp_nds_f2_exit_contexts[c].f1_waist_time)
-            continue;
-
-         if(best < 0 ||
-            events[i].leg2.time_anchor > events[best].leg2.time_anchor ||
-            (events[i].leg2.time_anchor == events[best].leg2.time_anchor &&
-             events[i].confirm.time_anchor < events[best].confirm.time_anchor))
-            best = i;
+         if(FP_NDSF2ExactParentF1Matches(g_fp_nds_f2_exit_contexts[c], events[i]))
+         {
+            if(source_f1_index >= 0) { source_f1_index = -2; break; }
+            source_f1_index = i;
+         }
+         if(FP_NDSF2ExactSourceF2Matches(g_fp_nds_f2_exit_contexts[c], events[i]))
+         {
+            if(source_f2_index >= 0) { source_f2_index = -2; break; }
+            source_f2_index = i;
+         }
       }
-      if(best < 0) continue;
+      if(source_f1_index < 0 || source_f2_index < 0) continue;
 
-      g_fp_nds_f2_exit_contexts[c].f2_confirm_captured = true;
-      g_fp_nds_f2_exit_contexts[c].f2_confirm_event_id = events[best].event_id;
-      g_fp_nds_f2_exit_contexts[c].f2_confirm_node_id = events[best].confirm.id;
-      g_fp_nds_f2_exit_contexts[c].f2_confirm_time = events[best].confirm.time_anchor;
-      g_fp_nds_f2_exit_contexts[c].f2_confirm_price = events[best].confirm.price;
+      FP_FlagEvent source_f2 = events[source_f2_index];
+      int child_f3_index = -1;
+      for(int i=0; i<event_count; i++)
+      {
+         if(!FP_NDSF2ExactChildF3Matches(g_fp_nds_f2_exit_contexts[c],
+                                         source_f2,
+                                         events[i]))
+            continue;
+         if(child_f3_index >= 0)
+         {
+            // More than one child for the exact parent is ambiguous. Fail closed;
+            // never let one position borrow a target from a competing F3.
+            child_f3_index = -2;
+            break;
+         }
+         child_f3_index = i;
+      }
+      if(child_f3_index < 0) continue;
+
+      FP_FlagEvent child_f3 = events[child_f3_index];
+      if(!child_f3.has_waist || child_f3.pos_waist <= child_f3.pos_leg1)
+      {
+         g_fp_nds_f2_exit_contexts[c].stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_WAIST;
+         continue;
+      }
+
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_captured = true;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_event_id = child_f3.event_id;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_parent_event_id = child_f3.parent_event_id;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_sequence_id = child_f3.sequence_id;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_leg1_node_id = child_f3.leg1.id;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_leg1_time = child_f3.leg1.time_anchor;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_leg1_price = child_f3.leg1.price;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_waist_node_id = child_f3.waist.id;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_waist_time = child_f3.waist.time_anchor;
+      g_fp_nds_f2_exit_contexts[c].exact_child_f3_waist_price = child_f3.waist.price;
       g_fp_nds_f2_exit_contexts[c].dynamic_target_price =
          FP_NDSF2DynamicNormalizeNearest(g_fp_nds_f2_exit_contexts[c].symbol,
-                                 events[best].confirm.price);
-      g_fp_nds_f2_exit_contexts[c].stage = FP_NDS_F2_DYN_EXIT_WAIT_CORRECTION;
+                                         child_f3.leg1.price);
+      g_fp_nds_f2_exit_contexts[c].correction_seen = true;
+      g_fp_nds_f2_exit_contexts[c].stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_F3_RETEST;
    }
-}
-
-bool FP_NDSF2DynamicCorrectionSeen(const FP_NDSF2WaistTradeConfig &cfg,
-                                   const FP_NDSF2DynamicExitContext &ctx,
-                                   const MqlTick &market)
-{
-   double trade_tick = FP_NDSHookTradeTickSize(ctx.symbol);
-   if(trade_tick <= 0.0) return false;
-   double distance = MathMax(1.0, cfg.f3_exit_correction_ticks) * trade_tick;
-   if(ctx.direction == FP_DIR_BULLISH)
-      return (market.bid <= ctx.dynamic_target_price - distance);
-   if(ctx.direction == FP_DIR_BEARISH)
-      return (market.ask >= ctx.dynamic_target_price + distance);
-   return false;
 }
 
 bool FP_NDSF2DynamicTargetReached(const FP_NDSF2DynamicExitContext &ctx,
@@ -356,16 +418,9 @@ void FP_NDSF2ManageOneDynamicContextOnTick(const FP_NDSF2WaistTradeConfig &cfg,
    if(position_active)
    {
       if(ctx.stage == FP_NDS_F2_DYN_EXIT_PENDING)
-         ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_F2_CONFIRM;
+         ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3;
 
-      if(!ctx.f2_confirm_captured) return;
-
-      if(!ctx.correction_seen && FP_NDSF2DynamicCorrectionSeen(cfg, ctx, market))
-      {
-         ctx.correction_seen = true;
-         ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_RETEST;
-      }
-      if(!ctx.correction_seen || ctx.tp_armed) return;
+      if(!ctx.exact_child_f3_captured || ctx.tp_armed) return;
 
       if(FP_NDSF2DynamicTargetReached(ctx, market))
       {
@@ -379,16 +434,12 @@ void FP_NDSF2ManageOneDynamicContextOnTick(const FP_NDSF2WaistTradeConfig &cfg,
       return;
    }
 
-   // A just-filled pending order may already have a position identifier while
-   // the position list is not yet refreshed in this event. Keep the context for
-   // the next tick instead of deactivating it prematurely.
    if(ctx.position_identifier > 0)
    {
-      ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_F2_CONFIRM;
+      ctx.stage = FP_NDS_F2_DYN_EXIT_WAIT_EXACT_CHILD_F3;
       return;
    }
 
-   // Neither the original pending order nor its position is active.
    ctx.active = false;
    ctx.stage = FP_NDS_F2_DYN_EXIT_CLOSED;
 }

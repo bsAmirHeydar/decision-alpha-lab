@@ -1,0 +1,140 @@
+{
+  "patch_id": "NDS_F2_EXACT_PER_TRADE_F3_EXIT",
+  "version": "1.0.0",
+  "expert_version": "1.70",
+  "contract_version": "NDS-F2-WAIST-BREAK-08",
+  "schema_version": "nds_f2_waist_break_point2_v8",
+  "scope": "Bind each dynamic F3-retest exit to the exact source F2 and direct child F3 of the same position context.",
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_EXACT_PER_TRADE_F3_EXIT_PATCH.md",
+      "sha256": "b363e90dc5d27140a0339edf939755e30b5e1e28a241e6e45ef0571e3216fb3c",
+      "size_bytes": 1074
+    },
+    {
+      "path": "NDS_F2_EXACT_PER_TRADE_F3_EXIT_AUDIT_REPORT.md",
+      "sha256": "ae8d30d81ca6f751d7bea8247512367d0a65de92cac49698bfe91c712f40b8af",
+      "size_bytes": 3674
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "sha256": "2b6e98ce425fb232a236640716858e2ab8ad477feb0a33e0c65c7218377b33e9",
+      "size_bytes": 23380
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "sha256": "421a99dbc97d11cc48aa5b8888fba983c512f1ff875bab063e42f1a8f75029ce",
+      "size_bytes": 6621
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "sha256": "05512fa2a1a369850e6f58defe704a5499f3940b214cb77c24a5e2fd9c970b67",
+      "size_bytes": 1801
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/12_dual_exit_fixed_f2_and_f3_flag_retest.md",
+      "sha256": "7ac355e2b38e04b90526bb0c3fbc8c3b56ae3ce04131c69ff0adbf2fa662adde",
+      "size_bytes": 7022
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/14_exact_per_trade_f3_lineage_exit.md",
+      "sha256": "5eea88081c7a1ead9a09396167d83eaae354fbeb00647023f10c48994186f093",
+      "size_bytes": 4743
+    },
+    {
+      "path": "docs/nds_hook_architecture/README.md",
+      "sha256": "ace4538491ae9f36c19afdce2622080ae061a4ce538aa02bea84bd287cd47591",
+      "size_bytes": 5546
+    },
+    {
+      "path": "docs/nds_hook_architecture/72_f2_exact_per_trade_f3_exit_hotfix.md",
+      "sha256": "592dae1c98a61c6f4c4615aad7f0f6bc4897efd8b9a942949918b58ede01a8d9",
+      "size_bytes": 1128
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "sha256": "e2f908693d61718167993c0267d5aa7390f9437cca10376ee1be6cb3081a8cf4",
+      "size_bytes": 4340
+    },
+    {
+      "path": "docs/obsidian_hook/03_architecture/NDS F2 Exact Per-Trade F3 Exit Hotfix.md",
+      "sha256": "48dff24ec562d2c6b3351199d00e7f124a7747f39ccab0ddfaf80cbe7f7dfce9",
+      "size_bytes": 522
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Dual Exit - Fixed F2 or F3 Retest.md",
+      "sha256": "5ff1e23abc412caa256b560c2f538ad3386230f14c597e33874f8ef43b46137e",
+      "size_bytes": 1216
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Exact Per-Trade F3 Lineage Exit.md",
+      "sha256": "1661ce42ebe1d5ee1bcbe095a5f3da07d6fd619fb9c2259ade42066c4983aa3a",
+      "size_bytes": 1094
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "sha256": "1e1f4c56e3a96b5cfb877553205ff932e50637bbe58e0731dc5b64cd70e67b7f",
+      "size_bytes": 12869
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "sha256": "6b5b474ef409639270f0cbb9690d5664b9c5d19b362aa65475801f3e2ff81fde",
+      "size_bytes": 10551
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBreakSetupRules.mqh",
+      "sha256": "f8a30f9ed00532129cdbdc4d3a752c0ea5912c6cb7fb8dc2088224563b7ef371",
+      "size_bytes": 18588
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2F3ExitManager.mqh",
+      "sha256": "6e0dbc8056e8a902a1473fa91eb3c01cb70fb6353b1d6ef9640f797205e42543",
+      "size_bytes": 18650
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2FastDetector.mqh",
+      "sha256": "55090d38e0ca07cc44b24614a769dda026291d0a698c76e8fee38c939b108f0d",
+      "size_bytes": 3966
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh",
+      "sha256": "f76775d76064dcb6b66a1407b283365aee2fce2f998cb9c3ce4ea07cccd48e28",
+      "size_bytes": 8796
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_per_trade_f3_exit_contract_qa.py",
+      "sha256": "d8694f4e680ea2e2728cca9a434d87698ed1161dfdde298eb0241438913fbc52",
+      "size_bytes": 4265
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_dual_exit_contract_qa.py",
+      "sha256": "1b01fc6b413de81231f2527777b60646955bfe2a1387aedeb684fb834b44bc51",
+      "size_bytes": 5864
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_htf_f_phase_filter_contract_qa.py",
+      "sha256": "514544f37d3507545a8e59f6aef7cdc18d4724bbced09fe856161b48222f7b5a",
+      "size_bytes": 5461
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_overlap_wider_rr_reprice_contract_qa.py",
+      "sha256": "abd6426f299d68934df51d632a677abbfcd0c2fa2fbee1fe6f00ee63d9517d1c",
+      "size_bytes": 6105
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "sha256": "22c2ead03e7cab8a7f8b6bf4715a0c32b3075cfba9f0f4dcf79e8d0a7fb85854",
+      "size_bytes": 6303
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "sha256": "7460446e4e562c6b88f7428b58155ea87551a977964157928a2fb35f8beb05fc",
+      "size_bytes": 6505
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_backtest_contract_qa.py",
+      "sha256": "f1aafae8ea2b49efa6df95270b0faca3caeb1a0369e8a7808ba50d6054d55c90",
+      "size_bytes": 4626
+    }
+  ]
+}
