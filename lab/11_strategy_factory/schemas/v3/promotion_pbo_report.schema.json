@@ -1,0 +1,39 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_pbo_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "combination_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "median_logit": {
+      "type": "number"
+    },
+    "pbo": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "winner_counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "pbo",
+    "median_logit",
+    "combination_count",
+    "winner_counts",
+    "evidence_hash"
+  ],
+  "title": "promotion_pbo_report",
+  "type": "object"
+}

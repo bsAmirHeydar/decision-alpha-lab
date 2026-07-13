@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_uncertainty_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "block_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "group_identity_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "iterations": {
+      "minimum": 100,
+      "type": "integer"
+    },
+    "method": {
+      "enum": [
+        "moving_block_bootstrap",
+        "cluster_bootstrap",
+        "paired_block_bootstrap"
+      ]
+    },
+    "request_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "values_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "values_hash",
+    "method",
+    "block_size",
+    "iterations",
+    "confidence",
+    "seed",
+    "group_identity_hash"
+  ],
+  "title": "promotion_uncertainty_request",
+  "type": "object"
+}

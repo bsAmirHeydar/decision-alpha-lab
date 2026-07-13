@@ -1,0 +1,76 @@
+{
+  "acceptance_gates": {
+    "complete_declared_trial_universe_is_counted": "pass",
+    "critical_failures_cannot_be_averaged_away": "pass",
+    "mandatory_manual_and_matched_nulls_are_enforced": "pass",
+    "nested_selection_overlap_is_rejected": "pass",
+    "promotion_is_reproducible_from_immutable_artifacts": "pass",
+    "prospective_challenge_is_frozen_before_observation": "pass",
+    "signed_bundle_tampering_is_detected": "pass"
+  },
+  "engineering_policy": {
+    "checks_passed": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "generated_on": "2026-07-13",
+  "implementation_metrics": {
+    "atomic_concepts": 8,
+    "delivery_note_lines": 4488,
+    "delivery_notes": 34,
+    "mql5_files": 11,
+    "phase_test_modules": 11,
+    "public_schemas": 25,
+    "python_modules": 18,
+    "registered_statistical_suites": 7,
+    "total_obisidian_notes": 42
+  },
+  "limitations": [
+    "Synthetic and golden fixtures validate contracts and determinism, not real-market alpha.",
+    "Promotion remains offline governance evidence and grants no trading, broker, or network authority.",
+    "MetaEditor compilation and runtime smoke tests remain pending on a local Windows terminal.",
+    "UCE-I13 must consume only signed, promoted evidence and preserve abstention and fallback semantics."
+  ],
+  "metaeditor": {
+    "result": "pending_local_windows",
+    "statement": "MetaEditor is unavailable in this environment. MQL5 static checks passed, but static validation is not represented as compilation."
+  },
+  "next_phase": "UCE-I13 Manual, AI, and Hybrid Policy Graph with Abstention and Fallback",
+  "phase_id": "UCE-I12",
+  "quality_gates": {
+    "boundary_guard": "pass",
+    "clean_i11_baseline_patch_application": {
+      "cumulative_tests": 376,
+      "phase_tests": 86,
+      "result": "pass"
+    },
+    "closed_json_schemas": {
+      "count": 25,
+      "result": "pass"
+    },
+    "conformance_vectors": "pass",
+    "delivery_validation": "pass",
+    "mql5_static": {
+      "file_count": 11,
+      "result": "pass"
+    },
+    "python_compileall": "pass",
+    "zip_integrity": "pass"
+  },
+  "result": "pass_with_local_metaeditor_gate_pending",
+  "runtime_authority": "none",
+  "scope": "Unified statistical uncertainty, multiplicity, anti-overfit diagnostics, null controls, stress, calibration, and non-compensatory promotion governance",
+  "tests": {
+    "cumulative_uce_i01_to_i12": {
+      "count": 376,
+      "pytest_import_mode": "importlib",
+      "result": "pass"
+    },
+    "phase": {
+      "count": 86,
+      "result": "pass"
+    }
+  },
+  "version": "1.0.0"
+}

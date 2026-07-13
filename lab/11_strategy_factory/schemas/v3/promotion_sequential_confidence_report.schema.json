@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_sequential_confidence_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_spending_method": {
+      "enum": [
+        "bonferroni",
+        "pocock",
+        "obrien_fleming"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "looks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "estimate": {
+            "type": "number"
+          },
+          "look": {
+            "minimum": 2,
+            "type": "integer"
+          },
+          "lower": {
+            "type": "number"
+          },
+          "upper": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "look",
+          "estimate",
+          "lower",
+          "upper"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "overall_confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "overall_confidence",
+    "alpha_spending_method",
+    "looks",
+    "evidence_hash"
+  ],
+  "title": "promotion_sequential_confidence_report",
+  "type": "object"
+}

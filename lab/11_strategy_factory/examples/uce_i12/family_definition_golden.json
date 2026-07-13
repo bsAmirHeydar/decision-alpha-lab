@@ -1,0 +1,13 @@
+{
+  "alpha": 0.05,
+  "correction": "benjamini_yekutiely",
+  "dimensions": [
+    "family_id",
+    "task_key",
+    "trainer_key",
+    "treatment_key",
+    "threshold_key"
+  ],
+  "family_definition_id": "uce_i12_all_search_axes",
+  "include_missing_p_values": true
+}

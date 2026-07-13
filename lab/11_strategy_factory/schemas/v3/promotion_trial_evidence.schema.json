@@ -1,0 +1,130 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_trial_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "attempted",
+        "skipped",
+        "invalid",
+        "pruned",
+        "failed",
+        "timed_out",
+        "cancelled",
+        "selected",
+        "ensembled",
+        "manual_override"
+      ]
+    },
+    "ensembled": {
+      "type": "boolean"
+    },
+    "family_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "fold_id": {
+      "type": "string"
+    },
+    "integrity_blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ledger_entry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manual_override": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "p_value": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "selected": {
+      "type": "boolean"
+    },
+    "task_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "threshold_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "trainer_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "treatment_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "trial_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "family_id",
+    "candidate_key",
+    "task_key",
+    "trainer_key",
+    "treatment_key",
+    "threshold_key",
+    "disposition",
+    "ledger_entry_hash",
+    "p_value",
+    "score",
+    "fold_id",
+    "seed",
+    "selected",
+    "ensembled",
+    "manual_override",
+    "integrity_blockers",
+    "metadata"
+  ],
+  "title": "promotion_trial_evidence",
+  "type": "object"
+}

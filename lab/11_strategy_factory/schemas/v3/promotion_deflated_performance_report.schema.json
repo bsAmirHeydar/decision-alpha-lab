@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_deflated_performance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "benchmark": {
+      "type": "number"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "observed": {
+      "type": "number"
+    },
+    "probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "sample_count": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "total_choice_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "observed",
+    "benchmark",
+    "probability",
+    "sample_count",
+    "total_choice_count",
+    "evidence_hash"
+  ],
+  "title": "promotion_deflated_performance_report",
+  "type": "object"
+}

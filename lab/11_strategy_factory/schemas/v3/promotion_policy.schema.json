@@ -1,0 +1,106 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_manual_override_to_promote": {
+      "type": "boolean"
+    },
+    "alpha": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "coverage_tolerance": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "critical_families": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "mandatory_nulls": {
+      "items": {
+        "enum": [
+          "matched_time",
+          "matched_context",
+          "random_direction",
+          "label_permutation",
+          "placebo_trigger",
+          "delayed_trigger",
+          "random_treatment",
+          "manual_baseline"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "maximum_ece": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_pbo": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_reality_check_p": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_deflated_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_effective_sample_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "minimum_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_stress_retention": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "policy_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "policy_version",
+    "alpha",
+    "minimum_score",
+    "minimum_effective_sample_size",
+    "maximum_pbo",
+    "minimum_deflated_probability",
+    "maximum_reality_check_p",
+    "minimum_stress_retention",
+    "maximum_ece",
+    "coverage_tolerance",
+    "mandatory_nulls",
+    "critical_families",
+    "allow_manual_override_to_promote"
+  ],
+  "title": "promotion_policy",
+  "type": "object"
+}

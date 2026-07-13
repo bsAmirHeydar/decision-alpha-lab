@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_nested_selection_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "inner_train_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "inner_validation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "outer_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "overlaps": {
+      "type": "object"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "passed",
+    "blockers",
+    "overlaps",
+    "inner_train_count",
+    "inner_validation_count",
+    "outer_count",
+    "evidence_hash"
+  ],
+  "title": "promotion_nested_selection_audit",
+  "type": "object"
+}

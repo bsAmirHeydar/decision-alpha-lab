@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_multiplicity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjusted_p_values": {
+      "additionalProperties": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "family_counts": {
+      "additionalProperties": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "family_definition_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "missing_p_value_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rejected_trial_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "report_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "tested_choice_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "total_choice_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "universe_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "report_id",
+    "universe_hash",
+    "family_definition_hash",
+    "total_choice_count",
+    "tested_choice_count",
+    "missing_p_value_count",
+    "rejected_trial_ids",
+    "adjusted_p_values",
+    "family_counts",
+    "evidence_hash"
+  ],
+  "title": "promotion_multiplicity_report",
+  "type": "object"
+}

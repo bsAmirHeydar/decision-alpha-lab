@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_stress_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "identity_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "minimum_retention": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "plan_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "stresses": {
+      "items": {
+        "enum": [
+          "parameter_neighborhood",
+          "seed",
+          "fold",
+          "regime",
+          "session",
+          "symbol",
+          "cost",
+          "spread",
+          "slippage",
+          "latency",
+          "fill",
+          "trade_drop",
+          "best_trade_removal",
+          "tail",
+          "capacity",
+          "source_revision"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "plan_id",
+    "plan_version",
+    "stresses",
+    "minimum_retention",
+    "seed",
+    "identity_hash"
+  ],
+  "title": "promotion_stress_plan",
+  "type": "object"
+}

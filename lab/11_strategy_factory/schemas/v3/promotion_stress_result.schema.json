@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_stress_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_metric": {
+      "type": "number"
+    },
+    "details": {
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "parameter_neighborhood",
+        "seed",
+        "fold",
+        "regime",
+        "session",
+        "symbol",
+        "cost",
+        "spread",
+        "slippage",
+        "latency",
+        "fill",
+        "trade_drop",
+        "best_trade_removal",
+        "tail",
+        "capacity",
+        "source_revision"
+      ]
+    },
+    "relative_retention": {
+      "type": "number"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "warn",
+        "fail",
+        "missing",
+        "not_applicable"
+      ]
+    },
+    "stress_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "stressed_metric": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "stress_id",
+    "kind",
+    "baseline_metric",
+    "stressed_metric",
+    "relative_retention",
+    "status",
+    "evidence_hash",
+    "details"
+  ],
+  "title": "promotion_stress_result",
+  "type": "object"
+}

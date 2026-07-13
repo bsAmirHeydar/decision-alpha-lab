@@ -1,0 +1,23 @@
+{
+  "vector_hash": "2169ae7ed1d5feabcbabf77e2c6b634a11c563bc011e266217fc0ac7265f1157",
+  "vectors": {
+    "disposition_counts": {
+      "attempted": 1,
+      "cancelled": 1,
+      "ensembled": 1,
+      "failed": 1,
+      "invalid": 1,
+      "manual_override": 0,
+      "pruned": 1,
+      "selected": 1,
+      "skipped": 1,
+      "timed_out": 1
+    },
+    "family_definition_hash": "53d74c3a9a38db6dd08df2ea7c25eb3f96307ead6a574140d425495a5aaa4704",
+    "multiplicity_evidence_hash": "7394f545494cbabb9757746cd7008cae99c88d847a7f72a043e83b5ead6dab7b",
+    "policy_hash": "308d2a5ee6370f6d56dedb7ea4178e38811818058f59ca0260acfe185da03dc9",
+    "registry_hash": "c0648142de62b55a03582099e14cae5b0804733909c27f121918bea48acc2274",
+    "universe_hash": "00ceef5bb33a81df4a70f4cdb5d39f91b53e35fe6002b3bf367ca2fc57abf2c2"
+  },
+  "version": "1.0.0"
+}

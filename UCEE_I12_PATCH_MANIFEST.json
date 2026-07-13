@@ -1,0 +1,22 @@
+{
+  "atomic_concept_count": 8,
+  "authority_boundary": "offline statistical evidence and promotion governance only; no trading or network authority",
+  "created_at_utc": "2026-07-13T08:41:57Z",
+  "cumulative_ucee_test_count": 376,
+  "delivery_document_count": 34,
+  "engineering_policy_check_count": 4,
+  "file_count": 136,
+  "file_hashes": "UCEE_I12_FILE_HASHES.sha256",
+  "file_index": "UCEE_I12_FILE_INDEX.txt",
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_file_count": 11,
+  "next_phase": "UCE-I13 Manual AI Hybrid Policy Graph",
+  "patch_id": "decision-alpha-lab-ucee-i12-unified-statistical-anti-overfit-promotion-governance",
+  "patch_version": "1.0.0",
+  "phase_id": "UCE-I12",
+  "phase_test_count": 86,
+  "public_schema_count": 25,
+  "python_module_count": 18,
+  "suite_count": 7,
+  "title": "Unified Statistical, Anti-Overfit, and Promotion Governance Gate"
+}

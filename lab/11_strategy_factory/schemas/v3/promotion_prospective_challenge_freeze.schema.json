@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_prospective_challenge_freeze.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "challenge_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "challenge_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "decision_rule_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "declaration_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "end_known_time_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "frozen_before_observation": {
+      "const": true
+    },
+    "required_sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "start_known_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "challenge_id",
+    "challenge_version",
+    "declaration_hash",
+    "frozen_before_observation",
+    "start_known_time_ms",
+    "end_known_time_ms",
+    "required_sample_count",
+    "decision_rule_hash"
+  ],
+  "title": "promotion_prospective_challenge_freeze",
+  "type": "object"
+}

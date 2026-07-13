@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "candidate_key": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "challenges": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "reject",
+        "challenge",
+        "promote"
+      ]
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "prospective_freeze_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "residual_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "role": {
+      "enum": [
+        "discovery",
+        "inner_selection",
+        "confirmation",
+        "prospective_challenge",
+        "final_test"
+      ]
+    },
+    "scorecard_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "signed": {
+      "type": "boolean"
+    },
+    "universe_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_id",
+    "candidate_key",
+    "role",
+    "outcome",
+    "policy_hash",
+    "universe_hash",
+    "scorecard_hash",
+    "evidence_bundle_hash",
+    "blockers",
+    "challenges",
+    "residual_risks",
+    "prospective_freeze_hash",
+    "signed"
+  ],
+  "title": "promotion_decision",
+  "type": "object"
+}

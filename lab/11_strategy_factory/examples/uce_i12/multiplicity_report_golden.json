@@ -1,0 +1,23 @@
+{
+  "adjusted_p_values": {
+    "trial_00": 0.01815,
+    "trial_07": 0.006,
+    "trial_08": 0.006
+  },
+  "evidence_hash": "7394f545494cbabb9757746cd7008cae99c88d847a7f72a043e83b5ead6dab7b",
+  "family_counts": {
+    "{\"family_id\":\"golden_family\",\"task_key\":\"classification\",\"threshold_key\":\"threshold.default\",\"trainer_key\":\"trainer.golden\",\"treatment_key\":\"treatment.base\"}": 7,
+    "{\"family_id\":\"golden_family\",\"task_key\":\"classification\",\"threshold_key\":\"threshold.default\",\"trainer_key\":\"trainer.golden\",\"treatment_key\":\"treatment.selected\"}": 2
+  },
+  "family_definition_hash": "53d74c3a9a38db6dd08df2ea7c25eb3f96307ead6a574140d425495a5aaa4704",
+  "missing_p_value_count": 6,
+  "rejected_trial_ids": [
+    "trial_00",
+    "trial_07",
+    "trial_08"
+  ],
+  "report_id": "multiplicity_7394f545494cbabb9757746c",
+  "tested_choice_count": 3,
+  "total_choice_count": 9,
+  "universe_hash": "00ceef5bb33a81df4a70f4cdb5d39f91b53e35fe6002b3bf367ca2fc57abf2c2"
+}

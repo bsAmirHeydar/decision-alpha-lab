@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_universe_reconciliation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_count": {
+      "type": "integer"
+    },
+    "manifest_count": {
+      "type": "integer"
+    },
+    "missing_from_ledger": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "missing_from_manifest": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "missing_from_universe": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "universe_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "complete",
+    "universe_count",
+    "ledger_count",
+    "manifest_count",
+    "missing_from_universe",
+    "missing_from_ledger",
+    "missing_from_manifest",
+    "evidence_hash"
+  ],
+  "title": "promotion_universe_reconciliation",
+  "type": "object"
+}

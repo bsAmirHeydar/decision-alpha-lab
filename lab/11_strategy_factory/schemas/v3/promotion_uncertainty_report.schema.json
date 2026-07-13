@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_uncertainty_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "effective_sample_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "estimate": {
+      "type": "number"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "lower": {
+      "type": "number"
+    },
+    "method": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "nominal_sample_size": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "report_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "standard_error": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "subgroup_reports": {
+      "type": "object"
+    },
+    "upper": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "report_id",
+    "estimate",
+    "lower",
+    "upper",
+    "standard_error",
+    "nominal_sample_size",
+    "effective_sample_size",
+    "method",
+    "confidence",
+    "seed",
+    "evidence_hash",
+    "subgroup_reports"
+  ],
+  "title": "promotion_uncertainty_report",
+  "type": "object"
+}

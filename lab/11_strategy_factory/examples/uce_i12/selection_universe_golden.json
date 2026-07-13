@@ -1,0 +1,213 @@
+{
+  "dataset_hash": "5b4f24b3eb8f29c0e5f55e5c038fbeb213eb8a3fc53d64f07bf32c93afd26138",
+  "declared_trial_count": 9,
+  "economics_hash": "970a9730516129ced879bb092abf22555e320d993951b7ede6494bf61a611698",
+  "experiment_manifest_hash": "250ff75faa67432167098871e3e68875e55c94b7a4212f47584622ca55325444",
+  "known_time_hash": "b556e9c16e8278385e35af1f335ea5c42941a3de3fe744b2ef7ef3f578f33680",
+  "ledger_complete": true,
+  "selection_ledger_hash": "1f96d485643edf6739ce46df9aff975ed2c4abc130ee56c47e0da92651156c1a",
+  "split_hash": "5affcae7f6fe408bc6b4f30d46a5aa688ce1b1216c518ca4c2424697798bca8d",
+  "target_hash": "2f8a95e017d919e25f096d5e161552086b1b6af67ce305264b6b40e496b86b66",
+  "trials": [
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "attempted",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_00",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "0af163baf817d6e1fcae79e2a6026a1bc5b9384307fee0fb89a16cd0fc4d106d",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 0
+      },
+      "p_value": 0.001,
+      "score": 1.2,
+      "seed": 0,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_00"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "failed",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_01",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "4b74f84a241d02acfc322f429d119ee67818fe90269b15fe53a76c726bbbb278",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 1
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 1,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_01"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "pruned",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_02",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "444b63c74f056a0bd5241abb8c8dd92c80bd423c773421bc0663319e06db079e",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 2
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 2,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_02"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "skipped",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_00",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "3bc66e3ae478fa5f68fe6e277774d67d8a0ec53523dc24d65f8e8409cc0da2fe",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 3
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 3,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_03"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "invalid",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_01",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "c02e462c5a9afa5161736b37582133e832af7fdd38d70b5a17863ceef278ba66",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 4
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 4,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_04"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "timed_out",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_02",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "eea97161409e08e681ac19a8ea192b474bd677179e2797def8dca1ed9b2ab795",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 5
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 5,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_05"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "cancelled",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_00",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "9afa362eb9e71ce6d315184dcbd0426176422358f8ea8b9c5b7b302c1418dbee",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 6
+      },
+      "p_value": null,
+      "score": null,
+      "seed": 6,
+      "selected": false,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.base",
+      "trial_id": "trial_06"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "selected",
+      "ensembled": false,
+      "family_id": "golden_family",
+      "fold_id": "wf_01",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "51017503345e153fedaec47e402341ec40bf83ba93d4afb0bc4404a9a976c881",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 7
+      },
+      "p_value": 0.002,
+      "score": 1.1,
+      "seed": 7,
+      "selected": true,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.selected",
+      "trial_id": "trial_07"
+    },
+    {
+      "candidate_key": "uce.candidate.golden",
+      "disposition": "ensembled",
+      "ensembled": true,
+      "family_id": "golden_family",
+      "fold_id": "wf_02",
+      "integrity_blockers": [],
+      "ledger_entry_hash": "0c8ada6b89cf57824f77554c88946e02ba3472710a53990bc0952ba773060531",
+      "manual_override": false,
+      "metadata": {
+        "attempt_index": 8
+      },
+      "p_value": 0.004,
+      "score": 1.05,
+      "seed": 8,
+      "selected": true,
+      "task_key": "classification",
+      "threshold_key": "threshold.default",
+      "trainer_key": "trainer.golden",
+      "treatment_key": "treatment.selected",
+      "trial_id": "trial_08"
+    }
+  ],
+  "universe_id": "uce_i12_golden_universe",
+  "universe_version": "1.0.0"
+}

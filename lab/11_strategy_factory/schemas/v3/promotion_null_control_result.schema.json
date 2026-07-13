@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_null_control_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "control_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "matched_time",
+        "matched_context",
+        "random_direction",
+        "label_permutation",
+        "placebo_trigger",
+        "delayed_trigger",
+        "random_treatment",
+        "manual_baseline"
+      ]
+    },
+    "null_metric": {
+      "type": "number"
+    },
+    "observed_metric": {
+      "type": "number"
+    },
+    "p_value": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "warn",
+        "fail",
+        "missing",
+        "not_applicable"
+      ]
+    },
+    "uplift": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "control_id",
+    "kind",
+    "observed_metric",
+    "null_metric",
+    "uplift",
+    "p_value",
+    "status",
+    "sample_count",
+    "evidence_hash",
+    "details"
+  ],
+  "title": "promotion_null_control_result",
+  "type": "object"
+}

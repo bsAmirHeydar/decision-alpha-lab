@@ -1,0 +1,109 @@
+{
+  "registry_hash": "c0648142de62b55a03582099e14cae5b0804733909c27f121918bea48acc2274",
+  "suites": {
+    "uce.promotion.calibration": {
+      "critical": false,
+      "deterministic": true,
+      "key": "uce.promotion.calibration",
+      "outputs": [
+        "calibration_report"
+      ],
+      "required_inputs": [
+        "oof_probabilities",
+        "labels",
+        "conformal_intervals"
+      ],
+      "seed_required": false,
+      "version": "1.0.0"
+    },
+    "uce.promotion.multiplicity": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.multiplicity",
+      "outputs": [
+        "multiplicity_report"
+      ],
+      "required_inputs": [
+        "selection_universe",
+        "family_definition"
+      ],
+      "seed_required": false,
+      "version": "1.0.0"
+    },
+    "uce.promotion.null_controls": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.null_controls",
+      "outputs": [
+        "null_control_results"
+      ],
+      "required_inputs": [
+        "observed",
+        "null_plan"
+      ],
+      "seed_required": true,
+      "version": "1.0.0"
+    },
+    "uce.promotion.scorecard": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.scorecard",
+      "outputs": [
+        "promotion_decision",
+        "signed_bundle"
+      ],
+      "required_inputs": [
+        "all_evidence",
+        "promotion_policy"
+      ],
+      "seed_required": false,
+      "version": "1.0.0"
+    },
+    "uce.promotion.stress": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.stress",
+      "outputs": [
+        "stress_results"
+      ],
+      "required_inputs": [
+        "baseline_returns",
+        "stress_plan"
+      ],
+      "seed_required": true,
+      "version": "1.0.0"
+    },
+    "uce.promotion.uncertainty": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.uncertainty",
+      "outputs": [
+        "uncertainty_report"
+      ],
+      "required_inputs": [
+        "returns",
+        "dependence_identity"
+      ],
+      "seed_required": true,
+      "version": "1.0.0"
+    },
+    "uce.promotion.winner_overfit": {
+      "critical": true,
+      "deterministic": true,
+      "key": "uce.promotion.winner_overfit",
+      "outputs": [
+        "pbo",
+        "deflated_performance",
+        "reality_check",
+        "spa"
+      ],
+      "required_inputs": [
+        "performance_matrix",
+        "trial_universe"
+      ],
+      "seed_required": true,
+      "version": "1.0.0"
+    }
+  },
+  "version": "1.0.0"
+}

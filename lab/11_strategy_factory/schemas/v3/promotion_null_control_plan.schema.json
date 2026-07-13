@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_null_control_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "controls": {
+      "items": {
+        "enum": [
+          "matched_time",
+          "matched_context",
+          "random_direction",
+          "label_permutation",
+          "placebo_trigger",
+          "delayed_trigger",
+          "random_treatment",
+          "manual_baseline"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "identity_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "iterations": {
+      "minimum": 100,
+      "type": "integer"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "plan_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "plan_id",
+    "plan_version",
+    "controls",
+    "alpha",
+    "iterations",
+    "seed",
+    "identity_hash"
+  ],
+  "title": "promotion_null_control_plan",
+  "type": "object"
+}

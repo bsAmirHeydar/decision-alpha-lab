@@ -1,0 +1,36 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_reality_check_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "iterations": {
+      "minimum": 100,
+      "type": "integer"
+    },
+    "observed_best_mean": {
+      "type": "number"
+    },
+    "p_value": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "observed_best_mean",
+    "p_value",
+    "iterations",
+    "candidate_count",
+    "evidence_hash"
+  ],
+  "title": "promotion_reality_check_report",
+  "type": "object"
+}

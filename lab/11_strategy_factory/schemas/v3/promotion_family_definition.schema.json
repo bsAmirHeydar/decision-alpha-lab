@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_family_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "correction": {
+      "enum": [
+        "bonferroni",
+        "holm",
+        "benjamini_hochberg",
+        "benjamini_yekutiely"
+      ]
+    },
+    "dimensions": {
+      "items": {
+        "enum": [
+          "family_id",
+          "task_key",
+          "trainer_key",
+          "treatment_key",
+          "threshold_key",
+          "candidate_key",
+          "fold_id",
+          "seed"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "family_definition_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "include_missing_p_values": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "family_definition_id",
+    "dimensions",
+    "correction",
+    "alpha",
+    "include_missing_p_values"
+  ],
+  "title": "promotion_family_definition",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "allow_manual_override_to_promote": false,
+  "alpha": 0.05,
+  "coverage_tolerance": 0.08,
+  "critical_families": [
+    "integrity",
+    "causality",
+    "selection",
+    "multiplicity",
+    "parity",
+    "safety"
+  ],
+  "mandatory_nulls": [
+    "manual_baseline",
+    "matched_time",
+    "random_direction"
+  ],
+  "maximum_ece": 0.12,
+  "maximum_pbo": 0.35,
+  "maximum_reality_check_p": 0.1,
+  "minimum_deflated_probability": 0.8,
+  "minimum_effective_sample_size": 8.0,
+  "minimum_score": 0.75,
+  "minimum_stress_retention": 0.55,
+  "policy_id": "uce_i12_golden_policy",
+  "policy_version": "1.0.0"
+}

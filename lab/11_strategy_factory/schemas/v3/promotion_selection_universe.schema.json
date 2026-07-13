@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_selection_universe.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dataset_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "declared_trial_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "economics_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "experiment_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_complete": {
+      "const": true
+    },
+    "selection_ledger_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "target_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "trials": {
+      "items": {
+        "$ref": "promotion_trial_evidence.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "universe_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "universe_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "universe_id",
+    "universe_version",
+    "experiment_manifest_hash",
+    "selection_ledger_hash",
+    "dataset_hash",
+    "split_hash",
+    "target_hash",
+    "economics_hash",
+    "known_time_hash",
+    "trials",
+    "declared_trial_count",
+    "ledger_complete"
+  ],
+  "title": "promotion_selection_universe",
+  "type": "object"
+}

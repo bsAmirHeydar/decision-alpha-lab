@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/promotion_model_risk_scorecard.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_scores": {
+      "additionalProperties": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "critical_blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "high_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "residual_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "scorecard_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]*$",
+      "type": "string"
+    },
+    "weighted_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "scorecard_id",
+    "component_scores",
+    "weighted_score",
+    "critical_blockers",
+    "high_risks",
+    "residual_risks",
+    "evidence_hash"
+  ],
+  "title": "promotion_model_risk_scorecard",
+  "type": "object"
+}

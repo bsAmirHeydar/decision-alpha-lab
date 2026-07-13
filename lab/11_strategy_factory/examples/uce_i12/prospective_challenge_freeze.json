@@ -1,0 +1,10 @@
+{
+  "challenge_id": "uce_i12_golden_prospective",
+  "challenge_version": "1.0.0",
+  "decision_rule_hash": "b559c8b7b9f5f508fc3d08d30ae5dc28cc13c6a9683bef490ae85e8a860c54b4",
+  "declaration_hash": "9917b253e82c8ef4d80c6d29f7a57dc4e65f744fddecf0cefb191bf3d57308a7",
+  "end_known_time_ms": 1900000000000,
+  "frozen_before_observation": true,
+  "required_sample_count": 100,
+  "start_known_time_ms": 1800000000000
+}
