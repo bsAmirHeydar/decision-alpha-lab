@@ -6,7 +6,7 @@
 #include "FP_NodeScaleList.mqh"
 #include "FP_SequenceEngine.mqh"
 
-#define FP_NDS_F2_HTF_PHASE_FILTER_VERSION "NDS-F2-HTF-F-PHASE-01"
+#define FP_NDS_F2_HTF_PHASE_FILTER_VERSION "NDS-F2-HTF-F-PHASE-02"
 
 enum FP_NDSF2HigherTimeframePhaseState
 {
@@ -19,10 +19,22 @@ enum FP_NDSF2HigherTimeframePhaseState
    FP_NDS_F2_HTF_PHASE_F_BEARISH = 6
 };
 
+enum FP_NDSF2HigherTimeframeF1F2WindowState
+{
+   FP_NDS_F2_HTF_F1_F2_WINDOW_DISABLED = 0,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_NOT_EVALUATED = 1,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING = 2,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS = 3,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM = 4,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_OPEN = 5,
+   FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM = 6
+};
+
 struct FP_NDSF2HigherTimeframePhaseConfig
 {
    bool enabled;
    ENUM_TIMEFRAMES timeframe;
+   bool require_f1_confirmed_before_f2_confirmed_window;
    bool cancel_disallowed_pending_orders;
 
    int requested_bars;
@@ -55,6 +67,19 @@ struct FP_NDSF2HigherTimeframePhaseSnapshot
    int state;
    int allowed_direction;
 
+   bool f1_to_f2_window_evaluated;
+   bool f1_to_f2_window_open;
+   int f1_to_f2_window_state;
+   int selected_sequence_id;
+   int selected_f1_event_id;
+   int selected_f1_status;
+   int selected_f1_lifecycle_status;
+   datetime selected_f1_confirm_time;
+   int selected_f2_event_id;
+   int selected_f2_status;
+   int selected_f2_lifecycle_status;
+   datetime selected_f2_confirm_time;
+
    string symbol;
    ENUM_TIMEFRAMES timeframe;
    datetime source_open_bar_time;
@@ -86,6 +111,7 @@ void FP_ResetNDSF2HigherTimeframePhaseConfig(FP_NDSF2HigherTimeframePhaseConfig 
 {
    cfg.enabled = true;
    cfg.timeframe = PERIOD_H1;
+   cfg.require_f1_confirmed_before_f2_confirmed_window = true;
    cfg.cancel_disallowed_pending_orders = true;
 
    cfg.requested_bars = 900;
@@ -117,6 +143,19 @@ void FP_ResetNDSF2HigherTimeframePhaseSnapshot(FP_NDSF2HigherTimeframePhaseSnaps
    s.gate_open = false;
    s.state = FP_NDS_F2_HTF_PHASE_DATA_NOT_READY;
    s.allowed_direction = FP_DIR_NONE;
+
+   s.f1_to_f2_window_evaluated = false;
+   s.f1_to_f2_window_open = false;
+   s.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_NOT_EVALUATED;
+   s.selected_sequence_id = -1;
+   s.selected_f1_event_id = -1;
+   s.selected_f1_status = FP_STATUS_NONE;
+   s.selected_f1_lifecycle_status = FP_F1_LC_NONE;
+   s.selected_f1_confirm_time = 0;
+   s.selected_f2_event_id = -1;
+   s.selected_f2_status = FP_STATUS_NONE;
+   s.selected_f2_lifecycle_status = FP_F2_LC_NONE;
+   s.selected_f2_confirm_time = 0;
 
    s.symbol = "";
    s.timeframe = PERIOD_CURRENT;
@@ -228,6 +267,136 @@ bool FP_NDSF2HTFEventBeats(const FP_FlagEvent &candidate,
    return (candidate.event_id > current.event_id);
 }
 
+
+bool FP_NDSF2HTFIsConfirmedF1(const FP_FlagEvent &e)
+{
+   return (e.level == FP_LEVEL_F1 &&
+           e.chain_index == 1 &&
+           e.status == FP_STATUS_CONFIRMED &&
+           e.lifecycle_status == FP_F1_LC_CONFIRMED &&
+           e.has_confirm &&
+           e.lifecycle_can_spawn_f2);
+}
+
+bool FP_NDSF2HTFIsConfirmedF2(const FP_FlagEvent &e)
+{
+   return (e.level == FP_LEVEL_F2 &&
+           e.chain_index == 2 &&
+           e.status == FP_STATUS_CONFIRMED &&
+           e.f2_lifecycle_status == FP_F2_LC_CONFIRMED &&
+           e.has_confirm &&
+           e.f2_can_spawn_f3);
+}
+
+bool FP_NDSF2HTFEventBelongsToSelectedSequence(const FP_FlagEvent &e,
+                                               const FP_FlagEvent &selected)
+{
+   if(e.sequence_id != selected.sequence_id) return false;
+   if(e.direction != selected.direction) return false;
+   if(e.scale_L != selected.scale_L) return false;
+   return true;
+}
+
+bool FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow(
+   const FP_FlagEvent &events[],
+   const int selected_index,
+   const FP_NDSF2HigherTimeframePhaseConfig &cfg,
+   FP_NDSF2HigherTimeframePhaseSnapshot &snapshot)
+{
+   snapshot.f1_to_f2_window_evaluated = true;
+   snapshot.f1_to_f2_window_open = false;
+
+   if(!cfg.require_f1_confirmed_before_f2_confirmed_window)
+   {
+      snapshot.f1_to_f2_window_open = true;
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_DISABLED;
+      return true;
+   }
+
+   if(selected_index < 0 || selected_index >= ArraySize(events))
+   {
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
+      return false;
+   }
+
+   FP_FlagEvent selected = events[selected_index];
+   snapshot.selected_sequence_id = selected.sequence_id;
+   if(selected.sequence_id < 0)
+   {
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING;
+      return false;
+   }
+
+   int f1_index = -1;
+   int f1_count = 0;
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(!FP_NDSF2HTFEventBelongsToSelectedSequence(events[i], selected)) continue;
+      if(events[i].level != FP_LEVEL_F1 || events[i].chain_index != 1) continue;
+      f1_index = i;
+      f1_count++;
+   }
+
+   if(f1_count != 1 || f1_index < 0)
+   {
+      snapshot.f1_to_f2_window_state =
+         (f1_count <= 0
+          ? FP_NDS_F2_HTF_F1_F2_WINDOW_SEQUENCE_MISSING
+          : FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS);
+      return false;
+   }
+
+   FP_FlagEvent f1 = events[f1_index];
+   snapshot.selected_f1_event_id = f1.event_id;
+   snapshot.selected_f1_status = f1.status;
+   snapshot.selected_f1_lifecycle_status = f1.lifecycle_status;
+   snapshot.selected_f1_confirm_time = (f1.has_confirm ? f1.confirm.time_anchor : 0);
+
+   if(!FP_NDSF2HTFIsConfirmedF1(f1))
+   {
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM;
+      return false;
+   }
+
+   int f2_index = -1;
+   int f2_count = 0;
+   for(int i=0; i<ArraySize(events); i++)
+   {
+      if(!FP_NDSF2HTFEventBelongsToSelectedSequence(events[i], selected)) continue;
+      if(events[i].level != FP_LEVEL_F2 || events[i].chain_index != 2) continue;
+      if(events[i].parent_sequence_id != f1.sequence_id) continue;
+      if(events[i].parent_event_id != f1.event_id) continue;
+      f2_index = i;
+      f2_count++;
+   }
+
+   if(f2_count > 1)
+   {
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS;
+      return false;
+   }
+
+   if(f2_index >= 0)
+   {
+      FP_FlagEvent f2 = events[f2_index];
+      snapshot.selected_f2_event_id = f2.event_id;
+      snapshot.selected_f2_status = f2.status;
+      snapshot.selected_f2_lifecycle_status = f2.f2_lifecycle_status;
+      snapshot.selected_f2_confirm_time = (f2.has_confirm ? f2.confirm.time_anchor : 0);
+
+      if(FP_NDSF2HTFIsConfirmedF2(f2))
+      {
+         snapshot.f1_to_f2_window_state =
+            FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM;
+         return false;
+      }
+   }
+
+   snapshot.f1_to_f2_window_open = true;
+   snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_OPEN;
+   return true;
+}
+
 void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
                                     const FP_NDSF2HigherTimeframePhaseConfig &src,
                                     FP_Config &cfg)
@@ -273,8 +442,8 @@ void FP_NDSF2HTFBuildDetectorConfig(const string symbol,
 
    cfg.context_symbol = symbol;
    cfg.context_timeframe = EnumToString(src.timeframe);
-   cfg.identity_generation_pass = "nds_f2_htf_f_phase_v1";
-   cfg.identity_config_hash = "htf_f_phase_v1";
+   cfg.identity_generation_pass = "nds_f2_htf_f_phase_v2";
+   cfg.identity_config_hash = "htf_f_phase_v2";
    cfg.verbose_logs = false;
 
    cfg.print_node_sanity = false;
@@ -325,6 +494,9 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
       snapshot.gate_open = true;
       snapshot.state = FP_NDS_F2_HTF_PHASE_DISABLED;
       snapshot.allowed_direction = FP_DIR_NONE;
+      snapshot.f1_to_f2_window_evaluated = true;
+      snapshot.f1_to_f2_window_open = true;
+      snapshot.f1_to_f2_window_state = FP_NDS_F2_HTF_F1_F2_WINDOW_DISABLED;
       snapshot.symbol = symbol;
       snapshot.timeframe = cfg.timeframe;
       snapshot.reason = "higher_timeframe_filter_disabled";
@@ -462,6 +634,7 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
    snapshot.selected_event_status = events[best].status;
    snapshot.selected_event_time = best_time;
    snapshot.selected_event_priority = best_priority;
+   snapshot.selected_sequence_id = events[best].sequence_id;
 
    if(top_direction_conflict)
    {
@@ -481,13 +654,35 @@ bool FP_NDSF2RefreshHigherTimeframePhase(const string symbol,
    }
 
    snapshot.allowed_direction = events[best].direction;
-   snapshot.gate_open = FP_NDSF2HTFDirectionIsValid(snapshot.allowed_direction);
    snapshot.state = (snapshot.allowed_direction == FP_DIR_BULLISH
                      ? FP_NDS_F2_HTF_PHASE_F_BULLISH
                      : FP_NDS_F2_HTF_PHASE_F_BEARISH);
-   snapshot.reason = (snapshot.allowed_direction == FP_DIR_BULLISH
-                      ? "higher_timeframe_canonical_f_bullish"
-                      : "higher_timeframe_canonical_f_bearish");
+
+   bool lifecycle_window_open = FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow(
+      events, best, cfg, snapshot);
+   if(!lifecycle_window_open)
+   {
+      snapshot.gate_open = false;
+      if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_BEFORE_F1_CONFIRM)
+         snapshot.reason = "higher_timeframe_selected_count_before_f1_confirmation";
+      else if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_CLOSED_AFTER_F2_CONFIRM)
+         snapshot.reason = "higher_timeframe_selected_count_f2_already_confirmed";
+      else if(snapshot.f1_to_f2_window_state == FP_NDS_F2_HTF_F1_F2_WINDOW_AMBIGUOUS)
+         snapshot.reason = "higher_timeframe_selected_count_f1_f2_window_ambiguous";
+      else
+         snapshot.reason = "higher_timeframe_selected_count_f1_f2_lineage_missing";
+      return true;
+   }
+
+   snapshot.gate_open = FP_NDSF2HTFDirectionIsValid(snapshot.allowed_direction);
+   if(cfg.require_f1_confirmed_before_f2_confirmed_window)
+      snapshot.reason = (snapshot.allowed_direction == FP_DIR_BULLISH
+                         ? "higher_timeframe_canonical_f_bullish_in_f1_to_f2_window"
+                         : "higher_timeframe_canonical_f_bearish_in_f1_to_f2_window");
+   else
+      snapshot.reason = (snapshot.allowed_direction == FP_DIR_BULLISH
+                         ? "higher_timeframe_canonical_f_bullish"
+                         : "higher_timeframe_canonical_f_bearish");
    return true;
 }
 

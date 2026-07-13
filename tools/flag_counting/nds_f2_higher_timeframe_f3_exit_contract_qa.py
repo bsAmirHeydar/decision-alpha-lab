@@ -50,15 +50,15 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.80"', "expert version", errors)
+    require(expert, '#property version   "1.90"', "expert version", errors)
     require(expert, "FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST", "third exit mode documentation", errors)
     require(expert, "InpF2BTF3ExitHigherTimeframe = PERIOD_H1", "default H1 exit timeframe", errors)
     require(expert, "cfg.higher_timeframe_f3_exit_timeframe = InpF2BTF3ExitHigherTimeframe", "exit timeframe wiring", errors)
     require(expert, "FP_NDSF2ExitModeUsesEntryTimeframeF3(InpF2BTExitMode)", "local-only entry-TF F3 scan", errors)
     require(expert, "PeriodSeconds(resolved_exit_tf) <= PeriodSeconds(_Period)", "strictly-higher timeframe validation", errors)
 
-    require(types, "NDS-F2-WAIST-BREAK-09", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v9", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-10", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v10", "schema version", errors)
     require(types, "FP_NDS_F2_EXIT_HIGHER_TIMEFRAME_F3_FLAG_RETEST = 2", "HTF F3 enum", errors)
     require(types, "higher_timeframe_f3_exit_timeframe", "HTF exit config field", errors)
     for token in (

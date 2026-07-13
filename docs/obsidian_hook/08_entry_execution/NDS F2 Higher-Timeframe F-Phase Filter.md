@@ -19,6 +19,7 @@ Pending orders that no longer match the HTF gate are cancelled by default. Open 
 ```text
 InpF2BTUseHigherTimeframeFPhaseFilter = true
 InpF2BTHigherTimeframe = PERIOD_H1
+InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
 InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
 ```
 
@@ -27,3 +28,8 @@ InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
 - [[../../nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter|Full higher-timeframe filter contract]]
 - [[NDS F2 Waist-Break Point2 Limit Setup]]
 - [[NDS F2 Dual Exit - Fixed F2 or F3 Retest]]
+
+
+## Optional lifecycle window
+
+The selected HTF count can be restricted to the interval after its F1 confirmation and before confirmation of its exact direct-child F2. See [[NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window]].

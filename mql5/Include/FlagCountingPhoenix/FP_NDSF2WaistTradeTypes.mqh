@@ -4,8 +4,8 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 
-#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-09"
-#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v9"
+#define FP_NDS_F2_WAIST_TRADE_VERSION "NDS-F2-WAIST-BREAK-10"
+#define FP_NDS_F2_WAIST_TRADE_SCHEMA_VERSION "nds_f2_waist_break_point2_v10"
 
 
 

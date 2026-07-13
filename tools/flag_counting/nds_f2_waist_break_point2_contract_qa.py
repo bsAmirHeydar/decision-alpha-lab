@@ -48,7 +48,7 @@ def main() -> int:
     bt = content["bt"]
     doc = content["doc"]
 
-    require(expert, '#property version   "1.80"', "expert version", errors)
+    require(expert, '#property version   "1.90"', "expert version", errors)
     require(expert, "InpF2BTEntryBehindF2WaistTicks", "entry offset input", errors)
     require(expert, "InpF2BTStopBehindF1WaistTicks", "stop offset input", errors)
     require(expert, "InpF2BTMinimumRewardRisk = 1.0", "default minimum RR", errors)

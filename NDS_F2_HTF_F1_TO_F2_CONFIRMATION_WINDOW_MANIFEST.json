@@ -1,0 +1,132 @@
+{
+  "patch_name": "NDS_F2_HTF_F1_to_F2_Confirmation_Window_Patch",
+  "created_date": "2026-07-12",
+  "expert_version": "1.90",
+  "contract_version": "NDS-F2-WAIST-BREAK-10",
+  "schema_version": "nds_f2_waist_break_point2_v10",
+  "base_requirement": "Apply after the cumulative NDS F2 Higher-Timeframe F3 Exit patch, or onto a repository already containing Expert 1.80 / contract v9 and the cached HTF F-phase filter.",
+  "summary": "Adds an optional default-on higher-timeframe entry window that uses the same canonical HTF count selected for direction and allows entries only after its exact F1 confirms and before its exact direct-child F2 confirms.",
+  "validation": {
+    "new_contract_qa": "passed",
+    "all_nds_f2_regression_qa": "passed",
+    "engineering_policy": "passed with 0 errors and 0 warnings",
+    "mql5_compatibility": "passed with 0 errors and 0 warnings",
+    "repository_layout": "passed",
+    "include_resolution": "61 files resolved",
+    "brace_balance": "passed",
+    "runtime_print_forbidden": "passed",
+    "metaeditor_compile": "not available in build environment"
+  },
+  "files": [
+    {
+      "path": "INSTALL_NDS_F2_HTF_F1_TO_F2_CONFIRMATION_WINDOW_PATCH.md",
+      "sha256": "b121f6797e116e4a56caf2acdd9f6acdb37894ec3b1ece2ecad630c9f17a32bb",
+      "size_bytes": 1755
+    },
+    {
+      "path": "NDS_F2_HTF_F1_TO_F2_CONFIRMATION_WINDOW_AUDIT_REPORT.md",
+      "sha256": "afb0c2a98eb85ee763838f382b8cc5b08f2f96e88098d929f0cf8e6b86ca2784",
+      "size_bytes": 8031
+    },
+    {
+      "path": "docs/flag_counting/README.md",
+      "sha256": "7462b95220c091d07b4fb26fc33048a18c464363e0a0b3dff6fe7b508fc1eebc",
+      "size_bytes": 23977
+    },
+    {
+      "path": "docs/nds_entry_architecture/README.md",
+      "sha256": "8a0293c1eefe1b9b2cce80b92283b9a6bc9dc2f0867e4e75479a306a07888529",
+      "size_bytes": 7618
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/08_operator_guide.md",
+      "sha256": "2b34cbb0777b25648a055d7a11f32d1f56e45d50f642b11e436846ba6c42f011",
+      "size_bytes": 4192
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/13_higher_timeframe_f_phase_direction_filter.md",
+      "sha256": "05654d95531517ca62dfc0f7d49c72987ed0c6b4dd7397a72060a3fd0b5ddce4",
+      "size_bytes": 7689
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md",
+      "sha256": "fd91e5739633b5410b439cea666cf85535813af47bb06388389c3d62117ac06d",
+      "size_bytes": 6701
+    },
+    {
+      "path": "docs/nds_entry_architecture/f2_waist_break_point2_limit/README.md",
+      "sha256": "c5ef2f60f3502c44dfb5e9185b677fdb78041a4a5729891a9ec4c651b5703425",
+      "size_bytes": 2237
+    },
+    {
+      "path": "docs/obsidian_hook/00_mocs/NDS_ENTRY_EXECUTION_MOC.md",
+      "sha256": "1f0a4341120a59211a946df4c216cbc92e9174ecccf70f58f028103a28cd90ab",
+      "size_bytes": 4494
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F-Phase Filter.md",
+      "sha256": "e29fb17b46237b36099b875e39ae033d1e94fc859f1bcc8a465ed7828e115c6d",
+      "size_bytes": 1327
+    },
+    {
+      "path": "docs/obsidian_hook/08_entry_execution/NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window.md",
+      "sha256": "acbfb23207d16bb4f88d17e69a3bfdc71c2dbe481290938626205a0ae0d4b669",
+      "size_bytes": 1083
+    },
+    {
+      "path": "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+      "sha256": "d24a4ce4cf66cc205651e03394bd7d4466cbe8872b9dd11b5d8cfbf600325322",
+      "size_bytes": 14089
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2HigherTimeframePhaseFilter.mqh",
+      "sha256": "86df1d97b64661de269566c83f894eb16965df0f40e2bacb9c2c4e8a3f4efcf3",
+      "size_bytes": 23534
+    },
+    {
+      "path": "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh",
+      "sha256": "ef93ef414cd877c5b3310ec3f61f0c8f50ee3a8dfbe510a656cfd6440c7e0d0b",
+      "size_bytes": 13014
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_dual_exit_contract_qa.py",
+      "sha256": "2afd39c87b31e5c8c2beb40fcbd9c734e9bdf945fcde2dcc7ab6bfc28b932113",
+      "size_bytes": 5872
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_higher_timeframe_f3_exit_contract_qa.py",
+      "sha256": "a3f60105f2222a6e0edb0241a15eaeca3a7f9c7d30a065ad9e055b2d2e40e33e",
+      "size_bytes": 5742
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_htf_f1_to_f2_window_contract_qa.py",
+      "sha256": "11f45fe9b6fb53cb57463fe9596700f679a19a5fb3e6b38c0395c37b1693ba0c",
+      "size_bytes": 5411
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_htf_f_phase_filter_contract_qa.py",
+      "sha256": "8b2f0df005d6dcb18c58ce8c46e850859d55b4f9b38d09934b3c967f2d2dc72e",
+      "size_bytes": 5752
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_overlap_wider_rr_reprice_contract_qa.py",
+      "sha256": "bca31fdafc91ba9135f949739615ddf3603cf9f47e696c3d092e2c768f49f86c",
+      "size_bytes": 6105
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_per_trade_f3_exit_contract_qa.py",
+      "sha256": "2a980f659ba80d0755ebb1a229019a018df0f8a8b2eb15518d4103ce3030d3a3",
+      "size_bytes": 4269
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_rr_parallel_context_contract_qa.py",
+      "sha256": "2867c9d02afa05ed3442cdd2d2369df041f5b987252290b2c5d6b3225b18b48b",
+      "size_bytes": 6303
+    },
+    {
+      "path": "tools/flag_counting/nds_f2_waist_break_point2_contract_qa.py",
+      "sha256": "9177720493d859f10f9e22470806d3546ec6fde3333b38c22d9293bcb360e90a",
+      "size_bytes": 6508
+    }
+  ]
+}

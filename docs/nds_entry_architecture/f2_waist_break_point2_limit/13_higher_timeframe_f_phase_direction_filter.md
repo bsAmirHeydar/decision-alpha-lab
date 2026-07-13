@@ -149,6 +149,7 @@ Consequences:
 ```text
 InpF2BTUseHigherTimeframeFPhaseFilter = true
 InpF2BTHigherTimeframe = PERIOD_H1
+InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
 InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
 ```
 
@@ -175,7 +176,7 @@ F_BULLISH
 F_BEARISH
 ```
 
-Only the last two states open the gate.
+The bullish and bearish F states open the phase-direction layer. When the optional F1-to-F2 confirmation-window input is enabled, the selected count must additionally be in `OPEN` lifecycle-window state. See [16 — Higher-Timeframe F1-to-F2 Confirmation Window](16_higher_timeframe_f1_to_f2_confirmation_window.md).
 
 ## 10. Performance contract
 
@@ -233,7 +234,19 @@ H1 history not ready
 → retry later
 ```
 
-## 12. Non-goals
+## 12. Optional F1-to-F2 lifecycle window
+
+The phase selector and lifecycle-window filter use the same selected canonical HTF sequence. With the window enabled, direction alone is insufficient:
+
+```text
+selected HTF F1 confirmed
+AND exact direct-child HTF F2 not confirmed
+→ selected HTF direction may authorize entries
+```
+
+Before F1 confirmation and at/after F2 confirmation, the gate is closed. The window is optional and enabled by default. The full contract is in [16 — Higher-Timeframe F1-to-F2 Confirmation Window](16_higher_timeframe_f1_to_f2_confirmation_window.md).
+
+## 13. Non-goals
 
 This filter does not:
 

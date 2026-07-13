@@ -413,3 +413,8 @@ The dedicated F2 Waist-Break Point-2 tester now enables a closed-bar higher-time
 ## F2 exact per-trade F3 exit hotfix
 
 Dynamic F3-retest exits are now bound to the exact F1/F2 lineage and direct child F3 of each position. Parallel trades cannot share a compatible or latest same-direction F3 target. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/14_exact_per_trade_f3_lineage_exit.md`.
+
+
+## F2 v10 — higher-timeframe F1-to-F2 confirmation window
+
+The optional H1 phase gate can now be restricted to the exact lifecycle window of the same canonical higher-timeframe count that supplies direction. With the default enabled, no lower-timeframe entry is authorized before that count's F1 confirms; authorization exists only while its exact direct-child F2 is still unconfirmed; and the gate closes when that F2 confirms. Hook/ND and ambiguous states remain fail-closed. See `docs/nds_entry_architecture/f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.

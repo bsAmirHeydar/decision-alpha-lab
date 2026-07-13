@@ -80,3 +80,15 @@ Use an MT5 hedging account in Strategy Tester when testing simultaneous same-sym
 The default `PERIOD_H1` filter allows only Buy setups during a bullish canonical H1 F phase and only Sell setups during a bearish canonical H1 F phase. If the latest H1 context is Hook/ND or cannot be resolved, the expert sends no new order.
 
 The H1 snapshot uses closed bars and is recalculated only on a new H1 bar. This keeps the lower-timeframe tester fast. The filter may cancel a misaligned pending order, but it does not close an existing position.
+
+
+## Higher-timeframe F1-to-F2 entry window
+
+```text
+InpF2BTUseHigherTimeframeFPhaseFilter = true
+InpF2BTHigherTimeframe = PERIOD_H1
+InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true
+InpF2BTCancelPendingWhenHigherTimeframeDisallows = true
+```
+
+With the window enabled, the selected H1 count authorizes entries only after its F1 confirms and before its exact direct-child F2 confirms. Turning the window input off restores the broader F-phase direction-only gate.

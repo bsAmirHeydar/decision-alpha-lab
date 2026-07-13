@@ -155,3 +155,8 @@ The F2 Waist-Break profile now resolves dynamic exits through `Position → Sour
 ## F2 v9 — higher-timeframe F3 exit
 
 The F2 Point-2 profile now has a third exit mode. A lower-timeframe position can be held until the first eligible canonical same-direction F3 on a configurable higher timeframe forms Leg1 and then its own Waist; TP is armed at that exact Leg1 endpoint. The default exit timeframe is H1. RR remains anchored to the original lower-timeframe F2 Leg2. See `f2_waist_break_point2_limit/15_higher_timeframe_f3_flag_retest_exit.md`.
+
+
+## F2 v10 — higher-timeframe F1-to-F2 confirmation window
+
+The optional higher-timeframe entry gate can now be narrowed to the exact lifecycle interval of the same selected HTF count: after canonical F1 confirmation and strictly before confirmation of its exact direct-child F2. The default is enabled. Direction still comes from the selected canonical F phase; Hook/ND, pre-F1, post-F2, missing-lineage, and ambiguous states fail closed. See `f2_waist_break_point2_limit/16_higher_timeframe_f1_to_f2_confirmation_window.md`.

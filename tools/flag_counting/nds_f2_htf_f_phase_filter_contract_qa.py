@@ -50,14 +50,15 @@ def main() -> int:
     doc = content["doc"]
     obsidian = content["obsidian"]
 
-    require(expert, '#property version   "1.80"', "expert version", errors)
+    require(expert, '#property version   "1.90"', "expert version", errors)
     require(expert, "InpF2BTUseHigherTimeframeFPhaseFilter = true", "enabled default", errors)
     require(expert, "InpF2BTHigherTimeframe = PERIOD_H1", "H1 default", errors)
+    require(expert, "InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true", "F1-to-F2 window default", errors)
     require(expert, "InpF2BTCancelPendingWhenHigherTimeframeDisallows = true", "pending cancel default", errors)
     require(expert, "FP_LoadNDSF2HigherTimeframePhaseConfig", "HTF config loader", errors)
 
-    require(types, "NDS-F2-WAIST-BREAK-09", "contract version", errors)
-    require(types, "nds_f2_waist_break_point2_v9", "schema version", errors)
+    require(types, "NDS-F2-WAIST-BREAK-10", "contract version", errors)
+    require(types, "nds_f2_waist_break_point2_v10", "schema version", errors)
     require(types, "FP_NDS_F2_RUN_PENDING_CANCELLED_HTF_FILTER", "HTF cancellation result", errors)
 
     require(phase, "FP_NDS_F2_HTF_PHASE_F_BULLISH", "bullish F state", errors)
@@ -72,6 +73,7 @@ def main() -> int:
     require(phase, "latest_hook_time >= best_time", "Hook ownership gate", errors)
     require(phase, "snapshot.source_open_bar_time == open_bar", "HTF cache", errors)
     require(phase, "snapshot.gate_open", "entry gate state", errors)
+    require(phase, "FP_NDSF2HTFEvaluateF1ToF2ConfirmationWindow", "lifecycle window", errors)
 
     require(rules, "FP_NDSF2CancelPendingOrdersOutsideDirection", "pending reconciliation", errors)
     require(rules, "direction != allowed_direction", "directional cancellation", errors)
@@ -90,6 +92,7 @@ def main() -> int:
     require(doc, "Higher timeframe in bearish F phase", "bearish contract", errors)
     require(doc, "Higher timeframe in Hook/ND phase", "Hook block contract", errors)
     require(doc, "Existing positions are not force-closed", "position lifecycle", errors)
+    require(doc, "F1-to-F2 confirmation-window", "window documentation", errors)
     require(obsidian, "HTF bullish F → Buy only", "Obsidian bullish summary", errors)
 
     runtime = "\n".join(content[name] for name in (

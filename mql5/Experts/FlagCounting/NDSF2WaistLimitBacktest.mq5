@@ -1,5 +1,5 @@
 #property strict
-#property version   "1.80"
+#property version   "1.90"
 #property description "NDS F2 Point-2 backtest with fixed, local-F3, and higher-timeframe-F3 exits."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSF2WaistBacktestEngine.mqh"
@@ -86,6 +86,10 @@ input int  InpF2BTMaxConcurrentManagedExposures = 0; // 0 = unlimited.
 // allows only Sell setups. Closed higher-timeframe bars are used.
 input bool            InpF2BTUseHigherTimeframeFPhaseFilter = true;
 input ENUM_TIMEFRAMES InpF2BTHigherTimeframe = PERIOD_H1;
+// Optional lifecycle window on the exact HTF count that supplies direction.
+// New entries are authorized only after that count's F1 confirms and strictly
+// before its direct child F2 confirms.
+input bool            InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow = true;
 input bool            InpF2BTCancelPendingWhenHigherTimeframeDisallows = true;
 
 input FP_NDSHookTradeSizingMode InpF2BTSizingMode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
@@ -178,8 +182,8 @@ void FP_LoadNDSF2DetectorConfig(const FP_NDSBacktestRuntimeConfig &runtime_cfg,
    cfg.max_roots_per_scale_direction = 0;
    cfg.context_symbol = _Symbol;
    cfg.context_timeframe = EnumToString(_Period);
-   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v9";
-   cfg.identity_config_hash = "f2_wb2_v9";
+   cfg.identity_generation_pass = "nds_f2_waist_break_point2_v10";
+   cfg.identity_config_hash = "f2_wb2_v10";
 
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;
    cfg.f2_min_parent_size_ratio = InpF2BTF2MinParentSizeRatio;
@@ -249,6 +253,8 @@ void FP_LoadNDSF2HigherTimeframePhaseConfig(FP_NDSF2HigherTimeframePhaseConfig &
    FP_ResetNDSF2HigherTimeframePhaseConfig(cfg);
    cfg.enabled = InpF2BTUseHigherTimeframeFPhaseFilter;
    cfg.timeframe = InpF2BTHigherTimeframe;
+   cfg.require_f1_confirmed_before_f2_confirmed_window =
+      InpF2BTUseHigherTimeframeF1ToF2ConfirmationWindow;
    cfg.cancel_disallowed_pending_orders =
       InpF2BTCancelPendingWhenHigherTimeframeDisallows;
    cfg.boundary_epsilon_points = InpF2BTBoundaryEpsilonPoints;

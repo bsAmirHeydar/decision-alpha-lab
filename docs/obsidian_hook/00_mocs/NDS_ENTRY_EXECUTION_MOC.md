@@ -106,6 +106,7 @@ This profile is independent of HH/F3H setup selection. The F2 Waist is Point 1; 
 - [[NDS F2 Dual Exit - Fixed F2 or F3 Retest]]
 
 - [[../08_entry_execution/NDS F2 Higher-Timeframe F-Phase Filter]]
+- [[../08_entry_execution/NDS F2 Higher-Timeframe F1-to-F2 Confirmation Window]]
 - [[../08_entry_execution/NDS F2 Exact Per-Trade F3 Lineage Exit]]
 - [[../03_architecture/NDS F2 Exact Per-Trade F3 Exit Hotfix]]
 
