@@ -1,0 +1,15 @@
+{
+  "mode": "historical_real",
+  "note": "No real market dataset is embedded in this patch.",
+  "required": [
+    "dataset_hash",
+    "schema_hash",
+    "row_count",
+    "symbols",
+    "known_time_field",
+    "causal_cut_ms",
+    "source_uri"
+  ],
+  "status": "template_only",
+  "version": "1.0.0"
+}

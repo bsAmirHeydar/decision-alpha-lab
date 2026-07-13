@@ -1,0 +1,41 @@
+{
+  "boundary_guard": "pass",
+  "champion_decision": "reject",
+  "champion_decision_reasons": [
+    "tournament_not_reference_only",
+    "paper_mode_prospective",
+    "paper_completed",
+    "paper_no_critical_findings"
+  ],
+  "clean_baseline_patch_verification": "pass",
+  "cumulative_uce_i01_i15": {
+    "failed": 0,
+    "passed": 704
+  },
+  "engineering_policy": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 4,
+    "warnings": 0
+  },
+  "limitations": [
+    "reference fixtures do not establish market edge",
+    "no real historical market dataset is embedded",
+    "no completed untouched prospective paper period exists",
+    "real MetaEditor compilation remains local",
+    "broker fill realism and production key custody remain downstream"
+  ],
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "phase": "UCE-I15",
+  "phase_tests": {
+    "failed": 0,
+    "passed": 116
+  },
+  "prospective_paper_period": "not_started_pending_external",
+  "real_historical_data": "not_embedded_pending_external",
+  "reference_tournament": "pass",
+  "title": "First Real Context Tournament and Prospective Paper Governance",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

@@ -1,0 +1,15 @@
+{
+  "fields": [
+    "decision_hash",
+    "occurrence_id",
+    "known_time_ms",
+    "expected_entry",
+    "observed_entry",
+    "expected_cost",
+    "observed_cost",
+    "disposition",
+    "reason"
+  ],
+  "status": "template_only",
+  "version": "1.0.0"
+}

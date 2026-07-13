@@ -1,0 +1,22 @@
+{
+  "atomic_concepts": 12,
+  "clean_baseline_patch_verification": "pass",
+  "closed_schemas": 25,
+  "cumulative_tests": 704,
+  "delivery_documents": 43,
+  "file_count": 166,
+  "file_index": "UCEE_I15_FILE_INDEX.txt",
+  "hash_manifest": "UCEE_I15_FILE_HASHES.sha256",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_files": 14,
+  "next_phase": "UCE-I16",
+  "phase": "UCE-I15",
+  "phase_tests": 116,
+  "prospective_paper_gate": "pending_external",
+  "python_modules": 22,
+  "real_data_gate": "pending_external",
+  "reference_decision": "reject",
+  "title": "First Real Context Tournament and Prospective Paper Governance",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

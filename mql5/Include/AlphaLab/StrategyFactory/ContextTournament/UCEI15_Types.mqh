@@ -1,0 +1,6 @@
+#ifndef ALPHALAB_UCEI15_TYPES_MQH
+#define ALPHALAB_UCEI15_TYPES_MQH
+enum UCEI15_DATA_MODE{UCEI15_FIXTURE=0,UCEI15_HISTORICAL_REAL=1,UCEI15_PROSPECTIVE_PAPER=2};
+enum UCEI15_DECISION_STATUS{UCEI15_REJECT=0,UCEI15_PENDING=1,UCEI15_CHALLENGE=2,UCEI15_PROMOTE=3};
+struct UCEI15_GateState{bool tournament_not_reference_only;bool bounded_challenger_exists;bool paper_mode_prospective;bool paper_completed;bool paper_untouched;bool paper_no_critical_findings;bool paper_zero_reconciliation_mismatch;};
+#endif

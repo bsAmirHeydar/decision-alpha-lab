@@ -1,5 +1,8 @@
-docs(exp0019): freeze and expand Faerie Protocol context specification v2
+feat(ucee): implement I15 real-context tournament and prospective paper governance
 
-- map 14 owner-confirmed policies and isolate quota consumption as the sole open decision
-- rewrite and expand the Obsidian architecture in English
-- add normative algorithms, WW recency, quota arbitration, reason codes, contracts, ADRs, edge cases, and code-readiness gates
+- add EXP0017 infrastructure pilot and Hook/Zone context contracts
+- freeze nine treatment families and eight algorithm/task families
+- add deterministic folds, budgets, ledger, tournament and bounded challengers
+- add frozen prospective paper plan, fill/cost reconciliation and drift evidence
+- enforce legitimate rejection for fixture or incomplete prospective evidence
+- add closed schemas, MQL5 mirrors, tests, Obsidian documentation and handoff to I16
