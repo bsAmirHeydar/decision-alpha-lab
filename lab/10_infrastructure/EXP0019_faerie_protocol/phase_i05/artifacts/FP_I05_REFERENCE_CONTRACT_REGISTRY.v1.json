@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "contract_count": 12,
+  "contracts": [
+    {
+      "name": "WindowStoreConfig",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "WindowDescriptor",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "SymbolWindowAggregate",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "PairWindowAggregate",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "CalendarDaySelectionItem",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "CalendarDaySelection",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "ReferenceLevel",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "ReferenceTransitionRecord",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "ReferenceSet",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "WindowStoreSnapshot",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "RevisionInvalidation",
+      "version": "1.0.0",
+      "authority": "NONE"
+    },
+    {
+      "name": "WindowStoreCheckpoint",
+      "version": "1.0.0",
+      "authority": "NONE"
+    }
+  ]
+}

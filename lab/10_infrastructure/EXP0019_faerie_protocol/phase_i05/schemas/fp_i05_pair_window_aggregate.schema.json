@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_pair_window_aggregate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptor": {
+      "$ref": "fp_i05_window_descriptor.schema.json"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "left": {
+      "$ref": "fp_i05_symbol_window_aggregate.schema.json"
+    },
+    "pair_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "right": {
+      "$ref": "fp_i05_symbol_window_aggregate.schema.json"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "pair_window_id",
+    "descriptor",
+    "left",
+    "right",
+    "health",
+    "source_revision_id",
+    "reason_codes",
+    "semantic_hash"
+  ],
+  "title": "fp_i05_pair_window_aggregate",
+  "type": "object"
+}

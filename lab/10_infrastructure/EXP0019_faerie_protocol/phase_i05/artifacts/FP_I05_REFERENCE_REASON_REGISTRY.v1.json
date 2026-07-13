@@ -1,0 +1,281 @@
+{
+  "schema_version": "1.0.0",
+  "reason_count": 55,
+  "reasons": [
+    {
+      "code": "FP_RRC_AGGREGATE_OHLC_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_BAR_HASHES_NONCANONICAL",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CALENDAR_DATE_MISSING",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CALENDAR_OFFSET_SELECTED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CHECKPOINT_ACCEPTED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CHECKPOINT_CONFIG_MISMATCH",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CHECKPOINT_PAYLOAD_CORRUPT",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CHECKPOINT_REVISION_MISMATCH",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_CHECKPOINT_VERSION_MISMATCH",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_COVERAGE_THRESHOLD_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_DEPTH_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_DESCRIPTOR_MISMATCH",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_EMPTY_AGGREGATE_HAS_PRICE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_HUNTER_TOUCH_NONCONSUMING",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_LOOKBACK_POLICY_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_MINUTE_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_NONFINITE_VALUE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_PAIR_SYMBOLS_EQUAL",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_PAIR_WINDOW_BLOCKED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_PAIR_WINDOW_DEGRADED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_PAIR_WINDOW_READY",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_BLOCKED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_CONSUMED_BY_PROTECTED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_CREATED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_DUPLICATE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_EVENT_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_EVENT_TIME_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_EXPIRED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_SOURCE_NOT_COMPLETE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_SUPERSEDED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_TIMELINE_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REFERENCE_TRANSITION_ILLEGAL",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REQUIRED_FIELD",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_REVISION_INVALIDATION_COMPUTED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTED_WINDOW_BLOCKED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTED_WINDOW_INCOMPLETE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTED_WINDOW_REQUIRED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTOR_DATE_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTOR_NONCONTIGUOUS",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SELECTOR_OFFSET_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SESSION_KIND_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_SNAPSHOT_TIME_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_STORE_BLOCKED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_STORE_DEGRADED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_STORE_READY",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WEEK_ID_REQUIRED",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_ACTIVE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_COMPLETE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_CONFLICT",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_COUNTS_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_DUPLICATE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_INCOMPLETE",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_INDEX_COLLISION",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_INTERVAL_INVALID",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    },
+    {
+      "code": "FP_RRC_WINDOW_NO_BARS",
+      "phase": "FP-I05",
+      "authority": "NONE"
+    }
+  ]
+}

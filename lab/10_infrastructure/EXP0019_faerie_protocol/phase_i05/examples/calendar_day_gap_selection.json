@@ -1,0 +1,21 @@
+{
+  "anchor_trading_date": "2026-07-14",
+  "depth": 3,
+  "items": [
+    {
+      "offset": 1,
+      "target_date": "2026-07-13",
+      "disposition": "SELECTED"
+    },
+    {
+      "offset": 2,
+      "target_date": "2026-07-12",
+      "disposition": "DATE_MISSING"
+    },
+    {
+      "offset": 3,
+      "target_date": "2026-07-11",
+      "disposition": "SELECTED"
+    }
+  ]
+}

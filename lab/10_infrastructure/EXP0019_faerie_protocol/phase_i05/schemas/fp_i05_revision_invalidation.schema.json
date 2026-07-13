@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_revision_invalidation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_pair_window_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "affected_reference_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "invalidation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "unchanged_prefix_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "invalidation_id",
+    "revision_id",
+    "affected_pair_window_ids",
+    "affected_reference_ids",
+    "unchanged_prefix_hash",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i05_revision_invalidation",
+  "type": "object"
+}

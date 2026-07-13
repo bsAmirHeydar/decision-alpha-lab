@@ -1,0 +1,23 @@
+{
+  "atomic_concept_count": 7,
+  "clean_baseline_patch": "pass",
+  "conformance_check_count": 5,
+  "cumulative_fp_test_count": 330,
+  "delivery_doc_count": 35,
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_entrypoint_count": 2,
+  "mql5_include_count": 9,
+  "next_phase": "FP-I06 Relation Compiler, Hunt Facts, First-Sweep Classification, and Candidates",
+  "phase_id": "FP-I05",
+  "phase_test_count": 51,
+  "phase_title": "Session/Week Window Store, Calendar-Day Selector, and Reference Engine",
+  "phase_version": "1.0.0",
+  "previous_context_regression_count": 50,
+  "public_contract_count": 12,
+  "public_schema_count": 12,
+  "python_module_count": 17,
+  "reference_reason_count": 55,
+  "runtime_authority": "NONE",
+  "status": "IMPLEMENTED_PYTHON_STATIC_AND_CLEAN_PATCH_VALIDATED",
+  "total_executed_test_count": 380
+}

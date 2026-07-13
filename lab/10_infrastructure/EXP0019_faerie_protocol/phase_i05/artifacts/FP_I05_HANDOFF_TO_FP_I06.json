@@ -1,0 +1,35 @@
+{
+  "FP_I06_may_consume": [
+    "WindowStoreSnapshot",
+    "PairWindowAggregate",
+    "CalendarDaySelection",
+    "ReferenceLevel",
+    "ReferenceTransitionRecord",
+    "RevisionInvalidation",
+    "source revision and calendar lineage"
+  ],
+  "FP_I06_may_not_change": [
+    "calendar-day offsets do not compress",
+    "symbol-local reference prices",
+    "only completed windows create references",
+    "hunter touch is non-consuming",
+    "protected touch is consuming",
+    "half-open window boundaries",
+    "bounded revision invalidation"
+  ],
+  "from_phase": "FP-I05",
+  "handoff_hash": "19242825e79e247afb42b7a4970526e1597da1c0abb8dd48c9611479770f4d4b",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "next_golden_tests": [
+    "compile AL/AN/LN/NA/NL/NN relation instances from exact references",
+    "classify first asymmetric M1 sweep",
+    "preserve same-M1 ambiguity evidence",
+    "assign Hunter and Protected roles without consuming on hunter touch"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "runtime_authority": "NONE",
+  "schema_version": "1.0.0",
+  "to_phase": "FP-I06"
+}

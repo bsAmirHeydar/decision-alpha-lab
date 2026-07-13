@@ -1,0 +1,77 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_reference_transition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "enum": [
+        "HUNTER",
+        "PROTECTED",
+        null
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "next_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prior_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "transition": {
+      "enum": [
+        "HUNTER_TOUCH_OBSERVED",
+        "PROTECTED_TOUCH_CONSUMED",
+        "EXPIRED",
+        "SUPERSEDED"
+      ]
+    }
+  },
+  "required": [
+    "event_id",
+    "reference_id",
+    "sequence",
+    "transition",
+    "prior_state",
+    "next_state",
+    "actor",
+    "event_utc_ms",
+    "evidence_id",
+    "reason_code",
+    "event_hash"
+  ],
+  "title": "fp_i05_reference_transition",
+  "type": "object"
+}

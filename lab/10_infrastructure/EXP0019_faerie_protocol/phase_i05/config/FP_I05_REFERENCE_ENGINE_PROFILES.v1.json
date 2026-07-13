@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "profiles": [
+    {
+      "profile_id": "FP-I05-CANONICAL",
+      "calendar_day_depth": 13,
+      "minimum_coverage_ratio": 1.0,
+      "lookback_policy": "CALENDAR_DAY_DEPTH",
+      "reference_reuse_policy": "ALLOW_UNTIL_PROTECTED_TOUCH",
+      "require_completed_reference_windows": true
+    }
+  ]
+}

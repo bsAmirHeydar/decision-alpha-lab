@@ -1,0 +1,24 @@
+---
+phase: FP-I05
+experiment: EXP0019
+context_id: FP-CONTEXT-001
+status: normative
+phase_version: 1.0.0
+language: en
+last_updated: 2026-07-13
+---
+# Calendar Offsets Do Not Compress
+
+## Decision
+
+The selector emits every offset from 1 through depth. Missing dates remain DATE_MISSING evidence instead of being replaced by older available sessions.
+
+## Consequences
+
+- Identity and cache behavior remain deterministic.
+- Failure evidence remains explicit.
+- Any alternative requires a versioned policy and migration evidence.
+
+## Verification
+
+The Python tests, MQL5 self-test/static checks and conformance vectors exercise the accepted and rejected paths.

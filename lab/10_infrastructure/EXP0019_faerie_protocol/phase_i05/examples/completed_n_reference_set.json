@@ -1,0 +1,9 @@
+{
+  "example_id": "FP-I05-EX-N-COMPLETE",
+  "window_kind": "N",
+  "expected_reference_count": 4,
+  "states": [
+    "FRESH"
+  ],
+  "note": "Two symbol-local highs and two symbol-local lows."
+}

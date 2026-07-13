@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_calendar_day_selection.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anchor_trading_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "depth": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "$ref": "fp_i05_calendar_day_selection_item.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "lookback_policy": {
+      "const": "CALENDAR_DAY_DEPTH"
+    },
+    "selection_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "store_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "selection_id",
+    "anchor_trading_date",
+    "depth",
+    "items",
+    "lookback_policy",
+    "store_snapshot_hash",
+    "evidence_hash"
+  ],
+  "title": "fp_i05_calendar_day_selection",
+  "type": "object"
+}

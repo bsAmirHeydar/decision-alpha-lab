@@ -1,0 +1,110 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_reference_level.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "extreme_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "last_transition_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "source_descriptor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_pair_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_trading_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_week_id": {
+      "type": "string"
+    },
+    "source_window_kind": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "W"
+      ]
+    },
+    "state": {
+      "enum": [
+        "FRESH",
+        "HUNTER_SEEN",
+        "CONSUMED_BY_PROTECTED_TOUCH",
+        "EXPIRED",
+        "SUPERSEDED"
+      ]
+    },
+    "state_sequence": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "reference_id",
+    "pair_id",
+    "canonical_symbol",
+    "side",
+    "price",
+    "extreme_utc_ms",
+    "source_pair_window_id",
+    "source_descriptor_id",
+    "source_window_kind",
+    "source_trading_date",
+    "source_week_id",
+    "source_revision_id",
+    "state",
+    "state_sequence",
+    "created_utc_ms",
+    "last_transition_utc_ms",
+    "reason_code",
+    "semantic_hash"
+  ],
+  "title": "fp_i05_reference_level",
+  "type": "object"
+}

@@ -1,0 +1,84 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_window_store_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "health": {
+      "enum": [
+        "READY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "index_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pair_windows": {
+      "items": {
+        "$ref": "fp_i05_pair_window_aggregate.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "references": {
+      "items": {
+        "$ref": "fp_i05_reference_level.schema.json"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_dataset_snapshot_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "pair_id",
+    "config_hash",
+    "source_dataset_snapshot_id",
+    "source_revision_id",
+    "pair_windows",
+    "references",
+    "health",
+    "reason_codes",
+    "created_utc_ms",
+    "index_hash",
+    "semantic_hash"
+  ],
+  "title": "fp_i05_window_store_snapshot",
+  "type": "object"
+}

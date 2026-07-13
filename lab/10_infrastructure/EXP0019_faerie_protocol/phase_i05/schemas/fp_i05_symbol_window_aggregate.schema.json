@@ -1,0 +1,139 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_symbol_window_aggregate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "canonical_symbol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "close": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "conflict_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "descriptor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expected_elapsed_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "expected_total_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "high": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "high_utc_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "low": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "low_utc_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "missing_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "open": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "out_of_coverage_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "present_minutes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_bar_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "ACTIVE",
+        "COMPLETE",
+        "INCOMPLETE",
+        "MISSING",
+        "BLOCKED",
+        "SUPERSEDED"
+      ]
+    }
+  },
+  "required": [
+    "aggregate_id",
+    "descriptor_id",
+    "canonical_symbol",
+    "state",
+    "open",
+    "high",
+    "low",
+    "close",
+    "high_utc_ms",
+    "low_utc_ms",
+    "present_minutes",
+    "expected_elapsed_minutes",
+    "expected_total_minutes",
+    "missing_minutes",
+    "out_of_coverage_minutes",
+    "conflict_minutes",
+    "source_revision_id",
+    "source_bar_hashes",
+    "reason_codes",
+    "semantic_hash"
+  ],
+  "title": "fp_i05_symbol_window_aggregate",
+  "type": "object"
+}

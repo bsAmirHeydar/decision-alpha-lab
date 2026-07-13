@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_window_store_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "calendar_day_depth": {
+      "maximum": 366,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_contract_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "lookback_policy": {
+      "const": "CALENDAR_DAY_DEPTH"
+    },
+    "minimum_coverage_ratio": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "type": "number"
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_reuse_policy": {
+      "const": "ALLOW_UNTIL_PROTECTED_TOUCH"
+    },
+    "require_completed_reference_windows": {
+      "type": "boolean"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "calendar_config_hash",
+    "data_contract_registry_hash",
+    "calendar_day_depth",
+    "minimum_coverage_ratio",
+    "lookback_policy",
+    "reference_reuse_policy",
+    "require_completed_reference_windows",
+    "version"
+  ],
+  "title": "fp_i05_window_store_config",
+  "type": "object"
+}

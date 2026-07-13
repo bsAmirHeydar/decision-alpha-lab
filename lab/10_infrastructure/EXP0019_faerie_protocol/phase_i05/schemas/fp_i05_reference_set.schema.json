@@ -1,0 +1,39 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_reference_set.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "pair_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_set_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "references": {
+      "items": {
+        "$ref": "fp_i05_reference_level.schema.json"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "source_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "reference_set_id",
+    "pair_window_id",
+    "references",
+    "source_revision_id",
+    "evidence_hash"
+  ],
+  "title": "fp_i05_reference_set",
+  "type": "object"
+}

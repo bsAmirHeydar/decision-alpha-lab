@@ -1,0 +1,44 @@
+from enum import Enum
+
+class StrEnum(str, Enum):
+    def __str__(self):
+        return self.value
+
+class WindowBuildState(StrEnum):
+    ACTIVE='ACTIVE'
+    COMPLETE='COMPLETE'
+    INCOMPLETE='INCOMPLETE'
+    MISSING='MISSING'
+    BLOCKED='BLOCKED'
+    SUPERSEDED='SUPERSEDED'
+
+class PairWindowHealth(StrEnum):
+    READY='READY'
+    DEGRADED='DEGRADED'
+    BLOCKED='BLOCKED'
+
+class SelectorDisposition(StrEnum):
+    SELECTED='SELECTED'
+    DATE_MISSING='DATE_MISSING'
+    WINDOW_INCOMPLETE='WINDOW_INCOMPLETE'
+    WINDOW_BLOCKED='WINDOW_BLOCKED'
+
+class ReferenceTransition(StrEnum):
+    HUNTER_TOUCH_OBSERVED='HUNTER_TOUCH_OBSERVED'
+    PROTECTED_TOUCH_CONSUMED='PROTECTED_TOUCH_CONSUMED'
+    EXPIRED='EXPIRED'
+    SUPERSEDED='SUPERSEDED'
+
+class TouchActor(StrEnum):
+    HUNTER='HUNTER'
+    PROTECTED='PROTECTED'
+
+class StoreHealth(StrEnum):
+    READY='READY'
+    DEGRADED='DEGRADED'
+    BLOCKED='BLOCKED'
+
+class CacheDisposition(StrEnum):
+    ACCEPTED='ACCEPTED'
+    REBUILD_REQUIRED='REBUILD_REQUIRED'
+    REJECTED='REJECTED'

@@ -1,0 +1,40 @@
+{
+  "boundary_guard": "pass",
+  "clean_baseline_patch": "pass",
+  "conformance": {
+    "checks": 5,
+    "result": "pass"
+  },
+  "cumulative_fp_tests": {
+    "count": 330,
+    "result": "pass",
+    "suite_mode": "separate invocations because FP-I00 uses a legacy conftest import pattern"
+  },
+  "engineering_policy": {
+    "checks": 4,
+    "errors": 0,
+    "result": "pass",
+    "warnings": 0
+  },
+  "errors": 0,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "phase_id": "FP-I05",
+  "phase_tests": {
+    "count": 51,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "previous_context_regression": {
+    "count": 50,
+    "result": "pass",
+    "suite": "EXP0018 Daye"
+  },
+  "runtime_authority": "NONE",
+  "schema_validation": {
+    "count": 12,
+    "result": "pass"
+  },
+  "total_executed_tests": 380,
+  "warnings": 0
+}

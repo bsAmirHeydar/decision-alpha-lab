@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_window_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "descriptor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_utc_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expected_minutes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "A",
+        "L",
+        "N",
+        "W"
+      ]
+    },
+    "pair_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_calendar_window_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_utc_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trading_date": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trading_day_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "week_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "descriptor_id",
+    "pair_id",
+    "kind",
+    "trading_date",
+    "trading_day_id",
+    "week_id",
+    "start_utc_ms",
+    "end_utc_ms",
+    "expected_minutes",
+    "calendar_config_hash",
+    "source_calendar_window_id",
+    "version"
+  ],
+  "title": "fp_i05_window_descriptor",
+  "type": "object"
+}

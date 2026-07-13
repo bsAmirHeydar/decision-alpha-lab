@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "descriptor_stable": true,
+    "hunter_non_consuming": true,
+    "protected_consumes": true,
+    "reference_count": true,
+    "window_complete": true
+  },
+  "evidence_hash": "6d715cb58cfbc72aff76c7f06aa3935522fcc45ffc19b3477f45f5477fe395b3",
+  "passed": true,
+  "phase": "FP-I05"
+}

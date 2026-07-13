@@ -1,0 +1,6 @@
+{
+  "initial": "FRESH",
+  "hunter_touch": "HUNTER_SEEN",
+  "protected_touch": "CONSUMED_BY_PROTECTED_TOUCH",
+  "invariant": "Hunter touch never consumes the reference."
+}

@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/exp0019/fp-i05/fp_i05_calendar_day_selection_item.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptor_id": {
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "SELECTED",
+        "DATE_MISSING",
+        "WINDOW_INCOMPLETE",
+        "WINDOW_BLOCKED"
+      ]
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expected_window_kind": {
+      "const": "N"
+    },
+    "offset": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "pair_window_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_date": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "offset",
+    "target_date",
+    "expected_window_kind",
+    "disposition",
+    "pair_window_id",
+    "descriptor_id",
+    "reason_code",
+    "evidence_hash"
+  ],
+  "title": "fp_i05_calendar_day_selection_item",
+  "type": "object"
+}
