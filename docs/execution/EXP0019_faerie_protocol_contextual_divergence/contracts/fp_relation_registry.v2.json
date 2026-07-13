@@ -1,0 +1,106 @@
+{
+  "schema_version": "2.0.0",
+  "context_id": "FP-CONTEXT-001",
+  "naming": "REFERENCE_THEN_CHECK",
+  "relations": [
+    {
+      "code": "AL",
+      "reference": {
+        "kind": "A",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "check": {
+        "kind": "L",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "quota_session": "L",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "AN",
+      "reference": {
+        "kind": "A",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "check": {
+        "kind": "N",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "quota_session": "N",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "LN",
+      "reference": {
+        "kind": "L",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "check": {
+        "kind": "N",
+        "scope": "SAME_TRADING_DAY"
+      },
+      "quota_session": "N",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "NA",
+      "reference": {
+        "kind": "N",
+        "scope": "EXACT_PRIOR_CALENDAR_OFFSET"
+      },
+      "check": {
+        "kind": "A",
+        "scope": "CURRENT_TRADING_DAY"
+      },
+      "quota_session": "A",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "NL",
+      "reference": {
+        "kind": "N",
+        "scope": "EXACT_PRIOR_CALENDAR_OFFSET"
+      },
+      "check": {
+        "kind": "L",
+        "scope": "CURRENT_TRADING_DAY"
+      },
+      "quota_session": "L",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "NN",
+      "reference": {
+        "kind": "N",
+        "scope": "EXACT_PRIOR_CALENDAR_OFFSET"
+      },
+      "check": {
+        "kind": "N",
+        "scope": "CURRENT_TRADING_DAY"
+      },
+      "quota_session": "N",
+      "ww_gated": true,
+      "tradeable": true
+    },
+    {
+      "code": "WW",
+      "reference": {
+        "kind": "W",
+        "scope": "PREVIOUS_COMPLETED_NY_WEEK"
+      },
+      "check": {
+        "kind": "W",
+        "scope": "CURRENT_NY_WEEK"
+      },
+      "quota_session": "SESSION_AT_ENTRY_ELIGIBILITY",
+      "ww_gated": false,
+      "tradeable": true,
+      "is_directional_gate": true
+    }
+  ]
+}

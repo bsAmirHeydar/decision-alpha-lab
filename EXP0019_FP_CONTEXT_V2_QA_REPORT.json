@@ -1,0 +1,33 @@
+{
+  "patch_id": "EXP0019-FP-CONTEXT-DOCS-V2",
+  "version": "2.0.0",
+  "generated_at_utc": "2026-07-13T09:26:57Z",
+  "status": "PASS",
+  "metrics": {
+    "markdown_files": 88,
+    "documentation_lines": 7016,
+    "json_contracts": 11,
+    "adrs": 17,
+    "atomic_concepts": 18,
+    "owner_decisions_total": 15,
+    "owner_decisions_confirmed": 14,
+    "open_decisions": 1
+  },
+  "gates": {
+    "all_normative_docs_english": "pass",
+    "all_json_parse": "pass",
+    "decision_mapping": "pass",
+    "live_execution_guard": "pass",
+    "owner_policies_serialized": "pass"
+  },
+  "errors": [],
+  "warnings": [],
+  "implementation_readiness": {
+    "detection": "ready",
+    "drawing": "ready",
+    "ww": "ready",
+    "arbitration": "ready",
+    "paper_execution": "ready_with_explicit_test_profile",
+    "canonical_live_execution": "blocked_by_FP_DEC_012"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "2.0.0",
+  "quota_key_fields": [
+    "context_epoch_id",
+    "trading_day_key",
+    "pair_id",
+    "session_code"
+  ],
+  "scope": "PAIR_GLOBAL_PER_SESSION",
+  "winner_order": [
+    "first_hunt_m1_time",
+    "confirmation_close_time",
+    "relation_code",
+    "direction",
+    "signal_id"
+  ],
+  "reservation": "ATOMIC_COMPARE_AND_SET",
+  "consumption_policy": "UNSET",
+  "live_execution_enabled": false
+}

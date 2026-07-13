@@ -1,0 +1,75 @@
+{
+  "schema_version": "2.0.0",
+  "context_id": "FP-CONTEXT-001",
+  "context_version": "2.0.0-doc-freeze",
+  "decision_set_id": "FP-OWNER-DECISIONS-2026-07-13-V2",
+  "profile": "CANONICAL_RESEARCH",
+  "symbols": [
+    "SPXUSD",
+    "NDXUSD"
+  ],
+  "time": {
+    "timezone": "America/New_York",
+    "first_sweep_authority": "M1_ONLY",
+    "interval_semantics": "HALF_OPEN"
+  },
+  "trading_day": {
+    "start": "18:00:00",
+    "end_exclusive": "17:00:00"
+  },
+  "sessions": {
+    "A": [
+      "18:00:00",
+      "04:00:00"
+    ],
+    "L": [
+      "04:00:00",
+      "09:30:00"
+    ],
+    "N": [
+      "09:30:00",
+      "17:00:00"
+    ]
+  },
+  "weekly_window": {
+    "start": "SUNDAY 18:00:00",
+    "end_exclusive": "FRIDAY 17:00:00",
+    "tradeable": true,
+    "neutralize_on_second_touch": true,
+    "active_resolution": "NEWEST_ACTIVE_CONFIRMED_WW",
+    "no_active_ww": "ALLOW_BOTH_IF_DATA_COMPLETE"
+  },
+  "confirmation": {
+    "timeframe_source": "HOST_CHART",
+    "resolved_timeframe": "RESOLVE_AT_INIT",
+    "deadline_policy": "STRICT_SAME_SESSION_CLOSE"
+  },
+  "historical_n": {
+    "lookback_policy": "CALENDAR_DAY_DEPTH",
+    "lookback_depth": 13,
+    "replace_missing_offsets": false
+  },
+  "reference_lifecycle": {
+    "reuse": "ALLOW_UNTIL_PROTECTED_TOUCH",
+    "side_specific": true
+  },
+  "quota": {
+    "scope": "PAIR_GLOBAL_PER_SESSION",
+    "winner": "EARLIEST_HUNT_M1_TIME",
+    "consumption_policy": "UNSET",
+    "live_execution_enabled": false
+  },
+  "execution": {
+    "ww_direct_tradeable": true,
+    "sell_stop_adjustment": "PLUS_ONE_SPREAD",
+    "risk_uses_adjusted_stop": true
+  },
+  "drawing": {
+    "suppressed_signals": "ALWAYS_VISIBLE_DISTINCT_STYLE",
+    "reason_registry": "fp_reason_code_registry.v2.json"
+  },
+  "relation_registry": "fp_relation_registry.v2.json",
+  "open_decisions": [
+    "FP-DEC-012"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "2.0.0",
+  "machines": {
+    "candidate": [
+      "OBSERVED",
+      "RAW_CANDIDATE",
+      "CONFIRMED",
+      "CANCELLED_SECOND_TOUCH",
+      "EXPIRED_SESSION_DEADLINE",
+      "INVALID_DATA"
+    ],
+    "reference_side": [
+      "FRESH",
+      "HUNTER_SEEN",
+      "CONSUMED_BY_PROTECTED_TOUCH",
+      "EXPIRED",
+      "SUPERSEDED"
+    ],
+    "ww": [
+      "RAW",
+      "CONFIRMED",
+      "NEUTRALIZED",
+      "EXPIRED",
+      "INVALID_DATA"
+    ],
+    "quota": [
+      "AVAILABLE",
+      "RESERVED",
+      "CONSUMED",
+      "RELEASED"
+    ]
+  },
+  "live_guard": "quota consumption transition forbidden while policy=UNSET"
+}

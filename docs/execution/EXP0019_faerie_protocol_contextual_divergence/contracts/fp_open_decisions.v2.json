@@ -1,0 +1,20 @@
+{
+  "schema_version": "2.0.0",
+  "context_id": "FP-CONTEXT-001",
+  "open_decisions": [
+    {
+      "decision_id": "FP-DEC-012",
+      "topic": "quota_consumption_moment",
+      "status": "open",
+      "allowed_options": [
+        "PLAN_CREATED",
+        "ORDER_ATTEMPTED",
+        "ORDER_ACCEPTED",
+        "FILLED",
+        "TWO_STAGE"
+      ],
+      "canonical_live_behavior": "DISABLED_UNTIL_FROZEN",
+      "documentation": "39_QUOTA_CONSUMPTION_EXPLAINER_AND_OPEN_DECISION.md"
+    }
+  ]
+}

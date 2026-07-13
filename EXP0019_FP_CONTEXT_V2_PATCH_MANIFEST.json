@@ -1,0 +1,47 @@
+{
+  "patch_id": "decision-alpha-lab-exp0019-faerie-protocol-context-docs-v2",
+  "patch_version": "2.0.0",
+  "experiment_id": "EXP0019",
+  "context_id": "FP-CONTEXT-001",
+  "title": "Faerie Protocol Contextual Divergence - Owner Decision Freeze and Full English Obsidian Specification",
+  "created_at_utc": "2026-07-13T09:26:57Z",
+  "authority_boundary": "documentation, contracts, architecture, and implementation specification only; no executable strategy code modified",
+  "owner_decisions": {
+    "total": 15,
+    "confirmed": 14,
+    "open": [
+      "FP-DEC-012"
+    ]
+  },
+  "metrics": {
+    "markdown_files": 88,
+    "documentation_lines": 7016,
+    "json_contracts": 11,
+    "adrs": 17,
+    "atomic_concepts": 18,
+    "owner_decisions_total": 15,
+    "owner_decisions_confirmed": 14,
+    "open_decisions": 1
+  },
+  "major_policies": [
+    "CALENDAR_DAY_DEPTH",
+    "ALLOW_UNTIL_PROTECTED_TOUCH",
+    "STRICT_SAME_SESSION_CLOSE",
+    "M1_ONLY",
+    "HOST_CHART_TIMEFRAME_RESOLVED_AT_INIT",
+    "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700",
+    "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH",
+    "WW_GATE_AND_TRADEABLE_SETUP",
+    "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW",
+    "NEWEST_ACTIVE_CONFIRMED_WW_WINS",
+    "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION",
+    "EARLIEST_HUNT_M1_TIME_WINS",
+    "SELL_STOP_PLUS_ONE_SPREAD",
+    "ALWAYS_DRAW_WITH_DISTINCT_STYLE"
+  ],
+  "open_live_execution_policy": "FP-DEC-012 quota consumption moment",
+  "file_count": 113,
+  "file_index": "EXP0019_FP_CONTEXT_V2_FILE_INDEX.txt",
+  "file_hashes": "EXP0019_FP_CONTEXT_V2_FILE_HASHES.sha256",
+  "qa_report": "EXP0019_FP_CONTEXT_V2_QA_REPORT.json"
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": "2.0.0",
+  "decision_set_id": "FP-OWNER-DECISIONS-2026-07-13-V2",
+  "context_id": "FP-CONTEXT-001",
+  "source_language": "fa",
+  "decisions": [
+    {
+      "decision_id": "FP-DEC-001",
+      "question": "N lookback counting",
+      "owner_option": "A",
+      "canonical_policy": "CALENDAR_DAY_DEPTH",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Count exact calendar-day offsets; weekends and missing-data days occupy offsets and are not replaced by older valid sessions."
+    },
+    {
+      "decision_id": "FP-DEC-002",
+      "question": "Reference reuse across later stages",
+      "owner_option": "B",
+      "canonical_policy": "ALLOW_UNTIL_PROTECTED_TOUCH",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "A reference side remains eligible across later check windows until the protected symbol touches that same side; hunter touch alone does not globally consume it."
+    },
+    {
+      "decision_id": "FP-DEC-003",
+      "question": "Confirmation crossing session boundary",
+      "owner_option": "B",
+      "canonical_policy": "STRICT_SAME_SESSION_CLOSE",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "The confirmation candle must close inside the owning check session; otherwise the candidate expires and is never transferred to the next session."
+    },
+    {
+      "decision_id": "FP-DEC-004",
+      "question": "First-sweep time authority",
+      "owner_option": "A",
+      "canonical_policy": "M1_ONLY",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Historical and live first-sweep ordering use M1 only; ticks do not change the canonical winner."
+    },
+    {
+      "decision_id": "FP-DEC-005",
+      "question": "Confirmation timeframe",
+      "owner_option": "A",
+      "canonical_policy": "HOST_CHART_TIMEFRAME_RESOLVED_AT_INIT",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Use the current chart timeframe, resolve it at initialization, and include the resolved timeframe in configuration and signal identity."
+    },
+    {
+      "decision_id": "FP-DEC-006",
+      "question": "Weekly window boundary",
+      "owner_option": "B",
+      "canonical_policy": "NY_TRADING_WEEK_SUN_1800_TO_FRI_1700",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Build weekly windows in America/New_York time from Sunday 18:00 inclusive to Friday 17:00 exclusive, DST-aware and broker-independent."
+    },
+    {
+      "decision_id": "FP-DEC-007",
+      "question": "WW lifecycle neutralization",
+      "owner_option": "C",
+      "canonical_policy": "NEUTRALIZE_ON_SECOND_SYMBOL_TOUCH",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "A previously asymmetric weekly context becomes neutralized when the second symbol touches the corresponding weekly side; historical evidence is retained."
+    },
+    {
+      "decision_id": "FP-DEC-008",
+      "question": "WW tradeability",
+      "owner_option": "B",
+      "canonical_policy": "WW_GATE_AND_TRADEABLE_SETUP",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "WW is both a directional gate for lower relations and an independently executable setup, subject to the same risk, quota, and geometry controls."
+    },
+    {
+      "decision_id": "FP-DEC-009",
+      "question": "No active WW behavior",
+      "owner_option": "A",
+      "canonical_policy": "ALLOW_BOTH_DIRECTIONS_WHEN_NO_ACTIVE_WW",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "When weekly data is valid but no active WW exists, both directions are permitted. Missing weekly data remains a distinct fail-closed data state."
+    },
+    {
+      "decision_id": "FP-DEC-010",
+      "question": "Opposing WW conflict",
+      "owner_option": "B",
+      "canonical_policy": "NEWEST_ACTIVE_CONFIRMED_WW_WINS",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "The most recently confirmed, still-active WW controls direction. Older opposite WW events remain in the ledger but are not the active gate."
+    },
+    {
+      "decision_id": "FP-DEC-011",
+      "question": "Session quota scope",
+      "owner_option": "A",
+      "canonical_policy": "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Across the two symbols and all relations, only the first eligible entry in each A/L/N session may proceed."
+    },
+    {
+      "decision_id": "FP-DEC-012",
+      "question": "Quota consumption moment",
+      "owner_option": "UNANSWERED",
+      "canonical_policy": "OPEN_QUOTA_CONSUMPTION_MOMENT",
+      "status": "OPEN_DECISION",
+      "normative_interpretation": "Owner requested clarification. Detection, drawing, arbitration, and reservation can be implemented; permanent quota consumption for live execution must remain configurable or disabled until frozen."
+    },
+    {
+      "decision_id": "FP-DEC-013",
+      "question": "Simultaneous signal priority",
+      "owner_option": "A",
+      "canonical_policy": "EARLIEST_HUNT_M1_TIME_WINS",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "The primary winner is the candidate with the earliest canonical M1 hunt time. Stable technical tie-breaks apply only when hunt timestamps are equal."
+    },
+    {
+      "decision_id": "FP-DEC-014",
+      "question": "SELL stop spread adjustment",
+      "owner_option": "B",
+      "canonical_policy": "SELL_STOP_PLUS_ONE_SPREAD",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "For SELL trades, protective stop equals the raw structural stop plus one contemporaneous spread snapshot; risk sizing uses the adjusted stop distance."
+    },
+    {
+      "decision_id": "FP-DEC-015",
+      "question": "Suppressed signal drawing",
+      "owner_option": "B",
+      "canonical_policy": "ALWAYS_DRAW_WITH_DISTINCT_STYLE",
+      "status": "OWNER_CONFIRMED",
+      "normative_interpretation": "Signals suppressed by WW, quota, data state, or execution eligibility remain visible with distinct color/opacity/style and explicit reason codes."
+    }
+  ],
+  "open_decision_ids": [
+    "FP-DEC-012"
+  ]
+}

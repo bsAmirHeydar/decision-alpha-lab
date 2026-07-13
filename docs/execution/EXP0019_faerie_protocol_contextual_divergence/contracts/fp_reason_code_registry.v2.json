@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.0.0",
+  "context_id": "FP-CONTEXT-001",
+  "reasons": [
+    {
+      "code": "CONFIRMED_ACTIVE",
+      "meaning": "Normal confirmed signal",
+      "default_style": "solid/high opacity"
+    },
+    {
+      "code": "SUPPRESSED_BY_WW",
+      "meaning": "Direction conflicts with active WW",
+      "default_style": "dashed/medium opacity"
+    },
+    {
+      "code": "SUPPRESSED_BY_QUOTA",
+      "meaning": "Another earlier signal owns pair-session quota",
+      "default_style": "dotted/medium opacity"
+    },
+    {
+      "code": "WW_NONE_ALLOW_BOTH",
+      "meaning": "No active WW with complete data",
+      "default_style": "normal plus context badge"
+    },
+    {
+      "code": "WW_DATA_INCOMPLETE",
+      "meaning": "Weekly data insufficient",
+      "default_style": "warning/low opacity"
+    },
+    {
+      "code": "WW_NEUTRALIZED",
+      "meaning": "Second symbol touched corresponding weekly side",
+      "default_style": "muted neutral"
+    },
+    {
+      "code": "CONFIRMATION_DEADLINE_MISSED",
+      "meaning": "Chart candle closed outside owning session",
+      "default_style": "expired style"
+    },
+    {
+      "code": "SYMMETRIC_SAME_M1",
+      "meaning": "Both symbols touched in same M1",
+      "default_style": "neutral diagnostic"
+    },
+    {
+      "code": "REFERENCE_INCOMPLETE",
+      "meaning": "Source window incomplete",
+      "default_style": "warning diagnostic"
+    },
+    {
+      "code": "REFERENCE_CONSUMED",
+      "meaning": "Protected side previously touched",
+      "default_style": "muted unavailable"
+    },
+    {
+      "code": "SELL_SPREAD_UNAVAILABLE",
+      "meaning": "Cannot form adjusted SELL stop",
+      "default_style": "execution warning"
+    },
+    {
+      "code": "GEOMETRY_INVALID",
+      "meaning": "Broker/local stop geometry invalid",
+      "default_style": "execution warning"
+    },
+    {
+      "code": "QUOTA_POLICY_UNSET",
+      "meaning": "Live execution disabled pending Q12",
+      "default_style": "critical diagnostic"
+    },
+    {
+      "code": "CANCELLED_BY_SECOND_TOUCH",
+      "meaning": "Protected symbol touched before confirmation",
+      "default_style": "cancelled style"
+    },
+    {
+      "code": "NON_CANONICAL_PROFILE",
+      "meaning": "Research override active",
+      "default_style": "distinct banner/style"
+    }
+  ]
+}
