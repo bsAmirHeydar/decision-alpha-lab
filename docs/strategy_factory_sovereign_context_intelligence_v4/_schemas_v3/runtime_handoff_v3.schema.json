@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/runtime_handoff_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_hash": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "object"
+    },
+    "context_hash": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "runtime_handoff_v3",
+      "type": "string"
+    },
+    "feature_order_hash": {
+      "type": "string"
+    },
+    "model_hash": {
+      "type": "string"
+    },
+    "policy_graph_hash": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "admission_hash",
+    "context_hash",
+    "feature_order_hash",
+    "model_hash",
+    "policy_graph_hash"
+  ],
+  "title": "Runtime Handoff V3",
+  "type": "object"
+}

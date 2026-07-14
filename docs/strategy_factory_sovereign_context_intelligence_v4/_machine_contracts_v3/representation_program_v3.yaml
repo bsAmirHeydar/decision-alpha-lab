@@ -1,0 +1,24 @@
+schema_version: 4.0.0
+contract_type: representation_program
+pretraining_roles:
+- exploration
+- training
+forbidden_roles:
+- locked_final
+- prospective
+- shadow
+- live
+objectives:
+- masked_span
+- next_event
+- temporal_contrast
+- cross_view_alignment
+- context_transition
+- missingness_reconstruction
+controls:
+- random_encoder_ablation
+- from_scratch_ablation
+- contamination_canaries
+- linear_probe
+- leave_domain_out
+runtime_authority: false

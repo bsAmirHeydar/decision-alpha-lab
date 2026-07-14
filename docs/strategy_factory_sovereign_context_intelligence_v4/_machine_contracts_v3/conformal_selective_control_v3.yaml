@@ -1,0 +1,12 @@
+schema_version: 4.0.0
+contract_type: conformal_selective_control
+calibration_role: calibration
+outputs:
+- prediction_set
+- treatment_set
+- risk_bound
+- abstain
+assumption_card_required: true
+subgroup_monitoring: true
+nonstationarity_response: reduce_or_recalibrate_new_version
+universal_guarantee_claim: false

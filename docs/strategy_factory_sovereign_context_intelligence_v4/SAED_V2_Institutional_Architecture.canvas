@@ -1,0 +1,315 @@
+{
+  "nodes": [
+    {
+      "id": "ctx",
+      "type": "text",
+      "text": "UCEE Context Truth\nI01–I10",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "lattice",
+      "type": "text",
+      "text": "Setup Ontology +\nFinite Treatment Lattice",
+      "x": 330,
+      "y": 0,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "truth",
+      "type": "text",
+      "text": "Event Truth + Fill/Impact +\nCounterfactual Outcome Cube",
+      "x": 700,
+      "y": 0,
+      "width": 330,
+      "height": 100
+    },
+    {
+      "id": "repr",
+      "type": "text",
+      "text": "Self-Supervised + Foundation +\nSequence/SSM/Graph Representation",
+      "x": 1100,
+      "y": 0,
+      "width": 360,
+      "height": 110
+    },
+    {
+      "id": "tasks",
+      "type": "text",
+      "text": "Multi-Task + Survival +\nDistributional + Ranking",
+      "x": 1510,
+      "y": 0,
+      "width": 320,
+      "height": 110
+    },
+    {
+      "id": "causal",
+      "type": "text",
+      "text": "Causal Treatment Effects +\nHierarchical Meta-Learning",
+      "x": 1100,
+      "y": 180,
+      "width": 360,
+      "height": 110
+    },
+    {
+      "id": "world",
+      "type": "text",
+      "text": "World Model Stress +\nConservative Offline Policy",
+      "x": 1510,
+      "y": 180,
+      "width": 320,
+      "height": 110
+    },
+    {
+      "id": "unc",
+      "type": "text",
+      "text": "Calibration + Conformal +\nOOD + Abstention",
+      "x": 1100,
+      "y": 360,
+      "width": 360,
+      "height": 110
+    },
+    {
+      "id": "search",
+      "type": "text",
+      "text": "Search/HPO + Compute Economics +\nComplete Trial Ledger",
+      "x": 700,
+      "y": 360,
+      "width": 330,
+      "height": 110
+    },
+    {
+      "id": "red",
+      "type": "text",
+      "text": "Independent Red Team +\nAnti-Overfit Promotion",
+      "x": 700,
+      "y": 540,
+      "width": 330,
+      "height": 110
+    },
+    {
+      "id": "agents",
+      "type": "text",
+      "text": "Multi-Agent Research OS\nNo Promotion / No Trading",
+      "x": 330,
+      "y": 360,
+      "width": 300,
+      "height": 110
+    },
+    {
+      "id": "platform",
+      "type": "text",
+      "text": "Lakehouse + Feature/Embedding Store +\nDistributed Reproducibility",
+      "x": 330,
+      "y": 540,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "policy",
+      "type": "text",
+      "text": "I12 Admission → I13 Policy\nManual / AI / Hybrid",
+      "x": 1100,
+      "y": 540,
+      "width": 360,
+      "height": 110
+    },
+    {
+      "id": "runtime",
+      "type": "text",
+      "text": "I14 Immutable Runtime +\nMQL5 Parity",
+      "x": 1510,
+      "y": 540,
+      "width": 320,
+      "height": 110
+    },
+    {
+      "id": "portfolio",
+      "type": "text",
+      "text": "I17 Portfolio / Capital /\nCapacity / Reservation",
+      "x": 1510,
+      "y": 720,
+      "width": 320,
+      "height": 110
+    },
+    {
+      "id": "ops",
+      "type": "text",
+      "text": "I18 Qualification + Authorization +\nRecovery / Monitoring",
+      "x": 1100,
+      "y": 720,
+      "width": 360,
+      "height": 120
+    },
+    {
+      "id": "memory",
+      "type": "text",
+      "text": "Research Memory + Failure Graph +\nActive Experiment Planner",
+      "x": 330,
+      "y": 760,
+      "width": 330,
+      "height": 120
+    },
+    {
+      "id": "gov",
+      "type": "text",
+      "text": "Model Risk + Security +\nOrganization / Quarterly Review",
+      "x": 700,
+      "y": 760,
+      "width": 330,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "ctx",
+      "fromSide": "right",
+      "toNode": "lattice",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "lattice",
+      "fromSide": "right",
+      "toNode": "truth",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "truth",
+      "fromSide": "right",
+      "toNode": "repr",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "repr",
+      "fromSide": "right",
+      "toNode": "tasks",
+      "toSide": "left"
+    },
+    {
+      "id": "e5",
+      "fromNode": "repr",
+      "fromSide": "right",
+      "toNode": "causal",
+      "toSide": "left"
+    },
+    {
+      "id": "e6",
+      "fromNode": "repr",
+      "fromSide": "right",
+      "toNode": "world",
+      "toSide": "left"
+    },
+    {
+      "id": "e7",
+      "fromNode": "tasks",
+      "fromSide": "right",
+      "toNode": "unc",
+      "toSide": "left"
+    },
+    {
+      "id": "e8",
+      "fromNode": "causal",
+      "fromSide": "right",
+      "toNode": "unc",
+      "toSide": "left"
+    },
+    {
+      "id": "e9",
+      "fromNode": "world",
+      "fromSide": "right",
+      "toNode": "unc",
+      "toSide": "left"
+    },
+    {
+      "id": "e10",
+      "fromNode": "unc",
+      "fromSide": "right",
+      "toNode": "search",
+      "toSide": "left"
+    },
+    {
+      "id": "e11",
+      "fromNode": "agents",
+      "fromSide": "right",
+      "toNode": "search",
+      "toSide": "left"
+    },
+    {
+      "id": "e12",
+      "fromNode": "platform",
+      "fromSide": "right",
+      "toNode": "search",
+      "toSide": "left"
+    },
+    {
+      "id": "e13",
+      "fromNode": "search",
+      "fromSide": "right",
+      "toNode": "red",
+      "toSide": "left"
+    },
+    {
+      "id": "e14",
+      "fromNode": "red",
+      "fromSide": "right",
+      "toNode": "policy",
+      "toSide": "left"
+    },
+    {
+      "id": "e15",
+      "fromNode": "policy",
+      "fromSide": "right",
+      "toNode": "runtime",
+      "toSide": "left"
+    },
+    {
+      "id": "e16",
+      "fromNode": "runtime",
+      "fromSide": "right",
+      "toNode": "portfolio",
+      "toSide": "left"
+    },
+    {
+      "id": "e17",
+      "fromNode": "portfolio",
+      "fromSide": "right",
+      "toNode": "ops",
+      "toSide": "left"
+    },
+    {
+      "id": "e18",
+      "fromNode": "red",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left"
+    },
+    {
+      "id": "e19",
+      "fromNode": "memory",
+      "fromSide": "right",
+      "toNode": "gov",
+      "toSide": "left"
+    },
+    {
+      "id": "e20",
+      "fromNode": "gov",
+      "fromSide": "right",
+      "toNode": "ops",
+      "toSide": "left"
+    },
+    {
+      "id": "e21",
+      "fromNode": "ops",
+      "fromSide": "right",
+      "toNode": "memory",
+      "toSide": "left"
+    }
+  ]
+}

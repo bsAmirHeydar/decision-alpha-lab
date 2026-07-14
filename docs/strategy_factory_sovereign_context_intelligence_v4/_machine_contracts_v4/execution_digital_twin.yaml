@@ -1,0 +1,30 @@
+schema_version: 4.0.0
+authority:
+  context_truth: false
+  promotion: false
+  risk: false
+  portfolio: false
+  runtime_activation: false
+  order: false
+required_evidence_roles:
+- development
+- calibration
+- selection_validation
+- locked_final
+- prospective
+fail_closed_states:
+- skip
+- abstain
+- manual_fallback
+- reject
+- quarantine
+contract_type: execution_digital_twin
+contract_id: execution_digital_twin.example.v1
+status: template
+known_time_required: true
+lineage_hashes: []
+owners:
+  primary: unassigned
+  independent_reviewer: unassigned
+limitations:
+- Template only; replace with real signed evidence.

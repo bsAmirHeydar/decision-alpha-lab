@@ -1,0 +1,13 @@
+schema_version: 4.0.0
+contract_type: research_claim
+subject: ''
+predicate: ''
+value: null
+evidence_class: ''
+scope: {}
+uncertainty: {}
+sources: []
+assumptions: []
+owner: ''
+reviewer: ''
+invalidation_criteria: []

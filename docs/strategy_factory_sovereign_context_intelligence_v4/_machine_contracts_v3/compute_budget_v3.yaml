@@ -1,0 +1,15 @@
+schema_version: 4.0.0
+contract_type: compute_budget
+campaign_id: ''
+currency: USD
+allocations:
+  baselines: 0
+  advanced_models: 0
+  falsification: 0
+  replication: 0
+  hidden_evaluation: 0
+  contingency: 0
+protected_budgets:
+- falsification
+- replication
+approval: ''

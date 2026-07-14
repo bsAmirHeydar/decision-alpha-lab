@@ -1,0 +1,10 @@
+schema_version: 4.0.0
+contract_type: exposure_event
+actor_id: ''
+actor_type: human_or_agent
+campaign_id: ''
+artifact_hash: ''
+evidence_role: ''
+exposure_type: view
+known_at: ''
+selection_impact: counted

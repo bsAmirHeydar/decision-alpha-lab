@@ -1,0 +1,25 @@
+schema_version: saed.research-memory.v2
+node_types:
+- context
+- hypothesis
+- feature
+- treatment
+- model
+- dataset
+- experiment
+- failure
+- challenge
+- promotion
+- incident
+- retirement
+edge_types:
+- supports
+- contradicts
+- duplicates
+- extends
+- invalidates
+- depends_on
+- failed_because
+- transports
+negative_evidence_first_class: true
+protected_retrieval_enforced: true

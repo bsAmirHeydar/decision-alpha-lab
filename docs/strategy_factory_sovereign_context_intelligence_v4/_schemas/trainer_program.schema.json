@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Trainer Program",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "trainer_id",
+    "task_ids",
+    "data_manifest_hash",
+    "fold_manifest_hash",
+    "model_ladder",
+    "objective_profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.trainer-program.v2"
+    },
+    "trainer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "data_manifest_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fold_manifest_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_ladder": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "objective_profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_tiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/prospective_challenge_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_opportunities_logged": {
+      "const": true,
+      "type": "boolean"
+    },
+    "contract_type": {
+      "const": "prospective_challenge_v3",
+      "type": "string"
+    },
+    "end_or_stopping_rule": {
+      "type": "string"
+    },
+    "generation_hash": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "start": {
+      "type": "string"
+    },
+    "tuning_allowed": {
+      "const": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "generation_hash",
+    "start",
+    "tuning_allowed",
+    "all_opportunities_logged"
+  ],
+  "title": "Prospective Challenge V3",
+  "type": "object"
+}

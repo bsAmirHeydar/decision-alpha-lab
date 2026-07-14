@@ -1,0 +1,12 @@
+schema_version: 4.0.0
+contract_type: incident_forensic_bundle
+incident_id: ''
+severity: ''
+generation_hash: ''
+snapshots: []
+telemetry_hashes: []
+commands: []
+authorizations: []
+state_reconciliation: pending
+root_cause: unknown
+resume_allowed: false

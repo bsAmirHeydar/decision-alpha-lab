@@ -1,0 +1,20 @@
+schema_version: 4.0.0
+contract_type: causal_treatment_program
+unit: context_occurrence
+treatment: approved_treatment_id
+comparator:
+- skip
+- manual
+- fixed_treatment
+assumptions:
+- consistency
+- positivity
+- conditional_exchangeability_or_partial_identification
+- interference_policy
+methods:
+- cross_fitted_nuisance
+- aipw_dr
+- r_learner
+- causal_forest
+- sensitivity
+claim_fallback: association_only

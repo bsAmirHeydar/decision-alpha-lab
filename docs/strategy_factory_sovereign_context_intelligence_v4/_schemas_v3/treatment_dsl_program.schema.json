@@ -1,0 +1,42 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/treatment_dsl_program.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "contract_type": {
+      "const": "treatment_dsl_program",
+      "type": "string"
+    },
+    "first_class_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "primitive_registries": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "primitive_registries",
+    "constraints"
+  ],
+  "title": "Treatment Dsl Program",
+  "type": "object"
+}

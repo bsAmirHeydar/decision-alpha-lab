@@ -1,0 +1,209 @@
+{
+  "papers": [
+    {
+      "name": "TimesFM",
+      "reference": "arXiv:2310.10688",
+      "saed_use": "Foundation forecasting model; use as governed adapter, not economic oracle.",
+      "title": "A decoder-only foundation model for time-series forecasting"
+    },
+    {
+      "name": "Chronos",
+      "reference": "arXiv:2403.07815",
+      "saed_use": "Tokenized probabilistic time-series foundation model.",
+      "title": "Learning the Language of Time Series"
+    },
+    {
+      "name": "MOMENT",
+      "reference": "arXiv:2402.03885",
+      "saed_use": "Foundation model family for forecasting, classification, anomaly detection and imputation.",
+      "title": "A Family of Open Time-series Foundation Models"
+    },
+    {
+      "name": "Moirai",
+      "reference": "arXiv:2402.02592",
+      "saed_use": "Universal forecasting architecture with varied frequencies and dimensions.",
+      "title": "Unified Training of Universal Time Series Forecasting Transformers"
+    },
+    {
+      "name": "Moirai-MoE",
+      "reference": "arXiv:2410.10469",
+      "saed_use": "Sparse expert routing for heterogeneous time-series patterns.",
+      "title": "Empowering Time Series Foundation Models with Sparse Mixture of Experts"
+    },
+    {
+      "name": "Chronos-2",
+      "reference": "arXiv:2510.15821",
+      "saed_use": "Newer universal forecasting direction; challenger intake requires strict provenance.",
+      "title": "From Univariate to Universal Forecasting"
+    },
+    {
+      "name": "S4",
+      "reference": "arXiv:2111.00396",
+      "saed_use": "Structured state-space baseline for long causal sequences.",
+      "title": "Efficiently Modeling Long Sequences with Structured State Spaces"
+    },
+    {
+      "name": "Mamba",
+      "reference": "arXiv:2312.00752",
+      "saed_use": "Selective state-space architecture for efficient sequence modelling.",
+      "title": "Linear-Time Sequence Modeling with Selective State Spaces"
+    },
+    {
+      "name": "Mamba-2",
+      "reference": "arXiv:2405.21060",
+      "saed_use": "State-space duality and improved sequence architecture.",
+      "title": "Transformers are SSMs"
+    },
+    {
+      "name": "Switch Transformer",
+      "reference": "arXiv:2101.03961",
+      "saed_use": "Sparse mixture-of-experts scaling principles.",
+      "title": "Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"
+    },
+    {
+      "name": "DreamerV3",
+      "reference": "arXiv:2301.04104",
+      "saed_use": "World-model learning; research-only stress and representation use.",
+      "title": "Mastering Diverse Domains through World Models"
+    },
+    {
+      "name": "TD-MPC2",
+      "reference": "arXiv:2310.16828",
+      "saed_use": "Latent model-predictive control; bounded research challenger.",
+      "title": "Scalable, Robust World Models for Continuous Control"
+    },
+    {
+      "name": "CQL",
+      "reference": "arXiv:2006.04779",
+      "saed_use": "Conservative offline value learning to limit unsupported actions.",
+      "title": "Conservative Q-Learning for Offline Reinforcement Learning"
+    },
+    {
+      "name": "IQL",
+      "reference": "arXiv:2110.06169",
+      "saed_use": "Offline policy learning avoiding explicit OOD maximization.",
+      "title": "Offline Reinforcement Learning with Implicit Q-Learning"
+    },
+    {
+      "name": "Decision Transformer",
+      "reference": "arXiv:2106.01345",
+      "saed_use": "Return-conditioned sequence policy; research-only in SAED.",
+      "title": "Reinforcement Learning via Sequence Modeling"
+    },
+    {
+      "name": "Generalized Random Forests",
+      "reference": "arXiv:1610.01271",
+      "saed_use": "Honest heterogeneity and local moment estimation.",
+      "title": "Generalized Random Forests"
+    },
+    {
+      "name": "Causal Forest",
+      "reference": "arXiv:1510.04342",
+      "saed_use": "Causal effect heterogeneity baseline.",
+      "title": "Estimation and Inference of Heterogeneous Treatment Effects using Random Forests"
+    },
+    {
+      "name": "Orthogonal Random Forest",
+      "reference": "arXiv:1806.03467",
+      "saed_use": "Orthogonal nuisance-robust heterogeneous treatment effects.",
+      "title": "Orthogonal Random Forest for Causal Inference"
+    },
+    {
+      "name": "DragonNet",
+      "reference": "arXiv:1906.02120",
+      "saed_use": "Neural causal challenger with targeted regularization.",
+      "title": "Adapting Neural Networks for the Estimation of Treatment Effects"
+    },
+    {
+      "name": "Conformal Meta-Learners",
+      "reference": "arXiv:2308.14895",
+      "saed_use": "Treatment-effect interval challenger under explicit assumptions.",
+      "title": "Conformal Meta-learners for Predictive Inference of Individual Treatment Effects"
+    },
+    {
+      "name": "Conformal Risk Control",
+      "reference": "arXiv:2208.02814",
+      "saed_use": "Calibrate thresholds for bounded loss/risk functions.",
+      "title": "Conformal Risk Control"
+    },
+    {
+      "name": "Deep Ensembles",
+      "reference": "arXiv:1612.01474",
+      "saed_use": "Practical epistemic uncertainty baseline/challenger.",
+      "title": "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles"
+    },
+    {
+      "name": "Flow Matching",
+      "reference": "arXiv:2210.02747",
+      "saed_use": "Synthetic path stress research, not evidence of alpha.",
+      "title": "Flow Matching for Generative Modeling"
+    },
+    {
+      "name": "Large Scale Parallel Training",
+      "reference": "arXiv:2104.04473",
+      "saed_use": "Distributed parallelism and systems design principles.",
+      "title": "Efficient Large-Scale Language Model Training on GPU Clusters"
+    },
+    {
+      "name": "Temporal Fusion Transformer",
+      "reference": "arXiv:1912.09363",
+      "saed_use": "Multi-horizon sequence baseline/challenger.",
+      "title": "Temporal Fusion Transformers for Interpretable Multi-horizon Time Series Forecasting"
+    },
+    {
+      "name": "PatchTST",
+      "reference": "arXiv:2211.14730",
+      "saed_use": "Patch-based sequence representation challenger.",
+      "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers"
+    },
+    {
+      "name": "DLinear",
+      "reference": "arXiv:2205.13504",
+      "saed_use": "Mandatory simple linear/decomposition baseline.",
+      "title": "Are Transformers Effective for Time Series Forecasting?"
+    },
+    {
+      "name": "MAML",
+      "reference": "arXiv:1703.03400",
+      "saed_use": "Cross-context adaptation research challenger.",
+      "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"
+    },
+    {
+      "name": "Adaptive Conformal Inference",
+      "reference": "arXiv:2106.00170",
+      "saed_use": "Sequential calibration challenger under monitored shift.",
+      "title": "Adaptive Conformal Inference Under Distribution Shift"
+    },
+    {
+      "name": "Online Risk Control",
+      "reference": "arXiv:2205.09095",
+      "saed_use": "Online bounded-risk control challenger.",
+      "title": "Achieving Risk Control in Online Learning Settings"
+    },
+    {
+      "name": "Non-Exchangeable Conformal Risk Control",
+      "reference": "arXiv:2310.01262",
+      "saed_use": "Weighted risk-control challenger under shift.",
+      "title": "Non-Exchangeable Conformal Risk Control"
+    },
+    {
+      "name": "Selective Conformal Risk Control",
+      "reference": "arXiv:2512.12844",
+      "saed_use": "Selectivity plus conformal risk-control challenger.",
+      "title": "Selective Conformal Risk Control"
+    },
+    {
+      "name": "Anytime-Valid Conformal Risk Control",
+      "reference": "arXiv:2602.04364",
+      "saed_use": "Anytime-valid cumulative risk-control research direction.",
+      "title": "Anytime-Valid Conformal Risk Control"
+    },
+    {
+      "name": "SCoRE",
+      "reference": "arXiv:2603.24704",
+      "saed_use": "Selective prediction with general risk control; research intake only.",
+      "title": "Conformal Selective Prediction with General Risk Control"
+    }
+  ],
+  "schema_version": "saed.research-bibliography.v2"
+}

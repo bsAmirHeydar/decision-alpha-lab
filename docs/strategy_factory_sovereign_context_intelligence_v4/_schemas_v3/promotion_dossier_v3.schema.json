@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/promotion_dossier_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_hash": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "promotion_dossier_v3",
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kill_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "candidate_hash",
+    "decision"
+  ],
+  "title": "Promotion Dossier V3",
+  "type": "object"
+}

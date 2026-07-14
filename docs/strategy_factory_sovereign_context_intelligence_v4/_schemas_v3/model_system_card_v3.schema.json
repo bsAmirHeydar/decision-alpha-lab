@@ -1,0 +1,59 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/model_system_card_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_tier": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "model_system_card_v3",
+      "type": "string"
+    },
+    "data_manifest_hash": {
+      "type": "string"
+    },
+    "intended_use": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "prohibited_use": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "training_manifest_hash": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "model_id",
+    "version",
+    "capability_tier",
+    "data_manifest_hash",
+    "training_manifest_hash"
+  ],
+  "title": "Model System Card V3",
+  "type": "object"
+}

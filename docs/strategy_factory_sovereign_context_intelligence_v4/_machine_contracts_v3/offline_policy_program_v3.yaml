@@ -1,0 +1,17 @@
+schema_version: 4.0.0
+contract_type: offline_policy_program
+action_space: finite_approved_treatments_plus_skip_abstain
+online_exploration: false
+baselines:
+- behavior_cloning
+- non_rl_selector
+challengers:
+- conservative_value
+- implicit_value
+- safe_policy_switching
+required_ope_count: 3
+forbidden_actions:
+- position_size
+- risk_limit
+- order_submission
+- context_creation

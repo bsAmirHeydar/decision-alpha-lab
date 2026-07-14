@@ -1,0 +1,31 @@
+schema_version: saed.entry-registry.v2
+mechanisms:
+- id: E1_BREAKOUT_WITH_MOVE
+  buys: confirmation
+  pays:
+  - worse_price
+  - slippage
+  - false_breakout
+  required_models:
+  - trigger_probability
+  - slippage
+  - follow_through
+- id: E2_MARKET_IMMEDIATE
+  buys: immediacy_and_fill_certainty
+  pays:
+  - no_price_improvement
+  - immediate_mae
+  required_models:
+  - opportunity_decay
+  - immediate_mae
+- id: E3_PULLBACK_LIMIT
+  buys: price_improvement
+  pays:
+  - non_fill
+  - adverse_selection
+  - expiry
+  - missed_opportunity
+  required_models:
+  - fill_hazard
+  - conditional_outcome
+  - adverse_selection

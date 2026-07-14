@@ -1,0 +1,22 @@
+schema_version: saed.model-card.v2
+sections:
+- identity
+- task
+- capability_tier
+- data_roles
+- features_views
+- architecture
+- training
+- calibration
+- uncertainty
+- support
+- performance
+- economics
+- causal_claims
+- stress
+- limitations
+- runtime_export
+- security
+- lineage
+- owners
+- change_history

@@ -1,0 +1,17 @@
+schema_version: 4.0.0
+contract_type: runtime_handoff
+admission_hash: ''
+context_hash: ''
+feature_order_hash: ''
+preprocessing_hash: ''
+model_hash: ''
+calibration_hash: ''
+policy_graph_hash: ''
+treatment_lattice_hash: ''
+fallback_hash: ''
+monitoring_hash: ''
+rollback_generation: ''
+authority:
+  order: false
+  broker: false
+  network: false

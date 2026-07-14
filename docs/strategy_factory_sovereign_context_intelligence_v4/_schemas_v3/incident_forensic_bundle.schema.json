@@ -1,0 +1,50 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/incident_forensic_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_type": {
+      "const": "incident_forensic_bundle",
+      "type": "string"
+    },
+    "generation_hash": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "resume_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "snapshots": {
+      "type": "array"
+    },
+    "state_reconciliation": {
+      "type": "string"
+    },
+    "telemetry_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "incident_id",
+    "severity",
+    "generation_hash",
+    "state_reconciliation",
+    "resume_allowed"
+  ],
+  "title": "Incident Forensic Bundle",
+  "type": "object"
+}

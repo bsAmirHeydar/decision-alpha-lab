@@ -1,0 +1,39 @@
+schema_version: saed.model-risk-scorecard.v2
+model_id: MODEL_REFERENCE
+model_version: REQUIRED
+capability_tier: governed_challenger
+overall_status: open
+dimensions:
+  data_and_lineage:
+    score: null
+    findings: []
+  methodology_and_selection:
+    score: null
+    findings: []
+  performance_and_stability:
+    score: null
+    findings: []
+  uncertainty_and_support:
+    score: null
+    findings: []
+  explainability_and_fallback:
+    score: null
+    findings: []
+  security_and_supply_chain:
+    score: null
+    findings: []
+  runtime_and_parity:
+    score: null
+    findings: []
+  monitoring_and_recovery:
+    score: null
+    findings: []
+critical_findings_block: true
+waiver_policy:
+  signed: true
+  scoped: true
+  expires: true
+owners:
+  model: REQUIRED
+  independent_validation: REQUIRED
+  risk: REQUIRED

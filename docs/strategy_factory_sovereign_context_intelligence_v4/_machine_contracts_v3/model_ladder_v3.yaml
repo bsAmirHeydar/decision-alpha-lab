@@ -1,0 +1,18 @@
+schema_version: 4.0.0
+contract_type: model_ladder
+levels:
+- skip_all
+- fixed_treatment
+- manual_policy
+- naive_statistics
+- regularized_linear
+- calibrated_tree
+- ranking
+- survival_distributional
+- deep_sequence_graph
+- foundation_adapter
+- world_model_research
+- offline_policy_research
+selection_objective: lower_bound_net_utility
+requires_simple_baseline: true
+advanced_model_default_tier: governed_challenger

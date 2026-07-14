@@ -1,0 +1,286 @@
+{
+  "edges": [
+    {
+      "fromNode": "n1",
+      "fromSide": "right",
+      "id": "en1n2",
+      "toNode": "n2",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n2",
+      "fromSide": "right",
+      "id": "en2n3",
+      "toNode": "n3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n3",
+      "fromSide": "right",
+      "id": "en3n4",
+      "toNode": "n4",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n4",
+      "fromSide": "right",
+      "id": "en4n5",
+      "toNode": "n5",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n5",
+      "fromSide": "right",
+      "id": "en5n6",
+      "toNode": "n6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n6",
+      "fromSide": "right",
+      "id": "en6n7",
+      "toNode": "n7",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n7",
+      "fromSide": "right",
+      "id": "en7n8",
+      "toNode": "n8",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n8",
+      "fromSide": "right",
+      "id": "en8n9",
+      "toNode": "n9",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n9",
+      "fromSide": "right",
+      "id": "en9n10",
+      "toNode": "n10",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n2",
+      "toNode": "n2",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n3",
+      "toNode": "n3",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n4",
+      "toNode": "n4",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n5",
+      "toNode": "n5",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n6",
+      "toNode": "n6",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n12",
+      "fromSide": "top",
+      "id": "en12n6",
+      "toNode": "n6",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n12",
+      "fromSide": "top",
+      "id": "en12n7",
+      "toNode": "n7",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n7",
+      "toNode": "n7",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n8",
+      "toNode": "n8",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n9",
+      "toNode": "n9",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n14",
+      "fromSide": "top",
+      "id": "en14n2",
+      "toNode": "n2",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n14",
+      "fromSide": "top",
+      "id": "en14n6",
+      "toNode": "n6",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n14",
+      "fromSide": "top",
+      "id": "en14n12",
+      "toNode": "n12",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 100,
+      "id": "n1",
+      "text": "UCEE Truth",
+      "type": "text",
+      "width": 290,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n2",
+      "text": "Context Digital Twin",
+      "type": "text",
+      "width": 290,
+      "x": 320,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n3",
+      "text": "Continuous-Time + Multimodal",
+      "type": "text",
+      "width": 290,
+      "x": 680,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n4",
+      "text": "Treatment DSL",
+      "type": "text",
+      "width": 290,
+      "x": 1040,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n5",
+      "text": "Outcome Cube + Execution Twin",
+      "type": "text",
+      "width": 290,
+      "x": 1400,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n6",
+      "text": "Causal / Deep / Robust Learning",
+      "type": "text",
+      "width": 290,
+      "x": 1800,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n7",
+      "text": "Anytime-Valid Hidden Evaluation",
+      "type": "text",
+      "width": 290,
+      "x": 2200,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n8",
+      "text": "Multi-Lab Replication",
+      "type": "text",
+      "width": 290,
+      "x": 2600,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n9",
+      "text": "UCEE Admission + Runtime",
+      "type": "text",
+      "width": 290,
+      "x": 3000,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n10",
+      "text": "Portfolio + Operations",
+      "type": "text",
+      "width": 290,
+      "x": 3400,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n11",
+      "text": "Sovereign Data/Compute",
+      "type": "text",
+      "width": 290,
+      "x": 1100,
+      "y": 430
+    },
+    {
+      "height": 100,
+      "id": "n12",
+      "text": "Multi-Agent Constitution",
+      "type": "text",
+      "width": 290,
+      "x": 1900,
+      "y": 430
+    },
+    {
+      "height": 100,
+      "id": "n13",
+      "text": "Formal Safety + Model Risk",
+      "type": "text",
+      "width": 290,
+      "x": 2700,
+      "y": 430
+    },
+    {
+      "height": 100,
+      "id": "n14",
+      "text": "Research Memory + Continual Learning",
+      "type": "text",
+      "width": 290,
+      "x": 2100,
+      "y": 800
+    }
+  ]
+}

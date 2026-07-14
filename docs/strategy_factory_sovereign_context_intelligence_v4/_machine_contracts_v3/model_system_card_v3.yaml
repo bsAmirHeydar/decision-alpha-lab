@@ -1,0 +1,14 @@
+schema_version: 4.0.0
+contract_type: model_system_card
+model_id: ''
+version: ''
+capability_tier: ''
+intended_use: []
+prohibited_use: []
+data_manifest_hash: ''
+training_manifest_hash: ''
+support: {}
+metrics: {}
+limitations: []
+fallback: ''
+retirement: {}

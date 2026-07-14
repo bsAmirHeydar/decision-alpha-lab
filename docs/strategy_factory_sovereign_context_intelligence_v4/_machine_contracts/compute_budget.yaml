@@ -1,0 +1,32 @@
+schema_version: saed.compute-budget.v2
+budget_id: BUDGET_REFERENCE
+program_id: REQUIRED
+currency: USD
+status: approved
+limits:
+  gpu_hours: 0
+  cpu_hours: 0
+  storage_gb_month: 0
+  cash_cost: 0
+  calendar_days: 0
+reserved_shares:
+  baselines: 0.15
+  falsification: 0.2
+  reproduction: 0.1
+  advanced_models: 0.45
+  contingency: 0.1
+stop_loss:
+- insufficient_support
+- failed_known_time
+- negative_baseline_economics
+- budget_exhausted
+fidelity_ladder:
+- reference
+- reduced
+- full_inner
+- protected_final
+owners:
+  research: REQUIRED
+  compute: REQUIRED
+  validation: REQUIRED
+complete_trial_cost_accounting: true

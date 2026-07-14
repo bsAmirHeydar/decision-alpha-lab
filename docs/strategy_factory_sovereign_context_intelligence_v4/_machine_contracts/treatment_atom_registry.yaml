@@ -1,0 +1,45 @@
+schema_version: saed.treatment-atoms.v2
+registries:
+  entry:
+  - breakout_stop
+  - market_immediate
+  - pullback_limit
+  - reclaim
+  - retest
+  - staggered
+  stop:
+  - wide_structural
+  - tight_trigger
+  - volatility_conditioned
+  - composite_bounded
+  exit:
+  - fixed_r
+  - structural_destination
+  - opposite_context
+  - time_stop
+  - open_trail
+  trail:
+  - none
+  - structural
+  - volatility
+  - swing
+  - chandelier
+  - bounded_learned
+  management:
+  - none
+  - break_even
+  - partial_runner
+  - time_decay
+  - reentry_bounded
+  actions:
+  - select_treatment
+  - skip
+  - abstain
+  - manual_fallback
+  - reject
+invariants:
+- finite
+- versioned
+- known_time
+- runtime_feasible
+- skip_always_present

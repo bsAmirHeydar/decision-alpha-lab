@@ -1,0 +1,53 @@
+schema_version: saed.agent-authority.v2
+roles:
+  orchestrator:
+    may:
+    - compile_approved_plan
+    - schedule
+    - collect_evidence
+    may_not:
+    - change_scope
+    - access_locked_test_without_grant
+    - promote
+  hypothesis_agent:
+    may:
+    - propose_hypotheses
+    - nulls
+    - falsification
+    may_not:
+    - view_protected_outcomes
+    - compile_treatments
+    - promote
+  leakage_sentinel:
+    may:
+    - audit
+    - block
+    may_not:
+    - repair_silently
+    - promote
+  model_engineer:
+    may:
+    - train
+    - calibrate
+    - export
+    may_not:
+    - change_context
+    - change_data_roles
+    - promote
+  statistical_adversary:
+    may:
+    - challenge
+    - block
+    may_not:
+    - promote
+  model_risk_committee:
+    may:
+    - restrict
+    - challenge
+    - promote
+    - reject
+    - revoke
+    requires:
+    - human_signatures
+    - independent_review
+deny_by_default: true

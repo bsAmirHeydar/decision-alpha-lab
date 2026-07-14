@@ -1,0 +1,11 @@
+schema_version: 4.0.0
+contract_type: hidden_evaluation_request
+candidate_bundle_hash: ''
+hypothesis_family_id: ''
+predeclared_metrics: []
+allowed_output_detail: bounded_aggregate
+query_budget_token: ''
+signatures:
+  research_owner: ''
+  independent_reviewer: ''
+row_level_output: false

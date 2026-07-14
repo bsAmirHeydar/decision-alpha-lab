@@ -1,0 +1,10 @@
+schema_version: 4.0.0
+contract_type: artifact_transparency_event
+sequence: 0
+previous_hash: ''
+artifact_hash: ''
+artifact_type: ''
+producer_identity: ''
+timestamp: ''
+signature: ''
+revocation_state: active

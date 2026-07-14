@@ -1,0 +1,12 @@
+schema_version: 4.0.0
+contract_type: portfolio_edge_request
+occurrence_id: ''
+context_id: ''
+treatment_id: ''
+expected_utility: {}
+uncertainty: {}
+requested_risk_class: bounded_request_only
+capacity: {}
+dependence: {}
+expires_at: ''
+model_can_allocate: false

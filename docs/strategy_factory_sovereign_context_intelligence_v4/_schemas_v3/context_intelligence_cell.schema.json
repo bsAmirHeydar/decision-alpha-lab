@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/context_intelligence_cell.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "cell_state": {
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "context_intelligence_cell",
+      "type": "string"
+    },
+    "planes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "context_id",
+    "context_version",
+    "cell_state"
+  ],
+  "title": "Context Intelligence Cell",
+  "type": "object"
+}

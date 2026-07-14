@@ -1,0 +1,79 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/v4_promotion_dossier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "order": {
+          "const": false
+        },
+        "promotion": {
+          "const": false
+        },
+        "risk": {
+          "const": false
+        },
+        "runtime_activation": {
+          "const": false
+        }
+      },
+      "required": [
+        "order",
+        "risk",
+        "promotion",
+        "runtime_activation"
+      ],
+      "type": "object"
+    },
+    "id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lineage_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "validated",
+        "rejected",
+        "quarantined",
+        "retired",
+        "template"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "known_time",
+    "status",
+    "authority",
+    "lineage_hashes"
+  ],
+  "title": "v4 promotion dossier",
+  "type": "object"
+}

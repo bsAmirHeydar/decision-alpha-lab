@@ -1,0 +1,7 @@
+schema_version: 4.0.0
+contract_type: fleet_control_manifest
+cells: []
+quotas: {}
+shared_cache_policy: content_addressed_role_scoped
+central_engine_hash: ''
+central_invariance_required: true

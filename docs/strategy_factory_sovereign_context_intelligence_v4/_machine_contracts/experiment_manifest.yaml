@@ -1,0 +1,22 @@
+schema_version: saed.experiment-manifest.v2
+required_fields:
+- program_id
+- hypothesis_id
+- context_versions
+- treatment_universe_hash
+- data_role_map
+- fold_manifest
+- feature_hash
+- economics_hash
+- objective_profile
+- search_space_hash
+- search_budget
+- capability_tiers
+- code_commit
+- environment_digest
+- seeds
+- owners
+- challenge_plan
+immutable_after_start: true
+all_trials_retained: true
+protected_exposure_logged: true

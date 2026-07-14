@@ -1,0 +1,50 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4/experiment_campaign_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "candidate_universe_hash": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "experiment_campaign_v3",
+      "type": "string"
+    },
+    "exposure_budget": {
+      "type": "object"
+    },
+    "fold_manifest_hash": {
+      "type": "string"
+    },
+    "hypotheses": {
+      "type": "array"
+    },
+    "metric_plan_hash": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "search_budget": {
+      "type": "object"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "campaign_id",
+    "candidate_universe_hash",
+    "fold_manifest_hash",
+    "metric_plan_hash",
+    "state"
+  ],
+  "title": "Experiment Campaign V3",
+  "type": "object"
+}
