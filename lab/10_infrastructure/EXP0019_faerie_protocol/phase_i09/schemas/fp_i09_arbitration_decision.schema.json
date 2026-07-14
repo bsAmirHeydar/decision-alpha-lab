@@ -1,0 +1,33 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_arbitration_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_signal_ids": {},
+    "contender_ids": {},
+    "decision_hash": {},
+    "decision_id": {},
+    "evaluated_utc_ms": {},
+    "quota_key": {},
+    "reason_codes": {},
+    "reservation": {},
+    "seal_state": {},
+    "suppressed_signal_ids": {},
+    "winner_signal_id": {}
+  },
+  "required": [
+    "decision_id",
+    "quota_key",
+    "seal_state",
+    "reservation",
+    "winner_signal_id",
+    "contender_ids",
+    "suppressed_signal_ids",
+    "blocked_signal_ids",
+    "evaluated_utc_ms",
+    "reason_codes",
+    "decision_hash"
+  ],
+  "title": "FP-I09 arbitration_decision",
+  "type": "object"
+}

@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_head_hash": {},
+    "config_hash": {},
+    "created_utc_ms": {},
+    "decisions": {},
+    "events": {},
+    "health": {},
+    "reason_codes": {},
+    "records": {},
+    "relation_index": {},
+    "reservations": {},
+    "session_index": {},
+    "signal_index": {},
+    "snapshot_hash": {},
+    "snapshot_id": {}
+  },
+  "required": [
+    "snapshot_id",
+    "config_hash",
+    "events",
+    "records",
+    "decisions",
+    "reservations",
+    "chain_head_hash",
+    "signal_index",
+    "session_index",
+    "relation_index",
+    "health",
+    "reason_codes",
+    "created_utc_ms",
+    "snapshot_hash"
+  ],
+  "title": "FP-I09 ledger_snapshot",
+  "type": "object"
+}

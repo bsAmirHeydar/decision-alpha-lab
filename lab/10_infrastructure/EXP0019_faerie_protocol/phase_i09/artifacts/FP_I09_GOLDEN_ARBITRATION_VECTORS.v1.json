@@ -1,0 +1,52 @@
+{
+  "phase_id": "FP-I09",
+  "schema_version": "1.0.0",
+  "vectors": [
+    {
+      "case": "earliest_hunt_wins",
+      "expected_loser_disposition": "SUPPRESSED_BY_QUOTA",
+      "expected_winner": "early",
+      "id": "I09-G-001",
+      "input_order": [
+        "late",
+        "early"
+      ]
+    },
+    {
+      "case": "same_hunt_earliest_confirmation",
+      "expected_winner": "early_confirm",
+      "id": "I09-G-002",
+      "input_order": [
+        "late_confirm",
+        "early_confirm"
+      ]
+    },
+    {
+      "case": "same_hunt_confirmation_relation_order",
+      "expected_winner_relation": "AL",
+      "id": "I09-G-003",
+      "relations": [
+        "WW",
+        "AL"
+      ]
+    },
+    {
+      "case": "ww_suppressed_retained",
+      "expected_disposition": "SUPPRESSED_BY_WW",
+      "expected_winner": "",
+      "id": "I09-G-004"
+    },
+    {
+      "case": "late_earlier_supersedes",
+      "expected_generation": 2,
+      "expected_reason": "FP_LDG_RESERVATION_SUPERSEDED_BY_EARLIER_HUNT",
+      "id": "I09-G-005"
+    },
+    {
+      "case": "session_seal",
+      "consumption_policy": "UNSET",
+      "expected_finality": "FINAL",
+      "id": "I09-G-006"
+    }
+  ]
+}

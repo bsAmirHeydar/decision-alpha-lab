@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_arbitration_contender.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contender_hash": {},
+    "contender_id": {},
+    "eligibility": {},
+    "quota_key": {},
+    "rank_key": {},
+    "signal": {}
+  },
+  "required": [
+    "contender_id",
+    "signal",
+    "quota_key",
+    "eligibility",
+    "rank_key",
+    "contender_hash"
+  ],
+  "title": "FP-I09 arbitration_contender",
+  "type": "object"
+}

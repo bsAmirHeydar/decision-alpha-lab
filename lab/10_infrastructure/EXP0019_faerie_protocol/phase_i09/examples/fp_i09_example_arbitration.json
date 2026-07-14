@@ -1,0 +1,9 @@
+{
+  "consumption_policy": "UNSET",
+  "reservation_finality": "PROVISIONAL",
+  "suppressed_signal_ids": [
+    "FPSIG_LATE"
+  ],
+  "winner_policy": "EARLIEST_HUNT_M1_TIME_WINS",
+  "winner_signal_id": "FPSIG_EARLY"
+}

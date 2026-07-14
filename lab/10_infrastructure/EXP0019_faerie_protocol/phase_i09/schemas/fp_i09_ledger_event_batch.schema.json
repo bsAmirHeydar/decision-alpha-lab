@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_event_batch.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_hash": {},
+    "batch_id": {},
+    "events": {}
+  },
+  "required": [
+    "batch_id",
+    "events",
+    "batch_hash"
+  ],
+  "title": "FP-I09 ledger_event_batch",
+  "type": "object"
+}

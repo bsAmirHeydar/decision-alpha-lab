@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_head_hash": {},
+    "checkpoint_id": {},
+    "checkpoint_version": {},
+    "config_hash": {},
+    "created_utc_ms": {},
+    "event_count": {},
+    "payload_hash": {},
+    "snapshot": {},
+    "source_revision_id": {}
+  },
+  "required": [
+    "checkpoint_id",
+    "checkpoint_version",
+    "config_hash",
+    "chain_head_hash",
+    "event_count",
+    "snapshot",
+    "source_revision_id",
+    "created_utc_ms",
+    "payload_hash"
+  ],
+  "title": "FP-I09 ledger_checkpoint",
+  "type": "object"
+}

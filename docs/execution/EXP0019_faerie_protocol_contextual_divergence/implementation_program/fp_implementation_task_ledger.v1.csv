@@ -42,11 +42,11 @@ WW-002,FP-I08,Implement WW candidate and confirmation,code,COMPLETE,lab/10_infra
 WW-003,FP-I08,Implement second-symbol neutralization,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/neutralization.py
 WW-004,FP-I08,Implement active stack/newest resolver,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/python/fp_i08_weekly/stack.py
 WW-005,FP-I08,Test direct WW setup and downstream gate,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i08/tests/test_gate.py
-LED-001,FP-I09,Implement append-only semantic ledger,code,PLANNED,
-LED-002,FP-I09,Add indexes and dedup,code,PLANNED,
-LED-003,FP-I09,Implement earliest-M1 pair/session arbiter,code,PLANNED,
-LED-004,FP-I09,Implement checkpoint versioning,code,PLANNED,
-LED-005,FP-I09,Prove restart/rebuild parity,test,PLANNED,
+LED-001,FP-I09,Implement append-only semantic ledger,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
+LED-002,FP-I09,Add indexes and dedup,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
+LED-003,FP-I09,Implement earliest-M1 pair/session arbiter,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
+LED-004,FP-I09,Implement checkpoint versioning,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
+LED-005,FP-I09,Prove restart/rebuild parity,test,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
 IND-001,FP-I10,Create indicator entry shell,code,PLANNED,
 IND-002,FP-I10,Bind inputs and engine lifecycle,code,PLANNED,
 IND-003,FP-I10,Implement timer/calculate/chart-event responsibilities,code,PLANNED,

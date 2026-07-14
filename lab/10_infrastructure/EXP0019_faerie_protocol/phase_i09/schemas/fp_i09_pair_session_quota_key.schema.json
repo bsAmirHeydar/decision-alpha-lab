@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_pair_session_quota_key.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_epoch": {},
+    "key_hash": {},
+    "owner_session_id": {},
+    "pair_id": {},
+    "quota_key_id": {},
+    "session_kind": {},
+    "trading_day_id": {}
+  },
+  "required": [
+    "quota_key_id",
+    "context_epoch",
+    "trading_day_id",
+    "pair_id",
+    "owner_session_id",
+    "session_kind",
+    "key_hash"
+  ],
+  "title": "FP-I09 pair_session_quota_key",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_export.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "export_hash": {},
+    "export_id": {},
+    "schema_version": {},
+    "snapshot": {}
+  },
+  "required": [
+    "export_id",
+    "snapshot",
+    "schema_version",
+    "export_hash"
+  ],
+  "title": "FP-I09 ledger_export",
+  "type": "object"
+}

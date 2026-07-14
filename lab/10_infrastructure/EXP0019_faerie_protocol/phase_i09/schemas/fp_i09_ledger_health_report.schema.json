@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_health_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_count": {},
+    "event_count": {},
+    "health": {},
+    "reason_codes": {},
+    "record_count": {},
+    "report_hash": {},
+    "report_id": {}
+  },
+  "required": [
+    "report_id",
+    "health",
+    "event_count",
+    "record_count",
+    "decision_count",
+    "reason_codes",
+    "report_hash"
+  ],
+  "title": "FP-I09 ledger_health_report",
+  "type": "object"
+}

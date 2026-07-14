@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_id": {},
+    "event_hash": {},
+    "event_id": {},
+    "event_type": {},
+    "occurred_utc_ms": {},
+    "payload_hash": {},
+    "prior_event_hash": {},
+    "quota_key_id": {},
+    "reason_code": {},
+    "sequence": {},
+    "signal_id": {},
+    "source_phase": {}
+  },
+  "required": [
+    "event_id",
+    "sequence",
+    "event_type",
+    "aggregate_id",
+    "signal_id",
+    "quota_key_id",
+    "occurred_utc_ms",
+    "source_phase",
+    "reason_code",
+    "payload_hash",
+    "prior_event_hash",
+    "event_hash"
+  ],
+  "title": "FP-I09 ledger_event",
+  "type": "object"
+}

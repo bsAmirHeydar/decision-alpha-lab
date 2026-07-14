@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_ledger_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_epoch": {},
+    "context_id": {},
+    "live_execution_enabled": {},
+    "pair_id": {},
+    "quota_consumption_policy": {},
+    "quota_scope": {},
+    "semantic_config_hash": {},
+    "winner_policy": {}
+  },
+  "required": [
+    "context_id",
+    "pair_id",
+    "context_epoch",
+    "semantic_config_hash",
+    "quota_scope",
+    "winner_policy",
+    "quota_consumption_policy",
+    "live_execution_enabled"
+  ],
+  "title": "FP-I09 ledger_config",
+  "type": "object"
+}

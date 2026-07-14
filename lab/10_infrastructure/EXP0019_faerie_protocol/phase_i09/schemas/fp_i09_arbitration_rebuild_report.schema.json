@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_arbitration_rebuild_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "parity": {},
+    "prior_winner_signal_id": {},
+    "quota_key_id": {},
+    "reason_codes": {},
+    "rebuilt_winner_signal_id": {},
+    "report_hash": {},
+    "report_id": {}
+  },
+  "required": [
+    "report_id",
+    "quota_key_id",
+    "prior_winner_signal_id",
+    "rebuilt_winner_signal_id",
+    "parity",
+    "reason_codes",
+    "report_hash"
+  ],
+  "title": "FP-I09 arbitration_rebuild_report",
+  "type": "object"
+}

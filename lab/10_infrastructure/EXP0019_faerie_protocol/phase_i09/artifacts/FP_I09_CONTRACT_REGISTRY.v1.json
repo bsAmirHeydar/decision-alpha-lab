@@ -1,0 +1,25 @@
+{
+  "contracts": [
+    "ledger_config",
+    "pair_session_quota_key",
+    "eligibility_evidence",
+    "arbitration_contender",
+    "quota_reservation",
+    "arbitration_decision",
+    "ledger_event",
+    "signal_ledger_record",
+    "ledger_snapshot",
+    "ledger_checkpoint",
+    "checkpoint_validation",
+    "ledger_event_batch",
+    "arbitration_rebuild_report",
+    "ledger_health_report",
+    "ledger_export"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I09",
+  "runtime_authority": "NONE",
+  "version": "1.0.0"
+}

@@ -1,0 +1,27 @@
+{
+  "available_cumulative_tests": {
+    "count": 472,
+    "result": "pass",
+    "scope": "FP-I02..FP-I09"
+  },
+  "clean_baseline_patch": "pass",
+  "metaeditor": "pending_local_windows",
+  "next_gate": "LOCAL_METAEDITOR_AND_FP_I10_ENTRY",
+  "next_phase": "FP-I10",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I09",
+  "phase_version": "1.0.0",
+  "python_phase_tests": {
+    "count": 52,
+    "result": "pass"
+  },
+  "runtime_authority": "NONE",
+  "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+  "upstream_compatibility_gates": {
+    "EXP0018_Daye": "unavailable_source_tree_absent",
+    "FP-I00": "unavailable_missing_pinned_shared_cores_and_previous_test_entrypoints",
+    "FP-I01": "unavailable_missing_pinned_shared_cores_and_previous_test_entrypoints"
+  }
+}

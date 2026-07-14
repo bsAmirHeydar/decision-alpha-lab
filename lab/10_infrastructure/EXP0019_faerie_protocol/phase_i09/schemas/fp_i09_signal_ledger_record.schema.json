@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_signal_ledger_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disposition": {},
+    "eligibility": {},
+    "first_event_sequence": {},
+    "gate_decision": {},
+    "last_event_sequence": {},
+    "ledger_record_id": {},
+    "quota_key_id": {},
+    "reason_codes": {},
+    "record_hash": {},
+    "reservation_id": {},
+    "signal": {},
+    "winner_signal_id": {}
+  },
+  "required": [
+    "ledger_record_id",
+    "signal",
+    "gate_decision",
+    "eligibility",
+    "disposition",
+    "quota_key_id",
+    "winner_signal_id",
+    "reservation_id",
+    "reason_codes",
+    "first_event_sequence",
+    "last_event_sequence",
+    "record_hash"
+  ],
+  "title": "FP-I09 signal_ledger_record",
+  "type": "object"
+}

@@ -122,7 +122,10 @@
         "FP-I08"
       ],
       "product": "context_engine",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i09/00_FP_I09_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I10_ENTRY"
     },
     {
       "phase_id": "FP-I10",

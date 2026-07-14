@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_checkpoint_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_id": {},
+    "decision": {},
+    "expected_chain_head_hash": {},
+    "expected_config_hash": {},
+    "observed_chain_head_hash": {},
+    "observed_config_hash": {},
+    "reason_code": {},
+    "validation_hash": {},
+    "validation_id": {}
+  },
+  "required": [
+    "validation_id",
+    "decision",
+    "checkpoint_id",
+    "reason_code",
+    "expected_config_hash",
+    "observed_config_hash",
+    "expected_chain_head_hash",
+    "observed_chain_head_hash",
+    "validation_hash"
+  ],
+  "title": "FP-I09 checkpoint_validation",
+  "type": "object"
+}

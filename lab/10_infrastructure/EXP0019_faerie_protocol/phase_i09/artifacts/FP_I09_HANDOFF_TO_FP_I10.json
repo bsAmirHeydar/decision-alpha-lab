@@ -1,0 +1,24 @@
+{
+  "from_phase": "FP-I09",
+  "handoff_status": "READY_AFTER_LOCAL_METAEDITOR_GATE",
+  "may_consume": [
+    "LedgerSnapshot",
+    "SignalLedgerRecord",
+    "ArbitrationDecision",
+    "QuotaReservation",
+    "LedgerEvent",
+    "LedgerCheckpoint"
+  ],
+  "may_not_change": [
+    "pair-global quota key",
+    "earliest M1 hunt winner",
+    "suppressed signals retained",
+    "append-only event chain",
+    "FP-DEC-012 remains UNSET"
+  ],
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "runtime_authority": "NONE",
+  "to_phase": "FP-I10"
+}

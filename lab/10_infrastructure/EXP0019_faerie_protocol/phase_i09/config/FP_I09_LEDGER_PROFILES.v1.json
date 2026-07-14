@@ -1,0 +1,18 @@
+{
+  "canonical": {
+    "consumption_policy": "UNSET",
+    "live_execution_enabled": false,
+    "quota_scope": "PAIR_GLOBAL_FIRST_ENTRY_PER_SESSION",
+    "reservation_rebuild_policy": "PROVISIONAL_MAY_BE_SUPERSEDED_BEFORE_SESSION_SEAL",
+    "tie_break": [
+      "first_hunt_m1_time",
+      "confirmation_close_time",
+      "relation_code",
+      "direction",
+      "hunter_symbol",
+      "signal_id"
+    ],
+    "winner_policy": "EARLIEST_HUNT_M1_TIME_WINS"
+  },
+  "schema_version": "1.0.0"
+}

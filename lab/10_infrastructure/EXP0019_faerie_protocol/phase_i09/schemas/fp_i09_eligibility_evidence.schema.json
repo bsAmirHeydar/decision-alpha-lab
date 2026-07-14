@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_eligibility_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_ready": {},
+    "evaluated_utc_ms": {},
+    "evidence_hash": {},
+    "evidence_id": {},
+    "gate_decision_id": {},
+    "gate_eligibility": {},
+    "precheck_state": {},
+    "reason_codes": {},
+    "relation_enabled": {},
+    "signal_id": {}
+  },
+  "required": [
+    "evidence_id",
+    "signal_id",
+    "relation_enabled",
+    "data_ready",
+    "precheck_state",
+    "gate_decision_id",
+    "gate_eligibility",
+    "evaluated_utc_ms",
+    "reason_codes",
+    "evidence_hash"
+  ],
+  "title": "FP-I09 eligibility_evidence",
+  "type": "object"
+}

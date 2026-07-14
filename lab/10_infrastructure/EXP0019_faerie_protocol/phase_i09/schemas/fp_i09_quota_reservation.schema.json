@@ -1,0 +1,37 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i09_quota_reservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "consumption_policy": {},
+    "finality": {},
+    "generation": {},
+    "prior_reservation_id": {},
+    "quota_key": {},
+    "reason_code": {},
+    "reservation_hash": {},
+    "reservation_id": {},
+    "reserved_utc_ms": {},
+    "state": {},
+    "winner_contender_id": {},
+    "winner_rank_key": {},
+    "winner_signal_id": {}
+  },
+  "required": [
+    "reservation_id",
+    "quota_key",
+    "state",
+    "finality",
+    "winner_signal_id",
+    "winner_contender_id",
+    "winner_rank_key",
+    "generation",
+    "reserved_utc_ms",
+    "consumption_policy",
+    "prior_reservation_id",
+    "reason_code",
+    "reservation_hash"
+  ],
+  "title": "FP-I09 quota_reservation",
+  "type": "object"
+}

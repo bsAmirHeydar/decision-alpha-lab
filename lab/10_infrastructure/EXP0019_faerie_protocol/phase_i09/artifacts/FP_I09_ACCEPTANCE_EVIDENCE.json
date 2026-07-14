@@ -1,0 +1,36 @@
+{
+  "available_cumulative_fp_tests": {
+    "count": 472,
+    "result": "pass",
+    "scope": "FP-I02..FP-I09"
+  },
+  "boundary_guard": "pass",
+  "checkpoint_restart_tests": "pass",
+  "clean_baseline_patch": "pass",
+  "delivery_validation": "pass",
+  "errors": 0,
+  "event_chain_tests": "pass",
+  "golden_vectors": {
+    "count": 6,
+    "result": "pass"
+  },
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "phase_id": "FP-I09",
+  "phase_tests": {
+    "count": 52,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "schema_validation": {
+    "count": 15,
+    "result": "pass"
+  },
+  "semantic_parity_tests": "pass",
+  "upstream_regression_availability": {
+    "EXP0018_Daye": "not_rerunnable_source_tree_absent",
+    "FP-I00": "not_rerunnable_on_supplied_archive_missing_pinned_assets",
+    "FP-I01": "not_rerunnable_on_supplied_archive_missing_pinned_assets"
+  },
+  "warnings": 0
+}
