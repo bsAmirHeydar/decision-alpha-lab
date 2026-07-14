@@ -1,0 +1,81 @@
+{
+  "owner_live_policy": "UNSET",
+  "paper_profiles": [
+    {
+      "consume_event": "UNSET",
+      "policy_hash": "c33da4f41a8deb4bf39b8ae7b90bc46d174f6e73e3bb84ce1ff7fd70841a32f2",
+      "profile": "UNSET",
+      "releasable_reason_codes": []
+    },
+    {
+      "consume_event": "PLAN_CREATED",
+      "policy_hash": "8e0d02ba6537e288951507513b25e809afa18900800f1f37b7901c18c7763f1d",
+      "profile": "PLAN_CREATED",
+      "releasable_reason_codes": []
+    },
+    {
+      "consume_event": "ORDER_ATTEMPTED",
+      "policy_hash": "271f1b9976e5c7c1486c5065335b1370e59b44f24eead09566c3c704954d2b37",
+      "profile": "ORDER_ATTEMPTED",
+      "releasable_reason_codes": [
+        "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+        "FP_PAPER_LOCAL_VALIDATION_FAILED",
+        "FP_PAPER_PLAN_BLOCKED",
+        "FP_PAPER_QUOTE_UNAVAILABLE"
+      ]
+    },
+    {
+      "consume_event": "ORDER_ACCEPTED",
+      "policy_hash": "8a825dd97eac02d3d0c4850506e134c8924c9ec066da48340c20724daf387285",
+      "profile": "ORDER_ACCEPTED",
+      "releasable_reason_codes": [
+        "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+        "FP_PAPER_LOCAL_VALIDATION_FAILED",
+        "FP_PAPER_ORDER_REJECTED",
+        "FP_PAPER_PLAN_BLOCKED",
+        "FP_PAPER_QUOTE_UNAVAILABLE"
+      ]
+    },
+    {
+      "consume_event": "FIRST_FILL",
+      "policy_hash": "2d6c61b47e7771e957cfee5592bb883b54b56dfb9bdf3c8ca162047e9129a61d",
+      "profile": "FILLED",
+      "releasable_reason_codes": [
+        "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+        "FP_PAPER_LOCAL_VALIDATION_FAILED",
+        "FP_PAPER_ORDER_CANCELLED",
+        "FP_PAPER_ORDER_REJECTED",
+        "FP_PAPER_PLAN_BLOCKED",
+        "FP_PAPER_QUOTE_UNAVAILABLE",
+        "FP_PAPER_UNFILLED_EXPIRED"
+      ]
+    },
+    {
+      "consume_event": "ORDER_ACCEPTED",
+      "policy_hash": "1bab86a7cb6f3b9b9eafc391a31de1294ed3b7b983a2d156a84766d8cbac1c16",
+      "profile": "TWO_STAGE_ACCEPTED",
+      "releasable_reason_codes": [
+        "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+        "FP_PAPER_LOCAL_VALIDATION_FAILED",
+        "FP_PAPER_ORDER_REJECTED",
+        "FP_PAPER_PLAN_BLOCKED",
+        "FP_PAPER_QUOTE_UNAVAILABLE"
+      ]
+    },
+    {
+      "consume_event": "FIRST_FILL",
+      "policy_hash": "f7910317dae615e30b46de80030ebd0102ed0d9bc1f00a43143d6b0021291c5f",
+      "profile": "TWO_STAGE_FILLED",
+      "releasable_reason_codes": [
+        "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+        "FP_PAPER_LOCAL_VALIDATION_FAILED",
+        "FP_PAPER_ORDER_CANCELLED",
+        "FP_PAPER_ORDER_REJECTED",
+        "FP_PAPER_PLAN_BLOCKED",
+        "FP_PAPER_QUOTE_UNAVAILABLE",
+        "FP_PAPER_UNFILLED_EXPIRED"
+      ]
+    }
+  ],
+  "phase_id": "FP-I15"
+}

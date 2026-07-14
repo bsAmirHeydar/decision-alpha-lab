@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "fills": {},
+    "health": {},
+    "ledger": {},
+    "quota": {},
+    "run_hash": {},
+    "run_id": {},
+    "scenario": {}
+  },
+  "required": [
+    "run_id",
+    "scenario",
+    "quota",
+    "fills",
+    "ledger",
+    "health",
+    "run_hash"
+  ],
+  "title": "fp_i15_paper_run_result.schema.json",
+  "type": "object"
+}

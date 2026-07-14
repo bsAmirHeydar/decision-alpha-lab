@@ -1,0 +1,10 @@
+{
+  "fp_dec_012": "UNSET",
+  "live_ready": false,
+  "local_paper_runtime": "PENDING_LOCAL_WINDOWS",
+  "metaeditor": "PENDING_LOCAL_WINDOWS",
+  "paper_runtime_default_enabled": false,
+  "paper_source_ready": true,
+  "phase_id": "FP-I15",
+  "status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_AND_RUNTIME_PENDING"
+}

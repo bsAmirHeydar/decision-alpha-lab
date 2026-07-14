@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {},
+    "config_hash": {},
+    "confirmation_close_utc_ms": {},
+    "direction": {},
+    "first_hunt_m1_utc_ms": {},
+    "hunter_symbol": {},
+    "i09_reservation_id": {},
+    "owner_session_id": {},
+    "protected_symbol": {},
+    "quota_key_id": {},
+    "raw_structural_stop": {},
+    "relation": {},
+    "signal_hash": {},
+    "signal_id": {},
+    "source_revision_id": {}
+  },
+  "required": [
+    "signal_id",
+    "signal_hash",
+    "candidate_id",
+    "relation",
+    "direction",
+    "hunter_symbol",
+    "protected_symbol",
+    "owner_session_id",
+    "quota_key_id",
+    "i09_reservation_id",
+    "first_hunt_m1_utc_ms",
+    "confirmation_close_utc_ms",
+    "raw_structural_stop",
+    "source_revision_id",
+    "config_hash"
+  ],
+  "title": "fp_i15_winner_signal_input.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "average_entry": {},
+    "direction": {},
+    "order_id": {},
+    "plan_id": {},
+    "position_hash": {},
+    "position_id": {},
+    "state": {},
+    "stop": {},
+    "symbol": {},
+    "target": {},
+    "volume": {}
+  },
+  "required": [
+    "position_id",
+    "order_id",
+    "plan_id",
+    "symbol",
+    "direction",
+    "volume",
+    "average_entry",
+    "stop",
+    "target",
+    "state",
+    "position_hash"
+  ],
+  "title": "fp_i15_paper_position.schema.json",
+  "type": "object"
+}

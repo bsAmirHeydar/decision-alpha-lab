@@ -1,0 +1,830 @@
+{
+  "fixture_id": "FP-I15-GOLDEN-1",
+  "phase_id": "FP-I15",
+  "phase_version": "1.0.0",
+  "vectors": [
+    {
+      "id": "BUY_GEOMETRY",
+      "plan": {
+        "created_utc_ms": 1700000120000,
+        "diagnostic_acceptance_id": "FPDACC-8839874cde61d22c64edb701",
+        "direction": "BUY",
+        "geometry": {
+          "adjusted_stop": 99.0,
+          "direction": "BUY",
+          "geometry_hash": "8dec39a25acd1c3cd3eb8ef0338dc632ce99d04c09a5cdd0dd249defaec69f1a",
+          "geometry_id": "FPGEO-8dec39a25acd1c3cd3eb8ef0",
+          "minimum_required_distance": 0.25,
+          "planned_entry": 100.25,
+          "quote_id": "Q-BUY",
+          "raw_stop": 99.0,
+          "reason_codes": [],
+          "spread_snapshot": 0.25,
+          "status": "READY",
+          "stop_distance": 1.5,
+          "symbol": "ES",
+          "target": 102.75,
+          "target_distance": 2.5,
+          "worst_case_entry": 100.5
+        },
+        "i09_reservation_id": "I09-RES-BUY",
+        "parent_plan_id": "",
+        "plan_hash": "bfe68d489f239c8b0bf18d9b70cb5ccecb62e0fd3add5a77157b656404859074",
+        "plan_id": "FPPLAN-bfe68d489f239c8b0bf18d9b",
+        "quota_key_id": "FP-EPOCH|NYDAY|PAIR-ES-NQ|N",
+        "reason_codes": [],
+        "revision": 1,
+        "risk_config_hash": "5dfb4e6aa4a7d0c31a61ebd6681783b271d685823d53faf1a164fadfd092c8dd",
+        "signal_hash": "0259aa8b73b48c8e0311d9f8fa426b516fd521b92785124ab3727abf87f6ca67",
+        "signal_id": "SIG-BUY",
+        "sizing": {
+          "estimated_max_loss": 99.75,
+          "loss_per_lot": 75.0,
+          "raw_volume": 1.333333333333,
+          "reason_codes": [],
+          "risk_budget": 100.0,
+          "risk_utilization": 0.9975,
+          "sizing_hash": "d2b45a4aea4c4e163ed810b67d98c1b0b2e5e5d2916e29cd704781337aeec5f8",
+          "sizing_id": "FPSIZE-d2b45a4aea4c4e163ed810b6",
+          "status": "READY",
+          "volume": 1.33
+        },
+        "source_revision_id": "REV-1",
+        "state": "READY",
+        "trade_symbol": "ES"
+      }
+    },
+    {
+      "id": "SELL_SPREAD_GEOMETRY",
+      "plan": {
+        "created_utc_ms": 1700000120000,
+        "diagnostic_acceptance_id": "FPDACC-8839874cde61d22c64edb701",
+        "direction": "SELL",
+        "geometry": {
+          "adjusted_stop": 201.25,
+          "direction": "SELL",
+          "geometry_hash": "1687c03df1493fd33dc8f046c32f28f319634c619ec3a8a00da4d742d2e1d81d",
+          "geometry_id": "FPGEO-1687c03df1493fd33dc8f046",
+          "minimum_required_distance": 0.25,
+          "planned_entry": 199.75,
+          "quote_id": "Q-SELL",
+          "raw_stop": 201.0,
+          "reason_codes": [],
+          "spread_snapshot": 0.25,
+          "status": "READY",
+          "stop_distance": 1.75,
+          "symbol": "NQ",
+          "target": 196.75,
+          "target_distance": 3.0,
+          "worst_case_entry": 199.5
+        },
+        "i09_reservation_id": "I09-RES-SELL",
+        "parent_plan_id": "",
+        "plan_hash": "93b6f035ed09dac5b3a8384ae4032c7c92c5199cb1ab967945be49b38b2a84cb",
+        "plan_id": "FPPLAN-93b6f035ed09dac5b3a8384a",
+        "quota_key_id": "FP-EPOCH|NYDAY|PAIR-ES-NQ|N",
+        "reason_codes": [],
+        "revision": 1,
+        "risk_config_hash": "5dfb4e6aa4a7d0c31a61ebd6681783b271d685823d53faf1a164fadfd092c8dd",
+        "signal_hash": "2b8dca069f5203b9275d8526bdbfeae402fbe0b7db5991d1f80210d464d68076",
+        "signal_id": "SIG-SELL",
+        "sizing": {
+          "estimated_max_loss": 99.75,
+          "loss_per_lot": 35.0,
+          "raw_volume": 2.857142857143,
+          "reason_codes": [],
+          "risk_budget": 100.0,
+          "risk_utilization": 0.9975,
+          "sizing_hash": "05c790df341274d23939b8358920da4813074e8e3161a3eea69644164e1154fc",
+          "sizing_id": "FPSIZE-05c790df341274d23939b835",
+          "status": "READY",
+          "volume": 2.85
+        },
+        "source_revision_id": "REV-1",
+        "state": "READY",
+        "trade_symbol": "NQ"
+      }
+    },
+    {
+      "id": "PAPER_POLICY_MATRIX",
+      "policies": [
+        {
+          "consume_event": "UNSET",
+          "policy_hash": "c33da4f41a8deb4bf39b8ae7b90bc46d174f6e73e3bb84ce1ff7fd70841a32f2",
+          "profile": "UNSET",
+          "releasable_reason_codes": []
+        },
+        {
+          "consume_event": "PLAN_CREATED",
+          "policy_hash": "8e0d02ba6537e288951507513b25e809afa18900800f1f37b7901c18c7763f1d",
+          "profile": "PLAN_CREATED",
+          "releasable_reason_codes": []
+        },
+        {
+          "consume_event": "ORDER_ATTEMPTED",
+          "policy_hash": "271f1b9976e5c7c1486c5065335b1370e59b44f24eead09566c3c704954d2b37",
+          "profile": "ORDER_ATTEMPTED",
+          "releasable_reason_codes": [
+            "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+            "FP_PAPER_LOCAL_VALIDATION_FAILED",
+            "FP_PAPER_PLAN_BLOCKED",
+            "FP_PAPER_QUOTE_UNAVAILABLE"
+          ]
+        },
+        {
+          "consume_event": "ORDER_ACCEPTED",
+          "policy_hash": "8a825dd97eac02d3d0c4850506e134c8924c9ec066da48340c20724daf387285",
+          "profile": "ORDER_ACCEPTED",
+          "releasable_reason_codes": [
+            "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+            "FP_PAPER_LOCAL_VALIDATION_FAILED",
+            "FP_PAPER_ORDER_REJECTED",
+            "FP_PAPER_PLAN_BLOCKED",
+            "FP_PAPER_QUOTE_UNAVAILABLE"
+          ]
+        },
+        {
+          "consume_event": "FIRST_FILL",
+          "policy_hash": "2d6c61b47e7771e957cfee5592bb883b54b56dfb9bdf3c8ca162047e9129a61d",
+          "profile": "FILLED",
+          "releasable_reason_codes": [
+            "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+            "FP_PAPER_LOCAL_VALIDATION_FAILED",
+            "FP_PAPER_ORDER_CANCELLED",
+            "FP_PAPER_ORDER_REJECTED",
+            "FP_PAPER_PLAN_BLOCKED",
+            "FP_PAPER_QUOTE_UNAVAILABLE",
+            "FP_PAPER_UNFILLED_EXPIRED"
+          ]
+        },
+        {
+          "consume_event": "ORDER_ACCEPTED",
+          "policy_hash": "1bab86a7cb6f3b9b9eafc391a31de1294ed3b7b983a2d156a84766d8cbac1c16",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "releasable_reason_codes": [
+            "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+            "FP_PAPER_LOCAL_VALIDATION_FAILED",
+            "FP_PAPER_ORDER_REJECTED",
+            "FP_PAPER_PLAN_BLOCKED",
+            "FP_PAPER_QUOTE_UNAVAILABLE"
+          ]
+        },
+        {
+          "consume_event": "FIRST_FILL",
+          "policy_hash": "f7910317dae615e30b46de80030ebd0102ed0d9bc1f00a43143d6b0021291c5f",
+          "profile": "TWO_STAGE_FILLED",
+          "releasable_reason_codes": [
+            "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+            "FP_PAPER_LOCAL_VALIDATION_FAILED",
+            "FP_PAPER_ORDER_CANCELLED",
+            "FP_PAPER_ORDER_REJECTED",
+            "FP_PAPER_PLAN_BLOCKED",
+            "FP_PAPER_QUOTE_UNAVAILABLE",
+            "FP_PAPER_UNFILLED_EXPIRED"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PAPER_SCENARIO_MATRIX",
+      "runs": [
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "12c48ee8a8b1b66abcfa2faa2d4d265e434fbbc98d2aa19d8b747b4e12128980",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "7f6229c372b2b40ef42d54ce04da53cb17685d01225979eedc6b102a503cfdf4",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "e3f797962572fc8e43f725853a7f80fee9db53470406b36e70fcd61686e16c12",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "4426d93f5aeafd59b042052a815dd6820ebd2f223c1e117dfae4c9e151631439",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "cda0837420e4513a9e9ef91cf4e00ac1249e40d349a59c69b79623f6b87f5c1a",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "PLAN_CREATED",
+          "quota_state": "CONSUMED",
+          "run_hash": "52341bb03763dfef2e9e3a5856d690ef3032eec31eb6526dcfd73bbfadac6136",
+          "scenario": "GEOMETRY_DRIFT"
+        },
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "7f35a8812de85cf5f5a2544de59249cdf15d86f7224f602924be205238160a06",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "06ec32f5de1f75aba3052932bb01de670c9b71a55d4af23752d7bcb0a83c5eb1",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "fd5d983ac9a884e077110faa850b3df055472763e4ea179b3e8e591b2f23827f",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "633c51ec271f2322118683c684fbcc2cd087348d6726d8717cfb1fb4442f328c",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "2f61d7274a9d9090fbeb6c83dcaecd97fabd72a621ec1a403f1147210744ee3f",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "ORDER_ATTEMPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "8bd3971bdc83b63d9322cde15cdf171d830c92d26f60fcc5348c3c82fcf1a033",
+          "scenario": "GEOMETRY_DRIFT"
+        },
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "e490e293bca57668964d3274c5a1edb2d2501dc10f45acffcdbbd7a8dd7a5f72",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "ccdeef6a178025b949c3284fac410d50278b0bd4f553837cb1f3edbebc8f35d6",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "caba3c873cb9bc313a15ed11946b85e1fc8382137df297613479799a40743153",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "427b436b94e390a31aa8b64ae30d336c567c002a7364e30cb556daa28605b513",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "9d2c34b5b9d8159d3f319bc23a09f1512d97b1876eaeb740a03b0a4a33f584c0",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "ORDER_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "b7abcd670f2d39f371081fdfcd28d0a32b7db04a33a7bf4c3b5bc5c296cf0ddc",
+          "scenario": "GEOMETRY_DRIFT"
+        },
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "FILLED",
+          "quota_state": "CONSUMED",
+          "run_hash": "c040d67ed124ad402ee1b9c095dedfefeadba9d4ef8f8853e716be46277a0730",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "f7019bd0c2fc317a6cf392c418c234ab75e568d93efcc9c0f536e47cee2972db",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "50817089553a58d4e792e9b17182d2a0c07e1f5d6993a1a955fbbe55cb2956f9",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "FILLED",
+          "quota_state": "CONSUMED",
+          "run_hash": "e0eb64eee1bccc2c9a6d24f620847e59c74c0c806b762c561f6448979209b1a9",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "5fc3a551bf1cade2ae46f64afdbb0d0c4087a59bf4d107d0840ffbc3dc7b57df",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "4a69258ed011974830a82344dfc9f4dd79942cfa0727f7d102145fa7e8782e19",
+          "scenario": "GEOMETRY_DRIFT"
+        },
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "aa9e5736d35d20a23647b3e584286cba18f4706b6c4010ff32b140b94aba904c",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "d4e7ae5b4ff34cb63a6e6d40ba9df20472e63bfb74aaa8ce1849489d202d23f9",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "eb2df557e20d631de87be0ae4d4953f174c786a9b0a2eea8fdd6b9a194857721",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "CONSUMED",
+          "run_hash": "2c49b4cc10b6d83f456c9eb690b431c6092066d256b29cb8e6eed346466fa3c7",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "62567ca34ca63801917639cdaac3afd7be5c967df6a66ba57928ade5fe436e19",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "TWO_STAGE_ACCEPTED",
+          "quota_state": "RELEASED",
+          "run_hash": "5bb6d0f47c0c23d5946955d3abd4af532a2f522096807a9864d3f12fe2df8b05",
+          "scenario": "GEOMETRY_DRIFT"
+        },
+        {
+          "fill_count": 1,
+          "health": "READY",
+          "ledger_events": 10,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "CONSUMED",
+          "run_hash": "3a9127ae35e44578c58373eb1b7b21c5bb113f4896d1ad4147c54d146dea4118",
+          "scenario": "IMMEDIATE_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 7,
+          "order_state": "REJECTED",
+          "position_state": "",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "0471c9388d943aa6031f75eb78e3b87b67bc7fae7547d12073ecbe0600df770a",
+          "scenario": "REJECT_AT_ATTEMPT"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 8,
+          "order_state": "CANCELLED",
+          "position_state": "",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "d1da641a3f448bbc2f26308bd5f2fb161ee3e71b861f2f085d8cc07aa20a1cf7",
+          "scenario": "ACCEPT_THEN_CANCEL"
+        },
+        {
+          "fill_count": 2,
+          "health": "READY",
+          "ledger_events": 11,
+          "order_state": "FILLED",
+          "position_state": "OPEN",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "CONSUMED",
+          "run_hash": "d7efa046f521d3f7983a73302a047c6a418b10211ecf54655c280cb4aa28309f",
+          "scenario": "PARTIAL_THEN_FILL"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "a65fc97b6386fd9efca9063e86a5bf58776f5ae850e3f466f14f5331f6fd76ed",
+          "scenario": "QUOTE_UNAVAILABLE"
+        },
+        {
+          "fill_count": 0,
+          "health": "DEGRADED",
+          "ledger_events": 3,
+          "order_state": "",
+          "position_state": "",
+          "profile": "TWO_STAGE_FILLED",
+          "quota_state": "RELEASED",
+          "run_hash": "a5d8369cc44111eb551bc0f35939e542eb49d91a8599b627af1e9b7589559af0",
+          "scenario": "GEOMETRY_DRIFT"
+        }
+      ]
+    },
+    {
+      "id": "BUY_WORST_CASE_RECONCILIATION",
+      "reconciliation": {
+        "actual_initial_max_loss": 99.75000000000095,
+        "planned_max_loss": 99.75,
+        "risk_budget": 100.0,
+        "risk_delta": 9.521272659185342e-13,
+        "status": "RECONCILED",
+        "within_cap": true
+      }
+    },
+    {
+      "acceptance": {
+        "acceptance_hash": "63ab3aa9786f57fd0114e9b5e4e0fdfe0f9b4edcf794cac9dbc2061c0deece0a",
+        "lifecycle_status": "PASS",
+        "live_ready": false,
+        "local_runtime_status": "PENDING",
+        "metaeditor_status": "PENDING",
+        "paper_ready": true,
+        "phase_id": "FP-I15",
+        "quota_status": "PASS",
+        "restart_status": "PASS",
+        "risk_cap_status": "PASS",
+        "sell_spread_status": "PASS",
+        "source_status": "PASS"
+      },
+      "id": "SOURCE_ACCEPTANCE"
+    },
+    {
+      "id": "LIVE_GATE",
+      "live_execution_enabled": false,
+      "live_policy": "UNSET"
+    },
+    {
+      "id": "REGISTRY",
+      "registry": {
+        "live_execution_enabled": false,
+        "live_policy": "UNSET",
+        "paper_runtime_authority": "SYNTHETIC_EXECUTION_ONLY",
+        "phase_id": "FP-I15",
+        "phase_version": "1.0.0",
+        "plan_contract_version": "FP-I15-PLAN-1",
+        "public_contracts": [
+          "DiagnosticAcceptanceProof",
+          "WinnerSignalInput",
+          "CausalReadiness",
+          "QuoteSnapshot",
+          "SymbolSpec",
+          "RiskConfig",
+          "AdmissionDecision",
+          "RiskGeometry",
+          "SizingResult",
+          "ExecutionPlan",
+          "PaperPolicyConfig",
+          "PaperQuotaRecord",
+          "PaperOrder",
+          "PaperFill",
+          "PaperPosition",
+          "ReconciliationEvent",
+          "PaperRunResult",
+          "RevalidationResult",
+          "PaperCheckpoint",
+          "PaperAcceptance"
+        ],
+        "reason_codes": [
+          "FP_PAPER_READY",
+          "FP_PAPER_DIAGNOSTIC_ACCEPTANCE_NOT_PASS",
+          "FP_PAPER_PAIR_QUOTA_MISMATCH",
+          "FP_PAPER_CONFIG_MISMATCH",
+          "FP_PAPER_SOURCE_REVISION_MISMATCH",
+          "FP_PAPER_NOT_ACTIVE_I09_WINNER",
+          "FP_PAPER_CAUSAL_WATERMARK_BEHIND",
+          "FP_PAPER_CAUSAL_DATA_INCOMPLETE",
+          "FP_PAPER_TRADE_SYMBOL_NOT_PROTECTED",
+          "FP_PAPER_BUY_STOP_NOT_BELOW_ENTRY",
+          "FP_PAPER_SELL_STOP_NOT_ABOVE_ENTRY",
+          "FP_PAPER_SPREAD_SNAPSHOT_UNAVAILABLE",
+          "FP_PAPER_MINIMUM_STOP_DISTANCE_VIOLATED",
+          "FP_PAPER_STOP_DISTANCE_NONPOSITIVE",
+          "FP_PAPER_BUY_TARGET_INVALID",
+          "FP_PAPER_SELL_TARGET_INVALID",
+          "FP_PAPER_GEOMETRY_NOT_READY",
+          "FP_PAPER_LOSS_PER_LOT_NONPOSITIVE",
+          "FP_PAPER_MIN_VOLUME_EXCEEDS_RISK_CAP",
+          "FP_PAPER_MAX_VOLUME_EXCEEDED",
+          "FP_PAPER_RISK_CAP_EXCEEDED",
+          "FP_PAPER_POLICY_UNSET",
+          "FP_PAPER_QUOTA_RESERVED",
+          "FP_PAPER_QUOTA_CONSUMED",
+          "FP_PAPER_QUOTA_RELEASED",
+          "FP_PAPER_QUOTA_ALREADY_OWNED",
+          "FP_PAPER_QUOTE_UNAVAILABLE",
+          "FP_PAPER_GEOMETRY_REVALIDATION_FAILED",
+          "FP_PAPER_LOCAL_VALIDATION_FAILED",
+          "FP_PAPER_PLAN_BLOCKED",
+          "FP_PAPER_ORDER_REJECTED",
+          "FP_PAPER_ORDER_CANCELLED",
+          "FP_PAPER_UNFILLED_EXPIRED",
+          "FP_PAPER_ORDER_ATTEMPTED",
+          "FP_PAPER_ORDER_ACCEPTED",
+          "FP_PAPER_FIRST_FILL",
+          "FP_PAPER_CHECKPOINT_ACCEPTED",
+          "FP_PAPER_CHECKPOINT_VERSION_MISMATCH",
+          "FP_PAPER_CHECKPOINT_CONFIG_MISMATCH",
+          "FP_PAPER_CHECKPOINT_HASH_MISMATCH",
+          "FP_PAPER_HEALTH_READY",
+          "FP_PAPER_METAEDITOR_PENDING",
+          "FP_PAPER_RUNTIME_PENDING",
+          "FP_PAPER_LIVE_POLICY_UNSET",
+          "FP_PAPER_LIVE_EXECUTION_DISABLED",
+          "FP_PAPER_SYNTHETIC_AUTHORITY_ONLY"
+        ]
+      }
+    },
+    {
+      "checkpoint": {
+        "checkpoint_id": "FPCP-6879074ac9da149129d665fd",
+        "config_hash": "5dfb4e6aa4a7d0c31a61ebd6681783b271d685823d53faf1a164fadfd092c8dd",
+        "fills": [],
+        "ledger": [
+          {
+            "aggregate_id": "FPPLAN-bfe68d489f239c8b0bf18d9b",
+            "event_hash": "dad4a1260d70fb43c0a13bb5c3b55a5fa250f58c75f1dbe34437bc8d3e02caf1",
+            "event_id": "FPEVT-d0ad4c56ddaad4276eeb88dc",
+            "event_type": "PLAN_CREATED",
+            "event_utc_ms": 1700000120000,
+            "payload_hash": "61014a88646e673029ce615a9775b847d32dc49f9686274b28bd07dcac8cadb6",
+            "prior_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "reason_codes": [],
+            "sequence": 1
+          },
+          {
+            "aggregate_id": "FPPRES-579cb902841550cf4bd086d7",
+            "event_hash": "aa4633df029ee45adfe01085cad3f10ead53be74de179e954da0de6fa03465d7",
+            "event_id": "FPEVT-d980a40040a9d6cb19d85636",
+            "event_type": "QUOTA_RESERVED",
+            "event_utc_ms": 1700000120000,
+            "payload_hash": "63e71b34f74a4d5b0a8e80457a71d69ce55bafa0eb717ee122ae0009224e2573",
+            "prior_event_hash": "dad4a1260d70fb43c0a13bb5c3b55a5fa250f58c75f1dbe34437bc8d3e02caf1",
+            "reason_codes": [],
+            "sequence": 2
+          },
+          {
+            "aggregate_id": "FPORD-630b8dcd7ab468afa64d2dbb",
+            "event_hash": "6727c8d635762326f9f50c183e94cf8b855d0504a1100c0b13c92cd87ab65658",
+            "event_id": "FPEVT-742149efcb054039e8f7aa50",
+            "event_type": "ORDER_CREATED",
+            "event_utc_ms": 1700000120000,
+            "payload_hash": "c4702879c2a20377ab520509fd7be8667f9eeef15859b8b76cd57b693721e880",
+            "prior_event_hash": "aa4633df029ee45adfe01085cad3f10ead53be74de179e954da0de6fa03465d7",
+            "reason_codes": [],
+            "sequence": 3
+          },
+          {
+            "aggregate_id": "FPORD-630b8dcd7ab468afa64d2dbb",
+            "event_hash": "d720a9cbf74d5ecd62b1e362fbc44e253c022c5d5a9398c370e69c73b183aa60",
+            "event_id": "FPEVT-ca20e491e7b35ddb6d2b05ec",
+            "event_type": "ORDER_VALIDATED",
+            "event_utc_ms": 1700000120001,
+            "payload_hash": "4ae97bdf90b8cb4d2de1954ec1d6bc29604d92ed35385580af83db7d469cb517",
+            "prior_event_hash": "6727c8d635762326f9f50c183e94cf8b855d0504a1100c0b13c92cd87ab65658",
+            "reason_codes": [],
+            "sequence": 4
+          },
+          {
+            "aggregate_id": "FPORD-630b8dcd7ab468afa64d2dbb",
+            "event_hash": "7dd8a1a1551e32c540b8a92231c927ce0559561f7d0fba9055f2c53725783070",
+            "event_id": "FPEVT-07e5064aee415fb2e9564421",
+            "event_type": "ORDER_ATTEMPTED",
+            "event_utc_ms": 1700000120002,
+            "payload_hash": "3d3668be1f53b8b8881ff3b43ca9401a0d0b402ec4b7825364b1e6da70f54c5b",
+            "prior_event_hash": "d720a9cbf74d5ecd62b1e362fbc44e253c022c5d5a9398c370e69c73b183aa60",
+            "reason_codes": [],
+            "sequence": 5
+          },
+          {
+            "aggregate_id": "FPORD-630b8dcd7ab468afa64d2dbb",
+            "event_hash": "9958113cc449ce057262c49167d0c17f0cd0ece2b51ed13ac1f29dbc11d28003",
+            "event_id": "FPEVT-dfa9de6cc73a94e8640dcd8d",
+            "event_type": "ORDER_ACCEPTED",
+            "event_utc_ms": 1700000120003,
+            "payload_hash": "a127383a7a5cac55c5631678fa0289952be70189c038a46e4a265a402ca1250b",
+            "prior_event_hash": "7dd8a1a1551e32c540b8a92231c927ce0559561f7d0fba9055f2c53725783070",
+            "reason_codes": [],
+            "sequence": 6
+          },
+          {
+            "aggregate_id": "FPORD-630b8dcd7ab468afa64d2dbb",
+            "event_hash": "660bdfd935ea5e008fa7d9e8a0f52f73c2bee41e08d46c00482bcc98e7fd9770",
+            "event_id": "FPEVT-28dc05a8ad532e47b3417b8d",
+            "event_type": "ORDER_FILLED",
+            "event_utc_ms": 1700000120004,
+            "payload_hash": "8e618db50714cc827ca50547ac5d9e0d6f9741a11379f3576970aae89f66ef18",
+            "prior_event_hash": "9958113cc449ce057262c49167d0c17f0cd0ece2b51ed13ac1f29dbc11d28003",
+            "reason_codes": [],
+            "sequence": 7
+          },
+          {
+            "aggregate_id": "FPPRES-579cb902841550cf4bd086d7",
+            "event_hash": "de69db536dc417cf1eb5a5c61f724ea2006c7e313375fbfa5b776a372cc6415e",
+            "event_id": "FPEVT-af8fa2f4d2419ba08861ad6d",
+            "event_type": "QUOTA_CONSUMED",
+            "event_utc_ms": 1700000120004,
+            "payload_hash": "bfb704efab4509a0ca1fbeadccac007548f1b212d14ef0df707ff05dab3fff90",
+            "prior_event_hash": "660bdfd935ea5e008fa7d9e8a0f52f73c2bee41e08d46c00482bcc98e7fd9770",
+            "reason_codes": [],
+            "sequence": 8
+          },
+          {
+            "aggregate_id": "FPPOS-8a301707d0c7b2e81288b32b",
+            "event_hash": "8282838b2955c0ce0393f552888ace6ae3ee643d3cd086cea437add51d2d4a2f",
+            "event_id": "FPEVT-ec550f801384469dc6231361",
+            "event_type": "POSITION_OPENED",
+            "event_utc_ms": 1700000120005,
+            "payload_hash": "ce4fc7446e5cbe96d7d2187d7b2b50fce2804e66b9e6db7ba2b52ba27fa53caa",
+            "prior_event_hash": "de69db536dc417cf1eb5a5c61f724ea2006c7e313375fbfa5b776a372cc6415e",
+            "reason_codes": [],
+            "sequence": 9
+          },
+          {
+            "aggregate_id": "FPPLAN-bfe68d489f239c8b0bf18d9b",
+            "event_hash": "a8492722abb6f8f1ab0743dd89b98d5cfd54e3ce86db3d118daf29ebbb684430",
+            "event_id": "FPEVT-3e928dcf553c82ce163c3f37",
+            "event_type": "RECONCILED",
+            "event_utc_ms": 1700000120006,
+            "payload_hash": "e0fe265552b30c9a61f3c14fa3c9a0d059b69f793a8d3e7d2a9164fbe3cb3fde",
+            "prior_event_hash": "8282838b2955c0ce0393f552888ace6ae3ee643d3cd086cea437add51d2d4a2f",
+            "reason_codes": [],
+            "sequence": 10
+          }
+        ],
+        "orders": [],
+        "payload_hash": "6879074ac9da149129d665fd31033af425c66aa19aa3b5b50ba0b3ddc29d88b9",
+        "policy_hash": "2d6c61b47e7771e957cfee5592bb883b54b56dfb9bdf3c8ca162047e9129a61d",
+        "positions": [],
+        "quota_records": [],
+        "version": "FP-I15-CHECKPOINT-1"
+      },
+      "id": "CHECKPOINT"
+    }
+  ]
+}

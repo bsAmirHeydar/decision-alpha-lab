@@ -1,0 +1,8 @@
+{
+  "actual_initial_max_loss": 99.75000000000095,
+  "planned_max_loss": 99.75,
+  "risk_budget": 100.0,
+  "risk_delta": 9.521272659185342e-13,
+  "status": "RECONCILED",
+  "within_cap": true
+}

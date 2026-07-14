@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "direction": {},
+    "geometry": {},
+    "plan_hash": {},
+    "plan_id": {},
+    "quota_key_id": {},
+    "revision": {},
+    "signal_id": {},
+    "sizing": {},
+    "state": {},
+    "trade_symbol": {}
+  },
+  "required": [
+    "plan_id",
+    "revision",
+    "state",
+    "signal_id",
+    "quota_key_id",
+    "trade_symbol",
+    "direction",
+    "geometry",
+    "sizing",
+    "plan_hash"
+  ],
+  "title": "fp_i15_execution_plan.schema.json",
+  "type": "object"
+}

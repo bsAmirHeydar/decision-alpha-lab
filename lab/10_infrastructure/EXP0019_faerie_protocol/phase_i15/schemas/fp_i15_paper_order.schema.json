@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "average_fill_price": {},
+    "filled_volume": {},
+    "order_hash": {},
+    "order_id": {},
+    "plan_id": {},
+    "requested_volume": {},
+    "signal_id": {},
+    "state": {}
+  },
+  "required": [
+    "order_id",
+    "plan_id",
+    "signal_id",
+    "state",
+    "requested_volume",
+    "filled_volume",
+    "average_fill_price",
+    "order_hash"
+  ],
+  "title": "fp_i15_paper_order.schema.json",
+  "type": "object"
+}

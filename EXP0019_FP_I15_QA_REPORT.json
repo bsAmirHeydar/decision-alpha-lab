@@ -1,0 +1,66 @@
+{
+  "authority": {
+    "broker": "NONE",
+    "live_execution_enabled": false,
+    "live_quota_policy": "UNSET",
+    "network": "NONE",
+    "paper": "SYNTHETIC_EXECUTION_ONLY"
+  },
+  "errors": 0,
+  "gates": {
+    "boundary_guard": "PASS",
+    "checkpoint_restart": "PASS",
+    "clean_baseline_patch": "PASS",
+    "closed_schemas": "PASS",
+    "delivery_validation": "PASS",
+    "file_hash_catalog": "PASS",
+    "file_index": "PASS",
+    "golden_vectors": "PASS",
+    "local_paper_runtime": "PENDING_LOCAL_WINDOWS",
+    "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+    "mql5_static_validation": "PASS",
+    "order_lifecycle": "PASS",
+    "paper_policy_matrix": "PASS",
+    "python_compile": "PASS",
+    "quota_atomicity": "PASS",
+    "reconciliation": "PASS",
+    "risk_cap": "PASS",
+    "sell_stop_plus_one_spread": "PASS",
+    "zip_integrity": "PASS"
+  },
+  "generated_utc": "2026-07-13T00:00:00Z",
+  "inventory": {
+    "closed_schemas": 18,
+    "documentation_lines": 4740,
+    "golden_vectors": 9,
+    "mql5_entrypoints": 2,
+    "mql5_includes": 14,
+    "obsidian_delivery_documents": 86,
+    "paper_policy_profiles": 7,
+    "paper_scenario_runs": 36,
+    "patch_files": 200,
+    "python_modules": 25,
+    "test_modules": 18
+  },
+  "limitations": [
+    "MetaEditor compilation requires local Windows/MT5.",
+    "Local I14 differential runtime and I15 paper runtime evidence are pending.",
+    "The production Paper EA defaults disabled and awaits a canonical winner feed from the accepted I09/I14 composition.",
+    "FP-DEC-012 remains UNSET and blocks all live execution."
+  ],
+  "phase_id": "FP-I15",
+  "phase_version": "1.0.0",
+  "status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_AND_RUNTIME_PENDING",
+  "tests": {
+    "available_fp_i02_to_i15_total": 888,
+    "fp_i00_i01": "UPSTREAM_ASSET_UNAVAILABLE",
+    "fp_i02_to_i09": 472,
+    "fp_i10": 59,
+    "fp_i11": 61,
+    "fp_i12": 55,
+    "fp_i13": 66,
+    "fp_i14": 81,
+    "fp_i15": 94
+  },
+  "warnings": 0
+}

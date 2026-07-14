@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generation": {},
+    "paper_reservation_id": {},
+    "plan_id": {},
+    "quota_key_id": {},
+    "state": {},
+    "winner_signal_id": {}
+  },
+  "required": [
+    "quota_key_id",
+    "state",
+    "winner_signal_id",
+    "plan_id",
+    "paper_reservation_id",
+    "generation"
+  ],
+  "title": "fp_i15_quota_record.schema.json",
+  "type": "object"
+}

@@ -1,12 +1,12 @@
 ---
 title: "FP-I15 — Risk Geometry, Pair-Session Reservation, and Paper Execution"
 tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+status: implemented-source-accepted
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
 program_version: 1.0.0
-doc_version: 1.0.0
+doc_version: 1.1.0
 last_updated: 2026-07-13
 language: en
 ---
@@ -141,3 +141,8 @@ Revert only files listed in this phase's file index. Persisted artifacts generat
 - [[../00_IMPLEMENTATION_PROGRAM_MOC|Implementation Program MOC]]
 - [[../../00_EXP0019_MOC|EXP0019 Master MOC]]
 - [[../../34_IMPLEMENTATION_ROADMAP|Implementation Roadmap]]
+
+
+## Implementation status
+
+Implemented in `fp_i15_paper`, the MQL5 I15 mirror, paper-only EA, self-test, closed schemas, golden fixtures, reconciliation artifacts, and the detailed delivery vault. Live execution remains disabled and `FP-DEC-012` remains `UNSET`.

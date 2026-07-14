@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_id": {},
+    "accepted_utc_ms": {},
+    "config_hash": {},
+    "consensus_hash": {},
+    "context_id": {},
+    "pair_id": {},
+    "source_revision_id": {},
+    "status": {}
+  },
+  "required": [
+    "acceptance_id",
+    "status",
+    "context_id",
+    "pair_id",
+    "config_hash",
+    "source_revision_id",
+    "consensus_hash",
+    "accepted_utc_ms"
+  ],
+  "title": "fp_i15_diagnostic_acceptance_proof.schema.json",
+  "type": "object"
+}

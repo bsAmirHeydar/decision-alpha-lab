@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_id": {},
+    "config_hash": {},
+    "fills": {},
+    "ledger": {},
+    "orders": {},
+    "payload_hash": {},
+    "policy_hash": {},
+    "positions": {},
+    "quota_records": {},
+    "version": {}
+  },
+  "required": [
+    "checkpoint_id",
+    "version",
+    "config_hash",
+    "policy_hash",
+    "ledger",
+    "quota_records",
+    "orders",
+    "fills",
+    "positions",
+    "payload_hash"
+  ],
+  "title": "fp_i15_checkpoint.schema.json",
+  "type": "object"
+}

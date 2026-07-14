@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_id": {},
+    "event_hash": {},
+    "event_id": {},
+    "event_type": {},
+    "event_utc_ms": {},
+    "payload_hash": {},
+    "prior_event_hash": {},
+    "sequence": {}
+  },
+  "required": [
+    "sequence",
+    "event_type",
+    "aggregate_id",
+    "event_utc_ms",
+    "payload_hash",
+    "prior_event_hash",
+    "event_id",
+    "event_hash"
+  ],
+  "title": "fp_i15_reconciliation_event.schema.json",
+  "type": "object"
+}

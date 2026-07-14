@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "primary_complete": {},
+    "reservation_is_active_winner": {},
+    "secondary_complete": {},
+    "unresolved_gap_count": {},
+    "watermark_utc_ms": {}
+  },
+  "required": [
+    "watermark_utc_ms",
+    "primary_complete",
+    "secondary_complete",
+    "unresolved_gap_count",
+    "reservation_is_active_winner"
+  ],
+  "title": "fp_i15_causal_readiness.schema.json",
+  "type": "object"
+}

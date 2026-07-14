@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_hash": {},
+    "lifecycle_status": {},
+    "live_ready": {},
+    "local_runtime_status": {},
+    "metaeditor_status": {},
+    "paper_ready": {},
+    "phase_id": {},
+    "quota_status": {},
+    "restart_status": {},
+    "risk_cap_status": {},
+    "sell_spread_status": {},
+    "source_status": {}
+  },
+  "required": [
+    "phase_id",
+    "source_status",
+    "risk_cap_status",
+    "sell_spread_status",
+    "quota_status",
+    "lifecycle_status",
+    "restart_status",
+    "metaeditor_status",
+    "local_runtime_status",
+    "paper_ready",
+    "live_ready",
+    "acceptance_hash"
+  ],
+  "title": "fp_i15_acceptance.schema.json",
+  "type": "object"
+}

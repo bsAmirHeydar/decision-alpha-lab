@@ -1,0 +1,15 @@
+{
+  "base_phase": "FP-I14",
+  "file_count": 200,
+  "file_index": "EXP0019_FP_I15_FILE_INDEX.txt",
+  "fp_dec_012": "UNSET",
+  "hash_catalog": "EXP0019_FP_I15_FILE_HASHES.sha256",
+  "live_execution_enabled": false,
+  "next_phase": "FP-I16",
+  "patch_name": "decision-alpha-lab-exp0019-faerie-protocol-fp-i15-paper-execution-v1.0.0.zip",
+  "phase_id": "FP-I15",
+  "phase_version": "1.0.0",
+  "qa_report": "EXP0019_FP_I15_QA_REPORT.json",
+  "rollback": "remove or restore only paths in the FP-I15 file index; preserve generated audit evidence",
+  "runtime_authority": "SYNTHETIC_EXECUTION_ONLY"
+}

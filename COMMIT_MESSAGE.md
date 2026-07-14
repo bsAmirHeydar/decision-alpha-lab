@@ -1,9 +1,8 @@
-feat(exp0019): implement FP-I14 diagnostic differential validation
+feat(exp0019): implement FP-I15 paper execution and risk geometry
 
-- add non-trading Diagnostic EA and MQL5 self-test
-- add canonical Indicator/EA/Python trace contracts
-- add pairwise and three-product differential comparison
-- add restart, reconnect, duplicate and stress validation
-- add append-only trace export and health diagnostics
-- add schemas, goldens, tools and detailed Obsidian docs
-- keep FP-DEC-012 unset and execution authority disabled
+- add protected-symbol setup-to-plan adapter
+- add exact SELL stop plus one spread and worst-case risk sizing
+- add explicit paper quota policy matrix and atomic reservation
+- add synthetic order, fill, position, reconciliation, and restart layers
+- add paper-only MQL5 EA and self-test
+- keep FP-DEC-012 unset and live broker authority disabled

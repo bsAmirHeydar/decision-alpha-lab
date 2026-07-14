@@ -1,0 +1,14 @@
+{
+  "acceptance_hash": "63ab3aa9786f57fd0114e9b5e4e0fdfe0f9b4edcf794cac9dbc2061c0deece0a",
+  "lifecycle_status": "PASS",
+  "live_ready": false,
+  "local_runtime_status": "PENDING",
+  "metaeditor_status": "PENDING",
+  "paper_ready": true,
+  "phase_id": "FP-I15",
+  "quota_status": "PASS",
+  "restart_status": "PASS",
+  "risk_cap_status": "PASS",
+  "sell_spread_status": "PASS",
+  "source_status": "PASS"
+}

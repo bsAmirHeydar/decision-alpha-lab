@@ -1,0 +1,20 @@
+{
+  "allowed": [
+    "local synthetic plan",
+    "local synthetic order",
+    "local synthetic fill",
+    "local reconciliation",
+    "local checkpoint"
+  ],
+  "broker_authority": "NONE",
+  "forbidden": [
+    "broker order submission",
+    "position mutation",
+    "WebRequest",
+    "live quota consumption"
+  ],
+  "live_execution_enabled": false,
+  "live_quota_policy": "UNSET",
+  "network_authority": "NONE",
+  "paper_runtime_authority": "SYNTHETIC_EXECUTION_ONLY"
+}

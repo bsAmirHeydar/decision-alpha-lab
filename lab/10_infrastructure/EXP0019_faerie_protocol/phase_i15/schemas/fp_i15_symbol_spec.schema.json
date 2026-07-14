@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "symbol": {},
+    "tick_size": {},
+    "tick_value_loss_per_lot": {},
+    "volume_max": {},
+    "volume_min": {},
+    "volume_step": {}
+  },
+  "required": [
+    "symbol",
+    "tick_size",
+    "tick_value_loss_per_lot",
+    "volume_min",
+    "volume_max",
+    "volume_step"
+  ],
+  "title": "fp_i15_symbol_spec.schema.json",
+  "type": "object"
+}

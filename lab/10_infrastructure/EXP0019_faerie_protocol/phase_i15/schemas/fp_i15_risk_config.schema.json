@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "fixed_risk_amount": {},
+    "max_slippage_price": {},
+    "target_r_multiple": {}
+  },
+  "required": [
+    "fixed_risk_amount",
+    "target_r_multiple",
+    "max_slippage_price"
+  ],
+  "title": "fp_i15_risk_config.schema.json",
+  "type": "object"
+}

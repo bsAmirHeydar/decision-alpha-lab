@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "estimated_max_loss": {},
+    "loss_per_lot": {},
+    "raw_volume": {},
+    "risk_budget": {},
+    "sizing_hash": {},
+    "sizing_id": {},
+    "status": {},
+    "volume": {}
+  },
+  "required": [
+    "sizing_id",
+    "status",
+    "risk_budget",
+    "loss_per_lot",
+    "raw_volume",
+    "volume",
+    "estimated_max_loss",
+    "sizing_hash"
+  ],
+  "title": "fp_i15_sizing_result.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {},
+    "bid": {},
+    "captured_utc_ms": {},
+    "quote_id": {},
+    "source_revision_id": {},
+    "symbol": {}
+  },
+  "required": [
+    "quote_id",
+    "symbol",
+    "bid",
+    "ask",
+    "captured_utc_ms",
+    "source_revision_id"
+  ],
+  "title": "fp_i15_quote_snapshot.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "entry_gate": "FP_I15_SOURCE_ACCEPTED_PLUS_LOCAL_COMPILE_AND_PAPER_RUNTIME",
+  "fp_dec_012": "UNSET",
+  "from_phase": "FP-I15",
+  "live_execution": "DISABLED",
+  "required_owner_action": "Freeze or migrate exact live quota consumption and release policy",
+  "to_phase": "FP-I16"
+}
