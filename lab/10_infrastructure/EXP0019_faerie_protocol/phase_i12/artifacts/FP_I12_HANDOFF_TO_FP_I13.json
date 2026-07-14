@@ -1,0 +1,20 @@
+{
+  "entry_gate": [
+    "local MetaEditor compile",
+    "panel visual QA",
+    "alert channel smoke test",
+    "export file smoke test",
+    "multi-chart isolation"
+  ],
+  "next_phase": "FP-I13",
+  "phase_id": "FP-I12",
+  "public_outputs": [
+    "OperatorOutput",
+    "OperatorCheckpoint",
+    "PanelModel",
+    "FilterResult",
+    "AlertStateSnapshot",
+    "ExportBatch"
+  ],
+  "version": "1.0.0"
+}

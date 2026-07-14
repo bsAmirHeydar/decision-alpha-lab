@@ -1,0 +1,38 @@
+{
+  "phase_id": "FP-I12",
+  "vectors": [
+    {
+      "expected_hash": "2723d54b0b2f96a38f504059a20de0c709eccfbe0ac8e573140d9c226c88e76f",
+      "fixture_id": "panel_trading"
+    },
+    {
+      "expected_hash": "646ee99a5a23940c54b9ce541f2cd4e539c9e1903093c42078551cd783f5378e",
+      "fixture_id": "panel_audit"
+    },
+    {
+      "expected_hash": "1d2334179b4c632d06118baaed633f9f310b6741d5f5f72913177cb348aacf2f",
+      "fixture_id": "filter_relation"
+    },
+    {
+      "expected_hash": "988276d5bb297c8f719b3d5b1860afd84514a958c951aeece4cad17948a1bd06",
+      "fixture_id": "alert_dedupe"
+    },
+    {
+      "expected_hash": "f9425630bf5592a026aefa8475c2ea43460de59520e082937b81d7c303b7bd0c",
+      "fixture_id": "historical_suppression"
+    },
+    {
+      "expected_hash": "14054080d91f11131b3471391d789ef942376c1e84fc1179c7454881dc2c4eb4",
+      "fixture_id": "export_jsonl"
+    },
+    {
+      "expected_hash": "8d787007519e980413ba356c201fc652fd0b350e2058aef76de100ae61e57edd",
+      "fixture_id": "checkpoint_restart"
+    },
+    {
+      "expected_hash": "30f1a056be4d78d66dc0b9f182bfdabf16d4f346a077fac6e6500a85741560dc",
+      "fixture_id": "open_decision"
+    }
+  ],
+  "version": "1.0.0"
+}

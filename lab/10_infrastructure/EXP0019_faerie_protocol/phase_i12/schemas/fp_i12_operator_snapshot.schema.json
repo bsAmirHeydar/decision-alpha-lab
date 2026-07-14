@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/operator_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": {},
+    "health": {},
+    "items": {},
+    "revision_id": {},
+    "snapshot_id": {}
+  },
+  "required": [
+    "snapshot_id",
+    "generated_at",
+    "revision_id",
+    "health",
+    "items"
+  ],
+  "title": "FP-I12 operator_snapshot",
+  "type": "object"
+}

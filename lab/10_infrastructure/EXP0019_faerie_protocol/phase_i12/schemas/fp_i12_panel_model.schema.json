@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/panel_model.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dock": {},
+    "instance_id": {},
+    "mode": {},
+    "page": {},
+    "page_count": {},
+    "panel_hash": {},
+    "panel_id": {},
+    "sections": {},
+    "state": {}
+  },
+  "required": [
+    "panel_id",
+    "instance_id",
+    "mode",
+    "state",
+    "dock",
+    "page",
+    "page_count",
+    "sections",
+    "panel_hash"
+  ],
+  "title": "FP-I12 panel_model",
+  "type": "object"
+}

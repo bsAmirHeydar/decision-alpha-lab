@@ -1,0 +1,15 @@
+{
+  "modes": [
+    "TRADING",
+    "AUDIT",
+    "WW",
+    "DIAGNOSTIC"
+  ],
+  "sections": [
+    "overview",
+    "ww",
+    "quota",
+    "signals",
+    "decisions"
+  ]
+}

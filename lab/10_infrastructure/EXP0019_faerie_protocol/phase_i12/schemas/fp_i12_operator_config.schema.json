@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/operator_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alerts": {},
+    "export": {},
+    "filters": {},
+    "instance_id": {},
+    "object_namespace": {},
+    "panel": {}
+  },
+  "required": [
+    "instance_id",
+    "object_namespace",
+    "panel",
+    "filters",
+    "alerts",
+    "export"
+  ],
+  "title": "FP-I12 operator_config",
+  "type": "object"
+}

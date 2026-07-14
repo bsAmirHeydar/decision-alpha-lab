@@ -1,0 +1,20 @@
+{
+  "channels": [
+    "LOG",
+    "POPUP",
+    "SOUND",
+    "PUSH",
+    "EMAIL"
+  ],
+  "historical_default": "SUPPRESSED",
+  "types": [
+    "SIGNAL_CONFIRMED",
+    "WW_CONTEXT_ACTIVE",
+    "WW_NEUTRALIZED",
+    "QUOTA_WINNER",
+    "HEALTH_DEGRADED",
+    "HEALTH_BLOCKED",
+    "DATA_READY",
+    "REBUILD_REQUIRED"
+  ]
+}

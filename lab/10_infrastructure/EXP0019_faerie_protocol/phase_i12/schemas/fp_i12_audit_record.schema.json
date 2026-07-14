@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/audit_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_time": {},
+    "instance_id": {},
+    "payload_hash": {},
+    "record_id": {},
+    "record_type": {},
+    "semantic_id": {},
+    "snapshot_id": {}
+  },
+  "required": [
+    "record_id",
+    "instance_id",
+    "snapshot_id",
+    "semantic_id",
+    "record_type",
+    "event_time",
+    "payload_hash"
+  ],
+  "title": "FP-I12 audit_record",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/filter_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "excluded": {},
+    "filter_hash": {},
+    "included": {},
+    "result_hash": {},
+    "source_snapshot_hash": {}
+  },
+  "required": [
+    "included",
+    "excluded",
+    "filter_hash",
+    "source_snapshot_hash",
+    "result_hash"
+  ],
+  "title": "FP-I12 filter_result",
+  "type": "object"
+}

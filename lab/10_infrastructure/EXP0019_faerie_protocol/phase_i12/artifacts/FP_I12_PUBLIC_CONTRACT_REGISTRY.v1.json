@@ -1,0 +1,22 @@
+{
+  "contracts": [
+    "OperatorItem",
+    "PanelConfig",
+    "FilterConfig",
+    "AlertConfig",
+    "ExportConfig",
+    "OperatorConfig",
+    "OperatorSnapshot",
+    "FilterResult",
+    "PanelModel",
+    "AlertEvent",
+    "AlertStateSnapshot",
+    "AuditRecord",
+    "ExportBatch",
+    "OperatorPreferences",
+    "OperatorCheckpoint",
+    "OperatorOutput"
+  ],
+  "phase_id": "FP-I12",
+  "version": "1.0.0"
+}

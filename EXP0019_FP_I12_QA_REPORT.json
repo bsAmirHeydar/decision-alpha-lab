@@ -1,0 +1,43 @@
+{
+  "phase_id": "FP-I12",
+  "version": "1.0.0",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_PENDING",
+  "tests": {
+    "fp_i12": 55,
+    "fp_i11_regression": 61,
+    "fp_i10_regression": 59,
+    "direct_fp_i10_i11_i12": 175,
+    "accepted_available_fp_i02_to_i12": 647
+  },
+  "inventory": {
+    "python_modules": 19,
+    "test_modules": 17,
+    "closed_json_schemas": 15,
+    "mql5_includes": 14,
+    "delivery_documents": 75,
+    "documentation_lines": 4479
+  },
+  "validation": {
+    "delivery": "PASS",
+    "boundary": "PASS",
+    "mql5_static": "PASS",
+    "python_compile": "PASS",
+    "schemas": "15/15",
+    "golden": "8/8",
+    "filter_projection_only": "PASS",
+    "alert_dedup_restart": "PASS",
+    "historical_alert_suppression": "PASS",
+    "append_only_export": "PASS",
+    "multi_instance_isolation": "PASS",
+    "clean_baseline_patch": "PASS",
+    "file_index": "PASS",
+    "file_hash_catalog": "PASS",
+    "zip_integrity": "PASS"
+  },
+  "environment_limits": [
+    "MetaEditor compile unavailable in current Linux environment",
+    "FP-I00/FP-I01 pinned shared-core and previous-context assets unavailable in supplied base archive"
+  ],
+  "errors": 0,
+  "warnings": 0
+}

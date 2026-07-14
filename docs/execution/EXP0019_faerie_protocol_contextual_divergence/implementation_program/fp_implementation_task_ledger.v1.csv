@@ -58,11 +58,11 @@ VIS-003,FP-I11,Draw Hunt/Candidate/Confirmed states,code,PLANNED,
 VIS-004,FP-I11,Draw WW and suppression overlays,code,PLANNED,
 VIS-005,FP-I11,Implement responsive lanes and object cleanup,code,PLANNED,
 VIS-006,FP-I11,Validate visual inventory from golden ledger,test,PLANNED,
-UI-001,FP-I12,Implement context/status panel,code,PLANNED,
-UI-002,FP-I12,Implement mode/filter controls,code,PLANNED,
-UI-003,FP-I12,Implement deduplicated alert router,code,PLANNED,
-UI-004,FP-I12,Implement append-only audit export,code,PLANNED,
-UI-005,FP-I12,Test historical alert suppression,test,PLANNED,
+UI-001,FP-I12,Implement context/status panel,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
+UI-002,FP-I12,Implement mode/filter controls,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
+UI-003,FP-I12,Implement deduplicated alert router,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
+UI-004,FP-I12,Implement append-only audit export,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
+UI-005,FP-I12,Test historical alert suppression,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
 REL-001,FP-I13,Build indicator replay harness,code,PLANNED,
 REL-002,FP-I13,Compare full/incremental event hashes,test,PLANNED,
 REL-003,FP-I13,Test restart/timeframe/multi-instance parity,test,PLANNED,

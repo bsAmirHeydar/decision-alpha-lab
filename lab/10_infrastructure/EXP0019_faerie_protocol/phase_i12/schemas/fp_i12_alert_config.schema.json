@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/alert_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "channels": {},
+    "enabled": {},
+    "max_per_minute": {},
+    "startup_watermark": {},
+    "suppress_historical": {}
+  },
+  "required": [
+    "enabled",
+    "channels",
+    "suppress_historical",
+    "startup_watermark",
+    "max_per_minute"
+  ],
+  "title": "FP-I12 alert_config",
+  "type": "object"
+}

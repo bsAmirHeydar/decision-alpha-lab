@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/alert_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_id": {},
+    "candidate": {},
+    "deliveries": {},
+    "disposition": {},
+    "event_hash": {}
+  },
+  "required": [
+    "alert_id",
+    "candidate",
+    "deliveries",
+    "disposition",
+    "event_hash"
+  ],
+  "title": "FP-I12 alert_event",
+  "type": "object"
+}

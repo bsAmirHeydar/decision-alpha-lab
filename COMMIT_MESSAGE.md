@@ -1,7 +1,3 @@
-feat(exp0019): implement FP-I11 indicator visual projection
+feat(exp0019): implement FP-I12 operator UX
 
-- add deterministic chart projection for all Faerie semantic evidence
-- add instance-scoped dirty-set object manager and responsive lanes
-- preserve immutable confirmed and suppressed audit evidence
-- integrate the production indicator and visual self-test
-- add schemas, tests, QA evidence, Obsidian docs, and FP-I12 handoff
+Add the Faerie Protocol indicator panel, projection-only filters, deduplicated alerts, append-only audit export, safe operator actions, persistence/checkpoint contracts, MQL5 integration, self-tests, schemas, QA gates, and detailed Obsidian documentation.

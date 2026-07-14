@@ -1,0 +1,14 @@
+{
+  "alert_authority": "TERMINAL_NOTIFICATION_ONLY",
+  "export_authority": "LOCAL_FILE_APPEND_ONLY",
+  "forbidden": [
+    "orders",
+    "positions",
+    "broker mutation",
+    "semantic ledger mutation",
+    "quota consumption",
+    "web requests"
+  ],
+  "runtime_authority": "NONE",
+  "ui_authority": "PROJECTION_PREFERENCES_ONLY"
+}

@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/operator_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_state": {},
+    "checkpoint_id": {},
+    "config_hash": {},
+    "instance_id": {},
+    "payload_hash": {},
+    "preferences": {},
+    "version": {}
+  },
+  "required": [
+    "checkpoint_id",
+    "version",
+    "instance_id",
+    "config_hash",
+    "preferences",
+    "alert_state",
+    "payload_hash"
+  ],
+  "title": "FP-I12 operator_checkpoint",
+  "type": "object"
+}

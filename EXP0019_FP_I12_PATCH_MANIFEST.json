@@ -1,0 +1,14 @@
+{
+  "patch_id": "EXP0019-FP-I12-1.0.0",
+  "phase_id": "FP-I12",
+  "version": "1.0.0",
+  "title": "Indicator Panel, Filters, Alerts, Audit Export, and Operator UX",
+  "file_index": "EXP0019_FP_I12_FILE_INDEX.txt",
+  "file_count": 171,
+  "runtime_authority": "NONE",
+  "ui_authority": "PROJECTION_PREFERENCES_ONLY",
+  "alert_authority": "TERMINAL_NOTIFICATION_ONLY",
+  "export_authority": "LOCAL_FILE_APPEND_ONLY",
+  "open_decision": "FP-DEC-012",
+  "metaeditor": "pending_local_windows"
+}

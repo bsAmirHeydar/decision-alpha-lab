@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/panel_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dock": {},
+    "enabled": {},
+    "mode": {},
+    "page_size": {},
+    "state": {}
+  },
+  "required": [
+    "enabled",
+    "dock",
+    "state",
+    "mode",
+    "page_size"
+  ],
+  "title": "FP-I12 panel_config",
+  "type": "object"
+}

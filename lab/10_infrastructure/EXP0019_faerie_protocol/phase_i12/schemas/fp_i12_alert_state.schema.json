@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/alert_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acknowledged_ids": {},
+    "delivered_ids": {},
+    "instance_id": {},
+    "state_hash": {}
+  },
+  "required": [
+    "instance_id",
+    "delivered_ids",
+    "acknowledged_ids",
+    "state_hash"
+  ],
+  "title": "FP-I12 alert_state",
+  "type": "object"
+}

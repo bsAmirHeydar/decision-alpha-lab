@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/export_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "enabled": {},
+    "file_prefix": {},
+    "formats": {}
+  },
+  "required": [
+    "enabled",
+    "formats",
+    "file_prefix"
+  ],
+  "title": "FP-I12 export_config",
+  "type": "object"
+}

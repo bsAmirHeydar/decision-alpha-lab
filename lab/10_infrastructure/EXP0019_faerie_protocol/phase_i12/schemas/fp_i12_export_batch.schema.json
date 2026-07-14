@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/exp0019/fp-i12/export_batch.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "appended_count": {},
+    "batch_id": {},
+    "content_hash": {},
+    "disposition": {},
+    "duplicate_count": {},
+    "format": {},
+    "records": {}
+  },
+  "required": [
+    "batch_id",
+    "format",
+    "records",
+    "appended_count",
+    "duplicate_count",
+    "content_hash",
+    "disposition"
+  ],
+  "title": "FP-I12 export_batch",
+  "type": "object"
+}
