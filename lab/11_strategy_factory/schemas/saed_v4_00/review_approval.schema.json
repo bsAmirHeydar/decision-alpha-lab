@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/review_approval.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "enum": [
+        "approve",
+        "reject",
+        "abstain"
+      ]
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "organization_unit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "signature_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "reviewer_id",
+    "organization_unit",
+    "role",
+    "known_time",
+    "decision",
+    "reason",
+    "signature_hash"
+  ],
+  "title": "review_approval",
+  "type": "object"
+}

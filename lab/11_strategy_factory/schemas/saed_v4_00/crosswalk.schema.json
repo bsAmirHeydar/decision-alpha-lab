@@ -1,0 +1,68 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/ucee_crosswalk.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "crosswalk_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_owner": {
+            "const": "UCEE"
+          },
+          "capability": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "mutation_allowed": {
+            "const": false
+          },
+          "phase": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "saed_consumes": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "saed_emits": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "phase",
+          "capability",
+          "saed_consumes",
+          "saed_emits",
+          "authority_owner",
+          "mutation_allowed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "entries",
+    "crosswalk_hash"
+  ],
+  "title": "ucee_crosswalk",
+  "type": "object"
+}

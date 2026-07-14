@@ -1,0 +1,38 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/baseline_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "mandatory_baselines": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "random_or_frozen_control_required_when_applicable": {
+      "const": true
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "known_time",
+    "mandatory_baselines",
+    "random_or_frozen_control_required_when_applicable"
+  ],
+  "title": "baseline_policy",
+  "type": "object"
+}

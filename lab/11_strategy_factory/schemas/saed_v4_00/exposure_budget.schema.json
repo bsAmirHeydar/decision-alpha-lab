@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/exposure_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "family_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "maximum_hidden_submissions": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_total": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "family_id",
+    "known_time",
+    "maximum_total",
+    "maximum_hidden_submissions"
+  ],
+  "title": "exposure_budget",
+  "type": "object"
+}

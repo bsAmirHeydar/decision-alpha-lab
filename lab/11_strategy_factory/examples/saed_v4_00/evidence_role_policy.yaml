@@ -1,0 +1,55 @@
+schema_version: 4.0.0
+policy_id: saed-v4-00-evidence-firewall
+known_time: '2026-07-13T00:00:00Z'
+roles:
+  development:
+  - train
+  - tune
+  - report
+  - replay
+  calibration:
+  - calibrate
+  - report
+  - replay
+  selection_validation:
+  - select
+  - report
+  - replay
+  locked_final:
+  - report
+  - promote
+  - replay
+  prospective:
+  - report
+  - promote
+  - replay
+  shadow:
+  - report
+  - promote
+  - replay
+  micro_live:
+  - report
+  - promote
+  - replay
+  live:
+  - report
+  - replay
+  synthetic_stress:
+  - stress
+  - report
+  - replay
+  external_static:
+  - report
+  - replay
+  external_actual:
+  - report
+  - promote
+  - replay
+protected_roles:
+- locked_final
+- prospective
+- shadow
+- micro_live
+- live
+- external_actual
+synthetic_rule: negative_or_stress_evidence_only

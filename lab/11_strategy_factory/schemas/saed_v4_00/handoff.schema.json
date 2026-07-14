@@ -1,0 +1,58 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/phase_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "entry_gates": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "from_phase": {
+      "const": "V4-00"
+    },
+    "golden_test": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "to_phase": {
+      "const": "V4-01"
+    }
+  },
+  "required": [
+    "schema_version",
+    "from_phase",
+    "to_phase",
+    "known_time",
+    "entry_gates",
+    "artifacts",
+    "golden_test",
+    "limitations"
+  ],
+  "title": "phase_handoff",
+  "type": "object"
+}

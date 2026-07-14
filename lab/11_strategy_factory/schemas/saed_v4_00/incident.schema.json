@@ -1,0 +1,57 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/constitutional_incident.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "incident_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "incident_id",
+    "program_id",
+    "category",
+    "severity",
+    "known_time",
+    "evidence_hashes",
+    "owner"
+  ],
+  "title": "constitutional_incident",
+  "type": "object"
+}

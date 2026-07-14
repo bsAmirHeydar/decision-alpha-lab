@@ -1,0 +1,252 @@
+{
+  "passed": 17,
+  "results": [
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_c2a4e3ad5be26b66858189ff",
+      "details": [],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "ok"
+      ],
+      "request_id": "authreq_3e001efec591e614a0a86828",
+      "status": "allow"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_ee6c57caedfa08e572c77d20",
+      "details": [],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "ok"
+      ],
+      "request_id": "authreq_69f9b4cb7daa12029017c5d9",
+      "status": "allow"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_b685336a503194694aac801f",
+      "details": [
+        "order is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_4fc0b8112c2dbe347580c45c",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_63e4035da0d3a7b21e8923ec",
+      "details": [
+        "broker is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_20b55a4235220c7f17d3b295",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_141e40684d1b3743b607d27a",
+      "details": [
+        "network is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_76ae6edb15265639ccb83e78",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_1b853fd4c156ceac0d4121e4",
+      "details": [
+        "risk_limit_change is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_91b9fee71ee654f5ef7dc2bf",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_4b69e8020db236f15f475bfa",
+      "details": [
+        "promotion_signature is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_f65499eaa848d6dbfc31f395",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_26b411035cc90748b99bf7cf",
+      "details": [
+        "context_truth_mutation is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_4accc12aae31f508dbdc72ec",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_0043f20b606bd92c514bda08",
+      "details": [
+        "constitution_self_amendment is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_c330e1371c31a23f29854149",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_254001f0869e49b236f84436",
+      "details": [
+        "runtime_activation is constitutionally denied to agent"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "authreq_63d3cb514c12e3b123da59f6",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_0845bb302d02e29268e506c3",
+      "details": [],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "ok"
+      ],
+      "request_id": "evidreq_cd0a5df4d5f06d52289e829f",
+      "status": "allow"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_5f14c003eef93d4de7e4fccf",
+      "details": [
+        "train is not allowed for locked_final"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "protected_evidence_training"
+      ],
+      "request_id": "evidreq_9545e479d0d38b3f4a8319c6",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_36536dd682f46fc96e6345a1",
+      "details": [
+        "tune is not allowed for prospective"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "protected_evidence_training"
+      ],
+      "request_id": "evidreq_37c5cabb8de510e560d220b4",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_b1cbf3e2ac2aa0c861c634b1",
+      "details": [],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "ok"
+      ],
+      "request_id": "evidreq_968cf3484f41c1658c834211",
+      "status": "allow"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_27876825495223dd31eecd1f",
+      "details": [
+        "synthetic evidence can falsify but cannot provide positive promotion evidence"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "synthetic_positive_promotion"
+      ],
+      "request_id": "evidreq_13b9952f088e7476c152821c",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_f9044932a3ad6635a03f3ea9",
+      "details": [
+        "promote is not allowed for external_static"
+      ],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "authority_denied"
+      ],
+      "request_id": "evidreq_29dc287dae08590800264abb",
+      "status": "reject"
+    },
+    {
+      "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+      "decision_id": "constitution_decision_6df94ce2cdc85e71d0c8f267",
+      "details": [],
+      "known_time": "2026-07-13T01:00:00Z",
+      "matches_expected": true,
+      "policy_hash": "0b09b2b12432adcb973dae8ff456dbbba4ab5a6ccc2605cf1e5cad99e74ea278",
+      "reason_codes": [
+        "ok"
+      ],
+      "request_id": "evidreq_a39bcfb9ef1e42bc71ab41b2",
+      "status": "allow"
+    }
+  ],
+  "status": "pass",
+  "total": 17
+}

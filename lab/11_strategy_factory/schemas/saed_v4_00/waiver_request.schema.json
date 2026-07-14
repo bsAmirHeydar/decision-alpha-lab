@@ -1,0 +1,73 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/waiver_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "compensating_controls": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "effective_from": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "proposer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rule_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "waiver_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "waiver_id",
+    "program_id",
+    "rule_id",
+    "proposer_id",
+    "known_time",
+    "effective_from",
+    "expires_at",
+    "rationale",
+    "compensating_controls",
+    "approval_ids"
+  ],
+  "title": "waiver_request",
+  "type": "object"
+}

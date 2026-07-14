@@ -1,0 +1,61 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/constitutional_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "constitution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "details": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "allow",
+        "reject",
+        "quarantine",
+        "require_review"
+      ]
+    }
+  },
+  "required": [
+    "decision_id",
+    "request_id",
+    "status",
+    "reason_codes",
+    "constitution_hash",
+    "policy_hash",
+    "known_time",
+    "details"
+  ],
+  "title": "constitutional_decision",
+  "type": "object"
+}

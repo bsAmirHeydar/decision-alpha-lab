@@ -1,0 +1,35 @@
+schema_version: 4.0.0
+matrix_id: saed-v4-00-default-authority
+known_time: '2026-07-13T00:00:00Z'
+grants:
+  human_researcher:
+  - research_proposal
+  - sandbox_compute
+  - evidence_packet_draft
+  human_reviewer:
+  - independent_review
+  - red_team_challenge
+  agent:
+  - research_proposal
+  - sandbox_compute
+  - evidence_packet_draft
+  - red_team_challenge
+  hidden_evaluation_service:
+  - hidden_evaluation_row_access
+  - evidence_packet_draft
+  risk_committee:
+  - independent_review
+  - promotion_signature
+  - risk_limit_change
+  runtime_compiler:
+  - runtime_activation
+  portfolio_engine:
+  - portfolio_allocation
+  execution_adapter:
+  - order
+  - broker
+  - network
+hard_denies:
+- research actors cannot mutate context truth, reassign evidence roles, self-amend
+  the constitution, sign promotion, change risk, allocate portfolio, activate runtime,
+  place orders, access brokers, or access networks

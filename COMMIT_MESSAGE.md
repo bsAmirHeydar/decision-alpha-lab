@@ -1,1 +1,1 @@
-docs(strategy-factory): add SAED V4 sovereign context intelligence architecture
+feat(saed-v4): implement V4-00 executable research constitution

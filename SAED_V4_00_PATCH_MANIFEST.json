@@ -1,0 +1,33 @@
+{
+  "additive_boundary": true,
+  "claims": {
+    "production_authorized": false,
+    "prospective_passed": false,
+    "real_alpha": false,
+    "runtime_parity": false
+  },
+  "clean_baseline_verification": "pass",
+  "counts": {
+    "atomic_concepts": 12,
+    "closed_schemas": 20,
+    "mql5_files": 10,
+    "phase_docs": 39,
+    "python_modules": 27,
+    "tests": 13,
+    "tools": 8
+  },
+  "external_evidence": {
+    "metaeditor_compile": "pending_local_windows"
+  },
+  "file_count": 158,
+  "known_time": "2026-07-13T00:00:00Z",
+  "patch_id": "SAED-V4-00",
+  "test_results": {
+    "conformance_failed": 0,
+    "conformance_passed": 17,
+    "phase_tests_failed": 0,
+    "phase_tests_passed": 130
+  },
+  "title": "Executable Research Constitution and UCEE Crosswalk",
+  "version": "1.0.0"
+}

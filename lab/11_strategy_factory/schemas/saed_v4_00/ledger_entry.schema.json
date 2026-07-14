@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/ledger_entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "previous_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sequence",
+    "known_time",
+    "event_type",
+    "payload_hash",
+    "previous_hash",
+    "entry_hash"
+  ],
+  "title": "ledger_entry",
+  "type": "object"
+}

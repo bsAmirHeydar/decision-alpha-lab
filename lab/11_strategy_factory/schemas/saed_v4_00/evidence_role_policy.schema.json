@@ -1,0 +1,58 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/evidence_role_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_roles": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "roles": {
+      "additionalProperties": {
+        "items": {
+          "enum": [
+            "train",
+            "tune",
+            "calibrate",
+            "select",
+            "report",
+            "promote",
+            "stress",
+            "replay"
+          ]
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "synthetic_rule": {
+      "const": "negative_or_stress_evidence_only"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "known_time",
+    "roles",
+    "protected_roles",
+    "synthetic_rule"
+  ],
+  "title": "evidence_role_policy",
+  "type": "object"
+}

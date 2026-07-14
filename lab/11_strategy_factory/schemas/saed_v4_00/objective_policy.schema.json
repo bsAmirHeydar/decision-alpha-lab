@@ -1,0 +1,62 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/objective_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "effective_from": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "hard_constraints": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "minimum_baselines": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "objective_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "objective_vector": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "objective_id",
+    "version",
+    "known_time",
+    "objective_vector",
+    "hard_constraints",
+    "minimum_baselines",
+    "effective_from"
+  ],
+  "title": "objective_policy",
+  "type": "object"
+}

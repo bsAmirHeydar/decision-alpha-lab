@@ -1,0 +1,126 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/research_constitution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "autonomous_promotion": {
+          "const": false
+        },
+        "broker": {
+          "const": false
+        },
+        "constitution_self_amendment": {
+          "const": false
+        },
+        "context_truth_mutation": {
+          "const": false
+        },
+        "evidence_role_reassignment": {
+          "const": false
+        },
+        "network": {
+          "const": false
+        },
+        "order": {
+          "const": false
+        },
+        "portfolio_allocation": {
+          "const": false
+        },
+        "risk_limit_change": {
+          "const": false
+        },
+        "runtime_activation": {
+          "const": false
+        }
+      },
+      "required": [
+        "context_truth_mutation",
+        "evidence_role_reassignment",
+        "constitution_self_amendment",
+        "autonomous_promotion",
+        "risk_limit_change",
+        "portfolio_allocation",
+        "runtime_activation",
+        "order",
+        "broker",
+        "network"
+      ],
+      "type": "object"
+    },
+    "complete_exposure_accounting": {
+      "const": true
+    },
+    "constitution_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_roles": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "fail_closed_states": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minimum_independent_approvals": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "proposed",
+        "retired",
+        "quarantined"
+      ]
+    },
+    "synthetic_positive_evidence_allowed": {
+      "const": false
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "constitution_id",
+    "version",
+    "known_time",
+    "status",
+    "authority",
+    "evidence_roles",
+    "fail_closed_states",
+    "minimum_independent_approvals",
+    "complete_exposure_accounting",
+    "synthetic_positive_evidence_allowed",
+    "limitations"
+  ],
+  "title": "research_constitution",
+  "type": "object"
+}

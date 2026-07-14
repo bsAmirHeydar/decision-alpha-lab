@@ -1,0 +1,128 @@
+{
+  "crosswalk_hash": "a01834933bf785ee9d472209a02fd9c1b4db15c68399e2cb2208030ad497402f",
+  "entries": [
+    {
+      "authority_owner": "UCEE",
+      "capability": "canonical context truth and known-time lifecycle",
+      "mutation_allowed": false,
+      "phase": "I01-I04",
+      "saed_consumes": [
+        "context packages",
+        "occurrences"
+      ],
+      "saed_emits": [
+        "read-only references"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "features, labels, datasets, folds and multiview support",
+      "mutation_allowed": false,
+      "phase": "I05-I10",
+      "saed_consumes": [
+        "feature snapshots",
+        "fold manifests"
+      ],
+      "saed_emits": [
+        "research manifests"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "experiment orchestration and complete trial identity",
+      "mutation_allowed": false,
+      "phase": "I11",
+      "saed_consumes": [
+        "experiment contracts"
+      ],
+      "saed_emits": [
+        "trial/exposure events"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "statistical challenge and promotion",
+      "mutation_allowed": false,
+      "phase": "I12",
+      "saed_consumes": [
+        "candidate dossiers"
+      ],
+      "saed_emits": [
+        "challenge evidence"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "bounded manual/AI/hybrid policy",
+      "mutation_allowed": false,
+      "phase": "I13",
+      "saed_consumes": [
+        "promotion admission"
+      ],
+      "saed_emits": [
+        "policy proposal only"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "immutable runtime and parity",
+      "mutation_allowed": false,
+      "phase": "I14",
+      "saed_consumes": [
+        "compiled bundle contracts"
+      ],
+      "saed_emits": [
+        "runtime handoff request"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "context treatment tournament",
+      "mutation_allowed": false,
+      "phase": "I15",
+      "saed_consumes": [
+        "tournament template"
+      ],
+      "saed_emits": [
+        "candidate treatment evidence"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "context onboarding",
+      "mutation_allowed": false,
+      "phase": "I16",
+      "saed_consumes": [
+        "context specification"
+      ],
+      "saed_emits": [
+        "cell onboarding artifacts"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "risk reservation, portfolio allocation and capacity",
+      "mutation_allowed": false,
+      "phase": "I17",
+      "saed_consumes": [
+        "portfolio constraints"
+      ],
+      "saed_emits": [
+        "edge genome proposal"
+      ]
+    },
+    {
+      "authority_owner": "UCEE",
+      "capability": "production qualification, authorization and recovery",
+      "mutation_allowed": false,
+      "phase": "I18",
+      "saed_consumes": [
+        "release evidence policy"
+      ],
+      "saed_emits": [
+        "qualification evidence request"
+      ]
+    }
+  ],
+  "schema_version": "4.0.0"
+}

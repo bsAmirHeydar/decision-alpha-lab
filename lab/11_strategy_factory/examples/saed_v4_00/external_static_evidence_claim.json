@@ -1,0 +1,15 @@
+{
+  "actual_execution_performed": false,
+  "artifact_hashes": [
+    "5555555555555555555555555555555555555555555555555555555555555555"
+  ],
+  "claim_id": "mql5-static-reference",
+  "environment": "linux-static-validator",
+  "evidence_class": "static",
+  "known_time": "2026-07-13T00:00:00Z",
+  "limitations": [
+    "Not a MetaEditor compile.",
+    "Not runtime parity."
+  ],
+  "schema_version": "4.0.0"
+}

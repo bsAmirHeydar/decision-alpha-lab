@@ -1,0 +1,53 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_external_evidence_attached": {
+      "const": false
+    },
+    "bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "bundle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "component_hashes": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "production_authorized": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "known_time",
+    "component_hashes",
+    "limitations",
+    "actual_external_evidence_attached",
+    "production_authorized",
+    "bundle_hash"
+  ],
+  "title": "evidence_bundle",
+  "type": "object"
+}

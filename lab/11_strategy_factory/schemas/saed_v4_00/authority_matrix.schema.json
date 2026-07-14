@@ -1,0 +1,62 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/authority_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "grants": {
+      "additionalProperties": {
+        "items": {
+          "enum": [
+            "context_truth_mutation",
+            "evidence_role_reassignment",
+            "hidden_evaluation_row_access",
+            "constitution_self_amendment",
+            "promotion_signature",
+            "risk_limit_change",
+            "portfolio_allocation",
+            "runtime_activation",
+            "order",
+            "broker",
+            "network",
+            "research_proposal",
+            "sandbox_compute",
+            "evidence_packet_draft",
+            "red_team_challenge",
+            "independent_review"
+          ]
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "type": "object"
+    },
+    "hard_denies": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "matrix_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "matrix_id",
+    "known_time",
+    "grants",
+    "hard_denies"
+  ],
+  "title": "authority_matrix",
+  "type": "object"
+}

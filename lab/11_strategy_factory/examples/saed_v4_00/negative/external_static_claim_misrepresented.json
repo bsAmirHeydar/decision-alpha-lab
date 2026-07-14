@@ -1,0 +1,12 @@
+{
+  "actual_execution_performed": true,
+  "artifact_hashes": [
+    "5555555555555555555555555555555555555555555555555555555555555555"
+  ],
+  "claim_id": "bad",
+  "environment": "linux-static",
+  "evidence_class": "static",
+  "known_time": "2026-07-13T00:00:00Z",
+  "limitations": [],
+  "schema_version": "4.0.0"
+}

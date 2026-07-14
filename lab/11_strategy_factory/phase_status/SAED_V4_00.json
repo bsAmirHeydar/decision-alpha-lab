@@ -1,0 +1,32 @@
+{
+  "phase": "SAED-V4-00",
+  "title": "Program Constitution and UCEE Crosswalk",
+  "version": "1.0.0",
+  "status": "implemented",
+  "known_time": "2026-07-13T00:00:00Z",
+  "capabilities": {
+    "closed_contracts": true,
+    "deterministic_constitutional_kernel": true,
+    "authority_deny_by_default": true,
+    "protected_evidence_firewall": true,
+    "objective_and_baseline_freeze": true,
+    "two_person_integrity": true,
+    "prospective_amendment_protocol": true,
+    "sunset_waiver_protocol": true,
+    "complete_exposure_accounting": true,
+    "tamper_evident_ledger": true,
+    "ucee_i01_i18_read_only_crosswalk": true,
+    "mql5_bounded_mirror": true
+  },
+  "evidence": {
+    "python_phase_tests": "passed",
+    "schema_validation": "passed",
+    "conformance_vectors": "passed",
+    "mql5_static": "passed",
+    "metaeditor_compile": "pending_local_windows",
+    "real_runtime_parity": "not_in_scope",
+    "real_alpha": "not_claimed",
+    "production_authorization": "not_claimed"
+  },
+  "next_phase": "SAED-V4-01"
+}

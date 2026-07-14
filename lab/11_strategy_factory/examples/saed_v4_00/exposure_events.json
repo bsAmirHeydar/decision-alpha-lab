@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "actor_id": "researcher-1",
+      "artifact_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "detail_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+      "exposure_kind": "trial",
+      "family_id": "saed-v4-00-family",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "schema_version": "4.0.0"
+    },
+    {
+      "actor_id": "agent-leakage-sentinel",
+      "artifact_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "detail_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+      "exposure_kind": "agent_suggestion",
+      "family_id": "saed-v4-00-family",
+      "known_time": "2026-07-13T01:05:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "schema_version": "4.0.0"
+    }
+  ]
+}

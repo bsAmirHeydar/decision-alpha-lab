@@ -1,0 +1,28 @@
+{
+  "artifacts": [
+    "research constitution",
+    "authority matrix",
+    "evidence role policy",
+    "objective policy",
+    "baseline policy",
+    "program manifest",
+    "crosswalk",
+    "conformance vectors"
+  ],
+  "entry_gates": [
+    "constitution active and hash-pinned",
+    "authority matrix validated",
+    "evidence firewall validated",
+    "objective and baselines frozen",
+    "exposure budget frozen",
+    "UCEE crosswalk mutation-free"
+  ],
+  "from_phase": "V4-00",
+  "golden_test": "A Context Intelligence Cell scaffold must consume the frozen V4-00 constitution and UCEE crosswalk, emit only additive artifacts, and fail closed if any actor requests context mutation, protected-evidence training, autonomous promotion, risk expansion, runtime activation, broker access or order authority.",
+  "known_time": "2026-07-13T00:00:00Z",
+  "limitations": [
+    "Actual UCEE source integration is validated in the target repository."
+  ],
+  "schema_version": "4.0.0",
+  "to_phase": "V4-01"
+}

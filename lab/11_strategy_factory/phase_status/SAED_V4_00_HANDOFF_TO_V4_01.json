@@ -1,0 +1,21 @@
+{
+  "schema_version": "4.0.0",
+  "from_phase": "V4-00",
+  "to_phase": "V4-01",
+  "known_time": "2026-07-13T00:00:00Z",
+  "entry_gates": [
+    "research constitution is active and hash-pinned",
+    "authority matrix is exact-version and deny-by-default",
+    "evidence-role firewall is active",
+    "objective vector and mandatory baselines are frozen",
+    "program and hidden-evaluation exposure budgets are frozen",
+    "UCEE I01-I18 crosswalk is read-only",
+    "phase-zero conformance vectors pass",
+    "core-boundary mutation is rejected"
+  ],
+  "golden_test": "Given the frozen V4-00 constitution and UCEE crosswalk, V4-01 must scaffold the same Context Digital Twin Cell byte-for-byte for the same Context specification, emit only additive Cell artifacts, and reject any request to mutate UCEE Context truth, train on protected evidence, self-amend the constitution, sign promotion, increase risk, activate runtime, access a broker or place an order.",
+  "limitations": [
+    "Actual MetaEditor compile remains pending on Windows.",
+    "No real Context Cell, alpha, prospective or live evidence is claimed by V4-00."
+  ]
+}

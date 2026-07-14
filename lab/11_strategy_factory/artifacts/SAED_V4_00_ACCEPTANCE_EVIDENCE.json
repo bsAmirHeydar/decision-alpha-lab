@@ -1,0 +1,31 @@
+{
+  "executed_evidence": {
+    "clean_baseline_verification": "passed",
+    "closed_schemas": {
+      "validated": 20
+    },
+    "conformance_vectors": {
+      "failed": 0,
+      "passed": 17
+    },
+    "mql5_static_files": 10,
+    "obsidian_missing_links": 0,
+    "python_tests": {
+      "failed": 0,
+      "passed": 130
+    },
+    "validated_examples": 10
+  },
+  "known_time": "2026-07-13T00:00:00Z",
+  "pending_external_evidence": [
+    "actual MetaEditor compilation on supported Windows terminal builds"
+  ],
+  "phase": "SAED-V4-00",
+  "prohibited_claims": [
+    "real alpha proven",
+    "prospective paper passed",
+    "runtime parity passed",
+    "production authorized"
+  ],
+  "status": "pass_with_external_evidence_pending"
+}

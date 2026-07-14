@@ -1,0 +1,159 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/amendment_proposal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amendment_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "applies_to_existing_programs": {
+      "const": false
+    },
+    "approvals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "enum": [
+              "approve",
+              "reject",
+              "abstain"
+            ]
+          },
+          "known_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "organization_unit": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "reviewer_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "signature_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reviewer_id",
+          "organization_unit",
+          "role",
+          "known_time",
+          "decision",
+          "reason",
+          "signature_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "current_constitution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "current_value_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "effective_from": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "proposed_value": {
+      "type": "object"
+    },
+    "proposer": {
+      "additionalProperties": false,
+      "properties": {
+        "actor_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "actor_type": {
+          "enum": [
+            "human_researcher",
+            "human_reviewer",
+            "risk_committee",
+            "agent",
+            "hidden_evaluation_service",
+            "runtime_compiler",
+            "portfolio_engine",
+            "execution_adapter"
+          ]
+        },
+        "organization_unit": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "roles": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "actor_id",
+        "actor_type",
+        "organization_unit",
+        "roles"
+      ],
+      "type": "object"
+    },
+    "rationale": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "target_section": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "amendment_id",
+    "program_id",
+    "proposer",
+    "current_constitution_hash",
+    "target_section",
+    "current_value_hash",
+    "proposed_value",
+    "rationale",
+    "known_time",
+    "effective_from",
+    "applies_to_existing_programs",
+    "expires_at",
+    "approvals"
+  ],
+  "title": "amendment_proposal",
+  "type": "object"
+}

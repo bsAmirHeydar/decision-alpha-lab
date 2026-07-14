@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/external_evidence_claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_execution_performed": {
+      "type": "boolean"
+    },
+    "artifact_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "environment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "static",
+        "actual"
+      ]
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "claim_id",
+    "known_time",
+    "evidence_class",
+    "environment",
+    "artifact_hashes",
+    "actual_execution_performed",
+    "limitations"
+  ],
+  "title": "external_evidence_claim",
+  "type": "object"
+}

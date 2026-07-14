@@ -1,0 +1,27 @@
+schema_version: 4.0.0
+objective_id: protected-lower-bound-utility
+version: 1.0.0
+known_time: '2026-07-13T00:00:00Z'
+objective_vector:
+- protected_lower_bound_economic_utility
+- expected_shortfall
+- drawdown
+- capacity
+- uncertainty
+- evidence_debt
+- operational_burden
+hard_constraints:
+- known_time_correct
+- declared_support
+- complete_exposure_accounting
+- execution_realism
+- independent_replication
+- ucee_authority
+minimum_baselines:
+- skip_all
+- fixed_approved_treatment
+- manual_policy
+- regularized_linear_or_survival
+- calibrated_tree_or_ranker
+- complexity_matched_ablation
+effective_from: '2026-07-13T00:00:00Z'

@@ -1,0 +1,60 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/exposure_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "detail_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exposure_kind": {
+      "enum": [
+        "trial",
+        "query",
+        "chart",
+        "dashboard",
+        "narrative",
+        "agent_suggestion",
+        "threshold_change",
+        "feature_proposal",
+        "hidden_evaluation_submission",
+        "result_share"
+      ]
+    },
+    "family_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "actor_id",
+    "exposure_kind",
+    "family_id",
+    "known_time",
+    "artifact_hash",
+    "detail_hash"
+  ],
+  "title": "exposure_event",
+  "type": "object"
+}

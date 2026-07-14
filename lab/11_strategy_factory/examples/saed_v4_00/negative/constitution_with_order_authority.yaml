@@ -1,0 +1,41 @@
+schema_version: 4.0.0
+constitution_id: saed-v4-research-constitution
+version: 1.0.0
+known_time: '2026-07-13T00:00:00Z'
+status: active
+authority:
+  context_truth_mutation: false
+  evidence_role_reassignment: false
+  constitution_self_amendment: false
+  autonomous_promotion: false
+  risk_limit_change: false
+  portfolio_allocation: false
+  runtime_activation: false
+  order: true
+  broker: false
+  network: false
+evidence_roles:
+- development
+- calibration
+- selection_validation
+- locked_final
+- prospective
+- shadow
+- micro_live
+- live
+- synthetic_stress
+- external_static
+- external_actual
+fail_closed_states:
+- skip
+- abstain
+- manual_fallback
+- reject
+- quarantine
+minimum_independent_approvals: 2
+complete_exposure_accounting: true
+synthetic_positive_evidence_allowed: false
+limitations:
+- Phase-zero constitution only.
+- No real alpha, MetaEditor parity, prospective success, or production authorization
+  is claimed.

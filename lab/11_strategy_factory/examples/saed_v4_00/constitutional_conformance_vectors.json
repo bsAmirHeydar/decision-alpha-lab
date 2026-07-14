@@ -1,0 +1,366 @@
+{
+  "schema_version": "4.0.0",
+  "vectors": [
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "research_proposal",
+      "expected_reason_codes": [
+        "ok"
+      ],
+      "expected_status": "allow",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-research_proposal"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "sandbox_compute",
+      "expected_reason_codes": [
+        "ok"
+      ],
+      "expected_status": "allow",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-sandbox_compute"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "order",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-order"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "broker",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-broker"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "network",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-network"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "risk_limit_change",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-risk_limit_change"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "promotion_signature",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-promotion_signature"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "context_truth_mutation",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-context_truth_mutation"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "constitution_self_amendment",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-constitution_self_amendment"
+    },
+    {
+      "actor": {
+        "actor_id": "agent-1",
+        "actor_type": "agent",
+        "organization_unit": "research-ai",
+        "roles": [
+          "hypothesis"
+        ]
+      },
+      "authority": "runtime_activation",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "program_id": "saed-v4-00-golden-program",
+      "purpose": "phase-zero conformance",
+      "request_type": "authority",
+      "vector_id": "auth-runtime_activation"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "development",
+      "expected_reason_codes": [
+        "ok"
+      ],
+      "expected_status": "allow",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "train",
+      "positive_promotion_claim": false,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": false,
+      "vector_id": "evidence-development-train"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "locked_final",
+      "expected_reason_codes": [
+        "protected_evidence_training"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "train",
+      "positive_promotion_claim": false,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": false,
+      "vector_id": "evidence-locked_final-train"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "prospective",
+      "expected_reason_codes": [
+        "protected_evidence_training"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "tune",
+      "positive_promotion_claim": false,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": false,
+      "vector_id": "evidence-prospective-tune"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "synthetic_stress",
+      "expected_reason_codes": [
+        "ok"
+      ],
+      "expected_status": "allow",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "stress",
+      "positive_promotion_claim": false,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": true,
+      "vector_id": "evidence-synthetic_stress-stress"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "synthetic_stress",
+      "expected_reason_codes": [
+        "synthetic_positive_promotion"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "promote",
+      "positive_promotion_claim": true,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": true,
+      "vector_id": "evidence-synthetic_stress-promote"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "external_static",
+      "expected_reason_codes": [
+        "authority_denied"
+      ],
+      "expected_status": "reject",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "promote",
+      "positive_promotion_claim": true,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": false,
+      "vector_id": "evidence-external_static-promote"
+    },
+    {
+      "actor": {
+        "actor_id": "researcher-1",
+        "actor_type": "human_researcher",
+        "organization_unit": "research",
+        "roles": [
+          "owner"
+        ]
+      },
+      "claim_class": "predictive",
+      "evidence_role": "external_actual",
+      "expected_reason_codes": [
+        "ok"
+      ],
+      "expected_status": "allow",
+      "known_time": "2026-07-13T01:00:00Z",
+      "operation": "promote",
+      "positive_promotion_claim": true,
+      "program_id": "saed-v4-00-golden-program",
+      "request_type": "evidence",
+      "synthetic": false,
+      "vector_id": "evidence-external_actual-promote"
+    }
+  ]
+}

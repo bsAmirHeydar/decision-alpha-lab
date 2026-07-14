@@ -1,0 +1,27 @@
+{
+  "authority_matrix_hash": "c55cd5bc2c834523920277535f9105e47c63547cec64d69a0ce1031eac1a90c2",
+  "budgets": {
+    "compute_units": 1000,
+    "exposure_total": 100,
+    "hidden_submissions": 1,
+    "human_review_hours": 160
+  },
+  "constitution_hash": "19989ccfed2907ba501ba28b2e3d4862de3be8defe879ea00371322121f9416e",
+  "crosswalk_hash": "a01834933bf785ee9d472209a02fd9c1b4db15c68399e2cb2208030ad497402f",
+  "evidence_policy_hash": "c80a811871eb89d31b590cbe1b4da93e8660db58687140c5901844398b18f127",
+  "known_time": "2026-07-13T00:00:00Z",
+  "limitations": [
+    "Reference program; no real alpha or live authorization."
+  ],
+  "objective_hash": "ac484c7d623f5c3df4c6887398773232bc7d783efc33bd57f8f53cd3fe152db1",
+  "owners": {
+    "independent_validation": "independent-model-validation",
+    "primary": "research-program-owner",
+    "risk_owner": "risk-committee"
+  },
+  "program_id": "saed-v4-00-golden-program",
+  "program_version": "1.0.0",
+  "schema_version": "4.0.0",
+  "status": "frozen",
+  "unknown_field": "not allowed"
+}

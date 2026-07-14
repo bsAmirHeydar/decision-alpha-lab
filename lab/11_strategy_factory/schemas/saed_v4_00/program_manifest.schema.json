@@ -1,0 +1,124 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/program_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_matrix_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "budgets": {
+      "additionalProperties": false,
+      "properties": {
+        "compute_units": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "exposure_total": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "hidden_submissions": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "human_review_hours": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "compute_units",
+        "human_review_hours",
+        "exposure_total",
+        "hidden_submissions"
+      ],
+      "type": "object"
+    },
+    "constitution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "crosswalk_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "objective_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "independent_validation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "primary": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "risk_owner": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "primary",
+        "independent_validation",
+        "risk_owner"
+      ],
+      "type": "object"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "program_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "status": {
+      "enum": [
+        "frozen",
+        "active",
+        "quarantined",
+        "retired"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "program_id",
+    "program_version",
+    "known_time",
+    "constitution_hash",
+    "objective_hash",
+    "authority_matrix_hash",
+    "evidence_policy_hash",
+    "crosswalk_hash",
+    "owners",
+    "budgets",
+    "status",
+    "limitations"
+  ],
+  "title": "program_manifest",
+  "type": "object"
+}

@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-00/actor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "actor_type": {
+      "enum": [
+        "human_researcher",
+        "human_reviewer",
+        "risk_committee",
+        "agent",
+        "hidden_evaluation_service",
+        "runtime_compiler",
+        "portfolio_engine",
+        "execution_adapter"
+      ]
+    },
+    "organization_unit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "roles": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "actor_id",
+    "actor_type",
+    "organization_unit",
+    "roles"
+  ],
+  "title": "actor",
+  "type": "object"
+}

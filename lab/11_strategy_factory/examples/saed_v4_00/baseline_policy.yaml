@@ -1,0 +1,11 @@
+schema_version: 4.0.0
+policy_id: mandatory-baselines-v1
+known_time: '2026-07-13T00:00:00Z'
+mandatory_baselines:
+- skip_all
+- fixed_approved_treatment
+- manual_policy
+- regularized_linear_or_survival
+- calibrated_tree_or_ranker
+- complexity_matched_ablation
+random_or_frozen_control_required_when_applicable: true
