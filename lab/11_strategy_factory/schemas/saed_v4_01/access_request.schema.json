@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "operation": {
+      "enum": [
+        "read",
+        "write",
+        "train",
+        "tune",
+        "calibrate",
+        "select",
+        "report",
+        "promote",
+        "replay",
+        "delete"
+      ],
+      "type": "string"
+    },
+    "principal_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "principal_id",
+    "data_role",
+    "operation",
+    "artifact_id",
+    "known_time"
+  ],
+  "type": "object"
+}

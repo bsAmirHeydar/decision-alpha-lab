@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "byte_length": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "content_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "storage_uri": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "content_hash",
+    "byte_length",
+    "storage_uri",
+    "verified",
+    "receipt_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "expected_output_hash": null,
+  "from_version": "1.0.0",
+  "known_time": "2026-02-01T00:00:00Z",
+  "schema_name": "market_bar",
+  "to_version": "1.1.0",
+  "transform_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "transform_id": "mig_market_bar_1_1"
+}

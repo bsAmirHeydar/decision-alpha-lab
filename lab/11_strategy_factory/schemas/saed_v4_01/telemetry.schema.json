@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "object_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operation": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "fail",
+        "quarantined"
+      ],
+      "type": "string"
+    },
+    "telemetry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "telemetry_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation",
+    "object_id",
+    "status",
+    "reason_code",
+    "metrics",
+    "evidence_hashes",
+    "telemetry_id",
+    "telemetry_hash"
+  ],
+  "type": "object"
+}

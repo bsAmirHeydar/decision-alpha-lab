@@ -1,0 +1,7 @@
+#property strict
+#include <AlphaLab/StrategyFactory/SAEDV4DataFoundation/DataFoundationAll.mqh>
+int OnInit(){
+ if(AL_SAED_V4_DATA_ORDER_AUTHORITY || AL_SAED_V4_DATA_BROKER_AUTHORITY || AL_SAED_V4_DATA_NETWORK_AUTHORITY || AL_SAED_V4_DATA_CONTEXT_MUTATION_AUTHORITY || AL_SAED_V4_DATA_RUNTIME_ACTIVATION_AUTHORITY || AL_SAED_V4_DATA_RISK_AUTHORITY || AL_SAED_V4_DATA_PORTFOLIO_AUTHORITY){Print("FAIL authority boundary");return(INIT_FAILED);}
+ Print("PASS authority boundary");return(INIT_SUCCEEDED);
+}
+void OnTick(){}

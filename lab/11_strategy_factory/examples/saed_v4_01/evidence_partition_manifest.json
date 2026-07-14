@@ -1,0 +1,14 @@
+{
+  "artifact_ids": [
+    "artifact_1"
+  ],
+  "data_role": "development",
+  "partition_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "partition_id": "partition_dev",
+  "read_principals": [
+    "researcher_1"
+  ],
+  "write_principals": [
+    "ingestion_service"
+  ]
+}

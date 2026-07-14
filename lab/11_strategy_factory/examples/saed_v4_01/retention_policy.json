@@ -1,0 +1,7 @@
+{
+  "delete_requires_review": true,
+  "legal_hold": false,
+  "minimum_days": 3650,
+  "policy_id": "ret_evidence",
+  "retention_class": "evidence"
+}

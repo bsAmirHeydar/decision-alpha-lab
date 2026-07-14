@@ -1,0 +1,11 @@
+{
+  "details": {
+    "message": "bad field"
+  },
+  "evidence_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "quarantine_id": "q_123",
+  "reason": "schema_invalid",
+  "resolution_hash": null,
+  "resolved": false,
+  "subject_id": "entity_1"
+}

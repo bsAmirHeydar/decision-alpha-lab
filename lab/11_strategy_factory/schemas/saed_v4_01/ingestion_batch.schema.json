@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "atomic": {
+      "const": true
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "record_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "batch_id",
+    "source_id",
+    "record_ids",
+    "schema_registry_hash",
+    "known_time",
+    "atomic"
+  ],
+  "type": "object"
+}

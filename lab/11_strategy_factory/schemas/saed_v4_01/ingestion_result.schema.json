@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_revision_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "quarantined_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "result_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "accepted",
+        "quarantined",
+        "rejected"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "batch_id",
+    "accepted_revision_ids",
+    "quarantined_ids",
+    "status",
+    "result_hash"
+  ],
+  "type": "object"
+}

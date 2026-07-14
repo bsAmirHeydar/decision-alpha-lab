@@ -1,0 +1,17 @@
+{
+  "artifact_ids": [
+    "rev_1"
+  ],
+  "data_role": "development",
+  "event_as_of": "2026-01-02T10:30:00Z",
+  "known_as_of": "2026-01-02T11:00:00Z",
+  "lineage_root": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "metadata": {},
+  "record_count": 1,
+  "row_ids": [
+    "row_1"
+  ],
+  "schema_set_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "snapshot_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "snapshot_id": "snap_123"
+}

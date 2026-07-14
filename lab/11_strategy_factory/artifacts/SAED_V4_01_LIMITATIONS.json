@@ -1,0 +1,11 @@
+{
+  "limitations": [
+    "Reference artifacts are fixtures, not market or alpha evidence.",
+    "Actual MetaEditor compilation remains pending_local_windows.",
+    "No Context Digital Twin is created in V4-01.",
+    "No trainer, setup selection, promotion, runtime, portfolio or broker authority exists.",
+    "The local content-addressed store is a reference adapter, not a distributed production object store."
+  ],
+  "limitations_hash": "1affa0588bb610cfd7afee8319a355b5beb1ba3502a80d276ca6e2d9b7bb39dd",
+  "phase": "V4-01"
+}

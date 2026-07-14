@@ -1,0 +1,8 @@
+{
+  "chain_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "entity_id": "entity_1",
+  "head_revision_id": "rev_1",
+  "revision_ids": [
+    "rev_1"
+  ]
+}

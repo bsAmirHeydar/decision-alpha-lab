@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_external_evidence_status": {
+      "enum": [
+        "pending_local_windows",
+        "attached"
+      ],
+      "type": "string"
+    },
+    "blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "data_foundation_bundle_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "entry_gates": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "next_phase": {
+      "const": "V4-02"
+    },
+    "phase": {
+      "const": "V4-01"
+    },
+    "status": {
+      "enum": [
+        "ready",
+        "blocked"
+      ],
+      "type": "string"
+    },
+    "twin_seed_package_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "status",
+    "data_foundation_bundle_hash",
+    "twin_seed_package_id",
+    "entry_gates",
+    "blockers",
+    "actual_external_evidence_status"
+  ],
+  "type": "object"
+}

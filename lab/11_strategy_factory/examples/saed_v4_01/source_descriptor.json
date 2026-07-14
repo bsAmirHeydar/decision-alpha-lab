@@ -1,0 +1,7 @@
+{
+  "connector_version": "1.0.0",
+  "jurisdiction": "EU",
+  "source_id": "src_mt5_primary",
+  "source_type": "market_feed",
+  "trust_tier": "tier_1"
+}

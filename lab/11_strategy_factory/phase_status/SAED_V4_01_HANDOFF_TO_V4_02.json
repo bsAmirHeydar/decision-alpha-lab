@@ -1,0 +1,20 @@
+{
+  "actual_external_evidence_status": "pending_local_windows",
+  "blockers": [
+    "actual MetaEditor compile pending_local_windows",
+    "real source onboarding pending"
+  ],
+  "data_foundation_bundle_hash": "387c66cf78cb5d666b36f631cfd8056e009f695b707459825d162a94f68423b5",
+  "entry_gates": [
+    "V4-00 constitution hash pinned",
+    "closed schema registry frozen",
+    "bitemporal snapshot replay exact",
+    "lineage root verified",
+    "evidence-role isolation verified",
+    "Twin Seed fixture valid"
+  ],
+  "next_phase": "V4-02",
+  "phase": "V4-01",
+  "status": "ready",
+  "twin_seed_package_id": "twinseed_v4_01_fixture"
+}

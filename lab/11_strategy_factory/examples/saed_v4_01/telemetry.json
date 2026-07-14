@@ -1,0 +1,14 @@
+{
+  "evidence_hashes": [
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  ],
+  "metrics": {
+    "records": 1
+  },
+  "object_id": "snap_1",
+  "operation": "snapshot_replay",
+  "reason_code": "exact_match",
+  "status": "pass",
+  "telemetry_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "telemetry_id": "tel_1"
+}

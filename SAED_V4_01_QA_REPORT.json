@@ -1,0 +1,20 @@
+{
+  "broken_wiki_links": [],
+  "clean_baseline_verification": "pass",
+  "closed_schemas": 25,
+  "context_digital_twin_created": false,
+  "cumulative_v4_00_v4_01_tests": 368,
+  "duplicate_titles": [],
+  "frontmatter_errors": [],
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_files": 13,
+  "mql5_static_errors": [],
+  "obsidian_documents": 54,
+  "obsidian_lines": 4276,
+  "phase": "SAED_V4_01",
+  "phase_tests": 238,
+  "real_alpha_proven": false,
+  "schema_errors": [],
+  "status": "pass",
+  "zip_integrity": "pass"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "child_artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "edge_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "edge_type": {
+      "enum": [
+        "derived_from",
+        "supersedes",
+        "calibrated_from",
+        "selected_from",
+        "packaged_from",
+        "migrated_from"
+      ],
+      "type": "string"
+    },
+    "parent_artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "transform_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "parent_artifact_id",
+    "child_artifact_id",
+    "edge_type",
+    "transform_id",
+    "transform_version",
+    "transform_hash",
+    "edge_id"
+  ],
+  "type": "object"
+}

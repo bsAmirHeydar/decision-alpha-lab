@@ -1,0 +1,26 @@
+{
+  "actual_metaeditor_compile": "pending_local_windows",
+  "base_requirement": [
+    "SAED V4 Architecture",
+    "SAED V4-00 Program Constitution"
+  ],
+  "claims": {
+    "context_digital_twin_created": false,
+    "production_authorized": false,
+    "real_alpha_proven": false
+  },
+  "clean_baseline_verification": "pass",
+  "cumulative_tests": 368,
+  "file_count": 189,
+  "file_index_sha256": "ff2c974cbb325170190a1d5297a6a4d76c66b4c392e34203bd81fe898297de00",
+  "mql5_files": 13,
+  "next_phase": "SAED V4-02 Context Digital Twin Kernel",
+  "phase": "SAED_V4_01",
+  "phase_tests": 238,
+  "python_package": "lab/11_strategy_factory/python/saed_v4_data_foundation",
+  "qa_report_sha256": "8afe887c6f2503952e8b2ca6dfb785438e3e2d737dd2910c3b5b6cbfffa5a44f",
+  "release": "decision-alpha-lab-saed-v4-01-sovereign-data-foundation-v1.0.0",
+  "schemas": 25,
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

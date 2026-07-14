@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "delete_requires_review": {
+      "type": "boolean"
+    },
+    "legal_hold": {
+      "type": "boolean"
+    },
+    "minimum_days": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "retention_class": {
+      "enum": [
+        "transient",
+        "research",
+        "evidence",
+        "regulated",
+        "permanent"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "retention_class",
+    "minimum_days",
+    "legal_hold",
+    "delete_requires_review"
+  ],
+  "type": "object"
+}

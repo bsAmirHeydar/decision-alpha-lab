@@ -1,0 +1,85 @@
+{
+  "phase": "V4-01",
+  "vectors": [
+    {
+      "expected": "accept",
+      "vector_id": "valid_bitemporal_record"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "known_before_event"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "invalid_valid_to"
+    },
+    {
+      "expected": "accept",
+      "vector_id": "future_suffix_invariance"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "closed_schema_unknown_field"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "same_schema_version_conflict"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "same_artifact_version_conflict"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "lineage_cycle"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "protected_evidence_train"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "synthetic_positive_promotion"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "atomic_batch_partial_commit"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "quarantined_subject_reingest"
+    },
+    {
+      "expected": "accept",
+      "vector_id": "snapshot_order_invariance"
+    },
+    {
+      "expected": "accept",
+      "vector_id": "snapshot_exact_replay"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "tampered_integrity_receipt"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "migration_output_hash_mismatch"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "twin_seed_without_snapshot"
+    },
+    {
+      "expected": "accept",
+      "vector_id": "mql5_authority_boundary"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "static_compile_claim_as_actual"
+    },
+    {
+      "expected": "reject",
+      "vector_id": "ucee_core_mutation"
+    }
+  ]
+}

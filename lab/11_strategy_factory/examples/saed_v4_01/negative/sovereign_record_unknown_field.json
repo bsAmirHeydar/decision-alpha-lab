@@ -1,0 +1,29 @@
+{
+  "data_role": "development",
+  "entity_id": "EURUSD:M1:20260102T100000Z",
+  "payload": {
+    "close": 1.15,
+    "high": 1.2,
+    "low": 1.0,
+    "open": 1.1
+  },
+  "record_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "revision_id": "rev_123",
+  "revision_number": 1,
+  "schema_name": "market_bar",
+  "schema_version": "1.0.0",
+  "source": {
+    "connector_version": "1.0.0",
+    "jurisdiction": "EU",
+    "source_id": "src_mt5_primary",
+    "source_type": "market_feed",
+    "trust_tier": "tier_1"
+  },
+  "supersedes_revision_id": null,
+  "temporal": {
+    "event_time": "2026-01-02T10:00:00Z",
+    "known_time": "2026-01-02T10:00:01Z",
+    "valid_to": null
+  },
+  "unknown": 1
+}

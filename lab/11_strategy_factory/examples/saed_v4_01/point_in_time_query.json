@@ -1,0 +1,10 @@
+{
+  "data_role": "development",
+  "event_as_of": null,
+  "known_as_of": "2026-01-02T11:00:00Z",
+  "query_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "query_id": "pit_1",
+  "schema_names": [
+    "market_bar"
+  ]
+}

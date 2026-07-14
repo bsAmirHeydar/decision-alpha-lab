@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_kind": {
+      "enum": [
+        "raw_event",
+        "canonical_record",
+        "revision",
+        "dataset_snapshot",
+        "feature_snapshot",
+        "sequence_snapshot",
+        "graph_snapshot",
+        "path_snapshot",
+        "embedding_snapshot",
+        "evidence_bundle",
+        "twin_seed"
+      ],
+      "type": "string"
+    },
+    "content_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "data_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "descriptor_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "retention_class": {
+      "enum": [
+        "transient",
+        "research",
+        "evidence",
+        "regulated",
+        "permanent"
+      ],
+      "type": "string"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "proposed",
+        "verified",
+        "quarantined",
+        "retired"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "artifact_kind",
+    "exact_version",
+    "content_hash",
+    "schema_name",
+    "schema_version",
+    "data_role",
+    "state",
+    "retention_class",
+    "metadata",
+    "descriptor_hash"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "child_artifact_id": "canonical_1",
+  "edge_id": "lin_123",
+  "edge_type": "derived_from",
+  "parent_artifact_id": "raw_1",
+  "transform_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "transform_id": "normalize_market",
+  "transform_version": "1.0.0"
+}

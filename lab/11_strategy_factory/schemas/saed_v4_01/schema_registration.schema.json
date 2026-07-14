@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "registered_by": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "active",
+        "retired"
+      ],
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "schema_hash",
+    "registered_by",
+    "known_time",
+    "state"
+  ],
+  "type": "object"
+}

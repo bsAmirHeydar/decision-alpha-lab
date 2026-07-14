@@ -1,0 +1,26 @@
+{
+  "edges": [
+    {
+      "child": "canonical_fixture",
+      "parent": "raw_fixture",
+      "type": "derived_from"
+    },
+    {
+      "child": "snapshot_fixture",
+      "parent": "canonical_fixture",
+      "type": "packaged_from"
+    },
+    {
+      "child": "twin_seed_fixture",
+      "parent": "snapshot_fixture",
+      "type": "packaged_from"
+    }
+  ],
+  "lineage_root": "61a954b774a352585a7ed4f75f6c489d07274341c3e19ff83c19d94434078217",
+  "nodes": [
+    "raw_fixture",
+    "canonical_fixture",
+    "snapshot_fixture",
+    "twin_seed_fixture"
+  ]
+}

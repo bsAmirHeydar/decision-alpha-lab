@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_output_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "from_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "schema_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "to_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transform_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "transform_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_name",
+    "from_version",
+    "to_version",
+    "transform_id",
+    "transform_hash",
+    "expected_output_hash",
+    "known_time"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,129 @@
+{
+  "failed": 0,
+  "passed": 20,
+  "phase": "V4-01",
+  "result_hash": "46b90fabfd407b0737f8beca398062c312070cf65e453efd5c2589a1dbbaa0c1",
+  "results": [
+    {
+      "expected": "accept",
+      "observed": "accept",
+      "passed": true,
+      "vector_id": "valid_bitemporal_record"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "known_before_event"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "invalid_valid_to"
+    },
+    {
+      "expected": "accept",
+      "observed": "accept",
+      "passed": true,
+      "vector_id": "future_suffix_invariance"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "closed_schema_unknown_field"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "same_schema_version_conflict"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "same_artifact_version_conflict"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "lineage_cycle"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "protected_evidence_train"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "synthetic_positive_promotion"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "atomic_batch_partial_commit"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "quarantined_subject_reingest"
+    },
+    {
+      "expected": "accept",
+      "observed": "accept",
+      "passed": true,
+      "vector_id": "snapshot_order_invariance"
+    },
+    {
+      "expected": "accept",
+      "observed": "accept",
+      "passed": true,
+      "vector_id": "snapshot_exact_replay"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "tampered_integrity_receipt"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "migration_output_hash_mismatch"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "twin_seed_without_snapshot"
+    },
+    {
+      "expected": "accept",
+      "observed": "accept",
+      "passed": true,
+      "vector_id": "mql5_authority_boundary"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "static_compile_claim_as_actual"
+    },
+    {
+      "expected": "reject",
+      "observed": "reject",
+      "passed": true,
+      "vector_id": "ucee_core_mutation"
+    }
+  ],
+  "total": 20
+}

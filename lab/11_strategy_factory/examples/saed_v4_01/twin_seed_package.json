@@ -1,0 +1,17 @@
+{
+  "constitution_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "context_specification_artifact_id": "ctxspec_1",
+  "known_as_of": "2026-01-02T11:00:00Z",
+  "limitations": [
+    "fixture only"
+  ],
+  "lineage_root": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "package_id": "twinseed_1",
+  "schema_versions": {
+    "market_bar": "1.0.0"
+  },
+  "snapshot_ids": [
+    "snap_1"
+  ]
+}

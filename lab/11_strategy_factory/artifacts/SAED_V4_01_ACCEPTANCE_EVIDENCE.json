@@ -1,0 +1,14 @@
+{
+  "actual_metaeditor_compile": "pending_local_windows",
+  "broken_wiki_links": 0,
+  "closed_schemas": 25,
+  "conformance_vectors": 20,
+  "context_twin_created": false,
+  "evidence_hash": "387c66cf78cb5d666b36f631cfd8056e009f695b707459825d162a94f68423b5",
+  "limitations_hash": "1affa0588bb610cfd7afee8319a355b5beb1ba3502a80d276ca6e2d9b7bb39dd",
+  "mql5_static_files": 13,
+  "phase": "V4-01",
+  "phase_tests": 238,
+  "real_alpha_proven": false,
+  "status": "pass"
+}

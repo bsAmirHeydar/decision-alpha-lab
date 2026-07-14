@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "entity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "head_revision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "revision_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "entity_id",
+    "revision_ids",
+    "head_revision_id",
+    "chain_hash"
+  ],
+  "type": "object"
+}

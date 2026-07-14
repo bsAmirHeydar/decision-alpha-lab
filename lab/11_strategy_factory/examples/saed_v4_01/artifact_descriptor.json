@@ -1,0 +1,13 @@
+{
+  "artifact_id": "artifact_market_snapshot",
+  "artifact_kind": "dataset_snapshot",
+  "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "data_role": "development",
+  "descriptor_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "exact_version": "1.0.0",
+  "metadata": {},
+  "retention_class": "evidence",
+  "schema_name": "dataset_snapshot",
+  "schema_version": "1.0.0",
+  "state": "verified"
+}

@@ -1,0 +1,18 @@
+{
+  "constitution_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "context_specification_artifact_id": "ctxspec_exp0017_fixture",
+  "known_as_of": "2026-01-02T11:00:00Z",
+  "limitations": [
+    "fixture-only",
+    "does-not-create-a-digital-twin"
+  ],
+  "lineage_root": "61a954b774a352585a7ed4f75f6c489d07274341c3e19ff83c19d94434078217",
+  "package_hash": "a16f6ff34294512cbcdad1610dbade0c48e8f68a9135af3af2613c143bbb643d",
+  "package_id": "twinseed_v4_01_fixture",
+  "schema_versions": {
+    "sovereign_record": "1.0.0"
+  },
+  "snapshot_ids": [
+    "snap_v4_01_fixture"
+  ]
+}

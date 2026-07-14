@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "details": {
+      "type": "object"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "quarantine_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "enum": [
+        "schema_invalid",
+        "temporal_invalid",
+        "hash_conflict",
+        "duplicate_conflict",
+        "lineage_invalid",
+        "role_violation",
+        "source_untrusted",
+        "manual_hold"
+      ],
+      "type": "string"
+    },
+    "resolution_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "subject_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "quarantine_id",
+    "subject_id",
+    "reason",
+    "details",
+    "evidence_hash",
+    "resolved",
+    "resolution_hash"
+  ],
+  "type": "object"
+}

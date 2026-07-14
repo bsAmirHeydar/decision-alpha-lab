@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "connector_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "jurisdiction": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trust_tier": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "source_type",
+    "jurisdiction",
+    "trust_tier",
+    "connector_version"
+  ],
+  "type": "object"
+}

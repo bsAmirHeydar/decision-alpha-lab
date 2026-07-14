@@ -1,0 +1,10 @@
+{
+  "atomic": true,
+  "batch_id": "batch_1",
+  "known_time": "2026-01-02T11:00:00Z",
+  "record_ids": [
+    "rev_1"
+  ],
+  "schema_registry_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "source_id": "src_mt5_primary"
+}

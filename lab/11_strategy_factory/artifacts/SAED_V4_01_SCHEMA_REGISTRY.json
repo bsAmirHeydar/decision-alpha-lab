@@ -1,0 +1,131 @@
+{
+  "phase": "V4-01",
+  "registry_hash": "f9fda3992eb4c6981837479f7455d26777b6f63a0785ee36675d62927c788e75",
+  "schemas": [
+    {
+      "name": "access_decision",
+      "sha256": "57ec109aadad76fe64e7cd14f4257ae773ba7b3b288139a554b5f2c3c6fc5336",
+      "version": "1.0.0"
+    },
+    {
+      "name": "access_request",
+      "sha256": "b2c16704de739179800034f14469e19ea26cd9ec04b7096b17e8ad226ee16574",
+      "version": "1.0.0"
+    },
+    {
+      "name": "artifact_bundle",
+      "sha256": "857d63490069a08787f8642313a6a0ae5b5ea4f461bda1b760cb2274e4c1ee44",
+      "version": "1.0.0"
+    },
+    {
+      "name": "artifact_descriptor",
+      "sha256": "21049f2b8120b1ef5f7a0f05f491a49efc8fb39833ee6bc3fd1d590887abcb71",
+      "version": "1.0.0"
+    },
+    {
+      "name": "bitemporal_stamp",
+      "sha256": "25e07313b1162c7195d94f77a812fb45220d33df38ca741517f587e32811c8e1",
+      "version": "1.0.0"
+    },
+    {
+      "name": "content_store_receipt",
+      "sha256": "70c00828146c629eecdf992591670c5f719ef45fb7c48ef31ef89f2b28c2d90e",
+      "version": "1.0.0"
+    },
+    {
+      "name": "data_catalog_manifest",
+      "sha256": "a8c7d95912be484842a0c8ccd8b589630301fab1777b23722956f3000ac83cbf",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dataset_snapshot",
+      "sha256": "dfecc5c9973711106aa265bc68a89c4b521efe81a1913ee14ef1741492e667a2",
+      "version": "1.0.0"
+    },
+    {
+      "name": "evidence_partition_manifest",
+      "sha256": "e5450785c5fda5a350fd6f302f1a1da050e46a0afed68ed3336d3fbe51a9996f",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ingestion_batch",
+      "sha256": "b7526c77033c7cb64339a23c04443b4de16c07b6ae06ead1eeafae403bb68273",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ingestion_result",
+      "sha256": "5a8ba8d4b0517ef28b94251e3d89740e209168f52d76f50ad8a8f68bf008fa6c",
+      "version": "1.0.0"
+    },
+    {
+      "name": "integrity_receipt",
+      "sha256": "ea831e0484f04bb2d81e47fe19bf9ee2111c2bbd3de578c55767a8374fd24dab",
+      "version": "1.0.0"
+    },
+    {
+      "name": "lineage_edge",
+      "sha256": "1c277c415ff6d58369335b747237cfd0298e7d8706d9435c47d94ff2ce440594",
+      "version": "1.0.0"
+    },
+    {
+      "name": "phase_handoff_v4_01_to_v4_02",
+      "sha256": "9e6cd3612a93951f919b28d4b9b62b6b485a3908483a868955028cba6d2da453",
+      "version": "1.0.0"
+    },
+    {
+      "name": "point_in_time_query",
+      "sha256": "7f8f1c4d4a7a1a28acb7f8da9ae7d81d59de389567bd449b4bb64e2791c5f832",
+      "version": "1.0.0"
+    },
+    {
+      "name": "quarantine_record",
+      "sha256": "67153ee5e67391ba5a8fb47971a96c9511d4e4285d05d23d07b2c1571c8000a8",
+      "version": "1.0.0"
+    },
+    {
+      "name": "reproduction_receipt",
+      "sha256": "cf01287c96dd18923e46455246086ee83f6b159357deff3613cc30bd2c377f78",
+      "version": "1.0.0"
+    },
+    {
+      "name": "retention_policy",
+      "sha256": "198c4ce9d9acea8a32fa9e07501aa3d1336ea53de616bfbf960aac29eca66f64",
+      "version": "1.0.0"
+    },
+    {
+      "name": "revision_chain_manifest",
+      "sha256": "20b228fc81dc9c3a0dd302ad67510bbbf842399e638069c7a08282ec6468fa13",
+      "version": "1.0.0"
+    },
+    {
+      "name": "schema_migration",
+      "sha256": "055adefe12c4709887bf6440a63101b6bd0bc73c16a84b200c336ae714515b3b",
+      "version": "1.0.0"
+    },
+    {
+      "name": "schema_registration",
+      "sha256": "a43073aa5e81b94771bb412902a2a09752cd438907c7a0fc0baeb7c5dcba2e23",
+      "version": "1.0.0"
+    },
+    {
+      "name": "source_descriptor",
+      "sha256": "43c87f328e098f1725625accce5380b1437cb0cea7095a81146e130fdbf3edb3",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sovereign_record",
+      "sha256": "69f44bd1f0a48c98df575ae13ce582fd320ecb0123ccc1217658e415eb2a9fef",
+      "version": "1.0.0"
+    },
+    {
+      "name": "telemetry",
+      "sha256": "d94128523ca95cf1fd87e4f752b53b0ef00f67cc90c7abb2c2b0906c692a1666",
+      "version": "1.0.0"
+    },
+    {
+      "name": "twin_seed_package",
+      "sha256": "f680e059e23849d50308f9cc87576ecfe29caf4fe8b175baeabecc1870f4fa74",
+      "version": "1.0.0"
+    }
+  ]
+}

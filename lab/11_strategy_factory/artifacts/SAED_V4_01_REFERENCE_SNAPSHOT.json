@@ -1,0 +1,14 @@
+{
+  "data_role": "development",
+  "event_as_of": null,
+  "known_as_of": "2026-01-02T11:00:00Z",
+  "limitations": [
+    "fixture-only",
+    "not-alpha-evidence"
+  ],
+  "lineage_root": "61a954b774a352585a7ed4f75f6c489d07274341c3e19ff83c19d94434078217",
+  "record_count": 1,
+  "schema_set_hash": "f9fda3992eb4c6981837479f7455d26777b6f63a0785ee36675d62927c788e75",
+  "snapshot_hash": "296fbdda6774e2c4c26dd285375bf0cf5759c8c8d2aefb951a9af3ff2bfbbc83",
+  "snapshot_id": "snap_v4_01_fixture"
+}

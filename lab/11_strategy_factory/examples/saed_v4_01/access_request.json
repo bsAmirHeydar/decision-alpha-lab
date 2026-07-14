@@ -1,0 +1,8 @@
+{
+  "artifact_id": "artifact_1",
+  "data_role": "development",
+  "known_time": "2026-01-02T11:00:00Z",
+  "operation": "train",
+  "principal_id": "researcher_1",
+  "request_id": "req_1"
+}
