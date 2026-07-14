@@ -1,0 +1,22 @@
+schema_version: saed.treatment-compiler.v2
+inputs:
+- context_occurrence
+- setup_archetypes
+- payoff_profiles
+- entry_mechanisms
+- atom_registry
+- broker_profile
+passes:
+- eligibility
+- compatibility
+- static_feasibility
+- dominance_pruning
+- deterministic_identity
+outputs:
+- treatment_universe_manifest
+- candidate_records
+- pruning_ledger
+forbidden:
+- dynamic_live_action_invention
+- unversioned_atoms
+- post_test_universe_mutation

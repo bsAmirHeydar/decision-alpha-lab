@@ -1,0 +1,286 @@
+{
+  "edges": [
+    {
+      "fromNode": "n1",
+      "fromSide": "right",
+      "id": "en1n2",
+      "toNode": "n2",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n2",
+      "fromSide": "right",
+      "id": "en2n3",
+      "toNode": "n3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n3",
+      "fromSide": "right",
+      "id": "en3n4",
+      "toNode": "n4",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n4",
+      "fromSide": "right",
+      "id": "en4n5",
+      "toNode": "n5",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n5",
+      "fromSide": "right",
+      "id": "en5n6",
+      "toNode": "n6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n6",
+      "fromSide": "right",
+      "id": "en6n7",
+      "toNode": "n7",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n7",
+      "fromSide": "right",
+      "id": "en7n8",
+      "toNode": "n8",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n8",
+      "fromSide": "right",
+      "id": "en8n9",
+      "toNode": "n9",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n9",
+      "fromSide": "right",
+      "id": "en9n10",
+      "toNode": "n10",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n2",
+      "toNode": "n2",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n3",
+      "toNode": "n3",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n4",
+      "toNode": "n4",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n11",
+      "fromSide": "top",
+      "id": "en11n5",
+      "toNode": "n5",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n12",
+      "fromSide": "top",
+      "id": "en12n5",
+      "toNode": "n5",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n12",
+      "fromSide": "top",
+      "id": "en12n6",
+      "toNode": "n6",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n12",
+      "fromSide": "top",
+      "id": "en12n7",
+      "toNode": "n7",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n6",
+      "toNode": "n6",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n7",
+      "toNode": "n7",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n9",
+      "toNode": "n9",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n13",
+      "fromSide": "top",
+      "id": "en13n10",
+      "toNode": "n10",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n14",
+      "fromSide": "top",
+      "id": "en14n2",
+      "toNode": "n2",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "n14",
+      "fromSide": "top",
+      "id": "en14n12",
+      "toNode": "n12",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 100,
+      "id": "n1",
+      "text": "UCEE Context Truth",
+      "type": "text",
+      "width": 280,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n2",
+      "text": "Context Intelligence Cell",
+      "type": "text",
+      "width": 280,
+      "x": 360,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n3",
+      "text": "Treatment DSL",
+      "type": "text",
+      "width": 280,
+      "x": 720,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n4",
+      "text": "Outcome Cube",
+      "type": "text",
+      "width": 280,
+      "x": 1080,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n5",
+      "text": "Representation & Models",
+      "type": "text",
+      "width": 280,
+      "x": 1440,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n6",
+      "text": "Hidden Eval + FDR",
+      "type": "text",
+      "width": 280,
+      "x": 1800,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n7",
+      "text": "Red Team + Replication",
+      "type": "text",
+      "width": 280,
+      "x": 2160,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n8",
+      "text": "Prospective Evidence",
+      "type": "text",
+      "width": 280,
+      "x": 2520,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n9",
+      "text": "UCEE Admission & Runtime",
+      "type": "text",
+      "width": 280,
+      "x": 2880,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n10",
+      "text": "Portfolio / Operations",
+      "type": "text",
+      "width": 280,
+      "x": 3240,
+      "y": 0
+    },
+    {
+      "height": 100,
+      "id": "n11",
+      "text": "Data + Compute Platform",
+      "type": "text",
+      "width": 280,
+      "x": 1080,
+      "y": 420
+    },
+    {
+      "height": 100,
+      "id": "n12",
+      "text": "Multi-Agent Research OS",
+      "type": "text",
+      "width": 280,
+      "x": 1800,
+      "y": 420
+    },
+    {
+      "height": 100,
+      "id": "n13",
+      "text": "Model Risk + Security",
+      "type": "text",
+      "width": 280,
+      "x": 2520,
+      "y": 420
+    },
+    {
+      "height": 100,
+      "id": "n14",
+      "text": "Research Memory",
+      "type": "text",
+      "width": 280,
+      "x": 2160,
+      "y": 780
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "complete_trial_cost_accounting": {
+      "const": true
+    },
+    "currency": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fidelity_ladder": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "owners": {
+      "type": "object"
+    },
+    "program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reserved_shares": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "saed.compute-budget.v2"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "running",
+        "exhausted",
+        "closed",
+        "revoked"
+      ]
+    },
+    "stop_loss": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "budget_id",
+    "program_id",
+    "currency",
+    "status",
+    "limits",
+    "reserved_shares",
+    "stop_loss",
+    "fidelity_ladder",
+    "owners",
+    "complete_trial_cost_accounting"
+  ],
+  "title": "SAED Compute Budget",
+  "type": "object"
+}

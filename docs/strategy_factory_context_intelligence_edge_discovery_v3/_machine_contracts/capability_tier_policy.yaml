@@ -1,0 +1,49 @@
+schema_version: saed.capability-tier.v2
+tiers:
+  A_CORE_PRODUCTION:
+    allowed:
+    - regularized_linear
+    - calibrated_tree
+    - gradient_boosting
+    - survival_baseline
+    - learning_to_rank
+    - conformal
+    - bounded_hybrid_policy
+    requires:
+    - ucee_i12_promotion
+    - i14_parity
+    - i18_qualification
+  B_GOVERNED_CHALLENGER:
+    allowed:
+    - patch_transformer
+    - s4_mamba
+    - temporal_gnn
+    - sparse_moe
+    - tsfm_adapter
+    - deep_survival
+    - neural_causal
+    - deep_ensemble
+    requires:
+    - independent_model_risk_review
+    - ablation
+    - shadow
+    - fallback_proof
+  C_RESEARCH_ONLY:
+    allowed:
+    - world_model
+    - diffusion_path_generator
+    - flow_matching
+    - cql
+    - iql
+    - decision_transformer
+    - nas
+    - autonomous_research_agent
+    live_authority: false
+  D_PROHIBITED_TO_LIVE:
+    prohibited:
+    - online_rl_with_capital
+    - self_modifying_runtime
+    - direct_llm_orders
+    - silent_live_retraining
+    - dynamic_action_space
+    - agent_signed_promotion

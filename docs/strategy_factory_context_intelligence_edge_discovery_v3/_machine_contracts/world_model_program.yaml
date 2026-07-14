@@ -1,0 +1,35 @@
+schema_version: saed.world-model-program.v2
+program_id: WORLD_REFERENCE
+status: research_only
+capability_tier: research_only
+state_contract:
+- decision_time_context
+- market_path_state
+- economics_state
+- treatment_state
+actions: finite_treatment_lattice_only
+training_roles:
+- exploration
+- training
+forbidden_roles:
+- locked_final
+- prospective_paper
+- shadow
+- live
+permitted_uses:
+- stress_generation
+- path_sensitivity
+- missing_regime_probe
+- simulator_exploitability_test
+prohibited_uses:
+- synthetic_alpha_proof
+- direct_promotion
+- direct_live_policy
+- replacement_of_real_outcome_cube
+validation:
+- one_step_calibration
+- rollout_horizon_decay
+- tail_and_dependence
+- market_invariants
+- policy_exploitability
+evidence_label: synthetic_research_only

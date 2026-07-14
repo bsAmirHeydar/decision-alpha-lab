@@ -1,0 +1,13 @@
+schema_version: 3.0.0
+contract_type: context_transfer_plan
+donor_cells: []
+recipient_cell: ''
+transfer_modes:
+- none
+- partial_pooling
+- frozen_encoder
+- adapter
+- meta_prior
+donor_set_frozen: true
+local_only_control: true
+negative_transfer_tests: []

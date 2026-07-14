@@ -1,0 +1,11 @@
+schema_version: 3.0.0
+contract_type: replication_manifest
+reference_bundle_hash: ''
+clean_environment_hash: ''
+equivalence_targets:
+- artifact
+- prediction
+- decision
+- evidence
+blinded_reference_outputs: true
+replication_team: ''

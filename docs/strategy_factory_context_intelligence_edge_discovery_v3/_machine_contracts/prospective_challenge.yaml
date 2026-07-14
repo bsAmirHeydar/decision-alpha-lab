@@ -1,0 +1,35 @@
+schema_version: saed.prospective-challenge.v2
+challenge_id: PAPER_REFERENCE
+status: planned
+candidate_hash: REQUIRED
+runtime_generation_hash: REQUIRED
+start_rule: predeclared
+end_rule:
+  type: time_or_event_count
+  value: REQUIRED
+adaptation_allowed: false
+required_capture:
+- all_opportunities
+- trade_skip_abstain
+- quotes
+- fills_or_no_fills
+- costs
+- latency
+- incidents
+- support
+- calibration
+- drift
+kill_criteria:
+- artifact_mismatch
+- critical_data_failure
+- authorization_expiry
+- unresolved_runtime_mismatch
+verdicts:
+- reject
+- extend_by_predeclared_rule
+- requalify
+- admit_no_send
+owners:
+  operator: REQUIRED
+  independent_validation: REQUIRED
+  release: REQUIRED

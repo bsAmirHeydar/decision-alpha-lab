@@ -1,0 +1,52 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/artifact_transparency_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "artifact_transparency_event",
+      "type": "string"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "producer_identity": {
+      "type": "string"
+    },
+    "revocation_state": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "sequence",
+    "previous_hash",
+    "artifact_hash",
+    "artifact_type",
+    "timestamp",
+    "signature"
+  ],
+  "title": "Artifact Transparency Event",
+  "type": "object"
+}

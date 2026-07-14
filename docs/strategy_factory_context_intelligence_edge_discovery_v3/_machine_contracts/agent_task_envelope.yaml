@@ -1,0 +1,35 @@
+schema_version: saed.agent-task-envelope.v2
+task_id: AGENT_TASK_REFERENCE
+status: approved
+expires_at: REQUIRED_DATE_TIME
+objective: bounded research artifact production
+input_artifact_hashes:
+- REQUIRED
+allowed_tools:
+- read_approved_artifacts
+- write_scoped_patch
+- run_sandbox_tests
+forbidden_actions:
+- access_live_credentials
+- change_evidence_role
+- modify_context_truth
+- sign_promotion
+- alter_risk
+- place_order
+- network_unapproved
+write_scope:
+- docs/strategy_factory_setup_ai_edge_discovery_context_intelligence_edge_discovery_v3/**
+budget:
+  tool_calls: 100
+  compute_minutes: 60
+verification:
+  independent_reviewer: REQUIRED
+  required_tests:
+  - schema
+  - links
+  - hashes
+  - boundary
+authority:
+  promotion: false
+  trading: false
+  release: false

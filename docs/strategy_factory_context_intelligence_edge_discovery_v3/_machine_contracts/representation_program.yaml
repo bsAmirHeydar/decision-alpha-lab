@@ -1,0 +1,42 @@
+schema_version: saed.representation-program.v2
+program_id: REP_REFERENCE
+capability_tier: governed_challenger
+status: proposed
+modalities:
+- canonical_market_sequence
+- context_views
+- intermarket_graph
+- treatment_descriptor
+pretraining_tasks:
+- masked_span_reconstruction
+- multi_horizon_forecasting
+- temporal_contrastive
+- cross_view_alignment
+- regime_discrimination
+allowed_modes:
+- frozen_embedding
+- linear_probe
+- parameter_efficient_finetune
+prohibited_modes:
+- protected_data_pretraining
+- direct_live_decision
+role_firewall:
+  pretraining:
+  - exploration
+  - training
+  probe:
+  - training
+  - calibration
+  selection:
+  - selection_validation
+  locked_final_access: false
+required_comparisons:
+- random_encoder
+- handcrafted_features
+- classical_model
+- context_only_baseline
+acceptance:
+- incremental_protected_value
+- embedding_stability
+- support_audit
+- export_or_simple_fallback

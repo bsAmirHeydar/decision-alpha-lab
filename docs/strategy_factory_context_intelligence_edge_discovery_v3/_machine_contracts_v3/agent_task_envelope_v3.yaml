@@ -1,0 +1,19 @@
+schema_version: 3.0.0
+contract_type: agent_task_envelope
+task_id: ''
+agent_role: ''
+campaign_id: ''
+input_hashes: []
+write_scope: []
+tool_allowlist: []
+network_policy: deny_by_default
+compute_budget: {}
+expires_at: ''
+forbidden:
+- protected_evidence_unless_explicit
+- promotion_signature
+- risk_change
+- runtime_activation
+- live_credentials
+- order_submission
+independent_reviewer: ''

@@ -1,0 +1,37 @@
+schema_version: saed.edge-genome.v2
+edge_id: EDGE_REFERENCE
+version: REQUIRED
+status: research
+identity:
+  context_family: REQUIRED
+  context_version: REQUIRED
+  payoff_profile: REQUIRED
+  entry_mechanism: REQUIRED
+  treatment_id: REQUIRED
+economics:
+  return_distribution: ARTIFACT_HASH
+  tail_shape: REQUIRED
+  cost_sensitivity: ARTIFACT_HASH
+  holding_horizon: REQUIRED
+  capital_occupancy: REQUIRED
+portfolio:
+  symbol_exposure:
+  - REQUIRED
+  currency_exposure:
+  - REQUIRED
+  cluster_exposure:
+  - REQUIRED
+  dependence_profile: ARTIFACT_HASH
+  capacity_curve: ARTIFACT_HASH
+evidence:
+  level: REQUIRED
+  promotion_admission: null
+  prospective_evidence: null
+  decay_state: unknown
+runtime:
+  bundle_hash: null
+  support_scope: ARTIFACT_HASH
+  monitoring_contract: ARTIFACT_HASH
+authority:
+  self_allocate: false
+  self_trade: false

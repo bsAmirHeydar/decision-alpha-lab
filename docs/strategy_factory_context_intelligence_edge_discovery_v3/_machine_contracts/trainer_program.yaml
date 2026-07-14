@@ -1,0 +1,69 @@
+schema_version: saed.trainer-program.v2
+task_graph:
+- id: eligibility
+  level: occurrence
+  outputs:
+  - trade
+  - skip
+  - abstain
+- id: fill_and_trigger
+  level: candidate
+  outputs:
+  - trigger_probability
+  - fill_probability
+  - time_to_fill
+  - adverse_selection
+- id: competing_risks
+  level: candidate
+  outputs:
+  - fill
+  - stop
+  - target
+  - trail_exit
+  - expiry
+  - invalidation
+- id: outcome_distribution
+  level: candidate
+  outputs:
+  - net_r_quantiles
+  - mfe
+  - mae
+  - holding_time
+  - expected_shortfall
+- id: ranking
+  level: cluster
+  outputs:
+  - treatment_rank
+  - rank_uncertainty
+- id: selection
+  level: cluster
+  outputs:
+  - selected_treatment
+  - skip
+  - abstain
+  - fallback
+- id: ood_support
+  level: decision
+  outputs:
+  - support_audit
+  - novelty
+  - fallback_directive
+model_ladder:
+- manual
+- naive
+- regularized_linear
+- calibrated_tree
+- ranking
+- survival
+- distributional
+- sequence
+- graph
+- foundation_adapter
+- causal
+- research_only_world_or_policy
+required:
+- nested_walk_forward
+- cluster_cross_fit
+- calibration_role
+- complete_trial_ledger
+- cost_and_capacity

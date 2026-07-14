@@ -1,0 +1,16 @@
+schema_version: saed.anti-overfit.v2
+mandatory:
+- known_time_certificate
+- clustered_nested_purged_walk_forward
+- complete_trial_and_exposure_ledger
+- multiplicity_adjustment
+- pbo_cscv
+- deflated_performance
+- reality_check_spa
+- matched_nulls_placebos
+- stability_surfaces
+- profile_specific_attacks
+- cost_capacity_delay_stress
+- cross_symbol_feed_broker_transport
+- prospective_paper
+promotion_requires_all_critical: true

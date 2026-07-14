@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/outcome_cube_program.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_type": {
+      "const": "outcome_cube_program",
+      "type": "string"
+    },
+    "costs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "market_truth": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "unit",
+    "market_truth"
+  ],
+  "title": "Outcome Cube Program",
+  "type": "object"
+}

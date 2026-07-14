@@ -1,0 +1,35 @@
+schema_version: 3.0.0
+contract_type: context_intelligence_cell
+context_id: EXAMPLE
+context_version: 1.0.0
+cell_state: proposed
+planes:
+- truth
+- ontology
+- support
+- treatment
+- replay
+- representation
+- learning
+- challenge
+- evidence
+- policy
+- runtime_handoff
+- monitoring
+authority:
+  can_modify_context_truth: false
+  can_sign_promotion: false
+  can_allocate_risk: false
+  can_activate_runtime: false
+  can_place_orders: false
+required_hashes:
+- context_package
+- cell_spec
+- platform_contract
+- authority_matrix
+owners:
+  research: unassigned
+  validation: unassigned
+  model_risk: unassigned
+fallback: skip
+material_change_policy: new_version_and_gate_reset

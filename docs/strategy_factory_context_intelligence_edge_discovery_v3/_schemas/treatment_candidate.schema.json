@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Treatment Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "context_occurrence_id",
+    "payoff_profile",
+    "entry_mechanism",
+    "stop_atom",
+    "exit_atom",
+    "management_atom",
+    "universe_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.treatment-candidate.v2"
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_occurrence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "payoff_profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entry_mechanism": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stop_atom": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exit_atom": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trail_atom": {
+      "type": "string",
+      "minLength": 1
+    },
+    "management_atom": {
+      "type": "string",
+      "minLength": 1
+    },
+    "universe_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_feasible": {
+      "type": "boolean"
+    }
+  }
+}

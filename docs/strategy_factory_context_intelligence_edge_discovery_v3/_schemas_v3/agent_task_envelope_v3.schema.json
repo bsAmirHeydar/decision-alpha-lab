@@ -1,0 +1,61 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/agent_task_envelope_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agent_role": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "agent_task_envelope_v3",
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "forbidden": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "input_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "tool_allowlist": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "write_scope": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "task_id",
+    "agent_role",
+    "campaign_id",
+    "expires_at"
+  ],
+  "title": "Agent Task Envelope V3",
+  "type": "object"
+}

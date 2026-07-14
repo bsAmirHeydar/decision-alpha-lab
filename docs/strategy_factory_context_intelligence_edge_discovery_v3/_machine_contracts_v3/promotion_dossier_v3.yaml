@@ -1,0 +1,15 @@
+schema_version: 3.0.0
+contract_type: promotion_dossier
+candidate_hash: ''
+evidence_hashes: []
+trial_universe_hash: ''
+exposure_ledger_hash: ''
+red_team_hash: ''
+replication_hash: ''
+hidden_evaluation_hash: ''
+prospective_hash: ''
+limitations: []
+kill_criteria: []
+fallback: skip
+decision: blocked
+signatures: {}

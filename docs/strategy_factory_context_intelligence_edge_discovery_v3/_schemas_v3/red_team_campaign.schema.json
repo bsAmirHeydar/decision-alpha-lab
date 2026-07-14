@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/red_team_campaign.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attacks": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "candidate_hash": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "red_team_campaign",
+      "type": "string"
+    },
+    "critical_findings_block": {
+      "const": true,
+      "type": "boolean"
+    },
+    "independent_budget": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "candidate_hash",
+    "attacks",
+    "critical_findings_block"
+  ],
+  "title": "Red Team Campaign",
+  "type": "object"
+}

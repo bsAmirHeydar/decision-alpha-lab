@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/exposure_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "type": "string"
+    },
+    "actor_type": {
+      "type": "string"
+    },
+    "artifact_hash": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "exposure_event",
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "exposure_type": {
+      "type": "string"
+    },
+    "known_at": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "selection_impact": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "actor_id",
+    "campaign_id",
+    "artifact_hash",
+    "evidence_role",
+    "exposure_type",
+    "known_at"
+  ],
+  "title": "Exposure Event",
+  "type": "object"
+}

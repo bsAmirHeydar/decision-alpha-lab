@@ -1,0 +1,16 @@
+schema_version: 3.0.0
+contract_type: world_model_stress_program
+evidence_policy:
+  synthetic_gain_promotion_weight: 0
+  critical_failure_can_block: true
+interventions:
+- volatility
+- gap
+- liquidity
+- spread
+- correlation
+- regime_transition
+- path_order
+- delay
+requires_real_holdout_validation: true
+runtime_authority: false

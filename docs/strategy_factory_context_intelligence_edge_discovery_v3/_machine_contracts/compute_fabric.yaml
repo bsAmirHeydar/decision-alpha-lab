@@ -1,0 +1,22 @@
+schema_version: saed.compute-fabric.v2
+resource_classes:
+- cpu_standard
+- cpu_high_memory
+- gpu_single
+- gpu_multi
+- distributed
+- secure_release_builder
+controls:
+- container_digest
+- sbom
+- quota
+- priority
+- preemption
+- retry_identity
+- cost_accounting
+- checkpoint_integrity
+- numerical_profile
+forbidden:
+- untracked_local_run
+- unbounded_agent_compute
+- unsigned_release_build

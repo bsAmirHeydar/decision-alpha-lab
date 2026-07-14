@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "broken_wikilinks": 0,
+    "duplicate_titles": 0,
+    "json_files": 36,
+    "markdown_files": 712,
+    "markdown_lines": 46177,
+    "schemas": 35,
+    "yaml_files": 56
+  },
+  "created": "2026-07-13",
+  "errors": [],
+  "status": "pass",
+  "version": "3.0.0",
+  "warnings": []
+}

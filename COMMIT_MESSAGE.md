@@ -1,1 +1,1 @@
-docs(strategy-factory): add institutional SAED V2 AI edge discovery architecture
+docs(strategy-factory): add SAED V3 institutional context intelligence platform

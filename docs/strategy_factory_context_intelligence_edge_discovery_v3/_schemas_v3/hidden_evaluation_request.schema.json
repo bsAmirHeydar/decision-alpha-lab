@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/hidden_evaluation_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_bundle_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "hidden_evaluation_request",
+      "type": "string"
+    },
+    "hypothesis_family_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "predeclared_metrics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "row_level_output": {
+      "const": false,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "candidate_bundle_hash",
+    "hypothesis_family_id"
+  ],
+  "title": "Hidden Evaluation Request",
+  "type": "object"
+}

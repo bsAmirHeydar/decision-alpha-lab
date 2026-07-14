@@ -1,0 +1,33 @@
+schema_version: saed.causal-program.v2
+program_id: CAUSAL_REFERENCE
+status: proposed
+capability_tier: governed_challenger
+estimand:
+  unit: context_occurrence
+  treatment: finite_treatment_candidate
+  outcome: net_cost_adjusted_utility
+  scope: declared_support_only
+assumptions:
+- consistency
+- positivity_overlap
+- conditional_exchangeability_or_explicit_sensitivity
+- no_post_treatment_features
+learners:
+- doubly_robust
+- orthogonal_learner
+- causal_forest
+- neural_challenger
+cross_fitting:
+  required: true
+  cluster_key: opportunity_cluster_id
+  fold_manifest_hash: REQUIRED
+diagnostics:
+- propensity_overlap
+- effective_sample_size
+- nuisance_calibration
+- placebo_outcome
+- negative_control
+- sensitivity_analysis
+authority:
+  may_replace_predictive_policy: false
+  may_claim_identification_without_assumption_card: false

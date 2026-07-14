@@ -1,0 +1,26 @@
+schema_version: 3.0.0
+contract_type: outcome_cube_program
+unit: context_occurrence_x_treatment
+market_truth: bid_ask_executable
+include_non_fill: true
+events:
+- trigger
+- fill
+- partial_fill
+- cancel
+- reject
+- stop
+- target
+- trail_update
+- trail_exit
+- expiry
+- invalidation
+ambiguity_policy: lower_timeframe_or_conservative_bounds
+costs:
+- spread
+- slippage
+- commission
+- swap
+- impact
+- opportunity_cost
+evidence_class: research

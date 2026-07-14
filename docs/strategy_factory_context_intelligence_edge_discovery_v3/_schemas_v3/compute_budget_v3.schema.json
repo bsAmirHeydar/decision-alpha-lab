@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/compute_budget_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocations": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "compute_budget_v3",
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "protected_budgets": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "campaign_id",
+    "currency",
+    "allocations"
+  ],
+  "title": "Compute Budget V3",
+  "type": "object"
+}

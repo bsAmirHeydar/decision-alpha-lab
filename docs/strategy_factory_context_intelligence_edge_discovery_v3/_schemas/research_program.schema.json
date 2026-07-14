@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAED Research Program",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "program_id",
+    "context_versions",
+    "hypothesis_id",
+    "owners",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "saed.research-program.v2"
+    },
+    "program_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_versions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "hypothesis_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "running",
+        "challenged",
+        "promoted",
+        "rejected",
+        "retired"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

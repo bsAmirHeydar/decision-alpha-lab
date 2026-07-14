@@ -1,0 +1,10 @@
+schema_version: 3.0.0
+contract_type: prospective_challenge
+generation_hash: ''
+start: ''
+end_or_stopping_rule: ''
+tuning_allowed: false
+all_opportunities_logged: true
+safety_monitoring: sequential
+efficacy_analysis: predeclared
+incident_policy: freeze_and_review

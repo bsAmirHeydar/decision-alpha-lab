@@ -1,0 +1,18 @@
+schema_version: 3.0.0
+contract_type: context_cell_monitoring
+assumptions: []
+metrics: []
+health_states:
+- healthy
+- watch
+- reduced
+- quarantined
+- retired
+automatic_actions:
+- alert
+- reduce
+- pause
+forbidden_automatic_actions:
+- retrain
+- replace_champion
+- increase_risk

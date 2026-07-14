@@ -1,0 +1,7 @@
+schema_version: 3.0.0
+contract_type: online_fdr_ledger
+procedure: predeclared
+dependency_assumptions: declared
+initial_wealth: 0.05
+hypothesis_order_immutable: true
+events: []

@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/model_risk_scorecard_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_state": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "model_risk_scorecard_v3",
+      "type": "string"
+    },
+    "dimensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "open_findings": {
+      "type": "array"
+    },
+    "risk_tier": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "risk_tier",
+    "dimensions",
+    "approval_state"
+  ],
+  "title": "Model Risk Scorecard V3",
+  "type": "object"
+}

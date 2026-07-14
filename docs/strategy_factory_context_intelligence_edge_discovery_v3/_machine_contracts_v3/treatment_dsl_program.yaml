@@ -1,0 +1,27 @@
+schema_version: 3.0.0
+contract_type: treatment_dsl_program
+primitive_registries:
+- payoff
+- entry
+- trigger
+- stop
+- exit
+- trail
+- management
+- time
+- economics
+first_class_actions:
+- skip
+- abstain
+constraints:
+- context_compatibility
+- temporal_validity
+- geometry
+- broker_capability
+- runtime_capability
+- risk_independence
+canonicalization:
+  sort_keys: true
+  normalize_units: true
+  deduplicate_semantics: true
+frozen_before_protected_evaluation: true

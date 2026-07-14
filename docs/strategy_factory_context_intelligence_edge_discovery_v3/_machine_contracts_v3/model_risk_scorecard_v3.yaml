@@ -1,0 +1,13 @@
+schema_version: 3.0.0
+contract_type: model_risk_scorecard
+risk_tier: unassigned
+dimensions:
+- complexity
+- uncertainty
+- support
+- action_flexibility
+- capital_impact
+- external_dependency
+- operational_criticality
+open_findings: []
+approval_state: blocked

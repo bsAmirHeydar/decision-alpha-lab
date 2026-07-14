@@ -1,0 +1,20 @@
+schema_version: 3.0.0
+contract_type: red_team_campaign
+candidate_hash: ''
+attacks:
+- suffix
+- role
+- cluster
+- preprocessing
+- 'null'
+- placebo
+- best_component_removal
+- cost
+- delay
+- fill
+- tail
+- transport
+- complexity
+- security
+independent_budget: {}
+critical_findings_block: true

@@ -1,0 +1,45 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/edge_genome_v3.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capacity_curve": {
+      "type": "object"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "edge_genome_v3",
+      "type": "string"
+    },
+    "decay_state": {
+      "type": "string"
+    },
+    "evidence_level": {
+      "type": "string"
+    },
+    "return_distribution": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "tail": {
+      "type": "object"
+    },
+    "treatment_policy_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "context_id",
+    "treatment_policy_id",
+    "evidence_level"
+  ],
+  "title": "Edge Genome V3",
+  "type": "object"
+}

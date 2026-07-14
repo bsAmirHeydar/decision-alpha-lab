@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptation_allowed": {
+      "const": false
+    },
+    "candidate_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "challenge_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "end_rule": {
+      "type": "object"
+    },
+    "kill_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "owners": {
+      "type": "object"
+    },
+    "required_capture": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "runtime_generation_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "saed.prospective-challenge.v2"
+    },
+    "start_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "active",
+        "paused",
+        "completed",
+        "invalidated",
+        "rejected"
+      ]
+    },
+    "verdicts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "challenge_id",
+    "status",
+    "candidate_hash",
+    "runtime_generation_hash",
+    "start_rule",
+    "end_rule",
+    "adaptation_allowed",
+    "required_capture",
+    "kill_criteria",
+    "verdicts",
+    "owners"
+  ],
+  "title": "SAED Prospective Challenge",
+  "type": "object"
+}

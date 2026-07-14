@@ -1,0 +1,48 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/portfolio_edge_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "contract_type": {
+      "const": "portfolio_edge_request",
+      "type": "string"
+    },
+    "expected_utility": {
+      "type": "object"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "model_can_allocate": {
+      "const": false,
+      "type": "boolean"
+    },
+    "occurrence_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    },
+    "uncertainty": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "occurrence_id",
+    "context_id",
+    "treatment_id",
+    "expires_at",
+    "model_can_allocate"
+  ],
+  "title": "Portfolio Edge Request",
+  "type": "object"
+}

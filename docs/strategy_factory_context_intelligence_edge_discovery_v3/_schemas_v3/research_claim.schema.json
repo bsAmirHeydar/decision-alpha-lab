@@ -1,0 +1,53 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v3/research_claim.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "contract_type": {
+      "const": "research_claim",
+      "type": "string"
+    },
+    "evidence_class": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "predicate": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "3.0.0",
+      "type": "string"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "sources": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "schema_version",
+    "contract_type",
+    "subject",
+    "predicate",
+    "evidence_class",
+    "owner"
+  ],
+  "title": "Research Claim",
+  "type": "object"
+}

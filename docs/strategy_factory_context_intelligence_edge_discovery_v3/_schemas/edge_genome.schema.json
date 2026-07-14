@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "self_allocate": {
+          "const": false
+        },
+        "self_trade": {
+          "const": false
+        }
+      },
+      "required": [
+        "self_allocate",
+        "self_trade"
+      ],
+      "type": "object"
+    },
+    "economics": {
+      "type": "object"
+    },
+    "edge_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "identity": {
+      "type": "object"
+    },
+    "portfolio": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "saed.edge-genome.v2"
+    },
+    "status": {
+      "enum": [
+        "research",
+        "challenged",
+        "paper",
+        "shadow",
+        "active",
+        "reduced",
+        "quarantined",
+        "retired"
+      ]
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "edge_id",
+    "version",
+    "status",
+    "identity",
+    "economics",
+    "portfolio",
+    "evidence",
+    "runtime",
+    "authority"
+  ],
+  "title": "SAED Edge Genome",
+  "type": "object"
+}
