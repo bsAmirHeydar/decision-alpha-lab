@@ -1,0 +1,18 @@
+{
+  "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "context_specification_artifact_id": "other",
+  "known_as_of": "2026-07-13T10:00:00Z",
+  "limitations": [
+    "Development evidence only"
+  ],
+  "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "package_id": "tseed_exp0017_v1",
+  "schema_versions": {
+    "context_spec": "1.0.0",
+    "twin_seed": "1.0.0"
+  },
+  "snapshot_ids": [
+    "snap_exp0017_001"
+  ]
+}

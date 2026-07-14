@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "constitution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lineage_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "snapshot_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "package_id",
+    "package_hash",
+    "lineage_root",
+    "known_as_of",
+    "constitution_hash",
+    "snapshot_ids",
+    "schema_versions",
+    "limitations"
+  ],
+  "title": "Twin Seed Ref",
+  "type": "object"
+}

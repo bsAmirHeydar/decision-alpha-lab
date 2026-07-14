@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "added_contradictions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "added_observations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "changed_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "left_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "lifecycle_changed": {
+      "type": "boolean"
+    },
+    "removed_observations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "resolved_contradictions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "right_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "left_snapshot_hash",
+    "right_snapshot_hash",
+    "changed_fields",
+    "added_observations",
+    "removed_observations",
+    "added_contradictions",
+    "resolved_contradictions",
+    "lifecycle_changed"
+  ],
+  "title": "Twin Diff",
+  "type": "object"
+}

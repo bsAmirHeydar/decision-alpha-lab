@@ -1,0 +1,3861 @@
+[
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_compile",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16",
+      "unexpected": "x"
+    },
+    "expected": "reject",
+    "id": "unknown_field",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "reject",
+    "id": "seed_mismatch",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "other",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        },
+        {
+          "relation_kind": "is_a",
+          "source_ref": "bad",
+          "source_term_id": "market_context",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "reject",
+    "id": "ontology_cycle",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "missing",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "reject",
+    "id": "unknown_initial_state",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "context_id": "EXP0017_F2_BULLISH",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "missing",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "reject",
+    "id": "support_unknown_observable",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_spec_exp0017_f2_bullish_v1",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "package_id": "tseed_exp0017_v1",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_00",
+      "context_id": "CTX_00",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "1511e84d0cfd64d3ccaae5cb6731b607fb8b6bcd6c53dc006bc2d331068fea5d",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_00",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_00",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "28554ffdaccebd7ecb9f313a72e272e27fe3f2c7b1d15b1c6a7df5a361769dd8",
+      "package_id": "seed_00",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_01",
+      "context_id": "CTX_01",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "8f9d61fac39402898f831bfec31c774438bb77be6a0cbd47c83cf53d31858372",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_01",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_01",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "df9ecf4c79e5ad77701cfc88c196632b353149d85810a381f469f8fc05dc1b92",
+      "package_id": "seed_01",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_02",
+      "context_id": "CTX_02",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "511c96ceb7174affc0b103d8fbbb33384196d849f1eeb3c2e9da6145053ae9d3",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_02",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_02",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "35b0fad16758b58124f39f00d26061704514be4e39c1e03b7b23534afd6081e3",
+      "package_id": "seed_02",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_03",
+      "context_id": "CTX_03",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "71928433063a6f27b83966f0944e6239ce4cfec33fa870601004ff2e7014ac59",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_03",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_03",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "b9e1e9b068c94af0129d20f775a395e4e0ab28cd2026f45eea0821b72bf58d93",
+      "package_id": "seed_03",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_04",
+      "context_id": "CTX_04",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "91311e6eb635449d4b254393a828f3fa1dab15ae294977fec34ea4f2fa0fcdde",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_04",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_04",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "13e5c80a2cb759451513d80f7944f1fd979af53f95efeeaf8decfc9c66481dab",
+      "package_id": "seed_04",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_05",
+      "context_id": "CTX_05",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "3da3d74233ae468e8e9b05cc8f6bd37a8393b0e2d69a34fc5974e41cb388b06c",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_05",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_05",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "beb441370ff9b72d8e542ced70a0bf8caa1c7400862e940dbb7dc591d9380406",
+      "package_id": "seed_05",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_06",
+      "context_id": "CTX_06",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "1c2ee33b60465a1ddf3ea40456ad219f0cc3b5e70c8dff5d59958cc5aa20f1fc",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_06",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_06",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "3fd87df82c3d4d8a3521729b27607a8e73df04e2b3014eac276d06397ed772f2",
+      "package_id": "seed_06",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_07",
+      "context_id": "CTX_07",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "595442d0b8bece1ceee468f14caabb4817377127fb616f048996ea28e1f736d7",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_07",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_07",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "cd8f4c9a9fddf19b0235fcf4a6caa333847123e1541ae74c77b90a79269c7145",
+      "package_id": "seed_07",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_08",
+      "context_id": "CTX_08",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "5b339a6e6a63cf56207966cd0d9be63c4bfb19b1a361d2396f463095fafe9cd7",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_08",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_08",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "c8dac31a87f82dbabfaa39a3cbebd557bf231b4d7483cd8dfa4bcfac958ad122",
+      "package_id": "seed_08",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_09",
+      "context_id": "CTX_09",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "20daaa7cf318d5d66e5704d1061555948817564b36349feb168db917ab300d62",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_09",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_09",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "2b5039bb5b5869a6cb0e247c536387c918943c8637c43c1f4ddd83645a4767d7",
+      "package_id": "seed_09",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_10",
+      "context_id": "CTX_10",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "254207cdb5d4b0e961eb966428bfe9703d98e6f139f25d57a0d5cdacaacba087",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_10",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_10",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "668e602ae82ce19345da0159caba9986398c4d9f6b815a7859067c13d6eaddf1",
+      "package_id": "seed_10",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  },
+  {
+    "context_spec": {
+      "artifact_id": "ctx_11",
+      "context_id": "CTX_11",
+      "context_version": "1.0.0",
+      "hypotheses": [
+        {
+          "description": "Context may support continuation",
+          "falsification_rule": "reject after canonical invalidation",
+          "hypothesis_id": "h_continuation",
+          "name": "Continuation hypothesis",
+          "prior_weight": 0.0,
+          "scope": "context_occurrence",
+          "source_ref": "V4-02"
+        }
+      ],
+      "initial_lifecycle_state": "initialized",
+      "lifecycle_states": [
+        {
+          "description": "Compiled but not observed",
+          "state_id": "initialized",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context valid",
+          "state_id": "valid",
+          "terminal": false
+        },
+        {
+          "description": "Canonical context invalidated",
+          "state_id": "invalidated",
+          "terminal": true
+        }
+      ],
+      "limitations": [
+        "No learned posterior in V4-02",
+        "No treatment selection authority"
+      ],
+      "observables": [
+        {
+          "allowed_values": [],
+          "canonical_source": true,
+          "freshness_seconds": 3600,
+          "maximum": null,
+          "minimum": null,
+          "name": "Context Fresh",
+          "observable_id": "context_fresh",
+          "required": true,
+          "unit": null,
+          "value_type": "boolean"
+        },
+        {
+          "allowed_values": [
+            "aligned",
+            "neutral",
+            "opposed"
+          ],
+          "canonical_source": true,
+          "freshness_seconds": 7200,
+          "maximum": null,
+          "minimum": null,
+          "name": "HTF Alignment",
+          "observable_id": "htf_alignment",
+          "required": true,
+          "unit": null,
+          "value_type": "string"
+        },
+        {
+          "allowed_values": [],
+          "canonical_source": false,
+          "freshness_seconds": 1800,
+          "maximum": 5.0,
+          "minimum": -5.0,
+          "name": "Volatility Z",
+          "observable_id": "volatility_z",
+          "required": false,
+          "unit": "z",
+          "value_type": "number"
+        }
+      ],
+      "ontology_relations": [
+        {
+          "relation_kind": "is_a",
+          "source_ref": "EXP0017",
+          "source_term_id": "f2_bullish",
+          "target_term_id": "market_context"
+        },
+        {
+          "relation_kind": "derived_from",
+          "source_ref": "V4-02",
+          "source_term_id": "continuation_pressure",
+          "target_term_id": "f2_bullish"
+        }
+      ],
+      "ontology_terms": [
+        {
+          "canonical": true,
+          "definition": "Canonical context concept",
+          "name": "Market Context",
+          "namespace": "ucee",
+          "source_ref": "UCEE-I16",
+          "term_id": "market_context"
+        },
+        {
+          "canonical": true,
+          "definition": "Bullish F2 context",
+          "name": "Bullish F2",
+          "namespace": "exp0017",
+          "source_ref": "EXP0017",
+          "term_id": "f2_bullish"
+        },
+        {
+          "canonical": false,
+          "definition": "Derived latent continuation pressure",
+          "name": "Continuation Pressure",
+          "namespace": "saed",
+          "source_ref": "V4-02",
+          "term_id": "continuation_pressure"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "specification_hash": "59032ef0ec03626a6155caf8a5a4a2d3eb02dcb18ff8e63de0b008dbac36e9c1",
+      "support_geometry": {
+        "degraded_threshold": 0.4,
+        "dimensions": [
+          {
+            "allowed_values": [],
+            "dimension_id": "d_fresh",
+            "maximum": null,
+            "maximum_age_seconds": 3600,
+            "minimum": null,
+            "observable_id": "context_fresh",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [
+              "aligned",
+              "neutral"
+            ],
+            "dimension_id": "d_htf",
+            "maximum": null,
+            "maximum_age_seconds": 7200,
+            "minimum": null,
+            "observable_id": "htf_alignment",
+            "required": true,
+            "weight": 2.0
+          },
+          {
+            "allowed_values": [],
+            "dimension_id": "d_vol",
+            "maximum": 3.0,
+            "maximum_age_seconds": 1800,
+            "minimum": -3.0,
+            "observable_id": "volatility_z",
+            "required": false,
+            "weight": 1.0
+          }
+        ],
+        "geometry_id": "support_exp0017_f2_v1",
+        "minimum_coverage": 0.8,
+        "unknown_policy": "unknown"
+      },
+      "transition_rules": [
+        {
+          "forbidden_contradiction_severities": [
+            "material",
+            "critical"
+          ],
+          "from_state": "initialized",
+          "required_observables": [
+            "context_fresh",
+            "htf_alignment"
+          ],
+          "requires_support": true,
+          "review_required": false,
+          "rule_id": "r_initialize_valid",
+          "to_state": "valid",
+          "trigger": "canonical_valid"
+        },
+        {
+          "forbidden_contradiction_severities": [],
+          "from_state": "valid",
+          "required_observables": [],
+          "requires_support": false,
+          "review_required": false,
+          "rule_id": "r_invalidate",
+          "to_state": "invalidated",
+          "trigger": "canonical_invalidated"
+        }
+      ],
+      "ucee_phase": "I16"
+    },
+    "expected": "pass",
+    "id": "golden_variant_11",
+    "seed": {
+      "constitution_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "context_specification_artifact_id": "ctx_11",
+      "known_as_of": "2026-07-13T10:00:00Z",
+      "limitations": [
+        "Development evidence only"
+      ],
+      "lineage_root": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "package_hash": "daa7e410dcf14156d3ab3a94f42aad2b43806b9e2d50c2a63241c1d6aee238e5",
+      "package_id": "seed_11",
+      "schema_versions": {
+        "context_spec": "1.0.0",
+        "twin_seed": "1.0.0"
+      },
+      "snapshot_ids": [
+        "snap_exp0017_001"
+      ]
+    }
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "append_hypothesis_assessment": {
+      "type": "boolean"
+    },
+    "append_observation": {
+      "type": "boolean"
+    },
+    "compile_twin": {
+      "type": "boolean"
+    },
+    "mutate_ucee_truth": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "read_ucee_truth": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "transition_twin": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_ucee_truth",
+    "compile_twin",
+    "append_observation",
+    "append_hypothesis_assessment",
+    "transition_twin",
+    "mutate_ucee_truth",
+    "select_treatment",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "network_access"
+  ],
+  "title": "Twin Authority Boundary",
+  "type": "object"
+}

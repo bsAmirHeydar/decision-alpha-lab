@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "score": {
+      "maximum": 1,
+      "minimum": -1,
+      "type": "number"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "weight": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "type": "number"
+    }
+  },
+  "required": [
+    "twin_id",
+    "hypothesis_id",
+    "evidence_hash",
+    "known_time",
+    "score",
+    "weight",
+    "assessor_id",
+    "rationale"
+  ],
+  "title": "Hypothesis Assessment",
+  "type": "object"
+}

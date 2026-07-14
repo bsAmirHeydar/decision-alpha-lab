@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_values": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "canonical_source": {
+      "type": "boolean"
+    },
+    "freshness_seconds": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "maximum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "minimum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "observable_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "value_type": {
+      "enum": [
+        "number",
+        "string",
+        "boolean"
+      ]
+    }
+  },
+  "required": [
+    "observable_id",
+    "name",
+    "value_type",
+    "required",
+    "canonical_source",
+    "unit",
+    "allowed_values",
+    "minimum",
+    "maximum",
+    "freshness_seconds"
+  ],
+  "title": "Observable Definition",
+  "type": "object"
+}

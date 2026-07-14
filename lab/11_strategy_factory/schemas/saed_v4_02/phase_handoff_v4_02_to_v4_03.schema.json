@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$ref": "twin_authority_boundary.schema.json"
+    },
+    "golden_gate": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "integrity_receipt_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "next_phase": {
+      "const": "SAED_V4_03"
+    },
+    "phase": {
+      "const": "SAED_V4_02"
+    },
+    "snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "twin_id",
+    "twin_version",
+    "manifest_hash",
+    "snapshot_hash",
+    "integrity_receipt_id",
+    "known_as_of",
+    "limitations",
+    "authority",
+    "golden_gate",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-02 to V4-03 Handoff",
+  "type": "object"
+}

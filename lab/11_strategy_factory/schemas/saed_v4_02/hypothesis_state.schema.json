@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "declared",
+        "supported",
+        "challenged",
+        "rejected",
+        "unresolved"
+      ]
+    },
+    "total_weight": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "weighted_score": {
+      "maximum": 1,
+      "minimum": -1,
+      "type": "number"
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "weighted_score",
+    "total_weight",
+    "status",
+    "assessment_ids"
+  ],
+  "title": "Hypothesis State",
+  "type": "object"
+}

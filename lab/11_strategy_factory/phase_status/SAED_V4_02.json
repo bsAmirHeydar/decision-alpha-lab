@@ -1,0 +1,40 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "append_hypothesis_assessment": true,
+    "append_observation": true,
+    "compile_twin": true,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_ucee_truth": true,
+    "select_treatment": false,
+    "send_order": false,
+    "transition_twin": true
+  },
+  "claims_not_made": [
+    "real alpha",
+    "adaptive training",
+    "treatment selection",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "clean_patch_verification": "pass",
+  "closed_schemas": 28,
+  "conformance_passed": 18,
+  "conformance_vectors": 18,
+  "golden_manifest_hash": "0892724697e986bb5c2413be03d6f9e8d3d0552013ac761b89e23b2d88a861a2",
+  "golden_snapshot_hash": "56fccbf6f8026ada733863ba6340bda53f4ad2871f8370a3db40112dff2c1d58",
+  "golden_twin_id": "twin_25f7af277b11f5be7ade03a3",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 13,
+  "next_phase": "SAED_V4_03",
+  "phase": "SAED_V4_02",
+  "python_cumulative_tests": 502,
+  "python_phase_tests": 134,
+  "status": "accepted_reference_implementation",
+  "title": "Context Digital Twin Kernel",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

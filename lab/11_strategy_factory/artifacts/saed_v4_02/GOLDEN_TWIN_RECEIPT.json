@@ -1,0 +1,11 @@
+{
+  "component_root": "f9f449e915b0325ffe7cceb2987fc205caf148cd426989c212bff2ff5b6c7c1b",
+  "details": {
+    "component_count": 2
+  },
+  "manifest_hash": "0892724697e986bb5c2413be03d6f9e8d3d0552013ac761b89e23b2d88a861a2",
+  "receipt_id": "treceipt_005e396664b1fd51b5dad3df",
+  "state_snapshot_hash": "56fccbf6f8026ada733863ba6340bda53f4ad2871f8370a3db40112dff2c1d58",
+  "status": "verified",
+  "twin_id": "twin_25f7af277b11f5be7ade03a3"
+}

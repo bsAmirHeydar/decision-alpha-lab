@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "debt_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "opened_known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "resolution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "blocking"
+      ]
+    },
+    "source_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "debt_key",
+    "description",
+    "severity",
+    "source_ref",
+    "opened_known_time",
+    "resolved",
+    "resolution_hash"
+  ],
+  "title": "Evidence Debt Item",
+  "type": "object"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "degraded_threshold": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "dimensions": {
+      "items": {
+        "$ref": "support_dimension.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "geometry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "minimum_coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "unknown_policy": {
+      "enum": [
+        "unknown",
+        "unsupported"
+      ]
+    }
+  },
+  "required": [
+    "geometry_id",
+    "dimensions",
+    "minimum_coverage",
+    "unknown_policy",
+    "degraded_threshold"
+  ],
+  "title": "Support Geometry",
+  "type": "object"
+}

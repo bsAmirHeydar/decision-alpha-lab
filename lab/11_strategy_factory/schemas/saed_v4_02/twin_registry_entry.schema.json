@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiler_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "active",
+        "quarantined",
+        "retired"
+      ]
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "exact_version",
+    "semantic_hash",
+    "compiler_version",
+    "state"
+  ],
+  "title": "Twin Registry Entry",
+  "type": "object"
+}

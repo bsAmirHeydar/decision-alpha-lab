@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "environment_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "exact": {
+      "type": "boolean"
+    },
+    "expected_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "observed_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "expected_snapshot_hash",
+    "observed_snapshot_hash",
+    "exact",
+    "environment_hash",
+    "known_as_of"
+  ],
+  "title": "Twin Replay Receipt",
+  "type": "object"
+}

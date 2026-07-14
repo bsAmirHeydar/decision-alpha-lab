@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disposition": {
+      "enum": [
+        "applied",
+        "rejected",
+        "review",
+        "noop"
+      ]
+    },
+    "evidence_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "from_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rule_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "to_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trigger": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "rule_id",
+    "from_state",
+    "to_state",
+    "known_time",
+    "trigger",
+    "evidence_hashes",
+    "disposition",
+    "reasons",
+    "sequence"
+  ],
+  "title": "Transition Event",
+  "type": "object"
+}

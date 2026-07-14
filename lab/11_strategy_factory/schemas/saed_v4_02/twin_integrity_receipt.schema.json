@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "details": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "verified",
+        "failed"
+      ]
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "manifest_hash",
+    "state_snapshot_hash",
+    "component_root",
+    "status",
+    "details"
+  ],
+  "title": "Twin Integrity Receipt",
+  "type": "object"
+}

@@ -1,0 +1,133 @@
+{
+  "passed": 18,
+  "phase": "SAED_V4_02",
+  "results": [
+    {
+      "actual": "pass",
+      "detail": "0892724697e986bb5c2413be03d6f9e8d3d0552013ac761b89e23b2d88a861a2",
+      "expected": "pass",
+      "id": "golden_compile",
+      "passed": true
+    },
+    {
+      "actual": "reject",
+      "detail": "ContractError:unknown context spec fields: unexpected",
+      "expected": "reject",
+      "id": "unknown_field",
+      "passed": true
+    },
+    {
+      "actual": "reject",
+      "detail": "IdentityError:seed context artifact mismatch",
+      "expected": "reject",
+      "id": "seed_mismatch",
+      "passed": true
+    },
+    {
+      "actual": "reject",
+      "detail": "OntologyError:ontology cycle",
+      "expected": "reject",
+      "id": "ontology_cycle",
+      "passed": true
+    },
+    {
+      "actual": "reject",
+      "detail": "LifecycleError:unknown initial state",
+      "expected": "reject",
+      "id": "unknown_initial_state",
+      "passed": true
+    },
+    {
+      "actual": "reject",
+      "detail": "ContractError:support references unknown observable",
+      "expected": "reject",
+      "id": "support_unknown_observable",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "ec5d9a10def06e8824b3d7231c2aa101ad86c94c91c4c56ec78301af00cfc4c7",
+      "expected": "pass",
+      "id": "golden_variant_00",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "cead3ebf5418684ac28f43e2e8340693e0777e47926905efce876af8ddb91522",
+      "expected": "pass",
+      "id": "golden_variant_01",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "9d1bd2599c94a3d38be010a6be4e3aa768cfb397a81060881d760a97f9c7a47b",
+      "expected": "pass",
+      "id": "golden_variant_02",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "a73ec0f75ec99d24210f598c7e4e71090bb24263694edc7a4f6e15f784862a9c",
+      "expected": "pass",
+      "id": "golden_variant_03",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "fa7dedd70feb8d6a078336dd39bbe7610f20cf611ffbe667c176478d4979f565",
+      "expected": "pass",
+      "id": "golden_variant_04",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "29a945477235124cc1795d174179dfcb4f5c3c9c36b82e7fa49981c824e0db79",
+      "expected": "pass",
+      "id": "golden_variant_05",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "37ae6d3942cac1ba5d38161c8181e24421ca22617e57ee42ca42341d5dd708fd",
+      "expected": "pass",
+      "id": "golden_variant_06",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "dd21ff4aac346b245dec1684c698701e0ed33e7cd5f49759da493ac80a8b8cbb",
+      "expected": "pass",
+      "id": "golden_variant_07",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "ab738b5e9b00e85623dc66c3c3a7af365bc31e52afa13ff70b841de2fba7f1b6",
+      "expected": "pass",
+      "id": "golden_variant_08",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "d6d1db33c39ee1ce39cb8ff4c6da666a53aa2f5d05f5c39c497c28cd65ce4276",
+      "expected": "pass",
+      "id": "golden_variant_09",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "8245998050aa52227d680a0038b64a56551acda465a5c67f3675e48460e55802",
+      "expected": "pass",
+      "id": "golden_variant_10",
+      "passed": true
+    },
+    {
+      "actual": "pass",
+      "detail": "ecd3bf1626593ac666c3f2b2a420a66175a89248274f0fd0c09f620fa32f7e7a",
+      "expected": "pass",
+      "id": "golden_variant_11",
+      "passed": true
+    }
+  ],
+  "total": 18
+}

@@ -1,0 +1,146 @@
+{
+  "phase": "SAED_V4_02",
+  "schema_count": 28,
+  "schemas": [
+    {
+      "name": "context_specification_ref.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/context_specification_ref.schema.json",
+      "sha256": "d7ae7962846771de17820823f86d1b3cbc926b9526803768ffcce00dab659aa1"
+    },
+    {
+      "name": "context_twin_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/context_twin_manifest.schema.json",
+      "sha256": "3ee07fda6e5b41e704981b7e53fa5838bdd0ed9cb91c3b98818cc8fd199e1e93"
+    },
+    {
+      "name": "contradiction.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/contradiction.schema.json",
+      "sha256": "5a5b1a88af32b6269fa87e3816c85ed798850d921d254ad45f650cf3f62c0dfa"
+    },
+    {
+      "name": "evidence_debt_item.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/evidence_debt_item.schema.json",
+      "sha256": "89a77fe2954bae23e7f6c2dd4230a7bbcb181f1a5b50c7e26d8f60461902103c"
+    },
+    {
+      "name": "hypothesis_assessment.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/hypothesis_assessment.schema.json",
+      "sha256": "0813f1e11eaad205217d3d30fe57710c0806510eb14b8782655b31c5871ae1dd"
+    },
+    {
+      "name": "hypothesis_state.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/hypothesis_state.schema.json",
+      "sha256": "45b43f89c34967afc2ca3a3eea11482cb307bf91c68481c9ee0459ecc5988685"
+    },
+    {
+      "name": "latent_hypothesis.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/latent_hypothesis.schema.json",
+      "sha256": "f995cfd02afdb8c8ab5baf069f312dc9f53b6117610f0f289035bf74e95b3e4e"
+    },
+    {
+      "name": "lifecycle_state_definition.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/lifecycle_state_definition.schema.json",
+      "sha256": "609b4e9ec96b233eae57166716a1971edb7aa596769dcf88c923b21266ac1e13"
+    },
+    {
+      "name": "observable_definition.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/observable_definition.schema.json",
+      "sha256": "12be45f2731a36dacbde5029135fb7d5638724486d10c27801eeeed9ce0bfcd1"
+    },
+    {
+      "name": "observation.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/observation.schema.json",
+      "sha256": "66c0ac84cb0b550e76bf174657028550996c2a279524e9a7b69f5a9f2cd7ae06"
+    },
+    {
+      "name": "ontology_relation.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/ontology_relation.schema.json",
+      "sha256": "70bbd9b83b410f184b1177a01549be89fbb67aa9cf05d32b676c375aaa22781d"
+    },
+    {
+      "name": "ontology_term.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/ontology_term.schema.json",
+      "sha256": "5ae861f1eda51ccbc8c1515f86c02c80aa384da2977aaa38eeda779843c90b49"
+    },
+    {
+      "name": "phase_handoff_v4_02_to_v4_03.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/phase_handoff_v4_02_to_v4_03.schema.json",
+      "sha256": "28cd2f904c73590c7e904f79a9aebb931f05f6f782d5908d99ad56e43ffd2163"
+    },
+    {
+      "name": "support_dimension.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/support_dimension.schema.json",
+      "sha256": "30c7aeae7da7dc75bc18d3e531d47ff0d9ddaedab45f480a53b0bc04d7be73c3"
+    },
+    {
+      "name": "support_evaluation.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/support_evaluation.schema.json",
+      "sha256": "c3b3b22bd5605ed40aa6233ab941a713961d936605ceb16ddb1881b2dd35fbc0"
+    },
+    {
+      "name": "support_geometry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/support_geometry.schema.json",
+      "sha256": "a0dc8638da5cc67807961f3d93e121848cfd1ebbf159dd77a53cbba7d2cf67aa"
+    },
+    {
+      "name": "transition_event.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/transition_event.schema.json",
+      "sha256": "c93e9fca87d2e73775c66809dd4cc5616acbbe44d072f97a87babe48a47d5b4f"
+    },
+    {
+      "name": "transition_rule.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/transition_rule.schema.json",
+      "sha256": "78157ab48cf46b25f250a04b70503cc8bf0a3117a8fcf3cfef8d45f16571cffa"
+    },
+    {
+      "name": "twin_authority_boundary.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_authority_boundary.schema.json",
+      "sha256": "0daf05734e35b23b0dac2b6129a3fb45b4f345841669174ec3f14baaf5dfe727"
+    },
+    {
+      "name": "twin_diff.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_diff.schema.json",
+      "sha256": "4189c31bb42c5af228ad4417e627af20e2f1c0c7d2d143411c6401df47f6cc09"
+    },
+    {
+      "name": "twin_initialization_request.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_initialization_request.schema.json",
+      "sha256": "d5097e394098a9339b1359302b588bf8be4e16089da555ee693a0368cc099e21"
+    },
+    {
+      "name": "twin_initialization_result.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_initialization_result.schema.json",
+      "sha256": "ae222be400033507af2638cc428535b07f663c8880036e24009200ecbf73d806"
+    },
+    {
+      "name": "twin_integrity_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_integrity_receipt.schema.json",
+      "sha256": "01f5076c09747736480d34ea891cd842c6c9c9633a214de197e4f86cb2b92117"
+    },
+    {
+      "name": "twin_registry_entry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_registry_entry.schema.json",
+      "sha256": "ff05bcde8936062161ab97a306ae684840079b6f79f547c3ac5e9e519ded214c"
+    },
+    {
+      "name": "twin_replay_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_replay_receipt.schema.json",
+      "sha256": "02ee06cc61b0e811daa2882cfea86944396474e699b2a6ad2edf55f69a3bf540"
+    },
+    {
+      "name": "twin_seed_ref.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_seed_ref.schema.json",
+      "sha256": "df26e2d2daf1cd2e7cfdc66f1a0604f80fa3a5be3ab49c87ce6e70a2230e707e"
+    },
+    {
+      "name": "twin_state_snapshot.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_state_snapshot.schema.json",
+      "sha256": "8a540418fdcefa8fcae4f95fe6e9c70bfb0c39c2104b5fa9302b986e4c6f1ac1"
+    },
+    {
+      "name": "twin_telemetry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_02/twin_telemetry.schema.json",
+      "sha256": "1808d7a3e6bba11ec5ba332ffe268bab712305b50b4a9e47bde816b55a2b4b27"
+    }
+  ]
+}

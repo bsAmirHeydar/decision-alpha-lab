@@ -1,0 +1,31 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "append_hypothesis_assessment": true,
+    "append_observation": true,
+    "compile_twin": true,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_ucee_truth": true,
+    "select_treatment": false,
+    "send_order": false,
+    "transition_twin": true
+  },
+  "golden_gate": "same manifest plus same event stream yields same state snapshot",
+  "handoff_hash": "1e82227b7adba6ed69b6791ae0b8e800082bde68d255f112e5d9ecda159fb7d2",
+  "handoff_id": "handoff_1e82227b7adba6ed69b6791a",
+  "integrity_receipt_id": "treceipt_005e396664b1fd51b5dad3df",
+  "known_as_of": "2026-07-13T10:00:00Z",
+  "limitations": [
+    "MetaEditor compile pending local Windows evidence",
+    "No learned model or treatment policy",
+    "V4-03 event model not implemented"
+  ],
+  "manifest_hash": "0892724697e986bb5c2413be03d6f9e8d3d0552013ac761b89e23b2d88a861a2",
+  "next_phase": "SAED_V4_03",
+  "phase": "SAED_V4_02",
+  "snapshot_hash": "56fccbf6f8026ada733863ba6340bda53f4ad2871f8370a3db40112dff2c1d58",
+  "twin_id": "twin_25f7af277b11f5be7ade03a3",
+  "twin_version": "1.0.0"
+}

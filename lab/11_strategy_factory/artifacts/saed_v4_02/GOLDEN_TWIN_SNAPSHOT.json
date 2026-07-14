@@ -1,0 +1,15 @@
+{
+  "contradiction_ids": [],
+  "evidence_debt_ids": [],
+  "hypothesis_states": [],
+  "known_as_of": "2026-07-13T10:00:00Z",
+  "lifecycle_state": "initialized",
+  "manifest_hash": "0892724697e986bb5c2413be03d6f9e8d3d0552013ac761b89e23b2d88a861a2",
+  "observation_ids": [],
+  "sequence": 1,
+  "snapshot_hash": "56fccbf6f8026ada733863ba6340bda53f4ad2871f8370a3db40112dff2c1d58",
+  "support_evaluation_id": null,
+  "transition_event_ids": [],
+  "twin_id": "twin_25f7af277b11f5be7ade03a3",
+  "twin_state": "observing"
+}

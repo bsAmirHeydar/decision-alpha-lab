@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "observable_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "observation_kind": {
+      "enum": [
+        "canonical_fact",
+        "derived_fact",
+        "quality_signal",
+        "support_signal",
+        "external_assessment"
+      ]
+    },
+    "quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "twin_id",
+    "observable_id",
+    "value",
+    "event_time",
+    "known_time",
+    "source_artifact_id",
+    "source_hash",
+    "observation_kind",
+    "quality",
+    "sequence"
+  ],
+  "title": "Observation",
+  "type": "object"
+}

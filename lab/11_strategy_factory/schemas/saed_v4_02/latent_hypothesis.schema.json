@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "falsification_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prior_weight": {
+      "maximum": 1,
+      "minimum": -1,
+      "type": "number"
+    },
+    "scope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_ref": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "name",
+    "description",
+    "prior_weight",
+    "scope",
+    "falsification_rule",
+    "source_ref"
+  ],
+  "title": "Latent Hypothesis",
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_specification": {
+      "type": "object"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_seed": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "context_specification",
+    "twin_seed",
+    "exact_version"
+  ],
+  "title": "Twin Initialization Request",
+  "type": "object"
+}

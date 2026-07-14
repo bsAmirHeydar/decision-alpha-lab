@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "details": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "event_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "telemetry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "event_type",
+    "known_time",
+    "details",
+    "telemetry_id",
+    "event_hash"
+  ],
+  "title": "Twin Telemetry",
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_contradiction_severities": {
+      "items": {
+        "enum": [
+          "info",
+          "warning",
+          "material",
+          "critical"
+        ]
+      },
+      "type": "array"
+    },
+    "from_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_observables": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "requires_support": {
+      "type": "boolean"
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "rule_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "to_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trigger": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule_id",
+    "from_state",
+    "to_state",
+    "trigger",
+    "required_observables",
+    "forbidden_contradiction_severities",
+    "requires_support",
+    "review_required"
+  ],
+  "title": "Transition Rule",
+  "type": "object"
+}

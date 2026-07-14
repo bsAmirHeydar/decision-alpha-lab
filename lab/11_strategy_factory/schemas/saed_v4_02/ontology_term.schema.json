@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical": {
+      "type": "boolean"
+    },
+    "definition": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "namespace": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "term_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "term_id",
+    "name",
+    "definition",
+    "namespace",
+    "canonical",
+    "source_ref"
+  ],
+  "title": "Ontology Term",
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+class TwinError(Exception): pass
+class ContractError(TwinError): pass
+class IdentityError(TwinError): pass
+class AuthorityError(TwinError): pass
+class OntologyError(TwinError): pass
+class LifecycleError(TwinError): pass
+class SupportError(TwinError): pass
+class ContradictionError(TwinError): pass
+class ReplayError(TwinError): pass
+class RegistryError(TwinError): pass

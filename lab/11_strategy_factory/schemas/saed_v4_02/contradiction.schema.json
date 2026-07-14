@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contradiction_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "left_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "resolution_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "right_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "warning",
+        "material",
+        "critical"
+      ]
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "contradiction_key",
+    "left_hash",
+    "right_hash",
+    "severity",
+    "known_time",
+    "description",
+    "resolved",
+    "resolution_hash"
+  ],
+  "title": "Contradiction",
+  "type": "object"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "failed_dimensions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "geometry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "supported",
+        "degraded",
+        "unsupported",
+        "unknown"
+      ]
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "unknown_dimensions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "twin_id",
+    "geometry_id",
+    "known_as_of",
+    "status",
+    "coverage",
+    "failed_dimensions",
+    "unknown_dimensions",
+    "reasons"
+  ],
+  "title": "Support Evaluation",
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_values": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dimension_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "maximum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "maximum_age_seconds": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "minimum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "observable_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "weight": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "dimension_id",
+    "observable_id",
+    "required",
+    "allowed_values",
+    "minimum",
+    "maximum",
+    "maximum_age_seconds",
+    "weight"
+  ],
+  "title": "Support Dimension",
+  "type": "object"
+}

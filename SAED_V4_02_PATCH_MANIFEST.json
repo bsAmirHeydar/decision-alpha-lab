@@ -1,0 +1,24 @@
+{
+  "authority": {
+    "broker": false,
+    "network": false,
+    "order": false,
+    "portfolio": false,
+    "risk": false,
+    "runtime": false,
+    "treatment_selection": false,
+    "ucee_mutation": false
+  },
+  "baseline": "SAED V4-01 clean verified baseline",
+  "clean_patch_verification": "pass",
+  "external_evidence": {
+    "metaeditor_compile": "pending_local_windows",
+    "mql5_static": "pass"
+  },
+  "file_count": 177,
+  "file_index_sha256": "a7938b51c4de84bd8d31d8214e3ea405d2caad0986268ce23c14156e35695a53",
+  "phase": "SAED_V4_02",
+  "release_name": "decision-alpha-lab-saed-v4-02-context-digital-twin-v1.0.0.zip",
+  "version": "1.0.0",
+  "zip_integrity": "pass"
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contradiction_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_debt_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hypothesis_states": {
+      "items": {
+        "$ref": "hypothesis_state.schema.json"
+      },
+      "type": "array"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "observation_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "support_evaluation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transition_event_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_state": {
+      "enum": [
+        "seeded",
+        "initialized",
+        "observing",
+        "degraded",
+        "conflicted",
+        "quarantined",
+        "retired"
+      ]
+    }
+  },
+  "required": [
+    "twin_id",
+    "manifest_hash",
+    "known_as_of",
+    "lifecycle_state",
+    "twin_state",
+    "observation_ids",
+    "hypothesis_states",
+    "support_evaluation_id",
+    "contradiction_ids",
+    "evidence_debt_ids",
+    "transition_event_ids",
+    "sequence",
+    "snapshot_hash"
+  ],
+  "title": "Twin State Snapshot",
+  "type": "object"
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$ref": "twin_authority_boundary.schema.json"
+    },
+    "compiler_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_ref": {
+      "$ref": "context_specification_ref.schema.json"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hypotheses": {
+      "items": {
+        "$ref": "latent_hypothesis.schema.json"
+      },
+      "type": "array"
+    },
+    "initial_lifecycle_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lifecycle_states": {
+      "items": {
+        "$ref": "lifecycle_state_definition.schema.json"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observables": {
+      "items": {
+        "$ref": "observable_definition.schema.json"
+      },
+      "type": "array"
+    },
+    "ontology_relations": {
+      "items": {
+        "$ref": "ontology_relation.schema.json"
+      },
+      "type": "array"
+    },
+    "ontology_terms": {
+      "items": {
+        "$ref": "ontology_term.schema.json"
+      },
+      "type": "array"
+    },
+    "seed_ref": {
+      "$ref": "twin_seed_ref.schema.json"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "support_geometry": {
+      "$ref": "support_geometry.schema.json"
+    },
+    "transition_rules": {
+      "items": {
+        "$ref": "transition_rule.schema.json"
+      },
+      "type": "array"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "twin_state": {
+      "enum": [
+        "seeded",
+        "initialized",
+        "observing",
+        "degraded",
+        "conflicted",
+        "quarantined",
+        "retired"
+      ]
+    }
+  },
+  "required": [
+    "twin_id",
+    "exact_version",
+    "compiler_version",
+    "context_ref",
+    "seed_ref",
+    "ontology_terms",
+    "ontology_relations",
+    "observables",
+    "hypotheses",
+    "support_geometry",
+    "lifecycle_states",
+    "transition_rules",
+    "initial_lifecycle_state",
+    "twin_state",
+    "authority",
+    "limitations",
+    "semantic_hash"
+  ],
+  "title": "Context Twin Manifest",
+  "type": "object"
+}

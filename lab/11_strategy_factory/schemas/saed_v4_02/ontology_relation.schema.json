@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "relation_kind": {
+      "enum": [
+        "is_a",
+        "part_of",
+        "precedes",
+        "requires",
+        "contradicts",
+        "derived_from",
+        "related_to"
+      ]
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "source_term_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_term_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_term_id",
+    "target_term_id",
+    "relation_kind",
+    "source_ref"
+  ],
+  "title": "Ontology Relation",
+  "type": "object"
+}

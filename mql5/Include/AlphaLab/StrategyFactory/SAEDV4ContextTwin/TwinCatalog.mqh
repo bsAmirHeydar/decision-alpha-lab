@@ -1,0 +1,6 @@
+#ifndef AL_SAED_V4_02_TWIN_CATALOG_MQH
+#define AL_SAED_V4_02_TWIN_CATALOG_MQH
+#define AL_SAED_V4_02_PHASE "SAED_V4_02"
+#define AL_SAED_V4_02_VERSION "1.0.0"
+#define AL_SAED_V4_02_COMPILER "saed-v4-02-twin-compiler/1.0.0"
+#endif
