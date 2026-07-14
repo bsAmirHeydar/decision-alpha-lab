@@ -1,1 +1,1 @@
-docs(strategy-factory): add setup AI edge discovery and anti-overfit architecture
+docs(strategy-factory): add institutional SAED V2 AI edge discovery architecture
