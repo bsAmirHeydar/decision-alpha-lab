@@ -1,0 +1,13 @@
+{
+  "contract_version": "1.0.0",
+  "payload": {
+    "alerts_enabled": true,
+    "audit_export_enabled": false,
+    "chunk_size": 256,
+    "history_days": 30,
+    "max_object_ops_per_frame": 200,
+    "max_objects": 2500,
+    "profile_id": "TRADING_30D",
+    "visual_mode": "STANDARD"
+  }
+}

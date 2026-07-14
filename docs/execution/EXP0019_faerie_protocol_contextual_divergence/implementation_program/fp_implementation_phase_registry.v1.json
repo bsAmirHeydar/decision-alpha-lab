@@ -1,203 +1,206 @@
 {
-  "program_id": "FP-IMP-001",
-  "program_version": "1.0.0",
-  "experiment_id": "EXP0019",
   "context_id": "FP-CONTEXT-001",
-  "indicator_milestone": "FP-I13",
   "diagnostic_ea_milestone": "FP-I14",
-  "paper_milestone": "FP-I15",
-  "live_milestone": "FP-I16",
+  "experiment_id": "EXP0019",
+  "indicator_milestone": "FP-I13",
   "live_blocker": "FP-DEC-012",
+  "live_milestone": "FP-I16",
+  "paper_milestone": "FP-I15",
   "phases": [
     {
-      "phase_id": "FP-I00",
-      "title": "Governance, Baseline Freeze, and Source-Control Harness",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i00/00_FP_I00_DELIVERY_MOC.md",
       "depends_on": [],
+      "next_gate": "LOCAL_GIT_BASELINE_AND_FP_I01_ENTRY",
+      "phase_id": "FP-I00",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_ARCHIVE_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i00/00_FP_I00_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_GIT_BASELINE_AND_FP_I01_ENTRY"
+      "title": "Governance, Baseline Freeze, and Source-Control Harness"
     },
     {
-      "phase_id": "FP-I01",
-      "title": "Shared-Core Compatibility Harness and Adapter Contracts",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i01/00_FP_I01_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I00"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I02_ENTRY",
+      "phase_id": "FP-I01",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i01/00_FP_I01_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I02_ENTRY"
+      "title": "Shared-Core Compatibility Harness and Adapter Contracts"
     },
     {
-      "phase_id": "FP-I02",
-      "title": "Contracts, Enums, Identity, Configuration, and Reason Codes",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i02/00_FP_I02_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I01"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I03_ENTRY",
+      "phase_id": "FP-I02",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i02/00_FP_I02_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I03_ENTRY"
+      "title": "Contracts, Enums, Identity, Configuration, and Reason Codes"
     },
     {
-      "phase_id": "FP-I03",
-      "title": "New York Time, Trading-Day, Session, and Week Kernel",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i03/00_FP_I03_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I02"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I04_ENTRY",
+      "phase_id": "FP-I03",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i03/00_FP_I03_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I04_ENTRY"
+      "title": "New York Time, Trading-Day, Session, and Week Kernel"
     },
     {
-      "phase_id": "FP-I04",
-      "title": "Multi-Symbol M1 Synchronization, Coverage, and Data Revision",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i04/00_FP_I04_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I03"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I05_ENTRY",
+      "phase_id": "FP-I04",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i04/00_FP_I04_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I05_ENTRY"
+      "title": "Multi-Symbol M1 Synchronization, Coverage, and Data Revision"
     },
     {
-      "phase_id": "FP-I05",
-      "title": "Session/Week Window Store, Calendar-Day Selector, and Reference Engine",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i05/00_FP_I05_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I04"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I06_ENTRY",
+      "phase_id": "FP-I05",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i05/00_FP_I05_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I06_ENTRY"
+      "title": "Session/Week Window Store, Calendar-Day Selector, and Reference Engine"
     },
     {
-      "phase_id": "FP-I06",
-      "title": "Relation Compiler, Hunt Facts, First-Sweep Classification, and Candidates",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i06/00_FP_I06_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I05"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I07_ENTRY",
+      "phase_id": "FP-I06",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i06/00_FP_I06_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I07_ENTRY"
+      "title": "Relation Compiler, Hunt Facts, First-Sweep Classification, and Candidates"
     },
     {
-      "phase_id": "FP-I07",
-      "title": "Host-Candle Confirmation, Strict Session Deadline, Invalidation, and Lifecycle",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i07/00_FP_I07_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I06"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I08_ENTRY",
+      "phase_id": "FP-I07",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i07/00_FP_I07_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I08_ENTRY"
+      "title": "Host-Candle Confirmation, Strict Session Deadline, Invalidation, and Lifecycle"
     },
     {
-      "phase_id": "FP-I08",
-      "title": "Weekly WW Detection, Neutralization, Active Stack, and Directional Policy",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i08/00_FP_I08_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I07"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I09_ENTRY",
+      "phase_id": "FP-I08",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i08/00_FP_I08_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I09_ENTRY"
+      "title": "Weekly WW Detection, Neutralization, Active Stack, and Directional Policy"
     },
     {
-      "phase_id": "FP-I09",
-      "title": "Signal Ledger, Deduplication, Pair-Session Arbitration, Checkpoints, and Restart",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i09/00_FP_I09_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I08"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I10_ENTRY",
+      "phase_id": "FP-I09",
+      "phase_version": "1.0.0",
       "product": "context_engine",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i09/00_FP_I09_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I10_ENTRY"
+      "title": "Signal Ledger, Deduplication, Pair-Session Arbitration, Checkpoints, and Restart"
     },
     {
-      "phase_id": "FP-I10",
-      "title": "Complete Indicator Shell, Engine Composition, Health, and Machine-Readable Outputs",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i10/00_FP_I10_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I09"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_FP_I11_ENTRY",
+      "phase_id": "FP-I10",
+      "phase_version": "1.0.0",
       "product": "indicator",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i10/00_FP_I10_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_AND_FP_I11_ENTRY"
+      "title": "Complete Indicator Shell, Engine Composition, Health, and Machine-Readable Outputs"
     },
     {
-      "phase_id": "FP-I11",
-      "title": "Indicator Visual Projection: Sessions, References, Hunts, Signals, WW, and Suppression",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i11/00_FP_I11_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I10"
       ],
+      "next_gate": "LOCAL_METAEDITOR_VISUAL_QA_AND_FP_I12_ENTRY",
+      "phase_id": "FP-I11",
+      "phase_version": "1.0.0",
       "product": "indicator",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i11/00_FP_I11_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_VISUAL_QA_AND_FP_I12_ENTRY"
+      "title": "Indicator Visual Projection: Sessions, References, Hunts, Signals, WW, and Suppression"
     },
     {
-      "phase_id": "FP-I12",
-      "title": "Indicator Panel, Filters, Alerts, Audit Export, and Operator UX",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i12/00_FP_I12_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I11"
       ],
+      "next_gate": "LOCAL_METAEDITOR_OPERATOR_QA_AND_FP_I13_ENTRY",
+      "phase_id": "FP-I12",
+      "phase_version": "1.0.0",
       "product": "indicator",
       "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
-      "phase_version": "1.0.0",
-      "delivery_moc": "implementation_program/phase_deliveries/fp_i12/00_FP_I12_DELIVERY_MOC.md",
-      "next_gate": "LOCAL_METAEDITOR_OPERATOR_QA_AND_FP_I13_ENTRY"
+      "title": "Indicator Panel, Filters, Alerts, Audit Export, and Operator UX"
     },
     {
-      "phase_id": "FP-I13",
-      "title": "Indicator Historical Replay, Incremental Performance, Multi-Chart Isolation, and Release",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i13/00_FP_I13_DELIVERY_MOC.md",
       "depends_on": [
         "FP-I12"
       ],
+      "next_gate": "LOCAL_METAEDITOR_AND_RUNTIME_ACCEPTANCE_BEFORE_FP_I14",
+      "phase_id": "FP-I13",
+      "phase_version": "1.0.0",
       "product": "indicator",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "title": "Indicator Historical Replay, Incremental Performance, Multi-Chart Isolation, and Release"
     },
     {
-      "phase_id": "FP-I14",
-      "title": "Diagnostic EA and Cross-Product Differential Validation",
       "depends_on": [
         "FP-I13"
       ],
+      "phase_id": "FP-I14",
       "product": "execution",
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "title": "Diagnostic EA and Cross-Product Differential Validation"
     },
     {
-      "phase_id": "FP-I15",
-      "title": "Risk Geometry, Pair-Session Reservation, and Paper Execution",
       "depends_on": [
         "FP-I14"
       ],
+      "phase_id": "FP-I15",
       "product": "execution",
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "title": "Risk Geometry, Pair-Session Reservation, and Paper Execution"
     },
     {
-      "phase_id": "FP-I16",
-      "title": "Live Execution Decision Gate, Authorization, Micro-Release, and Monitoring",
       "depends_on": [
         "FP-I15"
       ],
+      "phase_id": "FP-I16",
       "product": "execution",
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "title": "Live Execution Decision Gate, Authorization, Micro-Release, and Monitoring"
     }
-  ]
+  ],
+  "program_id": "FP-IMP-001",
+  "program_version": "1.0.0"
 }

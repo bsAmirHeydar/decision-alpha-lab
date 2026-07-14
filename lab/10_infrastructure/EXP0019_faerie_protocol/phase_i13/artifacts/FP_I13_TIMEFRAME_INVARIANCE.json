@@ -1,0 +1,29 @@
+{
+  "chart_timeframes": [
+    1,
+    5,
+    15,
+    60,
+    240
+  ],
+  "fixture_id": "FIXTURE-I13-ACCEPTANCE",
+  "mismatches": [],
+  "report_hash": "ee40251b517a001e653651d1610ba883748bfff7b705bb42d8f17f4233cadd36",
+  "report_id": "FPTF-ee40251b517a001e653651d1",
+  "resolved_host_timeframe_minutes": 5,
+  "run_ids": [
+    "FPRUN-b57173e539126f16be9f628e",
+    "FPRUN-9bdc42bcd8853433037ac05b",
+    "FPRUN-3b397510648f4cbe37b2bdee",
+    "FPRUN-06688abbe12312dfaaadd29d",
+    "FPRUN-a73f148224de287875bd7baa"
+  ],
+  "semantic_inventory_hashes": [
+    "7c76ac70cd73daa59f0b652643a2430ffab587d9f0f50f34e58b3b8bdf51c04f",
+    "7c76ac70cd73daa59f0b652643a2430ffab587d9f0f50f34e58b3b8bdf51c04f",
+    "7c76ac70cd73daa59f0b652643a2430ffab587d9f0f50f34e58b3b8bdf51c04f",
+    "7c76ac70cd73daa59f0b652643a2430ffab587d9f0f50f34e58b3b8bdf51c04f",
+    "7c76ac70cd73daa59f0b652643a2430ffab587d9f0f50f34e58b3b8bdf51c04f"
+  ],
+  "status": "PASS"
+}

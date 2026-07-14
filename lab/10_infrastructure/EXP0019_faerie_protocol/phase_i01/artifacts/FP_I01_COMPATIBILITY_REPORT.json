@@ -105,178 +105,210 @@
       "warnings": []
     }
   ],
-  "blockers": [],
+  "blockers": [
+    "DEPENDENCY:CGT_TIME_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGR_REFERENCE_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGH_HUNT_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGD_DIVERGENCE_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGC_CONFIRMATION_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGV_VISUAL_LEDGER_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:CGX_EXECUTION_RISK_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_TIME_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_DATA_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_PERIOD_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_RELATIONSHIP_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_HUNT_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_CONFIRMATION_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_LIFECYCLE_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:DAYE_RENDER_REPLAY_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:SF03_MARKET_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:UCEI05_ECONOMICS_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:SF17_PAPER_EXECUTION_CORE:FILE_COUNT_MISMATCH",
+    "DEPENDENCY:SF18_LIVE_SAFETY_CORE:FILE_COUNT_MISMATCH",
+    "MISSING_PREVIOUS_TEST:EXP0017_CGT_TIME_ANATOMY",
+    "MISSING_PREVIOUS_TEST:EXP0017_CGR_REFERENCE_ANATOMY",
+    "MISSING_PREVIOUS_TEST:EXP0017_CGH_HUNT_ANATOMY",
+    "MISSING_PREVIOUS_TEST:EXP0017_CGD_DIVERGENCE_ANATOMY",
+    "MISSING_PREVIOUS_TEST:EXP0017_CGV_VISUAL_LEDGER",
+    "MISSING_PREVIOUS_TEST:EXP0018_TIME_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_DATA_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_HUNT_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_CONFIRMATION_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_LIFECYCLE_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_REPLAY_SELFTEST",
+    "MISSING_PREVIOUS_TEST:EXP0018_PHASE00_PYTHON"
+  ],
   "dependency_results": [
     {
-      "actual_file_count": 4,
-      "actual_hash": "25d9a226aa7aa3a17a73f6cedfda9008d3a07ec33a791d5e940131dd5478c381",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGT_TIME_CORE",
       "expected_file_count": 4,
       "expected_hash": "25d9a226aa7aa3a17a73f6cedfda9008d3a07ec33a791d5e940131dd5478c381",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 4,
-      "actual_hash": "37b1a49098864ba199f0178a920fa4bc29181d237f5b582c9c1babe72d8f13bd",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGR_REFERENCE_CORE",
       "expected_file_count": 4,
       "expected_hash": "37b1a49098864ba199f0178a920fa4bc29181d237f5b582c9c1babe72d8f13bd",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 4,
-      "actual_hash": "09adbd6fc6fe6cafd75f124698b3c1f2a1114baf72c9d65fc04a22f3a32bf6e0",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGH_HUNT_CORE",
       "expected_file_count": 4,
       "expected_hash": "09adbd6fc6fe6cafd75f124698b3c1f2a1114baf72c9d65fc04a22f3a32bf6e0",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 4,
-      "actual_hash": "5c4f6a5044f220d40e2b0600a2ae2e1c885b15ad87b5fb01be69d73eafbf8a4f",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGD_DIVERGENCE_CORE",
       "expected_file_count": 4,
       "expected_hash": "5c4f6a5044f220d40e2b0600a2ae2e1c885b15ad87b5fb01be69d73eafbf8a4f",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 4,
-      "actual_hash": "29e1cc4bf97677df66f41484db55bdb60bac3b67ff82fe8a13e4733774db2785",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGC_CONFIRMATION_CORE",
       "expected_file_count": 4,
       "expected_hash": "29e1cc4bf97677df66f41484db55bdb60bac3b67ff82fe8a13e4733774db2785",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 5,
-      "actual_hash": "1482ba37c603d01d2b32fc0449f8018b7c7de65922483318cec3a039441b8ae3",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGV_VISUAL_LEDGER_CORE",
       "expected_file_count": 5,
       "expected_hash": "1482ba37c603d01d2b32fc0449f8018b7c7de65922483318cec3a039441b8ae3",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 17,
-      "actual_hash": "37db982e8b2629b6db82874a70d1cbe476b7cc0ef0ba1a14f8149a88318c108b",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "CGX_EXECUTION_RISK_CORE",
       "expected_file_count": 17,
       "expected_hash": "37db982e8b2629b6db82874a70d1cbe476b7cc0ef0ba1a14f8149a88318c108b",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 6,
-      "actual_hash": "464750c0acce61af576a71c4cf5ad116c37ec98441f199a5036e5beb5dc936f2",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_TIME_CORE",
       "expected_file_count": 6,
       "expected_hash": "464750c0acce61af576a71c4cf5ad116c37ec98441f199a5036e5beb5dc936f2",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 10,
-      "actual_hash": "c3b4f1c5b4ab3279414b87b658d521f34af7889e3645aee181cd9ad7d8a4d8a0",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_DATA_CORE",
       "expected_file_count": 10,
       "expected_hash": "c3b4f1c5b4ab3279414b87b658d521f34af7889e3645aee181cd9ad7d8a4d8a0",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 10,
-      "actual_hash": "b570d7aeed0a0a0bbede793c19b6fafd9eee82c0902114dc74b0ea429322a340",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_PERIOD_CORE",
       "expected_file_count": 10,
       "expected_hash": "b570d7aeed0a0a0bbede793c19b6fafd9eee82c0902114dc74b0ea429322a340",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 9,
-      "actual_hash": "bbf496e7ab2f1bf9aeec9df8d9445584740ccb56c60e8d7fd4113c5f4860864b",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_RELATIONSHIP_CORE",
       "expected_file_count": 9,
       "expected_hash": "bbf496e7ab2f1bf9aeec9df8d9445584740ccb56c60e8d7fd4113c5f4860864b",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 8,
-      "actual_hash": "0822cd0ae8201c1e20ab4f42bd84adfe85d37e7f57a89027b4fb08377ef3c90e",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_HUNT_CORE",
       "expected_file_count": 8,
       "expected_hash": "0822cd0ae8201c1e20ab4f42bd84adfe85d37e7f57a89027b4fb08377ef3c90e",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 9,
-      "actual_hash": "c3d899d117abb1b72925745f9cf7707ab706494c2b55d03d47f62f71ac827731",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_CONFIRMATION_CORE",
       "expected_file_count": 9,
       "expected_hash": "c3d899d117abb1b72925745f9cf7707ab706494c2b55d03d47f62f71ac827731",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 10,
-      "actual_hash": "32bbe47e3dd773f2f9b9410c5e2564fddfbe4e37cac6551b896a02859105c11e",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_LIFECYCLE_CORE",
       "expected_file_count": 10,
       "expected_hash": "32bbe47e3dd773f2f9b9410c5e2564fddfbe4e37cac6551b896a02859105c11e",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 35,
-      "actual_hash": "7b5c6728595f17562492cb17c6218a0f431eeb219f2f67f708554da5866375b8",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "DAYE_RENDER_REPLAY_CORE",
       "expected_file_count": 35,
       "expected_hash": "7b5c6728595f17562492cb17c6218a0f431eeb219f2f67f708554da5866375b8",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 17,
-      "actual_hash": "c523aaa8faeceecbb2352063904242b80d85f8b7605047d417e2d71f5e31bca1",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "SF03_MARKET_CORE",
       "expected_file_count": 17,
       "expected_hash": "c523aaa8faeceecbb2352063904242b80d85f8b7605047d417e2d71f5e31bca1",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 11,
-      "actual_hash": "dd233b824b5a00dcb8af4b06a5a4963c4a992c6fa5ebe1ccb88fad50b874830b",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "UCEI05_ECONOMICS_CORE",
       "expected_file_count": 11,
       "expected_hash": "dd233b824b5a00dcb8af4b06a5a4963c4a992c6fa5ebe1ccb88fad50b874830b",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 13,
-      "actual_hash": "495e08d9a85e314dd6a9c1dc85314bddd5adb4d04b289125ff2ea350f61ef800",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "SF17_PAPER_EXECUTION_CORE",
       "expected_file_count": 13,
       "expected_hash": "495e08d9a85e314dd6a9c1dc85314bddd5adb4d04b289125ff2ea350f61ef800",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     },
     {
-      "actual_file_count": 17,
-      "actual_hash": "3e59ecea0328f506556e5815100635e52000c4a675dcc0c72ebc34e6eb387560",
+      "actual_file_count": 0,
+      "actual_hash": "",
       "dependency_id": "SF18_LIVE_SAFETY_CORE",
       "expected_file_count": 17,
       "expected_hash": "3e59ecea0328f506556e5815100635e52000c4a675dcc0c72ebc34e6eb387560",
-      "reason_code": "EXACT_PIN_MATCH",
-      "status": "PASS"
+      "reason_code": "FILE_COUNT_MISMATCH",
+      "status": "FAIL"
     }
   ],
   "duplicate_findings": [],
@@ -287,8 +319,8 @@
       "compile_required": "True",
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Time_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Time_Anatomy.mq5",
       "test_id": "EXP0017_CGT_TIME_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -297,8 +329,8 @@
       "compile_required": "True",
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Reference_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Reference_Anatomy.mq5",
       "test_id": "EXP0017_CGR_REFERENCE_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -307,8 +339,8 @@
       "compile_required": "True",
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Hunt_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Hunt_Anatomy.mq5",
       "test_id": "EXP0017_CGH_HUNT_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -317,8 +349,8 @@
       "compile_required": "True",
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Divergence_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Divergence_Anatomy.mq5",
       "test_id": "EXP0017_CGD_DIVERGENCE_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -327,8 +359,8 @@
       "compile_required": "True",
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Visual_Ledger_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
       "test_id": "EXP0017_CGV_VISUAL_LEDGER",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -337,8 +369,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Time_Foundation.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_TimeSelfTest.mqh",
       "test_id": "EXP0018_TIME_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -347,8 +379,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Data_Sync_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_DataSelfTest.mqh",
       "test_id": "EXP0018_DATA_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -357,8 +389,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Hunt_Observation_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_HuntSelfTest.mqh",
       "test_id": "EXP0018_HUNT_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -367,8 +399,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Close_Confirmation_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationSelfTest.mqh",
       "test_id": "EXP0018_CONFIRMATION_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -377,8 +409,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
       "test_id": "EXP0018_LIFECYCLE_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -387,8 +419,8 @@
       "compile_required": "True",
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Historical_Replay_Anatomy.mq5",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ReplaySelfTest.mqh",
       "test_id": "EXP0018_REPLAY_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -397,15 +429,15 @@
       "compile_required": "False",
       "context_id": "EXP0018",
       "execution_command": "python -m unittest lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
-      "exists": "True",
-      "exists_now": true,
+      "exists": "False",
+      "exists_now": false,
       "relative_path": "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
       "test_id": "EXP0018_PHASE00_PYTHON",
       "test_type": "PYTHON"
     }
   ],
-  "report_hash": "b8c2398ef475d429871d8aa65dfdb081711b6646d73fce5a47dd6b02f4795c09",
+  "report_hash": "ac8567a58304a61ef0a6e84f1304493d36d1cc56848d23e16ec55472563d769d",
   "report_id": "FP-I01-COMPATIBILITY-REPORT-V1",
-  "status": "PASS",
+  "status": "FAIL",
   "warnings": []
 }

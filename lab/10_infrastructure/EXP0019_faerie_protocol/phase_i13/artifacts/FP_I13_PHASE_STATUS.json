@@ -1,0 +1,11 @@
+{
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "next_phase": "FP-I14",
+  "open_decision": {
+    "id": "FP-DEC-012",
+    "state": "UNSET"
+  },
+  "phase_id": "FP-I13",
+  "phase_version": "1.0.0",
+  "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED"
+}

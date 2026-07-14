@@ -1,0 +1,48 @@
+{
+  "budgets": [
+    {
+      "hard": 5000,
+      "metric": "full_replay_ms",
+      "soft": 1500,
+      "unit": "ms"
+    },
+    {
+      "hard": 100,
+      "metric": "incremental_max_chunk_ms",
+      "soft": 25,
+      "unit": "ms"
+    },
+    {
+      "hard": 128000000,
+      "metric": "peak_memory_bytes",
+      "soft": 32000000,
+      "unit": "bytes"
+    },
+    {
+      "hard": 5000,
+      "metric": "object_count",
+      "soft": 2500,
+      "unit": "objects"
+    },
+    {
+      "hard": 1000,
+      "metric": "object_ops_per_frame",
+      "soft": 200,
+      "unit": "ops"
+    },
+    {
+      "hard": 20000000,
+      "metric": "checkpoint_bytes",
+      "soft": 5000000,
+      "unit": "bytes"
+    },
+    {
+      "hard": 1000,
+      "metric": "minimum_events_per_second",
+      "soft": 10000,
+      "unit": "events_per_second"
+    }
+  ],
+  "phase_id": "FP-I13",
+  "version": "1.0.0"
+}

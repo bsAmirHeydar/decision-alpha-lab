@@ -1,0 +1,10 @@
+{
+  "contract_version": "1.0.0",
+  "payload": {
+    "event_type": "SEMANTIC_UPSERT",
+    "payload_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "semantic_id": "SIG-EXAMPLE",
+    "sequence": 1,
+    "source_revision_id": "REV-1"
+  }
+}

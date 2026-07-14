@@ -1,7 +1,7 @@
 ---
 title: "FP-I13 — Indicator Historical Replay, Incremental Performance, Multi-Chart Isolation, and Release"
 tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+status: implemented
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
@@ -142,3 +142,7 @@ Revert only files listed in this phase's file index. Persisted artifacts generat
 - [[../00_IMPLEMENTATION_PROGRAM_MOC|Implementation Program MOC]]
 - [[../../00_EXP0019_MOC|EXP0019 Master MOC]]
 - [[../../34_IMPLEMENTATION_ROADMAP|Implementation Roadmap]]
+
+## Implementation result
+
+FP-I13 is implemented at source level in `phase_i13`, MQL5 `I13`, the production indicator, and the release self-test. Replay, restart, timeframe, isolation, performance, release-profile, and clean-baseline source gates pass. MetaEditor compilation remains `PENDING_LOCAL_WINDOWS`; therefore the release status is `SOURCE_ACCEPTED_EXTERNAL_COMPILE_PENDING`. See [[../phase_deliveries/fp_i13/00_FP_I13_DELIVERY_MOC|FP-I13 Delivery MOC]].

@@ -29,6 +29,7 @@
 #include <AlphaLab/EXP0019/FaerieProtocol/I10/FP_I10_All.mqh>
 #include <AlphaLab/EXP0019/FaerieProtocol/I11/FP_I11_All.mqh>
 #include <AlphaLab/EXP0019/FaerieProtocol/I12/FP_I12_All.mqh>
+#include <AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_All.mqh>
 
 input string InpPrimarySymbol="ES";
 input string InpSecondarySymbol="NQ";
@@ -69,11 +70,16 @@ input ENUM_FP_I12_EXPORT_FORMAT InpAuditExportFormat=FP_I12_EXPORT_BOTH;
 input string InpAuditExportPrefix="EXP0019_FP_AUDIT";
 input bool InpAutoExportOnChange=false;
 input bool InpRemoveOperatorObjectsOnDeinit=true;
+input ENUM_FP_I13_RELEASE_PROFILE InpReleaseProfile=FP_I13_TRADING_30D;
+input bool InpEnableReleaseTelemetry=true;
+input int InpMaxObjectOpsPerFrame=200;
+input int InpReleaseDiagnosticsIntervalSeconds=60;
 
 double B0[],B1[],B2[],B3[],B4[],B5[],B6[],B7[],B8[],B9[],B10[],B11[];
 FP_I10_Engine g_engine;
 FP_I11_VisualEngine g_visual;
 FP_I12_OperatorUX g_operator;
+FP_I13_ReleaseGuard g_release;
 
 void FP_I10_WriteBuffers(const int index,const SFP_I10_Output &o){
  if(!InpEnableStateBuffers){B0[index]=EMPTY_VALUE;B1[index]=EMPTY_VALUE;B2[index]=EMPTY_VALUE;B3[index]=EMPTY_VALUE;B4[index]=EMPTY_VALUE;B5[index]=EMPTY_VALUE;B6[index]=EMPTY_VALUE;B7[index]=EMPTY_VALUE;B8[index]=EMPTY_VALUE;B9[index]=EMPTY_VALUE;B10[index]=EMPTY_VALUE;B11[index]=EMPTY_VALUE;return;}
@@ -85,9 +91,11 @@ int OnInit(){
  SFP_I10_Config cfg; cfg.context_id="FP-CONTEXT-001";cfg.context_epoch=InpContextEpoch;cfg.primary_symbol=InpPrimarySymbol;cfg.secondary_symbol=InpSecondarySymbol;cfg.host_timeframe_minutes=InpHostTimeframeMinutes;cfg.timer_seconds=InpTimerSeconds;cfg.history_days=InpHistoryDays;cfg.max_incremental_minutes=InpMaxIncrementalMinutes;cfg.enable_state_buffers=InpEnableStateBuffers;cfg.enable_diagnostics=InpEnableDiagnostics;
  string reason=""; if(!SymbolSelect(InpPrimarySymbol,true)||!SymbolSelect(InpSecondarySymbol,true)){Print("FP-I10 symbol subscription failed");return INIT_FAILED;} if(!g_engine.Initialize(cfg,ChartID(),reason)){Print("FP-I10 init blocked reason=",reason);return INIT_FAILED;} EventSetTimer(InpTimerSeconds); IndicatorSetString(INDICATOR_SHORTNAME,"FP Context ["+g_engine.InstanceId()+"]"); if(InpEnableVisualProjection){SFP_I11_Config v;v.instance_id=g_engine.InstanceId();v.object_namespace="FP19::"+g_engine.InstanceId()+"::";v.mode=InpVisualMode;v.history_days=InpVisualHistoryDays;v.max_objects=InpMaxVisualObjects;v.lane_count=InpVisualLaneCount;v.show_sessions=InpShowSessions;v.show_references=InpShowReferences;v.show_hunts=InpShowHunts;v.show_candidates=InpShowCandidates;v.show_confirmed=InpShowConfirmed;v.show_ww=InpShowWW;v.show_suppressed=InpShowSuppressed;v.show_health=InpShowHealth;string vreason="";if(!g_visual.Initialize(ChartID(),v,vreason)){Print("FP-I11 visual init blocked reason=",vreason);return INIT_FAILED;}}
  SFP_I12_Config u;u.instance_id=g_engine.InstanceId();u.object_namespace="FP19::"+g_engine.InstanceId()+"::";u.panel_enabled=InpEnableOperatorPanel;u.dock=InpPanelDock;u.mode=InpPanelMode;u.page_size=InpPanelPageSize;u.alerts_enabled=InpEnableAlerts;u.alert_popup=InpAlertPopup;u.alert_sound=InpAlertSound;u.alert_push=InpAlertPush;u.alert_email=InpAlertEmail;u.suppress_historical=InpSuppressHistoricalAlerts;u.startup_watermark=(int)TimeCurrent();u.max_alerts_per_minute=InpMaxAlertsPerMinute;u.export_enabled=InpEnableAuditExport;u.export_format=InpAuditExportFormat;u.export_prefix=InpAuditExportPrefix;u.auto_export=InpAutoExportOnChange;u.open_decision_state="UNSET";if(!g_operator.Initialize(ChartID(),u)){Print("FP-I12 operator UX init blocked");return INIT_FAILED;}
- if(InpEnableDiagnostics) Print("FP-I12 ready instance=",g_engine.InstanceId()); return INIT_SUCCEEDED;
+ SFP_I13_Profile rp=FP_I13_ReleaseProfiles::Resolve(InpReleaseProfile);SFP_I13_Config rc;rc.instance_id=g_engine.InstanceId();rc.profile=InpReleaseProfile;rc.history_days=rp.history_days;rc.max_objects=rp.max_objects;rc.max_object_ops_per_frame=InpMaxObjectOpsPerFrame>0?InpMaxObjectOpsPerFrame:rp.max_object_ops_per_frame;rc.chunk_size=rp.chunk_size;rc.telemetry_enabled=InpEnableReleaseTelemetry;rc.diagnostics_interval_seconds=InpReleaseDiagnosticsIntervalSeconds;rc.open_decision_state="UNSET";string rreason="";if(!g_release.Initialize(ChartID(),g_engine.InstanceId(),rc,rreason)){Print("FP-I13 release guard blocked reason=",rreason);return INIT_FAILED;}
+ if(InpEnableDiagnostics) Print("FP-I13 source-accepted instance=",g_engine.InstanceId()," profile=",(int)InpReleaseProfile," compile_gate=PENDING_LOCAL_WINDOWS"); return INIT_SUCCEEDED;
 }
 int OnCalculate(const int rates_total,const int prev_calculated,const datetime &time[],const double &open[],const double &high[],const double &low[],const double &close[],const long &tick_volume[],const long &volume[],const int &spread[]){
+ const ulong fp_i13_started_us=GetMicrosecondCount();
  if(rates_total<=0||!g_engine.IsInitialized()) return 0;
  const datetime primary_closed=iTime(InpPrimarySymbol,PERIOD_M1,1);
  const datetime secondary_closed=iTime(InpSecondarySymbol,PERIOD_M1,1);
@@ -99,6 +107,7 @@ int OnCalculate(const int rates_total,const int prev_calculated,const datetime &
  g_operator.OnSnapshot(s);
  int start=(prev_calculated>0?0:rates_total-1); if(start<0)start=0;
  for(int i=start;i>=0;i--) FP_I10_WriteBuffers(i,s.output);
+ if(g_release.IsInitialized()&&InpEnableReleaseTelemetry){SFP_I11_ProjectionStats vst=g_visual.Stats();int ops=vst.created+vst.updated+vst.deleted;g_release.ObserveFrame(GetMicrosecondCount()-fp_i13_started_us,g_visual.ObjectCount(),ops,s.output.ledger_event_count,false);g_release.MaybeLog(InpReleaseDiagnosticsIntervalSeconds);}
  return rates_total;
 }
 void OnTimer(){
@@ -109,4 +118,4 @@ void OnTimer(){
  g_operator.OnSnapshot(s);
 }
 void OnChartEvent(const int id,const long &lparam,const double &dparam,const string &sparam){if(g_operator.OnChartEvent(id,lparam,dparam,sparam))return;g_engine.OnChartEvent(id,lparam,dparam,sparam);}
-void OnDeinit(const int reason){EventKillTimer();g_operator.Shutdown(InpRemoveOperatorObjectsOnDeinit);g_visual.Shutdown(InpRemoveVisualObjectsOnDeinit);g_engine.Shutdown();}
+void OnDeinit(const int reason){EventKillTimer();g_release.Shutdown();g_operator.Shutdown(InpRemoveOperatorObjectsOnDeinit);g_visual.Shutdown(InpRemoveVisualObjectsOnDeinit);g_engine.Shutdown();}

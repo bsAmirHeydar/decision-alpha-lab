@@ -1,0 +1,46 @@
+{
+  "phase_id": "FP-I13",
+  "profiles": [
+    {
+      "alerts_enabled": true,
+      "audit_export_enabled": false,
+      "chunk_size": 256,
+      "history_days": 30,
+      "max_object_ops_per_frame": 200,
+      "max_objects": 2500,
+      "profile_id": "TRADING_30D",
+      "visual_mode": "STANDARD"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": true,
+      "chunk_size": 512,
+      "history_days": 90,
+      "max_object_ops_per_frame": 400,
+      "max_objects": 5000,
+      "profile_id": "AUDIT_90D",
+      "visual_mode": "AUDIT"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": false,
+      "chunk_size": 128,
+      "history_days": 7,
+      "max_object_ops_per_frame": 100,
+      "max_objects": 1000,
+      "profile_id": "PERFORMANCE_7D",
+      "visual_mode": "MINIMAL"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": true,
+      "chunk_size": 128,
+      "history_days": 14,
+      "max_object_ops_per_frame": 150,
+      "max_objects": 1500,
+      "profile_id": "SAFE_DIAGNOSTIC",
+      "visual_mode": "AUDIT"
+    }
+  ],
+  "version": "1.0.0"
+}

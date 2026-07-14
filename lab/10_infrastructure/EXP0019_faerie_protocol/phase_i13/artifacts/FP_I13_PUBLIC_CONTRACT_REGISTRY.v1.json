@@ -1,0 +1,24 @@
+{
+  "contracts": [
+    "replay_event",
+    "replay_fixture",
+    "instance_identity",
+    "replay_inventory",
+    "replay_telemetry",
+    "replay_run",
+    "parity_report",
+    "replay_checkpoint",
+    "checkpoint_validation",
+    "restart_report",
+    "timeframe_parity_report",
+    "multi_instance_report",
+    "performance_budget",
+    "performance_report",
+    "degradation_decision",
+    "release_profile",
+    "release_manifest",
+    "acceptance_report"
+  ],
+  "phase_id": "FP-I13",
+  "version": "1.0.0"
+}

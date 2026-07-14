@@ -1,0 +1,19 @@
+{
+  "$id": "https://alphalab.local/exp0019/fp-i13/replay_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract_version",
+    "payload"
+  ],
+  "title": "Replay Checkpoint",
+  "type": "object"
+}

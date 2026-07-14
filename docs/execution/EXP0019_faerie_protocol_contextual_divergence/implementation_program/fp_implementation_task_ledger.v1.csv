@@ -63,11 +63,11 @@ UI-002,FP-I12,Implement mode/filter controls,code,COMPLETE,lab/10_infrastructure
 UI-003,FP-I12,Implement deduplicated alert router,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
 UI-004,FP-I12,Implement append-only audit export,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
 UI-005,FP-I12,Test historical alert suppression,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i12/artifacts/FP_I12_HANDOFF_TO_FP_I13.json
-REL-001,FP-I13,Build indicator replay harness,code,PLANNED,
-REL-002,FP-I13,Compare full/incremental event hashes,test,PLANNED,
-REL-003,FP-I13,Test restart/timeframe/multi-instance parity,test,PLANNED,
-REL-004,FP-I13,Measure latency/memory/object budgets,perf,PLANNED,
-REL-005,FP-I13,Package indicator release profiles and guide,release,PLANNED,
+REL-001,FP-I13,Build indicator replay harness,code,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/artifacts/FP_I13_HANDOFF_TO_FP_I14.json
+REL-002,FP-I13,Compare full/incremental event hashes,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/artifacts/FP_I13_HANDOFF_TO_FP_I14.json
+REL-003,FP-I13,Test restart/timeframe/multi-instance parity,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/artifacts/FP_I13_HANDOFF_TO_FP_I14.json
+REL-004,FP-I13,Measure latency/memory/object budgets,perf,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/artifacts/FP_I13_HANDOFF_TO_FP_I14.json
+REL-005,FP-I13,Package indicator release profiles and guide,release,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/artifacts/FP_I13_HANDOFF_TO_FP_I14.json
 DIA-001,FP-I14,Create diagnostic EA shell,code,PLANNED,
 DIA-002,FP-I14,Export canonical event traces,code,PLANNED,
 DIA-003,FP-I14,Build Indicator/EA comparator,code,PLANNED,

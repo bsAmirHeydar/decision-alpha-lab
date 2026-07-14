@@ -1,0 +1,26 @@
+{
+  "checkpoint_disposition": "RESTORED",
+  "parity": {
+    "compared_fields": [
+      "semantic_payloads",
+      "visual_semantic_ids",
+      "alert_ids",
+      "suppressed_historical_alert_ids",
+      "export_ids",
+      "health_codes",
+      "event_chain_hash",
+      "last_sequence",
+      "inventory_hash"
+    ],
+    "left_run_id": "FPRUN-83d00a209d5804dfb0fa980d",
+    "mismatches": [],
+    "report_hash": "6a1f5ce3687d51a858b485e8f1291f087e947bce4065e8be93357c27905dff8f",
+    "report_id": "FPPARITY-6a1f5ce3687d51a858b485e8",
+    "right_run_id": "FPRUN-161c70a40138e9e5f07f706c",
+    "status": "PASS"
+  },
+  "report_hash": "bea549a3246b8ab3b822a83df377ddf9614fa2879dd765ceef3038ddb3f7334d",
+  "report_id": "FPRESTART-bea549a3246b8ab3b822a83d",
+  "restarted_run_id": "FPRUN-161c70a40138e9e5f07f706c",
+  "uninterrupted_run_id": "FPRUN-83d00a209d5804dfb0fa980d"
+}

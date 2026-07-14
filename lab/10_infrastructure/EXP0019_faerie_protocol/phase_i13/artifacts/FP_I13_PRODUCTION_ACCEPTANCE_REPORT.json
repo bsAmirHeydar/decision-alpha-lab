@@ -1,0 +1,77 @@
+{
+  "gates": [
+    {
+      "evidence_hash": "6164fc0d4736259cef37151e9043b9c311b43699d61702ec7b2d30c6c69d95d7",
+      "gate_id": "FULL_INCREMENTAL_PARITY",
+      "reason_codes": [
+        "FP_REL_FULL_INCREMENTAL_PARITY_PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "bea549a3246b8ab3b822a83df377ddf9614fa2879dd765ceef3038ddb3f7334d",
+      "gate_id": "RESTART_PARITY",
+      "reason_codes": [
+        "FP_REL_RESTART_PARITY_PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "ee40251b517a001e653651d1610ba883748bfff7b705bb42d8f17f4233cadd36",
+      "gate_id": "TIMEFRAME_INVARIANCE",
+      "reason_codes": [
+        "FP_REL_TIMEFRAME_INVARIANCE_PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "d19bb3dc06da0d653d9bdf5c090d5a3363cddc141a9c419ab1fd0e36bcb8943b",
+      "gate_id": "MULTI_INSTANCE_ISOLATION",
+      "reason_codes": [
+        "FP_REL_MULTI_INSTANCE_ISOLATION_PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "7d01a178520c2707420c7ec886fd0a165dfc64151ba613369514cbcbd8a815e5",
+      "gate_id": "PERFORMANCE_BUDGET",
+      "reason_codes": [
+        "FP_REL_BUDGET_DEGRADED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "475db856afd917648b77b190e0ad3566f92236ba6d0791a0037a8df14148bd4b",
+      "gate_id": "PYTHON_AND_STATIC_MQL5",
+      "reason_codes": [
+        "FP_REL_SOURCE_ACCEPTED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "1a1a464b89701d12fa8f0fee93f35ac87eb51c70f8ec74ea59e245377fadb920",
+      "gate_id": "METAEDITOR_COMPILE",
+      "reason_codes": [
+        "FP_REL_METAEDITOR_COMPILE_PENDING"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "evidence_hash": "a879b71de3482f15911cdc641bf7ef1e25aedfa04d7efa4c68062598373a0ef8",
+      "gate_id": "LOCAL_CHART_RUNTIME",
+      "reason_codes": [
+        "FP_REL_PRODUCTION_ACCEPTANCE_PENDING_EXTERNAL_COMPILE"
+      ],
+      "status": "PENDING"
+    }
+  ],
+  "pending_external_gates": [
+    "METAEDITOR_COMPILE",
+    "LOCAL_CHART_RUNTIME"
+  ],
+  "production_release_ready": false,
+  "release_manifest_id": "FPRELEASE-e2a76ed00a7ecf9e01715008",
+  "report_hash": "d4366934785c01bef07f27d481115f5ec97dbc73a37f88bfb1748514f8eae136",
+  "report_id": "FPACCEPT-d4366934785c01bef07f27d4",
+  "status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_PENDING"
+}

@@ -1,0 +1,33 @@
+{
+  "acceptance_status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_PENDING",
+  "available_cumulative_tests": {
+    "FP-I02_to_FP-I13": 713
+  },
+  "direct_regressions": {
+    "FP-I10": 59,
+    "FP-I11": 61,
+    "FP-I12": 55
+  },
+  "errors": 0,
+  "gates": {
+    "FULL_INCREMENTAL_PARITY": "PASS",
+    "LOCAL_CHART_RUNTIME": "PENDING",
+    "METAEDITOR_COMPILE": "PENDING",
+    "MULTI_INSTANCE_ISOLATION": "PASS",
+    "PERFORMANCE_BUDGET": "PASS",
+    "PYTHON_AND_STATIC_MQL5": "PASS",
+    "RESTART_PARITY": "PASS",
+    "TIMEFRAME_INVARIANCE": "PASS"
+  },
+  "generated_at_utc": "2026-07-13T00:00:00Z",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "phase_id": "FP-I13",
+  "phase_tests": 66,
+  "phase_version": "1.0.0",
+  "production_release_ready": false,
+  "upstream_unavailable": {
+    "FP-I00": "shared-core pinned roots absent in supplied base archive",
+    "FP-I01": "shared-core pins and previous-context entrypoints absent in supplied base archive"
+  },
+  "warnings": 0
+}

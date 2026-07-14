@@ -1,0 +1,36 @@
+{
+  "checkpoint_keys": [
+    "FPCP::ebfc92c2dbf65b85",
+    "FPCP::d75b997527289e1a",
+    "FPCP::9331b91274187844",
+    "FPCP::1c2cc8458822c494"
+  ],
+  "collisions": [],
+  "export_keys": [
+    "FP_AUDIT_ebfc92c2dbf65b85",
+    "FP_AUDIT_d75b997527289e1a",
+    "FP_AUDIT_9331b91274187844",
+    "FP_AUDIT_1c2cc8458822c494"
+  ],
+  "instance_ids": [
+    "FPINST-ebfc92c2dbf65b854fa2271b",
+    "FPINST-d75b997527289e1a5402f4ff",
+    "FPINST-9331b91274187844fed2ddc6",
+    "FPINST-1c2cc8458822c494c846ff13"
+  ],
+  "namespaces": [
+    "FP19::ebfc92c2dbf65b85::",
+    "FP19::d75b997527289e1a::",
+    "FP19::9331b91274187844::",
+    "FP19::1c2cc8458822c494::"
+  ],
+  "report_hash": "d19bb3dc06da0d653d9bdf5c090d5a3363cddc141a9c419ab1fd0e36bcb8943b",
+  "report_id": "FPISO-d19bb3dc06da0d653d9bdf5c",
+  "semantic_inventory_hashes": [
+    "5bb763b69d57128bb1f44fd1b56fb3fab46e16e4dd11665e8bbc6bd093ececac",
+    "5bb763b69d57128bb1f44fd1b56fb3fab46e16e4dd11665e8bbc6bd093ececac",
+    "5bb763b69d57128bb1f44fd1b56fb3fab46e16e4dd11665e8bbc6bd093ececac",
+    "5bb763b69d57128bb1f44fd1b56fb3fab46e16e4dd11665e8bbc6bd093ececac"
+  ],
+  "status": "PASS"
+}

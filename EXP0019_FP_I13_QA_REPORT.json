@@ -1,0 +1,56 @@
+{
+  "phase_id": "FP-I13",
+  "version": "1.0.0",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_AND_RUNTIME_PENDING",
+  "tests": {
+    "fp_i13": 66,
+    "fp_i12_regression": 55,
+    "fp_i11_regression": 61,
+    "fp_i10_regression": 59,
+    "direct_fp_i10_i11_i12_i13": 241,
+    "available_fp_i02_to_i13": 713
+  },
+  "inventory": {
+    "python_modules": 24,
+    "test_modules": 19,
+    "closed_json_schemas": 18,
+    "mql5_includes": 13,
+    "delivery_documents": 75,
+    "documentation_lines": 3520,
+    "release_profiles": 4,
+    "golden_vectors": 8
+  },
+  "acceptance": {
+    "full_incremental_parity": "PASS",
+    "restart_parity": "PASS",
+    "timeframe_invariance": "PASS",
+    "multi_instance_isolation": "PASS",
+    "performance_budget": "DEGRADED_WITHIN_HARD_LIMITS",
+    "semantic_processing_preserved": "PASS",
+    "source_acceptance": "PASS",
+    "production_release_ready": false,
+    "acceptance_status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_PENDING"
+  },
+  "validation": {
+    "delivery": "PASS",
+    "boundary": "PASS",
+    "mql5_static": "PASS",
+    "python_compile": "PASS",
+    "schemas": "18/18",
+    "golden": "8/8",
+    "clean_baseline_patch": "PASS",
+    "file_index": "PASS",
+    "file_hash_catalog": "PASS",
+    "zip_integrity": "PASS"
+  },
+  "upstream_unavailable": [
+    "FP-I00 shared-core pinned roots absent in supplied base archive",
+    "FP-I01 previous-context entrypoints and pinned shared-core roots absent in supplied base archive"
+  ],
+  "environment_limits": [
+    "MetaEditor compile unavailable in current Linux environment",
+    "Local multi-chart terminal runtime acceptance remains pending"
+  ],
+  "errors": 0,
+  "warnings": 0
+}

@@ -1,0 +1,38 @@
+{
+  "phase_id": "FP-I13",
+  "vectors": [
+    {
+      "expected": "PASS",
+      "vector_id": "FULL_INCREMENTAL_PARITY"
+    },
+    {
+      "expected": "PASS",
+      "vector_id": "RESTART_MIDSTREAM_PARITY"
+    },
+    {
+      "expected": "PASS",
+      "vector_id": "TIMEFRAME_INVARIANCE_M1_H4"
+    },
+    {
+      "expected": "PASS",
+      "vector_id": "MULTI_INSTANCE_FOUR_CHARTS"
+    },
+    {
+      "expected": "PASS",
+      "vector_id": "HISTORICAL_ALERT_QUIET_REPLAY"
+    },
+    {
+      "expected": "DEGRADED_SEMANTICS_PRESERVED",
+      "vector_id": "OBJECT_BUDGET_DEGRADATION"
+    },
+    {
+      "expected": "REBUILD_REQUIRED",
+      "vector_id": "CHECKPOINT_CORRUPTION_REBUILD"
+    },
+    {
+      "expected": "PENDING_LOCAL_WINDOWS",
+      "vector_id": "METAEDITOR_LOCAL_GATE"
+    }
+  ],
+  "version": "1.0.0"
+}

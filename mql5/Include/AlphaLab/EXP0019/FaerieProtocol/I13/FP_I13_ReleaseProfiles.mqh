@@ -1,0 +1,5 @@
+#ifndef __FP_I13_RELEASE_PROFILES_MQH__
+#define __FP_I13_RELEASE_PROFILES_MQH__
+#include "FP_I13_Contracts.mqh"
+class FP_I13_ReleaseProfiles { public: static SFP_I13_Profile Resolve(ENUM_FP_I13_RELEASE_PROFILE id){SFP_I13_Profile p;p.profile=id;if(id==FP_I13_AUDIT_90D){p.history_days=90;p.max_objects=5000;p.max_object_ops_per_frame=400;p.chunk_size=512;p.alerts_enabled=false;p.audit_export_enabled=true;p.visual_mode="AUDIT";}else if(id==FP_I13_PERFORMANCE_7D){p.history_days=7;p.max_objects=1000;p.max_object_ops_per_frame=100;p.chunk_size=128;p.alerts_enabled=false;p.audit_export_enabled=false;p.visual_mode="MINIMAL";}else if(id==FP_I13_SAFE_DIAGNOSTIC){p.history_days=14;p.max_objects=1500;p.max_object_ops_per_frame=150;p.chunk_size=128;p.alerts_enabled=false;p.audit_export_enabled=true;p.visual_mode="AUDIT";}else{p.history_days=30;p.max_objects=2500;p.max_object_ops_per_frame=200;p.chunk_size=256;p.alerts_enabled=true;p.audit_export_enabled=false;p.visual_mode="STANDARD";}return p;} };
+#endif

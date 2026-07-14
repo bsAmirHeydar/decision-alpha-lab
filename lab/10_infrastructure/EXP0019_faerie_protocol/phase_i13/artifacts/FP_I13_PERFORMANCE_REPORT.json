@@ -1,0 +1,71 @@
+{
+  "budget_id": "FPBUDGET-416fad0947e3226390d446a3",
+  "observations": [
+    {
+      "hard_limit": 5000.0,
+      "metric": "full_replay_ms",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 1500.0,
+      "status": "PASS",
+      "unit": "ms",
+      "value": 153.783165
+    },
+    {
+      "hard_limit": 100.0,
+      "metric": "incremental_max_chunk_ms",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 25.0,
+      "status": "PASS",
+      "unit": "ms",
+      "value": 11.48543
+    },
+    {
+      "hard_limit": 128000000.0,
+      "metric": "peak_memory_bytes",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 32000000.0,
+      "status": "PASS",
+      "unit": "bytes",
+      "value": 168921.0
+    },
+    {
+      "hard_limit": 5000.0,
+      "metric": "object_count",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 2500.0,
+      "status": "PASS",
+      "unit": "objects",
+      "value": 140.0
+    },
+    {
+      "hard_limit": 1000.0,
+      "metric": "object_ops_per_frame",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 200.0,
+      "status": "PASS",
+      "unit": "ops",
+      "value": 140.0
+    },
+    {
+      "hard_limit": 20000000.0,
+      "metric": "checkpoint_bytes",
+      "reason_code": "FP_REL_BUDGET_PASS",
+      "soft_limit": 5000000.0,
+      "status": "PASS",
+      "unit": "bytes",
+      "value": 64.0
+    },
+    {
+      "hard_limit": 1000.0,
+      "metric": "minimum_events_per_second",
+      "reason_code": "FP_REL_BUDGET_DEGRADED",
+      "soft_limit": 10000.0,
+      "status": "DEGRADED",
+      "unit": "events_per_second",
+      "value": 4090.162971
+    }
+  ],
+  "report_hash": "7d01a178520c2707420c7ec886fd0a165dfc64151ba613369514cbcbd8a815e5",
+  "report_id": "FPPERF-7d01a178520c2707420c7ec8",
+  "status": "DEGRADED"
+}

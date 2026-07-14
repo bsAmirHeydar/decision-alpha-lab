@@ -1,0 +1,19 @@
+{
+  "compared_fields": [
+    "semantic_payloads",
+    "visual_semantic_ids",
+    "alert_ids",
+    "suppressed_historical_alert_ids",
+    "export_ids",
+    "health_codes",
+    "event_chain_hash",
+    "last_sequence",
+    "inventory_hash"
+  ],
+  "left_run_id": "FPRUN-5919f7b6c50bceaddf703186",
+  "mismatches": [],
+  "report_hash": "6164fc0d4736259cef37151e9043b9c311b43699d61702ec7b2d30c6c69d95d7",
+  "report_id": "FPPARITY-6164fc0d4736259cef37151e",
+  "right_run_id": "FPRUN-9bdc42bcd8853433037ac05b",
+  "status": "PASS"
+}

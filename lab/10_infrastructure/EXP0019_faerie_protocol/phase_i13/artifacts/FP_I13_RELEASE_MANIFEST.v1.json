@@ -1,0 +1,264 @@
+{
+  "composition_versions": [
+    [
+      "FP-I03",
+      "1.0.0"
+    ],
+    [
+      "FP-I04",
+      "1.0.0"
+    ],
+    [
+      "FP-I05",
+      "1.0.0"
+    ],
+    [
+      "FP-I06",
+      "1.0.0"
+    ],
+    [
+      "FP-I07",
+      "1.0.0"
+    ],
+    [
+      "FP-I08",
+      "1.0.0"
+    ],
+    [
+      "FP-I09",
+      "1.0.0"
+    ],
+    [
+      "FP-I10",
+      "1.0.0"
+    ],
+    [
+      "FP-I11",
+      "1.0.0"
+    ],
+    [
+      "FP-I12",
+      "1.0.0"
+    ]
+  ],
+  "indicator_path": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+  "manifest_hash": "e2a76ed00a7ecf9e017150083c7bef9222933d012e89dcea14fe72b14cc4e79c",
+  "manifest_id": "FPRELEASE-e2a76ed00a7ecf9e01715008",
+  "manifest_version": "1.0.0",
+  "metaeditor_compile_status": "PENDING",
+  "open_decision_id": "FP-DEC-012",
+  "open_decision_state": "UNSET",
+  "phase_id": "FP-I13",
+  "phase_version": "1.0.0",
+  "product_name": "EXP0019_FaerieProtocol_Context",
+  "release_profiles": [
+    {
+      "alerts_enabled": true,
+      "audit_export_enabled": false,
+      "chunk_size": 256,
+      "diagnostics_enabled": true,
+      "history_days": 30,
+      "max_object_ops_per_frame": 200,
+      "max_objects": 2500,
+      "profile_hash": "f3024ffe3cc405073bdb17d99a5a506fb258317ff4a1fae0350ff6be862a5fe1",
+      "profile_id": "TRADING_30D",
+      "visual_mode": "STANDARD"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": true,
+      "chunk_size": 512,
+      "diagnostics_enabled": true,
+      "history_days": 90,
+      "max_object_ops_per_frame": 400,
+      "max_objects": 5000,
+      "profile_hash": "f4735e0731d5d0fe79da84a706c597abd3084c2c5dae75692aca2e50abe4932f",
+      "profile_id": "AUDIT_90D",
+      "visual_mode": "AUDIT"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": false,
+      "chunk_size": 128,
+      "diagnostics_enabled": true,
+      "history_days": 7,
+      "max_object_ops_per_frame": 100,
+      "max_objects": 1000,
+      "profile_hash": "f88f6743ce9512c9fce1afb369743cbc4cbca4e542e5b8daf1dd4c26ef7c4abb",
+      "profile_id": "PERFORMANCE_7D",
+      "visual_mode": "MINIMAL"
+    },
+    {
+      "alerts_enabled": false,
+      "audit_export_enabled": true,
+      "chunk_size": 128,
+      "diagnostics_enabled": true,
+      "history_days": 14,
+      "max_object_ops_per_frame": 150,
+      "max_objects": 1500,
+      "profile_hash": "975cf8524128140bc5f2c541f5d73aa7afa2201ed4dc43e276407dc145505440",
+      "profile_id": "SAFE_DIAGNOSTIC",
+      "visual_mode": "AUDIT"
+    }
+  ],
+  "self_test_path": "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I13_ReleaseSelfTest.mq5",
+  "source_file_hashes": [
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/__init__.py",
+      "c312daf78979205c0202ddaebe220668fa2d5170736917ecce53709ce48f1cd8"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/acceptance.py",
+      "1f60d155d4c0bfd80793900805a6839923b3b47912275ee36e5bc1b8a6c8ad19"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/authority.py",
+      "e61d2999750befbdb33ab982cc4189beba36c49f254ab1f1a58d3cdd5182766c"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/benchmark.py",
+      "80684cf571d96484da39dc42e3b1bb5be1dc3d799e6dc11178add55d1e189328"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/budgets.py",
+      "d201ed2bfb416e9d8e1b31862ff3c1b2927f74e225493391d7dfe78d238c19b4"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/canonical.py",
+      "072232ae81339f1c34dbd6427a3a82e14c60e77df889d2f85913c314125a8cea"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/checkpoint.py",
+      "5c8b03e10515d99ee2d5a7ca33d6b1b313ad9fe45dad540e1d1e92ea5f49af64"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/cli.py",
+      "58a09c51fbf305a332b92341b0fd3c92d3b5cde574e4538754116846838ea689"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/conformance.py",
+      "9bb0d2f05fdd10e21ffdde484960ee0c72d89260cdf072d0fe74f48ce3b30f1c"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/constants.py",
+      "77b997892c8fb63ffa1b85672d4cb0a111768c8100c7528b8299a3d11262e820"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/contracts.py",
+      "a3eb678493f07f916733695730e907295c0381216dfeb58cfa365c5da44c1e8c"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/degradation.py",
+      "0985f5147f6c9547b83892aab926f7ffea8b192b3d1a2766f639325b517bbe3b"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/diagnostics.py",
+      "83df58119a5f40664abfd63ebd1c6dd12064eb6fea3aa76b5ef64f18533c4eca"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/enums.py",
+      "9281edd9edb7f59dc234db7711706f9d5478248e84dcfd8f75608643185c0d70"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/errors.py",
+      "0b4e22b557c79a4cd5c261e89a374daa5dc1dff78966aefd577368ea98ac6731"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/identity.py",
+      "626d794fc6db2d355aee7a29b6237543201a03b33c49ccc7926c8ef7e244d38c"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/multi_instance.py",
+      "c300bf863455baac3178cc88631f9c00b96d5de355aa503e966821e77b4766a9"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/parity.py",
+      "52f5530061d369f66162c1cb9bb9873f1fda2a2b15603a8e597828d456319c48"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/profiles.py",
+      "dc5f2e5319cae5359fa60ff069fe121a52781c34deea58710290db1daaa09537"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/registry.py",
+      "7a9d1435ce4b60b08eaf3854ef5a55805101f16d918fb3a83f30033b4e67c4d0"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/release.py",
+      "4fed373b1a8fd5d46f262f78afd7ecbed15555eaefb2211dcd2c7bde541f76f7"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/replay.py",
+      "f3f2f11c0560e245ec8569c2288e4ef29d6e7faefaf9d875c01ab100a9aee253"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/restart.py",
+      "cb2ea7b3452f19bea59e2015c365fd1357a081a50ca776722fb39b64bd11c59c"
+    ],
+    [
+      "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i13/python/fp_i13_release/timeframe.py",
+      "37fb27829a77394c4d56b06b2cdba27c7746a8e0fd07112d1a144040179b22dc"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_AcceptanceGate.mqh",
+      "5ab50e5404e6bec43b8637b3e0d239b5453629a3d649f878e1b06fa6129aff4f"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_All.mqh",
+      "ed9fb2bbb839ede32404f4f608286647172b323114bfcb6cee973d1188c38870"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_Contracts.mqh",
+      "5a9e0bc049c7df694027626d34b3bdcc556451b51c45349752199284cae64498"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_Diagnostics.mqh",
+      "e2292360bc71b3909b4b2ab336e36665ac2837e5fc4435e1196f34c3d291bfd0"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_Enums.mqh",
+      "4fd2ffad937ef14ce980e2ff3432422a429066c7242fb76d6a74c5fa6c3476c8"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_Hash.mqh",
+      "6956c9e66da1099615577e56a2d699248e84f691cb108b3ef1653a2b57b59676"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_InstanceIsolation.mqh",
+      "f722ff69f88f8f7db84ac5fe8d2c904735db0d62deb1f01bd42dc0ed40ee36fe"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_ObjectBudget.mqh",
+      "47b117fc5ed0e5b2803465a91bcaf23511c53fe63ca7e061a34ab131eb97bb8a"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_PerformanceBudget.mqh",
+      "1612609313f8ecf5f5cb486e521d43df77e3ebda56b0af4accb883b3f1e47965"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_Registry.mqh",
+      "e9eaa69546a0d9da1285ce4ec6755d25bb173a1260022f3a651febab068369f8"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_ReleaseGuard.mqh",
+      "7e9929f545f4771f2ba32bd43c2d34415419682cbc6d542a0f9b4c6bd1bf598d"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_ReleaseProfiles.mqh",
+      "b6ff77772baf0b9ff55e5f9b8fb7b619bb5ac0d5b155c3d80be3ba5c4c14a505"
+    ],
+    [
+      "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I13/FP_I13_ReplayTelemetry.mqh",
+      "bfaff434bd04254bb4cffb4c6a1ecd2741c57927403a324b4f469fe21c24ba3f"
+    ],
+    [
+      "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+      "f919bca6b89813623cdd14415a8e14f884a68d0f1f38cb6b08cb4a630147fe42"
+    ],
+    [
+      "mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I13_ReleaseSelfTest.mq5",
+      "d94b9a7fad0093c6496b7b13e342e8d31182c19723abd6ed98806c7d32aadbcd"
+    ]
+  ],
+  "user_guide_path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i13/70_INDICATOR_USER_GUIDE.md"
+}

@@ -1,0 +1,15 @@
+{
+  "patch_id": "EXP0019-FP-I13-1.0.0",
+  "phase_id": "FP-I13",
+  "version": "1.0.0",
+  "title": "Indicator Historical Replay, Incremental Performance, Multi-Chart Isolation, and Release",
+  "file_index": "EXP0019_FP_I13_FILE_INDEX.txt",
+  "file_count": 196,
+  "runtime_authority": "NONE",
+  "visual_authority": "CHART_OBJECTS_ONLY",
+  "release_authority": "SOURCE_ACCEPTANCE_AND_LOCAL_COMPILE_TOOLING_ONLY",
+  "open_decision": "FP-DEC-012",
+  "open_decision_state": "UNSET",
+  "metaeditor": "pending_local_windows",
+  "acceptance_status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_PENDING"
+}

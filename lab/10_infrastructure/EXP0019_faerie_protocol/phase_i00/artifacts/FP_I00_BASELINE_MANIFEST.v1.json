@@ -164,8 +164,8 @@
     "owner_decisions_sha256": "c6bc86b6adaeaced109c23efd5125d739f1a9c52eb061d6307b3a1b9f5fb3f26"
   },
   "documentation_freeze": {
-    "aggregate_sha256": "142e5ae89a661c93f1681d84c206f9dc945c0545c4634fd201d2f92e7df28efe",
-    "file_count": 156,
+    "aggregate_sha256": "5ca3d87dee6db1ec4fc03ff0cfc85ac7fbc28275d050f2ffaddf3ae251b6c54b",
+    "file_count": 861,
     "root": "docs/execution/EXP0019_faerie_protocol_contextual_divergence"
   },
   "experiment_id": "EXP0019",
@@ -173,9 +173,9 @@
     "path": "docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/fp_implementation_phase_registry.v1.json",
     "program_id": "FP-IMP-001",
     "program_version": "1.0.0",
-    "sha256": "9c485e43cfb56fd8dcb74c30f72e5dc3620053f0d9529e94280a411f5abef700"
+    "sha256": "6456069bdd4886de0577855563fff7e80d4e62e92301fd5d3f79c84636775cc7"
   },
-  "manifest_hash": "4a2da13b4ddde010cc851b61312ddc8b5e50274ac0d2d19fa12b3b96ae708c8e",
+  "manifest_hash": "48702831d99fd4b5c73f3e5cdecce762d08c29bf101429499d0c3b3e9da896ec",
   "next_phase": "FP-I01",
   "open_decision_ids": [
     "FP-DEC-012"
@@ -217,7 +217,7 @@
       "compile_required": true,
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Time_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Time_Anatomy.mq5",
       "test_id": "EXP0017_CGT_TIME_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -226,7 +226,7 @@
       "compile_required": true,
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Reference_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Reference_Anatomy.mq5",
       "test_id": "EXP0017_CGR_REFERENCE_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -235,7 +235,7 @@
       "compile_required": true,
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Hunt_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Hunt_Anatomy.mq5",
       "test_id": "EXP0017_CGH_HUNT_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -244,7 +244,7 @@
       "compile_required": true,
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Divergence_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Divergence_Anatomy.mq5",
       "test_id": "EXP0017_CGD_DIVERGENCE_ANATOMY",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -253,7 +253,7 @@
       "compile_required": true,
       "context_id": "EXP0017",
       "execution_command": "MetaEditor compile EXP0017_CG_Visual_Ledger_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Experts/IntermarketDivergenceExecution/EXP0017_CG_Visual_Ledger_Anatomy.mq5",
       "test_id": "EXP0017_CGV_VISUAL_LEDGER",
       "test_type": "MQL5_DIAGNOSTIC"
@@ -262,7 +262,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Time_Foundation.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_TimeSelfTest.mqh",
       "test_id": "EXP0018_TIME_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -271,7 +271,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Data_Sync_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_DataSelfTest.mqh",
       "test_id": "EXP0018_DATA_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -280,7 +280,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Hunt_Observation_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_HuntSelfTest.mqh",
       "test_id": "EXP0018_HUNT_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -289,7 +289,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Close_Confirmation_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationSelfTest.mqh",
       "test_id": "EXP0018_CONFIRMATION_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -298,7 +298,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_LifecycleSelfTest.mqh",
       "test_id": "EXP0018_LIFECYCLE_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -307,7 +307,7 @@
       "compile_required": true,
       "context_id": "EXP0018",
       "execution_command": "Compile EXP0018_Daye_Historical_Replay_Anatomy.mq5",
-      "exists": true,
+      "exists": false,
       "relative_path": "mql5/Include/DayeTrader/EXP0018/DAYE_ReplaySelfTest.mqh",
       "test_id": "EXP0018_REPLAY_SELFTEST",
       "test_type": "MQL5_HEADER_SELFTEST"
@@ -316,7 +316,7 @@
       "compile_required": false,
       "context_id": "EXP0018",
       "execution_command": "python -m unittest lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
-      "exists": true,
+      "exists": false,
       "relative_path": "lab/10_infrastructure/EXP0018_daye_trader/tests/test_exp0018_phase00_doctrine_v2.py",
       "test_id": "EXP0018_PHASE00_PYTHON",
       "test_type": "PYTHON"
@@ -330,10 +330,10 @@
   "schema_version": "1.0.0",
   "shared_dependencies": [
     {
-      "aggregate_sha256": "25d9a226aa7aa3a17a73f6cedfda9008d3a07ec33a791d5e940131dd5478c381",
+      "aggregate_sha256": "",
       "dependency_id": "CGT_TIME_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 4,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I01",
@@ -341,10 +341,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "37b1a49098864ba199f0178a920fa4bc29181d237f5b582c9c1babe72d8f13bd",
+      "aggregate_sha256": "",
       "dependency_id": "CGR_REFERENCE_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 4,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I01",
@@ -352,10 +352,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "09adbd6fc6fe6cafd75f124698b3c1f2a1114baf72c9d65fc04a22f3a32bf6e0",
+      "aggregate_sha256": "",
       "dependency_id": "CGH_HUNT_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 4,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I01",
@@ -363,10 +363,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "5c4f6a5044f220d40e2b0600a2ae2e1c885b15ad87b5fb01be69d73eafbf8a4f",
+      "aggregate_sha256": "",
       "dependency_id": "CGD_DIVERGENCE_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 4,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I01",
@@ -374,10 +374,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "29e1cc4bf97677df66f41484db55bdb60bac3b67ff82fe8a13e4733774db2785",
+      "aggregate_sha256": "",
       "dependency_id": "CGC_CONFIRMATION_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 4,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I01",
@@ -385,10 +385,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "1482ba37c603d01d2b32fc0449f8018b7c7de65922483318cec3a039441b8ae3",
+      "aggregate_sha256": "",
       "dependency_id": "CGV_VISUAL_LEDGER_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 5,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG",
       "required_for_phase": "FP-I11",
@@ -396,10 +396,10 @@
       "semantic_owner": "EXP0017 Cycle Group"
     },
     {
-      "aggregate_sha256": "37db982e8b2629b6db82874a70d1cbe476b7cc0ef0ba1a14f8149a88318c108b",
+      "aggregate_sha256": "",
       "dependency_id": "CGX_EXECUTION_RISK_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 17,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/IntermarketDivergenceExecution/CG/Execution",
       "required_for_phase": "FP-I15",
@@ -407,10 +407,10 @@
       "semantic_owner": "EXP0017 Cycle Group Execution"
     },
     {
-      "aggregate_sha256": "464750c0acce61af576a71c4cf5ad116c37ec98441f199a5036e5beb5dc936f2",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_TIME_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 6,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I03",
@@ -418,10 +418,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "c3b4f1c5b4ab3279414b87b658d521f34af7889e3645aee181cd9ad7d8a4d8a0",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_DATA_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 10,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I04",
@@ -429,10 +429,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "b570d7aeed0a0a0bbede793c19b6fafd9eee82c0902114dc74b0ea429322a340",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_PERIOD_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 10,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I05",
@@ -440,10 +440,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "bbf496e7ab2f1bf9aeec9df8d9445584740ccb56c60e8d7fd4113c5f4860864b",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_RELATIONSHIP_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 9,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I06",
@@ -451,10 +451,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "0822cd0ae8201c1e20ab4f42bd84adfe85d37e7f57a89027b4fb08377ef3c90e",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_HUNT_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 8,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I06",
@@ -462,10 +462,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "c3d899d117abb1b72925745f9cf7707ab706494c2b55d03d47f62f71ac827731",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_CONFIRMATION_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 9,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I07",
@@ -473,10 +473,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "32bbe47e3dd773f2f9b9410c5e2564fddfbe4e37cac6551b896a02859105c11e",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_LIFECYCLE_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 10,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I07",
@@ -484,10 +484,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "7b5c6728595f17562492cb17c6218a0f431eeb219f2f67f708554da5866375b8",
+      "aggregate_sha256": "",
       "dependency_id": "DAYE_RENDER_REPLAY_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 35,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/DayeTrader/EXP0018",
       "required_for_phase": "FP-I11",
@@ -495,10 +495,10 @@
       "semantic_owner": "EXP0018 Daye"
     },
     {
-      "aggregate_sha256": "c523aaa8faeceecbb2352063904242b80d85f8b7605047d417e2d71f5e31bca1",
+      "aggregate_sha256": "",
       "dependency_id": "SF03_MARKET_CORE",
-      "exact_version": "1.0.0",
-      "file_count": 17,
+      "exact_version": "HASH_PINNED",
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Market",
       "required_for_phase": "FP-I04",
@@ -506,10 +506,10 @@
       "semantic_owner": "Strategy Factory Market"
     },
     {
-      "aggregate_sha256": "dd233b824b5a00dcb8af4b06a5a4963c4a992c6fa5ebe1ccb88fad50b874830b",
+      "aggregate_sha256": "",
       "dependency_id": "UCEI05_ECONOMICS_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 11,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Economics",
       "required_for_phase": "FP-I15",
@@ -517,10 +517,10 @@
       "semantic_owner": "Strategy Factory Economics"
     },
     {
-      "aggregate_sha256": "495e08d9a85e314dd6a9c1dc85314bddd5adb4d04b289125ff2ea350f61ef800",
+      "aggregate_sha256": "",
       "dependency_id": "SF17_PAPER_EXECUTION_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 13,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Execution",
       "required_for_phase": "FP-I15",
@@ -528,10 +528,10 @@
       "semantic_owner": "Strategy Factory Execution"
     },
     {
-      "aggregate_sha256": "3e59ecea0328f506556e5815100635e52000c4a675dcc0c72ebc34e6eb387560",
+      "aggregate_sha256": "",
       "dependency_id": "SF18_LIVE_SAFETY_CORE",
       "exact_version": "HASH_PINNED",
-      "file_count": 17,
+      "file_count": 0,
       "mutation_allowed": false,
       "relative_root": "mql5/Include/AlphaLab/StrategyFactory/Live",
       "required_for_phase": "FP-I16",

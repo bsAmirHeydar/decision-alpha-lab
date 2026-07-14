@@ -1,0 +1,13 @@
+{
+  "file_authority": "LOCAL_APPEND_ONLY",
+  "forbidden": [
+    "OrderSend",
+    "CTrade",
+    "PositionOpen",
+    "PositionClose",
+    "WebRequest",
+    "quota consumption"
+  ],
+  "runtime_authority": "NONE",
+  "visual_authority": "CHART_OBJECTS_ONLY"
+}

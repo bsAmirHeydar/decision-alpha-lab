@@ -1,0 +1,9 @@
+{
+  "contracts": "FROZEN",
+  "diagnostic_ea_may_begin_after_local_compile_and_visual_acceptance": true,
+  "indicator_source_gate": "PASS",
+  "metaeditor_compile_gate": "PENDING_LOCAL_WINDOWS",
+  "next_phase": "FP-I14",
+  "phase_id": "FP-I13",
+  "semantic_ledger": "UNCHANGED"
+}
