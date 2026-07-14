@@ -1,0 +1,37 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_health_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_disposition": {},
+    "config_hash": {},
+    "data_readiness": {},
+    "generated_utc_ms": {},
+    "health_report_id": {},
+    "history_ready": {},
+    "incremental_lag_minutes": {},
+    "last_processing_duration_us": {},
+    "lifecycle": {},
+    "module_health": {},
+    "overall": {},
+    "reason_codes": {},
+    "report_hash": {}
+  },
+  "required": [
+    "health_report_id",
+    "overall",
+    "lifecycle",
+    "data_readiness",
+    "history_ready",
+    "checkpoint_disposition",
+    "module_health",
+    "incremental_lag_minutes",
+    "last_processing_duration_us",
+    "reason_codes",
+    "generated_utc_ms",
+    "config_hash",
+    "report_hash"
+  ],
+  "title": "fp_i10_health_report",
+  "type": "object"
+}

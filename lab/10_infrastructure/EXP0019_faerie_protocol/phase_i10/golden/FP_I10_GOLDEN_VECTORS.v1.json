@@ -1,0 +1,41 @@
+{
+  "phase_id": "FP-I10",
+  "vectors": [
+    {
+      "case": "valid initialization",
+      "expected": "READY_OR_DEGRADED_UNTIL_HISTORY",
+      "id": "I10-G01"
+    },
+    {
+      "case": "two chart instances",
+      "expected": "DISTINCT_INSTANCE_NAMESPACE",
+      "id": "I10-G02"
+    },
+    {
+      "case": "same closed minute twice",
+      "expected": "NO_DUPLICATE_WORK",
+      "id": "I10-G03"
+    },
+    {
+      "case": "incremental lag over budget",
+      "expected": "CHUNKED_CATCHUP_AND_DEGRADED",
+      "id": "I10-G04"
+    },
+    {
+      "case": "checkpoint config mismatch",
+      "expected": "REBUILD_REQUIRED",
+      "id": "I10-G05"
+    },
+    {
+      "case": "weekly data blocked",
+      "expected": "HEALTH_BLOCKED_AND_BUFFER_VISIBLE",
+      "id": "I10-G06"
+    },
+    {
+      "case": "quota suppressed signal",
+      "expected": "RETAINED_IN_MACHINE_OUTPUT_COUNTS",
+      "id": "I10-G07"
+    }
+  ],
+  "version": "1.0.0"
+}

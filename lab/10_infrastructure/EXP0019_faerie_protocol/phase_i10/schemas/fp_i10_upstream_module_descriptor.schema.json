@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_upstream_module_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {},
+    "contract_hash": {},
+    "phase_id": {},
+    "reason_codes": {},
+    "status": {},
+    "version": {}
+  },
+  "required": [
+    "phase_id",
+    "version",
+    "contract_hash",
+    "authority",
+    "status",
+    "reason_codes"
+  ],
+  "title": "fp_i10_upstream_module_descriptor",
+  "type": "object"
+}

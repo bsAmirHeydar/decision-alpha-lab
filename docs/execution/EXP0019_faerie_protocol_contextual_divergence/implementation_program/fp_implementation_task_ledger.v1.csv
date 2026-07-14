@@ -47,11 +47,11 @@ LED-002,FP-I09,Add indexes and dedup,code,DONE,lab/10_infrastructure/EXP0019_fae
 LED-003,FP-I09,Implement earliest-M1 pair/session arbiter,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
 LED-004,FP-I09,Implement checkpoint versioning,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
 LED-005,FP-I09,Prove restart/rebuild parity,test,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i09/artifacts/FP_I09_ACCEPTANCE_EVIDENCE.json
-IND-001,FP-I10,Create indicator entry shell,code,PLANNED,
-IND-002,FP-I10,Bind inputs and engine lifecycle,code,PLANNED,
-IND-003,FP-I10,Implement timer/calculate/chart-event responsibilities,code,PLANNED,
-IND-004,FP-I10,Expose health/state buffers,code,PLANNED,
-IND-005,FP-I10,Prove no order authority and instance isolation,test,PLANNED,
+IND-001,FP-I10,Create indicator entry shell,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/artifacts/FP_I10_ACCEPTANCE_EVIDENCE.json
+IND-002,FP-I10,Bind inputs and engine lifecycle,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/artifacts/FP_I10_ACCEPTANCE_EVIDENCE.json
+IND-003,FP-I10,Implement timer/calculate/chart-event responsibilities,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/artifacts/FP_I10_ACCEPTANCE_EVIDENCE.json
+IND-004,FP-I10,Expose health/state buffers,code,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/artifacts/FP_I10_ACCEPTANCE_EVIDENCE.json
+IND-005,FP-I10,Prove no order authority and instance isolation,test,DONE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i10/artifacts/FP_I10_ACCEPTANCE_EVIDENCE.json
 VIS-001,FP-I11,Implement projection records and dirty set,code,PLANNED,
 VIS-002,FP-I11,Draw sessions/weeks/references,code,PLANNED,
 VIS-003,FP-I11,Draw Hunt/Candidate/Confirmed states,code,PLANNED,

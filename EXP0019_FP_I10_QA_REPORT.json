@@ -1,0 +1,27 @@
+{
+  "accepted_cumulative_available_tests": 531,
+  "accepted_cumulative_scope": "FP-I02 through FP-I10",
+  "boundary_guard": "PASS",
+  "checkpoint_restart": "PASS",
+  "clean_baseline_patch": "PASS",
+  "delivery_validation": "PASS",
+  "direct_regression_tests": {
+    "FP-I08": 47,
+    "FP-I09": 52
+  },
+  "errors": 0,
+  "golden_vectors": 7,
+  "instance_isolation": "PASS",
+  "lifecycle": "PASS",
+  "machine_buffers": 12,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "PASS",
+  "performance": "PASS",
+  "phase": "FP-I10",
+  "phase_tests": 59,
+  "phase_version": "1.0.0",
+  "result": "PASS_WITH_LOCAL_METAEDITOR_PENDING",
+  "schemas": 15,
+  "upstream_regression_note": "FP-I00/FP-I01 pinned assets and EXP0018 Daye tree are absent from supplied base archive",
+  "warnings": 0
+}

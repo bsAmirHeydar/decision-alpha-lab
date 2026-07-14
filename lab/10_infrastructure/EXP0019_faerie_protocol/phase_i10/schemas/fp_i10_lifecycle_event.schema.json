@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_lifecycle_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_hash": {},
+    "event_id": {},
+    "event_type": {},
+    "instance_id": {},
+    "occurred_utc_ms": {},
+    "payload_hash": {},
+    "prior_event_hash": {},
+    "reason_code": {},
+    "sequence": {}
+  },
+  "required": [
+    "event_id",
+    "sequence",
+    "event_type",
+    "occurred_utc_ms",
+    "instance_id",
+    "reason_code",
+    "payload_hash",
+    "prior_event_hash",
+    "event_hash"
+  ],
+  "title": "fp_i10_lifecycle_event",
+  "type": "object"
+}

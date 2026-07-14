@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_indicator_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "composition_version": {},
+    "context_epoch": {},
+    "context_id": {},
+    "enable_diagnostics": {},
+    "enable_state_buffers": {},
+    "fail_init_on_blocked_manifest": {},
+    "history_days": {},
+    "host_timeframe_minutes": {},
+    "indicator_version": {},
+    "max_incremental_minutes": {},
+    "output_version": {},
+    "pair_id": {},
+    "primary_symbol": {},
+    "secondary_symbol": {},
+    "timer_seconds": {}
+  },
+  "required": [
+    "context_id",
+    "context_epoch",
+    "primary_symbol",
+    "secondary_symbol",
+    "pair_id",
+    "host_timeframe_minutes",
+    "timer_seconds",
+    "history_days",
+    "max_incremental_minutes",
+    "enable_state_buffers",
+    "enable_diagnostics",
+    "fail_init_on_blocked_manifest",
+    "indicator_version",
+    "composition_version",
+    "output_version"
+  ],
+  "title": "fp_i10_indicator_config",
+  "type": "object"
+}

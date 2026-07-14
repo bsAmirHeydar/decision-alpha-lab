@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_output_buffer_frame.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available": {},
+    "frame_hash": {},
+    "frame_id": {},
+    "generated_utc_ms": {},
+    "output_version": {},
+    "values": {}
+  },
+  "required": [
+    "frame_id",
+    "values",
+    "available",
+    "generated_utc_ms",
+    "output_version",
+    "frame_hash"
+  ],
+  "title": "fp_i10_output_buffer_frame",
+  "type": "object"
+}

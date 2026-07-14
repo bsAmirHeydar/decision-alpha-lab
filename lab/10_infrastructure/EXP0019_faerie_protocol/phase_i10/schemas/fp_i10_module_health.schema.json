@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_module_health.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "incremental_work_units": {},
+    "last_processed_m1": {},
+    "phase_id": {},
+    "reason_codes": {},
+    "source_revision_id": {},
+    "state_hash": {},
+    "status": {},
+    "version": {}
+  },
+  "required": [
+    "phase_id",
+    "version",
+    "status",
+    "last_processed_m1",
+    "source_revision_id",
+    "incremental_work_units",
+    "reason_codes",
+    "state_hash"
+  ],
+  "title": "fp_i10_module_health",
+  "type": "object"
+}

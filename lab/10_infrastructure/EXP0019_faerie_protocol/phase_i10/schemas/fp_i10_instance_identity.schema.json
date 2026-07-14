@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_instance_identity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chart_id": {},
+    "checkpoint_key": {},
+    "config_hash": {},
+    "context_epoch": {},
+    "identity_hash": {},
+    "instance_id": {},
+    "object_namespace": {},
+    "pair_id": {},
+    "program_name": {},
+    "terminal_instance_id": {}
+  },
+  "required": [
+    "instance_id",
+    "chart_id",
+    "terminal_instance_id",
+    "program_name",
+    "pair_id",
+    "context_epoch",
+    "config_hash",
+    "object_namespace",
+    "checkpoint_key",
+    "identity_hash"
+  ],
+  "title": "fp_i10_instance_identity",
+  "type": "object"
+}

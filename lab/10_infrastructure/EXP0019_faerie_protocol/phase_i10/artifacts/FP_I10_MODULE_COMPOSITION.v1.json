@@ -1,0 +1,41 @@
+{
+  "composition_version": "1.0.0",
+  "modules": [
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I03",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I04",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I05",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I06",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I07",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I08",
+      "version": "1.0.0"
+    },
+    {
+      "authority": "NONE",
+      "phase_id": "FP-I09",
+      "version": "1.0.0"
+    }
+  ],
+  "phase_id": "FP-I10"
+}

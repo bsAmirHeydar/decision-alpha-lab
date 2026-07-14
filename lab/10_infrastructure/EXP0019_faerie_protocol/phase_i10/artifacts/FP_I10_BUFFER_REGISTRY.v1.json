@@ -1,0 +1,78 @@
+{
+  "buffers": [
+    {
+      "draw": "DRAW_NONE",
+      "index": 0,
+      "name": "health_code",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 1,
+      "name": "lifecycle_code",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 2,
+      "name": "data_readiness_code",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 3,
+      "name": "active_ww_direction",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 4,
+      "name": "confirmed_signal_count",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 5,
+      "name": "allowed_signal_count",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 6,
+      "name": "suppressed_by_ww_count",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 7,
+      "name": "suppressed_by_quota_count",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 8,
+      "name": "quota_winner_present",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 9,
+      "name": "ledger_event_count",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 10,
+      "name": "source_revision_sequence",
+      "type": "double"
+    },
+    {
+      "draw": "DRAW_NONE",
+      "index": 11,
+      "name": "heartbeat_utc_minute",
+      "type": "double"
+    }
+  ],
+  "phase_id": "FP-I10",
+  "version": "1.0.0"
+}

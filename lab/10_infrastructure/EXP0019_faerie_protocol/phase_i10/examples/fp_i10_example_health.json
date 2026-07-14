@@ -1,0 +1,11 @@
+{
+  "active_ww_direction": "BULLISH",
+  "allowed_signal_count": 3,
+  "confirmed_signal_count": 7,
+  "data_readiness": "READY",
+  "lifecycle": "READY",
+  "overall": "READY",
+  "quota_winner_present": true,
+  "suppressed_by_quota_count": 2,
+  "suppressed_by_ww_count": 2
+}

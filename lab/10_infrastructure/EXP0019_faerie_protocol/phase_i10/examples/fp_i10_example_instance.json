@@ -1,0 +1,7 @@
+{
+  "chart_id": 101,
+  "context_epoch": "FP-EPOCH-1",
+  "namespace": "FP19::FPINST_<hash>::",
+  "pair_id": "PAIR-ES-NQ",
+  "terminal_instance_id": "TERM-A"
+}

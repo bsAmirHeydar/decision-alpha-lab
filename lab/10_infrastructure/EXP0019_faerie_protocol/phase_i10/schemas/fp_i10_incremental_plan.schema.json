@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_incremental_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "end_m1": {},
+    "mode": {},
+    "plan_hash": {},
+    "plan_id": {},
+    "reason_codes": {},
+    "remaining_minutes": {},
+    "start_m1": {},
+    "trigger": {},
+    "work_minutes": {}
+  },
+  "required": [
+    "plan_id",
+    "mode",
+    "start_m1",
+    "end_m1",
+    "work_minutes",
+    "remaining_minutes",
+    "trigger",
+    "reason_codes",
+    "plan_hash"
+  ],
+  "title": "fp_i10_incremental_plan",
+  "type": "object"
+}

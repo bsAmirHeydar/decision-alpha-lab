@@ -1,0 +1,59 @@
+{
+  "accepted_available_cumulative_fp_tests": {
+    "count": 531,
+    "result": "pass",
+    "scope": "FP-I02 through FP-I10"
+  },
+  "boundary_guard": "pass",
+  "buffer_registry": {
+    "count": 12,
+    "result": "pass"
+  },
+  "checkpoint_restart_tests": "pass",
+  "clean_baseline_patch": "pass",
+  "delivery_validation": "pass",
+  "direct_regression_tests": {
+    "FP-I08": 47,
+    "FP-I09": 52,
+    "result": "pass"
+  },
+  "errors": 0,
+  "exact_composition": {
+    "result": "pass",
+    "upstream_phases": [
+      "FP-I03",
+      "FP-I04",
+      "FP-I05",
+      "FP-I06",
+      "FP-I07",
+      "FP-I08",
+      "FP-I09"
+    ]
+  },
+  "golden_vectors": {
+    "count": 7,
+    "result": "pass"
+  },
+  "instance_isolation_tests": "pass",
+  "lifecycle_tests": "pass",
+  "machine_output_tests": "pass",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static": "pass",
+  "performance_tests": "pass",
+  "phase_id": "FP-I10",
+  "phase_tests": {
+    "count": 59,
+    "result": "pass"
+  },
+  "phase_version": "1.0.0",
+  "schema_validation": {
+    "count": 15,
+    "result": "pass"
+  },
+  "upstream_regression_availability": {
+    "EXP0018_Daye": "not_rerunnable_source_tree_absent",
+    "FP-I00": "not_rerunnable_on_supplied_archive_missing_pinned_assets",
+    "FP-I01": "not_rerunnable_on_supplied_archive_missing_pinned_assets"
+  },
+  "warnings": 0
+}

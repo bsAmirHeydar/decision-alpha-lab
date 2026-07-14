@@ -1,0 +1,37 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_diagnostic_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_head_hash": {},
+    "counters": {},
+    "diagnostic_hash": {},
+    "diagnostic_id": {},
+    "generated_utc_ms": {},
+    "health": {},
+    "instance_id": {},
+    "lifecycle_event_count": {},
+    "phase_id": {},
+    "phase_version": {},
+    "reason_codes": {},
+    "runtime_authority": {},
+    "snapshot_hash": {}
+  },
+  "required": [
+    "diagnostic_id",
+    "instance_id",
+    "phase_id",
+    "phase_version",
+    "runtime_authority",
+    "lifecycle_event_count",
+    "chain_head_hash",
+    "snapshot_hash",
+    "health",
+    "counters",
+    "reason_codes",
+    "generated_utc_ms",
+    "diagnostic_hash"
+  ],
+  "title": "fp_i10_diagnostic_report",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "contracts": [
+    "IndicatorConfig",
+    "InstanceIdentity",
+    "UpstreamModuleDescriptor",
+    "CompositionManifest",
+    "ModuleHealth",
+    "IncrementalPlan",
+    "IndicatorHealthReport",
+    "OutputBufferFrame",
+    "IndicatorSnapshot",
+    "LifecycleEvent",
+    "IndicatorCheckpoint",
+    "CheckpointValidation",
+    "DiagnosticReport"
+  ],
+  "phase_id": "FP-I10",
+  "runtime_authority": "NONE",
+  "schema_count": 15,
+  "version": "1.0.0"
+}

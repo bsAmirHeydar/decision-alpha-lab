@@ -1,0 +1,39 @@
+{
+  "accepted_available_cumulative_tests": {
+    "basis": "accepted FP-I02..FP-I09 baseline 472 plus current FP-I10 59",
+    "count": 531,
+    "result": "pass",
+    "scope": "FP-I02 through FP-I10"
+  },
+  "clean_baseline_patch": "pass",
+  "direct_regressions": {
+    "FP-I08": {
+      "count": 47,
+      "result": "pass"
+    },
+    "FP-I09": {
+      "count": 52,
+      "result": "pass"
+    }
+  },
+  "metaeditor": "pending_local_windows",
+  "next_gate": "LOCAL_METAEDITOR_THEN_FP_I11_VISUAL_PROJECTION",
+  "next_phase": "FP-I11",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "phase_id": "FP-I10",
+  "phase_version": "1.0.0",
+  "python_phase_tests": {
+    "count": 59,
+    "result": "pass"
+  },
+  "runtime_authority": "NONE",
+  "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+  "upstream_compatibility_gates": {
+    "EXP0018_Daye": "unavailable_source_tree_absent",
+    "FP-I00": "unavailable_missing_pinned_shared_cores_and_previous_test_entrypoints",
+    "FP-I01": "unavailable_missing_pinned_shared_cores_and_previous_test_entrypoints"
+  },
+  "visual_authority": "MACHINE_OUTPUTS_ONLY"
+}

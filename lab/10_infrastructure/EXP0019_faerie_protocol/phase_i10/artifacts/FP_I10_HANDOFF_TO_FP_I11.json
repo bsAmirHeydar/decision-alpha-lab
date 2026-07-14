@@ -1,0 +1,16 @@
+{
+  "indicator_entrypoint": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+  "invariants": [
+    "no_orders",
+    "no_chart_objects",
+    "exact_i03_i09_composition",
+    "instance_isolation",
+    "incremental_only_after_initial_backfill",
+    "suppressed_signals_retained"
+  ],
+  "machine_output_contract": "FP_I10_BUFFER_REGISTRY.v1.json",
+  "next_phase": "FP-I11",
+  "phase_id": "FP-I10",
+  "version": "1.0.0",
+  "visual_authority": "NOT_YET_GRANTED"
+}

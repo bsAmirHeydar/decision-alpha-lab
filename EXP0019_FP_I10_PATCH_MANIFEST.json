@@ -1,0 +1,31 @@
+{
+  "accepted_available_cumulative_fp_test_count": 531,
+  "accepted_available_cumulative_scope": "FP-I02 through FP-I10",
+  "atomic_concept_count": 7,
+  "clean_baseline_patch": "pass",
+  "created_at_utc": "2026-07-13T00:00:00Z",
+  "delivery_doc_count": 61,
+  "direct_regression_test_count": 99,
+  "file_count": 160,
+  "golden_vector_count": 7,
+  "machine_buffer_count": 12,
+  "metaeditor_compile_status": "pending_local_windows",
+  "mql5_include_count": 13,
+  "mql5_indicator_entrypoint_count": 2,
+  "next_phase": "FP-I11 Indicator Visual Projection: Sessions, References, Hunts, Signals, WW, and Suppression",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "patch_id": "EXP0019-FP-I10-COMPLETE-INDICATOR-SHELL",
+  "patch_version": "1.0.0",
+  "phase": "FP-I10",
+  "phase_test_count": 59,
+  "public_contract_count": 13,
+  "public_schema_count": 15,
+  "python_module_count": 21,
+  "reason_code_count": 24,
+  "runtime_authority": "NONE",
+  "test_module_count": 16,
+  "upstream_regression_note": "FP-I00/FP-I01 pinned assets and EXP0018 Daye tree are absent from supplied base archive",
+  "visual_authority": "MACHINE_OUTPUTS_ONLY"
+}

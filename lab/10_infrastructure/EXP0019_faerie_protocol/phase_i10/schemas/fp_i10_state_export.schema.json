@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i10_state_export.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic": {},
+    "export_hash": {},
+    "instance": {},
+    "phase_id": {},
+    "phase_version": {},
+    "snapshot": {}
+  },
+  "required": [
+    "phase_id",
+    "phase_version",
+    "instance",
+    "snapshot",
+    "diagnostic",
+    "export_hash"
+  ],
+  "title": "fp_i10_state_export",
+  "type": "object"
+}
