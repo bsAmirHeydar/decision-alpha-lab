@@ -1,0 +1,25 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "style_ids": [
+    "SESSION_A",
+    "SESSION_L",
+    "SESSION_N",
+    "WEEK",
+    "REF_HIGH",
+    "REF_LOW",
+    "HUNT",
+    "CANDIDATE",
+    "CONFIRMED_BULL",
+    "CONFIRMED_BEAR",
+    "INVALID",
+    "WW_BULL",
+    "WW_BEAR",
+    "SUPPRESSED_WW",
+    "SUPPRESSED_QUOTA",
+    "WINNER",
+    "HEALTH_READY",
+    "HEALTH_DEGRADED",
+    "HEALTH_BLOCKED"
+  ]
+}

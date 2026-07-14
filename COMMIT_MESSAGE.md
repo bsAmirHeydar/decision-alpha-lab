@@ -1,11 +1,7 @@
-feat(exp0019): implement FP-I10 complete indicator shell
+feat(exp0019): implement FP-I11 indicator visual projection
 
-- add production Faerie Protocol indicator entrypoint and exact I03-I09 composition root
-- validate inputs, symbols, upstream versions, configuration identity, and runtime authority
-- add chart/terminal/pair/epoch scoped instance identity and checkpoint namespace
-- implement OnInit, OnCalculate, OnTimer, OnChartEvent, and OnDeinit lifecycle
-- add bounded initial backfill and cursor-only incremental scheduling
-- expose READY/DEGRADED/BLOCKED health and twelve versioned DRAW_NONE machine buffers
-- preserve WW, quota, ledger, revision, and suppressed-signal state for future visuals
-- add exact checkpoint validation, deterministic rebuild, diagnostics, isolation tests, and performance gates
-- keep final visual language, alerts, export, and all trade authority outside FP-I10
+- add deterministic chart projection for all Faerie semantic evidence
+- add instance-scoped dirty-set object manager and responsive lanes
+- preserve immutable confirmed and suppressed audit evidence
+- integrate the production indicator and visual self-test
+- add schemas, tests, QA evidence, Obsidian docs, and FP-I12 handoff

@@ -27,6 +27,7 @@
 #property indicator_label11 "FP Revision Sequence"
 #property indicator_label12 "FP Heartbeat UTC Minute"
 #include <AlphaLab/EXP0019/FaerieProtocol/I10/FP_I10_All.mqh>
+#include <AlphaLab/EXP0019/FaerieProtocol/I11/FP_I11_All.mqh>
 
 input string InpPrimarySymbol="ES";
 input string InpSecondarySymbol="NQ";
@@ -37,9 +38,24 @@ input int InpHistoryDays=90;
 input int InpMaxIncrementalMinutes=1440;
 input bool InpEnableStateBuffers=true;
 input bool InpEnableDiagnostics=true;
+input bool InpEnableVisualProjection=true;
+input ENUM_FP_I11_VISUAL_MODE InpVisualMode=FP_I11_STANDARD;
+input bool InpShowSessions=true;
+input bool InpShowReferences=true;
+input bool InpShowHunts=true;
+input bool InpShowCandidates=true;
+input bool InpShowConfirmed=true;
+input bool InpShowWW=true;
+input bool InpShowSuppressed=true;
+input bool InpShowHealth=true;
+input int InpVisualHistoryDays=30;
+input int InpMaxVisualObjects=2500;
+input int InpVisualLaneCount=6;
+input bool InpRemoveVisualObjectsOnDeinit=false;
 
 double B0[],B1[],B2[],B3[],B4[],B5[],B6[],B7[],B8[],B9[],B10[],B11[];
 FP_I10_Engine g_engine;
+FP_I11_VisualEngine g_visual;
 
 void FP_I10_WriteBuffers(const int index,const SFP_I10_Output &o){
  if(!InpEnableStateBuffers){B0[index]=EMPTY_VALUE;B1[index]=EMPTY_VALUE;B2[index]=EMPTY_VALUE;B3[index]=EMPTY_VALUE;B4[index]=EMPTY_VALUE;B5[index]=EMPTY_VALUE;B6[index]=EMPTY_VALUE;B7[index]=EMPTY_VALUE;B8[index]=EMPTY_VALUE;B9[index]=EMPTY_VALUE;B10[index]=EMPTY_VALUE;B11[index]=EMPTY_VALUE;return;}
@@ -49,7 +65,8 @@ int OnInit(){
  SetIndexBuffer(0,B0,INDICATOR_DATA);SetIndexBuffer(1,B1,INDICATOR_DATA);SetIndexBuffer(2,B2,INDICATOR_DATA);SetIndexBuffer(3,B3,INDICATOR_DATA);SetIndexBuffer(4,B4,INDICATOR_DATA);SetIndexBuffer(5,B5,INDICATOR_DATA);SetIndexBuffer(6,B6,INDICATOR_DATA);SetIndexBuffer(7,B7,INDICATOR_DATA);SetIndexBuffer(8,B8,INDICATOR_DATA);SetIndexBuffer(9,B9,INDICATOR_DATA);SetIndexBuffer(10,B10,INDICATOR_DATA);SetIndexBuffer(11,B11,INDICATOR_DATA);
  ArraySetAsSeries(B0,true);ArraySetAsSeries(B1,true);ArraySetAsSeries(B2,true);ArraySetAsSeries(B3,true);ArraySetAsSeries(B4,true);ArraySetAsSeries(B5,true);ArraySetAsSeries(B6,true);ArraySetAsSeries(B7,true);ArraySetAsSeries(B8,true);ArraySetAsSeries(B9,true);ArraySetAsSeries(B10,true);ArraySetAsSeries(B11,true);
  SFP_I10_Config cfg; cfg.context_id="FP-CONTEXT-001";cfg.context_epoch=InpContextEpoch;cfg.primary_symbol=InpPrimarySymbol;cfg.secondary_symbol=InpSecondarySymbol;cfg.host_timeframe_minutes=InpHostTimeframeMinutes;cfg.timer_seconds=InpTimerSeconds;cfg.history_days=InpHistoryDays;cfg.max_incremental_minutes=InpMaxIncrementalMinutes;cfg.enable_state_buffers=InpEnableStateBuffers;cfg.enable_diagnostics=InpEnableDiagnostics;
- string reason=""; if(!SymbolSelect(InpPrimarySymbol,true)||!SymbolSelect(InpSecondarySymbol,true)){Print("FP-I10 symbol subscription failed");return INIT_FAILED;} if(!g_engine.Initialize(cfg,ChartID(),reason)){Print("FP-I10 init blocked reason=",reason);return INIT_FAILED;} EventSetTimer(InpTimerSeconds); IndicatorSetString(INDICATOR_SHORTNAME,"FP Context ["+g_engine.InstanceId()+"]"); if(InpEnableDiagnostics) Print("FP-I10 ready instance=",g_engine.InstanceId()); return INIT_SUCCEEDED;
+ string reason=""; if(!SymbolSelect(InpPrimarySymbol,true)||!SymbolSelect(InpSecondarySymbol,true)){Print("FP-I10 symbol subscription failed");return INIT_FAILED;} if(!g_engine.Initialize(cfg,ChartID(),reason)){Print("FP-I10 init blocked reason=",reason);return INIT_FAILED;} EventSetTimer(InpTimerSeconds); IndicatorSetString(INDICATOR_SHORTNAME,"FP Context ["+g_engine.InstanceId()+"]"); if(InpEnableVisualProjection){SFP_I11_Config v;v.instance_id=g_engine.InstanceId();v.object_namespace="FP19::"+g_engine.InstanceId()+"::";v.mode=InpVisualMode;v.history_days=InpVisualHistoryDays;v.max_objects=InpMaxVisualObjects;v.lane_count=InpVisualLaneCount;v.show_sessions=InpShowSessions;v.show_references=InpShowReferences;v.show_hunts=InpShowHunts;v.show_candidates=InpShowCandidates;v.show_confirmed=InpShowConfirmed;v.show_ww=InpShowWW;v.show_suppressed=InpShowSuppressed;v.show_health=InpShowHealth;string vreason="";if(!g_visual.Initialize(ChartID(),v,vreason)){Print("FP-I11 visual init blocked reason=",vreason);return INIT_FAILED;}}
+ if(InpEnableDiagnostics) Print("FP-I11 ready instance=",g_engine.InstanceId()); return INIT_SUCCEEDED;
 }
 int OnCalculate(const int rates_total,const int prev_calculated,const datetime &time[],const double &open[],const double &high[],const double &low[],const double &close[],const long &tick_volume[],const long &volume[],const int &spread[]){
  if(rates_total<=0||!g_engine.IsInitialized()) return 0;
@@ -59,6 +76,7 @@ int OnCalculate(const int rates_total,const int prev_calculated,const datetime &
  const datetime newest_closed=(primary_closed<secondary_closed?primary_closed:secondary_closed);
  if(!g_engine.OnCalculate(newest_closed,rates_total,prev_calculated)) return prev_calculated;
  const SFP_I10_EngineSnapshot s=g_engine.Snapshot();
+ if(InpEnableVisualProjection&&g_visual.IsInitialized()){g_visual.BeginFrame();g_visual.ProjectHealth(s);g_visual.EndFrame();}
  int start=(prev_calculated>0?0:rates_total-1); if(start<0)start=0;
  for(int i=start;i>=0;i--) FP_I10_WriteBuffers(i,s.output);
  return rates_total;
@@ -70,4 +88,4 @@ void OnTimer(){
  FP_I10_WriteBuffers(0,s.output);
 }
 void OnChartEvent(const int id,const long &lparam,const double &dparam,const string &sparam){g_engine.OnChartEvent(id,lparam,dparam,sparam);}
-void OnDeinit(const int reason){EventKillTimer();g_engine.Shutdown();}
+void OnDeinit(const int reason){EventKillTimer();g_visual.Shutdown(InpRemoveVisualObjectsOnDeinit);g_engine.Shutdown();}

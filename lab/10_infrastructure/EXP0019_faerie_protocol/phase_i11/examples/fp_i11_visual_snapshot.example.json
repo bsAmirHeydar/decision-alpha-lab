@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "snapshot_id": "SNAP-EXAMPLE",
+  "revision_id": "REV-1",
+  "windows": [],
+  "references": [],
+  "hunts": [],
+  "signals": [],
+  "ww_contexts": []
+}

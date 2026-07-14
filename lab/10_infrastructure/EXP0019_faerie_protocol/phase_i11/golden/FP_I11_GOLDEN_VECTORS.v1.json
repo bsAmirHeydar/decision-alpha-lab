@@ -1,0 +1,34 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "vectors": [
+    {
+      "id": "SESSION-BOX",
+      "expected_kind": "SESSION_BOX"
+    },
+    {
+      "id": "REFERENCE-LINE-LABEL",
+      "expected_count": 2
+    },
+    {
+      "id": "HUNT-ROLE",
+      "expected_count": 2
+    },
+    {
+      "id": "CONFIRMED-WINNER",
+      "expected_badge": "QUOTA_WINNER_BADGE"
+    },
+    {
+      "id": "WW-SUPPRESSED",
+      "expected_overlay": "SUPPRESSION_OVERLAY"
+    },
+    {
+      "id": "REPLAY-NOOP",
+      "expected_mutation": "NOOP"
+    },
+    {
+      "id": "IMMUTABLE-CONFIRMED",
+      "expected": "RETAIN_OR_REJECT"
+    }
+  ]
+}

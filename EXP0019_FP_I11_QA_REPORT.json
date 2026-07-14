@@ -1,0 +1,28 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_PENDING",
+  "tests": {
+    "fp_i11": 61,
+    "fp_i10_regression": 59,
+    "available_fp_i02_to_i11": 592,
+    "direct_fp_i10_i11": 120
+  },
+  "validation": {
+    "delivery": "PASS",
+    "boundary": "PASS",
+    "mql5_static": "PASS",
+    "schemas": "15/15",
+    "golden": "7/7",
+    "clean_baseline_patch": "PASS",
+    "file_index": "PASS",
+    "file_hash_catalog": "PASS",
+    "zip_integrity": "PASS"
+  },
+  "environment_limits": [
+    "MetaEditor compile unavailable in current Linux environment",
+    "FP-I00/FP-I01 pinned shared-core and previous-context assets unavailable in supplied base archive"
+  ],
+  "errors": 0,
+  "warnings": 0
+}

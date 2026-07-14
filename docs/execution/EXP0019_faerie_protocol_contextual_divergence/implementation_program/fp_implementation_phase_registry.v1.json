@@ -146,7 +146,10 @@
         "FP-I10"
       ],
       "product": "indicator",
-      "status": "PLANNED"
+      "status": "IMPLEMENTED_PYTHON_AND_STATIC_MQL5_VALIDATED",
+      "phase_version": "1.0.0",
+      "delivery_moc": "implementation_program/phase_deliveries/fp_i11/00_FP_I11_DELIVERY_MOC.md",
+      "next_gate": "LOCAL_METAEDITOR_VISUAL_QA_AND_FP_I12_ENTRY"
     },
     {
       "phase_id": "FP-I12",

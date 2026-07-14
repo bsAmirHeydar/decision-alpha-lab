@@ -82,3 +82,7 @@ LIV-002,FP-I16,Integrate authorization and safety policy,code,PLANNED,
 LIV-003,FP-I16,Map broker requests/retcodes,code,PLANNED,
 LIV-004,FP-I16,Test kill switch/circuit breaker,test,PLANNED,
 LIV-005,FP-I16,Run micro-live release and rollback,release,PLANNED,
+VIS-007,FP-I11,Build visual self-test indicator,indicator,COMPLETE,mql5/Indicators/EXP0019/FaerieProtocolTests/EXP0019_FP_I11_VisualSelfTest.mq5
+VIS-008,FP-I11,Validate projection and immutable evidence,test,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/tests
+VIS-009,FP-I11,Document complete visual language,documentation,COMPLETE,docs/execution/EXP0019_faerie_protocol_contextual_divergence/implementation_program/phase_deliveries/fp_i11/00_FP_I11_DELIVERY_MOC.md
+VIS-010,FP-I11,Prepare exact FP-I12 handoff,handoff,COMPLETE,lab/10_infrastructure/EXP0019_faerie_protocol/phase_i11/artifacts/FP_I11_HANDOFF_TO_FP_I12.json

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:exp0019:fp-i11:health_fact:1.0.0",
+  "title": "FP-I11 health_fact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0.0"
+    }
+  }
+}

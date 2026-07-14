@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:exp0019:fp-i11:anchor:1.0.0",
+  "title": "FP-I11 anchor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0.0"
+    }
+  }
+}

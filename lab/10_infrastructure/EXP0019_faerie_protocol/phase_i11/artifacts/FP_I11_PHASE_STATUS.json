@@ -1,0 +1,11 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "status": "implemented_pending_local_metaeditor",
+  "runtime_authority": "NONE",
+  "visual_authority": "CHART_OBJECTS_ONLY",
+  "open_decisions": [
+    "FP-DEC-012"
+  ],
+  "next_phase": "FP-I12"
+}

@@ -1,0 +1,19 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "object_kinds": [
+    "SESSION_BOX",
+    "WEEK_BOX",
+    "REFERENCE_LINE",
+    "REFERENCE_LABEL",
+    "HUNT_MARKER",
+    "ROLE_BADGE",
+    "CANDIDATE_SIGNAL",
+    "CONFIRMED_SIGNAL",
+    "INVALIDATION_MARKER",
+    "WW_CONTEXT",
+    "SUPPRESSION_OVERLAY",
+    "QUOTA_WINNER_BADGE",
+    "HEALTH_BADGE"
+  ]
+}

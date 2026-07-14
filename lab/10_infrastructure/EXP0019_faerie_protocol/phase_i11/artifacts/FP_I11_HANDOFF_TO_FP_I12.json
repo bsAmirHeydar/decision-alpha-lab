@@ -1,0 +1,17 @@
+{
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "next_phase": "FP-I12",
+  "public_outputs": [
+    "VisualObjectSpec",
+    "ObjectInventory",
+    "DirtySet",
+    "ProjectionDiagnostic"
+  ],
+  "explicit_non_outputs": [
+    "alerts",
+    "panel_interactions",
+    "csv_export",
+    "trade_execution"
+  ]
+}

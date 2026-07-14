@@ -1,0 +1,12 @@
+{
+  "patch_id": "EXP0019-FP-I11-1.0.0",
+  "phase_id": "FP-I11",
+  "version": "1.0.0",
+  "title": "Indicator Visual Projection",
+  "file_index": "EXP0019_FP_I11_FILE_INDEX.txt",
+  "file_count": 159,
+  "runtime_authority": "NONE",
+  "visual_authority": "CHART_OBJECTS_ONLY",
+  "open_decision": "FP-DEC-012",
+  "metaeditor": "pending_local_windows"
+}
