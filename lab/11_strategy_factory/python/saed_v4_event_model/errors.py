@@ -1,0 +1,13 @@
+class EventModelError(Exception): pass
+class ContractError(EventModelError): pass
+class AuthorityError(EventModelError): pass
+class RegistryError(EventModelError): pass
+class JournalError(EventModelError): pass
+class TemporalError(EventModelError): pass
+class SequenceError(EventModelError): pass
+class DuplicateConflict(EventModelError): pass
+class LateEventError(EventModelError): pass
+class CorrectionError(EventModelError): pass
+class ProjectionError(EventModelError): pass
+class ReplayError(EventModelError): pass
+class IntegrityError(EventModelError): pass

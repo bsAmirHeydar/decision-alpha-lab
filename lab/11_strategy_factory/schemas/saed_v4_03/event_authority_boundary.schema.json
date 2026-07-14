@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "append_event": {
+      "type": "boolean"
+    },
+    "build_projection": {
+      "type": "boolean"
+    },
+    "mutate_twin_manifest": {
+      "type": "boolean"
+    },
+    "mutate_ucee_truth": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "read_twin": {
+      "type": "boolean"
+    },
+    "register_stream": {
+      "type": "boolean"
+    },
+    "replay": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_twin",
+    "register_stream",
+    "append_event",
+    "build_projection",
+    "replay",
+    "mutate_ucee_truth",
+    "mutate_twin_manifest",
+    "select_treatment",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "network_access"
+  ],
+  "title": "Event Authority Boundary",
+  "type": "object"
+}

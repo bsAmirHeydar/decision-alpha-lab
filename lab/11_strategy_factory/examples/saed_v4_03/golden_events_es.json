@@ -1,0 +1,37 @@
+[
+  {
+    "event_kind": "quote",
+    "event_time": "2026-01-02T14:30:00.200000Z",
+    "known_time": "2026-01-02T14:30:00.202000Z",
+    "payload": {
+      "ask": 6000.25,
+      "bid": 6000.0,
+      "spread": 0.25
+    },
+    "payload_hash": "25dcd2e396f47ae3300042ef878d1cf76d7ebc79bb0af4ab635417883f98627f",
+    "source_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "source_id": "src_es_fixture",
+    "source_sequence": 1,
+    "stream_id": "stream_es",
+    "stream_version": "1.0.0",
+    "subject_id": "ES",
+    "twin_id": "twin_exp0017_f2_demo"
+  },
+  {
+    "event_kind": "related_symbol",
+    "event_time": "2026-01-02T14:30:01.200000Z",
+    "known_time": "2026-01-02T14:30:01.202000Z",
+    "payload": {
+      "relationship": "confirming",
+      "score": 0.8
+    },
+    "payload_hash": "a4cf60be0fd51d768b63d5a03fbf36fe6961374c9512bde15c146f180eae2619",
+    "source_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "source_id": "src_es_fixture",
+    "source_sequence": 2,
+    "stream_id": "stream_es",
+    "stream_version": "1.0.0",
+    "subject_id": "ES",
+    "twin_id": "twin_exp0017_f2_demo"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "duration_ms": {
+      "type": "integer"
+    },
+    "gap_end": {
+      "type": "string"
+    },
+    "gap_start": {
+      "type": "string"
+    },
+    "left_event_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "right_event_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "severity": {
+      "type": "string"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "subject_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stream_id",
+    "subject_id",
+    "left_event_id",
+    "right_event_id",
+    "gap_start",
+    "gap_end",
+    "duration_ms",
+    "severity",
+    "reason"
+  ],
+  "title": "Gap Record",
+  "type": "object"
+}

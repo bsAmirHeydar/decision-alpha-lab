@@ -1,0 +1,30 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "event_as_of": "2026-01-02T14:30:03Z",
+  "event_integrity_receipt_id": "evtreceipt_fbbc3dc131b0bff01cd01433",
+  "handoff_hash": "c01f1611a909cbebd940e5b676993740fac54533efffe03a2e3493a2d74a93c4",
+  "handoff_id": "v403to04_c01f1611a909cbebd940e5b6",
+  "known_as_of": "2026-01-02T14:31:00Z",
+  "limitations": [
+    "MetaEditor compile pending",
+    "V4-04 not implemented",
+    "fixture only"
+  ],
+  "next_phase": "SAED_V4_04",
+  "phase": "SAED_V4_03",
+  "projection_hash": "b26787553efbf85f10e4af0da481787e476fb057f653bd391ec40518aea2d0c0",
+  "projection_id": "projdef_345ea84547f15936c4677492",
+  "stream_manifest_hashes": [
+    "18faba441a715360146cf8f35f99cbacbfcebcfe8573ad2cbf3156eea392a161",
+    "9704d892919033d3edb52f18b4979b13864c2415a6040d8b80adc0a0f5e24c16"
+  ],
+  "twin_manifest_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+}

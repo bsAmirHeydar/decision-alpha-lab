@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "journal_root": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "projection_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stream_heads": {
+      "type": "object"
+    },
+    "telemetry_hash": {
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "watermarks": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "twin_id",
+    "known_time",
+    "event_count",
+    "journal_root",
+    "stream_heads",
+    "watermarks",
+    "projection_hashes",
+    "authority",
+    "telemetry_id",
+    "telemetry_hash"
+  ],
+  "title": "Event Telemetry",
+  "type": "object"
+}

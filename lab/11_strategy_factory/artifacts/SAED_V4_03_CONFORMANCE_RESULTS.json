@@ -1,0 +1,182 @@
+{
+  "passed": 14,
+  "phase": "SAED_V4_03",
+  "results": [
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_0",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_1",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_2",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_3",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_4",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_5",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_6",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_7",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_8",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "name": "golden_9",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4
+      },
+      "passed": true
+    },
+    {
+      "expected": "error",
+      "name": "known_before_event",
+      "observed": "TemporalError",
+      "passed": true
+    },
+    {
+      "expected": "error",
+      "name": "unknown_subject",
+      "observed": "JournalError",
+      "passed": true
+    },
+    {
+      "expected": "error",
+      "name": "sequence_gap",
+      "observed": "SequenceError",
+      "passed": true
+    },
+    {
+      "expected": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4,
+        "projection_status": "complete"
+      },
+      "name": "projection",
+      "observed": {
+        "committed": 4,
+        "disposition": "committed",
+        "head_sequence": 4,
+        "projection_status": "complete",
+        "state_hash": "4ad116ed62ebf88785a6586598f06166f0c4cf280f75bf5dcf3134b52de2551e"
+      },
+      "passed": true
+    }
+  ],
+  "total": 14
+}

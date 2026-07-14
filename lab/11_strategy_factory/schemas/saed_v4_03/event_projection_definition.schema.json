@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fields": {
+      "items": {
+        "$ref": "projection_field_definition.schema.json"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "projection_name": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "projection_name",
+    "exact_version",
+    "twin_id",
+    "fields",
+    "description",
+    "limitations"
+  ],
+  "title": "Event Projection Definition",
+  "type": "object"
+}

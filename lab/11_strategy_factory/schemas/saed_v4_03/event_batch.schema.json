@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_hash": {
+      "type": "string"
+    },
+    "batch_id": {
+      "type": "string"
+    },
+    "events": {
+      "items": {
+        "$ref": "event_envelope.schema.json"
+      },
+      "type": "array"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "stream_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "batch_id",
+    "stream_id",
+    "stream_version",
+    "events",
+    "batch_hash"
+  ],
+  "title": "Event Batch",
+  "type": "object"
+}

@@ -1,0 +1,92 @@
+{
+  "description": "Deterministic event-state projection for the V4-03 golden fixture.",
+  "exact_version": "1.0.0",
+  "fields": [
+    {
+      "event_kinds": [
+        "quote"
+      ],
+      "field_id": "nq_last_bid",
+      "maximum_staleness_ms": 5000,
+      "payload_path": "bid",
+      "reducer": "last",
+      "required": true,
+      "subject_ids": [
+        "NQ"
+      ]
+    },
+    {
+      "default": 0,
+      "event_kinds": [
+        "trade"
+      ],
+      "field_id": "nq_trade_count",
+      "payload_path": "price",
+      "reducer": "count",
+      "required": false,
+      "subject_ids": [
+        "NQ"
+      ],
+      "window_seconds": 60
+    },
+    {
+      "event_kinds": [
+        "trade"
+      ],
+      "field_id": "nq_last_trade",
+      "maximum_staleness_ms": 5000,
+      "payload_path": "price",
+      "reducer": "last",
+      "required": true,
+      "subject_ids": [
+        "NQ"
+      ]
+    },
+    {
+      "default": 0,
+      "event_kinds": [
+        "reference_touch"
+      ],
+      "field_id": "reference_touch_count",
+      "payload_path": "price",
+      "reducer": "count",
+      "required": false,
+      "subject_ids": [
+        "NQ"
+      ],
+      "window_seconds": 60
+    },
+    {
+      "event_kinds": [
+        "related_symbol"
+      ],
+      "field_id": "es_relation_score",
+      "maximum_staleness_ms": 5000,
+      "payload_path": "score",
+      "reducer": "last",
+      "required": true,
+      "subject_ids": [
+        "ES"
+      ]
+    },
+    {
+      "event_kinds": [
+        "context_transition"
+      ],
+      "field_id": "context_state",
+      "maximum_staleness_ms": 5000,
+      "payload_path": "to",
+      "reducer": "last",
+      "required": true,
+      "subject_ids": [
+        "NQ"
+      ]
+    }
+  ],
+  "limitations": [
+    "fixture only",
+    "not a trading policy"
+  ],
+  "projection_name": "context_event_state",
+  "twin_id": "twin_exp0017_f2_demo"
+}

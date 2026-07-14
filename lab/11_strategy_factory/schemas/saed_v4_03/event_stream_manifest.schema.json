@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority": {
+      "$ref": "event_authority_boundary.schema.json"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "late_policy": {
+      "enum": [
+        "accept_flag",
+        "quarantine",
+        "reject"
+      ]
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maximum_lateness_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source": {
+      "$ref": "event_source_descriptor.schema.json"
+    },
+    "source_priority": {
+      "type": "integer"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "subject_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stream_id",
+    "exact_version",
+    "twin_id",
+    "source",
+    "subject_ids",
+    "accepted_kinds",
+    "source_priority",
+    "maximum_lateness_ms",
+    "late_policy",
+    "schema_version",
+    "authority",
+    "limitations"
+  ],
+  "title": "Event Stream Manifest",
+  "type": "object"
+}

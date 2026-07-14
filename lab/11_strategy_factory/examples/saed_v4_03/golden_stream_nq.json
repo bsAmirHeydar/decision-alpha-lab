@@ -1,0 +1,50 @@
+{
+  "accepted_kinds": [
+    "quote",
+    "trade",
+    "reference_touch",
+    "context_transition",
+    "heartbeat",
+    "correction"
+  ],
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "append_event": true,
+    "build_projection": true,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_twin": true,
+    "register_stream": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "exact_version": "1.0.0",
+  "late_policy": "accept_flag",
+  "limitations": [
+    "fixture only",
+    "no broker authority"
+  ],
+  "maximum_lateness_ms": 2000,
+  "schema_version": "1.0.0",
+  "source": {
+    "clock_domain": "canonical_utc",
+    "metadata": {
+      "feed": "fixture",
+      "symbol": "NQ"
+    },
+    "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "source_id": "src_nq_fixture",
+    "source_version": "1.0.0",
+    "timezone": "UTC",
+    "trusted": true
+  },
+  "source_priority": 10,
+  "stream_id": "stream_nq",
+  "subject_ids": [
+    "NQ"
+  ],
+  "twin_id": "twin_exp0017_f2_demo"
+}

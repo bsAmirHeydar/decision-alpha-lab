@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "last_event_time": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "missing": {
+      "type": "boolean"
+    },
+    "stale": {
+      "type": "boolean"
+    },
+    "value": {}
+  },
+  "required": [
+    "field_id",
+    "value",
+    "event_ids",
+    "last_event_time",
+    "stale",
+    "missing"
+  ],
+  "title": "Projection Value",
+  "type": "object"
+}

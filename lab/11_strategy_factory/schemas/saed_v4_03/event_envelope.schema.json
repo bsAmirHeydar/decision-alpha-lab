@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "correction_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "correlation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_kind": {
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "payload_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "source_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "stream_version": {
+      "type": "string"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stream_id",
+    "stream_version",
+    "twin_id",
+    "source_id",
+    "source_sequence",
+    "event_kind",
+    "subject_id",
+    "event_time",
+    "known_time",
+    "payload",
+    "payload_hash",
+    "source_hash"
+  ],
+  "title": "Event Envelope",
+  "type": "object"
+}

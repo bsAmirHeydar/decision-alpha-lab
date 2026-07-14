@@ -1,0 +1,166 @@
+{
+  "phase": "SAED_V4_03",
+  "schema_count": 32,
+  "schemas": [
+    {
+      "name": "alignment_snapshot.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/alignment_snapshot.schema.json",
+      "sha256": "bc1165346fd43da05b12ee674d491faff5b9e9c523d4d9cdf04bc4f850570c82"
+    },
+    {
+      "name": "append_result.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/append_result.schema.json",
+      "sha256": "1cdcf4bb31aa2138b752ef0cb2368432918a3c7431de0d4f36d7ea6827eeea62"
+    },
+    {
+      "name": "correction_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/correction_policy.schema.json",
+      "sha256": "a86b745eaf3b0078a4b997c0da0a176b0a67db33bad7ff62695781cb84cebb18"
+    },
+    {
+      "name": "event_authority_boundary.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_authority_boundary.schema.json",
+      "sha256": "5be4c4b83039eedfb4f00daa57353655153447a41ceaa301c9e43d359be03376"
+    },
+    {
+      "name": "event_batch.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_batch.schema.json",
+      "sha256": "3fccd65b62736043d7d42feabf4e5c29145023ed6ae99960ab294839fbdd3ac9"
+    },
+    {
+      "name": "event_clock_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_clock_policy.schema.json",
+      "sha256": "24f3637c1bbace0413a52a319af29391a72112b486d19f8c92d385c5de96059d"
+    },
+    {
+      "name": "event_envelope.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_envelope.schema.json",
+      "sha256": "6b81a79beb81f4696d5b9122066a5112b99cf026cd605fd330697da60c238311"
+    },
+    {
+      "name": "event_integrity_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_integrity_receipt.schema.json",
+      "sha256": "43a9bcf9bad471e3aed133e3244133528f61c6a4ac147a0bcc60faba001dc23e"
+    },
+    {
+      "name": "event_journal_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_journal_manifest.schema.json",
+      "sha256": "94c372bf411647fb23773de8b1d705cd04f5fbd79711456a469a209b27302fcf"
+    },
+    {
+      "name": "event_ordering_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_ordering_policy.schema.json",
+      "sha256": "4b3c5743f2463d095e7f2086e31555d83416692bbee4e161ca0b661e86a33305"
+    },
+    {
+      "name": "event_partition_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_partition_manifest.schema.json",
+      "sha256": "1a9aef498e2a27236fd171a62e596c922e62dc67772fec8062c9a07271369ccc"
+    },
+    {
+      "name": "event_projection_definition.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_projection_definition.schema.json",
+      "sha256": "bac2bb04265594fa9ca3250f6c365e1f76b9c6cf789dcebac0bef73ab24d4780"
+    },
+    {
+      "name": "event_query.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_query.schema.json",
+      "sha256": "431860cfd43c95b21f092409cb3dcfe3d5a8baade0e6365a5fad8ae8a2bead2c"
+    },
+    {
+      "name": "event_replay_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_replay_receipt.schema.json",
+      "sha256": "ef769ad90d287bae0cb9736f5ef58500084d850d24d5631dc3be03445c0237a5"
+    },
+    {
+      "name": "event_replay_request.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_replay_request.schema.json",
+      "sha256": "f5155702d7dc7ef66aa3cd5303dfd02279ee6b362a7cba93d8cf38007d8e2018"
+    },
+    {
+      "name": "event_replay_result.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_replay_result.schema.json",
+      "sha256": "a54b546f72badcb9bab9bcc0d6c1d04a018546eccda8a0b2d2146a77742fa2fe"
+    },
+    {
+      "name": "event_service_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_service_manifest.schema.json",
+      "sha256": "0a8c346f69e4f095fa21734c184f54f6ae0420da6deb6859f3c55ef522ee0161"
+    },
+    {
+      "name": "event_source_descriptor.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_source_descriptor.schema.json",
+      "sha256": "9f37de7995de9c2062a2abb132544f0cc9fc9cc1adabe7e0e8a00dbb292a6d75"
+    },
+    {
+      "name": "event_state_projection.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_state_projection.schema.json",
+      "sha256": "5335ff0a037567fdfe93ee887d2857c7abb43f5c4bc334bd3cc510915d00eb9c"
+    },
+    {
+      "name": "event_stream_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_stream_manifest.schema.json",
+      "sha256": "60cf32ae1a7088624f6f815a8f39e34b9cdd5d48b7a4768af7b6a3515ec91f42"
+    },
+    {
+      "name": "event_telemetry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/event_telemetry.schema.json",
+      "sha256": "071f086201b00c27130265201990a0f805e03dfcc84eee133376eaad2e4750be"
+    },
+    {
+      "name": "gap_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/gap_policy.schema.json",
+      "sha256": "8df22a47abe8e6be0e5d7ee1e2e7abe8473ab4f427ecf762ded681cb8516eb50"
+    },
+    {
+      "name": "gap_record.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/gap_record.schema.json",
+      "sha256": "d092c81ec8740df9c7933ac269472e3808a513b14dd43fc88096785b1d5e896d"
+    },
+    {
+      "name": "late_event_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/late_event_policy.schema.json",
+      "sha256": "fe38a4a7630120a8a79d0f42516e5eda2051a2058b31beaeeebc0bb580a708fd"
+    },
+    {
+      "name": "late_event_record.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/late_event_record.schema.json",
+      "sha256": "637b5339a5cb618ef6da7942c49a9dddd9bc4134e739b157509dba5e92bea264"
+    },
+    {
+      "name": "projection_field_definition.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/projection_field_definition.schema.json",
+      "sha256": "f99d5384ca873ac062ef6c814108e8490cc127f73ae316df57db53d93c2af27d"
+    },
+    {
+      "name": "projection_registry_entry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/projection_registry_entry.schema.json",
+      "sha256": "3ec40e57cbc0d49a59b60cd777a7859c98dd19863ceca80ab40d0ff264c4beb6"
+    },
+    {
+      "name": "projection_value.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/projection_value.schema.json",
+      "sha256": "3a72b2fb92a821f08dad169657973e7ad3ecc4e6de68d4f9ac82094b415ade28"
+    },
+    {
+      "name": "stream_registry_entry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/stream_registry_entry.schema.json",
+      "sha256": "756d74d685272c33ef30f884e76ddf6ccca70f775df66b7183524bc8a4ed4a10"
+    },
+    {
+      "name": "v4_03_to_v4_04_handoff.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/v4_03_to_v4_04_handoff.schema.json",
+      "sha256": "c259d99425eacc2f64c6d3ac3cab7f4e48ad5ce559caf483f8d0caa3aade3e70"
+    },
+    {
+      "name": "watermark_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/watermark_policy.schema.json",
+      "sha256": "25e1fbda3e5e4cb6b6d2911cad36eb8239ceec13b9e74d0e6ac55fd06f0b909b"
+    },
+    {
+      "name": "watermark_state.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_03/watermark_state.schema.json",
+      "sha256": "cd7708e47674ce9df05ce8bf1a3347e7bc7c14b0459a43201b9802f4c65b28b0"
+    }
+  ]
+}

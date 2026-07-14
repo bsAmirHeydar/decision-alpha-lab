@@ -1,0 +1,37 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "claims_not_made": [
+    "real alpha",
+    "treatment discovery",
+    "adaptive model training",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "clean_patch_verification": "pass",
+  "closed_schemas": 32,
+  "conformance_passed": 14,
+  "conformance_vectors": 14,
+  "golden_projection_hash": "b26787553efbf85f10e4af0da481787e476fb057f653bd391ec40518aea2d0c0",
+  "golden_projection_id": "projdef_345ea84547f15936c4677492",
+  "handoff_id": "v403to04_c01f1611a909cbebd940e5b6",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 13,
+  "next_phase": "SAED_V4_04",
+  "obsidian_notes": 58,
+  "phase": "SAED_V4_03",
+  "python_cumulative_tests": 605,
+  "python_modules": 22,
+  "python_phase_tests": 103,
+  "status": "accepted_reference_implementation",
+  "title": "Continuous-Time Event Model",
+  "version": "1.0.0"
+}

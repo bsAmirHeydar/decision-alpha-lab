@@ -1,0 +1,16 @@
+{
+  "component_root": "5cdf22b07774eed97b357a8843ff5f597149c3d222e5e24add6145e90d1f3825",
+  "details": {},
+  "journal_root": "857ef16209714c87daf0513ddd2ec28c76d9069ec2f3632094214f21abbd7e35",
+  "projection_hash": "b26787553efbf85f10e4af0da481787e476fb057f653bd391ec40518aea2d0c0",
+  "status": "pass",
+  "stream_manifest_hashes": [
+    "18faba441a715360146cf8f35f99cbacbfcebcfe8573ad2cbf3156eea392a161",
+    "9704d892919033d3edb52f18b4979b13864c2415a6040d8b80adc0a0f5e24c16"
+  ],
+  "twin_id": "twin_exp0017_f2_demo",
+  "watermark_ids": [
+    "wm_77d639472b262ffbc82d9d15",
+    "wm_bd121417d6f5396e36e5cbe4"
+  ]
+}

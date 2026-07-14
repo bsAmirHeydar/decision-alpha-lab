@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "type": "string"
+    },
+    "committed_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "disposition": {
+      "type": "string"
+    },
+    "head_sequence": {
+      "type": "integer"
+    },
+    "idempotent_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "journal_root": {
+      "type": "string"
+    },
+    "quarantined_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "batch_id",
+    "disposition",
+    "committed_event_ids",
+    "idempotent_event_ids",
+    "quarantined_event_ids",
+    "reasons",
+    "head_sequence",
+    "journal_root"
+  ],
+  "title": "Append Result",
+  "type": "object"
+}

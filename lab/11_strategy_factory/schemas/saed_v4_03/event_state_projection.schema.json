@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_as_of": {
+      "type": "string"
+    },
+    "gap_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "included_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "late_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "projection_id": {
+      "type": "string"
+    },
+    "projection_version": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "state_hash": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "values": {
+      "items": {
+        "$ref": "projection_value.schema.json"
+      },
+      "type": "array"
+    },
+    "watermark_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "projection_id",
+    "projection_version",
+    "twin_id",
+    "known_as_of",
+    "event_as_of",
+    "status",
+    "values",
+    "included_event_ids",
+    "late_event_ids",
+    "gap_ids",
+    "watermark_ids",
+    "sequence",
+    "state_hash"
+  ],
+  "title": "Event State Projection",
+  "type": "object"
+}

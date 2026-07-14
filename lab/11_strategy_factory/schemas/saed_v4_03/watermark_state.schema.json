@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_events": {
+      "type": "integer"
+    },
+    "late_events": {
+      "type": "integer"
+    },
+    "maximum_event_time": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "maximum_lateness_ms": {
+      "type": "integer"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "watermark_time": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "stream_id",
+    "maximum_event_time",
+    "watermark_time",
+    "maximum_lateness_ms",
+    "accepted_events",
+    "late_events"
+  ],
+  "title": "Watermark State",
+  "type": "object"
+}

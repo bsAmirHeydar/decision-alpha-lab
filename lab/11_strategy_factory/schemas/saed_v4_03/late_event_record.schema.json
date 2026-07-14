@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disposition": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "event_time": {
+      "type": "string"
+    },
+    "observed_watermark": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "stream_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "stream_id",
+    "event_time",
+    "observed_watermark",
+    "policy",
+    "disposition",
+    "reason"
+  ],
+  "title": "Late Event Record",
+  "type": "object"
+}

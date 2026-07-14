@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_as_of": {
+      "type": "string"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "expected_state_hash": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "observed_state_hash": {
+      "type": "string"
+    },
+    "projection_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "projection_id",
+    "known_as_of",
+    "event_as_of",
+    "expected_state_hash",
+    "observed_state_hash",
+    "event_count",
+    "status"
+  ],
+  "title": "Event Replay Receipt",
+  "type": "object"
+}

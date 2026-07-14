@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_root": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "journal_root": {
+      "type": "string"
+    },
+    "projection_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "stream_manifest_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "watermark_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "twin_id",
+    "journal_root",
+    "projection_hash",
+    "stream_manifest_hashes",
+    "watermark_ids",
+    "component_root",
+    "status",
+    "details"
+  ],
+  "title": "Event Integrity Receipt",
+  "type": "object"
+}

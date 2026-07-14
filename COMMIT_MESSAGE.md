@@ -1,1 +1,1 @@
-feat(saed-v4): implement V4-02 context digital twin kernel
+feat(saed-v4): implement V4-03 continuous-time event model

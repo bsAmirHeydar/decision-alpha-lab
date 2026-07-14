@@ -1,0 +1,52 @@
+{
+  "boundaries": {
+    "indexed_files": 175,
+    "status": "pass"
+  },
+  "claims_not_made": [
+    "real alpha",
+    "treatment discovery",
+    "adaptive model training",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "clean_patch_verification": "pass",
+  "clean_verification": {
+    "boundary": "pass",
+    "contracts": 32,
+    "cumulative_tests": 605,
+    "delivery_hashes": "pass",
+    "execution_mode": "split_after_combined_tool_timeout",
+    "mql5_static_files": 13,
+    "obsidian_notes": 58,
+    "phase_tests": 103
+  },
+  "conformance": {
+    "passed": 14,
+    "total": 14
+  },
+  "errors": 0,
+  "mql5": {
+    "metaeditor_compile": "pending_local_windows",
+    "static_files": 13,
+    "static_status": "pass"
+  },
+  "obsidian": {
+    "broken_links": 0,
+    "duplicate_titles": 0,
+    "notes": 58
+  },
+  "phase": "SAED_V4_03",
+  "schemas": {
+    "closed": true,
+    "count": 32
+  },
+  "status": "pass",
+  "tests": {
+    "cumulative": 605,
+    "phase": 103
+  },
+  "version": "1.0.0",
+  "warnings": 0
+}

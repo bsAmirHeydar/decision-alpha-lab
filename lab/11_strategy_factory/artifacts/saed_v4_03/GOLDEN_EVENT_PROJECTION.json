@@ -1,0 +1,31 @@
+{
+  "event_as_of": "2026-01-02T14:30:03Z",
+  "gap_ids": [],
+  "included_event_ids": [
+    "evt_039743d686e4885dbd03eee0",
+    "evt_04c9388eb2ad75828a62bbec",
+    "evt_23003dba6cca6feb44ecfc73",
+    "evt_7d87253c248614045119dd45",
+    "evt_f8cb37c35e1c0a7185019f1d"
+  ],
+  "known_as_of": "2026-01-02T14:31:00Z",
+  "late_event_ids": [],
+  "projection_id": "projdef_345ea84547f15936c4677492",
+  "projection_version": "1.0.0",
+  "sequence": 1,
+  "state_hash": "b26787553efbf85f10e4af0da481787e476fb057f653bd391ec40518aea2d0c0",
+  "status": "complete",
+  "twin_id": "twin_exp0017_f2_demo",
+  "values": [
+    "valid",
+    0.8,
+    20000.0,
+    20000.5,
+    1,
+    1
+  ],
+  "watermark_ids": [
+    "wm_77d639472b262ffbc82d9d15",
+    "wm_bd121417d6f5396e36e5cbe4"
+  ]
+}

@@ -1,0 +1,4 @@
+#ifndef ALPHA_LAB_SAED_V4_EVENT_WATERMARK
+#define ALPHA_LAB_SAED_V4_EVENT_WATERMARK
+datetime SAED_EventWatermarkTime(const datetime maximum_event_time,const int maximum_lateness_seconds){return maximum_event_time-maximum_lateness_seconds;}
+#endif

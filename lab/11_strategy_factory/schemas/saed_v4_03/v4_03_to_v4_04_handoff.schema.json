@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "event_as_of": {
+      "type": "string"
+    },
+    "event_integrity_receipt_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "const": "SAED_V4_04"
+    },
+    "phase": {
+      "const": "SAED_V4_03"
+    },
+    "projection_hash": {
+      "type": "string"
+    },
+    "projection_id": {
+      "type": "string"
+    },
+    "stream_manifest_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "twin_manifest_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "twin_manifest_hash",
+    "stream_manifest_hashes",
+    "projection_id",
+    "projection_hash",
+    "event_integrity_receipt_id",
+    "known_as_of",
+    "event_as_of",
+    "limitations",
+    "authority",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-03 to V4-04 Handoff",
+  "type": "object"
+}

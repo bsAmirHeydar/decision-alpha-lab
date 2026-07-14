@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "default": {},
+    "event_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "maximum_staleness_ms": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "payload_path": {
+      "type": "string"
+    },
+    "reducer": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "subject_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "window_seconds": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "field_id",
+    "event_kinds",
+    "payload_path",
+    "reducer"
+  ],
+  "title": "Projection Field Definition",
+  "type": "object"
+}

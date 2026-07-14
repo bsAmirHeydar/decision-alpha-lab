@@ -1,0 +1,18 @@
+{
+  "event_kind": "quote",
+  "event_time": "2026-01-02T14:30:00.000000Z",
+  "known_time": "2026-01-02T14:30:00.001000Z",
+  "payload": {
+    "ask": 20000.5,
+    "bid": 20000.0,
+    "spread": 0.5
+  },
+  "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+  "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "source_id": "src_nq_fixture",
+  "source_sequence": 1,
+  "stream_id": "stream_nq",
+  "stream_version": "1.0.0",
+  "subject_id": "UNKNOWN",
+  "twin_id": "twin_exp0017_f2_demo"
+}

@@ -1,0 +1,1761 @@
+[
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_0",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_1",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_2",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_3",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_4",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_5",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_6",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_7",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_8",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "v",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4
+    },
+    "name": "golden_9",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "bad1",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:29:00Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expect_error": true,
+    "name": "known_before_event",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "bad2",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "X",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expect_error": true,
+    "name": "unknown_subject",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "bad3",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expect_error": true,
+    "name": "sequence_gap",
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  },
+  {
+    "batch_id": "proj",
+    "event_as_of": "2026-01-02T14:30:03Z",
+    "events": [
+      {
+        "event_kind": "quote",
+        "event_time": "2026-01-02T14:30:00.000000Z",
+        "known_time": "2026-01-02T14:30:00.001000Z",
+        "payload": {
+          "ask": 20000.5,
+          "bid": 20000.0,
+          "spread": 0.5
+        },
+        "payload_hash": "000f192269d8f87fb19762b64e0214d75f8b9cdd44022f6b0054cfaea15724e2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 1,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "trade",
+        "event_time": "2026-01-02T14:30:00.500000Z",
+        "known_time": "2026-01-02T14:30:00.501000Z",
+        "payload": {
+          "price": 20000.5,
+          "volume": 4
+        },
+        "payload_hash": "f5db31c27b407e3b9f35fd31376cede1c726e7a72f6b13ad588a10f675637cd2",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 2,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "reference_touch",
+        "event_time": "2026-01-02T14:30:01.000000Z",
+        "known_time": "2026-01-02T14:30:01.002000Z",
+        "payload": {
+          "price": 20001.0,
+          "reference_id": "ref_f2_waist",
+          "side": "up"
+        },
+        "payload_hash": "7bf8663a60e393c5d9552546d2fe42ef68f23f634f9166968e07abf95b7e281c",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 3,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      },
+      {
+        "event_kind": "context_transition",
+        "event_time": "2026-01-02T14:30:02.000000Z",
+        "known_time": "2026-01-02T14:30:02.003000Z",
+        "payload": {
+          "from": "initialized",
+          "to": "valid",
+          "trigger": "confirmation"
+        },
+        "payload_hash": "6ff3ace1e7e4569ebe0c8b4b827c18b5a2ef64e4f204aba28e2958822b8ce7ea",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_sequence": 4,
+        "stream_id": "stream_nq",
+        "stream_version": "1.0.0",
+        "subject_id": "NQ",
+        "twin_id": "twin_exp0017_f2_demo"
+      }
+    ],
+    "expected": {
+      "committed": 4,
+      "disposition": "committed",
+      "head_sequence": 4,
+      "projection_status": "complete"
+    },
+    "known_as_of": "2026-01-02T14:31:00Z",
+    "name": "projection",
+    "projection": {
+      "description": "Deterministic event-state projection for the V4-03 golden fixture.",
+      "exact_version": "1.0.0",
+      "fields": [
+        {
+          "event_kinds": [
+            "quote"
+          ],
+          "field_id": "nq_last_bid",
+          "maximum_staleness_ms": 5000,
+          "payload_path": "bid",
+          "reducer": "last",
+          "required": true,
+          "subject_ids": [
+            "NQ"
+          ]
+        },
+        {
+          "default": 0,
+          "event_kinds": [
+            "trade"
+          ],
+          "field_id": "nq_trade_count",
+          "payload_path": "price",
+          "reducer": "count",
+          "required": false,
+          "subject_ids": [
+            "NQ"
+          ],
+          "window_seconds": 60
+        },
+        {
+          "event_kinds": [
+            "trade"
+          ],
+          "field_id": "nq_last_trade",
+          "maximum_staleness_ms": 5000,
+          "payload_path": "price",
+          "reducer": "last",
+          "required": true,
+          "subject_ids": [
+            "NQ"
+          ]
+        },
+        {
+          "default": 0,
+          "event_kinds": [
+            "reference_touch"
+          ],
+          "field_id": "reference_touch_count",
+          "payload_path": "price",
+          "reducer": "count",
+          "required": false,
+          "subject_ids": [
+            "NQ"
+          ],
+          "window_seconds": 60
+        },
+        {
+          "event_kinds": [
+            "context_transition"
+          ],
+          "field_id": "context_state",
+          "maximum_staleness_ms": 5000,
+          "payload_path": "to",
+          "reducer": "last",
+          "required": true,
+          "subject_ids": [
+            "NQ"
+          ]
+        }
+      ],
+      "limitations": [
+        "fixture only",
+        "not a trading policy"
+      ],
+      "projection_name": "context_event_state",
+      "twin_id": "twin_exp0017_f2_demo"
+    },
+    "stream": {
+      "accepted_kinds": [
+        "quote",
+        "trade",
+        "reference_touch",
+        "context_transition",
+        "heartbeat",
+        "correction"
+      ],
+      "authority": {
+        "activate_runtime": false,
+        "allocate_risk": false,
+        "append_event": true,
+        "build_projection": true,
+        "mutate_twin_manifest": false,
+        "mutate_ucee_truth": false,
+        "network_access": false,
+        "read_twin": true,
+        "register_stream": true,
+        "replay": true,
+        "select_treatment": false,
+        "send_order": false
+      },
+      "exact_version": "1.0.0",
+      "late_policy": "accept_flag",
+      "limitations": [
+        "fixture only",
+        "no broker authority"
+      ],
+      "maximum_lateness_ms": 2000,
+      "schema_version": "1.0.0",
+      "source": {
+        "clock_domain": "canonical_utc",
+        "metadata": {
+          "feed": "fixture",
+          "symbol": "NQ"
+        },
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source_id": "src_nq_fixture",
+        "source_version": "1.0.0",
+        "timezone": "UTC",
+        "trusted": true
+      },
+      "source_priority": 10,
+      "stream_id": "stream_nq",
+      "subject_ids": [
+        "NQ"
+      ],
+      "twin_id": "twin_exp0017_f2_demo"
+    }
+  }
+]
