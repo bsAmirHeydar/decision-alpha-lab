@@ -1,10 +1,9 @@
-feat(exp0019): implement FP-I13 indicator replay and release hardening
+feat(exp0019): implement FP-I14 diagnostic differential validation
 
-- add deterministic full, incremental, and restart replay harnesses
-- prove timeframe invariance and multi-instance isolation
-- add latency, memory, object, throughput, and checkpoint budgets
-- add noncritical projection degradation with semantic preservation
-- add four indicator release profiles and release manifest
-- integrate MQL5 FP-I13 release telemetry and self-test indicator
-- add local MetaEditor acceptance script and complete user/runbook docs
-- preserve FP-DEC-012 as UNSET and keep execution authority disabled
+- add non-trading Diagnostic EA and MQL5 self-test
+- add canonical Indicator/EA/Python trace contracts
+- add pairwise and three-product differential comparison
+- add restart, reconnect, duplicate and stress validation
+- add append-only trace export and health diagnostics
+- add schemas, goldens, tools and detailed Obsidian docs
+- keep FP-DEC-012 unset and execution authority disabled

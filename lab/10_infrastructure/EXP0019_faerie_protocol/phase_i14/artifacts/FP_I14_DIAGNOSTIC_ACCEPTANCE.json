@@ -1,0 +1,69 @@
+{
+  "acceptance_hash": "99635d33dfe024b1e1b3d9b9a12c47e8e3167d63fbfd362cd4072a244ea67ee0",
+  "acceptance_id": "FPDACC-8839874cde61d22c64edb701",
+  "gates": [
+    {
+      "evidence_hash": "1928680d16551a5cd44aa9cbaccf4f9d343f08cbe3162ea6592762c4bbb80a70",
+      "gate_id": "THREE_PRODUCT_CONSENSUS",
+      "reason_codes": [
+        "FP_DIAG_READY"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "cbb30992a9bc0d8a36ed9ac9079525d3ab2e17cd895b7052c86f04663f764590",
+      "gate_id": "NEGATIVE_CONTROL_DETECTION",
+      "reason_codes": [
+        "FP_DIAG_PAYLOAD_MISMATCH"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "bd2e87df0d5bf1daf3a696c92bf01b2550b8f45840852bb8b9bfe0dfbd525fd5",
+      "gate_id": "STRESS_DETERMINISM",
+      "reason_codes": [
+        "FP_DIAG_STRESS_PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "f02cd342ff32974b2d0252faa67b017c8bd4683dcf43daa992ffbfa095d1637d",
+      "gate_id": "TRACE_TRUNCATION_NEGATIVE",
+      "reason_codes": [
+        "FP_DIAG_EVENT_MISSING_RIGHT"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "4587fb67675d157c6f8ac14c897fbe6b32e7e0fe2d2eb28c3b284f25067205b7",
+      "gate_id": "PYTHON_STATIC_SCHEMA_GOLDEN",
+      "reason_codes": [
+        "FP_DIAG_SOURCE_ACCEPTED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "evidence_hash": "1a1a464b89701d12fa8f0fee93f35ac87eb51c70f8ec74ea59e245377fadb920",
+      "gate_id": "METAEDITOR_COMPILE",
+      "reason_codes": [
+        "FP_DIAG_METAEDITOR_PENDING"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "evidence_hash": "7bb7777fff35fbe2bd1f99d6825571169ff2e371d8abe9c80ddbb2ce36852d10",
+      "gate_id": "LOCAL_TERMINAL_DIFFERENTIAL_RUNTIME",
+      "reason_codes": [
+        "FP_DIAG_RUNTIME_DIFFERENTIAL_PENDING"
+      ],
+      "status": "PENDING"
+    }
+  ],
+  "pending_external_gates": [
+    "METAEDITOR_COMPILE",
+    "LOCAL_TERMINAL_DIFFERENTIAL_RUNTIME"
+  ],
+  "production_ready": false,
+  "source_accepted": true,
+  "status": "PENDING"
+}

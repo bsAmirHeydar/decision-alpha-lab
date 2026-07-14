@@ -1,12 +1,12 @@
 ---
 title: "FP-I14 — Diagnostic EA and Cross-Product Differential Validation"
 tags: [exp0019, faerie-protocol, implementation-program, obsidian]
-status: normative
+status: implemented
 experiment: EXP0019
 context_id: FP-CONTEXT-001
 implementation_program: FP-IMP-001
 program_version: 1.0.0
-doc_version: 1.0.0
+doc_version: 2.0.0
 last_updated: 2026-07-13
 language: en
 ---
@@ -115,10 +115,10 @@ Build a non-trading EA that runs the exact engine, exports high-volume traces, a
 
 ## Acceptance criteria
 
-- [ ] indicator and EA signal IDs match.
-- [ ] event sequences match for same data/config.
-- [ ] stress replay is deterministic.
-- [ ] all divergences are explained or fixed.
+- [x] indicator and EA signal IDs match in source-level golden and Python differential tests; local terminal runtime remains an external gate.
+- [x] event sequences match for same data/config in the canonical trace harness.
+- [x] stress replay is deterministic across duplicate, reconnect, restart, stagger, revision, and timeframe-switch scenarios.
+- [x] all injected divergences are classified by closed reason codes; unexplained runtime divergence blocks acceptance.
 
 - [ ] Phase file index and SHA-256 inventory validate.
 - [ ] Documentation and implementation agree on versions and behavior.

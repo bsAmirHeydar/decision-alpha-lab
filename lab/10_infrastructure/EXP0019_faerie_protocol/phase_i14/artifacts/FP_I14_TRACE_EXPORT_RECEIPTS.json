@@ -1,0 +1,31 @@
+{
+  "receipts": [
+    {
+      "appended_records": 159,
+      "duplicate_records": 0,
+      "format": "BOTH",
+      "last_sequence": 159,
+      "path": "/mnt/data/fp_i14_repo/decision-alpha-lab/lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/artifacts/trace_exports/FP_I14_INDICATOR_TRACE",
+      "payload_hash": "0d151f15300ccadf04cd473417b423cf851181ffcdf624377e3f981e305af453",
+      "receipt_id": "FPEXPREC-d8d5488bb0259832b6acd48f"
+    },
+    {
+      "appended_records": 159,
+      "duplicate_records": 0,
+      "format": "BOTH",
+      "last_sequence": 159,
+      "path": "/mnt/data/fp_i14_repo/decision-alpha-lab/lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/artifacts/trace_exports/FP_I14_DIAGNOSTIC_EA_TRACE",
+      "payload_hash": "40dd742e5823c18f819585fb7033212c6a4fe01b7c38a482c88bae937a993aa0",
+      "receipt_id": "FPEXPREC-56901dbc1fd9fff1b06b06c1"
+    },
+    {
+      "appended_records": 159,
+      "duplicate_records": 0,
+      "format": "BOTH",
+      "last_sequence": 159,
+      "path": "/mnt/data/fp_i14_repo/decision-alpha-lab/lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/artifacts/trace_exports/FP_I14_PYTHON_REFERENCE_TRACE",
+      "payload_hash": "20ff80e09762f5c491cc5a23453514db1b2262334386d6241efb4fd9d212a510",
+      "receipt_id": "FPEXPREC-fffb029161c42d345f1e9877"
+    }
+  ]
+}

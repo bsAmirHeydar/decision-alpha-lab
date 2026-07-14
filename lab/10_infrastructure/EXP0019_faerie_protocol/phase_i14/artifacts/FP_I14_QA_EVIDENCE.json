@@ -1,0 +1,54 @@
+{
+  "acceptance_status": "PENDING",
+  "differential": {
+    "mismatch_count": 0,
+    "negative_control_mismatches": 1,
+    "negative_control_status": "FAIL",
+    "pairwise_reports": 3,
+    "three_product_status": "PASS"
+  },
+  "errors": 0,
+  "open_decision": "FP-DEC-012",
+  "open_decision_state": "UNSET",
+  "pending_external_gates": [
+    "METAEDITOR_COMPILE",
+    "LOCAL_TERMINAL_DIFFERENTIAL_RUNTIME"
+  ],
+  "phase_id": "FP-I14",
+  "production_ready": false,
+  "source_accepted": true,
+  "status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_AND_RUNTIME_PENDING",
+  "stress": {
+    "expected_negative": 3,
+    "expected_pass": 21,
+    "total_results": 24,
+    "unexpected_failures": 0
+  },
+  "tests": {
+    "available_fp_i02_to_i14": 794,
+    "direct_fp_i10_to_i14": 322,
+    "fp_i10_regression": 59,
+    "fp_i11_regression": 61,
+    "fp_i12_regression": 55,
+    "fp_i13_regression": 66,
+    "fp_i14": 81
+  },
+  "upstream_unavailable": [
+    "FP-I00 shared-core pinned roots absent in supplied base archive",
+    "FP-I01 previous-context entrypoints and pinned shared-core roots absent in supplied base archive"
+  ],
+  "validation": {
+    "boundary": "PASS",
+    "clean_baseline_patch": "PASS",
+    "delivery": "PASS",
+    "file_hash_catalog": "PASS",
+    "file_index": "PASS",
+    "golden": "9/9",
+    "mql5_static": "PASS",
+    "python_compile": "PASS",
+    "schemas": "18/18",
+    "zip_integrity": "PASS"
+  },
+  "version": "1.0.0",
+  "warnings": 0
+}

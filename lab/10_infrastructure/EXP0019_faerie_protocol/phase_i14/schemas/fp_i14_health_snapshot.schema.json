@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/schemas/fp_i14_health_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version"
+  ],
+  "title": "FP-I14 Health Snapshot",
+  "type": "object"
+}

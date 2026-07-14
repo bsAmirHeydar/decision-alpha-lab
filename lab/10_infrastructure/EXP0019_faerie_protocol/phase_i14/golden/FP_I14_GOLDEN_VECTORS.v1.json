@@ -1,0 +1,51 @@
+{
+  "phase_id": "FP-I14",
+  "vectors": [
+    {
+      "expected_hash": "8d23b104d51b268b59000651f279a5328b13455b603ffd8ee6041d83a82ccf21",
+      "name": "three_product_pass",
+      "vector_id": "FP-I14-GV-01"
+    },
+    {
+      "expected_hash": "67f8807e09440cc23c9e9797cb2fef70a62929293e5fb0fbdeb9aca4b0767367",
+      "name": "payload_mismatch",
+      "vector_id": "FP-I14-GV-02"
+    },
+    {
+      "expected_hash": "aaf1bbda6818d8ddbf0d763b2d9152a6354bf2767395932e53134ccf530d14bb",
+      "name": "state_mismatch",
+      "vector_id": "FP-I14-GV-03"
+    },
+    {
+      "expected_hash": "179f1cea3a0d7d6a99e2a7c10a0b27ae9831c71978051a3edb0743203da8c10a",
+      "name": "missing_event",
+      "vector_id": "FP-I14-GV-04"
+    },
+    {
+      "expected_hash": "aa21314b72abe8c14a970d89bd140ae1b8b84f66ad4279a6ca8fe6c44f7be504",
+      "name": "duplicate_delivery",
+      "vector_id": "FP-I14-GV-05"
+    },
+    {
+      "expected_hash": "cbde8e285aa3ed1db061dab54e3384e337884e9e0cde4fc460f4a262fc57613a",
+      "name": "restart_parity",
+      "vector_id": "FP-I14-GV-06"
+    },
+    {
+      "expected_hash": "6eb3a8d007647b45861baa36bc2d5273a4dede183847baaf996143631951c2c0",
+      "name": "reconnect_parity",
+      "vector_id": "FP-I14-GV-07"
+    },
+    {
+      "expected_hash": "2c511ad10e296d6d5d4b57ef1dbafff286dea119ae0b77327be8a0c2067e8897",
+      "name": "buffer_mismatch",
+      "vector_id": "FP-I14-GV-08"
+    },
+    {
+      "expected_hash": "c758d37fa15a6ba55f019404b16595966ac10137c70b51c7e15d97982aae71bf",
+      "name": "visual_inventory_mismatch",
+      "vector_id": "FP-I14-GV-09"
+    }
+  ],
+  "version": "1.0.0"
+}

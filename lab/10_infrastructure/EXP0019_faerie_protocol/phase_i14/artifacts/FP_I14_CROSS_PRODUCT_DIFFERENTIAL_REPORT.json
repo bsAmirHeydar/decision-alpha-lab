@@ -1,0 +1,42 @@
+{
+  "consensus_inventory_hash": "3cc4e7dd6a7d74e6d65c2a3f4414870cf6f62c58c2caba447e07eb1bcdc91e82",
+  "fixture_id": "FP-I14-ACCEPTANCE-FIXTURE",
+  "mismatch_count": 0,
+  "pairwise_reports": [
+    {
+      "compared_event_count": 159,
+      "left_run_id": "FPDRUN-e6ad7ace94c91badbe24e9e4",
+      "mismatches": [],
+      "report_hash": "15f4d1bcb616a5fe31ea43fc6deddce975157aa23cb754118aeaf6e213441d20",
+      "report_id": "FPDIFF-38516f712f5fae5820d28604",
+      "right_run_id": "FPDRUN-d5c2915da33ed6ebfece5250",
+      "status": "PASS"
+    },
+    {
+      "compared_event_count": 159,
+      "left_run_id": "FPDRUN-e6ad7ace94c91badbe24e9e4",
+      "mismatches": [],
+      "report_hash": "16ddf64e527fb536cb1a45f25caa8c44de3c25f3a9fe8a575d067c7b882b5f91",
+      "report_id": "FPDIFF-3b7932eb03992274bd51821e",
+      "right_run_id": "FPDRUN-ab829f34104395f0c762b5a7",
+      "status": "PASS"
+    },
+    {
+      "compared_event_count": 159,
+      "left_run_id": "FPDRUN-d5c2915da33ed6ebfece5250",
+      "mismatches": [],
+      "report_hash": "34383bc9e66b3c876e510dd993f97426a0fe23b88b6f1077eae14da37fd256d2",
+      "report_id": "FPDIFF-babf4a7bd3bca53529c225c8",
+      "right_run_id": "FPDRUN-ab829f34104395f0c762b5a7",
+      "status": "PASS"
+    }
+  ],
+  "products": [
+    "DIAGNOSTIC_EA",
+    "INDICATOR",
+    "PYTHON_REFERENCE"
+  ],
+  "report_hash": "1928680d16551a5cd44aa9cbaccf4f9d343f08cbe3162ea6592762c4bbb80a70",
+  "report_id": "FPXDIFF-239923eb1d38c7f599a5b6a4",
+  "status": "PASS"
+}

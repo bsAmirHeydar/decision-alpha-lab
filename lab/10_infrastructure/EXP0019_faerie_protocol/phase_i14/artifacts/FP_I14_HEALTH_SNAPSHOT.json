@@ -1,0 +1,25 @@
+{
+  "export_backlog": 0,
+  "mismatch_count": 0,
+  "product_states": [
+    [
+      "DIAGNOSTIC_EA",
+      "READY"
+    ],
+    [
+      "INDICATOR",
+      "READY"
+    ],
+    [
+      "PYTHON_REFERENCE",
+      "READY"
+    ]
+  ],
+  "reason_codes": [
+    "FP_DIAG_HEALTH_READY"
+  ],
+  "snapshot_hash": "57f3dbc5ccc5f9c40fb7113fd975ff234421d957c7e5b721a4ff7f0da5fbcc07",
+  "snapshot_id": "FPDHEALTH-99ba33a07c6472c6b6bb6587",
+  "state": "READY",
+  "trace_lag_events": 0
+}

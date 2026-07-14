@@ -1,0 +1,9 @@
+{
+  "local_terminal_differential_runtime": "PENDING_LOCAL_WINDOWS",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "open_decision": "FP-DEC-012",
+  "open_decision_state": "UNSET",
+  "phase_id": "FP-I14",
+  "status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_AND_RUNTIME_PENDING",
+  "version": "1.0.0"
+}

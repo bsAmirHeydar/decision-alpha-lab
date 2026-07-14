@@ -1,0 +1,17 @@
+{
+  "patch_id": "EXP0019-FP-I14-1.0.0",
+  "phase_id": "FP-I14",
+  "version": "1.0.0",
+  "title": "Diagnostic EA and Cross-Product Differential Validation",
+  "file_index": "EXP0019_FP_I14_FILE_INDEX.txt",
+  "file_count": 218,
+  "runtime_authority": "NONE",
+  "broker_authority": "NONE",
+  "network_authority": "NONE",
+  "file_authority": "LOCAL_COMMON_FILES_APPEND_ONLY",
+  "open_decision": "FP-DEC-012",
+  "open_decision_state": "UNSET",
+  "metaeditor_compile": "PENDING_LOCAL_WINDOWS",
+  "local_terminal_differential_runtime": "PENDING_LOCAL_WINDOWS",
+  "acceptance_status": "SOURCE_ACCEPTED_EXTERNAL_COMPILE_AND_RUNTIME_PENDING"
+}

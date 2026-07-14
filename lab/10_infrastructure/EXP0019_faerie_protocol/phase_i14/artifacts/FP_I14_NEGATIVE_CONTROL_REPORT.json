@@ -1,0 +1,22 @@
+{
+  "compared_event_count": 159,
+  "left_run_id": "FPDRUN-d5c2915da33ed6ebfece5250",
+  "mismatches": [
+    {
+      "field_name": "payload_hash",
+      "kind": "PAYLOAD_MISMATCH",
+      "left_product": "INDICATOR",
+      "left_value_hash": "455bcf18ab97364cce22996ef086f6941a8a6ac46b7bcc9a55448d4671f72d10",
+      "mismatch_id": "FPMM-82ab0154ab116bc3b4eb8e1e",
+      "reason_code": "FP_DIAG_PAYLOAD_MISMATCH",
+      "right_product": "DIAGNOSTIC_EA",
+      "right_value_hash": "76e94722ac6fc549e0fd36140b7d78f60debfdb2d068149f560de82a1f669bc4",
+      "semantic_id": "REFERENCE-D0-AN-BULLISH",
+      "sequence": 11
+    }
+  ],
+  "report_hash": "cbb30992a9bc0d8a36ed9ac9079525d3ab2e17cd895b7052c86f04663f764590",
+  "report_id": "FPDIFF-95f11b58f47a5af41c98b389",
+  "right_run_id": "FPDRUN-6c31dea2c47b3d73ff3cf962",
+  "status": "FAIL"
+}

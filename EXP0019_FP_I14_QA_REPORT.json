@@ -1,0 +1,57 @@
+{
+  "phase_id": "FP-I14",
+  "version": "1.0.0",
+  "status": "PASS_WITH_LOCAL_METAEDITOR_AND_RUNTIME_PENDING",
+  "tests": {
+    "fp_i14": 81,
+    "fp_i13_regression": 66,
+    "fp_i12_regression": 55,
+    "fp_i11_regression": 61,
+    "fp_i10_regression": 59,
+    "direct_fp_i10_to_i14": 322,
+    "available_fp_i02_to_i14": 794
+  },
+  "inventory": {
+    "python_modules": 21,
+    "test_modules": 18,
+    "closed_json_schemas": 18,
+    "mql5_includes": 14,
+    "ea_entrypoints": 2,
+    "delivery_documents": 98,
+    "documentation_lines": 3326,
+    "golden_vectors": 9
+  },
+  "differential": {
+    "products": 3,
+    "pairwise_comparisons": 3,
+    "source_level_consensus": "PASS",
+    "negative_control_detection": "PASS",
+    "stress_scenarios": "PASS"
+  },
+  "validation": {
+    "delivery": "PASS",
+    "boundary": "PASS",
+    "mql5_static": "PASS",
+    "python_compile": "PASS",
+    "schemas": "18/18",
+    "golden": "9/9",
+    "clean_baseline_patch": "PASS",
+    "file_index": "PASS",
+    "file_hash_catalog": "PASS",
+    "zip_integrity": "PASS"
+  },
+  "acceptance": {
+    "source_accepted": true,
+    "production_ready": false,
+    "pending_external_gates": [
+      "METAEDITOR_COMPILE",
+      "LOCAL_TERMINAL_DIFFERENTIAL_RUNTIME"
+    ]
+  },
+  "upstream_unavailable": [
+    "FP-I00 shared-core pinned roots absent in supplied base archive",
+    "FP-I01 previous-context entrypoints and pinned shared-core roots absent in supplied base archive"
+  ],
+  "errors": 0,
+  "warnings": 0
+}

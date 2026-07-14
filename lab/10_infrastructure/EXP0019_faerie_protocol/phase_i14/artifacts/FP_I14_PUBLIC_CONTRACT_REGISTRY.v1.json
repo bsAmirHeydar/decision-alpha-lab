@@ -1,0 +1,19 @@
+{
+  "contracts": [
+    "ProductManifest",
+    "TraceEvent",
+    "TraceInventory",
+    "TraceRun",
+    "DifferentialMismatch",
+    "PairwiseDifferentialReport",
+    "CrossProductReport",
+    "TraceCheckpoint",
+    "StressScenario",
+    "StressResult",
+    "ExportReceipt",
+    "HealthSnapshot",
+    "DiagnosticAcceptance"
+  ],
+  "phase_id": "FP-I14",
+  "version": "1.0.0"
+}

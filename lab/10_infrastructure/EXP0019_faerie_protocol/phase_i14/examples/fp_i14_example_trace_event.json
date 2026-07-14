@@ -1,0 +1,7 @@
+{
+  "event_type": "SIGNAL",
+  "payload_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "schema_version": "1.0.0",
+  "semantic_id": "SIG-EXAMPLE",
+  "sequence": 1
+}

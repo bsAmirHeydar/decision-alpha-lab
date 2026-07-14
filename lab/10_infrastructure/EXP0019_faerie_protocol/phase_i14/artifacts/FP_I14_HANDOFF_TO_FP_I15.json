@@ -1,0 +1,7 @@
+{
+  "entry_gate": "CROSS_PRODUCT_DIFFERENTIAL_PASS_AND_LOCAL_COMPILE",
+  "execution_authority": "NONE",
+  "from_phase": "FP-I14",
+  "paper_execution_blocked_until": "FP-I14 local runtime evidence accepted and FP-DEC-012 handling remains explicit",
+  "to_phase": "FP-I15"
+}

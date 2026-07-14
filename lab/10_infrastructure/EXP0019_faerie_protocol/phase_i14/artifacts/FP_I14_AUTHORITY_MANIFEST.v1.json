@@ -1,0 +1,15 @@
+{
+  "broker_authority": "NONE",
+  "chart_authority": "DIAGNOSTIC_DASHBOARD_ONLY",
+  "file_authority": "LOCAL_COMMON_FILES_APPEND_ONLY",
+  "forbidden": [
+    "OrderSend",
+    "CTrade",
+    "PositionOpen",
+    "PositionClose",
+    "WebRequest"
+  ],
+  "network_authority": "NONE",
+  "phase_id": "FP-I14",
+  "runtime_authority": "NONE"
+}
