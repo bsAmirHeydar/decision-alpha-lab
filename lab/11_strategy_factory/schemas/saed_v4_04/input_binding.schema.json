@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alias": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "alias",
+    "namespace",
+    "path"
+  ],
+  "title": "Input Binding",
+  "type": "object"
+}

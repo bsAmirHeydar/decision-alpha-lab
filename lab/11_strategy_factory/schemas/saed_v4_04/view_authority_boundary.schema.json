@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "build_package": {
+      "type": "boolean"
+    },
+    "build_view": {
+      "type": "boolean"
+    },
+    "fit_adaptive_normalizer": {
+      "type": "boolean"
+    },
+    "impute_silently": {
+      "type": "boolean"
+    },
+    "mutate_event_journal": {
+      "type": "boolean"
+    },
+    "mutate_twin_manifest": {
+      "type": "boolean"
+    },
+    "mutate_ucee_truth": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "read_approved_descriptor": {
+      "type": "boolean"
+    },
+    "read_event_projection": {
+      "type": "boolean"
+    },
+    "read_static_metadata": {
+      "type": "boolean"
+    },
+    "read_twin": {
+      "type": "boolean"
+    },
+    "replay": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "train_model": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_twin",
+    "read_event_projection",
+    "read_static_metadata",
+    "read_approved_descriptor",
+    "build_view",
+    "build_package",
+    "replay",
+    "mutate_ucee_truth",
+    "mutate_twin_manifest",
+    "mutate_event_journal",
+    "fit_adaptive_normalizer",
+    "impute_silently",
+    "train_model",
+    "select_treatment",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "network_access"
+  ],
+  "title": "View Authority Boundary",
+  "type": "object"
+}

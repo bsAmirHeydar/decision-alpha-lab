@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "payload_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "phase": {
+      "const": "SAED_V4_04"
+    }
+  },
+  "required": [
+    "id",
+    "payload_hash",
+    "phase"
+  ],
+  "title": "View Reproduction Receipt",
+  "type": "object"
+}

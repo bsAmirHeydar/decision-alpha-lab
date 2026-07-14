@@ -1,0 +1,201 @@
+{
+  "phase": "SAED_V4_04",
+  "schema_count": 39,
+  "schemas": [
+    {
+      "name": "cross_view_compatibility.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/cross_view_compatibility.schema.json",
+      "sha256": "af0f3fdd21d84c2091c696fef227a32cc6745cebf43dfea20ee08d1be9e72495"
+    },
+    {
+      "name": "freshness_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/freshness_manifest.schema.json",
+      "sha256": "74bc6467329320766942ad9a13574ae017c4eb11508f46585341e29859b2eb59"
+    },
+    {
+      "name": "input_binding.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/input_binding.schema.json",
+      "sha256": "9e969d6c8c5a4105fcaed0404464119c5a03d1c07973592a25ece46d040cdbd3"
+    },
+    {
+      "name": "lineage_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/lineage_manifest.schema.json",
+      "sha256": "5144e356fdc7b7bdfcd8267762f76540de8b158f2d40a7563108c3ed95dd5ee8"
+    },
+    {
+      "name": "missingness_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/missingness_manifest.schema.json",
+      "sha256": "9b735f57157f435d07cb1a79b5cb35d157c905180732fa198b21678d28011205"
+    },
+    {
+      "name": "multimodal_view_package.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/multimodal_view_package.schema.json",
+      "sha256": "a1b92c1e388522b382636ceab8fa7e317418c86aa63fa07b86da2a7dcb026b4e"
+    },
+    {
+      "name": "quality_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/quality_manifest.schema.json",
+      "sha256": "954d5aed94d41d0eb59f7ff375ca268000add4fc113e503981a884e55766595d"
+    },
+    {
+      "name": "source_value.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/source_value.schema.json",
+      "sha256": "0b276bcc0fe12eea7a65e7dc261e598f10f951c38175855ddddeb67621dac501"
+    },
+    {
+      "name": "static_normalizer.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/static_normalizer.schema.json",
+      "sha256": "1c71d9a1d24b8a39b6dfc3dfe00098e367d875029b62ce45d6d8ee9c5299fb59"
+    },
+    {
+      "name": "v4_04_to_v4_05_handoff.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/v4_04_to_v4_05_handoff.schema.json",
+      "sha256": "82c597d011c1b7b9009419a7a473541e7b6614577341ad7c66a6d40cc96b9630"
+    },
+    {
+      "name": "view_artifact.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_artifact.schema.json",
+      "sha256": "441aa2e2be79b45f655c703c14acb78f163c4a56df42f53afe705c38da976105"
+    },
+    {
+      "name": "view_authority_boundary.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_authority_boundary.schema.json",
+      "sha256": "c34165fcf4a77c3c10d55ff3b8aa6e29fbb65de34924f60fa2981e02084f0365"
+    },
+    {
+      "name": "view_build_request.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_build_request.schema.json",
+      "sha256": "e539c0444a2684f65671ca4a5b420920a296cdc405912fe0f432b26a388e0012"
+    },
+    {
+      "name": "view_cache_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_cache_receipt.schema.json",
+      "sha256": "108028b3fbc9708d61d6a8bca56e155319383fadb5ccbb1372eeaf6dbe71805d"
+    },
+    {
+      "name": "view_compatibility_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_compatibility_policy.schema.json",
+      "sha256": "576d8a3b653765c0670d83199cae7628f1623b2c248e611724b75519aa66a8dc"
+    },
+    {
+      "name": "view_diff.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_diff.schema.json",
+      "sha256": "08055d269beeb585e1b7a588beead05f13c2a27e2896dd044f22dac0acac8725"
+    },
+    {
+      "name": "view_feature_definition.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_feature_definition.schema.json",
+      "sha256": "a6d724f5a5eb224fed2b243d124a0e7402abf1caad0afc23dc1b72177a61cada"
+    },
+    {
+      "name": "view_feature_value.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_feature_value.schema.json",
+      "sha256": "f84b0c6a9bb6ca8cac317ad50383ace381f768b17ea2a2caa0e80f76a0ddcd9b"
+    },
+    {
+      "name": "view_freshness_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_freshness_policy.schema.json",
+      "sha256": "a2e60a64e35c05a92e98d328143b0ac5b04c5089371c14d5a53845fcba9a3ca0"
+    },
+    {
+      "name": "view_incident.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_incident.schema.json",
+      "sha256": "f5b2c3d18ceb4cbcfb6752e99acf22818eb5ddbff89b94ed38b9c221550c1376"
+    },
+    {
+      "name": "view_integrity_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_integrity_receipt.schema.json",
+      "sha256": "5effa526ecadc377d11410b4742f6450247b17d953a213fcd4e3264f08539a29"
+    },
+    {
+      "name": "view_lineage_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_lineage_policy.schema.json",
+      "sha256": "fabf2ff78a17e693e8f86d4f8b0ec3039906852fb442eafd7033f5d3b65f6f67"
+    },
+    {
+      "name": "view_missingness_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_missingness_policy.schema.json",
+      "sha256": "71c2b05087cf899a3fa6230c3ee1086dc4380fb470b65a2137772877bd3e484d"
+    },
+    {
+      "name": "view_normalization_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_normalization_policy.schema.json",
+      "sha256": "87ae3d2d51132207422ddbb00c0fffa62990d17c1105028655ca258d96213171"
+    },
+    {
+      "name": "view_package_registry_entry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_package_registry_entry.schema.json",
+      "sha256": "14e0cbd79873c3d7611e1927f2b176d890307ccbf2ffe331109a6caa930976fd"
+    },
+    {
+      "name": "view_partition_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_partition_manifest.schema.json",
+      "sha256": "1de31e84ade7208f320300964849b38f3720d863083387f53b45c9ee39a05204"
+    },
+    {
+      "name": "view_quality_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_quality_policy.schema.json",
+      "sha256": "09b671defbd50efe64de8a50f583f579a14464e97ad6408b3c752e1b5bc429e6"
+    },
+    {
+      "name": "view_quarantine_record.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_quarantine_record.schema.json",
+      "sha256": "f01cab01f975b9b14586839a0644b93ea14e0d1a7b01da91286f028ab03c3b8a"
+    },
+    {
+      "name": "view_query.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_query.schema.json",
+      "sha256": "f0976d64452e61a9f02fc8c6aa70fafec5aee932f06d692660e63a8bdf375182"
+    },
+    {
+      "name": "view_query_result.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_query_result.schema.json",
+      "sha256": "b027b55e41e95a99a82faa2a9463e2a49b506e93950b8465a9104ce5fd322edb"
+    },
+    {
+      "name": "view_registry_entry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_registry_entry.schema.json",
+      "sha256": "1f7c5d1d816f5810a93e4a506160ebe9502065d862d4dcce34193d3047abc5c7"
+    },
+    {
+      "name": "view_release_manifest.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_release_manifest.schema.json",
+      "sha256": "a2e76a3684db3ca335cb6abd198416dceb113dff2bf1812d205795dea566efdc"
+    },
+    {
+      "name": "view_replay_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_replay_receipt.schema.json",
+      "sha256": "3f9d4a70fb697679fc8c0f981ad98dc4a52e25d97e3d88c56a9b4ed8de68617a"
+    },
+    {
+      "name": "view_reproduction_receipt.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_reproduction_receipt.schema.json",
+      "sha256": "24ce6c37cf9a4eaad11fd9454438106947c92691f6259c1482de03b09845d704"
+    },
+    {
+      "name": "view_retention_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_retention_policy.schema.json",
+      "sha256": "54615efe8ae065e89d41aa5ac86444cad796b813aafe030a030bc1213da20e51"
+    },
+    {
+      "name": "view_security_policy.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_security_policy.schema.json",
+      "sha256": "ab6f64bbbb9dfd7bff66bcfeec8c3168bb1203c5d846eb252b541bcf5e05526e"
+    },
+    {
+      "name": "view_specification.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_specification.schema.json",
+      "sha256": "d8eb555661bae6f667a728b40bc67f3026c26da36fd576c97a0ab3ac3bd2d021"
+    },
+    {
+      "name": "view_support_assessment.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_support_assessment.schema.json",
+      "sha256": "e8dabba94ef523c75f82ce72b87197407d2da66e3ae5aff76690dbec4c1352f7"
+    },
+    {
+      "name": "view_telemetry.schema",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_telemetry.schema.json",
+      "sha256": "117a6bc1e95cc05ce58eba75bd2b892d3daeea073fd586911429304edb2329e2"
+    }
+  ]
+}

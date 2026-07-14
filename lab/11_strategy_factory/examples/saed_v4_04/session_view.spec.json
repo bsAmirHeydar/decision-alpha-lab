@@ -1,0 +1,178 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Session state in canonical calendar",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "boundary_recent",
+      "feature_type": "boolean",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "session_boundary_recent"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "minutes_from_open",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "minutes_from_open"
+        }
+      ],
+      "maximum": 1440,
+      "maximum_staleness_ms": null,
+      "minimum": -1440,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [
+        "asia",
+        "closed",
+        "london",
+        "new_york",
+        "overlap"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "session_id",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "session_id"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "session_open",
+      "feature_type": "boolean",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "session_open"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "session",
+  "limitations": [],
+  "minimum_support_score": 0.75,
+  "required_view": true,
+  "semantic_hash": "d5288f704018d148d5089f844874f62ad9bf8e3090c6774570d20a9a927b09d0",
+  "specification_id": "viewspec_d5288f704018d148d5089f84",
+  "twin_id": "twin_golden",
+  "view_name": "session_view"
+}

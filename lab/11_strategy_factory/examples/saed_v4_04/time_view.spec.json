@@ -1,0 +1,172 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Canonical UTC timing without timezone ambiguity",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "hour_utc",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "hour_utc"
+        }
+      ],
+      "maximum": 23,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "seconds_since_context_start",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "twin",
+          "path": "context_start_time"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "age_seconds",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "seconds_since_last_event",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "last_event_marker"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "age_seconds",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "weekday_utc",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "weekday_utc"
+        }
+      ],
+      "maximum": 6,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "time",
+  "limitations": [],
+  "minimum_support_score": 0.75,
+  "required_view": true,
+  "semantic_hash": "4b5c1676a60020be26e6bcc32bb9e84e02d0c50445795a95cda2b67ebf410dca",
+  "specification_id": "viewspec_4b5c1676a60020be26e6bcc3",
+  "twin_id": "twin_golden",
+  "view_name": "time_view"
+}

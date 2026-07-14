@@ -1,0 +1,46 @@
+{
+  "boundaries": {
+    "indexed_files": 205,
+    "status": "pass"
+  },
+  "claims_not_made": [
+    "learned representation",
+    "adaptive model training",
+    "real alpha",
+    "treatment invention",
+    "treatment selection",
+    "risk allocation",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "clean_patch_verification": "pending",
+  "conformance": {
+    "passed": 14,
+    "total": 14
+  },
+  "errors": 0,
+  "mql5": {
+    "metaeditor_compile": "pending_local_windows",
+    "static_files": 14,
+    "static_status": "pass"
+  },
+  "obsidian": {
+    "broken_links": 0,
+    "duplicate_titles": 0,
+    "notes": 60
+  },
+  "phase": "SAED_V4_04",
+  "schemas": {
+    "closed": true,
+    "count": 39
+  },
+  "status": "pass",
+  "tests": {
+    "cumulative_accepted": 724,
+    "monolithic_collection": "not_applicable_due_to_legacy_duplicate_test_module_basenames",
+    "phase": 119
+  },
+  "version": "1.0.0",
+  "warnings": 0
+}

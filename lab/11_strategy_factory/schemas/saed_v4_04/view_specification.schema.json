@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$ref": "view_authority_boundary.schema.json"
+    },
+    "dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "evidence_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "features": {
+      "items": {
+        "$ref": "view_feature_definition.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "kind": {
+      "enum": [
+        "price",
+        "structure",
+        "time",
+        "higher_timeframe",
+        "intermarket",
+        "liquidity",
+        "session",
+        "execution",
+        "context_ancestry",
+        "treatment_descriptor",
+        "custom"
+      ]
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minimum_support_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "required_view": {
+      "type": "boolean"
+    },
+    "semantic_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "specification_id": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "view_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "view_name",
+    "exact_version",
+    "twin_id",
+    "kind",
+    "features",
+    "evidence_roles",
+    "required_view",
+    "minimum_support_score",
+    "authority",
+    "description",
+    "dependencies",
+    "limitations",
+    "specification_id",
+    "semantic_hash"
+  ],
+  "title": "View Specification",
+  "type": "object"
+}

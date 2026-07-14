@@ -1,0 +1,54 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "construct_temporal_hypergraph": true,
+    "mutate_ucee_truth": false,
+    "mutate_view_artifacts": false,
+    "read_views": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "compatibility_status": "compatible",
+  "event_as_of": "2026-01-05T14:30:00Z",
+  "evidence_role": "development",
+  "handoff_hash": "1f5fa8e923314c7e517717b3c61d1248f5e2f1c5e3dbf14f7fb7d2ccb758640a",
+  "handoff_id": "v404to05_399ba083f10348d577995cd5",
+  "integrity_receipt_id": "viewintegrity_e8dca4aa9b9b2ab3f0e918ff",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "View package contains no learned encoder.",
+    "Missingness is explicit.",
+    "Treatment descriptors are read-only."
+  ],
+  "next_phase": "SAED_V4_05",
+  "package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "package_id": "viewpkg_d1b1bacaedb23935d8710739",
+  "phase": "SAED_V4_04",
+  "twin_id": "twin_golden",
+  "view_hashes": [
+    "32fa8c0d046d17b55905a745c56fb5baa843b14cf711953c687d42e41b7e0a1f",
+    "3d2ea0983bf903cd13963c6aa8fbf00c1a69bf04a0b0f82f708095efbe882f6c",
+    "58b0e96da29dff629a43b5897a8115a1d06e8a9de522581ba358f8b775e9b758",
+    "7cbedc2d8260ec6e71c8c2d1e64bf8663c23437d6b362c1b0b3d30d2a0aae94d",
+    "957ac3055859e12021d933f0e17733438403036eaf3684bb0cff81c7c59fd835",
+    "9868c34af5a3f0100f246fef78b0119e7daa36a285e0a3b1501acdf0d459cd0c",
+    "9ffef11f50e128571bf521a47a7a4b34353347dcb013ad656da1b6090b57eec6",
+    "e814fa4d6e959ca9d9779bd06f53d8a4d8c678c1db72520712c6672196f1cf0d",
+    "f09943c5f6ad040785759b70e879c6d78354204e09129239547719cb83f0285e",
+    "fcaa11b071fbcc31200a5f236048e6cf32c5b154ad8b6854f713a7f2ab1a1a00"
+  ],
+  "view_ids": [
+    "view_18b6f1858140259622392272",
+    "view_2bf3f85d0a3d56fdc92b3f60",
+    "view_4cf89050a5a23e4839456710",
+    "view_5df331a3330439d37af73496",
+    "view_b5fb3853e571569e9f945e68",
+    "view_babd288a3bf41c678eac6107",
+    "view_cb8c3bb81d3f9e624efbde27",
+    "view_d5693a05c0df420e67532165",
+    "view_edfc5de267f7fdd2dc57f982",
+    "view_f24efc34b0a396bc4187a57f"
+  ]
+}

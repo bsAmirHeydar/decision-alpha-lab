@@ -1,0 +1,9 @@
+{
+  "explicit_default": null,
+  "feature_id": "bad",
+  "feature_type": "number",
+  "inputs": [],
+  "missingness": "explicit_default",
+  "required": true,
+  "transform": "identity"
+}

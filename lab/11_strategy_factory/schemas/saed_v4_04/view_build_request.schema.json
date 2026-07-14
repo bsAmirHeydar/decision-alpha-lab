@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "source_value.schema.json"
+      },
+      "type": "array"
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "known_as_of",
+    "event_as_of",
+    "evidence_role",
+    "sources",
+    "request_id"
+  ],
+  "title": "View Build Request",
+  "type": "object"
+}

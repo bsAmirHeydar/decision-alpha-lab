@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_categories": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "explicit_default": {},
+    "feature_id": {
+      "type": "string"
+    },
+    "feature_type": {
+      "enum": [
+        "number",
+        "string",
+        "boolean",
+        "vector",
+        "category"
+      ]
+    },
+    "inputs": {
+      "items": {
+        "$ref": "input_binding.schema.json"
+      },
+      "type": "array"
+    },
+    "maximum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "maximum_staleness_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "minimum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "minimum_quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "missingness": {
+      "enum": [
+        "prohibit",
+        "mask",
+        "unknown",
+        "explicit_default"
+      ]
+    },
+    "normalizer": {
+      "$ref": "static_normalizer.schema.json"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "transform": {
+      "enum": [
+        "identity",
+        "midpoint",
+        "spread",
+        "difference",
+        "ratio",
+        "log_return",
+        "boolean_and",
+        "boolean_or",
+        "concat",
+        "vector",
+        "age_seconds"
+      ]
+    },
+    "vector_length": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "feature_id",
+    "feature_type",
+    "inputs",
+    "transform",
+    "required",
+    "missingness",
+    "explicit_default",
+    "maximum_staleness_ms",
+    "minimum_quality",
+    "normalizer",
+    "allowed_categories",
+    "minimum",
+    "maximum",
+    "vector_length",
+    "description"
+  ],
+  "title": "View Feature Definition",
+  "type": "object"
+}

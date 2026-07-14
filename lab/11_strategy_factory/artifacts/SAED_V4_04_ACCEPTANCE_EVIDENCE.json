@@ -1,0 +1,43 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "construct_temporal_hypergraph": true,
+    "mutate_ucee_truth": false,
+    "mutate_view_artifacts": false,
+    "read_views": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "claims_not_made": [
+    "learned representation",
+    "adaptive model training",
+    "real alpha",
+    "treatment invention",
+    "treatment selection",
+    "risk allocation",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "clean_patch_verification": "pending",
+  "closed_schemas": 39,
+  "conformance_passed": 14,
+  "conformance_vectors": 14,
+  "cumulative_execution_mode": "accepted_prior_phase_evidence_plus_isolated_v4_04_suite; monolithic pytest collection is invalid because legacy phase test modules reuse basenames",
+  "golden_package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "golden_package_id": "viewpkg_d1b1bacaedb23935d8710739",
+  "handoff_id": "v404to05_399ba083f10348d577995cd5",
+  "institutional_view_count": 10,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 14,
+  "obsidian_notes": 60,
+  "phase": "SAED_V4_04",
+  "python_cumulative_accepted_tests": 724,
+  "python_modules": 30,
+  "python_phase_tests": 119,
+  "status": "accepted_reference_implementation",
+  "title": "Multimodal View Platform",
+  "version": "1.0.0"
+}

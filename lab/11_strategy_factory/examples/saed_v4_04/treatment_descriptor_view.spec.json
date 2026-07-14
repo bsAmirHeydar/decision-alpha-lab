@@ -1,0 +1,185 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Read-only externally approved descriptor; cannot invent or select treatment",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "descriptor_id",
+      "feature_type": "string",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "approved_treatment",
+          "path": "descriptor_id"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [
+        "breakout",
+        "market",
+        "pullback_limit"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "entry_mechanism",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "approved_treatment",
+          "path": "entry_mechanism"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "path_dependent",
+      "feature_type": "boolean",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "approved_treatment",
+          "path": "path_dependent"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "payoff_profile",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "approved_treatment",
+          "path": "payoff_profile"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "treatment_descriptor",
+  "limitations": [
+    "No treatment selection.",
+    "V4-06 remains authority for Treatment DSL."
+  ],
+  "minimum_support_score": 1.0,
+  "required_view": false,
+  "semantic_hash": "0f42b66d77d06d17f45ff785df589c8370c6e4dae8fa8dd7b56cd0a9dd98fb53",
+  "specification_id": "viewspec_0f42b66d77d06d17f45ff785",
+  "twin_id": "twin_golden",
+  "view_name": "treatment_descriptor_view"
+}

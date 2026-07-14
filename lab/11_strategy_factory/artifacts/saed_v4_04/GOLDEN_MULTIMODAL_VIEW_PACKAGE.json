@@ -1,0 +1,1316 @@
+{
+  "compatibility": {
+    "degraded_views": [],
+    "event_as_of": "2026-01-05T14:30:00Z",
+    "evidence_role": "development",
+    "known_as_of": "2026-01-05T14:30:01Z",
+    "missing_required_views": [],
+    "reasons": [],
+    "status": "compatible",
+    "twin_id": "twin_golden",
+    "view_ids": [
+      "view_18b6f1858140259622392272",
+      "view_2bf3f85d0a3d56fdc92b3f60",
+      "view_4cf89050a5a23e4839456710",
+      "view_5df331a3330439d37af73496",
+      "view_b5fb3853e571569e9f945e68",
+      "view_babd288a3bf41c678eac6107",
+      "view_cb8c3bb81d3f9e624efbde27",
+      "view_d5693a05c0df420e67532165",
+      "view_edfc5de267f7fdd2dc57f982",
+      "view_f24efc34b0a396bc4187a57f"
+    ]
+  },
+  "event_as_of": "2026-01-05T14:30:00Z",
+  "evidence_role": "development",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "No learned encoder.",
+    "No silent imputation."
+  ],
+  "lineage_root": "99a05e3e3525c412a564cfaf1d040c377ff624d97253e2a0ef2ff8822b88d55d",
+  "missingness_vector": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "optional_view_names": [
+    "context_ancestry_view",
+    "execution_view",
+    "treatment_descriptor_view"
+  ],
+  "package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "package_id": "viewpkg_d1b1bacaedb23935d8710739",
+  "package_version": "1.0.0",
+  "quality_vector": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "required_view_names": [
+    "higher_timeframe_view",
+    "intermarket_view",
+    "liquidity_view",
+    "price_view",
+    "session_view",
+    "structure_view",
+    "time_view"
+  ],
+  "twin_id": "twin_golden",
+  "views": [
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "context_family",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "F2",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:context_family"
+          ],
+          "source_value_hashes": [
+            "c7f4ee2990be862bfe0355f0b59935c0fcb6ee01b048559974e0d76d948c6ef5"
+          ],
+          "stale": false,
+          "value": "F2"
+        },
+        {
+          "feature_id": "generation_depth",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 2,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:generation_depth"
+          ],
+          "source_value_hashes": [
+            "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+          ],
+          "stale": false,
+          "value": 2
+        },
+        {
+          "feature_id": "parent_context_id",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "ctx_parent",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:parent_context_id"
+          ],
+          "source_value_hashes": [
+            "39058697aa9743ca6ae507d943234844ed862de11956c59003ab6337add89dc0"
+          ],
+          "stale": false,
+          "value": "ctx_parent"
+        },
+        {
+          "feature_id": "transition_path",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": [
+            1.0,
+            3.0
+          ],
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin",
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:transition_code_1",
+            "twin:transition_code_2"
+          ],
+          "source_value_hashes": [
+            "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+            "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          ],
+          "stale": false,
+          "value": [
+            1.0,
+            3.0
+          ]
+        }
+      ],
+      "kind": "context_ancestry",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "00514d5c22af65426a8810e2c943886c6cfc11174b78e6c945c1ac07dfeeba94",
+      "specification_hash": "a776b9ad18f4f79db186cc49bc1ffb6ce07666d620511b507b5264dfd03a0dc2",
+      "specification_id": "viewspec_a776b9ad18f4f79db186cc49",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 2,
+        "optional_total": 2,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 2,
+        "required_total": 2,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "9868c34af5a3f0100f246fef78b0119e7daa36a285e0a3b1501acdf0d459cd0c",
+      "view_id": "view_edfc5de267f7fdd2dc57f982",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "broker_state",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "normal",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_execution"
+          ],
+          "source_keys": [
+            "execution:broker_state"
+          ],
+          "source_value_hashes": [
+            "82fbb169e798324839513347c048ecc9c91a6574588e1760f13d6b9650c328bf"
+          ],
+          "stale": false,
+          "value": "normal"
+        },
+        {
+          "feature_id": "estimated_slippage_points",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.1,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_execution"
+          ],
+          "source_keys": [
+            "execution:estimated_slippage_points"
+          ],
+          "source_value_hashes": [
+            "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310"
+          ],
+          "stale": false,
+          "value": 0.1
+        },
+        {
+          "feature_id": "latency_ms",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 25.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_execution"
+          ],
+          "source_keys": [
+            "execution:latency_ms"
+          ],
+          "source_value_hashes": [
+            "00c10b58d5c431fee46080cd1ce96bf2fd15a683255e9fc30ee0f672dad91424"
+          ],
+          "stale": false,
+          "value": 25.0
+        },
+        {
+          "feature_id": "spread_points",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.5,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_execution"
+          ],
+          "source_keys": [
+            "execution:spread_points"
+          ],
+          "source_value_hashes": [
+            "d2cbad71ff333de67d07ec676e352ab7f38248eb69c942950157220607c55e84"
+          ],
+          "stale": false,
+          "value": 0.5
+        }
+      ],
+      "kind": "execution",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "cd59202792c503c8f74ef6f6da213cc7be1c0098b2b84e0c5f0c492caa2b502e",
+      "specification_hash": "9a6a6ee317b5c3697712877a5faf3f33b66da193d270a0faaada51acf6652292",
+      "specification_id": "viewspec_9a6a6ee317b5c3697712877a",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 1,
+        "optional_total": 1,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 3,
+        "required_total": 3,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "9ffef11f50e128571bf521a47a7a4b34353347dcb013ad656da1b6090b57eec6",
+      "view_id": "view_cb8c3bb81d3f9e624efbde27",
+      "view_name": "execution_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "htf_alignment",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.8,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:htf_alignment"
+          ],
+          "source_value_hashes": [
+            "1e9d7c27c8bbc8ddf0055c93e064a62fa995d177fee28cc8fa949bc8a4db06f4"
+          ],
+          "stale": false,
+          "value": 0.8
+        },
+        {
+          "feature_id": "htf_fresh",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": true,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:htf_fresh"
+          ],
+          "source_value_hashes": [
+            "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+          ],
+          "stale": false,
+          "value": true
+        },
+        {
+          "feature_id": "htf_phase",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "bullish",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:htf_phase"
+          ],
+          "source_value_hashes": [
+            "2f555998f3547b9a9d24c365ea8c7a29673ec14d9a9b34c4c1263564519235c8"
+          ],
+          "stale": false,
+          "value": "bullish"
+        }
+      ],
+      "kind": "higher_timeframe",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "e09affb4ae1c8aefd1672118b00a4f30468921e60b8e7a86a1eb6d1d00862f36",
+      "specification_hash": "fd40d5d4258a3a768e3c826d2efc6d7401291859b0c6e439fcca5849a483d060",
+      "specification_id": "viewspec_fd40d5d4258a3a768e3c826d",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 0,
+        "optional_total": 0,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 3,
+        "required_total": 3,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "e814fa4d6e959ca9d9779bd06f53d8a4d8c678c1db72520712c6672196f1cf0d",
+      "view_id": "view_f24efc34b0a396bc4187a57f",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "cross_market_state",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "confirming",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:cross_market_state"
+          ],
+          "source_value_hashes": [
+            "8c16d0018ab801ba84839989d2bce2ba880e87e6d5ea97f5402636647bd3726c"
+          ],
+          "stale": false,
+          "value": "confirming"
+        },
+        {
+          "feature_id": "related_age_seconds",
+          "last_event_time": "2026-01-05T14:29:59Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 1.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:related_symbol_score"
+          ],
+          "source_value_hashes": [
+            "4942870d7312d707982f792e63180e31f72925b998dec46f7ce23db6f16e2d3b"
+          ],
+          "stale": false,
+          "value": 1.0
+        },
+        {
+          "feature_id": "related_score",
+          "last_event_time": "2026-01-05T14:29:59Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.65,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:related_symbol_score"
+          ],
+          "source_value_hashes": [
+            "4942870d7312d707982f792e63180e31f72925b998dec46f7ce23db6f16e2d3b"
+          ],
+          "stale": false,
+          "value": 0.65
+        }
+      ],
+      "kind": "intermarket",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [
+        "No implicit forward fill."
+      ],
+      "lineage_root": "0e0285240804bebb9908ec924d3b869ee852693ad05ff4211c02af70b40dbe3f",
+      "specification_hash": "9354a0e3a7d563e6c39e57753dc5b7d09313d5b49b28e00ffa935cf29bedb985",
+      "specification_id": "viewspec_9354a0e3a7d563e6c39e5775",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 1,
+        "optional_total": 1,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 2,
+        "required_total": 2,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "957ac3055859e12021d933f0e17733438403036eaf3684bb0cff81c7c59fd835",
+      "view_id": "view_4cf89050a5a23e4839456710",
+      "view_name": "intermarket_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "gap_count",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:gap_count"
+          ],
+          "source_value_hashes": [
+            "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+          ],
+          "stale": false,
+          "value": 0
+        },
+        {
+          "feature_id": "liquidity_state",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "normal",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:liquidity_state"
+          ],
+          "source_value_hashes": [
+            "82fbb169e798324839513347c048ecc9c91a6574588e1760f13d6b9650c328bf"
+          ],
+          "stale": false,
+          "value": "normal"
+        },
+        {
+          "feature_id": "quote_rate",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 42.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:quote_rate"
+          ],
+          "source_value_hashes": [
+            "53519e43db90bd08ff4459fd23fc944324ffb7d8f542ccc0b44257afea2ef525"
+          ],
+          "stale": false,
+          "value": 42.0
+        },
+        {
+          "feature_id": "spread",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.5,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection",
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:ask",
+            "projection:bid"
+          ],
+          "source_value_hashes": [
+            "7b59b8e66e787f76009ac33d43dc2d6ca78fa0e0c3ea563e9eb6482812d2b2ff",
+            "a0a62ffa227c3f1224aa024d6dd3d006a029cf13c077bea8f237b7717d77b980"
+          ],
+          "stale": false,
+          "value": 0.5
+        },
+        {
+          "feature_id": "trade_rate",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 12.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:trade_rate"
+          ],
+          "source_value_hashes": [
+            "77c52f3feed5acdd119b1f8449d5ccc2d39be94bd0314d5b7302f36e20b6cea9"
+          ],
+          "stale": false,
+          "value": 12.0
+        }
+      ],
+      "kind": "liquidity",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "7da60d41bca8beae75a456f00526aabaebb3856c39f013d7cc5d9b0bfd2bd454",
+      "specification_hash": "863e4c1aa75c9779521cffbbb4d22fc6f95c4a87be5ada692befd63cc12befdd",
+      "specification_id": "viewspec_863e4c1aa75c9779521cffbb",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 3,
+        "optional_total": 3,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 2,
+        "required_total": 2,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "58b0e96da29dff629a43b5897a8115a1d06e8a9de522581ba358f8b775e9b758",
+      "view_id": "view_18b6f1858140259622392272",
+      "view_name": "liquidity_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "ask",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 20000.5,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:ask"
+          ],
+          "source_value_hashes": [
+            "a0a62ffa227c3f1224aa024d6dd3d006a029cf13c077bea8f237b7717d77b980"
+          ],
+          "stale": false,
+          "value": 20000.5
+        },
+        {
+          "feature_id": "bid",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 20000.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:bid"
+          ],
+          "source_value_hashes": [
+            "7b59b8e66e787f76009ac33d43dc2d6ca78fa0e0c3ea563e9eb6482812d2b2ff"
+          ],
+          "stale": false,
+          "value": 20000.0
+        },
+        {
+          "feature_id": "last_trade",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 20000.25,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:last_trade_price"
+          ],
+          "source_value_hashes": [
+            "09aa8be3c5fce35cbb5b72fd9850005fb9ede5780df40cd64f500a5d3c8b0147"
+          ],
+          "stale": false,
+          "value": 20000.25
+        },
+        {
+          "feature_id": "mid",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 20000.25,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection",
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:ask",
+            "projection:bid"
+          ],
+          "source_value_hashes": [
+            "7b59b8e66e787f76009ac33d43dc2d6ca78fa0e0c3ea563e9eb6482812d2b2ff",
+            "a0a62ffa227c3f1224aa024d6dd3d006a029cf13c077bea8f237b7717d77b980"
+          ],
+          "stale": false,
+          "value": 20000.25
+        },
+        {
+          "feature_id": "short_return",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 2.5000000001360177e-05,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection",
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:last_trade_price",
+            "projection:previous_trade_price"
+          ],
+          "source_value_hashes": [
+            "09aa8be3c5fce35cbb5b72fd9850005fb9ede5780df40cd64f500a5d3c8b0147",
+            "3c94c8a9300eb2180df2193d6b47914010526b3d4d35079f36612e33efacd23d"
+          ],
+          "stale": false,
+          "value": 2.5000000001360177e-05
+        },
+        {
+          "feature_id": "spread",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.5,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection",
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:ask",
+            "projection:bid"
+          ],
+          "source_value_hashes": [
+            "7b59b8e66e787f76009ac33d43dc2d6ca78fa0e0c3ea563e9eb6482812d2b2ff",
+            "a0a62ffa227c3f1224aa024d6dd3d006a029cf13c077bea8f237b7717d77b980"
+          ],
+          "stale": false,
+          "value": 0.5
+        }
+      ],
+      "kind": "price",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "2417210d2e3ec19b31831cbfcbfa7afe59d7cdfd7e145951b4acc0088e3df370",
+      "specification_hash": "535e3c47502c20947c7d7ba40d9342ead3daee6406ff589bd5d7c07cc9baa137",
+      "specification_id": "viewspec_535e3c47502c20947c7d7ba4",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 2,
+        "optional_total": 2,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 4,
+        "required_total": 4,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "32fa8c0d046d17b55905a745c56fb5baa843b14cf711953c687d42e41b7e0a1f",
+      "view_id": "view_5df331a3330439d37af73496",
+      "view_name": "price_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "boundary_recent",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": false,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:session_boundary_recent"
+          ],
+          "source_value_hashes": [
+            "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+          ],
+          "stale": false,
+          "value": false
+        },
+        {
+          "feature_id": "minutes_from_open",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:minutes_from_open"
+          ],
+          "source_value_hashes": [
+            "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+          ],
+          "stale": false,
+          "value": 0
+        },
+        {
+          "feature_id": "session_id",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "new_york",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:session_id"
+          ],
+          "source_value_hashes": [
+            "f47aae4d8f5c0b286f90ac8cecbeed59f744177f54177b08c22bcf33ae7e374f"
+          ],
+          "stale": false,
+          "value": "new_york"
+        },
+        {
+          "feature_id": "session_open",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": true,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:session_open"
+          ],
+          "source_value_hashes": [
+            "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+          ],
+          "stale": false,
+          "value": true
+        }
+      ],
+      "kind": "session",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "957d5c84f09036c0fb0cdfbdb224cbf7ff8c2afb2b0d147ada929e1c27db0e66",
+      "specification_hash": "d5288f704018d148d5089f844874f62ad9bf8e3090c6774570d20a9a927b09d0",
+      "specification_id": "viewspec_d5288f704018d148d5089f84",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 1,
+        "optional_total": 1,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 3,
+        "required_total": 3,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "7cbedc2d8260ec6e71c8c2d1e64bf8663c23437d6b362c1b0b3d30d2a0aae94d",
+      "view_id": "view_2bf3f85d0a3d56fdc92b3f60",
+      "view_name": "session_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "context_fresh",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": true,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:context_fresh"
+          ],
+          "source_value_hashes": [
+            "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+          ],
+          "stale": false,
+          "value": true
+        },
+        {
+          "feature_id": "lifecycle_state",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "valid",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:lifecycle_state"
+          ],
+          "source_value_hashes": [
+            "ddd710f0507f6af7b1a265b7196fccfc83cad7b5e98adb465f8005a55cb43d9a"
+          ],
+          "stale": false,
+          "value": "valid"
+        },
+        {
+          "feature_id": "reference_touch_count",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 2,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:reference_touch_count"
+          ],
+          "source_value_hashes": [
+            "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+          ],
+          "stale": false,
+          "value": 2
+        },
+        {
+          "feature_id": "support_score",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.96,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:support_score"
+          ],
+          "source_value_hashes": [
+            "bf5fac6e3a727da62db6ff6df60ddb6cac3f2acc0909ddbe6d221fd2c628ae01"
+          ],
+          "stale": false,
+          "value": 0.96
+        },
+        {
+          "feature_id": "twin_state",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "observing",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:twin_state"
+          ],
+          "source_value_hashes": [
+            "d10e5d2868c4cbfb023c947e41fdf2c9369e64b90130cafa3e780b1b64adaa0c"
+          ],
+          "stale": false,
+          "value": "observing"
+        }
+      ],
+      "kind": "structure",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "1d62059fe7b97bf7947df2f0feee4d610df361ebdb890321e10921b6a5eaf83e",
+      "specification_hash": "f6ef2c7908844b76899dfb3c5b62c580e776b2859de6ad0a306e2d2961ec2430",
+      "specification_id": "viewspec_f6ef2c7908844b76899dfb3c",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 1,
+        "optional_total": 1,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 4,
+        "required_total": 4,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "fcaa11b071fbcc31200a5f236048e6cf32c5b154ad8b6854f713a7f2ab1a1a00",
+      "view_id": "view_b5fb3853e571569e9f945e68",
+      "view_name": "structure_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "hour_utc",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 14,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:hour_utc"
+          ],
+          "source_value_hashes": [
+            "8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"
+          ],
+          "stale": false,
+          "value": 14
+        },
+        {
+          "feature_id": "seconds_since_context_start",
+          "last_event_time": "2026-01-05T14:00:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 1800.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_twin"
+          ],
+          "source_keys": [
+            "twin:context_start_time"
+          ],
+          "source_value_hashes": [
+            "39a010ac0162f754b548df9f355b8bd6ae57967a34243e61565f8d0b8d6d4842"
+          ],
+          "stale": false,
+          "value": 1800.0
+        },
+        {
+          "feature_id": "seconds_since_last_event",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0.0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_projection"
+          ],
+          "source_keys": [
+            "projection:last_event_marker"
+          ],
+          "source_value_hashes": [
+            "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          ],
+          "stale": false,
+          "value": 0.0
+        },
+        {
+          "feature_id": "weekday_utc",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": 0,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_static"
+          ],
+          "source_keys": [
+            "static:weekday_utc"
+          ],
+          "source_value_hashes": [
+            "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+          ],
+          "stale": false,
+          "value": 0
+        }
+      ],
+      "kind": "time",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [],
+      "lineage_root": "782e637610444878fed2e247f4036bedbbcaaad616997ee15978617f7229fce5",
+      "specification_hash": "4b5c1676a60020be26e6bcc32bb9e84e02d0c50445795a95cda2b67ebf410dca",
+      "specification_id": "viewspec_4b5c1676a60020be26e6bcc3",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 1,
+        "optional_total": 1,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 3,
+        "required_total": 3,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "f09943c5f6ad040785759b70e879c6d78354204e09129239547719cb83f0285e",
+      "view_id": "view_babd288a3bf41c678eac6107",
+      "view_name": "time_view"
+    },
+    {
+      "event_as_of": "2026-01-05T14:30:00Z",
+      "evidence_role": "development",
+      "exact_version": "1.0.0",
+      "features": [
+        {
+          "feature_id": "descriptor_id",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "treatment_approved_001",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_approved_treatment"
+          ],
+          "source_keys": [
+            "approved_treatment:descriptor_id"
+          ],
+          "source_value_hashes": [
+            "e907951401a458314f8e28846e3c4a7f6b3b3bb1255c287af727905e797c2fa8"
+          ],
+          "stale": false,
+          "value": "treatment_approved_001"
+        },
+        {
+          "feature_id": "entry_mechanism",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "breakout",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_approved_treatment"
+          ],
+          "source_keys": [
+            "approved_treatment:entry_mechanism"
+          ],
+          "source_value_hashes": [
+            "39798ac67ec7e7d1b994241bf357db53deecf4e439b9a78c3f9b251dcd899d62"
+          ],
+          "stale": false,
+          "value": "breakout"
+        },
+        {
+          "feature_id": "path_dependent",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": true,
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_approved_treatment"
+          ],
+          "source_keys": [
+            "approved_treatment:path_dependent"
+          ],
+          "source_value_hashes": [
+            "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+          ],
+          "stale": false,
+          "value": true
+        },
+        {
+          "feature_id": "payoff_profile",
+          "last_event_time": "2026-01-05T14:30:00Z",
+          "mask": 0,
+          "missing": false,
+          "normalized_value": "P3",
+          "quality": 1.0,
+          "reason_codes": [],
+          "source_artifact_ids": [
+            "artifact_approved_treatment"
+          ],
+          "source_keys": [
+            "approved_treatment:payoff_profile"
+          ],
+          "source_value_hashes": [
+            "3cca16dda2aa6c0ed91c4873d08dbd34acfa4f7ea17619fe2dcc1c530076affa"
+          ],
+          "stale": false,
+          "value": "P3"
+        }
+      ],
+      "kind": "treatment_descriptor",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "limitations": [
+        "No treatment selection.",
+        "V4-06 remains authority for Treatment DSL."
+      ],
+      "lineage_root": "97d00a96efb272a38f8a3c1d72db29415344765d37556fbd3f9d264bf6009ad9",
+      "specification_hash": "0f42b66d77d06d17f45ff785df589c8370c6e4dae8fa8dd7b56cd0a9dd98fb53",
+      "specification_id": "viewspec_0f42b66d77d06d17f45ff785",
+      "status": "complete",
+      "support": {
+        "low_quality_features": [],
+        "missing_features": [],
+        "optional_passed": 0,
+        "optional_total": 0,
+        "out_of_range_features": [],
+        "reasons": [],
+        "required_passed": 4,
+        "required_total": 4,
+        "score": 1.0,
+        "stale_features": [],
+        "status": "supported"
+      },
+      "twin_id": "twin_golden",
+      "view_hash": "3d2ea0983bf903cd13963c6aa8fbf00c1a69bf04a0b0f82f708095efbe882f6c",
+      "view_id": "view_d5693a05c0df420e67532165",
+      "view_name": "treatment_descriptor_view"
+    }
+  ]
+}

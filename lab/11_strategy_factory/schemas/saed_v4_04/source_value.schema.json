@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conflict": {
+      "type": "boolean"
+    },
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lineage_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "source_artifact_id": {
+      "type": "string"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "namespace",
+    "path",
+    "value",
+    "event_time",
+    "known_time",
+    "quality",
+    "evidence_role",
+    "source_artifact_id",
+    "source_hash",
+    "lineage_ids",
+    "conflict"
+  ],
+  "title": "Source Value",
+  "type": "object"
+}

@@ -1,0 +1,146 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Higher-timeframe context projection",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "htf_alignment",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "twin",
+          "path": "htf_alignment"
+        }
+      ],
+      "maximum": 1,
+      "maximum_staleness_ms": null,
+      "minimum": -1,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "htf_fresh",
+      "feature_type": "boolean",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "twin",
+          "path": "htf_fresh"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [
+        "bearish",
+        "bullish",
+        "neutral",
+        "transition"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "htf_phase",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "twin",
+          "path": "htf_phase"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "higher_timeframe",
+  "limitations": [],
+  "minimum_support_score": 1.0,
+  "required_view": true,
+  "semantic_hash": "fd40d5d4258a3a768e3c826d2efc6d7401291859b0c6e439fcca5849a483d060",
+  "specification_id": "viewspec_fd40d5d4258a3a768e3c826d",
+  "twin_id": "twin_golden",
+  "view_name": "higher_timeframe_view"
+}

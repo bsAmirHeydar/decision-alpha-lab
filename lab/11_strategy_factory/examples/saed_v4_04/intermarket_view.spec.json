@@ -1,0 +1,148 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Asynchronous related-market evidence",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [
+        "confirming",
+        "diverging",
+        "neutral",
+        "unknown"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "cross_market_state",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "cross_market_state"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "related_age_seconds",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "related_symbol_score"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "age_seconds",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "related_score",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "related_symbol_score"
+        }
+      ],
+      "maximum": 1,
+      "maximum_staleness_ms": 15000,
+      "minimum": -1,
+      "minimum_quality": 0.7,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "intermarket",
+  "limitations": [
+    "No implicit forward fill."
+  ],
+  "minimum_support_score": 0.66,
+  "required_view": true,
+  "semantic_hash": "9354a0e3a7d563e6c39e57753dc5b7d09313d5b49b28e00ffa935cf29bedb985",
+  "specification_id": "viewspec_9354a0e3a7d563e6c39e5775",
+  "twin_id": "twin_golden",
+  "view_name": "intermarket_view"
+}

@@ -1,0 +1,14 @@
+class ViewPlatformError(Exception): pass
+class ContractError(ViewPlatformError): pass
+class AuthorityError(ViewPlatformError): pass
+class RegistryError(ViewPlatformError): pass
+class TemporalBoundaryError(ViewPlatformError): pass
+class SourceConflictError(ViewPlatformError): pass
+class MissingnessError(ViewPlatformError): pass
+class NormalizationError(ViewPlatformError): pass
+class TransformError(ViewPlatformError): pass
+class SupportError(ViewPlatformError): pass
+class ViewBuildError(ViewPlatformError): pass
+class CompatibilityError(ViewPlatformError): pass
+class ReplayError(ViewPlatformError): pass
+class IntegrityError(ViewPlatformError): pass

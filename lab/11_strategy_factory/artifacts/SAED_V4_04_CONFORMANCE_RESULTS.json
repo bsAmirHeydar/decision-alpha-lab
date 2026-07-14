@@ -1,0 +1,172 @@
+{
+  "passed": 14,
+  "phase": "SAED_V4_04",
+  "results": [
+    {
+      "id": "golden_price_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "df0ffb67c50fb8790332229752aedeee2651a1028ceaa625b4972f0404f2c9fd",
+        "statuses": {
+          "price_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_structure_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "719bd78599b90476b4037de9b188ac15c346736b20d58596c85fd0f27df53d8e",
+        "statuses": {
+          "structure_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_time_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "daf5e9cf34334ace0c221f6567a08ddb49d905d8d5ca7c525b7da742280cf5fb",
+        "statuses": {
+          "time_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_higher_timeframe_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "968c1cfee2da94bb9f95fbc9ddd90cd4f92bc29e30d9c9850f06d0f6cd899478",
+        "statuses": {
+          "higher_timeframe_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_intermarket_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "87eee1650b9b632f530776a55498b0ce2dc164cea3322e5f9c60c91246e3a569",
+        "statuses": {
+          "intermarket_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_liquidity_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "b3dac38c87bea83bac3ca6487451cad0a52269e49acb2658fb1bc85125fffa98",
+        "statuses": {
+          "liquidity_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_session_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "00cc06b5c52c884b151d28b09eaa279af9a98e70fd88c42383f1ddd846afc38c",
+        "statuses": {
+          "session_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_execution_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "97933377543fb9d3f1a1d1c04961ed05a68baaf464ac977c914652dc4a650084",
+        "statuses": {
+          "execution_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_context_ancestry_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "77459ea4de15203dd46ad61a29647d2febdc4862c69e48f9b8c297e24b6464a5",
+        "statuses": {
+          "context_ancestry_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_treatment_descriptor_view",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "d4153326311656374921db71ee587d2d0ea0dc8a926be813a76051fa73f07d63",
+        "statuses": {
+          "treatment_descriptor_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "golden_all_views",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "a764fd870ec1bd9f0d827849ce0b2e3bd0823ee016879fe4bb7e4b43d67c16ba",
+        "statuses": {
+          "context_ancestry_view": "complete",
+          "execution_view": "complete",
+          "higher_timeframe_view": "complete",
+          "intermarket_view": "complete",
+          "liquidity_view": "complete",
+          "price_view": "complete",
+          "session_view": "complete",
+          "structure_view": "complete",
+          "time_view": "complete",
+          "treatment_descriptor_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "price_and_structure",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "2418b2befe6022ca6d83d331b8dbab015e0f42e94901cadd89a735a4ad7ca7fe",
+        "statuses": {
+          "price_view": "complete",
+          "structure_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "time_and_session",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "6d878d5febc8e37a307772c8d228187b2c5cff033177546a3e91e46f3a6a8feb",
+        "statuses": {
+          "session_view": "complete",
+          "time_view": "complete"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "execution_optional",
+      "observed": {
+        "compatibility": "compatible",
+        "package_hash": "97933377543fb9d3f1a1d1c04961ed05a68baaf464ac977c914652dc4a650084",
+        "statuses": {
+          "execution_view": "complete"
+        }
+      },
+      "passed": true
+    }
+  ],
+  "total": 14
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "low_quality_features": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "missing_features": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "optional_passed": {
+      "type": "integer"
+    },
+    "optional_total": {
+      "type": "integer"
+    },
+    "out_of_range_features": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_passed": {
+      "type": "integer"
+    },
+    "required_total": {
+      "type": "integer"
+    },
+    "score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "stale_features": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "supported",
+        "degraded",
+        "unsupported",
+        "unknown"
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "score",
+    "required_total",
+    "required_passed",
+    "optional_total",
+    "optional_passed",
+    "missing_features",
+    "stale_features",
+    "low_quality_features",
+    "out_of_range_features",
+    "reasons"
+  ],
+  "title": "View Support Assessment",
+  "type": "object"
+}

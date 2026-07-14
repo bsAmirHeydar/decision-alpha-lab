@@ -1,0 +1,20 @@
+{
+  "activate_runtime": false,
+  "allocate_risk": false,
+  "build_package": true,
+  "build_view": true,
+  "fit_adaptive_normalizer": false,
+  "impute_silently": false,
+  "mutate_event_journal": false,
+  "mutate_twin_manifest": false,
+  "mutate_ucee_truth": false,
+  "network_access": false,
+  "read_approved_descriptor": true,
+  "read_event_projection": true,
+  "read_static_metadata": true,
+  "read_twin": true,
+  "replay": true,
+  "select_treatment": false,
+  "send_order": false,
+  "train_model": true
+}

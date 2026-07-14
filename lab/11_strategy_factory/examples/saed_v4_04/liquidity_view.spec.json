@@ -1,0 +1,213 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Liquidity and observability state",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "gap_count",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "gap_count"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [
+        "normal",
+        "stressed",
+        "thin",
+        "unknown"
+      ],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "liquidity_state",
+      "feature_type": "category",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "static",
+          "path": "liquidity_state"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": null,
+      "minimum_quality": 0.0,
+      "missingness": "unknown",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "quote_rate",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "quote_rate"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "spread",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "bid",
+          "namespace": "projection",
+          "path": "bid"
+        },
+        {
+          "alias": "ask",
+          "namespace": "projection",
+          "path": "ask"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 5000,
+      "minimum": 0,
+      "minimum_quality": 0.8,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "spread",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "trade_rate",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "trade_rate"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": null,
+      "minimum": 0,
+      "minimum_quality": 0.0,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    }
+  ],
+  "kind": "liquidity",
+  "limitations": [],
+  "minimum_support_score": 0.6,
+  "required_view": true,
+  "semantic_hash": "863e4c1aa75c9779521cffbbb4d22fc6f95c4a87be5ada692befd63cc12befdd",
+  "specification_id": "viewspec_863e4c1aa75c9779521cffbb",
+  "twin_id": "twin_golden",
+  "view_name": "liquidity_view"
+}

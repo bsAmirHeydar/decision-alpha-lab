@@ -1,0 +1,162 @@
+{
+  "phase": "SAED_V4_04",
+  "schema_count": 39,
+  "schemas": [
+    {
+      "name": "cross_view_compatibility",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/cross_view_compatibility.schema.json"
+    },
+    {
+      "name": "freshness_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/freshness_manifest.schema.json"
+    },
+    {
+      "name": "input_binding",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/input_binding.schema.json"
+    },
+    {
+      "name": "lineage_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/lineage_manifest.schema.json"
+    },
+    {
+      "name": "missingness_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/missingness_manifest.schema.json"
+    },
+    {
+      "name": "multimodal_view_package",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/multimodal_view_package.schema.json"
+    },
+    {
+      "name": "quality_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/quality_manifest.schema.json"
+    },
+    {
+      "name": "source_value",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/source_value.schema.json"
+    },
+    {
+      "name": "static_normalizer",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/static_normalizer.schema.json"
+    },
+    {
+      "name": "v4_04_to_v4_05_handoff",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/v4_04_to_v4_05_handoff.schema.json"
+    },
+    {
+      "name": "view_artifact",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_artifact.schema.json"
+    },
+    {
+      "name": "view_authority_boundary",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_authority_boundary.schema.json"
+    },
+    {
+      "name": "view_build_request",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_build_request.schema.json"
+    },
+    {
+      "name": "view_cache_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_cache_receipt.schema.json"
+    },
+    {
+      "name": "view_compatibility_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_compatibility_policy.schema.json"
+    },
+    {
+      "name": "view_diff",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_diff.schema.json"
+    },
+    {
+      "name": "view_feature_definition",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_feature_definition.schema.json"
+    },
+    {
+      "name": "view_feature_value",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_feature_value.schema.json"
+    },
+    {
+      "name": "view_freshness_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_freshness_policy.schema.json"
+    },
+    {
+      "name": "view_incident",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_incident.schema.json"
+    },
+    {
+      "name": "view_integrity_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_integrity_receipt.schema.json"
+    },
+    {
+      "name": "view_lineage_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_lineage_policy.schema.json"
+    },
+    {
+      "name": "view_missingness_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_missingness_policy.schema.json"
+    },
+    {
+      "name": "view_normalization_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_normalization_policy.schema.json"
+    },
+    {
+      "name": "view_package_registry_entry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_package_registry_entry.schema.json"
+    },
+    {
+      "name": "view_partition_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_partition_manifest.schema.json"
+    },
+    {
+      "name": "view_quality_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_quality_policy.schema.json"
+    },
+    {
+      "name": "view_quarantine_record",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_quarantine_record.schema.json"
+    },
+    {
+      "name": "view_query",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_query.schema.json"
+    },
+    {
+      "name": "view_query_result",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_query_result.schema.json"
+    },
+    {
+      "name": "view_registry_entry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_registry_entry.schema.json"
+    },
+    {
+      "name": "view_release_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_release_manifest.schema.json"
+    },
+    {
+      "name": "view_replay_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_replay_receipt.schema.json"
+    },
+    {
+      "name": "view_reproduction_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_reproduction_receipt.schema.json"
+    },
+    {
+      "name": "view_retention_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_retention_policy.schema.json"
+    },
+    {
+      "name": "view_security_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_security_policy.schema.json"
+    },
+    {
+      "name": "view_specification",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_specification.schema.json"
+    },
+    {
+      "name": "view_support_assessment",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_support_assessment.schema.json"
+    },
+    {
+      "name": "view_telemetry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_04/view_telemetry.schema.json"
+    }
+  ]
+}

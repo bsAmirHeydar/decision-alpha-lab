@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "center": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "none",
+        "static_zscore",
+        "static_robust",
+        "static_minmax"
+      ]
+    },
+    "maximum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "minimum": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "scale": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "statistics_artifact_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "statistics_hash": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "center",
+    "scale",
+    "minimum",
+    "maximum",
+    "statistics_artifact_id",
+    "statistics_hash"
+  ],
+  "title": "Static Normalizer",
+  "type": "object"
+}

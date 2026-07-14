@@ -1,0 +1,13 @@
+{
+  "conflict": false,
+  "event_time": "2026-01-05T14:30:00Z",
+  "evidence_role": "development",
+  "known_time": "2026-01-06T00:00:00Z",
+  "lineage_ids": [],
+  "namespace": "projection",
+  "path": "bid",
+  "quality": 1.0,
+  "source_artifact_id": "a",
+  "source_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "value": 1
+}

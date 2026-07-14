@@ -1,0 +1,249 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_package": true,
+    "build_view": true,
+    "fit_adaptive_normalizer": false,
+    "impute_silently": false,
+    "mutate_event_journal": false,
+    "mutate_twin_manifest": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_approved_descriptor": true,
+    "read_event_projection": true,
+    "read_static_metadata": true,
+    "read_twin": true,
+    "replay": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "dependencies": [],
+  "description": "Executable point-in-time price state",
+  "evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "live",
+    "locked_final",
+    "micro_live",
+    "prospective",
+    "selection_validation",
+    "shadow",
+    "synthetic_stress"
+  ],
+  "exact_version": "1.0.0",
+  "features": [
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "ask",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "ask"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 5000,
+      "minimum": 0,
+      "minimum_quality": 0.8,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "bid",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "bid"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 5000,
+      "minimum": 0,
+      "minimum_quality": 0.8,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "last_trade",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "x",
+          "namespace": "projection",
+          "path": "last_trade_price"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 15000,
+      "minimum": 0,
+      "minimum_quality": 0.7,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "identity",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "mid",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "bid",
+          "namespace": "projection",
+          "path": "bid"
+        },
+        {
+          "alias": "ask",
+          "namespace": "projection",
+          "path": "ask"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 5000,
+      "minimum": 0,
+      "minimum_quality": 0.8,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "midpoint",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "short_return",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "now",
+          "namespace": "projection",
+          "path": "last_trade_price"
+        },
+        {
+          "alias": "prev",
+          "namespace": "projection",
+          "path": "previous_trade_price"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 60000,
+      "minimum": null,
+      "minimum_quality": 0.7,
+      "missingness": "mask",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": false,
+      "transform": "log_return",
+      "vector_length": null
+    },
+    {
+      "allowed_categories": [],
+      "description": "",
+      "explicit_default": null,
+      "feature_id": "spread",
+      "feature_type": "number",
+      "inputs": [
+        {
+          "alias": "bid",
+          "namespace": "projection",
+          "path": "bid"
+        },
+        {
+          "alias": "ask",
+          "namespace": "projection",
+          "path": "ask"
+        }
+      ],
+      "maximum": null,
+      "maximum_staleness_ms": 5000,
+      "minimum": 0,
+      "minimum_quality": 0.8,
+      "missingness": "prohibit",
+      "normalizer": {
+        "center": null,
+        "kind": "none",
+        "maximum": null,
+        "minimum": null,
+        "scale": null,
+        "statistics_artifact_id": null,
+        "statistics_hash": null
+      },
+      "required": true,
+      "transform": "spread",
+      "vector_length": null
+    }
+  ],
+  "kind": "price",
+  "limitations": [],
+  "minimum_support_score": 0.8,
+  "required_view": true,
+  "semantic_hash": "535e3c47502c20947c7d7ba40d9342ead3daee6406ff589bd5d7c07cc9baa137",
+  "specification_id": "viewspec_535e3c47502c20947c7d7ba4",
+  "twin_id": "twin_golden",
+  "view_name": "price_view"
+}
