@@ -1,0 +1,7 @@
+{
+  "case_id": "expired-lease",
+  "evaluation_ms": 200,
+  "expected_decision": "safe_halt",
+  "expires_at_ms": 200,
+  "issued_at_ms": 100
+}

@@ -1,0 +1,40 @@
+{
+  "activation_allowed": false,
+  "authority": {
+    "automatic_capital_ramp": false,
+    "reference_broker_authority": false,
+    "reference_network_authority": false,
+    "reference_order_authority": false
+  },
+  "counts": {
+    "python_modules": 22,
+    "test_files": 14,
+    "python_tests": 221,
+    "schemas": 28,
+    "vectors": 10,
+    "artifacts": 10,
+    "delivery_docs": 55,
+    "atomic_docs": 12,
+    "mql5_includes": 18,
+    "mql5_diagnostics": 4,
+    "tools": 10,
+    "total_patch_files": 199
+  },
+  "created_at": "2026-07-15",
+  "dependency": "decision-alpha-lab-ucee-i18-production-qualification-v1.0.0",
+  "external_compile_command": "powershell -ExecutionPolicy Bypass -File tools/strategy_factory/compile_uce_i19_operations.ps1 -MetaEditorPath <path-to-metaeditor64.exe>",
+  "external_evidence_command": "powershell -ExecutionPolicy Bypass -File tools/strategy_factory/new_uce_i19_external_run.ps1",
+  "installation_root": "repository root",
+  "known_limitations": [
+    "MetaEditor and MT5 execution are pending external Windows evidence",
+    "no accepted I18 production release or real target is embedded",
+    "no broker/account/symbol/prospective/live evidence is embedded",
+    "stage and capital authority remain blocked"
+  ],
+  "patch_id": "decision-alpha-lab-ucee-i19-production-operations-v1.0.0",
+  "phase_id": "UCE-I19",
+  "rollback": "revoke any external lease, engage safe halt, preserve evidence, and git revert the atomic UCE-I19 commit",
+  "scope": "Production deployment binding, expiring runtime authority, continuous health and exact reconciliation, incident/EOD control, adjacent human-approved capital tiers, change control, rollback and retirement.",
+  "verification_command": "powershell -ExecutionPolicy Bypass -File tools/strategy_factory/run_uce_i19_tests.ps1",
+  "version": "1.0.0"
+}

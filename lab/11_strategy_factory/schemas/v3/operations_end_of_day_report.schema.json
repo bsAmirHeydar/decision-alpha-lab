@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_end_of_day_report.schema.json",
+  "title": "Operations End Of Day Report",
+  "description": "Closed UCE-I19 contract for end of day report.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "trading_day": {
+      "type": "string",
+      "format": "date"
+    },
+    "reservation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "order_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "position_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "ledger_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "all_events_persisted": {
+      "type": "boolean"
+    },
+    "all_intents_terminal": {
+      "type": "boolean"
+    },
+    "exact_reconciliation": {
+      "type": "boolean"
+    },
+    "unresolved_high_incidents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unresolved_critical_incidents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "daily_loss_units": {
+      "type": "number"
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "required": [
+    "report_id",
+    "environment_hash",
+    "generation_hash",
+    "trading_day",
+    "reservation_hash",
+    "order_hash",
+    "position_hash",
+    "ledger_hash",
+    "all_events_persisted",
+    "all_intents_terminal",
+    "exact_reconciliation",
+    "unresolved_high_incidents",
+    "unresolved_critical_incidents",
+    "daily_loss_units",
+    "evidence_hashes"
+  ]
+}

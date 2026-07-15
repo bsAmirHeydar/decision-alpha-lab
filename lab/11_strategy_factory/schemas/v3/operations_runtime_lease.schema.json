@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_runtime_lease.schema.json",
+  "title": "Operations Runtime Lease",
+  "description": "Closed UCE-I19 contract for runtime lease.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "lease_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "account_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "allowed_symbols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "issued_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expires_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "revoked_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "revocation_reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "lease_id",
+    "schema_version",
+    "plan_hash",
+    "environment_hash",
+    "generation_hash",
+    "stage",
+    "account_hashes",
+    "allowed_symbols",
+    "max_risk_units",
+    "issued_by",
+    "approved_by",
+    "issued_at_ms",
+    "expires_at_ms",
+    "revoked_at_ms",
+    "revocation_reason"
+  ]
+}

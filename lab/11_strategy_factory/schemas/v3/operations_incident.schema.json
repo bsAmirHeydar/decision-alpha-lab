@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_incident.schema.json",
+  "title": "Operations Incident",
+  "description": "Closed UCE-I19 contract for incident.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "incident_id": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "detected_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "contained_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "resolved_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "closed_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "closed_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "incident_id",
+    "severity",
+    "state",
+    "detected_at_ms",
+    "contained_at_ms",
+    "resolved_at_ms",
+    "closed_at_ms",
+    "environment_hash",
+    "generation_hash",
+    "reason_code",
+    "evidence_hashes",
+    "owner_id",
+    "closed_by"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_prospective_window.schema.json",
+  "title": "Operations Prospective Window",
+  "description": "Closed UCE-I19 contract for prospective window.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "window_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "started_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ended_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sessions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "events": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "calendar_days": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reconciliations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reconciliation_failures": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "high_incidents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "critical_incidents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "policy_breaches": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_drawdown_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "reject_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "p99_latency_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "drift_score": {
+      "type": "number",
+      "minimum": 0
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "required": [
+    "window_id",
+    "stage",
+    "environment_hash",
+    "generation_hash",
+    "started_at_ms",
+    "ended_at_ms",
+    "sessions",
+    "events",
+    "calendar_days",
+    "reconciliations",
+    "reconciliation_failures",
+    "high_incidents",
+    "critical_incidents",
+    "policy_breaches",
+    "max_drawdown_units",
+    "reject_rate",
+    "p99_latency_ms",
+    "drift_score",
+    "evidence_hashes"
+  ]
+}

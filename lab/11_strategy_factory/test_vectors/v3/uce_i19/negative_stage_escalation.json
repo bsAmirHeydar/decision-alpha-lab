@@ -1,0 +1,6 @@
+{
+  "case_id": "stage-escalation",
+  "expected_error": "stage_escalation",
+  "qualified_stage": "micro_live",
+  "requested_stage": "production"
+}

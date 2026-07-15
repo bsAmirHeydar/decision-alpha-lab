@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_kill_switch_record.schema.json",
+  "title": "Operations Kill Switch Record",
+  "description": "Closed UCE-I19 contract for kill switch record.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "record_id": {
+      "type": "string"
+    },
+    "engaged_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "engaged_by": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "orders_blocked": {
+      "type": "boolean"
+    },
+    "released_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "released_by": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "record_id",
+    "engaged_at_ms",
+    "engaged_by",
+    "reason_code",
+    "environment_hash",
+    "generation_hash",
+    "orders_blocked",
+    "released_at_ms",
+    "released_by"
+  ]
+}

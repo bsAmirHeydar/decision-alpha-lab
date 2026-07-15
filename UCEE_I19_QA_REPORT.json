@@ -1,0 +1,66 @@
+{
+  "activation_allowed": false,
+  "authority": {
+    "automatic_capital_ramp": false,
+    "reference_broker_authority": false,
+    "reference_network_authority": false,
+    "reference_order_authority": false
+  },
+  "environment": {
+    "metaeditor_available": false,
+    "mt5_terminal_available": false,
+    "os": "linux_container",
+    "real_broker_available": false
+  },
+  "known_limitations": [
+    "MetaEditor and MT5 runtime compilation cannot be executed in this Linux environment",
+    "no accepted external UCE-I18 release manifest is embedded",
+    "no real broker, account, terminal, symbol, statement, fill, or capital evidence is embedded",
+    "no prospective paper, shadow, micro-live, limited-live, or production window is embedded",
+    "repository-wide tools compileall is not an acceptance gate because a pre-existing unrelated syntax error exists in tools/strategy_factory/generate_uce_i13_vectors.py; every UCE-I19 Python and tool file passes py_compile",
+    "production activation remains blocked"
+  ],
+  "phase_id": "UCE-I19",
+  "qa": {
+    "combined_uce_i18_i19_pytest": {
+      "passed": 335,
+      "status": "pass"
+    },
+    "engineering_policy": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "metaeditor_compile": {
+      "status": "pending_external_windows"
+    },
+    "mql5_static_authority_scan": {
+      "diagnostics": 4,
+      "includes": 18,
+      "status": "pass"
+    },
+    "python_authority_boundary_scan": {
+      "modules": 22,
+      "status": "pass"
+    },
+    "python_compile": {
+      "scope": "strategy_factory_operations_v3 and UCE-I19 Python tools",
+      "status": "pass"
+    },
+    "uce_i19_delivery_validation": {
+      "artifacts": 10,
+      "atomic_docs": 12,
+      "delivery_docs": 55,
+      "python_modules": 22,
+      "schemas": 28,
+      "status": "pass",
+      "test_files": 14
+    },
+    "uce_i19_pytest": {
+      "passed": 221,
+      "status": "pass"
+    }
+  },
+  "status": "reference_accepted_external_operations_evidence_pending",
+  "version": "1.0.0"
+}

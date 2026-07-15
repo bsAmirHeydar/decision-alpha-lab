@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_change_decision.schema.json",
+  "title": "Operations Change Decision",
+  "description": "Closed UCE-I19 contract for change decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "requalification_required": {
+      "type": "boolean"
+    },
+    "flat_required": {
+      "type": "boolean"
+    },
+    "evaluated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "request_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "decision_id",
+    "classification",
+    "approved",
+    "requalification_required",
+    "flat_required",
+    "evaluated_at_ms",
+    "request_hash",
+    "reason_codes"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_evidence_bundle.schema.json",
+  "title": "Operations Evidence Bundle",
+  "description": "Closed UCE-I19 contract for evidence bundle.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_commit": {
+      "type": "string"
+    },
+    "release_manifest_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "deployment_plan_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "policy_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "activation_allowed": {
+      "type": "boolean"
+    },
+    "maximum_stage": {
+      "type": "string"
+    },
+    "maximum_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "blocking_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "bundle_id",
+    "schema_version",
+    "source_commit",
+    "release_manifest_hash",
+    "deployment_plan_hash",
+    "policy_hash",
+    "environment_hash",
+    "generated_at_ms",
+    "gates",
+    "evidence_refs",
+    "activation_allowed",
+    "maximum_stage",
+    "maximum_risk_units",
+    "blocking_reasons",
+    "limitations"
+  ]
+}

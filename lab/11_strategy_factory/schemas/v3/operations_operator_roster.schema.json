@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_operator_roster.schema.json",
+  "title": "Operations Operator Roster",
+  "description": "Closed UCE-I19 contract for operator roster.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "roster_id": {
+      "type": "string"
+    },
+    "effective_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "approvers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "incident_commanders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "roster_id",
+    "effective_at_ms",
+    "operators",
+    "approvers",
+    "incident_commanders"
+  ]
+}

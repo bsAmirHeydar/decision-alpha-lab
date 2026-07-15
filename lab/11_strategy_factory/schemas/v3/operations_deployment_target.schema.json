@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_deployment_target.schema.json",
+  "title": "Operations Deployment Target",
+  "description": "Closed UCE-I19 contract for deployment target.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "target_id": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "broker_server_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "account_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "uniqueItems": true
+    },
+    "allowed_symbols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "terminal_instance_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "captured_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "target_id",
+    "environment_hash",
+    "broker_server_hash",
+    "account_hashes",
+    "allowed_symbols",
+    "terminal_instance_ids",
+    "timezone",
+    "captured_at_ms"
+  ]
+}

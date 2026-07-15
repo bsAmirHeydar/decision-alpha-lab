@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_cycle_authorization.schema.json",
+  "title": "Operations Cycle Authorization",
+  "description": "Closed UCE-I19 contract for cycle authorization.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "authorization_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "evaluated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "plan_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "lease_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "health_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reconciliation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "authority_order": {
+      "type": "boolean"
+    },
+    "max_incremental_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "authorization_id",
+    "decision",
+    "stage",
+    "evaluated_at_ms",
+    "plan_hash",
+    "lease_hash",
+    "health_hash",
+    "reconciliation_hash",
+    "authority_order",
+    "max_incremental_risk_units",
+    "reason_codes"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_reconciliation_report.schema.json",
+  "title": "Operations Reconciliation Report",
+  "description": "Closed UCE-I19 contract for reconciliation report.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "expected_reservation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "observed_reservation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "expected_order_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "observed_order_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "expected_position_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "observed_position_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "orphan_order_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "orphan_position_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "missing_order_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "missing_position_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "duplicate_intent_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unreserved_position_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reconciled_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "report_id",
+    "environment_hash",
+    "generation_hash",
+    "expected_reservation_hash",
+    "observed_reservation_hash",
+    "expected_order_hash",
+    "observed_order_hash",
+    "expected_position_hash",
+    "observed_position_hash",
+    "orphan_order_count",
+    "orphan_position_count",
+    "missing_order_count",
+    "missing_position_count",
+    "duplicate_intent_count",
+    "unreserved_position_count",
+    "reconciled_at_ms"
+  ]
+}

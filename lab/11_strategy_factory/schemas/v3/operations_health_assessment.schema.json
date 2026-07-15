@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_health_assessment.schema.json",
+  "title": "Operations Health Assessment",
+  "description": "Closed UCE-I19 contract for health assessment.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "evaluated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "telemetry_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "max_allowed_risk_units": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "assessment_id",
+    "status",
+    "decision",
+    "evaluated_at_ms",
+    "reason_codes",
+    "telemetry_hash",
+    "max_allowed_risk_units"
+  ]
+}

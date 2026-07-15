@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_rollback_execution.schema.json",
+  "title": "Operations Rollback Execution",
+  "description": "Closed UCE-I19 contract for rollback execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "rollback_id": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "from_generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "to_generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "initiated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "completed_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_allowed_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "orders_blocked": {
+      "type": "boolean"
+    },
+    "positions_reconciled": {
+      "type": "boolean"
+    },
+    "reservations_reconciled": {
+      "type": "boolean"
+    },
+    "target_generation_active": {
+      "type": "boolean"
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "required": [
+    "rollback_id",
+    "plan_hash",
+    "from_generation_hash",
+    "to_generation_hash",
+    "initiated_at_ms",
+    "completed_at_ms",
+    "max_allowed_seconds",
+    "orders_blocked",
+    "positions_reconciled",
+    "reservations_reconciled",
+    "target_generation_active",
+    "evidence_hashes"
+  ]
+}

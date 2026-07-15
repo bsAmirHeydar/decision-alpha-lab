@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_deployment_plan.schema.json",
+  "title": "Operations Deployment Plan",
+  "description": "Closed UCE-I19 contract for deployment plan.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "plan_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_commit": {
+      "type": "string"
+    },
+    "release_manifest_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "qualification_report_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "target_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rollback_generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "frozen",
+        "paper",
+        "shadow",
+        "micro_live",
+        "limited_live",
+        "production"
+      ]
+    },
+    "authority_order": {
+      "type": "boolean"
+    },
+    "authority_broker": {
+      "type": "boolean"
+    },
+    "max_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "risk_envelope_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "operator_id": {
+      "type": "string"
+    },
+    "approver_id": {
+      "type": "string"
+    },
+    "approved_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "starts_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expires_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "plan_id",
+    "schema_version",
+    "source_commit",
+    "release_manifest_hash",
+    "qualification_report_hash",
+    "environment_hash",
+    "target_hash",
+    "generation_hash",
+    "rollback_generation_hash",
+    "stage",
+    "authority_order",
+    "authority_broker",
+    "max_risk_units",
+    "risk_envelope_hash",
+    "operator_id",
+    "approver_id",
+    "approved_at_ms",
+    "starts_at_ms",
+    "expires_at_ms",
+    "limitations"
+  ]
+}

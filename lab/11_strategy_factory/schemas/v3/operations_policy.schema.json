@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_policy.schema.json",
+  "title": "Operations Policy",
+  "description": "Closed UCE-I19 contract for policy.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "heartbeat_timeout_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_feature_age_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_p99_latency_ms": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "max_queue_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_memory_growth_mb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_reject_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_drift_score": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_reconciliation_age_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_lease_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "required_flat_before_environment_change": {
+      "type": "boolean"
+    },
+    "require_distinct_operator_approver": {
+      "type": "boolean"
+    },
+    "require_manual_ramp_approval": {
+      "type": "boolean"
+    },
+    "minimum_stage_sessions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "minimum_stage_events": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "minimum_stage_days": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "required": [
+    "policy_id",
+    "schema_version",
+    "heartbeat_timeout_ms",
+    "max_feature_age_ms",
+    "max_p99_latency_ms",
+    "max_queue_depth",
+    "max_memory_growth_mb",
+    "max_reject_rate",
+    "max_drift_score",
+    "max_reconciliation_age_ms",
+    "max_lease_minutes",
+    "required_flat_before_environment_change",
+    "require_distinct_operator_approver",
+    "require_manual_ramp_approval",
+    "minimum_stage_sessions",
+    "minimum_stage_events",
+    "minimum_stage_days"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_ramp_decision.schema.json",
+  "title": "Operations Ramp Decision",
+  "description": "Closed UCE-I19 contract for ramp decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "current_stage": {
+      "type": "string"
+    },
+    "requested_stage": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string"
+    },
+    "evaluated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "window_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "maximum_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision_id",
+    "current_stage",
+    "requested_stage",
+    "verdict",
+    "evaluated_at_ms",
+    "window_hash",
+    "reason_codes",
+    "maximum_risk_units",
+    "requires_human_approval"
+  ]
+}

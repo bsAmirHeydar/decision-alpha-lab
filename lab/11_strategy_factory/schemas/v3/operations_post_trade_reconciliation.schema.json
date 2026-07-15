@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_post_trade_reconciliation.schema.json",
+  "title": "Operations Post Trade Reconciliation",
+  "description": "Closed UCE-I19 contract for post trade reconciliation.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "trading_day": {
+      "type": "string",
+      "format": "date"
+    },
+    "broker_statement_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "internal_ledger_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "fill_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cash_difference": {
+      "type": "number"
+    },
+    "position_difference_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "commission_difference": {
+      "type": "number"
+    },
+    "swap_difference": {
+      "type": "number"
+    },
+    "exact": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "report_id",
+    "trading_day",
+    "broker_statement_hash",
+    "internal_ledger_hash",
+    "fill_count",
+    "cash_difference",
+    "position_difference_count",
+    "commission_difference",
+    "swap_difference",
+    "exact"
+  ]
+}

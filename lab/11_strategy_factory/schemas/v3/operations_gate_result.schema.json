@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_gate_result.schema.json",
+  "title": "Operations Gate Result",
+  "description": "Closed UCE-I19 contract for gate result.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "gate": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "evaluated_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "required": [
+    "gate",
+    "status",
+    "evaluated_at_ms",
+    "reason_codes",
+    "evidence_hashes"
+  ]
+}

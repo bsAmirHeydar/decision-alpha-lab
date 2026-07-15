@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_capital_tier_policy.schema.json",
+  "title": "Operations Capital Tier Policy",
+  "description": "Closed UCE-I19 contract for capital tier policy.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "risk_envelope_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "minimum_window_sessions": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "minimum_window_events": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "minimum_window_days": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_id",
+    "stage",
+    "risk_envelope_hash",
+    "minimum_window_sessions",
+    "minimum_window_events",
+    "minimum_window_days",
+    "requires_human_approval"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_deployment_event.schema.json",
+  "title": "Operations Deployment Event",
+  "description": "Closed UCE-I19 contract for deployment event.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "event_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "availability_time_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "payload_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_type",
+    "event_time_ms",
+    "availability_time_ms",
+    "environment_hash",
+    "generation_hash",
+    "payload_hash"
+  ]
+}

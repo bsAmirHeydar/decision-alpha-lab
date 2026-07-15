@@ -1,0 +1,8 @@
+{
+  "case_id": "emergency-derisk",
+  "emergency": true,
+  "expected_approved": true,
+  "field": "max_risk_units",
+  "new": "0.5",
+  "old": "1.0"
+}

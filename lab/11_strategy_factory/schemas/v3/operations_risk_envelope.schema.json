@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_risk_envelope.schema.json",
+  "title": "Operations Risk Envelope",
+  "description": "Closed UCE-I19 contract for risk envelope.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "envelope_id": {
+      "type": "string"
+    },
+    "max_total_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_open_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_order_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_daily_loss_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_weekly_loss_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "max_positions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_orders_per_minute": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_symbol_risk_units": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "max_context_risk_units": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    }
+  },
+  "required": [
+    "envelope_id",
+    "max_total_risk_units",
+    "max_open_risk_units",
+    "max_order_risk_units",
+    "max_daily_loss_units",
+    "max_weekly_loss_units",
+    "max_positions",
+    "max_orders_per_minute",
+    "max_symbol_risk_units",
+    "max_context_risk_units"
+  ]
+}

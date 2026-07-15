@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_slo_report.schema.json",
+  "title": "Operations Slo Report",
+  "description": "Closed UCE-I19 contract for slo report.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "window_start_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "window_end_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "availability_ratio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "freshness_pass_ratio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "reconciliation_pass_ratio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "p99_latency_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "error_budget_consumed": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "report_id",
+    "window_start_ms",
+    "window_end_ms",
+    "availability_ratio",
+    "freshness_pass_ratio",
+    "reconciliation_pass_ratio",
+    "p99_latency_ms",
+    "error_budget_consumed"
+  ]
+}

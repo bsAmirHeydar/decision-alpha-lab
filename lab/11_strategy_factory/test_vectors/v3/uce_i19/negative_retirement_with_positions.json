@@ -1,0 +1,5 @@
+{
+  "case_id": "retirement-open-positions",
+  "expected_error": "retirement_safety",
+  "positions_flat": false
+}

@@ -1,0 +1,6 @@
+{
+  "approved": false,
+  "case_id": "hot-generation-mutation",
+  "expected_classification": "forbidden_hot_change",
+  "field": "active_generation_bytes"
+}

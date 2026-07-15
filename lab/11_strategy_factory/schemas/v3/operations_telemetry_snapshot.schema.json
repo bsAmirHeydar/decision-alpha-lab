@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_telemetry_snapshot.schema.json",
+  "title": "Operations Telemetry Snapshot",
+  "description": "Closed UCE-I19 contract for telemetry snapshot.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "snapshot_id": {
+      "type": "string"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "captured_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_heartbeat_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_feature_age_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "p99_latency_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "queue_depth": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "memory_growth_mb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "broker_connected": {
+      "type": "boolean"
+    },
+    "history_synchronized": {
+      "type": "boolean"
+    },
+    "open_positions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "open_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "reserved_risk_units": {
+      "type": "number",
+      "minimum": 0
+    },
+    "daily_pnl_units": {
+      "type": "number"
+    },
+    "weekly_pnl_units": {
+      "type": "number"
+    },
+    "reject_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "drift_score": {
+      "type": "number",
+      "minimum": 0
+    },
+    "duplicate_action_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stale_action_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unreserved_action_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "critical_error_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "environment_hash",
+    "generation_hash",
+    "captured_at_ms",
+    "last_heartbeat_ms",
+    "max_feature_age_ms",
+    "p99_latency_ms",
+    "queue_depth",
+    "memory_growth_mb",
+    "broker_connected",
+    "history_synchronized",
+    "open_positions",
+    "open_risk_units",
+    "reserved_risk_units",
+    "daily_pnl_units",
+    "weekly_pnl_units",
+    "reject_rate",
+    "drift_score",
+    "duplicate_action_count",
+    "stale_action_count",
+    "unreserved_action_count",
+    "critical_error_count"
+  ]
+}

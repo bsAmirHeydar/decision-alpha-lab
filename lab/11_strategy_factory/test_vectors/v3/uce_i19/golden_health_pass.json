@@ -1,0 +1,13 @@
+{
+  "case_id": "health-pass",
+  "expected_decision": "allow_bounded",
+  "expected_status": "pass",
+  "telemetry": {
+    "broker_connected": true,
+    "critical_error_count": 0,
+    "duplicate_action_count": 0,
+    "history_synchronized": true,
+    "stale_action_count": 0,
+    "unreserved_action_count": 0
+  }
+}

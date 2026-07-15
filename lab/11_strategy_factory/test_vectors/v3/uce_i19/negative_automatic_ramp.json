@@ -1,0 +1,6 @@
+{
+  "automatic_activation_allowed": false,
+  "case_id": "automatic-ramp",
+  "clean_window": true,
+  "expected_verdict": "eligible_for_human_approval"
+}

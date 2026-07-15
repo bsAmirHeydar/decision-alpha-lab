@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://decision-alpha-lab.local/schemas/v3/operations_retirement_manifest.schema.json",
+  "title": "Operations Retirement Manifest",
+  "description": "Closed UCE-I19 contract for retirement manifest.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "retirement_id": {
+      "type": "string"
+    },
+    "release_manifest_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "plan_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generation_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "retired_at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "retired_by": {
+      "type": "string"
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "positions_flat": {
+      "type": "boolean"
+    },
+    "reservations_zero": {
+      "type": "boolean"
+    },
+    "leases_revoked": {
+      "type": "boolean"
+    },
+    "evidence_archive_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "retention_until_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "retirement_id",
+    "release_manifest_hash",
+    "plan_hash",
+    "environment_hash",
+    "generation_hash",
+    "retired_at_ms",
+    "retired_by",
+    "approved_by",
+    "positions_flat",
+    "reservations_zero",
+    "leases_revoked",
+    "evidence_archive_hash",
+    "retention_until_ms",
+    "reason"
+  ]
+}

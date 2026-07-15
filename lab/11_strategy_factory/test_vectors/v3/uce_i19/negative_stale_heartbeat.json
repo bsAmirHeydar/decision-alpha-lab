@@ -1,0 +1,6 @@
+{
+  "case_id": "stale-heartbeat",
+  "expected_reason": "heartbeat_stale",
+  "expected_status": "fail",
+  "heartbeat_age_ms": 5001
+}

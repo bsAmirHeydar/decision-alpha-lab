@@ -1,0 +1,6 @@
+{
+  "case_id": "unreserved-action",
+  "expected_reason": "unreserved_action",
+  "expected_status": "fail",
+  "unreserved_action_count": 1
+}
