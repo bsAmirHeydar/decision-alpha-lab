@@ -1,0 +1,55 @@
+{
+  "activation_allowed": false,
+  "created_at": "2026-07-15",
+  "installation_root": "repository root",
+  "patch_id": "decision-alpha-lab-nds-hook-864-cycle-r1-v1.0.0",
+  "profile": "HOOK_864_CYCLE_R1",
+  "scope": "Canonical Hook Phase02 x3/x4 closed-cycle 86.4 percent limit entry with structural stop and fixed 1R target, integrated into the existing NDS Hook trade stack.",
+  "source_authority": {
+    "cycle_close": "FP_HookP02SequenceCycleClosed",
+    "hook_object": "FP_HookPhase02Sequence",
+    "node_count": "FP_HookPhase02Sequence.x_count",
+    "origin_is_counted": false
+  },
+  "locked_contract": {
+    "entry_ratio": 0.864,
+    "node_count": [
+      3,
+      4
+    ],
+    "require_confirmed_terminal": true,
+    "require_level_untouched": true,
+    "reward_r": 1.0
+  },
+  "authority": {
+    "default_profile": "TERMINAL_F123",
+    "decision_enabled_default": false,
+    "live_send_enabled_default": false,
+    "parallel_hook_detector": false,
+    "parallel_node_counter": false,
+    "python_broker_authority": false
+  },
+  "verification_command": "powershell -ExecutionPolicy Bypass -File tools/flag_counting/run_nds_hook_864_cycle_r1_tests.ps1",
+  "external_compile_command": "powershell -ExecutionPolicy Bypass -File tools/flag_counting/compile_nds_hook_864_cycle_r1.ps1 -MetaEditorPath <path-to-metaeditor64.exe>",
+  "rollback": "Disable Hook trade decision/send authority, reconcile managed exposure and evidence, then git revert the atomic patch commit.",
+  "known_limitations": [
+    "MetaEditor and MT5 execution are not available in the patch-construction environment",
+    "demo broker pending/fill/SL/TP/restart evidence is not embedded",
+    "static validation cannot prove broker behavior or profitability",
+    "live activation remains blocked"
+  ],
+  "version": "1.0.0",
+  "counts": {
+    "total_patch_files": 55,
+    "mql5_files": 10,
+    "documentation_files": 27,
+    "tool_files": 7,
+    "test_files": 1,
+    "experiment_artifacts": 3,
+    "root_release_metadata_files": 7,
+    "python_tests_passed": 26,
+    "bounded_qa_stages": 8,
+    "bounded_pass_records": 324,
+    "bounded_fail_records": 0
+  }
+}

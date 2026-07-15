@@ -30,3 +30,7 @@ The stop lies beyond the Hook `death_boundary_price`, or beyond `origin_price` w
 - [[../02_policies/Positive Hook Terminal Is Lowest Valley]]
 - [[../02_policies/Negative Hook Terminal Is Highest Peak]]
 - [[../00_mocs/NDS_ENTRY_EXECUTION_MOC]]
+
+## Profile separation
+
+This note remains authoritative for the Phase 52 `TERMINAL_F123` profile. The Phase 55 `HOOK_864_CYCLE_R1` profile does not change terminal entry or F123 exit semantics; it is separately specified in [[NDS Hook 86.4 Cycle R1 Entry Contract]]. Both profiles consume the same canonical Hook object and shared exposure/risk/broker stack.

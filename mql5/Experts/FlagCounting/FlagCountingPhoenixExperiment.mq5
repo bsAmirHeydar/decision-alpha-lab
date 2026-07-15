@@ -792,12 +792,19 @@ input string InpNDSEntryPreviewComment = "DAL_NDS_ENTRY_PREVIEW_ONLY";
 input string InpNDSEntryFolder = "FlagCountingPhoenix";
 
 // ------------------------------ NDS Hook Trade -----------------------------
-// Executable contract requested for the current NDS stage:
-// valid Hook-after-Hook / Hook-after-F3 -> limit at Hook terminal -> one global
-// managed exposure -> market exit after a complete post-entry same-direction
-// F1-F2-F3 chain. Disabled by default to prevent accidental live submission.
+// Executable Hook profiles share the same canonical Phase02 snapshot, family
+// gates, one-exposure lock, risk sizing, broker checks, persistence and audit.
+// The default preserves Phase 52 terminal/F123 behavior. HOOK_864_CYCLE_R1 is
+// opt-in and remains disabled unless both decision and live-send inputs are set.
 input bool   InpNDSHookTradeEnabled = false;
 input bool   InpNDSHookTradeSendLiveOrders = false;
+input FP_NDSHookTradeProfile InpNDSHookTradeProfile = FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123;
+input double InpNDSHookTradeHookEntryRatio = 0.864;
+input int    InpNDSHookTradeHookEntryMinXCount = 3;
+input int    InpNDSHookTradeHookEntryMaxXCount = 4;
+input bool   InpNDSHookTradeRequireConfirmedTerminal = true;
+input bool   InpNDSHookTradeRequireLevelUntouched = true;
+input double InpNDSHookTradeFixedRewardR = 1.0;
 input bool   InpNDSHookTradeAllowHookAfterHook = true;
 input bool   InpNDSHookTradeAllowHookAfterF3 = true;
 input bool   InpNDSHookTradeRequireClosedHook = true;
@@ -1298,6 +1305,13 @@ void FP_LoadNDSHookTradeConfig(FP_NDSHookTradeConfig &cfg)
    FP_ResetNDSHookTradeConfig(cfg);
    cfg.enabled = InpNDSHookTradeEnabled;
    cfg.send_live_orders = InpNDSHookTradeSendLiveOrders;
+   cfg.profile = InpNDSHookTradeProfile;
+   cfg.hook_entry_ratio = InpNDSHookTradeHookEntryRatio;
+   cfg.hook_entry_min_x_count = InpNDSHookTradeHookEntryMinXCount;
+   cfg.hook_entry_max_x_count = InpNDSHookTradeHookEntryMaxXCount;
+   cfg.hook_entry_require_confirmed_terminal = InpNDSHookTradeRequireConfirmedTerminal;
+   cfg.hook_entry_require_level_untouched = InpNDSHookTradeRequireLevelUntouched;
+   cfg.fixed_reward_r = InpNDSHookTradeFixedRewardR;
    cfg.allow_hook_after_hook = InpNDSHookTradeAllowHookAfterHook;
    cfg.allow_hook_after_f3 = InpNDSHookTradeAllowHookAfterF3;
    cfg.require_closed_hook = InpNDSHookTradeRequireClosedHook;
@@ -2713,7 +2727,7 @@ void FP_Run()
       FP_PrintNDSEntryReport("FP_NDS_ENTRY", nds_entry_report);
 
    FP_NDSHookTradeReport nds_hook_trade_report;
-   FP_RunNDSHookLimitF123Execution(_Symbol, _Period,
+   FP_RunNDSHookTradeExecution(_Symbol, _Period,
                                    events, ArraySize(events),
                                    nds_hook_trade_cfg,
                                    nds_hook_trade_report);

@@ -89,6 +89,13 @@ input int    InpBTHookMaxNodes = 20000;
 // ------------------------------ Executable contract -------------------------
 input bool   InpBTTradeEnabled = true;
 input bool   InpBTSendTesterOrders = true;
+input FP_NDSHookTradeProfile InpBTTradeProfile = FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123;
+input double InpBTHookEntryRatio = 0.864;
+input int    InpBTHookEntryMinXCount = 3;
+input int    InpBTHookEntryMaxXCount = 4;
+input bool   InpBTRequireConfirmedTerminal = true;
+input bool   InpBTRequireLevelUntouched = true;
+input double InpBTFixedRewardR = 1.0;
 input bool   InpBTAllowHookAfterHook = true;
 input bool   InpBTAllowHookAfterF3 = true;
 input bool   InpBTRequireClosedHook = true;
@@ -295,6 +302,13 @@ void FP_LoadNDSBacktestTradeConfig(FP_NDSHookTradeConfig &cfg)
    FP_ResetNDSHookTradeConfig(cfg);
    cfg.enabled = InpBTTradeEnabled;
    cfg.send_live_orders = InpBTSendTesterOrders;
+   cfg.profile = InpBTTradeProfile;
+   cfg.hook_entry_ratio = InpBTHookEntryRatio;
+   cfg.hook_entry_min_x_count = InpBTHookEntryMinXCount;
+   cfg.hook_entry_max_x_count = InpBTHookEntryMaxXCount;
+   cfg.hook_entry_require_confirmed_terminal = InpBTRequireConfirmedTerminal;
+   cfg.hook_entry_require_level_untouched = InpBTRequireLevelUntouched;
+   cfg.fixed_reward_r = InpBTFixedRewardR;
    cfg.allow_hook_after_hook = InpBTAllowHookAfterHook;
    cfg.allow_hook_after_f3 = InpBTAllowHookAfterF3;
    cfg.require_closed_hook = InpBTRequireClosedHook;
@@ -369,7 +383,8 @@ int OnInit()
    g_nds_bt_last_open_bar = (g_nds_bt_runtime_cfg.run_on_first_tick ? 0 : iTime(_Symbol, _Period, 0));
 
    Print("NDS_BT_INIT status=ready version=", FP_NDS_BACKTEST_VERSION,
-         " profile=", FP_NDSBacktestProfileName(g_nds_bt_runtime_cfg.profile),
+         " runtime_profile=", FP_NDSBacktestProfileName(g_nds_bt_runtime_cfg.profile),
+         " trade_profile=", FP_NDSHookTradeProfileName(g_nds_bt_trade_cfg.profile),
          " bars=", g_nds_bt_runtime_cfg.requested_bars,
          " hook_bars=", g_nds_bt_runtime_cfg.hook_scan_bars,
          " tester=", (tester_runtime ? "true" : "false"),

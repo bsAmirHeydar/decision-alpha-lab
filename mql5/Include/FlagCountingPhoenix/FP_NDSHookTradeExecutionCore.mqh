@@ -34,7 +34,52 @@ bool FP_NDSHookTradeFindManagedPositionForSymbol(const string symbol,
    return false;
 }
 
-void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
+bool FP_NDSHookTradeFixedRProtectionValid(const string symbol,
+                                          const int direction,
+                                          const double entry_price,
+                                          const double stop_price,
+                                          const double target_price,
+                                          double &risk_distance,
+                                          double &reward_distance,
+                                          string &reason)
+{
+   risk_distance = MathAbs(entry_price - stop_price);
+   reward_distance = MathAbs(target_price - entry_price);
+   reason = "invalid_fixed_r_protection";
+
+   bool geometry_ok = (entry_price > 0.0 && stop_price > 0.0 && target_price > 0.0 &&
+                       risk_distance > 0.0 && reward_distance > 0.0);
+   if(direction == FP_DIR_BULLISH)
+      geometry_ok = (geometry_ok && stop_price < entry_price && entry_price < target_price);
+   else if(direction == FP_DIR_BEARISH)
+      geometry_ok = (geometry_ok && target_price < entry_price && entry_price < stop_price);
+   else
+      geometry_ok = false;
+
+   if(!geometry_ok)
+   {
+      reason = "fixed_r_stop_entry_target_order_invalid";
+      return false;
+   }
+
+   double tick = FP_NDSHookTradeTickSize(symbol);
+   if(tick <= 0.0)
+   {
+      reason = "fixed_r_tick_size_invalid";
+      return false;
+   }
+   if(reward_distance + tick * 0.1 <
+      risk_distance * FP_NDS_HOOK_864_REWARD_R)
+   {
+      reason = "fixed_r_reward_below_canonical_1R";
+      return false;
+   }
+
+   reason = "fixed_r_protection_valid";
+   return true;
+}
+
+void FP_RunNDSHookTradeExecutionCore(const string symbol,
                                      const ENUM_TIMEFRAMES period,
                                      const FP_FlagEvent &events[],
                                      const int event_count,
@@ -42,6 +87,7 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
                                      FP_NDSHookTradeReport &report)
 {
    FP_ResetNDSHookTradeReport(report);
+   report.schema_version = FP_NDSHookTradeSchemaName(cfg.profile);
    report.symbol = symbol;
    report.period = period;
    report.attempted = cfg.enabled;
@@ -122,6 +168,86 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
       }
 
       report.position_ticket = position_ticket;
+
+      if(!PositionSelectByTicket(position_ticket))
+      {
+         report.ok = false;
+         report.action = FP_NDS_HOOK_TRADE_ACTION_BLOCKED;
+         report.status = "BLOCKED_MANAGED_POSITION_NOT_SELECTABLE";
+         report.reason = "managed_position_disappeared_before_profile_recovery";
+         FP_NDSHookTradeFinalizeReport(report);
+         return;
+      }
+
+      FP_NDSHookTradeProfile position_profile;
+      string position_profile_reason;
+      string position_comment = PositionGetString(POSITION_COMMENT);
+      if(!FP_NDSHookTradeProfileFromBrokerComment(cfg, position_comment,
+                                                  position_profile,
+                                                  position_profile_reason))
+      {
+         report.ok = false;
+         report.action = FP_NDS_HOOK_TRADE_ACTION_BLOCKED;
+         report.status = "BLOCKED_MANAGED_POSITION_PROFILE_UNKNOWN";
+         report.reason = position_profile_reason;
+         FP_NDSHookTradeFinalizeReport(report);
+         return;
+      }
+
+      bool position_profile_recovered = (position_profile != cfg.profile);
+      report.setup.profile_label = FP_NDSHookTradeProfileName(position_profile);
+      report.schema_version = FP_NDSHookTradeSchemaName(position_profile);
+
+      if(position_profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+      {
+         // The broker-attached SL/TP owns the fixed-1R lifecycle. The F123 exit
+         // detector remains untouched and is not consulted for this profile.
+         if(!PositionSelectByTicket(position_ticket))
+         {
+            report.ok = false;
+            report.action = FP_NDS_HOOK_TRADE_ACTION_BLOCKED;
+            report.status = "BLOCKED_FIXED_R_POSITION_NOT_SELECTABLE";
+            report.reason = "managed_position_disappeared_during_protection_check";
+         }
+         else
+         {
+            double open_price = PositionGetDouble(POSITION_PRICE_OPEN);
+            double stop_price = PositionGetDouble(POSITION_SL);
+            double target_price = PositionGetDouble(POSITION_TP);
+            double risk_distance = 0.0;
+            double reward_distance = 0.0;
+            string protection_reason;
+            report.ok = FP_NDSHookTradeFixedRProtectionValid(symbol,
+                                                              position_direction,
+                                                              open_price,
+                                                              stop_price,
+                                                              target_price,
+                                                              risk_distance,
+                                                              reward_distance,
+                                                              protection_reason);
+            report.setup.direction = position_direction;
+            report.setup.direction_label = FP_NDSHookTradeDirectionName(position_direction);
+            report.setup.entry_price = open_price;
+            report.setup.stop_price = stop_price;
+            report.setup.target_price = target_price;
+            report.setup.risk_distance = risk_distance;
+            report.setup.reward_distance = reward_distance;
+            report.setup.reward_r = (risk_distance > 0.0 ?
+                                     reward_distance / risk_distance : 0.0);
+            report.action = (report.ok ? FP_NDS_HOOK_TRADE_ACTION_POSITION_HELD :
+                                         FP_NDS_HOOK_TRADE_ACTION_BLOCKED);
+            report.status = (report.ok ? "POSITION_HELD_BY_FIXED_R1_PROTECTION" :
+                                         "BLOCKED_FIXED_R_POSITION_PROTECTION");
+            report.reason = (report.ok ? "broker_sl_tp_own_exit_no_f123_close" :
+                                         protection_reason);
+            if(position_profile_recovered)
+               report.reason += ";position_profile_recovered_from_broker_comment";
+         }
+
+         FP_NDSHookTradeFinalizeReport(report);
+         return;
+      }
+
       if(FP_NDSHookTradeFindExitF3(events, event_count,
                                    position_direction,
                                    position_open_time,
@@ -163,6 +289,8 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
          report.reason = "no_completed_post_entry_same_direction_f3";
       }
 
+      if(position_profile_recovered)
+         report.reason += ";position_profile_recovered_from_broker_comment";
       FP_NDSHookTradeFinalizeReport(report);
       return;
    }
@@ -179,10 +307,86 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
 
    if(report.managed_pending_count > 0)
    {
+      FP_NDSHookTradeProfile pending_profile;
+      string pending_profile_reason;
+      bool pending_selected = (report.order_ticket > 0 && OrderSelect(report.order_ticket));
+      string pending_comment = (pending_selected ? OrderGetString(ORDER_COMMENT) : "");
+      if(!pending_selected ||
+         !FP_NDSHookTradeProfileFromBrokerComment(cfg, pending_comment,
+                                                  pending_profile,
+                                                  pending_profile_reason))
+      {
+         report.ok = false;
+         report.action = FP_NDS_HOOK_TRADE_ACTION_BLOCKED;
+         report.status = "BLOCKED_MANAGED_PENDING_PROFILE_UNKNOWN";
+         report.reason = (pending_selected ? pending_profile_reason :
+                                             "managed_pending_not_selectable");
+         FP_NDSHookTradeFinalizeReport(report);
+         return;
+      }
+
+      bool pending_profile_recovered = (pending_profile != cfg.profile);
+      report.setup.profile_label = FP_NDSHookTradeProfileName(pending_profile);
+      report.schema_version = FP_NDSHookTradeSchemaName(pending_profile);
+
+      if(pending_profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+      {
+         ENUM_ORDER_TYPE pending_type = (ENUM_ORDER_TYPE)OrderGetInteger(ORDER_TYPE);
+         int pending_direction = (pending_type == ORDER_TYPE_BUY_LIMIT ? FP_DIR_BULLISH :
+                                  (pending_type == ORDER_TYPE_SELL_LIMIT ? FP_DIR_BEARISH : FP_DIR_NONE));
+         double pending_entry = OrderGetDouble(ORDER_PRICE_OPEN);
+         double pending_stop = OrderGetDouble(ORDER_SL);
+         double pending_target = OrderGetDouble(ORDER_TP);
+         double pending_risk = 0.0;
+         double pending_reward = 0.0;
+         string pending_protection_reason;
+         bool pending_protection_ok = FP_NDSHookTradeFixedRProtectionValid(symbol,
+                                                                           pending_direction,
+                                                                           pending_entry,
+                                                                           pending_stop,
+                                                                           pending_target,
+                                                                           pending_risk,
+                                                                           pending_reward,
+                                                                           pending_protection_reason);
+         report.setup.direction = pending_direction;
+         report.setup.direction_label = FP_NDSHookTradeDirectionName(pending_direction);
+         report.setup.entry_price = pending_entry;
+         report.setup.stop_price = pending_stop;
+         report.setup.target_price = pending_target;
+         report.setup.risk_distance = pending_risk;
+         report.setup.reward_distance = pending_reward;
+         report.setup.reward_r = (pending_risk > 0.0 ? pending_reward / pending_risk : 0.0);
+         report.setup.broker_comment = pending_comment;
+
+         if(!pending_protection_ok)
+         {
+            g_fp_nds_hook_trade.SetAsyncMode(false);
+            g_fp_nds_hook_trade.SetExpertMagicNumber((ulong)cfg.magic);
+            bool deleted = g_fp_nds_hook_trade.OrderDelete(report.order_ticket);
+            uint delete_retcode = g_fp_nds_hook_trade.ResultRetcode();
+            report.ok = deleted && FP_NDSHookTradeRetcodeAccepted(delete_retcode);
+            report.action = (report.ok ? FP_NDS_HOOK_TRADE_ACTION_PENDING_CANCELLED :
+                                         FP_NDS_HOOK_TRADE_ACTION_BLOCKED);
+            report.status = (report.ok ? "PENDING_CANCELLED_INVALID_FIXED_R_PROTECTION" :
+                                         "BLOCKED_INVALID_FIXED_R_PENDING_PROTECTION");
+            report.reason = pending_protection_reason;
+            if(report.ok)
+               report.managed_pending_count = 0;
+            else
+               report.reason += ";delete_failed_" + IntegerToString((int)delete_retcode);
+            FP_NDSHookTradeFinalizeReport(report);
+            return;
+         }
+      }
+
       report.ok = true;
       report.action = FP_NDS_HOOK_TRADE_ACTION_PENDING_HELD;
-      report.status = "SINGLE_PENDING_LIMIT_HELD";
-      report.reason = "single_exposure_lock_blocks_new_setups";
+      report.status = (pending_profile_recovered ?
+                       "SINGLE_PENDING_LIMIT_HELD_PROFILE_RECOVERED" :
+                       "SINGLE_PENDING_LIMIT_HELD");
+      report.reason = (pending_profile_recovered ?
+                       "single_exposure_lock;pending_profile_recovered_from_broker_comment" :
+                       "single_exposure_lock_blocks_new_setups");
       FP_NDSHookTradeFinalizeReport(report);
       return;
    }
@@ -216,8 +420,12 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
    {
       report.ok = true;
       report.action = FP_NDS_HOOK_TRADE_ACTION_NONE;
-      report.status = "NO_VALID_H3F_OR_HH_SETUP";
-      report.reason = "latest_snapshot_has_no_eligible_valid_family";
+      report.status = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                       "NO_ELIGIBLE_HOOK_864_CYCLE_R1_SETUP" :
+                       "NO_VALID_H3F_OR_HH_SETUP");
+      report.reason = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                       "no_closed_valid_family_with_x3_or_x4_before_864" :
+                       "latest_snapshot_has_no_eligible_valid_family");
       FP_NDSHookTradeFinalizeReport(report);
       return;
    }
@@ -273,8 +481,11 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
       FP_NDSHookTradeReleaseEntryLock(cfg, entry_lock_token);
       report.ok = paper_registry_ok;
       report.action = FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT;
-      report.status = (paper_registry_ok ? "PAPER_LIMIT_AT_HOOK_TERMINAL" :
-                                          "PAPER_LIMIT_REGISTRY_FAILED");
+      report.status = (paper_registry_ok ?
+                       (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                        "PAPER_LIMIT_AT_HOOK_864_CYCLE_R1" :
+                        "PAPER_LIMIT_AT_HOOK_TERMINAL") :
+                       "PAPER_LIMIT_REGISTRY_FAILED");
       report.reason = (paper_registry_ok ? "send_live_orders_false" :
                                           "paper_decision_not_persisted");
       FP_NDSHookTradeFinalizeReport(report);
@@ -288,8 +499,11 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
       bool registry_ok = FP_NDSHookTradeMarkSetupUsed(cfg, report.setup.setup_key);
       report.ok = true;
       report.action = FP_NDS_HOOK_TRADE_ACTION_LIMIT_SENT;
-      report.status = (registry_ok ? "LIMIT_SENT_AT_VALID_HOOK_TERMINAL" :
-                                     "LIMIT_SENT_REGISTRY_WARNING");
+      report.status = (registry_ok ?
+                       (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                        "LIMIT_SENT_AT_VALID_HOOK_864_CYCLE_R1" :
+                        "LIMIT_SENT_AT_VALID_HOOK_TERMINAL") :
+                       "LIMIT_SENT_REGISTRY_WARNING");
       report.reason = (registry_ok ? send_reason :
                                      send_reason + ";one_attempt_registry_write_failed");
       report.order_ticket = order_ticket;
@@ -304,6 +518,20 @@ void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
 
    FP_NDSHookTradeReleaseEntryLock(cfg, entry_lock_token);
    FP_NDSHookTradeFinalizeReport(report);
+}
+
+// Backward-compatible Phase 52 core API. Existing direct callers retain the
+// same behavior because TERMINAL_F123 remains the default profile.
+void FP_RunNDSHookLimitF123ExecutionCore(const string symbol,
+                                         const ENUM_TIMEFRAMES period,
+                                         const FP_FlagEvent &events[],
+                                         const int event_count,
+                                         const FP_NDSHookTradeConfig &cfg,
+                                         FP_NDSHookTradeReport &report)
+{
+   FP_RunNDSHookTradeExecutionCore(symbol, period,
+                                   events, event_count,
+                                   cfg, report);
 }
 
 #endif // __FP_NDS_HOOK_TRADE_EXECUTION_CORE_MQH__

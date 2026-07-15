@@ -1,0 +1,52 @@
+{
+  "activation_allowed": false,
+  "gates": [
+    {
+      "gate": "canonical_hook_reuse",
+      "repository_status": "pass",
+      "external_status": "not_applicable"
+    },
+    {
+      "gate": "python_reference_and_vectors",
+      "repository_status": "pass",
+      "external_status": "not_applicable"
+    },
+    {
+      "gate": "phase52_regression",
+      "repository_status": "pass",
+      "external_status": "metaeditor_and_tester_pending"
+    },
+    {
+      "gate": "mql5_compile",
+      "repository_status": "static_only",
+      "external_status": "pending_windows_metaeditor"
+    },
+    {
+      "gate": "python_mql5_parity",
+      "repository_status": "contract_mirror_ready",
+      "external_status": "pending"
+    },
+    {
+      "gate": "pending_fill_sl_tp",
+      "repository_status": "contract_ready",
+      "external_status": "pending_demo_broker"
+    },
+    {
+      "gate": "restart_profile_recovery",
+      "repository_status": "contract_ready",
+      "external_status": "pending_terminal_restart"
+    },
+    {
+      "gate": "x3_x4_no_reprice",
+      "repository_status": "stable_identity_ready",
+      "external_status": "pending_strategy_tester_and_demo"
+    },
+    {
+      "gate": "live_authority",
+      "repository_status": "default_false",
+      "external_status": "blocked_until_approval"
+    }
+  ],
+  "profile": "HOOK_864_CYCLE_R1",
+  "schema_version": "nds_hook_864_cycle_r1_acceptance_matrix_v1"
+}

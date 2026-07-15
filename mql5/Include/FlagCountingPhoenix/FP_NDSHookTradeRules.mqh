@@ -5,6 +5,7 @@
 #include <Trade/Trade.mqh>
 #include "FP_NDSHookTradeTypes.mqh"
 #include "FP_HookPhase02Rules.mqh"
+#include "FP_NDSHook864CycleR1Rules.mqh"
 #include "../Execution/DAL_ExecRisk.mqh"
 
 CTrade g_fp_nds_hook_trade;
@@ -29,6 +30,43 @@ string FP_NDSHookTradeDirectionName(const int d)
    if(d == FP_DIR_BULLISH) return "BUY";
    if(d == FP_DIR_BEARISH) return "SELL";
    return "NONE";
+}
+
+bool FP_NDSHookTradeProfileFromBrokerComment(const FP_NDSHookTradeConfig &cfg,
+                                                const string comment,
+                                                FP_NDSHookTradeProfile &profile,
+                                                string &reason)
+{
+   profile = FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123;
+   reason = "unknown_profile_comment";
+
+   string prefix = cfg.comment_prefix + "|";
+   if(StringFind(comment, prefix) != 0)
+   {
+      reason = "comment_prefix_mismatch";
+      return false;
+   }
+
+   // Phase 52 legacy comments were NDSH|S<sequence>|<family>. They remain
+   // authoritative terminal/F123 ownership after restart. The optional TF3
+   // token is accepted for forward compatibility with intermediate builds.
+   if(StringFind(comment, prefix + "S") == 0 ||
+      StringFind(comment, prefix + "TF3|") == 0)
+   {
+      profile = FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123;
+      reason = "terminal_f123_profile_comment";
+      return true;
+   }
+
+   if(StringFind(comment, prefix + "864R1|") == 0)
+   {
+      profile = FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1;
+      reason = "hook_864_cycle_r1_profile_comment";
+      return true;
+   }
+
+   reason = "unrecognized_managed_profile_comment";
+   return false;
 }
 
 string FP_NDSHookTradeFamily(const FP_HookPhase02Sequence &seq)
@@ -68,7 +106,17 @@ bool FP_NDSHookTradeSequenceEligible(const FP_HookPhase02Sequence &seq,
    if(seq.direction != FP_HOOK_P02_DIRECTION_POSITIVE &&
       seq.direction != FP_HOOK_P02_DIRECTION_NEGATIVE)
       return false;
-   return true;
+
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123)
+      return true;
+
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      string profile_reason;
+      return FP_NDSHook864CycleR1SequenceEligible(seq, cfg, profile_reason);
+   }
+
+   return false;
 }
 
 bool FP_NDSHookTradeSelectLatest(const FP_HookPhase02Sequence &sequences[],
@@ -229,15 +277,28 @@ bool FP_NDSHookTradeComputeVolume(const string symbol,
 
 string FP_NDSHookTradeBuildSetupKey(const string symbol,
                                     const ENUM_TIMEFRAMES period,
-                                    const FP_HookPhase02Sequence &seq)
+                                    const FP_HookPhase02Sequence &seq,
+                                    const FP_NDSHookTradeConfig &cfg)
 {
    string key = symbol;
    key += "|TF=" + EnumToString(period);
    key += "|SEQ=" + IntegerToString(seq.sequence_id);
    key += "|DIR=" + IntegerToString((int)seq.direction);
    key += "|O=" + IntegerToString((long)seq.origin_time);
-   key += "|T=" + IntegerToString((long)seq.resolve_time);
    key += "|F=" + FP_NDSHookTradeFamily(seq);
+   key += "|P=" + FP_NDSHookTradeProfileCode(cfg.profile);
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      // Stable one-attempt identity belongs to the Hook sequence, not to the
+      // current x3/x4 terminal. A later x4 extension must not create or reprice
+      // a second order for the same Hook.
+      key += "|R=" + DoubleToString(cfg.hook_entry_ratio, 6);
+   }
+   else
+   {
+      // Preserve the Phase 52 terminal-entry identity exactly.
+      key += "|T=" + IntegerToString((long)seq.resolve_time);
+   }
    return key;
 }
 
@@ -245,7 +306,18 @@ string FP_NDSHookTradeBuildComment(const FP_NDSHookTradeConfig &cfg,
                                    const FP_HookPhase02Sequence &seq)
 {
    string code = FP_NDSHookTradeFamily(seq);
-   string comment = cfg.comment_prefix + "|S" + IntegerToString(seq.sequence_id) + "|" + code;
+   string comment;
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123)
+   {
+      // Preserve the exact Phase 52 broker-comment shape for compatibility
+      // with existing pending orders, positions, exports and recovery tooling.
+      comment = cfg.comment_prefix + "|S" + IntegerToString(seq.sequence_id) + "|" + code;
+   }
+   else
+   {
+      comment = cfg.comment_prefix + "|" + FP_NDSHookTradeProfileCode(cfg.profile) +
+                "|S" + IntegerToString(seq.sequence_id) + "|" + code;
+   }
    if(StringLen(comment) > 31)
       comment = StringSubstr(comment, 0, 31);
    return comment;
@@ -263,12 +335,41 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
    setup.direction = (seq.direction == FP_HOOK_P02_DIRECTION_POSITIVE ? FP_DIR_BULLISH : FP_DIR_BEARISH);
    setup.direction_label = FP_NDSHookTradeDirectionName(setup.direction);
    setup.family = FP_NDSHookTradeFamily(seq);
+   setup.profile_label = FP_NDSHookTradeProfileName(cfg.profile);
    setup.valid_after_hook = seq.valid_after_hook;
    setup.valid_after_f3 = seq.valid_after_opposing_f3;
    setup.structure_time = FP_NDSHookTradeSequenceTime(seq);
-   setup.setup_key = FP_NDSHookTradeBuildSetupKey(symbol, period, seq);
+   setup.x_count = seq.x_count;
+   setup.origin_price = seq.origin_price;
+   setup.crown_price = seq.cycle_crown_price;
+   setup.terminal_price = seq.resolve_price;
+   setup.terminal_retracement_ratio = seq.retracement_ratio;
+   setup.entry_ratio = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                        cfg.hook_entry_ratio : 0.0);
+   setup.entry_level_untouched = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                                  FP_NDSHook864CycleR1LevelUntouched(seq, cfg.hook_entry_ratio) : true);
+   setup.setup_key = FP_NDSHookTradeBuildSetupKey(symbol, period, seq, cfg);
    setup.broker_comment = FP_NDSHookTradeBuildComment(cfg, seq);
    setup.already_used = FP_NDSHookTradeSetupUsed(cfg, setup.setup_key);
+
+   if(cfg.profile != FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123 &&
+      cfg.profile != FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      setup.status = "BLOCKED_PROFILE";
+      setup.reason = "unknown_hook_trade_profile";
+      return false;
+   }
+
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      string profile_reason;
+      if(!FP_NDSHook864CycleR1SequenceEligible(seq, cfg, profile_reason))
+      {
+         setup.status = "BLOCKED_HOOK_864_PROFILE";
+         setup.reason = profile_reason;
+         return false;
+      }
+   }
 
    double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
    double bid = SymbolInfoDouble(symbol, SYMBOL_BID);
@@ -279,6 +380,10 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
       setup.reason = "invalid_bid_ask_or_point";
       return false;
    }
+
+   double raw_entry = seq.resolve_price;
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+      raw_entry = FP_NDSHook864CycleR1RawEntry(seq, cfg.hook_entry_ratio);
 
    double death = (seq.death_boundary_price > 0.0 ? seq.death_boundary_price : seq.origin_price);
    double spread = MathMax(0.0, ask - bid);
@@ -291,7 +396,7 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
 
    if(setup.direction == FP_DIR_BULLISH)
    {
-      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol, seq.resolve_price, false);
+      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol, raw_entry, false);
       setup.death_price = FP_NDSHookTradeNormalizePrice(symbol, death, false);
       setup.stop_price = FP_NDSHookTradeNormalizePrice(symbol, death - buffer, false);
       if(setup.entry_price - setup.stop_price < stop_min_dist)
@@ -300,19 +405,19 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
       if(!(setup.death_price < setup.entry_price))
       {
          setup.status = "BLOCKED_HOOK_GEOMETRY";
-         setup.reason = "bullish_death_must_be_below_terminal_entry";
+         setup.reason = "bullish_death_must_be_below_limit_entry";
          return false;
       }
       if(!(setup.entry_price < ask - entry_min_dist))
       {
          setup.status = "BLOCKED_LIMIT_GEOMETRY";
-         setup.reason = "buy_limit_terminal_not_below_current_ask";
+         setup.reason = "buy_limit_entry_not_below_current_ask";
          return false;
       }
    }
    else if(setup.direction == FP_DIR_BEARISH)
    {
-      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol, seq.resolve_price, true);
+      setup.entry_price = FP_NDSHookTradeNormalizePrice(symbol, raw_entry, true);
       setup.death_price = FP_NDSHookTradeNormalizePrice(symbol, death, true);
       setup.stop_price = FP_NDSHookTradeNormalizePrice(symbol, death + buffer, true);
       if(setup.stop_price - setup.entry_price < stop_min_dist)
@@ -321,13 +426,13 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
       if(!(setup.death_price > setup.entry_price))
       {
          setup.status = "BLOCKED_HOOK_GEOMETRY";
-         setup.reason = "bearish_death_must_be_above_terminal_entry";
+         setup.reason = "bearish_death_must_be_above_limit_entry";
          return false;
       }
       if(!(setup.entry_price > bid + entry_min_dist))
       {
          setup.status = "BLOCKED_LIMIT_GEOMETRY";
-         setup.reason = "sell_limit_terminal_not_above_current_bid";
+         setup.reason = "sell_limit_entry_not_above_current_bid";
          return false;
       }
    }
@@ -336,6 +441,46 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
       setup.status = "BLOCKED_DIRECTION";
       setup.reason = "hook_direction_none";
       return false;
+   }
+
+   setup.risk_distance = MathAbs(setup.entry_price - setup.stop_price);
+   if(setup.risk_distance <= 0.0)
+   {
+      setup.status = "BLOCKED_RISK_GEOMETRY";
+      setup.reason = "entry_stop_distance_not_positive";
+      return false;
+   }
+
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      setup.reward_r = cfg.fixed_reward_r;
+      double raw_target = (setup.direction == FP_DIR_BULLISH ?
+                           setup.entry_price + setup.risk_distance * setup.reward_r :
+                           setup.entry_price - setup.risk_distance * setup.reward_r);
+      setup.target_price = FP_NDSHookTradeNormalizePrice(symbol, raw_target,
+                                                         setup.direction == FP_DIR_BULLISH);
+      setup.reward_distance = MathAbs(setup.target_price - setup.entry_price);
+
+      if(setup.direction == FP_DIR_BULLISH && !(setup.stop_price < setup.entry_price &&
+                                                setup.entry_price < setup.target_price))
+      {
+         setup.status = "BLOCKED_FIXED_R_GEOMETRY";
+         setup.reason = "bullish_stop_entry_target_order_invalid";
+         return false;
+      }
+      if(setup.direction == FP_DIR_BEARISH && !(setup.target_price < setup.entry_price &&
+                                                setup.entry_price < setup.stop_price))
+      {
+         setup.status = "BLOCKED_FIXED_R_GEOMETRY";
+         setup.reason = "bearish_target_entry_stop_order_invalid";
+         return false;
+      }
+      if(setup.reward_distance + point * 0.1 < setup.risk_distance * cfg.fixed_reward_r)
+      {
+         setup.status = "BLOCKED_FIXED_R_GEOMETRY";
+         setup.reason = "normalized_target_below_requested_reward_r";
+         return false;
+      }
    }
 
    if(setup.already_used)
@@ -355,7 +500,9 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
    }
 
    setup.eligible = true;
-   setup.status = "READY_LIMIT_AT_HOOK_TERMINAL";
+   setup.status = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
+                   "READY_LIMIT_AT_HOOK_864_CYCLE_R1" :
+                   "READY_LIMIT_AT_HOOK_TERMINAL");
    setup.reason = "none";
    return true;
 }
@@ -417,6 +564,7 @@ bool FP_NDSHookTradeRetcodeAccepted(const uint retcode)
 
 bool FP_NDSHookTradeCanSend(const string symbol,
                                 const int direction,
+                                const bool require_take_profit,
                                 string &reason)
 {
    if(symbol == "")
@@ -472,6 +620,11 @@ bool FP_NDSHookTradeCanSend(const string symbol,
       reason = "symbol_stop_loss_not_supported";
       return false;
    }
+   if(require_take_profit && (order_mode & SYMBOL_ORDER_TP) == 0)
+   {
+      reason = "symbol_take_profit_not_supported";
+      return false;
+   }
 
    reason = "ok";
    return true;
@@ -493,7 +646,8 @@ bool FP_NDSHookTradeSendLimit(const string symbol,
    }
 
    string trade_reason;
-   if(!FP_NDSHookTradeCanSend(symbol, setup.direction, trade_reason))
+   bool require_take_profit = (setup.target_price > 0.0);
+   if(!FP_NDSHookTradeCanSend(symbol, setup.direction, require_take_profit, trade_reason))
    {
       reason = trade_reason;
       return false;
@@ -507,11 +661,11 @@ bool FP_NDSHookTradeSendLimit(const string symbol,
    bool ok = false;
    if(setup.direction == FP_DIR_BULLISH)
       ok = g_fp_nds_hook_trade.BuyLimit(setup.volume, setup.entry_price, symbol,
-                                       setup.stop_price, 0.0,
+                                       setup.stop_price, setup.target_price,
                                        ORDER_TIME_GTC, 0, setup.broker_comment);
    else if(setup.direction == FP_DIR_BEARISH)
       ok = g_fp_nds_hook_trade.SellLimit(setup.volume, setup.entry_price, symbol,
-                                        setup.stop_price, 0.0,
+                                        setup.stop_price, setup.target_price,
                                         ORDER_TIME_GTC, 0, setup.broker_comment);
 
    uint retcode = g_fp_nds_hook_trade.ResultRetcode();

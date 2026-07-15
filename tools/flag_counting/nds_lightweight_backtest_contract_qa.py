@@ -75,15 +75,17 @@ check("FP_NDSHookTradeExecutionCore.mqh" in bt_engine,
       "backtest uses no-export execution core")
 check("FP_RunHookPhase02DetectionCore" in bt_engine,
       "backtest calls Hook core directly")
-check("FP_RunNDSHookLimitF123ExecutionCore" in bt_engine,
-      "backtest calls trade core directly")
+check("FP_RunNDSHookTradeExecutionCore" in bt_engine,
+      "backtest calls profile-neutral trade core directly")
 check("skip_hook_rebuild_while_position_open" in bt_engine,
       "position fast path is implemented")
 check("FP_NDSClearStructureSnapshot" in bt_engine,
       "position fast path clears stale Hook snapshot")
 
-check("FP_RunNDSHookLimitF123ExecutionCore" in trade_engine,
+check("FP_RunNDSHookTradeExecutionCore" in trade_engine,
       "production trade engine wraps shared execution core")
+check("FP_RunNDSHookLimitF123ExecutionCore" in trade_core,
+      "legacy Phase 52 core compatibility wrapper remains available")
 check("FP_NDSHookTradeExportReport" in trade_engine,
       "production wrapper preserves export sink")
 check("FP_NDSHookTradeExportReport" not in trade_core,

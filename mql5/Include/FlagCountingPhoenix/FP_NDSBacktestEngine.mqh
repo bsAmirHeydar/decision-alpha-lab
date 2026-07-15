@@ -180,7 +180,8 @@ bool FP_RunNDSLightweightBacktestCycle(const string symbol,
    if(position_fast_path)
    {
       // The execution engine handles an open position before consulting the
-      // Hook snapshot. Only F events are required for the F1-F2-F3 exit path.
+      // Hook snapshot. The terminal/F123 profile only needs F events for its
+      // exit; the fixed-R profile only verifies broker-attached protection.
       FP_NDSClearStructureSnapshot();
       report.hook_snapshot_skipped_for_open_position = true;
       report.hook_phase02_report.ok = true;
@@ -201,7 +202,7 @@ bool FP_RunNDSLightweightBacktestCycle(const string symbol,
       report.hook_snapshot_rebuilt = true;
    }
 
-   FP_RunNDSHookLimitF123ExecutionCore(symbol, period,
+   FP_RunNDSHookTradeExecutionCore(symbol, period,
                                    events, ArraySize(events),
                                    trade_cfg,
                                    report.trade_report);
@@ -217,18 +218,19 @@ void FP_PrintNDSBacktestRunReport(const string tag,
                                   const FP_NDSBacktestRuntimeConfig &cfg,
                                   const FP_NDSBacktestRunReport &report)
 {
-   Print(tag,
-         " profile=", FP_NDSBacktestProfileName(cfg.profile),
-         " ok=", (report.ok ? "true" : "false"),
-         " status=", report.status,
-         " reason=", report.reason,
-         " bars=", report.copied_bars,
-         " scales=", report.scale_count,
-         " events=", report.event_count,
-         " hooks=", report.hook_count,
-         " hook_rebuilt=", (report.hook_snapshot_rebuilt ? "true" : "false"),
-         " position_fast_path=", (report.hook_snapshot_skipped_for_open_position ? "true" : "false"),
-         " elapsed_us=", report.elapsed_microseconds);
+   string message = tag;
+   message += " profile=" + FP_NDSBacktestProfileName(cfg.profile);
+   message += " ok=" + (report.ok ? "true" : "false");
+   message += " status=" + report.status;
+   message += " reason=" + report.reason;
+   message += " bars=" + IntegerToString(report.copied_bars);
+   message += " scales=" + IntegerToString(report.scale_count);
+   message += " events=" + IntegerToString(report.event_count);
+   message += " hooks=" + IntegerToString(report.hook_count);
+   message += " hook_rebuilt=" + (report.hook_snapshot_rebuilt ? "true" : "false");
+   message += " position_fast_path=" + (report.hook_snapshot_skipped_for_open_position ? "true" : "false");
+   message += " elapsed_us=" + IntegerToString((long)report.elapsed_microseconds);
+   Print(message);
 }
 
 void FP_PrintNDSBacktestSessionStats(const string tag,

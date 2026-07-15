@@ -76,10 +76,12 @@ def run(root: Path) -> list[Check]:
              "P52_ENABLE_DEFAULT_FALSE", "strategy decision engine is disabled by default")
     contains(checks, root, ea, "InpNDSHookTradeSendLiveOrders = false",
              "P52_SEND_DEFAULT_FALSE", "broker-send authority is disabled by default")
-    contains(checks, root, ea, "FP_RunNDSHookLimitF123Execution",
-             "P52_ENGINE_WIRED", "Phase 52 engine is wired after Hook reconstruction")
-    contains(checks, root, engine, "FP_RunNDSHookLimitF123ExecutionCore",
+    contains(checks, root, ea, "FP_RunNDSHookTradeExecution",
+             "P52_ENGINE_WIRED", "central EA uses the profile-neutral Hook trade engine")
+    contains(checks, root, engine, "FP_RunNDSHookTradeExecutionCore",
              "P52_SHARED_CORE_WRAPPER", "production engine delegates to the shared execution core")
+    contains(checks, root, engine, "FP_RunNDSHookLimitF123Execution",
+             "P52_COMPATIBILITY_WRAPPER", "legacy Phase 52 public API remains available")
 
     contains(checks, root, rules, "seq.valid_after_hook",
              "P52_SOURCE_HH", "Hook-after-Hook source is explicit")
@@ -93,8 +95,12 @@ def run(root: Path) -> list[Check]:
              "P52_BUY_LIMIT", "positive/bullish Hook submits Buy Limit")
     contains(checks, root, rules, "SellLimit(setup.volume, setup.entry_price",
              "P52_SELL_LIMIT", "negative/bearish Hook submits Sell Limit")
-    contains(checks, root, rules, "setup.stop_price, 0.0",
-             "P52_NO_FIXED_TP", "pending orders attach no fixed take-profit")
+    contains(checks, root, types, "s.target_price = 0.0",
+             "P52_NO_FIXED_TP_DEFAULT", "legacy profile reset has no fixed target")
+    contains(checks, root, rules, "double raw_entry = seq.resolve_price",
+             "P52_TERMINAL_RAW_ENTRY_PRESERVED", "legacy profile still starts from canonical terminal")
+    contains(checks, root, rules, "setup.stop_price, setup.target_price",
+             "P52_SHARED_SEND_GEOMETRY", "shared sender consumes profile-owned target; legacy target remains zero")
     contains(checks, root, rules, "death_boundary_price",
              "P52_DEATH_STOP", "protective stop derives from Hook death/origin")
 
@@ -137,11 +143,21 @@ def run(root: Path) -> list[Check]:
     contains(checks, root, export, "exit_f2_start",
              "P52_F2_AUDIT", "F2 start is preserved in the exit evidence ledger")
 
-    # Broker ownership must not depend on mutable comments.
-    excludes(checks, root, core, "POSITION_COMMENT",
-             "P52_MAGIC_ONLY_POSITION_AUTHORITY", "position ownership does not depend on broker comments")
+    # Economic ownership remains magic-based. Broker comments are consulted only
+    # after magic/symbol ownership is established, to recover the immutable
+    # lifecycle profile across terminal restart or input-profile changes.
+    contains(checks, root, core, "PositionGetInteger(POSITION_MAGIC) != cfg.magic",
+             "P52_MAGIC_POSITION_AUTHORITY", "position economic ownership remains strategy-magic based")
+    contains(checks, root, rules, "OrderGetInteger(ORDER_MAGIC) != cfg.magic",
+             "P52_MAGIC_ORDER_AUTHORITY", "order economic ownership remains strategy-magic based")
+    contains(checks, root, core, "FP_NDSHookTradeProfileFromBrokerComment",
+             "P52_PROFILE_RECOVERY_AFTER_OWNERSHIP", "managed exposure lifecycle profile is recovered after magic ownership")
+    contains(checks, root, core, "BLOCKED_MANAGED_POSITION_PROFILE_UNKNOWN",
+             "P52_UNKNOWN_POSITION_PROFILE_FAIL_CLOSED", "unknown managed-position profile fails closed")
+    contains(checks, root, core, "BLOCKED_MANAGED_PENDING_PROFILE_UNKNOWN",
+             "P52_UNKNOWN_PENDING_PROFILE_FAIL_CLOSED", "unknown managed-pending profile fails closed")
     excludes(checks, root, rules, "ORDER_COMMENT) !=",
-             "P52_MAGIC_ONLY_ORDER_AUTHORITY", "order ownership does not depend on broker comments")
+             "P52_NO_COMMENT_EQUALITY_OWNERSHIP", "order ownership does not use mutable comment equality")
 
     if not any(c.status == "FAIL" for c in checks):
         checks.append(Check(

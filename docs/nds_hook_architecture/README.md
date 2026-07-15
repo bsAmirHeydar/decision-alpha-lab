@@ -181,3 +181,11 @@ backtest call path. FAST, PARITY, and CUSTOM context profiles are available.
 ## F2 exact per-trade F3 exit hotfix
 
 - [Engineering overlay](72_f2_exact_per_trade_f3_exit_hotfix.md)
+
+## Latest integrated Hook execution profile — Phase 55
+
+```text
+73_phase55_hook_864_cycle_r1_execution.md
+```
+
+Phase 55 adds the opt-in `HOOK_864_CYCLE_R1` adapter inside the existing Hook trade stack. It consumes canonical cycle closure, confirmed Terminal and `x_count` 3/4, rejects late decisions after the 86.4 level is consumed, uses the structural Death/Origin Stop and an attached fixed 1R Target, and preserves the Phase 52 default and all Hook detection doctrine.

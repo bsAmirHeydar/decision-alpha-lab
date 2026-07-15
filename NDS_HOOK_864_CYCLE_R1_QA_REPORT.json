@@ -1,0 +1,53 @@
+{
+  "activation_allowed": false,
+  "environment": {
+    "metaeditor_available": false,
+    "mt5_strategy_tester_available": false,
+    "real_broker_available": false,
+    "runtime": "linux_container"
+  },
+  "external_gates": {
+    "demo_broker": "pending",
+    "metaeditor_compile": "pending_windows",
+    "phase52_strategy_tester_regression": "pending_windows",
+    "phase55_strategy_tester": "pending_windows",
+    "python_mql5_parity": "pending_windows",
+    "restart_and_broker_reconciliation": "pending_windows_demo"
+  },
+  "phase": "NDS-HOOK-864-CYCLE-R1",
+  "repository_qa": {
+    "bounded_suite": {
+      "commands": 8,
+      "fail_records": 0,
+      "pass_records": 324,
+      "status": "pass"
+    },
+    "engineering_policy": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "mql5_static": {
+      "blocking_findings": 0,
+      "delimiter_scan": "pass",
+      "existing_non_blocking_advisories": 40,
+      "status": "pass"
+    },
+    "python_compile": {
+      "status": "pass"
+    },
+    "python_tests": {
+      "passed": 26,
+      "status": "pass"
+    },
+    "regressions": {
+      "hook_canonical_contract": "pass",
+      "nds_entry_contract": "pass",
+      "phase52_hook_trade_contract": "pass",
+      "strategy_tester_oninit_contract": "pass",
+      "lightweight_backtest_contract": "pass"
+    }
+  },
+  "status": "repository_reference_accepted_external_compile_tester_broker_evidence_pending",
+  "version": "1.0.0"
+}

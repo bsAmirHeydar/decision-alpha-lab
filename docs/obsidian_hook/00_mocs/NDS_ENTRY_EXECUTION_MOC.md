@@ -14,7 +14,7 @@ Canonical valid Hook
 → Broker Authorization
 ```
 
-The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview**. Phase 52 adds a separate opt-in executable profile restricted to valid HH/F3H Hook-terminal limits and same-direction F123 exits.
+The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview**. Phase 52 adds a separate opt-in executable profile restricted to valid HH/F3H Hook-terminal limits and same-direction F123 exits. Phase 55 adds a second explicit profile inside the same execution stack: canonical x3/x4 closed-cycle Hook, untouched 86.4 Crown-to-Origin limit, structural Stop, and attached fixed 1R Target.
 
 ## Authority
 
@@ -34,6 +34,10 @@ The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview*
 - [[../08_entry_execution/NDS Hook Trade State Machine]]
 - [[../08_entry_execution/NDS Hook Trade Audit Ledger]]
 - [[../08_entry_execution/NDS Hook Trade Operator Checklist]]
+- [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Entry Contract]]
+- [[../08_entry_execution/NDS Hook 86.4 Cycle R1 State Machine]]
+- [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Audit Ledger]]
+- [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Operator Checklist]]
 - [[../04_debug/NDS Strategy Tester OnInit License Gate]]
 
 ## Implementation
@@ -44,6 +48,9 @@ The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview*
 - [[../03_architecture/Phase 52 NDS Hook Limit F123 Execution]]
 - [[../../nds_hook_architecture/69_phase52_hook_limit_f123_execution|Phase 52 engineering overlay]]
 - [[../../nds_entry_architecture/phase52_hook_limit_f123_execution/README|Phase 52 detailed package]]
+- [[../03_architecture/Phase 55 NDS Hook 86.4 Cycle R1 Execution]]
+- [[../../nds_hook_architecture/73_phase55_hook_864_cycle_r1_execution|Phase 55 engineering overlay]]
+- [[../../nds_entry_architecture/phase55_hook_864_cycle_r1_execution/README|Phase 55 detailed package]]
 
 ## Operator workflow
 

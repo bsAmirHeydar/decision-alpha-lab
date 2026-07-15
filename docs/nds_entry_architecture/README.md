@@ -1,8 +1,8 @@
 ---
 title: NDS Entry Transition Architecture
-status: implemented_scaffold_plus_phase52
+status: implemented_scaffold_plus_phase52_phase55
 version: 1.0.0
-updated: 2026-07-10
+updated: 2026-07-15
 ---
 # NDS Entry Transition Architecture
 
@@ -168,3 +168,12 @@ The F2 setup is now lifecycle-owned instead of restricted to its first observabl
 ## F2 canonical Point-2 root correction — version 2.10
 
 The F detectors and lifecycle engines remain untouched. A new execution-only adapter binds every pending order to the exact existing Phoenix F2 flag-body version, enforces boundary-epsilon-aware strict Waist passage, cancels orders when the source body extends/confirms/invalidates/disappears, and preserves original F2 flag-end target consumption even when dynamic exits send broker TP `0`. See `f2_waist_break_point2_limit/18_canonical_point2_projection_root_fix.md`.
+## Phase 55 — Hook 86.4 Cycle R1 execution profile
+
+The integrated opt-in profile is documented at:
+
+```text
+phase55_hook_864_cycle_r1_execution/README.md
+```
+
+It consumes the existing canonical Hook Phase02 sequence, requires a confirmed closed cycle with exact `x_count` 3 or 4 before the terminal has reached Crown-to-Origin 86.4%, stages a limit at that fixed level, reuses the existing structural Stop/risk/broker/exposure stack, and attaches an exact fixed 1R target. It does not build Hook or nodes, does not reprice from x3 to x4, and does not alter the default Phase 52 terminal/F123 profile.

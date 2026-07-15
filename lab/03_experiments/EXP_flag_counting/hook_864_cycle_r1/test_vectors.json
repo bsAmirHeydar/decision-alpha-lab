@@ -1,0 +1,49 @@
+{
+  "schema_version": "nds_hook_864_cycle_r1_vectors_v1",
+  "authority": "research_reference_only_no_broker_authority",
+  "entry_ratio": 0.864,
+  "node_count_window": [3, 4],
+  "reward_r": 1.0,
+  "vectors": [
+    {
+      "id": "POS_X3_GOLDEN",
+      "direction": "POSITIVE",
+      "origin": 100.0,
+      "crown": 200.0,
+      "terminal_retracement_ratio": 0.70,
+      "x_count": 3,
+      "expected_entry": 113.6,
+      "expected_eligible": true
+    },
+    {
+      "id": "NEG_X4_GOLDEN",
+      "direction": "NEGATIVE",
+      "origin": 200.0,
+      "crown": 100.0,
+      "terminal_retracement_ratio": 0.70,
+      "x_count": 4,
+      "expected_entry": 186.4,
+      "expected_eligible": true
+    },
+    {
+      "id": "REJECT_X2",
+      "x_count": 2,
+      "expected_eligible": false,
+      "expected_reason": "canonical_x_count_not_3_or_4"
+    },
+    {
+      "id": "REJECT_ALREADY_TOUCHED",
+      "x_count": 3,
+      "terminal_retracement_ratio": 0.864,
+      "expected_eligible": false,
+      "expected_reason": "hook_864_level_already_reached_or_crossed"
+    },
+    {
+      "id": "REJECT_UNCONFIRMED_TERMINAL",
+      "x_count": 4,
+      "resolve_confirmed": false,
+      "expected_eligible": false,
+      "expected_reason": "canonical_terminal_not_confirmed"
+    }
+  ]
+}

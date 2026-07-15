@@ -53,21 +53,77 @@ string FP_NDSHookTradeCsvRow(const FP_NDSHookTradeReport &r)
    return s;
 }
 
+
+string FP_NDSHook864CycleR1CsvHeader()
+{
+   return "generated_at,version,schema_version,symbol,period,attempted,ok,action,status,reason,managed_pending,managed_positions,foreign_symbol_positions,order_ticket,position_ticket,profile,setup_sequence_id,setup_family,setup_direction,x_count,origin,crown,terminal,terminal_retracement_ratio,entry_ratio,entry_level_untouched,entry,death,stop,target,risk_distance,reward_distance,reward_r,volume,setup_used,setup_key,state_key";
+}
+
+string FP_NDSHook864CycleR1CsvRow(const FP_NDSHookTradeReport &r)
+{
+   string s = FP_NDSHookTradeCsvSafe(TimeToString(r.generated_at, TIME_DATE|TIME_SECONDS));
+   s += "," + FP_NDSHookTradeCsvSafe(r.version);
+   s += "," + FP_NDSHookTradeCsvSafe(r.schema_version);
+   s += "," + FP_NDSHookTradeCsvSafe(r.symbol);
+   s += "," + FP_NDSHookTradeCsvSafe(EnumToString(r.period));
+   s += "," + FP_NDSHookTradeBool(r.attempted);
+   s += "," + FP_NDSHookTradeBool(r.ok);
+   s += "," + FP_NDSHookTradeCsvSafe(r.action_label);
+   s += "," + FP_NDSHookTradeCsvSafe(r.status);
+   s += "," + FP_NDSHookTradeCsvSafe(r.reason);
+   s += "," + IntegerToString(r.managed_pending_count);
+   s += "," + IntegerToString(r.managed_position_count);
+   s += "," + IntegerToString(r.foreign_symbol_position_count);
+   s += "," + IntegerToString((long)r.order_ticket);
+   s += "," + IntegerToString((long)r.position_ticket);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.profile_label);
+   s += "," + IntegerToString(r.setup.sequence_id);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.family);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.direction_label);
+   s += "," + IntegerToString(r.setup.x_count);
+   s += "," + DoubleToString(r.setup.origin_price, _Digits);
+   s += "," + DoubleToString(r.setup.crown_price, _Digits);
+   s += "," + DoubleToString(r.setup.terminal_price, _Digits);
+   s += "," + DoubleToString(r.setup.terminal_retracement_ratio, 8);
+   s += "," + DoubleToString(r.setup.entry_ratio, 8);
+   s += "," + FP_NDSHookTradeBool(r.setup.entry_level_untouched);
+   s += "," + DoubleToString(r.setup.entry_price, _Digits);
+   s += "," + DoubleToString(r.setup.death_price, _Digits);
+   s += "," + DoubleToString(r.setup.stop_price, _Digits);
+   s += "," + DoubleToString(r.setup.target_price, _Digits);
+   s += "," + DoubleToString(r.setup.risk_distance, _Digits);
+   s += "," + DoubleToString(r.setup.reward_distance, _Digits);
+   s += "," + DoubleToString(r.setup.reward_r, 4);
+   s += "," + DoubleToString(r.setup.volume, 8);
+   s += "," + FP_NDSHookTradeBool(r.setup.already_used);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.setup_key);
+   s += "," + FP_NDSHookTradeCsvSafe(r.state_key);
+   return s;
+}
+
 bool FP_NDSHookTradeExportReport(const FP_NDSHookTradeConfig &cfg,
                                  const FP_NDSHookTradeReport &report)
 {
    if(!cfg.export_csv)
       return true;
 
-   string path = cfg.folder + "/nds_hook_limit_f123_trade_ledger.csv";
+   // A restarted terminal may run with a different current input profile.
+   // Export follows the recovered exposure schema, not mutable current inputs.
+   bool hook_864 = (report.schema_version == FP_NDS_HOOK_864_CYCLE_R1_SCHEMA_VERSION ||
+                    report.setup.profile_label == "HOOK_864_CYCLE_R1");
+   string path = cfg.folder + (hook_864 ?
+                              "/nds_hook_864_cycle_r1_trade_ledger.csv" :
+                              "/nds_hook_limit_f123_trade_ledger.csv");
    int handle = FileOpen(path, FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
    if(handle == INVALID_HANDLE)
       return false;
 
    if(FileSize(handle) <= 0)
-      FileWriteString(handle, FP_NDSHookTradeCsvHeader() + "\r\n");
+      FileWriteString(handle, (hook_864 ? FP_NDSHook864CycleR1CsvHeader() :
+                                          FP_NDSHookTradeCsvHeader()) + "\r\n");
    FileSeek(handle, 0, SEEK_END);
-   FileWriteString(handle, FP_NDSHookTradeCsvRow(report) + "\r\n");
+   FileWriteString(handle, (hook_864 ? FP_NDSHook864CycleR1CsvRow(report) :
+                                       FP_NDSHookTradeCsvRow(report)) + "\r\n");
    FileFlush(handle);
    FileClose(handle);
    return true;

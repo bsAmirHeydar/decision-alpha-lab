@@ -5,6 +5,21 @@
 #include "FP_NDSHookTradeExecutionCore.mqh"
 #include "FP_NDSHookTradeExport.mqh"
 
+void FP_RunNDSHookTradeExecution(const string symbol,
+                                 const ENUM_TIMEFRAMES period,
+                                 const FP_FlagEvent &events[],
+                                 const int event_count,
+                                 const FP_NDSHookTradeConfig &cfg,
+                                 FP_NDSHookTradeReport &report)
+{
+   FP_RunNDSHookTradeExecutionCore(symbol, period,
+                                      events, event_count,
+                                      cfg, report);
+   FP_NDSHookTradeExportReport(cfg, report);
+}
+
+// Backward-compatible Phase 52 public API. Existing callers retain terminal/F123
+// behavior because that profile remains the reset/default profile.
 void FP_RunNDSHookLimitF123Execution(const string symbol,
                                      const ENUM_TIMEFRAMES period,
                                      const FP_FlagEvent &events[],
@@ -12,28 +27,30 @@ void FP_RunNDSHookLimitF123Execution(const string symbol,
                                      const FP_NDSHookTradeConfig &cfg,
                                      FP_NDSHookTradeReport &report)
 {
-   FP_RunNDSHookLimitF123ExecutionCore(symbol, period,
-                                      events, event_count,
-                                      cfg, report);
-   FP_NDSHookTradeExportReport(cfg, report);
+   FP_RunNDSHookTradeExecution(symbol, period, events, event_count, cfg, report);
 }
 
 void FP_PrintNDSHookTradeReport(const string tag,
                                 const FP_NDSHookTradeReport &report)
 {
-   Print(tag,
-         " attempted=", FP_NDSHookTradeBool(report.attempted),
-         " ok=", FP_NDSHookTradeBool(report.ok),
-         " action=", report.action_label,
-         " status=", report.status,
-         " reason=", report.reason,
-         " pending=", report.managed_pending_count,
-         " positions=", report.managed_position_count,
-         " seq=", report.setup.sequence_id,
-         " family=", report.setup.family,
-         " entry=", DoubleToString(report.setup.entry_price, _Digits),
-         " stop=", DoubleToString(report.setup.stop_price, _Digits),
-         " exit_f3=", report.exit_signal.event_id);
+   string message = tag;
+   message += " attempted=" + FP_NDSHookTradeBool(report.attempted);
+   message += " ok=" + FP_NDSHookTradeBool(report.ok);
+   message += " action=" + report.action_label;
+   message += " status=" + report.status;
+   message += " reason=" + report.reason;
+   message += " pending=" + IntegerToString(report.managed_pending_count);
+   message += " positions=" + IntegerToString(report.managed_position_count);
+   message += " profile=" + report.setup.profile_label;
+   message += " seq=" + IntegerToString(report.setup.sequence_id);
+   message += " family=" + report.setup.family;
+   message += " x_count=" + IntegerToString(report.setup.x_count);
+   message += " entry=" + DoubleToString(report.setup.entry_price, _Digits);
+   message += " stop=" + DoubleToString(report.setup.stop_price, _Digits);
+   message += " target=" + DoubleToString(report.setup.target_price, _Digits);
+   message += " rr=" + DoubleToString(report.setup.reward_r, 2);
+   message += " exit_f3=" + IntegerToString(report.exit_signal.event_id);
+   Print(message);
 }
 
 #endif // __FP_NDS_HOOK_TRADE_ENGINE_MQH__

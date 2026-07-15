@@ -1,0 +1,51 @@
+{
+  "activation_allowed": false,
+  "authority": {
+    "broker": "existing_NDS_trade_adapter_only_when_explicitly_enabled",
+    "hook_detection": "FP_HookPhase02_only",
+    "node_count": "FP_HookPhase02Sequence.x_count_only",
+    "order_send_default": false,
+    "profile_default": false
+  },
+  "canonical_inputs": {
+    "crown": "cycle_crown_price",
+    "cycle_closed": "FP_HookP02SequenceCycleClosed(sequence)",
+    "death": "death_boundary_price_with_origin_fallback",
+    "direction": "FP_HookPhase02Sequence.direction",
+    "family": "valid_HH_or_F3H_through_existing_selector",
+    "node_count": "x_count",
+    "origin": "origin_price",
+    "terminal": "resolve_price",
+    "terminal_confirmed": "resolve_confirmed",
+    "terminal_retracement": "retracement_ratio"
+  },
+  "entry": {
+    "formula": "crown + 0.864 * (origin - crown)",
+    "order_type_negative": "SellLimit",
+    "order_type_positive": "BuyLimit",
+    "ratio": 0.864,
+    "requires_level_untouched": true
+  },
+  "exit": {
+    "f123_market_exit": false,
+    "owner": "broker_attached_SL_TP",
+    "reward_r": 1.0
+  },
+  "identity": {
+    "one_attempt_per_hook": true,
+    "profile_code": "864R1",
+    "x3_to_x4_reprice": false,
+    "x3_to_x4_second_setup": false
+  },
+  "node_count": {
+    "allowed": [3, 4],
+    "origin_is_counted": false
+  },
+  "profile": "HOOK_864_CYCLE_R1",
+  "schema_version": "nds_hook_864_cycle_r1_profile_contract_v1",
+  "stop": {
+    "broker_stop_and_freeze_normalization": true,
+    "source": "death_boundary_price_or_origin",
+    "structural_side": "behind_cycle"
+  }
+}
