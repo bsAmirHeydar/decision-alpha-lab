@@ -1,0 +1,15 @@
+{
+  "artifact_ids": [],
+  "authority_breach": false,
+  "containment_actions": [],
+  "corrective_actions": [],
+  "description": "",
+  "detected_at": null,
+  "incident_id": "UNASSIGNED",
+  "leakage_suspected": false,
+  "phase": "SAED_V4_10",
+  "reviewers": [],
+  "root_cause": "",
+  "severity": "UNASSESSED",
+  "status": "open"
+}

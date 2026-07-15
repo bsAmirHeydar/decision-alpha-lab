@@ -1,0 +1,56 @@
+{
+  "artifact_count": 9,
+  "artifact_merkle_root": "1376d7245fe4b661fbed66b2a2bd953f0f09307a06b08ce94962c6ea71fb8d2b",
+  "artifact_refs": [
+    {
+      "artifact_id": "manualprogram_70ff906c782b4a822a4acbed",
+      "content_commitment": "6f8afd5b2c817b7b65276baf829b7a101fbb79296ddfbcdf0ebd496a85328ddb",
+      "declared_artifact_hash": "1b444b2cdabb04bed2a9dd7b1dd5803e579396c69bae469c084b2a84c76368c8"
+    },
+    {
+      "artifact_id": "manualprogram_7f1856caa80881cd15e6585e",
+      "content_commitment": "5f9198ff4c48bd6388fcee52d7bf2906bc9077135d8625545aae890b1653e067",
+      "declared_artifact_hash": "707c1feeba2751a5c685fb255b575f1abff231a68b4d2ce963e8f02535c532e5"
+    },
+    {
+      "artifact_id": "manualprogram_70ff906c782b4a822a4acbed",
+      "content_commitment": "1113c1b8fa58546915b76d266fbea6bc280a71fb8aa87570fd8196845ca0ff05",
+      "declared_artifact_hash": "1b444b2cdabb04bed2a9dd7b1dd5803e579396c69bae469c084b2a84c76368c8"
+    },
+    {
+      "artifact_id": "manualprogram_7f1856caa80881cd15e6585e",
+      "content_commitment": "0c4dfa2942f1c0c2da871b9f87f5da05040b5616a5f8822a81e0b8a75c961ab9",
+      "declared_artifact_hash": "707c1feeba2751a5c685fb255b575f1abff231a68b4d2ce963e8f02535c532e5"
+    },
+    {
+      "artifact_id": "baselineregistry_f42de7ffd9914b8876b97c02",
+      "content_commitment": "62cf0f7de7b4ff14bd700c300a9363ee311dd91390a288243b1cc70c6d8c068c",
+      "declared_artifact_hash": "88522688bb643b1ae8e4376f90beaf58fd023cbb230f00886a832ac3b7b6c1f6"
+    },
+    {
+      "artifact_id": "baselinebenchmark_7a809540c368dde52251b7c2",
+      "content_commitment": "2807b405aff6c0f38b04dafc65a965001cde87f28e1e1639b878306bed0c647f",
+      "declared_artifact_hash": "6cb178499f1cd4bc2c58edc287b30054a3460b3fd3867d9906c2bae0dc110159"
+    },
+    {
+      "artifact_id": "baselineexposure_0279aceb8eed7893a36595cf",
+      "content_commitment": "3e6c92e8ff8bb4c83f4ddb3f1b8424dcf0efbe30f689a1aac3f95b9fd5327470",
+      "declared_artifact_hash": "92bc45956bc356cb303778479e4377848e245464ce8953ba1e99e1b070ca8a88"
+    },
+    {
+      "artifact_id": "pretraincorpus_233b419fc86b48466c11376d",
+      "content_commitment": "5e55a66101b18f11076b5b3523256b2095bbea45bf3667a23f01582c6a5c474e",
+      "declared_artifact_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f"
+    },
+    {
+      "artifact_id": "v410telemetry_84860e258a33b24a22fafbc9",
+      "content_commitment": "10e54cf31958f5c461290f659bff68f88d4ba675f2664f7eb3d68256b566e5ec",
+      "declared_artifact_hash": "38a8cd91e2b07ffbfaab4506aaf3e368fd7d1620f1ba2b543dc45b29c501f24e"
+    }
+  ],
+  "authority": "reference_only",
+  "complete": true,
+  "phase": "SAED_V4_10",
+  "receipt_hash": "bb300647e267f5be22ac45127cfc71c6d8545195a5fa0842fad9fa0b40832626",
+  "receipt_id": "v410integrity_5fa7843873ff6c03613022db"
+}

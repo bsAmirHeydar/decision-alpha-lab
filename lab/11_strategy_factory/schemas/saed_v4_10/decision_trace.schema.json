@@ -1,0 +1,83 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/decision-trace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiled_program_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "compiled_program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_time": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_authority": {
+      "const": false
+    },
+    "known_as_of": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "matched_rule_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phase": {
+      "const": "SAED_V4_10"
+    },
+    "projected_node_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rule_evaluations": {
+      "type": "array"
+    },
+    "selection_authority": {
+      "const": false
+    },
+    "source_view_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "trace_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "trace_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "trace_semantics": {
+      "const": "descriptive_manual_projection_only"
+    }
+  },
+  "required": [
+    "phase",
+    "compiled_program_id",
+    "compiled_program_hash",
+    "source_view_package_hash",
+    "decision_time",
+    "known_as_of",
+    "matched_rule_id",
+    "projected_node_id",
+    "reason_code",
+    "rule_evaluations",
+    "trace_semantics",
+    "selection_authority",
+    "execution_authority",
+    "trace_id",
+    "trace_hash"
+  ],
+  "title": "Decision Trace",
+  "type": "object"
+}

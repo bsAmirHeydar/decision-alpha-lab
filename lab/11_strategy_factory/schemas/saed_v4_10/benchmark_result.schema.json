@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/benchmark-result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_count": {
+      "type": "integer"
+    },
+    "benchmark_hash": {
+      "type": "string"
+    },
+    "benchmark_id": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "promotion_evidence": {
+      "type": "boolean"
+    },
+    "ranking_semantics": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "source_evidence_class": {
+      "type": "string"
+    },
+    "source_twin_hash": {
+      "type": "string"
+    },
+    "source_twin_id": {
+      "type": "string"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "source_twin_id",
+    "source_twin_hash",
+    "source_evidence_class",
+    "synthetic_watermark",
+    "results",
+    "baseline_count",
+    "ranking_semantics",
+    "promotion_evidence",
+    "selection_authority",
+    "execution_authority",
+    "limitations",
+    "benchmark_id",
+    "benchmark_hash"
+  ],
+  "title": "Benchmark Result",
+  "type": "object"
+}

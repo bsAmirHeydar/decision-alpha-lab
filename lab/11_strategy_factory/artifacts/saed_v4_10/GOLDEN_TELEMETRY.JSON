@@ -1,0 +1,13 @@
+{
+  "authority_violations": 0,
+  "baseline_count": 3,
+  "benchmark_result_count": 3,
+  "complete_exposure": true,
+  "leakage_violations": 0,
+  "phase": "SAED_V4_10",
+  "pretraining_artifact_count": 3,
+  "prohibited_artifact_class_count": 7,
+  "synthetic_watermark": true,
+  "telemetry_hash": "38a8cd91e2b07ffbfaab4506aaf3e368fd7d1620f1ba2b543dc45b29c501f24e",
+  "telemetry_id": "v410telemetry_84860e258a33b24a22fafbc9"
+}

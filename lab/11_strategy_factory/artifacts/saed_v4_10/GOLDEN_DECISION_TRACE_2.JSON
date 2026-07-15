@@ -1,0 +1,41 @@
+{
+  "compiled_program_hash": "707c1feeba2751a5c685fb255b575f1abff231a68b4d2ce963e8f02535c532e5",
+  "compiled_program_id": "manualprogram_7f1856caa80881cd15e6585e",
+  "decision_time": "2026-01-05T14:30:00Z",
+  "execution_authority": false,
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "matched_rule_id": "manual_conservative_valid",
+  "phase": "SAED_V4_10",
+  "projected_node_id": "actionnode_2d1775d0e30f24f0a65db66d",
+  "reason_code": "manual_conservative_valid",
+  "rule_evaluations": [
+    {
+      "checks": [
+        {
+          "actual": "valid",
+          "expected": "valid",
+          "feature_ref": "structure_view:lifecycle_state",
+          "matched": true,
+          "operator": "eq",
+          "present": true
+        },
+        {
+          "actual": 0.5,
+          "expected": 1.5,
+          "feature_ref": "execution_view:spread_points",
+          "matched": true,
+          "operator": "le",
+          "present": true
+        }
+      ],
+      "matched": true,
+      "priority": 90,
+      "rule_id": "manual_conservative_valid"
+    }
+  ],
+  "selection_authority": false,
+  "source_view_package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "trace_hash": "eee8215203bc852376a03f5bf8071c15a967b577d3e2f091e2d4adac5e0793e4",
+  "trace_id": "manualtrace_adead451446d73418edb9eae",
+  "trace_semantics": "descriptive_manual_projection_only"
+}

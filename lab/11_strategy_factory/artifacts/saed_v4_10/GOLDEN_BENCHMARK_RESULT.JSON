@@ -1,0 +1,170 @@
+{
+  "baseline_count": 3,
+  "benchmark_hash": "6cb178499f1cd4bc2c58edc287b30054a3460b3fd3867d9906c2bae0dc110159",
+  "benchmark_id": "baselinebenchmark_7a809540c368dde52251b7c2",
+  "execution_authority": false,
+  "limitations": [
+    "Metrics describe frozen reference baselines on the V4-09 synthetic execution twin.",
+    "No ordering, winner, recommendation, alpha or promotion claim is emitted."
+  ],
+  "phase": "SAED_V4_10",
+  "promotion_evidence": false,
+  "ranking_semantics": "none",
+  "results": [
+    {
+      "baseline_key": "manual_conservative_reference_v1",
+      "benchmark_semantics": "descriptive_offline_reference_only",
+      "mean_adjusted_net_r": 1.3509705912564,
+      "mean_fill_fraction": 0.7755262076802,
+      "mean_incremental_cost_r": 0.028912111123,
+      "median_adjusted_net_r": 1.660190033168,
+      "p10_adjusted_net_r": 0.8133284717775999,
+      "projected_node_id": "actionnode_2d1775d0e30f24f0a65db66d",
+      "row_count": 5,
+      "scenario_count": 5,
+      "scenario_metrics": [
+        {
+          "mean_adjusted_net_r": 0.658616940404,
+          "mean_fill_fraction": 0.4,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "combined_severe"
+        },
+        {
+          "mean_adjusted_net_r": 1.695870128382,
+          "mean_fill_fraction": 0.95614060569,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "latency_x3"
+        },
+        {
+          "mean_adjusted_net_r": 1.69478008549,
+          "mean_fill_fraction": 0.954917031124,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "nominal"
+        },
+        {
+          "mean_adjusted_net_r": 1.045395768838,
+          "mean_fill_fraction": 0.6,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "queue_x4_partial"
+        },
+        {
+          "mean_adjusted_net_r": 1.660190033168,
+          "mean_fill_fraction": 0.966573401587,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "spread_x2"
+        }
+      ],
+      "worst_adjusted_net_r": 0.658616940404
+    },
+    {
+      "baseline_key": "manual_doctrine_reference_v1",
+      "benchmark_semantics": "descriptive_offline_reference_only",
+      "mean_adjusted_net_r": 1.478478453303,
+      "mean_fill_fraction": 0.6947933647234,
+      "mean_incremental_cost_r": 0.018304966701,
+      "median_adjusted_net_r": 2.016957025662,
+      "p10_adjusted_net_r": 0.5081617369304,
+      "projected_node_id": "actionnode_120319e7bf052c5b59edcb0e",
+      "row_count": 5,
+      "scenario_count": 5,
+      "scenario_metrics": [
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "combined_severe"
+        },
+        {
+          "mean_adjusted_net_r": 2.066326031862,
+          "mean_fill_fraction": 0.96185148061,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "latency_x3"
+        },
+        {
+          "mean_adjusted_net_r": 2.038704866665,
+          "mean_fill_fraction": 0.948339606551,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "nominal"
+        },
+        {
+          "mean_adjusted_net_r": 1.270404342326,
+          "mean_fill_fraction": 0.6,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "queue_x4_partial"
+        },
+        {
+          "mean_adjusted_net_r": 2.016957025662,
+          "mean_fill_fraction": 0.963775736456,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "spread_x2"
+        }
+      ],
+      "worst_adjusted_net_r": 0.0
+    },
+    {
+      "baseline_key": "null_abstain",
+      "benchmark_semantics": "descriptive_offline_reference_only",
+      "mean_adjusted_net_r": 0.0,
+      "mean_fill_fraction": 0.0,
+      "mean_incremental_cost_r": 0.0,
+      "median_adjusted_net_r": 0.0,
+      "p10_adjusted_net_r": 0.0,
+      "projected_node_id": "actionnode_69e957a950b70ef444c128a5",
+      "row_count": 5,
+      "scenario_count": 5,
+      "scenario_metrics": [
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "combined_severe"
+        },
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "latency_x3"
+        },
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "nominal"
+        },
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "queue_x4_partial"
+        },
+        {
+          "mean_adjusted_net_r": 0.0,
+          "mean_fill_fraction": 0.0,
+          "rejection_rate": 0.0,
+          "row_count": 1,
+          "scenario_id": "spread_x2"
+        }
+      ],
+      "worst_adjusted_net_r": 0.0
+    }
+  ],
+  "selection_authority": false,
+  "source_evidence_class": "reference_synthetic",
+  "source_twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "source_twin_id": "executiontwin_1f50bc21a120752b32ed02ce",
+  "synthetic_watermark": true
+}

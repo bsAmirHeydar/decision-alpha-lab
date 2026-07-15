@@ -1,0 +1,83 @@
+{
+  "closed_contracts": true,
+  "phase": "SAED_V4_10",
+  "schema_count": 19,
+  "schemas": [
+    {
+      "file": "authority_boundary.schema.json",
+      "sha256": "daa0ce4ea0cc336b11458493d2c87f5fda62f9b1ca9d4d2e0e0d0219a2d6a4da"
+    },
+    {
+      "file": "baseline_registry.schema.json",
+      "sha256": "a5adea9a215af3b5e1def5e723df12b8b061b419494a7f1229220fbd4c5f0c11"
+    },
+    {
+      "file": "benchmark_result.schema.json",
+      "sha256": "3da833a0f925e7fad2dd1dde575348a11976f96001beab202a602cfaea632dfa"
+    },
+    {
+      "file": "claim_ledger.schema.json",
+      "sha256": "26a5d54e29a6f1d7e434338660abc2a8983109eaffb2d7b257f248ecd16c335e"
+    },
+    {
+      "file": "compiled_manual_program.schema.json",
+      "sha256": "775d2298a32c12dd3811780e434d4e0c0a76b7a836f83ea0f2db739f996fb1a3"
+    },
+    {
+      "file": "conformance_results.schema.json",
+      "sha256": "880505fdc9eb3b9338779d979762bdd9c778ba39779aa3a3ef97ebf31a8fdd35"
+    },
+    {
+      "file": "conformance_vectors.schema.json",
+      "sha256": "282805367b819e8606984a0eeb4f18ca41cc5d8fbf1994edce5f4734b1ca29ae"
+    },
+    {
+      "file": "decision_trace.schema.json",
+      "sha256": "291618731970290998986d23cbebf64bba4bae38f7e8aacc10422e32a1560f5d"
+    },
+    {
+      "file": "exposure_ledger.schema.json",
+      "sha256": "3e5a9dae3f1bf17ad4d706fae91dbe136c1e6bac365d09a56e4ec69e38294d39"
+    },
+    {
+      "file": "handoff.schema.json",
+      "sha256": "ff1111e947ac81b3d917e85ff6840a88aa58e933496bf53d71226c0368b014a9"
+    },
+    {
+      "file": "incident_record.schema.json",
+      "sha256": "d9e89a2877cf5a5124e09c6f3149714adc27cafab3fa09271d3c3fc0d8f026b1"
+    },
+    {
+      "file": "integrity_receipt.schema.json",
+      "sha256": "7843f173d04dc77a5cd7023edb49b5092c7afb1525dacbb90c11cae7b00f1d3c"
+    },
+    {
+      "file": "manual_program_source.schema.json",
+      "sha256": "5f238c2aff789b023853003182ccc033d3f496b6bebdc62766a39ffc0b362a55"
+    },
+    {
+      "file": "manual_rule.schema.json",
+      "sha256": "8a515231623f4a4f55362919c960c6fddf8b723f7e81f996b32e6612884d0d19"
+    },
+    {
+      "file": "predicate.schema.json",
+      "sha256": "e07ccea28ff4ad84b8f636c039c17ad50a622cc83ffd8eb6c2a1594408a0ea8c"
+    },
+    {
+      "file": "pretraining_corpus_manifest.schema.json",
+      "sha256": "a6c53d62c468246b6b1d5a0f4ce394b7232abe56b09437e9fece53deddd98562"
+    },
+    {
+      "file": "replay_receipt.schema.json",
+      "sha256": "6d57d25cd989a13b0fbd9cc5374ac5aa8dea7c350f393f69334e0d06fed63352"
+    },
+    {
+      "file": "semantic_diff.schema.json",
+      "sha256": "7955080e4dd87a6edd9e99e7c4842d892f754e5229bea9f0aacc2e250b337e84"
+    },
+    {
+      "file": "telemetry.schema.json",
+      "sha256": "aaea20b73177eb83cd75cc54a0dda1cde95dfcf30c79fab50ca721d265eb6e45"
+    }
+  ]
+}

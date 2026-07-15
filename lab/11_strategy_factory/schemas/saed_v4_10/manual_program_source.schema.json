@@ -1,0 +1,119 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/manual-program-source.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authoring_basis": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "training",
+        "validation"
+      ]
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fallback_node_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "program_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rules": {
+      "items": {
+        "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/manual-rule.schema.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action_node_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "predicates": {
+            "items": {
+              "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/predicate.schema.json",
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "expected": {},
+                "feature_ref": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "missing_policy": {
+                  "enum": [
+                    "fail_rule",
+                    "match_only_missing",
+                    "fail_program"
+                  ]
+                },
+                "operator": {
+                  "enum": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "ge",
+                    "lt",
+                    "le",
+                    "in",
+                    "not_in",
+                    "exists",
+                    "missing"
+                  ]
+                }
+              },
+              "required": [
+                "feature_ref",
+                "operator",
+                "expected",
+                "missing_policy"
+              ],
+              "title": "Predicate",
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "reason_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_id",
+          "priority",
+          "predicates",
+          "action_node_id",
+          "reason_code"
+        ],
+        "title": "Manual Rule",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "program_name",
+    "exact_version",
+    "evidence_role",
+    "authoring_basis",
+    "rules",
+    "fallback_node_id"
+  ],
+  "title": "Manual Program Source",
+  "type": "object"
+}

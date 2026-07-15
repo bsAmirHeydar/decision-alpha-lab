@@ -1,0 +1,23 @@
+{
+  "authoring_basis": "approved_manual_doctrine_reference_not_outcome_fitted",
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "fallback_node_id": "actionnode_69e957a950b70ef444c128a5",
+  "program_name": "manual_doctrine_reference_v1",
+  "rules": [
+    {
+      "action_node_id": "actionnode_120319e7bf052c5b59edcb0e",
+      "predicates": [
+        {
+          "expected": 0,
+          "feature_ref": "outcome:net_r",
+          "missing_policy": "fail_rule",
+          "operator": "gt"
+        }
+      ],
+      "priority": 100,
+      "reason_code": "manual_doctrine_valid_context",
+      "rule_id": "manual_context_valid"
+    }
+  ]
+}

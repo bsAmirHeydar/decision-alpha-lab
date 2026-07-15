@@ -1,0 +1,40 @@
+{
+  "baseline_preservation_required": true,
+  "entries": [
+    {
+      "baseline_family": "manual_doctrine",
+      "baseline_key": "manual_conservative_reference_v1",
+      "frozen": true,
+      "learning_semantics": "none",
+      "outcome_fitted": false,
+      "projected_node_id": "actionnode_2d1775d0e30f24f0a65db66d",
+      "source": "manualprogram_7f1856caa80881cd15e6585e"
+    },
+    {
+      "baseline_family": "manual_doctrine",
+      "baseline_key": "manual_doctrine_reference_v1",
+      "frozen": true,
+      "learning_semantics": "none",
+      "outcome_fitted": false,
+      "projected_node_id": "actionnode_120319e7bf052c5b59edcb0e",
+      "source": "manualprogram_70ff906c782b4a822a4acbed"
+    },
+    {
+      "baseline_family": "null",
+      "baseline_key": "null_abstain",
+      "frozen": true,
+      "learning_semantics": "none",
+      "outcome_fitted": false,
+      "projected_node_id": "actionnode_69e957a950b70ef444c128a5",
+      "source": "lattice_abstain"
+    }
+  ],
+  "entry_count": 3,
+  "execution_authority": false,
+  "future_challengers_must_report_against_all": true,
+  "phase": "SAED_V4_10",
+  "registry_hash": "88522688bb643b1ae8e4376f90beaf58fd023cbb230f00886a832ac3b7b6c1f6",
+  "registry_id": "baselineregistry_f42de7ffd9914b8876b97c02",
+  "selection_authority": false,
+  "source_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935"
+}

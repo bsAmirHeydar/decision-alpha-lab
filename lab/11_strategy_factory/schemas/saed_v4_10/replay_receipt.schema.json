@@ -1,0 +1,39 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/replay-receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_match": {
+      "type": "boolean"
+    },
+    "original_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "reproduced_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_match",
+    "original_hash",
+    "phase",
+    "replay_hash",
+    "replay_id",
+    "reproduced_hash"
+  ],
+  "title": "Replay Receipt",
+  "type": "object"
+}

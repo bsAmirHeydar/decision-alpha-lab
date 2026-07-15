@@ -1,9 +1,12 @@
-feat(saed-v4): implement V4-09 execution digital twin
+feat(saed-v4): implement V4-10 baseline and manual program
 
-- consume immutable V4-08 outcome cube and exact authority handoff
-- add closed execution profile, latency, queue, hazard, impact, adverse-selection and broker constraints
-- preserve every source row across a complete deterministic scenario matrix
-- add partial-fill lifecycle chains, incremental cost projections, replay, semantic diff and Merkle integrity
-- enforce synthetic watermarking and ADR V4-014 shadow non-substitution
-- add schemas, golden/negative fixtures, conformance vectors, tests, QA tooling and MQL5 diagnostics
-- hand off immutable execution surfaces to V4-10 baseline and manual program
+- freeze null and human-authored manual baselines before model training
+- add known-time feature registry and outcome leakage firewall
+- add deterministic manual compiler, interpreter and descriptive traces
+- benchmark frozen baselines on the V4-09 execution digital twin without ranking semantics
+- add complete exposure, integrity, replay, semantic diff and conformance evidence
+- freeze the leakage-safe self-supervised corpus boundary for V4-11
+- add closed JSON schemas, hostile fixtures, Python QA and MQL5 static mirror
+- add comprehensive Obsidian phase delivery and atomic concept documentation
+
+Authority remains reference-only. This commit does not claim model training, real alpha, treatment selection, runtime parity, production authorization or live trading.

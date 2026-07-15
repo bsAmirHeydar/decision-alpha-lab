@@ -1,0 +1,47 @@
+{
+  "external_evidence": {
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_10",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_10/validate_saed_v4_10_contracts.py",
+      "returncode": 0,
+      "seconds": 2.194,
+      "stderr": "",
+      "stdout": "validated 8 V4-10 contract pairs\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_10/check_saed_v4_10_boundaries.py",
+      "returncode": 0,
+      "seconds": 1.259,
+      "stderr": "",
+      "stdout": "boundary guard passed for 32 files\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_10/validate_saed_v4_10_mql5_static.py",
+      "returncode": 0,
+      "seconds": 1.225,
+      "stderr": "",
+      "stdout": "9 MQL5 files passed static validation; MetaEditor compile remains pending_local_windows\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_10/validate_saed_v4_10_obsidian.py",
+      "returncode": 0,
+      "seconds": 1.253,
+      "stderr": "",
+      "stdout": "71 Obsidian notes validated\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_10/run_saed_v4_10_tests.py",
+      "returncode": 0,
+      "seconds": 5.557,
+      "stderr": "",
+      "stdout": "...........................                                              [100%]\n27 passed in 1.24s\n"
+    }
+  ]
+}

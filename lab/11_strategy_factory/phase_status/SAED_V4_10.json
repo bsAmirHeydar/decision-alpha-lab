@@ -1,0 +1,41 @@
+{
+  "authority": "reference_only",
+  "claims": {
+    "baseline_freeze": true,
+    "learned_representation": false,
+    "live_trading": false,
+    "manual_program_compilation": true,
+    "model_training": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "reference_implementation": true,
+    "runtime_parity": false,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "completed_capabilities": [
+    "closed manual program source and compiled contracts",
+    "known-time feature registry and outcome leakage firewall",
+    "deterministic manual program compiler and interpreter",
+    "frozen null and manual baseline registry",
+    "execution-stressed descriptive baseline benchmark",
+    "complete baseline exposure ledger",
+    "self-supervised V4-11 corpus boundary with outcomes excluded",
+    "integrity receipt deterministic replay semantic diff and conformance vectors",
+    "MQL5 static mirror and compile harness",
+    "V4-11 handoff"
+  ],
+  "external_evidence": {
+    "independent_reproduction": "reference_local_only",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_claimed",
+    "real_dataset": "pending_future_phase",
+    "shadow": "not_claimed"
+  },
+  "implementation_status": "implemented_reference",
+  "next_phase": "SAED_V4_11",
+  "phase": "SAED_V4_10",
+  "title": "Baseline and Manual Program",
+  "version": "1.0.0"
+}

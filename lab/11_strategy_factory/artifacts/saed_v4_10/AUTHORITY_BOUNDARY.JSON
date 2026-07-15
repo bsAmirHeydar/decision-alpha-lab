@@ -1,0 +1,21 @@
+{
+  "authority": "reference_only",
+  "capabilities": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_pretraining_corpus_manifest": true,
+    "compile_manual_program": true,
+    "emit_descriptive_decision_trace": true,
+    "evaluate_frozen_baseline": true,
+    "rank_treatments": false,
+    "read_action_lattice": true,
+    "read_execution_twin_for_offline_benchmark": true,
+    "read_multimodal_views": true,
+    "replace_shadow_or_prospective": false,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "fail_closed": true,
+  "phase": "SAED_V4_10"
+}

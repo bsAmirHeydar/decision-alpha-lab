@@ -1,0 +1,29 @@
+{
+  "authoring_basis": "predeclared_conservative_treatment_not_outcome_fitted",
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "fallback_node_id": "actionnode_69e957a950b70ef444c128a5",
+  "program_name": "manual_conservative_reference_v1",
+  "rules": [
+    {
+      "action_node_id": "actionnode_2d1775d0e30f24f0a65db66d",
+      "predicates": [
+        {
+          "expected": "valid",
+          "feature_ref": "structure_view:lifecycle_state",
+          "missing_policy": "fail_rule",
+          "operator": "eq"
+        },
+        {
+          "expected": 1.5,
+          "feature_ref": "execution_view:spread_points",
+          "missing_policy": "fail_rule",
+          "operator": "le"
+        }
+      ],
+      "priority": 90,
+      "reason_code": "manual_conservative_valid",
+      "rule_id": "manual_conservative_valid"
+    }
+  ]
+}

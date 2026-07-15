@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/integrity-receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_merkle_root": {
+      "type": "string"
+    },
+    "artifact_refs": {
+      "type": "array"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "artifact_refs",
+    "artifact_count",
+    "artifact_merkle_root",
+    "complete",
+    "authority",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "Integrity Receipt",
+  "type": "object"
+}

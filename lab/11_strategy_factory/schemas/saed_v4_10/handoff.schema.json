@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/v4-10-to-v4-11-handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "baseline_registry_hash": {
+      "type": "string"
+    },
+    "baseline_registry_id": {
+      "type": "string"
+    },
+    "benchmark_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "type": "object"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pretraining_corpus_manifest_hash": {
+      "type": "string"
+    },
+    "pretraining_corpus_manifest_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "baseline_registry_id",
+    "baseline_registry_hash",
+    "benchmark_hash",
+    "pretraining_corpus_manifest_id",
+    "pretraining_corpus_manifest_hash",
+    "integrity_receipt_hash",
+    "entry_gates",
+    "authority",
+    "limitations",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-10 to V4-11 Handoff",
+  "type": "object"
+}

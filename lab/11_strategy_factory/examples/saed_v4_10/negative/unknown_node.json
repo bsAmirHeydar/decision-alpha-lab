@@ -1,0 +1,35 @@
+{
+  "authoring_basis": "approved_manual_doctrine_reference_not_outcome_fitted",
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "fallback_node_id": "actionnode_69e957a950b70ef444c128a5",
+  "program_name": "manual_doctrine_reference_v1",
+  "rules": [
+    {
+      "action_node_id": "actionnode_missing",
+      "predicates": [
+        {
+          "expected": "valid",
+          "feature_ref": "structure_view:lifecycle_state",
+          "missing_policy": "fail_program",
+          "operator": "eq"
+        },
+        {
+          "expected": 0.75,
+          "feature_ref": "higher_timeframe_view:htf_alignment",
+          "missing_policy": "fail_rule",
+          "operator": "ge"
+        },
+        {
+          "expected": 1.0,
+          "feature_ref": "execution_view:spread_points",
+          "missing_policy": "fail_rule",
+          "operator": "le"
+        }
+      ],
+      "priority": 100,
+      "reason_code": "manual_doctrine_valid_context",
+      "rule_id": "manual_context_valid"
+    }
+  ]
+}

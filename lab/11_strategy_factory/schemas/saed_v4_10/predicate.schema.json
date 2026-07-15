@@ -1,0 +1,41 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/predicate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected": {},
+    "feature_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "missing_policy": {
+      "enum": [
+        "fail_rule",
+        "match_only_missing",
+        "fail_program"
+      ]
+    },
+    "operator": {
+      "enum": [
+        "eq",
+        "ne",
+        "gt",
+        "ge",
+        "lt",
+        "le",
+        "in",
+        "not_in",
+        "exists",
+        "missing"
+      ]
+    }
+  },
+  "required": [
+    "feature_ref",
+    "operator",
+    "expected",
+    "missing_policy"
+  ],
+  "title": "Predicate",
+  "type": "object"
+}

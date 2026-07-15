@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/baseline-registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preservation_required": {
+      "type": "boolean"
+    },
+    "entries": {
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "future_challengers_must_report_against_all": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "source_lattice_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "entries",
+    "entry_count",
+    "source_lattice_hash",
+    "baseline_preservation_required",
+    "future_challengers_must_report_against_all",
+    "selection_authority",
+    "execution_authority",
+    "registry_id",
+    "registry_hash"
+  ],
+  "title": "Baseline Registry",
+  "type": "object"
+}

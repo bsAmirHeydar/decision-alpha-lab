@@ -1,0 +1,50 @@
+{
+  "claims": [
+    {
+      "claim": "deterministic_manual_program_compilation",
+      "evidence_class": "reference_synthetic",
+      "supported": true
+    },
+    {
+      "claim": "frozen_baseline_registry",
+      "evidence_class": "reference_synthetic",
+      "supported": true
+    },
+    {
+      "claim": "offline_execution_stress_benchmark",
+      "evidence_class": "reference_synthetic",
+      "supported": true
+    },
+    {
+      "claim": "self_supervised_pretraining_corpus_boundary",
+      "evidence_class": "reference_synthetic",
+      "supported": true
+    },
+    {
+      "claim": "real_alpha",
+      "evidence_class": "absent",
+      "supported": false
+    },
+    {
+      "claim": "model_training",
+      "evidence_class": "absent",
+      "supported": false
+    },
+    {
+      "claim": "treatment_selection",
+      "evidence_class": "absent",
+      "supported": false
+    },
+    {
+      "claim": "runtime_parity",
+      "evidence_class": "absent",
+      "supported": false
+    },
+    {
+      "claim": "production_authorization",
+      "evidence_class": "absent",
+      "supported": false
+    }
+  ],
+  "phase": "SAED_V4_10"
+}

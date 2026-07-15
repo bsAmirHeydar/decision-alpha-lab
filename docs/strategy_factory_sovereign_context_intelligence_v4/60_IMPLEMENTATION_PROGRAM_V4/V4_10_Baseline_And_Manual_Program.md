@@ -1,58 +1,44 @@
 ---
 title: V4-10 Baseline And Manual Program
-status: canonical
-version: 4.0.0
-created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+status: implemented-reference
+version: 1.0.0
+created: '2026-07-15'
+updated: '2026-07-15'
 tags:
   - saed-v4
   - implementation
   - roadmap
+  - implemented-reference
 ---
 
 # Phase V4-10: Baseline And Manual Program
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Freeze the simplest admissible non-learned comparators before any representation learning begins. Compile human-authored manual programs against the known-time multimodal feature registry, project them deterministically into the action lattice, evaluate them descriptively on the execution digital twin, and produce a leakage-safe self-supervised corpus handoff for V4-11.
 
-## Entry gates
+## Implemented vertical slice
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+- closed manual-program, predicate, rule, trace, registry, benchmark, exposure, corpus, integrity and handoff contracts;
+- deterministic Python compiler and interpreter;
+- mandatory abstain fallback and null baseline;
+- outcome-feature leakage firewall;
+- frozen manual baseline registry marked `outcome_fitted=false`;
+- offline execution-stress benchmark with `ranking_semantics=none`;
+- complete baseline exposure ledger;
+- V4-11 corpus allowlist/denylist excluding V4-08 and V4-09 outcome artifacts;
+- deterministic replay, semantic diff, conformance vectors, claim ledger and incident template;
+- MQL5 static mirror and compile harness without trading APIs;
+- detailed Obsidian phase delivery and atomic concept notes.
 
-## Engineering slices
+## Acceptance state
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+Reference implementation is complete. Python, schema, boundary and MQL5 static evidence is local. MetaEditor compilation, real data, external reproduction, prospective paper, shadow, runtime parity and production authorization remain unclaimed.
 
-## Acceptance gates
+## Authority
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+Training, learned representation, treatment ranking, treatment selection, capital allocation, runtime activation and order transmission remain false.
 
-## Deliverables
+## Handoff
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+The next phase is [[V4_11_Self_Supervised_Context_Pretraining|V4-11 Self-Supervised Context Pretraining]]. V4-11 must preserve the V4-10 baseline registry and may consume only the corpus classes explicitly allowed by `V4_10_TO_V4_11_HANDOFF.JSON`.

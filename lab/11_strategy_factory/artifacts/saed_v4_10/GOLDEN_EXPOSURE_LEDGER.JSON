@@ -1,0 +1,20 @@
+{
+  "complete": true,
+  "expected_baselines": [
+    "manual_conservative_reference_v1",
+    "manual_doctrine_reference_v1",
+    "null_abstain"
+  ],
+  "expected_count": 3,
+  "ledger_hash": "92bc45956bc356cb303778479e4377848e245464ce8953ba1e99e1b070ca8a88",
+  "ledger_id": "baselineexposure_0279aceb8eed7893a36595cf",
+  "missing_baselines": [],
+  "observed_baselines": [
+    "manual_conservative_reference_v1",
+    "manual_doctrine_reference_v1",
+    "null_abstain"
+  ],
+  "observed_count": 3,
+  "phase": "SAED_V4_10",
+  "unexpected_baselines": []
+}

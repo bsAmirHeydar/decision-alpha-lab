@@ -1,0 +1,36 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_self_supervised_pretraining_reference": true,
+    "rank_treatments": false,
+    "read_frozen_baselines": true,
+    "read_frozen_pretraining_corpus": true,
+    "select_treatment": false,
+    "send_order": false,
+    "use_outcomes_as_pretraining_inputs": false
+  },
+  "baseline_registry_hash": "88522688bb643b1ae8e4376f90beaf58fd023cbb230f00886a832ac3b7b6c1f6",
+  "baseline_registry_id": "baselineregistry_f42de7ffd9914b8876b97c02",
+  "benchmark_hash": "6cb178499f1cd4bc2c58edc287b30054a3460b3fd3867d9906c2bae0dc110159",
+  "entry_gates": {
+    "baseline_frozen": true,
+    "future_suffix_forbidden": true,
+    "manual_program_replayable": true,
+    "outcomes_excluded_from_pretraining_inputs": true,
+    "self_supervised_corpus_boundary_frozen": true,
+    "training_authority_granted": false
+  },
+  "handoff_hash": "37dd4ae64cfb8f9dc43464798a8c93fdd5b166287ec190dca757319ab8a66d01",
+  "handoff_id": "v410to11_59eb77a154bf16f2fbaf19b2",
+  "integrity_receipt_hash": "bb300647e267f5be22ac45127cfc71c6d8545195a5fa0842fad9fa0b40832626",
+  "limitations": [
+    "V4-11 must not mutate V4-10 baseline identities.",
+    "Outcome cube and execution twin are excluded from self-supervised encoder inputs.",
+    "Any future supervised or decision objective requires a later explicit phase and evidence-role gate."
+  ],
+  "next_phase": "SAED_V4_11",
+  "phase": "SAED_V4_10",
+  "pretraining_corpus_manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+  "pretraining_corpus_manifest_id": "pretraincorpus_233b419fc86b48466c11376d"
+}

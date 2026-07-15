@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_violations": {
+      "type": "integer"
+    },
+    "baseline_count": {
+      "type": "integer"
+    },
+    "benchmark_result_count": {
+      "type": "integer"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "leakage_violations": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pretraining_artifact_count": {
+      "type": "integer"
+    },
+    "prohibited_artifact_class_count": {
+      "type": "integer"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    },
+    "telemetry_hash": {
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "baseline_count",
+    "benchmark_result_count",
+    "complete_exposure",
+    "pretraining_artifact_count",
+    "prohibited_artifact_class_count",
+    "synthetic_watermark",
+    "authority_violations",
+    "leakage_violations",
+    "telemetry_id",
+    "telemetry_hash"
+  ],
+  "title": "Telemetry",
+  "type": "object"
+}

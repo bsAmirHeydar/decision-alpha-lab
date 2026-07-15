@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/conformance-results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array"
+    },
+    "vector_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "passed",
+    "phase",
+    "results",
+    "vector_count"
+  ],
+  "title": "Conformance Results",
+  "type": "object"
+}

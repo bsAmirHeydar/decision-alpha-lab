@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/authority-boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "authority",
+    "capabilities",
+    "fail_closed"
+  ],
+  "title": "Authority Boundary",
+  "type": "object"
+}

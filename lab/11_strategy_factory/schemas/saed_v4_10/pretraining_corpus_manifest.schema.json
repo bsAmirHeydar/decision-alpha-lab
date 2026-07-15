@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/pretraining-corpus-manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "forbidden_objectives": {
+      "type": "array"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "included_artifacts": {
+      "type": "array"
+    },
+    "label_semantics": {
+      "type": "string"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "masked_objective_boundary": {
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "prohibited_input_artifact_classes": {
+      "type": "array"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "self_supervised_only": {
+      "type": "boolean"
+    },
+    "split_policy": {
+      "type": "string"
+    },
+    "target_phase": {
+      "type": "string"
+    },
+    "training_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "target_phase",
+    "included_artifacts",
+    "prohibited_input_artifact_classes",
+    "self_supervised_only",
+    "label_semantics",
+    "future_suffix_allowed",
+    "masked_objective_boundary",
+    "forbidden_objectives",
+    "split_policy",
+    "training_authority",
+    "selection_authority",
+    "execution_authority",
+    "manifest_id",
+    "manifest_hash"
+  ],
+  "title": "Pretraining Corpus Manifest",
+  "type": "object"
+}

@@ -1,0 +1,57 @@
+{
+  "execution_authority": false,
+  "forbidden_objectives": [
+    "outcome_prediction",
+    "treatment_ranking",
+    "policy_value",
+    "live_fill_prediction"
+  ],
+  "future_suffix_allowed": false,
+  "included_artifacts": [
+    {
+      "artifact_class": "multimodal_view_package",
+      "artifact_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+      "artifact_id": "viewpkg_d1b1bacaedb23935d8710739",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "role": "self_supervised_input"
+    },
+    {
+      "artifact_class": "semantic_temporal_hypergraph",
+      "artifact_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+      "artifact_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "role": "self_supervised_structure"
+    },
+    {
+      "artifact_class": "action_lattice_descriptors",
+      "artifact_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+      "artifact_id": "actionlattice_528364e6e465e466be5577f4",
+      "known_as_of": null,
+      "role": "descriptor_vocabulary_only"
+    }
+  ],
+  "label_semantics": "none",
+  "manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+  "manifest_id": "pretraincorpus_233b419fc86b48466c11376d",
+  "masked_objective_boundary": [
+    "feature_value_masking",
+    "view_presence_prediction",
+    "temporal_order_consistency",
+    "graph_relation_reconstruction"
+  ],
+  "phase": "SAED_V4_10",
+  "prohibited_input_artifact_classes": [
+    "outcome_cube",
+    "execution_twin",
+    "benchmark_result",
+    "protected_final",
+    "prospective",
+    "shadow",
+    "live"
+  ],
+  "selection_authority": false,
+  "self_supervised_only": true,
+  "split_policy": "identity_and_time_partition_required_before_training",
+  "target_phase": "SAED_V4_11",
+  "training_authority": false
+}

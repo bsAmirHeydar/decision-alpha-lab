@@ -1,0 +1,49 @@
+{
+  "compiled_program_hash": "1b444b2cdabb04bed2a9dd7b1dd5803e579396c69bae469c084b2a84c76368c8",
+  "compiled_program_id": "manualprogram_70ff906c782b4a822a4acbed",
+  "decision_time": "2026-01-05T14:30:00Z",
+  "execution_authority": false,
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "matched_rule_id": "manual_context_valid",
+  "phase": "SAED_V4_10",
+  "projected_node_id": "actionnode_120319e7bf052c5b59edcb0e",
+  "reason_code": "manual_doctrine_valid_context",
+  "rule_evaluations": [
+    {
+      "checks": [
+        {
+          "actual": "valid",
+          "expected": "valid",
+          "feature_ref": "structure_view:lifecycle_state",
+          "matched": true,
+          "operator": "eq",
+          "present": true
+        },
+        {
+          "actual": 0.8,
+          "expected": 0.75,
+          "feature_ref": "higher_timeframe_view:htf_alignment",
+          "matched": true,
+          "operator": "ge",
+          "present": true
+        },
+        {
+          "actual": 0.5,
+          "expected": 1.0,
+          "feature_ref": "execution_view:spread_points",
+          "matched": true,
+          "operator": "le",
+          "present": true
+        }
+      ],
+      "matched": true,
+      "priority": 100,
+      "rule_id": "manual_context_valid"
+    }
+  ],
+  "selection_authority": false,
+  "source_view_package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "trace_hash": "2a22720e54df2d685c208fc74ea2e89e14becf88ee9dfa813dada37e8283adfe",
+  "trace_id": "manualtrace_039c499864afa96f0aba6f49",
+  "trace_semantics": "descriptive_manual_projection_only"
+}

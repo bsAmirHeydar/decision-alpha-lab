@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/incident-record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_ids": {
+      "type": "array"
+    },
+    "authority_breach": {
+      "type": "boolean"
+    },
+    "containment_actions": {
+      "type": "array"
+    },
+    "corrective_actions": {
+      "type": "array"
+    },
+    "description": {
+      "type": "string"
+    },
+    "detected_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "leakage_suspected": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reviewers": {
+      "type": "array"
+    },
+    "root_cause": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_ids",
+    "authority_breach",
+    "containment_actions",
+    "corrective_actions",
+    "description",
+    "detected_at",
+    "incident_id",
+    "leakage_suspected",
+    "phase",
+    "reviewers",
+    "root_cause",
+    "severity",
+    "status"
+  ],
+  "title": "Incident Record",
+  "type": "object"
+}

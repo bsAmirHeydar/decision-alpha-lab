@@ -1,0 +1,19 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/conformance-vectors.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "vectors": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "vectors"
+  ],
+  "title": "Conformance Vectors",
+  "type": "object"
+}

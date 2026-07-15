@@ -1,0 +1,164 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/compiled-manual-program.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authoring_basis": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "compiled_program_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "compiled_program_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_authority": {
+      "const": false
+    },
+    "fallback_node_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "learning_semantics": {
+      "const": "none"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "const": "SAED_V4_10"
+    },
+    "program_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "rules": {
+      "items": {
+        "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/manual-rule.schema.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action_node_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "predicates": {
+            "items": {
+              "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/predicate.schema.json",
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "expected": {},
+                "feature_ref": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "missing_policy": {
+                  "enum": [
+                    "fail_rule",
+                    "match_only_missing",
+                    "fail_program"
+                  ]
+                },
+                "operator": {
+                  "enum": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "ge",
+                    "lt",
+                    "le",
+                    "in",
+                    "not_in",
+                    "exists",
+                    "missing"
+                  ]
+                }
+              },
+              "required": [
+                "feature_ref",
+                "operator",
+                "expected",
+                "missing_policy"
+              ],
+              "title": "Predicate",
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "reason_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_id",
+          "priority",
+          "predicates",
+          "action_node_id",
+          "reason_code"
+        ],
+        "title": "Manual Rule",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selection_authority": {
+      "const": false
+    },
+    "source_lattice_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_view_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "program_name",
+    "exact_version",
+    "evidence_role",
+    "authoring_basis",
+    "rules",
+    "fallback_node_id",
+    "feature_registry_hash",
+    "source_lattice_hash",
+    "source_view_package_hash",
+    "selection_authority",
+    "execution_authority",
+    "learning_semantics",
+    "limitations",
+    "compiled_program_id",
+    "compiled_program_hash"
+  ],
+  "title": "Compiled Manual Program",
+  "type": "object"
+}

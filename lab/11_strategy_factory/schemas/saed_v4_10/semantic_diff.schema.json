@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-10/semantic-diff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "change_count": {
+      "type": "integer"
+    },
+    "changes": {
+      "type": "array"
+    },
+    "diff_hash": {
+      "type": "string"
+    },
+    "diff_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "semantically_equal": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "change_count",
+    "changes",
+    "diff_hash",
+    "diff_id",
+    "phase",
+    "semantically_equal"
+  ],
+  "title": "Semantic Diff",
+  "type": "object"
+}

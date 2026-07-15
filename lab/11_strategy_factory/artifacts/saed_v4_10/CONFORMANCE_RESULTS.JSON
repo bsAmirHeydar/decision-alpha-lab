@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "phase": "SAED_V4_10",
+  "results": [
+    {
+      "actual_accept": true,
+      "error_class": null,
+      "expected_accept": true,
+      "passed": true,
+      "vector_id": "accept_golden"
+    },
+    {
+      "actual_accept": false,
+      "error_class": "LeakageError",
+      "expected_accept": false,
+      "passed": true,
+      "vector_id": "reject_outcome_feature"
+    },
+    {
+      "actual_accept": false,
+      "error_class": "ContractError",
+      "expected_accept": false,
+      "passed": true,
+      "vector_id": "reject_unknown_node"
+    },
+    {
+      "actual_accept": false,
+      "error_class": "ContractError",
+      "expected_accept": false,
+      "passed": true,
+      "vector_id": "reject_live_role"
+    }
+  ],
+  "vector_count": 4
+}
